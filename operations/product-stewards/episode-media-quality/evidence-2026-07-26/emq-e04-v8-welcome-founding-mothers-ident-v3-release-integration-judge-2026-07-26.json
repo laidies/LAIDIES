@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E04-V8-WELCOME-FOUNDING-MOTHERS-IDENT-V3-RELEASE-INTEGRATION-2026-07-26",
+  "judge": "Episode Media Quality",
+  "judged_at": "2026-07-26T16:30:00-07:00",
+  "verdict": "ACCEPT_RELEASE_INTEGRATION_CANDIDATE",
+  "release_integration_admitted": true,
+  "deployed": false,
+  "verified_publicly": false,
+  "candidate": {
+    "path": "assets/video/episode-04-full-v8-welcome-founding-mothers-ident-v3-held-review.mp4",
+    "sha256": "9e8eea3b019eea64cbd8eed9ac30ce1c9441428b0acd000c06ca11ea658b3d70",
+    "duration_seconds": 1222.4,
+    "video": "h264 1920x1080 30fps yuv420p",
+    "audio": "aac mono 48000Hz",
+    "full_decode": "PASS"
+  },
+  "protected_baseline": {
+    "path": "assets/video/episode-04-full-v8.mp4",
+    "sha256": "e5d963097cbd699a5f7ad999f29323207ce5c41c4ba5ff45422e12ea35c2bdff",
+    "duration_seconds": 1222.4,
+    "outside_window_visual_comparison": {
+      "approved_window_seconds": [101.5, 110.0],
+      "pre_window_psnr_average_db": 53.3058,
+      "post_window_psnr_average_db": 52.5468,
+      "note": "The entire output was re-encoded; decoded frame hashes differ at compression level. Audio, duration and out-of-window picture intent are retained."
+    }
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-04-founding-mothers-v6.mp4",
+    "sha256": "2acb3094a6148208688d3a561d18ff4575bab2cc8093b3be122d8436f2a8c986",
+    "motion_window_seconds": [101.5, 107.98],
+    "title_hold_end_seconds": 110.0,
+    "recap_resumes_seconds": 110.0,
+    "sunnyvaile_sparkle_shot_in_window": false
+  },
+  "audio": {
+    "baseline_and_candidate_adts_sha256": "28b7d174fd61d1d41bc97e7ff1711daf381941605531ae9084886fc0869bd9f3",
+    "byte_identical": true
+  },
+  "captions": {
+    "path": "assets/captions/episode-04.vtt",
+    "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+    "cue_count": 236,
+    "positive_monotonic_nonoverlapping": true,
+    "welcome_cue_window_seconds": [101.5, 109.24],
+    "last_cue_end_seconds": 1221.24,
+    "video_tail_seconds": 1.16
+  },
+  "public_origin_gates": {
+    "exact_player_binding": "PENDING_RELEASE_OWNER",
+    "public_origin_video_and_vtt": "PENDING_DEPLOYMENT",
+    "browser_keyboard_mobile_reduced_motion_fallback_cache": "PENDING_POST_DEPLOY_PUBLIC_VERIFICATION"
+  },
+  "mutations": {
+    "media": false,
+    "watch_route": false,
+    "deploy": false,
+    "public_state": false
+  },
+  "evidence_markdown": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e04-v8-welcome-founding-mothers-ident-v3-release-integration-judge-2026-07-26.md"
+}

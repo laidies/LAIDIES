@@ -1,0 +1,74 @@
+{
+  "schema_version": 3,
+  "agent_id": "aidb-intelligence-desk",
+  "status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED",
+  "as_of": "2026-07-30",
+  "source": {
+    "discovery": "https://aidailybrief.ai/agent.json",
+    "newsletter_fallback": "https://aidailybrief.beehiiv.com/",
+    "ethan_mollick_feed": "https://www.oneusefulthing.org/feed",
+    "ethan_mollick_archive": "https://www.oneusefulthing.org/",
+    "gmail_optional": true,
+    "gmail_match_since_2026_07_01": false
+  },
+  "source_cursors": {
+    "aidb": {
+      "processed_through": "2026-07-29",
+      "processed_items": 24
+    },
+    "ethan_mollick_one_useful_thing": {
+      "latest_seen_published_at": "2026-07-23T18:05:24.000Z",
+      "latest_seen_title": "An opinionated guide to which AI to use to do stuff",
+      "latest_seen_url": "https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22",
+      "initialization_result": "OVERLAP_NO_DUPLICATE"
+    }
+  },
+  "processed_through": "2026-07-29",
+  "processed_editions": 24,
+  "backfill_start": "2026-07-01",
+  "backfill_record": "backfill-2026-07-01-to-2026-07-26.md",
+  "last_initialization_run": "2026-07-27T10:15:16-07:00",
+  "last_live_run": "2026-07-30T11:31:17-07:00",
+  "last_run_result": "ACTIONABLE_AIDB_2026_07_29_PACING_FRONTIER_NEW_NEWSSTAND_SIGNAL_NO_NEW_MOLLICK_NO_SITE_CHANGE",
+  "last_source_generated": "2026-07-30T15:59:30.623Z",
+  "last_output": "daily/2026-07-30.md",
+  "latest_synthesis": "syntheses/2026-07-01-to-2026-07-27-useful-patterns.md",
+  "latest_handoff": "handoffs/2026-07-27-btb-gpt-5p6-setup.md",
+  "latest_site_refresh_handoff": "handoffs/site-refresh/2026-07-27-episode-01-study-pack-sample.md",
+  "research_tracks": {
+    "aidb_reference_tracing": {
+      "status": "ACTIVE",
+      "contract": "sources/aidb-reference-tracing.md"
+    },
+    "new_model_new_manners": {
+      "status": "FORMAT_TEST",
+      "format_lab": "concepts/new-model-new-manners-format-lab.md",
+      "course_option": "concepts/new-model-new-manners-course-series.md",
+      "publication_authority": false
+    }
+  },
+  "newsstand_interaction": {
+    "status": "SPECIFIED",
+    "contract": "handoffs/NEWSSTAND-INTERACTION-CONTRACT.md",
+    "outbound_cursor": "handoffs/newsstand/2026-07-30-pacing-the-frontier.md",
+    "last_disposition_seen": "WATCH_OPEN_WEIGHT_POLICY_2026_07_29",
+    "publication_authority": false
+  },
+  "site_refresh": {
+    "status": "ACTIVE_REGISTER_SEEDED",
+    "contract": "handoffs/SITE-REFRESH-INTERACTION-CONTRACT.md",
+    "register": "site-refresh-register.md",
+    "last_incremental_scan": "2026-07-30",
+    "last_full_inventory_scan": null,
+    "latest_episode_review": "episode-01-02-study-pack-learning-and-visual-audit",
+    "public_edit_authority": false
+  },
+  "runtime": {
+    "task_id": "019fa491-20cd-7940-b7ff-4f6b5f4958f6",
+    "automation_id": "laidies-aidb-intelligence-desk-daily",
+    "automation_status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED"
+  },
+  "next_action": "On the next scheduled recurrence, check both official source endpoints, process every item after its independent cursor in publication order, resolve material named references to exact original items, verify consequential claims against current provider or primary evidence, assess the gated New Model, New Manners function without assuming a format, send only qualified dated signals through the NewsStand interaction contract, inspect due or triggered site freshness rows, write only bounded owner handoffs, and report actionable, watch, quiet, or source-unavailable truthfully.",
+  "publication_authority": false,
+  "infrastructure_change_authority": false
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>The Chick Flicks · local building candidate</title>
+  <link rel="stylesheet" href="./chick-flicks-candidate.css">
+</head>
+<body>
+  <a class="skip" href="#store">Skip to the rental wall</a>
+  <main id="store" class="store" data-fixture="">
+    <header class="marquee">
+      <p class="address">The Chick Flicks · No. 3 MAiN · Keeper: Becky</p>
+      <div class="marquee__grid">
+        <div>
+          <p class="eyebrow">NEW RELEASES · FREE TO TAKE HOME</p>
+          <h1>The Chick Flicks</h1>
+          <p class="intro">Released tapes open their full issue. Forthcoming tapes stay clearly labelled on the shelf.</p>
+        </div>
+        <aside class="becky" aria-label="Becky’s current truth">
+          <p class="eyebrow">BECKY AT THE COUNTER</p>
+          <p id="currentTruth" role="status">Checking the Season 1 tape manifest…</p>
+          <button id="latest" type="button" disabled>Rent the latest released tape</button>
+          <button id="retry" type="button" hidden>Retry the tape manifest</button>
+        </aside>
+      </div>
+      <aside id="returnVisit" class="return-visit" hidden aria-labelledby="returnTitle">
+        <div>
+          <p class="eyebrow">YOUR LAST RENTAL · ON THIS DEVICE</p>
+          <h2 id="returnTitle">Welcome back to the counter.</h2>
+          <p id="returnCopy"></p>
+        </div>
+        <div class="return-visit__actions">
+          <button id="continueRental" type="button">Continue with this tape</button>
+          <button id="clearRental" type="button">Clear and start over</button>
+        </div>
+      </aside>
+    </header>
+
+    <section class="room" aria-labelledby="wall-title">
+      <img class="room__art" src="./assets/chick-flicks-store-text-safe-candidate-v1.png" alt="Bright graphic-novel Chick Flicks video-store New Releases wall" width="1672" height="941">
+      <div class="room__wash" aria-hidden="true"></div>
+      <div class="room__head"><p class="eyebrow">PULL A TAPE FROM THE WALL</p><h2 id="wall-title">New Releases</h2></div>
+      <div id="wall" class="wall" aria-live="polite" aria-label="Available episode tapes"></div>
+      <p id="wallStatus" class="wall-status" role="status">Checking the Season 1 tape manifest…</p>
+    </section>
+
+    <nav class="aisles" aria-label="Browse the rental store aisles">
+      <p class="eyebrow">BROWSE THE SAME WALL BY AISLE</p>
+      <div id="aisles" class="aisles__track">
+        <button class="is-active" type="button" data-aisle="all">All tapes</button>
+        <button type="button" data-aisle="prompting">Prompting</button>
+        <button type="button" data-aisle="style">Style &amp; voice</button>
+        <button type="button" data-aisle="everyday">Everyday</button>
+        <button type="button" data-aisle="ethics">Ethics</button>
+        <button type="button" data-aisle="history">History</button>
+        <button type="button" data-aisle="creative">Creative</button>
+        <button type="button" data-aisle="unfiled">Unfiled</button>
+      </div>
+    </nav>
+
+    <section class="rental" id="rental" aria-live="polite" tabindex="-1" aria-labelledby="rentalTitle">
+      <div class="member-card">
+        <img src="../../../../assets/building-interiors/delivery-20260724-chick-flicks-v1/chick-flicks-rental-card-comic-candidate-v1.png" alt="Chick Flicks member-rental sleeve with a Return by Friday stamp and Be Kind, Rewind ticket" width="1448" height="1086">
+        <p id="selectedLabel">NO TAPE SELECTED</p>
+      </div>
+      <div class="rental__copy">
+        <p class="eyebrow">THE RENTAL CARD</p>
+        <h2 id="rentalTitle">Nothing is actually due.</h2>
+        <p id="rentalCopy">The joke is the joke. Choose a released tape and Becky will stamp it before you leave.</p>
+        <p id="due" class="due">Return by Friday · spiritually</p>
+        <div class="actions">
+          <a id="takeHome" href="#" hidden>Take the tape home</a>
+          <button id="favourite" type="button" hidden>Save as favourite on this device</button>
+        </div>
+        <p id="deviceStatus" class="device">No favourite tape saved on this device.</p>
+      </div>
+    </section>
+
+    <section class="counter" aria-label="House rules and Screening Room">
+      <div>
+        <p class="eyebrow">HOUSE RULES · EST. 1999</p>
+        <h2>Be kind. Please. Rewind.</h2>
+        <ol>
+          <li>The latest verified release gets the front-wall sticker.</li>
+          <li>Nothing is paywalled here, and no tape is ever late.</li>
+          <li>Released tapes open the full episode; dimmed tapes tell the truth about what is still coming.</li>
+        </ol>
+      </div>
+      <div class="screening">
+        <p class="eyebrow">FIRST TIME IN THE STORE?</p>
+        <h2>Start with the trailer listen-along.</h2>
+        <p>Hear the illustrated, captioned introduction to the town in the Screening Room. Then come back and pull Episode 01 from the wall.</p>
+        <a href="../../../../watch.html?ep=trailer">Open the illustrated trailer listen-along <span aria-hidden="true">→</span></a>
+        <a href="../../../../issues/issue-trailer.html">Read the illustrated trailer issue <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+    <section class="handoffs" aria-label="Continue from Chick Flicks">
+      <a href="../../../../blend-snap.html"><b>Pick up the Study Pack</b><span>Next door at The Blend &amp; Snap →</span></a>
+      <a href="../../../../sunnyvaile-high.html"><b>Take the Pop Quiz</b><span>Walk over to SUNNYVAiLE High →</span></a>
+      <a href="../../../../post-office.html"><b>Request the Wednesday newsletter</b><span>Continue to the Post Office request desk →</span></a>
+    </section>
+  </main>
+  <script src="./chick-flicks-candidate.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "schema": "episode-01-image-repair-batch/v1",
+  "status": "BUILT_LOCALLY_NOT_ADMITTED",
+  "baseline": {
+    "protected_assembly": "assets/video/episode-01-full-v25-welcome-ident-review.mp4",
+    "sha256_observed_before_batch": "486bb908a2faa26efee61d0689a7e97180b1f12aa628a04a6b4ad76edf43b633",
+    "assembly_mutated": false
+  },
+  "reference_authorities": {
+    "people_register": "operations/episode-visual-system-lock.md",
+    "heroine_identity": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+    "episode_prompts": "operations/codex-prompts/ep01-MASTER-all-prompts.md",
+    "occurrence_manifest": "operations/video-qa/episode-01-v24-71-placement-manifest.json",
+    "narration_vtt": "operations/captions/episode-01.vtt"
+  },
+  "assets": [
+    {
+      "id": "p14-miranda-calendar-pressure-v1",
+      "placements": [{"placement": 14, "start": 179.5, "stop": 191.7, "section": "terrible-on-ramp"}],
+      "narration_excerpt": "AI is transformative? Groundbreaking. Here's the thing. I have a full-time job. I manage a team. My calendar is a Tetris game I am perpetually losing.",
+      "job": "Present-day corporate calendar overload / Miranda analogy; show the pressure of managing a team without asserting a product fact.",
+      "identity_references": ["assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.png"],
+      "location_references": ["operations/codex-prompts/ep01-MASTER-all-prompts.md"],
+      "style_references": ["operations/episode-visual-system-lock.md", "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png", "operations/reference/episode-style-popart/epstyle-scene-02.png"],
+      "full_frame": "ep01-miranda-calendar-pressure-p14-v1-1920.png",
+      "sha256": "f80ebbeeb56c720452b46da933a4d977bfcbae2cabd8c2e92c65da6dbf6c5b47",
+      "identity_crop": "qa-identity-crop-miranda-p14.png",
+      "mode": "still",
+      "independent_verdict": "PENDING_EPISODE_MEDIA_QUALITY"
+    },
+    {
+      "id": "p25-dolly-physics-stage-v1",
+      "placements": [{"placement": 25, "start": 365.0, "stop": 379.5, "section": "adoption-gap-and-physics"}],
+      "narration_excerpt": "This was never a confidence problem. It's a physics problem. You cannot add hours to a day that's already over-subscribed.",
+      "job": "Dolly performance-stage analogy: make the finite-hours/overloaded-day problem visually immediate.",
+      "identity_references": ["assets/saints/y2k-stained-glass-v2/dolly-parton-y2k-stained-glass.png"],
+      "location_references": ["operations/codex-prompts/ep01-MASTER-all-prompts.md"],
+      "style_references": ["operations/episode-visual-system-lock.md", "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png", "operations/reference/episode-style-popart/epstyle-scene-04.png"],
+      "full_frame": "ep01-dolly-physics-stage-p25-v1-1920.png",
+      "sha256": "97a823362d335c9293cc2f66530659e0de834753726895ff41171618a5ba41e3",
+      "identity_crop": "qa-identity-crop-dolly-p25.png",
+      "mode": "still",
+      "independent_verdict": "PENDING_EPISODE_MEDIA_QUALITY"
+    },
+    {
+      "id": "p29-p30-p61-heroine-blend-snap-ibook-g3-v1",
+      "placements": [
+        {"placement": 29, "start": 434.9, "stop": 455.7, "section": "first-use-and-judgment"},
+        {"placement": 30, "start": 455.7, "stop": 474.35, "section": "first-use-and-judgment"},
+        {"placement": 61, "start": 996.3, "stop": 1025.0, "section": "try-on"}
+      ],
+      "narration_excerpt": "Sunday morning at the Blend and Snap — my corner table, an oat latte going cold, the radio on low — fifteen quiet minutes ... There was an email I'd been avoiding ... [then] give all three the same small, real task.",
+      "job": "Heroine starts a delicate stakeholder-email task at Blend & Snap; later reuse supports the Try-On comparison exercise.",
+      "identity_references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png", "assets/town-characters/scenes/jojo-scene.png"],
+      "location_references": ["assets/town-characters/scenes/jojo-scene.png", "operations/codex-prompts/ep01-MASTER-all-prompts.md"],
+      "style_references": ["operations/episode-visual-system-lock.md", "operations/reference/episode-style-popart/epstyle-scene-03.png"],
+      "period_tech_requirement": "SUNNYVAiLE 1999: visible device must be a chunky coloured curved iBook G3 clamshell with a visible integrated handle; a slim modern laptop is prohibited.",
+      "full_frame": "ep01-blend-snap-ibook-g3-shared-p29-p30-p61-v1-1920.png",
+      "sha256": "e99eb911992b05dbf9f4b36f0be70de2bd79b79c8519af1d8aae483a58c988f1",
+      "identity_crop": "qa-identity-crop-heroine-p29-p30-p61.png",
+      "mode": "still",
+      "independent_verdict": "PENDING_EPISODE_MEDIA_QUALITY"
+    }
+  ],
+  "not_yet_rendered": [34, 38, 43, 45, 48, 50, 57, 70],
+  "judge_trigger": "Independent Episode Media Quality image admission against the listed SHA-256 full frames plus identity crops; any altered byte invalidates this trigger."
+}

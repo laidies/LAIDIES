@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Private AIDB latest-tip concept · LAiDIES</title>
+  <style>
+    :root {
+      --ink: #10183b;
+      --paper: #fff9ee;
+      --paper-deep: #f2e4d4;
+      --pink: #ff4f9a;
+      --purple: #7047d7;
+      --cyan: #12c9e8;
+      --mint: #7be0bd;
+      --yellow: #ffe08a;
+      --coral: #ff746e;
+      --line: rgba(16, 24, 59, 0.28);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 42px 20px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 12%, rgba(18, 201, 232, 0.32), transparent 22rem),
+        radial-gradient(circle at 88% 82%, rgba(255, 79, 154, 0.30), transparent 25rem),
+        linear-gradient(145deg, #dcd2ff 0%, #fff3a9 48%, #ffbdd8 100%);
+      font-family: "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
+    }
+
+    .proof {
+      width: 100%;
+      max-width: 920px;
+      min-width: 0;
+    }
+
+    .proof-note {
+      width: fit-content;
+      margin: 0 0 12px 18px;
+      padding: 8px 13px;
+      border: 2px solid var(--ink);
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      transform: rotate(-1deg);
+    }
+
+    .tip-card {
+      position: relative;
+      overflow: hidden;
+      border: 3px solid var(--ink);
+      border-radius: 26px 10px 26px 10px;
+      background:
+        linear-gradient(90deg, transparent 0 5.2%, rgba(255, 79, 154, 0.08) 5.2% 5.6%, transparent 5.6%),
+        repeating-linear-gradient(0deg, rgba(16, 24, 59, 0.028) 0 1px, transparent 1px 8px),
+        var(--paper);
+      box-shadow: 13px 15px 0 var(--ink);
+    }
+
+    .tip-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 15px;
+      background: linear-gradient(90deg, var(--pink) 0 26%, var(--cyan) 26% 50%, var(--yellow) 50% 74%, var(--purple) 74%);
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 42px clamp(24px, 6vw, 62px) 20px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0;
+      padding: 9px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--mint);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .label::before {
+      content: "✦";
+      font-size: 15px;
+    }
+
+    .stamp {
+      padding: 8px 11px;
+      border: 3px double var(--pink);
+      color: #b01857;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transform: rotate(4deg);
+    }
+
+    .copy {
+      padding: 4px clamp(24px, 6vw, 62px) 34px;
+    }
+
+    h1 {
+      max-width: 18ch;
+      margin: 0;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      font-size: clamp(42px, 7.3vw, 76px);
+      font-weight: 400;
+      letter-spacing: 0.005em;
+      line-height: 0.96;
+      text-transform: uppercase;
+    }
+
+    .dek {
+      max-width: 760px;
+      margin: 25px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(20px, 2.8vw, 29px);
+      line-height: 1.45;
+    }
+
+    .try {
+      position: relative;
+      margin: 30px 0 0;
+      padding: 18px 22px 18px 60px;
+      border: 2px solid var(--ink);
+      background: #efeaff;
+      box-shadow: 7px 7px 0 var(--purple);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .try::before {
+      content: "→";
+      position: absolute;
+      top: 15px;
+      left: 18px;
+      color: var(--pink);
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    .more {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      gap: 10px;
+      align-items: stretch;
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 2px dashed rgba(16, 24, 59, 0.38);
+    }
+
+    .more-title,
+    .mini-tip {
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      padding: 11px 14px;
+      border: 2px solid var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .more-title { background: var(--ink); color: var(--paper); }
+    .mini-tip:nth-child(2) { background: #ffd4e7; }
+    .mini-tip:nth-child(3) { background: #ccf6ff; }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px clamp(24px, 6vw, 62px) 28px;
+      border-top: 3px solid var(--ink);
+      background: var(--paper-deep);
+    }
+
+    .source {
+      margin: 0;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .source span {
+      display: block;
+      color: #5f5976;
+      letter-spacing: 0.04em;
+      text-transform: none;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    button,
+    a {
+      min-height: 42px;
+      padding: 9px 13px;
+      border: 2px solid var(--ink);
+      border-radius: 7px;
+      color: var(--ink);
+      background: var(--yellow);
+      box-shadow: 3px 3px 0 var(--ink);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible,
+    a:hover,
+    a:focus-visible {
+      color: var(--paper);
+      background: var(--purple);
+      outline: 3px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .copied {
+      background: var(--mint);
+    }
+
+    @media (max-width: 700px) {
+      body {
+        place-items: start;
+        padding: 24px 13px 36px;
+      }
+      .proof { max-width: 364px; }
+      .proof-note {
+        width: auto;
+        max-width: none;
+        margin-right: 18px;
+        line-height: 1.35;
+      }
+      .tip-card { box-shadow: 8px 9px 0 var(--ink); }
+      .masthead {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .stamp { max-width: 120px; }
+      h1 { font-size: clamp(38px, 13vw, 54px); }
+      .more { grid-template-columns: 1fr; }
+      .footer { align-items: stretch; flex-direction: column; }
+      .actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="proof">
+    <p class="proof-note">Private rough exploration · not a published LAiDIES card</p>
+    <article class="tip-card" aria-labelledby="tip-title">
+      <header class="masthead">
+        <p class="label">Paige’s pocket note</p>
+        <span class="stamp">Latest useful move</span>
+      </header>
+
+      <section class="copy">
+        <h1 id="tip-title">Stop playing prompt ping-pong. Give the agent the whole errand.</h1>
+        <p class="dek">If the work needs more than a quick answer, hand over the finish line, the guardrails and the checkpoints. Let the agent plan and act; you stay editor-in-chief and inspect the proof.</p>
+        <p class="try"><strong>Try it today:</strong> replace five back-and-forth messages with one reviewable brief.</p>
+
+        <aside class="more" aria-label="More recent practical tips">
+          <span class="more-title">Also fresh</span>
+          <span class="mini-tip">Dress the model for the job</span>
+          <span class="mini-tip">Ramble first. Tailor second.</span>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <p class="source">
+          Spotted in The AI Daily Brief · 26 July 2026
+          <span>AIDB is the scout. Verify before public use.</span>
+        </p>
+        <div class="actions" aria-label="Private concept actions">
+          <a href="https://aidailybrief.ai/e/2026-07-26" target="_blank" rel="noreferrer">Source</a>
+          <button type="button" id="copy-tip">Copy tip</button>
+          <button type="button" title="Receiving owner must accept before this becomes a saved product item">Route it</button>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const button = document.querySelector("#copy-tip");
+    button.addEventListener("click", async () => {
+      const text = "Stop playing prompt ping-pong. Give the agent the whole errand. If the work needs more than a quick answer, hand over the finish line, the guardrails and the checkpoints.";
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = "Copied";
+        button.classList.add("copied");
+      } catch {
+        button.textContent = "Copy unavailable";
+      }
+    });
+  </script>
+</body>
+</html>

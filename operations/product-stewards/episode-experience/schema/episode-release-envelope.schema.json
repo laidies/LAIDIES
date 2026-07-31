@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/episode-release-envelope-1.1.0.json",
+  "title": "LAiDIES Episode Release Record Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "recordType", "payload", "integrity"],
+  "properties": {
+    "schemaVersion": {"const": "1.1.0"},
+    "recordType": {
+      "enum": [
+        "engine-candidate",
+        "engine-public-proof-receipt",
+        "chick-flicks-admission",
+        "chick-flicks-public-proof-receipt",
+        "episode-availability-control"
+      ]
+    },
+    "payload": {"type": "object"},
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "canonicalization", "payloadSha256"],
+      "properties": {
+        "algorithm": {"const": "sha-256"},
+        "canonicalization": {"const": "RFC8785-JCS"},
+        "payloadSha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"recordType": {"const": "engine-candidate"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/engineCandidate"}}}
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "engine-public-proof-receipt"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/engineProof"}}}
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "chick-flicks-admission"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/admission"}}}
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "chick-flicks-public-proof-receipt"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/chickFlicksProof"}}}
+    },
+    {
+      "if": {"properties": {"recordType": {"const": "episode-availability-control"}}},
+      "then": {"properties": {"payload": {"$ref": "#/$defs/availabilityControl"}}}
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "nullableSha256": {
+      "oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]
+    },
+    "nullableString": {
+      "oneOf": [{"type": "string", "minLength": 1}, {"type": "null"}]
+    },
+    "rollbackPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidateId", "chickFlicksAdmissionId"],
+      "properties": {
+        "candidateId": {"$ref": "#/$defs/nullableString"},
+        "chickFlicksAdmissionId": {"$ref": "#/$defs/nullableString"}
+      }
+    },
+    "formatState": {
+      "enum": ["accepted", "rejected", "held", "unavailable"]
+    },
+    "engineCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transactionId",
+        "transactionType",
+        "createdAt",
+        "episode",
+        "issue",
+        "formats",
+        "dependencies",
+        "candidate",
+        "supersession",
+        "proposedAvailability",
+        "rollback"
+      ],
+      "properties": {
+        "transactionId": {"type": "string", "minLength": 1},
+        "transactionType": {"enum": ["addition", "correction", "replacement"]},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "episode": {"type": "object"},
+        "issue": {"type": "object"},
+        "formats": {"type": "object"},
+        "dependencies": {"type": "object"},
+        "candidate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "productionVerdicts", "independentVerdicts"],
+          "properties": {
+            "id": {"type": "string", "minLength": 1},
+            "productionVerdicts": {"type": "array", "items": {"type": "string"}},
+            "independentVerdicts": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "supersession": {"type": "object"},
+        "proposedAvailability": {"type": "object"},
+        "rollback": {"$ref": "#/$defs/rollbackPair"}
+      }
+    },
+    "engineProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "candidateId",
+        "candidatePayloadSha256",
+        "observedAt",
+        "verdict",
+        "releaseArtifactSha256",
+        "urls",
+        "evidenceRecord",
+        "supersedesReceiptPayloadSha256",
+        "previousReceiptPayloadSha256"
+      ],
+      "properties": {
+        "receiptId": {"type": "string", "minLength": 1},
+        "candidateId": {"type": "string", "minLength": 1},
+        "candidatePayloadSha256": {"$ref": "#/$defs/sha256"},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "verdict": {"enum": ["verified", "failed", "revoked"]},
+        "releaseArtifactSha256": {"$ref": "#/$defs/nullableSha256"},
+        "urls": {"type": "array", "items": {"type": "string"}},
+        "evidenceRecord": {"$ref": "#/$defs/nullableString"},
+        "supersedesReceiptPayloadSha256": {"$ref": "#/$defs/nullableSha256"},
+        "previousReceiptPayloadSha256": {"$ref": "#/$defs/nullableSha256"}
+      }
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "admissionId",
+        "transactionId",
+        "candidateId",
+        "candidatePayloadSha256",
+        "createdAt",
+        "disposition",
+        "formats",
+        "reasons",
+        "controlRoomLockId",
+        "supersedesAdmissionPayloadSha256"
+      ],
+      "properties": {
+        "admissionId": {"type": "string", "minLength": 1},
+        "transactionId": {"type": "string", "minLength": 1},
+        "candidateId": {"type": "string", "minLength": 1},
+        "candidatePayloadSha256": {"$ref": "#/$defs/sha256"},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "disposition": {"enum": ["accept", "reject", "partial", "revoke"]},
+        "formats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "readingIssue",
+            "narratedListenAlong",
+            "visualEdition",
+            "motionFilm"
+          ],
+          "properties": {
+            "readingIssue": {"$ref": "#/$defs/formatState"},
+            "narratedListenAlong": {"$ref": "#/$defs/formatState"},
+            "visualEdition": {"$ref": "#/$defs/formatState"},
+            "motionFilm": {"$ref": "#/$defs/formatState"}
+          }
+        },
+        "reasons": {"type": "array", "items": {"type": "string"}},
+        "controlRoomLockId": {"$ref": "#/$defs/nullableString"},
+        "supersedesAdmissionPayloadSha256": {"$ref": "#/$defs/nullableSha256"}
+      }
+    },
+    "chickFlicksProof": {
+      "type": "object",
+      "required": [
+        "receiptId",
+        "admissionId",
+        "admissionPayloadSha256",
+        "candidateId",
+        "candidatePayloadSha256",
+        "observedAt",
+        "verdict",
+        "supersedesReceiptPayloadSha256",
+        "previousReceiptPayloadSha256"
+      ],
+      "properties": {
+        "receiptId": {"type": "string"},
+        "admissionId": {"type": "string"},
+        "admissionPayloadSha256": {"$ref": "#/$defs/sha256"},
+        "candidateId": {"type": "string"},
+        "candidatePayloadSha256": {"$ref": "#/$defs/sha256"},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "verdict": {"enum": ["verified", "failed", "revoked"]},
+        "supersedesReceiptPayloadSha256": {"$ref": "#/$defs/nullableSha256"},
+        "previousReceiptPayloadSha256": {"$ref": "#/$defs/nullableSha256"}
+      }
+    },
+    "availabilityControl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transactionId",
+        "transactionType",
+        "createdAt",
+        "episodeId",
+        "target",
+        "scope",
+        "reason",
+        "effectiveAt",
+        "safePublicState",
+        "restore"
+      ],
+      "properties": {
+        "transactionId": {"type": "string", "minLength": 1},
+        "transactionType": {"enum": ["hold", "removal"]},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "episodeId": {"type": "string", "minLength": 1},
+        "target": {"type": "object"},
+        "scope": {"type": "object"},
+        "reason": {"type": "string", "minLength": 1},
+        "effectiveAt": {"type": "string", "format": "date-time"},
+        "safePublicState": {"enum": ["held", "removed", "unavailable"]},
+        "restore": {"$ref": "#/$defs/rollbackPair"}
+      }
+    }
+  }
+}

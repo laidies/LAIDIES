@@ -1,0 +1,232 @@
+/* Current LAiDIES website topbar.
+   Mirrors the approved homepage shell without inheriting the retired
+   sunnyvaile-page.css SVG wordmark or pill navigation. */
+.sv-skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10000;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #3a1838;
+  color: #fffdfb;
+  font: 700 14px/1 "Jost", system-ui, sans-serif;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.15s ease;
+}
+
+.sv-skip-link:focus {
+  transform: translateY(0);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 76px;
+  padding: 0 clamp(20px, 5vw, 76px);
+  border-bottom: 2px solid rgba(255, 224, 138, 0.8);
+  background: linear-gradient(
+    110deg,
+    rgba(228, 216, 244, 0.97) 0%,
+    rgba(246, 214, 226, 0.97) 48%,
+    rgba(201, 229, 223, 0.97) 100%
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  font-family: "Jost", system-ui, sans-serif;
+}
+
+.topbar .logo {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  color: #2b1622;
+  font: 800 31px/1 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.035em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topbar .logo .lac {
+  color: #57b6c0;
+}
+
+.topbar .logo-iw {
+  position: relative;
+}
+
+.topbar .logo-tit {
+  position: absolute;
+  left: 46%;
+  bottom: 0.905em;
+  width: 0.17em;
+  height: 0.17em;
+  border-radius: 0.045em;
+  background: currentColor;
+  color: #e982ab;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.topbar__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.65vw, 24px);
+}
+
+.topbar__nav a {
+  color: #3a1838;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topbar__nav a:hover,
+.topbar__nav a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.topbar .nav-ksvl {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.topbar .onair-dot,
+.mobile-nav .onair-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0455f;
+  box-shadow: 0 0 0 0 rgba(224, 69, 95, 0.55);
+  animation: sv-topbar-pulse 1.8s ease-out infinite;
+}
+
+.topbar .join-btn,
+.mobile-nav .join-btn {
+  display: inline-block;
+  border-radius: 10px;
+  background: #e982ab;
+  color: #3a1838;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.topbar .join-btn {
+  padding: 9px 18px;
+}
+
+.topbar .join-btn:hover,
+.topbar .join-btn:focus-visible {
+  filter: brightness(1.05);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.topbar__menu {
+  display: none;
+  padding: 9px 14px;
+  border: 1px solid #3a1838;
+  border-radius: 8px;
+  background: transparent;
+  color: #3a1838;
+  font: 700 0.9rem/1 "Jost", system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 76px;
+  right: 0;
+  left: 0;
+  z-index: 8999;
+  padding: 18px 24px 24px;
+  border-bottom: 1px solid rgba(58, 24, 56, 0.16);
+  background: #fffdfb;
+  box-shadow: 0 18px 32px rgba(58, 24, 56, 0.16);
+  font-family: "Jost", system-ui, sans-serif;
+}
+
+.mobile-nav[hidden] {
+  display: none;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 12px 0;
+  color: #3a1838;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-nav .nav-ksvl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-nav .join-btn {
+  margin-top: 10px;
+  padding: 11px 18px;
+  text-align: center;
+}
+
+@keyframes sv-topbar-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(224, 69, 95, 0.5); }
+  70% { box-shadow: 0 0 0 7px rgba(224, 69, 95, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 69, 95, 0); }
+}
+
+@media (max-width: 1050px) {
+  .topbar__nav {
+    gap: 14px;
+  }
+
+  .topbar__nav a {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .topbar__nav {
+    display: none;
+  }
+
+  .topbar__menu {
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    height: 54px;
+    padding: 0 18px;
+  }
+
+  .topbar .logo {
+    font-size: 24px;
+  }
+
+  .mobile-nav {
+    top: 54px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar .onair-dot,
+  .mobile-nav .onair-dot {
+    animation: none;
+  }
+
+  .sv-skip-link {
+    transition: none;
+  }
+}

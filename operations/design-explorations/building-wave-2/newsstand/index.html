@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>SUNNYVAiLE NewsStand — building candidate</title>
+  <link rel="stylesheet" href="candidate.css">
+</head>
+<body data-fixture="live">
+  <a class="skip" href="#newsstand-main">Skip to the stand</a>
+  <main id="newsstand-main" class="stand" aria-labelledby="stand-title">
+    <section class="room" aria-label="Paige’s NewsStand">
+      <img class="room__paige" src="/assets/building-interiors/delivery-20260724-newsstand-comic-v1/newsstand-paige-rack-comic-candidate-v1.png" alt="Paige behind the SUNNYVAiLE NewsStand counter and news rack">
+      <div class="room__fallback" id="room-fallback" hidden role="img" aria-label="Paige’s NewsStand room art is unavailable. The dated desk and four live paper controls remain available below.">
+        <span aria-hidden="true">NEWS DESK · NO. 2</span>
+        <strong>Paige’s desk<br>is still open.</strong>
+        <p>The room illustration did not load. Use the dated board and paper rack below.</p>
+      </div>
+      <div class="room__wash" aria-hidden="true"></div>
+      <div class="room__title">
+        <p>MAiN STREET · NO. 2</p>
+        <h1 id="stand-title">SUNNYVAiLE<br>NewsStand</h1>
+        <span>Paige checks the receipts before a paper touches the rack.</span>
+      </div>
+      <section class="state-board" aria-labelledby="board-title">
+        <p class="eyebrow">PAIGE’S DATED DESK BOARD</p>
+        <h2 id="board-title">Checking the desk…</h2>
+        <p id="board-detail" role="status" aria-live="polite">Loading the publication record.</p>
+        <dl id="board-dates"></dl>
+      </section>
+    </section>
+
+    <section class="paper-counter" aria-labelledby="paper-counter-title">
+      <header class="counter-head">
+        <div><p class="eyebrow">PULL A PAPER</p><h2 id="paper-counter-title">Four different jobs. No filler.</h2></div>
+        <button id="radio" class="radio" type="button" aria-pressed="false" data-js-enable disabled>Play “The Newsstand”</button>
+      </header>
+      <div class="papers" id="papers" aria-label="Four papers on the rack">
+        <button class="paper paper--breaking" data-edition="breaking" type="button" aria-pressed="false" data-js-enable disabled><span class="paper__pin">QUALIFIED ONLY</span><strong>The<br>Breaking</strong><em>Rare interruption</em><small data-paper-state="breaking">Reader required</small></button>
+        <button class="paper paper--daily" data-edition="daily" type="button" aria-pressed="false" data-js-enable disabled><span class="paper__pin">DATED DESK</span><strong>The<br>Daily</strong><em>Consequential briefing</em><small data-paper-state="daily">Reader required</small></button>
+        <button class="paper paper--weekly" data-edition="weekly" type="button" aria-pressed="false" data-js-enable disabled><span class="paper__pin">SYNTHESIS</span><strong>The<br>Weekly</strong><em>Evidence over headlines</em><small data-paper-state="weekly">Reader required</small></button>
+        <button class="paper paper--tribune" data-edition="tribune" type="button" aria-pressed="false" data-js-enable disabled><span class="paper__pin">ARGUMENT</span><strong>The<br>Tribune</strong><em>Sources + position</em><small data-paper-state="tribune">Reader required</small></button>
+      </div>
+      <p class="counter-rule">A quiet, held, overdue, unavailable, corrected, or retracted paper tells the truth instead of filling the rack.</p>
+    </section>
+
+    <section id="reader" class="reader" hidden aria-labelledby="reader-title">
+      <div class="reader__rail"><p id="reader-kicker" class="eyebrow">PULLED FROM THE RACK</p><button id="put-back" type="button">Put the paper back</button></div>
+      <article class="unfolded" id="unfolded">
+        <header><p id="reader-edition" class="eyebrow"></p><h2 id="reader-title" tabindex="-1"></h2><p id="reader-date"></p></header>
+        <div id="reader-content" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="crate" aria-labelledby="crate-title">
+      <div><p class="eyebrow">THE CRATE UNDER THE COUNTER</p><h2 id="crate-title">Find a back issue.</h2><p>Search a live headline, topic, source, or tag. Results only surface if their publication remains eligible.</p></div>
+      <form id="search-form" novalidate><label for="search">What are you looking for?</label><div class="crate__field"><input id="search" type="search" autocomplete="off" placeholder="Try “verification” or “AI Act”" data-js-enable disabled><button type="submit" data-js-enable disabled>Search the crate</button></div></form>
+      <p id="search-status" class="crate__status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <noscript><p class="no-js"><strong>The dated reader is unavailable without JavaScript.</strong> The disabled rack still identifies The Breaking, The Daily, The Weekly, and The Tribune, but none can be opened or presented as current until the publication record is evaluated.</p></noscript>
+  <script src="/content/newsstand-reader-contract.js"></script>
+  <script src="/content/newsstand-stories.js"></script>
+  <script src="candidate.js"></script>
+</body>
+</html>

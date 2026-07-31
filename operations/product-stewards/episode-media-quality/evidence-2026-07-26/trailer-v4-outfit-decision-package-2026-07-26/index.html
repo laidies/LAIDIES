@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trailer v4 heroine outfit decision</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #fff8ed;
+      --muted: #c8bed0;
+      --bg: #17131f;
+      --panel: #211a2d;
+      --panel-2: #2b2139;
+      --line: #4b3a5e;
+      --yellow: #ffd94a;
+      --aqua: #62d7d1;
+      --pink: #ff6cae;
+      --green: #8de39b;
+      --red: #ff8b7d;
+      --max: 1480px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(255,108,174,.12), transparent 34rem),
+        radial-gradient(circle at 92% 18%, rgba(98,215,209,.09), transparent 30rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+    a { color: var(--aqua); }
+    img { display: block; width: 100%; height: auto; }
+    code {
+      overflow-wrap: anywhere;
+      color: #d9f6f4;
+      font-size: .82em;
+    }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 54px 0 30px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--aqua);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 980px; margin-bottom: 16px; font-size: clamp(2.3rem, 6vw, 5.9rem); line-height: .94; letter-spacing: -.055em; }
+    h2 { margin-bottom: 18px; font-size: clamp(1.65rem, 3.2vw, 3rem); line-height: 1.03; letter-spacing: -.035em; }
+    h3 { margin-bottom: 10px; font-size: 1.08rem; }
+    .lede { max-width: 900px; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.25rem); }
+    .status {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 28px 0 0;
+    }
+    .status div, .card, .option, .evidence-card {
+      border: 1px solid var(--line);
+      background: rgba(33,26,45,.88);
+      border-radius: 16px;
+    }
+    .status div { padding: 14px; }
+    .status b { display: block; color: var(--ink); font-size: .86rem; }
+    .status span { color: var(--muted); font-size: .78rem; overflow-wrap: anywhere; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-block: 1px solid var(--line);
+      background: rgba(23,19,31,.93);
+      backdrop-filter: blur(14px);
+    }
+    nav .wrap { display: flex; gap: 20px; overflow-x: auto; padding-block: 12px; }
+    nav a { flex: 0 0 auto; color: var(--muted); font-size: .82rem; font-weight: 750; text-decoration: none; }
+    section { padding: 58px 0; border-bottom: 1px solid rgba(75,58,94,.55); }
+    .verdict {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+    .verdict > div { padding: clamp(20px, 4vw, 40px); border-radius: 18px; }
+    .recommend { background: linear-gradient(135deg, rgba(98,215,209,.18), rgba(255,108,174,.11)); border: 1px solid var(--aqua); }
+    .hold { background: var(--panel); border: 1px solid var(--line); }
+    .badge {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 9px;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .badge.aqua { background: var(--aqua); color: #10161a; }
+    .badge.yellow { background: var(--yellow); color: #211900; }
+    .badge.red { background: var(--red); color: #27100c; }
+    .kicker { color: var(--muted); font-size: .86rem; }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    figure { margin: 0; }
+    .hero-frame {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel);
+    }
+    .hero-frame img { aspect-ratio: 16/9; object-fit: cover; }
+    figcaption { padding: 14px; }
+    .label { display: flex; gap: 8px; justify-content: space-between; align-items: baseline; }
+    .label strong { font-size: 1.05rem; }
+    .label time { color: var(--muted); font-size: .82rem; font-variant-numeric: tabular-nums; }
+    .meta { margin: 8px 0 0; color: var(--muted); font-size: .78rem; }
+    .observed {
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--red);
+      background: rgba(255,139,125,.08);
+    }
+    .timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+    .card { overflow: hidden; }
+    .card img { aspect-ratio: 16/9; object-fit: cover; }
+    .card .body { padding: 13px; }
+    .card.yellow { border-top: 5px solid var(--yellow); }
+    .card.multi { border-top: 5px solid var(--aqua); }
+    .source { margin-top: 8px; color: var(--muted); font-size: .72rem; }
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 18px; color: var(--muted); font-size: .82rem; }
+    .dot { display: inline-block; width: 10px; height: 10px; margin-right: 6px; border-radius: 99px; }
+    .dot.yellow { background: var(--yellow); }
+    .dot.multi { background: var(--aqua); }
+    .authority { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .evidence-card { overflow: hidden; }
+    .evidence-card img { aspect-ratio: 16/10; object-fit: cover; object-position: top center; background: #100d16; }
+    .evidence-card .body { padding: 16px; }
+    .fact, .inference { margin: 13px 0 0; padding: 11px 12px; border-radius: 10px; font-size: .84rem; }
+    .fact { background: rgba(98,215,209,.1); border: 1px solid rgba(98,215,209,.45); }
+    .inference { background: rgba(255,217,74,.08); border: 1px solid rgba(255,217,74,.4); }
+    .fact b, .inference b { display: block; margin-bottom: 3px; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+    .options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .option { padding: 20px; }
+    .option.recommended { border-color: var(--aqua); box-shadow: inset 0 4px 0 var(--aqua); }
+    .option ul { margin: 12px 0 0; padding-left: 19px; color: var(--muted); font-size: .86rem; }
+    .option li + li { margin-top: 7px; }
+    .score { display: grid; grid-template-columns: 7rem 1fr; gap: 7px 10px; margin-top: 18px; font-size: .78rem; }
+    .score span:nth-child(odd) { color: var(--muted); }
+    .bar { height: 9px; align-self: center; border-radius: 99px; background: #443652; overflow: hidden; }
+    .bar i { display: block; height: 100%; background: var(--aqua); }
+    .scope-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+    .scope-table th, .scope-table td { padding: 11px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .scope-table th { color: var(--muted); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    .sheet { overflow: hidden; margin-top: 20px; border: 1px solid var(--line); border-radius: 16px; }
+    .sheet figcaption { color: var(--muted); background: var(--panel); font-size: .82rem; }
+    .limits { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .limits > div { padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+    footer { padding: 34px 0 60px; color: var(--muted); font-size: .8rem; }
+    @media (max-width: 980px) {
+      .status { grid-template-columns: 1fr 1fr; }
+      .verdict, .authority, .options { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 20px, var(--max)); }
+      header { padding-top: 34px; }
+      .status, .pair, .timeline, .limits { grid-template-columns: 1fr; }
+      section { padding: 42px 0; }
+      .scope-table { min-width: 720px; }
+      nav .wrap { gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Internal evidence · 2026-07-26 · no public mutation</p>
+      <h1>One heroine.<br>Two incompatible trailer wardrobes.</h1>
+      <p class="lede">Trailer v4 is clock-correct but not admitted. Nine material heroine appearances split between a yellow-plaid host suit and a multicolour dress. The governing records do not say whether the newer B05/B14 correction is a two-beat exception or a trailer-wide rule.</p>
+      <div class="status">
+        <div><b>Frozen master</b><span>760dbbc7…68934</span></div>
+        <div><b>Exact map</b><span>39a9a3d0…3fdb</span></div>
+        <div><b>Observed split</b><span>7 yellow plaid · 2 multicolour</span></div>
+        <div><b>Truthful status</b><span>HOLD · BUILT LOCALLY · NOT ADMITTED</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Package sections">
+    <div class="wrap">
+      <a href="#decision">Decision</a>
+      <a href="#side-by-side">Direct comparison</a>
+      <a href="#all-beats">All 9 beats</a>
+      <a href="#authority">Authority</a>
+      <a href="#options">Options</a>
+      <a href="#scope">Exact rebuild scope</a>
+      <a href="#limits">Evidence limits</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="decision">
+      <div class="wrap verdict">
+        <div class="recommend">
+          <span class="badge aqua">Evidence-backed recommendation</span>
+          <h2>Rule the multicolour dress as the trailer-only signature outfit.</h2>
+          <p>Apply it to every material trailer heroine appearance. This follows the latest explicit source correction, preserves the “no Episode 4 yellow plaid” instruction, and produces one coherent host identity without changing weekly-episode wardrobe rotation.</p>
+          <p class="kicker"><strong>Required:</strong> replace only B01, B04, B07, B15, B31, B39 and B56; B39 requires a successor motion source. Preserve this exact v4 tuple, build a versioned successor, then rerun the existing map/source/motion/full-title/player gates.</p>
+        </div>
+        <div class="hold">
+          <span class="badge red">Authority finding</span>
+          <h3>Canon is irreconcilable as written.</h3>
+          <p>The older storyboard calls yellow plaid the fixed trailer host signature, but labels that choice an open question. The newer correction explicitly binds multicolour to B05/B14 and rejects Episode 4 yellow plaid at B14. Neither source defines the other seven appearances.</p>
+          <p class="kicker">Smallest reversible ruling: a trailer-bounded outfit receipt. It changes no episode canon and leaves the frozen v4 bytes untouched.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="side-by-side">
+      <div class="wrap">
+        <p class="eyebrow">Primary visual evidence</p>
+        <h2>The conflict is visible without interpretation.</h2>
+        <div class="pair">
+          <figure class="hero-frame">
+            <img src="frames/B04-frame-001191-00m39.700s.png" alt="B04 heroine in a yellow plaid suit">
+            <figcaption>
+              <div class="label"><strong>B04 · yellow plaid</strong><time>00:39.700</time></div>
+              <p class="meta">Frame 1,191 · beat window 00:36.167–00:43.267 · host addresses camera.</p>
+            </figcaption>
+          </figure>
+          <figure class="hero-frame">
+            <img src="frames/B05-frame-001556-00m51.867s.png" alt="B05 heroine in a turquoise lime and plum multicolour dress">
+            <figcaption>
+              <div class="label"><strong>B05 · multicolour</strong><time>00:51.867</time></div>
+              <p class="meta">Frame 1,556 · beat window 00:43.267–01:00.533 · immediate next beat.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="observed"><strong>Observed, not inferred:</strong> the hard cut at frame 1,298 changes blazer, skirt, top, silhouette and palette with no declared wardrobe-change beat. The exact map calls both images the same heroine and does not declare a costume transition.</div>
+      </div>
+    </section>
+
+    <section id="all-beats">
+      <div class="wrap">
+        <p class="eyebrow">Complete conflict inventory</p>
+        <h2>Every material heroine appearance in v4</h2>
+        <div class="legend"><span><i class="dot yellow"></i>Yellow plaid: 7 beats</span><span><i class="dot multi"></i>Multicolour: 2 beats</span><span>All stills extracted from frozen master SHA 760dbbc7…68934</span></div>
+        <div class="timeline">
+          <article class="card yellow"><img src="frames/B01-frame-000095-00m03.167s.png" alt="B01 yellow plaid heroine"><div class="body"><div class="label"><strong>B01</strong><time>00:03.167</time></div><p class="meta">Frame 95 · window 00:00.000–00:06.367</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b01-heroine-welcome-comic-v1-1920.png</code><br>SHA <code>1ed9306b…103ec</code></p></div></article>
+          <article class="card yellow"><img src="frames/B04-frame-001191-00m39.700s.png" alt="B04 yellow plaid heroine"><div class="body"><div class="label"><strong>B04</strong><time>00:39.700</time></div><p class="meta">Frame 1,191 · window 00:36.167–00:43.267</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b04-fourth-wall-heroine-comic-v1-1920.png</code><br>SHA <code>789f43ce…d456</code></p></div></article>
+          <article class="card multi"><img src="frames/B05-frame-001556-00m51.867s.png" alt="B05 multicolour heroine"><div class="body"><div class="label"><strong>B05</strong><time>00:51.867</time></div><p class="meta">Frame 1,556 · window 00:43.267–01:00.533</p><p class="source"><code>assets/episodes/trailer/comic/delivery/heroine-blue-eyes-trailer-outfit-final/trailer-b05-reporting-back-comic-v1-1920-motion.mp4</code><br>SHA <code>4ffc7475…93ef</code></p></div></article>
+          <article class="card yellow"><img src="frames/B07-frame-002740-01m31.333s.png" alt="B07 yellow plaid heroine"><div class="body"><div class="label"><strong>B07</strong><time>01:31.333</time></div><p class="meta">Frame 2,740 · window 01:22.867–01:39.867</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b07-season-arc-strip-comic-v1-1920.png</code><br>SHA <code>753bad69…282e</code></p></div></article>
+          <article class="card multi"><img src="frames/B14-frame-006005-03m20.167s.png" alt="B14 multicolour heroine"><div class="body"><div class="label"><strong>B14</strong><time>03:20.167</time></div><p class="meta">Frame 6,005 · window 03:15.233–03:25.167</p><p class="source"><code>assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b14-delta-lai-nu-heroine-blue-eyes-trailer-outfit-comic-v3-1920.png</code><br>SHA <code>b26b9eb9…1e9e</code></p></div></article>
+          <article class="card yellow"><img src="frames/B15-frame-006383-03m32.767s.png" alt="B15 yellow plaid heroine"><div class="body"><div class="label"><strong>B15</strong><time>03:32.767</time></div><p class="meta">Frame 6,383 · window 03:25.167–03:40.400</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b15-life-in-these-streets-strip-comic-v1-1920.png</code><br>SHA <code>ab3d013a…96b</code></p></div></article>
+          <article class="card yellow"><img src="frames/B31-frame-014260-07m55.333s.png" alt="B31 yellow plaid heroine"><div class="body"><div class="label"><strong>B31</strong><time>07:55.333</time></div><p class="meta">Frame 14,260 · window 07:48.533–08:02.200</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b31-heroine-writing-try-on-comic-v1-1920.png</code><br>SHA <code>1cd762d0…34bc</code></p></div></article>
+          <article class="card yellow"><img src="frames/B39-frame-017210-09m33.667s.png" alt="B39 yellow plaid heroine"><div class="body"><div class="label"><strong>B39</strong><time>09:33.667</time></div><p class="meta">Frame 17,210 · window 09:29.667–09:37.733</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b39-maikeover-glow-up-comic-v1-1920-motion.mp4</code><br>SHA <code>d6c0a9fb…09ad</code></p></div></article>
+          <article class="card yellow"><img src="frames/B56-frame-026407-14m40.233s.png" alt="B56 yellow plaid heroine"><div class="body"><div class="label"><strong>B56</strong><time>14:40.233</time></div><p class="meta">Frame 26,407 · window 14:32.667–14:47.833</p><p class="source"><code>assets/episodes/trailer/comic/trailer-b56-sign-off-comic-v1-1920.png</code><br>SHA <code>ecf4e700…d37d</code></p></div></article>
+        </div>
+        <figure class="sheet"><img src="contact-sheets/yellow-plaid-beats-B01-B04-B07-B15-B31-B39-B56.png" alt="Contact sheet of all seven yellow plaid beats"><figcaption>Exact-frame yellow-plaid contact sheet, chronological left-to-right and top-to-bottom: B01, B04, B07, B15, B31, B39, B56.</figcaption></figure>
+        <figure class="sheet"><img src="contact-sheets/multicolour-beats-B05-B14.png" alt="Contact sheet of both multicolour beats"><figcaption>Exact-frame multicolour contact sheet: B05 and B14.</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="authority">
+      <div class="wrap">
+        <p class="eyebrow">Governing evidence</p>
+        <h2>What the records actually establish</h2>
+        <div class="authority">
+          <article class="evidence-card">
+            <img src="canonical-evidence/v28-yellow-plaid-host-reference.png" alt="V28 heroine yellow plaid host reference">
+            <div class="body">
+              <span class="badge yellow">Older storyboard rule</span>
+              <h3>Yellow plaid defaults across the trailer</h3>
+              <p class="kicker"><code>operations/trailer-comic-storyboard.md</code><br>SHA <code>a6c1a40a…f0ae</code></p>
+              <div class="fact"><b>Observed evidence</b>Flag 1 says the locked SUNNYVAiLE look is the v28 suit/plaid kit and every heroine beat defaults to v28 for host consistency.</div>
+              <div class="inference"><b>Authority limit</b>The same paragraph labels the choice an open question and asks for confirmation. It is not a closed final ruling.</div>
+            </div>
+          </article>
+          <article class="evidence-card">
+            <img src="canonical-evidence/multicolour-trailer-outfit-reference.png" alt="Multicolour trailer-only outfit reference">
+            <div class="body">
+              <span class="badge aqua">Newer explicit correction</span>
+              <h3>B05/B14 use a “trailer-only” multicolour outfit</h3>
+              <p class="kicker"><code>trailer-v3-text-identity-correction-prompts.md</code><br>SHA <code>b755759a…7a4ca</code></p>
+              <div class="fact"><b>Observed evidence</b>B14 must use the blue-eyed heroine and the trailer-only multicolour dress from B05; “no Episode 4 yellow plaid.” The selected sources and map enforce this.</div>
+              <div class="inference"><b>Authority limit</b>“Trailer-only” can describe the outfit’s product boundary, but the record never explicitly says “all trailer heroine beats.” Applying it trailer-wide is a reasoned recommendation, not a quoted ruling.</div>
+            </div>
+          </article>
+          <article class="evidence-card">
+            <img src="canonical-evidence/episode-wardrobe-rotation-sheet.png" alt="Four-look weekly episode wardrobe rotation sheet">
+            <div class="body">
+              <span class="badge red">Episode continuity boundary</span>
+              <h3>Weekly episodes deliberately rotate looks</h3>
+              <p class="kicker"><code>operations/reference/heroine-wardrobe/README.md</code> and Episode 01–04 briefs</p>
+              <div class="fact"><b>Observed evidence</b>Episode briefs assign distinct weekly SUNNYVAiLE looks; Episode 4’s own lock is a different named look. The B14 correction explicitly rejects reusing Episode 4 yellow plaid here.</div>
+              <div class="inference"><b>Authority limit</b>Weekly rotation does not itself establish what the standalone trailer host must wear.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="options">
+      <div class="wrap">
+        <p class="eyebrow">Decision set</p>
+        <h2>Three genuinely viable rulings</h2>
+        <div class="options">
+          <article class="option">
+            <span class="badge yellow">Option 1 · lowest edit count</span>
+            <h3>Yellow plaid everywhere</h3>
+            <p>Restore B05 and B14 to the older fixed host-signature outfit.</p>
+            <ul>
+              <li><strong>Changes:</strong> 2 beats; B05 includes motion; B14 is still.</li>
+              <li><strong>Continuity:</strong> strong within the trailer.</li>
+              <li><strong>Brand:</strong> familiar Clueless-coded signature, but less distinct from weekly outfit language.</li>
+              <li><strong>Throwaway:</strong> discards both later explicit corrections.</li>
+              <li><strong>Risk:</strong> directly reverses “no Episode 4 yellow plaid” at B14.</li>
+            </ul>
+          </article>
+          <article class="option recommended">
+            <span class="badge aqua">Option 2 · recommended</span>
+            <h3>Multicolour everywhere</h3>
+            <p>Make the newer trailer-only dress the fixed signature for all nine appearances.</p>
+            <ul>
+              <li><strong>Changes:</strong> 7 beats; B39 includes motion; six are stills/strips.</li>
+              <li><strong>Continuity:</strong> strongest; removes both immediate B04→B05 and B14→B15 reversals.</li>
+              <li><strong>Brand:</strong> creates a distinct trailer identity while episode looks keep rotating.</li>
+              <li><strong>Throwaway:</strong> highest immediate art replacement cost.</li>
+              <li><strong>Risk:</strong> requires a new exact tuple and complete independent re-review.</li>
+            </ul>
+          </article>
+          <article class="option">
+            <span class="badge red">Option 3 · no media change</span>
+            <h3>Declare a deliberate two-look exception</h3>
+            <p>Keep B05/B14 multicolour and all other appearances yellow, with a bounded authority receipt.</p>
+            <ul>
+              <li><strong>Changes:</strong> no source media; one formal ruling.</li>
+              <li><strong>Continuity:</strong> weakest; outfit switches occur across adjacent beats with no declared story event.</li>
+              <li><strong>Brand:</strong> preserves all existing art but makes the host identity feel accidental.</li>
+              <li><strong>Throwaway:</strong> none now.</li>
+              <li><strong>Risk:</strong> likely moves the same issue into audience-facing review.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="scope">
+      <div class="wrap">
+        <p class="eyebrow">Recommended option · exact downstream work</p>
+        <h2>Seven source changes, one new frozen tuple</h2>
+        <div class="table-wrap">
+          <table class="scope-table">
+            <thead><tr><th>Beat</th><th>Current source</th><th>Required successor</th><th>Retest</th></tr></thead>
+            <tbody>
+              <tr><td>B01</td><td><code>trailer-b01-heroine-welcome-comic-v1-1920.png</code></td><td>Identity-preserving outfit-only still edit to the exact B05/B14 dress.</td><td>Identity, outfit, text, setting, crop, source hash.</td></tr>
+              <tr><td>B04</td><td><code>trailer-b04-fourth-wall-heroine-comic-v1-1920.png</code></td><td>Outfit-only still edit; preserve air-quotes, expression and “YOUR HEROINE.”</td><td>Text, anatomy, B04→B05 cut continuity.</td></tr>
+              <tr><td>B07</td><td><code>trailer-b07-season-arc-strip-comic-v1-1920.png</code></td><td>Replace outfit in every heroine panel; preserve panel jobs and captions.</td><td>All-panel identity/outfit/text, strip legibility.</td></tr>
+              <tr><td>B15</td><td><code>trailer-b15-life-in-these-streets-strip-comic-v1-1920.png</code></td><td>Replace outfit in each visible heroine panel; preserve resident-card/library/coffee continuity.</td><td>B14→B15 cut, panel identity, props/text.</td></tr>
+              <tr><td>B31</td><td><code>trailer-b31-heroine-writing-try-on-comic-v1-1920.png</code></td><td>Outfit-only still edit; preserve iBook, table, “TRY-ON” card.</td><td>Text/tech/crop/identity and source hash.</td></tr>
+              <tr><td>B39</td><td><code>trailer-b39-maikeover-glow-up-comic-v1-1920-motion.mp4</code></td><td>Versioned successor transformation ending in the multicolour dress; preserve wandless abstract-stage action and exact target frame count.</td><td>Source-frame admission, semantic motion, no hard cut, decoded frames, final freeze, B39→B40 onset.</td></tr>
+              <tr><td>B56</td><td><code>trailer-b56-sign-off-comic-v1-1920.png</code></td><td>Outfit-only still edit; preserve sign-off text, backpack, wave and town setting.</td><td>Exact text, identity, outfit, full-title ending review.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="observed"><strong>Do not mutate v4.</strong> Copy-on-write the seven named source replacements, normalize only affected beats, rebuild a successor MP4/map/config/QC/concat tuple, preserve every unchanged source hash, then repeat the 58-beat delivery-size review and representative normal-speed audible/caption/player witness.</div>
+      </div>
+    </section>
+
+    <section id="limits">
+      <div class="wrap">
+        <p class="eyebrow">Truth boundary</p>
+        <h2>What this package proves—and what it does not</h2>
+        <div class="limits">
+          <div><h3>Proved</h3><p class="kicker">The exact frozen v4 master contains the nine shown appearances; seven are yellow plaid and two are multicolour. Their timestamps, frame numbers, source paths and source hashes bind to the exact 58-beat map. The written authority is contradictory in scope.</p></div>
+          <div><h3>Not proved</h3><p class="kicker">This package does not admit either outfit as canon, approve replacement art, prove normal-speed audible/player quality, change any source, update any route, or authorize deployment/publication. Visual stills prove wardrobe state, not motion or complete viewing quality.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Internal decision evidence only · exact artifact hashes are recorded in <code>manifest.json</code> · Trailer v4 remains HOLD / BUILT LOCALLY / NOT ADMITTED / NOT DEPLOYED / NOT PUBLIC.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "scope": "Maker verification only; independent semantic-motion judgment required.",
+  "candidate": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-lamp-dust-zero-net-loop-v1.mp4",
+  "candidate_sha256": "6a3a6e936eb025820e261eed8ef147d7ae8d9097c3fb6bdc3c2a30754072d6bf",
+  "provenance": {
+    "accepted_source_path": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-law-clerk-clean-textfree-v1-1920.png",
+    "accepted_source_sha256": "d0f2a078e795b052bdaaabad6aff8de51c4d66d5d53366d7bdd64e57a37c7b2a",
+    "independent_source_accept_md_sha256": "f56dc631d3ac7ee0bc1da3f07cf37e0b7ed3e04bf18135edeaad15e29a5ae52f",
+    "independent_source_accept_json_sha256": "82b5e44aad6cbc6d513349e8c2adabf58576a8fc075b26a1bdffbb26b2169f20",
+    "ffmpeg_binary": "/Users/alisoneakin/.local/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1",
+    "build_script_sha256": "71c393d0b4a52bbb844e72ad81d82071b5f953a31e8ca9aa114c6d6999c77f21",
+    "filter_graph_sha256": "e910a73a3e795aaec45c54a3fd95fcfcb2eb63b391e2c32c6214dd88d67d8b7b",
+    "verification_script_sha256": "2d01666a5b9e081637b843f9f00862563ae4720a98193b5273c36b6cc91ce6a1"
+  },
+  "expected_video_contract": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration_seconds": 12.0,
+    "decoded_frames": 360,
+    "audio_streams": 0
+  },
+  "decode": {
+    "returncode": 0,
+    "decoded_frames": 360,
+    "full_decode_pass": true
+  },
+  "zero_net": {
+    "first_frame_rgb_sha256": "76867360c259c7d927969fb123a63c0dbc0809ead958fedf45b8036162ef25a0",
+    "mid_frame_180_rgb_sha256": "76ad1d022a9169e7ed3032cc2639fe9a99cdfa0eed4f8ddde3c4fec05a1792c5",
+    "last_frame_rgb_sha256": "76867360c259c7d927969fb123a63c0dbc0809ead958fedf45b8036162ef25a0",
+    "first_last_decoded_rgb_equal": true
+  },
+  "motion_localization": {
+    "allowed_regions_xyxy": [
+      [
+        0,
+        215,
+        410,
+        425
+      ],
+      [
+        1490,
+        225,
+        1785,
+        375
+      ]
+    ],
+    "max_absdiff_outside_allowed_regions": 0,
+    "cumulative_outside_changed_pixels": 0,
+    "outside_regions_pixel_exact_static": true,
+    "inside_changed_union_pixels_at_least_2_levels": 60657,
+    "inside_changed_union_percent_of_frame": 2.925203,
+    "peak_absdiff_levels": 30,
+    "moving_frames_at_least_2_levels": 357,
+    "moving_frames_at_least_16_levels": 256
+  },
+  "maker_verdict": "PASS_MAKER_TECHNICAL_QC",
+  "admission": "PENDING_INDEPENDENT_MOTION_JUDGE"
+}

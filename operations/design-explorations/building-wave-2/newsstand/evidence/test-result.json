@@ -1,0 +1,36 @@
+{
+  "candidate": "building-wave-2/newsstand",
+  "status": "BUILT LOCALLY",
+  "scope": "candidate-only",
+  "screens": [
+    { "fixture": "baseline", "viewport": "1440x900", "file": "desktop-baseline.png" },
+    { "fixture": "quiet", "viewport": "390x844", "file": "mobile-quiet.png" },
+    { "fixture": "retracted", "viewport": "320x700", "file": "mobile-320-retracted.png" },
+    { "fixture": "hold", "viewport": "390x844", "file": "successor-mobile-390-global-hold.png" },
+    { "fixture": "image-404", "viewport": "1440x900", "file": "successor-1440-room-art-fallback.png" },
+    { "fixture": "image-404", "viewport": "390x844", "file": "successor-390-room-art-fallback.png" },
+    { "fixture": "no-js", "viewport": "320x700", "file": "successor-mobile-320-no-js.png" }
+  ],
+  "assertions": [
+    "four live, keyboard-operable paper controls use the exact four mastheads",
+    "legacy TODAY/WEDNESDAY labels are absent from the candidate interface",
+    "reader uses the canonical NewsStand access contract and returns focus to its invoker",
+    "archive search applies the same access decision and reports eligible no-result truth",
+    "quiet, hold, stale, retracted and malformed fixtures fail closed",
+    "desk-wide hold and malformed/load-failure own all four visible paper labels",
+    "direct missing, malformed and retracted hash paths focus the reader title",
+    "blocked Paige/rack art activates a visible candidate-local room fallback",
+    "no-JS leaves all paper, radio and search controls disabled",
+    "candidate declares responsive 390/320 layouts and reduced-motion behavior",
+    "real Chrome Tab/Space navigation opens Tribune and returns focus to its exact invoker"
+  ],
+  "testResults": {
+    "static": "PASS checks=20",
+    "browser": "PASS checks=34 widths=1440,390,320 keyboard=real fixtures=baseline,hold,malformed,retracted,missing,image-404,no-js,reduced-motion"
+  },
+  "limits": [
+    "screens and maker tests are local evidence only",
+    "Paige/rack art has provenance but is not admitted final art",
+    "no public route, story data, canonical writer, correction service or release proof is included"
+  ]
+}

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Printable Preview | LAiDIES</title>
+  <meta name="description" content="Preview and download the LAiDIES weekly printable.">
+  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --hot-pink: #9b3f5f;
+      --ink: #211820;
+      --plum: #4b2148;
+      --cream: #fffdfb;
+      --paper: #fbf6f5;
+      --blush: #e8c5c8;
+      --blue: #c8dce0;
+      --yellow: #b49764;
+      --muted: #766171;
+      --font-body: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(200, 220, 224, 0.34), transparent 24rem),
+        radial-gradient(circle at 88% 4%, rgba(232, 197, 200, 0.28), transparent 24rem),
+        linear-gradient(135deg, #fffdfb 0%, #f7eeee 58%, #fbf6f5 100%);
+      color: var(--ink);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      min-height: 78px;
+      padding: 12px clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid rgba(75, 33, 72, 0.18);
+      background: rgba(255, 253, 251, 0.94);
+      backdrop-filter: blur(12px);
+      overflow: visible;
+    }
+
+    .brand img {
+      display: block;
+      width: clamp(146px, 18vw, 190px);
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-left: auto;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .nav a {
+      color: var(--plum);
+      text-decoration: none;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: #6f263f;
+      outline: none;
+    }
+
+    .hamburger-btn {
+      display: none;
+      margin-left: auto;
+      border: 0;
+      background: transparent;
+      color: var(--plum);
+      font: inherit;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .wednesday-return {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: clamp(14px, 3vw, 28px);
+      z-index: 140;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: calc(100% - 28px);
+      margin: 0;
+      padding: 10px 14px;
+      border: 1px solid rgba(75, 33, 72, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 253, 251, 0.94);
+      color: #6f263f;
+      font-size: 0.84rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(75, 33, 72, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .wednesday-return:hover,
+    .wednesday-return:focus-visible {
+      color: var(--plum);
+      border-color: rgba(111, 38, 63, 0.42);
+      outline: none;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(28px, 6vw, 64px) 0 clamp(48px, 7vw, 84px);
+    }
+
+    .preview-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(18px, 4vw, 34px);
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      border: 1px solid rgba(180, 151, 100, 0.28);
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(255, 253, 251, 0.72);
+      color: #7b6040;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--plum);
+      font-family: var(--font-heading);
+      font-size: clamp(2.35rem, 6vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      max-width: 650px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
+    }
+
+    .preview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(155, 63, 95, 0.34);
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #9b3f5f, #7a2742);
+      color: white;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 14px 28px rgba(75, 33, 72, 0.18);
+    }
+
+    .button.secondary {
+      background: rgba(255, 253, 251, 0.72);
+      color: var(--plum);
+      box-shadow: none;
+    }
+
+    .printable-shell {
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      border-radius: 28px;
+      padding: clamp(14px, 3vw, 24px);
+      background:
+        linear-gradient(135deg, rgba(255, 253, 251, 0.78), rgba(247, 238, 238, 0.66)),
+        rgba(75, 33, 72, 0.2);
+      box-shadow: 0 28px 70px rgba(75, 33, 72, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(12px, 2vw, 18px);
+    }
+
+    .page-preview {
+      overflow: hidden;
+      border: 1px solid rgba(155, 63, 95, 0.16);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .page-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .unavailable {
+      border: 1px dashed rgba(155, 63, 95, 0.34);
+      border-radius: 22px;
+      padding: 24px;
+      background: rgba(255, 249, 236, 0.08);
+      color: var(--muted);
+    }
+
+    .site-footer {
+      padding: 28px 20px 34px;
+      border-top: 1px solid rgba(155, 63, 95, 0.12);
+      text-align: center;
+      color: rgba(75, 33, 72, 0.64);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        min-height: 70px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .brand img {
+        width: clamp(132px, 42vw, 176px);
+        height: auto;
+        max-height: none;
+      }
+      .hamburger-btn { display: block; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(155, 63, 95, 0.16);
+        background: rgba(255, 253, 251, 0.98);
+      }
+      .nav.is-open { display: flex; }
+      .wednesday-return {
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        left: 12px;
+        width: auto;
+      }
+      .preview-hero {
+        grid-template-columns: 1fr;
+      }
+      .preview-actions {
+        justify-content: stretch;
+      }
+      .button {
+        width: 100%;
+      }
+      .page-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
+  <link rel="stylesheet" href="/content/printable-v2.css?v=20260724-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body class="printable-page">
+  <header class="sv-header"></header>
+
+  <main class="pr-main">
+    <section class="preview-hero" aria-labelledby="printableTitle">
+      <div class="pr-hero-copy">
+        <span class="eyebrow" id="printableEyebrow">Episode printable</span>
+        <h1 id="printableTitle">Printable Preview</h1>
+        <p class="lede" id="printableDescription">Preview the weekly printable first. Download it only when you are ready.</p>
+      </div>
+      <div class="preview-actions">
+        <a class="button" id="downloadPdf" href="/printable.html" download>Download PDF</a>
+        <a class="button secondary" id="funPackLink" href="games/fun-pack.html">Open The Extra Credit</a>
+      </div>
+    </section>
+
+    <section class="pr-worktable" aria-labelledby="prWorktableTitle">
+      <header class="pr-worktable-head">
+        <div>
+          <p class="pr-kicker">The reference-room worktable</p>
+          <h2 id="prWorktableTitle">Four sheets. One useful move.</h2>
+        </div>
+        <p>Read them here, slide along the desk, or take the complete PDF with you.</p>
+      </header>
+
+      <div class="printable-shell" aria-label="Printable preview pages">
+        <div class="page-grid" id="pageGrid"></div>
+        <p class="unavailable" id="unavailableMessage" hidden>This printable is not public yet. Try the current week's Bag instead.</p>
+      </div>
+    </section>
+
+    <section class="pr-dispatch" aria-labelledby="prDispatchTitle">
+      <p class="pr-kicker">Reference-room checkout</p>
+      <h2 id="prDispatchTitle">Keep the pages. Try the move.</h2>
+      <p>The PDF is the desk reference. Extra Credit is where you put the lesson through its paces.</p>
+      <div class="pr-dispatch-actions">
+        <a class="button" id="downloadPdfBottom" href="/printable.html" download>Take the complete PDF →</a>
+        <a class="button secondary" id="funPackLinkBottom" href="games/fun-pack.html">Continue to Extra Credit</a>
+        <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></strong> &copy; 2026 Ali Eakin. All rights reserved.</p>
+  </footer>
+
+  <script>
+  (function() {
+    "use strict";
+
+    var printables = {
+      1: {
+        eyebrow: "Episode 01 printable",
+        title: "Open the Tab",
+        description: "A four-page desk reference for your first safe, useful AI reps.",
+        pdf: "assets/prompt-cheat-sheet-issue01.pdf",
+        filename: "prompt-cheat-sheet-issue01.pdf",
+        pages: [
+          "content/printables/previews/issue-01-open-the-tab-page-1.png",
+          "content/printables/previews/issue-01-open-the-tab-page-2.png",
+          "content/printables/previews/issue-01-open-the-tab-page-3.png",
+          "content/printables/previews/issue-01-open-the-tab-page-4.png"
+        ]
+      },
+      2: {
+        eyebrow: "Episode 02 printable",
+        title: "Prompt Specificity Cheat Sheet",
+        description: "A four-page prompt specificity cheat sheet for turning vague asks into useful work output.",
+        pdf: "assets/prompt-cheat-sheet-issue02.pdf",
+        filename: "prompt-cheat-sheet-issue02.pdf",
+        pages: [
+          "content/printables/previews/prompt-cheat-sheet-page-1.png",
+          "content/printables/previews/prompt-cheat-sheet-page-2.png",
+          "content/printables/previews/prompt-cheat-sheet-page-3.png",
+          "content/printables/previews/prompt-cheat-sheet-page-4.png"
+        ]
+      },
+      4: {
+        eyebrow: "Episode 04 printable",
+        title: "The Founding Mothers Timeline",
+        description: "A four-page desk reference: the timeline of the women who built AI, the four Study Pack words fully defined, and this week's field trip.",
+        pdf: "assets/prompt-cheat-sheet-issue04.pdf",
+        filename: "prompt-cheat-sheet-issue04.pdf",
+        pages: [
+          "content/printables/previews/issue-04-founding-mothers-page-1.png",
+          "content/printables/previews/issue-04-founding-mothers-page-2.png",
+          "content/printables/previews/issue-04-founding-mothers-page-3.png",
+          "content/printables/previews/issue-04-founding-mothers-page-4.png"
+        ]
+      },
+      3: {
+        eyebrow: "Episode 03 printable",
+        title: "The Elle Woods Receipts Pass",
+        description: "A four-page receipts pass for checking claims, timelines, domain rules, contradictions, and sources before the paragraph borrows your name.",
+        pdf: "assets/prompt-cheat-sheet-issue03.pdf",
+        filename: "prompt-cheat-sheet-issue03.pdf",
+        pages: [
+          "content/printables/previews/issue-03-elle-receipts-pass-page-1.png",
+          "content/printables/previews/issue-03-elle-receipts-pass-page-2.png",
+          "content/printables/previews/issue-03-elle-receipts-pass-page-3.png",
+          "content/printables/previews/issue-03-elle-receipts-pass-page-4.png"
+        ]
+      }
+    };
+
+    var params = new URLSearchParams(window.location.search || "");
+    var issueMatch = String(params.get("issue") || "2").match(/\d+/);
+    var issue = issueMatch ? Number(issueMatch[0]) : 2;
+    var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+    var printable = printables[issue];
+    var fromBag = params.get("from") === "this-week";
+    var returnLink = document.querySelector("[data-wednesday-return]");
+    var pageGrid = document.getElementById("pageGrid");
+    var unavailableMessage = document.getElementById("unavailableMessage");
+    var downloadPdf = document.getElementById("downloadPdf");
+    var downloadPdfBottom = document.getElementById("downloadPdfBottom");
+    var funPackLink = document.getElementById("funPackLink");
+    var funPackLinkBottom = document.getElementById("funPackLinkBottom");
+    var title = document.getElementById("printableTitle");
+    var eyebrow = document.getElementById("printableEyebrow");
+    var description = document.getElementById("printableDescription");
+
+    function addReturnParams(url) {
+      if (!fromBag) return url;
+      var separator = url.indexOf("?") === -1 ? "?" : "&";
+      return url + separator + "from=this-week&issue=" + encodeURIComponent(issue) + "&bag=open&group=practice" + draftParam;
+    }
+
+    if (returnLink) {
+      returnLink.href = "/";
+      returnLink.textContent = "← Back to SUNNYVAiLE";
+    }
+
+    if (funPackLink) {
+      funPackLink.href = addReturnParams("games/fun-pack.html");
+    }
+    if (funPackLinkBottom) {
+      funPackLinkBottom.href = addReturnParams("games/fun-pack.html");
+    }
+
+    if (!printable) {
+      if (pageGrid) pageGrid.hidden = true;
+      if (unavailableMessage) unavailableMessage.hidden = false;
+      if (downloadPdf) {
+        downloadPdf.removeAttribute("href");
+        downloadPdf.setAttribute("aria-disabled", "true");
+      }
+      if (downloadPdfBottom) {
+        downloadPdfBottom.removeAttribute("href");
+        downloadPdfBottom.setAttribute("aria-disabled", "true");
+      }
+      if (title) title.textContent = "Printable in the works";
+      if (eyebrow) eyebrow.textContent = "Not public yet";
+      if (description) description.textContent = "This week's printable is not packed yet. The current Bag still works.";
+      return;
+    }
+
+    document.title = printable.title + " | LAiDIES Printable";
+    if (title) title.textContent = printable.title;
+    if (eyebrow) eyebrow.textContent = printable.eyebrow;
+    if (description) description.textContent = printable.description;
+    if (downloadPdf) {
+      downloadPdf.href = printable.pdf;
+      downloadPdf.setAttribute("download", printable.filename);
+    }
+    if (downloadPdfBottom) {
+      downloadPdfBottom.href = printable.pdf;
+      downloadPdfBottom.setAttribute("download", printable.filename);
+    }
+
+    if (pageGrid) {
+      printable.pages.forEach(function(src, index) {
+        var figure = document.createElement("figure");
+        figure.className = "page-preview";
+        var image = document.createElement("img");
+        image.src = src;
+        image.alt = printable.title + " preview page " + (index + 1);
+        image.loading = index > 1 ? "lazy" : "eager";
+        figure.appendChild(image);
+        var caption = document.createElement("figcaption");
+        caption.textContent = "Sheet " + String(index + 1).padStart(2, "0");
+        figure.appendChild(caption);
+        pageGrid.appendChild(figure);
+      });
+    }
+
+    document.querySelector(".hamburger-btn")?.addEventListener("click", function() {
+      var nav = document.querySelector(".nav");
+      if (!nav) return;
+      var open = nav.classList.toggle("is-open");
+      this.textContent = open ? "\u2715" : "\u2630";
+      this.setAttribute("aria-expanded", String(open));
+    });
+  })();
+  </script>
+    <script src="content/site/brand-polish.js?v=wm2" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

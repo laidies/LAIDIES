@@ -1,0 +1,71 @@
+{
+  "schema": "laidies.emq.trailer-v4-representative-player-maker-test.v1",
+  "executed_at": "2026-07-27T03:13:09.895Z",
+  "cwd": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-representative-player-harness-2026-07-26",
+  "harness_directory": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-representative-player-harness-2026-07-26",
+  "inputs": {
+    "media": {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934",
+      "bytes": 135632408
+    },
+    "captions": {
+      "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+      "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+      "bytes": 22027,
+      "cue_count": 207,
+      "voice_tag_count": 207
+    }
+  },
+  "checks": [
+    {
+      "name": "binding schema and local-only authority",
+      "result": "PASS"
+    },
+    {
+      "name": "exact frozen MP4 hash",
+      "result": "PASS"
+    },
+    {
+      "name": "exact frozen external VTT hash",
+      "result": "PASS"
+    },
+    {
+      "name": "VTT has 207 cues and voice markup is sanitizable",
+      "result": "PASS"
+    },
+    {
+      "name": "HTML does not eagerly bind media",
+      "result": "PASS"
+    },
+    {
+      "name": "visible truthful controls and caption rail exist",
+      "result": "PASS"
+    },
+    {
+      "name": "fail-closed preflight hashes both inputs before enable",
+      "result": "PASS"
+    },
+    {
+      "name": "caption rail sanitizer handles WebVTT voice markup",
+      "result": "PASS"
+    },
+    {
+      "name": "keyboard and focus behavior are present",
+      "result": "PASS"
+    },
+    {
+      "name": "responsive 390/320 and reduced-motion rules exist",
+      "result": "PASS"
+    },
+    {
+      "name": "no autoplay and recovery paths exist",
+      "result": "PASS"
+    }
+  ],
+  "summary": {
+    "pass": 11,
+    "fail": 0
+  },
+  "limitation": "Deterministic source/hash tests are maker evidence, not independent admission or a human normal-speed full watch."
+}

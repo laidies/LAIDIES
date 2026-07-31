@@ -1,0 +1,40 @@
+{
+  "body": {
+    "schemaVersion": "2.0.0",
+    "recordType": "episode-availability-control",
+    "payload": {
+      "transactionId": "ep05-hold-v1",
+      "transactionType": "hold",
+      "createdAt": "2026-07-26T12:10:00Z",
+      "episodeId": "episode-05",
+      "target": {
+        "candidateId": "ep05-candidate-v1",
+        "candidateBodySha256": "9e7331b979d842be87993f2b42e46b94cc77ea226a53085150ad34f9c4d648b8",
+        "chickFlicksAdmissionId": "cf-admission-v1",
+        "chickFlicksAdmissionBodySha256": null
+      },
+      "scope": {
+        "editorialPackage": true,
+        "formats": []
+      },
+      "reason": "independent acceptance not complete",
+      "effectiveAt": "2026-07-26T12:10:00Z",
+      "safePublicState": "unavailable",
+      "historyContext": {
+        "ledgerPath": "history-empty.json",
+        "ledgerSha256": "a49bcd31fc484ef2e9f45d5beeefb17dae7931c9649d6db5ff1942e721396b88",
+        "acceptedCandidateCount": 0
+      },
+      "restore": {
+        "mode": "no-prior",
+        "candidateId": null,
+        "chickFlicksAdmissionId": null
+      }
+    }
+  },
+  "integrity": {
+    "algorithm": "sha-256",
+    "canonicalization": "RFC8785-JCS",
+    "bodySha256": "4944f39e441ebfe1a9914234cbd230c2ce348330d2a954dee05882d50f18fcbd"
+  }
+}

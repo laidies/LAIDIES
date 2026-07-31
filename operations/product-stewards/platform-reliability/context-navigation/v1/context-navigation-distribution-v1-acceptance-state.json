@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "stateId": "SVBN-CURATED-DISTRIBUTION-2026-07-26-v1-ACCEPTANCE",
+  "asOf": "2026-07-26T15:23:44-0700",
+  "status": "REQUIRED_CONSUMERS_ACCEPTED_HIGH_SUPPLEMENTARY_OPEN",
+  "payload": {
+    "candidateReceipt": {
+      "path": "operations/product-stewards/platform-reliability/context-navigation/v1/context-navigation-distribution-v1.json",
+      "sha256": "a6d263d07ca15709362cb479cbc4f9e18a22f2bc9eddf6fef369bcae3c7465da",
+      "payloadSha256": "6018ccf30c65dab26fd7aa0095b1c2007c1b4fdd7b44d7de0e63f326c477152c"
+    },
+    "acceptances": {
+      "visitorsCentre": {
+        "status": "ACCEPT",
+        "path": "operations/product-stewards/visitors-centre/independent-acceptance-context-navigation-distribution-v1-2026-07-26.md",
+        "sha256": "7390dcf09bfead1dff8dcc505daaa6660608676f5d26a3f19800022bc9e0569e"
+      },
+      "townEntry": {
+        "status": "ACCEPT",
+        "path": "operations/product-stewards/town-entry-homepage/independent-acceptance-context-navigation-distribution-v1-2026-07-26.md",
+        "sha256": "ce51da8aeee0eb02f04c1478e3bfe35fc18e4f7518406fdfabaf86e35300d8c6",
+        "authority": "authorized replacement judge; unrelated stuck Brand marker superseded for this bounded review"
+      },
+      "sunnyvaileHighSupplementary": {
+        "status": "OPEN_SUPPLEMENTARY",
+        "path": null,
+        "sha256": null,
+        "scope": "SUNNYVAiLE High product-owner evidence for preserved ordered Next/Previous behavior",
+        "releaseGate": false,
+        "note": "Control Room ruled Town plus Visitor acceptance closes the required navigation acceptance; High remains separate/open evidence"
+      }
+    },
+    "releaseGate": {
+      "independentConsumerAcceptanceComplete": true,
+      "nativeSafariVoiceOverTrueZoom": "NOT PERFORMED",
+      "publicOriginAssetCache": "NOT PERFORMED",
+      "deploy": false,
+      "publicMutation": false
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "762e3223e3e28db5deccdfd5f2545f08e77b7374eeea8fb0c00a9f8a3051434c"
+  }
+}

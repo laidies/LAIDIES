@@ -1,0 +1,50 @@
+/*
+ * LAiDIES bright-gradient recipes
+ * Extracted from the approved Episode 01 Study Pack direction on 2026-07-29.
+ *
+ * These are shareable recipes, not a change to the canonical site design system.
+ * Use deep-plum ink (#2b1622) for text on these light/bright surfaces.
+ */
+
+:root {
+  --laidies-ink: #2b1622;
+
+  /* Best homepage candidate: the gradient behind the Episode 01 takeaway cards. */
+  --laidies-gradient-pop-spectrum:
+    linear-gradient(120deg, #ef5ca6 0%, #f7d45c 49%, #69cce0 100%);
+
+  /* Bright editorial header or feature band. */
+  --laidies-gradient-sunrise:
+    linear-gradient(110deg, #ef6baa 0%, #f8ca4d 48%, #68b8e9 100%);
+
+  /* Pink-led feature panel with a cool blue finish. */
+  --laidies-gradient-pink-to-sky:
+    linear-gradient(120deg, #f05aa5 0%, #e681bd 45%, #73c6e7 100%);
+
+  /* Cooler learning or utility panel. */
+  --laidies-gradient-aqua-violet-pink:
+    linear-gradient(135deg, #84d5e2 0%, #b7a2e4 47%, #ed78b7 100%);
+
+  /* Stronger pink-violet-blue feature panel. */
+  --laidies-gradient-electric-plum:
+    linear-gradient(130deg, #f05aa5 0%, #b66bd0 55%, #657fde 100%);
+
+  /* Soft full-page atmosphere. Layered colour glows sit over the base wash. */
+  --laidies-gradient-page-wash:
+    radial-gradient(circle at 8% 5%, rgba(255, 228, 90, .68), transparent 19rem),
+    radial-gradient(circle at 92% 12%, rgba(238, 63, 151, .28), transparent 25rem),
+    radial-gradient(circle at 82% 95%, rgba(49, 114, 223, .26), transparent 30rem),
+    linear-gradient(135deg, #ecd9f3 0%, #d9e8fb 51%, #efcce9 100%);
+}
+
+/* Copy-and-paste examples */
+.laidies-pop-spectrum {
+  color: var(--laidies-ink);
+  background: var(--laidies-gradient-pop-spectrum);
+}
+
+.laidies-page-wash {
+  color: var(--laidies-ink);
+  background: var(--laidies-gradient-page-wash);
+  background-attachment: fixed;
+}

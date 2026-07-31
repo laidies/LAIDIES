@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-26",
+  "judge": "Independent Episode Media Quality semantic-motion judge",
+  "scope": "Checksum-bound Cue 30 source-motion admission only; no assembly, v12/master, audio, captions, ident, player, release, deployment, or public acceptance.",
+  "overall_verdict": "ACCEPT_SOURCE_MOTION_ONLY",
+  "release_admitted": false,
+  "cue_binding": {
+    "cue": 30,
+    "interval_seconds": [565.0, 577.0],
+    "duration_seconds": 12.0,
+    "narration": "The machine spent the weekend in the library…",
+    "required_motion": "Ambient zero-net loop: green banker's-lamp glow flicker and dust in window light only.",
+    "prohibited_motion": ["camera", "Heroine", "face", "body", "paper", "book", "CRT", "keyboard", "text", "crop", "composition"]
+  },
+  "artifacts": {
+    "candidate": {
+      "path": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-lamp-dust-zero-net-loop-v1.mp4",
+      "sha256": "6a3a6e936eb025820e261eed8ef147d7ae8d9097c3fb6bdc3c2a30754072d6bf"
+    },
+    "maker_qc": {
+      "path": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-lamp-dust-zero-net-loop-v1-qc.json",
+      "sha256": "2a9210a2e2fedefce9cc3d1168f5173d981b2eb13ffcbb71f1c4fee5c5c00cf7"
+    },
+    "accepted_source_plate": {
+      "path": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-law-clerk-clean-textfree-v1-1920.png",
+      "sha256": "d0f2a078e795b052bdaaabad6aff8de51c4d66d5d53366d7bdd64e57a37c7b2a"
+    },
+    "accepted_source_judgment": {
+      "md_sha256": "f56dc631d3ac7ee0bc1da3f07cf37e0b7ed3e04bf18135edeaad15e29a5ae52f",
+      "json_sha256": "82b5e44aad6cbc6d513349e8c2adabf58576a8fc075b26a1bdffbb26b2169f20"
+    }
+  },
+  "independent_checks": {
+    "full_decode": {"result": "PASS", "returncode": 0, "decoded_frames": 360, "width": 1920, "height": 1080, "fps": 30, "duration_seconds": 12.0, "audio_streams": 0},
+    "zero_net": {"result": "PASS", "first_frame_rgb_sha256": "76867360c259c7d927969fb123a63c0dbc0809ead958fedf45b8036162ef25a0", "mid_frame_180_rgb_sha256": "76ad1d022a9169e7ed3032cc2639fe9a99cdfa0eed4f8ddde3c4fec05a1792c5", "last_frame_rgb_sha256": "76867360c259c7d927969fb123a63c0dbc0809ead958fedf45b8036162ef25a0", "first_last_raw_rgb_equal": true, "first_last_extracted_png_sha256": "da7d7969a65be9dd06aa7548d4adc6bd8241f07448d6b1d73bc4dcaddcabcb7f"},
+    "motion_confinement": {"result": "PASS", "allowed_masks_xyxy": [[0, 215, 410, 425], [1490, 225, 1785, 375]], "outside_changed_pixel_sum_all_frames": 0, "outside_peak_absdiff_levels": 0, "outside_pixel_exact_static": true},
+    "authorised_motion": {"result": "PASS", "inside_changed_union_pixels_at_least_2_levels": 60657, "inside_changed_union_percent_of_frame": 2.925203, "peak_absdiff_levels": 30, "active_frames_at_least_2_levels": 357, "active_frames_at_least_16_levels": 256},
+    "semantic_visual_review": {"result": "PASS", "frames_inspected": [0, 60, 120, 180, 240, 300, 359], "finding": "Visible, restrained cyclical lamp flicker and sparse window-shaft dust only; no camera drift, compression-only shimmer, body, paper, or text motion."}
+  },
+  "reason_codes": ["PASS_HASH_BINDING", "PASS_12S_360F_30FPS_FULL_DECODE", "PASS_ZERO_NET_FIRST_LAST_EQUAL", "PASS_PIXEL_EXACT_OUTSIDE_MASKS", "PASS_RESTRAINED_LAMP_DUST_SEMANTIC_MOTION", "PASS_NO_CAMERA_OR_SUBJECT_MOTION", "HOLD_NO_ASSEMBLY_OR_RELEASE_ADMISSION"],
+  "admission_limits": ["Source-motion asset only.", "Does not update the v10 placement manifest or v12 master.", "Does not clear v12's player-proof HOLD.", "A changed byte sequence, timing, crop, re-encode, or assembly needs its own fresh bound gate."],
+  "next_gate": "Authorised assembly/replacement binding, then independent exact-film/player proof.",
+  "learning_scan": "No qualifying new learning; BTB-189 remains applied."
+}

@@ -1,0 +1,120 @@
+{
+  "status": "BUILT_LOCALLY_AWAITING_INDEPENDENT_REVIEW",
+  "sealedAt": "2026-07-27T10:13:00-07:00",
+  "scope": "Cycle 7 isolated Homepage visual-only challenger",
+  "authority": {
+    "releasedCommit": "1a5ae63f32dae817aee1986349e184a6e6314ee3",
+    "releasedSourceIndexSha256": "ed8ae2b0390ac734c03f6960438ee76af6580f537c746e9c8668184a56d4b1f5",
+    "verifiedPublicHomepageSha256": "238dff887de35233994d421b39bee0845a29b5bd09defd95dbe00d877773fb87",
+    "liveIntegration": false,
+    "deploy": false,
+    "publication": false,
+    "aliApproval": false
+  },
+  "candidate": {
+    "css": {
+      "path": "candidate.css",
+      "sha256": "85ff4d0cd9927bc4918726db24beeca094bdd4e2cf9b18f49f4f51a8c2a5877b"
+    },
+    "captureHarness": {
+      "path": "capture.mjs",
+      "sha256": "a6860341a2c6e0ba893ed98f6f5c1eeb831a30a0e0870308c8dceed251ca93e5"
+    },
+    "desktop": {
+      "viewport": "1440x900",
+      "path": "evidence/candidate/desktop/homepage-challenger-1440.png",
+      "dimensions": "1440x12022",
+      "sha256": "4a194b87494d6945f9b41277a0e488e117f66f147b96551d4fa9f60ab871e7b0"
+    },
+    "mobile": {
+      "viewport": "390x844",
+      "path": "evidence/candidate/mobile/homepage-challenger-390.png",
+      "dimensions": "390x19228",
+      "sha256": "7f6bf9d64c3095eb23d730594f3155ec27ef420325c173a98eb993b8b8568dcc"
+    }
+  },
+  "immutableIncumbentEvidence": {
+    "desktop": {
+      "viewport": "1440x900",
+      "path": "evidence/baseline/desktop/homepage-incumbent-1440.png",
+      "dimensions": "1440x11940",
+      "sha256": "3daac8b01aa25594a4f2bd8fc8829447f59ca6851e8e864229a60b06cdb98e39"
+    },
+    "mobile": {
+      "viewport": "390x844",
+      "path": "evidence/baseline/mobile/homepage-incumbent-390.png",
+      "dimensions": "390x18997",
+      "sha256": "40d3c3ac527f73ec5ff96897fc7c718aa497dc65ab63032b093b16f116c1f102"
+    }
+  },
+  "heroPixelIdentity": {
+    "desktopBaselinePath": "evidence/baseline/desktop/homepage-incumbent-hero-1440.png",
+    "desktopCandidatePath": "evidence/candidate/desktop/homepage-challenger-hero-1440.png",
+    "desktopSharedSha256": "a2496aceabc1de9624edd72c9bb39b67e626cf572a69f0e39d149ee82d617d05",
+    "mobileBaselinePath": "evidence/baseline/mobile/homepage-incumbent-hero-390.png",
+    "mobileCandidatePath": "evidence/candidate/mobile/homepage-challenger-hero-390.png",
+    "mobileSharedSha256": "0765beb763879ba4abfa1e9e335e3836b1d627c3c9b13ca43ab0dc84b27fa32d"
+  },
+  "invariants": {
+    "copy": true,
+    "domAndIa": true,
+    "linksAndRoutes": true,
+    "imageSources": true,
+    "completeImages": true,
+    "runtimeAndFeatures": true,
+    "heroPixels": true,
+    "noHorizontalOverflow": true,
+    "sharedOrProductionFilesChanged": false
+  },
+  "diagnostics": {
+    "desktop": {
+      "path": "evidence/diagnostics/desktop-1440.json",
+      "sha256": "9d6d3857b9094b3b7941fd44f7d22fd6d1aefd3373b0bb718c59a61674f4888b"
+    },
+    "mobile": {
+      "path": "evidence/diagnostics/mobile-390.json",
+      "sha256": "d004f6a566beb66df1fd813ba6f0d6a2b3c7215ee98485aa13a59bb967edf6fb"
+    }
+  },
+  "controllingVisualInputs": [
+    {
+      "path": "assets/sunnyvaile-streets/main-street-dusk.webp",
+      "role": "exact incumbent masthead artwork retained",
+      "sha256": "4efec0f4ed1a8211b07b2db633f7c373ca3001485b43c05cefe850d0b6b19d3b"
+    },
+    {
+      "path": "operations/reference/style-only-refs/styleref-07-woman-city-three-quarter-ink-faceted.png",
+      "role": "adult editorial ink/faceted craft reference",
+      "sha256": "8b343b5d9ed291882c1d8005603c9046054bfd9ceacdc6e731dffa0c13aecff8"
+    },
+    {
+      "path": "operations/reference/style-only-refs/styleref-08-man-neon-faceted-portrait.png",
+      "role": "disciplined saturated night colour reference",
+      "sha256": "a9602b47d2a7e3663de09028daa1d714a61e537e17780dccd908c22b072e7e4a"
+    },
+    {
+      "path": "operations/reference/episode-style-popart/epstyle-popart-01.png",
+      "role": "adult graphic-novel colour blocking reference",
+      "sha256": "dc3fcc921ea5cac0ba7e123c5269d1daf2c1635b46c98475d73b8c758e43fade"
+    },
+    {
+      "path": "operations/reference/episode-style-popart/epstyle-popart-06.png",
+      "role": "adult graphic-novel composition reference",
+      "sha256": "f3ca7a18e0d79a15362cfa81fd3db24e06731edc7092f76067fd48d156487840"
+    },
+    {
+      "path": "operations/reference/font-and-text-emphasis/fontref-08.png",
+      "role": "mature editorial serif and sans hierarchy reference",
+      "sha256": "c5af61010a5aa72b055ff5ef1f9f591b37e4e690485d23b00a1665c785d638a3"
+    }
+  ],
+  "rejectedEvidenceExcluded": [
+    "cycle-5",
+    "cycle-6",
+    "Pearl Plum",
+    "white or cream status-card grids",
+    "internal operations vocabulary",
+    "purple and yellow-gold system",
+    "CSS-substitute artwork"
+  ]
+}

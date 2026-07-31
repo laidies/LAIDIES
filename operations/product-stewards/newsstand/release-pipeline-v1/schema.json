@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "laidies://newsstand/release-pipeline-v1/schema.json",
+  "version": "1.0.0",
+  "purpose": "Private dry-run candidate contract. This schema is executable only through scripts/newsstand-release-pipeline-v1.mjs.",
+  "candidateRequired": ["schemaVersion", "candidateId", "storyKey", "action", "title", "body", "claimIds", "sourceReceiptIds", "claimBindingSha256", "evaluationAt"],
+  "candidateAllowed": ["schemaVersion", "candidateId", "storyKey", "action", "title", "body", "claimIds", "sourceReceiptIds", "claimBindingSha256", "evaluationAt", "rollbackTargetCanonicalSha256"],
+  "actions": ["publish", "correct", "retract", "rollback"],
+  "sourceReceiptRequired": ["receiptId", "sourceUrl", "sourceBytesSha256", "retrievedAt", "recordedBy", "independent"],
+  "claimBindingRequired": ["claimId", "claimTextSha256", "sourceReceiptIds"],
+  "decisionRequired": ["decisionId", "candidateSha256", "schemaSha256", "reviewedBy", "reviewerRole", "decision", "reviewedAt"],
+  "approvalDecision": "APPROVE_CANONICAL_DRY_RUN",
+  "sourceReceiptMaxAgeHours": 48
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVC-01 geometry overlay</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 24px; background: #17111b; color: #fff8df; font: 800 14px/1.3 Arial, sans-serif; }
+      h1 { margin: 0 0 8px; }
+      p { margin: 0 0 20px; color: #f4cd57; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      figure { margin: 0; padding: 12px; border: 2px solid #fff8df; }
+      figcaption { margin-bottom: 8px; }
+      .overlay { position: relative; aspect-ratio: 1440 / 1024; overflow: hidden; background: #fff; }
+      .overlay img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+      .overlay img:last-child { opacity: .5; mix-blend-mode: difference; }
+    </style>
+  </head>
+  <body>
+    <h1>SVC-01 — aligned implementation overlays</h1>
+    <p>Identical viewport and DOM box geometry; visual-system pixels are the intended variable.</p>
+    <div class="grid">
+      <figure>
+        <figcaption>A base + B at 50% difference blend</figcaption>
+        <div class="overlay"><img src="/qa/A-arrival.png" alt="" /><img src="/qa/B-arrival.png" alt="" /></div>
+      </figure>
+      <figure>
+        <figcaption>A base + C at 50% difference blend</figcaption>
+        <div class="overlay"><img src="/qa/A-arrival.png" alt="" /><img src="/qa/C-arrival.png" alt="" /></div>
+      </figure>
+    </div>
+  </body>
+</html>

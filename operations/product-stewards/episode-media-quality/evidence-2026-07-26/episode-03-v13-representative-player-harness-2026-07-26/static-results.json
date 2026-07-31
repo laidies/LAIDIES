@@ -1,0 +1,61 @@
+{
+  "schema": "laidies.emq.episode-03-v13.representative-player-maker-static.v1",
+  "status": "PASS",
+  "pass_count": 10,
+  "fail_count": 0,
+  "inputs": {
+    "media": {
+      "path": "/assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+      "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
+      "bytes": 436491858
+    },
+    "captions": {
+      "path": "/assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "cue_count": 211
+    }
+  },
+  "checks": [
+    {
+      "name": "exact MP4 SHA-256",
+      "result": "PASS"
+    },
+    {
+      "name": "exact VTT SHA-256",
+      "result": "PASS"
+    },
+    {
+      "name": "exact media bytes",
+      "result": "PASS"
+    },
+    {
+      "name": "211 caption cues",
+      "result": "PASS"
+    },
+    {
+      "name": "VTT voice markup sanitizes",
+      "result": "PASS"
+    },
+    {
+      "name": "no-JS unbound boundary",
+      "result": "PASS"
+    },
+    {
+      "name": "external captions below picture",
+      "result": "PASS"
+    },
+    {
+      "name": "retry and fail paths",
+      "result": "PASS"
+    },
+    {
+      "name": "normal speed keyboard path",
+      "result": "PASS"
+    },
+    {
+      "name": "responsive focus and reduced motion",
+      "result": "PASS"
+    }
+  ],
+  "boundary": "Static maker checks do not establish actual browser behavior, independent acceptance, or human full 1× unmuted audible watch."
+}

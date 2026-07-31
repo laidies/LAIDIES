@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUNNYVAiLE High — building candidate</title>
+  <meta name="description" content="Candidate-only SUNNYVAiLE High building experience.">
+  <link rel="stylesheet" href="high-candidate.css">
+  <script defer src="high-candidate.js"></script>
+</head>
+<body>
+  <a class="skip" href="#schoolhouse">Skip to the schoolhouse</a>
+  <header class="candidate-header"><p>BUILDING CANDIDATE · LOCAL REVIEW ONLY</p><a href="../../../sunnyvaile-high.html">Return to the current High page</a></header>
+  <main id="schoolhouse">
+    <section class="arrival" aria-labelledby="high-title">
+      <div class="arrival-copy">
+        <p class="eyebrow">Schoolhouse Road · SUNNYVAiLE</p>
+        <h1 id="high-title"><span>SUNNYVAiLE</span> High.</h1>
+        <p class="lede">Class previews on the AV cart · Season 1 textbooks · Pop Quizzes · Home of the CENTAURS. Where LAiDIES practice lives. Show up, inspect the explanation, try again.</p>
+        <p>Three places teach you AI in town, and they do different jobs. The Chick Flicks gives you the episode. The LIBRAiRY is where you look it up. SUNNYVAiLE High is for demonstrations and practice. The written class previews are open; the class tapes are still in production, so there is nothing to press play on yet.</p>
+        <a class="primary-action" href="#room-101" data-primary>Start in Room 101 <span aria-hidden="true">→</span></a>
+        <p class="arrival-note">Pick one of the available Episode quizzes, answer every question, then inspect what each answer means and where to reread it. The quiz checks recall and judgment; it does not certify mastery.</p>
+      </div>
+      <figure class="arrival-photo"><img src="../../../../assets/building-interiors/sunnyvaile-high-hallway.jpg" alt="Inside SUNNYVAiLE High — a locker-lined hallway with plum, teal and gold lockers, a checkerboard floor, a SUNNYVAiLE HIGH banner, a GO CENTAURS! pennant and a trophy case"><figcaption>Arrival is a corridor, not a dashboard.</figcaption></figure>
+    </section>
+
+    <section class="blackboard" aria-label="Today at SUNNYVAiLE High">
+      <div><p class="eyebrow">TODAY AT HIGH</p><h2>Choose the learning job you need.</h2></div>
+      <ol><li><strong>Watch it explained</strong><span>AV classroom · written previews are open</span></li><li><strong>Practise your judgment</strong><span>Room 101 · Pop Quiz with explanations</span></li><li><strong>Look it up</strong><span>101 shelf · owned by the LIBRAiRY</span></li></ol>
+    </section>
+
+    <section class="corridor" aria-labelledby="corridor-title">
+      <div class="section-intro"><p class="eyebrow">THE CORRIDOR</p><h2 id="corridor-title">Six rooms. One school day.</h2><p>Each door has a real action or says exactly why it cannot offer one yet.</p></div>
+      <div class="doors" role="list">
+        <article class="door door-av" role="listitem"><div class="door-number">A/V</div><div><h3>AV Classroom</h3><p>Written previews open · tapes in production</p></div><button type="button" data-room="av" aria-expanded="false" aria-controls="av-room">Take a seat <span aria-hidden="true">→</span></button></article>
+        <article class="door door-quiz" id="room-101" role="listitem"><div class="door-number">101</div><div><h3>Room 101 · Pop Quiz</h3><p>Wednesdays. Pencils ready.</p></div><a href="/learn/quiz.html">Choose a Pop Quiz <span aria-hidden="true">→</span></a></article>
+        <article class="door door-registrar" role="listitem"><div class="door-number">REC</div><div><h3>Registrar</h3><p>Quiz attempts saved on this device</p></div><button type="button" data-room="registrar" aria-expanded="false" aria-controls="registrar-room">Pull your record <span aria-hidden="true">→</span></button></article>
+        <article class="door door-yearbook" role="listitem"><div class="door-number">’99</div><div><h3>Yearbook Office</h3><p>A playful title from local quiz scores</p></div><button type="button" data-room="yearbook" aria-expanded="false" aria-controls="yearbook-room">See your superlative <span aria-hidden="true">→</span></button></article>
+        <article class="door door-library" role="listitem"><div class="door-number">101</div><div><h3>Library 101 Notice</h3><p>Seven textbooks, one intro curriculum</p></div><a href="/library.html#the-101-shelf">Visit the 101 shelf <span aria-hidden="true">→</span></a></article>
+        <article class="door door-gym" role="listitem"><div class="door-number">GYM</div><div><h3>Book Fair Gym</h3><p>In the gym every four weeks</p></div><button type="button" data-room="fair" aria-expanded="false" aria-controls="fair-room">See the racks <span aria-hidden="true">→</span></button></article>
+        <article class="door door-closet" role="listitem"><div class="door-number">C</div><div><h3>Closet Handoff</h3><p>Read the supported result on this device</p></div><a href="/laidies-card.html">Open your Closet <span aria-hidden="true">→</span></a></article>
+        <article class="door door-closed" role="listitem"><div class="door-number">201</div><div><h3>Next Season</h3><p>Ideas in planning · nothing enrolled yet</p></div><span class="closed-label">Closed · no class available</span></article>
+      </div>
+    </section>
+
+    <section class="room-panel" id="av-room" hidden tabindex="-1" aria-labelledby="av-title">
+      <div class="room-art"><img src="../../../../assets/building-interiors/sunnyvaile-high-classroom.jpg" alt="A SUNNYVAiLE High classroom with a CRT television, desks and a chalkboard"></div>
+      <div class="room-copy"><p class="eyebrow">A/V CLASSROOM</p><h2 id="av-title">The Classes</h2><p>Written previews open · tapes in production</p><p id="class-state" class="truth">Reading the class register…</p><div id="class-grid" class="class-grid" aria-live="polite"></div><p class="limit">No class tapes are available yet. A written preview is not a finished class, a play event or a completion.</p></div>
+    </section>
+
+    <section class="room-panel room-panel-reverse" id="registrar-room" hidden tabindex="-1" aria-labelledby="registrar-title">
+      <div class="room-copy"><p class="eyebrow">OFFICE OF THE REGISTRAR</p><h2 id="registrar-title">Your Report Card</h2><p>Completed attempts appear on a playful device-local scorecard. They can disappear when browser data is cleared and are not proof of mastery or cross-device progress.</p><div class="record-card" id="record-card" aria-live="polite"><p class="record-status">Reading this device…</p></div><a class="outline-link" href="/sunnyvaile-high.html#report-card">Open the current Report Card experience</a></div>
+      <div class="room-art"><img src="../../../../assets/building-interiors/sunnyvaile-high-hallway.jpg" alt="Locker-lined SUNNYVAiLE High hallway leading toward the registrar"></div>
+    </section>
+
+    <section class="room-panel" id="yearbook-room" hidden tabindex="-1" aria-labelledby="yearbook-title">
+      <div class="room-art"><img src="../../../../assets/building-interiors/sunnyvaile-high-pop-quiz.jpg" alt="SUNNYVAiLE High Pop Quiz desk with scantron sheet and pencil"></div>
+      <div class="room-copy"><p class="eyebrow">THE YEARBOOK OFFICE</p><h2 id="yearbook-title">Class Superlatives</h2><p>A playful title from local quiz scores.</p><div class="yearbook-card" id="yearbook-card" aria-live="polite"><p class="record-status">No local title yet.</p></div><p class="limit">Just for fun; it is not a ranking, credential or judgment of capability.</p><a class="outline-link" href="/sunnyvaile-high.html#superlatives">Open the current Yearbook experience</a></div>
+    </section>
+
+    <section class="room-panel room-panel-reverse" id="fair-room" hidden tabindex="-1" aria-labelledby="fair-title">
+      <div class="room-copy"><p class="eyebrow">THE GYM</p><h2 id="fair-title">The Scholastic Book Fair</h2><p>In the gym every four weeks.</p><p class="truth">The current inventory is stocking soon. Do not spend, reserve or expect fulfilment from this candidate.</p><a class="outline-link" href="/bookfair.html">Open the Book Fair catalogue</a><p class="limit">A local Clip code is not account money. Any entitlement, reservation, delivery, refund or cross-device result remains a separate Platform proof.</p></div>
+      <div class="room-art"><img src="../../../../assets/building-interiors/sunnyvaile-high-book-fair.jpg" alt="SUNNYVAiLE High gym dressed for the Scholastic Book Fair with book tables and banners"></div>
+    </section>
+  </main>
+  <footer><p>Candidate-only. It preserves route, account, reward, class-admission and local-storage boundaries; it does not integrate them.</p></footer>
+</body>
+</html>

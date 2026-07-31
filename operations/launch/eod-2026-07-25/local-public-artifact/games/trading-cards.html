@@ -1,0 +1,1404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trading Cards | SUNNYVAiLE</title>
+    <meta name="description" content="Two tradable decks: Concept cards (AI ideas per episode, picked up at Blend & Snap) and Character cards (the pantheon — SAiNTS, MAiVENS, and the town characters)." />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+      :root {
+        --hot-pink: #b95d78;
+        --plum: #4b2148;
+        --wine: #6f263f;
+        --dark-bg: #fbf6f5;
+        --card-bg: #fffdfb;
+        --panel-bg: linear-gradient(160deg, #fffdfb 0%, #f7eeee 100%);
+        --muted: #65515d;
+        --gold: #d4a853;
+        --pink-border: rgba(185, 93, 120, 0.4);
+        --holographic: linear-gradient(135deg, #b95d78, #7b2dff, #2dd4ff, #b95d78);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Jost', -apple-system, sans-serif;
+        background:
+          radial-gradient(circle at 88% 0%, rgba(200, 220, 224, 0.24), transparent 22rem),
+          linear-gradient(180deg, #fffdfb 0%, var(--dark-bg) 48%, #fffdfb 100%);
+        color: var(--plum);
+        min-height: 100vh;
+        line-height: 1.5;
+      }
+      a { color: var(--hot-pink); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Sticky Back to SUNNYVAiLE */
+      .sticky-back {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        min-height: 82px;
+        background: rgba(255, 253, 251, 0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(75, 33, 72, 0.16);
+        box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
+        padding: 12px clamp(16px, 4vw, 32px);
+      }
+      .sticky-back .brand {
+        display: inline-flex;
+        line-height: 0;
+        overflow: visible;
+      }
+      .sticky-back .brand img {
+        display: block;
+        width: clamp(120px, 11.5vw, 164px);
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(75, 33, 72, 0.1));
+      }
+      .sticky-back .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 14px;
+        margin-left: auto;
+      }
+      .sticky-back a:not(.brand) {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: var(--plum);
+        transition: color 0.2s;
+      }
+      .sticky-back a:hover { color: var(--hot-pink); text-decoration: none; }
+      .sticky-back .wednesday-return-nav {
+        padding: 8px 12px;
+        border: 1px solid rgba(185, 93, 120, 0.42);
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.9);
+        box-shadow: 0 10px 24px rgba(75, 33, 72, 0.08);
+      }
+      .sticky-back .wednesday-return-nav[hidden] {
+        display: none;
+      }
+
+      @media (max-width: 560px) {
+        .sticky-back {
+          align-items: flex-start;
+          gap: 10px;
+          min-height: 76px;
+        }
+        .sticky-back .brand img {
+          width: clamp(106px, 30vw, 134px);
+        }
+        .sticky-back .nav-links {
+          gap: 10px;
+        }
+      }
+
+      /* Page Layout */
+      .game-page-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: clamp(24px, 4vw, 48px) clamp(14px, 3vw, 32px);
+      }
+      .eyebrow {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        font-weight: 700;
+      }
+
+      /* Hero — pure typographic lead. Two-decks fold below is the star. */
+      .tc-hero { padding: 32px 0 24px; text-align: center; max-width: 720px; margin: 0 auto; }
+      .tc-hero-eyebrow {
+        font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700; margin-bottom: 10px;
+      }
+      .tc-hero h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+        line-height: 1.05; letter-spacing: -0.01em; color: var(--plum);
+        margin-bottom: 14px;
+      }
+      .tc-lede {
+        color: var(--muted); font-size: 1.02rem; line-height: 1.6;
+        max-width: 640px; margin: 0 auto;
+      }
+      .tc-lede strong { color: var(--plum); }
+      .tc-lede a { font-weight: 600; }
+
+      /* Two-decks fold — the fold. Two big picker cards side by side. */
+      .tc-fold {
+        margin: 32px 0 48px;
+        display: grid; gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @media (max-width: 720px) { .tc-fold { grid-template-columns: 1fr; } }
+      .tc-fold-card {
+        position: relative;
+        display: flex; flex-direction: column; gap: 12px;
+        padding: 28px 26px 24px; border-radius: 22px;
+        color: var(--plum); text-decoration: none;
+        background: var(--panel-bg);
+        border: 1.5px solid var(--pink-border);
+        box-shadow: 0 16px 40px rgba(75, 33, 72, 0.10);
+        transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.2s;
+        overflow: hidden;
+      }
+      .tc-fold-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 28px 60px rgba(185, 93, 120, 0.24);
+        border-color: var(--hot-pink);
+        text-decoration: none;
+      }
+      .tc-fold-card::before {
+        content: "";
+        position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, var(--hot-pink), #7b2dff);
+      }
+      .tc-fold-card--character::before {
+        background: linear-gradient(90deg, var(--gold), var(--hot-pink));
+      }
+      .tc-fold-eyebrow {
+        font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700;
+      }
+      .tc-fold-card--character .tc-fold-eyebrow { color: var(--gold); }
+      .tc-fold-title {
+        font-family: Georgia, serif; font-size: 1.65rem; line-height: 1.1;
+        color: var(--plum); font-weight: 700; margin: 0;
+      }
+      .tc-fold-meta {
+        font-size: 0.82rem; color: var(--muted);
+      }
+      .tc-fold-meta strong { color: var(--plum); }
+      .tc-fold-body {
+        font-size: 0.9rem; color: var(--muted); line-height: 1.55;
+      }
+      .tc-fold-preview {
+        display: flex; gap: 10px; align-items: center;
+        padding: 6px 0; overflow: hidden;
+      }
+      .tc-fold-preview--concept span {
+        width: 44px; height: 44px; border-radius: 12px;
+        background: linear-gradient(135deg, #fffefc, #f7dcea);
+        border: 1.5px solid var(--pink-border);
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.4rem; flex: 0 0 auto;
+        box-shadow: 0 4px 10px rgba(75, 33, 72, 0.08);
+      }
+      .tc-fold-preview--character img {
+        width: 54px; height: 54px; border-radius: 50%; object-fit: cover;
+        border: 2.5px solid #fff; flex: 0 0 auto;
+        box-shadow: 0 4px 12px rgba(75, 33, 72, 0.16);
+      }
+      .tc-fold-preview--character img + img { margin-left: -10px; }
+      .tc-fold-cta {
+        margin-top: auto; padding-top: 4px;
+        font-size: 0.86rem; font-weight: 700; letter-spacing: 0.04em;
+        color: var(--hot-pink);
+      }
+      .tc-fold-card--character .tc-fold-cta { color: var(--wine); }
+
+      .tc-outro { margin: 40px 0 8px; }
+
+      /* Dramatic Hero Image */
+      .hero-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-image::before {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #b95d78, #7b2dff, #2dd4ff, #ffd700, #b95d78);
+        background-size: 400% 400%;
+        animation: holoShimmer 4s ease infinite;
+        z-index: 0;
+      }
+      .hero-image::after {
+        content: '';
+        position: absolute;
+        inset: -20px;
+        border-radius: 30px;
+        background: radial-gradient(ellipse at center, rgba(185,93,120,0.25) 0%, rgba(123,45,255,0.15) 40%, transparent 70%);
+        filter: blur(20px);
+        z-index: -1;
+        animation: pulseGlow 3s ease-in-out infinite alternate;
+      }
+      @keyframes pulseGlow {
+        from { opacity: 0.6; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1.05); }
+      }
+      .hero-image-inner {
+        position: relative;
+        z-index: 1;
+        border-radius: 16px;
+        overflow: hidden;
+        width: 100%;
+        transform: rotate(-2deg);
+        box-shadow: 0 12px 50px rgba(185, 93, 120, 0.35), 0 4px 20px rgba(0,0,0,0.5);
+        transition: transform 0.3s ease;
+      }
+      .hero-image-inner:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
+      .hero-image-inner img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .hero-copy h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .hero-copy .subtitle {
+        color: var(--muted);
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+
+      /* Ai accent — every "Ai" span across the site renders in rose */
+      .ai { color: var(--hot-pink); }
+
+      /* ── Deck bands (Concept + Character section headers) ── */
+      .deck-band {
+        margin: 44px 0 24px;
+        padding: 28px 0 22px;
+        border-top: 1px solid rgba(75, 33, 72, 0.12);
+      }
+      .deck-band-head p.eyebrow {
+        font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700; margin-bottom: 6px;
+      }
+      .deck-band-head h2 {
+        font-family: Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem);
+        line-height: 1.15; margin-bottom: 10px; color: var(--plum);
+      }
+      .deck-band-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.55; max-width: 640px; }
+      .deck-band-sub a { color: var(--hot-pink); font-weight: 600; }
+      .deck-band-note {
+        margin-top: 24px; padding: 14px 18px; border-radius: 12px;
+        background: rgba(212, 168, 83, 0.14); border: 1px solid rgba(212, 168, 83, 0.42);
+        color: var(--plum); font-size: 0.9rem; line-height: 1.5;
+      }
+      .deck-band-note a { font-weight: 600; }
+
+      /* Character sub-deck cards */
+      .character-decks {
+        margin-top: 22px;
+        display: grid; gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .char-deck {
+        display: flex; flex-direction: column; gap: 8px;
+        padding: 22px 22px 20px; border-radius: 18px;
+        background: var(--panel-bg);
+        border: 1px solid var(--pink-border);
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.09);
+        color: var(--plum); text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.2s;
+        position: relative; overflow: hidden;
+      }
+      .char-deck:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 22px 48px rgba(185, 93, 120, 0.22);
+        border-color: var(--hot-pink);
+        text-decoration: none;
+      }
+      .char-deck-eyebrow {
+        font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--muted); font-weight: 700;
+      }
+      .char-deck-count {
+        position: absolute; top: 18px; right: 20px;
+        font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+        color: var(--hot-pink); font-weight: 700;
+      }
+      .char-deck-title {
+        font-family: Georgia, serif; font-size: 1.35rem; line-height: 1.15;
+        color: var(--plum); font-weight: 700;
+      }
+      .char-deck-body { font-size: 0.86rem; color: var(--muted); line-height: 1.55; }
+      .char-deck-strip {
+        display: flex; gap: 6px; margin-top: 8px; flex-wrap: nowrap; overflow: hidden;
+      }
+      .char-deck-strip img {
+        width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+        border: 2px solid #fff; box-shadow: 0 4px 10px rgba(75, 33, 72, 0.15);
+        flex: 0 0 auto;
+      }
+      .char-deck-strip--placeholder span {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: linear-gradient(135deg, #e8c5c8, var(--hot-pink));
+        color: #fff; font-weight: 700; font-size: 1rem;
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 2px solid #fff; box-shadow: 0 4px 10px rgba(75, 33, 72, 0.15);
+        flex: 0 0 auto;
+      }
+      .char-deck-cta {
+        margin-top: 6px;
+        font-size: 0.82rem; font-weight: 700; letter-spacing: 0.03em;
+        color: var(--hot-pink);
+      }
+
+      /* Progress Bar */
+      .collection-progress {
+        margin-bottom: 20px;
+      }
+      .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .progress-label strong { color: var(--hot-pink); }
+      .progress-bar {
+        height: 8px;
+        background: rgba(75, 33, 72, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--hot-pink), #7b2dff);
+        border-radius: 4px;
+        transition: width 0.6s ease;
+        width: 0%;
+      }
+
+      /* Pack Controls */
+      .pack-controls {
+        display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+        margin-bottom: 20px;
+      }
+      .pack-select {
+        padding: 8px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--pink-border);
+        background: rgba(255, 253, 251, 0.92);
+        color: var(--plum);
+        font-size: 0.85rem;
+        cursor: pointer;
+      }
+      .pack-select option { background: #fffdfb; color: var(--plum); }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: 2px solid var(--hot-pink);
+        background: var(--hot-pink);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(185, 93, 120, 0.4);
+      }
+      .btn:active { transform: translateY(0); }
+      .btn-secondary {
+        background: transparent;
+        border-color: rgba(75, 33, 72, 0.24);
+        color: var(--plum);
+      }
+      .btn-secondary:hover {
+        border-color: var(--hot-pink);
+        box-shadow: 0 4px 16px rgba(185,93,120,0.2);
+      }
+
+      .pack-status {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+
+      /* Pack Opening Animation Area */
+      .pack-opening-area {
+        margin-bottom: 48px;
+        min-height: 280px;
+        position: relative;
+      }
+      .pack-pulls {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 560px) {
+        .pack-pulls { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
+      }
+      .pack-empty {
+        text-align: center;
+        color: rgba(75, 33, 72, 0.42);
+        font-style: italic;
+        padding: 60px 20px;
+        grid-column: 1 / -1;
+      }
+
+      /* Trading Card with 3D Flip */
+      .trading-card {
+        perspective: 800px;
+        cursor: pointer;
+        animation: slideIn 0.4s ease backwards;
+      }
+      .trading-card:nth-child(1) { animation-delay: 0s; }
+      .trading-card:nth-child(2) { animation-delay: 0.2s; }
+      .trading-card:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes slideIn {
+        from { transform: translateY(40px) scale(0.9); opacity: 0; }
+        to { transform: translateY(0) scale(1); opacity: 1; }
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        padding-bottom: 140%;
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+      }
+      .trading-card.is-flipped .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .card-face {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 2px solid var(--pink-border);
+      }
+
+      /* Card Front - Holographic Shimmer */
+      .card-front {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel-bg);
+        position: relative;
+        padding: 20px;
+      }
+      .card-front::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(185, 93, 120, 0.1) 0%,
+          rgba(123, 45, 255, 0.15) 25%,
+          rgba(45, 212, 255, 0.1) 50%,
+          rgba(255, 215, 0, 0.1) 75%,
+          rgba(185, 93, 120, 0.1) 100%
+        );
+        background-size: 400% 400%;
+        animation: holoShimmer 4s ease infinite;
+        pointer-events: none;
+        z-index: 1;
+      }
+      @keyframes holoShimmer {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .card-front::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.08) 50%,
+          transparent 70%
+        );
+        background-size: 200% 200%;
+        animation: foilSweep 3s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 2;
+      }
+      @keyframes foilSweep {
+        0% { background-position: -100% -100%; }
+        100% { background-position: 200% 200%; }
+      }
+      .card-front .card-title {
+        position: relative;
+        z-index: 3;
+        font-family: Georgia, serif;
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 10px;
+        color: var(--plum);
+        text-shadow: 0 1px 0 rgba(255, 253, 251, 0.72);
+      }
+      .card-front .card-hook {
+        position: relative;
+        z-index: 3;
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-align: center;
+        font-style: italic;
+      }
+      .card-front .card-icon {
+        position: relative;
+        z-index: 3;
+        font-size: 2.4rem;
+        margin-bottom: 12px;
+      }
+      .card-front .card-issue-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: rgba(255, 253, 251, 0.82);
+        color: var(--hot-pink);
+        z-index: 4;
+      }
+
+      /* Card Back - Content */
+      .card-back {
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 16px;
+        background: linear-gradient(160deg, #fffdfb, #f7eeee);
+        text-align: center;
+        justify-content: center;
+      }
+      .card-back .card-unlock-label {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        font-weight: 700;
+      }
+      .card-back h3 {
+        font-family: Georgia, serif;
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        line-height: 1.3;
+      }
+      .card-back p {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+      .card-back .card-reward {
+        font-size: 0.72rem;
+        color: rgba(75, 33, 72, 0.52);
+        font-style: italic;
+        margin-top: auto;
+      }
+      .card-back .flip-hint {
+        font-size: 0.68rem;
+        color: rgba(75, 33, 72, 0.42);
+      }
+
+      /* Rarity Borders */
+      .rarity-common .card-face { border-color: var(--hot-pink); }
+      .rarity-rare .card-face { border-color: var(--gold); box-shadow: 0 0 12px rgba(255, 215, 0, 0.3); }
+      .rarity-holo .card-face {
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        box-shadow: 0 0 16px rgba(123, 45, 255, 0.4), inset 0 0 0 2px rgba(123,45,255,0.6);
+      }
+      .rarity-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 2px 6px;
+        border-radius: 3px;
+        z-index: 5;
+      }
+      .rarity-common .rarity-badge { background: var(--hot-pink); color: #fff; }
+      .rarity-rare .rarity-badge { background: var(--gold); color: #1a0a12; }
+      .rarity-holo .rarity-badge { background: var(--holographic); background-size: 300% 300%; animation: holoShimmer 3s ease infinite; color: #fff; }
+
+      /* Duplicate badge */
+      .dup-badge {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 10px;
+        background: rgba(75, 33, 72, 0.1);
+        color: rgba(75, 33, 72, 0.7);
+        z-index: 5;
+      }
+
+      /* Collection Binder */
+      .binder-section {
+        margin-top: 48px;
+      }
+      .binder-section h2 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        margin-bottom: 6px;
+      }
+      .binder-section > p {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+      }
+      .binder-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 14px;
+      }
+      @media (max-width: 560px) {
+        .binder-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      }
+
+      .binder-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(75, 33, 72, 0.12);
+        background: rgba(255, 253, 251, 0.72);
+        transition: border-color 0.3s, transform 0.2s;
+        cursor: pointer;
+      }
+      .binder-card.is-owned {
+        border-color: var(--pink-border);
+      }
+      .binder-card.is-owned:hover {
+        transform: translateY(-3px);
+        border-color: var(--hot-pink);
+      }
+      .binder-card.is-missing {
+        opacity: 0.35;
+        filter: grayscale(0.8);
+      }
+      .binder-card-visual {
+        width: 100%;
+        aspect-ratio: 3/4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel-bg);
+        position: relative;
+      }
+      .binder-card-visual .binder-icon {
+        font-size: 2rem;
+      }
+      .binder-card-visual::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(185,93,120,0.05), rgba(123,45,255,0.08), rgba(45,212,255,0.05));
+        background-size: 300% 300%;
+        animation: holoShimmer 5s ease infinite;
+      }
+      .binder-card-info {
+        padding: 10px;
+      }
+      .binder-card-info strong {
+        display: block;
+        font-size: 0.75rem;
+        margin-bottom: 2px;
+      }
+      .binder-card-info span {
+        font-size: 0.65rem;
+        color: rgba(75, 33, 72, 0.58);
+      }
+      .binder-count-badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: var(--hot-pink);
+        color: #fff;
+        font-size: 0.6rem;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 8px;
+      }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+
+    <!-- Sticky Back to SUNNYVAiLE -->
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+    <main>
+      <div class="game-page-wrap">
+
+        <!-- Hero — the story, not the mechanic -->
+        <section class="tc-hero">
+          <p class="tc-hero-eyebrow"><span class="ai">Ai</span> · Two decks · Both tradable</p>
+          <h1>Trading Cards</h1>
+          <p class="tc-lede"><strong>Concept cards</strong> teach an <span class="ai">Ai</span> idea &mdash; one deck per episode, picked up at <a href="../blend-snap.html">Blend &amp; Snap</a>. <strong>Character cards</strong> are the SUNNYV<span class="ai">Ai</span>LE pantheon &mdash; SAiNTS, MAiVENS, town regulars &mdash; earned by visiting a character or finishing their interaction. Duplicates aren&rsquo;t dead weight; trade them.</p>
+        </section>
+
+        <!-- Two-decks fold: the star of the page -->
+        <section class="tc-fold" aria-label="Choose a deck">
+          <a class="tc-fold-card tc-fold-card--concept" href="#concept-deck">
+            <span class="tc-fold-eyebrow">Deck 1</span>
+            <h2 class="tc-fold-title">Concept Cards</h2>
+            <p class="tc-fold-meta">~8 per episode &middot; picked up at <strong>Blend &amp; Snap</strong></p>
+            <div class="tc-fold-preview tc-fold-preview--concept" aria-hidden="true">
+              <span>🎯</span><span>🧠</span><span>⚡</span><span>🔍</span><span>📊</span>
+            </div>
+            <p class="tc-fold-body">Every Wednesday, a new pack drops with the Study Pack. Rip it open, flip each card, learn the concept.</p>
+            <span class="tc-fold-cta">See the Concept deck &darr;</span>
+          </a>
+
+          <a class="tc-fold-card tc-fold-card--character" href="#character-deck">
+            <span class="tc-fold-eyebrow">Deck 2</span>
+            <h2 class="tc-fold-title">Character Cards</h2>
+            <p class="tc-fold-meta">22+ &middot; earned on visits around town</p>
+            <div class="tc-fold-preview tc-fold-preview--character" aria-hidden="true">
+              <img src="../assets/saints/cher-horowitz.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/buffy-summers.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/elle-woods.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/dolly-parton.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/saints/deb.png" alt="" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <p class="tc-fold-body">SAiNTS, MAiVENS, and the SUNNYV<span class="ai">Ai</span>LE regulars. Fixed roster &mdash; grows when a new character gets canonized.</p>
+            <span class="tc-fold-cta">See the Character deck &darr;</span>
+          </a>
+        </section>
+
+        <!-- Deck 1 · Concept Cards (details) -->
+        <section class="deck-band" id="concept-deck" aria-labelledby="conceptDeckHeading">
+          <div class="deck-band-head">
+            <p class="eyebrow">Deck 1 · Concept Cards</p>
+            <h2 id="conceptDeckHeading">Every episode drops a new pack</h2>
+            <p class="deck-band-sub">Weekly packs are handed out with the Study Pack at <a href="../blend-snap.html">Blend &amp; Snap</a>. Open one below to preview a pull.</p>
+
+            <!-- Collection Progress (moved out of hero) -->
+            <div class="collection-progress">
+              <div class="progress-label">
+                <span>Concept cards collected: <strong id="progressCount">0/15</strong></span>
+                <span id="progressPercent">0%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressFill"></div>
+              </div>
+            </div>
+
+            <!-- Pack Controls (moved out of hero) -->
+            <div class="pack-controls">
+              <select class="pack-select" id="packSelect" aria-label="Pick a pack">
+                <option value="all">All released cards</option>
+                <option value="1">Issue 01 pack</option>
+                <option value="2">Issue 02 pack</option>
+                <option value="3">Issue 03 pack</option>
+              </select>
+              <button class="btn" id="openPackBtn">&#x1F4E6; Open Pack</button>
+              <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+            <p class="pack-status" id="packStatus">Open your first pack. Duplicates are part of the drama.</p>
+          </div>
+        </section>
+
+        <!-- Pack Opening Area -->
+        <section class="pack-opening-area" id="packOpeningArea" aria-label="Latest card pulls">
+          <div class="pack-pulls" id="packPulls">
+            <p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>
+          </div>
+        </section>
+
+        <!-- Concept Card Binder -->
+        <section class="binder-section">
+          <p class="eyebrow">The Concept Binder</p>
+          <h2>Your plastic-sleeve collection page</h2>
+          <p>Owned cards stay bright. Empty sleeves show what&rsquo;s still missing. Duplicates stack on the pink count badge &mdash; trade the extras.</p>
+          <div class="binder-grid" id="binderGrid"></div>
+        </section>
+
+        <!-- Deck 2 · Character Cards -->
+        <section class="deck-band deck-band--character" id="character-deck" aria-labelledby="characterDeckHeading">
+          <div class="deck-band-head">
+            <p class="eyebrow">Deck 2 · Character Cards</p>
+            <h2 id="characterDeckHeading">The SUNNYV<span class="ai">Ai</span>LE pantheon</h2>
+            <p class="deck-band-sub">Three sub-decks. Earn each character card by visiting their building or completing their interaction. Fixed roster &mdash; the collection grows only when a new character gets canonized.</p>
+          </div>
+
+          <div class="character-decks">
+            <a class="char-deck" href="../luminairy.html">
+              <span class="char-deck-eyebrow">Sub-deck A</span>
+              <span class="char-deck-count">8 cards</span>
+              <span class="char-deck-title">PATRON SAiNTS</span>
+              <span class="char-deck-body">Cher, Buffy, Miranda, Regina, Elle, Dolly, David, Deb. Pick up at <strong>LUMIN<span class="ai">Ai</span>RY</strong>.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/saints/cher-horowitz.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/buffy-summers.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/miranda-priestly.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/regina-george.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/elle-woods.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/dolly-parton.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/david-rose.png" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/saints/deb.png" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Visit LUMIN<span class="ai">Ai</span>RY &rarr;</span>
+            </a>
+
+            <a class="char-deck" href="../luminairy.html#mavens">
+              <span class="char-deck-eyebrow">Sub-deck B</span>
+              <span class="char-deck-count">8 cards</span>
+              <span class="char-deck-title">The MAiVENS</span>
+              <span class="char-deck-body">The Keepers &mdash; Hannah Fry, Fei-Fei Li, Timnit Gebru, Rachel Thomas, Joy Buolamwini, Kate Crawford, Meredith Whittaker, Emily Bender. Pick up at the MAiVENS wing.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/mavens/y2k-stained-glass-v2/hannah-fry-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/rachel-thomas-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/meredith-whittaker-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/mavens/y2k-stained-glass-v2/emily-bender-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Visit the MAiVENS wing &rarr;</span>
+            </a>
+
+            <a class="char-deck" href="../luminairy.html#builders">
+              <span class="char-deck-eyebrow">Sub-deck C</span>
+              <span class="char-deck-count">6 cards</span>
+              <span class="char-deck-title">The TRAiLBLAZERS</span>
+              <span class="char-deck-body">The women shipping frontier <span class="ai">Ai</span> &mdash; Mira Murati, Daniela Amodei, Lila Ibrahim, Fidji Simo, Chelsea Finn, Amanda Askell. Pick up at the TRAiLBLAZERS wing.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/builders/y2k-stained-glass-v2/mira-murati-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/daniela-amodei-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/lila-ibrahim-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/fidji-simo-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/chelsea-finn-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/builders/y2k-stained-glass-v2/amanda-askell-y2k-stained-glass.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Visit the TRAiLBLAZERS wing &rarr;</span>
+            </a>
+
+            <a class="char-deck" href="../town-hall.html#regulars">
+              <span class="char-deck-eyebrow">Sub-deck D</span>
+              <span class="char-deck-count">Growing</span>
+              <span class="char-deck-title">Town Characters</span>
+              <span class="char-deck-body">Mme CL<span class="ai">Ai</span>-O, F<span class="ai">Ai</span>RY Godmother, DJ SunnyV, Mayor Deb, and every canonized SUNNYV<span class="ai">Ai</span>LE regular. Meet them at Town Hall; visit each at her own building.</span>
+              <div class="char-deck-strip" aria-hidden="true">
+                <img src="../assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/town-characters/scenes/dj-sunnyv-scene.jpg?v=20260708" alt="" loading="lazy" onerror="this.style.display='none'">
+                <img src="../assets/town-characters/scenes/mayor-deb-scene.jpg?v=20260708b" alt="" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span class="char-deck-cta">Meet them at Town Hall &rarr;</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Trade + Closet -->
+        <section class="tc-outro">
+          <p class="deck-band-note"><strong>Trading is on for both decks.</strong> Send duplicates through the <a href="../post-office.html">Post Office</a>. Your full collection lives on your <a href="/laidies-card.html">Closet</a>.</p>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+    (function() {
+      'use strict';
+
+      // === INLINE CARD DATA ===
+      // Each card teaches an AI concept from the episodes
+      const allCards = [
+        {
+          id: 'prompt-engineering',
+          title: 'Prompt Engineering',
+          icon: '\u270D\uFE0F',
+          front: 'The art of asking so well that AI actually delivers.',
+          back: 'Prompt engineering is writing clear, specific instructions so AI gives you useful output instead of generic fluff. Think of it as delegating to a very literal intern\u2014the better your brief, the better the result.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'hallucination',
+          title: 'Hallucination',
+          icon: '\uD83C\uDF00',
+          front: 'When AI says something confidently wrong and does not blush.',
+          back: 'A hallucination is when AI generates information that sounds authoritative but is completely made up\u2014fake sources, invented stats, confident nonsense. Always verify claims that matter.',
+          rarity: 'common',
+          episode: 1
+        },
+        {
+          id: 'token',
+          title: 'Token',
+          icon: '\uD83C\uDFB0',
+          front: 'The tiny word-chunk AI actually reads.',
+          back: 'AI does not read words like you do. It breaks text into tokens\u2014fragments of words, sometimes whole words, sometimes pieces. \"Unbelievable\" might be three tokens. This matters because every AI has a token limit.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'context-window',
+          title: 'Context Window',
+          icon: '\uD83D\uDDD7\uFE0F',
+          front: 'How much AI can hold in its head at once.',
+          back: 'The context window is the maximum amount of text (measured in tokens) an AI can consider in one conversation. Go past it and the AI starts forgetting the beginning\u2014like a meeting that ran too long.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'fine-tuning',
+          title: 'Fine-Tuning',
+          icon: '\uD83C\uDFAF',
+          front: 'Teaching AI new tricks after graduation.',
+          back: 'Fine-tuning is additional training on specific examples after the model\'s main education is done. It is like sending a generalist to a specialization bootcamp\u2014same brain, sharper focus.',
+          rarity: 'rare',
+          episode: 1
+        },
+        {
+          id: 'temperature',
+          title: 'Temperature',
+          icon: '\uD83C\uDF21\uFE0F',
+          front: 'The creativity dial\u2014low is safe, high is spicy.',
+          back: 'Temperature controls how creative or random AI\'s responses are. Low temperature (0) gives predictable, safe answers. High temperature (1+) gets more adventurous and surprising\u2014sometimes too surprising.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'rag',
+          title: 'RAG',
+          icon: '\uD83D\uDCDA',
+          front: 'Retrieval-Augmented Generation. Fancy name for \u201Clook it up first.\u201D',
+          back: 'RAG is a technique where AI searches a knowledge base before answering, so it can cite real documents instead of guessing. It\'s like giving AI permission to check its notes before speaking.',
+          rarity: 'rare',
+          episode: 2
+        },
+        {
+          id: 'embedding',
+          title: 'Embedding',
+          icon: '\uD83E\uDDF2',
+          front: 'Turning words into math so AI can measure meaning.',
+          back: 'An embedding converts text into a list of numbers that captures its meaning. Similar ideas end up close together in number-space. It\'s how AI knows \"happy\" and \"joyful\" are neighbors even though the letters are different.',
+          rarity: 'rare',
+          episode: 2
+        },
+        {
+          id: 'agent',
+          title: 'Agent',
+          icon: '\uD83E\uDD16',
+          front: 'AI that can actually do things, not just talk.',
+          back: 'An AI agent can take actions\u2014browse the web, run code, send emails\u2014not just generate text. Think of the difference between someone who gives advice and someone who also books the appointment.',
+          rarity: 'rare',
+          episode: 1
+        },
+        {
+          id: 'chain-of-thought',
+          title: 'Chain of Thought',
+          icon: '\uD83D\uDD17',
+          front: 'Making AI show its work, step by step.',
+          back: 'Chain of thought is a prompting trick: ask AI to think step by step before answering. It forces the model to reason through a problem rather than jumping to conclusions. Works surprisingly well for complex tasks.',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'few-shot-learning',
+          title: 'Few-Shot Learning',
+          icon: '\uD83C\uDFAF',
+          front: 'Give AI a few examples and watch it catch on.',
+          back: 'Few-shot learning means showing AI 2\u20133 examples of what you want before asking for the real output. It\'s like showing someone a photo of the hairstyle instead of just saying \"make it cute.\"',
+          rarity: 'common',
+          episode: 2
+        },
+        {
+          id: 'receipts-check',
+          title: 'Receipts Check',
+          icon: '\uD83E\uDDFE',
+          front: 'Open the source before the answer borrows your name.',
+          back: 'A receipt is the thing that can actually support a claim: source, date, quote, number, policy, person, meeting note, or domain rule. Confidence is not a receipt. Same answer thrice is still not a solid alibi.',
+          rarity: 'common',
+          episode: 3
+        },
+        {
+          id: 'burn-book-sourcing',
+          title: 'Burn Book Sourcing',
+          icon: '\uD83D\uDC8B',
+          front: 'One clue, no context, enormous conclusion.',
+          back: 'Bad sourcing is when one data point gets promoted into a whole character verdict. The Burn Book problem is not just false claims; it is confident claims with trash evidence and social authority.',
+          rarity: 'rare',
+          episode: 3
+        },
+        {
+          id: 'chutney-detail',
+          title: 'Chutney Detail',
+          icon: '\uD83D\uDD0E',
+          front: 'The ordinary detail that makes the whole story collapse.',
+          back: 'A Chutney detail is the tiny timeline, source, policy, quote, or domain-rule mismatch that exposes a confident answer. It is the fresh perm in the shower alibi.',
+          rarity: 'holo',
+          episode: 3
+        },
+        {
+          id: 'grounding',
+          title: 'Grounding',
+          icon: '\uD83D\uDCCC',
+          front: 'Bring the source into the room.',
+          back: 'Grounding means giving AI access to the material it should use: a document, approved source, search/grounding tool, database, or transcript. It lowers the odds of nonsense; it does not eliminate the need to check.',
+          rarity: 'common',
+          episode: 3
+        },
+        {
+          id: 'elle-prompt',
+          title: 'Elle Prompt',
+          icon: '\uD83D\uDCBC',
+          front: 'Put the paragraph on the stand before you use it.',
+          back: 'The Elle Prompt asks AI to separate draft language, claims, assumptions, fragile details, and receipts. It turns one smooth paragraph into a receipt tray you can verify.',
+          rarity: 'common',
+          episode: 3
+        },
+        {
+          id: 'system-prompt',
+          title: 'System Prompt',
+          icon: '\uD83D\uDCDD',
+          front: 'The secret backstage instructions AI follows.',
+          back: 'A system prompt is a hidden instruction set that defines AI\'s personality, rules, and behavior before you even type. It\'s why ChatGPT acts different from Claude\u2014different backstage notes, same stage.',
+          rarity: 'common',
+          episode: 1
+        },
+        {
+          id: 'guardrails',
+          title: 'Guardrails',
+          icon: '\uD83D\uDEE1\uFE0F',
+          front: 'The safety bumpers that keep AI in its lane.',
+          back: 'Guardrails are rules and filters that prevent AI from generating harmful, biased, or off-limits content. Think of them as the velvet ropes at a club\u2014they define where AI can and cannot go.',
+          rarity: 'common',
+          episode: 1
+        },
+        {
+          id: 'multimodal',
+          title: 'Multimodal',
+          icon: '\uD83D\uDC41\uFE0F',
+          front: 'AI that can see, hear, and read\u2014not just text.',
+          back: 'Multimodal AI can process multiple types of input\u2014text, images, audio, video. It\'s the difference between texting someone and FaceTiming them. More input types means richer understanding.',
+          rarity: 'common',
+          episode: 1
+        },
+        {
+          id: 'inference',
+          title: 'Inference',
+          icon: '\u26A1',
+          front: 'The moment AI actually produces an answer.',
+          back: 'Inference is when a trained AI model processes your input and generates output. Training is learning; inference is performing. Every time you hit send on a prompt, you\'re triggering inference.',
+          rarity: 'common',
+          episode: 1
+        }
+      ];
+
+      // === Local Storage ===
+      const STORAGE_KEY = 'laidies_card_collection';
+      const LAST_PULLS_KEY = 'laidies_last_pulls';
+
+      function getCollection() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+        catch { return {}; }
+      }
+      function saveCollection(coll) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(coll));
+        // Cards pulled here used to go nowhere — the Closet's binder is built from
+        // reward events, and nothing ever turned this store into one. So you could
+        // open packs all day and your Closet stayed empty. script.js reads both this
+        // store and the title cache below to emit `trading_card` events on sync.
+        // (Same pattern Girl Talk uses with laidies_gt_names.) Fixed 2026-07-22.
+        try {
+          var meta = {};
+          allCards.forEach(function (c) {
+            if ((coll[c.id] || 0) > 0) {
+              meta[c.id] = { title: c.title, rarity: c.rarity, episode: c.episode };
+            }
+          });
+          localStorage.setItem('laidies_cards_meta', JSON.stringify(meta));
+        } catch (e) {}
+      }
+      function getLastPulls() {
+        try { return JSON.parse(localStorage.getItem(LAST_PULLS_KEY)) || []; }
+        catch { return []; }
+      }
+      function saveLastPulls(pulls) {
+        localStorage.setItem(LAST_PULLS_KEY, JSON.stringify(pulls));
+      }
+
+      let collection = getCollection();
+
+      // === DOM refs ===
+      const packSelect = document.getElementById('packSelect');
+      const openPackBtn = document.getElementById('openPackBtn');
+      const resetBtn = document.getElementById('resetBtn');
+      const packPulls = document.getElementById('packPulls');
+      const packStatus = document.getElementById('packStatus');
+      const binderGrid = document.getElementById('binderGrid');
+      const progressCount = document.getElementById('progressCount');
+      const progressPercent = document.getElementById('progressPercent');
+      const progressFill = document.getElementById('progressFill');
+      const packOpeningArea = document.getElementById('packOpeningArea');
+      const params = new URLSearchParams(window.location.search || '');
+      const issueMatch = String(params.get('issue') || '').match(/\d+/);
+      const returnLink = document.querySelector('[data-wednesday-return]');
+      if (returnLink && params.get('from') === 'this-week') {
+        const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
+        returnLink.href = '../this-week.html' + (issueMatch ? '?issue=' + encodeURIComponent(Number(issueMatch[0])) + '&bag=open&group=practice' + draftParam : '?bag=open&group=practice' + draftParam);
+        returnLink.textContent = '\u2190 Back to Weekly Study Pack';
+        returnLink.hidden = false;
+      }
+      if (issueMatch && packSelect.querySelector('option[value="' + Number(issueMatch[0]) + '"]')) {
+        packSelect.value = String(Number(issueMatch[0]));
+      }
+
+      // === Get selected pack cards ===
+      function getSelectedCards() {
+        const val = packSelect.value;
+        if (val === 'all') return allCards;
+        return allCards.filter(c => c.episode === parseInt(val));
+      }
+      function setReadyStatusForSelectedPack() {
+        const selectedLabel = packSelect.selectedOptions[0] ? packSelect.selectedOptions[0].textContent : 'selected pack';
+        packStatus.textContent = selectedLabel + ' is selected. Open it to see what is in the wrapper.';
+      }
+
+      // === Progress update ===
+      function updateProgress() {
+        const total = allCards.length;
+        const owned = allCards.filter(c => (collection[c.id] || 0) > 0).length;
+        const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
+        progressCount.textContent = owned + '/' + total;
+        progressPercent.textContent = pct + '%';
+        progressFill.style.width = pct + '%';
+      }
+
+      // === Create pull card with 3D flip ===
+      function createPullCard(card, delay) {
+        const el = document.createElement('div');
+        el.className = 'trading-card rarity-' + card.rarity;
+        el.style.animationDelay = delay + 's';
+
+        const issueLabel = 'Issue ' + (card.episode < 10 ? '0' : '') + card.episode;
+
+        el.innerHTML =
+          '<div class="card-inner">' +
+            '<div class="card-face card-front">' +
+              '<span class="card-issue-badge">' + issueLabel + '</span>' +
+              '<span class="rarity-badge">' + card.rarity + '</span>' +
+              '<span class="card-icon">' + card.icon + '</span>' +
+              '<span class="card-title">' + card.title + '</span>' +
+              '<span class="card-hook">' + card.front + '</span>' +
+              (card.isDuplicate ? '<span class="dup-badge">x' + card.count + '</span>' : '') +
+            '</div>' +
+            '<div class="card-face card-back">' +
+              '<span class="card-unlock-label">' + (card.isDuplicate ? 'Duplicate pull' : 'New pull!') + '</span>' +
+              '<h3>' + card.title + '</h3>' +
+              '<p>' + card.back + '</p>' +
+              '<p class="card-reward">' + issueLabel + ' \u2022 ' + card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1) + '</p>' +
+              '<span class="flip-hint">Tap to flip back</span>' +
+            '</div>' +
+          '</div>';
+
+        el.addEventListener('click', function() {
+          el.classList.toggle('is-flipped');
+        });
+
+        return el;
+      }
+
+      // === Render pulls ===
+      function renderPulls(pulls) {
+        packPulls.innerHTML = '';
+        if (!pulls.length) {
+          packPulls.innerHTML = '<p class="pack-empty">Nothing in the wrapper yet. Open a pack and see what you pulled.</p>';
+          return;
+        }
+        pulls.forEach(function(card, i) {
+          packPulls.appendChild(createPullCard(card, i * 0.2));
+        });
+      }
+
+      // === Open pack ===
+      // Rarity weights — Common 70 / Rare 25 / Holo 5. Actually makes "rare" rare.
+      const RARITY_WEIGHTS = { common: 70, rare: 25, holo: 5 };
+      function rollRarity() {
+        const r = Math.random() * 100;
+        if (r < RARITY_WEIGHTS.holo) return 'holo';
+        if (r < RARITY_WEIGHTS.holo + RARITY_WEIGHTS.rare) return 'rare';
+        return 'common';
+      }
+      function pickWeightedCard(cards) {
+        const target = rollRarity();
+        // Fall back through tiers if the chosen rarity is empty in this pack
+        const tiers = target === 'holo' ? ['holo', 'rare', 'common']
+                    : target === 'rare' ? ['rare', 'common', 'holo']
+                    :                      ['common', 'rare', 'holo'];
+        for (const t of tiers) {
+          const pool = cards.filter(function(c) { return c.rarity === t; });
+          if (pool.length) return pool[Math.floor(Math.random() * pool.length)];
+        }
+        return cards[Math.floor(Math.random() * cards.length)];
+      }
+
+      function openPack() {
+        const cards = getSelectedCards();
+        if (!cards.length) {
+          packStatus.textContent = 'No cards in this pack yet. Try another.';
+          return;
+        }
+
+        const pulls = Array.from({ length: 3 }, function() {
+          return pickWeightedCard(cards);
+        });
+
+        const newPulls = pulls.map(function(card) {
+          const prev = Number(collection[card.id] || 0);
+          collection[card.id] = prev + 1;
+          return Object.assign({}, card, { isDuplicate: prev > 0, count: collection[card.id] });
+        });
+
+        saveCollection(collection);
+        saveLastPulls(newPulls);
+        renderPulls(newPulls);
+        updateProgress();
+        renderBinder();
+
+        const hasDupe = newPulls.some(function(c) { return c.isDuplicate; });
+        const selectedLabel = packSelect.selectedOptions[0].textContent;
+        packStatus.textContent = hasDupe
+          ? 'Opened ' + selectedLabel + '. Duplicate drama detected \u2014 into the binder it goes.'
+          : 'Opened ' + selectedLabel + '. Fresh stack, no doubles! Into the binder they go.';
+
+        // Auto-scroll to revealed cards
+        setTimeout(function() {
+          packOpeningArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+
+      // === Reset ===
+      function resetCollection() {
+        collection = {};
+        saveCollection(collection);
+        localStorage.removeItem(LAST_PULLS_KEY);
+        renderPulls([]);
+        updateProgress();
+        renderBinder();
+        packStatus.textContent = 'Collection reset. The binder is empty and emotionally ready.';
+      }
+
+      // === Render Binder ===
+      function renderBinder() {
+        binderGrid.innerHTML = '';
+        allCards.forEach(function(card) {
+          const count = collection[card.id] || 0;
+          const owned = count > 0;
+          const el = document.createElement('div');
+          el.className = 'binder-card ' + (owned ? 'is-owned' : 'is-missing');
+
+          const issueLabel = 'Issue ' + (card.episode < 10 ? '0' : '') + card.episode;
+
+          el.innerHTML =
+            '<div class="binder-card-visual">' +
+              '<span class="binder-icon">' + card.icon + '</span>' +
+            '</div>' +
+            '<div class="binder-card-info">' +
+              '<strong>' + card.title + '</strong>' +
+              '<span>' + issueLabel + ' \u2022 ' + card.rarity + '</span>' +
+            '</div>' +
+            (owned ? '<span class="binder-count-badge">x' + count + '</span>' : '');
+
+          binderGrid.appendChild(el);
+        });
+      }
+
+      // === Init ===
+      openPackBtn.addEventListener('click', openPack);
+      resetBtn.addEventListener('click', resetCollection);
+      packSelect.addEventListener('change', function() {
+        renderPulls([]);
+        setReadyStatusForSelectedPack();
+      });
+
+      updateProgress();
+      renderBinder();
+
+      // Restore last pulls
+      const lastPulls = getLastPulls();
+      const selectedEpisode = parseInt(packSelect.value, 10);
+      const lastPullsMatchSelectedPack = packSelect.value === 'all' || lastPulls.every(function(card) {
+        return Number(card.episode) === selectedEpisode;
+      });
+      if (lastPulls.length && lastPullsMatchSelectedPack) {
+        renderPulls(lastPulls);
+      } else if (lastPulls.length) {
+        renderPulls([]);
+        setReadyStatusForSelectedPack();
+      }
+    })();
+    </script>
+      <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
+    <script src="../content/site/brand-polish.js?v=wm2" defer></script>
+  <script defer src="/content/site/sv-back-nav.js?v=2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

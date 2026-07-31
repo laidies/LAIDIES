@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-07-27T07:09:46.297504+00:00",
+  "status": "MAKER_QC_COMPLETE_INDEPENDENT_FULL_TITLE_JUDGMENT_REQUIRED",
+  "output": {
+    "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+    "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+    "bytes": 627122305,
+    "decoded_video_frames": 35167,
+    "status": "BUILT_LOCALLY_NOT_ADMITTED_NOT_PUBLIC"
+  },
+  "full_decode": "PASS",
+  "audio_payload": {
+    "v25_adts_sha256": "0572c2c9f1d568004155684ecf155f702af4d9b31a7eac57a12eca88d385db24",
+    "v26_adts_sha256": "0572c2c9f1d568004155684ecf155f702af4d9b31a7eac57a12eca88d385db24",
+    "bytes_each": 27438977,
+    "result": "PASS_EXACT_AUDIO_PAYLOAD"
+  },
+  "video_preservation": {
+    "codec": "lossless H.264",
+    "pre_post_and_welcome_control_frame_count": 24,
+    "result": "PASS_EXACT_DECODED_FRAME_MD5"
+  },
+  "still_insertions": {
+    "placement_count": 13,
+    "two_interior_frames_per_placement": true,
+    "match_admitted_source_frame": "PASS_EXACT_DECODED_FRAME_MD5",
+    "camera_motion": false,
+    "crop": false
+  },
+  "manifest": "operations/video-qa/episode-01-v26-source-admitted/manifest.json",
+  "manifest_sha256": "3abc64a0e964f655d0eebe3ee02f4d7f43d8d07b06d2c384136f11407156b2be",
+  "config": "assets/video/episode-01-v26-source-admitted-config.json",
+  "config_sha256": "902e4daab021f2d1ab6e5ed3503c383a7962d28dc6a61d50fd03be5a4ee8c83f",
+  "builder": "assets/video/build-episode-01-v26-source-admitted.py",
+  "builder_sha256": "46747e2cd7aaba6d92f60327edbb3ffb2809a57df35ac69008a8b58732b3266f",
+  "release_status": "HOLD_PENDING_INDEPENDENT_EPISODE_MEDIA_QUALITY"
+}

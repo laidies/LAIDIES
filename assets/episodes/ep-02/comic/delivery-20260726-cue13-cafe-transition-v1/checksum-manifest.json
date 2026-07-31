@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "taskId": "WE-MEDIA-E02-C13-2026-07-26",
+  "status": "BUILT LOCALLY — INDEPENDENT IMAGE ADMISSION REQUIRED",
+  "createdAt": "2026-07-26T18:36:20Z",
+  "cue": {
+    "episode": "02",
+    "startSeconds": 187.6,
+    "endSeconds": 203.3,
+    "visualJob": "Compare a familiar regular cafe with an unfamiliar new cafe to explain missing context."
+  },
+  "generation": {
+    "mode": "OpenAI built-in image_gen",
+    "intent": "generate",
+    "postprocess": "Non-destructive copy followed by proportional sips resample from 1672x941 to 1920x1080.",
+    "prompts": "maker-prompts.md"
+  },
+  "authorityReferences": [
+    {
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "role": "Heroine identity and master people-rendering authority",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422"
+    },
+    {
+      "path": "operations/reference/episode-style-popart/epstyle-scene-02.png",
+      "role": "Environment/depth/lighting only",
+      "sha256": "76d2bdb4d80092cb5325068f5f9f145eae1fd0fbf5776f60348bb7ba80a0bc6f"
+    },
+    {
+      "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+      "role": "Environment/depth/lighting only",
+      "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829"
+    },
+    {
+      "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+      "role": "Person-inside-environment construction only; not identity",
+      "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5"
+    },
+    {
+      "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+      "role": "Panel/gutter/comparison grammar only; not identity or story",
+      "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67"
+    }
+  ],
+  "prohibitedInputs": [
+    {
+      "path": "ep02-scene-13-regular-cafe-comic.png",
+      "used": false
+    },
+    {
+      "path": "ep02-scene-14-new-cafe-comic.png",
+      "used": false
+    },
+    {
+      "path": "opening-09-barista-approved-identity-v2.png",
+      "used": false
+    }
+  ],
+  "candidates": [
+    {
+      "path": "ep02-cue13-regular-to-new-cafe-comic-v01-1920.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "1372d2306bb230ce29b6c5fed8e63b0277dd2272531ecc8317aad223a6e2da13",
+      "generatedSourceSha256": "958ed02bfd46ef18cbf25cf0dcbbfc1d002680a8052db04138d7faaa009cd442"
+    },
+    {
+      "path": "ep02-cue13-regular-to-new-cafe-comic-v02-1920.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "dcf175f58b38ef3f88089886ecbad5796c853b1e33b1187c816fd51df10877fe",
+      "generatedSourceSha256": "06668858012423231ef685583ef20f17acca124c66c01a9cdcde9f5a1a5f7047"
+    },
+    {
+      "path": "ep02-cue13-regular-to-new-cafe-comic-v03-1920.png",
+      "width": 1920,
+      "height": 1080,
+      "sha256": "604f92487d44f96c0a85ca80a8d9d497879146b6231d921bd4e73c0aa57b4381",
+      "generatedSourceSha256": "30da71530ea25a69078ace82a546c691b3d44dc5d7a170cdd3d7f7ad2de3e269"
+    }
+  ],
+  "contactSheet": {
+    "path": "ep02-cue13-regular-to-new-cafe-comic-contact-sheet-v1.jpg",
+    "width": 1920,
+    "height": 405,
+    "sha256": "a6f5d9711ce167d4f8bb2495d94540f670bb6793c76fa47e407105d7df4bb891"
+  },
+  "makerBoundary": {
+    "makerApproved": false,
+    "assemblyAuthorized": false,
+    "animationAuthorized": false,
+    "nextGate": "EMQ-E02-C13-ADMISSION-2026-07-26",
+    "judgeMustBindExactCandidateHashes": true
+  }
+}

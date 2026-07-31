@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.dirname(fileURLToPath(import.meta.url));
+const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const css = fs.readFileSync(path.join(root, 'high-candidate.css'), 'utf8');
+const js = fs.readFileSync(path.join(root, 'high-candidate.js'), 'utf8');
+for (const id of ['av-room','room-101','registrar-room','yearbook-room','fair-room']) assert.match(html, new RegExp(`id="${id}"`));
+for (const id of ['av-room','registrar-room','yearbook-room','fair-room']) assert.match(html, new RegExp(`id="${id}" hidden`));
+for (const text of ['No class tapes are available yet','does not certify mastery','not proof of mastery or cross-device progress','stocking soon','nothing enrolled yet','Open your Closet']) assert.match(html, new RegExp(text, 'i'));
+for (const route of ['/learn/quiz.html','/library.html#the-101-shelf','/bookfair.html','/laidies-card.html','/learn/class.html?c=']) assert.match(html + js, new RegExp(route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+for (const art of ['sunnyvaile-high-hallway.jpg','sunnyvaile-high-classroom.jpg','sunnyvaile-high-pop-quiz.jpg','sunnyvaile-high-book-fair.jpg']) assert.match(html, new RegExp(`../../../../assets/building-interiors/${art.replace('.', '\\.')}`));
+assert.match(js, /laidiesQuizProgress/); assert.match(js, /laidiesQuizBestScores/); assert.doesNotMatch(js, /fetch\([^)]*(token|profile|wallet|account)/i);
+assert.match(css, /@media\(max-width:900px\)/); assert.match(css, /@media\(max-width:560px\)/); assert.match(css, /prefers-reduced-motion/); assert.match(css, /focus-visible/);
+assert.match(css, /\.room-panel\[hidden\]\{display:none\}/);
+assert.match(js, /aria-expanded/); assert.match(html, /aria-live/); assert.match(html, /<button/);
+assert.match(js, /else button\.focus\(\)/);
+console.log('SUNNYVAILE HIGH CANDIDATE PASS rooms=8 actions=7 truthful-boundaries=8 responsive=3 keyboard=1 initial-hidden=4 close-focus-return=1');

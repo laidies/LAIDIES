@@ -1,0 +1,51 @@
+{
+  "status": "BUILT_LOCALLY_REVIEW_REQUIRED",
+  "scope": "Episode 04 v8 with one picture-only LAiDIES welcome-ident insertion",
+  "baseline": {
+    "path": "assets/video/episode-04-full-v8.mp4",
+    "sha256": "e5d963097cbd699a5f7ad999f29323207ce5c41c4ba5ff45422e12ea35c2bdff"
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-alternate-rewind-ai-v6.mp4",
+    "sha256": "713c576b2f6468fe4df962acd2c4d48163391899f99c9a2bfc187cc795ae0ed6",
+    "source_dimensions": "960x540",
+    "duration_seconds": 5.1666666667,
+    "audio_tracks": 0
+  },
+  "placement": {
+    "start_seconds": 101.5,
+    "end_seconds": 106.6666666667,
+    "spoken_trigger": "Welcome back to LAiDIES",
+    "caption_source": "assets/captions/episode-04.vtt",
+    "picture_operation": "full-frame 2x scale, no crop",
+    "audio_operation": "copy exact v8 AAC packet stream"
+  },
+  "output": {
+    "path": "assets/video/episode-04-full-v8-welcome-ident-v1-review.mp4",
+    "sha256": "d859d3132776f2e0218921f166660d101998385f355d691d606812d59ce8be96",
+    "bytes": 285561202,
+    "dimensions": "1920x1080",
+    "runtime_seconds": 1222.4,
+    "status": "BUILT_LOCALLY_NOT_ADMITTED_NOT_PUBLIC"
+  },
+  "review_window": {
+    "path": "operations/video-qa/episode-04-v8-welcome-ident-v1/episode-04-welcome-ident-review-window-98-113.mp4",
+    "sha256": "e5a160359beab43563a19fa5ecfd18fc90b13af50c2fb27c43e1acdf8e7f544d",
+    "bytes": 2230181
+  },
+  "verification": {
+    "full_decode": "PASS",
+    "output_runtime_matches_v8": true,
+    "audio_packet_sha256_v8": "1d3e61c6ab7ed37e3564f3114a8b13666edf8b5f49880aef8b8a2e70d6c6cf2e",
+    "audio_packet_sha256_output": "1d3e61c6ab7ed37e3564f3114a8b13666edf8b5f49880aef8b8a2e70d6c6cf2e",
+    "audio_packet_stream_identical": true,
+    "semantic_picture_change_window_only": true,
+    "note": "The full video stream was re-encoded, so compression bytes outside the insertion window are not identical even though the v8 picture timeline is retained."
+  },
+  "authority": {
+    "maker_may_approve": false,
+    "release": false,
+    "deploy": false,
+    "public": false
+  }
+}

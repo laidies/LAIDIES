@@ -1,0 +1,90 @@
+{
+  "schema": "laidies.emq.representative-player-witness.v1",
+  "task_id": "EMQ-TRAILER-V4-REPRESENTATIVE-PLAYER-WITNESS-2026-07-26",
+  "witnessed_at": "2026-07-26T19:57:51-07:00",
+  "witness": "Episode Media Quality — independent of maker",
+  "scope": "player gate only; not overall Trailer admission",
+  "player_gate_verdict": "HOLD",
+  "frozen_tuple": {
+    "mp4": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934",
+      "matched": true,
+      "duration_seconds_afinfo": 967.13288,
+      "audio": "AAC mono, 44100 Hz"
+    },
+    "external_vtt": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+      "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+      "matched": true,
+      "cue_count": 207,
+      "last_cue_end_seconds": 965.14,
+      "voice_markup_cues": 207
+    }
+  },
+  "literal_tests": [
+    {
+      "name": "frozen_bytes",
+      "command": "sha256sum MP4 VTT exact paths",
+      "result": "PASS"
+    },
+    {
+      "name": "normal_speed_audible_output_sample",
+      "command": "afplay -t 8 assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "exit_code": 0,
+      "result": "PASS_TECHNICAL_SAMPLE_ONLY",
+      "limit": "Eight-second OS audio-output sample; not a full human audible watch."
+    },
+    {
+      "name": "vtt_parser_sanitizer_control",
+      "command": "Node parse of exact VTT timing lines and removal of WebVTT tags",
+      "result": "PASS_SOURCE_ONLY",
+      "details": {
+        "cue_count": 207,
+        "raw_voice_tags": 207,
+        "voice_tags_after_sanitize": 0,
+        "empty_rendered_cues": 0
+      }
+    },
+    {
+      "name": "representative_player_binding_discovery",
+      "command": "Exact MP4/VTT route search plus inspection of watch.html",
+      "result": "HOLD_NO_BOUND_PLAYER",
+      "details": "No route references the frozen V4 MP4; watch.html sets EPISODE_FILMS = {} and retains a held listen-along path."
+    }
+  ],
+  "required_player_checks": {
+    "external_vtt_loading_and_below_picture_render": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "no_raw_voice_markup_leakage_in_rendered_rail": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "caption_initial_on_off_state_truth": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "keyboard_play_pause_seek_and_focus": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "desktop_responsive_player": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "mobile_320_responsive_player": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "reduced_motion": "HOLD_SOURCE_ONLY_NO_EXECUTABLE_BOUND_PLAYER",
+    "no_js_fallback": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "media_caption_network_failure_fallback": "HOLD_UNWITNESSED_NO_BOUND_PLAYER",
+    "complete_human_normal_speed_audible_watch": "HOLD_NOT_COMPLETED"
+  },
+  "limits": [
+    "In-app browser service was unavailable in this session.",
+    "No existing non-public representative player or file-based harness binds the exact frozen V4 MP4 and VTT.",
+    "The task permits writing only this Markdown and JSON evidence pair; no temporary player/harness, site, route, media, caption, maker, public, or deployment artifact was created or changed.",
+    "Source-only policy/code evidence and an OS audio sample do not replace actual player or human-listener evidence."
+  ],
+  "remaining_proof": "Independent full 1x human audible watch and an actual checksum-bound representative-player run covering VTT render/no-markup, caption state, keyboard/focus, desktop/mobile, reduced motion, no-JS, and failure recovery.",
+  "exact_next_action": "Audio & Caption Owner + Release QA provide a non-public representative-player URL or file-based harness bound unchanged to the named MP4/VTT hashes, then obtain and return an independent human witness with literal results for every required player journey.",
+  "authority_truth": {
+    "master_changed": false,
+    "vtt_changed": false,
+    "maker_files_changed": false,
+    "site_or_route_changed": false,
+    "public_media_changed": false,
+    "deployment_changed": false,
+    "overall_trailer_admission_claimed": false,
+    "public_release_claimed": false
+  },
+  "learning_scan": {
+    "qualifying_new_learning": false,
+    "reason": "Direct recurrence of the binding checksum-bound representative-player rule; explicit task boundary permits only the evidence pair."
+  }
+}

@@ -1,0 +1,531 @@
+{
+  "schemaVersion": "1.0.0",
+  "owner": "learning-content-ecosystem",
+  "status": "ACTIVE",
+  "updatedAt": "2026-07-30",
+  "coverage": {
+    "state": "PARTIAL_BACKFILL",
+    "scope": "Representative Episode 01 definition/statistic cluster plus machine-discovered candidates across current content and production sources.",
+    "knownGaps": [
+      "Historical claims outside the Episode 01 cluster are not yet fully registered.",
+      "Product/model/access/price/plan/region claims require prioritized backfill.",
+      "Every generated or rendered consumer is not yet bound to a source hash.",
+      "Public release verification remains owned by each surface owner."
+    ]
+  },
+  "sources": [
+    {
+      "id": "SRC-NIST-GENERATIVE-AI-GLOSSARY",
+      "title": "generative artificial intelligence",
+      "publisher": "National Institute of Standards and Technology",
+      "authority": "GOVERNMENT_OR_STANDARD",
+      "url": "https://csrc.nist.gov/glossary/term/generative_artificial_intelligence",
+      "publishedOrUpdated": "2026-05-29",
+      "accessedAt": "2026-07-29",
+      "status": "CURRENT",
+      "notes": "Truth boundary for the broad class and output modalities; LAiDIES wording is an adaptation."
+    },
+    {
+      "id": "SRC-OECD-AI-SYSTEM-DEFINITION",
+      "title": "Explanatory memorandum on the updated OECD definition of an AI system",
+      "publisher": "OECD.AI",
+      "authority": "GOVERNMENT_OR_STANDARD",
+      "url": "https://oecd.ai/en/wonk/definition",
+      "publishedOrUpdated": "2024",
+      "accessedAt": "2026-07-29",
+      "status": "CURRENT",
+      "notes": "Supports the model/system distinction; OECD notes that model has multiple interpretations."
+    },
+    {
+      "id": "SRC-NIST-AI-600-1",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "publisher": "National Institute of Standards and Technology",
+      "authority": "GOVERNMENT_OR_STANDARD",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "publishedOrUpdated": "2026-04-08",
+      "accessedAt": "2026-07-29",
+      "status": "CURRENT",
+      "notes": "NIST uses confabulation; LAiDIES retains hallucination as common reader language."
+    },
+    {
+      "id": "SRC-HBS-WP-25-023-MAY-2026",
+      "title": "Global Evidence on Gender Gaps and Generative AI Over Time",
+      "publisher": "Harvard Business School",
+      "authority": "ORIGINAL_RESEARCH",
+      "url": "https://www.hbs.edu/ris/Publication%20Files/25-023_be8fb517-3dd5-40aa-97f9-4e42e1c8e6ff.pdf",
+      "publishedOrUpdated": "2026-05-01",
+      "accessedAt": "2026-07-29",
+      "status": "CURRENT",
+      "notes": "Working paper. Recheck for a revised version, journal publication or material conflicting evidence."
+    },
+    {
+      "id": "SRC-EP01-ALI-BURN-BOOK-CORRECTION",
+      "title": "Episode 01 Burn Book analogy correction",
+      "publisher": "LAiDIES episode canon",
+      "authority": "INTERNAL_CANON",
+      "url": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-card-concepts-2026-07-29.md",
+      "publishedOrUpdated": "2026-07-29",
+      "accessedAt": "2026-07-29",
+      "status": "CURRENT",
+      "notes": "Every entry in the episode analogy was invented; do not describe a mixture of true and false entries."
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-DEF-GENERATIVE-AI",
+      "canonicalKey": "generative-ai",
+      "type": "definition",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "ANNUAL",
+      "canonicalWording": "Generative AI is AI that produces content from a request and the material it is given—such as text, images, audio, video or code. It does that using patterns learned during training plus the context available for the current task.",
+      "teaching": {
+        "mechanism": "Patterns learned during training and current task context are used to produce content.",
+        "readerConsequence": "Generation and verification are different jobs; generated content is not automatically evidence or a finished answer.",
+        "analogy": "Carrie Bradshaw with a brief can write the column.",
+        "analogyLimit": "The analogy describes generation, not truth, search, evidence or the whole AI product.",
+        "memoryLine": "It can make the draft. It cannot make it true."
+      },
+      "applicability": {
+        "products": ["All generative-AI learning treatments"],
+        "versions": [],
+        "plans": [],
+        "regions": []
+      },
+      "sourceIds": ["SRC-NIST-GENERATIVE-AI-GLOSSARY"],
+      "evidenceSummary": "NIST defines a class of AI models that generates derived synthetic content across several media.",
+      "limitations": [
+        "Search and generation can be combined in one product.",
+        "The definition does not establish that output is accurate, sourced or fit for use."
+      ],
+      "lastCheckedAt": "2026-07-29",
+      "nextReviewAt": "2027-07-29",
+      "recheckTriggers": [
+        "NIST materially revises its taxonomy.",
+        "A new LAiDIES episode proposes a competing definition.",
+        "AIDB or NewsStand surfaces a consequential primary-source change."
+      ],
+      "owner": "learning-content-ecosystem",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-07-29-EP01-DEFINITION-DRIFT",
+          "path": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-EP01-CANON-GENAI",
+          "surface": "Episode 01 canon",
+          "owner": "episode-experience",
+          "path": "content/episodes/episode-01.canon.md",
+          "locator": "concepts / Generative AI",
+          "job": "CANON",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-29",
+          "evidencePath": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md"
+        },
+        {
+          "id": "CON-EP01-NARRATION-GENAI",
+          "surface": "Episode 01 narration pickup",
+          "owner": "episode-experience",
+          "path": "operations/audio/episode-01-narration-pickups-2026-07-29.txt",
+          "locator": "Replacement 2 / Three concepts",
+          "job": "NARRATION",
+          "status": "SCRIPT_READY",
+          "lastVerifiedAt": "2026-07-29",
+          "notes": "New narration and released-audio integration remain required."
+        },
+        {
+          "id": "CON-VOCAB101-GENAI",
+          "surface": "Vocab 101 source",
+          "owner": "library",
+          "path": "content/library-books/vocab-101.md",
+          "locator": "Generative AI",
+          "job": "LIBRARY_LOOKUP",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-CONCEPTS101-GENAI",
+          "surface": "Concepts 101 rendered entry",
+          "owner": "library",
+          "path": "content/library-books/rendered/concepts-101.html",
+          "locator": "1. Generative AI — makes",
+          "job": "LIBRARY_DEPTH",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-07-30",
+          "notes": "Local correction exists; Library admission hold remains."
+        },
+        {
+          "id": "CON-EP01-CARDS-GENAI",
+          "surface": "Episode 01 Trading Card Pack",
+          "owner": "trading-cards",
+          "path": "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/src/App.jsx",
+          "locator": "cards / Generative AI",
+          "job": "TRADING_CARD",
+          "status": "NOT_PUBLIC",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-BASICS-HOW-GENAI",
+          "surface": "Basics class: How it works",
+          "owner": "sunnyvaile-high",
+          "path": "operations/classes/basics-how-it-works.CONTENT.md",
+          "locator": "Generative AI",
+          "job": "CLASS",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-07-29"
+        }
+      ],
+      "correction": {
+        "effectiveAt": "2026-07-29",
+        "severity": "MATERIAL",
+        "oldWording": "Generative AI was defined through a permanent search-versus-writing split and 'first pass' shorthand.",
+        "reason": "The shorthand failed when products combine generation, retrieval and other tools.",
+        "recordPath": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+        "publicHandling": "CORRECTION_REQUIRED"
+      }
+    },
+    {
+      "id": "CLM-DEF-MODEL",
+      "canonicalKey": "ai-model",
+      "type": "definition",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "A model is a trained component of an AI system that uses inputs to produce outputs. A model can be offered through an app, API or coding tool, while a larger product may combine it with instructions, memory, search, files, tools and other models.",
+      "teaching": {
+        "mechanism": "Training shapes the component; a larger system supplies inputs and may add other components and tools.",
+        "readerConsequence": "Model capability, product features and account access are separate questions.",
+        "analogy": "Episode 05 may use a fashion-house analogy only after the plain definition is ruled.",
+        "analogyLimit": "A fashion analogy cannot imply that every product has one model or that a model exists only beneath a consumer app.",
+        "memoryLine": "A model is part of the experience—not the whole thing."
+      },
+      "applicability": {
+        "products": ["All AI model/product/app/API/tool learning treatments"],
+        "versions": [],
+        "plans": [],
+        "regions": []
+      },
+      "sourceIds": ["SRC-OECD-AI-SYSTEM-DEFINITION"],
+      "evidenceSummary": "OECD describes models as core components of AI systems and notes that systems can combine one or more models.",
+      "limitations": [
+        "Model has multiple technical interpretations.",
+        "Current provider examples and names require separate, dated provider evidence."
+      ],
+      "lastCheckedAt": "2026-07-29",
+      "nextReviewAt": "2026-10-29",
+      "recheckTriggers": [
+        "A standards body materially changes the model/system distinction.",
+        "Episode 05 or a class proposes a competing explanation.",
+        "A provider materially changes product/model naming or routing."
+      ],
+      "owner": "learning-content-ecosystem",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-07-29-MODELS-NOT-UNDER-APPS",
+          "path": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-card-concepts-2026-07-29.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-EP01-CANON-MODEL",
+          "surface": "Episode 01 canon",
+          "owner": "episode-experience",
+          "path": "content/episodes/episode-01.canon.md",
+          "locator": "concepts / Model",
+          "job": "CANON",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-29"
+        },
+        {
+          "id": "CON-EP01-NARRATION-MODEL",
+          "surface": "Episode 01 narration pickup",
+          "owner": "episode-experience",
+          "path": "operations/audio/episode-01-narration-pickups-2026-07-29.txt",
+          "locator": "Replacement 2 / Model",
+          "job": "NARRATION",
+          "status": "SCRIPT_READY",
+          "lastVerifiedAt": "2026-07-29",
+          "notes": "Released narration still requires replacement and exact integration proof."
+        },
+        {
+          "id": "CON-VOCAB101-MODEL",
+          "surface": "Vocab 101 source",
+          "owner": "library",
+          "path": "content/library-books/vocab-101.md",
+          "locator": "Model / large language model",
+          "job": "LIBRARY_LOOKUP",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-EP01-CARDS-MODEL",
+          "surface": "Episode 01 Trading Card Pack",
+          "owner": "trading-cards",
+          "path": "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/src/App.jsx",
+          "locator": "cards / Model",
+          "job": "TRADING_CARD",
+          "status": "NOT_PUBLIC",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-BASICS-WHAT-MODEL",
+          "surface": "Basics class: What these tools are",
+          "owner": "sunnyvaile-high",
+          "path": "operations/classes/basics-what-these-tools-are.CONTENT.md",
+          "locator": "The model",
+          "job": "CLASS",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-07-29"
+        },
+        {
+          "id": "CON-BASICS-NARRATION-MODEL",
+          "surface": "Basics Class 01 narration replacement",
+          "owner": "sunnyvaile-high",
+          "path": "operations/audio/class-basics-01-definition-replacement-2026-07-29.txt",
+          "locator": "Model and product/system map",
+          "job": "NARRATION",
+          "status": "SCRIPT_READY",
+          "lastVerifiedAt": "2026-07-29"
+        }
+      ],
+      "correction": {
+        "effectiveAt": "2026-07-29",
+        "severity": "MATERIAL",
+        "oldWording": "The model is the trained brain behind the app; products are magazines and models are editors-in-chief.",
+        "reason": "Models are not confined to apps, products may route among components, and the analogy conflicts with later curriculum.",
+        "recordPath": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+        "publicHandling": "CORRECTION_REQUIRED"
+      }
+    },
+    {
+      "id": "CLM-DEF-HALLUCINATION",
+      "canonicalKey": "hallucination",
+      "type": "definition",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "ANNUAL",
+      "canonicalWording": "A hallucination is false or unsupported content delivered as part of an AI-generated answer. It can be one invented citation, wrong date or made-up detail inside otherwise useful work—not only a completely fictional response.",
+      "teaching": {
+        "mechanism": "Generated content can diverge from evidence, input or earlier context while remaining fluent.",
+        "readerConsequence": "A polished answer cannot be treated as evidence; consequential claims need source verification.",
+        "analogy": "Every Burn Book entry in Episode 01 was invented and presented with total confidence.",
+        "analogyLimit": "Requested fiction is not a hallucination, and the analogy must not suggest that some Episode 01 entries were true.",
+        "memoryLine": "Polished is a style. Evidence is a standard."
+      },
+      "applicability": {
+        "products": ["All generative-AI learning and verification treatments"],
+        "versions": [],
+        "plans": [],
+        "regions": []
+      },
+      "sourceIds": ["SRC-NIST-AI-600-1", "SRC-EP01-ALI-BURN-BOOK-CORRECTION"],
+      "evidenceSummary": "NIST's confabulation risk includes false, erroneous, divergent or internally contradictory generated content; hallucination is retained as reader language.",
+      "limitations": [
+        "No universal hallucination rate applies across tasks, models or evaluation methods.",
+        "The presence of retrieval or citations does not guarantee a grounded answer."
+      ],
+      "lastCheckedAt": "2026-07-29",
+      "nextReviewAt": "2027-07-29",
+      "recheckTriggers": [
+        "NIST revises the Generative AI Profile.",
+        "A surface uses a benchmark rate as a universal hallucination rate.",
+        "A derivative changes the Burn Book analogy."
+      ],
+      "owner": "learning-content-ecosystem",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-07-29-BURN-BOOK-ALL-INVENTED",
+          "path": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-card-concepts-2026-07-29.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-EP01-CANON-HALLUCINATION",
+          "surface": "Episode 01 canon",
+          "owner": "episode-experience",
+          "path": "content/episodes/episode-01.canon.md",
+          "locator": "concepts / Hallucination",
+          "job": "CANON",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-29"
+        },
+        {
+          "id": "CON-EP03-CANON-HALLUCINATION",
+          "surface": "Episode 03 canon",
+          "owner": "episode-experience",
+          "path": "content/episodes/episode-03.canon.md",
+          "locator": "Glossary / Hallucination",
+          "job": "CANON",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-07-30",
+          "notes": "Competing wording remains and needs owner disposition."
+        },
+        {
+          "id": "CON-VOCAB101-HALLUCINATION",
+          "surface": "Vocab 101 source",
+          "owner": "library",
+          "path": "content/library-books/vocab-101.md",
+          "locator": "Hallucination",
+          "job": "LIBRARY_LOOKUP",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-CONCEPTS101-HALLUCINATION",
+          "surface": "Concepts 101 rendered entry",
+          "owner": "library",
+          "path": "content/library-books/rendered/concepts-101.html",
+          "locator": "Hallucination / Why hallucinations happen",
+          "job": "LIBRARY_DEPTH",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-07-30",
+          "notes": "Library admission hold remains."
+        },
+        {
+          "id": "CON-EP01-CARDS-HALLUCINATION",
+          "surface": "Episode 01 Trading Card Pack",
+          "owner": "trading-cards",
+          "path": "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/src/App.jsx",
+          "locator": "cards / Hallucination",
+          "job": "TRADING_CARD",
+          "status": "NOT_PUBLIC",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-VERIFY-RULEBOOK-HALLUCINATION",
+          "surface": "Verification Rulebook claims",
+          "owner": "library",
+          "path": "content/library-books/verification-rulebook.claims.json",
+          "locator": "VR-C001",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-30"
+        }
+      ],
+      "correction": {
+        "effectiveAt": "2026-07-29",
+        "severity": "MATERIAL",
+        "oldWording": "The Burn Book was described as containing some true and some made-up entries; a benchmark range was presented as a universal hallucination rate.",
+        "reason": "The analogy contradicted episode canon and the benchmark measured a different failure mode.",
+        "recordPath": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+        "publicHandling": "CORRECTION_REQUIRED"
+      }
+    },
+    {
+      "id": "CLM-STAT-GENAI-PARTICIPATION-GAP",
+      "canonicalKey": "generative-ai-participation-gap",
+      "type": "statistic",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "MONTHLY",
+      "canonicalWording": "The May 2026 version of HBS Working Paper 25-023 reports estimated generative-AI adoption of 47.8% for men and 39.3% for women among 318,924 respondents in sources reporting use by women and men—a 22% relative gap. The paper reports that the relative gap stabilized near 16% from early 2025.",
+      "teaching": {
+        "mechanism": "The working paper synthesizes 76 sources from more than 100 countries and compares reported use rates by gender where available.",
+        "readerConsequence": "Participation helps shape which needs, defaults and uses receive attention; the statistic does not measure ability.",
+        "analogy": "",
+        "analogyLimit": "Do not turn an average into a claim about every woman or man.",
+        "memoryLine": "Women should not wait while AI is being shaped."
+      },
+      "applicability": {
+        "products": ["Episode 01 and participation-gap learning treatments"],
+        "versions": ["HBS Working Paper 25-023, May 2026 version"],
+        "plans": [],
+        "regions": ["More than 100 countries represented across synthesized sources"]
+      },
+      "sourceIds": ["SRC-HBS-WP-25-023-MAY-2026"],
+      "evidenceSummary": "The working paper reports the sample, estimated use rates, relative gap and time trend.",
+      "limitations": [
+        "Working paper, not a final universal estimate.",
+        "Estimates vary by source, country, occupation and time.",
+        "The paper does not establish one universal cause.",
+        "Participation is not ability."
+      ],
+      "lastCheckedAt": "2026-07-29",
+      "nextReviewAt": "2026-08-29",
+      "recheckTriggers": [
+        "HBS publishes a revised working-paper version or journal article.",
+        "New primary research materially changes the interpretation.",
+        "A derivative uses 25%, 78:100 or another superseded shorthand.",
+        "AIDB or NewsStand reports new gender-participation evidence."
+      ],
+      "owner": "learning-content-ecosystem",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-07-29-HUMAN-20-AND-PARTICIPATION-FRESHNESS",
+          "path": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-EP01-CANON-PARTICIPATION",
+          "surface": "Episode 01 canon",
+          "owner": "episode-experience",
+          "path": "content/episodes/episode-01.canon.md",
+          "locator": "facts / participation gap",
+          "job": "CANON",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-29"
+        },
+        {
+          "id": "CON-EP01-CUES-PARTICIPATION",
+          "surface": "Episode 01 cue data",
+          "owner": "episode-experience",
+          "path": "content/episodes/episode-01-cues.json",
+          "locator": "47.8% / 39.3%",
+          "job": "IMAGE_OR_VIDEO",
+          "status": "REBUILD_REQUIRED",
+          "lastVerifiedAt": "2026-07-29",
+          "notes": "Cue source is corrected; exact released video requires rebuild/integration proof."
+        },
+        {
+          "id": "CON-EP01-NARRATION-PARTICIPATION",
+          "surface": "Episode 01 narration pickup",
+          "owner": "episode-experience",
+          "path": "operations/audio/episode-01-narration-pickups-2026-07-29.txt",
+          "locator": "Replacement 1 / participation gap",
+          "job": "NARRATION",
+          "status": "SCRIPT_READY",
+          "lastVerifiedAt": "2026-07-29"
+        },
+        {
+          "id": "CON-EP01-CARDS-PARTICIPATION",
+          "surface": "Episode 01 Trading Card Pack",
+          "owner": "trading-cards",
+          "path": "operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/src/App.jsx",
+          "locator": "cards / Participation Gap",
+          "job": "TRADING_CARD",
+          "status": "NOT_PUBLIC",
+          "lastVerifiedAt": "2026-07-30"
+        },
+        {
+          "id": "CON-FACTS-LEDGER-PARTICIPATION",
+          "surface": "Facts and citations ledger",
+          "owner": "learning-content-ecosystem",
+          "path": "operations/facts-and-citations-ledger.md",
+          "locator": "Episode 01 / participation gap",
+          "job": "OTHER",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-07-29"
+        }
+      ],
+      "correction": {
+        "effectiveAt": "2026-07-29",
+        "severity": "MATERIAL",
+        "oldWording": "Women were described as using AI at 78% of men's rate or as having 25% lower adoption without the current paper version and scope.",
+        "reason": "The May 2026 working-paper version supplies the current sample, estimates and limits.",
+        "recordPath": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+        "publicHandling": "CORRECTION_REQUIRED"
+      }
+    }
+  ]
+}

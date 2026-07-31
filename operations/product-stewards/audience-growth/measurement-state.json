@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-07-26T14:51:21-07:00",
+  "period": "Last 30 days",
+  "truth": "Plausible collection code is present on many public pages, but no authenticated aggregate export/API is connected to the Control Room. Resident Card production signup truth is also not connected. Unknown is not zero.",
+  "sourceStatus": [
+    {
+      "source": "Plausible",
+      "status": "COLLECTING / REPORTING NOT CONNECTED",
+      "evidence": "Tracking script is embedded across many routes; authenticated dashboard/API was unavailable in the current session.",
+      "unblock": "Authorize a Plausible dashboard login, shared report or Stats API key and select the reporting window."
+    },
+    {
+      "source": "Resident Card / Supabase",
+      "status": "PRODUCTION COUNT NOT VERIFIED",
+      "evidence": "Local identity and profile contracts exist, but the candidate migration is unapplied and no production aggregate query is connected.",
+      "unblock": "After identity authority is established, expose a privacy-safe aggregate count of first verified Card creations by day."
+    },
+    {
+      "source": "Social platforms",
+      "status": "PARTIAL / MANUAL",
+      "evidence": "Ali reports Instagram and LinkedIn active but barely used; YouTube, X, TikTok and Threads are not active.",
+      "unblock": "Confirm exact account handles and authority, activate missing profiles and connect aggregate platform exports."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "visitors",
+      "label": "Visitors",
+      "value": null,
+      "status": "NOT CONNECTED",
+      "definition": "Unique website visitors in the selected period",
+      "source": "Plausible"
+    },
+    {
+      "id": "new-visitors",
+      "label": "New visitors",
+      "value": null,
+      "status": "NOT CONNECTED",
+      "definition": "Visitors classified as new by the approved aggregate definition",
+      "source": "Plausible"
+    },
+    {
+      "id": "resident-card-signups",
+      "label": "New Resident Cards",
+      "value": null,
+      "status": "NOT VERIFIED",
+      "definition": "First verified account-backed Resident Card creation, not a local preview or form submission",
+      "source": "Supabase aggregate"
+    },
+    {
+      "id": "returning-rate",
+      "label": "Returning visitor rate",
+      "value": null,
+      "status": "NOT CONNECTED",
+      "definition": "Approved aggregate returning-visitor rate for the selected period",
+      "source": "Plausible"
+    }
+  ],
+  "popularPages": [],
+  "leastPopularPages": [],
+  "pageRankingStatus": "WAITING FOR PLAUSIBLE PAGE BREAKDOWN",
+  "social": {
+    "dailyTarget": 5,
+    "targetMeaning": "Five strong daily content units across the portfolio, adapted natively across selected channels; not thirty identical cross-posts.",
+    "plannedToday": 5,
+    "readyToday": 0,
+    "publishedToday": 0,
+    "rollingSevenDay": {
+      "campaignId": "audience-week-01-2026-07-26",
+      "start": "2026-07-26",
+      "end": "2026-08-01",
+      "planned": 35,
+      "builtLocally": 35,
+      "readyToPublish": 0,
+      "published": 0,
+      "instagramCandidates": 35,
+      "linkedInCandidates": 35,
+      "instagramStoryCandidates": 35,
+      "instagramCarouselSets": 14,
+      "instagramCarouselFrames": 70,
+      "instagramMotionCandidates": 7,
+      "instagramCaptionFiles": 7,
+      "linkedInDocumentCandidates": 14,
+      "linkedInDocumentPageCandidates": 70,
+      "activationPackets": 4,
+      "evidence": "campaigns/week-01/seven-day-content-board.json",
+      "truth": "All 35 content units exist locally with channel-shaped candidate files: 35 Instagram feed covers, 35 Stories, 14 five-frame carousel sets, 7 captioned motion candidates, 35 LinkedIn previews and 14 five-page document PDFs. Independent production and targeted accessibility/copy accept the narrow D1-01/03 repair, and NewsStand accepts the exact successor seals for Issue 02 source/read-listen scope. These bounded results do not make any unit ready. D1-03 Brand review and rights, human/native accessibility, Control Room, channel, measurement, Ali exact-use, release and publisher gates remain open."
+    },
+    "measurementStatus": "NO CONNECTED PLATFORM EXPORTS",
+    "channels": [
+      { "name": "Instagram", "status": "ACTIVE / LOW CADENCE", "role": "visual discovery, Reels, carousels, Stories and community" },
+      { "name": "LinkedIn", "status": "ACTIVE / LOW CADENCE", "role": "Ali's founder voice, workplace teaching and brand legitimacy" },
+      { "name": "YouTube", "status": "SETUP REQUIRED", "role": "Shorts discovery plus episode and class archive" },
+      { "name": "TikTok", "status": "SETUP REQUIRED", "role": "native short-form discovery, character bits and useful demonstrations" },
+      { "name": "Threads", "status": "SETUP REQUIRED", "role": "conversation, observations, prompts and fast cultural participation" },
+      { "name": "X", "status": "SETUP REQUIRED", "role": "concise real-time commentary, sourced news reactions and conversation" }
+    ]
+  },
+  "opportunities": [
+    {
+      "id": "OPP-AUD-001",
+      "priority": "P0",
+      "title": "Connect the audience baseline",
+      "evidence": "Analytics scripts exist, but no authenticated Plausible result or Resident Card aggregate reaches the Control Room.",
+      "expectedValue": "Turns unknown traffic and conversion into a weekly acquisition, activation and return learning loop.",
+      "nextAction": "Connect read-only aggregate sources; import the last 30 days; preserve definitions and gaps.",
+      "owner": "Audience & Growth + Platform",
+      "status": "BLOCKED — ACCESS",
+      "measure": "Visitors, new visitors, top/low pages and verified Resident Card creations populate with source timestamps.",
+      "aliDecision": "Provide analytics/account access only if no existing authorized session or API credential is available."
+    },
+    {
+      "id": "OPP-AUD-002",
+      "priority": "P0",
+      "title": "Start the five-a-day content engine",
+      "evidence": "Existing trackers are not started; only Instagram and LinkedIn are active and both have low cadence.",
+      "expectedValue": "Creates consistent discovery, useful attention, participation, site use and return signals.",
+      "nextAction": "Route the built Week 01 board through independent review, Brand/source-owner/Control Room admission and Ali's exact batch decision.",
+      "owner": "Audience & Growth",
+      "status": "BUILT LOCALLY — ADMISSION HOLD",
+      "measure": "At least five admitted daily units; publish and outcome counts remain separate.",
+      "aliDecision": "Approve exact public batches and activate missing accounts when the first decision-ready package exists."
+    },
+    {
+      "id": "OPP-AUD-003",
+      "priority": "P1",
+      "title": "Activate four missing channels without copy-paste drift",
+      "evidence": "YouTube, TikTok, Threads and X are not active; current strategy is Instagram/LinkedIn-heavy.",
+      "expectedValue": "Expands discovery while letting each content idea perform in the format its audience expects.",
+      "nextAction": "Prepare handles, bios, profile art, launch objects and a native role for each channel.",
+      "owner": "Audience & Growth + Brand",
+      "status": "SPECIFIED",
+      "measure": "Four profiles verified, complete and publishing native variants with channel-specific outcomes.",
+      "aliDecision": "Approve account identity, profile copy/art and any required account creation."
+    },
+    {
+      "id": "OPP-AUD-004",
+      "priority": "P0",
+      "title": "Admit one five-unit batch before scaling publication",
+      "evidence": "Week 01 contains 35 locally built units with channel-shaped Instagram and LinkedIn candidate files, while ready-to-publish remains zero because exact Brand, source/destination and Ali approvals are unrecorded.",
+      "expectedValue": "Turns a large production bank into one controlled learning batch without confusing asset volume with publication readiness.",
+      "nextAction": "Bind the queued D1-03 Brand checksum verdict, then reconcile rights, human/native accessibility, measurement, Control Room, channel, Ali, release and public gates without changing accepted bytes.",
+      "owner": "Audience & Growth + Brand + source owners + Control Room",
+      "status": "REPORT_READY — NARROW PRODUCTION AND TARGETED ACCESSIBILITY/COPY PASS; NEWSSTAND ACCEPTS EXACT SUCCESSOR SOURCE/READ-LISTEN SEALS; D1-03 BRAND REVIEW QUEUED; READY/PUBLISHED ZERO",
+      "measure": "Five units receive explicit admit/hold decisions; any publication gets live URL/time/destination receipts.",
+      "aliDecision": "Approve, revise or reject the exact Day 01 copy and visual candidates after independent acceptance."
+    },
+    {
+      "id": "OPP-AUD-005",
+      "priority": "P0",
+      "title": "Restore fresh destination evidence for visit/return units",
+      "evidence": "Weekly Episodes checksum-bound receipt observed all four exact Issue read routes at desktop/mobile/failure states, matched public bytes to repository bytes and admitted campaign-provided 01→02→03 individual links. Receipt SHA-256: 241381d47d17fef011260007657f6b414cd13cfcec5cebddfb52df1af1a08a9c.",
+      "expectedValue": "Allows useful content to create real site use without sending a new visitor into a stale or overclaimed journey.",
+      "nextAction": "Preserve the exact read-route boundary in every Visit/Return object; do not imply finished motion, a site-linked sequence or broader campaign readiness.",
+      "owner": "Episode Experience + Platform + Control Room",
+      "status": "VERIFIED PUBLICLY — EXACT READ ROUTES ADMITTED",
+      "measure": "Seven Visit/Return destination rows bind to the checksum receipt; broader campaign readiness remains zero until separate gates pass.",
+      "aliDecision": "None unless a product promise or current-release scope must change."
+    },
+    {
+      "id": "OPP-AUD-006",
+      "priority": "P1",
+      "title": "Batch-record founder-led video efficiently",
+      "evidence": "The strategy requires at least two founder-led LinkedIn objects; Week 01 contains several complete scripts, but no approved recorded performance asset exists.",
+      "expectedValue": "Produces native trust-building LinkedIn/Instagram video from one bounded recording session instead of creating daily workload for Ali.",
+      "nextAction": "Prepare one 30-minute recording sheet from the strongest two scripts, teleprompter copy, shot list and edit map; request Ali only for the actual performance/voice decision.",
+      "owner": "Audience & Growth + Media & Animation + Ali",
+      "status": "SPECIFIED",
+      "measure": "Two captioned 30–90 second candidates pass Brand, source and native-channel review from one recording session.",
+      "aliDecision": "Approve the scripts and choose whether/when to record."
+    },
+    {
+      "id": "OPP-AUD-007",
+      "priority": "P0",
+      "title": "Make a new visitor understand LAiDIES before asking for a click",
+      "evidence": "The Homepage contains the complete model but current social taglines lead with pop-culture fluency, while visible historical posts still show the former domain and wider launch-era promises. Town Entry admits the root-first funnel. Platform reports PUBLIC SAMPLE PASS / RELEASE-WIDE PROOF BLOCKED; /start-here remains an orientation-specific three-hop redirect chain.",
+      "expectedValue": "Gives unfamiliar visitors one stable category, one clear learning sequence and an honest optional-account boundary across every acquisition channel.",
+      "nextAction": "Obtain Brand/Ali exact-language decisions and Platform/Privacy release-wide transition and measurement admission; then prepare only the exact approved profile and residue-object actions.",
+      "owner": "Audience & Growth + Town Entry + Platform + Brand + Ali",
+      "status": "ROUTE/FUNNEL ADMITTED — PLATFORM/BRAND/ALI HOLD; NO PUBLICATION AUTHORITY",
+      "measure": "Approved profile objects use one category message and canonical URL; landing comprehension and meaningful first action are measured only after privacy-safe instrumentation is admitted.",
+      "aliDecision": "Approve or revise the exact category, first-visit, bio and tagline copy; choose KEEP AS HISTORY, CORRECT or REMOVE for each public residue object."
+    }
+  ]
+}

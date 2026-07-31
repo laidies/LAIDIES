@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Blend & Snap · JoJo's pickup rail candidate</title>
+  <link rel="stylesheet" href="candidate.css">
+</head>
+<body>
+  <header class="prototype-bar">
+    <div>
+      <strong>Blend &amp; Snap · candidate-only café ritual</strong>
+      <span>Not live or published · art is provisional · no rewards, ownership or identity writes</span>
+    </div>
+    <form class="scenario-controls" id="scenarioForm" aria-label="Candidate scenario controls">
+      <label>Visitor
+        <select id="visitorState">
+          <option value="first">First-time visitor</option>
+          <option value="returning">Returning, no Resident Card</option>
+          <option value="local-card">Resident Card — device-local</option>
+          <option value="account-card">Resident Card — verified account</option>
+        </select>
+      </label>
+      <label>Fixture
+        <select id="failureState">
+          <option value="none">Healthy inventory</option>
+          <option value="loading">Loading</option>
+          <option value="offline">Offline / fetch failed</option>
+          <option value="stale">Stale manifest</option>
+          <option value="disagreement">Episode/index disagreement</option>
+          <option value="storage-denied">Device storage denied</option>
+        </select>
+      </label>
+      <button id="applyScenario" type="submit">Apply</button>
+    </form>
+  </header>
+
+  <main>
+    <noscript>
+      <section class="noscript-fallback" aria-labelledby="noscriptTitle">
+        <p class="eyebrow">Blend &amp; Snap · basic menu</p>
+        <h1 id="noscriptTitle">JavaScript is off, so the live menu cannot be checked here.</h1>
+        <p>Browse the released Episode first. The current Study Sheet is planned and Episode 04 Cards are unavailable, so neither is offered as a link.</p>
+        <p><a href="/chick-flicks.html">Browse released Episodes</a></p>
+        <ul>
+          <li><a href="/try-on.html?issue=4&amp;from=blend-snap">Episode 04 Try-On</a> · available practice handoff</li>
+          <li><a href="/content/printables/issue-04-founding-mothers-timeline.html">Founding Mothers Timeline</a> · available reference handoff</li>
+          <li><a href="/learn/quiz.html#quiz-start">Episode 04 Pop Quiz</a> · separate assessment next door</li>
+        </ul>
+      </section>
+    </noscript>
+    <section class="cafe-room" aria-labelledby="pageTitle">
+      <img class="room-art room-art--desktop" src="assets/blend-snap-pickup-rail-wide-v1.png" alt="Provisional comic café environment: JoJo stands at a SUNNYVAiLE counter beside a blank menu and paper-ticket pickup rail.">
+      <img class="room-art room-art--mobile" src="assets/blend-snap-order-station-v1.png" alt="Provisional close café counter view with blank pickup tickets, a coffee cup and receipt printer.">
+
+      <div class="arrival">
+        <p class="eyebrow">JoJo's café · The Blend &amp; Snap</p>
+        <h1 id="pageTitle">Order the week.<br>Take what’s ready.</h1>
+        <p class="arrival__copy" id="arrivalCopy">
+          First time in? The Special is an episode menu: review, practise,
+          reference, remember, then check understanding next door.
+        </p>
+        <p class="visitor-truth" id="visitorTruth" role="status" aria-live="polite"></p>
+      </div>
+
+      <section class="menu-board" aria-labelledby="specialTitle">
+        <p class="chalk-label">Today’s verified Special · live menu</p>
+        <h2 id="specialTitle">Episode 04 · The Founding Mothers</h2>
+        <p id="specialSummary">Two pack pieces are ready. The Quiz is separate and ready next door.</p>
+        <ul class="menu-mini" id="menuMini"></ul>
+        <button class="primary-action" id="orderButton" type="button">Order Episode 04</button>
+        <p class="inventory-status" id="inventoryStatus" role="status" aria-live="polite" aria-atomic="true">
+          Inventory checked against the candidate’s read-only manifest fixture.
+        </p>
+        <div class="failure-actions" id="failureActions" hidden>
+          <a href="/chick-flicks.html">Browse released Episodes</a>
+          <button id="retryButton" type="button">Retry the inventory check</button>
+        </div>
+      </section>
+
+      <section class="usual-station" aria-labelledby="usualTitle">
+        <p class="counter-label">Optional</p>
+        <h2 id="usualTitle">The usual?</h2>
+        <p id="usualCopy">Choose a drink if you want. It changes no learning, reward or account state.</p>
+        <div class="drink-buttons" role="group" aria-label="Choose a candidate usual">
+          <button type="button" data-drink="Cortado" aria-pressed="false">Cortado</button>
+          <button type="button" data-drink="Chai latte" aria-pressed="false">Chai latte</button>
+          <button type="button" data-drink="Iced coffee" aria-pressed="false">Iced coffee</button>
+        </div>
+      </section>
+
+      <p class="art-limit">The room art is a candidate-only continuity study. The menu, availability, actions and receipt are live HTML.</p>
+    </section>
+
+    <section class="pickup-zone" id="pickup" aria-labelledby="pickupTitle">
+      <img class="pickup-art" src="assets/blend-snap-order-station-v1.png" alt="Blank clipped order tickets and a receipt printer at the café pickup rail.">
+      <div class="section-heading">
+        <p class="eyebrow">Pickup rail</p>
+        <h2 id="pickupTitle">One receipt. Five honest dispositions.</h2>
+        <p>Available means a route can open. Planned, held and unavailable remain visible without becoming links.</p>
+      </div>
+      <div class="ticket-rail" id="ticketRail" aria-label="Current episode component inventory"></div>
+      <article class="inventory-note">
+        <strong>Opening the menu is not completion.</strong>
+        <span>This candidate remembers only a usual and last-opened receipt in its own local prototype keys.</span>
+      </article>
+    </section>
+
+    <section class="activity-counter" aria-labelledby="activitiesTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Interaction samples · outside current inventory</p>
+        <h2 id="activitiesTitle">Test the activity grammar without pretending it shipped.</h2>
+        <p>These neutral samples prove how review and cards could behave. Neither is admitted to Episode 04 or the live weekly pack.</p>
+      </div>
+
+      <div class="activity-grid">
+        <article class="sample-card study-sample">
+          <div class="sample-card__flag">UNADMITTED FORMAT SAMPLE</div>
+          <p class="eyebrow">Study Sheet · compact review</p>
+          <h3>Prompting is delegation</h3>
+          <p>A useful prompt briefs a capable new hire: name the job, context, audience, shape and boundaries.</p>
+          <button class="secondary-action" id="openStudySample" type="button" aria-expanded="false" aria-controls="studySampleBody">
+            Try the review interaction
+          </button>
+          <div id="studySampleBody" class="sample-body" hidden>
+            <p><strong>Quick distinction:</strong> more words are not automatically more context. Useful context changes the answer.</p>
+            <fieldset>
+              <legend>Which next step lets you practise on a real task?</legend>
+              <label><input type="radio" name="study-check" value="sheet"> Read this Study Sheet again</label>
+              <label><input type="radio" name="study-check" value="try-on"> Open the Try-On</label>
+              <label><input type="radio" name="study-check" value="quiz"> Take the Quiz</label>
+            </fieldset>
+            <button id="checkStudyAnswer" type="button">Check my choice</button>
+            <p id="studyFeedback" class="feedback" role="status" aria-live="polite"></p>
+            <p class="sample-limit">Prototype content for interaction evaluation only. It is not an admitted Study Sheet or current weekly item.</p>
+          </div>
+        </article>
+
+        <article class="sample-card card-sample">
+          <div class="sample-card__flag">HELD INTERACTION SAMPLE · NO OWNERSHIP</div>
+          <p class="eyebrow">Trading Cards · remember</p>
+          <h3>Flip, compare, remember</h3>
+          <p>No pack opening, random award, collection count, trading, reward or Closet delivery occurs here.</p>
+          <div class="practice-deck" id="practiceDeck" aria-label="Three non-collectible card samples">
+            <button class="practice-card" type="button" aria-pressed="false">
+              <span class="practice-card__front">PROMPT</span>
+              <span class="practice-card__back">The instruction and context you give a model.</span>
+            </button>
+            <button class="practice-card" type="button" aria-pressed="false">
+              <span class="practice-card__front">CONTEXT</span>
+              <span class="practice-card__back">Information that changes how the task should be understood.</span>
+            </button>
+            <button class="practice-card" type="button" aria-pressed="false">
+              <span class="practice-card__front">VERIFY</span>
+              <span class="practice-card__back">Check important claims against suitable evidence before relying on them.</span>
+            </button>
+          </div>
+          <p class="sample-limit">Interaction sample only. Nothing is saved, owned, earned or sent to My Closet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="back-rail" aria-labelledby="backRailTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Discovery · current inventory truth</p>
+        <h2 id="backRailTitle">The Regulars</h2>
+        <p>Every published episode remains discoverable. Each receipt keeps its own exact component availability.</p>
+      </div>
+      <div class="episode-rack" id="episodeRack"></div>
+    </section>
+
+    <section class="handoff-board" aria-labelledby="handoffTitle">
+      <img class="noticeboard-art" src="assets/blend-snap-noticeboard-blank-v1.png" alt="A café corkboard with blank pinned paper areas for optional SUNNYVAiLE notices.">
+      <div class="section-heading">
+        <p class="eyebrow">After coffee</p>
+        <h2 id="handoffTitle">Take the right door.</h2>
+        <p>Blend &amp; Snap coordinates. The destination owner proves the result.</p>
+      </div>
+      <div class="handoff-grid" aria-label="After coffee handoffs">
+        <a href="/try-on.html?issue=4&amp;from=blend-snap">
+          <strong>Try-On</strong><span>Practise on one episode-specific task.</span><small>Available handoff</small>
+        </a>
+        <a href="/content/printables/issue-04-founding-mothers-timeline.html">
+          <strong>Reference</strong><span>Open the admitted Episode 04 printable.</span><small>Available handoff</small>
+        </a>
+        <a href="/learn/quiz.html#quiz-start">
+          <strong>SUNNYVAiLE High</strong><span>Check understanding beside the Pack.</span><small>Separate assessment</small>
+        </a>
+        <a href="/chick-flicks.html">
+          <strong>Episodes</strong><span>Return to the story or recover when the menu fails.</span><small>Truthful fallback</small>
+        </a>
+      </div>
+    </section>
+
+    <aside class="truth-panel" aria-labelledby="truthTitle">
+      <p class="eyebrow">What this candidate proves</p>
+      <h2 id="truthTitle">Place, inventory and limits stay visible together.</h2>
+      <ul>
+        <li>First-time, returning, local-Card and verified-account visitors get the same available café capability.</li>
+        <li>Device-local memory never becomes membership, learning progress, ownership or cross-device continuity.</li>
+        <li>Study Sheet and Trading Cards can demonstrate interaction form without entering the current pack.</li>
+        <li>Failure turns the Special around and keeps the released-Episodes fallback available.</li>
+      </ul>
+    </aside>
+  </main>
+
+  <dialog id="receiptDialog" aria-labelledby="receiptTitle">
+    <form method="dialog" class="receipt">
+      <p class="receipt__stamp">ORDER UP · STUDY PACK MENU</p>
+      <h2 id="receiptTitle" tabindex="-1">Episode 04 · The Founding Mothers</h2>
+      <p id="receiptSummary">Two of four pack pieces are ready. The Quiz is separate.</p>
+      <ul id="receiptItems"></ul>
+      <p class="receipt__truth">This receipt records navigation only. It awards and completes nothing.</p>
+      <button class="primary-action" id="closeReceipt" value="close">Leave it at the counter</button>
+    </form>
+  </dialog>
+
+  <script src="candidate.js"></script>
+</body>
+</html>

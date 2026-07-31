@@ -1,0 +1,801 @@
+{
+  "_meta": {
+    "title": "LAiDIES episode surface inventory",
+    "purpose": "The denominator for the Wednesday Engine: every place an episode can or must feed. The human rules and decision logic live in operations/weekly-engine-ingestion-map.md.",
+    "authority": "Inventory contract. content/episodes/episode-{NN}.canon.md remains the editorial source of truth.",
+    "version": "2026-07-24",
+    "path_tokens": {
+      "{NN}": "two-digit episode number",
+      "{N}": "un-padded episode number",
+      "{issueKey}": "issueNN"
+    },
+    "policy_values": {
+      "required": "Every episode owes the artifact or an explicit system-level inherited asset.",
+      "conditional": "Every episode must make and record the decision; build only when selected.",
+      "system": "Shared infrastructure checked every release but not recreated every week."
+    },
+    "mode_values": {
+      "source": "Authoritative source input.",
+      "generated": "Whole artifact derived from canon.",
+      "merged": "Episode record inserted into a shared file/page.",
+      "manual": "Human or GUI production step with evidence.",
+      "external": "Published outside the repository; local proof is required."
+    }
+  },
+  "surfaces": [
+    {
+      "id": "substance-sheet",
+      "domain": "source",
+      "policy": "required",
+      "mode": "source",
+      "canon_fields": ["lesson", "worked_example", "practical_takeaway", "scope"],
+      "targets": ["content/episodes/episode-{NN}.substance.md"],
+      "proof": "Ali-approved substance exists before full prose or downstream production."
+    },
+    {
+      "id": "episode-canon",
+      "domain": "source",
+      "policy": "required",
+      "mode": "source",
+      "canon_fields": ["all"],
+      "targets": ["content/episodes/episode-{NN}.canon.md"],
+      "proof": "Teaching gate passes, divergences are ruled, facts are current, and required sections are non-empty."
+    },
+    {
+      "id": "opportunity-scan",
+      "domain": "source",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["all"],
+      "targets": ["operations/weeks/episode-{NN}-opportunity-scan.md"],
+      "proof": "Every conditional surface is selected, deferred, or not_applicable with a reason."
+    },
+    {
+      "id": "issue-json",
+      "domain": "source",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "lesson", "try_on", "discussion_prompt", "references", "track", "social", "experience_jobs", "quotables", "reward_actions", "reward_offers", "loyalty_impacts", "connection_impacts", "build_learnings"],
+      "targets": ["content/episodes/issue-{NN}.json"],
+      "proof": "Generated from canon, provenance-stamped, and never independently authored."
+    },
+    {
+      "id": "facts-ledger",
+      "domain": "source",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["facts", "references"],
+      "targets": ["operations/facts-and-citations-ledger.md"],
+      "proof": "Every factual/product claim has source, scope, caveat, verified date, and recheck need."
+    },
+    {
+      "id": "season-arc",
+      "domain": "source",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "previously_hook", "next_time_hook", "downstream"],
+      "targets": ["docs/season/24-episode-arc.md", "operations/audio/season-01-bible.md"],
+      "proof": "Title, teaching order, prior knowledge and next-episode handoff agree."
+    },
+    {
+      "id": "article-source",
+      "domain": "episode",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["narrative", "lesson", "concepts", "facts", "comparison", "cocktail_party", "try_on", "references", "artwork"],
+      "targets": ["content/issues/issue-{NN}.md"],
+      "proof": "Written version passes teaching, voice, fact and must-match gates and is refreshed after any semantic recording revision that affects the readable beat."
+    },
+    {
+      "id": "article-page",
+      "domain": "episode",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "article_source", "artwork", "site_links"],
+      "targets": ["issues/issue-{NN}.html"],
+      "proof": "Public page renders, links, images, metadata, alt text and after-read path pass."
+    },
+    {
+      "id": "elevenlabs-script",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["narrative", "previously_hook", "next_time_hook", "pronunciation"],
+      "targets": ["operations/audio/episode-{NN}-elevenlabs-v3-tagged.txt"],
+      "proof": "Meaning matches canon; delivery tags and ear spellings do not leak into public copy."
+    },
+    {
+      "id": "recording-revision-log",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["narrative", "concepts", "facts", "quotables", "pronunciation"],
+      "targets": ["operations/audio/episode-{NN}-recording-revisions.md"],
+      "proof": "Every listening-session change is classified; semantic changes are reconciled to canon and affected surfaces; intentional spoken variants are recorded; every row is closed before captions/cues."
+    },
+    {
+      "id": "pronunciation-lexicon",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["pronunciation"],
+      "targets": ["operations/audio/pronunciation-lexicon.json"],
+      "proof": "Public, intended-sound, TTS/song-performance and caption forms are explicit for every override; homographs also record meaning/context and tool/version scope."
+    },
+    {
+      "id": "narration-audio",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["elevenlabs_script"],
+      "targets": ["content/music/episode-{NN}-narration.mp3"],
+      "proof": "Final listening version plays end to end, uses the approved voice, contains the locked close, and has a fully reconciled recording revision log."
+    },
+    {
+      "id": "narration-as-recorded-transcript",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["narration_audio", "narrative", "pronunciation", "recording_revisions"],
+      "targets": ["operations/audio/episode-{NN}-as-recorded-transcript.md"],
+      "proof": "Transcript is produced from the exact approved audio, records the words actually spoken with public spelling restored, and resolves every difference from canon/TTS input before captions, cues or fan-out."
+    },
+    {
+      "id": "timing-and-words",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["narration_audio", "narrative", "recording_revisions"],
+      "targets": ["operations/captions/episode-{NN}-timing-map.json", "operations/captions/episode-{NN}-words.json"],
+      "proof": "Built from the final approved audio after recording reconciliation; alignment coverage clears the calibrated floor and every spoken block has time."
+    },
+    {
+      "id": "captions",
+      "domain": "audio",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["narrative", "timing_and_words", "pronunciation", "recording_revisions"],
+      "targets": ["operations/captions/episode-{NN}.srt", "operations/captions/episode-{NN}.vtt", "assets/captions/episode-{NN}.srt", "assets/captions/episode-{NN}.vtt"],
+      "proof": "Captions match the final audio word-for-word after public-spelling normalization, omit delivery tags, and are loaded by the player."
+    },
+    {
+      "id": "podcast-item",
+      "domain": "audio",
+      "policy": "conditional",
+      "mode": "external",
+      "canon_fields": ["meta", "episode_description", "try_on", "narration_audio"],
+      "targets": ["podcast/feed.xml", "operations/releases/episode-{NN}.md"],
+      "proof": "Feed validates and the public podcast item plays; selected only while the podcast channel is active."
+    },
+    {
+      "id": "episode-song",
+      "domain": "music",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["track", "lesson", "quotables", "pronunciation"],
+      "targets": ["content/music/dj-jaidy-week-{NN}-*.mp3", "operations/audio/laidies-songbook-suno.md"],
+      "proof": "Approved episode song file, title, artist, canonical lyrics, one to three accurate lesson-memory hooks and rights/provenance are recorded; the song works as replayable music rather than a sung summary."
+    },
+    {
+      "id": "song-performance-workbench",
+      "domain": "music",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["track", "pronunciation"],
+      "targets": ["operations/audio/episode-{NN}-song-performance.md"],
+      "proof": "Tool-facing performance lyrics preserve a traceable mapping to canonical lyrics and record pronunciation spellings, structure/delivery cues, tool/model/version/date and intended meaning without becoming public copy."
+    },
+    {
+      "id": "song-reconciliation-log",
+      "domain": "music",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["track", "pronunciation", "quotables", "facts"],
+      "targets": ["operations/audio/episode-{NN}-song-revisions.md", "operations/audio/episode-{NN}-as-recorded-lyrics.md"],
+      "proof": "Every pronunciation workaround and generated omission/repetition/substitution is resolved; as-recorded lyrics match the approved audio; public lyrics restore standard spelling; semantic, factual and locked-hook changes are reconciled before fan-out."
+    },
+    {
+      "id": "episode-radio-intro",
+      "domain": "music",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["meta", "lesson", "track"],
+      "targets": ["content/music/ksvl-transitions/dj-sunnyv-intro-episode-{NN}.mp3"],
+      "proof": "DJ SunnyV intro names the correct episode/song and plays immediately before it."
+    },
+    {
+      "id": "series-title-audio",
+      "domain": "music",
+      "policy": "system",
+      "mode": "merged",
+      "canon_fields": ["meta"],
+      "targets": ["content/music/sunnyvaile-episode-intro.mp3", "content/music/sunnyvaile-episode-outro.mp3"],
+      "proof": "Fixed series open/close are present in the episode package; they are not confused with the weekly episode song."
+    },
+    {
+      "id": "ksvl-registry",
+      "domain": "music",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["track"],
+      "targets": ["content/site/ksvl-player.js", "content/episode-index.json"],
+      "proof": "Episode song and DJ intro are registered and play from KSVL and the episode module."
+    },
+    {
+      "id": "patron-saint-audio-tie",
+      "domain": "music",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["meta.patron_saint"],
+      "targets": ["content/site/ksvl-player.js", "luminairy.html"],
+      "proof": "Existing saint song/introduction is cross-linked, or new assets are added only for a genuinely new saint."
+    },
+    {
+      "id": "study-sheet",
+      "domain": "learning",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["lesson", "concepts", "quotables", "try_on"],
+      "targets": ["content/study-packs/episode-{NN}-study-sheet.md"],
+      "proof": "Core lesson, three concepts, remember line and practical use stand alone."
+    },
+    {
+      "id": "study-pack",
+      "domain": "learning",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["lesson", "concepts", "try_on", "artwork"],
+      "targets": ["blend-snap.html", "content/study-packs/episode-{NN}.json"],
+      "proof": "Pack bundles Study Sheet, Try-On, Cheat Sheet and cards; it is not only a link to the article."
+    },
+    {
+      "id": "try-on",
+      "domain": "learning",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["try_on"],
+      "targets": ["try-on.html", "content/study-packs/episode-{NN}.json"],
+      "proof": "Episode-specific exercise is selectable, useful in about ten minutes and does not duplicate another episode."
+    },
+    {
+      "id": "cheat-sheet",
+      "domain": "learning",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["lesson", "concepts", "comparison", "try_on"],
+      "targets": ["content/printables/issue-{NN}-*.html", "content/printables/issue-{NN}-*-download-copy.md"],
+      "proof": "Save/print output is practical, legible and linked from the Study Pack."
+    },
+    {
+      "id": "quiz",
+      "domain": "learning",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["quiz", "lesson", "concepts"],
+      "targets": ["content/site/quizzes.json", "content/site/site-data.js", "learn/quiz.html"],
+      "proof": "Quiz exists under issue key, checks transfer rather than trivia, deep-links to review, and awards correctly."
+    },
+    {
+      "id": "card-pack",
+      "domain": "learning",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["concepts", "quotables", "facts", "patron_saint"],
+      "targets": ["content/site/card-packs.json", "games/trading-cards.html", "assets/cards/"],
+      "proof": "Concept/character cards have copy, fronts/backs, alt text, pack key and collection wiring."
+    },
+    {
+      "id": "glossary",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["concepts"],
+      "targets": ["learn/glossary.html", "content/site/content-registry.json", "content/site/site-index.json"],
+      "proof": "Every genuinely new or materially corrected term is added once and searchable; repeated terms link to the existing entry."
+    },
+    {
+      "id": "library-existing-books",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["concepts", "facts", "references"],
+      "targets": ["content/library-books/*.md", "content/library-books/rendered/*.html", "content/library-books/INVENTORY.md", "library.html"],
+      "proof": "Relevant durable books are refreshed before a duplicate book is proposed."
+    },
+    {
+      "id": "library-new-book",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "generated",
+      "canon_fields": ["concepts", "facts", "references"],
+      "targets": ["content/library-books/{book-slug}.md", "content/library-books/rendered/{book-slug}.html", "library.html"],
+      "proof": "New book owns a durable lookup job not served by an existing book and has complete content, cover, index entry and search aliases."
+    },
+    {
+      "id": "school-existing-class",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["lesson", "concepts", "try_on"],
+      "targets": ["content/site/high-classes.json", "learn/class.html"],
+      "proof": "Episode points to the class that demonstrates the relevant screen/action; class facts are rechecked."
+    },
+    {
+      "id": "school-new-class",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["lesson", "concepts", "try_on"],
+      "targets": ["content/site/high-classes.json", "operations/classes/"],
+      "proof": "New class demonstrates machinery the episode cannot show and does not repeat conceptual teaching."
+    },
+    {
+      "id": "current-models",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["facts", "references"],
+      "targets": ["content/site/current-models.js"],
+      "proof": "Live model/version/plan facts are dated and kept out of evergreen narration when they will rot."
+    },
+    {
+      "id": "book-fair",
+      "domain": "learning",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["concepts", "quotables", "artwork", "reward_offers"],
+      "targets": ["bookfair.html", "content/site/reward-catalog.json", "laidies-card.html"],
+      "proof": "Episode contributes only when the Book Fair cadence or a real drop calls for it; price comes from the shared economy, the complete asset exists, redemption changes the balance once, and ownership/use appears in the promised Closet destination."
+    },
+    {
+      "id": "bronze-cocktail-card",
+      "domain": "town",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["cocktail_party", "meta"],
+      "targets": ["bronze-aige.html"],
+      "proof": "Episode card appears behind the bar, matches canon verbatim and is reachable from the episode."
+    },
+    {
+      "id": "patron-saint",
+      "domain": "town",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta.patron_saint", "narrative"],
+      "targets": ["luminairy.html", "content/site/site-index.json"],
+      "proof": "The episode explicitly records one saint or no saint with a reason; any saint used has a teaching move, not a cameo."
+    },
+    {
+      "id": "mall-reference-bank",
+      "domain": "town",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["references", "heroine_outfit", "narrative"],
+      "targets": ["mall/*.html", "operations/the-mall-inventory-plan.md", "REFERENCE-CLOSET.md"],
+      "proof": "Every load-bearing reference/outfit source is already findable in the right shop or is added with a useful gloss."
+    },
+    {
+      "id": "mall-town-tie",
+      "domain": "town",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["references", "try_on"],
+      "targets": ["operations/the-mall-inventory-plan.md"],
+      "proof": "A new mechanic tie is recorded only when it naturally turns the reference into a useful town action."
+    },
+    {
+      "id": "heroine-outfit",
+      "domain": "town",
+      "policy": "required",
+      "mode": "source",
+      "canon_fields": ["heroine_outfit"],
+      "targets": ["content/episodes/episode-{NN}.canon.md", "operations/reference/heroine-wardrobe/README.md"],
+      "proof": "One outfit, one source, exact accessories/hair and approved reference image are locked before art generation."
+    },
+    {
+      "id": "weekly-charms",
+      "domain": "rewards",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "references"],
+      "targets": ["content/site/charm-hunt.js"],
+      "proof": "Seven named charms, week title, seven building placements, unique slugs and coordinates are wired."
+    },
+    {
+      "id": "episode-butterfly-clip-actions",
+      "domain": "rewards",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "try_on", "quiz", "experience_jobs", "reward_actions"],
+      "targets": ["content/site/reward-actions.json", "content/site/clip-bank.js", "laidies-card.html"],
+      "proof": "Every eligible action has a shared amount, reason, completion signal, cap/repeat rule and dedupe key; the action credits once, explains the earn, and appears in the same ledger/balance used across town."
+    },
+    {
+      "id": "episode-loyalty-impact",
+      "domain": "rewards",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["meta", "lesson", "experience_jobs", "loyalty_impacts"],
+      "targets": ["operations/weeks/episode-{NN}-opportunity-scan.md", "content/site/loyalty-programs.json"],
+      "proof": "The episode explicitly selects a meaningful building stamp action or none; selected actions have a completion signal, dedupe/cap rule, Wallet destination and milestone/fulfilment contract."
+    },
+    {
+      "id": "weekly-charm-art",
+      "domain": "rewards",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["weekly_charms"],
+      "targets": ["assets/charms/w{N}-*.png", "approved-assets/stickers-charms/"],
+      "proof": "Every wired slug has approved transparent art and fallback behavior is not the shipped experience."
+    },
+    {
+      "id": "closet-quotables",
+      "domain": "rewards",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["quotables", "track"],
+      "targets": ["content/site/quotables.json", "index.html", "maikeover.html", "laidies-card.html", "content/site/ksvl-player.js", "content/site/site-index.json"],
+      "proof": "The episode has an accurate lesson hook, funny/signature line and final lyric hook; each record preserves source/context/rights metadata, is discoverable through Overheard in SUNNYVAiLE/search, opens the exact song/scene/episode, and approved favorites/shares persist without creating a second wording authority."
+    },
+    {
+      "id": "wednesday-tour",
+      "domain": "rewards",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "site_links", "track"],
+      "targets": ["index.html", "script.js", "content/episode-index.json"],
+      "proof": "Express and Full Tour stops point to the current episode package and completion rewards bank honestly."
+    },
+    {
+      "id": "owned-game-or-tool",
+      "domain": "town",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["lesson", "try_on", "concepts", "experience_jobs"],
+      "targets": ["games/*.html", "content/site/site-index.json", "issues/issue-{NN}.html"],
+      "proof": "An episode companion practises the lesson or moves the visitor toward practising it; every feature declares and fulfils an honest teach, practise, judge, retrieve, activate, encourage, belong or delight job, and a new activity has a distinct purpose beyond the quiz."
+    },
+    {
+      "id": "community-prompt",
+      "domain": "community",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["discussion_prompt", "try_on"],
+      "targets": ["community/weekly-prompts/issue-{NN}.md", "community.html"],
+      "proof": "Prompt asks for an answer people can safely share, has a destination, and is posted rather than merely drafted."
+    },
+    {
+      "id": "episode-postcard",
+      "domain": "town",
+      "policy": "conditional",
+      "mode": "generated",
+      "canon_fields": ["artwork", "references", "quotables", "connection_impacts"],
+      "targets": ["assets/postcards/from-sunnyvaile/pc-*.png", "postcard.html"],
+      "proof": "Card has an independent sending reason, matches postcard visual rules, is added to the picker and sends successfully; any stated connection reward uses the approved stage, cap, attribution and fulfilled grant rather than being inferred from a share click."
+    },
+    {
+      "id": "newsstand-wednesday",
+      "domain": "news",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "cocktail_party", "facts"],
+      "targets": ["content/newsstand-stories.js", "newsstand.html"],
+      "proof": "The WEDNESDAY Edition announces the episode and links to it without duplicating the full lesson."
+    },
+    {
+      "id": "newsstand-tribune",
+      "domain": "news",
+      "policy": "conditional",
+      "mode": "merged",
+      "canon_fields": ["facts", "references", "downstream"],
+      "targets": ["content/newsstand-stories.js", "newsstand.html"],
+      "proof": "A real adjacent argument/tension is sourced, not already covered, and belongs outside the episode's teaching spine."
+    },
+    {
+      "id": "art-storyboard",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["narrative", "cast", "heroine_outfit", "artwork"],
+      "targets": ["operations/codex-prompts/ep{NN}-visual-storyboard.md", "operations/codex-prompts/ep{NN}-MASTER-all-prompts.md"],
+      "proof": "Every teaching beat has a visual job, approved references and a stated motion budget."
+    },
+    {
+      "id": "episode-art",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["artwork", "cast", "heroine_outfit"],
+      "targets": ["assets/episodes/ep-{NN}/"],
+      "proof": "Hero, section art and scene frames pass continuity, identity, text, style, dimensions and alt-text review."
+    },
+    {
+      "id": "episode-cues",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["narrative", "timing_and_words", "artwork"],
+      "targets": ["content/episodes/episode-{NN}-cues.json"],
+      "proof": "Every cue resolves to an asset, follows audio timing and clears cue coverage checks."
+    },
+    {
+      "id": "episode-motion",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["episode_cues", "art_storyboard"],
+      "targets": ["assets/episodes/ep-{NN}/*-motion-*.mp4", "operations/video-qa/"],
+      "proof": "Selected beats move for a reason, stills remain still where appropriate, and no identity/style drift is introduced."
+    },
+    {
+      "id": "capcut-project",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["episode_cues", "narration_audio", "captions", "episode_motion"],
+      "targets": ["CapCut project: episode-{NN}", "operations/releases/episode-{NN}.md"],
+      "proof": "Project opens, assets are linked, timing/captions are correct, and an editable project is retained."
+    },
+    {
+      "id": "video-export",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["capcut_project"],
+      "targets": ["assets/video/episode-{NN}.mp4"],
+      "proof": "Final export plays end to end on desktop/mobile with audio, captions and no missing frames."
+    },
+    {
+      "id": "watch-player",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "video_export", "captions", "episode_cues"],
+      "targets": ["watch.html", "chick-flicks.html", "content/episode-index.json"],
+      "proof": "Episode is selectable, poster/caption tracks load, deep links work and drafts remain hidden."
+    },
+    {
+      "id": "poster-thumbnail-og",
+      "domain": "visual",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "artwork"],
+      "targets": ["assets/sunnyvaile-interiors/episode-vhs-boxes/ep-{NN}.webp", "assets/episodes/ep-{NN}/social/"],
+      "proof": "Archive poster, player thumbnail and social/OG crop exist with correct title and safe zones."
+    },
+    {
+      "id": "episode-index",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "lesson", "site_links", "track"],
+      "targets": ["content/episode-index.json", "content/site/site-data.js"],
+      "proof": "Episode status, URLs, modules, song and release date agree and draft visibility is correct."
+    },
+    {
+      "id": "ask-jeeves-index",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "concepts", "aliases"],
+      "targets": ["content/site/site-index.json"],
+      "proof": "Episode and every new book/class/activity have entries, plain-language aliases and valid URLs."
+    },
+    {
+      "id": "content-registry",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "concepts", "aliases"],
+      "targets": ["content/site/content-registry.json"],
+      "proof": "Topic search returns the episode and relevant durable resources; stale legacy entries are corrected."
+    },
+    {
+      "id": "homepage-current-episode",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "artwork", "track"],
+      "targets": ["index.html", "content/episode-index.json"],
+      "proof": "This-week panel, ritual links, hero media and release state show the new episode."
+    },
+    {
+      "id": "episode-archive",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "lesson", "artwork"],
+      "targets": ["episodes.html", "chick-flicks.html", "content/episode-index.json"],
+      "proof": "Episode appears in season order and the Chick Flicks shelf with working read/watch/listen paths."
+    },
+    {
+      "id": "sitemap-and-seo",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "episode_description", "artwork"],
+      "targets": ["sitemap.xml", "issues/issue-{NN}.html"],
+      "proof": "Canonical URL, title, description, social metadata, structured data and sitemap entry are correct."
+    },
+    {
+      "id": "internal-crosslinks",
+      "domain": "discovery",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["concepts", "references", "previously_hook", "next_time_hook"],
+      "targets": ["issues/issue-{NN}.html", "content/library-books/*.md", "learn/glossary.html", "content/newsstand-stories.js"],
+      "proof": "Episode links to prerequisites and next steps; books/classes/news link back without orphan pages."
+    },
+    {
+      "id": "buttondown-email",
+      "domain": "distribution",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["meta", "lesson", "episode_description", "site_links", "track", "try_on"],
+      "targets": ["email/buttondown/issue-{NN}.md"],
+      "proof": "Wednesday Postcard has final URLs, useful excerpt, module links and scheduled/sent proof."
+    },
+    {
+      "id": "social-content-ladder",
+      "domain": "distribution",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["lesson", "concepts", "references", "worked_example", "quotables", "try_on", "discussion_prompt", "social"],
+      "targets": ["social/episodes/issue-{NN}-content-ladder.md"],
+      "proof": "The batch considers stop, wonder, learn, save/send, join, visit/use and return; the connection mystery has a real episode answer; each released CTA has an exact public URL, promised action, UTM/event and mobile/desktop/new-user proof."
+    },
+    {
+      "id": "instagram-kit",
+      "domain": "distribution",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["lesson", "concepts", "quotables", "try_on", "artwork", "social"],
+      "targets": ["social/episodes/issue-{NN}-instagram-kit.md", "social/instagram/episodes/"],
+      "proof": "Discovery Reel, saveable carousel, Story sequence/poll, caption, CTA, alt text and visual files are complete; at least one object gives standalone value and the batch does not confuse seven social jobs with seven mandatory posts."
+    },
+    {
+      "id": "linkedin-post",
+      "domain": "distribution",
+      "policy": "required",
+      "mode": "generated",
+      "canon_fields": ["lesson", "worked_example", "founder_angle", "social"],
+      "targets": ["social/episodes/issue-{NN}-linkedin.md"],
+      "proof": "Founder-voice post makes the practical/professional case and links to the episode with release proof."
+    },
+    {
+      "id": "tiktok-cut",
+      "domain": "distribution",
+      "policy": "conditional",
+      "mode": "external",
+      "canon_fields": ["social", "episode_motion", "captions"],
+      "targets": ["social/episodes/issue-{NN}-tiktok.md", "operations/releases/episode-{NN}.md"],
+      "proof": "Active-channel cut is vertical, captioned, posted/scheduled and linked; otherwise record channel inactive."
+    },
+    {
+      "id": "youtube-short",
+      "domain": "distribution",
+      "policy": "conditional",
+      "mode": "external",
+      "canon_fields": ["social", "episode_motion", "captions"],
+      "targets": ["social/episodes/issue-{NN}-youtube-short.md", "operations/releases/episode-{NN}.md"],
+      "proof": "Short is vertical, captioned, has description/link and public/scheduled proof."
+    },
+    {
+      "id": "youtube-full-episode",
+      "domain": "distribution",
+      "policy": "conditional",
+      "mode": "external",
+      "canon_fields": ["meta", "video_export", "captions", "episode_description"],
+      "targets": ["operations/releases/episode-{NN}.md"],
+      "proof": "Full video, thumbnail, captions, chapters, description and public URL are recorded."
+    },
+    {
+      "id": "social-tracker",
+      "domain": "distribution",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "social"],
+      "targets": ["social/website-feature-posting-tracker.csv", "social/issue-{NN}-posting-tracker.csv"],
+      "proof": "Every selected post has platform, primary job/signal, asset, CTA, exact public URL/UTM, promised site action, public destination proof, scheduled/published timestamp and journey-result fields."
+    },
+    {
+      "id": "public-reveal-readiness",
+      "domain": "operations",
+      "policy": "system",
+      "mode": "manual",
+      "canon_fields": ["all"],
+      "targets": ["operations/launch/sunnyvaile-public-reveal-readiness.md", "operations/releases/episode-{NN}.md"],
+      "proof": "Before the first SUNNYVAiLE growth campaign, the narrative reset, retired Grimoire routes, first-visit comprehension, promised journeys, backend plumbing, social profiles, public smoke tests and post-reveal stability window are signed off; later releases preserve that contract."
+    },
+    {
+      "id": "rewind-era-experience-contract",
+      "domain": "operations",
+      "policy": "system",
+      "mode": "manual",
+      "canon_fields": ["lesson", "references", "track", "experience_jobs", "site_links"],
+      "targets": ["docs/brand/rewind-era-immersive-experience-principles.md", "operations/releases/episode-{NN}.md"],
+      "proof": "The public experience is period-specific and immersive; direct learning remains rigorous; promoted features fulfil an honest hidden-curriculum job; music carries accurate retrieval hooks; one clear visit path reveals optional abundance progressively without confusion."
+    },
+    {
+      "id": "butterfly-clip-economy",
+      "domain": "operations",
+      "policy": "system",
+      "mode": "merged",
+      "canon_fields": ["reward_actions", "reward_offers"],
+      "targets": ["docs/product/butterfly-clip-economy.md", "content/site/reward-actions.json", "content/site/reward-catalog.json", "content/site/clip-bank.js", "laidies-card.html", "bookfair.html"],
+      "proof": "Butterfly clips are the one universal spendable currency; earning and spending use one auditable ledger; collectibles remain distinct; balances reconcile everywhere; failed transactions do not charge; every redeemed reward exists and arrives where promised; core learning is never clip-gated."
+    },
+    {
+      "id": "building-loyalty-cards",
+      "domain": "operations",
+      "policy": "system",
+      "mode": "merged",
+      "canon_fields": ["experience_jobs", "loyalty_impacts", "reward_actions", "reward_offers"],
+      "targets": ["docs/product/building-loyalty-cards.md", "content/site/loyalty-programs.json", "content/site/loyalty-ledger.js", "content/site/sv-you-are-here.js", "laidies-card.html"],
+      "proof": "Each active building card separates passive visit history from meaningful stamps, uses one shared stamp/milestone ledger, cannot be refresh-farmed, grants fulfilled rewards once, syncs with the Town Wallet and remains optional progressive depth."
+    },
+    {
+      "id": "bring-your-people-reward-loops",
+      "domain": "operations",
+      "policy": "system",
+      "mode": "merged",
+      "canon_fields": ["experience_jobs", "social", "reward_actions", "reward_offers", "loyalty_impacts", "connection_impacts"],
+      "targets": ["docs/product/bring-your-people-reward-loops.md", "postcard.html", "maikeover.html", "laidies-card.html", "supabase/migrations/20260722234500_bestie_necklace.sql", "content/site/connection-programs.json", "content/site/connection-ledger.js"],
+      "proof": "The postcard pilot separates sent/opened/joined/activated states, uses durable opaque attribution, grants capped send rewards and reciprocal join rewards idempotently, fulfils every background/collectible, protects contacts and personal notes, and never pays for spam volume."
+    },
+    {
+      "id": "behind-the-build-learning-system",
+      "domain": "operations",
+      "policy": "system",
+      "mode": "merged",
+      "canon_fields": ["facts", "social", "experience_jobs", "build_learnings"],
+      "targets": ["docs/product/behind-the-build-learning-system.md", "operations/painpoints-log.md", "docs/brand/founder-content-context.md", "social/instagram/content-bank/", "newsstand.html", "learn/class.html"],
+      "proof": "Meaningful build learnings are captured across chats with observation separated from diagnosis; verified entries change a real internal control; public derivatives are sourced, reproducible where applicable, privacy/IP-safe, practically useful and linked to their publication evidence."
+    },
+    {
+      "id": "printable-colouring-merch",
+      "domain": "growth",
+      "policy": "conditional",
+      "mode": "generated",
+      "canon_fields": ["artwork", "quotables", "concepts"],
+      "targets": ["content/printables/", "shop.html", "operations/releases/episode-{NN}.md"],
+      "proof": "Derivative has an audience job and does not delay teaching; commercial items remain dormant until explicitly approved."
+    },
+    {
+      "id": "release-record",
+      "domain": "operations",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["all"],
+      "targets": ["operations/releases/episode-{NN}.md"],
+      "proof": "One record contains approvals, canon hash, deployed URL, media URLs, email/social evidence, known deferrals and rollback note."
+    },
+    {
+      "id": "release-qa",
+      "domain": "operations",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["all"],
+      "targets": ["operations/releases/episode-{NN}.md"],
+      "proof": "Teaching, links, assets, cues, console, desktop/mobile, keyboard, reduced motion, captions, search, reward-ledger reconciliation, connection/referral grants and redemption fulfilment checks pass."
+    },
+    {
+      "id": "analytics-and-feedback",
+      "domain": "operations",
+      "policy": "required",
+      "mode": "merged",
+      "canon_fields": ["meta", "try_on", "track", "quotables", "reward_actions", "reward_offers", "connection_impacts", "build_learnings"],
+      "targets": ["operations/growth/issue-{NN}-growth-scorecard.md", "operations/releases/episode-{NN}.md"],
+      "proof": "Episode, Study Pack, quiz, song, quote/source opens, game, charm, clip earns/spends/redemptions, invite stages/reciprocal grants, build-learning derivatives and social actions have named events; Friday review records what happened."
+    },
+    {
+      "id": "archive-and-rollover",
+      "domain": "operations",
+      "policy": "required",
+      "mode": "manual",
+      "canon_fields": ["meta", "next_time_hook"],
+      "targets": ["content/episode-index.json", "operations/releases/episode-{NN}.md"],
+      "proof": "Episode remains findable after rollover, current-week modules advance safely, and next episode inherits unresolved follow-up."
+    }
+  ]
+}

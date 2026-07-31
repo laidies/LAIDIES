@@ -1,0 +1,39 @@
+{
+  "schema": "laidies.emq.e02-v19.player-witness-v2-no-network.v1",
+  "status": "PASS — deterministic no-network technical evidence; not a real media/VTT load and not a human listen",
+  "frozen": {
+    "witness": "05430de37a9aef0b07e112e14ba75f3f1ac62a22a9d3bbbc03198b28b3f2e5d6",
+    "mp4": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+    "vtt": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f"
+  },
+  "source_execution": {
+    "exact_inline_script_executed_in_vm": true,
+    "exact_vtt_bytes_parsed": true,
+    "cue_count": 194
+  },
+  "checks": {
+    "initial_captions_on_track_showing": "PASS",
+    "loading_off_loaded_error_truth": "PASS",
+    "exact_vtt_source_contract": "PASS",
+    "no_rendered_voice_markup": "PASS",
+    "readable_speaker_text": "PASS",
+    "keyboard_play_pause_seek": "PASS",
+    "visible_focus_and_control_semantics": "PASS_SOURCE",
+    "mobile_containment": "PASS_SOURCE_CONTRACT",
+    "reduced_motion": "PASS_SOURCE_AND_STUB_BRANCH",
+    "caption_failure_recovery": "PASS",
+    "media_failure_recovery": "PASS",
+    "final_tail_calculation": {
+      "result": "PASS",
+      "vtt_end_seconds": 986.67,
+      "media_duration_stub_seconds": 987.466667,
+      "gap_seconds": 0.796667
+    }
+  },
+  "limitations": [
+    "The in-app Browser blocked file:// navigation, so this test does not prove file-origin media or VTT behavior.",
+    "Media duration, playback state, text-track state, cue activation, failures, and reduced-motion preference are deterministic stubs.",
+    "No audio was decoded or heard, and no full 1× audible listen is claimed.",
+    "Source-level mobile/focus semantics are not a human visual or assistive-technology acceptance."
+  ]
+}

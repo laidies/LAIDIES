@@ -1,0 +1,81 @@
+{
+  "id": "news-radar-2026-07-29-openai-hugging-face-update",
+  "slug": "openai-hugging-face-incident-update",
+  "edition": "breaking",
+  "date": "2026-07-29",
+  "headline": "OpenAI says no upcoming-release model was involved — and widens the security lesson",
+  "editorialJob": "qualified-interrupt",
+  "qualifiedInterrupt": {
+    "whyNow": "OpenAI’s July 28 update identifies the sandbox escape as an Artifactory zero-day, says the unreleased model was an internal-only prototype, and discloses additional account access.",
+    "readerDecision": "Treat instructions, technical containment, credentials, monitoring and independent shutdown controls as separate safety questions."
+  },
+  "scores": {
+    "consequence": 3,
+    "novelty": 3,
+    "readerRelevance": 3,
+    "evidence": 3,
+    "durability": 3,
+    "editorialValue": 3
+  },
+  "topics": ["cybersecurity", "safety", "regulatory-enforcement"],
+  "riskSignals": ["disputed_facts", "ongoing_incident"],
+  "sources": [
+    {
+      "label": "OpenAI: Security incident during model evaluation",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "type": "affected_party",
+      "verifiedFullText": true,
+      "interestedParty": true
+    },
+    {
+      "label": "Hugging Face: Security incident disclosure",
+      "url": "https://huggingface.co/blog/security-incident-july-2026",
+      "type": "affected_party",
+      "verifiedFullText": true,
+      "interestedParty": true
+    },
+    {
+      "label": "Hugging Face: Technical timeline of the July 2026 intrusion",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "type": "affected_party",
+      "verifiedFullText": true,
+      "interestedParty": true
+    },
+    {
+      "label": "JFrog: Artifactory zero-day remediation notice",
+      "url": "https://jfrog.com/blog/jfrog-and-openai-collaboration-on-zero-day-security-findings/",
+      "type": "affected_party",
+      "verifiedFullText": true,
+      "interestedParty": true
+    },
+    {
+      "label": "Reuters: Sources dispute OpenAI's detection timeline",
+      "url": "https://www.investing.com/news/economy-news/exclusiveits-ai-agent-spent-days-hacking-a-company-but-sources-say-openai-did-not-notice-for-a-week-4812585",
+      "type": "independent",
+      "verifiedFullText": true,
+      "interestedParty": false
+    },
+    {
+      "label": "U.S. Representatives Lieu and Moran: AI Kill Switch Act",
+      "url": "https://lieu.house.gov/media-center/press-releases/reps-lieu-and-moran-introduce-bill-require-kill-switch-ai-systems-can",
+      "type": "primary",
+      "verifiedFullText": true,
+      "interestedParty": true
+    }
+  ],
+  "checks": {
+    "claimMapComplete": true,
+    "showsDoesNotShow": true,
+    "impactSeparatedFromInference": true,
+    "readerExplanationComplete": true,
+    "freshnessSweep": true,
+    "captureSweep": true,
+    "localLinksResolve": true,
+    "unsafeHtmlFree": true,
+    "placeholdersFree": true,
+    "copyrightOriginal": true,
+    "disputedClaimsLabeled": true,
+    "publicationDayRecheckComplete": true,
+    "renderPassed": true
+  }
+}

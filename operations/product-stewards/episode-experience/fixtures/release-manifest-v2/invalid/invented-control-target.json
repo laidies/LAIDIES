@@ -1,0 +1,42 @@
+{
+  "body": {
+    "schemaVersion": "2.0.0",
+    "recordType": "episode-availability-control",
+    "payload": {
+      "transactionId": "ep05-removal-v1",
+      "transactionType": "removal",
+      "createdAt": "2026-07-26T13:20:00Z",
+      "episodeId": "episode-05",
+      "target": {
+        "candidateId": "invented-candidate",
+        "candidateBodySha256": "9e7331b979d842be87993f2b42e46b94cc77ea226a53085150ad34f9c4d648b8",
+        "chickFlicksAdmissionId": "cf-admission-v1",
+        "chickFlicksAdmissionBodySha256": "e32f90111512ecd102576c669d6f04f969d8bafc9b169449ee38385afb627eb6"
+      },
+      "scope": {
+        "editorialPackage": true,
+        "formats": [
+          "readingIssue"
+        ]
+      },
+      "reason": "withdraw the admitted issue",
+      "effectiveAt": "2026-07-26T13:20:00Z",
+      "safePublicState": "removed",
+      "historyContext": {
+        "ledgerPath": "history-with-prior.json",
+        "ledgerSha256": "1d1f498dd4ffca4d3eed433e9b7dabbce182e8c54ece4e786f0d594bb266974f",
+        "acceptedCandidateCount": 1
+      },
+      "restore": {
+        "mode": "restore-prior",
+        "candidateId": "ep05-candidate-v1",
+        "chickFlicksAdmissionId": "cf-admission-v1"
+      }
+    }
+  },
+  "integrity": {
+    "algorithm": "sha-256",
+    "canonicalization": "RFC8785-JCS",
+    "bodySha256": "04b73ba51ced225b034a76255ccab84b6620c39ce2a97899c33aad4a584c5142"
+  }
+}

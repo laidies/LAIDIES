@@ -1,0 +1,64 @@
+{
+  "schema": "laidies.emq.independent-player-verdict.v1",
+  "task_id": "EMQ-E02-V19-PLAYER-WITNESS-INDEPENDENT-VERDICT-2026-07-26",
+  "judged_at": "2026-07-26T17:37:11-07:00",
+  "judge": "Episode Media Quality — independent judge",
+  "verdict": "HOLD",
+  "frozen_tuple": {
+    "mp4": {
+      "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+      "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+      "matched": true
+    },
+    "vtt": {
+      "path": "assets/captions/episode-02.vtt",
+      "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+      "matched": true
+    },
+    "witness_surface": {
+      "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-player-witness.html",
+      "sha256": "7c6f1509b8d204d6316e5b0614d97b7db2dac904065119f7aea8d3618132630b",
+      "matched": true
+    }
+  },
+  "checks": {
+    "player_ready": "PASS",
+    "normal_speed_unmuted_audio_telemetry_sample": "PASS_TECHNICAL_SAMPLE_ONLY",
+    "complete_human_audible_listen": "HOLD_NOT_COMPLETED",
+    "initial_external_vtt_state": "FAIL_TRACK_DISABLED_WHILE_UI_SAYS_ON",
+    "external_vtt_visible_text": "FAIL_RAW_VOICE_TAGS_VISIBLE",
+    "mobile_320_reflow": "PASS",
+    "keyboard": "PARTIAL_SPACE_PAUSE_PASS_SEEK_NOT_PROVED",
+    "reduced_motion": "UNWITNESSED_SOURCE_ONLY",
+    "caption_failure": "PASS_AFTER_TRACK_ACTIVATION",
+    "tail": "UNWITNESSED"
+  },
+  "telemetry_sample": {
+    "duration_seconds": 987.466667,
+    "playback_rate": 1,
+    "muted": false,
+    "volume": 1,
+    "peak_audio_rms": 0.23388
+  },
+  "evidence": [
+    {
+      "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-player-witness-desktop-2026-07-26.png",
+      "sha256": "a9f5c5dba6ef47c503939311d9b965eb058a91992d0f896ca41a5f2a9d058b74"
+    },
+    {
+      "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-player-witness-mobile-320-2026-07-26.png",
+      "sha256": "d5776ce9480598ba4217d7aad7cb7333d3c49937f35fa7e18065244f46cfe998"
+    }
+  ],
+  "repair_owner": "Audio & Caption Owner + Release QA under Weekly Episodes Director",
+  "acceptance_owner": "Episode Media Quality independent judge",
+  "next_action": "Build a new non-public witness surface that activates captions initially, strips WebVTT voice markup, proves keyboard/mobile/reduced-motion/failure/tail behavior, then obtain a complete external human 1x audible listen on the unchanged MP4/VTT and return the successor witness hash and observations to EMQ.",
+  "authority_truth": {
+    "mp4_or_vtt_changed": false,
+    "site_or_public_player_changed": false,
+    "integration_authorized": false,
+    "deployment_authorized": false,
+    "publication_authorized": false,
+    "ali_decision_authorized": false
+  }
+}

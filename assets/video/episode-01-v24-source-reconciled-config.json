@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "episode": "01",
+  "version": "24",
+  "status": "BUILT LOCALLY",
+  "purpose": "Source-reconciled Episode 01 review export. V23 is immutable; only independently confirmed placement failures may change.",
+  "frozen_input": {
+    "path": "assets/video/episode-01-full-v23-eod-style-repair-review.mp4",
+    "sha256": "fecb91ede6dd5477a911544b2f76d4eca8ff71c545fd85a456a19a663ccaa41c",
+    "size_bytes": 169394096,
+    "artifact_timestamp_local": "2026-07-25T13:22:54-07:00"
+  },
+  "output": {
+    "path": "assets/video/episode-01-full-v24-source-reconciled-review.mp4",
+    "maker_qc_path": "operations/video-qa/episode-01-v24-maker-qc.json",
+    "placement_manifest_path": "operations/video-qa/episode-01-v24-71-placement-manifest.json"
+  },
+  "locked_clock": {
+    "cue_sheet_path": "assets/video/episode-01-production-cues-eod-20260725-style-repair.json",
+    "cue_sheet_sha256": "bcd47f2a60926f2f69d1dd6ff30c6413e0dd646f7e6176599ec15222452402ed",
+    "placement_count": 71,
+    "runtime_seconds": 1172.24,
+    "transition_seconds": 0.35,
+    "motion_placement_count": 0
+  },
+  "locked_narration": {
+    "path": "content/music/episode-01-narration.mp3",
+    "sha256": "3f69c2f11a479502fe29f087cc1efbe3824cddb78447989bb0a2c88096210184"
+  },
+  "locked_captions": {
+    "path": "operations/captions/episode-01.vtt",
+    "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+    "burned": false,
+    "clock_policy": "External admitted VTT remains unchanged; it is not muxed or burned into the review MP4."
+  },
+  "reference_authority": {
+    "visual_system_lock": "operations/episode-visual-system-lock.md",
+    "visual_system_lock_sha256": "86ae36f182f6d1ec60bed1ae854a290588e273399c675ecbe6192a1f0e3e1d73",
+    "heroine_identity_and_people_style": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+    "heroine_identity_and_people_style_sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+    "environment_category": [
+      "operations/reference/episode-style-popart/epstyle-scene-01.png",
+      "operations/reference/episode-style-popart/epstyle-scene-02.png",
+      "operations/reference/episode-style-popart/epstyle-scene-03.png",
+      "operations/reference/episode-style-popart/epstyle-scene-04.png",
+      "operations/reference/episode-style-popart/epstyle-scene-05.png"
+    ],
+    "comic_storytelling": "operations/reference/comic-storytelling/README.md",
+    "comic_text": [
+      "operations/reference/font-and-text-emphasis",
+      "operations/reference/comic-text-emphasis"
+    ]
+  },
+  "carried_forward_confirmed_repairs": [
+    {
+      "cue": 4,
+      "source": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png",
+      "authority": "operations/product-stewards/episode-media-quality/eod-2026-07-25-replacement-manifest.json"
+    },
+    {
+      "cue": 6,
+      "source": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png",
+      "authority": "operations/product-stewards/episode-media-quality/eod-2026-07-25-replacement-manifest.json"
+    },
+    {
+      "cue": 12,
+      "source": "assets/video/comic-interstitials-v1/ep01-cue-11.png",
+      "authority": "operations/product-stewards/episode-media-quality/eod-2026-07-25-replacement-manifest.json"
+    }
+  ],
+  "v24_confirmed_repairs": [
+    {
+      "cue": 3,
+      "start": 21.0,
+      "stop": 27.5,
+      "old_source": "assets/video/comic-interstitials-v1/ep01-title.png",
+      "old_source_sha256": "fd7921f861af6b8829e9bdd22a3ed7b9bec196b2125e913134f54ad03236afbe",
+      "replacement_source": "assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png",
+      "replacement_source_sha256": "ec54e84816676054b4d651cf0d51bd4e2742a97bab9659c558cc872bc0c06957",
+      "confirmation": "Direct Ali rejection of the v23 title card; replacement must use an Episode 1 image and read as a graphic-novel/comic-book cover.",
+      "build_method": "Replace only the 21.00-27.85 visual window with a source-bound synthetic 0.35-second incoming/outgoing dissolve. Copy the complete v23 audio stream."
+    }
+  ],
+  "investigations": [
+    {
+      "id": "modern-laptop-occurrence",
+      "status": "REQUIRES_PLACEMENT_PROOF",
+      "rule": "Do not replace unless the exact v23 placement and approved source comparison confirm the failure."
+    },
+    {
+      "id": "caption-treatment-occurrence",
+      "status": "REQUIRES_PLACEMENT_PROOF",
+      "rule": "Differentiate baked image lettering from external VTT; do not alter the admitted caption clock."
+    }
+  ],
+  "preservation": {
+    "unchanged_placements": "All 70 non-title placements retain the exact v23 source bytes, clock, still treatment and 0.35-second transition contract.",
+    "bounded_repair": "Only cue 3 changes. The full v23 audio stream is copied; external VTT bytes remain unchanged.",
+    "maker_may_not_judge": true,
+    "release_status": "HOLD_PENDING_INDEPENDENT_EPISODE_MEDIA_QUALITY"
+  }
+}

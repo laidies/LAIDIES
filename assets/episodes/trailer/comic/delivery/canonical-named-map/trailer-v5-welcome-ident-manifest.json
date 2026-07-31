@@ -1,0 +1,100 @@
+{
+  "schema": "laidies.trailer.v5.welcome-ident-staged-manifest",
+  "status": "maker-built-review-only-unjudged",
+  "config": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-welcome-ident-config.json",
+    "sha256": "bcc7570892c99dd75bbcfc547510bd2aaf0fa60ee749941566653649ad14fbc3"
+  },
+  "frozen_master": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+    "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934",
+    "playback_frames": 29016,
+    "duration_seconds": 967.2
+  },
+  "stage_1": {
+    "body": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-body-17087f.mkv",
+      "sha256": "ea881fc674545424f997ba680ec85571d984dc551df28e18414863fa58b3ba22",
+      "decoded_frames": 17087,
+      "equals_frozen_prefix": true
+    },
+    "tail": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-tail-playback-exact-11929f.mkv",
+      "sha256": "f936f27c22c68050e11814dcf1473d50d9514d89271158c89e50f58a09241868",
+      "decoded_frames": 11929,
+      "equals_frozen_suffix": true
+    },
+    "reconstructed_base": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-reconstructed-base-29016f.mkv",
+      "sha256": "78aca8cd8bd288a32c1d36fc33d8319e9e885749c2d2932c51aa9a2e2cbcd2d8",
+      "decoded_frames": 29016,
+      "full_frozen_playback_vector_equal": true
+    }
+  },
+  "stage_2": {
+    "source_ident": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-trailer-welcome-to-sunnyvaile-v1.mp4",
+      "sha256": "d6ed30b357f2e0d10387ee1dd38273ba1607703755dfcc33d3fb34aa133c75e3"
+    },
+    "normalized_ident": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-b08-ident-normalized-165f.mp4",
+      "sha256": "1fc228800e2422e364f9bc2b4cecb150c2c6a0259a8419127d5c95c6643e52ca",
+      "decoded_frames": 165
+    },
+    "replacement": {
+      "beat": "B08",
+      "frame_start": 2996,
+      "frame_end_exclusive": 3161,
+      "seconds": [
+        99.8666666667,
+        105.3666666667
+      ]
+    },
+    "pre_segment": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage2-pre-b08-2996f.mkv",
+      "sha256": "8f40cf2ef405046946c1b0a04c815a3c062b1f1370d9dab0f6032d7866552689",
+      "decoded_frames": 2996
+    },
+    "ident_segment": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage2-b08-ident-165f.mkv",
+      "sha256": "7b0d02bbfe3837af0cad0647be4c78f36e4e742f730f93f99a29f846a501c325",
+      "decoded_frames": 165
+    },
+    "post_segment": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage2-post-b08-25855f.mkv",
+      "sha256": "be0d35b87b207784eb75e904965964301f1dad592d10734b4a5403b89675298f",
+      "decoded_frames": 25855
+    },
+    "video_only_successor": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage2-video-only-29016f.mkv",
+      "sha256": "efbdace3b3c6ab8b8dc64296adb26f268aee6b4a72f654cc8e4d665fd2b15347",
+      "decoded_frames": 29016
+    }
+  },
+  "audio": {
+    "source_path": "content/music/public/trailer-narration.m4a",
+    "source_extracted_adts_sha256": "210bdddb37bd961485ae243eeaf2b8885ea671feadeeaac6b9ace2928f83ea5a",
+    "output_extracted_adts_sha256": "210bdddb37bd961485ae243eeaf2b8885ea671feadeeaac6b9ace2928f83ea5a",
+    "stream_copy_exact": true
+  },
+  "output": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+    "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+    "decoded_frames": 29016,
+    "duration_seconds": 967.2,
+    "before_B08_equal": true,
+    "B08_equals_normalized_ident": true,
+    "after_B08_equal": true
+  },
+  "preserved_scope": {
+    "narration_map_beats": 58,
+    "captions_changed": false,
+    "outfit_hold_changed": false,
+    "public_media_modified": false
+  },
+  "independent_emq_required": {
+    "target": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v5-welcome-ident-independent-judge-2026-07-26.md",
+    "required": true,
+    "maker_may_self_accept": false
+  }
+}

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blend & Snap pickup-rail candidate — owner review only</title>
+  <style>
+    :root {
+      --ink:#11183b; --plum:#391f73; --berry:#a42f59; --rasp:#d13f72;
+      --coral:#f17167; --peri:#8093e8; --cobalt:#2455aa; --cream:#fff4dc;
+      --mint:#75d6c1; --paper:#fff8e9; --line:rgba(17,24,59,.2);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;overflow-x:hidden;background:linear-gradient(180deg,#f7eafa 0,#fff8ee 48%,#eaf5ff 100%);color:var(--ink);font-family:Jost,system-ui,sans-serif}
+    button,a{font:inherit}
+    button:focus-visible,a:focus-visible{outline:4px solid #59e0d0;outline-offset:4px}
+    .review-flag{background:var(--ink);color:#fff;padding:10px 20px;text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+    .hero{position:relative;min-height:min(760px,82vh);overflow:hidden;border-bottom:10px solid var(--rasp);background:#251548}
+    .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+    .brand{position:absolute;z-index:2;top:22px;left:28px;color:#fff;background:rgba(17,24,59,.9);padding:10px 15px;border:2px solid var(--mint);letter-spacing:.12em;font-weight:900}
+    .hero__menu{position:absolute;z-index:2;left:24.5%;top:12%;width:40%;min-height:30%;padding:clamp(16px,1.9vw,28px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .eyebrow{margin:0 0 8px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--berry)}
+    h1{margin:0;max-width:13ch;font-size:clamp(36px,4vw,58px);line-height:.9;overflow-wrap:anywhere;letter-spacing:-.04em;text-transform:uppercase;text-shadow:3px 3px 0 #fff}
+    .hero__menu p{max-width:46ch;margin:9px 0 12px;font-size:clamp(14px,1.15vw,17px);line-height:1.35}
+    .order{min-height:50px;border:0;border-radius:4px;padding:13px 22px;background:var(--berry);color:#fff;font-weight:900;letter-spacing:.08em;text-transform:uppercase;box-shadow:5px 5px 0 var(--ink);cursor:pointer}
+    .order[disabled]{opacity:.6;cursor:not-allowed}
+    .state{margin:14px 0 0;font-size:13px;font-weight:800}
+    .usual{position:absolute;z-index:3;right:3%;bottom:4%;width:min(38%,520px);padding:18px;background:rgba(17,24,59,.92);color:#fff;border:2px solid var(--peri)}
+    .usual h2{margin:0 0 6px;font-size:22px}.usual p{margin:0 0 12px;font-size:14px}
+    .drink-row{display:flex;gap:8px;flex-wrap:wrap}.drink{min-height:44px;padding:9px 12px;border:2px solid #fff;background:transparent;color:#fff;cursor:pointer}.drink[aria-pressed=true]{background:var(--mint);color:var(--ink);border-color:var(--mint)}
+    main{max-width:1440px;margin:auto}
+    .pickup{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);gap:0;margin:80px clamp(18px,4vw,64px);background:var(--ink);box-shadow:14px 14px 0 var(--peri)}
+    .pickup__art{min-height:530px;background:url("assets/candidate/blend-snap-order-station-v1.png") center/cover no-repeat}
+    .ticket{align-self:center;margin:32px 32px 32px -30px;padding:34px;background:var(--paper);transform:rotate(-.6deg);box-shadow:8px 8px 0 var(--coral);border-top:12px solid var(--berry)}
+    .ticket h2{margin:0 0 8px;font-size:clamp(30px,3vw,48px);line-height:.95}.ticket>p{line-height:1.5}
+    .component-list{margin:22px 0;padding:0;list-style:none;border-top:2px dashed var(--line)}
+    .component{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:2px dashed var(--line);align-items:center}
+    .component strong{display:block}.component small{display:block;margin-top:3px;color:#555d74}
+    .component a{min-height:44px;display:inline-flex;align-items:center;padding:8px 10px;background:var(--cobalt);color:#fff;font-weight:800;text-decoration:none}
+    .tag{font-size:12px;font-weight:900;color:var(--berry);text-align:right}
+    .ticket[hidden]{display:none}
+    .regulars{margin:0 clamp(18px,4vw,64px) 90px;padding:34px;border:3px solid var(--ink);background:#fff}
+    .regulars h2{font-size:36px;margin:0 0 6px}.receipt-row{display:flex;gap:12px;overflow:auto;padding:18px 3px 12px}
+    .past{min-width:230px;min-height:112px;text-align:left;border:2px solid var(--ink);background:var(--cream);padding:16px;box-shadow:5px 5px 0 var(--coral);cursor:pointer}
+    .board-section{margin:0 clamp(18px,4vw,64px) 100px}.board-section h2{font-size:clamp(38px,5vw,70px);margin:0 0 10px}.board-wrap{position:relative;aspect-ratio:1586/992}.board-wrap>img{position:absolute;inset:0;width:100%;height:100%}
+    .notice{position:absolute;display:flex;align-items:center;justify-content:center;padding:10px;color:var(--ink);font-weight:900;text-align:center;text-decoration:none;line-height:1.04;font-size:clamp(12px,1.25vw,20px)}
+    .n1{left:7%;top:13%;width:25%;height:28%}.n2{left:34%;top:15%;width:29%;height:22%}.n3{left:65%;top:15%;width:21%;height:23%}.n4{left:9%;top:46%;width:20%;height:31%}.n5{left:33%;top:44%;width:22%;height:36%}.n6{left:57%;top:42%;width:13%;height:18%;color:#fff}.n7{left:71%;top:43%;width:21%;height:31%}.n8{left:56%;top:65%;width:19%;height:20%}
+    .truth{max-width:760px;margin:0 auto 90px;padding:24px;border-left:8px solid var(--mint);background:#fff;line-height:1.55}
+    @media(max-width:760px){
+      .review-flag{width:100%;font-size:10px;white-space:normal;overflow-wrap:anywhere}.hero{min-height:auto;overflow:visible;padding-top:58vh;background:#2b1751}.hero>img{height:58vh;object-position:85% center}
+      .brand{top:12px;left:12px;font-size:12px}.hero__menu{position:relative;left:auto;top:auto;width:auto;min-height:0;padding:28px 18px;background:var(--cream)}
+      h1{width:100%;max-width:100%;font-size:34px;line-height:.95;white-space:normal}.hero__menu p{font-size:16px}.usual{position:relative;right:auto;bottom:auto;width:auto;margin:0;padding:22px 18px;border-width:2px 0 0}
+      .drink{flex:1 1 45%}.pickup{display:block;margin:48px 14px;box-shadow:7px 7px 0 var(--peri)}.pickup__art{min-height:290px;background-position:center}
+      .ticket{margin:0;padding:25px 20px;transform:none;box-shadow:none}.component{grid-template-columns:1fr}.tag{text-align:left}
+      .regulars{margin:0 14px 60px;padding:22px 16px}.board-section{margin:0 14px 70px}.board-wrap{aspect-ratio:auto;padding:20px;background:#7b4024 url("assets/candidate/blend-snap-noticeboard-blank-v1.png") center/cover}
+      .board-wrap>img{display:none}.notice{position:relative;inset:auto!important;width:auto!important;height:auto!important;min-height:96px;margin:10px;padding:13px;background:var(--cream);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--coral);font-size:16px;color:var(--ink)}
+      .notice:nth-of-type(3n){background:#dfe6ff}.notice:nth-of-type(3n+1){background:#ffd4cd}.notice:nth-of-type(3n+2){background:#d7f2e8}
+      .truth{margin:0 14px 60px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="review-flag">Owner-review candidate · not live · unapproved art</div>
+  <header class="hero">
+    <img src="assets/candidate/blend-snap-pickup-rail-wide-v1.png" alt="JoJo stands behind a bright SUNNYVAiLE café counter beside a blank menu and order-ticket rail">
+    <div class="brand">LAiDIES · THE BLEND &amp; SNAP</div>
+    <section class="hero__menu" aria-labelledby="title">
+      <p class="eyebrow">Today's verified special</p>
+      <h1 id="title">JoJo’s checking the menu</h1>
+      <p id="intro">The counter only opens a Study Pack menu after the released episode and every component status agree.</p>
+      <button class="order" id="order" type="button" disabled>Checking the menu</button>
+      <p class="state" id="state" role="status" aria-live="polite">Loading the current episode and pack manifest.</p>
+    </section>
+    <section class="usual" aria-labelledby="usual-title">
+      <h2 id="usual-title">What are you having?</h2>
+      <p id="usual-copy">Optional. JoJo can remember one usual on this device.</p>
+      <div class="drink-row">
+        <button class="drink" type="button" data-drink="Oat latte" aria-pressed="false">Oat latte</button>
+        <button class="drink" type="button" data-drink="Americano" aria-pressed="false">Americano</button>
+        <button class="drink" type="button" data-drink="Iced coffee" aria-pressed="false">Iced coffee</button>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="pickup" id="pickup" aria-labelledby="ticket-title">
+      <div class="pickup__art" role="img" aria-label="Blank order slips hang above JoJo’s café pickup counter"></div>
+      <article class="ticket" id="ticket">
+        <p class="eyebrow">Your order slip</p>
+        <h2 id="ticket-title" tabindex="-1">Your pickup ticket prints here</h2>
+        <p id="ticket-copy">Order the verified Special above. JoJo will print the exact ready, held, planned and separate Quiz lines in place.</p>
+        <ul class="component-list" id="components"></ul>
+        <button class="order" id="close" type="button" hidden>Leave it at the counter</button>
+      </article>
+    </section>
+    <section class="regulars" aria-labelledby="regulars-title">
+      <p class="eyebrow">The back rail</p>
+      <h2 id="regulars-title">The Regulars</h2>
+      <p>Past episode pack menus. Opening one is navigation, not proof you completed it.</p>
+      <div class="receipt-row" id="past"><p>JoJo is checking the back rail.</p></div>
+    </section>
+    <section class="board-section" aria-labelledby="board-title">
+      <p class="eyebrow">Stay awhile</p>
+      <h2 id="board-title">The SUNNYVAiLE noticeboard</h2>
+      <div class="board-wrap">
+        <img src="assets/candidate/blend-snap-noticeboard-blank-v1.png" alt="">
+        <a class="notice n1" href="#pickup">Check the current Study Pack menu</a>
+        <a class="notice n2" href="/chick-flicks.html">Watch or listen to the Episodes</a>
+        <a class="notice n3" href="/high.html">Go next door to SUNNYVAiLE High</a>
+        <a class="notice n4" href="/try-on.html?from=blend-snap">Practise with a Try-On</a>
+        <a class="notice n5" href="/newsstand.html">Read today’s NewsStand</a>
+        <a class="notice n6" href="/town.html">Town map</a>
+        <a class="notice n7" href="/library.html">Look it up at the LIBRAiRY</a>
+        <a class="notice n8" href="/resident-card.html">Resident Card</a>
+      </div>
+    </section>
+    <aside class="truth">
+      <strong>What this café remembers:</strong> a chosen usual and the last pack menu opened in this browser, if device storage works. It does not prove study, completion, a reward, membership or cross-device progress.
+    </aside>
+  </main>
+  <script>
+  (function(){
+    const order = document.getElementById("order");
+    const title = document.getElementById("title");
+    const intro = document.getElementById("intro");
+    const state = document.getElementById("state");
+    const ticket = document.getElementById("ticket");
+    const ticketTitle = document.getElementById("ticket-title");
+    const ticketCopy = document.getElementById("ticket-copy");
+    const components = document.getElementById("components");
+    const past = document.getElementById("past");
+    let current, all = [];
+    const safeGet = k => { try { return localStorage.getItem(k); } catch(e) { return null; } };
+    const safeSet = (k,v) => { try { localStorage.setItem(k,v); return true; } catch(e) { return false; } };
+    function renderReceipt(pack){
+      ticketTitle.textContent = `Episode ${String(pack.episodeNumber).padStart(2,"0")} · ${pack.episodeTitle}`;
+      const packPieces = pack.components.filter(c => c.id !== "quiz");
+      const ready = packPieces.filter(c => c.status === "available").length;
+      ticketCopy.textContent = `${ready} of ${packPieces.length} pack pieces are ready. The Quiz is separate because it checks understanding.`;
+      components.innerHTML = "";
+      pack.components.forEach(c => {
+        const li = document.createElement("li"); li.className = "component";
+        const copy = document.createElement("span");
+        copy.innerHTML = `<strong>${c.label}</strong><small>${c.job}</small>`;
+        li.append(copy);
+        if(c.status === "available" && c.route){
+          const a = document.createElement("a"); a.href = c.route; a.textContent = "Open";
+          li.append(a);
+        } else {
+          const s = document.createElement("span"); s.className = "tag"; s.textContent = c.statusLabel; li.append(s);
+        }
+        components.append(li);
+      });
+      ticket.hidden = false;
+      document.getElementById("close").hidden = false;
+      safeSet("laidies_bs_last_pack", String(pack.episodeNumber));
+      ticket.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"});
+      ticketTitle.focus?.();
+    }
+    order.addEventListener("click", () => renderReceipt(current));
+    document.getElementById("close").addEventListener("click", () => {
+      ticketTitle.textContent = "Your pickup ticket prints here";
+      ticketCopy.textContent = "Order the verified Special above. JoJo will print the exact ready, held, planned and separate Quiz lines in place.";
+      components.innerHTML = "";
+      document.getElementById("close").hidden = true;
+      order.focus();
+    });
+    document.querySelectorAll(".drink").forEach(btn => btn.addEventListener("click", () => {
+      document.querySelectorAll(".drink").forEach(b => b.setAttribute("aria-pressed","false"));
+      btn.setAttribute("aria-pressed","true");
+      const saved = safeSet("laidies_bs_usual", btn.dataset.drink);
+      document.getElementById("usual-copy").textContent = saved
+        ? `${btn.dataset.drink} is your usual on this device.`
+        : `${btn.dataset.drink} is your usual for this visit; this browser blocked device memory.`;
+    }));
+    const saved = safeGet("laidies_bs_usual");
+    if(saved){
+      const btn = [...document.querySelectorAll(".drink")].find(b => b.dataset.drink === saved);
+      if(btn) btn.setAttribute("aria-pressed","true");
+      document.getElementById("usual-copy").textContent = `${saved} is your usual on this device.`;
+    }
+    Promise.all([
+      fetch("/content/blend-snap-weekly-packs.json").then(r => { if(!r.ok) throw Error(); return r.json(); }),
+      fetch("/content/episode-index.json").then(r => { if(!r.ok) throw Error(); return r.json(); })
+    ]).then(([manifest,index]) => {
+      const published = index.episodes.filter(e => e.status === "published").sort((a,b) => a.number-b.number);
+      all = manifest.packs.slice().sort((a,b) => a.episodeNumber-b.episodeNumber);
+      current = all.find(p => p.episodeNumber === published.at(-1).number);
+      if(!current || all.length !== published.length) throw Error();
+      const num = String(current.episodeNumber).padStart(2,"0");
+      title.replaceChildren(
+        document.createTextNode(`Episode ${num} is`),
+        document.createElement("br"),
+        document.createTextNode("on the rail")
+      );
+      intro.textContent = `Order ${current.episodeTitle} to see exactly what is ready, held or still planned.`;
+      order.disabled = false; order.textContent = `Order Episode ${num}`;
+      state.textContent = safeGet("laidies_bs_last_pack") === String(current.episodeNumber)
+        ? `This browser opened Episode ${num}’s menu before. You can order it again.`
+        : `The current menu passed its inventory check.`;
+      past.innerHTML = "";
+      all.filter(p => p !== current).forEach(p => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "past";
+        b.innerHTML = `<strong>Episode ${String(p.episodeNumber).padStart(2,"0")}</strong><br>${p.episodeTitle}<br><small>Open pack menu →</small>`;
+        b.addEventListener("click", () => renderReceipt(p)); past.append(b);
+      });
+      if(!past.children.length) past.textContent = "Past menus will join the back rail as Episodes are released.";
+    }).catch(() => {
+      title.textContent = "The Special is turned around";
+      intro.textContent = "JoJo cannot verify the pack menu, so she is not guessing what is ready.";
+      order.disabled = true; order.textContent = "Pack menu unavailable";
+      state.innerHTML = `<a href="/chick-flicks.html">Browse released Episodes instead</a>.`;
+      past.textContent = "Past menus are unavailable until the same inventory check passes.";
+    });
+  })();
+  </script>
+</body>
+</html>

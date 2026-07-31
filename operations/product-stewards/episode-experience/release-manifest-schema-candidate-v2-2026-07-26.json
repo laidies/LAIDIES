@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordType": "release-manifest-schema-candidate",
+  "payload": {
+    "candidateId": "EPX-CF13-SCHEMA-2026-07-26-v2",
+    "contractSchemaVersion": "2.0.0",
+    "status": "BUILT_LOCALLY_PLATFORM_REVIEW_PENDING",
+    "sharedLiveIntegration": "BLOCKED_JOINT_CONTROL_ROOM_LOCK_HELD",
+    "supersedesRejectedCandidateId": "EPX-CF13-SCHEMA-2026-07-26-v1",
+    "acceptanceOrder": [
+      "functionality-platform",
+      "chick-flicks"
+    ],
+    "files": [
+      {
+        "path": "EPISODE-RELEASE-MANIFEST-SPEC.md",
+        "sha256": "44cd9c65f0ba6b00e61dd380c72b96e03db241d04f5e4753a2008ca3c3d52068"
+      },
+      {
+        "path": "build-release-manifest-fixtures-v2.mjs",
+        "sha256": "cb0ac7769c0a55db629adf65d8d59d23f2673a9815df8809d061571d21971234"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/history-empty.json",
+        "sha256": "d4cf5417b8117a61ffee500aec913f3403a48a2a63dec6addb1a63399c45dbbc"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/history-with-prior.json",
+        "sha256": "4ccf1fd7cf0ccb3da3e838d876f999eeeb70319e0e01bd84a25453ac37c4c844"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/absent-motion-released.json",
+        "sha256": "0c042dfb195afcbb69a4310867ede7788e6fb829e4d7fa399550b49dbf81d784"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/cf-cross-admission-prior.json",
+        "sha256": "2c19cac9005cbdc3b3ee887cebf7d9413a10fc7608bee173f9e0f56039798aab"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/cf-cross-subject-prior.json",
+        "sha256": "091c4df7e981e9f3605fe7f0c25648274180ba63453b490eb9ceee2334a995ba"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/cf-cross-type-prior.json",
+        "sha256": "244f76d863ffb1ef942c70eefe0eeee4fee7a68f6ce5d6b020c1ae45d536d054"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/cf-foreign-supersedes.json",
+        "sha256": "a843d9af9d611e77547734f35b8788853743b0277fb25a583e272d8ac37bc457"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/control-half-admission-target.json",
+        "sha256": "3d555f391813b6e481c4b2f4bdd47aa846b99b1c0dc5786eae0f88f2aa7ee16e"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/duplicate-required-files.json",
+        "sha256": "cd1b9cb166c16105fbcbb6f52b38fb16ed407a31cd60be28a794a59054bde46c"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/engine-cross-subject-prior.json",
+        "sha256": "7c9eb071bdca395ce09b2f991c28d4a0da9cdb7b2a488b2d74df017f3c1897b3"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/engine-cross-type-prior.json",
+        "sha256": "3a678d1c719684329299342caab120ad6b2bee9559d5bf1c9a4df1f8443b5500"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/engine-non-monotonic-prior.json",
+        "sha256": "9d24b65d9668d2f01ae01a13e767094125f6327f1f727b8809435a57a8960c01"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/false-no-prior-history.json",
+        "sha256": "962759371cef25335b671f359a8f880f9536f3df269f9d2fecd971bd20ec1fa7"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/half-null-rollback.json",
+        "sha256": "49a5fbc0f8b96f11242b804a436cb26b28534a8fc2999b96c26868437e935323"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/invented-control-target.json",
+        "sha256": "0a0b7c488596855d25a0dc203e55ac69b96da6de9f775c2483190870c7fb1409"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/invented-rollback-target.json",
+        "sha256": "08fa3b078044f7bb8b6e61b2d3dee657c8113f3a5670f7360afa15af5b2db112"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/payload-only-relabel.json",
+        "sha256": "5b22e2ed41ccb939ef3f3bc7ac81f2dfcb7b2a6c566b8f1f0a00a2b0685e28b0"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/present-listen-no-media-verdict.json",
+        "sha256": "6620404ace1686cf467bc8912af152db44354632177a12f327154c67cc9a5fd5"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/proof-forked-head.json",
+        "sha256": "fe782d64ec024b5a0d483a4d9eb7b2bc1341f9a12e13a758df0c2420a1cd3db3"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/proof-receipt-id-conflict.json",
+        "sha256": "8e731effc2d9628514b77950d28180ce6d10a72dd23137e52f0c8971af6b0aef"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/rejected-player-caption-released.json",
+        "sha256": "a0f781ec7e6e505107c51cb25775a76e7c95887f5ba64d206d40732778bff5a4"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/stray-media-no-transaction.json",
+        "sha256": "3700dcbd1b2fb7ca5558ed52f70ee74d16e4a23564e489530fd2ab4d70aa3197"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/unknown-proof-supersedes.json",
+        "sha256": "83928aa36d27c40853f7aa48f865d32185cf05722f147868b28f9a23d8ebbac3"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/invalid/unsafe-removal.json",
+        "sha256": "e5c32dec53ad42ef4ccf3b2da0d72eaadcfb54c8c790b7aa8153da472a40b854"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/admission-v1.json",
+        "sha256": "d0750841a99571426706d1e9477bd6ab601dc6e650114a7d94769aeb3a5afd66"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/admission-v2.json",
+        "sha256": "bd96c6acbf2f5d6b765717a1f26c2a8fabef7b74bf3873811cca9bc4fd637087"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/cf-proof-failed.json",
+        "sha256": "e31377b26c83ff1e7bbc5f1001fd44f2bc1d44c899b0765c9399d8705695fa45"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/cf-proof-verified.json",
+        "sha256": "5e524d0f516d81051ffb8301535c06400d06607a6332aa1aaf7e2e3a24ea7531"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/correction-v2.json",
+        "sha256": "02aa7a982657552d726f4f23a49230620a6b8da228c9daa8ee41494573faf570"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/engine-proof-failed.json",
+        "sha256": "64b64290156fa48a30bf12ee62df21228118741a241d736dc114da8cefa1092b"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/engine-proof-verified.json",
+        "sha256": "c4ec3cb9c9f82ff1a592c35b802dfa37e689df7010d6a2576a3f0be55a8c4db3"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/first-addition.json",
+        "sha256": "1854f698c85f97facc060303b1570a6abfa96b1cc985a95369abe4709caf5443"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/format-revoke-reading-remains.json",
+        "sha256": "3047209ac1f13d57333bd574da70b455e49a377fda36448857201cdae9fc6e99"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/hold-no-prior.json",
+        "sha256": "a17d136faf38c1317fd844696a970c3bfcefcc1c31c0bc98eb4a538ba4ffdb0d"
+      },
+      {
+        "path": "fixtures/release-manifest-v2/valid/removal-restore-prior.json",
+        "sha256": "ac399f53b64dfec413b5474c6e7187e5f8ae270e23bd6f295e20312ddf01b306"
+      },
+      {
+        "path": "schema/episode-release-envelope-v2.0.0.schema.json",
+        "sha256": "d6bcddee9cfa716649b5b72976e7aa433582b86d213d3f064cc0e5ac51082a54"
+      },
+      {
+        "path": "seal-release-manifest-candidate-v2.mjs",
+        "sha256": "58a2b2a22fe20008bc0d45e2eb28612d8255b37e22547df20913724f4df07e82"
+      },
+      {
+        "path": "test-release-manifest-contract-v2.mjs",
+        "sha256": "84109b769d77f7624134bc26a2eabfbdcc0569586e363ee185e71d3b69d0af2b"
+      }
+    ],
+    "test": {
+      "command": "node operations/product-stewards/episode-experience/test-release-manifest-contract-v2.mjs",
+      "expected": "RELEASE MANIFEST V2 CONTRACT PASS valid=11 invalid=22 schema=draft2020 mutation_controls=5"
+    }
+  },
+  "integrity": {
+    "algorithm": "sha-256",
+    "canonicalization": "RFC8785-JCS",
+    "payloadSha256": "f62c3cf67363096ea161ad91dd529eb4087e86c46ef19573843552941cbae5f1"
+  }
+}

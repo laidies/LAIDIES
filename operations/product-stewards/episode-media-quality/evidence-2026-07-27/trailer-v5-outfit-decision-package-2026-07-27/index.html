@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trailer v5 heroine outfit decision</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #fff9ee;
+      --muted: #c9c2d2;
+      --panel: #211b2b;
+      --line: #494055;
+      --pink: #ff6cae;
+      --aqua: #62d7d1;
+      --gold: #f9c74f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #15131d;
+      color: var(--ink);
+      font: 17px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+    h1, h2, h3 { line-height: 1.08; }
+    h1 { max-width: 850px; font-size: clamp(2.4rem, 7vw, 5.2rem); margin: 12px 0 18px; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); }
+    p { max-width: 78ch; }
+    .eyebrow { color: var(--aqua); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .lede { color: var(--muted); font-size: 1.15rem; }
+    .status, .card {
+      margin: 24px 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+    }
+    .status { border-color: var(--aqua); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .recommended { border-color: var(--aqua); }
+    .badge {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #15131d;
+      background: var(--aqua);
+      font-size: .78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    figure { margin: 30px 0; }
+    img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); }
+    figcaption { margin-top: 10px; color: var(--muted); }
+    code { overflow-wrap: anywhere; color: var(--gold); }
+    a { color: var(--aqua); font-weight: 750; }
+    .truth { border-left: 5px solid var(--pink); }
+    ul { padding-left: 22px; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } main { padding-top: 28px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Decision preparation only · Trailer v5</p>
+    <h1>Which outfit should define the Trailer heroine?</h1>
+    <p class="lede">The current immutable Trailer v5 still contains seven yellow-plaid appearances and two multicolour appearances. This package preserves the original recommendation and trade-offs while rebinding the evidence to the exact v5 master.</p>
+
+    <section class="status">
+      <h2>What changed from the v4 evidence package?</h2>
+      <p>Eight sampled outfit frames are byte-identical. B39 remains the same yellow-plaid transformation beat, but its exact decoded frame differs after the v5 tail reconstruction. The current-v5 B39 frame and affected yellow-plaid contact sheet below therefore replace only those two evidence artifacts.</p>
+      <p><strong>No outfit, beat, source, timing, media, captions, route or public state was changed.</strong></p>
+    </section>
+
+    <section>
+      <h2>Current v5 outfit state</h2>
+      <ul>
+        <li><strong>Yellow plaid:</strong> B01, B04, B07, B15, B31, B39 and B56.</li>
+        <li><strong>Multicolour:</strong> B05 and B14.</li>
+        <li><strong>Conflict:</strong> adjacent unexplained switches remain at B04→B05 and B14→B15.</li>
+      </ul>
+      <figure>
+        <img src="contact-sheets/yellow-plaid-beats-B01-B04-B07-B15-B31-B39-B56-current-v5.png" alt="Current Trailer v5 contact sheet showing the seven yellow-plaid heroine beats">
+        <figcaption>Current-v5 yellow-plaid evidence, chronological: B01, B04, B07, B15, B31, B39 and B56. Only B39 required re-extraction.</figcaption>
+      </figure>
+      <figure>
+        <img src="frames/B39-frame-017210-09m33.667s-current-v5.png" alt="Current Trailer v5 B39 frame showing the heroine in yellow plaid">
+        <figcaption>Current immutable v5 frame 17,210 at 09:33.667 — B39 remains yellow plaid.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>The three bounded choices</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>1. Yellow-plaid signature</h3>
+          <p>Change B05 and B14.</p>
+          <p><strong>Trade-off:</strong> lowest edit count and internally consistent, but reverses the newer explicit B05/B14 correction and restores the specifically rejected Episode 4 yellow-plaid condition at B14.</p>
+        </article>
+        <article class="card recommended">
+          <span class="badge">Recommended</span>
+          <h3>2. Multicolour signature</h3>
+          <p>Change B01, B04, B07, B15, B31, B39 and B56.</p>
+          <p><strong>Trade-off:</strong> highest immediate replacement cost, but follows the latest explicit correction, removes both adjacent costume reversals, distinguishes the Trailer from weekly episode rotation and minimizes future canon churn.</p>
+        </article>
+        <article class="card">
+          <h3>3. Two-look exception</h3>
+          <p>Change no media; formally declare B05/B14 an exception.</p>
+          <p><strong>Trade-off:</strong> smallest production impact, but preserves unexplained adjacent outfit switches and therefore the weakest visual continuity.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card truth">
+      <h2>Recommendation</h2>
+      <p>Rule the multicolour B05/B14 dress as the Trailer-only signature outfit. This is the strongest continuity choice, but it remains a recommendation—not an existing canonical ruling.</p>
+      <p><a href="../../evidence-2026-07-26/trailer-v4-outfit-decision-package-2026-07-26/index.html">Open the complete original visual package</a> for all nine beats, canonical evidence, detailed alternatives, implementation scope and authority limits.</p>
+    </section>
+
+    <section>
+      <h2>Truth boundary</h2>
+      <p>Trailer v5 remains <strong>BUILT LOCALLY / NOT ADMITTED / NOT DEPLOYED / NOT PUBLIC</strong>. This decision package does not authorize an encode, outfit edit, release, deployment or publication. Exact bindings are recorded in <code>receipt.json</code>.</p>
+    </section>
+  </main>
+</body>
+</html>

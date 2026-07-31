@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "episode": "01",
+  "version": "25",
+  "status": "BUILDING",
+  "purpose": "Local review-only successor to the frozen v24 Episode 01 film. Replace exactly the canon/VTT-bound welcome identification picture interval while copying its complete original AAC payload.",
+  "frozen_input": {
+    "path": "assets/video/episode-01-full-v24-source-reconciled-review.mp4",
+    "sha256": "272d370ee741d777bc355ea869e63bf4541e0765d3be7bcca286ad79c4c7a53e",
+    "duration_seconds": 1172.23
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-01-on-wednesdays-we-do-ai-v1.mp4",
+    "sha256": "8f48e020025d34e041e1170a96801d4852c1abf204162398e3f41faf50452f85",
+    "source_dimensions": "960x540",
+    "source_frame_rate": 60,
+    "motion_duration_seconds": 6.48,
+    "audio_tracks": 0
+  },
+  "canonical_interval": {
+    "start_seconds": 93.9,
+    "end_seconds": 101.92,
+    "duration_seconds": 8.02,
+    "spoken_trigger": "Welcome to LAiDIES — where smart, busy women learn AI one Wednesday at a time, from a little internet town called SUNNYVAiLE.",
+    "canonical_cues": "content/episodes/episode-01.canon.md",
+    "caption_timing_map": "operations/captions/episode-01-timing-map.json",
+    "caption_vtt": "operations/captions/episode-01.vtt",
+    "selection_authority": "operations/welcome-back-card-production-map-20260724.md",
+    "picture_operation": "Scale the exact 960x540 ident to 1920x1080 without crop; play its complete 6.48-second motion, then clone-hold its terminal frame for 1.54 seconds to cover the full 8.02-second semantic interval.",
+    "audio_operation": "Copy the frozen v24 AAC stream unchanged; do not use ident audio."
+  },
+  "output": {
+    "path": "assets/video/episode-01-full-v25-welcome-ident-review.mp4",
+    "manifest_path": "operations/video-qa/episode-01-v25-welcome-ident/manifest.json",
+    "qc_path": "operations/video-qa/episode-01-v25-welcome-ident/maker-qc.json",
+    "review_window_path": "operations/video-qa/episode-01-v25-welcome-ident/episode-01-welcome-ident-review-window-90-105.mp4"
+  },
+  "preservation": {
+    "out_of_scope_picture": "Every picture frame before 93.900 and from 101.920 onward remains the frozen v24 timeline, subject only to unavoidable H.264 re-encode variance.",
+    "audio": "The entire frozen v24 AAC payload must hash identically after raw ADTS stream extraction.",
+    "captions": "The external VTT is not muxed, burned, modified or copied."
+  },
+  "authority": {
+    "maker_may_judge": false,
+    "release": false,
+    "deploy": false,
+    "public": false,
+    "independent_emq_evidence_target": "operations/video-qa/episode-01-v25-welcome-ident/INDEPENDENT-EMQ-REVIEW.md"
+  }
+}

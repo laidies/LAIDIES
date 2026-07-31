@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "task": "EMQ-E01-V26-IMAGE-REPAIR-BATCH-V2-INDEPENDENT-JUDGE-2026-07-26",
+  "scope": "Independent source-image admission only for Episode 01 v26 repair batch v2. No assembly, motion, audio, player, release, deployment, or public judgment.",
+  "overall_verdict": "ACCEPT_SOURCE_BATCH",
+  "inputs": {
+    "batch_directory": "assets/video/episode-01-v26-image-repair-batch-v2",
+    "placement_manifest": "operations/video-qa/episode-01-v24-71-placement-manifest.json",
+    "prior_v1_judgment": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e01-v26-image-repair-batch-v1-independent-judge-2026-07-26.md"
+  },
+  "excluded_prior_accepts": [
+    {
+      "placements": [14],
+      "sha256": "f80ebbeeb56c720452b46da933a4d977bfcbae2cabd8c2e92c65da6dbf6c5b47",
+      "verdict": "ACCEPT_BY_V1_NOT_REJUDGED"
+    },
+    {
+      "placements": [25],
+      "sha256": "97a823362d335c9293cc2f66530659e0de834753726895ff41171618a5ba41e3",
+      "verdict": "ACCEPT_BY_V1_NOT_REJUDGED"
+    }
+  ],
+  "sources": [
+    {
+      "file": "ep01-blend-snap-tutu-ibook-shared-p29-p30-p61-v2-1920.png",
+      "sha256": "2626db765a7d7aab6d5aaf5869bdcbe33934ef66cc07619e773755675079e991",
+      "placements": [29, 30, 61],
+      "verdict": "ACCEPT",
+      "finding": "Heroine matches locked pale-pink tank, cream tutu and delicate gold necklace; orange handled iBook G3 is visibly period-correct; no invented Blend & Snap or Apple mark/text is present. The cafe, oat latte, radio and email-work setup remain legible."
+    },
+    {
+      "file": "ep01-senior-women-learning-p34-v1-1920.png",
+      "sha256": "ae016f9372a91001da97160dcb9c9b3cfec10dbfaafb00d784b1ad9c87d5c5a3",
+      "placements": [34],
+      "verdict": "ACCEPT",
+      "finding": "Diverse technical colleagues, sketches and discarded paper make continuing learning and getting things wrong immediate; no named likeness or period-tech claim is required."
+    },
+    {
+      "file": "ep01-bronze-aige-cocktail-p38-v1-1920.png",
+      "sha256": "9f6470b2fa06c628752564cb44a6f96916bc3ec3afff764544304e67163bf26e",
+      "placements": [38],
+      "verdict": "ACCEPT",
+      "finding": "The named Bronze AiGE cocktail-table explanation is visually clear: heroine, women friends, bar and cocktails are coherent and in the locked adult graphic-novel register."
+    },
+    {
+      "file": "ep01-new-hire-judgment-p43-v1-1920.png",
+      "sha256": "6db7d30f9020ab68d32c7ccea669235ef3a0958967da16e6d5ce62dc31083fca",
+      "placements": [43],
+      "verdict": "ACCEPT",
+      "finding": "The two-person office framing and large unmarked draft stack accurately express day-one talent needing human office judgment; no computer, logo or unsupported factual claim is visible."
+    },
+    {
+      "file": "ep01-next-token-machine-p45-v1-1920.png",
+      "sha256": "967b049cc189cca4e8b28f0c82a5c34ff9177911a6ba5afe217f901af2c3560a",
+      "placements": [45],
+      "verdict": "ACCEPT",
+      "finding": "The blank-card prediction mechanism communicates word-by-word next-token prediction without invented readable words, product branding or modern-device conflict."
+    },
+    {
+      "file": "ep01-context-closet-crt-p48-v1-1920.png",
+      "sha256": "8bfa646f910fe14321d9bd9d381c04c3914211179e8c219f67c6773a693a7fc6",
+      "placements": [48],
+      "verdict": "ACCEPT",
+      "finding": "A Cher-style closet, dated CRT, wardrobe choices and conservative-client suit clearly communicate the stated missing-context analogy; screens contain abstract outfit choices, not false textual claims."
+    },
+    {
+      "file": "ep01-plausibility-pushback-shared-p50-p57-v1-1920.png",
+      "sha256": "071b82573c9dd463f91d8dca9bb465edd4c1847aa2ade48994df4973e5b4f809",
+      "placements": [50, 57],
+      "verdict": "ACCEPT",
+      "finding": "The red Burn-Book-coded desk scene, crossed-out implausible card and heroine comparison establish plausible-versus-true and active pushback without generated readable allegations or a modern device."
+    },
+    {
+      "file": "ep01-david-rose-delegation-kitchen-p70-v1-1920.png",
+      "sha256": "459552e358e12429be582a5a39ff66367ee5795a6ec2dfab383a3f4e584fcf1b",
+      "placements": [70],
+      "verdict": "ACCEPT",
+      "finding": "David Rose is distinct rather than a generic assistant: characteristic dark coiffed hair, stubble, raised-brow expression and black-and-white statement knit are clear. The precise handoff in a kitchen accurately supports the next-week delegation analogy."
+    }
+  ],
+  "checks": {
+    "full_frame_dimensions": "PASS — eight delivery images are each 1920x1080",
+    "sha256_recomputed": "PASS — exact hashes above",
+    "full_frame_visual_review": "PASS — narration relevance, identity/wardrobe, period technology, adult graphic-novel construction, anatomy, legibility and marks/text",
+    "unauthorized_generated_marks": "PASS — none found in the v2 shared Blend & Snap/iBook source or other admitted frames"
+  },
+  "remaining_work": [
+    "Perform a clock-preserving still-only v26 assembly that changes only placements 14, 25, 29, 30, 34, 38, 43, 45, 48, 50, 57, 61 and 70 using their independently admitted exact hashes.",
+    "Route the resulting exact full-title tuple to a new independent Episode Media Quality full-film judge; this source admission does not pass captions, audio, player, release, deployment or public proof."
+  ],
+  "authority": "No maker image, media, site, release, deploy, public or spending mutation was made by this judge."
+}

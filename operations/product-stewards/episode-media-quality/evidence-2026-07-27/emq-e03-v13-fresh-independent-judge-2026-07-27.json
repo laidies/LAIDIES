@@ -1,0 +1,30 @@
+{
+  "schema": "laidies.emq.e03.v13.fresh-independent-judge.v1",
+  "judged_at": "2026-07-27",
+  "scope": "Frozen local-only Episode 03 v13 full-title review; no maker, player, site, release, deploy, or public mutation.",
+  "verdict": "HOLD",
+  "verdict_scope": "release_admission_boundary_only",
+  "release_admitted": false,
+  "inputs": {
+    "media": {"path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4", "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f", "bytes": 436491858},
+    "config": {"path": "assets/video/episode-03-v13-cue30-law-library-repaired-config.json", "sha256": "f19dd24cb24ca1af2a1d3c0a848f947f68ad0884c747950a685e281f48ca5430"},
+    "builder": {"path": "assets/video/build-episode-03-v13-cue30-law-library-repaired.py", "sha256": "76ebdfea461dcc2b06c7282e4b1f49a21bfb605ae22eecf8e133043b7e6d1af8"},
+    "manifest": {"path": "operations/video-qa/episode-03-full-v13-cue30-law-library-repaired-manifest.json", "sha256": "515d930aa8e6e6297dfbfa99d4ee9932718626adae22a4c574d6855ebe384c40"},
+    "qc": {"path": "operations/video-qa/episode-03-full-v13-cue30-law-library-repaired-qc.json", "sha256": "7b53d46928bb433e5b381f00165c719982f9c8a47001af18a7f570089059186c"},
+    "captions": {"path": "assets/captions/episode-03.vtt", "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be", "cue_count": 211}
+  },
+  "checks": [
+    {"code": "PASS_HASH_BOUND_TUPLE", "result": "PASS"},
+    {"code": "PASS_FULL_DECODE_AND_CLOCK", "result": "PASS", "detail": "1920x1080 H.264/AAC; 31,438 frames at 30fps; 1048-second bound programme clock; fresh decode to null passed."},
+    {"code": "PASS_CUE07_SPOKEN_WELCOME_IDENT", "result": "PASS", "detail": "VTT canonical window 116.180-123.820 seconds; sampled onset/mid/end retain Episode 03 title-specific ident."},
+    {"code": "PASS_CUE30_LAW_LIBRARY_LETTERING_AND_SEMANTIC_REPAIR", "result": "PASS", "detail": "565.000-577.000 seconds; law-library, period CRT, blank papers and unlettered volumes match the repaired narration job."},
+    {"code": "PASS_IDENTITY_PERIOD_LOCATION_STYLE_SAMPLING", "result": "PASS"},
+    {"code": "PASS_RESTRAINED_SOURCE_MOTION_BINDING", "result": "PASS", "detail": "Exact source loop 6a3a6e936eb025820e261eed8ef147d7ae8d9097c3fb6bdc3c2a30754072d6bf remains independently accepted."},
+    {"code": "PASS_EXTERNAL_VTT_STRUCTURE", "result": "PASS", "detail": "211 positive, ordered, non-overlapping cues; final end 1046.950 seconds."},
+    {"code": "PASS_EXACT_V13_REPRESENTATIVE_PLAYER_FUNCTIONAL_GATE", "result": "PASS", "detail": "Prior independent sealed-harness verdict SHA fb84e8a60030df996db42b9920a269d5cec9c1e46d9f8855ca65c3a027c4bb57; 10/10 static and 11/11 browser results; fresh binding/static-contract recheck passed."},
+    {"code": "HOLD_HUMAN_FULL_1X_UNMUTED_AUDIBLE_WATCH_MISSING", "result": "HOLD", "owner": "assigned human witness"}
+  ],
+  "next_action": "Complete and record a human full-title 1x unmuted audible watch against the exact MP4 SHA; then reconcile separately for release/public authority.",
+  "non_claims": ["release", "deployment", "public availability", "human full audible witness"],
+  "learning_scan": "No new qualifying learning; player-functional and sampled technical/visual evidence do not replace the required human full-title audible watch."
+}

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMQ E02 v19 player witness</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; background: #111; color: #fff; }
+    main { width: min(1100px, calc(100% - 2rem)); margin: 1rem auto 3rem; }
+    video { width: 100%; display: block; background: #000; }
+    .captions { min-height: 4.5rem; padding: 1rem; background: #fff; color: #111; font-size: clamp(1.1rem, 2.4vw, 1.7rem); line-height: 1.35; }
+    .controls { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1rem 0; }
+    button { min-height: 44px; padding: .7rem 1rem; font: inherit; font-weight: 700; }
+    output, pre { display: block; padding: .75rem; background: #222; white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Episode 02 v19 — frozen player witness</h1>
+  <p>Local QA surface only. This does not change the public Screening Room.</p>
+  <video id="film" controls playsinline preload="auto">
+    <source src="/assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4" type="video/mp4">
+    <track id="captionTrack" kind="captions" srclang="en" label="English">
+  </video>
+  <div id="captionRail" class="captions" role="region" aria-label="Read-along captions" aria-live="polite">Captions loading…</div>
+  <div class="controls">
+    <button id="play" type="button">Play at normal speed</button>
+    <button id="captions" type="button" aria-pressed="true">Captions on</button>
+  </div>
+  <output id="status" aria-live="polite">Player initializing…</output>
+  <pre id="binding">MP4 SHA-256: e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3
+VTT SHA-256: 7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f</pre>
+</main>
+<script>
+  (() => {
+    const film = document.querySelector('#film');
+    const trackNode = document.querySelector('#captionTrack');
+    const rail = document.querySelector('#captionRail');
+    const status = document.querySelector('#status');
+    const play = document.querySelector('#play');
+    const captions = document.querySelector('#captions');
+    const failCaptions = new URLSearchParams(location.search).get('failCaptions') === '1';
+    const vttPath = failCaptions
+      ? '/assets/captions/__missing-episode-02.vtt'
+      : '/assets/captions/episode-02.vtt';
+    let audioContext;
+    let analyser;
+    let audioData;
+    let peakRms = 0;
+    let sampleCount = 0;
+    let captionMode = 'hidden';
+
+    function snapshot(event) {
+      const track = film.textTracks[0];
+      const active = track && track.activeCues ? Array.from(track.activeCues).map(cue => cue.text).join(' ') : '';
+      const rms = analyser && audioData ? (() => {
+        analyser.getByteTimeDomainData(audioData);
+        let sum = 0;
+        for (const value of audioData) {
+          const normalized = (value - 128) / 128;
+          sum += normalized * normalized;
+        }
+        return Math.sqrt(sum / audioData.length);
+      })() : 0;
+      peakRms = Math.max(peakRms, rms);
+      sampleCount += analyser ? 1 : 0;
+      status.value = [
+        `event=${event}`,
+        `currentTime=${film.currentTime.toFixed(3)}`,
+        `duration=${Number.isFinite(film.duration) ? film.duration.toFixed(3) : 'loading'}`,
+        `playbackRate=${film.playbackRate}`,
+        `paused=${film.paused}`,
+        `muted=${film.muted}`,
+        `volume=${film.volume}`,
+        `readyState=${film.readyState}`,
+        `captionMode=${track ? track.mode : 'missing'}`,
+        `captionCue=${active || '(none)'}`,
+        `audioRms=${rms.toFixed(5)}`,
+        `peakAudioRms=${peakRms.toFixed(5)}`,
+        `audioSamples=${sampleCount}`
+      ].join('\n');
+    }
+
+    function updateRail() {
+      const track = film.textTracks[0];
+      const active = track && track.activeCues ? Array.from(track.activeCues).map(cue => cue.text).join(' ') : '';
+      if (captionMode === 'disabled') rail.textContent = 'Captions are off.';
+      else if (active) rail.textContent = active;
+      else if (film.currentTime >= 986.67 && film.currentTime < film.duration) rail.textContent = 'Captions complete; audio continues to the end of the episode.';
+      else rail.textContent = 'No caption at this moment.';
+      snapshot('cuechange');
+    }
+
+    async function enableAudioWitness() {
+      if (audioContext) return;
+      audioContext = new AudioContext();
+      const source = audioContext.createMediaElementSource(film);
+      analyser = audioContext.createAnalyser();
+      analyser.fftSize = 2048;
+      audioData = new Uint8Array(analyser.fftSize);
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      await audioContext.resume();
+    }
+
+    trackNode.src = vttPath;
+    trackNode.addEventListener('load', () => {
+      const track = film.textTracks[0];
+      track.mode = captionMode;
+      track.addEventListener('cuechange', updateRail);
+      updateRail();
+    });
+    trackNode.addEventListener('error', () => {
+      rail.textContent = 'Read-along captions failed to load.';
+      status.value = `event=caption-error\ncaptionSource=${vttPath}\nplaybackAvailable=${film.readyState >= 1}`;
+    });
+
+    play.addEventListener('click', async () => {
+      film.playbackRate = 1;
+      film.muted = false;
+      film.volume = 1;
+      await enableAudioWitness();
+      await film.play();
+      snapshot('play');
+    });
+
+    captions.addEventListener('click', () => {
+      const track = film.textTracks[0];
+      captionMode = captionMode === 'disabled' ? 'hidden' : 'disabled';
+      if (track) track.mode = captionMode;
+      captions.setAttribute('aria-pressed', captionMode === 'hidden' ? 'true' : 'false');
+      captions.textContent = captionMode === 'hidden' ? 'Captions on' : 'Captions off';
+      updateRail();
+    });
+
+    film.addEventListener('timeupdate', () => snapshot('timeupdate'));
+    film.addEventListener('ended', () => snapshot('ended'));
+    film.addEventListener('error', () => snapshot('media-error'));
+    snapshot('initialized');
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,1848 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAiRY GODMOTHER | LAiDIES · SUNNYVAiLE</title>
+    <meta name="description" content="The FAiRY Godmother gives advice like a wise, glamorous fairy who actually helps with real work problems. Wave the wand." />
+    <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
+    <meta property="og:description" content="The sad dress walks in. The dress walks out. Real advice, a better prompt, a draft you can send." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://laidies.ai/assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800;900&display=swap">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+      /* === PAGE BACKGROUND === */
+      body {
+        background: linear-gradient(165deg, #1a0520 0%, #2d0a2a 30%, #3d1028 60%, #1a0a18 100%);
+        min-height: 100vh;
+        color: #fff;
+      }
+
+      /* === FLOATING GLITTER PARTICLES === */
+      .glitter-field {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .glitter-dot {
+        position: absolute;
+        width: var(--size, 4px);
+        height: var(--size, 4px);
+        border-radius: 50%;
+        background: var(--color, #ffd700);
+        opacity: 0;
+        animation: glitterFloat var(--duration, 6s) var(--delay, 0s) infinite ease-in-out;
+      }
+      @keyframes glitterFloat {
+        0% { opacity: 0; transform: translateY(100vh) scale(0.3); }
+        20% { opacity: 0.8; }
+        50% { opacity: 0.5; transform: translateY(40vh) scale(1); }
+        80% { opacity: 0.3; }
+        100% { opacity: 0; transform: translateY(-20px) scale(0.2); }
+      }
+
+      /* === GAME PAGE LAYOUT === */
+      .game-page-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px);
+        padding-top: 64px;
+        position: relative;
+        z-index: 1;
+      }
+      .game-page-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px clamp(14px, 3vw, 32px);
+        background: rgba(26, 5, 32, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 182, 218, 0.2);
+        z-index: 100;
+      }
+      .game-page-header a {
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-decoration: none;
+        color: #7a2742;
+      }
+      .game-page-header a:hover { text-decoration: underline; }
+
+      /* === HERO SECTION === */
+      .fairy-hero {
+        text-align: center;
+        margin-bottom: 36px;
+        position: relative;
+      }
+      .fairy-hero .eyebrow {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #ffd700;
+        margin-bottom: 8px;
+      }
+      .fairy-hero .eyebrow.brand-preserve-case {
+        text-transform: none;
+      }
+      .fairy-hero h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        line-height: 1.1;
+        background: linear-gradient(135deg, #ffd700 0%, #ff8fd8 50%, #ffd700 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0 8px;
+      }
+      .fairy-hero h1 .ai-highlight {
+        -webkit-text-fill-color: #ffd700;
+        font-weight: 700;
+        text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+      }
+      .fairy-hero .subtitle {
+        color: rgba(255, 244, 249, 0.92);
+        font-size: 1rem;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* === CHARACTER IMAGE WITH SPARKLE EFFECTS === */
+      .fairy-character-wrap {
+        position: relative;
+        display: inline-block;
+        margin: 28px auto 24px;
+      }
+      .fairy-character-wrap img {
+        max-width: 320px;
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid rgba(255, 215, 0, 0.4);
+        filter: drop-shadow(0 0 40px rgba(255, 143, 216, 0.5))
+                drop-shadow(0 0 80px rgba(255, 215, 0, 0.3))
+                drop-shadow(0 8px 32px rgba(255, 182, 218, 0.4));
+        animation: gentleFloat 4s ease-in-out infinite;
+      }
+      .fairy-character-wrap::after {
+        content: '';
+        position: absolute;
+        inset: -12px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 143, 216, 0.08) 40%, transparent 70%);
+        pointer-events: none;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.04); }
+      }
+      @keyframes gentleFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+
+      /* Sparkle stars around the character/wand */
+      .sparkle-field {
+        position: absolute;
+        inset: -30px;
+        pointer-events: none;
+      }
+      .sparkle {
+        position: absolute;
+        width: var(--spark-size, 8px);
+        height: var(--spark-size, 8px);
+        opacity: 0;
+        animation: sparkleAnim var(--spark-dur, 2s) var(--spark-delay, 0s) infinite ease-in-out;
+      }
+      .sparkle::before, .sparkle::after {
+        content: '';
+        position: absolute;
+        background: var(--spark-color, #ffd700);
+        border-radius: 2px;
+      }
+      .sparkle::before {
+        width: 100%;
+        height: 2px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .sparkle::after {
+        width: 2px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+      @keyframes sparkleAnim {
+        0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+        30% { opacity: 1; transform: scale(1) rotate(20deg); }
+        60% { opacity: 0.6; transform: scale(0.8) rotate(40deg); }
+        80% { opacity: 0; transform: scale(0.2) rotate(60deg); }
+      }
+
+      /* Wand trail dots */
+      .wand-trail {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffd700, transparent);
+        box-shadow: 0 0 6px 2px rgba(255, 215, 0, 0.5);
+        opacity: 0;
+        animation: wandTrailAnim var(--trail-dur, 3s) var(--trail-delay, 0s) infinite;
+      }
+      @keyframes wandTrailAnim {
+        0% { opacity: 0; transform: scale(0); }
+        20% { opacity: 1; transform: scale(1.2); }
+        50% { opacity: 0.5; transform: scale(0.8) translate(var(--trail-dx, 10px), var(--trail-dy, -10px)); }
+        100% { opacity: 0; transform: scale(0) translate(var(--trail-dx2, 20px), var(--trail-dy2, -20px)); }
+      }
+
+      /* === INTERACTION AREA === */
+      .fairy-console {
+        background: linear-gradient(145deg, rgba(255, 253, 251, 0.96), rgba(255, 235, 245, 0.93));
+        border: 1.5px solid rgba(255, 182, 218, 0.62);
+        border-radius: 20px;
+        padding: clamp(20px, 4vw, 36px);
+        margin-bottom: 28px;
+        box-shadow: 0 18px 46px rgba(26, 5, 32, 0.22);
+      }
+      .fairy-console label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: #4b2148;
+        margin-bottom: 8px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .fairy-console textarea {
+        width: 100%;
+        min-height: 90px;
+        padding: 14px 16px;
+        border: 1.5px solid rgba(111, 38, 63, 0.28);
+        border-radius: 12px;
+        background: #fffdfb;
+        color: #2d1729;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        resize: vertical;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .fairy-console textarea::placeholder {
+        color: rgba(75, 33, 72, 0.72);
+      }
+      .fairy-console textarea:focus {
+        outline: none;
+        border-color: #c75b86;
+        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.16);
+      }
+      .fairy-console select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid rgba(111, 38, 63, 0.28);
+        border-radius: 12px;
+        background: #fffdfb;
+        color: #3f1737;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.9rem;
+        cursor: pointer;
+        margin-bottom: 16px;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234b2148' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+      }
+      .fairy-console select option {
+        color: #3f1737;
+        background: #fffdfb;
+      }
+      .fairy-console select:focus {
+        outline: none;
+        border-color: #c75b86;
+        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.16);
+      }
+
+      .fairy-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .wand-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border: 2px solid #4b2148;
+        border-radius: 40px;
+        background: #4b2148;
+        color: #fffdfb;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+        box-shadow: 0 12px 30px rgba(75, 33, 72, 0.22);
+        font-family: 'Jost', sans-serif;
+      }
+      .wand-button:hover {
+        transform: scale(1.04);
+        box-shadow: 0 18px 38px rgba(75, 33, 72, 0.3);
+        background: #6f263f;
+      }
+      .wand-button:active { transform: scale(0.97); }
+      .wand-button .wand-icon {
+        font-size: 1.3em;
+        display: inline-block;
+        animation: wandWiggle 2s ease-in-out infinite;
+      }
+      @keyframes wandWiggle {
+        0%, 100% { transform: rotate(-5deg); }
+        25% { transform: rotate(8deg); }
+        50% { transform: rotate(-3deg); }
+        75% { transform: rotate(6deg); }
+      }
+
+      .random-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 22px;
+        border: 1.5px solid rgba(111, 38, 63, 0.28);
+        border-radius: 40px;
+        background: #fffdfb;
+        color: #4b2148;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.15s, border-color 0.2s;
+        font-family: 'Jost', sans-serif;
+      }
+      .random-button:hover {
+        transform: scale(1.03);
+        border-color: #c75b86;
+      }
+
+      /* === WISDOM COUNTER === */
+      .wisdom-counter {
+        text-align: center;
+        margin: 16px 0 8px;
+        font-size: 0.82rem;
+        color: rgba(255, 215, 0, 0.7);
+        letter-spacing: 0.04em;
+      }
+      .wisdom-counter strong {
+        color: #ffd700;
+      }
+
+      /* === ADVICE OUTPUT — PARCHMENT/SCROLL CARD === */
+      .advice-scroll {
+        position: relative;
+        margin-top: 28px;
+        padding: 0;
+        display: none;
+      }
+      .advice-scroll.is-visible {
+        display: block;
+        animation: scrollReveal 0.5s ease;
+      }
+      @keyframes scrollReveal {
+        0% { opacity: 0; transform: translateY(16px) scale(0.96); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .scroll-card {
+        background: linear-gradient(155deg, #fef8f0 0%, #fff5eb 30%, #fdf0e8 60%, #faf4ef 100%);
+        border: 2px solid #d4a574;
+        border-radius: 16px;
+        padding: clamp(24px, 4vw, 36px);
+        box-shadow: 0 8px 32px rgba(160, 100, 50, 0.15), inset 0 0 40px rgba(212, 165, 116, 0.08);
+        color: #3a2010;
+        position: relative;
+        overflow: hidden;
+      }
+      .scroll-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #d4a574, #ffd700, #d4a574);
+        opacity: 0.6;
+      }
+      .scroll-card-header {
+        font-family: 'Dancing Script', cursive;
+        font-size: clamp(1.3rem, 3vw, 1.7rem);
+        color: #8b4513;
+        margin-bottom: 4px;
+        text-align: center;
+      }
+      .scroll-card-mode {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #b8860b;
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      .scroll-card-body {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        color: #4a3020;
+      }
+      .scroll-card-body strong {
+        color: #8b4513;
+      }
+      .coach-output {
+        display: grid;
+        gap: 16px;
+      }
+      .coach-section {
+        padding: 14px 16px;
+        border: 1px solid rgba(139, 69, 19, 0.16);
+        border-radius: 14px;
+        background: rgba(255, 253, 251, 0.68);
+      }
+      .coach-section-title {
+        display: block;
+        margin-bottom: 7px;
+        color: #7a2742;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .coach-section p {
+        margin: 0;
+      }
+      .coach-section ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .coach-section li + li {
+        margin-top: 6px;
+      }
+      .coach-quality {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(199, 91, 134, 0.14);
+        color: #7a2742;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+      .better-prompt-box {
+        display: block;
+        padding: 14px;
+        border: 1px dashed rgba(122, 39, 66, 0.28);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.72);
+        color: #2d1729;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.9rem;
+        line-height: 1.62;
+        white-space: pre-wrap;
+      }
+      .coach-actions {
+        display: none;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 16px;
+      }
+      .coach-actions.is-visible {
+        display: flex;
+      }
+      .coach-action-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(122, 39, 66, 0.3);
+        background: rgba(255, 253, 251, 0.88);
+        color: #4b2148;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .coach-action-button.primary {
+        background: #4b2148;
+        color: #fffdfb;
+        border-color: #4b2148;
+      }
+      .coach-copy-status {
+        color: rgba(75, 33, 72, 0.74);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+      .scroll-card-footer {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px dashed rgba(180, 130, 80, 0.3);
+        font-size: 0.78rem;
+        color: rgba(100, 60, 30, 0.6);
+        text-align: right;
+        font-style: italic;
+      }
+
+      /* === PROMPT FEEDBACK === */
+      .prompt-feedback {
+        margin-top: 16px;
+        padding: 16px 18px;
+        background: linear-gradient(145deg, rgba(255, 253, 251, 0.98), rgba(252, 228, 242, 0.95));
+        border: 1.5px solid rgba(255, 215, 0, 0.56);
+        border-radius: 14px;
+        font-size: 0.9rem;
+        color: #3f1737;
+        display: none;
+        box-shadow: 0 16px 34px rgba(26, 5, 32, 0.2);
+      }
+      .prompt-feedback.is-visible { display: block; }
+      .prompt-feedback strong {
+        color: #7a2742;
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .prompt-feedback span {
+        display: block;
+        color: #3f1737;
+        line-height: 1.55;
+      }
+      .fairy-disclosure {
+        margin: 10px 0 0;
+        color: rgba(75, 33, 72, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+
+      /* === HISTORY OF PAST ADVICE === */
+      .advice-history {
+        margin-top: 32px;
+      }
+      .advice-history h4 {
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #7a2742;
+        margin-bottom: 12px;
+      }
+      .history-item {
+        padding: 15px 16px;
+        background: rgba(255, 253, 251, 0.94);
+        border: 1px solid rgba(255, 182, 218, 0.38);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        color: #3f1737;
+        opacity: 1;
+        box-shadow: 0 10px 24px rgba(26, 5, 32, 0.14);
+      }
+      .history-item:nth-child(n+4) { display: none; }
+      .history-item .history-q {
+        font-size: 0.78rem;
+        color: #7a2742;
+        margin-bottom: 4px;
+        font-weight: 800;
+      }
+      .history-item .history-a {
+        font-size: 0.86rem;
+        color: #3f1737;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* === BADGE REVEAL === */
+      .badge-reveal {
+        margin-top: 24px;
+        padding: 16px;
+        border: 2px dashed #ffd700;
+        border-radius: 12px;
+        text-align: center;
+        display: none;
+        background: rgba(255, 215, 0, 0.05);
+      }
+      .badge-reveal.is-visible { display: block; animation: scrollReveal 0.4s ease; }
+      .badge-reveal strong { color: #ffd700; }
+      .badge-reveal p { color: rgba(255, 248, 252, 0.9); font-size: 0.85rem; margin-top: 4px; }
+
+      /* === FOOTER === */
+      .fairy-footer {
+        text-align: center;
+        padding: 32px 20px 48px;
+        position: relative;
+        z-index: 1;
+      }
+      .fairy-footer .button {
+        display: inline-block;
+        padding: 12px 24px;
+        border: 1.5px solid rgba(255, 182, 218, 0.4);
+        border-radius: 8px;
+        color: #ffe6f1;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: border-color 0.2s, transform 0.15s;
+      }
+      .fairy-footer .button:hover {
+        border-color: #ffb6da;
+        transform: translateY(-2px);
+      }
+
+      /* === FAiRY GODMOTHER MARKDOWN OUTPUT === */
+      .laidy-output > :first-child { margin-top: 0; }
+      .laidy-output > :last-child { margin-bottom: 0; }
+      .laidy-output h3.laidy-h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.08rem;
+        line-height: 1.3;
+        color: #7a2742;
+        margin: 20px 0 8px;
+        letter-spacing: 0.01em;
+      }
+      .laidy-output h2.laidy-h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 1.2rem;
+        line-height: 1.3;
+        color: #7a2742;
+        margin: 22px 0 10px;
+      }
+      .laidy-output p { margin: 0 0 12px; }
+      .laidy-output ol.laidy-list,
+      .laidy-output ul.laidy-list {
+        margin: 0 0 14px;
+        padding-left: 22px;
+      }
+      .laidy-output li { margin-bottom: 6px; }
+      .laidy-output strong { color: #8b4513; }
+
+      /* Section callouts (silhouette + paste-into-tool captions) */
+      .laidy-callout {
+        margin: 4px 0 12px;
+        padding: 10px 14px;
+        background: rgba(255, 240, 220, 0.55);
+        border-left: 3px solid #d4a574;
+        border-radius: 6px;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #5a3a20;
+        font-style: italic;
+      }
+      .laidy-callout strong {
+        font-style: normal;
+        color: #7a2742;
+      }
+
+      /* Inline copy button next to PROMPT GLOW-UP and POST-GLOW-UP */
+      .laidy-inline-action {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 4px 0 16px;
+      }
+      .laidy-copy-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border: 1.5px solid #7a2742;
+        border-radius: 999px;
+        background: #4b2148;
+        color: #fffdfb;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .laidy-copy-button:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 14px rgba(75, 33, 72, 0.22);
+      }
+      .laidy-copy-button.secondary {
+        background: rgba(255, 253, 251, 0.92);
+        color: #4b2148;
+      }
+      .laidy-copy-status {
+        font-family: 'Jost', sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #7a2742;
+        font-style: italic;
+      }
+
+      /* Revision buttons (Shorter / Warmer / Firmer / More senior) */
+      .laidy-revision-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 6px 0 18px;
+      }
+      .laidy-revision-label {
+        font-family: 'Jost', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #7a2742;
+        margin-right: 4px;
+      }
+      .laidy-revision-button {
+        padding: 6px 12px;
+        border: 1.5px solid rgba(122, 39, 66, 0.32);
+        border-radius: 999px;
+        background: rgba(255, 253, 251, 0.92);
+        color: #4b2148;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s, transform 0.15s;
+      }
+      .laidy-revision-button:hover:not(:disabled) {
+        border-color: #c75b86;
+        background: #fff;
+        transform: scale(1.03);
+      }
+      .laidy-revision-button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .laidy-revision-status {
+        font-family: 'Jost', sans-serif;
+        font-size: 0.78rem;
+        color: rgba(75, 33, 72, 0.75);
+        font-style: italic;
+      }
+
+      /* Newsletter signup gate */
+      .laidy-gate {
+        padding: clamp(20px, 4vw, 30px);
+        background: linear-gradient(155deg, #fff5eb 0%, #fdf0e8 60%, #faf4ef 100%);
+        border: 2px solid #d4a574;
+        border-radius: 16px;
+        color: #3a2010;
+        box-shadow: 0 8px 32px rgba(160, 100, 50, 0.18), inset 0 0 36px rgba(212, 165, 116, 0.08);
+      }
+      .laidy-gate h3 {
+        font-family: 'Dancing Script', cursive;
+        font-size: clamp(1.4rem, 3.2vw, 1.85rem);
+        color: #7a2742;
+        margin: 0 0 8px;
+        line-height: 1.2;
+      }
+      .laidy-gate p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #4a3020;
+        margin: 0 0 14px;
+      }
+      .laidy-gate-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin: 6px 0 8px;
+      }
+      .laidy-gate-form input[type="email"] {
+        flex: 1 1 220px;
+        min-width: 180px;
+        padding: 12px 14px;
+        border: 1.5px solid rgba(111, 38, 63, 0.32);
+        border-radius: 10px;
+        background: #fffdfb;
+        color: #2d1729;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.95rem;
+      }
+      .laidy-gate-form input[type="email"]:focus {
+        outline: none;
+        border-color: #c75b86;
+        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.18);
+      }
+      .laidy-gate-form button {
+        padding: 12px 22px;
+        border: 2px solid #4b2148;
+        border-radius: 999px;
+        background: #4b2148;
+        color: #fffdfb;
+        font-family: 'Jost', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.15s, background 0.15s;
+      }
+      .laidy-gate-form button:hover:not(:disabled) {
+        transform: scale(1.03);
+        background: #6f263f;
+      }
+      .laidy-gate-form button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .laidy-gate-already {
+        font-size: 0.85rem;
+        color: rgba(75, 33, 72, 0.78);
+        margin: 6px 0 0;
+      }
+      .laidy-gate-already a {
+        color: #7a2742;
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .laidy-gate-status {
+        margin-top: 10px;
+        min-height: 1.2em;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #7a2742;
+        font-style: italic;
+      }
+      .laidy-gate-ps {
+        margin: 14px 0 0;
+        padding-top: 12px;
+        border-top: 1px dashed rgba(180, 130, 80, 0.32);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: rgba(74, 48, 32, 0.78);
+      }
+      .laidy-gate-ps em { font-style: italic; }
+
+      /* Elle "check your outfit" disclosure at bottom of every response */
+      .laidy-disclosure {
+        margin: 24px -4px -4px;
+        padding: 16px 18px;
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(255, 143, 216, 0.08));
+        border: 1.5px dashed rgba(184, 134, 11, 0.45);
+        border-radius: 12px;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        color: #4a3020;
+      }
+      .laidy-disclosure strong {
+        color: #7a2742;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 560px) {
+        .fairy-character-wrap img { max-width: 240px; }
+        .fairy-buttons { flex-direction: column; }
+        .wand-button, .random-button { width: 100%; justify-content: center; }
+      }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+      <link rel="stylesheet" href="../content/fairy-godmother-v2.css?v=20260724-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+    <!-- Floating glitter particles -->
+    <div class="glitter-field" id="glitterField" aria-hidden="true"></div>
+
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+    <div class="fg-exterior">
+      <img src="../assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg?v=20260716" alt="The FAiRY Godmother's enchanted garden cottage" loading="eager" />
+      <div class="fg-exterior-copy" aria-hidden="true">
+        <span>Walk-ins welcome</span>
+        <strong>Stuck prompt?<br>Come inside.</strong>
+      </div>
+    </div>
+
+    <main class="fg-page">
+      <div class="game-page-wrap">
+        <div class="game-page-header fg-return">
+          <a href="/" data-weekly-return-link>&larr; Back to SUNNYVAiLE</a>
+        </div>
+
+        <!-- HERO -->
+        <section class="fairy-hero">
+          <div class="fg-hero-copy">
+            <p class="eyebrow brand-preserve-case">The FA<span class="ai-highlight">i</span>RY Godmother</p>
+            <h1>Bring the prompt<br><span>that won&rsquo;t behave.</span></h1>
+            <p class="subtitle">Walk in with the sentence, email, brief, or situation you cannot unstick. Walk out with a sharper prompt and something you can actually send.</p>
+            <button class="fg-song-button" type="button"
+                    aria-label="Play the FAiRY Godmother song on KSVL"
+                    data-src="/content/music/game-ask-laidy.mp3"
+                    onclick="window.playLaidiesTheme(this);">
+              <span class="play-icon" aria-hidden="true">Play</span>
+              <span class="pause-icon" aria-hidden="true">Pause</span>
+              <span>FA<span class="ai-highlight">i</span>RY Godmother on KSVL</span>
+            </button>
+          </div>
+          <div class="fg-arrival" id="fgArrival" aria-live="polite">
+            <span>Your visit</span>
+            <strong id="fgArrivalStatus">Checking the appointment book&hellip;</strong>
+            <p id="fgArrivalNote">One useful answer, without pretending the wand is unlimited.</p>
+          </div>
+        </section>
+
+        <!-- THE PARLOUR IS THE INTERFACE -->
+        <section class="fg-room" aria-labelledby="fgRoomTitle">
+          <img class="fg-room-image" src="../assets/building-interiors/fairy-godmother-parlor.jpg" alt="The FAiRY Godmother's advice parlour, with a writing desk, telephone, correspondence basket, and a wall of past notes" />
+          <div class="fg-room-sign">
+            <span>Advice parlour</span>
+            <strong id="fgRoomTitle">Take a seat at the desk.</strong>
+          </div>
+
+          <section class="fairy-console" aria-label="FAiRY Godmother advice desk">
+            <div class="fg-console-heading">
+              <p>Step one</p>
+              <h2>Pick your PATRON SA<span class="ai-highlight">i</span>NT&rsquo;s energy.</h2>
+              <span>Choose one, or let the Godmother read the room.</span>
+            </div>
+
+            <label class="fg-visually-hidden" for="fairyMode">Pick the energy</label>
+            <select id="fairyMode">
+              <option value="auto" selected>The FAiRY Godmother picks the right energy</option>
+              <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
+              <option value="miranda">Miranda Polish &mdash; executive clean</option>
+              <option value="elle">Elle Evidence &mdash; facts in heels</option>
+              <option value="cher">Cher Closet Check &mdash; needs a better outfit</option>
+              <option value="sophia">Sophia Says &mdash; wise &amp; short</option>
+              <option value="david">David Specificity &mdash; be particular</option>
+              <option value="buffy">Buffy Courage &mdash; slayer briefing</option>
+            </select>
+            <div class="fg-saint-rail" id="fgSaintRail" aria-label="Choose a PATRON SAiNT"></div>
+
+            <div class="fg-prompt-step">
+              <p>Step two</p>
+              <label for="fairyQuestion">What do you need help with?</label>
+              <textarea id="fairyQuestion" rows="4" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
+              <p class="fairy-disclosure">The FAiRY Godmother is AI-powered. Do not paste confidential details; anonymize anything sensitive first.</p>
+            </div>
+
+            <div class="fairy-buttons">
+              <button class="wand-button" type="button" id="wandButton">
+                <img src="../assets/fairy-wand.png" alt=""> <span>Wave the Wand</span>
+              </button>
+              <button class="random-button" type="button" id="randomButton">
+                Surprise me
+              </button>
+            </div>
+            <p class="wisdom-counter">Wisdom <strong id="wisdomCount">0</strong></p>
+          </section>
+        </section>
+
+        <!-- RESPONSE DESK -->
+        <section class="fg-results" aria-labelledby="fgResultsTitle">
+          <div class="fg-results-intro" id="fgEmptyResults">
+            <p>Your note will land here</p>
+            <h2 id="fgResultsTitle">First, the prompt glow-up.<br>Then, the draft you can use.</h2>
+            <span>The Godmother separates the instruction from the finished answer so you can copy either one.</span>
+          </div>
+
+          <div class="fg-response-column">
+            <div class="advice-scroll" id="adviceScroll">
+              <div class="scroll-card">
+                <p class="scroll-card-header" id="scrollHeader">A note from FAiRY GODMOTHER</p>
+                <p class="scroll-card-mode" id="scrollMode"></p>
+                <div class="scroll-card-body" id="scrollBody"></div>
+                <p class="scroll-card-footer" id="scrollFooter"></p>
+              </div>
+              <div class="coach-actions" id="coachActions">
+                <button class="coach-action-button" type="button" id="resetPromptButton">Try Another Prompt</button>
+                <span class="coach-copy-status" id="coachCopyStatus" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="prompt-feedback" id="promptFeedback">
+              <strong>Prompt Check</strong>
+              <span id="promptFeedbackText"></span>
+            </div>
+          </div>
+
+          <aside class="fg-history-column">
+            <div class="fg-history-heading">
+              <p>The correspondence file</p>
+              <h3>Past wisdom stays within reach.</h3>
+            </div>
+            <div class="advice-history" id="adviceHistory" style="display: none;">
+              <h4>Past Wisdom</h4>
+              <div id="historyList"></div>
+            </div>
+            <div class="badge-reveal" id="badgeReveal">
+              <strong>FAiRY Godmother&rsquo;s favourite merit badge unlocked.</strong>
+              <p>You have asked more questions than Dorothy, Cinderella, and Elle Woods combined. The FAiRY Godmother recognizes your main-character energy.</p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="fg-exit-strip">
+          <span>Need another room?</span>
+          <strong>Take the polished draft with you.</strong>
+          <div>
+            <a href="../library.html">Build the skill in the LIBRA<span class="ai-highlight">i</span>RY</a>
+            <a href="../radio.html">Keep KSVL playing</a>
+          </div>
+        </section>
+      </div>
+
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
+    <script>
+    // ===== FAiRY GODMOTHER — Worker-powered =====
+    const WORKER_URL = "https://laidies-fairy-godmother.wednesday-laidies.workers.dev";
+
+    const ENERGY_KEY_MAP = {
+      auto: "fairy",
+      dolly: "dolly",
+      miranda: "miranda",
+      elle: "elle",
+      cher: "cher",
+      sophia: "sophia",
+      david: "david",
+      buffy: "buffy"
+    };
+
+    const ENERGY_LABEL = {
+      fairy: "The FAiRY Godmother picked the energy",
+      dolly: "Dolly Energy",
+      miranda: "Miranda Polish",
+      elle: "Elle Evidence",
+      cher: "Cher Closet Check",
+      sophia: "Sophia Says",
+      david: "David Specificity",
+      buffy: "Buffy Courage"
+    };
+
+    const NAMED_ENERGIES = ["dolly", "miranda", "elle", "cher", "sophia", "david", "buffy"];
+
+    const STARTER_PROMPTS = [
+      "Help me write a follow-up email after a meeting where nothing was decided",
+      "Summarize a long document and pull out the three things I actually need to act on",
+      "Ask my manager for feedback without sounding needy",
+      "Write a Slack message declining a meeting I definitely don’t need to be in",
+      "Turn my bullet-point brain dump into a clear brief",
+      "Write a subject line for an email my VP will actually open",
+      "Help me say no to a request without burning a relationship"
+    ];
+
+    // ===== STATE =====
+    let wisdomCount = 0;
+    let adviceHistory = [];
+    let lastPostGlowUpText = "";
+    let lastPromptGlowUpText = "";
+    const BADGE_THRESHOLD = 10;
+
+    // ===== NEWSLETTER GATE STATE =====
+    const SUBSCRIBE_URL = "https://laidies-subscribe.wednesday-laidies.workers.dev";
+    const FREE_WISHES_LIMIT = 1;
+    const LS_SUBSCRIBER_KEY = "laidies_subscriber";
+    const LS_FREE_WISHES_KEY = "laidies_free_wishes_used";
+
+    function getSubscriber() {
+      try {
+        const raw = localStorage.getItem(LS_SUBSCRIBER_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return parsed && parsed.email ? parsed : null;
+      } catch { return null; }
+    }
+    function setSubscriber(email) {
+      try {
+        localStorage.setItem(LS_SUBSCRIBER_KEY, JSON.stringify({
+          email: String(email).trim().toLowerCase(),
+          signedUpAt: new Date().toISOString(),
+        }));
+      } catch {}
+    }
+    function getFreeWishesUsed() {
+      try { return parseInt(localStorage.getItem(LS_FREE_WISHES_KEY) || "0", 10) || 0; }
+      catch { return 0; }
+    }
+    function incrementFreeWishesUsed() {
+      try { localStorage.setItem(LS_FREE_WISHES_KEY, String(getFreeWishesUsed() + 1)); }
+      catch {}
+    }
+    function shouldShowGate() {
+      return !getSubscriber() && getFreeWishesUsed() >= FREE_WISHES_LIMIT;
+    }
+
+    // ===== DOM =====
+    const questionEl = document.getElementById("fairyQuestion");
+    const modeEl = document.getElementById("fairyMode");
+    const wandBtn = document.getElementById("wandButton");
+    const randomBtn = document.getElementById("randomButton");
+    const scrollEl = document.getElementById("adviceScroll");
+    const scrollHeader = document.getElementById("scrollHeader");
+    const scrollMode = document.getElementById("scrollMode");
+    const scrollBody = document.getElementById("scrollBody");
+    const scrollFooter = document.getElementById("scrollFooter");
+    const countEl = document.getElementById("wisdomCount");
+    const feedbackEl = document.getElementById("promptFeedback");
+    const coachActions = document.getElementById("coachActions");
+    const resetPromptButton = document.getElementById("resetPromptButton");
+    const coachCopyStatus = document.getElementById("coachCopyStatus");
+    const historySection = document.getElementById("adviceHistory");
+    const historyList = document.getElementById("historyList");
+    const badgeEl = document.getElementById("badgeReveal");
+
+    const ORIGINAL_WAND_HTML = wandBtn.innerHTML;
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function applyInline(text) {
+      return escapeHtml(text)
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    }
+
+    function stripHeadingDecorations(text) {
+      return String(text || "")
+        .replace(/^[\s\uFE0F\u200D]*(?:✨|🪄|💌|💬|🎯|👠|💖|🔮|📝|✅|⚡|🌟|📋|💡|🚨|📌|👑|💅|🔍)+[\s\uFE0F\u200D]*/u, "")
+        .trim();
+    }
+
+    // Minimal markdown renderer: ### / ## headers, **bold**, - / * / 1. bullets, paragraphs.
+    function renderMarkdown(md) {
+      const lines = String(md || "").split(/\r?\n/);
+      const out = [];
+      let listTag = null;
+      let paraBuf = [];
+
+      function flushPara() {
+        if (paraBuf.length) {
+          const text = paraBuf.join(" ").trim();
+          if (text) out.push("<p>" + applyInline(text) + "</p>");
+          paraBuf = [];
+        }
+      }
+      function flushList() {
+        if (listTag) { out.push("</" + listTag + ">"); listTag = null; }
+      }
+      function openList(tag) {
+        if (listTag && listTag !== tag) flushList();
+        if (!listTag) { out.push("<" + tag + ' class="laidy-list">'); listTag = tag; }
+      }
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) { flushPara(); flushList(); continue; }
+        const h3 = line.match(/^###\s+(.+)$/);
+        const h2 = line.match(/^##\s+(.+)$/);
+        const bullet = line.match(/^[-*]\s+(.+)$/);
+        const numbered = line.match(/^\d+\.\s+(.+)$/);
+        if (h3) {
+          flushPara(); flushList();
+          out.push('<h3 class="laidy-h3">' + applyInline(stripHeadingDecorations(h3[1])) + "</h3>");
+          continue;
+        }
+        if (h2) {
+          flushPara(); flushList();
+          out.push('<h2 class="laidy-h2">' + applyInline(stripHeadingDecorations(h2[1])) + "</h2>");
+          continue;
+        }
+        if (bullet) {
+          flushPara();
+          openList("ul");
+          out.push("<li>" + applyInline(bullet[1]) + "</li>");
+          continue;
+        }
+        if (numbered) {
+          flushPara();
+          openList("ol");
+          out.push("<li>" + applyInline(numbered[1]) + "</li>");
+          continue;
+        }
+        paraBuf.push(line);
+      }
+      flushPara(); flushList();
+      return out.join("\n");
+    }
+
+    // Pull the prose under a named h2/h3 section header.
+    function extractSection(md, headerRegex) {
+      const lines = String(md || "").split(/\r?\n/);
+      let inSection = false;
+      const buf = [];
+      for (let i = 0; i < lines.length; i++) {
+        const raw = lines[i];
+        if (/^#{2,3}\s/.test(raw)) {
+          if (inSection) break;
+          if (headerRegex.test(raw)) { inSection = true; continue; }
+        }
+        if (inSection) buf.push(raw);
+      }
+      return buf.join("\n").trim();
+    }
+
+    function extractPostGlowUp(md) {
+      return extractSection(md, /post[\s-]*glow[\s-]*up/i);
+    }
+
+    function extractPromptGlowUp(md) {
+      return extractSection(md, /prompt[\s-]*glow[\s-]*up/i);
+    }
+
+    function setLoading(loading) {
+      wandBtn.disabled = loading;
+      randomBtn.disabled = loading;
+      wandBtn.innerHTML = loading
+        ? '<img src="../assets/fairy-wand.png" alt=""><span>The FAiRY Godmother is reading&hellip;</span>'
+        : ORIGINAL_WAND_HTML;
+    }
+
+    function revealScroll() {
+      scrollEl.classList.remove("is-visible");
+      void scrollEl.offsetWidth;
+      scrollEl.classList.add("is-visible");
+      setTimeout(() => {
+        scrollEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+
+    function showError(message) {
+      scrollHeader.textContent = "A note from the FAiRY Godmother";
+      scrollMode.textContent = "";
+      scrollBody.innerHTML = "<p>" + escapeHtml(message) + "</p>";
+      scrollFooter.textContent = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+      revealScroll();
+    }
+
+    // Show the newsletter signup gate in place of a response.
+    function showGate(pendingPromptText, pendingEnergy) {
+      scrollHeader.textContent = "One more wish?";
+      scrollMode.textContent = "";
+      scrollFooter.textContent = "";
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+
+      const gate = document.createElement("div");
+      gate.className = "laidy-gate";
+      gate.innerHTML = `
+        <h3>The FAiRY Godmother&rsquo;s full closet is open to LAiDIES.</h3>
+        <p>Drop your email and join the newsletter. The FAiRY Godmother keeps going, and the Wednesday issue lands in your inbox.</p>
+        <form class="laidy-gate-form" autocomplete="email">
+          <input type="email" required placeholder="you@yourdomain.com" aria-label="Email address" />
+          <button type="submit">Sign me up</button>
+        </form>
+        <p class="laidy-gate-already">Already a LAiDIES subscriber? <a data-already>You&rsquo;re in &mdash; click here, honey.</a></p>
+        <p class="laidy-gate-ps"><em>P.S. Ali pays for the FAiRY Godmother&rsquo;s wand out of pocket right now, so unlimited wishes aren&rsquo;t in the budget &mdash; yet. Subscribers get 5 wishes a day. Do the Full Wednesday Ritual and bank bonus wishes to your FAiRY Plays. Higher caps unlock with LAiDIES membership&hellip; (in the works!)</em></p>
+        <p class="laidy-gate-status" aria-live="polite"></p>
+      `;
+
+      scrollBody.innerHTML = "";
+      scrollBody.appendChild(gate);
+
+      const form = gate.querySelector(".laidy-gate-form");
+      const input = gate.querySelector("input[type='email']");
+      const button = gate.querySelector("button");
+      const status = gate.querySelector(".laidy-gate-status");
+      const alreadyLink = gate.querySelector("[data-already]");
+
+      async function submitEmail(email) {
+        button.disabled = true;
+        const originalLabel = button.textContent;
+        button.textContent = "Checking…";
+        status.textContent = "";
+
+        let result = "error";
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 8000);
+          const response = await fetch(SUBSCRIBE_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({ email: email }),
+            signal: controller.signal,
+          });
+          clearTimeout(timer);
+          if (response.ok) {
+            const data = await response.json().catch(() => ({}));
+            result = String(data && data.status ? data.status : "error");
+          }
+        } catch (err) {
+          console.error("Gate signup error:", err);
+        }
+
+        button.disabled = false;
+        button.textContent = originalLabel;
+
+        if (result === "created") {
+          setSubscriber(email);
+          status.textContent = "You’re in. Wand’s warming up…";
+          setTimeout(() => {
+            if (pendingPromptText) questionEl.value = pendingPromptText;
+            if (pendingEnergy) modeEl.value = pendingEnergy;
+            runWand();
+          }, 600);
+          return;
+        }
+        if (result === "already") {
+          setSubscriber(email);
+          status.textContent = "You’re already in LAiDIES, honey. Picking up where you left off…";
+          setTimeout(() => {
+            if (pendingPromptText) questionEl.value = pendingPromptText;
+            if (pendingEnergy) modeEl.value = pendingEnergy;
+            runWand();
+          }, 600);
+          return;
+        }
+        if (result === "invalid") {
+          status.textContent = "That email doesn’t look right — double-check it?";
+          return;
+        }
+        if (result === "rate_limited") {
+          status.textContent = "Newsletter is busy at the moment — try again in a minute?";
+          return;
+        }
+        status.textContent = "Signup hit a snag. Try again in a moment.";
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = String(input.value || "").trim().toLowerCase();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+          status.textContent = "That email doesn’t look right — double-check it?";
+          return;
+        }
+        submitEmail(email);
+      });
+
+      alreadyLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = (input.value || "").trim().toLowerCase()
+          || (window.prompt("What email did you use to subscribe?") || "").trim().toLowerCase();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          status.textContent = "Need your subscribed email to let you in.";
+          return;
+        }
+        submitEmail(email);
+      });
+
+      revealScroll();
+      setTimeout(() => { try { input.focus(); } catch {} }, 200);
+    }
+
+    function findSectionHeader(matcher) {
+      const headers = scrollBody.querySelectorAll(".laidy-output h3.laidy-h3");
+      for (let i = 0; i < headers.length; i++) {
+        if (matcher.test(headers[i].textContent || "")) return headers[i];
+      }
+      return null;
+    }
+
+    function makeCallout(html) {
+      const el = document.createElement("div");
+      el.className = "laidy-callout";
+      el.innerHTML = html;
+      return el;
+    }
+
+    function makeInlineAction(label, getText) {
+      const wrap = document.createElement("div");
+      wrap.className = "laidy-inline-action";
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "laidy-copy-button";
+      btn.textContent = label;
+      const status = document.createElement("span");
+      status.className = "laidy-copy-status";
+      status.setAttribute("aria-live", "polite");
+      btn.addEventListener("click", async () => {
+        const text = typeof getText === "function" ? getText() : getText;
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          status.textContent = "Copied.";
+        } catch (e) {
+          const helper = document.createElement("textarea");
+          helper.value = text;
+          helper.setAttribute("readonly", "");
+          helper.style.position = "fixed";
+          helper.style.left = "-9999px";
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand("copy");
+          helper.remove();
+          status.textContent = "Copied.";
+        }
+      });
+      wrap.appendChild(btn);
+      wrap.appendChild(status);
+      return wrap;
+    }
+
+    const REVISION_BUTTONS = [
+      { label: "Shorter", directive: "shorter" },
+      { label: "Warmer", directive: "warmer" },
+      { label: "Firmer", directive: "firmer" },
+      { label: "More senior", directive: "more senior" },
+    ];
+
+    function makeRevisionRow() {
+      const row = document.createElement("div");
+      row.className = "laidy-revision-row";
+      const label = document.createElement("span");
+      label.className = "laidy-revision-label";
+      label.textContent = "Revise:";
+      row.appendChild(label);
+
+      const status = document.createElement("span");
+      status.className = "laidy-revision-status";
+      status.setAttribute("aria-live", "polite");
+
+      const buttons = REVISION_BUTTONS.map((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "laidy-revision-button";
+        btn.dataset.directive = opt.directive;
+        btn.textContent = opt.label;
+        btn.addEventListener("click", () => runRevision(btn, opt, row, status, buttons));
+        row.appendChild(btn);
+        return btn;
+      });
+
+      row.appendChild(status);
+      return row;
+    }
+
+    async function runRevision(clickedBtn, opt, row, status, buttons) {
+      if (!lastPostGlowUpText) return;
+      const originalLabels = buttons.map((b) => b.textContent);
+      buttons.forEach((b) => { b.disabled = true; });
+      clickedBtn.textContent = "Revising…";
+      status.textContent = "";
+
+      try {
+        const response = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            revision: {
+              previousDraft: lastPostGlowUpText,
+              directive: opt.directive,
+            },
+          }),
+        });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        const revised = data && data.response ? String(data.response).trim() : "";
+        if (!revised) {
+          status.textContent = "The FAiRY Godmother came back empty. Try again.";
+          return;
+        }
+        swapPostGlowUpContent(revised, row);
+        lastPostGlowUpText = revised;
+        status.textContent = "Revised — " + opt.label.toLowerCase() + ".";
+      } catch (err) {
+        console.error("Revision error:", err);
+        status.textContent = "The FAiRY Godmother's signal flickered. Try again.";
+      } finally {
+        buttons.forEach((b, i) => {
+          b.disabled = false;
+          b.textContent = originalLabels[i];
+        });
+      }
+    }
+
+    // Replace the rendered draft body (everything between the POST-GLOW-UP
+    // controls and the next h3) with freshly-rendered revised content.
+    // The Copy draft button reads lastPostGlowUpText live, so it picks up the
+    // new content as soon as the caller reassigns that var.
+    function swapPostGlowUpContent(newDraftMarkdown, revisionRow) {
+      const parent = revisionRow.parentNode;
+      if (!parent) return;
+      let node = revisionRow.nextSibling;
+      const toRemove = [];
+      while (node && !(node.nodeType === 1 && node.tagName === "H3")) {
+        toRemove.push(node);
+        node = node.nextSibling;
+      }
+      toRemove.forEach((n) => parent.removeChild(n));
+
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = renderMarkdown(newDraftMarkdown);
+      const beforeNode = revisionRow.nextSibling;
+      while (wrapper.firstChild) {
+        parent.insertBefore(wrapper.firstChild, beforeNode);
+      }
+    }
+
+    function injectInlineCopyControls() {
+      const promptHeader = findSectionHeader(/prompt\s*glow[\s-]*up/i);
+      if (promptHeader && lastPromptGlowUpText) {
+        const caption = makeCallout(
+          "Paste this into ChatGPT, Claude, or your tool of choice &mdash; you&rsquo;ll get a result built on your real context, not what the FAiRY Godmother guessed."
+        );
+        const action = makeInlineAction("Copy prompt", () => lastPromptGlowUpText);
+        promptHeader.parentNode.insertBefore(caption, promptHeader.nextSibling);
+        promptHeader.parentNode.insertBefore(action, caption.nextSibling);
+      }
+
+      const draftHeader = findSectionHeader(/post[\s-]*glow[\s-]*up/i);
+      if (draftHeader && lastPostGlowUpText) {
+        const caption = makeCallout(
+          "This is the silhouette &mdash; <strong>change the accessories to match your look.</strong> Fill in the [brackets], tweak the tone, swap anything that isn&rsquo;t quite you yet."
+        );
+        const action = makeInlineAction("Copy draft", () => lastPostGlowUpText);
+        const revisionRow = makeRevisionRow();
+        draftHeader.parentNode.insertBefore(caption, draftHeader.nextSibling);
+        draftHeader.parentNode.insertBefore(action, caption.nextSibling);
+        draftHeader.parentNode.insertBefore(revisionRow, action.nextSibling);
+      }
+
+      const output = scrollBody.querySelector(".laidy-output");
+      if (output) {
+        const disclosure = document.createElement("div");
+        disclosure.className = "laidy-disclosure";
+        disclosure.innerHTML =
+          "The FAiRY Godmother is AI, and AI can wear a great outfit with the price tag still on. <strong>Check yourself in the mirror before you walk out the door</strong> &mdash; verify the names, dates, numbers, and anything in [brackets]. Prompt Like Elle.";
+        output.appendChild(disclosure);
+      }
+    }
+
+    function showResponse(markdown, energyKey, question) {
+      wisdomCount++;
+      countEl.textContent = wisdomCount;
+
+      scrollHeader.textContent = "A note from FAiRY GODMOTHER";
+      scrollMode.textContent = ENERGY_LABEL[energyKey] || "";
+      scrollBody.innerHTML = '<div class="laidy-output">' + renderMarkdown(markdown) + "</div>";
+      scrollFooter.textContent = "Wisdom #" + wisdomCount + " • " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+      lastPostGlowUpText = extractPostGlowUp(markdown);
+      lastPromptGlowUpText = extractPromptGlowUp(markdown);
+
+      injectInlineCopyControls();
+
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (coachCopyStatus) coachCopyStatus.textContent = "";
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+
+      revealScroll();
+
+      const excerpt = String(markdown || "")
+        .replace(/[#*]+/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 140);
+      adviceHistory.unshift({ q: question || "Surprise prompt", a: excerpt });
+      if (adviceHistory.length > 3) adviceHistory.pop();
+      renderHistory();
+
+      if (wisdomCount >= BADGE_THRESHOLD) {
+        badgeEl.classList.add("is-visible");
+        try {
+          const badges = JSON.parse(localStorage.getItem("laidiesSecretBadges") || "{}");
+          if (!badges["fairy-favorite"]) {
+            badges["fairy-favorite"] = { id: "fairy-favorite", title: "FAiRY GODMOTHER’s Favorite", sticker: "FAiRY", unlockedAt: new Date().toISOString(), source: "FAiRY GODMOTHER" };
+            localStorage.setItem("laidiesSecretBadges", JSON.stringify(badges));
+          }
+        } catch (e) {}
+      }
+    }
+
+    function renderHistory() {
+      if (adviceHistory.length === 0) { historySection.style.display = "none"; return; }
+      historySection.style.display = "block";
+      historyList.innerHTML = adviceHistory.map(item =>
+        '<div class="history-item"><p class="history-q">' + escapeHtml(item.q) + '</p><p class="history-a">' + escapeHtml(item.a) + '</p></div>'
+      ).join("");
+    }
+
+    async function callWorker(prompt, energyKey, subscriberEmail) {
+      const payload = { prompt: prompt, energy: energyKey };
+      if (subscriberEmail) payload.subscriberEmail = subscriberEmail;
+      const response = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      // Try to parse the body even on non-OK so we can surface friendly
+      // the FAiRY Godmother-voice messages from 429 responses (per-IP rate limit, daily cap).
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        if (data && data.response) {
+          const err = new Error("HTTP " + response.status);
+          err.userFacingMessage = String(data.response);
+          err.kind = data.kind || null;
+          throw err;
+        }
+        throw new Error("HTTP " + response.status);
+      }
+      return data && data.response ? String(data.response) : "";
+    }
+
+    async function runWand() {
+      const q = questionEl.value.trim();
+      if (!q) {
+        showError("The FAiRY Godmother needs an actual prompt to read. Tell her in a sentence or two what you’re trying to do.");
+        return;
+      }
+      if (q.split(/\s+/).length < 3) {
+        showError("That’s a little brief for the FAiRY Godmother. Add a sentence about what you’re trying to do and who it’s for.");
+        return;
+      }
+      const selectedValue = modeEl.value || "auto";
+      const energyKey = ENERGY_KEY_MAP[selectedValue] || "fairy";
+
+      // Newsletter gate: anonymous users get 1 free wish, then the signup gate.
+      if (shouldShowGate()) {
+        showGate(q, selectedValue);
+        return;
+      }
+
+      const subscriber = getSubscriber();
+
+      setLoading(true);
+      try {
+        const markdown = await callWorker(q, energyKey, subscriber ? subscriber.email : null);
+        if (!markdown.trim()) {
+          showError("The FAiRY Godmother came back empty-handed. Try waving the wand again.");
+          return;
+        }
+        showResponse(markdown, energyKey, q);
+        if (!subscriber) incrementFreeWishesUsed();
+      } catch (err) {
+        console.error("FAiRY GODMOTHER worker error:", err);
+        if (err && err.userFacingMessage) {
+          showError(err.userFacingMessage);
+        } else {
+          showError("The FAiRY Godmother’s signal flickered for a second. Try the wand again in a moment.");
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    wandBtn.addEventListener("click", runWand);
+
+    // Surprise me — pick a random named energy + starter prompt, then auto-fire the wand.
+    randomBtn.addEventListener("click", () => {
+      const energyValue = NAMED_ENERGIES[Math.floor(Math.random() * NAMED_ENERGIES.length)];
+      const prompt = STARTER_PROMPTS[Math.floor(Math.random() * STARTER_PROMPTS.length)];
+      modeEl.value = energyValue;
+      questionEl.value = prompt;
+      runWand();
+    });
+
+    if (resetPromptButton) {
+      resetPromptButton.addEventListener("click", () => {
+        questionEl.value = "";
+        questionEl.focus();
+        if (coachCopyStatus) coachCopyStatus.textContent = "";
+      });
+    }
+
+    // Enter = submit, Shift+Enter = new line
+    questionEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        wandBtn.click();
+      }
+    });
+
+    // ===== SPARKLE FIELD GENERATION =====
+    (function generateSparkles() {
+      const field = document.getElementById("sparkleField");
+      if (!field) return;
+      const sparklePositions = [
+        { top: "8%", left: "10%", size: 10, dur: 2.2, delay: 0, color: "#ffd700" },
+        { top: "15%", right: "8%", size: 7, dur: 1.8, delay: 0.4, color: "#ff8fd8" },
+        { top: "60%", left: "5%", size: 9, dur: 2.5, delay: 0.8, color: "#ffd700" },
+        { top: "75%", right: "12%", size: 6, dur: 2, delay: 1.2, color: "#ffb6da" },
+        { top: "30%", left: "85%", size: 8, dur: 1.9, delay: 0.6, color: "#ffd700" },
+        { top: "45%", left: "2%", size: 11, dur: 2.4, delay: 1, color: "#ff8fd8" },
+        { top: "85%", left: "80%", size: 7, dur: 2.1, delay: 0.3, color: "#ffd700" },
+        { top: "5%", left: "50%", size: 6, dur: 1.7, delay: 1.5, color: "#ffb6da" },
+        { top: "50%", right: "3%", size: 9, dur: 2.3, delay: 0.9, color: "#ffd700" },
+        { top: "90%", left: "40%", size: 5, dur: 2, delay: 1.8, color: "#ff8fd8" },
+      ];
+      sparklePositions.forEach(s => {
+        const el = document.createElement("div");
+        el.className = "sparkle";
+        el.style.cssText = "top:" + s.top + ";left:" + (s.left||"auto") + ";right:" + (s.right||"auto") + ";--spark-size:" + s.size + "px;--spark-dur:" + s.dur + "s;--spark-delay:" + s.delay + "s;--spark-color:" + s.color + ";";
+        field.appendChild(el);
+      });
+      // Wand trail dots
+      const trailPositions = [
+        { top: "20%", left: "70%", dur: 3, delay: 0.2, dx: "15px", dy: "-12px", dx2: "25px", dy2: "-20px" },
+        { top: "35%", left: "75%", dur: 3.5, delay: 0.7, dx: "10px", dy: "-8px", dx2: "18px", dy2: "-15px" },
+        { top: "50%", left: "80%", dur: 2.8, delay: 1.1, dx: "12px", dy: "-15px", dx2: "22px", dy2: "-25px" },
+        { top: "25%", left: "65%", dur: 3.2, delay: 1.5, dx: "-8px", dy: "-10px", dx2: "-14px", dy2: "-18px" },
+        { top: "40%", left: "72%", dur: 2.9, delay: 0.5, dx: "8px", dy: "-6px", dx2: "16px", dy2: "-12px" },
+      ];
+      trailPositions.forEach(t => {
+        const el = document.createElement("div");
+        el.className = "wand-trail";
+        el.style.cssText = "top:" + t.top + ";left:" + t.left + ";--trail-dur:" + t.dur + "s;--trail-delay:" + t.delay + "s;--trail-dx:" + t.dx + ";--trail-dy:" + t.dy + ";--trail-dx2:" + t.dx2 + ";--trail-dy2:" + t.dy2 + ";";
+        field.appendChild(el);
+      });
+    })();
+
+    // ===== FLOATING GLITTER BACKGROUND =====
+    (function generateGlitter() {
+      const field = document.getElementById("glitterField");
+      if (!field) return;
+      const colors = ["#ffd700", "#ffb6da", "#ff8fd8", "#ffe4f0", "#ffeaa7", "#fff"];
+      for (let i = 0; i < 35; i++) {
+        const dot = document.createElement("div");
+        dot.className = "glitter-dot";
+        const size = 2 + Math.random() * 4;
+        const left = Math.random() * 100;
+        const duration = 5 + Math.random() * 8;
+        const delay = Math.random() * 10;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        dot.style.cssText = "left:" + left + "%;--size:" + size + "px;--duration:" + duration + "s;--delay:" + delay + "s;--color:" + color + ";";
+        field.appendChild(dot);
+      }
+    })();
+
+    // ===== HAMBURGER NAV =====
+    (function(){
+      var params = new URLSearchParams(window.location.search || "");
+      if (params.get("from") === "this-week") {
+        var issue = String(params.get("issue") || "").match(/\d+/);
+        var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+        var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "fun";
+        var labels = {
+          fun: "Back to The Extra Credit",
+          connect: "Back to Meet & Celebrate",
+          realworld: "Back to the Book of Receipts",
+          practice: "Back to Weekly Study Pack"
+        };
+        var returnLink = document.querySelector("[data-weekly-return-link]");
+        if (returnLink) {
+          returnLink.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open&group=" + encodeURIComponent(group) + draftParam : "?bag=open&group=" + encodeURIComponent(group) + draftParam);
+          returnLink.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
+        }
+      }
+      var btn = document.querySelector(".hamburger-btn");
+      var nav = document.querySelector(".site-header .nav");
+      if (!btn || !nav) return;
+      btn.addEventListener("click", function() {
+        var open = nav.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", open);
+        btn.textContent = open ? "\u2715" : "\u2630";
+      });
+      nav.addEventListener("click", function(e) {
+        if (e.target.tagName === "A") {
+          nav.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "\u2630";
+        }
+      });
+      document.addEventListener("click", function(e) {
+        if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+          nav.classList.remove("is-open");
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "\u2630";
+        }
+      });
+    })();
+    </script>
+      <script src="../content/site/fairy-godmother-v2.js?v=20260724-1"></script>
+      <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
+    <script src="../content/site/brand-polish.js?v=wm2" defer></script>
+<script>
+  (function() {
+    'use strict';
+    if (window.playLaidiesTheme) return;
+    var activeBtn = null, activeAudio = null;
+    function stopActive() {
+      if (activeBtn) activeBtn.classList.remove('is-playing');
+      if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+      activeBtn = null; activeAudio = null;
+    }
+    window.playLaidiesTheme = function(btn) {
+      if (!btn || btn.disabled) return;
+      var src = btn.getAttribute('data-src'); if (!src) return;
+      if (activeBtn === btn) { stopActive(); return; }
+      stopActive();
+      var audio = new Audio(src); audio.preload = 'metadata';
+      audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+      audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+      audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+      btn.classList.add('is-playing');
+      activeBtn = btn; activeAudio = audio;
+    };
+  })();
+</script>
+  <script defer src="/content/site/sv-back-nav.js?v=2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+</body>
+</html>

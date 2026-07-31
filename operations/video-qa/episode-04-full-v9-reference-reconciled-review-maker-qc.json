@@ -1,0 +1,166 @@
+{
+  "created_at": "2026-07-26T21:52:02.913371+00:00",
+  "status": "BUILT_LOCALLY",
+  "maker_verdict": "TECHNICAL_QC_PASS_ONLY",
+  "maker_may_judge_or_approve": false,
+  "release_state": "HOLD",
+  "output": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+  "output_sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
+  "output_size_bytes": 260484984,
+  "probe": {
+    "duration_seconds": 1222.4,
+    "video_stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1520 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "audio_stream": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, mono, fltp, 175 kb/s (default)"
+  },
+  "full_decode": "PASS",
+  "placement_count": 55,
+  "cue_count": 58,
+  "repaired_cues": [
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "unrelated_placement_semantics_changed": 0,
+  "clock": {
+    "runtime_seconds": 1222.4,
+    "base_v8_audio_packet_sha256": "28b7d174fd61d1d41bc97e7ff1711daf381941605531ae9084886fc0869bd9f3",
+    "v9_audio_packet_sha256": "28b7d174fd61d1d41bc97e7ff1711daf381941605531ae9084886fc0869bd9f3",
+    "audio_packet_stream_identical": true,
+    "narration_source_sha256": "f007a338284550fe27a8e035daf10936a6e1ca0825a40e36484013fce8383688",
+    "caption_sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+    "captions_burned": false,
+    "cue_sheet_sha256": "8cd20dc34aeada067262fdde797308e370749194a560cc9d8878d092cc60baf6"
+  },
+  "reference_inputs": {
+    "luminairy_exterior": {
+      "path": "assets/sunnyvaile-buildings/y2k-v3/15-the-luminairy.webp",
+      "sha256": "a35eb4d36a69d7452637f34b7ec18d767123109d68075bebbb8b4a728ddb5f72",
+      "role": "Exact canonical building exterior used directly; no alternate facade is invented."
+    },
+    "maivens_wing": {
+      "path": "assets/sunnyvaile-interiors/luminairy-maivens-wing.png",
+      "sha256": "27315de179e86f25094b579f5cd16d4daa5884050f5d24dcf5d8fb4a40d8b79c",
+      "role": "Exact canonical people-free MAiVENS environment used directly; no unbound portraits remain in repaired cues 16-17."
+    },
+    "ada_likeness": {
+      "path": "operations/product-stewards/episode-media-quality/pilot/p0-2/source-assets/ada-lovelace-engraved-1841-commons-pd.jpg",
+      "sha256": "328ad98469b7cc25fcccca6c625d28625f4bb10befd424a1a3356c1422cd44c8",
+      "role": "1838/c.1841 engraved likeness reference; not proof of an 1843 room, dress, pose, companions, or activity."
+    },
+    "analytical_engine_plan": {
+      "path": "operations/product-stewards/episode-media-quality/pilot/p0-2/source-assets/babbage-analytical-engine-plan-1840-chm-commons-cc-by-4.jpg",
+      "sha256": "d830bdfcbdbf0b2998b450b1caacd3973a47c3ea0219d4290a43b7679793d9a5",
+      "role": "1840 plan of the proposed Analytical Engine; never presented as a completed or operating machine."
+    },
+    "note_g_primary_text": {
+      "path": "operations/product-stewards/episode-media-quality/pilot/p0-2/source-assets/menabrea-lovelace-1843-project-gutenberg-75107.html",
+      "sha256": "c7927f7454c9f2ae6bdc624b42b925dc5f9d6a87f844c6dcf71abbc7163d8fe7",
+      "role": "Primary-text verification for Note G and the Bernoulli-number procedure only; no facsimile or invented handwriting is displayed."
+    }
+  },
+  "derived_assets": {
+    "cue15": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cue15-canonical-luminairy-exterior-1920.png",
+      "sha256": "9e9f3bc0ee142962884210bcb06a319946cf3c7ec32a61389d3544ac84e66515",
+      "bytes": 3632264
+    },
+    "cue16": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cue16-people-free-maivens-wing-1920.png",
+      "sha256": "2f68d4f7a1e3e75f26af05035f5f3fc5cc862bb7b3c953d8d63a7dc279c99093",
+      "bytes": 4072150
+    },
+    "cue17": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cue17-maivens-wing-lights-soft-1920.png",
+      "sha256": "2a5a275bcff4a95c975a071963fb4fd48b4d7a7f1948403d47274cacdd55ad03",
+      "bytes": 3668337
+    },
+    "cue18_card": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cue18-london-1843-evidence-card-1920.png",
+      "sha256": "a3cc9cf11b6d85fafb6bf3a69e07f645d72544268b9e204baee0627409ba3c81",
+      "bytes": 417455
+    },
+    "cue18_event": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cue18-london-1843-editorial-bridge.mp4",
+      "sha256": "946751d77b1921c0aedee986185b7fbf3ffecd85b432107b0e7a451deaa136a6",
+      "bytes": 5141793
+    },
+    "cue19": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cue19-ada-engine-note-g-evidence-board-1920.png",
+      "sha256": "dd2fac9f3450f422ab20a22bb123cd775a92487e948424469421c089df8882ce",
+      "bytes": 1215466
+    },
+    "segment": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cues15-19-reference-repair-segment.mp4",
+      "sha256": "1ee772c4e324ddfb4d0a4086b1b63aa36e18686a7c73beb1abc7ae964fb5a9be",
+      "bytes": 18821159
+    },
+    "derivation": {
+      "path": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-reference-derivation-manifest.json",
+      "sha256": "6ad7ce253f42f30945154014e952b5cb5a52c7149aad43e162bf6f4d84764e64",
+      "bytes": 3869
+    }
+  },
+  "prohibited_inputs_used": [],
+  "outside_repair_window_frame_psnr": [
+    {
+      "seconds": 50.0,
+      "psnr_db": 54.153,
+      "pass": true
+    },
+    {
+      "seconds": 150.0,
+      "psnr_db": 50.43,
+      "pass": true
+    },
+    {
+      "seconds": 201.0,
+      "psnr_db": 54.542,
+      "pass": true
+    },
+    {
+      "seconds": 301.0,
+      "psnr_db": 43.175,
+      "pass": true
+    },
+    {
+      "seconds": 600.0,
+      "psnr_db": 50.306,
+      "pass": true
+    },
+    {
+      "seconds": 1000.0,
+      "psnr_db": 52.995,
+      "pass": true
+    },
+    {
+      "seconds": 1200.0,
+      "psnr_db": 51.537,
+      "pass": true
+    }
+  ],
+  "outside_repair_window_psnr_floor_db": 35.0,
+  "review_contact_sheet": {
+    "path": "operations/video-qa/episode-04-v9-reference-reconciled-review/episode-04-v9-reference-reconciled-contact-sheet.jpg",
+    "sha256": "0ddeda7a6825029d780dfa7cf6ef57b9417207104034e2483738106b7e0342bf",
+    "purpose": "Maker evidence only; not a visual, historical, motion, or release verdict."
+  },
+  "tests": [
+    "All declared input hashes matched.",
+    "V8 topology reconciled to 55 placements over 58 cue indices.",
+    "Only cues 15-19 were replaced.",
+    "V9 output passed complete decode.",
+    "V9 AAC packet stream is byte-identical to V8.",
+    "Caption and cue-sheet authorities remained unchanged.",
+    "All sampled frames outside the repair window passed the 35 dB PSNR floor.",
+    "No prohibited Cue 18/19 input entered the repair graph."
+  ],
+  "remaining_proof": [
+    "Maker cannot judge the repaired LUMINAiRY/MAiVEN/Ada/London/Engine occurrences.",
+    "Independent Image/History and Motion judges must review exact full-resolution frames and the Cue 18 transition.",
+    "Release QA must complete a normal-speed full audiovisual watch with optional captions.",
+    "Ali must provide the final visual/creative ruling.",
+    "No site, deploy, release, public, or spend action occurred."
+  ]
+}

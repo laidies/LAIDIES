@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community | LAiDIES</title>
+  <meta name="description" content="LAiDIES is a Wednesday newsletter and community for women building practical AI fluency without pretending they have spare time." />
+  <meta property="og:title" content="LAiDIES | Girl Power Meets Machine Power" />
+  <meta property="og:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://laidies.ai/" />
+  <meta property="og:image" content="https://laidies.ai/assets/brand/social/laidies-logo-square-social-pearl-1080-v2.png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="LAiDIES logo on a pearl background" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LAiDIES | Girl Power Meets Machine Power" />
+  <meta name="twitter:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
+  <meta name="twitter:image" content="https://laidies.ai/assets/brand/social/laidies-logo-square-social-pearl-1080-v2.png" />
+  <meta name="theme-color" content="#4b2148" />
+  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --hot-pink: #9b3f5f;
+      --paper: #fdf8fb;
+      --dark-bg: #1a0a14;
+      --card-dark: #2a1222;
+      --card-border: rgba(185,93,120,0.3);
+      --card-glow: rgba(185,93,120,0.15);
+      --muted: #5f4558;
+      --text: #3f1737;
+      --plum: #3f1737;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+      /* Background painted by the .laidies-bg--light layer (laidies-bg.css). */
+      background: transparent;
+      color: var(--plum);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === 90s CARD BACKGROUNDS === */
+    .card-bg-laser {
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent,
+          transparent 8px,
+          rgba(185,93,120,0.3) 8px,
+          rgba(185,93,120,0.3) 9px
+        ),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 12px,
+          rgba(0,200,255,0.25) 12px,
+          rgba(0,200,255,0.25) 13px
+        ),
+        linear-gradient(160deg, #2d0a3e 0%, #1a0028 40%, #0d001a 100%);
+    }
+
+    .card-bg-holo {
+      background: linear-gradient(135deg, 
+        #ff6ec7 0%, #7873f5 15%, #4de8f4 30%, 
+        #59f587 45%, #f5e942 60%, #ff6ec7 75%, 
+        #7873f5 90%, #4de8f4 100%);
+      background-size: 300% 300%;
+      animation: holoShift 6s ease-in-out infinite;
+    }
+    @keyframes holoShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .card-bg-lightning {
+      background:
+        conic-gradient(from 0deg at 20% 80%, transparent 0deg, rgba(255,255,0,0.15) 10deg, transparent 20deg),
+        conic-gradient(from 120deg at 80% 20%, transparent 0deg, rgba(185,93,120,0.2) 15deg, transparent 30deg),
+        radial-gradient(circle at 15% 25%, rgba(255,255,0,0.2) 0%, transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(255,0,200,0.2) 0%, transparent 30%),
+        repeating-linear-gradient(
+          -60deg,
+          transparent,
+          transparent 20px,
+          rgba(255,255,100,0.08) 20px,
+          rgba(255,255,100,0.08) 22px
+        ),
+        linear-gradient(180deg, #1a0033 0%, #0a001a 100%);
+    }
+
+    .card-bg-doodle {
+      background:
+        radial-gradient(circle at 20% 30%, rgba(0,255,200,0.25) 0%, rgba(0,255,200,0.25) 4px, transparent 4px),
+        radial-gradient(circle at 70% 20%, rgba(185,93,120,0.3) 0%, rgba(185,93,120,0.3) 3px, transparent 3px),
+        radial-gradient(circle at 50% 70%, rgba(255,200,0,0.25) 0%, rgba(255,200,0,0.25) 5px, transparent 5px),
+        radial-gradient(circle at 85% 60%, rgba(0,200,255,0.3) 0%, rgba(0,200,255,0.3) 3px, transparent 3px),
+        radial-gradient(circle at 30% 80%, rgba(180,0,255,0.25) 0%, rgba(180,0,255,0.25) 4px, transparent 4px),
+        radial-gradient(circle at 60% 40%, transparent 6px, rgba(255,100,200,0.2) 6px, rgba(255,100,200,0.2) 8px, transparent 8px),
+        radial-gradient(circle at 40% 55%, transparent 4px, rgba(0,255,180,0.15) 4px, rgba(0,255,180,0.15) 6px, transparent 6px),
+        linear-gradient(160deg, #0a0a2e 0%, #0d0030 100%);
+    }
+
+    .card-bg-sunset {
+      background:
+        radial-gradient(ellipse at 50% 120%, rgba(255,100,0,0.3) 0%, transparent 60%),
+        conic-gradient(from 200deg at 50% 80%, transparent 0deg, rgba(255,200,0,0.1) 30deg, transparent 60deg),
+        linear-gradient(180deg, 
+          #ff6b35 0%, #9b3f5f 35%, #9b30ff 65%, #2d0066 100%);
+    }
+
+    .card-bg-arcade {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 11px,
+          rgba(0,255,100,0.08) 11px,
+          rgba(0,255,100,0.08) 12px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 11px,
+          rgba(0,255,100,0.08) 11px,
+          rgba(0,255,100,0.08) 12px
+        ),
+        radial-gradient(circle at 30% 40%, rgba(0,255,100,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(185,93,120,0.15) 0%, transparent 40%),
+        linear-gradient(160deg, #0a0a0a 0%, #050515 100%);
+    }
+
+    .card-bg-confetti {
+      background:
+        radial-gradient(circle at 10% 20%, #9b3f5f 0%, #9b3f5f 3px, transparent 3px),
+        radial-gradient(circle at 30% 50%, #00e5ff 0%, #00e5ff 2px, transparent 2px),
+        radial-gradient(circle at 55% 15%, #ffdd00 0%, #ffdd00 3px, transparent 3px),
+        radial-gradient(circle at 75% 45%, #7b2dff 0%, #7b2dff 2px, transparent 2px),
+        radial-gradient(circle at 90% 25%, #00ff88 0%, #00ff88 3px, transparent 3px),
+        radial-gradient(circle at 20% 75%, #ff6b35 0%, #ff6b35 2px, transparent 2px),
+        radial-gradient(circle at 45% 85%, #00e5ff 0%, #00e5ff 3px, transparent 3px),
+        radial-gradient(circle at 80% 80%, #ffdd00 0%, #ffdd00 2px, transparent 2px),
+        radial-gradient(circle at 65% 65%, #9b3f5f 0%, #9b3f5f 2px, transparent 2px),
+        radial-gradient(circle at 40% 35%, #7b2dff 0%, #7b2dff 3px, transparent 3px),
+        linear-gradient(160deg, #ff69b4 0%, #9b3f5f 100%);
+    }
+
+    .card-bg-chrome {
+      background: 
+        linear-gradient(135deg, 
+          rgba(255,255,255,0.3) 0%, 
+          rgba(200,200,220,0.1) 20%,
+          rgba(255,255,255,0.2) 40%,
+          rgba(180,180,200,0.1) 60%,
+          rgba(255,255,255,0.3) 80%,
+          rgba(200,200,220,0.1) 100%),
+        linear-gradient(160deg, #c0c0c0 0%, #8a8a9a 25%, #d4d4e0 50%, #9a9aaa 75%, #e0e0f0 100%);
+      background-size: 200% 200%, 100% 100%;
+      animation: chromeShift 4s ease-in-out infinite;
+    }
+    @keyframes chromeShift {
+      0%, 100% { background-position: 0% 0%, 0% 0%; }
+      50% { background-position: 100% 100%, 0% 0%; }
+    }
+
+    /* === HEADER / NAV === */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      padding: 10px 24px;
+      background: rgba(255, 253, 251, 0.96);
+      border-bottom: 1px solid rgba(75, 33, 72, 0.16);
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 28px rgba(75, 33, 72, 0.08);
+    }
+    .site-header .brand {
+      line-height: 0;
+      overflow: visible;
+    }
+    .site-header .brand img {
+      width: clamp(146px, 18vw, 190px);
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+    }
+    .site-header nav {
+      display: flex;
+      gap: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .site-header nav a {
+      color: var(--plum);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-header nav a:hover {
+      color: var(--hot-pink);
+    }
+
+    .wednesday-return {
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: clamp(14px, 3vw, 26px);
+      right: auto;
+      z-index: 120;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: calc(100% - 28px);
+      margin: 0;
+      border: 1px solid rgba(185,93,120,0.42);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 253, 251, 0.94);
+      color: var(--plum);
+      font-weight: 800;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 12px 30px rgba(75, 33, 72, 0.12),
+        0 0 0 4px rgba(185,93,120,0.08);
+    }
+
+    .wednesday-return:hover,
+    .wednesday-return:focus-visible {
+      background: rgba(185,93,120,0.18);
+      color: var(--hot-pink);
+      outline: 3px solid rgba(185,93,120,0.2);
+      outline-offset: 2px;
+    }
+
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--plum);
+    }
+    @media (max-width: 700px) {
+      .site-header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 253, 251, 0.98);
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(75, 33, 72, 0.16);
+        flex-direction: column;
+        gap: 12px;
+      }
+      .site-header nav.open { display: flex; }
+      .hamburger-btn { display: block; }
+      .wednesday-return {
+        left: 14px;
+        right: 14px;
+        bottom: calc(12px + env(safe-area-inset-bottom));
+        width: auto;
+        justify-content: center;
+      }
+    }
+
+    .community-ritual-entry {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 42px 24px 18px;
+    }
+    .community-ritual-entry .entry-card {
+      display: grid;
+      gap: 18px;
+      border: 1px solid rgba(185,93,120,0.22);
+      border-radius: 18px;
+      padding: clamp(20px, 4vw, 30px);
+      background:
+        radial-gradient(circle at top right, rgba(185,93,120,0.28), transparent 18rem),
+        linear-gradient(135deg, rgba(255,249,236,0.98), rgba(255,231,243,0.92));
+      color: var(--text);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.22);
+    }
+    .community-ritual-entry .eyebrow {
+      color: var(--hot-pink);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    .community-ritual-entry h1 {
+      max-width: 680px;
+      font-family: 'Playfair Display', Didot, Georgia, serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 0.98;
+      color: var(--text);
+    }
+    .community-ritual-entry p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .room-preview-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .room-preview {
+      display: grid;
+      gap: 4px;
+      border: 1px solid rgba(185,93,120,0.22);
+      border-radius: 14px;
+      padding: 13px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,246,252,0.84));
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .room-preview:hover,
+    .room-preview:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(185,93,120,0.5);
+      box-shadow: 0 12px 24px rgba(185,93,120,0.12);
+      outline: none;
+    }
+    .room-preview span {
+      display: block;
+      color: var(--hot-pink);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .room-preview strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+    .room-preview em {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 4px;
+      color: #8c1160;
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .community-entry-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .community-entry-actions a {
+      color: var(--hot-pink);
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+    @media (max-width: 700px) {
+      .room-preview-row { grid-template-columns: 1fr; }
+      .community-ritual-entry { padding-top: 28px; }
+    }
+
+    /* === SECTION 1: LAiDIES CARDS === */
+    .cards-section {
+      padding: 30px 24px 40px;
+      width: min(100% - 32px, 1180px);
+      max-width: none;
+      margin: 28px auto 0;
+      border: 1px solid rgba(185,93,120,0.22);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(185,93,120,0.12), transparent 16rem),
+        rgba(255,249,236,0.95);
+      color: var(--text);
+      box-shadow: 0 20px 54px rgba(0,0,0,0.2);
+    }
+    .cards-section .eyebrow {
+      color: var(--hot-pink);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+    }
+    .cards-section h2 {
+      font-family: 'Playfair Display', Didot, Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .cards-section .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    /* Filter buttons */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .filter-bar button {
+      background: var(--white);
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text);
+    }
+    .filter-bar button:hover {
+      border-color: var(--hot-pink);
+      color: var(--hot-pink);
+    }
+    .filter-bar button.active {
+      background: var(--hot-pink);
+      color: var(--white);
+      border-color: var(--hot-pink);
+    }
+
+    /* === LAYERED CARD GRID === */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    /* Individual LAYERED thumbnail card */
+    .thumb-card {
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .thumb-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(185,93,120,0.25);
+    }
+
+    /* Background layer with photo on top */
+    .thumb-card .thumb-bg {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .thumb-card .thumb-bg .thumb-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      object-fit: contain;
+      object-position: center center;
+      position: relative;
+      z-index: 2;
+      /* subtle shadow to lift from bg */
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    }
+
+    /* Info section below */
+    .thumb-card .thumb-info {
+      background: var(--white);
+      padding: 10px 12px 12px;
+    }
+    .thumb-card .thumb-info h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .thumb-card .thumb-info .thumb-meta {
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .thumb-card .thumb-info .thumb-tag {
+      font-size: 0.65rem;
+      color: var(--hot-pink);
+      font-weight: 600;
+    }
+    .thumb-card[hidden] { display: none; }
+
+    /* CTA */
+    .cta-row {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .cta-row a {
+      display: inline-block;
+      background: var(--hot-pink);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-row a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(185,93,120,0.35);
+    }
+
+    /* === SECTION 2: CHAT ROOMS === */
+    .rooms-section {
+      padding: 48px 24px 56px;
+      width: min(100% - 32px, 1180px);
+      max-width: none;
+      margin: 28px auto 0;
+      border: 1px solid rgba(185,93,120,0.24);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255,228,122,0.18), transparent 16rem),
+        rgba(255,248,252,0.96);
+      color: var(--text);
+      box-shadow: 0 20px 54px rgba(0,0,0,0.18);
+    }
+    .rooms-section .eyebrow {
+      color: var(--hot-pink);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+    }
+    .rooms-section h2 {
+      font-family: 'Playfair Display', Didot, Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 700px) {
+      .rooms-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 460px) {
+      .rooms-grid { grid-template-columns: 1fr; }
+    }
+    .room-card {
+      background: var(--card-dark);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .room-card:hover {
+      box-shadow: 0 4px 20px var(--card-glow);
+      transform: translateY(-2px);
+    }
+    .room-card h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .room-card p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .room-card a {
+      font-size: 0.75rem;
+      color: var(--hot-pink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .room-card a:hover { text-decoration: underline; }
+
+    /* === OVERLAY / MODAL === */
+    .card-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .card-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+    .card-overlay .overlay-card {
+      background: linear-gradient(160deg, #2a1222 0%, #1a0a14 100%);
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(185,93,120,0.15), 0 0 40px rgba(185,93,120,0.08);
+      transform: scale(0.92);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      position: relative;
+    }
+    .card-overlay.visible .overlay-card {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .overlay-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .overlay-close:hover { background: rgba(255,255,255,0.2); }
+
+    /* OVERLAY: layered photo area */
+    .overlay-photo-area {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px 14px 0 0;
+      padding: 24px;
+      position: relative;
+    }
+    .overlay-photo-area img {
+      max-width: 180px;
+      max-height: 180px;
+      border-radius: 14px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+      position: relative;
+      z-index: 2;
+    }
+
+    .overlay-body {
+      padding: 20px 22px 24px;
+    }
+    .overlay-body .overlay-era {
+      display: inline-block;
+      background: rgba(185,93,120,0.15);
+      color: var(--hot-pink);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+    .overlay-body h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .overlay-body .overlay-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .overlay-body .overlay-meta {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .overlay-body .overlay-meta strong { color: rgba(255,255,255,0.9); }
+    .overlay-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .overlay-tags span {
+      background: rgba(185,93,120,0.12);
+      color: var(--hot-pink);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 560px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .thumb-card .thumb-bg { padding: 14px; }
+      .thumb-card .thumb-bg .thumb-photo { width: 80px; height: 80px; }
+      .thumb-card .thumb-info { padding: 8px 10px 10px; }
+      .thumb-card .thumb-info h3 { font-size: 0.78rem; }
+    }
+    @media (max-width: 380px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  
+/* Canonical LAiDIES wordmark (Ai accent) — promoted from homepage inline */
+.brand-word-inline{display:inline!important;margin:0!important;white-space:nowrap;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;color:inherit!important;text-transform:none!important}
+.brand-word-inline>span{display:inline!important;margin:0!important;color:inherit!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+.brand-word-inline [data-brand-ai]{display:inline!important;margin:0!important;color:var(--rose,#9b3f5f)!important;font-family:inherit!important;font-size:inherit!important;font-weight:inherit!important;letter-spacing:inherit!important;line-height:inherit!important;text-transform:inherit!important}
+
+      
+/* Dark-surface accent: lighter rose so the "Ai" stays visible on dark buttons/cards */
+.brand-word-inline--on-dark [data-brand-ai],
+.room-card .brand-word-inline [data-brand-ai],
+.anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
+
+      </style>
+  <link rel="stylesheet" href="/content/site/mini-player.css">
+  <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
+  <link rel="stylesheet" href="/content/community-index-v2.css?v=20260724-1" />
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body class="community-index-page">
+  <div class="laidies-bg laidies-bg--light" aria-hidden="true"></div>
+  <!-- HEADER -->
+  <header class="sv-header"></header>
+
+  <main class="community-index-main">
+    <div class="community-arrival">
+      <img src="/assets/rerolls-20260714/willow-and-sorority-continuity/building-interiors/delta-lai-nu-sorority-house-interior.png" alt="The SUNNYVAiLE sorority house common room, with a staircase, lounge, bulletin board, and doors to the community rooms.">
+    </div>
+
+    <section class="community-ritual-entry" aria-labelledby="communityEntryTitle">
+      <div class="entry-card">
+        <p class="eyebrow">Community rooms</p>
+        <h1 id="communityEntryTitle">Bring one useful thing back to the room.</h1>
+        <p>The Wednesday Ritual does not need networking homework. Share the Try-On, ask the room, or drop the thing that worked so another busy woman can borrow the move.</p>
+        <div class="community-entry-actions">
+          <a href="#chat-rooms">Choose a room &rarr;</a>
+          <a href="#laidies-cards">See who is here &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 1: LAiDIES CARDS ============ -->
+    <section class="cards-section" id="laidies-cards">
+      <p class="eyebrow"><span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> Cards</p>
+      <h2>Open the resident file.</h2>
+      <p class="subtitle">Meet the founding residents and town regulars already in the room. Filter the file, then open one record in place.</p>
+
+      <div class="filter-bar" role="toolbar" aria-label="Filter cards">
+        <button class="active" data-filter="all">All cards</button>
+        <button data-filter="stock">Stock cards</button>
+        <button data-filter="member">Members</button>
+        <button data-filter="help">Here to help</button>
+        <button data-filter="progress">Making progress</button>
+        <button data-filter="connect">Open to connect</button>
+      </div>
+
+      <div class="card-grid" id="cardGrid">
+        <!-- Card 1: Ali — LAYERED: laser bg + photo on top -->
+        <div class="thumb-card" data-type="member" data-tags="member help progress connect founder" data-card="ali">
+          <div class="thumb-bg card-bg-laser">
+            <img class="thumb-photo" src="assets/people/dream-phone-boss-ali.png" alt="Ali" />
+          </div>
+          <div class="thumb-info">
+            <h3>Ali</h3>
+            <span class="thumb-tag">Founder · Teaching others</span>
+          </div>
+        </div>
+        <!-- Card 2: Eugina — LAYERED: holo bg -->
+        <div class="thumb-card" data-type="member" data-tags="member founder" data-card="eugina">
+          <div class="thumb-bg card-bg-holo">
+            <img class="thumb-photo" src="assets/people/eugina-lim.jpg" alt="Eugina" />
+          </div>
+          <div class="thumb-info">
+            <h3>Eugina</h3>
+            <span class="thumb-tag">Founding Spark</span>
+          </div>
+        </div>
+        <!-- Card 3: Sara — LAYERED: lightning bg -->
+        <div class="thumb-card" data-type="member" data-tags="member founder" data-card="sara">
+          <div class="thumb-bg card-bg-lightning">
+            <img class="thumb-photo" src="assets/people/sara-baxter.png" alt="Sara" />
+          </div>
+          <div class="thumb-info">
+            <h3>Sara</h3>
+            <span class="thumb-tag">Founding Spark</span>
+          </div>
+        </div>
+        <!-- Card 4: Josh — LAYERED: arcade bg -->
+        <div class="thumb-card" data-type="member" data-tags="member connect" data-card="josh">
+          <div class="thumb-bg card-bg-arcade">
+            <img class="thumb-photo" src="assets/people/josh-hudson.png" alt="Josh" />
+          </div>
+          <div class="thumb-info">
+            <h3>Josh</h3>
+            <span class="thumb-tag">The Crew · DJ SunnyV</span>
+          </div>
+        </div>
+        <!-- Card 5: FAiRY Godmother (stock) — doodle bg -->
+        <div class="thumb-card" data-type="stock" data-tags="stock help" data-card="laidy">
+          <div class="thumb-bg card-bg-doodle">
+            <img class="thumb-photo" src="assets/laidy-character-v1.png" alt="The FAiRY Godmother" />
+          </div>
+          <div class="thumb-info">
+            <h3><span class="brand-word-inline" aria-label="FAiRY Godmother"><span aria-hidden="true">F<span data-brand-ai>Ai</span>RY Godmother</span></span></h3>
+            <span class="thumb-tag"><span class="brand-word-inline" aria-label="FAiRY"><span aria-hidden="true">F<span data-brand-ai>Ai</span>RY</span></span> GODMOTHER</span>
+          </div>
+        </div>
+        <!-- Card 6: Mme CLAi-O (stock) — sunset bg -->
+        <div class="thumb-card" data-type="stock" data-tags="stock help connect" data-card="claio">
+          <div class="thumb-bg card-bg-sunset">
+            <img class="thumb-photo" src="assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708" alt="Mme CLAi-O" />
+          </div>
+          <div class="thumb-info">
+            <h3>Mme <span class="brand-word-inline" aria-label="CLAi-O"><span aria-hidden="true">CL<span data-brand-ai>Ai</span>-O</span></span></h3>
+            <span class="thumb-tag">Psychic Hotline</span>
+          </div>
+        </div>
+        <!-- Card 7: Deb (stock) — confetti bg -->
+        <div class="thumb-card" data-type="stock" data-tags="stock progress" data-card="deb">
+          <div class="thumb-bg card-bg-confetti">
+            <img class="thumb-photo" src="assets/deb-80s-portrait-stare-v1.png" alt="Deb" />
+          </div>
+          <div class="thumb-info">
+            <h3>Deb</h3>
+            <span class="thumb-tag">Early Retirement</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a href="laidies-card.html">Peek at the Resident Card glow-up &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 2: CHAT ROOMS ============ -->
+    <section class="rooms-section" id="chat-rooms">
+      <p class="eyebrow">Community Prompts</p>
+      <h2>Nine rooms. One reason to walk in.</h2>
+      <p class="rooms-intro">Start with what you brought back this week. The room pages hold the live conversation, not another directory card.</p>
+
+      <div class="rooms-grid">
+        <div class="room-card">
+          <h3>Ask the Room</h3>
+          <p>Save your AI question for the group.</p>
+          <a href="community/ask-the-room.html">Ask the Room &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Send It Energy</h3>
+          <p>Share the prompt or trick that worked.</p>
+          <a href="community/send-it-energy.html">Share a Win &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>The Try-On Debrief</h3>
+          <p>The easiest place to participate: what did you test this week?</p>
+          <a href="community/try-on-debrief.html">Share Your Try-On &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Wins of the Week</h3>
+          <p>AI not required. We celebrate those too.</p>
+          <a href="community/wins.html">Celebrate a Win &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span></h3>
+          <p>Ask for non-AI advice.</p>
+          <a href="community/dear-laidies.html">Ask Dear <span class="brand-word-inline" aria-label="LAiDIES"><span aria-hidden="true">L<span data-brand-ai>Ai</span>DIES</span></span> &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Burn Book</h3>
+          <p>Nominate a Y2K reference for an analogy.</p>
+          <a href="community/burn-book.html">Nominate a Reference &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Mix CD Exchange</h3>
+          <p>Drop your playlist link.</p>
+          <a href="community/mix-cd-exchange.html">Share a Track &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Comment Card</h3>
+          <p>Tell us how it landed.</p>
+          <a href="community/comment-card.html">Leave a Comment &rarr;</a>
+        </div>
+        <div class="room-card">
+          <h3>Receipts Desk</h3>
+          <p>AI-summarized answers from community prompts.</p>
+          <a href="community/chat-room-digest.html">Check the Receipts &rarr;</a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- === CLUBHOUSE PASS CTA === -->
+    <section class="community-pass">
+      <p class="eyebrow">Resident access</p>
+      <h2>Save your place in the room.</h2>
+      <p>Sign in with a Resident Card for progress across devices. One email, no password, ever.</p>
+      <a href="resident-card.html">Open Resident Card intake &rarr;</a>
+    </section>
+
+  </main>
+
+  <!-- ============ OVERLAY MODAL ============ -->
+  <div class="card-overlay" id="cardOverlay" role="dialog" aria-modal="true" aria-label="Member card detail" aria-hidden="true">
+    <div class="overlay-card" id="overlayCard">
+      <button class="overlay-close" id="overlayClose" aria-label="Close">Close</button>
+      <div class="overlay-photo-area" id="overlayPhotoArea"></div>
+      <div class="overlay-body" id="overlayBody"></div>
+    </div>
+  </div>
+
+  <script>
+  // === CARD DATA ===
+  const cardData = {
+    ali: {
+      photo: 'assets/people/dream-phone-boss-ali.png',
+      bgClass: 'card-bg-laser',
+      name: 'Ali',
+      era: 'Founder Era',
+      desc: 'Tax leader, Women-in-Tax builder, TEI contributor, and founder of LAiDIES — the site you are currently visiting.',
+      meta: '<strong>AI journey:</strong> building in public, testing agents, and learning the technical pieces out loud.<br><strong>Can help with:</strong> tax, community building, practical AI tests, messy first drafts, and work that refuses to stay beige.',
+      tags: ['Indirect Tax', 'Women-in-Tax', 'TEI', 'ChatGPT', 'Claude Code', 'Codex', 'Open to connect']
+    },
+    eugina: {
+      photo: 'assets/people/eugina-lim.jpg',
+      bgClass: 'card-bg-holo',
+      name: 'Eugina',
+      era: 'Founding Spark Era',
+      desc: 'The original Echo idea was hers. Part of the founding sisterhood that brought LAiDIES to life.',
+      meta: '<strong>Spark:</strong> the idea that started the conversation — what if we built something for us?',
+      tags: ['OG LAiDY', 'Echo Architect', 'Original Three', 'WIT']
+    },
+    sara: {
+      photo: 'assets/people/sara-baxter.png',
+      bgClass: 'card-bg-lightning',
+      name: 'Sara',
+      era: 'Founding Spark Era',
+      desc: 'One of the original three. The group chat energy that made LAiDIES go from idea to real thing.',
+      meta: '<strong>Spark:</strong> the encouragement, the early hype, the "yes, do it" that every builder needs.',
+      tags: ['OG LAiDY', 'Day One Energy', 'Original Three', 'WIT']
+    },
+    josh: {
+      photo: 'assets/people/josh-hudson.png',
+      bgClass: 'card-bg-arcade',
+      name: 'Josh',
+      era: 'The Crew · WIT Champion',
+      desc: 'The hype man. WIT champion, hackathon co-conspirator, and the reason the site has a soundtrack.',
+      meta: '<strong>Made the first five tracks</strong> — Ep 1, Ep 2, Ep 3, Deb\'s Tomorrow Problem, and Impossible to Underestimate You. Everything you hear on KSVL traces back to him hitting record.',
+      tags: ['First Five Tracks', 'WIT Champion', 'Hackathon Crew', 'GenAI Tax']
+    },
+    laidy: {
+      photo: 'assets/laidy-character-v1.png',
+      bgClass: 'card-bg-doodle',
+      name: 'FAiRY Godmother',
+      era: 'FAiRY GODMOTHER Era',
+      desc: 'The FAiRY GODMOTHER who appears when your prompt has vibes, no verbs, and somehow three competing deadlines.',
+      meta: '<strong>Special move:</strong> waves the wand, turns panic into one useful next step, and makes you add context before the draft leaves the house.',
+      tags: ['FAiRY GODMOTHER', 'Prompt triage', 'Tough love', 'Here to help']
+    },
+    claio: {
+      photo: 'assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708',
+      bgClass: 'card-bg-sunset',
+      name: 'Mme CLAi-O',
+      era: 'Psychic Hotline Era',
+      desc: 'Sees the future, notices the missing source, and refuses to bless a vague strategy deck.',
+      meta: '<strong>Special move:</strong> delivers one omen, one receipt, and one small action before the meeting invite multiplies.',
+      tags: ['Receipts', 'Clarity', 'Here to help']
+    },
+    deb: {
+      photo: 'assets/deb-80s-portrait-stare-v1.png',
+      bgClass: 'card-bg-confetti',
+      name: 'Deb',
+      era: 'Early Retirement Era',
+      desc: 'Payroll legend. Reorg survivor. Emotionally unavailable to bad rollouts and men named Brad with urgent asks.',
+      meta: '<strong>Special move:</strong> knows where the form is, who broke the printer, and exactly how many months until freedom.',
+      tags: ['Office lore', 'DJ SunnyV canon', 'Making progress']
+    }
+  };
+
+  // === LOAD MEMBER CARDS FROM localStorage ===
+  function loadMemberCards() {
+    const saved = localStorage.getItem('laidies-my-card');
+    if (!saved) return;
+    try {
+      const data = JSON.parse(saved);
+      if (!data.name) return;
+      
+      // Create a card element
+      const card = document.createElement('div');
+      card.className = 'thumb-card';
+      card.dataset.type = 'member';
+      card.dataset.tags = 'member' + (data.openToConnect ? ' connect' : '') + (data.helpWith ? ' help' : '');
+      card.dataset.card = 'my-card';
+      
+      const bgClass = 'card-bg-' + (data.bgStyle || 'laser');
+      const photoHtml = data.photo
+        ? '<img class="thumb-photo" src="' + data.photo + '" alt="' + data.name + '" />'
+        : '';
+      
+      let metaText = data.role || '';
+      if (data.journey) metaText += (metaText ? ' · ' : '') + data.journey;
+      
+      card.innerHTML = `
+        <div class="thumb-bg ${bgClass}${data.photo ? '' : ' is-empty'}">
+          ${photoHtml}
+        </div>
+        <div class="thumb-info">
+          <h3>${data.name}</h3>
+          <span class="thumb-tag">${metaText}</span>
+        </div>
+      `;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      
+      // Add card data for overlay
+      cardData['my-card'] = {
+        photo: data.photo || '',
+        bgClass: bgClass,
+        name: data.name,
+        era: data.journey || 'Member',
+        desc: data.role + (data.helpWith ? '. Can help with: ' + data.helpWith : ''),
+        meta: (data.tools ? '<strong>Tools:</strong> ' + data.tools + '<br>' : '') +
+              (data.helpWith ? '<strong>Can help with:</strong> ' + data.helpWith + '<br>' : '') +
+              (data.openToConnect ? '<strong>Open to connect!</strong>' : ''),
+        tags: [data.journey, data.role].filter(Boolean)
+      };
+      
+      // Click handler
+      card.addEventListener('click', () => openOverlay('my-card'));
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openOverlay('my-card');
+        }
+      });
+      
+      // Insert before the stock cards
+      const grid = document.getElementById('cardGrid');
+      const stockCards = grid.querySelectorAll('[data-type="stock"]');
+      if (stockCards.length > 0) {
+        grid.insertBefore(card, stockCards[0]);
+      } else {
+        grid.appendChild(card);
+      }
+    } catch(e) { /* ignore */ }
+  }
+
+  // === FILTER LOGIC ===
+  const filterBtns = document.querySelectorAll('.filter-bar button');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.thumb-card').forEach(card => {
+        if (filter === 'all') {
+          card.hidden = false;
+        } else {
+          const tags = card.dataset.tags || '';
+          card.hidden = !tags.includes(filter);
+        }
+      });
+    });
+  });
+
+  // === OVERLAY LOGIC ===
+  const overlay = document.getElementById('cardOverlay');
+  const overlayCard = document.getElementById('overlayCard');
+  const overlayPhotoArea = document.getElementById('overlayPhotoArea');
+  const overlayBody = document.getElementById('overlayBody');
+  const overlayClose = document.getElementById('overlayClose');
+  let overlayOpener = null;
+
+  function openOverlay(cardId) {
+    const data = cardData[cardId];
+    if (!data) return;
+    overlayOpener = document.activeElement;
+
+    // Build layered photo area with bg
+    const bgClass = data.bgClass || 'card-bg-laser';
+    const photoSrc = data.photo;
+    
+    overlayPhotoArea.className = 'overlay-photo-area ' + bgClass;
+    if (photoSrc) {
+      overlayPhotoArea.innerHTML = `<img src="${photoSrc}" alt="${data.name}" />`;
+    } else {
+      overlayPhotoArea.innerHTML = '';
+      overlayPhotoArea.classList.add('is-empty');
+    }
+
+    const tagsHtml = data.tags.map(t => `<span>${t}</span>`).join('');
+    overlayBody.innerHTML = `
+      <span class="overlay-era">${data.era}</span>
+      <h3>${data.name}</h3>
+      <p class="overlay-desc">${data.desc}</p>
+      <p class="overlay-meta">${data.meta}</p>
+      <div class="overlay-tags">${tagsHtml}</div>
+    `;
+
+    overlay.style.display = 'flex';
+    void overlay.offsetHeight;
+    overlay.classList.add('visible');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    overlayClose.focus();
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('visible');
+    overlay.setAttribute('aria-hidden', 'true');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      overlayPhotoArea.innerHTML = '';
+      overlayBody.innerHTML = '';
+    }, 250);
+    document.body.style.overflow = '';
+    if (overlayOpener && typeof overlayOpener.focus === 'function') {
+      overlayOpener.focus();
+    }
+  }
+
+  // Click cards to open
+  document.querySelectorAll('.thumb-card').forEach(card => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('click', () => {
+      openOverlay(card.dataset.card);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openOverlay(card.dataset.card);
+      }
+    });
+  });
+
+  // Close handlers
+  overlayClose.addEventListener('click', closeOverlay);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeOverlay();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('visible')) closeOverlay();
+  });
+
+  // Load Resident Cards on page ready
+  loadMemberCards();
+  </script>
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search || '');
+    if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
+    const issue = String(params.get('issue') || '').match(/\d+/);
+    const issueValue = issue ? Number(issue[0]) : '';
+    const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
+    const link = document.createElement('a');
+    link.dataset.wednesdayReturn = 'true';
+    link.className = 'wednesday-return';
+    link.href = '/';
+    link.textContent = '\u2190 Back to SUNNYVAiLE';
+    document.querySelector('.community-entry-actions')?.append(link);
+
+    if (!issueValue) return;
+    document.querySelectorAll('a[href^="community/"]').forEach((roomLink) => {
+      const hashIndex = roomLink.getAttribute('href').indexOf('#');
+      const href = roomLink.getAttribute('href');
+      const hash = hashIndex >= 0 ? href.slice(hashIndex) : '';
+      const base = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+      const separator = base.includes('?') ? '&' : '?';
+      roomLink.href = base + separator + 'from=this-week&issue=' + encodeURIComponent(issueValue) + '&bag=open&group=connect' + draftParam + hash;
+    });
+  })();
+  </script>
+  <script src="/content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
+    <script src="content/site/brand-polish.js?v=wm2" defer></script>
+    <script src="content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+{
+  "audio": {
+    "elementary_stream_identical": true,
+    "frozen_v19_adts_sha256": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "output_adts_sha256": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e"
+  },
+  "authority": {
+    "deploy": false,
+    "maker_may_accept": false,
+    "public": false,
+    "release": false
+  },
+  "builder": {
+    "path": "assets/video/build-episode-02-v19-welcome-ident-v2.py",
+    "sha256": "ccf1d6e46ee52c3dec811e5fbbee5ba6ae51dda9aa0a1b7e2e20987012581167",
+    "size_bytes": 14609
+  },
+  "checks": {
+    "fps": 30,
+    "full_decode": "PASS",
+    "video_track_timescale": 15360
+  },
+  "config": {
+    "path": "operations/video-qa/episode-02-v19-welcome-ident-v2/config.json",
+    "sha256": "c3869c6d321faebeb3ce342f2e0b188b5dfc98be5b947e13f332dcd1d26497d9",
+    "size_bytes": 1462
+  },
+  "created_at": "2026-07-27T04:30:59.872137+00:00",
+  "frame_evidence": {
+    "body_framemd5_sequence_identical_to_v1": true,
+    "decoded_frozen_source_tail_frames_exact": 22,
+    "decoded_output_frames": 29624,
+    "decoded_v1_body_frames_exact": 29602,
+    "final_tail_strip": {
+      "path": "operations/video-qa/episode-02-v19-welcome-ident-v2/final-22-source-tail-frame-strip.png",
+      "sha256": "11e9dfffa48a24543355b1d402bbd71339b5d0ff9c0937ba9a9a6adc093fb4e4",
+      "size_bytes": 284176
+    },
+    "ident_boundary_strip": {
+      "path": "operations/video-qa/episode-02-v19-welcome-ident-v2/ident-boundary-frame-strip.png",
+      "sha256": "4e0e6fec31ef4b1c3e1928d4e0f30abe11ab6e5e72d30dab21990bb7bfec4fd5",
+      "size_bytes": 981615
+    },
+    "tail_framemd5_sequence_identical_to_frozen_v19": true
+  },
+  "frozen_source": {
+    "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+    "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+    "size_bytes": 112843240
+  },
+  "held_v1": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v1-review.mp4",
+    "sha256": "5b9c98281d292b18ef4e70edc023a4c322add94bfe3b7e82e7d8e3dab691191b",
+    "size_bytes": 123797832
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-v1.mp4",
+    "sha256": "ea5addbad951281602373cfde8d4264326e557a57b63ea2df218d0697316f138",
+    "size_bytes": 3895234
+  },
+  "ident_interval_seconds_preserved": [
+    91.34,
+    98.59
+  ],
+  "output": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "repair": {
+    "audio_operation": "copy frozen-v19 AAC elementary stream unchanged",
+    "frozen_source_video_frames": 29624,
+    "missing_tail_frames": 22,
+    "operation": "preserve all decoded v1 picture frames, then append frozen-v19 decoded frames 29602 through 29623",
+    "reason": "V-TAIL-TIMELINE-DRIFT",
+    "synthetic_hold": false,
+    "v1_video_frames": 29602
+  },
+  "schema": "laidies.episode-02.welcome-ident-tail-restore.manifest.v1",
+  "status": "BUILT_LOCALLY_REVIEW_REQUIRED_NOT_ADMITTED_NOT_PUBLIC",
+  "task_id": "WE-MEDIA-E02-WELCOME-IDENT-V2-TAIL-RESTORE-2026-07-26",
+  "track_durations": {
+    "frozen_source": {
+      "soun": {
+        "duration_units": 47398576,
+        "seconds": 987.4703333333333,
+        "timescale": 48000
+      },
+      "vide": {
+        "duration_units": 15167488,
+        "seconds": 987.4666666666667,
+        "timescale": 15360
+      }
+    },
+    "output": {
+      "soun": {
+        "duration_units": 47398576,
+        "seconds": 987.4703333333333,
+        "timescale": 48000
+      },
+      "vide": {
+        "duration_units": 15167488,
+        "seconds": 987.4666666666667,
+        "timescale": 15360
+      }
+    }
+  }
+}

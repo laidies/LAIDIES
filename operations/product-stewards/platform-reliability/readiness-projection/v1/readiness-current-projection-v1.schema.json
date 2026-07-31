@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/readiness-current-projection-1.0.0.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "recordType", "payload", "integrity"],
+  "properties": {
+    "schemaVersion": {"const": "1.0.0"},
+    "recordType": {"const": "readiness-current-projection"},
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projectionId",
+        "sequence",
+        "generatedAt",
+        "validUntil",
+        "replacesProjectionId",
+        "fallbackRoute",
+        "destinations",
+        "currentContent"
+      ],
+      "properties": {
+        "projectionId": {"type": "string", "pattern": "^readiness-[a-z0-9-]+-v[0-9]+$"},
+        "sequence": {"type": "integer", "minimum": 1},
+        "generatedAt": {"type": "string", "format": "date-time"},
+        "validUntil": {"type": "string", "format": "date-time"},
+        "replacesProjectionId": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "minLength": 1}
+          ]
+        },
+        "fallbackRoute": {"type": "string", "pattern": "^/"},
+        "destinations": {
+          "type": "array",
+          "minItems": 17,
+          "maxItems": 17,
+          "items": {"$ref": "#/$defs/destination"}
+        },
+        "currentContent": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {"$ref": "#/$defs/currentItem"}
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "canonicalization", "payloadSha256"],
+      "properties": {
+        "algorithm": {"const": "sha-256"},
+        "canonicalization": {"const": "RFC8785-JCS"},
+        "payloadSha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nullableString": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "minLength": 1}
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "observedAt"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "observedAt": {"type": "string", "format": "date-time"}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "sha256"],
+      "properties": {
+        "kind": {
+          "enum": ["none", "local-evidence", "release-candidate", "deployment"]
+        },
+        "id": {"$ref": "#/$defs/nullableString"},
+        "sha256": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/sha256"}
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "none"}}},
+          "then": {
+            "properties": {
+              "id": {"type": "null"},
+              "sha256": {"type": "null"}
+            }
+          },
+          "else": {
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "sha256": {"$ref": "#/$defs/sha256"}
+            }
+          }
+        }
+      ]
+    },
+    "destination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "destinationId",
+        "productId",
+        "ownerId",
+        "name",
+        "route",
+        "state",
+        "label",
+        "summary",
+        "limitation",
+        "disposition",
+        "freshUntil",
+        "evidence",
+        "artifact"
+      ],
+      "properties": {
+        "destinationId": {"type": "string", "minLength": 1},
+        "productId": {"type": "string", "minLength": 1},
+        "ownerId": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1, "maxLength": 100},
+        "route": {"type": "string", "pattern": "^/"},
+        "state": {"enum": ["available", "limited", "held", "withdrawn"]},
+        "label": {"type": "string", "minLength": 1, "maxLength": 80},
+        "summary": {"type": "string", "minLength": 1, "maxLength": 240},
+        "limitation": {"type": "string", "minLength": 1, "maxLength": 320},
+        "disposition": {"type": "string", "minLength": 1, "maxLength": 100},
+        "freshUntil": {"type": "string", "format": "date-time"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "artifact": {"$ref": "#/$defs/artifact"}
+      }
+    },
+    "currentItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "slot",
+        "ownerId",
+        "state",
+        "label",
+        "title",
+        "route",
+        "publishedOn",
+        "limitation",
+        "disposition",
+        "freshUntil",
+        "evidence",
+        "artifact"
+      ],
+      "properties": {
+        "slot": {"enum": ["latest-episode", "breaking", "daily"]},
+        "ownerId": {"type": "string", "minLength": 1},
+        "state": {"enum": ["available", "quiet", "held", "withdrawn"]},
+        "label": {"type": "string", "minLength": 1, "maxLength": 80},
+        "title": {"$ref": "#/$defs/nullableString"},
+        "route": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^/"}
+          ]
+        },
+        "publishedOn": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "format": "date"}
+          ]
+        },
+        "limitation": {"type": "string", "minLength": 1, "maxLength": 320},
+        "disposition": {"type": "string", "minLength": 1, "maxLength": 100},
+        "freshUntil": {"type": "string", "format": "date-time"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "artifact": {"$ref": "#/$defs/artifact"}
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E02-V19-WELCOME-IDENT-V2-REPRESENTATIVE-PLAYER-INDEPENDENT-JUDGE-2026-07-26",
+  "scope": "representative-player-and-codec-gate-only",
+  "verdict": "PASS",
+  "reason_codes": [
+    "EXACT-V2-PLAYER-BINDING-PASS",
+    "SEAL-AND-TUPLE-PASS",
+    "DETERMINISTIC-13-OF-13-PASS",
+    "CHROME150-HIGH444-DECODE-PASS",
+    "CHROME150-1X-UNMUTED-ADVANCE-PASS",
+    "EXTERNAL-VTT-RAIL-PASS",
+    "KEYBOARD-ERROR-RETRY-PASS",
+    "REDUCED-MOTION-390-PASS",
+    "NOJS-SAFE-UNBOUND-PASS",
+    "SCREENSHOT-PROVENANCE-PASS"
+  ],
+  "seal": {
+    "harness_path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/episode-02-v19-welcome-ident-v2-representative-player-harness-2026-07-26",
+    "sha256sums_sha256": "74974ec6d9cbff062acae195ffb53753af7a63d18ec84a1a381ee485076692df",
+    "maker_evidence_sha256": "fcff6e18d7a33e7b2780384a6f05d61ed0f268ac9ad7d26faf5885b71ef4f630",
+    "all_listed_files_verified": true
+  },
+  "binding": {
+    "media_sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "caption_sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+    "cue_count": 194,
+    "last_cue_end_seconds": 986.67
+  },
+  "deterministic": {
+    "independently_rerun": true,
+    "pass_count": 13,
+    "fail_count": 0
+  },
+  "chrome_150": {
+    "result": "PASS",
+    "codec": "H.264 High 4:4:4 Predictive",
+    "ready_state": 4,
+    "error": null,
+    "dimensions": "1920x1080",
+    "duration_seconds": 987.466667,
+    "playback_rate": 1,
+    "muted": false,
+    "volume": 1,
+    "advance_seconds": 2.851457,
+    "wall_observation_seconds": 3
+  },
+  "codec_successor_required": false,
+  "separate_hold": {
+    "reason_code": "HUMAN-FULL-TITLE-1X-AUDIBLE-WITNESS-UNPROVEN",
+    "affects_this_gate": false,
+    "meaning": "Headless unmuted playback is not a physical-speaker or complete human audible-listen witness."
+  },
+  "authority": {
+    "full_title_acceptance": false,
+    "release": false,
+    "deployment": false,
+    "public_media": false
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "SVGH-320-2026-07-26-v1-ROUTE-INTEGRATION-v1",
+  "status": "BUILT_LOCALLY_PENDING_OWNER_REACCEPTANCE",
+  "payload": {
+    "candidateId": "SVGH-320-2026-07-26-v1",
+    "acceptedSource": {
+      "path": "content/site/sv-global-header.js",
+      "sha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa",
+      "bytes": 20003
+    },
+    "priorBinding": {
+      "path": "operations/product-stewards/platform-reliability/shared-header/v1/release-binding/svgh-320-asset-cache-binding-v1.json",
+      "sha256": "4c0e49780c7d184aa2e930e92b4a5afecc1520c37e97939d7a480e862af0dd4e"
+    },
+    "version": {
+      "versionKey": "svgh-320-2026-07-26-v1-807bbe6b17ab",
+      "requestPath": "/content/site/sv-global-header.js?v=svgh-320-2026-07-26-v1-807bbe6b17ab",
+      "sourceSha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa"
+    },
+    "routes": [
+      {
+        "role": "homepage",
+        "path": "index.html",
+        "priorSha256": "c437da107ba8863111a48434e790a2f6d17b683349b5ccea52954216dbd24772",
+        "integratedSha256": "51a4a25f2eeb66e881755fe8d9c5dc3960678cc3a4ee78ea105203a053a23dbb",
+        "consumesSharedHeader": true,
+        "priorRequestPath": "/content/site/sv-global-header.js?v=20260715-1"
+      },
+      {
+        "role": "startHere",
+        "path": "start-here.html",
+        "priorSha256": "a7a54e79b3b4b5dd85cdbaf50a9b96788632f2c8dd42d3513f77ec8d1c7efbc0",
+        "integratedSha256": "a7a54e79b3b4b5dd85cdbaf50a9b96788632f2c8dd42d3513f77ec8d1c7efbc0",
+        "consumesSharedHeader": false,
+        "priorRequestPath": null
+      },
+      {
+        "role": "visitorsCentre",
+        "path": "visitors-centre.html",
+        "priorSha256": "de8e536dcfd4c80c419e4bfd6e61c7e2189fd4c07429869b5d505ba659707743",
+        "integratedSha256": "cddc7404e9bfc20d42fafb32449b3b4471fb9c2fd8954ddbc6ab49942273fc3b",
+        "consumesSharedHeader": true,
+        "priorRequestPath": "/content/site/sv-global-header.js?v=20260715-1"
+      }
+    ],
+    "rollback": {
+      "requestPath": "/content/site/sv-global-header.js?v=20260715-1",
+      "operation": "replace integrated requestPath with priorRequestPath on every consuming route",
+      "atomicity": "ONE_CURATED_ARTIFACT",
+      "verification": "inverse bytes equal prior accepted route hashes"
+    },
+    "authority": {
+      "deploy": false,
+      "publicCacheMutation": false,
+      "providerSettings": false,
+      "visitorContainmentRemoval": false,
+      "unrelatedRouteChanges": false
+    },
+    "acceptance": {
+      "maker": "PASS",
+      "townEntry": "PENDING",
+      "visitorsCentre": "PENDING",
+      "nativeSafariVoiceOverTrueZoom": "PENDING",
+      "publicOriginAndCache": "NOT_PERFORMED"
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "98bf5e6f76162d44aef6cc4836350bd50c4b93247134fa871095e1cc915feab5"
+  }
+}

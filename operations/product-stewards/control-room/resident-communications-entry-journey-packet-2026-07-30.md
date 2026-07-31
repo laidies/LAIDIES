@@ -1,0 +1,58 @@
+# Resident communications entry journeys — implementation packet
+
+**Status:** `REPORT READY` — authoritative source audited: `28f483e25c021e37e0acd2687abcae26a6d66927`. Read-only. This packet does not authorize a Homepage or shared visual change.
+
+## Verified release boundary
+
+`28f483e` is the normalized combined Resident Communications/continuation source (parent `22e7707`). The later public-release record is `8f813c4` on `resident-continuation-20260729`; its release evidence binds Cloudflare deployment `9f161385-7486-4207-9afe-8512ea453973` and says public bytes for Resident Chat, Trading Cards, Post Office, Resident Card/Closet and their clients matched the curated artifact. One contemporaneous `28f` continuation receipt still says “PUBLIC FRONTEND NOT YET DEPLOYED”; it predates that later release-evidence amendment. Therefore use the `8f813c4` release record for public status, but use the requested `28f` tree for exact source/journey analysis.
+
+Static tests were run from a temporary archive of `28f`:
+
+- `test-resident-communications-v1.mjs` — PASS (server-authoritative cards, duplicate-only gifting, direct/group chat, sitewide notification wiring).
+- `test-identity-account-contract.mjs` — PASS.
+- `test-identity-cross-device-vertical.mjs` — PASS (five visitor states, two accounts, three devices, retry/conflict coverage).
+- `test-resident-continuation-contract.mjs` — PASS (allowlisted merge, private exclusion, account-switch isolation).
+- `test-resident-continuation-sql-contract.mjs` — PASS (private RLS, RPC-only, idempotency, concurrency, bounded document).
+
+These are static/local checks. No authenticated public action, provider call, email, user or deployment was made in this audit.
+
+## Journey matrix
+
+| Journey | Existing visitor entry and exact source | Built/operational states | Missing/smallest build |
+|---|---|---|---|
+| **Account entry / sign-out** | Static `.sv-signin` links throughout public pages point to `/resident-card.html`; `content/site/sv-nav-auth.js` loads Supabase session, changes link to `/resident-card.html#rcAccountTitle`, adds `/resident-chat.html` and an unread count via `my_resident_conversations`. `resident-card.html` loads `identity-client-v1.js`, `resident-account-runtime-v1.js`, `resident-account-page-v1.js`. | Publicly verified account Card claim/restore, cross-browser account continuation, account A/B isolation, and account-backed Closet. Identity migration `20260726010000_resident_identity_v1.sql` owns mutations. | **P1 surface:** make account state/sign-out and the current Card/continuation state obvious in one consistent account-control component. Do not change Auth/RPC. Validate signed-out, pending magic-link, signed-in, revoked, expired, unavailable-storage and sign-out return states. Native email delivery/recovery and Safari/VoiceOver remain release gates. |
+| **Direct chat** | Signed-in nav `Chat` link and unread badge → `/resident-chat.html`; Post Office link at its communications counter → same route. `resident-chat.html` has handle form (`data-direct-form`); `resident-chat-v1.js` calls `create_direct_resident_chat`, then `resident_chat_messages` and `send_resident_chat_message`. | Publicly verified private, handle-addressed conversation; authenticated members only; sender attribution; Realtime delivery; block/closed-mailbox enforcement in data contract; 2,000-character compose; signed-out fail-closed handoff to Resident Card. Empty thread says “No messages yet”; failed send says no change. | **P0 received/discovery surface:** recipient can see unread count and open Chat, but there is no explicit cross-site “new message from @…” receipt/notification centre, conversation-request explanation, or one-step recipient acceptance/decline UX. Smallest build: an account-owned notification/inbox summary based on existing `my_resident_conversations` output, with empty/error/loading states, linking into existing thread IDs—no new message store. |
+| **Group chat** | `/resident-chat.html` group form (`data-group-form`) accepts a title/handles; client calls `create_group_resident_chat`. Existing conversation list chooses the active thread. | Public direct/group chat is implemented; membership table/RLS/RPC authoritatively control visibility; message reports exist (`report_resident_chat_message`); Realtime is registered for `resident_messages`. | **P1 safety/clarity:** current UI has create, send and report, but no visible member list/roles, invitation/pending/declined state, leave group, block-management or report acknowledgement/status beyond inline announcements. Smallest build: render existing membership/conversation metadata and add an explicit report-submitted confirmation; only add new RPCs for leave/invite approval after moderation policy decides them. |
+| **Message visibility / report** | Chat client lists only `resident_chat_messages` for selected conversation and shows `Report` only for a received row. `resident_message_reports` has unique reporter/message policy. | Member-only visibility and report write are built; no email addresses disclosed; report confirmation/cancel and failure message are wired. | **P1 moderation handoff:** reports are stored but visitor-facing outcome/review SLA, block settings entry and safety/help exit are not surfaced. Smallest build: add a non-promissory “reported for review” receipt plus a clear block/help destination; do not imply live moderation or end-to-end encryption. |
+| **Authoritative Trading Card binder / pack open** | `/games/trading-cards.html` reads `my_trading_cards`, opens pack via `open_pack`, renders account-backed binder and links the full collection to `/laidies-card.html`; signed-out status points to Resident Card sign-in. | Publicly verified live pack and private binder. Browser `localStorage` retains reveal animation only; actual inventory is server authority. Migration `20260727213000_authoritative_trading_card_gifts.sql` denies browser card-event writes. | **P1 product surface:** clear account-backed empty (“no unopened packs”) and failure (“no cards changed”) exist. Missing is an explicit received-card history/receipt in the binder/Closet and a complete creative catalogue (20 concept cards, one character card per communications release evidence). Smallest build: render existing gift/card receipt data as a read-only recent activity panel; do not recreate pack, inventory or ownership logic. |
+| **Duplicate-card gifting** | `/post-office.html#card-gifts` is the sole visitor entry: `data-resident-card-gifting` form → `resident-card-gifting-v1.js` → `my_trading_cards` then `send_duplicate_trading_card`. It links directly to Chat. | Publicly verified atomic duplicate-only send: cannot buy/copy/reset; last copy protected; sender decrement + recipient increment + Post Office receipt occur atomically; idempotent retry, blocks and closed mailbox rules are in SQL. UI has signing-in, no-giftable-duplicates, invalid/blocked/closed/handle error messages and a sent status. | **P0 received state:** sender gets a status, but recipient has no explicit “gift received” arrival surface; the card appears in the authoritative binder without a discoverable receipt/history. Smallest build: expose existing `trading_card_gifts` recipient-safe receipt data through a read-only authenticated RPC/section in Closet or Chat. Do not overload regular resident mail or duplicate transfer logic. |
+| **Closet/account integration** | `/laidies-card.html` loads identity runtime and `closet-account-bridge-v1.js`, reads `member_reward_events` for supported vessel display including `trading_card`; Resident Card is the account/recovery entry. `resident-continuation-v1.js` syncs only supported progress/collections. | Publicly verified account-backed Closet at 390px and account switch isolation; continuation allowlists card collection/meta, charms, Puffy, tours/episodes/ritual flags. Public card lookup is restricted and fail-closed. | **P1 state-language repair:** the page contains inherited “notes and gifts are in the works” copy even though duplicate-card gifting and Chat now exist on the later release. Smallest build: replace only the stale capability boundary and add a clear private binder/gift-receipt path; retain truthful exclusion of public balances, messages and drafts from continuation. |
+
+## Data plumbing to preserve
+
+- Identity/Card: `20260726010000_resident_identity_v1.sql` and `LAIDIESIdentityV1` RPCs.
+- Cards/gifts: `20260722230000_server_side_pack_opening.sql` plus `20260727213000_authoritative_trading_card_gifts.sql`; calls `open_pack`, `my_trading_cards`, `send_duplicate_trading_card`.
+- Chat: `20260727214500_resident_chat_v1.sql`; calls `create_direct_resident_chat`, `create_group_resident_chat`, `my_resident_conversations`, `resident_chat_messages`, `send_resident_chat_message`, `report_resident_chat_message`.
+- Continuation: `20260729010000_resident_continuation_v1.sql`; only `get_my_resident_continuation_v1` / `put_my_resident_continuation_v1` and only the documented allowlist.
+
+No new browser-authored reward write, local-only Trading Card collection, generic message table, or “sync all user data” document is permitted by this packet.
+
+## Prioritized build order
+
+1. **P0 — recipient/received visibility:** introduce a small authenticated inbox/receipt summary that reuses `my_resident_conversations` and a narrowly scoped gift-receipt read model. Add loading, empty, error, unread, reported and received states. This makes existing messaging/gifting discoverable without changing their mutation paths.
+2. **P0 — truthful Closet/Post Office handoff:** remove stale “notes and gifts are in the works” language on the release branch and link existing Closet → Post Office duplicate gifts → Chat → received receipt. Keep the recipient message/gift boundaries clear.
+3. **P1 — group/moderation usability:** member metadata, report acknowledgement, block/help entry and a policy decision on leave/invite workflow. Do not promise human review time or private encryption.
+4. **P1 — binder product surface:** recent card/gift history and a complete-card-catalogue workstream, reusing server inventory/pack authority. The visual card system remains a separately admitted Trading Cards product task.
+5. **P2 — account polish/accessibility:** consolidated account state/sign-out, magic-link recovery, native Safari/VoiceOver/zoom and comprehension evidence. These are quality/release gates rather than new plumbing.
+
+## Implementation acceptance contract for the first P0 slice
+
+- Signed-out visitors see a clear Card sign-in handoff and no private sender, recipient, card or message metadata.
+- Signed-in recipient can distinguish **unread chat**, **no chats**, **gift received**, **no gifts**, **failed load**, and **report submitted**; every state links only to the existing Chat/Closet/Post Office destination.
+- A gift receipt proves only the authoritative completed transfer; it must never claim delivery/read of a chat message or referral activation.
+- Existing static contracts plus authenticated two-account browser verification rerun with exact release artifact/public-origin parity before any public claim.
+- No changes to `open_pack`, `send_duplicate_trading_card`, chat send/create/report, identity RPCs, RLS policies or continuation allowlist unless an independently specified data-model change passes its own migration and security review.
+
+## Learning scan
+
+No new qualifying failure: the existing prevention rule applies. **A functional server capability is not a complete visitor journey until a recipient can find, understand and verify its received state without reusing an unrelated store.**

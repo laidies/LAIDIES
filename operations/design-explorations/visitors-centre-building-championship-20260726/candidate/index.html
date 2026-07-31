@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visitor's Centre · Fold-Out Map Counter · owner-review candidate</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root {
+      --ink: #10203d;
+      --ink-soft: #39455e;
+      --cream: #fffdfb;
+      --paper: #fff7e9;
+      --pink: #e982ab;
+      --teal: #57b6c0;
+      --coral: #ec7a78;
+      --periwinkle: #b3abe7;
+      --line: rgba(16, 32, 61, .24);
+      --shadow: 10px 12px 0 rgba(16, 32, 61, .92);
+    }
+    * { box-sizing: border-box; }
+    html { background: #f8eaf0; color: var(--ink); font-family: Jost, Avenir Next, Avenir, sans-serif; scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; }
+    button, select, a { font: inherit; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible {
+      outline: 4px solid var(--ink);
+      outline-offset: 4px;
+      box-shadow: 0 0 0 7px var(--cream);
+    }
+    .no-js .desk-head > div:last-child { display: none; }
+    .skip { position: absolute; left: -999px; top: 8px; z-index: 50; background: var(--cream); padding: 10px 14px; }
+    .skip:focus { left: 8px; }
+    .review-strip {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      min-height: 62px; padding: 10px clamp(16px, 4vw, 64px);
+      background: linear-gradient(90deg, #f8dce8, #e6f4f1);
+      border-bottom: 2px solid var(--ink);
+      position: relative; z-index: 20;
+    }
+    .brand { font-weight: 900; letter-spacing: .08em; }
+    .brand .ai { color: #d83d78; }
+    .review-label { font-size: 12px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+    .review-label strong { color: #9e2456; }
+    .room {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1505 / 1045;
+      min-height: 690px;
+      overflow: hidden;
+      border-bottom: 5px solid var(--teal);
+      background: #f4dfc5 url("./assets/fold-out-map-counter-clean-plate-v1.png") center / cover no-repeat;
+      isolation: isolate;
+    }
+    .wall-map {
+      position: absolute;
+      z-index: 1;
+      left: 49.05%;
+      top: 11.17%;
+      width: 40.45%;
+      height: 25.94%;
+      object-fit: cover;
+      border: 1px solid rgba(16, 32, 61, .45);
+    }
+    .map-spots { position: absolute; inset: 0; z-index: 3; }
+    .map-spot {
+      --x: 50; --y: 50;
+      position: absolute;
+      left: calc(49.05% + (40.45% * var(--x) / 100));
+      top: calc(11.17% + (25.94% * var(--y) / 100));
+      width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: transparent; cursor: pointer;
+    }
+    .map-spot::before {
+      content: "";
+      position: absolute; inset: 11px; border-radius: 50%;
+      border: 3px solid var(--cream); background: var(--pink);
+      box-shadow: 0 0 0 2px var(--ink), 3px 4px 0 rgba(16, 32, 61, .45);
+      opacity: 0; transform: scale(.65);
+      transition: opacity .15s ease, transform .15s ease;
+    }
+    .map-spot:hover::before, .map-spot:focus-visible::before, .map-spot[aria-pressed="true"]::before {
+      opacity: 1; transform: scale(1);
+    }
+    .map-spot span {
+      position: absolute; left: 50%; bottom: 41px; transform: translateX(-50%);
+      max-width: 180px; width: max-content; padding: 7px 9px;
+      background: var(--cream); border: 2px solid var(--ink); border-radius: 3px;
+      font-size: 11px; font-weight: 900; line-height: 1.15;
+      opacity: 0; pointer-events: none;
+    }
+    .map-spot:hover span, .map-spot:focus-visible span, .map-spot[aria-pressed="true"] span { opacity: 1; }
+    .room-copy {
+      position: absolute; z-index: 4; left: 6.4%; top: 11.5%; width: min(39%, 520px);
+      padding: clamp(16px, 2.2vw, 32px);
+      background: rgba(255, 253, 251, .91);
+      border: 2px solid var(--ink);
+      box-shadow: var(--shadow);
+      transform: rotate(-.45deg);
+    }
+    .eyebrow {
+      margin: 0 0 8px; color: #b92967; font-size: 12px; font-weight: 900;
+      letter-spacing: .22em; text-transform: uppercase;
+    }
+    h1 { margin: 0; max-width: 12ch; font-size: clamp(42px, 5.2vw, 78px); line-height: .9; letter-spacing: -.055em; }
+    .orientation { margin: 16px 0 0; max-width: 43ch; font-size: clamp(16px, 1.45vw, 21px); font-weight: 700; line-height: 1.45; }
+    .arrival-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .action {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
+      padding: 11px 17px; border: 2px solid var(--ink); border-radius: 999px;
+      background: var(--cream); box-shadow: 4px 5px 0 var(--ink);
+      font-weight: 900; text-decoration: none;
+    }
+    .action--primary { background: var(--pink); }
+    .action--teal { background: #8de2cf; }
+    .action:hover { transform: translate(-1px, -1px); box-shadow: 6px 7px 0 var(--ink); }
+    .return-note {
+      display: none; margin: 18px 0 0; padding: 10px 12px;
+      border-left: 7px solid var(--teal); background: #edf9f7; font-weight: 750;
+    }
+    .return-note.is-visible { display: block; }
+    .workbench {
+      position: relative; z-index: 10; width: min(1180px, calc(100% - 32px));
+      margin: clamp(-190px, -12vw, -120px) auto 72px;
+      padding: clamp(22px, 4vw, 52px);
+      background:
+        radial-gradient(circle at 86% 16%, transparent 0 39px, rgba(142, 92, 48, .18) 40px 43px, transparent 44px),
+        linear-gradient(175deg, #fff9e9, #fff1d8);
+      border: 2px solid var(--ink);
+      box-shadow: 14px 16px 0 var(--ink);
+      clip-path: polygon(0 2%, 23% 0, 50% 2%, 75% 0, 100% 2%, 99% 98%, 72% 100%, 49% 98%, 24% 100%, 1% 98%);
+    }
+    .workbench::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .18;
+      background: linear-gradient(90deg, transparent 24.8%, var(--ink) 25%, transparent 25.2%, transparent 49.8%, var(--ink) 50%, transparent 50.2%, transparent 74.8%, var(--ink) 75%, transparent 75.2%);
+    }
+    .workbench > * { position: relative; z-index: 1; }
+    .desk-head {
+      display: grid; grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
+      align-items: end; gap: clamp(24px, 5vw, 76px);
+      padding-bottom: 28px; border-bottom: 2px dashed rgba(16, 32, 61, .36);
+    }
+    h2 { margin: 0; font-size: clamp(32px, 4vw, 58px); line-height: 1; letter-spacing: -.04em; }
+    .desk-intro { margin: 12px 0 0; max-width: 46ch; color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
+    label { display: block; margin-bottom: 8px; color: #6d31cd; font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    select {
+      width: 100%; min-height: 56px; padding: 12px 44px 12px 15px;
+      color: var(--ink); background: var(--cream); border: 2px solid var(--ink); border-radius: 5px;
+      font-weight: 850; box-shadow: 6px 7px 0 var(--teal);
+    }
+    .destination {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px;
+      margin-top: 28px; min-height: 150px; padding: clamp(18px, 3vw, 32px);
+      background: rgba(255, 253, 251, .84); border: 2px solid var(--ink);
+      border-left: 14px solid var(--coral);
+    }
+    .destination[hidden] { display: none; }
+    .destination-state {
+      display: inline-block; margin: 0 0 8px; padding: 4px 8px;
+      background: #dff5ed; border: 1px solid var(--ink); font-size: 11px; font-weight: 900;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    .destination-state[data-state="held"] { background: #ffe3ed; }
+    .destination h3 { margin: 0; font-size: clamp(25px, 3vw, 38px); line-height: 1.05; }
+    .destination-summary { margin: 10px 0 0; font-weight: 750; }
+    .destination-limit { margin: 8px 0 0; max-width: 74ch; color: var(--ink-soft); font-size: 14px; line-height: 1.45; }
+    .destination .action { align-self: center; white-space: nowrap; }
+    .tools {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 28px;
+      margin-top: 30px;
+    }
+    details { flex: 1; }
+    summary {
+      cursor: pointer; width: fit-content; padding: 10px 0;
+      font-size: 18px; font-weight: 900;
+    }
+    .directory-list {
+      columns: 2; column-gap: 36px; padding: 0; margin: 12px 0 0; list-style: none;
+      border-top: 2px solid var(--ink);
+    }
+    .directory-list li { break-inside: avoid; border-bottom: 1px solid var(--line); }
+    .directory-list button {
+      display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: center;
+      width: 100%; min-height: 48px; padding: 8px 4px; color: var(--ink);
+      background: transparent; border: 0; text-align: left; cursor: pointer; font-weight: 800;
+    }
+    .directory-list b {
+      display: grid; place-items: center; width: 26px; height: 26px;
+      border: 1px solid var(--ink); border-radius: 50%; background: var(--periwinkle); font-size: 11px;
+    }
+    .postcard-ticket {
+      width: min(280px, 31vw); transform: rotate(1.5deg); text-decoration: none;
+    }
+    .postcard-ticket img { display: block; width: 100%; border: 8px solid var(--cream); box-shadow: 7px 8px 0 var(--ink); }
+    .postcard-ticket span { display: block; margin-top: 12px; font-size: 13px; font-weight: 900; }
+    .truth-line { margin: 38px 0 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
+    footer { padding: 34px 20px 54px; text-align: center; color: var(--ink-soft); font-size: 12px; }
+    @media (max-width: 900px) {
+      .room-copy { width: 42%; }
+      .desk-head { grid-template-columns: 1fr; }
+      .tools { align-items: stretch; flex-direction: column; }
+      .postcard-ticket { width: min(340px, 82%); }
+    }
+    @media (max-width: 640px) {
+      .review-strip { min-height: 54px; }
+      .review-label { font-size: 9px; }
+      .room {
+        min-height: 0; aspect-ratio: 2 / 3;
+        background-image: url("./assets/fold-out-map-counter-mobile-clean-plate-v1.png");
+        background-size: cover;
+      }
+      .wall-map { left: 16.1%; top: 9.8%; width: 72.2%; height: 25.9%; }
+      .map-spots { display: none; }
+      .room-copy {
+        left: 7%; top: 39.5%; width: 86%; padding: 16px;
+        transform: rotate(-.35deg); box-shadow: 7px 8px 0 var(--ink);
+      }
+      .eyebrow { font-size: 9px; }
+      h1 { max-width: 10ch; font-size: clamp(35px, 12vw, 50px); }
+      .orientation { margin-top: 10px; font-size: 15px; }
+      .arrival-actions { margin-top: 12px; }
+      .action { min-height: 44px; padding: 9px 13px; font-size: 13px; }
+      .return-note { font-size: 13px; }
+      .workbench {
+        width: calc(100% - 20px); margin: -38px auto 50px; padding: 28px 18px 36px;
+        box-shadow: 8px 10px 0 var(--ink);
+      }
+      .desk-head { gap: 24px; }
+      h2 { font-size: 36px; }
+      .destination { grid-template-columns: 1fr; }
+      .destination .action { justify-self: start; }
+      .directory-list { columns: 1; }
+      .postcard-ticket { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#orientation-desk">Skip to the map desk</a>
+  <header class="review-strip">
+    <div class="brand">LA<span class="ai">i</span>DIES</div>
+    <div class="review-label"><strong>Owner-review candidate</strong> · isolated · not integrated</div>
+  </header>
+
+  <main>
+    <section class="room" aria-labelledby="arrival-title">
+      <img class="wall-map" src="/assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="Illustrated overview map of SUNNYVAiLE">
+      <div class="map-spots" id="mapSpots" aria-label="Choose a destination on the SUNNYVAiLE map"></div>
+      <div class="room-copy">
+        <p class="eyebrow">The front door · No. 1 MAiN</p>
+        <h1 id="arrival-title">Welcome to SUNNYVAiLE.</h1>
+        <p class="orientation">You’re at the town front desk. Take the map, choose any building by name, or ask for the optional guided walk.</p>
+        <div class="arrival-actions">
+          <a class="action action--primary" href="#orientation-desk">Choose a building</a>
+          <a class="action action--teal" id="tourAction" href="/visitors-centre.html?welcome-tour=start">Start the tour</a>
+          <a class="action" href="/watch.html?ep=trailer">Play the short trailer</a>
+        </div>
+        <p class="return-note" id="returnNote"></p>
+      </div>
+    </section>
+
+    <section class="workbench" id="orientation-desk" aria-labelledby="desk-title">
+      <div class="desk-head">
+        <div>
+          <p class="eyebrow">The fold-out map counter</p>
+          <h2 id="desk-title">Where do you want to go?</h2>
+          <p class="desk-intro">The wall map and the named directory are equal routes. Choosing a place shows its current job and limitations before you step inside.</p>
+        </div>
+        <div>
+          <label for="destinationSelect">Choose a SUNNYVAiLE building by name</label>
+          <select id="destinationSelect">
+            <option value="">Select a building</option>
+          </select>
+        </div>
+      </div>
+
+      <article class="destination" id="destinationDetail" aria-live="polite" hidden>
+        <div>
+          <p class="destination-state" id="destinationState">Current status</p>
+          <h3 id="destinationName"></h3>
+          <p class="destination-summary" id="destinationSummary"></p>
+          <p class="destination-limit" id="destinationLimit"></p>
+        </div>
+        <a class="action action--primary" id="destinationEnter" href="/">Check this destination</a>
+      </article>
+
+      <noscript>
+        <nav aria-label="All 17 SUNNYVAiLE destinations">
+          <p><strong>JavaScript is unavailable. The full named directory still works:</strong></p>
+          <ol class="directory-list">
+            <li><a href="/visitors-centre.html">The Welcome Wagon Visitor's Centre</a></li>
+            <li><a href="/newsstand.html">The NewsStand</a></li>
+            <li><a href="/chick-flicks.html">The Chick Flicks</a></li>
+            <li><a href="/blend-snap.html">The Blend &amp; Snap</a></li>
+            <li><a href="/games/madame-claio.html">Mme CLAi-O's Shop</a></li>
+            <li><a href="/maikeover.html">MAiKEOVER on MAiN</a></li>
+            <li><a href="/bronze-aige.html">The BRONZE AiGE</a></li>
+            <li><a href="/games/dream-phone.html">The Phone Booth (Dream Phone)</a></li>
+            <li><a href="/mall.html">The Mall</a></li>
+            <li><a href="/radio.html">KSVL Community RAiDIO</a></li>
+            <li><a href="/post-office.html">The SUNNYVAiLE Post Office</a></li>
+            <li><a href="/town-hall.html">Town Hall</a></li>
+            <li><a href="/library.html">SUNNYVAiLE LIBRAiRY</a></li>
+            <li><a href="/sunnyvaile-high.html">SUNNYVAiLE High</a></li>
+            <li><a href="/games/fairy-godmother.html">The FAiRY Godmother's House</a></li>
+            <li><a href="/sorority-house.html">The Sorority House · Delta LAi Nu</a></li>
+            <li><a href="/luminairy.html">The LUMINAiRY</a></li>
+          </ol>
+        </nav>
+      </noscript>
+
+      <div class="tools">
+        <details>
+          <summary>Open the full named directory — all 17 stops</summary>
+          <ol class="directory-list" id="directoryList"></ol>
+        </details>
+        <a class="postcard-ticket" href="/postcard.html" aria-label="Optional: prepare a SUNNYVAiLE postcard">
+          <img src="/assets/postcards/from-sunnyvaile/pc-welcome.png" alt="Visit beautiful SUNNYVAiLE postcard">
+          <span>Optional souvenir: prepare a postcard →</span>
+        </a>
+      </div>
+
+      <p class="truth-line">This desk helps you choose and navigate. A route opening is not proof that a destination, account, delivery, playback, post, reward, class, or service completed. Each receiving page remains responsible for its current availability and evidence.</p>
+    </section>
+  </main>
+
+  <footer>Visitor’s Centre building-experience championship · isolated owner-review candidate · 2026-07-26</footer>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    const destinations = [
+      {n:1,id:"visitors-centre",name:"The Welcome Wagon Visitor's Centre",address:"No. 1 MAiN",href:"/visitors-centre.html",state:"limited",summary:"Start here to choose a named SUNNYVAiLE route.",limit:"Choosing a route is navigation, not proof that the destination or a downstream action is complete.",x:7,y:66},
+      {n:2,id:"newsstand",name:"The NewsStand",address:"No. 2 MAiN",href:"/newsstand.html",state:"limited",summary:"Open source-checked AI publications and their current reader states.",limit:"Publication availability and freshness vary; the NewsStand must show when an edition is current, quiet, held, corrected, or withdrawn.",x:17,y:68},
+      {n:3,id:"chick-flicks",name:"The Chick Flicks",address:"No. 3 MAiN",href:"/chick-flicks.html",state:"held",summary:"Browse episode articles and illustrated, captioned listen-alongs.",limit:"Trailer and Episodes 1–4 motion films are not approved here; use only the episode experience that its page currently labels available.",x:28,y:64},
+      {n:4,id:"blend-snap",name:"The Blend & Snap",address:"No. 4 MAiN",href:"/blend-snap.html",state:"limited",summary:"See the episode pack menu and which study or practice pieces are ready.",limit:"Pack components vary; a menu open is not study completion, and collection state may be device-local or unavailable.",x:39,y:66},
+      {n:5,id:"mme-claio",name:"Mme CLAi-O's Shop",address:"No. 5 MAiN",href:"/games/madame-claio.html",state:"limited",summary:"Try a controlled fortune activity with clear reflection boundaries.",limit:"History and keepsakes are device-local; a reading is not factual prediction, professional advice, or durable reward.",x:49,y:65},
+      {n:6,id:"maikeover",name:"MAiKEOVER on MAiN",address:"No. 6 MAiN",href:"/maikeover.html",state:"held",summary:"Style a Resident Card preview and continue through its currently available local tools.",limit:"Saving and customization are device-local; account, cross-device, avatar, public-card, and reward promises are not confirmed.",x:61,y:65},
+      {n:7,id:"bronze-aige",name:"The BRONZE AiGE",address:"No. 7 MAiN",href:"/bronze-aige.html",state:"limited",summary:"Explore a social work-learning room and its currently labelled activities.",limit:"Selections and coaster state are device-local; current special, audio, invitation, and service readiness still require their own evidence.",x:71,y:65},
+      {n:8,id:"dream-phone",name:"The Phone Booth (Dream Phone)",address:"No. 8 MAiN · Outside The Mall",href:"/games/dream-phone.html",state:"held",summary:"Open a scripted playful reframe or beta evidence-practice experience.",limit:"Product direction and evidence-game promotion remain under review; it does not provide personalized or professional advice.",x:78,y:81},
+      {n:9,id:"mall",name:"The Mall",address:"No. 9 MAiN",href:"/mall.html",state:"limited",summary:"Browse the Mall directory and open a named shop route.",limit:"A shop listing is not proof that the shop is operable, stocked, ready to transact, or able to fulfil an order.",x:85,y:62},
+      {n:10,id:"ksvl-radio",name:"KSVL Community RAiDIO",address:"No. 10 MAiN",href:"/radio.html",state:"limited",summary:"Open KSVL's rights-aware listening surface and its current catalogue state.",limit:"Catalogue, controls, rights admission, and failure recovery remain partial; opening the station does not prove a track played.",x:96,y:66},
+      {n:11,id:"post-office",name:"The SUNNYVAiLE Post Office",address:"Civic Square",href:"/post-office.html",state:"limited",summary:"Open newsletter, sign-in, and postcard handoffs.",limit:"Opening or sharing a handoff does not confirm delivery, subscription, sign-in, referral, or reward.",x:7,y:38},
+      {n:12,id:"town-hall",name:"Town Hall",address:"Civic Square",href:"/town-hall.html",state:"held",summary:"Meet Mayor Deb and the locals, or open a private Town Hall comment card.",limit:"An accepted card is not proof of reading, review, reply, resolution, or a public civic record; intake and staff-triage controls remain held.",x:22,y:32},
+      {n:13,id:"library",name:"SUNNYVAiLE LIBRAiRY",address:"Civic Square",href:"/library.html",state:"limited",summary:"Browse AI reference shelves, ask Miss Jeeves, and save an exact place on this device.",limit:"Some books still need editorial or currency review; saves are device-local and opening a book is not editorial approval.",x:33,y:40},
+      {n:14,id:"sunnyvaile-high",name:"SUNNYVAiLE High",address:"Schoolhouse Road",href:"/sunnyvaile-high.html",state:"held",summary:"Open the learning campus and see only the classes or practice its page currently admits.",limit:"Class, quiz, mastery, Report Card, and reward lifecycles remain partial; a click or local score is not a durable learning record.",x:50,y:24},
+      {n:15,id:"fairy-godmother",name:"The FAiRY Godmother's House",address:"Willow Lane",href:"/games/fairy-godmother.html",state:"held",summary:"Open the AI, career, and life-advice tool within its stated boundaries.",limit:"Accuracy, safety, routing, allowance, and failure repairs are not approved for promotion; it is not medical, crisis, legal, financial, or other high-stakes professional advice.",x:57,y:42},
+      {n:16,id:"sorority-house",name:"The Sorority House · Delta LAi Nu",address:"Wisteria Lane",href:"/sorority-house.html",state:"limited",summary:"Choose a community conversation and read its current participation rules.",limit:"Posting, moderation, identity, access, and reward lifecycles remain unverified; entering is not a confirmed post, membership, or reward.",x:78,y:38},
+      {n:17,id:"sanctuary",name:"The LUMINAiRY",address:"Lantern Hill",href:"/luminairy.html",state:"limited",summary:"Meet sourced, dated guides and choose a useful next route.",limit:"Source freshness and corrections remain partial; selections are device-local and opening a profile is not evidence of current-source approval.",x:83,y:16}
+    ];
+
+    const select = document.querySelector("#destinationSelect");
+    const list = document.querySelector("#directoryList");
+    const spots = document.querySelector("#mapSpots");
+    for (const destination of destinations) {
+      const option = document.createElement("option");
+      option.value = destination.id;
+      option.textContent = `${destination.name} · ${destination.address}`;
+      select.append(option);
+
+      const row = document.createElement("li");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.destination = destination.id;
+      button.innerHTML = `<b>${destination.n}</b><span>${destination.name} · ${destination.address}</span>`;
+      row.append(button);
+      list.append(row);
+
+      const spot = document.createElement("button");
+      spot.type = "button";
+      spot.className = "map-spot";
+      spot.dataset.destination = destination.id;
+      spot.style.setProperty("--x", destination.x);
+      spot.style.setProperty("--y", destination.y);
+      spot.setAttribute("aria-label", `${destination.name}, ${destination.address}`);
+      spot.setAttribute("aria-pressed", "false");
+      spot.innerHTML = `<span>${destination.name}</span>`;
+      spots.append(spot);
+    }
+
+    function reveal(id, origin) {
+      const destination = destinations.find((item) => item.id === id);
+      if (!destination) return;
+      select.value = destination.id;
+      document.querySelectorAll(".map-spot").forEach((spot) => {
+        spot.setAttribute("aria-pressed", String(spot.dataset.destination === destination.id));
+      });
+      const detail = document.querySelector("#destinationDetail");
+      const state = document.querySelector("#destinationState");
+      state.textContent = destination.state === "held" ? "Held or partial" : "Limited / check current page";
+      state.dataset.state = destination.state;
+      document.querySelector("#destinationName").textContent = destination.name;
+      document.querySelector("#destinationSummary").textContent = destination.summary;
+      document.querySelector("#destinationLimit").textContent = destination.limit;
+      const enter = document.querySelector("#destinationEnter");
+      enter.href = destination.href;
+      enter.textContent = destination.state === "held" ? "Open page to check status" : "Step inside";
+      detail.hidden = false;
+      if (origin !== "select") detail.scrollIntoView({ block: "nearest" });
+      enter.focus({ preventScroll: true });
+    }
+
+    select.addEventListener("change", () => reveal(select.value, "select"));
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-destination]");
+      if (trigger) reveal(trigger.dataset.destination, trigger.classList.contains("map-spot") ? "map" : "list");
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      document.querySelector("#destinationDetail").hidden = true;
+      select.value = "";
+      document.querySelectorAll(".map-spot").forEach((spot) => spot.setAttribute("aria-pressed", "false"));
+      select.focus();
+    });
+
+    try {
+      const state = JSON.parse(localStorage.getItem("laidies_welcome_tour") || "null");
+      if (state && !state.done && !state.skipped && Number(state.step) > 0) {
+        const active = destinations[Math.min(Math.max(Number(state.step) - 1, 0), destinations.length - 1)];
+        const note = document.querySelector("#returnNote");
+        note.textContent = `Welcome back. Your optional tour is paused at stop ${state.step}: ${active.name}.`;
+        note.classList.add("is-visible");
+        const action = document.querySelector("#tourAction");
+        action.textContent = `Resume stop ${state.step}`;
+        action.href = active.href;
+      }
+    } catch (_) {
+      document.querySelector("#returnNote").textContent = "Tour progress is unavailable in this browser. The full named directory still works.";
+      document.querySelector("#returnNote").classList.add("is-visible");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordType": "release-manifest-schema-candidate",
+  "payload": {
+    "candidateId": "EPX-CF13-SCHEMA-2026-07-26-v1",
+    "contractSchemaVersion": "1.1.0",
+    "status": "BUILT_LOCALLY_PLATFORM_REVIEW_AND_CHICK_FLICKS_ACCEPTANCE_PENDING",
+    "sharedLiveIntegration": "BLOCKED_JOINT_CONTROL_ROOM_LOCK_HELD",
+    "files": [
+      {"path": "EPISODE-RELEASE-MANIFEST-SPEC.md", "sha256": "a78e6e5561dea6efca8cd80a94fe95808a72fc50be81a4ee8c5d9a73796803a7"},
+      {"path": "schema/episode-release-envelope.schema.json", "sha256": "9c9fefef40dbac48763533035336c8a83f4382e8b711977a24efd34e2d469d2c"},
+      {"path": "test-release-manifest-contract.mjs", "sha256": "3eb14e698139ba0f142625696b786ab382910a7bfd3629657af3565b76c0a9d9"},
+      {"path": "fixtures/release-manifest-v1.1/invalid-mutable-admission-proof.json", "sha256": "98ad43cc4b5a50da2b86d1059c540b7041b0e2ec6cf5d9efbc5bb417613f2b46"},
+      {"path": "fixtures/release-manifest-v1.1/invalid-partial-rollback.json", "sha256": "7836654a4f9e844637906f5ef6ff1d8de22ad077d8a8359c9d5673178308af08"},
+      {"path": "fixtures/release-manifest-v1.1/invalid-pending-proof.json", "sha256": "dc1f6269c89313a8a45b0ac512daa000ce8ccc43436222d058e1919a68a779f8"},
+      {"path": "fixtures/release-manifest-v1.1/invalid-self-hash.json", "sha256": "21b23e4e142d5fc6300f34d2778fd65a2d6fe54c334dc0872ea4de2ba8ebb374"},
+      {"path": "fixtures/release-manifest-v1.1/valid-admission.json", "sha256": "e2ac1fdf62b94c8de0682bb2b2de959fbad4b8174516dbc8e270a46c86c5bc8e"},
+      {"path": "fixtures/release-manifest-v1.1/valid-cf-proof.json", "sha256": "b9d3521c23d7508835ec81401a257e42ea685edd8b35c080ab5c6c5987ae9ccb"},
+      {"path": "fixtures/release-manifest-v1.1/valid-correction.json", "sha256": "fa2c2dba916a33f5c4ab9f0fc8ad0ac5c66eba03395a35400f97bb05ec499522"},
+      {"path": "fixtures/release-manifest-v1.1/valid-engine-proof-failed.json", "sha256": "e0eedeedcea7b11881ea27daa0a19ec98092d0642e5e92d3950d7aa2ccc37daf"},
+      {"path": "fixtures/release-manifest-v1.1/valid-engine-proof-verified.json", "sha256": "a841a9c2cb22bec99064268510bef07e567eef1fae669ba3e10df33daee6816b"},
+      {"path": "fixtures/release-manifest-v1.1/valid-first-addition.json", "sha256": "dc25e06e7624308f5c89229293ded6326b245bd251a7ae58864383615964f649"},
+      {"path": "fixtures/release-manifest-v1.1/valid-hold-no-restore.json", "sha256": "c6e672484cc5a4acbf56db2ffc34a37a648810c12016edaf002681508b972a18"}
+    ],
+    "test": {
+      "command": "node operations/product-stewards/episode-experience/test-release-manifest-contract.mjs",
+      "result": "RELEASE MANIFEST CONTRACT PASS valid=7 invalid=4"
+    }
+  },
+  "integrity": {
+    "algorithm": "sha-256",
+    "canonicalization": "RFC8785-JCS",
+    "payloadSha256": "42041b48f2d6912984874762ef6efd6313f7c172fb33b4f1822b1be57b213bb7"
+  }
+}

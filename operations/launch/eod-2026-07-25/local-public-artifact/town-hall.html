@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Town Hall · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="Town Hall at Civic Square — Mayor Deb's office. SUNNYVAiLE civic records, town announcements, and the founder's note.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/town-hall-v2.css?v=20260724-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <script src="/content/site/supabase-config.js" defer></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+  <header class="sv-header"></header>
+
+  <div class="sv-hero town-hall-room" aria-labelledby="townHallRoomTitle">
+    <img src="assets/building-interiors/town-hall-civic-chamber.jpg?v=20260708" alt="Inside SUNNYVAiLE Town Hall — the civic chamber with gallery seating, a curved mayor's counter, a reception desk, a brochure rack, and a corkboard of heart-pinned notices" loading="eager">
+    <div class="town-hall-room__copy">
+      <p class="town-hall-room__kicker">Civic Square · SUNNYVAiLE</p>
+      <h1 id="townHallRoomTitle">Town Hall.</h1>
+      <p>Deb's office. The locals. The comment pile that actually gets read.</p>
+    </div>
+    <div class="town-hall-room__stations" id="townHallStations" aria-label="Town Hall lobby stations"></div>
+  </div>
+
+  <main class="town-hall-v2-page">
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ Civic Square · SUNNYVAiLE</span>
+    </div>
+
+    <h1><span class="ai">Town</span> Hall.</h1>
+
+    <p class="sv-lede">
+      Deb's office. She's been here longer than anyone — nobody is sure exactly what she does. IT has accommodated her setup without complaint.
+    </p>
+
+    <p>
+      Officially: Mayor of SUNNYVAiLE. Unofficially: the woman who knows where everything is, who's been here, and what's about to come up. If something needs handling and nobody knows whose job it is, it ends up at Deb's desk by lunch.
+    </p>
+
+    <!-- ============================================================
+         Town Hall · The Counters — click a desk, it opens right here.
+         Same hub-and-reveal pattern as KSVL. One open at a time.
+         ============================================================ -->
+    <style>
+      .th-hubs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 6px 0 30px; }
+      @media (max-width: 760px) { .th-hubs { grid-template-columns: 1fr; gap: 10px; } }
+      .th-hub { position: relative; text-align: left; padding: 18px 16px 15px; border-radius: 14px;
+        border: 1.5px solid rgba(75,33,72,0.16); background: var(--pearl, #faf4f7); cursor: pointer;
+        font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.2s ease; }
+      .th-hub:hover, .th-hub:focus-visible { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(75,33,72,0.14); border-color: var(--rose); outline: none; }
+      .th-hub__icon { display: inline-flex; align-items: center; justify-content: center;
+        width: 42px; height: 42px; border-radius: 50%; margin-bottom: 10px; line-height: 0;
+        box-shadow: inset 0 0 0 1.5px rgba(52,20,70,0.16), 0 2px 6px rgba(75,33,72,0.22); }
+      .th-hubs .th-hub:nth-child(1) .th-hub__icon { background: linear-gradient(160deg, #b97c5a 0%, #8f5d40 100%); }
+      .th-hubs .th-hub:nth-child(2) .th-hub__icon { background: linear-gradient(160deg, #3aa8a4 0%, #2b7d7a 100%); }
+      .th-hubs .th-hub:nth-child(3) .th-hub__icon { background: linear-gradient(160deg, #c47c85 0%, #9c5f68 100%); }
+      .th-hub__name { font-size: 15px; font-weight: 800; color: var(--plum-deep); letter-spacing: 0.02em; margin: 0 0 3px; }
+      .th-hub__count { font-size: 11.5px; color: var(--plum-soft, #6b3a66); margin: 0 0 10px; line-height: 1.35; }
+      .th-hub__cta { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+      .th-hub__cta .when-open { display: none; }
+      .th-hub.is-open { background: linear-gradient(135deg, var(--plum, #4b2148) 0%, var(--rose, #9b3f5f) 100%); border-color: var(--gold); }
+      .th-hub.is-open .th-hub__name { color: var(--cream, #fffdfb); }
+      .th-hub.is-open .th-hub__count { color: rgba(255,253,251,0.78); }
+      .th-hub.is-open .th-hub__cta { color: var(--gold); }
+      .th-hub.is-open .th-hub__cta .when-open { display: inline; }
+      .th-hub.is-open .th-hub__cta .when-closed { display: none; }
+      .th-hub-panel { margin: 0 0 34px; padding: 26px clamp(16px, 3vw, 30px);
+        background: #fffdfb; border: 1.5px solid rgba(75,33,72,0.14); border-radius: 16px;
+        box-shadow: 0 14px 34px rgba(75,33,72,0.10); scroll-margin-top: 86px;
+        animation: thPanelIn 0.28s ease; }
+      .th-hub-panel--bare { padding: 0; background: transparent; border: 0; box-shadow: none; }
+      @keyframes thPanelIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+      @media (prefers-reduced-motion: reduce) { .th-hub-panel { animation: none; } }
+      .th-hub-panel > h2:first-child { margin-top: 0; }
+      .th-hub-panel .th-regulars { margin: 0; }
+    </style>
+
+    <div class="th-hubs" id="th-hubs">
+      <button type="button" class="th-hub" data-panel="hub-deb" aria-expanded="false" aria-controls="hub-deb">
+        <span class="th-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#thh1)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="thh1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M4 9 L12 4.5 L20 9 H4 Z"/><path d="M6.2 11 V16 M10.1 11 V16 M13.9 11 V16 M17.8 11 V16"/><path d="M4.5 17.8 H19.5 M3.5 19.5 H20.5 M4.5 9 V11 H19.5 V9"/></svg></span>
+        <p class="th-hub__name">Mayor Deb</p>
+        <p class="th-hub__count">Two anthems · the poster saga · one legend</p>
+        <span class="th-hub__cta"><span class="when-closed">Step into her office →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="th-hub" data-panel="hub-characters" aria-expanded="false" aria-controls="hub-characters">
+        <span class="th-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#thh2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="thh2" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M4.6 9 C4.6 6.4 7.2 4.8 12 4.8 C16.8 4.8 19.4 6.4 19.4 9 L18.5 11 C18.2 11.7 17.4 12 16.7 11.7 L15 11 C14.4 10.7 14 10.1 14.1 9.4 L14.2 8.4 C12.8 8.1 11.2 8.1 9.8 8.4 L9.9 9.4 C10 10.1 9.6 10.7 9 11 L7.3 11.7 C6.6 12 5.8 11.7 5.5 11 Z"/><path d="M9.5 15 H14.5 M8 18.2 H16"/></svg></span>
+        <p class="th-hub__name">Town Characters</p>
+        <p class="th-hub__count">The people who live here</p>
+        <span class="th-hub__cta"><span class="when-closed">Meet the locals →</span><span class="when-open">Close ×</span></span>
+      </button>
+      <button type="button" class="th-hub" data-panel="hub-feedback" aria-expanded="false" aria-controls="hub-feedback">
+        <span class="th-hub__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="url(#thh3)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><defs><linearGradient id="thh3" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a6d10"/><stop offset="0.45" stop-color="#f3d879"/><stop offset="0.55" stop-color="#ffeb9e"/><stop offset="1" stop-color="#a87b1c"/></linearGradient></defs><path d="M3.5 6 H20.5 V18 H3.5 Z"/><path d="M3.5 6.8 L12 13 L20.5 6.8"/><path d="M12 17.2 C11 16.2 9.8 15.2 10.7 14 C11.3 13.3 12 13.9 12 14.4 C12 13.9 12.7 13.3 13.3 14 C14.2 15.2 13 16.2 12 17.2 Z" fill="url(#thh3)" stroke="none"/></svg></span>
+        <p class="th-hub__name">Comment Card</p>
+        <p class="th-hub__count">Comments, complaints, suggestions</p>
+        <span class="th-hub__cta"><span class="when-closed">File one →</span><span class="when-open">Close ×</span></span>
+      </button>
+    </div>
+
+    <div class="th-hub-panel" id="hub-deb" hidden>
+
+    <h2>About Mayor Deb</h2>
+
+    <figure style="margin:14px 0 24px;">
+      <img src="assets/building-interiors/town-hall-deb-desk.jpg?v=20260708" alt="Mayor Deb at her Town Hall desk in a jewel-tone shell suit, reviewing a clipboard beside a beige Y2K computer, potted jacarandas and a corkboard of hearts around her" loading="lazy" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 10px 26px rgba(75,33,72,0.16);">
+      <figcaption style="margin-top:8px;font-size:13px;color:var(--plum);opacity:0.72;font-style:italic;">Mayor Deb, at her desk. Four terms and counting.</figcaption>
+    </figure>
+
+    <p>
+      Deb is also the <strong>PATRON SAiNT of "Loop Me Out"</strong> at <a href="/luminairy.html" style="color: var(--rose); text-decoration: underline;">The LUMINAiRY</a>. Same person, two jobs. Civic and sacred. That's how it works here.
+    </p>
+
+    <div style="margin: 20px 0 32px; padding: 22px 26px; background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 12px; color: var(--cream);">
+      <p style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ Her music · Latent Space + The Overfits</p>
+      <h3 style="margin: 0 0 14px; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; color: var(--cream);">Two Deb tracks — take your pick.</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <button type="button"
+                aria-label="Play Loop Me Out — Deb's saint anthem"
+                data-src="/content/music/saint-deb.mp3"
+                onclick="window.playLaidiesTheme(this);"
+                style="display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 18px; background: var(--gold); color: var(--plum-deep); border: 0; border-radius: 10px; cursor: pointer; transition: transform 200ms ease;"
+                onmouseover="this.style.transform='translateY(-2px)'"
+                onmouseout="this.style.transform='translateY(0)'">
+          <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.8;">♪ Her saint anthem</span>
+          <span style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 16px; font-weight: 700;">Loop Me Out</span>
+        </button>
+        <button type="button"
+                aria-label="Play Deb's Tomorrow Problem"
+                data-src="/content/music/debs-tomorrow-problem.mp3"
+                onclick="window.playLaidiesTheme(this);"
+                style="display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 18px; background: rgba(255,253,251,0.14); color: var(--cream); border: 1.5px solid rgba(255,253,251,0.42); border-radius: 10px; cursor: pointer; transition: transform 200ms ease;"
+                onmouseover="this.style.transform='translateY(-2px)'"
+                onmouseout="this.style.transform='translateY(0)'">
+          <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75;">♪ B-side</span>
+          <span style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 16px; font-weight: 700;">Deb's Tomorrow Problem</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        'use strict';
+        if (window.playLaidiesTheme) return;
+        var activeBtn = null, activeAudio = null;
+        function stopActive() {
+          if (activeBtn) activeBtn.classList.remove('is-playing');
+          if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
+          activeBtn = null; activeAudio = null;
+        }
+        window.playLaidiesTheme = function(btn) {
+          if (!btn || btn.disabled) return;
+          var src = btn.getAttribute('data-src'); if (!src) return;
+          if (activeBtn === btn) { stopActive(); return; }
+          stopActive();
+          var audio = new Audio(src); audio.preload = 'metadata';
+          audio.addEventListener('ended', function() { if (activeAudio === audio) stopActive(); });
+          audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
+          audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
+          btn.classList.add('is-playing');
+          activeBtn = btn; activeAudio = audio;
+        };
+      })();
+    </script>
+
+    <details open style="margin: 24px 0 32px; padding: 20px 24px; background: var(--pearl); border-radius: 12px; border-left: 3px solid var(--rose);">
+      <summary style="cursor: pointer; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--plum); list-style: none;">
+        <span style="font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px;">★ Filed archive · Civic history · Start here for context</span>
+        How Deb became mayor →
+      </summary>
+      <div style="margin-top: 20px; font-size: 16px; line-height: 1.7; color: var(--plum);">
+        <p>Before politics, Deb worked at <a href="/post-office.html" style="color: var(--rose); text-decoration: underline;">the Post Office</a>. She survived every reorg the mailroom threw at her — that's where the second track ("Deb's Tomorrow Problem") comes from. If your mail got lost, everyone knew who to blame. They still do.</p>
+        <p>In 1999, her Post Office coworkers put her name on the ballot as a practical joke.</p>
+        <p>She had trademarked <strong>Deb-flection™</strong> two years earlier, in 1997. Official rules said a campaign poster must be made. Deb told the intern to <em>deal with it</em>.</p>
+        <p>She went to print the withdrawal form. <strong>The printer jammed.</strong> She walked away.</p>
+        <p>The intern stole the Die Hard movie poster off the wall at <a href="/chick-flicks.html" style="color: var(--rose); text-decoration: underline;">The Chick Flicks</a> and taped it up outside <a href="/blend-snap.html" style="color: var(--rose); text-decoration: underline;">The Blend &amp; Snap</a> — unedited — thinking no one would vote for her. Technically the rule was satisfied.</p>
+        <p>Everyone else was too afraid to run.</p>
+        <p><strong>She won by default.</strong></p>
+        <p>HR went around after the election with a Sharpie and redacted "motherfucker" from every poster in town. Deb has not forgiven them. Firing them would be too much work.</p>
+        <p><strong>The poster is still up outside The Blend &amp; Snap.</strong> The Chick Flicks never asked for it back.</p>
+        <p>In 2003, Deb sent the intern (still the same intern) to try to get her out of it — again. The intern made a poster that said <strong>NOPE</strong>, hoping someone would read the sign and run. Nobody did. She won by default again. Quitting is too much work. It has been her official campaign poster every cycle since. The intern picked the posters up from Kinko's and hung them around town herself; Deb, of course, would not stoop to such menial labour. <strong>The posters are still up.</strong> Kinko's still has a pile from the print order she never called back to cancel. Five years later, someone in Chicago made a matching one that said HOPE. It became more famous. Deb was asked about it, once. She did not return the call.</p>
+        <p>She has been mayor since 1999. She has been re-elected every cycle since. Nobody has run against her. They know better.</p>
+        <p>When someone raises a concern in a meeting, Deb responds by quoting an 80s action movie. Everyone in the room knows exactly which one. Nobody has ever pressed. The concern usually resolves itself within the week.</p>
+        <p>She has looped herself OUT of every civic committee, subcommittee, and vision session put on her calendar. She has never given a State of the Town address. Every year, one gets posted on the KSVL RAiDIO bulletin board with her signature at the bottom. Nobody has ever seen her write it. It contains no promises, no dates, and exactly one Y2K movie reference. Residents leave it up.</p>
+        <p>Deb is now a town icon. She did not consent to this. The residents have decided she's being funny. She is not being funny. She is being Deb.</p>
+        <p>Every attempt to Deb-flect out of the celebrity has produced another act of Deb-flection™, which the town has found more delightful than the last. <strong>She cannot Deb-flect out of Deb-flection™.</strong></p>
+        <p style="font-style: italic; color: var(--plum-soft); margin-top: 20px;">She is still the mayor.</p>
+      </div>
+    </details>
+
+    <p>
+      SUNNYVAiLE has decided Deb is funny. Deb is not being funny. Deb is being Deb. She has not been consulted, and she cannot get out. <strong>She cannot Deb-flect out of Deb-flection™.</strong>
+    </p>
+
+    <p>
+      Deb blames the intern for everything. Sometimes the intern actually did it. Sometimes the intern was never asked. Nobody in SUNNYVAiLE knows the difference in real-time. When asked, Deb says "the intern was supposed to handle it" and everyone nods and moves on.
+    </p>
+
+    <div class="deb-poster-gallery">
+      <div class="deb-poster-gallery__eyebrow">★ From Deb's Office · Campaign Print Archive</div>
+
+      <div class="deb-poster-gallery__origin">
+        <div class="deb-poster-gallery__subeyebrow">☆ The 1999 Original</div>
+        <figure class="deb-poster deb-poster--hero">
+          <div class="deb-poster__frame">
+            <img src="assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted-web.jpg?v=20260716" alt="Deb's 1999 campaign poster — Die Hard idiom, HR-redacted" loading="lazy">
+          </div>
+          <figcaption>Deb's 1999 campaign poster · The one that started it all</figcaption>
+          <a class="deb-poster__print" href="assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted.png" download>Download to print →</a>
+        </figure>
+        <p class="deb-poster-gallery__origin-note">She couldn't be bothered to make a poster, so she used the movie one. HR came around after with a Sharpie.</p>
+      </div>
+
+      <div class="deb-poster-gallery__divider"></div>
+
+      <div class="deb-poster-gallery__trilogy">
+        <div class="deb-poster-gallery__subeyebrow">☆ The NOPE Trilogy · Est. 2003</div>
+        <div class="deb-poster-gallery__grid">
+          <figure class="deb-poster">
+            <div class="deb-poster__frame">
+              <img src="assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999-web.jpg?v=20260716" alt="NOPE poster — Mayor Deb, SUNNYVAiLE, since 1999" loading="lazy">
+            </div>
+            <figcaption>Mayor Deb · SUNNYVAiLE · Since 1999</figcaption>
+            <a class="deb-poster__print" href="assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999.png" download>Download to print →</a>
+          </figure>
+          <figure class="deb-poster">
+            <div class="deb-poster__frame">
+              <img src="assets/printables/deb-nope-poster-loop-me-out-web.jpg?v=20260716" alt="NOPE poster — Loop Me Out edition" loading="lazy">
+            </div>
+            <figcaption>Loop Me Out edition</figcaption>
+            <a class="deb-poster__print" href="assets/printables/deb-nope-poster-loop-me-out.png" download>Download to print →</a>
+          </figure>
+          <figure class="deb-poster">
+            <div class="deb-poster__frame">
+              <img src="assets/printables/deb-nope-poster-deb-flection-trademark-web.jpg?v=20260716" alt="NOPE poster — Deb-flection™ edition" loading="lazy">
+            </div>
+            <figcaption>Deb-flection™ edition</figcaption>
+            <a class="deb-poster__print" href="assets/printables/deb-nope-poster-deb-flection-trademark.png" download>Download to print →</a>
+          </figure>
+        </div>
+        <p class="deb-poster-gallery__note">The intern's second attempt to get Deb out of it (2003), after the Die Hard sabotage failed in 1999. Nobody ran. The intern has not tried a third time.</p>
+      </div>
+    </div>
+
+    <style>
+      .deb-poster-gallery { margin: 32px 0 40px; padding: 28px 24px 24px; background: var(--pearl); border-radius: 14px; border: 1px solid rgba(75, 33, 72, 0.08); }
+      .deb-poster-gallery__eyebrow { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); text-align: center; margin-bottom: 24px; }
+      .deb-poster-gallery__subeyebrow { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--plum); opacity: 0.72; text-align: center; margin-bottom: 18px; }
+      .deb-poster-gallery__origin { max-width: 340px; margin: 0 auto; }
+      .deb-poster-gallery__origin-note { margin: 18px 0 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft, #7a5875); line-height: 1.55; }
+      .deb-poster-gallery__divider { max-width: 120px; margin: 32px auto; height: 1px; background: linear-gradient(to right, transparent, rgba(75, 33, 72, 0.28), transparent); }
+      .deb-poster-gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+      @media (max-width: 620px) { .deb-poster-gallery__grid { grid-template-columns: 1fr 1fr; max-width: 500px; gap: 18px; } }
+      @media (max-width: 400px) { .deb-poster-gallery__grid { grid-template-columns: 1fr; max-width: 280px; } }
+      .deb-poster { margin: 0; text-align: center; }
+      .deb-poster__frame { background: var(--cream); padding: 12px; border-radius: 4px; box-shadow: 0 2px 4px rgba(75, 33, 72, 0.12), 0 8px 20px rgba(75, 33, 72, 0.16); border: 1px solid rgba(201, 162, 39, 0.35); transform: rotate(-0.5deg); transition: transform 0.2s ease; }
+      .deb-poster--hero .deb-poster__frame { padding: 16px; transform: rotate(-0.4deg); box-shadow: 0 3px 8px rgba(75, 33, 72, 0.14), 0 14px 32px rgba(75, 33, 72, 0.22); }
+      .deb-poster-gallery__grid .deb-poster:nth-child(2) .deb-poster__frame { transform: rotate(0.6deg); }
+      .deb-poster-gallery__grid .deb-poster:nth-child(3) .deb-poster__frame { transform: rotate(-0.4deg); }
+      .deb-poster__frame:hover { transform: rotate(0deg) scale(1.03); z-index: 2; position: relative; }
+      .deb-poster__frame img { display: block; width: 100%; height: auto; }
+      .deb-poster figcaption { margin-top: 14px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; color: var(--plum); }
+      .deb-poster__print { display: inline-block; margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); text-decoration: none; border-bottom: 1.5px solid transparent; transition: border-color 0.2s ease; }
+      .deb-poster__print:hover { border-bottom-color: var(--rose); }
+      .deb-poster--hero figcaption { font-size: 15px; }
+      .deb-poster-gallery__note { margin: 22px 0 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft, #7a5875); line-height: 1.55; }
+    </style>
+
+    <!-- ============================================================
+         Meet the SUNNYVAiLE Regulars · Town Characters live here
+         (Not a 4th LUMINAiRY wing — Town Hall is the hall of the town's own.)
+         ============================================================ -->
+    </div><!-- /hub-deb -->
+
+    <div class="th-hub-panel th-hub-panel--bare" id="hub-characters" hidden>
+
+    <section id="regulars" class="th-regulars" aria-labelledby="regulars-title">
+      <p class="th-regulars-eyebrow">★ Meet the SUNNYV<span class="ai">Ai</span>LE Regulars</p>
+      <h2 class="th-regulars-title" id="regulars-title">The people who live here.</h2>
+      <p class="th-regulars-lede">
+        The SAiNTS, MAiVENS, and TRAiLBLAZERS live over at <a href="/luminairy.html">LUMIN<span class="ai">Ai</span>RY</a> — they're the icons of <span class="ai">Ai</span>'s story, imported into town. The Regulars are ours. They live here. Each portrait links to her own building — meeting her is still a trip somewhere. This wall is the introductions.
+      </p>
+
+      <div class="th-regulars-grid">
+
+        <a class="th-regular" href="/games/madame-claio.html" data-town-slug="mme-claio">
+          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/mme-claio-portrait-pixel-v1.png" alt="Mme CLAi-O" loading="lazy"></div>
+          <span class="th-regular-role">Psychic · Oracle</span>
+          <h3 class="th-regular-name">Mme CL<span class="ai">Ai</span>-O</h3>
+          <p class="th-regular-body">Reading-card deck, crystal ball, tarot in a caftan. Visit her shop for a reading.</p>
+          <span class="th-regular-cta">Visit her shop &rarr;</span>
+        </a>
+
+        <a class="th-regular" href="/games/fairy-godmother.html" data-town-slug="fairy-godmother">
+          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/laidy-fairy-godmother-portrait-pixel-v1.png" alt="FAiRY Godmother" loading="lazy"></div>
+          <span class="th-regular-role">Wishmaker · Willow Lane</span>
+          <h3 class="th-regular-name">F<span class="ai">Ai</span>RY Godmother</h3>
+          <p class="th-regular-body">Grants wishes, dispenses bonus plays. Bring your question, leave with a plan.</p>
+          <span class="th-regular-cta">Visit her bungalow &rarr;</span>
+        </a>
+
+        <a class="th-regular" href="/radio.html" data-town-slug="dj-sunnyv">
+          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/dj-sunnyv-portrait-pixel-v1.png" alt="DJ SunnyV" loading="lazy"></div>
+          <span class="th-regular-role">Voice of KSVL</span>
+          <h3 class="th-regular-name">DJ SunnyV</h3>
+          <p class="th-regular-body">In-town DJ at KSVL Community R<span class="ai">Ai</span>DIO. Spins the Wednesday Anthem, hosts the intros.</p>
+          <span class="th-regular-cta">Tune in at KSVL &rarr;</span>
+        </a>
+
+        <a class="th-regular" href="#hub-deb" data-town-slug="mayor-deb">
+          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/mayor-deb-portrait-pixel-v1.png" alt="Mayor Deb" loading="lazy"></div>
+          <span class="th-regular-role">Mayor · Deb-flection™</span>
+          <h3 class="th-regular-name">Mayor Deb</h3>
+          <p class="th-regular-body">SUNNYV<span class="ai">Ai</span>LE's four-term mayor since 1999. The NOPE trilogy is hers. So is Town Hall.</p>
+          <span class="th-regular-cta">Step into her office &rarr;</span>
+        </a>
+
+      </div>
+
+      <!-- Resident Card tie: pick your Town Regular. Writes laidies_town_regular,
+           read by the Closet's "Your Luminaries" band (laidies-card.html #covenTownPick / TOWN_LABEL). -->
+      <div class="sv-trip-tie" id="townRegularTie">
+        <div class="sv-trip-tie__eyebrow">★ Your Resident Card</div>
+        <h3 class="sv-trip-tie__title">Your Town Regular &mdash; this is where you pick her.</h3>
+        <p class="sv-trip-tie__body">One Regular rides in the <strong>Your Luminaries</strong> band on your Resident Card. Meeting her is a trip to Town Hall &mdash; so this is where you pick her. <strong>Every customization is a trip somewhere in town.</strong></p>
+        <div class="tr-pick-row" role="group" aria-label="Pick your Town Regular">
+          <button type="button" class="tr-pick" data-town-slug="mme-claio">Mme CL<span class="ai">Ai</span>-O</button>
+          <button type="button" class="tr-pick" data-town-slug="fairy-godmother">F<span class="ai">Ai</span>RY Godmother</button>
+          <button type="button" class="tr-pick" data-town-slug="dj-sunnyv">DJ SunnyV</button>
+          <button type="button" class="tr-pick" data-town-slug="mayor-deb">Mayor Deb</button>
+        </div>
+        <p class="sv-trip-tie__note" id="townRegularNote">Pick one and she lands in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card &rarr;</a></p>
+      </div>
+
+      <style>
+        #townRegularTie .tr-pick-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 2px 0 14px; }
+        #townRegularTie .tr-pick {
+          font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 600;
+          letter-spacing: 0.02em; color: var(--plum);
+          background: var(--cream); border: 1.5px solid rgba(75, 33, 72, 0.18);
+          border-radius: 999px; padding: 9px 16px; cursor: pointer;
+          transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+        }
+        #townRegularTie .tr-pick:hover { transform: translateY(-1px); border-color: var(--rose); }
+        #townRegularTie .tr-pick.is-picked {
+          background: rgba(201, 162, 39, 0.14);
+          border-color: var(--gold);
+          color: var(--plum-deep);
+          box-shadow: 0 0 0 1px var(--gold) inset;
+        }
+        .th-regular.is-town-regular { outline: 2px solid var(--gold); outline-offset: 3px; }
+      </style>
+
+      <script>
+        (function () {
+          'use strict';
+          // MIGRATION NOTE (Part C / sign-in plumbing): when the LAiDIES member card / sign-in ships,
+          // this Town Regular pick moves from this device to the user's account.
+          var KEY = 'laidies_town_regular';
+          var tie = document.getElementById('townRegularTie');
+          if (!tie) return;
+          var chips = tie.querySelectorAll('.tr-pick');
+          var note = document.getElementById('townRegularNote');
+          var NAMES = {
+            'mme-claio': 'Mme CL<span class="ai">Ai</span>-O',
+            'fairy-godmother': 'F<span class="ai">Ai</span>RY Godmother',
+            'dj-sunnyv': 'DJ SunnyV',
+            'mayor-deb': 'Mayor Deb'
+          };
+          function read() { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+          function write(slug) { try { localStorage.setItem(KEY, slug); } catch (e) {} }
+          function clear() { try { localStorage.removeItem(KEY); } catch (e) {} }
+          function paint() {
+            var cur = read();
+            chips.forEach(function (c) { c.classList.toggle('is-picked', c.getAttribute('data-town-slug') === cur); });
+            document.querySelectorAll('.th-regular[data-town-slug]').forEach(function (a) {
+              a.classList.toggle('is-town-regular', !!cur && a.getAttribute('data-town-slug') === cur);
+            });
+            if (note) {
+              if (cur && NAMES[cur]) {
+                note.innerHTML = '★ <strong>' + NAMES[cur] + '</strong> is in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
+              } else {
+                note.innerHTML = 'Pick one and she lands in Your Luminaries. <a href="/laidies-card.html#covenSection" style="color: var(--rose);">See it on your card →</a>';
+              }
+            }
+          }
+          chips.forEach(function (c) {
+            c.addEventListener('click', function () {
+              var slug = c.getAttribute('data-town-slug');
+              if (read() === slug) { clear(); } else { write(slug); }
+              paint();
+            });
+          });
+          if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', paint);
+          else paint();
+        })();
+      </script>
+
+      <p class="th-regulars-note">The roster grows when a new town regular gets canonized. Each card links to that character's own building — <em>where you actually meet her.</em></p>
+    </section>
+
+    <style>
+      .th-regulars { margin: 56px 0 40px; padding: 34px clamp(20px, 4vw, 40px); background: var(--pearl); border-radius: 18px; border: 1px solid rgba(75, 33, 72, 0.08); }
+      .th-regulars-eyebrow {
+        margin: 0 0 6px;
+        font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700;
+        letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+      }
+      .th-regulars-title {
+        margin: 0 0 12px;
+        color: var(--plum);
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(24px, 3vw, 32px);
+      }
+      .th-regulars-lede {
+        margin: 0 0 26px;
+        font-size: 15px; line-height: 1.6; color: var(--plum);
+        max-width: 780px;
+      }
+      .th-regulars-lede a { color: var(--rose); font-weight: 600; }
+      .th-regulars-grid {
+        display: grid; gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .th-regular {
+        display: flex; flex-direction: column; gap: 8px;
+        padding: 0; border-radius: 16px;
+        background: var(--cream);
+        border: 1.5px solid rgba(75, 33, 72, 0.16);
+        box-shadow: 0 6px 18px rgba(75, 33, 72, 0.09);
+        color: var(--plum); text-decoration: none;
+        overflow: hidden;
+        transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.2s;
+      }
+      .th-regular:hover {
+        transform: translateY(-3px);
+        border-color: var(--rose);
+        box-shadow: 0 20px 42px rgba(155, 63, 95, 0.16);
+      }
+      .th-regular-portrait {
+        aspect-ratio: 3/4; overflow: hidden;
+        background: linear-gradient(150deg, #4b2148 0%, #7a2f57 55%, #9b3f5f 100%);
+        border-bottom: 3px solid var(--gold);
+        display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+      }
+      .th-regular-portrait img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        transition: transform 400ms ease;
+      }
+      .th-regular:hover .th-regular-portrait img { transform: scale(1.03); }
+      .th-regular-portrait-initial {
+        font-family: 'Playfair Display', Georgia, serif; font-size: 40px; font-weight: 700;
+        color: var(--plum); line-height: 1;
+      }
+      .th-regular-portrait-note {
+        font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 700;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum-soft, var(--plum));
+      }
+      .th-regular-role {
+        margin: 14px 18px 0;
+        font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700;
+        letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose);
+      }
+      .th-regular-name {
+        margin: 4px 18px 0;
+        font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700;
+        color: var(--plum); line-height: 1.1;
+      }
+      .th-regular-body {
+        margin: 8px 18px 0;
+        font-size: 13.5px; line-height: 1.5; color: var(--plum);
+      }
+      .th-regular-cta {
+        margin: 12px 18px 18px; margin-top: auto; padding-top: 10px;
+        font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+        letter-spacing: 0.06em; color: var(--rose);
+      }
+      .th-regulars-note {
+        margin: 20px 0 0;
+        font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+        font-size: 14px; color: var(--plum-soft, var(--plum)); line-height: 1.55;
+      }
+    </style>
+
+    <!-- ============================================================
+         Town Hall · Comments, complaints, suggestions (feedback form)
+         ============================================================ -->
+    </div><!-- /hub-characters -->
+
+    <div class="th-hub-panel th-hub-panel--bare" id="hub-feedback" hidden>
+
+    <section id="town-hall-feedback" style="margin: 0 0 34px; padding: 32px clamp(20px, 4vw, 40px); background: var(--pearl); border-radius: 14px; border-left: 4px solid var(--rose);">
+      <p style="margin: 0 0 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">★ Speak your piece</p>
+      <h2 style="margin: 0 0 12px; color: var(--plum); font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 3vw, 30px);">Comments, complaints, suggestions.</h2>
+      <p style="margin: 0 0 24px; font-size: 15px; line-height: 1.55; color: var(--plum);">
+        Officially, Mayor Deb reviews all Town Hall submissions personally. Unofficially, she Deb-flects them to the intern. Either way, they get read — and if you know what you're doing, they end up on the pile that actually gets addressed. Fire away.
+      </p>
+
+      <form id="town-hall-form" style="display: grid; gap: 18px; max-width: 620px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;" role="radiogroup" aria-label="Submission type">
+          <label style="cursor: pointer;">
+            <input type="radio" name="th-type" value="compliment" required style="position: absolute; opacity: 0; pointer-events: none;" />
+            <span data-th-type-chip style="display: inline-flex; align-items: center; padding: 8px 18px; background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--plum); transition: all 160ms ease;">★ Compliment</span>
+          </label>
+          <label style="cursor: pointer;">
+            <input type="radio" name="th-type" value="complaint" style="position: absolute; opacity: 0; pointer-events: none;" />
+            <span data-th-type-chip style="display: inline-flex; align-items: center; padding: 8px 18px; background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--plum); transition: all 160ms ease;">★ Complaint</span>
+          </label>
+          <label style="cursor: pointer;">
+            <input type="radio" name="th-type" value="suggestion" style="position: absolute; opacity: 0; pointer-events: none;" />
+            <span data-th-type-chip style="display: inline-flex; align-items: center; padding: 8px 18px; background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--plum); transition: all 160ms ease;">★ Suggestion</span>
+          </label>
+        </div>
+
+        <label style="display: block;">
+          <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose);">Subject <span style="opacity: 0.7; letter-spacing: 0.04em; text-transform: none; font-weight: 500; color: var(--plum-soft);">(optional)</span></span>
+          <input id="th-subject" type="text" maxlength="100" placeholder="One-line summary — like the envelope on your desk" style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--line); border-radius: 8px; font: inherit; font-size: 15px;" />
+        </label>
+
+        <label style="display: block;">
+          <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose);">Your note</span>
+          <textarea id="th-body" required maxlength="2000" rows="5" placeholder="Say it plain. The intern is used to being blamed for everything, so if it's a compliment, be specific about who deserves it." style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--line); border-radius: 8px; font: inherit; font-size: 15px; resize: vertical;"></textarea>
+          <span id="th-body-count" style="display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 11px; color: var(--plum-soft); text-align: right;">0 / 2000</span>
+        </label>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
+          <button id="th-submit" type="submit" style="padding: 12px 26px; background: var(--plum); color: var(--cream); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">File it →</button>
+          <span id="th-status" style="font-size: 13px; color: var(--plum-soft); line-height: 1.4;"></span>
+        </div>
+      </form>
+    </section>
+
+    </div><!-- /hub-feedback -->
+
+    <script>
+      // The Counters — one open at a time; hash deep-links open their counter.
+      (function() {
+        'use strict';
+        var hubs = Array.prototype.slice.call(document.querySelectorAll('.th-hub'));
+        function panelFor(hub) { return document.getElementById(hub.getAttribute('data-panel')); }
+        function closeAll() {
+          hubs.forEach(function(h) {
+            h.classList.remove('is-open');
+            h.setAttribute('aria-expanded', 'false');
+            var p = panelFor(h);
+            if (p) p.hidden = true;
+          });
+        }
+        function open(hub, scroll) {
+          closeAll();
+          hub.classList.add('is-open');
+          hub.setAttribute('aria-expanded', 'true');
+          var p = panelFor(hub);
+          if (p) {
+            p.hidden = false;
+            if (scroll) p.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        hubs.forEach(function(h) {
+          h.addEventListener('click', function() {
+            if (h.classList.contains('is-open')) { closeAll(); } else { open(h, true); }
+          });
+        });
+        var HASH_MAP = {
+          '#hub-deb': 'hub-deb',
+          '#hub-characters': 'hub-characters', '#regulars': 'hub-characters',
+          '#hub-feedback': 'hub-feedback', '#town-hall-feedback': 'hub-feedback'
+        };
+        function openFromHash(scroll) {
+          var target = HASH_MAP[window.location.hash];
+          if (!target) return;
+          var hub = hubs.filter(function(h) { return h.getAttribute('data-panel') === target; })[0];
+          if (hub) open(hub, scroll);
+        }
+        window.addEventListener('hashchange', function() { openFromHash(true); });
+        openFromHash(true);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        'use strict';
+
+        var typeInputs = document.querySelectorAll('input[name="th-type"]');
+        var typeChips = document.querySelectorAll('[data-th-type-chip]');
+        var subjectInput = document.getElementById('th-subject');
+        var bodyInput = document.getElementById('th-body');
+        var bodyCount = document.getElementById('th-body-count');
+        var form = document.getElementById('town-hall-form');
+        var submitBtn = document.getElementById('th-submit');
+        var statusEl = document.getElementById('th-status');
+
+        // Chip visual state on selection
+        function refreshChips() {
+          typeInputs.forEach(function(input, i) {
+            var chip = typeChips[i];
+            if (input.checked) {
+              chip.style.background = 'var(--plum)';
+              chip.style.color = 'var(--cream)';
+              chip.style.borderColor = 'var(--plum)';
+            } else {
+              chip.style.background = 'var(--cream)';
+              chip.style.color = 'var(--plum)';
+              chip.style.borderColor = 'var(--line)';
+            }
+          });
+        }
+        typeInputs.forEach(function(input) { input.addEventListener('change', refreshChips); });
+
+        bodyInput.addEventListener('input', function() { bodyCount.textContent = bodyInput.value.length + ' / 2000'; });
+
+        var supabaseClient = null;
+        async function initSupabase() {
+          if (supabaseClient) return supabaseClient;
+          var cfg = window.LAIDIES_SUPABASE_CONFIG;
+          if (!cfg) return null;
+          try {
+            var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+            supabaseClient = mod.createClient(cfg.url, cfg.anonKey, {
+              auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
+            });
+            return supabaseClient;
+          } catch (err) {
+            console.error('[Town Hall] Supabase init failed:', err);
+            return null;
+          }
+        }
+
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          var checkedType = Array.from(typeInputs).find(function(i) { return i.checked; });
+          if (!checkedType) {
+            statusEl.textContent = 'Pick a type — compliment, complaint, or suggestion.';
+            return;
+          }
+          var body = bodyInput.value.trim();
+          if (!body || body.length < 3) {
+            statusEl.textContent = 'Give it a few words at least.';
+            return;
+          }
+          submitBtn.disabled = true;
+          var originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Filing…';
+          statusEl.textContent = '';
+
+          var client = await initSupabase();
+          if (!client) {
+            statusEl.textContent = 'City Hall\'s inbox is offline. Try again in a bit.';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            return;
+          }
+
+          var session = null;
+          try {
+            var s = await client.auth.getSession();
+            session = s && s.data ? s.data.session : null;
+          } catch (_) {}
+
+          var payload = {
+            submission_type: checkedType.value,
+            subject: subjectInput.value.trim() || null,
+            body: body
+          };
+          if (session) {
+            payload.user_id = session.user.id;
+            payload.submitter_email = session.user.email;
+          }
+          try {
+            var result = await client.from('town_hall_feedback').insert(payload).select().single();
+            if (result.error) throw result.error;
+            statusEl.textContent = session
+              ? 'Filed. Deb has been informed — she will Deb-flect appropriately.'
+              : 'Filed anonymously. The intern will read it. Deb may or may not.';
+            try { localStorage.setItem('laidies_town_hall_feedback_filed', new Date().toISOString()); } catch (_) {}
+            window.dispatchEvent(new CustomEvent('laidies:town-hall-feedback-filed'));
+            form.reset();
+            refreshChips();
+            bodyCount.textContent = '0 / 2000';
+            submitBtn.textContent = 'Filed ✓';
+            setTimeout(function() {
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            }, 3000);
+          } catch (err) {
+            console.error('[Town Hall] Insert failed:', err);
+            statusEl.textContent = 'The intern jammed the printer. Try again.';
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
+      })();
+    </script>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/visitors-centre.html">
+        <span>
+          <span class="sv-cta-label">New in town?</span>
+          <span class="sv-cta-title">Stop by the Welcome Wagon first</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · Town Hall at Civic Square</footer>
+
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/town-hall-v2.js?v=20260724-1"></script>
+</body>
+</html>

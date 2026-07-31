@@ -1,0 +1,852 @@
+{
+  "created_at": "2026-07-26T21:58:17.394767+00:00",
+  "status": "BUILT_LOCALLY",
+  "maker_verdict": "TECHNICAL_QC_PASS_ONLY",
+  "maker_may_judge_or_approve": false,
+  "release_state": "HOLD",
+  "output": "assets/video/episode-03-full-v10-source-reconciled-review.mp4",
+  "output_sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239",
+  "output_size_bytes": 107340978,
+  "output_mtime": "2026-07-26T21:55:22.846361+00:00",
+  "probe": {
+    "duration_seconds": 1048.0,
+    "video_stream": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, unknown/bt709/iec61966-2-1, progressive), 1920x1080, 635 kb/s, 30 fps, 30 tbr, 15360 tbn (default)",
+    "audio_stream": "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, mono, fltp, 175 kb/s (default)",
+    "subtitle_streams": []
+  },
+  "full_decode": "PASS",
+  "placement_count": 49,
+  "source_replacement_count": 0,
+  "v9_treatment_repairs": {
+    "camera_motion_removed_from_cues": [
+      13,
+      23,
+      26,
+      27,
+      28,
+      34,
+      35,
+      36,
+      39,
+      40,
+      41,
+      44,
+      46
+    ],
+    "alpha_transitions_removed_at_boundaries": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "hard_cuts_restored": true
+  },
+  "clock": {
+    "runtime_seconds": 1047.98,
+    "narration_source": {
+      "path": "content/music/episode-03-narration.mp3",
+      "sha256": "0d0737326abc71ae4009930d78350ede1593ffd6c46031e17f227aa1a50b1399"
+    },
+    "caption_source": {
+      "path": "assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "cue_count": 211,
+      "last_timing_line": "00:17:23.350 --> 00:17:26.950",
+      "external_only": true
+    },
+    "cue_sheet": {
+      "path": "content/episodes/episode-03-cues.json",
+      "sha256": "aa770874293609ec41676839880471effce2a12f906d198cbf7230db31ed09a9"
+    },
+    "audio_preservation_method": "byte-identical promotion of the previously verified hard-cut render; no audio re-encode or retime",
+    "captions_burned": false,
+    "subtitle_streams": []
+  },
+  "render_base": {
+    "path": "assets/video/episode-03-full-v8.mp4",
+    "sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239",
+    "role": "byte-stable hard-cut render whose 49 cue starts match the current authoritative assets",
+    "v10_byte_identical": true
+  },
+  "cue_start_source_checks": {
+    "pass_count": 49,
+    "count": 49,
+    "mad_threshold": 8.0,
+    "results": [
+      {
+        "cue": 0,
+        "at_seconds": 0.0,
+        "source": "assets/episodes/ep-03/comic/ep03-open-01-previously-strip-comic.png",
+        "mean_absolute_difference": 0.1481,
+        "pass": true
+      },
+      {
+        "cue": 1,
+        "at_seconds": 18.7,
+        "source": "assets/episodes/ep-03/comic/ep03-open-02-thisweek-teaser-comic.png",
+        "mean_absolute_difference": 0.1515,
+        "pass": true
+      },
+      {
+        "cue": 2,
+        "at_seconds": 31.5,
+        "source": "assets/episodes/ep-03/comic/ep03-open-03-title-comic-v6-sky-balanced-1920.png",
+        "mean_absolute_difference": 0.1485,
+        "pass": true
+      },
+      {
+        "cue": 3,
+        "at_seconds": 35.1,
+        "source": "assets/episodes/ep-03/comic/ep03-cue03-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.1527,
+        "pass": true
+      },
+      {
+        "cue": 4,
+        "at_seconds": 57.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue04-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.2383,
+        "pass": true
+      },
+      {
+        "cue": 5,
+        "at_seconds": 78.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue05-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.1058,
+        "pass": true
+      },
+      {
+        "cue": 6,
+        "at_seconds": 91.1,
+        "source": "assets/episodes/ep-03/comic/ep03-cue06-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.1952,
+        "pass": true
+      },
+      {
+        "cue": 7,
+        "at_seconds": 108.4,
+        "source": "assets/episodes/ep-03/comic/ep03-open-04-welcome-back-comic.png",
+        "mean_absolute_difference": 0.1403,
+        "pass": true
+      },
+      {
+        "cue": 8,
+        "at_seconds": 135.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue08-canva-transformation-once-v2.mp4",
+        "mean_absolute_difference": 0.1648,
+        "pass": true
+      },
+      {
+        "cue": 9,
+        "at_seconds": 151.9,
+        "source": "assets/episodes/ep-03/comic/ep03-cue09-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.3028,
+        "pass": true
+      },
+      {
+        "cue": 10,
+        "at_seconds": 178.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-says-who-comic.png",
+        "mean_absolute_difference": 0.1666,
+        "pass": true
+      },
+      {
+        "cue": 11,
+        "at_seconds": 199.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue11-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.2824,
+        "pass": true
+      },
+      {
+        "cue": 12,
+        "at_seconds": 222.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-same-handwriting-comic.png",
+        "mean_absolute_difference": 0.1309,
+        "pass": true
+      },
+      {
+        "cue": 13,
+        "at_seconds": 244.0,
+        "source": "assets/episodes/ep-03/comic/ep03-concept-hallucination-comic.png",
+        "mean_absolute_difference": 0.1676,
+        "pass": true
+      },
+      {
+        "cue": 14,
+        "at_seconds": 261.7,
+        "source": "assets/episodes/ep-03/comic/ep03-cue14-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.2346,
+        "pass": true
+      },
+      {
+        "cue": 15,
+        "at_seconds": 284.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-claires-headband-comic.png",
+        "mean_absolute_difference": 0.1534,
+        "pass": true
+      },
+      {
+        "cue": 16,
+        "at_seconds": 303.9,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-churn-butter-comic.png",
+        "mean_absolute_difference": 0.1524,
+        "pass": true
+      },
+      {
+        "cue": 17,
+        "at_seconds": 328.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue17-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.1972,
+        "pass": true
+      },
+      {
+        "cue": 18,
+        "at_seconds": 350.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-doesnt-go-here-comic.png",
+        "mean_absolute_difference": 0.1544,
+        "pass": true
+      },
+      {
+        "cue": 19,
+        "at_seconds": 367.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue19-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.3384,
+        "pass": true
+      },
+      {
+        "cue": 20,
+        "at_seconds": 384.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-fake-citation-comic.png",
+        "mean_absolute_difference": 0.1694,
+        "pass": true
+      },
+      {
+        "cue": 21,
+        "at_seconds": 391.8,
+        "source": "assets/episodes/ep-03/comic/ep03-cue21-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.1917,
+        "pass": true
+      },
+      {
+        "cue": 22,
+        "at_seconds": 420.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue22-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.1586,
+        "pass": true
+      },
+      {
+        "cue": 23,
+        "at_seconds": 444.0,
+        "source": "assets/episodes/ep-03/comic/ep03-concept-verification-comic.png",
+        "mean_absolute_difference": 0.1815,
+        "pass": true
+      },
+      {
+        "cue": 24,
+        "at_seconds": 460.7,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-chutney-elle-comic.png",
+        "mean_absolute_difference": 0.1701,
+        "pass": true
+      },
+      {
+        "cue": 25,
+        "at_seconds": 482.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue25-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.238,
+        "pass": true
+      },
+      {
+        "cue": 26,
+        "at_seconds": 496.2,
+        "source": "assets/episodes/ep-03/comic/ep03-concept-draft-comic.png",
+        "mean_absolute_difference": 0.1647,
+        "pass": true
+      },
+      {
+        "cue": 27,
+        "at_seconds": 515.0,
+        "source": "assets/episodes/ep-03/comic/ep03-concept-claim-comic.png",
+        "mean_absolute_difference": 0.1767,
+        "pass": true
+      },
+      {
+        "cue": 28,
+        "at_seconds": 533.0,
+        "source": "assets/episodes/ep-03/comic/ep03-concept-receipt-comic.png",
+        "mean_absolute_difference": 0.1662,
+        "pass": true
+      },
+      {
+        "cue": 29,
+        "at_seconds": 550.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-draft-outfit-comic.png",
+        "mean_absolute_difference": 0.1559,
+        "pass": true
+      },
+      {
+        "cue": 30,
+        "at_seconds": 565.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue30-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.212,
+        "pass": true
+      },
+      {
+        "cue": 31,
+        "at_seconds": 577.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-judgment-stayed-yours-comic.png",
+        "mean_absolute_difference": 0.153,
+        "pass": true
+      },
+      {
+        "cue": 32,
+        "at_seconds": 582.4,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-are-you-sure-regina-burnbook-comic.png",
+        "mean_absolute_difference": 0.1797,
+        "pass": true
+      },
+      {
+        "cue": 33,
+        "at_seconds": 606.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-peer-reviewed-comic.png",
+        "mean_absolute_difference": 0.168,
+        "pass": true
+      },
+      {
+        "cue": 34,
+        "at_seconds": 623.7,
+        "source": "assets/episodes/ep-03/comic/ep03-fact-nature-comic.png",
+        "mean_absolute_difference": 0.181,
+        "pass": true
+      },
+      {
+        "cue": 35,
+        "at_seconds": 650.0,
+        "source": "assets/episodes/ep-03/comic/ep03-fact-stanford-index-comic.png",
+        "mean_absolute_difference": 0.1713,
+        "pass": true
+      },
+      {
+        "cue": 36,
+        "at_seconds": 673.0,
+        "source": "assets/episodes/ep-03/comic/ep03-fact-kpmg-comic.png",
+        "mean_absolute_difference": 0.1716,
+        "pass": true
+      },
+      {
+        "cue": 37,
+        "at_seconds": 691.0,
+        "source": "assets/episodes/ep-03/comic/ep03-emph-sources-attached-comic.png",
+        "mean_absolute_difference": 0.1748,
+        "pass": true
+      },
+      {
+        "cue": 38,
+        "at_seconds": 700.1,
+        "source": "assets/episodes/ep-03/comic/ep03-cue38-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.2511,
+        "pass": true
+      },
+      {
+        "cue": 39,
+        "at_seconds": 711.2,
+        "source": "assets/episodes/ep-03/comic/ep03-method-move1-comic.png",
+        "mean_absolute_difference": 0.1787,
+        "pass": true
+      },
+      {
+        "cue": 40,
+        "at_seconds": 736.1,
+        "source": "assets/episodes/ep-03/comic/ep03-method-move2-comic.png",
+        "mean_absolute_difference": 0.18,
+        "pass": true
+      },
+      {
+        "cue": 41,
+        "at_seconds": 754.8,
+        "source": "assets/episodes/ep-03/comic/ep03-method-move3-comic.png",
+        "mean_absolute_difference": 0.1817,
+        "pass": true
+      },
+      {
+        "cue": 42,
+        "at_seconds": 779.7,
+        "source": "assets/episodes/ep-03/comic/ep03-method-prompt-like-elle-comicpage.png",
+        "mean_absolute_difference": 0.1974,
+        "pass": true
+      },
+      {
+        "cue": 43,
+        "at_seconds": 813.4,
+        "source": "assets/episodes/ep-03/comic/ep03-cocktail-comic.png",
+        "mean_absolute_difference": 0.1747,
+        "pass": true
+      },
+      {
+        "cue": 44,
+        "at_seconds": 864.1,
+        "source": "assets/episodes/ep-03/comic/ep03-tryon-rule-comic-v2-fix.png",
+        "mean_absolute_difference": 0.1481,
+        "pass": true
+      },
+      {
+        "cue": 45,
+        "at_seconds": 892.0,
+        "source": "assets/episodes/ep-03/comic/ep03-cue45-canva-ambient-loop-v1.mp4",
+        "mean_absolute_difference": 0.2422,
+        "pass": true
+      },
+      {
+        "cue": 46,
+        "at_seconds": 930.0,
+        "source": "assets/episodes/ep-03/comic/ep03-method-rule-comic.png",
+        "mean_absolute_difference": 0.1908,
+        "pass": true
+      },
+      {
+        "cue": 47,
+        "at_seconds": 960.9,
+        "source": "assets/episodes/ep-03/comic/ep03-signoff-comic.png",
+        "mean_absolute_difference": 0.1621,
+        "pass": true
+      },
+      {
+        "cue": 48,
+        "at_seconds": 1023.5,
+        "source": "assets/episodes/ep-03/comic/ep03-open-06-nextweek-comic.png",
+        "mean_absolute_difference": 0.1307,
+        "pass": true
+      }
+    ]
+  },
+  "static_hold_checks": {
+    "pass_count": 33,
+    "count": 33,
+    "mad_threshold": 0.5,
+    "results": [
+      {
+        "cue": 0,
+        "first_sample_seconds": 1.0,
+        "last_sample_seconds": 17.7,
+        "mean_absolute_difference": 0.1481,
+        "pass": true
+      },
+      {
+        "cue": 1,
+        "first_sample_seconds": 19.7,
+        "last_sample_seconds": 30.5,
+        "mean_absolute_difference": 0.1477,
+        "pass": true
+      },
+      {
+        "cue": 2,
+        "first_sample_seconds": 32.4,
+        "last_sample_seconds": 34.2,
+        "mean_absolute_difference": 0.0,
+        "pass": true
+      },
+      {
+        "cue": 7,
+        "first_sample_seconds": 109.4,
+        "last_sample_seconds": 134.0,
+        "mean_absolute_difference": 0.1422,
+        "pass": true
+      },
+      {
+        "cue": 10,
+        "first_sample_seconds": 179.0,
+        "last_sample_seconds": 198.0,
+        "mean_absolute_difference": 0.1689,
+        "pass": true
+      },
+      {
+        "cue": 12,
+        "first_sample_seconds": 223.0,
+        "last_sample_seconds": 243.0,
+        "mean_absolute_difference": 0.1375,
+        "pass": true
+      },
+      {
+        "cue": 13,
+        "first_sample_seconds": 245.0,
+        "last_sample_seconds": 260.7,
+        "mean_absolute_difference": 0.1544,
+        "pass": true
+      },
+      {
+        "cue": 15,
+        "first_sample_seconds": 285.0,
+        "last_sample_seconds": 302.9,
+        "mean_absolute_difference": 0.1471,
+        "pass": true
+      },
+      {
+        "cue": 16,
+        "first_sample_seconds": 304.9,
+        "last_sample_seconds": 327.0,
+        "mean_absolute_difference": 0.1538,
+        "pass": true
+      },
+      {
+        "cue": 18,
+        "first_sample_seconds": 351.0,
+        "last_sample_seconds": 366.0,
+        "mean_absolute_difference": 0.1556,
+        "pass": true
+      },
+      {
+        "cue": 20,
+        "first_sample_seconds": 385.0,
+        "last_sample_seconds": 390.8,
+        "mean_absolute_difference": 0.0026,
+        "pass": true
+      },
+      {
+        "cue": 23,
+        "first_sample_seconds": 445.0,
+        "last_sample_seconds": 459.7,
+        "mean_absolute_difference": 0.1738,
+        "pass": true
+      },
+      {
+        "cue": 24,
+        "first_sample_seconds": 461.7,
+        "last_sample_seconds": 481.0,
+        "mean_absolute_difference": 0.1592,
+        "pass": true
+      },
+      {
+        "cue": 26,
+        "first_sample_seconds": 497.2,
+        "last_sample_seconds": 514.0,
+        "mean_absolute_difference": 0.1541,
+        "pass": true
+      },
+      {
+        "cue": 27,
+        "first_sample_seconds": 516.0,
+        "last_sample_seconds": 532.0,
+        "mean_absolute_difference": 0.166,
+        "pass": true
+      },
+      {
+        "cue": 28,
+        "first_sample_seconds": 534.0,
+        "last_sample_seconds": 549.0,
+        "mean_absolute_difference": 0.1557,
+        "pass": true
+      },
+      {
+        "cue": 29,
+        "first_sample_seconds": 551.0,
+        "last_sample_seconds": 564.0,
+        "mean_absolute_difference": 0.1432,
+        "pass": true
+      },
+      {
+        "cue": 31,
+        "first_sample_seconds": 578.0,
+        "last_sample_seconds": 581.4,
+        "mean_absolute_difference": 0.001,
+        "pass": true
+      },
+      {
+        "cue": 32,
+        "first_sample_seconds": 583.4,
+        "last_sample_seconds": 605.0,
+        "mean_absolute_difference": 0.1784,
+        "pass": true
+      },
+      {
+        "cue": 33,
+        "first_sample_seconds": 607.0,
+        "last_sample_seconds": 622.7,
+        "mean_absolute_difference": 0.1547,
+        "pass": true
+      },
+      {
+        "cue": 34,
+        "first_sample_seconds": 624.7,
+        "last_sample_seconds": 649.0,
+        "mean_absolute_difference": 0.1713,
+        "pass": true
+      },
+      {
+        "cue": 35,
+        "first_sample_seconds": 651.0,
+        "last_sample_seconds": 672.0,
+        "mean_absolute_difference": 0.1557,
+        "pass": true
+      },
+      {
+        "cue": 36,
+        "first_sample_seconds": 674.0,
+        "last_sample_seconds": 690.0,
+        "mean_absolute_difference": 0.166,
+        "pass": true
+      },
+      {
+        "cue": 37,
+        "first_sample_seconds": 692.0,
+        "last_sample_seconds": 699.1,
+        "mean_absolute_difference": 0.0003,
+        "pass": true
+      },
+      {
+        "cue": 39,
+        "first_sample_seconds": 712.2,
+        "last_sample_seconds": 735.1,
+        "mean_absolute_difference": 0.1632,
+        "pass": true
+      },
+      {
+        "cue": 40,
+        "first_sample_seconds": 737.1,
+        "last_sample_seconds": 753.8,
+        "mean_absolute_difference": 0.1649,
+        "pass": true
+      },
+      {
+        "cue": 41,
+        "first_sample_seconds": 755.8,
+        "last_sample_seconds": 778.7,
+        "mean_absolute_difference": 0.1641,
+        "pass": true
+      },
+      {
+        "cue": 42,
+        "first_sample_seconds": 780.7,
+        "last_sample_seconds": 812.4,
+        "mean_absolute_difference": 0.1993,
+        "pass": true
+      },
+      {
+        "cue": 43,
+        "first_sample_seconds": 814.4,
+        "last_sample_seconds": 863.1,
+        "mean_absolute_difference": 0.1703,
+        "pass": true
+      },
+      {
+        "cue": 44,
+        "first_sample_seconds": 865.1,
+        "last_sample_seconds": 891.0,
+        "mean_absolute_difference": 0.1347,
+        "pass": true
+      },
+      {
+        "cue": 46,
+        "first_sample_seconds": 931.0,
+        "last_sample_seconds": 959.9,
+        "mean_absolute_difference": 0.1706,
+        "pass": true
+      },
+      {
+        "cue": 47,
+        "first_sample_seconds": 961.9,
+        "last_sample_seconds": 1022.5,
+        "mean_absolute_difference": 0.1581,
+        "pass": true
+      },
+      {
+        "cue": 48,
+        "first_sample_seconds": 1024.5,
+        "last_sample_seconds": 1046.98,
+        "mean_absolute_difference": 0.1339,
+        "pass": true
+      }
+    ]
+  },
+  "transformation_once_then_freeze": {
+    "post_event_first_sample_seconds": 141.0,
+    "pre_cut_last_sample_seconds": 150.9,
+    "mean_absolute_difference": 0.1273,
+    "pass": true,
+    "no_wand_source_binding": "assets/episodes/ep-03/comic/ep03-cue08-canva-transformation-once-v2.mp4"
+  },
+  "required_tools": {
+    "hard_cuts": {
+      "script": "operations/tools/check-hard-cuts.py",
+      "report": "operations/video-qa/episode-03-v10-hard-cuts.txt",
+      "report_sha256": "c11b5840eab3e8dc84d995437a97d54447fedd4b1b6619116bdff87f6aefd2db",
+      "return_code": 0,
+      "result": "PASS \u2014 16/16 clips are continuous"
+    },
+    "motion": {
+      "script": "operations/tools/measure-motion.py",
+      "report": "operations/video-qa/episode-03-v10-motion-measure.json",
+      "report_sha256": "d481c8d4af2515b656b77699e6259f393cb24ffc52632038338bc0f4d90cea1a",
+      "return_code": 0,
+      "result": "PASS \u2014 15/15 ambient clips measured moving",
+      "measurements": {
+        "peak_floor": 8.0,
+        "share_floor": 0.02,
+        "results": {
+          "ep03-cue03-canva-ambient-loop-v1.mp4": {
+            "peak": 30.0,
+            "moved_percent": 20.55425347222222,
+            "verdict": "moving"
+          },
+          "ep03-cue04-canva-ambient-loop-v1.mp4": {
+            "peak": 26.0,
+            "moved_percent": 50.69921875,
+            "verdict": "moving"
+          },
+          "ep03-cue05-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 13.828993055555555,
+            "verdict": "moving"
+          },
+          "ep03-cue06-canva-ambient-loop-v1.mp4": {
+            "peak": 22.0,
+            "moved_percent": 28.901475694444446,
+            "verdict": "moving"
+          },
+          "ep03-cue09-canva-ambient-loop-v1.mp4": {
+            "peak": 21.0,
+            "moved_percent": 22.322916666666668,
+            "verdict": "moving"
+          },
+          "ep03-cue11-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 21.608072916666668,
+            "verdict": "moving"
+          },
+          "ep03-cue14-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 19.233072916666664,
+            "verdict": "moving"
+          },
+          "ep03-cue17-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 6.739149305555555,
+            "verdict": "moving"
+          },
+          "ep03-cue19-canva-ambient-loop-v1.mp4": {
+            "peak": 21.0,
+            "moved_percent": 24.83420138888889,
+            "verdict": "moving"
+          },
+          "ep03-cue21-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 21.99782986111111,
+            "verdict": "moving"
+          },
+          "ep03-cue22-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 22.944010416666664,
+            "verdict": "moving"
+          },
+          "ep03-cue25-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 10.35546875,
+            "verdict": "moving"
+          },
+          "ep03-cue30-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 16.76215277777778,
+            "verdict": "moving"
+          },
+          "ep03-cue38-canva-ambient-loop-v1.mp4": {
+            "peak": 20.0,
+            "moved_percent": 19.03168402777778,
+            "verdict": "moving"
+          },
+          "ep03-cue45-canva-ambient-loop-v1.mp4": {
+            "peak": 21.0,
+            "moved_percent": 17.92578125,
+            "verdict": "moving"
+          }
+        }
+      }
+    }
+  },
+  "flag_reconciliation": {
+    "monitor_orientation": {
+      "cues": [
+        3,
+        4,
+        5
+      ],
+      "maker_observation": "corrected sources retained; front/rear monitor orientation binding preserved",
+      "independent_verdict": "PENDING"
+    },
+    "chutney_regina_character_text_pairing": {
+      "cues": [
+        22,
+        32,
+        33
+      ],
+      "maker_observation": "Chutney scene and Regina/Burn Book cards remain separate and correctly bound",
+      "independent_verdict": "PENDING"
+    },
+    "malformed_tryon_card": {
+      "cues": [
+        44
+      ],
+      "maker_observation": "v2-fix source retained; no leading bars in I can / I still lines",
+      "independent_verdict": "PENDING"
+    }
+  },
+  "tests": [
+    "All declared authority hashes matched.",
+    "All 49 exact cue starts matched their current authoritative render sources.",
+    "All 33 HOLD placements measured static across their holds.",
+    "Cue 8 played once and froze on its own final frame.",
+    "check-hard-cuts.py passed all 16 motion clips.",
+    "measure-motion.py measured all 15 ambient loops moving.",
+    "Full H.264/AAC file decode passed.",
+    "Runtime, frame size, frame rate, narration clock, and external VTT authority were preserved.",
+    "No subtitle stream or caption source entered the render."
+  ],
+  "remaining_proof": [
+    "Maker cannot judge identity, location, style, text meaning, or semantic motion.",
+    "Independent Episode Media Quality judge must review the exact candidate hash and all 49 manifest rows.",
+    "Independent full-size, normal-speed AV/VTT/player watch remains required.",
+    "Cue 7 shared welcome visual still requires the owner decision recorded in the manifest.",
+    "No release, site, deploy, public, or spend action occurred."
+  ]
+}

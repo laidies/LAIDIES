@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comment Card | LAiDIES</title>
+    <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
+    <link rel="stylesheet" href="/content/community-room-v2.css?v=20260724-3" />
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+    <main class="community-thread">
+      <section class="thread-hero">
+        <p class="eyebrow">The Comment Card</p>
+        <h1>Tell us if the episode landed, missed, or needs better shoes.</h1>
+        <p class="thread-subhead">Fast feedback, no essay required.</p>
+        <p>
+          Use this when something is too high-level, too technical, not technical enough, genuinely helpful, confusing,
+          hilarious, or begging for a better example. The goal is to make the next episode more useful without turning
+          the room into a focus group with stale muffins.
+        </p>
+        <a class="button secondary" href="../community.html">Back to the room</a>
+      </section>
+
+      <section class="feedback-workbench" aria-labelledby="feedback-title">
+        <form class="board-form feedback-form" id="feedbackForm">
+          <h2 id="feedback-title">Leave a comment card</h2>
+          <label>
+            Which episode or page?
+            <select name="episode" required>
+              <option value="">Pick one</option>
+              <option>Episode 1 - On Wednesdays We Do AI</option>
+              <option>Episode 2 - Tell Me What You Want</option>
+              <option>Homepage</option>
+              <option>Games</option>
+              <option>Glossary</option>
+              <option>Community room</option>
+              <option>Something else</option>
+            </select>
+          </label>
+
+          <fieldset class="feedback-fieldset">
+            <legend>Quick read</legend>
+            <label><input type="radio" name="landing" value="Loved it. More of this." required /> Loved it. More of this.</label>
+            <label><input type="radio" name="landing" value="Useful, but I need more steps." /> Useful, but I need more steps.</label>
+            <label><input type="radio" name="landing" value="Too high-level. Give me the receipts." /> Too high-level. Give me the receipts.</label>
+            <label><input type="radio" name="landing" value="Too technical. I need the mall directory version." /> Too technical. I need the mall directory version.</label>
+            <label><input type="radio" name="landing" value="Funny, but I still do not know what to do next." /> Funny, but I still do not know what to do next.</label>
+          </fieldset>
+
+          <fieldset class="feedback-fieldset">
+            <legend>What would make it better?</legend>
+            <label><input type="checkbox" name="needs" value="More examples" /> More examples</label>
+            <label><input type="checkbox" name="needs" value="More step-by-step instructions" /> More step-by-step instructions</label>
+            <label><input type="checkbox" name="needs" value="More screenshots or visuals" /> More screenshots or visuals</label>
+            <label><input type="checkbox" name="needs" value="More plain-English definitions" /> More plain-English definitions</label>
+            <label><input type="checkbox" name="needs" value="More workplace scripts/templates" /> More workplace scripts/templates</label>
+            <label><input type="checkbox" name="needs" value="More advanced AI concepts" /> More advanced AI concepts</label>
+            <label><input type="checkbox" name="needs" value="More try-on prompts" /> More try-on prompts</label>
+            <label><input type="checkbox" name="needs" value="More Y2K references" /> More Y2K references</label>
+          </fieldset>
+
+          <label>
+            What part worked best?
+            <select name="bestPart">
+              <option value="">Optional</option>
+              <option>The analogy</option>
+              <option>The example</option>
+              <option>The try-on activity</option>
+              <option>The glossary</option>
+              <option>The visual design</option>
+              <option>The jokes</option>
+              <option>The community idea</option>
+              <option>The whole thing, honestly</option>
+            </select>
+          </label>
+
+          <label>
+            Anything specific we should fix, explain, or do next?
+            <textarea name="notes" rows="5" placeholder="Example: I liked the Spice Girls analogy, but I need to see three actual prompt examples before I know how to use it."></textarea>
+          </label>
+
+          <label>
+            Name or email, if you want a reply
+            <input name="contact" type="text" placeholder="Optional" />
+          </label>
+
+          <div class="board-form-actions">
+            <button class="button primary" type="submit">Send the comment card</button>
+            <button class="button secondary" type="reset">Clear it</button>
+          </div>
+          <p class="form-status" id="feedbackStatus" aria-live="polite">
+            This opens an email draft addressed to LAiDIES. A private form backend can replace this when we are ready.
+          </p>
+        </form>
+
+        <aside class="feedback-sidecar" aria-label="Feedback promise">
+          <p class="eyebrow">Why this matters</p>
+          <h2>No one needs a newsletter that is charming but unusable.</h2>
+          <p>
+            The best signal is not applause. It is where readers got stuck, what they tried, and which explanation made
+            the light turn on. That is how the series gets sharper.
+          </p>
+          <ul>
+            <li><strong>Useful wins.</strong> Funny is the outfit. Useful is the job.</li>
+            <li><strong>Confusion is data.</strong> If one person is lost, someone else is probably quietly lost too.</li>
+            <li><strong>Ideas count.</strong> References, questions, tools, and examples can all become future episodes.</li>
+          </ul>
+        </aside>
+      </section>
+    
+    <div style="text-align: center; padding: 32px 20px 48px;">
+      <a class="button secondary" href="../index.html">← Back to Home</a>
+    </div>
+  </main>
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand">LAiDIES<sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
+      </p>
+      <div>
+        <a href="../episodes.html">Episodes</a>
+        <a href="../community.html">Community</a>
+        <a href="../index.html#signup">Subscribe</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </footer>
+
+    <script src="../script.js?v=comment-card"></script>
+  <script>
+(function(){
+  var btn = document.querySelector(".hamburger-btn");
+  var nav = document.querySelector(".site-header .nav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", function() {
+    var open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open);
+    btn.textContent = open ? "✕" : "☰";
+  });
+  nav.addEventListener("click", function(e) {
+    if (e.target.tagName === "A") {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+  });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+  });
+})();
+</script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

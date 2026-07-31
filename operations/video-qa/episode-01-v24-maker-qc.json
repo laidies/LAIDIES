@@ -1,0 +1,77 @@
+{
+  "created_at": "2026-07-26T22:00:58.336720+00:00",
+  "status": "MAKER_QC_COMPLETE_INDEPENDENT_JUDGMENT_REQUIRED",
+  "working_agreement_status": "BUILT LOCALLY",
+  "episode": "01",
+  "version": "24",
+  "output": "assets/video/episode-01-full-v24-source-reconciled-review.mp4",
+  "output_sha256": "272d370ee741d777bc355ea869e63bf4541e0765d3be7bcca286ad79c4c7a53e",
+  "output_size_bytes": 167536211,
+  "frozen_input": "assets/video/episode-01-full-v23-eod-style-repair-review.mp4",
+  "frozen_input_sha256": "fecb91ede6dd5477a911544b2f76d4eca8ff71c545fd85a456a19a663ccaa41c",
+  "exact_byte_copy_of_frozen_v23": false,
+  "repair_method": "bounded cue-3 visual replacement; v23 audio stream copied",
+  "new_confirmed_repairs": 1,
+  "new_confirmed_repair_cues": [
+    3
+  ],
+  "replacement_source": "assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png",
+  "replacement_source_sha256": "ec54e84816676054b4d651cf0d51bd4e2742a97bab9659c558cc872bc0c06957",
+  "carried_forward_confirmed_repairs": [
+    4,
+    6,
+    12
+  ],
+  "placement_manifest": "operations/video-qa/episode-01-v24-71-placement-manifest.json",
+  "placement_manifest_sha256": "6c66edeb60ca008e095a851df4cbcf76c7fdfb3ed55426f8010a858ec73b3487",
+  "configuration": "assets/video/episode-01-v24-source-reconciled-config.json",
+  "configuration_sha256": "31f96a6737906a41644d89eec86c55f393b9611cb67b90ca0d08c2dc24887137",
+  "placement_count": 71,
+  "cue_sheet": "assets/video/episode-01-production-cues-eod-20260725-style-repair.json",
+  "cue_sheet_sha256": "bcd47f2a60926f2f69d1dd6ff30c6413e0dd646f7e6176599ec15222452402ed",
+  "narration": "content/music/episode-01-narration.mp3",
+  "narration_sha256": "3f69c2f11a479502fe29f087cc1efbe3824cddb78447989bb0a2c88096210184",
+  "captions": "operations/captions/episode-01.vtt",
+  "captions_sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+  "captions_burned": false,
+  "full_decode": "PASS",
+  "media_probe": {
+    "duration_seconds": 1172.23,
+    "video": {
+      "codec": "h264 High",
+      "resolution": "1920x1080",
+      "frame_rate": 30
+    },
+    "audio": {
+      "codec": "aac LC",
+      "sample_rate_hz": 48000,
+      "channels": 1
+    },
+    "subtitle_streams": 0
+  },
+  "audio_payload_comparison": {
+    "method": "Extract both MP4 audio streams as raw ADTS with stream copy and compare SHA-256 and byte size.",
+    "frozen_v23_adts_sha256": "0572c2c9f1d568004155684ecf155f702af4d9b31a7eac57a12eca88d385db24",
+    "v24_adts_sha256": "0572c2c9f1d568004155684ecf155f702af4d9b31a7eac57a12eca88d385db24",
+    "bytes_each": 27438977,
+    "result": "PASS_EXACT_AUDIO_PAYLOAD"
+  },
+  "visual_frame_review": {
+    "evidence_directory": "operations/video-qa/episode-01-v24-visual",
+    "reviewed_timestamps_seconds": [
+      20.8,
+      21.2,
+      24.0,
+      27.4,
+      27.7,
+      28.0
+    ],
+    "bounded_repair_transition": "PASS_TECHNICAL_CONTINUITY",
+    "unaffected_control_timestamp_seconds": 100.0,
+    "unaffected_control_psnr_average_db": 57.273005,
+    "unaffected_control_result": "PASS_EXPECTED_REENCODE_VARIANCE",
+    "editorial_approval": "NOT_JUDGED_BY_MAKER"
+  },
+  "maker_may_not_judge": true,
+  "release_status": "HOLD_PENDING_INDEPENDENT_EPISODE_MEDIA_QUALITY"
+}

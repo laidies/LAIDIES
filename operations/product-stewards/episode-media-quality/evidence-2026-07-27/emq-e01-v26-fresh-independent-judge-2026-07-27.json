@@ -1,0 +1,32 @@
+{
+  "schema": "laidies.emq.fresh-independent-judge.v1",
+  "episode": "01",
+  "candidate": "v26-source-admitted",
+  "judged_at": "2026-07-27T03:29:45-07:00",
+  "scope": "Fresh read-only independent review. No media, maker, player, route, release, deployment, or public mutation.",
+  "verdict": "HOLD",
+  "reason_codes": ["HOLD_HUMAN_FULL_1X_UNMUTED_AUDIBLE_WITNESS_MISSING"],
+  "inputs": {
+    "master": {"path": "assets/video/episode-01-full-v26-source-admitted-review.mp4", "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351", "bytes": 627122305, "frames": 35167, "duration_seconds": 1172.233333},
+    "manifest": {"path": "operations/video-qa/episode-01-v26-source-admitted/manifest.json", "sha256": "3abc64a0e964f655d0eebe3ee02f4d7f43d8d07b06d2c384136f11407156b2be"},
+    "maker_qc": {"path": "operations/video-qa/episode-01-v26-source-admitted/maker-qc.json", "sha256": "ca4fe84243aff1bc03abedcc1da6b46a4e025f04d0cffba0316b1b9ce5c105f3"},
+    "config": {"path": "assets/video/episode-01-v26-source-admitted-config.json", "sha256": "902e4daab021f2d1ab6e5ed3503c383a7962d28dc6a61d50fd03be5a4ee8c83f"},
+    "builder": {"path": "assets/video/build-episode-01-v26-source-admitted.py", "sha256": "46747e2cd7aaba6d92f60327edbb3ffb2809a57df35ac69008a8b58732b3266f"},
+    "captions": {"path": "operations/captions/episode-01.vtt", "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539", "cue_count": 246, "last_end_seconds": 1171.42},
+    "player_binding": {"path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/episode-01-v26-representative-player-harness-2026-07-27/binding.json", "sha256": "e7db56402513334b0bec9d484e2001065c8a86a5bc7795f91fd553b4eaa35d83"},
+    "player_browser_result": {"sha256": "27823bc522ed71988d52d6cf87d24bf6c93b425ee8708b9e61ed5894200afeff", "result": "PASS_11_OF_11"}
+  },
+  "passes": [
+    "PASS_HASH_BINDING",
+    "PASS_FULL_AUDIO_VIDEO_DECODE",
+    "PASS_CLOCK_AND_AAC_PRESERVATION_EVIDENCE",
+    "PASS_13_DECLARED_SOURCE_WINDOWS",
+    "PASS_WELCOME_IDENT_PROTECTED",
+    "PASS_VTT_STRUCTURE_246_ORDERED_CUES",
+    "PASS_SAMPLED_NARRATION_IMAGE_STYLE_PERIOD_CONTINUITY",
+    "PASS_REPRESENTATIVE_PLAYER_FUNCTIONAL_SEALED_HARNESS_11_OF_11"
+  ],
+  "human_audible_witness": {"result": "HOLD", "finding": "No identified human full-title 1x unmuted audible watch exists for this exact SHA."},
+  "next_action": "Obtain the identified human full-title 1x unmuted audible witness against this unchanged master; then reconcile separate release/public-origin gates.",
+  "authority": {"release": false, "deploy": false, "public": false, "media_mutation": false}
+}

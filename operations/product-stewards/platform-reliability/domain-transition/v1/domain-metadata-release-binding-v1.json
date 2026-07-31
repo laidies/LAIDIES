@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "bindingId": "LAIDIES-DOMAIN-METADATA-RELEASE-BINDING-2026-07-26-v1",
+  "status": "CHECKSUM_BOUND_LOCAL_RELEASE_CANDIDATE_NOT_DEPLOYED",
+  "payload": {
+    "acceptedCandidate": {
+      "path": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-successor-v1.json",
+      "sha256": "ad654c1168c2174fad54391165e753c303757bbe36279318cf8f31fa88935a70",
+      "payloadSha256": "1e7d887854f25236af3f98fabc01d64f9669631318474161e18d1c6af440659f"
+    },
+    "acceptanceClosure": {
+      "path": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-successor-v1-closure.json",
+      "sha256": "a3d405636d44533d27f83951c95a8fa0d458eefefc38bac60fd1847c9948db9d",
+      "payloadSha256": "c41d85fa23cd27cd559880b20c0d8de7d95f4b607e02e7b8feeb19daa381eff3"
+    },
+    "artifact": {
+      "path": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-release-artifact-v1.json",
+      "sha256": "33045684ea070a4ba0ef6fd3d79baba276492a47eac789f6d5719fd888520d83",
+      "artifactCorpusSha256": "172ec193a307d4ceb30f8abb477469b768a143576737e20948efe74cabd211e0",
+      "routes": 28,
+      "builderPath": "scripts/build-public-site.mjs",
+      "builderSha256": "0880b84356680adf65cb344fa51cf179e52b80af6708ae3ad73332bc7065cc8b"
+    },
+    "rollback": {
+      "predecessorManifestPath": "operations/product-stewards/platform-reliability/domain-transition/v1/domain-metadata-predecessor-v1.json",
+      "predecessorManifestSha256": "7a24033314f00ab812e2795aa1882d2deadcaed96891ba4b8bd20896f9059ff4",
+      "exactSourcePredecessors": 28,
+      "inverseVerified": 28,
+      "sitemapSha256": "accbb51c209f26c027d9bfd4ecb64886bdef515114e056c041acd7d0bfd56fa0",
+      "sitemapChanged": false
+    },
+    "releaseVersionKey": "domain-metadata-2026-07-26-v1-ad654c1168c",
+    "authorityCeiling": {
+      "deploy": false,
+      "publicMutation": false,
+      "providerOrCacheMutation": false,
+      "searchOrSocialCrawlerMutation": false,
+      "analyticsMutation": false,
+      "workerCorsMutation": false
+    },
+    "remainingGates": {
+      "publicOriginArtifactHash": "PENDING",
+      "providerRedirectRuleExportAndRollback": "PENDING",
+      "fullPublicLegacyAndUnknownPathCorpus": "PENDING",
+      "searchAndSocialCrawlerCache": "PENDING",
+      "privacySafeAttribution": "UNKNOWN",
+      "legacyWorkerCorsRetirement": "BLOCKED"
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "51949ae4709625902df368df81546445747a75a41f1f1605faa90559212e6296"
+  }
+}

@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Sorority House · Delta LAi Nu · LAiDIES</title>
+  <meta name="description" content="The Sorority House on Wisteria Lane — Delta LAi Nu chapter. Residents only. Chat rooms, Wins, Burn Book, Dear LAiDIES, Girl Talk. Card required at the door.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/sorority-house-v2.css?v=20260724-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+  <header class="sv-header"></header>
+
+  <div class="sv-hero"><img src="assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/10-delta-lai-nu-house-rethink-v1.jpg?v=20260716" alt="The Sorority House on Wisteria Lane — Delta LAi Nu chapter, at sunset" loading="eager"></div>
+
+  <style media="not all">
+    /* ── Members-only door strip — "the card is the key" ── */
+    .sh-door {
+      display: grid; grid-template-columns: 200px 1fr; gap: 28px;
+      align-items: center;
+      margin: 28px 0 40px;
+      padding: 24px 26px;
+      background: linear-gradient(135deg, rgba(75,33,72,0.09) 0%, rgba(155,63,95,0.16) 100%);
+      border: 1.5px solid rgba(155,63,95,0.28);
+      border-radius: 18px;
+      position: relative; overflow: hidden;
+    }
+    .sh-door::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--rose), var(--gold, #d4a853));
+    }
+    .sh-door-badge {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #4b2148 0%, #6f263f 100%);
+      border-radius: 12px;
+      color: #f4cf85;
+      padding: 20px 14px;
+      box-shadow: 0 12px 26px rgba(75,33,72,0.28);
+    }
+    .sh-door-badge-line {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase; color: rgba(244,207,133,0.72);
+    }
+    .sh-door-badge-line--big {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 700;
+      letter-spacing: 0.04em; color: #f4cf85; line-height: 1;
+      margin: 2px 0;
+    }
+    .sh-door-eyebrow {
+      margin: 0 0 8px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);
+    }
+    .sh-door-title {
+      margin: 0 0 8px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(18px, 2.4vw, 24px); color: var(--plum-deep, var(--plum));
+    }
+    .sh-door-body {
+      margin: 0 0 16px;
+      font-size: 15px; line-height: 1.55; color: var(--plum-soft, var(--plum));
+    }
+    .sh-door-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+    .sh-door-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid var(--rose);
+      color: var(--rose);
+      background: transparent;
+      transition: background 200ms ease, color 200ms ease;
+    }
+    .sh-door-cta:hover { background: var(--rose); color: var(--pearl, #fffdfb); }
+    .sh-door-cta--primary { background: var(--rose); color: var(--pearl, #fffdfb); }
+    .sh-door-cta--primary:hover { background: var(--plum); border-color: var(--plum); color: var(--pearl, #fffdfb); }
+    @media (max-width: 640px) {
+      .sh-door { grid-template-columns: 1fr; gap: 18px; }
+      .sh-door-badge { aspect-ratio: auto; padding: 14px 20px; }
+    }
+
+    /* ── Wings — grouped rooms ── */
+    .sh-wing { margin: 36px 0 40px; }
+    .sh-wing-eyebrow {
+      margin: 0 0 6px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold, #d4a853);
+    }
+    .sh-wing-title {
+      margin: 0 0 8px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(20px, 2.8vw, 28px); font-weight: 700; color: var(--plum-deep, var(--plum));
+    }
+    .sh-wing-body {
+      margin: 0 0 20px;
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: 15px; color: var(--plum-soft, var(--plum)); line-height: 1.5;
+    }
+    .sh-wing-grid { margin-top: 0; }
+
+    /* ── House rules ── */
+    .sh-rules {
+      margin: 44px 0;
+      padding: 32px 32px 28px;
+      border-radius: 18px;
+      background: linear-gradient(155deg, rgba(232,197,200,0.28) 0%, rgba(255,253,251,0.6) 100%);
+      border: 1.5px dashed rgba(155,63,95,0.42);
+    }
+    .sh-rules-eyebrow {
+      margin: 0 0 6px;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+    }
+    .sh-rules-title {
+      margin: 0 0 18px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--plum-deep, var(--plum));
+    }
+    .sh-rules-list {
+      margin: 0; padding-left: 22px;
+      list-style: decimal-leading-zero outside;
+    }
+    .sh-rules-list li {
+      margin-bottom: 10px;
+      font-size: 15px; line-height: 1.55; color: var(--plum);
+      padding-left: 6px;
+    }
+    .sh-rules-list li::marker { color: var(--rose); font-weight: 700; font-family: 'Playfair Display', Georgia, serif; }
+    .sh-rules-list strong { color: var(--plum-deep, var(--plum)); }
+  </style>
+
+  <main class="sh-page">
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">Wisteria Lane · Delta L<span class="ai">Ai</span> Nu</span>
+    </div>
+
+    <h1>The Sorority <span class="ai">House</span></h1>
+
+    <p class="sv-lede">
+      The residents-only clubhouse where the live rooms, the Burn Book, Dear L<span class="ai">Ai</span>DIES, Girl Talk, and your Closet all live.
+    </p>
+
+    <section class="sh-arrival" aria-labelledby="shArrivalTitle">
+      <div class="sh-arrival-copy">
+        <p class="sh-kicker">June checked the front desk</p>
+        <h2 id="shArrivalTitle">Checking your Resident Card…</h2>
+        <p id="shArrivalBody">The house is working out whether you’re home or still on the porch.</p>
+      </div>
+      <div class="sh-arrival-actions">
+        <a class="sh-button sh-button--pink" href="/resident-card.html">Get your card <span>→</span></a>
+        <a class="sh-button sh-button--paper" href="/laidies-card.html">Open your Closet <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="sh-house" aria-labelledby="shHouseTitle">
+      <div class="sh-house-image">
+        <img src="assets/rerolls-20260714/willow-and-sorority-continuity/building-interiors/delta-lai-nu-sorority-house-interior.png" alt="The warm Delta LAi Nu entry hall with a sofa, staircase, television, and teal computer" loading="eager">
+        <div class="sh-house-intro">
+          <p class="sh-kicker">The house</p>
+          <h2 id="shHouseTitle">Where are you headed?</h2>
+          <p>Four wings, eleven destinations. Pick the part of the house that matches what you brought.</p>
+        </div>
+        <div class="sh-house-controls" aria-label="Choose a wing">
+          <button class="sh-wing-key" type="button" data-wing="common" aria-expanded="true">
+            <small>Wing I</small>
+            <span>Living Room</span>
+            <em>Ask · wins · digest</em>
+          </button>
+          <button class="sh-wing-key" type="button" data-wing="advice" aria-expanded="false">
+            <small>Wing II</small>
+            <span>Kitchen</span>
+            <em>Advice · debrief · pep talk</em>
+          </button>
+          <button class="sh-wing-key" type="button" data-wing="creative" aria-expanded="false">
+            <small>Wing III</small>
+            <span>Rec Room</span>
+            <em>Mixes · Burn Book · comments</em>
+          </button>
+          <button class="sh-wing-key" type="button" data-wing="yours" aria-expanded="false">
+            <small>Wing IV</small>
+            <span>Your Room</span>
+            <em>Closet · Dare Reports</em>
+          </button>
+        </div>
+      </div>
+
+      <div class="sh-wing-room" id="shWingRoom" data-wing="common">
+        <aside class="sh-room-directory" aria-label="Rooms in this wing">
+          <p class="sh-kicker" id="shWingEyebrow">Living Room</p>
+          <h3 id="shWingTitle">The whole house is here.</h3>
+          <div class="sh-room-list" id="shRoomList"></div>
+        </aside>
+        <div class="sh-conversation">
+          <div class="sh-conversation-heading">
+            <div>
+              <p class="sh-kicker">Inside this room</p>
+              <h3 id="shConversationTitle">Ask the Room</h3>
+              <p id="shConversationBody">The question is allowed to show up before the polished answer does.</p>
+            </div>
+            <a class="sh-button sh-button--paper" id="shFallbackLink" href="/community/ask-the-room.html">Open as its own page</a>
+          </div>
+          <div class="sh-thread-live" id="shThreadMount" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sh-hall-objects" aria-label="Things to do in the hall">
+      <a class="sh-girl-talk" href="/games/girl-talk.html">
+        <img src="assets/games/girl-talk/card-back.png" alt="The Girl Talk card deck" loading="lazy">
+        <span>
+          <span class="sh-kicker">The deck is out</span>
+          <h2>Girl Talk</h2>
+          <p>Draw a Truth or a Dare. The truths are yours. The dares send you into the rooms and can earn a sticker for your Closet.</p>
+          <strong>Draw a card →</strong>
+        </span>
+      </a>
+
+      <aside class="sh-wall" aria-labelledby="shWallTitle">
+        <div>
+          <p class="sh-kicker">Entry board</p>
+          <h2 id="shWallTitle">Tonight at Delta L<span class="ai">Ai</span> Nu</h2>
+        </div>
+        <ul class="sh-house-status">
+          <li><strong>Front desk</strong><span id="shResidentState">Checking your card…</span></li>
+          <li><strong>The rooms</strong><span id="shDoorState">Checking the locks…</span></li>
+          <li><strong>On the coffee table</strong>Girl Talk is ready whenever you are.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="sh-rules" aria-labelledby="shRulesTitle">
+      <div class="sh-rules-head">
+        <div>
+          <p class="sh-kicker">June’s house rules</p>
+          <h2 id="shRulesTitle">We are not mean in this house.</h2>
+        </div>
+        <ol class="sh-rules-list">
+          <li><strong>The messy draft is allowed.</strong> Half-finished thoughts count. Perfectionism is not a sisterly virtue.</li>
+          <li><strong>Cite the receipt or say you're guessing.</strong> Confidence is not a source.</li>
+          <li><strong>No burning a real person.</strong> The Burn Book is for Y2K references and takes, not sisters.</li>
+          <li><strong>Bring your card.</strong> Every post is signed by your Closet. Anonymous doesn't happen here.</li>
+          <li><strong>The dare is optional; the honesty isn't.</strong> Skip a dare, keep the truth.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sh-exit" aria-label="Get a Resident Card">
+      <div>
+        <h2>Your card is made at MAiKEOVER on MAiN.</h2>
+        <p>Walk in, design your card, leave a resident. Then come back here and the live rooms unlock.</p>
+      </div>
+      <div class="sh-exit-actions">
+        <a class="sh-button sh-button--paper" href="/resident-card.html">Get your card <span>→</span></a>
+        <a class="sh-button" href="/visitors-centre.html">Visitor Centre <span>→</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · Delta LAi Nu · Wisteria Lane</footer>
+
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+<script defer src="/content/site/sorority-house-v2.js?v=20260724-1"></script>
+</body>
+</html>

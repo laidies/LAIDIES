@@ -1,0 +1,400 @@
+/* Shared SUNNYVAiLE page styles — for /library.html, /mall.html, /sanctuary.html, etc.
+   Pattern modeled on visitors-centre.html + library.html. */
+
+:root {
+  --plum: #4b2148; --plum-deep: #3a1838; --plum-soft: #6b3a66;
+  --rose: #9b3f5f; --rose-bright: #c25b7d; --gold: #c9a227; --gold-ink: #7a5e14;
+  --cream: #fffdfb; --pearl: #f8eef2; --blush: #f9e6ee;
+  --line: rgba(75,33,72,0.14);
+  /* Building trio — accent tier only, sampled from the y2k-v3 renders.
+     Locked 2026-07-04. Plum stays the core; these never replace it. */
+  --sunset: #b97c5a; --teal: #3aa8a4; --pink: #c47c85;
+}
+* { box-sizing: border-box; }
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; border-radius: 3px; }
+body {
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  color: var(--plum);
+  background: var(--cream);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+.sv-header {
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,253,251,0.94);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+}
+.sv-header .brand {
+  font-size: 22px; font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--plum);
+  /* Replace text with the final wordmark SVG — same file as the homepage */
+  display: inline-block;
+  width: 118px; height: 28px;
+  text-indent: -9999px; overflow: hidden;
+  background: url('/assets/brand/laidies-wordmark-final-b-light.svg') no-repeat left center / contain;
+}
+.sv-header .brand:hover { opacity: 0.85; }
+.sv-header nav a {
+  font-size: 13px; font-weight: 500;
+  color: var(--plum-soft);
+  margin-left: 24px;
+}
+.sv-header nav a:hover { color: var(--rose); }
+
+.sv-hero {
+  width: 100%;
+  display: block;
+  background: var(--pearl);
+  overflow: hidden;
+}
+/* Banner strip, not a full-bleed billboard — keeps the page's actual content
+   near the top so you don't scroll past a whole screen of photo. */
+.sv-hero img {
+  width: 100%;
+  height: clamp(150px, 30vh, 300px);
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px 40px 96px;
+}
+
+.sv-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.sv-eyebrow-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+.sv-theme {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 11px 5px 8px;
+  background: var(--cream);
+  border: 1.5px solid var(--rose);
+  border-radius: 999px;
+  color: var(--plum);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+}
+.sv-theme:hover { background: var(--rose); color: var(--cream); transform: scale(1.04); }
+.sv-theme svg { width: 12px; height: 12px; fill: currentColor; }
+.sv-theme .pause-icon { display: none; }
+.sv-theme.is-playing .play-icon { display: none; }
+.sv-theme.is-playing .pause-icon { display: block; }
+.sv-theme.is-playing { background: var(--rose); color: var(--cream); }
+
+h1 {
+  font-size: clamp(40px, 5.4vw, 60px);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1;
+  color: var(--plum);
+  margin: 0 0 28px;
+}
+/* .ai accent — locked canon rule: "Ai" letters inside brand words always render
+   in the rose accent color so the wordplay pops (LAiDIES, SUNNYVAiLE, MAiKEOVER,
+   LIBRAiRY, SLAiYER, etc.). Applies everywhere — h1/h2/h3, buttons, body, nav. */
+.ai { color: var(--rose) !important; text-transform: none !important; font-variant-caps: normal !important; }
+a .ai, button .ai, .stop .ai, .dir-card .ai { color: inherit !important; }
+a:hover .ai { color: var(--rose) !important; }
+
+h2 {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  color: var(--plum);
+  margin: 56px 0 14px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--plum);
+  margin: 0 0 18px;
+}
+
+.sv-lede {
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--plum);
+  margin-bottom: 36px;
+}
+
+/* Placeholder note (a subtle box for "this content is still being built") */
+.placeholder-note {
+  background: #fff4e8;
+  border: 1.5px dashed var(--gold);
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--plum-soft);
+  margin: 12px 0 36px;
+}
+.placeholder-note strong { color: var(--plum-deep); }
+
+/* Feature placeholder block (for big TBD chunks like Mall Directory) */
+.placeholder--feature {
+  background: #fff4e8;
+  border: 2px dashed var(--gold);
+  border-radius: 10px;
+  padding: 24px 26px;
+  margin: 16px 0 36px;
+  position: relative;
+}
+.placeholder-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--plum-deep);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.placeholder--feature p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--plum-soft);
+  margin: 0 0 8px;
+}
+.placeholder--feature p:last-child { margin-bottom: 0; }
+.placeholder--feature a { color: var(--rose); text-decoration: underline; }
+
+/* Shelf / stop grid for cards (library, mall) */
+.shelf-grid, .stop-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: 28px 0;
+}
+@media (min-width: 720px) {
+  .shelf-grid, .stop-grid { grid-template-columns: 1fr 1fr; }
+}
+.shelf, .stop {
+  display: block;
+  background: var(--pearl);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px 26px;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.shelf:hover, .stop:hover {
+  transform: translateY(-3px);
+  border-color: var(--rose);
+  box-shadow: 0 8px 24px rgba(75,33,72,0.12);
+  text-decoration: none;
+}
+.shelf--brewing, .stop--brewing {
+  opacity: 0.7;
+  cursor: default;
+}
+.shelf--brewing:hover, .stop--brewing:hover {
+  transform: none;
+  border-color: var(--line);
+  box-shadow: none;
+}
+.shelf-glyph, .stop-num {
+  font-size: 22px;
+  color: var(--gold-ink);
+  margin-bottom: 6px;
+  display: inline-block;
+}
+.stop-num {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--rose);
+}
+.shelf-name, .stop-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.014em;
+  margin: 0 0 6px;
+  color: var(--plum);
+  line-height: 1.2;
+}
+.shelf-desc, .stop-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--plum-soft);
+  margin: 0 0 12px;
+}
+.shelf-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+.shelf--brewing .shelf-status {
+  color: var(--plum-soft);
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: none;
+}
+
+/* Relocated callout */
+.relocated {
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: var(--blush);
+  border-radius: 10px;
+  border-left: 4px solid var(--gold);
+}
+.relocated h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin: 0 0 16px;
+}
+.relocated ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.relocated li {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: var(--plum);
+}
+.relocated li:last-child { margin-bottom: 0; }
+.relocated li strong { color: var(--plum-deep); }
+.relocated li a {
+  color: var(--rose);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* CTAs */
+.sv-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 72px;
+  padding-top: 36px;
+  border-top: 2px solid var(--rose);
+}
+.sv-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  background: var(--pearl);
+  border-radius: 6px;
+  transition: background 200ms ease, transform 200ms ease;
+}
+.sv-cta:hover { background: var(--blush); transform: translateX(4px); }
+.sv-cta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 4px;
+}
+.sv-cta-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--plum);
+}
+.sv-cta-arrow {
+  font-size: 22px;
+  color: var(--rose);
+}
+.sv-cta--primary {
+  background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+}
+.sv-cta--primary .sv-cta-label { color: var(--gold); }
+.sv-cta--primary .sv-cta-title { color: var(--cream); }
+.sv-cta--primary .sv-cta-arrow { color: var(--cream); }
+.sv-cta--primary:hover { background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose-bright) 100%); }
+
+footer {
+  text-align: center;
+  padding: 32px 40px;
+  font-size: 12px;
+  color: var(--plum-soft);
+  border-top: 1px solid var(--line);
+}
+
+/* ---- Trip-mechanic callout (Your Residence Card tie-in) ----
+   Used on Library, KSVL Radio, BRONZE AiGE, Sanctuary, Blend & Snap
+   to make the customization-is-a-trip canon surface-visible.
+   ---------------------------------------------------------------- */
+.sv-trip-tie {
+  margin: 48px 0 32px;
+  padding: 26px 28px 22px;
+  background: var(--pearl);
+  border-radius: 12px;
+  border-left: 4px solid var(--rose);
+  position: relative;
+}
+.sv-trip-tie__eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 10px;
+}
+.sv-trip-tie__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-weight: 700;
+  color: var(--plum);
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+.sv-trip-tie__body {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--plum);
+  margin: 0 0 10px;
+}
+.sv-trip-tie__body strong { color: var(--plum-deep); }
+.sv-trip-tie__note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--plum-soft);
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .sv-header { padding: 18px 22px; flex-wrap: wrap; gap: 12px; }
+  .sv-header nav a { margin-left: 12px; }
+  main { padding: 40px 22px 64px; }
+  .relocated { padding: 22px 22px; }
+  .sv-trip-tie { padding: 22px 22px 18px; }
+}

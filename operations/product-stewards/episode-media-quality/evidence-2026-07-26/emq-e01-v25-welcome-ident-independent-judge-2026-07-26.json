@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E01-V25-WELCOME-IDENT-INDEPENDENT-JUDGE-2026-07-26",
+  "judge": "Episode Media Quality independent judge",
+  "judged_at_local_date": "2026-07-26",
+  "verdict": "HOLD",
+  "release_admitted": false,
+  "scope": "Independent review of the exact Episode 01 v25 welcome-ident successor; no maker-media, site, release, deploy, or public mutation.",
+  "artifacts": {
+    "candidate": {"path": "assets/video/episode-01-full-v25-welcome-ident-review.mp4", "sha256": "486bb908a2faa26efee61d0689a7e97180b1f12aa628a04a6b4ad76edf43b633"},
+    "frozen_v24": {"path": "assets/video/episode-01-full-v24-source-reconciled-review.mp4", "sha256": "272d370ee741d777bc355ea869e63bf4541e0765d3be7bcca286ad79c4c7a53e"},
+    "manifest": {"path": "operations/video-qa/episode-01-v25-welcome-ident/manifest.json", "sha256": "3f10301e1fbe44b92ad9ef15ffb86570e21ae724302c2516addc9151930bdd2e"},
+    "maker_qc": {"path": "operations/video-qa/episode-01-v25-welcome-ident/maker-qc.json", "sha256": "7efbfeba41167f7e5c069b8b2194290728424e8d59e30367cc653ce5d4d41ed4"},
+    "ident": {"path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-01-on-wednesdays-we-do-ai-v1.mp4", "sha256": "8f48e020025d34e041e1170a96801d4852c1abf204162398e3f41faf50452f85"}
+  },
+  "checks": {
+    "hash_binding": "PASS",
+    "title_specific_ident": "PASS",
+    "semantic_window": {"result": "PASS", "start_seconds": 93.9, "motion_end_seconds": 100.38, "motion_seconds": 6.48, "end_seconds": 101.92, "declared_terminal_hold_seconds": 1.54},
+    "terminal_hold": {"result": "PASS", "decoded_freeze_start_seconds": 100.4, "decoded_freeze_end_seconds": 101.9, "note": "30-fps frame-grid realization; next picture is after the 101.920 semantic end."},
+    "audio_payload": {"result": "PASS_EXACT_BYTE_EQUAL", "adts_sha256": "0572c2c9f1d568004155684ecf155f702af4d9b31a7eac57a12eca88d385db24", "bytes_each": 27438977},
+    "full_decode": {"result": "PASS", "independent_ranges_seconds": [[0, 300], [300, 600], [600, 900], [900, 1172.23]]},
+    "boundary_and_out_of_scope_picture": {"result": "PASS", "pre_window_ssim_all": 0.999223, "post_window_ssim_all": 0.992861, "note": "H.264 re-encode variance only; visual review at the immediate post-window return confirms the frozen Blend & Snap picture."},
+    "visible_quality": "PASS_INSERTION_WINDOW"
+  },
+  "reason_codes": [
+    "PASS_HASH_BINDING",
+    "PASS_IDENT_TITLE_SPECIFIC",
+    "PASS_SEMANTIC_WINDOW",
+    "PASS_TERMINAL_HOLD",
+    "PASS_AUDIO_EXACT",
+    "PASS_FULL_DECODE",
+    "PASS_BOUNDARY_AND_SCOPE",
+    "PASS_VISIBLE_INSERTION_QUALITY",
+    "HOLD_INHERITED_V24_MODERN_LAPTOP",
+    "HOLD_INHERITED_V24_MASTER_PEOPLE_STYLE_DRIFT",
+    "HOLD_EXACT_PLAYER_PROOF_MISSING"
+  ],
+  "carry_forward": {
+    "bounded_successor_operation": "ACCEPTED_LOCALLY",
+    "whole_film": "HOLD",
+    "next_gate": "Repair and independently admit the inherited Episode 01 source-image defects, then run exact-checksum representative player proof."
+  },
+  "mutations": {"maker_media": false, "site": false, "release": false, "deploy": false, "public": false}
+}

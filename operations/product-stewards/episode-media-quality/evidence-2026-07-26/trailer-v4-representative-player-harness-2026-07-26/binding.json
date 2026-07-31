@@ -1,0 +1,32 @@
+{
+  "schema": "laidies.emq.representative-player-binding.v1",
+  "status": "LOCAL_REVIEW_HARNESS_ONLY",
+  "candidate": "Trailer v4 clock successor",
+  "inputs": {
+    "media": {
+      "path": "../../../../../assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934",
+      "mime": "video/mp4"
+    },
+    "captions": {
+      "path": "../../../../../assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+      "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+      "mime": "text/vtt",
+      "language": "en",
+      "label": "English"
+    }
+  },
+  "binding_policy": {
+    "preflight": "sha256-both-before-player-enable",
+    "mismatch": "fail-closed",
+    "autoplay": false,
+    "caption_rendering": "sanitized-custom-rail-below-picture",
+    "native_text_track_mode": "hidden"
+  },
+  "authority": {
+    "maker_can_admit_player": false,
+    "maker_can_admit_trailer": false,
+    "public_route_changed": false,
+    "deployment_authorized": false
+  }
+}

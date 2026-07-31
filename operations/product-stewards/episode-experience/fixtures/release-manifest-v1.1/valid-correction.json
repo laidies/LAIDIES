@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.1.0",
+  "recordType": "engine-candidate",
+  "payload": {
+    "transactionId": "ep05-correction-v2",
+    "transactionType": "correction",
+    "createdAt": "2026-07-26T13:00:00Z",
+    "episode": {"id": "episode-05", "title": "The Super Models", "canonSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"},
+    "issue": {"route": "/issues/issue-05.html", "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"},
+    "formats": {"readingIssue": {"present": true}, "narratedListenAlong": {"present": false}, "visualEdition": {"present": false}, "motionFilm": {"present": false}},
+    "dependencies": {"manifestSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "requiredTransactionFiles": ["issues/issue-05.html"]},
+    "candidate": {"id": "ep05-candidate-v2", "productionVerdicts": ["producer-v2"], "independentVerdicts": ["editorial-v2"]},
+    "supersession": {"supersedesCandidateId": "ep05-candidate-v1", "supersedesCandidatePayloadSha256": "2e041db84ae0a55838f1d6e8fb84175de4c063c9cdaa2598973cc54daa63eeba", "invalidatesAdmissions": ["cf-admission-v1"], "reason": "editorial correction"},
+    "proposedAvailability": {"date": null, "editorialState": "forthcoming", "formatClaims": {"readingIssue": "proposed", "narratedListenAlong": "unavailable", "visualEdition": "unavailable", "motionFilm": "unavailable"}},
+    "rollback": {"candidateId": "ep05-candidate-v1", "chickFlicksAdmissionId": "cf-admission-v1"}
+  },
+  "integrity": {"algorithm": "sha-256", "canonicalization": "RFC8785-JCS", "payloadSha256": "3a365ccd6a79898a322541f88573860df315c59d077064ea903b94db9ee3eaf8"}
+}

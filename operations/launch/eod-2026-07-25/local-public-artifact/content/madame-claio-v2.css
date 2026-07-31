@@ -1,0 +1,852 @@
+:root {
+  --cl-ink: #070b20;
+  --cl-midnight: #0a1030;
+  --cl-blue: #315ee8;
+  --cl-pink: #ff5aa8;
+  --cl-cyan: #15c6d8;
+  --cl-periwinkle: #aaa5ff;
+  --cl-mint: #8de5cf;
+  --cl-coral: #ff765d;
+  --cl-pearl: #fff9f5;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--cl-ink) !important;
+  color: #fff;
+  font-family: "Jost", sans-serif;
+}
+
+body *,
+body *::before,
+body *::after {
+  box-sizing: border-box;
+}
+
+.laidies-bg {
+  display: none !important;
+}
+
+.call-counter {
+  display: none !important;
+}
+
+.sv-header {
+  position: relative;
+  z-index: 60;
+}
+
+.sv-hero {
+  z-index: 1;
+  overflow: hidden;
+}
+
+.claio-page {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.game-page-wrap {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.game-page-header.claio-return {
+  position: relative;
+  inset: auto;
+  z-index: 2;
+  min-height: 52px;
+  padding: 15px clamp(22px, 5vw, 76px);
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  background: var(--cl-ink);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.game-page-header.claio-return a {
+  color: #fff;
+  font: 800 .76rem/1 "Jost", sans-serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.game-page-header.claio-return a:hover {
+  color: var(--cl-mint);
+  text-decoration: none;
+}
+
+.game-page-title {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  margin: 0;
+  padding: clamp(54px, 7vw, 96px) clamp(24px, 7vw, 112px);
+  background:
+    linear-gradient(115deg, rgba(49, 94, 232, .19), transparent 38%),
+    var(--cl-midnight);
+  color: #fff;
+  text-align: left;
+}
+
+.game-page-title .eyebrow {
+  margin: 0 0 12px;
+  color: var(--cl-periwinkle) !important;
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.game-page-title h1 {
+  margin: 0;
+  color: #fff !important;
+  font-family: "Anton", sans-serif !important;
+  font-size: clamp(4rem, 8.4vw, 8.4rem);
+  font-weight: 400;
+  letter-spacing: -.018em;
+  line-height: .9;
+  text-transform: uppercase;
+  background: none;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: 5px 5px 0 rgba(49, 94, 232, .72);
+}
+
+.game-page-title h1 .ai-highlight {
+  color: var(--cl-pink) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+.game-page-title .subtitle {
+  max-width: none;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, .76) !important;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.claio-song-button {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 2px solid var(--cl-periwinkle);
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font: 800 .72rem/1 "Jost", sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.claio-song-button:hover,
+.claio-song-button.is-playing {
+  background: var(--cl-periwinkle);
+  color: var(--cl-ink);
+}
+
+.claio-song-button .pause-icon {
+  display: none;
+}
+
+.claio-song-button.is-playing .play-icon {
+  display: none;
+}
+
+.claio-song-button.is-playing .pause-icon {
+  display: inline;
+}
+
+.claio-room {
+  position: relative;
+  min-height: 960px;
+  overflow: hidden;
+  background: var(--cl-ink);
+  isolation: isolate;
+}
+
+.claio-room::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(7, 11, 32, .82) 0%, rgba(7, 11, 32, .32) 35%, rgba(7, 11, 32, .04) 62%),
+    linear-gradient(0deg, rgba(7, 11, 32, .58), transparent 34%);
+  content: "";
+  pointer-events: none;
+}
+
+.claio-room.is-reading::after {
+  background:
+    linear-gradient(90deg, rgba(7, 11, 32, .87) 0%, rgba(7, 11, 32, .42) 34%, rgba(7, 11, 32, .22) 54%, rgba(7, 11, 32, .48) 100%),
+    linear-gradient(0deg, rgba(7, 11, 32, .6), transparent 40%);
+}
+
+.claio-room-visual,
+.claio-room-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.claio-room-image {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.claio-arrival {
+  position: absolute;
+  top: clamp(56px, 7vw, 102px);
+  left: clamp(24px, 6vw, 92px);
+  z-index: 3;
+  width: min(34vw, 480px);
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(7, 11, 32, .82);
+}
+
+.claio-arrival > p,
+.call-history-title,
+.claio-resident-note > p {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--cl-mint) !important;
+  font-size: .74rem;
+  font-weight: 900;
+  letter-spacing: .17em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.claio-arrival h2 {
+  margin: 0;
+  color: #fff !important;
+  font-family: "Anton", sans-serif !important;
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: .01em;
+  line-height: .94;
+  text-transform: uppercase;
+}
+
+.claio-arrival > span {
+  display: block;
+  max-width: 43ch;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(.9rem, 1.2vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.call-button {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 27px;
+  padding: 13px 30px;
+  overflow: visible;
+  border: 2px solid var(--cl-ink);
+  border-radius: 10px;
+  background: var(--cl-pink);
+  box-shadow: 8px 8px 0 var(--cl-cyan);
+  color: var(--cl-ink);
+  font: 900 .8rem/1 "Jost", sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: none;
+}
+
+.call-button::before {
+  display: none;
+}
+
+.call-button:hover:not(:disabled) {
+  background: var(--cl-cyan);
+  box-shadow: 5px 5px 0 var(--cl-pink);
+  transform: translate(3px, 3px);
+}
+
+.call-button:active {
+  transform: translate(5px, 5px);
+}
+
+.call-button:disabled {
+  cursor: wait;
+  opacity: .78;
+}
+
+.claio-deck-hotspot {
+  position: absolute;
+  top: 60%;
+  left: 58%;
+  z-index: 3;
+  width: 13%;
+  height: 16%;
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+}
+
+.claio-deck-hotspot span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.claio-deck-hotspot:hover,
+.claio-deck-hotspot:focus-visible {
+  border-color: var(--cl-cyan);
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(21, 198, 216, .25);
+}
+
+.calling-state {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  z-index: 5;
+  min-width: 260px;
+  margin: 0;
+  padding: 14px 18px;
+  border: 2px solid var(--cl-periwinkle);
+  border-radius: 0;
+  background: var(--cl-midnight);
+  color: #fff;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.calling-state.is-visible {
+  display: block;
+  animation: claioReveal .25s ease both;
+}
+
+.calling-text {
+  margin: 0;
+  color: #fff !important;
+  font-family: "Jost", sans-serif;
+  font-size: .78rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.calling-stars {
+  display: none !important;
+}
+
+.fortune-card {
+  position: absolute;
+  top: 52px;
+  right: clamp(24px, 4vw, 64px);
+  bottom: 52px;
+  z-index: 4;
+  width: min(59vw, 820px);
+  margin: 0;
+  padding: clamp(24px, 3vw, 42px);
+  overflow-y: auto;
+  border: 0;
+  border-left: 10px solid var(--cl-pink);
+  border-radius: 0;
+  background: rgba(7, 11, 32, .93);
+  box-shadow: 14px 14px 0 rgba(21, 198, 216, .86);
+  color: #fff;
+  backdrop-filter: blur(14px);
+}
+
+.fortune-card::before {
+  display: none;
+}
+
+.fortune-card.is-visible {
+  display: grid;
+  grid-template-columns: minmax(190px, .68fr) minmax(0, 1fr);
+  gap: clamp(26px, 3.5vw, 54px);
+  align-items: center;
+  animation: claioReveal .42s ease both;
+}
+
+@keyframes claioReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.claio-drawn-card {
+  min-width: 0;
+}
+
+.fortune-card-flourish {
+  margin: 0 0 10px;
+  color: var(--cl-mint) !important;
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 1;
+  animation: none;
+}
+
+.fortune-card-art {
+  width: min(100%, 285px);
+  max-height: 500px;
+  display: block;
+  margin: 0;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 12px 14px 0 rgba(255, 90, 168, .34), 0 18px 44px rgba(0, 0, 0, .38);
+  transform: rotate(-2deg);
+}
+
+.fortune-card-name {
+  margin: 25px 0 0;
+  color: #fff !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: clamp(1.55rem, 2.7vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.02;
+  text-align: left;
+  text-shadow: none;
+}
+
+.claio-reading-copy {
+  min-width: 0;
+}
+
+.fortune-card-section-label {
+  margin: 20px 0 7px;
+  color: var(--cl-periwinkle) !important;
+  font-family: "Jost", sans-serif;
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.fortune-card-read {
+  margin: 0;
+  color: #fff !important;
+  font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: left;
+  text-shadow: none;
+}
+
+.fortune-card-message {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: rgba(255, 255, 255, .84) !important;
+  font-size: .96rem;
+  font-weight: 600;
+  line-height: 1.64;
+}
+
+.fortune-card-move {
+  margin-top: 28px;
+  padding: 19px 20px;
+  border: 2px solid var(--cl-cyan);
+  border-left-width: 8px;
+  border-radius: 0;
+  background: rgba(21, 198, 216, .1);
+}
+
+.fortune-card-move strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--cl-mint);
+  font-size: .69rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.fortune-card-move p {
+  margin: 0;
+  color: #fff !important;
+  font-size: .98rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.reading-progress,
+.microcopy {
+  display: none !important;
+}
+
+.claio-keepsakes {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, .7fr);
+  gap: clamp(38px, 7vw, 112px);
+  padding: clamp(64px, 8vw, 116px) clamp(24px, 7vw, 112px);
+  background:
+    linear-gradient(115deg, rgba(49, 94, 232, .14), transparent 46%),
+    var(--cl-midnight);
+  color: #fff;
+}
+
+.call-history {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0;
+}
+
+.call-history-title {
+  grid-column: 1 / -1;
+  color: var(--cl-mint) !important;
+}
+
+.history-card {
+  position: relative;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.history-card-art {
+  width: min(100%, 150px);
+  aspect-ratio: 886 / 1248;
+  display: block;
+  margin-bottom: 16px;
+  border: 0;
+  border-radius: 9px;
+  object-fit: cover;
+  box-shadow: 8px 8px 0 rgba(21, 198, 216, .24);
+  transform: rotate(-1.5deg);
+}
+
+.history-card:nth-child(3) .history-card-art {
+  transform: rotate(1.5deg);
+}
+
+.history-card-name {
+  margin: 0 0 6px;
+  color: #fff !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.history-card-text {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, .68) !important;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.42;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.claio-resident-note {
+  align-self: center;
+  padding: 28px 0 0 28px;
+  border-top: 8px solid var(--cl-pink);
+  border-left: 2px solid var(--cl-pink);
+}
+
+.claio-resident-note > p {
+  color: var(--cl-pink) !important;
+}
+
+.claio-resident-note h3 {
+  margin: 0;
+  color: #fff !important;
+  font-family: "Anton", sans-serif !important;
+  font-size: clamp(2rem, 3.4vw, 3.7rem);
+  font-weight: 400;
+  line-height: .98;
+  text-transform: uppercase;
+}
+
+.claio-resident-note > span {
+  display: block;
+  margin-top: 17px;
+  color: rgba(255, 255, 255, .72);
+  font-size: .92rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.claio-resident-note a {
+  display: inline-block;
+  margin-top: 22px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--cl-cyan);
+  color: #fff;
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.claio-resident-note a:hover {
+  color: var(--cl-mint);
+}
+
+.badge-reveal {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 23px 26px;
+  border: 2px solid var(--cl-pink);
+  border-radius: 0;
+  background: rgba(49, 94, 232, .12);
+  box-shadow: none;
+  text-align: left;
+  animation: none;
+}
+
+.badge-reveal strong {
+  color: var(--cl-pink);
+  font-size: 1rem;
+}
+
+.badge-reveal p {
+  color: rgba(255, 255, 255, .78) !important;
+}
+
+.claio-chyron {
+  margin: 0;
+  padding: 14px clamp(22px, 5vw, 76px);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  background: #03050e;
+  color: var(--cl-periwinkle) !important;
+  font-family: "VT323", monospace;
+  font-size: clamp(.92rem, 1.35vw, 1.2rem);
+  letter-spacing: .05em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ai-highlight,
+.claio-song-button .ai-highlight {
+  color: var(--cl-pink) !important;
+}
+
+@media (max-width: 1050px) {
+  .claio-arrival {
+    width: min(39vw, 420px);
+  }
+
+  .fortune-card {
+    width: min(65vw, 760px);
+  }
+}
+
+@media (max-width: 760px) {
+  .game-page-header.claio-return {
+    padding-inline: 20px;
+  }
+
+  .game-page-title {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 64px 22px 70px;
+  }
+
+  .game-page-title h1 {
+    font-size: clamp(3.5rem, 15.5vw, 5.2rem);
+    white-space: nowrap;
+  }
+
+  .claio-song-button {
+    width: fit-content;
+  }
+
+  .claio-room {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    overflow: visible;
+    background: var(--cl-midnight);
+  }
+
+  .claio-room::after {
+    display: none;
+  }
+
+  .claio-arrival {
+    position: relative;
+    inset: auto;
+    order: 1;
+    width: 100%;
+    padding: 54px 22px 62px;
+    background:
+      linear-gradient(130deg, rgba(49, 94, 232, .18), transparent 60%),
+      var(--cl-midnight);
+    text-shadow: none;
+  }
+
+  .claio-arrival h2 {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .claio-room-visual {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: 390px;
+  }
+
+  .claio-room-image {
+    object-position: 54% center;
+  }
+
+  .claio-deck-hotspot {
+    top: 58%;
+    left: 54%;
+    width: 24%;
+    height: 22%;
+  }
+
+  .calling-state {
+    top: auto;
+    bottom: 135px;
+    left: 50%;
+    order: 3;
+  }
+
+  .fortune-card {
+    position: relative;
+    inset: auto;
+    order: 4;
+    width: 100%;
+    max-height: none;
+    padding: 44px 22px 56px 28px;
+    overflow: visible;
+    border-left-width: 7px;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .fortune-card.is-visible {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .claio-drawn-card {
+    display: grid;
+    justify-items: start;
+  }
+
+  .fortune-card-art {
+    width: min(72vw, 285px);
+  }
+
+  .claio-keepsakes {
+    grid-template-columns: 1fr;
+    gap: 52px;
+    padding: 64px 22px 76px;
+  }
+
+  .call-history {
+    position: relative;
+    grid-template-columns: repeat(3, 142px);
+    grid-auto-flow: column;
+    gap: 16px;
+    margin-right: -22px;
+    padding: 36px 22px 6px 0;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+
+  .call-history-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .history-card {
+    flex: 0 0 142px;
+    scroll-snap-align: start;
+  }
+
+  .claio-resident-note {
+    padding-left: 22px;
+  }
+
+  .badge-reveal {
+    grid-column: 1;
+  }
+
+  .claio-chyron {
+    padding: 14px 18px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 430px) {
+  .claio-song-button {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 12px;
+    font-size: .66rem;
+  }
+
+  .claio-room-visual {
+    height: 330px;
+  }
+
+  .call-button {
+    width: 100%;
+  }
+
+  .claio-deck-hotspot {
+    top: 58%;
+    left: 55%;
+    width: 25%;
+    height: 23%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

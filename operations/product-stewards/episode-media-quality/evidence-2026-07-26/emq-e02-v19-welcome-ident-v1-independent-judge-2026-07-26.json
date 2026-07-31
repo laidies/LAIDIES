@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E02-V19-WELCOME-IDENT-V1-INDEPENDENT-JUDGE-2026-07-26",
+  "judge_role": "Episode Media Quality independent judge",
+  "verdict": "HOLD",
+  "reason_codes": [
+    "V-TAIL-TIMELINE-DRIFT",
+    "OUT_OF_SCOPE_PICTURE_NOT_PRESERVED"
+  ],
+  "frozen_tuple": {
+    "candidate": {
+      "path": "assets/video/episode-02-full-v19-welcome-ident-v1-review.mp4",
+      "sha256": "5b9c98281d292b18ef4e70edc023a4c322add94bfe3b7e82e7d8e3dab691191b"
+    },
+    "review_window": {
+      "path": "operations/video-qa/episode-02-v19-welcome-ident-v1/episode-02-welcome-ident-review-window-88-102.mp4",
+      "sha256": "68508c982daa77ded6c45820e8c4895e386facc2eb0ecfff998cb64fa2a945b1"
+    },
+    "baseline": {
+      "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+      "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3"
+    },
+    "ident": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-v1.mp4",
+      "sha256": "ea5addbad951281602373cfde8d4264326e557a57b63ea2df218d0697316f138",
+      "title_specificity": "PASS — Episode 02 / Tell Me What You Want"
+    },
+    "config_sha256": "ab68c26c357d3eec990a8ce8708cc5dcb223ec55e7181fd9cb39545d161d544a",
+    "manifest_sha256": "4987d90404564097d006b28ba3d07d0daa50e49e7b5a9746eae59924c02960d2"
+  },
+  "technical_verification": {
+    "full_av_decode": "PASS — independent ffmpeg decode exit 0",
+    "video_shape": "PASS — H.264 High, 1920x1080, 30fps, 15360 tbn",
+    "audio_shape": "PASS — AAC-LC mono, 48000Hz",
+    "audio_adts_sha256_baseline": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "audio_adts_sha256_candidate": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "audio_elementary_stream_identical": true,
+    "baseline_video_mdhd_seconds": 987.466667,
+    "candidate_video_mdhd_seconds": 986.733333,
+    "baseline_audio_mdhd_seconds": 987.470333,
+    "candidate_audio_mdhd_seconds": 987.470333,
+    "candidate_video_missing_seconds": 0.733334,
+    "candidate_video_missing_frames_at_30fps": 22
+  },
+  "canonical_ident_review": {
+    "caption_timing_map": "operations/captions/episode-02-timing-map.json",
+    "vtt": "operations/captions/episode-02.vtt",
+    "spoken_welcome_seconds": [91.34, 98.59],
+    "declared_replacement_seconds": [91.34, 98.59],
+    "motion_seconds": 6.48,
+    "final_hold_seconds": 0.77,
+    "alignment_and_legibility": "PASS — correct title-specific Episode 02 ident and clean visible boundaries"
+  },
+  "out_of_scope_picture": {
+    "maker_structural_claim": "baseline picture retained before 91.340 and after 98.590",
+    "boundary_window": "PASS at insertion boundaries",
+    "complete_timeline": "FAIL — candidate video terminates 0.733334 seconds before frozen baseline video",
+    "semantic_result": "FAIL — final out-of-scope picture interval is absent while copied audio continues"
+  },
+  "retest_required": [
+    "new checksum-bound successor; do not overwrite this candidate",
+    "prove identical baseline/candidate video-track duration and frame count through the final source frame",
+    "repeat full decode, 30fps/15360tbn, AAC packet identity, title/hold/boundary, and out-of-scope continuity checks"
+  ],
+  "authority": {
+    "maker_media_modified": false,
+    "site_or_public_media_modified": false,
+    "release_or_deploy_authority": false
+  }
+}

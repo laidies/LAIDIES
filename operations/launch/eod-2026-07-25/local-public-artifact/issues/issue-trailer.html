@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trailer · Welcome to SUNNYVAiLE · LAiDIES</title>
+<meta name="description" content="Before the season starts, your heroine owes you a tour. A show about learning AI, made for smart, busy women — a new episode every Wednesday, one useful thing each, no jargon. Welcome to SUNNYVAiLE.">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
+<script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<style>
+  :root{
+    --cream:#fffdfb; --plum:#4b2148; --plum-deep:#3a1838; --ink:#3a1838;
+    --pink:#e982ab; --coral:#ec7a78; --tang:#f4a636; --teal:#57b6c0; --sky:#8bbde9; --peri:#b3abe7;
+    --gold:#c9a227; --lav:#cabbe8;
+    --measure:720px; --wide:840px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Jost',system-ui,sans-serif;color:#f2eaf3;background:#160f1d;line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.15) 2px 3px);mix-blend-mode:multiply;opacity:.45}
+  .ai{color:inherit;text-transform:none}
+  h1,h2,h3{font-weight:800;line-height:1.06;letter-spacing:-.01em}
+  h1 .ai,h2 .ai,h3 .ai,.eyebrow .ai,.tv-tags .ai{color:var(--pink)}
+  main{max-width:var(--wide);margin:0 auto;padding:0 24px}
+  p{max-width:var(--measure);margin:0 auto 20px}
+  p strong{font-weight:700;color:#ffffff}
+  em{font-style:italic}
+  a{color:#8bbde9}
+  /* Keep the sky link color for the dark article body only — the light global header needs legible plum. */
+  .sv-header nav a, .sv-header .svgh-nav a, .sv-header .brand{color:#4b2148}
+  .sv-header .brand .lac{color:#57b6c0}
+  .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+
+  /* Store shelf strip */
+  .shelf-strip{background:#111013;color:var(--cream);text-align:center;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;padding:7px 16px}
+  .shelf-strip b{color:var(--teal);font-weight:400}
+
+  /* Cinematic pixel-art hero — the tape's title card, in the world */
+  .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
+    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/sunnyvaile-buildings/y2k-v3-defairytale/episode-pixel/scenic-town-shots/05-whole-town-golden-afternoon-overlook-pixel-v1.png') center 40%/cover}
+  .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
+  .tv-hero>*{position:relative;z-index:2}
+  .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
+  .tv-meta{font-family:'VT323',monospace;color:#d9c6f0;font-size:1.12rem;letter-spacing:.13em;margin-bottom:16px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .tv-title{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--cream);text-shadow:0 2px 26px rgba(0,0,0,.6), 0 0 46px rgba(139,189,233,.28)}
+  .tv-title em{font-style:italic;color:var(--pink)}
+  .tv-logline{font-style:italic;font-size:1.16rem;color:rgba(255,253,251,.94);max-width:44ch;margin:20px auto 0;line-height:1.5;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+  .tv-tags{display:flex;gap:0;justify-content:center;flex-wrap:wrap;margin-top:26px;font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.07em;color:#e7dcf5;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .tv-tags span{padding:0 15px;position:relative}
+  .tv-tags span+span::before{content:"·";position:absolute;left:-3px;color:rgba(231,220,245,.5)}
+  .tv-tags b{color:#fff;font-weight:700}
+  .hero-listen{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-family:'VT323',monospace;font-size:1.18rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#0c1a16;background:#7be0d0;padding:12px 26px;border-radius:10px;box-shadow:0 0 30px -6px rgba(123,224,208,.7);transition:transform .12s}
+  .hero-listen:hover{transform:translateY(-1px)}
+
+  /* VHS spine label */
+  .spine{max-width:var(--wide);margin:-24px auto 0;position:relative;z-index:2;padding:0 24px}
+  .spine-inner{background:var(--cream);border:2px solid var(--plum-deep);border-radius:8px;display:flex;align-items:center;gap:14px;padding:11px 18px;font-family:'VT323',monospace;font-size:1.12rem;letter-spacing:.06em;color:var(--plum-deep);box-shadow:0 14px 30px -18px rgba(58,24,56,.5)}
+  .spine-inner .dot{color:var(--coral)}
+  .spine-inner .end{margin-left:auto;color:var(--teal)}
+
+  /* Section marker */
+  .mark{max-width:var(--measure);margin:64px auto 6px;padding-top:16px;border-top:1px solid rgba(203,184,232,.22)}
+  .mark .k{font-family:'VT323',monospace;font-size:1.2rem;letter-spacing:.12em;text-transform:uppercase;color:#7be0d0;margin-bottom:6px;text-shadow:0 0 10px rgba(87,182,192,.4)}
+  .mark .k::before{content:"\25B6  ";color:var(--pink)}
+  .mark h2{font-size:clamp(1.8rem,4.2vw,2.6rem);color:#fff}
+  .mark h2 em{font-style:italic;color:var(--pink)}
+  .mark .sub{margin-top:8px;color:#c3b2d8;font-size:1rem}
+  .lead{font-size:1.22rem;color:#fff;font-weight:500}
+
+  /* Inline scene film — pixel-art keyframe / building render */
+  .film{position:relative;max-width:var(--wide);margin:30px auto;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:linear-gradient(150deg,#3a1838 0%,#6b2f57 52%,#f4a636 130%);box-shadow:0 30px 64px -30px rgba(58,24,56,.62)}
+  .film .frames{position:absolute;inset:0;z-index:1}
+  .film .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .film .frames img~img{display:none}
+  .film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.12) 3px 6px);mix-blend-mode:multiply}
+  .film-bug{position:absolute;top:13px;right:15px;z-index:3;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.8)}
+  .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:32px 20px 14px;color:var(--cream);font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.04em;background:linear-gradient(0deg,rgba(12,6,14,.9),transparent)}
+
+  /* Pull quote */
+  .pull{max-width:var(--measure);margin:52px auto;padding:24px 22px;text-align:center}
+  .pull p{font-style:italic;font-size:clamp(1.5rem,3.4vw,2rem);line-height:1.3;color:#fff;margin:0;max-width:none;font-weight:600;text-shadow:0 0 34px rgba(233,130,171,.28)}
+  .pull .who{margin-top:12px;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;color:#7be0d0}
+
+  /* Two tours */
+  .tours{max-width:var(--measure);margin:26px auto;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .tours .card{padding:20px 22px;border-radius:14px;border:1.5px solid rgba(203,184,232,.28);background:rgba(179,171,231,.06)}
+  .tours .card.exp{border-color:rgba(139,189,233,.5)}
+  .tours .card.full{border-color:rgba(244,166,54,.5)}
+  .tours .card .h{font-family:'VT323',monospace;font-size:1.14rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  .tours .card.exp .h{color:var(--sky)} .tours .card.full .h{color:var(--tang)}
+  .tours .card p{margin:0;max-width:none;font-size:1rem;line-height:1.55;color:#e3d9ef}
+  @media(max-width:560px){ .tours{grid-template-columns:1fr} }
+
+  /* Sign-off + next */
+  .signoff{max-width:var(--measure);margin:56px auto 0;text-align:center}
+  .signoff .eyebrow{color:#7be0d0;margin-bottom:8px}
+  .signoff h2{font-size:clamp(1.7rem,4vw,2.3rem);color:#fff}
+  .rooms{font-size:.94rem;color:#b9a8cf;text-align:center;margin-top:16px}
+  .next{max-width:var(--measure);margin:40px auto 0;padding:20px 22px;background:rgba(139,189,233,.09);border:1px solid rgba(139,189,233,.4);border-radius:12px;color:#dfecfa}
+  .next .eyebrow{color:#8bbde9;margin-bottom:6px}
+  .next h3{font-size:1.3rem;margin-bottom:8px;color:#fff}
+  .next p{margin:0;max-width:none;font-size:.98rem;color:#cfe0f3}
+
+  /* Watch/Listen CTA */
+  .listen-wrap{text-align:center;margin:48px auto}
+  .listen{display:inline-flex;align-items:center;gap:12px;font-family:'VT323',monospace;font-size:1.28rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--plum-deep);background:var(--tang);padding:15px 30px;border-radius:12px;box-shadow:0 14px 30px -14px rgba(244,166,54,.7)}
+
+  /* Rail */
+  .rail{max-width:var(--wide);margin:0 auto;padding:44px 24px 72px}
+  .rail .eyebrow{color:#e982ab;text-align:center;display:block;margin-bottom:16px}
+  .rail-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .rail-btn{text-decoration:none;text-align:center;padding:16px 12px;border-radius:12px;font-weight:700;font-size:.98rem;color:var(--plum-deep)}
+  .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
+  .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
+
+  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} }
+</style>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+<!-- Canonical town header (sv-global-header.js rewrites this in place) -->
+<header class="sv-header"></header>
+
+<!-- CINEMATIC HERO — the town, paused on its opening frame -->
+<header class="tv-hero">
+  <div class="osd"><span>❚❚ SP</span><span>S1 · TRAILER</span></div>
+  <p class="tv-meta">SEASON 1 · THE TRAILER</p>
+  <h1 class="tv-title">Welcome to SUNNYV<em>AiLE</em></h1>
+  <p class="tv-logline">A show about learning AI, made for women who are already smart, already busy, and not remotely interested in a forty-hour course. It works like the TV we grew up on: twenty-four-episode seasons, a new one every Wednesday, one useful thing each — no jargon.</p>
+  <div class="tv-tags"><span>THE SHOW · <b>L<span class="ai">Ai</span>DIES</b></span><span>THE TOWN · <b>SUNNYV<span class="ai">Ai</span>LE</b></span><span><b>~5 MIN</b></span></div>
+  <a class="hero-listen" href="/watch.html?ep=trailer">▶ Watch the trailer</a>
+</header>
+
+<div class="spine"><div class="spine-inner">SUNNYVAiLE VIDEO <span class="dot">·</span> S1 <span class="dot">·</span> THE TRAILER <span class="dot">·</span> SP <span class="dot">·</span> ❚❚ <span class="end">BE KIND, REWIND ⟲</span></div></div>
+
+<main>
+
+  <div class="mark"><div class="k">Before the season starts</div><h2>I owe you a tour</h2></div>
+  <p class="lead">Hi. Welcome to L<span class="ai">Ai</span>DIES. Before the season starts, I owe you a tour.</p>
+  <p>This is a show about learning AI — made for women who are already smart, already busy, and not remotely interested in a forty-hour course. It works like the TV we grew up on: twenty-four-episode seasons, a new one every Wednesday. Each episode is shorter than your commute, and each one gives you exactly <strong>one useful thing</strong> — explained the way your sharpest girlfriend would explain it over coffee, with the pop culture you were raised on and none of the jargon you weren't.</p>
+  <p>I'm your heroine. I can't say that with a straight face either, but the promo guy insists. I'm not an expert — <em>I'm a few steps ahead of you, that's all.</em> I put off learning AI for longer than I'll admit on the record — the full confession is Episode One — and now I'm walking the road one Wednesday at a time and reporting back. I make the mistakes so you can skip them. I do the reading so you don't have to.</p>
+
+  <figure class="film" aria-label="SUNNYVAiLE — the welcome wagon">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/01-welcome-wagon-visitors-centre.webp" alt="The Welcome Wagon visitors' centre in SUNNYVAiLE" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · WELCOME</span>
+    <figcaption class="film-cap">Sunny v-A-i-l-e. See what we did there?</figcaption>
+  </figure>
+  <p>So — SUNNYV<span class="ai">Ai</span>LE. The 90s had Sunnydale, Bayside, and Capeside. Silicon Valley has Sunnyvale. You have <em>sunnyVEIL</em> — that's Sunny v-A-I-l-e. See what we did there? When I finally started learning this stuff, everything about AI looked like a stock photo of a glowing blue brain. And I refused to spend a year of Wednesdays somewhere that ugly. So we built a town instead — set somewhere around <strong>nineteen ninety-nine</strong>, and furnished with the entire era that raised us. Boy bands and girl groups. Sleepover games. Hair full of butterfly clips. Calling in to the radio station to request a song so you could record it on cassette. The glory days of twenty-four-episode seasons, back when they let you fall in love with the characters before cancelling everything. That era wired us — and it turns out it wired us perfectly for this.</p>
+  <blockquote class="pull"><p>SUNNYV<span class="ai">Ai</span>LE is where girl power meets machine power.</p></blockquote>
+  <p>Analogies that stick, in a fictional town from an era we know and love — that's how we're teaching it. L<span class="ai">Ai</span>DIES is the show, SUNNYVAiLE is where every episode takes place. And I live here — actually live here. I found this place at eleven p.m. on a Tuesday, looking for something else. Most residents do. My card's in my wallet, my closet's upstairs at the sorority house, and the story you'll hear this season happens in these streets. Every building is a page. Walking in is just clicking. And the town remembers your visits — hold that thought.</p>
+
+  <div class="mark"><div class="k">The important part</div><h2>The town <em>is</em> the teaching method</h2><div class="sub">At first glance it looks like we just built something cute. Look again.</div></div>
+  <p>Here's what I actually need you to hear. Every episode teaches one concept. <strong>The study pack reinforces it. The song turns it into an earworm you can't shake. The pop quiz tests it. The games make you practice it. The community pressure-checks it.</strong> Every part of town echoes every other part, on purpose — because when you're busy, that echo is what makes learning stick. We think in analogies and stories; that's not a weakness, it's how AI finally makes sense.</p>
+  <blockquote class="pull"><p>We built a world because worlds work.</p></blockquote>
+
+  <div class="mark"><div class="k">On Wednesdays we do AI</div><h2>What Wednesday actually means</h2></div>
+  <p>I keep saying Wednesday — because on Wednesdays we do AI, obviously. But let me tell you what Wednesday actually <em>means.</em> A new episode drops every Wednesday, and the town dresses for it: new anthem on the radio, new study pack at the coffee shop, new charms hidden around town. (We might even wear pink.)</p>
+  <p>But the town itself is open every day of the week, and <strong>nothing expires.</strong> You can visit any building and do any activity in any order, whenever you want. Start today. Start next month. Go back to Episode One — the tapes stay on the shelf at the rental store forever. Catch up at your own pace, binge a little if you're behind, or slow down and sit with one. Wednesday is when the new thing arrives. Every other day is yours. But if you want to get the most out of SUNNYVAiLE, do one of the weekly tours so the learning really sticks — you might even meet some new friends along the way.</p>
+  <div class="tours">
+    <div class="card exp">
+      <div class="h">The Express Tour · 4 stops</div>
+      <p>The week's episode, the study pack, the quiz, and the song. The fast lane, for when you're slammed — and it still counts: you bank a Caught Up sticker and a butterfly clip for the jar.</p>
+    </div>
+    <div class="card full">
+      <div class="h">The Full Tour · 8 stops</div>
+      <p>The whole loop through town, tracked by your Tour Guide — it ticks each stop automatically the moment you show up. Finish all eight before next Wednesday and you bank an extra wish with the Fairy Godmother. It's the nineties. Just go with it.</p>
+    </div>
+  </div>
+
+  <div class="mark"><div class="k">The Full Tour</div><h2>Eight stops, in walking order</h2></div>
+
+  <!-- STOP 1 -->
+  <figure class="film" aria-label="Stop 1 — the NewsStand">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp" alt="The SUNNYVAiLE NewsStand" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 1</span>
+    <figcaption class="film-cap">Stop one — the NewsStand, first door on Main Street.</figcaption>
+  </figure>
+  <p><strong>Stop one: the NewsStand</strong> — first door on Main Street. The week's AI headlines, translated into actual English: what happened, why it matters to your job, no doom, no hype. Plus the bigger themes we're tracking in AI. Five minutes, and you're the informed one in the meeting.</p>
+
+  <!-- STOP 2 -->
+  <figure class="film" aria-label="Stop 2 — the Chick Flicks">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp" alt="The Chick Flicks video rental store" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 2</span>
+    <figcaption class="film-cap">Stop two — the Chick Flicks. Every episode's a tape on the shelf.</figcaption>
+  </figure>
+  <p><strong>Stop two: the Chick Flicks</strong>, our video rental store. Every episode lives here like a tape on a shelf, sorted into genre aisles you can actually browse. Grab this week's — and if you want the full experience, there's a screening room in the back where episodes play with the pictures. It's where you'd take a friend for her first one.</p>
+
+  <!-- STOP 3 -->
+  <figure class="film" aria-label="Stop 3 — the Blend & Snap">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.webp" alt="The Blend and Snap coffee shop" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 3</span>
+    <figcaption class="film-cap">Stop three — the Blend &amp; Snap. Sit down; this is the study pack.</figcaption>
+  </figure>
+  <p><strong>Stop three: the Blend &amp; Snap</strong> — the coffee shop, and third on the loop because by now you'll want to sit down. This is where the week's study pack lives: the class notes — a cheat sheet of what the episode taught and what to remember for the quiz — plus this week's trading card pack. Rip it open, flip each card, learn a concept. The pack also hands you the <strong>try-on</strong>: each week's ten-minute exercise, where you try the lesson on one small, real task from your actual life. If you only do one thing beyond listening, do the try-on. It's why the pack exists. (I write half this show from the corner table.)</p>
+
+  <!-- STOP 4 -->
+  <figure class="film" aria-label="Stop 4 — SUNNYVAiLE High">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/14-sunnyvaile-high.webp" alt="SUNNYVAiLE High" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 4</span>
+    <figcaption class="film-cap">Stop four — SUNNYVAiLE High. The pop quiz. Yes, with posters.</figcaption>
+  </figure>
+  <p><strong>Stop four: SUNNYVAiLE High</strong>, up Schoolhouse Road. The pop quiz — ten questions on the episode, plus two bonus questions, a couple of minutes, and your score banks <strong>butterfly clips</strong> in a jar in your closet. Best score counts, so you can always retake. And every four weeks, the gym hosts a <strong>book fair.</strong> Yes, that kind. Yes, with posters.</p>
+
+  <!-- STOP 5 -->
+  <figure class="film" aria-label="Stop 5 — free time at Mme CLAiO's">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/06-mme-claios-shop.webp" alt="Mme CLAiO's fortune-telling shop" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 5</span>
+    <figcaption class="film-cap">Stop five — scheduled free time. My favourite kind of structure.</figcaption>
+  </figure>
+  <p><strong>Stop five is scheduled free time</strong> — my favourite kind of structure. This is when the town shows off. Get your cards read at <strong>Mme CL<span class="ai">Ai</span>-O's</strong>; she does walk-ins, and she'll tell you the read, the message, and the move. Pick up the <strong>Dream Phone</strong> and call somebody in nineteen ninety-nine. Ask the <strong>Fairy Godmother</strong> anything — she's the town's actual AI assistant, a real one: bring the question, she brings the answer. (And yes — that wish you banked for finishing the Full Tour is spent with her.) Or go hunting: every week, seven charms hide in pictures around town. Spot one, click it, and it's added to the charm bracelet in your closet.</p>
+
+  <!-- STOP 6 -->
+  <figure class="film" aria-label="Stop 6 — MAiKEOVER on Main">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/09-maikeover-on-maine.webp" alt="MAiKEOVER on Main storefront" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 6</span>
+    <figcaption class="film-cap">Stop six — MAiKEOVER on Main. Your Resident Card. The town remembers you.</figcaption>
+  </figure>
+  <p><strong>Stop six: MAiKEOVER on Main.</strong> This is where you get your SUNNYVAiLE glow-up — your <strong>Resident Card.</strong> The town's version of a membership, and the two most useful minutes on the tour. It's free. You pick a handle, and from then on the town remembers you: quiz clips, charms, stickers, wishes, tour progress — everything banks. Without a card you're a tourist; things happen, but nothing sticks. With one, you're a resident. And you can come back any week to freshen the card — your favourite saint, your favourite cocktail, your favourite quote.</p>
+
+  <!-- STOP 7 -->
+  <figure class="film" aria-label="Stop 7 — the Bronze AiGE">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/05-bronze-aige.webp" alt="The Bronze AiGE bar" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 7</span>
+    <figcaption class="film-cap">Stop seven — the Bronze AiGE. Happy hour, and the Businesswomen's Special.</figcaption>
+  </figure>
+  <p><strong>Stop seven: the Bronze <span class="ai">Ai</span>GE.</strong> Happy hour. The bar serves the <strong>Businesswomen's Special</strong> — a paper fortune teller, the kind you folded in fifth grade, picks your drink of the week. This is your reminder to book that overdue happy hour with the girls — and we even have tools to make the scheduling and the meeting easy and fun.</p>
+
+  <!-- STOP 8 -->
+  <figure class="film" aria-label="Stop 8 — Delta LAi Nu">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/10-delta-lai-nu-sorority-house.webp" alt="Delta LAi Nu sorority house" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · STOP 8</span>
+    <figcaption class="film-cap">Stop eight — Delta L<span class="ai">Ai</span> Nu. The rooms, Girl Talk, and your closet upstairs.</figcaption>
+  </figure>
+  <p><strong>Stop eight: the sorority house — Delta L<span class="ai">Ai</span> Nu</strong>, on Wisteria Lane. The <strong>rooms</strong> live here — our members-only chat, a full hallway of them in three wings. Common rooms, where you post your wins and we cheer. Advice rooms, like Dear Ladies. Creative rooms, where mix CDs get traded and the Burn Book collects what didn't work — we keep receipts on our own mistakes. And the feature of the house: <strong>Girl Talk</strong>, where you draw a card and take the dare. This is also where the weekly sign-off challenge lands. And upstairs? <strong>Your closet</strong> — the room where everything you've collected is on display. Your card. Your clips. Your charms. Your luminaries. End the loop there, and admire the shelf you're building.</p>
+
+  <!-- THE RADIO -->
+  <div class="mark"><div class="k">My favourite building in town</div><h2>KSVL · community radio · 99.9</h2></div>
+  <figure class="film" aria-label="KSVL community radio">
+    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/16-ksvl-community-raidio.webp" alt="KSVL community radio station" loading="lazy"></div>
+    <span class="film-bug">SUNNYVAiLE · KSVL 99.9</span>
+    <figcaption class="film-cap">Don't just learn from books. Learn from hooks.</figcaption>
+  </figure>
+  <p>Now — the radio. I saved it because it's my favourite building in town, and because it's not just where the episode songs live. <strong>K-S-V-L, community radio, ninety-nine point nine</strong>, at the end of Main Street — a full, functioning station. Turn on the live rotation and you get <strong>DJ SunnyV</strong> between tracks, station jingles, weather and traffic reports for a town that has neither, and commercials for the storefronts you just walked past. The music is real and it's ours: <strong>ten house bands</strong> — every name is an AI joke you'll start catching around episode six — plus a new anthem every episode, because every lesson here has its own song. Turn it on when you arrive; it follows you from building to building.</p>
+  <blockquote class="pull"><p>"Don't just learn from books. Learn from hooks."</p><div class="who">KSVL 99.9 · the town's whole pedagogy in six words</div></blockquote>
+
+  <!-- AND THERE'S MORE -->
+  <div class="mark"><div class="k">And there's still more to find</div><h2>The town rewards snooping</h2></div>
+  <p>There's more I'm leaving for you to find. The <strong>Post Office</strong> writes you one letter a week — the episode, the pack, the quiz, the news, and the song, all in one envelope — and it ships gifts too. The <strong>Mall</strong> sells flair for your card. <strong>Town Hall</strong> is run by Mayor Deb, who worked at the post office until nineteen ninety-nine, when her coworkers put her name on the mayoral ballot as a joke — she won, and she keeps winning. And up on Lantern Hill, the <strong>LUMIN<span class="ai">Ai</span>RY</strong> hangs portraits in three wings: the patron saints from the era that raised us, the real-life mavens who built and questioned this field, and the trailblazers shipping the frontier right now. Take the walk. The town rewards snooping. You'll have favourites by Friday.</p>
+
+  <!-- SIGN-OFF -->
+  <section class="signoff">
+    <p class="eyebrow">So remember, ladies…</p>
+    <h2>You don't have to know anything yet. You just have to show up.</h2>
+  </section>
+  <p class="rooms">See you next Wednesday… in SUNNYVAiLE. Everything you just heard about lives at ladies dot A-i — that's "ladies" with an i in the middle: L, A, i, D, I, E, S.</p>
+
+  <!-- WATCH -->
+  <div class="listen-wrap"><a class="listen" href="/watch.html?ep=trailer">▶ Watch the trailer</a></div>
+
+  <!-- NEXT -->
+  <div class="next">
+    <p class="eyebrow">On the next episode of L<span class="ai">Ai</span>DIES</p>
+    <h3>Episode 01 · On Wednesdays We Do AI</h3>
+    <p>A man named Steve is called a visionary… and our heroine finally stops putting it off. Tune in next week for Episode One. See you next Wednesday, in SUNNYVAiLE.</p>
+  </div>
+
+</main>
+
+<!-- RAIL -->
+<div class="rail">
+  <span class="eyebrow">Everything you need to start</span>
+  <div class="rail-row">
+    <a class="rail-btn rb1" href="/watch.html?ep=trailer">Watch the trailer<small>Your guided tour</small></a>
+    <a class="rail-btn rb2" href="/visitors-centre.html">Explore SUNNYVAiLE<small>Every building is a page</small></a>
+    <a class="rail-btn rb4" href="/maikeover.html">Make your Resident Card<small>The town remembers you</small></a>
+    <a class="rail-btn rb5" href="/chick-flicks.html">Latest Episode<small>Grab this week's tape</small></a>
+  </div>
+</div>
+
+</body>
+</html>

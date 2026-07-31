@@ -1,0 +1,40 @@
+{
+  "baseline": {
+    "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+    "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+    "size_bytes": 112843240
+  },
+  "caption": {
+    "exact_entry": {
+      "end": 98.59,
+      "speaker": "The Heroine",
+      "start": 91.34,
+      "text": "Welcome back to LAiDIES \u2014 smart, busy women learning AI one Wednesday at a time, from a little internet town called SUNNYVAiLE."
+    },
+    "source": "operations/captions/episode-02.vtt",
+    "timing_map": "operations/captions/episode-02-timing-map.json"
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-v1.mp4",
+    "sha256": "ea5addbad951281602373cfde8d4264326e557a57b63ea2df218d0697316f138",
+    "size_bytes": 3895234,
+    "source_audio_tracks": 0,
+    "source_dimensions": "960x540",
+    "source_duration_seconds": 6.48
+  },
+  "output": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v1-review.mp4",
+    "status": "LOCAL_REVIEW_ONLY_NOT_PUBLIC"
+  },
+  "replacement": {
+    "audio_operation": "copy exact frozen-v19 AAC elementary packet stream",
+    "duration_seconds": 7.25,
+    "end_seconds": 98.59,
+    "operation": "replace baseline picture only; scale ident 2x to 1920x1080 without crop; hold final ident frame for remaining 0.770 seconds",
+    "out_of_scope_operation": "baseline picture timeline retained before 91.340 and after 98.590 seconds",
+    "start_seconds": 91.34
+  },
+  "schema": "laidies.episode-02.welcome-ident.config.v1",
+  "status": "BUILDING_LOCAL_REVIEW_SUCCESSOR_ONLY",
+  "task_id": "WE-MEDIA-E02-WELCOME-IDENT-V1-2026-07-26"
+}

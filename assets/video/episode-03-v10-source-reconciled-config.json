@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "candidate_id": "episode-03-v10-source-reconciled-review",
+  "status": "BUILT_LOCALLY",
+  "created_at": "2026-07-26T21:43:25Z",
+  "built_at": "2026-07-26T21:58:17Z",
+  "scope": "Episode 03 only",
+  "output": "assets/video/episode-03-full-v10-source-reconciled-review.mp4",
+  "builder": "operations/tools/assemble-ep03-film-v10-source-reconciled.py",
+  "manifest": "operations/video-qa/episode-03-v10-49-placement-manifest.json",
+  "qc": "operations/video-qa/episode-03-full-v10-source-reconciled-qc.json",
+  "v9_source_master": {
+    "path": "assets/video/episode-03-full-v9-controlled-motion-review.mp4",
+    "sha256": "7a656f43b1c207f7121e9b4ba7434321be03137f9a74551991a96156b986a474",
+    "role": "49-placement successor being reconciled; source ordering retained, unauthorized camera moves and fades removed"
+  },
+  "verified_hard_cut_render_base": {
+    "path": "assets/video/episode-03-full-v8.mp4",
+    "sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239",
+    "role": "byte-stable hard-cut render whose 49 cue starts match the current authoritative assets"
+  },
+  "clock_authorities": {
+    "cue_file": {
+      "path": "content/episodes/episode-03-cues.json",
+      "sha256": "aa770874293609ec41676839880471effce2a12f906d198cbf7230db31ed09a9"
+    },
+    "narration": {
+      "path": "content/music/episode-03-narration.mp3",
+      "sha256": "0d0737326abc71ae4009930d78350ede1593ffd6c46031e17f227aa1a50b1399"
+    },
+    "captions": {
+      "path": "assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be"
+    }
+  },
+  "reference_authorities": {
+    "animation_and_assembly_spec": {
+      "path": "operations/codex-prompts/ep03-authoritative-spec.md",
+      "sha256": "4108d8cfb0cf67aac4cc3785260b36995bb2f2b2f11142f329ce98421469d763"
+    },
+    "confirmed_rework_flags": {
+      "path": "operations/ep03-rework-flags.md",
+      "sha256": "98ab5b11aeefb4ba0d285722fef0b82f1383c965f6f33429e862295322b0be9f"
+    },
+    "style_reference_set": [
+      "operations/reference/episode-style-popart/epstyle-scene-01.png",
+      "operations/reference/episode-style-popart/epstyle-scene-02.png",
+      "operations/reference/episode-style-popart/epstyle-scene-03.png",
+      "operations/reference/episode-style-popart/epstyle-scene-04.png",
+      "operations/reference/episode-style-popart/epstyle-scene-05.png"
+    ]
+  },
+  "runtime_seconds": 1047.98,
+  "placement_count": 49,
+  "frame_size": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "caption_mode": "external player VTT; no burned captions",
+  "assembly_policy": {
+    "ambient_loop_cues": [
+      3,
+      4,
+      5,
+      6,
+      9,
+      11,
+      14,
+      17,
+      19,
+      21,
+      22,
+      25,
+      30,
+      38,
+      45
+    ],
+    "one_shot_then_freeze_cues": [
+      8
+    ],
+    "static_cues": [
+      0,
+      1,
+      2,
+      7,
+      10,
+      12,
+      13,
+      15,
+      16,
+      18,
+      20,
+      23,
+      24,
+      26,
+      27,
+      28,
+      29,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      46,
+      47,
+      48
+    ],
+    "camera_motion_cues": [],
+    "transition": "hard cut at exact cue in-time",
+    "loop_constraint": "zero net travel",
+    "transformation_constraint": "plays once then freezes; no wand"
+  },
+  "source_reconciliation_flags": {
+    "monitor_orientation": {
+      "cues": [
+        3,
+        4,
+        5
+      ],
+      "authority": "operations/ep03-rework-flags.md",
+      "required_check": "screen faces heroine/viewer where visible; rear-facing monitor surface is solid black"
+    },
+    "chutney_regina_pairing": {
+      "cues": [
+        22,
+        32,
+        33
+      ],
+      "authority": "operations/ep03-rework-flags.md",
+      "required_check": "Chutney shower repetition and Regina/Burn Book line use their correct separate visuals"
+    },
+    "tryon_malformed_card": {
+      "cues": [
+        44
+      ],
+      "authority": "operations/ep03-rework-flags.md",
+      "required_check": "no leading bars that read as doubled I characters"
+    }
+  },
+  "maker_judgment": "not permitted",
+  "release_status": "HOLD — independent Episode Media Quality judgment required",
+  "built_artifacts": {
+    "output_sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239",
+    "placement_manifest_sha256": "b278d0b7975c81df7e19396b350c5732563920fd54fe1e994d675796e94b520a",
+    "maker_qc_sha256": "c6f059ddf81c539b68d5b853571203339f6b3ca207d0db84700232944e8d4d27",
+    "motion_measure_sha256": "d481c8d4af2515b656b77699e6259f393cb24ffc52632038338bc0f4d90cea1a",
+    "hard_cut_report_sha256": "c11b5840eab3e8dc84d995437a97d54447fedd4b1b6619116bdff87f6aefd2db"
+  },
+  "out_of_scope": [
+    "Episode 01",
+    "Episode 02",
+    "Episode 04",
+    "Trailer",
+    "site",
+    "release",
+    "deploy",
+    "public",
+    "spend"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-28T09:03:00-07:00",
+  "timezone": "America/Vancouver",
+  "operating_phase": "CONTINUOUS_OPERATIONS",
+  "transition_gate": "Exact grand-reopening artifact DEPLOYED and VERIFIED PUBLICLY",
+  "transition_status": "MET_VERIFIED_PUBLICLY",
+  "obligations": [
+    {
+      "id": "control-room-launch-heartbeat",
+      "cadence_or_trigger": "Every 5 minutes during launch; five minutes is the maximum unattended safety-net gap",
+      "owner": "Portfolio Control Room",
+      "last_due": "2026-07-26T13:39:02-07:00",
+      "last_run": "2026-07-26T14:49:53-07:00",
+      "last_evidence": "control-room/dashboard.html and control-room/AUDIT-RECEIPTS.md",
+      "next_due": null,
+      "status": "COMPLETE",
+      "overdue_reason": null
+    },
+    {
+      "id": "daily-executive-delta",
+      "cadence_or_trigger": "Daily after public launch; during launch covered by every heartbeat",
+      "owner": "Portfolio Control Room",
+      "last_due": "2026-07-28T09:00:00-07:00",
+      "last_run": "2026-07-28T09:03:00-07:00",
+      "last_evidence": "control-room/AUDIT-RECEIPTS.md; public Homepage SHA 238dff887de35233994d421b39bee0845a29b5bd09defd95dbe00d877773fb87; HTTP 200 key journeys",
+      "next_due": "2026-07-29T09:00:00-07:00",
+      "status": "COMPLETE",
+      "overdue_reason": null
+    },
+    {
+      "id": "weekly-portfolio-owner-health",
+      "cadence_or_trigger": "Weekly after public launch",
+      "owner": "Portfolio Control Room",
+      "last_due": "2026-07-27T09:00:00-07:00",
+      "last_run": "2026-07-27T16:45:38-07:00",
+      "last_evidence": "control-room/dashboard-state.json generated 2026-07-27T16:45:38-07:00",
+      "next_due": "2026-08-03T09:00:00-07:00",
+      "status": "COMPLETE",
+      "overdue_reason": null
+    },
+    {
+      "id": "weekly-episode-engine",
+      "cadence_or_trigger": "Weekly and each approved episode intake",
+      "owner": "Weekly Episodes — Engine & Production",
+      "last_due": "2026-07-26T10:00:00-07:00",
+      "last_run": "2026-07-26T10:39:31-07:00",
+      "last_evidence": "episode-experience/state.json",
+      "next_due": "2026-08-02T10:00:00-07:00",
+      "status": "REPORT_READY_NEXT",
+      "overdue_reason": null
+    },
+    {
+      "id": "episode-learning-impact-scan",
+      "cadence_or_trigger": "Each episode Gate 1 admission or material concept correction",
+      "owner": "Learning System — Concepts & Curriculum",
+      "last_due": "2026-07-28T09:00:00-07:00",
+      "last_run": "2026-07-28T09:03:00-07:00",
+      "last_evidence": "laidies.ai Homepage, Visitor’s Centre and Episode 04 watch HTTP 200; Homepage exact SHA-256 recorded",
+      "next_due": "EPISODE_5_GATE_1_ADMISSION",
+      "status": "TRIGGER_NOT_MET",
+      "overdue_reason": null
+    },
+    {
+      "id": "newsstand-radar",
+      "cadence_or_trigger": "Twice daily under the existing separate NewsStand automation",
+      "owner": "NewsStand",
+      "last_due": "SEPARATE_AUTOMATION",
+      "last_run": "NOT_RECONCILED_THIS_CONTROL_ROOM_RUN",
+      "last_evidence": "SEPARATE_AUTOMATION",
+      "next_due": "SEPARATE_AUTOMATION",
+      "status": "EXTERNAL_CADENCE_UNVERIFIED_THIS_RUN",
+      "overdue_reason": "Control Room preserves the separate automation and did not infer its latest execution from its existence."
+    },
+    {
+      "id": "platform-release-verification",
+      "cadence_or_trigger": "Every integrated release candidate and deployment",
+      "owner": "Functionality & Platform / Release",
+      "last_due": null,
+      "last_run": null,
+      "last_evidence": null,
+      "next_due": "NEXT_EXACT_INTEGRATED_CANDIDATE",
+      "status": "TRIGGER_NOT_MET",
+      "overdue_reason": null
+    },
+    {
+      "id": "growth-post-campaign-review",
+      "cadence_or_trigger": "After every admitted campaign",
+      "owner": "Audience & Growth",
+      "last_due": null,
+      "last_run": null,
+      "last_evidence": null,
+      "next_due": "FIRST_ADMITTED_CAMPAIGN",
+      "status": "TRIGGER_NOT_MET",
+      "overdue_reason": null
+    },
+    {
+      "id": "building-event-checks",
+      "cadence_or_trigger": "Material dependency, incident, content correction, release or user-evidence change",
+      "owner": "Relevant building owner coordinated by Control Room",
+      "last_due": "2026-07-28T09:00:00-07:00",
+      "last_run": "2026-07-28T09:03:00-07:00",
+      "last_evidence": "JoJo owner approval, Mayor Deb local successor and Homepage direction reconciled without public mutation",
+      "next_due": "NEXT_MATERIAL_BUILDING_TRIGGER",
+      "status": "COMPLETE",
+      "overdue_reason": null
+    },
+    {
+      "id": "rotating-building-deep-health",
+      "cadence_or_trigger": "Monthly after public launch; every building covered once per rotation",
+      "owner": "Building owners coordinated by Control Room",
+      "last_due": null,
+      "last_run": null,
+      "last_evidence": null,
+      "next_due": "2026-08-01T09:00:00-07:00",
+      "status": "SCHEDULED",
+      "overdue_reason": null
+    }
+  ]
+}

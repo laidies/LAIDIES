@@ -1,0 +1,111 @@
+{
+  "schema_version": "library-correction-contract.v1",
+  "status": "VERIFIED_LOCAL_CONTRACT_ONLY",
+  "authority": {
+    "production_provider": null,
+    "live_service": false,
+    "may_admit_book": false,
+    "may_set_correction_state_clear": false
+  },
+  "states": [
+    "submitted",
+    "triage",
+    "resolved_corrected",
+    "demoted"
+  ],
+  "transitions": {
+    "submitted": ["triage"],
+    "triage": ["resolved_corrected", "demoted"],
+    "resolved_corrected": [],
+    "demoted": []
+  },
+  "submit_fields": [
+    "book_id",
+    "section_id",
+    "claim_id",
+    "source_id",
+    "content_version",
+    "category",
+    "finding",
+    "evidence_url"
+  ],
+  "immutable_record_fields": [
+    "correction_id",
+    "book_id",
+    "section_id",
+    "claim_id",
+    "source_id",
+    "reporter_safe_payload",
+    "receipt",
+    "state",
+    "owner",
+    "created_at",
+    "updated_at",
+    "resolved_at",
+    "resolution",
+    "content_version",
+    "record_version",
+    "version_id",
+    "supersedes_version",
+    "superseded_by"
+  ],
+  "privacy": {
+    "ledger_payload": [
+      "category",
+      "finding_sha256",
+      "evidence_origin",
+      "retention_class",
+      "payload_expires_at"
+    ],
+    "receipt_payload": [
+      "correction_id",
+      "receipt_id",
+      "state",
+      "created_at",
+      "status_reference"
+    ],
+    "prohibited_fields": [
+      "email",
+      "name",
+      "resident_card_id",
+      "account_id",
+      "raw_query",
+      "reading_activity",
+      "reading_text",
+      "puffy_purpose",
+      "saved_title"
+    ],
+    "raw_payload_retention_days": 30,
+    "immutable_ledger_retention": "product_lifetime_plus_correction_audit_window",
+    "analytics_rule": "controlled IDs and outcome codes only; never reporter text, evidence URL, reading data, query text, Resident Card identifiers or private Puffy labels"
+  },
+  "propagation_consumers": {
+    "admission_compiler": [
+      "book_id",
+      "required_action",
+      "required_correction_state",
+      "content_version",
+      "requires_independent_readmission"
+    ],
+    "site_index": [
+      "book_id",
+      "claim_id",
+      "action"
+    ],
+    "miss_jeeves": [
+      "book_id",
+      "claim_id",
+      "action"
+    ],
+    "puffy_recheck": [
+      "book_id",
+      "action",
+      "preserve_unavailable_marker"
+    ]
+  },
+  "required_correction_states": [
+    "open-triage",
+    "corrected-pending-readmission",
+    "correction-required"
+  ]
+}

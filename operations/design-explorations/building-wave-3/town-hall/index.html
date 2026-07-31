@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Town Hall · Complete civic-room candidate</title>
+  <meta name="description" content="An isolated complete-building candidate for SUNNYVAiLE Town Hall.">
+  <link rel="stylesheet" href="town-hall-candidate.css">
+</head>
+<body>
+  <a class="skip-link" href="#civic-room">Skip to the civic room</a>
+
+  <header class="candidate-bar">
+    <a href="/town-hall.html">← Current Town Hall</a>
+    <span>Isolated building candidate · nothing here is submitted</span>
+  </header>
+
+  <main id="civic-room" tabindex="-1">
+    <section class="room-hero" aria-labelledby="page-title">
+      <img
+        class="room-hero__art"
+        src="/assets/building-interiors/town-hall-civic-chamber.jpg"
+        alt="SUNNYVAiLE Town Hall's civic chamber, with Mayor Deb's curved counter, a noticeboard and a comment drop-box"
+      >
+      <div class="room-hero__wash" aria-hidden="true"></div>
+      <div class="room-hero__copy">
+        <p class="eyebrow">Civic Square · Since 1999</p>
+        <h1 id="page-title">Town Hall.</h1>
+        <p class="hero-deck">Ring Deb. Meet the Regulars. Prepare a private comment card.</p>
+        <p class="truth-line"><strong>Tonight’s truth:</strong> the civic inbox is not open. Exploring and device-only choices work; no note leaves this browser.</p>
+      </div>
+      <nav class="handbacks" aria-label="Town Hall handbacks">
+        <a href="/visitors-centre.html">Visitor’s Centre</a>
+        <a href="/town-hall.html">Current Town Hall</a>
+        <a href="/index.html">SUNNYVAiLE home</a>
+      </nav>
+    </section>
+
+    <section class="station-stage" aria-labelledby="stations-title">
+      <div class="stage-heading">
+        <p class="eyebrow">Three civic stations</p>
+        <h2 id="stations-title">The lobby is the interface.</h2>
+        <p>One station opens at a time. Every station also works from its direct link.</p>
+      </div>
+
+      <div class="station-controls" role="list">
+        <button class="station station--deb" type="button" data-station="deb" data-js-control disabled aria-expanded="false" aria-controls="panel-deb">
+          <span class="station__object" aria-hidden="true">●</span>
+          <span class="station__verb">Ring</span>
+          <strong>Mayor Deb’s counter</strong>
+          <span>Two songs, the poster archive and the woman who won by default.</span>
+        </button>
+        <button class="station station--regulars" type="button" data-station="regulars" data-js-control disabled aria-expanded="false" aria-controls="panel-regulars">
+          <span class="station__object" aria-hidden="true">♥</span>
+          <span class="station__verb">Meet</span>
+          <strong>The noticeboard</strong>
+          <span><b id="roster-count">Four</b> actual Town Regulars. No invented feed.</span>
+        </button>
+        <button class="station station--comments" type="button" data-station="comments" data-js-control disabled aria-expanded="false" aria-controls="panel-comments">
+          <span class="station__object" aria-hidden="true">✉</span>
+          <span class="station__verb">Prepare</span>
+          <strong>The comment drop-box</strong>
+          <span>Private, non-emergency and currently held from submission.</span>
+        </button>
+      </div>
+
+      <p id="room-status" class="room-status" role="status" aria-live="polite">Choose a station.</p>
+
+      <section id="panel-deb" class="station-panel panel-deb" data-panel="deb" tabindex="-1" hidden>
+        <div class="deb-scene">
+          <img src="/assets/building-interiors/town-hall-deb-desk.jpg" alt="Mayor Deb at her Town Hall desk beside a beige computer, civic notices and potted jacarandas">
+          <div class="deb-scene__copy">
+            <p class="eyebrow">Mayor since 1999 · Patron SAiNT of Loop Me Out</p>
+            <h2>Mayor Deb is in. Technically.</h2>
+            <p>Her coworkers put her on the ballot as a joke. Everyone else was too afraid to run. She won by default and has been trying to Deb-flect the job ever since.</p>
+            <div class="audio-console" aria-label="Mayor Deb recordings">
+              <button type="button" data-audio="/content/music/saint-deb.mp3" data-title="Loop Me Out" data-js-control disabled>Play “Loop Me Out”</button>
+              <button type="button" data-audio="/content/music/debs-tomorrow-problem.mp3" data-title="Deb’s Tomorrow Problem" data-js-control disabled>Play “Deb’s Tomorrow Problem”</button>
+              <button type="button" id="audio-stop" disabled>Stop</button>
+              <p id="audio-status" role="status" aria-live="polite">Nothing is playing.</p>
+              <button type="button" id="audio-retry" disabled hidden>Retry</button>
+            </div>
+          </div>
+        </div>
+        <div class="poster-drawer">
+          <div>
+            <p class="eyebrow">Filed archive</p>
+            <h3>The campaign poster saga</h3>
+            <p>1999: a stolen action poster. 2003: the intern tried “NOPE.” Nobody ran either time.</p>
+          </div>
+          <a href="/assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999-web.jpg">Open the printable NOPE poster</a>
+          <a href="/luminairy.html">Meet Patron SAiNT Deb at The LUMINAiRY</a>
+        </div>
+      </section>
+
+      <section id="panel-regulars" class="station-panel panel-regulars" data-panel="regulars" tabindex="-1" hidden>
+        <div class="noticeboard-heading">
+          <div>
+            <p class="eyebrow">Heart-pushpin noticeboard</p>
+            <h2>The people who live here.</h2>
+          </div>
+          <p>The Regulars are SUNNYVAiLE locals. Pick one for <em>Your Luminaries</em> on this device; it is not an account, membership or cross-device record.</p>
+        </div>
+        <div id="regulars-grid" class="regulars-grid" aria-live="polite"></div>
+        <div class="regular-choice">
+          <p id="regular-choice-status" role="status" aria-live="polite">No Town Regular is selected on this device.</p>
+          <button type="button" id="regular-clear" disabled>Clear device choice</button>
+          <a href="/laidies-card.html#covenSection">See the destination on the Resident Card</a>
+        </div>
+      </section>
+
+      <section id="panel-comments" class="station-panel panel-comments" data-panel="comments" tabindex="-1" hidden>
+        <div class="dropbox-copy">
+          <p class="eyebrow">Private civic intake · release held</p>
+          <h2>Prepare a comment card.</h2>
+          <p><strong>This does not send anything.</strong> The authoritative inbox and staff lifecycle are not released. Do not include private or sensitive information. This is not an emergency service or guaranteed-response channel.</p>
+        </div>
+
+        <form id="comment-draft-form" novalidate>
+          <fieldset>
+            <legend>What kind of card is this?</legend>
+            <label><input type="radio" name="type" value="compliment" data-js-field disabled> Compliment</label>
+            <label><input type="radio" name="type" value="complaint" data-js-field disabled> Complaint</label>
+            <label><input type="radio" name="type" value="suggestion" data-js-field disabled> Suggestion</label>
+          </fieldset>
+
+          <label for="comment-subject">Subject <span>(optional, 100 characters)</span></label>
+          <input id="comment-subject" name="subject" maxlength="100" autocomplete="off" data-js-field disabled>
+
+          <label for="comment-body">Your note <span>(3–2,000 characters)</span></label>
+          <textarea id="comment-body" name="body" minlength="3" maxlength="2000" rows="7" aria-describedby="comment-count comment-boundary" data-js-field disabled></textarea>
+          <p id="comment-count">0 / 2000</p>
+          <p id="comment-boundary">Saved drafts stay only on this device for seven days. Saving is not filing, acceptance, reading or staff status.</p>
+
+          <div class="draft-actions">
+            <button type="submit" data-js-control disabled>Save device-only draft</button>
+            <button type="button" id="draft-delete" disabled>Delete draft</button>
+          </div>
+          <p id="draft-status" role="status" aria-live="polite">No device-only draft is saved.</p>
+        </form>
+
+        <div class="held-lifecycle" aria-label="What will be required before the inbox opens">
+          <strong>Before “File it” can exist:</strong>
+          <span>server validation</span>
+          <span>idempotent receipt</span>
+          <span>staff owner</span>
+          <span>triage and correction</span>
+          <span>retention and deletion</span>
+          <span>public release proof</span>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <audio id="deb-audio" preload="metadata"></audio>
+  <noscript>
+    <p class="noscript-note">Town Hall’s interactive stations need JavaScript. You can still visit the current Town Hall, Visitor’s Centre or SUNNYVAiLE home using the links above.</p>
+  </noscript>
+  <script src="town-hall-candidate.js"></script>
+</body>
+</html>

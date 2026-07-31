@@ -1,0 +1,102 @@
+{
+  "schema": "laidies.weekly-episodes.trailer-outfit-decision-package-binding.v1",
+  "status": "REPORT READY",
+  "createdAt": "2026-07-27T11:39:29-0700",
+  "scope": "Decision preparation only. No media, source, caption, route, release, deployment or public-state mutation.",
+  "currentTrailer": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+    "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+    "immutable": true
+  },
+  "currentIndependentVerdict": {
+    "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v5-welcome-ident-independent-judge-2026-07-26.md",
+    "sha256": "0389e169327aef5d5d573ad055c5e9eb30123857860157e08c710e85b5d67612",
+    "truth": "Bounded Welcome-ident operation ACCEPT; full title HOLD for heroine outfit authority and identified human full-title 1x unmuted audible witness."
+  },
+  "sourceDecisionPackage": {
+    "indexPath": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-outfit-decision-package-2026-07-26/index.html",
+    "indexSha256": "621a9bd7593e5b8982c3d62154369ebcbdb49fd63f38ffc78197134937c3594c",
+    "manifestPath": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-outfit-decision-package-2026-07-26/manifest.json",
+    "manifestSha256": "b6a99b417cf9e75d9130835f38fc82b2c3f3780e7abab092f639228312ea3082",
+    "preservedDecisionState": {
+      "currentOutfitDistribution": "Seven yellow-plaid beats and two multicolour beats.",
+      "recommendedOption": "Use the multicolour B05/B14 dress as the Trailer-only signature outfit.",
+      "alternatives": [
+        "Use yellow plaid as the signature and change B05/B14.",
+        "Keep the current two-look state under an explicit exception."
+      ],
+      "tradeoffSummary": "Multicolour has the highest immediate replacement cost but follows the latest explicit correction and removes both adjacent reversals; yellow plaid minimizes edits but reverses the latest correction; an exception changes no media but preserves the weakest continuity."
+    }
+  },
+  "verification": {
+    "method": "Extract the nine zero-based sample frames named by the source package from immutable Trailer v5 with FFmpeg 7.1, then compare SHA-256 against the source-package frame artifacts. For the one mismatch, visually inspect and compute RGB PSNR.",
+    "sampleFrameCount": 9,
+    "byteIdenticalCount": 8,
+    "affectedCount": 1,
+    "byteIdenticalBeats": [
+      {
+        "beat": "B01",
+        "frame": 95,
+        "sha256": "b5986434f50444ad187f7ed18b423549a8485381ea76fa828469d2138e002f03"
+      },
+      {
+        "beat": "B04",
+        "frame": 1191,
+        "sha256": "52d6ac5c6cbef3bed0c46b6a70513e5b86bcbda363f5bcad8e05e23a7db0de01"
+      },
+      {
+        "beat": "B05",
+        "frame": 1556,
+        "sha256": "62a30f50359c3cc641d1454a68f3677a911eac053b7a4f1f666ebecdc43b256b"
+      },
+      {
+        "beat": "B07",
+        "frame": 2740,
+        "sha256": "39ce4836d3f819ad3b24d278fa2638be2410fcc973118a9f42d30ba68c7f8fe5"
+      },
+      {
+        "beat": "B14",
+        "frame": 6005,
+        "sha256": "ac6d7d1d8d18af462da860ef3b59a423cec6947b1e8536dd1fdb2fe1c612c126"
+      },
+      {
+        "beat": "B15",
+        "frame": 6383,
+        "sha256": "4d9a9e07f321cf5422ff18ed0c32f8541aa8b77bd1fd26ca51c599059a77ec4c"
+      },
+      {
+        "beat": "B31",
+        "frame": 14260,
+        "sha256": "a4e824b6ce471213c9813b9af1e1eb136bc7e20ad65520155e6fa4c69b4d0078"
+      },
+      {
+        "beat": "B56",
+        "frame": 26407,
+        "sha256": "fc2fe4beb385c4d57e6f25f19dedaa42f3fbc87b4f76e34aab9c6c47e344a38a"
+      }
+    ],
+    "affectedBeat": {
+      "beat": "B39",
+      "frame": 17210,
+      "timeSeconds": 573.6666666667,
+      "sourcePackageFrameSha256": "06860ad65cbff0e5b44d31eeaf0db32e47033a494bd6ee5c67c04a02d881186b",
+      "currentV5FrameSha256": "42592800bda6a56613fea5be2915505e1d76c29804e74a8fa21858d051421d24",
+      "rgbPsnrAverageDb": 29.442116,
+      "visualFinding": "The same yellow-plaid heroine transformation state remains visible, but the exact decoded frame is not byte- or pixel-identical after the v5 tail reconstruction.",
+      "decisionImpact": "No outfit classification, option, recommendation or tradeoff changes. Current-v5 B39 frame and the affected yellow-plaid contact sheet are regenerated in this isolated package."
+    }
+  },
+  "artifacts": {
+    "index.html": "0525e0b1c7668f29707b1c06e48143b66f56103937767cd97b30182ca8ccc0aa",
+    "frames/B39-frame-017210-09m33.667s-current-v5.png": "42592800bda6a56613fea5be2915505e1d76c29804e74a8fa21858d051421d24",
+    "contact-sheets/yellow-plaid-beats-B01-B04-B07-B15-B31-B39-B56-current-v5.png": "f20f51284f165d121a7286a16b492025fa1e32cb626afa91319b030df1cedb6e"
+  },
+  "authority": {
+    "mediaProduction": "STOPPED",
+    "ownerDecision": "PENDING",
+    "humanFullTitleWitness": "PENDING",
+    "release": false,
+    "deployment": false,
+    "public": false
+  }
+}

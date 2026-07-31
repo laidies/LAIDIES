@@ -1,0 +1,90 @@
+{
+  "body": {
+    "schemaVersion": "2.0.0",
+    "recordType": "engine-candidate",
+    "payload": {
+      "transactionId": "ep05-correction-v2",
+      "transactionType": "correction",
+      "createdAt": "2026-07-26T13:00:00Z",
+      "episode": {
+        "id": "episode-05",
+        "title": "The Super Models"
+      },
+      "issue": {
+        "route": "/issues/issue-05.html",
+        "artifactPath": "issues/issue-05.html",
+        "artifactSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "formats": {
+        "readingIssue": {
+          "present": true,
+          "artifactPath": "issues/issue-05.html",
+          "artifactSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": "accepted"
+        },
+        "narratedListenAlong": {
+          "present": false,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": null
+        },
+        "visualEdition": {
+          "present": false,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": null
+        },
+        "motionFilm": {
+          "present": false,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": null
+        }
+      },
+      "dependencies": {
+        "requiredTransactionFiles": [
+          "issues/issue-05.html"
+        ]
+      },
+      "candidate": {
+        "id": "ep05-candidate-v2",
+        "productionVerdicts": [],
+        "independentVerdicts": []
+      },
+      "supersession": {
+        "supersedesCandidateId": "ep05-candidate-v1",
+        "supersedesCandidateBodySha256": "9e7331b979d842be87993f2b42e46b94cc77ea226a53085150ad34f9c4d648b8",
+        "invalidatesAdmissions": [
+          "cf-admission-v1"
+        ],
+        "reason": "correction"
+      },
+      "historyContext": {
+        "ledgerPath": "history-with-prior.json",
+        "ledgerSha256": "1d1f498dd4ffca4d3eed433e9b7dabbce182e8c54ece4e786f0d594bb266974f",
+        "acceptedCandidateCount": 1
+      },
+      "proposedAvailability": {
+        "editorialState": "forthcoming",
+        "readingIssue": "forthcoming",
+        "narratedListenAlong": "unavailable",
+        "visualEdition": "unavailable",
+        "motionFilm": "unavailable"
+      },
+      "rollback": {
+        "mode": "restore-prior",
+        "candidateId": "invented-candidate",
+        "chickFlicksAdmissionId": "invented-admission"
+      }
+    }
+  },
+  "integrity": {
+    "algorithm": "sha-256",
+    "canonicalization": "RFC8785-JCS",
+    "bodySha256": "6b142bf46d9be886c22b02c758e607882f871c5799905626d7ca2026ae60d026"
+  }
+}

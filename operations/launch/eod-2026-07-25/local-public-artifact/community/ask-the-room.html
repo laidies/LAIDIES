@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ask the Room | LAiDIES</title>
+    <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
+    <link rel="stylesheet" href="/content/community-room-v2.css?v=20260724-3" />
+    <!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+    <main class="community-thread">
+      <section class="thread-hero">
+        <p class="eyebrow">The LAiDIES Room</p>
+        <h1>Ask the Room</h1>
+        <p class="thread-subhead">The question is allowed to show up before the polished answer does.</p>
+        <p>Post the AI question that would help other women too: what you are trying to do, what tool you are using, what you tried, and where it went off the rails.</p>
+        <a class="button secondary" href="../community.html">Back to the room</a>
+      </section>
+      <section class="thread-comments" aria-label="Ask the Room comments">
+        <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
+        <hyvor-talk-comments website-id="15519" page-id="ask-the-room"></hyvor-talk-comments>
+      </section>
+    
+    <div style="text-align: center; padding: 32px 20px 48px;">
+      <a class="button secondary" href="../index.html">← Back to Home</a>
+    </div>
+  </main>
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand">LAiDIES<sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
+      </p>
+      <div>
+        <a href="../episodes.html">Episodes</a>
+        <a href="../community.html">Community</a>
+        <a href="../index.html#signup">Subscribe</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </footer>
+  <script>
+(function(){
+  var btn = document.querySelector(".hamburger-btn");
+  var nav = document.querySelector(".site-header .nav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", function() {
+    var open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open);
+    btn.textContent = open ? "✕" : "☰";
+  });
+  nav.addEventListener("click", function(e) {
+    if (e.target.tagName === "A") {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+  });
+  document.addEventListener("click", function(e) {
+    if (!btn.contains(e.target) && !nav.contains(e.target) && nav.classList.contains("is-open")) {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "☰";
+    }
+  });
+})();
+</script>
+    <script src="../content/site/brand-polish.js?v=wm2" defer></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

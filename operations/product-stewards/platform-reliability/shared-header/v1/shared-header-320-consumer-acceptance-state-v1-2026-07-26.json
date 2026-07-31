@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "recordType": "shared-header-consumer-acceptance-state",
+  "candidateId": "SVGH-320-2026-07-26-v1",
+  "verifiedAt": "2026-07-26T13:06:22-07:00",
+  "candidate": {
+    "sharedSource": "content/site/sv-global-header.js",
+    "sharedSourceSha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa",
+    "makerReceipt": "operations/product-stewards/platform-reliability/shared-header/v1/shared-header-320-repair-candidate-v1-2026-07-26.json",
+    "makerReceiptSha256": "299876c0962e45f282579e4c61d61bb4365a5ddbf91a7efaf3d3375e71d9c049"
+  },
+  "consumerAcceptances": {
+    "townEntryHomepageStartHere": {
+      "decision": "ACCEPT",
+      "scope": "exact frozen Homepage and Start Here consumer pair only",
+      "evidenceAt": "2026-07-26T12:51:00-07:00",
+      "homepageSha256": "c437da107ba8863111a48434e790a2f6d17b683349b5ccea52954216dbd24772",
+      "startHereSha256": "a7a54e79b3b4b5dd85cdbaf50a9b96788632f2c8dd42d3513f77ec8d1c7efbc0",
+      "evidence": "operations/product-stewards/town-entry-homepage/evidence/shared-header-320-consumer-acceptance-2026-07-26/independent-acceptance.md",
+      "evidenceSha256": "d27ffac2229d251a1d4dc98d2921575d386ffec1f92670c3336147c960b15eb9",
+      "handoff": "operations/product-stewards/town-entry-homepage/shared-header-320-consumer-acceptance-handoff-2026-07-26.md",
+      "handoffSha256": "678332346d549a746daf718eee2d5859da48231b2fe1bc690a5d0cbd3c802ca7",
+      "testSha256": "f69eb6b25d79fb9392b5efb377ba7c15e50d254014d5c4bd4138719bcdfdf09a",
+      "matrixSha256": "32a9f9521f3b76544d4d8f13632e6ec41ed71aa71420ec20603e8b8f885353a9",
+      "result": "PASS — raw gate; Platform 9 JS / 3 no-JS / 3 keyboard / 3 200%-proxy; independent 8/8; existing route readiness 15/15"
+    },
+    "visitorsCentre": {
+      "decision": "ACCEPT",
+      "holdAt": "2026-07-26T12:59:41-07:00",
+      "holdReason": "Initial reviewer bound the supplied JSON receipt checksum to the separate Markdown evidence path; behavior matrix was not rerun.",
+      "holdEvidence": "operations/product-stewards/visitors-centre/independent-consumer-acceptance-shared-header-svgh-320-v1-2026-07-26.md",
+      "holdEvidenceSha256": "ab45b6cf8b6de760ae4f85d8dcdc121d4fb6272e1badf7d8c4054be8dcde3b5b",
+      "correctReceiptPath": "operations/product-stewards/platform-reliability/shared-header/v1/shared-header-320-repair-candidate-v1-2026-07-26.json",
+      "correctReceiptSha256": "299876c0962e45f282579e4c61d61bb4365a5ddbf91a7efaf3d3375e71d9c049",
+      "separateEvidencePath": "operations/product-stewards/platform-reliability/evidence-shared-header-320-repair-candidate-v1-2026-07-26.md",
+      "separateEvidenceSha256": "1a36e936a35558bc2297a35090fabc63825e750d7d260b641bcf18bca1c94370",
+      "freshAcceptanceAt": "2026-07-26T13:05:27-07:00",
+      "freshAcceptanceEvidence": "operations/product-stewards/visitors-centre/independent-consumer-acceptance-shared-header-svgh-320-v1-corrected-2026-07-26.md",
+      "freshAcceptanceEvidenceSha256": "b44091060b6ec52a3f686113b08433fbd43e9e2031aa8700986e92b6851ffaba",
+      "result": "PASS — raw 320 navRight=312/document=320; 3-route JS/no-JS, keyboard/Menu/Escape/focus, reduced motion, 390/1440 and 320/200%-proxy matrix",
+      "routeLocalContainment": "REMAINS — removal requires a separate route lock and exact successor acceptance"
+    }
+  },
+  "consumerAcceptanceComplete": true,
+  "integrationComplete": false,
+  "releaseGates": {
+    "visitorsCentreIndependentAcceptance": "ACCEPT — corrected exact tuple",
+    "assetAndCacheVersionBinding": "PENDING",
+    "nativeSafariVoiceOverAndTrueZoom": "PENDING",
+    "publicOriginAndCacheDelivery": "NOT PERFORMED"
+  },
+  "mutation": {
+    "sharedSourceChangedByThisReceipt": false,
+    "consumerRoutesChangedByThisReceipt": false,
+    "deploymentOrPublication": false
+  },
+  "derivedEvidence": {
+    "matrixResultOriginalMakerHash": "1bf8f531985515201d8927b42747d12492bb018cd7f16b96f8e15794006e4c7c",
+    "matrixResultFreshVisitorRerunHash": "b71e5237104bbc2d5659390a9344c597ce19ca46ce811bceb932b25c371935fc",
+    "classification": "regenerated test output; candidate source, route, receipt, evidence narrative and test scripts unchanged",
+    "releaseRule": "bind the accepted source and consumer inputs plus this aggregate acceptance state; do not claim the original derived output remained byte-stable"
+  },
+  "nextAction": "Control Room binds the accepted source and consumer artifacts to an authorized asset/cache version, then dispatches native Safari/VoiceOver/true-zoom and public-origin/cache proof. Visitor containment removal remains a separate route lock."
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "SUPERSEDED_REJECTED_BY_ALI",
+  "admission_scope": "Rejected technical evidence only; no integration, promotion, deploy or public authority",
+  "ali_decision": {
+    "decision": "REJECTED",
+    "record": "ALI-DECISION-reject-functional-base-2026-07-26.md",
+    "reason": "The white-page/boxed-module front-desk/map/directory functional base is not accepted as the Visitor's Centre experience.",
+    "technical_evidence_preserved": true
+  },
+  "maker_id": "visitors_centre_live_route_readiness_v1_maker",
+  "reviewer_id": "visitors_centre_independent_route_acceptance_20260726",
+  "evidence_time": "2026-07-26 12:02:25 PDT (America/Vancouver)",
+  "route": "visitors-centre.html",
+  "hashes": {
+    "route_sha256": "de8e536dcfd4c80c419e4bfd6e61c7e2189fd4c07429869b5d505ba659707743",
+    "static_contract_test_sha256": "756f82553c89b946d1763b4d8b5edafa7c3f4b53f6d7356ca557efcb5c030e14",
+    "live_route_test_sha256": "a0d2ef93603538ea6ebc23b99495b7257f3ba3cc616fb0adef659fa3b00182ad",
+    "projection_artifact_sha256": "adce724425984cb67a39ec5f8013e0a6e3dd341e3b40d09e8714b83940e37880",
+    "projection_payload_sha256": "3baba976cf9217b091a92e8fcc762eb6c7b0d5ffe903ebbc7e8f75837bb96361",
+    "browser_runtime_sha256": "68eab175cb61065e554ab8ad2fb20eac9b22fc8b38ad9b6d3aa88178e1ea425e",
+    "canonical_crosswalk_sha256": "c5136958e1296c71338bdcb2eb9e271a70c6b80f3760514f9f7464d230ce7f26",
+    "independent_live_result_sha256": "7e13ed10cee80a4f4c45bc0c6202d16d1febaf357e955e3b7bb6e701e7907112"
+  },
+  "tests": {
+    "static_contract": "PASS",
+    "platform_v1": "PASS",
+    "live_route": { "status": "PASS", "checks": 779, "failures": 0 }
+  },
+  "visible_audit": {
+    "five_part_arrival_grammar_retained": true,
+    "embedded_status_prose_removed": true,
+    "all_17_fresh_routes_held_owner_pending": true,
+    "all_17_fail_closed_routes_generic": true,
+    "completion_claim_false": true,
+    "card_and_visitor_non_inference_held": true,
+    "no_js_and_failure_fallbacks_held": true,
+    "focus_escape_target_and_responsive_checks_held": true
+  },
+  "scores": {
+    "product_legibility": 19,
+    "accuracy_trust": 20,
+    "positive_laidies_brand_contribution": 18,
+    "ux_accessibility": 18,
+    "technical_source_integrity": 20
+  },
+  "owner_review_ready": false,
+  "decision": "ADMITTED as a locally verified, hash-bound live-route integration. The route consumes the exact checksum-bound projection, removes duplicated embedded destination status prose, and correctly represents every route as held pending owner receipts. This does not constitute deployment, public verification, destination readiness, receipt admission, native assistive-technology proof, human-comprehension proof or Ali's owner-experience approval.",
+  "blockers": [
+    "All 17 current owner-intake records are null, so every destination remains held pending an admitted owner receipt.",
+    "Native Safari/VoiceOver, human comprehension and public-origin verification remain open.",
+    "Targeted owner-entry preflight is blocked by unrelated concurrent state: town-entry-homepage active item must say RUNNING. This was observed and not changed."
+  ],
+  "next_trigger": "Admit authoritative owner receipts through the Control Room, then run a new exact-bound route acceptance and the remaining native/human/public gates."
+}

@@ -1,0 +1,37 @@
+{
+  "frozen_source": {
+    "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+    "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+    "size_bytes": 112843240
+  },
+  "held_v1": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v1-review.mp4",
+    "sha256": "5b9c98281d292b18ef4e70edc023a4c322add94bfe3b7e82e7d8e3dab691191b",
+    "size_bytes": 123797832
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-v1.mp4",
+    "sha256": "ea5addbad951281602373cfde8d4264326e557a57b63ea2df218d0697316f138",
+    "size_bytes": 3895234
+  },
+  "ident_interval_seconds_preserved": [
+    91.34,
+    98.59
+  ],
+  "output": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "status": "LOCAL_REVIEW_ONLY_NOT_PUBLIC"
+  },
+  "repair": {
+    "audio_operation": "copy frozen-v19 AAC elementary stream unchanged",
+    "frozen_source_video_frames": 29624,
+    "missing_tail_frames": 22,
+    "operation": "preserve all decoded v1 picture frames, then append frozen-v19 decoded frames 29602 through 29623",
+    "reason": "V-TAIL-TIMELINE-DRIFT",
+    "synthetic_hold": false,
+    "v1_video_frames": 29602
+  },
+  "schema": "laidies.episode-02.welcome-ident-tail-restore.config.v1",
+  "status": "BUILDING_LOCAL_REVIEW_SUCCESSOR_ONLY",
+  "task_id": "WE-MEDIA-E02-WELCOME-IDENT-V2-TAIL-RESTORE-2026-07-26"
+}

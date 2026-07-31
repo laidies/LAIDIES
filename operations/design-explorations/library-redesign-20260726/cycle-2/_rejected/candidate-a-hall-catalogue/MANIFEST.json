@@ -1,0 +1,64 @@
+{
+  "schema": "laidies-library-rough-candidate-v1",
+  "status": "_rough",
+  "candidate_id": "cycle-2-a-hall-catalogue",
+  "maker": "library_redesign_maker_cycle2",
+  "reviewer": null,
+  "admitted": false,
+  "work_stop": "D-2026-07-26-053 requires operations/product-stewards/library/FUNCTIONALITY-MAP.md before further substantive building work or admission.",
+  "owner_entry_preflight": {
+    "status": "passed",
+    "authority": "OWNER-ENTRY-CONTRACT / D-052",
+    "reported_by": "root",
+    "date": "2026-07-26"
+  },
+  "governing_brief": "operations/product-stewards/library/EXPERIENCE-BRIEF.md",
+  "competition": "LIBRAiRY Experience Design Cycle 2",
+  "variable_allowed_to_change": "whole-experience structure and interaction hierarchy",
+  "structure_fact": "A single immersive catalogue hall makes all three collections visible at once; Miss Jeeves follows as a full-width reference desk and the four-step journey follows the desk.",
+  "held_invariants": [
+    "real Library place",
+    "scalable browsable shelves",
+    "clickable admitted books and honest previews",
+    "Miss Jeeves direct-answer path",
+    "Puffy whole-book/section save explanation and saved-finds route",
+    "written instructions and cross-building handbacks",
+    "desktop and mobile layouts",
+    "actual LAiDIES header injection",
+    "actual bright-family-v2 covers",
+    "actual approved Puffy asset",
+    "actual approved Miss Jeeves identity art"
+  ],
+  "artifacts": {
+    "html": "index.html",
+    "environment_plate": "environment-plate.png",
+    "prompt_and_provenance": "PROMPT.md",
+    "desktop_capture": null,
+    "mobile_capture": null,
+    "capture_status": "not run before D-053 stop"
+  },
+  "reference_roles": {
+    "environment_style": "operations/reference/episode-style-popart/epstyle-scene-01.png",
+    "environment_palette_only": "assets/episodes/ep-04/pixel/ep04-daytime-colorsetter-sunnyvaile-main-street-v1.png",
+    "header_component": "content/site/sv-global-header.js",
+    "shelf_component": "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+    "book_family": "assets/library-101/bright-family-v2/",
+    "miss_jeeves_identity_art": "assets/pixel-restyle/characters/miss-jeeves-portrait-pixel-v1.png",
+    "puffy_asset": "assets/puffies/usable-25/01-heart-sunglasses.png"
+  },
+  "self_check_facts": {
+    "environment_plate_contains_ui_or_controls": false,
+    "environment_plate_contains_words_or_book_covers": false,
+    "visible_ui_text_is_live_html": true,
+    "book_images_are_project_assets": true,
+    "book_buttons_have_open_or_preview_state": true,
+    "book_state_labels_are_mock_and_not_functionality_authority": true,
+    "current_live_admitted_book_source_count_observed": 0,
+    "miss_jeeves_form_has_a_visible_result_state": true,
+    "puffy_saved_finds_route_is_present": true,
+    "cross_building_routes_are_present": true,
+    "mobile_media_query_present": true,
+    "maker_score_or_recommendation_present": false
+  },
+  "unresolved_functionality_note": "OPEN BOOK labels and modal behavior are interaction-composition mocks only. Current library.html says no production book is admitted today; the required Library FUNCTIONALITY-MAP.md must determine producer, authoritative publication state, persistence, failure, and consumer contracts before these labels or behaviors can be treated as valid."
+}

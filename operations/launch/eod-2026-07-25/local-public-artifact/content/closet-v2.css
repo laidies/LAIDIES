@@ -1,0 +1,976 @@
+.closet-page {
+  --cl-midnight: #070f2b;
+  --cl-ink: #11183b;
+  --cl-paper: #fffdfb;
+  --cl-pink: #f254a9;
+  --cl-purple: #7137d6;
+  --cl-cyan: #15bce0;
+  --cl-cobalt: #2457e6;
+  --cl-mint: #7de2c2;
+  --cl-coral: #ff7366;
+  --cl-orange: #ff9b3d;
+  --cl-yellow: #ffd34d;
+  --cl-line: rgba(17, 24, 59, 0.2);
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(120, 199, 255, 0.26), transparent 28rem),
+    radial-gradient(circle at 92% 14%, rgba(242, 84, 169, 0.16), transparent 25rem),
+    linear-gradient(145deg, #f5e5ed 0%, #fff0e8 52%, #e9e9ff 100%);
+  color: var(--cl-ink);
+  font-family: "Jost", system-ui, sans-serif;
+}
+
+.closet-page .ai {
+  color: var(--cl-pink);
+  text-transform: none;
+}
+
+.closet-page .closet-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.closet-page #closetHero {
+  position: relative;
+  width: 100%;
+  height: min(650px, 58vw);
+  min-height: 470px;
+  margin: 0 !important;
+  overflow: hidden;
+  border-radius: 0 !important;
+  background: var(--cl-midnight);
+  box-shadow: none !important;
+}
+
+.closet-page #closetHero > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 50% !important;
+}
+
+.closet-page .closet-arrival-copy {
+  position: absolute;
+  left: max(20px, calc((100vw - 1120px) / 2));
+  bottom: 38px;
+  width: min(680px, calc(100% - 40px));
+  padding: clamp(24px, 3.5vw, 44px);
+  border: 3px solid var(--cl-paper);
+  background: rgba(7, 15, 43, 0.94);
+  color: var(--cl-paper);
+  box-shadow: 12px 12px 0 rgba(21, 188, 224, 0.64);
+}
+
+.closet-page .closet-arrival-copy p {
+  margin: 0 0 12px;
+  color: var(--cl-mint);
+  font: 800 12px/1.2 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.closet-page .closet-arrival-copy h1 {
+  margin: 0;
+  color: var(--cl-paper);
+  font: 400 clamp(64px, 9vw, 126px) / 0.86 "Anton", Impact, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.closet-page .closet-arrival-copy > span {
+  display: block;
+  max-width: 570px;
+  margin-top: 20px;
+  color: rgba(255, 253, 251, 0.78);
+  font: 600 clamp(16px, 1.5vw, 20px) / 1.45 "Jost", system-ui, sans-serif;
+}
+
+.closet-page .public-mode-banner {
+  width: min(1120px, calc(100% - 40px));
+  margin: 30px auto 0;
+  padding: 17px 20px;
+  border: 2px solid var(--cl-ink);
+  border-radius: 0;
+  background: var(--cl-mint);
+  color: var(--cl-ink);
+  box-shadow: 6px 6px 0 var(--cl-purple);
+}
+
+.closet-page .passport-section {
+  width: 100%;
+  margin: 0;
+  padding: clamp(68px, 8vw, 112px) max(20px, calc((100vw - 1120px) / 2));
+  border: 0;
+}
+
+.closet-page .passport-section-eyebrow {
+  margin: 0 0 13px;
+  color: var(--cl-purple);
+  font: 800 12px/1.2 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.closet-page .passport-section-title {
+  margin: 0;
+  color: var(--cl-ink);
+  font: 400 clamp(50px, 7vw, 94px) / 0.91 "Anton", Impact, sans-serif;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+.closet-page .passport-section-lede {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: rgba(17, 24, 59, 0.72);
+  font: 500 clamp(17px, 1.5vw, 20px) / 1.55 "Jost", system-ui, sans-serif;
+}
+
+/* The card and its membership stack are the objects in one open wallet room. */
+.closet-page #sectionCard {
+  padding-top: clamp(70px, 8vw, 112px);
+  background:
+    radial-gradient(circle at 10% 14%, rgba(113, 55, 214, 0.4), transparent 32%),
+    radial-gradient(circle at 92% 80%, rgba(21, 188, 224, 0.22), transparent 30%),
+    var(--cl-midnight);
+  color: var(--cl-paper);
+}
+
+.closet-page #sectionCard .passport-section-eyebrow {
+  color: var(--cl-mint);
+}
+
+.closet-page #sectionCard .passport-section-title {
+  color: var(--cl-paper);
+}
+
+.closet-page .wallet-shell {
+  max-width: none;
+  margin: 36px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.closet-page .wallet-shell::before {
+  display: none;
+}
+
+.closet-page .wallet-label {
+  position: static;
+  width: fit-content;
+  margin: 0 0 17px;
+  padding: 8px 12px;
+  border: 2px solid var(--cl-paper);
+  border-radius: 0;
+  background: var(--cl-yellow);
+  color: var(--cl-ink);
+  font: 800 10px/1 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  transform: none;
+}
+
+.closet-page .card-viewport {
+  max-width: 860px;
+  margin: 0;
+}
+
+.closet-page .card-face {
+  border-radius: 4px;
+}
+
+.closet-page .card-front,
+.closet-page .card-back {
+  min-height: 360px;
+  padding: clamp(22px, 3vw, 36px);
+  border: 3px solid var(--cl-ink);
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 80% 14%, rgba(242, 84, 169, 0.13), transparent 24%),
+    linear-gradient(145deg, #fffdfb 0%, #f6e9ff 100%);
+  color: var(--cl-ink);
+  box-shadow: 13px 14px 0 rgba(21, 188, 224, 0.62);
+}
+
+.closet-page .card-actions {
+  justify-content: flex-start;
+  max-width: 860px;
+  margin: 26px 0 0;
+}
+
+.closet-page .card-actions[hidden],
+.closet-page .public-mode-banner[hidden],
+.closet-page .send-note-block[hidden] {
+  display: none !important;
+}
+
+.closet-page .card-action-btn,
+.closet-page .save-btn,
+.closet-page .cancel-btn {
+  min-height: 48px;
+  padding: 13px 19px;
+  border: 2px solid var(--cl-paper);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-paper);
+  font: 800 11px/1 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.closet-page .card-action-btn--primary,
+.closet-page .save-btn {
+  border-color: var(--cl-ink);
+  background: var(--cl-pink);
+  color: var(--cl-ink);
+  box-shadow: 5px 5px 0 var(--cl-cyan);
+}
+
+.closet-page .wallet-slots {
+  margin-top: 62px;
+  padding-top: 27px;
+  border-top: 2px solid rgba(255, 253, 251, 0.28);
+}
+
+.closet-page .wallet-slots-title {
+  margin-bottom: 7px;
+  color: var(--cl-paper);
+  font: 400 32px/1 "Anton", Impact, sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.closet-page .wallet-slots-note {
+  max-width: 720px;
+  margin-bottom: 23px;
+  color: rgba(255, 253, 251, 0.7);
+  font: 500 15px/1.45 "Jost", system-ui, sans-serif;
+}
+
+.closet-page .wallet-grid {
+  width: calc(100vw - max(20px, calc((100vw - 1120px) / 2)));
+  display: flex;
+  grid-template-columns: none;
+  gap: 17px;
+  padding: 5px max(20px, calc((100vw - 1120px) / 2)) 25px 0;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.closet-page .wallet-card {
+  flex: 0 0 280px;
+  min-height: 178px;
+  padding: 17px;
+  border: 2px solid var(--cl-paper);
+  border-radius: 3px;
+  color: var(--cl-paper);
+  scroll-snap-align: center;
+  box-shadow: 7px 8px 0 rgba(255, 255, 255, 0.12);
+}
+
+.closet-page .wallet-card--0 { background: var(--cl-purple); }
+.closet-page .wallet-card--1 { background: #087e8b; }
+.closet-page .wallet-card--2 { background: #c64e8b; }
+.closet-page .wallet-card--3 { background: var(--cl-cobalt); }
+.closet-page .wallet-card-emoji { display: none; }
+
+.closet-page .trip-guide {
+  max-width: none;
+  margin: 60px 0 0;
+  border-top: 2px solid rgba(255, 253, 251, 0.3);
+  border-bottom: 2px solid rgba(255, 253, 251, 0.3);
+}
+
+.closet-page .trip-guide-title {
+  margin: 0;
+  padding: 17px 0 12px;
+  color: var(--cl-mint);
+  text-align: left;
+}
+
+.closet-page .trip-guide-grid {
+  display: block;
+}
+
+.closet-page .trip-guide-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.35fr) minmax(0, 1fr);
+  gap: 20px;
+  padding: 15px 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 253, 251, 0.2);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-paper);
+}
+
+.closet-page .trip-guide-row:hover {
+  padding-left: 10px;
+  border-color: rgba(255, 253, 251, 0.2);
+  transform: none;
+}
+
+.closet-page .trip-guide-field {
+  color: var(--cl-paper);
+}
+
+.closet-page .trip-guide-dest {
+  color: var(--cl-yellow);
+}
+
+/* Report Card: one ruled scoreboard, not a dashboard of floating cards. */
+.closet-page #dashboardSection {
+  background:
+    radial-gradient(circle at 9% 18%, rgba(21, 188, 224, 0.19), transparent 25%),
+    var(--cl-paper);
+}
+
+.closet-page .dash-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 34px;
+  border-top: 3px solid var(--cl-ink);
+  border-left: 3px solid var(--cl-ink);
+}
+
+.closet-page .dash-tile {
+  min-height: 148px;
+  padding: 20px;
+  border: 0;
+  border-right: 3px solid var(--cl-ink);
+  border-bottom: 3px solid var(--cl-ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-ink);
+  box-shadow: none;
+}
+
+.closet-page .dash-tile:nth-child(3n + 1) { background: #ffe1ee; }
+.closet-page .dash-tile:nth-child(3n + 2) { background: #e5ddff; }
+.closet-page .dash-tile:nth-child(3n + 3) { background: #d8f5f2; }
+.closet-page .dash-tile:hover,
+.closet-page .dash-tile:focus-visible {
+  border-color: var(--cl-ink);
+  background: var(--cl-yellow);
+  box-shadow: none;
+  transform: none;
+}
+
+.closet-page .dash-tile__icon {
+  display: none;
+}
+
+.closet-page .dash-tile__value {
+  color: var(--cl-ink);
+  font: 400 46px/0.95 "Anton", Impact, sans-serif;
+}
+
+.closet-page .dash-tile__label {
+  color: var(--cl-purple);
+}
+
+.closet-page .dash-bar {
+  height: 7px;
+  border-radius: 0;
+  background: rgba(17, 24, 59, 0.13);
+}
+
+.closet-page .dash-bar__fill {
+  border-radius: 0;
+  background: var(--cl-cobalt);
+}
+
+/* Luminaries become one shared illuminated nameboard. */
+.closet-page #covenSection {
+  background:
+    radial-gradient(circle at 85% 14%, rgba(242, 84, 169, 0.22), transparent 26%),
+    var(--cl-midnight);
+  color: var(--cl-paper);
+}
+
+.closet-page #covenSection .passport-section-eyebrow {
+  color: var(--cl-mint);
+}
+
+.closet-page #covenSection .passport-section-title {
+  color: var(--cl-paper);
+}
+
+.closet-page #covenSection .passport-section-lede {
+  color: rgba(255, 253, 251, 0.72);
+}
+
+.closet-page .coven-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 38px;
+  border-top: 2px solid rgba(255, 253, 251, 0.38);
+  border-bottom: 2px solid rgba(255, 253, 251, 0.38);
+}
+
+.closet-page .coven-slot {
+  min-height: 230px;
+  padding: 26px 21px;
+  border: 0;
+  border-right: 1px solid rgba(255, 253, 251, 0.24);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-paper);
+  box-shadow: none;
+}
+
+.closet-page .coven-slot:last-child {
+  border-right: 0;
+}
+
+.closet-page .coven-slot::before {
+  display: none;
+}
+
+.closet-page .coven-slot:hover {
+  border-color: rgba(255, 253, 251, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+  transform: none;
+}
+
+.closet-page .coven-slot-kind {
+  color: var(--cl-cyan);
+}
+
+.closet-page .coven-slot-pick,
+.closet-page .coven-slot-pick.is-empty {
+  color: var(--cl-paper);
+  font: 400 clamp(27px, 3vw, 40px) / 1 "Anton", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.closet-page .coven-slot-cta {
+  color: var(--cl-yellow);
+}
+
+/* Weekly Tour: one route rail with eight stops and a secondary departure list. */
+.closet-page #tourSection {
+  background:
+    radial-gradient(circle at 90% 80%, rgba(125, 226, 194, 0.22), transparent 27%),
+    linear-gradient(145deg, #fff6ef 0%, #f2e9ff 100%);
+}
+
+.closet-page #tourSection .vessel--tour {
+  margin-top: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.closet-page #tourGrid {
+  display: flex !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  margin-top: 24px !important;
+  overflow-x: auto;
+  border-top: 3px solid var(--cl-ink);
+  border-bottom: 3px solid var(--cl-ink);
+  scroll-snap-type: x proximity;
+}
+
+.closet-page .tour-stop {
+  flex: 1 0 132px;
+  min-height: 160px;
+  justify-content: flex-start;
+  padding: 22px 15px;
+  border: 0;
+  border-right: 1px solid rgba(17, 24, 59, 0.28);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-ink);
+  text-align: left;
+  scroll-snap-align: center;
+}
+
+.closet-page .tour-stop:hover {
+  border-color: rgba(17, 24, 59, 0.28);
+  background: #dff7f1;
+  transform: none;
+}
+
+.closet-page .tour-stop__num {
+  color: var(--cl-purple);
+  opacity: 1;
+}
+
+.closet-page .tour-stop__name {
+  margin-top: 22px;
+  color: var(--cl-ink);
+  font: 800 16px/1.2 "Jost", system-ui, sans-serif;
+}
+
+.closet-page .tour-stop__status {
+  color: rgba(17, 24, 59, 0.57);
+}
+
+.closet-page .tour-stop--checked {
+  background: var(--cl-mint);
+  border-color: rgba(17, 24, 59, 0.28);
+}
+
+.closet-page .opt-block {
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 2px solid var(--cl-ink);
+}
+
+.closet-page .opt-title {
+  color: var(--cl-ink);
+  font: 400 28px/1 "Anton", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.closet-page .opt-note {
+  color: rgba(17, 24, 59, 0.68);
+  font-style: normal;
+}
+
+.closet-page .opt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--cl-ink);
+  border-left: 1px solid var(--cl-ink);
+}
+
+.closet-page .opt-stop {
+  min-height: 88px;
+  padding: 16px;
+  border: 0;
+  border-right: 1px solid var(--cl-ink);
+  border-bottom: 1px solid var(--cl-ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-ink);
+}
+
+.closet-page .opt-stop:hover {
+  border-color: var(--cl-ink);
+  background: var(--cl-paper);
+  transform: none;
+}
+
+/* Collections: an open closet wall of distinct objects, each on its own shelf. */
+.closet-page #collectionSection {
+  background:
+    radial-gradient(circle at 8% 7%, rgba(120, 199, 255, 0.25), transparent 28%),
+    linear-gradient(150deg, #f8edf3 0%, #eff1ff 100%);
+}
+
+.closet-page #collectionSection > .vessel {
+  position: relative;
+  margin: 0;
+  padding: 38px 0;
+  border: 0;
+  border-top: 3px solid var(--cl-ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-ink);
+  box-shadow: none;
+}
+
+.closet-page #collectionSection > .vessel:first-of-type {
+  margin-top: 38px;
+}
+
+.closet-page #collectionSection > .vessel:last-of-type {
+  border-bottom: 3px solid var(--cl-ink);
+}
+
+.closet-page #collectionSection .vessel-title,
+.closet-page #collectionSection .vessel-count,
+.closet-page #collectionSection .vessel-note,
+.closet-page #collectionSection .vessel--sash .vessel-title,
+.closet-page #collectionSection .vessel--sash .vessel-count,
+.closet-page #collectionSection .vessel--sash .vessel-note,
+.closet-page #collectionSection .vessel--diary .vessel-title,
+.closet-page #collectionSection .vessel--diary .vessel-count,
+.closet-page #collectionSection .vessel--diary .vessel-note {
+  color: var(--cl-ink);
+}
+
+.closet-page #collectionSection .vessel-header {
+  margin-bottom: 24px;
+}
+
+.closet-page #collectionSection .vessel-title {
+  font: 400 clamp(30px, 4vw, 48px) / 0.95 "Anton", Impact, sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.closet-page #collectionSection .vessel-count {
+  color: var(--cl-purple);
+}
+
+.closet-page #collectionSection .vessel-note {
+  max-width: 850px;
+  margin-top: 22px;
+}
+
+.closet-page #collectionSection .vessel--sash,
+.closet-page #collectionSection .vessel--diary,
+.closet-page #collectionSection .vessel--charm-bracelet,
+.closet-page #collectionSection .vessel--card-binder,
+.closet-page #collectionSection .vessel--detention,
+.closet-page #collectionSection .vessel--sticker-book {
+  background: transparent;
+}
+
+.closet-page #collectionSection .vessel--diary::before {
+  display: none;
+}
+
+.closet-page .puffy-item,
+.closet-page .clip-jar-ledger li {
+  border: 0;
+  border-bottom: 1px solid var(--cl-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.closet-page .sticker-grid,
+.closet-page .sash-grid,
+.closet-page .bestie-grid,
+.closet-page .charm-chain,
+.closet-page .card-binder-grid,
+.closet-page .diary-grid {
+  max-width: 900px;
+}
+
+.closet-page .detention-board {
+  border: 2px solid var(--cl-ink);
+  border-radius: 0;
+  background: var(--cl-paper);
+}
+
+/* The wish balance becomes a bank counter, not a promo card. */
+.closet-page #fairyBankSection {
+  background:
+    radial-gradient(circle at 90% 20%, rgba(242, 84, 169, 0.27), transparent 27%),
+    var(--cl-midnight);
+  color: var(--cl-paper);
+}
+
+.closet-page #fairyBankSection .passport-section-eyebrow {
+  color: var(--cl-mint);
+}
+
+.closet-page #fairyBankSection .passport-section-title {
+  color: var(--cl-paper);
+}
+
+.closet-page .fairy-bank {
+  display: block;
+  margin-top: 37px;
+  padding: 34px 0;
+  border: 0;
+  border-top: 2px solid rgba(255, 253, 251, 0.34);
+  border-bottom: 2px solid rgba(255, 253, 251, 0.34);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-paper);
+}
+
+.closet-page .fairy-bank > .fairy-bank-icon {
+  display: none;
+}
+
+.closet-page .fairy-bank > div {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.45fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(35px, 7vw, 90px);
+  align-items: start;
+}
+
+.closet-page .fairy-bank-label {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--cl-mint);
+}
+
+.closet-page .fairy-bank-count {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 6px 0 24px;
+  color: var(--cl-paper);
+  font: 400 clamp(88px, 13vw, 170px) / 0.78 "Anton", Impact, sans-serif;
+}
+
+.closet-page .fairy-bank-count small {
+  margin-top: 17px;
+  color: var(--cl-yellow);
+}
+
+.closet-page .fairy-bank .passport-section-lede {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  color: rgba(255, 253, 251, 0.72);
+}
+
+.closet-page .fairy-earn-tips {
+  grid-column: 2;
+  grid-row: 2;
+  color: rgba(255, 253, 251, 0.78);
+}
+
+.closet-page #leaderboardSection {
+  background: var(--cl-paper);
+}
+
+.closet-page #leaderboardSection > div {
+  margin-top: 30px;
+  padding: 25px 0 !important;
+  border: 0 !important;
+  border-top: 3px solid var(--cl-ink) !important;
+  border-bottom: 3px solid var(--cl-ink) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.closet-page #leaderboardSection > div > span {
+  display: none;
+}
+
+/* Editing is a focused drawer over the room. */
+.closet-page .edit-panel {
+  position: fixed;
+  z-index: 1000;
+  inset: 72px 0 0 auto;
+  width: min(640px, 100%);
+  max-height: calc(100vh - 72px);
+  margin: 0;
+  padding: clamp(28px, 5vw, 54px);
+  overflow-y: auto;
+  border: 0;
+  border-left: 3px solid var(--cl-paper);
+  border-radius: 0;
+  background: var(--cl-midnight);
+  color: var(--cl-paper);
+  box-shadow: -18px 0 0 rgba(21, 188, 224, 0.48);
+}
+
+.closet-page .edit-panel[hidden] {
+  display: none;
+}
+
+.closet-page .edit-panel h3,
+.closet-page .edit-panel label,
+.closet-page .edit-panel .edit-field-label {
+  color: var(--cl-paper);
+}
+
+.closet-page .edit-panel h3 {
+  font: 400 clamp(42px, 7vw, 68px) / 0.92 "Anton", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.closet-page .edit-drawer-close {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  float: right;
+  min-height: 38px;
+  margin: -14px -14px 20px 20px;
+  padding: 9px 11px;
+  border: 2px solid var(--cl-paper);
+  border-radius: 0;
+  background: var(--cl-midnight);
+  color: var(--cl-paper);
+  font: 800 10px/1 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.closet-page .edit-field-input,
+.closet-page .edit-field-select {
+  border: 0;
+  border-bottom: 2px solid rgba(255, 253, 251, 0.48);
+  border-radius: 0;
+  background: transparent;
+  color: var(--cl-paper);
+}
+
+@media (max-width: 900px) {
+  .closet-page .coven-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .closet-page .coven-slot:nth-child(2) {
+    border-right: 0;
+  }
+
+  .closet-page .coven-slot:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 253, 251, 0.24);
+  }
+
+  .closet-page .dash-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .closet-page .opt-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .closet-page #closetHero {
+    height: 480px;
+    min-height: 0;
+  }
+
+  .closet-page #closetHero > img {
+    object-position: 51% center !important;
+  }
+
+  .closet-page .closet-arrival-copy {
+    left: 15px;
+    bottom: 18px;
+    width: calc(100% - 30px);
+    padding: 21px 19px;
+    box-shadow: 7px 7px 0 rgba(21, 188, 224, 0.64);
+  }
+
+  .closet-page .closet-arrival-copy h1 {
+    font-size: 64px;
+  }
+
+  .closet-page .closet-arrival-copy > span {
+    margin-top: 13px;
+    font-size: 15px;
+  }
+
+  .closet-page .passport-section {
+    padding: 64px 15px;
+  }
+
+  .closet-page .passport-section-title {
+    font-size: clamp(48px, 15vw, 70px);
+  }
+
+  .closet-page .card-front,
+  .closet-page .card-back {
+    min-height: 0;
+    padding: 21px 17px;
+    box-shadow: 7px 8px 0 rgba(21, 188, 224, 0.62);
+  }
+
+  .closet-page .card-front-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .closet-page .card-avatar {
+    min-height: 170px;
+  }
+
+  .closet-page .card-corner-header {
+    padding-right: 55px;
+  }
+
+  .closet-page .card-actions {
+    align-items: stretch;
+  }
+
+  .closet-page .card-action-btn {
+    flex: 1 1 100%;
+  }
+
+  .closet-page .wallet-grid {
+    width: calc(100vw - 15px);
+    padding-right: 15px;
+  }
+
+  .closet-page .wallet-card {
+    flex-basis: 250px;
+  }
+
+  .closet-page .trip-guide-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .closet-page .dash-grid,
+  .closet-page .coven-grid,
+  .closet-page .opt-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .closet-page .dash-tile {
+    min-height: 125px;
+  }
+
+  .closet-page .coven-slot,
+  .closet-page .coven-slot:nth-child(2) {
+    min-height: 175px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 253, 251, 0.24);
+  }
+
+  .closet-page .coven-slot:last-child {
+    border-bottom: 0;
+  }
+
+  .closet-page #tourGrid {
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    padding-left: 15px;
+  }
+
+  .closet-page .tour-stop {
+    flex-basis: 145px;
+  }
+
+  .closet-page .fairy-bank > div {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .closet-page .fairy-bank-label,
+  .closet-page .fairy-bank-count,
+  .closet-page .fairy-bank .passport-section-lede,
+  .closet-page .fairy-earn-tips {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .closet-page .fairy-bank-count {
+    font-size: 100px;
+  }
+
+  .closet-page .edit-panel {
+    inset: 57px 0 0;
+    width: 100%;
+    max-height: calc(100vh - 57px);
+    border-left: 0;
+    border-top: 3px solid var(--cl-paper);
+    box-shadow: 0 -10px 0 rgba(21, 188, 224, 0.48);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .closet-page .dash-tile,
+  .closet-page .coven-slot,
+  .closet-page .tour-stop,
+  .closet-page .wallet-card,
+  .closet-page .trip-guide-row {
+    transition: none;
+  }
+}

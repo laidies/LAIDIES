@@ -1,0 +1,119 @@
+{
+  "schema": "laidies.episode-02.v2.representative-player.browser-results.v1",
+  "status": "PASS",
+  "tested_at_local": "2026-07-26",
+  "scope": "isolated localhost harness only",
+  "browser": {
+    "engine": "Google Chrome",
+    "version": "150.0.7871.187",
+    "mode": "headless, fresh temporary profile",
+    "in_app_browser_available": false,
+    "in_app_browser_observation": "Browser manager returned an empty browser list and No browser is available.",
+    "fallback": "Local Google Chrome controlled over its localhost DevTools endpoint."
+  },
+  "binding": {
+    "media_path": "/assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "media_sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "caption_path": "/assets/captions/episode-02.vtt",
+    "caption_sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f"
+  },
+  "checks": [
+    {
+      "name": "High 4:4:4 exact file browser decode",
+      "result": "PASS",
+      "literal": {
+        "readyState": 4,
+        "error": null,
+        "duration_seconds": 987.466667,
+        "video_width": 1920,
+        "video_height": 1080,
+        "currentSrc": "http://127.0.0.1:8762/assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4"
+      }
+    },
+    {
+      "name": "normal-speed audio-enabled playback",
+      "result": "PASS",
+      "literal": {
+        "playbackRate": 1,
+        "muted": false,
+        "volume": 1,
+        "paused_after_play": false,
+        "start_seconds": 0,
+        "observed_after_seconds": 2.851457,
+        "wall_observation_seconds": 3
+      }
+    },
+    {
+      "name": "external captions",
+      "result": "PASS",
+      "literal": {
+        "track_count": 1,
+        "mode": "hidden",
+        "cue_count": 194,
+        "last_cue_start_seconds": 981.65,
+        "last_cue_end_seconds": 986.67,
+        "rendered_first_cue": "Previously, on LAiDIES: our heroine stopped feeling behind, and finally",
+        "rendered_markup_present": false
+      }
+    },
+    {
+      "name": "focused keyboard controls",
+      "result": "PASS",
+      "literal": {
+        "C_disabled_captions": true,
+        "disabled_track_mode": "disabled",
+        "disabled_rail": "Captions are off.",
+        "C_reenabled_captions": true,
+        "K_paused_playback": true
+      }
+    },
+    {
+      "name": "missing-source retry",
+      "result": "PASS",
+      "literal": {
+        "failure_currentSrc": "http://127.0.0.1:8762/assets/video/__missing-e02-v2.mp4",
+        "failure_retry_visible": true,
+        "failure_controls_disabled": true,
+        "recovered_currentSrc": "http://127.0.0.1:8762/assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+        "recovered_duration_seconds": 987.466667,
+        "recovered_error": null,
+        "recovered_retry_count": 1
+      }
+    },
+    {
+      "name": "reduced motion and mobile boundary",
+      "result": "PASS",
+      "literal": {
+        "viewport": "390x844",
+        "media_query_matches": true,
+        "policy": {
+          "animation": "none",
+          "transition": "none",
+          "scrollBehavior": "auto"
+        },
+        "horizontal_overflow": false,
+        "video_error": null
+      }
+    },
+    {
+      "name": "no-JS boundary",
+      "result": "PASS",
+      "literal": {
+        "film_child_count": 0,
+        "film_currentSrc": "",
+        "telemetry": "Player not initialized.",
+        "binding": "Waiting for JavaScript binding. Media remains unbound.",
+        "noscript_notice_visible": true
+      }
+    }
+  ],
+  "codec_decision": {
+    "transcode_created": false,
+    "reason": "The exact High 4:4:4 file decoded and advanced normally in real Chrome playback; no named compatibility failure was observed."
+  },
+  "boundaries": [
+    "Headless playback proves browser decode, time advancement, and an unmuted 1x media state; it does not prove physical speaker audibility or a complete human listen.",
+    "This is maker evidence, not independent acceptance, release, deployment, or public availability.",
+    "The localhost server was ephemeral and no public route or media binding was changed."
+  ]
+}

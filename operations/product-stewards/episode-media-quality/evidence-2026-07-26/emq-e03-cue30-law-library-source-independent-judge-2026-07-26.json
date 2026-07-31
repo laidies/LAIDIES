@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-07-26",
+  "judge": "Independent Episode Media Quality image judge",
+  "scope": "Source-only visual admission for Episode 03 Cue 30; no motion, assembly, master, release, or public acceptance.",
+  "overall_verdict": "ACCEPT_SOURCE_PLATE_ONLY",
+  "candidate": {
+    "path": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-law-clerk-clean-textfree-v1-1920.png",
+    "sha256": "d0f2a078e795b052bdaaabad6aff8de51c4d66d5d53366d7bdd64e57a37c7b2a",
+    "dimensions": "1920x1080",
+    "format": "PNG RGB"
+  },
+  "cue_binding": {
+    "cue": 30,
+    "interval_seconds": [
+      565,
+      577
+    ],
+    "duration_seconds": 12,
+    "narration": "The machine spent the weekend in the library…",
+    "required_identity": "Episode 03 Heroine / law-clerk beat",
+    "required_location": "law library",
+    "required_style": "comic-v1-locked",
+    "future_motion_contract": "12-second zero-net environmental loop; local banker’s-lamp flicker and/or dust in window-light shaft only; no camera, character, paper, CRT, keyboard, book, or composition movement."
+  },
+  "inspection": {
+    "original_resolution_viewed": true,
+    "comparison_references": [
+      {
+        "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+        "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422"
+      },
+      {
+        "path": "assets/episodes/ep-03/comic/ep03-scene-10-law-clerk-comic.png",
+        "sha256": "7c2d0fad46ffd1933b8b3cd323c36b69de33205d72d7b43dbf1728b39845380f"
+      }
+    ],
+    "evidence_derivatives": [
+      {
+        "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-cue30-centre-crop-720.png",
+        "sha256": "c304331e9e47edd4f854432b12ab487dfd4b7f9747540da42a41b48b8483e191"
+      },
+      {
+        "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-cue30-centre-crop-960x540.png",
+        "sha256": "85782e33a9f7af4e272503538ede9b566260e08ec6f71880ea90ac48c165e56f"
+      },
+      {
+        "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-cue30-heroine-style-reference-centre-720.png",
+        "sha256": "6630a1b6e43b94e04cd82d5672aa5dba5e712791f35eb9b6e7e07ebf8806b16b"
+      },
+      {
+        "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-cue30-prior-cue-centre-720.png",
+        "sha256": "ddc4f5d6194666d9603fb5caa6316bd3fbc96d00467cbbc937d5e82b62c8cead"
+      }
+    ]
+  },
+  "gates": {
+    "narration_relevance": "PASS",
+    "heroine_identity": "PASS",
+    "law_library_location": "PASS",
+    "adult_graphic_novel_style": "PASS",
+    "period_context": "PASS",
+    "anatomy": "PASS",
+    "malformed_text_removal": "PASS",
+    "future_zero_net_loop_still_suitability": "PASS",
+    "semantic_motion_admission": "PENDING_NO_DECODED_CLIP"
+  },
+  "text_note": "No malformed or pseudo-text found. The intentional R necklace remains a character-jewelry detail named by the brief; it is not accidental lettering.",
+  "admission_limits": [
+    "Does not modify or accept the v10 placement manifest.",
+    "Does not accept Episode 03 v12, an MP4, motion, audio, captions, ident, master, release, or public availability.",
+    "Any changed byte sequence, crop, resize, replacement or rendered clip requires a fresh checksum-bound review."
+  ],
+  "next_required_gate": "Judge a decoded 12.000-second motion output for zero-net return and environmental-only change before any loop is accepted or assembled.",
+  "learning_scan": "No qualifying new learning; BTB-189 remains applied."
+}

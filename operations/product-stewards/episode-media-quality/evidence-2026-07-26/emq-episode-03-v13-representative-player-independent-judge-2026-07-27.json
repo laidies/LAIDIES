@@ -1,0 +1,52 @@
+{
+  "schema": "laidies.emq.episode-03-v13.representative-player-independent-judge.v1",
+  "judge_date": "2026-07-27",
+  "scope": "sealed local-only representative player harness",
+  "verdict": "PASS",
+  "verdict_scope": "isolated_player_functional_gate_only",
+  "overall_episode_release_status": "HOLD",
+  "inputs": {
+    "media": {
+      "path": "/assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+      "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
+      "bytes": 436491858,
+      "duration_seconds_browser_observed": 1048
+    },
+    "captions": {
+      "path": "/assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "cue_count": 211
+    }
+  },
+  "harness_fingerprints": {
+    "binding.json": "3408bccc7629d96d839e82495457037bc513bdf08d4ae02941a4d1c2f0d27d4b",
+    "index.html": "65e00a4d98d7ced1b2cf750287c407f2f2ab20c3f2330f1636b498a21c9e296e",
+    "player.css": "1cfc5e4901607a01c17d80e72b92253269e44ae576f6da5fc01364ce9cd13e66",
+    "player.js": "52caf780f6891c766c4fe8acf0b999c35cc41a132dffea308f6ae0ae9d947a95"
+  },
+  "checks": [
+    {"code":"EMQ-03P-01","name":"exact source binding","result":"PASS"},
+    {"code":"EMQ-03P-02","name":"sanitized external captions below picture","result":"PASS"},
+    {"code":"EMQ-03P-03","name":"unmuted normal-speed user play","result":"PASS","detail":{"rate":1,"muted":false,"paused":false}},
+    {"code":"EMQ-03P-04","name":"keyboard and focus paths","result":"PASS"},
+    {"code":"EMQ-03P-05","name":"390px responsive reduced-motion journey","result":"PASS","detail":{"horizontal_overflow":false,"button_height_px":56.78125,"reduced_motion":true}},
+    {"code":"EMQ-03P-06","name":"failure fails closed and retry exact-rebinds","result":"PASS"},
+    {"code":"EMQ-03P-07","name":"no-JS remains safely unbound","result":"PASS"}
+  ],
+  "reproduction": {
+    "static": {"result":"PASS","pass_count":10,"fail_count":0},
+    "browser": {"result":"PASS","pass_count":11,"fail_count":0},
+    "independent_retry_keyboard_probe":"PASS",
+    "isolation":"temporary harness copy; source MP4 and VTT mounted read-only; no maker-folder mutation"
+  },
+  "holds": [
+    {
+      "code":"EMQ-03-HUMAN-WATCH",
+      "result":"HOLD",
+      "reason":"The assigned human full-title 1x unmuted audible watch was not performed by this player-functional review.",
+      "owner":"assigned human witness"
+    }
+  ],
+  "non_claims": ["independent full Episode Media Quality admission", "release", "deployment", "public availability"],
+  "learning_scan":"No new qualifying learning; existing separation of functional player evidence from full human audible-watch and public verification remains binding."
+}

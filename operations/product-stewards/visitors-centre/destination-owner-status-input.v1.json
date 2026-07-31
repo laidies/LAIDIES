@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordType": "visitors-centre-destination-owner-status-input",
+  "purpose": "Isolated Visitor's Centre parity input. It may prove only that the named owner-intake policy and the Centre consumer agree; it does not admit a destination or replace owner receipts.",
+  "authoritativeOwnerInput": {
+    "path": "operations/product-stewards/platform-reliability/readiness-projection/v1/owner-receipt-intake.v1.json",
+    "sha256": "68e1af8b0bffec95d4158657867db79ccf03e669111c7f55f1ae2865177eccb5"
+  },
+  "canonicalDestinations": {
+    "path": "operations/product-stewards/platform-reliability/readiness-projection/v1/canonical-destinations.json"
+  },
+  "consumerProjection": {
+    "path": "content/site/readiness/v1/entry-readiness-projection.v1.json"
+  },
+  "missingReceiptPolicy": {
+    "state": "held",
+    "label": "Owner readiness receipt pending",
+    "disposition": "OWNER_RECEIPT_MISSING_FAIL_CLOSED",
+    "artifact": { "kind": "none", "id": null, "sha256": null },
+    "completionClaim": false
+  },
+  "ownerSlots": [
+    { "destinationId": "visitors-centre", "productId": "visitors-centre", "ownerId": "visitors-centre-champion", "receiptPath": null },
+    { "destinationId": "newsstand", "productId": "newsstand", "ownerId": "newsstand-champion", "receiptPath": null },
+    { "destinationId": "chick-flicks", "productId": "chick-flicks", "ownerId": "chick-flicks-champion", "receiptPath": null },
+    { "destinationId": "blend-snap", "productId": "blend-snap", "ownerId": "blend-snap-champion", "receiptPath": null },
+    { "destinationId": "mme-claio", "productId": "mme-claio", "ownerId": "mme-claio-champion", "receiptPath": null },
+    { "destinationId": "maikeover", "productId": "maikeover", "ownerId": "maikeover-champion", "receiptPath": null },
+    { "destinationId": "bronze-aige", "productId": "bronze-aige", "ownerId": "bronze-aige-champion", "receiptPath": null },
+    { "destinationId": "dream-phone", "productId": "dream-phone", "ownerId": "dream-phone-champion", "receiptPath": null },
+    { "destinationId": "mall", "productId": "mall", "ownerId": "mall-champion", "receiptPath": null },
+    { "destinationId": "ksvl-radio", "productId": "ksvl", "ownerId": "ksvl-champion", "receiptPath": null },
+    { "destinationId": "post-office", "productId": "post-office", "ownerId": "post-office-champion", "receiptPath": null },
+    { "destinationId": "town-hall", "productId": "town-hall", "ownerId": "town-hall-champion", "receiptPath": null },
+    { "destinationId": "library", "productId": "library", "ownerId": "library-champion", "receiptPath": null },
+    { "destinationId": "sunnyvaile-high", "productId": "sunnyvaile-high", "ownerId": "sunnyvaile-high-champion", "receiptPath": null },
+    { "destinationId": "fairy-godmother", "productId": "fairy-godmother", "ownerId": "fairy-godmother-champion", "receiptPath": null },
+    { "destinationId": "sorority-house", "productId": "sorority-house", "ownerId": "sorority-house-champion", "receiptPath": null },
+    { "destinationId": "sanctuary", "productId": "luminairy", "ownerId": "luminairy-champion", "receiptPath": null }
+  ]
+}

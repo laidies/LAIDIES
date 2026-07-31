@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E01-V24-INDEPENDENT-JUDGE-2026-07-26",
+  "judge": "Episode Media Quality",
+  "judged_at": "2026-07-26T16:28:26-07:00",
+  "verdict": "HOLD",
+  "release_admitted": false,
+  "frozen_tuple": {
+    "mp4": {
+      "path": "assets/video/episode-01-full-v24-source-reconciled-review.mp4",
+      "sha256": "272d370ee741d777bc355ea869e63bf4541e0765d3be7bcca286ad79c4c7a53e",
+      "size_bytes": 167536211,
+      "artifact_timestamp_local": "2026-07-26T14:59:47-07:00"
+    },
+    "builder": {
+      "path": "assets/video/build-episode-01-v24-source-reconciled.py",
+      "sha256": "1f22ddafea578f7ff102cdc76c9dd2e243cb2c09445473dcd99920f17ab9bb69"
+    },
+    "configuration": {
+      "path": "assets/video/episode-01-v24-source-reconciled-config.json",
+      "sha256": "31f96a6737906a41644d89eec86c55f393b9611cb67b90ca0d08c2dc24887137"
+    },
+    "placement_manifest": {
+      "path": "operations/video-qa/episode-01-v24-71-placement-manifest.json",
+      "sha256": "6c66edeb60ca008e095a851df4cbcf76c7fdfb3ed55426f8010a858ec73b3487"
+    },
+    "maker_qc": {
+      "path": "operations/video-qa/episode-01-v24-maker-qc.json",
+      "sha256": "b60d6cb0428dad09ce0eebe2638915a2be16b0528a11257c9f3633fb911431b8",
+      "dispatch_path_mismatch": "The dispatched path operations/video-qa/episode-01-v24-source-reconciled-qc.json does not exist; the supplied hash resolves to this config-bound maker QC path."
+    }
+  },
+  "reference_authority": {
+    "visual_system_lock": {
+      "path": "operations/episode-visual-system-lock.md",
+      "sha256": "86ae36f182f6d1ec60bed1ae854a290588e273399c675ecbe6192a1f0e3e1d73"
+    },
+    "heroine_identity_and_people_style": {
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422"
+    }
+  },
+  "checks": {
+    "tuple_hashes_matched": true,
+    "source_hash_bindings": {
+      "matched": 71,
+      "failed": 0
+    },
+    "full_machine_decode": "PASS",
+    "audio_payload_exact_v23_to_v24": {
+      "result": "PASS",
+      "sha256": "0572c2c9f1d568004155684ecf155f702af4d9b31a7eac57a12eca88d385db24"
+    },
+    "placement_visual_review": {
+      "placements_reviewed": 71,
+      "unique_people_sources_enlarged": 12,
+      "identity_bearing_placements_covered": 16
+    },
+    "cue_3_transition": "PASS",
+    "external_vtt": {
+      "path": "operations/captions/episode-01.vtt",
+      "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+      "cue_count": 246,
+      "monotonic_nonoverlapping": true,
+      "last_end_seconds": 1171.42,
+      "tail_to_video_seconds": 0.81,
+      "public_asset_exact_match": true
+    },
+    "audible_normal_speed_exact_player_watch": "NOT_AVAILABLE_IN_JUDGE_ENVIRONMENT",
+    "exact_v24_player_journey": "NOT_RUN_FILM_NOT_BOUND_EPISODE_FILMS_EMPTY"
+  },
+  "blocking_findings": [
+    {
+      "id": "SUNNYVAILE_MODERN_LAPTOP",
+      "classification": "FIX_BEFORE_ASSEMBLY",
+      "placements": [
+        {
+          "placement": 29,
+          "start": 434.9,
+          "stop": 455.7
+        },
+        {
+          "placement": 30,
+          "start": 455.7,
+          "stop": 474.35
+        },
+        {
+          "placement": 61,
+          "start": 996.3,
+          "stop": 1025.0
+        }
+      ],
+      "source": {
+        "path": "assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-blend-snap-email-v1.png",
+        "sha256": "64effff06cbe474833fdfe17248c89b5410aa8df6db3100d79cc284975a88103"
+      },
+      "finding": "Slim rectangular modern laptop inside Blend & Snap violates the 1999 SUNNYVAiLE requirement for a chunky coloured curved iBook G3 clamshell with handle."
+    },
+    {
+      "id": "MASTER_PEOPLE_STYLE_DRIFT",
+      "classification": "FIX_BEFORE_ASSEMBLY",
+      "confirmed_off_register_placements": [
+        14,
+        25,
+        29,
+        30,
+        34,
+        38,
+        43,
+        45,
+        48,
+        50,
+        57,
+        61,
+        70
+      ],
+      "finding": "Painterly, pixel-painted or photoreal/cinematic scenic sources do not match the locked adult graphic-novel ink and faceted-shadow register."
+    },
+    {
+      "id": "EXACT_FILM_PLAYER_PROOF_MISSING",
+      "classification": "RETEST_AFTER_IMAGE_ADMISSION",
+      "finding": "Static VTT and player mechanisms pass inspection, but the exact checksum is not mounted and no mobile, keyboard, reduced-motion, caption or failure-recovery journey was run against it."
+    }
+  ],
+  "passing_local_finding": {
+    "id": "CUE_3_TITLE_REPAIR",
+    "replacement_source": {
+      "path": "assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png",
+      "sha256": "ec54e84816676054b4d651cf0d51bd4e2742a97bab9659c558cc872bc0c06957"
+    },
+    "result": "ELIGIBLE_TO_CARRY_FORWARD_NOT_COMPLETE_FILM_ADMISSION"
+  },
+  "smallest_repair": {
+    "maker": "Episode 01 Image Production",
+    "action": "Create one admitted 1920x1080 Blend & Snap replacement using the locked Heroine identity/style and a period-correct clamshell iBook; apply that one admitted source at placements 29, 30 and 61 without changing clock or audio.",
+    "next_gate": "Independent Episode Media Quality full-frame and identity-crop image admission"
+  },
+  "evidence": {
+    "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e01-v24-independent-judge-2026-07-26.md",
+    "sha256": "577f8bebc9299066b836a1c3b7d12b7cf1f3903e7d9b914b5b07a03a7cd8817e"
+  },
+  "mutations": {
+    "maker_bytes": false,
+    "site": false,
+    "release": false,
+    "deploy": false,
+    "public": false
+  }
+}

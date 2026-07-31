@@ -1,0 +1,111 @@
+{
+  "schema": "laidies.trailer.v4.clock-successor-build-config",
+  "version": 4,
+  "status": "maker-build-config-review-only",
+  "created_date": "2026-07-26",
+  "repair_scope": "clock-only: physically append observed final-frame freezes to B05/B13/B39/B54; preserve all art, copy, identity, outfit, scene, narration and caption bytes",
+  "project_root": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage",
+  "frozen_v3": {
+    "master": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v3-map-caption-reconciled-review-1920.mp4",
+      "sha256": "4bdd3de0729fbabc865edd3b5f435e0c93ff98d113acff4fd926aedb55c123ef"
+    },
+    "map": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v3-exact-58-beat-map.json",
+      "sha256": "2969d68a4c82edb2a32a9d22ae90c8b0ee5478eee0111e970fb82515b1a0d3e7"
+    },
+    "config": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v3-map-caption-reconciled-config.json",
+      "sha256": "48b761ee725a3a512d4be9ab3b57e946ecf855c8206aaad8580a014f2a5bd98f"
+    },
+    "qc": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v3-map-caption-reconciled-review-qc.json",
+      "sha256": "c3ead36e1f82d5874411bd45212362937734aca8816e7f8b2db39b11de86d5ac"
+    }
+  },
+  "output": {
+    "master": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+    "map": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat-map.json",
+    "manifest": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat.ffconcat",
+    "qc": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-qc.json",
+    "normalized_directory": "assets/episodes/trailer/comic/delivery/canonical-named-map/v4-clock-normalized-beats",
+    "contact_sheet_directory": "assets/episodes/trailer/comic/delivery/canonical-named-map/v4-clock-contact-sheets",
+    "hard_cut_report": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-hard-cut-results.json",
+    "motion_report": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-motion-measurements.json"
+  },
+  "audio": {
+    "path": "content/music/public/trailer-narration.m4a",
+    "file_sha256": "fa9bc5e4b20e9f16f9236f642b471fd171965ecaaa05f107ac9602d4aa5a216d",
+    "stream_sha256": "3c73d2eaf3e3bb3344543e75dd253f39ebab9109d3946fe2a83fe21c1987d1fe",
+    "must_be_stream_copied": true,
+    "may_change": false
+  },
+  "captions": {
+    "vtt": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+      "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d"
+    },
+    "srt": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.srt",
+      "sha256": "67bd3c86be47e5eecdda74478da491269af83b8521ad2c48af6866c67780aa66"
+    },
+    "cue_count": 207,
+    "last_spoken_or_sung_end_seconds": 965.14,
+    "burned_into_picture": false,
+    "may_change": false
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "pixel_format": "yuv420p",
+    "video_codec": "libx264",
+    "crf": 18,
+    "preset": "medium",
+    "expected_total_frames": 29016
+  },
+  "motion_repairs": {
+    "B05": {
+      "target_frames": 518,
+      "frozen_v3_observed_frames": 457,
+      "append_final_frame_count": 61,
+      "v3_declared_freeze_seconds": 2.0
+    },
+    "B13": {
+      "target_frames": 358,
+      "frozen_v3_observed_frames": 304,
+      "append_final_frame_count": 54,
+      "v3_declared_freeze_seconds": 1.79
+    },
+    "B39": {
+      "target_frames": 242,
+      "frozen_v3_observed_frames": 205,
+      "append_final_frame_count": 37,
+      "v3_declared_freeze_seconds": 1.21
+    },
+    "B54": {
+      "target_frames": 842,
+      "frozen_v3_observed_frames": 781,
+      "append_final_frame_count": 61,
+      "v3_declared_freeze_seconds": 2.0
+    }
+  },
+  "rules": {
+    "beat_count": 58,
+    "cut_count": 57,
+    "hard_cuts_only": true,
+    "source_art_may_change": false,
+    "source_motion_may_change": false,
+    "copy_identity_outfit_location_scene_may_change": false,
+    "motion_semantics_may_change": false,
+    "episode_01_04_paths_writable": false,
+    "site_route_deploy_publication_public_media_may_change": false,
+    "maker_may_judge_or_admit": false,
+    "normalized_clips_must_decode_to_mapped_frame_count": true,
+    "cut_onsets_must_be_observed_from_decoded_master": true,
+    "freeze_identity_must_be_observed_from_decoded_output": true,
+    "video_audio_end_tolerance_frames": 1,
+    "caption_must_end_before_picture": true,
+    "adversarial_v3_must_fail_clock_gate": true
+  }
+}

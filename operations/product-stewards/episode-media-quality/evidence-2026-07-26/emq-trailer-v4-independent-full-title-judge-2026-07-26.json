@@ -1,0 +1,105 @@
+{
+  "schema": "laidies.emq.independent-trailer-verdict.v1",
+  "task_id": "EMQ-TRAILER-V4-INDEPENDENT-FULL-TITLE-JUDGE-2026-07-26",
+  "judged_at": "2026-07-26T19:48:00-07:00",
+  "judge": "Episode Media Quality — independent judge",
+  "verdict": "HOLD",
+  "frozen_tuple": {
+    "master": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934"
+    },
+    "beat_map": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat-map.json",
+      "sha256": "39a9a3d0e7fe9dd646ddd7075466cfbf80249520cf082a27ca7cdb3b674d3fdb"
+    },
+    "config": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-clock-successor-config.json",
+      "sha256": "7aaa92a1f95431d51c1b52843158dd08868879b4b8a2fa29cb566a8cf4cae076"
+    },
+    "qc": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-qc.json",
+      "sha256": "4d4c8adddb3969ea577b5b315adeb08500f5f36e8675eab073607c1bdff022b9"
+    },
+    "builder": {
+      "path": "operations/tools/assemble-trailer-comic-v4-clock-successor.py",
+      "sha256": "d64f8eefb47944cee643f8b46124688e3950efbd3a3d2195ef71e9bd682aa89d"
+    },
+    "concat_manifest": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat.ffconcat",
+      "sha256": "796c9a282c092f85b06419ec8a5de309ff73c6fa6073bd9e049f9d3282d53943"
+    },
+    "all_supplied_hashes_match": true
+  },
+  "mechanical_review": {
+    "full_decode": "PASS — independent FFmpeg decode completed at 29,016 video frames",
+    "delivery": "PASS — H.264 1920x1080, 30 fps; AAC 44.1 kHz mono; 967.20-second mapped duration",
+    "audio_stream": {
+      "output_sha256": "3c73d2eaf3e3bb3344543e75dd253f39ebab9109d3946fe2a83fe21c1987d1fe",
+      "source_sha256": "3c73d2eaf3e3bb3344543e75dd253f39ebab9109d3946fe2a83fe21c1987d1fe",
+      "verdict": "PASS — exact stream copy"
+    },
+    "map": {
+      "beats": 58,
+      "cuts": 57,
+      "frame_continuity": "PASS — 0 through exclusive frame 29,016 without gap or overlap",
+      "caption_cues": 207,
+      "caption_coverage": "PASS — every cue intersects a mapped picture interval; final cue ends at 965.14 seconds before 967.20-second picture end"
+    },
+    "clock_repair": {
+      "verdict": "PASS — prior v3 early-ending drift is not reproduced",
+      "all_57_mapped_cut_onsets": "PASS",
+      "repaired_freeze_tails": {
+        "B05": 62,
+        "B13": 55,
+        "B39": 38,
+        "B54": 62
+      },
+      "direct_boundary_inspection": [
+        "B05→B06 at frames 1815/1816",
+        "B13→B14 at frames 5856/5857",
+        "B39→B40 at frames 17331/17332",
+        "B54→B55 at frames 25345/25346"
+      ]
+    }
+  },
+  "visual_and_semantic_review": {
+    "58_beat_delivery_size_contact_sheets": "REVIEWED — colourful comic/town visual grammar remains broadly legible; no new visual, source, copy, identity, location, or motion art was introduced by this clock-only successor",
+    "high_risk_v3_corrections": {
+      "B08_title": "PASS — LAiDIES title treatment retained",
+      "B14": "PASS as a bounded frame check — blue-eyed heroine and multicolour trailer outfit retained",
+      "B55_brand_card": "PASS — LAiDIES.ai and new-episode card retained",
+      "B57_next_week": "PASS — On Wednesdays We Use AI wording retained",
+      "B58_end_card": "PASS — end card remains through the mapped final picture interval"
+    },
+    "motion": "PASS for the bounded clock repair — B05, B13, B39 and B54 now play once and visibly hold their final state through their declared intervals; semantic motion remains otherwise unchanged from the held v3 art",
+    "unresolved_heroine_outfit_authority": {
+      "verdict": "HOLD",
+      "observed": "The v4 clock-only successor preserves the conflict already recorded for v3: B05 and B14 use the later multicolour trailer outfit, while other heroine appearances, including B01, B04, B07, B15, B31, B39 and B56, retain yellow plaid.",
+      "reason": "The supplied records do not resolve whether the later trailer-only outfit ruling applies only to B05/B14 or to every trailer heroine appearance. A judge cannot infer a creative/identity rule."
+    }
+  },
+  "admission_blockers": [
+    {
+      "id": "TRAILER-V4-AUTHORITY-01",
+      "verdict": "HOLD",
+      "owner": "Weekly Episodes Director; Ali only if the durable references remain irreconcilable",
+      "failure": "Heroine outfit scope is unresolved across the otherwise frozen v3 art.",
+      "exact_next_action": "Issue a bounded authority receipt naming the allowed outfit for every heroine beat, then rebuild only if that receipt changes a source."
+    },
+    {
+      "id": "TRAILER-V4-PLAYER-02",
+      "verdict": "HOLD",
+      "owner": "Audio & Caption Owner with Release QA",
+      "failure": "A complete human normal-speed audible watch and actual-player proof of external VTT behavior, caption toggle, keyboard seeking, reduced motion, responsive behavior and no-JS/failure state were not available in this read-only master-file review.",
+      "exact_next_action": "Bind the frozen master and VTT to a representative player, then independently witness normal-speed audio/captions and the stated player paths without changing the media bytes."
+    }
+  ],
+  "current_truth": "BUILT LOCALLY / CLOCK REPAIR VERIFIED LOCALLY / NOT ADMITTED / NOT DEPLOYED / NOT PUBLIC",
+  "authority_truth": {
+    "maker_media_or_source_bytes_changed": false,
+    "site_route_player_or_public_media_changed": false,
+    "release_or_deployment_authorized": false,
+    "ali_approval_inferred": false
+  }
+}

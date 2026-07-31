@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KSVL 99.9 · Complete station candidate</title>
+  <meta name="description" content="Enter KSVL 99.9, choose from 29 creator-confirmed LAiDIES originals, browse programme shelves and bands, collect local declaration stickers, or save a request draft on this device.">
+  <link rel="stylesheet" href="ksvl-candidate.css">
+  <script defer src="ksvl-candidate.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#station" id="skipLink">Skip to the KSVL station</a>
+
+  <header class="station-strip" aria-label="Building identity">
+    <span>KSVL COMMUNITY RAiDIO · 99.9 FM</span>
+    <span>No. 10 MAiN · DJ SunnyV</span>
+  </header>
+
+  <main id="station" tabindex="-1">
+    <section class="booth" aria-labelledby="page-title">
+      <img
+        class="booth__art"
+        src="/assets/building-interiors/ksvl-booth.jpg"
+        alt="Inside the colourful KSVL 99.9 booth, with a mixing console, heart-topped microphones, records and an ON AIR sign"
+        width="1600"
+        height="900"
+      >
+      <div class="booth__shade" aria-hidden="true"></div>
+      <div class="booth__copy">
+        <p class="eyebrow">COMMUNITY RAiDIO · SOUND STARTS ONLY WHEN YOU CHOOSE</p>
+        <h1 id="page-title">Tune to<br>99.9.</h1>
+        <p>Twenty-nine creator-confirmed LAiDIES originals are in the booth. A play is listening—not learning completion, membership, a reward or an account history.</p>
+        <button class="hero-play" type="button" data-action="play-live" data-js-control disabled>Listen to KSVL</button>
+      </div>
+      <nav class="station-tickets" aria-label="Choose a KSVL counter">
+        <a class="ticket ticket--yellow" href="#mixes"><span>01</span> Mix CDs</a>
+        <a class="ticket ticket--cyan" href="#bands"><span>02</span> The Bands</a>
+        <a class="ticket ticket--pink" href="#stickers"><span>03</span> Sticker counter</a>
+        <a class="ticket ticket--mint" href="#requests"><span>04</span> Request phone</a>
+      </nav>
+    </section>
+
+    <section class="deck" aria-labelledby="deck-title">
+      <div class="record" aria-hidden="true"><span></span></div>
+      <div class="now-playing">
+        <p class="eyebrow">KSVL DECK · DEVICE-LOCAL RETURN</p>
+        <h2 id="deck-title">Choose a track.</h2>
+        <p id="playerContext">Nothing plays until you press Play.</p>
+        <p class="player-state" id="playerState" role="status" aria-live="polite">The station is ready.</p>
+      </div>
+      <audio id="audio" preload="metadata"></audio>
+      <div class="deck__controls" aria-label="KSVL playback controls">
+        <button type="button" data-action="previous" data-js-control disabled aria-label="Previous track">Previous</button>
+        <button type="button" data-action="toggle" id="togglePlay" data-js-control disabled aria-label="Play current track">Play</button>
+        <button type="button" data-action="next" data-js-control disabled aria-label="Next track">Next</button>
+        <button type="button" data-action="stop" data-js-control disabled>Stop</button>
+      </div>
+      <label class="seek-label" for="seek">Track position <span id="timeLabel">0:00 / 0:00</span></label>
+      <input id="seek" type="range" min="0" max="1000" value="0" step="1" data-js-control disabled aria-label="Track position">
+      <div class="deck__secondary">
+        <label for="volume">Volume</label>
+        <input id="volume" type="range" min="0" max="1" value="0.8" step="0.05" data-js-control disabled>
+        <button type="button" data-action="mute" id="muteButton" data-js-control disabled>Mute</button>
+        <button type="button" data-action="retry" id="retryButton" data-js-control disabled hidden>Retry this track</button>
+      </div>
+      <a class="source-link" id="sourceLink" href="#mixes" hidden>Open this track’s SUNNYVAiLE source</a>
+      <p class="truth-note">Saved position stays on this browser for up to six hours and always restores paused. It is not listening history, sync or proof that anyone heard the track.</p>
+    </section>
+
+    <section class="room room--mixes" id="mixes" aria-labelledby="mixes-title">
+      <div class="section-heading">
+        <p class="eyebrow">COUNTER 01 · SIX PROGRAMME SHELVES</p>
+        <h2 id="mixes-title">Pick a Mix CD.</h2>
+        <p>Every count and play control comes from the admitted 29-track registry. Tracks with no source route remain playable but make no lesson claim.</p>
+      </div>
+      <div class="mix-grid" id="mixGrid" aria-busy="true"></div>
+      <div class="failure" id="catalogFailure" hidden>
+        <h3>The record crate could not be verified.</h3>
+        <p>No track was admitted and nothing started.</p>
+        <button type="button" id="catalogRetry" data-js-control disabled>Retry the registry</button>
+      </div>
+      <noscript>
+        <p class="no-js">KSVL sound requires JavaScript and an explicit Play action. The station description and return links remain available without it.</p>
+      </noscript>
+    </section>
+
+    <section class="room room--bands" id="bands" aria-labelledby="bands-title">
+      <div class="section-heading">
+        <p class="eyebrow">COUNTER 02 · REGISTRY-DERIVED ALBUM CRATES</p>
+        <h2 id="bands-title">Flip through the bands.</h2>
+        <p>These ten covers are the station’s fictional bands. A cover becomes playable only when the current registry contains that exact artist.</p>
+      </div>
+      <div class="band-grid" id="bandGrid"></div>
+    </section>
+
+    <section class="room room--stickers" id="stickers" aria-labelledby="stickers-title">
+      <div class="sticker-banner">
+        <img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="A colourful pile of KSVL declaration and band stickers" width="1600" height="900">
+      </div>
+      <div class="section-heading">
+        <p class="eyebrow">COUNTER 03 · ON THIS DEVICE</p>
+        <h2 id="stickers-title">Choose three declarations.</h2>
+        <p>Pick up to three declaration stickers for this browser. They do not enter the Closet, become an account collection or unlock a reward. Achievement stickers remain visible but held.</p>
+      </div>
+      <div class="sticker-grid" id="stickerGrid"></div>
+      <div class="sticker-actions">
+        <button type="button" id="saveStickers" data-js-control disabled>Save on this device</button>
+        <button type="button" id="clearStickers" data-js-control disabled>Clear local stickers</button>
+      </div>
+      <p class="receipt" id="stickerReceipt" role="status" aria-live="polite">No local sticker choice has been made.</p>
+    </section>
+
+    <section class="room room--requests" id="requests" aria-labelledby="requests-title">
+      <div class="request-phone" aria-hidden="true">99.9</div>
+      <div class="request-copy">
+        <p class="eyebrow">COUNTER 04 · SIGNED-OUT DRAFT ONLY</p>
+        <h2 id="requests-title">Call in an idea.</h2>
+        <p>This candidate can save one request draft on this device. Saved is not submitted, heard, selected, produced or credited. Provider delivery and moderation remain unavailable until an authoritative service returns a receipt.</p>
+        <form id="requestForm" novalidate>
+          <label for="requestStyle">Style</label>
+          <select id="requestStyle" data-js-control disabled required>
+            <option value="">Choose one</option>
+            <option value="anthem">Town anthem</option>
+            <option value="saint">PATRON SAiNT song</option>
+            <option value="activity">Activity or place song</option>
+            <option value="episode">Episode song</option>
+            <option value="bside">B-side</option>
+          </select>
+          <label for="requestTopic">Topic <span>3–200 characters</span></label>
+          <input id="requestTopic" data-js-control disabled minlength="3" maxlength="200" required>
+          <label for="requestLyrics">Optional lyric idea <span>up to 1,000 characters</span></label>
+          <textarea id="requestLyrics" data-js-control disabled maxlength="1000" rows="5"></textarea>
+          <div class="request-actions">
+            <button type="submit" data-js-control disabled>Save draft on this device</button>
+            <button type="button" id="deleteDraft" data-js-control disabled>Delete local draft</button>
+          </div>
+        </form>
+        <p class="receipt" id="requestReceipt" role="status" aria-live="polite">No draft is stored.</p>
+      </div>
+    </section>
+
+    <section class="handbacks" aria-labelledby="handbacks-title">
+      <p class="eyebrow">WHEN DJ SUNNYV SIGNS OFF</p>
+      <h2 id="handbacks-title">Carry the hook back to town.</h2>
+      <div class="handback-grid">
+        <a href="/games/dj-booth.html"><strong>Enter the focused DJ Booth</strong><span>The production Booth still requires a registry-native successor.</span></a>
+        <a href="/resident-card.html"><strong>Choose a Resident Card song</strong><span>The Card owns that value; KSVL does not sync or mutate it.</span></a>
+        <a href="/visitors-centre.html"><strong>Choose another building</strong><span>Return to the Visitor’s Centre directory.</span></a>
+      </div>
+      <p class="provider-hold">External playlists, authenticated request delivery, listening achievements and Closet propagation are held. No inactive provider control is presented as a working feature.</p>
+    </section>
+  </main>
+</body>
+</html>

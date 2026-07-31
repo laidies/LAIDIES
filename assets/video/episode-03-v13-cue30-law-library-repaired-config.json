@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "AUTHORIZED_BUILD_CONFIGURATION",
+  "title": "Episode 03 — The Burn Book Problem",
+  "successor": "v13 cue-30 law-library repair",
+  "source": {
+    "path": "assets/video/episode-03-full-v12-spoken-welcome-ident-review.mp4",
+    "sha256": "4ed6057f151530c5ae760f72860718be1beda87076eb17e6cdfdfd1b7accef40",
+    "expected_video_frames": 31438,
+    "expected_video_fps": 30,
+    "expected_overall_duration_seconds": 1048.0
+  },
+  "replacement": {
+    "path": "assets/episodes/ep-03/comic/delivery-20260726-cue30-law-library-repair-v1/ep03-cue30-law-library-lamp-dust-zero-net-loop-v1.mp4",
+    "sha256": "6a3a6e936eb025820e261eed8ef147d7ae8d9097c3fb6bdc3c2a30754072d6bf",
+    "cue": 30,
+    "interval_seconds": [
+      565.0,
+      577.0
+    ],
+    "start_frame": 16950,
+    "end_frame_exclusive": 17310,
+    "frames": 360
+  },
+  "independent_source_admission": {
+    "motion_judgment_md": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-cue30-law-library-motion-independent-judge-2026-07-26.md",
+    "motion_judgment_md_sha256": "fbeabb135474cf5806732fbfab88058a7dc076b68b2b72df79bdd3cfc119a494",
+    "motion_judgment_json": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-cue30-law-library-motion-independent-judge-2026-07-26.json",
+    "motion_judgment_json_sha256": "ac1e2ba0cfe8d8d1b32b2e89f51aae53fcf739713f3b36d66959a5e4dac3bcf5"
+  },
+  "frozen_invariants": [
+    "v12 AAC payload bit-for-bit",
+    "accepted spoken-welcome ident and all frames before frame 16950",
+    "all v12 frames from frame 17310 onward",
+    "v12 total video frame count and overall clock",
+    "no public, site, player, caption, manifest-release or deployment binding"
+  ],
+  "output": {
+    "path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+    "manifest": "operations/video-qa/episode-03-full-v13-cue30-law-library-repaired-manifest.json",
+    "qc": "operations/video-qa/episode-03-full-v13-cue30-law-library-repaired-qc.json",
+    "status_after_success": "BUILT_LOCALLY_NOT_ADMITTED"
+  }
+}

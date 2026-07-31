@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "bindingId": "SVGH-320-2026-07-26-v1-ASSET-CACHE-v1",
+  "status": "VERIFIED_LOCALLY_RELEASE_INTEGRATION_PENDING",
+  "payload": {
+    "candidateId": "SVGH-320-2026-07-26-v1",
+    "acceptedSource": {
+      "path": "content/site/sv-global-header.js",
+      "sha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa",
+      "bytes": 20003
+    },
+    "candidateReceipt": {
+      "path": "operations/product-stewards/platform-reliability/shared-header/v1/shared-header-320-repair-candidate-v1-2026-07-26.json",
+      "sha256": "299876c0962e45f282579e4c61d61bb4365a5ddbf91a7efaf3d3375e71d9c049"
+    },
+    "acceptanceEvidence": {
+      "townEntry": {
+        "path": "operations/product-stewards/town-entry-homepage/evidence/shared-header-320-consumer-acceptance-2026-07-26/independent-acceptance.md",
+        "sha256": "d27ffac2229d251a1d4dc98d2921575d386ffec1f92670c3336147c960b15eb9"
+      },
+      "visitorsCentre": {
+        "path": "operations/product-stewards/visitors-centre/independent-consumer-acceptance-shared-header-svgh-320-v1-corrected-2026-07-26.md",
+        "sha256": "b44091060b6ec52a3f686113b08433fbd43e9e2031aa8700986e92b6851ffaba"
+      }
+    },
+    "consumers": [
+      {
+        "role": "homepage",
+        "path": "index.html",
+        "sha256": "c437da107ba8863111a48434e790a2f6d17b683349b5ccea52954216dbd24772",
+        "consumesSharedHeader": true,
+        "currentRequestPath": "/content/site/sv-global-header.js?v=20260715-1"
+      },
+      {
+        "role": "startHere",
+        "path": "start-here.html",
+        "sha256": "a7a54e79b3b4b5dd85cdbaf50a9b96788632f2c8dd42d3513f77ec8d1c7efbc0",
+        "consumesSharedHeader": false,
+        "currentRequestPath": null
+      },
+      {
+        "role": "visitorsCentre",
+        "path": "visitors-centre.html",
+        "sha256": "de8e536dcfd4c80c419e4bfd6e61c7e2189fd4c07429869b5d505ba659707743",
+        "consumesSharedHeader": true,
+        "currentRequestPath": "/content/site/sv-global-header.js?v=20260715-1"
+      }
+    ],
+    "release": {
+      "versionKey": "svgh-320-2026-07-26-v1-807bbe6b17ab",
+      "requestPath": "/content/site/sv-global-header.js?v=svgh-320-2026-07-26-v1-807bbe6b17ab",
+      "sourceSha256": "807bbe6b17abf09725b6fe82fb3c483102b658fda2cda571862f0e89b6661efa",
+      "consumerSwitch": "ATOMIC_CURATED_ARTIFACT",
+      "cachePolicy": "NEW_VERSION_KEY_BEFORE_PUBLIC_CACHE_PURGE"
+    },
+    "rollback": {
+      "versionKey": "rollback-c5d72fad-f500707712e1",
+      "requestPath": "/content/site/sv-global-header.js?v=rollback-c5d72fad-f500707712e1",
+      "source": "content/site/sv-global-header.js",
+      "sourceSha256": "f500707712e100e45d972daada9dc60a7801ced07f6f517ff8c41752d2761d93",
+      "bytes": 19496,
+      "gitCommit": "c5d72fadc0cc873d1d1bfdabdb79a3aea9c773fb",
+      "gitObject": "1325f6c39e21853e952aaa8d36e74d325e651657",
+      "consumerSwitch": "ATOMIC_CURATED_ARTIFACT",
+      "triggers": [
+        "accepted source hash mismatch",
+        "mixed consumer version references",
+        "native accessibility regression",
+        "public origin or cache delivery mismatch"
+      ]
+    },
+    "cacheRules": [
+      "versionKey changes whenever accepted source bytes change",
+      "one versionKey maps to exactly one source hash",
+      "release switches every consuming route to one requestPath in one artifact",
+      "rollback switches every consuming route to one rollbackRequestPath in one artifact",
+      "non-consuming accepted routes remain non-consuming",
+      "missing stale mixed or tampered bindings fail closed"
+    ],
+    "authority": {
+      "deploy": false,
+      "publicCacheMutation": false,
+      "providerSettings": false,
+      "visitorContainmentRemoval": false
+    },
+    "acceptance": {
+      "consumerScope": "ACCEPTED_LOCALLY",
+      "releaseIntegration": "PENDING_ROUTE_VERSION_UPDATE_AND_REACCEPTANCE",
+      "nativeSafariVoiceOverTrueZoom": "PENDING",
+      "publicOriginAndCache": "NOT_PERFORMED"
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "9b6536bbed0df7e808764df5b5ded525f33918e1451a3f92eeec5922ae22c361"
+  }
+}

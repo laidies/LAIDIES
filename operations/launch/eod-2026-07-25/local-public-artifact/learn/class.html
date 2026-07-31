@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class · SUNNYVAiLE High · LAiDIES</title>
+  <meta name="description" content="A class at SUNNYVAiLE High — take a seat, hit play on the TV. Short single-topic video lessons on how to actually operate the tools.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+
+<style>
+/* ── SUNNYVAiLE High · the classroom wrapper ────────────────────────────────
+   One classroom, one chalkboard, one AV cart. Only the class name and the
+   tape change. Candy accents per the homepage target; gold is retired. */
+:root{
+  --candy-pink:#e982ab; --candy-teal:#57b6c0; --candy-coral:#ec7a78; --candy-peri:#b3abe7;
+  --chalk:#f2ece0;
+}
+
+.cls-wrap{max-width:1180px;margin:0 auto;padding:0 20px 72px}
+
+/* Screen-reader-only. Not defined in the shared stylesheet, so it lives here. */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0
+}
+
+/* ── The room ───────────────────────────────────────────────────────────── */
+.room{
+  position:relative;margin:22px 0 0;border-radius:18px;overflow:hidden;
+  box-shadow:0 18px 48px rgba(75,33,72,.24);background:#2a2118;
+}
+.room__stage{position:relative;display:block;width:100%}
+.room__img{display:block;width:100%;height:auto}
+
+/* Chalk on the board. Real text — positioned over the clear band, clear of
+   the overhead projector arm at the board's lower left. */
+.chalk{
+  position:absolute;left:50.3%;top:28.5%;width:30.3%;height:17%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;pointer-events:none;transform:rotate(-.5deg);
+}
+/* Not uppercased — the subject is a vendor's proper name and must keep its casing. */
+.chalk__period{
+  font:600 clamp(7px,.78vw,12px)/1 Jost,sans-serif;letter-spacing:.2em;
+  color:var(--chalk);opacity:.62;margin-bottom:.55em;
+}
+.chalk__name{
+  font:500 clamp(13px,2.05vw,32px)/1.14 Jost,sans-serif;color:var(--chalk);
+  letter-spacing:.012em;opacity:.9;
+  text-shadow:0 0 5px rgba(255,255,255,.22),0 1px 0 rgba(0,0,0,.16);
+}
+.chalk__rule{
+  width:38%;height:1px;margin:.6em 0 0;background:var(--chalk);opacity:.4;
+  border-radius:2px;
+}
+
+/* The TV. Sized to the CRT bezel in the artwork. */
+.tv{
+  position:absolute;left:30.6%;top:32.5%;width:6.93%;height:9.0%;
+  padding:0;border:0;background:transparent;cursor:pointer;border-radius:5px;
+  -webkit-tap-highlight-color:transparent;
+}
+.tv__glass{
+  position:absolute;left:7%;top:9%;width:80%;height:74%;border-radius:5px/7px;
+  background:radial-gradient(ellipse at 50% 45%,rgba(120,210,225,.5),rgba(30,60,80,.18) 68%,transparent 76%);
+  opacity:0;transition:opacity .35s ease;
+}
+.tv:hover .tv__glass,.tv:focus-visible .tv__glass{opacity:1}
+/* The pulsing ring is the affordance — it also enlarges the tap target. */
+.tv::after{
+  content:"";position:absolute;inset:-42%;border-radius:14px;
+  border:2px solid var(--candy-teal);opacity:0;
+  animation:tvpulse 2.6s ease-in-out infinite;pointer-events:none;
+}
+@keyframes tvpulse{
+  0%,100%{opacity:.25;transform:scale(.94)}
+  50%    {opacity:.75;transform:scale(1)}
+}
+.tv:hover::after,.tv:focus-visible::after{opacity:.95;animation-play-state:paused}
+.tv:focus-visible{outline:3px solid var(--candy-pink);outline-offset:8px}
+
+/* The tag on the cart. */
+.tvtag{
+  position:absolute;left:23.5%;top:44.5%;width:21%;text-align:center;
+  pointer-events:none;
+}
+.tvtag span{
+  display:inline-block;padding:.42em .8em;border-radius:99px;
+  background:rgba(28,20,26,.82);color:var(--chalk);
+  font:600 clamp(7px,.72vw,11px)/1 Jost,sans-serif;letter-spacing:.16em;
+  text-transform:uppercase;border:1px solid rgba(87,182,192,.55);
+  box-shadow:0 4px 14px rgba(0,0,0,.35);white-space:nowrap;
+}
+
+/* Mobile: zoom the stage so the TV and the board stay legible. Hotspots are
+   children of the stage, so they scale and travel with the picture. */
+/* The zoom must keep BOTH the TV (30.6–37.5% of the stage) and the whole chalk block
+   inside the frame, or a long class name runs off the board. The chalk block is narrowed
+   here so it ends well inside the visible slice. */
+@media (max-width:760px){
+  .room{aspect-ratio:5/4}
+  .room__stage{position:absolute;top:50%;left:-40%;width:176%;transform:translateY(-46%)}
+  .chalk{left:43%;width:29%;top:27%;height:19%}
+  .chalk__name{font-size:15px}
+  .chalk__period{font-size:9px;letter-spacing:.14em}
+  .tvtag{top:45.5%}
+  .tvtag span{font-size:8px}
+}
+/* At 1:1 the stage must be ≥193% wide to cover the box vertically once the -46% upward
+   bias is applied, so the left offset moves with it to keep the chalk block in frame. */
+@media (max-width:420px){
+  .room{aspect-ratio:1/1}
+  .room__stage{left:-44%;width:196%}
+  .chalk{width:27%}
+  .chalk__name{font-size:14px}
+}
+
+/* ── Below the room ─────────────────────────────────────────────────────── */
+/* ── The lesson slide · 1999 overhead-projector transparency ───────────────
+   Warm acetate on a lit platen, marker-weight lettering, a whisker off square
+   because nobody ever laid one down straight. */
+.slide{
+  position:relative;margin:34px 0 0;padding:clamp(22px,3vw,44px);border-radius:16px;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 42%, rgba(255,231,168,.5), rgba(255,231,168,0) 70%),
+    linear-gradient(160deg,#2b2119,#1a1410);
+  overflow:hidden;
+}
+.slide__sheet{
+  position:relative;max-width:760px;margin:0 auto;padding:clamp(22px,3.2vw,40px) clamp(20px,3.4vw,46px);
+  transform:rotate(-.45deg);
+  background:linear-gradient(150deg,rgba(255,246,214,.97),rgba(255,238,190,.94));
+  border:1px solid rgba(120,86,30,.4);border-radius:3px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.25) inset, 0 22px 50px rgba(0,0,0,.5),
+             0 0 90px rgba(255,214,130,.35);
+  color:#4a3410;
+}
+.slide__eyebrow{
+  margin:0 0 12px;font:700 clamp(10px,1.05vw,12px)/1 Jost,sans-serif;letter-spacing:.24em;
+  text-transform:uppercase;color:#8a6320
+}
+.slide__title{
+  margin:0;font:600 clamp(26px,4vw,44px)/1.1 Jost,sans-serif;letter-spacing:-.005em;color:#3d2a08
+}
+.slide__rule{
+  display:block;width:100%;height:2px;margin:16px 0 20px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(122,86,20,.75),rgba(122,86,20,.12))
+}
+.slide__lead{
+  margin:0 0 12px;font:600 clamp(13px,1.5vw,17px)/1 Jost,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;color:#7a5614
+}
+.slide__list{margin:0;padding:0;list-style:none}
+.slide__list li{
+  position:relative;padding-left:32px;margin-bottom:12px;
+  font-size:clamp(15px,1.75vw,19px);line-height:1.5;color:#4a3410
+}
+.slide__list li:last-child{margin-bottom:0}
+/* hand-drawn tick, not an emoji — no emoji in chrome */
+.slide__list li::before{
+  content:"";position:absolute;left:4px;top:.42em;width:15px;height:9px;
+  border-left:2.5px solid #a8761c;border-bottom:2.5px solid #a8761c;
+  transform:rotate(-45deg);border-radius:1px
+}
+.slide__foot{
+  margin:22px 0 0;padding-top:14px;border-top:1px dashed rgba(122,86,20,.45);
+  font:500 clamp(11px,1.15vw,13px)/1.4 Jost,sans-serif;letter-spacing:.06em;color:#8a6320
+}
+@media (prefers-reduced-motion:reduce){.slide__sheet{transform:none}}
+
+.cls-head{margin:30px 0 0}
+.cls-eyebrow{
+  font:600 12px/1 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rose);margin:0 0 10px
+}
+.keepcase{text-transform:none;letter-spacing:.12em}
+.cls-head h1{font-size:clamp(28px,4.4vw,44px);line-height:1.08;margin:0 0 10px;color:var(--plum)}
+.cls-sub{font-size:clamp(16px,2vw,20px);color:var(--plum-soft);margin:0;max-width:56ch}
+
+.cls-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:26px;margin-top:34px;align-items:start}
+@media (max-width:860px){.cls-grid{grid-template-columns:1fr}}
+
+.cls-card{
+  background:var(--cream);border:1px solid var(--line);border-radius:16px;
+  padding:22px 24px;box-shadow:0 6px 20px rgba(75,33,72,.07)
+}
+.cls-card h2{font-size:19px;margin:0 0 12px;color:var(--plum)}
+.cls-card p{margin:0 0 12px;color:var(--plum-soft);line-height:1.62}
+.cls-card p:last-child{margin-bottom:0}
+.cls-card ol,.cls-card ul{margin:0;padding-left:1.15em;color:var(--plum-soft);line-height:1.62}
+.cls-card li{margin-bottom:8px}
+.cls-card li:last-child{margin-bottom:0}
+.cls-card + .cls-card{margin-top:18px}
+/* The one mistake gets its own colour so it reads as a warning, not more prose. */
+.cls-card--warn{border-left:3px solid var(--candy-coral);background:#fff8f6}
+.cls-card--warn h2{color:#a8433f}
+.cls-card--analogy{border-left:3px solid var(--candy-peri);background:#faf9ff}
+.cls-card--analogy h2{color:#5b4fa8}
+.cls-card--analogy p{font-size:16.5px}
+
+/* ── The Before & After beat ──────────────────────────────────────────────
+   Bad and good sit side by side so the ONE changed variable is obvious; the
+   reason sits underneath, because the reason is the part she keeps. */
+.cls-card--demo{border-left:3px solid var(--candy-teal)}
+.cls-card--demo h2{color:#1d6d75}
+.demo__task{font-size:15px;margin:0 0 6px}
+.demo__var{font-size:14px;margin:0 0 18px;color:var(--plum)}
+.demo__var b{color:#1d6d75}
+
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.demo{grid-template-columns:1fr}}
+.demo__side{border:1px solid var(--line);border-radius:12px;padding:14px 15px;background:var(--cream)}
+.demo__side--bad{border-color:rgba(236,122,120,.45);background:#fff8f6}
+.demo__side--good{border-color:rgba(87,182,192,.45);background:#f4fbfc}
+
+.demo__tag{
+  display:inline-block;margin:0 0 10px;padding:.28em .7em;border-radius:99px;
+  font:700 10.5px/1 Jost,sans-serif;letter-spacing:.16em;text-transform:uppercase
+}
+.demo__side--bad .demo__tag{background:rgba(236,122,120,.2);color:#a8433f}
+.demo__side--good .demo__tag{background:rgba(87,182,192,.24);color:#15646c}
+
+.demo__lbl{
+  margin:12px 0 5px;font:600 10.5px/1 Jost,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--plum-soft);opacity:.75
+}
+.demo__side .demo__lbl:first-of-type{margin-top:0}
+.demo blockquote{
+  margin:0;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,.75);
+  border:1px solid var(--line);font-size:14px;line-height:1.55;color:var(--plum)
+}
+.demo__in{font-weight:500}
+/* pre-line so a multi-line answer (three headline options, say) keeps its breaks */
+.demo__out{font-style:italic;opacity:.92;white-space:pre-line}
+.demo__verdict{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--plum-soft)}
+
+.demo__why{
+  margin-top:18px;padding:15px 16px;border-radius:12px;
+  background:rgba(179,171,231,.14);border:1px solid rgba(179,171,231,.4)
+}
+.demo__why p{margin:0 0 8px;font-size:15px}
+.demo__why p:last-child{margin-bottom:0}
+.demo__fix{color:var(--plum)}
+
+/* ── Where this goes next ─────────────────────────────────────────────── */
+.onward{margin:36px 0 0}
+.onward h2{font-size:19px;margin:0 0 16px;color:var(--plum)}
+.onward__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.onward__card{
+  display:block;padding:18px 20px;border-radius:14px;text-decoration:none;
+  background:var(--cream);border:1px solid var(--line);transition:.16s
+}
+.onward__card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(75,33,72,.12)}
+.onward__kind{
+  display:block;font:700 10.5px/1 Jost,sans-serif;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:8px
+}
+.onward__card--tool{border-color:rgba(233,130,171,.45);background:#fff7fb}
+.onward__card--tool .onward__kind{color:#b8497c}
+.onward__card--book{border-color:rgba(87,182,192,.45);background:#f4fbfc}
+.onward__card--book .onward__kind{color:#15646c}
+.onward__card--episode{border-color:rgba(179,171,231,.5);background:#faf9ff}
+.onward__card--episode .onward__kind{color:#5b4fa8}
+.onward__name{margin:0 0 6px;font-size:17px;font-weight:600;color:var(--plum)}
+.onward__why{margin:0;font-size:14px;line-height:1.55;color:var(--plum-soft)}
+
+.cls-card--mech{border-left:3px solid var(--plum);background:#fbf7fb}
+.cls-card--mech h2{color:var(--plum)}
+.cls-card--mech p{font-size:16px}
+#cd-path li{margin-bottom:10px}
+#cd-path li::marker{color:var(--candy-teal);font-weight:700}
+
+.tape__src{
+  margin:12px 0 0;font-size:11.5px;line-height:1.5;color:var(--plum-soft);
+  border-top:1px dashed rgba(75,33,72,.22);padding-top:10px;word-break:break-word
+}
+.tape__src a{color:var(--rose)}
+.tape__stale{
+  margin:12px 0 0;padding:10px 12px;border-radius:8px;font-size:12.5px;line-height:1.5;
+  background:rgba(236,122,120,.14);border:1px solid rgba(236,122,120,.4);color:#a8433f
+}
+
+.q{
+  border-left:3px solid var(--candy-pink);padding:2px 0 2px 16px;margin:0 0 18px;
+  font-size:17px;font-style:italic;color:var(--plum)
+}
+
+/* The tape label carries the dates. A class that cannot be dated cannot be
+   trusted — this is the currency rule made visible. */
+.tape{
+  background:#f6f1e7;border:1px solid rgba(75,33,72,.18);border-radius:8px;
+  padding:16px 18px;box-shadow:0 4px 14px rgba(75,33,72,.09)
+}
+.tape__hd{
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  border-bottom:1.5px solid rgba(75,33,72,.2);padding-bottom:8px;margin-bottom:12px
+}
+.tape__hd b{font:700 11px/1 Jost,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--plum)}
+.tape__hd i{font:500 11px/1 Jost,sans-serif;color:var(--rose);font-style:normal;letter-spacing:.06em}
+.tape dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 14px;font-size:13px}
+.tape dt{color:var(--plum-soft);opacity:.8}
+.tape dd{margin:0;color:var(--plum);font-weight:500;text-align:right}
+.tape__note{
+  margin:13px 0 0;font-size:12.5px;line-height:1.55;color:var(--plum-soft);
+  border-top:1px dashed rgba(75,33,72,.22);padding-top:11px
+}
+
+.chip{
+  display:inline-block;padding:.3em .7em;border-radius:99px;font-size:11.5px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase
+}
+.chip--soon{background:rgba(236,122,120,.16);color:#a83f3d;border:1px solid rgba(236,122,120,.4)}
+.chip--live{background:rgba(87,182,192,.18);color:#1d6d75;border:1px solid rgba(87,182,192,.45)}
+
+/* Period strip — the other classes */
+.periods{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 0}
+.periods a{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:99px;
+  background:var(--cream);border:1px solid var(--line);text-decoration:none;
+  color:var(--plum);font-size:13.5px;font-weight:500;transition:.16s
+}
+.periods a:hover{border-color:var(--candy-teal);transform:translateY(-1px)}
+.periods a[aria-current="page"]{background:var(--plum);color:var(--cream);border-color:var(--plum)}
+.periods a span{font-size:11px;opacity:.62;letter-spacing:.1em}
+.periods a[aria-current="page"] span{opacity:.75}
+.periods--subjects{margin-top:14px;align-items:center}
+.periods__lbl{
+  font:600 11px/1 Jost,sans-serif;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--plum-soft);opacity:.7;margin-right:4px;align-self:center
+}
+.periods--subjects a{background:transparent;border-style:dashed}
+
+/* ── The television goes full screen ────────────────────────────────────── */
+.screen{
+  position:fixed;inset:0;z-index:9999;background:#07060a;display:none;
+  align-items:center;justify-content:center;padding:clamp(12px,3vw,40px)
+}
+.screen[open],.screen.is-on{display:flex}
+.screen__inner{position:relative;width:100%;max-width:1400px;aspect-ratio:16/9;background:#000;
+  border-radius:8px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 30px 90px rgba(0,0,0,.7)}
+.screen__inner video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+/* CRT power-on: a white line that opens out. */
+.screen.is-on .screen__inner{animation:crton .42s cubic-bezier(.2,.8,.3,1) both}
+@keyframes crton{
+  0%  {transform:scaleY(.004) scaleX(.7);filter:brightness(3.4)}
+  55% {transform:scaleY(.03)  scaleX(1);filter:brightness(2.2)}
+  100%{transform:scaleY(1)    scaleX(1);filter:brightness(1)}
+}
+@media (prefers-reduced-motion:reduce){
+  .screen.is-on .screen__inner{animation:none}
+  .tv::after{animation:none;opacity:.5}
+}
+/* Sits on the overlay, not on the picture, so it never lands on the artwork. */
+.screen__close{
+  position:absolute;top:max(14px,env(safe-area-inset-top));right:16px;z-index:3;
+  appearance:none;cursor:pointer;
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.28);
+  border-radius:99px;padding:9px 16px;font:600 12px/1 Jost,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;backdrop-filter:blur(6px)
+}
+.screen__close:hover{background:rgba(255,255,255,.2)}
+
+/* Test card — what the TV shows before a class is filmed. */
+.testcard{position:absolute;inset:0;display:flex;flex-direction:column}
+.testcard__bars{display:flex;flex:1}
+.testcard__bars i{flex:1}
+/* The message sits in a band so the bars stay vivid above and below it. */
+.testcard__msg{
+  position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:12px;padding:34px 24px;color:#fff;
+  background:linear-gradient(to bottom,rgba(6,6,10,0),rgba(6,6,10,.9) 22%,rgba(6,6,10,.9) 78%,rgba(6,6,10,0))
+}
+.testcard__msg strong{font:600 clamp(16px,3vw,30px)/1.2 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.testcard__msg span{font-size:14px;opacity:.8;max-width:46ch;line-height:1.6}
+</style>
+<link rel="stylesheet" href="/content/site/class-v2.css?v=20260724-1">
+</head>
+<body class="class-v2">
+
+  <header class="sv-header"></header>
+
+  <main class="cls-wrap">
+
+    <!-- ── The classroom. Take a seat. ─────────────────────────────────── -->
+    <div class="room">
+      <div class="room__stage">
+        <img class="room__img" src="/assets/building-interiors/sunnyvaile-high-classroom.jpg?v=20260707"
+             alt="A SUNNYVAiLE High classroom in 1999 — wooden desks with textbooks, a green chalkboard, an overhead projector, and a television on a rolling AV cart with a video recorder underneath"
+             loading="eager" width="1500" height="844">
+
+        <div class="chalk">
+          <p class="chalk__period" id="chalk-period">Period 1</p>
+          <p class="chalk__name" id="chalk-name">&nbsp;</p>
+          <span class="chalk__rule"></span>
+        </div>
+
+        <button class="tv" id="tv" type="button" aria-haspopup="dialog">
+          <span class="tv__glass" aria-hidden="true"></span>
+          <span class="sr-only" id="tv-label">Press play on the television</span>
+        </button>
+
+        <p class="tvtag" aria-hidden="true"><span id="tvtag-text">Press play</span></p>
+      </div>
+    </div>
+
+    <!-- The lesson slide: a 1999 overhead-projector transparency. Built in HTML from the
+         same JSON as everything else, so 33 classes cost no art. This is also the frame to
+         screen-record as the video's opening card. -->
+    <div class="slide" id="cd-slide" hidden>
+      <div class="slide__sheet">
+        <p class="slide__eyebrow"><span id="slide-subject"></span> · Period <span id="slide-period"></span></p>
+        <h2 class="slide__title" id="slide-title"></h2>
+        <span class="slide__rule" aria-hidden="true"></span>
+        <p class="slide__lead">Today you will —</p>
+        <ul class="slide__list" id="slide-list"></ul>
+        <p class="slide__foot"><span id="slide-runtime"></span> · <span id="slide-sub"></span></p>
+      </div>
+    </div>
+
+    <!-- ── The class ───────────────────────────────────────────────────── -->
+    <div class="cls-head">
+      <p class="cls-eyebrow">SUNNYVAiLE High · Schoolhouse Road · <span class="keepcase" id="hd-period">Period 1</span></p>
+      <h1 id="hd-name">&nbsp;</h1>
+      <p class="cls-sub" id="hd-sub">&nbsp;</p>
+    </div>
+
+    <div class="cls-grid">
+      <div>
+        <div class="cls-card">
+          <h2>What this class answers</h2>
+          <p class="q" id="cd-question">&nbsp;</p>
+          <p>The class is a screen recording. You watch it done once, on the real interface,
+            and then you can do it. The town is 1999; the software is not — that is what the
+            television is for.</p>
+        </div>
+
+        <div class="cls-card" id="cd-path-card" hidden>
+          <h2>What you'll watch happen</h2>
+          <ol id="cd-path"></ol>
+        </div>
+
+        <div class="cls-card cls-card--warn" id="cd-mistake-card" hidden>
+          <h2>The one mistake</h2>
+          <p id="cd-mistake"></p>
+        </div>
+
+        <div class="cls-card cls-card--analogy" id="cd-analogy-card" hidden>
+          <h2>The way to think about it</h2>
+          <p id="cd-analogy"></p>
+        </div>
+      </div>
+
+      <div class="tape">
+        <div class="tape__hd">
+          <b>Class tape</b>
+          <i id="tape-status">Not filmed</i>
+        </div>
+        <dl>
+          <dt>Runtime</dt><dd id="tape-runtime">—</dd>
+          <dt>Filmed</dt><dd id="tape-filmed">—</dd>
+          <dt>Checked</dt><dd id="tape-verified">—</dd>
+          <dt>Who gets it</dt><dd id="tape-tier">—</dd>
+          <dt>Ages fast?</dt><dd id="tape-vol">—</dd>
+        </dl>
+        <p class="tape__stale" id="tape-stale" hidden></p>
+        <p class="tape__src" id="tape-src" hidden></p>
+        <p class="tape__note">Software changes. Every class carries the date it was filmed and
+          the date its steps were last checked against the tool. If a screen here no longer
+          matches what you see, the tape is due a re-shoot — that is the deal.</p>
+      </div>
+    </div>
+
+    <!-- The Before & After beat. Same task, ONE variable changed, and the reason in
+         between — so she understands the cause instead of memorising a prompt. -->
+    <div class="cls-card cls-card--demo" id="cd-demo-card" hidden>
+      <h2>Watch the same thing go wrong, then right</h2>
+      <p class="demo__task" id="demo-task"></p>
+      <p class="demo__var">The only thing that changes: <b id="demo-var"></b></p>
+
+      <div class="demo">
+        <div class="demo__side demo__side--bad">
+          <p class="demo__tag">Before</p>
+          <p class="demo__lbl">What she typed</p>
+          <blockquote class="demo__in" id="demo-bad-in"></blockquote>
+          <p class="demo__lbl">What came back</p>
+          <blockquote class="demo__out" id="demo-bad-out"></blockquote>
+          <p class="demo__verdict" id="demo-bad-verdict"></p>
+        </div>
+        <div class="demo__side demo__side--good">
+          <p class="demo__tag">After</p>
+          <p class="demo__lbl">What she typed</p>
+          <blockquote class="demo__in" id="demo-good-in"></blockquote>
+          <p class="demo__lbl">What came back</p>
+          <blockquote class="demo__out" id="demo-good-out"></blockquote>
+          <p class="demo__verdict" id="demo-good-verdict"></p>
+        </div>
+      </div>
+
+      <div class="demo__why">
+        <p class="demo__lbl">Why the first one did that</p>
+        <p id="demo-why"></p>
+        <p class="demo__fix"><b>The fix:</b> <span id="demo-fix"></span></p>
+      </div>
+    </div>
+
+    <div class="cls-card cls-card--mech" id="cd-mech-card" hidden>
+      <h2>How it actually works</h2>
+      <p id="cd-mech"></p>
+    </div>
+
+    <!-- Where this lesson connects to the rest of the town. Anyone can google a how-to;
+         the reason to be here is that the lesson goes somewhere. -->
+    <section class="onward" id="cd-onward" hidden>
+      <h2>Where this goes next</h2>
+      <div class="onward__grid" id="onward-grid"></div>
+    </section>
+
+    <nav class="periods" id="periods" aria-label="Periods in this subject"></nav>
+    <nav class="periods periods--subjects" id="subjects" aria-label="Other subjects" hidden></nav>
+
+  </main>
+
+  <!-- ── The television, full screen ───────────────────────────────────── -->
+  <div class="screen" id="screen" role="dialog" aria-modal="true" aria-labelledby="tv-label">
+    <button class="screen__close" type="button" id="screen-close">Close</button>
+    <div class="screen__inner" id="screen-inner">
+      <div id="screen-slot"></div>
+    </div>
+  </div>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · Schoolhouse Road</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var DATA = '/content/site/high-classes.json?v=20260722-1';
+  var $ = function (id) { return document.getElementById(id); };
+
+  function param() {
+    var m = /[?&]c=([^&]+)/.exec(window.location.search);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return null;
+    var d = new Date(iso + 'T00:00:00');
+    if (isNaN(d)) return null;
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  var ALL = [];   // every class, used to find each subject's first period
+
+  fetch(DATA).then(function (r) { return r.json(); }).then(function (json) {
+    var list = json.classes || [];
+    if (!list.length) return;
+    ALL = list;
+
+    var slug = param();
+    var cls = slug ? list.filter(function (c) { return c.slug === slug; })[0] : list[0];
+    if (!cls) cls = list[0];
+
+    var subjects = json.subjects || [];
+    var subject = subjects.filter(function (s) { return s.slug === cls.subject; })[0]
+                  || { name: '', slug: cls.subject };
+
+    // Only this subject's periods appear in the strip — a subject is the unit you sit through.
+    var siblings = list.filter(function (c) { return c.subject === cls.subject; })
+                       .sort(function (a, b) { return a.period - b.period; });
+
+    render(cls, subject, siblings, subjects);
+  }).catch(function () {
+    $('hd-name').textContent = 'The class list could not be loaded.';
+    $('hd-sub').textContent  = 'The register is missing. Try again, or head back to SUNNYVAiLE High.';
+  });
+
+  function render(cls, subject, siblings, subjects) {
+    var periodLabel = 'Period ' + cls.period;
+    var live = cls.status === 'live' && cls.video;
+
+    document.title = subject.name + ' · ' + cls.name + ' · SUNNYVAiLE High · LAiDIES';
+
+    // Chalkboard — the subject is written up with the period, the way a real board reads.
+    $('chalk-period').textContent = subject.name + ' · ' + periodLabel;
+    $('chalk-name').innerHTML = cls.chalk || esc(cls.name);
+
+    // Heading
+    $('hd-period').textContent = subject.name + ' · ' + periodLabel;
+    $('hd-name').textContent = cls.name;
+    $('hd-sub').textContent = cls.subtitle || '';
+    $('cd-question').textContent = cls.question || '';
+
+    // The lesson slide
+    if (cls.learn && cls.learn.length) {
+      $('slide-subject').textContent = subject.name;
+      $('slide-period').textContent  = cls.period;
+      $('slide-title').textContent   = cls.name;
+      $('slide-sub').textContent     = cls.subtitle || '';
+      $('slide-runtime').textContent = (cls.runtime_target || '') + ' class';
+      $('slide-list').innerHTML = cls.learn.map(function (s) {
+        return '<li>' + esc(s) + '</li>';
+      }).join('');
+      $('cd-slide').hidden = false;
+      // The slide carries the title now — keep the h1 for machines, drop the visual repeat.
+      $('hd-name').classList.add('sr-only');
+      $('hd-sub').classList.add('sr-only');
+    }
+
+    // The click path — this is what makes the page useful before it is filmed.
+    if (cls.path && cls.path.length) {
+      $('cd-path').innerHTML = cls.path.map(function (s) {
+        return '<li>' + esc(s) + '</li>';
+      }).join('');
+      $('cd-path-card').hidden = false;
+    }
+    if (cls.mistake) {
+      $('cd-mistake').textContent = cls.mistake;
+      $('cd-mistake-card').hidden = false;
+    }
+    // The analogy garnishes; the plain teaching above it carries. Never the other way round.
+    if (cls.analogy) {
+      $('cd-analogy').textContent = cls.analogy;
+      $('cd-analogy-card').hidden = false;
+    }
+
+    // Before & After. Renders as text so the class teaches even while the tape
+    // still says PLEASE STAND BY.
+    var d = cls.demo;
+    if (d && d.bad && d.good) {
+      $('demo-task').textContent = d.task || '';
+      $('demo-var').textContent = d.variable || '';
+      $('demo-bad-in').textContent      = d.bad.input   || '';
+      $('demo-bad-out').textContent     = d.bad.output  || '';
+      $('demo-bad-verdict').textContent = d.bad.verdict || '';
+      $('demo-good-in').textContent      = d.good.input   || '';
+      $('demo-good-out').textContent     = d.good.output  || '';
+      $('demo-good-verdict').textContent = d.good.verdict || '';
+      $('demo-why').textContent = d.why || '';
+      $('demo-fix').textContent = d.fix || '';
+      $('cd-demo-card').hidden = false;
+    }
+
+    if (cls.mechanism) {
+      $('cd-mech').textContent = cls.mechanism;
+      $('cd-mech-card').hidden = false;
+    }
+
+    // Where this goes next — tool, book, episode. Only what genuinely exists.
+    var LABEL = { tool: 'Try it yourself', book: 'Read it up', episode: 'Watch the episode' };
+    var rel = cls.related || {};
+    var cards = ['tool', 'book', 'episode'].filter(function (k) { return rel[k]; })
+      .map(function (k) {
+        var r = rel[k];
+        return '<a class="onward__card onward__card--' + k + '" href="' + esc(r.href) + '">' +
+                 '<span class="onward__kind">' + LABEL[k] + '</span>' +
+                 '<p class="onward__name">' + esc(r.name) + '</p>' +
+                 '<p class="onward__why">' + esc(r.why) + '</p>' +
+               '</a>';
+      });
+    if (cards.length) {
+      $('onward-grid').innerHTML = cards.join('');
+      $('cd-onward').hidden = false;
+    }
+
+    // Tape label
+    $('tvtag-text').textContent = live ? 'Press play' : 'Please stand by';
+    $('tape-runtime').textContent  = cls.runtime_target || '—';
+    $('tape-filmed').textContent   = fmtDate(cls.filmed_on) || 'Not yet';
+    $('tape-verified').textContent = fmtDate(cls.verified_on) || 'Not yet';
+    $('tape-tier').textContent     = cls.tier || 'To be confirmed';
+    $('tape-vol').textContent = cls.source
+      ? ({ HIGH: 'Yes — check first', MEDIUM: 'Somewhat', LOW: 'Rarely' }[cls.source.volatility] || '—')
+      : '—';
+    $('tape-status').innerHTML = live
+      ? '<span class="chip chip--live">Ready</span>'
+      : '<span class="chip chip--soon">Not filmed</span>';
+
+    // If a class is past its re-check window, the page says so rather than pretending.
+    // Same thresholds as operations/tools/check-class-currency.py.
+    var WINDOW = { HIGH: 30, MEDIUM: 90, LOW: 180 };
+    if (cls.source && cls.verified_on) {
+      var days = Math.floor((Date.now() - new Date(cls.verified_on + 'T00:00:00')) / 864e5);
+      var limit = WINDOW[cls.source.volatility] || 90;
+      if (days > limit) {
+        $('tape-stale').textContent = 'This one is overdue a re-check — ' + days +
+          ' days since we last compared it to the real screen. Trust your own screen over ours.';
+        $('tape-stale').hidden = false;
+      }
+    }
+
+    if (cls.source && cls.source.url) {
+      $('tape-src').innerHTML = 'Checked against <a href="' + esc(cls.source.url) +
+        '" rel="nofollow noopener" target="_blank">the vendor&rsquo;s own page</a> on ' +
+        (fmtDate(cls.source.checked) || cls.source.checked) + '.';
+      $('tape-src').hidden = false;
+    }
+
+    // Period strip for this subject, then the other subjects
+    $('periods').innerHTML = siblings.map(function (c) {
+      var cur = c.slug === cls.slug ? ' aria-current="page"' : '';
+      return '<a href="/learn/class.html?c=' + c.slug + '"' + cur + '>' +
+             '<span>P' + c.period + '</span>' + esc(c.name) + '</a>';
+    }).join('');
+
+    // Link to each subject's actual first period — subjects don't all open with "The Tour".
+    var others = subjects.filter(function (s) { return s.slug !== subject.slug; })
+                         .sort(function (a, b) { return a.order - b.order; });
+    if (others.length) {
+      $('subjects').innerHTML = '<span class="periods__lbl">Other subjects</span>' +
+        others.map(function (s) {
+          var first = ALL.filter(function (c) { return c.subject === s.slug; })
+                         .sort(function (a, b) { return a.period - b.period; })[0];
+          if (!first) return '';
+          return '<a href="/learn/class.html?c=' + first.slug + '">' + esc(s.name) + '</a>';
+        }).join('');
+      $('subjects').hidden = false;
+    }
+
+    wireTelevision(cls, live);
+  }
+
+  function wireTelevision(cls, live) {
+    var tv = $('tv'), screen = $('screen'), slot = $('screen-slot'), close = $('screen-close');
+    var lastFocus = null;
+
+    tv.setAttribute('aria-label', live
+      ? 'Press play on the television — watch ' + cls.name
+      : 'The television — ' + cls.name + ' has not been filmed yet');
+
+    slot.innerHTML = live ? videoHTML(cls) : testCardHTML(cls);
+
+    function open() {
+      lastFocus = document.activeElement;
+      screen.classList.add('is-on');
+      document.body.style.overflow = 'hidden';
+      close.focus();
+      var v = slot.querySelector('video');
+      if (v) { v.currentTime = 0; v.play().catch(function () {}); }
+      if (window.plausible) window.plausible('Class play', { props: { class: cls.slug } });
+    }
+    function shut() {
+      screen.classList.remove('is-on');
+      document.body.style.overflow = '';
+      var v = slot.querySelector('video');
+      if (v) v.pause();
+      if (lastFocus) lastFocus.focus();
+    }
+
+    tv.addEventListener('click', open);
+    close.addEventListener('click', shut);
+    screen.addEventListener('click', function (e) { if (e.target === screen) shut(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && screen.classList.contains('is-on')) shut();
+    });
+  }
+
+  function videoHTML(cls) {
+    return '<video controls playsinline preload="metadata"' +
+           (cls.poster ? ' poster="' + cls.poster + '"' : '') + '>' +
+           '<source src="' + cls.video + '" type="video/mp4">' +
+           '</video>';
+  }
+
+  function testCardHTML(cls) {
+    var bars = ['#c0c0c0','#c0c000','#00c0c0','#00c000','#c000c0','#c00000','#0000c0']
+      .map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('');
+    return '<div class="testcard">' +
+             '<div class="testcard__bars">' + bars + '</div>' +
+             '<div class="testcard__msg">' +
+               '<strong>Please stand by</strong>' +
+               '<span>' + cls.name + ' has not been filmed yet. The classroom is built and ' +
+               'the cart is here — the tape is not. Check back.</span>' +
+             '</div>' +
+           '</div>';
+  }
+})();
+</script>
+
+  <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+  <script defer src="/content/site/sv-back-nav.js?v=20260705-2"></script>
+</body>
+</html>

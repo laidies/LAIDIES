@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LAiDIES Control Room</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f1f4;
+      --surface: #fffafb;
+      --surface-strong: #ffffff;
+      --ink: #251c23;
+      --muted: #71636c;
+      --line: #ddced6;
+      --accent: #802c61;
+      --accent-soft: #f1dce9;
+      --good: #1f6a50;
+      --good-soft: #dcefe7;
+      --warn: #8a5a00;
+      --warn-soft: #f7e9c7;
+      --bad: #9b2f43;
+      --bad-soft: #f7dce2;
+      --info: #2f587e;
+      --info-soft: #dce8f3;
+      --shadow: 0 18px 55px rgba(56, 22, 43, .10);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #171217;
+        --surface: #211a20;
+        --surface-strong: #292028;
+        --ink: #fbf4f7;
+        --muted: #cbbbc4;
+        --line: #493944;
+        --accent: #f1a8d4;
+        --accent-soft: #4a2940;
+        --good: #91dabf;
+        --good-soft: #173d31;
+        --warn: #ffd487;
+        --warn-soft: #493613;
+        --bad: #ffadbb;
+        --bad-soft: #4d202a;
+        --info: #b4d8fa;
+        --info-soft: #1c354d;
+        --shadow: 0 18px 55px rgba(0, 0, 0, .28);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    button, input { font: inherit; }
+    button:focus-visible, input:focus-visible, tr:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .shell { width: min(1540px, 100%); margin: 0 auto; padding: 24px; }
+    .masthead {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1; margin: 7px 0 10px; }
+    h2 { font-size: 1.12rem; margin: 0 0 12px; }
+    h3 { font-size: 1rem; margin: 0; }
+    p { margin: 0; }
+    .subhead { color: var(--muted); max-width: 820px; }
+    .audit-stamp {
+      max-width: min(520px, 45vw);
+      text-align: right;
+      color: var(--muted);
+      font-size: .86rem;
+      overflow-wrap: anywhere;
+    }
+    .audit-stamp strong { display: block; color: var(--ink); font-size: 1rem; }
+    .review-inbox-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin-top: 12px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .stat { padding: 16px; }
+    .stat-action {
+      width: 100%;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .stat-action:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .stat-label { color: var(--muted); font-size: .82rem; }
+    .stat-value { font-size: 1.65rem; font-weight: 750; margin-top: 3px; }
+    .stat-note { color: var(--muted); font-size: .78rem; margin-top: 3px; }
+    .decision-strip {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, .5fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .decision-main, .public-truth { padding: 18px; }
+    .decision-main { border-left: 6px solid var(--warn); }
+    .decision-kicker { color: var(--warn); font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .1em; }
+    .decision-title { font-size: 1.18rem; font-weight: 750; margin: 6px 0; }
+    .decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .decision-grid span { display: block; color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; }
+    .public-truth { background: var(--surface-strong); }
+    .public-truth .label { color: var(--bad); font-weight: 750; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
+    .public-truth p { margin-top: 8px; }
+    .path-card { padding: 18px; margin-bottom: 18px; overflow: hidden; }
+    .path {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(150px, 1fr));
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .path-step { position: relative; padding: 8px 18px 8px 0; min-height: 126px; }
+    .path-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: 5px;
+      top: 10px;
+      color: var(--muted);
+    }
+    .path-order { color: var(--muted); font-size: .74rem; }
+    .path-step h3 { margin: 6px 0; }
+    .path-step p { color: var(--muted); font-size: .8rem; }
+    .tabs {
+      display: flex;
+      gap: 4px;
+      max-width: 100%;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .tab {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 11px 14px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+    }
+    .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 750; }
+    .panel[hidden] { display: none; }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 7px 11px;
+      cursor: pointer;
+    }
+    .filter[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .search {
+      min-width: min(320px, 100%);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 10px;
+      padding: 9px 11px;
+    }
+    .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    th { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); }
+    td { padding: 12px; vertical-align: top; border-bottom: 1px solid var(--line); }
+    tbody tr { cursor: pointer; }
+    tbody tr:hover, tbody tr:focus { background: var(--accent-soft); }
+    tbody tr:last-child td { border-bottom: 0; }
+    .owner-name { font-weight: 750; }
+    .owner-category { color: var(--muted); font-size: .75rem; margin-top: 2px; }
+    .status {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: .72rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .s-active { background: var(--good-soft); color: var(--good); }
+    .s-blocked { background: var(--bad-soft); color: var(--bad); }
+    .s-wait { background: var(--warn-soft); color: var(--warn); }
+    .s-idle { background: var(--info-soft); color: var(--info); }
+    .detail { margin-top: 12px; padding: 18px; }
+    .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 14px; }
+    .detail-label { color: var(--muted); font-size: .73rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+    .empty { color: var(--muted); padding: 20px; text-align: center; }
+    .schedule-grid, .decisions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .action-intro {
+      padding: 18px;
+      margin-bottom: 14px;
+      border-left: 6px solid var(--accent);
+    }
+    .action-intro p { color: var(--muted); }
+    .action-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .action-section { margin-top: 20px; }
+    .action-section-head {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .action-section-head p { color: var(--muted); font-size: .84rem; }
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+      gap: 12px;
+    }
+    .action-card { padding: 17px; overflow-wrap: anywhere; }
+    .action-card h3 { margin: 6px 0 9px; }
+    .action-card p { color: var(--muted); font-size: .86rem; margin-top: 7px; }
+    .action-card strong { color: var(--ink); }
+    .action-card-ready { border: 2px solid var(--accent); }
+    .decision-receipt-visual {
+      display: block;
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      object-position: top;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--surface-strong);
+    }
+    .action-button {
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      margin-top: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .action-button[data-copied="true"] { background: var(--good); border-color: var(--good); }
+    .decision-desk {
+      display: grid;
+      grid-template-columns: minmax(220px, 290px) minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+    .decision-queue {
+      display: grid;
+      gap: 8px;
+      position: sticky;
+      top: 12px;
+    }
+    .decision-queue-button {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface);
+      color: var(--ink);
+      padding: 13px;
+      text-align: left;
+      cursor: pointer;
+    }
+    .decision-queue-button[aria-pressed="true"] {
+      border: 2px solid var(--accent);
+      background: var(--accent-soft);
+    }
+    .decision-queue-button strong { display: block; margin: 4px 0; }
+    .decision-queue-button span { color: var(--muted); font-size: .78rem; }
+    .decision-packet { padding: 20px; }
+    .decision-priority {
+      display: inline-block;
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .decision-question {
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      line-height: 1.12;
+      margin: 7px 0 10px;
+      max-width: 920px;
+    }
+    .decision-explainer { color: var(--muted); max-width: 900px; }
+    .recommendation-box {
+      margin: 16px 0;
+      padding: 16px;
+      border-left: 6px solid var(--good);
+      background: var(--good-soft);
+      border-radius: 12px;
+    }
+    .recommendation-box .decision-kicker { color: var(--good); }
+    .recommendation-box h3 { font-size: 1.15rem; margin: 5px 0; }
+    .reason-list, .boundary-list, .risk-list { margin: 8px 0 0; padding-left: 20px; }
+    .reason-list li, .boundary-list li, .risk-list li { margin: 5px 0; }
+    .visual-evidence {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .visual-evidence a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+    .visual-evidence figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      overflow: hidden;
+      background: var(--surface-strong);
+    }
+    .visual-evidence img {
+      display: block;
+      width: 100%;
+      height: min(42vw, 480px);
+      object-fit: contain;
+      object-position: top center;
+      background: #eee9e1;
+    }
+    .visual-evidence figcaption {
+      padding: 9px 11px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+    .decision-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .decision-option {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 14px;
+      background: var(--surface-strong);
+    }
+    .decision-option.recommended { border: 2px solid var(--good); }
+    .decision-option p { color: var(--muted); font-size: .84rem; margin-top: 7px; }
+    .decision-option .action-button { margin-top: auto; padding-top: 8px; }
+    .option-tag { color: var(--good); font-size: .73rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .decision-boundaries {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .boundary-box { padding: 15px; background: var(--bg); border-radius: 12px; }
+    .evidence-scores {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .evidence-score { padding: 10px; border: 1px solid var(--line); border-radius: 10px; }
+    .evidence-score strong { display: block; font-size: 1.05rem; }
+    .evidence-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .evidence-links a {
+      color: var(--accent);
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
+    .decision-consequence {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .decision-consequence > div { padding: 13px; border-top: 1px solid var(--line); }
+    .decision-receipt {
+      min-height: 1.5em;
+      margin-top: 10px;
+      color: var(--good);
+      font-weight: 750;
+    }
+    .audience-truth { padding: 16px; margin-bottom: 14px; border-left: 6px solid var(--info); }
+    .audience-truth p { color: var(--muted); }
+    .audience-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .metric { padding: 16px; }
+    .metric-value { font-size: 1.55rem; font-weight: 750; margin: 4px 0; }
+    .metric-source { color: var(--muted); font-size: .76rem; }
+    .audience-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .audience-section { padding: 16px; }
+    .rank-list { margin: 0; padding: 0; list-style: none; }
+    .rank-list li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .rank-list li:last-child { border-bottom: 0; }
+    .rank-value { float: right; font-weight: 750; }
+    .source-row, .channel-row {
+      display: grid;
+      grid-template-columns: minmax(120px, .5fr) minmax(170px, .8fr) minmax(0, 1.7fr);
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .source-row:last-child, .channel-row:last-child { border-bottom: 0; }
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .opportunity { padding: 16px; }
+    .opportunity h3 { margin: 7px 0; }
+    .opportunity p { color: var(--muted); font-size: .85rem; margin-top: 7px; }
+    .opportunity strong { color: var(--ink); }
+    .service-truth { padding: 16px; margin-bottom: 14px; border-left: 6px solid var(--accent); }
+    .service-truth p { color: var(--muted); }
+    .service-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .service-summary > *, .service-recommendations > * { min-width: 0; }
+    .cost-headline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .cost-headline > * { min-width: 0; }
+    .cost-primary { border: 2px solid var(--accent); }
+    .cost-note { margin: 0 0 14px; color: var(--muted); font-size: .85rem; }
+    .service-recommendations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .service-rec { padding: 16px; overflow-wrap: anywhere; }
+    .service-rec .status { white-space: normal; }
+    .service-rec h3 { margin: 7px 0; }
+    .service-rec p { color: var(--muted); font-size: .85rem; margin-top: 7px; }
+    .service-rec strong { color: var(--ink); }
+    .visual-lock {
+      padding: 18px;
+      margin-bottom: 14px;
+      border-left: 6px solid var(--bad);
+    }
+    .visual-lock p { color: var(--muted); margin-top: 7px; }
+    .visual-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .visual-table tbody tr { cursor: default; }
+    .visual-table td { min-width: 150px; }
+    .visual-table td:nth-child(1) { min-width: 220px; }
+    .visual-table td:nth-child(3) { min-width: 300px; }
+    .social-score {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .social-score div { padding: 12px; background: var(--bg); border-radius: 12px; }
+    .social-score strong { display: block; font-size: 1.35rem; }
+    .schedule-item, .decision-item { padding: 16px; }
+    .schedule-meta { color: var(--muted); font-size: .82rem; margin: 8px 0; }
+    .decision-id { color: var(--accent); font-size: .76rem; font-weight: 750; letter-spacing: .08em; }
+    .decision-item h3 { margin: 5px 0 8px; }
+    .decision-item p { color: var(--muted); font-size: .86rem; }
+    .foot { color: var(--muted); font-size: .78rem; margin-top: 18px; text-align: center; }
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .decision-strip { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .audience-metrics { grid-template-columns: repeat(2, 1fr); }
+      .audience-columns { grid-template-columns: 1fr; }
+      .social-score { grid-template-columns: repeat(2, 1fr); }
+      .service-summary, .cost-headline { grid-template-columns: repeat(2, 1fr); }
+      .visual-summary { grid-template-columns: repeat(2, 1fr); }
+      .action-summary { grid-template-columns: repeat(2, 1fr); }
+      .decision-desk { grid-template-columns: 1fr; }
+      .decision-queue { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .decision-options { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .shell { padding: 15px; }
+      .masthead { display: block; }
+      .audit-stamp { text-align: left; margin-top: 14px; white-space: normal; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .action-summary { grid-template-columns: 1fr 1fr; }
+      .visual-summary { grid-template-columns: 1fr 1fr; }
+      .decision-queue, .visual-evidence, .decision-boundaries, .decision-consequence { grid-template-columns: 1fr; }
+      .visual-evidence img { height: 420px; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .source-row, .channel-row { grid-template-columns: 1fr; gap: 3px; }
+      .hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">LAiDIES operating system</div>
+        <h1>Control Room</h1>
+        <p class="subhead">One audited view of what is running, what is blocked, what unlocks it, when it runs next, and what Ali actually needs to decide.</p>
+      </div>
+      <div class="audit-stamp">
+        <div id="auditStamp"></div>
+        <a class="review-inbox-link" href="review-inbox.html">Open Ali’s Review Inbox →</a>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Portfolio summary" id="stats"></section>
+
+    <section class="card path-card" aria-labelledby="outcomeTruthTitle">
+      <h2 id="outcomeTruthTitle">Executive outcome truth</h2>
+      <p>Only visible, working or genuinely decision-ready results count as executive progress. Backstage enablers and failed work stay separate.</p>
+      <div class="action-grid" id="executiveOutcomeTruth"></div>
+    </section>
+
+    <section class="decision-strip">
+      <article class="card decision-main" id="approvalCard"></article>
+      <article class="card public-truth">
+        <div class="label">Public truth</div>
+        <p id="publicTruth"></p>
+      </article>
+    </section>
+
+    <section class="card path-card" aria-labelledby="pathTitle">
+      <h2 id="pathTitle">Launch critical path</h2>
+      <div class="path" id="criticalPath"></div>
+    </section>
+
+    <section class="card path-card" aria-labelledby="executionTitle">
+      <h2 id="executionTitle">Platform execution obligations</h2>
+      <p>These are sequenced build obligations, not Ali decisions. Each lock closes and hands back exact evidence before the next begins.</p>
+      <div class="path" id="executionObligations"></div>
+    </section>
+
+    <nav class="tabs" aria-label="Dashboard views">
+      <button class="tab" type="button" role="tab" aria-selected="true" aria-controls="actionsPanel" id="actionsTab">Action Centre</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="operationsPanel" id="operationsTab">Operations</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="visualProductionPanel" id="visualProductionTab">Visual Production</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="audiencePanel" id="audienceTab">Audience & Growth</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="servicesPanel" id="servicesTab">External Services</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="schedulePanel" id="scheduleTab">Schedule</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="decisionsPanel" id="decisionsTab">Decisions</button>
+    </nav>
+
+    <section class="panel" id="actionsPanel" role="tabpanel" aria-labelledby="actionsTab">
+      <article class="card action-intro">
+        <h2>What needs you—and what does not</h2>
+        <p id="actionTruth"></p>
+      </article>
+      <div class="action-summary" id="actionSummary"></div>
+
+      <section class="action-section" id="aliActionsSection">
+        <div class="action-section-head">
+          <h2>Your Decision Desk</h2>
+          <p>One priority choice at a time; ready decisions wait safely in order.</p>
+        </div>
+        <div class="decision-desk">
+          <aside class="decision-queue" id="decisionQueue" aria-label="Ready decision queue"></aside>
+          <article class="card decision-packet" id="aliActionsGrid"></article>
+        </div>
+      </section>
+
+      <section class="action-section" id="decisionStatusSection">
+        <div class="action-section-head">
+          <h2>Decision status</h2>
+          <p>What you already decided, what happened next, and what agents are still preparing—without asking you to act early.</p>
+        </div>
+        <div class="action-grid" id="decisionStatusGrid"></div>
+      </section>
+
+      <section class="action-section" id="visualActionSection">
+        <div class="action-section-head">
+          <h2>Visual production status</h2>
+          <p>Literal outputs only. Inventory/spec work is not production.</p>
+        </div>
+        <div class="action-grid" id="visualActionGrid"></div>
+      </section>
+
+      <section class="action-section" id="blockedWorkSection">
+        <div class="action-section-head">
+          <h2>Blocked work</h2>
+          <p>Every row names the blocker, its owner and your part.</p>
+        </div>
+        <div class="action-grid" id="blockedWorkGrid"></div>
+      </section>
+
+      <section class="action-section" id="queuedWorkSection">
+        <div class="action-section-head">
+          <h2>Queued by plan</h2>
+          <p>Waiting is expected here; the start trigger must still be explicit.</p>
+        </div>
+        <div class="action-grid" id="queuedWorkGrid"></div>
+      </section>
+
+      <section class="action-section" id="otherWaitingSection">
+        <div class="action-section-head">
+          <h2>Other waiting or review states</h2>
+          <p>Dependency waits, trigger-based owners and acceptance review—not hidden activity.</p>
+        </div>
+        <div class="action-grid" id="otherWaitingGrid"></div>
+      </section>
+    </section>
+
+    <section class="panel" id="operationsPanel" role="tabpanel" aria-labelledby="operationsTab" hidden>
+      <div class="toolbar">
+        <div class="filters" id="filters" aria-label="Filter owners">
+          <button class="filter" type="button" aria-pressed="true" data-filter="all">All</button>
+          <button class="filter" type="button" aria-pressed="false" data-filter="active">Active</button>
+          <button class="filter" type="button" aria-pressed="false" data-filter="blocked">Blocked</button>
+          <button class="filter" type="button" aria-pressed="false" data-filter="idle">Idle / queued</button>
+        </div>
+        <label>
+          <span class="sr-only">Search owners and work</span>
+          <input class="search" id="search" type="search" placeholder="Search owner, work or blocker">
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Owner</th>
+              <th>Status</th>
+              <th>Literal work now</th>
+              <th class="hide-mobile">Blocker → unblock</th>
+              <th>Next run</th>
+            </tr>
+          </thead>
+          <tbody id="ownerRows"></tbody>
+        </table>
+      </div>
+      <article class="card detail" id="ownerDetail" aria-live="polite"></article>
+    </section>
+
+    <section class="panel" id="visualProductionPanel" role="tabpanel" aria-labelledby="visualProductionTab" hidden>
+      <article class="card visual-lock">
+        <div class="decision-kicker" id="visualLockStatus"></div>
+        <h2>Sitewide visual direction comes first</h2>
+        <p id="visualLockRule"></p>
+        <p><strong>Allowed now:</strong> <span id="visualAllowedNow"></span></p>
+        <p><strong>Unlock:</strong> <span id="visualBlockedUntil"></span></p>
+        <p><strong>Then:</strong> <span id="visualAfterDecision"></span></p>
+      </article>
+      <div class="visual-summary" id="visualSummary"></div>
+      <div class="table-wrap visual-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Visual product</th>
+              <th>Owner / task</th>
+              <th>Exact artifact or deliverable</th>
+              <th>Status</th>
+              <th>Blocker → exact unblock</th>
+              <th>Next run / Ali decision</th>
+            </tr>
+          </thead>
+          <tbody id="visualProductionRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="audiencePanel" role="tabpanel" aria-labelledby="audienceTab" hidden>
+      <article class="card audience-truth">
+        <h2>Audience evidence</h2>
+        <p id="audienceTruth"></p>
+      </article>
+      <div class="audience-metrics" id="audienceMetrics"></div>
+      <div class="audience-columns">
+        <article class="card audience-section">
+          <h2>Most visited pages</h2>
+          <ol class="rank-list" id="popularPages"></ol>
+        </article>
+        <article class="card audience-section">
+          <h2>Lowest-attention pages</h2>
+          <ol class="rank-list" id="leastPopularPages"></ol>
+        </article>
+      </div>
+      <article class="card audience-section" style="margin-bottom:14px">
+        <h2>Data-source health and exact unblocks</h2>
+        <div id="sourceStatus"></div>
+      </article>
+      <article class="card audience-section" style="margin-bottom:14px">
+        <h2>Five-a-day social engine</h2>
+        <div class="social-score" id="socialScore"></div>
+        <p class="schedule-meta" id="socialTargetMeaning"></p>
+        <div id="channelStatus"></div>
+      </article>
+      <h2>Proactive improvement opportunities</h2>
+      <div class="opportunity-grid" id="opportunityGrid"></div>
+    </section>
+
+    <section class="panel" id="servicesPanel" role="tabpanel" aria-labelledby="servicesTab" hidden>
+      <article class="card service-truth">
+        <h2>Subscription and service truth</h2>
+        <p id="serviceTruth"></p>
+        <p class="schedule-meta" id="serviceScope"></p>
+      </article>
+      <h2>What LAiDIES costs each month</h2>
+      <div class="cost-headline" id="costHeadline"></div>
+      <p class="cost-note" id="costMethod"></p>
+      <div class="table-wrap" style="margin-bottom:18px">
+        <table>
+          <thead>
+            <tr>
+              <th>Cost item</th>
+              <th>Cadence</th>
+              <th>Billed amount</th>
+              <th>Monthly CAD</th>
+              <th>Evidence / next action</th>
+            </tr>
+          </thead>
+          <tbody id="costRows"></tbody>
+        </table>
+      </div>
+      <div class="service-summary" id="serviceSummary"></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Operation</th>
+              <th>Use</th>
+              <th>Billing / plan</th>
+              <th>Value and exact next action</th>
+            </tr>
+          </thead>
+          <tbody id="serviceRows"></tbody>
+        </table>
+      </div>
+      <h2 style="margin-top:18px">Worthwhile additions or upgrades</h2>
+      <div class="service-recommendations" id="serviceRecommendations"></div>
+    </section>
+
+    <section class="panel" id="schedulePanel" role="tabpanel" aria-labelledby="scheduleTab" hidden>
+      <div class="schedule-grid" id="scheduleGrid"></div>
+    </section>
+
+    <section class="panel" id="decisionsPanel" role="tabpanel" aria-labelledby="decisionsTab" hidden>
+      <div class="decisions-grid" id="decisionsGrid"></div>
+    </section>
+
+    <p class="foot">Internal operating view. A plan, task, file or local test is not a public result.</p>
+  </main>
+
+  <script id="dashboardData" type="application/json">__CONTROL_ROOM_DASHBOARD_STATE__</script>
+  <script>
+    (() => {
+      const rawDashboardData = document.getElementById("dashboardData").textContent.trim();
+      if (rawDashboardData === "__CONTROL_ROOM_DASHBOARD_STATE__") {
+        window.location.replace("./dashboard.html");
+        return;
+      }
+      const state = JSON.parse(rawDashboardData);
+      const owners = state.owners || [];
+      const visualProduction = state.visualProduction || [];
+      let selectedFilter = "all";
+      let selectedOwner = owners[0] || null;
+
+      const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[char]);
+      const statusClass = (status) => {
+        const s = status.toLowerCase();
+        if (s.includes("active")) return "s-active";
+        if (s.includes("blocked")) return "s-blocked";
+        if (s.includes("idle") || s.includes("queued") || s.includes("wait")) return "s-idle";
+        return "s-wait";
+      };
+      const statusGroup = (status) => {
+        const s = status.toLowerCase();
+        if (s.includes("active")) return "active";
+        if (s.includes("blocked")) return "blocked";
+        return "idle";
+      };
+      const isQueued = (owner) => owner.status.toLowerCase().includes("idle / queued");
+      const isReadyApproval = (item) => String(item.status).toUpperCase() === "READY";
+      const readyApprovals = (state.approvals || []).filter(isReadyApproval);
+      const readyDecisionPackets = (state.decisionPackets?.packets || [])
+        .filter((packet) => String(packet.status).toUpperCase() === "READY")
+        .sort((a, b) => Number(a.sequence) - Number(b.sequence));
+      const closedDecisionPackets = (state.decisionPackets?.packets || [])
+        .filter((packet) => ["REJECTED", "DECIDED", "CLOSED"].includes(String(packet.status).toUpperCase()))
+        .sort((a, b) => Number(a.sequence) - Number(b.sequence));
+      const preparingDecisionPackets = (state.decisionPackets?.packets || [])
+        .filter((packet) => ["NOT READY", "HOLD", "PREPARING"].includes(String(packet.status).toUpperCase()))
+        .sort((a, b) => Number(a.sequence) - Number(b.sequence));
+      let selectedDecisionPacketId = readyDecisionPackets[0]?.id || null;
+      const activeOwners = owners.filter((owner) => statusGroup(owner.status) === "active");
+      const blockedOwners = owners.filter((owner) => statusGroup(owner.status) === "blocked");
+      const queuedOwners = owners.filter(isQueued);
+      const otherWaitingOwners = owners.filter((owner) =>
+        !activeOwners.includes(owner) &&
+        !blockedOwners.includes(owner) &&
+        !queuedOwners.includes(owner)
+      );
+      const prettyTime = (value) => {
+        if (!value) return "Unknown";
+        const date = new Date(value);
+        return Number.isNaN(date.valueOf()) ? value : date.toLocaleString([], { dateStyle: "medium", timeStyle: "short" });
+      };
+
+      const activeCount = activeOwners.length;
+      const blockedCount = blockedOwners.length;
+      const queuedCount = queuedOwners.length;
+      document.getElementById("stats").innerHTML = [
+        ["Visible outcomes added", 0, "No new integrated or decision-ready reopening result", "outcomeTruthTitle", ""],
+        ["Your decision now", readyDecisionPackets.length ? 1 : 0, readyDecisionPackets.length > 1 ? `${readyDecisionPackets.length - 1} ready next` : "One complete packet at a time", "aliActionsSection", ""],
+        ["Backstage active", activeCount, "Activity is not launch progress", "operationsPanel", "active"],
+        ["Failed / rejected", (state.executiveOutcomeTruth || []).filter((item) => String(item.category).startsWith("C")).length, "Kept visible so it cannot be revived", "outcomeTruthTitle", ""]
+      ].map(([label, value, note, target, filter]) => `
+        <button class="card stat stat-action" type="button" data-jump="${esc(target)}" data-owner-filter="${esc(filter)}">
+          <div class="stat-label">${esc(label)}</div>
+          <div class="stat-value">${esc(value)}</div>
+          <div class="stat-note">${esc(note)}</div>
+        </button>`).join("");
+
+      document.getElementById("auditStamp").innerHTML = `
+        <strong>${esc(state.phase)}</strong>
+        Updated ${esc(prettyTime(state.generatedAt))}<br>
+        Evidence through ${esc(prettyTime(state.evidenceCutoff))}<br>
+        Repo reconciliation: ${esc(state.audit.repositoryReconciliation)}`;
+
+      document.getElementById("executiveOutcomeTruth").innerHTML = (state.executiveOutcomeTruth || []).map((item) => `
+        <article class="card action-card">
+          <div class="decision-id">${esc(item.category)} · ${esc(item.status)}</div>
+          <h3>${esc(item.whatCanBeSeenOrUsed)}</h3>
+          <p><strong>Exact blocker change:</strong> ${esc(item.blockerChanged)}</p>
+          <p><strong>Next tangible artifact:</strong> ${esc(item.nextTangibleArtifact)}</p>
+        </article>
+      `).join("");
+
+      const approval = (state.approvals || [])[0];
+      document.getElementById("approvalCard").innerHTML = approval ? `
+        <div class="decision-kicker">Ali approval · ${esc(approval.status)}</div>
+        <div class="decision-title">${esc(approval.title)}</div>
+        <p>${esc(approval.recommendation)}</p>
+        <div class="decision-grid">
+          <div><span>Why not ready</span>${esc(approval.whyNotReady)}</div>
+          <div><span>Decision becomes ready when</span>${esc(approval.decisionWhen)}</div>
+        </div>` : `
+        <div class="decision-kicker">Ali approval</div>
+        <div class="decision-title">Nothing requires approval now</div>`;
+      document.getElementById("publicTruth").textContent = state.publicTruth;
+
+      const aliActionText = readyDecisionPackets.length
+        ? `One priority choice is ready for you; ${Math.max(readyDecisionPackets.length - 1, 0)} ${readyDecisionPackets.length === 2 ? "is" : "are"} ready next.`
+        : `Nothing is evidence-ready for your decision. ${closedDecisionPackets.length} recent decision receipt${closedDecisionPackets.length === 1 ? " is" : "s are"} visible below, and ${preparingDecisionPackets.length} packet${preparingDecisionPackets.length === 1 ? " is" : "s are"} still being prepared.`;
+      document.getElementById("actionTruth").textContent =
+        `${aliActionText} ${blockedOwners.length} lane${blockedOwners.length === 1 ? " is" : "s are"} blocked, but a blocked lane does not automatically mean Ali must act. ${queuedOwners.length} lane${queuedOwners.length === 1 ? " is" : "s are"} deliberately queued. This local dashboard can prepare and copy an instruction; it does not silently send approvals or change external systems.`;
+      document.getElementById("actionSummary").innerHTML = [
+        ["Your decision now", readyDecisionPackets.length ? 1 : 0, readyDecisionPackets.length ? "Recommendation, visuals and trade-offs included" : "No interruption needed"],
+        ["Agent-owned blocks", blockedOwners.filter((owner) => String(owner.nextDecision).trim().toLowerCase() === "none" || String(owner.nextDecision).toLowerCase().includes("not decision-ready")).length, "No action from you yet"],
+        ["Queued as expected", queuedOwners.length, "Sequenced behind named work"],
+        ["Decisions being prepared", preparingDecisionPackets.length, "No action until every admission floor passes"]
+      ].map(([label, value, note]) => `
+        <article class="card stat">
+          <div class="stat-label">${esc(label)}</div>
+          <div class="stat-value">${esc(value)}</div>
+          <div class="stat-note">${esc(note)}</div>
+        </article>`).join("");
+
+      const aliActionForOwner = (owner) => {
+        const decision = String(owner.nextDecision || "").trim();
+        if (!decision || decision.toLowerCase() === "none") return "None now—the named owner owns the unblock.";
+        if (decision.toLowerCase().includes("not decision-ready")) return "None now—the owner must prepare a decision packet first.";
+        return decision;
+      };
+      const renderOwnerActionCard = (owner, kind) => `
+        <article class="card action-card">
+          <div class="decision-id">${esc(owner.status)}</div>
+          <h3>${esc(owner.name)}</h3>
+          <p><strong>Why it is waiting:</strong> ${esc(owner.blocker)}</p>
+          <p><strong>Who/what unlocks it:</strong> ${esc(owner.unblock)}</p>
+          <p><strong>Your action:</strong> ${esc(aliActionForOwner(owner))}</p>
+          <p><strong>${kind === "queued" ? "Starts" : "Next check"}:</strong> ${esc(owner.nextRun)}</p>
+        </article>`;
+
+      const listItems = (items, className = "boundary-list") =>
+        `<ul class="${className}">${items.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`;
+      const renderDecisionDesk = () => {
+        const packet = readyDecisionPackets.find((item) => item.id === selectedDecisionPacketId) || readyDecisionPackets[0];
+        document.getElementById("decisionQueue").innerHTML = readyDecisionPackets.length
+          ? readyDecisionPackets.map((item, index) => `
+              <button class="decision-queue-button" type="button" data-decision-packet="${esc(item.id)}" aria-pressed="${String(item.id === packet?.id)}">
+                <span>${index === 0 ? "DECIDE NOW" : `READY NEXT · ${index + 1} OF ${readyDecisionPackets.length}`}</span>
+                <strong>${esc(item.title)}</strong>
+                <span>${esc(item.owner)}</span>
+              </button>`).join("")
+          : `<div class="empty">No decision packet is ready.</div>`;
+        if (!packet) {
+          document.getElementById("aliActionsGrid").innerHTML = `<div class="empty">Agents are preparing the next decision packet.</div>`;
+          return;
+        }
+        document.getElementById("aliActionsGrid").innerHTML = `
+          <div class="decision-priority">${esc(packet.priority)} · ${esc(packet.owner)} · decision ${esc(packet.sequence)} of ${esc(readyDecisionPackets.length)}</div>
+          <h2 class="decision-question">${esc(packet.question)}</h2>
+          <p class="decision-explainer">${esc(packet.plainEnglish)}</p>
+
+          <section class="recommendation-box" aria-label="Recommendation">
+            <div class="decision-kicker">Recommendation</div>
+            <h3>${esc(packet.recommendation.choice)}</h3>
+            <p>${esc(packet.recommendation.summary)}</p>
+            ${listItems(packet.recommendation.why, "reason-list")}
+          </section>
+
+          <h3>See what you are deciding on</h3>
+          <div class="visual-evidence">
+            ${packet.visuals.map((visual) => `
+              <a href="${esc(visual.src)}" target="_blank" rel="noopener">
+                <figure>
+                  <img src="${esc(visual.src)}" alt="${esc(visual.alt)}" loading="lazy">
+                  <figcaption>${esc(visual.label)} · Open full size</figcaption>
+                </figure>
+              </a>`).join("")}
+          </div>
+
+          <h3>Choose a direction</h3>
+          <div class="decision-options">
+            ${packet.options.map((option) => `
+              <section class="decision-option ${option.recommended ? "recommended" : ""}">
+                ${option.recommended ? `<div class="option-tag">Recommended</div>` : ""}
+                <h3>${esc(option.label)}</h3>
+                <p><strong>What it means:</strong> ${esc(option.meaning)}</p>
+                <p><strong>Trade-off:</strong> ${esc(option.tradeoff)}</p>
+                <button class="action-button" type="button" data-decision-choice="${esc(option.id)}">Choose ${esc(option.label)} and copy response</button>
+              </section>`).join("")}
+          </div>
+          <div class="decision-receipt" id="decisionReceipt" aria-live="polite"></div>
+
+          <div class="decision-boundaries">
+            <section class="boundary-box">
+              <h3>This approves</h3>
+              ${listItems(packet.whatThisApproves)}
+            </section>
+            <section class="boundary-box">
+              <h3>This does not approve</h3>
+              ${listItems(packet.whatThisDoesNotApprove)}
+            </section>
+          </div>
+
+          <details>
+            <summary><strong>Evidence, scores and remaining risks</strong></summary>
+            <p class="schedule-meta">${esc(packet.evidence.summary)}</p>
+            <div class="evidence-scores">
+              ${packet.evidence.scores.map((score) => `
+                <div class="evidence-score"><span class="stat-label">${esc(score.label)}</span><strong>${esc(score.value)}</strong></div>`).join("")}
+            </div>
+            <h3>Still unproved or separate</h3>
+            ${listItems(packet.evidence.remainingRisks, "risk-list")}
+            <div class="evidence-links">
+              ${packet.evidence.sources.map((source) => `<a href="${esc(source.href)}" target="_blank" rel="noopener">${esc(source.label)}</a>`).join("")}
+            </div>
+          </details>
+
+          <div class="decision-consequence">
+            <div><div class="detail-label">If you wait</div>${esc(packet.ifDeferred)}</div>
+            <div><div class="detail-label">After your decision</div>${esc(packet.afterDecision)}</div>
+          </div>`;
+      };
+      renderDecisionDesk();
+      document.getElementById("decisionStatusGrid").innerHTML = [
+        ...closedDecisionPackets.map((packet) => `
+          <article class="card action-card">
+            <div class="decision-id">${esc(packet.status)} · ${esc(packet.owner)}</div>
+            <h3>${esc(packet.title)}</h3>
+            <p><strong>Your decision:</strong> ${esc(packet.recommendation?.choice || packet.status)}</p>
+            <p><strong>Why:</strong> ${esc(packet.recommendation?.summary || packet.plainEnglish)}</p>
+            <p><strong>What happens now:</strong> ${esc(packet.afterDecision || "The owner must record the bounded next action.")}</p>
+            <p><strong>Your action:</strong> None. This decision is closed.</p>
+            ${packet.visuals?.[0] ? `<a href="${esc(packet.visuals[0].src)}" target="_blank" rel="noopener"><img class="decision-receipt-visual" src="${esc(packet.visuals[0].src)}" alt="${esc(packet.visuals[0].alt)}"></a>` : ""}
+          </article>`),
+        ...preparingDecisionPackets.map((packet) => `
+          <article class="card action-card">
+            <div class="decision-id">${esc(packet.status)} · ${esc(packet.owner)}</div>
+            <h3>${esc(packet.title)}</h3>
+            <p><strong>Why it is not ready:</strong> ${esc(packet.recommendation?.summary || packet.plainEnglish)}</p>
+            <p><strong>What agents must do:</strong> ${esc(packet.afterDecision || "Complete the missing evidence and admission gates.")}</p>
+            <p><strong>Your action:</strong> None until Control Room presents the actual experience, recommendation, alternatives, visuals and trade-offs.</p>
+          </article>`)
+      ].join("") || `<article class="card action-card"><p>No recent decision receipt or preparing packet is recorded.</p></article>`;
+
+      const visualActive = visualProduction.filter((item) => String(item.status).toLowerCase().includes("active now"));
+      const visualBlocked = visualProduction.filter((item) => String(item.status).toLowerCase().includes("blocked"));
+      const visualAcceptance = visualProduction.filter((item) => String(item.status).toLowerCase().includes("acceptance review"));
+      const visualQueued = visualProduction.filter((item) =>
+        !String(item.status).toLowerCase().includes("blocked") &&
+        !String(item.status).toLowerCase().includes("acceptance review") &&
+        (
+          String(item.status).toLowerCase().includes("queued") ||
+          String(item.status).toLowerCase().includes("not running")
+        )
+      );
+      document.getElementById("visualActionGrid").innerHTML = `
+        <article class="card action-card">
+          <div class="decision-id">${esc(state.visualProductionLock?.status || "VISUAL LOCK")}</div>
+          <h3>${esc(visualActive.length)} literal visual output${visualActive.length === 1 ? "" : "s"} active</h3>
+          <p><strong>Active:</strong> ${esc(visualActive.map((item) => item.name).join("; ") || "None")}</p>
+          <p><strong>Acceptance review:</strong> ${esc(visualAcceptance.map((item) => item.name).join("; ") || "None")}</p>
+          <p><strong>Queued/not running:</strong> ${esc(visualQueued.length)}</p>
+          <p><strong>Owner-entry blocked:</strong> ${esc(visualBlocked.length)}</p>
+          <p><strong>Critical sequence:</strong> ${esc(state.visualProductionLock?.styleSequence || "Brand comparison → Ali selection → rules → translation validation → production.")}</p>
+          <p><strong>Dependent portfolio:</strong> ${esc(state.visualProductionLock?.dependents || "No dependent visual portfolio is recorded.")}</p>
+          <p><strong>${esc(state.visualProductionLock?.studyPackSystem || "Complete Study Pack system")}</strong></p>
+          <p><strong>Your action:</strong> Brand must first return the controlled championship. No category may imply active production from inventory, a packet or existing files.</p>
+          <button class="action-button" type="button" data-open-visual-production>Open literal visual-production portfolio</button>
+        </article>`;
+      document.getElementById("blockedWorkGrid").innerHTML = blockedOwners.length
+        ? blockedOwners.map((owner) => renderOwnerActionCard(owner, "blocked")).join("")
+        : `<article class="card action-card"><p>No owner lane is currently blocked.</p></article>`;
+      document.getElementById("queuedWorkGrid").innerHTML = queuedOwners.length
+        ? queuedOwners.map((owner) => renderOwnerActionCard(owner, "queued")).join("")
+        : `<article class="card action-card"><p>No owner lane is deliberately queued.</p></article>`;
+      document.getElementById("otherWaitingGrid").innerHTML = otherWaitingOwners.length
+        ? otherWaitingOwners.map((owner) => renderOwnerActionCard(owner, "waiting")).join("")
+        : `<article class="card action-card"><p>No other owner is waiting or under review.</p></article>`;
+
+      document.getElementById("criticalPath").innerHTML = (state.criticalPath || []).map((step) => `
+        <article class="path-step">
+          <div class="path-order">Step ${esc(step.order)} · ${esc(step.status)}</div>
+          <h3>${esc(step.title)}</h3>
+          <p><strong>Blocked:</strong> ${esc(step.blocker)}</p>
+          <p><strong>Unblock:</strong> ${esc(step.unblock)}</p>
+        </article>`).join("");
+      document.getElementById("executionObligations").innerHTML = (state.executionObligations || []).map((item) => `
+        <article class="path-step">
+          <div class="path-order">${esc(item.sequence)} · ${esc(item.status)}</div>
+          <h3>${esc(item.title)}</h3>
+          <p><strong>Owner:</strong> ${esc(item.owner)}</p>
+          <p><strong>Literal work now:</strong> ${esc(item.literalWork)}</p>
+          <p><strong>Blocked:</strong> ${esc(item.blocker)}</p>
+          <p><strong>Exact unblock:</strong> ${esc(item.unblock)}</p>
+          <p><strong>Next run:</strong> ${esc(item.nextRun)}</p>
+          <p><strong>Ali decision:</strong> ${esc(item.aliDecision)}</p>
+        </article>`).join("") || `<article class="path-step"><p>No platform execution obligation is currently admitted.</p></article>`;
+
+      function filteredOwners() {
+        const query = document.getElementById("search").value.trim().toLowerCase();
+        return owners.filter((owner) => {
+          const matchesFilter = selectedFilter === "all" || statusGroup(owner.status) === selectedFilter;
+          const haystack = [owner.name, owner.category, owner.status, owner.currentWork, owner.blocker, owner.unblock].join(" ").toLowerCase();
+          return matchesFilter && (!query || haystack.includes(query));
+        });
+      }
+
+      function renderDetail(owner) {
+        const detail = document.getElementById("ownerDetail");
+        if (!owner) {
+          detail.innerHTML = `<div class="empty">Select an owner to see its exact work, evidence and unblock.</div>`;
+          return;
+        }
+        detail.innerHTML = `
+          <div class="owner-name">${esc(owner.name)}</div>
+          <div class="owner-category">${esc(owner.category)} · task ${esc(owner.taskId)}</div>
+          <div class="detail-grid">
+            <div><div class="detail-label">Visible deliverable</div>${esc(owner.visibleDeliverable)}</div>
+            <div><div class="detail-label">Blocker</div>${esc(owner.blocker)}</div>
+            <div><div class="detail-label">Exact unblock</div>${esc(owner.unblock)}</div>
+            <div><div class="detail-label">Evidence at</div>${esc(prettyTime(owner.evidenceAt))}</div>
+            <div><div class="detail-label">Next scheduled run</div>${esc(owner.nextRun)}</div>
+            <div><div class="detail-label">Next Ali decision</div>${esc(owner.nextDecision)}</div>
+          </div>`;
+      }
+
+      function renderOwners() {
+        const filtered = filteredOwners();
+        document.getElementById("ownerRows").innerHTML = filtered.length ? filtered.map((owner) => `
+          <tr tabindex="0" data-owner="${esc(owner.id)}" aria-label="${esc(owner.name)} details">
+            <td><div class="owner-name">${esc(owner.name)}</div><div class="owner-category">${esc(owner.category)}</div></td>
+            <td><span class="status ${statusClass(owner.status)}">${esc(owner.status)}</span></td>
+            <td>${esc(owner.currentWork)}</td>
+            <td class="hide-mobile"><strong>${esc(owner.blocker)}</strong><br><span class="owner-category">→ ${esc(owner.unblock)}</span></td>
+            <td>${esc(owner.nextRun)}</td>
+          </tr>`).join("") : `<tr><td colspan="5" class="empty">No owners match this view.</td></tr>`;
+        document.querySelectorAll("#ownerRows tr[data-owner]").forEach((row) => {
+          const select = () => {
+            selectedOwner = owners.find((owner) => owner.id === row.dataset.owner);
+            renderDetail(selectedOwner);
+          };
+          row.addEventListener("click", select);
+          row.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              select();
+            }
+          });
+        });
+        if (!filtered.includes(selectedOwner)) selectedOwner = filtered[0] || null;
+        renderDetail(selectedOwner);
+      }
+
+      document.getElementById("filters").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-filter]");
+        if (!button) return;
+        selectedFilter = button.dataset.filter;
+        document.querySelectorAll(".filter").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        renderOwners();
+      });
+      document.getElementById("search").addEventListener("input", renderOwners);
+
+      const tabs = [...document.querySelectorAll(".tab")];
+      const showPanel = (panelId) => {
+        const tab = tabs.find((item) => item.getAttribute("aria-controls") === panelId);
+        if (!tab) return;
+        tabs.forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
+        document.querySelectorAll(".panel").forEach((panel) => { panel.hidden = panel.id !== panelId; });
+      };
+      tabs.forEach((tab) => tab.addEventListener("click", () => showPanel(tab.getAttribute("aria-controls"))));
+      document.getElementById("stats").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-jump]");
+        if (!button) return;
+        const target = button.dataset.jump;
+        if (target === "operationsPanel") {
+          showPanel(target);
+          const requestedFilter = button.dataset.ownerFilter || "all";
+          const filterButton = document.querySelector(`#filters button[data-filter="${requestedFilter}"]`);
+          if (filterButton) {
+            selectedFilter = requestedFilter;
+            document.querySelectorAll(".filter").forEach((item) => item.setAttribute("aria-pressed", String(item === filterButton)));
+            renderOwners();
+          }
+          return;
+        }
+        showPanel("actionsPanel");
+        document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      const copyPreparedText = async (value) => {
+        if (navigator.clipboard?.writeText) {
+          try {
+            await navigator.clipboard.writeText(value);
+            return true;
+          } catch {
+            // Local file pages may not receive Clipboard API permission.
+          }
+        }
+        const field = document.createElement("textarea");
+        field.value = value;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.select();
+        const copied = document.execCommand("copy");
+        field.remove();
+        return copied;
+      };
+      document.getElementById("decisionQueue").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-decision-packet]");
+        if (!button) return;
+        selectedDecisionPacketId = button.dataset.decisionPacket;
+        renderDecisionDesk();
+      });
+      document.getElementById("aliActionsGrid").addEventListener("click", async (event) => {
+        const button = event.target.closest("button[data-decision-choice]");
+        if (!button) return;
+        const packet = readyDecisionPackets.find((item) => item.id === selectedDecisionPacketId) || readyDecisionPackets[0];
+        const option = packet?.options.find((item) => item.id === button.dataset.decisionChoice);
+        if (!option) return;
+        if (await copyPreparedText(option.receipt)) {
+          button.textContent = "Chosen and copied";
+          button.dataset.copied = "true";
+          document.getElementById("decisionReceipt").textContent = "Decision response copied. Paste it into the Executive Desk task to route it and receive an execution receipt.";
+        } else {
+          document.getElementById("decisionReceipt").textContent = `Copy unavailable. Send this exact response: ${option.receipt}`;
+        }
+      });
+
+      document.getElementById("scheduleGrid").innerHTML = (state.schedule || []).map((item) => `
+        <article class="card schedule-item">
+          <span class="status ${statusClass(item.status)}">${esc(item.status)}</span>
+          <h3>${esc(item.name)}</h3>
+          <div class="schedule-meta">${esc(item.owner)} · ${esc(item.cadence)}</div>
+          <p>${esc(item.purpose)}</p>
+          <div class="schedule-meta"><strong>Next:</strong> ${esc(item.next)}</div>
+        </article>`).join("");
+
+      document.getElementById("decisionsGrid").innerHTML = (state.decisions || []).map((item) => `
+        <article class="card decision-item">
+          <div class="decision-id">${esc(item.id)} · ${esc(item.date)} · ${esc(item.status)}</div>
+          <h3>${esc(item.title)}</h3>
+          <p>${esc(item.summary)}</p>
+        </article>`).join("");
+
+      const visualLock = state.visualProductionLock || {};
+      document.getElementById("visualLockStatus").textContent = visualLock.status || "VISUAL PRODUCTION LOCK";
+      document.getElementById("visualLockRule").textContent = visualLock.rule || "";
+      document.getElementById("visualAllowedNow").textContent = visualLock.allowedNow || "";
+      document.getElementById("visualBlockedUntil").textContent = visualLock.blockedUntil || "";
+      document.getElementById("visualAfterDecision").textContent = visualLock.afterDecision || "";
+      document.getElementById("visualSummary").innerHTML = [
+        ["Active literal outputs", visualActive.length, "Brand comparison and already-running episode repair only"],
+        ["Acceptance review", visualAcceptance.length, "Frozen output under independent judgment"],
+        ["Queued / not running", visualQueued.length, "Inventory, specs or named future triggers"],
+        ["Blocked", visualBlocked.length, "Exact owner-entry or dependency failure"],
+        ["Ali decisions now", String(visualLock.status || "").includes("LOCKED") ? 0 : visualProduction.filter((item) => {
+          const decision = String(item.aliDecision || "").toLowerCase();
+          return decision && !decision.startsWith("none") && !decision.includes("only after") && !decision.includes("when ");
+        }).length, "No visual decision until the Brand championship is ready"]
+      ].map(([label, value, note]) => `
+        <article class="card stat">
+          <div class="stat-label">${esc(label)}</div>
+          <div class="stat-value">${esc(value)}</div>
+          <div class="stat-note">${esc(note)}</div>
+        </article>`).join("");
+      document.getElementById("visualProductionRows").innerHTML = visualProduction.map((item) => `
+        <tr>
+          <td><div class="owner-name">${esc(item.name)}</div><div class="owner-category">${esc(item.id)}</div></td>
+          <td><strong>${esc(item.owner)}</strong><div class="owner-category">${esc(item.taskId)}</div></td>
+          <td>${esc(item.artifact)}</td>
+          <td><span class="status ${statusClass(item.status)}">${esc(item.status)}</span></td>
+          <td><strong>${esc(item.blocker)}</strong><div class="schedule-meta">→ ${esc(item.unblock)}</div></td>
+          <td><strong>Next:</strong> ${esc(item.nextRun)}<div class="schedule-meta"><strong>Ali:</strong> ${esc(item.aliDecision)}</div></td>
+        </tr>`).join("");
+
+      const audience = state.audience || {};
+      document.getElementById("audienceTruth").textContent = audience.truth || "Audience evidence is not configured.";
+      document.getElementById("audienceMetrics").innerHTML = (audience.metrics || []).map((metric) => `
+        <article class="card metric">
+          <div class="stat-label">${esc(metric.label)}</div>
+          <div class="metric-value">${metric.value === null || metric.value === undefined ? "—" : esc(metric.value)}</div>
+          <span class="status ${statusClass(metric.status)}">${esc(metric.status)}</span>
+          <div class="metric-source">${esc(metric.definition)} · ${esc(metric.source)}</div>
+        </article>`).join("");
+
+      const renderPages = (items, emptyText) => items.length ? items.map((item) => `
+        <li><span>${esc(item.page || item.path)}</span><span class="rank-value">${esc(item.visitors ?? item.views ?? "—")}</span></li>`
+      ).join("") : `<li class="empty">${esc(emptyText)}</li>`;
+      document.getElementById("popularPages").innerHTML = renderPages(
+        audience.popularPages || [],
+        audience.pageRankingStatus || "Waiting for page data"
+      );
+      document.getElementById("leastPopularPages").innerHTML = renderPages(
+        audience.leastPopularPages || [],
+        audience.pageRankingStatus || "Waiting for page data"
+      );
+
+      document.getElementById("sourceStatus").innerHTML = (audience.sourceStatus || []).map((source) => `
+        <div class="source-row">
+          <strong>${esc(source.source)}</strong>
+          <span class="status ${statusClass(source.status)}">${esc(source.status)}</span>
+          <div><div>${esc(source.evidence)}</div><div class="schedule-meta"><strong>Unblock:</strong> ${esc(source.unblock)}</div></div>
+        </div>`).join("");
+
+      const social = audience.social || {};
+      document.getElementById("socialScore").innerHTML = [
+        ["Daily target", social.dailyTarget ?? "—"],
+        ["Planned today", social.plannedToday ?? "—"],
+        ["Ready today", social.readyToday ?? "—"],
+        ["Published today", social.publishedToday ?? "—"]
+      ].map(([label, value]) => `<div><span class="stat-label">${esc(label)}</span><strong>${esc(value)}</strong></div>`).join("");
+      document.getElementById("socialTargetMeaning").textContent = social.targetMeaning || "";
+      document.getElementById("channelStatus").innerHTML = (social.channels || []).map((channel) => `
+        <div class="channel-row">
+          <strong>${esc(channel.name)}</strong>
+          <span class="status ${statusClass(channel.status)}">${esc(channel.status)}</span>
+          <div>${esc(channel.role)}</div>
+        </div>`).join("");
+
+      const external = state.externalServices || {};
+      document.getElementById("serviceTruth").textContent = external.truth || "External-service evidence is not configured.";
+      document.getElementById("serviceScope").textContent = external.scope || "";
+      const costs = external.costSummary || {};
+      const cad = (value) => value !== null && value !== "" && Number.isFinite(Number(value))
+        ? `CA$${Number(value).toLocaleString("en-CA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+        : "—";
+      const knownRange = costs.knownPlanRangeCad || {};
+      document.getElementById("costHeadline").innerHTML = [
+        ["Known-plan monthly range", `${cad(knownRange.low)}–${cad(knownRange.high)}`, "Anthropic tier still unconfirmed", "cost-primary"],
+        ["Currently priced floor", cad(costs.workingMonthlyRunRateCad), "Includes OpenAI estimate + Suno", ""],
+        ["Invoice-backed + normalized", cad(costs.evidencedAndNormalizedCad), "Excludes personal AI receipts", ""],
+        ["Unknown cost items", costs.unknownCostItems ?? "—", "Excluded until account evidence", ""]
+      ].map(([label, value, note, extraClass]) => `
+        <article class="card stat ${extraClass}">
+          <div class="stat-label">${esc(label)}</div>
+          <div class="stat-value">${esc(value)}</div>
+          <div class="stat-note">${esc(note)}</div>
+        </article>`).join("");
+      const fx = costs.fx || {};
+      document.getElementById("costMethod").textContent = [
+        costs.method || "",
+        fx.date ? `FX: ${fx.date} · USD/CAD ${fx.usdToCad} · EUR/CAD ${fx.eurToCad}.` : "",
+        costs.caveat || ""
+      ].filter(Boolean).join(" ");
+      document.getElementById("costRows").innerHTML = (external.costLedger || []).map((item) => `
+        <tr>
+          <td><div class="owner-name">${esc(item.service)}</div><div class="owner-category">${esc(item.treatment)}</div></td>
+          <td>${esc(item.cadence)}<div class="owner-category">${esc(item.confidence)}</div></td>
+          <td>${esc(item.billedAmount)}</td>
+          <td><strong>${esc(item.monthlyCadLabel || cad(item.monthlyCad))}</strong></td>
+          <td>${esc(item.evidence)}<div class="schedule-meta"><strong>Next:</strong> ${esc(item.nextAction)}</div></td>
+        </tr>`).join("");
+      const serviceSummary = external.summary || {};
+      document.getElementById("serviceSummary").innerHTML = [
+        ["Services discovered", serviceSummary.discoveredServices ?? "—", "Repository/account inventory"],
+        ["Active or configured", serviceSummary.activeOrConfigured ?? "—", "Not the same as paid"],
+        ["Paid plans confirmed", serviceSummary.paidPlansConfirmed ?? "—", "Requires invoice/account proof"],
+        ["Recommendations ready", serviceSummary.recommendationsReady ?? "—", "No purchase implied"]
+      ].map(([label, value, note]) => `
+        <article class="card stat">
+          <div class="stat-label">${esc(label)}</div>
+          <div class="stat-value">${esc(value)}</div>
+          <div class="stat-note">${esc(note)}</div>
+        </article>`).join("");
+      document.getElementById("serviceRows").innerHTML = (external.services || []).map((service) => `
+        <tr>
+          <td><div class="owner-name">${esc(service.name)}</div><div class="owner-category">${esc(service.category)} · ${esc(service.owner)}</div></td>
+          <td>${esc(service.operation)}<div class="owner-category">${esc(service.implementationStatus)}</div></td>
+          <td><span class="status ${statusClass(service.usageStatus)}">${esc(service.usageStatus)}</span></td>
+          <td><strong>${esc(service.billingStatus)}</strong><div class="owner-category">${esc(service.plan)}</div></td>
+          <td>${esc(service.value)}<div class="schedule-meta"><strong>Next:</strong> ${esc(service.nextAction)}</div></td>
+        </tr>`).join("");
+      document.getElementById("serviceRecommendations").innerHTML = (external.recommendations || []).map((item) => `
+        <article class="card service-rec">
+          <div class="decision-id">${esc(item.id)} · ${esc(item.status)}</div>
+          <h3>${esc(item.name)}</h3>
+          <span class="status ${statusClass(item.recommendation)}">${esc(item.recommendation)}</span>
+          <p><strong>Operation:</strong> ${esc(item.operation)}</p>
+          <p><strong>Cost:</strong> ${esc(item.cost)}</p>
+          <p><strong>Specific improvement:</strong> ${esc(item.expectedImpact)}</p>
+          <p><strong>Why:</strong> ${esc(item.whyThisOne)}</p>
+          <p><strong>Smallest proof:</strong> ${esc(item.smallestProof)}</p>
+          <p><strong>Value gate:</strong> ${esc(item.proofOfValue)}</p>
+          <p><strong>Ali:</strong> ${esc(item.aliDecision)}</p>
+        </article>`).join("");
+
+      const priorityRank = { P0: 0, P1: 1, P2: 2, P3: 3 };
+      const rankedOpportunities = [
+        ...(state.improvementOpportunities || []),
+        ...(audience.opportunities || [])
+      ].sort((a, b) =>
+        (priorityRank[a.priority] ?? 9) - (priorityRank[b.priority] ?? 9) ||
+        String(a.id).localeCompare(String(b.id))
+      );
+      document.getElementById("opportunityGrid").innerHTML = rankedOpportunities.map((item) => `
+        <article class="card opportunity">
+          <div class="decision-id">${esc(item.id)} · ${esc(item.priority)} · ${esc(item.status)}</div>
+          <h3>${esc(item.title)}</h3>
+          <p><strong>Evidence:</strong> ${esc(item.evidence)}</p>
+          <p><strong>Expected value:</strong> ${esc(item.expectedValue)}</p>
+          <p><strong>Next:</strong> ${esc(item.nextAction)}</p>
+          <p><strong>Owner:</strong> ${esc(item.owner)}</p>
+          <p><strong>Measure:</strong> ${esc(item.measure)}</p>
+          <p><strong>Ali:</strong> ${esc(item.aliDecision)}</p>
+        </article>`).join("");
+
+      renderOwners();
+      document.querySelector("[data-open-visual-production]")?.addEventListener("click", () => showPanel("visualProductionPanel"));
+    })();
+  </script>
+</body>
+</html>

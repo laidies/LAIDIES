@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to Check AI's Work · The LIBRAiRY</title>
+    <meta name="description" content="How to check an AI answer without redoing all the work yourself — the Prompt Like Elle method: sort draft from claim, ground it in a source, make it show the line, ban invented receipts." />
+    <meta property="og:title" content="How to Check AI's Work — The LIBRAiRY" />
+    <meta property="og:description" content="The reference for checking AI answers: three moves, one rule, a copy-paste prompt. From Episode 3, The Burn Book Problem." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://laidies.ai/grimoire/verification-rulebook.html" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="stylesheet" href="/styles.css?v=sticky-fix-2" />
+    <link rel="stylesheet" href="/content/grimoire.css?v=grimoire-17" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400&family=Inter:wght@400;600;700;800;900&display=swap">
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+
+    <style>
+      /* ============================================================
+         THE VERIFICATION RULEBOOK — local styles, scoped to .gr-ref.
+         Reuses the illuminated Grimoire shell (grimoire.css). Content
+         is the reference method from Episode 3 (The Burn Book Problem).
+         ============================================================ */
+      .gr-ref {
+        position: relative;
+        max-width: 920px;
+        margin: clamp(14px, 3vw, 28px) auto;
+        padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 40px);
+        background:
+          linear-gradient(125deg, rgba(155, 63, 95, 0.10), rgba(36, 123, 131, 0.10)),
+          #fff8fc;
+        border: 8px solid #1a0a12;
+        border-radius: 18px;
+        box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32), inset 0 0 0 1.5px rgba(201, 162, 39, 0.5);
+        font-family: var(--hb-body);
+        color: var(--ink);
+      }
+      .gr-ref::before,
+      .gr-ref::after {
+        content: "";
+        position: absolute;
+        width: 34px; height: 34px;
+        border: 2px solid var(--hb-leaf);
+        opacity: 0.85;
+        pointer-events: none;
+        z-index: 3;
+      }
+      .gr-ref::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; border-radius: 8px 0 0 0; }
+      .gr-ref::after  { bottom: 6px; right: 6px; border-left: 0; border-top: 0; border-radius: 0 0 8px 0; }
+
+      .ai { color: var(--rose); }
+
+      /* Header */
+      .gr-ref-header { text-align: center; margin: 0 auto clamp(20px, 3vw, 30px); max-width: 60ch; }
+      .gr-ref-eyebrow {
+        font-family: var(--hb-mono); font-size: 0.74rem; letter-spacing: 0.16em;
+        text-transform: uppercase; color: var(--wine); margin: 0 0 12px;
+      }
+      .gr-ref-title {
+        font-family: var(--hb-serif) !important; font-weight: 700;
+        font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.05;
+        color: var(--hb-ink); margin: 0 auto 14px; max-width: 18ch;
+      }
+      .gr-ref-dek {
+        font-family: var(--hb-serif); font-style: italic;
+        font-size: clamp(1rem, 1.5vw, 1.18rem); line-height: 1.55;
+        color: var(--muted); margin: 0 auto; max-width: 60ch;
+      }
+
+      /* Lede */
+      .vr-lede {
+        font-family: var(--hb-serif); font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+        line-height: 1.7; color: var(--ink); max-width: 64ch; margin: 0 auto clamp(28px, 4vw, 40px);
+      }
+      .vr-lede strong { color: var(--wine); }
+
+      /* Section shell */
+      .vr-sec { max-width: 66ch; margin: 0 auto clamp(30px, 4vw, 46px); }
+      .vr-kicker {
+        font-family: var(--hb-mono); font-size: 0.7rem; letter-spacing: 0.18em;
+        text-transform: uppercase; color: var(--rose); margin: 0 0 6px;
+      }
+      .vr-h2 {
+        font-family: var(--hb-serif); font-weight: 700; font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+        line-height: 1.15; color: var(--hb-ink); margin: 0 0 8px;
+      }
+      .vr-intro { font-family: var(--hb-serif); font-size: 1.04rem; line-height: 1.6; color: var(--ink); margin: 0 0 18px; }
+
+      /* Sort — draft / claim / receipt */
+      .vr-sort { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 4px 0 16px; }
+      @media (min-width: 660px) { .vr-sort { grid-template-columns: repeat(3, 1fr); } }
+      .vr-card {
+        background: #fffdfb; border: 1.5px solid var(--hb-rule); border-radius: 12px;
+        padding: 16px 18px; box-shadow: 0 6px 16px rgba(26, 10, 18, 0.06);
+      }
+      .vr-card h3 {
+        font-family: var(--hb-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+        margin: 0 0 8px; color: var(--wine);
+      }
+      .vr-card p { font-family: var(--hb-body); font-size: 0.95rem; line-height: 1.5; margin: 0 0 8px; color: var(--ink); }
+      .vr-card .vr-tag {
+        font-family: var(--hb-mono); font-size: 0.7rem; letter-spacing: 0.05em; color: var(--muted);
+        display: inline-block; border-top: 1px dashed var(--hb-rule); padding-top: 8px; margin-top: 2px; width: 100%;
+      }
+      .vr-card--receipt { border-color: rgba(201, 162, 39, 0.55); box-shadow: 0 6px 16px rgba(201, 162, 39, 0.14); }
+
+      .vr-line {
+        font-family: var(--hb-serif); font-style: italic; font-size: 1.05rem; color: var(--wine);
+        text-align: center; margin: 14px auto 0; max-width: 46ch;
+      }
+
+      /* The three moves */
+      .vr-move { display: flex; gap: 16px; align-items: flex-start; margin: 0 0 22px; }
+      .vr-num {
+        flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%;
+        display: grid; place-items: center; font-family: var(--hb-serif); font-weight: 700; font-size: 1.25rem;
+        color: #fff; background: var(--wine); box-shadow: inset 0 0 0 2px rgba(201, 162, 39, 0.6);
+      }
+      .vr-move-body { flex: 1 1 auto; min-width: 0; }
+      .vr-move-body h3 { font-family: var(--hb-serif); font-weight: 700; font-size: 1.12rem; margin: 4px 0 6px; color: var(--hb-ink); }
+      .vr-move-body p { font-family: var(--hb-body); font-size: 0.96rem; line-height: 1.55; margin: 0 0 10px; color: var(--ink); }
+      .vr-say {
+        font-family: var(--hb-mono); font-size: 0.86rem; line-height: 1.5; color: var(--hb-ink);
+        background: rgba(36, 123, 131, 0.08); border-left: 3px solid var(--hb-leaf);
+        padding: 10px 14px; border-radius: 0 8px 8px 0;
+      }
+      .vr-say b { color: var(--wine); font-weight: 700; }
+
+      /* Callout */
+      .vr-callout {
+        background: linear-gradient(135deg, rgba(185, 93, 120, 0.12), rgba(201, 162, 39, 0.10));
+        border: 1.5px solid rgba(185, 93, 120, 0.4); border-radius: 14px;
+        padding: 20px 22px; margin: 4px 0 0;
+      }
+      .vr-callout h3 { font-family: var(--hb-serif); font-weight: 700; font-size: 1.15rem; margin: 0 0 8px; color: var(--wine); }
+      .vr-callout p { font-family: var(--hb-body); font-size: 0.98rem; line-height: 1.55; margin: 0; color: var(--ink); }
+
+      /* Copy-paste prompt — reads as a takeaway panel with a titlebar */
+      .vr-prompt { margin: 6px 0 0; border-radius: 12px; overflow: hidden; border: 1.5px solid rgba(201, 162, 39, 0.5); box-shadow: 0 12px 28px rgba(35, 16, 31, 0.34); }
+      .vr-prompt-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: #311430; padding: 10px 12px 10px 16px; border-bottom: 1px solid rgba(201, 162, 39, 0.32); }
+      .vr-prompt-label { font-family: var(--hb-mono); font-size: 0.7rem; letter-spacing: 0.02em; color: #ecc99f; }
+      .vr-prompt pre {
+        font-family: var(--hb-mono); font-size: 0.82rem; line-height: 1.6; color: #f4e7e2;
+        background: #23101f; border: 0; border-radius: 0;
+        padding: 20px; margin: 0; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;
+      }
+      .vr-copy {
+        flex: 0 0 auto; font-family: var(--hb-mono); font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.06em; text-transform: uppercase; color: #23101f; background: rgba(201, 162, 39, 0.95);
+        border: 0; border-radius: 999px; padding: 6px 15px; cursor: pointer; transition: background 0.15s ease;
+      }
+      .vr-copy:hover { background: #e3c04a; }
+      .vr-copy:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+      /* Check patterns */
+      .vr-patterns { list-style: none; margin: 6px 0 14px; padding: 0; display: grid; gap: 10px; }
+      .vr-patterns li {
+        font-family: var(--hb-body); font-size: 0.98rem; line-height: 1.5; color: var(--ink);
+        padding-left: 26px; position: relative;
+      }
+      .vr-patterns li::before {
+        content: "→"; position: absolute; left: 0; top: 0; color: var(--rose); font-weight: 700;
+      }
+      .vr-patterns b { color: var(--wine); }
+      .vr-fine { font-family: var(--hb-body); font-size: 0.94rem; line-height: 1.55; color: var(--muted); margin: 8px 0 0; }
+      .vr-fine strong { color: var(--wine); }
+
+      /* Footer */
+      .gr-ref-footer {
+        margin: clamp(30px, 4vw, 46px) 0 0; padding-top: clamp(22px, 3vw, 30px);
+        border-top: 1px dashed var(--hb-rule); text-align: center;
+        font-family: var(--hb-serif); font-style: italic; font-size: 0.95rem; color: var(--muted); line-height: 1.6;
+      }
+      .gr-ref-footer a { color: var(--wine); text-decoration: underline; text-decoration-color: var(--hb-rule); }
+      .gr-ref-footer a:hover { color: var(--rose); }
+
+      @media (max-width: 620px) {
+        .gr-ref { padding: 24px 15px; }
+        .vr-move { gap: 12px; }
+        .vr-num { width: 34px; height: 34px; font-size: 1.05rem; }
+      }
+    </style>
+    <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+    <div class="grimoire-shell" data-paginated>
+      <div class="gr-topbar">
+        <a class="gr-back" href="/library.html">← Back to the LIBR<span class="ai">Ai</span>RY</a>
+        <span class="gr-where">How to Check AI's Work</span>
+      </div>
+
+      <main class="gr-ref gr-illuminated">
+        <header class="gr-ref-header">
+          <p class="gr-ref-eyebrow">The LIBR<span class="ai">Ai</span>RY · Reference Shelf · unlocked in Episode 3</p>
+          <h1 class="gr-ref-title">How to Check AI's Work</h1>
+          <p class="gr-ref-dek">How to check an <span class="ai">Ai</span> answer without redoing all the work yourself — the move Elle Woods would make. Put the answer on the stand; don't let a claim speak without a receipt.</p>
+        </header>
+
+        <p class="vr-lede"><span class="ai">Ai</span> can sound right, and <strong>sounding right is not the same as being right</strong> — the two come out in the same handwriting. This is the short, reusable method for telling them apart before your name goes on it. Steal it, keep it, run it on anything.</p>
+
+        <!-- 1 · SORT -->
+        <section class="vr-sec">
+          <p class="vr-kicker">First</p>
+          <h2 class="vr-h2" id="draft-claim-receipt">Sort what you're holding.</h2>
+          <p class="vr-intro">Before you check a single thing, name what it is. Every line an answer hands you is one of three things.</p>
+          <div class="vr-sort">
+            <div class="vr-card">
+              <h3>Draft</h3>
+              <p>Wording, structure, a summary, a brainstorm. Nobody gets embarrassed by a rough phrasing.</p>
+              <span class="vr-tag">Low stakes — can be fast.</span>
+            </div>
+            <div class="vr-card">
+              <h3>Claim</h3>
+              <p>A name, a date, a number, a quote, a source — anything legal, HR, privacy, or money.</p>
+              <span class="vr-tag">This is what gets you — check it.</span>
+            </div>
+            <div class="vr-card vr-card--receipt">
+              <h3>Receipt</h3>
+              <p>The thing you can open, name, or point to if someone asks where a claim came from.</p>
+              <span class="vr-tag">What every claim needs before it speaks.</span>
+            </div>
+          </div>
+          <p class="vr-line">A draft is an outfit. A claim is an alibi. Dress accordingly.</p>
+        </section>
+
+        <!-- 2 · THE THREE MOVES -->
+        <section class="vr-sec">
+          <p class="vr-kicker">Prompt Like Elle</p>
+          <h2 class="vr-h2" id="three-moves">The three moves.</h2>
+          <p class="vr-intro">The serious guidance — OpenAI, Anthropic, Google, Stanford — all points the same way. In normal-human terms, it comes down to three moves.</p>
+
+          <div class="vr-move">
+            <span class="vr-num">1</span>
+            <div class="vr-move-body">
+              <h3 id="give-it-the-source">Give it the source.</h3>
+              <p>Don't ask the tool what it <em>remembers</em>; hand it the material. Paste the document, upload the file, link the official page — or turn on search mode when you need something current. Then set the boundary. Elle doesn't argue from memory; she walks in with the file.</p>
+              <p class="vr-say"><b>Say:</b> "Answer only from the document I gave you. If it isn't in there, say so."</p>
+            </div>
+          </div>
+
+          <div class="vr-move">
+            <span class="vr-num">2</span>
+            <div class="vr-move-body">
+              <h3>Let it say "I don't know."</h3>
+              <p>Add the one sentence most people never think to add. That single line is what turns a confident guess back into an honest blank.</p>
+              <p class="vr-say"><b>Say:</b> "If you aren't sure, say so. Don't guess to be helpful. Mark anything you inferred."</p>
+            </div>
+          </div>
+
+          <div class="vr-move">
+            <span class="vr-num">3</span>
+            <div class="vr-move-body">
+              <h3 id="make-it-show-the-line">Make it show the line.</h3>
+              <p>A claim without a source it can point to doesn't get to speak. If it can't quote the line, treat it like it showed up at Spring Fling with no student ID.</p>
+              <p class="vr-say"><b>Say:</b> "For every factual claim, quote the exact sentence you relied on."</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3 · THE ONE RULE -->
+        <section class="vr-sec">
+          <div class="vr-callout">
+            <h3>One rule over all three: no invented receipts.</h3>
+            <p>Say it out loud in the prompt — <em>"Do not invent sources, links, dates, quotes, numbers, or policies. If a receipt is missing, mark it <b>[needs receipt]</b>."</em> "Sources attached" is not the same as "sources checked." Sometimes it's still Chutney, handing you a folder in her own handwriting.</p>
+          </div>
+        </section>
+
+        <!-- 4 · THE PROMPT -->
+        <section class="vr-sec">
+          <p class="vr-kicker">Copy · paste · done</p>
+          <h2 class="vr-h2">The Prompt Like Elle template.</h2>
+          <p class="vr-intro">Drop your source in the quotes, swap in your task, send.</p>
+          <div class="vr-prompt">
+            <div class="vr-prompt-bar">
+              <span class="vr-prompt-label">Your prompt — copy it, paste it into your AI tool</span>
+              <button class="vr-copy" type="button" data-copy>⧉ Copy</button>
+            </div>
+            <pre id="vrPrompt">Here is the source material:
+"""
+[paste your document, notes, or page here]
+"""
+
+Using ONLY what's above:
+1. [Your task — e.g. "turn these notes into a client update."]
+2. If something isn't in the source, say "not stated." Do not fill the gap.
+3. For every factual claim, quote the exact line you got it from.
+4. Do not invent sources, links, dates, quotes, or numbers.
+   Mark any missing receipt as [needs receipt].</pre>
+          </div>
+        </section>
+
+        <!-- 5 · CHECK PATTERNS -->
+        <section class="vr-sec">
+          <p class="vr-kicker">When a claim still needs checking</p>
+          <h2 class="vr-h2">Check patterns.</h2>
+          <p class="vr-intro">You won't verify everything — just the claims. Point each one at the question it can't dodge.</p>
+          <ul class="vr-patterns">
+            <li>If it says a <b>policy changed</b> — what date proves it?</li>
+            <li>If it says a <b>quote came from a person</b> — where's the quote?</li>
+            <li>If it says a <b>number moved</b> — from what, over what timeframe, according to whom?</li>
+            <li>If it says <b>"best practice"</b> — whose? For whom? Under what constraints? In what jurisdiction?</li>
+          </ul>
+          <p class="vr-fine"><strong>Trust a citation</strong> only when you've clicked it, it exists, and it actually says what the answer says it says. Otherwise: Google it, or ask the human who owns the decision. <strong>Make the second check independent</strong> — don't let the same witness validate itself.</p>
+        </section>
+
+        <!-- 6 · THE CHUTNEY TEST -->
+        <section class="vr-sec">
+          <div class="vr-callout">
+            <h3>The Chutney test.</h3>
+            <p>Don't ask "does this sound smart?" — Chutney sounded smart three times. Ask: <em>what's the one detail that can't survive contact with the timeline?</em> Find it, and the answer either holds up or falls apart in your hands — before it ever leaves your laptop.</p>
+          </div>
+        </section>
+
+        <footer class="gr-ref-footer">
+          <strong>About this shelf:</strong> This is the <em>quick move</em> — the checking method from <a href="/issues/issue-03.html">Episode 3, The Burn Book Problem</a>. Want the full story — what these AI tools are and why they slip up? That's the <em>deep read</em> in <a href="/grimoire/slaiyer-handbook-chapter-1.html">the SLAiYER Handbook</a>. And it pairs with <a href="/grimoire/chamber-of-receipts.html">the Chamber of Receipts</a>, where the evidence itself lives.
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector('[data-copy]');
+        var pre = document.getElementById('vrPrompt');
+        if (!btn || !pre) return;
+        btn.addEventListener('click', function () {
+          var text = pre.innerText;
+          function done() { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = '⧉ Copy'; }, 1800); }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, fallback);
+          } else { fallback(); }
+          function fallback() {
+            var r = document.createRange(); r.selectNode(pre);
+            var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+            try { document.execCommand('copy'); done(); } catch (e) {}
+            sel.removeAllRanges();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

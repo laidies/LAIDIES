@@ -1,0 +1,66 @@
+{
+  "generatedAt": "2026-07-26T19:49:07.605Z",
+  "browser": "Chromium (Playwright)",
+  "cases": {
+    "desktopFirstFresh": {
+      "status": "PASS",
+      "performance": {
+        "domContentLoadedMs": 209,
+        "loadEventMs": 220,
+        "decodedBodyBytes": 5155492
+      }
+    },
+    "mobileReturning": {
+      "status": "PASS"
+    },
+    "local-card": {
+      "status": "PASS"
+    },
+    "verified-held": {
+      "status": "PASS"
+    },
+    "homepage-missing": {
+      "status": "PASS",
+      "errorCode": "ENVELOPE_SHAPE_INVALID"
+    },
+    "homepage-stale": {
+      "status": "PASS",
+      "errorCode": "PROJECTION_STALE"
+    },
+    "homepage-conflict": {
+      "status": "PASS",
+      "errorCode": "IDEMPOTENCY_CONFLICT"
+    },
+    "homepage-tamper": {
+      "status": "PASS",
+      "errorCode": "PAYLOAD_HASH_MISMATCH"
+    },
+    "startHereFresh": {
+      "status": "PASS"
+    },
+    "start-missing": {
+      "status": "PASS",
+      "errorCode": "ENVELOPE_SHAPE_INVALID"
+    },
+    "start-stale": {
+      "status": "PASS",
+      "errorCode": "PROJECTION_STALE"
+    },
+    "start-conflict": {
+      "status": "PASS",
+      "errorCode": "IDEMPOTENCY_CONFLICT"
+    },
+    "start-tamper": {
+      "status": "PASS",
+      "errorCode": "PAYLOAD_HASH_MISMATCH"
+    },
+    "mobile320": {
+      "status": "PASS"
+    },
+    "zoom200LayoutSimulation": {
+      "status": "PASS",
+      "limitation": "640 CSS-pixel viewport simulates a 1280px viewport at 200%; not native Safari/VoiceOver evidence."
+    }
+  },
+  "summary": "PASS"
+}

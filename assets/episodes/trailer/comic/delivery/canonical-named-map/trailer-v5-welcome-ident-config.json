@@ -1,0 +1,81 @@
+{
+  "schema": "laidies.trailer.v5.welcome-ident-build-config",
+  "version": 5,
+  "status": "maker-build-config-review-only",
+  "created_date": "2026-07-26",
+  "repair_scope": "B08-only: replace the existing 165-frame Welcome to SUNNYVAiLE picture interval with the supplied Trailer-specific ident; preserve the v4 master audio stream exactly and preserve all decoded picture frames outside B08.",
+  "project_root": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage",
+  "frozen_v4": {
+    "master": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934"
+    },
+    "beat_map": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat-map.json",
+      "sha256": "39a9a3d0e7fe9dd646ddd7075466cfbf80249520cf082a27ca7cdb3b674d3fdb"
+    }
+  },
+  "replacement": {
+    "target_beat": "B08",
+    "spoken_trigger": "This is the trailer: Welcome to SUNNYVAiLE.",
+    "frame_start": 2996,
+    "frame_end_exclusive": 3161,
+    "frame_count": 165,
+    "start_seconds": 99.86666666666666,
+    "end_seconds": 105.36666666666666,
+    "source_ident": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-trailer-welcome-to-sunnyvaile-v1.mp4",
+      "sha256": "d6ed30b357f2e0d10387ee1dd38273ba1607703755dfcc33d3fb34aa133c75e3",
+      "declared_audio_tracks": 0,
+      "source_frame_rate": 60,
+      "source_frame_count": 389,
+      "source_duration_seconds": 6.483333333333333
+    },
+    "fit_operation": "whole ident, time-normalized from 389 decoded 60fps frames to the existing 165 decoded 30fps B08 frames; 2x Lanczos scale from 960x540 to 1920x1080; no crop; no extra source art; no audio from ident."
+  },
+  "frozen_playback_clock_materialization": {
+    "method": "two-stage finite-file reconstruction; do not reuse the failed one-pass concat graph",
+    "body": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-body-17087f.mkv",
+      "sha256": "ea881fc674545424f997ba680ec85571d984dc551df28e18414863fa58b3ba22",
+      "frames": 17087
+    },
+    "playback_tail": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-tail-playback-exact-11929f.mkv",
+      "sha256": "f936f27c22c68050e11814dcf1473d50d9514d89271158c89e50f58a09241868",
+      "frames": 11929,
+      "must_equal_frozen_playback_suffix": true
+    },
+    "reconstructed_base": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-reconstructed-base-29016f.mkv",
+      "sha256": "78aca8cd8bd288a32c1d36fc33d8319e9e885749c2d2932c51aa9a2e2cbcd2d8",
+      "expected_total_frames": 29016,
+      "must_equal_complete_frozen_playback_vector": true
+    }
+  },
+  "stage_2_finite_splice": {
+    "pre_frames": 2996,
+    "ident_frames": 165,
+    "post_frames": 25855,
+    "expected_total_frames": 29016,
+    "video_only_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage2-video-only-29016f.mkv",
+    "video_only_sha256": "efbdace3b3c6ab8b8dc64296adb26f268aee6b4a72f654cc8e4d665fd2b15347",
+    "final_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+    "final_sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222"
+  },
+  "audio": {
+    "source_path": "content/music/public/trailer-narration.m4a",
+    "source_file_sha256": "fa9bc5e4b20e9f16f9236f642b471fd171965ecaaa05f107ac9602d4aa5a216d",
+    "must_be_stream_copied": true,
+    "may_change": false
+  },
+  "rules": {
+    "master_duration_may_change": false,
+    "master_frame_count_may_change": false,
+    "out_of_scope_decoded_frames_must_match": true,
+    "caption_bytes_may_change": false,
+    "site_route_deploy_publication_public_media_may_change": false,
+    "outfit_ruling_may_change": false,
+    "maker_may_judge_or_admit": false
+  }
+}

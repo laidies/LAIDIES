@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "LAIDIES-MOTION-IDENT-REWIND-AI-V6-2026-07-26",
+  "observedAt": "2026-07-26T12:55:46-07:00",
+  "status": [
+    "BUILT_LOCALLY",
+    "ALI_SELECTED_CANDIDATE",
+    "NOT_INTEGRATED",
+    "NOT_PUBLIC"
+  ],
+  "authority": {
+    "selectionOwner": "Ali",
+    "episodeIntegrationOwner": "Weekly Episodes — Engine & Production",
+    "independentAcceptanceOwner": "Episode Media Quality",
+    "releaseOwner": "Control Room plus applicable release owners"
+  },
+  "sourceAssets": {
+    "mp4": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-alternate-rewind-ai-v6.mp4",
+      "sha256": "713c576b2f6468fe4df962acd2c4d48163391899f99c9a2bfc187cc795ae0ed6",
+      "bytes": 3258002,
+      "width": 960,
+      "height": 540,
+      "durationSeconds": 5.166666666666667,
+      "nominalFrameRate": 60,
+      "frameCount": 310,
+      "videoCodec": "H.264",
+      "videoTracks": 1,
+      "audioTracks": 0
+    },
+    "webp": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-alternate-rewind-ai-v6.webp",
+      "sha256": "3348a654db859729259a79bb4ad45f045d1771179630c4dffa27c5e5a7798a76",
+      "bytes": 10446740,
+      "width": 960,
+      "height": 540
+    },
+    "staticFallback": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-alternate-rewind-ai-v6-still.png",
+      "sha256": "bcc6f7dd919f9f2859cb0d0d39e7dd27cb48e0839641df6a020e79527a31362c",
+      "bytes": 1008187,
+      "width": 960,
+      "height": 540
+    },
+    "contactSheet": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-alternate-rewind-ai-v6-contact-sheet.jpg",
+      "sha256": "2af0dd19b1e12a977342b02ac4ab62e6922398732aa6c667c81dd42e6080d889"
+    }
+  },
+  "observedBuildInputs": {
+    "builder": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/build-continuous-i-symbol-sequence.py",
+      "sha256": "3fdbcbad5df1ddb5a5de4f09460e061e65b89dd65d4eac49d43818ded5df5fd2"
+    },
+    "symbolSheet": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/custom-symbol-family-rewind-ai-transparent-v6.png",
+      "sha256": "dc4d2af169f937c513c1dc477db7d1e2b00a44d554d2c053281eff318df4b6fb"
+    },
+    "backgroundWordmark": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/selected-comic-background-wordmark-v1.png",
+      "sha256": "a9c798f746e1258a1707113e21f7d0ebdc1a1cd04993f8b8f32598d95753ce47"
+    },
+    "exactInvocationBound": false,
+    "note": "The current candidate bytes are authoritative for selection. A production derivative must bind its exact invocation and every input rather than infer provenance from nearby files."
+  },
+  "sourceTimeline": {
+    "initialFullI": {
+      "startFrame": 0,
+      "endFrameExclusive": 10
+    },
+    "rewindCycle": {
+      "startFrame": 10,
+      "endFrameExclusive": 82,
+      "startSeconds": 0.166666666666667,
+      "endSecondsExclusive": 1.366666666666667
+    },
+    "cdRomCycle": {
+      "startFrame": 82,
+      "endFrameExclusive": 154
+    },
+    "cursorCycle": {
+      "startFrame": 154,
+      "endFrameExclusive": 226
+    },
+    "aiBubbleAndFinalHold": {
+      "startFrame": 226,
+      "endFrameExclusive": 310,
+      "startSeconds": 3.766666666666667,
+      "endSecondsExclusive": 5.166666666666667
+    }
+  },
+  "plannedVariants": [
+    {
+      "id": "episode-open-16x9",
+      "status": "SPECIFIED_NOT_BUILT",
+      "output": {
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 60,
+        "durationSeconds": 5.166666666666667,
+        "audio": "silent"
+      },
+      "sourceWindowFrames": [
+        0,
+        310
+      ],
+      "placement": "After the episode has delivered its cold-open value or promise and immediately before the episode title/recap boundary; never before value on short social."
+    },
+    {
+      "id": "episode-interstitial-rewind-16x9",
+      "status": "SPECIFIED_NOT_BUILT_DEFAULT_UNUSED",
+      "output": {
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 60,
+        "durationSeconds": 1.2,
+        "audio": "silent"
+      },
+      "sourceWindowFrames": [
+        10,
+        82
+      ],
+      "placement": "Optional only at a genuine rewind/recap transition; maximum one occurrence and never decorative filler."
+    },
+    {
+      "id": "episode-outro-ai-tag-16x9",
+      "status": "SPECIFIED_NOT_BUILT",
+      "output": {
+        "width": 1920,
+        "height": 1080,
+        "frameRate": 60,
+        "durationSeconds": 1.4,
+        "audio": "silent"
+      },
+      "sourceWindowFrames": [
+        226,
+        310
+      ],
+      "placement": "After the episode's spoken continuation/CTA, before final black or end-card completion; do not displace the CTA."
+    },
+    {
+      "id": "vertical-9x16",
+      "status": "SPECIFIED_NOT_BUILT",
+      "output": {
+        "width": 1080,
+        "height": 1920,
+        "frameRate": 60,
+        "audio": "silent"
+      },
+      "composition": "Native recomposition from source layers. Preserve the complete wordmark, transforming i and approved visible labels; extend the comic field vertically. No centre crop or stretched 16:9 master.",
+      "placement": "End tag after value on short social; never a pre-value bumper."
+    },
+    {
+      "id": "feed-4x5",
+      "status": "SPECIFIED_NOT_BUILT",
+      "output": {
+        "width": 1080,
+        "height": 1350,
+        "frameRate": 60,
+        "audio": "silent"
+      },
+      "composition": "Native recomposition with the full wordmark and transforming i inside title-safe; no crop of the selected mark.",
+      "placement": "End tag after value."
+    },
+    {
+      "id": "square-1x1",
+      "status": "SPECIFIED_NOT_BUILT",
+      "output": {
+        "width": 1080,
+        "height": 1080,
+        "frameRate": 60,
+        "audio": "silent"
+      },
+      "composition": "Native recomposition with the full wordmark and transforming i inside title-safe; no crop of the selected mark.",
+      "placement": "End tag after value."
+    },
+    {
+      "id": "reduced-motion-static",
+      "status": "SOURCE_STATIC_BUILT_DERIVATIVES_NOT_BUILT",
+      "sourceSha256": "bcc6f7dd919f9f2859cb0d0d39e7dd27cb48e0839641df6a020e79527a31362c",
+      "behavior": "Web/player: show the static image with no autoplay. Edited reduced-motion export: use a one-second static hold at the equivalent placement. Do not simulate motion with fades, zooms or parallax."
+    }
+  ],
+  "audioPolicy": {
+    "canonicalCandidate": "silent",
+    "currentAudioAsset": null,
+    "optionalSoundTag": "Not authorized. Any future sound mark requires a separate Audio-owner composition/rights/mix packet and independent EMQ acceptance.",
+    "episodeMixRule": "Do not cover narration or make a silent source appear to have an approved sonic identity."
+  },
+  "perTitleIntegrationStatus": {
+    "episode02": "QUEUED_BEHIND_ACTIVE_V18_REPAIR_AND_FULL_EMQ_REVIEW",
+    "episode01": "QUEUED",
+    "episode03": "QUEUED",
+    "episode04": "QUEUED",
+    "trailer": "QUEUED"
+  },
+  "acceptance": {
+    "candidateSelectionIsNotAcceptance": true,
+    "requiredIndependentOwner": "Episode Media Quality",
+    "requiredEvidence": [
+      "source and derivative SHA-256 plus byte size",
+      "exact source-frame window and render invocation",
+      "dimensions, codec, frame rate, duration, track count and full decode",
+      "normal-speed and frame-step visual inspection",
+      "wordmark spelling, symbol clarity, title-safe and aspect-ratio composition",
+      "flash-threshold and reduced-motion/static behavior",
+      "actual episode placement after value with no narration or CTA displacement",
+      "audio silence or separately admitted sound/mix identity",
+      "full integrated master checksum and normal-speed episode review"
+    ],
+    "publicProofRequired": true
+  }
+}

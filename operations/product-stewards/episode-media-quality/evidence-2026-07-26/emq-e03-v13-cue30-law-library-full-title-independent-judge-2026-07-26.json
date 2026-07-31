@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E03-V13-CUE30-LAW-LIBRARY-FULL-TITLE-INDEPENDENT-JUDGE-2026-07-26",
+  "judge": "Episode Media Quality independent judge",
+  "verdict": "HOLD",
+  "bounded_cue30_repair_verdict": "ACCEPT",
+  "release_admitted": false,
+  "artifacts": {
+    "candidate": {"path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4", "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f"},
+    "config": {"path": "assets/video/episode-03-v13-cue30-law-library-repaired-config.json", "sha256": "f19dd24cb24ca1af2a1d3c0a848f947f68ad0884c747950a685e281f48ca5430"},
+    "builder": {"path": "assets/video/build-episode-03-v13-cue30-law-library-repaired.py", "sha256": "76ebdfea461dcc2b06c7282e4b1f49a21bfb605ae22eecf8e133043b7e6d1af8"},
+    "manifest": {"path": "operations/video-qa/episode-03-full-v13-cue30-law-library-repaired-manifest.json", "sha256": "515d930aa8e6e6297dfbfa99d4ee9932718626adae22a4c574d6855ebe384c40"},
+    "qc": {"path": "operations/video-qa/episode-03-full-v13-cue30-law-library-repaired-qc.json", "sha256": "7b53d46928bb433e5b381f00165c719982f9c8a47001af18a7f570089059186c"},
+    "external_vtt": {"path": "assets/captions/episode-03.vtt", "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be"}
+  },
+  "checks": {
+    "full_avfoundation_decode": {"result": "PASS", "video_frames": 31438, "audio_sample_buffers": 10211, "container_duration_seconds": 1047.975328798186},
+    "cue30": {"result": "ACCEPT", "seconds": [565.0, 577.0], "frames": [16950, 17310], "source_motion_sha256": "6a3a6e936eb025820e261eed8ef147d7ae8d9097c3fb6bdc3c2a30754072d6bf"},
+    "accepted_spoken_welcome_ident_retained": true,
+    "vtt_static": {"result": "PASS", "cue_count": 211, "invalid_durations": 0, "overlaps": 0, "last_end_seconds": 1046.95},
+    "representative_player": {"result": "HOLD", "reason": "watch.html EPISODE_FILMS is empty; exact v13 cannot be witnessed in the film-player journey"},
+    "human_full_1x_audible_watch": "HOLD"
+  },
+  "reason_codes": [
+    "PASS_HASH_BOUND_TUPLE",
+    "PASS_FULL_AVFOUNDATION_DECODE",
+    "PASS_CLOCK_AND_AAC_LINEAGE",
+    "PASS_CUE30_SEMANTIC_REPAIR",
+    "PASS_CUE30_LETTERING_CLEANUP",
+    "PASS_ACCEPTED_SPOKEN_WELCOME_IDENT_RETAINED",
+    "PASS_EXTERNAL_VTT_STATIC_STRUCTURE",
+    "HOLD_EXACT_V13_REPRESENTATIVE_PLAYER_PROOF_MISSING",
+    "HOLD_HUMAN_FULL_1X_UNMUTED_AUDIBLE_WATCH_MISSING"
+  ],
+  "next_action": "Create a non-public representative v13 player harness, independently witness player/caption/a11y behavior, and obtain the assigned full 1x unmuted audible watch."
+}

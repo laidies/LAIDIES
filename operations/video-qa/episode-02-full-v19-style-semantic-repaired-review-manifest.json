@@ -1,0 +1,3597 @@
+{
+  "authorised_replacements": [
+    {
+      "cue": 0,
+      "expected_old": "assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-blend-snap-email-v1.png",
+      "new": "assets/episodes/ep-02/comic/ep02-open-01-previously-strip-comic.png",
+      "sha256": "ae0d66fda6bd4e113638033a1bfc42bc5f0625c50d192a6af912ce6d1a39061f"
+    },
+    {
+      "cue": 4,
+      "expected_old": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "new": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+      "sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68"
+    },
+    {
+      "cue": 5,
+      "expected_old": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "new": "assets/episodes/ep-02/comic/ep02-open-05-throw-pillow-comic.png",
+      "sha256": "34db030e09ff91b544d4a0388b089b9e783f64ed42a863499c540ebe2cfeaa4d"
+    },
+    {
+      "cue": 6,
+      "expected_old": "assets/episodes/issue-02/ep02-cold-open-desk.png",
+      "new": "assets/episodes/ep-02/comic/ep02-open-06-thinking-closeup-comic.png",
+      "sha256": "56c442917538b3e952151ff82a9f2e67be0ca1ee979abe4af1855aedf2d22e07"
+    },
+    {
+      "cue": 13,
+      "expected_old": "assets/video/delivery-20260714-opening-v6/shots/opening-09-barista-approved-identity-v2.png",
+      "new": "assets/episodes/ep-02/comic/delivery-20260726-cue13-cafe-transition-v1/ep02-cue13-regular-to-new-cafe-comic-v01-1920.png",
+      "sha256": "1372d2306bb230ce29b6c5fed8e63b0277dd2272531ecc8317aad223a6e2da13"
+    }
+  ],
+  "base_v17": {
+    "path": "assets/video/episode-02-full-v17-controlled-motion-review.mp4",
+    "sha256": "97b26ce9455f3a46d2f17130c57d96182dd55aedf77420c0cdc590e6481074b6",
+    "size_bytes": 341156369
+  },
+  "base_v18_hold": {
+    "judge_evidence": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v18-full-av-judge-2026-07-26.md",
+    "judge_verdict": "HOLD",
+    "path": "assets/video/episode-02-full-v18-still-only-repaired-review.mp4",
+    "sha256": "97b32455ba6a6f0195d60646eeda3b5a2c558cef2b46cb8877a4d35e6346e1bc",
+    "size_bytes": 134385522
+  },
+  "build_script": {
+    "path": "assets/video/build-episode-02-v19-style-semantic-repaired.py",
+    "sha256": "d41678a09a2ae4e4430b700b81469161179e6120e3fd4d4fa8d3c3d08fae5986",
+    "size_bytes": 15531
+  },
+  "camera": {
+    "all_placements_mode": "still",
+    "allowed_transition": "0.35-second alpha blend only",
+    "camera_transforms_disabled": true,
+    "filter_graph_contains_crop": false,
+    "filter_graph_contains_pan": false,
+    "filter_graph_contains_zoompan": false
+  },
+  "checks": {
+    "blackdetect_events": [],
+    "full_decode": "PASS",
+    "still_frame_controls": {
+      "compression_noise_envelope": {
+        "maximum_channel_difference": 64,
+        "maximum_mean_channel_difference": 3.0,
+        "reason": "static PNG input can vary slightly after H.264 rate-control quantisation; camera transforms are independently disabled in the filter graph"
+      },
+      "maximum_max_channel_difference": 54,
+      "maximum_mean_channel_difference": 2.261329,
+      "method": "two interior decoded frames per placement; expected still-to-still comparison",
+      "placement_count": 61,
+      "rows": [
+        {
+          "at_seconds": [
+            1.0,
+            3.0
+          ],
+          "cue": 0,
+          "max_channel_difference": 0,
+          "mean_channel_difference": 0.0
+        },
+        {
+          "at_seconds": [
+            11.0,
+            13.0
+          ],
+          "cue": 1,
+          "max_channel_difference": 7,
+          "mean_channel_difference": 0.007649
+        },
+        {
+          "at_seconds": [
+            21.0,
+            23.0
+          ],
+          "cue": 2,
+          "max_channel_difference": 5,
+          "mean_channel_difference": 0.001397
+        },
+        {
+          "at_seconds": [
+            32.4,
+            34.4
+          ],
+          "cue": 3,
+          "max_channel_difference": 42,
+          "mean_channel_difference": 1.77103
+        },
+        {
+          "at_seconds": [
+            39.0,
+            41.0
+          ],
+          "cue": 4,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.001362
+        },
+        {
+          "at_seconds": [
+            59.5,
+            61.5
+          ],
+          "cue": 5,
+          "max_channel_difference": 5,
+          "mean_channel_difference": 0.002036
+        },
+        {
+          "at_seconds": [
+            79.1,
+            81.1
+          ],
+          "cue": 6,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000543
+        },
+        {
+          "at_seconds": [
+            87.8,
+            89.8
+          ],
+          "cue": 7,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.002979
+        },
+        {
+          "at_seconds": [
+            106.0,
+            108.0
+          ],
+          "cue": 8,
+          "max_channel_difference": 10,
+          "mean_channel_difference": 0.025511
+        },
+        {
+          "at_seconds": [
+            120.1,
+            122.1
+          ],
+          "cue": 9,
+          "max_channel_difference": 18,
+          "mean_channel_difference": 0.029102
+        },
+        {
+          "at_seconds": [
+            136.0,
+            138.0
+          ],
+          "cue": 10,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.018649
+        },
+        {
+          "at_seconds": [
+            152.0,
+            154.0
+          ],
+          "cue": 11,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.010795
+        },
+        {
+          "at_seconds": [
+            170.7,
+            172.7
+          ],
+          "cue": 12,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.000862
+        },
+        {
+          "at_seconds": [
+            188.6,
+            190.6
+          ],
+          "cue": 13,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.00172
+        },
+        {
+          "at_seconds": [
+            204.3,
+            206.3
+          ],
+          "cue": 14,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 2.9e-05
+        },
+        {
+          "at_seconds": [
+            220.0,
+            222.0
+          ],
+          "cue": 15,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.013882
+        },
+        {
+          "at_seconds": [
+            236.6,
+            238.6
+          ],
+          "cue": 16,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.00117
+        },
+        {
+          "at_seconds": [
+            253.2,
+            255.2
+          ],
+          "cue": 17,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.00039
+        },
+        {
+          "at_seconds": [
+            268.9,
+            270.9
+          ],
+          "cue": 18,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000548
+        },
+        {
+          "at_seconds": [
+            284.6,
+            286.6
+          ],
+          "cue": 19,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000183
+        },
+        {
+          "at_seconds": [
+            300.55,
+            302.55
+          ],
+          "cue": 20,
+          "max_channel_difference": 0,
+          "mean_channel_difference": 0.0
+        },
+        {
+          "at_seconds": [
+            316.5,
+            318.5
+          ],
+          "cue": 21,
+          "max_channel_difference": 47,
+          "mean_channel_difference": 2.175996
+        },
+        {
+          "at_seconds": [
+            336.75,
+            338.75
+          ],
+          "cue": 22,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.001708
+        },
+        {
+          "at_seconds": [
+            357.0,
+            359.0
+          ],
+          "cue": 23,
+          "max_channel_difference": 43,
+          "mean_channel_difference": 1.74278
+        },
+        {
+          "at_seconds": [
+            377.35,
+            379.35
+          ],
+          "cue": 24,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.001557
+        },
+        {
+          "at_seconds": [
+            397.7,
+            399.7
+          ],
+          "cue": 25,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.000994
+        },
+        {
+          "at_seconds": [
+            414.35,
+            416.35
+          ],
+          "cue": 26,
+          "max_channel_difference": 5,
+          "mean_channel_difference": 0.000952
+        },
+        {
+          "at_seconds": [
+            431.0,
+            433.0
+          ],
+          "cue": 27,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000594
+        },
+        {
+          "at_seconds": [
+            452.5,
+            454.5
+          ],
+          "cue": 28,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000657
+        },
+        {
+          "at_seconds": [
+            474.0,
+            476.0
+          ],
+          "cue": 29,
+          "max_channel_difference": 35,
+          "mean_channel_difference": 1.338399
+        },
+        {
+          "at_seconds": [
+            495.0,
+            497.0
+          ],
+          "cue": 30,
+          "max_channel_difference": 12,
+          "mean_channel_difference": 0.008938
+        },
+        {
+          "at_seconds": [
+            516.0,
+            518.0
+          ],
+          "cue": 31,
+          "max_channel_difference": 36,
+          "mean_channel_difference": 2.261329
+        },
+        {
+          "at_seconds": [
+            536.0,
+            538.0
+          ],
+          "cue": 32,
+          "max_channel_difference": 9,
+          "mean_channel_difference": 0.009407
+        },
+        {
+          "at_seconds": [
+            556.0,
+            558.0
+          ],
+          "cue": 33,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.006699
+        },
+        {
+          "at_seconds": [
+            578.5,
+            580.5
+          ],
+          "cue": 34,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.000371
+        },
+        {
+          "at_seconds": [
+            601.0,
+            603.0
+          ],
+          "cue": 35,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.002204
+        },
+        {
+          "at_seconds": [
+            618.3,
+            620.3
+          ],
+          "cue": 36,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000214
+        },
+        {
+          "at_seconds": [
+            635.6,
+            637.6
+          ],
+          "cue": 37,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.00039
+        },
+        {
+          "at_seconds": [
+            652.9,
+            654.9
+          ],
+          "cue": 38,
+          "max_channel_difference": 23,
+          "mean_channel_difference": 0.010549
+        },
+        {
+          "at_seconds": [
+            675.0,
+            677.0
+          ],
+          "cue": 39,
+          "max_channel_difference": 51,
+          "mean_channel_difference": 0.014236
+        },
+        {
+          "at_seconds": [
+            696.7,
+            698.7
+          ],
+          "cue": 40,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000118
+        },
+        {
+          "at_seconds": [
+            718.4,
+            720.4
+          ],
+          "cue": 41,
+          "max_channel_difference": 7,
+          "mean_channel_difference": 0.000826
+        },
+        {
+          "at_seconds": [
+            725.4,
+            727.4
+          ],
+          "cue": 42,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.001937
+        },
+        {
+          "at_seconds": [
+            742.2,
+            744.2
+          ],
+          "cue": 43,
+          "max_channel_difference": 9,
+          "mean_channel_difference": 0.000453
+        },
+        {
+          "at_seconds": [
+            759.0,
+            761.0
+          ],
+          "cue": 44,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.014318
+        },
+        {
+          "at_seconds": [
+            775.8,
+            777.8
+          ],
+          "cue": 45,
+          "max_channel_difference": 19,
+          "mean_channel_difference": 0.009244
+        },
+        {
+          "at_seconds": [
+            792.6,
+            794.6
+          ],
+          "cue": 46,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.005844
+        },
+        {
+          "at_seconds": [
+            809.0,
+            811.0
+          ],
+          "cue": 47,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.006229
+        },
+        {
+          "at_seconds": [
+            821.7,
+            823.7
+          ],
+          "cue": 48,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000118
+        },
+        {
+          "at_seconds": [
+            834.4,
+            836.4
+          ],
+          "cue": 49,
+          "max_channel_difference": 17,
+          "mean_channel_difference": 0.045889
+        },
+        {
+          "at_seconds": [
+            850.15,
+            852.15
+          ],
+          "cue": 50,
+          "max_channel_difference": 17,
+          "mean_channel_difference": 0.00093
+        },
+        {
+          "at_seconds": [
+            865.9,
+            867.9
+          ],
+          "cue": 51,
+          "max_channel_difference": 54,
+          "mean_channel_difference": 0.251591
+        },
+        {
+          "at_seconds": [
+            877.95,
+            879.95
+          ],
+          "cue": 52,
+          "max_channel_difference": 3,
+          "mean_channel_difference": 0.000118
+        },
+        {
+          "at_seconds": [
+            890.0,
+            892.0
+          ],
+          "cue": 53,
+          "max_channel_difference": 34,
+          "mean_channel_difference": 1.33465
+        },
+        {
+          "at_seconds": [
+            905.0,
+            907.0
+          ],
+          "cue": 54,
+          "max_channel_difference": 6,
+          "mean_channel_difference": 0.001477
+        },
+        {
+          "at_seconds": [
+            923.0,
+            925.0
+          ],
+          "cue": 55,
+          "max_channel_difference": 43,
+          "mean_channel_difference": 1.396467
+        },
+        {
+          "at_seconds": [
+            934.0,
+            936.0
+          ],
+          "cue": 56,
+          "max_channel_difference": 4,
+          "mean_channel_difference": 0.006578
+        },
+        {
+          "at_seconds": [
+            945.0,
+            947.0
+          ],
+          "cue": 57,
+          "max_channel_difference": 14,
+          "mean_channel_difference": 0.019599
+        },
+        {
+          "at_seconds": [
+            954.0,
+            956.0
+          ],
+          "cue": 58,
+          "max_channel_difference": 13,
+          "mean_channel_difference": 0.02322
+        },
+        {
+          "at_seconds": [
+            962.3,
+            964.3
+          ],
+          "cue": 59,
+          "max_channel_difference": 13,
+          "mean_channel_difference": 0.006802
+        },
+        {
+          "at_seconds": [
+            973.2,
+            975.2
+          ],
+          "cue": 60,
+          "max_channel_difference": 42,
+          "mean_channel_difference": 1.97918
+        }
+      ]
+    }
+  },
+  "clock": {
+    "fps": 30,
+    "placement_count": 61,
+    "start_seconds": 0.0,
+    "stop_seconds": 987.48,
+    "transition_seconds": 0.35
+  },
+  "config": {
+    "path": "assets/video/episode-02-v19-style-semantic-repaired-config.json",
+    "sha256": "3e8e886010d29417737417abbae84137fb6536bb086646d3ad65eddcc09cb8f4",
+    "size_bytes": 145803
+  },
+  "independently_failed_style_occurrences": [
+    {
+      "clock": [
+        10.0,
+        20.0
+      ],
+      "cue": 1,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-ai-new-hire-onboarding-v1.png",
+      "v19_sha256": "ee6430989745cfb7fdde9999f56becf19a04816f0b116baa9b58a66fef9fe1ec",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-02-thisweek-teaser-comic.png"
+    },
+    {
+      "clock": [
+        31.4,
+        38.0
+      ],
+      "cue": 3,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/episodes/issue-02/ep02-cold-open-desk.png",
+      "v19_sha256": "f78b5927f8f40f9a3ddf732242b332c2101c15387f8e36e138103f8c0964c7a7",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-03-title-comic.png"
+    },
+    {
+      "clock": [
+        86.8,
+        105.0
+      ],
+      "cue": 7,
+      "reason": "mandatory semantic correction: LAiDIES welcome/last-week try-on",
+      "v18_source": "assets/video/delivery-20260714-opening-v6/shots/opening-02-heroine-bright-yellow-natural-hands-v13.png",
+      "v19_sha256": "65a660790b88b5ce376b742f51c36105aa6d4dbbf637ca1df32d368277062196",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-07-welcome-back-comic.png"
+    },
+    {
+      "clock": [
+        105.0,
+        119.1
+      ],
+      "cue": 8,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-ai-new-hire-onboarding-v1.png",
+      "v19_sha256": "32d253768151a5b53525b5b5064767f87235c7297a21067708c13c0fb2ae8f04",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-08-to-town-comic.png"
+    },
+    {
+      "clock": [
+        119.1,
+        135.0
+      ],
+      "cue": 9,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/building-interiors/blend-snap-cafe.jpg",
+      "v19_sha256": "ee06c0e3a460e1e73b11bf33e5db9ea909d0b3487a539d0d46d243ed517f6df6",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-scene-10-blend-snap-corner-comic.png"
+    },
+    {
+      "clock": [
+        135.0,
+        151.0
+      ],
+      "cue": 10,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "v19_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png"
+    },
+    {
+      "clock": [
+        151.0,
+        169.7
+      ],
+      "cue": 11,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "v19_sha256": "ec2b8b263b3daf8f9ced41ac158862fe59a738cd673915d8e86ce5396b5a1a65",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-concept-context-comic.png"
+    },
+    {
+      "clock": [
+        219.0,
+        235.6
+      ],
+      "cue": 15,
+      "reason": "mandatory semantic correction: job/reader/meeting-calendar context",
+      "v18_source": "assets/episodes/issue-02/ep02-cold-open-desk.png",
+      "v19_sha256": "ec2b8b263b3daf8f9ced41ac158862fe59a738cd673915d8e86ce5396b5a1a65",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-concept-context-comic.png"
+    },
+    {
+      "clock": [
+        315.5,
+        335.75
+      ],
+      "cue": 21,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/episodes/issue-02/ep02-david-rose.png",
+      "v19_sha256": "3be717c574cb35e9b43b2ba441da6ec16097d1a402510bc360753dc83dd04fe5",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-scene-19-david-rose-intro-comic.png"
+    },
+    {
+      "clock": [
+        356.0,
+        376.35
+      ],
+      "cue": 23,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-who-what-tone-length-blend-snap-v1.png",
+      "v19_sha256": "12b74cf69ad680ccba45587a55eba6624274eb75d5f3f1cfd5401d821dc5fc5f",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-concept-brief-questions-comic.png"
+    },
+    {
+      "clock": [
+        396.7,
+        413.35
+      ],
+      "cue": 25,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-who-what-tone-length-blend-snap-v1.png",
+      "v19_sha256": "774f99bfacb1f3c2953d4631de60fd62c87c25ddf87a011e7eae10e582f7fde7",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-scene-25-match-this-comic.png"
+    },
+    {
+      "clock": [
+        473.0,
+        494.0
+      ],
+      "cue": 29,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "v19_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png"
+    },
+    {
+      "clock": [
+        515.0,
+        535.0
+      ],
+      "cue": 31,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-who-what-tone-length-blend-snap-v1.png",
+      "v19_sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png"
+    },
+    {
+      "clock": [
+        555.0,
+        577.5
+      ],
+      "cue": 33,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "v19_sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png"
+    },
+    {
+      "clock": [
+        600.0,
+        617.3
+      ],
+      "cue": 35,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/16-ksvl-community-raidio-v3.png",
+      "v19_sha256": "d3064e905dc780c5dde73be1804bc64f7ff85f0ecc6287feab881c2178eacf0c",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-scene-30-request-the-song-comic.png"
+    },
+    {
+      "clock": [
+        651.9,
+        674.0
+      ],
+      "cue": 38,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/building-interiors/library-reading-room.jpg",
+      "v19_sha256": "81459f9ebf67ba45650fb149fd03e258081e5e029dbd1ed60fdfa7eaa26fc752",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-concept-bcg-study-comic.png"
+    },
+    {
+      "clock": [
+        724.4,
+        741.2
+      ],
+      "cue": 42,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-senior-women-ai-leadership-v1.png",
+      "v19_sha256": "65dd4067d9ef26c0a83d656506af3f5605b6ac022a3ee63560278df21d87f54e",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-emph-soft-skills-win-comic.png"
+    },
+    {
+      "clock": [
+        758.0,
+        774.8
+      ],
+      "cue": 44,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-ai-new-hire-onboarding-v1.png",
+      "v19_sha256": "65dd4067d9ef26c0a83d656506af3f5605b6ac022a3ee63560278df21d87f54e",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-emph-soft-skills-win-comic.png"
+    },
+    {
+      "clock": [
+        791.6,
+        808.0
+      ],
+      "cue": 46,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-cocktail-party-bronze-aige-v2-y2k.png",
+      "v19_sha256": "a1f21199b0bc2ff4f1b7bf62afe25a3a4917427e2f1d60133cf274158b58c868",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-cocktail-comic.png"
+    },
+    {
+      "clock": [
+        833.4,
+        849.15
+      ],
+      "cue": 49,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/comic-interstitials-v1/post-office-current-pixel-v1.png",
+      "v19_sha256": "e03bbdd2a0fe353653333741c60a08d804d3da9fb8aea2c283c9538ff343f29a",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-scene-36-postcard-comic.png"
+    },
+    {
+      "clock": [
+        889.0,
+        904.0
+      ],
+      "cue": 53,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "v19_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png"
+    },
+    {
+      "clock": [
+        904.0,
+        922.0
+      ],
+      "cue": 54,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "v19_sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png"
+    },
+    {
+      "clock": [
+        922.0,
+        933.0
+      ],
+      "cue": 55,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/comic-interstitials-v1/blend-and-snap-current-pixel-v1.png",
+      "v19_sha256": "1138c6f9553b267a22acd6419f4aa18255b888ceb756c5dd135ac82ae3927b01",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-tryon-comic.png"
+    },
+    {
+      "clock": [
+        933.0,
+        944.0
+      ],
+      "cue": 56,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/14-sunnyvaile-high-v3.png",
+      "v19_sha256": "ee6430989745cfb7fdde9999f56becf19a04816f0b116baa9b58a66fef9fe1ec",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-02-thisweek-teaser-comic.png"
+    },
+    {
+      "clock": [
+        944.0,
+        953.0
+      ],
+      "cue": 57,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/16-ksvl-community-raidio-v3.png",
+      "v19_sha256": "d3064e905dc780c5dde73be1804bc64f7ff85f0ecc6287feab881c2178eacf0c",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-scene-30-request-the-song-comic.png"
+    },
+    {
+      "clock": [
+        953.0,
+        961.3
+      ],
+      "cue": 58,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/09-maikeover-on-maine-v3.png",
+      "v19_sha256": "32d253768151a5b53525b5b5064767f87235c7297a21067708c13c0fb2ae8f04",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-08-to-town-comic.png"
+    },
+    {
+      "clock": [
+        972.2,
+        987.48
+      ],
+      "cue": 60,
+      "reason": "independently listed mixed scenic/office illustration-system failure",
+      "v18_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-hallucination-burn-book-v1.png",
+      "v19_sha256": "f55032f144a4567a1b0abf318de9223f837ed9b6081879ba41533b314e38bbc2",
+      "v19_source": "assets/episodes/ep-02/comic/ep02-open-next-week-comic.png"
+    }
+  ],
+  "maker_scope": "Source binding and still-only assembly only; no image/style admission, release, or public-film claim.",
+  "narration_master": {
+    "clocked_v17_audio_stream_adts_sha256": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "output_adts_sha256": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "path": "content/music/public/episode-02-narration.m4a",
+    "sha256": "7140e8d469ab02e7b9d9d8c03b3c2c3d3c574570e0827afead778f7e05b85449",
+    "size_bytes": 12182582,
+    "stream_copy_verified": true
+  },
+  "output": {
+    "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+    "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+    "size_bytes": 112843240
+  },
+  "output_streams": {
+    "captions_burned": false,
+    "ffmpeg_info": "Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/assets/video/.episode-02-full-v19-style-semantic-repaired-review.rendering.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf61.7.100\n  Duration: 00:16:27.47, start: 0.000000, bitrate: 914 kb/s\n  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, unknown/bt709/iec61966-2-1, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 723 kb/s, 30 fps, 30 tbr, 15360 tbn (default)\n      Metadata:\n        handler_name    : VideoHandler\n        vendor_id       : [0][0][0][0]\n        encoder         : Lavc61.19.100 libx264\n  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, mono, fltp, 182 kb/s (default)\n      Metadata:\n        handler_name    : SoundHandler\n        vendor_id       : [0][0][0][0]\nAt least one output file must be specified\n",
+    "subtitle_stream_count": 0
+  },
+  "placements": [
+    {
+      "as_recorded_picture_job": "recap Episode One",
+      "camera_transform": "disabled",
+      "cue": 0,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-heroine-blend-snap-email-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-01-previously-strip-comic.png",
+      "source_sha256": "ae0d66fda6bd4e113638033a1bfc42bc5f0625c50d192a6af912ce6d1a39061f",
+      "source_size_bytes": 2914146,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 0.0,
+      "stop": 10.0,
+      "transition": "none at opening"
+    },
+    {
+      "as_recorded_picture_job": "this-week AI/new-hire setup",
+      "camera_transform": "disabled",
+      "cue": 1,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-ai-new-hire-onboarding-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-02-thisweek-teaser-comic.png",
+      "source_sha256": "ee6430989745cfb7fdde9999f56becf19a04816f0b116baa9b58a66fef9fe1ec",
+      "source_size_bytes": 3142082,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 10.0,
+      "stop": 20.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "Episode Two title/delegation setup",
+      "camera_transform": "disabled",
+      "cue": 2,
+      "mode": "still",
+      "original_v17_source": "assets/video/delivery-20260723-ep02-v16-cover-v3/ep02-open-03-title-comic.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/delivery-20260723-ep02-v16-cover-v3/ep02-open-03-title-comic.png",
+      "source_sha256": "6697ebc7071affae27e30ed2008c731da41cec53d4e6e06e47542463c90c534e",
+      "source_size_bytes": 3513577,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 20.0,
+      "stop": 31.4,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "cold-open bridge into the paragraph problem",
+      "camera_transform": "disabled",
+      "cue": 3,
+      "mode": "still",
+      "original_v17_source": "assets/episodes/issue-02/ep02-cold-open-desk.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-03-title-comic.png",
+      "source_sha256": "f78b5927f8f40f9a3ddf732242b332c2101c15387f8e36e138103f8c0964c7a7",
+      "source_size_bytes": 2761641,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 31.4,
+      "stop": 38.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show jargon output and staring contest",
+      "camera_transform": "disabled",
+      "cue": 4,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+      "source_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "source_size_bytes": 2801982,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 38.0,
+      "stop": 58.5,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "contrast yesterday's success with today's failure",
+      "camera_transform": "disabled",
+      "cue": 5,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-05-throw-pillow-comic.png",
+      "source_sha256": "34db030e09ff91b544d4a0388b089b9e783f64ed42a863499c540ebe2cfeaa4d",
+      "source_size_bytes": 3067712,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 58.5,
+      "stop": 78.1,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "reflect on why AI appears to read her mind",
+      "camera_transform": "disabled",
+      "cue": 6,
+      "mode": "still",
+      "original_v17_source": "assets/episodes/issue-02/ep02-cold-open-desk.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-06-thinking-closeup-comic.png",
+      "source_sha256": "56c442917538b3e952151ff82a9f2e67be0ca1ee979abe4af1855aedf2d22e07",
+      "source_size_bytes": 3109021,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 78.1,
+      "stop": 86.8,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "establish LAiDIES welcome and last-week try-on",
+      "camera_transform": "disabled",
+      "cue": 7,
+      "mode": "still",
+      "original_v17_source": "assets/video/delivery-20260714-opening-v6/shots/opening-02-heroine-bright-yellow-natural-hands-v13.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-07-welcome-back-comic.png",
+      "source_sha256": "65a660790b88b5ce376b742f51c36105aa6d4dbbf637ca1df32d368277062196",
+      "source_size_bytes": 3693769,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 86.8,
+      "stop": 105.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "transition from desk problem into town",
+      "camera_transform": "disabled",
+      "cue": 8,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-ai-new-hire-onboarding-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-08-to-town-comic.png",
+      "source_sha256": "32d253768151a5b53525b5b5064767f87235c7297a21067708c13c0fb2ae8f04",
+      "source_size_bytes": 3521289,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 105.0,
+      "stop": 119.1,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "arrive at caf\u00e9 for the ask-not-tool explanation",
+      "camera_transform": "disabled",
+      "cue": 9,
+      "mode": "still",
+      "original_v17_source": "assets/building-interiors/blend-snap-cafe.jpg",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-scene-10-blend-snap-corner-comic.png",
+      "source_sha256": "ee06c0e3a460e1e73b11bf33e5db9ea909d0b3487a539d0d46d243ed517f6df6",
+      "source_size_bytes": 3679651,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 119.1,
+      "stop": 135.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "compare bad output with changed ask",
+      "camera_transform": "disabled",
+      "cue": 10,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+      "source_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "source_size_bytes": 2801982,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 135.0,
+      "stop": 151.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "explain missing context: what is in your head must be stated",
+      "camera_transform": "disabled",
+      "cue": 11,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-concept-context-comic.png",
+      "source_sha256": "ec2b8b263b3daf8f9ced41ac158862fe59a738cd673915d8e86ce5396b5a1a65",
+      "source_size_bytes": 2761309,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 151.0,
+      "stop": 169.7,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "prompt/theater-kids origin and coffee lead-in",
+      "camera_transform": "disabled",
+      "cue": 12,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-12.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-12.png",
+      "source_sha256": "238f34fa1932dd54431e1ca4251379f4eb40a6c37c91d20f68a8500497b9b6dd",
+      "source_size_bytes": 1392309,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 169.7,
+      "stop": 187.6,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "compare familiar versus new caf\u00e9 context",
+      "camera_transform": "disabled",
+      "cue": 13,
+      "mode": "still",
+      "original_v17_source": "assets/video/delivery-20260714-opening-v6/shots/opening-09-barista-approved-identity-v2.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/delivery-20260726-cue13-cafe-transition-v1/ep02-cue13-regular-to-new-cafe-comic-v01-1920.png",
+      "source_sha256": "1372d2306bb230ce29b6c5fed8e63b0277dd2272531ecc8317aad223a6e2da13",
+      "source_size_bytes": 3343081,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 187.6,
+      "stop": 203.3,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show consequence of saying the usual at an unfamiliar caf\u00e9",
+      "camera_transform": "disabled",
+      "cue": 14,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-14.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-14.png",
+      "source_sha256": "6ffef2cb228f4b2379e3571dd4466bf4db3c20646513f41bb6ddfde5beae3cdd",
+      "source_size_bytes": 1323224,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 203.3,
+      "stop": 219.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "visibly define job, reader, meeting/calendar and goal context",
+      "camera_transform": "disabled",
+      "cue": 15,
+      "mode": "still",
+      "original_v17_source": "assets/episodes/issue-02/ep02-cold-open-desk.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-concept-context-comic.png",
+      "source_sha256": "ec2b8b263b3daf8f9ced41ac158862fe59a738cd673915d8e86ce5396b5a1a65",
+      "source_size_bytes": 2761309,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 219.0,
+      "stop": 235.6,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show new-chat stranger/remember distinction",
+      "camera_transform": "disabled",
+      "cue": 16,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-16.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-16.png",
+      "source_sha256": "502690eab92fd8ec67d49e69228f3e324edf1ea63d3419d1fcd217fc39f63db4",
+      "source_size_bytes": 1349383,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 235.6,
+      "stop": 252.2,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "set up Spice Girls specificity lesson",
+      "camera_transform": "disabled",
+      "cue": 17,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-17.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-17.png",
+      "source_sha256": "f76f5511b8bba1fba93e28d517279feb0ac0c51a4850e5baaaab9bde8ac40380",
+      "source_size_bytes": 1353812,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 252.2,
+      "stop": 267.9,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "continue Spice Girls specifics setup",
+      "camera_transform": "disabled",
+      "cue": 18,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-18.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-18.png",
+      "source_sha256": "1df87c60a2d0f43f222c48d5f5992d8eb62bf8af0c6db2f5fe3a9b21b15ab940",
+      "source_size_bytes": 1343864,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 267.9,
+      "stop": 283.6,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "state Spice Girls principle",
+      "camera_transform": "disabled",
+      "cue": 19,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-19.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-19.png",
+      "source_sha256": "ea0eba33ad8739b625e5a00abd126c6ee3892ab6bd84b1c633ca2d08042c342a",
+      "source_size_bytes": 1414545,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 283.6,
+      "stop": 299.55,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "introduce David Rose as specificity example",
+      "camera_transform": "disabled",
+      "cue": 20,
+      "mode": "still",
+      "original_v17_source": "assets/video/delivery-20260723-ep02-v16-cover-v3/ep02-cue-20-episode-style.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/delivery-20260723-ep02-v16-cover-v3/ep02-cue-20-episode-style.png",
+      "source_sha256": "b522ee5f1f5b3456fe8d944e9a8c1a9da01c56fb42255514e972e9f47d1219c4",
+      "source_size_bytes": 4532091,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 299.55,
+      "stop": 315.5,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show David Rose's precise-instruction analogy",
+      "camera_transform": "disabled",
+      "cue": 21,
+      "mode": "still",
+      "original_v17_source": "assets/episodes/issue-02/ep02-david-rose.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-scene-19-david-rose-intro-comic.png",
+      "source_sha256": "3be717c574cb35e9b43b2ba441da6ec16097d1a402510bc360753dc83dd04fe5",
+      "source_size_bytes": 3579369,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 315.5,
+      "stop": 335.75,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show the brief-it-like-a-new-hire fix",
+      "camera_transform": "disabled",
+      "cue": 22,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-22.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-22.png",
+      "source_sha256": "62619d454f8ba5c527ed93d47535939dd73fc5a2b4d75c3093da229a4f66ae41",
+      "source_size_bytes": 1373677,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 335.75,
+      "stop": 356.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show briefing questions: who, reader, tone and length",
+      "camera_transform": "disabled",
+      "cue": 23,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-who-what-tone-length-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-concept-brief-questions-comic.png",
+      "source_sha256": "12b74cf69ad680ccba45587a55eba6624274eb75d5f3f1cfd5401d821dc5fc5f",
+      "source_size_bytes": 2833726,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 356.0,
+      "stop": 376.35,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "state prompting is delegation",
+      "camera_transform": "disabled",
+      "cue": 24,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-24.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-24.png",
+      "source_sha256": "d4a87bdf20bdb7749510a62a824046b5b8687b40728a3a45bc6d66db76624a85",
+      "source_size_bytes": 1377546,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 376.35,
+      "stop": 396.7,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "demonstrate show-an-example / match-this move",
+      "camera_transform": "disabled",
+      "cue": 25,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-who-what-tone-length-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-scene-25-match-this-comic.png",
+      "source_sha256": "774f99bfacb1f3c2953d4631de60fd62c87c25ddf87a011e7eae10e582f7fde7",
+      "source_size_bytes": 3337121,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 396.7,
+      "stop": 413.35,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show the vague policy ask and wall of text",
+      "camera_transform": "disabled",
+      "cue": 26,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-26.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-26.png",
+      "source_sha256": "abb9e532b4eb49083b043209780ee76408782c56c5e5d6184e3e4bb2d1aa52e0",
+      "source_size_bytes": 1382174,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 413.35,
+      "stop": 430.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "illustrate the Pivot insufficient-direction joke",
+      "camera_transform": "disabled",
+      "cue": 27,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-27.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-27.png",
+      "source_sha256": "50da53e2acc6945f9d31f8cdd671951443c891fe0ee09418c90d413e697f7b69",
+      "source_size_bytes": 1371294,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 430.0,
+      "stop": 451.5,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "set up useful versus vague policy comparison",
+      "camera_transform": "disabled",
+      "cue": 28,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-28.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-28.png",
+      "source_sha256": "1db3f601b580606989605552dabf4ac96bd067254fc6fba62801fa3ccf590231",
+      "source_size_bytes": 1358083,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 451.5,
+      "stop": 473.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show vague policy result as unusable",
+      "camera_transform": "disabled",
+      "cue": 29,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+      "source_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "source_size_bytes": 2801982,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 473.0,
+      "stop": 494.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "continue failed vague-brief/Ross analogy",
+      "camera_transform": "disabled",
+      "cue": 30,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-30.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-30.png",
+      "source_sha256": "e043e945aca123a15606291d3b060896b4e4dc40d7230778b6afeda5e45128ad",
+      "source_size_bytes": 1335183,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 494.0,
+      "stop": 515.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show senior-manager specific brief",
+      "camera_transform": "disabled",
+      "cue": 31,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-who-what-tone-length-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png",
+      "source_sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "source_size_bytes": 3444298,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 515.0,
+      "stop": 535.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show specific result and exemption",
+      "camera_transform": "disabled",
+      "cue": 32,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-32.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-32.png",
+      "source_sha256": "b05a93dabff7fc7013b9778df69e298b07e37a78bc5c14a828166196ac1cca74",
+      "source_size_bytes": 1326273,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 535.0,
+      "stop": 555.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "reinforce contractor-exemption payoff",
+      "camera_transform": "disabled",
+      "cue": 33,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png",
+      "source_sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "source_size_bytes": 3444298,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 555.0,
+      "stop": 577.5,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "transition to iterate/request-the-song analogy",
+      "camera_transform": "disabled",
+      "cue": 34,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-34.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-34.png",
+      "source_sha256": "f68685cb779d95abc5b4edbf47aff89150cd785bb9669d709d97cdab6a885603",
+      "source_size_bytes": 1344803,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 577.5,
+      "stop": 600.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show radio request rather than dial spinning",
+      "camera_transform": "disabled",
+      "cue": 35,
+      "mode": "still",
+      "original_v17_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/16-ksvl-community-raidio-v3.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-scene-30-request-the-song-comic.png",
+      "source_sha256": "d3064e905dc780c5dde73be1804bc64f7ff85f0ecc6287feab881c2178eacf0c",
+      "source_size_bytes": 3589251,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 600.0,
+      "stop": 617.3,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "transition to research/proof",
+      "camera_transform": "disabled",
+      "cue": 36,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-36.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-36.png",
+      "source_sha256": "35d965dc4192e297d51d477b950123fd598dc2d586cfae2e56580a9f83e89497",
+      "source_size_bytes": 1329259,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 617.3,
+      "stop": 634.6,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "establish LIBRAiRY research evidence",
+      "camera_transform": "disabled",
+      "cue": 37,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-37.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-37.png",
+      "source_sha256": "35d965dc4192e297d51d477b950123fd598dc2d586cfae2e56580a9f83e89497",
+      "source_size_bytes": 1329259,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 634.6,
+      "stop": 651.9,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show study statistics/briefing mechanism",
+      "camera_transform": "disabled",
+      "cue": 38,
+      "mode": "still",
+      "original_v17_source": "assets/building-interiors/library-reading-room.jpg",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-concept-bcg-study-comic.png",
+      "source_sha256": "81459f9ebf67ba45650fb149fd03e258081e5e029dbd1ed60fdfa7eaa26fc752",
+      "source_size_bytes": 2515478,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 651.9,
+      "stop": 674.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "attribute Mollick point about briefing",
+      "camera_transform": "disabled",
+      "cue": 39,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-39.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-39.png",
+      "source_sha256": "255acd49ba0472777f76d4b74d254a7dab5884ac539095212a09fc4f31ec633f",
+      "source_size_bytes": 1432025,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 674.0,
+      "stop": 695.7,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "state soft skills reframe",
+      "camera_transform": "disabled",
+      "cue": 40,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-40.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-40.png",
+      "source_sha256": "e8a05009133ff39a57b162f0a9686b68477262f073ff880eac983e1a0edb5f51",
+      "source_size_bytes": 1440751,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 695.7,
+      "stop": 717.4,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show women-ahead/judgment contrast",
+      "camera_transform": "disabled",
+      "cue": 41,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-41.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-41.png",
+      "source_sha256": "b20353e1b5fefcbf0f7a582374deaf13e01d97e56485e579146ed2b477e35c0f",
+      "source_size_bytes": 1414450,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 717.4,
+      "stop": 724.4,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show senior women/reader-jugment context",
+      "camera_transform": "disabled",
+      "cue": 42,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-senior-women-ai-leadership-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-emph-soft-skills-win-comic.png",
+      "source_sha256": "65dd4067d9ef26c0a83d656506af3f5605b6ac022a3ee63560278df21d87f54e",
+      "source_size_bytes": 2732680,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 724.4,
+      "stop": 741.2,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "state skills-that-win conclusion",
+      "camera_transform": "disabled",
+      "cue": 43,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-43.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-43.png",
+      "source_sha256": "360a85d349bf28bc931c0b732fb061074e29aa6b023f7d376bbb9372bdd082c2",
+      "source_size_bytes": 1343472,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 741.2,
+      "stop": 758.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show hard plus soft skills callback",
+      "camera_transform": "disabled",
+      "cue": 44,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-ai-new-hire-onboarding-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-emph-soft-skills-win-comic.png",
+      "source_sha256": "65dd4067d9ef26c0a83d656506af3f5605b6ac022a3ee63560278df21d87f54e",
+      "source_size_bytes": 2732680,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 758.0,
+      "stop": 774.8,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "introduce cocktail-party explanation",
+      "camera_transform": "disabled",
+      "cue": 45,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-45.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-45.png",
+      "source_sha256": "014b7a7d63d73e41380bf4c574150847ba93c39d63e6621ed46f78f81c3054dd",
+      "source_size_bytes": 1384616,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 774.8,
+      "stop": 791.6,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show prompt-as-delegation cocktail-party analogy",
+      "camera_transform": "disabled",
+      "cue": 46,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-cocktail-party-bronze-aige-v2-y2k.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-cocktail-comic.png",
+      "source_sha256": "a1f21199b0bc2ff4f1b7bf62afe25a3a4917427e2f1d60133cf274158b58c868",
+      "source_size_bytes": 2786751,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 791.6,
+      "stop": 808.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "qualify delegation with fold-the-cheese example",
+      "camera_transform": "disabled",
+      "cue": 47,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-47.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-47.png",
+      "source_sha256": "047abf5002e523c1b3f65e34772136e2c6def54bad7f6b7bb623f4aaac695dc7",
+      "source_size_bytes": 1395229,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 808.0,
+      "stop": 820.7,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "transition from delegation to postcard/friend",
+      "camera_transform": "disabled",
+      "cue": 48,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-48.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-48.png",
+      "source_sha256": "27617126ddbbbfd9a30d0f1e99b028a34779283475a735a372a53142dedcedd9",
+      "source_size_bytes": 1404059,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 820.7,
+      "stop": 833.4,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show postcard/bring-your-people line",
+      "camera_transform": "disabled",
+      "cue": 49,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/post-office-current-pixel-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-scene-36-postcard-comic.png",
+      "source_sha256": "e03bbdd2a0fe353653333741c60a08d804d3da9fb8aea2c283c9538ff343f29a",
+      "source_size_bytes": 3726457,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 833.4,
+      "stop": 849.15,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show try-on/site instruction",
+      "camera_transform": "disabled",
+      "cue": 50,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-50.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-50.png",
+      "source_sha256": "858bb0a63318e7b81541a5e75a25e8dce9cd8625e652cff384acc34663452162",
+      "source_size_bytes": 1363307,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 849.15,
+      "stop": 864.9,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show ask-twice before/after instruction",
+      "camera_transform": "disabled",
+      "cue": 51,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-51.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-51.png",
+      "source_sha256": "78b77b8a0661e908c588f3a5f39ae8c5b2246df038848e17e73f615fc71598d2",
+      "source_size_bytes": 1358657,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 864.9,
+      "stop": 876.95,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "bridge lazy way to first lazy pass",
+      "camera_transform": "disabled",
+      "cue": 52,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-52.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-52.png",
+      "source_sha256": "f4691160c3347eae7967bc2c2298ae1b631957973ceac3ea68e210181907cc5a",
+      "source_size_bytes": 1336989,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 876.95,
+      "stop": 889.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show first lazy pass",
+      "camera_transform": "disabled",
+      "cue": 53,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-lazy-ask-wall-of-text-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+      "source_sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "source_size_bytes": 2801982,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 889.0,
+      "stop": 904.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show specific second pass/platform prompts",
+      "camera_transform": "disabled",
+      "cue": 54,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-02-full-scene-replacements-v3/ep02-useful-answer-blend-snap-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png",
+      "source_sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "source_size_bytes": 3444298,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 904.0,
+      "stop": 922.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show study-pack location",
+      "camera_transform": "disabled",
+      "cue": 55,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/blend-and-snap-current-pixel-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-tryon-comic.png",
+      "source_sha256": "1138c6f9553b267a22acd6419f4aa18255b888ceb756c5dd135ac82ae3927b01",
+      "source_size_bytes": 2235569,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 922.0,
+      "stop": 933.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show pop-quiz/high-school setting",
+      "camera_transform": "disabled",
+      "cue": 56,
+      "mode": "still",
+      "original_v17_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/14-sunnyvaile-high-v3.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-02-thisweek-teaser-comic.png",
+      "source_sha256": "ee6430989745cfb7fdde9999f56becf19a04816f0b116baa9b58a66fef9fe1ec",
+      "source_size_bytes": 3142082,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 933.0,
+      "stop": 944.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show KSVL then residence-card transition",
+      "camera_transform": "disabled",
+      "cue": 57,
+      "mode": "still",
+      "original_v17_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/16-ksvl-community-raidio-v3.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-scene-30-request-the-song-comic.png",
+      "source_sha256": "d3064e905dc780c5dde73be1804bc64f7ff85f0ecc6287feab881c2178eacf0c",
+      "source_size_bytes": 3589251,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 944.0,
+      "stop": 953.0,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "show residence-card instruction",
+      "camera_transform": "disabled",
+      "cue": 58,
+      "mode": "still",
+      "original_v17_source": "assets/rerolls-20260714/town-buildings-light-pixel-v1/sunnyvaile-buildings/y2k-v3/light-pixel/09-maikeover-on-maine-v3.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-08-to-town-comic.png",
+      "source_sha256": "32d253768151a5b53525b5b5064767f87235c7297a21067708c13c0fb2ae8f04",
+      "source_size_bytes": 3521289,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 953.0,
+      "stop": 961.3,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "bridge closing quote to next-episode setup",
+      "camera_transform": "disabled",
+      "cue": 59,
+      "mode": "still",
+      "original_v17_source": "assets/video/comic-interstitials-v1/ep02-cue-59.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/video/comic-interstitials-v1/ep02-cue-59.png",
+      "source_sha256": "ea7c116edf42685306693b2a6e3e7e902cd51caf465a1e8b19e4ffbd8def705f",
+      "source_size_bytes": 1419183,
+      "source_verdict": "PRESERVED \u2014 no new independent v18 source failure",
+      "start": 961.3,
+      "stop": 972.2,
+      "transition": "0.35-second alpha blend"
+    },
+    {
+      "as_recorded_picture_job": "tease Episode Three consequence",
+      "camera_transform": "disabled",
+      "cue": 60,
+      "mode": "still",
+      "original_v17_source": "assets/video/episode-01-full-scene-replacements-v2/ep01-hallucination-burn-book-v1.png",
+      "reference_binding": {
+        "graphic_panel_reference": {
+          "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+          "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+          "size_bytes": 147322
+        },
+        "identity_reference": {
+          "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+          "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+          "size_bytes": 2974047
+        },
+        "identity_reference_note": "Authority for any depicted Heroine; graphic/type-only cards retain the authority as a no-person control.",
+        "location_environment_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+          "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+          "size_bytes": 398395
+        },
+        "master_style_reference": {
+          "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+          "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+          "size_bytes": 335077
+        },
+        "prop_costume_reference": {
+          "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+          "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+          "size_bytes": 488956
+        }
+      },
+      "source": "assets/episodes/ep-02/comic/ep02-open-next-week-comic.png",
+      "source_sha256": "f55032f144a4567a1b0abf318de9223f837ed9b6081879ba41533b314e38bbc2",
+      "source_size_bytes": 3248574,
+      "source_verdict": "REPLACED \u2014 independently listed mixed-style/scenic occurrence",
+      "start": 972.2,
+      "stop": 987.48,
+      "transition": "0.35-second alpha blend"
+    }
+  ],
+  "preserved_v18_admitted_changes": [
+    0,
+    4,
+    5,
+    6,
+    13
+  ],
+  "production_clock": {
+    "path": "operations/video-qa/episode-02-full-v17-qc.json",
+    "sha256": "6500f04f233257c46eb2bfa76fc56a9703c7ae59179bc7504f6fec4dfe56cd60",
+    "size_bytes": 24886
+  },
+  "prohibited_source_check": {
+    "passed": true,
+    "paths": [
+      "assets/episodes/ep-02/comic/delivery-20260726-cue13-cafe-transition-v1/ep02-cue13-regular-to-new-cafe-comic-v02-1920.png",
+      "assets/episodes/ep-02/comic/delivery-20260726-cue13-cafe-transition-v1/ep02-cue13-regular-to-new-cafe-comic-v03-1920.png",
+      "assets/episodes/ep-02/comic/ep02-scene-11-side-by-side-comic.png",
+      "assets/episodes/ep-02/comic/ep02-scene-13-regular-cafe-comic.png",
+      "assets/episodes/ep-02/comic/ep02-scene-14-new-cafe-comic.png",
+      "assets/episodes/ep-02/comic/ep02-scene-21-thats-your-ai-comic.png",
+      "assets/episodes/ep-02/comic/ep02-scene-26-vague-ask-comic.png",
+      "assets/episodes/ep-02/comic/ep02-scene-31-libraiy-comic.png",
+      "assets/video/delivery-20260714-opening-v6/shots/opening-09-barista-approved-identity-v2.png"
+    ],
+    "sha256": [
+      "198af4ba37d02b59bf4d46500253812814f6eca3b57335f16e4616c4df037b72",
+      "604f92487d44f96c0a85ca80a8d9d497879146b6231d921bd4e73c0aa57b4381",
+      "60d185d2f5745446719ce464e48f3e25aae519048f7769965d834f3c8f81cdd7",
+      "86f8fa3a2896dcac51ffa2827231f45179877401b7815d4b4d09903061845d72",
+      "9fbc460375913c9f0b5e3abedcec26cab126028338794215387845180e5d6ad6",
+      "dcf175f58b38ef3f88089886ecbad5796c853b1e33b1187c816fd51df10877fe",
+      "edec0e1c158a0a06bb4469400f25ddd8fe26a2595c56a9a4c2ce6f7a135e13de",
+      "f7ae23483f8f7ecac21823b8543d42089dea19ac1a92b3a715264ff5d8d8908d",
+      "f96a4329b0132675644b78994229adf572f6bb7c3c52fdfc72f0806d7728a2db"
+    ]
+  },
+  "reference_authorities": {
+    "environment": {
+      "path": "operations/reference/episode-style-popart/epstyle-scene-03.png",
+      "sha256": "90bc9470f670226787eed0068d3f20f43107573ab30c7aa989b3d51624650829",
+      "size_bytes": 398395
+    },
+    "identity": {
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+      "size_bytes": 2974047
+    },
+    "master_style": {
+      "path": "operations/reference/episode-style-popart/epstyle-scene-05.png",
+      "sha256": "c03d0f7733d23d9310cfdf292b289768a93675176106af54ca638b799abcd3e5",
+      "size_bytes": 335077
+    },
+    "outfit": {
+      "path": "operations/reference/heroine-wardrobe/iconic-outfit-02.png",
+      "sha256": "348e337d27bab7b274a3b2f5e232a6d5fea94ffb60763c6617cb340cf22be76e",
+      "size_bytes": 488956
+    },
+    "panel_grammar": {
+      "path": "operations/reference/comic-book-page-style/comicpage-01.webp",
+      "sha256": "41202f5652dddf66da9d179745111a725f3760c8c48e12198b495618d9d2ae67",
+      "size_bytes": 147322
+    }
+  },
+  "schema": "laidies.episode-02.v19-style-semantic-review-manifest.v1",
+  "semantic_mandatory_corrections": [
+    7,
+    15
+  ],
+  "status": "BUILT LOCALLY \u2014 independent Episode Media Quality review required",
+  "task_id": "WE-MEDIA-E02-STYLE-SEMANTIC-REPAIR-V19-2026-07-26",
+  "vtt": {
+    "burned_into_video": false,
+    "endpoint": "/assets/captions/episode-02.vtt",
+    "path": "operations/captions/episode-02.vtt",
+    "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+    "size_bytes": 21622
+  }
+}

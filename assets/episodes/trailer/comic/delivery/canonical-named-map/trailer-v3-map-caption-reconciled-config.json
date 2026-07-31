@@ -1,0 +1,159 @@
+{
+  "schema": "laidies.trailer.v3.map-caption-reconciled-build-config",
+  "version": 3,
+  "status": "maker-build-config",
+  "created_date": "2026-07-26",
+  "project_root": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage",
+  "output_video": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v3-map-caption-reconciled-review-1920.mp4",
+  "output_qc": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v3-map-caption-reconciled-review-qc.json",
+  "output_map": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v3-exact-58-beat-map.json",
+  "output_manifest": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v3-exact-58-beat.ffconcat",
+  "output_captions_vtt": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+  "output_captions_srt": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.srt",
+  "storyboard": "operations/trailer-comic-storyboard.md",
+  "base_58_clip_manifest": "assets/episodes/trailer/comic/trailer-sequence-v2-repaired-review.ffconcat",
+  "audio": {
+    "path": "content/music/public/trailer-narration.m4a",
+    "expected_sha256": "fa9bc5e4b20e9f16f9236f642b471fd171965ecaaa05f107ac9602d4aa5a216d",
+    "must_be_stream_copied": true,
+    "narration_may_change": false
+  },
+  "caption_sources": {
+    "current_vtt": "operations/captions/episode-trailer.vtt",
+    "current_srt": "operations/captions/episode-trailer.srt",
+    "word_alignment": "operations/audio/trailer-narration-words.json",
+    "current_coverage_end_seconds": 902.76,
+    "final_audio_end_seconds": 967.116,
+    "tail_must_be_as_recorded": true
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "pixel_format": "yuv420p",
+    "video_codec": "libx264",
+    "crf": 18,
+    "preset": "medium"
+  },
+  "rules": {
+    "scene_count": 58,
+    "no_burned_captions": true,
+    "style": "comic-v1-locked: bold ink, hard shadow planes, flat saturated colour, no halftone",
+    "text_rule": "All generated text must be exact; AI is always both capitals.",
+    "motion_beats": [
+      "B05",
+      "B13",
+      "B39",
+      "B54"
+    ],
+    "background_only_motion": true,
+    "loop_zero_net_travel": true,
+    "directional_motion_once_then_freeze": true,
+    "maikeover_rule": "WANDLESS abstract-stage p0-to-p4 transformation; no wand; Fairy Godmother never visible.",
+    "episode_paths_writable": false,
+    "maker_may_judge": false
+  },
+  "beat_starts_seconds": {
+    "B01": 0.0,
+    "B02": 6.38,
+    "B03": 22.06,
+    "B04": 36.18,
+    "B05": 43.26,
+    "B06": 60.52,
+    "B07": 82.86,
+    "B08": 99.88,
+    "B09": 105.38,
+    "B10": 126.04,
+    "B11": 138.1,
+    "B12": 170.52,
+    "B13": 183.3,
+    "B14": 195.22,
+    "B15": 205.18,
+    "B16": 220.4,
+    "B17": 229.42,
+    "B18": 240.16,
+    "B19": 276.56,
+    "B20": 289.22,
+    "B21": 308.24,
+    "B22": 342.46,
+    "B23": 360.2,
+    "B24": 364.1,
+    "B25": 371.42,
+    "B26": 395.84,
+    "B27": 416.04,
+    "B28": 427.86,
+    "B29": 440.86,
+    "B30": 460.46,
+    "B31": 468.52,
+    "B32": 482.2,
+    "B33": 489.58,
+    "B34": 507.64,
+    "B35": 515.44,
+    "B36": 537.98,
+    "B37": 542.02,
+    "B38": 558.66,
+    "B39": 569.66,
+    "B40": 577.72,
+    "B41": 610.76,
+    "B42": 632.36,
+    "B43": 639.32,
+    "B44": 664.48,
+    "B45": 674.44,
+    "B46": 689.46,
+    "B47": 707.94,
+    "B48": 723.0,
+    "B49": 738.48,
+    "B50": 747.42,
+    "B51": 766.86,
+    "B52": 783.62,
+    "B53": 786.56,
+    "B54": 816.8,
+    "B55": 844.86,
+    "B56": 872.68,
+    "B57": 887.84,
+    "B58": 902.76,
+    "END": 967.116
+  },
+  "source_overrides": {
+    "B05": {
+      "still": "assets/episodes/trailer/comic/delivery/heroine-blue-eyes-trailer-outfit-final/trailer-b05-reporting-back-comic-v1-1920.png",
+      "motion": "assets/episodes/trailer/comic/delivery/heroine-blue-eyes-trailer-outfit-final/trailer-b05-reporting-back-comic-v1-1920-motion.mp4",
+      "reason": "Correct heroine identity, blue eyes and trailer-only multicolour Y2K outfit."
+    },
+    "B08": {
+      "still": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b08-title-laidies-no-pink-yellow-comic-v3-1920.png",
+      "reason": "Title is exactly LAiDIES with no .ai suffix; friendly non-horror typography; no pink, yellow or halftone."
+    },
+    "B14": {
+      "still": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b14-delta-lai-nu-heroine-blue-eyes-trailer-outfit-comic-v3-1920.png",
+      "reason": "Canonical Delta LAi Nu exterior, exact sign, blue-eyed heroine and trailer-only multicolour Y2K outfit; no Episode 4 yellow plaid."
+    },
+    "B19": {
+      "clip": "assets/episodes/trailer/comic/trailer-b19-on-wednesdays-we-do-ai-title-approved-v2-1920-clip.mp4",
+      "reason": "Approved Episode 01 title card repair already present in trailer delivery inputs."
+    },
+    "B23": {
+      "still": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b23-tour-map-reveal-comic-v1-1920.png",
+      "clip": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b23-tour-map-reveal-comic-v1-1920-clip.mp4",
+      "reason": "Canonical Sunnyvaile map with visible location names."
+    },
+    "B42": {
+      "still": "assets/episodes/trailer/comic/trailer-b42-delta-lai-nu-hall-empty-comic-candidate-v2-1920.png",
+      "clip": "assets/episodes/trailer/comic/trailer-b42-delta-lai-nu-hall-empty-comic-v2-1920-clip.mp4",
+      "reason": "Empty Delta LAi Nu hall continuity repair."
+    },
+    "B55": {
+      "still": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b55-brand-card-laidies-ai-no-halftone-comic-v3-1920.png",
+      "reason": "Exact LAiDIES.ai website and schedule card; no pink, yellow or halftone."
+    },
+    "B57": {
+      "still": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b57-next-week-use-ai-no-halftone-comic-v3-1920.png",
+      "reason": "Exact as-recorded title ON WEDNESDAYS WE USE AI; AI both capitals; no pink, yellow or halftone."
+    },
+    "B58": {
+      "still": "assets/episodes/trailer/comic/trailer-b58-end-card-dial-up-no-obsolete-wordmark-candidate-v2-1920.png",
+      "clip": "assets/episodes/trailer/comic/trailer-b58-end-card-dial-up-no-obsolete-wordmark-v2-1920-clip.mp4",
+      "reason": "No obsolete wordmark on final dial-up card."
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema": "laidies.emq.trailer-v4-outfit-decision-package.v1",
+  "status": "REPORT READY",
+  "date": "2026-07-26",
+  "scope": "Internal visual evidence and recommendation only. No media, source frame, canon, site, route, dossier, deployment or public-state mutation.",
+  "frozen_inputs": {
+    "master": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v4-clock-successor-review-1920.mp4",
+      "sha256": "760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934",
+      "fps": 30,
+      "frames": 29016,
+      "duration_seconds": 967.2
+    },
+    "beat_map": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat-map.json",
+      "sha256": "39a9a3d0e7fe9dd646ddd7075466cfbf80249520cf082a27ca7cdb3b674d3fdb"
+    }
+  },
+  "authority_evidence": [
+    {
+      "path": "operations/trailer-comic-storyboard.md",
+      "sha256": "a6c1a40a3413b64cd62b1ccb98613ecdb3c55b007004010c58796620448af0ae",
+      "observed": "Flag 1 defaults all heroine beats to the v28 yellow-plaid host kit, but explicitly labels the choice open and asks for confirmation."
+    },
+    {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v3-text-identity-correction-prompts.md",
+      "sha256": "b755759a78ffe543aabd500561b702a76acbb177d784889ca6a2b1067937a4ca",
+      "observed": "B14 is explicitly bound to B05's trailer-only multicolour outfit and explicitly prohibits Episode 4 yellow plaid."
+    },
+    {
+      "path": "operations/painpoints-log.md",
+      "sha256": "8d06016e57dba6803fe0b5e0f796a865bf10683782dd0004f0ee77e2f59e4b78",
+      "observed": "BTB-176 records the rejected yellow-plaid B14 repair and the later B05/B14 source correction."
+    },
+    {
+      "path": "operations/reference/heroine-wardrobe/README.md",
+      "sha256": "a260963413ff17a3ed580bfa83e729fad352c5c50ede1fb50d29ebbfed9d5a96",
+      "observed": "The weekly episode system rotates distinct Y2K outfits; this does not settle the standalone trailer host outfit."
+    },
+    {
+      "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v3-independent-judge-2026-07-26.md",
+      "sha256": "a73a71f5c923973da7982e72d8dc5e00cdb18206e97f80699abc9cf1a49b4eeb",
+      "observed": "The independent v3 judge first identified the unresolved scope conflict."
+    },
+    {
+      "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v4-independent-full-title-judge-2026-07-26.md",
+      "sha256": "59358ce8e7f4ef13e80ecfae0a53ae0d51d13f4088dc1c06c94ab58dd465f72e",
+      "observed": "The independent v4 judge confirms that the clock-only successor preserves the same 7-versus-2 conflict and holds admission."
+    },
+    {
+      "path": "operations/product-stewards/episode-experience/control-room-handoff-weekly-episodes-missing-independent-reviews-2026-07-26.md",
+      "sha256": "266711095c7d02ccda48a848d8ac132de13ccbe3f4287db10cb809540ad38737",
+      "observed": "Control Room handoff assigns editorial reconciliation to Weekly Episodes, with Ali retaining only an irreducible identity/taste ruling."
+    }
+  ],
+  "authority_conclusion": {
+    "observed": "The older source specifies a yellow-plaid default but leaves it open. The newer source explicitly corrects B05/B14 to multicolour and rejects Episode 4 yellow plaid at B14. Neither source explicitly governs the other seven appearances.",
+    "inference": "The phrase trailer-only most plausibly supports a trailer-bounded signature outfit, but applying it to all nine beats is a recommendation rather than an existing quoted ruling.",
+    "irreconcilable_as_written": true,
+    "recommended_smallest_reversible_ruling": "Issue a trailer-bounded receipt declaring the exact B05/B14 multicolour outfit the signature for every material trailer heroine appearance. Do not change weekly episode wardrobe canon or overwrite the frozen v4 tuple."
+  },
+  "observed_beats": [
+    {
+      "beat_id": "B01",
+      "outfit": "yellow_plaid",
+      "window_seconds": [0.0, 6.366666666666666],
+      "sample_frame_zero_based": 95,
+      "sample_time_seconds": 3.1666666666666665,
+      "source_path": "assets/episodes/trailer/comic/trailer-b01-heroine-welcome-comic-v1-1920.png",
+      "source_sha256": "1ed9306b5364ab12ec1fe410f9dcb9a36e6f39c5a4f0b8ce9c7aa729be2103ec",
+      "frame_artifact": "frames/B01-frame-000095-00m03.167s.png",
+      "frame_artifact_sha256": "b5986434f50444ad187f7ed18b423549a8485381ea76fa828469d2138e002f03"
+    },
+    {
+      "beat_id": "B04",
+      "outfit": "yellow_plaid",
+      "window_seconds": [36.166666666666664, 43.266666666666666],
+      "sample_frame_zero_based": 1191,
+      "sample_time_seconds": 39.7,
+      "source_path": "assets/episodes/trailer/comic/trailer-b04-fourth-wall-heroine-comic-v1-1920.png",
+      "source_sha256": "789f43cee6c708d8bf34fdd7cf359117504931ccbf90c8d40c761221cf20d456",
+      "frame_artifact": "frames/B04-frame-001191-00m39.700s.png",
+      "frame_artifact_sha256": "52d6ac5c6cbef3bed0c46b6a70513e5b86bcbda363f5bcad8e05e23a7db0de01"
+    },
+    {
+      "beat_id": "B05",
+      "outfit": "multicolour",
+      "window_seconds": [43.266666666666666, 60.53333333333333],
+      "sample_frame_zero_based": 1556,
+      "sample_time_seconds": 51.86666666666667,
+      "source_path": "assets/episodes/trailer/comic/delivery/heroine-blue-eyes-trailer-outfit-final/trailer-b05-reporting-back-comic-v1-1920-motion.mp4",
+      "source_sha256": "4ffc7475c7fd6839135272233d854fd401b76347f754cc961be1b0d8245493ef",
+      "frame_artifact": "frames/B05-frame-001556-00m51.867s.png",
+      "frame_artifact_sha256": "62a30f50359c3cc641d1454a68f3677a911eac053b7a4f1f666ebecdc43b256b"
+    },
+    {
+      "beat_id": "B07",
+      "outfit": "yellow_plaid",
+      "window_seconds": [82.86666666666666, 99.86666666666666],
+      "sample_frame_zero_based": 2740,
+      "sample_time_seconds": 91.33333333333333,
+      "source_path": "assets/episodes/trailer/comic/trailer-b07-season-arc-strip-comic-v1-1920.png",
+      "source_sha256": "753bad6936d2dd74abe817bde3f192992d434f3e52b5b7a70d84815a3063282e",
+      "frame_artifact": "frames/B07-frame-002740-01m31.333s.png",
+      "frame_artifact_sha256": "39ce4836d3f819ad3b24d278fa2638be2410fcc973118a9f42d30ba68c7f8fe5"
+    },
+    {
+      "beat_id": "B14",
+      "outfit": "multicolour",
+      "window_seconds": [195.23333333333332, 205.16666666666666],
+      "sample_frame_zero_based": 6005,
+      "sample_time_seconds": 200.16666666666666,
+      "source_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b14-delta-lai-nu-heroine-blue-eyes-trailer-outfit-comic-v3-1920.png",
+      "source_sha256": "b26b9eb97491ea5dd4f03d4c591f6a4d8900b8c6bd8db72b271583a273341e9e",
+      "frame_artifact": "frames/B14-frame-006005-03m20.167s.png",
+      "frame_artifact_sha256": "ac6d7d1d8d18af462da860ef3b59a423cec6947b1e8536dd1fdb2fe1c612c126"
+    },
+    {
+      "beat_id": "B15",
+      "outfit": "yellow_plaid",
+      "window_seconds": [205.16666666666666, 220.4],
+      "sample_frame_zero_based": 6383,
+      "sample_time_seconds": 212.76666666666668,
+      "source_path": "assets/episodes/trailer/comic/trailer-b15-life-in-these-streets-strip-comic-v1-1920.png",
+      "source_sha256": "ab3d013a7fa6d6e792a230fcfab063e1d23a3239f6616cf08104a8de3883d96b",
+      "frame_artifact": "frames/B15-frame-006383-03m32.767s.png",
+      "frame_artifact_sha256": "4d9a9e07f321cf5422ff18ed0c32f8541aa8b77bd1fd26ca51c599059a77ec4c"
+    },
+    {
+      "beat_id": "B31",
+      "outfit": "yellow_plaid",
+      "window_seconds": [468.53333333333336, 482.2],
+      "sample_frame_zero_based": 14260,
+      "sample_time_seconds": 475.3333333333333,
+      "source_path": "assets/episodes/trailer/comic/trailer-b31-heroine-writing-try-on-comic-v1-1920.png",
+      "source_sha256": "1cd762d04b4f35b8998f82825d40202c5e6e612f4f632e5905be0886bf5834bc",
+      "frame_artifact": "frames/B31-frame-014260-07m55.333s.png",
+      "frame_artifact_sha256": "a4e824b6ce471213c9813b9af1e1eb136bc7e20ad65520155e6fa4c69b4d0078"
+    },
+    {
+      "beat_id": "B39",
+      "outfit": "yellow_plaid",
+      "window_seconds": [569.6666666666666, 577.7333333333333],
+      "sample_frame_zero_based": 17210,
+      "sample_time_seconds": 573.6666666666666,
+      "source_path": "assets/episodes/trailer/comic/trailer-b39-maikeover-glow-up-comic-v1-1920-motion.mp4",
+      "source_sha256": "d6c0a9fb0d05c7e30f88913f559ba11245d9ef6bce785477da1a7f8b8e0c09ad",
+      "frame_artifact": "frames/B39-frame-017210-09m33.667s.png",
+      "frame_artifact_sha256": "06860ad65cbff0e5b44d31eeaf0db32e47033a494bd6ee5c67c04a02d881186b"
+    },
+    {
+      "beat_id": "B56",
+      "outfit": "yellow_plaid",
+      "window_seconds": [872.6666666666666, 887.8333333333334],
+      "sample_frame_zero_based": 26407,
+      "sample_time_seconds": 880.2333333333333,
+      "source_path": "assets/episodes/trailer/comic/trailer-b56-sign-off-comic-v1-1920.png",
+      "source_sha256": "ecf4e7001f1935db11d5154005ff845a7227882ffdaaef94a71d704f9997d37d",
+      "frame_artifact": "frames/B56-frame-026407-14m40.233s.png",
+      "frame_artifact_sha256": "fc2fe4beb385c4d57e6f25f19dedaa42f3fbc87b4f76e34aab9c6c47e344a38a"
+    }
+  ],
+  "options": [
+    {
+      "id": "yellow_plaid_signature",
+      "downstream_source_changes": ["B05", "B14"],
+      "motion_source_changes": ["B05"],
+      "tradeoff": "Lowest edit count and strong internal continuity, but reverses the newer explicit B05/B14 correction and reintroduces the specifically rejected Episode 4 yellow-plaid condition at B14."
+    },
+    {
+      "id": "multicolour_signature",
+      "recommended": true,
+      "downstream_source_changes": ["B01", "B04", "B07", "B15", "B31", "B39", "B56"],
+      "motion_source_changes": ["B39"],
+      "tradeoff": "Highest immediate replacement cost, but follows the latest explicit correction, removes both adjacent costume reversals, distinguishes the trailer from weekly episode rotation, and minimizes future canon churn."
+    },
+    {
+      "id": "two_look_exception",
+      "downstream_source_changes": [],
+      "motion_source_changes": [],
+      "tradeoff": "No media change, but requires a formal exception and preserves unexplained adjacent outfit switches at B04→B05 and B14→B15."
+    }
+  ],
+  "artifacts": {
+    "index.html": "621a9bd7593e5b8982c3d62154369ebcbdb49fd63f38ffc78197134937c3594c",
+    "canonical-evidence/episode-wardrobe-rotation-sheet.png": "68e504016f8f3dcac09b7a7c232f93f79e9a8e416ee6324987b51ccd00d3c327",
+    "canonical-evidence/multicolour-trailer-outfit-reference.png": "008326150862dd3e5dc536cada35d35274e0c4bf413e520af213d8964fca0d73",
+    "canonical-evidence/v28-yellow-plaid-host-reference.png": "6ead3e89a27487caf2434c733c4707a0f7469fca8e1799ffad133fb3963bbb01",
+    "contact-sheets/multicolour-beats-B05-B14.png": "84f4b39ab1d7e7014ce10ea5287412a6a9393a90c03678265d294162bf58b7c3",
+    "contact-sheets/yellow-plaid-beats-B01-B04-B07-B15-B31-B39-B56.png": "d50eaa8830cdab941f295e4127ca34489cb22eaf5d84854e2ac9a7277a60dfcc",
+    "screenshots/overview-desktop-1440x1100.png": "239aa939ba96546ebb8c439ba2e9e35e12009ace2c9165f83900d4a79c7632a4",
+    "screenshots/overview-mobile-390x844.png": "cd567d7b010a18f2808821fbc11d5e00733d5dcc7a1dbd8304ffeb2ffe030c55"
+  },
+  "render_validation": {
+    "browser": "Google Chrome headless via DevTools Protocol",
+    "desktop": {
+      "viewport": [1440, 1100],
+      "document_scroll_width": 1440,
+      "page_horizontal_overflow": false,
+      "image_count": 16,
+      "broken_images": []
+    },
+    "mobile": {
+      "viewport": [390, 844],
+      "document_scroll_width": 390,
+      "page_horizontal_overflow": false,
+      "image_count": 16,
+      "broken_images": []
+    }
+  },
+  "learning_scan": {
+    "qualifying_new_learning": false,
+    "reused_prevention_rule": "BTB-176: compile every explicit correction into a versioned source override and exact assertion; never infer acceptance from a repair filename.",
+    "scope_note": "No canonical painpoints ledger edit was permitted by this evidence-only package boundary."
+  },
+  "public_truth": "Trailer v4 remains BUILT LOCALLY / CLOCK REPAIR VERIFIED LOCALLY / NOT ADMITTED / NOT DEPLOYED / NOT PUBLIC."
+}

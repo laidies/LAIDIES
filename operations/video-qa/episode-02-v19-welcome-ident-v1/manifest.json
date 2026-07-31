@@ -1,0 +1,69 @@
+{
+  "authority": {
+    "deploy": false,
+    "maker_may_accept": false,
+    "public": false,
+    "release": false
+  },
+  "baseline": {
+    "path": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+    "sha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+    "size_bytes": 112843240
+  },
+  "builder": {
+    "path": "assets/video/build-episode-02-v19-welcome-ident-v1.py",
+    "sha256": "ab0c70548c750fc1bdedc76d463d9aee8d6d8e5553912e1f188a1189e1b024a2",
+    "size_bytes": 9447
+  },
+  "caption": {
+    "exact_entry": {
+      "end": 98.59,
+      "speaker": "The Heroine",
+      "start": 91.34,
+      "text": "Welcome back to LAiDIES \u2014 smart, busy women learning AI one Wednesday at a time, from a little internet town called SUNNYVAiLE."
+    },
+    "source": "operations/captions/episode-02.vtt",
+    "timing_map": "operations/captions/episode-02-timing-map.json"
+  },
+  "config": {
+    "path": "operations/video-qa/episode-02-v19-welcome-ident-v1/config.json",
+    "sha256": "ab68c26c357d3eec990a8ce8708cc5dcb223ec55e7181fd9cb39545d161d544a",
+    "size_bytes": 1707
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-v1.mp4",
+    "sha256": "ea5addbad951281602373cfde8d4264326e557a57b63ea2df218d0697316f138",
+    "size_bytes": 3895234
+  },
+  "output": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v1-review.mp4",
+    "sha256": "5b9c98281d292b18ef4e70edc023a4c322add94bfe3b7e82e7d8e3dab691191b",
+    "size_bytes": 123797832
+  },
+  "replacement": {
+    "audio_operation": "copy exact frozen-v19 AAC elementary packet stream",
+    "duration_seconds": 7.25,
+    "end_seconds": 98.59,
+    "operation": "replace baseline picture only; scale ident 2x to 1920x1080 without crop; hold final ident frame for remaining 0.770 seconds",
+    "out_of_scope_operation": "baseline picture timeline retained before 91.340 and after 98.590 seconds",
+    "start_seconds": 91.34
+  },
+  "review_window": {
+    "duration_seconds": 14,
+    "path": "operations/video-qa/episode-02-v19-welcome-ident-v1/episode-02-welcome-ident-review-window-88-102.mp4",
+    "sha256": "68508c982daa77ded6c45820e8c4895e386facc2eb0ecfff998cb64fa2a945b1",
+    "size_bytes": 3750629,
+    "start_seconds": 88
+  },
+  "schema": "laidies.episode-02.welcome-ident.review-manifest.v1",
+  "status": "BUILT_LOCALLY_REVIEW_REQUIRED_NOT_ADMITTED_NOT_PUBLIC",
+  "task_id": "WE-MEDIA-E02-WELCOME-IDENT-V1-2026-07-26",
+  "verification": {
+    "audio_adts_sha256_frozen_v19": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "audio_adts_sha256_output": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "audio_elementary_stream_identical": true,
+    "full_decode": "PASS",
+    "out_of_scope_semantics": "structurally retained by baseline trim/concat; candidate must be independently watched",
+    "runtime_matches_frozen_v19": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "laidies.emq.browser-attempts.v1",
+  "browser": "Codex In-app Browser",
+  "actions": [
+    {
+      "sequence": 1,
+      "literal_action": "await tab.goto(witnessFileUrl)",
+      "target_kind": "file:// exact frozen v2 witness",
+      "result": "BLOCKED_BY_BROWSER_URL_POLICY",
+      "resulting_url": "about:blank",
+      "output": "Browser Use rejected this action due to browser security policy. Browser use cannot visit the requested page because its URL is blocked by the Browser use URL policy."
+    },
+    {
+      "sequence": 2,
+      "literal_action": "await tab.goto(normalHarnessUrl)",
+      "target_kind": "data: test-only exact-source/VTT deterministic harness",
+      "result": "BLOCKED_BY_BROWSER_URL_POLICY",
+      "resulting_url": "about:blank",
+      "output": "Browser Use rejected this action due to browser security policy. Browser use cannot visit the requested page because its URL is blocked by the Browser use URL policy."
+    }
+  ],
+  "stopped_after_policy_block": true,
+  "no_alternate_browser": true,
+  "no_loopback_listener": true,
+  "no_server": true,
+  "no_network": true,
+  "screenshots": [],
+  "limitation": "No in-app Browser render, media decode, VTT fetch, layout witness, or interaction witness was produced."
+}

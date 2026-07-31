@@ -1,0 +1,141 @@
+{
+  "status": "LOCAL_PREJUDGE_PASS",
+  "recordedAt": "2026-07-27T23:09:11.728Z",
+  "scope": "Cycle 8I isolated successor; no production/shared/live/deploy/public mutation",
+  "predecessor": {
+    "cycle8HManifest": "4216999f99f8ba942ee5c7f636868bf01cfb6733129b20e74823dc4874b8762c",
+    "cycle8HDiagnostics": "213a9c4c1623fdfb71c7c14a5d993b049f1eb564576134a89117236559382c0e",
+    "cycle8HHold": "107d13af0da512162315bdfc0504b8a16cfab4b2c16b23091affa95204a154ac"
+  },
+  "source": {
+    "baselineIndexSha256": "ed8ae2b0390ac734c03f6960438ee76af6580f537c746e9c8668184a56d4b1f5",
+    "candidateIndexSha256": "a5d10e536acc93817f95b0aa308f33f75166adacc21efef2180cd4ab18591aee",
+    "candidateCssSha256": "d8e5fc32ea1bc0929eda677b40780729ecca78f838b9956318eb9f58483cf39c",
+    "permittedDelta": "candidate-local foreground/background values only"
+  },
+  "contrast": {
+    "file": "evidence/CONTRAST-GATE.json",
+    "sha256": "03d784686eeb527d586a8e02f19b05366664370b291d7ac0785f5ab89a940f9f",
+    "desktopSolidDescendants": 370,
+    "mobileSolidDescendants": 370,
+    "desktopFailures": 0,
+    "mobileFailures": 0,
+    "ambiguousImageOrGradientCases": {
+      "desktop": 39,
+      "mobile": 39
+    }
+  },
+  "capture": {
+    "desktop": {
+      "viewport": {
+        "baseline": [
+          1440,
+          900
+        ],
+        "candidate": [
+          1440,
+          900
+        ]
+      },
+      "textParity": true,
+      "idParity": true,
+      "hrefParity": true,
+      "controlParity": true,
+      "runtimeParity": true,
+      "widthContainment": true,
+      "baselineImages": {
+        "count": 26,
+        "complete": 26
+      },
+      "candidateImages": {
+        "count": 18,
+        "complete": 18,
+        "hidden": 0,
+        "broken": 0
+      },
+      "hero": {
+        "baseline": {
+          "height": 841,
+          "src": "/assets/sunnyvaile-streets/main-street-dusk.webp",
+          "top": 76,
+          "width": 1440
+        },
+        "candidate": {
+          "height": 841,
+          "src": "/assets/sunnyvaile-streets/main-street-dusk.webp",
+          "top": 76,
+          "width": 1440
+        },
+        "sourceAndGeometryEqual": true
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "baseline": [
+          390,
+          844
+        ],
+        "candidate": [
+          390,
+          844
+        ]
+      },
+      "textParity": true,
+      "idParity": true,
+      "hrefParity": true,
+      "controlParity": true,
+      "runtimeParity": true,
+      "widthContainment": true,
+      "baselineImages": {
+        "count": 26,
+        "complete": 26
+      },
+      "candidateImages": {
+        "count": 18,
+        "complete": 18,
+        "hidden": 0,
+        "broken": 0
+      },
+      "hero": {
+        "baseline": {
+          "height": 842,
+          "src": "/assets/sunnyvaile-streets/main-street-dusk.webp",
+          "top": 54,
+          "width": 390
+        },
+        "candidate": {
+          "height": 842,
+          "src": "/assets/sunnyvaile-streets/main-street-dusk.webp",
+          "top": 54,
+          "width": 390
+        },
+        "sourceAndGeometryEqual": true
+      }
+    }
+  },
+  "governedImages": {
+    "expectedCount": 18,
+    "candidateDesktopComplete": 18,
+    "candidateMobileComplete": 18,
+    "heldArtAbsentFromMarkup": true,
+    "prohibitedSources": [
+      "/assets/town-characters/scenes/fairy-godmother-scene.webp",
+      "/assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp",
+      "/assets/final_map/sunnyvaile-town-map-final-v5.webp"
+    ]
+  },
+  "hero": {
+    "frozenCycle8HPixelPass": true,
+    "cycle8HNoHeroDeltaRule": true,
+    "currentSourceAndGeometryPass": true,
+    "methodNote": "The in-app Browser produced an asymmetric incumbent crop despite equal live hero source and geometry; current Cycle 8I CSS delta has no hero selector and no variable consumed by the protected hero. This static successor proof relies on the frozen Cycle 8H hero-pixel pass plus source/CSS scope."
+  },
+  "renders": {
+    "desktopBaseline": "evidence/desktop/homepage-baseline-1440.png",
+    "desktopCandidate": "evidence/desktop/homepage-candidate-1440.png",
+    "mobileBaseline": "evidence/mobile/homepage-baseline-390.png",
+    "mobileCandidate": "evidence/mobile/homepage-candidate-390.png",
+    "desktopComparison": "evidence/comparisons/incumbent-left-successor-right-1440.png",
+    "mobileComparison": "evidence/comparisons/incumbent-left-successor-right-390.png"
+  }
+}

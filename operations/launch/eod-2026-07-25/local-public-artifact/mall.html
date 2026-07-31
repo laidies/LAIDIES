@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Mall · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Mall at MAiN Street No. 9 in SUNNYVAiLE — ten stops, all references. Searchable directory for every pop-culture moment LAiDIES reaches for.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/mall-v2.css?v=20260724-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <style media="not all">
+    /* ── Mall directory board ─────────────────────────────── */
+    .mall-board {
+      background: linear-gradient(175deg, #1e5a61, #16454b);
+      border: 6px solid #0f3338;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(15,51,56,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
+      padding: 26px 28px 20px;
+      margin: 18px 0 44px;
+      color: var(--cream, #fffdfb);
+    }
+    .mall-board-head {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.34em;
+      color: #ffd982; text-align: center; margin-bottom: 4px;
+    }
+    .mall-board-sub {
+      text-align: center; font-size: 12px; letter-spacing: 0.12em;
+      color: rgba(255,253,251,0.55); margin: 0 0 18px;
+    }
+    .mall-board ol {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px 28px;
+    }
+    .mall-board li a {
+      display: flex; align-items: baseline; gap: 10px;
+      color: var(--cream, #fffdfb); text-decoration: none;
+      font-size: 14px; padding: 4px 6px; border-radius: 6px; line-height: 1.35;
+    }
+    .mall-board li a:hover { background: rgba(255,217,130,0.12); color: #ffd982; }
+    .mall-board li .unit {
+      font-size: 11px; font-weight: 700; color: #ffd982; flex: 0 0 22px;
+      font-variant-numeric: tabular-nums;
+    }
+    .mall-board li .dots {
+      flex: 1; border-bottom: 1px dotted rgba(255,253,251,0.28);
+      transform: translateY(-4px); min-width: 12px;
+    }
+    .mall-board-here {
+      margin-top: 18px; text-align: center; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.18em; color: #ffd982;
+    }
+    .mall-board-here .star { color: var(--hot-pink, #ff6ec7); }
+    .mall-board-note {
+      margin: 8px 0 0; text-align: center; font-size: 12px; font-style: italic;
+      color: rgba(255,253,251,0.5);
+    }
+    @media (max-width: 560px) { .mall-board ol { grid-template-columns: 1fr; } }
+
+    /* ── The corridor ─────────────────────────────────────── */
+    .mall-corridor {
+      background:
+        linear-gradient(180deg, rgba(87,191,174,0.10), rgba(255,255,255,0) 140px),
+        repeating-conic-gradient(from 45deg, #f6ede7 0deg 90deg, #efe2d9 90deg 180deg);
+      background-size: auto, 92px 92px;
+      border: 1px solid rgba(75,33,72,0.10);
+      border-radius: 18px;
+      padding: 30px 26px 34px;
+      margin: 8px 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px 24px;
+    }
+    @media (max-width: 640px) { .mall-corridor { grid-template-columns: 1fr; padding: 22px 16px 26px; } }
+
+    /* ── Storefronts (real renders — signage baked in) ────── */
+    .shop {
+      --acc: var(--teal, #247b83);
+      display: flex; flex-direction: column;
+      text-decoration: none;
+      border-radius: 12px;
+      background: #fdf8f3;
+      border: 1px solid rgba(75,33,72,0.14);
+      box-shadow: 0 6px 18px rgba(75,33,72,0.10);
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .shop:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(75,33,72,0.20); }
+    .shop:focus-visible { outline: 3px solid var(--gold, #c9a227); outline-offset: 2px; }
+    .shop-photo {
+      position: relative; display: block;
+      aspect-ratio: 3 / 2; overflow: hidden; background: #16454b;
+    }
+    .shop-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .shop:hover .shop-photo img { transform: scale(1.045); }
+    /* a lit-window sheen as you walk past */
+    .shop-photo::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(115deg, rgba(255,255,255,0) 54%, rgba(255,255,255,0.30) 62%, rgba(255,255,255,0) 71%);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .shop:hover .shop-photo::after { opacity: 1; }
+    .shop-base {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 15px 11px;
+      background: linear-gradient(180deg, #fffdf8, #f7ecdf);
+      border-top: 3px solid var(--acc);
+    }
+    .shop-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .shop-unit {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+      color: rgba(75,33,72,0.5);
+    }
+    .shop-desc {
+      margin: 0; font-size: 12.5px; line-height: 1.35;
+      color: var(--plum, #4b2148);
+    }
+    .shop-enter {
+      flex: 0 0 auto; font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--rose, #9b3f5f); white-space: nowrap;
+    }
+    .shop--vacant { border-style: dashed; border-color: rgba(75,33,72,0.30); }
+    .shop--vacant .shop-base { background: #f1eae2; border-top-color: rgba(75,33,72,0.28); }
+    .shop--vacant .shop-desc { color: rgba(75,33,72,0.6); }
+    @media (prefers-reduced-motion: reduce) {
+      .shop, .shop-photo img, .shop-photo::after { transition: none; }
+      .shop:hover { transform: none; }
+      .shop:hover .shop-photo img { transform: none; }
+    }
+  </style>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+  <header class="sv-header"></header>
+
+  <div class="sv-hero mall-arrival">
+    <img src="assets/building-interiors/the-mall-atrium.jpg?v=20260708" alt="The Mall atrium — a domed glass rotunda with a central fountain and storefronts ringing the court" loading="eager">
+    <div class="mall-arrival-copy">
+      <p class="mall-arrival-kicker">MAiN Street · No. 9 · SUNNYVAiLE</p>
+      <h1>The <span class="ai">Mall</span></h1>
+      <p>You’re standing in Centre Court. The fountain is running, the directory is lit, and every storefront below is somewhere you can actually enter.</p>
+    </div>
+    <button class="mall-wish" id="mallWish" type="button">
+      <strong>Make a wish</strong>
+      <span>At the Centre Court fountain</span>
+    </button>
+  </div>
+
+  <main class="mall-page">
+
+    <section class="mall-directory-band" aria-labelledby="mallDirectoryTitle">
+      <div class="mall-directory-intro">
+        <div>
+          <p class="mall-kicker">You are here · Centre Court</p>
+          <h2 class="mall-directory-title" id="mallDirectoryTitle">Find your store.</h2>
+          <p>Ten reference departments, one open Gift Shop, and a vacant unit waiting for the thing you remember next.</p>
+        </div>
+        <ul class="mall-directory-state">
+          <li><strong>New this season</strong><a href="/shop.html">The Gift Shop is open →</a></li>
+          <li><strong>Now leasing</strong><a href="/community/burn-book.html">Unit 11 · nominate what belongs here →</a></li>
+          <li><strong>Where you are</strong>Centre Court · Level 1</li>
+        </ul>
+      </div>
+
+      <div class="mall-board">
+      <div class="mall-board-head">MALL DIRECTORY</div>
+      <p class="mall-board-sub">Find a store—or the reference you came in looking for.</p>
+      <div class="mall-search">
+        <label for="mallSearch">Search the directory</label>
+        <input id="mallSearch" type="search" placeholder="Try “Dunkaroos”, “Cher”, “Tamagotchi”…" autocomplete="off">
+        <button id="mallSearchButton" type="button">Find it</button>
+      </div>
+      <ol>
+        <li data-search="pieces of flair accessories jewelry hair clips claires butterfly clips"><a href="/mall/pieces-of-flair.html"><span class="unit">01</span> PIECES OF FLAiR <span class="dots"></span></a></li>
+        <li data-search="gizmos and gadgets walkman tamagotchi msn trapper keeper tech electronics"><a href="/mall/gizmos-and-gadgets.html"><span class="unit">06</span> Gizmos and Gadgets <span class="dots"></span></a></li>
+        <li data-search="maiybe shes born with it makeup hair gloss mascara palettes rollers beauty"><a href="/mall/maiybe.html"><span class="unit">02</span> MAiYBE SHE'S BORN WITH IT <span class="dots"></span></a></li>
+        <li data-search="hanger management clothes outfits fashion wardrobe"><a href="/mall/hanger-management.html"><span class="unit">07</span> Hanger Management <span class="dots"></span></a></li>
+        <li data-search="as seen on tv television film movie movies cher clueless"><a href="/mall/as-seen-on-tv.html"><span class="unit">03</span> As Seen on TV (and film!) <span class="dots"></span></a></li>
+        <li data-search="food court dunkaroos crystal pepsi capri sun pizza burgers pretzels food drink"><a href="/mall/food-court.html"><span class="unit">08</span> The Food Court <span class="dots"></span></a></li>
+        <li data-search="rollin with my homies people characters cher clueless celebrities"><a href="/mall/rollin-with-my-homies.html"><span class="unit">04</span> Rollin' with my Homies <span class="dots"></span></a></li>
+        <li data-search="i know what you did last summer experiences sleepovers mall walking blockbuster runs"><a href="/mall/last-summer.html"><span class="unit">09</span> I Know What You Did Last Summer <span class="dots"></span></a></li>
+        <li data-search="books and records quotes songs soundtracks music books vinyl"><a href="/mall/books-and-records.html"><span class="unit">05</span> Books and Records <span class="dots"></span></a></li>
+        <li data-search="mall kiosk magic 8 ball lite brite beanie babies catch all"><a href="/mall/mall-kiosk.html"><span class="unit">10</span> The Mall Kiosk <span class="dots"></span></a></li>
+      </ol>
+      <div class="mall-board-here"><span class="star">★</span> YOU ARE HERE</div>
+      <p class="mall-board-note">Centre Court. Choose a result here or walk the full storefront corridor below.</p>
+      <div class="mall-no-results" id="mallNoResults" hidden>
+        <strong>We don’t have “<span id="mallNoResultsQuery">that</span>” yet.</strong>
+        <a id="mallBurnLink" href="/community/burn-book.html">Put it in the Burn Book—the mall expands →</a>
+      </div>
+    </div>
+    </section>
+
+    <section class="mall-walk-head" aria-labelledby="mallWalkTitle">
+      <div>
+        <p class="mall-kicker">The concourse</p>
+        <h2 class="mall-walk-title" id="mallWalkTitle">Walk the storefronts.</h2>
+      </div>
+      <p class="mall-walk-instructions">Every window is a real entrance. Drag, scroll, or use the arrows; on mobile, keep walking down the corridor.</p>
+    </section>
+    <div class="mall-walk-controls" aria-label="Move through the storefronts">
+      <button type="button" data-mall-walk="previous" aria-label="Previous storefront">←</button>
+      <button type="button" data-mall-walk="next" aria-label="Next storefront">→</button>
+    </div>
+
+    <div class="mall-corridor" id="mallCorridor" tabindex="0" aria-label="Mall storefront corridor">
+
+      <a class="shop" href="/mall/pieces-of-flair.html" style="--acc: var(--rose, #9b3f5f);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/pieces-of-flair.jpg?v=20260707" alt="PIECES OF FLAiR storefront — pink butterfly-clip and jewelry shop, ear-piercing-while-you-wait" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 01</span><span class="shop-desc">Accessories, jewelry, hair clips, small wearables.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/maiybe.html" style="--acc: var(--y2k-pink, #ee9fce);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/maiybe.jpg?v=20260707" alt="MAiYBE storefront — drug-store beauty counter, gloss and mascara and hot tools" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 02</span><span class="shop-desc">Drug-store hair &amp; makeup — gloss, mascara, palettes, rollers.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/as-seen-on-tv.html" style="--acc: var(--teal, #247b83);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/as-seen-on-tv.jpg?v=20260707" alt="As Seen on TV storefront — wall of televisions and film posters" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 03</span><span class="shop-desc">TV shows and films you can't unsee.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/rollin-with-my-homies.html" style="--acc: var(--gold, #c9a227);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/rollin-with-my-homies.jpg?v=20260707" alt="Rollin' with my Homies storefront — portrait wall of real people and characters" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 04</span><span class="shop-desc">People &amp; characters — real and fictional, one shelf.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/books-and-records.html" style="--acc: var(--teal-bright, #57bfae);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/books-and-records.jpg?v=20260707" alt="Books and Records storefront — bookshelves and vinyl bins" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 05</span><span class="shop-desc">Books, quotes, songs, soundtracks.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/gizmos-and-gadgets.html" style="--acc: var(--teal, #247b83);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/gizmos-and-gadgets.jpg?v=20260707" alt="Gizmos and Gadgets storefront — Y2K electronics: Walkman, Tamagotchi, gadgets" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 06</span><span class="shop-desc">Y2K tech — Walkman, Tamagotchi, MSN, Trapper Keeper.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/hanger-management.html" style="--acc: var(--rose, #9b3f5f);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/hanger-management.jpg?v=20260707" alt="Hanger Management storefront — racks of clothes and iconic outfits" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 07</span><span class="shop-desc">Clothes and iconic outfits.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/food-court.html" style="--acc: var(--gold, #c9a227);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/the-food-court.jpg?v=20260707" alt="The Food Court — neon counter with pizza, burgers, pretzels, bowls, drinks" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 08</span><span class="shop-desc">Food &amp; drink — Dunkaroos, Crystal Pepsi, Capri Sun.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/last-summer.html" style="--acc: var(--teal-bright, #57bfae);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/last-summer.jpg?v=20260707" alt="I Know What You Did Last Summer storefront — nostalgic experiences shop" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 09</span><span class="shop-desc">Experiences — sleepovers, mall walking, Blockbuster runs.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop" href="/mall/mall-kiosk.html" style="--acc: var(--y2k-pink, #ee9fce);">
+        <span class="shop-photo"><img src="assets/mall-storefronts/the-mall-kiosk.jpg?v=20260707" alt="The Mall Kiosk — catch-all cart: Magic 8 Ball, Lite-Brite, Beanie Babies" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 10</span><span class="shop-desc">Catch-all — Magic 8 Ball, Lite-Brite, Beanie Babies.</span></span>
+          <span class="shop-enter">Walk in →</span>
+        </span>
+      </a>
+
+      <a class="shop shop--vacant" href="/community/burn-book.html">
+        <span class="shop-photo"><img src="assets/mall-storefronts/unit-11-vacant.jpg?v=20260707" alt="Unit 11 — vacant storefront papered over with a NOW LEASING sign" loading="lazy" width="1000" height="667"></span>
+        <span class="shop-base">
+          <span class="shop-meta"><span class="shop-unit">UNIT 11 · NOW LEASING</span><span class="shop-desc">Don't see what you remember? Put it in the Burn Book — the mall expands.</span></span>
+          <span class="shop-enter">Claim it →</span>
+        </span>
+      </a>
+
+    </div>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Mall</footer>
+
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/mall-v2.js?v=20260724-1"></script>
+</body>
+</html>

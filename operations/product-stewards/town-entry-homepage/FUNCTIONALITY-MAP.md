@@ -1,0 +1,163 @@
+# Town Entry & Homepage functionality and cross-page touchpoint map
+
+**Status:** RECOVERED — SHARED CONTRACTS AND EXACT ADMISSION REMAIN OPEN  
+**Product owner task:** `019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1`  
+**Functionality & Platform Director:** review required  
+**Write authority:** dossier only; routes and shared code are read-only
+
+## 1. Complete capability inventory
+
+| Capability/element | User trigger and page | Intended visible result | Current implementation/evidence | Status |
+|---|---|---|---|---|
+| Promise/hero hierarchy | Load `/`; choose a stable visitor job | Understand practical AI value and one safe next step | Current hero routes to page sections, but its Episode action can be rewritten by latest content | CONTRACT CONFLICT — HERO MUST BE EVERGREEN |
+| Desktop/mobile entry navigation | Topbar link or menu button | Same named route set; clear open/close/focus behavior | Inline homepage topbar plus shared scripts; current rendered full matrix absent | OBSERVED |
+| Method/mission | `#method` | Understand story → concept → practice → music → optional town | Five-step current source; repeats several downstream entrances | OBSERVED |
+| Current episode | `#this-week`; episode index success | Exact latest published episode and read/listen routes | Success/failure logic in `homepage.js`; prior named local browser pass | VERIFIED LOCALLY FOR NAMED STATES |
+| Episode failure fallback | Non-OK/empty/invalid index | Previously-published evergreen route | `showEvergreenFallback()` | VERIFIED LOCALLY FOR NAMED STATE |
+| The Breaking/The Daily | Homepage current-news module | Conditional Breaking and current Daily explanation | D-043 only; no module/admitted shared feed | MISSING |
+| Current-content boundary | Fresh owner-admitted episode/news receipt | Render only in separate `#current` module below hero | Current receiver exists, but also mutates `.entry-episode-action` | REPAIR AFTER BRAND RULES |
+| Full/Express route | Weekly route links | Optional route sequence with truthful step state | Static links plus `sv-tour-checkin.js` local visit paint/rewards | OBSERVED; AUTHORITY CONFLICT |
+| Activities | Filter/button/link | Admitted tool/game route and limits | Current cards mix links, inline handlers and buttons | OBSERVED; RECEIVER ADMISSION PARTIAL |
+| Lookup | Submit reference form | Library arrival without analytics capture of query | JS discards query and routes to `/library.html` | OBSERVED |
+| Map popup | Activate hotspot; Escape/outside click | Named destination, limitation and link; focus recovery | Popup renders static data; closes on Escape but does not restore initiating focus | OBSERVED; A11Y GAP |
+| District cards/directory | Select route | Accessible alternate discovery | Six district cards route to single buildings; long directory repeats map | OBSERVED; ROLE/HIERARCHY OPEN |
+| Start Here | Load `/start-here.html` | Visitor's Centre redirect or ordinary fallback link | Meta refresh, `location.replace`, ordinary link | OBSERVED |
+| Card/Closet handoff | Select resident action | Exact local/account scope and route | Static local limitation copy; no deliberate state-specific entry variant | OBSERVED; PARTIAL |
+| Auth/resume projection | Token or future `svShowResume` call | Only proved account/resume state | Token-derived “Resident” script targets a selector the homepage may not expose; hook is not wired to authority | OBSERVED; NOT PROVED |
+| Tour/reward paint | Visit route/check stops | Honest local progress only unless authoritative service proves more | Shared script mints local FAiRY Play, ritual badge and express completion from route visits | OBSERVED; CONTRACT CONFLICT |
+| Charm hunt | Hidden charm interaction | Truthfully local collectible state | Shared local-storage script is loaded | OBSERVED; ENTRY VALUE/ACCESSIBILITY OPEN |
+| Audio | Activate play chip | Correct track plays; pause/recovery announced | KSVL handoff with inline audio fallback | OBSERVED; COMPLETE MEDIA QA MISSING |
+| Newsletter | Submit homepage form | Provider request then inbox confirmation/error | Buttondown popup/embed; Post Office contract test passes, real lifecycle absent | PARTIAL |
+| Analytics | Page/action | Privacy-safe aggregate entry evidence | Plausible/Clarity load; generic events in shared scripts; no approved entry schema | MISSING CONTRACT |
+| Release/campaign | Approved exact site/copy/image | Public entry works and campaign points to it | No current exact clean candidate or approval triad | HOLD |
+
+## 2. Visitor-state recognition and continuity
+
+| Visitor state | Recognition source and proof scope | State loaded | Experience difference | Writes/services allowed | Cross-page continuity | Failure/fallback | Current verdict |
+|---|---|---|---|---|---|---|---|
+| First-time | Absence of proved state; no identity inference | Static entry, episode/news data | Baseline page | Public navigation; provider handoff only after action | Route only | Evergreen links and ordinary Start Here link | PARTIAL |
+| Returning, no Card | Device-local tour/charm keys may exist | Weekly stops, charms, local timestamps | Route paint/hidden objects; no authoritative resume | Local writes currently occur | Device only | Storage exceptions mostly swallowed | PARTIAL; REWARD CONTRACT OPEN |
+| Resident Card — device-local | No validated homepage projection is established | Static Card/Closet copy; other shared local keys | No deliberate owned variant | Local continuation only after validation | Same device only | Show public baseline and exact limitation | MISSING DELIBERATE STATE |
+| Resident Card — verified account-backed | Supabase-shaped token reader in shared auth script; no complete Card proof | Email-derived initials if target exists | Intended resident link/resume only | No new write in entry | Account/cross-device not proved here | Expiry/parser failure returns guest | NOT PROVED |
+
+Required transition tests remain open: first→return, visitor→Card, local
+Card→account, sign-out/expiry/revoke, storage denial/corruption, two tabs,
+second device, conflict/migration, Card update/delete and privacy reset.
+
+## 3. Producer → store/service → consumer map
+
+| Capability/data object | Producer page/event | Frontend module | Backend/service/provider | Authoritative store/schema/key | Consumer pages | Scope | Current truth |
+|---|---|---|---|---|---|---|---|
+| Published episode | Episode production/release | `homepage.js` | Static build/hosting | `content/episode-index.json` | Homepage, Chick Flicks, Watch, weekly surfaces | public artifact | Named local states pass; exact release freshness open |
+| Atomic current-episode record | Weekly Episodes `EPX-HOME-CURRENT-EPISODE-v1` | Separate Homepage current-episode module | Platform checksum/public-proof validation | Immutable complete record + bound fallback | Town Entry presentation, KSVL/card routes only when non-null and admitted | exact release artifact | SPECIFIED / QUEUED; current code mixes projection card with hard-coded Episode 04 state |
+| News publication state | NewsStand editorial/release | Missing homepage adapter | NewsStand pipeline | Admitted publication/correction record TBD | Homepage and NewsStand | public artifact | D-043 specified; integration missing |
+| Destination readiness | Product owners + release | Missing shared adapter | Portfolio/release system | Public-promise registry is documentary, not runtime authority | Homepage, Centre, directory | release evidence | Freshness-bound projection missing |
+| Town directory | Directory owner | Inline map + shared directory script elsewhere | Static hosting | `sunnyvaile-directory.js` and duplicated homepage markup | Homepage, Centre, shared headers | public artifact | Multiple copies can drift |
+| Tour stops | Route visit/check-in | `sv-tour-checkin.js`, `homepage.js` | none | `laidies_tour_<week>` | Homepage and stop pages | device | Route visit is completion; product authority disputed |
+| FAiRY Play/ritual/express | Completing local stop set | `sv-tour-checkin.js` | future Supabase hook only | local keys including `laidies_fairy_plays`, `laidies_ritual_done`, `laidies_express_done` | Closet/reward consumers | device | Local minting exists; not authoritative reward proof |
+| Charms | Charm activation | `charm-hunt.js` | none | local charm keys | Homepage/buildings/Closet | device | Local only; entry need and admission open |
+| Card/account projection | MAiKEOVER/identity provider | `sv-nav-auth.js`; future resume hook | Supabase-shaped client token | browser auth token; Card store not proved | Header/Closet/homepage | browser/account claimed | Token cannot alone prove full Resident state |
+| Newsletter request | Homepage form | browser form/popup | Buttondown | provider lifecycle | Post Office/email | provider | Request/confirmation/error not tested here |
+| Entry analytics | Page/shared actions | Plausible/Clarity/generic scripts | third-party analytics | provider datasets | Product owner | aggregate intended | Privacy/event/baseline contract missing |
+| Campaign approval | Ali + release/social owners | none | channel + hosting | exact artifact/approval/publication receipts | public visitor | public | HOLD |
+
+## 4. End-to-end transaction contracts
+
+### Destination choice
+
+`discover → read limitation → activate → route resolves → intentional arrival
+→ receiving owner takes control → return`
+
+- Authoritative entry completion: destination arrival with the expected route
+  and intentional receiving content.
+- Duplicate/retry: safe repeated navigation; no reward or receiving completion
+  inferred.
+- Failure: remain on entry or show a labelled evergreen alternative; record
+  route/error category only after privacy approval.
+- Accessibility: activation, popup status, focus movement/return and browser
+  back must be observable.
+
+### Current episode/news
+
+`fetch admitted public record → validate status/freshness/correction → render
+current or collapse/fallback → open exact explanation/content → return`
+
+- Non-OK, empty, invalid, future, stale, corrected or withdrawn records must
+  fail closed.
+- Homepage cannot keep an independent headline/correction copy.
+- Exact artifact hashes and public-origin state bind the claim.
+
+### Local tour/reward
+
+Current implementation is:
+`route visit → local stop write → subset/all-stop check → local reward/badge
+write → homepage/Closet paint`.
+
+Required decision is whether a route visit is the intended step, what result
+is authoritative, whether rewards remain local keepsakes or move to an
+account ledger, and how duplicate/week/source-failure/revoke/refund/conflict
+behave. Until ruled, entry must not promote these writes as verified learning
+or earned entitlement.
+
+### Newsletter
+
+`read consent → submit to Buttondown → provider validates → request accepted
+or error → inbox confirmation → subscribed/unsubscribed provider state`.
+
+The browser form cannot report subscribed or delivered. Invalid, duplicate,
+blocked popup/iframe, timeout, provider outage, confirmation expiry,
+unsubscribe and retry require provider-owned evidence without copying email
+addresses into this dossier.
+
+## 5. Cross-page propagation matrix
+
+| Source action | Expected consumers | State carried | Return/deep link | Update/removal propagation | Failure evidence |
+|---|---|---|---|---|---|
+| Episode publish/correct/withdraw | Homepage, Chick Flicks, Watch, weekly route | public record + artifact identity | exact issue/watch route | rebuild/cache/public verification | success/empty/stale/withdrawn fixtures |
+| News publish/correct/retract/clear day | Homepage and NewsStand | exact publication/claim/correction identity | exact reader/story | same authority invalidates all consumers | quiet, corrected, retracted and stale fixtures |
+| Destination status change | Homepage, Centre, directory/promotion surfaces | owner/status/limitation/freshness/artifact | exact route | projection refresh and fail-closed stale behavior | missing/stale owner record |
+| Tour stop/reward state | Homepage, stop page, Closet | local or authoritative event TBD | stop/summary | update/reset/revoke contract TBD | storage denied/corrupt/duplicate |
+| Card create/update/delete/revoke | Homepage, header, MAiKEOVER, Closet | validated projection | exact local/account route | every consumer invalidates old state | malformed/expired/revoked/conflict |
+| Newsletter confirm/unsubscribe | Post Office/provider; homepage only as handoff | provider status | provider/desk | provider owns update/removal | duplicate/invalid/outage |
+
+## 6. Missing backend and integration register
+
+| Gap | User consequence | Required work | Shared owner | Product owner | Exact files/services | Acceptance proof | Launch disposition |
+|---|---|---|---|---|---|---|---|
+| Readiness projection | Held product can look ready | Build freshness-bound admitted route/status artifact and consumer adapter | Platform/Control Room | Town Entry + receivers | release registry/artifact, homepage/Centre/directory consumers | stale/missing/failure fixtures plus exact artifact | BUILD BEFORE LAUNCH |
+| News homepage adapter | No conditional Breaking/Daily presence | Consume NewsStand admitted record with correction/clear-day behavior | NewsStand + Platform | Town Entry | NewsStand authority; homepage adapter/markup | quiet/current/corrected/retracted desktop/mobile | BUILD BEFORE LAUNCH |
+| Identity/Card projection | Token/local key can imply Resident state | One validated versioned projection with expiry/revoke/delete/conflict | Identity/Platform | Town Entry consumer | shared identity adapter and pages | adversarial four-state matrix | BLOCKED — BUILD REMAINS REQUIRED |
+| Tour/reward authority | Route visits mint local rewards | Rule completion event, ledger scope, idempotency and revoke/refund | Rewards/Platform | Tour + Town Entry | `sv-tour-checkin.js`, Closet consumers, future service | authoritative producer→consumer suite | BLOCKED — BUILD REMAINS REQUIRED |
+| Entry analytics | No baseline; privacy risk | Approve event schema, prohibited fields, consent and review loop | Analytics/Privacy | Town Entry | event dictionary/adapters/providers | synthetic payload and production delivery proof | BUILD BEFORE LAUNCH |
+| Buttondown lifecycle | Visitor cannot know request/confirmation state | Provider-owned controlled lifecycle test and recovery | Post Office | Town Entry handoff | Buttondown and Post Office | request/confirm/duplicate/invalid/outage/unsubscribe | BUILD BEFORE LAUNCH |
+| Exact release binding | Local files cannot prove public state | Clean source→artifact→deploy→public receipt and rollback | Release/Control Room | Town Entry | release tooling/hosting | matching hashes and bounded public suite | BUILD BEFORE LAUNCH |
+| Sitewide style | Homepage cannot admit final visual system | Brand championship, Ali ruling, exact-use assets/tokens | Brand & Experience | Town Entry consumer | isolated championship then homepage candidate | admitted A/B/C decision evidence | OWNER DECISION REQUIRED |
+
+## 7. Shared-contract collision check
+
+- **Identity/account/profile:** `sv-nav-auth.js`, MAiKEOVER, Resident Card,
+  Closet and Platform; Town Entry consumes but cannot define.
+- **Saves/progression/rewards:** tour, charms, FAiRY Plays, ritual/express
+  badges and Closet; shared owner ruling required.
+- **Content/media admission:** Episode, NewsStand, KSVL and release owners.
+- **Navigation/discovery:** homepage inline topbar, global header, directory,
+  Visitor's Centre and receiving owners; BTB-082 applies.
+- **Analytics/privacy:** Plausible/Clarity and generic shared events; no entry
+  payload may contain email, query, identity, prompt, local state or raw replay.
+- **Tests:** `scripts/test-entry-recovery-truth.mjs` asserts an obsolete
+  Visitor's Centre `hidden` attribute and must move to a semantic shared
+  contract under a joint lock.
+- **Release:** current dirty workspace cannot bind a clean candidate.
+
+## 8. Verification and approval
+
+- Town Entry owner verifies the complete element inventory, intended result
+  and all four visitor scopes.
+- Functionality & Platform validates the readiness, identity, reward,
+  analytics and exact-release architecture.
+- Visitor's Centre, NewsStand, Episode, Library, Post Office, Identity/Rewards
+  and every promoted destination verify their handoff side.
+- Independent product/trust/brand/accessibility/technical judges inspect the
+  same exact candidate; makers do not approve their own work.
+- Control Room assigns locks and release order; Ali rules hierarchy, sitewide
+  style and the final website/copy/image campaign triad.

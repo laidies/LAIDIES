@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>THE EXTRA CREDIT | LAiDIES · SUNNYVAiLE</title>
+    <meta name="description" content="THE EXTRA CREDIT gathers the LAiDIES readings, notes, calls, stickers, charms, and tiny rituals that make the weekly lesson stick." />
+    <meta name="theme-color" content="#9b3f5f" />
+    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+      :root {
+        --hot-pink: #9b3f5f;
+        --dark-bg: #fbf6f5;
+        --card-bg: linear-gradient(145deg, #fffdfb, #f8eef2);
+        --pink-border: rgba(155, 63, 95, 0.4);
+        --muted: #5f4558;
+        --teal: #247b83;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: 'Jost', -apple-system, sans-serif;
+        background: var(--dark-bg);
+        color: #4b2148;
+        min-height: 100vh;
+        line-height: 1.5;
+      }
+      a { color: var(--hot-pink); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Site Header */
+      .site-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 78px;
+        padding: 12px clamp(14px, 3vw, 32px);
+        border-bottom: 1px solid rgba(75,33,72,0.14);
+        background: rgba(255,253,251,0.94);
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        overflow: visible;
+      }
+      .site-header .brand img {
+        width: clamp(146px, 18vw, 190px);
+        height: auto;
+        max-height: none;
+        display: block;
+        object-fit: contain;
+      }
+      .site-header nav { display: flex; gap: 16px; margin-left: auto; font-size: 0.82rem; }
+      .site-header nav a { color: #4b2148; }
+      .site-header nav a:hover { color: #7a2742; }
+      .hamburger-btn { display: none; background: none; border: none; color: #4b2148; font-size: 1.4rem; cursor: pointer; }
+      @media (max-width: 680px) {
+        .site-header {
+          min-height: 70px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .site-header .brand img {
+          width: clamp(132px, 42vw, 176px);
+          height: auto;
+          max-height: none;
+        }
+        .site-header nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(255,253,251,0.98); padding: 16px; border-bottom: 1px solid rgba(75,33,72,0.14); }
+        .hamburger-btn { display: block; margin-left: auto; }
+      }
+
+      /* Page Layout */
+      .game-page-wrap {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: clamp(24px, 4vw, 48px) clamp(14px, 3vw, 32px);
+      }
+      .game-page-header {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(75,33,72,0.14);
+      }
+      .game-page-header a {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .eyebrow {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hot-pink);
+        font-weight: 700;
+      }
+
+      /* Title Section */
+      .page-title-section {
+        text-align: center;
+        margin-bottom: 36px;
+      }
+      .page-title-section h1 {
+        font-family: Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        margin: 8px 0 12px;
+      }
+      .page-title-section .subtitle {
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .status-pill,
+      .activity-card-status {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto 10px;
+        padding: 5px 9px;
+        border: 1px solid rgba(155, 63, 95, 0.24);
+        border-radius: 999px;
+        background: rgba(252, 228, 242, 0.78);
+        color: #8a2d50;
+        font-size: 0.63rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* Episode Selector */
+      .episode-selector {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+      .ep-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1.5px solid var(--pink-border);
+        background: transparent;
+        color: #5f4558;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .ep-btn:hover {
+        border-color: var(--hot-pink);
+        color: #4b2148;
+      }
+      .ep-btn.is-active {
+        background: var(--hot-pink);
+        border-color: var(--hot-pink);
+        color: #fffdfb;
+      }
+
+      .fun-pack-purpose {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 0 26px;
+        border: 1px solid rgba(75,33,72,0.16);
+        border-radius: 18px;
+        padding: clamp(16px, 3vw, 22px);
+        background:
+          radial-gradient(circle at 92% 8%, rgba(36,123,131,0.14), transparent 18rem),
+          linear-gradient(145deg, rgba(255,253,251,0.96), rgba(247,238,238,0.84));
+        box-shadow: 0 18px 42px rgba(75,33,72,0.1);
+      }
+      .fun-pack-purpose span {
+        display: block;
+        margin-bottom: 5px;
+        color: #6f263f;
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .fun-pack-purpose p {
+        max-width: 620px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .fun-pack-purpose a {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(75,33,72,0.22);
+        border-radius: 999px;
+        padding: 10px 15px;
+        background: #3f1737;
+        color: #fffdfb;
+        font-size: 0.8rem;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      /* Activity Grid */
+      .activity-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-bottom: 40px;
+      }
+      @media (max-width: 560px) {
+        .activity-grid { grid-template-columns: 1fr; }
+      }
+
+      .activity-card {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid var(--pink-border);
+        border-radius: 16px;
+        background: var(--card-bg);
+        overflow: hidden;
+        text-decoration: none;
+        color: #4b2148;
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      }
+      .activity-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(155, 63, 95, 0.25);
+        border-color: var(--hot-pink);
+        text-decoration: none;
+      }
+      .activity-card--parked {
+        border-style: dashed;
+        cursor: default;
+      }
+      .activity-card--parked:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: var(--pink-border);
+      }
+      .activity-card-image {
+        position: relative;
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+      }
+      .activity-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .activity-card-time {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.7);
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--hot-pink);
+      }
+      .activity-card-body {
+        padding: 18px 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+      }
+      .activity-card-body .activity-card-status {
+        margin: 0 0 5px;
+      }
+      .activity-card-body h3 {
+        font-family: Georgia, serif;
+        font-size: 1.05rem;
+        line-height: 1.2;
+        color: #4b2148;
+      }
+      .activity-card-body p {
+        font-size: 0.8rem;
+        color: #5f4558;
+        line-height: 1.4;
+        flex: 1;
+      }
+      .activity-card-body .card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 10px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--hot-pink);
+        transition: gap 0.2s;
+      }
+      .activity-card:hover .card-cta { gap: 8px; }
+
+      .print-panel-backdrop[hidden] { display: none; }
+      .print-panel-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        background: rgba(13, 6, 17, 0.78);
+      }
+      .print-panel {
+        width: min(430px, 100%);
+        border: 1px solid rgba(255,255,255,0.55);
+        border-radius: 22px;
+        padding: 22px;
+        background:
+          linear-gradient(145deg, rgba(255,248,252,0.98), rgba(255,232,245,0.94)),
+          #fff8fc;
+        color: #1a0a12;
+        box-shadow: 0 28px 80px rgba(0,0,0,0.42);
+      }
+      .print-panel h2 {
+        font-family: Georgia, serif;
+        font-size: 1.55rem;
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .print-panel p {
+        color: rgba(26,10,18,0.7);
+        font-size: 0.9rem;
+        line-height: 1.45;
+        margin-bottom: 16px;
+      }
+      .print-panel-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .print-panel-actions a,
+      .print-panel-actions button {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(185,93,120,0.35);
+        border-radius: 999px;
+        padding: 10px 15px;
+        background: #fff;
+        color: #8c1160;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .print-panel-actions a:first-child {
+        background: var(--hot-pink);
+        color: #fff;
+      }
+
+      /* Episode info card */
+      .episode-info {
+        background: var(--card-bg);
+        border: 1px solid var(--pink-border);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .episode-info h2 {
+        font-family: Georgia, serif;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+      }
+      .episode-info p {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .site-footer {
+        padding: 32px 24px 44px;
+        border-top: 1px solid rgba(75,33,72,0.16);
+        background:
+          radial-gradient(circle at 86% 0%, rgba(36,123,131,0.12), transparent 22rem),
+          linear-gradient(180deg, rgba(255,253,251,0.98), rgba(247,238,238,0.72));
+        color: rgba(75,33,72,0.72);
+        text-align: center;
+        font-size: 0.78rem;
+      }
+      .site-footer div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 16px;
+        margin-top: 10px;
+      }
+      .site-footer a {
+        color: #6f263f;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .site-footer a:hover { text-decoration: underline; }
+
+      @media (max-width: 560px) {
+        .fun-pack-purpose {
+          align-items: stretch;
+          flex-direction: column;
+        }
+      }
+
+      
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+      <link rel="stylesheet" href="../content/site/mini-player.css">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+  <body>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+    <main>
+      <div class="game-page-wrap">
+        
+
+        <!-- Title -->
+        <section class="page-title-section">
+          <p class="eyebrow">Games / THE EXTRA CREDIT</p>
+          <span class="status-pill">Four episode shelves open</span>
+          <h1>THE EXTRA CREDIT</h1>
+          <p class="subtitle">Pick an episode, then choose something playful to make the lesson stick.</p>
+        </section>
+
+        <aside class="fun-pack-purpose" aria-label="How THE EXTRA CREDIT fits the weekly ritual">
+          <div>
+            <span>Ritual connection</span>
+            <p>Start with the episode or Study Pack, then use THE EXTRA CREDIT for a reading, a useful nudge, a call, or a round of Girl Talk.</p>
+          </div>
+          <a href="../chick-flicks.html">Choose an episode first</a>
+        </aside>
+
+        <!-- Episode Selector -->
+        <div class="episode-selector" role="group" aria-label="Select episode fun pack">
+          <button class="ep-btn" data-ep="issue01" type="button">Episode 01</button>
+          <button class="ep-btn" data-ep="issue02" type="button">Episode 02</button>
+          <button class="ep-btn" data-ep="issue03" type="button">Episode 03</button>
+          <button class="ep-btn is-active" data-ep="issue04" type="button">Episode 04</button>
+        </div>
+
+        <!-- Episode Context -->
+        <div class="episode-info" id="episodeInfo">
+          <h2 id="epTitle">Episode 04: The Founding Mothers</h2>
+          <p id="epDesc">The one where she learns that the history of AI was built by women long before it landed on her desk.</p>
+        </div>
+
+        <!-- Activity Grid -->
+        <div class="activity-grid" id="activityGrid">
+          <!-- Weekly Reading -->
+          <a href="madame-claio.html" class="activity-card" data-activity="madame">
+            <div class="activity-card-image">
+              <img src="../assets/madame-claio-character-v1.png" alt="Madame CLAi-O in a pink Y2K fortune-teller setup" loading="lazy" />
+              <span class="activity-card-time">~3 min</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-card-status">Available now</span>
+              <h3>Weekly Reading</h3>
+              <p>Ask Madame CLAi-O for the tiny dramatic forecast you needed before opening another tab.</p>
+              <span class="card-cta">Get your reading &rarr;</span>
+            </div>
+          </a>
+
+          <!-- FAiRY GODMOTHER -->
+          <a href="fairy-godmother.html" class="activity-card" data-activity="fairy">
+            <div class="activity-card-image">
+              <img src="../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b" alt="LAiDIES FAiRY GODMOTHER portrait with pink sparkle styling" loading="lazy" />
+              <span class="activity-card-time">~2 min</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-card-status">Available now</span>
+              <h3>FAiRY GODMOTHER Note</h3>
+              <p>Get one useful nudge from the FAiRY Godmother when your work brain needs sparkle with actual instructions.</p>
+              <span class="card-cta">Get your note &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Dream Phone -->
+          <a href="dream-phone.html" class="activity-card" data-activity="dream">
+            <div class="activity-card-image">
+              <img src="../assets/dream-phone-cordless-crop.png" alt="Pink cordless Dream Phone on a Y2K desk" loading="lazy" />
+              <span class="activity-card-time">~3 min</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-card-status">Available now</span>
+              <h3>Dream Phone</h3>
+              <p>Use Just Call mode for a quick second opinion in the voice you need: Receipts, Bestie, or Boundary.</p>
+              <span class="card-cta">Call Dream Phone &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Girl Talk -->
+          <a href="girl-talk.html" class="activity-card" data-activity="girltalk">
+            <div class="activity-card-image">
+              <img src="../assets/girl-talk-board.webp" alt="Retro Girl Talk board game styled for LAiDIES prompts" loading="lazy" />
+              <span class="activity-card-time">~5 min</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-card-status">Available now</span>
+              <h3>Girl Talk</h3>
+              <p>Pick Truth or Dare and draw an episode-linked prompt from the deck.</p>
+              <span class="card-cta">Play Girl Talk &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+
+        
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>LAiDIES</strong>&trade; &copy; 2026 Ali Eakin. All rights reserved.</p>
+      <div>
+        <a href="https://www.instagram.com/laidies.ai/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="../start-here.html">Start Here</a>
+        <a href="../this-week.html">This Week&rsquo;s Bag</a>
+        <a href="/">SUNNYVAiLE</a>
+        <a href="../community.html">Join The Club</a>
+        <a href="../reference-closet.html">THE LORE CLOSET</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </footer>
+
+    <script>
+    (function() {
+      'use strict';
+
+      const episodes = {
+        issue01: {
+          title: 'Episode 01: On Wednesdays We Do AI',
+          desc: 'The one where she opens the AI tab for the first time without making it a whole personality crisis.',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
+        },
+        issue02: {
+          title: 'Episode 02: Tell Me What You Want',
+          desc: 'The one where she learns to write specific, context-rich prompts that produce usable work output.',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
+        },
+        issue03: {
+          title: 'Episode 03: The Burn Book Problem',
+          desc: 'The one where she stops mistaking polish for proof and checks the alibi before it gets on the stand.',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
+        },
+        issue04: {
+          title: 'Episode 04: The Founding Mothers',
+          desc: 'The one where she learns that the history of AI was built by women long before it landed on her desk.',
+          madame: 'madame-claio.html',
+          fairy: 'fairy-godmother.html',
+          dream: 'dream-phone.html',
+          girltalk: 'girl-talk.html',
+          madameImg: '../assets/madame-claio-character-v1.png',
+          fairyImg: '../assets/town-characters/scenes/fairy-godmother-scene.jpg?v=20260708b',
+          dreamImg: '../assets/dream-phone-cordless-crop.png',
+          girltalkImg: '../assets/girl-talk-board.webp',
+        }
+      };
+
+      const epBtns = document.querySelectorAll('.ep-btn');
+      const epTitle = document.getElementById('epTitle');
+      const epDesc = document.getElementById('epDesc');
+      const params = new URLSearchParams(window.location.search || '');
+      const fromBag = params.get('from') === 'this-week';
+      let currentEpisodeKey = 'issue04';
+
+      function episodeNumberFromKey(ep) {
+        const match = String(ep || '').match(/\d+/);
+        return match ? Number(match[0]) : 2;
+      }
+
+      function withRitualReturn(url, ep) {
+        if (!url) return url;
+        const issue = encodeURIComponent(episodeNumberFromKey(ep));
+        const hashIndex = url.indexOf('#');
+        const hash = hashIndex >= 0 ? url.slice(hashIndex) : '';
+        let base = hashIndex >= 0 ? url.slice(0, hashIndex) : url;
+        if (!/[?&]issue=/.test(base)) {
+          base += (base.indexOf('?') === -1 ? '?' : '&') + 'issue=' + issue;
+        }
+        if (fromBag && !/[?&]from=/.test(base)) {
+          base += (base.indexOf('?') === -1 ? '?' : '&') + 'from=this-week';
+        }
+        if (fromBag && !/[?&]bag=/.test(base)) {
+          base += '&bag=open';
+        }
+        if (fromBag && params.get('draft') === '1' && !/[?&]draft=/.test(base)) {
+          base += '&draft=1';
+        }
+        return base + hash;
+      }
+
+      function switchEpisode(ep) {
+        const data = episodes[ep];
+        if (!data) return;
+        currentEpisodeKey = ep;
+
+        epBtns.forEach(b => b.classList.toggle('is-active', b.dataset.ep === ep));
+        epTitle.textContent = data.title;
+        epDesc.textContent = data.desc;
+
+        // Update links
+        const grid = document.getElementById('activityGrid');
+        const cards = grid.querySelectorAll('.activity-card');
+        const links = [
+          withRitualReturn(data.madame, ep),
+          withRitualReturn(data.fairy, ep),
+          withRitualReturn(data.dream, ep),
+          withRitualReturn(data.girltalk, ep)
+        ];
+        const imageKeys = ['madameImg', 'fairyImg', 'dreamImg', 'girltalkImg'];
+        cards.forEach((card, i) => {
+          if (links[i] && !card.dataset.parked) card.href = links[i];
+          const image = card.querySelector('img');
+          if (image && data[imageKeys[i]]) image.src = data[imageKeys[i]];
+        });
+      }
+
+      epBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchEpisode(btn.dataset.ep));
+      });
+
+      const ritualIssue = String(params.get('issue') || '').match(/\d+/);
+      if (ritualIssue) {
+        switchEpisode('issue' + String(Number(ritualIssue[0])).padStart(2, '0'));
+      }
+
+      (function insertWednesdayReturnLink() {
+        if (params.get('from') !== 'this-week' || document.querySelector('[data-wednesday-return]')) return;
+        const issue = String(params.get('issue') || '').match(/\d+/);
+        const draftParam = params.get('draft') === '1' ? '&draft=1' : '';
+        const link = document.createElement('a');
+        link.dataset.wednesdayReturn = 'true';
+        link.href = '../this-week.html' + (issue ? '?issue=' + encodeURIComponent(Number(issue[0])) + '&bag=open&group=fun' + draftParam : '?bag=open&group=fun' + draftParam);
+        link.textContent = '\u2190 Back to the Bag';
+        link.style.cssText = 'position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:clamp(14px,3vw,26px);right:auto;z-index:120;display:inline-flex;align-items:center;justify-content:center;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.94);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);';
+        document.querySelector('main')?.prepend(link);
+      })();
+    })();
+    </script>
+      <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
+    <script src="../content/site/brand-polish.js?v=wm2" defer></script>
+  <script defer src="/content/site/sv-back-nav.js?v=2"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

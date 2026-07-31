@@ -1,0 +1,534 @@
+/*
+ * Cycle 7 — incumbent visual-only challenger
+ *
+ * Scope: visual treatment only, injected over the verified public Homepage.
+ * Invariants: copy, DOM/IA, links, routes, imagery, runtime and features.
+ * The evergreen masthead is deliberately untouched.
+ */
+
+body {
+  --c7-ink: #17142f;
+  --c7-plum: #2a173d;
+  --c7-navy: #121e3a;
+  --c7-teal: #08aaa8;
+  --c7-cyan: #29d3d0;
+  --c7-pink: #f23883;
+  --c7-coral: #ff6b4a;
+  --c7-sky: #68bdf4;
+  --c7-mint: #bfeee7;
+  --c7-blush: #f8abc0;
+  --c7-paper-blue: #d9edf2;
+}
+
+/* Navigation stays recognisably incumbent; only the interaction accents sharpen. */
+.topbar .logo .lac,
+.topbar .logo-tit {
+  color: var(--c7-teal);
+}
+
+.topbar nav a:not(.join-btn):hover,
+.topbar nav a:not(.join-btn):focus-visible {
+  color: var(--c7-pink);
+  text-decoration-color: var(--c7-pink);
+}
+
+.topbar .join-btn,
+.mobile-nav .join-btn {
+  background: var(--c7-pink);
+  color: var(--c7-ink);
+}
+
+/* Mature editorial headings and hard, controlled section transitions. */
+main > section:not(.hero) {
+  position: relative;
+}
+
+main > section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--c7-cyan) 0 30%,
+    var(--c7-pink) 30% 58%,
+    var(--c7-coral) 58% 78%,
+    var(--c7-sky) 78% 100%
+  );
+}
+
+.explainer h2,
+.intent h2,
+.weekly h2,
+.activities h2,
+.reference h2,
+.town h2,
+.closet h2,
+.postcard-band h2,
+.spot h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.explainer .eyebrow,
+.intent .eyebrow,
+.weekly .eyebrow,
+.activities .eyebrow,
+.reference .eyebrow,
+.town .eyebrow,
+.closet .eyebrow,
+.postcard-band .eyebrow {
+  font-family: Jost, system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+/* Method: calm reading field with electric structure, never a cream page. */
+.explainer {
+  background:
+    linear-gradient(112deg, rgba(41, 211, 208, 0.18), transparent 34%),
+    linear-gradient(180deg, #d9edf2 0%, #bfeee7 100%);
+  color: var(--c7-ink);
+}
+
+.explainer .eyebrow {
+  color: #006f71;
+}
+
+.explainer h2,
+.explainer h3,
+.explainer p,
+.explainer .method-strap,
+.explainer .text-link,
+.explainer .inline-link,
+.explainer .tune-in {
+  color: var(--c7-ink);
+}
+
+.explainer-card img {
+  border: 3px solid var(--c7-ink);
+  border-radius: 4px;
+  box-shadow: 10px 10px 0 var(--c7-coral);
+}
+
+.why-box {
+  border: 3px solid var(--c7-ink);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(242, 56, 131, 0.2), transparent 45%),
+    linear-gradient(135deg, #23385d, #2a173d);
+  box-shadow: 10px 10px 0 var(--c7-teal);
+}
+
+.why-box .eyebrow,
+.foundress-caption {
+  color: #ff8c72;
+}
+
+.why-box h3,
+.why-box p {
+  color: #f7fbfb;
+}
+
+.why-box .text-link,
+.why-links .text-link {
+  background: var(--c7-coral);
+  color: var(--c7-ink);
+}
+
+.step-n {
+  border: 2px solid var(--c7-ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--c7-ink);
+}
+
+/* Intent: the same four truthful jobs, now a decisive town-arrival band. */
+.intent {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 48%),
+    linear-gradient(125deg, #ef4b83 0%, #ff795b 46%, #19aaa7 100%);
+  color: var(--c7-ink);
+}
+
+.intent .eyebrow,
+.intent > div > p:last-child {
+  color: var(--c7-ink);
+}
+
+.intent-grid a {
+  border: 2px solid var(--c7-ink);
+  border-left: 7px solid var(--c7-cyan);
+  border-radius: 7px;
+  background: var(--c7-navy);
+  color: #f7fbfb;
+  box-shadow: 7px 7px 0 rgba(23, 20, 47, 0.88);
+}
+
+.intent-grid a:nth-child(2) {
+  border-left-color: var(--c7-pink);
+}
+
+.intent-grid a:nth-child(3) {
+  border-left-color: var(--c7-coral);
+}
+
+.intent-grid a:nth-child(4) {
+  border-left-color: var(--c7-sky);
+}
+
+.intent-grid strong,
+.intent-grid span {
+  color: #f7fbfb;
+}
+
+.intent-grid a:hover,
+.intent-grid a:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 11px 11px 0 rgba(23, 20, 47, 0.9);
+}
+
+/* Weekly: luminous night editorial, closer to the evergreen town atmosphere. */
+.weekly {
+  background:
+    radial-gradient(circle at 84% 12%, rgba(242, 56, 131, 0.26), transparent 30rem),
+    linear-gradient(132deg, #073b4c 0%, #125e68 47%, #2a173d 100%);
+  color: #f7fbfb;
+}
+
+.weekly .eyebrow {
+  color: #78f0e9;
+}
+
+.weekly .section-heading > p:last-child {
+  color: #f7fbfb;
+}
+
+.feature-card {
+  border: 3px solid var(--c7-ink);
+  border-radius: 8px;
+  background: var(--c7-paper-blue);
+  color: var(--c7-ink);
+  box-shadow: 10px 10px 0 var(--c7-pink);
+}
+
+.feature-card .tag {
+  color: #006f71;
+}
+
+.season-track a {
+  border-left: 4px solid transparent;
+  background: rgba(23, 20, 47, 0.08);
+}
+
+.season-track .st-current a {
+  border-left-color: var(--c7-pink);
+  background: rgba(242, 56, 131, 0.15);
+}
+
+.route-head {
+  border: 2px solid rgba(120, 240, 233, 0.52);
+  border-radius: 7px;
+  background: rgba(7, 38, 55, 0.72);
+}
+
+.ritual .ritual-stop {
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 7px;
+  background: rgba(18, 30, 58, 0.66);
+}
+
+.ritual li:nth-child(n) .ritual-stop > span {
+  border: 2px solid var(--c7-ink);
+  color: var(--c7-ink);
+}
+
+.express {
+  border: 2px solid var(--c7-ink);
+  border-radius: 7px;
+  background: linear-gradient(100deg, var(--c7-coral), var(--c7-pink));
+  box-shadow: 7px 7px 0 var(--c7-ink);
+}
+
+/* Activities: imagery stays complete; the white-card grid is removed. */
+.activities {
+  background:
+    radial-gradient(circle at 8% 14%, rgba(41, 211, 208, 0.13), transparent 26rem),
+    var(--c7-navy);
+  color: #f7fbfb;
+}
+
+.activities .eyebrow {
+  color: #78f0e9;
+}
+
+.activities .section-heading > p:last-child {
+  color: #e9f1f3;
+}
+
+.filter button {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  color: #f7fbfb;
+}
+
+.filter button.active {
+  border-color: var(--c7-coral);
+  background: var(--c7-coral);
+  color: var(--c7-ink);
+}
+
+.activity-grid article {
+  border: 2px solid rgba(104, 189, 244, 0.42);
+  border-radius: 7px;
+  background: #1e2c4b;
+  color: #f7fbfb;
+  box-shadow: 7px 7px 0 rgba(5, 13, 31, 0.82);
+}
+
+.activity-grid article:nth-child(even) {
+  background: #263d4b;
+  border-color: rgba(41, 211, 208, 0.52);
+}
+
+.activity-grid article h3,
+.activity-grid article p {
+  color: #f7fbfb;
+}
+
+.activity-grid article .tag {
+  color: #78f0e9;
+}
+
+.activities article button {
+  border: 2px solid var(--c7-ink);
+  border-radius: 5px;
+  background: var(--c7-pink);
+  color: var(--c7-ink);
+  box-shadow: 4px 4px 0 #090d1c;
+}
+
+.activities article:nth-child(even) button {
+  background: var(--c7-coral);
+}
+
+/* Spotlight, reference and town keep authored imagery as the interface. */
+.spotlights {
+  background: #17213c;
+}
+
+.spot {
+  border: 3px solid #0b1023;
+  border-radius: 8px;
+  box-shadow: 10px 10px 0 var(--c7-teal);
+}
+
+.spot:first-child {
+  background: linear-gradient(115deg, #e74d72, #ff704f);
+}
+
+.spot:nth-child(2) {
+  background: linear-gradient(115deg, #1f4362, #6e3f72);
+  box-shadow: 10px 10px 0 var(--c7-pink);
+}
+
+.reference {
+  background:
+    radial-gradient(circle at 90% 14%, rgba(242, 56, 131, 0.22), transparent 24rem),
+    linear-gradient(135deg, #075f67, #17213c 64%, #2a173d);
+}
+
+.reference .eyebrow {
+  color: #78f0e9;
+}
+
+.reference input {
+  border: 2px solid var(--c7-ink);
+  background: var(--c7-paper-blue);
+  color: var(--c7-ink);
+}
+
+.reference form button {
+  border: 2px solid var(--c7-ink);
+  background: var(--c7-coral);
+  color: var(--c7-ink);
+}
+
+.town {
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.11), transparent 46%),
+    linear-gradient(125deg, #56d4cc 0%, #82d7d0 42%, #f4718a 100%);
+  color: var(--c7-ink);
+}
+
+.town .eyebrow,
+.town .section-heading > p:last-child {
+  color: var(--c7-ink);
+}
+
+.town-map img {
+  border: 3px solid var(--c7-ink);
+  border-radius: 8px;
+  box-shadow: 11px 11px 0 var(--c7-navy);
+}
+
+.district {
+  border: 3px solid var(--c7-ink);
+  border-radius: 8px;
+  box-shadow: 8px 8px 0 var(--c7-navy);
+}
+
+.district > div {
+  background: linear-gradient(180deg, transparent 26%, rgba(8, 12, 29, 0.91) 80%);
+}
+
+.district span {
+  color: #ff87ad;
+}
+
+.town-index {
+  border: 2px solid var(--c7-ink);
+  border-radius: 7px;
+  background: rgba(217, 237, 242, 0.88);
+  padding: 0 20px 18px;
+}
+
+/* Collection and Postcard become colour-bearing editorial conclusions. */
+.closet {
+  border: 3px solid #090d1c;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(41, 211, 208, 0.19), transparent 23rem),
+    linear-gradient(135deg, #2a173d, #182a4a);
+  box-shadow: 10px 10px 0 var(--c7-coral);
+}
+
+.closet .eyebrow {
+  color: #78f0e9;
+}
+
+.closet h2,
+.closet p,
+.closet li,
+.closet a {
+  color: #f7fbfb;
+}
+
+.closet .closet-photo {
+  border: 3px solid #090d1c;
+  border-radius: 5px;
+  box-shadow: 9px 9px 0 var(--c7-pink);
+}
+
+.closet-actions .button {
+  border: 2px solid #090d1c;
+  border-radius: 5px;
+  background: var(--c7-coral);
+  color: var(--c7-ink);
+}
+
+.postcard-band {
+  border: 3px solid var(--c7-ink);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 54%),
+    linear-gradient(130deg, #ff7659, #ef4b83 58%, #5b86cf);
+  color: var(--c7-ink);
+  box-shadow: 10px 10px 0 var(--c7-navy);
+}
+
+.postcard-band .eyebrow,
+.postcard-band p {
+  color: var(--c7-ink);
+}
+
+.signup-form input {
+  border: 2px solid var(--c7-ink);
+  background: var(--c7-paper-blue);
+  color: var(--c7-ink);
+}
+
+.signup-form button {
+  border: 2px solid var(--c7-ink);
+  border-radius: 5px;
+  background: var(--c7-cyan);
+  color: var(--c7-ink);
+}
+
+footer {
+  border-top: 8px solid var(--c7-coral);
+  background: #090d1c;
+}
+
+/* Focus remains explicit on every new colour-bearing surface. */
+.intent-grid a:focus-visible,
+.district:focus-visible,
+.spot:focus-visible,
+.activity-grid button:focus-visible,
+.filter button:focus-visible,
+.signup-form input:focus-visible,
+.signup-form button:focus-visible {
+  outline: 4px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    border-bottom-width: 3px;
+  }
+
+  .intent-grid a,
+  .feature-card,
+  .activity-grid article,
+  .spot,
+  .town-map img,
+  .district,
+  .closet,
+  .postcard-band {
+    box-shadow: 5px 5px 0 var(--c7-ink);
+  }
+}
+
+@media (max-width: 560px) {
+  main > section:not(.hero)::before {
+    height: 6px;
+  }
+
+  .intent,
+  .weekly,
+  .activities,
+  .town {
+    padding-top: 38px;
+  }
+
+  .intent-grid a {
+    min-height: 164px;
+  }
+
+  .activity-grid article {
+    box-shadow: 5px 5px 0 #090d1c;
+  }
+
+  .reference form > div {
+    gap: 8px;
+  }
+
+  .reference input,
+  .reference form button {
+    border-radius: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intent-grid a,
+  .district,
+  .spot,
+  .button,
+  button {
+    transition: none !important;
+  }
+}

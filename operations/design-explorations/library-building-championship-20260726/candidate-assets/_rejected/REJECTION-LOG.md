@@ -1,0 +1,1 @@
+REJECTED: both v1 outputs are photorealistic/corporate-library imagery; site visual lock requires adult dimensional graphic-novel ink, faceted lighting and controlled printed texture. Do not use or derive.

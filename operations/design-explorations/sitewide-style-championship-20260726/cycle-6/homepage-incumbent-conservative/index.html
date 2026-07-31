@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loading LAiDIES Homepage Championship — Cycle 6</title>
+</head>
+<body>
+  <script>
+    (async function () {
+      var expectedIncumbentSha256 = "8231d1290b15a0a867ee063e947f39b3cc22a8c54a4efa741eff60e0c75a1eb3";
+      var response = await fetch(
+        "/operations/design-explorations/sitewide-style-championship-20260726/cycle-6/homepage-incumbent-conservative/incumbent-source.html",
+        { cache: "no-store" }
+      );
+      if (!response.ok) throw new Error("Unable to load the incumbent Homepage");
+      var incumbent = await response.text();
+      var digest = await crypto.subtle.digest(
+        "SHA-256",
+        new TextEncoder().encode(incumbent)
+      );
+      var incumbentSha256 = Array.from(new Uint8Array(digest))
+        .map(function (byte) { return byte.toString(16).padStart(2, "0"); })
+        .join("");
+      if (incumbentSha256 !== expectedIncumbentSha256) {
+        document.body.innerHTML =
+          "<p role=\"alert\">Cycle 6 held: incumbent Homepage source changed.</p>";
+        throw new Error("Incumbent Homepage checksum mismatch");
+      }
+      var candidateLink = [
+        '<link rel="stylesheet"',
+        ' href="/operations/design-explorations/sitewide-style-championship-20260726/cycle-6/homepage-incumbent-conservative/candidate.css"',
+        ' data-cycle="homepage-incumbent-conservative-6">'
+      ].join("");
+      var candidateRuntime = [
+        '<script src="/operations/design-explorations/sitewide-style-championship-20260726/cycle-6/homepage-incumbent-conservative/candidate.js"',
+        ' data-cycle-runtime="homepage-incumbent-conservative-6"><\/script>'
+      ].join("");
+      var candidate = incumbent
+        .replace("</head>", candidateLink + "</head>")
+        .replace("</body>", candidateRuntime + "</body>");
+      document.open();
+      document.write(candidate);
+      document.close();
+      document.documentElement.dataset.incumbentSha256 = incumbentSha256;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{
+  "schema": "laidies.emq.independent-trailer-verdict.v1",
+  "task_id": "EMQ-TRAILER-V3-INDEPENDENT-JUDGE-2026-07-26",
+  "judged_at": "2026-07-26T17:37:11-07:00",
+  "judge": "Episode Media Quality — independent judge",
+  "verdict": "HOLD",
+  "frozen_tuple": {
+    "mp4_sha256": "4bdd3de0729fbabc865edd3b5f435e0c93ff98d113acff4fd926aedb55c123ef",
+    "maker_qc_sha256": "c3ead36e1f82d5874411bd45212362937734aca8816e7f8b2db39b11de86d5ac",
+    "map_sha256": "2969d68a4c82edb2a32a9d22ae90c8b0ee5478eee0111e970fb82515b1a0d3e7",
+    "config_sha256": "48b761ee725a3a512d4be9ab3b57e946ecf855c8206aaad8580a014f2a5bd98f",
+    "vtt_sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+    "srt_sha256": "67bd3c86be47e5eecdda74478da491269af83b8521ad2c48af6866c67780aa66",
+    "all_matched": true
+  },
+  "mechanical_checks": {
+    "full_decode": "PASS",
+    "source_hashes": "PASS_58_OF_58",
+    "normalized_clip_hashes": "PASS_58_OF_58",
+    "episode_01_04_source_boundary": "PASS",
+    "caption_cues": {
+      "vtt": 207,
+      "srt": 207,
+      "last_spoken_or_sung_end_seconds": 965.14
+    },
+    "video_stream_end_seconds": 960.0,
+    "audio_stream_end_seconds": 967.1,
+    "map_clock_matches_mp4": false
+  },
+  "motion_clock_failures": [
+    {
+      "beat": "B05",
+      "target_duration_seconds": 17.266667,
+      "declared_freeze_seconds": 2.0,
+      "actual_normalized_duration_seconds": 15.23,
+      "next_cut_expected_seconds": 60.52,
+      "next_cut_observed_seconds": 58.5,
+      "cumulative_drift_seconds": -2.02
+    },
+    {
+      "beat": "B13",
+      "target_duration_seconds": 11.933333,
+      "declared_freeze_seconds": 1.79,
+      "actual_normalized_duration_seconds": 10.13,
+      "next_cut_expected_seconds": 195.22,
+      "next_cut_observed_seconds": 191.4,
+      "cumulative_drift_seconds": -3.82
+    },
+    {
+      "beat": "B39",
+      "target_duration_seconds": 8.066667,
+      "declared_freeze_seconds": 1.21,
+      "actual_normalized_duration_seconds": 6.83,
+      "next_cut_expected_seconds": 577.72,
+      "next_cut_observed_seconds": 572.667,
+      "cumulative_drift_seconds": -5.053
+    },
+    {
+      "beat": "B54",
+      "target_duration_seconds": 28.066667,
+      "declared_freeze_seconds": 2.0,
+      "actual_normalized_duration_seconds": 26.03,
+      "next_cut_expected_seconds": 844.86,
+      "next_cut_observed_seconds": 837.767,
+      "cumulative_drift_seconds": -7.093
+    }
+  ],
+  "high_risk_visual_corrections": {
+    "B08": "PASS",
+    "B14": "PASS",
+    "B23": "PASS_AT_SAMPLED_FRAME",
+    "B55": "PASS",
+    "B57": "PASS",
+    "B58": "PASS_AT_SAMPLED_FRAME"
+  },
+  "heroine_outfit_authority": "HOLD_RECONCILIATION_REQUIRED",
+  "normal_speed_human_av": "NOT_COMPLETED_CURRENT_TUPLE_ALREADY_FAILS",
+  "player_and_public_readiness": "UNPROVED_NOT_CHANGED",
+  "repair_owner": "Trailer v3 Video Editor / builder owner under Weekly Episodes Director",
+  "acceptance_owner": "Episode Media Quality independent judge",
+  "next_action": "Reconcile heroine outfit authority, repair the four motion clips so their declared freeze frames physically exist, rebuild a successor tuple, assert all clip frame counts, all 57 cut onsets and video/audio/caption end alignment, then return for a new independent 58-beat delivery-size and complete human normal-speed AV/player review.",
+  "authority_truth": {
+    "maker_or_source_bytes_changed": false,
+    "site_route_manifest_qc_config_builder_changed": false,
+    "integration_authorized": false,
+    "deployment_authorized": false,
+    "publication_authorized": false,
+    "ali_decision_authorized": false
+  }
+}

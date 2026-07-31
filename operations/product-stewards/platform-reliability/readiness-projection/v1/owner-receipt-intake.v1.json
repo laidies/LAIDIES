@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordType": "entry-readiness-owner-receipt-intake",
+  "candidate": {
+    "projectionId": "readiness-shared-fail-closed-v1",
+    "sequence": 1,
+    "generatedAt": "2026-07-26T18:30:00Z",
+    "validUntil": "2026-07-27T18:30:00Z",
+    "replacesProjectionId": null
+  },
+  "ownerSlots": [
+    {"destinationId":"visitors-centre","productId":"visitors-centre","ownerId":"visitors-centre-champion","receiptPath":null},
+    {"destinationId":"newsstand","productId":"newsstand","ownerId":"newsstand-champion","receiptPath":null},
+    {"destinationId":"chick-flicks","productId":"chick-flicks","ownerId":"chick-flicks-champion","receiptPath":null},
+    {"destinationId":"blend-snap","productId":"blend-snap","ownerId":"blend-snap-champion","receiptPath":null},
+    {"destinationId":"mme-claio","productId":"mme-claio","ownerId":"mme-claio-champion","receiptPath":null},
+    {"destinationId":"maikeover","productId":"maikeover","ownerId":"maikeover-champion","receiptPath":null},
+    {"destinationId":"bronze-aige","productId":"bronze-aige","ownerId":"bronze-aige-champion","receiptPath":null},
+    {"destinationId":"dream-phone","productId":"dream-phone","ownerId":"dream-phone-champion","receiptPath":null},
+    {"destinationId":"mall","productId":"mall","ownerId":"mall-champion","receiptPath":null},
+    {"destinationId":"ksvl-radio","productId":"ksvl","ownerId":"ksvl-champion","receiptPath":null},
+    {"destinationId":"post-office","productId":"post-office","ownerId":"post-office-champion","receiptPath":null},
+    {"destinationId":"town-hall","productId":"town-hall","ownerId":"town-hall-champion","receiptPath":null},
+    {"destinationId":"library","productId":"library","ownerId":"library-champion","receiptPath":null},
+    {"destinationId":"sunnyvaile-high","productId":"sunnyvaile-high","ownerId":"sunnyvaile-high-champion","receiptPath":null},
+    {"destinationId":"fairy-godmother","productId":"fairy-godmother","ownerId":"fairy-godmother-champion","receiptPath":null},
+    {"destinationId":"sorority-house","productId":"sorority-house","ownerId":"sorority-house-champion","receiptPath":null},
+    {"destinationId":"sanctuary","productId":"luminairy","ownerId":"luminairy-champion","receiptPath":null}
+  ],
+  "currentSlots": [
+    {"slot":"latest-episode","ownerId":"weekly-episodes-engine-production-director","receiptPath":null},
+    {"slot":"breaking","ownerId":"newsstand-champion","receiptPath":null},
+    {"slot":"daily","ownerId":"newsstand-champion","receiptPath":null}
+  ],
+  "missingReceiptPolicy": {
+    "destinationState": "held",
+    "destinationLabel": "Owner readiness receipt pending",
+    "destinationDisposition": "OWNER_RECEIPT_MISSING_FAIL_CLOSED",
+    "currentState": "withdrawn",
+    "currentDisposition": "OWNER_RECEIPT_MISSING_NO_PROMOTION",
+    "completionClaim": false
+  }
+}

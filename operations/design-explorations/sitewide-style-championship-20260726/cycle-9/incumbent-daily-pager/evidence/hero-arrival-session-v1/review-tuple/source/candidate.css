@@ -1,0 +1,2327 @@
+:root {
+  --electric-pink: #ea2fb6;
+  --electric-coral: #ff6b5f;
+  /* COMMUNITY RADIO neon core—not the former softened aqua. */
+  --electric-aqua: #19d3d1;
+  --electric-blue: #287fe8;
+  --electric-violet: #7658e8;
+  --electric-lilac: #c69cff;
+  --electric-yellow: #ffd43b;
+  --electric-plum: #3a1838;
+  --electric-cream: #fffdfb;
+  --cheat-gradient-page:
+    radial-gradient(circle at 8% 5%, rgba(255, 228, 90, 0.68), transparent 19rem),
+    radial-gradient(circle at 92% 12%, rgba(238, 63, 151, 0.28), transparent 25rem),
+    radial-gradient(circle at 82% 95%, rgba(49, 114, 223, 0.26), transparent 30rem),
+    linear-gradient(135deg, #ecd9f3 0%, #d9e8fb 51%, #efcce9 100%);
+  --cheat-gradient-pink-violet-blue:
+    linear-gradient(145deg, #ef4d9c, #b75cc4 58%, #6c7cd1);
+  --cheat-gradient-cyan-violet-pink:
+    linear-gradient(115deg, #68cfe1, #b28fe3 47%, #ef68aa);
+  --cheat-gradient-pink-yellow-cyan:
+    linear-gradient(120deg, #ef5ca6, #f7d45c 49%, #69cce0);
+  --cheat-gradient-cyan-periwinkle:
+    linear-gradient(125deg, #65d1e3, #9cb9ed);
+  --cheat-gradient-purple-blue:
+    linear-gradient(115deg, #744fc0, #5f79d8);
+}
+
+/* Richer versions of the existing LAiDIES colour families, carried through
+   controls, labels and accents without replacing the page backgrounds. */
+body.daily-pager-candidate {
+  --rose: #b33173;
+  --rose-bright: var(--electric-pink);
+  --gold: var(--electric-yellow);
+  --teal: var(--electric-aqua);
+  --sky: #66a9e8;
+  --jacaranda: var(--electric-violet);
+}
+
+body.daily-pager-candidate .b-pink,
+body.daily-pager-candidate .filter button.active,
+body.daily-pager-candidate .activities article:nth-of-type(4n + 2) button,
+body.daily-pager-candidate .why-links .text-link,
+body.daily-pager-candidate .chip-anthem {
+  background: var(--electric-pink) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .b-teal,
+body.daily-pager-candidate .fc-btn-teal,
+body.daily-pager-candidate .activities article:nth-of-type(4n + 1) button,
+body.daily-pager-candidate .district-tabs button[aria-selected="true"] {
+  background: var(--electric-aqua) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .b-coral,
+body.daily-pager-candidate .fc-btn-coral,
+body.daily-pager-candidate .play-chip,
+body.daily-pager-candidate .reference form button {
+  background: var(--electric-coral) !important;
+  color: var(--electric-plum) !important;
+}
+
+/* Play actions are pill controls, not decorated prose links. Keep the icon
+   visually separate so an inherited anchor underline can never run beneath
+   the glyph or label. */
+body.daily-pager-candidate a.play-chip,
+body.daily-pager-candidate a.play-chip:link,
+body.daily-pager-candidate a.play-chip:visited,
+body.daily-pager-candidate a.play-chip:hover,
+body.daily-pager-candidate a.play-chip:active {
+  text-decoration: none !important;
+}
+
+body.daily-pager-candidate .play-chip .pc-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none !important;
+}
+
+/* The two standalone Method actions share one control grammar. Inline links
+   inside explanatory prose remain ordinary links. */
+body.daily-pager-candidate .explainer-copy > .text-link,
+body.daily-pager-candidate .explainer-copy > .chip-anthem {
+  box-sizing: border-box;
+  display: inline-flex;
+  width: min(100%, 310px);
+  min-height: 46px;
+  padding: 11px 18px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none !important;
+  box-shadow: 0 6px 16px rgba(58, 24, 56, 0.16);
+}
+
+body.daily-pager-candidate .explainer-copy > .text-link {
+  background: var(--electric-aqua);
+  color: var(--electric-plum);
+}
+
+body.daily-pager-candidate .b-lilac,
+body.daily-pager-candidate .activities article:nth-of-type(4n + 3) button {
+  background: var(--electric-violet) !important;
+  color: #ffffff !important;
+}
+
+body.daily-pager-candidate .closet button,
+body.daily-pager-candidate .activities article:nth-of-type(4n + 4) button {
+  background: var(--electric-yellow) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .step-n.n-teal,
+body.daily-pager-candidate .tig-teal .tig-h {
+  background: var(--electric-aqua) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .step-n.n-pink,
+body.daily-pager-candidate .tig-rose .tig-h {
+  background: var(--electric-pink) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .step-n.n-coral,
+body.daily-pager-candidate .tig-terracotta .tig-h {
+  background: var(--electric-coral) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .step-n.n-yellow {
+  background: var(--electric-yellow) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .step-n.n-lilac {
+  background: var(--electric-violet) !important;
+  color: #ffffff !important;
+}
+
+body.daily-pager-candidate .ai,
+body.daily-pager-candidate .keep-i,
+body.daily-pager-candidate [data-brand-ai] {
+  color: var(--electric-pink) !important;
+}
+
+body.daily-pager-candidate .hero .ai,
+body.daily-pager-candidate .hero .keep-i,
+body.daily-pager-candidate .hero [data-brand-ai] {
+  color: inherit !important;
+}
+
+/* Preserve the incumbent's playful masthead accent pattern. Only the Ai
+   letters inherit their surrounding word; unrelated pink/coral/lilac/teal
+   emphasis remains visible. */
+body.daily-pager-candidate .hero .term-kicker .tk-pink {
+  color: var(--electric-pink) !important;
+}
+
+body.daily-pager-candidate .hero .term-kicker .tk-coral,
+body.daily-pager-candidate .hero .term-kicker .cursor {
+  color: var(--electric-coral) !important;
+}
+
+body.daily-pager-candidate .hero .term-kicker .tk-dot,
+body.daily-pager-candidate .hero .hero-tagline {
+  color: var(--electric-lilac) !important;
+}
+
+body.daily-pager-candidate .eyebrow .ai,
+body.daily-pager-candidate .eyebrow .keep-i,
+body.daily-pager-candidate .eyebrow [data-brand-ai],
+body.daily-pager-candidate .spot-eyebrow .ai,
+body.daily-pager-candidate .spot-eyebrow .keep-i,
+body.daily-pager-candidate .spot-eyebrow [data-brand-ai],
+body.daily-pager-candidate .td-street .ai,
+body.daily-pager-candidate .td-street .keep-i,
+body.daily-pager-candidate .td-street [data-brand-ai] {
+  color: inherit !important;
+}
+
+/* Accent letters must not fragment a sentence or disappear into a solid
+   control surface. The containing phrase/control owns the text colour. */
+body.daily-pager-candidate .why-join .ai,
+body.daily-pager-candidate .why-join .keep-i,
+body.daily-pager-candidate .why-join [data-brand-ai],
+body.daily-pager-candidate .why-links .text-link .ai,
+body.daily-pager-candidate .why-links .text-link .keep-i,
+body.daily-pager-candidate .why-links .text-link [data-brand-ai],
+body.daily-pager-candidate a[class*="b-"] .ai,
+body.daily-pager-candidate a[class*="b-"] .keep-i,
+body.daily-pager-candidate a[class*="b-"] [data-brand-ai],
+body.daily-pager-candidate button .ai,
+body.daily-pager-candidate button .keep-i,
+body.daily-pager-candidate button [data-brand-ai] {
+  color: inherit !important;
+}
+
+/* Resident Card / Closet prose is explanatory reading, not a logo lockup.
+   Branded words stay whole and inherit the sentence colour here. */
+body.daily-pager-candidate .closet p .ai,
+body.daily-pager-candidate .closet p .keep-i,
+body.daily-pager-candidate .closet p [data-brand-ai],
+body.daily-pager-candidate .closet li .ai,
+body.daily-pager-candidate .closet li .keep-i,
+body.daily-pager-candidate .closet li [data-brand-ai] {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* The weekly experience is continuous reading content, not a logo lockup.
+   Keep branded words intact and readable on the dark route surfaces. */
+body.daily-pager-candidate .weekly .ai,
+body.daily-pager-candidate .weekly .keep-i,
+body.daily-pager-candidate .weekly [data-brand-ai] {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* The episode card and eight-stop route are sequential parts of one weekly
+   experience, not peer columns. Each uses the full section width so the
+   longer route can never leave an empty companion column beside it. */
+body.daily-pager-candidate .weekly-layout {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 26px;
+}
+
+body.daily-pager-candidate .weekly-side,
+body.daily-pager-candidate .weekly-side .feature-card {
+  min-height: 0;
+  width: 100%;
+}
+
+body.daily-pager-candidate .weekly-side .feature-card {
+  display: block;
+  flex: 0 0 auto;
+}
+
+body.daily-pager-candidate .weekly-side .feature-card > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: initial;
+  object-position: initial;
+  background: transparent;
+}
+
+body.daily-pager-candidate .weekly-side .feature-card > .fc-state {
+  min-width: 0;
+}
+
+body.daily-pager-candidate .route-cell .ritual {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: auto;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+body.daily-pager-candidate .route-cell .ritual li {
+  flex: 0 0 auto;
+  --route-accent: var(--electric-pink);
+}
+
+body.daily-pager-candidate .route-cell .ritual li:nth-child(2),
+body.daily-pager-candidate .route-cell .ritual li:nth-child(6) {
+  --route-accent: var(--electric-aqua);
+}
+
+body.daily-pager-candidate .route-cell .ritual li:nth-child(3),
+body.daily-pager-candidate .route-cell .ritual li:nth-child(7) {
+  --route-accent: var(--electric-coral);
+}
+
+body.daily-pager-candidate .route-cell .ritual li:nth-child(4),
+body.daily-pager-candidate .route-cell .ritual li:nth-child(8) {
+  --route-accent: var(--electric-violet);
+}
+
+body.daily-pager-candidate .route-cell .ritual li:nth-child(5) {
+  --route-accent: var(--electric-yellow);
+}
+
+/* The route is navigation with an optional progress state, not a worksheet.
+   Use a coherent tinted-card family and label visited stops in words; never
+   append handwritten-looking check marks to the numbered badges. */
+body.daily-pager-candidate .route-cell .ritual .ritual-stop {
+  position: relative;
+  min-height: 138px;
+  padding: 18px;
+  border: 2px solid color-mix(in srgb, var(--route-accent) 58%, #fffdfb);
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--route-accent) 13%, #fffdfb) 0%,
+      color-mix(in srgb, var(--route-accent) 25%, #fffdfb) 100%
+    ) !important;
+  color: var(--electric-plum);
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--route-accent) 38%, transparent);
+}
+
+body.daily-pager-candidate .route-cell .ritual .ritual-stop > span {
+  background: var(--route-accent) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .route-cell .ritual .ritual-stop strong,
+body.daily-pager-candidate .route-cell .ritual .ritual-stop small {
+  color: var(--electric-plum);
+}
+
+body.daily-pager-candidate .route-cell .ritual .ritual-stop small {
+  opacity: 0.88;
+}
+
+body.daily-pager-candidate .route-cell .ritual .ritual-stop b {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: color-mix(in srgb, var(--electric-plum) 76%, var(--route-accent));
+}
+
+body.daily-pager-candidate .route-cell .ritual li.stop-done .ritual-stop {
+  outline: 0;
+  box-shadow:
+    inset 7px 0 0 var(--route-accent),
+    0 6px 0 color-mix(in srgb, var(--route-accent) 58%, transparent);
+}
+
+body.daily-pager-candidate .route-cell .ritual li.stop-done .ritual-stop > span::after {
+  content: none !important;
+}
+
+body.daily-pager-candidate .route-cell .ritual li.stop-done .ritual-stop b::after {
+  content: "Visited  ✓";
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1.5px solid color-mix(in srgb, var(--route-accent) 72%, var(--electric-plum));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--route-accent) 18%, #fffdfb);
+  color: var(--electric-plum);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--route-accent) 34%, transparent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  body.daily-pager-candidate .route-cell,
+  body.daily-pager-candidate .weekly-side {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  body.daily-pager-candidate .route-cell .ritual {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Primary navigation is one coherent control family. The wordmark owns a
+   protected area; every action uses the same single-line pill geometry.
+   When the complete row no longer fits, use the menu rather than wrapping
+   labels into inconsistent one- and two-line shapes. */
+body.daily-pager-candidate .topbar {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 88px;
+  height: auto;
+  justify-content: flex-start;
+  gap: clamp(30px, 3vw, 58px);
+  padding: 10px clamp(24px, 4vw, 72px);
+}
+
+body.daily-pager-candidate .topbar > .logo {
+  flex: 0 0 auto;
+}
+
+body.daily-pager-candidate .topbar > nav {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: clamp(7px, 0.75vw, 14px);
+  min-width: 0;
+}
+
+body.daily-pager-candidate .topbar > nav > a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 10px clamp(10px, 0.8vw, 16px);
+  border: 1px solid rgba(58, 24, 56, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 253, 251, 0.58);
+  color: var(--electric-plum);
+  font-size: clamp(0.78rem, 0.74vw, 0.9rem);
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.daily-pager-candidate .topbar > nav > a:hover,
+body.daily-pager-candidate .topbar > nav > a:focus-visible {
+  border-color: var(--electric-violet);
+  background: rgba(255, 253, 251, 0.88);
+  text-decoration: none;
+}
+
+body.daily-pager-candidate .topbar > nav > .nav-ksvl {
+  gap: 8px;
+  border-color: rgba(58, 24, 56, 0.2);
+}
+
+body.daily-pager-candidate .topbar > nav > .join-btn {
+  border-color: var(--electric-pink);
+  background: var(--electric-pink);
+  color: var(--electric-plum);
+}
+
+body.daily-pager-candidate .topbar > nav > .join-btn:hover,
+body.daily-pager-candidate .topbar > nav > .join-btn:focus-visible {
+  border-color: var(--electric-plum);
+  background: var(--electric-pink);
+}
+
+/* Preserve the masthead artwork's complete 1400×788 composition. The base
+   page's viewport-height hero made tall browser windows enlarge the panel,
+   crop both sides of the image and create dead space above and between the
+   copy and actions. The artwork now owns the desktop ratio and the existing
+   responsive mobile composition remains content-led below 820px. */
+@media (min-width: 821px) {
+  body.daily-pager-candidate .hero-dusk {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1400 / 788;
+  }
+
+  body.daily-pager-candidate .hero-dusk > img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  body.daily-pager-candidate .hero-dusk .hero-copy {
+    align-self: center;
+    padding-top: clamp(28px, 3.5vw, 58px);
+    padding-bottom: clamp(96px, 8vw, 132px);
+  }
+}
+
+/*
+ * One-per-visit animated masthead.
+ *
+ * The intro temporarily owns the exact masthead position, keeps the master
+ * 16:9 composition intact at every width, and then yields to the complete
+ * incumbent hero. It never becomes a second card elsewhere on the page.
+ */
+body.daily-pager-candidate .hero {
+  position: relative;
+}
+
+body.daily-pager-candidate .hero-arrival-active {
+  overflow: hidden;
+}
+
+body.daily-pager-candidate .hero-arrival {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(239, 77, 156, 0.28), transparent 34%),
+    radial-gradient(circle at 82% 72%, rgba(104, 207, 225, 0.24), transparent 38%),
+    #151127;
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  transition:
+    clip-path 720ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 620ms ease;
+  will-change: clip-path, opacity;
+}
+
+body.daily-pager-candidate .hero-arrival.is-leaving {
+  pointer-events: none;
+  clip-path: inset(0 0 100% 0);
+  opacity: 0.18;
+}
+
+body.daily-pager-candidate .hero-arrival::before {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(21, 17, 39, 0.34), rgba(21, 17, 39, 0.46)),
+    url("/operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10-still.png")
+      center / cover no-repeat;
+  content: "";
+  filter: blur(18px) brightness(0.74) saturate(1.34);
+  opacity: 0;
+  transform: scale(1.09);
+  transition:
+    filter 620ms ease,
+    transform 720ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+body.daily-pager-candidate .hero-arrival::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--electric-aqua) 28%,
+    #ffffff 50%,
+    var(--electric-pink) 72%,
+    transparent
+  );
+  box-shadow:
+    0 0 14px rgba(104, 207, 225, 0.9),
+    0 0 24px rgba(239, 77, 156, 0.68);
+  content: "";
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+body.daily-pager-candidate .hero-arrival.is-leaving::after {
+  opacity: 1;
+  transform: translateY(-1px);
+  transition:
+    transform 720ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 180ms ease;
+}
+
+body.daily-pager-candidate .hero-arrival-video {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  transform: scale(1);
+  transition:
+    filter 620ms ease,
+    transform 720ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+body.daily-pager-candidate .hero-arrival.is-leaving .hero-arrival-video {
+  filter: brightness(1.08) saturate(1.06);
+  transform: scale(1.018);
+}
+
+body.daily-pager-candidate .hero-arrival-skip {
+  position: absolute;
+  z-index: 3;
+  right: clamp(14px, 2.5vw, 34px);
+  bottom: clamp(14px, 2.5vw, 30px);
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+  background: rgba(21, 17, 39, 0.78);
+  color: #ffffff;
+  font: 800 0.92rem/1 Jost, sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+body.daily-pager-candidate .hero-arrival-skip:hover,
+body.daily-pager-candidate .hero-arrival-skip:focus-visible {
+  border-color: var(--electric-yellow);
+  background: var(--electric-plum);
+}
+
+body.daily-pager-candidate .hero-arrival-skip:focus-visible {
+  outline: 3px solid var(--electric-aqua);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1240px) {
+  body.daily-pager-candidate .hero-arrival-skip {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 820px) {
+  body.daily-pager-candidate .hero-arrival {
+    background: #291254;
+  }
+
+  body.daily-pager-candidate .hero-arrival::before {
+    background:
+      linear-gradient(rgba(41, 18, 84, 0.12), rgba(21, 17, 39, 0.28)),
+      url("/operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10-still.png")
+        center / cover no-repeat;
+    filter: blur(18px) brightness(0.92) saturate(1.48);
+    opacity: 0.82;
+    transform: scale(1.11);
+  }
+
+  body.daily-pager-candidate .hero-arrival.is-leaving::before {
+    filter: blur(20px) brightness(1) saturate(1.55);
+    transform: scale(1.16);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+body.daily-pager-candidate .hero-arrival {
+    display: none !important;
+  }
+}
+
+@supports not (clip-path: inset(0 0 0 0)) {
+  body.daily-pager-candidate .hero-arrival.is-leaving {
+    opacity: 0;
+  }
+}
+
+/* Keep the real navigation visible at intermediate widths. The previous
+   1240px cutoff erased the whole header and left only “Menu” even when a
+   complete second row would fit comfortably. */
+@media (min-width: 981px) and (max-width: 1240px) {
+  body.daily-pager-candidate .topbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: 136px;
+    padding-block: 15px;
+  }
+
+  body.daily-pager-candidate .topbar > .logo {
+    justify-self: start;
+  }
+
+  body.daily-pager-candidate .topbar > nav {
+    display: grid;
+    grid-template-columns: repeat(8, max-content);
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  body.daily-pager-candidate .topbar > nav > a {
+    min-height: 42px;
+    padding: 8px clamp(7px, 0.8vw, 12px);
+    font-size: clamp(0.68rem, 1vw, 0.8rem);
+  }
+
+  body.daily-pager-candidate .topbar > .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  body.daily-pager-candidate .topbar > nav {
+    display: none;
+  }
+
+  body.daily-pager-candidate .topbar > .menu {
+    display: inline-flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 18px;
+    border: 1px solid rgba(58, 24, 56, 0.28);
+    border-radius: 12px;
+    background: rgba(255, 253, 251, 0.72);
+    color: var(--electric-plum);
+    font-weight: 800;
+  }
+}
+
+body.daily-pager-candidate .mobile-nav:not([hidden]) {
+  display: grid;
+  gap: 8px;
+}
+
+body.daily-pager-candidate .mobile-nav > a {
+  min-height: 48px;
+  margin: 0;
+  padding: 12px 15px;
+  border: 1px solid rgba(58, 24, 56, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 253, 251, 0.72);
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Both Closet actions are peer actions, so both use the same pill-box
+   component geometry. Colour distinguishes the paths; shape does not. */
+body.daily-pager-candidate .closet .closet-actions a {
+  display: inline-flex;
+  flex: 1 1 260px;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 66px;
+  padding: 14px 22px;
+  border: 0;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  font: 800 1rem Jost, sans-serif;
+  line-height: 1.2;
+}
+
+body.daily-pager-candidate .closet .closet-actions .closet-open {
+  background: var(--electric-aqua);
+  color: var(--electric-plum);
+}
+
+/* The Postcard handoff is a balanced editorial composition. Never strand a
+   small image inside a tall decorative column beside a full column of copy.
+   The complete postcard owns the full first row; structured copy and one
+   full-width action follow without decorative dead fields. */
+body.daily-pager-candidate .postcard-band {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "visual visual"
+    "heading details"
+    "action action";
+  gap: 0;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+}
+
+body.daily-pager-candidate .postcard-visual {
+  grid-area: visual;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: clamp(24px, 3vw, 42px);
+  background: linear-gradient(145deg, #d9edf1, #f3e7f6);
+}
+
+body.daily-pager-candidate .postcard-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  border: 3px solid var(--electric-violet);
+  box-shadow: 10px 10px 0 rgba(116, 79, 232, 0.2);
+}
+
+body.daily-pager-candidate .postcard-copy {
+  display: contents;
+}
+
+body.daily-pager-candidate .postcard-heading {
+  grid-area: heading;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(30px, 4vw, 56px);
+}
+
+body.daily-pager-candidate .postcard-details {
+  grid-area: details;
+  min-width: 0;
+  padding: clamp(26px, 3vw, 42px);
+  background: rgba(255, 253, 251, 0.18);
+}
+
+body.daily-pager-candidate .postcard-heading > :first-child,
+body.daily-pager-candidate .postcard-details > :first-child {
+  margin-top: 0;
+}
+
+body.daily-pager-candidate .postcard-action {
+  grid-area: action;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: auto;
+  min-height: 66px;
+  margin: clamp(26px, 3vw, 42px) clamp(28px, 4vw, 56px);
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  body.daily-pager-candidate .closet .closet-actions a {
+    flex-basis: 100%;
+    width: 100%;
+    height: 66px;
+  }
+}
+
+@media (max-width: 700px) {
+  body.daily-pager-candidate .postcard-band {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "visual"
+      "heading"
+      "details"
+      "action";
+  }
+
+  body.daily-pager-candidate .postcard-visual {
+    min-height: 0;
+    aspect-ratio: auto;
+    padding: 18px;
+  }
+
+  body.daily-pager-candidate .postcard-heading {
+    padding: 30px 24px 18px;
+  }
+
+  body.daily-pager-candidate .postcard-details {
+    padding: 18px 24px 24px;
+  }
+
+  body.daily-pager-candidate .postcard-action {
+    width: auto;
+    margin: 0 24px 30px;
+  }
+}
+
+body.daily-pager-candidate .express {
+  border-color: var(--electric-violet) !important;
+}
+
+body.daily-pager-candidate .express-go,
+body.daily-pager-candidate .route-head strong {
+  color: var(--electric-violet) !important;
+}
+
+body.daily-pager-candidate .hero-jumps .b-pink {
+  background: var(--electric-pink) !important;
+}
+
+body.daily-pager-candidate .hero-jumps .b-teal {
+  background: var(--electric-aqua) !important;
+}
+
+body.daily-pager-candidate .hero-jumps .b-coral {
+  background: var(--electric-coral) !important;
+}
+
+body.daily-pager-candidate .hero-jumps .b-lilac {
+  background: var(--electric-violet) !important;
+  color: #ffffff !important;
+}
+
+body.daily-pager-candidate .filter {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.daily-pager-candidate .filter button {
+  min-width: 0;
+  min-height: 58px;
+  padding: 10px 14px;
+  border: 2px solid currentColor;
+  border-radius: 16px;
+  color: var(--electric-plum);
+  background: color-mix(in srgb, var(--electric-violet) 10%, #fffdfb);
+  font: 800 clamp(0.86rem, 1.15vw, 1rem) / 1.15 "Jost", sans-serif;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease;
+}
+
+/* The five pastel families are meaningful scan aids. The stronger electric
+   fill belongs only to the currently selected filter. */
+body.daily-pager-candidate .filter button:nth-child(1) {
+  background: color-mix(in srgb, var(--electric-pink) 15%, #fffdfb);
+}
+
+body.daily-pager-candidate .filter button:nth-child(2) {
+  background: color-mix(in srgb, var(--electric-aqua) 14%, #fffdfb);
+}
+
+body.daily-pager-candidate .filter button:nth-child(3) {
+  background: color-mix(in srgb, var(--electric-violet) 14%, #fffdfb);
+}
+
+body.daily-pager-candidate .filter button:nth-child(4) {
+  background: color-mix(in srgb, var(--electric-coral) 14%, #fffdfb);
+}
+
+body.daily-pager-candidate .filter button:nth-child(5) {
+  background: color-mix(in srgb, var(--electric-yellow) 22%, #fffdfb);
+}
+
+body.daily-pager-candidate .filter button:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--electric-violet) 18%, #fffdfb);
+  box-shadow: 0 5px 0 color-mix(in srgb, currentColor 24%, transparent);
+}
+
+body.daily-pager-candidate .filter button:focus-visible {
+  outline: 4px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--electric-plum);
+}
+
+body.daily-pager-candidate .filter button.active {
+  background: var(--electric-pink) !important;
+  color: var(--electric-plum) !important;
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 -4px 0 rgba(255, 255, 255, 0.42),
+    0 5px 0 color-mix(in srgb, var(--electric-plum) 82%, transparent);
+}
+
+@media (max-width: 980px) {
+  body.daily-pager-candidate .filter {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  body.daily-pager-candidate .filter {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.daily-pager-candidate .filter button:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+body.daily-pager-candidate .why-box .why-links .text-link {
+  background: var(--electric-pink) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .why-box .why-links .why-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "label arrow"
+    "detail arrow";
+  align-items: center;
+  column-gap: 14px;
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  line-height: 1.15;
+  text-align: left;
+  overflow: hidden;
+}
+
+body.daily-pager-candidate .why-action-label {
+  grid-area: label;
+  min-width: 0;
+  font-size: 0.96rem;
+  font-weight: 800;
+  overflow-wrap: normal;
+}
+
+body.daily-pager-candidate .why-action-detail {
+  grid-area: detail;
+  min-width: 0;
+  margin-top: 3px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0.84;
+  overflow-wrap: anywhere;
+}
+
+body.daily-pager-candidate .why-action-arrow {
+  grid-area: arrow;
+  flex: none;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+@media (max-width: 560px) {
+  body.daily-pager-candidate .why-box .why-links .why-action {
+    min-height: 64px;
+  }
+}
+
+body.daily-pager-candidate .text-link,
+body.daily-pager-candidate .tune-in,
+body.daily-pager-candidate .spot-cta {
+  text-decoration-color: var(--electric-aqua);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+body.daily-pager-candidate .nav-ksvl,
+body.daily-pager-candidate .tune-in {
+  border-color: var(--electric-aqua);
+}
+
+body.daily-pager-candidate .onair-dot {
+  background: var(--electric-pink);
+}
+
+.homepage-after-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(350px, 390px);
+  align-items: start;
+  background: linear-gradient(180deg, #fffdfb 0%, #f8eef2 48%, #eaf6f3 100%);
+}
+
+.homepage-main-flow {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/*
+ * Main-flow section rhythm.
+ *
+ * The daily sidebar narrows these sections substantially. The inherited
+ * desktop padding and newspaper-style CSS columns left a large empty field
+ * after the Method steps and an oversized inset before the next eyebrow.
+ * Keep both panels content-sized and use one explicit reading flow.
+ */
+body.daily-pager-candidate .homepage-main-flow > .explainer,
+body.daily-pager-candidate .homepage-main-flow > .intent {
+  align-self: start;
+  height: auto;
+  min-height: 0;
+  padding-block: 40px;
+}
+
+/*
+ * The incumbent positioned this card absolutely so it could borrow the height
+ * of the adjacent Method copy. In the narrower main column that height is no
+ * longer sufficient, so flexbox was shrinking Ada's portrait to zero before
+ * clipping the rest of the card. Let the card size itself from its complete
+ * content and give the approved portrait an explicit responsive width.
+ */
+body.daily-pager-candidate .homepage-main-flow .explainer-right {
+  align-self: start;
+}
+
+body.daily-pager-candidate .homepage-main-flow .why-box-lg {
+  position: static;
+  inset: auto;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+body.daily-pager-candidate .homepage-main-flow .why-box-lg .why-ada {
+  flex: none;
+  width: min(100%, 370px);
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+}
+
+body.daily-pager-candidate .homepage-main-flow .explainer-steps.steps-full {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  columns: initial;
+  column-gap: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
+
+body.daily-pager-candidate .homepage-main-flow .explainer-steps.steps-full > li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body.daily-pager-candidate .homepage-main-flow > .intent > div > .eyebrow {
+  margin-top: 0;
+}
+
+/* The daily column narrows the incumbent flow. Reflow its descendant grids
+   instead of allowing their min-content widths to clip cards and headings. */
+.homepage-main-flow .intent {
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.homepage-main-flow .intent-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* These four sources are governed landscape illustrations. Give each artwork
+   the full card width; never place it inside a coloured thumbnail well. */
+.homepage-main-flow .intent-grid a {
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 0;
+  border: 2px solid color-mix(in srgb, var(--electric-violet) 68%, var(--electric-plum));
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--electric-pink) 12%, #fffdfb),
+      color-mix(in srgb, var(--electric-violet) 18%, #fffdfb)
+    );
+  box-shadow:
+    0 7px 0 color-mix(in srgb, var(--electric-violet) 42%, transparent),
+    0 16px 30px rgba(58, 24, 56, 0.12);
+}
+
+.homepage-main-flow .intent-grid a:nth-child(2) {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--electric-aqua) 15%, #fffdfb),
+      color-mix(in srgb, var(--electric-violet) 14%, #fffdfb)
+    );
+}
+
+.homepage-main-flow .intent-grid a:nth-child(3) {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--electric-coral) 15%, #fffdfb),
+      color-mix(in srgb, var(--electric-pink) 13%, #fffdfb)
+    );
+}
+
+.homepage-main-flow .intent-grid a:nth-child(4) {
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--electric-yellow) 18%, #fffdfb),
+      color-mix(in srgb, var(--electric-aqua) 13%, #fffdfb)
+    );
+}
+
+.homepage-main-flow .intent-grid a img {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+  border-bottom: 0;
+}
+
+.homepage-main-flow .intent-grid a > div {
+  flex: 1;
+  justify-content: flex-start;
+  padding: 24px 26px 28px;
+}
+
+/* The season selector is a colourful editorial panel, not a blank white form.
+   Its compact audio action must carry a visible label instead of rendering as
+   an unexplained empty coral capsule. */
+body.daily-pager-candidate .weekly-side .feature-card {
+  border: 2px solid color-mix(in srgb, var(--electric-violet) 62%, var(--electric-plum));
+  background:
+    linear-gradient(
+      155deg,
+      color-mix(in srgb, var(--electric-pink) 10%, #fffdfb) 0%,
+      color-mix(in srgb, var(--electric-violet) 16%, #fffdfb) 52%,
+      color-mix(in srgb, var(--electric-aqua) 13%, #fffdfb) 100%
+    );
+  box-shadow:
+    0 7px 0 color-mix(in srgb, var(--electric-violet) 42%, transparent),
+    0 18px 34px rgba(32, 17, 49, 0.18);
+}
+
+body.daily-pager-candidate .weekly-side .feature-card > .fc-state {
+  background: transparent;
+}
+
+body.daily-pager-candidate .season-track li > a:first-child {
+  border: 1px solid color-mix(in srgb, var(--electric-plum) 16%, transparent);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--electric-aqua) 12%, #fffdfb),
+      color-mix(in srgb, var(--electric-violet) 11%, #fffdfb)
+    );
+}
+
+body.daily-pager-candidate .season-track .st-current {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 10px;
+}
+
+body.daily-pager-candidate .season-track .st-current > a:first-child {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--electric-pink) 60%, transparent);
+}
+
+body.daily-pager-candidate .season-track .st-current .pc-mini {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 188px;
+  height: auto;
+  min-height: 56px;
+  margin-left: 0;
+  padding: 10px 16px;
+  border: 2px solid color-mix(in srgb, var(--electric-coral) 74%, var(--electric-plum));
+  border-radius: 12px;
+  background: var(--electric-coral);
+  color: var(--electric-plum);
+}
+
+body.daily-pager-candidate .season-track .st-current .pc-mini::after {
+  content: "Hear the Episode 04 song";
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+@media (max-width: 700px) {
+  body.daily-pager-candidate .season-track .st-current {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body.daily-pager-candidate .season-track .st-current .pc-mini {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.homepage-main-flow .intent-grid a,
+.homepage-main-flow .intent-grid a > div,
+.homepage-main-flow .activity-grid article,
+.homepage-main-flow .activity-grid article > div,
+.homepage-main-flow .district {
+  min-width: 0;
+}
+
+.homepage-main-flow .activity-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+/* Every action in this one activity family has the same footprint, regardless
+   of whether its label wraps. The solid control owns all descendant colours. */
+.homepage-main-flow .activity-grid article > div > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 96px;
+  min-height: 96px;
+  padding: 14px 20px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.homepage-main-flow .activity-grid article > div > button *,
+.homepage-main-flow .activity-grid article > div > button .ai,
+.homepage-main-flow .activity-grid article > div > button .keep-i,
+.homepage-main-flow .activity-grid article > div > button [data-brand-ai] {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.homepage-main-flow .district-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.homepage-main-flow .intent-grid strong,
+.homepage-main-flow .intent-grid span,
+.homepage-main-flow .activity-grid h3,
+.homepage-main-flow .activity-grid p,
+.homepage-main-flow .district h3,
+.homepage-main-flow .district p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Every activity card uses the same full-bleed image frame. Mixed-ratio source
+   art is cropped deliberately, never letterboxed or stretched. */
+.homepage-main-flow .activity-grid article {
+  align-self: stretch;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--electric-plum) 18%, transparent);
+  border-radius: 18px;
+  background: #fffdfb;
+  box-shadow: 0 10px 24px rgba(58, 24, 56, 0.1);
+}
+
+.homepage-main-flow .activity-grid article > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 24%;
+  background: transparent;
+  border-bottom: 0;
+}
+
+.homepage-main-flow .activity-grid article:nth-child(3) > img {
+  object-fit: contain;
+  object-position: center;
+  background: var(--cheat-gradient-page) !important;
+}
+
+.homepage-main-flow .activity-grid .card-duo img {
+  object-fit: cover;
+  object-position: center;
+  background: #fffdfb;
+}
+
+.homepage-main-flow .reference > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: 65% center;
+  align-self: stretch;
+  background: transparent;
+}
+
+.homepage-main-flow .reference {
+  grid-template-columns: minmax(270px, 0.85fr) minmax(0, 1.15fr);
+  align-items: stretch;
+}
+
+.homepage-main-flow .reference .eyebrow {
+  color: var(--electric-plum) !important;
+}
+
+.homepage-main-flow .reference > div {
+  min-width: 0;
+  padding: 46px 32px;
+}
+
+.homepage-main-flow .reference form > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.homepage-main-flow .reference input {
+  width: 100%;
+  min-width: 0;
+  min-height: 58px;
+  border-radius: 10px;
+}
+
+.homepage-main-flow .reference form button {
+  width: 100%;
+  min-height: 56px;
+  padding-inline: 18px;
+  border-radius: 10px;
+}
+
+@media (max-width: 820px) {
+  .homepage-main-flow .reference > img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+body.daily-pager-candidate .homepage-main-flow .district {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--cheat-gradient-pink-yellow-cyan) !important;
+}
+
+.homepage-main-flow .district > img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: auto;
+  background: transparent;
+}
+
+body.daily-pager-candidate .homepage-main-flow .district > div {
+  position: static;
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  justify-content: flex-start;
+  padding: 24px;
+  background: var(--cheat-gradient-pink-yellow-cyan) !important;
+  color: var(--electric-plum) !important;
+}
+
+body.daily-pager-candidate .homepage-main-flow .district > div * {
+  color: inherit !important;
+}
+
+.homepage-main-flow .district#district-willow > img {
+  object-position: center;
+}
+
+/* Landscape feature families use their available frame; no empty image wells. */
+.homepage-main-flow .feature-card > img {
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+}
+
+.homepage-main-flow .spot img {
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+}
+
+.homepage-main-flow .postcard-visual img {
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+}
+
+.daily-column {
+  position: sticky;
+  top: 76px;
+  z-index: 9;
+  max-height: calc(100vh - 76px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 18px 34px;
+  background:
+    linear-gradient(180deg, #f1ebff 0%, #e8fbfb 44%, #fff0f8 100%);
+  border-left: 3px solid var(--electric-plum);
+  color: var(--electric-plum);
+  scrollbar-width: thin;
+}
+
+.daily-column-header {
+  margin-inline: -18px;
+  padding: 20px 18px 18px;
+  background: #e8f8fb;
+  border-bottom: 3px solid var(--electric-plum);
+}
+
+.daily-date,
+.daily-entry-label {
+  margin: 0 0 7px;
+  color: var(--electric-pink);
+  font: 800 0.7rem/1.2 Jost, sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.daily-column-header h2 {
+  margin: 0;
+  color: var(--electric-plum);
+  font: 800 clamp(2rem, 3vw, 2.65rem)/0.94 Jost, sans-serif;
+  letter-spacing: -0.05em;
+}
+
+.daily-entry-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.daily-entry-label .material-symbols-rounded {
+  font-size: 1rem;
+}
+
+.daily-purpose {
+  margin: 12px 0 10px;
+  max-width: 31ch;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.daily-cadence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 7px;
+  margin: 0 0 16px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(58, 24, 56, 0.2);
+  color: var(--electric-plum);
+  font-size: 0.74rem;
+  line-height: 1.3;
+}
+
+.daily-cadence .material-symbols-rounded {
+  color: var(--electric-aqua);
+  font-size: 1.05rem;
+}
+
+.daily-cadence strong {
+  color: var(--electric-violet);
+  font-weight: 800;
+}
+
+.daily-paper-link {
+  display: inline-block;
+  margin: -3px 0 16px;
+  color: var(--electric-plum);
+  font: 800 0.75rem/1.3 Jost, sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: var(--electric-aqua);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.daily-paper-link:hover {
+  text-decoration-thickness: 3px;
+}
+
+.daily-paper-link:focus-visible {
+  outline: 3px solid var(--electric-yellow);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.pager-button {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  min-height: 178px;
+  padding: 0;
+  border: 3px solid var(--electric-plum);
+  border-radius: 16px;
+  background: #dceeff;
+  color: var(--electric-plum);
+  font-family: Jost, sans-serif;
+  text-align: left;
+  box-shadow: 7px 7px 0 var(--electric-blue);
+  cursor: pointer;
+}
+
+.pager-button > img {
+  display: block;
+  width: 100%;
+  height: 178px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.pager-button > span {
+  position: absolute;
+  inset: auto 10px 10px;
+  padding: 9px 11px 8px;
+  background: rgba(255, 253, 251, 0.94);
+  border: 2px solid var(--electric-plum);
+  border-radius: 9px;
+}
+
+.pager-button strong,
+.pager-button small {
+  display: block;
+}
+
+.pager-button strong {
+  font-size: 0.94rem;
+}
+
+.pager-button small {
+  margin-top: 2px;
+  font-size: 0.74rem;
+}
+
+.daily-edition {
+  display: grid;
+  gap: 14px;
+  padding-top: 16px;
+}
+
+.daily-entry {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border: 2px solid var(--electric-plum);
+  border-radius: 15px 5px 15px 5px;
+  background: var(--entry-surface);
+  box-shadow: 5px 5px 0 var(--entry-colour);
+}
+
+.daily-entry::before {
+  content: none;
+}
+
+.daily-entry-pink { --entry-colour: var(--electric-pink); --entry-surface: #ffe8f6; }
+.daily-entry-blue { --entry-colour: var(--electric-blue); --entry-surface: #e8f3ff; }
+.daily-entry-violet { --entry-colour: var(--electric-violet); --entry-surface: #eee9ff; }
+.daily-entry-aqua { --entry-colour: var(--electric-aqua); --entry-surface: #ddfbfb; }
+.daily-entry-yellow { --entry-colour: var(--electric-yellow); --entry-surface: #fff6c9; }
+.daily-entry-coral { --entry-colour: var(--electric-coral); --entry-surface: #ffe7ed; }
+
+.daily-entry-media {
+  position: relative;
+  display: block;
+  width: calc(100% + 36px);
+  margin: -18px -18px 16px;
+  border-bottom: 2px solid var(--electric-plum);
+}
+
+.daily-entry-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.daily-provider-lockup {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: calc(100% - 20px);
+  padding: 8px 11px 7px;
+  border: 2px solid var(--electric-plum);
+  border-radius: 4px 12px 4px 12px;
+  background: rgba(255, 253, 251, 0.96);
+  color: var(--electric-plum);
+  box-shadow: 4px 4px 0 rgba(58, 24, 56, 0.8);
+}
+
+.daily-provider-lockup strong,
+.daily-provider-lockup small {
+  display: block;
+  color: inherit;
+  font-family: Jost, sans-serif;
+  text-transform: uppercase;
+}
+
+.daily-provider-lockup strong {
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.035em;
+}
+
+.daily-provider-lockup small {
+  margin-top: 3px;
+  font-size: 0.61rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.13em;
+}
+
+.daily-provider-claude {
+  border-color: #6b2e1e;
+  background: #fff0db;
+  color: #6b2e1e;
+  box-shadow: 4px 4px 0 #df6c32;
+}
+
+.daily-provider-chatgpt {
+  border-color: #063c34;
+  background: #e9fff8;
+  color: #063c34;
+  box-shadow: 4px 4px 0 #00a887;
+}
+
+.daily-provider-gemini {
+  border-color: #23145c;
+  background: #f1edff;
+  color: #23145c;
+  box-shadow: 4px 4px 0 #7b5cff;
+}
+
+.daily-theme-policy {
+  border-color: #3e1f5f;
+  background: #fff7e8;
+  color: #3e1f5f;
+  box-shadow: 4px 4px 0 #a62065;
+}
+
+.daily-theme-security {
+  border-color: #23111b;
+  background: #fff0e6;
+  color: #23111b;
+  box-shadow: 4px 4px 0 #e43b32;
+}
+
+.daily-service-illustration {
+  overflow: hidden;
+  margin: 0;
+  border: 2px solid var(--electric-plum);
+  border-radius: 5px 15px 5px 15px;
+  background: #f2e8ff;
+  box-shadow: 5px 5px 0 var(--electric-violet);
+}
+
+.daily-service-illustration img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.daily-entry h3 {
+  margin: 0 0 8px;
+  color: var(--electric-plum);
+  font: 800 1.22rem/1.15 Jost, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.daily-entry > p:not(.daily-entry-label) {
+  margin: 0;
+  color: var(--electric-plum);
+  font-size: 0.91rem;
+  line-height: 1.48;
+}
+
+.daily-entry .daily-entry-detail {
+  margin-top: 8px !important;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(58, 24, 56, 0.22);
+  font-weight: 600;
+}
+
+.daily-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 13px;
+  margin-top: 11px;
+}
+
+.daily-song-listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 2px solid var(--electric-plum);
+  border-radius: 999px;
+  background: var(--entry-colour);
+  color: var(--electric-plum);
+  font: 800 0.78rem/1 Jost, sans-serif;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--electric-plum);
+}
+
+.daily-song-listen .material-symbols-rounded {
+  font-size: 1.1rem;
+}
+
+.daily-song-listen:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--electric-plum);
+}
+
+.daily-song-listen:focus-visible {
+  outline: 3px solid var(--electric-blue);
+  outline-offset: 3px;
+}
+
+.daily-song-listen[aria-pressed="true"] {
+  background: var(--electric-aqua);
+}
+
+.daily-entry-link {
+  display: inline-block;
+  margin-top: 0;
+  color: var(--electric-plum);
+  font: 800 0.74rem/1.25 Jost, sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.daily-entry-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.daily-entry-link:focus-visible {
+  outline: 2px solid var(--electric-plum);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.daily-song-status {
+  min-height: 1.2em;
+  margin-top: 7px !important;
+  font: 700 0.7rem/1.3 Jost, sans-serif;
+}
+
+.tour-guide-panel[hidden] {
+  display: none;
+}
+
+.tour-guide-panel {
+  position: fixed;
+  z-index: 100;
+  top: 92px;
+  right: 24px;
+  width: min(410px, calc(100vw - 48px));
+  max-height: calc(100vh - 116px);
+  overflow-y: auto;
+  padding: 22px;
+  background: linear-gradient(145deg, #f4eeff, #e5fbfb);
+  border: 2px solid var(--electric-plum);
+  border-radius: 18px;
+  color: var(--electric-plum);
+  box-shadow: 0 28px 70px rgba(58, 24, 56, 0.28);
+}
+
+.tour-guide-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.tour-guide-identity {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.tour-guide-pager-icon {
+  display: block;
+  overflow: hidden;
+  width: 58px;
+  height: 48px;
+  border: 2px solid var(--electric-plum);
+  border-radius: 10px;
+  background: #dceeff;
+  box-shadow: 3px 3px 0 var(--electric-blue);
+}
+
+.tour-guide-pager-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 59% 40%;
+}
+
+.tour-guide-identity .daily-date {
+  margin: 0 0 4px;
+}
+
+.tour-guide-head h2 {
+  margin: 0;
+  color: var(--electric-plum);
+  font-size: 1.65rem;
+}
+
+.tour-close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(58, 24, 56, 0.25);
+  border-radius: 50%;
+  background: white;
+  color: var(--electric-plum);
+  cursor: pointer;
+}
+
+.tour-guide-intro {
+  line-height: 1.5;
+}
+
+.tour-guide-actions {
+  display: grid;
+  gap: 9px;
+}
+
+.tour-guide-actions button {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 11px 12px;
+  border: 1px solid rgba(58, 24, 56, 0.24);
+  border-radius: 12px;
+  background: #fff2fa;
+  color: var(--electric-plum);
+  font-family: Jost, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tour-guide-actions .material-symbols-rounded {
+  color: var(--electric-aqua);
+  font-size: 26px;
+}
+
+.tour-guide-actions strong,
+.tour-guide-actions small {
+  display: block;
+}
+
+.tour-guide-actions small {
+  margin-top: 2px;
+}
+
+.tour-stop {
+  margin-top: 16px;
+  padding: 16px;
+  background: #e9f9fb;
+  border: 2px solid var(--electric-violet);
+  border-radius: 12px;
+}
+
+.tour-stop h3 {
+  margin: 0 0 7px;
+  color: var(--electric-plum);
+}
+
+.tour-stop-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tour-stop-controls button {
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--electric-aqua);
+  color: var(--electric-plum);
+  font: 800 0.85rem Jost, sans-serif;
+  cursor: pointer;
+}
+
+.pager-button:focus-visible,
+.tour-guide-panel button:focus-visible {
+  outline: 3px solid var(--electric-yellow);
+  outline-offset: 3px;
+}
+
+.tour-highlight {
+  outline: 5px solid var(--electric-pink);
+  outline-offset: -5px;
+}
+
+@media (max-width: 1120px) {
+  .homepage-after-hero {
+    grid-template-columns: minmax(0, 1fr) 330px;
+  }
+
+  .daily-column {
+    padding-inline: 17px;
+  }
+}
+
+@media (max-width: 900px) {
+  .homepage-after-hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .daily-column {
+    position: static;
+    order: -1;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding: 0 20px 30px;
+    border-left: 0;
+    border-bottom: 2px solid var(--electric-plum);
+  }
+
+  .homepage-main-flow {
+    overflow: visible;
+  }
+
+  .homepage-main-flow > .weekly,
+  .homepage-main-flow > .reference {
+    margin-inline: 0;
+  }
+
+  /* The two editorial spotlights and Miss Jeeves are one feature-card family.
+     Give all three the same mobile measure instead of making the spotlights
+     look like narrower, secondary inserts. */
+  .homepage-main-flow > .spotlights {
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .homepage-main-flow > .spotlights .spot {
+    width: 100%;
+    max-width: none;
+  }
+
+  .daily-edition {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .daily-column-header {
+    margin-inline: -20px;
+    padding-inline: 20px;
+  }
+
+  body.daily-pager-candidate .homepage-main-flow > .explainer,
+  body.daily-pager-candidate .homepage-main-flow > .intent {
+    padding-block: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  body.daily-pager-candidate .homepage-main-flow > .explainer,
+  body.daily-pager-candidate .homepage-main-flow > .intent {
+    padding-block: 26px;
+  }
+
+  body.daily-pager-candidate .homepage-main-flow .explainer-steps.steps-full {
+    gap: 22px;
+  }
+
+  .homepage-main-flow .intent-grid,
+  .homepage-main-flow .activity-grid,
+  .homepage-main-flow .district-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-main-flow .activity-grid article > div > button {
+    height: 76px;
+    min-height: 76px;
+  }
+
+  .homepage-main-flow .reference {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-main-flow .reference > div {
+    padding: 42px 20px;
+  }
+
+  .homepage-main-flow .reference form > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .homepage-main-flow .reference input,
+  .homepage-main-flow .reference form button {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 8px;
+  }
+
+  .daily-title-row {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-edition {
+    grid-template-columns: 1fr;
+  }
+
+  .pager-button {
+    min-height: 154px;
+  }
+
+  .pager-button > img {
+    height: 154px;
+  }
+
+  .tour-guide-panel {
+    inset: 68px 12px 12px;
+    width: auto;
+    max-height: none;
+  }
+
+  .tour-guide-identity {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .tour-guide-pager-icon {
+    width: 50px;
+    height: 42px;
+  }
+}
+
+/* Episode 1 Cheat Sheet gradient family
+   -------------------------------------
+   Ali selected these proven, more electric gradients to replace the softer
+   candy/pastel section treatments. Strong gradients belong to feature panels;
+   long reading surfaces keep the layered page recipe and deep-plum text. The
+   masthead artwork, imagery, copy, IA and behaviour remain untouched. */
+body.daily-pager-candidate .explainer,
+body.daily-pager-candidate .activities,
+body.daily-pager-candidate .town {
+  background: var(--cheat-gradient-page);
+}
+
+body.daily-pager-candidate .intent {
+  background: var(--cheat-gradient-pink-violet-blue);
+}
+
+body.daily-pager-candidate .weekly {
+  background: var(--cheat-gradient-purple-blue);
+}
+
+body.daily-pager-candidate .reference {
+  background: linear-gradient(125deg, #62c9e0, #758fdd);
+}
+
+body.daily-pager-candidate .closet {
+  background: linear-gradient(130deg, #f05aa5, #b66bd0 55%, #657fde);
+}
+
+/* Plum is the page's reading colour, not a surface colour. Keep the strong
+   feature gradients visible around lighter gradient reading panels. */
+body.daily-pager-candidate .intent > div:first-child,
+body.daily-pager-candidate .weekly > .section-heading,
+body.daily-pager-candidate .closet > div {
+  padding: clamp(22px, 3vw, 38px);
+  border: 2px solid rgba(255, 255, 255, 0.48);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 8% 5%, rgba(255, 228, 90, 0.52), transparent 13rem),
+    radial-gradient(circle at 92% 12%, rgba(238, 63, 151, 0.2), transparent 18rem),
+    linear-gradient(135deg, rgba(236, 217, 243, 0.96), rgba(217, 232, 251, 0.96) 51%, rgba(239, 204, 233, 0.96)) !important;
+  color: var(--electric-plum) !important;
+  box-shadow: 0 10px 28px rgba(58, 24, 56, 0.22);
+}
+
+body.daily-pager-candidate .intent > div:first-child *,
+body.daily-pager-candidate .weekly > .section-heading *,
+body.daily-pager-candidate .closet > div > :not(.closet-actions) {
+  color: inherit;
+}
+
+body.daily-pager-candidate .postcard-band {
+  background: var(--cheat-gradient-pink-yellow-cyan);
+}
+
+body.daily-pager-candidate .postcard-visual {
+  background: linear-gradient(135deg, #84d5e2, #b7a2e4 47%, #ed78b7);
+}
+
+body.daily-pager-candidate .reference,
+body.daily-pager-candidate .reference h2,
+body.daily-pager-candidate .reference p,
+body.daily-pager-candidate .reference label {
+  color: var(--electric-plum);
+}
+
+body.daily-pager-candidate .homepage-main-flow .intent-grid a {
+  background: var(--cheat-gradient-cyan-violet-pink);
+}
+
+body.daily-pager-candidate .homepage-main-flow .intent-grid a:nth-child(2) {
+  background: var(--cheat-gradient-cyan-violet-pink);
+}
+
+body.daily-pager-candidate .homepage-main-flow .intent-grid a:nth-child(3) {
+  background: var(--cheat-gradient-cyan-violet-pink);
+}
+
+body.daily-pager-candidate .homepage-main-flow .intent-grid a:nth-child(4) {
+  background: var(--cheat-gradient-cyan-violet-pink);
+}
+
+/* Activity cards use the same approved coral → yellow → cyan surface as the
+   "Look something up" intent card. Image wells and controls keep their own
+   established treatments. */
+body.daily-pager-candidate .homepage-main-flow .activity-grid article,
+body.daily-pager-candidate .homepage-main-flow .activity-grid article > div:not(.card-duo) {
+  background: var(--cheat-gradient-pink-yellow-cyan);
+}
+
+body.daily-pager-candidate .homepage-main-flow .activity-grid .tag {
+  color: var(--electric-plum);
+}
+
+body.daily-pager-candidate .weekly-side .feature-card,
+body.daily-pager-candidate .season-track li > a:first-child {
+  background: var(--cheat-gradient-cyan-periwinkle);
+}
+
+/* Episode choices must separate clearly from the blue weekly panel. Keep the
+   rows in one pink-lavender family and use coral—not low-contrast teal—for
+   their numbered badges. */
+body.daily-pager-candidate .season-track li > a:first-child {
+  border-color: color-mix(in srgb, var(--electric-violet) 34%, transparent);
+  background:
+    linear-gradient(
+      115deg,
+      color-mix(in srgb, var(--electric-pink) 20%, #fffdfb),
+      color-mix(in srgb, var(--electric-lilac) 30%, #fffdfb)
+    );
+}
+
+body.daily-pager-candidate .season-track li > a:first-child:hover,
+body.daily-pager-candidate .season-track li > a:first-child:focus-visible {
+  background:
+    linear-gradient(
+      115deg,
+      color-mix(in srgb, var(--electric-pink) 28%, #fffdfb),
+      color-mix(in srgb, var(--electric-lilac) 38%, #fffdfb)
+    );
+}
+
+body.daily-pager-candidate .season-track i {
+  background: var(--electric-coral);
+  color: var(--electric-plum);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--electric-plum) 20%, transparent);
+}
+
+body.daily-pager-candidate .daily-column {
+  background: var(--cheat-gradient-page);
+}
+
+body.daily-pager-candidate .daily-column-header {
+  background: linear-gradient(145deg, #ecd8f2 0%, #d9e9fb 47%, #f1cfe8 100%);
+}
+
+/* Activity-family consistency contract
+   ------------------------------------
+   Filters are one control family and activity cards are one component family.
+   Colour may distinguish a choice; geometry and border treatment may not. */
+body.daily-pager-candidate .homepage-main-flow .filter {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.daily-pager-candidate .homepage-main-flow .filter button {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 58px;
+  min-height: 58px;
+  padding: 8px 10px;
+  border: 2px solid var(--electric-plum);
+  border-radius: 18px;
+  box-shadow: none;
+  line-height: 1.1;
+  white-space: normal;
+}
+
+body.daily-pager-candidate .homepage-main-flow .filter button.active {
+  border-color: var(--electric-plum);
+  box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.35);
+}
+
+body.daily-pager-candidate .homepage-main-flow .activity-grid article {
+  box-sizing: border-box;
+  height: 610px;
+  min-height: 610px;
+  border: 2px solid var(--electric-plum);
+}
+
+body.daily-pager-candidate .homepage-main-flow .activity-grid article > div:not(.card-duo) {
+  min-height: 0;
+}
+
+@media (max-width: 820px) and (min-width: 561px) {
+  body.daily-pager-candidate .homepage-main-flow .filter {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  body.daily-pager-candidate .homepage-main-flow .filter {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  body.daily-pager-candidate .homepage-main-flow .filter button {
+    height: 52px;
+    min-height: 52px;
+  }
+
+  body.daily-pager-candidate .homepage-main-flow .filter button:last-child {
+    grid-column: auto;
+  }
+
+  body.daily-pager-candidate .homepage-main-flow .activity-grid article {
+    height: 560px;
+    min-height: 560px;
+  }
+}

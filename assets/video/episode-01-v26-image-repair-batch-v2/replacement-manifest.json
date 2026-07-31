@@ -1,0 +1,138 @@
+{
+  "schema": "episode-01-image-repair-batch/v2",
+  "status": "BUILT_LOCALLY_NOT_ADMITTED",
+  "baseline": {
+    "path": "assets/video/episode-01-full-v25-welcome-ident-review.mp4",
+    "sha256_after_batch": "486bb908a2faa26efee61d0689a7e97180b1f12aa628a04a6b4ad76edf43b633",
+    "mutated": false
+  },
+  "prior_independent_accepts": [
+    {"placement": 14, "sha256": "f80ebbeeb56c720452b46da933a4d977bfcbae2cabd8c2e92c65da6dbf6c5b47"},
+    {"placement": 25, "sha256": "97a823362d335c9293cc2f66530659e0de834753726895ff41171618a5ba41e3"}
+  ],
+  "common_authorities": {
+    "occurrences": "operations/video-qa/episode-01-v24-71-placement-manifest.json",
+    "narration": "operations/captions/episode-01.vtt",
+    "visual_system": "operations/episode-visual-system-lock.md",
+    "episode_prompt_canon": "operations/codex-prompts/ep01-MASTER-all-prompts.md",
+    "heroine_identity": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+    "heroine_episode_wardrobe": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png"
+  },
+  "sources": [
+    {
+      "id": "blend-snap-tutu-ibook-shared-v2",
+      "occurrences": [[29,434.9,455.7],[30,455.7,474.35],[61,996.3,1025.0]],
+      "job": "Quiet Blend & Snap email origin and later same-small-task Try-On reuse; locked heroine identity/wardrobe and unmistakable unbranded 1999 clamshell laptop.",
+      "narration": "Sunday morning at the Blend and Snap — my corner table, an oat latte going cold, the radio on low ... the delicate email; later give all three the same small, real task.",
+      "references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png","assets/town-characters/scenes/jojo-scene.png"],
+      "source_file": "ep01-blend-snap-tutu-ibook-shared-p29-p30-p61-v2-source.png",
+      "source_sha256": "2b0a8be96cb909c034554eae1ddb88a78b67535d70a4b9ea100f679484a659f2",
+      "review_file": "ep01-blend-snap-tutu-ibook-shared-p29-p30-p61-v2-1920.png",
+      "review_sha256": "2626db765a7d7aab6d5aaf5869bdcbe33934ef66cc07619e773755675079e991",
+      "crop_file": "qa-identity-crop-heroine-p29-p30-p61-v2.png",
+      "crop_sha256": "a0b0ff741271decb1a208fff2fdb5023b1397e7e748054ab53ef8431649c0a64",
+      "independent_verdict": "REJUDGE_REQUIRED"
+    },
+    {
+      "id": "senior-women-learning-p34-v1",
+      "occurrences": [[34,525.0,545.0]],
+      "job": "Present-day diverse senior technical women candidly leading while still learning; ability was not the barrier and there is no superhero/training-montage fantasy.",
+      "narration": "Nobody had explained it in a way that made me want to start ... I am no AI slayer ... still learning, still getting things wrong.",
+      "references": ["operations/codex-prompts/ep01-MASTER-all-prompts.md","operations/reference/episode-style-popart/epstyle-scene-01.png"],
+      "source_file": "ep01-senior-women-learning-p34-v1-source.png",
+      "source_sha256": "ad1325d5bc0478ff14c50b1cb1ae2eda53a3d294971e3347d19bbd5b346ba37f",
+      "review_file": "ep01-senior-women-learning-p34-v1-1920.png",
+      "review_sha256": "ae016f9372a91001da97160dcb9c9b3cfec10dbfaafb00d784b1ad9c87d5c5a3",
+      "crop_file": "qa-primary-crop-senior-women-p34.png",
+      "crop_sha256": "d00102376a4eb827afea7aea8411c38313f0f9d0a7fcad81d44674fdf0064a95",
+      "independent_verdict": "PENDING"
+    },
+    {
+      "id": "bronze-aige-cocktail-p38-v1",
+      "occurrences": [[38,603.2,623.033]],
+      "job": "Heroine explains the email at businesswomen's happy hour; friend puts down drink to ask what AI is; canonical Cosmo keeps the bar.",
+      "narration": "The cocktail party explanation ... born at the Bronze Age ... one of them put down her drink and said, okay, but what IS it?",
+      "references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png","assets/town-characters/scenes/cosmo-scene.png"],
+      "source_file": "ep01-bronze-aige-cocktail-p38-v1-source.png",
+      "source_sha256": "34c6f2958aaafa80b0d3385b374d8ddb5db5654d278ae495a3da9519f8b9833e",
+      "review_file": "ep01-bronze-aige-cocktail-p38-v1-1920.png",
+      "review_sha256": "9f6470b2fa06c628752564cb44a6f96916bc3ec3afff764544304e67163bf26e",
+      "crop_file": "qa-identity-crop-heroine-p38.png",
+      "crop_sha256": "c91d9a0db9800470564c80c4a1ffe17d47b9eb2038b213ca0e7f680f86c0dd6a",
+      "independent_verdict": "PENDING"
+    },
+    {
+      "id": "new-hire-judgment-p43-v1",
+      "occurrences": [[43,700.0,719.8]],
+      "job": "Heroine manages dazzling day-one talent that produces scary-good first drafts but cannot read office politics or own consequences.",
+      "narration": "Day-one talent: superhuman range, astonishing speed ... and no read on your office politics ... That's where you come in.",
+      "references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png","assets/episodes/ep-01/pixel/delivery-20260721-autonomous-rerolls/ep01-new-hire-comic-v5-fix.png"],
+      "source_file": "ep01-new-hire-judgment-p43-v1-source.png",
+      "source_sha256": "4cb23fd605cb271061ad97d5e98a8b1cf26aca0671cedfb6a6dd71f79472f4b2",
+      "review_file": "ep01-new-hire-judgment-p43-v1-1920.png",
+      "review_sha256": "6db7d30f9020ab68d32c7ccea669235ef3a0958967da16e6d5ce62dc31083fca",
+      "crop_file": "qa-identity-crop-heroine-p43.png",
+      "crop_sha256": "be0f6019bf47b010921a26eeca7d7db75ec40280f63c13ba8224c5ab9b3eaf2f",
+      "independent_verdict": "PENDING"
+    },
+    {
+      "id": "next-token-machine-p45-v1",
+      "occurrences": [[45,739.6,756.933]],
+      "job": "Text-free mechanical metaphor for sequential prediction growing into drafting and reasoning.",
+      "narration": "What it's doing is prediction — generating what comes next, word by word ... what grew out of all that prediction — it drafts, it reasons.",
+      "references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png","operations/reference/episode-style-popart/epstyle-scene-05.png"],
+      "source_file": "ep01-next-token-machine-p45-v1-source.png",
+      "source_sha256": "40f8ce71f4db7ceaf5f6d921c12d3a33dbcda0b4c0b4235c721c3bf7c798e30a",
+      "review_file": "ep01-next-token-machine-p45-v1-1920.png",
+      "review_sha256": "967b049cc189cca4e8b28f0c82a5c34ff9177911a6ba5afe217f901af2c3560a",
+      "crop_file": "qa-identity-crop-heroine-p45.png",
+      "crop_sha256": "599a27934a15b0833656a0dd4dfea73fbc91d0de4a43ef702082ac41dc8a621c",
+      "independent_verdict": "PENDING"
+    },
+    {
+      "id": "context-closet-crt-p48-v1",
+      "occurrences": [[48,791.6,808.8]],
+      "job": "Heroine at period-correct closet CRT; endless outfit combinations cannot infer the conservative-client context placed outside its view.",
+      "narration": "Cher's closet computer ... endless outfit combinations ... no idea the meeting is with a conservative client ... unless you tell it.",
+      "references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png","assets/episodes/ep-01/pixel/ep01-scene-09-chers-closet.png"],
+      "source_file": "ep01-context-closet-crt-p48-v1-source.png",
+      "source_sha256": "9b04e59e102a692afc647867020a5f233885045d571282a984b2c6548186fd7a",
+      "review_file": "ep01-context-closet-crt-p48-v1-1920.png",
+      "review_sha256": "8bfa646f910fe14321d9bd9d381c04c3914211179e8c219f67c6773a693a7fc6",
+      "crop_file": "qa-identity-crop-heroine-p48.png",
+      "crop_sha256": "1e973f5da0a741a7e4c93e8502866baf728fdd0b5612a4c1a0ea642b73e462ef",
+      "independent_verdict": "PENDING"
+    },
+    {
+      "id": "plausibility-pushback-shared-p50-p57-v1",
+      "occurrences": [[50,826.0,843.45],[57,936.4,951.7]],
+      "job": "Shared no-text tableau: equally confident sourced/absurd outputs plus an overeager inappropriate suggestion; heroine judges what to trust and rejects what misreads the room.",
+      "narration": "It does not check whether what it says is true, only whether it's plausible ... AI trying to be helpful and completely misreading the room ... know which parts to trust and push back on.",
+      "references": ["assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png","assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png","assets/episodes/ep-03/comic/ep03-scene-04-regina-burn-book-comic-v3-clean.png"],
+      "source_file": "ep01-plausibility-pushback-shared-p50-p57-v1-source.png",
+      "source_sha256": "fb328f115277fd4580dababa7c59ebb8f068ebd42fb7cd06a764985b42d4987c",
+      "review_file": "ep01-plausibility-pushback-shared-p50-p57-v1-1920.png",
+      "review_sha256": "071b82573c9dd463f91d8dca9bb465edd4c1847aa2ade48994df4973e5b4f809",
+      "crop_file": "qa-identity-crop-heroine-p50-p57.png",
+      "crop_sha256": "a4b980329996cf4590ba4b8e3b3c8f85598edb7d49d44e258c68fdd262023866",
+      "independent_verdict": "PENDING"
+    },
+    {
+      "id": "david-rose-delegation-kitchen-p70-v1",
+      "occurrences": [[70,1150.0,1172.24]],
+      "job": "David Rose uses a blank structured brief and arranged ingredients to make prompting-as-delegation legible without baked episode text.",
+      "narration": "Prompting is just delegation ... Tell Me What You Want.",
+      "references": ["assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.png","assets/episodes/issue-02/ep02-david-rose.png","assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png"],
+      "source_file": "ep01-david-rose-delegation-kitchen-p70-v1-source.png",
+      "source_sha256": "6e125967e5268f653c950761cb7262cc2155e7330433926d885cbcd3a4010d76",
+      "review_file": "ep01-david-rose-delegation-kitchen-p70-v1-1920.png",
+      "review_sha256": "459552e358e12429be582a5a39ff66367ee5795a6ec2dfab383a3f4e584fcf1b",
+      "crop_file": "qa-identity-crop-david-p70.png",
+      "crop_sha256": "f9c3b99844e3bad9085875ed7ff129b323489dccef57e3fc61aef887aa57c1fd",
+      "independent_verdict": "PENDING"
+    }
+  ],
+  "render_remainder": [],
+  "assembly_performed": false,
+  "judge_trigger": "Independent EMQ image admission against every review_file/review_sha256 and crop pair; corrected shared source must explicitly clear the two prior HOLD codes. Any byte change requires a new trigger."
+}

@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.com/schemas/claim-register.schema.json",
+  "title": "LAiDIES claim and definition register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "owner",
+    "status",
+    "updatedAt",
+    "coverage",
+    "sources",
+    "claims"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "owner": { "const": "learning-content-ecosystem" },
+    "status": {
+      "enum": ["ACTIVE", "HOLD", "SUPERSEDED"]
+    },
+    "updatedAt": { "type": "string", "format": "date" },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "scope", "knownGaps"],
+      "properties": {
+        "state": {
+          "enum": ["REPRESENTATIVE", "PARTIAL_BACKFILL", "COMPLETE"]
+        },
+        "scope": { "type": "string", "minLength": 1 },
+        "knownGaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "claims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claim" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "publisher",
+        "authority",
+        "url",
+        "publishedOrUpdated",
+        "accessedAt",
+        "status"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "authority": {
+          "enum": [
+            "PRIMARY_OFFICIAL",
+            "ORIGINAL_RESEARCH",
+            "GOVERNMENT_OR_STANDARD",
+            "FIRST_PARTY_PRODUCT",
+            "INDEPENDENT_CONTEXT",
+            "INTERNAL_CANON"
+          ]
+        },
+        "url": { "type": "string", "minLength": 1 },
+        "publishedOrUpdated": { "type": "string", "minLength": 4 },
+        "accessedAt": { "type": "string", "format": "date" },
+        "status": {
+          "enum": ["CURRENT", "REVIEW_DUE", "STALE", "CONFLICTED", "HOLD"]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "consumer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "surface",
+        "owner",
+        "path",
+        "locator",
+        "job",
+        "status",
+        "lastVerifiedAt"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^CON-[A-Z0-9-]+$" },
+        "surface": { "type": "string", "minLength": 1 },
+        "owner": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "locator": { "type": "string", "minLength": 1 },
+        "job": {
+          "enum": [
+            "CANON",
+            "ARTICLE",
+            "NARRATION",
+            "CAPTION_OR_TRANSCRIPT",
+            "IMAGE_OR_VIDEO",
+            "STUDY_PACK",
+            "TRADING_CARD",
+            "LIBRARY_LOOKUP",
+            "LIBRARY_DEPTH",
+            "CLASS",
+            "QUIZ_GAME_OR_TOOL",
+            "NEWS",
+            "SEARCH_OR_INDEX",
+            "SOCIAL_EMAIL_OR_SHARE",
+            "OTHER"
+          ]
+        },
+        "status": {
+          "enum": [
+            "CURRENT",
+            "UPDATE_REQUIRED",
+            "SCRIPT_READY",
+            "REBUILD_REQUIRED",
+            "OWNER_REVIEW",
+            "HOLD",
+            "SUPERSEDED",
+            "NOT_PUBLIC"
+          ]
+        },
+        "lastVerifiedAt": { "type": "string", "format": "date" },
+        "evidencePath": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "canonicalKey",
+        "type",
+        "status",
+        "riskTier",
+        "volatility",
+        "canonicalWording",
+        "applicability",
+        "sourceIds",
+        "evidenceSummary",
+        "limitations",
+        "lastCheckedAt",
+        "nextReviewAt",
+        "recheckTriggers",
+        "owner",
+        "consumers",
+        "correction"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^CLM-[A-Z0-9-]+$" },
+        "canonicalKey": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "type": {
+          "enum": [
+            "definition",
+            "statistic",
+            "product_capability",
+            "model_or_version",
+            "access_plan_price_region",
+            "policy_or_data_practice",
+            "research_finding",
+            "historical_fact",
+            "legal_safety_or_health",
+            "quote_or_attribution",
+            "dated_status",
+            "analogy_boundary",
+            "semantic_image_claim"
+          ]
+        },
+        "status": {
+          "enum": [
+            "CURRENT",
+            "REVIEW_DUE",
+            "STALE",
+            "CONFLICTED",
+            "CORRECTION_REQUIRED",
+            "HOLD",
+            "SUPERSEDED"
+          ]
+        },
+        "riskTier": {
+          "enum": ["LOW", "MATERIAL", "HIGH", "HARD_HOLD"]
+        },
+        "volatility": {
+          "enum": ["STABLE", "ANNUAL", "QUARTERLY", "MONTHLY", "WEEKLY", "EVENT_DRIVEN"]
+        },
+        "canonicalWording": { "type": "string", "minLength": 1 },
+        "teaching": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mechanism": { "type": "string" },
+            "readerConsequence": { "type": "string" },
+            "analogy": { "type": "string" },
+            "analogyLimit": { "type": "string" },
+            "memoryLine": { "type": "string" }
+          }
+        },
+        "applicability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["products", "versions", "plans", "regions"],
+          "properties": {
+            "products": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "versions": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "plans": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "regions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "sourceIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^SRC-[A-Z0-9-]+$" }
+        },
+        "evidenceSummary": { "type": "string", "minLength": 1 },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "lastCheckedAt": { "type": "string", "format": "date" },
+        "nextReviewAt": { "type": "string", "format": "date" },
+        "recheckTriggers": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "owner": { "type": "string", "minLength": 1 },
+        "upstreamSignals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["system", "id", "path", "status"],
+            "properties": {
+              "system": {
+                "enum": ["AIDB", "NEWSSTAND", "PRIMARY_CHECK", "EPISODE", "ALI_CORRECTION"]
+              },
+              "id": { "type": "string", "minLength": 1 },
+              "path": { "type": "string", "minLength": 1 },
+              "status": {
+                "enum": ["OPEN", "ACCEPTED", "DECLINED", "RESOLVED", "WATCH"]
+              }
+            }
+          }
+        },
+        "consumers": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/consumer" }
+        },
+        "correction": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": [
+            "effectiveAt",
+            "severity",
+            "oldWording",
+            "reason",
+            "recordPath",
+            "publicHandling"
+          ],
+          "properties": {
+            "effectiveAt": { "type": "string", "format": "date" },
+            "severity": { "enum": ["MINOR", "MATERIAL", "CRITICAL"] },
+            "oldWording": { "type": "string", "minLength": 1 },
+            "reason": { "type": "string", "minLength": 1 },
+            "recordPath": { "type": "string", "minLength": 1 },
+            "publicHandling": {
+              "enum": [
+                "NOT_PUBLIC",
+                "NOTE_REQUIRED",
+                "CORRECTION_REQUIRED",
+                "RETRACTION_REQUIRED",
+                "COMPLETE"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

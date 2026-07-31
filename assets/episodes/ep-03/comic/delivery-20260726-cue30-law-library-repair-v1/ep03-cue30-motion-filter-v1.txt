@@ -1,0 +1,17 @@
+[0:v]format=rgba[base];
+color=c=black@0.0:s=420x210:r=30:d=12,format=rgba,
+geq=
+r='246':
+g='233':
+b='191':
+a='if(lte(pow((X-180)/210,2)+pow((Y-105)/95,2),1),if(eq(N,359),4+24*0.5+3*0.5,4+24*(0.5+0.5*sin(2*PI*N/359))+3*(0.5+0.5*sin(8*PI*N/359))),0)'
+[lamp];
+color=c=black@0.0:s=295x150:r=30:d=12,format=rgba,
+geq=
+r='246':
+g='233':
+b='191':
+a='if(between(X,20,23)*between(Y,20,23),if(eq(N,359),8+42*0.5,8+42*(0.5+0.5*sin(2*PI*N/359))),if(between(X,85,87)*between(Y,60,62),if(eq(N,359),7+36*(0.5+0.5*sin(1.0471975512)),7+36*(0.5+0.5*sin(2*PI*N/359+1.0471975512))),if(between(X,148,151)*between(Y,101,104),if(eq(N,359),6+40*(0.5+0.5*sin(2.0943951024)),6+40*(0.5+0.5*sin(2*PI*N/359+2.0943951024))),if(between(X,212,214)*between(Y,47,49),if(eq(N,359),7+34*(0.5+0.5*sin(3.1415926536)),7+34*(0.5+0.5*sin(2*PI*N/359+3.1415926536))),if(between(X,270,273)*between(Y,127,130),if(eq(N,359),6+38*(0.5+0.5*sin(4.1887902048)),6+38*(0.5+0.5*sin(2*PI*N/359+4.1887902048))),0)))))'
+[dust];
+[base][lamp]overlay=0:215:format=auto[lit];
+[lit][dust]overlay=1490:225:format=auto,format=yuv420p[v]

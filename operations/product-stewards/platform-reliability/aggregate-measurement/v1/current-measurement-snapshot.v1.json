@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "laidies.aggregate-measurement.v1",
+  "snapshotId": "AUD-MEAS-2026-07-26-WEEK-01",
+  "generatedAt": "2026-07-26T12:03:03-07:00",
+  "validUntil": "2026-07-27T19:03:03.000Z",
+  "period": {
+    "start": "2026-07-26",
+    "end": "2026-08-01",
+    "timezone": "America/Vancouver"
+  },
+  "provenance": {
+    "sourcePath": "operations/product-stewards/audience-growth/measurement-state.json",
+    "sourceSha256": "64a8460f260e0d17e978035d66b5469533bc2ef33d14ece919af4aef71a02379",
+    "observedAt": "2026-07-26T12:03:03-07:00"
+  },
+  "privacy": {
+    "mode": "aggregate-only",
+    "minimumPublishedCohort": 5,
+    "rawDataRetained": false,
+    "prohibitedFields": [
+      "email",
+      "name",
+      "account_id",
+      "user_id",
+      "resident_card_id",
+      "ip_address",
+      "user_agent",
+      "session_id",
+      "raw_url",
+      "query_string",
+      "prompt",
+      "message_body",
+      "saved_content",
+      "clarity_recording"
+    ]
+  },
+  "sources": [
+    {
+      "id": "plausible",
+      "status": "not-connected",
+      "observedAt": "2026-07-26T12:03:03-07:00",
+      "freshUntil": "2026-07-27T19:03:03.000Z",
+      "evidenceRef": "Tracking script is embedded across many routes; authenticated dashboard/API was unavailable in the current session.",
+      "owner": "Audience & Growth + Platform",
+      "nextAction": "Authorize a Plausible dashboard login, shared report or Stats API key and select the reporting window."
+    },
+    {
+      "id": "resident-card",
+      "status": "not-verified",
+      "observedAt": "2026-07-26T12:03:03-07:00",
+      "freshUntil": "2026-07-27T19:03:03.000Z",
+      "evidenceRef": "Local identity and profile contracts exist, but the candidate migration is unapplied and no production aggregate query is connected.",
+      "owner": "Identity + Platform",
+      "nextAction": "After identity authority is established, expose a privacy-safe aggregate count of first verified Card creations by day."
+    },
+    {
+      "id": "social",
+      "status": "manual-partial",
+      "observedAt": "2026-07-26T12:03:03-07:00",
+      "freshUntil": "2026-07-27T19:03:03.000Z",
+      "evidenceRef": "campaigns/week-01/seven-day-content-board.json",
+      "owner": "Audience & Growth",
+      "nextAction": "Confirm exact account handles and authority, activate missing profiles and connect aggregate platform exports."
+    }
+  ],
+  "metrics": [
+    {
+      "id": "visitors",
+      "definitionVersion": "v1",
+      "definition": "Plausible unique visitors for the exact selected period; aggregate only.",
+      "value": null,
+      "unit": "people",
+      "status": "not-connected",
+      "sourceId": "plausible",
+      "owner": "Audience & Growth + Platform",
+      "nextAction": "Authorize a read-only Plausible aggregate report or Stats API path."
+    },
+    {
+      "id": "new-visitors",
+      "definitionVersion": "v1",
+      "definition": "Visitors classified as new by a named approved provider method for the exact selected period.",
+      "value": null,
+      "unit": "people",
+      "status": "not-connected",
+      "sourceId": "plausible",
+      "owner": "Audience & Growth + Platform",
+      "nextAction": "Approve and record the provider methodology before importing the aggregate."
+    },
+    {
+      "id": "resident-card-signups",
+      "definitionVersion": "v1",
+      "definition": "First verified account-backed Resident Card creation in the canonical profile store; device-local Cards, previews, form submits and auth attempts do not count.",
+      "value": null,
+      "unit": "people",
+      "status": "not-verified",
+      "sourceId": "resident-card",
+      "owner": "Identity + Platform",
+      "nextAction": "Apply and verify Identity in staging, then expose a suppressed daily aggregate query."
+    },
+    {
+      "id": "returning-rate",
+      "definitionVersion": "v1",
+      "definition": "Approved provider aggregate returning-visitor percentage for the exact selected period; it does not prove account identity or cross-device return.",
+      "value": null,
+      "unit": "percent",
+      "status": "not-connected",
+      "sourceId": "plausible",
+      "owner": "Audience & Growth + Platform",
+      "nextAction": "Authorize Plausible reporting and record its returning-visitor definition."
+    }
+  ],
+  "pageRankings": {
+    "status": "not-connected",
+    "definition": "Routes ranked by aggregate unique visitors for the exact period only after exposure and cohort suppression are satisfied; absence is not unpopularity.",
+    "items": [],
+    "owner": "Audience & Growth + Platform",
+    "nextAction": "Connect a read-only aggregate page report and apply the minimum cohort threshold."
+  },
+  "social": {
+    "status": "repository-counts-only",
+    "planned": 35,
+    "builtLocally": 35,
+    "readyToPublish": 0,
+    "published": 0,
+    "evidenceRef": "campaigns/week-01/seven-day-content-board.json",
+    "owner": "Audience & Growth",
+    "nextAction": "Keep production, admission and publication counts separate; bind any publication to provider URL and time receipts."
+  },
+  "integrity": {
+    "algorithm": "SHA-256",
+    "canonicalization": "RFC8785-JCS",
+    "payloadSha256": "2760c3aff93f139b386af831b1f2f61d825792995771f21064e9243e97774c87"
+  }
+}

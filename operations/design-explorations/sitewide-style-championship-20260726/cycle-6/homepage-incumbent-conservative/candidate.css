@@ -1,0 +1,278 @@
+/*
+  Homepage championship — Cycle 6, incumbent conservative.
+
+  Locked:
+  - exact incumbent header, luminous masthead, hero copy and core explanation;
+  - no new public copy, status grid, destination-as-route language or internal
+    platform vocabulary;
+  - no live-route change.
+
+  Variable:
+  - authoritative image use, duplicated hierarchy and restrained visual
+    calibration below the masthead.
+*/
+
+:root {
+  --c6-night: #17152f;
+  --c6-plum: #462141;
+  --c6-teal: #3daeb0;
+  --c6-coral: #df6f68;
+  --c6-lilac: #8d7bc3;
+  --c6-gold: #e5b84f;
+  --c6-paper: #fffaf2;
+  --c6-ink: #29182c;
+  --c6-rule: rgba(41, 24, 44, .18);
+  --c6-shadow: 0 18px 42px rgba(35, 20, 43, .14);
+}
+
+/* The incumbent masthead is deliberately untouched. */
+main > section:not(.hero) {
+  position: relative;
+}
+
+main > section:not(.hero) h2 {
+  text-wrap: balance;
+}
+
+/* Keep the incumbent explanation; improve only its hierarchy and finish. */
+.explainer {
+  border-top: 8px solid var(--c6-teal);
+  border-bottom: 8px solid var(--c6-plum);
+  background:
+    radial-gradient(circle at 86% 10%, rgba(141, 123, 195, .18), transparent 32%),
+    linear-gradient(145deg, #f4d7de 0%, #f7e4d3 50%, #c9e8e4 100%);
+}
+
+.explainer-card,
+.why-box-lg {
+  border: 1px solid rgba(70, 33, 65, .24);
+  box-shadow: var(--c6-shadow);
+}
+
+.explainer-steps {
+  border-top: 2px solid rgba(70, 33, 65, .18);
+}
+
+/* Repeated image jobs retain their exact links/copy as designed objects. */
+.intent-grid a.c6-text-object,
+.district-cards .district.c6-text-object {
+  position: relative;
+  isolation: isolate;
+  min-height: 190px;
+  color: #fffdf9;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(61, 174, 176, .35), transparent 34%),
+    linear-gradient(145deg, var(--c6-plum), var(--c6-night));
+}
+
+.intent-grid a.c6-text-object:nth-child(even),
+.district-cards .district.c6-text-object:nth-child(even) {
+  background:
+    radial-gradient(circle at 14% 92%, rgba(223, 111, 104, .35), transparent 36%),
+    linear-gradient(145deg, #244d57, #26203e);
+}
+
+.intent-grid a.c6-text-object > div,
+.district-cards .district.c6-text-object > div {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  color: #fffdf9;
+  background: transparent;
+}
+
+.intent-grid a.c6-text-object strong,
+.intent-grid a.c6-text-object span,
+.district-cards .district.c6-text-object h3,
+.district-cards .district.c6-text-object p,
+.district-cards .district.c6-text-object span {
+  color: #fffdf9;
+}
+
+/* The weekly story stays recognisably incumbent, with calmer separation. */
+.weekly {
+  border-top: 1px solid rgba(255, 250, 242, .24);
+  border-bottom: 1px solid rgba(255, 250, 242, .24);
+  background:
+    radial-gradient(circle at 92% 4%, rgba(61, 174, 176, .2), transparent 30%),
+    linear-gradient(145deg, #35213f 0%, var(--c6-night) 58%, #173d49 100%);
+}
+
+.weekly .section-heading,
+.weekly .section-heading h2,
+.weekly .section-heading p {
+  color: var(--c6-paper);
+}
+
+.weekly-layout {
+  gap: clamp(24px, 4vw, 54px);
+}
+
+.feature-card,
+.route-cell {
+  border: 1px solid rgba(255, 250, 242, .22);
+  box-shadow: 0 20px 44px rgba(8, 8, 26, .24);
+}
+
+.route-head {
+  border-radius: 4px;
+}
+
+.ritual-stop {
+  border-radius: 4px;
+}
+
+/* Activity cards are colour-bearing objects, never a white status grid. */
+.activities {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .14), transparent 42%),
+    linear-gradient(145deg, #d76f83 0%, #c55e63 50%, #804675 100%);
+}
+
+.activities .section-heading,
+.activities .section-heading h2,
+.activities .section-heading p {
+  color: #fffdf9;
+}
+
+.filter button {
+  border-color: rgba(255, 255, 255, .5);
+  color: #fffdf9;
+  background: rgba(39, 20, 48, .28);
+}
+
+.filter button.active {
+  border-color: #fffdf9;
+  color: var(--c6-ink);
+  background: var(--c6-paper);
+}
+
+.activity-grid article {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 14px;
+  color: #fffdf9;
+  background: linear-gradient(150deg, #3d2342, #20213e);
+  box-shadow: 0 18px 38px rgba(44, 18, 41, .22);
+}
+
+.activity-grid article:nth-child(3n + 2) {
+  background: linear-gradient(150deg, #204b56, #25203d);
+}
+
+.activity-grid article:nth-child(3n) {
+  background: linear-gradient(150deg, #5a2846, #2b203f);
+}
+
+.activity-grid article div,
+.activity-grid article h3,
+.activity-grid article p {
+  color: #fffdf9;
+}
+
+.activity-grid article img,
+.activity-grid .card-duo {
+  border-bottom: 1px solid rgba(255, 255, 255, .22);
+}
+
+.activity-grid article button {
+  border: 1px solid rgba(255, 255, 255, .55);
+  color: #fffdf9;
+  background: rgba(255, 255, 255, .08);
+}
+
+.activity-grid article button:hover,
+.activity-grid article button:focus-visible {
+  color: var(--c6-ink);
+  background: var(--c6-paper);
+}
+
+.activity-grid .c6-no-authoritative-art {
+  min-height: 360px;
+  border-top: 7px solid var(--c6-teal);
+}
+
+.activity-grid .c6-no-authoritative-art:nth-child(3n + 1) {
+  border-top-color: var(--c6-coral);
+}
+
+/* Retain the strongest KSVL/LUMINAiRY art uses as cinematic destinations. */
+.spotlights {
+  gap: clamp(18px, 3vw, 34px);
+}
+
+.spot {
+  overflow: hidden;
+  border: 1px solid var(--c6-rule);
+  border-radius: 14px;
+  box-shadow: var(--c6-shadow);
+}
+
+/* Miss Jeeves remains the single reference image and surface. */
+.reference {
+  border-top: 8px solid var(--c6-lilac);
+  border-bottom: 1px solid var(--c6-rule);
+  background: linear-gradient(145deg, #f1d9dd, #d9e8e4);
+}
+
+.reference > div {
+  background: rgba(255, 250, 242, .82);
+}
+
+/* The map—not a second district-card wall—is the town interface. */
+.town {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(223, 111, 104, .18), transparent 30%),
+    linear-gradient(145deg, #211b38, #173e49);
+}
+
+.town .section-heading,
+.town .section-heading h2,
+.town .section-heading p {
+  color: var(--c6-paper);
+}
+
+.district-view {
+  border: 1px solid rgba(255, 250, 242, .26);
+  box-shadow: 0 24px 54px rgba(6, 8, 25, .3);
+}
+
+.closet {
+  border-top: 8px solid var(--c6-coral);
+  background: linear-gradient(145deg, #efd1dc, #d3e9e4);
+}
+
+.postcard-band {
+  border-top: 8px solid var(--c6-gold);
+}
+
+@media (max-width: 700px) {
+  .explainer,
+  .weekly,
+  .activities,
+  .town {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .activity-grid article {
+    border-radius: 10px;
+  }
+
+  .activity-grid .c6-no-authoritative-art {
+    min-height: 0;
+  }
+
+  .intent-grid a.c6-text-object,
+  .district-cards .district.c6-text-object {
+    min-height: 170px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-grid article,
+  .spot,
+  .district-view {
+    transition: none;
+  }
+}

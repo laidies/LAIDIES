@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAiKEOVER on MAiN · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="MAiKEOVER on MAiN at MAiN Street No. 6 — the beauty parlor where LAiDIES are made and members come back. New here? Design your card. Coming back? See your card and what your week brought in.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260724-1">
+  <script src="/content/site/supabase-config.js?v=20260702-1"></script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+  <header class="sv-header"></header>
+
+  <section class="sv-hero mo-room" aria-label="The MAiKEOVER vanity">
+    <img class="mo-room__backdrop" src="assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png" alt="A straight-on illustrated Y2K salon vanity with one large lit mirror, three smaller candidate mirrors, seven tool drawers and a pink styling chair" loading="eager">
+    <p class="mo-room__brand"><span class="ai">MAiKEOVER</span> <span>on <span class="ai">MAiN</span></span></p>
+    <div class="mo-candidate-mount" id="moCandidateMount" aria-live="polite"></div>
+    <div class="mo-mirror-mount" id="moMirrorMount" aria-label="Your live Resident Card mirror"></div>
+    <nav class="mo-tool-tray" aria-label="Vanity tool drawers">
+      <button type="button" data-mo-tool="look" aria-pressed="true">Look</button>
+      <button type="button" data-mo-tool="backdrop" aria-pressed="false">Backdrop</button>
+      <button type="button" data-mo-tool="soundtrack" aria-pressed="false">Soundtrack</button>
+      <button type="button" data-mo-tool="saint" aria-pressed="false">Saint</button>
+      <button type="button" data-mo-tool="era" aria-pressed="false">Era faves</button>
+      <button type="button" data-mo-tool="carrying" aria-pressed="false">Carrying</button>
+      <button type="button" data-mo-tool="finish" aria-pressed="false">Finish</button>
+    </nav>
+  </section>
+
+  <main class="mo-page">
+
+    <section class="mo-arrival" aria-labelledby="moArrivalTitle">
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ MAiN Street · No. 6 · SUNNYVAiLE</span>
+    </div>
+
+    <h1 id="moArrivalTitle">New here? Take the chair.</h1>
+
+    <p class="sv-lede">
+      Work the seven drawers, watch your Resident Card change in the mirror,
+      and leave MAiN Street as a member of the LAiDIES.
+    </p>
+
+    <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rose); font-size: 17px; text-align: center; padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 24px 0;">
+      Wednesday tour · Stop No. 6 · After class, before the Bronze.
+    </p>
+    </section>
+
+    <!-- ===== THE CHAIR: Resident Card customizer ===== -->
+    <section id="mo-chair" style="--gold:#f6c04a; margin:8px 0 40px;">
+      <p class="mo-section-kicker">The vanity drawers</p>
+      <h2 style="margin-bottom:6px;">Pick up one tool at a time.</h2>
+      <p class="sv-lede" style="margin-top:0;">Your choices update the mirror above. Style and save the card, then sign the guest book—all without leaving the chair.</p>
+      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Look drawer open · the portrait booth is getting a safety upgrade.</p>
+
+      <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
+
+        <!-- LIVE CARD PREVIEW -->
+        <div class="mo-card-col" style="position:sticky; top:92px;">
+          <div id="moCard" style="border:2px solid var(--rose); border-radius:18px; padding:20px; background:linear-gradient(135deg,#fffdfb 0%,#f8eef2 100%); box-shadow:0 16px 38px rgba(58,24,56,.14);">
+            <div style="display:flex; justify-content:space-between; align-items:center; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--rose); font-weight:700; margin-bottom:14px;">
+              <span>★ SUNNYVAiLE Resident</span>
+              <span id="moResidentNo" style="color:#b98a2a; font-family:monospace;">No. ————</span>
+            </div>
+            <div id="moAvatar" style="width:100%; aspect-ratio:1; border-radius:14px; background:var(--pearl); display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid var(--line);">
+              <span style="font-family:'Playfair Display',Georgia,serif; font-size:44px; color:var(--rose); opacity:.5;">✦</span>
+            </div>
+            <div id="moName" style="font-family:'Playfair Display',Georgia,serif; font-size:24px; font-weight:700; color:var(--plum); margin:14px 0 2px;">Your Name</div>
+            <div id="moHandle" style="font-family:'Jost',sans-serif; font-size:13px; color:var(--rose); font-weight:600; margin-bottom:12px;">@yourhandle</div>
+            <div style="font-family:'Jost',sans-serif; font-size:14px; color:var(--plum); line-height:1.7;">
+              <div><strong style="color:var(--rose);">Era movie ·</strong> <span id="moMovie">—</span></div>
+              <div><strong style="color:var(--rose);">Era TV ·</strong> <span id="moTv">—</span></div>
+              <div><strong style="color:var(--rose);">Song ·</strong> <span id="moSong">—</span></div>
+              <div><strong style="color:var(--rose);">Patron Saint ·</strong> <span id="moSaint">—</span></div>
+              <div><strong style="color:var(--rose);">Carrying ·</strong> <span id="moCarry">—</span></div>
+            </div>
+          </div>
+          <p style="text-align:center; font-size:12px; color:var(--plum-soft); margin-top:8px;">Live preview — updates as you pick</p>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="mo-controls" style="display:flex; flex-direction:column; gap:22px;">
+
+          <!-- Avatar -->
+          <div>
+            <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
+            <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The AI portrait booth is temporarily closed for a safety upgrade.</strong> You can still style and save the rest of your Resident Card today. No photo leaves this page while the booth is closed.</p>
+            <div style="display:flex; gap:8px; margin-bottom:10px;">
+              <button type="button" class="mo-mode on" data-mode="photo" style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;">Use my photo</button>
+              <button type="button" class="mo-mode" data-mode="scratch" style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;">No photo — build one</button>
+            </div>
+            <input type="file" id="moPhoto" accept="image/*" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif;">
+            <textarea id="moDescribe" hidden placeholder="Describe the LAiDY: hair, skin tone, features, vibe — e.g. warm brown skin, long dark curls, brown eyes, big smile" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif; min-height:70px; resize:vertical;"></textarea>
+
+            <div class="mo-sub">The Era's Tour — pick one</div>
+            <div class="mo-chips" id="moEra"></div>
+            <p id="moEraDesc" style="margin:0 0 6px; font-size:12px; color:var(--plum-soft);"></p>
+
+            <div class="mo-sub">Outfit — pick one</div>
+            <div class="mo-chips" id="moFit"></div>
+
+            <div class="mo-sub">Accessories — pick a few</div>
+            <div class="mo-chips" id="moAcc"></div>
+            <input type="text" id="moNameNeck" placeholder="First name (only if you pick the name necklace)" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:9px 11px; font:14px 'Jost',sans-serif; margin-top:6px;">
+
+            <div class="mo-sub">Backdrop behind you — pick one</div>
+            <div class="mo-chips" id="moBackdrop"></div>
+
+            <button type="button" id="moMake" disabled aria-disabled="true" style="margin-top:14px; background:var(--rose); color:var(--cream); border:0; border-radius:999px; padding:12px 24px; font-family:inherit; font-weight:800; font-size:13px; letter-spacing:.06em; text-transform:uppercase; cursor:not-allowed; opacity:.55;">Portrait booth temporarily closed</button>
+            <div id="moStatus" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">The rest of the Resident Card maker remains open.</div>
+            <div id="moCands" style="display:flex; gap:10px; margin-top:12px;"></div>
+          </div>
+
+          <!-- Background -->
+          <div>
+            <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Card background</label>
+            <div id="moBgChips" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+          </div>
+
+          <!-- Song -->
+          <div>
+            <label for="moSongSel" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Favourite LAiDIES song</label>
+            <select id="moSongSel" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:15px 'Jost',sans-serif;">
+              <option value="">— pick your song —</option>
+              <optgroup label="Anthems · THE LAiDIES">
+                <option value="Welcome to SUNNYVAiLE — THE LAiDIES">Welcome to SUNNYVAiLE — THE LAiDIES</option>
+                <option value="Wednesdays in SUNNYVAiLE — THE LAiDIES">Wednesdays in SUNNYVAiLE — THE LAiDIES</option>
+              </optgroup>
+              <optgroup label="Hangouts &amp; games">
+                <option value="Down at the Blend & Snap — The Recalls">Down at the Blend &amp; Snap — The Recalls</option>
+                <option value="Welcome to the LIBRAiRY — The Bots">Welcome to the LIBRAiRY — The Bots</option>
+                <option value="Businesswomen's Special — The Embeddings">Businesswomen's Special — The Embeddings</option>
+                <option value="Dream Phone — The Bots">Dream Phone — The Bots</option>
+                <option value="Girl Talk — The Regressions">Girl Talk — The Regressions</option>
+                <option value="Ask LAiDY — DJ SunnyV">Ask LAiDY — DJ SunnyV</option>
+                <option value="Mme CLAi-O's Shop — The Predicts">Mme CLAi-O's Shop — The Predicts</option>
+              </optgroup>
+              <optgroup label="Episode songs">
+                <option value="On Wednesdays We Do AI — The Regressions">On Wednesdays We Do AI — The Regressions</option>
+                <option value="Tell Me What You Want — The Predicts">Tell Me What You Want — The Predicts</option>
+                <option value="Don't Be Chutney on the Stand — The Overfits">Don't Be Chutney on the Stand — The Overfits</option>
+                <option value="It Was Women All Along — The Priors">It Was Women All Along — The Priors</option>
+              </optgroup>
+              <optgroup label="B-sides">
+                <option value="Every SLAiYER Needs a Watcher — The Embeddings">Every SLAiYER Needs a Watcher — The Embeddings</option>
+                <option value="Impossible to Underestimate You — The Overfits">Impossible to Underestimate You — The Overfits</option>
+                <option value="Deb's Tomorrow Problem — The Overfits">Deb's Tomorrow Problem — The Overfits</option>
+              </optgroup>
+              <optgroup label="PATRON SAiNT anthems">
+                <option value="Buffy · SLAiYING — The Overfits">Buffy · SLAiYING — The Overfits</option>
+                <option value="Cher · Early Adoption — The Overfits">Cher · Early Adoption — The Overfits</option>
+                <option value="David Rose · Specificity — Chain of Thought">David Rose · Specificity — Chain of Thought</option>
+                <option value="Deb · Loop Me Out — Latent Space">Deb · Loop Me Out — Latent Space</option>
+                <option value="Dolly · Common Sense — Grand Ol' Query">Dolly · Common Sense — Grand Ol' Query</option>
+                <option value="Elle Woods · Receipts — The Regressions">Elle Woods · Receipts — The Regressions</option>
+                <option value="Miranda · Standards — Latent Space">Miranda · Standards — Latent Space</option>
+                <option value="Regina · Dangerous Confidence — The Embeddings">Regina · Dangerous Confidence — The Embeddings</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- Saint -->
+          <div>
+            <label for="moSaintSel" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Patron Saint</label>
+            <select id="moSaintSel" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:15px 'Jost',sans-serif;">
+              <option value="">— pick your saint —</option>
+              <option value="cher-horowitz">Cher Horowitz · Making It Yours</option>
+              <option value="dolly-parton">Dolly Parton · Common Sense</option>
+              <option value="elle-woods">Elle Woods · Receipts</option>
+              <option value="miranda-priestly">Miranda Priestly · Standards</option>
+              <option value="buffy-summers">Buffy Summers · Slaying</option>
+              <option value="regina-george">Regina George · The Cautionary Tale</option>
+              <option value="david-rose">David Rose · Specificity</option>
+              <option value="deb">Deb · "Loop Me Out"</option>
+              <option value="samantha-jones">Samantha Jones · Orientation</option>
+              <option value="oprah-winfrey">Oprah Winfrey · Staying Current</option>
+              <option value="bette-midler">Bette Midler · Range</option>
+              <option value="golden-girls">The Golden Girls · Never Too Late</option>
+              <option value="jessica-fletcher">Jessica Fletcher · Asking Questions</option>
+              <option value="sister-mary-clarence">Sister Mary Clarence · Teaching</option>
+            </select>
+          </div>
+
+          <!-- Fave 90s movie -->
+          <div>
+            <label for="moMovieSel" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Favourite Era movie</label>
+            <select id="moMovieSel" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:15px 'Jost',sans-serif;">
+              <option value="">— pick your movie —</option>
+              <option value="10 Things I Hate About You">10 Things I Hate About You</option>
+              <option value="13 Going on 30">13 Going on 30</option>              <option value="A League of Their Own">A League of Their Own</option>
+              <option value="Bridget Jones's Diary">Bridget Jones's Diary</option>
+              <option value="Bring It On">Bring It On</option>
+              <option value="But I'm a Cheerleader">But I'm a Cheerleader</option>
+              <option value="Clueless">Clueless</option>
+              <option value="The Craft">The Craft</option>
+              <option value="Cruel Intentions">Cruel Intentions</option>
+              <option value="The Devil Wears Prada">The Devil Wears Prada</option>              <option value="Drop Dead Gorgeous">Drop Dead Gorgeous</option>
+              <option value="Empire Records">Empire Records</option>
+              <option value="The First Wives Club">The First Wives Club</option>              <option value="Hocus Pocus">Hocus Pocus</option>
+              <option value="How to Lose a Guy in 10 Days">How to Lose a Guy in 10 Days</option>
+              <option value="Jawbreaker">Jawbreaker</option>
+              <option value="Jurassic Park">Jurassic Park</option>
+              <option value="Legally Blonde">Legally Blonde</option>
+              <option value="Mean Girls">Mean Girls</option>
+              <option value="Miss Congeniality">Miss Congeniality</option>
+              <option value="My Best Friend's Wedding">My Best Friend's Wedding</option>
+              <option value="Never Been Kissed">Never Been Kissed</option>
+              <option value="Now and Then">Now and Then</option>
+              <option value="Practical Magic">Practical Magic</option>
+              <option value="Pretty Woman">Pretty Woman</option>
+              <option value="The Princess Diaries">The Princess Diaries</option>
+              <option value="Romy &amp; Michele's High School Reunion">Romy &amp; Michele's High School Reunion</option>
+              <option value="She's All That">She's All That</option>
+              <option value="Sister Act">Sister Act</option>
+              <option value="Sister Act 2: Back in the Habit">Sister Act 2: Back in the Habit</option>              <option value="Titanic">Titanic</option>
+              <option value="Waiting to Exhale">Waiting to Exhale</option>            </select>
+          </div>
+
+          <!-- Fave 90s TV -->
+          <div>
+            <label for="moTvSel" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Favourite Era TV show</label>
+            <select id="moTvSel" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:15px 'Jost',sans-serif;">
+              <option value="">— pick your show —</option>
+              <option value="Absolutely Fabulous">Absolutely Fabulous</option>
+              <option value="Ally McBeal">Ally McBeal</option>
+              <option value="Beverly Hills, 90210">Beverly Hills, 90210</option>
+              <option value="Boy Meets World">Boy Meets World</option>
+              <option value="Buffy the Vampire Slayer">Buffy the Vampire Slayer</option>
+              <option value="Charmed">Charmed</option>
+              <option value="Clarissa Explains It All">Clarissa Explains It All</option>
+              <option value="Daria">Daria</option>
+              <option value="Dawson's Creek">Dawson's Creek</option>
+              <option value="Desperate Housewives">Desperate Housewives</option>
+              <option value="Felicity">Felicity</option>
+              <option value="The Fresh Prince of Bel-Air">The Fresh Prince of Bel-Air</option>
+              <option value="Friends">Friends</option>
+              <option value="Full House">Full House</option>
+              <option value="Gilmore Girls">Gilmore Girls</option>
+              <option value="The Golden Girls">The Golden Girls</option>
+              <option value="Gossip Girl">Gossip Girl</option>
+              <option value="Living Single">Living Single</option>
+              <option value="Melrose Place">Melrose Place</option>
+              <option value="Murder, She Wrote">Murder, She Wrote</option>
+              <option value="My So-Called Life">My So-Called Life</option>
+              <option value="The Nanny">The Nanny</option>
+              <option value="The O.C.">The O.C.</option>
+              <option value="One Tree Hill">One Tree Hill</option>
+              <option value="Party of Five">Party of Five</option>
+              <option value="Roseanne">Roseanne</option>
+              <option value="Sabrina the Teenage Witch">Sabrina the Teenage Witch</option>
+              <option value="Saved by the Bell">Saved by the Bell</option>
+              <option value="Sex and the City">Sex and the City</option>
+              <option value="Sister, Sister">Sister, Sister</option>
+              <option value="Veronica Mars">Veronica Mars</option>
+              <option value="Will &amp; Grace">Will &amp; Grace</option>
+              <option value="The X-Files">The X-Files</option>
+              <option value="Xena: Warrior Princess">Xena: Warrior Princess</option>
+            </select>
+          </div>
+
+          <!-- This week I'm carrying (pick inline) -->
+          <div>
+            <label for="moCarrySel" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ This week I'm carrying</label>
+            <select id="moCarrySel" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:15px 'Jost',sans-serif;">
+              <option value="">— nothing yet —</option>
+              <option value="Butterfly clip">Butterfly clip</option>
+              <option value="Butterfly stretch ring">Butterfly stretch ring</option>
+              <option value="Mood ring">Mood ring</option>
+              <option value="Charm bracelet">Charm bracelet</option>
+              <option value="Friendship bracelet">Friendship bracelet</option>
+              <option value="Class ring">Class ring</option>
+              <option value="Choker">Choker</option>
+              <option value="BEST FRIENDS necklace">BEST FRIENDS necklace</option>
+              <option value="Velvet scrunchie">Velvet scrunchie</option>
+              <option value="Claw clip">Claw clip</option>
+              <option value="Snap barrettes">Snap barrettes</option>
+              <option value="Slap bracelet">Slap bracelet</option>
+              <option value="Temp tattoo">Temp tattoo</option>
+              <option value="Butterfly hair tinsel">Butterfly hair tinsel</option>
+              <option value="Fuzzy pen topper">Fuzzy pen topper</option>
+              <option value="Milky pen">Milky pen</option>
+              <option value="Glitter gel pen">Glitter gel pen</option>
+              <option value="Caboodles case">Caboodles case</option>
+              <option value="Butterfly stamp">Butterfly stamp</option>
+              <option value="Mall receipt">Mall receipt</option>
+            </select>
+            <p style="margin:6px 0 0; font-size:12px; color:var(--plum-soft);">Shows on your card. <a href="/mall.html" style="color:var(--rose);text-decoration:underline;">See them all at the Mall →</a></p>
+          </div>
+
+          <!-- Name -->
+          <div>
+            <label for="moNameInput" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Name on the card</label>
+            <input type="text" id="moNameInput" maxlength="40" placeholder="Your name" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:16px 'Jost',sans-serif;">
+          </div>
+
+          <!-- Handle -->
+          <div>
+            <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your @handle</label>
+            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Your Closet's shareable address (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">not claimed yet</span>). <a href="#mo-claim-card" style="color:var(--rose);font-weight:700;text-decoration:underline;">Claim your handle just below ↓</a> — needs a quick sign-in.</p>
+          </div>
+
+          <!-- Save -->
+          <div>
+            <button type="button" id="moSave" style="background:var(--gold); color:var(--plum); border:0; border-radius:999px; padding:14px 30px; font-family:inherit; font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; cursor:pointer;">Save my card ★</button>
+            <a href="/laidies-card.html" id="moSeeCloset" style="display:none; margin-left:14px; color:var(--rose); font-weight:700; text-decoration:underline;">See it in my Closet →</a>
+            <div id="moSaveMsg" style="margin-top:10px; font-size:13px; color:#2c7d3c; min-height:18px;"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <style>
+      .mo-chips { display:flex; flex-wrap:wrap; gap:7px; margin:2px 0 6px; }
+      .mo-chips .chip { font-size:12.5px; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:999px; padding:6px 12px; cursor:pointer; user-select:none; }
+      .mo-chips .chip.on { background:var(--rose); color:var(--cream); border-color:var(--rose); font-weight:700; }
+      .mo-sub { font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:11px; letter-spacing:.1em; text-transform:uppercase; margin:12px 0 4px; }
+      .mo-mode.on { background:var(--rose) !important; color:var(--cream) !important; border-color:var(--rose) !important; }
+      #moBgChips .mo-bg, #moCands .mo-cand { cursor:pointer; }
+      #moBgChips .mo-bg { width:54px; height:36px; border-radius:8px; border:2px solid transparent; }
+      #moBgChips .mo-bg.on { border-color:var(--rose); box-shadow:0 0 0 2px rgba(155,63,95,.25); }
+      #moCands .mo-cand { width:88px; height:88px; border-radius:12px; overflow:hidden; border:2px solid var(--line); background:var(--pearl); display:flex; align-items:center; justify-content:center; }
+      #moCands .mo-cand.on { border-color:var(--rose); }
+      #moCands .mo-cand img { width:100%; height:100%; object-fit:cover; display:block; }
+      #moCands .mo-cand .sp { color:var(--plum-soft); font-size:20px; }
+      @media (max-width:720px){ .mo-chair-grid { grid-template-columns:1fr !important; } .mo-card-col { position:static !important; } }
+    </style>
+    <!-- ===== /THE CHAIR ===== -->
+
+    <div id="mo-welcome-back" hidden style="margin: 24px 0; padding: 22px 26px; background: linear-gradient(135deg, var(--plum-deep, #3f1737) 0%, var(--rose) 100%); border-radius: 14px; color: var(--cream);">
+      <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);">★ Welcome back</p>
+      <p style="margin: 0 0 14px; font-size: 16px; line-height: 1.55;">You already have a card, <strong>@<span class="mo-wb-handle"></span></strong> — the chair remembers you. Head straight to your Closet.</p>
+      <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: var(--gold); color: var(--plum-deep, #3f1737); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
+    </div>
+
+    <div id="mo-new-here" hidden></div>
+
+    <h2 class="mo-claim-intro">Claim your Closet URL.</h2>
+
+    <p class="mo-claim-intro">
+      Your Closet gets a shareable address. Pick a handle — send it in a text, put it on a friendship necklace, whatever. Once you claim it, that's you. Only lowercase letters, numbers, and underscores. 3 to 24 characters.
+    </p>
+
+    <div id="mo-claim-card" style="background: var(--pearl); border-radius: 14px; padding: 26px 28px; margin: 22px 0 32px; border: 1px solid var(--line);">
+
+      <!-- Loading placeholder -->
+      <div class="mo-claim-state" data-state="loading">
+        <p style="margin: 0; color: var(--plum-soft); font-style: italic; font-size: 15px;">Checking the guest book…</p>
+      </div>
+
+      <!-- Signed-out (unused — handle picking now works inline in claim-form) -->
+      <div class="mo-claim-state" data-state="signed-out" hidden></div>
+
+      <!-- Already claimed -->
+      <div class="mo-claim-state" data-state="claimed" hidden>
+        <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
+        <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
+        <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
+        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved on this device. <button type="button" id="mo-local-signin" style="background:none; border:0; padding:0; color:var(--rose); font-weight:700; text-decoration:underline; cursor:pointer; font:inherit;">Sign in to lock @<span class="mo-your-handle2"></span> to your account →</button> so it follows you everywhere.</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
+          <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>
+        </div>
+      </div>
+
+      <!-- Claim form -->
+      <div class="mo-claim-state" data-state="claim-form" hidden>
+
+        <!-- Inline sign in / sign up (magic link, no password) -->
+        <div id="mo-auth-box" style="margin: 0 0 20px; padding: 14px 16px; background: rgba(155,63,95,0.06); border-radius: 10px;">
+          <p style="margin: 0 0 8px; font-size: 14px; color: var(--plum);"><strong>Sign in — or sign up</strong>, same box. Locks your handle + card to you across every device. No password: we email you a link.</p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <input id="mo-email" type="email" autocomplete="email" placeholder="you@email.com" style="flex: 1; min-width: 180px; box-sizing: border-box; background: var(--cream); border: 1.5px solid var(--line); color: var(--plum); border-radius: 10px; padding: 10px 12px; font: 15px 'Jost', sans-serif;">
+            <button id="mo-signin-btn" type="button" style="background: var(--rose); color: var(--cream); border: 0; border-radius: 999px; padding: 10px 18px; font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap;">Email me a link →</button>
+          </div>
+          <p id="mo-email-status" style="margin: 8px 0 0; font-size: 13px; color: var(--plum-soft); min-height: 16px;"></p>
+        </div>
+
+        <label for="mo-username-input" style="display: block; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px;">★ Pick a handle</label>
+        <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--cream); transition: border-color 200ms ease;">
+          <span style="padding: 12px 8px 12px 16px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--plum); font-weight: 700;">@</span>
+          <input id="mo-username-input" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="24" placeholder="yourhandle" style="flex: 1; border: 0; background: transparent; padding: 12px 8px; font-family: 'Jost', sans-serif; font-size: 18px; color: var(--plum); outline: none; min-width: 0;">
+        </div>
+        <p id="mo-status" style="margin: 12px 0 18px; font-size: 14px; line-height: 1.5; color: var(--plum-soft); min-height: 22px;">Type 3–24 characters. Lowercase letters, numbers, underscores.</p>
+        <p style="margin: 0 0 16px; font-size: 13px; color: var(--plum-soft); word-break: break-all;">Your Closet will live at <span class="mo-preview-url" style="color: var(--rose); font-weight: 600;">…/@yourhandle</span></p>
+
+        <div style="display: flex; align-items: flex-start; gap: 10px; margin: 0 0 18px; padding: 12px 14px; background: rgba(197, 106, 138, 0.08); border-radius: 8px;">
+          <input type="checkbox" id="mo-public-check" checked style="width: 18px; height: 18px; margin-top: 2px; accent-color: var(--rose); cursor: pointer; flex-shrink: 0;" />
+          <label for="mo-public-check" style="cursor: pointer; flex: 1;">
+            <span style="display: block; font-size: 14px; font-weight: 600; color: var(--plum);">Make my Closet visible right away</span>
+            <span style="display: block; margin-top: 4px; font-size: 12px; color: var(--plum-soft); line-height: 1.5;">When on, your handle URL shows your card face + collections. You can flip it off any time in your Closet.</span>
+          </label>
+        </div>
+
+        <button id="mo-claim-btn" type="button" disabled style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--rose); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; opacity: 0.4; transition: opacity 200ms ease, transform 200ms ease;">Claim it →</button>
+        <p style="margin: 16px 0 0; font-size: 12px; color: var(--plum-soft); font-style: italic;">This is permanent. Pick something you'll want on a friendship necklace.</p>
+      </div>
+
+    </div>
+
+    <section class="mo-exit" aria-labelledby="moExitTitle">
+      <p class="mo-section-kicker">Your card has somewhere to go</p>
+      <h2 id="moExitTitle">The parlor makes it. The house lets it in.</h2>
+      <p>MAiKEOVER holds your personal Resident Card. The Sorority House is where
+        you use it with the other LAiDIES.</p>
+      <a href="/sorority-house.html">Walk to the Sorority House <span aria-hidden="true">→</span></a>
+    </section>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · MAiKEOVER on MAiN</footer>
+
+  <!-- ===== THE CHAIR customizer logic ===== -->
+  <script>
+  (function(){
+    'use strict';
+    var AVATAR_API = 'https://laidies-avatar.wednesday-laidies.workers.dev';
+    var CARD_BG = {
+      classic:  'linear-gradient(135deg,#fffdfb 0%,#f8eef2 100%)',
+      pinklilac:'linear-gradient(160deg,#fbe9ef 0%,#e7dcf6 100%)',
+      peach:    'linear-gradient(160deg,#fde7d8 0%,#f8d9e0 100%)',
+      mint:     'linear-gradient(160deg,#dbeee7 0%,#cfe6f4 100%)',
+      lavender: 'linear-gradient(160deg,#ece4f6 0%,#f6dfe9 100%)',
+      holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
+    };
+    var BG_ORDER = ['classic','pinklilac','peach','mint','lavender','holo'];
+    var SONG_LABEL = {
+      'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap',
+      'the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI',
+      'tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand"
+    };
+    var SAINT_LABEL = {
+      'cher-horowitz':'Cher Horowitz','dolly-parton':'Dolly Parton','elle-woods':'Elle Woods',
+      'miranda-priestly':'Miranda Priestly','buffy-summers':'Buffy Summers','regina-george':'Regina George',
+      'david-rose':'David Rose','deb':'Deb','samantha-jones':'Samantha Jones','oprah-winfrey':'Oprah Winfrey',
+      'bette-midler':'Bette Midler','golden-girls':'The Golden Girls','jessica-fletcher':'Jessica Fletcher','sister-mary-clarence':'Sister Mary Clarence'
+    };
+    var ARCH_LABEL = {
+      founder:'THE FOUNDER',strategist:'THE STRATEGIST',editor:'THE EDITOR',storyteller:'THE STORYTELLER',
+      analyst:'THE ANALYST',coach:'THE COACH',artist:'THE ARTIST',iconoclast:'THE ICONOCLAST',
+      elder:'THE ELDER',bestie:'THE BESTIE',confidant:'THE CONFIDANT',provocateur:'THE PROVOCATEUR'
+    };
+    var $ = function(id){ return document.getElementById(id); };
+    var lsGet = function(k){ try{ return localStorage.getItem(k)||''; }catch(e){ return ''; } };
+    var lsSet = function(k,v){ try{ if(v) localStorage.setItem(k,v); else localStorage.removeItem(k); }catch(e){} };
+
+    var state = { bg:'classic', avatar:'' };
+
+    // ---- preview ----
+    function renderPreview(){
+      $('moCard').style.background = CARD_BG[state.bg] || CARD_BG.classic;
+      var nm = $('moNameInput').value.trim(); $('moName').textContent = nm || 'Your Name';
+      var handle = lsGet('laidies_card_username'); $('moHandle').textContent = handle ? ('@'+handle) : '@yourhandle';
+      $('moMovie').textContent = $('moMovieSel').value || '—';
+      $('moTv').textContent = $('moTvSel').value || '—';
+      $('moSong').textContent = $('moSongSel').value || '—';
+      $('moSaint').textContent = SAINT_LABEL[$('moSaintSel').value] || '—';
+      $('moCarry').textContent = $('moCarrySel').value || '—';
+      var av = $('moAvatar');
+      if(state.avatar){ av.innerHTML = '<img src="'+state.avatar+'" alt="avatar" style="width:100%;height:100%;object-fit:cover;">'; }
+    }
+
+    // ---- background chips ----
+    (function(){
+      var wrap = $('moBgChips');
+      BG_ORDER.forEach(function(key){
+        var c = document.createElement('div');
+        c.className = 'mo-bg'; c.title = key; c.style.background = CARD_BG[key];
+        c.onclick = function(){
+          state.bg = key;
+          Array.prototype.forEach.call(wrap.children,function(x){ x.classList.remove('on'); });
+          c.classList.add('on'); renderPreview();
+        };
+        wrap.appendChild(c);
+      });
+    })();
+
+    // ---- avatar option pickers (these feed the generation prompt) ----
+    var A_ERA=[
+      {l:'any',p:'',d:'No era styling — just your look.'},
+      {l:'1990',p:'1990 hair and makeup — matte lip, centre-parted hair, minimal natural makeup, muted early-90s colour grade',d:'Matte lip · centre part · minimal makeup'},
+      {l:'1995',p:'1995 hair and makeup — frosted lip, soft waves, a little shimmer, mid-90s colour grade',d:'Frosted lip · soft waves · shimmer'},
+      {l:'2000',p:'year-2000 Y2K hair and makeup — glossy frosted lip, sleek flippy hair, shimmer, bright Y2K colour grade',d:'Glossy frosted lip · flippy hair · shimmer'},
+      {l:'2005',p:'2005 hair and makeup — side-swept bang, chunky highlights, glossy lip, mid-2000s colour grade',d:'Side bang · chunky highlights · glossy lip'},
+      {l:'2010',p:'2010 hair and makeup — side-swept bangs, soft glam, warm indie-sleaze colour grade',d:'Side-swept bangs · soft glam'}
+    ];
+    var A_FIT=[
+      {l:'keep my outfit',p:''},{l:'hot-pink blazer',p:'wearing a hot-pink blazer over a black top'},
+      {l:'baby tee',p:'wearing a fitted Y2K baby tee'},{l:'denim jacket',p:'wearing a denim jacket'},
+      {l:'halter top',p:'wearing a sparkly halter top'},{l:'satin tube top',p:'wearing a satin tube top'},
+      {l:'velour tracksuit',p:'wearing a velour tracksuit zip-up'},{l:'cardigan + cami',p:'wearing a cropped cardigan over a lace cami'},
+      {l:'feather boa',p:'with a fluffy feather boa around the shoulders'}
+    ];
+    var A_ACC=[
+      {l:'butterfly clips',p:'butterfly hair clips'},{l:'choker',p:'black choker necklace'},
+      {l:'hoop earrings',p:'gold hoop earrings'},{l:'heart necklace',p:'gold heart pendant necklace'},
+      {l:'name necklace',p:'gold name-plate necklace',name:1},{l:'lip gloss',p:'shiny lip gloss'},
+      {l:'glittery cheeks',p:'a little cosmetic glitter on the cheeks only, nowhere else'},{l:'freckles',p:'natural freckles'},
+      {l:'sunnies on head',p:'big oversized Y2K tinted sunglasses pushed up on top of the head'},
+      {l:'flip phone',p:'holding a Y2K flip phone'},{l:'lip gloss wand',p:'holding a lip gloss wand'}
+    ];
+    var A_BG=[
+      {l:'Pink lasers',p:'a 1990s Glamour Shots laser-beam studio backdrop, pink and magenta lasers on a dark ground'},
+      {l:'Blue lasers',p:'a 1990s Glamour Shots laser-beam studio backdrop, blue and cyan lasers on a dark ground'},
+      {l:'Rainbow lasers',p:'a 1990s Glamour Shots laser-beam studio backdrop, multicoloured rainbow lasers on a dark ground'},
+      {l:'Blue cloud',p:'a classic 1990s school-portrait mottled blue and grey cloud studio backdrop'},
+      {l:'Grey marble',p:'a classic 1990s school-portrait mottled grey studio backdrop'},
+      {l:'Teal→purple',p:'a 1990s school-portrait smooth teal-to-purple gradient studio backdrop'},
+      {l:'Pink→lilac',p:'a 1990s school-portrait smooth pink-to-lilac gradient studio backdrop'},
+      {l:'Starfield',p:'a 1990s school-portrait starry-night studio backdrop'}
+    ];
+    var accOn2={}, eraIdx2=0, fitIdx2=0, bgIdx2=6; // default backdrop = Pink→lilac
+    var eraC=$('moEra'), fitC=$('moFit'), accC=$('moAcc'), bgC=$('moBackdrop');
+    A_ERA.forEach(function(v,i){ var c=document.createElement('span');c.className='chip'+(i===0?' on':'');c.textContent=v.l;
+      c.onclick=function(){ eraIdx2=i; Array.prototype.forEach.call(eraC.children,function(x,j){x.classList.toggle('on',j===i);}); $('moEraDesc').textContent=A_ERA[i].d; };
+      eraC.appendChild(c); });
+    $('moEraDesc').textContent=A_ERA[0].d;
+    A_FIT.forEach(function(v,i){ var c=document.createElement('span');c.className='chip'+(i===0?' on':'');c.textContent=v.l;
+      c.onclick=function(){ fitIdx2=i; Array.prototype.forEach.call(fitC.children,function(x,j){x.classList.toggle('on',j===i);}); };
+      fitC.appendChild(c); });
+    A_ACC.forEach(function(v,i){ var c=document.createElement('span');c.className='chip';c.textContent=v.l;
+      c.onclick=function(){ if(!accOn2[i] && Object.keys(accOn2).filter(function(k){return accOn2[k];}).length>=4){ $('moStatus').textContent='Keep it to 4 accessories — less is more.'; return; } accOn2[i]=!accOn2[i]; c.classList.toggle('on'); };
+      accC.appendChild(c); });
+    A_BG.forEach(function(v,i){ var c=document.createElement('span');c.className='chip'+(i===bgIdx2?' on':'');c.textContent=v.l;
+      c.onclick=function(){ bgIdx2=i; Array.prototype.forEach.call(bgC.children,function(x,j){x.classList.toggle('on',j===i);}); };
+      bgC.appendChild(c); });
+    function avatarExtras(){
+      var nm=($('moNameNeck').value||'').trim().replace(/"/g,'');
+      var a=A_ACC.filter(function(v,i){return accOn2[i];}).map(function(v){ if(v.name) return nm?('a gold name-plate necklace that clearly reads "'+nm+'" in cursive script'):v.p; return v.p; });
+      if(A_ERA[eraIdx2].p) a.push(A_ERA[eraIdx2].p);
+      if(A_FIT[fitIdx2].p) a.push(A_FIT[fitIdx2].p);
+      a.push(A_BG[bgIdx2].p);
+      return a.join(', ');
+    }
+
+    // ---- selects + name ----
+    $('moSongSel').addEventListener('change', renderPreview);
+    $('moSaintSel').addEventListener('change', renderPreview);
+    $('moMovieSel').addEventListener('change', renderPreview);
+    $('moTvSel').addEventListener('change', renderPreview);
+    $('moCarrySel').addEventListener('change', function(){ lsSet('laidies_carry', $('moCarrySel').value); renderPreview(); });
+    $('moNameInput').addEventListener('input', renderPreview);
+
+    // ---- avatar generation ----
+    function canvasPng(f){
+      return new Promise(function(res,rej){
+        var url=URL.createObjectURL(f), img=new Image();
+        img.onload=function(){
+          var max=1024,w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;
+          var s=Math.min(1,max/Math.max(w,h)),cw=Math.round(w*s),ch=Math.round(h*s);
+          var c=document.createElement('canvas');c.width=cw;c.height=ch;
+          c.getContext('2d').drawImage(img,0,0,cw,ch);
+          URL.revokeObjectURL(url); res(c.toDataURL('image/png').replace(/^data:[^,]+,/,''));
+        };
+        img.onerror=function(){ URL.revokeObjectURL(url); rej(new Error('decode')); };
+        img.src=url;
+      });
+    }
+    function rawB64(f){ return new Promise(function(res){var r=new FileReader();r.onload=function(){res(String(r.result).replace(/^data:[^,]+,/,''));};r.readAsDataURL(f);}); }
+    async function toUpload(f){ try{ return await canvasPng(f); }catch(e){ return await rawB64(f); } }
+    // downscale a picked avatar to ~420px so the data URL fits in localStorage
+    function shrink(dataUrl){
+      return new Promise(function(res){
+        var img=new Image();
+        img.onload=function(){ var S=420,c=document.createElement('canvas');c.width=S;c.height=S;
+          c.getContext('2d').drawImage(img,0,0,S,S); res(c.toDataURL('image/png')); };
+        img.src=dataUrl;
+      });
+    }
+
+    // ---- photo vs no-photo mode ----
+    var moMode='photo';
+    Array.prototype.forEach.call(document.querySelectorAll('.mo-mode'), function(b){
+      b.onclick=function(){
+        moMode=b.getAttribute('data-mode');
+        Array.prototype.forEach.call(document.querySelectorAll('.mo-mode'), function(x){ x.classList.toggle('on', x===b); });
+        var photo=(moMode==='photo');
+        $('moPhoto').hidden=!photo;
+        $('moDescribe').hidden=photo;
+      };
+    });
+
+    $('moMake').addEventListener('click', async function(){
+      var go=this;
+      var body;
+      if(moMode==='scratch'){
+        var desc=$('moDescribe').value.trim();
+        if(!desc){ $('moStatus').textContent='Describe your LAiDY first ↑'; return; }
+        go.disabled=true;
+        body = JSON.stringify({ itemPrompt: desc + ', ' + avatarExtras() });
+      } else {
+        var f = $('moPhoto').files[0];
+        if(!f){ $('moStatus').textContent='Choose a photo first ↑'; return; }
+        go.disabled=true;
+        $('moStatus').textContent='Reading your photo…';
+        var b64; try{ b64=await toUpload(f); }catch(e){ $('moStatus').textContent='Could not read that image — try a JPG or PNG.'; go.disabled=false; return; }
+        body = JSON.stringify({ image:b64, traits:{ extras: avatarExtras() } });
+      }
+      var cands=$('moCands'); cands.innerHTML='';
+      var slots=[]; for(var i=0;i<3;i++){ var s=document.createElement('div'); s.className='mo-cand'; s.innerHTML='<span class="sp">…</span>'; cands.appendChild(s); slots.push(s); }
+      var done=0, ready=0, firstPicked=false, lastErr='', t0=Date.now();
+      var tick=setInterval(function(){
+        if(ready>=3){ return; }
+        var s=Math.round((Date.now()-t0)/1000);
+        $('moStatus').textContent = ready>0
+          ? (ready+' of 3 ready — tap one, or wait for the rest… ('+s+'s)')
+          : ('Making 3 avatars — about 30 seconds… ('+s+'s)');
+      }, 1000);
+      $('moStatus').textContent='Making 3 avatars — about 30 seconds…';
+      function finish(){
+        done++;
+        if(done>=3){
+          go.disabled=false; clearInterval(tick);
+          if(ready===0){ $('moStatus').textContent='That did not work — '+(lastErr||'please try again')+'.'; }
+          else { $('moStatus').textContent='Done ★ — tap the one that looks most like you'; }
+        }
+      }
+      function selectCand(dataUrl, slot){
+        Array.prototype.forEach.call(cands.children,function(x){ x.classList.remove('on'); });
+        slot.classList.add('on');
+        shrink(dataUrl).then(function(small){ state.avatar=small; renderPreview(); });
+      }
+      for(let k=0;k<3;k++){
+        (async function(){
+          await new Promise(function(r){ setTimeout(r,k*700); });
+          var ok=false;
+          for(var a=0;a<2&&!ok;a++){
+            try{
+              var r=await fetch(AVATAR_API,{method:'POST',headers:{'Content-Type':'application/json'},body:body});
+              var dd=await r.json();
+              if(dd.image){
+                var url='data:image/png;base64,'+dd.image;
+                var im=document.createElement('img'); im.src=url;
+                slots[k].innerHTML=''; slots[k].appendChild(im);
+                im.onclick=function(){ selectCand(url, slots[k]); };
+                if(!firstPicked){ firstPicked=true; selectCand(url, slots[k]); }
+                ready++;
+                ok=true;
+              } else { lastErr=(dd && dd.error) || 'no image'; }
+            }catch(e){ lastErr=String(e && e.message || e); }
+          }
+          if(!ok){ slots[k].innerHTML='<span class="sp">✕</span>'; }
+          finish();
+        })();
+      }
+    });
+
+    // ---- save ----
+    $('moSave').addEventListener('click', function(){
+      if(state.avatar) lsSet('laidies_card_avatar_url', state.avatar);
+      lsSet('laidies_card_bg', state.bg);
+      lsSet('laidies_song', $('moSongSel').value);
+      lsSet('laidies_saint', $('moSaintSel').value);
+      lsSet('laidies_favorite_movie', $('moMovieSel').value);
+      lsSet('laidies_favorite_tvshow', $('moTvSel').value);
+      lsSet('laidies_display_name', $('moNameInput').value.trim());
+      $('moSaveMsg').textContent='Saved ★ — your card is set.';
+      $('moSeeCloset').style.display='inline';
+    });
+
+    // ---- hydrate from existing state ----
+    (function(){
+      var bg = lsGet('laidies_card_bg'); if(bg && CARD_BG[bg]){ state.bg=bg;
+        var chips=$('moBgChips').children, idx=BG_ORDER.indexOf(bg); if(chips[idx]) chips[idx].classList.add('on'); }
+      else { $('moBgChips').children[0] && $('moBgChips').children[0].classList.add('on'); }
+      var av = lsGet('laidies_card_avatar_url'); if(av){ state.avatar=av; }
+      var song=lsGet('laidies_song'); if(song) $('moSongSel').value=song;
+      var saint=lsGet('laidies_saint'); if(saint) $('moSaintSel').value=saint;
+      var movie=lsGet('laidies_favorite_movie'); if(movie) $('moMovieSel').value=movie;
+      var tv=lsGet('laidies_favorite_tvshow'); if(tv) $('moTvSel').value=tv;
+      var nm=lsGet('laidies_display_name'); if(nm) $('moNameInput').value=nm;
+      var carry=lsGet('laidies_carry'); if(carry) $('moCarrySel').value=carry;
+      var h=lsGet('laidies_card_username'); if(h) $('moHandleNote').textContent='@'+h;
+      renderPreview();
+    })();
+  })();
+  </script>
+  <!-- ===== /THE CHAIR customizer logic ===== -->
+
+  <script>
+  (function() {
+    'use strict';
+
+    var CONFIG = window.LAIDIES_SUPABASE_CONFIG;
+    if (!CONFIG || !CONFIG.url || !CONFIG.anonKey) {
+      console.warn('[MAiKEOVER] Supabase config missing — claim form disabled');
+      return;
+    }
+
+    // Mirror of the SQL card_username_reserved list. Client-side gate for
+    // faster UX; DB is the source of truth if these ever diverge.
+    var RESERVED = new Set([
+      'admin','root','api','app','www','home','about','help','support','contact',
+      'signup','signin','login','logout','register','settings','profile','account','card','closet','me',
+      'laidies','sunnyvaile','ali','sara','eugina','josh','deb',
+      'cher','dolly','elle','miranda','buffy','regina','david',
+      'newsstand','library','mall','claires','flair','piecesofflair','bronze','chick','flicks','blend','snap','maikeover',
+      'sorority','sanctuary','radio','ksvl','post','office','town','hall','high','sunnyvaile-high',
+      'grimoire','coven','luminaries','saint','saints','maven','mavens','resident','pass',
+      'wednesday','tour','walk','anthem','fairy','godmother','claio'
+    ]);
+
+    var FORMAT_RE = /^[a-z0-9_]{3,24}$/;
+
+    var supabase = null;
+    var session = null;
+    var checkDebounce = null;
+    var lastCheckedValue = '';
+    var lastCheckResult = null; // 'ok' | 'taken' | 'invalid' | 'reserved'
+
+    var card = document.getElementById('mo-claim-card');
+    var input = document.getElementById('mo-username-input');
+    var status = document.getElementById('mo-status');
+    var claimBtn = document.getElementById('mo-claim-btn');
+    var previewUrl = card && card.querySelector('.mo-preview-url');
+
+    function setState(state) {
+      var panels = card.querySelectorAll('.mo-claim-state');
+      for (var i = 0; i < panels.length; i++) {
+        panels[i].hidden = panels[i].getAttribute('data-state') !== state;
+      }
+    }
+
+    function setStatus(text, tone) {
+      status.textContent = text;
+      status.style.color =
+        tone === 'ok' ? '#2c7d3c' :
+        tone === 'bad' ? '#a83243' :
+        'var(--plum-soft)';
+    }
+
+    function setClaimEnabled(on) {
+      claimBtn.disabled = !on;
+      claimBtn.style.opacity = on ? '1' : '0.4';
+      claimBtn.style.cursor = on ? 'pointer' : 'not-allowed';
+    }
+
+    function updatePreview(value) {
+      if (!previewUrl) return;
+      var origin = window.location.origin;
+      previewUrl.textContent = origin + '/@' + (value || 'yourhandle');
+    }
+
+    function validateFormat(value) {
+      if (!value) return { ok: false, msg: 'Type 3–24 characters. Lowercase letters, numbers, underscores.', tone: null };
+      if (value.length < 3) return { ok: false, msg: 'A little longer — 3 characters minimum.', tone: 'bad' };
+      if (value.length > 24) return { ok: false, msg: 'Under 24 characters.', tone: 'bad' };
+      if (!FORMAT_RE.test(value)) return { ok: false, msg: 'Lowercase letters, numbers, underscores only. No spaces, no dots.', tone: 'bad' };
+      if (RESERVED.has(value)) return { ok: false, msg: '"' + value + '" is reserved. Pick another.', tone: 'bad' };
+      return { ok: true };
+    }
+
+    async function checkAvailability(value) {
+      try {
+        // Race the lookup against a 1.5s timeout so a slow/blocked guest book
+        // (e.g. signed-out RLS) falls through to the optimistic "grab it" path fast.
+        // Asks the database a yes/no question instead of reading profile rows.
+        // member_profiles is owner-only now (it holds her age bracket, skill
+        // level, industry and goal), so a row lookup could never see a taken
+        // handle. is_handle_taken() answers without exposing anything.
+        var query = supabase.rpc('is_handle_taken', { handle: value });
+        var timeout = new Promise(function (_, rej) { setTimeout(function () { rej(new Error('timeout')); }, 1500); });
+        var result = await Promise.race([query, timeout]);
+        if (result.error) throw result.error;
+        // Returns true only when SOMEONE ELSE holds it — the function already
+        // excludes the signed-in user, so re-confirming your own handle is fine.
+        if (result.data === true) {
+          return { ok: false, msg: '@' + value + ' is already taken. Try another.', tone: 'bad' };
+        }
+        return { ok: true };
+      } catch (err) {
+        console.warn('[MAiKEOVER] availability check failed:', err);
+        return { ok: false, msg: 'Couldn\'t reach the guest book. Try again in a sec.', tone: 'bad', transient: true };
+      }
+    }
+
+    function handleInput() {
+      var value = input.value.trim().toLowerCase();
+      if (value !== input.value) input.value = value;
+      updatePreview(value);
+      setClaimEnabled(false);
+      lastCheckResult = null;
+      lastCheckedValue = value;
+
+      var format = validateFormat(value);
+      if (!format.ok) {
+        setStatus(format.msg, format.tone);
+        if (checkDebounce) clearTimeout(checkDebounce);
+        return;
+      }
+
+      setStatus('Checking @' + value + '…', null);
+      if (checkDebounce) clearTimeout(checkDebounce);
+      checkDebounce = setTimeout(async function() {
+        var checkedValue = value;
+        var avail = await checkAvailability(checkedValue);
+        // Bail if the user typed more since we started
+        if (input.value.trim().toLowerCase() !== checkedValue) return;
+        if (avail.ok) {
+          setStatus('★ @' + checkedValue + ' is yours if you want it.', 'ok');
+          lastCheckResult = 'ok';
+          setClaimEnabled(true);
+        } else if (avail.transient) {
+          // Couldn't reach the guest book (e.g. not signed in) — let them grab it;
+          // we confirm it's free when they sign in.
+          setStatus('★ @' + checkedValue + " — grab it. We'll confirm it's free when you sign in.", 'ok');
+          lastCheckResult = 'ok';
+          setClaimEnabled(true);
+        } else {
+          setStatus(avail.msg, 'bad');
+          lastCheckResult = 'taken';
+          setClaimEnabled(false);
+        }
+      }, 380);
+    }
+
+    async function handleClaim() {
+      var value = input.value.trim().toLowerCase();
+      if (!validateFormat(value).ok) return;
+      claimBtn.disabled = true;
+      var originalText = claimBtn.textContent;
+      claimBtn.textContent = 'Saving…';
+      // Always cache locally so the card shows @handle immediately.
+      try { localStorage.setItem('laidies_card_username', value); } catch (_) {}
+      if (window.plausible) { try { window.plausible('Resident Card made', { props: { signedIn: !!session } }); } catch (_) {} }
+
+      if (!session) {
+        // Not signed in — keep it on this device; prompt to sign in to lock it.
+        renderClaimed(value, true);
+        return;
+      }
+      try {
+        var publicCheck = document.getElementById('mo-public-check');
+        var payload = {
+          id: session.user.id,
+          // ⛔ No `email` here — it lives on auth.users. See migration
+          // 20260722201500_stop_storing_email_on_profiles.sql.
+          card_username: value,
+          member_card_is_public: publicCheck ? !!publicCheck.checked : true
+        };
+        var result = await supabase
+          .from('member_profiles')
+          .upsert(payload, { onConflict: 'id' })
+          .select()
+          .single();
+        if (result.error) {
+          var code = result.error.code || '';
+          if (code === '23505') { setStatus('@' + value + ' just got claimed by someone else. Pick another.', 'bad'); }
+          else if (code === '23514') { setStatus('That handle isn\'t allowed. Try another.', 'bad'); }
+          else { setStatus('Couldn\'t save — ' + (result.error.message || 'try again') + '.', 'bad'); }
+          claimBtn.textContent = originalText;
+          claimBtn.disabled = false;
+          return;
+        }
+        renderClaimed(value, false);
+        redeemBestieInvite();   // if she arrived via a postcard, complete the necklace
+      } catch (err) {
+        setStatus('Something went sideways. Try again?', 'bad');
+        claimBtn.textContent = originalText;
+        claimBtn.disabled = false;
+      }
+    }
+
+    // BEST FRIENDS necklace — she got here from someone's postcard; now that she
+    // has a card + is signed in, redeem it (grants a necklace half to both).
+    async function redeemBestieInvite() {
+      var from = lsGet('laidies_invited_by');
+      if (!from || !supabase || !session) return;
+      try {
+        var r = await supabase.rpc('redeem_bestie_invite', { inviter_handle: from });
+        if (!r.error && r.data === 'granted') { lsSet('laidies_invited_by', ''); }
+        else if (!r.error && (r.data === 'self' || r.data === 'no-such-resident')) { lsSet('laidies_invited_by', ''); }
+      } catch (_) { /* keep the flag; a later visit can retry */ }
+    }
+
+    // Email magic-link sign-in / sign-up (returns to this page authenticated).
+    async function sendMagicLink() {
+      var emailEl = document.getElementById('mo-email');
+      var statusEl = document.getElementById('mo-email-status');
+      var email = (emailEl.value || '').trim();
+      if (!email || email.indexOf('@') < 1) { statusEl.textContent = 'Enter a valid email.'; statusEl.style.color = '#a83243'; return; }
+      var btn = document.getElementById('mo-signin-btn'); btn.disabled = true; var o = btn.textContent; btn.textContent = 'Sending…';
+      try {
+        var r = await supabase.auth.signInWithOtp({ email: email, options: { emailRedirectTo: window.location.href } });
+        if (r.error) { statusEl.textContent = r.error.message || 'Could not send — try again.'; statusEl.style.color = '#a83243'; }
+        else { statusEl.textContent = '★ Check your email — we sent a sign-in link. Open it on this device and you\'re in.'; statusEl.style.color = '#2c7d3c'; }
+      } catch (e) { statusEl.textContent = 'Could not send — try again.'; statusEl.style.color = '#a83243'; }
+      btn.disabled = false; btn.textContent = o;
+    }
+
+    function renderClaimed(handle, localOnly) {
+      var origin = window.location.origin;
+      var handleEl = card.querySelector('.mo-your-handle');
+      var urlEl = card.querySelector('.mo-your-url');
+      if (handleEl) handleEl.textContent = handle;
+      if (urlEl) urlEl.textContent = origin + '/@' + handle;
+      var h2 = card.querySelector('.mo-your-handle2'); if (h2) h2.textContent = handle;
+      var note = document.getElementById('mo-local-note'); if (note) note.hidden = !localOnly;
+      setState('claimed');
+      var newHere = document.getElementById('mo-new-here');
+      if (newHere) newHere.hidden = true;
+      // Only the fully-reserved (signed-in) claim triggers the welcome-back banner.
+      var wb = document.getElementById('mo-welcome-back');
+      if (wb && !localOnly) {
+        var wbHandle = wb.querySelector('.mo-wb-handle');
+        if (wbHandle) wbHandle.textContent = handle;
+        wb.hidden = false;
+      }
+    }
+
+    function wireClaimForm() {
+      wireCopy();
+      input.addEventListener('input', handleInput);
+      claimBtn.addEventListener('click', handleClaim);
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !claimBtn.disabled) { e.preventDefault(); handleClaim(); } });
+      var signinBtn = document.getElementById('mo-signin-btn'); if (signinBtn) signinBtn.addEventListener('click', sendMagicLink);
+      var emailEl = document.getElementById('mo-email'); if (emailEl) emailEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); sendMagicLink(); } });
+      var localSignin = document.getElementById('mo-local-signin');
+      if (localSignin) localSignin.addEventListener('click', function () { setState('claim-form'); var ab = document.getElementById('mo-auth-box'); if (ab) ab.hidden = false; var em = document.getElementById('mo-email'); if (em) em.focus(); });
+    }
+
+    function wireCopy() {
+      var btn = card.querySelector('.mo-copy-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var url = window.location.origin + '/@' + (card.querySelector('.mo-your-handle').textContent || '');
+        try {
+          navigator.clipboard.writeText(url);
+          var orig = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          setTimeout(function() { btn.textContent = orig; }, 1600);
+        } catch (_) {
+          window.prompt('Copy your Closet URL:', url);
+        }
+      });
+    }
+
+    function localHandle() { try { return localStorage.getItem('laidies_card_username') || ''; } catch (_) { return ''; } }
+
+    async function init() {
+      var lh = localHandle();
+      try {
+        var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+        supabase = mod.createClient(CONFIG.url, CONFIG.anonKey, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+        });
+      } catch (err) {
+        // Supabase down — still let people pick a handle locally.
+        console.error('[MAiKEOVER] Supabase SDK load failed:', err);
+        setState('claim-form'); wireClaimForm();
+        var ab0 = document.getElementById('mo-auth-box'); if (ab0) ab0.hidden = true;
+        if (lh) { input.value = lh; updatePreview(lh); } else { updatePreview(''); }
+        return;
+      }
+
+      var s = await supabase.auth.getSession();
+      session = s && s.data ? s.data.session : null;
+
+      setState('claim-form');
+      wireClaimForm();
+
+      if (session) {
+        var ab = document.getElementById('mo-auth-box'); if (ab) ab.hidden = true; // already signed in
+        // Do they already have a reserved handle on the server?
+        try {
+          var profile = await supabase.from('member_profiles').select('card_username').eq('id', session.user.id).maybeSingle();
+          if (profile.data && profile.data.card_username) { renderClaimed(profile.data.card_username, false); return; }
+        } catch (_) {}
+        // Signed in, no server handle — if they picked one locally, reserve it now.
+        if (lh && validateFormat(lh).ok) { input.value = lh; await handleClaim(); return; }
+        updatePreview('');
+        return;
+      }
+
+      // Signed out — pick a handle inline (saved on device), sign in to lock it.
+      if (lh) { input.value = lh; updatePreview(lh); handleInput(); } else { updatePreview(''); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260724-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+</body>
+</html>

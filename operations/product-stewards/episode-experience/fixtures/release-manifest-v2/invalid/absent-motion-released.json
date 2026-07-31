@@ -1,0 +1,88 @@
+{
+  "body": {
+    "schemaVersion": "2.0.0",
+    "recordType": "engine-candidate",
+    "payload": {
+      "transactionId": "ep05-add-v1",
+      "transactionType": "addition",
+      "createdAt": "2026-07-26T12:00:00Z",
+      "episode": {
+        "id": "episode-05",
+        "title": "The Super Models"
+      },
+      "issue": {
+        "route": "/issues/issue-05.html",
+        "artifactPath": "issues/issue-05.html",
+        "artifactSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "formats": {
+        "readingIssue": {
+          "present": true,
+          "artifactPath": "issues/issue-05.html",
+          "artifactSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": "accepted"
+        },
+        "narratedListenAlong": {
+          "present": false,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": null
+        },
+        "visualEdition": {
+          "present": false,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": null
+        },
+        "motionFilm": {
+          "present": false,
+          "artifactPath": null,
+          "artifactSha256": null,
+          "mediaQualityVerdict": null,
+          "accessibilityVerdict": null
+        }
+      },
+      "dependencies": {
+        "requiredTransactionFiles": [
+          "issues/issue-05.html"
+        ]
+      },
+      "candidate": {
+        "id": "ep05-candidate-v1",
+        "productionVerdicts": [],
+        "independentVerdicts": []
+      },
+      "supersession": {
+        "supersedesCandidateId": null,
+        "supersedesCandidateBodySha256": null,
+        "invalidatesAdmissions": [],
+        "reason": null
+      },
+      "historyContext": {
+        "ledgerPath": "history-empty.json",
+        "ledgerSha256": "a49bcd31fc484ef2e9f45d5beeefb17dae7931c9649d6db5ff1942e721396b88",
+        "acceptedCandidateCount": 0
+      },
+      "proposedAvailability": {
+        "editorialState": "forthcoming",
+        "readingIssue": "forthcoming",
+        "narratedListenAlong": "unavailable",
+        "visualEdition": "unavailable",
+        "motionFilm": "released"
+      },
+      "rollback": {
+        "mode": "no-prior",
+        "candidateId": null,
+        "chickFlicksAdmissionId": null
+      }
+    }
+  },
+  "integrity": {
+    "algorithm": "sha-256",
+    "canonicalization": "RFC8785-JCS",
+    "bodySha256": "d640c8d37de7bdbbd92d5f3c6108d84efa1e5a9fb14b79bfa60766e277436fc8"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "laidies.trailer.v5.welcome-ident-staged-maker-qc",
+  "status": "maker-built-review-only-unjudged",
+  "output": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+    "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+    "decoded_frames": 29016,
+    "duration_seconds": 967.2,
+    "frame_rate": "30/1",
+    "full_decode_passed": true
+  },
+  "stage_1_reconstructed_base": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-stage1-reconstructed-base-29016f.mkv",
+    "sha256": "78aca8cd8bd288a32c1d36fc33d8319e9e885749c2d2932c51aa9a2e2cbcd2d8",
+    "decoded_frames": 29016,
+    "strict_decoded_pts": [
+      0,
+      29015
+    ],
+    "full_frozen_playback_vector_equal": true,
+    "body_tail_boundary_lineage_equal": true
+  },
+  "replacement": {
+    "beat": "B08",
+    "frame_interval": [
+      2996,
+      3161
+    ],
+    "seconds": [
+      99.8666666667,
+      105.3666666667
+    ],
+    "source_ident_sha256": "d6ed30b357f2e0d10387ee1dd38273ba1607703755dfcc33d3fb34aa133c75e3",
+    "normalized_ident_sha256": "1fc228800e2422e364f9bc2b4cecb150c2c6a0259a8419127d5c95c6643e52ca",
+    "output_B08_equals_normalized_ident": true
+  },
+  "decoded_frame_identity": {
+    "before_B08_equal": true,
+    "after_B08_equal": true,
+    "all_out_of_scope_frames_equal": true
+  },
+  "audio": {
+    "source_path": "content/music/public/trailer-narration.m4a",
+    "source_extracted_adts_sha256": "210bdddb37bd961485ae243eeaf2b8885ea671feadeeaac6b9ace2928f83ea5a",
+    "output_extracted_adts_sha256": "210bdddb37bd961485ae243eeaf2b8885ea671feadeeaac6b9ace2928f83ea5a",
+    "stream_copy_exact": true
+  },
+  "scope_preservation": {
+    "frozen_58_beat_narration_map_preserved": true,
+    "captions_changed": false,
+    "outfit_hold_changed": false,
+    "public_media_modified": false
+  },
+  "manifest": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-welcome-ident-manifest.json",
+    "sha256": "9761368af1e474855febb53d0ddaebaf6b27d183fcf978a381f9c337b5e76faa"
+  },
+  "config": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v5-welcome-ident-config.json",
+    "sha256": "bcc7570892c99dd75bbcfc547510bd2aaf0fa60ee749941566653649ad14fbc3"
+  },
+  "independent_emq_required": {
+    "target": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v5-welcome-ident-independent-judge-2026-07-26.md",
+    "required": true,
+    "maker_may_self_accept": false
+  }
+}

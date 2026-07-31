@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E03-V10-INDEPENDENT-JUDGE-2026-07-26",
+  "judge_role": "Episode Media Quality independent judge",
+  "judged_at": "2026-07-26T23:33:41Z",
+  "verdict": "HOLD",
+  "frozen_tuple": {
+    "mp4": {
+      "path": "assets/video/episode-03-full-v10-source-reconciled-review.mp4",
+      "sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239"
+    },
+    "placement_manifest": {
+      "path": "operations/video-qa/episode-03-v10-49-placement-manifest.json",
+      "sha256": "b278d0b7975c81df7e19396b350c5732563920fd54fe1e994d675796e94b520a"
+    },
+    "maker_qc": {
+      "dispatch_path": "operations/video-qa/episode-03-v10-source-reconciled-qc.json",
+      "resolved_config_path": "operations/video-qa/episode-03-full-v10-source-reconciled-qc.json",
+      "sha256": "c6f059ddf81c539b68d5b853571203339f6b3ca207d0db84700232944e8d4d27",
+      "path_association_note": "Dispatch path absent; checksum-identical file resolved from frozen config."
+    },
+    "config": {
+      "path": "assets/video/episode-03-v10-source-reconciled-config.json",
+      "sha256": "bdf3ef4bb38abc430b0e22a0332aa38cc4c3e09557fc331e4143324dc337cd2e"
+    },
+    "builder": {
+      "path": "operations/tools/assemble-ep03-film-v10-source-reconciled.py",
+      "sha256_recomputed": "1ff2833bc0e717e74a99d1ccce516eb5d71d2745dc35b4ab9b9a25e675413667"
+    }
+  },
+  "source_hash_verification": {
+    "manifest_rows": 49,
+    "matching_render_sources": 49,
+    "mismatches": 0
+  },
+  "media_checks": {
+    "full_decode": "PASS",
+    "video": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "codec": "h264 High",
+      "runtime_seconds": 1048.0
+    },
+    "audio": {
+      "codec": "aac LC",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "mean_volume_db": -20.5,
+      "max_volume_db": -1.4,
+      "long_missing_audio_region": false
+    },
+    "vtt": {
+      "path": "assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "cue_count": 211,
+      "invalid_or_overlapping_cues": 0,
+      "last_end_seconds": 1046.95,
+      "tail_gap_seconds": 1.05,
+      "actual_film_player_test": "NOT AVAILABLE"
+    }
+  },
+  "occurrence_review": {
+    "rows_reviewed": 49,
+    "picture_pass": 47,
+    "picture_fail": 2,
+    "motion_sources_with_technical_movement_evidence": 15,
+    "one_shot_transformation_preview": "PASS",
+    "audible_normal_speed_actual_player_watch": "NOT PROVED"
+  },
+  "genuine_defects": [
+    {
+      "cue": 7,
+      "window_seconds": [108.4, 135.0],
+      "classification": "GENUINE_SEMANTIC_DEFECT_NOT_TASTE",
+      "finding": "WELCOME BACK card starts 7.780 seconds before the spoken Welcome back onset at 116.180.",
+      "smallest_repair": "Hold cue 6 through 116.180, then hard-cut to the existing cue 7 card through 135.000."
+    },
+    {
+      "cue": 30,
+      "window_seconds": [565.0, 577.0],
+      "classification": "GENUINE_LETTERING_DEFECT",
+      "finding": "Prominent law-volume and document pseudo-lettering violates the locked every-word-legible-and-correct rule.",
+      "smallest_repair": "Deterministically repair visible lettering only, preserve Heroine/pose/room/composition, and rebuild the same background-only loop."
+    }
+  ],
+  "cue_7_classification": "GENUINE_DEFECT",
+  "player_readiness": {
+    "episode_films_binding_present": false,
+    "mobile_actual_occurrence_tested": false,
+    "keyboard": "FAIL — film branch document Space handler targets the audio element rather than the mounted video",
+    "reduced_motion": "UNPROVED FOR V10 FILM",
+    "failure_behavior": "FAIL — mounted film video has no film-specific load-error fallback",
+    "caption_actual_occurrence_tested": false
+  },
+  "evidence": {
+    "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e03-v10-independent-judge-2026-07-26.md",
+    "sha256": "c89550ffe370baf470119a7a5b423f2c489adef978968a21baf480d2cc335e7b"
+  },
+  "scope": {
+    "maker_bytes_modified": false,
+    "site_modified": false,
+    "release_modified": false,
+    "deploy_or_public_action": false
+  }
+}

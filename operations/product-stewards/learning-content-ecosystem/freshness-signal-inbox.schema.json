@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.com/schemas/freshness-signal-inbox.schema.json",
+  "title": "LAiDIES freshness signal inbox",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "updatedAt", "signals"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "updatedAt": { "type": "string", "format": "date" },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sourceSystem",
+          "sourcePath",
+          "receivedAt",
+          "summary",
+          "affectedClaimIds",
+          "affectedEntities",
+          "severity",
+          "status",
+          "ownerDecision"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^SIG-[A-Z0-9-]+$" },
+          "sourceSystem": {
+            "enum": ["AIDB", "NEWSSTAND", "PRIMARY_CHECK", "EPISODE", "ALI_CORRECTION"]
+          },
+          "sourcePath": { "type": "string", "minLength": 1 },
+          "receivedAt": { "type": "string", "format": "date" },
+          "summary": { "type": "string", "minLength": 1 },
+          "affectedClaimIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^CLM-[A-Z0-9-]+$" }
+          },
+          "affectedEntities": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "severity": {
+            "enum": ["LOW", "MATERIAL", "HIGH", "HARD_HOLD"]
+          },
+          "status": {
+            "enum": ["OPEN", "ROUTED", "ACCEPTED", "DECLINED", "RESOLVED", "WATCH"]
+          },
+          "ownerDecision": { "type": ["string", "null"] },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

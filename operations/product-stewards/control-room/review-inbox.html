@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Ali’s Review Inbox · LAiDIES Control Room</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --plum: #42133f;
+      --cream: #fff9f2;
+      --paper: #ffffff;
+      --pink: #ed1eac;
+      --teal: #00b9c8;
+      --purple: #7452eb;
+      --coral: #ff6d6a;
+      --yellow: #ffc83d;
+      --green: #177a55;
+      --green-soft: #e2f5ec;
+      --hold: #8a5200;
+      --hold-soft: #fff0c9;
+      --muted: #745f70;
+      --line: #dfd0dd;
+      --shadow: 0 18px 45px rgba(66, 19, 63, .12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--plum);
+      background:
+        radial-gradient(circle at 6% 0, rgba(0,185,200,.17), transparent 32rem),
+        radial-gradient(circle at 95% 8%, rgba(237,30,172,.14), transparent 28rem),
+        var(--cream);
+      font: 16px/1.48 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: inherit; text-underline-offset: 3px; }
+    button, textarea { font: inherit; }
+    button:focus-visible, a:focus-visible, textarea:focus-visible, video:focus-visible {
+      outline: 4px solid var(--teal);
+      outline-offset: 3px;
+    }
+    .shell { width: min(1240px, 100%); margin: auto; padding: 28px 20px 72px; }
+    .topbar { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+    .back { font-weight: 800; }
+    .saved { color: var(--muted); font-size: .85rem; }
+    .hero {
+      margin: 22px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .hero-copy, .summary {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.88);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4vw, 42px);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--pink);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0; font-size: clamp(2.5rem, 7vw, 5.8rem); line-height: .93; letter-spacing: -.055em; }
+    .lede { max-width: 720px; margin: 20px 0 0; font-size: 1.08rem; }
+    .summary { display: grid; align-content: center; gap: 12px; background: var(--plum); color: white; }
+    .summary strong { display: block; font-size: 2.2rem; line-height: 1; }
+    .summary span { color: #f1ddec; }
+    .truth {
+      margin: 18px 0 28px;
+      padding: 16px 18px;
+      border-left: 7px solid var(--teal);
+      border-radius: 12px;
+      background: #e4fbfd;
+    }
+    .queue { display: grid; gap: 22px; }
+    .review-card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .review-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .review-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--plum);
+      font-weight: 950;
+      vertical-align: middle;
+    }
+    .review-card:nth-child(2) .review-number { background: var(--pink); }
+    .review-card:nth-child(3) .review-number { background: var(--yellow); }
+    .review-card:nth-child(4) .review-number { background: var(--coral); }
+    h2 { display: inline; margin: 0; font-size: clamp(1.45rem, 3vw, 2.25rem); line-height: 1.08; }
+    .meta { margin: 8px 0 0 54px; color: var(--muted); }
+    .status {
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: var(--hold-soft);
+      color: var(--hold);
+      font-size: .74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+    .status.complete { color: var(--green); background: var(--green-soft); }
+    .review-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); }
+    .player-wrap { padding: 22px; background: #160b16; }
+    video { display: block; width: 100%; max-height: 68vh; background: #000; }
+    .decision { padding: 24px; }
+    .decision h3 { margin: 0 0 8px; font-size: 1rem; }
+    .decision p { margin: 8px 0; }
+    .checklist { padding-left: 20px; }
+    .checklist li { margin: 7px 0; }
+    .links { display: flex; flex-wrap: wrap; gap: 9px; margin: 16px 0; }
+    .button, button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 11px 15px;
+      border: 2px solid var(--plum);
+      border-radius: 999px;
+      background: white;
+      color: var(--plum);
+      font-weight: 850;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .button.primary { background: var(--purple); color: white; border-color: var(--purple); }
+    .notes {
+      width: 100%;
+      min-height: 112px;
+      margin: 8px 0 12px;
+      resize: vertical;
+      border: 2px solid var(--line);
+      border-radius: 13px;
+      padding: 12px;
+      color: var(--plum);
+      background: #fffbfe;
+    }
+    .decision-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .pass { background: var(--green); border-color: var(--green); color: white; }
+    .hold { background: var(--coral); border-color: var(--coral); color: var(--plum); }
+    .clear-result { grid-column: 1 / -1; min-height: 38px; border: 0; background: transparent; color: var(--muted); }
+    .receipt {
+      min-height: 1.5em;
+      margin-top: 12px;
+      color: var(--green);
+      font-weight: 800;
+    }
+    .outfit {
+      margin-bottom: 16px;
+      padding: 14px;
+      border-radius: 14px;
+      background: #f1ecff;
+    }
+    .live-card {
+      margin-top: 24px;
+      padding: 22px;
+      border: 2px solid var(--green);
+      border-radius: 20px;
+      background: var(--green-soft);
+    }
+    .live-card h2 { display: block; }
+    .fine-print { margin-top: 24px; color: var(--muted); font-size: .85rem; }
+    @media (max-width: 850px) {
+      .hero, .review-body { grid-template-columns: 1fr; }
+      .review-head { grid-template-columns: 1fr; }
+      .status { justify-self: start; margin-left: 54px; }
+      .player-wrap { padding: 12px; }
+    }
+    @media (max-width: 520px) {
+      .shell { padding-inline: 12px; }
+      .topbar { align-items: flex-start; }
+      .decision-actions { grid-template-columns: 1fr; }
+      .review-head, .decision { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <a class="back" href="dashboard.html">← Control Room</a>
+      <div class="saved" id="savedSummary" aria-live="polite">Review progress is saved in this browser.</div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Ali’s Review Inbox · exact current files</p>
+        <h1>Watch it.<br>Rule on it.<br>Move it.</h1>
+        <p class="lede">This is the one place for work that genuinely needs your eyes or ears. Each card names the exact file, the only remaining decision, and what happens after you rule.</p>
+      </div>
+      <aside class="summary" aria-label="Episode review summary">
+        <div><strong>3</strong><span>full episode watches</span></div>
+        <div><strong>1</strong><span>Trailer outfit choice + final watch</span></div>
+        <div><strong>1</strong><span>Episode already live</span></div>
+      </aside>
+    </section>
+
+    <div class="truth">
+      <strong>What a PASS means:</strong> you watched the exact full title at 1× with sound on and found no release-blocking picture, narration, audio or caption problem. Saving a PASS records your review here; it does not silently publish the film.
+    </div>
+
+    <section class="queue" aria-label="Episode review queue">
+      <article class="review-card" data-review-id="episode-01-v26">
+        <header class="review-head">
+          <div>
+            <span class="review-number">01</span><h2>On Wednesdays We Do AI</h2>
+            <p class="meta">19:32 · v26 · exact SHA f5985a39…d1351</p>
+          </div>
+          <span class="status">Needs your full watch</span>
+        </header>
+        <div class="review-body">
+          <div class="player-wrap">
+            <video controls preload="metadata" playsinline>
+              <source src="/assets/video/episode-01-full-v26-source-admitted-review.mp4" type="video/mp4">
+              <track default kind="captions" srclang="en" label="English" src="/assets/captions/episode-01.vtt">
+            </video>
+          </div>
+          <div class="decision">
+            <h3>The only remaining gate</h3>
+            <p>Watch the complete exact file at normal speed with audible, unmuted sound.</p>
+            <ul class="checklist">
+              <li>Picture matches the point being spoken.</li>
+              <li>People, places and visual style are correct.</li>
+              <li>Audio and captions are clean and aligned.</li>
+              <li>Record any problem with an exact timestamp.</li>
+            </ul>
+            <div class="links">
+              <a class="button" href="../episode-media-quality/evidence-2026-07-27/emq-e01-v26-fresh-independent-judge-2026-07-27.md">Read judge result</a>
+            </div>
+            <label><strong>Your notes or timestamps</strong>
+              <textarea class="notes" placeholder="Example: 07:42 — image does not match the narration."></textarea>
+            </label>
+            <div class="decision-actions">
+              <button class="pass" type="button" data-verdict="PASS">Save full-watch PASS</button>
+              <button class="hold" type="button" data-verdict="HOLD">Save HOLD + notes</button>
+              <button class="clear-result" type="button" data-clear>Clear saved result</button>
+            </div>
+            <div class="receipt" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card" data-review-id="episode-02-v19-ident-v2">
+        <header class="review-head">
+          <div>
+            <span class="review-number">02</span><h2>Tell Me What You Want</h2>
+            <p class="meta">16:27 · v19 ident-v2 · exact SHA 80bfa02d…49814</p>
+          </div>
+          <span class="status">Needs your full watch</span>
+        </header>
+        <div class="review-body">
+          <div class="player-wrap">
+            <video controls preload="metadata" playsinline>
+              <source src="/assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4" type="video/mp4">
+              <track default kind="captions" srclang="en" label="English" src="/assets/captions/episode-02.vtt">
+            </video>
+          </div>
+          <div class="decision">
+            <h3>The only remaining gate</h3>
+            <p>The ident/tail repair and real-browser player/codec tests already passed. You only need the complete 1× audible watch.</p>
+            <ul class="checklist">
+              <li>Picture matches the current spoken point.</li>
+              <li>The final picture and audio end correctly.</li>
+              <li>Captions are readable and synchronized.</li>
+              <li>Record any problem with an exact timestamp.</li>
+            </ul>
+            <div class="links">
+              <a class="button" href="../episode-media-quality/evidence-2026-07-26/emq-e02-v19-welcome-ident-v2-independent-judge-2026-07-26.md">Read judge result</a>
+            </div>
+            <label><strong>Your notes or timestamps</strong>
+              <textarea class="notes" placeholder="Leave blank only if the complete watch passes."></textarea>
+            </label>
+            <div class="decision-actions">
+              <button class="pass" type="button" data-verdict="PASS">Save full-watch PASS</button>
+              <button class="hold" type="button" data-verdict="HOLD">Save HOLD + notes</button>
+              <button class="clear-result" type="button" data-clear>Clear saved result</button>
+            </div>
+            <div class="receipt" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card" data-review-id="episode-03-v13">
+        <header class="review-head">
+          <div>
+            <span class="review-number">03</span><h2>The Burn Book Problem</h2>
+            <p class="meta">17:28 · v13 · exact SHA bcea0457…a5a56f</p>
+          </div>
+          <span class="status">Needs your full watch</span>
+        </header>
+        <div class="review-body">
+          <div class="player-wrap">
+            <video controls preload="metadata" playsinline>
+              <source src="/assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4" type="video/mp4">
+              <track default kind="captions" srclang="en" label="English" src="/assets/captions/episode-03.vtt">
+            </video>
+          </div>
+          <div class="decision">
+            <h3>The only remaining gate</h3>
+            <p>The Welcome ident, law-library repair and player tests already passed. You only need the complete 1× audible watch.</p>
+            <ul class="checklist">
+              <li>The episode title is <strong>The Burn Book Problem</strong>.</li>
+              <li>“Don’t Be Chutney on the Stand” is the song—not the episode title.</li>
+              <li>Picture, narration, captions and final tail remain aligned.</li>
+              <li>Record any problem with an exact timestamp.</li>
+            </ul>
+            <div class="links">
+              <a class="button" href="../episode-media-quality/evidence-2026-07-27/emq-e03-v13-fresh-independent-judge-2026-07-27.md">Read judge result</a>
+            </div>
+            <label><strong>Your notes or timestamps</strong>
+              <textarea class="notes" placeholder="Leave blank only if the complete watch passes."></textarea>
+            </label>
+            <div class="decision-actions">
+              <button class="pass" type="button" data-verdict="PASS">Save full-watch PASS</button>
+              <button class="hold" type="button" data-verdict="HOLD">Save HOLD + notes</button>
+              <button class="clear-result" type="button" data-clear>Clear saved result</button>
+            </div>
+            <div class="receipt" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card" data-review-id="trailer-v5">
+        <header class="review-head">
+          <div>
+            <span class="review-number">T</span><h2>LAiDIES Trailer</h2>
+            <p class="meta">16:07 · v5 · exact SHA e8bbc8e4…171222</p>
+          </div>
+          <span class="status">Outfit choice first</span>
+        </header>
+        <div class="review-body">
+          <div class="player-wrap">
+            <video controls preload="metadata" playsinline>
+              <source src="/assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4" type="video/mp4">
+              <track default kind="captions" srclang="en" label="English" src="/assets/captions/episode-trailer.vtt">
+            </video>
+          </div>
+          <div class="decision">
+            <div class="outfit">
+              <h3>Decision 1 · heroine outfit</h3>
+              <p>Open the visual package and choose among the three shown options. The current recommendation is the multicolour dress as the Trailer-wide signature.</p>
+              <a class="button primary" href="../episode-media-quality/evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html">Open outfit comparison</a>
+            </div>
+            <h3>Decision 2 · final full watch</h3>
+            <p>After the outfit ruling is applied or explicitly preserved, the resulting exact Trailer needs one complete 1× audible watch.</p>
+            <label><strong>Your outfit choice and/or timestamps</strong>
+              <textarea class="notes" placeholder="Example: Outfit Option 2. Full watch can follow after the resulting file is frozen."></textarea>
+            </label>
+            <div class="decision-actions">
+              <button class="pass" type="button" data-verdict="OUTFIT DECIDED">Save outfit decision</button>
+              <button class="hold" type="button" data-verdict="HOLD">Save HOLD + notes</button>
+              <button class="clear-result" type="button" data-clear>Clear saved result</button>
+            </div>
+            <div class="receipt" aria-live="polite"></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <article class="live-card">
+      <span class="status complete">Already live · no review needed</span>
+      <h2>Episode 04 · The Founding Mothers</h2>
+      <p>The accepted full film is already deployed and publicly verified. It is not in your review queue.</p>
+      <div class="links">
+        <a class="button" href="https://laidies.ai/watch?ep=04">Watch the public release</a>
+      </div>
+    </article>
+
+    <p class="fine-print">Review progress is stored locally in this browser so it survives refreshes. Release work still requires a durable checksum-bound receipt and separate deployment/public verification; Control Room creates those from your saved ruling.</p>
+  </main>
+  <script>
+    const storageKey = "laidies.ali-review-inbox.v1";
+    const load = () => {
+      try { return JSON.parse(localStorage.getItem(storageKey) || "{}"); }
+      catch { return {}; }
+    };
+    const save = (value) => localStorage.setItem(storageKey, JSON.stringify(value));
+    const state = load();
+    const cards = [...document.querySelectorAll("[data-review-id]")];
+
+    function paintSummary() {
+      const recorded = Object.keys(state).length;
+      document.querySelector("#savedSummary").textContent =
+        recorded ? `${recorded} review result${recorded === 1 ? "" : "s"} saved in this browser.` :
+        "Review progress is saved in this browser.";
+    }
+
+    function paintCard(card) {
+      const result = state[card.dataset.reviewId];
+      const receipt = card.querySelector(".receipt");
+      const status = card.querySelector(".status");
+      if (!result) return;
+      card.querySelector(".notes").value = result.notes || "";
+      receipt.textContent = `${result.verdict} saved · ${new Date(result.recordedAt).toLocaleString()}`;
+      status.textContent = result.verdict;
+      status.classList.toggle("complete", result.verdict === "PASS" || result.verdict === "OUTFIT DECIDED");
+    }
+
+    cards.forEach((card) => {
+      paintCard(card);
+      card.querySelectorAll("[data-verdict]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const verdict = button.dataset.verdict;
+          const notes = card.querySelector(".notes").value.trim();
+          if (verdict === "HOLD" && !notes) {
+            card.querySelector(".receipt").textContent = "Add the problem or timestamp before saving a HOLD.";
+            card.querySelector(".notes").focus();
+            return;
+          }
+          const result = {
+            reviewId: card.dataset.reviewId,
+            verdict,
+            notes,
+            reviewer: "Ali",
+            recordedAt: new Date().toISOString()
+          };
+          state[card.dataset.reviewId] = result;
+          save(state);
+          paintCard(card);
+          paintSummary();
+          const receiptText = `ALI REVIEW · ${result.reviewId} · ${result.verdict} · ${result.recordedAt}${notes ? ` · ${notes}` : ""}`;
+          try {
+            await navigator.clipboard.writeText(receiptText);
+            card.querySelector(".receipt").textContent += " · exact receipt copied";
+          } catch {}
+        });
+      });
+      card.querySelector("[data-clear]").addEventListener("click", () => {
+        delete state[card.dataset.reviewId];
+        save(state);
+        card.querySelector(".notes").value = "";
+        card.querySelector(".receipt").textContent = "Saved result cleared.";
+        const status = card.querySelector(".status");
+        status.textContent = card.dataset.reviewId === "trailer-v5" ? "Outfit choice first" : "Needs your full watch";
+        status.classList.remove("complete");
+        paintSummary();
+      });
+    });
+    paintSummary();
+  </script>
+</body>
+</html>

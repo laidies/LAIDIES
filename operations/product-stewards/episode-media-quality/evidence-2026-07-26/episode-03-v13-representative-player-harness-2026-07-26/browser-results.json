@@ -1,0 +1,64 @@
+{
+  "schema": "laidies.emq.episode-03-v13.representative-player-browser.v1",
+  "status": "PASS",
+  "pass_count": 11,
+  "fail_count": 0,
+  "checks": [
+    {
+      "name": "exact MP4 source mounted",
+      "result": "PASS",
+      "detail": "http://127.0.0.1:49763/assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4"
+    },
+    {
+      "name": "metadata duration is full programme",
+      "result": "PASS",
+      "detail": "1048"
+    },
+    {
+      "name": "external caption rail receives text without raw voice markup",
+      "result": "PASS",
+      "detail": "And on this episode: she gets an answer\nwith full Regina George confidence,"
+    },
+    {
+      "name": "user play is normal-speed and unmuted",
+      "result": "PASS",
+      "detail": "{\"rate\":1,\"muted\":false,\"paused\":false}"
+    },
+    {
+      "name": "keyboard seek forward works",
+      "result": "PASS",
+      "detail": "42.2162"
+    },
+    {
+      "name": "keyboard captions toggle works",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "390px has no horizontal overflow",
+      "result": "PASS",
+      "detail": "{\"overflow\":false,\"reduced\":true,\"transition\":\"0s\",\"button\":56.78125}"
+    },
+    {
+      "name": "reduced-motion media query is active",
+      "result": "PASS",
+      "detail": "{\"overflow\":false,\"reduced\":true,\"transition\":\"0s\",\"button\":56.78125}"
+    },
+    {
+      "name": "mobile controls meet 48px target",
+      "result": "PASS",
+      "detail": "{\"overflow\":false,\"reduced\":true,\"transition\":\"0s\",\"button\":56.78125}"
+    },
+    {
+      "name": "missing media fails closed with retry",
+      "result": "PASS",
+      "detail": true
+    },
+    {
+      "name": "no-JS keeps media unbound and explains boundary",
+      "result": "PASS",
+      "detail": "{\"hasNoJs\":true,\"src\":null}"
+    }
+  ],
+  "boundary": "Browser evidence is limited to player functionality. It is not an independent EMQ admission or the required human full 1× unmuted audible watch."
+}

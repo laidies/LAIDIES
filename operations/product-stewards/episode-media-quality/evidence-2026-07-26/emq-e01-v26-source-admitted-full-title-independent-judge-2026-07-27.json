@@ -1,0 +1,72 @@
+{
+  "schema": "laidies.emq.full-title-independent-judge.v1",
+  "episode": "01",
+  "candidate": "v26-source-admitted",
+  "judged_at": "2026-07-27T00:14:44-07:00",
+  "scope": "Independent local complete-title review of the frozen v26 tuple. No maker, media, player, route, release, deployment, or public bytes were changed.",
+  "verdict": "HOLD",
+  "reason_codes": [
+    "HOLD_REPRESENTATIVE_PLAYER_UNBOUND",
+    "HOLD_HUMAN_FULL_1X_UNMUTED_AUDIBLE_WITNESS_MISSING"
+  ],
+  "inputs": {
+    "master": {
+      "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+      "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+      "bytes": 627122305,
+      "decoded_video_frames": 35167
+    },
+    "manifest": {
+      "path": "operations/video-qa/episode-01-v26-source-admitted/manifest.json",
+      "sha256": "3abc64a0e964f655d0eebe3ee02f4d7f43d8d07b06d2c384136f11407156b2be"
+    },
+    "maker_qc": {
+      "path": "operations/video-qa/episode-01-v26-source-admitted/maker-qc.json",
+      "sha256": "ca4fe84243aff1bc03abedcc1da6b46a4e025f04d0cffba0316b1b9ce5c105f3"
+    },
+    "config": {
+      "path": "assets/video/episode-01-v26-source-admitted-config.json",
+      "sha256": "902e4daab021f2d1ab6e5ed3503c383a7962d28dc6a61d50fd03be5a4ee8c83f"
+    },
+    "builder": {
+      "path": "assets/video/build-episode-01-v26-source-admitted.py",
+      "sha256": "46747e2cd7aaba6d92f60327edbb3ffb2809a57df35ac69008a8b58732b3266f"
+    },
+    "captions": {
+      "path": "operations/captions/episode-01.vtt",
+      "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+      "cue_count": 246
+    }
+  },
+  "passes": [
+    "PASS_HASH_BINDING_ALL_SUPPLIED_INPUTS",
+    "PASS_FULL_AUDIO_VIDEO_DECODE",
+    "PASS_13_OF_13_ADMITTED_SOURCE_HASH_BINDINGS",
+    "PASS_13_OF_13_WINDOWS_MATCH_ADMITTED_STILL_SOURCES_AT_TWO_INTERIOR_DECODED_FRAMES",
+    "PASS_EXACT_V25_AAC_PAYLOAD_PRESERVATION",
+    "PASS_24_INHERITED_PRE_POST_AND_WELCOME_CONTROL_FRAMES",
+    "PASS_EPISODE_01_WELCOME_IDENT_PRESERVED_AT_93_900_TO_101_920",
+    "PASS_EXTERNAL_VTT_PUBLIC_BYTE_PARITY_246_MONOTONIC_CUES",
+    "PASS_VISUAL_CONTINUITY_SAMPLE_IDENTITY_STYLE_LOCATION_AND_NO_OBVIOUS_CROP_OR_BLACK_FRAME"
+  ],
+  "visual_review": {
+    "sample_times_seconds": [30, 97, 180, 370, 440, 460, 530, 610, 705, 745, 800, 835, 945, 1005, 1160],
+    "finding": "The sampled complete-film progression and every replaced image window present a coherent adult comic/graphic-novel treatment. The protected Episode 01 welcome ident remains intact. The admitted 1999 orange handled iBook image is present in the former modern-laptop windows. No black frame, aspect/crop failure, or boundary flash was observed in the sampled transitions.",
+    "limit": "This is a visual continuity inspection, not a human normal-speed unmuted audible watch."
+  },
+  "representative_player": {
+    "result": "HOLD",
+    "finding": "watch.html still declares EPISODE_FILMS = {}. The frozen v26 MP4 is not checksum-bound to a non-public representative-player harness or any film path, so normal-speed UI audio, rendered external captions, keyboard/focus, reduced-motion, mobile, retry/failure, and no-JS behavior cannot be honestly witnessed for these exact bytes."
+  },
+  "human_audible_witness": {
+    "result": "HOLD",
+    "finding": "No identified human completed a full-title 1x unmuted audible watch of this exact v26 master. Machine decode and exact AAC payload parity are not a substitute."
+  },
+  "next_action": "Bind this unchanged v26 MP4 and unchanged VTT in an isolated, non-public representative-player harness; independently test player behavior; then obtain an identified human full-title 1x unmuted audible witness. Reuse this exact source-admission and assembly evidence without rebuilding media unless a new defect is found.",
+  "authority": {
+    "release": false,
+    "deploy": false,
+    "public": false,
+    "maker_media_mutation": false
+  }
+}

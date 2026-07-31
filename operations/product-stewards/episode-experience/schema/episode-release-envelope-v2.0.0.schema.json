@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/episode-release-envelope-2.0.0.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body", "integrity"],
+  "properties": {
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "recordType", "payload"],
+      "properties": {
+        "schemaVersion": {"const": "2.0.0"},
+        "recordType": {
+          "enum": [
+            "engine-candidate",
+            "engine-public-proof-receipt",
+            "chick-flicks-admission",
+            "chick-flicks-public-proof-receipt",
+            "episode-availability-control"
+          ]
+        },
+        "payload": {"type": "object"}
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "canonicalization", "bodySha256"],
+      "properties": {
+        "algorithm": {"const": "sha-256"},
+        "canonicalization": {"const": "RFC8785-JCS"},
+        "bodySha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"body": {"properties": {"recordType": {"const": "engine-candidate"}}}}},
+      "then": {"properties": {"body": {"properties": {"payload": {"$ref": "#/$defs/candidate"}}}}}
+    },
+    {
+      "if": {"properties": {"body": {"properties": {"recordType": {"const": "engine-public-proof-receipt"}}}}},
+      "then": {"properties": {"body": {"properties": {"payload": {"$ref": "#/$defs/engineProof"}}}}}
+    },
+    {
+      "if": {"properties": {"body": {"properties": {"recordType": {"const": "chick-flicks-admission"}}}}},
+      "then": {"properties": {"body": {"properties": {"payload": {"$ref": "#/$defs/admission"}}}}}
+    },
+    {
+      "if": {"properties": {"body": {"properties": {"recordType": {"const": "chick-flicks-public-proof-receipt"}}}}},
+      "then": {"properties": {"body": {"properties": {"payload": {"$ref": "#/$defs/cfProof"}}}}}
+    },
+    {
+      "if": {"properties": {"body": {"properties": {"recordType": {"const": "episode-availability-control"}}}}},
+      "then": {"properties": {"body": {"properties": {"payload": {"$ref": "#/$defs/control"}}}}}
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "nullableSha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+    "nullableString": {"oneOf": [{"type": "string", "minLength": 1}, {"type": "null"}]},
+    "noPrior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "candidateId", "chickFlicksAdmissionId"],
+      "properties": {
+        "mode": {"const": "no-prior"},
+        "candidateId": {"type": "null"},
+        "chickFlicksAdmissionId": {"type": "null"}
+      }
+    },
+    "restorePrior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "candidateId", "chickFlicksAdmissionId"],
+      "properties": {
+        "mode": {"const": "restore-prior"},
+        "candidateId": {"type": "string", "minLength": 1},
+        "chickFlicksAdmissionId": {"type": "string", "minLength": 1}
+      }
+    },
+    "rollback": {"oneOf": [{"$ref": "#/$defs/noPrior"}, {"$ref": "#/$defs/restorePrior"}]},
+    "historyContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ledgerPath", "ledgerSha256", "acceptedCandidateCount"],
+      "properties": {
+        "ledgerPath": {"type": "string", "minLength": 1},
+        "ledgerSha256": {"$ref": "#/$defs/sha256"},
+        "acceptedCandidateCount": {"type": "integer", "minimum": 0}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transactionId", "transactionType", "createdAt", "episode", "issue", "formats", "dependencies", "candidate", "supersession", "historyContext", "proposedAvailability", "rollback"],
+      "properties": {
+        "transactionId": {"type": "string"},
+        "transactionType": {"enum": ["addition", "correction", "replacement"]},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "episode": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "title"],
+          "properties": {
+            "id": {"type": "string", "minLength": 1},
+            "title": {"type": "string", "minLength": 1}
+          }
+        },
+        "issue": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["route", "artifactPath", "artifactSha256"],
+          "properties": {
+            "route": {"type": "string", "pattern": "^/"},
+            "artifactPath": {"type": "string", "minLength": 1},
+            "artifactSha256": {"$ref": "#/$defs/sha256"}
+          }
+        },
+        "formats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["readingIssue", "narratedListenAlong", "visualEdition", "motionFilm"],
+          "properties": {
+            "readingIssue": {"$ref": "#/$defs/format"},
+            "narratedListenAlong": {"$ref": "#/$defs/format"},
+            "visualEdition": {"$ref": "#/$defs/format"},
+            "motionFilm": {"$ref": "#/$defs/format"}
+          }
+        },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["requiredTransactionFiles"],
+          "properties": {
+            "requiredTransactionFiles": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "candidate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "productionVerdicts", "independentVerdicts"],
+          "properties": {
+            "id": {"type": "string"},
+            "productionVerdicts": {"type": "array"},
+            "independentVerdicts": {"type": "array"}
+          }
+        },
+        "supersession": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["supersedesCandidateId", "supersedesCandidateBodySha256", "invalidatesAdmissions", "reason"],
+          "properties": {
+            "supersedesCandidateId": {"$ref": "#/$defs/nullableString"},
+            "supersedesCandidateBodySha256": {"$ref": "#/$defs/nullableSha256"},
+            "invalidatesAdmissions": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            },
+            "reason": {"$ref": "#/$defs/nullableString"}
+          }
+        },
+        "historyContext": {"$ref": "#/$defs/historyContext"},
+        "proposedAvailability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["editorialState", "readingIssue", "narratedListenAlong", "visualEdition", "motionFilm"],
+          "properties": {
+            "editorialState": {"enum": ["forthcoming", "released", "held", "unavailable"]},
+            "readingIssue": {"$ref": "#/$defs/availability"},
+            "narratedListenAlong": {"$ref": "#/$defs/availability"},
+            "visualEdition": {"$ref": "#/$defs/availability"},
+            "motionFilm": {"$ref": "#/$defs/availability"}
+          }
+        },
+        "rollback": {"$ref": "#/$defs/rollback"}
+      }
+    },
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "artifactPath", "artifactSha256", "mediaQualityVerdict", "accessibilityVerdict"],
+      "properties": {
+        "present": {"type": "boolean"},
+        "artifactPath": {"$ref": "#/$defs/nullableString"},
+        "artifactSha256": {"$ref": "#/$defs/nullableSha256"},
+        "mediaQualityVerdict": {
+          "oneOf": [
+            {"enum": ["accepted", "rejected"]},
+            {"type": "null"}
+          ]
+        },
+        "accessibilityVerdict": {
+          "oneOf": [
+            {"enum": ["accepted", "rejected"]},
+            {"type": "null"}
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"present": {"const": false}}},
+          "then": {
+            "properties": {
+              "artifactPath": {"type": "null"},
+              "artifactSha256": {"type": "null"},
+              "mediaQualityVerdict": {"type": "null"},
+              "accessibilityVerdict": {"type": "null"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"present": {"const": true}}},
+          "then": {
+            "properties": {
+              "artifactPath": {"type": "string", "minLength": 1},
+              "artifactSha256": {"$ref": "#/$defs/sha256"},
+              "accessibilityVerdict": {"enum": ["accepted", "rejected"]}
+            }
+          }
+        }
+      ]
+    },
+    "availability": {"enum": ["forthcoming", "released", "held", "unavailable"]},
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "engineProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receiptId", "candidateId", "candidateBodySha256", "observedAt", "verdict", "evidence", "supersedesReceiptBodySha256", "previousReceiptBodySha256"],
+      "properties": {
+        "receiptId": {"type": "string"},
+        "candidateId": {"type": "string"},
+        "candidateBodySha256": {"$ref": "#/$defs/sha256"},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "verdict": {"enum": ["verified", "failed", "revoked"]},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "supersedesReceiptBodySha256": {"$ref": "#/$defs/nullableSha256"},
+        "previousReceiptBodySha256": {"$ref": "#/$defs/nullableSha256"}
+      }
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["admissionId", "transactionId", "candidateId", "candidateBodySha256", "createdAt", "disposition", "formats", "reasons", "controlRoomLockId", "supersedesAdmissionBodySha256"],
+      "properties": {
+        "admissionId": {"type": "string"},
+        "transactionId": {"type": "string"},
+        "candidateId": {"type": "string"},
+        "candidateBodySha256": {"$ref": "#/$defs/sha256"},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "disposition": {"enum": ["accept", "reject", "partial", "revoke"]},
+        "formats": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["readingIssue", "narratedListenAlong", "visualEdition", "motionFilm"],
+          "properties": {
+            "readingIssue": {"enum": ["accepted", "rejected", "unavailable", "revoked"]},
+            "narratedListenAlong": {"enum": ["accepted", "rejected", "unavailable", "revoked"]},
+            "visualEdition": {"enum": ["accepted", "rejected", "unavailable", "revoked"]},
+            "motionFilm": {"enum": ["accepted", "rejected", "unavailable", "revoked"]}
+          }
+        },
+        "reasons": {"type": "array"},
+        "controlRoomLockId": {"$ref": "#/$defs/nullableString"},
+        "supersedesAdmissionBodySha256": {"$ref": "#/$defs/nullableSha256"}
+      }
+    },
+    "cfProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receiptId", "candidateId", "candidateBodySha256", "admissionId", "admissionBodySha256", "observedAt", "verdict", "evidence", "supersedesReceiptBodySha256", "previousReceiptBodySha256"],
+      "properties": {
+        "receiptId": {"type": "string"},
+        "candidateId": {"type": "string"},
+        "candidateBodySha256": {"$ref": "#/$defs/sha256"},
+        "admissionId": {"type": "string"},
+        "admissionBodySha256": {"$ref": "#/$defs/sha256"},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "verdict": {"enum": ["verified", "failed", "revoked"]},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "supersedesReceiptBodySha256": {"$ref": "#/$defs/nullableSha256"},
+        "previousReceiptBodySha256": {"$ref": "#/$defs/nullableSha256"}
+      }
+    },
+    "admissionTargetNone": {
+      "type": "object",
+      "required": ["chickFlicksAdmissionId", "chickFlicksAdmissionBodySha256"],
+      "properties": {
+        "chickFlicksAdmissionId": {"type": "null"},
+        "chickFlicksAdmissionBodySha256": {"type": "null"}
+      }
+    },
+    "admissionTargetPresent": {
+      "type": "object",
+      "required": ["chickFlicksAdmissionId", "chickFlicksAdmissionBodySha256"],
+      "properties": {
+        "chickFlicksAdmissionId": {"type": "string"},
+        "chickFlicksAdmissionBodySha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["transactionId", "transactionType", "createdAt", "episodeId", "target", "scope", "reason", "effectiveAt", "safePublicState", "historyContext", "restore"],
+      "properties": {
+        "transactionId": {"type": "string"},
+        "transactionType": {"enum": ["hold", "removal"]},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "episodeId": {"type": "string"},
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["candidateId", "candidateBodySha256", "chickFlicksAdmissionId", "chickFlicksAdmissionBodySha256"],
+          "properties": {
+            "candidateId": {"type": "string"},
+            "candidateBodySha256": {"$ref": "#/$defs/sha256"},
+            "chickFlicksAdmissionId": {"$ref": "#/$defs/nullableString"},
+            "chickFlicksAdmissionBodySha256": {"$ref": "#/$defs/nullableSha256"}
+          },
+          "oneOf": [
+            {
+              "properties": {
+                "chickFlicksAdmissionId": {"type": "null"},
+                "chickFlicksAdmissionBodySha256": {"type": "null"}
+              }
+            },
+            {
+              "properties": {
+                "chickFlicksAdmissionId": {"type": "string", "minLength": 1},
+                "chickFlicksAdmissionBodySha256": {"$ref": "#/$defs/sha256"}
+              }
+            }
+          ]
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["editorialPackage", "formats"],
+          "properties": {
+            "editorialPackage": {"type": "boolean"},
+            "formats": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"enum": ["readingIssue", "narratedListenAlong", "visualEdition", "motionFilm"]}
+            }
+          }
+        },
+        "reason": {"type": "string", "minLength": 1},
+        "effectiveAt": {"type": "string", "format": "date-time"},
+        "safePublicState": {"enum": ["held", "removed", "unavailable"]},
+        "historyContext": {"$ref": "#/$defs/historyContext"},
+        "restore": {"$ref": "#/$defs/rollback"}
+      }
+    }
+  }
+}

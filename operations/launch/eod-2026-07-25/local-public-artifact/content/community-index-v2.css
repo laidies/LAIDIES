@@ -1,0 +1,660 @@
+.community-index-page {
+  --ci-midnight: #070f2b;
+  --ci-ink: #11183b;
+  --ci-paper: #fffdfb;
+  --ci-pink: #f254a9;
+  --ci-purple: #7137d6;
+  --ci-cyan: #15bce0;
+  --ci-cobalt: #2457e6;
+  --ci-mint: #7de2c2;
+  --ci-coral: #ff7366;
+  --ci-orange: #ff9b3d;
+  --ci-yellow: #ffd34d;
+  --ci-line: rgba(17, 24, 59, 0.2);
+  background:
+    radial-gradient(circle at 14% 10%, rgba(120, 199, 255, 0.28), transparent 25rem),
+    radial-gradient(circle at 88% 6%, rgba(242, 84, 169, 0.17), transparent 24rem),
+    linear-gradient(145deg, #f5e5ed 0%, #fff0e8 54%, #eae9ff 100%);
+  color: var(--ci-ink);
+  font-family: "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .laidies-bg {
+  display: none;
+}
+
+.community-index-page .community-index-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.community-index-page .community-arrival {
+  order: 0;
+  width: 100%;
+  max-height: 650px;
+  aspect-ratio: 1672 / 941;
+  overflow: hidden;
+  background: var(--ci-midnight);
+}
+
+.community-index-page .community-arrival img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 54%;
+}
+
+.community-index-page .community-ritual-entry {
+  order: 1;
+  width: min(1120px, calc(100% - 40px));
+  max-width: none;
+  margin: 0 auto;
+  padding: clamp(50px, 7vw, 92px) 0;
+}
+
+.community-index-page .community-ritual-entry .entry-card {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ci-ink);
+  box-shadow: none;
+}
+
+.community-index-page .eyebrow {
+  margin: 0 0 14px;
+  color: var(--ci-purple);
+  font: 800 12px/1.2 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+}
+
+.community-index-page .brand-word-inline [data-brand-ai] {
+  color: var(--ci-pink) !important;
+  text-transform: none !important;
+}
+
+.community-index-page .rooms-section .brand-word-inline [data-brand-ai],
+.community-index-page .overlay-body .brand-word-inline [data-brand-ai] {
+  color: var(--ci-cyan) !important;
+}
+
+.community-index-page .community-ritual-entry h1,
+.community-index-page .cards-section h1,
+.community-index-page .rooms-section h2,
+.community-index-page .community-pass h2 {
+  margin: 0;
+  color: var(--ci-ink);
+  font: 400 clamp(48px, 7vw, 96px) / 0.92 "Anton", Impact, sans-serif;
+  letter-spacing: -0.016em;
+  text-transform: uppercase;
+}
+
+.community-index-page .community-ritual-entry p:not(.eyebrow) {
+  max-width: 780px;
+  margin: 22px 0 0;
+  color: rgba(17, 24, 59, 0.77);
+  font: 600 clamp(18px, 1.7vw, 22px) / 1.5 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .community-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.community-index-page .community-entry-actions a,
+.community-index-page .cta-row a,
+.community-index-page .community-pass > a {
+  min-height: 49px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border: 2px solid var(--ci-ink);
+  border-radius: 0;
+  background: var(--ci-pink);
+  color: var(--ci-ink);
+  font: 800 12px/1 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0 var(--ci-cyan);
+}
+
+.community-index-page .community-entry-actions a:nth-child(2) {
+  background: var(--ci-paper);
+  box-shadow: 5px 5px 0 var(--ci-purple);
+}
+
+.community-index-page .rooms-section {
+  order: 2;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(66px, 8vw, 108px) max(20px, calc((100vw - 1120px) / 2));
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(113, 55, 214, 0.42), transparent 32%),
+    radial-gradient(circle at 88% 78%, rgba(21, 188, 224, 0.25), transparent 30%),
+    var(--ci-midnight);
+  color: var(--ci-paper);
+  box-shadow: none;
+}
+
+.community-index-page .rooms-section .eyebrow {
+  color: var(--ci-mint);
+}
+
+.community-index-page .rooms-section h2 {
+  max-width: 900px;
+  color: var(--ci-paper);
+}
+
+.community-index-page .rooms-intro {
+  max-width: 720px;
+  margin: 19px 0 0;
+  color: rgba(255, 253, 251, 0.74);
+  font: 500 clamp(17px, 1.5vw, 20px) / 1.55 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .rooms-grid {
+  counter-reset: room;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin-top: 42px;
+  border-top: 2px solid rgba(255, 253, 251, 0.35);
+}
+
+.community-index-page .room-card {
+  counter-increment: room;
+  display: grid;
+  grid-template-columns: 72px minmax(180px, 0.52fr) minmax(0, 1fr) auto;
+  gap: clamp(16px, 3vw, 42px);
+  align-items: center;
+  padding: 20px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 253, 251, 0.24);
+  border-radius: 0;
+  background: transparent;
+  transition: padding 150ms ease, background 150ms ease;
+}
+
+.community-index-page .room-card::before {
+  content: counter(room, decimal-leading-zero);
+  color: var(--ci-cyan);
+  font: 400 34px/1 "Anton", Impact, sans-serif;
+}
+
+.community-index-page .room-card:hover {
+  padding-left: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+  transform: none;
+}
+
+.community-index-page .room-card h3 {
+  margin: 0;
+  color: var(--ci-paper);
+  font: 800 clamp(18px, 2vw, 24px) / 1.15 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .room-card p {
+  margin: 0;
+  color: rgba(255, 253, 251, 0.64);
+  font: 500 15px/1.45 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .room-card a {
+  color: var(--ci-yellow);
+  font: 800 11px/1.2 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.community-index-page .cards-section {
+  order: 3;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(66px, 8vw, 108px) 0;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(120, 199, 255, 0.32), transparent 25%),
+    radial-gradient(circle at 92% 86%, rgba(125, 226, 194, 0.25), transparent 26%),
+    transparent;
+  color: var(--ci-ink);
+  box-shadow: none;
+}
+
+.community-index-page .cards-section > .eyebrow,
+.community-index-page .cards-section > h1,
+.community-index-page .cards-section > .subtitle,
+.community-index-page .filter-bar,
+.community-index-page .cta-row {
+  width: min(1120px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.community-index-page .cards-section h1 {
+  max-width: 920px;
+}
+
+.community-index-page .cards-section .subtitle {
+  max-width: 760px;
+  margin-top: 18px;
+  margin-bottom: 0;
+  color: rgba(17, 24, 59, 0.74);
+  font: 500 clamp(17px, 1.5vw, 20px) / 1.55 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 28px;
+  margin-bottom: 0;
+  border-top: 2px solid var(--ci-ink);
+  border-bottom: 2px solid var(--ci-ink);
+}
+
+.community-index-page .filter-bar button {
+  min-height: 44px;
+  flex: 1 1 140px;
+  padding: 10px 13px;
+  border: 0;
+  border-right: 1px solid rgba(17, 24, 59, 0.24);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ci-ink);
+  font: 800 11px/1.2 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.community-index-page .filter-bar button:hover,
+.community-index-page .filter-bar button.active {
+  border-color: rgba(17, 24, 59, 0.24);
+  background: var(--ci-yellow);
+  color: var(--ci-ink);
+}
+
+.community-index-page .card-grid {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 28px);
+  margin: 34px 0 0;
+  padding: 18px max(20px, calc((100vw - 1120px) / 2)) 30px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-color: var(--ci-purple) transparent;
+}
+
+.community-index-page .thumb-card {
+  flex: 0 0 clamp(190px, 20vw, 270px);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  scroll-snap-align: center;
+  transform: rotate(var(--ci-file-tilt));
+}
+
+.community-index-page .thumb-card:nth-child(4n + 1) { --ci-file-tilt: -1.4deg; }
+.community-index-page .thumb-card:nth-child(4n + 2) { --ci-file-tilt: 1deg; }
+.community-index-page .thumb-card:nth-child(4n + 3) { --ci-file-tilt: -0.7deg; }
+.community-index-page .thumb-card:nth-child(4n + 4) { --ci-file-tilt: 1.4deg; }
+
+.community-index-page .thumb-card:hover,
+.community-index-page .thumb-card:focus-visible {
+  z-index: 2;
+  outline: 0;
+  transform: translateY(-8px) rotate(0deg);
+  box-shadow: none;
+}
+
+.community-index-page .thumb-card .thumb-bg,
+.community-index-page .card-bg-laser,
+.community-index-page .card-bg-holo,
+.community-index-page .card-bg-lightning,
+.community-index-page .card-bg-doodle,
+.community-index-page .card-bg-sunset,
+.community-index-page .card-bg-arcade,
+.community-index-page .card-bg-confetti,
+.community-index-page .card-bg-chrome {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  border: 3px solid var(--ci-ink);
+  border-radius: 0;
+  background: var(--ci-paper);
+  animation: none;
+}
+
+.community-index-page .thumb-card:nth-child(3n + 1) .thumb-bg {
+  background: #e6ddff;
+}
+
+.community-index-page .thumb-card:nth-child(3n + 2) .thumb-bg {
+  background: #d8f5f2;
+}
+
+.community-index-page .thumb-card:nth-child(3n + 3) .thumb-bg {
+  background: #ffe1ee;
+}
+
+.community-index-page .thumb-card .thumb-bg .thumb-photo {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  object-fit: contain;
+  filter: none;
+}
+
+.community-index-page .thumb-card .thumb-info {
+  min-height: 82px;
+  padding: 14px 13px;
+  border: 3px solid var(--ci-ink);
+  border-top: 0;
+  background: var(--ci-paper);
+  box-shadow: 9px 10px 0 rgba(17, 24, 59, 0.18);
+}
+
+.community-index-page .thumb-card .thumb-info h3 {
+  margin: 0 0 4px;
+  color: var(--ci-ink);
+  font: 800 16px/1.2 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .thumb-card .thumb-info .thumb-tag {
+  color: var(--ci-purple);
+  font: 700 11px/1.35 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .thumb-card[hidden] {
+  display: none;
+}
+
+.community-index-page .cta-row {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.community-index-page .cta-row a {
+  background: var(--ci-cyan);
+  color: var(--ci-ink);
+}
+
+.community-index-page .community-pass {
+  order: 4;
+  width: 100%;
+  margin: 0;
+  padding: clamp(62px, 8vw, 104px) max(20px, calc((100vw - 980px) / 2));
+  background: var(--ci-paper);
+}
+
+.community-index-page .community-pass h2 {
+  max-width: 840px;
+}
+
+.community-index-page .community-pass > p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 19px 0 0;
+  color: rgba(17, 24, 59, 0.74);
+  font: 500 clamp(17px, 1.5vw, 20px) / 1.55 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .community-pass > a {
+  margin-top: 28px;
+}
+
+.community-index-page .card-overlay {
+  padding: 24px;
+  background: rgba(7, 15, 43, 0.86);
+  backdrop-filter: blur(8px);
+}
+
+.community-index-page .card-overlay .overlay-card {
+  width: min(920px, 100%);
+  max-width: 920px;
+  max-height: min(720px, 90vh);
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  overflow: hidden;
+  border: 3px solid var(--ci-paper);
+  border-radius: 0;
+  background: var(--ci-midnight);
+  box-shadow: 14px 16px 0 rgba(21, 188, 224, 0.4);
+}
+
+.community-index-page .overlay-photo-area {
+  height: 100%;
+  min-height: 420px;
+  aspect-ratio: auto;
+  padding: 32px;
+  border-radius: 0;
+  background: #e6ddff;
+}
+
+.community-index-page .overlay-photo-area img {
+  width: 100%;
+  max-width: 360px;
+  max-height: 520px;
+  border-radius: 0;
+  object-fit: contain;
+  filter: none;
+}
+
+.community-index-page .overlay-photo-area.is-empty {
+  min-height: 0;
+}
+
+.community-index-page .overlay-body {
+  align-self: center;
+  padding: clamp(32px, 5vw, 62px);
+}
+
+.community-index-page .overlay-body .overlay-era {
+  display: block;
+  margin: 0 0 13px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ci-mint);
+  font: 800 11px/1.2 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.community-index-page .overlay-body h3 {
+  margin: 0 0 18px;
+  color: var(--ci-paper);
+  font: 400 clamp(46px, 6vw, 72px) / 0.92 "Anton", Impact, sans-serif;
+  text-transform: uppercase;
+}
+
+.community-index-page .overlay-body .overlay-desc,
+.community-index-page .overlay-body .overlay-meta {
+  color: rgba(255, 253, 251, 0.75);
+  font: 500 15px/1.55 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .overlay-body .overlay-meta strong {
+  color: var(--ci-paper);
+}
+
+.community-index-page .overlay-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 18px;
+  border-top: 1px solid rgba(255, 253, 251, 0.26);
+}
+
+.community-index-page .overlay-tags span {
+  padding: 8px 12px 8px 0;
+  border-right: 1px solid rgba(255, 253, 251, 0.2);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ci-yellow);
+  font: 700 11px/1.2 "Jost", system-ui, sans-serif;
+}
+
+.community-index-page .overlay-close {
+  top: 14px;
+  right: 14px;
+  width: auto;
+  height: auto;
+  padding: 9px 11px;
+  border: 2px solid var(--ci-paper);
+  border-radius: 0;
+  background: var(--ci-midnight);
+  color: var(--ci-paper);
+  font: 800 10px/1 "Jost", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.community-index-page .wednesday-return {
+  position: static;
+  width: fit-content;
+  margin: 0;
+  padding: 11px 14px;
+  border: 2px solid var(--ci-ink);
+  border-radius: 0;
+  background: var(--ci-paper);
+  color: var(--ci-ink);
+  box-shadow: 4px 4px 0 var(--ci-cyan);
+  backdrop-filter: none;
+}
+
+.community-index-page .community-entry-actions .wednesday-return {
+  background: var(--ci-mint);
+  box-shadow: 5px 5px 0 var(--ci-purple);
+}
+
+@media (max-width: 760px) {
+  .community-index-page .room-card {
+    grid-template-columns: 50px minmax(0, 1fr) auto;
+    gap: 13px;
+  }
+
+  .community-index-page .room-card p {
+    grid-column: 2 / -1;
+  }
+
+  .community-index-page .card-overlay .overlay-card {
+    grid-template-columns: minmax(0, 1fr);
+    overflow-y: auto;
+  }
+
+  .community-index-page .overlay-photo-area {
+    min-height: 280px;
+    max-height: 330px;
+  }
+
+  .community-index-page .overlay-photo-area img {
+    max-height: 270px;
+  }
+}
+
+@media (max-width: 620px) {
+  .community-index-page .community-arrival {
+    height: 350px;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .community-index-page .community-arrival img {
+    object-position: 48% center;
+  }
+
+  .community-index-page .community-ritual-entry,
+  .community-index-page .cards-section > .eyebrow,
+  .community-index-page .cards-section > h1,
+  .community-index-page .cards-section > .subtitle,
+  .community-index-page .filter-bar,
+  .community-index-page .cta-row {
+    width: min(100% - 30px, 1120px);
+  }
+
+  .community-index-page .community-ritual-entry h1,
+  .community-index-page .cards-section h1,
+  .community-index-page .rooms-section h2,
+  .community-index-page .community-pass h2 {
+    font-size: clamp(48px, 15vw, 70px);
+  }
+
+  .community-index-page .community-entry-actions a {
+    flex: 1 1 100%;
+  }
+
+  .community-index-page .rooms-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .community-index-page .room-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 8px 12px;
+    padding: 18px 0;
+  }
+
+  .community-index-page .room-card p,
+  .community-index-page .room-card a {
+    grid-column: 2;
+  }
+
+  .community-index-page .room-card a {
+    white-space: normal;
+  }
+
+  .community-index-page .filter-bar button {
+    flex-basis: 50%;
+  }
+
+  .community-index-page .card-grid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .community-index-page .thumb-card {
+    flex-basis: 230px;
+  }
+
+  .community-index-page .community-pass {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .community-index-page .card-overlay {
+    padding: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .community-index-page .thumb-card,
+  .community-index-page .room-card,
+  .community-index-page .card-overlay .overlay-card {
+    transition: none;
+  }
+}

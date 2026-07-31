@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E03-V11-TITLE-IDENT-INDEPENDENT-JUDGE-2026-07-26",
+  "judge_role": "Episode Media Quality independent judge",
+  "verdict": "HOLD",
+  "frozen_tuple": {
+    "mp4": {
+      "path": "assets/video/episode-03-full-v11-title-ident-inserted-review.mp4",
+      "sha256": "2f20bede29bb4d86b15718b23198626adfde50fe5885dc0baf72b04073fdf66c"
+    },
+    "maker_manifest": {
+      "path": "operations/video-qa/episode-03-full-v11-title-ident-inserted-manifest.json",
+      "sha256": "e1389339fc98b2bb2afa2c377e72fcc01cff71de591e457488bf16b1481f02a7"
+    },
+    "maker_qc": {
+      "path": "operations/video-qa/episode-03-full-v11-title-ident-inserted-qc.json",
+      "sha256": "43e921472f649b2240b8d2017906b3251bd2af2cc48531fbd258ef214f099cfb"
+    },
+    "source": {
+      "path": "assets/video/episode-03-full-v10-source-reconciled-review.mp4",
+      "sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239"
+    },
+    "ident": {
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-03-the-burn-book-problem-v1.mp4",
+      "sha256": "748faf81d9a4c3950946a455c35b7df06a44fb267505c6839ccff0d80d66de52",
+      "title_specificity": "PASS — Episode 03 / The Burn Book Problem"
+    }
+  },
+  "technical_verification": {
+    "full_decode": "PASS",
+    "video": "H.264 High 1920x1080 30fps 15360tbn",
+    "audio": "AAC-LC mono 44100Hz",
+    "runtime_seconds_source": 1048.0,
+    "runtime_seconds_candidate": 1048.0,
+    "audio_adts_sha256_source": "2c4a60d05e7e70a185e9db523c85900661964a45561c007b15bff4bc77907ba8",
+    "audio_adts_sha256_candidate": "2c4a60d05e7e70a185e9db523c85900661964a45561c007b15bff4bc77907ba8",
+    "audio_elementary_stream_identical": true,
+    "maker_interval_seconds": [109.0, 115.48],
+    "maker_interval_exactly_bound": true,
+    "visible_boundary_transitions": "PASS — hard cut at both declared boundaries"
+  },
+  "canonical_timing_review": {
+    "caption_timing_map": "operations/captions/episode-03-timing-map.json",
+    "vtt": "operations/captions/episode-03.vtt",
+    "spoken_welcome_seconds": [116.18, 123.82],
+    "ident_seconds": [109.0, 115.48],
+    "finding": "FAIL — title ident ends 0.700 seconds before the canonical spoken welcome begins",
+    "classification": "GENUINE_TIMING_SEMANTIC_DEFECT_NOT_TASTE"
+  },
+  "out_of_scope_picture": {
+    "structural_scope": "Builder trims source before 109.000 and after 115.480; picture stream re-encoded for splice",
+    "boundary_samples": "consistent with source picture resuming after the declared interval",
+    "independent_complete_semantic_cut_watch": "NOT_PROVED",
+    "acceptance": "NOT GRANTED"
+  },
+  "retest_required": [
+    "new checksum-bound successor aligned to 116.180 caption onset",
+    "explicit fill treatment through 123.820 because ident is shorter than spoken interval",
+    "independent boundary, full-decode, runtime, AAC-hash, caption/narration and out-of-scope continuity review"
+  ],
+  "authority": {
+    "maker_bytes_modified": false,
+    "site_or_public_media_modified": false,
+    "release_or_deploy_authority": false
+  }
+}

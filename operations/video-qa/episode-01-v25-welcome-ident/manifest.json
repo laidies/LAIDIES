@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "BUILT_LOCALLY_REVIEW_REQUIRED",
+  "scope": "Episode 01 frozen-v24 successor with exactly one picture-only ident operation",
+  "baseline": {
+    "path": "assets/video/episode-01-full-v24-source-reconciled-review.mp4",
+    "sha256": "272d370ee741d777bc355ea869e63bf4541e0765d3be7bcca286ad79c4c7a53e"
+  },
+  "ident": {
+    "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-01-on-wednesdays-we-do-ai-v1.mp4",
+    "sha256": "8f48e020025d34e041e1170a96801d4852c1abf204162398e3f41faf50452f85",
+    "source_dimensions": "960x540",
+    "motion_duration_seconds": 6.48,
+    "audio_tracks": 0
+  },
+  "placement": {
+    "start_seconds": 93.9,
+    "motion_end_seconds": 100.38000000000001,
+    "end_seconds": 101.92,
+    "terminal_frame_hold_seconds": 1.5399999999999956,
+    "spoken_trigger": "Welcome to LAiDIES \u2014 where smart, busy women learn AI one Wednesday at a time, from a little internet town called SUNNYVAiLE.",
+    "canonical_sources": [
+      "content/episodes/episode-01.canon.md",
+      "operations/captions/episode-01-timing-map.json",
+      "operations/captions/episode-01.vtt",
+      "operations/welcome-back-card-production-map-20260724.md"
+    ],
+    "picture_operation": "Scale the exact 960x540 ident to 1920x1080 without crop; play its complete 6.48-second motion, then clone-hold its terminal frame for 1.54 seconds to cover the full 8.02-second semantic interval.",
+    "audio_operation": "Copy the frozen v24 AAC stream unchanged; do not use ident audio."
+  },
+  "output": {
+    "path": "assets/video/episode-01-full-v25-welcome-ident-review.mp4",
+    "sha256": "486bb908a2faa26efee61d0689a7e97180b1f12aa628a04a6b4ad76edf43b633",
+    "bytes": 175586019,
+    "runtime_seconds": 1172.23,
+    "status": "BUILT_LOCALLY_NOT_ADMITTED_NOT_PUBLIC"
+  },
+  "review_window": {
+    "path": "operations/video-qa/episode-01-v25-welcome-ident/episode-01-welcome-ident-review-window-90-105.mp4",
+    "sha256": "9b471d0f1a102b16480cfc123ba03133cbed3aecaeabf54f96d734443910f81c",
+    "bytes": 7437749,
+    "range_seconds": [
+      90,
+      105
+    ]
+  },
+  "authority": {
+    "maker_may_judge": false,
+    "release": false,
+    "deploy": false,
+    "public": false,
+    "independent_emq_evidence_target": "operations/video-qa/episode-01-v25-welcome-ident/INDEPENDENT-EMQ-REVIEW.md"
+  }
+}

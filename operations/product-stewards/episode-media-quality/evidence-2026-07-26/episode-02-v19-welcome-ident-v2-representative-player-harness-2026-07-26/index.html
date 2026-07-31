@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Episode 02 v2 representative-player harness</title>
+  <link rel="stylesheet" href="./player.css">
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">LOCAL REVIEW HARNESS · NOT PUBLIC</p>
+    <h1>Episode 02 v2 representative player</h1>
+    <p>This isolated harness binds one checksum-sealed review MP4 and its exact external captions. It changes no public route or media.</p>
+  </header>
+
+  <section class="identity" aria-labelledby="identity-title">
+    <div>
+      <h2 id="identity-title">Binding identity</h2>
+      <p id="binding-state" role="status" aria-live="polite">Waiting for JavaScript binding. Media remains unbound.</p>
+    </div>
+    <button id="retry" type="button" hidden>Retry exact source</button>
+    <dl>
+      <dt>MP4</dt><dd id="media-path">/assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4</dd>
+      <dt>MP4 SHA-256</dt><dd>80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814</dd>
+      <dt>External VTT</dt><dd id="vtt-path">/assets/captions/episode-02.vtt</dd>
+      <dt>VTT SHA-256</dt><dd>7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f</dd>
+      <dt>Caption contract</dt><dd>194 cues; final cue ends 986.670s</dd>
+    </dl>
+  </section>
+
+  <section class="player-shell" aria-labelledby="player-title">
+    <h2 id="player-title">Review playback</h2>
+    <video id="film" controls playsinline preload="metadata" tabindex="0" aria-describedby="help caption-status"></video>
+    <div class="controls" aria-label="Review player controls">
+      <button id="play" type="button" disabled aria-keyshortcuts="Space K">Play at normal speed</button>
+      <button id="back" type="button" disabled aria-label="Seek backward 10 seconds">−10s</button>
+      <button id="forward" type="button" disabled aria-label="Seek forward 10 seconds">+10s</button>
+      <button id="captions" type="button" disabled aria-pressed="true" aria-keyshortcuts="C">Captions on</button>
+    </div>
+    <p id="help">Keyboard: Space or K plays/pauses; Left/Right seek 10 seconds; Home/End seek boundaries; C toggles captions.</p>
+    <p id="caption-status" role="status" aria-live="polite">External captions are waiting for binding.</p>
+    <div id="caption-rail" class="caption-rail" role="region" aria-label="Current external caption" aria-live="polite" aria-atomic="true">No caption at this moment.</div>
+    <output id="telemetry" aria-live="polite">Player not initialized.</output>
+  </section>
+
+  <aside>
+    <strong>Review boundary</strong>
+    <p>Maker playback evidence is not a full human listen, independent acceptance, release, deployment, or public availability.</p>
+  </aside>
+
+  <noscript>
+    <section class="no-js" aria-labelledby="no-js-title">
+      <h2 id="no-js-title">JavaScript is off; playback remains safely unbound</h2>
+      <p>The exact MP4 and caption identities remain visible above. Enable JavaScript to bind playback and retry behavior. This is the intended no-JS boundary.</p>
+    </section>
+  </noscript>
+</main>
+<script type="module" src="./player.js"></script>
+</body>
+</html>

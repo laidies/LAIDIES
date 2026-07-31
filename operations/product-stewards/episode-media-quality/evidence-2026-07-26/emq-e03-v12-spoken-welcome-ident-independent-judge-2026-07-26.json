@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E03-V12-SPOKEN-WELCOME-IDENT-INDEPENDENT-JUDGE-2026-07-26",
+  "judge": "Episode Media Quality independent judge",
+  "judged_at_local_date": "2026-07-26",
+  "bounded_ident_operation_verdict": "ACCEPT",
+  "full_title_verdict": "HOLD",
+  "release_admitted": false,
+  "artifacts": {
+    "candidate": {"path": "assets/video/episode-03-full-v12-spoken-welcome-ident-review.mp4", "sha256": "4ed6057f151530c5ae760f72860718be1beda87076eb17e6cdfdfd1b7accef40"},
+    "manifest": {"path": "operations/video-qa/episode-03-full-v12-spoken-welcome-ident-manifest.json", "sha256": "3b8a043c38fc56c7990a02011160d9fda16f2437500ace4d30c16aca2fc9766a"},
+    "maker_qc": {"path": "operations/video-qa/episode-03-full-v12-spoken-welcome-ident-qc.json", "sha256": "4c9ce0c87b2ae9207809aa89d2e779a7873d2ab071701339111afa04ae9bd3b0"},
+    "frozen_v10": {"path": "assets/video/episode-03-full-v10-source-reconciled-review.mp4", "sha256": "c5dcee69c40e50d834dcc8f471eae9d621f531b37653de9eaef7bf5e362fd239"},
+    "ident": {"path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-03-the-burn-book-problem-v1.mp4", "sha256": "748faf81d9a4c3950946a455c35b7df06a44fb267505c6839ccff0d80d66de52"}
+  },
+  "checks": {
+    "hash_binding": "PASS",
+    "title_specific_ident": "PASS",
+    "canonical_spoken_window": {"result": "PASS", "start_seconds": 116.18, "end_seconds": 123.82},
+    "motion_and_terminal_hold": {"result": "PASS", "motion_seconds": 6.48, "declared_hold_seconds": 1.16, "decoded_freeze_start_seconds": 122.667, "decoded_freeze_end_seconds": 123.833, "note": "30-fps-grid realization; hold covers the canonical semantic end."},
+    "audio": {"result": "PASS_EXACT_BYTE_EQUAL", "adts_sha256": "2c4a60d05e7e70a185e9db523c85900661964a45561c007b15bff4bc77907ba8", "bytes_each": 23315863},
+    "full_decode": {"result": "PASS", "independent_ranges_seconds": [[0, 300], [300, 600], [600, 900], [900, 1048]]},
+    "boundary_and_scope": {"result": "PASS", "pre_window_ssim_all": 0.997935, "post_window_ssim_all": 0.997191, "note": "No semantic or cut drift observed; comparisons exhibit expected H.264 re-encode variance."},
+    "visible_insertion_quality": "PASS"
+  },
+  "reason_codes": [
+    "PASS_HASH_BINDING",
+    "PASS_TITLE_SPECIFIC_IDENT",
+    "PASS_CANONICAL_SPOKEN_ONSET",
+    "PASS_COMPLETE_MOTION_AND_HOLD",
+    "PASS_AUDIO_TIMELINE_EXACT",
+    "PASS_FULL_DECODE",
+    "PASS_BOUNDARIES_AND_SCOPE",
+    "PASS_VISIBLE_INSERTION_QUALITY",
+    "HOLD_INHERITED_E03_CUE30_MALFORMED_LETTERING",
+    "HOLD_EXACT_FILM_PLAYER_PROOF_MISSING"
+  ],
+  "authority": {"maker_media_mutated": false, "site_mutated": false, "release": false, "deploy": false, "public": false},
+  "next_gate": "Repair and independently admit the cue-30 lettering source, then run an exact-checksum representative player proof."
+}

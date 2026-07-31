@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "VISITORS-CENTRE-CANONICAL-NAME-SHARED-v1",
+  "status": "BUILT_AND_VERIFIED_LOCALLY_ROUTE_REACCEPTANCE_PENDING",
+  "payload": {
+    "authority": {
+      "canonicalName": "Visitor’s Centre",
+      "route": "/visitors-centre.html",
+      "rulingPath": "operations/product-stewards/visitors-centre/NAME-RULING-2026-07-26.md",
+      "rulingSha256": "665271f010bcc485febf774f0cc0918d28595c07fafbfbe2d5934d4351a6b309"
+    },
+    "inventories": {
+      "townEntry": {
+        "path": "operations/product-stewards/town-entry-homepage/VISITORS-CENTRE-NAME-PROPAGATION-INVENTORY-AND-ACCEPTANCE-CONTRACT-2026-07-26.md",
+        "sha256": "7864fba55d1c177db500b59f347cd933081926b7943dbebbf66132b4ad27c170"
+      },
+      "visitorsCentre": {
+        "path": "operations/product-stewards/visitors-centre/NAME-PROPAGATION-INVENTORY-AND-ACCEPTANCE-CONTRACT-2026-07-26.md",
+        "sha256": "2a6b23fd94457c58330595828ae5a71ad207e1b41f421e0aaee30f0dda541a52"
+      }
+    },
+    "sharedFiles": [
+      {
+        "role": "canonical-source",
+        "path": "operations/product-stewards/platform-reliability/readiness-projection/v1/canonical-destinations.json",
+        "priorSha256": "c5136958e1296c71338bdcb2eb9e271a70c6b80f3760514f9f7464d230ce7f26",
+        "sha256": "f52c0c4bf613e28eb7b1d05f1f1810111b92ef242a8b742cc6bfc300459ca8bf"
+      },
+      {
+        "role": "runtime-source",
+        "path": "operations/product-stewards/platform-reliability/readiness-projection/v1/readiness-runtime-v1.js",
+        "priorSha256": "68eab175cb61065e554ab8ad2fb20eac9b22fc8b38ad9b6d3aa88178e1ea425e",
+        "sha256": "cc2e960bbe31bef60aa1f071c9d275080119a28dc1b8869e8091b36e5fb4b956"
+      },
+      {
+        "role": "canonical-build",
+        "path": "content/site/readiness/v1/canonical-destinations.v1.json",
+        "priorSha256": "c5136958e1296c71338bdcb2eb9e271a70c6b80f3760514f9f7464d230ce7f26",
+        "sha256": "f52c0c4bf613e28eb7b1d05f1f1810111b92ef242a8b742cc6bfc300459ca8bf"
+      },
+      {
+        "role": "runtime-build",
+        "path": "content/site/readiness/v1/readiness-runtime-v1.js",
+        "priorSha256": "68eab175cb61065e554ab8ad2fb20eac9b22fc8b38ad9b6d3aa88178e1ea425e",
+        "sha256": "cc2e960bbe31bef60aa1f071c9d275080119a28dc1b8869e8091b36e5fb4b956"
+      },
+      {
+        "role": "sealed-projection",
+        "path": "content/site/readiness/v1/entry-readiness-projection.v1.json",
+        "sha256": "5a5bf791f273874535fcbf4fa88f1a3bddb1004512c04d8e2c733b5da61a3ab0",
+        "payloadSha256": "2cb13956032e45a0bd2cd3132fe5630a8f0b7d4b5da1b88509c7d1a58bc19b61"
+      },
+      {
+        "role": "directory",
+        "path": "content/site/sunnyvaile-directory.js",
+        "priorSha256": "f96b8b7f3fcec181f7953a251888b09e87c6e7092b36b586b10fb4c2967b5151",
+        "sha256": "60a25b14e8ff20fd1f752f29514ec57b171b900bf1aaad75214641338a7301f9"
+      },
+      {
+        "role": "tour",
+        "path": "content/site/sv-welcome-tour.js",
+        "priorSha256": "61ccc9ca1db993420ee5c3cb5d5e823a43a07bcd161e2d9b60a3f3f29ac0bb88",
+        "sha256": "6b554e0ec8fb43c55b082209707c13efaf81406c57031c1632736352d9fa0241"
+      },
+      {
+        "role": "quick-navigation",
+        "path": "content/site/quick-rail.js",
+        "priorSha256": "4f778db4da583bd511fecc32f61bcef9f111ef5ebf41585c1f12644727d12c59",
+        "sha256": "c2503f725314c4022b76b68df40de4fca748495118f02dbb1113a448e592df43"
+      },
+      {
+        "role": "product-registry",
+        "path": "operations/product-stewards/registry.json",
+        "priorSha256": "0cb7d45d2130915d944161926adfc2f3f74b0ab1ede9fba6f71bb4a7fdb3a793",
+        "sha256": "31910ce50a36416fe6ede292f6bd80a93fcfd30aa1d8c24594cf5206e8d75634"
+      }
+    ],
+    "semantics": {
+      "destinationId": "visitors-centre",
+      "productId": "visitors-centre",
+      "ownerId": "visitors-centre-champion",
+      "canonicalName": "Visitor’s Centre",
+      "route": "/visitors-centre.html",
+      "completionClaim": false,
+      "ownerReceiptsAdmitted": 0,
+      "failureMode": "fail-closed",
+      "duplicateOrMixedNames": "reject"
+    },
+    "authorityCeiling": {
+      "deploy": false,
+      "publicMutation": false,
+      "providerMutation": false,
+      "visibleArtCorrection": false,
+      "historicalEvidenceRewrite": false
+    }
+  },
+  "seal": {
+    "algorithm": "SHA-256",
+    "canonicalization": "sorted-json-v1",
+    "payloadSha256": "d3f93f6aad4a73a414285945a7d3f5226ed1c75a01907f71f3152bc5cf0dac84"
+  }
+}

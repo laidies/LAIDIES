@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Chick Flicks · LAiDIES · SUNNYVAiLE</title>
+    <meta name="description" content="Pull an episode off the New Releases wall at The Chick Flicks. New tapes land every Wednesday in SUNNYVAiLE.">
+    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+    <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
+    <link rel="stylesheet" href="/content/chick-flicks.css?v=20260724-room-v2">
+    <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible = window.plausible || function () {
+        (plausible.q = plausible.q || []).push(arguments);
+      };
+      plausible.init = plausible.init || function (options) {
+        plausible.o = options || {};
+      };
+      plausible.init();
+    </script>
+  </head>
+  <body>
+    <header class="sv-header"></header>
+
+    <main class="cf-page">
+      <section class="cf-wall" aria-label="The Chick Flicks New Releases rental wall">
+        <div class="cf-wall__scene">
+          <img
+            class="cf-wall__room"
+            src="/assets/building-interiors/delivery-20260724-chick-flicks-v1/chick-flicks-new-releases-wall-comic-candidate-v1.png"
+            alt="A bright graphic-novel video rental store wall with two empty New Releases bays"
+            width="1659"
+            height="948"
+          >
+          <div class="cf-wall__bay" id="cfWallBay" aria-label="Available episode tapes"></div>
+          <p class="cf-wall__empty" id="cfWallEmpty" hidden>No released tapes in this aisle yet.</p>
+        </div>
+        <div class="cf-mobile-shelf" id="cfMobileShelf" aria-label="Available episode tapes on mobile"></div>
+      </section>
+
+      <section class="cf-state" aria-labelledby="cf-title">
+        <div class="cf-state__inner">
+          <p class="cf-address">The Chick Flicks · No. 3 MAiN · Keeper: Becky</p>
+          <div>
+            <h1 id="cf-title">EP 04 is on the wall.</h1>
+            <p id="cf-state-copy">The Founding Mothers is this Wednesday’s new release. Pull a tape to take it home.</p>
+          </div>
+          <div class="cf-state__actions">
+            <button type="button" data-rent-latest>Rent the new release</button>
+            <button class="cf-spot" type="button" data-src="/content/music/ksvl-spots/spot-chick-flicks-v2.mp3">
+              Hear Becky’s store spot
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="cf-aisles" aria-label="Browse the rental-store aisles">
+        <p>Browse the same wall by aisle</p>
+        <div class="cf-aisles__track" id="cfAisles">
+          <button type="button" class="is-active" data-aisle="all">All tapes</button>
+          <button type="button" data-aisle="prompting">Prompting</button>
+          <button type="button" data-aisle="style">Style &amp; voice</button>
+          <button type="button" data-aisle="everyday">Everyday</button>
+          <button type="button" data-aisle="ethics">Ethics</button>
+          <button type="button" data-aisle="history">History</button>
+          <button type="button" data-aisle="creative">Creative</button>
+        </div>
+        <p class="cf-aisles__status" id="cfAisleStatus">Season 1 · four tapes available · one coming soon</p>
+      </nav>
+
+      <section class="cf-rental" id="cfRental" aria-labelledby="cf-rental-title">
+        <div class="cf-rental__object">
+          <img
+            src="/assets/building-interiors/delivery-20260724-chick-flicks-v1/chick-flicks-rental-card-comic-candidate-v1.png"
+            alt="A Chick Flicks member-rental sleeve with a Return by Friday stamp and Be Kind, Rewind ticket"
+            width="1448"
+            height="1086"
+          >
+          <p class="cf-rental__episode" id="cfRentalEpisode">No tape selected</p>
+        </div>
+        <div class="cf-rental__copy">
+          <p class="cf-kicker">The rental card</p>
+          <h2 id="cf-rental-title">Nothing is actually due.</h2>
+          <p id="cfRentalCopy">The joke is the joke. Choose a released tape and Becky will stamp it before you leave.</p>
+          <p class="cf-rental__due" id="cfRentalDue">Return by Friday · spiritually</p>
+          <div class="cf-rental__actions">
+            <a id="cfTakeHome" href="/issues/issue-04.html" hidden>Take the tape home</a>
+            <button id="cfFavourite" type="button" hidden>Put it on my member card</button>
+          </div>
+          <p class="cf-rental__member" id="cfMemberStatus">No favourite tape on your Resident Card yet.</p>
+        </div>
+      </section>
+
+      <section class="cf-counter" aria-labelledby="cf-rules-title">
+        <div class="cf-counter__rules">
+          <p class="cf-kicker">House rules · est. 1999</p>
+          <h2 id="cf-rules-title">Be kind. Please. Rewind.</h2>
+          <ol>
+            <li>New releases land on the front wall every Wednesday.</li>
+            <li>Nothing is paywalled here, and no tape is ever late.</li>
+            <li>Released tapes open the full episode; dimmed tapes tell the truth about what is still coming.</li>
+          </ol>
+        </div>
+        <div class="cf-counter__route">
+          <p class="cf-kicker">After the credits</p>
+          <a href="/blend-snap.html"><strong>Pick up the Study Pack</strong><span>Next door at The Blend &amp; Snap →</span></a>
+          <a href="/sunnyvaile-high.html"><strong>Take the Pop Quiz</strong><span>Walk over to SUNNYVAiLE High →</span></a>
+          <a href="/post-office.html"><strong>Get Wednesday delivery</strong><span>Open a box at the Post Office →</span></a>
+        </div>
+      </section>
+
+      <section class="cf-trailer" aria-labelledby="cf-trailer-title">
+        <div class="cf-trailer__copy">
+          <p class="cf-kicker">First time in the store?</p>
+          <h2 id="cf-trailer-title">Roll the trailer first.</h2>
+          <p>It is the whole town in one watch. Then come back and pull Episode 01 from the wall.</p>
+          <a href="/issues/issue-trailer.html">Open the trailer issue →</a>
+        </div>
+        <div class="cf-trailer__player" data-sv-trailer-player></div>
+      </section>
+    </main>
+
+    <footer class="cf-footer">© LAiDIES · Filed from SUNNYVAiLE · The Chick Flicks · MAiN Street No. 3</footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var IMAGE_ROOT = "/assets/sunnyvaile-interiors/episode-vhs-boxes/";
+        var AISLES = {
+          all: [1, 2, 3, 4, 5],
+          prompting: [1, 2, 4, 5],
+          style: [2, 3],
+          everyday: [1, 4, 5],
+          ethics: [3],
+          history: [4],
+          creative: []
+        };
+        var AISLE_COPY = {
+          all: "Season 1",
+          prompting: "Prompting",
+          style: "Style & voice",
+          everyday: "Everyday use",
+          ethics: "Ethics",
+          history: "History",
+          creative: "Creative"
+        };
+        var episodes = [];
+        var latest = null;
+        var selected = null;
+        var activeAisle = "all";
+        var wallBay = document.getElementById("cfWallBay");
+        var mobileShelf = document.getElementById("cfMobileShelf");
+        var wallEmpty = document.getElementById("cfWallEmpty");
+        var takeHome = document.getElementById("cfTakeHome");
+        var favourite = document.getElementById("cfFavourite");
+
+        function getLocal(key) {
+          try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
+        }
+
+        function setLocal(key, value) {
+          try { localStorage.setItem(key, value); } catch (error) { return; }
+        }
+
+        function escapeHTML(value) {
+          var node = document.createElement("div");
+          node.textContent = String(value == null ? "" : value);
+          return node.innerHTML;
+        }
+
+        function episodeNumber(number) {
+          return String(number).padStart(2, "0");
+        }
+
+        function tapeMarkup(episode) {
+          var number = episodeNumber(episode.number);
+          var released = episode.status === "published" && episode.issueUrl;
+          var tag = latest && episode.number === latest.number ? '<span class="cf-tape__new">New</span>' : "";
+          var label = released ? "Rent Episode " + number + " — " + episode.title :
+            "Episode " + number + " — " + episode.title + ", coming soon";
+          return [
+            '<button class="cf-tape', released ? "" : " is-coming", '" type="button" data-episode="', number, '"',
+              ' aria-label="', escapeHTML(label), '">',
+              tag,
+              '<img src="', IMAGE_ROOT, "ep-", number, '.webp" alt="" width="554" height="720">',
+              '<span class="cf-tape__label">EP ', number, released ? " · rent" : " · coming soon", "</span>",
+            "</button>"
+          ].join("");
+        }
+
+        function visibleEpisodes() {
+          var numbers = AISLES[activeAisle] || [];
+          return numbers.map(function (number) {
+            return episodes.filter(function (episode) { return episode.number === number; })[0];
+          }).filter(Boolean);
+        }
+
+        function renderWall() {
+          var list = visibleEpisodes();
+          var html = list.map(tapeMarkup).join("");
+          wallBay.innerHTML = html;
+          mobileShelf.innerHTML = html ||
+            '<p class="cf-mobile-empty">No released tapes in this aisle yet.</p>';
+          mobileShelf.classList.toggle("is-empty", list.length === 0);
+          wallEmpty.hidden = list.length > 0;
+          document.getElementById("cfAisleStatus").textContent = list.length ?
+            AISLE_COPY[activeAisle] + " · " +
+              list.filter(function (episode) { return episode.status === "published"; }).length +
+              " available · " +
+              list.filter(function (episode) { return episode.status !== "published"; }).length +
+              " coming soon" :
+            AISLE_COPY[activeAisle] + " · no released tapes yet";
+
+          Array.prototype.forEach.call(document.querySelectorAll(".cf-tape"), function (button) {
+            button.addEventListener("click", function () {
+              var number = Number(button.getAttribute("data-episode"));
+              var episode = episodes.filter(function (item) { return item.number === number; })[0];
+              if (!episode || episode.status !== "published" || !episode.issueUrl) {
+                document.getElementById("cfRentalEpisode").textContent =
+                  "EP " + episodeNumber(number) + " · coming soon";
+                document.getElementById("cfRentalCopy").textContent =
+                  "That case is a shelf promise, not a finished episode. Becky will move it to New Releases when it is ready.";
+                takeHome.hidden = true;
+                favourite.hidden = true;
+                document.getElementById("cfRental").scrollIntoView({ behavior: "smooth", block: "center" });
+                return;
+              }
+              selectEpisode(episode);
+            });
+          });
+        }
+
+        function updateMemberStatus() {
+          var saved = getLocal("laidies_favorite_episode");
+          var episode = episodes.filter(function (item) {
+            return episodeNumber(item.number) === saved;
+          })[0];
+          document.getElementById("cfMemberStatus").textContent = episode ?
+            "Your Resident Card favourite is EP " + episodeNumber(episode.number) + " · " + episode.title + "." :
+            "No favourite tape on your Resident Card yet.";
+          if (selected) {
+            favourite.textContent = saved === episodeNumber(selected.number) ?
+              "On my member card" : "Put it on my member card";
+            favourite.classList.toggle("is-saved", saved === episodeNumber(selected.number));
+          }
+        }
+
+        function nextFriday() {
+          var date = new Date();
+          var distance = (5 - date.getDay() + 7) % 7 || 7;
+          date.setDate(date.getDate() + distance);
+          return date.toLocaleDateString("en-CA", { month: "long", day: "numeric" });
+        }
+
+        function selectEpisode(episode) {
+          selected = episode;
+          var number = episodeNumber(episode.number);
+          document.getElementById("cfRentalEpisode").textContent =
+            "EP " + number + " · " + episode.title;
+          document.getElementById("cf-rental-title").textContent =
+            "Return by Friday. Spiritually.";
+          document.getElementById("cfRentalCopy").textContent =
+            "Becky has stamped the rental card. Nothing is actually due; the stamp just remembers what you took home.";
+          document.getElementById("cfRentalDue").textContent =
+            "Stamped return date · " + nextFriday();
+          takeHome.href = "/" + String(episode.issueUrl).replace(/^\/+/, "");
+          takeHome.hidden = false;
+          favourite.hidden = false;
+          updateMemberStatus();
+          document.getElementById("cfRental").scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        function setArrivalState() {
+          var last = getLocal("laidies_cf_last_rental");
+          var title = document.getElementById("cf-title");
+          var copy = document.getElementById("cf-state-copy");
+          if (!latest) return;
+          title.textContent = "EP " + episodeNumber(latest.number) + " is on the wall.";
+          if (last) {
+            var lastEpisode = episodes.filter(function (episode) {
+              return episodeNumber(episode.number) === last;
+            })[0];
+            copy.textContent = lastEpisode ?
+              "You last rented EP " + last + " · " + lastEpisode.title + ". This Wednesday’s new release is " + latest.title + "." :
+              "This Wednesday’s new release is " + latest.title + ". Pull a tape to take it home.";
+          } else {
+            copy.textContent = latest.title + " is this Wednesday’s new release. New in town? Start with EP 01.";
+          }
+        }
+
+        takeHome.addEventListener("click", function () {
+          if (!selected) return;
+          setLocal("laidies_cf_last_rental", episodeNumber(selected.number));
+        });
+
+        favourite.addEventListener("click", function () {
+          if (!selected) return;
+          setLocal("laidies_favorite_episode", episodeNumber(selected.number));
+          updateMemberStatus();
+        });
+
+        document.getElementById("cfAisles").addEventListener("click", function (event) {
+          var button = event.target.closest("[data-aisle]");
+          if (!button) return;
+          activeAisle = button.getAttribute("data-aisle");
+          Array.prototype.forEach.call(document.querySelectorAll("[data-aisle]"), function (item) {
+            item.classList.toggle("is-active", item === button);
+          });
+          renderWall();
+          document.querySelector(".cf-wall").scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        var activeAudio = null;
+        var activeAudioButton = null;
+        document.querySelector(".cf-spot").addEventListener("click", function () {
+          var button = this;
+          if (activeAudioButton === button) {
+            activeAudio.pause();
+            button.classList.remove("is-playing");
+            activeAudio = null;
+            activeAudioButton = null;
+            return;
+          }
+          if (activeAudio) activeAudio.pause();
+          activeAudio = new Audio(button.getAttribute("data-src"));
+          activeAudioButton = button;
+          button.classList.add("is-playing");
+          activeAudio.addEventListener("ended", function () {
+            button.classList.remove("is-playing");
+            activeAudio = null;
+            activeAudioButton = null;
+          });
+          activeAudio.play().catch(function () {
+            button.classList.remove("is-playing");
+            activeAudio = null;
+            activeAudioButton = null;
+          });
+        });
+
+        fetch("/content/episode-index.json")
+          .then(function (response) {
+            if (!response.ok) throw new Error("Episode index unavailable");
+            return response.json();
+          })
+          .then(function (data) {
+            episodes = (data.episodes || []).slice().sort(function (a, b) {
+              return a.number - b.number;
+            });
+            latest = episodes.filter(function (episode) {
+              return episode.status === "published" && episode.issueUrl;
+            }).pop() || null;
+            renderWall();
+            setArrivalState();
+            updateMemberStatus();
+          })
+          .catch(function () {
+            wallEmpty.hidden = false;
+            wallEmpty.textContent = "The tape manifest is temporarily behind the counter.";
+          });
+
+        document.querySelector("[data-rent-latest]").addEventListener("click", function () {
+          if (latest) selectEpisode(latest);
+        });
+      })();
+    </script>
+    <script src="/content/site/brand-polish.js?v=wm2" defer></script>
+    <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+    <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+    <script defer src="/content/site/sv-trailer-player.js?v=20260707-1"></script>
+  </body>
+</html>

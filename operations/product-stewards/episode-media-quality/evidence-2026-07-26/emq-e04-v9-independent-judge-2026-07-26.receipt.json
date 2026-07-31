@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "task_id": "EMQ-E04-V9-INDEPENDENT-JUDGE-2026-07-26",
+  "judge": "Episode Media Quality",
+  "judged_at": "2026-07-26T16:33:36-07:00",
+  "verdict": "HOLD",
+  "release_admitted": false,
+  "frozen_tuple": {
+    "mp4": {
+      "path": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+      "sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
+      "size_bytes": 260484984,
+      "artifact_timestamp_local": "2026-07-26T14:51:18-07:00",
+      "duration_seconds": 1222.4,
+      "dimensions": "1920x1080",
+      "frame_rate_fps": 30,
+      "video_codec": "h264",
+      "audio": "aac_mono_48000hz"
+    },
+    "builder": {
+      "path": "assets/video/build-episode-04-full-v9-reference-reconciled-review.py",
+      "sha256": "9438e09194963ec13d514870cb8630552d36c404d8198022d06679085eccf3c9"
+    },
+    "configuration": {
+      "path": "operations/video-qa/episode-04-v9-reference-reconciled-config.json",
+      "sha256": "26a159a7ac4b1553e7f9502ebad6a12aaed518336f48cdf201324fb57da36495"
+    },
+    "placement_manifest": {
+      "path": "operations/video-qa/episode-04-v9-placement-reference-manifest.json",
+      "sha256": "138d7df2e63ff75d9d0cc7de1f2598110c6e8df5cc8a281bbadd1e6ae03e1975"
+    },
+    "maker_qc": {
+      "path": "operations/video-qa/episode-04-full-v9-reference-reconciled-review-maker-qc.json",
+      "sha256": "9496b3f004e36e7c1e18eed1c5010a1dda02c92c090e8f939ffea999480fd53e",
+      "dispatch_path_mismatch": "The dispatched path operations/video-qa/episode-04-v9-reference-reconciled-qc.json does not exist; the supplied hash resolves exactly to this config-bound maker QC path."
+    },
+    "maker_contact_sheet": {
+      "path": "operations/video-qa/episode-04-v9-reference-reconciled-review/episode-04-v9-reference-reconciled-contact-sheet.jpg",
+      "sha256": "0ddeda7a6825029d780dfa7cf6ef57b9417207104034e2483738106b7e0342bf"
+    }
+  },
+  "reference_authority": {
+    "visual_system_lock": {
+      "path": "operations/episode-visual-system-lock.md",
+      "sha256": "86ae36f182f6d1ec60bed1ae854a290588e273399c675ecbe6192a1f0e3e1d73"
+    },
+    "heroine_identity_and_people_style": {
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422"
+    },
+    "historical_sources": [
+      {
+        "authority": "Computer History Museum",
+        "url": "https://www.computerhistory.org/babbage/history/",
+        "supports": "The Analytical Engine was never built."
+      },
+      {
+        "authority": "Smithsonian Institution",
+        "url": "https://www.si.edu/object/log-book-computer-bug%253Anmah_334663",
+        "supports": "The term bug predated Hopper, her team popularized computer usage, and the logbook was probably not Hopper's."
+      }
+    ]
+  },
+  "checks": {
+    "tuple_hashes_matched": true,
+    "full_machine_decode": "PASS_PER_CHECKSUM_BOUND_MAKER_QC",
+    "placement_visual_review": {
+      "placements_reviewed": 55,
+      "full_frame_midpoints_reviewed": 55,
+      "retained_upper_frame_crop_range": "20-52"
+    },
+    "manifest_contract": {
+      "placement_count": 55,
+      "missing_spoken_picture_job": 55,
+      "missing_motion_mode": 55,
+      "retained_without_reference_authority_ids": 50,
+      "repaired_candidate_not_independently_judged": 5
+    },
+    "audio_packet_identity_v8_to_v9": "PASS_PER_CHECKSUM_BOUND_MAKER_QC",
+    "external_vtt": {
+      "operations_path": "operations/captions/episode-04.vtt",
+      "public_asset_path": "assets/captions/episode-04.vtt",
+      "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+      "cue_count": 236,
+      "monotonic_nonoverlapping": true,
+      "last_end_seconds": 1221.24,
+      "tail_to_video_seconds": 1.16,
+      "public_asset_exact_match": true,
+      "burned_captions": false
+    },
+    "motion_sample_moved_pixel_percent": {
+      "title": 58.159,
+      "desk": 9.372,
+      "directory": 0.164,
+      "repaired_cue_15": 0.0,
+      "repaired_cue_16": 0.0,
+      "placement_20_ada": 0.615,
+      "eniac": 0.565,
+      "grace_hopper": 2.016,
+      "karen_sparck_jones": 1.089,
+      "kate_crawford": 0.571,
+      "known_still_floor": 0.0
+    },
+    "audible_normal_speed_human_watch": "NOT_AVAILABLE_IN_JUDGE_ENVIRONMENT",
+    "browser_runtime": "UNAVAILABLE_NO_BROWSER_RETURNED",
+    "exact_candidate_player_journey": "NOT_RUN_EPISODE_FILMS_EMPTY_AND_CANDIDATE_NOT_BOUND",
+    "player_static_mechanisms": {
+      "external_caption_track": true,
+      "keyboard_play_and_seek": true,
+      "reduced_motion_css": true,
+      "media_and_vtt_failure_states": true,
+      "candidate_specific_proof": false
+    }
+  },
+  "blocking_findings": [
+    {
+      "id": "ANALYTICAL_ENGINE_VISUAL_REGRESSION",
+      "classification": "FIX_BEFORE_ASSEMBLY",
+      "placement": 20,
+      "cue": 20,
+      "start_seconds": 300.0,
+      "stop_seconds": 341.55,
+      "source_path": "assets/video/ep04-scene-03-ada-b-mid-comic-v1-locked-1920-loop-v1.mp4",
+      "finding": "The first retained occurrence after the repaired window depicts an apparently operating Analytical Engine, contradicting the historical fact that it was never built."
+    },
+    {
+      "id": "ADA_NARRATION_HISTORY_ERROR",
+      "classification": "FIX_AUDIO_AND_VTT",
+      "start_seconds_approx": 318.52,
+      "stop_seconds_approx": 330.26,
+      "finding": "Saying the machine would not be built for another century falsely implies the Analytical Engine was eventually built."
+    },
+    {
+      "id": "HOPPER_DEBUGGING_HISTORY_ERROR",
+      "classification": "FIX_AUDIO_AND_VTT",
+      "start_seconds_approx": 616.36,
+      "stop_seconds_approx": 627.24,
+      "finding": "The narration overclaims the origin of debugging and Hopper's possession of the logbook."
+    },
+    {
+      "id": "SYNTHETIC_PSEUDO_ARCHIVE_WITHOUT_PROVENANCE",
+      "classification": "FIX_BEFORE_ASSEMBLY",
+      "placement": 26,
+      "cue": 26,
+      "start_seconds": 500.0,
+      "stop_seconds": 540.55,
+      "source_path": "assets/video/ep04-cue26-credit-reveal-event-v1.mp4",
+      "finding": "Synthetic black-and-white ENIAC panels are presented like documentary photographs without provenance, interpretive labelling or identity authority."
+    },
+    {
+      "id": "BENDER_GEBRU_VISUAL_MISATTRIBUTION",
+      "classification": "FIX_BEFORE_ASSEMBLY",
+      "placement": 47,
+      "cue": 49,
+      "start_seconds": 946.0,
+      "stop_seconds": 954.0,
+      "source_path": "assets/video/ep04-cue49-local-motion-v1.mp4",
+      "finding": "A Gebru-coded identity is shown with a parrot while narration attributes the stochastic-parrot phrase to Emily Bender."
+    },
+    {
+      "id": "OCCURRENCE_AUTHORITY_CONTRACT_ABSENT",
+      "classification": "REBUILD_MANIFEST_BEFORE_REJUDGE",
+      "affected_placements": 55,
+      "finding": "No placement binds a spoken picture job or motion mode; retained people/history occurrences lack identity, location, style and historical authority IDs."
+    },
+    {
+      "id": "EXACT_PLAYER_AND_AUDIBLE_WATCH_PROOF_MISSING",
+      "classification": "RETEST_AFTER_CONTENT_REPAIR",
+      "finding": "The exact candidate is not player-bound, no browser runtime was available, and no trustworthy audible normal-speed human watch exists."
+    }
+  ],
+  "passing_local_finding": {
+    "id": "CUES_15_TO_19_BOUNDED_REPAIR",
+    "result": "ELIGIBLE_TO_CARRY_FORWARD_PROVISIONALLY_NOT_COMPLETE_FILM_ADMISSION",
+    "note": "The repaired evidence sequence is materially safer; cue 18's restrained dissolve is semantically coherent. It remains subject to exact occurrence authority in the rebuilt manifest."
+  },
+  "smallest_repair": {
+    "preserve": "Cues 15-19 repaired bytes, subject to occurrence-authority binding.",
+    "audio_and_vtt": [
+      "Replace the Ada line with a statement that the Analytical Engine was unbuilt.",
+      "Replace the Hopper line with the narrower claim that Hopper's team helped popularize bug and debug and that the logbook survives at the Smithsonian."
+    ],
+    "confirmed_visual_replacements": [
+      20,
+      26,
+      47
+    ],
+    "manifest": "Bind all 55 placements to spoken picture job, identity/location/style/history authority and motion mode; route any additional failures it exposes to image admission.",
+    "next_gate": "Independent full-film normal-speed audible watch, full-frame/crop judgment, and exact non-public player accessibility/failure run."
+  },
+  "evidence": {
+    "path": "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e04-v9-independent-judge-2026-07-26.md",
+    "sha256": "950acfe8705480ba22990dff718a5a008ed00c0241d79a67d5700064df023756"
+  },
+  "learning_scan": {
+    "new_painpoint_entry_required": false,
+    "reused_rules": [
+      "BTB-094",
+      "BTB-160",
+      "Inspect the first retained occurrence immediately after every bounded repair window."
+    ]
+  },
+  "mutations": {
+    "maker_bytes": false,
+    "site": false,
+    "steward_state": false,
+    "release": false,
+    "schema": false,
+    "deploy": false,
+    "public": false
+  }
+}

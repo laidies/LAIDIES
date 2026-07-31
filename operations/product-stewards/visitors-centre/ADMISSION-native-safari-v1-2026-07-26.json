@@ -1,0 +1,89 @@
+{
+  "productId": "visitors-centre",
+  "candidate": "native-safari-v1",
+  "makerEvidenceAt": "2026-07-26T12:29:34-07:00",
+  "status": "SUPERSEDED",
+  "admissionStatus": "REJECTED_BY_ALI_TECHNICAL_EVIDENCE_ONLY",
+  "aliDecision": {
+    "decision": "REJECTED",
+    "boundary": "The white-page/boxed-module front-desk/map/directory functional base is not an accepted Visitor's Centre experience.",
+    "record": "ALI-DECISION-reject-functional-base-2026-07-26.md",
+    "technicalEvidencePreserved": true,
+    "promotionAllowed": false
+  },
+  "independentAcceptance": {
+    "acceptanceOwner": "visitors_centre_independent_native_safari_acceptance_20260726",
+    "verdict": "PASS_LIMITED_NATIVE_SAFARI",
+    "evidenceAt": "2026-07-26T12:33:00-07:00",
+    "independentLiveRouteResultSha256": "74ed811871d2761b626deaa88ee7ffb62ca76903da2db407e329b3bead5d877f",
+    "scope": "Exact local Safari route, 320/390/native zoom evidence and invalid-projection fail-closed evidence only; not VoiceOver speech/cursor, human comprehension, deploy or public proof."
+  },
+  "environment": {
+    "browser": "Safari 26.5 (21624.2.5.11.4)",
+    "os": "macOS 26.5.1 (25F80)",
+    "origin": "local only",
+    "public": false,
+    "deployed": false
+  },
+  "frozenTuple": {
+    "visitors-centre.html": "de8e536dcfd4c80c419e4bfd6e61c7e2189fd4c07429869b5d505ba659707743",
+    "scripts/test-visitors-centre-contract.mjs": "756f82553c89b946d1763b4d8b5edafa7c3f4b53f6d7356ca557efcb5c030e14",
+    "operations/product-stewards/visitors-centre/test-live-route-readiness-v1.mjs": "a0d2ef93603538ea6ebc23b99495b7257f3ba3cc616fb0adef659fa3b00182ad",
+    "content/site/readiness/v1/entry-readiness-projection.v1.json": "adce724425984cb67a39ec5f8013e0a6e3dd341e3b40d09e8714b83940e37880",
+    "projectionPayloadSha256": "3baba976cf9217b091a92e8fcc762eb6c7b0d5ffe903ebbc7e8f75837bb96361",
+    "readiness-runtime-v1.js": "68eab175cb61065e554ab8ad2fb20eac9b22fc8b38ad9b6d3aa88178e1ea425e",
+    "canonical-destinations.json": "c5136958e1296c71338bdcb2eb9e271a70c6b80f3760514f9f7464d230ce7f26"
+  },
+  "nativeChecks": {
+    "desktop": "PASS",
+    "viewport390x844": "PASS",
+    "viewport320x568": "PASS",
+    "zoom200Percent": {
+      "verdict": "PASS",
+      "proof": "Five Safari Zoom In steps from Actual Size; Safari console reported devicePixelRatio=4 against the 2x native baseline."
+    },
+    "firstTime": "PASS_STATE_INVARIANT",
+    "returningNoCard": "PASS_STATE_INVARIANT",
+    "deviceLocalCard": "PASS_STATE_INVARIANT",
+    "accountHeld": "PASS_STATE_INVARIANT",
+    "invalidProjection": {
+      "verdict": "PASS_FAIL_CLOSED",
+      "receiverMode": "fail-closed",
+      "destinationCount": 17,
+      "allCompletionClaimsFalse": true
+    },
+    "voiceOver": {
+      "toggleProof": "PASS_ON_THEN_RESTORED_OFF",
+      "semanticTree": "PASS",
+      "speechAndCursorCapture": "NOT_REPRODUCIBLE_IN_COMPUTER_USE"
+    }
+  },
+  "automatedChecks": {
+    "staticContract": "PASS",
+    "platformProjection": "PASS destinations=17 current=3 fail_closed=12 idempotency=3",
+    "renderedMatrix": "PASS 779/779",
+    "ownerEntry": "PASS"
+  },
+  "routeDefectsFound": 0,
+  "routeFilesChangedDuringNativeAdmission": [],
+  "ownedEvidenceFilesAdded": [
+    "operations/product-stewards/visitors-centre/native-safari-invalid-projection-server.mjs",
+    "operations/product-stewards/visitors-centre/evidence/native-safari-2026-07-26/safari-desktop-current.jpeg",
+    "operations/product-stewards/visitors-centre/evidence/native-safari-2026-07-26/safari-390x844.jpeg",
+    "operations/product-stewards/visitors-centre/evidence/native-safari-2026-07-26/safari-320x568.jpeg",
+    "operations/product-stewards/visitors-centre/evidence/native-safari-2026-07-26/safari-desktop-200-percent.jpeg",
+    "operations/product-stewards/visitors-centre/evidence/native-safari-2026-07-26/safari-invalid-projection-fail-closed.jpeg"
+  ],
+  "blockers": [
+    "Human comprehension remains blocked on approved participants.",
+    "Native VoiceOver speech and cursor output could not be captured reproducibly by the available computer-control bridge.",
+    "Public-origin verification waits for deployment authority.",
+    "All 17 destinations remain held pending admitted owner receipts; route availability is not destination completion."
+  ],
+  "proactiveImprovement": {
+    "result": "HANDOFF_CONFIRMED",
+    "detail": "Preserve the Visitor-owned 320px containment until Shared Header passes its raw gate and Visitor independently reaccepts the successor.",
+    "evidence": "operations/product-stewards/platform-reliability/evidence-shared-header-320-regression-v1-2026-07-26.md",
+    "evidenceSha256": "d01c2c63e2fe1137fac7025e64fc8f26fc2f0c7c9c9d35b2a0a1a804b14d18cf"
+  }
+}

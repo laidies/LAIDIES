@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NewsStand proof · 390 px QA</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px;
+      background: #2b1830;
+      color: #fffdfb;
+      font: 700 14px/1.4 system-ui, sans-serif;
+    }
+    h1 { margin: 0 0 22px; font-size: 22px; }
+    main { display: flex; gap: 28px; align-items: flex-start; }
+    figure { margin: 0; }
+    figcaption { margin-bottom: 8px; }
+    iframe {
+      display: block;
+      width: 390px;
+      height: 844px;
+      border: 4px solid #ffe08a;
+      border-radius: 18px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Private QA frame · real pages at a 390 px layout viewport</h1>
+  <main>
+    <figure>
+      <figcaption>Homepage handoff</figcaption>
+      <iframe title="Homepage proof at 390 pixels" src="./homepage.html#news-desk-proof"></iframe>
+    </figure>
+    <figure>
+      <figcaption>NewsStand hero · three papers + Breaking ticker</figcaption>
+      <iframe title="NewsStand hero proof at 390 pixels" src="./newsstand.html"></iframe>
+    </figure>
+  </main>
+</body>
+</html>

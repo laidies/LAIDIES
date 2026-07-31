@@ -1,0 +1,2015 @@
+/* ============================================================
+   GRIMOIRE + SLAiYER HANDBOOK — namespaced component styles
+   Additive only. Reuses the shared tokens from styles.css
+   (--plum, --rose, --gold, --blush, --paper, --pearl, --wine,
+   --ink, --muted, --line). No existing class is restyled.
+
+   Visual voice: "illuminated spellbook, run through LAiDIES" —
+   lavish ornament (drop-caps, glyph rules, ceremonial entries,
+   rose-gold as gold-leaf) on a CLEAN MODERN surface. No aged
+   paper, no sepia, no distressing.
+   ============================================================ */
+
+:root {
+  /* TRUE GOLD for illuminated ornament (drop-caps, glyph rules, frames).
+     The rose "Ai" wordmark accent stays --rose (brand canon) — two metals. */
+  --hb-leaf: #c9a227;                  /* true gold-leaf */
+  --hb-leaf-soft: #d8bd5e;             /* lighter gold for fills/tints */
+  --hb-ink: var(--plum);
+  --hb-ground: var(--pearl);           /* clean cream/pearl, never aged */
+  --hb-ground-2: #fdf4f6;
+  --hb-rule: rgba(201, 162, 39, 0.55); /* true-gold ornamental rule */
+  /* TYPE SYSTEM (one display, one body — enforced across the whole shell):
+     display = Cinzel (ceremonial Roman caps), body = EB Garamond (book serif). */
+  --hb-display: "Cinzel", Georgia, "Times New Roman", serif;
+  --hb-serif: "EB Garamond", Georgia, "Times New Roman", serif; /* body + sub-heads */
+  --hb-body: "EB Garamond", Georgia, "Times New Roman", serif;
+  --hb-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hb-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ---------- shared page shell ---------- */
+.hb-page,
+.grimoire-page {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(232, 197, 200, 0.35), transparent 60%),
+    var(--hb-ground);
+  color: var(--ink);
+  font-family: var(--hb-sans);
+}
+
+.hb-wrap {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 40px);
+}
+
+/* ---------- ornamental divider (replaces plain <hr>) ---------- */
+.hb-rule {
+  border: 0;
+  height: 26px;
+  margin: clamp(28px, 5vw, 48px) auto;
+  width: min(100%, 460px);
+  background:
+    radial-gradient(circle at center, var(--hb-leaf) 0 3px, transparent 4px) center/100% no-repeat,
+    linear-gradient(90deg, transparent, var(--hb-rule) 18%, var(--hb-rule) 82%, transparent);
+  background-size: 12px 12px, 100% 1.5px;
+  background-position: center, center;
+  position: relative;
+}
+.hb-rule::before,
+.hb-rule::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--hb-leaf);
+  font-size: 0.8rem;
+  background: var(--hb-ground);
+  padding: 0 10px;
+}
+.hb-rule::before { left: 50%; transform: translate(-50%, -50%); }
+.hb-rule::after { content: ""; }
+
+/* ============================================================
+   GRIMOIRE CONTAINER (grimoire.html)
+   ============================================================ */
+.grimoire-hero {
+  text-align: center;
+  padding: clamp(24px, 6vw, 64px) 0 clamp(10px, 3vw, 24px);
+}
+.grimoire-hero .eyebrow {
+  font-family: var(--hb-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: var(--wine);
+  margin: 0 0 14px;
+}
+.grimoire-hero h1 {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  line-height: 1.02;
+  color: var(--hb-ink);
+  margin: 0 auto 16px;
+  max-width: 16ch;
+}
+.grimoire-hero p {
+  max-width: 56ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.6;
+}
+
+.grimoire-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(14px, 2.4vw, 22px);
+  margin: clamp(20px, 4vw, 40px) 0;
+}
+.grimoire-section-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: clamp(18px, 2.4vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(160deg, var(--hb-ground-2), var(--pearl));
+  box-shadow: var(--glow);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.grimoire-section-card[href]:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--hb-rule);
+}
+.grimoire-section-card .gs-glyph { font-size: 1.5rem; color: var(--hb-leaf); }
+.grimoire-section-card h2 {
+  font-family: var(--hb-serif);
+  font-size: 1.34rem;
+  color: var(--hb-ink);
+  margin: 2px 0 0;
+}
+.grimoire-section-card p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+.grimoire-section-card .gs-status {
+  margin-top: auto;
+  align-self: flex-start;
+  font-family: var(--hb-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--hb-rule);
+  color: var(--wine);
+  background: rgba(252, 228, 242, 0.5);
+}
+.grimoire-section-card.is-soon { opacity: 0.72; }
+.grimoire-section-card.is-soon .gs-status { color: var(--muted); border-color: var(--line); background: transparent; }
+
+/* ============================================================
+   HANDBOOK CHAPTER (hb-chapter)
+   ============================================================ */
+
+/* ---- chapter cover / hero ---- */
+.hb-cover { text-align: center; padding: clamp(20px, 4vw, 44px) 0 clamp(8px, 2vw, 18px); }
+.hb-cover .hb-kicker {
+  font-family: var(--hb-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  color: var(--wine);
+  margin: 0 0 10px;
+}
+.hb-cover .hb-eptag {
+  display: inline-block;
+  font-family: var(--hb-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin: 0 0 16px;
+}
+.hb-cover h1 {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  line-height: 1.0;
+  color: var(--hb-ink);
+  margin: 0 auto 14px;
+  max-width: 18ch;
+}
+.hb-cover .hb-dek {
+  max-width: 58ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.55;
+}
+.hb-hero-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  margin: clamp(20px, 3vw, 32px) 0 0;
+  display: block;
+}
+
+.gr-section-hero {
+  display: block;
+  width: min(100%, 760px);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  margin: clamp(20px, 3vw, 32px) auto 0;
+  border-radius: 14px;
+  border: 1px solid var(--hb-rule);
+  box-shadow: 0 16px 34px rgba(26, 10, 18, 0.18), inset 0 0 0 1px rgba(201, 162, 39, 0.18);
+}
+
+/* ---- layout: body + sticky ToC ---- */
+.hb-layout { display: block; }
+@media (min-width: 1024px) {
+  .hb-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: start;
+  }
+}
+.hb-toc {
+  font-family: var(--hb-sans);
+  margin: 24px 0;
+}
+.hb-toc .hb-toc-title {
+  font-family: var(--hb-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 8px;
+}
+.hb-toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.hb-toc li { margin: 0; }
+.hb-toc a {
+  display: block;
+  padding: 7px 10px;
+  border-left: 2px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+.hb-toc a:hover { color: var(--rose); border-left-color: var(--hb-leaf); }
+@media (min-width: 1024px) {
+  .hb-toc { position: sticky; top: 112px; margin: 0; }
+}
+@media (max-width: 1023px) {
+  .hb-toc { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: var(--pearl); }
+  .hb-toc[open] summary { margin-bottom: 8px; }
+  .hb-toc summary { cursor: pointer; font-weight: 800; color: var(--hb-ink); }
+}
+
+/* ---- body typography ---- */
+.hb-body { max-width: 70ch; }
+.hb-body > p { font-size: clamp(1.02rem, 1.3vw, 1.14rem); line-height: 1.72; margin: 0 0 1.1em; color: var(--ink); }
+.hb-part { scroll-margin-top: 120px; }
+.hb-part > h2 {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  color: var(--hb-ink);
+  line-height: 1.1;
+  margin: clamp(28px, 5vw, 48px) 0 0.5em;
+}
+.hb-part > h3 {
+  font-family: var(--hb-serif);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--wine);
+  margin: 1.6em 0 0.4em;
+}
+
+/* drop-cap / illuminated initial: first paragraph of each Part.
+   Tuned so the cap-top aligns with the ascender of line 1 (not the baseline),
+   and the baseline lands at line 2. Negative margin-top lifts the glyph up;
+   tight line-height keeps the line-box close to the glyph itself. */
+.hb-illuminated::first-letter {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  float: left;
+  font-size: 2.4em;
+  line-height: 0.72;
+  padding: 0 0.08em 0 0;
+  margin: -0.06em 0 0 0;
+  color: var(--hb-leaf);
+  text-shadow: 0 1px 0 rgba(75, 33, 72, 0.18);
+}
+
+/* ---- .hb-vocab : term → example → analogy three-beat ---- */
+.hb-vocab {
+  margin: 1.4em 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--pearl);
+  box-shadow: var(--glow);
+}
+.hb-vocab .hb-term {
+  padding: 14px clamp(14px, 2vw, 20px);
+  font-family: var(--hb-serif);
+  font-size: 1.18rem;
+  color: var(--hb-ink);
+  background: linear-gradient(120deg, rgba(180, 151, 100, 0.12), transparent);
+  border-bottom: 1px solid var(--hb-rule);
+}
+.hb-vocab .hb-term b { color: var(--wine); }
+.hb-vocab .hb-term-num {
+  font-family: var(--hb-display);
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--hb-leaf);
+  margin-right: 10px;
+  letter-spacing: 0.02em;
+  vertical-align: baseline;
+}
+.hb-role .hb-role-num {
+  display: inline-block;
+  font-family: var(--hb-display);
+  font-weight: 700;
+  font-size: 1.05em;
+  color: var(--hb-leaf);
+  margin-right: 8px;
+  letter-spacing: 0.02em;
+  vertical-align: baseline;
+}
+.hb-vocab .hb-beat { padding: 12px clamp(14px, 2vw, 20px); font-size: 1rem; line-height: 1.6; }
+.hb-vocab .hb-ex { background: rgba(200, 220, 224, 0.18); border-left: 3px solid var(--ice); }
+.hb-vocab .hb-an { background: rgba(232, 197, 200, 0.22); border-left: 3px solid var(--hb-leaf); }
+.hb-vocab .hb-try {
+  background: linear-gradient(165deg, rgba(180, 151, 100, 0.16), rgba(180, 151, 100, 0.05));
+  border-left: 3px solid var(--hb-leaf);
+}
+.hb-vocab .hb-try .hb-label { color: var(--hb-leaf); }
+.hb-vocab .hb-remember {
+  background: rgba(75, 33, 72, 0.06);
+  border-left: 4px solid var(--wine);
+  font-family: var(--hb-serif) !important;
+  font-style: italic;
+  font-size: 1.06rem;
+  color: var(--plum);
+}
+.hb-vocab .hb-remember .hb-label { color: var(--wine); }
+.hb-vocab .hb-beat .hb-label {
+  display: block;
+  font-family: var(--hb-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 10px;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1;
+}
+.hb-vocab .hb-beat .hb-label::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--hb-leaf);
+  font-size: 1em;
+  line-height: 1;
+}
+/* Each beat type carries its own label color, matching its accent border,
+   so the six sections read as distinct steps. No pill background — just
+   color, glyph, and weight. */
+.hb-vocab .hb-ex .hb-label        { color: #2d6d7a; }
+.hb-vocab .hb-an .hb-label        { color: var(--rose); }
+.hb-vocab .hb-try .hb-label       { color: #8a6f1f; }
+.hb-vocab .hb-remember .hb-label  { color: var(--wine); }
+.hb-vocab .hb-ex .hb-label::before        { color: #2d6d7a; }
+.hb-vocab .hb-an .hb-label::before        { color: var(--rose); }
+.hb-vocab .hb-try .hb-label::before       { color: var(--hb-leaf); }
+.hb-vocab .hb-remember .hb-label::before  { color: var(--wine); }
+
+/* ========================================================================
+   VOCAB CARD v2 — structural variation per beat, scoped to .hb-vocab-v2.
+   Goal: break the wall-of-text rhythm. Each beat type gets its own visible
+   shape so the eye lands at every section.
+   ======================================================================== */
+.hb-vocab-v2 .hb-beat { padding: 22px clamp(16px, 2.6vw, 26px); }
+.hb-vocab-v2 .hb-beat p { max-width: 62ch; margin-bottom: 0.9em; }
+.hb-vocab-v2 .hb-beat p:last-child { margin-bottom: 0; }
+.hb-vocab-v2 .hb-beat .hb-label { margin-bottom: 14px; }
+
+/* Lede — leading definition line in italic serif at title scale */
+.hb-vocab-v2 .hb-lede {
+  font-family: var(--hb-serif);
+  font-size: 1.16rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--hb-ink);
+  margin-bottom: 0.9em;
+  max-width: 62ch;
+}
+
+/* Before / after pair grid — vague vs specific brief */
+.hb-vocab-v2 .hb-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+@media (min-width: 580px) {
+  .hb-vocab-v2 .hb-pair { grid-template-columns: 1fr 1fr; }
+}
+.hb-vocab-v2 .hb-pair-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(245, 240, 245, 0.6);
+}
+.hb-vocab-v2 .hb-pair-after {
+  background: linear-gradient(165deg, rgba(180,151,100,0.12), rgba(252,228,242,0.18));
+  border-color: var(--hb-rule);
+}
+.hb-vocab-v2 .hb-pair-tag {
+  display: inline-block;
+  font-family: var(--hb-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.hb-vocab-v2 .hb-pair-after .hb-pair-tag { color: var(--wine); }
+.hb-vocab-v2 .hb-pair-quote {
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--hb-ink);
+  margin: 0 0 8px;
+}
+.hb-vocab-v2 .hb-pair-result {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0;
+}
+.hb-vocab-v2 .hb-pair-note {
+  text-align: center;
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--hb-ink);
+  margin: 0;
+  max-width: none;
+}
+
+/* Numbered checklist + numbered steps — both use the same numeric badge */
+.hb-vocab-v2 .hb-checklist,
+.hb-vocab-v2 .hb-steps {
+  margin: 6px 0 12px;
+  padding: 0;
+  list-style: none;
+  counter-reset: hbnum;
+  max-width: 62ch;
+}
+.hb-vocab-v2 .hb-checklist li,
+.hb-vocab-v2 .hb-steps li {
+  counter-increment: hbnum;
+  position: relative;
+  padding: 8px 0 8px 40px;
+  margin: 0;
+  line-height: 1.5;
+}
+.hb-vocab-v2 .hb-checklist li::before,
+.hb-vocab-v2 .hb-steps li::before {
+  content: counter(hbnum);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-family: var(--hb-display);
+  font-size: 0.82rem;
+  color: var(--hb-leaf);
+  border: 1.5px solid var(--hb-leaf);
+  border-radius: 50%;
+  line-height: 1;
+}
+
+/* ========================================================================
+   TEXTBOOK SOURCE LAYER — full teaching content for each vocab concept.
+   Used above the Study Guide on vocab pages. Clean reading typography,
+   serif headers, generous whitespace, line length capped for legibility.
+   ======================================================================== */
+.hb-source {
+  max-width: 64ch;
+  margin: 0 auto;
+  padding: clamp(24px, 3.6vw, 34px) clamp(20px, 3vw, 32px);
+  background:
+    linear-gradient(125deg, rgba(155, 63, 95, 0.06), rgba(36, 123, 131, 0.06)),
+    #fff8fc;
+  border: 1px solid var(--hb-rule);
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+}
+.hb-source-term {
+  font-family: var(--hb-serif) !important;
+  font-size: clamp(1.4rem, 2.2vw, 1.7rem) !important;
+  font-weight: 700;
+  color: var(--hb-ink);
+  margin: 0 0 26px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--hb-rule);
+  display: flex;
+  align-items: baseline;
+}
+.hb-source-term .hb-term-num {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--hb-leaf);
+  margin-right: 12px;
+  letter-spacing: 0.02em;
+}
+.hb-source-term b {
+  color: var(--wine);
+  font-weight: 700;
+}
+.hb-source-section { margin: 0 0 30px; }
+.hb-source-section:last-child { margin-bottom: 0; }
+.hb-source-h {
+  font-family: var(--hb-mono) !important;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 14px;
+}
+.hb-source-section p {
+  margin: 0 0 12px;
+  max-width: 62ch;
+}
+.hb-source-section p:last-child { margin-bottom: 0; }
+
+/* Plain unordered list inside source content (e.g. the Mollick three-tier list) */
+.hb-source-section ul.hb-source-list {
+  margin: 8px 0 14px;
+  padding: 0 0 0 22px;
+  list-style: disc;
+  max-width: 62ch;
+}
+.hb-source-section ul.hb-source-list li {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  padding-left: 4px;
+}
+.hb-source-section ul.hb-source-list li::marker { color: var(--hb-leaf); }
+.hb-source-section ul.hb-source-list li strong { color: var(--wine); }
+
+/* Sources / receipts mini-section at the bottom of each source layer */
+.hb-source-section.hb-receipts-mini {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--hb-rule);
+}
+.hb-source-section.hb-receipts-mini .hb-source-h {
+  color: var(--hb-leaf);
+  margin-bottom: 10px;
+}
+.hb-source-section .hb-receipts-list {
+  margin: 0;
+  padding: 0 0 0 18px;
+  list-style: disc;
+  max-width: 62ch;
+}
+.hb-source-section .hb-receipts-list li {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.hb-source-section .hb-receipts-list li::marker { color: var(--hb-leaf); }
+.hb-source-section .hb-receipts-list a {
+  color: var(--wine);
+  text-decoration: underline;
+  text-decoration-color: var(--hb-rule);
+  text-underline-offset: 3px;
+}
+.hb-source-section .hb-receipts-list a:hover { color: var(--rose); }
+.hb-source-section blockquote.hb-golden-rule {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 16px 0;
+  padding: 16px 20px;
+  border: 0;
+  border-left: 4px solid var(--hb-leaf);
+  background: rgba(180,151,100,0.12);
+  border-radius: 0 12px 12px 0;
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--hb-ink);
+}
+.hb-source-section blockquote.hb-golden-rule strong {
+  font-style: normal;
+  color: var(--wine);
+}
+
+/* Detailed numbered checklist — each item has a heading + explanation */
+.hb-source-section .hb-checklist-detailed {
+  margin: 14px 0 18px;
+  padding: 0;
+  list-style: none;
+  counter-reset: hbnum;
+}
+.hb-source-section .hb-checklist-detailed li {
+  counter-increment: hbnum;
+  position: relative;
+  padding: 10px 0 12px 46px;
+  margin: 0 0 8px;
+}
+.hb-source-section .hb-checklist-detailed li::before {
+  content: counter(hbnum);
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--hb-leaf);
+  border: 1.5px solid var(--hb-leaf);
+  border-radius: 50%;
+  line-height: 1;
+}
+.hb-source-section .hb-checklist-detailed li h5 {
+  font-family: var(--hb-serif) !important;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--hb-ink);
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+.hb-source-section .hb-checklist-detailed li p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 60ch;
+}
+
+/* Worked-example pair inside source layer */
+.hb-source-section .hb-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+@media (min-width: 620px) {
+  .hb-source-section .hb-pair { grid-template-columns: 1fr 1fr; }
+}
+.hb-source-section .hb-pair-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(245,240,245,0.6);
+}
+.hb-source-section .hb-pair-after {
+  background: linear-gradient(165deg, rgba(180,151,100,0.12), rgba(252,228,242,0.18));
+  border-color: var(--hb-rule);
+}
+.hb-source-section .hb-pair-tag {
+  display: inline-block;
+  font-family: var(--hb-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.hb-source-section .hb-pair-after .hb-pair-tag { color: var(--wine); }
+.hb-source-section .hb-pair-quote {
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--hb-ink);
+  margin: 0 0 8px;
+}
+.hb-source-section .hb-pair-result {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+.hb-source-section .hb-pair-note {
+  text-align: center;
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: 1.04rem;
+  color: var(--hb-ink);
+  margin: 0;
+  max-width: none;
+}
+
+/* ========================================================================
+   STUDY GUIDE — condensed recall card at the bottom of each vocab page.
+   Distinct visual treatment so it reads as the end-of-chapter summary.
+   ======================================================================== */
+.hb-study-guide {
+  margin: 32px auto 0;
+  max-width: 64ch;
+  padding: clamp(22px, 3.4vw, 32px);
+  border: 2px solid var(--hb-leaf);
+  border-radius: 14px;
+  background: #fdf4f6;
+  position: relative;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32), inset 0 0 0 6px rgba(180, 151, 100, 0.05);
+}
+.hb-study-guide::before {
+  content: "✦ Study Guide ✦";
+  display: block;
+  font-family: var(--hb-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--hb-leaf);
+  margin: 0 0 18px;
+  text-align: center;
+}
+.hb-study-guide dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 12px 20px;
+}
+.hb-study-guide dt {
+  font-family: var(--hb-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wine);
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.hb-study-guide dd {
+  margin: 0;
+  font-family: var(--hb-serif);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--hb-ink);
+}
+
+/* Pull quote (Picture this) — center italic with gold rule top + bottom */
+.hb-vocab-v2 .hb-pull {
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: center;
+  margin: 4px auto 0;
+  max-width: 54ch;
+  padding: 14px 18px 16px;
+  border-top: 1px solid var(--hb-rule);
+  border-bottom: 1px solid var(--hb-rule);
+  color: var(--hb-ink);
+  position: relative;
+}
+.hb-vocab-v2 .hb-pull::before {
+  content: "✦";
+  display: block;
+  color: var(--hb-leaf);
+  font-size: 0.85rem;
+  margin: 0 auto 8px;
+  font-style: normal;
+}
+
+/* Part breadcrumb — small mono eyebrow at the top of every content page
+   that shows which Part this page belongs to. Injected by grimoire-book.js
+   from the most recent gr-part-intro page. */
+.grimoire-shell .gr-page > .hb-page-part {
+  font-family: var(--hb-mono) !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--hb-leaf) !important;
+  text-align: center !important;
+  margin: 0 0 18px !important;
+  line-height: 1 !important;
+  opacity: 0.92;
+}
+
+/* ---- .hb-roles : four bestiary cards ---- */
+.hb-roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 1.5em 0 0.8em;
+}
+.hb-role {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  background: linear-gradient(165deg, var(--hb-ground-2), var(--pearl));
+  position: relative;
+}
+.hb-role .hb-role-glyph { font-size: 1.3rem; color: var(--hb-leaf); }
+.hb-role h4 { font-family: var(--hb-serif); font-size: 1.12rem; color: var(--hb-ink); margin: 6px 0 2px; }
+.hb-role .hb-role-one {
+  font-family: var(--hb-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin: 0 0 8px;
+}
+.hb-role p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink); }
+.hb-note {
+  margin: 0.4em 0 1.2em;
+  padding: 12px 16px;
+  border: 1px dashed var(--hb-rule);
+  border-radius: 12px;
+  background: rgba(252, 228, 242, 0.32);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+/* ---- .hb-tools : quick-reference table ---- */
+.hb-tools { width: 100%; margin: 1.4em 0; border-collapse: collapse; font-size: 0.92rem; }
+.hb-tools caption { text-align: left; font-family: var(--hb-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wine); padding-bottom: 8px; }
+.hb-tools th, .hb-tools td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.hb-tools thead th { font-family: var(--hb-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--wine); }
+.hb-tools tbody th { font-family: var(--hb-serif); color: var(--hb-ink); font-weight: 700; white-space: nowrap; }
+@media (max-width: 620px) {
+  .hb-tools, .hb-tools thead, .hb-tools tbody, .hb-tools tr, .hb-tools th, .hb-tools td { display: block; }
+  .hb-tools thead { display: none; }
+  /* Caption inside a now-block table collapses to min-content (one-word
+     per line) unless we explicitly re-block it. */
+  .hb-tools caption { display: block; width: 100%; }
+  .hb-tools tr { border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; padding: 6px 10px; background: var(--pearl); }
+  .hb-tools td { border: 0; padding: 5px 0; }
+  .hb-tools td::before { content: attr(data-label) " — "; font-family: var(--hb-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--wine); }
+  .hb-tools tbody th { border: 0; padding: 8px 0 2px; font-size: 1.05rem; }
+}
+
+/* ---- .hb-worked-example : Apply-it chips + before/after ---- */
+.hb-apply {
+  display: block;
+  margin: 8px 0 4px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--hb-leaf);
+  background: rgba(180, 151, 100, 0.08);
+  border-radius: 0 10px 10px 0;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+.hb-apply .hb-label { font-family: var(--hb-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wine); display: block; margin-bottom: 3px; }
+.hb-beforeafter { display: grid; gap: 14px; margin: 1.4em 0; }
+@media (min-width: 720px) { .hb-beforeafter { grid-template-columns: 1fr 1fr; } }
+.hb-ba {
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.hb-ba .hb-label { display: block; font-family: var(--hb-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.hb-ba.is-before { background: #f1edf0; color: var(--muted); border: 1px solid var(--line); }
+.hb-ba.is-before .hb-label { color: var(--muted); }
+.hb-ba.is-after { background: linear-gradient(165deg, rgba(180,151,100,0.12), var(--pearl)); color: var(--ink); border: 1px solid var(--hb-rule); }
+.hb-ba.is-after .hb-label { color: var(--wine); }
+
+/* ---- .hb-formula : if-you-remember-one-thing box ---- */
+.hb-formula {
+  margin: 1.6em 0;
+  padding: clamp(16px, 2.4vw, 24px);
+  border: 1.5px solid var(--hb-leaf);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(180,151,100,0.1), var(--pearl));
+}
+.hb-formula .hb-label { font-family: var(--hb-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wine); }
+.hb-formula p { font-family: var(--hb-serif); font-size: clamp(1.05rem, 1.8vw, 1.3rem); color: var(--hb-ink); margin: 8px 0 0; line-height: 1.4; }
+
+/* ---- .hb-skeleton-key ---- */
+.hb-keytrio { display: grid; gap: 12px; margin: 1.2em 0; }
+@media (min-width: 720px) { .hb-keytrio { grid-template-columns: repeat(3, 1fr); } }
+.hb-keytrio .hb-keyitem { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: var(--pearl); }
+.hb-keytrio h4 { font-family: var(--hb-serif); font-size: 1.02rem; color: var(--hb-ink); margin: 0 0 4px; }
+.hb-keytrio p { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--muted); }
+
+/* ---- .hb-safety : highest-priority callout (distinct, serious) ---- */
+.hb-safety {
+  margin: 1.8em 0;
+  padding: clamp(18px, 2.6vw, 26px);
+  border: 2px solid var(--wine);
+  border-radius: 16px;
+  background: linear-gradient(165deg, rgba(111, 38, 63, 0.07), var(--pearl));
+  box-shadow: 0 14px 34px rgba(111, 38, 63, 0.12);
+}
+.hb-safety .hb-safety-head {
+  font-family: var(--hb-serif);
+  font-size: 1.2rem;
+  color: var(--wine);
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hb-safety ul { margin: 0; padding-left: 1.1em; }
+.hb-safety li { margin: 0 0 0.7em; line-height: 1.6; }
+.hb-safety .hb-inline-warn {
+  font-family: var(--hb-sans);
+  font-size: 0.88rem;
+  color: var(--wine);
+  border-left: 3px solid var(--wine);
+  padding: 4px 10px;
+  margin: 8px 0;
+  background: rgba(111, 38, 63, 0.06);
+}
+
+/* ---- .hb-pullquote ----
+   Width tuned so a normal-length sentence fits on a single line. When
+   the tagline has more than one sentence, mark each sentence break with
+   an explicit <br> so the wrap lands at the sentence boundary instead
+   of breaking mid-sentence. */
+.hb-pullquote {
+  margin: clamp(26px, 5vw, 44px) auto;
+  max-width: 38ch;
+  text-align: center;
+  font-family: var(--hb-serif);
+  font-style: italic;
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  line-height: 1.36;
+  color: var(--hb-ink);
+  text-wrap: balance;
+}
+.hb-pullquote::before,
+.hb-pullquote::after {
+  content: "✦";
+  display: block;
+  color: var(--hb-leaf);
+  font-size: 0.85rem;
+  font-style: normal;
+  line-height: 1;
+}
+.hb-pullquote::before { margin: 0 auto 0.85em; }
+.hb-pullquote::after { margin: 0.85em auto 0; }
+
+/* ---- .hb-deb ---- */
+.hb-deb {
+  margin: 1.6em 0;
+  padding: clamp(16px, 2.4vw, 22px);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--rose);
+  border-radius: 0 14px 14px 0;
+  background: rgba(232, 197, 200, 0.16);
+}
+.hb-deb h3 { font-family: var(--hb-serif); color: var(--wine); margin: 0 0 10px; font-size: 1.3rem; }
+.hb-deb ul { margin: 0.6em 0 0; padding-left: 1.1em; }
+.hb-deb li { margin: 0 0 0.5em; line-height: 1.55; }
+
+/* ---- cross-link chip (related episodes) ---- */
+.hb-xlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--hb-sans);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--wine);
+  text-decoration: none;
+  border: 1px solid var(--hb-rule);
+  border-radius: 999px;
+  padding: 3px 11px;
+  background: rgba(252, 228, 242, 0.45);
+}
+.hb-xlink:hover { background: var(--pearl); color: var(--rose); }
+
+/* ---- chapter footer / next-chapter bridge ---- */
+.hb-next { margin-top: 18px; font-size: 0.9rem; color: var(--muted); font-style: italic; }
+
+/* ---- Part section intro pages (Part I–V) ---- */
+.gr-part-intro { text-align: center; }
+.gr-part-intro .gr-emblem { margin-left: auto; margin-right: auto; }
+/* Body paragraphs on intro pages share the illuminated column: left-
+   aligned inside a centered 52ch reading width. Eyebrow + pullquote
+   keep their own centered treatment via more specific rules. */
+.gr-part-intro .hb-illuminated,
+.gr-part-intro > p:not(.hb-part-eyebrow):not(.hb-pullquote) {
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.grimoire-shell .gr-page > .hb-part-eyebrow,
+.gr-page > .hb-part-eyebrow {
+  font-family: var(--hb-mono) !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  font-size: 0.82rem !important;
+  line-height: 1 !important;
+  color: var(--hb-leaf) !important;
+  margin: 0 0 14px !important;
+}
+.gr-part-intro .hb-part {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--hb-ink);
+}
+
+/* section breaker images */
+.hb-section-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--glow); margin: clamp(20px,3vw,32px) 0; display: block; }
+
+/* ---- per-tool entry: field-notes ----
+   Each fact is its own small illuminated card. Label on top in mono
+   gold caps, content below in serif. Grid lays the cards out 2-up at
+   ≥720px, single column on mobile. align-items:start prevents short
+   cards from stretching to match a tall sibling row. */
+.hb-fieldnotes {
+  margin: 1.6em 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+.hb-fieldnotes dl {
+  margin: 0;
+  column-count: 1;
+  column-gap: 14px;
+}
+@media (min-width: 720px) {
+  .hb-fieldnotes dl {
+    column-count: 2;
+  }
+}
+.hb-fieldnotes .hb-fn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 18px;
+  margin: 0 0 12px;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 12px;
+  background:
+    linear-gradient(160deg, rgba(255, 248, 226, 0.5), rgba(255, 240, 220, 0.28)),
+    #fffaf1;
+  box-shadow: 0 6px 16px rgba(75, 33, 72, 0.06);
+  break-inside: avoid;
+}
+.hb-fieldnotes dt {
+  margin: 0;
+  font-family: var(--hb-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hb-leaf);
+}
+.hb-fieldnotes dd {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--hb-ink);
+}
+.hb-fieldnotes dd .hb-xlink {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  font-family: var(--hb-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wine);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.hb-fieldnotes dd .hb-xlink:hover { color: var(--hb-leaf); }
+
+/* ---- receipts / sources list ---- */
+.hb-receipts {
+  margin: 1.6em 0;
+  padding: clamp(16px, 2.4vw, 22px);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--hb-leaf);
+  border-radius: 0 14px 14px 0;
+  background: var(--hb-ground-2);
+}
+.hb-receipts h3 { font-family: var(--hb-serif); color: var(--hb-ink); margin: 0 0 8px; font-size: 1.15rem; }
+.hb-receipts ul { margin: 0; padding-left: 1.1em; }
+.hb-receipts li { margin: 0 0 0.5em; font-size: 0.9rem; line-height: 1.5; }
+.hb-receipts a { color: var(--wine); }
+
+/* ---- "still brewing" placeholder (Practical MAiGIC video) ---- */
+.hb-brewing {
+  margin: 1.4em 0;
+  padding: 14px 18px;
+  border: 1px dashed var(--hb-rule);
+  border-radius: 12px;
+  background: rgba(252, 228, 242, 0.28);
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   TYPE SYSTEM ENFORCEMENT — Cinzel (display) on the ceremonial
+   titles only; EB Garamond (body) everywhere text runs. Appended
+   last so it wins over the earlier component rules.
+   ============================================================ */
+/* NOTE: styles.css forces `h1,h2 { font-family: var(--font-display) !important }`
+   sitewide, so the shell's type rules must use !important (higher specificity +
+   important wins) to establish the Grimoire's own Cinzel/EB-Garamond system. */
+.hb-cover h1,
+.grimoire-hero h1,
+.hb-part,
+.hb-part > h2,
+.gr-page > h2,
+.gr-page h2,
+.grimoire-shell .gr-section-title {
+  font-family: var(--hb-serif) !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.06;
+}
+/* sub-heads + all running text → EB Garamond (the body serif) */
+.grimoire-shell h3,
+.gr-page h3,
+.gr-page h4,
+.hb-part > h3,
+.hb-role h4,
+.hb-deb h3,
+.hb-receipts h3 {
+  font-family: var(--hb-serif) !important;
+}
+.grimoire-shell,
+.hb-body,
+.gr-page,
+.hb-vocab .hb-beat,
+.hb-vocab .hb-term,
+.hb-ba,
+.hb-role p,
+.hb-tools,
+.hb-safety,
+.hb-deb,
+.hb-receipts,
+.hb-fieldnotes dd {
+  font-family: var(--hb-body) !important;
+}
+/* labels/eyebrows stay mono; UI chrome stays sans (functional accents) */
+.grimoire-shell .hb-label,
+.grimoire-shell .hb-kicker,
+.grimoire-shell .gr-where,
+.grimoire-shell .gr-progress { font-family: var(--hb-mono) !important; }
+.grimoire-shell .gr-back,
+.grimoire-shell .gr-arrow,
+.grimoire-shell .gr-contents-btn,
+.grimoire-shell .hb-xlink { font-family: var(--hb-sans) !important; }
+/* Body paragraphs in chapter pages. Tuned closer to the next-chapter
+   dek size (0.9rem) so the chapter copy is comfortable on mobile —
+   the previous clamp(1.18rem, ..., 1.3rem) ran too big especially on
+   narrow viewports. Headers, eyebrows, status pills, and the small
+   deks keep their own sizes.
+   text-wrap: pretty keeps the ragged-right edge but smartly avoids
+   one-word last lines (orphans) and awkward break points — same
+   alignment, less visually jagged. */
+.hb-body > p,
+.gr-page > p {
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* ============================================================
+   THE SHARED GRIMOIRE SHELL  (.grimoire-shell)
+   Mobile-first. Illuminated true-gold frame on clean cream.
+   NO side rail. Wraps hub, chapters, and tool cards identically.
+   ============================================================ */
+.grimoire-shell {
+  --frame: 14px;
+  min-height: 100vh;
+  /* Madame CLAi-O backdrop: deep plum gradient + ambient plum glow.
+     The cream illuminated book (.gr-book) floats on top of this dark field. */
+  background:
+    radial-gradient(circle at 50% 16%, rgba(185, 93, 120, 0.22), transparent 58%),
+    linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12) !important;
+  color: var(--ink);
+  font-family: var(--hb-body);
+  position: relative;
+  padding: clamp(8px, 2.5vw, 22px);
+}
+/* ambient starfield (CSS, lightweight — matches the game's sparkle field) */
+.grimoire-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-image:
+    radial-gradient(1.6px 1.6px at 18% 28%, rgba(255, 215, 0, 0.55), transparent),
+    radial-gradient(1.4px 1.4px at 68% 18%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1.2px 1.2px at 38% 66%, rgba(255, 215, 0, 0.4), transparent),
+    radial-gradient(1.6px 1.6px at 84% 58%, rgba(255, 255, 255, 0.38), transparent),
+    radial-gradient(1.3px 1.3px at 54% 86%, rgba(255, 215, 0, 0.42), transparent),
+    radial-gradient(1.1px 1.1px at 9% 78%, rgba(255, 255, 255, 0.32), transparent),
+    radial-gradient(1.3px 1.3px at 92% 33%, rgba(255, 215, 0, 0.36), transparent),
+    radial-gradient(1.1px 1.1px at 28% 92%, rgba(255, 255, 255, 0.3), transparent);
+}
+.grimoire-shell > * { position: relative; z-index: 1; }
+
+/* top chrome: back-to-grimoire + chapter id + progress + contents.
+   Fixed to the viewport top so the Back / Contents controls are always
+   reachable on long pages without scrolling. The shell pads its top by
+   the bar's height (plus iOS notch safe-area) so content never slides
+   under it. */
+.gr-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px clamp(12px, 4vw, 22px);
+  padding-top: calc(10px + env(safe-area-inset-top, 0px));
+  background: rgba(255, 253, 251, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hb-rule);
+  box-shadow: 0 10px 24px rgba(33, 17, 31, 0.18);
+}
+/* Push shell content below the fixed topbar. ~38px button + ~20px
+   internal padding + small buffer, then add the iOS status-bar inset
+   on top so the bar lifts below the notch on a real phone. */
+.grimoire-shell {
+  padding-top: calc(70px + env(safe-area-inset-top, 0px));
+}
+.gr-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--hb-sans);
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: var(--wine);
+  text-decoration: none;
+  border: 1px solid var(--hb-rule);
+  border-radius: 999px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+.gr-back:hover { background: var(--pearl); color: var(--rose); }
+.gr-topbar .gr-where {
+  font-family: var(--hb-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gr-contents-btn {
+  font-family: var(--hb-sans);
+  font-weight: 800;
+  font-size: 0.74rem;
+  color: var(--wine);
+  background: var(--pearl);
+  border: 1px solid var(--hb-rule);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.gr-contents-btn:hover { color: var(--rose); }
+
+/* Layout container only — the cream frame moves down to each .gr-page so
+   the dark Mme CLAi-O backdrop reads behind every page individually. */
+.gr-book {
+  position: relative;
+  width: min(100%, 760px);
+  margin: clamp(14px, 3vw, 28px) auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* Page surface: transparent interior (Madame CLAi-O backdrop reads
+   through), wrapped in a thin CREAM "paper edge" border so it still
+   reads as a page in a book. Gold corner flourishes mark the corners.
+   This is the DARK-interior treatment (vocab cards). */
+.grimoire-shell .gr-page {
+  position: relative;
+  background: transparent;
+  border: 8px solid var(--hb-ground);
+  border-radius: 18px;
+  padding: clamp(22px, 4vw, 38px);
+  margin: 0 auto clamp(14px, 3vw, 28px);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32), inset 0 0 0 1.5px rgba(201, 162, 39, 0.5);
+  overflow: hidden;
+}
+.grimoire-shell .gr-page::before,
+.grimoire-shell .gr-page::after {
+  content: "";
+  position: absolute;
+  width: 34px; height: 34px;
+  border: 2px solid var(--hb-leaf);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 3;
+}
+.grimoire-shell .gr-page::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; border-radius: 8px 0 0 0; }
+.grimoire-shell .gr-page::after  { bottom: 6px; right: 6px; border-left: 0; border-top: 0; border-radius: 0 0 8px 0; }
+/* Make sure page CONTENT sits above the per-page starfield (z-index 0). */
+.grimoire-shell .gr-page > * { position: relative; z-index: 1; }
+
+/* Pages with LOOSE DARK TEXT — the Fairy Godmother (Laidy) light surface
+   filling the interior, with an INVERTED dark plum border around it.
+   So both surfaces frame against the outer Madame CLAi-O backdrop:
+   dark interior → cream frame; light interior → dark frame. */
+.grimoire-shell .gr-page.gr-light {
+  background:
+    linear-gradient(125deg, rgba(155, 63, 95, 0.12), rgba(36, 123, 131, 0.12)),
+    #fff8fc;
+  border-color: #1a0a12;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32), inset 0 0 0 1.5px rgba(201, 162, 39, 0.55);
+}
+
+/* ---- twinkling starfield (canonical impl from games/madame-claio.html,
+       enlarged + glowing so it actually reads on the dark backdrop) ---- */
+.grimoire-shell .gr-bg-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.grimoire-shell .gr-bg-stars .gr-bg-star,
+.grimoire-shell .gr-page-stars .gr-bg-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--hb-leaf);
+  box-shadow: 0 0 6px rgba(255, 215, 100, 0.7), 0 0 2px rgba(255, 230, 150, 0.9);
+  animation: gr-twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+}
+.grimoire-shell .gr-bg-stars .gr-bg-star.is-white {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.85), 0 0 2px rgba(255, 255, 255, 0.95);
+}
+.grimoire-shell .gr-bg-stars .gr-bg-star.is-large,
+.grimoire-shell .gr-page-stars .gr-bg-star.is-large {
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 0 10px rgba(255, 215, 100, 0.85), 0 0 3px rgba(255, 235, 165, 1);
+}
+@keyframes gr-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}
+/* Per-page starfield rides on top of each Laidy light surface.
+   On the light Fairy background, stars get a soft plum glow instead of
+   gold-on-cream so they pop against the lighter backdrop. */
+.grimoire-shell .gr-page.gr-light .gr-page-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.grimoire-shell .gr-page.gr-light .gr-page-stars .gr-bg-star {
+  background: var(--hb-leaf);
+  box-shadow: 0 0 5px rgba(155, 63, 95, 0.6), 0 0 2px rgba(201, 162, 39, 0.85);
+}
+@media (prefers-reduced-motion: reduce) {
+  .grimoire-shell .gr-bg-star { animation: none; opacity: 0.55; transform: none; }
+}
+
+/* ---- pages ---- */
+.gr-page {
+  min-height: 64vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: gr-fade 0.32s ease;
+}
+@keyframes gr-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .gr-page { animation: none; } }
+.gr-page[hidden] { display: none; }
+
+/* reserved illustration slot (the 19-emblem set drops in here) */
+.gr-emblem {
+  margin: 0 auto clamp(14px, 3vw, 24px);
+  width: min(100%, 320px);
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  border: 1px dashed var(--hb-rule);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-family: var(--hb-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(201, 162, 39, 0.05);
+}
+.gr-emblem img { width: 100%; height: 100%; object-fit: contain; border-radius: 14px; }
+/* when a real illustration is present, drop the dashed placeholder frame
+   (each emblem carries its own gold border) */
+.gr-emblem:has(img) {
+  border: 0;
+  background: none;
+  padding: 0;
+  aspect-ratio: auto;
+  width: min(100%, 340px);
+}
+.gr-emblem:has(img) img { height: auto; border-radius: 10px; }
+.hb-cover .gr-emblem:has(img) { width: min(100%, 480px); }
+/* Madame CLAi-O jewel-case backdrop behind every emblem — so the cream
+   illuminated plate reads as a dark-framed jewel inside the page, not
+   another cream-on-cream layer that disappears. (Previously mobile-only;
+   now applied at every viewport per chapter visual spec.) */
+.gr-emblem:has(img) {
+  background-color: #1a0a12 !important;
+  background-image:
+    radial-gradient(circle at 50% 35%, rgba(185, 93, 120, 0.32), transparent 70%),
+    linear-gradient(160deg, #1a0a12, #2d0f1f, #1a0a12) !important;
+  padding: clamp(20px, 3vw, 30px) !important;
+  border-radius: 18px;
+  width: min(100%, 380px);
+  border: 0;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(201, 162, 39, 0.5),
+    inset 0 0 22px rgba(0, 0, 0, 0.4),
+    0 18px 36px rgba(26, 10, 18, 0.45);
+  margin: 0 auto clamp(20px, 4vw, 32px);
+  aspect-ratio: auto;
+}
+.gr-emblem:has(img) img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+/* bestiary plate inside a role card (portrait 3:4 illustration) */
+.hb-role .hb-plate {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 0 12px;
+}
+/* smaller emblem that sits above a single best-practice beat */
+.hb-beat-emblem {
+  display: block;
+  width: min(168px, 52%);
+  height: auto;
+  margin: 4px auto 8px;
+  border-radius: 10px;
+}
+
+/* ---- pagination controls (mobile-first) ----
+   Fixed to the viewport bottom so Back / Next are always reachable on
+   long pages without scrolling. The reader pads its bottom by the bar's
+   height (plus mobile safe-area) so the last line of content never gets
+   hidden behind the bar. */
+.gr-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 25;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px clamp(12px, 4vw, 22px);
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 253, 251, 0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--hb-rule);
+  box-shadow: 0 -10px 24px rgba(33, 17, 31, 0.18);
+}
+/* Push paginated content above the fixed pager. ~64px nav body + ~20px
+   internal padding + small buffer, then add the iOS home-indicator inset
+   on top so the bar lifts above the phone's bottom UI. */
+.grimoire-shell[data-paginated] {
+  padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+}
+.gr-arrow {
+  font-family: var(--hb-sans);
+  font-weight: 900;
+  font-size: 0.86rem;
+  color: var(--plum);
+  background: var(--pearl);
+  border: 1px solid var(--hb-rule);
+  border-radius: 999px;
+  min-width: 92px;
+  min-height: 44px;
+  padding: 0 14px;
+  cursor: pointer;
+}
+.gr-arrow:disabled { opacity: 0.32; cursor: default; }
+.gr-arrow:not(:disabled):hover { background: var(--hb-leaf-soft); color: var(--plum); }
+.gr-progress {
+  text-align: center;
+  font-family: var(--hb-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--wine);
+}
+.gr-progress .gr-bar {
+  display: block;
+  height: 3px;
+  margin: 6px auto 0;
+  width: min(220px, 60%);
+  background: rgba(201, 162, 39, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.gr-progress .gr-bar i { display: block; height: 100%; background: var(--hb-leaf); transition: width 0.3s ease; }
+
+/* ---- jump-to-contents panel ---- */
+.gr-contents {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(40, 20, 36, 0.5);
+  display: grid;
+  place-items: start center;
+  padding: clamp(14px, 5vh, 60px) 14px;
+  overflow: auto;
+}
+.gr-contents[hidden] { display: none; }
+.gr-contents-inner {
+  width: min(560px, 100%);
+  background: var(--hb-ground);
+  border: 1.5px solid var(--hb-rule);
+  border-radius: 16px;
+  padding: clamp(18px, 4vw, 28px);
+  box-shadow: 0 30px 80px rgba(40, 20, 36, 0.3);
+}
+.grimoire-shell .gr-contents-inner h2 {
+  font-family: var(--hb-serif) !important;
+  color: var(--hb-ink);
+  margin: 0 0 4px;
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  line-height: 1.15;
+}
+.grimoire-shell .gr-contents-inner .gr-contents-sub {
+  font-family: var(--hb-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hb-leaf);
+  margin: 0 0 14px;
+}
+.gr-contents ol { list-style: none; margin: 0; padding: 0; }
+.gr-contents button.gr-jump {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  padding: 11px 4px;
+  font-family: var(--hb-body);
+  font-size: 1rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+.gr-contents button.gr-jump:hover { color: var(--rose); }
+.gr-contents button.gr-jump[aria-current="true"] { color: var(--wine); font-weight: 700; }
+/* hierarchical TOC — Part intros become section headers, content pages
+   are indented under them. Front matter (Cover, Intro) and the chapter
+   closer (Don't be Deb) sit at top level. */
+.gr-contents button.gr-jump.is-part {
+  font-family: var(--hb-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--hb-ink);
+  font-size: 1.04rem;
+  padding: 16px 4px 9px;
+  margin-top: 8px;
+  text-transform: none;
+}
+.gr-contents button.gr-jump.is-sub {
+  padding-left: 30px;
+  font-size: 0.94rem;
+  color: var(--muted);
+  border-top-color: transparent;
+}
+/* Small "Chapter close" eyebrow that sits above the Don't-be-Deb closer
+   so it reads as intentional, not orphaned. */
+.gr-contents li.gr-contents-eyebrow {
+  font-family: var(--hb-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hb-leaf);
+  padding: 18px 4px 6px;
+  margin-top: 10px;
+  border-top: 1px dashed var(--hb-rule);
+  list-style: none;
+}
+/* "What's next" panel at the bottom of the TOC — gives the user a sense
+   of where this chapter sits in the bigger handbook. */
+.grimoire-shell .gr-contents-next {
+  margin: 22px 0 4px;
+  padding: 16px 16px 14px;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 12px;
+  background:
+    linear-gradient(160deg, rgba(255, 248, 226, 0.55), rgba(255, 240, 220, 0.3)),
+    #fffaf1;
+}
+.grimoire-shell .gr-contents-next .gr-contents-next-label {
+  font-family: var(--hb-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hb-leaf);
+  margin: 0 0 8px;
+}
+.grimoire-shell .gr-contents-next p:not(.gr-contents-next-label) {
+  font-family: var(--hb-serif);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--hb-ink);
+  margin: 0 0 6px;
+}
+.grimoire-shell .gr-contents-next p:last-child { margin-bottom: 0; }
+.grimoire-shell .gr-contents-next a {
+  color: var(--wine);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.grimoire-shell .gr-contents-next a:hover { color: var(--rose); }
+.gr-contents button.gr-jump.is-sub:hover { color: var(--rose); }
+.gr-contents button.gr-jump.is-sub[aria-current="true"] { color: var(--wine); font-weight: 700; opacity: 1; }
+.gr-contents-close { float: right; border: 1px solid var(--hb-rule); border-radius: 999px; background: var(--pearl); padding: 6px 12px; cursor: pointer; font-family: var(--hb-sans); font-weight: 800; font-size: 0.74rem; }
+
+/* ---- NO-JS / fallback: show every page stacked with scroll-snap page breaks ---- */
+.grimoire-shell:not(.gr-ready) .gr-nav,
+.grimoire-shell:not(.gr-ready) .gr-contents-btn { display: none; }
+.grimoire-shell:not(.gr-ready) .gr-page {
+  min-height: auto;
+  border-bottom: 1px solid var(--hb-rule);
+  padding-bottom: clamp(20px, 5vw, 40px);
+  margin-bottom: clamp(20px, 5vw, 40px);
+}
+.grimoire-shell:not(.gr-ready) .gr-page[hidden] { display: flex; }
+
+/* desktop progressive enhancement: a touch more page presence, optional spread feel */
+@media (min-width: 1024px) {
+  .gr-book { padding: clamp(34px, 4vw, 56px); }
+  .gr-page { min-height: 60vh; }
+}
+
+/* ============================================================
+   DARK CHROME — top/bottom bars go dark-translucent to match the
+   Madame CLAi-O backdrop; the cream book glows between them.
+   ============================================================ */
+.grimoire-shell .gr-topbar,
+.grimoire-shell .gr-nav {
+  background: rgba(26, 10, 18, 0.86) !important;
+  border-color: rgba(201, 162, 39, 0.45) !important;
+}
+.grimoire-shell .gr-where { color: rgba(255, 240, 232, 0.66); }
+.grimoire-shell .gr-progress { color: var(--hb-leaf-soft); }
+.grimoire-shell .gr-back,
+.grimoire-shell .gr-contents-btn,
+.grimoire-shell .gr-arrow {
+  background: rgba(255, 248, 240, 0.06);
+  border-color: rgba(201, 162, 39, 0.5);
+  color: #f5e6d6;
+}
+.grimoire-shell .gr-back:hover,
+.grimoire-shell .gr-contents-btn:hover,
+.grimoire-shell .gr-arrow:not(:disabled):hover {
+  background: var(--hb-leaf);
+  color: #2d0f1f;
+  border-color: var(--hb-leaf);
+}
+.grimoire-shell .gr-arrow:disabled { color: rgba(245, 230, 214, 0.4); }
+
+/* the "Ai" accent already handled by .brand-word-inline [data-brand-ai] in styles.css */
+
+/* BRAND WORDMARK FIX — in display contexts (Cinzel), the lowercase 'i' in
+   SLAiYER / LAiDIES / CLAi-O reads visually identical to capital 'I' because
+   Cinzel is a Roman-caps display face. Override the font for [data-brand-ai]
+   in every display-heading context so the lowercase i stays visible. */
+.grimoire-shell .hb-cover h1 [data-brand-ai],
+.grimoire-shell .hb-part [data-brand-ai],
+.grimoire-shell .gr-where [data-brand-ai],
+.grimoire-shell .hb-page-part [data-brand-ai] {
+  font-family: var(--hb-serif) !important;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: none !important;
+  letter-spacing: 0;
+  /* color intentionally NOT set here — let styles.css handle it:
+     deep rose on cream, light pink (#f6a5c0) on instances marked
+     brand-word-inline--on-dark. */
+}
+
+/* DARK-BACKGROUND WORDMARK RULE — when the LAiDIES / SLAiYER /
+   VOCABULAiRY etc. wordmark sits on a dark background, the lowercase
+   "Ai" matches the surrounding text color (no contrast pop). Brand
+   canon: light bg → rose pop; dark bg → wordmark reads as one solid
+   word in the same color as the line around it. */
+.grimoire-shell .gr-topbar [data-brand-ai],
+.grimoire-shell .gr-back [data-brand-ai],
+.grimoire-shell .gr-hub-title [data-brand-ai],
+.grimoire-shell .gr-hub-eyebrow [data-brand-ai],
+.grimoire-shell .gr-hub-dek [data-brand-ai],
+.grimoire-shell .hb-contents-title [data-brand-ai],
+.grimoire-shell .hb-contents-eyebrow [data-brand-ai],
+.grimoire-shell .hb-contents-dek [data-brand-ai] {
+  color: inherit !important;
+}
+
+/* ============================================================
+   ILLUMINATED SECTION TREATMENT
+   Shared across all live grimoire section landing pages.
+   Opt in by adding `gr-illuminated` to the section's <main> element.
+   Auto-targets the existing per-page class pattern (.gr-{section}-title,
+   -header, -illo, -dek) so each page opts in with one class change —
+   no per-page CSS forks. Pairs with the painted hub: hub is the cover,
+   sections are the typeset pages inside.
+   ============================================================ */
+
+.grimoire-shell .gr-illuminated {
+  background:
+    linear-gradient(135deg, rgba(155, 63, 95, 0.14), rgba(95, 38, 60, 0.07)),
+    #fbf3ea !important;
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.34),
+    inset 0 0 0 2.5px rgba(201, 162, 39, 0.85) !important;
+}
+
+/* Header is the landing block above the page body */
+.gr-illuminated [class*="-header"] {
+  position: relative;
+  text-align: center;
+}
+
+/* PAGE-level title: gold serif caps with paired ornaments.
+   Scoped to titles INSIDE a header block so sub-item titles (chapter
+   rows, glossary card strongs, etc.) keep their own quieter treatment. */
+.gr-illuminated [class*="-header"] [class*="-title"] {
+  font-family: var(--hb-serif) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--hb-leaf) !important;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem) !important;
+  line-height: 1.1 !important;
+  position: relative;
+  display: inline-block !important;
+  margin: 0 auto 6px !important;
+  padding: 0 1.7em !important;
+  max-width: none !important;
+}
+.gr-illuminated [class*="-header"] [class*="-title"]::before,
+.gr-illuminated [class*="-header"] [class*="-title"]::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(201, 162, 39, 0.72);
+  font-size: 0.62em;
+  line-height: 1;
+}
+.gr-illuminated [class*="-header"] [class*="-title"]::before { left: 0.45em; }
+.gr-illuminated [class*="-header"] [class*="-title"]::after { right: 0.45em; }
+
+/* Faint gold rule beneath the header block */
+.gr-illuminated [class*="-header"]::after {
+  content: "";
+  display: block;
+  width: clamp(120px, 30%, 220px);
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 162, 39, 0.65), transparent);
+  margin: 14px auto 18px;
+}
+
+/* Hero illustration framed as an illuminated plate */
+.gr-illuminated [class*="-illo"] {
+  display: block;
+  max-width: 320px !important;
+  width: 100%;
+  margin: 22px auto 6px !important;
+  padding: 8px !important;
+  background: linear-gradient(160deg, rgba(255, 248, 226, 0.6), rgba(255, 235, 200, 0.32)) !important;
+  border: 1.5px solid rgba(201, 162, 39, 0.85) !important;
+  border-radius: 4px !important;
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(201, 162, 39, 0.4) !important;
+  box-sizing: border-box;
+}
+
+/* Optional drop-cap: add `gr-illum-dropcap` to any paragraph */
+.gr-illuminated .gr-illum-dropcap::first-letter {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.82;
+  margin: 0.04em 0.14em -0.05em 0;
+  color: var(--hb-leaf);
+}
+
+/* Still-brewing entries inside an illuminated page — consistent with the
+   hub's painted brewing treatment (italic + softened). */
+.gr-illuminated .is-brewing,
+.gr-illuminated [data-status="brewing"] {
+  opacity: 0.72;
+  font-style: italic;
+}
+
+/* Make the illuminated tablet sit above the glitter field. */
+.gr-illuminated {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- FAIRY-GODMOTHER GLITTER LAYER ----
+   Floating gold/pink/cream glitter dots, drifting upward across the
+   viewport. Lives on top of the Mme CLAi-O dark backdrop and twinkling
+   stars (z-index 0, same as stars), but BENEATH the cream illuminated
+   tablets (z-index 2). Only paints on pages whose <main> opts in with
+   the `gr-illuminated` class — JS guards this. */
+.grimoire-shell .gr-glitter-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.grimoire-shell .gr-glitter-dot {
+  position: absolute;
+  width: var(--size, 4px);
+  height: var(--size, 4px);
+  border-radius: 50%;
+  background: var(--color, #ffd700);
+  opacity: 0;
+  animation: gr-glitter-float var(--duration, 6s) var(--delay, 0s) infinite ease-in-out;
+  box-shadow: 0 0 4px currentColor;
+}
+@keyframes gr-glitter-float {
+  0%   { opacity: 0;   transform: translateY(100vh) scale(0.3); }
+  20%  { opacity: 0.8; }
+  50%  { opacity: 0.5; transform: translateY(40vh)  scale(1); }
+  80%  { opacity: 0.3; }
+  100% { opacity: 0;   transform: translateY(-20px) scale(0.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grimoire-shell .gr-glitter-dot { animation: none; opacity: 0; }
+}
+
+/* ============================================================
+   CHAPTER FOOTER — "Next chapter →"
+   Final paginated page of each chapter. Live next → clickable
+   card linking to the next chapter. Brewing next → same card
+   shape but a "Still brewing" pill, non-clickable. Every
+   chapter keeps a live "Back to the Handbook" link below.
+   ============================================================ */
+.gr-chapter-next .hb-next-eyebrow {
+  font-family: var(--hb-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wine);
+  text-align: center;
+  margin: 0 0 8px;
+}
+.gr-chapter-next .hb-next-h {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  color: var(--hb-ink);
+  text-align: center;
+  margin: 0 0 20px;
+}
+.gr-chapter-next .hb-next-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  border-radius: 14px;
+  background:
+    linear-gradient(125deg, rgba(155, 63, 95, 0.08), rgba(36, 123, 131, 0.06)),
+    #fff8fc;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18), inset 0 0 0 1.5px rgba(201, 162, 39, 0.22);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.gr-chapter-next a.hb-next-card:hover,
+.gr-chapter-next a.hb-next-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24), inset 0 0 0 1.5px rgba(201, 162, 39, 0.55);
+  border-color: var(--hb-leaf);
+  outline: none;
+}
+.gr-chapter-next .hb-next-num {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--hb-leaf);
+}
+.gr-chapter-next .hb-next-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.gr-chapter-next .hb-next-label {
+  font-family: var(--hb-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wine);
+}
+.gr-chapter-next .hb-next-title {
+  font-family: var(--hb-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.18;
+  color: var(--hb-ink);
+}
+.gr-chapter-next .hb-next-dek {
+  margin: 2px 0 0;
+  font-family: var(--hb-serif);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.gr-chapter-next .hb-next-pill {
+  font-family: var(--hb-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--hb-rule);
+  color: var(--wine);
+  background: rgba(252, 228, 242, 0.55);
+  white-space: nowrap;
+  align-self: center;
+}
+.gr-chapter-next .hb-next-card.is-brewing {
+  opacity: 0.78;
+  cursor: default;
+}
+.gr-chapter-next .hb-next-card.is-brewing .hb-next-pill {
+  color: var(--muted);
+  border-color: var(--line);
+  background: rgba(245, 240, 245, 0.5);
+}
+.gr-chapter-next .hb-next-back {
+  text-align: center;
+  margin: 20px 0 0;
+  font-family: var(--hb-serif);
+  font-size: 0.96rem;
+}
+.gr-chapter-next .hb-next-back a {
+  color: var(--wine);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(111, 38, 63, 0.4);
+}
+.gr-chapter-next .hb-next-back a:hover,
+.gr-chapter-next .hb-next-back a:focus-visible {
+  color: var(--hb-leaf);
+  border-bottom-color: var(--hb-leaf);
+  outline: none;
+}
+@media (max-width: 620px) {
+  .gr-chapter-next .hb-next-card {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+  }
+  .gr-chapter-next .hb-next-pill {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 4px;
+  }
+}

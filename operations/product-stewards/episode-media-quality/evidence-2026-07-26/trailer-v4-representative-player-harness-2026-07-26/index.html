@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Trailer v4 — representative-player review harness</title>
+  <link rel="stylesheet" href="./player.css">
+</head>
+<body>
+  <main class="harness" id="harness">
+    <header class="review-header">
+      <p class="eyebrow">LOCAL REVIEW HARNESS · NOT PUBLIC</p>
+      <h1>Trailer v4 representative player</h1>
+      <p class="lede">Checksum-bound playback for independent Episode Media Quality rejudgment. This page does not admit the player or Trailer.</p>
+    </header>
+
+    <section class="binding-card" aria-labelledby="binding-heading">
+      <div>
+        <p class="section-label" id="binding-heading">Frozen-input preflight</p>
+        <p class="status" id="binding-status" role="status" aria-live="polite">Waiting for JavaScript verification. Playback is locked.</p>
+      </div>
+      <button class="secondary-button" id="retry-button" type="button" hidden>Retry verification</button>
+    </section>
+
+    <section class="player-shell" aria-labelledby="player-heading">
+      <h2 class="visually-hidden" id="player-heading">Trailer playback</h2>
+      <div class="picture-frame">
+        <video id="trailer" preload="metadata" playsinline aria-describedby="player-help caption-status">
+          Your browser does not support HTML video.
+        </video>
+        <div class="locked-state" id="locked-state">
+          <strong>Playback locked</strong>
+          <span>The exact MP4 and VTT must pass SHA-256 verification first.</span>
+        </div>
+      </div>
+
+      <div class="control-panel" aria-label="Video controls">
+        <button id="play-toggle" type="button" disabled aria-keyshortcuts="Space K">
+          <span aria-hidden="true">▶</span><span id="play-label">Play</span>
+        </button>
+        <button id="seek-back" type="button" disabled aria-label="Seek backward 10 seconds" aria-keyshortcuts="ArrowLeft J">−10s</button>
+        <button id="seek-forward" type="button" disabled aria-label="Seek forward 10 seconds" aria-keyshortcuts="ArrowRight L">+10s</button>
+        <button id="caption-toggle" type="button" disabled aria-pressed="true" aria-keyshortcuts="C">
+          Captions <span id="caption-button-state">on</span>
+        </button>
+        <p class="time" aria-label="Playback time"><span id="current-time">0:00</span><span aria-hidden="true"> / </span><span class="visually-hidden">of </span><span id="duration">—</span></p>
+      </div>
+
+      <div class="caption-region">
+        <div class="caption-heading-row">
+          <h2>Caption rail</h2>
+          <p id="caption-status" role="status" aria-live="polite">Captions requested; waiting for verified VTT.</p>
+        </div>
+        <div class="caption-rail" id="caption-rail" role="region" aria-label="Current English captions" aria-live="polite" aria-atomic="true">
+          Captions will appear here, below the picture.
+        </div>
+      </div>
+
+      <p class="help" id="player-help">Keyboard: Space or K plays/pauses; Left or J seeks back 10 seconds; Right or L seeks forward 10 seconds; C toggles captions. Controls show a visible focus ring.</p>
+    </section>
+
+    <aside class="evidence-note" aria-label="Review limitations">
+      <strong>Review boundary</strong>
+      <p>This local harness binds only the frozen Trailer v4 MP4 and inherited external VTT. It does not change a public route, and a maker run is not independent acceptance or a human normal-speed full watch.</p>
+    </aside>
+
+    <noscript>
+      <section class="no-js" aria-labelledby="no-js-title">
+        <h2 id="no-js-title">JavaScript is off: secure playback remains locked</h2>
+        <p>This harness will not load the media without verifying both frozen SHA-256 hashes. Enable JavaScript and reload to run that preflight. The essential review boundary and expected hashes remain available below.</p>
+        <dl>
+          <dt>MP4 SHA-256</dt>
+          <dd>760dbbc7daff1fb299074e7e8d03575635b77ab9c56ec8dece4fc99d26d68934</dd>
+          <dt>VTT SHA-256</dt>
+          <dd>5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d</dd>
+        </dl>
+      </section>
+    </noscript>
+  </main>
+  <script type="module" src="./player.js"></script>
+</body>
+</html>

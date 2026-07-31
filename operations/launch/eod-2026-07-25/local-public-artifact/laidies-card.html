@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="Your SUNNYVAiLE Closet — Resident Card, sticker book, sash, charm bracelet, and the collectible journey. Yours across every device.">
+  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+  <style>
+    main { max-width: 960px; }
+
+    /* Passport section wrapper */
+    .passport-section { margin: 64px 0; padding-top: 32px; border-top: 1px solid var(--line); }
+    .passport-section:first-of-type { border-top: none; padding-top: 0; margin-top: 32px; }
+    .passport-section-eyebrow {
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); margin: 0 0 8px;
+    }
+    .passport-section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--plum);
+      margin: 0 0 20px; line-height: 1.1;
+    }
+    .passport-section-lede {
+      font-size: 16px; color: var(--plum-soft); margin: 0 0 24px; line-height: 1.5;
+    }
+
+    /* Ai accent — brand tokens like SUNNYVAiLE, LUMINAiRY, MAiKEOVER get the "Ai" in rose */
+    .ai { color: var(--rose); }
+
+    /* ==============================================
+       COVEN — 4-slot pantheon band (SAiNT / MAiVEN / TRAiLBLAZER / Town)
+       ============================================== */
+    .coven-grid {
+      display: grid; gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .coven-slot {
+      position: relative;
+      display: flex; flex-direction: column; gap: 8px;
+      padding: 20px 20px 18px; border-radius: 16px;
+      background: linear-gradient(160deg, #fffdfb 0%, rgba(232, 197, 200, 0.28) 100%);
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      color: var(--plum); text-decoration: none;
+      box-shadow: 0 12px 30px rgba(75, 33, 72, 0.08);
+      transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.2s;
+      overflow: hidden;
+    }
+    .coven-slot:hover {
+      transform: translateY(-3px); text-decoration: none;
+      border-color: var(--rose);
+      box-shadow: 0 22px 46px rgba(155, 63, 95, 0.18);
+    }
+    .coven-slot::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--rose), var(--gold, #d4a853));
+    }
+    .coven-slot-kind {
+      font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+    }
+    .coven-slot-pick {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem; line-height: 1.2; color: var(--plum); font-weight: 700;
+    }
+    .coven-slot-pick.is-empty { color: var(--plum-soft, #766171); font-weight: 500; font-style: italic; }
+    .coven-slot-cta {
+      margin-top: auto; padding-top: 6px;
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.06em; color: var(--rose);
+    }
+
+    /* ==============================================
+       TRIP GUIDE — card lines change at their home buildings
+       ============================================== */
+    .trip-guide { max-width: 680px; margin: 26px auto 0; }
+    .trip-guide-title {
+      margin: 0 0 10px; font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose); text-align: center;
+    }
+    .trip-guide-grid {
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .trip-guide-row {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 14px; border-radius: 12px;
+      background: linear-gradient(160deg, #fffdfb 0%, rgba(232, 197, 200, 0.24) 100%);
+      border: 1px solid rgba(75, 33, 72, 0.14);
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.2s;
+    }
+    .trip-guide-row:hover { transform: translateY(-2px); border-color: var(--rose); text-decoration: none; }
+    .trip-guide-field {
+      font-family: 'Jost', sans-serif; font-size: 12.5px; font-weight: 700; color: var(--plum);
+    }
+    .trip-guide-dest {
+      font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--rose);
+    }
+
+    /* ======================================================
+       RESIDENCE CARD — horizontal, with FRONT / BACK flip
+       ====================================================== */
+    .card-viewport {
+      perspective: 1400px;
+      margin: 24px 0;
+    }
+    .card-viewport {
+      position: relative;
+    }
+    .card-flip {
+      position: relative;
+      width: 100%;
+    }
+    .card-face {
+      border-radius: 18px;
+      overflow: hidden;
+      transition: opacity 0.35s ease;
+    }
+    .card-face--back { display: none; }
+    .card-flip.is-flipped .card-face--front { display: none; }
+    .card-flip.is-flipped .card-face--back { display: block; }
+    .card-front,
+    .card-back {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
+      border: 2px solid var(--rose);
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(75, 33, 72, 0.10);
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-front::before, .card-back::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(201,162,39,0.08), transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(155,63,95,0.06), transparent 40%);
+      pointer-events: none;
+    }
+    .card-corner-header {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose);
+      margin-bottom: 14px; position: relative; z-index: 1;
+    }
+    .card-corner-header .resident-no {
+      color: var(--gold); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.14em;
+    }
+
+    /* Front layout: 240px avatar + info */
+    .card-front-body {
+      display: grid; grid-template-columns: 240px 1fr; gap: 28px;
+      position: relative; z-index: 1;
+    }
+    .card-avatar {
+      width: 100%; aspect-ratio: 1; border-radius: 14px;
+      background: linear-gradient(135deg, var(--pearl) 0%, var(--blush) 100%);
+      border: 1.5px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 88px; color: var(--rose);
+      overflow: hidden;
+    }
+    .card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .card-info { display: flex; flex-direction: column; }
+    .card-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(30px, 4.5vw, 40px); font-weight: 700; color: var(--plum);
+      line-height: 1.05; margin: 0 0 4px;
+    }
+    .card-archetype {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose); margin: 0 0 18px;
+    }
+    .card-facts { display: grid; gap: 8px; margin: 0 0 12px; }
+    .card-fact {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: var(--plum);
+    }
+    .card-fact[hidden] { display: none !important; }
+    .card-fact .fact-icon {
+      color: var(--gold); font-size: 14px; width: 22px; text-align: center; flex-shrink: 0;
+    }
+    .card-motto {
+      font-style: italic; font-size: 14px; color: var(--plum-soft);
+      margin: 4px 0 12px;
+    }
+    .card-footer-line {
+      margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line);
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.20em; text-transform: uppercase; color: var(--plum-soft);
+    }
+    .card-footer-line span { color: var(--rose); }
+
+    /* Back layout: mostly text */
+    .card-back-body {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 22px;
+      min-height: 220px;
+    }
+    .card-back-block-label {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);
+      margin: 0 0 8px;
+    }
+    .card-favorite-quote {
+      font-family: 'Playfair Display', Georgia, serif; font-style: italic;
+      font-size: clamp(20px, 2.6vw, 26px); font-weight: 400; color: var(--plum);
+      line-height: 1.35; margin: 0;
+    }
+    .card-quote-attrib {
+      display: block; margin-top: 8px; font-family: 'Jost', sans-serif; font-style: normal;
+      font-size: 13px; color: var(--plum-soft); font-weight: 500;
+    }
+    .card-devotion {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; background: var(--pearl); border-radius: 10px;
+    }
+    .card-devotion-halo {
+      width: 46px; height: 46px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, var(--gold), rgba(201,162,39,0.4));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--plum); font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 700; flex-shrink: 0;
+    }
+    .card-devotion-text { line-height: 1.3; font-size: 14px; color: var(--plum); }
+    .card-devotion-text strong { display: block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); font-weight: 700; margin-bottom: 2px; }
+
+    /* Flip toggle button */
+    .card-flip-toggle {
+      position: absolute; top: 12px; right: 12px; z-index: 10;
+      background: rgba(255, 253, 251, 0.9); border: 1px solid var(--line);
+      color: var(--rose); font-family: 'Jost', sans-serif; font-size: 10px;
+      font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 999px; cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: all 0.2s;
+    }
+    .card-flip-toggle:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+
+    /* Mobile stacked */
+    @media (max-width: 640px) {
+      .card-front-body { grid-template-columns: 1fr; }
+      .card-avatar { max-width: 240px; margin: 0 auto; }
+    }
+
+    /* Card actions */
+    .card-actions {
+      display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap;
+    }
+    .card-action-btn {
+      padding: 10px 20px; font-family: 'Jost', sans-serif; font-size: 13px;
+      font-weight: 600; background: transparent; color: var(--rose);
+      border: 1.5px solid var(--rose); border-radius: 999px; cursor: pointer;
+      transition: all 0.15s; text-decoration: none;
+    }
+    .card-action-btn:hover { background: var(--rose); color: var(--cream); }
+    .card-action-btn--primary {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+      color: var(--cream); border-color: transparent;
+    }
+    .card-action-btn--primary:hover {
+      background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose-bright) 100%);
+      color: var(--cream);
+    }
+
+    /* ======================================================
+       VESSELS — each collection type gets its own container
+       ====================================================== */
+    .vessel {
+      margin: 32px 0;
+      padding: 24px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .vessel-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .vessel-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px; font-weight: 700; color: var(--plum); margin: 0;
+    }
+    /* Best Friends necklaces */
+    .bestie-grid { display: flex; flex-wrap: wrap; gap: 12px; margin: 4px 0 0; }
+    .bestie-charm {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 15px 9px 12px; border-radius: 999px; text-decoration: none;
+      background: linear-gradient(135deg, #e982ab 0%, #ec7a78 100%);
+      color: #3a1838; font-weight: 800; font-size: 14px;
+      box-shadow: 0 3px 10px rgba(233,130,171,0.35);
+      transition: transform 160ms ease;
+    }
+    .bestie-charm:hover { transform: translateY(-2px); }
+    .bestie-heart { font-size: 15px; line-height: 1; }
+    .bestie-handle { letter-spacing: -0.01em; }
+    .vessel-icon {
+      width: 34px; height: 34px; object-fit: contain; image-rendering: pixelated;
+      vertical-align: -8px; margin-right: 11px;
+      filter: drop-shadow(0 2px 4px rgba(75,33,72,0.28));
+    }
+    .vessel-count {
+      font-family: 'JetBrains Mono', monospace; font-size: 13px;
+      color: var(--rose); font-weight: 600;
+    }
+    .vessel-note {
+      font-size: 13px; color: var(--plum-soft); margin: 12px 0 0; font-style: italic;
+    }
+
+    /* Sticker Book vessel */
+    .vessel--sticker-book {
+      background:
+        repeating-linear-gradient(0deg, transparent 0 39px, rgba(155,63,95,0.05) 39px 40px),
+        var(--pearl);
+      border: 1.5px dashed var(--rose);
+    }
+    .sticker-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 12px; padding: 8px;
+    }
+    .sticker {
+      aspect-ratio: 1; border-radius: 999px;
+      background: linear-gradient(135deg, var(--rose-bright), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cream); font-size: 28px;
+      box-shadow: 0 3px 8px rgba(155, 63, 95, 0.30);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .sticker:hover { transform: rotate(-6deg) scale(1.05); }
+    .sticker--empty {
+      background: transparent; border: 1.5px dashed var(--line);
+      color: transparent; box-shadow: none;
+    }
+    .sticker--empty:hover { transform: none; }
+
+    /* Sash vessel (merit badges) */
+    .vessel--sash {
+      background: linear-gradient(90deg, var(--plum) 0%, var(--plum-deep) 8%, var(--plum-deep) 92%, var(--plum) 100%);
+      color: var(--cream);
+      border: 0;
+      padding: 24px 40px;
+      position: relative;
+    }
+    .vessel--sash .vessel-title,
+    .vessel--sash .vessel-count { color: var(--gold); }
+    .vessel--sash .vessel-note { color: rgba(255,253,251,0.7); }
+    .sash-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+      gap: 14px; padding: 8px 0;
+    }
+    .merit-badge {
+      aspect-ratio: 1;
+      background: radial-gradient(circle at 30% 30%, var(--gold), rgba(201,162,39,0.5));
+      color: var(--plum-deep); font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      transition: transform 0.2s;
+    }
+    .merit-badge:hover { transform: scale(1.08); }
+    .merit-badge--empty {
+      background: transparent; border: 0;
+      color: rgba(201,162,39,0.30);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: rgba(201,162,39,0.08);
+    }
+    .merit-badge--empty:hover { transform: none; }
+
+    /* Charm Bracelet vessel */
+    .vessel--charm-bracelet {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--pearl) 100%);
+      padding: 30px 20px;
+    }
+    .charm-chain {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      gap: 4px; padding: 30px 0; position: relative;
+    }
+    .charm-chain::before {
+      content: ''; position: absolute; top: 50%;
+      left: 8%; right: 8%; height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 10%, var(--gold) 90%, transparent 100%);
+      transform: translateY(-50%); z-index: 0; border-radius: 2px; opacity: 0.55;
+    }
+    .charm {
+      position: relative; z-index: 1;
+      width: 48px; height: 48px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--rose-bright), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cream); font-size: 22px;
+      box-shadow: 0 3px 8px rgba(155, 63, 95, 0.35);
+      cursor: pointer; transition: transform 0.2s; margin: 0 4px;
+    }
+    .charm:hover { transform: translateY(-4px) scale(1.1); }
+    .charm--empty {
+      background: rgba(212, 168, 83, 0.05);
+      border: 2px dotted var(--gold, #d4a853);
+      color: transparent; box-shadow: none; opacity: 0.62;
+    }
+    .charm--empty:hover { transform: none; opacity: 0.85; border-color: var(--rose); }
+
+    /* Multi-week bracelet stack — one row per unlocked personal week */
+    #charmBracelet { padding: 8px 0; display: flex; flex-direction: column; gap: 16px; }
+    #charmBracelet::before { display: none; }
+    .charm-week-row {
+      padding: 14px 16px 12px;
+      border-radius: 14px;
+      background: rgba(255, 253, 251, 0.7);
+      border: 1px solid rgba(75, 33, 72, 0.12);
+      transition: opacity 200ms ease;
+    }
+    .charm-week-row.is-current {
+      background: linear-gradient(135deg, rgba(255,253,251,0.94) 0%, rgba(232,197,200,0.36) 100%);
+      border-color: rgba(155,63,95,0.42);
+      box-shadow: 0 12px 26px rgba(155,63,95,0.14);
+    }
+    .charm-week-row.is-complete .charm-week-chain { opacity: 0.94; }
+    .charm-week-row:not(.is-current):not(.is-complete) { opacity: 0.88; }
+    .charm-week-head {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      margin-bottom: 10px;
+    }
+    .charm-week-label {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 15px; font-weight: 700; color: var(--plum);
+    }
+    .charm-week-chip {
+      font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+      background: rgba(75,33,72,0.08); color: var(--plum);
+    }
+    .charm-week-chip--complete {
+      background: linear-gradient(90deg, var(--gold, #d4a853), var(--rose));
+      color: #fffdfb;
+    }
+
+    /* The Town Wallet — the card rides in a leather bifold; membership
+       cards for every building fill the slots below */
+    .wallet-shell {
+      position: relative;
+      margin: 6px 0 26px;
+      padding: 34px 22px 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(120% 90% at 20% 0%, rgba(255,253,251,0.07), transparent 55%),
+        linear-gradient(165deg, #4a2334 0%, #38182a 55%, #2a1020 100%);
+      border: 1.5px solid rgba(212,168,83,0.35);
+      box-shadow: inset 0 0 0 8px rgba(0,0,0,0.14), inset 0 0 60px rgba(0,0,0,0.28), 0 22px 48px rgba(42,18,38,0.4);
+    }
+    .wallet-shell::before {
+      content: ''; position: absolute; inset: 12px; pointer-events: none;
+      border: 1.5px dashed rgba(212,168,83,0.4); border-radius: 14px;
+    }
+    .wallet-label {
+      position: absolute; top: -1px; left: 50%; transform: translateY(-50%) translateX(-50%);
+      white-space: nowrap; padding: 5px 18px;
+      background: linear-gradient(90deg, var(--gold, #d4a853), #b98a3e); color: #2a1020;
+      border-radius: 999px; font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+    .wallet-slots { margin-top: 26px; padding-top: 18px; border-top: 1.5px dashed rgba(212,168,83,0.35); }
+    .wallet-slots-title {
+      margin: 0 0 4px; font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold, #d4a853);
+    }
+    .wallet-slots-note { margin: 0 0 16px; font-size: 13px; font-style: italic; color: rgba(255,253,251,0.72); }
+    .wallet-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 14px;
+    }
+    .wallet-card {
+      position: relative; display: flex; flex-direction: column; gap: 5px;
+      padding: 13px 14px 12px; border-radius: 12px; overflow: hidden;
+      color: #fffdfb;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,253,251,0.18);
+    }
+    .wallet-card--0 { background: linear-gradient(150deg, #5c2a57 0%, #4b2148 70%); }
+    .wallet-card--1 { background: linear-gradient(150deg, #45918e 0%, #2f7572 70%); }
+    .wallet-card--2 { background: linear-gradient(150deg, #c08a63 0%, #a76b47 70%); }
+    .wallet-card--3 { background: linear-gradient(150deg, #c98a92 0%, #ad6a74 70%); }
+    .wallet-card::after {
+      content: ''; position: absolute; right: -22px; top: -26px; width: 90px; height: 90px;
+      border-radius: 50%; background: rgba(255,253,251,0.09); pointer-events: none;
+    }
+    .wallet-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+    .wallet-card-name { font-family: 'Jost', sans-serif; font-size: 13.5px; font-weight: 800; letter-spacing: 0.04em; line-height: 1.2; }
+    .wallet-card-name .ai { color: #ffdc8c; }
+    .wallet-card-emoji { font-size: 19px; flex: 0 0 auto; }
+    .wallet-card-addr { font-family: 'Jost', sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.8; }
+    .wallet-card-meta { display: flex; justify-content: space-between; gap: 8px; margin-top: 2px; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.92; }
+    .wallet-card-meta strong { font-size: 12px; letter-spacing: 0.04em; }
+    .wallet-card-barcode {
+      height: 16px; margin-top: 6px; border-radius: 3px;
+      background: repeating-linear-gradient(90deg, #fffdfb 0 2px, transparent 2px 4px, #fffdfb 4px 5px, transparent 5px 9px, #fffdfb 9px 12px, transparent 12px 14px);
+      opacity: 0.85;
+    }
+    .wallet-card-visit {
+      margin-top: 9px; align-self: flex-start;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(255,253,251,0.94); color: #4b2148; text-decoration: none;
+      font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .wallet-card-visit:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgba(0,0,0,0.3); }
+
+    /* Butterfly Clip Jar — Pop Quiz scores banked as clips */
+    .clip-jar { display: flex; gap: 22px; align-items: stretch; flex-wrap: wrap; padding: 6px 0 2px; }
+    .clip-jar-glass {
+      flex: 0 0 150px; min-height: 150px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+      background: linear-gradient(165deg, rgba(232,197,200,0.3) 0%, rgba(255,253,251,0.75) 45%, rgba(232,197,200,0.35) 100%);
+      border: 2px solid rgba(75,33,72,0.22);
+      border-top-width: 6px;
+      border-radius: 14px 14px 26px 26px;
+      box-shadow: inset 0 -14px 22px rgba(155,63,95,0.14), inset 6px 0 12px rgba(255,253,251,0.7), 0 10px 20px rgba(75,33,72,0.14);
+    }
+    .clip-jar-total {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px; font-weight: 800; line-height: 1; color: var(--plum);
+    }
+    .clip-jar-unit {
+      font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);
+      text-align: center;
+    }
+    .clip-jar-ledger { flex: 1 1 220px; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; justify-content: center; }
+    .clip-jar-ledger li {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      padding: 7px 12px; border-radius: 8px;
+      background: rgba(255,253,251,0.7); border: 1px solid rgba(75,33,72,0.12);
+      font-size: 13.5px; color: var(--plum);
+    }
+    .clip-jar-ledger .clip-ep { font-family: 'Jost', sans-serif; font-size: 10.5px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum); opacity: 0.75; }
+    .clip-jar-ledger .clip-amount { font-weight: 700; white-space: nowrap; }
+    .clip-jar-ledger .clip-amount.is-broken { color: var(--rose); font-style: italic; }
+    .clip-jar-ledger .clip-empty { justify-content: center; font-style: italic; color: var(--plum-soft, var(--plum)); font-family: 'Playfair Display', Georgia, serif; }
+    /* Bracelet-mounted charm row: real bracelet PNG as background, 7 charms
+       positioned so each charm's own top gold ring interlocks visually with the
+       bracelet's hanging jump ring at that position — "hooked into" the bracelet.
+       Container has extra bottom margin so hanging charms don't clip below. */
+    .charm-week-chain {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      margin: 8px auto 56px;
+      aspect-ratio: 6 / 1;
+      padding: 0;
+      overflow: visible;
+      background-image: url('/assets/charms/charm-bracelet-base.png?v=20260703-1');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100% auto;
+    }
+    .charm-week-chain::before { display: none; }
+    /* Both charm and empty-marker share the SAME top attach-line — right at the
+       bracelet's built-in hanging-ring row (~62% of container height). The
+       charm's own baked-in gold ring (top of its PNG) overlaps the bracelet's
+       ring, so the two rings visually interlock. Charm body extends below. */
+    .charm-week-chain .charm,
+    .charm-week-chain .charm--empty {
+      position: absolute;
+      top: 62%;
+      transform: translate(-50%, -50%);
+    }
+    .charm-week-chain .charm {
+      width: 58px; height: 80px;
+      margin: 0;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      color: inherit;
+      overflow: visible;
+      /* Nudge the charm downward so its top ring aligns with the bracelet's
+         hanging ring (charm body then hangs BELOW the chain). */
+      transform: translate(-50%, -30%);
+    }
+    .charm-week-chain .charm img {
+      width: 100%; height: 100%; object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(75, 33, 72, 0.28));
+      transition: transform 200ms ease;
+    }
+    .charm-week-chain .charm:hover img { transform: translateY(-2px) scale(1.08); }
+    /* Empty slot: small dotted-gold ring at the same hanging-ring row. */
+    .charm-week-chain .charm--empty {
+      width: 16px; height: 16px;
+      border: 2px dotted var(--gold, #d4a853);
+      border-radius: 50%;
+      background: rgba(212, 168, 83, 0.06);
+      opacity: 0.55;
+    }
+    .charm-week-chain .charm--empty:hover { opacity: 0.85; border-color: var(--rose); }
+
+    /* Jewelry Box — collapsible archive of past weeks so 24 bracelets don't stack */
+    .jewelry-box {
+      margin-top: 24px;
+      padding: 14px 16px 10px;
+      border: 1.5px dashed rgba(155, 63, 95, 0.28);
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,253,251,0.55), rgba(232,197,200,0.14));
+    }
+    .jewelry-box > summary {
+      cursor: pointer;
+      display: flex; align-items: center; gap: 10px;
+      list-style: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--plum);
+      padding: 4px 0;
+      user-select: none;
+    }
+    .jewelry-box > summary::-webkit-details-marker { display: none; }
+    .jewelry-box > summary::before {
+      content: '▸';
+      display: inline-block;
+      color: var(--gold, #d4a853);
+      font-size: 14px;
+      transition: transform 200ms ease;
+    }
+    .jewelry-box[open] > summary::before { transform: rotate(90deg); }
+    .jewelry-box > summary .jewelry-box-count {
+      margin-left: auto;
+      font-size: 10.5px; letter-spacing: 0.16em;
+      color: var(--plum-soft, var(--plum));
+      font-weight: 700;
+    }
+    .jewelry-box[open] > summary { margin-bottom: 8px; border-bottom: 1px dashed rgba(75,33,72,0.14); padding-bottom: 10px; }
+    .jewelry-box .charm-week-row { padding: 8px 12px 6px; }
+    .jewelry-box .charm-week-chain { max-width: 520px; margin: 4px auto 40px; }
+    .jewelry-box .charm-week-row .charm-week-label { font-size: 12px; }
+
+    /* Card Binder vessel (trading cards) */
+    .vessel--card-binder {
+      background: linear-gradient(135deg, #fef8ef 0%, var(--pearl) 100%);
+      border: 1.5px solid var(--gold);
+    }
+    .card-binder-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 14px; padding: 8px 0;
+    }
+    .trading-card {
+      aspect-ratio: 3 / 4; border-radius: 10px;
+      background: linear-gradient(160deg, var(--rose), var(--plum-deep));
+      color: var(--cream); padding: 10px;
+      display: flex; align-items: flex-end;
+      font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      box-shadow: 0 4px 12px rgba(75, 33, 72, 0.14);
+      transition: transform 0.2s;
+    }
+    .trading-card:hover { transform: translateY(-4px) rotate(-2deg); }
+    .trading-card--empty {
+      background: transparent; border: 1.5px dashed var(--gold);
+      color: rgba(201, 162, 39, 0.40); box-shadow: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700;
+    }
+    .trading-card--empty:hover { transform: none; }
+
+    /* Detention Board vessel (dare penalties) */
+    .vessel--detention {
+      background: linear-gradient(180deg, var(--pearl) 0%, var(--cream) 100%);
+      border: 1.5px solid var(--line);
+    }
+    .detention-board {
+      position: relative;
+      min-height: 140px;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(155,63,95,0.05), transparent 20%),
+        radial-gradient(circle at 70% 60%, rgba(155,63,95,0.05), transparent 20%),
+        radial-gradient(circle at 50% 90%, rgba(155,63,95,0.05), transparent 20%),
+        var(--cream);
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+    }
+    .detention-slips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .detention-slip {
+      background: linear-gradient(180deg, #fffcf4 0%, #fef8e8 100%);
+      border: 1px solid rgba(75, 33, 72, 0.15);
+      border-left: 3px solid var(--rose);
+      padding: 14px 16px 18px;
+      transform: rotate(-1.5deg);
+      box-shadow: 0 3px 8px rgba(75, 33, 72, 0.10);
+      position: relative;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--plum);
+      line-height: 1.5;
+    }
+    .detention-slip:nth-child(even) { transform: rotate(1deg); }
+    .detention-slip:nth-child(3n) { transform: rotate(-0.5deg); }
+    .detention-slip::before {
+      content: '📌';
+      position: absolute;
+      top: -8px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+    }
+    .detention-slip-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin: 0 0 6px;
+    }
+    .detention-slip-dare {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--plum);
+      margin: 0 0 8px;
+    }
+    .detention-slip-date {
+      font-size: 10px;
+      color: var(--plum-soft);
+    }
+    .detention-empty {
+      text-align: center;
+      padding: 20px;
+      color: var(--plum-soft);
+      font-style: italic;
+      font-size: 14px;
+    }
+    .detention-empty strong { color: var(--plum); font-style: normal; }
+
+    /* Locked Diary vessel (secret badges) */
+    .vessel--diary {
+      background: linear-gradient(160deg, #6b3a66 0%, #4b2148 100%);
+      color: var(--cream); border: 0;
+      position: relative; overflow: hidden;
+    }
+    .vessel--diary::before {
+      content: '🔐'; position: absolute; top: 16px; right: 20px; font-size: 26px; opacity: 0.7;
+    }
+    .vessel--diary .vessel-title,
+    .vessel--diary .vessel-count { color: var(--gold); }
+    .vessel--diary .vessel-note { color: rgba(255,253,251,0.7); }
+    .diary-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 14px; padding: 8px 0;
+    }
+    .secret-badge {
+      aspect-ratio: 1; border-radius: 12px;
+      background: rgba(201, 162, 39, 0.20);
+      border: 1.5px dashed rgba(201, 162, 39, 0.60);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(201, 162, 39, 0.85);
+      font-family: 'JetBrains Mono', monospace; font-size: 22px;
+    }
+    .secret-badge--revealed {
+      background: linear-gradient(135deg, var(--gold), rgba(201, 162, 39, 0.7));
+      color: var(--plum-deep); border: 0;
+      font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
+    }
+
+    /* ======================================================
+       FAIRY PLAYS BANK
+       ====================================================== */
+    .fairy-bank {
+      background: linear-gradient(135deg, #fff6fa 0%, #fce4f2 100%);
+      border: 1.5px solid var(--rose); border-radius: 18px;
+      padding: 28px 32px;
+      display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
+    }
+    .fairy-bank-icon { font-size: 64px; line-height: 1; }
+    .fairy-bank-count {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 44px; font-weight: 700; color: var(--plum);
+      line-height: 1; margin: 0 0 4px;
+    }
+    .fairy-bank-count small {
+      font-size: 14px; color: var(--plum-soft); font-weight: 400;
+      font-family: 'Jost', sans-serif; margin-left: 8px;
+    }
+    .fairy-bank-label {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.20em; text-transform: uppercase; color: var(--rose); margin: 0 0 12px;
+    }
+    .fairy-earn-tips {
+      list-style: none; padding: 0; margin: 12px 0 0; font-size: 13px; color: var(--plum-soft);
+    }
+    .fairy-earn-tips li { padding: 4px 0; display: flex; gap: 8px; }
+    .fairy-earn-tips li::before { content: '★'; color: var(--gold); }
+    @media (max-width: 640px) { .fairy-bank { grid-template-columns: 1fr; text-align: center; } }
+
+    /* ======================================================
+       LEADERBOARDS
+       ====================================================== */
+    .leaderboard-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-top: 20px;
+    }
+    .leaderboard-card {
+      background: var(--cream); border: 1px solid var(--line);
+      border-radius: 14px; padding: 20px 22px;
+    }
+    .leaderboard-card-title {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); margin: 0 0 12px;
+    }
+    .leaderboard-list { list-style: none; padding: 0; margin: 0; }
+    .leaderboard-list li {
+      display: flex; padding: 6px 0; border-bottom: 1px solid var(--line);
+      font-size: 14px; color: var(--plum);
+    }
+    .leaderboard-list li:last-child { border-bottom: 0; }
+    .leaderboard-list .rank {
+      font-family: 'JetBrains Mono', monospace; color: var(--rose);
+      font-weight: 600; margin-right: 12px; width: 24px;
+    }
+    .leaderboard-list .name { flex: 1; }
+    .leaderboard-list .score { color: var(--plum-soft); font-family: 'JetBrains Mono', monospace; }
+    .leaderboard-list li.is-you {
+      background: var(--blush); padding-left: 8px; padding-right: 8px;
+      border-radius: 6px; border-bottom-color: transparent;
+    }
+    .leaderboard-list li.is-you .name { font-weight: 700; }
+    .your-rank-note { margin-top: 12px; font-size: 12px; color: var(--plum-soft); font-style: italic; }
+
+    /* ======================================================
+       SEND A NOTE (Post Office DM)
+       ====================================================== */
+    .send-note-block {
+      margin: 24px 0;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #fff8fc 0%, #fce4f2 100%);
+      border: 1.5px solid var(--rose); border-radius: 14px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .send-note-block[hidden] { display: none; }
+    .send-note-icon { font-size: 32px; }
+    .send-note-copy { flex: 1; min-width: 200px; }
+    .send-note-copy strong { display: block; color: var(--plum); font-size: 16px; margin-bottom: 2px; }
+    .send-note-copy p { margin: 0; font-size: 13px; color: var(--plum-soft); }
+
+    /* ======================================================
+       EDIT PANEL (collapsed by default)
+       ====================================================== */
+    .edit-panel {
+      background: var(--cream); border: 2px solid var(--rose);
+      border-radius: 18px; padding: 32px; margin-top: 24px;
+    }
+    .edit-panel[hidden] { display: none; }
+    .edit-panel h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px; color: var(--plum); margin: 0 0 20px;
+    }
+    .edit-field { display: block; margin-bottom: 20px; }
+    .edit-field-label {
+      font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.10em; text-transform: uppercase; color: var(--plum);
+      margin-bottom: 8px; display: block;
+    }
+    .edit-field-input, .edit-field-select {
+      width: 100%; padding: 12px 16px;
+      font-family: 'Jost', sans-serif; font-size: 15px; color: var(--plum);
+      background: var(--pearl); border: 1.5px solid var(--line);
+      border-radius: 10px; box-sizing: border-box;
+    }
+    .edit-field-input:focus, .edit-field-select:focus {
+      outline: none; border-color: var(--rose);
+    }
+    .avatar-picker-note {
+      padding: 16px;
+      background: linear-gradient(135deg, #fff8fc 0%, #fce4f2 100%);
+      border-radius: 8px; font-size: 12px; color: var(--plum-soft);
+      text-align: center; font-style: italic;
+    }
+    .save-actions {
+      display: flex; gap: 12px; justify-content: flex-end;
+      margin-top: 24px; flex-wrap: wrap;
+    }
+    .save-btn {
+      padding: 14px 32px; font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 700;
+      background: linear-gradient(135deg, var(--plum) 0%, var(--rose) 100%);
+      color: var(--cream); border: none; border-radius: 999px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .save-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(155, 63, 95, 0.30); }
+    .cancel-btn {
+      padding: 14px 24px; font-family: 'Jost', sans-serif;
+      font-size: 14px; font-weight: 600; background: transparent;
+      color: var(--plum-soft); border: 1.5px solid var(--line);
+      border-radius: 999px; cursor: pointer;
+    }
+
+    /* Public-mode banner */
+    .public-mode-banner {
+      background: linear-gradient(135deg, #fff8fc 0%, #fce4f2 100%);
+      border: 1.5px solid var(--rose); border-radius: 12px;
+      padding: 16px 20px; display: flex; align-items: center; gap: 14px;
+      margin: 24px 0; font-size: 14px; color: var(--plum);
+    }
+    .public-mode-banner[hidden] { display: none; }
+    .public-mode-banner strong { color: var(--rose); }
+  </style>
+  <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body class="closet-page">
+
+<header class="sv-header"></header>
+
+<main class="closet-main">
+
+  <!-- Closet interior hero — vibrant 1990s fashion-tech; self-hides if the art is unavailable -->
+  <div id="closetHero" style="margin:0 0 10px;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(75,33,72,0.22);">
+    <img src="/assets/closet/closet-interior-hero-v2-90s-vibrant.png?v=20260721" alt="Inside your Closet — a vibrant 1990s dressing room at Delta LAi Nu" loading="eager"
+         style="display:block;width:100%;height:clamp(150px,28vh,280px);object-fit:cover;object-position:center 48%;"
+         onerror="this.parentNode.remove();">
+    <div class="closet-arrival-copy">
+      <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
+      <h1>The Closet</h1>
+      <span>Your Resident Card, Wednesday route, and every object you have collected in SUNNYVA<span class="ai">i</span>LE.</span>
+    </div>
+  </div>
+
+  <!-- Public mode banner -->
+  <div class="public-mode-banner" id="publicModeBanner" hidden>
+    <span style="font-size: 20px;">👀</span>
+    <div>
+      <strong>You're looking at another resident's Closet.</strong>
+      Want your own? <a href="/maikeover.html" style="color: var(--rose); font-weight: 600; text-decoration: underline;">Get your Resident Card at MAiKEOVER →</a>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       SECTION 1: RESIDENCE CARD (with flip)
+       ============================================== -->
+  <section class="passport-section" id="sectionCard">
+    <p class="passport-section-eyebrow">★ <a href="/sorority-house.html" style="color: inherit; text-decoration: none;">Delta L<span class="ai">Ai</span> Nu</a> · Your Closet · Your Card</p>
+    <h2 class="passport-section-title" id="cardSectionTitle">Your Resident Card</h2>
+
+    <!-- The Town Wallet — the Resident Card rides in the front pocket;
+         every building's membership card fills the slots below -->
+    <div class="wallet-shell">
+      <div class="wallet-label" aria-hidden="true">★ THE TOWN WALLET · SUNNYVAiLE · est. 1999</div>
+
+    <div class="card-viewport">
+      <div class="card-flip" id="cardFlip">
+
+        <!-- FRONT -->
+        <div class="card-face card-face--front card-front">
+          <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.add('is-flipped')">Flip →</button>
+          <div class="card-corner-header">
+            <span>★ SUNNYVAiLE Resident Card</span>
+            <span class="resident-no" id="residentNo">No. 0000</span>
+          </div>
+          <div class="card-front-body">
+            <div class="card-avatar" id="cardAvatar"></div>
+            <div class="card-info">
+              <p class="card-name" id="cardName">Your Name</p>
+              <p class="card-archetype" id="cardArchetype">Your Archetype</p>
+              <div class="card-facts">
+                <div class="card-fact"><span class="fact-icon">♪</span><span id="cardSong">Pick your favorite LAiDIES song</span></div>
+                <div class="card-fact"><span class="fact-icon">✿</span><span id="cardActivity">Pick your favorite SUNNYVAiLE activity</span></div>
+                <div class="card-fact"><span class="fact-icon">★</span><span id="cardSaintLine">Devoted to ______</span></div>
+                <div class="card-fact" id="cardMovieRow" hidden><span class="fact-icon">✦</span><span id="cardMovie"></span></div>
+                <div class="card-fact" id="cardTvRow" hidden><span class="fact-icon">✦</span><span id="cardTv"></span></div>
+                <div class="card-fact" id="cardCarryRow" hidden><span class="fact-icon">✦</span><span id="cardCarry"></span></div>
+                <div class="card-fact" id="cardEpisodeRow" hidden><span class="fact-icon">✦</span><span id="cardEpisode"></span></div>
+                <div class="card-fact" id="cardStorefrontRow" hidden><span class="fact-icon">✦</span><span id="cardStorefront"></span></div>
+                <div class="card-fact" id="cardCharacterRow" hidden><span class="fact-icon">✦</span><span id="cardCharacter"></span></div>
+                <div class="card-fact" id="cardCocktailRow" hidden><span class="fact-icon">✦</span><span id="cardCocktail"></span></div>
+              </div>
+              <p class="card-motto" id="cardMotto" hidden></p>
+              <div class="card-footer-line">
+                ★ Population: <span>women just like you</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACK -->
+        <div class="card-face card-face--back card-back">
+          <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.remove('is-flipped')">← Flip</button>
+          <div class="card-corner-header">
+            <span>★ Card Back</span>
+            <span class="resident-no" id="residentNoBack">No. 0000</span>
+          </div>
+          <div class="card-back-body">
+            <div>
+              <p class="card-back-block-label">Favorite Quote</p>
+              <blockquote class="card-favorite-quote" id="cardQuote">
+                "Pick a quote you live by."
+                <span class="card-quote-attrib" id="cardQuoteAttrib"></span>
+              </blockquote>
+            </div>
+            <div class="card-devotion">
+              <div class="card-devotion-halo" id="cardSaintHalo">★</div>
+              <div class="card-devotion-text">
+                <strong>PATRON SAiNT</strong>
+                <span id="cardSaint">— pick your saint —</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card-actions" id="selfCardActions">
+      <button type="button" class="card-action-btn card-action-btn--primary" id="editCardBtn">✎ Edit my card</button>
+      <button type="button" class="card-action-btn" id="shareCardBtn">Share my card</button>
+    </div>
+    <div class="card-actions" id="publicCardActions" hidden>
+      <a class="card-action-btn card-action-btn--primary" href="/maikeover.html">Get your own card →</a>
+    </div>
+
+      <!-- Wallet slots: one membership card per building, 90s-style -->
+      <div class="wallet-slots" id="walletSlots">
+        <p class="wallet-slots-title">Membership cards</p>
+        <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
+        <div class="wallet-grid" id="walletGrid"></div>
+      </div>
+    </div>
+
+    <!-- Trip guide: card lines change at their home buildings (customization = a trip) -->
+    <div class="trip-guide" id="tripGuide">
+      <p class="trip-guide-title">★ Change a line by going where it lives</p>
+      <div class="trip-guide-grid">
+        <a class="trip-guide-row" href="/mall/pieces-of-flair.html">
+          <span class="trip-guide-field">Avatar</span>
+          <span class="trip-guide-dest">PIECES OF FL<span class="ai">Ai</span>R at the Mall →</span>
+        </a>
+        <a class="trip-guide-row" href="/radio.html">
+          <span class="trip-guide-field">Song</span>
+          <span class="trip-guide-dest">KSVL Community R<span class="ai">Ai</span>DIO →</span>
+        </a>
+        <a class="trip-guide-row" href="/chick-flicks.html">
+          <span class="trip-guide-field">Episode</span>
+          <span class="trip-guide-dest">The Chick Flicks →</span>
+        </a>
+        <a class="trip-guide-row" href="/bronze-aige.html">
+          <span class="trip-guide-field">Cocktail</span>
+          <span class="trip-guide-dest">The BRONZE <span class="ai">Ai</span>GE →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Send a Note (Post Office DM) — public mode only -->
+    <div class="send-note-block" id="sendNoteBlock" hidden>
+      <span class="send-note-icon">✉️</span>
+      <div class="send-note-copy">
+        <strong>Send a note via the SUNNYVAiLE Post Office</strong>
+        <p>Soon: send a note or a gift through the SUNNYVAiLE Post Office, straight to her PO box.</p>
+      </div>
+      <p class="send-note-soon" style="margin: 0; font-size: 13px; font-style: italic; color: var(--plum-soft, #6b3a66);">The mail counter is still being built — notes and gifts are in the works at the Post Office.</p>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 1.1: THE REPORT CARD — every count at a glance.
+       Reads the live count elements (never re-derives), stays in
+       sync via MutationObserver, so self + public views both work.
+       ============================================== -->
+  <style>
+    .dash-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); gap: 12px; }
+    .dash-tile { display: flex; flex-direction: column; text-align: left; padding: 14px 14px 12px;
+      border-radius: 12px; background: #fffdfb; border: 1.5px solid rgba(75,33,72,0.14); cursor: pointer;
+      font-family: 'Jost', sans-serif; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
+    .dash-tile:hover, .dash-tile:focus-visible { transform: translateY(-2px); border-color: var(--rose); box-shadow: 0 8px 20px rgba(75,33,72,0.12); outline: none; }
+    .dash-tile__icon { font-size: 20px; line-height: 1; margin-bottom: 8px; }
+    .dash-tile__value { font-size: 26px; font-weight: 800; color: var(--plum-deep); line-height: 1; }
+    .dash-tile__value small { font-size: 13px; font-weight: 700; color: var(--plum-soft, #766171); }
+    .dash-tile__label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); margin-top: 4px; }
+    .dash-tile__hint { font-size: 11px; color: var(--plum-soft, #766171); margin-top: 2px; line-height: 1.35; }
+    .dash-tile.is-complete .dash-tile__hint { color: var(--gold, #c9a227); font-weight: 700; }
+    .dash-bar { height: 5px; border-radius: 999px; background: rgba(75,33,72,0.10); margin-top: 8px; overflow: hidden; }
+    .dash-bar__fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--teal, #3aa8a4), var(--gold, #c9a227)); transition: width 0.5s ease; }
+    .vessel-flash { animation: dashVesselFlash 1.4s ease; }
+    @keyframes dashVesselFlash { 0%, 100% { box-shadow: none; } 25% { box-shadow: 0 0 0 3px var(--gold, #c9a227); } }
+  </style>
+  <section class="passport-section" id="dashboardSection">
+    <p class="passport-section-eyebrow">★ Closet · At a glance</p>
+    <h2 class="passport-section-title" id="dashTitle">Your Report Card</h2>
+    <p class="passport-section-lede" id="dashLede">Every collection, counted. Tap a tile to jump straight to the shelf it lives on.</p>
+    <div class="dash-grid" id="dashGrid"></div>
+  </section>
+
+  <script>
+    (function() {
+      'use strict';
+      var params = new URLSearchParams(window.location.search);
+      var isPublic = !!(params.get('u') || params.get('member'));
+
+      // src: count element the vessel renderers already write to (single source
+      // of truth — the dashboard never re-derives). src:null = buildings tile,
+      // counted from laidies_building_visits. pub: shown on someone else's
+      // Closet (only tiles backed by their synced reward events qualify).
+      var TILES = [
+        { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
+        { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
+        { icon: '🦋', label: 'Butterfly clips',   src: 'clipJarTotal',   target: 'butterflyJar',     total: null, pub: false, hint: 'Quiz scores, banked' },
+        { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Girl Talk' },
+        { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
+        { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
+        { icon: '🔐', label: 'Diary secrets',     src: 'secretCount',    target: 'secretGrid',       total: 4,    pub: true,  hint: 'Try things around town' },
+        { icon: '🧚', label: 'F<span class="ai">Ai</span>RY wishes', src: 'fairyPlayCount', target: 'fairyBankSection', total: null, pub: false, hint: 'Bonus plays at Willow Lane' },
+        { icon: '🪪', label: 'Buildings visited', src: null,             target: 'walletGrid',       total: null, pub: false, hint: 'Stamped at the door' }
+      ];
+
+      function readCount(t) {
+        if (t.src === null) {
+          try {
+            var v = JSON.parse(localStorage.getItem('laidies_building_visits')) || {};
+            return Object.keys(v).length;
+          } catch (e) { return 0; }
+        }
+        var el = document.getElementById(t.src);
+        if (!el) return 0;
+        var n = parseInt(el.textContent, 10);
+        return isNaN(n) ? 0 : n;
+      }
+
+      function mount() {
+        var grid = document.getElementById('dashGrid');
+        if (!grid) return;
+        if (isPublic) {
+          document.getElementById('dashTitle').textContent = 'Their Report Card';
+          document.getElementById('dashLede').textContent = "What they've collected around town.";
+        }
+        var tiles = TILES.filter(function(t) { return isPublic ? t.pub : true; });
+        // Buildings total comes from the live directory
+        var buildingsTotal = (window.SV_BUILDINGS || []).length || 17;
+
+        tiles.forEach(function(t) {
+          if (t.src === null) t.total = buildingsTotal;
+          var tile = document.createElement('button');
+          tile.type = 'button';
+          tile.className = 'dash-tile';
+          tile.innerHTML =
+            '<span class="dash-tile__icon" aria-hidden="true">' + t.icon + '</span>' +
+            '<span class="dash-tile__value"><span class="dash-tile__n">0</span>' + (t.total ? '<small> / ' + t.total + '</small>' : '') + '</span>' +
+            '<span class="dash-tile__label">' + t.label + '</span>' +
+            '<span class="dash-tile__hint">' + t.hint + '</span>' +
+            (t.total ? '<span class="dash-bar"><span class="dash-bar__fill" style="width: 0%"></span></span>' : '');
+          tile.addEventListener('click', function() {
+            var dest = document.getElementById(t.target);
+            if (!dest) return;
+            dest.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            var vessel = dest.closest('.vessel, .passport-section') || dest;
+            vessel.classList.remove('vessel-flash');
+            void vessel.offsetWidth; // restart the animation
+            vessel.classList.add('vessel-flash');
+            setTimeout(function() { vessel.classList.remove('vessel-flash'); }, 1500);
+          });
+          grid.appendChild(tile);
+
+          t._nEl = tile.querySelector('.dash-tile__n');
+          t._hintEl = tile.querySelector('.dash-tile__hint');
+          t._fillEl = tile.querySelector('.dash-bar__fill');
+          t._tileEl = tile;
+        });
+
+        function refresh() {
+          tiles.forEach(function(t) {
+            var n = readCount(t);
+            t._nEl.textContent = n;
+            if (t.total) {
+              var pct = Math.max(0, Math.min(100, Math.round((n / t.total) * 100)));
+              if (t._fillEl) t._fillEl.style.width = pct + '%';
+              var done = n >= t.total;
+              t._tileEl.classList.toggle('is-complete', done);
+              t._hintEl.textContent = done ? 'Complete ✓' : (t.total - n) + ' to go · ' + t.hint.replace(/<[^>]+>/g, '');
+            }
+          });
+        }
+        refresh();
+
+        // Vessel renderers (local + Supabase) write their counts on their own
+        // schedule — watch the count nodes and mirror every change.
+        tiles.forEach(function(t) {
+          if (t.src === null) return;
+          var el = document.getElementById(t.src);
+          if (!el) return;
+          new MutationObserver(refresh).observe(el, { childList: true, characterData: true, subtree: true });
+        });
+        window.addEventListener('load', refresh);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mount);
+      } else {
+        mount();
+      }
+    })();
+  </script>
+
+  <!-- ==============================================
+       SECTION 1.25: YOUR COVEN — one favorite per pantheon
+       (SAiNT / MAiVEN / TRAiLBLAZER / Town Character. Trip mechanic: pick at LUMINAiRY wings or the character's building.)
+       ============================================== -->
+  <section class="passport-section" id="covenSection">
+    <p class="passport-section-eyebrow">★ Closet · Your Luminaries</p>
+    <h2 class="passport-section-title">Your Luminaries</h2>
+    <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
+
+    <div class="coven-grid">
+      <a class="coven-slot" href="/luminairy.html">
+        <span class="coven-slot-kind">Your SAiNT</span>
+        <span class="coven-slot-pick" id="covenSaintPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at LUMIN<span class="ai">Ai</span>RY &rarr;</span>
+      </a>
+
+      <a class="coven-slot" href="/luminairy.html#mavens">
+        <span class="coven-slot-kind">Your MAiVEN</span>
+        <span class="coven-slot-pick" id="covenMavenPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at the MAiVENS Wing &rarr;</span>
+      </a>
+
+      <a class="coven-slot" href="/luminairy.html#builders">
+        <span class="coven-slot-kind">Your TRAiLBLAZER</span>
+        <span class="coven-slot-pick" id="covenBuilderPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at the TRAiLBLAZERS Wing &rarr;</span>
+      </a>
+
+      <a class="coven-slot" href="/town-hall.html#regulars">
+        <span class="coven-slot-kind">Your Town Regular</span>
+        <span class="coven-slot-pick" id="covenTownPick">&mdash; pick one &mdash;</span>
+        <span class="coven-slot-cta">Change at Town Hall &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 1.5: THIS WEEK'S TOUR (ritual mechanic)
+       ============================================== -->
+  <section class="passport-section" id="tourSection">
+    <p class="passport-section-eyebrow">★ Closet · This Week</p>
+    <h2 class="passport-section-title">Your Wednesday Tour</h2>
+    <p class="passport-section-lede">The 8-stop ritual — the week's episode, start to finish. Do the whole thing — <strong>+1 FAiRY wish.</strong> Resets Wednesday. <span id="tourWeekLabel" style="opacity: 0.6;"></span></p>
+
+    <div class="vessel vessel--tour" id="tourVessel">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Tour Progress</h3>
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+          <span class="vessel-count" id="tourCount">0 of 8</span>
+          <span id="tourRewardBadge" style="display: none; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🧚 +1 wish earned</span>
+        </div>
+      </div>
+      <div id="tourGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px;">
+        <!-- stop tiles injected by JS -->
+      </div>
+      <p class="vessel-note" id="tourNote">Visit each stop and tap "Check in" — some auto-check when you do the thing (like playing the BRONZE AiGE song).</p>
+
+      <!-- Optional stops — anytime, no weekly reset -->
+      <div class="opt-block">
+        <div class="opt-head">
+          <h3 class="opt-title">Optional stops · tools &amp; games</h3>
+          <span class="opt-tag">anytime · no weekly reset</span>
+        </div>
+        <p class="opt-note">These don't reset on Wednesday and aren't needed for your wish — drop in whenever. Update your card only when you want a new look.</p>
+        <div class="opt-grid">
+          <a class="opt-stop" href="/maikeover.html">
+            <span class="opt-stop__name">MAiKEOVER</span>
+            <span class="opt-stop__sub">Redo your Resident Card</span>
+          </a>
+          <a class="opt-stop" href="/games/dream-phone.html">
+            <span class="opt-stop__name">Dream Phone</span>
+            <span class="opt-stop__sub">The fact-check game</span>
+          </a>
+          <a class="opt-stop" href="/games/girl-talk.html">
+            <span class="opt-stop__name">Girl Talk</span>
+            <span class="opt-stop__sub">Truth or dare</span>
+          </a>
+          <a class="opt-stop" href="/games/dj-booth.html">
+            <span class="opt-stop__name">DJ Booth</span>
+            <span class="opt-stop__sub">Build a radio set</span>
+          </a>
+          <a class="opt-stop" href="/games/madame-claio.html">
+            <span class="opt-stop__name">Mme CL<span class="ai">Ai</span>-O</span>
+            <span class="opt-stop__sub">Get a fortune</span>
+          </a>
+          <a class="opt-stop" href="/games/fairy-godmother.html">
+            <span class="opt-stop__name">F<span class="ai">Ai</span>RY Godmother</span>
+            <span class="opt-stop__sub">Make a wish</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .tour-stop {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 10px;
+      background: rgba(255, 253, 251, 0.55);
+      border: 1.5px solid rgba(75, 33, 72, 0.14);
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--plum);
+      transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+      min-height: 92px;
+      justify-content: center;
+    }
+    .tour-stop:hover { transform: translateY(-2px); background: rgba(255, 253, 251, 0.9); border-color: rgba(75, 33, 72, 0.28); }
+    .tour-stop__num {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.16em;
+      color: var(--rose); opacity: 0.7;
+    }
+    .tour-stop__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 14px; font-weight: 700; line-height: 1.2;
+      color: var(--plum);
+    }
+    .tour-stop__status {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+      color: rgba(75, 33, 72, 0.5); text-transform: uppercase;
+    }
+    .tour-stop--checked {
+      background: rgba(44, 125, 60, 0.14);
+      border-color: rgba(44, 125, 60, 0.42);
+    }
+    .tour-stop--checked .tour-stop__num { color: #2c7d3c; opacity: 1; }
+    .tour-stop--checked .tour-stop__status { color: #2c7d3c; font-weight: 700; }
+    @media (max-width: 640px) {
+      #tourGrid { grid-template-columns: repeat(2, 1fr) !important; }
+      .tour-stop { min-height: 78px; padding: 10px 8px; }
+      .tour-stop__name { font-size: 13px; }
+    }
+
+    /* Optional stops — anytime, no weekly reset (MAiKEOVER + tools & games) */
+    .opt-block { margin-top: 20px; padding-top: 20px; border-top: 1.5px dashed rgba(75,33,72,0.16); }
+    .opt-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 4px; }
+    .opt-title { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; color: var(--plum); margin: 0; }
+    .opt-tag { font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #c9a227); }
+    .opt-note { font-size: 13px; color: var(--plum-soft); font-style: italic; margin: 0 0 14px; }
+    .opt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .opt-stop {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 12px 13px; border-radius: 11px; text-decoration: none;
+      background: rgba(255,253,251,0.55);
+      border: 1.5px dashed rgba(75,33,72,0.22);
+      color: var(--plum);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+    .opt-stop:hover { transform: translateY(-2px); background: rgba(255,253,251,0.95); border-color: var(--rose); }
+    .opt-stop__name { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.01em; }
+    .opt-stop__sub { font-size: 12px; color: var(--plum-soft); }
+  </style>
+
+  <!-- ==============================================
+       SECTION 2: PASSPORT VESSELS
+       ============================================== -->
+  <section class="passport-section" id="collectionSection">
+    <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
+    <h2 class="passport-section-title">Your Collections</h2>
+
+    <!-- Sticker Book -->
+    <div class="vessel vessel--puffy-board">
+      <h3 class="vessel-title">The Puffy Board</h3>
+      <p class="vessel-note">Books and passages you saved in the LIBRAiRY. Tap one to jump back to the exact place; peel it off any time.</p>
+      <div id="puffyPouch" class="puffy-pouch" aria-label="Your 10 Puffy Stickers"></div>
+      <div class="puffy-pouch-actions">
+        <button id="puffyPouchEdit" type="button">Change my 10</button>
+        <span id="puffyPouchCount" class="puffy-pouch-count" aria-live="polite"></span>
+      </div>
+      <p class="vessel-note">Give each sticker a purpose if you want—“read later,” “important,” “try this,” or your own private shorthand. Those labels appear when you save something.</p>
+      <div id="puffyPouchEditor" class="puffy-pouch-editor" hidden></div>
+      <div id="puffyBoard" class="puffy-board"></div>
+      <style>
+        .puffy-board { display: grid; gap: 10px; margin-top: 12px; }
+        .puffy-empty { font-size: 13.5px; font-style: italic; color: var(--plum-soft, #6b3a66); margin: 0; }
+        .puffy-empty a { color: var(--rose, #9b3f5f); font-weight: 600; }
+        .puffy-item { position: relative; display: grid; grid-template-columns: 34px 1fr 26px; align-items: center; gap: 12px;
+          padding: 12px 14px; background: var(--cream, #fffdfb); border: 1.5px solid rgba(155,63,95,0.25); border-radius: 10px;
+          text-decoration: none; color: var(--plum, #4b2148); transition: border-color .15s, transform .15s; }
+        .puffy-item:hover { border-color: var(--rose, #9b3f5f); transform: translateY(-1px); }
+        .puffy-item-clip { width: 30px; height: 30px; background: url(/assets/butterfly-clip-rating-token.png) center/contain no-repeat; }
+        .puffy-item-body b { display: block; font-size: 14px; font-weight: 700; }
+        .puffy-item-body small { display: block; font-size: 12px; color: var(--plum-soft, #6b3a66); }
+        .puffy-peel { border: 0; background: transparent; color: var(--plum-soft, #6b3a66); font-size: 18px; cursor: pointer; line-height: 1; }
+        .puffy-peel:hover { color: var(--rose, #9b3f5f); }
+      </style>
+    </div>
+
+    <div class="vessel vessel--sticker-book">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Sticker Book</h3>
+        <span class="vessel-count" id="stickerCount">0 collected</span>
+      </div>
+      <div class="sticker-grid" id="stickerGrid">
+        <div class="sticker sticker--empty"></div>
+        <div class="sticker sticker--empty"></div>
+        <div class="sticker sticker--empty"></div>
+        <div class="sticker sticker--empty"></div>
+        <div class="sticker sticker--empty"></div>
+        <div class="sticker sticker--empty"></div>
+      </div>
+      <p class="vessel-note">Collected from quizzes, rituals, and Girl Talk sessions.</p>
+    </div>
+
+    <!-- Merit Sash -->
+    <div class="vessel vessel--sash">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Merit Sash</h3>
+        <span class="vessel-count" id="meritCount">0 earned</span>
+      </div>
+      <div class="sash-grid" id="meritGrid">
+        <div class="merit-badge merit-badge--empty">?</div>
+        <div class="merit-badge merit-badge--empty">?</div>
+        <div class="merit-badge merit-badge--empty">?</div>
+        <div class="merit-badge merit-badge--empty">?</div>
+        <div class="merit-badge merit-badge--empty">?</div>
+        <div class="merit-badge merit-badge--empty">?</div>
+      </div>
+      <p class="vessel-note">Earned for milestones — full weeks, quiz streaks, seasonal accomplishments.</p>
+    </div>
+
+    <!-- Best Friends — one necklace per friend you brought to town (postcard invite) -->
+    <div class="vessel vessel--besties" id="bestieVessel">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Best Friends</h3>
+        <span class="vessel-count" id="bestieCount">0 necklaces</span>
+      </div>
+      <div class="bestie-grid" id="bestieGrid"></div>
+      <p class="vessel-note" id="bestieNote">Mail a friend a postcard from the Post Office. When she comes to town and makes her card, you both get a half of the BEST FRIENDS necklace.</p>
+    </div>
+
+    <!-- Charm Bracelet — reads from charm-hunt.js (window.CHARM_HUNT) if present, else empty state -->
+    <div class="vessel vessel--charm-bracelet" id="charmVessel">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Charm Bracelet</h3>
+        <span class="vessel-count" id="charmCount">0 of 7 found this week</span>
+      </div>
+      <div class="charm-chain" id="charmBracelet"></div>
+      <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely — every stop page has one.</p>
+    </div>
+
+    <!-- Butterfly Clip Jar — Pop Quiz scores, banked as clips -->
+    <div class="vessel vessel--clip-jar" id="butterflyJar">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Butterfly Clip Jar</h3>
+        <span class="vessel-count" id="clipJarCount">Empty jar</span>
+      </div>
+      <div class="clip-jar">
+        <div class="clip-jar-glass" aria-hidden="true">
+          <span class="clip-jar-total" id="clipJarTotal">0</span>
+          <span class="clip-jar-unit">butterfly clips</span>
+        </div>
+        <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
+      </div>
+      <p class="vessel-note">Pop Quiz scores from SUNNYVAiLE High, paid out in butterfly clips — your best score per episode goes in the jar. Extra credit pays twelve. Bombing pays one, and it's broken. <a href="/sunnyvaile-high.html#report-card">Your graded Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a> · <a href="/bookfair.html">Spend them at the Book Fair →</a></p>
+    </div>
+
+    <!-- Trading Card Binder -->
+    <div class="vessel vessel--card-binder">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Trading Card Binder</h3>
+        <span class="vessel-count" id="tradingCount">0 cards</span>
+      </div>
+      <div class="card-binder-grid" id="tradingGrid">
+        <div class="trading-card trading-card--empty">?</div>
+        <div class="trading-card trading-card--empty">?</div>
+        <div class="trading-card trading-card--empty">?</div>
+        <div class="trading-card trading-card--empty">?</div>
+      </div>
+      <p class="vessel-note">Weekly pack drops Wednesday. Some rare, some common. Trade with other residents.</p>
+    </div>
+
+    <!-- Detention Slips (dare penalties) -->
+    <div class="vessel vessel--detention">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Detention Slips</h3>
+        <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+          <span style="font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); background: rgba(201,162,39,0.14); padding: 4px 10px; border-radius: 999px;">🎫 <span id="hallPassCount">1</span> Hall Pass</span>
+          <span class="vessel-count" id="penaltyCount">0 this week</span>
+        </div>
+      </div>
+      <div class="detention-board">
+        <div class="detention-empty" id="detentionEmpty">
+          <strong>Clean board.</strong><br>
+          Every dare has been faced. No Ls yet. 💫
+        </div>
+        <div class="detention-slips-grid" id="detentionSlips" hidden>
+          <!-- Slips get pinned here as dares are declined -->
+        </div>
+      </div>
+      <p class="vessel-note">When you decline a dare, it gets pinned here. No shame — every LAiDY has weeks like this.</p>
+    </div>
+
+    <!-- Locked Diary (secret badges) -->
+    <div class="vessel vessel--diary">
+      <div class="vessel-header">
+        <h3 class="vessel-title">Locked Diary</h3>
+        <span class="vessel-count" id="secretCount">0 discovered</span>
+      </div>
+      <div class="diary-grid" id="secretGrid">
+        <div class="secret-badge">?</div>
+        <div class="secret-badge">?</div>
+        <div class="secret-badge">?</div>
+        <div class="secret-badge">?</div>
+      </div>
+      <p class="vessel-note">867-5309 energy. Try things. You'll know when you find one.</p>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 3: FAIRY PLAYS BANK (self only)
+       ============================================== -->
+  <section class="passport-section" id="fairyBankSection">
+    <p class="passport-section-eyebrow">★ Your Wallet</p>
+    <h2 class="passport-section-title">FAiRY Plays Bank</h2>
+
+    <div class="fairy-bank">
+      <div class="fairy-bank-icon">🧚</div>
+      <div>
+        <p class="fairy-bank-label">Bonus wishes earned</p>
+        <p class="fairy-bank-count"><span id="fairyPlayCount">0</span><small>available</small></p>
+        <p class="passport-section-lede" style="margin: 0;">Bonus plays with the FAiRY Godmother at Willow Lane. Earn more by doing things around town:</p>
+        <ul class="fairy-earn-tips">
+          <li>Finish the weekly pop quiz at SUNNYVAiLE High</li>
+          <li>Complete the full Wednesday tour</li>
+          <li>Find all 7 hidden charms in a week</li>
+          <li>Reach a 5-week posting streak in the Sorority House</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 4: LEADERBOARDS
+       ============================================== -->
+  <section class="passport-section" id="leaderboardSection">
+    <p class="passport-section-eyebrow">★ Closet · Where You Rank</p>
+    <h2 class="passport-section-title">Town Leaderboards</h2>
+    <p class="passport-section-lede">Where you rank among the residents of SUNNYVAiLE.</p>
+
+    <!-- Leaderboards go live once the town has residents on the books —
+         until then, one honest teaser instead of six empty grids. -->
+    <div style="padding: 26px clamp(20px, 4vw, 36px); background: linear-gradient(135deg, rgba(75,33,72,0.05) 0%, rgba(155,63,95,0.07) 100%); border: 1.5px dashed rgba(155,63,95,0.35); border-radius: 14px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+      <span style="font-size: 34px; flex-shrink: 0;">🏆</span>
+      <div style="flex: 1; min-width: 240px;">
+        <p style="margin: 0 0 4px; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 15px; color: var(--plum-deep);">The boards go up when the town fills in.</p>
+        <p style="margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--plum-soft, #766171);">Top sticker collectors, charm hunters, card traders, and Sorority House regulars — posted right here once SUNNYVAiLE has residents on the books. Everything you bank now counts from day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       SECTION 5: EDIT MY CARD (collapsed by default)
+       ============================================== -->
+  <div class="edit-panel" id="editPanel" role="dialog" aria-modal="true" aria-labelledby="editPanelTitle" hidden>
+    <button type="button" class="edit-drawer-close" id="closeEditDrawer">Close</button>
+    <h3 id="editPanelTitle">Edit your Resident Card</h3>
+
+    <div class="edit-field">
+      <label class="edit-field-label">Pick your archetype (this is your card face)</label>
+      <div class="avatar-picker-note">
+        <strong>The 24 archetype avatars are being illustrated.</strong><br>
+        When they land, this grid will show them (12 archetypes × F/M presentations).
+      </div>
+    </div>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Name (what other residents see)</span>
+      <input type="text" class="edit-field-input" id="editName" placeholder="Ali, or how you want to be shown" maxlength="30" />
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite LAiDIES song</span>
+      <select class="edit-field-select" id="editSong">
+        <option value="">— pick your song —</option>
+        <option value="wednesday-in-sunnyvaile">Wednesday in SUNNYVAiLE — THE LAiDIES</option>
+        <option value="down-at-the-blend-and-snap">Down at the Blend & Snap — THE LAiDIES</option>
+        <option value="the-library">The LIBRAiRY — DJ SunnyV</option>
+        <option value="on-wednesday-we-do-ai">On Wednesday We Do AI — DJ SunnyV</option>
+        <option value="tell-me-what-you-want">Tell Me What You Want — DJ SunnyV</option>
+        <option value="dont-be-chutney">Don't Be Chutney on the Stand — DJ SunnyV</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite activity in SUNNYVAiLE</span>
+      <select class="edit-field-select" id="editActivity">
+        <option value="">— pick your activity —</option>
+        <option value="library">Reading at the LIBRAiRY</option>
+        <option value="blend-snap">Coffee at the Blend &amp; Snap</option>
+        <option value="mall">Shopping at the Mall</option>
+        <option value="bronze-aige">Dancing at the BRONZE AiGE</option>
+        <option value="high">Pop quiz at SUNNYVAiLE High</option>
+        <option value="chick-flicks">Movie night at the Chick Flicks</option>
+        <option value="mme-claio">Fortune reading with Mme CLAi-O</option>
+        <option value="fairy-godmother">Wishes with the FAiRY Godmother</option>
+        <option value="sorority-house">Girl Talk at Delta LAi Nu</option>
+        <option value="sanctuary">Picking my Luminaries at the LUMINAiRY</option>
+        <option value="wednesday-tour">The Wednesday tour</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite PATRON SAiNT</span>
+      <select class="edit-field-select" id="editSaint">
+        <option value="">— pick your saint —</option>
+        <option value="cher-horowitz">Cher Horowitz · PATRON SAiNT of Making It Yours</option>
+        <option value="dolly-parton">Dolly Parton · PATRON SAiNT of Common Sense</option>
+        <option value="elle-woods">Elle Woods · PATRON SAiNT of Receipts</option>
+        <option value="miranda-priestly">Miranda Priestly · PATRON SAiNT of Standards</option>
+        <option value="buffy-summers">Buffy Summers · PATRON SAiNT of Slaying</option>
+        <option value="regina-george">Regina George · THE CAUTIONARY TALE (anti-saint)</option>
+        <option value="david-rose">David Rose · PATRON SAiNT of Specificity</option>
+        <option value="deb">Deb · PATRON SAiNT of "Loop Me Out"</option>
+        <option value="samantha-jones">Samantha Jones · PATRON SAiNT of Orientation</option>
+        <option value="oprah-winfrey">Oprah Winfrey · PATRON SAiNT of Staying Current</option>
+        <option value="bette-midler">Bette Midler · PATRON SAiNT of Range</option>
+        <option value="golden-girls">The Golden Girls · PATRON SAiNT of Never Too Late</option>
+        <option value="jessica-fletcher">Jessica Fletcher · PATRON SAiNT of Asking Questions</option>
+        <option value="sister-mary-clarence">Sister Mary Clarence · PATRON SAiNT of Teaching</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite episode</span>
+      <select class="edit-field-select" id="editEpisode">
+        <option value="">— pick your episode —</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite storefront (declare your local)</span>
+      <select class="edit-field-select" id="editStorefront">
+        <option value="">— pick your storefront —</option>
+        <option value="visitors-centre">The Welcome Wagon Visitor's Centre</option>
+        <option value="newsstand">The NewsStand</option>
+        <option value="library">SUNNYVAiLE LIBRAiRY</option>
+        <option value="mall">The Mall</option>
+        <option value="bronze-aige">The BRONZE AiGE</option>
+        <option value="mme-claio">Mme CLAi-O's Shop</option>
+        <option value="chick-flicks">The Chick Flicks</option>
+        <option value="blend-snap">The Blend &amp; Snap</option>
+        <option value="maikeover">MAiKEOVER on MAiN</option>
+        <option value="sorority-house">Delta LAi Nu</option>
+        <option value="fairy-godmother">The FAiRY Godmother's House</option>
+        <option value="town-hall">Town Hall</option>
+        <option value="post-office">The SUNNYVAiLE Post Office</option>
+        <option value="sunnyvaile-high">SUNNYVAiLE High</option>
+        <option value="sanctuary">The LUMINAiRY</option>
+        <option value="ksvl">KSVL Community RAiDIO</option>
+        <option value="dream-phone">The Dream Phone booth</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite Town Character</span>
+      <select class="edit-field-select" id="editCharacter">
+        <option value="">— pick your character —</option>
+        <option value="mayor-deb">Mayor Deb</option>
+        <option value="mme-claio">Mme CLAi-O</option>
+        <option value="fairy-godmother">The FAiRY Godmother</option>
+        <option value="dj-sunnyv">DJ SunnyV</option>
+      </select>
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite cocktail (as ordered at the BRONZE AiGE)</span>
+      <input type="text" class="edit-field-input" id="editCocktail" placeholder="Main Character Spritz" maxlength="60" />
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Favorite Quote (appears on the back of your card)</span>
+      <input type="text" class="edit-field-input" id="editQuote" placeholder='"You have to be willing to get happy about nothing." — Andy Warhol' maxlength="140" />
+    </label>
+
+    <label class="edit-field">
+      <span class="edit-field-label">Motto (a short one-liner in your own words)</span>
+      <input type="text" class="edit-field-input" id="editMotto" placeholder="chaos coordinator · main character · reformed people-pleaser" maxlength="80" />
+    </label>
+
+    <div class="edit-field" style="background: rgba(197, 106, 138, 0.06); border: 1px solid rgba(197, 106, 138, 0.22); border-radius: 10px; padding: 18px 20px; margin-top: 24px;">
+      <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <input type="checkbox" id="editIsPublic" style="width: 20px; height: 20px; margin-top: 3px; accent-color: #c56a8a; cursor: pointer; flex-shrink: 0;" />
+        <label for="editIsPublic" style="cursor: pointer; flex: 1;">
+          <span style="display: block; font-family: 'Jost', sans-serif; font-weight: 700; color: #4b2148; font-size: 14px; letter-spacing: 0.02em;">Make my Closet visible at my handle URL</span>
+          <span style="display: block; margin-top: 6px; font-size: 13px; color: rgba(75, 33, 72, 0.72); line-height: 1.5;">When on, anyone with your handle sees your card face, saint, song, and collections. When off, your URL says "no one home right now." <strong>Your stickers stay yours either way.</strong></span>
+          <span id="editIsPublicHint" style="display: none; margin-top: 8px; font-size: 12px; color: rgba(75, 33, 72, 0.6); font-style: italic;">Claim a handle at MAiKEOVER first — then this switch turns something on.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="save-actions">
+      <button type="button" class="cancel-btn" id="cancelEditBtn">Cancel</button>
+      <button type="button" class="save-btn" id="saveCardBtn">Stamp my Resident Card</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
+
+<script src="content/site/supabase-config.js" defer></script>
+<script>
+(function() {
+  'use strict';
+  var params = new URLSearchParams(window.location.search);
+  // Accept both ?u=ali (new, mapped from /@ali) and ?member=ali (legacy)
+  var viewUsername = params.get('u') || params.get('member');
+  var isPublicMode = !!viewUsername;
+
+  var ARCHETYPES = { 'founder':'THE FOUNDER','strategist':'THE STRATEGIST','editor':'THE EDITOR','storyteller':'THE STORYTELLER','analyst':'THE ANALYST','coach':'THE COACH','artist':'THE ARTIST','iconoclast':'THE ICONOCLAST','elder':'THE ELDER','bestie':'THE BESTIE','confidant':'THE CONFIDANT','provocateur':'THE PROVOCATEUR' };
+  var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
+  var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Wishes with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Picking my Luminaries at the LUMINAiRY','wednesday-tour':'The Wednesday tour' };
+  var SAINT_LABEL = { 'cher-horowitz':'Cher Horowitz','dolly-parton':'Dolly Parton','elle-woods':'Elle Woods','miranda-priestly':'Miranda Priestly','buffy-summers':'Buffy Summers','regina-george':'Regina George','david-rose':'David Rose','deb':'Deb','samantha-jones':'Samantha Jones','oprah-winfrey':'Oprah Winfrey','bette-midler':'Bette Midler','golden-girls':'The Golden Girls','jessica-fletcher':'Jessica Fletcher','sister-mary-clarence':'Sister Mary Clarence' };
+  var STOREFRONT_LABEL = { 'visitors-centre':"The Welcome Wagon Visitor's Centre",'newsstand':'The NewsStand','library':'SUNNYVAiLE LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
+  var CHARACTER_LABEL = { 'mayor-deb':'Mayor Deb','mme-claio':'Mme CLAi-O','fairy-godmother':'The FAiRY Godmother','dj-sunnyv':'DJ SunnyV' };
+  var EPISODE_LABEL = {}; // filled async from episode-index.json
+
+  // Populate the favourite-episode dropdown + label map from the live index
+  fetch('/content/episode-index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var eps = (data.episodes || []).filter(function (e) { return e.status === 'published'; });
+      eps.sort(function (a, b) { return a.number - b.number; });
+      var sel = document.getElementById('editEpisode');
+      eps.forEach(function (ep) {
+        var key = String(ep.number).padStart(2, '0');
+        EPISODE_LABEL[key] = 'Ep ' + key + ' · ' + ep.title;
+        if (sel) {
+          var o = document.createElement('option');
+          o.value = key;
+          o.textContent = EPISODE_LABEL[key];
+          sel.appendChild(o);
+        }
+      });
+      // Re-render with real episode labels if a profile already painted
+      if (window.__laidiesLastProfile) updateCardFromProfile(window.__laidiesLastProfile);
+    })
+    .catch(function () {});
+
+  function applyPublicMode() {
+    document.getElementById('publicModeBanner').hidden = false;
+    document.getElementById('cardSectionTitle').textContent = "Their Resident Card";
+    document.getElementById('selfCardActions').hidden = true;
+    document.getElementById('publicCardActions').hidden = false;
+    document.getElementById('tripGuide').hidden = true;
+    document.getElementById('fairyBankSection').hidden = true;
+    document.getElementById('sendNoteBlock').hidden = false;
+    // These vessels render from THIS device's localStorage — on someone
+    // else's Closet they'd show the visitor's own data. Hide until synced.
+    document.getElementById('walletSlots').hidden = true;
+    document.getElementById('butterflyJar').hidden = true;
+    document.getElementById('tourSection').hidden = true;
+    document.getElementById('charmVessel').hidden = true;
+  }
+
+  function updateCardFromProfile(profile) {
+    if (!profile) return;
+    window.__laidiesLastProfile = profile;
+    document.getElementById('cardName').textContent = profile.display_name || 'A LAiDY';
+    // Archetype retired — hide the subtitle unless a legacy value exists.
+    var archEl = document.getElementById('cardArchetype');
+    var archVal = ARCHETYPES[profile.card_archetype] || profile.card_role || '';
+    if (archVal) { archEl.textContent = archVal; archEl.hidden = false; }
+    else { archEl.hidden = true; }
+    // Label tables are slug-keyed; Town Character cards carry free text —
+    // fall back to the raw value so their fields render.
+    document.getElementById('cardSong').textContent =
+      SONG_LABEL[profile.favorite_song] || profile.favorite_song || 'No song picked yet';
+    document.getElementById('cardActivity').textContent =
+      ACTIVITY_LABEL[profile.favorite_activity] || profile.favorite_activity || 'No activity picked yet';
+    if (profile.favorite_saint) {
+      var saintName = SAINT_LABEL[profile.favorite_saint] || profile.favorite_saint;
+      document.getElementById('cardSaintLine').textContent = 'Devoted to ' + saintName;
+      document.getElementById('cardSaint').textContent = saintName + ' — PATRON SAiNT';
+      document.getElementById('cardSaintHalo').textContent = saintName.split(' ').map(function(s){return s[0];}).join('');
+    }
+    if (profile.card_motto) {
+      document.getElementById('cardMotto').textContent = '"' + profile.card_motto + '"';
+      document.getElementById('cardMotto').hidden = false;
+    }
+    // v2 favourites — each row shows only when picked
+    var fav = function (rowId, spanId, text) {
+      var row = document.getElementById(rowId);
+      var span = document.getElementById(spanId);
+      if (!row || !span) return;
+      if (text) { span.textContent = text; row.hidden = false; }
+      else { row.hidden = true; }
+    };
+    fav('cardMovieRow', 'cardMovie', profile.favorite_movie ? ('Era movie · ' + profile.favorite_movie) : null);
+    fav('cardTvRow', 'cardTv', profile.favorite_tvshow ? ('Era TV · ' + profile.favorite_tvshow) : null);
+    fav('cardCarryRow', 'cardCarry', profile.card_carry ? ('Carrying · ' + profile.card_carry) : null);
+    var epVal = profile.favorite_episode;
+    fav('cardEpisodeRow', 'cardEpisode', epVal ? (EPISODE_LABEL[epVal] || (/^\d{2}$/.test(epVal) ? 'Episode ' + epVal : epVal)) : null);
+    var sfVal = profile.favorite_storefront;
+    fav('cardStorefrontRow', 'cardStorefront', sfVal ? (STOREFRONT_LABEL[sfVal] ? 'Local at ' + STOREFRONT_LABEL[sfVal] : sfVal) : null);
+    fav('cardCharacterRow', 'cardCharacter', profile.favorite_character ? (CHARACTER_LABEL[profile.favorite_character] || profile.favorite_character) : null);
+    fav('cardCocktailRow', 'cardCocktail', profile.favorite_cocktail || null);
+    if (profile.favorite_quote) {
+      document.getElementById('cardQuote').firstChild.textContent = '"' + profile.favorite_quote + '"';
+    }
+    var num = String(profile.resident_number || 0).padStart(4, '0');
+    document.getElementById('residentNo').textContent = 'No. ' + num;
+    document.getElementById('residentNoBack').textContent = 'No. ' + num;
+  }
+
+  var editBtn = document.getElementById('editCardBtn');
+  var editPanel = document.getElementById('editPanel');
+  var closeEditDrawer = document.getElementById('closeEditDrawer');
+  function closeEditPanel() {
+    if (!editPanel) return;
+    editPanel.hidden = true;
+    if (editBtn) editBtn.focus();
+  }
+  if (editBtn && editPanel) {
+    editBtn.addEventListener('click', function() {
+      editPanel.hidden = !editPanel.hidden;
+      if (!editPanel.hidden && closeEditDrawer) closeEditDrawer.focus();
+    });
+  }
+  var cancelBtn = document.getElementById('cancelEditBtn');
+  if (cancelBtn) cancelBtn.addEventListener('click', closeEditPanel);
+  if (closeEditDrawer) closeEditDrawer.addEventListener('click', closeEditPanel);
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && editPanel && !editPanel.hidden) closeEditPanel();
+  });
+
+  var shareBtn = document.getElementById('shareCardBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function() {
+      // Share the PUBLIC card URL (?u=handle), never window.location.href — the
+      // bare Closet URL shows the recipient HER OWN empty Closet. Build it from
+      // the signed-in resident's handle. (Fixed 2026-07-22; was copying the raw URL.)
+      var handle = (currentProfile && currentProfile.card_username) || '';
+      if (!handle) { try { handle = localStorage.getItem('laidies_card_username') || ''; } catch (_) {} }
+      if (!handle) {
+        shareBtn.textContent = 'Claim a handle first';
+        setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2600);
+        return;
+      }
+      var url = window.location.origin + '/laidies-card.html?u=' + encodeURIComponent(handle);
+      try {
+        navigator.clipboard.writeText(url);
+        shareBtn.textContent = 'Link copied ✓';
+      } catch (_) {
+        window.prompt('Copy your card link:', url);
+      }
+      setTimeout(function() { shareBtn.textContent = 'Share my card'; }, 2200);
+    });
+  }
+
+  // ============================================================
+  // Supabase-backed Closet: real profile fetch + save + public mode
+  // ============================================================
+  var SUPABASE_CONFIG = window.LAIDIES_SUPABASE_CONFIG || null;
+  var supabaseClient = null;
+  var currentSession = null;
+  var currentProfile = null;
+
+  // LocalStorage — offline cache + first-paint speed
+  var LS = {
+    displayName: 'laidies_display_name',
+    saint: 'laidies_saint',
+    song: 'laidies_song',
+    activity: 'laidies_activity',
+    motto: 'laidies_motto',
+    quote: 'laidies_quote',
+    archetype: 'laidies_archetype',
+    avatar: 'laidies_avatar',
+    maven: 'laidies_maven',
+    builder: 'laidies_builder',
+    townRegular: 'laidies_town_regular',
+    episode: 'laidies_favorite_episode',
+    storefront: 'laidies_favorite_storefront',
+    character: 'laidies_favorite_character',
+    cocktail: 'laidies_favorite_cocktail',
+    cardAvatarUrl: 'laidies_card_avatar_url',
+    cardBg: 'laidies_card_bg',
+    movie: 'laidies_favorite_movie',
+    tvshow: 'laidies_favorite_tvshow',
+    carry: 'laidies_carry'
+  };
+
+  // Your Coven — pantheon label maps (SAiNT map already lives above as SAINT_LABEL)
+  var MAVEN_LABEL = {
+    'hannah-fry': 'Hannah Fry',
+    'fei-fei-li': 'Fei-Fei Li',
+    'timnit-gebru': 'Timnit Gebru',
+    'rachel-thomas': 'Rachel Thomas',
+    'joy-buolamwini': 'Joy Buolamwini',
+    'kate-crawford': 'Kate Crawford',
+    'meredith-whittaker': 'Meredith Whittaker',
+    'emily-bender': 'Emily Bender'
+  };
+  var BUILDER_LABEL = {
+    'mira-murati': 'Mira Murati',
+    'daniela-amodei': 'Daniela Amodei',
+    'lila-ibrahim': 'Lila Ibrahim',
+    'fidji-simo': 'Fidji Simo',
+    'chelsea-finn': 'Chelsea Finn',
+    'amanda-askell': 'Amanda Askell'
+  };
+  var TOWN_LABEL = {
+    'mme-claio': 'Mme CLAi-O',
+    'fairy-godmother': 'FAiRY Godmother',
+    'dj-sunnyv': 'DJ SunnyV',
+    'mayor-deb': 'Mayor Deb'
+  };
+
+  // Multi-bracelet render — one bracelet per personal-week unlocked (per charm-hunt.js canon)
+  window.renderCharmBracelet = function () {
+    var host = document.getElementById('charmBracelet');
+    var head = document.getElementById('charmCount');
+    if (!host) return;
+    var ch = window.CHARM_HUNT;
+    // Fallback empty state if charm-hunt.js hasn't loaded yet
+    if (!ch) {
+      host.innerHTML = '';
+      if (head) head.textContent = 'Loading…';
+      return;
+    }
+    var CHARMS = ch.CHARMS;
+    var WEEKS = ch.WEEKS || [];
+    var found = ch.read();
+    var pWeek = ch.personalWeek();
+    var totalFound = found.length;
+    var totalUnlocked = ch.unlockedTotalCount();
+
+    // Group charms by week
+    var byWeek = {};
+    CHARMS.forEach(function (c) {
+      if (!ch.isWeekUnlocked(c.week)) return;
+      (byWeek[c.week] = byWeek[c.week] || []).push(c);
+    });
+
+    // Header count
+    if (head) head.textContent = totalFound + ' of ' + totalUnlocked + ' found';
+
+    // Render current personal week as the main bracelet at top; older weeks
+    // collapse into a Jewelry Box below so 24 weeks don't stack visually.
+    var weekNums = Object.keys(byWeek).map(Number).sort(function (a, b) { return b - a; });
+    var currentWeekNums = weekNums.filter(function (w) { return w === pWeek; });
+    var pastWeekNums = weekNums.filter(function (w) { return w < pWeek; });
+
+    function renderWeekRow(w) {
+      var meta = WEEKS.find(function (m) { return m.number === w; }) || { title: '' };
+      var isCurrent = w === pWeek;
+      var weekCharms = byWeek[w];
+      var weekFound = weekCharms.filter(function (c) { return found.indexOf(c.slug) !== -1; }).length;
+      var isComplete = weekFound === weekCharms.length;
+      var rowLabel = 'Week ' + w + (meta.title ? ' · ' + meta.title : '') + (isCurrent ? ' (current)' : '');
+      var chip = isComplete
+        ? '<span class="charm-week-chip charm-week-chip--complete">★ Complete</span>'
+        : '<span class="charm-week-chip">' + weekFound + '/' + weekCharms.length + '</span>';
+      // 7 x-percentages matching the 7 hanging jump-ring positions on the bracelet PNG
+      // (measured from the actual PNG, not evenly spaced — the bracelet is a smile-arc)
+      var RING_X = [13, 23, 33, 44, 55, 65, 76];
+      var links = weekCharms.map(function (c, i) {
+        var isFound = found.indexOf(c.slug) !== -1;
+        var xPct = RING_X[i] != null ? RING_X[i] : (10 + (i * 12));
+        var posStyle = 'left: ' + xPct + '%';
+        if (isFound) {
+          var title = c.name + ' — ' + c.building;
+          return '<div class="charm" style="' + posStyle + '" title="' + title + '" aria-label="' + c.name + '">' +
+                   '<img src="/assets/charms/' + c.slug + '.png?v=20260703-1" alt="' + c.name + '" onerror="this.style.display=\'none\';var s=this.nextElementSibling;if(s)s.style.display=\'inline\';">' +
+                   '<span style="display:none;font-size:22px;line-height:44px">' + c.emoji + '</span>' +
+                 '</div>';
+        }
+        return '<div class="charm charm--empty" style="' + posStyle + '" title="Hidden at ' + c.building + '" aria-label="Hidden at ' + c.building + '"></div>';
+      }).join('');
+      return (
+        '<div class="charm-week-row' + (isCurrent ? ' is-current' : '') + (isComplete ? ' is-complete' : '') + '">' +
+        '  <div class="charm-week-head"><span class="charm-week-label">' + rowLabel + '</span>' + chip + '</div>' +
+        '  <div class="charm-week-chain">' + links + '</div>' +
+        '</div>'
+      );
+    }
+
+    // Compose: current-week bracelet on top, jewelry box below with older weeks
+    var currentHtml = currentWeekNums.map(renderWeekRow).join('');
+    var pastHtml = '';
+    if (pastWeekNums.length) {
+      var pastCount = pastWeekNums.length;
+      var pastFound = pastWeekNums.reduce(function (acc, w) {
+        return acc + byWeek[w].filter(function (c) { return found.indexOf(c.slug) !== -1; }).length;
+      }, 0);
+      var pastTotal = pastWeekNums.reduce(function (acc, w) { return acc + byWeek[w].length; }, 0);
+      pastHtml =
+        '<details class="jewelry-box">' +
+        '  <summary>' +
+        '    ★ Jewelry Box' +
+        '    <span class="jewelry-box-count">' + pastCount + ' bracelet' + (pastCount === 1 ? '' : 's') + ' · ' + pastFound + '/' + pastTotal + ' charms</span>' +
+        '  </summary>' +
+        pastWeekNums.map(renderWeekRow).join('') +
+        '</details>';
+    }
+    host.innerHTML = currentHtml + pastHtml;
+  };
+  document.addEventListener('charmhunt:week-unlocked', function () { if (window.renderCharmBracelet) window.renderCharmBracelet(); });
+
+  function hydrateCoven() {
+    var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
+    var applyPick = function(elId, key, labels) {
+      var el = document.getElementById(elId);
+      if (!el) return;
+      var val = read(key);
+      if (val && labels[val]) {
+        el.textContent = labels[val];
+        el.classList.remove('is-empty');
+      } else {
+        el.textContent = '— pick one —';
+        el.classList.add('is-empty');
+      }
+    };
+    applyPick('covenSaintPick',   LS.saint,       (window.SAINT_LABEL || SAINT_LABEL));
+    applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL);
+    applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL);
+    applyPick('covenTownPick',    LS.townRegular, TOWN_LABEL);
+  }
+
+  function readCache() {
+    var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
+    return {
+      display_name: read(LS.displayName) || undefined,
+      favorite_saint: read(LS.saint) || undefined,
+      favorite_episode: read(LS.episode) || undefined,
+      favorite_song: read(LS.song) || undefined,
+      favorite_activity: read(LS.activity) || undefined,
+      card_motto: read(LS.motto) || undefined,
+      favorite_quote: read(LS.quote) || undefined,
+      card_archetype: read(LS.archetype) || undefined,
+      avatar_slug: read(LS.avatar) || undefined,
+      favorite_storefront: read(LS.storefront) || undefined,
+      favorite_character: read(LS.character) || undefined,
+      favorite_cocktail: read(LS.cocktail) || undefined,
+      card_avatar_url: read(LS.cardAvatarUrl) || undefined,
+      card_bg: read(LS.cardBg) || undefined,
+      favorite_movie: read(LS.movie) || undefined,
+      favorite_tvshow: read(LS.tvshow) || undefined,
+      card_carry: read(LS.carry) || undefined
+    };
+  }
+
+  function writeCache(p) {
+    if (!p) return;
+    var write = function(k, v) { try { if (v) localStorage.setItem(k, v); } catch(e){} };
+    write(LS.displayName, p.display_name);
+    write(LS.saint, p.favorite_saint);
+    write(LS.episode, p.favorite_episode);
+    write(LS.song, p.favorite_song);
+    write(LS.activity, p.favorite_activity);
+    write(LS.motto, p.card_motto);
+    write(LS.quote, p.favorite_quote);
+    write(LS.archetype, p.card_archetype);
+    write(LS.avatar, p.avatar_slug);
+    write(LS.storefront, p.favorite_storefront);
+    write(LS.character, p.favorite_character);
+    write(LS.cocktail, p.favorite_cocktail);
+    write(LS.cardAvatarUrl, p.card_avatar_url);
+    write(LS.cardBg, p.card_bg);
+    write(LS.movie, p.favorite_movie);
+    write(LS.tvshow, p.favorite_tvshow);
+    write(LS.carry, p.card_carry);
+  }
+
+  function updateAvatar(profile) {
+    var el = document.getElementById('cardAvatar');
+    if (!el || !profile) return;
+    // Town Characters ship a full portrait path; members use a generated avatar
+    // (data: URL from the MAiKEOVER avatar maker) or a PIECES OF FLAiR slug.
+    if (profile.card_avatar_url && (/^\/assets\//.test(profile.card_avatar_url) || /^data:image\//.test(profile.card_avatar_url))) {
+      el.innerHTML = '<img src="' + profile.card_avatar_url +
+                     '" alt="Resident Card portrait" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover;">';
+      return;
+    }
+    if (!profile.avatar_slug) return;
+    var slug = String(profile.avatar_slug).replace(/[^a-z0-9-]/gi, '');
+    if (!slug) return;
+    el.innerHTML = '<img src="/assets/avatars/claires/claires-avatar-' + slug +
+                   '.png?v=20260701-1" alt="Resident Card avatar" onerror="this.remove()" style="width:100%;height:100%;object-fit:cover;">';
+  }
+
+  // Selectable Resident Card backgrounds (kept light so the plum card text stays
+  // readable). Unlocked/changed at MAiKEOVER. Key stored in laidies_card_bg.
+  var CARD_BG = {
+    classic:  'linear-gradient(135deg,#fffdfb 0%,#f8eef2 100%)',
+    pinklilac:'linear-gradient(160deg,#fbe9ef 0%,#e7dcf6 100%)',
+    peach:    'linear-gradient(160deg,#fde7d8 0%,#f8d9e0 100%)',
+    mint:     'linear-gradient(160deg,#dbeee7 0%,#cfe6f4 100%)',
+    lavender: 'linear-gradient(160deg,#ece4f6 0%,#f6dfe9 100%)',
+    holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
+  };
+  function applyCardBg(p) {
+    var bg = CARD_BG[(p && p.card_bg) || 'classic'] || CARD_BG.classic;
+    var faces = document.querySelectorAll('.card-face--front, .card-face--back');
+    for (var i = 0; i < faces.length; i++) faces[i].style.background = bg;
+  }
+
+  function renderProfile(p) {
+    if (!p) return;
+    updateCardFromProfile(p);
+    updateAvatar(p);
+    applyCardBg(p);
+    hydrateCoven();
+    renderCharmBracelet();
+  }
+
+  function showNotFound(username) {
+    var main = document.querySelector('main');
+    if (!main) return;
+    main.innerHTML =
+      '<div style="max-width:640px;margin:80px auto;padding:40px 24px;text-align:center;font-family:\'Jost\',sans-serif;color:var(--plum);">' +
+      '<div style="font-size:11px;letter-spacing:0.24em;color:var(--rose);margin-bottom:16px;text-transform:uppercase;font-weight:700;">★ SUNNYVAiLE Post Office</div>' +
+      '<h1 style="font-family:\'Playfair Display\',Georgia,serif;font-size:36px;margin:0 0 20px;color:var(--plum);line-height:1.1;">No forwarding address</h1>' +
+      '<p style="font-size:17px;line-height:1.6;color:var(--plum);">There is no LAiDY registered as <code style="background:var(--pearl);padding:3px 8px;border-radius:4px;font-family:monospace;">@' + username + '</code> in SUNNYVAiLE. She might not exist, or her closet might be set to private.</p>' +
+      '<p style="margin-top:32px;font-size:15px;"><a href="/" style="color:var(--rose);text-decoration:underline;font-weight:600;">← Back to town</a></p>' +
+      '</div>';
+  }
+
+  async function initSupabase() {
+    if (!SUPABASE_CONFIG || !SUPABASE_CONFIG.url || !SUPABASE_CONFIG.anonKey) return null;
+    try {
+      var mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+      supabaseClient = mod.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey, {
+        auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
+      });
+      var s = await supabaseClient.auth.getSession();
+      currentSession = s && s.data ? s.data.session : null;
+      return supabaseClient;
+    } catch (err) {
+      console.error('[Closet] Supabase init failed:', err);
+      return null;
+    }
+  }
+
+  async function loadPublicProfile(username) {
+    // Town Characters resolve first — fictional residents never sign in.
+    try {
+      var cc = await fetch('/content/data/character-cards.json').then(function (r) { return r.ok ? r.json() : null; });
+      var ch = cc && cc.characters && cc.characters[username];
+      if (ch) {
+        return {
+          card_username: ch.handle,
+          display_name: ch.displayName,
+          card_role: ch.role,
+          resident_number: ch.residentNumber,
+          card_avatar_url: ch.avatar,
+          favorite_saint: ch.favoriteSaint,
+          favorite_episode: ch.favoriteEpisode,
+          favorite_storefront: ch.favoriteStorefront,
+          favorite_activity: ch.favoriteActivity,
+          favorite_character: ch.favoriteCharacter,
+          favorite_cocktail: ch.favoriteCocktail,
+          favorite_quote: ch.favoriteQuote,
+          member_card_is_public: true,
+          is_town_character: true
+        };
+      }
+    } catch (e) {}
+    if (!supabaseClient) return null;
+    try {
+      // Reads the CARD VIEW, never the profile table. member_profiles also holds
+      // her age bracket, skill level, industry, goal, social graph and account
+      // timestamps — none of which she chose to put on a card, and RLS cannot
+      // hide a column. public_resident_cards exposes card fields only.
+      // ⛔ Do not point this back at member_profiles.
+      // See supabase/migrations/20260722210000_public_cards_show_only_card_fields.sql
+      var result = await supabaseClient
+        .from('public_resident_cards')
+        .select('*')
+        .eq('card_username', username)
+        .maybeSingle();
+      return result.data || null;
+    } catch (e) { return null; }
+  }
+
+  async function loadOwnProfile() {
+    if (!supabaseClient || !currentSession) return null;
+    try {
+      var result = await supabaseClient
+        .from('member_profiles')
+        .select('*')
+        .eq('id', currentSession.user.id)
+        .maybeSingle();
+      return result.data || null;
+    } catch (e) { return null; }
+  }
+
+  async function loadCollections(userId) {
+    if (!supabaseClient || !userId) return null;
+    try {
+      var result = await supabaseClient
+        .from('member_reward_events')
+        .select('reward_type, title, source, metadata, issue_key, created_at')
+        .eq('user_id', userId)
+        .order('created_at', { ascending: false })
+        .limit(500);
+      if (result.error) return null;
+      return result.data || [];
+    } catch (e) { return null; }
+  }
+
+  var COLLECTION_MAP = {
+    'sticker_book':   { types: ['quiz_sticker', 'sticker_girl_talk', 'sticker_express'], countEl: 'stickerCount', gridEl: 'stickerGrid', slotClass: 'sticker sticker--empty', filledClass: 'sticker' },
+    'merit_sash':     { types: ['merit_badge'],                        countEl: 'meritCount',   gridEl: 'meritGrid',   slotClass: 'merit-badge merit-badge--empty', filledClass: 'merit-badge' },
+    'charm_bracelet': { types: ['hidden_charm'],                       countEl: 'charmCount',   gridEl: 'charmBracelet', slotClass: 'charm charm--empty', filledClass: 'charm' },
+    'card_binder':    { types: ['trading_card'],                       countEl: 'tradingCount', gridEl: 'tradingGrid', slotClass: 'trading-card trading-card--empty', filledClass: 'trading-card' },
+    'detention':      { types: ['dare_penalty'],                       countEl: 'penaltyCount', gridEl: 'detentionSlips', slotClass: null, filledClass: null },
+    'diary':          { types: ['secret_badge'],                       countEl: 'secretCount',  gridEl: 'secretGrid',  slotClass: 'secret-badge', filledClass: 'secret-badge secret-badge--found' }
+  };
+
+  function firstLetter(s) {
+    if (!s) return '★';
+    var m = String(s).trim().match(/[A-Za-z0-9]/);
+    return m ? m[0].toUpperCase() : '★';
+  }
+
+  function renderCollections(events) {
+    if (!Array.isArray(events)) events = [];
+
+    // Group events by reward_type
+    var byType = {};
+    for (var i = 0; i < events.length; i++) {
+      var ev = events[i];
+      if (!byType[ev.reward_type]) byType[ev.reward_type] = [];
+      byType[ev.reward_type].push(ev);
+    }
+
+    // ---- Charms (weekly reset) ------------------------------------
+    // Charm count is "N of 7 found this week" — filter by ISO week
+    var thisWeekKey = isoWeekKey(new Date());
+
+    Object.keys(COLLECTION_MAP).forEach(function(key) {
+      var cfg = COLLECTION_MAP[key];
+      var items = [];
+      cfg.types.forEach(function(t) {
+        if (byType[t]) items = items.concat(byType[t]);
+      });
+
+      var countText;
+      if (key === 'charm_bracelet') {
+        var thisWeek = items.filter(function(e) { return (e.issue_key || '').indexOf(thisWeekKey) === 0 || matchesIsoWeek(e.created_at, thisWeekKey); });
+        countText = thisWeek.length + ' of 7 found this week';
+      } else if (key === 'detention') {
+        var recent = items.filter(function(e) { return withinDays(e.created_at, 7); });
+        countText = recent.length + ' this week';
+      } else if (key === 'merit_sash') {
+        countText = items.length + ' earned';
+      } else if (key === 'card_binder') {
+        countText = items.length + (items.length === 1 ? ' card' : ' cards');
+      } else if (key === 'diary') {
+        countText = items.length + ' discovered';
+      } else {
+        countText = items.length + ' collected';
+      }
+
+      var countEl = document.getElementById(cfg.countEl);
+      if (countEl) countEl.textContent = countText;
+
+      if (cfg.slotClass && cfg.filledClass) {
+        var gridEl = document.getElementById(cfg.gridEl);
+        if (gridEl && items.length > 0) {
+          // Replace up to 12 slots with real tiles, leave empties for the rest
+          var slots = Math.max(gridEl.children.length, Math.min(items.length, 12));
+          gridEl.innerHTML = '';
+          for (var s = 0; s < slots; s++) {
+            var tile = document.createElement('div');
+            if (s < items.length) {
+              tile.className = cfg.filledClass;
+              tile.title = items[s].title || '';
+              tile.textContent = firstLetter(items[s].title || items[s].source);
+            } else {
+              tile.className = cfg.slotClass;
+              tile.textContent = cfg.slotClass.indexOf('?') !== -1 ? '?' : '';
+            }
+            gridEl.appendChild(tile);
+          }
+        }
+      }
+    });
+
+    // ---- Detention slips (special: pinned list, not a slot grid) --
+    var slipItems = byType['dare_penalty'] || [];
+    var slipsGrid = document.getElementById('detentionSlips');
+    var slipsEmpty = document.getElementById('detentionEmpty');
+    if (slipsGrid && slipsEmpty) {
+      if (slipItems.length > 0) {
+        slipsGrid.innerHTML = '';
+        slipItems.slice(0, 8).forEach(function(ev) {
+          var slip = document.createElement('div');
+          slip.className = 'detention-slip';
+          slip.textContent = ev.title || 'Declined dare';
+          slipsGrid.appendChild(slip);
+        });
+        slipsGrid.hidden = false;
+        slipsEmpty.hidden = true;
+      }
+    }
+
+    // ---- Best Friends necklaces (one per friend brought to town) ---
+    var bestieItems = byType['best_friends_necklace'] || [];
+    var bestieGrid  = document.getElementById('bestieGrid');
+    var bestieCount = document.getElementById('bestieCount');
+    var bestieNote  = document.getElementById('bestieNote');
+    if (bestieGrid) {
+      // one necklace per distinct bestie handle
+      var seen = {}, besties = [];
+      bestieItems.forEach(function(ev) {
+        var h = (ev.metadata && ev.metadata.bestie_handle) || '';
+        if (h && !seen[h]) { seen[h] = 1; besties.push(h); }
+      });
+      if (bestieCount) bestieCount.textContent = besties.length +
+        (besties.length === 1 ? ' necklace' : ' necklaces');
+      if (besties.length) {
+        bestieGrid.innerHTML = '';
+        besties.forEach(function(h) {
+          var a = document.createElement('a');
+          a.className = 'bestie-charm';
+          a.href = '/laidies-card.html?u=' + encodeURIComponent(h);
+          a.title = 'BEST FRIENDS with @' + h;
+          a.innerHTML = '<span class="bestie-heart">♥</span><span class="bestie-handle">@' +
+            firstLetter(h) + h.slice(1) + '</span>';
+          bestieGrid.appendChild(a);
+        });
+        if (bestieNote) bestieNote.textContent =
+          'The heart is whole. Tap a friend to visit her card.';
+      }
+    }
+  }
+
+  function isoWeekKey(d) {
+    var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var dayNum = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - dayNum);
+    var yearStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+    var weekNo = Math.ceil((((t - yearStart) / 86400000) + 1) / 7);
+    return t.getUTCFullYear() + '-W' + (weekNo < 10 ? '0' + weekNo : weekNo);
+  }
+
+  function matchesIsoWeek(createdAt, weekKey) {
+    if (!createdAt) return false;
+    try {
+      return isoWeekKey(new Date(createdAt)) === weekKey;
+    } catch (_) { return false; }
+  }
+
+  function withinDays(createdAt, days) {
+    if (!createdAt) return false;
+    try {
+      var d = new Date(createdAt).getTime();
+      return (Date.now() - d) < days * 86400000;
+    } catch (_) { return false; }
+  }
+
+  async function saveOwnProfile(patch) {
+    if (!supabaseClient || !currentSession) return { ok: false, error: 'not-signed-in' };
+    // ⛔ No `email` — it lives on auth.users, not here. See migration
+    // 20260722201500_stop_storing_email_on_profiles.sql.
+    var payload = Object.assign({ id: currentSession.user.id }, patch);
+    try {
+      var result = await supabaseClient
+        .from('member_profiles')
+        .upsert(payload, { onConflict: 'id' })
+        .select()
+        .single();
+      if (result.error) return { ok: false, error: result.error.message };
+      writeCache(result.data);
+      return { ok: true, profile: result.data };
+    } catch (e) {
+      return { ok: false, error: String(e) };
+    }
+  }
+
+  function collectEditForm() {
+    var val = function(id) {
+      var el = document.getElementById(id);
+      return el && el.value ? el.value.trim() : null;
+    };
+    var checked = function(id) {
+      var el = document.getElementById(id);
+      return el ? !!el.checked : null;
+    };
+    var patch = {
+      display_name: val('editName') || null,
+      favorite_song: val('editSong') || null,
+      favorite_activity: val('editActivity') || null,
+      favorite_saint: val('editSaint') || null,
+      favorite_episode: val('editEpisode') || null,
+      favorite_storefront: val('editStorefront') || null,
+      favorite_character: val('editCharacter') || null,
+      favorite_cocktail: val('editCocktail') || null,
+      favorite_quote: val('editQuote') || null,
+      card_motto: val('editMotto') || null
+    };
+    var isPublic = checked('editIsPublic');
+    if (isPublic !== null) patch.member_card_is_public = isPublic;
+    return patch;
+  }
+
+  function populateEditForm(p) {
+    if (!p) return;
+    var set = function(id, v) {
+      var el = document.getElementById(id);
+      if (el && v != null) el.value = v;
+    };
+    set('editName', p.display_name);
+    set('editSong', p.favorite_song);
+    set('editActivity', p.favorite_activity);
+    set('editSaint', p.favorite_saint);
+    set('editEpisode', p.favorite_episode);
+    set('editStorefront', p.favorite_storefront);
+    set('editCharacter', p.favorite_character);
+    set('editCocktail', p.favorite_cocktail);
+    set('editQuote', p.favorite_quote);
+    set('editMotto', p.card_motto);
+    var pubBox = document.getElementById('editIsPublic');
+    if (pubBox) pubBox.checked = !!p.member_card_is_public;
+    // If they have no username claimed yet, dim the toggle + show the hint
+    var hint = document.getElementById('editIsPublicHint');
+    var hasUsername = !!p.card_username;
+    if (hint) hint.style.display = hasUsername ? 'none' : 'block';
+    if (pubBox) pubBox.disabled = !hasUsername;
+  }
+
+  function wireSaveButton() {
+    var saveBtn = document.getElementById('saveCardBtn');
+    if (!saveBtn) return;
+    saveBtn.addEventListener('click', async function() {
+      var original = saveBtn.textContent;
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Stamping…';
+
+      var patch = collectEditForm();
+      // Always sync the CLAiRE'S avatar_slug if it's been set locally
+      try {
+        var lsAvatar = localStorage.getItem(LS.avatar);
+        if (lsAvatar) patch.avatar_slug = lsAvatar;
+      } catch (e) {}
+
+      // Not signed in: save to local cache only + prompt
+      if (!currentSession) {
+        writeCache(patch);
+        renderProfile(Object.assign({}, readCache(), patch));
+        saveBtn.textContent = 'Saved on this device — sign in at MAiKEOVER to keep it';
+        setTimeout(function() {
+          saveBtn.disabled = false;
+          saveBtn.textContent = original;
+          var ep = document.getElementById('editPanel');
+          if (ep) ep.hidden = true;
+        }, 3200);
+        return;
+      }
+
+      var res = await saveOwnProfile(patch);
+      if (res.ok) {
+        currentProfile = res.profile;
+        renderProfile(res.profile);
+        saveBtn.textContent = 'Stamped ✓';
+        setTimeout(function() {
+          saveBtn.disabled = false;
+          saveBtn.textContent = original;
+          var ep = document.getElementById('editPanel');
+          if (ep) ep.hidden = true;
+        }, 1600);
+      } else {
+        saveBtn.textContent = 'Something went wrong — try again';
+        console.error('[Closet] Save failed:', res.error);
+        setTimeout(function() {
+          saveBtn.disabled = false;
+          saveBtn.textContent = original;
+        }, 2400);
+      }
+    });
+  }
+
+  async function init() {
+    // Fast first paint from local cache (feels alive immediately)
+    var cached = readCache();
+    if (cached.display_name || cached.favorite_saint || cached.avatar_slug) {
+      renderProfile(cached);
+    } else {
+      // Coven band hydrates independently — always run so empty slots show correct state
+      hydrateCoven();
+      renderCharmBracelet();
+    }
+
+    await initSupabase();
+
+    // ---- Public mode: /@username ---------------------------------
+    if (isPublicMode) {
+      // Always call — Town Characters resolve from JSON before Supabase,
+      // so they must load even when the client fails to init.
+      var profile = await loadPublicProfile(viewUsername);
+      if (!profile) {
+        showNotFound(viewUsername);
+        return;
+      }
+      currentProfile = profile;
+      renderProfile(profile);
+      applyPublicMode();
+      // Load collections (RLS lets anon read events for public profiles).
+      // Town Characters have no auth row — nothing to load.
+      if (profile.id) {
+        loadCollections(profile.id).then(function(events) {
+          if (events) renderCollections(events);
+        }).catch(function(){});
+      }
+      return;
+    }
+
+    // ---- Personal mode ------------------------------------------
+    if (currentSession) {
+      var own = await loadOwnProfile();
+      if (own) {
+        // Merge: server wins, but keep local CLAiRE'S avatar if server missing it
+        if (!own.avatar_slug && cached.avatar_slug) {
+          own.avatar_slug = cached.avatar_slug;
+          // Silent background sync so the avatar lands on the row
+          saveOwnProfile({ avatar_slug: cached.avatar_slug }).catch(function(){});
+        }
+        currentProfile = own;
+        renderProfile(own);
+        writeCache(own);
+        populateEditForm(own);
+      } else {
+        // Signed in but no profile row yet — populate edit form from cache
+        populateEditForm(cached);
+      }
+      // Load own collections (owner RLS)
+      loadCollections(currentSession.user.id).then(function(events) {
+        if (events) renderCollections(events);
+      }).catch(function(){});
+    } else {
+      // Not signed in — cache render is the preview state
+      populateEditForm(cached);
+    }
+
+    wireSaveButton();
+  }
+
+  init();
+})();
+</script>
+  <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+  <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+  <script>
+  (function renderWallet() {
+    'use strict';
+    // Membership cards — one per building, fed by the visit counter that
+    // sv-you-are-here.js stamps on every building page (laidies_building_visits).
+    var grid = document.getElementById('walletGrid');
+    var list = window.SV_BUILDINGS;
+    if (!grid || !list || !list.length) return;
+    var EMOJI = {
+      'visitors-centre': '🚐', 'newsstand': '🗞️', 'chick-flicks': '📼', 'blend-snap': '☕',
+      'mme-claio': '🔮', 'maikeover': '💇‍♀️', 'bronze-aige': '🍸', 'dream-phone': '📞',
+      'mall': '🛍️', 'ksvl-radio': '📻', 'library': '📚', 'town-hall': '🏛️',
+      'post-office': '✉️', 'sunnyvaile-high': '🎓', 'fairy-godmother': '🪄',
+      'sorority-house': '🏠', 'sanctuary': '🕯️'
+    };
+    var visits = {};
+    try { visits = JSON.parse(localStorage.getItem('laidies_building_visits')) || {}; } catch (e) {}
+    function monthYear(ts) {
+      try { return new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' }).format(new Date(ts)); } catch (e) { return ''; }
+    }
+    function brandHtml(s) {
+      return String(s).replace(/[&<>"]/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; })
+        .replace(/Ai/g, '<span class="ai">Ai</span>');
+    }
+    list.forEach(function (b, i) {
+      var rec = visits[b.id] || null;
+      var n = rec ? Number(rec.n) || 0 : 0;
+      var since = rec && rec.first ? monthYear(rec.first) : null;
+      var card = document.createElement('div');
+      card.className = 'wallet-card wallet-card--' + (i % 4);
+      card.innerHTML =
+        '<div class="wallet-card-top">' +
+          '<span class="wallet-card-name">' + brandHtml(b.name) + '</span>' +
+          '<span class="wallet-card-emoji" aria-hidden="true">' + (EMOJI[b.id] || '⭐') + '</span>' +
+        '</div>' +
+        '<span class="wallet-card-addr">' + brandHtml(b.address) + ' · SUNNYVAiLE</span>' +
+        '<div class="wallet-card-meta">' +
+          '<span>Visits <strong>' + n + '</strong></span>' +
+          '<span>' + (since ? 'Member since ' + since : 'Never visited') + '</span>' +
+        '</div>' +
+        '<div class="wallet-card-barcode" aria-hidden="true"></div>';
+      var visit = document.createElement('a');
+      visit.className = 'wallet-card-visit';
+      visit.href = b.href;
+      visit.textContent = n > 0 ? 'Visit again →' : 'First visit →';
+      card.appendChild(visit);
+      grid.appendChild(card);
+    });
+  })();
+  (function renderClipJar() {
+    'use strict';
+    // Butterfly Clip Jar — derived straight from the quiz records (same
+    // math as the quiz's butterfly rating: clips = best score, min 1
+    // broken clip for a bombed attempt), so it can never drift from the
+    // Pop Quiz and it rides the existing member-card sync when that ships.
+    function stored(key) {
+      try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; }
+    }
+    var progress = stored('laidiesQuizProgress');
+    var legacy = stored('laidiesQuizBestScores');
+    Object.keys(legacy).forEach(function(key) {
+      if (!progress[key]) progress[key] = { bestScore: Number(legacy[key]) || 0, attempts: 1 };
+    });
+    var rows = [], total = 0;
+    Object.keys(progress).sort().forEach(function(key) {
+      var r = progress[key] || {};
+      var best = Math.round(Number(r.bestScore) || 0);
+      var attempted = best > 0 || Number(r.attempts) > 0 || Boolean(r.completedAt);
+      if (!attempted) return;
+      var isBroken = best < 2;
+      var clips = Math.max(best, 1);
+      var m = String(key).match(/(\d+)/);
+      var label = m ? 'EP ' + ('0' + Number(m[1])).slice(-2) : String(key).toUpperCase();
+      rows.push({ label: label, clips: clips, isBroken: isBroken, kind: 'quiz' });
+      total += clips;
+    });
+    // Express tour clips — 1 butterfly clip per episode kept up with via the
+    // 4 learning stops (laidies_express_done, stamped by sv-tour-checkin.js).
+    var expressDone = stored('laidies_express_done');
+    Object.keys(expressDone).sort().forEach(function(key) {
+      var e = expressDone[key] || {};
+      var epn = Number(e.episode || key);
+      var label = epn ? 'EP ' + ('0' + epn).slice(-2) : String(key).toUpperCase();
+      rows.push({ label: label, clips: 1, isBroken: false, kind: 'express' });
+      total += 1;
+    });
+    // Subtract Book Fair spending so the jar shows what's AVAILABLE to spend.
+    var redeemed = stored('laidies_bookfair_redeemed');
+    var spent = 0;
+    Object.keys(redeemed).forEach(function(k){ spent += Number(redeemed[k] && redeemed[k].cost) || 0; });
+    var available = Math.max(0, total - spent);
+    var countEl = document.getElementById('clipJarCount');
+    var totalEl = document.getElementById('clipJarTotal');
+    var ledger = document.getElementById('clipJarLedger');
+    if (!countEl || !totalEl || !ledger) return;
+    totalEl.textContent = String(available);
+    countEl.textContent = total === 0 ? 'Empty jar'
+      : (available === 0 ? 'All spent' : available + ' clip' + (available === 1 ? '' : 's'))
+        + (spent ? ' · ' + spent + ' spent at the fair' : '');
+    ledger.innerHTML = '';
+    if (!rows.length) {
+      var empty = document.createElement('li');
+      empty.className = 'clip-empty';
+      empty.textContent = 'No clips yet — the jar fills one Pop Quiz at a time.';
+      ledger.appendChild(empty);
+      return;
+    }
+    rows.forEach(function(row) {
+      var li = document.createElement('li');
+      var ep = document.createElement('span');
+      ep.className = 'clip-ep';
+      ep.textContent = row.label + (row.kind === 'express' ? ' Express tour' : ' Pop Quiz');
+      var amount = document.createElement('span');
+      amount.className = 'clip-amount' + (row.isBroken ? ' is-broken' : '');
+      amount.textContent = row.isBroken
+        ? '🦋 1 clip (it’s broken)'
+        : '🦋 ' + row.clips + ' clip' + (row.clips === 1 ? '' : 's');
+      li.append(ep, amount);
+      ledger.appendChild(li);
+    });
+  })();
+  (function renderLocalStickerBook() {
+    'use strict';
+    // Signed-in users get the Sticker Book from Supabase (renderCollections).
+    // Signed-out/local users don't, so fill it from local stores here — the
+    // Express "Caught Up" stickers plus any local Pop Quiz + Girl Talk stickers.
+    // Guarded to signed-out so it never clobbers the Supabase pass.
+    var signedIn = false;
+    try { signedIn = Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k); }); } catch (e) {}
+    if (signedIn) return;
+    function stored(key, def) { try { return JSON.parse(localStorage.getItem(key)) || def; } catch (e) { return def; } }
+    function letterOf(s) { var m = String(s || '').trim().match(/[A-Za-z0-9]/); return m ? m[0].toUpperCase() : '★'; }
+
+    var stickers = [];
+    // Express — one "Caught Up" per episode kept up with via the 4 learning stops
+    var exp = stored('laidies_express_done', {});
+    Object.keys(exp).sort().forEach(function(k) {
+      var e = exp[k] || {}; var epn = Number(e.episode || k);
+      stickers.push({ title: 'Caught Up · EP ' + (epn ? ('0' + epn).slice(-2) : k), letter: '✓' });
+    });
+    // Pop Quiz stickers (stickerTitle on each quiz record)
+    var qp = stored('laidiesQuizProgress', {});
+    Object.keys(qp).forEach(function(k) { var r = qp[k]; if (r && r.stickerTitle) stickers.push({ title: r.stickerTitle }); });
+    // Girl Talk stickers
+    var gt = stored('laidies_gt_stickers_earned', []); var names = stored('laidies_gt_names', {});
+    if (Array.isArray(gt)) { var seen = {}; gt.forEach(function(id) { if (!id || seen[id]) return; seen[id] = true; stickers.push({ title: names[id] || id }); }); }
+
+    var countEl = document.getElementById('stickerCount');
+    var gridEl = document.getElementById('stickerGrid');
+    if (countEl) countEl.textContent = stickers.length + ' collected';
+    if (gridEl && stickers.length > 0) {
+      var slots = Math.max(gridEl.children.length, Math.min(stickers.length, 12));
+      gridEl.innerHTML = '';
+      for (var s = 0; s < slots; s++) {
+        var tile = document.createElement('div');
+        if (s < stickers.length) {
+          tile.className = 'sticker';
+          tile.title = stickers[s].title;
+          tile.textContent = stickers[s].letter || letterOf(stickers[s].title);
+        } else {
+          tile.className = 'sticker sticker--empty';
+        }
+        gridEl.appendChild(tile);
+      }
+    }
+  })();
+  (function() {
+    'use strict';
+    function renderTour() {
+      if (!window.svTour) return;
+      var state = window.svTour.getState();
+      var grid = document.getElementById('tourGrid');
+      var count = document.getElementById('tourCount');
+      var badge = document.getElementById('tourRewardBadge');
+      var weekLabel = document.getElementById('tourWeekLabel');
+      var note = document.getElementById('tourNote');
+      if (!grid) return;
+      grid.innerHTML = '';
+      state.stops.forEach(function(s) {
+        var a = document.createElement('a');
+        a.href = s.path;
+        a.className = 'tour-stop' + (s.checked ? ' tour-stop--checked' : '');
+        a.innerHTML =
+          '<span class="tour-stop__num">★ ' + s.num + '</span>' +
+          '<span class="tour-stop__name">' + s.label + '</span>' +
+          '<span class="tour-stop__status">' + (s.checked ? '✓ Checked' : s.teaser) + '</span>';
+        grid.appendChild(a);
+      });
+      if (count) count.textContent = state.count + ' of ' + state.total;
+      if (badge) badge.style.display = state.rewardedThisWeek ? 'inline-block' : 'none';
+      if (weekLabel) weekLabel.textContent = '· ' + state.weekKey;
+      if (note && state.complete) {
+        note.innerHTML = '★ Full ritual — <strong>+1 FAiRY wish</strong> banked. Resets Wednesday. Nice work.';
+        note.style.color = '#2c7d3c';
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderTour);
+    } else {
+      renderTour();
+    }
+    // Re-render when a check-in happens (via the module event bus)
+    document.addEventListener('sv:tour-checkin', renderTour);
+  })();
+  </script>
+    <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
+    <script defer src="/content/site/charm-hunt.js?v=20260716-coords" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>
+<script>
+  /* Pixel vessel icons — inject a self-hiding icon into each collection vessel.
+     Each <img> removes itself if the art isn't at the path yet, so the page
+     looks identical until Codex delivers assets/closet/vessels/*.png */
+  (function () {
+    var MAP = {
+      'vessel--puffy-board': 'puffy-board',
+      'vessel--sticker-book': 'sticker-book',
+      'vessel--sash': 'merit-sash',
+      'vessel--charm-bracelet': 'charm-bracelet',
+      'vessel--clip-jar': 'butterfly-clip',
+      'vessel--card-binder': 'trading-card-binder',
+      'vessel--detention': 'detention-slip',
+      'vessel--diary': 'locked-diary'
+    };
+    Object.keys(MAP).forEach(function (cls) {
+      var v = document.querySelector('.' + cls);
+      if (!v) return;
+      var title = v.querySelector('.vessel-title');
+      if (!title || title.querySelector('.vessel-icon')) return;
+      var img = document.createElement('img');
+      img.className = 'vessel-icon';
+      img.src = '/assets/closet/vessels/' + MAP[cls] + '-pixel.png?v=20260716';
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+      img.onerror = function () { this.remove(); };
+      title.insertBefore(img, title.firstChild);
+    });
+  })();
+</script>
+</body>
+</html>

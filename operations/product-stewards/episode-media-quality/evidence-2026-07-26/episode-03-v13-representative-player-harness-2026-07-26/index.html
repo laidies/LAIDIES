@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Episode 03 v13 — representative player review</title>
+  <link rel="stylesheet" href="./player.css">
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">LOCAL REVIEW HARNESS · NOT PUBLIC</p><h1>Episode 03 v13 representative player</h1><p>Checksum-bound playback and external captions for independent Episode Media Quality review. This page does not alter any public route or admit this film.</p></header>
+  <section class="identity" aria-labelledby="binding-title">
+    <h2 id="binding-title">Frozen-input binding</h2>
+    <p id="binding-status" role="status" aria-live="polite">Waiting for exact input verification. Playback is locked.</p>
+    <button id="retry" type="button" hidden>Retry exact source</button>
+    <dl><dt>MP4</dt><dd>/assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4</dd><dt>MP4 SHA-256</dt><dd>bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f</dd><dt>External VTT</dt><dd>/assets/captions/episode-03.vtt</dd><dt>VTT SHA-256</dt><dd>aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be</dd></dl>
+  </section>
+  <section class="player-shell" aria-labelledby="player-title">
+    <h2 id="player-title">Review playback</h2>
+    <video id="film" controls playsinline preload="metadata" tabindex="0" aria-describedby="player-help caption-status"></video>
+    <div class="controls" aria-label="Review player controls"><button id="play" type="button" disabled>Play at normal speed</button><button id="back" type="button" disabled aria-label="Seek backward 10 seconds">−10s</button><button id="forward" type="button" disabled aria-label="Seek forward 10 seconds">+10s</button><button id="captions" type="button" disabled aria-pressed="true">Captions on</button></div>
+    <p id="player-help">Keyboard: Space or K plays/pauses; Left/J and Right/L seek ten seconds; Home/End seek boundaries; C toggles captions. Visible focus rings are required.</p>
+    <p id="caption-status" role="status" aria-live="polite">External captions await binding.</p>
+    <div id="caption-rail" class="caption-rail" role="region" aria-label="Current external caption" aria-live="polite" aria-atomic="true">No caption at this moment.</div>
+    <output id="telemetry" aria-live="polite">Player not initialized.</output>
+  </section>
+  <aside><strong>Boundary:</strong> this harness does not replace the assigned human full 1× unmuted audible watch, independent acceptance, release, deployment, or public availability.</aside>
+  <noscript><section class="no-js"><h2>JavaScript is off; playback remains safely unbound</h2><p>The exact MP4 and VTT identities remain visible. Enable JavaScript to bind local review playback.</p></section></noscript>
+</main>
+<script type="module" src="./player.js"></script>
+</body>
+</html>
