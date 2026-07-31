@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 import { checkContentWorkOrders } from "./check-content-work-orders.mjs";
 import { checkDailyLearningDerivatives } from "./check-daily-learning-derivatives.mjs";
 import { checkLearningRelationships } from "./check-learning-relationships.mjs";
@@ -26,6 +27,15 @@ const dailyDerivatives = checkDailyLearningDerivatives({ root });
 errors.push(...(dailyDerivatives.errors || []).map((error) => `daily learning derivatives: ${error}`));
 const learningRelationships = checkLearningRelationships({ root });
 errors.push(...(learningRelationships.errors || []).map((error) => `learning relationships: ${error}`));
+const portfolioInventory = spawnSync(
+  process.execPath,
+  [path.join(root, "scripts", "build-portfolio-work-inventory.mjs")],
+  { cwd: root, encoding: "utf8" }
+);
+if (portfolioInventory.status !== 0) {
+  const detail = `${portfolioInventory.stdout || ""}\n${portfolioInventory.stderr || ""}`.trim();
+  errors.push(`portfolio work inventory: ${detail || `validator exited ${portfolioInventory.status}`}`);
+}
 
 function findAdmissionManifests(directory) {
   const found = [];
@@ -317,6 +327,7 @@ const openResolutionTasks = (learningRelationships.blockers || [])
   .map((blocker) => blocker.resolution)
   .filter((task) => task && task.status !== "RESOLVED");
 console.log(`learning_resolution_tasks_open=${openResolutionTasks.length}`);
+console.log(`portfolio_work_inventory=${portfolioInventory.stdout.trim() || "PASS"}`);
 for (const task of openResolutionTasks) {
   console.log(
     `learning_resolution_task=${task.id}|${task.status}|${task.priority}|owner=${task.owner}|review=${task.nextReviewAt}|next=${task.nextAction}`

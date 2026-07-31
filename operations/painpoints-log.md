@@ -10687,3 +10687,30 @@ _Original source ID: repository #36_
 - **Possible Behind the Build angle:** Updating an episode is not editing a
   webpage: the release graph that keeps a podcast, thumbnail, song and article
   from disagreeing with each other.
+
+## BTB-292 — An idea can be recorded and still disappear from execution
+
+- **Date:** 2026-07-31
+- **Area:** Portfolio management / idea intake / product stewardship.
+- **Failure:** A short status response surfaced only a handful of unfinished
+  ideas even though the canonical Ali idea log and building backlogs contained
+  hundreds of identifiable source entries. Routing an idea into one backlog
+  did not provide one portfolio view of whether it was captured, specified,
+  building, blocked, intentionally later or actually public.
+- **Root cause:** The workspace had authoritative source records and product
+  owners, but no deduplicated cross-source inventory with a completeness check.
+  A recommendation could therefore be faithfully documented yet remain absent
+  from sequencing, or be summarized away as though it had never existed.
+- **Prevention rule:** Preserve a line-addressable source census of the Ali idea
+  log and every product-steward backlog, and maintain a separate curated
+  portfolio inventory with one stable ID, evidence status, priority, build
+  disposition, registered owner, exact next action and done condition per
+  initiative. The normal product-steward check must fail if any top-level Ali
+  idea family or recorded idea cluster loses its curated mapping. `LATER` is a
+  visible state with a return trigger, not deletion.
+- **Why the fix works:** Raw capture prevents loss; reconciliation prevents
+  duplicate builds; the curated layer makes sequencing usable; and validation
+  makes omissions observable before another summary or dashboard can hide
+  them.
+- **Possible Behind the Build angle:** The difference between writing an idea
+  down and building an operating system that can remember it for you.

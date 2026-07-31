@@ -17,6 +17,27 @@ PASS/HOLD receipt. A Markdown packet or internal HOLD row does not satisfy this
 requirement. Superseded artifacts must be removed from the inbox in the same
 cycle that a successor becomes the review source of truth.
 
+## Portfolio idea and build inventory
+
+`PORTFOLIO-WORK-INVENTORY.md` is the human portfolio view and
+`portfolio-work-inventory.json` is its curated machine source. The complete
+loss-prevention census is `portfolio-source-census.json`; it preserves the raw
+idea/backlog wording and source line rather than pretending the curated list is
+the whole record.
+
+After any material idea, recommendation, routing or prioritisation change, run:
+
+```sh
+node scripts/build-portfolio-work-inventory.mjs --write
+```
+
+The ordinary product-steward validation also runs the portfolio validator. It
+must fail when an Ali idea-log family or July idea cluster loses its inventory
+mapping, when an owner is unknown, or when a cited source disappears. The
+dashboard may group or filter this inventory, but it may not hide `LATER`,
+`BLOCKED` or `HOLD` work, confuse a captured idea with a build, or promote a
+recommendation without an accountable owner and exact next action.
+
 ## Update authority
 
 The Control Room owns `dashboard-state.json`. Every scheduled audit must:

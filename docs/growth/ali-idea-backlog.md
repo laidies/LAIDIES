@@ -864,3 +864,60 @@ a weak value or trust score.
 The permanent asset is the product dossier, backlog, evidence and cadence—not
 an always-running model per page. Full design:
 `operations/research/product-stewardship-agent-operating-system-2026-07-25.md`.
+
+## Learning that meets women where they are
+
+**Status:** CAPTURED — routed to the Learning System & Concepts owner as
+`LCE-017`; this is a sitewide learning architecture requirement, not a new
+standalone building.
+
+People will arrive with different AI experience, different professional
+expertise and different reasons for visiting. LAiDIES must remain genuinely
+useful to someone opening an AI tool for the first time and to someone already
+building workflows, evaluating models or using agents. Do not turn this into a
+permanent beginner/intermediate/advanced identity or make people pass a test to
+enter.
+
+The preferred pattern is choice by job and desired support:
+
+- **Show me the essentials** — establish the correct mental model without
+  talking down to the learner;
+- **Help me use it** — guided practice on a real, bounded task;
+- **Take me deeper** — mechanisms, comparisons, failure diagnosis, evaluation,
+  workflow design, agents, security and current limits; and
+- **Help me judge it** — evidence, trade-offs, misleading claims and what would
+  change the conclusion.
+
+A learner can choose differently for different topics. Classes, books,
+episodes, tools and search results should state assumed knowledge, the useful
+outcome and the next experience. Any saved preference is voluntary,
+domain-specific, editable and private. Domain expertise must be treated as an
+asset rather than erased by an AI skill label.
+
+## A daily reason to ask “why?” — and sometimes “why not?”
+
+**Status:** CAPTURED — routed to The Daily as `NS-20`, with Community and The
+LUMINAiRY supplying candidate actions and the NewsStand retaining editorial
+authority.
+
+Add one short, positive daily note that encourages curiosity, ambition and
+women actively lifting one another. It must not be a pastel affirmation, a
+fabricated quotation, a command to be more confident, empty “girlboss” copy or
+a suggestion that another woman's success leaves less room for everyone else.
+Do not quote the Ted Lasso scene; preserve the underlying idea in original
+LAiDIES language.
+
+Each note should make one concrete move feel possible, for example:
+
+- ask one more useful question before accepting the obvious answer;
+- ask “why not me?” or “why not her?” when an opportunity is being allocated;
+- name the woman whose work made the result possible;
+- pass along a useful introduction, opening, source or piece of credit;
+- invite another woman into the room rather than guarding the door; or
+- give specific help or feedback that makes someone else's next attempt
+  stronger.
+
+The public title remains a taste decision after the first editorial bank is
+strong enough to judge. The feature belongs in the complete Daily newspaper;
+the Homepage Daily Buzz may show only today's compact item and a small route to
+the paper.

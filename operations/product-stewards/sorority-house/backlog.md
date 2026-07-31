@@ -147,24 +147,35 @@ verification.
    explain its private reflection/rehearsal job, act safely and understand the
    local marker without interpreting it as community/reward proof.
 
+5. **SH-012 — Make mutual advancement an observable community behaviour.**
+   Community prompts, room guidance, moderation and recognition must help
+   residents credit a woman's work, invite someone into an opportunity, offer
+   specific useful feedback, share access and advocate for another woman when
+   she is not in the room. Do not substitute generic empowerment slogans,
+   confidence-deficit framing, popularity rankings, referral pressure or the
+   idea that there is room for only one woman. Any Butterfly Clip or other
+   reward for community participation remains held until the provider can
+   prove the exact qualifying action without ingesting message content or
+   rewarding volume.
+
 ## HIDE/LABEL FOR LAUNCH
 
-5. **SH-005 — Keep member/cross-device/progression claims bounded.** Local handle/session hints, room visit and local card state are not a durable resident identity, room achievement or reward.
+6. **SH-005 — Keep member/cross-device/progression claims bounded.** Local handle/session hints, room visit and local card state are not a durable resident identity, room achievement or reward.
 
-6. **SH-006 — Label Hyvor as a third-party discussion service with visible fallback.** Local preview behaviour is not a public posting proof; provider failure must never look like an empty community.
+7. **SH-006 — Label Hyvor as a third-party discussion service with visible fallback.** Local preview behaviour is not a public posting proof; provider failure must never look like an empty community.
 
 ## POST-LAUNCH EXPERIMENT
 
-7. **SH-007 — Test a single high-value weekly prompt, not a larger room count.** After safety and service evidence, compare two evidence-based prompt formats using useful response quality, repeat participation and safety burden—not raw post volume.
+8. **SH-007 — Test a single high-value weekly prompt, not a larger room count.** After safety and service evidence, compare two evidence-based prompt formats using useful response quality, repeat participation and safety burden—not raw post volume.
 
-8. **SH-008 — Build a human-reviewed VOC loop.** Privacy-safe aggregate themes and voluntary feedback may inform a weekly digest; separate observation from recommendation and never auto-publish community text as correct advice.
+9. **SH-008 — Build a human-reviewed VOC loop.** Privacy-safe aggregate themes and voluntary feedback may inform a weekly digest; separate observation from recommendation and never auto-publish community text as correct advice.
 
-9. **SH-009 — Upkeep cadence.** Weekly: incident/moderation/theme review for active rooms. Monthly: room usefulness, stale prompts, accessibility/provider health and whether to merge/pause rooms. Quarterly: safety policy and retention review.
+10. **SH-009 — Upkeep cadence.** Weekly: incident/moderation/theme review for active rooms. Monthly: room usefulness, stale prompts, accessibility/provider health and whether to merge/pause rooms. Quarterly: safety policy and retention review.
 
 ## REVENUE — DEFERRED
 
-10. **SH-010 — No community monetization before trust.** Core discussion, safety and learning remain free. Consider only optional, non-exploitative events/objects after moderation, privacy, delivery and member value are proven; never charge for visibility, safety, support access or popularity.
+11. **SH-010 — No community monetization before trust.** Core discussion, safety and learning remain free. Consider only optional, non-exploitative events/objects after moderation, privacy, delivery and member value are proven; never charge for visibility, safety, support access or popularity.
 
 ## DECLINE
 
-11. **SH-011 — Decline leaderboards, post-volume rewards, streaks and referral pressure.** They create spam, social hierarchy and unsafe disclosure rather than belonging.
+12. **SH-011 — Decline leaderboards, post-volume rewards, streaks and referral pressure.** They create spam, social hierarchy and unsafe disclosure rather than belonging.
