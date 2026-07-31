@@ -67,7 +67,7 @@ Eight terms are taught in both, at different depths. Glossary = 3 lines each; Ch
 | Term | In `vocab-101.md` | In `handbook-ch1.md` |
 |---|---|---|
 | Prompt | "The instruction you give an AI tool" + brief analogy | Term 1, full section: Golden Rule, 5-part brief, vague-vs-briefed, traps, sources |
-| Model | "The trained system inside an AI product" | Term 2 "Model / LLM": how models differ, which one when, sources |
+| Model | "A core component of an AI system that uses inputs to produce outputs" | Term 2 "Model / LLM": model/product/tool distinction, how models differ, sources |
 | Training data | "Everything AI read while learning" | Term 3: the cutoff, who uses your inputs, sources |
 | Token | one-line definition | Term 4 "Token & context window": lost-in-the-middle, memory ≠ context window |
 | Context | "The background information AI needs" | Folded into Term 4 — **the glossary treats Context and Token as two entries; Chapter 1 treats them as one.** Pick one model. |

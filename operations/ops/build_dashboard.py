@@ -28,7 +28,7 @@ ELEMENTS = [
     ('6',  'Social engine + posting',   'PLANNED', 'Not built.'),
     ('7',  'Two-way inbox',             'WIRED',   'Approvals/questions + your ideas.'),
     ('8',  'One task at a time',        'WIRED',   'Current focus, below.'),
-    ('9',  'News + explanation',        'PARTIAL', 'Hot Goss runs; explanation layer planned.'),
+    ('9',  'News + explanation',        'PARTIAL', 'Daily RSS producer runs but is orphaned; weekly Stage 1 is manual; Stage 2 is not built.'),
     ('10', 'Trusted sources',           'PARTIAL', 'Seeded list; not yet wired to agents.'),
     ('11', 'Unified chat (Claude+Codex)','PLANNED','Needs a real app, not a static page.'),
 ]
@@ -110,7 +110,7 @@ analytics_html = (planned('Visitors / sign-ups / engagement, in here',
 social_html = planned('Generate + schedule IG/YT posts per episode',
         'A generator that turns each episode into captions + stills + a post schedule. Nothing built yet — this is a real project, not a checkbox.')
 news_html = (planned('Explanation layer on the news',
-        'Hot Goss already fetches + rewrites AI news daily (LIVE). Needs: the LAiDIES "here\'s what it means for you" layer, and a curated-opinion feed.')
+        'Daily RSS intake commits raw fallback output to an orphaned feed. The richer WEDNESDAY/Tribune library is manual Stage 1. Needs: one public source of truth, the integrity + Ali-approval gate, assisted Stage 2 publishing, and a public freshness smoke test.')
     )
 chat_html = planned('Chat with Claude AND Codex from inside the centre',
         'A static page can\'t host a live two-way chat. Needs a small real app (local server or hosted) that talks to both, shares repo context, and manages that context. Biggest lift of the 11 — do it last.')

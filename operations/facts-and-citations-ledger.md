@@ -37,9 +37,23 @@ Columns: **Claim** · **What it measures (scope/caveat)** · **Source** · **Ver
   soft skills more vital) — https://www.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2025/women-and-generative-ai.html ;
   WEF 2030 skills outlook (communication/empathy/problem-solving on top). · Verified 2026-07-07 · Used in: **Ep2**.
 
-- **"Women adopt GenAI less overall (adoption gap ~25%)."** · Source: HBS / NY Fed (½ men vs ⅓ women) —
-  https://www.library.hbs.edu/working-knowledge/women-are-avoiding-using-artificial-intelligence-can-that-hurt-their-careers
-  · Verified 2026-07-07 · Used in: **Ep1**.
+- **"A gender participation gap in generative-AI use persists."** · Scope: the May 2026 version of
+  HBS Working Paper 25-023 synthesizes 76 sources from more than 100 countries. Among 318,924
+  respondents in sources reporting use rates for women and men, estimated adoption was 47.8% for
+  men and 39.3% for women—a 22% relative gap. The paper reports that the relative gap narrowed
+  over time but stabilized near 16% from early 2025. This measures participation, not ability,
+  and estimates vary by source, place, occupation and time. · Source: Cranney, Delecourt and
+  Koning, *Global Evidence on Gender Gaps and Generative AI Over Time*, HBS Working Paper 25-023
+  (May 2026 version) —
+  https://www.hbs.edu/ris/Publication%20Files/25-023_be8fb517-3dd5-40aa-97f9-4e42e1c8e6ff.pdf
+  · Verified 2026-07-29 · Used in: **Ep1** audio/article/Study Pack.
+
+- **"Men are 23% more likely to be encouraged by managers to use AI and 27% more likely to be
+  praised for it; women are 32% more likely to worry AI use will be perceived as cheating."**
+  · Scope: workplace survey context; do not merge with the HBS adoption estimate or generalize
+  to every workplace. · Source: LeanIn.Org, *The Real Risk with AI? Not Using It* —
+  https://leanin.org/articles/findings/the-real-risk-with-ai-not-using-it/
+  · Verified 2026-07-29 · Used in: **Ep1**.
 
 - **"'Prompt' is an old word the tech world borrowed — the computer nerds lifted it from the theater kids."**
   · Scope: the verb *prompt* dates to the **mid-1300s** ("incite to action," from Latin *promere*, "bring

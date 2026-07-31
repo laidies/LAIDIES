@@ -11,7 +11,7 @@ export interface MastheadProps {
   tagline: React.ReactNode;
   /** Primary CTA (typically a Button). */
   cta?: React.ReactNode;
-  /** Small line under the CTA, e.g. "New in town? Stop by the Welcome Wagon first →". */
+  /** Small line under the CTA, e.g. "New in town? Stop by the Visitor’s Centre first →". */
   sub?: React.ReactNode;
 }
 

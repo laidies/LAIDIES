@@ -8,7 +8,7 @@ if (!moduleRoot) throw new Error("ECO01_PLAYWRIGHT_ROOT must point to a temporar
 const requireFromRoot = createRequire(path.join(moduleRoot, "package.json"));
 const { chromium } = requireFromRoot("playwright");
 
-const url = process.env.ECO01_URL || "http://127.0.0.1:8765/grimoire/verification-rulebook.html";
+const url = process.env.ECO01_URL || "http://127.0.0.1:8765/content/library-books/rendered/verification-rulebook.html";
 const evidenceDir = process.env.ECO01_BROWSER_EVIDENCE || "operations/product-stewards/learning-content-ecosystem/evidence-eco01-browser";
 fs.mkdirSync(evidenceDir, { recursive: true });
 

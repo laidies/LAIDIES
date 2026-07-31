@@ -1,35 +1,41 @@
-# Ali review packet — what to review, in order
+# Ali review packet — current exact review queue
 
-**Current public truth:** the Screening Room does **not** play any of these motion files. It truthfully plays illustrated/narrated listen-alongs with captions. You do not need to browse version folders.
+**Interactive review surface:** [`../control-room/review-inbox.html`](../control-room/review-inbox.html)
 
-## Watch these exact files in this order
+This file is the durable text index. The interactive review inbox is the
+intended human-review experience: it embeds the exact current masters, captions,
+remaining decision, evidence and a locally saved PASS/HOLD receipt.
 
-1. **Trailer** — `assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v2-repaired-review-1920.mp4` (16:07)
-2. **Episode 01** — `assets/video/episode-01-full-v21-controlled-motion-review.mp4` (19:32)
-3. **Episode 02** — `assets/video/episode-02-full-v17-controlled-motion-review.mp4` (16:27)
-4. **Episode 03** — `assets/video/episode-03-full-v9-controlled-motion-review.mp4` (17:28)
-5. **Episode 04** — `assets/video/episode-04-full-v8.mp4` (20:22)
+## Current public truth
 
-Check only these five questions at every change: does the picture illustrate the *current* spoken point; is every person/location/style canon-correct; does something meaningful move when it should; do cuts arrive when the thought changes; are the words/captions clean and in sync? A wrong person/background/style or generic/late visual is a reject, not polish.
+- **Episode 04 — The Founding Mothers:** exact accepted film is deployed and
+  publicly verified. No Ali review is pending.
+- **Episodes 01–03:** written pages and illustrated listen-alongs are public.
+  The exact full motion films below are not public. Their picture/player gates
+  passed; each needs one identified human full-title watch at 1×, unmuted and
+  audible.
+- **Trailer v5:** title-specific ident/player gates passed. It needs Ali's
+  heroine-outfit ruling, then one identified human full-title watch of the
+  resulting exact master.
 
-## Representative review captures (orientation only — not approval)
+## Exact current queue
 
-![Trailer first-frame capture](evidence-2026-07-25/laidies-trailer-comic-v2-repaired-review-1920.mp4.png)
+1. **Episode 01 — On Wednesdays We Do AI**
+   `assets/video/episode-01-full-v26-source-admitted-review.mp4`
+   SHA-256 `f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351`
+2. **Episode 02 — Tell Me What You Want**
+   `assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4`
+   SHA-256 `80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814`
+3. **Episode 03 — The Burn Book Problem**
+   `assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4`
+   SHA-256 `bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f`
+4. **Trailer v5**
+   `assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4`
+   SHA-256 `e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222`
+   Outfit package:
+   `evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html`
 
-![Episode 01 first-frame capture](evidence-2026-07-25/episode-01-full-v21-controlled-motion-review.mp4.png)
-
-![Episode 02 first-frame capture](evidence-2026-07-25/episode-02-full-v17-controlled-motion-review.mp4.png)
-
-![Episode 03 first-frame capture](evidence-2026-07-25/episode-03-full-v9-controlled-motion-review.mp4.png)
-
-![Episode 04 first-frame capture](evidence-2026-07-25/episode-04-full-v8.mp4.png)
-
-These are fresh Quick Look captures, deliberately labelled orientation only. They cannot prove motion, timing, audio, captions or continuity; the full-player review is still blocked in this audit environment. The matrices beside them list every source cue but intentionally remain failed until rendered playback is watched.
-
-## New observed-frame result
-
-Direct extraction now covers every legacy cue start and midpoint: Trailer 64 frames, E01 112, E02 54, E03 98 and E04 116. The strongest confirmed failure is not subtle: E01 and E02 splice painterly scenic scenes into hard comic-card episodes. Watch those two first if you want the fastest visual confirmation. E03/E04 samples are much more internally coherent, but neither has passed real-person/reference, audio/caption or full-motion review.
-
-## Fast decision request
-
-For each candidate, return just: **REJECT / CONTINUE REVIEW**, then any timestamps. Do not approve a shot because it is smooth or technically valid. The queue already assigns the repair owner and asks for full shot replacement whenever the source frame is wrong.
+For every full watch, record **PASS** or **HOLD with exact timestamps**. PASS
+means the complete exact title was watched at normal speed with audible,
+unmuted sound and no release-blocking picture, narration, audio or caption
+problem was found. It does not itself claim deployment or public verification.

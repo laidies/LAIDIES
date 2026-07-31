@@ -124,7 +124,7 @@
       return { canExpose: false, state: "load-failure", reason: "The publication record did not load. Nothing is available from this desk." };
     }
     if (dataset.state === "hold") {
-      return { canExpose: false, state: "hold", reason: "The NewsStand is on editorial hold. Story bodies and archive results stay off the counter." };
+      return { canExpose: false, state: "hold", reason: "The NewsStand is not publishing stories right now. Please check back soon." };
     }
     if (dataset.state === "no-data") {
       return { canExpose: false, state: "no-data", reason: "The publication record contains no approved story data." };
@@ -134,7 +134,7 @@
         canExpose: dataset.state === "ready" || dataset.state === "clear",
         state: dataset.state,
         reason: dataset.state === "stale"
-          ? "Paige’s dated source check is overdue. Stories stay unavailable until the desk is rechecked."
+          ? "These stories need an update before they can be shown again."
           : dataset.state === "unavailable"
             ? "Part of the publication desk is unavailable. No story is exposed without its publication record."
             : ""
@@ -148,14 +148,14 @@
         canExpose: false,
         state: "stale",
         edition: edition,
-        reason: "This source check is overdue. The archived route is preserved, but the story stays unavailable until Paige rechecks it."
+        reason: "This story needs an update before it can be shown again."
       };
     }
     if (publicationState === "unavailable") {
       return { canExpose: false, state: "unavailable", edition: edition, reason: "This publication record is unavailable. Nothing is presented as current or archived from this desk." };
     }
     if (publicationState === "hold") {
-      return { canExpose: false, state: "hold", edition: edition, reason: publication.note || "This publication is on editorial hold." };
+      return { canExpose: false, state: "hold", edition: edition, reason: publication.note || "This edition is not published yet." };
     }
     if (publicationState === "quiet") {
       return { canExpose: false, state: "quiet", edition: edition, reason: publication.note || "No qualified issue is filed." };
@@ -175,7 +175,7 @@
       };
     }
     if (state === "hold") {
-      return { canExpose: false, state: "hold", edition: edition, reason: "This story is on editorial hold and is not available." };
+      return { canExpose: false, state: "hold", edition: edition, reason: "This story is not published yet." };
     }
     if (state === "unavailable") {
       return { canExpose: false, state: "unavailable", edition: edition, reason: "This story record is unavailable." };

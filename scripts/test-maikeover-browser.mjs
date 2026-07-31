@@ -565,10 +565,10 @@ try {
   check((await residentHeldPage.locator('[role="status"]').innerText())
     .includes("not taking email addresses yet"),
   "Resident Card held state does not explain that email intake is closed");
-  check(!(await residentHeldPage.locator(".member-pass-panel").isVisible()),
-    "Resident Card held email panel remains visible");
-  check(!(await residentHeldPage.locator("#saveMemberPassButton").isVisible()),
-    "Resident Card held submit control remains operable");
+  check(await residentHeldPage.locator('input[type="email"], #memberPassEmail').count() === 0,
+    "Resident Card held route still ships an email input");
+  check(await residentHeldPage.locator("#saveMemberPassButton").count() === 0,
+    "Resident Card held route still ships an email submit control");
   await residentHeldPage.locator('[role="status"] a').focus();
   check(await residentHeldPage.evaluate(() =>
     document.activeElement?.getAttribute("href") === "/maikeover.html"),

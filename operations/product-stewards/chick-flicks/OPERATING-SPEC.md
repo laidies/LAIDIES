@@ -111,9 +111,13 @@ implementation and independent review remain separate states.
   due, returned or fulfilled and no learning record is created
 - **Assessment/transfer evidence:** not applicable inside the catalogue;
   learning quality and assessment belong to Episode Experience/High
-- **Relationship to ecosystem:** Episode Experience owns episode purpose and
-  continuation; Screening Room owns playback; Episode Media Quality owns
-  audiovisual approval; High/Blend & Snap/Post Office own receiving routes
+- **Relationship to ecosystem:** the Weekly Episode Engine
+  (`019f9f7c-f03a-7ec1-a776-d60b57210322`) owns opportunity through
+  teaching/editorial/production intent, checksum-bound release candidate and
+  episode-package public proof; Chick Flicks owns Screening Room playback,
+  archive/listen/watch presentation, availability and the complete visitor
+  return journey; Episode Media Quality owns audiovisual admission;
+  High/Blend & Snap/Post Office own receiving routes
 - **Next useful experience:** a verified issue route first; illustrated,
   captioned Screening Room listen-along when explicitly chosen; Study Pack,
   quiz or delivery only as honest optional handoffs
@@ -191,7 +195,9 @@ implementation and independent review remain separate states.
 ## Dependencies and ownership
 
 - **Parent champion:** Chick Flicks champion
-- **Subchampions:** Screening Room; Episode Media Quality
+- **Owned child experience:** Screening Room
+- **Coordinated independent owners:** Weekly Episode Engine; Episode Media
+  Quality
 - **Required guilds:** product; frontend; data/integration; UX/accessibility;
   brand; release QA; Episode Product Owner; media roles only when their
   separate trigger runs
@@ -199,13 +205,21 @@ implementation and independent review remain separate states.
   Platform release builder
 - **Downstream:** Episode Experience, Screening Room, Blend & Snap, High, Post
   Office, Resident Card/local profile
-- **Cross-product handoffs:** index/freshness to Episode Experience/Platform;
-  playback copy to Screening Room; all motion approval to Media Quality;
+- **Cross-product handoffs:** checksum-bound episode release candidate and
+  correction/revoke transaction from the Weekly Episode Engine; accepted
+  availability/discovery/archive/watch/return and public-journey proof back to
+  the Engine; index/freshness with Platform; all audiovisual approval to Media
+  Quality;
   favourite/account truth to Identity/Rewards. Homepage, directory, welcome
   tour, tour check-in and trailer-issue Chick Flicks entries use
   released/forthcoming truth rather than unsupported weekly freshness
-- **Freshness owner:** Episode Experience/Platform for the index; Chick Flicks
-  re-verifies on every index change
+- **Machine handoff authority:**
+  `operations/product-stewards/episode-experience/EPISODE-RELEASE-MANIFEST-SPEC.md`;
+  immutable candidate/admission records and later public-proof receipts require
+  non-circular canonical hashing and may not mutate in place
+- **Freshness producer:** Weekly Episode Engine/Platform for the checksum-bound
+  release transaction; Chick Flicks re-verifies availability and every owned
+  consumer on each addition, correction, hold, revoke or removal
 - **Known dependency gap:** the registry names
   `screening-room/CHARTER.md`, but that dossier is absent. No Screening Room
   rule is inferred beyond current `watch.html`, Episode Experience evidence

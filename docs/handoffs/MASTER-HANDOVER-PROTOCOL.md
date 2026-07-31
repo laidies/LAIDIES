@@ -16,6 +16,15 @@ Replace `[give me prompt]` with a complete prompt that lets the next chat resume
 
 Before telling the user to start a new chat, create or update a full handover file in `docs/handoffs/`.
 
+First reconcile the durable live sources:
+
+- `operations/ACTIVE-WORK.md`
+- `operations/engine/LEDGER.md`
+- `docs/growth/ali-idea-backlog.md`
+
+The handover summarizes those sources for the context switch. It must not
+become a competing status authority.
+
 Name it using the current date and topic:
 
 `current-window-handoff-YYYY-MM-DD-topic.md`
@@ -56,7 +65,8 @@ If queue order is unclear, recommend this default order:
 
 The prompt given to the user must include:
 
-- The workspace path: `C:\Users\alieakin\OneDrive - amazon.com\Documents\LAIDIES`
+- The current workspace path:
+  `/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES`
 - The handover file path
 - The immediate task to resume
 - Any queued work that should remain visible
@@ -66,7 +76,7 @@ Template:
 
 ```text
 Continue work in the LAIDIES project at:
-C:\Users\alieakin\OneDrive - amazon.com\Documents\LAIDIES
+/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES
 
 Start by reading this handover file:
 docs/handoffs/[handover-file-name].md

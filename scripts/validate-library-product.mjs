@@ -8,8 +8,11 @@ const read = (relative) =>
   fs.readFileSync(path.join(root, relative), "utf8");
 const page = read("library.html");
 const puffies = read("content/site/puffy-bookmarks.js");
+const card = read("laidies-card.html");
 
-const match = page.match(/const SECTIONS=(\[[\s\S]*?\]);\nconst ADMITTED_BOOK_SOURCES=/);
+const match = page.match(
+  /const SECTIONS=(\[[\s\S]*?\]);\nconst ADMITTED_BOOK_(?:SOURCES|RECORDS)=/
+);
 if (!match) throw new Error("LIBRAiRY catalogue manifest is not parseable");
 const sections = Function("B", `"use strict"; return (${match[1]});`)(
   "assets/library-101/bright-family-v2/"
@@ -41,9 +44,7 @@ if (counts.hold !== 8 || counts.preview !== 7 || counts.available !== 0) {
 
 for (const contract of [
   "function bookIsAvailable(b)",
-  "const ADMITTED_BOOK_SOURCES=Object.freeze({",
   "const ALL=Object.freeze(",
-  "function exactAdmittedBookSource(id)",
   "function admittedBook(id)",
   "url.origin!==location.origin",
   "url.pathname!==source",
@@ -51,9 +52,21 @@ for (const contract of [
   "if(!publication)",
   "data-library-status",
   "short shelf description is not a substitute",
-  "Miss Jeeves and saved links cannot open it until that review clears"
+  "Try another book marked Ready"
 ]) {
   if (!page.includes(contract)) throw new Error(`missing page contract: ${contract}`);
+}
+if (
+  !page.includes("const ADMITTED_BOOK_SOURCES=Object.freeze({") &&
+  !page.includes("const ADMITTED_BOOK_RECORDS=Object.freeze(")
+) {
+  throw new Error("missing private admitted-book authority");
+}
+if (
+  !page.includes("function exactAdmittedBookSource(id)") &&
+  !page.includes("function exactAdmittedBookRecord(id)")
+) {
+  throw new Error("missing exact admitted-book validation");
 }
 if (page.includes("window.LAIDIES_LIBRARY_CATALOGUE")) {
   throw new Error("live catalogue authority must remain private");
@@ -66,6 +79,14 @@ for (const contract of [
   "function exactIsoDate(value)",
   "PUFFY_PAGE_ROUTES",
   "BOARD_FIELDS",
+  "BOARD_SCHEMA_VERSION",
+  "book_id",
+  "section_id",
+  "content_version",
+  "data-puffy-migrated",
+  "window.addEventListener('storage'",
+  "data-puffy-visitor-state",
+  "LAIDIES_PUFFY_VERIFIED_ACCOUNT",
   "stickerByFile(record.sticker)",
   "data-puffy-recovered",
   "damaged or unsafe device-local Puffy",
@@ -77,6 +98,13 @@ for (const contract of [
   if (!puffies.includes(contract)) {
     throw new Error(`missing Puffy persistence contract: ${contract}`);
   }
+}
+for (const copy of [
+  "not owned books, rewards, account history or synced saves",
+  "current admission status can be checked again",
+  'id="puffyVisitorState"'
+]) {
+  if (!card.includes(copy)) throw new Error(`missing Closet visitor-state truth: ${copy}`);
 }
 if (puffies.includes("var a = document.createElement('a');")) {
   throw new Error("Puffy board still nests a button inside a link");

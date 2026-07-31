@@ -64,10 +64,40 @@ pop-culture reference—is never sufficient reason to use one.
 Repetition is justified only when a different modality or retrieval context
 meaningfully reinforces learning.
 
+## Mandatory intake and complement gate
+
+Before a champion scripts or commissions a new substantial learning item, copy
+and complete
+`operations/checklists/learning-content-intake-template.md`. This applies
+whether the trigger is an Ali idea, an episode impact, learner evidence, a
+product change, a correction or a perceived curriculum gap.
+
+The intake owner must first inspect:
+
+1. `operations/product-stewards/learning-content-ecosystem/concept-map.md`;
+2. the nearest current episode canon;
+3. the LIBRAiRY 101 ownership map and relevant existing book/passages;
+4. `content/site/high-classes.json` and the Classes dossier;
+5. relevant tools, games and NewsStand applications; and
+6. any existing episode opportunity scan.
+
+The record must name one canonical concept owner and state the different job of
+every selected surface. If two proposed items perform the same job, link,
+correct, update or extend the existing owner instead of creating a duplicate.
+If no concept owner exists, create a concept-map candidate before scripting.
+
+A class idea advances only when narration, animation, demonstration, guided
+practice, controlled comparison, failure diagnosis or transfer gives it a
+real modality advantage. A book idea advances only when it owns a durable
+lookup/reference job that an existing book or chapter cannot perform cleanly.
+An episode derivative scan creates decisions and handoffs, not automatic
+content.
+
 ## Required content record
 
 For every substantial item, record:
 
+- its completed learning-content intake/complement card;
 - topic and audience;
 - learning objective;
 - prerequisite and intended next experience;

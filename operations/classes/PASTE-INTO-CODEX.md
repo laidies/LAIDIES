@@ -52,7 +52,7 @@ failure modes: **talking down to her**, and **assuming she already knows the jar
   concrete, shown example — not an abstract definition. If a class is all definition and no
   demonstration, it has failed.
 - **Two nouns, always distinguished: THE TOOL and THE MODEL.**
-  - *the model* — the part that produces the words; has a cutoff; does not know you.
+  - *the model* — a core component that uses supplied inputs to produce outputs; it receives only the context the system supplies.
   - *the tool* — everything built around it: the account, memory, settings, files, connectors,
     modes, the buttons.
   Memory belongs to the tool, not the model. If these blur, the reader thinks the thing that

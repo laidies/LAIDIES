@@ -90,8 +90,9 @@ forbidText(publicBranch, "loadCollections(",
   "public Card still loads owner-oriented collections");
 requireText(resident, "The account desk is not taking email addresses yet.",
   "duplicate Resident Card intake does not expose its hold");
-requireText(resident, 'class="rc-form-card member-pass-panel" hidden inert',
-  "held Resident Card email form remains operable");
+if (/type=["']email["']|memberPassEmail|saveMemberPassButton/.test(resident)) {
+  failures.push("held Resident Card route still ships an email intake");
+}
 
 const analyticsCalls = [...maikeover.matchAll(/plausible\(([\s\S]{0,220}?)\)/g)]
   .map((match) => match[1])

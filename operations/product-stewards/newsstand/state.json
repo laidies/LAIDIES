@@ -1,14 +1,25 @@
 {
   "product": "SUNNYVAiLE NewsStand Building",
-  "status": "BOUNDED REVIEW ROUTER PASS — ALL FOUR PUBLICATIONS AND RELEASE HOLD",
+  "status": "AUTOMATIC VALIDATION DISPATCH CONTRACT ACTIVE — PUBLIC DISCOVERY PARTIAL / RELEASE HOLD",
+  "building_wave_candidate_status": "ALI REJECTED / DO NOT INTEGRATE",
   "releaseStatus": "HOLD — FIX BEFORE LAUNCH",
-  "asOf": "2026-07-26",
+  "asOf": "2026-07-28",
   "relationshipToActiveWork": "MERGE with AW-003",
   "route": "/newsstand.html",
   "primaryFile": "newsstand.html",
   "ownedScope": ["building room", "paper rack", "reader", "archive search", "publication discovery", "freshness/empty/correction states", "reader-facing editorial contract"],
   "publicationSubChampions": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
   "lockedPublicMastheads": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
+  "ownerEntry": {
+    "status": "HOLD — REQUIRED VISUAL-ASSET-INVENTORY.md IS MISSING",
+    "experienceBrief": "EXPERIENCE-BRIEF.md",
+    "functionalityMap": "FUNCTIONALITY-MAP.md",
+    "buildPacket": "build-packet-owner-entry-readiness-2026-07-26.md",
+    "learningScan": "evidence/owner-entry-learning-scan-2026-07-26.md",
+    "visitorScopes": ["first-time", "returning without Resident Card", "device-local Resident Card", "verified account-backed Resident Card if supported"],
+    "controlRoomIntegrationLock": "NOT ASSIGNED",
+    "allowedCurrentWriteScope": "operations/product-stewards/newsstand dossier and evidence only"
+  },
   "currentImplementation": {
     "schemaVersion": "1.0.0",
     "canonicalEditions": ["breaking", "daily", "weekly", "tribune"],
@@ -27,6 +38,9 @@
     "renderedChromeMatrix": "INDEPENDENTLY VERIFIED LOCALLY — 89 headless-Chrome assertions pass across repeated source/artifact runs; Chrome-profile cleanup remains racy after assertions",
     "historyStateRecovery": "INDEPENDENTLY VERIFIED LOCALLY — query, cards, focus and requested/clamped/actual scroll settle across viewport changes, forged offsets and rapid history; native assistive-technology review remains open",
     "candidateReviewRouter": "BOUNDED INDEPENDENT PASS — only REJECT or HOLD; no candidate assertion can authorize publication; recursive duplicate-key rejection, executable schema identity and independent signed/hash-bound authority remain absent",
+    "automaticCandidateDispatch": "ACTIVE IN TWICE-DAILY NEWS RADAR — new/materially changed candidate hashes must start the exact independent chain; no publication authority",
+    "publishedDiscoveryDispatch": "ACTIVE IN DAILY CONTROL ROOM — new/corrected exact public records trigger discovery verification",
+    "publicDiscoveryCoverage": "PARTIAL — NewsStand paper/direct/search paths exist; Homepage Daily remains an isolated candidate and approved-public feed/new-since-last-visit remain build-required",
     "focusAndAriaContract": "VERIFIED LOCALLY IN HEADLESS CHROME; REAL ASSISTIVE-TECH REVIEW OPEN",
     "producerToReaderPublicationRun": "NOT YET EXECUTED",
     "exactArtifactAndPublicVerification": "NOT EXECUTED"
@@ -35,12 +49,15 @@
     "operations/newsstand-editorial-radar.md",
     "operations/newsstand-autopublish-policy.json",
     "operations/newsstand-earned-autonomy.md",
+    "operations/product-stewards/newsstand/PUBLICATION-VALIDATION-AND-DISCOVERY-CONTRACT.md",
     "operations/newsstand-candidate.schema.json",
     "content/newsstand.schema.json",
     "primary/official sources and independent context",
     "editorial approval/correction process",
     "Platform deployment, analytics and rollback",
-    "Ali approval for any replacement Weekly visual"
+    "Ali approval for any replacement Weekly visual",
+    "Portfolio Control Room locks for live route, shared platform, cross-page and release work",
+    "Homepage, Visitor's Centre, Tour/Rewards, Library/Episode and Resident Card/Closet owner handoffs"
   ],
   "cycle6": {
     "audit": "cycle-6-four-publication-audit-2026-07-26.md",
@@ -53,8 +70,8 @@
       "tribune": "BOUNDED CONTENT STRENGTH; PRODUCT/RELEASE HOLD — 82/100"
     }
   },
-  "lastRun": "2026-07-26 Cycle 6 Repair 3 independent rejudge; bounded router pass, no publication or deploy",
+  "lastRun": "2026-07-28 automatic candidate-validation and post-publication discovery dispatch contracts wired into the News Radar and Control Room automations; deterministic NewsStand router/schema/reader tests pass; no live route, publication or deploy",
   "latestIndependentReview": "independent-rejudge-cycle-6-repair-3-2026-07-26.md",
-  "nextAction": "Build recursive raw duplicate-key rejection, one executable hash-bound schema, complete decision provenance, immutable source receipts and an independent private authority transaction. Keep every publication, visual, native accessibility and public release held.",
-  "authority": "local code/content and product records only; no deploy, external publication, credentials, service mutation, visual approval or git"
+  "nextAction": "Build NS-16's checksum-bound validation-chain receipt and NS-17's approved-public-only feed, privacy-safe new-since-last-visit state and accepted Homepage current-information binding; then independently verify the complete discovery journey. Keep publication/deploy authority separate.",
+  "authority": "NewsStand dossier/evidence records only during owner-entry initialization; no live/shared edit, deploy, external publication, credentials, service mutation or visual approval"
 }

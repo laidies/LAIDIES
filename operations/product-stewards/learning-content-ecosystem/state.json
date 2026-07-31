@@ -1,34 +1,177 @@
 {
-  "schema_version": 1,
-  "updated": "2026-07-25",
+  "schema_version": 2,
+  "updated": "2026-07-30",
   "product_id": "learning-content-ecosystem",
-  "product": "LAiDIES learning-content ecosystem",
-  "status": "BUILDING",
-  "trigger": "AW-003 readiness program; portfolio request for a granular learning-content audit foundation",
-  "scope": ["LIBRAiRY shelf inventory", "SUNNYVAiLE High class register", "weekly episode progression", "representative approved NewsStand sample", "cross-product progression and handoffs"],
-  "evidence_status": {
-    "machine_readable_inventory": "BUILT LOCALLY",
-    "concept_map": "BUILT LOCALLY",
-    "eco_01_verification_rulebook_candidate": "BUILT LOCALLY — HOLD",
-    "eco_01_independent_review_1": "HARD FAIL — P0/P1 DEFECTS REPAIRED LOCALLY",
-    "eco_01_independent_re_review_2": "HARD FAIL — TWO P0 DEFECTS REPAIRED LOCALLY; THIRD REVIEW FOUND PROMPT CONTRAST DEFECT",
-    "eco_01_independent_review_3": "HARD FAIL — PROMPT-PANEL CONTRAST DEFECT REPAIRED LOCALLY; INDEPENDENT RE-REVIEW PENDING",
-    "eco_01_local_rendered_browser_matrix": "PASS — HEADLESS CHROME 30 CHECKS INCLUDING COMPUTED PROMPT CONTRAST; SAFARI/VOICEOVER NOT RUN",
-    "eco_01_claim_ledger": "BUILT LOCALLY — GENERATED FROM CANONICAL CLAIM NODES; INDEPENDENT RE-REVIEW PENDING",
-    "eco_01_18_case_evaluation_suite": "BUILT LOCALLY — NORMALIZED; NOT YET INDEPENDENTLY ADMINISTERED",
-    "item_level_instructional_review": "NOT_STARTED",
-    "item_level_accuracy_and_freshness_review": "NOT_STARTED",
-    "learner_comprehension_evidence": "NOT_WIRED",
-    "public_experience_verification": "NOT_TESTED"
+  "product": "LAiDIES Learning System & Concepts",
+  "owner_task_id": "019f9f7f-9e4c-72d2-8882-447bcbe01691",
+  "champion": "learning-system-concepts-director",
+  "status": "BUILT_LOCALLY_SHARED_CLAIM_FRESHNESS_SYSTEM",
+  "status_detail": "REPRESENTATIVE CLAIM REGISTER, SIGNAL INBOX, CONSUMER GRAPH, WEEKLY RELEASE GATE AND SITE-WIDE CANDIDATE SCAN OPERATIONAL; HISTORICAL BACKFILL AND OPEN SURFACE CORRECTIONS REMAIN",
+  "trigger": "Ali requested one maintained index and weekly freshness check for definitions, statistics and stale-able statements across episodes and the whole site, integrated with AIDB and NewsStand.",
+  "public_routes": [],
+  "owner_entry": {
+    "human_route": "Return to permanent task 019f9f7f-9e4c-72d2-8882-447bcbe01691 with a new concept or ask what should this become?",
+    "proposed_registry_routes": [
+      "shared"
+    ],
+    "proposed_registry_record": {
+      "id": "learning-content-ecosystem",
+      "kind": "shared_learning_system",
+      "name": "Learning System & Concepts",
+      "parent_id": null,
+      "routes": [
+        "shared"
+      ],
+      "champion": "learning-system-concepts-director",
+      "owner_task_id": "019f9f7f-9e4c-72d2-8882-447bcbe01691",
+      "dossier": "learning-content-ecosystem/CHARTER.md",
+      "state": "learning-content-ecosystem/state.json",
+      "initial_deep_dive": "REPORT_READY",
+      "launch_status": "NOT_APPLICABLE_SHARED_FUNCTION",
+      "next_trigger": "NEW_LEARNING_IDEA_EPISODE_IMPACT_CONCEPT_CORRECTION_OR_FRESHNESS_CHANGE"
+    },
+    "preflight_before": "FAIL — unknown owner-entry product id",
+    "preflight_after": "PASS — registry-bound targeted owner entry",
+    "registry_edit_owner": "Control Room",
+    "registry_edit_in_this_cycle": true
   },
-  "known_blockers": [
-    "Several click-open LIBRAiRY items carry existing editorial, factual-integrity or currency holds.",
-    "ECO-01 independent review 3 found that shared important typography rules made core prompt-panel text unreadable. Narrow direct-child overrides and claim-card regressions are repaired locally. A 30-check headless-Chrome matrix passes including computed contrast for every prompt-panel text role, but independent expert re-review, Safari/VoiceOver evidence, complete visual-density review and the eight-newcomer study have not passed.",
-    "The High register has one scripted Basics class, proposed Basics classes, researched ChatGPT classes, and unscheduled Claude/Gemini placeholders; its class-to-learner journey has not been item-level audited.",
-    "Episode 05 canon is explicitly UNRULED; its shelf promises must not become curriculum facts.",
-    "NewsStand current stories have a publication contract but still require independent editorial/accuracy review for their own release gate.",
-    "No shared learner analytics or comprehension/transfer measurement is wired."
+  "scope": [
+    "canonical concept identity, truth status, prerequisites and progression",
+    "cross-format inventory and gap/duplication/currency analysis",
+    "new learning idea intake and link/correct/update/extend/create/decline routing",
+    "distinct cognitive job per surface",
+    "episode library_impacts[] and class_impacts[] reconciliation",
+    "correction propagation and durable surface-owner handoffs",
+    "privacy-safe comprehension, transfer and misconception-resistance measurement"
   ],
-  "next_trigger": "Run independent ECO-01 re-review against canonical source SHA-256 ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd and rendered SHA-256 b91c70caa7443dda06079ad7908e254ac0775e8c5912d32a4d55c71cd95fa439; verify the prompt-panel computed contrast evidence and claim-card colour regression, then complete headed Safari/VoiceOver and visual-density review before the separate eight-newcomer study. Keep Library and Miss Jeeves PREVIEW/HOLD.",
-  "truth_boundary": "This state records an audit foundation and a locally built ECO-01 candidate. It does not approve the Rulebook, publish it or change its PREVIEW/HOLD availability."
+  "authority": {
+    "concept_map": "Canonical for concept identity, relationships, prerequisites, progression, owner and evidence state; unresolved rows do not become approved truth.",
+    "inventory": "Canonical cross-format audit index; surface sources retain admission and publication authority.",
+    "surface_production": "Owned by Classes, LIBRAiRY, Weekly Episodes, NewsStand and each tool/game/quiz/Study Pack owner.",
+    "commissioning": "No automatic commissions. CREATE is a routed recommendation until the receiving owner accepts."
+  },
+  "current_map": {
+    "concept_rows": 11,
+    "item_level_inventory_records": 22,
+    "high_class_aggregate_rows": 37,
+    "inventory_generated_on": "2026-07-25",
+    "inventory_truth": "Useful audit foundation; incomplete for tools, games, quizzes, Study Packs and complete current surface reconciliation.",
+    "published_episode_records": 4,
+    "unruled_episode_records": 1,
+    "library_item_records": 15,
+    "library_existing_holds": 8,
+    "library_not_published": 7,
+    "newsstand_sample_records": 2,
+    "shared_learner_measurement": "NOT_WIRED",
+    "correction_consumer_graph": "REPRESENTATIVE MACHINE-READABLE GRAPH + WEEKLY VALIDATOR BUILT LOCALLY; HISTORICAL BACKFILL AND SURFACE-OWNER ACCEPTANCE OPEN",
+    "claim_register": "4 REPRESENTATIVE CLAIMS; 5 SOURCES; 23 KNOWN CONSUMERS",
+    "freshness_signal_inbox": "AIDB / NEWSSTAND / PRIMARY CHECK / EPISODE / ALI CORRECTION CONTRACT BUILT",
+    "sitewide_candidate_scan": "OPERATIONAL — 355 CURRENT SOURCE/ROUTE FILES INCLUDING ALL 25 LIVE/PREVIEW INDEXED ROUTES; 2,009 UNREGISTERED CANDIDATES; MACHINE DISCOVERY ONLY; MATERIALITY/EVIDENCE REVIEW REQUIRED"
+  },
+  "evidence_status": {
+    "charter": "SPECIFIED",
+    "operating_spec": "SPECIFIED",
+    "backlog": "SPECIFIED",
+    "machine_readable_inventory": "BUILT LOCALLY — STALE/INCOMPLETE COVERAGE",
+    "concept_map": "BUILT LOCALLY — AUTHORITY LABELS RECONCILED IN OWNER CONTRACT; ROW-LEVEL REVIEW OPEN",
+    "eco_01_candidate": "BUILT LOCALLY — HOLD; EXISTING REVIEW GATES PRESERVED",
+    "item_level_instructional_review": "NOT_STARTED SYSTEM-WIDE",
+    "item_level_accuracy_and_freshness_review": "REPRESENTATIVE EPISODE 01 CLUSTER REGISTERED; WEEKLY CHECK OPERATIONAL; SYSTEM-WIDE BACKFILL OPEN",
+    "learner_comprehension_and_transfer": "NOT_WIRED",
+    "public_experience_verification": "NOT_APPLICABLE — NO PUBLIC ROUTE"
+  },
+  "latest_material_cycle": {
+    "trigger": "Ali found that technically cautious Episode 01 definitions still fell below the LAiDIES writing and explanation standard and requested correction wherever the same concepts appear.",
+    "evidence_at": "2026-07-30",
+    "status": "VERIFIED LOCALLY — REPRESENTATIVE TRUTH + TEACHING-COPY CORRECTION",
+    "action": "Separated definition, mechanism, reader consequence, bounded analogy and memory line; propagated the correction through representative episode, Study Pack, Library, quiz and class sources; prepared exact Episode 01 and Basics Class 01 narration replacements; visually checked every populated card back; replaced the semantically false Model front with artwork that shows a model as one component in a larger system.",
+    "evidence": [
+      "EPISODE-01-CONCEPT-DEFINITION-RESEARCH-2026-07-29.md",
+      "CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+      "BUILD-PACKET-episode-01-teaching-copy-quality-2026-07-30.md",
+      "../../audio/episode-01-narration-pickups-2026-07-29.txt",
+      "../../audio/class-basics-01-definition-replacement-2026-07-29.txt"
+    ],
+    "observed_results": [
+      "The strongest reusable class source is basics-what-these-tools-are.CONTENT.md because it separates product, model, context, tools and account entitlement.",
+      "The former basics-how-it-works.CONTENT.md collapsed a language-model training mechanism into a complete product explanation and overpromised self-checking; it was replaced.",
+      "The older 25% and 78:100 participation treatments were superseded by the May 2026 HBS Working Paper version.",
+      "The Stanford 22%-94% sycophancy range was incorrectly presented as a general hallucination rate in Concepts 101 and was removed.",
+      "New narration is required before the released Episode 01 audio/video or Basics Class 01 can carry the correction.",
+      "All four populated Trading Card backs passed local desktop visual safe-area review; maintained learning links now sit below the flipped card instead of being squeezed into the artwork.",
+      "Source-register language is not publishable teaching copy: the source owns the truth boundary while each surface must perform its distinct learning job in LAiDIES language.",
+      "The rejected Model front used fake publications/provider marks and therefore taught brand or product equals model. Its replacement shows a removable model component inside a larger system, with files, search and memory kept visually separate; collection-size browser QA passed without console warnings or errors."
+    ],
+    "acceptance": "LOCAL SOURCE AND CARD VISUAL CORRECTION VERIFIED; INDEPENDENT LEARNER/EDITORIAL ADMISSION, NEW NARRATION, INTEGRATION AND PUBLIC VERIFICATION REMAIN OPEN",
+    "public_deploy_spend_ali_authority": "NOT_USED"
+  },
+  "latest_intake": {
+    "trigger": "Ali asked which learning and engagement patterns LAiDIES should adapt from AIDB × Superintelligent's Summer Adventure.",
+    "evidence_at": "2026-07-29",
+    "status": "DECIDED — EXTEND; PILOT NOT COMMISSIONED",
+    "decision": "Reuse bounded choice, tangible artifact, private reflection and visible continuity as one optional Town Route across existing LAiDIES products. Do not create a camp, passport, course catalogue, certificate ladder or new reward system.",
+    "evidence": [
+      "INTAKE-aidb-summer-adventure-learning-patterns-2026-07-29.md"
+    ],
+    "next_owner_decision": "Ali may commission one Episode 01 Town Route pilot only after the locked Study Pack clears its existing admission gates.",
+    "public_deploy_spend_ali_authority": "NOT_USED"
+  },
+  "latest_freshness_system_cycle": {
+    "trigger": "Ali requested website-wide stale-claim identification, weekly checking and coordinated updates across every affected episode/site surface.",
+    "evidence_at": "2026-07-30",
+    "status": "BUILT LOCALLY — REPRESENTATIVE SYSTEM VERIFIED; BACKFILL OPEN",
+    "action": "Built the canonical claim/source/consumer register, freshness-signal inbox, validator, site-wide candidate scanner, weekly release gate and AIDB/NewsStand handoff integration; wired the gate into the existing weekly production review and command centre.",
+    "evidence": [
+      "FRESHNESS-SYSTEM.md",
+      "claim-register.json",
+      "freshness-signal-inbox.json",
+      "BUILD-PACKET-shared-claim-freshness-system-2026-07-30.md",
+      "freshness-runs/2026-07-30-episode-01-weekly.md",
+      "../../../checklists/weekly-claim-freshness-gate-template.md",
+      "../../../../scripts/check-content-freshness.mjs",
+      "../../../../scripts/run-weekly-production.js"
+    ],
+    "acceptance": "LOCAL MACHINE CONTRACT AND REPRESENTATIVE EPISODE 01 RUN VERIFIED; FULL HISTORICAL REGISTRATION, OWNER ACKNOWLEDGEMENTS AND PUBLIC CORRECTION PROOF REMAIN OPEN",
+    "public_deploy_spend_ali_authority": "NOT_USED"
+  },
+  "smallest_current_gaps": [
+    {
+      "id": "LCE-001",
+      "status": "COMPLETE",
+      "gap": "Registry binding and targeted owner-entry pass",
+      "owner": "Control Room",
+      "next": "Reopen only if registry binding or owner entry regresses."
+    },
+    {
+      "id": "LCE-002",
+      "status": "SPECIFIED",
+      "gap": "Row-level concept owner/evidence/prerequisite normalization",
+      "owner": "Learning System & Concepts Director",
+      "next": "Normalize one representative concept cluster before scaling."
+    },
+    {
+      "id": "LCE-003",
+      "status": "BUILD REMAINS REQUIRED",
+      "gap": "Complete current cross-format inventory, including tools, games, quizzes and Study Packs",
+      "owner": "Learning System & Concepts Director with surface owners",
+      "next": "Refresh inventory from authoritative surface sources without changing their admission state."
+    },
+    {
+      "id": "LCE-004",
+      "status": "REPRESENTATIVE MACHINE GRAPH BUILT LOCALLY; BACKFILL REMAINS REQUIRED",
+      "gap": "Correction consumer graph and acknowledged propagation ledger",
+      "owner": "Learning System & Concepts Director with affected surface owners",
+      "next": "Backfill material claims and close every open Episode 01 consumer using the maintained graph."
+    },
+    {
+      "id": "LCE-005",
+      "status": "BUILD REMAINS REQUIRED",
+      "gap": "Version-bound unfamiliar-learner comprehension and transfer evidence",
+      "owner": "Learning System & Concepts Director with analytics/VOC and surface owners",
+      "next": "Define the privacy-safe representative evaluation protocol and baseline."
+    }
+  ],
+  "next_trigger": "NEW_LEARNING_IDEA_EPISODE_IMPACT_CONCEPT_CORRECTION_OR_FRESHNESS_CHANGE",
+  "next_action": "Close the open Episode 01 narration/render/owner-review consumers, then backfill high-risk policy, product/model/access/price and numerical claims from the weekly candidate queue. Preserve Episode 5 and dated provider comparisons on HOLD until separately ruled.",
+  "truth_boundary": "The registry, signal inbox, consumer graph and weekly scanner are verified locally for a representative four-claim cluster. Historical site coverage is partial, open surface corrections are not released, and no public deployment was performed."
 }

@@ -1,13 +1,13 @@
 /**
  * SUNNYVAiLE back-nav — right-rail item
  *
- * Renders as a collapsed circle icon in a shared right-side rail. Expands to
- * a full pill on hover/focus. Content-page body reserves right padding on
- * desktop so pills never overlap page content. Mobile keeps a compact
- * bottom-right cluster.
+ * Renders as a shared contextual-return control. Desktop keeps the compact
+ * right-side rail treatment; mobile always shows a readable 44px+ pill because
+ * phones have no hover state.
  *
- * Only shows when the visitor arrived from within the site (same-origin
- * referrer). Home page is exempt.
+ * A same-origin referrer becomes the exact return destination. Direct,
+ * external, bookmarked and new-tab arrivals fall back to the town home. The
+ * only exempt state is a direct/external arrival already on the home page.
  *
  * Usage:
  *   <script defer src="/content/site/sv-back-nav.js?v=1"></script>
@@ -15,22 +15,25 @@
 (function () {
   'use strict';
 
-  // Only skip the back-nav when the visitor landed on the home page directly
-  // (no referrer). If they navigated to home from another SUNNYVAiLE page, they
-  // still deserve a way back.
   var ref = '';
   try { ref = document.referrer || ''; } catch (e) {}
-  if (!ref) return;
 
-  var refURL;
-  try { refURL = new URL(ref); } catch (e) { return; }
-  if (refURL.origin !== location.origin) return;
-  if (refURL.pathname === location.pathname) return;
+  var refURL = null;
+  try { refURL = ref ? new URL(ref) : null; } catch (e) {}
+  var hasInternalReturn = Boolean(
+    refURL &&
+    refURL.origin === location.origin &&
+    (refURL.pathname !== location.pathname ||
+      refURL.search !== location.search ||
+      refURL.hash !== location.hash)
+  );
+  var isHome = location.pathname === '/' || location.pathname === '/index.html';
+  if (isHome && !hasInternalReturn) return;
 
   var TITLES = {
     '/': 'the town',
     '/index.html': 'the town',
-    '/visitors-centre.html': 'the Welcome Wagon',
+    '/visitors-centre.html': 'the Visitor’s Centre',
     '/newsstand.html': 'the NewsStand',
     '/library.html': 'the LIBRAiRY',
     '/mall.html': 'The Mall',
@@ -60,7 +63,12 @@
     '/games/cocktail-fortune.html': 'Cocktail Fortune',
   };
 
-  var label = TITLES[refURL.pathname] || 'the last stop';
+  var label = hasInternalReturn
+    ? (TITLES[refURL.pathname] || 'the previous page')
+    : 'SUNNYVAiLE home';
+  var target = hasInternalReturn
+    ? refURL.pathname + refURL.search + refURL.hash
+    : '/';
 
   function ensureRail() {
     if (window.svRail && window.svRail.container) return window.svRail;
@@ -80,7 +88,7 @@
         'body.sv-has-rail:has(.sv-rail-item:focus-visible){ padding-right: 260px; }',
         '.sv-rail-item{',
         '  display: inline-flex; align-items: center; gap: 6px;',
-        '  height: 34px; min-width: 34px; max-width: 34px;',
+        '  min-height: 44px; min-width: 44px; max-width: 44px;',
         '  padding: 0; border-radius: 999px;',
         '  background: rgba(75, 33, 72, 0.94);',
         '  color: #fffdfb !important;',
@@ -102,7 +110,7 @@
         '}',
         '.sv-rail-item__icon{',
         '  display: inline-flex; align-items: center; justify-content: center;',
-        '  width: 34px; height: 34px; flex-shrink: 0;',
+        '  width: 44px; height: 44px; flex-shrink: 0;',
         '  font-size: 15px; font-weight: 800;',
         '  color: #fffdfb;',
         '}',
@@ -123,11 +131,23 @@
         '.sv-rail-item--checkin[data-checked="1"]:hover{ background: #2c7d3c; }',
         '.sv-rail-item--checkin .sv-rail-item__icon{ font-family: "Jost", sans-serif; }',
         '@media (max-width: 899px){',
-        '  .sv-side-rail{ right: 10px; top: auto; bottom: 12px; transform: none; }',
-        '  body.sv-has-rail{ padding-right: 0; padding-bottom: 52px; }',
-        '  .sv-rail-item{ height: 30px; min-width: 30px; max-width: 30px; }',
-        '  .sv-rail-item__icon{ width: 30px; height: 30px; font-size: 13px; }',
-        '  .sv-rail-item__label{ font-size: 11px; }',
+        '  .sv-side-rail{',
+        '    right: max(10px, env(safe-area-inset-right));',
+        '    top: auto;',
+        '    bottom: max(12px, env(safe-area-inset-bottom));',
+        '    transform: none;',
+        '    align-items: flex-end;',
+        '  }',
+        '  body.sv-has-rail{ padding-right: 0; padding-bottom: calc(64px + env(safe-area-inset-bottom)); }',
+        '  .sv-rail-item{',
+        '    min-height: 48px; min-width: 48px; max-width: min(280px, calc(100vw - 20px));',
+        '    padding: 0 16px 0 6px; justify-content: flex-start;',
+        '  }',
+        '  .sv-rail-item__icon{ width: 38px; height: 48px; font-size: 16px; }',
+        '  .sv-rail-item__label{',
+        '    opacity: 1; max-width: 220px; margin-right: 2px;',
+        '    font-size: 12px; letter-spacing: 0.055em;',
+        '  }',
         '}',
         '@media print{ .sv-side-rail{ display: none !important; } }',
       ].join('');
@@ -151,17 +171,20 @@
     var rail = ensureRail().container;
     var a = document.createElement('a');
     a.className = 'sv-rail-item sv-rail-item--back';
-    a.href = '#';
-    a.setAttribute('aria-label', 'Go back to ' + label);
+    a.href = target;
+    a.dataset.returnKind = hasInternalReturn ? 'previous' : 'home-fallback';
+    a.setAttribute('aria-label', hasInternalReturn
+      ? 'Back to ' + label
+      : 'Go to SUNNYVAiLE home');
     a.innerHTML =
       '<span class="sv-rail-item__icon" aria-hidden="true">←</span>' +
-      '<span class="sv-rail-item__label">Back to ' + label + '</span>';
+      '<span class="sv-rail-item__label">' +
+      (hasInternalReturn ? 'Back to ' + label : 'SUNNYVAiLE home') +
+      '</span>';
     a.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (history.length > 1) {
+      if (hasInternalReturn && history.length > 1) {
+        e.preventDefault();
         history.back();
-      } else {
-        location.href = refURL.pathname + refURL.search;
       }
     });
     // Insert back-nav at TOP of rail

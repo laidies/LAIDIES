@@ -1,4 +1,4 @@
-# HANDOVER → Codex — LIBRAiRY (live) + building-design plan (proposals)
+# HANDOVER → Codex — LIBRAiRY recovery + building-design plan
 
 Session: 2026-07-23 evening → Thursday morning. Root: `Website-homepage/` (static site served from root; live site is laidies.ai).
 
@@ -6,9 +6,31 @@ Session: 2026-07-23 evening → Thursday morning. Root: `Website-homepage/` (sta
 
 ---
 
-## 1. TL;DR — what is actually true right now
+> **2026-07-24 correction:** Ali reviewed the referenced source and confirmed
+> `_library-v3.html` is old. Its later whole-room shelf mechanic was valid, but
+> its masthead/arrival shell was not the page she meant. `library.html` has
+> since been separated into a local recovery candidate that arrives directly
+> in the straight-on three-case room and keeps the open-in-place reader and
+> Miss Jeeves search. Treat the statements below about `_library-v3.html`
+> being the live/approved benchmark as historical claims, not current truth.
 
-- **LIBRAiRY is rebuilt and LIVE.** `library.html` is the new magazine-reader build. Real, working. **[VERIFIED]**
+> **Current execution update 2026-07-24:** `_library-v3.html` now redirects to
+> `library.html`, preventing the obsolete mixed shell from appearing as a
+> current preview. The Library recovery candidate passed local room, reader and
+> Miss Jeeves interaction checks. The Visitor's Centre replacement candidate
+> now uses its lobby as the interface: the real map sits in the wall frame,
+> unobtrusive hotspots expose building names, desktop destination information
+> occupies the board's lower panel, compact widths use one in-room reveal, and
+> the named select replaces the seventeen-card roll. Trailer/tour, first route
+> and postcard desk remain. Desktop and compact-width checks passed with no
+> browser errors. Both candidates still await Ali's ruling and a true <=560px
+> browser pass. Comparison proof:
+> `operations/design-qa/visitors-centre-20260724/05-library-room-vs-visitor-room-v10.png`.
+
+## 1. TL;DR — what was recorded at handover
+
+- **CORRECTED 2026-07-24:** the LIBRAiRY mechanic worked, but the mixed old/new
+  `_library-v3.html` shell was not the approved page Ali expected.
 - **Everything else about buildings is a PLAN on paper.** `operations/building-design-briefs/` — nothing built. **[PROPOSED]**
 - **Post Office is NOT rebuilt** despite old notes saying "✅ REBUILT." The live page is the old template. **[CORRECTED]**
 - **Member/Supabase system IS live** (real config), despite an old note saying "paused." **[CORRECTED]**
@@ -16,7 +38,7 @@ Session: 2026-07-23 evening → Thursday morning. Root: `Website-homepage/` (sta
 
 ---
 
-## 2. LIBRAiRY — DONE & LIVE [VERIFIED]
+## 2. LIBRAiRY — HISTORICAL HANDOVER CLAIM; SUPERSEDED 2026-07-24
 
 **Promotion:** `library.html` is now a byte-copy of `_library-v3.html` (the working build). The old text-card page is backed up at `_superseded/library-textcards-pre-20260723.html`. Verified served correctly (fragments reachable, v3 markup present).
 

@@ -61,15 +61,17 @@ assert.match(postOffice, /Nothing has been submitted and no account has been cre
 assert.match(postOffice, /No magic-link request starts at this counter/);
 assert.doesNotMatch(postOffice, /Your email is your PO box|One delivery\. Every Wednesday|Rent your SUNNYVAiLE PO box/);
 assert.doesNotMatch(welcomeTour, /email becomes your PO box|no spam, ever|one delivery every Wednesday/i);
-assert.match(welcomeTour, /cannot confirm subscription, email delivery or sign-in/i);
+assert.match(welcomeTour, /Get the Wednesday Postcard, sign in or make a SUNNYVAiLE postcard/i);
 assert.doesNotMatch(directory, /Wednesday Drop signup \+ sign-in station|Sign in via magic link|Send-a-note gifts/);
-assert.match(directory, /Newsletter request boundary[\s\S]*Resident Card account hold[\s\S]*Local postcard composer/);
-assert.match(globalHeader, />Account status<\/a>/);
-assert.doesNotMatch(globalHeader, />Sign in<\/a>/i);
-assert.doesNotMatch(homepage, /Wednesday delivery and mail|>Sign in<\/a>|Sign in to go to where you are in the season/i);
-assert.match(homepage, /Newsletter requests, held account status and local postcards/);
+assert.match(directory, /The Wednesday newsletter, town mail and postcards[\s\S]*Get the Wednesday Postcard[\s\S]*Sign in[\s\S]*Make a town postcard/);
+assert.doesNotMatch(globalHeader, />Account status<\/a>/);
+assert.match(globalHeader, />Sign in<\/a>/i);
+assert.doesNotMatch(homepage, /Wednesday delivery and mail|Sign in to go to where you are in the season/i);
+assert.match(homepage, />Sign in<\/a>/i);
+assert.match(homepage, /The Wednesday newsletter, town mail and postcards/);
 if (previewHomepage) {
-  assert.doesNotMatch(previewHomepage, /sends you a note|Sign for the Wednesday delivery|Open your PO box|>Sign in<\/a>/i);
+  assert.doesNotMatch(previewHomepage, /sends you a note|Sign for the Wednesday delivery|Open your PO box/i);
+  assert.match(previewHomepage, />Sign in<\/a>/i);
   assert.match(previewHomepage, /Buttondown owns subscription and delivery; this page cannot confirm either result/);
 }
 assert.doesNotMatch(chickFlicks, /Get Wednesday delivery|Open a box at the Post Office/i);

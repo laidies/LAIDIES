@@ -82,6 +82,10 @@ requireMatch(girlTalk, /value\.dares\.some[\s\S]*value\.stickers\.some/, "cohere
 requireMatch(girlTalk, /readBack !== serialized[\s\S]*JSON\.stringify\(verified\) === serialized/, "verified canonical local write");
 requireMatch(girlTalk, /Local record reset[\s\S]*Unknown or incoherent entries did not count or render/i, "corrupt-record recovery copy");
 requireMatch(girlTalk, /This browser could not mark the local sticker/i, "storage failure truth");
+requireMatch(girlTalk, /id="gtClearLocal"[\s\S]*Clear this device&rsquo;s Girl Talk record/i, "visible local-record clear control");
+requireMatch(girlTalk, /function clearLocalState[\s\S]*removeItem\(GT_STATE_KEY\)[\s\S]*getItem\(GT_STATE_KEY\) === null/, "verified local-record removal");
+requireMatch(girlTalk, /Not cleared[\s\S]*existing local markers were left unchanged/i, "clear failure truth");
+requireMatch(girlTalk, /Local record cleared[\s\S]*unrelated browser data was changed/i, "bounded clear success truth");
 requireMatch(girlTalk, /share only a sanitized pattern written from scratch/i, "optional safe sharing");
 requireMatch(girlTalk, /not a Closet import, member reward or FAiRY allowance/i, "reward exclusions");
 requireMatch(girlTalk, /role="status" aria-live="polite" aria-atomic="true"/, "atomic local result");

@@ -11,6 +11,14 @@ const growthDir = path.join(root, "operations", "growth");
 const agentCouncilDir = path.join(root, "operations", "agent-council");
 const commandCenterPath = path.join(root, "operations", "weekly-command-center.html");
 const commandCenterFilesDir = path.join(root, "operations", "weekly-command-center-files");
+const freshnessCheckerPath = path.join(root, "scripts", "check-content-freshness.mjs");
+const freshnessRunDir = path.join(
+  root,
+  "operations",
+  "product-stewards",
+  "learning-content-ecosystem",
+  "freshness-runs",
+);
 
 const requiredEpisodeFields = [
   "number",
@@ -315,7 +323,40 @@ function warningLine(label, ok, detail) {
   return `- ${warnIcon(ok)} ${label}${detail ? `: ${detail}` : ""}`;
 }
 
-function buildReviewPacket(episode, episodes) {
+function runFreshnessGate(issueNumber) {
+  const issue = padIssue(issueNumber);
+  const asOf = new Date().toISOString().slice(0, 10);
+  const reportPath = path.join(
+    freshnessRunDir,
+    `${asOf}-episode-${issue}-weekly.md`,
+  );
+  const jsonPath = path.join(
+    freshnessRunDir,
+    `${asOf}-episode-${issue}-weekly.json`,
+  );
+  execFileSync(
+    process.execPath,
+    [
+      freshnessCheckerPath,
+      "--as-of",
+      asOf,
+      "--episode",
+      issue,
+      "--report",
+      rel(reportPath),
+      "--json",
+      rel(jsonPath),
+    ],
+    {
+      cwd: root,
+      stdio: "inherit",
+    },
+  );
+  const result = readJson(jsonPath);
+  return { result, reportPath, jsonPath };
+}
+
+function buildReviewPacket(episode, episodes, freshness) {
   const issue = padIssue(episode.number);
   const previous = episodes.find((item) => item.number === episode.number - 1);
   const next = episodes.find((item) => item.number === episode.number + 1);
@@ -349,6 +390,11 @@ function buildReviewPacket(episode, episodes) {
     warningLine("Quiz module", hasQuiz, quizKey ? quizKey : "No websiteModules.quiz set"),
     warningLine("Card pack module", hasCardPack, cardPackKey ? cardPackKey : "No websiteModules.cardPack set"),
     warningLine("Site links", (episode.siteLinks || []).length > 0, `${(episode.siteLinks || []).length} links`),
+    reviewLine(
+      "Claim freshness release gate",
+      freshness.result.gate === "PASS",
+      `${freshness.result.gate}: ${freshness.result.counts.openConsumerActions} open consumer actions; ${freshness.result.counts.due} due claims; ${freshness.result.counts.blockedClaims} blocked claims — ${rel(freshness.reportPath)}`,
+    ),
   ];
 
   const readyChecks = [
@@ -363,6 +409,7 @@ function buildReviewPacket(episode, episodes) {
     hasCardPack,
     (episode.siteLinks || []).length > 0,
     voiceFindings.length === 0,
+    freshness.result.gate === "PASS",
   ];
 
   const readyScore = readyChecks.filter(Boolean).length;
@@ -375,6 +422,9 @@ function buildReviewPacket(episode, episodes) {
     !(episode.siteLinks || []).length ? "- Add siteLinks so the newsletter and issue page point to quiz, card pack, Try-On, glossary, and Hot Goss." : "",
     voiceFindings.length ? "- Revise the flagged voice/cadence items before scheduling." : "",
     technicalFindings.length ? "- Verify receipt-sensitive claims before publishing." : "",
+    freshness.result.gate !== "PASS"
+      ? `- Resolve or explicitly disposition the freshness HOLD in ${rel(freshness.reportPath)}. Every affected narration, image, study-pack, episode-text, Library, class, NewsStand or other registered consumer must be updated, replaced, removed, watched or held before release.`
+      : "",
     `- After edits, rerun: .\\scripts\\run-weekly-production.ps1 ${episode.number}`,
   ].filter(Boolean);
 
@@ -387,6 +437,18 @@ Generated: ${new Date().toISOString()}
 ${readyScore}/${readyChecks.length} automated checks passed.
 
 This packet is not final approval. It narrows Ali's review to taste, lived examples, teaching depth, source confidence, and whether the issue sounds like lAIdies.
+
+## Claim Freshness Gate
+
+- Release gate: **${freshness.result.gate}**
+- Registered claims evaluated for this episode: ${freshness.result.counts.evaluatedClaims}
+- Due claims: ${freshness.result.counts.due}
+- Blocked claims: ${freshness.result.counts.blockedClaims}
+- Open affected-surface actions: ${freshness.result.counts.openConsumerActions}
+- Active incoming NewsStand / AIDB / owner signals: ${freshness.result.counts.activeSignals}
+- Full decision queue: ${rel(freshness.reportPath)}
+
+A PASS applies only to registered claims in this episode's current coverage. Machine-discovered candidates still require materiality and evidence review while the historical site-wide backfill is completed.
 
 ## Teaching Continuity
 
@@ -1047,7 +1109,7 @@ function buildProjectRadarHtml(episode) {
       </section>`;
 }
 
-function buildWeeklyCommandCenter(episode, viewerPaths) {
+function buildWeeklyCommandCenter(episode, viewerPaths, freshness) {
   const issue = padIssue(episode.number);
   const releaseDate = episode.releaseDate || "not set";
   const reviewPath = path.join(reviewDir, `issue-${issue}-production-review.md`);
@@ -1070,6 +1132,11 @@ function buildWeeklyCommandCenter(episode, viewerPaths) {
 
   const taskList = [
     buildTask("Run weekly production", "done", `Use <code>.\\scripts\\start-weekly-workflow.ps1 ${episode.number}</code> next time to run this and open the dashboard.`),
+    buildTask(
+      "Clear the claim freshness release gate",
+      freshness.result.gate === "PASS" ? "done" : "action",
+      `${viewerLink(freshness.reportPath, `Issue ${issue} freshness review — ${freshness.result.gate}`, viewerPaths.freshness)}<br><em>${freshness.result.counts.openConsumerActions} affected-surface actions open; ${freshness.result.counts.due} claims due; ${freshness.result.counts.blockedClaims} claims blocked. A HOLD means do not release until each material item is corrected or explicitly dispositioned.</em>`,
+    ),
     buildTask("Review the production packet", exists(reviewPath) ? "ready" : "todo", viewerLink(reviewPath, `Issue ${issue} production review`, viewerPaths.production)),
     buildTask("Fill the Agent Council Top 5", topFiveBlank ? "action" : "ready", `${viewerLink(councilPath, `Issue ${issue} Agent Council review`, viewerPaths.council)}<br><em>If blank, ask Codex: "Run the weekly Agent Council review for Issue ${episode.number}. Make each agent act like a best-in-class senior owner for its role and aim for a CEO score of 5 using operations/agents/agent-role-performance-standards.md and operations/agents/ceo-feedback-quality-standard.md. Grade every senior agent, explain why it did or did not earn a 5, and name the top-score action. Require desktop/mobile browser evidence, UX journey audit across first-time/current/late/returning/guest/signed-in/completion/error flows, persistence honesty, archive readiness, launch gates, and stop-the-line blockers for chaotic layout, blank space, overlap, stale open panels, fake interactions, unreleased content, wrong labels/brand styling, or brand risk. The agents should catch issues before Ali does and prove that AI-supported work makes Laidies sharper. Fill the Top 5 with exact changes, evidence, dependencies, and what I need to approve."</em>`),
     buildTask("Update the growth scorecard after launch", exists(growthPath) ? "action" : "todo", viewerLink(growthPath, `Issue ${issue} growth scorecard`, viewerPaths.growth)),
@@ -1288,6 +1355,7 @@ function buildWeeklyCommandCenter(episode, viewerPaths) {
           <li><span>Article Markdown</span>${viewerLink(articlePath, `content/issues/issue-${issue}.md`, viewerPaths.article)}</li>
           <li><span>Website Page</span>${rootRelativeLink(`issues/issue-${issue}.html`, `issues/issue-${issue}.html`)}</li>
           <li><span>Production Review</span>${viewerLink(reviewPath, `operations/weekly-reviews/issue-${issue}-production-review.md`, viewerPaths.production)}</li>
+          <li><span>Claim Freshness</span>${viewerLink(freshness.reportPath, rel(freshness.reportPath), viewerPaths.freshness)}</li>
           <li><span>Agent Council</span>${viewerLink(councilPath, `operations/agent-council/issue-${issue}-agent-council-review.md`, viewerPaths.council)}</li>
           <li><span>Growth Scorecard</span>${viewerLink(growthPath, `operations/growth/issue-${issue}-growth-scorecard.md`, viewerPaths.growth)}</li>
         </ul>
@@ -1315,13 +1383,15 @@ function main() {
     throw new Error(`No episode JSON found for issue ${issueNumber}.`);
   }
 
+  const issue = padIssue(issueNumber);
+  const freshness = runFreshnessGate(issueNumber);
+
   execFileSync(process.execPath, [path.join(root, "scripts", "build-episode-assets.js")], {
     cwd: root,
     stdio: "inherit",
   });
 
-  const issue = padIssue(issueNumber);
-  const packet = buildReviewPacket(episode, episodes);
+  const packet = buildReviewPacket(episode, episodes, freshness);
   const outputPath = path.join(reviewDir, `issue-${issue}-production-review.md`);
   fs.writeFileSync(outputPath, packet, "utf8");
   console.log(`Wrote ${rel(outputPath)}`);
@@ -1350,6 +1420,7 @@ function main() {
   const viewerPaths = {
     article: writeMarkdownViewer(articlePath, `Issue ${issue} Article`, `issue-${issue}-article.html`),
     production: writeMarkdownViewer(outputPath, `Issue ${issue} Production Review`, `issue-${issue}-production-review.html`),
+    freshness: writeMarkdownViewer(freshness.reportPath, `Issue ${issue} Claim Freshness Review`, `issue-${issue}-freshness-review.html`),
     council: writeMarkdownViewer(agentCouncilPath, `Issue ${issue} Agent Council Review`, `issue-${issue}-agent-council-review.html`),
     growth: writeMarkdownViewer(growthPath, `Issue ${issue} Growth Scorecard`, `issue-${issue}-growth-scorecard.html`),
     buttondown: writeMarkdownViewer(buttondownPath, `Issue ${issue} Buttondown Draft`, `issue-${issue}-buttondown.html`),
@@ -1358,8 +1429,11 @@ function main() {
     community: writeMarkdownViewer(communityPath, `Issue ${issue} Community Prompt`, `issue-${issue}-community-prompt.html`),
   };
 
-  fs.writeFileSync(commandCenterPath, buildWeeklyCommandCenter(episode, viewerPaths), "utf8");
+  fs.writeFileSync(commandCenterPath, buildWeeklyCommandCenter(episode, viewerPaths, freshness), "utf8");
   console.log(`Wrote ${rel(commandCenterPath)}`);
+  console.log(
+    `Claim freshness release gate: ${freshness.result.gate}. Review ${rel(freshness.reportPath)}.`,
+  );
 }
 
 main();

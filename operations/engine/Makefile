@@ -40,6 +40,7 @@ B       := build/ep$(NN)
 
 CANON   := content/episodes/episode-$(NN).canon.md
 SUBST   := content/episodes/episode-$(NN).substance.md
+FIDELITY := content/episodes/episode-$(NN).fidelity.md
 SCRIPT  := operations/audio/episode-$(NN)-elevenlabs-v3-tagged.txt
 ARTICLE := content/issues/issue-$(NN).md
 NARR    := content/music/episode-$(NN)-narration.mp3
@@ -123,6 +124,13 @@ $(SUBST):
 	@echo "    Copy the shape of $(CURDIR)/content/episodes/episode-05.substance.md"
 	@exit 1
 
+$(FIDELITY):
+	@echo "  ✗ There is no concept-fidelity packet for episode $(NN)."
+	@echo "    Expected: $(CURDIR)/$(FIDELITY)"
+	@echo "    Copy $(CURDIR)/operations/checklists/episode-concept-fidelity-gate-template.md"
+	@echo "    and prove the candidate still fulfils Ali's locked intent."
+	@exit 1
+
 $(SCRIPT):
 	@echo "  ✗ There is no narration script for episode $(NN)."
 	@echo "    Expected: $(CURDIR)/$(SCRIPT)"
@@ -145,9 +153,17 @@ $(CUES):
 # =============================================================================
 substance: $(B)/substance.stamp
 
-$(B)/substance.stamp: $(SUBST) | $(B)/.dir
+$(B)/substance.stamp: $(SUBST) $(FIDELITY) | $(B)/.dir
 	@echo ""
 	@echo "  ── STAGE 1 · SUBSTANCE ──"
+	@if grep -Eq '^> \*\*STATUS:\*\* (SUPERSEDED|UNRULED|REJECTED)' "$(SUBST)"; then \
+	   echo "  ✗ $(SUBST) is explicitly marked SUPERSEDED, UNRULED or REJECTED."; \
+	   echo "    Rewrite and rule the substance before asking Ali for Gate 1."; exit 1; \
+	 fi
+	@if ! grep -Fxq '> **STATUS:** PASS — READY FOR ALI GATE 1' "$(FIDELITY)"; then \
+	   echo "  ✗ concept-fidelity gate has not passed: $(FIDELITY)"; \
+	   echo "    Technical coherence alone cannot make a different episode ready."; exit 1; \
+	 fi
 	@w=$$(wc -w < "$(SUBST)" | tr -d ' '); \
 	 if [ "$$w" -lt 250 ]; then \
 	   echo "  ✗ $(SUBST) is only $$w words. A real substance sheet is 500+."; \
@@ -159,6 +175,7 @@ $(B)/substance.stamp: $(SUBST) | $(B)/.dir
 	@echo "    Workflow({ scriptPath: \"$(CURDIR)/operations/workflows/review-content.mjs\","
 	@echo "               args: { file: \"$(CURDIR)/$(SUBST)\", type: \"episode\" } })"
 	@bash $(ENGINE)/hashstamp.sh $(SUBST) $(B)/substance.hash
+	@bash $(ENGINE)/hashstamp.sh $(FIDELITY) $(B)/fidelity.hash
 	@touch $@
 
 $(B)/G1.approved: $(B)/substance.stamp
@@ -166,8 +183,8 @@ $(B)/G1.approved: $(B)/substance.stamp
 	@echo "  ⏸  WAITING ON ALI — GATE 1 of 4 · the substance sheet"
 	@echo ""
 	@echo "     Read:  $(CURDIR)/$(SUBST)"
-	@echo "     One question only: does a smart, busy woman learn something here"
-	@echo "     she did not already know, stated plainly?"
+	@echo "     Proof: $(CURDIR)/$(FIDELITY)"
+	@echo "     One decision: is this the useful episode you approved?"
 	@echo ""
 	@echo "     Yes  →  touch $(B)/G1.approved"
 	@echo "     No   →  say what's missing; the sheet gets rewritten, not the script."
@@ -185,6 +202,10 @@ $(B)/canon.hash: $(CANON) | $(B)/.dir
 $(B)/canon.stamp: $(B)/canon.hash $(B)/G1.approved
 	@echo ""
 	@echo "  ── STAGE 2 · CANON ──"
+	@if grep -Eq '^> \*\*STATUS:\*\* (SUPERSEDED|UNRULED)' "$(CANON)"; then \
+	   echo "  ✗ $(CANON) is explicitly marked SUPERSEDED or UNRULED."; \
+	   echo "    Rule the canon before any downstream generation."; exit 1; \
+	 fi
 	@bash $(ENGINE)/checks/check-inputs.sh $(NN) || { echo "  ✗ canon is not usable yet."; exit 1; }
 	@bash $(ENGINE)/checks/check-must-match.sh $(NN)
 	@touch $@

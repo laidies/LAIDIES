@@ -3,6 +3,28 @@
 **Status:** **BOUNDED LOCAL PASS — independent Repair 3 rejudge 91/100;**
 external, native, owner and public outcomes remain held.
 
+## REQUIRED POSTCARD VISUAL/PRODUCT PRODUCTION LANE
+
+**Status:** SPECIFIED — inventory and executable packet complete; visual
+generation, selection and integration are paused pending the sitewide Brand
+ruling.
+
+- Ali ruled that Postcards are a required production lane, not a dormant
+  subproduct.
+- The 19-file current family and 252-path wider postcard estate are reconciled
+  in `postcard-visual-product-inventory-2026-07-26.md`.
+- Intended Post Office visit, evergreen/building/character/episode families,
+  personalization, preview, action truth, mobile/accessibility and
+  rights/brand requirements are in `POSTCARD-PRODUCTION-SPEC.md`.
+- Exact outputs, counts, paths, maker/judge separation and Brand/Audience/
+  Platform/Control Room coordination are in
+  `build-packet-postcard-visual-product-production-2026-07-26.md`.
+- **Blocker:** global visual lock; no Ali-selected sitewide direction.
+- **Unblock:** admitted Brand evidence → Ali selects direction → Postcard
+  translation rules → Control Room isolated production lock.
+- No new art, live code, provider, reward, deploy, campaign or public change
+  occurred in this cycle.
+
 ## REPAIR 3 INDEPENDENT LOCAL PASS
 
 - Repair 2's archive-wide unique positive-integer episode numbers and unique

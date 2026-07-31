@@ -6,10 +6,25 @@
 > mistakes she had already corrected. Read this BEFORE touching any library page.
 
 ## The working build
-**PROMOTED 2026-07-23: `library.html` IS now the v3 build** (copied from `_library-v3.html`;
-the old text-card page is backed up at `_superseded/library-textcards-pre-20260723.html`).
-`_library-v3.html` remains the working/reference copy — keep the two in sync if either is
-edited. ⛔ Still wrong: my `_library-shelf-v2/v3.html` prototypes, see below.
+> **CORRECTION 2026-07-24:** `_library-v3.html` is an old mixed shell, not the
+> current page benchmark. It combines the obsolete Miss Jeeves masthead and
+> beige/pink arrival sequence with the later whole-room shelf mechanic. Do not
+> copy it to other buildings and do not keep it in sync with the canonical
+> page.
+>
+> The surviving design source Ali identified is the straight-on daylit room
+> with the three metal cases integrated into it. `library.html` now opens
+> directly into that room and preserves click-book → open-in-place plus the
+> working Miss Jeeves search in a compact band below. This 2026-07-24 recovery
+> is a **LOCAL CANDIDATE AWAITING ALI REVIEW**, not a new approval claim.
+> `_library-v3.html` now redirects to the candidate so an old preview link
+> cannot masquerade as the current page; its pre-redirect Git history remains
+> the historical evidence.
+>
+> The current candidate's compact breakpoint is <=560px and uses a horizontal
+> shelf reel rather than stacking three bookcases into another long page. The
+> older `max-width:760px` tall-stack note below describes the superseded shell,
+> not `library.html`.
 
 ---
 
@@ -17,7 +32,7 @@ edited. ⛔ Still wrong: my `_library-shelf-v2/v3.html` prototypes, see below.
 
 The page now has FOUR parts, top to bottom:
 
-1. **Masthead (hero).** The clean reroll
+1. **Historical masthead (superseded 2026-07-24).** The clean reroll
    `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v3-lighter-carpet.png`
    — daylit, Miss Jeeves at the desk, packed metal bookcases both sides, her neck-render fixed.
    ⛔ Do NOT use `library-interior-from-credits-dechromed-v3-lighter-carpet.png` (the un-rerolled
@@ -29,7 +44,9 @@ The page now has FOUR parts, top to bottom:
    (`#faf6fc`), a small magnifier mark — ⛔ NOT the beige card and NOT the "J-in-a-circle" badge
    (both rejected). This is a CORE library feature; do not drop it again.
 
-3. **Browse = an interactive bookcase standing IN a real room render.**
+3. **Browse = an interactive bookcase standing IN a real room render. This is
+   now the arrival experience in `library.html`, not a lower section hidden
+   behind the historical masthead.**
    - Room background = `assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png`
      (straight-on lilac wall + navy carpet, framed by side shelving). The shelves composite ON this
      so they read as part of the room. ⛔ This REPLACES the CSS wall+plaster+carpet approach in the

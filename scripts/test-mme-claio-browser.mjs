@@ -313,8 +313,10 @@ try {
   await redirectPage.waitForURL(/\/games\/madame-claio\.html$/);
   check(new URL(redirectPage.url()).pathname === "/games/madame-claio.html", "legacy route did not recover to canonical Mme CLAi-O");
   await redirectPage.goto(`${origin}/games/businesswomens-special.html`, { waitUntil: "domcontentloaded" });
-  check((await redirectPage.locator(".sv-lede + p").innerText()).includes("separate drink-picker game"), "Businesswomen's Special lacks separate framing");
-  check((await redirectPage.locator(".sv-lede + p").innerText()).includes("spirit-free lane"), "Businesswomen's Special lacks spirit-free route");
+  const bwsLede = await redirectPage.locator(".sv-lede").innerText();
+  const bwsBoundary = await redirectPage.locator(".sv-lede + p").innerText();
+  check(bwsBoundary.includes("separate game"), "Businesswomen's Special lacks separate framing");
+  check(bwsLede.includes("spirit-free lane"), "Businesswomen's Special lacks spirit-free route");
   await redirectPage.close();
 } finally {
   await browser.close();

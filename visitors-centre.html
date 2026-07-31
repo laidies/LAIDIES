@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Welcome Wagon Visitor's Centre · LAiDIES · SUNNYVAiLE</title>
+  <title>Visitor’s Centre · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="Start here. Open the SUNNYVAiLE map, meet every building, or take the guided Welcome Tour.">
-  <meta property="og:title" content="The Welcome Wagon Visitor's Centre · LAiDIES">
+  <meta property="og:title" content="Visitor’s Centre · LAiDIES">
   <meta property="og:description" content="The front door to SUNNYVAiLE. Find the whole town and choose your first stop.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="/assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png">
@@ -178,33 +178,51 @@
     }
     .vc-map-spot {
       position: absolute;
+      width: 44px;
+      height: 44px;
+      transform: translate(-50%, -50%);
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: transparent;
+      font-size: 0;
+      cursor: pointer;
+      opacity: 1;
+      box-shadow: none;
+      transition: outline-color .16s ease;
+    }
+    .vc-map-spot::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
       width: clamp(8px, .75vw, 12px);
       height: clamp(8px, .75vw, 12px);
       transform: translate(-50%, -50%);
       border: 1.5px solid var(--cream);
       border-radius: 50%;
       background: var(--pink);
-      color: transparent;
-      font-size: 0;
-      cursor: pointer;
-      opacity: .18;
       box-shadow: 0 0 0 1px rgba(7,15,43,.62), 0 3px 8px rgba(7,15,43,.32);
-      transition: transform .16s ease, background .16s ease, opacity .16s ease;
+      transition: transform .16s ease, background .16s ease;
     }
-    .vc-map-stage:hover .vc-map-spot { opacity: .52; }
     .vc-map-spot:hover,
     .vc-map-spot:focus-visible,
     .vc-map-spot.is-active {
       z-index: 2;
+      transform: translate(-50%, -50%);
+      outline: 3px solid var(--cyan);
+      outline-offset: -5px;
+    }
+    .vc-map-spot:hover::before,
+    .vc-map-spot:focus-visible::before,
+    .vc-map-spot.is-active::before {
       transform: translate(-50%, -50%) scale(1.35);
       background: var(--cyan);
-      opacity: 1;
-      outline: none;
     }
     .vc-map-spot-label {
       position: absolute;
       left: 50%;
-      bottom: calc(100% + 8px);
+      bottom: calc(50% + 12px);
       width: max-content;
       max-width: 180px;
       padding: 7px 9px;
@@ -471,7 +489,7 @@
       position: relative;
       left: 50%;
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       width: 100vw;
       margin-left: -50vw;
       gap: 0;
@@ -487,6 +505,7 @@
     }
     .vc-panel--pink {
       border-left: 3px solid rgba(255,253,251,.45);
+      border-right: 3px solid rgba(255,253,251,.45);
       background:
         radial-gradient(circle at 90% 80%, rgba(255,155,61,.38), transparent 35%),
         var(--purple);
@@ -957,11 +976,54 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
     }
+
+    .vc-visitor-state {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border: 2px solid var(--ink);
+      border-left: 8px solid var(--purple);
+      background: rgba(255,255,255,.72);
+    }
+    .vc-visitor-state h3 { margin: 0 0 6px; font-size: 19px; }
+    .vc-visitor-state p { margin: 0; color: var(--ink-soft); }
+    .vc-visitor-state .vc-state-scope { margin-top: 7px; font-size: 12px; font-weight: 800; }
+    .vc-projection-status {
+      margin: 12px 0 0;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .vc-projection-status[data-mode="fail-closed"] {
+      padding: 10px 12px;
+      border-left: 6px solid var(--pink);
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+    }
+    .vc-handoff-boundary {
+      width: min(100% - 32px, 1180px);
+      margin: 0 auto 46px;
+      padding: 17px 20px;
+      border-left: 8px solid var(--purple);
+      background: rgba(255,255,255,.78);
+      color: var(--ink);
+      font-weight: 800;
+    }
+    @media (max-width: 340px) {
+      .sv-header { gap: 6px !important; padding-left: 8px !important; padding-right: 8px !important; }
+      .svgh-nav { gap: 4px !important; }
+      .svgh-nav .svgh-join,
+      .svgh-nav .svgh-signin,
+      .svgh-nav .svgh-menu-btn {
+        padding: 5px 7px !important;
+        font-size: 10px !important;
+      }
+    }
   </style>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-07-26-v1-807bbe6b17ab"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sunnyvaile-directory.js?v=20260723-v2"></script>
+  <script defer src="/content/site/readiness/v1/readiness-runtime-v1.js?v=20260726-1"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script data-vc-directory-controller>
@@ -971,6 +1033,8 @@
     plausible.init = plausible.init || function(i) { plausible.o = i || {}; };
     plausible.init();
   </script>
+  <link rel="canonical" href="https://laidies.ai/visitors-centre" />
+  <meta property="og:url" content="https://laidies.ai/visitors-centre" />
 </head>
 <body class="svb-page">
   <header class="sv-header">
@@ -1016,6 +1080,14 @@
         <div>
           <p class="vc-kicker">The lobby directory</p>
           <h2 id="directory-title">Choose a building by name.</h2>
+          <article class="vc-visitor-state" id="vc-visitor-state" data-card-scope="unavailable">
+            <h3>Visitor-safe arrival</h3>
+            <p>The front desk uses the same map and named routes for first-time and returning visitors.</p>
+            <p class="vc-state-scope">No Resident Card, account, name, ownership, sign-in, sync or cross-device state is inspected or inferred here.</p>
+          </article>
+          <p class="vc-projection-status" id="vc-projection-status" role="status" aria-live="polite" data-mode="loading">
+            Checking current destination status…
+          </p>
         </div>
         <label class="vc-destination-picker">
           <span>Where do you want to go?</span>
@@ -1026,164 +1098,74 @@
         <nav id="vc-directory-fallback" class="vc-directory-fallback" aria-label="All SUNNYVAiLE destinations">
           <strong class="vc-fallback-intro">All 17 named routes. The interactive map adds selection details when available.</strong>
           <ol class="vc-fallback-links">
-            <li><a href="/visitors-centre.html" data-vc-id="visitors-centre" data-vc-state="limited" data-vc-summary="Start here to choose a named SUNNYVAiLE route." data-vc-limitation="Choosing a route is navigation, not proof that the destination or a downstream action is complete.">The Welcome Wagon Visitor's Centre</a><span class="vc-fallback-limit">Front desk. Route choice is not downstream completion.</span></li>
-            <li><a href="/newsstand.html" data-vc-id="newsstand" data-vc-state="limited" data-vc-summary="Open source-checked AI publications and their current reader states." data-vc-limitation="Publication availability and freshness vary; the NewsStand must show when an edition is current, quiet, held, corrected, or withdrawn.">The NewsStand</a><span class="vc-fallback-limit">Publication availability and freshness vary.</span></li>
-            <li><a href="/chick-flicks.html" data-vc-id="chick-flicks" data-vc-state="held" data-vc-summary="Browse episode articles and illustrated, captioned listen-alongs." data-vc-limitation="Trailer and Episodes 1–4 motion films are not approved here; use only the episode experience that its page currently labels available.">The Chick Flicks</a><span class="vc-fallback-limit">Motion films remain held; illustrated listen-alongs are the current public format.</span></li>
-            <li><a href="/blend-snap.html" data-vc-id="blend-snap" data-vc-state="limited" data-vc-summary="See the episode pack menu and which study or practice pieces are ready." data-vc-limitation="Pack components vary; a menu open is not study completion, and collection state may be device-local or unavailable.">The Blend &amp; Snap</a><span class="vc-fallback-limit">Pack components and collection state vary.</span></li>
-            <li><a href="/games/madame-claio.html" data-vc-id="mme-claio" data-vc-state="limited" data-vc-summary="Try a controlled fortune activity with clear reflection boundaries." data-vc-limitation="History and keepsakes are device-local; a reading is not factual prediction, professional advice, or durable reward.">Mme CLAi-O's Shop</a><span class="vc-fallback-limit">Reflection only; history and keepsakes are device-local.</span></li>
-            <li><a href="/maikeover.html" data-vc-id="maikeover" data-vc-state="held" data-vc-summary="Style a Resident Card preview and continue through its currently available local tools." data-vc-limitation="Saving and customization are device-local; account, cross-device, avatar, public-card, and reward promises are not confirmed.">MAiKEOVER on MAiN</a><span class="vc-fallback-limit">Account, cross-device, avatar, public-card, and reward promises remain held.</span></li>
-            <li><a href="/bronze-aige.html" data-vc-id="bronze-aige" data-vc-state="limited" data-vc-summary="Explore a social work-learning room and its currently labelled activities." data-vc-limitation="Selections and coaster state are device-local; current special, audio, invitation, and service readiness still require their own evidence.">The BRONZE AiGE</a><span class="vc-fallback-limit">Selections are local; audio, invite, and current-special readiness vary.</span></li>
-            <li><a href="/games/dream-phone.html" data-vc-id="dream-phone" data-vc-state="held" data-vc-summary="Open a scripted playful reframe or beta evidence-practice experience." data-vc-limitation="Product direction and evidence-game promotion remain under review; it does not provide personalized or professional advice.">The Phone Booth (Dream Phone)</a><span class="vc-fallback-limit">Promotion remains held pending product and evidence review.</span></li>
-            <li><a href="/mall.html" data-vc-id="mall" data-vc-state="limited" data-vc-summary="Browse the Mall directory and open a named shop route." data-vc-limitation="A shop listing is not proof that the shop is operable, stocked, ready to transact, or able to fulfil an order.">The Mall</a><span class="vc-fallback-limit">A listing does not prove shop operation, stock, transaction, or fulfilment.</span></li>
-            <li><a href="/radio.html" data-vc-id="ksvl-radio" data-vc-state="limited" data-vc-summary="Open KSVL's rights-aware listening surface and its current catalogue state." data-vc-limitation="Catalogue, controls, rights admission, and failure recovery remain partial; opening the station does not prove a track played.">KSVL Community RAiDIO</a><span class="vc-fallback-limit">Listening admission is partial; opening does not prove playback.</span></li>
-            <li><a href="/post-office.html" data-vc-id="post-office" data-vc-state="limited" data-vc-summary="Open newsletter, sign-in, and postcard handoffs." data-vc-limitation="Opening or sharing a handoff does not confirm delivery, subscription, sign-in, referral, or reward.">The SUNNYVAiLE Post Office</a><span class="vc-fallback-limit">Handoffs do not confirm delivery, sign-in, subscription, referral, or reward.</span></li>
-            <li><a href="/town-hall.html" data-vc-id="town-hall" data-vc-state="held" data-vc-summary="Meet Mayor Deb and the locals, or open a private Town Hall comment card." data-vc-limitation="An accepted card is not proof of reading, review, reply, resolution, or a public civic record; intake and staff-triage controls remain held.">Town Hall</a><span class="vc-fallback-limit">Reading, reply, civic-record, and staff-triage promises remain held.</span></li>
-            <li><a href="/library.html" data-vc-id="library" data-vc-state="limited" data-vc-summary="Browse AI reference shelves, ask Miss Jeeves, and save an exact place on this device." data-vc-limitation="Some books still need editorial or currency review; saves are device-local and opening a book is not editorial approval.">SUNNYVAiLE LIBRAiRY</a><span class="vc-fallback-limit">Some books remain under review; saves are device-local.</span></li>
-            <li><a href="/sunnyvaile-high.html" data-vc-id="sunnyvaile-high" data-vc-state="held" data-vc-summary="Open the learning campus and see only the classes or practice its page currently admits." data-vc-limitation="Class, quiz, mastery, Report Card, and reward lifecycles remain partial; a click or local score is not a durable learning record.">SUNNYVAiLE High</a><span class="vc-fallback-limit">Class, mastery, Report Card, and reward lifecycles remain held or partial.</span></li>
-            <li><a href="/games/fairy-godmother.html" data-vc-id="fairy-godmother" data-vc-state="held" data-vc-summary="Open the AI, career, and life-advice tool within its stated boundaries." data-vc-limitation="Accuracy, safety, routing, allowance, and failure repairs are not approved for promotion; it is not medical, crisis, legal, financial, or other high-stakes professional advice.">The FAiRY Godmother's House</a><span class="vc-fallback-limit">Core accuracy, safety, allowance, and failure repairs remain held.</span></li>
-            <li><a href="/sorority-house.html" data-vc-id="sorority-house" data-vc-state="limited" data-vc-summary="Choose a community conversation and read its current participation rules." data-vc-limitation="Posting, moderation, identity, access, and reward lifecycles remain unverified; entering is not a confirmed post, membership, or reward.">The Sorority House · Delta LAi Nu</a><span class="vc-fallback-limit">Posting, moderation, identity, access, and rewards remain unverified.</span></li>
-            <li><a href="/luminairy.html" data-vc-id="sanctuary" data-vc-state="limited" data-vc-summary="Meet sourced, dated guides and choose a useful next route." data-vc-limitation="Source freshness and corrections remain partial; selections are device-local and opening a profile is not evidence of current-source approval.">The LUMINAiRY</a><span class="vc-fallback-limit">Source freshness is partial; selections are device-local.</span></li>
+            <li><a href="/visitors-centre.html" data-vc-id="visitors-centre">Visitor’s Centre</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/newsstand.html" data-vc-id="newsstand">The NewsStand</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/chick-flicks.html" data-vc-id="chick-flicks">The Chick Flicks</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/blend-snap.html" data-vc-id="blend-snap">The Blend &amp; Snap</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/games/madame-claio.html" data-vc-id="mme-claio">Mme CLAi-O's Shop</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/maikeover.html" data-vc-id="maikeover">MAiKEOVER on MAiN</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/bronze-aige.html" data-vc-id="bronze-aige">The BRONZE AiGE</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/games/dream-phone.html" data-vc-id="dream-phone">The Phone Booth (Dream Phone)</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/mall.html" data-vc-id="mall">The Mall</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/radio.html" data-vc-id="ksvl-radio">KSVL Community RAiDIO</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/post-office.html" data-vc-id="post-office">The SUNNYVAiLE Post Office</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/town-hall.html" data-vc-id="town-hall">Town Hall</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/library.html" data-vc-id="library">SUNNYVAiLE LIBRAiRY</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/sunnyvaile-high.html" data-vc-id="sunnyvaile-high">SUNNYVAiLE High</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/games/fairy-godmother.html" data-vc-id="fairy-godmother">The FAiRY Godmother's House</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/sorority-house.html" data-vc-id="sorority-house">The Sorority House · Delta LAi Nu</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <li><a href="/luminairy.html" data-vc-id="sanctuary">The LUMINAiRY</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
           </ol>
         </nav>
       </div>
 
       <div class="vc-orientation">
         <section class="vc-panel">
-          <p class="vc-kicker">New here?</p>
-          <h3>Choose the short introduction or the full walk.</h3>
+          <p class="vc-kicker">Optional guided walk</p>
+          <h3>Take the town one stop at a time.</h3>
           <p>
-            Listen to the illustrated, captioned trailer for a short introduction,
-            or start the optional guided tour through each stop in order. Neither is
-            required to use the directory.
+            The shared tour starts only when requested. This desk does not claim
+            tour progress, listening, destination readiness or completion.
           </p>
           <div class="vc-actions">
-            <a class="vc-action vc-action--primary" href="/watch.html?ep=trailer">Listen to the illustrated trailer</a>
-            <a class="vc-action vc-action--teal" href="?welcome-tour=start">Start the tour</a>
+            <a class="vc-action vc-action--teal" href="?welcome-tour=start">Request tour start</a>
           </div>
         </section>
 
         <section class="vc-panel vc-panel--pink">
-          <p class="vc-kicker">Your first fifteen minutes</p>
-          <h3>Arrive once. Know what to do next.</h3>
-          <a class="vc-start-episode" href="/watch.html?ep=01">
-            <img src="/assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-title-comic.png" alt="Episode 1 · On Wednesdays We Do AI">
-          </a>
-          <ol class="vc-first-route">
-            <li><a href="/watch.html?ep=01">Watch Episode 01</a><span>Meet the show before trying to understand every street.</span></li>
-            <li><a href="/handbook.html">Take the Handbook</a><span>The plain-language guide to the town, your card, and what lives where.</span></li>
-            <li><a href="/maikeover.html">Make your Resident Card</a><span>Choose a handle and look on this device, then continue on the Resident Card route.</span></li>
-            <li><a href="/post-office.html">Visit the Post Office</a><span>Request the Wednesday release there; any confirmation happens in your inbox.</span></li>
-          </ol>
+          <p class="vc-kicker">Short introduction</p>
+          <h3>Meet the town without taking the full walk.</h3>
+          <p>
+            The illustrated trailer is an optional receiving route. This desk
+            does not claim that playback starts or finishes.
+          </p>
+          <div class="vc-actions">
+            <a class="vc-action vc-action--primary" href="/watch.html?ep=trailer">Open the illustrated trailer</a>
+          </div>
+        </section>
+
+        <section class="vc-panel">
+          <p class="vc-kicker">Postcard desk</p>
+          <h3>Continue to the postcard product.</h3>
+          <p>
+            Preparation, sharing, sending, delivery, joining and reward remain
+            owned by the receiving postcard and Post Office products.
+          </p>
+          <div class="vc-actions">
+            <a class="vc-action" href="/postcard.html">Open postcard handoff</a>
+          </div>
         </section>
       </div>
     </section>
 
-    <section class="vc-postcards" id="send-a-postcard" aria-labelledby="vc-postcards-title">
-      <div class="vc-postcards__inner">
-        <p class="vc-kicker">The tourist postcard desk</p>
-        <h2 id="vc-postcards-title">Prepare a postcard to share.</h2>
-        <p class="vc-postcards__intro">
-          You found the town. Choose a card and write the back, then open your
-          device's share, text, email, or copy-link handoff from the Visitor's Centre.
-        </p>
-
-        <div class="vc-postcard-workspace">
-          <div class="vc-postcard-rack" id="vcPostcardRack" aria-label="Choose a SUNNYVAiLE postcard"></div>
-
-          <form class="vc-postcard-desk" id="vcPostcardForm">
-            <img class="vc-postcard-preview" id="vcPostcardPreview" src="/assets/postcards/from-sunnyvaile/pc-welcome.png" alt="Welcome to SUNNYVAiLE postcard">
-            <div class="vc-postcard-fields">
-              <label class="vc-postcard-field">
-                From
-                <input id="vcPostcardHandle" type="text" autocomplete="username" placeholder="@yourhandle" maxlength="24">
-              </label>
-              <label class="vc-postcard-field">
-                Note on the back
-                <textarea id="vcPostcardNote" maxlength="280" placeholder="Come find me in SUNNYVAiLE."></textarea>
-              </label>
-            </div>
-            <div class="vc-postcard-send">
-              <button class="vc-action vc-action--primary" id="vcPostcardShare" type="button">Open share sheet</button>
-              <a class="vc-action vc-action--teal" id="vcPostcardText" href="/postcard.html">Open text</a>
-              <a class="vc-action" id="vcPostcardEmail" href="/postcard.html">Open email</a>
-              <button class="vc-action" id="vcPostcardCopy" type="button">Copy link</button>
-            </div>
-            <p class="vc-postcard-status" id="vcPostcardStatus" aria-live="polite"></p>
-            <p class="vc-postcard-fine">More postcard options and a newsletter request handoff are at the <a href="/post-office.html">Post Office</a>.</p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <details class="vc-story" aria-label="What SUNNYVAiLE is and why it exists">
-      <summary>What is SUNNYVAiLE, and why a fictional town?</summary>
-      <div class="vc-story-body">
-        <div>
-          <p class="vc-kicker">What is this place?</p>
-          <h2>The show is LAiDIES. The town is SUNNYVAiLE.</h2>
-          <p>
-            Every Wednesday a new episode arrives from this fictional small town.
-            Each building has one clear job, so the lessons, tools, games, music,
-            community, and collectables feel like places you can return to—not a
-            maze of unrelated website tabs.
-          </p>
-        </div>
-        <div>
-          <p class="vc-kicker">Why a fictional town?</p>
-          <h2>The references are how the ideas click.</h2>
-          <p>
-            LAiDIES teaches AI through the stories, objects, and pop-culture logic
-            people already understand. The town is not decoration. It turns abstract
-            technology into a familiar route: follow the plot, find the analogy,
-            practise it, keep the reference, and come back next Wednesday.
-          </p>
-        </div>
-      </div>
-    </details>
-
-    <details class="vc-founder" id="from-the-founder">
-      <summary>From the Founder · Ali's note</summary>
-      <div class="vc-founder-body">
-        <h2>Built by one woman, pushed forward by the right group chat.</h2>
-        <p>
-          Six months ago, I could not get a Women-in-Tax newsletter to send properly
-          via email. I work in tax, not tech. The ideas were there, but they kept
-          getting stuck behind someone else's time, budget, or availability.
-        </p>
-        <p>
-          Then I started using AI. Since then, I have built a personal command centre,
-          designed AI agents for research and operations, entered a Women-in-Tax
-          hackathon with a team that built Echo, made amazing LAiDIES friends, and
-          created the newsletter, website, images, and brand you are looking at now.
-        </p>
-        <p>
-          LAiDIES is not asking you to become the IT department in better shoes. It is
-          here to remind you that you are allowed to understand this stuff, and you
-          absolutely can.
-        </p>
-        <div class="vc-founder-grid" aria-label="The founding group chat">
-          <div class="vc-founder-person">
-            <strong>Ali Eakin · Writer / TRAiLBLAZER</strong>
-            Created the newsletter, website, visuals, and public room.
-          </div>
-          <div class="vc-founder-person">
-            <strong>Sara Baxter · Reviewer / Spark</strong>
-            Early reviewer, Echo teammate, and the person who made the idea feel worth building out loud.
-          </div>
-          <div class="vc-founder-person">
-            <strong>Eugina Lim · Echo / AI Brain</strong>
-            One of Amazon Tax's AI experts and the original spark for Echo.
-          </div>
-          <div class="vc-founder-person">
-            <strong>DJ SunnyV · House DJ / AI Music</strong>
-            Turns each Wednesday episode into something you can play.
-          </div>
-        </div>
-      </div>
-    </details>
+    <p class="vc-handoff-boundary">
+      A selection or route opening proves navigation only. The receiving
+      product owns availability, completion, account, delivery, playback,
+      posting, learning and reward evidence.
+    </p>
   </main>
 
-  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Welcome Wagon</footer>
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · Visitor’s Centre</footer>
 
   <script>
     (function() {
@@ -1207,15 +1189,90 @@
         var currentId = "";
         var initiatingControl = null;
         var destinationContracts = {};
+        var projectionStatus = document.getElementById("vc-projection-status");
+        var expectedPayloadSha256 = "2cb13956032e45a0bd2cd3132fe5630a8f0b7d4b5da1b88509c7d1a58bc19b61";
 
-        fallback.querySelectorAll("[data-vc-id]").forEach(function(link) {
-          destinationContracts[link.getAttribute("data-vc-id")] = {
-            href: link.getAttribute("href"),
-            state: link.getAttribute("data-vc-state") || "limited",
-            summary: link.getAttribute("data-vc-summary") || "",
-            limitation: link.getAttribute("data-vc-limitation") || ""
+        function localFailClosed() {
+          return {
+            mode: "fail-closed",
+            errorCode: "RUNTIME_OR_PROJECTION_UNAVAILABLE",
+            announcement: "Current destination status is unavailable. All named routes remain available for status checking.",
+            destinations: Array.from(fallback.querySelectorAll("[data-vc-id]")).map(function(link) {
+              return {
+                destinationId: link.getAttribute("data-vc-id"),
+                name: link.textContent.trim(),
+                route: link.getAttribute("href"),
+                state: "unavailable",
+                label: "Current status unavailable",
+                summary: "Open the named route only to check its current page.",
+                limitation: "Current readiness could not be verified. Route arrival is navigation, not completion.",
+                actionLabel: "Open page — check current status",
+                completionClaim: false
+              };
+            })
           };
-        });
+        }
+
+        function receiverShapeValid(receiver) {
+          return receiver &&
+            (receiver.mode === "fresh" || receiver.mode === "fail-closed") &&
+            Array.isArray(receiver.destinations) &&
+            receiver.destinations.length === 17 &&
+            receiver.destinations.every(function(item) {
+              return typeof item.destinationId === "string" &&
+                typeof item.name === "string" &&
+                typeof item.route === "string" &&
+                typeof item.state === "string" &&
+                typeof item.label === "string" &&
+                typeof item.summary === "string" &&
+                typeof item.limitation === "string" &&
+                typeof item.actionLabel === "string" &&
+                item.completionClaim === false;
+            });
+        }
+
+        async function loadReadiness() {
+          var runtime = window.LAIDIESEntryReadinessV1;
+          if (!runtime || typeof runtime.receive !== "function" ||
+              typeof runtime.visitorCentreSemanticReceiver !== "function") {
+            return localFailClosed();
+          }
+          try {
+            var response = await fetch("/content/site/readiness/v1/entry-readiness-projection.v1.json", {
+              cache: "no-store",
+              credentials: "same-origin"
+            });
+            if (!response.ok) throw new Error("PROJECTION_HTTP_" + response.status);
+            var envelope = await response.json();
+            var receipt = await runtime.receive(envelope, {
+              expectedPayloadSha256: expectedPayloadSha256
+            });
+            var receiver = runtime.visitorCentreSemanticReceiver(receipt);
+            return receiverShapeValid(receiver) ? receiver : localFailClosed();
+          } catch (error) {
+            return localFailClosed();
+          }
+        }
+
+        function installReadiness(receiver) {
+          destinationContracts = {};
+          receiver.destinations.forEach(function(destination) {
+            destinationContracts[destination.destinationId] = destination;
+          });
+          window.VC_READINESS_SEMANTICS = JSON.parse(JSON.stringify(receiver));
+          document.documentElement.dataset.vcReceiverReady = "true";
+          document.documentElement.dataset.vcReceiverMode = receiver.mode;
+          projectionStatus.dataset.mode = receiver.mode;
+          projectionStatus.textContent = receiver.mode === "fresh"
+            ? receiver.announcement + " Destination pages retain readiness and completion authority."
+            : receiver.announcement + " No destination is represented as complete.";
+          if (currentId) {
+            var current = buildings.find(function(building) {
+              return building.id === currentId;
+            });
+            if (current) openCard(current, initiatingControl, true);
+          }
+        }
 
         function allFor(id) {
           return document.querySelectorAll('[data-vc-building="' + id + '"]');
@@ -1247,21 +1304,25 @@
           }
         }
 
-        function openCard(building, trigger) {
-          if (currentId === building.id && card.classList.contains("is-open")) {
+        function openCard(building, trigger, refresh) {
+          if (!refresh && currentId === building.id && card.classList.contains("is-open")) {
             closeCard(true, true);
             return;
           }
           initiatingControl = trigger || directory;
           currentId = building.id;
           var destination = destinationContracts[building.id];
-          var contractMatchesRoute = destination && destination.href === building.href;
+          var contractMatchesRoute = destination && destination.route === building.href &&
+            destination.completionClaim === false;
           if (!contractMatchesRoute) {
             destination = {
-              href: building.href,
-              state: "held",
-              summary: "Current destination details are unavailable.",
-              limitation: "Open the page only to check its own current status. This selection is navigation, not completion or product readiness."
+              route: building.href,
+              state: "unavailable",
+              label: "Current status unavailable",
+              summary: "Open the named route only to check its current page.",
+              limitation: "Current readiness could not be verified. Route arrival is navigation, not completion.",
+              actionLabel: "Open page — check current status",
+              completionClaim: false
             };
           }
           clearActive();
@@ -1269,16 +1330,17 @@
           allFor(building.id).forEach(function(el) { el.classList.add("is-active"); });
           address.textContent = building.address;
           title.textContent = building.name;
-          state.textContent = destination.state === "held" ? "Held from promotion" : "Limited · check current status";
+          state.textContent = destination.label;
           state.dataset.state = destination.state;
           line.textContent = destination.summary;
           list.innerHTML = "";
           var item = document.createElement("li");
           item.textContent = destination.limitation;
           list.appendChild(item);
-          enter.href = destination.href;
-          enter.textContent = destination.state === "held" ? "Open page — check status" : "Open destination";
+          enter.href = destination.route;
+          enter.textContent = destination.actionLabel;
           enter.setAttribute("aria-label", enter.textContent + ": " + building.name);
+          card.dataset.completionClaim = "false";
           card.hidden = false;
           card.classList.add("is-open");
           history.replaceState(null, "", "#" + building.id);
@@ -1305,6 +1367,8 @@
           option.textContent = building.name + " · " + building.address;
           directory.appendChild(option);
         });
+
+        loadReadiness().then(installReadiness);
 
         if (!buildings.length) {
           directory.disabled = true;
@@ -1343,134 +1407,6 @@
           });
           if (initial) openCard(initial, directory);
         }
-      });
-    })();
-  </script>
-  <script>
-    (function() {
-      "use strict";
-
-      var postcards = [
-        { id: "welcome", label: "Welcome to SUNNYVAiLE", file: "pc-welcome.png" },
-        { id: "main-street", label: "MAiN Street", file: "pc-main-street.png" },
-        { id: "dial-up", label: "Wish You Were Wired", file: "pc-dial-up.png" },
-        { id: "youve-got-mail", label: "You've Got Mail", file: "pc-youve-got-mail.png" }
-      ];
-      var base = "/assets/postcards/from-sunnyvaile/";
-      var selected = postcards[0];
-
-      function readLocal(key) {
-        try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
-      }
-
-      function cleanHandle() {
-        var input = document.getElementById("vcPostcardHandle");
-        return (input.value || "").replace(/^@/, "").trim();
-      }
-
-      function note() {
-        return (document.getElementById("vcPostcardNote").value || "").trim();
-      }
-
-      function inviteURL() {
-        var url = location.origin + "/postcard.html?from=" +
-          encodeURIComponent(cleanHandle() || "a-friend") +
-          "&pc=" + encodeURIComponent(selected.id);
-        if (note()) url += "&note=" + encodeURIComponent(note());
-        return url;
-      }
-
-      function messageText() {
-        return (note() ? note() + "\n\n" : "") +
-          "Come to SUNNYVAiLE — a little internet town where we learn AI one Wednesday at a time. " +
-          inviteURL();
-      }
-
-      function status(message) {
-        document.getElementById("vcPostcardStatus").textContent = message || "";
-      }
-
-      function syncSendLinks() {
-        document.getElementById("vcPostcardText").href =
-          "sms:?&body=" + encodeURIComponent(messageText());
-        document.getElementById("vcPostcardEmail").href =
-          "mailto:?subject=" + encodeURIComponent("A postcard from SUNNYVAiLE") +
-          "&body=" + encodeURIComponent(messageText());
-      }
-
-      function choose(card, button) {
-        selected = card;
-        document.querySelectorAll(".vc-postcard-choice").forEach(function(choice) {
-          var isSelected = choice === button;
-          choice.classList.toggle("is-selected", isSelected);
-          choice.setAttribute("aria-pressed", isSelected ? "true" : "false");
-        });
-        var preview = document.getElementById("vcPostcardPreview");
-        preview.src = base + card.file;
-        preview.alt = card.label + " postcard";
-        syncSendLinks();
-      }
-
-      document.addEventListener("DOMContentLoaded", function() {
-        var rack = document.getElementById("vcPostcardRack");
-        var handle = document.getElementById("vcPostcardHandle");
-        var saved = readLocal("laidies_card_username");
-        if (saved) handle.value = saved.charAt(0) === "@" ? saved : "@" + saved;
-
-        postcards.forEach(function(card, index) {
-          var button = document.createElement("button");
-          button.type = "button";
-          button.className = "vc-postcard-choice";
-          button.setAttribute("aria-label", "Choose " + card.label + " postcard");
-          button.setAttribute("aria-pressed", "false");
-          button.innerHTML =
-            '<img src="' + base + card.file + '" alt="" loading="lazy">' +
-            "<span>" + card.label + "</span>";
-          button.addEventListener("click", function() { choose(card, button); });
-          rack.appendChild(button);
-          if (index === 0) choose(card, button);
-        });
-
-        document.getElementById("vcPostcardNote").addEventListener("input", syncSendLinks);
-        handle.addEventListener("input", syncSendLinks);
-        document.getElementById("vcPostcardText").addEventListener("click", function() {
-          status("Opening your device's text handoff. Sending is not confirmed here.");
-        });
-        document.getElementById("vcPostcardEmail").addEventListener("click", function() {
-          status("Opening your email handoff. Sending is not confirmed here.");
-        });
-
-        document.getElementById("vcPostcardShare").addEventListener("click", function() {
-          if (navigator.share) {
-            navigator.share({
-              title: "A postcard from SUNNYVAiLE",
-              text: messageText()
-            }).then(function() {
-              status("Share handoff returned to this page. Delivery is not confirmed here.");
-            }).catch(function() {
-              status("Share handoff was not completed. You can copy the link instead.");
-            });
-          } else {
-            document.getElementById("vcPostcardCopy").click();
-          }
-        });
-
-        document.getElementById("vcPostcardCopy").addEventListener("click", function() {
-          var url = inviteURL();
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url).then(function() {
-              status("Postcard link copied.");
-            }).catch(function() {
-              status("Automatic copying was unavailable. Use the copy dialog; delivery is not confirmed.");
-              window.prompt("Copy your postcard link:", url);
-            });
-          } else {
-            status("Automatic copying is unavailable. Use the copy dialog; delivery is not confirmed.");
-            window.prompt("Copy your postcard link:", url);
-          }
-        });
-
-        syncSendLinks();
       });
     })();
   </script>

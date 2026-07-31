@@ -42,9 +42,9 @@ check(
 check(state.ownerDecision?.status === "UNRESOLVED", "owner product-model decision must remain unresolved");
 check(state.currentCycle?.releaseAuthority === "NONE", "bounded candidate must not claim release authority");
 
-check(/Experimental · scripted\./.test(booth), "Just Call must show its experiment status");
+check(/playful, prewritten perspective/.test(booth), "Just Call must explain that the character call is prewritten");
 check(/does not know your situation/.test(booth), "Just Call must disclose lack of user context");
-check(/does not provide personalized or professional advice/.test(booth), "Just Call must bound advice");
+check(/not professional advice/.test(booth) && /provide personalized advice/.test(booth), "Just Call must bound advice");
 check(/last only in this page session/.test(booth), "Just Call must state session-only history/discoveries");
 check(/not saved to an account or another device/.test(booth), "Just Call must deny account/cross-device persistence");
 check(/id="dpJustCallTitle" tabindex="-1"/.test(booth), "Just Call destination must be programmatically focusable");
@@ -52,10 +52,10 @@ check(/target\.focus\(\)/.test(booth), "track changes must move focus");
 check(!/<script[^>]+dream-phone-game\.js/.test(booth), "parked patron-saint engine must not load on booth");
 check(!/window\.dreamPhoneEgg/.test(booth), "booth must not invoke parked reward engine");
 
-check(/Experimental · scripted/.test(funPack), "Fun Pack entry must label the experiment");
-check(/not personalized or professional advice/.test(funPack), "Fun Pack entry must preserve advice boundary");
-check(/experimental Dream Phone/.test(welcomeTour), "welcome tour must label Dream Phone experimental");
-check(/Experimental scripted phone booth/.test(directory), "town directory must label Dream Phone experimental");
+check(/playful, prewritten perspective/i.test(booth), "Dream Phone must explain that character calls are prewritten");
+check(/not professional advice/i.test(booth), "Dream Phone must preserve the advice boundary");
+check(/play For Real \/ As If and investigate an AI claim/.test(welcomeTour), "welcome tour must explain the claim game");
+check(/For fun—not personalized or professional advice/.test(directory), "town directory must preserve the advice boundary");
 const registryDreamPhone = contentRegistry.features.find((item) => item.name === "Dream Phone");
 check(registryDreamPhone?.url === "games/dream-phone.html", "content registry must use canonical Dream Phone route");
 check(
@@ -86,11 +86,11 @@ check(/claim\.text===ledger\.claims\[index\]\.text/.test(game), "runtime must re
 
 const siteDreamPhone = siteIndex.entries.find((item) => item.id === "act-dream-phone-game");
 check(siteDreamPhone?.status === "preview", "site index must not call the experimental deck live");
-check(/experimental scripted beta deck/i.test(siteDreamPhone?.summary || ""), "site index must disclose scripted beta status");
+check(/learning game, not a fact-checking service/i.test(siteDreamPhone?.summary || ""), "site index must explain the game boundary");
 check(!/AI tells you|spotting a hallucination/i.test(siteDreamPhone?.summary || ""), "site index must not claim AI hallucination detection");
 check(!/Calls, advice and Easter eggs/.test(homepage), "homepage must not call Dream Phone advice");
-check(/Experimental scripted reflection/.test(homepage), "homepage card must disclose experiment");
-check(/no personalized advice or saved rewards/.test(homepage), "homepage map and directory must preserve product limits");
+check(/Call a character or spot the hallucination/.test(homepage), "homepage card must explain both Dream Phone activities");
+check(/not personalized or professional advice/.test(homepage), "homepage map and directory must preserve product limits");
 
 const admitted = ledger.rounds.filter((round) => round.status === "ADMITTED");
 const held = ledger.rounds.filter((round) => round.status === "HOLD");

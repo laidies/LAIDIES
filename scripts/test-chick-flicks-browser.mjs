@@ -144,13 +144,80 @@ try {
     await open(page);
     await waitLoaded(page);
     assert.match(await page.locator("#cf-state-copy").textContent(), /Last rented on this device: EP 02/i);
+    assert.equal(await page.locator("#cfReturnVisit").isVisible(), true);
+    assert.match(await page.locator("#cfReturnCopy").textContent(), /EP 02.*last tape taken home on this device/i);
+    await page.locator("#cfContinueRental").click();
+    await page.waitForFunction(() => document.activeElement?.id === "cfRental");
+    assert.match(await page.locator("#cfRentalEpisode").textContent(), /EP 02/i);
     assert.match(await page.locator("#cfMemberStatus").textContent(), /Favourite on this device: EP 03/i);
     await page.locator('#cfWallBay .cf-tape[data-episode="03"]').click();
     assert.match(await page.locator("#cfFavourite").textContent(), /Remove favourite from this device/i);
     await page.locator("#cfFavourite").click();
     assert.equal(await page.evaluate(() => localStorage.getItem("laidies_favorite_episode")), null);
     assert.match(await page.locator("#cfMemberStatus").textContent(), /No favourite tape saved on this device/i);
-    pass("returning state and reversible favourite remain explicitly device-local");
+    pass("valid same-device rental returns to the exact tape and favourite stays separately reversible");
+    await page.close();
+  }
+
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await localOnly(page);
+    await page.addInitScript(() => {
+      localStorage.setItem("laidies_cf_last_rental", "02");
+    });
+    await open(page);
+    await waitLoaded(page);
+    assert.equal(await page.locator("#cfReturnVisit").isVisible(), true);
+    await page.locator("#cfClearRental").click();
+    await page.waitForFunction(() => document.activeElement?.hasAttribute("data-rent-latest"));
+    assert.equal(await page.evaluate(() => localStorage.getItem("laidies_cf_last_rental")), null);
+    assert.equal(await page.locator("#cfReturnVisit").isVisible(), false);
+    assert.doesNotMatch(await page.locator("#cf-state-copy").textContent(), /Last rented on this device/i);
+    await assertNoPageOverflow(page, "390px cleared return");
+    pass("clear and start over removes only the last-rental hint and restores latest-tape focus");
+    await page.close();
+  }
+
+  {
+    for (const stored of ["05", "{wrong"]) {
+      const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+      await localOnly(page);
+      await page.addInitScript((value) => {
+        localStorage.setItem("laidies_cf_last_rental", value);
+      }, stored);
+      await open(page);
+      await waitLoaded(page);
+      assert.equal(await page.locator("#cfReturnVisit").isVisible(), false, stored);
+      assert.equal(await page.evaluate(() => localStorage.getItem("laidies_cf_last_rental")), null, stored);
+      assert.doesNotMatch(await page.locator("#cf-state-copy").textContent(), /Last rented on this device/i);
+      await assertNoPageOverflow(page, `390px invalid return ${stored}`);
+      await page.close();
+    }
+    pass("forthcoming and corrupt last-rental records are cleared instead of rendered");
+  }
+
+  {
+    const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+    await localOnly(page);
+    await page.addInitScript(() => {
+      localStorage.setItem("laidies_cf_last_rental", "02");
+      const original = Storage.prototype.removeItem;
+      Storage.prototype.removeItem = function removeItem(key) {
+        if (String(key) === "laidies_cf_last_rental") {
+          throw new DOMException("Blocked for deterministic test", "SecurityError");
+        }
+        return original.call(this, key);
+      };
+    });
+    await open(page);
+    await waitLoaded(page);
+    await page.locator("#cfClearRental").click();
+    await page.waitForFunction(() => document.activeElement?.id === "cfClearRental");
+    assert.equal(await page.locator("#cfReturnVisit").isVisible(), true);
+    assert.match(await page.locator("#cfReturnCopy").textContent(), /would not let the store clear/i);
+    assert.equal(await page.evaluate(() => localStorage.getItem("laidies_cf_last_rental")), "02");
+    await assertNoPageOverflow(page, "390px denied clear");
+    pass("denied clear remains visible and reports failure without simulating success");
     await page.close();
   }
 

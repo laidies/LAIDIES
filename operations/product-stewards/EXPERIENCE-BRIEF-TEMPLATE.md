@@ -25,7 +25,21 @@ tested or competed. Unknowns stay visible or return as one bounded decision.
 
 ## Stable promise and user outcome
 
-## Audience and new/returning visitor jobs
+## Audience and visitor-state jobs
+
+Complete the matrix in
+`operations/product-stewards/VISITOR-STATE-EVALUATION-STANDARD.md` for:
+
+- first-time visitor;
+- returning visitor without a Resident Card;
+- Resident Card holder at the exact proved scope; and
+- any additional signed-in, invited, public-viewer, revoked or privileged
+  state that materially changes the experience.
+
+For each state define its arrival/orientation, useful job, known continuity,
+primary action, result, next step, return promise and prompts that should be
+offered or withheld. A device-local Card must not imply account identity or
+cross-device continuity.
 
 ## Place metaphor, feeling and ritual
 
@@ -46,6 +60,10 @@ Record what must be current, admitted, labelled, hidden or unavailable.
 - Primary
 - Optional exploration
 - Return/resume
+- First visit → return without Card
+- First/returning → create Card → same-device return
+- Device-local Card → account-backed resident, when supported
+- Sign-out, second-device, conflict, deletion/revoke and privacy transitions
 - Empty/loading/error/cancel/retry/duplicate/offline
 
 ## Cross-building relationships and handbacks
@@ -61,14 +79,27 @@ Record what must be current, admitted, labelled, hidden or unavailable.
 - analytics/customer evidence
 - release reliability
 
+## Functionality and cross-page touchpoint map
+
+Create `FUNCTIONALITY-MAP.md` from
+`operations/product-stewards/FUNCTIONALITY-MAP-TEMPLATE.md`. It must enumerate
+every visible capability/element; producer and consumer pages; frontend
+module; backend/service; authoritative store; identity and persistence scope;
+completion, failure, retry, duplicate, update, remove/revoke/refund behavior;
+missing backend; owner; exact paths and acceptance proof.
+
+The experience brief states what should happen. The functionality map proves
+what must exist across the system to make it happen.
+
 ## Brand invariants and building freedoms
 
 ## Desktop, mobile, accessibility, motion and audio
 
 ## Launch acceptance scenes
 
-Name the exact newcomer and returning-visitor scenes that must pass with
-observed evidence.
+Name the exact first-time, returning-without-Card and Resident Card scenes and
+transitions that must pass with observed evidence. Give device-local and
+verified account-backed Card states separate verdicts when both are relevant.
 
 ## Unresolved decisions and non-goals
 
@@ -77,6 +108,6 @@ observed evidence.
 - Building owner: authors and reconciles intent.
 - Brand & Experience Director: approves system fit and allowed variation.
 - Functionality & Platform Director: validates platform contracts and
-  feasibility.
+  feasibility and signs the complete functionality/touchpoint map.
 - Affected subproduct owners: confirm their capabilities.
 - Portfolio Control Room: resolves collisions, dependencies and integration.

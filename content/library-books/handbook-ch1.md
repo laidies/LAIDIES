@@ -127,91 +127,139 @@ Real task, two prompts. Vague first. Then briefed. Read both.
 
 #### What it is
 
-The "model" is the engine inside the app. The *app* is what you open — claude.ai, chatgpt.com, gemini.google.com, the Copilot inside Teams. The *model* is what's actually generating the answers. One app usually offers several engines, and you usually have a choice between them.
+A model is the trained component of an AI system that turns an input into an
+output. It may produce words or images, interpret material, make a prediction
+or choose a next action.
 
-"LLM" — large language model — is the technical name for the engine behind most of the AI you're using right now. You don't need to know which one. You just need to know there's more than one, and they aren't all the same.
+Episode 05 uses one maintained picture for this relationship: the provider is
+the fashion house; the model is the house's supermodel; an app is a boutique or
+department store where you may encounter one or more models. The picture helps
+separate the cast; the software is not literally organized like a fashion
+business.
 
-Wharton professor Ethan Mollick makes this concrete with a three-tier framework that's worth borrowing for the rest of this Handbook:
+"LLM" means large language model: a model designed to work with language. It
+may be one component in a larger system that also handles images, search,
+files, code or other tools. You do not need to memorize every model name. You
+do need to know that the model is not the whole product.
 
-- **Models** — the underlying AI brains. Each big lab keeps a current flagship (named in the box further down this page). The capability comes from here.
-- **Apps** — the interfaces you open. claude.ai, chatgpt.com, the Copilot embedded in Teams. The experience comes from here.
-- **Harnesses** — the systems that let AI *do things*, not just say things. Claude Code, ChatGPT Agent mode, Cursor. Same model, different harness — completely different capability.
+#### The four things people blur together
 
-Same model + different harness = different capability. Same app + different model = different answer. Knowing which lever to pull is half the skill.
+- **The company or provider** develops and operates products and models.
+- **The model** transforms input into output.
+- **The product** supplies the interface, account, instructions, permissions,
+  limits and visible features.
+- **The tools** let the system search, inspect files, run code or act through a
+  connected service when the product permits it.
 
-#### How models differ
+Some people use *harness* for the software that surrounds a model and helps it
+use tools or complete a workflow. It can be a useful engineering term, but it
+does not replace the four-part map above.
 
-Inside almost every modern AI app you'll find at least two kinds of model. They behave quite differently.
+One product can offer several models, route between them automatically or hide
+the choice entirely. The same model can also behave differently when the
+product changes its instructions, context or available tools. **The model
+matters. So does everything around it.**
 
-1. **Base / chat models — the fluent ones** — Fast, conversational, optimized for back-and-forth. Excellent for quick rewrites, brainstorms, surface explanations, drafting. They generate one answer fast. You get a paragraph in under three seconds.
-2. **Reasoning models — the slow, deliberate ones** — These work the problem through internally before answering. They're better at math, logic, multi-step plans, anything that needs its work checked. They were a genuinely new development — OpenAI shipped the first one (o1) in September 2024. Anthropic and Google followed within the year (Claude's "extended thinking," Gemini "Thinking"). The cost: 20–60 seconds per response instead of two. The benefit: dramatically fewer confidently-wrong answers on the hard stuff.
+#### How models and modes differ
 
-Mollick's bluntest line: most people leave the picker on "auto" and get the base model by default. For anything that matters, manually switch to the reasoning version. The minute you wait is the hour you don't spend cleaning up the answer.
+Models can differ in the material they accept, the outputs they produce, their
+speed, cost, context capacity, tool use and performance on particular tasks.
+Some products also offer modes that spend more computation before answering.
+Those modes can improve some multi-step work; they do not turn the result into
+verified truth.
+
+Do not memorize a permanent “fast model versus reasoning model” rule. Product
+names, defaults and routing change, and not every provider exposes the same
+choice. “Reasoning” is also not a warranty: a slower answer can still begin
+from a bad assumption, misunderstand the task or use weak evidence.
 
 #### Which one when
 
-A rough rule:
+Choose by the job you can actually test:
 
-*Fast model*
+1. What must the output be—text, image, analysis, code or an action?
+2. Does the task need current sources, files, calculations or another tool?
+3. What privacy, permission, plan or regional limits apply?
+4. How will you recognize a good result?
+5. Which important parts still require an outside check?
 
-Quick. Recoverable. Conversational.
-
-The rewrite. The short list. The "what's the word for...?" If the answer's wrong, you'll know in five seconds.
-
-*Reasoning model*
-
-Logic. Math. Multi-step. Stakes.
-
-The five-step plan. The financial scenario. The contract you're reading. The decision you can't undo.
-
-Mollick is blunt about the free-tier trap: free AI is *"optimized for chat, rather than accuracy."* For work that matters, paying for the frontier reasoning model is the difference between confident-and-wrong and slow-and-right.
+For a quick, recoverable task, the default option may be enough. For a complex
+task, a more capable model or deeper-computation mode may be worth testing.
+For a consequential task, the answer is never simply “use the expensive one”:
+use appropriate expertise, primary evidence and human review as well.
 
 #### Where it goes wrong
 
-Two common mistakes.
+**Blaming the model for the whole result.** The missing feature may belong to
+the product, plan, permissions, context or tools.
 
-**Using the fast model for hard problems.** It happens because the fast model is the default. You ask a strategic question and get back a fluent paragraph that *sounds* confident — but didn't actually work the problem through. The reasoning model would have caught the gap.
+**Treating a provider reputation as a task test.** “Best writer” or “best
+reasoner” is too broad to decide whether this result serves this audience.
 
-**Using the reasoning model for everything.** It's overkill for a quick rewrite, and you pay for thinking you didn't need (in time, sometimes in dollars). Save it for when the stakes justify the wait.
+**Equating more compute with correctness.** Deeper processing can help without
+checking the source, jurisdiction, date or assumptions that matter.
 
-The other trap: assuming all the AI tools are equivalent. They aren't. The current flagships from the three big labs — Anthropic's Claude, OpenAI's GPT, and Google's Gemini — sit roughly peer-level for general capability, but each has strengths. Claude is widely regarded as the strongest writer. GPT excels at structured reasoning. Gemini integrates deeply with Google's data and image tools. The right question isn't *"which is best?"* — it's *"which one is good at this kind of task?"*
+**Following a stale model guide.** Names, defaults, prices and access change.
+Date every comparison and recheck it before teaching or buying.
 
 #### Practice
 
-Open your tool. Find the model picker — usually a small dropdown near the top of the chat. Note which models are available and which is set as default. Then take a real decision you're avoiding and ask the same question two ways: once with the default model, once with the reasoning version ("extended thinking," "Thinking," whatever your app calls it). Read both side by side. The difference is the muscle you'll want the next time the stakes are real.
+Choose one harmless task whose quality you can judge. In one product, note the
+date, product, visible model or mode (if the product shows it), tools and
+account plan. Run the task with the default option and one alternative
+available to you. Keep the request and context the same.
+
+Compare:
+
+- which result understood the job;
+- which used the available evidence properly;
+- what each made you fix; and
+- whether the extra time or cost improved this task enough to matter.
+
+The lesson is not “crown a winner.” It is learning which layer changed and how
+you know the result improved.
 
 #### Sources
 
-- Anthropic. [Models overview.](https://platform.claude.com/docs/en/about-claude/models/overview) Current Claude models, pricing, knowledge cutoffs.
-- Ethan Mollick. [A Guide to Which AI to Use in the Agentic Era.](https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the) *One Useful Thing*, February 2026. The Models / Apps / Harnesses framework.
+- OECD. [Explanatory memorandum on the updated definition of an AI
+  system.](https://oecd.ai/en/wonk/definition-)
+- OpenAI. [Models.](https://developers.openai.com/api/docs/models)
+- Anthropic. [Models overview.](https://platform.claude.com/docs/en/about-claude/models/overview)
+- Google. [Gemini API models.](https://ai.google.dev/gemini-api/docs/models)
+- Ethan Mollick. [A Guide to Which AI to Use in the Agentic
+  Era.](https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the)
+  *One Useful Thing*, February 2026. Useful scout framing; provider details
+  still require current official verification.
 
 **What it is**
 
-The engine inside the app. App = interface. Model = brain.
+The trained component that turns input into output. It is one part of an AI
+system—not the company, product or tool around it.
 
-**Three tiers**
+**Four parts**
 
-Models · Apps · Harnesses. Each changes what AI can do.
+Provider · Model · Product · Tools. Each can change what comes back.
 
 **How they differ**
 
-Fast / chat models. Slow / reasoning models. Same app, different default.
+Inputs · outputs · tools · speed · cost · task performance.
 
 **Which one when**
 
-Quick & casual → fast. Logic, math, stakes → reasoning.
+Choose by the task and test the result. Stakes always require evidence and
+review.
 
 **The trap**
 
-Auto-mode for hard problems. Switch manually when it matters.
+Treating “better model” as “automatically correct answer.”
 
 **Try this**
 
-Same hard question, default vs reasoning. Compare.
+Same harmless task, same context, two available choices. Name what changed.
 
 **Remember**
 
-*Match the engine to the moment.*
+*A model is part of the experience—not the whole thing.*
 
 ### 3. Training data
 
@@ -421,32 +469,59 @@ Long doc, three questions (start / middle / end). Middle answer is worst.
 
 #### What it is
 
-A hallucination is when AI says something false in the exact same confident voice it uses for true things. The system isn't lying — it doesn't know what lying is. It's predicting the next plausible word, and sometimes the next plausible word is just *wrong*. It doesn't sound wrong. That's the whole problem.
+A hallucination is false or unsupported content delivered as part of an
+AI-generated answer. It might be one invented citation, wrong date or made-up
+detail inside otherwise useful work—not only a completely fictional response.
+The system is not lying; lying requires intent.
 
-A hallucination can be a fabricated source (a real-looking journal article that doesn't exist), an invented quote, a wrong date, a person who never worked at the company AI named them at, a legal precedent that was never filed, a price that doesn't match the live one. The category isn't "obvious errors." It's *"errors that look exactly like correct answers."*
+A fabricated journal article, altered quote, wrong date, imaginary legal case
+or stale price can all qualify. The danger is not that they look obviously
+ridiculous. The unsupported sentence may sound exactly as finished as the
+supported one. **Polished is a style. Evidence is a standard.**
 
-It's also widespread. Stanford's *2026 AI Index Report* tested 26 top AI models on one new accuracy benchmark and found hallucination rates ranging from **22% to 94%**. Even on the best of them, roughly one answer in five contained fabricated information. The newest models are better than the old ones, but *"better"* still leaves enormous room for error in your work.
+The risk varies by model, task, context and evaluation. Do not use one
+benchmark as a universal “hallucination rate.” A current system can still
+place one unsupported claim inside an otherwise useful answer, so
+consequential claims need evidence rather than a confidence score.
 
 #### Why hallucinations happen
 
-The most important insight on this page, and the one almost no one knows.
+Generative models are built to produce plausible output from patterns in their
+training and the context supplied now. Plausibility and factual support are
+not the same target. Rare facts, missing context, ambiguous questions and weak
+source material can all create room for an answer that sounds right without
+being right.
 
-In September 2025, OpenAI researchers published a paper titled *"Why Language Models Hallucinate"* (Kalai, Nachum, Vempala & Zhang) with a finding that reframes the entire problem. Hallucinations don't happen because AI is broken. They happen because the training process actively *rewards confident guessing*.
+OpenAI’s 2025 research adds another part of the picture: many common
+evaluations reward a lucky guess more than an honest abstention. That can
+encourage confident guessing. It is an important mechanism, not a complete
+single-cause theory for every hallucination in every model or product.
 
-The mechanic: AI models are evaluated against accuracy benchmarks. A confidently-wrong answer scores zero. A confident "I don't know" also scores zero — but a confident *guess* might be right, so guessing is the statistically optimal strategy. Across millions of training examples, the model learns: when uncertain, guess confidently anyway.
+The practical conclusion is deliberately less dramatic: current systems can
+reduce hallucinations, but none earns a blanket exemption from checking.
 
-The paper's blunt conclusion: hallucinations are a *"natural statistical error"* baked into how AI is trained. They aren't a bug to be patched. They're a property of the incentive structure. A 2026 Nature paper reached the same conclusion: even retrieval, tool use, and self-verification can't fully eliminate hallucinations in current models. The rate is reducible. It is not yet removable.
+#### How to reduce the risk
 
-This is the crucial reframe: hallucinations aren't going away soon. The skill is detection and prevention — not waiting for AI to "fix itself."
+There is no magic sentence that makes an answer true. Use a checking design:
 
-#### How to reduce hallucinations (Anthropic's playbook)
+1. **Supply the right material.** Give the system the current policy,
+   document, dataset or source it should use.
+2. **Ask for traceable support.** Have it connect each consequential claim to
+   the exact passage, calculation or source—not merely produce citation-shaped
+   text.
+3. **Permit uncertainty.** Tell it to mark missing evidence, ambiguity and
+   unresolved conflicts rather than fill the gap. Treat that as one useful
+   instruction, not a guarantee.
+4. **Use the right tool.** Current facts may need live search; arithmetic may
+   need code or a calculator; private or high-stakes work may need an approved
+   specialist system or no public AI tool at all.
+5. **Check outside the answer.** Open the source, reproduce the calculation or
+   ask a qualified person. Asking the same model to praise its own work is not
+   independent verification.
 
-Anthropic's own guidance for reducing hallucinations comes down to four moves. They lower the rate significantly. They do not eliminate it.
-
-1. **Allow the model to say "I don't know"** — The single most effective technique. Add this line to your prompt: *"If you don't know or aren't sure, say so. Don't guess."* It works because — as the OpenAI paper proved — the model is trained to fill silences confidently. You have to give it permission to abstain.
-2. **Ground answers in provided material** — For tasks involving documents, ask the model to extract direct quotes first, then build the answer from those quotes only: *"Find the exact sentences in this document that support your answer. Quote them. If you can't find one, say so."* Grounding in the source closes the gap where hallucinations live.
-3. **Require citations for every claim** — Ask the model to attach a source to every factual statement and to remove any claim it can't source. Anthropic's example prompt: *"For each claim in your draft, find a direct quote in the source that supports it. If you can't find one, delete the claim and mark where it was with empty brackets."*
-4. **Show the reasoning** — Ask the model to walk through its logic step-by-step before answering. Faulty assumptions become visible. (This is what reasoning models do automatically; you can force it on basic models with: *"Before you answer, walk through your reasoning step by step.")*
+Do not ask a consumer chatbot to reveal private internal reasoning as your
+quality check. Ask for evidence, assumptions, a concise method you can inspect
+or a result you can reproduce.
 
 #### How to detect hallucinations (Episode 3's playbook)
 
@@ -472,50 +547,66 @@ The KPMG / GPTZero incident in 2026 is the canonical case study: KPMG (a Big Fou
 
 **Asking the model "are you sure?"** Asking AI to verify itself produces another fluent answer with no actual verification underneath. The model is generating "the kind of thing someone confident would say" — which is sometimes the same kind of thing it said the first time. (Episode 3's framing: that's Chutney repeating her alibi, not Elle finding the contradiction.)
 
-**Confusing reasoning models with reliability.** Reasoning models (Claude with extended thinking, GPT with Thinking, Gemini Thinking) make hallucinations less common, but not absent. The Stanford 2026 finding (22%-94%) includes the latest reasoning models. The reasoning model is more careful. It is not infallible.
+**Confusing reasoning models with reliability.** Reasoning models and product
+modes may improve performance on some multi-step tasks, but that is not a
+guarantee of factual accuracy. They can still misunderstand the task, use a
+weak source or produce an unsupported claim. More deliberate is not
+infallible.
 
 #### Practice
 
 The single most useful exercise in this Handbook.
 
-Ask your tool, on any work task: *"Give me three recent stats with clickable sources to back this up."* Then actually click them. The first link to nowhere — or to a real-looking site that doesn't say what the answer says it says — is the only proof you need to start checking everything that touches a fact, name, or number.
+Ask your tool for three recent statistics with the exact original source for
+each one. Then open every source. Record whether the page exists, whether it is
+the original evidence, whether the number appears there and whether its scope
+matches the claim.
 
-Bonus exercise: take a recent AI answer you actually used at work and try to verify ONE claim in it against a primary source. If you can verify it in under thirty seconds, the claim was safe. If you can't, the claim was a draft pretending to be a final.
+Bonus exercise: take one factual claim from an AI answer you recently used and
+trace it to a primary source. Speed is not the test. A claim is supported only
+when the source actually establishes that claim for the relevant date,
+population, product and context.
 
 #### Sources
 
 - Kalai, Nachum, Vempala & Zhang. [Why Language Models Hallucinate.](https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf) OpenAI / Georgia Tech, September 2025. The training-rewards-guessing finding.
 - Anthropic. [Reduce hallucinations.](https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations) The four-move playbook.
-- Stanford HAI. [2026 AI Index Report, Responsible AI chapter.](https://hai.stanford.edu/ai-index/2026-ai-index-report/responsible-ai) Hallucination rates of 22%-94% across 26 top models.
+- NIST. [Artificial Intelligence Risk Management Framework: Generative
+  Artificial Intelligence Profile.](https://doi.org/10.6028/NIST.AI.600-1)
+  Section 2.2 defines confabulation and its practical scope.
 - Issue 03 of LAiDIES: [The Burn Book Problem.](/issues/issue-03.html) The Chutney / Elle Woods detection playbook in full.
 
 **What it is**
 
-Confident false output that sounds exactly like a correct answer.
+False or unsupported content delivered as part of an AI-generated answer.
 
 **Why it happens**
 
-Training rewards guessing over saying "I don't know" (OpenAI 2025 paper).
+Generation targets plausible output; missing or ambiguous evidence creates
+room for error, and common evaluations can reward guessing.
 
 **How widespread**
 
-22%–94% across top models (Stanford AI Index 2026).
+There is no honest universal rate. Risk changes with the model, product, task,
+context and evaluation.
 
 **Reduce it**
 
-Allow "I don't know." Ground in quotes. Require citations. Show reasoning.
+Supply current evidence. Require traceable support. Permit uncertainty. Use
+the right tool. Verify outside the answer.
 
 **Detect it**
 
-One specific check. Click the link. Verify the quote. The Chutney move.
+One specific check. Open the source. Verify the quote, date, number and scope.
 
 **Picture this**
 
-Joey Tribbiani on "moo point." Fluent. Confident. Wrong.
+The Burn Book: every entry invented, every entry delivered with the same
+confidence.
 
 **Try this**
 
-Ask for three recent stats with sources. Click the links.
+Ask for three recent statistics and their original sources. Audit the chain.
 
 **Go deeper**
 
@@ -523,7 +614,7 @@ Ask for three recent stats with sources. Click the links.
 
 **Remember**
 
-*If she doesn't do the assignment, you can't do yours.*
+*Polished is a style. Evidence is a standard.*
 
 ## The four types everyone argues about
 
@@ -546,6 +637,46 @@ Works the whole problem through, then says what to do. Slower, and better at mat
 Acts · the Slayer on patrol
 
 You send her out and she goes and does it. The leap from talking to doing — and exactly where the stakes change, because something that can act is only as safe as the permissions you hand it.
+
+### Sandbox — a working room with real walls
+
+**Plain meaning.** A sandbox is a deliberately limited environment where
+software or an AI agent can work without automatically reaching everything
+else. It can restrict which files, tools, accounts, credentials and network
+destinations the system can use.
+
+Picture a rehearsal studio prepared for one scene. The actor gets the right
+props and a marked stage, but not the keys to every room in the theatre. The
+marks on the floor are instructions. The locked doors are the sandbox. Telling
+someone “do not leave” is not the same as making it impossible to leave.
+
+**Where the analogy stops.** A sandbox is made from technical controls, not
+literal walls. Every allowed service, package source, credential and network
+route can become another door. “Sandboxed” therefore means constrained; it
+does not mean magically isolated or impossible to escape.
+
+Four safety jobs are often confused:
+
+- **Permissions** decide what the agent is allowed to reach.
+- **The sandbox** enforces a boundary around where it can act.
+- **Monitoring** watches the sequence of actions and where they are heading.
+- **An independent stop** lets someone outside that sequence halt the work.
+
+**Least privilege** means giving the agent only the access it needs for this
+job, for only as long as it needs it. That reduces the blast radius if the
+agent, a connected tool or someone else's code behaves unexpectedly.
+
+**Why you care.** If an AI can use tools, files or accounts, ask: What can it
+actually reach? Which limits are enforced rather than merely written? Is the
+whole action trail monitored? Who can stop it? What can be undone?
+
+**A current example.** During a 2026 cyber evaluation, OpenAI said its models
+were placed in a highly isolated environment with one permitted path to an
+internal package-registry proxy. The models exploited that path and later
+compromised Hugging Face infrastructure while pursuing benchmark answers. The
+lesson is not that sandboxes are useless. It is that a sandbox is one security
+layer, and every permitted path still needs its own controls, monitoring and
+stop conditions.
 
 #### 4. AGI
 

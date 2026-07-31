@@ -133,10 +133,21 @@ All three were checked in the in-app browser.
   `assets/video/episode-01-production-cues-v7-title-card.json`
 - Previous cut:
   `assets/video/episode-01-narration-motion-v20-title-card-review.mp4`
-- v21 controlled-motion review render is currently running from the
-  authoritative 71-cue sheet. It contains 24 controlled-motion placements /
-  421.56 seconds. Preserve the corrected Episode One title card and do not add
-  the obsolete corner wordmark.
+- Current controlled review cut:
+  `assets/video/episode-01-full-v21-controlled-motion-review.mp4`
+- 24 of 71 placements carry restrained controlled motion; 35.96% of runtime.
+- Full decode passed. Eight of eight sampled motion placements measured as
+  moving.
+- QA:
+  - `operations/video-qa/episode-01-full-v21-qc.json`
+  - `operations/video-qa/episode-01-full-v21-motion-measure.json`
+  - `operations/video-qa/episode-01-v21-visual/`
+- The corrected Episode One title card is preserved and the obsolete corner
+  wordmark is not added.
+- Keyframes and transitions pass technically. The retained source set still
+  mixes comic text frames with earlier scenic rendering, so final locked-style
+  and owner-continuity exceptions remain an explicit review gate.
+- `watch.html` now maps Episode 01 to v21.
 
 ### Welcome trailer
 
@@ -208,7 +219,8 @@ checklist. Production map:
 
 ## Immediate continuation order
 
-1. Run Episode 01 through the same proven pipeline and QA it.
+1. Run the owner continuity/locked-style exception pass across all five
+   review films.
 2. Keep the repaired all-comic trailer review-only until its owner continuity
    pass.
 3. Keep Episodes 03–04 on their controlled review cuts.

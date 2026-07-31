@@ -12,6 +12,7 @@ Usage:
   measure-motion.py clips                  # the loop assets on disk
   measure-motion.py clips path/to/*.mp4    # explicitly supplied loop assets
   measure-motion.py render                 # sample points inside the v2 master
+  measure-motion.py render --video path/to/master.mp4
   measure-motion.py render --json out.json
 """
 
@@ -43,9 +44,9 @@ MOVED_LEVEL = 16  # a pixel counts as moving if it travels this many levels
 # Sampled MID-hold — starting at the cue time catches the dissolve into it, which
 # reads as motion and inflates the floor to uselessness.
 STILL_CONTROLS = {
-    "unease (cue 3)": 63.0,
-    "splash dim (cue 51)": 1010.0,
-    "cocktail (cue 53)": 1090.0,
+    "cocktail (cue 54)": 1090.0,
+    "around town (cue 55)": 1135.0,
+    "sign-off (cue 56)": 1165.0,
 }
 
 # Loop assets, keyed to the cue they play under.
@@ -65,17 +66,17 @@ LOOP_ASSETS = {
 }
 
 RENDER_POINTS = {
-    "title (cue 1)": 16.0,
-    "desk (cue 2)": 43.0,
-    "directory (cue 9)": 142.0,
-    "approach (cue 14)": 204.0,
-    "hall (cue 15)": 222.0,
-    "desk again (cue 44)": 846.0,
-    "ada b-mid (cue 19)": 302.0,
-    "eniac (cue 24)": 445.0,
-    "grace b-mid (cue 28)": 578.0,
-    "karen (cue 38)": 684.0,
-    "kate (cue 50)": 974.0,
+    "title (cue 2)": 38.0,
+    "desk (cue 3)": 43.0,
+    "directory (cue 10)": 142.0,
+    "approach (cue 15)": 204.0,
+    "hall (cue 16)": 222.0,
+    "desk again (cue 45)": 846.0,
+    "ada b-mid (cue 20)": 302.0,
+    "eniac (cue 25)": 445.0,
+    "grace b-mid (cue 29)": 578.0,
+    "karen (cue 39)": 684.0,
+    "kate (cue 51)": 974.0,
 }
 
 
@@ -113,20 +114,27 @@ def main() -> None:
     parser.add_argument("paths", nargs="*", type=Path)
     parser.add_argument("--json", type=Path)
     parser.add_argument("--seconds", type=float, default=5.0)
+    parser.add_argument(
+        "--video",
+        type=Path,
+        default=VIDEO,
+        help="Master to inspect in render mode (default: episode-04-full-v2.mp4)",
+    )
     args = parser.parse_args()
+    video = args.video
 
     floors = {}
     if not args.paths:
         for label, at in STILL_CONTROLS.items():
-            if VIDEO.exists():
-                floors[label] = swing(sample(VIDEO, at, args.seconds))
+            if video.exists():
+                floors[label] = swing(sample(video, at, args.seconds))
     peak_floor = max((p for p, _ in floors.values()), default=8.0)
     share_floor = max((s for _, s in floors.values()), default=0.02)
 
     if args.paths:
         print("NOISE FLOOR (explicit assets; conservative encoder baseline):")
     else:
-        print(f"NOISE FLOOR (known-still holds in {VIDEO.name}):")
+        print(f"NOISE FLOOR (known-still holds in {video.name}):")
         for label, (peak, share) in floors.items():
             print(f"  {label:26s} peak {peak:6.1f}   moved {share:6.3f}%")
     print(f"  → floors: peak {peak_floor:.1f} · moved {share_floor:.3f}%")
@@ -142,8 +150,10 @@ def main() -> None:
     else:
         if args.paths:
             parser.error("explicit paths are supported with mode 'clips'")
-        print(f"INSIDE {VIDEO.name}")
-        targets = {k: (VIDEO, t) for k, t in RENDER_POINTS.items()}
+        if not video.is_file():
+            parser.error(f"video does not exist: {video}")
+        print(f"INSIDE {video.name}")
+        targets = {k: (video, t) for k, t in RENDER_POINTS.items()}
 
     print(f"  {'beat':26s} {'peak':>6s}   {'moved':>8s}   verdict")
     for label, (path, at) in targets.items():

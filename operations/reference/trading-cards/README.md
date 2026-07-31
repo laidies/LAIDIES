@@ -1,5 +1,10 @@
 # Trading-card style — reference library
 
+> **People authority:** character identity plus the master people register in
+> `operations/episode-visual-system-lock.md` come first. This library defines the
+> card-specific frame, banner, saturated 1990s pop-art palette, stars/bursts,
+> and Ben-Day treatment.
+
 Reference images Ali shared for the **trading-card look** (comic / pop-art). Pull from these for
 Character + Concept card art style ([[trading-cards-system-split]], [[concept-card-deck-redesign]]).
 Growing set — Ali will add more.
@@ -20,10 +25,10 @@ Growing set — Ali will add more.
 Trading cards **flip**: **front = image + a word or phrase**; **back = the explanation / the thing to
 remember**. The comic-frame refs above are for the FRONT face. Matches [[concept-card-deck-redesign]].
 
-**Use:** comic/pop-art card portraits (bold outline + halftone + flat vivid color + banner name) for the
-Character card deck; match the [[brand-palette-and-type-lock]] accents. Note existing canon says the
-Concept card ART register = episode section-art (photographic Y2K), so confirm with Ali whether these
-comic refs are for Character cards specifically vs a new direction before applying.
+**Use:** comic/pop-art card art (bold outline + halftone + flat vivid colour +
+banner/term) for both Character and Concept decks. Ali has confirmed that the
+Concept cards use this direction too; the earlier photographic-Y2K concept-card
+direction is superseded and must not be used as the Study Pack card style.
 
 ## ✅ CONFIRMED THE STYLE REFERENCE (Ali, 2026-07-22)
 Ali: "yes those are the examples." tradingref-01..04 ARE the locked look for the trading-card
@@ -32,7 +37,20 @@ deck — pop-art comic: bold black outlines, Ben-Day halftone, flat vivid color,
 burst frame (tradingref-04). Character-card prompt built to this: `operations/codex-prompts/_character-card-deck-batch.md`.
 ⛔ NOT the ep01 painterly concept cards, NOT the retired plum/gold cards.
 
-## PALETTE DECIDED — CANDY (Ali, 2026-07-22)
-Ali rendered the JoJo test telling Codex to use the LAiDIES palette. So the deck is the TOWN
-CANDY palette (pink #e982ab · teal #57b6c0 · coral #ec7a78 · periwinkle #b3abe7) over black ink —
-NOT the reference's primary red/blue/yellow. Update prompts accordingly.
+## ✅ PALETTE CORRECTION — USE THE SAVED POP-ART REFERENCES (Ali, 2026-07-27)
+
+Ali explicitly corrected the earlier candy-palette interpretation: **no TOWN
+CANDY recolour for the trading-card deck.**
+
+Use the saturated 1990s pop-art colour language Ali identified in
+`tradingref-01..04`: **purples, vibrant pinks, electric/cobalt blues and
+sunshine yellow**, held together by heavy black ink and white/cream. Colours
+should be flat, punchy and high-contrast, with Ben-Day halftone—not a red-led
+primary palette and not pastel, pearlescent, glossy, muted or
+brand-palette-washed.
+
+Sample the palette and colour relationships from the saved references instead
+of substituting a general SUNNYVAiLE palette. The four files in this directory
+are the canonical visual evidence for the card look.
+
+The 2026-07-22 candy-palette note is **SUPERSEDED** by this correction.

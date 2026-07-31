@@ -1,6 +1,29 @@
 # Active work
 
-**Last reconciled:** 2026-07-25
+> **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
+> visualization and peach placeholder “card” are rejected evidence, not a
+> direction to reskin. Study Pack visual production remains subject to the
+> current Brand lock. Any later candidate must use the real component names,
+> keep the Pop Quiz separate at SUNNYVAiLE High, exclude the banned word
+> `rep`, use the exact episode/card references, prove its print/download claims
+> and pass the mandatory cold-reader and independent visual admission gate
+> before Ali sees it. See D-2026-07-27-070 and BTB-218.
+> The Episode 01 content architecture is now separately locked to three core
+> items: one one-page Cheat Sheet, one Try-On and one Trading Card Pack. The
+> Quiz remains at SUNNYVAiLE High; no separate Study Sheet is justified. See
+> D-2026-07-27-071.
+
+> **2026-07-26 building-admission correction:** Ali rejected the Visitor's
+> Centre neutral white-page/front-desk/map/directory “functional base.” This
+> closes the portfolio loophole that treated functionality and the actual
+> building experience as sequential approvals. For every building, the exact
+> desktop/mobile candidate must already make the environment the interface and
+> feel like a colourful, vibrant part of the LAiDIES/SUNNYVAiLE world before it
+> can receive a Brand PASS, reach Ali, enter integration or inherit a later
+> styling pass. Functional shells remain technical evidence only. See
+> D-2026-07-26-061 and BTB-155.
+
+**Last reconciled:** 2026-07-27
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
@@ -102,8 +125,13 @@ AW-003 is complete only when:
 6. Accessibility, mobile Safari/representative browser, responsive,
    performance and privacy/security checks are either passed or explicitly
    bounded in the reopening promise.
-7. Every defect is classified **FIX BEFORE LAUNCH**, **HIDE/LABEL FOR
-   LAUNCH**, or **DEFER**, with an owner and retest.
+7. Every intended-capability defect is classified **BUILD BEFORE LAUNCH**,
+   **BUILDING**, **BLOCKED — BUILD REMAINS REQUIRED**, or **OWNER DECISION
+   REQUIRED**, with an owner and retest. **INTENTIONAL LATER RELEASE** is valid
+   only with a named release/trigger, deliberate product reason, owner,
+   dependencies and acceptance contract; missed work cannot be reclassified
+   later merely to pass launch. A temporary safety hold prevents harm but
+   cannot close or downgrade the build.
 8. The exact scoped commit and release artifact pass locally, then the deployed
    public origin passes the same bounded promised journeys.
 9. Announcement copy promises only the journeys that passed, and real channel
@@ -111,8 +139,31 @@ AW-003 is complete only when:
 
 ### Evidence so far
 
+- Ali has approved and checksum-bound the six-video clean-electric LAiDIES
+  logo-animation family: one master for meaningful webpage/Homepage use,
+  followed by exact Trailer and Episode 01–04 variants. Each future episode
+  must receive episode-specific icons within the shared motion grammar.
+  Identity is decided; Homepage placement and film insertion remain separate
+  verified implementation work. See D-2026-07-30-087 and
+  `operations/design-explorations/laidies-motion-ident-20260725/canonical-logo-animation-family-20260730.json`.
+- The Cycle 9 activity filters now use one consistent inactive treatment and
+  one explicit electric-pink selected state. Equal-height responsive pills
+  wrap their labels inside their own bounds instead of inheriting the
+  Homepage's no-wrap rule; the rendered desktop control has no overlap or
+  clipping. See BTB-255.
+- A 2026-07-29 visitor-language sweep removed release-control vocabulary such
+  as “creator-confirmed catalogue,” “source-checked,” “editorial hold,”
+  “release checks” and “held account status” from the Homepage prototype and
+  the shared KSVL, NewsStand, LIBRAiRY, tour, directory and account surfaces.
+  The underlying validation states remain in internal records; public copy now
+  explains the capability or limitation in ordinary language. See BTB-254.
 - Existing static/build/link/media checks and selected public journey smoke
   tests remain useful baseline evidence.
+- The Control Room now has one current human review inbox at
+  `operations/product-stewards/control-room/review-inbox.html`. It directly
+  binds the accepted Episode 01 v26, Episode 02 ident-v2, Episode 03 v13 and
+  Trailer v5 masters and captions, separates Episode 04 as already public, and
+  saves exact PASS/HOLD notes locally without implying release.
 - The LIBRAiRY slice now has materially stronger local evidence: its Vocab
   reader, personal Puffy pouch, exact-section continuations and responsive
   reader mechanics are recorded separately from the still-open editorial and
@@ -136,7 +187,8 @@ AW-003 is complete only when:
   product completion.
 - Populate the complete route/state inventory and execute it against a later
   exact candidate.
-- Repair, hide or relabel every failed promoted promise.
+- Build and verify every Ali-approved intended promise. Temporarily disable a
+  harmful or misleading control only while its build remains explicitly open.
 - Complete owner visual rulings without confusing them with plumbing or
   comprehension approval.
 - Build/deploy and re-run the bounded production-origin suite only after the
@@ -291,6 +343,7 @@ AW-001 is complete only when:
 | Rewind Era language | DECIDED | 1990–2010; “twenty years of pop culture, from dial-up to downloads” |
 | Learning/brand philosophy | SPECIFIED | `docs/brand/rewind-era-immersive-experience-principles.md` |
 | Weekly ingestion/experience map | SPECIFIED; NOT IMPLEMENTED AS A COMPLETE ENGINE | `operations/weekly-engine-ingestion-map.md` and 86-surface manifest |
+| Claim/definition freshness system | REPRESENTATIVE LOCAL SYSTEM OPERATIONAL; HISTORICAL BACKFILL OPEN | Learning System & Concepts now owns a machine-readable claim/source/consumer register and AIDB/NewsStand signal inbox. The existing weekly production runner generates an episode freshness review and visible PASS/HOLD release task. Episode 01 has four registered claims, five sources, 23 known consumers and 10 open consumer actions; the first site-wide scan covered 355 current source/route files (including all 25 live/preview indexed routes) and found 2,009 unregistered candidates requiring prioritised human materiality/evidence review, not 2,009 presumed errors. No full-site currentness claim is permitted until backfill and owner verification close. |
 | Butterfly Clip economy | SPECIFIED; PARTIAL LOCAL FOUNDATION | Quiz/Express earns and Book Fair local spend exist; durable ledger/fulfilment do not |
 | Building loyalty cards | SPECIFIED; VISIT-CARD FOUNDATION ONLY | Town Wallet cards/visit history exist; meaningful stamps/milestones do not |
 | Bring Your People | SPECIFIED; BEST FRIENDS FOUNDATION PRESENT IN REPO | Postcard/claim/necklace code exists; clips, background ownership and durable invite states do not |
@@ -311,6 +364,10 @@ AW-001 is complete only when:
 - Recorded the learning-first experience principle: references explain and
   make lessons retrievable; lessons are not decoration.
 - Mapped the expanded weekly episode ingestion/surface engine.
+- Installed the representative claim/source/consumer registry, freshness-signal
+  inbox and weekly episode PASS/HOLD review so AIDB/NewsStand evidence changes
+  can propagate to narration, art, Study Packs, episode text, Library, Classes
+  and other exact consumers without silently rewriting them.
 - Specified the Butterfly Clip economy, building loyalty cards, quotables
   system, launch promise gate and Bring Your People reward loops.
 - Added `connection_impacts[]`, `loyalty_impacts[]`, reward actions/offers and

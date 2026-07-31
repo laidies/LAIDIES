@@ -4,6 +4,29 @@ This is the command center for the lAIdies project.
 
 Use this file first when starting a new Codex thread. The goal is to avoid rereading a giant chat history and to keep the website, newsletter, social, community, images, and operations moving in the same direction.
 
+## Start Here — Live Continuity
+
+Read these before material work:
+
+1. `operations/CODEX-WORKING-AGREEMENT.md` — how Ali can share ideas without
+   derailing active work; truthful status and teaching rules.
+2. `operations/ACTIVE-WORK.md` — the one foreground objective, current step,
+   completion contract, proof, open work and exact next action.
+3. `operations/PARALLEL-WORK.md` — bounded backstage lanes, file authority,
+   status, hand-back and integration gates.
+4. `operations/engine/LEDGER.md` — durable decisions/rulings.
+5. `docs/growth/ali-idea-backlog.md` — promising captured ideas that are not
+   active work or already governed by a product specification.
+6. `operations/painpoints-log.md` — verified build learnings and raw candidates
+   for Field Notes from LAiDIES HQ: Behind the Build.
+7. `operations/behind-the-build-publication-queue.md` — verified candidates,
+   draft state, required reviews and publication/derivative tracking.
+
+Conversation history and old handoffs are context, not live status. A feature
+is not complete because it was discussed, documented or started. Use the fixed
+status meanings in the working agreement and verify actual files/public
+journeys before reporting what works.
+
 Mandatory rule for every Codex chat under lAIdies: before implementing any requested change, pass it through the appropriate Agent Council lens in `operations/agents/agent-council-operating-system.md`. Choose the relevant council roles for the surface being changed, use their standards to evaluate the request, then implement only after the recommendation is clear. This applies to all website, design, content, community, growth, monetization, social, and app/product changes.
 
 Visual concept rule: when Ali asks for a visual concept, product-style mockup, scene, hero image, toy/object direction, or other design artifact that should look like a real image, use image generation first. Do not fake image concepts with CSS-drawn shapes, gradients, or placeholder UI art. CSS can lay out approved assets later, but it should not substitute for concept art.
@@ -48,7 +71,8 @@ Do not move these without checking all links:
 
 ## Current Priorities
 
-For the latest cross-window handoff, use `docs/handoffs/current-window-handoff-2026-06-07.md`.
+For live status, use `operations/ACTIVE-WORK.md`. Dated handoffs in
+`docs/handoffs/` are historical/context-switch records and may be stale.
 
 See `CURRENT-PRIORITIES.md`.
 

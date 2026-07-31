@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUNNYVAiLE LIBRAiRY</title>
 <meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
-<link rel="canonical" href="https://laidies.ai/library">
+<link rel="canonical" href="https://laidies.ai/library" />
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--midnight:#07142f;--plum:#3a1838;--rose:#9b3f5f;--pink:#f056a6;--cyan:#18c6d8;--periwinkle:#8c7cf2;--coral:#f47f7b;--teal:#2a6b73;--ink:#182341;--cream:#f6ece2}
@@ -127,6 +127,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-card{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:1px 12px;
   text-decoration:none;background:#fff;border:1px solid #ecdccb;border-radius:11px;padding:12px 15px;
   transition:transform .12s,box-shadow .12s,border-color .12s}
+button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(75,33,72,.14);border-color:var(--pink)}
 .jv-type{grid-row:1/3;align-self:center;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
   color:#fff;background:var(--teal);border-radius:6px;padding:5px 8px;white-space:nowrap;text-align:center}
@@ -135,6 +136,8 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
 .jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
 .jv-none{font-size:14px;color:#8a6a80;font-style:italic;padding:6px 2px}
+.jv-error{padding:14px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
+.jv-error p{margin:0 0 10px}.jv-error button{border:2px solid #07142f;background:#fff;color:#07142f;padding:9px 13px;font:800 11px/1 Jost,sans-serif;cursor:pointer}
 .mobile-catalogue{display:none}
 
 /* ── One continuous three-bay wall case — all three sections at once, each bay
@@ -417,7 +420,11 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
   .arrival-brand h1 .room{font-size:clamp(27px,4.6vw,37px)}
   .arrival-brand p{display:none}
 }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 </style>
+  <meta property="og:url" content="https://laidies.ai/library" />
 </head>
 <body>
 <main>
@@ -444,7 +451,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
     </div>
     <div class="library-steps">
       <div class="library-step"><span class="step-number" aria-hidden="true">01</span><div><b><span>Browse by what you need</span>Pick a shelf</b><p><strong>The 101s</strong> explain the basics. <strong>Tools</strong> help you choose. <strong>Reference</strong> answers the bigger questions.</p></div></div>
-      <div class="library-step"><span class="step-number" aria-hidden="true">02</span><div><b><span>The covers are controls</span>Open a book</b><p>Click any available cover. A cover marked <strong>“Lands EP…”</strong> is a preview and unlocks with that episode.</p></div></div>
+      <div class="library-step"><span class="step-number" aria-hidden="true">02</span><div><b><span>The covers are controls</span>Open a book</b><p>Click any cover marked <strong>Ready</strong>. A cover marked <strong>“Lands EP…”</strong> arrives with that episode.</p></div></div>
       <div class="library-step"><span class="step-number" aria-hidden="true">03</span><div><b><span>Whole book or one answer</span>Read your way</b><p>Use the contents to jump to one section, or settle in and read from cover to cover.</p></div></div>
       <div class="library-step"><span class="step-number" aria-hidden="true">?</span><div><b><span>Not sure where to start?</span><a href="#miss-jeeves">Ask Miss Jeeves</a></b><p>Use your own words. She answers directly and points to the exact book or section.</p></div></div>
     </div>
@@ -452,7 +459,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
       <img src="/assets/puffies/usable-25/01-heart-sunglasses.png" alt="">
       <p><strong>Save your place.</strong> When a book or passage is worth keeping, choose one of your 10 Puffy Stickers. It becomes a shortcut on the Puffy Board in <a href="/laidies-card.html#puffyPouch">My Closet</a>.</p>
     </div>
-    <p class="library-status" id="library-status" role="status" aria-live="polite">The shelves are being reviewed book by book. Every cover shows its current status; a held or preview book will not open until its own review clears.</p>
+    <p class="library-status" id="library-status" role="status" aria-live="polite">Every cover shows whether it is ready to read now or arriving with a future episode.</p>
   </section>
 
   <section class="mobile-catalogue" id="mobile-catalogue" aria-label="Browse the LIBRAiRY books"></section>
@@ -494,7 +501,9 @@ const B='assets/library-101/bright-family-v2/';
 const SECTIONS=[
  {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',
   books:[
-   {id:'vocab-101',t:'Vocab 101',status:'hold',statusLabel:'Architecture and owner review',s:'The useful AI words from across SUNNYVAiLE — translated and arranged A–Z.',img:B+'textbook-vocab-101.png',c:'#245ed1'},
+   /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
+      Vocab 101 from the public catalogue; it must not render on either shelf. */
+   {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:B+'textbook-vocab-101.png',c:'#245ed1'},
    {id:'concepts-101',t:'Concepts 101',status:'hold',statusLabel:'Architecture and owner review',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#7038c9'},
    {id:'briefing-101',t:'Briefing 101',status:'hold',statusLabel:'Editorial review',s:'How to ask so it comes back useful — brief it like a sharp new hire.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
    {id:'setup-101',t:'Setup 101',status:'hold',statusLabel:'Currency review',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#1597a7'},
@@ -517,10 +526,11 @@ const SECTIONS=[
    {id:'prompt-cookbook',t:'The Prompt Cookbook',status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
   ]}
 ];
-const ADMITTED_BOOK_SOURCES=Object.freeze({
- /* A source enters this private map only after its book's independent
-    publication gates pass. No production book is admitted today. */
-});
+const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
+/* LIBRARY_ADMISSION_COMPILED_START */
+{}
+/* LIBRARY_ADMISSION_COMPILED_END */
+).map(([id,record])=>[id,Object.freeze(record)])));
 const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
  section.books=Object.freeze(section.books.map(book=>Object.freeze({...book})));
  section.books.forEach(book=>{catalogue[book.id]=book;});
@@ -528,19 +538,24 @@ const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
 },Object.create(null)));
 SECTIONS.forEach(Object.freeze);
 Object.freeze(SECTIONS);
-function exactAdmittedBookSource(id){
- const source=ADMITTED_BOOK_SOURCES[id];
+function exactAdmittedBookRecord(id){
+ const record=ADMITTED_BOOK_RECORDS[id];
+ if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
+ const source=record.sourcePath;
  if(typeof source!=='string'||!/^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(source))return null;
  if(source.startsWith('//')||/[\\\u0000-\u001f\u007f%]/.test(source))return null;
+ if(!/^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/.test(record.contentVersion||'')||
+    !/^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/.test(record.admissionVersion||'')||
+    !/^[a-f0-9]{64}$/.test(record.artifactSha256||''))return null;
  let url;
  try{url=new URL(source,location.origin);}catch(error){return null;}
  if(url.origin!==location.origin||url.pathname!==source||url.search||url.hash)return null;
- return source;
+ return record;
 }
 function admittedBook(id){
  const book=ALL[id];
- const source=exactAdmittedBookSource(id);
- return book&&book.status==='available'&&source?Object.freeze({book,source}):null;
+ const record=exactAdmittedBookRecord(id);
+ return book&&record?Object.freeze({book,record,source:record.sourcePath}):null;
 }
 function bookIsAvailable(b){return Boolean(b&&admittedBook(b.id)?.book===b);}
 function bookStatusText(b){return b&&b.statusLabel?b.statusLabel:'Not published';}
@@ -572,13 +587,13 @@ const stageMarkup=b=>{
   ? `<span class="stage-book soon" data-library-status="${b.status}" style="${style}" tabindex="0" aria-label="${b.t}. ${b.s||''}. Not available: ${bookStatusText(b)}.">${cover}${availability}${tip}</span>`
   : `<button class="stage-book" type="button" style="${style}" aria-label="Open ${b.t}" onclick="openBook('${b.id}')">${cover}${tip}</button>`;
 };
-document.getElementById('wallcase').innerHTML=SECTIONS.flatMap(s=>s.books).map(stageMarkup).join('');
+document.getElementById('wallcase').innerHTML=SECTIONS.flatMap(s=>s.books).filter(b=>b.listed!==false).map(stageMarkup).join('');
 document.getElementById('caps').innerHTML=SECTIONS.map(s=>`<span class="stage-department">${s.name}</span>`).join('');
 document.getElementById('mobile-catalogue').innerHTML=SECTIONS.map(s=>`
  <section class="mobile-department">
   <div class="mobile-department-head"><h2>${s.name}</h2><p>${s.cap}</p></div>
   <div class="mobile-shelf">
-   ${s.books.map(b=>!bookIsAvailable(b)
+   ${s.books.filter(b=>b.listed!==false).map(b=>!bookIsAvailable(b)
     ? `<span class="mobile-book soon" data-library-status="${b.status}" tabindex="0" aria-label="${b.t}. ${b.s||''}. Not available: ${bookStatusText(b)}."><img src="${b.img}" alt=""><b>${b.t}</b><small>${bookStatusText(b)}</small></span>`
     : `<button class="mobile-book" type="button" onclick="openBook('${b.id}')"><img src="${b.img}" alt=""><b>${b.t}</b><small>Open book</small></button>`
    ).join('')}
@@ -587,7 +602,78 @@ document.getElementById('mobile-catalogue').innerHTML=SECTIONS.map(s=>`
 
 /* ── Ask Miss Jeeves ── */
 let IDX=[];
-fetch('/content/site/site-index.json').then(r=>r.json()).then(d=>{IDX=d.entries||[]}).catch(()=>{});
+let jeevesIndexState='loading';
+let jeevesIndexLoad=null;
+const MIN_SITE_INDEX_VERSION='2026-07-09';
+const INDEX_LIBRARY_BOOKS=Object.freeze({
+ 'ref-verification':'how-to-check',
+ 'ref-straight-answers':'straight-answers',
+ 'ref-whoswho':'whos-who'
+});
+function safeIndexDestination(entry){
+ const bookId=INDEX_LIBRARY_BOOKS[entry.id];
+ if(bookId)return admittedBook(bookId)?{kind:'book',bookId}:null;
+ if(/^\/library\.html#/.test(entry.url||'')){
+   const id=(entry.url.split('#')[1]||'').split('::')[0];
+   return admittedBook(id)?{kind:'book',bookId:id}:null;
+ }
+ if(/^\/content\/library-books\/rendered\//.test(entry.url||'')){
+   const publication=Object.keys(ADMITTED_BOOK_RECORDS)
+     .map(admittedBook).find(item=>item&&item.source===entry.url);
+   return publication?{kind:'book',bookId:publication.book.id}:null;
+ }
+ if(typeof entry.url!=='string'||!entry.url.startsWith('/')||
+    entry.url.startsWith('//')||/[\\\u0000-\u001f\u007f]/.test(entry.url))return null;
+ let url;
+ try{url=new URL(entry.url,location.origin);}catch(error){return null;}
+ return url.origin===location.origin?{kind:'url',url:url.pathname+url.search+url.hash}:null;
+}
+function validSiteIndex(data,responseUrl){
+ if(responseUrl!==new URL('/content/site/site-index.json',location.origin).href||
+    !data||typeof data!=='object'||!data._meta||
+    typeof data._meta.version!=='string'||data._meta.version<MIN_SITE_INDEX_VERSION||
+    !Array.isArray(data.entries))return null;
+ const ids=new Set();
+ const entries=[];
+ for(const entry of data.entries){
+   if(!entry||typeof entry!=='object'||typeof entry.id!=='string'||ids.has(entry.id)||
+      typeof entry.title!=='string'||typeof entry.url!=='string'||
+      typeof entry.type!=='string'||!/^[a-z0-9-]+$/.test(entry.type)||
+      !Array.isArray(entry.aliases)||!Array.isArray(entry.topics))return null;
+   ids.add(entry.id);
+   const destination=safeIndexDestination(entry);
+   if(destination)entries.push(Object.freeze({...entry,destination}));
+ }
+ return Object.freeze(entries);
+}
+function renderJeevesIndexError(query){
+ const box=document.getElementById('jv-results');
+ box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the catalogue right now. Your question is still here.</p><button type="button" id="jv-retry">Try the catalogue again</button></section>`;
+ const retry=document.getElementById('jv-retry');
+ retry.addEventListener('click',()=>{
+   retry.disabled=true;
+   loadJeevesIndex(true).then(()=>jvSearch(query));
+ },{once:true});
+}
+function loadJeevesIndex(force=false){
+ if(jeevesIndexLoad&&!force)return jeevesIndexLoad;
+ if(force&&jeevesIndexState==='loading'&&jeevesIndexLoad)return jeevesIndexLoad;
+ jeevesIndexState='loading';
+ jeevesIndexLoad=fetch('/content/site/site-index.json',{credentials:'same-origin',redirect:'error',cache:'no-store'})
+  .then(r=>{if(!r.ok)throw new Error('index unavailable');return r.json().then(data=>({data,url:r.url}));})
+  .then(({data,url})=>{const entries=validSiteIndex(data,url);if(!entries)throw new Error('index invalid');IDX=entries;jeevesIndexState='ready';return entries;})
+  .catch(()=>{
+    IDX=[];jeevesIndexState='error';
+    const box=document.getElementById('jv-results');
+    if(box&&!box.querySelector('.jv-answer')){
+      renderJeevesIndexError(document.getElementById('jv-q')?.value||'');
+    }
+    return null;
+  })
+  .finally(()=>{jeevesIndexLoad=null;});
+ return jeevesIndexLoad;
+}
+loadJeevesIndex();
 const JEEVES_ANSWERS=[
   {
     match:q=>/\b(will|could|can)\b.*\bai\b.*\b(job|work|career)\b|\bai\b.*\b(take|replace|steal)\b.*\b(job|work)\b/.test(q),
@@ -621,7 +707,6 @@ const JEEVES_ANSWERS=[
     title:'A hallucination is a confident made-up answer.',
     answer:'The AI generates a plausible response but does not automatically know whether every claim is true. The fix is practical: give it the source when you can, turn on search when freshness matters, ask it to show its evidence, and click the source before you rely on the answer.',
     links:[
-      {label:'Open the Hallucination definition',book:'vocab-101',heading:'Hallucination'},
       {label:"Open How to Check AI's Work",book:'how-to-check',heading:'Ask for receipts'},
       {label:'See the verification episode',url:'/issues/issue-03.html'}
     ]
@@ -630,6 +715,11 @@ const JEEVES_ANSWERS=[
 const SEARCH_STOPWORDS=new Set(['a','ai','an','and','are','can','could','do','does','for','how','i','in','is','it','me','my','of','on','or','should','take','the','to','use','what','which','will','with','you']);
 function normalizeJeevesQuery(q){
   return (q||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/\bwhat's\b/g,'what is').replace(/[?!.]+$/,'');
+}
+function escapeJeevesText(value){
+ return String(value||'').replace(/[&<>"']/g,char=>({
+   '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+ }[char]));
 }
 function renderJeevesAnswer(intent){
   const links=intent.links.map(link=>link.book
@@ -650,6 +740,12 @@ function jvSearch(q){
   if(!q){box.innerHTML='';return;}
   const intent=JEEVES_ANSWERS.find(item=>item.match(q));
   if(intent){box.innerHTML=renderJeevesAnswer(intent);return;}
+  if(jeevesIndexState==='loading'){
+    box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the catalogue…</p>';
+    loadJeevesIndex().then(()=>jvSearch(q));
+    return;
+  }
+  if(jeevesIndexState==='error'){renderJeevesIndexError(q);return;}
   const toks=q.split(/\s+/).map(t=>t.replace(/[^a-z0-9-]/g,'')).filter(t=>t.length>1&&!SEARCH_STOPWORDS.has(t));
   const scored=IDX.map(e=>{
     const title=(e.title||'').toLowerCase();
@@ -663,10 +759,15 @@ function jvSearch(q){
     return {e,sc};
   }).filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,6);
   if(!scored.length){box.innerHTML=`<p class="jv-none">Miss Jeeves checks the catalogue… nothing filed under that yet. Try “which AI do I use?” or “how do I check it's true?”</p>`;return;}
-  box.innerHTML=scored.map(({e})=>`<a class="jv-card" href="${e.url}">
-     <span class="jv-type jv-${e.type}">${e.type}</span>
-     <span class="jv-t">${e.title}${e.status==='coming'?' · <em style="font-style:normal;color:#b06">soon</em>':''}</span>
-     <span class="jv-s">${e.summary||''}</span></a>`).join('');
+  box.innerHTML=scored.map(({e})=>e.destination.kind==='book'
+   ? `<button type="button" class="jv-card" onclick="openBook('${e.destination.bookId}')">
+     <span class="jv-type jv-${e.type}">${escapeJeevesText(e.type)}</span>
+     <span class="jv-t">${escapeJeevesText(e.title)}</span>
+     <span class="jv-s">${escapeJeevesText(e.summary)}</span></button>`
+   : `<a class="jv-card" href="${e.destination.url}">
+     <span class="jv-type jv-${e.type}">${escapeJeevesText(e.type)}</span>
+     <span class="jv-t">${escapeJeevesText(e.title)}${e.status==='coming'?' · <em style="font-style:normal;color:#b06">soon</em>':''}</span>
+     <span class="jv-s">${escapeJeevesText(e.summary)}</span></a>`).join('');
 }
 function jvGo(ev){ev.preventDefault();jvSearch(document.getElementById('jv-q').value);return false;}
 document.getElementById('jv-q').addEventListener('input',e=>jvSearch(e.target.value));
@@ -680,7 +781,7 @@ function renderShelfCopy(b,txt,toc,fallback){
   headings.forEach((h,i)=>{h.id='sec'+i});
   const entries=headings.filter(h=>!h.closest('.receipts'));
   if(entries.length){
-    toc.innerHTML=entries.map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
+    toc.innerHTML=entries.map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:motionBehavior()})">${h.textContent.trim()}</a>`).join('');
   }else{
     toc.innerHTML=(b.toc||[]).map(x=>`<span>${x}</span>`).join('');
   }
@@ -703,6 +804,9 @@ function scrollBookTo(headingNeedle){
   const heading=[...document.querySelectorAll('#rtxt h1,#rtxt h2,#rtxt h3,#rtxt h4')]
     .find(h=>h.textContent.trim().toLowerCase().includes(needle));
   if(heading)heading.scrollIntoView({block:'start'});
+}
+function motionBehavior(){
+ return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
 }
 function focusBookSection(txt,headingNeedle){
   [...txt.children].forEach(el=>{el.hidden=false;});
@@ -731,13 +835,20 @@ const READER_ACCENTS={
   'straight-answers':'#6539a8','how-to-check':'#245ed1'
 };
 let readerReturnFocus=null;
+let readerLoadToken=0;
+async function sha256Hex(bytes){
+ if(!crypto||!crypto.subtle)throw new Error('artifact verification unavailable');
+ const digest=await crypto.subtle.digest('SHA-256',bytes);
+ return [...new Uint8Array(digest)].map(value=>value.toString(16).padStart(2,'0')).join('');
+}
 function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   const publication=admittedBook(id);
   if(!publication){
-    reportLibraryStatus(`${b.t} is not published yet: ${bookStatusText(b)}. Miss Jeeves and saved links cannot open it until that review clears.`);
+    reportLibraryStatus(`${b.t} is not available yet: ${bookStatusText(b)}. Try another book marked Ready.`);
     return;
   }
-  readerReturnFocus=document.activeElement;
+  if(!document.getElementById('reader').classList.contains('on'))readerReturnFocus=document.activeElement;
+  const loadToken=++readerLoadToken;
   document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
   document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
   document.getElementById('rm').textContent=b.s||'';
@@ -753,19 +864,28 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   readerTitle.setAttribute('data-puffy-url','/library.html#'+id);
   const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
   if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; toc.innerHTML='';
-    fetch(publication.source,{credentials:'same-origin',redirect:'error'}).then(r=>{if(!r.ok||r.url!==new URL(publication.source,location.origin).href)throw new Error('not found');return r.text()}).then(h=>{
+    fetch(publication.source,{credentials:'same-origin',redirect:'error',cache:'no-store'}).then(async r=>{
+      if(!r.ok||r.url!==new URL(publication.source,location.origin).href)throw new Error('not found');
+      const bytes=await r.arrayBuffer();
+      if(await sha256Hex(bytes)!==publication.record.artifactSha256)throw new Error('artifact mismatch');
+      return new TextDecoder().decode(bytes);
+    }).then(h=>{
+      if(loadToken!==readerLoadToken)return;
       const doc=new DOMParser().parseFromString(h,'text/html');
+      const version=doc.querySelector('meta[name="laidies:content-version"]')?.getAttribute('content');
+      if(version!==publication.record.contentVersion)throw new Error('version mismatch');
       doc.querySelectorAll('.gr-topbar,.gr-emblem,.gr-chapter-next,script,style,nav,header,footer').forEach(n=>n.remove());
       const pages=[...doc.querySelectorAll('.gr-page')];
       txt.innerHTML = pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
       txt.querySelectorAll('h1,h2,h3').forEach((h,i)=>{h.id='sec'+i});
       decoratePuffySections(b,id,txt);
       const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
-      toc.innerHTML=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:'smooth'})">${h.textContent.trim()}</a>`).join('');
+      toc.innerHTML=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts')).map(h=>`<a href="#${h.id}" onclick="event.preventDefault();document.getElementById('${h.id}').scrollIntoView({behavior:motionBehavior()})">${h.textContent.trim()}</a>`).join('');
       focusBookSection(txt,headingNeedle);
       if(window.svPuffyScan)window.svPuffyScan();
       requestAnimationFrame(()=>scrollBookTo(headingNeedle));
     }).catch(()=>{
+      if(loadToken!==readerLoadToken)return;
       txt.innerHTML='<section class="reader-error" role="alert"><h3>This book did not load.</h3><p>The short shelf description is not a substitute for the full book. Your place is safe; try the book again or return to the shelf.</p><button type="button" id="reader-retry">Try this book again</button></section>';
       toc.innerHTML='';
       const retry=document.getElementById('reader-retry');
@@ -778,6 +898,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
   document.getElementById('reader-close').focus();
   history.replaceState(null,'','#'+id+(headingNeedle?'::'+encodeURIComponent(headingNeedle):''));}
 function closeBook(){
+  readerLoadToken++;
   document.getElementById('reader').classList.remove('on');
   document.getElementById('reader').setAttribute('aria-hidden','true');
   document.body.classList.remove('reader-open');
@@ -799,7 +920,9 @@ addEventListener('keydown',e=>{
 const libraryHash=location.hash.slice(1).split('::');
 Object.defineProperty(window,'openBook',{value:openBook,writable:false,configurable:false});
 Object.defineProperty(window,'closeBook',{value:closeBook,writable:false,configurable:false});
-if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHash[1]?decodeURIComponent(libraryHash[1]):'');
+let libraryHeading='';
+try{libraryHeading=libraryHash[1]?decodeURIComponent(libraryHash[1]):'';}catch(error){}
+if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHeading);
 })();
 </script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>

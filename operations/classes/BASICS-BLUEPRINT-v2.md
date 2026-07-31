@@ -40,7 +40,7 @@ taught plainly. **Hooks** leave beginner Basics → live under Advanced automati
 | Block | Plain job | Analogy | Note |
 |---|---|---|---|
 | Tool anatomy | The parts of the screen, and that they sit in different spots per tool | none — orientation, plain ("learn them as things, not positions") | Codex: this is orientation, not a metaphor |
-| The model vs the tool | The part that writes vs everything you click around it | **none — taught plainly.** Precision over charm | LOCKED: no analogy |
+| The model vs the product | A model is the trained component that turns an input into an output; the product also supplies interface, context, tools, controls and entitlements | **none — taught plainly.** Precision over charm | LOCKED: no analogy; model, product and tool are related but not interchangeable |
 | Versions, cutoffs & search | Why it does not know recent things, and how it can look them up | **textbook editions** (LOCKED canon) | Codex flagged this was MISSING from the list |
 | Current context | Everything the model is given to work with *right now, in this conversation* | **chalkboard — finite space; when it fills, older material has to be erased or condensed** | Codex fix: drop "wiped at the top" (implies strict first-out); products may omit, summarise, or select |
 | History vs context vs memory | A saved old chat is not automatically in the current input | none — plain distinction | Codex: beginners conflate these three |

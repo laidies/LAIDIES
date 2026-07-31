@@ -26,7 +26,7 @@ def main():
         if i == 2:
             src = DELIVERY + "ep02-open-03-title-comic.png"
         elif i == 20:
-            src = DELIVERY + "ep02-cue-20.png"
+            src = DELIVERY + "ep02-cue-20-episode-style.png"
         elif i == 49:
             src = COMIC + "post-office-current-pixel-v1.png"
         elif i == 55:
@@ -38,7 +38,8 @@ def main():
         c.update(t=t, type="full", src=src, motion=motion)
     data["note"] = (
         "Episode 2 v16: v15 visual assembly unchanged except for the Episode Two "
-        "title card at cue 2 and the clean Spice Girls principle card at cue 20."
+        "title card at cue 2 and the clean Spice Girls principle cover rebuilt "
+        "from the established Episode 2 comic style at cue 20."
     )
     OUT.write_text(json.dumps(data, indent=2) + "\n")
     print(OUT)

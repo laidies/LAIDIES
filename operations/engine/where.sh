@@ -24,6 +24,28 @@ fi
 B="build/ep${NN}"
 have() { [ -f "$1" ]; }
 E()    { printf '%s\n' "$1"; }
+hash_matches() {
+  src="$1"; hashfile="$2"
+  [ -f "$src" ] && [ -f "$hashfile" ] || return 1
+  current="$(shasum -a 256 "$src" 2>/dev/null | awk '{print $1}')"
+  recorded="$(awk '{print $1}' "$hashfile" 2>/dev/null || true)"
+  [ -n "$current" ] && [ "$current" = "$recorded" ]
+}
+stage_done() {
+  stage="$1"
+  have "$B/${stage}.stamp" || return 1
+  case "$stage" in
+    substance)
+      hash_matches "content/episodes/episode-${NN}.substance.md" "$B/substance.hash" \
+        && hash_matches "content/episodes/episode-${NN}.fidelity.md" "$B/fidelity.hash"
+      ;;
+    canon)     hash_matches "content/episodes/episode-${NN}.canon.md" "$B/canon.hash" ;;
+    scripts)
+      hash_matches "operations/audio/episode-${NN}-elevenlabs-v3-tagged.txt" "$B/script.hash"
+      ;;
+    *) return 0 ;;
+  esac
+}
 
 # ── work out the state of every stage, live ─────────────────────────────────
 STAGES=(
@@ -41,7 +63,7 @@ GATE_AT=( "canon:G1:the substance sheet" "cut:G2:the art" "surfaces:G3:the cut" 
 DONE=(); NEXT=""; NEXT_LABEL=""; NEXT_INPUT=""
 for row in "${STAGES[@]}"; do
   id="${row%%|*}"; rest="${row#*|}"; label="${rest%%|*}"; input="${rest##*|}"
-  if have "$B/${id}.stamp"; then DONE+=("$label"); continue; fi
+  if stage_done "$id"; then DONE+=("$label"); continue; fi
   NEXT="$id"; NEXT_LABEL="$label"; NEXT_INPUT="$input"; break
 done
 
@@ -61,9 +83,12 @@ echo "  SUNNYVAiLE · Episode ${NN} · ${TODAY}"
 echo "  ──────────────────────────────────────────────────────────"
 
 if [ "${#DONE[@]}" -eq 0 ]; then
-  if have "content/issues/issue-${NN}.md" || have "issues/issue-${NN}.html"; then
-    echo "  This episode already went out. The engine has simply never been"
-    echo "  run on it, so it has no stages ticked off. That is expected."
+  if have "issues/issue-${NN}.html"; then
+    echo "  A public-page file exists, but no current engine stage is complete."
+    echo "  A file on disk is not proof that this version was approved or released."
+  elif have "content/issues/issue-${NN}.md"; then
+    echo "  A written draft exists, but no current engine stage is complete."
+    echo "  Draft presence is not approval or release proof."
   else
     echo "  Nothing is finished yet. This episode hasn't started."
   fi
@@ -83,6 +108,14 @@ fi
 
 # ── run the checks live so "what's broken" is true right now ────────────────
 CHECKFAIL=""
+if [ "$NEXT" = "substance" ] && have "content/episodes/episode-${NN}.substance.md" \
+   && grep -Eq '^> \*\*STATUS:\*\* (SUPERSEDED|UNRULED|REJECTED)' "content/episodes/episode-${NN}.substance.md"; then
+  CHECKFAIL="$CHECKFAIL the-substance-sheet-is-explicitly-superseded-unruled-or-rejected"
+fi
+if [ "$NEXT" = "substance" ] && { ! have "content/episodes/episode-${NN}.fidelity.md" \
+   || ! grep -Fxq '> **STATUS:** PASS — READY FOR ALI GATE 1' "content/episodes/episode-${NN}.fidelity.md"; }; then
+  CHECKFAIL="$CHECKFAIL the-concept-fidelity-gate-has-not-passed"
+fi
 if have "content/episodes/episode-${NN}.canon.md"; then
   bash operations/engine/checks/check-inputs.sh "$NN"      >/dev/null 2>&1 || CHECKFAIL="$CHECKFAIL the-canon-or-script-is-missing-or-a-stub"
   bash operations/engine/checks/check-must-match.sh "$NN"  >/dev/null 2>&1 || CHECKFAIL="$CHECKFAIL the-canon-has-no-signature-lines"
@@ -98,7 +131,10 @@ if [ -n "$WAITING_G" ]; then
   echo "    Nothing is broken and nothing else can move until you look at"
   echo "    ${WAITING_FOR}. That is the only thing holding the week up."
   case "$WAITING_G" in
-    G1) echo "    Read: ${ROOT}/content/episodes/episode-${NN}.substance.md" ;;
+    G1)
+      echo "    Read: ${ROOT}/content/episodes/episode-${NN}.substance.md"
+      echo "    Proof: ${ROOT}/content/episodes/episode-${NN}.fidelity.md"
+      ;;
     G2) echo "    Look at the flagged frames only — the rest already passed." ;;
     G3) echo "    Watch the cut once. Coverage is already green, so nothing is missing." ;;
   esac

@@ -15,7 +15,7 @@ It is a building experience, not a decorative hero followed by an unrelated
 catalogue. Entering should feel like entering the Library; the shelves and
 books are part of the interface. `ALI CONFIRMED`
 
-## Audience and visitor jobs
+## Audience and visitor-state jobs
 
 - A newcomer must quickly understand everything she can do: browse books,
   choose a collection, ask Miss Jeeves, save a book or section with a Puffy,
@@ -25,6 +25,35 @@ books are part of the interface. `ALI CONFIRMED`
 - The Library provides durable conceptual/reference value; High teaches in
   sequence, episodes demonstrate and narrate, NewsStand handles timely
   evidence, and FAiRY provides bounded personal help. `ALI CONFIRMED`
+
+| Visitor state | Recognition and arrival | Useful continuity and primary job | Result, next step and return promise | Current launch scope |
+|---|---|---|---|---|
+| First-time visitor | No reliable prior Library/Puffy state; Card/account state is not required | Explain shelves, status, Miss Jeeves, reader and same-device Puffy save before asking her to choose | Find orientation now; when a book is admitted, save an exact place and return on this device | `APPROVED BRIEF/ARTIFACT`; comprehension evidence still required |
+| Returning without a Resident Card | Valid Puffy records on this browser/device, with no identity inference | Reopen/remove an exact saved location and recheck current publication status without replaying all newcomer instruction | Resume or see an honest hold; retain/remove the local shortcut | `APPROVED BRIEF/ARTIFACT`; same-device only |
+| Resident Card — device-local | Separately valid local Card envelope; not proof of login | Same Library/Puffy experience; Card presence creates no privilege, sync or ownership claim | Continue with device-local saves; Card and Puffy remain separate local stores | `LOCKED LEDGER`; label on this device |
+| Resident Card — verified account-backed, if supported | Separately accepted auth session/profile/RLS evidence, not a local Card alone | No account-backed Library difference exists today | Fall back to exact device-local Library behavior; do not promise backup or second-device restore | `CURRENT IMPLEMENTATION OBSERVED`; account Library continuity HOLD |
+
+Required transitions are first visit → local save → return without Card;
+visitor → device-local Card → same-device return; local Card → account claim;
+sign-out; second tab/device; corrupt/migrated/storage-denied state;
+Card/profile update or deletion/revoke; and local/account conflict. Only the
+first transition has bounded deterministic Library/Puffy evidence today.
+`LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED`
+
+## Visitor-state experience matrix
+
+| Visitor state | Truthful recognition | Arrival and primary job | State, prompts and result | Return promise | Provenance |
+| --- | --- | --- | --- | --- | --- |
+| First-time visitor | No reliable prior Library/Card state | Explain the room, shelves, book status, Miss Jeeves and Puffy saving before asking her to choose | Show no invented history; offer browse or ask; admitted book/answer is the result and Puffy save is optional | A Puffy save can return on this device only | `ALI CONFIRMED` |
+| Returning visitor without a Resident Card | Valid Library/Puffy device-local records may exist; no Card/account inference | Prioritize “continue a saved find,” current book status and new/changed collections without replaying the full newcomer tour | Show only canonical valid same-device saves; offer browse/ask when no valid save remains | Exact valid location may reopen on this device; held/removed content shows current truth | `ALI CONFIRMED` `APPROVED BRIEF/ARTIFACT` |
+| Resident Card holder — device-local | Valid device-local Card plus separately validated Library/Puffy records; Card is not login | Preserve the same Library job; make Closet/saved-finds continuation easier without claiming membership or sync | Card may personalize a local return label only when useful; it cannot unlock books, imply ownership or change editorial admission | Card and Puffy continuity apply only on this device | `ALI CONFIRMED` |
+| Resident Card holder — verified account | No accepted Library account-backed recognition exists today | Same safe Library experience as a device-local/anonymous visitor | Do not show synced Library history, ownership, cross-device saves or account-only access | No account-backed Library return promise until the platform proves it | `ALI CONFIRMED` `CURRENT IMPLEMENTATION OBSERVED` |
+
+Required transitions are: first visit → return without Card; first/returning →
+create a Card → same-device return; corrupt/denied/local-state recovery; Card
+update or removal; valid Library save → Closet → exact Library return; and any
+future local-to-account claim/merge only after the shared identity platform
+defines it. `ALI CONFIRMED`
 
 ## Place metaphor, feeling and ritual
 

@@ -29,6 +29,44 @@ through the image-production director. Generated candidates remain
 `CANDIDATE`, never `APPROVED`, until an independent image-quality judge passes
 the exact file for the exact placement.
 
+## Proactive discovery and complete visual audit
+
+Ali is not the visual-defect scanner. Before a building owner designs,
+restyles, claims readiness or asks Ali for a visual decision, it must discover
+the complete visible asset surface itself:
+
+1. scan every owned HTML, CSS, JavaScript, content register and component for
+   direct, responsive, dynamic and fallback images;
+2. render representative desktop/mobile and meaningful visitor/product states
+   so assets created at runtime or hidden behind interactions are included;
+3. record each visible asset and consuming placement in the building's
+   `VISUAL-ASSET-INVENTORY.md`;
+4. compare the actual full-resolution file and rendered placement against the
+   exact current approved references, character/location canon and locked
+   visual vetoes;
+5. assign `KEEP`, `ADAPT`, `REPLACE` or `REMOVE`, with evidence and an owner;
+6. create and independently judge every required replacement; and
+7. re-render the complete page tree to prove visual coherence, responsive
+   behavior, image loading and absence of stale/superseded art.
+
+This audit includes hero/environment art, operated-object art, characters,
+episode/content imagery, rewards/cards/postcards, CSS backgrounds and
+pseudo-elements, responsive sources/crops, loading/error fallbacks and assets
+supplied by data. A file being in `approved-assets/`, production source or an
+old accepted page does not earn `KEEP` for a new placement or current visual
+direction.
+
+`ADAPT` means substantive re-authoring against the current references. A
+global tint, filter, palette swap or saturation increase cannot pass merely
+because it changes the colours. If the composition, material language,
+period specificity, adult craft, canon or visual hierarchy is wrong, the asset
+is `REPLACE`.
+
+The owner presents Ali with a coherent page-level before/after only after the
+after state passes full-resolution image review and desktop/mobile product
+review. Rejected experiments may be shown only when their rejected status and
+specific lesson are explicit.
+
 ## Required asset record
 
 Every new image receives:
@@ -105,7 +143,8 @@ grading does not repair the wrong character, wrong room or wrong idea.
 
 Library, Visitor's Centre and Blend & Snap must each deliver:
 
-1. a complete placement inventory;
+1. a complete `VISUAL-ASSET-INVENTORY.md` covering source plus rendered
+   desktop/mobile/state discovery;
 2. a ranked new-art requirement;
 3. precise production briefs;
 4. generated or otherwise produced candidate art;

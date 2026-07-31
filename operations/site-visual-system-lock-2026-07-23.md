@@ -14,6 +14,38 @@ This file records Ali's current direction for the site redesign. It overrides
 older site-palette notes where they conflict. It does not override the episode
 people-style authority in `operations/episode-visual-system-lock.md`.
 
+## Visual authority order
+
+The saved reference images are mandatory visual evidence, not optional
+inspiration. Apply authority in this order:
+
+1. Ali's latest direct visual ruling.
+2. Ali-supplied and curated reference images in `operations/reference/`,
+   together with the usage notes in each reference set's `README.md`.
+3. This lock and
+   `operations/site-episode-vibrancy-direction-2026-07-23.md`.
+4. The current Homepage only as a composition and product-content baseline;
+   its softer candy shades and duplicated or incorrect images are not palette
+   or asset authority.
+5. Older briefs, experiments, generated mood boards and historical
+   implementations are evidence only. They cannot override items 1–4.
+
+The principal sitewide reference sets are:
+
+- `operations/reference/comic-cover-collage/`
+- `operations/reference/comic-book-page-style/`
+- `operations/reference/comic-strip-layout/`
+- `operations/reference/comic-text-emphasis/`
+- `operations/reference/font-and-text-emphasis/`
+- `operations/reference/comic-ident-background/`
+- `operations/reference/episode-style-popart/`
+- `operations/reference/style-only-refs/`
+
+Every visual proposal must identify the exact reference images it used and
+show the finished desktop/mobile result beside the relevant references. A
+proposal with no exact reference binding, or one that contradicts the visible
+reference evidence while claiming prose compliance, automatically fails.
+
 ## The whole-page rule
 
 Design the complete composition as one authored system before implementing or

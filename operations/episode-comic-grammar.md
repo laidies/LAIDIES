@@ -1,5 +1,11 @@
 # Episode Comic Grammar — transitions + the 4 formats (Ali, 2026-07-18)
 
+> **Mandatory style authority:** `operations/episode-visual-system-lock.md`.
+> The exact master people-rendering image is
+> `assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png`.
+> This grammar defines storytelling and format; it does not override the locked
+> people, lettering, card, or environment references.
+
 The connective tissue of every episode, in comic language. Grounded in
 `operations/reference/comic-storytelling/README.md` (McCloud transitions, flashback conventions, camera moves).
 The four formats come from [[episode-style-comic-popart-direction]]'s menu.

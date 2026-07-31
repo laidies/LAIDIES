@@ -1,12 +1,14 @@
 /*!
  * Puffy-sticker bookmarks — mark sections in the Handbook, they land on the
  * Puffy Board in your Closet. Locked 2026-07-03; built 2026-07-12.
- * Storage: laidies_puffies_board = JSON array of
- *   { id, title, summary, url, sticker, placedAt }
+ * Storage: laidies_puffies_board = JSON array of versioned device-local
+ * retrieval records. A Puffy is not identity, ownership, a reward or sync.
  */
 (function () {
   var KEY = 'laidies_puffies_board';
   var POUCH_KEY = 'laidies_puffy_sticker_pouch';
+  var BOARD_SCHEMA_VERSION = 2;
+  var LEGACY_CONTENT_VERSION = 'legacy-unversioned';
   /* The approved 75-piece collection. Do not replace with generic motifs. */
   var STICKERS = [
     'usable-25/01-heart-sunglasses.png','usable-25/02-flip-phone-charm.png',
@@ -79,9 +81,16 @@
   var activePicker = null;
   var storageFailed = false;
   var recoveryCount = 0;
+  var recoveryRemovedCount = 0;
+  var recoveryIgnoredCount = 0;
   var MAX_BOARD_ITEMS = 100;
-  var BOARD_FIELDS = ['id', 'placedAt', 'purpose', 'sticker', 'summary', 'title', 'url'];
+  var BOARD_FIELDS = [
+    'book_id', 'content_version', 'id', 'placedAt', 'purpose',
+    'schema_version', 'section_id', 'sticker', 'summary', 'title', 'url'
+  ];
+  var LEGACY_BOARD_FIELDS = ['id', 'placedAt', 'purpose', 'sticker', 'summary', 'title', 'url'];
   var PUFFY_PAGE_ROUTES = new Set([
+    '/blend-snap.html',
     '/library.html',
     '/handbook.html',
     '/sunnyvaile-high.html',
@@ -116,10 +125,16 @@
     }
   }
 
-  function reportRecovery(count) {
+  function reportRecovery(count, removedFromStorage) {
     if (!count) return;
     recoveryCount += count;
+    if (removedFromStorage) recoveryRemovedCount += count;
+    else recoveryIgnoredCount += count;
     document.documentElement.setAttribute('data-puffy-recovered', String(recoveryCount));
+    document.documentElement.setAttribute(
+      'data-puffy-recovery-storage',
+      recoveryIgnoredCount ? 'incomplete' : 'complete'
+    );
     var notice = document.getElementById('puffyRecoveryStatus');
     if (!notice) {
       notice = document.createElement('p');
@@ -133,10 +148,23 @@
       if (board || reader) (board || reader).insertAdjacentElement('beforebegin', notice);
       else document.body.prepend(notice);
     }
-    notice.textContent =
-      'We removed ' + recoveryCount + ' damaged or unsafe device-local Puffy ' +
-      (recoveryCount === 1 ? 'save' : 'saves') +
-      '. Your other saved places are still here.';
+    var messages = [];
+    if (recoveryRemovedCount) {
+      messages.push(
+        'We removed ' + recoveryRemovedCount + ' damaged or unsafe device-local Puffy ' +
+        (recoveryRemovedCount === 1 ? 'save' : 'saves') + '.'
+      );
+    }
+    if (recoveryIgnoredCount) {
+      messages.push(
+        'We ignored ' + recoveryIgnoredCount + ' damaged or unsafe device-local Puffy ' +
+        (recoveryIgnoredCount === 1 ? 'save' : 'saves') +
+        ' for this visit, but this browser did not let the Library remove ' +
+        (recoveryIgnoredCount === 1 ? 'it' : 'them') + ' from device storage.'
+      );
+    }
+    messages.push('Your other valid saved places are still available for this visit.');
+    notice.textContent = messages.join(' ');
   }
 
   function cleanText(value, max, required) {
@@ -170,10 +198,70 @@
     return url.pathname + url.hash;
   }
 
+  function stableIdentifier(value, max, allowEmpty) {
+    var clean = cleanText(value, max, !allowEmpty);
+    if (clean === null || clean === '' && !allowEmpty) return null;
+    if (clean === '' && allowEmpty) return '';
+    return /^[A-Za-z0-9][A-Za-z0-9._:-]*$/.test(clean) ? clean : null;
+  }
+
+  function libraryIdentity(record, url) {
+    var parsed = new URL(url, location.origin);
+    if (parsed.pathname !== '/library.html') {
+      var nonLibraryBook = record.book_id === undefined ? '' : stableIdentifier(record.book_id, 120, true);
+      var nonLibrarySection = record.section_id === undefined ? '' : stableIdentifier(record.section_id, 120, true);
+      if (nonLibraryBook !== '' || nonLibrarySection !== '') return null;
+      return {
+        book_id: '',
+        section_id: '',
+        content_version: record.content_version === undefined
+          ? LEGACY_CONTENT_VERSION
+          : stableIdentifier(record.content_version, 80, false)
+      };
+    }
+    var hash = parsed.hash.slice(1);
+    var divider = hash.indexOf('::');
+    var routeBook = divider < 0 ? hash : hash.slice(0, divider);
+    try { routeBook = decodeURIComponent(routeBook); }
+    catch (error) { return null; }
+    var bookId = record.book_id === undefined
+      ? stableIdentifier(routeBook, 120, false)
+      : stableIdentifier(record.book_id, 120, false);
+    if (!bookId || bookId !== routeBook) return null;
+
+    var sectionId = record.section_id;
+    if (sectionId === undefined) {
+      var sectionMatch = String(record.id || '').match(
+        new RegExp('^library-' + bookId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '-section-(\\d+)$')
+      );
+      sectionId = divider >= 0
+        ? (sectionMatch ? 'section-' + sectionMatch[1] : 'heading-' + String(record.id || 'legacy'))
+        : '';
+    }
+    sectionId = stableIdentifier(sectionId, 120, true);
+    if (sectionId === null || divider >= 0 && !sectionId || divider < 0 && sectionId) return null;
+
+    var contentVersion = record.content_version === undefined
+      ? LEGACY_CONTENT_VERSION
+      : stableIdentifier(record.content_version, 80, false);
+    if (!contentVersion) return null;
+    return {
+      book_id: bookId,
+      section_id: sectionId,
+      content_version: contentVersion
+    };
+  }
+
   function canonicalBoardRecord(record) {
     if (!record || typeof record !== 'object' || Array.isArray(record)) return null;
     var keys = Object.keys(record).sort();
-    if (keys.some(function (key) { return !BOARD_FIELDS.includes(key); })) return null;
+    var isLegacy = record.schema_version === undefined &&
+      keys.every(function (key) { return LEGACY_BOARD_FIELDS.includes(key); });
+    if (!isLegacy && (
+      record.schema_version !== BOARD_SCHEMA_VERSION ||
+      keys.length !== BOARD_FIELDS.length ||
+      keys.some(function (key, index) { return key !== BOARD_FIELDS[index]; })
+    )) return null;
     var id = cleanText(record.id, 120, true);
     var title = cleanText(record.title, 120, true);
     var summary = cleanText(record.summary === undefined ? '' : record.summary, 300, false);
@@ -183,8 +271,14 @@
     if (!id || !/^[A-Za-z0-9][A-Za-z0-9._:-]{0,119}$/.test(id) ||
         title === null || summary === null || purpose === null || !url ||
         !placedAt || !stickerByFile(record.sticker)) return null;
+    var identity = libraryIdentity(record, url);
+    if (!identity) return null;
     return {
+      schema_version: BOARD_SCHEMA_VERSION,
       id: id,
+      book_id: identity.book_id,
+      section_id: identity.section_id,
+      content_version: identity.content_version,
       title: title,
       summary: summary,
       url: url,
@@ -234,22 +328,24 @@
       raw = localStorage.getItem(KEY);
       parsed = raw === null ? [] : JSON.parse(raw);
     } catch (e) {
-      reportRecovery(1);
-      writeBoard([]);
+      reportRecovery(1, writeBoard([]));
       return [];
     }
     var normalized = normalizeBoard(parsed);
     var serialized = JSON.stringify(normalized.list);
     if (normalized.rejected || raw !== null && raw !== serialized) {
-      reportRecovery(normalized.rejected);
-      writeBoard(normalized.list);
+      if (!normalized.rejected && raw !== null && raw !== serialized) {
+        document.documentElement.setAttribute('data-puffy-migrated', String(BOARD_SCHEMA_VERSION));
+      }
+      var boardRewritten = writeBoard(normalized.list);
+      reportRecovery(normalized.rejected, boardRewritten);
     }
     return normalized.list;
   }
   function save(list) {
     var normalized = normalizeBoard(list);
     if (normalized.rejected) {
-      reportRecovery(normalized.rejected);
+      reportRecovery(normalized.rejected, false);
       return false;
     }
     return writeBoard(normalized.list);
@@ -292,18 +388,21 @@
   function loadPouch() {
     var raw;
     var parsed;
+    var parseRejected = 0;
     try {
       raw = localStorage.getItem(POUCH_KEY);
       parsed = raw === null ? [] : JSON.parse(raw);
     } catch (e) {
-      reportRecovery(1);
+      parseRejected = 1;
       parsed = [];
     }
     var normalized = normalizePouch(parsed);
     var saved = normalized.list;
     if (normalized.rejected || raw !== null && raw !== JSON.stringify(saved)) {
-      reportRecovery(normalized.rejected);
-      writePouch(saved);
+      var pouchRewritten = writePouch(saved);
+      reportRecovery(normalized.rejected + parseRejected, pouchRewritten);
+    } else if (parseRejected) {
+      reportRecovery(parseRejected, writePouch(saved));
     }
     if (!saved.length) {
       saved = DEFAULT_POUCH.map(function (file) { return { file: file, purpose: '' }; });
@@ -314,7 +413,7 @@
   function savePouch(list) {
     var normalized = normalizePouch(list);
     if (normalized.rejected) {
-      reportRecovery(normalized.rejected);
+      reportRecovery(normalized.rejected, false);
       return false;
     }
     return writePouch(normalized.list);
@@ -376,7 +475,11 @@
       option.addEventListener('click', function () {
         var list = load().filter(function (p) { return p.id !== id; });
         list.push({
+          schema_version: BOARD_SCHEMA_VERSION,
           id: id,
+          book_id: el.getAttribute('data-puffy-book-id') || undefined,
+          section_id: el.getAttribute('data-puffy-section-id') || undefined,
+          content_version: el.getAttribute('data-puffy-content-version') || LEGACY_CONTENT_VERSION,
           title: el.getAttribute('data-puffy-title') || (el.textContent || '').trim().slice(0, 80),
           summary: el.getAttribute('data-puffy-summary') || '',
           url: el.getAttribute('data-puffy-url') || location.pathname + '#' + (el.id || id),
@@ -412,10 +515,11 @@
     btn.type = 'button';
     btn.className = 'puffy-btn';
     var kind = el.getAttribute('data-puffy-kind') || 'section';
+    var actionLabel = el.getAttribute('data-puffy-action-label') || 'Save this ' + kind + ' with a Puffy Sticker';
     btn.innerHTML =
       '<span class="puffy-button-art" aria-hidden="true">' +
         '<img src="/assets/puffies/usable-25-images/75-pink-teal-magic-wand.png" alt="">' +
-      '</span><span class="puffy-button-label">Save this ' + kind + ' with a Puffy Sticker</span>';
+      '</span><span class="puffy-button-label">' + actionLabel + '</span>';
     function paint() {
       var placedItem = find(load(), id);
       var placed = Boolean(placedItem);
@@ -429,12 +533,13 @@
         label.textContent = 'Saved to My Closet';
       } else {
         art.innerHTML = '<img src="/assets/puffies/usable-25-images/75-pink-teal-magic-wand.png" alt="">';
-        label.textContent = 'Save this ' + kind + ' with a Puffy Sticker';
+        label.textContent = actionLabel;
       }
     }
     btn.addEventListener('click', function () {
       openPicker(btn, el, id, paint);
     });
+    document.addEventListener('puffies:changed', paint);
     paint();
     return btn;
   }
@@ -549,6 +654,7 @@
       var count = document.getElementById('puffyPouchCount');
       if (count) count.textContent = selected.length + ' of 10 selected';
     }
+    document.addEventListener('puffies:pouch-changed', paintPouch);
     function paintCollection() {
       var grid = editor.querySelector('.puffy-pouch-collection');
       var selected = loadPouch();
@@ -630,6 +736,13 @@
           '<span class="puffy-item-body"><b></b><small></small></span></a>' +
           '<button type="button" class="puffy-peel" aria-label="Peel this puffy off the board">&times;</button>';
         item.querySelector('.puffy-item-main').href = p.url;
+        item.querySelector('.puffy-item-main').setAttribute('data-puffy-book-id', p.book_id);
+        item.querySelector('.puffy-item-main').setAttribute('data-puffy-section-id', p.section_id);
+        item.querySelector('.puffy-item-main').setAttribute('data-puffy-content-version', p.content_version);
+        item.querySelector('.puffy-item-main').setAttribute(
+          'aria-label',
+          'Reopen ' + p.title + ' in the Library, where publication status is checked again'
+        );
         item.querySelector('b').textContent = p.title;
         item.querySelector('small').textContent =
           (purpose ? purpose + ' · ' : '') + (p.summary || 'Saved from the LIBRAiRY');
@@ -640,6 +753,7 @@
         item.querySelector('.puffy-peel').addEventListener('click', function () {
           if (!save(load().filter(function (q) { return q.id !== p.id; }))) return;
           paint();
+          document.dispatchEvent(new CustomEvent('puffies:changed'));
         });
         board.appendChild(item);
       });
@@ -648,7 +762,38 @@
     document.addEventListener('puffies:changed', paint);
   }
 
-  function init() { initReader(); initPouch(); initBoard(); }
+  function hasDeviceLocalCard() {
+    try {
+      var contract = window.LAIDIESResidentCard;
+      return Boolean(contract && contract.read(localStorage).state === 'saved');
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function paintVisitorState() {
+    var status = document.getElementById('puffyVisitorState');
+    if (!status) return;
+    var state;
+    if (window.LAIDIES_PUFFY_VERIFIED_ACCOUNT === true) state = 'verified-account-local-puffy';
+    else if (hasDeviceLocalCard()) state = 'device-local-card';
+    else if (load().length) state = 'returning-without-card';
+    else state = 'first-time';
+    document.documentElement.setAttribute('data-puffy-visitor-state', state);
+    var copy = {
+      'first-time':
+        'First visit: Puffy saves are optional shortcuts kept only in this browser. A Resident Card or account is not required.',
+      'returning-without-card':
+        'Welcome back on this device. These Puffy saves came from this browser; reopening one asks the Library to check its current publication status again.',
+      'device-local-card':
+        'Device-local Resident Card found. Your Card and Puffy saves are separate browser records; the Card does not add Library access, login, backup or sync.',
+      'verified-account-local-puffy':
+        'Verified account presence was supplied separately. Puffy saves here still come only from this browser; they are not synced, owned, rewarded or backed up by the account.'
+    };
+    status.textContent = copy[state];
+  }
+
+  function init() { initReader(); initPouch(); initBoard(); paintVisitorState(); }
   // Public rescan — for pages that reveal savable sections after load
   // (the LIBRAiRY opens books in place, so their sections arrive late).
   window.svPuffyScan = function () { initReader(); initPouch(); initBoard(); };
@@ -663,4 +808,19 @@
     if (ev.key === 'Escape') closePicker();
   });
   window.addEventListener('resize', closePicker);
+  window.addEventListener('storage', function (event) {
+    if (event.storageArea !== localStorage) return;
+    if (event.key === KEY || event.key === null) {
+      document.dispatchEvent(new CustomEvent('puffies:changed', {
+        detail: { source: 'storage' }
+      }));
+      paintVisitorState();
+    }
+    if (event.key === POUCH_KEY || event.key === null) {
+      document.dispatchEvent(new CustomEvent('puffies:pouch-changed', {
+        detail: { source: 'storage' }
+      }));
+    }
+  });
+  document.addEventListener('laidies:identity-changed', paintVisitorState);
 })();

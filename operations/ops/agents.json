@@ -1,13 +1,13 @@
 {
   "agents": [
-    {"name":"Hot Goss Daily","role":"Fetches + rewrites AI news to the site each morning","state":"LIVE","runs":"GitHub Action cron, 8am ET (.github/workflows/hot-goss-daily.yml)","last":"daily / automatic"},
+    {"name":"Hot Goss Daily","role":"Fetches RSS headlines and commits raw fallback output to an orphaned JSON feed; it does not update the live NewsStand","state":"PARTIAL","runs":"GitHub Action cron, 12:00 UTC (.github/workflows/hot-goss-daily.yml); ANTHROPIC_API_KEY absent as verified 2026-07-24","last":"run 43 succeeded; Pages deploy 398 failed"},
     {"name":"Site-state check","role":"Verifies real site state (headers, zombies, broken layout, deploy)","state":"LIVE","runs":"on demand: python3 operations/ops/check_site.py","last":"whenever run"},
     {"name":"Image render (Codex / SOL)","role":"Renders images to Ali's bar","state":"LIVE","runs":"Ali runs Codex CLI on her ChatGPT subscription; saves to the repo queue","last":"manual"},
     {"name":"Ep4 fix-planner","role":"Turned Ali's Ep4 feedback into an execution-ready fix plan","state":"DONE (one-off)","runs":"ran once → operations/frame-curation/ep04-fix-plan.md","last":"completed"},
     {"name":"Animation (image-to-video)","role":"Add subtle motion to episode frames","state":"PLANNED","runs":"NOT wired — Sora-2 on her key OR Replicate i2v; needs building + testing","last":"never (a proof agent died silently — the real problem)"},
     {"name":"Analytics advisor","role":"Read Plausible + Clarity, surface insights + recommendations","state":"PLANNED","runs":"NOT wired — needs Plausible/Clarity API pulls","last":"never"},
     {"name":"Social generator","role":"Generate + schedule IG/YT posts per episode","state":"PLANNED","runs":"NOT wired","last":"never"},
-    {"name":"News + explanation","role":"Curate news/opinion, add the LAiDIES explanation layer, wire to site","state":"PLANNED","runs":"NOT wired (extends Hot Goss)","last":"never"},
+    {"name":"News + explanation","role":"Curate WEDNESDAY/Tribune stories, add the LAiDIES explanation layer and publish after Ali approval","state":"PARTIAL","runs":"Manual Stage 1 data library is public; assisted Stage 2 intake/integrity/approval/publish flow is NOT wired","last":"three public stories dated 2026-06-28"},
     {"name":"Weekly orchestrator","role":"One command spins up all ~13 episode surfaces","state":"PLANNED","runs":"NOT wired","last":"never"}
   ]
 }

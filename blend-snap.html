@@ -517,7 +517,7 @@
     }
   </style>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
@@ -677,6 +677,8 @@
       var dataState = "loading";
       var sessionUsual = "";
       var lastOrderTrigger = null;
+      var activeLoadController = null;
+      var activeLoadId = 0;
 
       function canUseStorage() {
         try {
@@ -695,6 +697,10 @@
         try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
       }
 
+      function clearLocal(key) {
+        try { localStorage.removeItem(key); } catch (error) {}
+      }
+
       function setLocal(key, value) {
         try {
           localStorage.setItem(key, value);
@@ -705,7 +711,27 @@
       }
 
       function getUsual() {
-        return sessionUsual || getLocal("laidies_bs_usual");
+        if (sessionUsual) return sessionUsual;
+        var saved = getLocal("laidies_bs_usual");
+        var isControlledDrink = Array.prototype.some.call(
+          document.querySelectorAll(".bs-drink"),
+          function(button) { return button.getAttribute("data-drink") === saved; }
+        );
+        if (!saved || isControlledDrink) return saved;
+        clearLocal("laidies_bs_usual");
+        return "";
+      }
+
+      function getLastOpenedPack() {
+        var saved = getLocal("laidies_bs_last_pack");
+        if (!saved) return "";
+        var isKnownPack = Object.keys(packsByEpisode).some(function(episodeNumber) {
+          var pack = packsByEpisode[episodeNumber];
+          return pack && String(pack.episodeSlug || pack.episodeNumber) === saved;
+        });
+        if (isKnownPack) return saved;
+        clearLocal("laidies_bs_last_pack");
+        return "";
       }
 
       function setOrderAvailability(enabled, label) {
@@ -719,7 +745,6 @@
 
       function stateCopy() {
         var usual = getUsual();
-        var pickedUp = getLocal("laidies_bs_last_pack");
         var title = document.getElementById("bs-title");
         var copy = document.getElementById("bsStateCopy");
 
@@ -730,6 +755,8 @@
             : "The pack menu is unavailable right now, so JoJo is not guessing what is ready. Browse the released Episodes instead.";
           return;
         }
+
+        var pickedUp = getLastOpenedPack();
 
         if (!usual) {
           title.textContent = "First time in?";
@@ -851,10 +878,17 @@
           parsed.getUTCDate() === parts[2];
       }
 
+      var studyPackReviewMode =
+        new URLSearchParams(window.location.search).get("study-pack-review") === "ep01";
+
       function safeRoute(value) {
-        return typeof value === "string" &&
+        var isSiteRoute = typeof value === "string" &&
           /^\/(?!\/)[A-Za-z0-9_./?=&%#-]+$/.test(value) &&
           !value.includes("..");
+        var isBoundedLocalReviewRoute = studyPackReviewMode &&
+          typeof value === "string" &&
+          /^http:\/\/127\.0\.0\.1:(4173|4182)\/?$/.test(value);
+        return isSiteRoute || isBoundedLocalReviewRoute;
       }
 
       function hasOnlyKeys(value, allowed) {
@@ -894,6 +928,9 @@
         });
         var seenPacks = {};
         manifest.packs.forEach(function(pack) {
+          var requiredForPack = pack.episodeNumber === 1
+            ? ["try_on", "cheat_sheet", "trading_cards", "quiz"]
+            : requiredComponents;
           var episode = episodeByNumber[pack.episodeNumber];
           var episodeRoute = "/" + String(episode && episode.issueUrl || "").replace(/^\//, "");
           if (!episode || !hasOnlyKeys(pack, packKeys) ||
@@ -903,7 +940,7 @@
               pack.episodeRoute !== episodeRoute ||
               !safeRoute(pack.episodeRoute) ||
               !Array.isArray(pack.components) ||
-              pack.components.length !== requiredComponents.length) {
+              pack.components.length !== requiredForPack.length) {
             throw new Error("pack does not match published episode");
           }
           seenPacks[pack.episodeNumber] = true;
@@ -911,7 +948,7 @@
           pack.components.forEach(function(component) {
             ids.push(component.id);
             if (!hasOnlyKeys(component, componentKeys) ||
-                !requiredComponents.includes(component.id) ||
+                !requiredForPack.includes(component.id) ||
                 !statuses.includes(component.status) ||
                 !component.label || !component.job || !component.statusLabel ||
                 !component.publicNote ||
@@ -920,7 +957,7 @@
               throw new Error("component status contract invalid");
             }
           });
-          if (new Set(ids).size !== requiredComponents.length) {
+          if (new Set(ids).size !== requiredForPack.length) {
             throw new Error("duplicate or missing component");
           }
         });
@@ -1033,7 +1070,7 @@
         button.addEventListener("click", function() { selectDrink(button); });
       });
 
-      var savedDrink = getLocal("laidies_bs_usual");
+      var savedDrink = getUsual();
       if (savedDrink) {
         document.querySelectorAll(".bs-drink").forEach(function(button) {
           button.classList.toggle("is-selected", button.getAttribute("data-drink") === savedDrink);
@@ -1071,16 +1108,14 @@
         });
       });
 
-      function fetchJson(route) {
-        var controller = new AbortController();
-        var deadline = window.setTimeout(function() {
-          controller.abort();
-        }, 8000);
-        return fetch(route, { signal: controller.signal }).then(function(response) {
+      function fetchJson(route, signal) {
+        return fetch(route, {
+          signal: signal,
+          cache: "no-store",
+          headers: { "cache-control": "no-cache" }
+        }).then(function(response) {
           if (!response.ok) throw new Error("menu data unavailable");
           return response.json();
-        }).finally(function() {
-          window.clearTimeout(deadline);
         });
       }
 
@@ -1109,6 +1144,13 @@
       }
 
       function loadPackData(userTriggered) {
+        if (activeLoadController) activeLoadController.abort();
+        activeLoadController = new AbortController();
+        var controller = activeLoadController;
+        var loadId = ++activeLoadId;
+        var deadline = window.setTimeout(function() {
+          controller.abort();
+        }, 8000);
         dataState = "loading";
         setOrderAvailability(false, "Loading the episode menu");
         document.getElementById("bsSpecialDesc").textContent =
@@ -1121,11 +1163,47 @@
           document.getElementById("bsSpecialDesc").focus({ preventScroll: true });
         }
         Promise.all([
-          fetchJson("/content/episode-index.json"),
-          fetchJson("/content/blend-snap-weekly-packs.json")
+          fetchJson("/content/episode-index.json", controller.signal),
+          fetchJson("/content/blend-snap-weekly-packs.json", controller.signal)
         ]).then(function(results) {
-          applyPackData(results[1], results[0].episodes || []);
-        }).catch(showPackFailure);
+          if (loadId !== activeLoadId) return;
+          var packManifest = results[1];
+          if (studyPackReviewMode) {
+            packManifest = JSON.parse(JSON.stringify(packManifest));
+            var episodeOne = packManifest.packs.find(function(pack) {
+              return pack.episodeNumber === 1;
+            });
+            if (episodeOne) {
+              episodeOne.components.forEach(function(component) {
+                if (component.id === "try_on") {
+                  component.route = "http://127.0.0.1:4173/";
+                  component.status = "available";
+                  component.statusLabel = "Ready for review";
+                  component.publicNote = "Open the accepted local Try-On candidate.";
+                }
+                if (component.id === "cheat_sheet") {
+                  component.route = null;
+                  component.status = "held";
+                  component.statusLabel = "Redesign in progress";
+                  component.publicNote = "The earlier Cheat Sheet is held while the new one-page version is designed.";
+                }
+                if (component.id === "trading_cards") {
+                  component.route = "http://127.0.0.1:4182/";
+                  component.status = "available";
+                  component.statusLabel = "Ready for review";
+                  component.publicNote = "Open the new local Episode 01 Trading Card Pack candidate.";
+                }
+              });
+            }
+          }
+          applyPackData(packManifest, results[0].episodes || []);
+        }).catch(function() {
+          if (loadId !== activeLoadId) return;
+          showPackFailure();
+        }).finally(function() {
+          window.clearTimeout(deadline);
+          if (loadId === activeLoadId) activeLoadController = null;
+        });
       }
 
       document.getElementById("bsPackRetry").addEventListener("click", function() {

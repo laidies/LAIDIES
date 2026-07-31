@@ -14,6 +14,8 @@ exists; it closes only when the evidence in the final column exists.
 - **REVIEW CUT** — exported and technically checked, but still awaiting the
   named approval or release gate.
 - **OPEN** — real work remains.
+- **REJECTED CANDIDATE** — a local build exists, but visual or interaction
+  review proved it is not an acceptable base and it must not be propagated.
 - **BLOCKED DECISION** — Ali's taste, business, or irreversible publication
   decision is genuinely required.
 - **PLANNED ONLY** — prose or a proposal exists; there is no working system.
@@ -24,7 +26,7 @@ exists; it closes only when the evidence in the final column exists.
 
 | Workstream | Current truth | Next action | Close evidence |
 |---|---|---|---|
-| Episode 01 film | OPEN. v20 is the previous cut. The v21 controlled-motion master is not rendered yet. | Render v21 from the authoritative cue sheet; full decode, measured-motion and visual continuity QA. | QA report, contact sheets, SHA, owner watch, correct local and public mapping. |
+| Episode 01 film | DONE LOCAL / REVIEW CUT. v21 passed full decode, 8/8 sampled motion checks and visual timing/transition inspection; mapped in `watch.html`. The retained source set still mixes comic text frames with earlier scenic rendering. | Owner continuity and locked-style exception review; replace only failed frames, then later upload. | Owner approval plus verified hosted playback and captions. |
 | Episode 02 film | DONE LOCAL / REVIEW CUT. v17 passed full decode, 8/8 sampled motion checks and visual transition inspection; mapped in `watch.html`. | Final owner continuity watch; later upload to the selected host. | Owner approval plus verified hosted playback and captions. |
 | Episode 03 film | DONE LOCAL / REVIEW CUT. v9 passed full decode and is mapped locally. | Final owner continuity watch; later upload. | Owner approval plus verified hosted playback and captions. |
 | Episode 04 film | DONE LOCAL / REVIEW CUT. v8 passed full decode and is mapped locally. | Final owner continuity watch; later upload. | Owner approval plus verified hosted playback and captions. |
@@ -40,8 +42,8 @@ exists; it closes only when the evidence in the final column exists.
 | Workstream | Current truth | Next action | Close evidence |
 |---|---|---|---|
 | Homepage | OPEN. The current piecemeal comic pass did not create a coherent approved result. The LAiDIES Method section, image choices and accent balance need one intentional system-level pass. | Reconcile the current page against the locked character rendering, saved comic references, light gradients, midnight-blue surfaces and broader vivid accent palette; redesign as a composed journey rather than isolated boxes. | Side-by-side desktop/mobile visual comparison, working interactions and Ali approval. |
-| Building architecture | DONE LOCAL structurally. The main buildings and key subpages have v2 room/object/document-based mechanics recorded in `operations/building-page-construction-status-2026-07-23.md`. | Preserve the mechanics while replacing named bridge art and doing final cross-page consistency QA. | Every public destination works at desktop/mobile with no generic card fallback or rejected art. |
-| Visitor Centre | DONE LOCAL structurally. It contains orientation, a 17-place directory/map, welcome station, first-visit route, four selectable postcards, writing/sharing desk, explainers and founder note. | Final art/wording polish and complete journey QA; do not reduce it to a duplicate town map. | Map, directory, trailer, postcard and start route all verified publicly. |
+| Building architecture | OPEN / REJECTED CANDIDATES. The 2026-07-23 construction pass put real mechanics into many pages, but the status ledger overclaimed completion from DOM/features and screenshots. It did not prove that the pages adapted the approved immersive room/object model; several builds visibly fall back to generic stacked sections, cards or labels over art. | Recover and visually validate the actual LIBRAiRY whole-room benchmark first. Adapt its principles building by building, then run side-by-side arrival, interaction and mobile comparisons before promoting any page. | Every public destination works at desktop/mobile with no generic card fallback or rejected art, and Ali has approved the first representative adaptation before the pattern is propagated. |
+| Visitor Centre | OPEN — REPLACEMENT LOCAL CANDIDATE. The rejected numbered-pin/card-roll build has been replaced locally. The lobby is now the experience: the map sits in the wall frame, unobtrusive hotspots reveal names, desktop destination details occupy the board itself, compact widths use one in-room reveal, and the explicit named directory replaces the seventeen-card roll. Trailer/tour, first route and postcard desk remain. Desktop and compact-width interactions pass locally; Ali approval and <=560px verification remain open. | Review the actual Library and Visitor Centre candidates together; tighten from Ali's ruling, complete the true mobile pass, then decide whether this room/object grammar may propagate to the next building. | Side-by-side desktop/mobile proof against the approved room model, clear first-click comprehension, working map/directory/trailer/postcard/start route, Ali approval, then public verification. |
 | Building art unification | OPEN. Many pages intentionally use replaceable painterly/ornate/structural bridge art. | Replace only from the named dependency list in the building ledger, using the Episode 04 locked dimensional graphic-novel style where characters appear. | Approved asset ledger with rejected/legacy files excluded from release. |
 | Episode feature pages 01–04 | DONE LOCAL structurally. Comic feature construction and navigation are built; inherited frames still vary in rendering quality. | Final art consistency, copy/canon and mobile length pass. | Current article, film and issue metadata agree and public journeys pass. |
 | School, classes, Book Fair and Pop Quiz | DONE LOCAL structurally. Interactions read authoritative current data; some room art is still a bridge. | Preserve data/mechanics while resolving art and future class-production tasks. | Classes play, quiz scores/rewards, Book Fair redemption and records work publicly. |
@@ -100,12 +102,11 @@ exists; it closes only when the evidence in the final column exists.
 ## Today's active order
 
 1. Keep the visually verified trailer review-only until its continuity/owner gate.
-2. Render Episode 01 v21 through the proven controlled-motion assembler.
-3. Run full decode, motion measurement, keyframe and transition inspection.
-4. Present only real visual exceptions for owner review.
-5. Choose/configure large-video hosting.
-6. Upload exact approved masters/captions and verify the Screening Room.
-7. Continue the homepage as one intentional design system; do not revert
+2. Present real visual/continuity exceptions across all five review films for owner review.
+3. Replace failed frames or motions without disturbing approved cue timing.
+4. Choose/configure large-video hosting.
+5. Upload exact approved masters/captions and verify the Screening Room.
+6. Continue the homepage as one intentional design system; do not revert
    destination pages to text-card grids while final art is being replaced.
 
 ## Decisions that must not be guessed

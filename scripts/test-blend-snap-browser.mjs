@@ -40,10 +40,21 @@ function fixtureFromReferer(request) {
   }
 }
 
+const retryAttempts = new Map();
+
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, "http://127.0.0.1");
   const fixture = fixtureFromReferer(request);
   if (requestUrl.pathname === "/content/blend-snap-weekly-packs.json") {
+    if (fixture === "retry-recovery") {
+      const recoveryKey = `${fixture}:${requestUrl.pathname}`;
+      retryAttempts.set(recoveryKey, (retryAttempts.get(recoveryKey) || 0) + 1);
+      if (retryAttempts.get(recoveryKey) === 1) {
+        response.writeHead(503);
+        response.end("Unavailable once");
+        return;
+      }
+    }
     if (fixture === "manifest-failure") {
       response.writeHead(503);
       response.end("Unavailable");
@@ -73,6 +84,11 @@ const server = http.createServer((request, response) => {
     if (fixture === "private-metadata") {
       manifest.evidenceOwner = "must-not-ship";
     }
+    if (fixture === "malformed-manifest") {
+      response.writeHead(200, { "content-type": "application/json; charset=utf-8" });
+      response.end("{not json");
+      return;
+    }
     response.writeHead(200, { "content-type": "application/json; charset=utf-8" });
     response.end(JSON.stringify(manifest));
     return;
@@ -89,6 +105,11 @@ const server = http.createServer((request, response) => {
     ));
     if (fixture === "index-mismatch") {
       index.episodes = index.episodes.filter((episode) => episode.number !== 4);
+    }
+    if (fixture === "malformed-index") {
+      response.writeHead(200, { "content-type": "application/json; charset=utf-8" });
+      response.end("{not json");
+      return;
     }
     response.writeHead(200, { "content-type": "application/json; charset=utf-8" });
     response.end(JSON.stringify(index));
@@ -378,7 +399,8 @@ try {
 
   for (const fixture of [
     "manifest-failure", "index-failure", "stale",
-    "missing-component", "index-mismatch", "private-metadata", "timeout"
+    "missing-component", "index-mismatch", "private-metadata", "timeout",
+    "malformed-manifest", "malformed-index"
   ]) {
     const failure = await openPage(`/blend-snap.html?fixture=${fixture}`);
     if (fixture === "timeout") await sleep(8300);
@@ -413,6 +435,27 @@ try {
   check(await value(retryFailure,
     "document.querySelector('#bsSpecialDesc').textContent.includes('Nothing is being presented as ready')"
   ), true, "failed user retry re-announces the visible failure");
+
+  const recoveredRetry = await openPage("/blend-snap.html?fixture=retry-recovery");
+  check(await value(recoveredRetry, "document.querySelector('#bsOrderMenu').disabled"),
+    true, "first retry-recovery load disables ordering");
+  await act(recoveredRetry, "document.querySelector('#bsPackRetry').click()", 220);
+  check(await value(recoveredRetry, "!document.querySelector('#bsOrderMenu').disabled"),
+    true, "retry validates both sources before restoring the menu");
+  check(await value(recoveredRetry, "document.querySelector('#bsReceipt').classList.contains('is-open')"),
+    false, "recovery never reopens a cached receipt");
+
+  const corruptStorage = await openPage("/blend-snap.html");
+  await act(corruptStorage,
+    "localStorage.setItem('laidies_bs_usual','forged drink'); localStorage.setItem('laidies_bs_last_pack','forged-pack'); location.reload()",
+    260
+  );
+  check(await value(corruptStorage, "document.querySelector('#bsStateCopy').textContent.includes('forged')"),
+    false, "corrupt usual is not rendered as a returning visitor state");
+  check(await value(corruptStorage, "localStorage.getItem('laidies_bs_usual')"),
+    null, "corrupt usual is cleared rather than trusted");
+  check(await value(corruptStorage, "localStorage.getItem('laidies_bs_last_pack')"),
+    null, "corrupt pack marker is cleared rather than trusted");
 
   const mobile = await openPage("/blend-snap.html", { width: 390, height: 844 });
   check(await value(mobile, "document.documentElement.scrollWidth <= 390"),

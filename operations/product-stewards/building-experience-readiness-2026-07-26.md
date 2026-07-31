@@ -31,6 +31,14 @@ A launch-worthy building must also:
 10. be shown to Ali only as a credible owner-review candidate, not as an
     unfinished page disguised as an approval request.
 
+These are non-compensable floors. A route, state, accessibility or deterministic
+test PASS cannot raise a failed building-experience or brand-world floor. A
+neutral shell, generic card grid, white page of boxed modules, wireframe or
+“functional base” waiting for later styling is technical characterization
+only: it cannot receive a Brand PASS, enter integration or reach Ali. The exact
+desktop/mobile candidate must already feel like visiting that particular
+building inside the colourful, vibrant LAiDIES/SUNNYVAiLE world.
+
 For consequential design work, the champion produces an incumbent and two
 materially different challengers, runs red-team and blind scoring, and only
 advances candidates meeting the 17/20 floors for product quality,
@@ -48,8 +56,8 @@ building experiences are designed.
 | Building | Current design truth | Next product-champion job |
 |---|---|---|
 | SUNNYVAiLE LIBRAiRY | Strongest provisional room-first comparator; local candidate and interactions exist, but it is not a final approved building system. | Recover the strongest candidate, compare three complete directions, finish the selected room/object/reader/search/mobile experience and establish the reusable building grammar. |
-| Welcome Wagon Visitor's Centre | Room-first candidate exists; newcomer comprehension and visual finish are not established as final. | Complete the arrival/orientation experience and judge it beside the Library benchmark. |
-| The Blend & Snap | Product contract and weekly-pack mechanics are stronger than the proven building design. | Build a complete café-as-interface candidate to test whether the room-first grammar transfers beyond books. |
+| Welcome Wagon Visitor's Centre | Ali rejected the neutral white-page/front-desk/map/directory base. Its interaction and native evidence is superseded technical characterization only and may not be integrated or reskinned. | Build and independently judge three materially different colourful, vibrant, environment-as-interface directions at desktop/mobile, compared directly with the Homepage world target. |
+| The Blend & Snap | Product contract and weekly-pack mechanics have technical evidence, but the isolated functional skeleton is not owner-ready and is on HOLD. | Build the complete café-as-interface experience and pass the building-experience and brand-world floors before any Ali ruling or integration request. |
 | NewsStand | Publication and routing contracts have received deep review; complete stand experience and editorial presentation remain unproven. | Design the actual browse/read/current/archive experience around a credible newsstand environment. |
 | Chick Flicks | Catalogue and Screening Room relationships are documented; building/media experience remains visually and audiovisually unfinished. | Design the theatre/building journey while episode-media specialists repair each admitted programme. |
 | Mme CLAi-O's Shop | Fortune mechanics have bounded evidence; owner-ready shop/reading-room design is unproven. | Complete the room, ritual, result, return and privacy-safe history experience. |

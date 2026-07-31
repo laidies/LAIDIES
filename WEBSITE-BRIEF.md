@@ -31,6 +31,11 @@ A 24-episode weekly Wednesday newsletter series teaching AI fluency to women in 
 
 ## The Season Arc (24 Episodes)
 
+> **SUPERSEDED EPISODE MAP:** This embedded map predates the released Episode
+> 4 and the locked Episode 5/6 rulings. Current authority:
+> `docs/season/24-episode-arc.md` plus `operations/engine/LEDGER.md`. Retained
+> here only as historical product context.
+
 ### Series Logline
 A smart, busy woman stops feeling behind, learns to delegate to machines, keeps her standards, builds her squad, and becomes the person other women come to when the future gets confusing.
 

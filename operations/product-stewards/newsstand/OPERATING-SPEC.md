@@ -88,10 +88,43 @@ Every public story requires:
 7. a correction owner and next recheck date; and
 8. explicit correction/retraction fields even when null.
 
+Every material story also requires an immediate learning-opportunity
+transaction before the editorial packet can close:
+
+1. list each durable concept, correction, class/practice opportunity,
+   LIBRAiRY opportunity and related editorial argument surfaced by the story;
+2. give each item exactly one disposition: `link`, `correct`, `update`,
+   `extend`, `create`, `queue-with-trigger` or `decline`;
+3. name the canonical concept owner, destination owner, exact dossier/evidence
+   path, distinct format job and current status;
+4. create the durable handoff in the same cycle—an unassigned “capture gap,”
+   chat note or future idea is not a completed route; and
+5. require the receiving owner to accept, decline or preserve the explicit
+   trigger. NewsStand does not silently commission or publish the downstream
+   item.
+
+When a story introduces, changes, contradicts or materially qualifies a
+durable definition, statistic or product statement, the same transaction
+includes the stable NewsStand evidence/story IDs and either an existing
+`CLM-*` ID or an explicit unmatched claim candidate. Learning System &
+Concepts decides admission into its freshness signal inbox and claim register.
+NewsStand retains authority over the dated story; it does not silently become
+evergreen canon.
+
 Health, medical, privacy, safety, legal and other hard-hold topics cannot become
 visible solely on interested-party evidence. The current Health-in-ChatGPT
 Weekly item has HHS and FTC context but remains held for independent review of
 the revised copy.
+
+Every new or materially changed candidate and every exact published/corrected
+story follows
+`PUBLICATION-VALIDATION-AND-DISCOVERY-CONTRACT.md`. Candidate creation
+automatically dispatches the edition, accuracy, risk, learning,
+brand/accessibility, champion and release gates. Publication automatically
+dispatches exact public discovery verification across the Homepage,
+NewsStand front desk, archive/search/topics, related learning, open-web feed
+and returning-reader states. These triggers do not grant publication or
+deployment authority.
 
 ## Reader and accessibility journeys
 

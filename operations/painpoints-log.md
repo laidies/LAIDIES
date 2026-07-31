@@ -3188,6 +3188,125 @@ _Original source ID: repository #36_
   upside down.”
 - **Privacy/IP/reputation:** Internal LAiDIES artwork only; no private user data.
 
+## BTB-237 · The news packet named the missing concepts but did not complete the handoff
+
+`category: editorial operations · curriculum architecture · durable handoffs`
+— ① Make it work
+`source: OpenAI/Hugging Face incident → Concepts 101 reconciliation, 2026-07-28`
+`publication status: VERIFIED AND CORRECTED — PREVENTION RULE`
+
+- **Context:** The incident packet correctly identified `sandbox`, `least
+  privilege`, `trajectory monitoring` and `reward hacking` as concepts readers
+  would need beyond the dated story.
+- **Issue:** The packet recorded those concepts as a capture gap, but no
+  acknowledged Learning System transaction created, extended or declined the
+  durable treatments. Later audits could rediscover the same gap.
+- **What happens:** A strong article can identify its curriculum implications
+  while the actual curriculum remains unchanged. Documentation looks complete,
+  but readers still have nowhere reliable to learn the underlying concept.
+- **Evidence observed:** The July 24 integrity report proposed Vocab/Concepts
+  homes, while the July 28 Concepts 101 source still lacked a sandbox
+  explanation. Vocab had already been consolidated into Concepts, making part
+  of the proposed routing stale.
+- **Diagnosis:** **Verified.** The process stopped at impact identification
+  instead of requiring a destination ruling, owner acceptance and artifact
+  evidence.
+- **Prevent / Fix:** Every qualified NewsStand packet must emit
+  `concept_impacts[]` and `class_or_book_opportunities[]`. Each item receives
+  `link / correct / update / extend / create / decline`, canonical owner,
+  exact destination, distinct surface job, acceptance state and evidence path.
+  A capture-gap note cannot close until those dispositions exist.
+- **Why the fix works:** News remains dated evidence, Concepts remains the
+  durable source, and class/book production starts only when it adds a
+  different learning job.
+- **New output:** Concepts 101 sandbox successor and
+  `operations/product-stewards/learning-content-ecosystem/NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28.md`.
+- **Transferable lesson:** Discovering a downstream learning need is not the
+  same as delivering it.
+- **Internal rule/check updated:** D-2026-07-28-080 and LCE-012 now require a
+  closed disposition for every material NewsStand learning impact.
+- **Public angle:** “Our article found the missing lesson. Our system forgot to
+  build it.”
+- **Privacy/IP/reputation:** Only public incident sources and internal content
+  architecture were used; no private incident or user data entered the work.
+
+## BTB-094 · “Subtle” background typography became effectively invisible
+
+`category: visual hierarchy · motion identity · reference translation`
+— ① Start with the real problem
+`source: LAiDIES motion-ident background studies, 2026-07-25`
+`publication status: VERIFIED AND CORRECTED — PREVENTION RULE`
+
+- **Context:** The ident brief asked for AI-specific words in lighter and darker
+  shades of the background, inspired by Ali's comic references.
+- **Issue:** The first implementation reduced the words to faint labels around
+  the edge. It technically contained the requested vocabulary but did not read
+  as a comic environment or remain visible at playback scale.
+- **What happens:** A requirement can be present in the source file while being
+  absent from the viewer's experience. Further lowering contrast does not solve
+  visual competition; it merely removes the intended layer.
+- **Evidence observed:** Ali could not see the background words in the delivered
+  comparison and supplied 13 references demonstrating visible word art,
+  halftone, radial action and protected central reading zones.
+- **Diagnosis:** **Verified.** The failure was composition and hierarchy, not
+  missing terminology.
+- **Prevent / Fix:** For ident backgrounds, put clearly styled words and dense
+  comic energy at the perimeter, direct rays inward and reserve a large calm
+  central window for the primary wordmark. Test the decoded frame at delivery
+  resolution; do not judge visibility only from the source canvas.
+- **Why the fix works:** Foreground legibility comes from spatial separation and
+  hierarchy, allowing the supporting layer to remain visibly intentional.
+- **New output:** `operations/design-explorations/laidies-motion-ident-20260725/italic-i-comic-background-motion-proof-v6.mp4`.
+- **Transferable lesson:** “Subtle” is not a numeric opacity value. It is a
+  relationship between prominence, placement and reading order.
+- **Internal rule/check updated:** Ident reviews now check both background
+  recognition and wordmark legibility in a decoded 960×540 playback frame.
+- **Public angle:** “The words were technically there. Nobody could see them.”
+- **Privacy/IP/reputation:** Supplied stock/watermarked images are saved as
+  style-only references and must never be shipped or directly reused.
+
+## BTB-095 · Correct reset grammar still produced lacklustre motion
+
+`category: motion design · rhythm · authored transitions`
+— ① Start with the real problem
+`source: LAiDIES motion-ident proof v6, 2026-07-25`
+`publication status: VERIFIED AND ITERATED — PREVENTION RULE`
+
+- **Context:** The proof correctly showed `i → symbol → i` and used approved
+  custom symbols on the stronger comic background.
+- **Issue:** Every symbol still used the same squash, crossfade, hold and
+  reverse recipe. The sequence was structurally correct but emotionally flat.
+- **What happens:** Repetition without authored variation reads as a slideshow
+  transition rather than a designed ident, even when the artwork and state
+  order are right.
+- **Evidence observed:** Ali described the animation itself as lacklustre after
+  confirming the background was definitely better.
+- **Diagnosis:** **Verified.** The remaining gap was motion character, not the
+  background or symbol nouns.
+- **Prevent / Fix:** Give each symbol one meaningful material behaviour while
+  preserving the shared reset grammar: anticipation from the dot, a visible
+  impact beat, then rewind unfolding, CD rotation/glint, cursor snap and AI
+  bubble bounce. Vary entrance character without moving the stable letters.
+- **Why the fix works:** Shared structure preserves brand recognition while
+  distinct micro-actions create surprise, rhythm and object-specific meaning.
+- **New output:** The initial authored-motion experiment was
+  `operations/design-explorations/laidies-motion-ident-20260725/italic-i-comic-background-authored-motion-v7.mp4`.
+  The 2026-07-26 reference-led proof now applies the rule to the corrected
+  cassette-only set in `continuous-i-object-specific-formation-v3.mp4`,
+  including reel movement, a CRT cursor blink, camera-photo development,
+  animated cyan/yellow brush echoes, a shorter staged wordmark entrance and
+  distinct symbol construction paths: VHS horizontal unfolding, CRT scan-line
+  expansion, separating cassette reels and photo-first camera development.
+- **Transferable lesson:** Correct motion states are necessary but not
+  sufficient; repeated easing can drain personality from an otherwise valid
+  sequence.
+- **Internal rule/check updated:** Motion proofs now review anticipation,
+  impact, object-specific behaviour, reset readability and total rhythm as
+  separate criteria.
+- **Public angle:** “Why the animation was correct—and still felt flat.”
+- **Privacy/IP/reputation:** Internal LAiDIES animation and owned/generated
+  proof assets only.
+
 ## BTB-094 · The visual rules existed; the assembled episodes still became two different shows
 
 `category: episode production · visual continuity · operational controls`
@@ -3319,3 +3438,7188 @@ _Original source ID: repository #36_
 - **Privacy/IP/reputation:** Do not preserve or republish engagement data,
   private account details or the rejected announcement beyond the internal
   operational record.
+
+## BTB-097 · Making a flat logo transition faster did not make it feel designed
+
+`category: motion identity · animation mechanics · visual QA`
+— ① Start with the real problem
+`source: LAiDIES continuous-i symbol sequence, 2026-07-25`
+`publication status: LOCALLY VERIFIED TECHNIQUE — OWNER REVIEW REQUIRED`
+
+- **Context:** The LAiDIES ident had the correct ordered states, comic
+  background and symbol family, but the transformation still felt lacklustre.
+- **Issue:** Shortening the holds and varying icon entrances changed tempo
+  without changing the underlying disappear/reveal mechanic.
+- **What happens:** A faster substitution still reads as a substitution. The
+  audience cannot see one object causally becoming the next.
+- **Evidence observed:** Ali identified the authored-speed pass as looking
+  “the same just faster.” A subsequent signed-distance-field sequence visibly
+  carries one silhouette through `full i → joined i → orb → symbol`, then
+  reverses it before the next cycle. The exported 238-frame MP4 was decoded
+  upright and verified at 960×540, 60 fps and 3.97 seconds.
+- **Diagnosis:** **Verified locally.** Timing polish cannot compensate for a
+  missing continuous transformation.
+- **Prevent / Fix:** When the creative direction says collapse or morph,
+  prototype silhouette continuity before polishing speed, glow or easing.
+  Require at least one decoded in-between frame where the source and target
+  are visibly the same evolving object.
+- **Why the fix works:** Signed-distance interpolation gives every intermediate
+  frame a coherent silhouette, while endpoint texture blending preserves the
+  hand-painted source art.
+- **New output:** The continuous technique was first proven in
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-symbol-sequence-v2.mp4`;
+  the current small-size symbol refinement is
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-symbol-sequence-v4.mp4`.
+- **Transferable lesson:** Motion character comes from visible cause and
+  consequence, not simply fewer frames.
+- **Internal rule/check updated:** LAiDIES morph proofs now require continuous
+  in-between-shape inspection plus a decoded export orientation check.
+- **Public angle:** “We made it faster. It was still boring.”
+- **Privacy/IP/reputation:** Internal unapproved brand exploration; do not
+  present as the final LAiDIES logo or published identity without Ali’s
+  approval.
+
+## BTB-098 · Naming the next production step sounded like reporting it complete
+
+`category: working agreement · status clarity · creative production`
+— ① Start with the real problem
+`source: LAiDIES ident background refinement, 2026-07-26`
+`publication status: VERIFIED FAILURE — CORRECTED LOCALLY`
+
+- **Context:** After the improved symbol pass, the next stated step was to
+  refine the ident background’s central quiet zone.
+- **Issue:** The status message used forward-looking language without an
+  explicit `NOT STARTED` label. On the next day Ali reasonably had to ask
+  whether the work had actually been done.
+- **What happens:** A clear creative recommendation can be mistaken for a
+  completed production action when its status is implicit.
+- **Evidence observed:** No quiet-zone output existed when Ali asked “did you
+  do it?”
+- **Diagnosis:** **Verified.** The work had stopped after the symbol pass.
+- **Prevent / Fix:** When ending on a proposed next step, state its fixed
+  status explicitly: `NOT STARTED`, `IN PROGRESS`, or `COMPLETE`. Never let
+  “next is…” stand in for production status.
+- **Why the fix works:** It separates recommendation, active work and verified
+  output at the point where the user decides whether to follow up.
+- **New output:** The missing step is now completed locally in
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-symbol-sequence-v5.mp4`
+  with a separate quiet-zone still.
+- **Transferable lesson:** A next-step sentence is not a status report.
+- **Internal rule/check updated:** Creative handoffs now label any described
+  but unexecuted next step `NOT STARTED`.
+- **Public angle:** “We said what came next. We didn’t say it hadn’t started.”
+- **Privacy/IP/reputation:** Internal unapproved brand exploration only.
+
+## BTB-099 · “Okay” was attached to the wrong preceding decision
+
+`category: conversational continuity · creative production · scope`
+— ① Start with the real problem
+`source: LAiDIES alternate ident symbols, 2026-07-26`
+`publication status: VERIFIED FAILURE — CORRECTED LOCALLY`
+
+- **Context:** Ali asked for other symbol ideas, received a proposed episode
+  library, then replied “ok.”
+- **Issue:** The agent later attached that assent to an older background task
+  instead of the immediately preceding alternative-symbol proposal.
+- **What happens:** Work can be competently executed against the wrong
+  creative branch even when every individual instruction is present in the
+  conversation.
+- **Evidence observed:** Ali expected animated versions with different
+  symbols; the next delivered artifact changed the background instead.
+- **Diagnosis:** **Verified.** Recency and adjacency were not used to resolve
+  the short confirmation.
+- **Prevent / Fix:** Bind short confirmations (`ok`, `yes`, `do it`) to the
+  most recent unresolved proposal unless the user explicitly names an older
+  branch. Restate the bound deliverable in the first work update.
+- **Why the fix works:** It makes the assumed referent visible before
+  production and keeps adjacent creative decisions together.
+- **New output:** Two actual alternate-symbol animations:
+  `continuous-i-alternate-ai-making-v4.mp4` and
+  `continuous-i-alternate-rewind-ai-v6.mp4`. The corrected sets remove the
+  ambiguous sparkle/broken-arrow regenerate mark and the overdesigned
+  VHS/chat hybrid, reduce alternate-symbol scale to 84%, and normalize their
+  hot pink to the approved master-symbol median `#fc0292`. The Rewind set also
+  ultimately removes the cassette waveform entirely after its detail remained
+  too ambiguous at ident size, and extends each symbol hold from 0.16 to 0.24
+  seconds for small-size legibility.
+- **Transferable lesson:** The nearest unresolved noun usually owns the
+  confirmation.
+- **Internal rule/check updated:** Short creative approvals require an
+  explicit one-line referent before production begins.
+- **Public angle:** “We did the next thing—just not the next thing she meant.”
+- **Privacy/IP/reputation:** Internal unapproved brand exploration only.
+
+## BTB-098 · The safety gate passed its fixtures; a synonym walked through
+
+`category: AI safety · evaluation design · product trust`
+— ① Start with the real problem
+`source: FAiRY Godmother P0 phase-2 independent reviews, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** FAiRY’s new deterministic router returned typed, no-charge
+  boundaries for its named medical, crisis, legal, financial, abusive and
+  current-information fixtures.
+- **Issue:** The implementation matched finite phrases more reliably than it
+  understood the request. Natural paraphrases, Unicode punctuation and
+  intrinsically changing questions reached the upstream model and consumed a
+  Play; one legitimate medical-leave draft was overblocked.
+- **What happens:** A suite can report every known regression passing while
+  ordinary meaning-equivalent language still crosses a safety or accuracy
+  boundary.
+- **Evidence observed:** Independent Worker-level probes reproduced upstream
+  calls and allowance writes for self-harm, overdose, treatment, employment
+  law, debt allocation, fraud, account intrusion and current price/access/wage
+  questions. A typographic apostrophe alone changed a surveillance request’s
+  route.
+- **Diagnosis:** **Verified.** The test set and router shared the same phrase
+  assumptions, so exact regression coverage was mistaken for semantic
+  coverage.
+- **Prevent / Fix:** Normalize Unicode and whitespace; test intent families
+  with paraphrases, evasions and false-positive controls; use a conservative
+  classification/fallback for uncertain high-stakes or volatile requests; and
+  independently verify zero upstream calls and zero allowance writes for every
+  non-success route.
+- **Why the fix works:** Independent adversarial language tests measure the
+  product boundary users actually encounter, while the no-charge assertion
+  protects both safety and the reward economy.
+- **New output:** Two independent phase-2 verdicts, locked Worker-level
+  regressions and a second repair packet; FAiRY remains **FIX BEFORE
+  PROMOTION** until the independent floors pass.
+- **Transferable lesson:** Passing the phrases you wrote is not evidence that
+  you can recognize the meaning you intended.
+- **Internal rule/check updated:** Every safety or current-information router
+  now requires normalization, meaning-equivalent probes, false-positive
+  controls, maker/judge separation and side-effect assertions before
+  promotion.
+- **2026-07-25 harness extension:** The first offline classifier harness could
+  show green gates for 1/63 outputs, accept a remapped private join, and verify
+  a key supplied by its own manifest. The repair now requires all 63 canonical
+  rows, every behavioral and measurement gate, deterministic input/join
+  equality, separate send/private artifacts, an out-of-band preregistered
+  Ed25519 key fingerprint and standalone rehashing of the actual artifacts.
+  **Prevention rule:** a signed evaluation is not trusted evidence unless
+  completeness, canonical joins, measured coverage and the signer’s authority
+  are independently verified.
+- **2026-07-25 nested-quote and metric extension:** A clean curly-quote test
+  passed while `don’t` inside the quoted passage prematurely closed it; a
+  complete run filled with zero latency/tokens/cost also passed because
+  “measured” was trusted as a label. Regressions now include internal
+  contractions/possessives and inspect the actual model payload. Metric gates
+  require positive monotonic latency, positive source-bound tokens,
+  recomputable dated pricing (or a specific no-charge basis), and
+  non-invariant evidence across the varied run. **Prevention rule:** test
+  delimiters with delimiter-like characters inside them, and treat measurement
+  provenance plus plausibility as data to validate—not prose to trust.
+- **2026-07-25 authorization-chronology extension:** A canonical, hash-anchored
+  authority registry approved after a past run still certified that run
+  because the verifier checked only that approval was not later than audit
+  day. The harness now orders registry approval before/on the declared run,
+  normalizes strict zoned timestamps to UTC, binds receipt time to the run
+  date, and verifies signing time between run and verifier now across pricing,
+  no-charge, tokenizer and standalone-verifier paths. **Prevention rule:** for
+  every artifact described as preregistered or pre-authorized, test a
+  post-event-but-valid-today sample; validity, signature and trusted-now checks
+  do not prove that authorization existed before execution.
+- **Public angle:** “How one curly apostrophe exposed a brittle AI safety
+  gate.”
+- **Privacy/IP/reputation:** Use synthetic prompts and redacted categorical
+  outcomes only; never publish user questions, identity, allowance or provider
+  records.
+
+## BTB-099 · The webpage had a checksum; the evidence bytes did not exist
+
+`category: research provenance · evidence integrity · historical accuracy`
+— ① Start with the real problem
+`source: Episode 04 P0.1 independent admission review, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The Ada/Analytical Engine source manifest recorded URLs, access
+  dates, byte counts and SHA-256 values for official web pages.
+- **Issue:** The exact fetched bytes were not retained, and dynamic HTML
+  returned different hashes on repeated requests even when byte counts matched.
+- **What happens:** A precise-looking checksum becomes orphan metadata that no
+  independent reviewer can resolve or reproduce.
+- **Evidence observed:** Repeated same-day fetches of the Science Museum and
+  Google Books pages produced multiple hashes; the packet contained none of
+  the originally hashed captures.
+- **Diagnosis:** **Verified.** A remote-response checksum was treated as durable
+  provenance without preserving the lawful evidence object it identified.
+- **Prevent / Fix:** Either retain the exact permitted capture with path,
+  timestamp and checksum, or bind each claim to the stable official URL/object
+  ID, access date and exact supported proposition. Never present a dynamic-page
+  hash as independently verifiable when its bytes are absent.
+- **Why the fix works:** The reviewer can inspect the same evidence object or
+  re-evaluate the same dated institutional claim even when page chrome changes.
+- **New output:** Episode 04 P0.2 source/execution binding repairs the source
+  register before any historical image can enter production.
+- **Transferable lesson:** A hash proves identity only when the identified
+  object is available.
+- **Internal rule/check updated:** Research manifests must validate that every
+  content hash resolves to retained, lawful bytes; otherwise they use
+  claim-level official identifiers and dated propositions instead.
+- **Public angle:** “We had the checksum and lost the thing it checked.”
+- **Privacy/IP/reputation:** Respect source licences and retention limits; do
+  not archive protected portraits or pages merely to make a manifest look
+  complete.
+
+## BTB-100 · The release radar watched today and missed Tuesday
+
+`category: editorial operations · news discovery · automation quality`
+— ① Start with the real problem
+`source: NewsStand afternoon radar recovery, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The morning NewsStand radar correctly treated model launches as
+  core The Breaking candidates and found Anthropic's July 24 release.
+- **Issue:** Its discovery sweep was too tightly anchored to the current news
+  day and missed Google's material July 21 Gemini Flash-family launch.
+- **What happens:** A proactive desk can appear current while leaving a
+  choice-changing release unexamined simply because it is several days old.
+- **Evidence observed:** The afternoon source sweep recovered two GA models
+  with changed prices, defaults, API behaviour and practical task routing.
+  Their complete Google documentation and independent tests were already
+  available during the morning run.
+- **Diagnosis:** **Verified.** Recency was treated as the discovery window
+  instead of one scoring input.
+- **Prevent / Fix:** Every radar run must maintain a rolling seven-day official
+  model/feature-release reconciliation by major provider, compare it with the
+  canonical story log and explicitly score any unlogged launch before moving
+  on to current-day headlines.
+- **Why the fix works:** The ledger comparison detects editorial omissions
+  without promoting old or low-value announcements; the normal qualification
+  gate still decides whether anything is worth publishing.
+- **New output:** A 13/18 Gemini Flash-family P1 packet and The Breaking draft
+  were created privately; the release remains human-reviewed.
+- **Transferable lesson:** A news radar needs an omission detector, not only a
+  fresh-headline detector.
+- **Internal rule/check updated:** Add a seven-day official-release
+  reconciliation to every NewsStand scan and log “no unscored releases” when
+  clear.
+- **Public angle:** “How an AI news radar missed a model release that was four
+  days old.”
+- **Privacy/IP/reputation:** Use public product sources only; do not frame an
+  operational miss as a vendor failure.
+
+## BTB-101 · Four newspaper names were not four operating publications
+
+`category: publication architecture · failure truth · accessibility`
+— ① Start with the real problem
+`source: NewsStand independent review and canonical reader repair, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The NewsStand displayed The Breaking, The Daily, The Weekly and
+  The Tribune, and aliased an older `wednesday` story into the Weekly selector.
+- **Issue:** The visible mastheads were not backed by one canonical publication
+  record with status, dated checks, approvals, corrections or retractions.
+  The reader could therefore say a paper was current when data was absent or
+  stale, and keyboard focus disappeared after opening, searching or returning.
+- **What happens:** A taxonomy repair looks finished while the product still
+  cannot distinguish current, quiet, held, failed, corrected or withdrawn.
+- **Evidence observed:** The independent review found unconditional “The
+  Weekly is in” copy, a split `wednesday`/`weekly` producer-reader map, no
+  reader-facing failure/correction state and no focus restoration.
+- **Diagnosis:** **Verified.** Labels were treated as the operating contract;
+  visit time and array contents stood in for publication state.
+- **Prevent / Fix:** Every publication name must resolve to a versioned
+  canonical object containing its reader job, status, published/updated/checked
+  timestamps, freshness window, source approval and correction/retraction
+  path. Readers fail closed when that contract is missing, held or stale.
+  Opening and closing a surface must also have an explicit focus destination.
+- **Why the fix works:** Currentness becomes dated evidence rather than prose;
+  quiet is distinguishable from failure; held and retracted work cannot leak
+  through search; and keyboard users keep a coherent place in the journey.
+- **New output:** `content/newsstand.schema.json`,
+  `content/newsstand-reader-contract.js`, eight state fixtures and story-level
+  evidence manifests.
+- **Transferable lesson:** Naming the lanes does not operationalize them.
+- **Internal rule/check updated:** Publication-contract reviews now require a
+  state matrix, canonical producer-to-reader edition keys, dated failure truth,
+  source approval/correction records and open/search/return focus tests.
+- **Public angle:** “We had four newspapers. We did not yet have four desks.”
+- **Privacy/IP/reputation:** Public source research only; held material remains
+  withheld until independently approved.
+
+## BTB-102 · The scheduler existed while the registry said it did not
+
+`category: agent operations · state reconciliation · status truth`
+— ① Start with the real problem
+`source: Product Champion autonomous-cycle reconciliation, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The Product Champion runtime, orchestrator and installed Codex
+  automation identified a weekday 08:30 local heartbeat.
+- **Issue:** The canonical registry and an older portfolio snapshot still
+  labelled the persistent runner and scheduler `NOT_WIRED`.
+- **What happens:** Ali cannot tell whether the agents really operate, and a
+  later agent can either duplicate a live scheduler or falsely report that no
+  recurring system exists.
+- **Evidence observed:** The active automation file names the same runtime,
+  target task and weekday recurrence recorded in `RUNTIME.md`; the registry
+  contradicted those exact facts.
+- **Diagnosis:** **Verified.** Runtime installation and durable portfolio state
+  were updated in separate cycles without a reconciliation gate.
+- **Prevent / Fix:** Any automation create, update, pause or removal must
+  atomically reconcile the runtime record, registry automation block and
+  portfolio status table, then run the steward validator.
+- **Why the fix works:** The installed trigger and the source-of-truth records
+  describe the same operating reality while still labelling analytics,
+  product-specific alerts and external inbox ingestion as unwired.
+- **New output:** Registry and portfolio status now distinguish the active
+  heartbeat from integrations that do not exist.
+- **Transferable lesson:** An installed automation is not operational truth
+  until the system of record agrees with it.
+- **Internal rule/check updated:** Add scheduler-state reconciliation to the
+  orchestrator learning scan and future runtime-change packets.
+- **Public angle:** “The automation was real. Our registry said it was
+  imaginary.”
+- **Privacy/IP/reputation:** Never include credentials, private prompts or
+  analytics payloads in scheduler evidence.
+
+## BTB-103 · The parked game engine was also the phone booth's front door
+
+`category: product architecture · safe isolation · journey testing`
+— ① Start with the real problem
+`source: Dream Phone product-status trust repair, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Dream Phone's patron-saint deduction engine was parked, but the
+  public booth still loaded its full script while showing Just Call and a
+  separate fact game.
+- **Issue:** The engine file also owned the neutral two-door navigation. Safely
+  removing the parked engine therefore left Just Call hidden even though its
+  own dialer code still worked.
+- **What happens:** Source inspection says the unwanted feature is isolated,
+  while the actual user cannot enter the retained product.
+- **Evidence observed:** The deterministic source contract passed; the first
+  headless-browser new-user journey timed out with `#dpJustCall` still hidden.
+- **Diagnosis:** **Verified.** Shared shell/navigation behavior was coupled to
+  a parked product engine.
+- **Prevent / Fix:** Before isolating a feature, trace and classify every
+  exported or event-bound responsibility. Move neutral shell/navigation into
+  the owning page or shell, then test the first user action and return path in
+  a real browser.
+- **Why the fix works:** The parked engine no longer executes, while the small
+  track-navigation contract remains explicit and independently testable.
+- **New output:** Dream Phone now retains navigation-only behavior locally and
+  its new/returning browser suite passes.
+- **Transferable lesson:** Removing a feature file is not safe isolation until
+  its hidden shell responsibilities are accounted for.
+- **Internal rule/check updated:** Product-engine isolation packets require a
+  responsibility map plus rendered entry/return journey, not only an import
+  absence assertion.
+- **Public angle:** “We parked the game and accidentally parked the front
+  door.”
+- **Privacy/IP/reputation:** Use only local/public product behavior; do not
+  expose user sessions, credentials or unpublished product concepts.
+
+## BTB-104 · The evidence ledger admitted a chronology the source did not say
+
+`category: learning accuracy · evidence contracts · fail-closed runtime`
+— ② Tell the truth about what happened
+`source: Dream Phone independent review repair, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Dream Phone introduced a machine-readable claim ledger and
+  admitted an ESRB history round against official institutional sources.
+- **Issue:** The review compressed two distinct intervals into one: ESRB Part
+  8 says a trade association formed four months after the first hearing and
+  ESRB was officially formed five months after that. The runtime also accepted
+  an expired ledger or a substituted source URL.
+- **What happens:** A product can look claim-level and sourced while teaching a
+  false chronology, and a changed evidence object can enter play without
+  changing the authored explanation.
+- **Evidence observed:** Independent review found the wrong “five months after
+  the hearing” / “one month later” wording. Adversarial browser fixtures proved
+  the original runtime accepted stale dates and `example.invalid`.
+- **Diagnosis:** **Verified.** Structured evidence was mistaken for validated
+  evidence; no executable contract bound freshness, exact claim text, source
+  URL and reveal rows together.
+- **Prevent / Fix:** Admit historical claims clause by clause, preserve every
+  elapsed-time referent, and fail the entire playable deck closed when an
+  admitted record is stale, correction-required, duplicated, unknown or differs
+  from the runtime's exact claim text/source URL. A correction returns the
+  affected round to `HOLD` until fresh independent admission.
+- **Why the fix works:** An authored round cannot remain playable after its
+  authority, wording, date or correction state changes; misleading chronology
+  cannot hide behind a generally correct year.
+- **New output:** Dream Phone beta deck `2026-07-25-r2`, exact runtime-ledger
+  parity validation and adversarial rendered tests.
+- **Transferable lesson:** A ledger is evidence control only when the product
+  enforces its referents, freshness and identity at runtime.
+- **Internal rule/check updated:** Evidence-backed interactives require exact
+  claim/source/reveal parity plus missing, stale, corrected, mismatched,
+  duplicate and unknown-record fixtures before admission.
+- **Public angle:** “Our sourced game still got the timeline wrong.”
+- **Privacy/IP/reputation:** Use public official sources; disclose the
+  correction without implying independent approval before re-review.
+- **2026-07-25 strict-calendar extension:** A later independent re-judge found
+  that ISO shape plus `Date.parse` still admitted impossible dates because
+  JavaScript normalizes values such as `2026-02-31` into March. Evidence
+  contracts must validate Gregorian year/month/day components directly, treat
+  date-only values as UTC strings, reject future evidence/correction dates and
+  test valid leap days under a non-local browser timezone.
+
+## BTB-105 · “Saved” meant the writes were attempted, not that the card survived
+
+`category: product integrity · local persistence · state honesty`
+— ① Make it work · ② Tell the truth about what happened
+`source: MAiKEOVER local P0 preflight, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** MAiKEOVER lets an anonymous visitor style a Resident Card and
+  retain it in browser storage before any account flow.
+- **Issue:** The storage helper swallowed write failures and the Save handler
+  always announced success. It also omitted the carrying field even though the
+  preview and return hydration supported it.
+- **What happens:** A privacy setting, quota failure or blocked storage can lose
+  the card while telling the resident it is set; a normal reload can also drop
+  one visible choice without an error.
+- **Evidence observed:** Source tracing found unconditional success copy after
+  silent `localStorage` writes and no carrying write in the Save block.
+  Deterministic blocked-storage and save/reload browser tests reproduced the
+  contract risk. Independent review then injected failure on the third legacy
+  write and proved the first repair's incomplete snapshot deleted four
+  untouched prior fields during rollback.
+- **Diagnosis:** **Verified.** The completion event was a button handler, not
+  verified persistence of the full declared field set.
+- **Prevent / Fix:** Put the complete local card and every visible local edit
+  field in one versioned authoritative envelope and commit it with one atomic
+  `localStorage.setItem`; treat legacy
+  per-field keys as import-only inputs. Read-verify the envelope, announce
+  failure, withhold success handoffs and test byte-for-byte preservation of the
+  prior envelope and untouched legacy fields under quota/denied storage.
+- **Why the fix works:** The visible success state now depends on the actual
+  local persistence contract rather than on control flow reaching the end of a
+  click handler.
+- **New output:** MAiKEOVER contract checker and rendered browser suite covering
+  the complete visible local edit, valid/corrupt legacy import, duplicate save, reload, two
+  tabs, isolated second context, denied storage and prior-byte preservation.
+- **Transferable lesson:** For local-first products, “save” is a data contract:
+  enumerate, verify, reload and fail honestly.
+- **Internal rule/check updated:** A local persistence feature cannot pass from
+  a write call alone; acceptance requires full-field round trip and an injected
+  storage-failure fixture.
+- **Public angle:** “Our makeover said your card was saved when the browser had
+  quietly said no.”
+- **Privacy/IP/reputation:** Use synthetic card fields only; never capture
+  resident names, handles, avatar data or browser contents in test evidence.
+
+## BTB-106 · The test catalogue could replace the public radio catalogue
+
+`category: product integrity · test isolation · media admission`
+— ① Make it work · ② Tell the truth about what happened
+`source: KSVL independent rejudge repair, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Issue:** The production player accepted an in-page test registry, so a
+  fixture could bypass the public catalogue authority and make a held file
+  playable.
+- **Prevent / Fix:** Public bundles must have no mutable fixture admission
+  boundary. Inject hostile and control catalogues only at an isolated local
+  test-server/module boundary, then assert against the exact artifact that an
+  in-page override cannot change admission.
+- **Transferable lesson:** A fail-closed ledger is not authoritative if the
+  production runtime still trusts a test-shaped side door.
+- **Public angle:** “Our test passed by quietly replacing the rulebook.”
+- **Privacy/IP/reputation:** Use synthetic fixture states only; never infer
+  rights or approval from file existence or successful playback mechanics.
+
+## BTB-107 · The comment card could be delivered and still say it failed
+
+`category: product integrity · database policy · duplicate prevention`
+— ① Make it work · ② Tell the truth about what happened
+`source: Town Hall private-inbox P0 maker cycle, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Town Hall permits anonymous and signed-in feedback through a
+  browser Supabase client.
+- **Issue:** The client chained `.select().single()` onto every insert, while
+  the inspected RLS policy permits an anonymous insert but only an
+  authenticated owner read.
+- **What happens:** An anonymous write can complete, the returning-row read can
+  fail, and the visitor can be told to retry—creating a duplicate—while the
+  product also implies somebody will read the note.
+- **Evidence observed:** Source/RLS reconciliation established the conflicting
+  write/read contract. Deterministic synthetic browser fixtures now cover
+  accepted, rejected and unknown outcomes without touching the service.
+- **Diagnosis:** **Verified local contract defect; live occurrence not
+  tested.** A compound client call treated a post-write read as the receipt for
+  the write.
+- **Prevent / Fix:** Define the exact completion event before coding. Do not
+  require a read that the actor cannot authorize. Return a typed acceptance
+  receipt from a bounded, idempotent server intake; preserve input and warn
+  against immediate retry when delivery is ambiguous.
+- **Why the fix works:** User messaging follows the smallest proved state, and
+  a lost response cannot silently convert a completed mutation into a second
+  mutation.
+- **New output:** Town Hall operating spec, minimal-payload controller, source
+  contract and 33-check rendered synthetic suite.
+- **Transferable lesson:** Every mutation receipt must be tested against the
+  actor's read policy and the “write succeeded, response failed” case.
+- **Internal rule/check updated:** Feedback/form reviews must separately test
+  accepted, rejected and ambiguous delivery; post-write reads cannot stand in
+  for idempotency.
+- **Public angle:** “The suggestion box took the card and then told us it
+  hadn't.”
+- **Privacy/IP/reputation:** Use synthetic notes only; never put real feedback,
+  emails, identities or raw service errors in evidence.
+
+## BTB-108 · The product changed identity every time its content changed
+
+`category: accessibility · frontend contracts · test reliability`
+— ① Make it work · ② Tell the truth about what happened
+`source: Mall Gift Shop P0 rendered journey, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The Gift Shop keeps one product-detail region and redraws its
+  contents when a visitor chooses a concept.
+- **Issue:** Rendering replaced the region's stable `id` with an item-specific
+  persistence key. The content appeared correctly, but focus, assistive
+  references and automation could no longer find the named product region.
+- **Evidence observed:** The exact rendered test timed out waiting for
+  `#shopProduct` after the first successful render; DOM inspection showed the
+  renderer had renamed it to `gift-shop-product-0`.
+- **Diagnosis:** **Verified.** A persistence identifier and a DOM/interaction
+  identity had been collapsed into one mutable field.
+- **Prevent / Fix:** Keep the landmark/region ID stable. Carry changing record,
+  analytics or persistence identity in an explicit `data-*` contract, and test
+  both the stable region and changing key after redraw.
+- **Why the fix works:** Assistive technology, focus logic and tests retain one
+  durable target while the saved item still receives its exact key.
+- **New output:** Gift Shop product region keeps `#shopProduct`; Puffy
+  persistence reads `data-puffy-id`.
+- **Transferable lesson:** UI identity answers “where is this control?”; data
+  identity answers “which record is this?” They should not overwrite each other.
+- **Internal rule/check updated:** Dynamic render tests must verify that stable
+  landmarks and focus targets survive state changes.
+- **Public angle:** “The counter was still there; we had changed its street
+  address every time you picked something up.”
+- **Privacy/IP/reputation:** Use synthetic interaction state only; no visitor
+  interests or saved records belong in evidence.
+
+## BTB-109 · The safety controller existed; every live room walked around it
+
+`category: product integrity · third-party services · safe failure`
+— ① Make it work · ② Tell the truth about what happened
+`source: Delta LAi Nu bounded relaunch P0, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** A shared community-room controller contained an honest localhost
+  preview for Hyvor-backed discussions.
+- **Issue:** None of the seven governed room pages loaded that controller. Each
+  eagerly loaded the provider module itself, so the intended local/failure
+  boundary was dead code.
+- **What happens:** Documentation and source inventory suggest a safety state
+  exists while the real page can contact the provider before that state can
+  run. Local tests can also touch a third party unintentionally.
+- **Evidence observed:** Every room contained a direct
+  `talk.hyvor.com/embed/embed.js` script and no `community-room.js` include.
+- **Diagnosis:** **Verified.** The boundary was implemented but not on the
+  product's execution path.
+- **Prevent / Fix:** One shared controller owns provider admission, approved
+  hosts, loading/failure states and embed creation. Governed pages contain a
+  inert mount only; source tests forbid eager provider scripts and browser
+  fixtures deny external network.
+- **Why the fix works:** Local, hostile-host and unavailable journeys fail
+  closed before any provider request, while the approved host retains one
+  explicit integration point.
+- **New output:** Shared provider-state controller, seven wired rooms, Sorority
+  House embed integration and source/exact-artifact adversarial suites.
+- **Transferable lesson:** A safety component is not a control until every
+  governed entry point is forced through it.
+- **Internal rule/check updated:** Third-party embed reviews require page-level
+  import parity plus zero-network local/unsupported-host fixtures.
+- **Public angle:** “We built the velvet rope. The seven doors were beside it.”
+- **Privacy/IP/reputation:** Use synthetic states only; never capture thread
+  text, identity or moderation data in test evidence.
+
+## BTB-110 · A local profile card dressed up as a community identity
+
+`category: product integrity · identity · authorization`
+— ① Make it work · ② Tell the truth about what happened
+`source: Delta LAi Nu bounded relaunch P0, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The house personalized arrival from a local Resident Card handle
+  and browser-stored auth-shaped JSON.
+- **Issue:** Either value could mark a visitor “resident,” claim all live rooms
+  were unlocked and say every post was signed by the Closet, although Hyvor
+  separately owns discussion sign-in and posting.
+- **What happens:** Local profile play becomes an authorization claim, and a
+  returning-device hint is mistaken for external or cross-device identity.
+- **Evidence observed:** `sorority-house-v2.js` set resident truth from
+  `laidies_card_username` or parsed local token data; house copy promised room
+  unlock and post signing from that result.
+- **Diagnosis:** **Verified.** Personalization state, authenticated identity and
+  third-party authorization were collapsed.
+- **Prevent / Fix:** Name each authority. Local profile state may personalize
+  copy but cannot unlock, sign, publish or prove external identity. Provider
+  sign-in/outcomes stay inside the provider contract until a verified
+  integration exists.
+- **Why the fix works:** Every visitor can discover the product without a fake
+  gate, and no browser-owned value escalates into community authority.
+- **New output:** Open room discovery, explicit local-card boundary and
+  deterministic newcomer/returning/provider-state tests.
+- **Transferable lesson:** A familiar-looking token or profile is not identity
+  proof for another system.
+- **Internal rule/check updated:** Cross-product identity reviews must map
+  local profile, first-party session, provider session and authorization as
+  separate states.
+- **Public angle:** “The house mistook a name tag for the guest list.”
+- **Privacy/IP/reputation:** Never expose emails, provider sessions, handles or
+  community content in evidence.
+
+## BTB-111 · The right browser route became the wrong build dependency
+
+`category: release engineering · static dependency crawl · navigation`
+— ① Make it work · ② Tell the truth about what happened
+`source: Delta LAi Nu bounded relaunch P0, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The shared room controller restores a direct room's return route
+  to the Sorority House while preserving a weekly Bag handoff.
+- **Issue:** A literal page-relative `../community.html` inside a script under
+  `content/site/` worked correctly in the browser, but the static builder
+  interpreted it relative to the script and reported the nonexistent
+  `content/community.html`.
+- **Evidence observed:** Source and rendered checks passed; the first fresh
+  artifact alone reported one missing dependency required by
+  `content/site/community-room.js`.
+- **Diagnosis:** **Verified.** Browser runtime base resolution and build-time
+  source-file resolution had different owners.
+- **Prevent / Fix:** Keep the actual route in each HTML page, where the crawler
+  has the correct document context. Runtime enhancement may reconstruct and
+  preserve that known route without presenting it as a script-local static
+  dependency. Require a fresh zero-missing artifact after navigation changes.
+- **Why the fix works:** The browser retains the intended return path while the
+  release builder packages only the real page dependency.
+- **New output:** Direct-room weekly return browser assertion and a fresh exact
+  artifact with zero missing dependencies.
+- **Transferable lesson:** A route can be browser-correct and artifact-wrong;
+  verify both resolution contexts.
+- **Internal rule/check updated:** Shared navigation scripts need source,
+  rendered and fresh-artifact dependency evidence.
+- **Public angle:** “The directions worked for guests, but the moving truck
+  read them from the wrong building.”
+- **Privacy/IP/reputation:** Navigation fixtures use synthetic issue/group
+  values and no visitor history.
+
+## BTB-112 · A dynamic episode path passed source and vanished from the artifact
+
+`category: release engineering · static dependency crawl · dynamic content`
+— ① Make it work · ② Tell the truth about what happened
+`source: BRONZE AiGE bounded relaunch P0, 2026-07-25`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Wednesday's conversation prompt resolves the latest admitted,
+  published episode issue while preserving an evergreen failure state.
+- **Issue:** Runtime constructed `/content/episodes/issue-${n}.json`; source
+  behaviour and source tests passed, but the static dependency crawler could
+  not discover that concrete file and omitted the latest issue from the first
+  exact artifact.
+- **What happens:** The packaged product safely falls back to evergreen copy,
+  but can never present the latest prompt even though source testing says the
+  feature works.
+- **Evidence observed:** The first fresh artifact lacked
+  `content/episodes/issue-04.json`; its network-denied browser run reached the
+  honest fallback. The rebuilt artifact includes issues 1–4 and passes 58
+  contract checks and 43 browser checks with zero completed external requests.
+- **Diagnosis:** **Verified.** Runtime admission and build-time dependency
+  discovery had separate, incomplete sources of truth.
+- **Prevent / Fix:** Use an explicit literal map of admitted issue paths for
+  both runtime selection and static packaging. Run the same behavioural suite
+  against source and a fresh exact artifact.
+- **Why the fix works:** Only known episode files can be selected, and every
+  selectable file is visible to the dependency crawler.
+- **New output:** Explicit admitted issue map plus source/exact-artifact
+  freshness, stale-data and failure fixtures.
+- **Transferable lesson:** A dynamic content URL is not packaged merely because
+  it works from source.
+- **Internal rule/check updated:** Episode/data features require package-visible
+  literal admission and exact-artifact parity evidence.
+- **Public angle:** “The menu knew tonight's special. The moving truck forgot
+  the recipe card.”
+- **Privacy/IP/reputation:** Use synthetic episode fixtures and network denial;
+  do not capture visitor discussions or behavioural profiles.
+
+## BTB-113 · The postcard looked selected while Copy used a different card
+
+`category: frontend state · source binding · deterministic testing`
+— ① Make it work · ② Tell the truth about what happened
+`source: Post Office cycle 5 bounded service-truth P0, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** A postcard query parameter selects the public card shown in the
+  writing desk, and Copy/Share must use that same card's canonical URL.
+- **Issue:** The page rendered the query-selected card, then assigned the
+  internal selection back to the first card.
+- **What happens:** A visitor can see one postcard while the first Copy action
+  silently produces a link to another.
+- **Evidence observed:** With a valid non-default deep link, the visible
+  selection and internal URL source diverged before any second card click.
+- **Diagnosis:** **Verified.** Render state and action state were initialized in
+  the wrong order.
+- **Prevent / Fix:** Initialize the selected identifier before first render and
+  assert that a non-default deep link's visible card, selected state and exact
+  copied/shared canonical URL agree on the first action.
+- **Why the fix works:** Display and actions read one initialized source of
+  truth from the first frame.
+- **New output:** A deterministic deep-link-to-first-copy browser fixture in
+  the 32-check Post Office suite.
+- **Transferable lesson:** A correct screen is not proof that its next action
+  is bound to the same state.
+- **Internal rule/check updated:** Every deep-linked selector must include a
+  non-default first-action source-binding fixture.
+- **Public angle:** “The postcard on the desk and the postcard in the envelope
+  were not the same.”
+- **Privacy/IP/reputation:** Fixtures use public card IDs only; never capture
+  postcard notes, handles, contacts or raw private URLs.
+
+## BTB-114 · The shelf said “held” while the moving truck still packed the books
+
+`category: release engineering · publication governance · static dependency crawl`
+— ① Make it work · ② Tell the truth about what happened
+`source: SUNNYVAiLE LIBRAiRY cycle 5 bounded relaunch P0, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The catalogue status authority made every unadmitted book
+  visibly non-operable on the shelf, in mobile browse, through Miss Jeeves and
+  by direct hash.
+- **Issue:** Five held records still contained literal rendered-body source
+  paths, so the static dependency crawler packaged those bodies even though the
+  interface correctly refused to open them.
+- **Evidence observed:** The first exact artifact contained five held rendered
+  bodies. After removing publication paths from every held record, the final
+  exact artifact contained none and the same 18 browser checks passed.
+- **Diagnosis:** **Verified.** Interface admission and artifact admission were
+  governed separately.
+- **Prevent / Fix:** A held catalogue record must not contain a public content
+  source. Validate both the status-to-source invariant and the exact artifact’s
+  absence of held bodies before release.
+- **Why the fix works:** The same catalogue decision now prevents both user
+  operation and static packaging; promotion to available must explicitly add a
+  tested source.
+- **New output:** Catalogue contract validator plus source/exact-artifact
+  browser suite and zero-held-body artifact assertion.
+- **Transferable lesson:** A disabled link is not a release boundary. Govern
+  what ships as well as what the interface opens.
+- **Internal rule/check updated:** Publication status must control UI access,
+  dependency discovery and artifact contents together.
+- **Public angle:** “The library put up a closed sign, but the moving truck had
+  already packed the unapproved books.”
+- **Privacy/IP/reputation:** Tests inspect only local catalogue paths and
+  synthetic saves; no reader activity or private annotations are captured.
+
+## BTB-115 · One leading slash was mistaken for a local address
+
+`category: frontend security · URL admission · privacy`
+— ① Make it work · ② Tell the truth about what happened
+`source: Post Office Cycle 5 independent review and Repair 1, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The published-episode drawer accepts local image and issue paths
+  from a runtime JSON register.
+- **Issue:** A character allow-list required a leading slash but also accepted
+  two leading slashes.
+- **What happens:** `//attacker.invalid/path` resolves as an external
+  protocol-relative URL, creating an outbound link and image request from data
+  described as local.
+- **Evidence observed:** The independent fixture recorded an attacker-origin
+  image attempt and link. Repair 1 rejects protocol-relative, absolute,
+  encoded-origin, backslash, control-character, traversal and unexpected route
+  shapes before creating any DOM link or image.
+- **Diagnosis:** **Verified.** Allowed characters are not an origin or route
+  authorization policy.
+- **Prevent / Fix:** Admit destinations by exact semantic route class and
+  validate the complete dataset before DOM use. Image paths must be approved
+  `/assets/` files; archive links must be admitted issue routes.
+- **Why the fix works:** Invalid data reaches one text-only failure state and
+  never becomes an `href`, `src` or network request.
+- **New output:** Source and exact-artifact hostile URL matrix with zero
+  attacker attempts and visible fail-closed UI.
+- **Transferable lesson:** URL safety depends on parsed meaning and admitted
+  destination shape, not a reassuring first character.
+- **Internal rule/check updated:** Every local-path gate needs
+  protocol-relative, absolute, encoded-origin, backslash, control, traversal
+  and unexpected-route fixtures before release.
+- **Public angle:** “Two slashes turned the archive drawer into an outside
+  door.”
+- **Privacy/IP/reputation:** Fixtures use `attacker.invalid`; no real external
+  endpoint, visitor data, email, note or handle is contacted or recorded.
+
+## BTB-116 · The authority worked in the studio and missed the release truck
+
+`category: release engineering · static dependency crawl · product authority`
+— ① Make it work · ② Tell the truth about what happened
+`source: THE EXTRA CREDIT cycle 5 admitted-child P0, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** THE EXTRA CREDIT moved child and episode admission into a
+  fail-closed JSON registry fetched by its page.
+- **Issue:** The page-relative fetch path worked from the source server, but
+  the static dependency crawler did not recognize it and omitted the registry
+  from the first exact artifact.
+- **Evidence observed:** Source passed 23 hostile browser checks. The first
+  artifact lacked `games/data/fun-pack-registry.json` and correctly showed the
+  unavailable state. An explicit root-relative public dependency produced a
+  second artifact containing byte-identical page and registry; all 23 checks
+  then passed.
+- **Diagnosis:** **Verified.** Runtime URL resolution and release dependency
+  discovery were separately correct/incorrect.
+- **Prevent / Fix:** Every fetched product authority must be package-visible,
+  required in the exact artifact and exercised with the same hostile suite
+  against that artifact. A graceful fail-closed screen is not a successful
+  release when the authority was supposed to ship.
+- **Why the fix works:** The crawler can discover the literal public path and
+  the browser still resolves one canonical same-origin authority.
+- **New output:** Source/artifact admission suite plus byte-parity evidence for
+  the page and registry.
+- **Transferable lesson:** Failure honesty protects users; it does not turn an
+  accidentally incomplete artifact into the intended product.
+- **Internal rule/check updated:** Registry-backed products require explicit
+  release dependency, artifact presence and source/artifact journey parity.
+- **Public angle:** “The shelf refused to guess—which was good. The real fix
+  was putting its rulebook on the truck.”
+- **Privacy/IP/reputation:** Registry and tests contain public product states
+  and synthetic fixtures only; no visitor inputs or analytics are captured.
+
+## BTB-117 · A truthful shelf trusted two visitor-controlled rulebooks
+
+`category: product security · publication admission · local persistence`
+— ① Make it work · ② Tell the truth about what happened
+`source: LIBRAiRY Cycle 5 independent FAIL and Repair 1, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The Library correctly labelled every book HOLD/PREVIEW and
+  read-verified Puffy writes.
+- **Issue:** `openBook` trusted an exported mutable catalogue, while My Closet
+  trusted every parsed localStorage row as a bookmark.
+- **What happens:** A runtime mutation could turn a held book into an external
+  fetch; an executable URL became a live Closet link; one `null` row crashed
+  the board and hid valid saves.
+- **Evidence observed:** Independent source and artifact fixtures produced one
+  attacker request, one `javascript:` link and one null-record page error.
+  Repair 1 hostile suites produce zero publication attempts/errors and retain
+  canonical valid siblings while visibly dropping twelve unsafe/corrupt rows.
+- **Diagnosis:** **Verified.** Honest display state and verified writes were
+  mistaken for immutable publication authority and typed stored data.
+- **Prevent / Fix:** Keep admission authority private/frozen; bind every
+  source to one exact same-origin record before state/fetch. Treat all browser
+  storage as untrusted: exact fields, bounded text/IDs, known assets/routes,
+  strict dates, dedupe, capacity, canonical rewrite and visible recovery.
+- **Why the fix works:** Neither a public object nor parsed JSON can acquire
+  authority merely by having the expected property names.
+- **New output:** Catalogue takeover/source matrix and board/pouch hostile
+  read/write suite in source and exact artifact.
+- **Transferable lesson:** A truthful interface can still have a client-owned
+  back door. Validate authority at the moment it causes navigation, fetch,
+  rendering or persistence.
+- **Internal rule/check updated:** Client-controlled catalogues and storage
+  records require hostile takeover/schema fixtures, sibling-preserving
+  recovery and exact-artifact parity.
+- **Public angle:** “The shelf signs were honest. Two unofficial rulebooks
+  could still move the books.”
+- **Privacy/IP/reputation:** Only synthetic local records and
+  `attacker.invalid` are used; no reader saves, notes or browsing history are
+  inspected.
+
+## BTB-118 · Yesterday’s passing newspaper still missed its mark today
+
+`category: browser testing · asynchronous restoration · evidence currentness`
+— ① Make it work · ② Tell the truth about what happened
+`source: NewsStand Cycle 6 four-publication audit, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** NewsStand Repair 3 recorded a 73-check browser pass for
+  Back/Forward restoration, including scroll vicinity.
+- **Issue:** A fresh run failed the paper Back scroll-vicinity assertion while
+  route, body suppression, card and focus restoration passed.
+- **Evidence observed:** `scripts/test-newsstand-reader-browser.mjs` stopped at
+  `paper Back restores origin vicinity`.
+- **Diagnosis:** **Verified regression or timing flake; root cause not yet
+  isolated.** Historical green evidence was not reproducible on demand.
+- **Prevent / Fix:** Re-run high-risk browser evidence in the current cycle.
+  Test repeated navigation at multiple viewport heights and wait on an
+  observable restoration condition rather than a fixed delay.
+- **Why the fix works:** Acceptance becomes tied to stable user-visible state,
+  not one scheduler/browser timing outcome.
+- **New output:** Cycle 6 P0 requires three repeated paper/search
+  Back/Forward cycles and deterministic settled-state evidence.
+- **Transferable lesson:** A dated pass is evidence of that run, not a
+  permanent property of an asynchronous interface.
+- **Internal rule/check updated:** Fresh champion audits must rerun critical
+  browser journeys and downgrade contradictory historical claims immediately.
+- **Public angle:** “The paper found your place yesterday. Today it lost the
+  page.”
+- **Privacy/IP/reputation:** The test uses local synthetic publication data;
+  no reader history, queries or external traffic are collected.
+
+## BTB-120 · The cue sheet passed after the pictures became one box
+
+`category: release engineering · media integrity · derived artifacts`
+— ① Make it work · ② Tell the truth about what happened
+`source: Screening Room Cycle 6 exact-artifact audit, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Screening Room source cue sheets bind narration spans to many
+  episode visuals, while the public builder protects held Episode 03–04 art.
+- **Issue:** The builder replaces every Episode 03–04 visual occurrence with
+  one episode VHS cover and removes the Episode 04 video loop. The resulting
+  cue JSON remains structurally valid.
+- **Evidence observed:** Source and exact-artifact cue validators both passed,
+  but the Episode 03 and Episode 04 cue hashes differed. Exact inspection
+  showed 49/49 and 58/58 public visual occurrences respectively using a single
+  episode cover instead of narration-specific source visuals.
+- **Diagnosis:** **Verified.** Dependency validity proved that the derived
+  programme could load; it did not prove source/artifact equivalence or
+  narration-image alignment.
+- **Prevent / Fix:** Treat every build-time content transform as a named,
+  versioned product derivative with its own cue manifest, hashes, experience
+  claim and rendered acceptance evidence. Never report parity from structural
+  validity alone.
+- **Why the fix works:** Review and release authority attach to the programme
+  visitors actually receive, including deliberate substitutions.
+- **New output:** Screening Room admission contract and exact-artifact test
+  now identify cover-only Episode 03–04 fallbacks as distinct held editions.
+- **Transferable lesson:** A safe fallback can be honest and still be a
+  different product. Passing paths do not prove the intended pictures shipped.
+- **Internal rule/check updated:** Media products with build transforms require
+  source and artifact cue hashes, transform disclosure, title-level visual
+  occurrence review and a distinct admission verdict.
+- **Public angle:** “Every cue worked. Every cue showed the same box.”
+- **Privacy/IP/reputation:** The audit uses only LAiDIES-owned local source and
+  generated release artifacts; no visitor data or private credentials are
+  accessed.
+
+## BTB-119 · The closed account desk still shipped its forms and wiring
+
+`category: product truth · privacy minimization · held feature isolation`
+— ① Make it work · ② Tell the truth about what happened
+`source: Resident Card Cycle 6 deep dive, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Resident Card visibly said that account intake was closed while
+  the real device-local Card lived at MAiKEOVER.
+- **Issue:** The held route still contained hidden email/newsletter/profile
+  controls, loaded account configuration and ran a resend observer. It also
+  claimed the Card saved progress that actually belonged to separate local
+  stores.
+- **Evidence observed:** Source inspection found the inert intake/profile DOM,
+  account config and observer despite no operable account journey. The repaired
+  route contains no email input, account SDK/config, magic-link machinery or
+  Card-as-progression claim; 19 contract and 28 browser checks pass.
+- **Diagnosis:** **Verified.** Hiding a feature from sight did not remove its
+  privacy surface, stale contract or maintenance burden.
+- **Prevent / Fix:** A held intake or identity feature must be removed from the
+  DOM and dependency graph, not merely hidden/inert. Replace it with one
+  useful truthful state route. Name the authority and persistence owner for
+  every claimed field or outcome.
+- **Why the fix works:** The browser cannot accidentally expose or revive
+  controls and wiring that no longer ship; the remaining runtime is read-only,
+  allowlisted and fails closed.
+- **New output:** Resident Card newcomer/returning/recovery contract plus
+  static and browser regression suites.
+- **Transferable lesson:** “Unavailable” is a product state, not a CSS state.
+  Dead feature machinery keeps creating privacy, copy and regression risk.
+- **Internal rule/check updated:** Held forms must pass a no-input,
+  no-provider-config, no-provider-request and no-stale-claim source/artifact
+  gate.
+- **Public angle:** “We closed the account desk, then discovered its paperwork
+  and doorbell were still in the wall.”
+- **Privacy/IP/reputation:** Only synthetic local records are tested; no email,
+  account, profile, real handle or production provider is accessed.
+
+## BTB-121 · The candidate graded its own homework and chose its own newspaper
+
+`category: editorial automation · admission authority · product contracts`
+— ① Make it work · ② Tell the truth about what happened
+`source: NewsStand Cycle 6 independent four-publication review, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** NewsStand has four distinct publication jobs and a shadow
+  evaluator intended to identify candidates that could clear routine policy.
+- **Issue:** The evaluator trusted candidate-supplied scores, verification
+  booleans, topics and edition labels without enforcing edition-specific
+  structure or evidence receipts.
+- **Evidence observed:** A single routine product update labelled `weekly`
+  returned `WOULD_AUTO_PUBLISH`, despite The Weekly contract requiring durable
+  synthesis across developments. The evaluator checked URL shape and a
+  self-asserted `verifiedFullText`, not retrieval, hash or claim entailment.
+- **Diagnosis:** **Verified.** A generic quality form was treated as editorial
+  admission authority and allowed the candidate to select its own product.
+- **Prevent / Fix:** Compile candidates through a closed schema with immutable
+  source receipts, hashes, timestamps and independent verdicts. Enforce each
+  publication's unique job with qualify/reject fixtures before any eligibility
+  label.
+- **Why the fix works:** The system decides what evidence exists and which
+  publication the work earns; the candidate cannot manufacture authority by
+  setting booleans to true.
+- **New output:** Cycle 6 independent review downgrades all four publications
+  and requires job-specific, hash-bound producer-to-reader transactions.
+- **Transferable lesson:** A rubric can organize judgment. It cannot supply its
+  own evidence or be its own judge.
+- **Internal rule/check updated:** Automated editorial gates must reject
+  self-attested evidence and cross-publication relabelling.
+- **Public angle:** “The story graded itself—and put on the wrong masthead.”
+- **Privacy/IP/reputation:** Only synthetic local candidate fixtures and public
+  source URLs were inspected; no feeds, credentials or visitor data were used.
+
+## BTB-122 · One Card had two readers, and the looser one executed the portrait
+
+`category: stored XSS · shared product contract · cross-product validation`
+— ① Make it work · ② Tell the truth about what happened
+`source: Resident Card Cycle 6 independent FAIL and Repair 1, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** Resident status strictly projected one local Card envelope, then
+  offered the Closet as its supported continuation.
+- **Issue:** Closet independently accepted any v1-shaped field object and
+  concatenated `cardAvatarUrl` into `innerHTML`. A `/assets/` prefix looked
+  reassuring but did not escape an HTML attribute.
+- **Evidence observed:** The judge value
+  `/assets/nope.png" onerror="window.__residentJudgeXss=1" x="` executed in
+  the exact artifact. The repaired source and artifact run one shared
+  projection; 34 validator, 31 static-contract and 127 whole-journey browser
+  checks pass with `judge_xss=0`.
+- **Diagnosis:** **Verified.** The product had one storage authority but
+  multiple incompatible trust boundaries.
+- **Prevent / Fix:** Every producer and consumer of a versioned browser record
+  must use one shared strict projection. Require plain exact objects, known
+  bounded fields and semantic route validation. Create media elements through
+  DOM APIs; never interpolate stored values into HTML.
+- **Why the fix works:** A rejected envelope cannot become a supported Card in
+  Resident status, MAiKEOVER or Closet, and stored values cannot manufacture
+  executable attributes.
+- **New output:** Shared v1 Card contract, legacy-review state, safe DOM avatar
+  renderer and source/exact-artifact adversarial suite.
+- **Transferable lesson:** A safe front door does not matter if the same key
+  opens a looser side door.
+- **Internal rule/check updated:** Shared local records require one imported
+  validator/renderer plus exact original-exploit, prototype, markup, bidi,
+  URL and legacy fixtures across every declared continuation.
+- **Public angle:** “The Card passed reception. Its portrait slipped a script
+  into the Closet.”
+- **Privacy/IP/reputation:** Tests use synthetic local payloads and
+  `window.__residentJudgeXss`; no visitor Card, account, provider or public
+  endpoint is accessed.
+
+## BTB-123 · The Worker learned a typed contract while the parlour still waited for Markdown
+
+`category: AI product integration · contract drift · launch truth`
+— ① Make it work · ② Tell the truth about what happened
+`source: FAiRY Godmother typed page repair, 2026-07-26`
+`publication status: VERIFIED LOCAL/LIVE MISMATCH — PREVENTION RULE`
+
+- **Context:** The recovered FAiRY Worker had progressed to strict typed
+  outcomes, fail-closed classification and success-only charging, while the
+  public parlour still called production v18.
+- **Issue:** The page inferred success from an arbitrary Markdown string with
+  two headings, while the candidate Worker returned structured answer,
+  clarification, current-information, boundary and error objects. The
+  candidate's generation prompt also still asked for eight Markdown sections
+  before appending a contradictory JSON contract.
+- **Evidence observed:** Live `laidies.ai` served the old prompt-glow-up page;
+  a no-answer `{}` request to production returned HTTP 200 legacy prose. The
+  repaired local page now reads typed outcomes and retains an explicit legacy
+  adapter; the repaired Worker uses one concise JSON contract. Forty Worker
+  tests, 45 core fixtures, 79 held-out classifier cases, inline JavaScript and
+  local-link checks pass.
+- **Diagnosis:** **Verified.** Improving one side of a service boundary created
+  a second product unless the page, Worker and deployed version were tested as
+  one transaction.
+- **Prevent / Fix:** Version the response contract and require page fixtures
+  for every response type in the same change. Promotion evidence must name the
+  exact page artifact, Worker version and endpoint. Keep a time-bounded legacy
+  adapter only when deployment order requires it.
+- **Why the fix works:** A boundary, clarification or outage can no longer be
+  mistaken for a successful answer, and the page can migrate after the Worker
+  without breaking the still-live v18 service.
+- **New output:** Typed page contract test, bounded answer prompt/validator and
+  isolated-staging/deployment packet.
+- **Transferable lesson:** A typed backend is not a typed product until the
+  visible client understands every outcome.
+- **Internal rule/check updated:** AI product releases must test exact
+  page→service response types, success side effects and deployed-version
+  identity together.
+- **Public angle:** “The spellbook switched languages. The parlour was still
+  waiting for the old incantation.”
+- **Privacy/IP/reputation:** Only source, public HTML/CORS and one empty invalid
+  request were inspected. No real prompt, identity, credential or Play was
+  used.
+
+## BTB-124 · Exact captions repaired the clock without pretending to finish the film
+
+`category: media timing · caption coverage · release truth`
+— ① Make it work · ② Tell the truth about what happened
+`source: Screening Room Cycle 7, 2026-07-26`
+`publication status: VERIFIED LOCAL SUCCESS — PREVENTION RULE`
+
+- **Context:** Five public listen-alongs had real narration and VTT captions,
+  while visual cue sheets still described proportional timing and every visual
+  occurrence remained unapproved.
+- **Issue:** A proportional cue clock can be structurally valid yet show the
+  right picture tens of seconds from the matching thought. The Trailer added a
+  second trap: its VTT ends 64.356 seconds before the audio, so the caption bar
+  silently went blank during continuing narration.
+- **Evidence observed:** Matching VTT semantic onsets supplied exact starts for
+  Trailer cues 1–30 and all 27 Episode 02 main cues. Source and fresh-artifact
+  contracts plus real Chromium journeys pass. The Trailer’s final card remains
+  at 960.000 because no authoritative caption onset exists after 902.760.
+- **Diagnosis:** **Verified.** Caption masters can be timing authority where
+  their words actually match a visual job, but neither a match nor a passing
+  clock constitutes visual admission.
+- **Prevent / Fix:** Bind each semantic visual onset to the exact caption/audio
+  phrase, retain unmatched cues as HOLD, and show an explicit untranscribed-gap
+  state instead of blanking the caption bar or inventing words. Keep visual
+  occurrence approval as a separate independent gate.
+- **Why the fix works:** The player stops revealing scenes by script-position
+  guess while preserving honest uncertainty where the transcript ends.
+- **New output:** Exact Trailer/Episode 02 clocks, explicit partial-caption
+  state, shot-level admission queue and source/artifact browser regression.
+- **Transferable lesson:** Use partial authority partially. Evidence can repair
+  thirty-one boundaries without authorizing the thirty-second.
+- **Internal rule/check updated:** Estimated listen-along clocks must fail the
+  semantic-onset contract; partial-caption playback must visibly label any
+  continuing untranscribed portion.
+- **Public angle:** “The captions fixed the clock—and told us exactly where to
+  stop guessing.”
+- **Privacy/IP/reputation:** Only local public media, captions and synthetic
+  localStorage/browser fixtures were used; no visitor playback history,
+  identity, account or public endpoint was accessed.
+
+## BTB-125 · One base tag sent the private newspaper back to the public homepage
+
+`category: isolated preview · fragment routing · exact journey testing`
+— ① Make it work · ② Tell the truth about what happened
+`source: NewsStand Breaking + Daily publication proof, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The private proof copied the current NewsStand reader into a
+  nested operations path while keeping its hash-based story routes.
+- **Issue:** Adding `<base href="/">` made every generated `href="#story-slug"`
+  resolve against the site root. A story card looked correct and rendered its
+  copy, but clicking it navigated to `/#story-slug` instead of the private
+  NewsStand.
+- **Evidence observed:** The Daily desk listed the correct ATLAS story, then
+  its story link opened the production homepage. Removing the base element and
+  repeating the exact desk → card journey preserved
+  `/operations/design-explorations/.../newsstand.html#google-atlas-ai-use-study`.
+- **Diagnosis:** **Verified.** Asset-path convenience silently changed the
+  meaning of fragment-only application routes.
+- **Prevent / Fix:** Never add a document base to a copied hash router without
+  an explicit fragment-route fixture. Prefer root-relative assets and preserve
+  the document URL as the base for local `#` routes.
+- **Why the fix works:** Fragment links now remain inside the isolated reader
+  while absolute assets still resolve from the site root.
+- **New output:** Retested homepage handoff, Daily desk selection and full
+  article route in the private publication proof.
+- **Transferable lesson:** A link can have the right text, the right hash and
+  still lead to the wrong product because resolution happens before routing.
+- **Internal rule/check updated:** Isolated previews that reuse hash routers
+  must test the exact visible link journey and assert the full resulting URL,
+  not only the presence of the article in the DOM.
+- **Public angle:** “The newspaper story was correct. Its address label sent it
+  to the wrong building.”
+- **Privacy/IP/reputation:** Only isolated local preview pages and synthetic
+  publication states were used; no public story, account or reader data changed.
+
+## BTB-125 · The dirty studio tree made held pictures look release-ready
+
+`category: release integrity · media admission · reproducible builds`
+— ① Make it work · ② Tell the truth about what happened
+`source: 2026-07-26 clean-worktree release verification`
+`publication status: VERIFIED RELEASE PREVENTION RULE`
+
+- **Context:** Screening Room source tests passed in the active studio tree,
+  which contained many untracked episode images and ongoing visual work.
+- **Issue:** The public builder could appear complete by finding local,
+  unapproved cue images that were absent from the exact pushed source. A clean
+  worktree exposed missing runtime dependencies, and the player did not yet
+  enforce the visual-admission ledger before rendering cue sheets.
+- **Evidence observed:** The first clean committed-source build reported a
+  missing Episode 03 cue asset. After runtime admission was made authoritative,
+  a second clean build produced 1,085 self-contained files; source and artifact
+  Screening Room tests passed, and the deployed critical files byte-matched the
+  clean artifact.
+- **Diagnosis:** **Verified.** A dirty source tree can conceal undeclared
+  dependencies, while an audit ledger cannot protect visitors unless the
+  runtime actually obeys it.
+- **Prevent / Fix:** Build releases from an isolated clean worktree at the exact
+  pushed commit. Run dependency and journey tests against both source and built
+  artifact. Require `release` admission plus complete occurrence approval
+  before narration-specific visuals render; otherwise use an approved static
+  cover without disabling the narration or captions.
+- **Why the fix works:** Local experiments can continue without accidentally
+  entering production, and a held visual no longer blocks a functioning audio
+  experience or leaks into it.
+- **New output:** Fail-closed visual admission, clean committed-source build and
+  exact public hash verification.
+- **Transferable lesson:** “The file exists on my Mac” is neither a release
+  dependency nor an approval.
+- **Internal rule/check updated:** Every public build must prove clean-commit
+  reproducibility and runtime enforcement of media admission.
+- **Public angle:** “The episode worked in the studio because the props were
+  still lying around.”
+- **Privacy/IP/reputation:** Only local studio assets, the public artifact and
+  public deployment URLs were inspected; no visitor data was accessed.
+
+## BTB-126 · “Owner visual review” became a parking lot before there was anything worth reviewing
+
+`category: product ownership · design operations · human approval`
+— ① Make it work · ② Tell the truth about what happened
+`source: building-experience readiness reset, 2026-07-26`
+`publication status: VERIFIED OPERATING FAILURE — PREVENTION RULE`
+
+- **Context:** The product-steward system covered 64 products and 17 buildings,
+  but its compact status showed zero active champions after many bounded
+  contract and technical cycles.
+- **Issue:** Most buildings were moved to waiting states containing “owner
+  visual” even though a complete design championship and owner-ready candidate
+  had not been produced. That made Ali responsible for detecting unfinished
+  design and restarting the agents.
+- **Evidence observed:** Thirty-two products remained `REPORT_READY`,
+  twenty-eight `QUEUED`, four `RUNNING_WITH_PARENT` and none active. The active
+  work record separately preserved the LIBRAiRY as only a provisional
+  room-first comparator and said propagation to other buildings had not begun.
+- **Diagnosis:** **Verified.** Human taste authority was misused as an early
+  stop condition instead of the final ruling after professional product,
+  visual and interaction work.
+- **Prevent / Fix:** A champion must produce an incumbent plus two materially
+  distinct, credible candidates; red-team and blind-score them; implement and
+  independently judge the surviving candidate; then ask Ali for the bounded
+  taste/identity decision. “Owner review” cannot be the next action when the
+  owner would only be shown an unfinished page or a list of defects.
+- **Why the fix works:** Ali supplies taste and vision without becoming the
+  project manager or unpaid QA system for incomplete agent work.
+- **New output:** Seventeen-building readiness reset and an active Library,
+  Visitor's Centre and Blend & Snap design wave.
+- **Transferable lesson:** Human approval is a decision gate, not a substitute
+  for doing the design.
+- **Internal rule/check updated:** Building status must separately report
+  technical foundation, content/experience completeness, visual design
+  championship, independent judgment and owner ruling.
+- **Public angle:** “The robots kept asking for approval of homework they had
+  not finished.”
+- **Privacy/IP/reputation:** Internal operating-system evidence only; no user
+  data, private analytics or external service was accessed.
+
+## BTB-127 · The first new room was polished—and belonged to another website
+
+`category: image generation · brand continuity · independent visual judgment`
+— ① Make it work · ② Tell the truth about what happened
+`source: LIBRAiRY building championship first generation, 2026-07-26`
+`publication status: VERIFIED REJECTION — PREVENTION RULE`
+
+- **Context:** Ali authorized substantial new building artwork, and the
+  LIBRAiRY champion generated a wide room candidate with a sensible shelf,
+  desk and negative-space composition.
+- **Issue:** The render was photorealistic corporate-library imagery. It
+  contradicted the locked SUNNYVAiLE environment language: adult dimensional
+  comic/graphic-novel ink, faceted lighting, depth and controlled printed
+  texture.
+- **Evidence observed:** Full-resolution root inspection showed realistic
+  photography-like windows, shelves, carpet and lighting with no episode-world
+  linework or printed comic treatment.
+- **Diagnosis:** **Verified.** A strong layout prompt and attractive result do
+  not preserve brand style unless exact approved style-reference roles and
+  negative constraints bind the generation.
+- **Prevent / Fix:** Every building-environment brief names the visual-system
+  lock and exact approved style references before generation. Independent
+  review must score composition and locked style separately. Wrong-style work
+  is rejected before responsive derivation or page integration.
+- **Why the fix works:** The pipeline can keep useful composition learning
+  without laundering a polished off-brand image into production.
+- **New output:** Rejected Library wide room candidate and a mandatory
+  style-bound regeneration instruction for all three active building lanes.
+- **Transferable lesson:** “Looks good” and “belongs to this product” are
+  separate tests.
+- **Internal rule/check updated:** No mobile variant or consuming-page build
+  may derive from an environment candidate before the full-resolution style
+  verdict passes.
+- **Public angle:** “The new Library looked expensive. It also looked like it
+  had never heard of SUNNYVAiLE.”
+- **Privacy/IP/reputation:** Locally generated candidate only; no external
+  identity, user data or public publication.
+
+## BTB-128 · The whole conversation was present—and the model was still solving the first version
+
+`category: AI workflow · multi-turn conversation · task fidelity`
+— ② Make them speak yours
+`source: chat/session/project workflow research, 2026-07-26`
+`publication status: VERIFIED RESEARCH BASIS — FUTURE CLASS CANDIDATE`
+
+- **Context:** People naturally give an AI assignment through friend-style
+  instant messages: an initial request, then corrections, missing facts, new
+  constraints and changed decisions over several turns.
+- **Issue:** Long-chat advice is often reduced to context capacity: if the
+  messages still fit, the model is assumed to have the assignment. Current
+  multi-turn research shows a different failure. The model may commit to an
+  early interpretation, build on it and fail to recover reliably even after
+  the later information is present.
+- **Evidence observed:** Microsoft Research's ICLR 2026 Best Paper compared
+  fully specified single-turn tasks with the same information supplied across
+  multiple turns. Across more than 200,000 simulated conversations and six
+  generation tasks, tested models averaged a 39% performance drop in the
+  multi-turn condition; the authors attributed most of the gap to increased
+  unreliability, early assumptions and premature solution attempts. The tested
+  models were 2025-era systems, so this is not a July 2026 product benchmark.
+  Current product evidence now includes cross-chat memory/search, scoped
+  workspaces, automatic context management, branches, steer/queue controls,
+  persistent Work/Cowork sessions and editable artifacts. Current OpenAI and
+  Google guidance separately recommends clear, specific, structured
+  instructions and iterative refinement.
+- **Diagnosis:** **Verified as a research-backed interaction risk, not a
+  universal per-chat failure rate.** The experiment does not mean every real
+  multi-turn chat is 39% worse, and it does not make conversational discovery
+  bad. It does not establish the performance of current July 2026 products.
+  It shows that information availability and task alignment are different
+  properties; newer product scaffolding reduces friction without proving that
+  the risk has disappeared.
+- **Prevent / Fix:** Let the conversation discover the assignment, then
+  checkpoint the now-complete objective, sources, decisions, constraints,
+  output and definition of done before consequential execution. Choose Chat
+  for conversational discovery and tightly controlled revision; choose
+  Work/Cowork when the AI must execute a bounded multi-step job across sources,
+  files, tools or apps. Keep either mode inside the relevant Project when the
+  work needs a shared ongoing home. While work is active, queue thoughts that
+  belong after the result, steer missing information that can repair the
+  current run and interrupt only when continuing would be wrong, risky, costly,
+  external or substantially throwaway. Start a clean chat with the corrected
+  brief when the thread remains anchored to an early misunderstanding; use a
+  separate clean chat for blind review and return its findings to one named
+  owner.
+- **Why the fix works:** The model receives an explicit current assignment
+  instead of having to reconcile scattered corrections against its own earlier
+  draft. A new chat becomes a deliberate task boundary, not a ritual response
+  to an arbitrary message count.
+- **New output:** A research-backed two-class recommendation: **From Chatting
+  to Working** for chat/session practice and **Give the Work a Home** for
+  Project-style workspaces and purposeful multiple chats.
+- **Transferable lesson:** Context capacity answers “could this information be
+  available?” Workflow answers “which objective and version governs the work?”
+  They are not the same question.
+- **Internal rule/check updated:** Before important execution after exploratory
+  multi-turn discussion, require a current brief or reverse brief. Teach
+  project/workspace features as scoped context containers, not automatic
+  project management or source-of-truth systems.
+- **Public angle:** “You were still talking about version five. The AI was
+  quietly finishing version one.”
+- **Privacy/IP/reputation:** Publish only the generalized workflow and cited
+  research. Do not expose private LAiDIES conversations, unreleased work or
+  personal communication patterns.
+
+## BTB-129 · The receipt illustration invented a currency before it taught the receipt
+
+`category: generated editorial art · visible text · evidence integrity`
+— ① Make it work · ② Tell the truth about what happened
+`source: NewsStand Breaking + Daily visual proof, 2026-07-26`
+`publication status: VERIFIED LOCAL CATCH — PREVENTION RULE`
+
+- **Context:** The Breaking needed original editorial art for a model-release
+  story whose teaching device was the whole receipt, including price, quality,
+  retries, time and total tokens.
+- **Issue:** The first generated illustration was visually strong but placed
+  readable currency and calculator symbols inside the scene. Those marks looked
+  like data even though the image was metaphorical and the webpage owned the
+  verified numbers.
+- **Evidence observed:** Full-resolution inspection found visible symbols on
+  the calculator and receipt before integration. A targeted edit replaced them
+  with abstract bars, dots and blocks while preserving the composition.
+- **Diagnosis:** **Verified.** “No headline text” is not enough for
+  evidence-bearing editorial art; small interface, receipt, chart and label
+  marks can still be interpreted as factual content.
+- **Prevent / Fix:** For editorial illustrations, reserve all real words,
+  numbers, currency, chart labels and product identifiers for HTML. Inspect the
+  full-resolution asset before integration and neutralize every generated mark
+  that could be mistaken for evidence.
+- **Why the fix works:** The illustration carries the mental model while the
+  sourced article and accessible webpage remain the only authority for facts.
+- **New output:** Corrected abstract-receipt art plus a durable visual
+  production record containing prompt, edit, alt text, caption and provenance.
+- **Transferable lesson:** Generated decorative text becomes a trust problem
+  the moment it resembles a receipt, label, interface or chart.
+- **Internal rule/check updated:** Every generated editorial visual gets a
+  full-resolution pseudo-text and pseudo-data inspection before placement.
+- **Public angle:** “The AI invented a price tag for our story about checking
+  the price tag.”
+- **Privacy/IP/reputation:** Original generated art and isolated local preview
+  only; no visitor data, third-party identity or public story changed.
+
+## BTB-130 · A style comparison accidentally compared three different products
+
+`category: product design · controlled comparison · generated visual evidence`
+— ① Make it work · ② Tell the truth about what happened
+`source: sitewide style and LIBRAiRY competitions, 2026-07-26`
+`publication status: VERIFIED LOCAL CATCH — PREVENTION RULE`
+
+- **Context:** Three sitewide visual directions were meant to test rendering
+  language while holding the Library product constant.
+- **Issue:** The first images changed room geometry, shelf capacity, desk
+  placement and visible capabilities. Any preference would have mixed style
+  judgment with information-architecture judgment.
+- **Evidence observed:** One candidate had empty shelves, one introduced large
+  blank panels and one moved into a different aisle composition. Miss Jeeves,
+  Puffy saving and scalable browsing did not remain equally legible.
+- **Diagnosis:** **Verified.** The comparison was not controlled and was
+  rejected before it became an owner decision or production authority.
+- **Prevent / Fix:** Keep two competitions. Sitewide brand/artwork candidates
+  preserve identical composition and geometry. Building-experience candidates
+  may change structure but preserve the same reconciled capability contract.
+  Every candidate is labelled with its competition and provenance.
+- **Why the fix works:** Ali can judge style separately from product structure,
+  while a building owner can improve its UX without accidentally creating a
+  template for every other building.
+- **New output:** A provenance-labelled Library experience brief and three
+  capability-preserving structural options: expandable wall, concierge/two
+  wings and modular floor.
+- **Transferable lesson:** A visually attractive A/B/C set is not evidence when
+  more than the intended variable changed.
+- **Internal rule/check updated:** Every design championship declares the one
+  variable allowed to change and the invariants that must remain fixed before
+  any image is generated.
+- **Public angle:** “We asked three designs the same question. They quietly
+  answered three different questions.”
+- **Privacy/IP/reputation:** Local unapproved design evidence only; no visitor
+  data, public artifact or third-party creative work used.
+
+## BTB-130 · The analogy became a bakery—and hired a man nobody approved
+
+`category: generated editorial art · analogy leakage · character population`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali NewsStand illustration correction, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The Daily explanation used a coffee-shop analogy to distinguish
+  assistance inside tasks from whole-job automation. Its first illustration
+  literalized that analogy as a bakery back office; The Breaking also acquired
+  coffee equipment even though its actual concept was model comparison.
+- **Issue:** The setting displaced the editorial mechanism, and the Daily
+  background included an unapproved man. The pictures looked polished but
+  violated both the women-led population rule and the requirement that an
+  editorial image explain its assignment at first glance.
+- **Evidence observed:** Ali’s review identified the bakery reading and
+  incidental man. Full-resolution inspection confirmed pastries, coffee
+  equipment and a male worker in the Daily image; The Breaking showed coffee
+  equipment around ambiguous tower-only hardware.
+- **Diagnosis:** **Verified.** An analogy can clarify prose without becoming
+  the literal visual setting. Broad “busy workplace” prompting also lets the
+  generator invent people and activities that were never authorized.
+- **Prevent / Fix:** Name the editorial mechanism first, choose a setting that
+  makes that mechanism unmistakable, and specify the complete allowed human
+  population. Inspect foreground, background, windows, photographs and
+  reflections at full resolution before integration. Use no people when people
+  are unnecessary; otherwise name the exact woman or women allowed.
+- **Why the fix works:** The replacement Breaking image shows two complete
+  computers running the same task and one comparison sheet. The replacement
+  Daily image shows one woman coordinating several office responsibilities
+  with computer assistance. Neither depends on bakery scenery or incidental
+  people.
+- **New output:** Corrected Breaking and Daily article art, corrected Daily
+  physical paper, updated alt text and visual QA evidence.
+- **Transferable lesson:** A teaching analogy is not automatically the right
+  art direction, and “background person” is still a character decision.
+- **Internal rule/check updated:** Editorial-art briefs now require a
+  one-sentence first-glance mechanism test plus an explicit allowed-population
+  line; visual QA scans every image region for unapproved people.
+- **Public angle:** “We asked for a work analogy. The picture opened a bakery
+  and hired someone.”
+- **Privacy/IP/reputation:** Original generated art and isolated local preview
+  only; no public image, visitor data or real person identity changed.
+
+## BTB-131 · Twenty useful headlines became one very unhelpful wall
+
+`category: product design · archive discovery · editorial hierarchy`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali NewsStand archive-discovery extension, 2026-07-26`
+`publication status: VERIFIED LOCAL SUCCESS — REUSABLE PATTERN`
+
+- **Context:** Readers need to find recent Breaking, Daily, Weekly and Tribune
+  coverage quickly, see all back issues, and follow a subject across editions.
+- **Issue:** Showing five headlines for all four publications simultaneously
+  would place twenty competing items directly beneath an already rich physical
+  NewsStand scene. Search alone was too hidden, while a full four-column index
+  would turn the front page into a database.
+- **Evidence observed:** The private proof keeps four publication tabs visible
+  while exposing five headlines at a time; “See all” renders twenty index rows,
+  and a topic button gathers matches from every publication. The same pattern
+  collapses to one column without horizontal overflow at 390 px.
+- **Diagnosis:** **Verified.** Archive access and front-page hierarchy are
+  separate jobs. The reader needs a fast scan before needing the complete
+  catalogue.
+- **Prevent / Fix:** Use progressive disclosure for multi-publication archives:
+  keep edition choices visible, show five recent headings from one edition,
+  provide one explicit complete-index action, and add a small controlled topic
+  vocabulary across editions. Never populate the interface from unapproved
+  candidate packets.
+- **Why the fix works:** Readers can answer “what did I miss?” in one glance,
+  then expand only when they want depth. The NewsStand still looks and behaves
+  like a publication, not a content-management screen.
+- **New output:** Functional private archive tabs, latest-five lists, complete
+  index, topic drawer, preview-story state and desktop/mobile QA evidence.
+- **Transferable lesson:** A good archive offers three doors—recent, complete
+  and thematic—without putting the whole warehouse in the lobby.
+- **Internal rule/check updated:** NewsStand archive design must test the
+  latest-five scan, See-all expansion, cross-edition topic browse, mobile
+  overflow and publication-authority boundary.
+- **Public angle:** “We built a news archive and almost made the front page
+  feel like twenty browser tabs.”
+- **Privacy/IP/reputation:** Layout-only sample headings are visibly labelled
+  private and not published; no visitor data or public story record changed.
+
+## BTB-132 · The story existed, but the radar did not know it
+
+`category: editorial operations · state reconciliation · release discovery`
+— ① Make it work · ② Tell the truth about what happened
+`source: scheduled NewsStand radar, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** A held canonical Weekly and evidence record for Health in ChatGPT
+  had already been created through NewsStand stewardship work.
+- **Issue:** The radar log did not contain the July 23 feature launch, so the
+  proactive scan treated a material 17/18 P0 story as newly discovered on July
+  26 and had no Breaking packet for it.
+- **Evidence observed:** `content/newsstand-stories.js` and the canonical
+  evidence record contained the held Weekly; `operations/newsstand-radar-log.md`
+  had no matching row before this run.
+- **Diagnosis:** **Verified.** Official-source discovery and radar state are not
+  enough when other authorized workflows can create canonical candidate
+  records. The radar lacked a reconciliation pass across those records.
+- **Prevent / Fix:** At the start of every radar run, reconcile the rolling
+  official-release window against the radar log **and** scan canonical
+  NewsStand story/evidence records for dates newer than the last run. Add or
+  update one radar row before browsing outward; reuse the canonical draft
+  instead of creating a competing public story.
+- **Why the fix works:** The radar can recover work produced by another
+  workflow, classify it consistently and add only the missing editorial lane.
+- **New output:** A reconciled radar row plus a private Breaking packet that
+  points to, rather than duplicates, the existing held Weekly.
+- **Transferable lesson:** Proactive discovery needs state reconciliation, not
+  just better search.
+- **Internal rule/check updated:** Radar preflight now includes canonical
+  NewsStand story/evidence reconciliation alongside the rolling official
+  release detector.
+- **Public angle:** “We built a news radar and discovered it also needed to
+  read its own newspaper.”
+- **Privacy/IP/reputation:** Health and personal-data claims remain hard-held;
+  no public story or visitor data changed.
+
+## BTB-133 · The curriculum rule existed, but a new class had no front door
+
+`category: learning architecture · agent handoff · duplicate prevention`
+— ① Make it work · ② Tell the truth about what happened
+`source: Classes ownership reconciliation, 2026-07-26`
+`publication status: VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE`
+
+- **Context:** The learning-system audit had already divided the jobs of
+  Episodes, LIBRAiRY, High, tools, games and NewsStand, and the weekly episode
+  engine already asked for class and book impact decisions.
+- **Issue:** Those decisions were dispersed across research and episode files.
+  The registry pointed the Classes subchampion at a dossier that did not exist,
+  and no mandatory intake record forced a new-class idea to read the concept
+  map or reconcile neighboring content before scripting.
+- **Evidence observed:** The steward validator passed while
+  `sunnyvaile-high/subproducts/classes.md` was absent; the learning standard had
+  a content-record list but no required complement/intake artifact.
+- **Diagnosis:** **Verified.** A sound architecture is not an operational
+  control until the agent's normal entry point requires it and produces a
+  durable handoff.
+- **Prevent / Fix:** Give each recurring content owner a real dossier. Require
+  one learning intake/complement card for every substantial new learning idea,
+  with a canonical concept owner, inventory reconciliation, distinct
+  per-surface jobs and link/update/extend/new/decline decision. Make episode
+  impacts owner-review triggers rather than automatic commissions.
+- **Why the fix works:** A new task can recover the rule from mandatory owner
+  files without relying on conversation memory, while useful episode
+  derivatives are considered without filling every surface with duplicates.
+- **New output:** Classes subchampion dossier, shared learning-content intake
+  template, strengthened learning standard, episode opportunity gate and
+  explicit Classes registry trigger.
+- **Transferable lesson:** If future agents must remember a decision, put it in
+  the file their workflow is required to read and require an artifact that
+  proves they used it.
+- **Internal rule/check updated:** D-2026-07-26-051 and the learning-content
+  standard now require canonical concept and complement reconciliation before
+  scripting.
+- **Public angle:** “We had a curriculum map. The new class could still walk
+  around it.”
+- **Privacy/IP/reputation:** Internal planning records only; no learner data,
+  public content or external service changed.
+
+## BTB-134 · Sixty-four owners passed because the validator checked addresses, not doors
+
+`category: product operations · agent re-entry · validation`
+— ① Make it work · ② Tell the truth about what happened
+`source: portfolio owner-entry audit, 2026-07-26`
+`publication status: VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE`
+
+- **Context:** The product registry named 64 champions, each with dossier and
+  state path strings, and the steward validator reported PASS.
+- **Issue:** The validator checked that the strings were present but did not
+  verify the files. Twenty-seven dossier paths and seven state paths were
+  absent; sixteen of seventeen building owners also lacked the required
+  provenance-backed experience brief.
+- **What happens:** A pinned owner task looks permanent but must infer its job
+  from conversation, code or scattered audits. Different tasks can make
+  incompatible decisions while all believe they own the product.
+- **Evidence observed:** The enhanced mechanical inventory reports only 20/64
+  owner entries ready; targeted `visitors-centre` fails on its missing brief,
+  while `classes` and `library` pass.
+- **Diagnosis:** **Verified.** A registry address is not an owner entry point,
+  and a global green check can hide product-specific readiness debt.
+- **Prevent / Fix:** Require every owner to run a targeted preflight against
+  real registry-bound files. Building owners need a provenance-backed
+  experience brief; subproducts need a real dossier/state. Missing records
+  force recovery before design/build. Keep a portfolio-wide strict mode for
+  remediation and a reporting mode that does not freeze unrelated work.
+- **Why the fix works:** New tasks recover the same intended product and
+  truthful state from a testable front door rather than relying on task titles
+  or compressed chat memory.
+- **New output:** `OWNER-ENTRY-CONTRACT.md`, targeted/strict validator modes and
+  the exact portfolio owner-entry debt inventory.
+- **Transferable lesson:** Validate that the source of truth exists and is
+  usable—not merely that a configuration contains its pathname.
+- **Internal rule/check updated:** D-2026-07-26-052; every owner dispatch now
+  runs `check-product-stewards.mjs --owner-entry <product-id>`.
+- **Public angle:** “We hired sixty-four product owners and forgot to check
+  whether their office doors existed.”
+- **Privacy/IP/reputation:** Repository metadata only; no user data, public
+  content or external systems changed.
+
+## BTB-135 · The Closet displayed the whole town, but nobody owned the round trip
+
+`category: backend architecture · cross-page state · product ownership`
+— ① Make it work · ② Tell the truth about what happened
+`source: building owner-entry and Closet touchpoint correction, 2026-07-26`
+`publication status: VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE`
+
+- **Context:** Building specs named services and the Functionality Director had
+  a compressed launch truth table. The Closet visibly aggregates Resident
+  Card, Library saves, quizzes, tours, charms, Clips, Book Fair drops,
+  referrals, FAiRY Plays and other collections.
+- **Issue:** No required per-building artifact enumerated every visible element
+  through producer, frontend, authoritative backend/store and all consumer
+  pages. “Uses Supabase,” “lands in your Closet” or a rendered count could
+  conceal a missing writer, competing local ledgers or absent delivery.
+- **What happens:** A source page can report success while the Closet never
+  receives the object; a consumer can display a number no authoritative
+  producer writes; update, delete, revoke, refund and second-device behavior
+  remain unspecified.
+- **Evidence observed:** Same-device Resident Card/Puffy behavior has bounded
+  local proof, while account restoration, Book Fair delivery, rewards,
+  referrals, FAiRY Plays and several dashboard producers remain unproved or
+  absent in current canonical records.
+- **Diagnosis:** **Verified.** Page-level functionality is insufficient for a
+  cross-page product. The real unit of completion is the entire transaction
+  and every producer/consumer propagation path.
+- **Prevent / Fix:** Require `FUNCTIONALITY-MAP.md` for each building. Inventory
+  every element; map producer → module → store/service → consumers; define
+  completion, identity/persistence, failure/retry/idempotency,
+  update/remove/revoke/refund and two-device behavior; name missing backend,
+  owner, paths and exact proof. Shared changes queue behind the Functionality &
+  Platform Director.
+- **Why the fix works:** Design, backend and dependent pages work from one
+  explicit contract; a feature cannot appear complete by proving only its
+  source or destination screen.
+- **New output:** Shared functionality-map template, mandatory owner-entry
+  gate and the first MAiKEOVER/Closet cross-page map.
+- **Transferable lesson:** Test the promise across every system boundary—not
+  the button on the page where the journey started.
+- **Internal rule/check updated:** D-2026-07-26-053; building owner preflight
+  now requires `FUNCTIONALITY-MAP.md`.
+- **Public angle:** “Our Closet could show everything—except the things the
+  other pages had never really delivered.”
+- **Privacy/IP/reputation:** Contract/source evidence only; no accounts,
+  providers, private state or public deployment changed.
+
+## BTB-136 · One working page was really three different visits
+
+`category: user experience · identity · continuity · release verification`
+— ① Make it work · ② Tell the truth about what happened
+`source: visitor-state owner correction, 2026-07-26`
+`publication status: VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE`
+
+- **Context:** Building ownership already named new, returning, anonymous and
+  signed-in journeys, while the Closet audit exposed device-local Card and
+  unproved account-backed states.
+- **Issue:** Those audiences were listed but no required matrix forced each
+  building to design and test a first-time visitor, a returning visitor
+  without a Resident Card and a Card holder—or the transitions between them.
+- **What happens:** A clean-browser demo can pass while returning visitors lose
+  continuity, repeat onboarding or see stale state. A local Card can be
+  mistaken for login, membership, synced ownership or cross-device identity.
+- **Evidence observed:** MAiKEOVER has bounded same-device Card restoration;
+  its account, two-device, conflict, privacy/revoke and full return recognition
+  journeys remain unaccepted.
+- **Diagnosis:** **Verified.** Visitor state is a product experience and a data
+  contract, not a single authentication boolean.
+- **Prevent / Fix:** Require the visitor-state matrix and transition suite in
+  every building experience brief and functionality map. Separate
+  first-time, returning-without-Card, device-local Card and verified
+  account-backed resident evidence and launch dispositions.
+- **Why the fix works:** Owners must explain both what changes for the visitor
+  and what recognition/persistence evidence authorizes that change. A PASS can
+  no longer leak from a clean session into a resident claim.
+- **New output:** `VISITOR-STATE-EVALUATION-STANDARD.md`, template and owner
+  gate updates, and the MAiKEOVER/Closet reference matrix.
+- **Transferable lesson:** Test the same product as three people—and test the
+  moment one becomes another.
+- **Internal rule/check updated:** D-2026-07-26-054; targeted building
+  preflight now rejects missing visitor-state sections.
+- **Public angle:** “We tested one page three times and finally met three
+  different visitors.”
+- **Privacy/IP/reputation:** Specification and local evidence only; no
+  accounts, private state, providers or public deployment changed.
+
+## BTB-137 · The launch checklist tried to finish the product with a curtain
+
+`category: product scope · release management · incomplete functionality`
+— ① Make it work · ② Tell the truth about what happened
+`source: build-versus-hide owner correction, 2026-07-26`
+`publication status: VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE`
+
+- **Context:** Functionality audits correctly found unproved identity,
+  cross-device saves, rewards, referrals, providers and content admission.
+- **Issue:** The launch classifications repeatedly offered `HIDE/LABEL` as the
+  disposition for intended capabilities. That protected truth but could also
+  let the portfolio redefine the intended product downward instead of
+  implementing it.
+- **What happens:** A checklist can turn green while the experience Ali asked
+  for remains absent. Temporary limitation copy quietly becomes permanent
+  scope, and backend obligations lose urgency and ownership.
+- **Evidence observed:** The platform truth table, operating spec, building
+  maps and active-work completion contract all contained hide/label exit paths
+  for intended identity, saves, rewards, referrals and content functionality.
+- **Diagnosis:** **Verified.** Safety truth and product completion were
+  conflated. A temporary control can prevent a false claim; it cannot satisfy
+  the intended user outcome.
+- **Prevent / Fix:** Intended capabilities are **BUILD BEFORE LAUNCH**.
+  Temporary disabling/holding remains allowed for safety, but the work stays
+  **BUILDING** or **BLOCKED — BUILD REMAINS REQUIRED** with owner, unblock
+  condition, acceptance proof and retest. `INTENTIONAL LATER RELEASE` is valid
+  only when deliberate product sequencing names the later release/trigger,
+  reason, owner, dependencies and acceptance contract; missed current work
+  cannot acquire that label retroactively. Only Ali can remove or move an
+  existing current-launch promise later.
+- **Why the fix works:** The public product stays honest during construction
+  without allowing honesty copy to replace engineering, design or integration.
+- **New output:** `BUILD-COMPLETION-POLICY.md`; D-055; revised champion,
+  owner-entry, platform, functionality-map and active-work controls.
+- **Transferable lesson:** A curtain can protect people from a construction
+  site; it cannot become the building.
+- **Internal rule/check updated:** `HIDE/LABEL FOR LAUNCH` is superseded as a
+  completion disposition for approved intent.
+- **Public angle:** “We kept making the broken buttons honest. Then we realized
+  we still had to build what was behind them.”
+- **Privacy/IP/reputation:** Internal product/release records only; no live
+  services, private data, deployment or publication changed.
+
+## BTB-138 · Three buildings were “running”; only one had an agent
+
+`category: orchestration · status truth · continuous ownership`
+— ① Make it work · ② Tell the truth about what happened
+`source: building-agent execution audit, 2026-07-26`
+`publication status: VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE`
+
+- **Context:** The steward status reported three active building championships:
+  Library, Visitor's Centre and Blend & Snap.
+- **Issue:** `run-queue.json` used `RUNNING` for assigned portfolio lanes even
+  when no live owner task or current execution existed. Visitor's Centre and
+  Blend & Snap had no current visible task activity; only Library did.
+- **What happens:** Ali sees Library work and reasonably doubts the entire
+  continuous-owner system, while the machine report falsely reassures with
+  `active=3/3`.
+- **Evidence observed:** Actual Codex task inspection and artifact timestamps
+  disagreed with the queue. The visible pinned layer also contained no
+  building-owner tasks—only Control Room, Classes and Platform.
+- **Diagnosis:** **Verified.** Registration, priority, assignment and live
+  execution were collapsed into one status.
+- **Prevent / Fix:** `RUNNING` requires a real task/thread ID, current turn or
+  heartbeat, exact write scope, current action and evidence timestamp.
+  Otherwise report INITIALIZING, QUEUED, NEXT, BLOCKED or STALE. Maintain a
+  visible persistent owner task for every building and let Control Room govern
+  integration locks rather than visibility.
+- **Why the fix works:** The user-visible tasks, execution board and filesystem
+  evidence answer the same question: who is doing what right now?
+- **New output:** Seventeen pinned building-owner tasks with disjoint
+  initialization scopes; D-057; orchestrator live-execution gate.
+- **Transferable lesson:** A queue can assign work; only a living worker can be
+  running it.
+- **Internal rule/check updated:** Control Room must reconcile reported
+  activity against actual task state before claiming active lanes.
+- **Public angle:** “Our dashboard said three employees were working. Two were
+  nameplates on empty desks.”
+- **Privacy/IP/reputation:** Task metadata and repository records only; no user
+  data, providers, live services or public deployment changed.
+## BTB-139 · Three controlled style options still did not create a real choice
+
+`category: product design · controlled comparison · decision evidence`
+— ① Make it work · ② Tell the truth about what happened
+`source: sitewide style championship evidence audit, 2026-07-26`
+`publication status: VERIFIED LOCAL CATCH — PREVENTION RULE`
+
+- **Context:** After an initial A/B/C comparison changed both style and product
+  geometry, a second pass correctly held the Library composition constant.
+- **Issue:** The correction over-constrained the visible difference. The three
+  images remained so similar that Ali could not reliably judge a unified adult
+  comic system, a deliberate painterly/comic dual system and a functional
+  hybrid. Generated typography and interface-like marks also obscured whether
+  the result could become a real product system.
+- **Evidence observed:** The three controlled desktop files use substantially
+  the same room, shelf, character and capability geometry, but provide no
+  equivalent mobile set, admitted independent scores, complete rule sheets,
+  migration/cost comparison or final recommendation. The hybrid's proposed
+  operated-object rule is not diagnostically visible.
+- **Diagnosis:** **Verified.** Holding invariants fixed is necessary but not
+  sufficient. The one variable under test must change strongly enough to expose
+  the real consequences of each choice.
+- **Prevent / Fix:** Every visual championship now defines both invariants and
+  a minimum diagnostic delta. Show the same environment, character, operated
+  object, calm reading surface, desktop/mobile state and cross-format
+  transition under each candidate. Keep typography and UI deterministic.
+- **Why the fix works:** The decision-maker can compare one meaningful variable
+  without guessing whether three subtly different images encode three
+  maintainable systems.
+- **New output:** Revised sitewide championship gate, permanent Brand &
+  Experience Director task and Control Room propagation stop-rule.
+- **Transferable lesson:** A controlled comparison can still be invalid when
+  the alternatives are not different enough to reveal their trade-offs.
+- **Internal rule/check updated:** A/B/C admission requires controlled
+  invariants, diagnostic differentiation, responsive evidence, rule sheets and
+  an explicit owner recommendation before a taste decision is requested.
+- **Public angle:** “We fixed the unfair comparison—and accidentally made all
+  three choices the same.”
+- **Privacy/IP/reputation:** Local unapproved generated design evidence only; no
+  visitor data, live site or third-party creative identity was changed.
+
+## BTB-140 · The manifest test passed because it never enforced the manifest
+
+`category: release integrity · maker/judge separation · executable contracts`
+— ① Make it work · ② Tell the truth about what happened
+`source: Weekly Episodes ↔ Chick Flicks schema v1 independent acceptance, 2026-07-26`
+`publication status: VERIFIED LOCAL CATCH — PREVENTION RULE`
+
+- **Context:** Weekly Episodes produced a versioned release-manifest candidate
+  with detached hashing, append-only proof concepts and a maker result of seven
+  valid and four invalid fixtures passing.
+- **Issue:** The validator did not load and enforce its JSON Schema, and its
+  fixtures did not exercise the most important cross-record invariants.
+- **What happens:** A candidate can look checksum-bound and still admit an
+  impossible release history.
+- **Evidence observed:** Independent Chick Flicks testing reproduced the maker
+  pass and verified all named hashes, then the same validator false-accepted six
+  adversarial cases: invented rollback targets; absent motion media marked
+  released; a listen-along without its media verdict; duplicate required files;
+  unsafe removal semantics; and an unknown proof-supersession link. Platform
+  also found receipts could point to the wrong record type and “no prior” was
+  not an explicit schema state.
+- **Diagnosis:** **Verified.** Structural files and fixture counts existed, but
+  the executable admission boundary did not enforce the contract they implied.
+- **Prevent / Fix:** The validator must load the declared schema and separately
+  enforce referential, chronology and record-type invariants. Every release
+  contract needs named hostile fixtures for invented/unknown targets, duplicate
+  identities, absent-but-released assets, missing dependent verdicts, unsafe
+  removals, broken supersession chains and explicit first-addition no-prior
+  state. Preserve rejected versions; repair through a new immutable candidate.
+- **Why the fix works:** Independent acceptance proves not only that known good
+  examples pass, but that dangerous stories cannot be represented as valid.
+- **New output:** v1 rejection evidence, retained joint lock and bounded v2
+  repair packet.
+- **Transferable lesson:** A schema beside a validator is documentation; a
+  schema enforced by the validator is a gate.
+- **Internal rule/check updated:** Maker PASS never admits a cross-product
+  release interface. Platform technical review and consuming-product acceptance
+  must both pass the same hash-bound candidate.
+- **Public angle:** “Our release manifest had rules. The test forgot to read
+  them.”
+- **Privacy/IP/reputation:** Synthetic local release fixtures only; no live
+  episode, user data, provider, deployment or publication changed.
+
+## BTB-141 · A retry fingerprint was weaker than the request it represented
+
+`category: identity · idempotency · backend integrity`
+— ① Make it work · ② Tell the truth about what happened
+`source: Resident identity local vertical, 2026-07-26`
+`publication status: VERIFIED LOCAL PREVENTION RULE`
+
+- **Context:** Card claim/revoke needed stable retry receipts so an unknown
+  network outcome could be reconciled without duplicating a write.
+- **Issue:** The first local migration draft stored an MD5 string derived from
+  the request. The database already had the exact private request available,
+  so reducing it to a weaker collision-prone fingerprint added ambiguity
+  without saving meaningful exposure.
+- **What happens:** In the worst case, two different requests could compare as
+  the same retry even though idempotency must mean same operation, same owner
+  and same request.
+- **Evidence observed:** Pre-test contract review found `request_hash text` and
+  `md5(...)` before any migration apply. The corrected local migration stores
+  private JSON request receipts and compares PostgreSQL `jsonb` equality plus
+  an explicit operation name.
+- **Diagnosis:** **Verified local catch before apply.**
+- **Prevent / Fix:** For private owner-scoped transaction receipts, store and
+  compare the normalized exact request when its size and sensitivity permit.
+  If a digest is necessary, use a collision-resistant canonical digest and
+  bind operation, owner and schema version.
+- **Why the fix works:** Retry identity now answers the actual question—“is
+  this the same operation and request?”—without trusting an unnecessary weak
+  surrogate.
+- **New output:** `resident_identity_mutations` exact-request receipt contract
+  and an unknown-outcome replay test in
+  `scripts/test-identity-cross-device-vertical.mjs`.
+- **Transferable lesson:** An idempotency key identifies an attempt; the stored
+  request proves what that attempt meant.
+- **Internal rule/check updated:** Shared mutation reviews reject weak
+  fingerprints when exact normalized equality is practical.
+- **Public angle:** “The retry code remembered a nickname for the request. We
+  taught it to remember the request.”
+- **Privacy/IP/reputation:** Synthetic local identities only; no migration,
+  account, email, live service or visitor data was accessed.
+
+## BTB-142 · The town name and the owner name were not always the same key
+
+`category: shared data · identity mapping · fail-closed integration`
+— ① Make it work · ② Tell the truth about what happened
+`source: Homepage ↔ Visitor's Centre readiness projection v1, 2026-07-26`
+`publication status: VERIFIED LOCAL PREVENTION RULE`
+
+- **Context:** Platform needed to join all 17 public directory destinations to
+  their registry-bound owner records without editing either building.
+- **Issue:** Two legitimate public IDs differ from their registry product IDs:
+  `ksvl-radio → ksvl` and `sanctuary → luminairy`. A convenient join on one
+  shared `id` would treat them as missing, unknown or owned by the wrong
+  product.
+- **What happens:** A destination can disappear from a readiness projection or
+  retain stale manual copy even though both source records exist.
+- **Evidence observed:** The exact 17-entry `SV_BUILDINGS` inventory and
+  `registry.json` were reconciled before the v1 contract. The validator now
+  requires an explicit immutable crosswalk containing both
+  `destinationId` and `productId`, plus owner/name/route parity.
+- **Diagnosis:** **Verified local catch before shared integration.**
+- **Prevent / Fix:** Cross-system contracts preserve each system's stable ID
+  and join them through an explicit versioned crosswalk. Never rename or
+  coerce public, registry, analytics or persistence identities into one field
+  by convenience.
+- **Why the fix works:** Each consumer can keep its native public identity
+  while ownership and evidence resolve to the correct canonical product.
+- **New output:**
+  `platform-reliability/readiness-projection/v1/canonical-destinations.json`
+  and exact mismatch/duplicate/missing fail-closed tests.
+- **Transferable lesson:** Two names can refer to the same place without being
+  interchangeable database keys.
+- **Internal rule/check updated:** Shared projections require explicit
+  crosswalk coverage and exact-set tests whenever producer and consumer IDs
+  come from different namespaces.
+- **Public angle:** “The radio station had a street sign and a payroll name.
+  Our first map assumed they were identical.”
+- **Privacy/IP/reputation:** Public product IDs and synthetic local fixtures
+  only; no visitor data, provider, live route, deployment or publication
+  changed.
+
+## BTB-145 · The analytics script was wired; the learning loop was not
+
+`category: analytics · operating truth · product learning`
+— ① Make it work · ② Tell the truth about what happened
+`source: Control Room audience-dashboard reconciliation, 2026-07-26`
+`publication status: VERIFIED REPOSITORY GAP — PREVENTION RULE`
+
+- **Context:** Plausible tracking code was embedded across many LAiDIES pages,
+  so the audience system was reasonably remembered as “wired.”
+- **Issue:** Collection, reporting and learning were collapsed into one claim.
+  No authenticated aggregate Plausible pull, production Resident Card count or
+  platform-insight import reached the Control Room.
+- **What happens:** Agents can say analytics exists while Ali still cannot see
+  visitors, new residents, page rankings, conversion, return or what to
+  improve. Empty scorecards and unknown values may be mistaken for zero.
+- **Evidence observed:** Repository inspection found broad Plausible embeds and
+  empty/manual scorecards, while the Audience & Growth state explicitly said
+  `analyticsPull: NOT WIRED`. The available browser session reached a
+  Plausible login boundary rather than the site dashboard.
+- **Diagnosis:** **Verified.** Event collection is only the producer side of
+  the data journey; authorized aggregation, definitions, dashboard delivery,
+  interpretation and owned action were missing.
+- **Prevent / Fix:** Treat analytics as
+  `instrument → deliver → aggregate → define → present → decide → act →
+  measure`. Dashboards must show source health and exact unblocks, distinguish
+  unknown from zero, and bind every recommendation to evidence, owner,
+  experiment and measure.
+- **Why the fix works:** It makes an unavailable source visibly actionable and
+  prevents a script tag from masquerading as an operating growth system.
+- **New output:** Control Room Audience & Growth tab,
+  `audience-growth/measurement-state.json`, a ranked opportunity queue and a
+  twice-daily Audience & Social owner heartbeat.
+- **Transferable lesson:** Tracking records behaviour; a learning loop changes
+  the product because of it.
+- **Internal rule/check updated:** Every Control Room audit now reconciles
+  audience-source health, metric definitions, social planned/ready/published
+  truth and proactive opportunities.
+- **Public angle:** “We had analytics on 100+ pages and still could not answer
+  how many people came.”
+- **Privacy/IP/reputation:** No private analytics, account record, email,
+  session recording or API credential was accessed or copied.
+
+## BTB-143 · A new dashboard ruling reused an existing ledger ID
+
+`category: governance · decision ledger · concurrent work`
+— ① Make it work · ② Tell the truth about what happened
+`source: Control Room proactive-improvement reconciliation, 2026-07-26`
+`publication status: VERIFIED LOCAL PREVENTION RULE`
+
+- **Context:** Audience/Growth and proactive-improvement governance landed
+  while the Weekly Episode Engine was also updating durable portfolio rules.
+- **Issue:** The dashboard initially labelled the new audience ruling `D-059`,
+  but `D-059` already belonged to the Weekly Episode Engine → Classes handoff.
+- **What happens:** Two unrelated policies can appear to share one identity,
+  making citations, supersession and later audits ambiguous.
+- **Evidence observed:** The canonical ledger contained
+  `D-2026-07-26-059 — WEEKLY EPISODE ENGINE TO CLASSES HANDOFF`, while the
+  dashboard independently used `D-059` for proactive improvement.
+- **Diagnosis:** **Verified concurrent allocation collision.**
+- **Prevent / Fix:** Before allocating or displaying a new durable decision
+  ID, search the canonical ledger and current shared worktree, reserve the next
+  unused ID, then write the ledger and dashboard in one reconciliation step.
+- **Why the fix works:** One ruling retains one stable identity across every
+  operating surface.
+- **New output:** Proactive improvement is now `D-2026-07-26-060`; `D-059`
+  remains exclusively the Weekly Episode Engine → Classes handoff.
+- **Transferable lesson:** Sequential identifiers are shared mutable state,
+  even when the policies themselves do not overlap.
+- **Internal rule/check updated:** Control Room decision updates must check the
+  ledger for ID uniqueness before dashboard generation.
+- **Public angle:** “Two teams picked ticket 59. The policies were fine; the
+  filing cabinet was not.”
+- **Privacy/IP/reputation:** Internal governance metadata only; no visitor,
+  provider, account, deployment or publication state changed.
+
+## BTB-144 · A service in the codebase did not prove a subscription on the card
+
+`category: procurement · operating truth · external dependencies`
+— ① Make it work · ② Tell the truth about what happened
+`source: Control Room external-services reconciliation, 2026-07-26`
+`publication status: VERIFIED REPOSITORY GAP — PREVENTION RULE`
+
+- **Context:** LAiDIES uses or references hosting, analytics, email, community,
+  AI, design, video, audio and storage services across the product.
+- **Issue:** Configuration, produced output, current use, a paid account and
+  worthwhile spend were being treated as if they were the same fact.
+- **What happens:** An old integration can look like a useful active
+  subscription; an important renewal can be invisible; a proposed tool can be
+  bought without naming the operation it improves or the proof that would
+  justify keeping it.
+- **Evidence observed:** Repository evidence established thirteen external
+  dependencies or output-producing tools, but established zero current plans,
+  charges, renewal dates or cancellation states.
+- **Diagnosis:** **Verified evidence-boundary gap.** Code and artifacts prove
+  product integration or use; only account/invoice evidence proves billing.
+- **Prevent / Fix:** Maintain a service ledger with separate configured, used,
+  paid and worthwhile fields. Require account/invoice proof for billing, an
+  official current source and recheck date for recommendations, plus an exact
+  operation, reversible proof, value gate, data flow and exit path.
+- **Why the fix works:** It makes unknown spend visible without inventing zero,
+  and turns procurement into an evidence-backed operating decision.
+- **New output:** Control Room External Services view, Platform-owned
+  `external-services-state.json`, monthly/pre-renewal reconciliation and a
+  decision-ready social/analytics capability review.
+- **Transferable lesson:** A dependency inventory and a subscription ledger
+  overlap, but neither can substitute for the other.
+- **Internal rule/check updated:** No trial, account connection, purchase,
+  upgrade, downgrade or cancellation is authorized by a recommendation alone.
+- **Public angle:** “We found thirteen tools in the work—and could not prove
+  which ones were charging us.”
+- **Privacy/IP/reputation:** No billing email, card statement, vendor account,
+  credential or private analytics was accessed; no external account changed.
+
+## BTB-146 · The first invoice was not always the monthly run rate
+
+`category: procurement · operating truth · cost normalization`
+— ① Make it work · ② Tell the truth about what happened
+`source: Control Room billing-mailbox reconciliation, 2026-07-26`
+`publication status: VERIFIED OPERATING LESSON — PREVENTION RULE`
+
+- **Context:** Ali asked for one useful monthly cost of running LAiDIES,
+  including the highest OpenAI individual plan.
+- **Issue:** The billing mailbox contained monthly receipts, a prorated first
+  invoice, a discounted plan that was superseded four days later, annual domain
+  invoices, failed payments and services with no receipt in that mailbox.
+- **What happens:** Adding every recent invoice overstates recurring cost, while
+  copying a discounted or prorated first invoice understates the next month.
+- **Evidence observed:** Hyvor's first €32 invoice explicitly covered a partial
+  month while the contract stated €40/month; ElevenLabs Creator was followed by
+  Pro; Cloudflare domain charges aligned with registrations rather than monthly
+  hosting; failed Anthropic attempts had no successful receipt.
+- **Diagnosis:** **Verified normalization failure class.** Cash events, current
+  run rate and evidence confidence are different measures.
+- **Prevent / Fix:** Preserve the original billed amount and cadence, calculate
+  a separate monthly CAD equivalent, divide annual renewals by 12, use the
+  current full-period recurring plan, exclude failed/superseded charges, and
+  label user-declared prices and foreign-exchange assumptions.
+- **Why the fix works:** The headline becomes useful for planning while the
+  ledger still explains exactly why the card statement may differ.
+- **New output:** Control Room monthly cost headline, evidence ledger, exchange
+  rate/date, excluded-charge rows and unknown-cost count.
+- **Transferable lesson:** “What did we pay this month?” and “What does this
+  operation cost per month?” require two different calculations.
+- **Internal rule/check updated:** The dashboard builder now requires both a
+  `costSummary` and `costLedger`; unknown account evidence can never be rendered
+  as zero.
+- **Public angle:** “Our €32 invoice was really a €40/month subscription.”
+- **Privacy/IP/reputation:** The reconciliation used read-only billing evidence.
+  Durable records omit card digits, home address, personal identifiers, raw
+  message IDs and attachment links; no account or subscription was changed.
+
+## BTB-147 · The dashboard link opened its empty source template
+
+`category: control room · generated artifacts · operator experience`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali Safari screenshot and direct browser inspection, 2026-07-26`
+`publication status: VERIFIED FAILURE — FIXED`
+
+- **Context:** The Control Room is generated from a reusable HTML template and
+  several JSON state files.
+- **Issue:** Safari's pinned Control Room tab pointed at
+  `dashboard-template.html`, which contains empty mount points and the unreplaced
+  build marker, rather than the generated `dashboard.html`.
+- **What happens:** The page looks polished enough to appear real but contains
+  no owners, blockers, decisions or metrics, so the operator reasonably
+  concludes the dashboard is useless.
+- **Evidence observed:** Safari accessibility inspection showed the exact
+  template URL and zero populated owner rows. Opening the generated artifact
+  immediately rendered 26 owners, portfolio counts and the critical path.
+- **Diagnosis:** **Verified artifact-entry failure.** The wrong adjacent file
+  was open; the dashboard data and Safari renderer were not the cause.
+- **Prevent / Fix:** The source template now detects its unreplaced marker and
+  redirects to `dashboard.html`. Browser validation starts from both the
+  template and built URLs and requires the final URL plus populated owner rows.
+- **Why the fix works:** Even a stale bookmark or pinned tab cannot strand Ali
+  on a convincing empty shell.
+- **New output:** Corrected pinned Safari tab, automatic template redirect and
+  a browser proof of 26 populated owner rows.
+- **Transferable lesson:** Generated tools need one safe operator entry point;
+  adjacent templates must fail loudly or forward to it.
+- **Internal rule/check updated:** Control Room validation includes wrong-entry
+  recovery, not only direct built-file rendering.
+- **Public angle:** “The dashboard was not empty. We had opened its mould.”
+- **Privacy/IP/reputation:** Internal-only browser inspection; no public route,
+  account, subscription or private data changed.
+
+## BTB-149 · A cover did not become a carousel because the manifest said so
+
+`category: audience production · source authority · format truth`
+— ① Make it work · ② Tell the truth about what happened
+`source: Audience & Growth Week 01 independent review, 2026-07-26`
+`publication status: VERIFIED LOCAL PREVENTION RULE`
+
+- **Context:** The first rolling content board had complete copy, three hooks
+  and one Instagram plus one LinkedIn image for every unit.
+- **Issue:** The manifest described Reels, Stories, carousels and LinkedIn
+  documents, but the files were all single static covers. One history unit also
+  cited `content/issues/issue-04.md`, which had become a different draft, rather
+  than the canonical Issue 04 JSON and canon.
+- **What happens:** A campaign can look channel-ready in a tracker while the
+  publisher still lacks the native object, accessible equivalent or correct
+  claim authority. File presence and confident labels hide production debt.
+- **Evidence observed:** Independent review rejected `READY TO PUBLISH`.
+  Maker-side visual inspection then caught a clipped Story hook and a PDF body
+  colliding with its footer even after counts, dimensions and page totals
+  passed.
+- **Diagnosis:** **Verified local acceptance failure before publication.**
+- **Prevent / Fix:** Validate every declared format against its actual
+  deliverable shape: frame/page count, dimensions, codec/duration, captions or
+  ordered accessible text, source title/slug/status and representative visual
+  renders. A cover is a cover until the native object exists.
+- **Why the fix works:** Production status now depends on what a channel
+  operator can actually upload and what a reviewer can read, not on a manifest
+  adjective.
+- **New output:** 35 Story candidates, 14 five-frame carousel sets, 7 captioned
+  motion candidates, 14 five-page LinkedIn PDFs, an accessibility manifest,
+  corrected Issue 04 source binding and a default-deny campaign admission
+  packet.
+- **Transferable lesson:** Metadata can describe an intention; only the
+  artifact and its source receipt prove the deliverable.
+- **Internal rule/check updated:** Audience campaign admission requires
+  shape/file/accessibility/source checks plus representative visual inspection
+  before independent review.
+- **Public angle:** “We made 70 social graphics and still did not have one
+  carousel.”
+- **Privacy/IP/reputation:** Repository-approved source material and local
+  candidates only; no account, scheduler, audience list, spend, deployment or
+  public post changed.
+
+### 2026-07-26 successor recheck addendum
+
+- **Evidence observed:** The Day 01 successor passed machine validation and an
+  independent representative visual check, but exact full-page Brand review
+  found the `W01-D1-03` seven-part paragraph crossing four decorative
+  checklist rows in both Instagram carousel slide 3 and rendered LinkedIn PDF
+  page 3.
+- **Diagnosis:** A representative cover/Story/page inspection was treated as
+  sufficient for a multi-page family. It proved the visual system, not every
+  page's composition.
+- **Prevent / Fix:** For a carousel or document admission, visually inspect
+  every final-resolution page and every rendered PDF page. Also assert that a
+  numbered/list promise has the same visible item count as its graphic
+  structure; dimensions, page totals and text extraction cannot clear overlap
+  or semantic-count mismatch.
+- **Internal rule/check updated:** Day 01 Brand successor admission now holds
+  the complete `W01-D1-03` asset set until all ten native page adaptations and
+  the regenerated PDF are inspected without overlap and with a truthful
+  seven-item visual.
+- **Public angle:** “The five-page document passed—until we read page three.”
+
+## BTB-148 · A future evidence timestamp made fresh data untrustworthy
+
+`category: control room · evidence integrity · automation`
+— ① Make it work · ② Tell the truth about what happened
+`source: Control Room five-minute reconciliation, 2026-07-26`
+`publication status: VERIFIED OPERATING LESSON — PREVENTION RULE`
+
+- **Context:** Platform and Audience owners updated dashboard source files
+  during a live launch audit.
+- **Issue:** Records briefly used `asOf` times later than the current
+  Vancouver clock.
+- **What happens:** Valid work appears fresher than reality and delta-aware
+  ordering becomes unreliable.
+- **Evidence observed:** At 11:44 PDT, External Services claimed 12:10 PDT and
+  Audience had earlier claimed 12:12 PDT. Control Room corrected the records to
+  observed evidence times.
+- **Diagnosis:** **Verified evidence-integrity failure.** Generated timestamps
+  were not bounded against the audit clock.
+- **Prevent / Fix:** Dashboard validation must reject `asOf`, `evidenceAt`,
+  `last_run` or receipt times later than the audit clock plus a small explicit
+  skew allowance. Use observed file/tool time when exact event time is absent.
+- **Why the fix works:** Freshness and status ordering remain chronologically
+  reproducible.
+- **New output:** Corrected source timestamps plus executable
+  `scripts/check-external-services-state-time.mjs`, which rejects invalid or
+  future External Services evidence before handoff.
+- **Transferable lesson:** A precise timestamp is an evidence claim, not
+  decoration.
+- **Internal rule/check updated:** Future-time validation is now required.
+- **Public angle:** “Our dashboard briefly reported evidence from the future.”
+- **Privacy/IP/reputation:** No private billing detail was added; only source
+  timing and validation behavior were corrected.
+
+## BTB-150 · A portfolio count did not tell the operator what to do
+
+`category: control room · operator experience · status semantics`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali Control Room review, 2026-07-26`
+`publication status: VERIFIED FAILURE — FIXED LOCALLY`
+
+- **Context:** The Control Room summarized active, blocked and idle/queued
+  owner lanes.
+- **Issue:** The summary counts had no direct drill-down, and the classifier
+  treated decision-ready work as blocked while grouping every other
+  non-active state under idle/queued.
+- **What happens:** Ali sees a number but cannot tell which owners it represents,
+  whether the wait is expected, who owns the unblock or whether she must act.
+- **Evidence observed:** The current portfolio contains six explicitly queued
+  building owners, two evidence-ready Ali approvals, four truly blocked lanes
+  and several separate dependency, trigger and review states; the prior cards
+  collapsed those distinctions.
+- **Diagnosis:** **Verified operator-actionability failure.**
+- **Prevent / Fix:** Every summary number now opens a one-to-one Action Centre
+  list. The surface separates Ali-ready decisions, agent-owned blocks,
+  intentionally queued work and other waits/reviews, with exact blocker,
+  owner, trigger and Ali action on every card.
+- **Why the fix works:** A status becomes an operating instruction instead of
+  an unexplained label.
+- **New output:** Action Centre, clickable summary cards and copyable bounded
+  decision instructions.
+- **Transferable lesson:** A dashboard is not useful because it counts work; it
+  is useful when every count answers “what happens next, and who does it?”
+- **Internal rule/check updated:** Control Room dashboard contract now requires
+  one-to-one drill-down and forbids conflating `DECISION READY`, `BLOCKED` and
+  `QUEUED`.
+- **Public angle:** “We had a dashboard full of answers to questions nobody was
+  asking.”
+- **Privacy/IP/reputation:** Internal task state only; no agent, provider,
+  deployment or public system was changed.
+
+## BTB-151 · An empty metric can silently become a false zero
+
+`category: analytics · evidence integrity · privacy`
+— ① Make it work · ② Tell the truth about what happened
+`source: Platform aggregate measurement v1, 2026-07-26`
+`publication status: VERIFIED OPERATING LESSON — PREVENTION RULE`
+
+- **Context:** Audience Week 01 needed one aggregate measurement path while
+  Plausible reporting, production Resident Card counts and social exports were
+  not connected.
+- **Issue:** A dashboard shape that accepts numeric defaults can turn an
+  unavailable metric into `0`, implying observed failure or no activity.
+- **What happens:** Teams optimize against invented evidence; a missing
+  account-backed count can also make device-local Card behavior look like
+  verified residence.
+- **Evidence observed:** All four current audience metrics are explicitly
+  unavailable. The v1 mutation suite rejects any unavailable metric carrying
+  zero or another number and returns a null fail-closed projection.
+- **Diagnosis:** **Reusable evidence-integrity risk prevented locally.**
+- **Prevent / Fix:** Measurement contracts must bind value to source state:
+  unavailable/stale/error/suppressed means `value=null`; a numeric zero is
+  admissible only with a ready source, exact period, definition and timestamp.
+- **Why the fix works:** Absence stays visible as absence, while a genuine
+  measured zero remains usable evidence.
+- **New output:** Versioned aggregate envelope, current null-preserving
+  snapshot, compiler, stale/tamper/privacy controls and adversarial tests.
+- **Transferable lesson:** `UNKNOWN != 0` must be executable, not dashboard
+  copy.
+- **Internal rule/check updated:** PR-05 local contract now rejects
+  unknown-as-zero and weak account-backed Card definitions.
+- **Public angle:** “Zero people, or zero connection to the data?”
+- **Privacy/IP/reputation:** Aggregate-only; no accounts, credentials, private
+  content, raw URLs, identifiers, provider rows or session recordings used.
+
+## BTB-152 · A page fit while its shared header overflowed
+
+`category: responsive UI · shared components · test isolation`
+— ① Make it work · ② Tell the truth about what happened
+`source: Visitor live-route receipt and Platform shared-header gate, 2026-07-26`
+`publication status: VERIFIED FAILURE — REPAIR LOCK REQUIRED`
+
+- **Context:** Visitor's Centre passed its own 320px composition after adding a
+  bounded route-local containment rule.
+- **Issue:** A page-level no-overflow assertion did not show whether the page
+  content or injected shared chrome caused the original defect.
+- **What happens:** Each page can accumulate local patches while the same
+  shared defect keeps reaching new routes.
+- **Evidence observed:** The isolated harness removes exactly the one local
+  containment rule in memory. The unchanged `.svgh-nav` ends at 333.94px and
+  makes the document 334px wide at viewport 320; the contained Visitor route
+  ends at 312px/document 320.
+- **Diagnosis:** **Verified shared-component failure.**
+- **Prevent / Fix:** Every injected shared component needs a provider-neutral
+  compact-width gate in addition to downstream page tests. Characterization
+  may prove a known defect, but the release mode must exit nonzero until the
+  raw component fits.
+- **Why the fix works:** Ownership and repair move to the real producer without
+  discarding the downstream page's valid local evidence.
+- **New output:** Deterministic `--gate` check, exact geometry/hash receipt and
+  Shared Header owner handoff; no shared visual source changed.
+- **Transferable lesson:** Test page composition and shared chrome separately.
+- **Internal rule/check updated:** PR-15 requires raw shared-header 320px PASS
+  plus representative downstream acceptance before local patches are removed.
+- **Public angle:** “The room fit the phone. The town-wide front door did not.”
+- **Privacy/IP/reputation:** Local static browser evidence only; no provider,
+  identity, deployment or public mutation.
+
+## BTB-153 · A ready decision still made the CEO reconstruct the choice
+
+`category: control room · decision quality · visual evidence`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali Control Room Decision Desk correction, 2026-07-26`
+`publication status: VERIFIED OPERATOR FAILURE — FIXED LOCALLY`
+
+- **Context:** The dashboard correctly identified two independently admitted
+  functional-base decisions as ready.
+- **Issue:** Each card contained a title, recommendation and boundary, but no
+  representative visuals, option comparison, trade-offs, full approval scope,
+  consequence of waiting or evidence summary.
+- **What happens:** The CEO must open specialist reports and mentally rebuild
+  the decision before she can judge it, defeating the purpose of an executive
+  dashboard.
+- **Evidence observed:** Visitor's Centre had desktop/mobile scenes and a
+  379-check independent receipt; Blend & Snap had full-café/receipt scenes and
+  a 92/92 rejudge. None appeared in the decision interface.
+- **Diagnosis:** **Verified decision-packet completeness failure.**
+- **Prevent / Fix:** A visual or experience decision is `READY` only when its
+  packet includes the plain-language question, one evidence-backed
+  recommendation, materially distinct options and trade-offs, representative
+  visuals, approve/does-not-approve boundaries, scores, risks, delay
+  consequence, next step and exact response receipt. Present one priority
+  decision at a time.
+- **Why the fix works:** The executive can understand, compare and rule without
+  translating agent language or hunting for evidence.
+- **New output:** Control Room Decision Desk backed by validated
+  `decision-packets.json`, with four visible evidence scenes and six bounded
+  response options across the two ready decisions.
+- **Transferable lesson:** A recommendation is not decision support until the
+  operator can see the thing, understand the alternatives and know exactly
+  what her choice authorizes.
+- **Internal rule/check updated:** Visual/experience decisions without visible
+  evidence and explicit trade-offs are now `NOT READY`.
+- **Public angle:** “We gave the CEO a recommendation—and hid the thing she was
+  supposed to approve.”
+- **Privacy/IP/reputation:** Internal local evidence only; no approval was
+  inferred, routed, deployed or published.
+
+## BTB-154 · Shared DOM did not guarantee a fair visual comparison
+
+`category: brand championship · evidence integrity · responsive UI`
+— ① Make it work · ② Tell the truth about what happened
+`source: SVC-01 controlled sitewide style championship, 2026-07-26`
+`publication status: VERIFIED LOCAL PREVENTION RULE`
+
+- **Context:** A/B/C used one React DOM, shared semantic content and nominally
+  shared geometry so Ali would judge only the visual system.
+- **Issue:** Direction-specific borders and wrapped switcher labels still
+  moved measured boxes by 1–8px. The browser evidence capture also returned
+  JFIF bytes under `.png` filenames.
+- **What happens:** A candidate can inherit an invisible layout advantage, and
+  an evidence manifest can confidently hash a file whose extension lies about
+  its format.
+- **Evidence observed:** Box measurement failed before border/switcher
+  equalization. Signature inspection found JPEG/JFIF evidence even though the
+  screenshot paths ended in `.png`; pixel metadata was absent until the
+  captures were normalized to true PNG.
+- **Diagnosis:** **Verified comparison-fairness and evidence-integrity failure
+  before owner presentation.**
+- **Prevent / Fix:** Shared DOM is necessary but insufficient. Bind exact
+  landmark/control box parity at every decision viewport, and verify file
+  signatures, decoded dimensions and hashes before admitting screenshot
+  evidence.
+- **Why the fix works:** Direction differences remain visual-system variables,
+  not geometry variables, while the manifest proves the actual media object
+  rather than trusting its filename.
+- **New output:** Exact geometry parity at 1440, 720, 390 and 320 CSS pixels;
+  true-PNG evidence; decoded dimensions; checksum manifest; source/build
+  comparison and operated-boundary diagnostic.
+- **Transferable lesson:** Compare measured output and decoded media, not
+  implementation intention.
+- **Internal rule/check updated:** Sitewide style championships now require
+  box-level parity plus signature/dimension checks before blind review.
+- **Public angle:** “Our three websites shared the same code—and still were
+  not the same size.”
+- **Privacy/IP/reputation:** Local controlled evidence only; no live route,
+  production asset, deployment, spend or public surface changed.
+
+## BTB-154 · A three-word claim correction had to travel through every derivative
+
+`category: source stewardship · campaign production · checksum review`
+— ① Make it work · ② Tell the truth about what happened
+`source: NewsStand Week 01 Day 01 source-use verdict, 2026-07-26`
+`publication status: BUILT LOCALLY — CHECKSUM RE-REVIEW REQUIRED`
+
+- **Context:** Three Issue 02 campaign units were structurally sound but made
+  outcomes sound more certain than their admitted source supported.
+- **Issue:** Each held sentence had already propagated into manifest fields,
+  feed and story art, carousel/document pages, accessibility descriptions,
+  captions and a motion candidate.
+- **What happens:** Editing only the visible headline leaves contradictory
+  claims in alt text, PDFs, captions or later generator runs.
+- **Evidence observed:** A targeted repair changed only W01-D1-01/03/05 and
+  their exact derivatives. W01-D1-02/04 retained their prior manifest-object
+  and referenced-asset-set hashes.
+- **Diagnosis:** **Reusable source-to-derivative drift risk repaired locally.**
+- **Prevent / Fix:** Bind every qualified campaign claim to a source-owner
+  sentence, enumerate all generated derivatives, rebuild only affected
+  objects, reject held wording in the self-contained verifier and require
+  checksum-bound source-owner re-review.
+- **Why the fix works:** A source correction becomes an executable production
+  constraint while already accepted neighboring objects remain byte-stable.
+- **New output:** Targeted Day 01 rebuild mode, deterministic per-unit checksum
+  tool, accessibility regeneration, visual contact sheet and machine receipt.
+- **Transferable lesson:** Small truth corrections need dependency graphs, not
+  search-and-replace confidence.
+- **Internal rule/check updated:** Week 01 verification now asserts the exact
+  admitted sentences and rejects the three held variants.
+- **Public angle:** “The three words that changed a whole content pipeline.”
+- **Privacy/IP/reputation:** Repository-local product evidence only; nothing
+  published, scheduled, deployed, purchased or sent to an external audience.
+
+## BTB-155 · A technically complete building was still a boring webpage
+
+`category: product admission · building experience · brand governance`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali Visitor's Centre rejection, 2026-07-26`
+`publication status: VERIFIED ACCEPTANCE-GATE FAILURE — CANDIDATE REJECTED`
+
+- **Context:** The Visitor's Centre functional candidate passed hundreds of
+  bounded interaction, responsive, state and accessibility checks.
+- **Issue:** Control Room split the “functional base” from the actual building
+  experience and asked Ali to approve a white page of boxed modules before the
+  LAiDIES environment and visual world existed.
+- **What happens:** High technical scores make a generic wireframe look
+  decision-ready even though the product fails its most important promise:
+  entering should feel like visiting that building inside SUNNYVAiLE.
+- **Evidence observed:** Ali rejected the front-desk/map/directory grammar as
+  boring, white, boxed, off-palette and unlike the colourful, vibrant Homepage.
+- **Diagnosis:** **Verified non-compensable product/brand gate failure.**
+- **Prevent / Fix:** Never create a separate executive approval for a building
+  skeleton. Before a building reaches Ali, the exact desktop/mobile candidate
+  must make the environment itself the interface and independently clear both
+  the building-as-experience and LAiDIES brand-world floors. Technical,
+  functionality, accessibility and truth checks remain parallel mandatory
+  floors, not compensating points.
+- **Why the fix works:** It prevents a checklist-complete generic webpage from
+  outranking the defining user experience.
+- **New output:** Visitor candidate closed as `REJECTED`; integration stopped;
+  Blend & Snap's analogous functional-only approval demoted to `NOT READY`;
+  replacement Visitor experience lane dispatched to its owner and Brand.
+- **Transferable lesson:** You cannot add the product's soul in a later styling
+  pass when the place itself is the interface.
+- **Internal rule/check updated:** D-2026-07-26-061. Decision packets and the
+  Control Room now require actual visible building experience before `READY`.
+- **Public angle:** “Why 779 passing checks still did not make the page good.”
+- **Privacy/IP/reputation:** Internal local evidence only; no integration,
+  deployment, publication, spend or external mutation occurred.
+
+## BTB-156 · “Visual work” hid twelve different production truths
+
+`category: portfolio control · visual production · status integrity`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali Visual Production dashboard correction, 2026-07-26`
+`publication status: VERIFIED OPERATING FAILURE — DASHBOARD REPAIRED`
+
+- **Context:** Brand, page art, postcards, Resident Card backgrounds, Closet
+  assets, cards, five motion titles and a motion ident were being discussed
+  across owner rows and packets.
+- **Issue:** A generic visual or Brand status could not show which literal
+  artifact was being made, which product merely had old files, which was
+  queued and which had no viable owner entry.
+- **What happens:** Inventory looks like production, one active episode makes
+  five titles sound active, and a registered product such as Trading Cards can
+  appear owned despite missing its dossier and state.
+- **Evidence observed:** The literal portfolio contains twelve rows. Only the
+  bounded Brand comparison and Episode 2 repair have active visual outputs;
+  nine are queued/not running and Trading Cards is blocked on owner entry.
+- **Diagnosis:** **Verified portfolio-status granularity failure.**
+- **Prevent / Fix:** Maintain one Visual Production portfolio with a literal
+  row per asset family/title. Require task, exact output, D-057 activity,
+  blocker, unblock, next run and Ali decision. Apply the sitewide-direction
+  lock before category production.
+- **Why the fix works:** Existing files, a packet or an umbrella owner can no
+  longer impersonate an active maker and named deliverable.
+- **New output:** Twelve-row Visual Production tab, Action Centre summary,
+  sitewide-direction lock and exact motion-ident checksum/assessment record.
+- **Transferable lesson:** Production status belongs to the deliverable, not
+  the department.
+- **Internal rule/check updated:** D-2026-07-26-062 and the Control Room
+  dashboard contract now require literal visual rows and the sequence
+  direction → `KEEP / ADAPT / REJECT` → missing assets → integration/test.
+- **Public angle:** “We had one visual status and twelve different realities.”
+- **Privacy/IP/reputation:** Internal repository evidence only; no visual was
+  published, deployed, purchased or externally shared.
+
+## BTB-156 · Off-screen text looked like header overflow to the first detector
+
+`category: responsive UI · deterministic testing · accessibility`
+— ① Make it work · ② Tell the truth about what happened
+`source: Platform shared-header 320px repair matrix, 2026-07-26`
+`publication status: VERIFIED TEST FAILURE — FIXED LOCALLY`
+
+- **Context:** The shared-header maker matrix checked visible bounds across
+  Homepage, Visitor's Centre and Sorority House before accepting the 320px
+  repair candidate.
+- **Issue:** The first generic descendant-bounds detector reported Sorority
+  House as extending almost 10,000px left at desktop, 390 and 320.
+- **What happens:** A deliberately clipped logo technique can look like a
+  catastrophic responsive failure, causing a valid candidate to be rejected
+  or prompting an unrelated production-style edit.
+- **Evidence observed:** The reported node was `.brand .lac`, inheriting
+  Sorority's existing `text-indent:-9999px; overflow:hidden` image-logo
+  treatment. Document width and the visible header/nav boxes fit.
+- **Diagnosis:** **Verified test-model false positive.** Text glyph bounds were
+  measured even though their clipping container was the real layout boundary.
+- **Prevent / Fix:** Shared-component overflow gates measure the component's
+  visible layout containers and document scroll width, while separately
+  recording descendant extremes for diagnosis. Intentionally clipped content
+  is not silently ignored; its clipping owner and visible container must be
+  identified.
+- **Why the fix works:** Real overflow still fails the raw/document gate, while
+  inaccessible off-canvas layout cannot hide behind a blanket exclusion.
+- **New output:** Three-route, nine-JS/three-no-JS consumer matrix with visible
+  container geometry, rendered evidence and exact hashes.
+- **Transferable lesson:** The smallest DOM coordinate is not always the
+  visible edge; test the browser's clipping and layout contract.
+- **Internal rule/check updated:** PR-15 uses raw document/nav geometry plus
+  visible direct-container bounds and retains diagnostic descendant nodes.
+- **Public angle:** “Our test said the logo was ten thousand pixels off-screen.
+  Technically, the hidden letters were.”
+- **Privacy/IP/reputation:** Local static browser evidence only; no provider,
+  account, deployment or public state changed.
+
+## BTB-157 · A correct checksum failed because it was attached to the wrong file
+
+`category: acceptance evidence · checksum binding · cross-owner handoff`
+— ① Make it work · ② Tell the truth about what happened
+`source: Visitor shared-header independent acceptance HOLD, 2026-07-26`
+`publication status: VERIFIED HANDOFF FAILURE — CORRECTED PATH BINDING PENDING RE-REVIEW`
+
+- **Context:** Platform handed two frozen shared-header artifacts to independent
+  consumer owners: a machine-readable JSON maker receipt and a separate
+  Markdown evidence narrative.
+- **Issue:** Visitor's reviewer applied the JSON receipt checksum to the
+  Markdown evidence path. The expected and observed values were both correct,
+  but they described different files.
+- **What happens:** An unchanged candidate receives a legitimate fail-closed
+  HOLD, the behavior suite is never run and a team may unnecessarily reseal
+  source bytes that did not change.
+- **Evidence observed:** The JSON receipt remains
+  `299876c0…c049`; the Markdown evidence remains `1a36e936…4370`.
+  Shared source and Visitor route hashes also match the frozen tuple.
+- **Diagnosis:** **Verified handoff path/checksum association failure.**
+- **Prevent / Fix:** Every acceptance tuple must use an explicit
+  `artifact role → exact repository path → SHA-256` table. Reviewers verify the
+  role and path before comparing the checksum. A failed association triggers a
+  corrected path-explicit resubmission; resealing is required only if bytes
+  changed.
+- **Why the fix works:** Fail-closed review remains intact while distinguishing
+  artifact drift from a handoff-label error.
+- **New output:** Platform consumer-acceptance state now records the Visitor
+  HOLD, both distinct artifact bindings and the exact fresh-review trigger.
+- **Transferable lesson:** A checksum proves bytes only after everyone agrees
+  which bytes it names.
+- **Internal rule/check updated:** Shared-component consumer handoffs must bind
+  candidate receipt and narrative evidence as separate typed artifacts.
+- **Public angle:** “The checksum was right. The label beside it was wrong.”
+- **Privacy/IP/reputation:** Repository-local evidence only; no source, route,
+  deployment, provider or public state changed.
+
+## BTB-162 · Accepted source bytes were still requested through the old cache key
+
+`category: release binding · cache versioning · shared components`
+— ① Make it work · ② Tell the truth about release state
+`source: shared-header asset/cache binding v1, 2026-07-26`
+`publication status: VERIFIED LOCAL RELEASE-BINDING GAP`
+
+- **Context:** The shared-header source and its local Homepage/Visitor consumer
+  behavior passed independently.
+- **Issue:** Both consuming routes still request
+  `sv-global-header.js?v=20260715-1` even though the accepted source bytes have
+  a newer checksum-derived identity.
+- **What happens:** A local source PASS can be reported while a browser or CDN
+  may continue serving bytes under a stale cache key; source acceptance does
+  not prove release delivery.
+- **Evidence observed:** Exact source SHA is `807bbe6b…1efa`; both live route
+  sources retain the old request; the sealed local release key is
+  `svgh-320-2026-07-26-v1-807bbe6b17ab`.
+- **Prevent / Fix:** Every shared static asset release binds source hash,
+  source-derived version key and all consuming route references in one atomic
+  candidate. Mixed or old/new references fail closed. Consumer acceptance is
+  rerun after the URL switch, before deployment or cache proof.
+- **Why the fix works:** The URL identity changes with accepted bytes and every
+  consumer proves the same version before public delivery can be claimed.
+- **Internal rule/check updated:** Local source/consumer acceptance and
+  route/cache release binding are separate gates; neither lends its PASS to the
+  other.
+- **Public angle:** “The code was fixed. The URL was still asking for the old
+  version.”
+- **Privacy/IP/reputation:** Repository-local static files only; no provider,
+  cache setting, deploy or public state changed.
+
+## BTB-158 · An independent evidence rerun rewrote the evidence it was checking
+
+`category: deterministic testing · evidence immutability · acceptance review`
+— ① Make it work · ② Tell the truth about what happened
+`source: Visitor shared-header corrected consumer acceptance, 2026-07-26`
+`publication status: VERIFIED TEST SIDE EFFECT — ACCEPTED INPUTS PRESERVED`
+
+- **Context:** Visitor independently reran the shared-header browser matrix with
+  evidence capture enabled after verifying the frozen source, route, receipts
+  and test scripts.
+- **Issue:** `--evidence` writes to the maker's
+  `evidence-candidate/matrix-result.json`, so verification regenerated a
+  checksum-bound derived output inside the shared candidate evidence folder.
+- **What happens:** The behavior can pass while the reviewer silently changes
+  an artifact named by the original maker receipt, making “immutable evidence”
+  and “fresh proof” impossible to distinguish.
+- **Evidence observed:** The maker result hash was `1bf8f531…e4c7c`; the fresh
+  Visitor rerun produced `b71e5237…35fc`. Candidate source, consumer routes,
+  machine/narrative receipts and test-script hashes stayed unchanged.
+- **Diagnosis:** **Verified verification-side-effect defect.**
+- **Prevent / Fix:** Independent gates run in non-writing mode by default.
+  Fresh captures must go to a reviewer-owned, run-specific output directory.
+  Acceptance records bind immutable inputs separately from derived run outputs
+  and preserve both hashes when regeneration already occurred.
+- **Why the fix works:** A reviewer can reproduce behavior without mutating the
+  maker package, while new visual evidence remains attributable to its run.
+- **New output:** The Platform aggregate acceptance state explicitly records
+  the original and fresh derived hashes and keeps release integration pending.
+- **Transferable lesson:** A test that proves evidence should not overwrite the
+  evidence it is proving.
+- **Internal rule/check updated:** Shared browser suites need an explicit output
+  directory for capture mode; owner acceptance uses a reviewer-owned path.
+- **Public angle:** “Our independent test passed—and rewrote the receipt.”
+- **Privacy/IP/reputation:** Local browser evidence only; no route, shared
+  source, provider, deployment or public state changed.
+
+## BTB-160 · The current episode changed in one card and stayed old everywhere else
+
+`category: content projection · atomic release state · cross-owner integration`
+— ① Make it work · ② Tell the truth about what happened
+`source: Weekly Episodes → Town Entry current-episode boundary, 2026-07-26`
+`publication status: VERIFIED SOURCE CONFLICT — REPAIR SPECIFIED / QUEUED`
+
+- **Context:** The Homepage gained a checksum-bound current-content receiver
+  while retaining its existing Episode 04 season, song and route treatment.
+- **Issue:** One accepted `latest-episode` item could rewrite the hero action
+  and current card without updating the season rail, KSVL song, read/watch
+  links, image, card pack or fallback as one release.
+- **What happens:** A visitor can see two different “current” episode truths on
+  the same page, and an unavailable format can inherit a prior episode's link
+  or song.
+- **Evidence observed:** `homepage.js` mutates `.entry-episode-action` from the
+  projection, separately resets the season panel and `WEEKLY_SONG` to Episode
+  04, while `index.html` independently hard-codes Episode 04 across hero,
+  season and KSVL-labelled routes.
+- **Diagnosis:** **Verified partial-projection integration defect.**
+- **Prevent / Fix:** Weekly content crosses owner boundaries as one immutable,
+  checksum-bound atomic record containing every visible field, explicit
+  nullable links/song/card-pack values, release/public authority and a
+  self-contained fallback. Consumers swap or reject the whole record; they do
+  not patch fields or infer missing values from files and routes.
+- **Why the fix works:** Every visible episode surface advances, clears or
+  falls back together, so old content cannot survive inside a nominally new
+  release.
+- **New output:** `EPX-HOME-CURRENT-EPISODE-v1` producer/consumer contract and
+  Town Entry's evergreen-masthead/duplication audit.
+- **Transferable lesson:** “Current” is a release state, not a collection of
+  independently fresh labels.
+- **Internal rule/check updated:** Future acceptance must test complete-record
+  replacement, `song:null`, nullable formats, fallback, correction, rollback
+  and masthead invariance.
+- **Public angle:** “The episode card moved on. The rest of the page did not.”
+- **Privacy/IP/reputation:** Repository-local evidence only; no Homepage file,
+  shared source, deployment, publication or external service changed.
+
+## BTB-159 · Two encoders can leave a plausible-looking but corrupted review MP4
+
+`category: video assembly · deterministic export · checksum-bound review`
+— ① Make it work · ② Tell the truth about what happened
+`source: Episode 02 v18 still-only repair, 2026-07-26`
+`publication status: LOCAL REVIEW CANDIDATE ONLY — INDEPENDENT MEDIA-QUALITY REVIEW REQUIRED`
+
+- **Context:** A checksum-bound Episode 02 review cut was being rebuilt from a
+  frozen v17 clock with five admitted still replacements and no camera motion.
+- **Issue:** Two encoder processes were inadvertently directed at one MP4 path.
+  The file existed and grew, but full decode found duplicate movie metadata and
+  invalid H.264 NAL data.
+- **What happens:** A file-presence or shallow stream check can make a corrupt
+  review candidate appear complete, risking an invalid handoff.
+- **Diagnosis:** **Verified concurrent-writer export corruption.** A later
+  frame-time trim also showed that stream-copying a separately cut picture can
+  lose the last AAC packet, so the exact v17 packet-clocked audio stream must
+  be retained as a bound master rather than inferred from duration alone.
+- **Prevent / Fix:** Render each long candidate to a uniquely named temporary
+  path; do not launch another writer until the tracked encoder exits. Require a
+  complete decode, stream inspection, duration-tolerance check and audio-stream
+  hash comparison before atomically promoting the candidate. Record encoded
+  still-frame compression variance separately from transform evidence; absence
+  of `zoompan`, crop and pan in the reproducible filter graph remains the
+  camera-motion control.
+- **Why the fix works:** A corrupt or clock-shifted intermediate cannot replace
+  the review artifact, while the promoted candidate remains tied to the actual
+  narration packet stream and source-placement manifest.
+- **New output:** Episode 02 v18 builder renders to a temporary candidate and
+  produces a checksum-bound manifest/QC package before handoff.
+- **Transferable lesson:** A successful encode command is not a valid export;
+  prove the whole file decodes and that its timed streams are the intended ones.
+- **Internal rule/check updated:** Long-video builders use unique temporary
+  outputs plus promotion-after-QA; review gates compare the clocked master audio
+  stream and keep motion proof independent from H.264 pixel noise.
+- **Public angle:** “The file was there. It even had a duration. It still was
+  not a video we could review.”
+- **Privacy/IP/reputation:** Local production evidence only; no public media,
+  deployment, provider or account state changed.
+
+## BTB-160 · A source hash alone cannot prove that a picture has the right job
+
+`category: episode media · semantic continuity · source admission`
+— ① Make it work · ② Tell the truth about what happened
+`source: Episode 02 v18 → v19 style/semantic repair, 2026-07-26`
+`publication status: LOCAL REVIEW CANDIDATE ONLY — INDEPENDENT MEDIA-QUALITY REVIEW REQUIRED`
+
+- **Context:** The v18 Episode 02 MP4 had a complete checksum tuple, stable
+  narration, true-still controls and five repaired inputs, but independent
+  review held it for recurrent mixed scenic/graphic rendering and two images
+  that no longer explained their concurrent narration.
+- **Issue:** A 61-row clock/source list did not bind each occurrence to the
+  spoken picture job plus its identity, environment, prop/costume and master
+  style authorities. Technical validity therefore allowed a stale question
+  bubble and a generic office hold to survive after the script had moved on.
+- **Diagnosis:** **Verified source-to-semantics admission gap.** Bytes, timing
+  and no-camera-motion are necessary evidence, not a claim that the image
+  depicts the right thought.
+- **Prevent / Fix:** The next candidate binds every timed occurrence to an
+  as-recorded picture job and checksum-recorded reference authorities. Replace
+  only the independently listed failed sources; record the exact two semantic
+  corrections separately; retain accepted sources byte-for-byte and require a
+  new independent full-frame/crop and normal-speed review.
+- **Why the fix works:** A reviewer can now test the shot's stated job, source
+  bytes and visual authority at the exact clock window instead of inferring
+  intent from a filename or a passing export.
+- **New output:** Episode 02 v19 contains 61 per-occurrence job/reference
+  bindings, 27 judge-scoped style replacements, and explicit cue-07/cue-15
+  semantic corrections.
+- **Transferable lesson:** A correct image source is still wrong when it is
+  left on screen after the narration has changed subjects.
+- **Internal rule/check updated:** Episode review manifests must bind
+  `clock → source bytes → picture job → identity/location/prop-costume/style
+  references`; maker export remains local evidence, never image admission.
+- **Public angle:** “The frame was beautiful. It was also answering a question
+  the episode had stopped asking.”
+- **Privacy/IP/reputation:** Repository-local production evidence only; no
+  public media, deployment, provider or account state changed.
+
+## BTB-161 · The cached old homepage looked live after the redirect was already working
+
+`category: domain migration · public verification · acquisition continuity`
+— ① Make it work · ② Tell the truth about what happened
+`source: Audience first-visit acquisition and domain audit, 2026-07-26`
+`publication status: VERIFIED PUBLICLY — REDIRECT PASS; CACHE MIGRATION OPEN`
+
+- **Context:** The canonical LAiDIES domain changed from `wearelaidies.com` to
+  `laidies.ai`, while older social and email objects still contained the former
+  domain.
+- **Issue:** A search/web fetch surfaced an old-domain page title and body that
+  looked like a distinct live homepage.
+- **What happens:** A cached index can be mistaken for current origin behavior,
+  sending the team toward an unnecessary redirect repair or allowing a real
+  redirect defect to be dismissed as “just cache.”
+- **Evidence observed:** Fresh HTTP requests proved permanent `301` redirects
+  for apex/`www`, HTTP/HTTPS and tested Issue paths, with path and query
+  preservation. Search results still displayed old copy.
+- **Diagnosis:** **Verified evidence-layer mismatch.**
+- **Prevent / Fix:** Domain-migration gates separately test origin headers,
+  complete redirect chains, final content identity, path/query preservation,
+  social/search previews and cached-index freshness. No one layer substitutes
+  for another.
+- **Why the fix works:** Origin delivery, campaign continuity and discovery
+  cache become three explicit states instead of one vague “the redirect works.”
+- **New output:** First-visit message/domain-continuity packet with exact
+  redirect matrix and external/local residue inventory.
+- **Transferable lesson:** Search cache describes discovery residue; headers
+  describe current routing. Test both.
+- **Internal rule/check updated:** Acquisition admission now binds the old
+  destination, redirect chain, final landing promise and preview/cache state.
+- **Public angle:** “The old homepage was gone. Search was still showing its
+  ghost.”
+- **Privacy/IP/reputation:** Public pages and repository strings only; no
+  profile, post, account, deployment or analytics data was changed.
+
+## BTB-163 · A back button that depends on referrer disappears when visitors need it most
+
+`category: mobile navigation · direct entry · shared distribution`
+— ① Make it work · ② Tell the truth about what happened
+`source: Ali phone navigation report and shared-script audit, 2026-07-26`
+`publication status: BEHAVIOR VERIFIED LOCALLY — SITEWIDE DISTRIBUTION BLOCKED`
+
+- **Context:** Social links, email links, bookmarks and new tabs commonly land
+  a mobile visitor deep inside SUNNYVAiLE.
+- **Issue:** The shared back script mounted only when
+  `document.referrer` contained a different same-origin page, and its mobile
+  treatment was a 30-pixel icon whose label depended on hover/focus.
+- **What happens:** Direct and external arrivals get no return affordance and
+  must know the browser gesture; phones cannot discover a hover-only label.
+- **Evidence observed:** Only 18 source HTML pages load the script. The shared
+  header reaches 76 pages but does not yet distribute it.
+- **Diagnosis:** **Verified conditional-rendering and distribution defect.**
+- **Prevent / Fix:** Every visitor-facing deep route gets a readable 44-pixel+
+  contextual-return control. A valid same-origin referrer is the prior target;
+  every other deep entry gets a deterministic town-home fallback. Shared
+  behavior and sitewide distribution are tested as separate gates.
+- **Why the fix works:** Navigation no longer depends on optional browser
+  metadata, external history or a hover state, while release evidence cannot
+  mistake correct behavior on 18 pages for sitewide coverage.
+- **New output:** Repaired `sv-back-nav.js`, four-state deterministic browser
+  suite and checksum-bound maker evidence.
+- **Transferable lesson:** A correct shared component is not a shared
+  experience until every intended consumer actually loads it.
+- **Internal rule/check updated:** Mobile navigation admission covers direct,
+  internal, external/social, bookmark/new-tab and home states, then separately
+  proves exact route distribution and ordered Previous/Next preservation.
+- **Public angle:** “The back button worked—unless you arrived from the outside
+  world.”
+- **Privacy/IP/reputation:** Local source and synthetic browser fixtures only;
+  no visitor data, deployment or public state changed.
+
+## BTB-164 · A complete Study Pack menu quietly filled the wrong learning jobs
+
+`category: learning architecture · derivative fidelity · composite admission`
+— ① Make it work · ② Tell the truth about what happened
+`source: Learning System Study Pack reconciliation, 2026-07-26`
+`publication status: VERIFIED SOURCE CONFLICT — CORRECTION CONTRACT SPECIFIED`
+
+- **Context:** Blend & Snap coordinates a weekly Study Sheet, Try-On, Cheat
+  Sheet, Concept Cards and a separate Quiz across four released episodes.
+- **Issue:** The stable five-slot menu began to act like a requirement that
+  every episode fill every slot. Episode 01's Try-On configuration reused
+  Episode 02's vague-versus-specific exercise; Episode 04 was labelled a
+  Try-On even though its canon deliberately selected a field trip; Episode
+  04's Quiz also carried bonus questions from unruled Episode 05 material.
+- **What happens:** A complete-looking visual system hides duplicate teaching,
+  canon drift and an invented component. The learner repeats the wrong skill,
+  and a future lesson enters assessment before its concept is ruled.
+- **Evidence observed:** `episode-01.canon.md#try_on` requires the same
+  low-risk task across ChatGPT, Claude and Gemini, while `try-on.html` issue 1
+  asks for vague then specific prompting—the Episode 02 exercise.
+  `episode-04.canon.md#try_on` says “No try-on task this week,” while the pack
+  manifest marks an Episode 04 Try-On available. `quizzes.json → issue04`
+  contains two bonus items sourced from an unruled next episode.
+- **Diagnosis:** **Verified composite-content fidelity failure.** Component
+  availability was checked more carefully than component cognitive job and
+  canon identity.
+- **Prevent / Fix:** Before scripting or visual production, bind every
+  component to the exact episode hash, source locator, one cognitive job,
+  content owner and independent acceptance owner. Require an explicit
+  `selected`, `held`, `declined` or `not_applicable` decision; a canon-backed
+  `not_applicable` is complete, while a placeholder or borrowed exercise is
+  not. Keep Quiz outside the pack and reject unruled future teaching.
+- **Why the fix works:** The stable weekly ritual can stay visually coherent
+  while each component remains instructionally distinct and truthful to the
+  episode. Missing work stays visible instead of being filled with a nearby
+  lesson.
+- **New output:** Episodes 01–04 Study Pack learning-quality matrix and a
+  reusable future-episode intake/admission contract covering content, visual
+  structure, transfer evidence and cross-owner sign-off.
+- **Transferable lesson:** A reusable template should standardize decisions
+  and evidence, not force every lesson into the same activities.
+- **Internal rule/check updated:** Future Study Packs require a canon-hash
+  component complement card before content or visual production.
+- **Public angle:** “We made the Study Pack look complete—and accidentally put
+  next week's lesson in this week's homework.”
+- **Privacy/IP/reputation:** Repository-local learning records only; no learner
+  data, public content, component source, deployment, spend or external
+  service changed.
+
+## BTB-165 · The cache key stayed the same after the shared bytes changed
+
+`category: release binding · browser cache · checksum integrity`
+— ① Make it work · ② Tell the truth about what happened
+`source: Platform shared-header asset/cache binding v1, 2026-07-26`
+`publication status: VERIFIED LOCALLY — ROUTE INTEGRATION/PUBLIC CACHE PENDING`
+
+- **Context:** Homepage and Visitor independently accepted a repaired shared
+  header source, but both frozen routes still requested the older
+  date-labelled URL `?v=20260715-1`.
+- **Issue:** The query key did not derive from the accepted source bytes.
+  Different caches could therefore associate one apparent version with old or
+  new JavaScript.
+- **What happens:** Local no-store tests pass while a browser or CDN can
+  continue serving stale behavior, and updating only one route creates a mixed
+  release.
+- **Evidence observed:** Accepted source SHA-256 is `807bbe6b…1efa`; both real
+  consumers still contain `v=20260715-1`. Start Here correctly remains a
+  non-consumer.
+- **Diagnosis:** **Verified release-binding gap.**
+- **Prevent / Fix:** Derive the cache key from candidate ID plus source hash,
+  bind every consuming route and non-consuming exception, simulate the switch
+  atomically, reject mixed versions and retain recoverable rollback bytes—not
+  only a prior hash.
+- **Why the fix works:** One key names one byte sequence, all consumers move
+  together and a failed release has an executable prior asset.
+- **New output:** Independently verified local asset/cache binding with
+  source-derived version, detached payload seal, Git-object rollback and
+  adversarial mixed/stale/tamper tests.
+- **Transferable lesson:** A cache-buster is an integrity identifier, not a
+  date-shaped decoration.
+- **Internal rule/check updated:** Shared asset release candidates require
+  source-derived keys, atomic consumer reference updates and fresh owner
+  acceptance for changed route hashes.
+- **Public angle:** “The code changed. Its name did not.”
+- **Privacy/IP/reputation:** Repository-local code and synthetic verification
+  only; no provider/cache setting, route, deployment or public state changed.
+
+## BTB-166 · Reusing the exact hero image still produced the wrong Homepage
+
+`category: visual continuity · reference fidelity · championship admission`
+— ① Make it work · ② Tell the truth about what happened
+`source: SVC-01 Homepage championship reset, 2026-07-26`
+`publication status: VERIFIED LOCALLY — CHALLENGERS REJECTED`
+
+- **Context:** Ali locked the current luminous Homepage masthead as the
+  championship baseline and required conservative downstream-system tests.
+- **Issue:** The first Homepage exemplar reused the exact town image but
+  reconstructed the header, typography, accent colours, hero hierarchy and
+  CTA rail from memory. Later full-page captures also temporarily introduced
+  additive copy while the authoritative ruling was changing.
+- **What happens:** A checksum can prove that one image is exact while the
+  overall design is still visibly worse. Technical completeness then creates
+  false confidence in an ineligible comparison.
+- **Evidence observed:** Direct side-by-side inspection of Ali's incumbent
+  screenshot and the prototype showed different header proportions, `never
+  forgot` accent colour, tagline treatment and CTA composition. Ali then
+  rejected every alternative and retained the current Homepage as the sole
+  incumbent.
+- **Diagnosis:** **Verified reference-scope failure.** Asset fidelity was
+  mistaken for composition and product fidelity.
+- **Prevent / Fix:** Freeze the entire incumbent viewport—not only asset
+  hashes—before challenger work. Bind exact copy delta, DOM/geometry delta and
+  visible side-by-side desktop/mobile evidence. Reject internally unless the
+  challenger is materially better on every incumbent-relative Brand/Product
+  floor.
+- **Why the fix works:** A candidate cannot claim preservation while quietly
+  changing the hierarchy that made the reference successful.
+- **New output:** Championship reset verdict, incumbent-only image inventory
+  and Control Room dependent-release lock.
+- **Transferable lesson:** “Same image” is not “same design.”
+- **Internal rule/check updated:** Homepage championship admission now starts
+  with full incumbent renders and a literal `NONE` copy delta; building
+  translation begins only after Ali selects the Homepage system.
+- **Public angle:** “We kept the hero image and still lost what made the
+  homepage work.”
+- **Privacy/IP/reputation:** Local source and screenshots only; no live route,
+  deployment, spend, account or public content changed.
+
+## BTB-167 · A full dashboard made zero visitor progress look busy
+
+`category: executive truth · portfolio reporting · outcome accounting`
+— ① Make it work · ② Tell the truth about what happened
+`source: Control Room executive reset, 2026-07-26`
+`publication status: INTERNAL CONTROL CORRECTION`
+
+- **Context:** The Control Room accumulated detailed owner rows, hashes,
+  packets, local acceptance, locks and active-task evidence during launch.
+- **Issue:** Necessary backstage work was presented beside visible product
+  work without a non-compensable outcome split. A populated dashboard could
+  therefore imply launch progress even though no challenger beat the Homepage
+  incumbent, no building experience propagated and no reopening artifact
+  existed.
+- **What happens:** Executive attention is spent interpreting production
+  machinery while the actual outcome remains unchanged.
+- **Evidence observed:** Ali correctly reported zero meaningful progress
+  toward the outcome while the dashboard showed multiple active lanes and
+  extensive local evidence.
+- **Diagnosis:** **Verified reporting-model failure.** Activity and evidence
+  were mistaken for an integrated, visitor-usable or decision-ready result.
+- **Prevent / Fix:** Fail closed into three top-line categories: `VISIBLE /
+  WORKING OUTCOMES`, `BACKSTAGE ENABLERS` and `FAILED / REJECTED WORK`. Every
+  material item must say what Ali or a visitor can use now, which exact blocker
+  changed and what tangible artifact comes next.
+- **Why the fix works:** Only outcome evidence can raise executive progress;
+  backstage work stays auditable without borrowing product meaning.
+- **New output:** Dashboard executive-outcome section and contract rule with
+  visible reopening outcome count fixed at zero until evidence changes.
+- **Transferable lesson:** A monitor proves the work was supervised; it does
+  not prove the product moved.
+- **Internal rule/check updated:** Dashboard top line and audit receipts may
+  not count documents, hashes, tests, task activity or local acceptance as
+  executive progress.
+- **Public angle:** “Our dashboard looked productive while the product stood
+  still.”
+- **Privacy/IP/reputation:** Internal operating evidence only; no deployment,
+  public change, spend, account or private user data.
+
+## BTB-168 · The policy tests passed while both real release fixtures failed
+
+`category: editorial automation · regression coverage · contract migration`
+— ① Make it work · ② Tell the truth about what happened
+`source: Opus 5 / Gemini Flash evaluator diagnosis, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The NewsStand evaluator was tightened so every candidate must
+  declare its publication job. Older model-release packets still carried the
+  locked `releaseDetailsComplete` gate.
+- **Issue:** The evaluator's closed check-key list stopped accepting
+  `releaseDetailsComplete`, while the model-release rule still requires it.
+  The main regression script also stopped executing the dedicated passing and
+  failing release fixtures.
+- **Evidence observed:** The policy suite reported PASS, but both the Opus 5
+  passing fixture and the shallow-release rejection fixture returned
+  `missing_or_invalid:checks`; the real Opus 5 and Gemini Flash candidates also
+  lacked the new Breaking `editorialJob` and `qualifiedInterrupt` fields. The
+  same migration sweep later found that the legacy Meta connected-tasks and
+  Google ATLAS candidates were single-story Daily envelopes, while the new
+  contract correctly requires a genuine multi-item edited briefing.
+- **Diagnosis:** **Verified contract-migration and coverage failure.** The
+  stories were not editorially reclassified; their old envelopes no longer
+  matched the new router, and the test suite did not exercise that seam.
+- **Prevent / Fix:** Version and migrate candidate envelopes whenever edition
+  contracts change. Preserve conditional gates as explicit allowed checks and
+  enforce them by topic. Run every named real/synthetic fixture from the main
+  suite, including one passing and one failing model release. For Daily
+  migration, assemble a real multi-development issue or reclassify the
+  editorial job; never satisfy the array shape by splitting or padding one
+  story.
+- **Why the fix works:** Structural changes cannot silently invalidate good
+  packets or remove a locked editorial quality gate while a green test banner
+  hides the regression.
+- **New output:** Evidence-backed repair contract for Opus 5, Gemini Flash,
+  the release-detail gate and the regression suite.
+- **Transferable lesson:** A green harness only proves the cases it actually
+  runs.
+- **Internal rule/check updated:** Candidate-contract migrations require
+  fixture migration plus direct pass/fail assertions for every conditional
+  editorial gate.
+- **Public angle:** “The test suite said the newspaper was fine. It had stopped
+  opening the model-release folder.”
+- **Privacy/IP/reputation:** Private candidate envelopes and synthetic fixtures
+  only; no public story, deployment or publication authority changed.
+
+## BTB-169 · The bounded renderer existed, but the shell could not see its image library
+
+`category: local production · dependency routing · reproducibility`
+— ① Make it work · ② Tell the truth about what happened
+`source: Audience Week 01 Day 01 Brand-successor repair, 2026-07-26`
+`publication status: VERIFIED LOCAL FIX — PREVENTION RULE`
+
+- **Context:** The existing Week 01 builder imports `sharp` to render exact
+  Instagram and LinkedIn derivatives. Codex Desktop supplies `sharp` in its
+  bundled workspace runtime rather than the repository.
+- **Issue:** A normal shell invocation reached the builder but failed before
+  rendering because `sharp` was not on that shell's module path.
+- **Evidence observed:** Node returned `Cannot find module 'sharp'`; loading
+  the workspace dependency record and rerunning with its exact bundled Node
+  and `NODE_PATH` completed the bounded five-object render without installing
+  anything.
+- **Diagnosis:** **Verified environment-provenance failure.** The source was
+  valid; the execution environment was incomplete.
+- **Prevent / Fix:** Before running a workspace media/document builder, load
+  the desktop workspace dependencies and invoke its exact Node/Python binary
+  plus package path. Record the runtime source; do not install a duplicate
+  dependency merely because a generic shell cannot resolve it.
+- **Why the fix works:** The same approved dependency bundle becomes
+  reproducible across runs without mutating package state or creating version
+  drift.
+- **New output:** Bounded Day 01 Brand-successor assets and a repeatable
+  workspace-runtime invocation.
+- **Transferable lesson:** “Module missing” can mean “wrong runtime,” not
+  “missing software.”
+- **Internal rule/check updated:** Audience media builds now preflight the
+  workspace dependency runtime before rendering.
+- **Public angle:** “The image builder was installed. We were asking the wrong
+  Node runtime to find it.”
+- **Privacy/IP/reputation:** Local build environment only; no install, public
+  publication, account, provider or deployment change.
+
+## BTB-170 · The representative visual passed while one changed page visibly collided
+
+`category: visual QA · derivative coverage · accessibility`
+— ① Make it work · ② Tell the truth about what happened
+`source: Audience Week 01 Day 01 Brand-successor review, 2026-07-26`
+`publication status: VERIFIED LOCAL FAILURE — PREVENTION RULE`
+
+- **Context:** The Day 01 successor passed inventory/dimension checks and a
+  representative independent visual review across feed, Story, carousel,
+  PDF, motion and VTT formats.
+- **Issue:** The review sampled a Save/Send carousel page but did not inspect
+  its densest changed page. Brand later found the seven-question paragraph
+  crossing decorative checklist lines on both Instagram slide 3 and LinkedIn
+  document/PDF page 3.
+- **Evidence observed:** The structural verifier passed and the independent
+  production verdict was `PASS`, while fresh full-page Brand/PDF inspection
+  reproduced the overlap. The four-row motif also contradicted the promised
+  seven-part checklist.
+- **Diagnosis:** **Verified sampling and semantic-geometry failure.** Format
+  coverage was mistaken for changed-page coverage, and decoration was not
+  checked against the content's count.
+- **Prevent / Fix:** For a derivative rebuild, inspect every changed page at
+  final resolution, including the densest text case and the rendered PDF—not
+  one representative page per format. Assert semantic counts such as
+  seven-part lesson → seven visible fields. Treat any text/rule/checkbox
+  collision as an accessibility failure even when dimensions and checksums
+  pass.
+- **Why the fix works:** The review follows the actual mutation surface and
+  the lesson's meaning instead of inferring quality from a neighboring page.
+- **New output:** Brand and accessibility `REVISE` receipts naming the exact
+  failed slide, document page and rendered PDF page.
+- **Transferable lesson:** Representative QA is safe only when the
+  representatives include the worst case.
+- **Internal rule/check updated:** Audience derivative rechecks now require
+  every changed page plus densest-copy and semantic-count assertions.
+- **Public angle:** “The carousel was the right size, correctly sealed—and
+  still unreadable on page three.”
+- **Privacy/IP/reputation:** Local campaign candidates only; no publication,
+  account, deployment, spend or private user data.
+
+## BTB-171 · The dissolve had two frame rates and one of them was `1/0`
+
+`category: video assembly · deterministic motion · FFmpeg interoperability`
+— ① Make it work · ② Tell the truth about what happened
+`source: Episode 04 V9 reference-reconciliation build, 2026-07-26`
+`publication status: VERIFIED LOCAL FIX — PREVENTION RULE`
+
+- **Context:** Episode 04 needed one restrained five-second semantic bridge
+  from the people-free MAiVENS wing to a documentary London/1843 evidence
+  card. The bridge had to preserve still-only historical treatment and avoid
+  invented people or machine motion.
+- **Issue:** FFmpeg's `xfade` rejected the two still-image inputs as
+  non-constant frame rate and reported `1/0`, including after explicit
+  `fps`, time-base and duration normalization.
+- **Evidence observed:** Two bounded prepare-only attempts failed before any
+  master or placement manifest was written. Replacing `xfade` with exactly
+  150 generated RGB frames at 30 fps produced the expected five-second H.264
+  bridge, which then passed the V9 master build and two complete decodes.
+- **Diagnosis:** **Verified filter-negotiation failure.** The reference plates
+  were valid; the still-image stream metadata reaching `xfade` was not
+  accepted as a usable constant frame rate by the bundled encoder.
+- **Prevent / Fix:** When a short evidence transition must be deterministic,
+  establish time at frame generation: compute the exact frame count, generate
+  each blended frame, stream raw RGB at the declared frame rate and validate
+  decoded duration/frame sampling. Do not keep stacking filters on an
+  unresolved `1/0` input.
+- **Why the fix works:** The encoder receives an already-timed sequence rather
+  than being asked to infer timing from still-image loop metadata.
+- **New output:** Versioned Episode 04 V9 builder, five-second editorial bridge
+  and reference-reconciled review master.
+- **Transferable lesson:** For a short controlled dissolve, explicit frames
+  are often more reproducible than a clever filter graph.
+- **Internal rule/check updated:** Semantic-bridge builders must preflight
+  time base and frame count; if `xfade` reports invalid rate metadata, switch
+  to explicit frame generation and verify the decoded transition before the
+  master encode.
+- **Public angle:** “The two pictures were fine. The dissolve failed because
+  one clock said `1/0`.”
+- **Privacy/IP/reputation:** Local Episode 04 production only; no other
+  episode, publication, account, deployment, spend or private user data
+  changed.
+
+## BTB-172 · “Controlled motion” silently moved cards the episode spec said must hold
+
+`category: video assembly · semantic motion · spec enforcement`
+— ① Make it work · ② Tell the truth about what happened
+`source: Episode 03 V10 source-reconciliation build, 2026-07-26`
+`publication status: VERIFIED LOCAL FIX — INDEPENDENT MEDIA JUDGMENT STILL REQUIRED`
+
+- **Context:** Episode 03 had an authoritative 49-placement table that allowed
+  exactly 15 ambient loops and one one-shot transformation. All text,
+  concept, fact, method, title, recap and sign-off cards were explicitly
+  static HOLDs.
+- **Issue:** The V9 assembler added centred camera moves to 13 static cards
+  and alpha transitions at 48 cue boundaries. The render was technically
+  valid, but the treatment contradicted the per-placement semantic-motion
+  authority.
+- **Evidence observed:** Source reconciliation found all 49 intended assets in
+  the right order, while the V9 builder's `CAMERA_CUES` and global fade policy
+  independently introduced motion the spec did not authorize.
+- **Diagnosis:** **Verified treatment-policy drift.** A general “make the
+  episode feel more controlled” edit overrode explicit per-card HOLD rules.
+- **Prevent / Fix:** Compile the authoritative motion table into a versioned
+  machine-readable placement manifest before rendering. Require every cue to
+  declare exactly one of `static_hold`, `ambient_loop`, or
+  `one_shot_then_freeze`; reject camera movement on `static_hold` and reject
+  undeclared transitions. After render, measure every HOLD across its span,
+  every loop against the motion floor, and the one-shot's frozen tail.
+- **Why the fix works:** Motion becomes an occurrence-level contract rather
+  than an aesthetic default, so a technically smooth edit cannot silently
+  change the intended meaning or readability of graphic cards.
+- **New output:** Episode 03 V10 versioned config, 49-placement manifest,
+  hard-cut review candidate and maker technical QC.
+- **Transferable lesson:** “More motion” is not polish when the source
+  authority says stillness is the treatment.
+- **Internal rule/check updated:** Episode builders must materialize and test
+  motion mode per placement before assembly; global camera/transition policies
+  may not override a cue's declared mode.
+- **Public angle:** “The cards were moving because the edit felt polished—not
+  because the story asked them to.”
+- **Privacy/IP/reputation:** Private Episode 03 review candidate only; no
+  release, site, deployment, publication, account or spend change.
+
+## BTB-174 · The challenger was sealed, but its incumbent was still moving
+
+`category: visual championship · deterministic evidence · source binding`
+— ① Make it work · ② Tell the truth about what happened
+`source: Cycle 5 Homepage incumbent-plus red team, 2026-07-26`
+`publication status: VERIFIED LOCAL FIX — PREVENTION RULE`
+
+- **Context:** Cycle 5 preserved the accepted Homepage masthead, corrected the
+  named repeated/rejected image jobs and produced checksum-bound desktop and
+  mobile renders.
+- **Issue:** The challenger loader fetched `/` with `cache: "no-store"` and
+  injected its CSS/runtime into whatever Homepage bytes were current. The
+  evidence bound the overlays and output screenshots, but not the incumbent
+  HTML consumed by that run.
+- **Evidence observed:** `index.html` contains an unpinned `fetch("/")`;
+  `candidate.js` performs selector-based removals and substitutions; neither
+  diagnostic records or asserts the incumbent source hash. A later root-page
+  edit could therefore change content, order, assets or selector matches while
+  the Cycle 5 overlay paths and hashes remain unchanged.
+- **Diagnosis:** **Verified repeatability and comparison-integrity failure.**
+  A fixed treatment is not a fixed challenger when its base document is
+  mutable.
+- **Prevent / Fix:** Freeze the exact incumbent input or assert its SHA-256
+  before mutation. Bind incumbent source, overlay CSS/runtime, diagnostics and
+  both viewport renders in one manifest, and fail closed on any source drift
+  or missing selector.
+- **Why the fix works:** A later rerun either reproduces the same comparison or
+  explicitly becomes a new candidate instead of silently inheriting changed
+  Homepage bytes.
+- **New output:** The repaired Cycle 5 loader now fails closed against the
+  exact incumbent SHA, both diagnostics record it, a 13-entry binding manifest
+  independently matches every declared file and the exact corrected pair has
+  a checksum-bound local `PASS` red-team receipt.
+- **Transferable lesson:** Hashing the overlay does not freeze the page it
+  overlays.
+- **Internal rule/check updated:** Homepage championship evidence must bind
+  and assert the incumbent source hash, not only candidate files and renders.
+- **Public angle:** “We sealed the redesign. The page underneath kept moving.”
+- **Privacy/IP/reputation:** Local Homepage evidence only; no candidate,
+  live route, deployment, publication, account or private visitor data
+  changed.
+
+## BTB-173 · A three-word name correction invalidated three accepted route receipts
+
+`category: shared integration · canonical naming · checksum sequencing`
+— ① Make it work · ② Tell the truth about what happened
+`source: Visitor’s Centre canonical-name propagation, 2026-07-26`
+`publication status: VERIFIED LOCAL SUCCESSOR — OWNER ACCEPTANCE PARTIAL`
+
+- **Context:** Homepage and Visitor’s Centre had just independently accepted a
+  checksum-bound shared-header version-reference tuple when Ali locked the
+  exact public building name `Visitor’s Centre`.
+- **Issue:** Applying the correct name inside the in-flight header review would
+  have made its route hashes stale. Treating the earlier acceptance as covering
+  the later name would have admitted bytes neither owner judged.
+- **Evidence observed:** The predecessor tuple remained stable and received
+  both owner acceptances first. A separate successor then changed shared
+  directory/readiness data and current labels, resealed the projection, and
+  produced new Homepage, Start Here and Visitor route hashes with inverse
+  rollback to the accepted predecessor.
+- **Diagnosis:** **Verified cross-lock sequencing risk.** A semantically small
+  correction can be a materially different release artifact when routes,
+  projections and caches are checksum-bound.
+- **Prevent / Fix:** Close or explicitly hold the current immutable tuple
+  before applying a new canonical ruling. Open a successor lock that binds the
+  authority receipt, shared producer/runtime/build, every changed consumer,
+  old/mixed-name negatives, exact inverse rollback and fresh owner acceptance.
+- **Why the fix works:** Historical acceptance remains true for the bytes it
+  judged, while the correction receives its own producer-to-consumer evidence
+  instead of borrowing authority from a stale receipt.
+- **New output:** Shared-name receipt plus checksum-bound canonical-name
+  successor with 84 forbidden current-scope tokens reduced to zero, five
+  negative mutations rejected and exact predecessor rollback.
+- **Transferable lesson:** “Only copy changed” is not a release exemption; if
+  the bytes changed, the accepted tuple changed.
+- **Internal rule/check updated:** Canonical-name propagation must be an
+  append-only successor whenever any affected route or shared projection is
+  already under checksum acceptance.
+- **Public angle:** “The name was three words. The correction crossed 34
+  current files.”
+- **Privacy/IP/reputation:** Local source, tests and evidence only; no deploy,
+  provider, public cache, account, visitor data or visible-art mutation.
+
+## BTB-175 · The navigation fix existed on 18 pages; the release had 88
+
+`category: shared integration · curated build · distribution integrity`
+— ① Make it work · ② Tell the truth about what happened
+`source: P0 contextual-return distribution v1, 2026-07-26`
+`publication status: VERIFIED LOCAL MAKER — INDEPENDENT ACCEPTANCE PENDING`
+
+- **Context:** The corrected shared contextual-return script passed direct,
+  internal and external-entry behavior, but only 18 source HTML pages loaded
+  it while the curated release builder emitted 88 HTML artifacts.
+- **Issue:** A working shared component is not sitewide functionality when its
+  loader coverage is partial. Editing dozens of source pages would also create
+  duplicate-mount and version-drift risk.
+- **Evidence observed:** The predecessor build contained exactly 18 source
+  loaders. A builder-owned deterministic transform now emits one
+  checksum-derived loader in all 88 curated HTML artifacts; the sorted
+  inventory SHA-256 is `cc99d6d…e786c`.
+- **Diagnosis:** **Verified distribution-contract gap.** Component behavior and
+  release coverage were tested as separate truths.
+- **Prevent / Fix:** Distribute shared runtime through the curated builder,
+  bind the component hash into the public version key, fail closed on duplicate
+  source mounts or hash drift, compare transformed artifacts to their exact
+  source, and protect explicit Previous/Next controls.
+- **Why the fix works:** Coverage follows the release manifest rather than a
+  hand-maintained page list, while every artifact remains attributable to one
+  deterministic source transformation.
+- **New output:** Versioned builder transform, 88-page inventory receipt,
+  duplicate/idempotency/rollback tests and a three-consumer browser matrix.
+- **Transferable lesson:** “Shared” describes ownership; only the build proves
+  distribution.
+- **Internal rule/check updated:** Every sitewide component must bind both its
+  behavior candidate and exact curated-artifact coverage before any public
+  claim.
+- **Public angle:** “The Back button worked perfectly—on 18 of 88 pages.”
+- **Privacy/IP/reputation:** Local builder/test/evidence only; no deploy,
+  provider cache, public route, visitor data, Brand or art mutation.
+
+## BTB-176 · The repaired trailer preserved two rejected repairs
+
+`category: video assembly · user-correction reconciliation · source binding`
+— ① Make it work · ② Tell the truth about what happened
+`source: Trailer v3 58-beat map/caption reconciliation, 2026-07-26`
+`publication status: VERIFIED LOCAL FIX — INDEPENDENT MEDIA JUDGMENT STILL REQUIRED`
+
+- **Context:** Trailer v3 had to reconcile 58 semantic picture beats to the
+  final 967-second audio, close the sung-caption gap, and merge later heroine,
+  title, Delta LAi Nu and named-map corrections with five earlier v2 repairs.
+- **Issue:** The first mechanically valid v3 inherited a v2 teaser labelled as
+  corrected even though it said `DO Ai`; that contradicted both the
+  as-recorded `USE AI` line and the rule that `AI` is both capitals. A later
+  source audit also found that the corrected Delta LAi Nu exterior still used
+  the heroine's Episode 4 yellow-plaid outfit and wrong eye colour.
+- **Evidence observed:** The first v3 passed full decode, exact audio-stream
+  hashing, 58-beat map checks and motion gates. Direct inspection of the
+  high-risk text/identity frames—not those mechanical results—found both
+  continuity errors before handoff.
+- **Diagnosis:** **Verified source-authority gap.** A filename/reason containing
+  “approved” or “corrected” was treated as evidence, while explicit user
+  corrections and final audio wording were not compiled into assertions
+  against the selected source.
+- **Prevent / Fix:** Before a long encode, turn every explicit correction into
+  a versioned source override with an exact assertion: wording/case, heroine
+  identity and outfit, location/sign, map labels, palette and prohibited
+  treatment. Preflight the small high-risk set directly, then cache
+  frame-count/source-hash-verified unchanged beats so a correction rebuild
+  replaces only the failed sources. Never infer acceptance from a repair
+  filename.
+- **Why the fix works:** The assembled film is bound to the actual correction
+  contract, and a late source fix no longer requires regenerating or
+  re-judging 55 unchanged beats.
+- **New output:** Versioned v3 builder/config, exact 58-beat evidence map,
+  207-cue full-audio captions, corrected B08/B14/B55/B57 sources, checksum-
+  cached rebuild and maker motion/decode/audio QC.
+- **Transferable lesson:** “Corrected” describes intent; only the source frame
+  and its bound assertion prove the correction survived assembly.
+- **Internal rule/check updated:** Trailer/episode builders must preflight every
+  explicitly rejected/corrected text, identity, outfit and location beat
+  before the first master encode, and preserve superseded failed masters for
+  audit rather than silently overwriting them.
+- **Public angle:** “The video passed every machine check—and still said the
+  wrong episode title.”
+- **Privacy/IP/reputation:** Local Trailer review artifacts only; no Episode
+  01–04 path, site/public map, release, deployment, account, spend or private
+  user data changed.
+
+## BTB-177 · A Markdown search pattern became a shell command
+
+`category: shell safety · evidence inspection · literal arguments`
+— ② Tell the truth about what happened
+`source: Audience domain-metadata independent review, 2026-07-26`
+`publication status: INTERNAL PREVENTION RULE`
+
+- **Context:** A read-only `rg` check searched Audience records for a phrase
+  containing Markdown backticks around `og:url`.
+- **Issue:** The pattern was embedded inside a double-quoted shell command, so
+  zsh treated the backticked text as command substitution and attempted to run
+  `og:url`. The intended read-only search still returned its other matches,
+  but the shell also emitted `command not found`.
+- **Evidence observed:** The command output contained
+  `zsh:1: command not found: og:url`; no file, service or public state changed.
+- **Diagnosis:** **Verified argument-quoting failure.** Text that is inert in
+  Markdown is executable syntax when interpolated into a shell command.
+- **Prevent / Fix:** Pass search patterns containing backticks, dollar signs or
+  substitution syntax as literal single-quoted arguments, or use an argument
+  array/tool that bypasses shell interpolation. Never embed such content in a
+  double-quoted command string.
+- **Why the fix works:** The shell receives the evidence pattern as data and
+  cannot reinterpret documentation punctuation as a command.
+- **New output:** The domain-metadata receipt records the successful evidence
+  checks separately; this ledger entry adds the literal-argument control.
+- **Transferable lesson:** “Read-only command” describes intent, not shell
+  behavior; quoting determines what executes.
+- **Internal rule/check updated:** Repository evidence searches with
+  substitution-capable characters use literal single-quoted patterns or
+  non-shell argument passing.
+- **Public angle:** None; backstage safety control.
+- **Privacy/IP/reputation:** No secret, private data, external request, file
+  mutation beyond this ledger entry, deployment or public action occurred.
+
+## BTB-178 · The candidate passed its checks while violating the brief in plain sight
+
+- **Date:** 2026-07-26
+- **Area:** Homepage championship / Brand admission / Control Room
+- **Status:** Resolved at decision-state level; prevention gate added to the
+  successor brief
+- **What happened:** Cycle 5 passed sealed-render, technical and Town Entry
+  checks and was promoted as decision-ready, but its supposed “current
+  incumbent” was a mutable working copy already contaminated by an unapproved
+  readiness integration. It contained stale Episode 04 publication copy,
+  unapproved hero actions, internal platform vocabulary, buildings described
+  as routes and a six-card white status grid. The challenger inherited the
+  same contamination.
+- **Impact:** Ali received a candidate that directly contradicted her locked
+  copy and no-white-card/no-boring-box rulings. The false decision-ready state
+  obscured that no challenger had beaten the incumbent.
+- **Evidence observed:** The rendered candidate contains `Explore what each
+  route can honestly do` and route/receiver/readiness/receipt/navigation
+  language alongside the boxed status grid; Ali rejected the exact candidate.
+- **Diagnosis:** **Baseline provenance plus acceptance-contract failure.** The
+  comparison sealed a mutable source without first proving that it matched the
+  last approved incumbent. The remaining gates verified checksums, layout,
+  naming and bounded product behavior but did not assert exact public-copy
+  preservation, visitor-facing vocabulary or the prohibited white-box
+  composition.
+- **Prevent / Fix:** Every Homepage comparison must first bind Option A to the
+  exact last approved incumbent source and prove a zero-delta public-copy and
+  information-architecture baseline. A mutable working tree cannot be called
+  the incumbent. Every successor must then compare visible copy against that
+  bound baseline, reject internal platform vocabulary and building-as-route
+  language, and run a full-page desktop/mobile no-white-box Brand red team
+  before Town Entry or Ali review.
+- **Why the fix works:** The missing constraints are judged on the rendered
+  visitor experience before technical evidence can promote the candidate.
+- **New output:** Cycle 5 is quarantined as rejected evidence; Brand was
+  restarted on a named incumbent-conservative Cycle 6 path with the missing
+  gates in its handoff.
+- **Transferable lesson:** A technically complete review is not a complete
+  product review when it omits explicit vetoes and exact public language.
+- **Internal rule/check updated:** Homepage championship admission now requires
+  approved-incumbent provenance, zero-delta Option A copy/IA proof, candidate
+  copy-delta, vocabulary and no-white-box evidence in addition to layout and
+  checksum proof. Backend diagnostics may expose semantic state to the
+  interface layer, but never supply visitor-facing strings.
+- **Public angle:** Behind the Build: why passing the wrong test is still a
+  failure.
+- **Privacy/IP/reputation:** No deployment, publication, account, spend or
+  private-data action occurred.
+
+## BTB-179 · Obsolete palette prose overruled Ali's saved visual evidence
+
+- **Date:** 2026-07-26
+- **Area:** Brand authority / Homepage visual direction / agent context
+- **Status:** Active direction corrected; implementation replacement remains
+  visually gated
+- **What happened:** Ali had repeatedly supplied and saved reference images
+  showing a saturated, adult 1990s comic/graphic-novel colour language and had
+  separately clarified that the current candy shades should become brighter
+  and almost electric. An older Brand document still named “Pearl Plum
+  Editorial” as the lead direction, while other surviving files described
+  candy, muted and provisional systems. Agents followed the obsolete prose and
+  treated the reference images as optional inspiration.
+- **Impact:** Homepage candidates moved away from Ali's requested vibrancy,
+  reduced contrast or imagery and were rationalized as premium/adult despite
+  visibly contradicting the supplied references.
+- **Evidence observed:** `docs/brand/style-creative-direction.md` still named
+  the rejected direction; `operations/site-episode-vibrancy-direction-2026-07-23.md`
+  already documented the competing systems and sampled substantially cleaner,
+  more saturated colours from Ali's references.
+- **Diagnosis:** **Authority inversion.** Prose was easier for agents to parse,
+  so stale prose silently outranked current visual evidence and direct rulings.
+- **Prevent / Fix:** Ali's latest ruling and exact saved reference images now
+  outrank prose, incumbent code and historical briefs. The rejected direction
+  is explicitly retired. Every future visual candidate must name its exact
+  references and present the finished desktop/mobile result beside them.
+- **Why the fix works:** Reviewers must judge the same visual evidence Ali
+  supplied instead of merely checking whether a candidate can be described
+  with approved-sounding words.
+- **New output:** Corrected Brand direction, explicit site visual-authority
+  order, expanded reference binding and legacy implementation warnings.
+- **Transferable lesson:** A visual brief cannot be verified by text alone.
+  When reference images and prose conflict, the current visual evidence must
+  win.
+- **Internal rule/check updated:** No design may be called on-brand,
+  materially better or decision-ready without exact reference-image binding
+  and side-by-side visual comparison.
+- **Public angle:** Behind the Build: why a mood board must outrank an obsolete
+  paragraph.
+- **Privacy/IP/reputation:** Local documentation correction only; no visual
+  implementation, route, deployment, publication, account, spend or private
+  data changed.
+
+## BTB-180 · Codec hashes and timestamp stills misreported a frame-accurate cut
+
+- **Date:** 2026-07-26
+- **Area:** Trailer assembly / Freeze-tail repair / Mechanical QC
+- **Status:** Verified local prevention rule; v4 remains maker-UNJUDGED
+- **What happened:** The Trailer v4 clock repair correctly expanded every beat
+  to its mapped frame count, but two evidence methods failed closed for the
+  wrong reason. Raw YUV frame hashes differed at some H.264 concat boundaries
+  even when direct decoded display pixels matched, and FFmpeg timestamp-based
+  midpoint extraction returned 66 stills for a 58-beat map because duplicated
+  timestamps crossed selection windows.
+- **Impact:** A valid mechanical successor initially appeared to have thirteen
+  bad cut onsets and an invalid contact sheet. Accepting either result at face
+  value would have hidden whether the fault was in the film or its evidence.
+- **Evidence observed:** Exact decoded frame counts and direct BGR pixel
+  comparisons passed all 57 mapped onsets; deterministic frame-index
+  extraction then produced exactly 58 midpoint stills. The same onset gate
+  rejected frozen v3 by 213 frames, or 7.10 seconds.
+- **Diagnosis:** **Evidence-layer mismatch.** H.264 reconstruction and container
+  timestamps are not interchangeable with the displayed frame index that the
+  cut clock governs.
+- **Prevent / Fix:** Clock QC must first count fully decoded frames, then compare
+  the actual decoded display pixels immediately before and at every mapped
+  onset with a documented tight tolerance. Contact sheets must be extracted by
+  exact integer frame index, never timestamp windows. Freeze identity must be
+  observed in both each normalized clip and the assembled master. Any frame
+  count or visible-pixel failure remains fail-closed.
+- **Why the fix works:** The proof now measures the same frame sequence a viewer
+  receives while preserving an adversarial clock test that demonstrably catches
+  the prior 7.10-second drift.
+- **New output:** Versioned v4 58-beat map, normalized freeze-tail clips,
+  frame-index contact sheets, observed onset/freeze metrics and adversarial v3
+  clock result.
+- **Transferable lesson:** Evidence is only authoritative when it measures the
+  layer named by the acceptance claim.
+- **Internal rule/check updated:** Trailer/episode cut-clock builders must bind
+  decoded frame counts, frame-index contact sheets and observed display-pixel
+  onset/freeze tests into QC; codec packet hashes or timestamp selection cannot
+  stand in for those checks.
+- **Public angle:** Behind the Build: how a technically different frame can be
+  visually identical—and why the clock still has to catch seven lost seconds.
+- **Privacy/IP/reputation:** Local Trailer review artifacts and learning record
+  only; no Episode 01–04 path, art, copy, site, route, deployment, publication,
+  account, spend or private-data action occurred.
+
+## BTB-181 · A replacement clip ended before the rejected picture interval
+
+- **Date:** 2026-07-26
+- **Area:** Episode 04 / LAiDIES motion-ident insertion
+- **Status:** Closed locally in v2; independent product review still required
+- **What happened:** The first bounded ident insertion played the approved
+  5.1667-second animation at “Welcome back to LAiDIES,” but then exposed the
+  remaining 3.3333 seconds of the replaced SUNNYVAiLE street picture before the
+  recap began. Ali identified stray sparkles in that picture and clarified that
+  the film must remain on LAiDIES until “last week.”
+- **Impact:** A technically correct clip insertion produced the wrong visible
+  sequence and retained the exact picture Ali wanted removed.
+- **Diagnosis:** The edit was scoped to the duration of the incoming asset
+  instead of the full semantic interval being replaced.
+- **Prevent / Fix:** Every replacement must bind both an incoming asset duration
+  and an explicit replaced-source end time. When the incoming motion is shorter,
+  specify and verify the intended hold, transition or next picture through that
+  complete interval. Capture frames just before motion end, just before interval
+  end and just after the next cut.
+- **Why the fix works:** The visible story beat, rather than the file duration,
+  now controls the edit.
+- **New output:** Episode 04 v2 plays the ident from 01:41.500–01:46.667, holds
+  its final LAiDIES frame to 01:50.000, then cuts directly to the recap.
+- **Transferable lesson:** “Insert this clip here” does not define what fills
+  the rest of the outgoing shot; the full replacement interval must be explicit.
+- **Internal rule/check updated:** Bounded episode insertions require
+  start/motion-end/replacement-end/next-picture timestamps plus boundary stills.
+- **Public angle:** Behind the Build: why a five-second ident required an
+  eight-and-a-half-second edit decision.
+- **Privacy/IP/reputation:** Local media and evidence only; no public media,
+  deployment, account, spend or private data changed.
+
+## BTB-182 · A valid general ident displaced an episode-specific ident
+
+- **Date:** 2026-07-26
+- **Area:** Episode 04 / Motion-ident source authority
+- **Status:** Corrected locally; v1/v2 superseded
+- **What happened:** The first corrected Episode 04 insertion used the selected
+  general LAiDIES alternate ident. Ali then named the distinct Episode-04-
+  specific `continuous-i-episode-04-founding-mothers-v6.mp4` as the controlling
+  source.
+- **Impact:** The edit timing was correct, but the animation omitted the
+  episode-specific “Episode 04 / The Founding Mothers” identity and was not the
+  intended episode artifact.
+- **Diagnosis:** Source-family authority was resolved at the general brand level
+  rather than checking for a title-specific derivative before assembly.
+- **Prevent / Fix:** Before recurring-ident integration, inventory the exact
+  source family and apply the narrowest matching authority in this order:
+  title-specific derivative, series placement derivative, then general ident.
+  Bind the chosen path and hash in the edit manifest before rendering.
+- **Why the fix works:** A technically valid, approved general asset can no
+  longer silently override a more specific episode asset.
+- **New output:** Episode 04 v3 uses the exact Founding Mothers animation,
+  holds its final title to the recap boundary and preserves the protected v8
+  audio and surrounding film.
+- **Transferable lesson:** “Approved asset” is not enough when several approved
+  derivatives exist; specificity is part of source authority.
+- **Internal rule/check updated:** Episode assembly preflight must search and
+  bind title-specific motion-ident derivatives before accepting a general
+  series ident.
+- **Public angle:** Behind the Build: how the correct animation can still be the
+  wrong source.
+- **Privacy/IP/reputation:** Local review media/evidence only; no public media,
+  deployment, account, spend or private data changed.
+
+## BTB-182 · The new Episode 04 word looked misspelled because an old word survived underneath
+
+- **Date:** 2026-07-26
+- **Area:** Episode-specific LAiDIES motion-ident plate
+- **Status:** Closed locally in Episode 04 v6; owner review required
+- **What happened:** The Episode 04 background builder lifted the exact selected
+  wordmark from the evergreen master by detecting pixels that differed from the
+  clean comic plate. Its first central mask also captured the final `N` from
+  the old perimeter word `TOKEN`, so newly drawn `DEBUG` and then `CODE`
+  appeared to have stray strokes or an extra letter.
+- **Impact:** A mechanically clean animation looked like it contained damaged
+  typography. Repeatedly changing the new word could not solve the artifact
+  because the visible fragment belonged to the extracted source layer.
+- **Diagnosis:** **Source-isolation leak.** The extraction mask described a
+  broad rectangle, not the exact semantic object being retained.
+- **Prevent / Fix:** When reusing a logo from a composite plate, compare the
+  source and clean background but also exclude every known legacy text region.
+  Inspect the rebuilt still before rendering hundreds of frames, then inspect
+  the encoded end frame at delivery resolution.
+- **Why the fix works:** An explicit old-`TOKEN` exclusion removes only that
+  perimeter fragment while preserving the left edge of the selected brush
+  wordmark.
+- **New output:** Episode 04 ident v6, 389 frames at 60 fps, with clean `CODE`
+  typography and decoded 960 × 540 end-frame verification.
+- **Transferable lesson:** Pixel-difference extraction identifies changed
+  pixels, not meaning; composite-source reuse always needs semantic exclusion
+  masks.
+- **Internal rule/check updated:** Episode-ident plate builders must validate
+  a still from the reconstructed source before motion render and must list
+  legacy composite regions explicitly rather than relying on one broad crop.
+- **Public angle:** Behind the Build: the mystery extra letter that belonged to
+  a word we thought we had removed.
+- **Privacy/IP/reputation:** Local generated symbol art, deterministic
+  compositing and local video only; no public route, deployment, account,
+  visitor data or third-party identity changed.
+
+## BTB-183 · One manifest preserved the motion grammar across four new idents
+
+- **Date:** 2026-07-26
+- **Area:** LAiDIES recurring Trailer/Episode ident system
+- **Status:** Verified reusable local success; owner review required
+- **What worked:** The Episode 04 proof was converted from a hard-coded builder
+  into one manifest-driven template before producing the Trailer and Episodes
+  01–03. Titles, vocabulary, symbol sheets, object-specific formation modes and
+  micro-actions now change through named slots while timing and the complete
+  lowercase-`i` reset remain shared.
+- **Evidence observed:** Four new outputs each decoded to exactly 389 frames,
+  960 × 540, 60 fps and 6.4833 seconds. Encoded title and representative symbol
+  frames were visually inspected, and all retained the same wordmark position,
+  symbol scale, reset rhythm and final-title hierarchy.
+- **Why it matters:** Copying the Episode 04 script four times would make every
+  later timing or title correction a five-file reconciliation problem and make
+  subtle drift likely.
+- **Prevent / Fix:** Recurring idents must add or correct one manifest record
+  and one symbol sheet; shared choreography stays in the single builder.
+  Rendered files never become approvals automatically.
+- **Transferable lesson:** When variation is content-level and timing is
+  identity-level, put content in a manifest before scaling the family.
+- **Internal rule/check updated:** Every new episode ident requires canonical
+  title/lesson grounding, four named symbols, seven named background terms,
+  formation/micro-action assignments, decoded title and symbol checks, and a
+  checksum in the production manifest.
+- **Public angle:** Behind the Build: turning one good animation into a season
+  system without cloning the mistakes.
+- **Privacy/IP/reputation:** Local generated icon art, deterministic frames and
+  local media only; no episode master, live route, deployment, account, visitor
+  data or third-party identity changed.
+
+## BTB-184 · A mixed-frame-rate ident silently changed the successor cadence
+
+- **Date:** 2026-07-26
+- **Area:** Episode 02 / bounded motion-ident insertion / mechanical QC
+- **Status:** Closed locally; independent EMQ review remains required
+- **Context:** A 60 fps, 960×540 title-specific ident was inserted into a 30 fps,
+  1920×1080 frozen Episode 02 review master for one VTT-bound spoken interval.
+- **Issue:** The first otherwise successful splice passed decode and exact AAC
+  elementary-stream hashing, but container inspection reported a 30.20 fps,
+  1,000,000-timescale picture stream rather than the frozen master's 30 fps,
+  15,360-timescale cadence.
+- **Evidence observed:** The first local output was deliberately withheld. After
+  forcing `fps=30`, output `-r 30`, and the 15,360 video track timescale, the
+  successor inspected as 30 fps / 15,360 tbn and still passed full decode,
+  runtime, and audio-stream identity checks.
+- **Diagnosis:** A concat fed by a 60 fps source ident can negotiate a different
+  output cadence even where both the baseline and requested delivery cadence are
+  30 fps.
+- **Prevent / Fix:** Bounded episode insertions must bind source and master
+  cadence before encode, force the delivery fps and track timescale after concat,
+  then inspect the encoded successor before it is considered a review candidate.
+- **Why the fix works:** It prevents a valid-looking splice from silently
+  retiming the whole film's picture stream while the original audio clock stays
+  unchanged.
+- **New output:** Episode 02 v19 welcome-ident v1 local review successor, config,
+  manifest, QC and bounded review window.
+- **Transferable lesson:** Full decode and matching audio packets are necessary
+  but do not prove a mixed-frame-rate splice preserved the delivery clock.
+- **Internal rule/check updated:** Every motion-ident successor must record and
+  compare baseline/source/output fps and video track timescale before handoff to
+  independent EMQ.
+- **Public angle:** Behind the Build: how a six-second animation can quietly
+  retime a sixteen-minute film.
+- **Privacy/IP/reputation:** Local review media and evidence only; no public
+  media, deployment, account, visitor data, spend, or third-party identity was
+  changed.
+
+## BTB-185 · A final filename is not a safe encoder scratch space
+
+- **Date:** 2026-07-26
+- **Area:** Episode 01 / bounded motion-ident insertion / local media integrity
+- **Status:** Closed locally; independent EMQ review remains required
+- **Context:** Episode 01 v25 replaces exactly the 01:33.900–01:41.920 welcome
+  identification picture interval in the frozen v24 review master while copying
+  the complete original AAC payload.
+- **Issue:** An interrupted encode and a second launch briefly targeted the
+  same final MP4 path. The resulting partial files had no `moov` atom and could
+  not be decoded; neither was eligible as a review candidate.
+- **Evidence observed:** Both writers were stopped and their outputs quarantined
+  under the v25 QA directory. The clean builder then wrote only
+  `*.encode-in-progress.mp4`; it ran full decode and raw-ADTS audio-payload
+  identity checks before an atomic same-filesystem rename to the final review
+  filename.
+- **Prevent / Fix:** Every long media encode writes to one uniquely named temp
+  output. Refuse to begin when either temp or final exists. Promote with an
+  atomic rename only after decode and exact audio checks pass; quarantine any
+  interrupted artifact and never hash, inspect or present it as a candidate.
+- **Why the fix works:** A reviewer can never open a filename that is still
+  changing, and an interrupted container cannot inherit the status of the
+  intended final output.
+- **New output:** Episode 01 v25 temp-path/atomic-promotion builder, frozen-v24
+  successor, manifest, maker QC, review window and independent-EMQ target.
+- **Transferable lesson:** File names communicate workflow state. Treating the
+  final name as scratch space turns a normal interruption into a false review
+  artifact.
+- **Internal rule/check updated:** Episode-motion builders must use a unique
+  temp path and atomic promotion after full decode/audio identity validation.
+- **Public angle:** Behind the Build: why a video file does not exist just
+  because its name appears in a folder.
+- **Privacy/IP/reputation:** Local review media and evidence only; no public
+  media, deployment, account, visitor data, spend or third-party identity was
+  changed.
+
+## BTB-186 · Matching container duration hid a 22-frame picture shortfall
+
+- **Date:** 2026-07-26
+- **Area:** Episode 02 / bounded ident successor / final-tail integrity
+- **Status:** Closed locally in v2; independent EMQ review required
+- **Context:** Episode 02 welcome-ident v1 copied the frozen AAC stream and
+  reported the expected overall MP4 duration after a picture-only splice.
+- **Issue:** The video track ended 22 frames, or 0.733334 seconds, before the
+  frozen v19 video track while the unchanged audio continued. Container duration
+  and full decode both passed because the longer audio track masked the missing
+  picture tail.
+- **Evidence observed:** Independent MP4 atom inspection found frozen video mdhd
+  15,167,488/15,360 and v1 video mdhd 15,156,224/15,360, while both audio tracks
+  remained 47,398,576/48,000. The v2 repair preserved all 29,602 decoded v1
+  frames and appended frozen-v19 decoded frames 29,602–29,623. Complete frame-MD5
+  sequences and both output mdhd clocks then matched their controlling sources.
+- **Diagnosis:** Container-level duration and successful decode are insufficient
+  track-completeness checks when audio outlasts picture.
+- **Prevent / Fix:** Every picture-only successor must compare source/output
+  video and audio mdhd durations independently, count decoded video frames, and
+  bind the final source-picture frames. If a tail is missing, append the exact
+  frozen source frames rather than inventing a hold.
+- **Why the fix works:** Track-specific clocks expose picture loss hidden by the
+  container, and decoded-frame lineage proves the repair changed only the missing
+  tail.
+- **New output:** Episode 02 welcome-ident v2 local review master, lossless
+  frame-preserving builder, manifest/QC, ident-boundary strip and exact 22-frame
+  source-tail strip.
+- **Transferable lesson:** “The MP4 is the right length” does not mean every
+  media track reaches the right ending.
+- **Internal rule/check updated:** Bounded episode video QC now requires separate
+  video/audio mdhd equality, decoded frame count, final-tail source lineage and
+  atomic promotion after those gates pass.
+- **Public angle:** Behind the Build: the missing three-quarters of a second that
+  audio duration concealed.
+- **Privacy/IP/reputation:** Local review media and evidence only; no public
+  media, deployment, account, visitor data, spend, or third-party identity was
+  changed.
+
+## BTB-187 · A failed `<source>` does not reliably become a `<video>` error
+
+- **Date:** 2026-07-26
+- **Area:** Episode 02 / isolated representative-player harness / retry evidence
+- **Status:** Closed locally; independent rejudge remains required
+- **Context:** The checksum-bound Episode 02 v2 harness includes a deliberate
+  missing-media fixture so reviewers can inspect the error and exact-source retry
+  boundary without changing a public route or media binding.
+- **Issue:** The deterministic source contract was correct, but Chrome emitted
+  the missing-file error on the dynamically created `<source>` node. The
+  `<video>` error listener alone did not expose the retry control.
+- **Evidence observed:** In a real Chrome playback probe the missing source
+  remained at `readyState=0` with retry hidden. Adding a one-shot error listener
+  to the `<source>` exposed the failure, disabled playback controls, and allowed
+  retry to rebind the exact MP4 with duration `987.466667`, `error=null`, and
+  visible retry identity `1`.
+- **Prevent / Fix:** When a player dynamically inserts `<source>` elements,
+  attach the media-error handler to each source as well as to `<video>`, and
+  exercise the missing-source fixture in a real browser before sealing retry
+  evidence.
+- **Why the fix works:** It observes the node that owns the failed resource
+  fetch rather than depending on browser-specific bubbling behavior.
+- **New output:** Episode 02 v2 isolated representative-player harness with
+  literal Chrome decode, caption, keyboard, retry, reduced-motion and no-JS
+  evidence.
+- **Transferable lesson:** Static checks can prove a retry branch exists without
+  proving the browser can ever enter it.
+- **Internal rule/check updated:** Representative-player harnesses must include
+  a real-browser failed-source/recovery exercise and a source-level error
+  listener when sources are created dynamically.
+- **Public angle:** Behind the Build: the retry button that existed in code but
+  could never appear.
+- **Privacy/IP/reputation:** Local review evidence only; no public media, route,
+  deployment, account, visitor data, spend, or third-party identity was changed.
+
+## BTB-188 · A finite concat input can still vanish from the decoded result
+
+- **Date:** 2026-07-26
+- **Area:** Trailer / bounded welcome-ident insertion / frozen-picture tail
+- **Status:** Closed locally in staged v5; independent EMQ review required
+- **Context:** Trailer v5 was allowed to replace only B08 frames 2,996–3,160
+  in the frozen v4 master. The frozen source decodes to 29,016 playback frames,
+  but its directly addressable picture portion in the filter graph stops at
+  frame 17,086.
+- **Issue:** A looped still-tail input first failed to extend the filtered
+  source. The bounded retry then pre-rendered the source-derived PNG as a
+  finite, independently verified 11,929-frame clip and supplied that file as a
+  normal third concat input, but the output still stopped at 17,087 frames.
+- **Evidence observed:** The finite tail clip decodes to exactly 11,929 frames
+  and has SHA-256
+  `cda88420be347939264ae9ea3f9b0a2d01e6b70f5720bb4cc2bbc5c9bf283050`.
+  The preserved failed candidate has SHA-256
+  `31cc1b70a9488e497efcfe62ce929a3d75f38d889d727d7b761976fe1e51206a`.
+  Its 2,996 pre-B08 frames equal the frozen source, its 165 B08 frames equal the
+  normalized ident, and its extracted AAC/ADTS payload equals the frozen audio
+  hash, but it contains only 17,087 decoded frames; the entire missing suffix
+  begins after the overlapping exact post-B08 portion.
+- **Diagnosis:** Proving that a concat input is finite and independently
+  decodable does not prove that a multi-stage filter graph consumed it.
+  Input-level frame count, container duration and successful encoder exit are
+  insufficient output-lineage evidence. The later staged repair also proved
+  that the 11,929-frame playback suffix was not a single still: synthesizing a
+  hold from frame 17,086 produced the right count but the wrong frozen vector.
+- **Prevent / Fix:** Before a full lossless encode, run a bounded graph-level
+  frame-count and boundary-lineage probe for every concat branch. Require the
+  combined pre-splice stream to expose the expected frame count before adding
+  replacement trims. Preserve unique temps and promote only after full source,
+  interval, suffix and audio-vector gates pass.
+- **Why the fix works:** It tests the actual filtered branch that downstream
+  trims consume, catching a silently discarded concat input before the long
+  encode and preventing a short film from acquiring a review filename.
+- **Resolution:** Materialize the frozen v4 playback clock first, extract its
+  exact 17,087-frame body and exact 11,929-frame decoded suffix as independent
+  finite files, prove the reconstructed 29,016-frame base against the complete
+  frozen vector, and only then splice three finite Stage 2 pieces. Matroska was
+  used for lossless intermediates because an MP4 intermediate dropped its final
+  frame; the final MP4 was produced by stream-copy remux after the picture
+  vector passed.
+- **New output:** Verified Stage 1 29,016-frame frozen base, finite Stage 2
+  pre/ident/post segments, 29,016-frame/967.20-second Trailer v5 local review
+  MP4, manifest, maker QC and named independent-EMQ target.
+- **Transferable lesson:** A valid input file is not evidence that its frames
+  survived the filter graph.
+- **Internal rule/check updated:** Frozen-tail reconstruction must pass a
+  graph-level combined-frame probe before the final splice encode.
+- **Public angle:** Behind the Build: the twelve thousand valid frames that
+  disappeared inside a successful video command.
+- **Privacy/IP/reputation:** Local review media and evidence only; no public
+  media, deployment, account, visitor data, spend, outfit decision or
+  third-party identity was changed.
+
+## BTB-189 · A missing motion encoder is not permission to fake a video deliverable
+
+- **Date:** 2026-07-26
+- **Area:** Episode 03 cue 30 source repair
+- **Context:** The cue requires only optional, constrained environmental motion. The replacement still was complete and verified at 1920 × 1080. `ffmpeg` was not on `PATH`; a later task supplied the project’s direct imageio-FFmpeg binary, so the earlier claim that no encoder was available was too broad and is corrected here.
+- **Issue:** Calling a motion loop “delivered” without a decoded MP4 would make the source package look more complete than it is; substituting camera drift would also violate the cue’s motion contract.
+- **Prevent / Fix:** If no encoder command resolves, deliver the verified still and record motion as pending rather than faking it. Before declaring the capability unavailable, search the canonical production tools/scripts for a direct bundled binary path. Do not represent motion as complete until an encoder-generated clip can be decoded and independently judged.
+- **Public angle:** Behind the Build: why a clean still is more honest than a pretend animation.
+
+## BTB-190 · Full-HD delivery dimensions can conceal non-native generated resolution
+
+- **Date:** 2026-07-26
+- **Area:** Episode 01 / narration-bound scenic-source repair
+- **Context:** The first v26 image-repair batch produced three real, narration-bound scenic candidates through the built-in image generator. Each generator output was 1672×941 despite the requested 16:9 full-HD composition.
+- **Issue:** Resizing those files to 1920×1080 creates an assembly-sized review image, but it does not make the source natively full resolution. Reporting the resized size alone would overstate production readiness and could conceal soft-upscale artifacts at the admission gate.
+- **Prevent / Fix:** Retain the generator-original file alongside a separately named 1920×1080 review derivative; bind the final derivative hash and explicitly label it as upscaled. Require the independent image judge to inspect the full frame and identity crop at the actual delivery size before assembly. A future native-1920 output supersedes rather than overwrites the derivative.
+- **Why the fix works:** It makes the source-resolution limitation reviewable and preserves enough lineage to distinguish a native render from a delivery-format conversion.
+- **New output:** Episode 01 v26 isolated repair batch: three original generated sources, three 1920×1080 review derivatives, source/job/reference manifest and identity crops; no master assembly, release or public path changed.
+- **Public angle:** Behind the Build: why "1920×1080" can describe a container without describing the pixels that made it.
+
+## BTB-191 · Periodic math does not prove byte-identical loop endpoints
+
+- **Date:** 2026-07-26
+- **Area:** Episode 03 cue 30 zero-net ambient motion
+- **Context:** A 360-frame procedural lamp/dust overlay used sine periods intended to return frame 359 to frame 0.
+- **Issue:** The first candidate fully decoded and stayed pixel-exact outside the authorized masks, but floating-point phase evaluation made decoded frame 359 differ from frame 0. A mathematically periodic expression was not decoded-endpoint proof.
+- **Prevent / Fix:** Force the final frame’s effect values to the exact frame-0 constants, encode losslessly, stream-decode every frame, and require identical decoded first/last RGB hashes before promotion. Keep motion-region and hard-cut checks separate.
+- **Why the fix works:** It turns “the formula should loop” into a checksum-bound property of the delivered bytes.
+- **New output:** Episode 03 cue 30 local-overlay MP4 with 360/360 decoded frames, byte-identical extracted first/last PNGs, zero changed pixels outside authorized masks, measurable local motion and no hard cuts.
+- **Public angle:** Behind the Build: the loop that was mathematically closed but one decoded frame apart.
+## BTB-192 · An accepted film is not publishable until its delivery path is tested
+`category: release / media delivery`
+
+- **Context:** Publishing the independently accepted 285 MB Episode 04 motion master.
+- **Issue:** The curated public-site builder excludes files above 25 MB, GitHub rejects files above 100 MB without LFS, and the existing film bucket was private. Treating the local MP4 or an upload alone as “published” would have produced a broken Screening Room.
+- **Observed evidence:** The exact master was uploaded under a checksum-derived immutable key in the existing `laidies-films` R2 bucket; `films.laidies.ai` was bound to that bucket; public beginning and ending range requests returned `206`, the expected `284902235`-byte object length, and byte-identical SHA-256 chunks. The deployed Screening Room HTML and VTT also matched the tested artifact and source hashes.
+- **Prevent / Fix:** Before releasing a large film, require one immutable media URL, content length, `Accept-Ranges`, byte parity at both ends, cache policy, exact player binding, captions, preview-browser playback, production HTML parity, and a named rollback deployment. Never put the studio master into the curated Pages artifact.
+- **Behind the Build angle:** “Why publishing a video is a delivery-system problem, not an export button.”
+
+## BTB-193 · Replacement-boundary controls must exclude adjacent admitted frames
+
+- **Date:** 2026-07-27
+- **Area:** Episode 01 v26 / clock-preserving source repair
+- **Context:** Episode 01 v26 replaces exactly 13 independently admitted still-placement windows in the protected 35,167-frame v25 master.
+- **Issue:** The first finite, full-length v26 encode completed and passed full decode, but its validator incorrectly compared frames 13,670 and 13,671 to the inherited v25 source. Those frames sit on the contiguous p29→p30 replacement boundary: one is the final admitted p29 frame and the other is the first admitted p30 frame. They cannot truthfully be both replacement and unchanged controls.
+- **Prevent / Fix:** Build the control set only after all replacement frame intervals are resolved; discard every proposed pre/post control that lies inside any admitted interval. Keep two interior source-hash checks for each placement and a separate protected welcome-ident control. Where a long encode has completed but only the checker is wrong, preserve the atomic temporary master and re-run the corrected complete validation rather than re-rendering unchanged pixels.
+- **Why the fix works:** It retains exact proof on every out-of-scope boundary without demanding impossible v25 equality from authorized replacement frames, and avoids wasting a complete 19½-minute lossless render.
+- **New output:** Episode 01 v26 local review master `assets/video/episode-01-full-v26-source-admitted-review.mp4` with 35,167 frames, exact v25 AAC payload, 13 source-hash-bound insertions, and 24 valid external/welcome controls; independent full-title EMQ remains required.
+- **Public angle:** Behind the Build: “The two frames that were both changed and unchanged.”
+- **Privacy/IP/reputation:** Local review media and evidence only; no public route, deployment, account, spend or release state changed.
+
+## BTB-194 · A device-local preference is untrusted input, not returning-user truth
+
+- **Date:** 2026-07-27
+- **Area:** Blend & Snap café continuity and manifest retry
+- **Context:** The café uses optional browser-local values for a usual drink and
+  last opened pack. Its public menu is valid only when the episode index and
+  weekly-pack manifest validate together.
+- **Issue:** Reading arbitrary local values could place forged text in the
+  returning state, and overlapping load attempts could allow an older response
+  to apply after a newer retry/failure.
+- **Prevent / Fix:** Restore a usual only from the page's controlled drink set;
+  restore a pack marker only from the freshly validated manifest. Clear invalid
+  values best-effort. Abort superseded paired data loads, use no-store fetches,
+  and apply a result only when its request identity remains current. Test
+  malformed JSON, corruption and fail-then-recover retry explicitly.
+- **Why the fix works:** The café can still work without storage or data, but
+  cannot make a device-local or late network value look like learning, account
+  state, pack completion or current component admission.
+- **New output:** Route-local reliability repair with 110 rendered browser
+  checks; no content availability, public route, account, service or release
+  state changed.
+- **Public angle:** Behind the Build: “Why your usual coffee is not a profile.”
+
+## BTB-194 · A fail-closed consumer can still drift from the owner intake
+
+- **Date:** 2026-07-27
+- **Area:** Visitor’s Centre / destination-status handoff
+- **Context:** The Visitor’s Centre consumes a checksum-bound 17-destination projection and correctly fails closed at runtime, but its page-level consumer had no direct contract proving that every displayed held disclosure still matched the current owner-receipt intake policy.
+- **Issue:** A valid projection schema and a complete named directory do not prevent an owner-input, canonical identity or consumer-status mismatch from being introduced by a future handoff. A local username prefill has the same shape of problem: a value can exist without proving the identity the interface implies.
+- **Prevent / Fix:** Keep a versioned 17-slot parity input. On every successor, derive only the supported missing-receipt state, compare destination ID/product ID/owner/name/route/status/limitation/artifact fields to the exact consumer projection, and fail before writing a receipt for missing, duplicate, mismatch or an unparsed non-null owner receipt. Keep the Visitor route free of bare identity-key reads until the shared Card projection is independently accepted.
+- **Why the fix works:** It turns “the Centre has a status” into a bounded assertion with a source, canonical identity and fail-closed consumer comparison, while refusing to promote any receiving product from a string or an unsupported receipt path.
+- **New output:** `destination-owner-status-input.v1.json`, `validate-visitors-centre-owner-status-parity.mjs`, and an adversarial 17-record test suite.
+- **Public angle:** Behind the Build: why a truthful “held” label needs an owner, not just a colour.
+- **Privacy/IP/reputation:** Local tooling and dossier records only; no public route, owner status, account, visitor data, provider, deployment or publication changed.
+## BTB-178 · A browser-backed state refresh needs both the consumer and the truth label
+
+- **Area:** SUNNYVAiLE LIBRAiRY / Miss Jeeves and device-local Puffy saves.
+- **Context:** The Library index could make a failed fetch look like an empty
+  search, while an open Closet tab could retain an obsolete Puffy Board after a
+  same-origin tab changed local storage.
+- **Evidence observed:** `scripts/test-library-product.cjs` now reproduces
+  unavailable, malformed and stale index input with a query-preserving alert
+  and retry. It also proves another tab repaints Board create/update/remove and
+  switches its visitor-state copy back to first-time when the final record is
+  removed. The 49-check suite passed on 2026-07-27.
+- **Prevention rule:** For any browser-local state, test the state mutation,
+  every visible consumer, and the copy that describes its scope. A `storage`
+  listener is insufficient if tab B still implies account sync or keeps a
+  stale first/returning state. For network-backed discovery, a failed index
+  must have a visible retry and retain user input; never let a transport error
+  masquerade as “nothing found.”
+- **Public angle:** Behind the Build: why “saved on this device” is a product
+  promise that needs a second-tab test, not just a localStorage write.
+
+## BTB-195 · A candidate can be structurally complete while its artwork is unreachable from its local preview server
+
+- **Date:** 2026-07-27
+- **Area:** SUNNYVAiLE LIBRAiRY room candidate
+- **Context:** The isolated candidate correctly kept existing approved artwork in the root `assets/` tree rather than copying it into a candidate folder. Serving only the candidate subdirectory made its valid root-relative artwork paths return 404.
+- **Prevent / Fix:** Candidate readmes must state the exact server root and URL, and maker validation must fetch the candidate plus every referenced image from that same root. Do not solve a local preview issue by silently copying, moving or changing provenance of artwork.
+- **Why the fix works:** It retains asset lineage and candidate isolation while making the actual review composition reproducible.
+- **New output:** Library candidate root-server receipt for room, Miss Jeeves and bright-cover assets; no production path or asset changed.
+- **Public angle:** Behind the Build: why a working web scene needs both the room and the address of its art.
+
+## BTB-196 · A scrollable shelf can widen its parent grid before it ever scrolls
+
+- **Date:** 2026-07-27
+- **Area:** SUNNYVAiLE LIBRAiRY responsive shelf-to-desk candidate
+- **Context:** The mobile book row had `overflow:auto`, but its grid item kept the flex row's minimum content width. Chromium therefore measured 420px at a 390px viewport and 408px at a 320px viewport.
+- **Prevent / Fix:** Every responsive grid that contains a horizontal object rail must use `minmax(0,1fr)` columns and give the grid child and rail `min-width:0; max-width:100%`. Verify `documentElement.scrollWidth`, `body.scrollWidth` and `innerWidth` are exactly equal; never hide the page overflow as the fix.
+- **Why the fix works:** The books remain a deliberate internal shelf rail while the room, copy and controls retain the real viewport width.
+- **New output:** Exact 1440/390/320 successor renders and browser result, plus a complete Arrow/Home/End ARIA tab model.
+- **Public angle:** Behind the Build: why adding a scrollbar did not stop a shelf from making the whole room wider.
+
+## BTB-196 · A visibility assertion is not a usable failure journey
+
+- **Date:** 2026-07-27
+- **Area:** Wave 1 building candidates — Visitor’s Centre map recovery and Blend & Snap archive recovery.
+- **Context:** Both candidates passed deterministic failure-state checks. The Visitor test asserted only that the fallback node was visible after the map image failed; Blend asserted the fail-closed state and no-link behavior.
+- **Issue:** Fresh rendered evidence exposed two user-facing failures the DOM checks missed: Visitor’s 17 active map hotspots overlaid its fallback copy, and Blend inherited light text onto a white failure panel in the archive rail. Each recovery was structurally present but unusable.
+- **Prevent / Fix:** For every candidate failure scene, inspect a rendered desktop and 320/390 state and assert the entire recovery surface: readable message, no overlapping obsolete controls, focusable recovery action and no contradictory visual signal. When a recovery replaces an object, hide or disable the original interactive layer rather than merely adding fallback copy.
+- **Why the fix works:** It turns a test from “the node exists” into “a visitor can recover without decoding a broken layer stack or invisible text.”
+- **New output:** Independent HOLD evidence for the Visitor’s Centre and Blend & Snap Wave 1 candidates; no production source, route, deployment or public state changed.
+- **Public angle:** Behind the Build: why a fallback can pass the DOM and still fail a human.
+
+## BTB-197 · An attractive instructional flow can still teach the unsafe shortcut
+
+- **Date:** 2026-07-27
+- **Area:** Episode 01 concept cards / `YOUR 20%`
+- **Context:** The card needed to teach that human judgment is mandatory between
+  an AI draft and Send.
+- **Issue:** The first candidate let an unreviewed draft appear to reach Send.
+  Its successor removed that shortcut but left the Review arrow visually
+  capable of skipping Final. Both looked polished and matched the card system.
+- **Prevent / Fix:** For every consequential instructional sequence, dock every
+  arrow tail and head to a named stage, omit or visibly reject unsafe bypasses,
+  and independently inspect semantic flow at full size—not only text, style and
+  anatomy. Accept only when the learner can trace one unambiguous safe path.
+- **Why the fix works:** The accepted v3 makes
+  `DRAFT → REVIEW → FINAL → SEND` a single mandatory chain.
+- **New output:** Independently accepted Episode 01 Human Judgment v3 front;
+  no card, pack, reward, catalogue or public admission.
+- **Public angle:** Behind the Build: how one arrow made a beautiful lesson
+  teach the wrong behavior.
+
+## BTB-198 · A screenshot of a controller before it executes is not browser evidence
+
+- **Date:** 2026-07-27
+- **Area:** Chick Flicks Wave 2 local building candidate.
+- **Context:** The first rendered capture showed the candidate's initial
+  “Checking the Season 1 tape manifest” state even though the route and art
+  loaded. The cause was a JavaScript syntax error in the candidate controller,
+  not an unavailable index.
+- **Prevent / Fix:** Run `node --check` before each browser capture, then
+  verify the rendered result contains the expected dynamic inventory and
+  current-truth text rather than only the static shell. A loading screenshot
+  must be reported as a failed interactive check, not a visual PASS.
+- **Why the fix works:** It catches the boundary between an attractive room
+  shell and the visitor's actual interactive store before a candidate reaches
+  independent review.
+- **New output:** Chick Flicks Wave 2 candidate syntax check and dynamic
+  1440/390/320 captures; no production route, asset, deployment or public
+  state changed.
+- **Public angle:** Behind the Build: why we test the tape wall after it opens,
+  not while its sign is still loading.
+
+## BTB-199 · A successful local write is not a returning-visitor feature
+
+- **Date:** 2026-07-27
+- **Area:** Chick Flicks last-rental continuation.
+- **Context:** The Wave 2 store correctly wrote a device-only last-rental key
+  at issue handoff, but the next store visit never consumed it.
+- **Prevent / Fix:** Every persistence feature must prove the whole write →
+  reload → validate against current authority → render → continue or clear
+  journey. Reject stale, held, corrupt and unreadable values before rendering;
+  a failed clear must preserve the visible state and must not report success.
+- **Why the fix works:** The store now offers continuation only for the exact
+  still-published safe episode, and a keyboard clear returns focus to a useful
+  browse action without inventing account, history or progress semantics.
+- **New output:** Chick Flicks Wave 2 return-continuation successor plus real
+  390px write/reload/clear and fail-closed browser fixtures.
+- **Public angle:** Behind the Build: why saving a tape was only half the
+  feature.
+
+## BTB-200 · A safe canonical path can still fail a stricter consumer adapter
+
+- **Date:** 2026-07-27
+- **Area:** Post Office published-issue drawer.
+- **Context:** The canonical episode index stores safe site-relative issue and
+  image paths without a leading slash. The first Post Office candidate accepted
+  only root-relative forms, so every real published issue was rejected even
+  though malformed and off-origin inputs correctly failed closed.
+- **Prevent / Fix:** Define the producer's admitted path grammar before writing
+  a consumer regex. Accept only the producer's safe relative and root-relative
+  forms, then normalize them to one root-relative runtime form. Exercise the
+  adapter against the actual canonical producer file in a browser—not only a
+  handcrafted valid fixture.
+- **Why the fix works:** It preserves the security boundary while preventing a
+  stricter-but-incompatible consumer from turning real content into a false
+  outage.
+- **New output:** The Wave 3 Post Office drawer now renders all four canonical
+  published issues and still rejects malformed, duplicate or empty input.
+- **Public angle:** Behind the Build: how one optional slash closed a whole
+  archive.
+
+## BTB-201 · A recoverable media error can be erased by a later pause event
+
+- **Date:** 2026-07-27
+- **Area:** KSVL Wave 3 complete-station candidate.
+- **Context:** The player deliberately exposes a Retry action when media cannot
+  load.
+- **Issue:** The browser emitted a pause event after the simulated media error,
+  and the generic pause handler replaced the useful error message even though
+  Retry remained visible. The station looked calmer but had lost the reason
+  recovery was needed.
+- **Prevent / Fix:** Treat recoverable error as a state with precedence, not a
+  transient message. Event handlers for pause, ended and selection changes must
+  not overwrite it until the visitor explicitly retries or chooses another
+  track. Test the actual event sequence, not only the error callback.
+- **Why the fix works:** KSVL now keeps the exact blocked-playback explanation
+  and Retry control together until the visitor takes a recovery action.
+- **New output:** Isolated KSVL media-failure fixture and browser-verified retry
+  state; no production route or public player changed.
+- **Public angle:** Behind the Build: how a harmless pause event hid the useful
+  radio error.
+
+## BTB-202 · An in-place room can strand audio behind a closed station
+
+- **Date:** 2026-07-27
+- **Area:** Town Hall Wave 3 civic-room candidate.
+- **Context:** Mayor Deb’s counter contains playable local recordings and only
+  one Town Hall station may be open at a time.
+- **Issue:** The first browser build let Deb’s song continue after the visitor
+  opened the Regulars noticeboard. The Stop control had disappeared with the
+  hidden panel, leaving audible state without a visible owner.
+- **Prevent / Fix:** Every environment-as-interface reveal must define teardown
+  for media, timers, pending requests and focus before another station opens.
+  Verify the actual open-A → start-state → open-B event sequence; panel
+  visibility checks alone cannot prove state ownership.
+- **Why the fix works:** Closing or switching away from Deb’s counter now stops
+  and clears its audio before the next station opens.
+- **New output:** Browser-verified Town Hall station/audio boundary in an
+  isolated candidate; no production or public media changed.
+- **Public angle:** Behind the Build: why a closed civic counter was still
+  singing.
+
+## BTB-203 · A semantic contract should not fail because approved copy improved
+
+- **Date:** 2026-07-27
+- **Area:** Mme CLAi-O / Businesswomen’s Special boundary verification.
+- **Context:** Mme CLAi-O must remain a random authored reflection while the
+  BRONZE AiGE’s Businesswomen’s Special remains a separate, alcohol-optional
+  drink-picker with an equal spirit-free route.
+- **Issue:** Both pages stated the boundary correctly, but two automated checks
+  demanded an obsolete exact sentence and looked for “spirit-free lane” in the
+  wrong paragraph. The product was correct while its verifier falsely failed.
+- **Prevent / Fix:** Bind contract tests to the smallest stable semantic claims
+  and their actual content owners. Keep product separation in the boundary
+  paragraph and spirit-free parity in the game lede; allow harmless wording
+  variation without weakening either required claim.
+- **Why the fix works:** The static and real-browser suites now verify the
+  actual visitor-visible separation and equal non-alcohol route while leaving
+  correct copy untouched.
+- **New output:** Mme CLAi-O contract and real-browser suites pass again, and
+  the deck’s four missing art slugs can be judged against a trustworthy
+  100-card gate.
+- **Public angle:** Behind the Build: when the product was right and the test
+  was stale.
+
+## BTB-204 · Scrolling a result into view does not deliver it to a keyboard user
+
+- **Date:** 2026-07-27
+- **Area:** FAiRY Godmother’s House typed success and no-charge outcomes.
+- **Context:** Every response state animated and scrolled the advice note into
+  the visible viewport.
+- **Issue:** Focus stayed on the Wand button. A keyboard or screen-reader
+  visitor could trigger a result, see the page move and still have no
+  programmatic path to the changed content.
+- **Prevent / Fix:** Every async room interaction must assign both visual and
+  programmatic ownership to its result. Use a labelled live region, focus the
+  result without a second scroll, and respect reduced-motion preferences when
+  revealing it. Verify success and every failure/no-charge state in a real
+  browser.
+- **Why the fix works:** Sighted keyboard users and assistive technology now
+  arrive at the same note the animation reveals, while reduced-motion visitors
+  do not receive an unnecessary smooth-scroll effect.
+- **New output:** FAiRY Godmother browser contract covering typed success,
+  clarification, current-information, safety-boundary, outage, returning
+  preview, storage denial and 390px layout.
+- **Public angle:** Behind the Build: why moving the page was not the same as
+  delivering the answer.
+
+## BTB-205 · A local return feature needs a verified exit
+
+- **Date:** 2026-07-27
+- **Area:** Sorority House / Girl Talk device-local sticker record.
+- **Context:** Girl Talk strictly validated and restored a versioned local
+  sticker, dare and penalty envelope.
+- **Issue:** The product could remember the visitor but gave her no visible
+  way to remove that record. Browser storage had become a one-way product
+  decision.
+- **Prevent / Fix:** Every device-local return feature must ship the complete
+  lifecycle: write → read-back → return → clear → read-back. A denied clear
+  must preserve the original state and report failure; unrelated local data
+  must never be swept up.
+- **Why the fix works:** The visitor now controls the exact record the product
+  owns, and both success and failure are verified before the interface changes
+  its claim.
+- **New output:** Girl Talk clear-local-record control with 147-check real
+  browser coverage, including successful removal, denied removal, focus,
+  unrelated-state preservation and 320px layout.
+- **Public angle:** Behind the Build: why remembering someone also means
+  letting her leave.
+
+## BTB-206 · Replacing an account journey does not automatically retire its intake
+
+- **Date:** 2026-07-27
+- **Area:** MAiKEOVER / Resident Card account and email boundary.
+- **Context:** The Resident Card page was rebuilt around an honest device-local
+  Card while the real account and email journey remained held.
+- **Issue:** The new local-status experience removed the old intake and also
+  removed the explicit visitor-facing explanation that the account desk was
+  closed. An initial repair mistakenly restored the obsolete email controls in
+  a hidden/inert panel, satisfying one narrow verifier while violating the
+  stronger route contract that held intake must not ship at all.
+- **Prevent / Fix:** When a production-backed journey is replaced by a local
+  fallback, verify all three layers together: visible hold explanation, a
+  usable safe alternative, and complete absence of the held intake controls.
+  Run every overlapping owner contract before independent review; hidden and
+  inert are not substitutes for removing unnecessary sensitive input.
+- **Why the fix works:** Visitors now see why email is unavailable and can
+  continue to the local Card maker, while the held route ships no email field
+  or submit control.
+- **New output:** Resident Card closed-intake contract with static and real
+  browser verification.
+- **Public angle:** Behind the Build: why hiding an email box was not the same
+  as closing the account desk honestly.
+
+## BTB-207 · Fixing the identity boundary in one room did not remove the unsafe root consumer
+
+- **Date:** 2026-07-27
+- **Area:** Community index / Resident Card / cross-product identity.
+- **Context:** BTB-110 had already established that a local Card cannot prove
+  Community identity, and the Sorority House was repaired accordingly.
+- **Issue:** The Community index still read a separate obsolete Card key,
+  injected unvalidated stored values through `innerHTML`, created a member
+  card from them and promised cross-device email sign-in. The product rule was
+  correct, but another consumer outside the original repair scope survived.
+- **Prevent / Fix:** When an identity or persistence boundary changes, search
+  the complete repository for every legacy key, auth-shaped copy and dynamic
+  consumer—not only the route that exposed the first failure. Held or obsolete
+  consumers must be removed, and hostile storage fixtures must run against
+  every remaining surface.
+- **Why the fix works:** The Community page no longer reads the legacy key or
+  creates identity from browser data; hostile values cannot reach markup; and
+  the visible Card CTA now states the real device-local boundary.
+- **New output:** A 17-check real-browser Community/Resident Card regression
+  that preserves all seven static cards, keyboard overlays, filtering and
+  focus return.
+- **Public angle:** Behind the Build: why fixing the guest list in one room did
+  not close the side door.
+
+## BTB-208 · The course structure was right and the unit name was wrong
+
+- **Date:** 2026-07-27
+- **Area:** SUNNYVAiLE High / Classes masterclass production.
+- **Context:** The masterclass intake correctly separated seven bounded
+  teaching units inside one pathway, but inherited the research draft's word
+  “chapters.”
+- **Issue:** Ali's intended product language is **lessons**, not chapters.
+  Leaving the older noun in research, filenames or handoffs would make future
+  tasks recover a book-like structure and repeat the terminology error.
+- **Prevent / Fix:** When the product owner corrects a structural noun, search
+  the full recovery path—idea record, research, intake, build packet, content,
+  script, filenames and Control Room handoff—and reconcile every current
+  occurrence before continuing production. Do not treat naming as cosmetic
+  when it communicates the product model.
+- **Why the fix works:** Every current masterclass entry now recovers one
+  pathway made of seven **lessons**, while unrelated LIBRAiRY handbook chapters
+  retain their correct name.
+- **New output:** Corrected masterclass research, idea record, intake, Lesson 4
+  pilot files and Control Room handoff.
+- **Public angle:** Behind the Build: how one word quietly turned a class into
+  a book.
+
+## BTB-210 · Retiring a book is not the same as merging its value
+
+- **Date:** 2026-07-27
+- **Area:** SUNNYVAiLE LIBRAiRY / The 101s.
+- **Context:** Vocab 101 was retired as a standalone book because its useful
+  terminology had been rolled into Concepts 101.
+- **Issue:** The first correction hid Vocab from the catalogue and removed its
+  Miss Jeeves link without first proving term-by-term parity in Concepts. It
+  also used imprecise language that could be read as if Vocab had been a shelf;
+  the shelf was always **The 101s**.
+- **Prevent / Fix:** Before retiring or consolidating a content product, bind
+  every retained concept to an explicit successor location, test the complete
+  coverage set, preserve the former source as migration evidence, and record
+  the exact product hierarchy. A removed route or listing is not evidence that
+  the successor contains the value.
+- **Why the fix works:** Concepts now has a 16-term quick reference alongside
+  its deeper lessons, the standalone Vocab listing remains fail-closed, and a
+  regression test checks all terms plus the canonical **The 101s** shelf
+  boundary.
+- **New output:** `scripts/check-library-vocab-concepts-consolidation.mjs` and
+  the checksum-independent term ownership matrix in the Library dossier.
+- **Public angle:** Behind the Build: the difference between removing
+  duplication and accidentally deleting the useful part.
+
+## BTB-209 · Saturation and tint were mistaken for visual direction
+
+- **Date:** 2026-07-27
+- **Area:** Sitewide artwork production / SUNNYVAiLE High.
+- **Context:** Ali identified the existing High hallway as dirty and dingy and
+  asked for it to match the brighter, almost electric 1990s LAiDIES visual
+  direction.
+- **Issue:** The first edit cleaned the room by making every locker and floor
+  tile equally saturated, producing a sterile, plastic, children’s-TV rainbow
+  school. A second edit tried to make it feel more adult by applying darker
+  navy/violet grading, but merely added a strange tint and restored gloom.
+  Neither was genuinely re-authored against the saved visual references.
+- **Prevent / Fix:** Treat colour as one part of authored visual direction,
+  never its proxy. Building owners must inventory every visible asset,
+  compare the full-resolution file and rendered placement with the exact
+  current references, and assign `KEEP`, `ADAPT`, `REPLACE` or `REMOVE`.
+  Saturation, palette swaps, filters and global tints cannot pass when
+  composition, material language, period specificity, adult craft, canon or
+  hierarchy remains wrong. Ali is not asked to locate weak assets one by one.
+- **Why the fix works:** The owner must diagnose and replace the complete
+  visual family, while independent image and page-level reviewers judge the
+  visible result rather than approving an on-brand-sounding colour recipe.
+- **New output:** Portfolio visual-inventory gate and template; High's first
+  source/full-resolution inventory; both hallway edits preserved as rejected
+  evidence with no active candidate.
+- **Internal rule/check updated:** Every building now requires
+  `VISUAL-ASSET-INVENTORY.md` at owner entry, and build packets require exact
+  source/render discovery plus complete replacement-art and page-level
+  coherence gates.
+- **Public angle:** Behind the Build: why turning up saturation did not make
+  the art more ’90s—or more adult.
+- **Privacy/IP/reputation:** Project-owned visual assets only; no deployment,
+  publication, account, spending or public state changed.
+
+## BTB-211 · A character image and a speech bubble both require authority
+
+- **Date:** 2026-07-27
+- **Area:** Community directory / town characters / Trading Cards.
+- **Context:** A Community stock record labelled a generic portrait as the
+  FAiRY Godmother, while several character records used generated “special
+  move” copy and old card prompts instructed the model to invent speech
+  bubbles.
+- **Issue:** A plausible-looking person and plausible-sounding line were
+  treated as character canon. Visual style review did not prove identity, and
+  product-role familiarity did not authorise dialogue, biography or
+  personality claims.
+- **Prevent / Fix:** Every character placement must bind an exact accepted
+  character source and an explicit copy authority. Speech bubbles, quotations,
+  catchphrases, biographies and “special moves” default to prohibited unless
+  an exact canonical source or Ali's approval is attached. A visual judge must
+  verify identity/crop; a copy/canon judge must independently verify the text.
+- **Why the fix works:** The wrong FAiRY source is removed, the directory uses
+  the canonical credits plate, and FAiRY, Mme CLAi-O and Deb now have bounded
+  factual role text rather than generated characterization.
+- **New output:** Sorority House visual asset inventory plus an independently
+  accepted Community character-source/copy successor with desktop/mobile
+  inspection and full identity/product/browser regression.
+- **Public angle:** Behind the Build: why a good-looking quote is still made
+  up if the character never said it.
+
+## BTB-212 · Sanitizing device data is not the same as deleting it
+
+- **Date:** 2026-07-27
+- **Area:** SUNNYVAiLE LIBRAiRY / Puffy device-local recovery.
+- **Context:** Puffy recovery safely excluded malformed and unsafe stored
+  records while keeping valid saved places usable.
+- **Issue:** The recovery notice said unsafe saves were “removed” before the
+  cleanup rewrite had succeeded. When browser storage denied that rewrite, a
+  second notice correctly said nothing was removed, leaving two contradictory
+  claims on the same page.
+- **Prevent / Fix:** Separate the in-memory safety result from persistence.
+  “Removed” is permitted only after an exact write/read-back succeeds. If
+  persistence fails, say the records were ignored for this visit, disclose
+  that they remain in device storage, preserve valid siblings and keep the
+  storage-failure notice consistent.
+- **Why the fix works:** Unsafe records never render in the active visit, but
+  the interface no longer claims a durable deletion it could not perform.
+  A real-browser fixture denies only the cleanup write and verifies the valid
+  view, unchanged original bytes and both notices together.
+- **New output:** Independent Library recovery-truth acceptance plus a
+  52-check product/browser suite.
+- **Public angle:** Behind the Build: why filtering bad local data did not mean
+  the browser had deleted it.
+
+## BTB-213 · A podcast can expose a better agent feed than its email or audio
+
+- **Date:** 2026-07-27
+- **Area:** AIDB Intelligence Desk / research intake.
+- **Context:** The new daily agent needed to mine *The AI Daily Brief* from
+  July 1 onward and keep working even when weekend episodes lacked a newsletter
+  email or obvious written post.
+- **Surprise:** The publisher exposes an official `agent.json` discovery index
+  plus per-edition JSON, Markdown and transcript endpoints. The connected Gmail
+  account contained no matching AIDB mail, and scraping Spotify or storing
+  transcripts would have been less complete, less structured and harder to
+  verify.
+- **Prevent / Fix:** Before wiring a newsletter or podcast agent to inbox
+  scraping, search the publisher's own site for `agent.json`, `llms.txt`, JSON
+  feeds, RSS and per-item machine-readable endpoints. Prefer the smallest
+  official structured source; use email as redundancy and transcripts only
+  when a material detail is absent. Reconcile dates and counts before advancing
+  state, and accept an explicit quiet day.
+- **Why the fix works:** One public discovery document identifies every edition
+  and its canonical written/audio endpoints, including weekend long-reads.
+  The July backfill reconciled exactly 21 publisher-listed editions and the
+  initialization correctly produced a quiet result without filler.
+- **New output:** A permanent Codex task, active daily heartbeat, source
+  contract, July 1–26 backfill and dated quiet-run receipt under
+  `operations/agents/aidb-intelligence-desk/`.
+- **Internal control changed:** Future source-specific agents must perform a
+  publisher machine-interface discovery pass before choosing email, browser
+  scraping or transcript ingestion.
+- **Public angle:** Behind the Build: the useful “subscribe” button for an AI
+  agent may be a JSON file, not an email form.
+
+## BTB-214 · A passing contrast sample can miss the paragraph that became unreadable
+
+- **Date:** 2026-07-27
+- **Area:** Homepage visual championship / accessibility admission.
+- **Context:** Cycle 7 changed the Homepage Why panel from a light lavender
+  surface to a dark navy/plum gradient while preserving the existing DOM and
+  copy.
+- **Issue:** The maker diagnostics sampled sixteen representative heading,
+  card and body selectors, but omitted the nested Why-panel paragraphs. A
+  broad `.explainer p` rule directly assigned dark ink to those paragraphs;
+  on the new dark gradient they fell to roughly 1.09–1.52:1 contrast and were
+  visibly unreadable on both desktop and mobile even though the sampled
+  contrast set, structure, overflow and imagery checks passed.
+- **Prevent / Fix:** When a candidate changes any surface background, derive
+  the contrast test set from every rendered text descendant of that surface,
+  including nested wrappers, rather than from a hand-picked global selector
+  list. Compare computed foreground against the effective background for each
+  state and require full-page visual inspection at every sealed viewport.
+- **Why the fix works:** A surface-scoped descendant check catches direct
+  colour assignments that override inherited light text and prevents a
+  representative sample from becoming false assurance.
+- **New output:** Town Entry independent HOLD receipt for the exact Cycle 7
+  sealed tuple, with the missing selector and endpoint contrast evidence.
+- **Public angle:** Behind the Build: how sixteen green contrast checks still
+  missed the one paragraph people could not read.
+- **Privacy/IP/reputation:** Local technical evidence only; no candidate,
+  production, deploy, publication or public state changed.
+
+## BTB-214 · A waiting task is not a blocked objective when its existing harness can run
+
+- **Date:** 2026-07-27
+- **Area:** Control Room / Brand Cycle 7 execution recovery.
+- **Context:** The isolated Homepage challenger already had `candidate.css`
+  and a bounded `capture.mjs`, but both the original Brand turn and a
+  same-directory replacement entered the same approval-loop state before
+  producing renders.
+- **Issue:** Treating the task state as the product blocker would have left an
+  already-authorised, non-destructive local capture idle and falsely implied
+  that Ali needed to unblock routine execution.
+- **Prevent / Fix:** When an owner and one replacement repeat the same
+  tool-state stall, freeze existing maker bytes, verify that the next command
+  is bounded and already authorised, then execute that exact harness from
+  Control Room. Do not recreate the candidate, broaden scope or claim success:
+  inspect the literal result, return only the smallest correction to the
+  owner, reseal and require independent review.
+- **Why the fix works:** The direct capture exposed a real protected-hero
+  pixel mismatch. Brand corrected only the leaking candidate background,
+  reran the same harness and sealed desktop/mobile evidence with byte-identical
+  hero crops and unchanged copy, IA, routes, imagery and runtime.
+- **New output:** A checksum-bound Cycle 7 desktop/mobile tuple in independent
+  Brand and Town Entry review, plus a durable runner-recovery receipt.
+- **Public angle:** Behind the Build: why “waiting for approval” was a broken
+  runner state—not a creative decision.
+
+## BTB-215 · Technical parity cannot admit a visual candidate that preserves governed bad imagery
+
+- **Date:** 2026-07-27
+- **Area:** Brand / Homepage visual championship.
+- **Context:** Cycle 7 preserved the public Homepage's copy, IA, runtime,
+  routes, image sources and masthead while changing only isolated visual CSS.
+- **Issue:** Exact parity passed after a contrast repair, but zero image-source
+  delta also preserved `fairy-godmother-scene.webp`, which the governing image
+  register already marks REPLACE everywhere. The system also repeated thick
+  borders, offset shadows and four-colour rules until mobile hierarchy and
+  repeatability regressed.
+- **Prevent / Fix:** Before sealing a visual-only candidate, intersect every
+  retained image source with the current image register and fail any governed
+  REPLACE asset. Sample contrast for nested descendants, not only headings.
+  Run the material-superiority scorecard at desktop and mobile before owner
+  handoff; technical parity is necessary but cannot compensate for an
+  ineligible image or a visually worse system.
+- **Why the fix works:** The independent Brand gate stopped a technically
+  correct but materially insufficient candidate before Ali review,
+  integration or sitewide propagation.
+- **New output:** Cycle 7 is closed as failed evidence with exact Town Entry
+  PASS and independent Brand HOLD receipts.
+- **Public angle:** Behind the Build: why “we changed no images” can be a
+  failure when one of those images was already rejected.
+
+## BTB-216 · A likeness reference can overpower the intended visual style
+
+- **Date:** 2026-07-27
+- **Area:** Brand / Homepage replacement artwork.
+- **Context:** The first Cycle 8 FAiRY image bound one approved likeness source
+  plus four explicit ink/faceted and pop-art style references.
+- **Issue:** Identity, anatomy, job clarity and crop safety passed, but the
+  result inherited the likeness source's glossy soft modelling, plum robe and
+  gold-star fantasy treatment. Simply attaching style references did not make
+  them controlling.
+- **Prevent / Fix:** Separate reference authority by attribute before
+  generation. State that the likeness source controls identity only; name the
+  exact visual properties that must not transfer from it. Make the style
+  references controlling for line, value planes, edge hierarchy, texture and
+  palette. Enforce an isolated first-image gate with automatic HOLD for glossy
+  modelling or palette dominance before expanding an artwork family.
+- **Why the fix works:** The independent image gate stopped an attractive,
+  technically clean but off-system image before two related artworks or a
+  Homepage candidate amplified the wrong direction.
+- **New output:** Cycle 8B one-artwork brief with explicit ink/faceted craft,
+  palette and reference-priority gates.
+- **Public angle:** Behind the Build: why showing an AI the right style was not
+  enough—the brief also had to say which reference was allowed to control
+  which decision.
+
+## BTB-216 · We upgraded the model but kept the old operating assumptions
+
+- **Date:** 2026-07-27
+- **Area:** Codex / GPT-5.6 migration / prompt and compute routing.
+- **Context:** Ali recognized that the July 20 *AI Daily Brief* episode
+  explained several frustrations with the initial GPT-5.6 setup. LAiDIES had
+  expected stronger output from a globally premium model/reasoning
+  configuration while carrying forward instructions and operating assumptions
+  written for earlier model behaviour.
+- **Issue:** Model tier, reasoning effort, prompt architecture, task
+  boundaries, success criteria and evaluation were collapsed into “use the
+  strongest setting.” More model work could therefore amplify an underspecified
+  finish line, repeated rules, unnecessary process control or scope drift
+  instead of producing the intended artifact.
+- **Evidence observed:** BTB-049 verifies that the earlier global setup pinned
+  GPT-5.6 Sol at Extra High and let supporting agents inherit the premium
+  setting. The current project now routes normal foreground work to
+  Sol/Medium and bounded support to Terra/Medium. OpenAI's GPT-5.6 guidance,
+  checked 2026-07-27, says to choose the family tier by workload, preserve the
+  prior effort as a baseline, compare one level lower, state each instruction
+  once, remove one prompt group at a time, keep a compact autonomy policy and
+  preserve domain context, hard constraints, approval boundaries and success
+  criteria.
+- **Diagnosis:** **Partially verified.** The setup mismatch is real and the
+  routing correction is implemented. Prompt repetition and blanket premium
+  effort are plausible contributors to the disappointing output, but no
+  controlled replay yet isolates their contribution from incomplete briefs,
+  conflicting context, stale product rules, poor decomposition or weak final
+  evaluation.
+- **Prevent / Fix:** Treat a model upgrade as a system migration, not a
+  model-picker event. Read current official guidance first. Freeze
+  representative tasks and acceptance criteria; preserve the baseline; remove
+  one repeated instruction cluster at a time; test the same effort and one
+  lower; route mechanical work to the appropriate lower-cost tier; and measure
+  fit to brief, evidence, correction load, scope drift, tokens/credits and
+  elapsed time.
+- **Why the fix works:** It separates six design choices that solve different
+  problems and produces evidence about which change improves the result rather
+  than assuming that more reasoning or a shorter prompt is universally better.
+- **New output:**
+  `operations/agents/aidb-intelligence-desk/handoffs/2026-07-27-btb-gpt-5p6-setup.md`
+  plus a research-backlog entry in the Behind the Build publication queue.
+- **Internal rule/check updated:** Future model-admission and prompt-migration
+  work must read the current official model guide before configuration, then
+  run representative same-effort/one-lower and one-change-at-a-time prompt
+  comparisons before changing the project baseline.
+- **Transferable lesson:** A new model is not a drop-in brain transplant. If
+  the old instructions encoded old model behaviour, the workflow also needs a
+  fitting.
+- **Public angle:** “We Upgraded the Model. We Forgot to Upgrade the
+  Instructions.” Field Note after controlled replay.
+- **Publication status:** DIAGNOSED — NOT YET ELIGIBLE FOR PUBLICATION.
+- **Privacy/IP/reputation:** Publish only genericized prompts and aggregate
+  results. Do not expose private project content, account limits, credit
+  balances or unreleased work. Attribute AIDB as the scout and current OpenAI
+  documentation as product authority.
+
+## BTB-217 · A named expert is a lead, not a citation
+
+- **Date:** 2026-07-27
+- **Area:** AIDB Intelligence Desk / source provenance / model tips.
+- **Context:** The July 20 AIDB machine-readable edition contains useful
+  model-interaction advice attributed to multiple practitioners, but the
+  material nuggets' `sources` arrays are empty.
+- **Issue:** A trustworthy scout can accurately name a person while still
+  leaving LAiDIES without the exact original post, experiment, guide or
+  context. Repeating the tip from the scout would collapse attribution,
+  evidence and interpretation, and could preserve advice after the relevant
+  model or product surface changed.
+- **Prevent / Fix:** For every consequential tip, preserve the chain `scout
+  edition → exact original item → current provider/primary evidence → bounded
+  LAiDIES test`. Mark the original item `UNRESOLVED` when it cannot be found;
+  never invent a URL or substitute a merely similar source. Version the result
+  by provider, exact model/family, product surface, evidence date, plan/region
+  where material and freshness trigger.
+- **Why the fix works:** It retains the discovery value of AIDB and expert
+  practitioners without confusing any of them with current product authority
+  or LAiDIES' own observed result.
+- **New output:**
+  `operations/agents/aidb-intelligence-desk/sources/aidb-reference-tracing.md`
+  and the expanded daily desk schema/automation.
+- **Transferable lesson:** “Who said it?” begins the research. “Where, under
+  which model and conditions, and does it still hold?” completes it.
+- **Public angle:** Field Note on how a good tip becomes trustworthy enough to
+  teach without laundering a citation through a respected newsletter.
+- **Publication status:** INTERNAL PREVENTION RULE — any public treatment
+  requires examples with resolved original sources.
+
+## BTB-218 · A Study Pack placeholder reached Ali as if it were a visual direction
+
+- **Date:** 2026-07-27
+- **Area:** Study Pack / visual design / product language / owner review.
+- **Context:** Ali asked to see a stronger Episode 01 Study Pack. The returned
+  HTML visualization used a white boxed worksheet, exposed invented internal
+  labels, introduced the banned word `rep`, made the relationship between
+  elements unclear and represented a promised 1990s Trading Card pack as one
+  peach placeholder rectangle.
+- **Issue:** The artifact was technically renderable but not a credible
+  LAiDIES product, not aligned to the Episode 01 visual world, not a usable
+  printable/downloadable pack and not decision-ready.
+- **Evidence observed:** Ali could not tell what the boxes meant, how they
+  related to one another, what the Try-On asked her to do, what `Keep` or
+  `Check` meant, or why the Quiz appeared inside the pack. The card preview did
+  not resemble the saved card references or specified purple, pink, blue and
+  sunshine-yellow 1990s palette.
+- **Diagnosis:** **Verified process failure.** The maker translated an internal
+  content architecture directly into visitor-facing navigation, skipped the
+  current Brand/visual-production lock, failed to use and compare against the
+  named visual references, performed no terminology scan, treated valid HTML
+  as visual evidence and sent unfinished work to Ali without an independent
+  cold-reader or visual admission verdict.
+- **Prevent / Fix:** Every Study Pack visual—including a sketch, local HTML
+  visualization or “quick sample”—must pass
+  `operations/product-stewards/learning-content-ecosystem/STUDY-PACK-CANDIDATE-ADMISSION-GATE.md`.
+  The gate fails closed on missing visual authority, invented public labels,
+  banned language, unclear component relationships, false print/download
+  claims, placeholder Cards, reference mismatch or a cold reader who cannot
+  explain the pack in five seconds.
+- **Why the fix works:** It makes product comprehension, brand fidelity,
+  terminology, Trading Card authenticity and format truth blocking admission
+  criteria rather than feedback Ali must supply after the mistake is visible.
+- **New output:** A mandatory Study Pack admission gate, linked from the future
+  intake contract and weekly build packet, plus locked ledger decision
+  D-2026-07-27-070.
+- **Internal rule/check updated:** Any failed row yields
+  `REJECT — DO NOT SHOW ALI`. Only internally admitted, materially distinct
+  candidates may reach an owner choice.
+- **Transferable lesson:** A render is not a design, and a content outline is
+  not visitor-facing information architecture.
+- **Public angle:** “The worksheet worked. Nobody knew what it was for.”
+  Behind the Build Field Note after the corrected pack exists and the failure
+  can be shown without exposing private work.
+- **Publication status:** VERIFIED INTERNAL FAILURE — PUBLIC TREATMENT HELD
+  UNTIL CORRECTED EVIDENCE EXISTS.
+- **Privacy/IP/reputation:** Use only LAiDIES-owned proof images and redact
+  unreleased content from any future public treatment.
+- **Corrective evidence — 2026-07-28:** Episode 01's Cheat Sheet was rejected
+  again when a content inventory became an oversized motivational poster, and
+  again when an image-generation pass introduced invented people instead of
+  using the completed Episode 01 frame bank. The admitted local replacement
+  now follows Ali's preferred compact bulletin-sheet reference, derives its
+  copy from `content/episodes/episode-01.canon.md`, and uses only the approved
+  Episode 01 title art and cue-sheet frames. The prevention rule is therefore
+  explicit: before generating any new people or scenes for a derivative,
+  search the episode's admitted asset bank; if an applicable frame exists,
+  generation is prohibited. A Cheat Sheet must be reviewed as a complete
+  one-page memory map—story, point, examples, analogies, concepts, scoped
+  evidence, quotables and takeaway—not as a content-component inventory.
+  Narrative timings must be visibly labelled as story examples rather than
+  benchmarks, and simplified technical explanations must preserve material
+  distinctions such as tokens versus words, context and the lack of guaranteed
+  truth. Canonical phrasing alone is not permission to turn a bounded teaching
+  beat into an unqualified headline. A sequence graphic must express one
+  intelligible causal or chronological relationship; a row of numbered CSS
+  nodes does not become a lesson flow merely because a line connects them.
+  Quotables belong on a learning sheet only when the memory cue is explicitly
+  paired with the idea or behaviour it is meant to retrieve. The subsequent
+  print review added a further blocking rule: do not introduce an unfamiliar
+  display or handwriting font to simulate “fun,” and do not shrink body copy to
+  compensate for weak composition. Use the admitted LAiDIES type families,
+  render at print size, and fail the sheet if core teaching text is hard to
+  read. Repeated equal-size cards with small corner images and unused interiors
+  are also a rejection condition. Region size must follow teaching importance;
+  artwork must occupy a meaningful visual slot; and empty space must be an
+  intentional pause, not leftover card capacity.
+  A later correction established two more rules. First, registering a regular
+  font file under a “bold” alias is not brand typography; use the real weight
+  file and inspect the rendered print proof. Second, “comic style” cannot mean
+  bright rectangular CSS panels alone. A pack that invokes comic references
+  needs real visual devices—halftone, irregular framing, emphasis bursts,
+  speech/thought-bubble logic, speed lines or comparable admitted artwork—and
+  those devices must help retrieve the lesson. Decorative backgrounds may be
+  generated only as wordless texture/geometry; all people, episode scenes and
+  teaching language must remain exact admitted assets and real text layers.
+  Format truth also applies to motion: a printable is static, while restrained
+  motion may live around its on-screen preview with a reduced-motion route.
+  The next owner review exposed a more basic admission failure: a generated
+  comic background does not excuse unreadable composition. The page contained
+  copy outside its intended panel, three colliding statistics and miniature
+  episode-frame captions that appeared to carry teaching meaning despite being
+  impossible to read at browser or print-review scale. The prevention gate now
+  requires a 150-DPI full-page cold read plus focused inspection of every text
+  region. Real teaching copy must be measured before artwork is placed; text
+  containment and line count must be asserted rather than eyeballed. Any
+  episode frame used below a reliably readable size must be cropped to a
+  subject-only memory cue, with its meaning repeated in real LAiDIES type.
+  Background energy belongs at the page edge or behind deliberately empty
+  space; it may not compete with the hierarchy. A failed readability check
+  invalidates the whole candidate even when the content and artwork are
+  otherwise canonical.
+  The final structural correction separated format jobs: the website is a
+  responsive reading experience and the PDF is the compact printable/saveable
+  artifact. A one-page printable must not be reused as a fit-to-width web image
+  and then blamed on the viewport when its text becomes tiny. Web and print
+  may share copy, evidence and artwork, but each must have its own admission
+  check. Source artwork also keeps its native aspect ratio unless the crop has
+  been deliberately approved; squeezing a 16:9 episode title into a shallow
+  banner is a blocking loss of identity, not responsive design.
+
+## BTB-219 · The Try-On looked like an experience but saved no useful outcome
+
+- **Date:** 2026-07-27
+- **Area:** Episode 01 / Try-On / learner value / interaction design.
+- **Context:** The current Episode 01 Try-On has a strong fitting-room hero,
+  four activity steps, a notes field, butterfly-clip rating and device-local
+  save.
+- **Issue:** The visible exercise performs Episode 02’s vague-versus-better-
+  brief lesson. It asks the visitor to leave for another AI tool, but gives no
+  account-free demonstration, useful starter task, place to compare returned
+  drafts or concrete reason to finish. Saving retains only a note and novelty
+  score.
+- **Evidence observed:** The live local flow was captured before and after
+  saving in
+  `operations/design-qa/episode-01-study-pack-audit-20260727/`. The saved state
+  contained no source task, drafts, tool-specific observations, correction,
+  chosen result or finished work.
+- **Diagnosis:** **Verified product and learning failure.** Atmospheric art and
+  a working local-storage action created the appearance of an experience, but
+  the interaction contract did not define a valuable learner outcome.
+- **Prevent / Fix:** Every Try-On must state what the learner will leave with,
+  provide a no-account guided path, offer a real-task path, capture the
+  comparison or decision the lesson requires and return a useful saved or
+  downloadable result. Fun reactions may support the activity but cannot be
+  its only outcome.
+- **Why the fix works:** A beginner can experience the lesson immediately,
+  complete something useful and understand why the effort was worth it.
+- **New output:**
+  `operations/design-qa/episode-01-study-pack-audit-20260727/AUDIT.md`
+  proposes an Episode 01 AI-audition experience that ends with one usable
+  draft, one human correction and one dated task-specific tool note.
+- **Internal rule/check updated:** A Try-On cannot pass because it has steps,
+  a save button or a themed score. Admission requires a concrete learner
+  artifact or decision that matches the exact episode.
+- **Transferable lesson:** If the user cannot name what she gets at the end,
+  the activity is homework with better lighting.
+- **Public angle:** “The fitting room was gorgeous. We forgot to give anyone
+  an outfit.”
+- **Publication status:** VERIFIED INTERNAL FAILURE — PUBLIC TREATMENT HELD
+  UNTIL THE REPLACEMENT IS TESTED.
+- **Privacy/IP/reputation:** The audit used only local LAiDIES pages and
+  synthetic notes; no visitor or account data was accessed.
+
+## BTB-220 · A viewport measurement can pass while the screenshot surface lies
+
+- **Date:** 2026-07-27
+- **Area:** Browser evidence / responsive design / visual admission.
+- **Context:** Cycle 8F and the first Cycle 8G capture reused one in-app browser
+  tab while changing its viewport override from mobile to desktop.
+- **Issue:** The DOM correctly reported `innerWidth`, `clientWidth` and section
+  widths of `1440`, but the screenshot surface retained a 390-pixel rendered
+  rail and padded the remaining 1050 pixels with the page background. Brand
+  judges therefore saw a narrow mobile rail in a large navy void even though
+  the measured layout occupied the full CSS viewport.
+- **Evidence observed:** Recreating the tab after setting the 1440×900 viewport
+  produced a true full-width screenshot from the same source. The corrected
+  image is bound in Cycle 8G receipt SHA
+  `96d57dada3c6c190739fa16c383195fbd9629650d9edc18ff1cdc3b9b7d26cdb`;
+  every principal section measures and renders at 1440 pixels.
+- **Diagnosis:** **Verified evidence-generation failure.** Numeric DOM checks
+  and screenshot dimensions were each valid in isolation, but they described
+  different rendering surfaces after viewport reuse.
+- **Prevent / Fix:** For every breakpoint capture, set the viewport before
+  creating a fresh tab, then navigate, measure and capture. Bind both CSS
+  geometry and rendered-pixel evidence. Reject a screenshot when visible
+  content width disagrees with measured viewport or when a large unexplained
+  background field appears.
+- **Why the fix works:** The browser layout engine and screenshot surface are
+  initialized under the same viewport, preventing a stale mobile surface from
+  masquerading as desktop evidence.
+- **New output:** Cycle 8G capture receipt and fresh-tab five-render tuple.
+- **Internal rule/check updated:** Independent visual judges must verify
+  viewport-to-pixel agreement before scoring hierarchy, density or empty space.
+- **Transferable lesson:** A 1440 label is not proof of a 1440 render.
+- **Public angle:** “The design failed because the screenshot lied.” A Behind
+  the Build note after the corrected visual direction is admitted.
+- **Publication status:** VERIFIED INTERNAL FAILURE — PUBLIC TREATMENT HELD.
+- **Privacy/IP/reputation:** Local proof pages and LAiDIES-owned assets only.
+
+## BTB-221 · The same AI task can change containers, not just wording
+
+- **Date:** 2026-07-27
+- **Area:** Episode 01 / Try-On / comparative AI literacy.
+- **Context:** LAiDIES ran one identical synthetic avoided-email task in
+  current consumer ChatGPT, Gemini and Claude surfaces to ground the proposed
+  `THREE TABS, ONE TASK` exercise.
+- **Issue:** A comparison framed only as short-versus-long or warm-versus-direct
+  would miss a consequential part of the beginner experience: each product may
+  package the result differently.
+- **Evidence observed:** ChatGPT returned a plain-text email draft; Gemini Flash
+  included a subject and separate tip; Claude Sonnet 5/Medium opened a
+  structured email composer with subject/body fields and an optional Gmail
+  action. The full bounded receipt and screenshots are in
+  `operations/research/episode-01-three-tabs-one-task-20260727/`.
+- **Diagnosis:** **Verified instructional-design surprise.** Tool familiarity
+  includes the answer, the interface and the actions the surface offers. Those
+  affordances must not be misreported as fixed model personalities.
+- **Prevent / Fix:** Comparative AI activities record the exact task, date,
+  consumer surface, visible model/mode/settings, response shape and product
+  affordances. Learners rate the actual usefulness for their task. LAiDIES
+  publishes no permanent provider leaderboard from a single fixture and never
+  activates send/share/connector controls during a comparison.
+- **Why the fix works:** Beginners learn what using each tool actually feels
+  like while keeping claims bounded, current and safe.
+- **New output:**
+  `operations/research/episode-01-three-tabs-one-task-20260727/CONTROLLED-COMPARISON.md`.
+- **Internal rule/check updated:** D-2026-07-27-072 and the Episode 01 Study Pack
+  content ruling now separate output observations from product-surface
+  observations.
+- **Transferable lesson:** The answer is only half the interface.
+- **Public angle:** “Same task, three tabs—and one of them turned into an email
+  app.” Suitable for a future Behind the Build Field Note after the completed
+  Try-On is visually admitted.
+- **Publication status:** VERIFIED INTERNAL LEARNING — PUBLIC TREATMENT HELD.
+- **Privacy/IP/reputation:** Synthetic low-risk task; Claude Incognito and
+  Gemini Temporary chat; no message sent, connector used or private data
+  entered.
+
+## BTB-222 · A promised release date is not proof that the release shipped
+
+- **Date:** 2026-07-27
+- **Area:** NewsStand radar / model-release verification / changing product
+  claims.
+- **Context:** The Kimi K3 API quickstart still said the full model weights
+  “will be released by July 27” after Moonshot's live Hugging Face repository
+  had already published the weights, license and deployment artifacts.
+- **Issue:** Re-reading only the launch post or quickstart could leave the
+  radar in WATCH after the promotion trigger had already occurred. Conversely,
+  treating a promised date as fulfillment could promote a release that had not
+  actually shipped.
+- **Evidence observed:** The live `moonshotai/Kimi-K3` repository contained
+  downloadable model shards, the Kimi K3 license, serving instructions and an
+  update timestamp on July 27; the older quickstart retained future-tense
+  wording.
+- **Diagnosis:** **Verified source-lifecycle mismatch.** First-party pages can
+  disagree because documentation updates at different speeds. The executable
+  or downloadable release artifact is stronger evidence of availability than
+  either a promise or stale future tense.
+- **Prevent / Fix:** For every scheduled model or feature launch, verify the
+  actual availability artifact at the promotion cutoff: model files or commit,
+  selectable API/model ID, plan/account access and current license. Record the
+  promise and fulfillment as separate claims, and flag stale first-party
+  wording instead of silently reconciling it.
+- **Why the fix works:** It prevents both false early promotion and a missed
+  release after the real access change occurs.
+- **New output:** The merged Kimi K3 Breaking packet at
+  `operations/drafts/news-radar/2026-07-27-kimi-k3-open-weights/`.
+- **Internal rule/check updated:** A date-based release trigger requires a live
+  artifact plus access evidence; calendar arrival alone is not fulfillment.
+- **Transferable lesson:** The menu can say “coming today” while the kitchen is
+  already serving—or still closed. Check the counter.
+- **Public angle:** “The model shipped before its own instructions noticed.”
+  Possible Behind the Build Field Note about verifying changing AI releases.
+- **Publication status:** VERIFIED INTERNAL LEARNING — PUBLIC TREATMENT HELD.
+- **Privacy/IP/reputation:** Public product documentation and release files
+  only; no account, private data or unpublished source was accessed.
+
+## BTB-223 · An “approved assets” folder resurrected a retired wordmark
+
+- **Date:** 2026-07-27
+- **Area:** Brand continuity / asset authority / Study Pack prototype.
+- **Context:** The Episode 01 Try-On prototype needed the LAiDIES wordmark. The
+  maker selected `laidies-wordmark-final-b-light.png` from
+  `approved-assets/brand-logos/` and filtered it white for a dark header.
+- **Issue:** The file is the retired serif wordmark. The current web authority
+  is the live Jost 800 construction already used by the homepage. This same
+  authority error had previously reached NewsStand.
+- **Evidence observed:** Ali identified the wrong mark in the rendered Try-On.
+  SHA comparison proved the prototype copy was byte-identical to the retired
+  asset. BTB-082 already recorded that this asset family was retired, while
+  the asset directory and older briefs still made it look selectable.
+- **Diagnosis:** **Verified repeated process failure.** File location and an
+  “approved” filename were treated as current authority; the maker did not
+  resolve the current homepage implementation or run a retired-asset scan.
+  A colour filter then hid the source asset's original treatment without
+  correcting its letterform.
+- **Prevent / Fix:** Current web/interactive work must resolve
+  `CURRENT-WORDMARK-AUTHORITY-2026-07-27.md` before asset selection, use the
+  live Jost construction and fail on any retired filename/reference. Historical
+  and sealed assets stay in place but are explicitly labelled ineligible for
+  new web work. Study Pack builds run `check:brand` before compilation.
+- **Why the fix works:** Authority is determined before visual plausibility.
+  The build fails before rendering if a retired wordmark is copied back into
+  the prototype, and the shared SUNNYVAiLE fallback CSS no longer requests the
+  retired SVG.
+- **New output:** Corrected Try-On wordmark; brand authority record; Study Pack
+  admission rule; brand-directory warning; automated prototype check; shared
+  fallback CSS correction; D-2026-07-27-073.
+- **Internal rule/check updated:** An asset folder is inventory, not current
+  authority. Recolouring, filtering, cropping or renaming a retired mark
+  remains a blocking failure.
+- **Transferable lesson:** “Approved once” and “current now” are different
+  claims.
+- **Public angle:** “The wrong logo kept coming back because it lived in the
+  right folder.”
+- **Publication status:** VERIFIED REPEATED INTERNAL FAILURE — PUBLIC FIELD
+  NOTE POSSIBLE AFTER THE PREVENTION CHECK PROVES STABLE.
+- **Privacy/IP/reputation:** LAiDIES-owned assets and local prototype evidence
+  only.
+
+## BTB-224 · The rule existed, but the acceptance path did not enforce it
+
+- **Date:** 2026-07-27
+- **Area:** Homepage championship / visual governance / Control Room.
+- **Context:** Cycle 8J reached a decision package after checksum, contrast,
+  image-count, overflow, Town Entry and Brand gates passed.
+- **Issue:** Ali's visual inspection found missing-image black voids, mixed
+  styles, wrong or unrecognizable FAiRY Godmother and Miss Jeeves imagery, the
+  wrong Willow Lane house, no Lantern Hill image, chaotic image/title
+  relationships and cut-off crops. These were not new requirements. The
+  governing image register and earlier cycle verdicts had already identified
+  the same classes of failure.
+- **Evidence observed:** The Homepage register explicitly required three
+  distinct FAiRY jobs, one strongest canonical Miss Jeeves use, one canonical
+  Lantern Hill use and owner verification of building art. Cycle 8D had
+  already rejected blank MAiN Street treatment, text across the Willow Lane
+  entrance/character and a candidate that was not materially superior.
+  Cycle 8J nevertheless passed because `18/18 governed images`, complete file
+  loads and numeric scores were treated as visual evidence.
+- **Diagnosis:** **Verified repeated operating-model failure.** Rules stored in
+  documentation were translated into presence/count checks and abstract score
+  floors. The acceptance path never required exact positive source authority
+  for every visible job or direct rendered proof that each image was correct,
+  complete, clearly paired with its text and visibly better than the
+  incumbent.
+- **Prevent / Fix:** Stop full-page successor production. First reconcile each
+  visible job to `IMAGE REQUIRED` or an explicitly approved non-image state,
+  exact canonical subject, approved source/hash, style, crop, text
+  relationship and owner evidence. Then render one representative section.
+  Judge the visible result before technical support checks. Only that section's
+  PASS may open a full-page brief.
+- **Why the fix works:** It converts negative controls and general rules into
+  exact positive build inputs and makes the first admission object small enough
+  for direct visual inspection. A missing, wrong, mixed-style or ambiguously
+  paired image fails before another full page can consume a day.
+- **New output:** `HOMEPAGE-RESTART-GATE-2026-07-27.md`; Cycle 8J Ali rejection
+  record; protected incumbent retained.
+- **Internal rule/check updated:** A file, hash, load event, image count,
+  contrast PASS, overflow PASS or numeric Brand score cannot establish visual
+  admission. Canon identity, image completeness, section grammar, crop quality
+  and material superiority must each be evidenced in the rendered result.
+- **Transferable lesson:** A rule is not operational because it was written;
+  it is operational only when the next build cannot pass while violating it.
+- **Public angle:** Behind the Build: why adding more rules did not stop the
+  same bad images from returning.
+- **Publication status:** VERIFIED INTERNAL FAILURE — PUBLIC TREATMENT HELD.
+- **Privacy/IP/reputation:** LAiDIES-owned local visual evidence only; no
+  deployment, publication, account, spending or public state changed.
+
+## BTB-225 · Each palette correction replaced one rejected theme with another
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Study Pack / Try-On / visual authority.
+- **Context:** Ali reviewed the interactive Episode 01 Try-On while it was
+  running locally.
+- **Issue:** The first candidate used an overpowering yellow-and-black
+  interface. The correction replaced it with cream/paper and deep plum; the
+  next correction replaced that with white and deep plum. Ali had already
+  rejected these treatments and had repeatedly directed the work to the actual
+  Homepage and saved Episode 01 visual references.
+- **Evidence observed:** Ali explicitly rejected black backgrounds,
+  cream/paper, white-and-deep-plum, and candy hues used as text or text-box
+  accents during the live review.
+- **Diagnosis:** **Verified authority-inversion and correction-loop failure.**
+  Generic palette substitutions were treated as solutions instead of
+  inspecting and matching the visible product.
+- **Prevent / Fix:** Study Pack admission now blocks all four rejected
+  treatments. The actual episode imagery must carry the principal atmosphere;
+  interaction colours must be saturated, few and purposeful; text and input
+  surfaces must remain neutral and may not use candy-colour decoration. A
+  correction must be compared against the current Homepage and exact episode
+  references before it is shown.
+- **Why the fix works:** It prevents a maker from satisfying one negative rule
+  by switching to a different already-rejected theme.
+- **New output:** Updated Study Pack admission gate and image-led Episode 01
+  Try-On correction.
+- **Internal rule/check updated:** Palette changes require positive visual
+  reference matching, not a sequence of generic colour-token swaps.
+- **Transferable lesson:** “Not that colour” does not authorize guessing the
+  next one.
+- **Public angle:** Behind the Build: how three technically valid colour
+  corrections missed the same visual brief.
+- **Publication status:** VERIFIED INTERNAL FAILURE — PUBLIC TREATMENT HELD.
+- **Privacy/IP/reputation:** Local LAiDIES assets and prototype evidence only;
+  nothing published, deployed, sent or exposed.
+
+## BTB-226 · The model receipt was in the response menu, not the header
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Study Pack / Three Tabs, One Task / evidence capture.
+- **Context:** The dated ChatGPT fixture initially recorded the model as not
+  shown because the Free-plan chat header displayed only “ChatGPT.”
+- **Issue:** The visible header was treated as the complete evidence surface.
+  Ali found the response-level **Try again** menu, which explicitly reported
+  **Used GPT-5.5**.
+- **Diagnosis:** **Verified incomplete interface inspection.** The model was not
+  absent; its receipt lived in a secondary response action.
+- **Prevent / Fix:** For dated tool comparisons, inspect the chat header,
+  model picker, plan label and response-level retry/details menu before using
+  `Not shown`. Keep provider-documented defaults separate from interface
+  evidence and record the observation date and surface.
+- **Why the fix works:** It prevents a truthful but incomplete label from
+  becoming the fixture’s final provenance record.
+- **New output:** ChatGPT fixture relabelled
+  **ChatGPT Free · GPT-5.5**; exact shared prompt rerun; source note updated.
+- **Internal rule/check updated:** `Not shown` is allowed only after all
+  available model-receipt surfaces have been checked.
+- **Transferable lesson:** Product metadata may sit beside the response rather
+  than at the top of the chat.
+- **Public angle:** Behind the Build: the tiny menu that changed an AI
+  comparison from a guess into a receipt.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Provider interface evidence and a low-risk test
+  prompt only; the learner’s personal test detail was not copied into the
+  fixture or record.
+
+## BTB-227 · A locked three-item Study Pack still had a fourth item downstream
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Study Pack / Blend & Snap / product continuity.
+- **Context:** D-2026-07-27-071 locked Episode 01 to a Cheat Sheet, Try-On and
+  Trading Card Pack, with no separate Study Sheet.
+- **Issue:** Blend & Snap’s dossier, public component manifest, private
+  evidence ledger and validator still carried the older planned Study Sheet.
+  The next product conversation therefore resurfaced a component Ali had
+  already declined.
+- **Diagnosis:** **Verified propagation failure.** The learning ruling was
+  recorded, but the producing building and its machine-readable inventory were
+  not reconciled in the same pass.
+- **Prevent / Fix:** A locked component-architecture decision must update the
+  canonical ruling, producing-product dossier/state, public manifest, private
+  evidence inventory and validator together. The validator now rejects any
+  Episode 01 Study Sheet while retaining the existing architecture for other
+  episodes until separately ruled.
+- **Why the fix works:** The human-readable product model and the
+  machine-enforced inventory now agree, so stale component language cannot
+  quietly return.
+- **New output:** Episode 01 pack-entry/Puffy ruling; Practice Pack dossier and
+  state; corrected Blend & Snap Episode 01 manifest and validation rule.
+- **Internal rule/check updated:** Component decisions require an
+  owner-receiver propagation check before the decision is reported complete.
+- **Transferable lesson:** A decision is not propagated because one canonical
+  sentence exists; every downstream producer and guardrail must receive it.
+- **Public angle:** Behind the Build: how a “ghost worksheet” survived after
+  the Study Pack had already been simplified.
+- **Publication status:** VERIFIED INTERNAL FAILURE — PUBLIC FIELD NOTE
+  POSSIBLE.
+- **Privacy/IP/reputation:** Internal product records only; nothing published,
+  deployed, sent or exposed.
+
+## BTB-228 · One selected card had to become a product grammar, not six fresh guesses
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Study Pack / Trading Card Pack / visual continuity.
+- **Context:** Ali selected the third `GENERATIVE AI` card direction after
+  rejecting a generic card catalogue and reminding the team that exact trading
+  card references were already saved.
+- **Risk:** Treating the selection as approval for one image only would allow
+  the other five fronts, backs, wrapper and interaction surface to drift into
+  unrelated styles again.
+- **Evidence observed:** The locked reference README and four saved reference
+  images specify flat 1990s comic construction; Ali selected option 3 and asked
+  for an actual trading pack, not another card-shaped UI panel.
+- **Prevent / Fix:** Promote the selected card into a bounded product grammar
+  before building the rest: palette, ink, border, dot pattern, front/back jobs,
+  title treatment, wrapper hierarchy and excluded styles. Carry the grammar
+  through all six fronts, a common readable back, the pack opening and the
+  selector strip. Keep interface controls subordinate to the cards.
+- **Why the fix works:** Every downstream visual now has one positive authority
+  and one shared anatomy. Review can judge a coherent pack instead of six
+  unrelated image prompts.
+- **New output:** Six Episode 01 card fronts, reusable explanation-back frame,
+  pack-opening prototype, working flips, real Puffy placement, local preview
+  persistence and printable fronts/backs.
+- **Internal rule/check updated:** A chosen visual option becomes an explicit
+  component grammar before adjacent assets are generated or coded.
+- **Transferable lesson:** Selecting one image is not the end of visual
+  direction; it is the start of a reusable system.
+- **Public angle:** Behind the Build: how one approved card became a whole
+  collectible learning pack.
+- **Publication status:** VERIFIED REUSABLE SUCCESS — PUBLIC FIELD NOTE
+  POSSIBLE.
+- **Privacy/IP/reputation:** Local LAiDIES-owned prototype and saved references
+  only; nothing published, deployed, sent or exposed.
+
+## BTB-229 · A themed entrance hid the product the learner came to choose
+
+- **Date:** 2026-07-28
+- **Area:** Blend & Snap / Study Pack discovery / episode selection.
+- **Context:** The Study Packs lived inside a café-themed page where Episode 04
+  dominated, Episodes 01–03 appeared later as “The Regulars,” and a coffee
+  order sat in the route to the learning materials.
+- **Issue:** The theme supplied atmosphere but obscured the actual product
+  model: choose an episode, see what is in its pack, then start one useful item.
+- **Diagnosis:** **Verified information-architecture failure.** Decorative
+  language and unrelated interaction were allowed to replace plain selection
+  labels and a visible inventory.
+- **Prevent / Fix:** Product entry pages must expose the learner’s primary noun
+  and choice immediately. Use one clearly labelled current item, one complete
+  grid of peer items and a separate detail view showing the contained assets
+  before adding place-world interactions. A mobile first-screen check must
+  confirm that the current item’s identity and action are visible without
+  scrolling.
+- **Why the fix works:** The learner can now answer “where am I, what can I
+  choose, and what happens next?” from the first screen, while the comic visual
+  world remains expressive rather than instructional.
+- **New output:** Responsive Study Pack storefront and Episode 01 pack-detail
+  prototype with desktop/mobile evidence and passed build tests.
+- **Internal rule/check updated:** Theme cannot rename, hide or gate the
+  primary product choice; mobile above-the-fold QA is required for any
+  “featured/current” selector.
+- **Transferable lesson:** A strong visual world should amplify the product
+  structure, not make the learner decode it.
+- **Public angle:** Behind the Build: when a fun café metaphor made the menu
+  harder to use—and how the Study Packs got their own storefront.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Local LAiDIES-owned prototype and episode assets
+  only; nothing published, deployed, sent or exposed.
+
+## BTB-230 · “Curly hair” became corded loops and a comic card became painterly
+
+- **Date:** 2026-07-28
+- **Area:** Town Trading Cards / recurring-character identity / visual style.
+- **Context:** Mayor Deb's first electric-pop successor used the correct
+  identity plate and approved JoJo card as references.
+- **Issue:** The hair was rendered as repetitive rope-like coils that read as
+  curl-braids, while the face and clothing drifted into soft painted modelling
+  instead of crisp adult comic art.
+- **Diagnosis:** The positive references were not enough to control curl
+  topology or surface rendering. A generic “curly hair” instruction allowed
+  repeated circular geometry, and a broad “comic” label allowed painterly
+  textures under comic framing.
+- **Prevent / Fix:** For recurring curly-haired characters, bind the intended
+  curl topology explicitly: compact irregular C/S curls and clustered
+  ringlets, with braids, ropes, twists, tubes and repeated chain geometry
+  prohibited. Bind the surface method separately: contour ink, faceted shadow
+  planes and controlled halftone, with painterly skin/fabric modelling
+  prohibited. Inspect hair structure and figure-surface style before sealing
+  or presenting the card.
+- **Why the fix works:** It turns two ambiguous aesthetic adjectives into
+  visible, independently testable construction rules.
+- **New output:** Mayor Deb v3 natural-curl adult-comic successor.
+- **Internal rule/check updated:** Town-character card reviews now include
+  separate hair-topology and surface-rendering gates.
+- **Transferable lesson:** A likeness reference controls who a character is;
+  it does not automatically control how hair geometry or material surfaces are
+  drawn.
+- **Public angle:** Behind the Build: why “curly” and “comic” were not precise
+  enough to preserve a recurring character.
+- **Publication status:** VERIFIED INTERNAL FAILURE / LOCAL SUCCESSOR BUILT.
+- **Privacy/IP/reputation:** LAiDIES-owned character and local card assets only;
+  nothing published, deployed, sent or exposed.
+
+## BTB-231 · An unguessable share link was mistaken for a private handoff
+
+- **Date:** 2026-07-28
+- **Area:** NewsStand radar / AI-product privacy / Headline Reality Check.
+- **Context:** Reports that Claude conversations appeared in Google and Bing
+  were widely compressed into the claim that Anthropic leaked private chats.
+- **Issue:** That framing hid the mechanism readers needed to understand. The
+  affected pages were user-created public snapshots, but their long random URLs
+  encouraged a narrower “only the recipient will see this” mental model.
+- **Diagnosis:** **Verified framing and product-language failure.** Access,
+  discovery and indexing were collapsed into one vague word—“share.”
+  `robots.txt` reduced crawler access but was not access control, and WIRED
+  found sampled pages lacked page-level `noindex`.
+- **Prevent / Fix:** For every shared-link privacy story or product, separately
+  verify and explain: who can open the object, how its address can be found,
+  whether search engines may catalogue it, how the owner audits active links,
+  and what revocation can and cannot undo. Never call a random public URL
+  private, and never call crawler instructions a lock.
+- **Why the fix works:** The resulting guidance corrects the sensational claim
+  without minimizing the real privacy consequence and gives the reader an
+  immediate, product-specific action.
+- **New output:** P0 private Claude shared-chat packet with Breaking, Weekly and
+  Tribune treatments; evidence identity `CLAUDE-SHARE-SEARCH-2026-07-28`.
+- **Internal rule/check updated:** Privacy Reality Checks must distinguish
+  access, discovery, indexing and revocation before scoring consequence or
+  giving reader advice.
+- **Transferable lesson:** “Anyone with the link” describes public access, not
+  a confidential audience.
+- **Public angle:** Behind the Build: why a web address that feels secret is
+  still not a privacy setting.
+- **Publication status:** VERIFIED REUSABLE EDITORIAL LESSON — PRIVATE PACKET
+  HELD.
+- **Privacy/IP/reputation:** No exposed chat or artifact was opened, quoted or
+  retained; only product documentation, technical controls and reputable
+  reporting were used.
+
+## BTB-232 · A real account table was mistaken for a finished Closet round trip
+
+- **Date:** 2026-07-28
+- **Area:** Study Packs / Puffy Board / account continuity.
+- **Context:** The Episode 01 Cheat Sheet needed a learner-selected Puffy that
+  saved the exact asset to the learner's Closet. Existing database work
+  included `member_pinned_references` with owner-write RLS, and the site had a
+  working Puffy Board.
+- **Issue:** The account foundation and the Puffy interface were described as
+  though they formed one completed system. They did not: the canonical Puffy
+  writer still stored board and pouch records only in `localStorage`; the
+  account table had no selected-sticker field or Study Pack reference type;
+  and the public account binding remained held.
+- **Diagnosis:** **Verified end-to-end completion gap.** Separate working
+  producer and storage components were allowed to imply a proven transaction
+  between them.
+- **Prevent / Fix:** Never report a Closet save as account-backed from schema
+  presence, a button, or a destination render alone. Prove the signed-in
+  writer, accepted schema, RLS write/read, selected-sticker restoration,
+  second-device retrieval, change/peel propagation, signed-out fallback and
+  conflict behavior. Until that proof exists, label the current Puffy round
+  trip device-local.
+- **Why the fix works:** It tests the promise the learner hears—“keep this in
+  my account”—rather than three disconnected implementation fragments.
+- **New output:** Episode 01 Cheat Sheet reuses the real 75-sticker collection
+  and canonical choose/save/change/peel flow without claiming cross-device
+  sync. The exact missing account bridge is recorded rather than hidden.
+- **Internal rule/check updated:** Study Pack asset acceptance now requires a
+  persistence receipt naming the writer, authoritative store, Closet consumer,
+  identity state and cross-device evidence.
+- **Transferable lesson:** A database table plus a local feature does not equal
+  an account-backed product.
+- **Public angle:** Behind the Build: the save button that worked perfectly—on
+  only one browser.
+- **Publication status:** VERIFIED INTERNAL CONTROL GAP — PREVENTION RULE.
+- **Privacy/IP/reputation:** Local code and schema inspection only; no account
+  data was opened, changed or exposed.
+
+## BTB-233 · Image-sized padding made finished cards look half empty
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Cheat Sheet / analogy cards / keep-action hierarchy.
+- **Context:** Four lesson analogy cards used a background image plus a large
+  top-padding estimate to reserve space for the artwork. The keep-actions used
+  separate grid cells for the Puffy and PDF controls.
+- **Issue:** At the actual review viewport, the padding exceeded the rendered
+  image height and left a large empty colour field before every heading. The
+  independent grid placement also left one action stranded on the left and two
+  pushed to the lower right.
+- **Diagnosis:** **Verified responsive layout failure.** Content geometry was
+  simulated with CSS spacing instead of represented by real image and action
+  regions.
+- **Prevent / Fix:** Render source artwork as a real image element with its
+  known aspect ratio, then place copy in a separate compact region. Treat
+  sibling actions with the same job as one wrapping control group rather than
+  manually positioning them in unrelated cells. Verify at the user's current
+  viewport after the build.
+- **Why the fix works:** The browser measures the actual content instead of a
+  guessed spacer, and related controls keep their visual and reading order as
+  the width changes.
+- **New output:** Four compact image-plus-copy analogy cards and one aligned
+  Closet/Download/Print action group, visually verified in the in-app browser.
+- **Internal rule/check updated:** No image-backed learning card may reserve
+  its artwork with arbitrary padding; responsive QA must compare the image edge
+  directly to the beginning of its text region.
+- **Transferable lesson:** If spacing is standing in for content, it will
+  eventually become visible as empty space.
+- **Public angle:** Behind the Build: the giant gap that was actually a fake
+  image box.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Local visual implementation only; nothing
+  published, deployed, sent or exposed.
+
+## BTB-234 · A page-level wordmark was allowed to impersonate the site header
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Cheat Sheet / shared navigation / Blend & Snap.
+- **Context:** The Study Pack prototype rendered a large LAiDIES wordmark and
+  oversized Back button in a custom page header.
+- **Issue:** The element looked like a brand header but omitted the real
+  SUNNYVAiLE navigation, account-status control, Join action, menu behavior and
+  shared responsive rules. The back action competed with the brand instead of
+  behaving as page-level wayfinding.
+- **Diagnosis:** **Verified shared-component bypass.** A local visual
+  approximation replaced an existing canonical product component.
+- **Prevent / Fix:** Import the canonical shared header source for every
+  Study Pack surface. Put asset-level return navigation in a compact
+  breadcrumb beneath it, and test the shared Menu plus responsive state in the
+  actual review browser.
+- **Why the fix works:** Town-level navigation remains consistent and owned by
+  one source, while the page still provides the local route back to its pack.
+- **New output:** Canonical global header mounted in the Study Pack prototype,
+  with working Menu and an accessible Episode 01 breadcrumb.
+- **Internal rule/check updated:** A visible brand masthead does not satisfy
+  the header requirement; acceptance must prove the canonical shared component
+  and its controls are present.
+- **Transferable lesson:** A logo is identity; a header is identity plus
+  navigation, account state and wayfinding.
+- **Public angle:** Behind the Build: when the logo looked like a header but
+  did none of the header's work.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Shared local source reused without opening or
+  changing account data; nothing published, deployed, sent or exposed.
+
+## BTB-235 · Canon-listed assets were mistaken for a coherent story
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Cheat Sheet / narrative recap / quote selection.
+- **Context:** The recap used three genuine Episode 01 images and four phrases
+  from the canonical `quotables[]` list.
+- **Issue:** The middle caption, “And now, AI,” did not explain the causal gap
+  between Steve finding the shortcut and the heroine trying her first task.
+  The phrase strip also presented four unequal lines as generic slogans, so
+  they did not read as Episode quotations even though their words came from
+  canon.
+- **Diagnosis:** **Verified editorial sequencing failure.** Source membership
+  was treated as sufficient evidence that an asset performed the intended
+  narrative or memory job.
+- **Prevent / Fix:** For every three-beat recap, write the causal argument in
+  plain language before selecting images: inciting problem → real barrier →
+  episode resolution. Require each image and caption to carry one of those
+  beats without inference. Select quote cards by lesson value and recognisable
+  episode voice, not by mere presence in `quotables[]`; render them visibly as
+  quotations and remove weak filler.
+- **Why the fix works:** The reader can now retell the episode from the three
+  captions alone: Steve found the shortcut first; for her it looked like one
+  more job; one small real task got her started.
+- **New output:** Rewritten Episode 01 story-board captions with explanatory
+  sublines, plus a three-card `The Funny Bits` section using recognisable
+  comic lines while the serious teaching quotations remain with their lessons.
+- **Internal rule/check updated:** Weekly Study Pack review must include a
+  caption-only narrative test and a quote-without-artwork recognition test.
+- **Transferable lesson:** Canon tells you what belongs to the episode; it
+  does not decide what belongs in every component.
+- **Public angle:** Behind the Build: the three correct pictures that still
+  told the wrong story.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Local editorial and visual implementation only;
+  nothing published, deployed, sent or exposed.
+
+## BTB-236 · Bright boxes were mistaken for visual learning
+
+- **Date:** 2026-07-28
+- **Area:** Episode 01 Cheat Sheet / concept definitions / takeaway steps.
+- **Context:** The terms and final-action sections used saturated LAiDIES
+  colours, bold type and heavy comic borders.
+- **Issue:** Despite the correct palette, both sections remained stacks of
+  rectangular text containers. Colour created brand energy but did not give
+  the learner a picture to recall or a visual sequence to follow.
+- **Diagnosis:** **Verified learning-design gap.** Surface styling was doing
+  the job of illustration, memory cue and instructional diagram.
+- **Prevent / Fix:** For each load-bearing learning section, identify whether
+  the learner needs a definition, contrast, sequence or decision. Add a real
+  source or purpose-built raster visual for that job; keep all factual labels
+  and instructions as editable HTML beside it. Never treat a different fill
+  colour as sufficient visual pedagogy.
+- **Why the fix works:** The term set now has three distinct object memories,
+  while the action set shows the heroine performing the three decisions in
+  order. Text remains readable, accessible and correctable.
+- **New output:** `09-concepts-visual-path-v1.png` and
+  `10-three-step-path-v1.png`, integrated into the Episode 01 web Cheat Sheet.
+- **Internal rule/check updated:** Weekly Study Pack QA must name the learning
+  job performed by every illustration and reject decorative assets that only
+  repeat the surrounding colour palette.
+- **Transferable lesson:** Bright is a visual style; it is not automatically a
+  visual explanation.
+- **Public angle:** Behind the Build: when six colourful boxes still taught
+  like a spreadsheet.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Generated from internal Episode 01 style
+  references; no private data, external logos or generated factual text.
+
+## BTB-236 · A content brief was implemented as navigation
+
+- **Date:** 2026-07-28
+- **Area:** Homepage / Daily editorial column.
+- **Context:** Ali asked for a Daily area that showed the current breaking
+  news, daily news, reading, AI tip, horoscope and Did You Know content.
+- **Issue:** The first proposal rendered short chips that opened a drawer of
+  links. It hid the information the component existed to provide and also
+  loaded an obsolete dark Homepage baseline.
+- **Diagnosis:** **Verified artifact-definition failure.** The implementation
+  optimized discoverability and interaction before binding the requested
+  content job and current visual source.
+- **Prevent / Fix:** Before building an editorial surface, write a content-job
+  acceptance table: every requested field, its current source, whether the
+  content must be visible or linked, its empty state and its placement. Bind
+  the current baseline checksum before writing any candidate code.
+- **Why the fix works:** The corrected Daily shows six complete entries
+  directly in a right-side column, uses honest clear-day states, and preserves
+  the exact full-width incumbent masthead rather than approximating it.
+- **New output:** Corrected isolated Cycle 9 Homepage prototype with a
+  link-free Daily information column and functional pager guide.
+- **Internal rule/check updated:** Homepage editorial review must fail when a
+  required visible content field is represented only by a teaser, link, tab or
+  unopened drawer.
+- **Transferable lesson:** A component that promises information must deliver
+  the information before it offers navigation.
+- **Public angle:** Behind the Build: when “show me today” accidentally became
+  “click somewhere else.”
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Local prototype only; nothing deployed, published,
+  sent or exposed.
+
+## BTB-238 · Naming every reviewer did not make the reviews start
+
+- **Date:** 2026-07-28
+- **Area:** NewsStand / editorial validation / publication discovery.
+- **Context:** The NewsStand contracts correctly named edition, accuracy,
+  specialist-risk, learning, brand/accessibility, champion and release owners.
+- **Issue:** A candidate packet could still stop at “review required,” and a
+  published record could stop at “exists in the dataset.” Neither statement
+  guaranteed an executing review task or a reader-facing discovery path.
+- **Diagnosis:** **Verified orchestration gap.** Ownership and acceptance
+  criteria were documented, but candidate creation and publication state
+  changes were not bound to automatic dispatch events.
+- **Prevent / Fix:** Treat candidate identity and public publication identity
+  as two explicit triggers. A new/materially changed candidate hash starts the
+  independent validation chain. A new/corrected public story starts the
+  Homepage, NewsStand, archive/search, related-learning, feed and
+  returning-reader discovery verification chain.
+- **Why the fix works:** The event now names the next executing owner and
+  required output. Terminal holds remain fail-closed, while accepted public
+  work cannot disappear inside a canonical data file.
+- **New output:** `PUBLICATION-VALIDATION-AND-DISCOVERY-CONTRACT.md` plus
+  updated News Radar and Control Room heartbeat instructions.
+- **Internal rule/check updated:** “Review required” and “published record”
+  are no longer terminal states. Each must have a named live task/output or a
+  durable terminal receipt with its exact next trigger.
+- **Transferable lesson:** A chain drawn on paper is architecture; a state
+  change that wakes the next owner is operation.
+- **Public angle:** Behind the Build: the newspaper had editors and stories,
+  but nobody had wired the doorbell.
+- **Publication status:** VERIFIED OPERATING GAP — AUTOMATIC DISPATCH CONTRACT
+  ACTIVE; PUBLIC DISCOVERY BUILD PARTIAL.
+- **Privacy/IP/reputation:** Internal automation and dossier changes only. No
+  story, account, reading history, deployment or public state changed.
+
+## BTB-239 · An anonymous editorial woman was mistaken for the heroine
+
+- **Date:** 2026-07-28
+- **Area:** Homepage / SUNNYVAiLE Signal / Opus 5 editorial art.
+- **Context:** A generated Breaking News illustration showed an unnamed woman
+  reviewing model reports.
+- **Issue:** The woman was not bound to the recurring LAiDIES heroine but could
+  easily be read as her. A second disembodied hand also entered the foreground.
+- **Diagnosis:** **Verified identity-and-anatomy failure.** The story did not
+  require a person, yet the prompt introduced one without a governed identity
+  plate and without a body-part exclusion gate.
+- **Prevent / Fix:** If a factual/editorial image does not require a named
+  character, default to a character-free object composition. If it does
+  require a recurring character, bind the approved identity plate and reject
+  any extra or disembodied body part before integration.
+- **Why the fix works:** The successor depicts a complete 1990s model-testing
+  desk—computer, comparison reports, checklist, magnifying glass and pager—
+  with no person or body part to misidentify.
+- **New output:** `opus-5-model-test-desk-v2.png`; the original asset is
+  explicitly marked rejected and is no longer referenced by the candidate.
+- **Internal rule/check updated:** Homepage image QA must identify every
+  visible person by governed character/job or require a character-free scene,
+  and must fail on any unexplained body part.
+- **Recurrence evidence — 2026-07-29:** The Episode 01 Cheat Sheet candidate
+  `10-three-step-path-v1.png` also passed into a review surface with an
+  impossible third hand in its final panel. Its three scenes did not clearly
+  communicate the named learning sequence. This proves the rule must run
+  against every final placed asset—not only Homepage generation candidates—and
+  must test teaching-job legibility as well as anatomy before Ali sees it.
+- **Transferable lesson:** “Anonymous person” is not neutral inside a world
+  with a recurring heroine.
+- **Public angle:** Behind the Build: when a stock editorial figure
+  accidentally impersonated the main character.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Generated local artwork only; no public,
+  production or deployment change.
+
+## BTB-240 · A Homepage slogan was presented as a song title
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / daily edition / KSVL.
+- **Context:** The Song of the Day card needed a current KSVL selection.
+- **Issue:** The prototype displayed `Be Kind, Rewind` as though it were a
+  song, even though that phrase is Homepage copy and no such title exists in
+  the KSVL catalogue.
+- **Diagnosis:** **Verified catalogue-authority failure.** Plausible thematic
+  copy was substituted for an exact media-registry lookup.
+- **Prevent / Fix:** Every named song, episode, book, article, game or other
+  catalogue item must bind an exact registered title and status before it
+  enters visitor-facing UI. Slogans and section copy are never media titles
+  unless the governing registry explicitly says so.
+- **Why the fix works:** The corrected card now binds the exact registered
+  KSVL title `Wednesdays in SUNNYVAiLE`, which fits the current Wednesday
+  edition without inventing an asset.
+- **New output:** Corrected isolated Cycle 9 Homepage prototype and design-QA
+  evidence at desktop and mobile.
+- **Internal rule/check updated:** Daily-edition QA must compare every named
+  catalogue item against its canonical registry before visual review.
+- **Transferable lesson:** Brand-fit is not evidence that a named product or
+  media item exists.
+- **Public angle:** Behind the Build: the catchy fake song that exposed a
+  missing catalogue gate.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype and internal learning record only;
+  no production, deployment, publication or public state changed.
+
+## BTB-241 · Correct assets and readable cards were not verified in the final layout
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / image authority / responsive composition.
+- **Context:** The Cycle 9 Homepage placed the incumbent activity, reference
+  and town-district modules beside a new right-side daily column.
+- **Issue:** Fixed multi-column descendants were squeezed into the narrower
+  content area, clipping titles and controls. The same proposal also bound
+  obsolete, low-resolution or incorrect derivatives for Miss Jeeves, Delta
+  LAi Nu, the FAiRY Godmother and her Willow Lane house.
+- **Diagnosis:** **Verified final-context and asset-authority failure.** Module
+  checks were treated as sufficient without testing those modules inside the
+  actual narrowed Homepage composition, and logical asset names were accepted
+  without checking the rendered pixels, natural dimensions and governed
+  visual identity.
+- **Prevent / Fix:** Any layout that changes a parent width must re-test every
+  descendant grid at the final desktop and mobile widths. Every visible image
+  must bind its exact governed source, report natural dimensions and be
+  visually checked at rendered size; thumbnails, obsolete derivatives and
+  merely plausible filename matches fail closed.
+- **Why the fix works:** The corrected prototype reflows the affected modules
+  to two columns on desktop and one on mobile, permits text wrapping, and binds
+  the sharp modern Miss Jeeves desk, clean FAiRY Godmother, sharp Delta house
+  and enchanted Willow Lane garden sources.
+- **New output:** Cycle 9 corrected Homepage prototype plus desktop/mobile
+  evidence for activities, intent, Miss Jeeves, Delta LAi Nu and Willow Lane.
+- **Internal rule/check updated:** Homepage visual QA must test each changed
+  parent layout together with its descendant modules and include a
+  source-path, natural-dimension and rendered-pixel check for every replaced
+  image before a proposal reaches Ali.
+- **Transferable lesson:** A component is not responsive because it worked
+  before its container changed, and an asset is not correct because its
+  filename sounds right.
+- **Public angle:** Behind the Build: how a new sidebar exposed both hidden
+  layout assumptions and the wrong image derivatives.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype and internal evidence only; no
+  production, deployment, publication or public state changed.
+
+## BTB-242 · Inline brand accents erased letters inside solid controls
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / typography / control contrast.
+- **Context:** The Cycle 9 candidate globally brightened branded `Ai` spans,
+  including spans nested inside the `Why LAiDIES exists` sentence and its
+  solid pink action buttons.
+- **Issue:** The sentence became unnecessarily busy, while pink accent letters
+  on a pink button appeared missing from `LUMINAiRY` and other labels.
+- **Diagnosis:** **Verified cascade-boundary failure.** A decorative inline
+  brand rule was allowed to outrank the semantic foreground colour owned by a
+  sentence and interactive control.
+- **Prevent / Fix:** Inline accent spans inherit their containing colour inside
+  unified phrases and every solid button/link. Contrast and visible-label QA
+  must inspect the computed colour of descendants, not only the parent.
+- **Why the fix works:** The call-to-action sentence now reads in one calm
+  colour, while every branded word inside the two pink buttons inherits the
+  deep-plum button foreground and remains completely visible.
+- **New output:** Corrected Cycle 9 method/action area with desktop and mobile
+  evidence.
+- **Internal rule/check updated:** Any palette change must test descendant text
+  in solid controls and fail when inline styling makes a visible label
+  incomplete, lower-contrast or multicoloured without an explicit approved
+  reason.
+- **Transferable lesson:** Brand emphasis is subordinate to the phrase or
+  control that must remain readable.
+- **Public angle:** Behind the Build: when highlighting `Ai` made the `Ai`
+  disappear.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local CSS and internal evidence only; no live,
+  production, deployment or publication change.
+
+## BTB-243 · One activity family inherited six content-driven button sizes
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / activity cards / responsive controls.
+- **Context:** Six related activity cards use action labels of different
+  lengths, including one- and two-line labels.
+- **Issue:** Each button sized itself from its own label, so one section
+  displayed visibly different action widths and heights.
+- **Diagnosis:** **Verified component-contract failure.** The card grid shared
+  colours and typography but did not define one size contract for its action
+  family.
+- **Prevent / Fix:** Every repeated control family must define and verify one
+  width, height, alignment and wrapping contract per breakpoint. Content
+  length may wrap inside that footprint but must not resize sibling controls.
+- **Why the fix works:** All six activity actions now span the card-content
+  width and use one 96 px desktop height or one 76 px mobile height, with
+  centred labels. The existing BTB-242 descendant-colour rule is also enforced
+  at this exact control-family boundary.
+- **New output:** Corrected isolated Cycle 9 activity-card family with desktop
+  and mobile evidence.
+- **Internal rule/check updated:** Repeated-control QA must compare rendered
+  bounding boxes across every sibling, not approve controls one at a time.
+- **Transferable lesson:** A consistent component family needs consistent
+  geometry as well as consistent styling.
+- **Public angle:** Behind the Build: six buttons, six labels and the missing
+  size rule.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype and internal learning record only;
+  no live, deployment or publication change.
+
+## BTB-244 · Provider art used a private visual key instead of identification
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / NewsStand / recurring news imagery.
+- **Context:** The Daily Column needed reusable imagery for provider-specific
+  announcements.
+- **Issue:** Different palettes and abstract desk motifs were proposed for
+  Claude, ChatGPT and Gemini, but none independently identified the company to
+  a reader who had not learned the internal system.
+- **Diagnosis:** **Verified recognition-contract failure.** Distinctness was
+  mistaken for identification.
+- **Prevent / Fix:** Reusable news art must pair its visual family with a large
+  deterministic product/company lockup and provider-specific alt text. Topic
+  families such as Policy Update and Security Alert require the same explicit
+  label. Colour and generated logo-like motifs are supporting signals only.
+- **Why the fix works:** The current Claude card visibly says
+  `CLAUDE / ANTHROPIC`; equivalent deterministic locks are registered for
+  ChatGPT/OpenAI, Gemini/Google, Policy Update and Security Alert.
+- **New output:** Cycle 9 provider/theme artwork register, five full-resolution
+  image families and desktop/mobile Claude-card evidence.
+- **Internal rule/check updated:** Five-second cold-reader QA must name the
+  provider or topic from the rendered card without consulting the registry.
+- **Transferable lesson:** A visual can be different without being
+  identifiable.
+- **Public angle:** Behind the Build: why colour coding is not a label.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** No official logos were copied and no generated
+  text was trusted; exact names are rendered by deterministic page typography.
+  No live or public state changed.
+
+## BTB-245 · An internal status label replaced the visitor’s product promise
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / Dream Phone / product discovery copy.
+- **Context:** The Homepage activity card described Dream Phone as
+  `Experimental scripted reflection · 3–5 min`.
+- **Issue:** The label sounded like an internal risk classification, did not
+  explain what a visitor could do, and omitted the existing `For Real / As If`
+  claim game used to practise spotting unsupported or hallucinated claims.
+- **Diagnosis:** **Verified producer-to-consumer translation failure.** Product
+  governance language was promoted into the discovery slot while one of the
+  product’s two real visitor jobs disappeared from the summary.
+- **Prevent / Fix:** Discovery cards must name the visitor action and every
+  materially distinct current mode before adding status or safety language.
+  Detailed experimental boundaries belong on the destination experience,
+  unless a short status marker is necessary to prevent immediate harm.
+- **Why the fix works:** The card now says `Two ways to play`, names the
+  prewritten SUNNYVAiLE call and the `For Real / As If` hallucination check,
+  and uses the direct action `Answer Dream Phone`.
+- **New output:** Corrected isolated Cycle 9 Dream Phone activity card with
+  mobile rendered evidence.
+- **Internal rule/check updated:** Homepage consumer review must compare each
+  feature summary with the product owner’s functionality map, not only the
+  current card copy.
+- **Transferable lesson:** Status explains a boundary; it is not the product.
+- **Public angle:** Behind the Build: how technically honest copy can still
+  hide the useful thing a product does.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** No product, live route, deployment or public state
+  changed.
+
+## BTB-245 · A two-column Study Pack section passed with one empty column
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Cheat Sheet / responsive composition / admission QA.
+- **Context:** The `Under the hood` learning section placed the teaching copy
+  in a narrow left track and the concept illustration in a wider right track.
+- **Issue:** The left display heading wrapped into a very tall stack while the
+  right side ended after one shallow image. The paragraph and quotation
+  remained on the left, leaving most of the right half as unexplained blue
+  space. The result was shown to Ali despite the locked Study Pack admission
+  gate.
+- **Diagnosis:** **Verified final-context and section-balance failure.** The
+  presence of a grid and a valid responsive breakpoint was mistaken for a
+  composed section. No rendered check compared the occupied height of the two
+  tracks or challenged the large unused region.
+- **Prevent / Fix:** Study Pack visual QA now rejects unexplained dead space,
+  severely unbalanced columns and headings forced into narrow tracks beside an
+  empty one. Group related illustration, quotation and explainer content in
+  one real column; test the complete section at the final large-desktop and
+  mobile widths before it can pass.
+- **Why the fix works:** The illustration, quotation and plain-English
+  explanation now form one compact right-hand stack whose height balances the
+  lesson heading. The three term cards sit immediately beneath both columns,
+  removing the empty field without shrinking the artwork or text.
+- **New output:** Corrected Episode 01 Cheat Sheet component plus 1654 px and
+  390 px browser evidence in the Study Pack prototype.
+- **Internal rule/check updated:** The mandatory Study Pack admission gate now
+  includes dead-space, track-balance, heading-wrap, real-descendant and
+  final-width checks.
+- **Transferable lesson:** A grid can be technically responsive and still be
+  visibly uncomposed.
+- **Public angle:** Behind the Build: the empty half of the Cheat Sheet that
+  passed a responsive check.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype, screenshots and internal process
+  records only; no public or deployed state changed.
+
+## BTB-246 · A candidate hash passed while its named Tribune draft was a different article
+
+- **Date:** 2026-07-29
+- **Area:** NewsStand / publication validation / artifact identity.
+- **Context:** The OpenAI–Hugging Face Tribune companion candidate described
+  an open-versus-closed safety argument, while the supplied `tribune-draft.md`
+  argued a different reward-hacking and accountability thesis.
+- **Issue:** The validation chain bound its receipts to the candidate JSON
+  hash but did not cryptographically bind the exact draft and claim map the
+  candidate promised. Structural checks could therefore pass an envelope
+  whose actual article did not match its editorial identity.
+- **Diagnosis:** **Verified artifact-identity failure.** A candidate hash was
+  treated as if it identified the complete publication unit.
+- **Prevent / Fix:** Every validation receipt must bind a compound artifact
+  manifest: candidate JSON, exact edition draft, claim/source map and any
+  rendered proof. Any change to any member creates a new publication identity
+  and restarts Stage 1. The editor must compare the candidate's declared job,
+  headline and thesis against the supplied draft before PASS.
+- **Why the fix works:** The judge can now prove which article was actually
+  reviewed, and a substituted or mismatched draft cannot inherit an earlier
+  receipt.
+- **New output:** Stage 2 terminal REJECT receipt for the mismatched Tribune
+  packet plus a compound-hash prevention rule for future packets.
+- **Internal rule/check updated:** Candidate JSON assertions are routing
+  metadata, not proof of the attached article's identity or completeness.
+- **Transferable lesson:** A signed envelope is not enough when the letter
+  inside can be different.
+- **Public angle:** Behind the Build: the article that passed on paper before
+  anyone checked it was the same article.
+- **Publication status:** VERIFIED REUSABLE FIX — INTERNAL PROCESS ONLY.
+- **Privacy/IP/reputation:** Internal editorial artifacts and review receipts
+  only; no public or deployed state changed.
+
+## BTB-247 · A prop was named as the guide and a jump was labelled as a tour
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / SUNNYVAiLE Tour Guide.
+- **Context:** The Homepage candidate used a 1990s pager as the compact entry
+  object for optional wayfinding and exposed separate Homepage, Wednesday,
+  activity and building choices.
+- **Issue:** The panel called itself `Your SUNNYVAiLE pager`, turning the
+  trigger device into the guide’s identity. It also labelled the Wednesday
+  control as a tour even though the control only scrolled to the section where
+  the eight-stop route is explained.
+- **Diagnosis:** **Verified product-language and behavior-contract mismatch.**
+  The interface named the visual prop instead of the service and described
+  the destination’s content as though the control performed it.
+- **Prevent / Fix:** Name the service independently from its trigger object.
+  For every tour, guide, resume or continue control, bind the label to the
+  literal interaction: sequence, jump, link or restored state. Test the entire
+  path, not only the first click. When first/returning state is not
+  authoritative, offer explicit visitor-selected paths rather than inferring
+  identity from local history.
+- **Why the fix works:** The pager remains a recognizable icon, while the
+  product is now the `SUNNYVAiLE Tour Guide`. The new-visitor choice runs the
+  verified seven-stop sequence; the returning-Wednesday choice honestly says
+  it jumps to the eight-stop weekly route.
+- **New output:** Corrected isolated Cycle 9 guide at
+  `operations/design-explorations/sitewide-style-championship-20260726/cycle-9/incumbent-daily-pager/`.
+- **Internal rule/check updated:** Homepage interaction QA now records the
+  exact target and state transition for every guide action, plus whether any
+  first/returning classification is real, visitor-selected or absent.
+- **Transferable lesson:** A themed object can open a product; it is not
+  automatically the product’s name, and a link to instructions is not the
+  instructed activity.
+- **Public angle:** Behind the Build: when the pager became the tour guide and
+  a scroll became an eight-stop journey.
+- **Publication status:** VERIFIED REUSABLE FIX — PUBLIC FIELD NOTE POSSIBLE.
+- **Privacy/IP/reputation:** Local isolated prototype only; no identity,
+  analytics, deployment or public state changed.
+
+## BTB-248 · The auth behavior worked on one header selector and failed on the Homepage
+
+- **Date:** 2026-07-29
+- **Area:** Shared navigation / authentication state / Homepage.
+- **Context:** Inner pages use the shared `.sv-signin` control while the
+  Homepage keeps its own desktop and mobile `.signin-link` controls.
+- **Issue:** The authentication script queried only the first `.sv-signin`
+  element. The Homepage therefore remained stuck on the internal
+  `Account status` fallback, and the shared signed-in state said `Resident ★`
+  rather than opening the resident’s actual Closet.
+- **Diagnosis:** **Verified selector-coverage and state-contract failure.** A
+  working inner-page behavior was mistaken for sitewide authentication
+  behavior, and only one control instance was updated.
+- **Prevent / Fix:** Shared state components must enumerate every supported
+  consumer selector and every duplicated desktop/mobile instance. Admission
+  tests cover signed out, signed in, destination and invariant neighboring
+  actions. Signed out now means `Sign in` → Post Office; signed in means
+  identity badge + `My Closet` → Closet; `Join the town` never changes.
+- **Why the fix works:** One state resolver updates both header systems and
+  every matching control, while a versioned reference distributes the new
+  behavior to all production consumers.
+- **New output:** Repaired `sv-nav-auth.js`, corrected shared and Homepage
+  fallbacks, production reference update and deterministic two-state test.
+- **Internal rule/check updated:** Header authentication QA is now a matrix:
+  Homepage/shared × desktop/mobile × signed-out/signed-in, with the Join
+  action checked separately.
+- **Transferable lesson:** A shared script is not sitewide when its selector
+  recognizes only one of the site’s header implementations.
+- **Public angle:** Behind the Build: the sign-in feature that worked
+  everywhere except the Homepage.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL SOURCE ONLY.
+- **Privacy/IP/reputation:** Synthetic session data and local source only; no
+  real account, credential, profile, deployment or public state changed.
+
+## BTB-249 · A narrow brand correction flattened the Homepage accent system
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / colour hierarchy / CSS selector scope.
+- **Context:** The Cycle 9 candidate needed selected `Ai` letter pairs to stop
+  introducing a second colour inside already unified phrases and controls.
+- **Issue:** Grouped selectors also forced masthead emphasis, section eyebrows
+  and street labels to inherit or use one colour. The established playful
+  accent hierarchy disappeared across the Homepage.
+- **Diagnosis:** **Verified overbroad-selector failure.** A narrow exception for
+  branded letter pairs was implemented as a page-wide typography override.
+- **Prevent / Fix:** Scope inheritance to the exact `.ai` descendants and
+  preserve every unrelated accent owner. Before accepting a brand-colour
+  correction, compare representative masthead, body, eyebrow and control
+  regions—not only the originally reported phrase.
+- **Why the fix works:** Only governed `Ai` pairs now inherit their surrounding
+  foreground; pink, coral, lilac and teal emphasis remains intact everywhere
+  else. Contrast checks pass for each intensified token.
+- **New output:** Corrected isolated Cycle 9 candidate and an explicit accent
+  restoration QA record.
+- **Internal rule/check updated:** A selector that changes colour inheritance
+  must enumerate its intended descendant and pass a full-page accent-presence
+  scan. Grouping semantic descendants such as `strong`, `eyebrow` or all child
+  nodes into a narrow brand exception is prohibited without explicit visual
+  authority.
+- **Transferable lesson:** Fixing one noisy pair of letters must not erase the
+  visual language around it.
+- **Public angle:** Behind the Build: how a two-letter correction accidentally
+  drained the colour from an entire Homepage.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local CSS and internal evidence only; no live,
+  deployment or public state changed.
+
+## BTB-250 · A rejected episode title survived in a prominent derived list
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / episode canon / catalogue projection.
+- **Context:** Episode 03 has the locked title `The Burn Book Problem`; its
+  weekly KSVL song is `Don’t Be Chutney on the Stand`. The latter had briefly
+  been considered as the episode title and was explicitly reversed.
+- **Issue:** The Homepage season list and several explanatory derivatives still
+  presented the song as the episode title, even though the episode index,
+  issue page and current media identity were correct.
+- **Diagnosis:** **Verified stale-derivative and semantic-type failure.** The
+  correction reached canonical episode data but not every hand-authored
+  consumer, and no check distinguished `episode.title` from `song.title`.
+- **Prevent / Fix:** Visitor-facing episode labels must project from the
+  canonical episode record. Any title correction triggers a typed scan across
+  Homepage, templates, books and explanatory data. A song title may appear in
+  episode context only when it is explicitly labelled as the song or anthem.
+- **Why the fix works:** Every current episode-labelled occurrence now uses
+  `The Burn Book Problem`, while KSVL and music controls retain the correct
+  song title.
+- **New output:** Corrected Homepage season label, Episode 03 template and
+  Straight Answers/receipt derivatives.
+- **Internal rule/check updated:** Episode-title QA now searches for song-title
+  values near `Episode`, `Issue` and linked lesson language and fails unless
+  the occurrence is explicitly a music field or action.
+- **Transferable lesson:** Correct canonical data does not protect
+  hand-authored projections unless consumers are typed and scanned.
+- **Public angle:** Behind the Build: when the week’s song kept impersonating
+  the episode after the rename was reversed.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL SOURCE ONLY.
+- **Privacy/IP/reputation:** Public-facing source corrected locally; no deploy
+  or public state changed.
+
+## BTB-251 · Working filters looked like static category labels
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / Activities / interaction affordance.
+- **Context:** The Activities section used five working buttons to filter cards
+  by job and duration.
+- **Issue:** Only the selected `Everything` control had a filled background.
+  The four inactive controls resembled passive labels, so their click behavior
+  was not discoverable and the set looked visually inconsistent.
+- **Diagnosis:** **Verified affordance and state-communication failure.** The
+  implementation tested the filtering logic but did not test whether a cold
+  visitor could identify every control as interactive.
+- **Prevent / Fix:** Every member of a filter group must have a complete button
+  treatment, pointer and keyboard focus state; the active member adds a
+  distinct selected treatment rather than owning the only visible control
+  styling. Equalize dimensions within the group and expose `aria-pressed`.
+- **Why the fix works:** All five choices now read as controls before
+  interaction, while the selected filter remains visually and semantically
+  distinct.
+- **New output:** Corrected isolated Cycle 9 filter grid, inactive states,
+  hover/focus treatments and synchronized pressed-state semantics.
+- **Internal rule/check updated:** Filter QA now covers discoverability,
+  selected/unselected contrast, equal sizing, keyboard focus, pressed state
+  and actual result filtering—not click behavior alone.
+- **Transferable lesson:** A control can work perfectly and still fail if it
+  looks like a label.
+- **Public angle:** Behind the Build: the working buttons nobody could tell
+  were buttons.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local candidate CSS/JS only; no deployment or
+  public state changed.
+
+## BTB-252 · The review queue named the blocker but hid the thing to review
+
+- **Date:** 2026-07-29
+- **Area:** Control Room / Weekly Episodes / human approval.
+- **Context:** Episodes 01–03 were genuinely waiting only for identified
+  human full-title watches, while the Trailer needed an outfit ruling and a
+  later full watch.
+- **Issue:** The Control Room exposed internal HOLD language and one Trailer
+  decision, but the only consolidated episode watch list was a stale Markdown
+  packet pointing to superseded v2/v21/v17/v9 masters. Ali had no reliable
+  place to see everything waiting on her, watch the exact files or record a
+  ruling.
+- **Diagnosis:** **Verified review-surface and source-of-truth failure.** The
+  operating system optimized for gate records, hashes and owner state but did
+  not provide the decision owner with the actual artifact and action in one
+  usable surface.
+- **Prevent / Fix:** Every genuine human gate must appear in one review inbox
+  with the exact current artifact, checksum, direct player/viewer, remaining
+  decision, evidence, public-state boundary and PASS/HOLD receipt. A successor
+  tuple invalidates and replaces every older review link in the same cycle.
+  Internal reports may support the decision but cannot be the primary review
+  experience.
+- **Why the fix works:** Ali can now open one Control Room link, play the exact
+  E01 v26, E02 ident-v2, E03 v13 and Trailer v5 masters with their captions,
+  open the Trailer outfit comparison, and save a result that survives refresh.
+  Episode 04 is visibly excluded because it is already public.
+- **New output:** `operations/product-stewards/control-room/review-inbox.html`
+  plus the corrected current `episode-media-quality/ali-review-packet.md`.
+- **Internal rule/check updated:** The dashboard contract now requires exact
+  artifact reachability and successor invalidation for every human review
+  item; a status row without the reviewable artifact fails the contract.
+- **Transferable lesson:** “Waiting for approval” is not an actionable state
+  unless the approver can immediately see the exact thing, understand the
+  decision and leave a durable ruling.
+- **Public angle:** Behind the Build: why four accepted films stayed stuck
+  because the approval system surfaced gates instead of movies.
+- **Publication status:** VERIFIED REUSABLE FIX — INTERNAL OPERATING SURFACE.
+- **Privacy/IP/reputation:** Local internal page only; no public film, deploy
+  or release state changed.
+
+## BTB-253 · Landscape scenes were treated as decorative thumbnail strips
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / intent routing / responsive imagery.
+- **Context:** The Cycle 9 Homepage narrowed the incumbent content beside a
+  daily column and reflowed the intent cards into two columns.
+- **Issue:** The four landscape destination scenes were preserved as files but
+  forced into narrow portrait side strips. Important scene context disappeared,
+  the cards looked like unrelated slices, and the pink frame vanished against
+  the coral section background.
+- **Diagnosis:** The responsive rule protected card count and compactness but
+  did not bind the card composition to the source artwork geometry or test the
+  accent against its actual surrounding surface.
+- **Prevent / Fix:** Measure the source aspect ratio before choosing the card
+  grammar. When the complete environment matters, use a full-width media stage
+  and `object-fit: contain`; verify computed fit, position, natural dimensions
+  and the rendered scene at desktop and mobile. Test borders and accents
+  against the actual section background, not against white in isolation.
+- **Why the fix works:** A shared 16:9 image-first stage preserves every
+  landscape scene, keeps the text relationship obvious and scales cleanly from
+  two columns to one. The electric-violet frame remains visible on coral.
+- **New output:** Cycle 9 intent-card image-first successor, desktop/mobile
+  visual evidence and computed image-containment checks.
+- **Internal rule/check updated:** Responsive image QA must prove visible
+  subject/context and surface contrast; `complete=true` alone does not prove
+  that an image is meaningfully displayed.
+- **Transferable lesson:** Preserving the file is not preserving the picture.
+- **Public angle:** Behind the Build: why four technically loaded images still
+  looked missing.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** LAiDIES-owned local artwork and prototype evidence;
+  no deployment or public state changed.
+
+## BTB-254 · Release evidence escaped into visitor copy
+
+- **Date:** 2026-07-29
+- **Area:** Homepage, KSVL, NewsStand, LIBRAiRY, tour, directory and account
+  surfaces.
+- **Issue:** Visitors were shown staff-facing phrases including
+  “creator-confirmed catalogue,” “source-checked,” “qualified interruption,”
+  “editorial hold,” “release checks” and “held account status.”
+- **Diagnosis:** Evidence and release-state labels were reused as public copy
+  in an effort to preserve honesty. The result exposed the production
+  machinery instead of explaining the product.
+- **Prevent / Fix:** Keep exact evidence states in registries, contracts,
+  receipts and tests. Public copy must describe the capability, current
+  availability or limitation in ordinary language. A plain limitation such as
+  “saved in this browser” or “not published yet” is truthful without exposing
+  an internal gate name. Scan rendered UI for operational vocabulary before
+  presenting a candidate.
+- **Why the fix works:** The validation model remains fail-closed, while the
+  interface answers the visitor’s actual questions: what is this, what can I
+  do, and is it available now?
+- **New output:** Visitor-language sweep across the Cycle 9 prototype and
+  shared KSVL, NewsStand, LIBRAiRY, tour, directory and account surfaces, with
+  updated contract tests.
+- **Internal rule/check updated:** Tests now enforce the plain public labels
+  rather than requiring internal status wording to appear in the UI.
+- **Transferable lesson:** Truthfulness does not require publishing the release
+  machinery.
+- **Public angle:** Behind the Build: how “accurate” staff language made a
+  playful town sound like a compliance dashboard.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL SOURCE ONLY.
+- **Privacy/IP/reputation:** Copy and test changes only; no private data,
+  deployment or public state changed.
+
+## BTB-255 · Filter labels collided because the control inherited no-wrap
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / activity discovery / responsive controls.
+- **Issue:** The five activity filters were forced into equal grid columns
+  while inheriting `white-space: nowrap` from the incumbent Homepage. Longer
+  labels escaped their pills and collided. The stronger fill on one pill was
+  not adequately identified as the selected state.
+- **Diagnosis:** The visual treatment was changed without testing the complete
+  inherited button contract or distinguishing selection from decoration.
+- **Prevent / Fix:** Every segmented filter must prove text containment,
+  equal control dimensions, responsive reflow and a programmatic selected
+  state. Override inherited no-wrap rules when labels need two lines. Distinct
+  pale colour families are allowed; reserve the stronger electric fill,
+  raised shadow and `aria-pressed=true` for the active option.
+- **Why the fix works:** Labels now wrap inside equal-height pills; five
+  desktop columns become three and then two as space narrows. The electric
+  pink state communicates the current result set while the inactive options
+  retain their useful pale pink, aqua, violet, coral and yellow scan cues.
+- **New output:** Corrected Cycle 9 filter control plus rendered desktop
+  evidence and semantic pressed-state verification.
+- **Internal rule/check updated:** Filter QA now checks label containment and
+  state legibility rather than treating the presence of five buttons as PASS.
+- **Transferable lesson:** Equal columns do not guarantee contained labels,
+  and colour variety is not a substitute for state meaning.
+- **Public angle:** Behind the Build: how a single inherited CSS rule made a
+  simple filter look broken.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Styling and local prototype evidence only; no
+  deployment or public state changed.
+
+## BTB-256 · Renaming a wrong link did not repair the product relationship
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / daily paper / Promptoscope / Mme CLAi-O.
+- **Issue:** Promptoscope is a complete daily funny AI horoscope, but its
+  action opened Mme CLAi-O’s separate card-reading page. Renaming `Pull a
+  reading` to `Visit Mme CLAi-O` removed one misleading promise while
+  preserving the same false implication that the horoscope continued there.
+- **Diagnosis:** The first correction reviewed the label rather than the
+  destination’s actual capability. It treated a wording defect as the whole
+  problem and failed to verify the product relationship behind the link.
+- **Prevent / Fix:** For every CTA correction, verify four things together:
+  the card’s complete promise, the destination’s current capability, the
+  continuation a visitor would reasonably expect, and whether any action is
+  needed at all. Remove a CTA when the content is complete and no truthful
+  continuation exists.
+- **Why the fix works:** Promptoscope now ends after its complete forecast with
+  no action row. Mme CLAi-O’s separate Daily Reading card alone links to her
+  card-reading page.
+- **New output:** Cycle 9 Promptoscope without the unrelated CTA, plus a
+  rendered-DOM proof that the following item begins immediately after the
+  horoscope and Mme CLAi-O retains her own valid link.
+- **Internal rule/check updated:** CTA QA now validates destination capability
+  and semantic continuation, not only label clarity and URL existence.
+- **Transferable lesson:** A better label cannot make the wrong destination
+  correct.
+- **Public angle:** Behind the Build: why changing button copy did not fix the
+  journey.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype behavior only; no account,
+  deployment or public state changed.
+
+## BTB-257 · Equal-height columns manufactured an empty mobile panel
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / weekly experience / responsive layout.
+- **Issue:** The episode card and eight-stop route were equalized by a later
+  `align-items:stretch` rule while the route was forced to `height:100%`.
+  When the route was much taller, the neighboring white feature card expanded
+  into a huge blank slab that looked like missing content on mobile.
+- **Diagnosis:** The component checks proved that every item existed, but no
+  test asserted the parent grid’s cross-axis behavior or where one content
+  column ended relative to the next. Equal height was mistaken for visual
+  consistency even though the two columns had different content jobs.
+- **Prevent / Fix:** Responsive section QA must verify parent-grid geometry,
+  natural child height, content-end positions and stacking order—not only
+  viewport width and horizontal overflow. Use `align-items:start` for
+  unequal-content columns, remove inherited `height:100%`/flex growth, and
+  explicitly collapse the parent to `minmax(0, 1fr)` at its mobile/tablet
+  breakpoint.
+- **Why the fix works:** The episode card now owns only the height of its real
+  content. The Full Route follows beneath it at mobile width instead of
+  dictating a false sibling height.
+- **New output:** Cycle 9 weekly mobile geometry correction and 390px
+  real-browser proof
+  `evidence/final/homepage-candidate-mobile-weekly-stacked-v34.png`.
+- **Internal rule/check updated:** Mobile review now fails when a section
+  contains a large contentless sibling area even if document width, element
+  count and overflow checks pass. Branded accent fragments inside dense route
+  text must also inherit the readable card text colour.
+- **Transferable lesson:** No horizontal overflow does not mean the mobile
+  layout is sound; cross-axis stretching can create an equally serious false
+  blank state.
+- **Public angle:** Behind the Build: how “matching column heights” created a
+  mobile page that looked half missing.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** CSS, QA record and local screenshot only; no
+  deployment or public state changed.
+
+## BTB-258 · Header actions had destinations but no shared control grammar
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / primary navigation / responsive header.
+- **Issue:** The wordmark touched the first navigation label, some actions
+  wrapped while others stayed on one line, KSVL used an outline, Join used a
+  filled pill and the remaining actions had no container at all.
+- **Diagnosis:** Navigation behavior and individual special cases had been
+  added incrementally without a header-level component contract. Each link
+  remained functional, but the row no longer read as one deliberate system.
+- **Prevent / Fix:** Primary navigation must define one shared footprint,
+  text-wrapping rule, border, radius, alignment and focus treatment before
+  applying semantic variants. Protect the wordmark with its own non-shrinking
+  space. If the complete single-line set does not fit, switch to the menu
+  rather than compressing or wrapping individual actions.
+- **Why the fix works:** The eight destinations now scan as peers, the logo
+  remains visually separate and meaningful states—KSVL live and Join—are
+  expressed without changing component geometry.
+- **New output:** Cycle 9 full-width header treatment with desktop and 390px
+  real-browser proofs.
+- **Internal rule/check updated:** Header QA now covers wordmark clearance,
+  shared control geometry, one-line desktop labels and an explicit
+  full-row-to-menu breakpoint.
+- **Transferable lesson:** A collection of working links is not yet a
+  navigation system.
+- **Public angle:** Behind the Build: why eight correct links still made the
+  Homepage header look unfinished.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Candidate CSS and local screenshots only; no
+  navigation destination, account behavior, deployment or public state
+  changed.
+
+## BTB-259 · Shrinking the blank box did not remove the blank composition
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / weekly experience / responsive visual acceptance.
+- **Issue:** The first response to a giant empty weekly panel stopped the
+  feature card background from stretching but left the route in a separate
+  right-hand column. The visible empty field remained. A follow-up horizontal
+  image layout then placed a contained postcard at the bottom of a tall image
+  column, recreating the same blank-space failure inside the card.
+- **Diagnosis:** The correction targeted the colour and height of the empty
+  box instead of questioning the peer-column composition that produced it.
+  The first screenshot was treated as proof because the white slab was
+  smaller, even though the section still contained a large contentless area.
+- **Prevent / Fix:** When a user reports blank space, acceptance must measure
+  the whole visible section and identify which content job, if any, owns every
+  major region. Do not accept a smaller or recoloured void. If sibling content
+  has fundamentally different lengths, remove the peer-column relationship:
+  render the episode and route sequentially at full width, derive the image
+  stage from its own aspect ratio and verify both the image region and the
+  section after the first card ends.
+- **Why the fix works:** No sibling or image column now inherits the route’s
+  height. The complete postcard, episode details and route each occupy a
+  normal full-width block, so blank space cannot be manufactured beside or
+  inside them.
+- **New output:** Cycle 9 v36 weekly successor with separate desktop image,
+  desktop route and mobile real-browser proofs.
+- **Internal rule/check updated:** Blank-space QA now requires full-section
+  visual coverage and rejects a correction when the empty area merely changes
+  colour, owner or dimensions.
+- **Transferable lesson:** A smaller blank box is still a blank-space defect.
+- **Public angle:** Behind the Build: why fixing the container did not fix the
+  composition.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Candidate CSS, QA records and local screenshots
+  only; no deployment or public state changed.
+
+## BTB-260 · Equal boxes still failed when the pictures had incompatible framing
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / activity cards / governed character artwork.
+- **Issue:** A technically equal card grid paired a distant full-room FAiRY
+  Godmother scene with a tight Mme CLAi-O portrait. Subsequent attempts either
+  floated mixed-ratio images inside large blank colour wells or removed Mme
+  CLAi-O entirely by substituting an empty room.
+- **Diagnosis:** The implementation treated image dimensions as the whole
+  acceptance contract. It did not bind the image job: correct named character,
+  comparable subject scale, compatible aspect ratio, safe face/object crop and
+  visual continuity with its neighboring card.
+- **Prevent / Fix:** Before assembling a repeated card family, define one media
+  ratio and one composition class for the row. Every selected asset must pass
+  identity, subject-presence, subject-scale and safe-crop checks in the actual
+  slot. If an approved asset cannot satisfy those checks, create a job-specific
+  artwork asset. Never use a generic pale `contain` well, never stretch, never
+  change the governed source merely to fit the slot, and never substitute an
+  empty environment for a character job.
+- **Why the fix works:** FAiRY Godmother and Mme CLAi-O now occupy equal 4:3
+  full-bleed stages with comparable environmental framing. Businesswomen’s
+  Special keeps its exact current square source and shows the whole four-panel
+  object on a source-matched backing rather than changing the asset.
+- **New output:** Cycle 9 activity-image successor plus
+  `artwork/mme-claio-reading-room-card-v1.png`
+  SHA-256 `a6b145e0648d6562de738d83c085b2ed2a47278b153c913aa90882d0c1ded39f`.
+- **Internal rule/check updated:** Repeated-card QA now checks identity,
+  subject presence, source ratio, rendered ratio, subject scale, face/object
+  safe zones, blank-band area and adjacent-card geometry—not only broken
+  sources or equal CSS dimensions.
+- **Transferable lesson:** Matching containers cannot make mismatched
+  compositions look intentional.
+- **Public angle:** Behind the Build: why equal-size cards still looked wrong.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local candidate CSS, one new governed image and QA
+  evidence only; no deployment or public state changed.
+
+## BTB-261 · Raw CTA copy turned equal buttons into broken text blocks
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / LUMINAiRY actions / responsive component grammar.
+- **Issue:** Two technically equal pink actions used long undifferentiated text
+  strings. In a narrow panel they wrapped unpredictably, stranded the arrow on
+  its own line and looked clipped and oversized.
+- **Diagnosis:** Equal outer dimensions were treated as sufficient even though
+  the component had no internal label/detail/icon structure.
+- **Prevent / Fix:** Long repeated actions must define explicit internal
+  regions: primary label, subordinate context and a non-wrapping icon column.
+  Test the smallest actual consumer width and fail on orphan icons or content
+  overflow.
+- **Why the fix works:** Both LUMINAiRY actions now use the same 70px action
+  row, with concise hierarchy and a fixed arrow column while preserving their
+  original destinations.
+- **New output:** Cycle 9 `why-action` component and real-browser geometry
+  verification.
+- **Internal rule/check updated:** CTA QA now checks internal wrapping and icon
+  placement, not only equal width, height and contrast.
+- **Transferable lesson:** Equal buttons still look broken when their content
+  has no component hierarchy.
+- **Public angle:** Behind the Build: why matching button sizes did not fix
+  their typography.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Candidate HTML injection, CSS and local evidence
+  only; no deployment or public state changed.
+
+## BTB-261 · A compelling comparable almost became a duplicate product
+
+- **Date:** 2026-07-29
+- **Area:** Learning system / product research / engagement architecture.
+- **Issue:** AIDB × Superintelligent's Summer Adventure combines a map,
+  destination tiers, passport stamps, reflections, titles and certificates in
+  an appealing learning experience. Adapting the visible concept directly
+  would have created a second curriculum, progress metaphor and reward system
+  beside LAiDIES' episodes, Study Packs, town buildings, loyalty stamps,
+  Butterfly Clips and Closet.
+- **Diagnosis:** The comparable's real learning value was not its travel skin.
+  It was the underlying sequence: bounded choice, a tangible artifact, a short
+  reflection and visible continuity. Evaluating the theme before the learner
+  job would have hidden the duplication.
+- **Prevent / Fix:** Benchmark a comparable in two passes: first list the
+  motivation, instruction, practice, evidence and return mechanics; then map
+  each mechanic to current LAiDIES owners before naming or designing anything.
+  Extend an existing journey when the learner jobs already have homes. Copy no
+  proprietary prompts, curriculum, artwork or branded progression.
+- **Why the fix works:** The resulting recommendation is one optional Town
+  Route that connects existing products and reward contracts. It preserves the
+  strongest mechanics without creating a camp, passport, certificate ladder
+  or new course catalogue.
+- **New output:**
+  `operations/product-stewards/learning-content-ecosystem/INTAKE-aidb-summer-adventure-learning-patterns-2026-07-29.md`.
+- **Internal rule/check updated:** Learning comparables now require a
+  mechanic-to-owner duplication map, licensing boundary and truthful
+  completion/learning distinction before an artifact can be commissioned.
+- **Transferable lesson:** Borrow the learning job, not the competitor's
+  costume.
+- **Public angle:** Behind the Build: how LAiDIES learned from an AI summer
+  camp without building one.
+- **Publication status:** VERIFIED REUSABLE PRODUCT-RESEARCH RULE — NO BUILD
+  COMMISSIONED.
+- **Privacy/IP/reputation:** Public product/terms research and internal product
+  mapping only; no learner data, copied program content, deployment or public
+  change.
+
+## BTB-262 · The alt text described the lesson while the picture told a different story
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / generated learning visuals / admission.
+- **Issue:** The final-takeaway graphic's alt text claimed it showed one small
+  task, context and human review, but the actual three panels showed fashion
+  selection, a mood-board/target sequence and a rubber approval stamp. The
+  right panel also contained a stray hand.
+- **Diagnosis:** The image had been admitted from polish and adjacency rather
+  than a panel-by-panel semantic and anatomy check. Correct surrounding copy
+  made the contradiction easier to overlook.
+- **Prevent / Fix:** Every generated learning visual must pass a literal
+  `adjacent teaching claim → visible action in each panel` comparison at full
+  size and at its real rendered size. Verify hands/limbs, object ownership and
+  scene continuity separately. Alt text must describe the inspected pixels,
+  not the prompt or intended result.
+- **Why the fix works:** The successor visibly shows an email task, three
+  context cues and a corrected draft, so the art, editable step cards and alt
+  text now teach the same sequence.
+- **New output:**
+  `operations/design-explorations/study-pack-storefront-20260728/prototype/public/assets/episode-01-canon/10-three-step-path-v2.png`.
+- **Internal rule/check updated:** The local prototype instructions and design
+  QA now preserve the exact three-action sequence and require an anatomy gate.
+- **Transferable lesson:** A correct caption cannot rehabilitate an incorrect
+  picture.
+- **Public angle:** Behind the Build: the polished comic that quietly taught
+  the wrong lesson.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Generated Episode 01 artwork, local browser
+  evidence and print proofs only; no learner data, public deployment or
+  external transmission.
+
+## BTB-263 · Detail-page content was mistaken for a usable pack menu
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / information architecture / visual admission.
+- **Issue:** The pack-detail page opened with a near full-screen cropped hero,
+  followed by three enormous identical pink item slabs. Full-page screenshots
+  were used as menu art, exposing obsolete wordmarks, old styling and an
+  unresolved six-card count. The actual choice between the Cheat Sheet,
+  Try-On and Trading Card Pack was difficult to scan.
+- **Diagnosis:** Completed detail experiences were treated as sufficient menu
+  components without defining the menu's own job, density, crop rules or
+  first-viewport acceptance test.
+- **Prevent / Fix:** Every pack-detail page must pass a separate menu gate:
+  show the complete episode art in a bounded header; place the available pack
+  choices in the first desktop viewport; give each choice one distinct job,
+  image and action; and inspect every thumbnail for obsolete branding,
+  load-bearing legacy text and false status claims. A full-page screenshot is
+  not automatically valid menu art.
+- **Why the fix works:** The corrected Episode 01 page uses a compact complete
+  hero and three distinct 16:9 choice cards with readable labels and
+  job-specific actions. The Try-On and card previews crop to their useful
+  surfaces and no longer expose the rejected headers.
+- **New output:** Corrected local Episode 01 pack menu and combined before/after
+  evidence in
+  `operations/design-explorations/study-pack-storefront-20260728/prototype/qa/`.
+- **Internal rule/check updated:** Study Pack admission now includes complete
+  art, first-viewport density, distinct-choice hierarchy, thumbnail provenance
+  and primary open/return interaction checks.
+- **Transferable lesson:** A pack can contain three finished things and still
+  fail if the page does not make the choice legible.
+- **Public angle:** Behind the Build: why the finished Study Pack still looked
+  unusable.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype and QA evidence only; no public
+  deployment, account data or canonical curriculum changed.
+
+## BTB-264 · A fixed four-cell symbol pipeline blocked the master ident
+
+- **Date:** 2026-07-29
+- **Area:** LAiDIES animated ident / reusable motion builder.
+- **Issue:** The episode builder assumed every symbol family was a four-icon
+  2 × 2 sheet. Ali's evergreen master direction needed six specific Rewind Era
+  objects, so merely changing the manifest would have truncated the set or
+  mismatched its transition arrays.
+- **Diagnosis:** Symbol count, crop layout, names, sizes and transition defaults
+  were partly encoded as implementation constants instead of variant data.
+- **Prevent / Fix:** Derive the symbol count from the manifest; support an
+  explicit horizontal asset layout; validate one name, size, formation,
+  micro-action and enter/exit route per symbol; and preserve the complete `i`
+  reset loop regardless of count.
+- **Why the fix works:** The same deterministic builder now renders all six
+  requested objects in order without changing the established four-symbol
+  trailer and episode manifests.
+- **New output:**
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-varied-transitions-v1.mp4`.
+- **Internal rule/check updated:** New ident variants must keep symbol count,
+  asset layout and all per-symbol behaviour arrays aligned in the manifest,
+  then decode every finished icon hold from the MP4 before review.
+- **Transferable lesson:** A template is only reusable when its repeated unit
+  is data, not a hidden constant.
+- **Public angle:** Behind the Build: the sixth icon that exposed a
+  four-symbol template.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local LAiDIES artwork and motion proof only; no
+  private data, public deployment or episode-master change.
+
+## BTB-265 · A temporary preview port was shipped as Study Pack navigation
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / pack-item routing.
+- **Issue:** The Cards action opened an expired local preview on port 4182 and
+  returned `ERR_CONNECTION_REFUSED`. The Try-On used the same fragile pattern
+  on port 4173.
+- **Diagnosis:** A temporary development origin was treated as a product route.
+  The menu had been visually reviewed without clicking every ready item and its
+  return path from the active Study Pack host.
+- **Prevent / Fix:** Package completed pack-item builds under the Study Pack
+  host, use same-origin URLs, and require an open-and-return route crawl for
+  every item labelled READY. A loopback URL with a different port cannot pass
+  as durable navigation.
+- **Why the fix works:** Cards and Try-On now open beneath the active 4184
+  Study Pack app, and all three Episode 01 items were clicked through and
+  returned without browser errors.
+- **New output:** Corrected Episode 01 pack-item routes and bundled Cards and
+  Try-On builds in
+  `operations/design-explorations/study-pack-storefront-20260728/prototype/`.
+- **Internal rule/check updated:** Study Pack admission now includes a
+  same-origin route scan plus open/return browser verification for every
+  actionable item.
+- **Transferable lesson:** A card can look ready and still be broken if nobody
+  clicks it from the place where the learner will.
+- **Public angle:** Behind the Build: the polished card that opened a dead
+  preview server.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype only; no public deployment,
+  account data or canonical curriculum changed.
+
+## BTB-266 · Different transition effects did not change the repeated loop
+
+- **Date:** 2026-07-29
+- **Area:** LAiDIES evergreen animated ident / Crave-reference translation.
+- **Issue:** The first six-symbol proof added spins, flips and other accents,
+  but every icon still followed the same `i → icon → i` loop. It therefore
+  looked structurally identical to the earlier version despite the new icons.
+- **Diagnosis:** The request for varied switching was interpreted as decoration
+  on the existing reset grammar instead of a change to the state sequence
+  visible in the reference.
+- **Prevent / Fix:** Before changing transition polish, diagram which states
+  actually repeat. For this master ident, use `i → six direct icon states → i`;
+  the full `i` appears only at the beginning and end. Give each icon-to-icon
+  edge its own transformation route.
+- **Why the fix works:** The corrected proof is one 4.23-second centre-character
+  performance rather than six separately restarted icon demonstrations. An
+  attempted persistent ring was rejected because it added a new emblem; the
+  accepted correction path keeps continuity inside the objects through
+  rotation, opening/closing, sway and moving cyan/yellow echoes.
+- **New output:**
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-object-driven-v6.mp4`.
+- **Internal rule/check updated:** Motion-reference reviews must distinguish
+  state topology from easing, speed, accents and icon artwork before a new
+  proof is rendered. If an analogue finish is part of the reference's character,
+  verify whether it affects a local object or the complete frame, and compare
+  scale envelopes between successive states. Do not translate a stakeholder's
+  tentative descriptor such as “VHS” into literal damage effects without
+  checking the supplied pixels; the reference may be clean optical neon rather
+  than degraded tape.
+- **Transferable lesson:** New effects cannot repair the wrong sequence.
+- **Public angle:** Behind the Build: why six new transitions still looked
+  exactly the same.
+- **Publication status:** VERIFIED REUSABLE CORRECTION — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local LAiDIES assets and Ali-supplied motion
+  reference only; no public deployment or episode-master modification.
+
+## BTB-267 · The lowercase-i removal mask cut a seam into the D
+
+- **Date:** 2026-07-29
+- **Area:** LAiDIES animated ident / wordmark cleanup and centre alignment.
+- **Issue:** A dark vertical line remained visible on the lower-left brush
+  stroke of the `D`, and the animated icons sat too close to the underline
+  rather than at the letters' midpoint.
+- **Diagnosis:** The broad polygon used to extract and remove the lowercase `i`
+  overlapped the `D` flourish after mask expansion. The collapse target also
+  inherited the bottom-heavy stem position instead of defining the intended
+  centre-character stage.
+- **Prevent / Fix:** Inspect the final decoded wordmark at high magnification;
+  tighten the `i` polygon away from neighbouring letterwork; and store the
+  centre height as variant data rather than deriving it from the stem base.
+- **Why the fix works:** The rebuilt final frame retains the lower-left `D`
+  stroke with no vertical cut, while all six icons now occupy the letters'
+  visual midpoint.
+- **New output:**
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-electric-vhs-v8.mp4`.
+- **Internal rule/check updated:** Ident QA now requires magnified inspection
+  of every letter bordering a removed/morphed glyph plus explicit
+  centre-height review at delivery resolution.
+- **Transferable lesson:** A clean morph mask can still damage the letter next
+  door.
+- **Public angle:** Behind the Build: the one-pixel seam hiding inside the
+  animated logo.
+- **Publication status:** VERIFIED REUSABLE CORRECTION — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local LAiDIES wordmark, generated symbols and
+  Ali-supplied motion reference only; no public deployment or episode edit.
+
+## BTB-268 · A blurred placeholder made the logo entrance look unfinished
+
+- **Date:** 2026-07-29
+- **Area:** LAiDIES evergreen ident / opening choreography.
+- **Issue:** The ident opened on a partly blurred wordmark and then slid
+  `LA` and `DIES` in from opposite sides. The blur read as a rendering mistake,
+  while the symmetrical slide felt mechanical and unrelated to the reference.
+- **Diagnosis:** A temporary colour-rush plate remained visible as content,
+  and separate letter translations were mistaken for an authored electric
+  arrival.
+- **Prevent / Fix:** Start from a genuinely clean background plate with the
+  wordmark absent. Introduce the changing centre character first, then reveal
+  the exact logo artwork outward from that point using one controlled optical
+  burst. Verify the opening at short fixed intervals, not only in a whole-film
+  contact sheet.
+- **Why the fix works:** The viewer now sees `background → lowercase i →
+  complete wordmark`; no blurred duplicate exists beneath the reveal and no
+  letter group slides in independently.
+- **New output:**
+  `operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4`.
+- **Internal rule/check updated:** Motion-ident QA requires a dedicated opening
+  storyboard at 0.08-second intervals and rejects any pre-reveal plate that
+  looks like partially rendered final artwork.
+- **Transferable lesson:** An effect plate cannot double as the first readable
+  brand frame.
+- **Public angle:** Behind the Build: the blurred logo that looked like a
+  loading error.
+- **Publication status:** VERIFIED REUSABLE CORRECTION — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local LAiDIES artwork and Ali-supplied reference
+  only; no public deployment, private data or episode-master change.
+
+## BTB-269 · A motion correction became reusable only after it reached the manifest
+
+- **Date:** 2026-07-29
+- **Area:** LAiDIES recurring ident system / Trailer and Episodes 01–04.
+- **Issue:** The improved evergreen motion language existed as one convincing
+  proof, while the recurring trailer and episode idents still used the older
+  reset-heavy choreography.
+- **Diagnosis:** Visual approval and system adoption were being treated as the
+  same milestone. The builder supported the new behaviour, but each production
+  variant still needed explicit state routes and clean-electric settings.
+- **Prevent / Fix:** Store sequence mode, centre height, optical treatment and
+  per-edge state transitions in each variant manifest. Re-render the complete
+  family, encode every MP4, decode all final title frames and record hashes
+  before calling the motion system reusable.
+- **Why the fix works:** Five distinct films now share one verified motion
+  grammar while retaining their own symbols, vocabulary and titles.
+- **New output:** Trailer and Episodes 01–04 clean-electric v2 family in
+  `operations/design-explorations/laidies-motion-ident-20260725/`.
+- **Internal rule/check updated:** A master-template improvement is not adopted
+  until every in-scope production manifest declares it and every resulting
+  deliverable passes encoded-frame verification.
+- **Transferable lesson:** A good prototype becomes a system only when the
+  variants inherit it deliberately.
+- **Public angle:** Behind the Build: turning one better logo animation into a
+  five-film identity system.
+- **Publication status:** VERIFIED REUSABLE SYSTEM — LOCAL CANDIDATES ONLY.
+- **Privacy/IP/reputation:** Local LAiDIES artwork and film-ident outputs only;
+  no public deployment, private data or film-master insertion.
+
+## BTB-268 · A card reverse was styled before its real copy was fitted
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / trading cards / visual QA.
+- **Issue:** The first reverse used an oversized comic speech-bubble frame with
+  blank decorative boxes. When real explanation copy was overlaid, text crossed
+  the artwork’s safe area, shrank below a comfortable reading size and left a
+  large unexplained void. The result felt cheap and childish despite using the
+  correct pop-art colours.
+- **Diagnosis:** **Verified asset-first composition failure.** The reverse
+  background was generated before the admitted canonical copy payloads had been
+  fitted at the final 3-card grid size. Passing one enlarged card view hid the
+  actual collection-scale reading problem.
+- **Prevent / Fix:** Build card reverses from the longest canonical payload
+  first. Define and measure the artwork’s reading-safe polygon; render every
+  admitted, populated back at its real desktop and 390 px sizes; require body text of
+  at least 15 px in the mobile card and reject any
+  `scrollHeight > clientHeight`, copy outside the safe field, empty form-like
+  container or unexplained dead space. Use a real approved/generated raster
+  reverse, not CSS art.
+- **Additional gate:** `scrollHeight <= clientHeight` is necessary but not
+  sufficient. Every populated text block must also pass the actual artwork
+  polygon: upper headings must clear the diagonal top-left band and lower
+  links/sources must clear the rising bottom-right band.
+- **Why the fix works:** The replacement reverse has one continuous icy-blue
+  reading field with restrained print texture. All five concise, sourced backs
+  fit inside it at 15.225 px, link to the current canonical entry and pass
+  measured no-overflow checks at 390 px.
+- **New output:** Premium Episode 01 five-card gallery and reverse system in
+  `operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/`.
+- **Internal rule/check updated:** Study Pack card admission now requires
+  all-face populated QA at the delivered grid size, not a single enlarged card
+  mock.
+- **Transferable lesson:** A correct palette cannot rescue a reverse that was
+  designed without its words.
+- **Public angle:** Behind the Build: the card back that looked finished until
+  the lesson had to fit inside it.
+- **Publication status:** VERIFIED REUSABLE FIX — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local prototype and canonical LAiDIES learning
+  copy only; no public deployment or account data changed.
+
+## BTB-269 · A crop fix silently changed both the asset and the signup contract
+
+- **Date:** 2026-07-29
+- **Area:** Homepage / Postcard handoff / Resident Card subscription journey.
+- **Issue:** A retired Post Office façade was substituted into the Postcard
+  section and then cropped so severely that its sign was cut off. The adjacent
+  copy also told residents to sign up for the weekly Postcard separately,
+  contradicting the designed one-signup flow where the Postcard is selected by
+  default and can be unticked.
+- **Diagnosis:** The visual slot was treated as a generic “Post Office image”
+  job instead of a specific Postcard handoff, while lifecycle copy was edited
+  without tracing the UI default, saved preference and provider handoff.
+- **Prevent / Fix:** A crop correction may change framing but never asset
+  authority. Bind the visible job to an approved source before layout work; if
+  no approved source fits, create a job-specific asset instead of substituting
+  a retired one. For signup copy, verify one chain before rendering:
+  governing decision → visible control/default → stored preference → provider
+  handoff → privacy language. Every layer must describe the same behavior.
+- **Why the fix works:** The existing approved `Greetings from SUNNYVAiLE`
+  postcard now appears whole at its native 3:2 ratio. Homepage, privacy,
+  product contract and decision ledger all state that the Postcard is selected
+  during Resident Card signup and can be unticked; the standalone Post Office
+  route remains available.
+- **New output:**
+  `operations/design-explorations/sitewide-style-championship-20260726/cycle-9/incumbent-daily-pager/POSTCARD-RESIDENT-CARD-CORRECTION-2026-07-29.md`.
+- **Internal rule/check updated:** Visual QA now treats asset identity,
+  subject/job fit and safe crop as separate gates. Consent/lifecycle QA must
+  bind copy to the actual default, persisted preference and provider call—not
+  to a remembered or inferred version of the flow.
+- **Transferable lesson:** Fixing a crop is not permission to change the
+  picture, and fixing copy is not permission to change the product contract.
+- **Public angle:** Behind the Build: how one “simple” image swap reversed a
+  signup journey.
+- **Publication status:** VERIFIED LOCAL CORRECTION — NOT DEPLOYED.
+- **Privacy/IP/reputation:** Existing approved local postcard and documented
+  newsletter behavior only; no subscriber, account, provider or public state
+  changed.
+
+## BTB-270 · A learning activity and a principle were mistaken for concepts
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / trading-card admission / learning ontology.
+- **Issue:** `Same Task, Different Drafts` and `Your Judgment` were admitted to
+  the trading-card deck even though the first is the Try-On activity and the
+  second is a lesson principle. Neither is a standalone Episode 01 term that a
+  learner needs to define and remember.
+- **Diagnosis:** **Verified format-boundary failure.** The deck was filled to a
+  target count before every card was mapped to an explicit episode concept,
+  distinction and canonical learning entry.
+- **Prevent / Fix:** Before art or card copy is produced, every trading-card
+  candidate must pass three checks: it is explicitly taught in the episode; it
+  has a stable definition or distinction; and it maps to the current canonical
+  Concepts 101/Vocab source. Learning activities belong in the Try-On and
+  principles belong in the Cheat Sheet unless the episode explicitly names
+  them as concepts. Update the content ruling before generating replacement
+  art.
+- **Why the fix works:** The two invalid cards were replaced by `Search` and
+  `AI App`, completing the episode's two explicit distinctions: generative AI
+  versus search, and app versus model. The corrected deck is now Generative AI,
+  Model, Hallucination, Context, Search and AI App.
+- **New output:** Corrected Episode 01 card data, two replacement raster fronts,
+  content ruling and gallery build in
+  `operations/design-explorations/episode-01-trading-card-pack-20260728/prototype/`.
+- **Internal rule/check updated:** Card count can no longer justify an entry;
+  concept ownership and canonical mapping are admission gates.
+- **Transferable lesson:** A useful exercise can teach a concept without
+  becoming one.
+- **Public angle:** Behind the Build: why two perfectly usable ideas did not
+  belong in the vocabulary deck.
+- **Publication status:** VERIFIED REUSABLE CORRECTION — LOCAL CANDIDATE ONLY.
+- **Privacy/IP/reputation:** Local curriculum, generated card art and prototype
+  only; no public content or learner data changed.
+
+## BTB-271 · A preserved image source can still disappear when its layout contract collapses
+
+- **Date:** 2026-07-29
+- **Area:** Homepage Cycle 9 / Method panel / responsive image layout.
+- **Issue:** The approved Ada Lovelace portrait remained correctly referenced
+  in the markup but disappeared from the visible `Why LAiDIES exists` panel.
+- **Diagnosis:** The panel still used the incumbent absolute-positioning
+  shortcut and borrowed the height of its neighbouring text column. Once the
+  Daily column narrowed the main flow, flexbox shrank the portrait to zero
+  before the panel clipped its contents.
+- **Prevent / Fix:** A responsive image gate must test three independent
+  conditions: exact approved source, successful natural-image load and a
+  non-zero rendered box at every governed width. Content-bearing cards must
+  size from their own contents; they may not borrow a sibling's height.
+- **Why the fix works:** The card is now content-sized and the approved
+  portrait has an explicit responsive width, `height: auto` and no flex
+  shrinking. The exact image renders at desktop and mobile widths.
+- **New output:**
+  `operations/design-explorations/sitewide-style-championship-20260726/cycle-9/incumbent-daily-pager/ADA-PORTRAIT-RESTORATION-2026-07-29.md`.
+- **Internal rule/check updated:** Image QA must record both natural dimensions
+  and rendered dimensions; a valid `src` alone is not visible-image proof.
+- **Transferable lesson:** Preserving an asset in the DOM does not preserve the
+  experience if layout is still allowed to reduce it to nothing.
+- **Public angle:** Behind the Build: how the right image vanished without
+  being deleted.
+- **Publication status:** VERIFIED LOCAL CORRECTION — NOT DEPLOYED.
+- **Privacy/IP/reputation:** Existing approved local artwork only; no public
+  state or personal data changed.
+## BTB-272 — Viewport-height mastheads can destroy governed artwork composition
+
+- **Date:** 2026-07-29
+- **Failure:** A full-width Homepage masthead inherited `min-height: calc(100vh - 76px)`. Tall viewports made the panel much taller than its source art, cropping both sides and creating large empty fields above and between content.
+- **Root cause:** The layout treated browser height as the masthead's governing geometry even though the approved image had a fixed 1400×788 composition.
+- **Prevention rule:** For an image-led masthead with governed composition, bind desktop geometry to the admitted artwork ratio (or a separately approved responsive crop). Never use viewport height as the primary size rule without full-width crop proofs at tall, short and intermediate viewports.
+- **Possible Behind the Build angle:** Why “full screen” is not automatically more cinematic—and how aspect-ratio contracts prevent art direction from being undone by CSS.
+
+## BTB-273 — A technically present state is not necessarily an intentional-looking state
+
+- **Date:** 2026-07-29
+- **Failure:** Route completion was appended as a check mark inside numbered circles, a song action rendered as an icon-only capsule, and several major card families fell back to generic white panels.
+- **Root cause:** State, action and surface styling were verified as individually present but were not reviewed together as a coherent component family.
+- **Prevention rule:** Every repeated component family must pass a visual-intent check: state changes must be explicit in words or unmistakable iconography; every control must have a visible label; and related cards must share a deliberate surface, border, spacing and interaction system across desktop and mobile.
+- **Follow-up:** Decorative alternating row colours also created a false state signal. Colour variation inside an interactive list must encode something real; otherwise use one shared surface and reserve distinction for the actual selected/current/completed state.
+- **Possible Behind the Build angle:** The difference between “the UI contains the right pieces” and “the UI looks deliberately designed.”
+
+## BTB-274 — A memorable line is not automatically a learning concept
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / trading-card admission / character continuity.
+- **Failure:** `Physics Problem` was treated as a trading-card concept because
+  it was memorable, `Women Shape AI` expanded the episode into a lesson it did
+  not teach, and “a maker, not a fact-checker” was used as if it explained
+  generative AI when it is actually risk guidance. Early replacement art also
+  drifted away from the approved Episode 01 heroine.
+- **Root cause:** Card admission rewarded quotability and visual variety before
+  testing whether the learner needed to understand and remember a stable idea
+  from the lesson. Derivative art was not bound tightly enough to the episode's
+  approved protagonist identity.
+- **Prevention rule:** Before card copy or art is made, require a concept
+  admission table answering: Is it explicitly taught or central to the
+  episode? Does it need a stable explanation? Is it distinct from a joke,
+  analogy, principle or activity? What canonical source owns it? Which approved
+  episode character must carry it? Then label every sentence by job:
+  definition, analogy, consequence, warning or action. A warning cannot occupy
+  the definition slot. Reject the card if any answer or copy role is missing.
+- **Possible Behind the Build angle:** Why a great line belongs on a Cheat
+  Sheet while a great trading card has to teach something durable.
+
+## BTB-275 — Secondary controls were allowed to overpower the thing they served
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / trading-card personalization and saving.
+- **Failure:** The selected-card label, Puffy Sticker control and preview-save
+  message became two oversized page sections. They repeated information already
+  visible in the card gallery and pushed the learning experience down the page.
+- **Root cause:** Each secondary job was designed as a full content block
+  instead of being sized according to its importance and frequency of use.
+- **Prevention rule:** Apply a utility-hierarchy gate before admitting any
+  support control: do not repeat the primary content; keep status, one action
+  and one short persistence note in a single compact strip; reveal optional
+  tools only on request; and use automatic persistence when a separate Save
+  action adds no meaningful decision.
+- **Possible Behind the Build angle:** Why a useful feature can still make a
+  page worse when its visual weight exceeds its job.
+
+## BTB-276 — A shared card passed container QA while its copy crossed the artwork boundary
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / trading-card reverse safe area.
+- **Failure:** The body text fit its HTML container, but several lines—including
+  the episode/card eyebrow—still crossed from the light-blue reading field into
+  the patterned frame. The QA record incorrectly called the deck passed.
+- **Root cause:** The heading received a one-off left margin while the other
+  copy roles did not, and the automated check measured DOM overflow rather than
+  the visible boundary in the artwork.
+- **Prevention rule:** Define one shared copy inset from the narrowest point of
+  the artwork safe area, apply it to every text role, then open and inspect every
+  populated card. Container overflow is necessary but not sufficient; the
+  visual polygon is part of the component contract.
+- **Possible Behind the Build angle:** How text can be technically “inside the
+  card” and still be visibly outside the design.
+
+## BTB-276 — A proven gradient still needs a new-context contrast contract
+
+- **Date:** 2026-07-29
+- **Area:** Homepage Cycle 9 / Episode 01 Cheat Sheet gradient transfer.
+- **Success and risk:** The Cheat Sheet supplied an already-approved, genuinely
+  vibrant colour family, avoiding another invented Homepage palette. However,
+  several of its brightest pink and cyan stops do not support white body copy
+  at accessible contrast when transplanted directly onto a larger panel.
+- **Prevention rule:** Reuse an approved gradient recipe exactly, but re-test
+  every foreground against every stop in its new job. Treat saturated
+  gradients as feature surfaces; put longer copy on a compact, high-contrast
+  reading panel instead of muting the approved colours or trusting a single
+  sampled stop.
+- **Why the fix works:** The Homepage gains the Cheat Sheet's electric energy
+  while retaining readable long-form copy, and the palette remains traceable
+  to an approved LAiDIES source rather than another one-off colour experiment.
+- **Possible Behind the Build angle:** Why moving a successful palette from a
+  Cheat Sheet to a Homepage still requires design work.
+
+## BTB-277 — A derivative card repeated stale canon and made the audience do the QA
+
+- **Date:** 2026-07-29
+- **Area:** Episode 01 Study Pack / concept governance / audience respect.
+- **Failure:** The cards said models sit underneath apps, introduced a
+  different analogy from Episode 05, described the Burn Book as partly true
+  when every entry was invented, and explained invisible load back to women as
+  if they did not already know it.
+- **Root cause:** The visual prototype copied multiple stale sources without a
+  claim-role and cross-surface reconciliation. Existing canon was treated as
+  automatically correct even after newer episode decisions contradicted it.
+- **Prevention rule:** Before admitting concept-card copy, reconcile the
+  maintained concept owner, episode canon and later prerequisite/extension
+  episodes. Label each sentence as definition, analogy, consequence, warning
+  or action; verify factual definitions from primary sources; and ask whether
+  the explanation gives this audience useful new understanding rather than
+  explaining her own lived experience back to her. A derivative cannot pass
+  while any competing canonical explanation remains.
+- **Possible Behind the Build angle:** The cards that looked finished but
+  quietly taught four different versions of the same concept.
+
+## BTB-278 — Definition drift propagated into the episode, Library, quiz and class
+
+- **Date:** 2026-07-29
+- **Area:** Learning System / Episode 01 / Study Pack / LIBRAiRY / SUNNYVAiLE High.
+- **Failure:** A card review exposed that “model,” “generative AI” and
+  “hallucination” had several competing explanations. The older 78:100
+  participation statistic remained in narration and public content, and a
+  sycophancy benchmark range had been relabelled as a universal hallucination
+  rate. Ali had to detect the cross-surface drift during visual review.
+- **Root cause:** Derivatives copied whichever nearby explanation was easiest,
+  while changing research and later episode analogies were not routed through
+  one claim-level concept record and consumer list.
+- **Prevention rule:** Before scripting or designing any learning derivative,
+  resolve the maintained concept owner, primary-source definition, analogy
+  limit, dated evidence and known consumers. A correction passes only when
+  the episode source, article, audio script, Library source/render, quiz,
+  Study Pack and affected class sources are searched and dispositioned.
+  Archive/hold status must remain explicit, and released audio/public state
+  must never be inferred from a local source edit.
+- **Possible Behind the Build angle:** The trading card that uncovered a
+  website-wide curriculum correction—and why one definition needs a consumer
+  graph.
+
+## BTB-279 — Accurate source notes were mistaken for finished teaching copy
+
+- **Date:** 2026-07-30
+- **Area:** Learning System / Episode 01 / Study Pack / LIBRAiRY / SUNNYVAiLE High.
+- **Failure:** The first correction made several claims technically safer but
+  left the cards, narration and reference copy sounding like a compliance
+  register. Definitions named a thing without building a useful mental model,
+  showing why it mattered or leaving the learner with a line worth remembering.
+  Ali still had to perform the audience and editorial quality review.
+- **Root cause:** Primary-source wording was treated as the deliverable instead
+  of the truth boundary. Definition, mechanism, consequence, analogy and memory
+  were collapsed into one paragraph, while multiple surfaces repeated that
+  paragraph instead of performing distinct learning jobs.
+- **Prevention rule:** Before any learning copy reaches visual review, complete
+  a five-job teaching gate: accurate plain-language definition; smallest useful
+  mechanism; reader consequence; bounded episode-native analogy; and memorable
+  line that is not the definition. Then run a speak-aloud and audience-respect
+  check. Episode, card, lookup, deep reference and class copy must share concept
+  truth but may not default to identical institutional prose.
+- **Why the fix works:** Research remains authoritative without forcing the
+  reader to decode research-register language, and each surface earns its place
+  by helping with encounter, retrieval, lookup, depth or transfer.
+- **Possible Behind the Build angle:** Why “technically correct” still failed
+  the women we were trying to teach—and the five separate jobs of a useful
+  explanation.
+
+## BTB-280 — Educational artwork can teach the wrong category before anyone reads the copy
+
+- **Date:** 2026-07-30
+- **Area:** Episode 01 Study Pack / Trading Cards / concept-art admission.
+- **Failure:** The Model card used fake AI magazines and provider-style logos.
+  Nothing in the image represented a model; it visually collapsed company,
+  product, publication and model into one category while the corrected copy
+  explicitly taught that those are different things.
+- **Root cause:** The artwork was reviewed as decoration and brand style rather
+  than as a learning claim. The prompt named the mood and visual references but
+  did not assign a truthful conceptual job to each important object.
+- **Prevention rule:** Every educational image must pass a semantic claim gate
+  before visual admission: name what each dominant object represents; confirm
+  that the mapping agrees with the maintained concept definition; reject
+  provider logos or brand proxies unless the lesson is specifically about that
+  provider/product; and inspect the image at its real rendered size. Art cannot
+  contradict the copy and still pass because it is attractive.
+- **Why the fix works:** The replacement shows the model as one removable
+  trained component inside a larger system, while files, search and memory
+  remain visibly separate. The picture now retrieves the same distinction as
+  the maintained definition instead of introducing a competing explanation.
+- **Possible Behind the Build angle:** The pretty trading card that accidentally
+  taught “brand equals model”—and the semantic image check that caught it.
+
+## BTB-281 — A weekly source check is useless without a consumer graph
+
+- **Date:** 2026-07-30
+- **Area:** Learning System / Weekly Episode Engine / AIDB / NewsStand /
+  website-wide content operations.
+- **Failure:** Definitions, statistics and model/product claims could be
+  rechecked in one dossier while old narration, images, rendered Library
+  pages, Study Packs, classes or episode copy continued carrying the previous
+  version. The process could say “freshness checked” without knowing the full
+  update denominator.
+- **Root cause:** Source research, dated news, episode production and surface
+  edits each had useful local rules but no shared stable claim ID, signal
+  inbox or machine-readable consumer graph.
+- **Prevention rule:** Give every material changeable claim one canonical ID,
+  evidence boundary, review trigger and complete consumer list. Feed AIDB and
+  NewsStand changes into a bounded signal inbox, run the claim gate twice in
+  weekly episode production, and hold the affected package until every
+  consumer is dispositioned and exactly verified. A regex scanner may find
+  backfill candidates but never decide truth or materiality.
+- **Why the fix works:** The freshness decision now names both what changed
+  and everywhere that inherited it, while preserving scout, editorial,
+  canonical and surface-owner authority.
+- **Possible Behind the Build angle:** Why checking the source was the easy
+  part—and the 23 downstream places one definition could leave behind.
+
+## BTB-282 — A small image beside a tall text column creates decorative dead space
+
+- **Date:** 2026-07-30
+- **Area:** Sitewide responsive composition / image-and-copy sections.
+- **Failure:** A landscape postcard was placed inside a tall left grid column
+  while a longer text block determined the right column’s height. The image
+  remained technically complete but looked like a small object floating in
+  unused colour.
+- **Root cause:** The layout was chosen from viewport width rather than the
+  actual content-container width after the Daily sidebar, and equal columns
+  were treated as balanced composition without checking visual weight.
+- **Prevention rule:** Never use a side-by-side image/text split when the image
+  cannot intentionally occupy its cell at the real content-container width.
+  Use a full-width visual row with structured content below, an image made for
+  the slot, or a genuinely balanced composition. Reject any section with a
+  small centred image, a tall opposing copy column or decorative dead fields
+  at desktop, intermediate or mobile widths.
+- **Why the fix works:** The complete postcard becomes the dominant full-width
+  visual; heading, details and action occupy deliberate rows without cropping
+  or empty filler.
+- **Internal rule/check updated:** Continuous-page QA must measure the actual
+  content container, compare image and copy visual weight, and reject dead-space
+  layouts even when there is no overflow.
+- **Possible Behind the Build angle:** How a technically responsive two-column
+  layout still produced a visibly broken composition—and why container width
+  matters more than viewport width.
+
+## BTB-283 — A branded arrival must be designed as a state transition, not an embedded video
+
+- **Date:** 2026-07-30
+- **Area:** Homepage / responsive motion / first-arrival experience.
+- **Failure:** The approved LAiDIES logo animation was first placed as a manual-play
+  card inside the Method column. It broke that column’s width rhythm, competed
+  with surrounding content and did not deliver the intended first-arrival
+  experience. An intermediate-width proof also exposed a Skip control below the
+  visible viewport.
+- **Root cause:** The motion asset was treated as another content card instead
+  of as a temporary state of the governed masthead, and the interaction was
+  checked at desktop and mobile extremes before the intermediate viewport and
+  repeat-visit state were bound. The first comparison also changed only the
+  panel position and exit mask, so two nominal concepts read as the same idea,
+  while the film ending after five seconds cut off the connection copy before
+  a visitor could understand it. The next attempt made the connection UI
+  visible over the film, blocking the approved animation; moving it partly
+  offscreen made the effect read as a layout error. A later contained dialog
+  fixed those defects but still felt underwhelming because the masthead was
+  merely behind the status box rather than visibly produced by the transition.
+  The first VHS successor then held its static line for more than two seconds
+  and grouped the LAiDIES/Rewind Era copy into one beat; mobile proof also
+  exposed the live region because the inherited `sr-only` utility was not
+  reliably present inside the isolated candidate.
+- **Prevention rule:** When motion introduces an existing page, place it inside
+  the existing stable stage; preserve the stage’s before/after geometry; autoplay
+  muted only once per tab session; provide a viewport-visible Skip control;
+  bypass motion for reduced-motion visitors; preserve a static fallback; keep
+  foreground artwork uncropped; and use an image-derived backdrop rather than
+  dead bands on tall aspect ratios. Motion alternatives must differ in
+  information architecture and spatial composition—not merely side, colour or
+  exit direction—and each visible message must receive a readable dwell time
+  independent of the source film’s duration. Do not cover the governed film
+  with explanatory UI. The transition must visually transform the source state
+  into the destination state—for example, collapsing the finished ident into a
+  VHS-static line from which the real masthead expands—rather than showing a
+  disconnected status overlay and then fading it away. Any interaction change
+  invalidates earlier visual evidence and requires a fresh immutable
+  desktop/intermediate/mobile review tuple. Treat static lines as punctuation,
+  not content: keep them brief, give brand and destination copy separate
+  readable beats, and explicitly bind visually-hidden live-region styling
+  inside isolated motion candidates rather than assuming a shared utility.
+  On tall mobile stages, verify the reveal pseudo-element itself reaches
+  `clip-path: inset(0)` at `top: 0` and remains fully expanded for a visible
+  hold before the overlay is removed; a transition that merely starts opening
+  before the handoff is still a failed reveal.
+- **Why the fix works:** The animation now has one clear job—briefly introduce
+  LAiDIES—before revealing the unchanged masthead, without adding page length,
+  asking for a play action or replaying as the visitor moves around the site.
+- **Possible Behind the Build angle:** Why the same five-second animation felt
+  wrong as a card and right as a once-per-visit arrival.
+
+## BTB-284 — A durable dashboard can become false when active visual work outruns its audit cadence
+
+- **Date:** 2026-07-30
+- **Area:** Control Room / Homepage / owner-status truth.
+- **Failure:** The internal dashboard still described Brand as idle on rejected
+  Cycle 8J and Homepage as waiting on Brand while Ali and the existing Cycle 9
+  lane were visibly iterating a new local arrival transition. The public-release
+  boundary remained correct, but the operational owner rows were two days stale.
+- **Root cause:** Scheduled dashboard reconciliation did not run after the
+  foreground visual lane changed cycle, review identity and active status.
+  Durable evidence was treated as self-refreshing even though the source of
+  truth had moved.
+- **Prevention rule:** Every scheduled Control Room audit must compare each
+  owner row with the newest literal source/evidence timestamp and invalidate
+  any review whose bound source predates the active candidate. A lane may be
+  called `BUILDING` only while real output work exists; a stored tuple, task
+  title or planned review cannot imply current execution. Keep public truth,
+  local candidate truth and independent-review truth in separate fields.
+- **Why the fix works:** The dashboard now reports Cycle 9 as local work,
+  preserves the public incumbent, marks the old Brand tuple obsolete and names
+  the exact fresh-review trigger without inventing integration or deployment.
+- **Possible Behind the Build angle:** The dashboard was durable—but not alive:
+  why operational truth needs an evidence-time join, not just saved status.
+
+## BTB-285 — A stale checked-out branch falsely turned a public release back into a missing feature
+
+- **Date:** 2026-07-30
+- **Area:** Resident identity / cross-device continuation / release reconciliation.
+- **Failure:** A visitor-functionality audit inspected the active
+  `homepage-redesign` worktree and stale dashboard records, then incorrectly
+  classified identity, cross-device Resident Card/Closet continuation,
+  Resident Chat and Trading Card gifting as unbuilt or unproved. Those
+  capabilities had already been released from `resident-continuation-20260729`
+  and publicly verified.
+- **Root cause:** The audit treated the checked-out branch as the whole
+  repository and did not reconcile `git log --all`, the latest release receipt,
+  the deployed source identity and the current public critical-file bytes
+  before assigning capability status.
+- **Prevention rule:** Before calling any capability missing, unbuilt or
+  unreleased, reconcile five sources in order: the checked-out worktree; all
+  recent release branches; the latest durable release receipt; the deployed
+  source/artifact identity; and the live critical-file bytes. If those sources
+  disagree, classify the disagreement itself as the incident. Never dispatch
+  a rebuild until the newest released implementation has been ruled out.
+  Preserve bounded holds precisely: in this case the remaining hold is
+  account-entry UX proof (real magic-link delivery/recovery, UI sign-out and a
+  Closet-native add/remove cross-browser round trip), not the already-proved
+  continuation backend.
+- **Why the fix works:** The corrected audit recognizes deployed source
+  `28f483e25c021e37e0acd2687abcae26a6d66927` and Cloudflare deployment
+  `9f161385-7486-4207-9afe-8512ea453973` as the functional baseline, so current
+  Homepage work can integrate and regression-test the released system instead
+  of rebuilding it.
+- **Possible Behind the Build angle:** How a feature can be publicly live and
+  still look “missing” from a stale worktree—and the five-way release check
+  that prevents duplicate engineering.
+
+## BTB-286 — One shared dirty branch became an invisible backlog
+
+- **Date:** 2026-07-30
+- **Area:** Git / continuity / multi-product operations.
+- **Failure:** The `homepage-redesign` working tree accumulated more than two
+  thousand modified or untracked paths across unrelated products, evidence,
+  media and operations records. Finished local packages, active visual work,
+  stale reports and already released capabilities all looked equally
+  “uncommitted,” making repeated work and accidental omission likely.
+- **Root cause:** Git was being used as an undifferentiated holding area instead
+  of preserving independently testable packages. Status dashboards recorded
+  product progress, but there was no literal commit queue tying each package to
+  exact paths, checks, commit identity and push state.
+- **Prevention rule:** Maintain `operations/COMMIT-QUEUE.md`. Use one
+  path-scoped commit per coherent package; stage explicit paths; inspect the
+  staged file list; record the commit SHA and push state; and keep commit,
+  approval, integration, deployment and public verification as separate facts.
+  Never use a catch-all commit to “clean up” the shared tree.
+- **Why the fix works:** Completed isolated work becomes recoverable and
+  reviewable immediately, while active or contradictory work remains visible
+  with an exact blocker and next action instead of disappearing into Git
+  status noise.
+- **Possible Behind the Build angle:** A dirty worktree is not a backlog: the
+  small commit queue that stopped LAiDIES from rebuilding its own work.
+
+## BTB-287 — Homepage reorganization was mistaken for moving existing blocks
+
+- **Date:** 2026-07-30
+- **Area:** Homepage / information architecture / visual design / language.
+- **Failure:** Several reorganization attempts moved existing modules into new
+  containers without first defining the visitor journeys or protecting the
+  approved visual anchors. The result duplicated destinations, buried the
+  LAiDIES learning method, altered the masthead, introduced boxes inside boxes,
+  used unapproved imagery and produced layouts that looked complete in code but
+  were confusing and visibly below the product standard.
+- **Root cause:** The implementation began at the DOM/component level instead
+  of freezing the content contract, protected assets and four-chapter visitor
+  model first. Route presence was treated as proof of coherent UX, and local
+  styling decisions were allowed to outrun the governing brand and language
+  rules.
+- **Prevention rule:** Before reorganizing a major visitor surface, freeze the
+  protected components and assets, inventory every destination once, define the
+  chapter purpose and audience need, and storyboard the complete page before
+  editing production-like markup. For this Homepage the fixed chapters are:
+  What’s happening around town; Your next stop; How LAiDIES works—and why it
+  matters; and Move to SUNNYVAiLE. Daily Buzz and What’s New remain distinct.
+  Reject the candidate before Ali review if it changes the approved masthead,
+  duplicates a destination without a different job, uses unapproved imagery,
+  introduces beige/blank editorial fields, nests decorative boxes, creates
+  inconsistent repeated controls, or loses the method/move-in explanation.
+  Verify desktop, intermediate and mobile composition—not merely route status—
+  against the same language and visual-brand checklist.
+- **Why the fix works:** The current bounded candidate and writing lock now use
+  one shared four-chapter contract. The masthead stays protected, the Daily Buzz
+  owns a real side rail, each direct destination appears once in the task
+  chooser, the complete learning method remains visible, and joining the town
+  is explained only in the move-in chapter.
+- **Possible Behind the Build angle:** Why rearranging a Homepage is not
+  information architecture—and the four questions that stopped LAiDIES from
+  turning into a pile of colourful boxes.
+
+## BTB-288 — A correct recommendation was allowed to masquerade as execution
+
+- **Date:** 2026-07-31
+- **Area:** NewsStand / Learning System / content quality / discovery.
+- **Failure:** News and episode scans could correctly recommend a Concepts
+  entry, class, Tribune, Weekly, song or related-learning link, yet the result
+  could stop in a Markdown receipt. Existing reviewers covered many quality
+  dimensions, but no single machine gate required an owner, target, trigger,
+  exact artifact, separate evidence for every content risk, search ingestion,
+  semantic cross-linking, canon reconciliation and downstream daily formats.
+- **Root cause:** Strong standards were distributed across publishing,
+  freshness, NewsStand, voice and surface-owner documents. A generic review
+  label or Stage 4 disposition could therefore look complete while the build,
+  relationship graph or release plumbing remained absent.
+- **Prevention rule:** Every NewsStand learning-impact intake and terminal
+  Stage 4 receipt must resolve in `content-work-orders.json`. The portfolio
+  validator fails uncovered records and incomplete work. Before release, bind
+  the exact artifact and independently evidence twelve gates: accuracy,
+  anti-slop editorial quality, current best practice, LAiDIES voice, analogy
+  integrity, usefulness/depth, format fit, search ingestion, semantic linking,
+  canon consistency, song opportunity and Paige-tip/Promptoscope derivatives.
+  `DISPATCHED`, `PASS`, `DEPLOYED` and `VERIFIED PUBLICLY` remain literal states.
+- **Why the fix works:** Recommendations now become durable, owner-routable
+  obligations and cannot disappear between desks. The same artifact must prove
+  both content quality and how it joins the rest of the learning system.
+- **Possible Behind the Build angle:** The difference between an AI that gives
+  good advice and an operating system that makes the advice become real.
+
+## BTB-289 — “Paid plans” flattened an official access matrix
+
+- **Date:** 2026-07-31
+- **Area:** NewsStand / AI-product model-release verification / plan and access claims.
+- **Failure:** The GPT-5.6 price-cut packet correctly named Free and Go as Terra users, then said “paid plans” could choose Terra or Luna. Because Go is paid, the second category silently gave Go a capability OpenAI reserved for Plus, Pro, Business and Enterprise.
+- **Root cause:** An editorial simplification used an overlapping commercial category after the source had supplied a non-overlapping named entitlement matrix.
+- **Prevention rule:** For plan, region, tier and platform availability, preserve the source’s exact named sets or use wording that cannot overlap them. Before approval, test every named member against every broad category in the sentence; an exception (such as paid Go) means “paid plans” is not a safe substitute.
+- **Why the fix works:** It catches reader-facing entitlement errors that can survive a generally accurate price or launch summary.
+- **Possible Behind the Build angle:** Why one innocent-looking umbrella term can turn a product update into false access advice.
+- **Publication status:** VERIFIED INTERNAL LEARNING — held private NewsStand candidate; no public change.

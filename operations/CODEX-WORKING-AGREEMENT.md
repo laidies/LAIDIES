@@ -347,6 +347,14 @@ the live active-work record.
 
 ## Practice what LAiDIES teaches
 
+All public teaching and reference content must pass
+`operations/CONTENT-PUBLISHING-STANDARD.md`. A file, rendered page, populated
+layout or passing technical check does not establish editorial readiness.
+Every item needs a reader promise, canonical source, accurate LAiDIES teaching
+analogy, practical consequence, exact continuation path and real-interface
+reading proof. The automatic rejection conditions in that standard return an
+item to DRAFT regardless of polish.
+
 LAiDIES production must exemplify the behaviours it teaches readers:
 
 - verify factual claims before publishing;

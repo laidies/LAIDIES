@@ -16,7 +16,7 @@ All assets already exist — the title sequence needs **no new renders.**
 |------|------|-------|
 | 0:00–0:06 | **The reveal** — the neon "Welcome to SUNNYVAiLE" sign lights up. Cold open into titles. | `assets/video/sunnyvaile-logo-reveal.mp4` |
 | 0:06–0:20 | **The town flies by** — fast cuts on the beat (~1–1.3s each, slow push-in on each hero), a walk down Main. | the 17 y2k-v3 heroes (order below) |
-| 0:20–0:25 | **Land the card** — LAiDIES logo + **"Episode 01 · On Wednesdays We Use AI"** (the only per-episode change). | logo + text card |
+| 0:20–0:25 | **Land the card** — LAiDIES logo + **"Episode 01 · On Wednesdays We Do AI"** (the only per-episode change). | logo + text card |
 
 **Montage order (12 flashes, "down Main + up the hill"):**
 `01 Visitor's Centre → 07 Chick Flicks → 08 Blend & Snap → 03 Library → 06 Mme CLAi-O → 09 MAiKEOVER →

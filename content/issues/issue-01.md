@@ -9,7 +9,10 @@ AI is already becoming part of the invisible load at work, and lAIdies starts by
 
 ## Core Lesson
 
-Generative AI is not just "Google in a blazer." It can draft, summarize, compare, translate tone, and help turn messy work into a usable first pass. It still needs human judgment, context, and review.
+Generative AI is not just "Google in a blazer." It can create new content from
+instructions and other inputs: text, images, audio, video or code. What it
+creates is not automatically true, sourced or right for the situation, so it
+still needs human judgment, context and review.
 
 ## Club Pack Try-On
 

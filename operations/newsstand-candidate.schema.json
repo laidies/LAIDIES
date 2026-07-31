@@ -46,6 +46,8 @@
       },
       "additionalProperties": false
     },
+    "releaseDetailsComplete": { "type": "boolean" },
+    "sensationalFramingNeutralized": { "type": "boolean" },
     "scores": {
       "type": "object",
       "required": [
@@ -107,7 +109,9 @@
     { "if": { "properties": { "edition": { "const": "breaking" } } }, "then": { "properties": { "editorialJob": { "const": "qualified-interrupt" } }, "required": ["qualifiedInterrupt"] } },
     { "if": { "properties": { "edition": { "const": "daily" } } }, "then": { "properties": { "editorialJob": { "const": "edited-briefing" }, "briefingItems": { "minItems": 2 } }, "required": ["briefingItems"] } },
     { "if": { "properties": { "edition": { "const": "weekly" } } }, "then": { "properties": { "editorialJob": { "const": "durable-synthesis" }, "developments": { "minItems": 2 } }, "required": ["developments"] } },
-    { "if": { "properties": { "edition": { "const": "tribune" } } }, "then": { "properties": { "editorialJob": { "const": "sourced-argument" } }, "required": ["argumentStructure"] } }
+    { "if": { "properties": { "edition": { "const": "tribune" } } }, "then": { "properties": { "editorialJob": { "const": "sourced-argument" } }, "required": ["argumentStructure"] } },
+    { "if": { "properties": { "topics": { "contains": { "enum": ["model-release", "feature-release"] } } } }, "then": { "properties": { "releaseDetailsComplete": { "const": true } }, "required": ["releaseDetailsComplete"] } },
+    { "if": { "properties": { "riskSignals": { "contains": { "const": "sensational_or_misleading_claim" } } } }, "then": { "properties": { "sensationalFramingNeutralized": { "const": true } }, "required": ["sensationalFramingNeutralized"] } }
   ],
   "additionalProperties": false
 }

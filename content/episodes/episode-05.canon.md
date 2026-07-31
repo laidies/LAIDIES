@@ -1,5 +1,11 @@
 # Episode 05 — "The Super Models" · CANONICAL SOURCE
 
+> **STATUS:** UNRULED — DO NOT DERIVE DOWNSTREAM SURFACES
+> This file contains several historical Episode 5 directions and internal
+> contradictions. It predates Ali’s complete 2026-07-24 fashion-system
+> explanation and the current season-arc audit. Treat it as source material,
+> not approved canon, until AW-001 rules and reconciles it.
+
 > **This is the single source of truth for Episode 5.** Edit the episode *here*. Every other surface
 > (article, quiz, study pack, LIBRAiRY, cocktail wall, KSVL, Closet quote picker) is *derived* from this
 > file. Fix once, here, then run the Propagation checklist. Spec:

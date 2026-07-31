@@ -1,8 +1,16 @@
-# Episode style — POP-ART / COMIC candidate
+# Episode landscapes/backgrounds + legacy pop-art research
 
-Ali (2026-07-18) floating pop-art comic as a **potential episode SCENE style** — a live alternative to
-the locked pixel direction ([[episode-pixel-art-direction]]), which is currently unsettled because the
-trained pixel lock was rejected ([[episode-style-lock-trained]]). NOT decided — reference for a test.
+**Current status (Ali, 2026-07-23):** these files are category references for
+landscapes, backgrounds, scene density, lighting, and selected graphic
+treatments. They do **not** define the master people style.
+
+The exact locked people-rendering authority is:
+
+`assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png`
+
+Full authority map: `operations/episode-visual-system-lock.md`.
+
+The earlier notes below record the original research context:
 
 - **epstyle-popart-01** — clean vector pop-art: dark-haired woman, teal jacket, gold hoops, pink bg + gold
   lightning bolt. Flat vector, minimal halftone. Boldest / most graphic.
@@ -29,4 +37,6 @@ Ali added 2026-07-18 to answer the "test on a scene not a portrait" gap:
   outfit weekly + 90s-styled hair), away from cheesecake, per [[populated-shots-y2k-women]] + brand voice.
 - These are all single PORTRAITS. Episodes need SCENES (multiple people, town settings, action) — the
   hard part is heroine CONSISTENCY across a sequence. Must test on a real scene beat, not just a face.
-- Pick ONE episode style: this OR pixel. Don't run both as "the" episode look.
+- Do not use the flat-vector portrait examples as a substitute for the locked
+  Heroine-face rendering. Use the `epstyle-scene-*` files for environment and
+  composition guidance; render every person in the locked master style.

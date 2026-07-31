@@ -355,25 +355,67 @@ function buildFourChapterHomepage(doc) {
     <section class="c9-chapter c9-method" id="method" aria-labelledby="c9-method-title">
       <header class="c9-method-intro">
         <p class="c9-chapter-number">03 · HOW LAiDIES WORKS—AND WHY IT MATTERS</p>
-        <h2 id="c9-method-title">Your 1990s brain is more AI-ready than you think.</h2>
-        <p class="c9-method-strap">The plot explains it. The analogy unlocks it. Practice makes it click. The soundtrack makes it stick.</p>
-        <p>Those films, lyrics, characters, dial-up noises, butterfly clips and suspiciously translucent landlines are not useless trivia. They are shortcuts into AI ideas that can otherwise sound like a conference panel trapped inside a printer manual.</p>
+        <h2 id="c9-method-title">How LAiDIES works—and why it matters</h2>
+        <p><strong>AI fluency through the pop culture you love.</strong> LAiDIES turns the stories, songs and references already in your head into a practical way to understand, use and remember AI—and have a voice in what comes next.</p>
       </header>
-      <ol class="c9-method-track">
-        <li><b>1</b><div><h3>Follow the plot</h3><p>Meet one useful AI idea inside a continuing SUNNYVAiLE story.</p></div></li>
-        <li><b>2</b><div><h3>Unlock the idea</h3><p>Pair it with a precise Rewind Era reference your brain already knows.</p></div></li>
-        <li><b>3</b><div><h3>Make it click</h3><p>Use a Try-On, guide, Pop Quiz or teaching card to prove it works in real life.</p></div></li>
-        <li><b>4</b><div><h3>Make it stick</h3><p>Let an original KSVL song turn the lesson into the hook you cannot forget.</p></div></li>
-        <li><b>5</b><div><h3>Keep your place</h3><p>Save supported progress and collections so the next useful step is easy to find.</p></div></li>
-      </ol>
-      <div class="c9-why">
-        <img src="/assets/mavens/y2k-stained-glass-v3-finished/ada-lovelace-y2k-stained-glass.png" alt="Ada Lovelace in LAiDIES stained-glass graphic-novel art">
-        <div>
-          <p class="c9-eyebrow">Why LAiDIES exists</p>
-          <h3>Women helped write the first chapter. We are not sitting out the sequel.</h3>
-          <p>Women helped build computing from the beginning. AI is being shaped right now—in the products we use, the workplaces we run and the decisions that affect us.</p>
-          <p>Understanding it, using it and having opinions about it is how we make sure the next chapter is not written without us. LAiDIES makes that work useful, memorable and considerably less beige.</p>
-          <a class="c9-text-link" href="/luminairy.html">Meet the women behind AI →</a>
+      <div class="c9-method-board">
+        <div class="c9-method-band-title">
+          <strong>HOW IT WORKS</strong>
+          <span>Learn it. Live it. Make it yours.</span>
+        </div>
+        <ol class="c9-method-track">
+          <li>
+            <img src="/assets/episodes/issue-04/section-slaiyer-handbook-v1.png" alt="">
+            <div><b>1</b><h3>Follow the story</h3><p>A continuing SUNNYVAiLE chapter opens one useful AI idea in context.</p></div>
+          </li>
+          <li>
+            <img src="/assets/episodes/ep-02/pixel/ep02-scene-08-radio.png" alt="">
+            <div><b>2</b><h3>Rewind to unlock it</h3><p>A precise film, lyric or 1990s reference gives the idea somewhere familiar to land.</p></div>
+          </li>
+          <li>
+            <img src="/assets/issue-03-section-try-on.png" alt="">
+            <div><b>3</b><h3>Try it on</h3><p>Use a guided activity, practical tool or Pop Quiz to make the idea click.</p></div>
+          </li>
+          <li>
+            <img src="/assets/sunnyvaile-interiors/ksvl-studio.png" alt="">
+            <div><b>4</b><h3>Make it stick</h3><p>KSVL turns the lesson into an original hook your brain can find again.</p></div>
+          </li>
+          <li>
+            <img src="/assets/reference-closet-interface-v2.png" alt="">
+            <div><b>5</b><h3>Keep what you learned</h3><p>Your Closet holds supported progress, collections and the next useful step.</p></div>
+          </li>
+          <li>
+            <img src="/assets/closet/closet-interior-hero-v2-90s-vibrant.png" alt="">
+            <div><b>6</b><h3>Keep growing</h3><p>Return at your level and build from there. The journey continues with you.</p></div>
+          </li>
+        </ol>
+        <div class="c9-method-band-title c9-method-band-title-why">
+          <strong>WHY IT MATTERS</strong>
+          <span>Our past. Our present. Our voice in what comes next.</span>
+        </div>
+        <div class="c9-why">
+          <article>
+            <img src="/assets/episodes/ep-04/pixel/ep04-scene-04b-eniac-narration-sync-v3-story-audit.jpg" alt="Women working with an early computer">
+            <div>
+              <p class="c9-eyebrow">Women helped build computing</p>
+              <h3>We were there from the beginning.</h3>
+              <p>Women wrote foundational programs, engineered systems and imagined what computers could become.</p>
+            </div>
+          </article>
+          <article>
+            <img src="/assets/video/episode-01-full-scene-replacements-v2/ep01-senior-women-ai-leadership-v1.png" alt="Women working together on contemporary AI">
+            <div>
+              <p class="c9-eyebrow">Women are shaping AI now</p>
+              <h3>The next chapter is being written.</h3>
+              <p>The decisions about AI are being made right now—in the products we use, the workplaces we run and the industries we built. LAiDIES exists so those decisions do not get made without us.</p>
+            </div>
+          </article>
+          <aside>
+            <p class="c9-eyebrow">Why LAiDIES exists</p>
+            <h3>Understand it. Use it. Have a voice in it.</h3>
+            <p>What AI becomes next is being decided right now. Learning it, using it and having opinions about it is how we shape the future the way we shaped the past. And since we’re here anyway, we may as well have fun.</p>
+            <a class="c9-text-link" href="/luminairy.html">Meet the women behind AI →</a>
+          </aside>
         </div>
       </div>
     </section>
@@ -426,7 +468,7 @@ function installCandidate(doc, win) {
 
   const styles = doc.createElement("link");
   styles.rel = "stylesheet";
-  styles.href = `${candidateRoot}/candidate.css?v=128`;
+  styles.href = `${candidateRoot}/candidate.css?v=134`;
   doc.head.append(styles);
 
   doc.body.classList.add("daily-pager-candidate");

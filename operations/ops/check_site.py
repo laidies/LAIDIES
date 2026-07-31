@@ -29,14 +29,33 @@ STUB = lambda p: p in ('sanctuary.html',)
 
 checks = {}
 
-# CHECK 1: standard header (sv-global-header.js), homepage-matching
-missing_hdr = [p for p in pages if 'sv-global-header' not in read(p)]
+# CHECK 1: current homepage topbar vs the older shared header.
+# Do not call sv-global-header.js "homepage-matching": the homepage moved to
+# the live Jost topbar and the old script still renders a different shell.
+def header_kind(p):
+    t = read(p)
+    if 'sv-topbar.css' in t or re.search(r'<header[^>]+class=["\'][^"\']*\btopbar\b', t):
+        return 'current'
+    if 'sv-global-header' in t:
+        return 'legacy'
+    return 'missing'
+
+header_kinds = {p: header_kind(p) for p in pages}
+current_hdr = [p for p, kind in header_kinds.items() if kind == 'current']
+legacy_hdr = [p for p, kind in header_kinds.items() if kind == 'legacy']
+missing_hdr = [p for p, kind in header_kinds.items() if kind == 'missing']
+legacy_real = [p for p in legacy_hdr if not ZOMBIE(p) and not STUB(p)]
 missing_real = [p for p in missing_hdr if not ZOMBIE(p) and not STUB(p)]
 checks['header'] = {
-    'label': 'Standard header on every page (matches homepage)',
-    'total': len(pages), 'have': len(pages)-len(missing_hdr),
+    'label': 'Current homepage topbar on every page',
+    'total': len(pages), 'have_current': len(current_hdr),
+    'legacy_real': legacy_real,
     'missing_real': missing_real,
-    'status': 'DONE' if not missing_real else f'{len(missing_real)} real pages missing it',
+    'status': (
+        'DONE'
+        if not legacy_real and not missing_real
+        else f'{len(legacy_real)} real pages on legacy header; {len(missing_real)} missing a recognized header'
+    ),
 }
 
 # CHECK 2: zombie Grimoire pages (should be deleted/redirected)

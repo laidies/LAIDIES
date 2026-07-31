@@ -270,6 +270,26 @@
         font-style: italic;
       }
       .gt-wishes-pending.is-hidden { display: none; }
+      .gt-clear-local {
+        display: block;
+        min-height: 44px;
+        margin: 12px auto 0;
+        padding: 8px 12px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--plum);
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        cursor: pointer;
+      }
+      .gt-clear-local:hover,
+      .gt-clear-local:focus-visible {
+        background: rgba(75, 33, 72, 0.08);
+      }
 
       /* === CARD STAGE + FLIP === */
       .gt-stage {
@@ -656,6 +676,8 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
+  <link rel="canonical" href="https://laidies.ai/games/girl-talk" />
+  <meta property="og:url" content="https://laidies.ai/games/girl-talk" />
 </head>
   <body>
     <!-- Animated twinkle + glitter background layer (LAiDIES default, same as Dream Phone). -->
@@ -703,6 +725,9 @@
           </div>
           <p class="gt-progress-label"><strong id="gtProgressLabel">0/5</strong> dares in this local set</p>
           <div class="gt-progress-bar"><div class="gt-progress-fill" id="gtProgressFill"></div></div>
+          <button class="gt-clear-local" id="gtClearLocal" type="button">
+            Clear this device&rsquo;s Girl Talk record
+          </button>
         </section>
 
         <!-- Card Stage -->
@@ -1022,6 +1047,14 @@
             return false;
           }
         }
+        function clearLocalState() {
+          try {
+            window.localStorage.removeItem(GT_STATE_KEY);
+            return window.localStorage.getItem(GT_STATE_KEY) === null;
+          } catch {
+            return false;
+          }
+        }
 
         // ===== DOM =====
         const els = {
@@ -1039,6 +1072,7 @@
           penaltyCount:   document.getElementById("gtPenaltyCount"),
           progressLabel:  document.getElementById("gtProgressLabel"),
           progressFill:   document.getElementById("gtProgressFill"),
+          clearLocal:     document.getElementById("gtClearLocal"),
         };
 
         let lastTruthIndex = -1;
@@ -1293,6 +1327,37 @@
         });
 
         els.drawBtn.addEventListener("click", drawCard);
+        els.clearLocal.addEventListener("click", () => {
+          if (!clearLocalState()) {
+            els.result.innerHTML = `
+              <div class="gt-penalty">
+                <span class="gt-sticker-label">Not cleared</span>
+                <div class="gt-sticker-name">This browser could not clear the Girl Talk record.</div>
+                <div class="gt-sticker-line">Your existing local markers were left unchanged. Check this browser&rsquo;s site-storage settings and try again.</div>
+              </div>
+            `;
+            focusAfterUpdate(els.result);
+            return;
+          }
+
+          lastTruthIndex = -1;
+          lastDareIndex = -1;
+          currentCard = null;
+          stateRecoveryNeeded = false;
+          showCardBack();
+          els.cardPrompt.textContent = "\u00a0";
+          els.cardRoom.textContent = "";
+          updateScore();
+          setActions(`<button class="gt-button primary" type="button" data-action="draw">🎴 Draw a card</button>`);
+          els.result.innerHTML = `
+            <div class="gt-reward">
+              <span class="gt-sticker-label">Local record cleared</span>
+              <div class="gt-sticker-name">Girl Talk removed its sticker and penalty record from this browser.</div>
+              <div class="gt-reward-flavor">No account, community post, Closet item or unrelated browser data was changed.</div>
+            </div>
+          `;
+          focusAfterUpdate(els.result);
+        });
 
         // ===== INIT =====
         updateScore();
@@ -1317,7 +1382,7 @@
     <!-- Canonical SUNNYVAiLE chrome — sv-global-header MUST load before sv-nav-auth -->
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
     <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-back-nav.js?v=2"></script>
     <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   

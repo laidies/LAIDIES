@@ -249,7 +249,7 @@ It makes things up — but less, and less randomly, than the panic suggests. How
 
 **The myth to drop** — Two of them. "Newer models basically fixed this" — they didn't. And "AI is basically always making things up" — also wrong; it's situational, and very low for grounded work.
 
-> **The receipt** — Treat it like a brilliant, fast, slightly-too-confident intern — fantastic first draft, never the final word. It's Regina George energy: sounds completely sure, occasionally just inventing things. The fix isn't fear, it's habit: web search on, ask for sources, click them, and verify anything that actually matters. (This is the whole subject of [Episode 3, "Don't Be Chutney on the Stand,"](/issues/issue-03.html) if you want the full story.)
+> **The receipt** — Treat it like a brilliant, fast, slightly-too-confident intern — fantastic first draft, never the final word. It's Regina George energy: sounds completely sure, occasionally just inventing things. The fix isn't fear, it's habit: web search on, ask for sources, click them, and verify anything that actually matters. (This is the whole subject of [Episode 3, "The Burn Book Problem,"](/issues/issue-03.html) if you want the full story.)
 
 **Sources**
 

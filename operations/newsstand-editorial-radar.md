@@ -51,6 +51,13 @@ Technology Review, TechCrunch, Wired and The Verge may supply technical context.
 After the independent LAiDIES read exists, read the complete AI Daily Brief
 analysis when it has covered the topic.
 
+Also check the AIDB Intelligence Desk handoff inbox under
+`operations/agents/aidb-intelligence-desk/handoffs/newsstand/` and follow
+`operations/agents/aidb-intelligence-desk/handoffs/NEWSSTAND-INTERACTION-CONTRACT.md`.
+The handoff may contain resolved practitioner sources and model-use evidence,
+but it is an intake signal—not a score, edition decision, or publication
+instruction. Reopen material current sources before relying on them.
+
 Record:
 
 - where the analyses agree;
@@ -61,6 +68,13 @@ Record:
 
 AIDB is a trusted second opinion, not an automatic factual source or answer
 key. Running this check does not itself require public attribution.
+
+Record the inbound handoff disposition as `CONSUMED`, `MERGED`, `WATCH`,
+`PASS`, `STALE`, or `SOURCE CONFLICT` in `aidb-comparison.md` or the radar log.
+For model releases, keep the jobs distinct: NewsStand owns what changed and why
+it matters now; the AIDB learning route may separately teach how to interact
+with the model. Share evidence identifiers rather than producing duplicate
+treatments.
 
 ## Headline reality check
 

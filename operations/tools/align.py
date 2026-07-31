@@ -28,13 +28,18 @@ script_p, words_p, outdir = sys.argv[1], sys.argv[2], sys.argv[3]
 # filename (episode-05-elevenlabs-v3-tagged.txt -> 05); allow an explicit
 # 4th argument to override. Refuse to guess — a wrong number destroys work.
 if len(sys.argv) > 4:
-    EP = f"{int(sys.argv[4]):02d}"
+    explicit = sys.argv[4].strip().lower()
+    EP = "trailer" if explicit == "trailer" else f"{int(explicit):02d}"
 else:
     m = re.search(r"episode-(\d{1,2})", script_p)
-    if not m:
+    if m:
+        EP = f"{int(m.group(1)):02d}"
+    elif "trailer" in script_p.lower():
+        EP = "trailer"
+    else:
         sys.exit(f"align.py: cannot tell which episode '{script_p}' is.\n"
-                 f"           Pass the number explicitly: align.py <script> <words> <outdir> <N>")
-    EP = f"{int(m.group(1)):02d}"
+                 f"           Pass the number or 'trailer' explicitly: "
+                 f"align.py <script> <words> <outdir> <N|trailer>")
 STEM = f"episode-{EP}"
 print(f"episode {EP}  ->  {outdir}/{STEM}-timing-map.json, {STEM}.vtt, {STEM}.srt")
 

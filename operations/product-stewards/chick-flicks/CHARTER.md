@@ -14,11 +14,18 @@ The Chick Flicks is SUNNYVAiLE's episode rental store: it makes the season feel 
 
 **Coordinates but does not absorb:**
 
-- Weekly Episode Experience: episode purpose, article/listen journey, learning package and weekly continuity.
-- Screening Room: `/watch` player, format messaging and playback journey.
+- Weekly Episode Engine (`019f9f7c-f03a-7ec1-a776-d60b57210322`):
+  opportunity intake, teaching/editorial intent, canon/script, production,
+  checksum-bound episode release candidate and the episode package's public
+  proof.
 - Episode Media Quality: source-frame, motion, edit, audio, captions and public media verdicts.
 - Identity/Rewards: Resident Card, favourites and any ritual/reward truth.
 - Platform/Town Entry: shared navigation, tour, episode-index publication and analytics.
+
+**Owned child experience:** Screening Room `/watch`, episode archive/listen/
+watch presentation, title/format availability truth, player/caption behavior
+and the discovery → issue/player → return visitor journey. A media file is not
+admitted because it exists.
 
 ## Core journeys
 

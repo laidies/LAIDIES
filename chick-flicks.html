@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/content/chick-flicks.css?v=20260724-room-v2">
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
     <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>
@@ -26,7 +26,9 @@
       };
       plausible.init();
     </script>
-  </head>
+    <link rel="canonical" href="https://laidies.ai/chick-flicks" />
+  <meta property="og:url" content="https://laidies.ai/chick-flicks" />
+</head>
   <body class="chick-flicks-page">
     <header class="sv-header"></header>
 
@@ -61,6 +63,17 @@
             </button>
           </div>
         </div>
+        <aside id="cfReturnVisit" class="cf-return-visit" hidden aria-labelledby="cf-return-title">
+          <div>
+            <p class="cf-return-visit__eyebrow">Your last rental · on this device</p>
+            <h2 id="cf-return-title">Welcome back to the counter.</h2>
+            <p id="cfReturnCopy"></p>
+          </div>
+          <div class="cf-return-visit__actions">
+            <button id="cfContinueRental" type="button">Continue with this tape</button>
+            <button id="cfClearRental" type="button">Clear and start over</button>
+          </div>
+        </aside>
       </section>
 
       <nav class="cf-aisles" aria-label="Browse the rental-store aisles">
@@ -170,6 +183,11 @@
         var wallEmpty = document.getElementById("cfWallEmpty");
         var takeHome = document.getElementById("cfTakeHome");
         var favourite = document.getElementById("cfFavourite");
+        var returnVisit = document.getElementById("cfReturnVisit");
+        var returnCopy = document.getElementById("cfReturnCopy");
+        var continueRental = document.getElementById("cfContinueRental");
+        var clearRental = document.getElementById("cfClearRental");
+        var lastRental = null;
 
         function getLocal(key) {
           try { return localStorage.getItem(key) || ""; } catch (error) { return null; }
@@ -370,8 +388,51 @@
           revealRental();
         }
 
+        function validatedLastRental() {
+          var stored = getLocal("laidies_cf_last_rental");
+          if (stored === null || !/^\d{2}$/.test(stored)) {
+            if (stored) removeLocal("laidies_cf_last_rental");
+            return null;
+          }
+          var episode = episodes.filter(function (item) {
+            return episodeNumber(item.number) === stored;
+          })[0];
+          if (!episode || !episode._available) {
+            removeLocal("laidies_cf_last_rental");
+            return null;
+          }
+          return episode;
+        }
+
+        function paintReturnVisit() {
+          lastRental = validatedLastRental();
+          if (!lastRental) {
+            returnVisit.hidden = true;
+            returnCopy.textContent = "";
+            return;
+          }
+          returnCopy.textContent =
+            "EP " + episodeNumber(lastRental.number) + " · " + lastRental.title +
+            " was the last tape taken home on this device.";
+          returnVisit.hidden = false;
+        }
+
+        function clearLastRental() {
+          if (!removeLocal("laidies_cf_last_rental")) {
+            returnCopy.textContent =
+              "This browser would not let the store clear the device-only rental.";
+            focusElement(clearRental);
+            return false;
+          }
+          lastRental = null;
+          returnVisit.hidden = true;
+          returnCopy.textContent = "";
+          setArrivalState();
+          focusElement(document.querySelector("[data-rent-latest]"));
+          return true;
+        }
+
         function setArrivalState() {
-          var last = getLocal("laidies_cf_last_rental");
           var title = document.getElementById("cf-title");
           var copy = document.getElementById("cf-state-copy");
           var latestButton = document.querySelector("[data-rent-latest]");
@@ -384,14 +445,10 @@
           }
           title.textContent = "EP " + episodeNumber(latest.number) + " is the latest released tape.";
           latestButton.disabled = false;
-          if (last) {
-            var lastEpisode = episodes.filter(function (episode) {
-              return episodeNumber(episode.number) === last;
-            })[0];
-            copy.textContent = lastEpisode ?
-              "Last rented on this device: EP " + last + " · " + lastEpisode.title +
-                ". Latest released: " + latest.title + "." :
-              "Latest released: " + latest.title + ". Pull a tape to open its full issue.";
+          if (lastRental) {
+            copy.textContent =
+              "Last rented on this device: EP " + episodeNumber(lastRental.number) +
+              " · " + lastRental.title + ". Latest released: " + latest.title + ".";
           } else {
             copy.textContent = latest.title +
               " is the latest released tape in the manifest. New in town? Start with EP 01.";
@@ -412,6 +469,19 @@
           updateMemberStatus(changed ? "" :
             "This browser could not change your device-only favourite.");
         });
+
+        continueRental.addEventListener("click", function () {
+          var current = validatedLastRental();
+          if (!current) {
+            paintReturnVisit();
+            setArrivalState();
+            focusElement(document.querySelector("[data-rent-latest]"));
+            return;
+          }
+          selectEpisode(current);
+        });
+
+        clearRental.addEventListener("click", clearLastRental);
 
         document.getElementById("cfAisles").addEventListener("click", function (event) {
           var button = event.target.closest("[data-aisle]");
@@ -524,6 +594,8 @@
           document.getElementById("cfAisleStatus").textContent =
             "Catalogue unavailable · retry the tape manifest";
           document.querySelector("[data-rent-latest]").disabled = true;
+          lastRental = null;
+          returnVisit.hidden = true;
           var retry = document.querySelector("[data-retry-catalogue]");
           retry.hidden = false;
           if (focusRecovery) focusElement(retry);
@@ -553,6 +625,7 @@
                 return episode._available;
               }).pop() || null;
               renderWall();
+              paintReturnVisit();
               setArrivalState();
               updateMemberStatus();
               if (focusRecovery) focusElement(latest ? latestButton : title);

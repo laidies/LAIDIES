@@ -4,6 +4,24 @@
 Owner, native-accessibility, audio-rights, analytics, public-origin and alcohol-
 activation holds remain. Nothing here authorises deployment or policy change.
 
+## OWNER-ENTRY RECOVERY — SPECIFIED
+
+1. Use `EXPERIENCE-BRIEF.md` as the provenance-labelled intent gate and
+   `FUNCTIONALITY-MAP.md` as the complete producer/service/consumer contract.
+2. Execute
+   `build-packet-whole-building-readiness-2026-07-26.md` only after Control Room
+   accepts the named dependencies and returns the applicable owner decisions.
+3. Keep Cosmo identity/use, embedded fortune depth, Main Character Spritz
+   placement, alcohol/public framing and sitewide style as explicit owner
+   decisions; no current page or old design brief selects them.
+4. Recover the registered Businesswomen's Special and Cocktail Fortune
+   subproduct dossiers/states through Control Room; do not create content-free
+   placeholders or make the parent folder their competing authority.
+5. Reconcile the shared Wednesday Tour, FAiRY Play/ritual, charm, visit,
+   KSVL/audio, episode-content and analytics/Clarity transactions before
+   integration. Bronze must not invent parallel identity, reward, media or
+   analytics authority.
+
 ## FIX BEFORE LAUNCH
 
 1. **Preserve the independently passed Repair 2 contract.** Keep pre-load nonconfigurable getter/value/proxy/delete/throw cases, missing-module held states, ordinary regressions and exact-artifact parity in the release suite.

@@ -6,7 +6,7 @@
 
 | ID | Status | Launch class | Work | Done when |
 |---|---|---|---|---|
-| DP-001 | BUILT LOCALLY | FIX BEFORE LAUNCH | Reconcile charter, operating spec, state and product boundaries without selecting a major model. | Missing stewardship records exist, preserve the unresolved owner decision and use exact status truth. |
+| DP-001 | SPECIFIED — OWNER ENTRY RECOVERED LOCALLY | FIX BEFORE LAUNCH | Reconcile charter, operating spec, state and product boundaries without selecting a major model. | Targeted owner-entry passes; recovered brief/map preserve the unresolved owner decision and use exact status truth. |
 | DP-002 | BUILT LOCALLY | FIX BEFORE LAUNCH | Make experiment/beta status and Just Call boundary consistent across scoped entry points. | Every reachable entry says scripted/experimental; no personalized or professional-advice implication remains. |
 | DP-003 | BOUNDED LOCAL PASS | FIX BEFORE LAUNCH | Create claim-level evidence/freshness/correction ledger and admit only sufficiently supported rounds. | Independent re-judge accepted one playable round mapped clause-by-clause to dated official evidence; Mortal Kombat and eleven other rounds remain HOLD; stale/corrected/mismatched/duplicate/unknown/missing, impossible-date and future evidence/correction ledgers fail closed while valid UTC leap days pass. |
 | DP-004 | BUILT LOCALLY | FIX BEFORE LAUNCH | Isolate the parked patron-saint engine and make reward/persistence truth explicit. | Booth does not execute parked engine; Just Call remains usable; no account/cross-device implication; storage failure is harmless. |
@@ -18,6 +18,7 @@
 | ID | Status | Work | Done when |
 |---|---|---|---|
 | DP-007 | OWNER DECISION REQUIRED | Select, revise or reject the major Dream Phone model. | Ali receives the Council evidence, current candidate truth and trade-offs and records an explicit decision. |
+| DP-013 | SPECIFIED — BLOCKED BY DP-007 | Execute `BUILD-PACKET-product-model-reconciliation-2026-07-26.md`. | Owner-selected direction completes competition, build, independent gates, exact release/public proof and measurement without borrowing authority from the current live experiment. |
 
 ## After owner decision
 

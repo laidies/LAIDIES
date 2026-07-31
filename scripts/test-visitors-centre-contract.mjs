@@ -13,8 +13,7 @@ const check = (condition, message) => {
 
 const page = read("visitors-centre.html");
 const directory = read("content/site/sunnyvaile-directory.js");
-const tour = read("content/site/sv-welcome-tour.js");
-const spec = read("operations/product-stewards/visitors-centre/OPERATING-SPEC.md");
+const projection = JSON.parse(read("content/site/readiness/v1/entry-readiness-projection.v1.json"));
 const directorySandbox = {
   window: {},
   document: {
@@ -28,76 +27,73 @@ const directorySandbox = {
 vm.runInNewContext(directory, directorySandbox);
 const canonical = directorySandbox.window.SV_BUILDINGS;
 const staticLinks = [...page.matchAll(
-  /<a href="([^"]+)" data-vc-id="([^"]+)" data-vc-state="([^"]+)" data-vc-summary="([^"]+)" data-vc-limitation="([^"]+)">([^<]+)<\/a>/g
+  /<a href="([^"]+)" data-vc-id="([^"]+)">([^<]+)<\/a>/g
 )].map((match) => ({
   href: match[1],
   id: match[2],
-  state: match[3],
-  summary: match[4],
-  limitation: match[5],
-  name: match[6]
+  name: match[3]
 }));
 const decodeHtml = (value) => value
   .replaceAll("&amp;", "&")
   .replaceAll("&quot;", "\"")
   .replaceAll("&#39;", "'");
 
-check(/This is the town front desk/.test(page), "ten-second front-desk comprehension copy is missing");
+check(/This is the town front desk/.test(page), "front-desk comprehension copy is missing");
 check(/choose one\s+by name below/.test(page), "named directory is not presented as map parity");
 check(/id="vc-building-card"[^>]*aria-atomic="true"[^>]*hidden/.test(page), "destination reveal is not initially closed and atomic");
 check(/card\.hidden = false[\s\S]*enter\.focus\(\{ preventScroll: true \}\)/.test(page), "valid selection does not expose and focus the destination action");
-check(/card\.hidden = true/.test(page), "closed destination result remains actionable");
 check(/Escape[\s\S]*closeCard\(true, true\)/.test(page), "Escape does not close and restore focus");
 check(/All 17 named routes/.test(page), "static directory parity introduction is missing");
 check(staticLinks.length === 17, `static/no-JS directory has ${staticLinks.length} destinations instead of 17`);
-check(Array.isArray(canonical) && canonical.length === 17, "shared directory does not expose 17 destinations");
+check(Array.isArray(canonical) && canonical.length === 17, "shared geometry directory does not expose 17 destinations");
 for (const building of canonical) {
   const fallback = staticLinks.find((item) => item.id === building.id);
   check(!!fallback, `static/no-JS directory omits ${building.id}`);
   check(fallback?.href === building.href, `static/shared route mismatch for ${building.id}`);
   check(decodeHtml(fallback?.name || "") === building.name, `static/shared name mismatch for ${building.id}`);
-  check(["held", "limited"].includes(fallback?.state), `missing fail-closed state for ${building.id}`);
-  check((fallback?.summary || "").length >= 20, `missing current summary for ${building.id}`);
-  check((fallback?.limitation || "").length >= 35, `missing current limitation for ${building.id}`);
 }
-check(/The wall map did not load\. The named directory below still works\./.test(page), "map failure does not preserve named route truth");
-check(/destinationContracts\[building\.id\]/.test(page), "reveal is not bound to the current destination contract");
-check(/contractMatchesRoute/.test(page), "reveal does not fail closed on route drift");
-check(!/line\.textContent = building\.oneLiner/.test(page), "reveal still renders decorative oneLiner");
-check(!/\(building\.mechanics \|\| \[\]\)/.test(page), "reveal still renders decorative mechanics");
-check(/Held from promotion/.test(page), "held destination status is not visible");
-check(/Open page — check status/.test(page), "held destination action lacks status-qualified navigation");
-check(/This selection is navigation, not completion or product readiness/.test(page), "missing-contract fallback overclaims navigation");
-check(!/meaningful_action_completed|destination_completed/.test(page), "destination selection emits a completion-shaped event");
-for (const [id, phrase] of [
-  ["ksvl-radio", "does not prove a track played"],
-  ["fairy-godmother", "not approved for promotion"],
-  ["sunnyvaile-high", "not a durable learning record"],
-  ["maikeover", "account, cross-device, avatar, public-card, and reward promises are not confirmed"],
-  ["town-hall", "not proof of reading, review, reply, resolution"],
-  ["dream-phone", "Product direction and evidence-game promotion remain under review"]
+
+check(!/data-vc-state=|data-vc-summary=|data-vc-limitation=/.test(page),
+  "manual destination status prose remains embedded in the route");
+for (const stalePhrase of [
+  "Motion films remain held",
+  "Product direction and evidence-game promotion remain under review",
+  "not approved for promotion",
+  "not a durable learning record",
+  "does not prove a track played"
 ]) {
-  const destination = staticLinks.find((item) => item.id === id);
-  check(destination?.limitation.includes(phrase), `${id} limitation contract is incomplete`);
+  check(!page.includes(stalePhrase), `inherited status prose remains: ${stalePhrase}`);
 }
-check(/href="\/watch\.html\?ep=trailer">Listen to the illustrated trailer/.test(page), "trailer handoff is not the illustrated trailer");
-check(!/sv-trailer-player\.js/.test(page), "Visitor Centre still loads the audio-only trailer player");
-check(!/Play the town anthem|sunnyvaile-town-anthem/.test(page), "held KSVL anthem remains promoted");
-check(/Neither is\s+required to use the directory/.test(page), "tour/trailer remains framed as required");
-check(/Sending is not confirmed here/.test(page), "text/email handoff truth is missing");
-check(/Delivery is not confirmed here/.test(page), "share handoff truth is missing");
-check(/delivery is not confirmed/.test(page), "copy failure truth is missing");
+check(/readiness\/v1\/readiness-runtime-v1\.js/.test(page), "shared browser receiver runtime is not loaded");
+check(/entry-readiness-projection\.v1\.json/.test(page), "shared checksum-bound projection is not fetched");
+check(page.includes(projection.integrity.payloadSha256), "route is not bound to the current shared projection payload hash");
+check(/expectedPayloadSha256/.test(page), "release-binding option is not passed to the receiver");
+check(/visitorCentreSemanticReceiver/.test(page), "Visitor semantic receiver is not consumed");
+check(/completionClaim === false/.test(page), "receiver shape does not enforce completionClaim=false");
+check(/localFailClosed/.test(page), "route lacks browser/runtime fail-closed recovery");
+check(/Open the named route only to check its current page\./.test(page), "generic no-JS/status fallback is missing");
+check(/Route arrival is navigation, not completion\./.test(page), "generic fail-closed completion boundary is missing");
+check(/Destination pages retain readiness and completion authority/.test(page), "receiving-owner authority boundary is missing");
+check(/The wall map did not load\. The named directory below still works\./.test(page), "map failure does not preserve named route truth");
+check(/No Resident Card, account, name, ownership, sign-in, sync or cross-device state is inspected or inferred here/.test(page),
+  "Card/account non-inference boundary is missing");
+check(!/laidies_card_username|localStorage/.test(page), "Visitor route still reads identity/Card-like local state");
+check(/Request tour start/.test(page), "optional tour handoff is missing");
+check(/Open the illustrated trailer/.test(page), "trailer handoff is missing");
+check(/Open postcard handoff/.test(page), "postcard product handoff is missing");
+check(/A selection or route opening proves navigation only/.test(page), "navigation-only boundary is missing");
+check(!/vcPostcardForm|vcPostcardHandle|vcPostcardShare/.test(page), "postcard product remains copied into the Visitor route");
+check(!/id="from-the-founder"|class="vc-first-route"|<details class="vc-story"/.test(page),
+  "non-admitted post-arrival stack remains");
+check(!/meaningful_action_completed|destination_completed/.test(page), "destination selection emits a completion-shaped event");
 check(/prefers-reduced-motion: reduce/.test(page), "reduced-motion treatment is missing");
 
-const buildingCount = (directory.match(/\{ num:\s*\d+/g) || []).length;
-check(buildingCount === 17, `expected 17 canonical destinations, found ${buildingCount}`);
-check(/Public listening is held/.test(tour), "tour still overpromises KSVL playback");
-check(/device-local Resident Card preview/.test(tour), "tour still overpromises MAiKEOVER identity/rewards");
-check(!/it all starts counting|music follows you everywhere|permanent Report Card/.test(tour), "tour retains a stale account/reward/playback promise");
-check(/This browser cannot save tour progress/.test(tour), "tour has no storage-failure recovery");
-check(/return true;[\s\S]*return false;/.test(tour), "tour storage write does not report success/failure");
-check(/visual\/experience ruling/i.test(spec), "operating spec omits owner visual hold");
-check(/real mobile Safari/i.test(spec), "operating spec omits native browser hold");
+check(projection.payload.destinations.length === 17, "shared projection does not contain 17 destinations");
+check(projection.payload.currentContent.length === 3, "shared projection does not contain three current-content slots");
+check(projection.payload.destinations.every((item) => item.state === "held"),
+  "current all-null owner intake is not truthfully held");
+check(projection.payload.destinations.every((item) => item.artifact.kind === "none"),
+  "current all-null owner intake invents admitted artifacts");
 
 if (failures.length) {
   console.error("VISITORS CENTRE CONTRACT FAIL");
@@ -106,5 +102,7 @@ if (failures.length) {
 }
 
 console.log("VISITORS CENTRE CONTRACT PASS");
-console.log(`canonical_destinations=${buildingCount}`);
-console.log("scope=comprehension,static-directory-parity,current-destination-limitations,focus-recovery,trailer-tour-postcard-truth");
+console.log(`canonical_destinations=${canonical.length}`);
+console.log(`projection_id=${projection.payload.projectionId}`);
+console.log(`projection_payload_sha256=${projection.integrity.payloadSha256}`);
+console.log("scope=arrival-grammar,receiver-binding,no-js-parity,identity-non-inference,focus-recovery,handoff-truth");

@@ -1,16 +1,18 @@
 {
   "product": "Chick Flicks Building",
   "status": "BOUNDED LOCAL PASS — RELEASE HOLDS REMAIN",
-  "asOf": "2026-07-25",
+  "building_wave_candidate_status": "ALI REJECTED / DO NOT INTEGRATE",
+  "asOf": "2026-07-27",
   "relationshipToActiveWork": "MERGE with AW-003",
   "route": "/chick-flicks",
   "primaryFile": "chick-flicks.html",
-  "scope": ["storefront room", "new releases", "aisle catalogue", "episode discovery", "current-week display", "rental handoff", "coming-soon honesty", "favourite-tape storefront state"],
+  "scope": ["storefront room", "new releases", "aisle catalogue", "episode discovery", "current-week display", "rental handoff", "same-device rental return", "coming-soon honesty", "favourite-tape storefront state"],
   "dependencies": [
     "content/episode-index.json",
     "episode box assets",
     "issueUrl destination pages",
     "Weekly Episode Experience",
+    "Weekly Episode Engine task 019f9f7c-f03a-7ec1-a776-d60b57210322",
     "Screening Room",
     "Episode Media Quality",
     "Resident Card local/account state",
@@ -19,12 +21,16 @@
   "evidence": {
     "publicMobileRouteLoad": "VERIFIED PUBLICLY",
     "publishedEpisodeAudioCaptionJourneys": "VERIFIED PUBLICLY by external episode/player evidence",
-    "catalogueMechanics": "REPAIRED LOCALLY — 11 contract checks and 22 source/exact-artifact browser journeys passed",
+    "catalogueMechanics": "REPAIRED LOCALLY / INDEPENDENT ACCEPT — 12 contract checks and 25 actual-browser journeys passed",
+    "sameDeviceRentalReturn": "INDEPENDENT ACCEPT — valid released return renders Continue/Clear; stale, forthcoming, corrupt and denied storage fail safely; evidence SHA-256 51389727054402dc3ea03d29a596d86856a5b8aa947c3440388ff9b567aafd69",
     "cleanStateStorefrontComprehension": "NOT YET EXECUTED",
     "deterministicAccessibilityRecovery": "REPAIRED LOCALLY — Chrome keyboard/focus/reflow/reduced-motion/timeout/degraded-state suite passed",
     "assistiveTechnologyAndPublicRecovery": "NOT YET EXECUTED — Safari, VoiceOver, contrast and public-origin",
     "analyticsLearningLoop": "NOT YET WIRED",
-    "mediaCraftVerdict": "HOLD — trailer and Episodes 1–4 motion films are not approved"
+    "mediaCraftVerdict": "HOLD — trailer and Episodes 1–4 have zero admitted visual occurrences; EPISODE_FILMS is empty",
+    "ownerEntry": "INTENT AND FUNCTIONALITY RECOVERED — Director review and Control Room locks pending",
+    "completeBuildingPacket": "SPECIFIED — store, Screening Room, captions, issue continuation and return paths included",
+    "episodeReleaseInterface": "HOLD — exact Platform-passed v2 has five Chick Flicks semantic false accepts"
   },
   "knownFacts": [
     "A tape is rentable only when a validated published record has a safe local issue URL whose destination exists in the tested artifact.",
@@ -34,9 +40,21 @@
     "The candidate describes the highest rentable episode as latest released and makes no unsupported current-week claim.",
     "Named homepage, directory, tour, check-in and trailer-issue Chick Flicks entries now use released-state wording.",
     "Favourite and last-rental memory are explicitly browser/device-local and storage failures are visible.",
+    "A valid released last-rental record now renders a useful same-device Continue/Clear return; clearing removes only that key, and stale, forthcoming, corrupt or denied records cannot simulate success.",
     "The trailer handoff is labelled an illustrated, captioned listen-along; it is not motion-film approval.",
+    "The Weekly Episode Engine owns episode opportunity, teaching/editorial intent, production, checksum-bound release candidate and package-level public proof; Chick Flicks owns discovery, archive, Screening Room/listen/watch admission, availability and visitor-journey public proof.",
+    "A media file, route or checksum is not admitted solely because it exists; Chick Flicks requires the complete candidate manifest and title/format-specific admission.",
+    "The Engine returned EPISODE-RELEASE-MANIFEST-SPEC.md with separate reading, listen-along, visual and motion dispositions; the ownership interface is mutually specified.",
+    "V1 schema implementation was blocked until candidate hashing became non-circular, public proofs became append-only immutable receipts and first-addition rollback explicitly allowed no prior candidate; v2 repairs those cases but remains held on cross-record identity and format admission.",
+    "Control Room owns the shared queue repair and episode top-level rebind; Weekly Episodes owns the versioned manifest/fixture repair with Functionality & Platform review; Chick Flicks retains independent acceptance and does not re-test before both handbacks.",
+    "Chick Flicks is the independent acceptance owner for the three schema fixtures and must not make maker changes or mark the joint lock ready before its own hash-bound evidence passes.",
+    "Weekly Episodes reported candidate EPX-CF13-SCHEMA-2026-07-26-v1, payload SHA-256 42041b48f2d6912984874762ef6efd6313f7c172fb33b4f1822b1be57b213bb7 and maker result valid=7 invalid=4.",
+    "Chick Flicks independently verified the v1 candidate payload hash and all 14 listed file hashes and reproduced maker valid=7 invalid=4, then returned HOLD because the validator false-accepted six of six adversarial transaction/proof/removal cases and did not load its JSON Schema.",
+    "Functionality & Platform also returned HOLD/REJECTED on v1 for stale candidate binding, unbound envelope metadata, rollback history, cross-type receipt links and missing Chick Flicks append-only transition coverage; v1 is stale and receives no further acceptance effort.",
+    "Chick Flicks independently verified exact v2 candidate EPX-CF13-SCHEMA-2026-07-26-v2, candidate file SHA-256 b1813da7654277b8fa3dd8e8106c10ec63d16f45fdd0485af81d6744a5470fad, payload SHA-256 f62c3cf67363096ea161ad91dd529eb4087e86c46ef19573843552941cbae5f1 and all 40 bound files; maker and Platform PASS commands reproduced.",
+    "Chick Flicks returned HOLD on v2 because five independently authored, schema-valid records were false-accepted: absent motion admitted, unrelated admission transaction ID, mismatched Engine-proof candidate ID, mismatched Chick-Flicks-proof admission ID and mismatched availability-control episode ID.",
     "Episodes redirect to Chick Flicks, establishing it as the canonical discovery storefront."
   ],
-  "nextAction": "Independent re-judge passed 91/100. Separately run human comprehension, Safari/VoiceOver/contrast, native zoom and public-origin checks; establish Screening Room ownership. Keep owner visuals and all motion films on HOLD.",
+  "nextAction": "Wait for a newly sealed successor candidate ID/hash that rejects the five exact v2 Chick Flicks false-accept cases and has first passed Platform re-review. Then independently retest; keep the joint shared/live lock unready and all five programme titles, visual occurrences and motion films on HOLD.",
   "authority": "bounded source/tests/dossier evidence only for this trigger; no deployment, publication, git, media approval, unapproved visual replacement or shared-system edit"
 }

@@ -14,6 +14,25 @@ Every weekly batch must help a busy corporate woman think:
 - "I want to read the full issue."
 - "I want to click the game/quiz/card/thread on the website."
 
+## Multiple Jobs, One Coherent Ladder
+
+Social must do more than announce that an episode is live. Every episode batch
+considers seven jobs:
+
+1. stop someone with recognition or a precise identity truth;
+2. create curiosity through a real reference-to-AI connection;
+3. teach one useful idea on-platform;
+4. earn a save or send;
+5. invite participation;
+6. lead to one exact working action on the site; and
+7. make Wednesday feel worth returning for.
+
+Use `social/SOCIAL-CONTENT-LADDER-AND-SITE-PROMISE-GATE.md` for the full
+decision rule and
+`social/episodes/episode-social-content-ladder-template.md` for the weekly
+packet. The ladder defines jobs, not volume: several jobs can live in one
+strong object.
+
 ## Website Traffic Rule
 
 The website is the destination. Social is the invitation.
@@ -23,6 +42,11 @@ Every weekly social package must include a specific website traffic path:
 - 1 post or Story points to the full issue.
 - 1 post or Story points to a fun feature: quiz, card pack, Ask LAIDY, Madame CLAI-O, Dream Phone, Girl Talk, Glossary Rolodex, Hot Goss, House DJ, Reference Closet, Try-On Debrief, Burn Book, or Member Cards.
 - 1 caption or Story frame gives people a concrete reason to click now: take the quiz, pull a card, try the prompt, ask LAIDY, get the glossary term, or read the full example.
+
+Before that CTA is scheduled, test the exact public link and the exact promised
+action on desktop and mobile. A file on disk, an attractive page shell or a
+planned feature does not count as a working destination. If the action does
+not work, fix it, change the CTA or do not post it.
 
 Use `social/WEBSITE-LINK-MAP.md` to choose the exact destination URL or anchor before making the Story, caption, LinkedIn post, or Canva notes.
 
@@ -72,7 +96,19 @@ If the week is chaotic, minimum viable package:
 
 ## Sustainable Volume Rule
 
-Do not plan 14 social pieces per day as the default. That is too much for lAIdies unless most of the pieces are lightweight Story frames around a launch, event, or community moment.
+**Volume update — Ali, 2026-07-26:** the former 3–5 weekly feed-object
+default below is superseded by a minimum of five strong daily content units
+across the portfolio. The quality and anti-filler reasoning remains active.
+Use
+`operations/product-stewards/audience-growth/FULL-CONTENT-STRATEGY-2026-07-26.md`
+for the current six-channel production model.
+
+Five daily units are distinct audience jobs that may be adapted natively
+across channels. They are not thirty identical cross-posts, and they are not
+permission to lower the source, Brand, accessibility, destination or
+publication gates.
+
+Historical default (retained as the pre-ruling baseline):
 
 Default weekly target:
 

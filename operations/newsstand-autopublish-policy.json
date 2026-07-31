@@ -1,5 +1,5 @@
 {
-  "version": "2026-07-26.3",
+  "version": "2026-07-29.1",
   "mode": "review-routing-only",
   "publicationAuthority": "none",
   "maximumCandidateAgeDays": 31,
@@ -30,6 +30,14 @@
     "publicationDayRecheckComplete",
     "renderPassed"
   ],
+  "conditionalGates": {
+    "releaseDetailsComplete": {
+      "topics": ["model-release", "feature-release"]
+    },
+    "sensationalFramingNeutralized": {
+      "riskSignals": ["sensational_or_misleading_claim"]
+    }
+  },
   "hardHoldTopics": [
     "health",
     "medical",

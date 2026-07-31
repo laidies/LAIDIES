@@ -19,9 +19,13 @@ const asOfArg = process.argv.find((arg) => arg.startsWith("--as-of="));
 const asOf = asOfArg ? asOfArg.slice("--as-of=".length) :
   new Date().toISOString().slice(0, 10);
 const statuses = new Set(["available", "held", "planned", "unavailable"]);
-const requiredIds = [
+const standardRequiredIds = [
   "study_sheet", "try_on", "cheat_sheet", "trading_cards", "quiz"
 ];
+const episodeOneRequiredIds = [
+  "try_on", "cheat_sheet", "trading_cards", "quiz"
+];
+const knownIds = new Set(standardRequiredIds);
 const internalPublicTerms =
   /architecture exists|collection authority repair|episode index declares|server-authoritative|unproven/i;
 const publicManifestKeys = new Set([
@@ -102,6 +106,8 @@ let planned = 0;
 let unavailable = 0;
 
 for (const pack of manifest.packs) {
+  const requiredIds = pack.episodeNumber === 1 ?
+    episodeOneRequiredIds : standardRequiredIds;
   check(Object.keys(pack).every((key) => publicPackKeys.has(key)),
     `Episode ${pack.episodeNumber} public pack contains private metadata.`);
   const episode = episodesByNumber.get(pack.episodeNumber);
@@ -117,7 +123,7 @@ for (const pack of manifest.packs) {
   `Episode ${pack.episodeNumber} route is missing or disagrees with the index.`);
   check(Array.isArray(pack.components) &&
     pack.components.length === requiredIds.length,
-  `Episode ${pack.episodeNumber} must name all five component jobs.`);
+  `Episode ${pack.episodeNumber} component inventory disagrees with its locked architecture.`);
   const components = new Map();
   const evidencePack = evidenceByEpisode.get(pack.episodeNumber);
   check(evidencePack && Array.isArray(evidencePack.components),
@@ -128,7 +134,8 @@ for (const pack of manifest.packs) {
   for (const component of pack.components) {
     check(Object.keys(component).every((key) => publicComponentKeys.has(key)),
       `Episode ${pack.episodeNumber} ${component.id} contains private metadata.`);
-    check(requiredIds.includes(component.id) && !components.has(component.id),
+    check(knownIds.has(component.id) && requiredIds.includes(component.id) &&
+      !components.has(component.id),
       `Episode ${pack.episodeNumber} has a duplicate/unknown component.`);
     components.set(component.id, component);
     check(statuses.has(component.status),
@@ -161,9 +168,14 @@ for (const pack of manifest.packs) {
   check(componentEvidence.size === requiredIds.length &&
     requiredIds.every((id) => componentEvidence.has(id)),
   `Episode ${pack.episodeNumber} private evidence inventory is incomplete.`);
-  check(components.get("study_sheet").status === "planned" &&
-    components.get("study_sheet").route === null,
-  `Episode ${pack.episodeNumber} must not invent a Study Sheet.`);
+  if (pack.episodeNumber === 1) {
+    check(!components.has("study_sheet"),
+      "Episode 1 must not reintroduce the declined Study Sheet.");
+  } else {
+    check(components.get("study_sheet").status === "planned" &&
+      components.get("study_sheet").route === null,
+    `Episode ${pack.episodeNumber} must not invent a Study Sheet.`);
+  }
   const cardDeclared = episode.websiteModules?.cardPack != null;
   check(
     (cardDeclared && components.get("trading_cards").status === "held") ||

@@ -36,14 +36,30 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: saturate(180%) blur(14px);
 }
 .sv-header .brand {
-  font-size: 22px; font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--plum);
-  /* Replace text with the final wordmark SVG — same file as the homepage */
+  position: relative;
   display: inline-block;
-  width: 118px; height: 28px;
-  text-indent: -9999px; overflow: hidden;
-  background: url('/assets/brand/laidies-wordmark-final-b-light.svg') no-repeat left center / contain;
+  color: #2b1622;
+  font: 800 31px/1 'Jost', system-ui, sans-serif;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+.sv-header .brand .lac {
+  color: #57b6c0;
+}
+.sv-header .brand .logo-iw {
+  position: relative;
+}
+.sv-header .brand .logo-tit {
+  position: absolute;
+  left: 46%;
+  bottom: 0.905em;
+  width: 0.17em;
+  height: 0.17em;
+  border-radius: 0.045em;
+  background: currentColor;
+  color: #e982ab;
+  pointer-events: none;
+  transform: translateX(-50%);
 }
 .sv-header .brand:hover { opacity: 0.85; }
 .sv-header nav a {

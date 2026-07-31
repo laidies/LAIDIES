@@ -366,7 +366,7 @@ try {
   check(await value(held, "document.querySelector('[data-access-state=\"hold\"]') !== null"), true, "global hold notice");
   await act(held, "document.querySelector('#ns-search-input').value='verification';document.querySelector('#ns-search-button').click()");
   check(await value(held, "document.querySelectorAll('.ns-front-story').length"), 0, "global hold search");
-  check(await value(held, "document.querySelector('#ns-empty').textContent.includes('editorial hold')"), true, "global hold search notice");
+  check(await value(held, "document.querySelector('#ns-empty').textContent.includes('not publishing stories right now')"), true, "global hold search notice");
   held.close();
 
   const failed = await openPage("/newsstand.html?fixture=load-failure#label-is-not-a-truth-detector");

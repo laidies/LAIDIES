@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SUNNYVAiLE Community RAiDIO · KSVL · LAiDIES</title>
-  <meta name="description" content="Visit KSVL, SUNNYVAiLE Community RAiDIO, and listen to creator-confirmed LAiDIES originals.">
+  <meta name="description" content="Visit KSVL, SUNNYVAiLE Community RAiDIO, and listen to LAiDIES original songs.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/radio-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -27,6 +27,8 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
+  <link rel="canonical" href="https://laidies.ai/radio" />
+  <meta property="og:url" content="https://laidies.ai/radio" />
 </head>
 <body>
 
@@ -64,7 +66,7 @@
       <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>
       <p class="ksvl-studio__motto">Don't just learn from books. Learn from hooks.</p>
       <p class="ksvl-studio__state" id="ksvlStudioState" aria-live="polite">KSVL is ready for listening.</p>
-      <p class="ksvl-studio__subline">Creator-confirmed LAiDIES originals, checked against the current local catalogue.</p>
+      <p class="ksvl-studio__subline">LAiDIES original songs from the stories and lessons of SUNNYVAiLE.</p>
     </div>
 
     <div class="ksvl-studio__controls" id="ksvlStudioControls" aria-label="Operate the KSVL studio"></div>
@@ -103,14 +105,14 @@
     </p>
 
     <p class="sv-lede">
-      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. Listen to creator-confirmed LAiDIES originals; requests, listening history and favourites stay local to this browser.
+      KSVL, 99.9 · SUNNYVAiLE&rsquo;s own. Listen to LAiDIES original songs; requests, listening history and favourites stay in this browser.
     </p>
 
     <!-- KSVL LIVE — the full station broadcast (moved to top) -->
     <div class="ksvl-live-band">
       <div class="ksvl-live-band__badge">★ KSVL 99.9</div>
-      <h2 class="ksvl-live-band__title">Creator-confirmed LAiDIES originals.</h2>
-      <p class="ksvl-live-band__lede">Twenty-nine current tracks are ready to hear. A track is held only for a specific missing, broken, wrong or quality-rejected file.</p>
+      <h2 class="ksvl-live-band__title">LAiDIES original songs.</h2>
+      <p class="ksvl-live-band__lede">Twenty-nine tracks are ready to hear. Pick one or let KSVL choose what plays next.</p>
       <button type="button" class="ksvl-live-band__btn" data-ksvl-start-live aria-label="Listen to KSVL 99.9">
         <span class="ksvl-live-band__btn-icon" aria-hidden="true">■</span>
         <span>LISTEN TO KSVL · 99.9</span>
@@ -189,7 +191,7 @@
 
     <h2>Mix CDs</h2>
 
-    <p>Six planned shelves, Sharpie-labeled. None can play or shuffle yet: every item remains held in soundcheck pending admission. For something available now, <a href="/chick-flicks.html">open the episode shelf</a> or <a href="/library.html">learn in the LIBRAiRY</a>.</p>
+    <p>Six Sharpie-labelled shelves are being stocked. They do not play or shuffle yet. For something to enjoy now, <a href="/chick-flicks.html">open the episode shelf</a> or <a href="/library.html">learn in the LIBRAiRY</a>.</p>
 
     <style>
       .ksvl-live-band {
@@ -322,7 +324,7 @@
 
     <p class="ksvl-band-eyebrow">★ 99.9 KSVL · The Bands</p>
     <h2 class="ksvl-band-title">The Bands</h2>
-    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. Flip the covers, inspect their tracklists and use the KSVL player to listen to the creator-confirmed local catalogue. Listening history and favourites stay on this device.</p>
+    <p class="ksvl-band-lede">Ten fictional bands from SUNNYVAiLE. Flip the covers, inspect their tracklists and use the KSVL player to listen. Listening history and favourites stay on this device.</p>
 
     <div class="ksvl-band-grid" id="ksvl-band-grid"></div>
 
@@ -382,11 +384,11 @@
             playBtn.textContent = '▶';
             if (tracks.length) {
               playBtn.setAttribute('aria-label', 'Play ' + a.band + ' — ' + a.album);
-              playBtn.setAttribute('title', 'Play admitted album');
+              playBtn.setAttribute('title', 'Play album');
             } else {
               playBtn.disabled = true;
-              playBtn.setAttribute('aria-label', a.band + ' album is held pending catalogue admission');
-              playBtn.setAttribute('title', 'No creator-confirmed KSVL track for this album yet');
+              playBtn.setAttribute('aria-label', a.band + ' album is not available yet');
+              playBtn.setAttribute('title', 'No KSVL track for this album yet');
             }
             playBtn.addEventListener('click', function(e) {
               e.stopPropagation();
@@ -521,7 +523,7 @@
     <section class="ksvl-stickers" id="ksvl-stickers">
       <p class="ksvl-stickers-eyebrow">★ 99.9 KSVL · The Sticker Sheet</p>
       <h2 class="ksvl-stickers-title">Grab a few from the counter.</h2>
-      <p class="ksvl-stickers-lede">The sticker counter is visible for review, but listening and listening-based rewards are held with the catalogue. No sticker is being represented as earned by unavailable playback.</p>
+      <p class="ksvl-stickers-lede">KSVL stickers are coming later. Listening does not add a sticker to your collection yet.</p>
 
       <figure style="margin:14px 0 20px;">
         <img src="assets/building-interiors/ksvl-sticker-banner.jpg?v=20260708" alt="A pile of KSVL 99.9 vinyl stickers — CHARTER LISTENER, DON'T JUST LEARN FROM BOOKS LEARN FROM HOOKS!, ALL WEDNESDAYS, ENCORE, MIX CD ALCHEMY and the SUNNYVAiLE band decals" loading="lazy" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 10px 26px rgba(75,33,72,0.16);">
@@ -546,14 +548,14 @@
         var STICKERS = [
           // Station badges
           { slug: 'ksvl-community-raidio',           type: 'declaration', name: 'KSVL · Community RAiDIO',    earn: 'Grab from the counter.' },
-          { slug: 'ksvl-charter-listener',           type: 'achievement', name: 'Charter Listener',           earn: 'Held while public listening is unavailable.' },
-          { slug: 'ksvl-all-wednesdays',             type: 'achievement', name: 'All Wednesdays',             earn: 'Held while public listening is unavailable.' },
+          { slug: 'ksvl-charter-listener',           type: 'achievement', name: 'Charter Listener',           earn: 'Coming later.' },
+          { slug: 'ksvl-all-wednesdays',             type: 'achievement', name: 'All Wednesdays',             earn: 'Coming later.' },
           { slug: 'ksvl-dj-sunnyv-fanclub',          type: 'declaration', name: 'DJ SunnyV Fan Club',         earn: 'Grab from the counter.' },
           // Mix + genre badges
-          { slug: 'ksvl-saints-mix-certified',       type: 'achievement', name: 'SAiNTS Mix Certified',       earn: 'Held while public listening is unavailable.' },
-          { slug: 'ksvl-bronze-aige-regular',        type: 'achievement', name: 'BRONZE AiGE Regular',        earn: 'Held while public listening is unavailable.' },
-          { slug: 'ksvl-mix-cd-alchemist',           type: 'achievement', name: 'Mix CD Alchemist',           earn: 'Held while catalogue and purchase rules are reviewed.' },
-          { slug: 'ksvl-encore',                     type: 'achievement', name: 'Encore',                     earn: 'Held while public listening is unavailable.' },
+          { slug: 'ksvl-saints-mix-certified',       type: 'achievement', name: 'SAiNTS Mix Certified',       earn: 'Coming later.' },
+          { slug: 'ksvl-bronze-aige-regular',        type: 'achievement', name: 'BRONZE AiGE Regular',        earn: 'Coming later.' },
+          { slug: 'ksvl-mix-cd-alchemist',           type: 'achievement', name: 'Mix CD Alchemist',           earn: 'Coming later.' },
+          { slug: 'ksvl-encore',                     type: 'achievement', name: 'Encore',                     earn: 'Coming later.' },
           // Motto stickers (bonus declarations)
           { slug: 'ksvl-books-hooks-motto-oval',     type: 'declaration', name: '"Don\'t just learn from books"', earn: 'Grab from the counter.' },
           { slug: 'ksvl-dont-just-learn-bumper',     type: 'declaration', name: 'Books & Hooks · Bumper',     earn: 'Grab from the counter.' },
@@ -619,7 +621,7 @@
           var earned = getEarned();
           if (hasPicked()) {
             var total = STICKERS.length;
-            status.innerHTML = '<span>You have <strong>' + earned.length + ' of ' + total + '</strong> device-local stickers. Listening-based unlocks are held.</span>';
+            status.innerHTML = '<span>You have <strong>' + earned.length + ' of ' + total + '</strong> stickers saved in this browser. Listening unlocks are coming later.</span>';
             return;
           }
           var selectedTiles = document.querySelectorAll('.ksvl-sticker-tile.is-selected');

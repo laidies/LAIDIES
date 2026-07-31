@@ -9,8 +9,8 @@
 
 ## Result
 
-**PUBLIC DOMAIN VERIFIED. ANNOUNCEMENT PACKAGE READY; CHANNEL PUBLICATION IS
-BLOCKED ONLY BY PUBLISHING-ACCOUNT ACCESS IN THIS CODEX ENVIRONMENT.**
+**PUBLIC DOMAIN MECHANICS VERIFIED. ANNOUNCEMENT PACKAGE PREPARED; PUBLICATION
+IS ON HOLD WHILE THE REOPENED LIBRAiRY ARRIVAL VISUAL GATE IS RESOLVED.**
 
 Cloudflare Pages now reports both `laidies.ai` and `www.laidies.ai` as
 **Active · SSL enabled**. The apex homepage response is byte-identical to
@@ -108,13 +108,17 @@ path.
 ## Announcement handoff
 
 The bounded Instagram/Story/LinkedIn package in
-`social/launch/sunnyvaile-grand-reopening-draft.md` is now **READY TO
-PUBLISH**. Instagram and LinkedIn were not published in this pass because:
+`social/launch/sunnyvaile-grand-reopening-draft.md` is prepared but is now
+**ON HOLD**. Owner review after the production cutover rejected the current
+LIBRAiRY arrival as visually underwhelming. The replacement must be
+owner-approved, implemented and re-verified on the public origin before the
+announcement is published. Channel state is:
 
 - no direct publishing connector is installed;
-- the in-app browser is not signed in to Instagram; and
-- the ChatGPT Chrome Extension is not installed in the active Chrome profile,
-  so Codex cannot use the user's existing signed-in social sessions.
+- LinkedIn company-admin access for organization `125584075` is visibly
+  verified in the in-app browser; and
+- authenticated ownership of Instagram `@laidies.ai` is visibly verified
+  through the account's Edit profile and New post controls.
 
 No password, cookie or private browser store was inspected. Publication URLs
 and timestamps remain blank until a real channel post succeeds.

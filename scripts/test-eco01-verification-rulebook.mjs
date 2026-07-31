@@ -6,6 +6,7 @@ import crypto from "node:crypto";
 import vm from "node:vm";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { compileAdmissionManifest } from "./compile-library-admission.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (relative) => fs.readFileSync(path.join(ROOT, relative), "utf8");
@@ -13,9 +14,11 @@ const sourceText = read("content/library-books/verification-rulebook.json");
 const book = JSON.parse(sourceText);
 const claims = JSON.parse(read("content/library-books/verification-rulebook.claims.json"));
 const evals = JSON.parse(read("content/library-books/verification-rulebook.evals.v1.json"));
-const html = read("grimoire/verification-rulebook.html");
+const renderedPath = "content/library-books/rendered/verification-rulebook.html";
+const html = read(renderedPath);
 const library = read("library.html");
 const siteIndex = JSON.parse(read("content/site/site-index.json"));
+const admissionManifest = JSON.parse(read("content/library-books/admission-manifest.json"));
 const failures = [];
 
 const check = (condition, message) => {
@@ -87,8 +90,12 @@ const primaryLimit = evals.cases.find((item) => item.id === "VR-E13");
 check(/primary and official/.test(primaryLimit?.prompt || "") && /method, incentive and applicability/.test(primaryLimit?.diagnosticAction || ""), "suite must test primary-source limitations");
 
 const sourceSha = crypto.createHash("sha256").update(sourceText).digest("hex");
+const contentVersion = `sha256-${sourceSha}`;
+const artifactSha = crypto.createHash("sha256").update(html).digest("hex");
 check(html.includes(`content="/content/library-books/verification-rulebook.json"`), "rendered page does not name canonical source");
 check(html.includes(`content="${sourceSha}"`), "rendered page hash does not bind canonical source");
+check(html.includes(`name="laidies:content-version" content="${contentVersion}"`), "rendered page content version does not bind canonical source hash");
+check(claims.contentVersion === contentVersion, "derived claim ledger content version does not bind canonical source hash");
 check(html.includes("status HOLD"), "rendered candidate does not visibly retain HOLD");
 check(html.includes('meta name="robots" content="noindex,nofollow"'), "held candidate must be noindex");
 check((html.match(/<h1\b/g) || []).length === 1, "rendered candidate must have exactly one h1");
@@ -120,6 +127,18 @@ for (const claim of book.claimRegistry) {
   check(html.includes(claim.qualification.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;")), `${claim.id} qualification is not rendered`);
 }
 check(!/<img\b[^>]*alt=["'][^"']*text/i.test(html), "examples must not rely on images of text");
+
+const admissionCandidate = admissionManifest.books?.find((row) => row.book_id === "how-to-check");
+check(Boolean(admissionCandidate), "held admission proposal is missing how-to-check");
+if (admissionCandidate) {
+  check(admissionManifest.authority === "EDITORIAL_PROPOSAL_ONLY_ZERO_BOOKS_ADMITTED", "manifest authority must retain zero-admitted truth");
+  check(admissionCandidate.status === "hold", "Verification Rulebook proposal must remain HOLD");
+  check(admissionCandidate.correction_state === "blocked-no-triage-ledger", "Verification Rulebook correction gate must remain blocked");
+  check(admissionCandidate.source_path === `/${renderedPath}`, "held proposal source_path does not bind the deterministic rendered artifact");
+  check(admissionCandidate.content_version === contentVersion, "held proposal content_version does not bind the canonical source hash");
+  check(admissionCandidate.artifact_sha256 === artifactSha, "held proposal artifact_sha256 does not bind the rendered bytes");
+  check(Object.keys(compileAdmissionManifest(admissionManifest, { root: ROOT })).length === 0, "held proposal must compile to zero admitted books");
+}
 
 const shelfMatch = library.match(/\{id:'how-to-check'[\s\S]*?\},\n/);
 check(Boolean(shelfMatch), "Library how-to-check record is missing");
@@ -154,6 +173,92 @@ const futureIndex = path.join(tempDir, "c2pa-future.html");
 fs.writeFileSync(futureIndex, "<title>C2PA Specifications 2.5</title>");
 const staleVersion = spawnSync(process.execPath, ["scripts/check-eco01-source-versions.mjs", "--fixture", futureIndex], { cwd: ROOT, encoding: "utf8" });
 check(staleVersion.status !== 0, "C2PA version monitor must fail when official index exposes a newer version");
+const deterministicOutput = path.join(tempDir, "verification-rulebook.html");
+const deterministicLedger = path.join(tempDir, "verification-rulebook.claims.json");
+const reproducible = spawnSync(process.execPath, ["scripts/render-eco01-verification-rulebook.mjs"], {
+  cwd: ROOT,
+  env: {
+    ...process.env,
+    ECO01_OUTPUT: path.relative(ROOT, deterministicOutput),
+    ECO01_LEDGER_OUTPUT: path.relative(ROOT, deterministicLedger)
+  },
+  encoding: "utf8"
+});
+check(reproducible.status === 0, `renderer must reproduce the immutable artifact: ${reproducible.stderr || reproducible.stdout}`);
+if (reproducible.status === 0) {
+  check(fs.readFileSync(deterministicOutput, "utf8") === html, "rendered artifact drifts from its canonical JSON renderer");
+  check(fs.readFileSync(deterministicLedger, "utf8") === read("content/library-books/verification-rulebook.claims.json"), "derived claim ledger drifts from canonical JSON renderer");
+}
+
+function compileSimulatedPromotion(row, fixtureRoot = ROOT) {
+  const canonicalRelative = "content/library-books/verification-rulebook.json";
+  const canonicalBytes = fs.readFileSync(path.join(fixtureRoot, canonicalRelative));
+  const canonicalSha = crypto.createHash("sha256").update(canonicalBytes).digest("hex");
+  const expectedVersion = `sha256-${canonicalSha}`;
+  const expectedPath = "/content/library-books/rendered/verification-rulebook.html";
+  if (row.source_path !== expectedPath) throw new Error("promotion source path drift");
+  if (row.content_version !== expectedVersion) throw new Error("promotion canonical source/version drift");
+  const artifact = fs.readFileSync(path.join(fixtureRoot, row.source_path.slice(1)));
+  const actualArtifactSha = crypto.createHash("sha256").update(artifact).digest("hex");
+  if (row.artifact_sha256 !== actualArtifactSha) throw new Error("promotion rendered artifact/hash drift");
+  const artifactText = artifact.toString("utf8");
+  if (!artifactText.includes(`name="laidies:canonical-source" content="/${canonicalRelative}"`)) {
+    throw new Error("promotion canonical source path metadata drift");
+  }
+  if (!artifactText.includes(`name="laidies:canonical-source-sha256" content="${canonicalSha}"`)) {
+    throw new Error("promotion canonical source hash metadata drift");
+  }
+  const compiled = compileAdmissionManifest({
+    books: [{ ...row, status: "available", correction_state: "clear" }]
+  }, { root: fixtureRoot });
+  if (!compiled[row.book_id]) throw new Error("simulated promotion did not compile");
+  return compiled[row.book_id];
+}
+
+function promotionMustReject(row, fixtureRoot, expectedMessage) {
+  try {
+    compileSimulatedPromotion(row, fixtureRoot);
+    check(false, `simulated promotion must reject ${expectedMessage}`);
+  } catch (error) {
+    check(error.message.includes(expectedMessage), `simulated promotion rejected for the wrong reason: ${error.message}`);
+  }
+}
+
+if (admissionCandidate) {
+  const promoted = compileSimulatedPromotion(admissionCandidate);
+  check(promoted.sourcePath === admissionCandidate.source_path, "simulated promotion did not retain the exact held candidate path");
+  check(promoted.contentVersion === admissionCandidate.content_version, "simulated promotion did not retain the exact held candidate version");
+  check(promoted.artifactSha256 === admissionCandidate.artifact_sha256, "simulated promotion did not retain the exact held candidate bytes");
+
+  const fixtureRoot = path.join(tempDir, "promotion-fixture");
+  fs.mkdirSync(path.join(fixtureRoot, "content/library-books/rendered"), { recursive: true });
+  fs.copyFileSync(path.join(ROOT, "content/library-books/verification-rulebook.json"), path.join(fixtureRoot, "content/library-books/verification-rulebook.json"));
+  fs.copyFileSync(path.join(ROOT, renderedPath), path.join(fixtureRoot, renderedPath));
+
+  fs.appendFileSync(path.join(fixtureRoot, "content/library-books/verification-rulebook.json"), "\n");
+  promotionMustReject(admissionCandidate, fixtureRoot, "canonical source/version drift");
+  try {
+    compileAdmissionManifest({ books: [admissionCandidate] }, { root: fixtureRoot });
+    check(false, "held candidate compiler must reject canonical source drift");
+  } catch (error) {
+    check(error.message.includes("canonical source hash"), `held candidate source drift rejected for the wrong reason: ${error.message}`);
+  }
+  fs.copyFileSync(path.join(ROOT, "content/library-books/verification-rulebook.json"), path.join(fixtureRoot, "content/library-books/verification-rulebook.json"));
+
+  fs.appendFileSync(path.join(fixtureRoot, renderedPath), "\n");
+  promotionMustReject(admissionCandidate, fixtureRoot, "rendered artifact/hash drift");
+  try {
+    compileAdmissionManifest({ books: [admissionCandidate] }, { root: fixtureRoot });
+    check(false, "held candidate compiler must reject rendered byte drift");
+  } catch (error) {
+    check(error.message.includes("artifact hash"), `held candidate render drift rejected for the wrong reason: ${error.message}`);
+  }
+  fs.copyFileSync(path.join(ROOT, renderedPath), path.join(fixtureRoot, renderedPath));
+
+  promotionMustReject({ ...admissionCandidate, source_path: "/content/library-books/rendered/missing.html" }, fixtureRoot, "source path drift");
+  promotionMustReject({ ...admissionCandidate, content_version: `${contentVersion}-stale` }, fixtureRoot, "canonical source/version drift");
+  promotionMustReject({ ...admissionCandidate, artifact_sha256: "0".repeat(64) }, fixtureRoot, "rendered artifact/hash drift");
+}
 fs.rmSync(tempDir, { recursive: true, force: true });
 
 if (failures.length) {

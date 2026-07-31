@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="Your SUNNYVAiLE Closet — Resident Card and supported collections, with device-local progress clearly labelled while account sync completes release checks.">
+  <meta name="description" content="Your SUNNYVAiLE Closet — your Resident Card, saved finds, collectibles and progress in one place.">
   <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
     window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
@@ -955,7 +955,7 @@
     <div class="closet-arrival-copy">
       <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
       <h1>The Closet</h1>
-      <span>Your Resident Card, Wednesday route, and the supported objects this device or a verified account can prove.</span>
+      <span>Your Resident Card, Wednesday route and everything saved to your Closet.</span>
     </div>
   </div>
 
@@ -1050,7 +1050,7 @@
 
     <div class="card-actions" id="selfCardActions">
       <button type="button" class="card-action-btn card-action-btn--primary" id="editCardBtn">✎ Edit my card</button>
-      <button type="button" class="card-action-btn" id="shareCardBtn" disabled aria-describedby="closetPersistenceState">Share unavailable — public Card not verified</button>
+      <button type="button" class="card-action-btn" id="shareCardBtn" disabled aria-describedby="closetPersistenceState">Card sharing is coming later</button>
     </div>
     <div class="card-actions" id="publicCardActions" hidden>
       <a class="card-action-btn card-action-btn--primary" href="/maikeover.html">Get your own card →</a>
@@ -1402,7 +1402,8 @@
     <!-- Sticker Book -->
     <div class="vessel vessel--puffy-board">
       <h3 class="vessel-title">The Puffy Board</h3>
-      <p class="vessel-note">Books and passages you saved in the LIBRAiRY. Tap one to jump back to the exact place; peel it off any time.</p>
+      <p class="vessel-note">Device-local Library shortcuts—not owned books, rewards, account history or synced saves. Reopening always returns to the LIBRAiRY so its current admission status can be checked again; peel a shortcut off any time.</p>
+      <p id="puffyVisitorState" class="vessel-note" role="status" aria-live="polite">Checking this browser’s Puffy state…</p>
       <div id="puffyPouch" class="puffy-pouch" aria-label="Your 10 Puffy Stickers"></div>
       <div class="puffy-pouch-actions">
         <button id="puffyPouchEdit" type="button">Change my 10</button>
@@ -1655,7 +1656,7 @@
       <span class="edit-field-label">Favorite storefront (declare your local)</span>
       <select class="edit-field-select" id="editStorefront">
         <option value="">— pick your storefront —</option>
-        <option value="visitors-centre">The Welcome Wagon Visitor's Centre</option>
+        <option value="visitors-centre">Visitor’s Centre</option>
         <option value="newsstand">The NewsStand</option>
         <option value="library">SUNNYVAiLE LIBRAiRY</option>
         <option value="mall">The Mall</option>
@@ -1736,7 +1737,7 @@
   var SONG_LABEL = { 'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap','the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI','tell-me-what-you-want':'Tell Me What You Want','dont-be-chutney':"Don't Be Chutney on the Stand" };
   var ACTIVITY_LABEL = { 'library':'Reading at the LIBRAiRY','blend-snap':'Coffee at the Blend & Snap','mall':'Shopping at the Mall','bronze-aige':'Dancing at the BRONZE AiGE','high':'Pop quiz at SUNNYVAiLE High','chick-flicks':'Movie night at the Chick Flicks','mme-claio':'Fortune reading with Mme CLAi-O','fairy-godmother':'Wishes with the FAiRY Godmother','sorority-house':'Girl Talk at Delta LAi Nu','sanctuary':'Picking my Luminaries at the LUMINAiRY','wednesday-tour':'The Wednesday tour' };
   var SAINT_LABEL = { 'cher-horowitz':'Cher Horowitz','dolly-parton':'Dolly Parton','elle-woods':'Elle Woods','miranda-priestly':'Miranda Priestly','buffy-summers':'Buffy Summers','regina-george':'Regina George','david-rose':'David Rose','deb':'Deb','samantha-jones':'Samantha Jones','oprah-winfrey':'Oprah Winfrey','bette-midler':'Bette Midler','golden-girls':'The Golden Girls','jessica-fletcher':'Jessica Fletcher','sister-mary-clarence':'Sister Mary Clarence' };
-  var STOREFRONT_LABEL = { 'visitors-centre':"The Welcome Wagon Visitor's Centre",'newsstand':'The NewsStand','library':'SUNNYVAiLE LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
+  var STOREFRONT_LABEL = { 'visitors-centre':"Visitor’s Centre",'newsstand':'The NewsStand','library':'SUNNYVAiLE LIBRAiRY','mall':'The Mall','bronze-aige':'The BRONZE AiGE','mme-claio':"Mme CLAi-O's Shop",'chick-flicks':'The Chick Flicks','blend-snap':'The Blend & Snap','maikeover':'MAiKEOVER on MAiN','sorority-house':'Delta LAi Nu','fairy-godmother':"The FAiRY Godmother's House",'town-hall':'Town Hall','post-office':'The SUNNYVAiLE Post Office','sunnyvaile-high':'SUNNYVAiLE High','sanctuary':'The LUMINAiRY','ksvl':'KSVL Community RAiDIO','dream-phone':'The Dream Phone booth' };
   var CHARACTER_LABEL = { 'mayor-deb':'Mayor Deb','mme-claio':'Mme CLAi-O','fairy-godmother':'The FAiRY Godmother','dj-sunnyv':'DJ SunnyV' };
   var EPISODE_LABEL = {}; // filled async from episode-index.json
 
@@ -1861,7 +1862,7 @@
     shareBtn.disabled = !canShare;
     shareBtn.textContent = canShare
       ? 'Share my public card'
-      : 'Share unavailable — public Card not verified';
+      : 'Card sharing is coming later';
   }
   if (shareBtn) {
     shareBtn.addEventListener('click', function() {

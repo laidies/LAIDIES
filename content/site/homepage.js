@@ -4,12 +4,11 @@
  *  - interactive town map popups
  *  - song chips that play through a DOM <audio> (adopted by mini-player.js)
  *  - Wednesday route progress paint (reads window.svTour from sv-tour-checkin.js)
- *  - season panel week-keying + windowing (reads /content/episode-index.json)
+ *  - published episode fallback presentation (editorial release data is backstage)
  *  - window.svShowResume(epTitle, href) hook for signed-in resume state
  *
- * WEEKLY UPDATE: WEEKLY_SONG below must move with the episode, alongside the
- * ksvl-player.js catalogue. If WEEKLY_SONG.ep falls behind the latest published
- * episode in episode-index.json, the anthem chip hides itself (honesty rule).
+ * Platform release projections, receipts, hashes and failure codes must not
+ * provide Homepage visitor copy or presentation.
  */
 (function () {
   'use strict';
@@ -19,6 +18,33 @@
     title: 'It Was Women All Along',
     src: '/content/music/dj-jaidy-week-04-it-was-women-all-along.mp3'
   };
+
+  /* ---------- latest-episode links: published index, static fallback in HTML ---------- */
+  (function () {
+    var links = document.querySelectorAll('[data-latest-episode-link]');
+    if (!links.length) return;
+    fetch('/content/episode-index.json').then(function (response) {
+      if (!response.ok) throw new Error('Episode index unavailable (' + response.status + ')');
+      return response.json();
+    }).then(function (data) {
+      var published = (data.episodes || []).filter(function (episode) {
+        return episode.status === 'published' &&
+          Number.isFinite(Number(episode.number)) &&
+          typeof episode.issueUrl === 'string' &&
+          /^issues\/issue-[a-z0-9-]+\.html$/i.test(episode.issueUrl);
+      }).sort(function (a, b) {
+        return Number(a.number) - Number(b.number);
+      });
+      if (!published.length) return;
+      var latest = published[published.length - 1];
+      links.forEach(function (link) {
+        link.href = '/' + latest.issueUrl;
+        link.setAttribute('aria-label', 'Latest Episode: ' + latest.title);
+      });
+    }).catch(function () {
+      /* Keep the last known published route already present in the HTML. */
+    });
+  })();
 
   /* ---------- menu / filters / district tabs ---------- */
   var menu = document.querySelector('.menu');
@@ -34,6 +60,13 @@
         mobile.hidden = true;
         menu.setAttribute('aria-expanded', 'false');
       });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
+        mobile.hidden = true;
+        menu.setAttribute('aria-expanded', 'false');
+        menu.focus();
+      }
     });
   }
 
@@ -141,63 +174,19 @@
     document.addEventListener('sv:tour-checkin', paint);
   })();
 
-  /* ---------- season panel: week-keying + windowing (max 5 rows) ---------- */
+  /* ---------- season panel: fixed published fallback ---------- */
   (function () {
     var track = document.querySelector('.season-track');
     var heading = document.querySelector('.fc-default h3');
     if (!track || !heading) return;
-    function showEvergreenFallback() {
-      heading.textContent = 'Episode 04 · The Founding Mothers';
-      track.querySelectorAll('.st-current em').forEach(function (label) {
-        label.textContent = 'Previously published';
-      });
-      var readBtn = document.querySelector('.fc-default .fc-btn-teal');
-      var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
-      if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04 →'; }
-      if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04 →'; }
-    }
-
-    fetch('/content/episode-index.json').then(function (r) {
-      if (!r.ok) throw new Error('Episode index unavailable (' + r.status + ')');
-      return r.json();
-    }).then(function (data) {
-      var pub = (data.episodes || []).filter(function (e) { return e.status === 'published'; })
-        .sort(function (a, b) { return a.number - b.number; });
-      if (!pub.length) {
-        showEvergreenFallback();
-        return;
-      }
-      var current = pub[pub.length - 1];
-      var pad = function (n) { return (n < 10 ? '0' : '') + n; };
-
-      /* hide the anthem chip if it has fallen behind the current episode */
-      var mini = document.querySelector('.pc-mini');
-      if (mini && WEEKLY_SONG.ep !== current.number) mini.hidden = true;
-
-      heading.textContent = 'Ep ' + pad(current.number) + ' · ' + current.title;
-      var priors = pub.slice(0, -1);
-      var shownPriors = priors.slice(-3);
-      var earlier = priors.length - shownPriors.length;
-      var rows = [];
-      if (earlier > 0) {
-        rows.push('<li><a href="/episodes.html"><i>…</i>+ ' + earlier + ' earlier episode' + (earlier === 1 ? '' : 's') + ' &rarr;</a></li>');
-      } else {
-        rows.push('<li><a href="/visitors-centre.html"><i>T</i>The Trailer</a></li>');
-      }
-      shownPriors.forEach(function (e) {
-        rows.push('<li><a href="/' + e.issueUrl + '"><i>' + pad(e.number) + '</i>' + e.title + '</a></li>');
-      });
-      rows.push('<li class="st-current"><a href="/' + current.issueUrl + '"><i>' + pad(current.number) + '</i>' + current.title + '<em>This week</em></a>' +
-        (WEEKLY_SONG.ep === current.number
-          ? '<button class="play-chip pc-mini" data-audio="' + WEEKLY_SONG.src + '" data-title="' + WEEKLY_SONG.title + '" aria-label="Play this week\'s anthem"><span class="pc-icon">&#9654;</span></button>'
-          : '') + '</li>');
-      track.innerHTML = rows.join('');
-      // Keep the Read / Listen buttons pointed at the current episode.
-      var readBtn = document.querySelector('.fc-default .fc-btn-teal');
-      var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
-      if (readBtn) { readBtn.href = '/' + current.issueUrl; readBtn.textContent = 'Read this week →'; }
-      if (listenBtn) { listenBtn.href = '/watch.html?ep=' + pad(current.number); listenBtn.textContent = 'Listen this week →'; }
-    }).catch(function () { showEvergreenFallback(); });
+    heading.textContent = 'Episode 04 · The Founding Mothers';
+    track.querySelectorAll('.st-current em').forEach(function (label) {
+      label.textContent = 'Previously published';
+    });
+    var readBtn = document.querySelector('.fc-default .fc-btn-teal');
+    var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
+    if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04 →'; }
+    if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04 →'; }
   })();
 
   /* ---------- signed-in resume hook (wired to member_issue_progress later) ---------- */

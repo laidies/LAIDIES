@@ -1,8 +1,37 @@
 # Town Hall Steward Backlog
 
-**Status:** BOUNDED LOCAL PASS — independent Repair 1 rejudge 87/100.
-Submission, release, server, staff, owner, native-accessibility and
-civic-accountability gates remain held.
+**Status:** SPECIFIED — permanent-owner initialization complete; targeted
+owner-entry PASS. Independent Repair 1 remains a bounded local 87/100 client
+pass. The intended submission, server, staff, owner, native-accessibility and
+civic-accountability lifecycle remains BUILDING.
+
+## SPECIFIED — PERMANENT OWNER INITIALIZATION — 2026-07-26
+
+1. Recovered `EXPERIENCE-BRIEF.md` from the approved Town Hall building brief,
+   locked decisions, operating spec, current implementation and bounded
+   evidence. The recovered intent preserves “actually gets read” as an
+   uncompleted staff-lifecycle obligation while prohibiting that public claim
+   until it is proved.
+2. Recovered `FUNCTIONALITY-MAP.md` with the complete capability inventory,
+   intake transaction, backend acceptance, staff lifecycle,
+   moderation/abuse/privacy, retry/idempotency/receipt behavior, four visitor
+   scopes, Town Regular→Closet propagation, correction/discovery consumers and
+   fourteen `TH-FP` shared handoffs.
+3. Created
+   `build-packet-complete-civic-intake-lifecycle-2026-07-26.md`, including
+   non-overlapping craft ownership, exact server/data decisions, controlled
+   fixtures, four-scope/cross-page tests, independent gates, release binding,
+   rollback and measurement.
+4. Queued shared server, schema, identity, staff access, abuse/rate,
+   retention, correction, analytics and release work through Functionality &
+   Platform in `TH-FP-01` through `TH-FP-14`. This initialization did not edit
+   shared runtime/platform files.
+5. Targeted preflight:
+   `node scripts/check-product-stewards.mjs --owner-entry town-hall` → `PASS`.
+
+**Next:** Town Feedback & Civic Records executes TH-01 (lifecycle semantics and
+cleanup-safe fixtures). Functionality & Platform then binds TH-02 (the shared
+intake/receipt/idempotency contract) before any Town Hall client integration.
 
 ## INDEPENDENT LOCAL PASS — RELEASE HOLDS REMAIN — 2026-07-25 Repair 1
 
@@ -49,12 +78,26 @@ These results are `VERIFIED LOCALLY`, not live-service, deployed, publicly verif
 4. **Keep signed-in intake minimised.** The local candidate no longer sends session email. Any future contact field requires an approved purpose, consent/notice, access rule and retention/deletion contract. Keep bodies, subjects, emails and names out of analytics, routine logs and champion evidence.
 5. **Complete independent accessibility and resilience judgement.** Maker evidence now covers keyboard station activation, radio focus styling, live status, loading/disabled recovery, mobile overflow and synthetic auth/insert/storage failures. Independent review must still cover zoom, assistive-technology behavior and exact visual focus/tap quality.
 
-## HIDE/LABEL FOR LAUNCH
+## SUPERSEDED COMPLETION DISPOSITION — TEMPORARY SAFETY CONTROLS WHILE BUILDING
 
-1. **Limit the comment promise to verified truth.** Until the staff loop is demonstrated, describe the form as an inbox that confirms acceptance by the service—not that Deb, an intern or a human has read it.
-2. **Label local state honestly.** “Your last card is on the pile” is a browser-local successful-filed marker, not an account record, cross-device history or response status.
-3. **Do not market Civic Records as a public, searchable or accountable record system** until visibility, consent, moderation, correction and retention policies are approved and tested.
-4. **Seek owner visual review before calling the room redesign finished.** The implementation has visible labelled stations and existing QA captures, while the brief's requested straight-on crisp interface render/placard treatment remains unverified in this dossier.
+The former `HIDE/LABEL FOR LAUNCH` heading is superseded by
+D-2026-07-26-055 and the build-completion policy. The following truthful
+limits remain required while the complete build stays open; none completes or
+defers the intended capability.
+
+1. **BUILDING — keep the comment promise at verified truth.** Until the staff
+   loop is demonstrated, describe the disabled or released form only by the
+   result the exact service can prove—not that Deb, an intern or a human read
+   it.
+2. **BUILDING — label local state honestly.** “Your last card is on the pile”
+   is a browser-local accepted marker, not an account record, cross-device
+   history or response status.
+3. **BUILDING — do not market Civic Records as public/searchable/accountable**
+   until visibility, consent, moderation, correction, retention and
+   all-consumer propagation are approved and tested.
+4. **OWNER DECISION + BUILDING — complete visual review.** The visible stations
+   and QA captures do not approve the requested straight-on crisp lobby,
+   placards, composite technique or optional bell.
 
 ## POST-LAUNCH EXPERIMENT
 
@@ -72,3 +115,14 @@ These results are `VERIFIED LOCALLY`, not live-service, deployed, publicly verif
 - Per change/incident: intake policy, copy, schema/RLS and route review.
 - Monthly once operating: safe aggregate volume/failure/abuse review, randomly sampled authorised triage audit and broken-route check.
 - Quarterly: retention/access-policy review, visual/mobile/accessibility regression and civic-promise review with Ali.
+
+## Learning scan — 2026-07-26
+
+Initialization reused BTB-134 through BTB-137: validate the owner's real
+entry files, map the complete producer/consumer round trip, separate all four
+visitor scopes, and keep temporary truth controls subordinate to the intended
+build. The first post-write preflight rejected noncanonical visitor-state
+headings even though the matrices were present; aligning them to the required
+template headings made the targeted gate pass. That is the validator working
+as designed, not a new failure class, so no duplicate painpoint entry was
+added.

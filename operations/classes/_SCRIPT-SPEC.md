@@ -115,7 +115,7 @@ one-term-per-concept rule in reverse: one word stretched over four concepts.
 
 | Noun | What it is | Which classes it belongs to |
 |---|---|---|
-| **the model** | The part that produces the words. It has a cutoff. It does not know you. It produces the most likely continuation of what is in front of it. | Basics P1, P2 — and any beat about *why the words came out that way* |
+| **the model** | The trained component of an AI system that turns an input into an output. It may handle more than words and may be combined with tools or other models. It receives only the context the system supplies. | Basics P1, P2 — and any beat about *why the output came out that way* |
 | **the tool** | Everything built around the model — your account, memory, standing instructions, files, containers, connectors, modes, the buttons. | Basics P4, P5, P6, P7, P8 — and any beat about *a screen she can go and click* |
 
 **Why it matters, not just tidiness:** memory belongs to the tool, not the model. If both are

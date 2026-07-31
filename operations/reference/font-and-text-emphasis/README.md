@@ -1,5 +1,9 @@
 # Font styling + text-for-emphasis — reference library
 
+> These references govern episode lettering and emphasis treatments. They do
+> **not** define the current LAiDIES wordmark. See
+> `operations/episode-visual-system-lock.md`.
+
 Reference images Ali shared for **(a) font/lettering styles** and **(b) the "just text on screen for
 emphasis" beats** (the comic word-bursts like POW! / AS IF! used in episodes). Pull from these when
 rendering title text, the LAiDIES end-title, or an emphasis-text frame. Growing set — Ali will add more.

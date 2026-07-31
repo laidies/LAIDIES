@@ -1,6 +1,10 @@
-# Episode 06 — The Skeleton Key  ·  CANON (single source of truth)
+# The Skeleton Key · PRESERVED DRAFT — EPISODE NUMBER UNRULED
 
-Status: **drafting** (started 2026-07-08; **re-sequenced Ep 5 → Ep 6 on 2026-07-09** so "The Model Menu" could fill the tool-comparison gap — see [[ep5-model-menu-resequence]] and `episode-05.canon.md`). Not recorded. Feeds all ~13 surfaces per `operations/episode-canonical-source-spec.md`.
+> **STATUS: SUPERSEDED AS EPISODE 06 by D-2026-07-24-018. DO NOT DERIVE.**
+> Episode 6 now owns model/mode selection and the 200-files example. This
+> memory/custom-instructions material is preserved for later resequencing; its
+> eventual episode number and public title require Ali. Everything below is
+> historic drafting context, not current production authority.
 
 ## The promise
 **Topic:** memory + custom instructions — *set yourself up once so every tool starts already knowing how you work.* You stop re-introducing yourself to the machine every single morning.

@@ -40,16 +40,20 @@ places. At each one it prints one line saying what it needs and where to look.
 
 | | What you look at | How long | What you're deciding |
 |---|---|---|---|
-| **Gate 1** | the substance sheet | ~10 min | Does a smart, busy woman learn something here she didn't know? |
+| **Gate 1** | the substance sheet + short fidelity card | ~10 min | Is this the useful episode Ali approved—not merely an internally coherent replacement? |
 | **Gate 2** | only the flagged art | ~20 min | Keep or reroll these frames. |
 | **Gate 3** | the cut, once | ~15 min | Does it feel right? |
 | **Gate 4** | publish | ~5 min | Ship it. |
 
-**Gate 1 is the important one.** It happens *before any prose exists*. If the
-substance is thin, the script, the article, the images, the quiz and the cards
-built on top of it are all thin, and all of that work is wasted. Episode 5
-stopped for exactly this reason. Approving a one-page sheet is much cheaper
-than rejecting a finished episode.
+**Gate 1 is the important one.** It happens *before any prose exists*. Before
+Ali sees it, Codex must complete
+`operations/checklists/episode-concept-fidelity-gate-template.md`: lock the
+original intent, expose every proposed scope change, trace the candidate,
+blindly reverse-brief it, and pass four separate vetoes—concept fidelity,
+technical truth, teaching value and LAiDIES episode fit. This prevents a
+technically polished replacement from silently becoming a different episode.
+Ali still makes one decision; the evidence packet removes the need for her to
+discover drift by probing.
 
 To say yes to a gate, you (not an agent) run one line — the engine prints the
 exact line when it stops. For example:

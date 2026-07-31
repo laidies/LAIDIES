@@ -21,7 +21,7 @@
   tangible; the counter coordinates related products while preserving their
   different jobs.
 - **Explicit non-goals:** account-backed learning history, cross-device sync,
-  reward authority, quiz assessment, fake Study Sheets, a generic link hub, or
+  reward authority, quiz assessment, a duplicate Episode 01 Study Sheet, a generic link hub, or
   a claim that every released episode has a complete pack.
 
 ## Experience model
@@ -78,9 +78,9 @@
 - **Format-specific job:** coordinate, not duplicate, the components.
 - **Outcome:** the visitor can distinguish review, practice, reference,
   collection/memory and assessment, then select the appropriate action.
-- **Correct model:** Episode explains; Study Sheet reviews; Try-On practises;
-  Cheat Sheet is a durable reference; Cards reinforce memory/collection; Quiz
-  checks understanding beside—not inside—the pack.
+- **Correct model:** Episode explains; the one-page Cheat Sheet recaps and
+  provides durable reference; Try-On practises; Cards reinforce
+  memory/collection; Quiz checks understanding beside—not inside—the pack.
 - **Misconceptions:** an episode being published does not prove every component
   exists; ordering/opening is not studying; card collection is not learning;
   a local marker is not an account.
@@ -131,8 +131,10 @@
   localStorage values on this device; denial cannot block browsing.
 - **Rewards:** none. Quiz and future server-authoritative pack economy remain
   outside this product.
-- **Privacy:** no usual, opened marker, Try-On text or card collection is sent
-  by this contract.
+- **Privacy:** café usual/opened markers are not sent by this contract. The
+  separate, explicit account-backed `Save to My Closet` action may store the
+  Study Pack item’s disclosed resume fields under the Study Pack → Identity →
+  Closet contract; raw user content remains private and outside analytics.
 - **Reliability:** fail closed on invalid/stale/missing data; never reuse the
   hard-coded Episode 1 receipt as fallback.
 - **Fallback:** season/episode discovery only when its destination is static and
@@ -180,14 +182,19 @@
 
 ## Unresolved decisions
 
-1. First real Study Sheet content, route and presentation require Ali/content
-   approval; no placeholder may be built.
+1. Episode 01’s pack cover must coordinate exactly the Cheat Sheet, Try-On and
+   Trading Card Pack. A separate Episode 01 Study Sheet is prohibited by
+   D-2026-07-27-071.
 2. Episodes 1–3 Trading Cards exist but are `held` as pack components because
    browser-side randomized issuance conflicts with the locked server-authority
    economy and current trading/Closet claims are unproven.
 3. The final café visual hierarchy/object treatment remains an Ali taste gate.
 4. Native 200% zoom, VoiceOver, Safari, newcomer comprehension and Ali visual
    approval remain external/owner holds; automated checks do not prove them.
+5. Puffy sticker placement and decorated-artifact delivery to My Closet require
+   a versioned producer → authenticated account store → Closet contract with
+   cross-device restore and delete propagation. A local draft may protect
+   unsaved work but cannot satisfy or claim My Closet delivery.
 
 ## Source trail
 

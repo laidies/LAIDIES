@@ -24,9 +24,12 @@ A **pop-art comic portrait of the character** inside a **comic-burst frame**:
 - **White comic stars** scattered as accents. **White outer border**, rounded corners.
 - **Frame background** = comic starburst / action-lines (tradingref-04): jagged bursts, speed lines,
   scattered dots and stars radiating out behind the portrait.
-- **PALETTE:** ⛔ NOT the Debbie-Gibson primary red/blue. Use the **town candy accents** — pink
-  `#e982ab`, teal `#57b6c0`, coral `#ec7a78`, periwinkle `#b3abe7` — over black ink and cream. That's
-  the one change from the refs (README: "match brand-palette accents").
+- **PALETTE:** Use the saturated 1990s pop-art colour language in
+  `operations/reference/trading-cards/tradingref-01..04`: purples, vibrant
+  pinks, electric/cobalt blues and sunshine yellow, held together by heavy
+  black ink and white/cream. Do not use a red-led primary palette or recolour
+  the deck into the TOWN CANDY palette. The saved card references—not a
+  general brand palette—are the colour authority.
 - ⛔ **RETIRED, do not use:** plum-and-gold frame, celestial/roses/gold-tarot saint register, halos.
 - ⛔ **No glitter/foil baked in** — holo & foil are CSS finishes over the same PNG. **13 images, not 39.**
 
@@ -73,8 +76,10 @@ Deliver to: `assets/cards/characters/<slug>-card-v1.png`
 > Match the style of `operations/reference/trading-cards/tradingref-01.png` (bold black outlines,
 > Ben-Day dot-halftone shading, flat vivid color, over-the-shoulder dramatic angle) set inside the
 > comic-burst frame of `tradingref-04.png` (jagged starbursts, speed lines, scattered stars and dots).
-> ⛔ Recolor the primary red/blue of the refs to the LAiDIES candy palette: pink #e982ab, teal
-> #57b6c0, coral #ec7a78, periwinkle #b3abe7, over black ink and cream.
+> ⛔ Do not recolour the references into the LAiDIES candy palette. Preserve
+> Ali's saturated pop-90s colour family: purples, vibrant pinks,
+> electric/cobalt blues and sunshine yellow, held together by heavy black ink
+> and white/cream. Do not use a red-led primary palette.
 >
 > SUBJECT: **{NAME}**, {ROLE} of SUNNYVAiLE, 1999. Match her established look from **{LOOK REF}** —
 > same face, hair, outfit. {ONE ACTION BEAT — what she's doing.}
@@ -103,7 +108,10 @@ Deliver to: `assets/cards/characters/<slug>-card-v1.png`
 
 ## QC each returned file
 1. 1200 × 1680 portrait, white border, rounded corners?
-2. Pop-art: black outlines + **halftone dots** + flat candy color (NOT plum/gold, NOT primary red/blue)?
+2. Pop-art: black outlines + **halftone dots** + flat, saturated purples,
+   vibrant pinks, electric/cobalt blues and sunshine yellow sampled from
+   `tradingref-01..04` (NOT red-led primary, candy, pastel, plum/gold or
+   glossy Y2K)?
 3. Banner spelled exactly right — accented i in FAiRY, Mme CLAi-O, LUMINAiRY?
 4. Same person as her look reference — not a plausible stranger?
 5. Complete body, correct hands? Nothing post-1999?

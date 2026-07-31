@@ -17,7 +17,8 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       :root {
-        /* Pearl Plum — bright register */
+        /* Legacy palette implementation — rejected as future palette authority.
+           Preserve until Dream Phone receives a visually approved replacement. */
         --pearl: #fffdfb;
         --paper: #fbf6f5;
         --mist: #efe0e2;
@@ -269,7 +270,7 @@
       .dp-reveal-cta:hover { box-shadow: 0 8px 24px var(--rose-soft); }
       .dp-reveal-actions { display: flex; justify-content: center; }
 
-      /* ===== JUST CALL track (preserved hooks, Pearl Plum skin) ===== */
+      /* ===== JUST CALL track (preserved hooks, legacy skin) ===== */
       .jc-keypad-wrap { background: var(--card); border: 1px solid var(--card-edge); border-radius: 22px; padding: 28px; max-width: 100%; box-shadow: 0 12px 28px var(--shadow); margin: 0 auto 24px; width: max-content; }
       .keypad { display: grid; grid-template-columns: repeat(3, 66px); gap: 11px; justify-content: center; }
       .keypad button {
@@ -413,7 +414,9 @@
       .secret-badge strong { display: block; color: var(--plum); margin-bottom: 2px; }
       .secret-badge em { font-size: 0.82rem; color: var(--muted); font-style: normal; }
 
-      /* ── Merit-badge unlock toast → on-brand celebration. Pearl-Plum card topped with the rose gem-heart signet as the medal, plus a gold shimmer sweep + medallion pop-in the moment the badge lands. `body` prefix beats the JS-injected style. ── */
+      /* ── Legacy merit-badge unlock toast. Preserve behavior until its visual
+         skin receives an approved saturated-1990s replacement. `body` prefix
+         beats the JS-injected style. ── */
       body .badge-toast {
         background: linear-gradient(180deg, #fffefc 0%, #fbe9f1 100%);
         border: 1px solid var(--gold);
@@ -593,7 +596,7 @@
       <link rel="stylesheet" href="../content/site/laidies-bg.css">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
@@ -603,6 +606,8 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
+  <link rel="canonical" href="https://laidies.ai/games/dream-phone" />
+  <meta property="og:url" content="https://laidies.ai/games/dream-phone" />
 </head>
   <body>
     <!-- Site-wide light animated background: twinkle stars + drifting glitter (same component the rest of the site uses) -->
@@ -712,7 +717,7 @@
         <button type="button" class="dp-back" data-dp-back>← Back to Dream Phone</button>
         <div class="dp-game-head">
           <h2 id="dpJustCallTitle" tabindex="-1">Just Call</h2>
-          <p id="dpJustCallBoundary"><strong>Experimental · scripted.</strong> Pick a caller for a playful, prewritten reframe. Dream Phone does not know your situation and does not provide personalized or professional advice. Call history and discoveries last only in this page session; they are not saved to an account or another device.</p>
+          <p id="dpJustCallBoundary"><strong>For fun, not professional advice.</strong> Pick a caller for a playful, prewritten perspective. Dream Phone does not know your situation or provide personalized advice. Call history and discoveries last only in this page session; they are not saved to an account or another device.</p>
           <p>To get someone on the line, type a number, tap the buttons, or pick a card to dial. Each caller rotates through prewritten takes; choose what is useful and use your own judgment for real decisions. <span class="dp-hint">Psst… rumour has it you can still call Jenny, if you know her number — and a couple of old ☆ codes still pull their old tricks, if your memory goes back far enough. ☎</span></p>
         </div>
 

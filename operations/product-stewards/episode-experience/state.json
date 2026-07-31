@@ -1,38 +1,362 @@
 {
-  "product": "weekly-episode-experience",
-  "status": "BUILDING",
-  "asOf": "2026-07-25",
-  "operatingMode": "manual-invocation",
-  "persistentRunner": "NOT WIRED",
+  "product": "Weekly Episodes — Engine & Production",
+  "productId": "episode-experience",
+  "status": "HOLD — E01/E02/E03 REQUIRE IDENTIFIED HUMAN FULL-TITLE 1X UNMUTED WATCHES; E04 IS AN ACCEPTED RELEASE-INTEGRATION CANDIDATE; TRAILER V5 REQUIRES OUTFIT AUTHORITY AND HUMAN WATCH",
+  "asOf": "2026-07-27",
+  "relationshipToActiveWork": "MERGE with AW-003; AW-001 remains the Episode 5 checkpoint",
+  "portfolioLevel": true,
+  "registryTransition": {
+    "targetParentId": null,
+    "targetOwner": "Weekly Episodes — Engine & Production",
+    "targetChampion": "weekly-episodes-engine-production-director",
+    "ownerTaskId": "019f9f7c-f03a-7ec1-a776-d60b57210322",
+    "status": "VERIFIED — CONTROL ROOM REGISTERED parent_id null; THIS OWNER DID NOT EDIT REGISTRY OR RUN QUEUE"
+  },
+  "operatingMode": "persistent durable owner; trigger-driven execution",
+  "persistentScheduler": "NOT WIRED",
   "analyticsPull": "NOT WIRED",
-  "scope": [
-    "episode discovery",
-    "article",
-    "illustrated listen-along / approved motion-film branch",
-    "recap and continuation",
-    "weekly return"
-  ],
+  "activeEpisode": {
+    "number": "05",
+    "title": "The Super Models",
+    "status": "PAUSED — AUTHORITY RECOVERED; GATE 1 REBUILD REQUIRED",
+    "packet": "episode-05-operating-packet-2026-07-26.md",
+    "packetVersion": "EP05-INIT-2026-07-26-v1",
+    "packetSha256": "fefaaeded5c05065e82b9988d73d270738c5fea6897725f005846ea36cab5846",
+    "exactResume": "Build the concept-fidelity matrix and replacement substance/story architecture from the recovered full fashion-system intent; run the four vetoes; then present one Gate 1 decision to Ali.",
+    "downstreamAuthority": "BLOCKED — no canon rewrite, script, art, audio, animation, fan-out, deployment or publication"
+  },
+  "liveExecution": {
+    "controlRoomLabel": "WAITING ON GENUINE HUMAN/CREATIVE GATES — NO MEDIA MAKER ACTIVE",
+    "taskId": "019f9f7c-f03a-7ec1-a776-d60b57210322",
+    "writeScope": [
+      "operations/product-stewards/episode-experience/CHARTER.md",
+      "operations/product-stewards/episode-experience/OPERATING-SPEC.md",
+      "operations/product-stewards/episode-experience/state.json",
+      "operations/product-stewards/episode-experience/backlog.md",
+      "operations/product-stewards/episode-experience/EPISODE-RELEASE-MANIFEST-SPEC.md",
+      "operations/product-stewards/episode-experience/schema/episode-release-envelope-v2.0.0.schema.json",
+      "operations/product-stewards/episode-experience/fixtures/release-manifest-v2/",
+      "operations/product-stewards/episode-experience/build-release-manifest-fixtures-v2.mjs",
+      "operations/product-stewards/episode-experience/seal-release-manifest-candidate-v2.mjs",
+      "operations/product-stewards/episode-experience/test-release-manifest-contract-v2.mjs",
+      "operations/product-stewards/episode-experience/build-packet-release-manifest-schema-fixtures-2026-07-26.md",
+      "operations/product-stewards/episode-experience/release-manifest-schema-candidate-v2-2026-07-26.json",
+      "operations/product-stewards/episode-experience/episode-05-operating-packet-2026-07-26.md",
+      "operations/product-stewards/episode-experience/control-room-handoff-2026-07-26.md"
+      ,"operations/product-stewards/episode-experience/episodes-01-04-trailer-production-board-2026-07-26.md",
+      "operations/product-stewards/episode-experience/audience-campaign-issue-route-admission-2026-07-26.md",
+      "operations/product-stewards/episode-experience/evidence/audience-week-01-issue-route-admission-2026-07-26.json",
+      "operations/product-stewards/episode-experience/motion-ident-integration-spec-2026-07-26.md",
+      "operations/product-stewards/episode-experience/evidence/motion-ident-candidate-2026-07-26.json",
+      "operations/product-stewards/episode-experience/ownership-handoff-trading-cards-weekly-episode-engine-2026-07-26.md",
+      "operations/product-stewards/episode-experience/ownership-handoff-town-entry-current-episode-module-2026-07-26.md",
+      "operations/product-stewards/episode-experience/handoff-episode-02-v18-independent-emq-judge-2026-07-26.md",
+      "operations/product-stewards/episode-experience/STUDY-PACK-SOURCE-PACKET-SPEC.md",
+      "operations/product-stewards/episode-experience/study-pack-source-packets/episodes-01-04.backfill.json"
+    ],
+    "currentAction": "Preserve the frozen accepted local tuples. Obtain identified full-title 1x unmuted human watches for E01 v26, E02 ident v2 and E03 v13; preserve E04's exact accepted integration candidate; obtain Ali's Trailer outfit ruling and then a human full-title watch of the resulting exact Trailer tuple.",
+    "lastEvidenceAt": "2026-07-27T03:28:00-07:00"
+  },
+  "independentHandoffs": {
+    "chickFlicks": "discovery/archive, format-specific admission, Screening Room /watch player/captions and visitor return proof; consumes one immutable Engine manifest and does not own episode teaching intent",
+    "episodeMediaQuality": "independent production input and audiovisual acceptance gate; not editorial intent",
+    "screeningRoom": "player, caption, fallback and public-byte journey",
+    "controlRoom": "portfolio integration, collision locks, registry/run-queue and public release coordination"
+  },
   "currentReleaseTruth": {
-    "publishedEpisodes": ["01", "02", "03", "04"],
-    "episode05": "DRAFT",
-    "screeningRoomMotionFilms": "HOLD — EPISODE_FILMS is intentionally empty",
-    "screeningRoomPublicOffer": "cue-synced illustrated listen-alongs with read-along captions; Episodes 03–04 truthfully present narrated editions"
+    "publishedEpisodes": [
+      "01",
+      "02",
+      "03",
+      "04"
+    ],
+    "episode05": "UNRELEASED — GATE 1 REJECTED; NO CURRENT ENGINE STAGE COMPLETE",
+    "screeningRoomMotionFilms": "LOCAL MEDIA ONLY — E01/E02/E03 HUMAN WATCH HOLDS; E04 EXACT RELEASE-INTEGRATION CANDIDATE ACCEPTED; TRAILER OUTFIT/HUMAN WATCH HOLD",
+    "screeningRoomPublicOffer": "illustrated/captioned listen-alongs only where exact public evidence supports them"
+  },
+  "reconciledMediaTruth20260727": {
+    "episode01": {
+      "status": "HOLD — HUMAN FULL-TITLE 1X UNMUTED AUDIBLE WITNESS ONLY",
+      "master": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+      "masterSha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+      "independentVerdict": "../episode-media-quality/evidence-2026-07-27/emq-e01-v26-fresh-independent-judge-2026-07-27.md",
+      "independentVerdictSha256": "e6efc40e01016e31fc57f80402347f908e3a9e39f6af622a3dfdabb8906995ac",
+      "remainingGate": "One identified human watches the complete exact title at 1x, unmuted, and records time-coded failures or PASS."
+    },
+    "episode02": {
+      "status": "HOLD — HUMAN FULL-TITLE 1X UNMUTED AUDIBLE WITNESS ONLY",
+      "master": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+      "masterSha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+      "boundedRepairVerdict": "../episode-media-quality/evidence-2026-07-26/emq-e02-v19-welcome-ident-v2-independent-judge-2026-07-26.md",
+      "boundedRepairVerdictSha256": "ee47bfa7e3d3d0c133f53f84ef9fd9a8d1e95fb6a74af382f0e11e7e65b57827",
+      "playerVerdict": "../episode-media-quality/evidence-2026-07-26/emq-e02-v19-welcome-ident-v2-representative-player-independent-judge-2026-07-26.md",
+      "playerVerdictSha256": "c4829f1fb55900ec01fae096b5446195a0f40d7733d6bb41fe54d561a5525c63",
+      "remainingGate": "One identified human watches the complete exact title at 1x, unmuted, and records time-coded failures or PASS."
+    },
+    "episode03": {
+      "status": "HOLD — HUMAN FULL-TITLE 1X UNMUTED AUDIBLE WITNESS ONLY",
+      "master": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+      "masterSha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
+      "independentVerdict": "../episode-media-quality/evidence-2026-07-27/emq-e03-v13-fresh-independent-judge-2026-07-27.md",
+      "independentVerdictSha256": "2b207ed5293a632fc8dd5583bff9b2576770d60609f1f246ff9926f0e6b69c67",
+      "remainingGate": "One identified human watches the complete exact title at 1x, unmuted, and records time-coded failures or PASS."
+    },
+    "episode04": {
+      "status": "ACCEPTED RELEASE-INTEGRATION CANDIDATE — NOT DEPLOYED OR PUBLIC",
+      "master": "assets/video/episode-04-full-v8-welcome-founding-mothers-ident-v3-held-review.mp4",
+      "masterSha256": "9e8eea3b019eea64cbd8eed9ac30ce1c9441428b0acd000c06ca11ea658b3d70",
+      "independentVerdict": "../episode-media-quality/evidence-2026-07-26/emq-e04-v8-welcome-founding-mothers-ident-v3-release-integration-judge-2026-07-26.md",
+      "independentVerdictSha256": "94bb26b91b1f88e6a71aef808607af95c5c9e6ee502ed0bef24bdde224c5465f",
+      "remainingGate": "Separate checksum-bound player/release artifact, deployment authority and public-origin verification."
+    },
+    "trailer": {
+      "status": "HOLD — OUTFIT AUTHORITY AND HUMAN FULL-TITLE 1X UNMUTED AUDIBLE WITNESS",
+      "master": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+      "masterSha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+      "independentVerdict": "../episode-media-quality/evidence-2026-07-26/emq-trailer-v5-welcome-ident-independent-judge-2026-07-26.md",
+      "independentVerdictSha256": "0389e169327aef5d5d573ad055c5e9eb30123857860157e08c710e85b5d67612",
+      "playerFunctionalVerdict": "../episode-media-quality/evidence-2026-07-26/emq-trailer-v4-representative-player-witness-successor-2026-07-26.md",
+      "playerFunctionalVerdictSha256": "f25357a30046eeacf654e8b1db3818ee2761ce7d1ed5c447fa338aff93eaf0c1",
+      "remainingGates": [
+        "Ali selects the authoritative heroine outfit from the existing visual decision package.",
+        "Rebuild only the named outfit beats if the ruling requires it, then independently rejudge.",
+        "One identified human watches the complete resulting exact title at 1x, unmuted."
+      ]
+    },
+    "publicTruth": "No E01/E02/E03/Trailer successor is admitted, deployed or public. E04 is accepted only as the exact local release-integration candidate."
   },
   "latestDeepDive": "launch-deep-dive-2026-07-25.md",
-  "mediaDependency": "../episode-media-quality/eod-2026-07-25-release-gate.md",
-  "nextTrigger": {
-    "type": "release-artifact-and-public-route-verification",
-    "reason": "AW-003 requires the exact candidate and public origin to prove promoted episode journeys before announcement.",
-    "status": "PENDING"
+  "latestOperatingSpec": "OPERATING-SPEC.md",
+  "operatingSpecSha256": "5ee5efec59a4222a14a0be178aa66b6c396d3dc671d11722120f9fc87990f4a9",
+  "visibleMediaProductionBoard": {
+    "id": "WE-MEDIA-BOARD-2026-07-26-v1",
+    "path": "episodes-01-04-trailer-production-board-2026-07-26.md",
+    "sha256": "bef6f3921f21d866b09c236b6c49c5977e7c5dcada549ccc58a9a26c4e2f0644",
+    "status": "SUPERSEDED BY reconciledMediaTruth20260727 — NO MEDIA MAKER ACTIVE"
   },
+  "visibleMediaMakerLanes": {
+    "episode01": {
+      "taskId": "019f8f43-8c26-7b41-a851-51744d13d49f",
+      "status": "ACTIVE VISIBLE PRODUCTION — CONFIG + FAIL-CLOSED BUILDER WRITTEN; FINAL TARGET/MANIFEST/QC INCOMPLETE",
+      "target": "assets/video/episode-01-full-v24-source-reconciled-review.mp4",
+      "targetExists": false,
+      "lastArtifact": "assets/video/episode-01-v24-source-reconciled-config.json",
+      "lastArtifactSha256": "feb8d1130cc4d23f49cf32e2dcfafa8a90a44d94cbae60ae36fc1afe86aa01ea",
+      "lastArtifactAt": "2026-07-26T14:48:13-07:00",
+      "builder": "assets/video/build-episode-01-v24-source-reconciled.py",
+      "builderSha256": "1f22ddafea578f7ff102cdc76c9dd2e243cb2c09445473dcd99920f17ab9bb69"
+    },
+    "episode02": {
+      "taskId": "019f8f42-1672-7d03-9059-250eccbfb3ad",
+      "status": "BUILT LOCALLY / EMQ HOLD / VISUAL REPAIRS PASS / NOT ADMITTED",
+      "target": "assets/video/episode-02-full-v19-style-semantic-repaired-review.mp4",
+      "targetExists": true,
+      "targetSha256": "e4b035863dbb28133601fda0302816667695bd442263d5e8bd9e054b127676c3",
+      "targetAt": "2026-07-26T14:42:26-07:00",
+      "manifest": "operations/video-qa/episode-02-full-v19-style-semantic-repaired-review-manifest.json",
+      "manifestSha256": "d1a0234cf467595ccf36efc80d34c030758fce5687d7ab7e89a94133fcb4eace",
+      "qc": "operations/video-qa/episode-02-full-v19-style-semantic-repaired-review-qc.json",
+      "qcSha256": "8f6ea66b63f0f269a5ae89fc4f8fe9faf48b975647b857415684ad1894231937",
+      "builder": "assets/video/build-episode-02-v19-style-semantic-repaired.py",
+      "builderSha256": "d41678a09a2ae4e4430b700b81469161179e6120e3fd4d4fa8d3c3d08fae5986",
+      "config": "assets/video/episode-02-v19-style-semantic-repaired-config.json",
+      "configSha256": "3e8e886010d29417737417abbae84137fb6536bb086646d3ad65eddcc09cb8f4",
+      "acceptanceOwner": "Episode Media Quality",
+      "reviewDispatchedAt": "2026-07-26T14:47:41-07:00",
+      "independentVerdict": "HOLD — exact tuple and all named visual repairs pass; witnessed normal-speed audible playback and actual-player external-VTT behavior remain unproved",
+      "judgeReport": "../episode-media-quality/evidence-2026-07-26/emq-e02-v19-full-av-judge-2026-07-26.md",
+      "judgeReportSha256": "4fbe002c5a2e0a75d3897d63acdf247d4ae0bbf136256aa461b733521e946c7c",
+      "judgeReceipt": "../episode-media-quality/evidence-2026-07-26/emq-e02-v19-full-av-judge-2026-07-26.json",
+      "judgeReceiptSha256": "62c3dd6a712b5cf8524a6451908f1ca3ae6506f7c4d21b36db27eef3457a0993",
+      "nextGate": "Audio & Caption Owner + Release QA witness the exact unchanged MP4/VTT at normal speed in the actual player; return evidence to EMQ"
+    },
+    "episode03": {
+      "taskId": "019f8f41-e3ab-7442-b472-06f9ebc91a0b",
+      "status": "ACTIVE VISIBLE PRODUCTION — CONFIG WRITTEN; FINAL TARGET/MANIFEST/BUILDER/QC INCOMPLETE",
+      "target": "assets/video/episode-03-full-v10-source-reconciled-review.mp4",
+      "targetExists": false,
+      "lastArtifact": "assets/video/episode-03-v10-source-reconciled-config.json",
+      "lastArtifactSha256": "33a2ed25ee16ab0e990c3594d81a6406b9488d317272caf1dfdb452e4cdcda83",
+      "lastArtifactAt": "2026-07-26T14:45:35-07:00"
+    },
+    "episode04": {
+      "taskId": "019f8c89-07c2-75b3-96e7-f3f5d272ef4d",
+      "status": "ACTIVE VISIBLE PRODUCTION — REPAIR SEGMENT BUILT; FINAL MASTER ENCODING; MANIFEST/QC INCOMPLETE",
+      "target": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+      "targetExists": false,
+      "lastArtifact": "operations/video-qa/episode-04-v9-reference-reconciled-config.json",
+      "lastArtifactSha256": "26a159a7ac4b1553e7f9502ebad6a12aaed518336f48cdf201324fb57da36495",
+      "lastArtifactAt": "2026-07-26T14:42:16-07:00",
+      "builder": "assets/video/build-episode-04-full-v9-reference-reconciled-review.py",
+      "builderSha256": "9438e09194963ec13d514870cb8630552d36c404d8198022d06679085eccf3c9",
+      "visibleRepairFolder": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled",
+      "visibleRepairPlateCount": 5,
+      "repairSegment": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-cues15-19-reference-repair-segment.mp4",
+      "repairSegmentSha256": "1ee772c4e324ddfb4d0a4086b1b63aa36e18686a7c73beb1abc7ae964fb5a9be",
+      "derivationManifest": "assets/episodes/ep-04/pixel/delivery-20260726-v9-reference-reconciled/ep04-v9-reference-derivation-manifest.json",
+      "derivationManifestSha256": "6ad7ce253f42f30945154014e952b5cb5a52c7149aad43e162bf6f4d84764e64",
+      "currentIssue": "Prepare gate passed after FFmpeg timebase repair; final master is encoding and placement manifest/QC remain absent."
+    },
+    "trailer": {
+      "taskId": "019f8f41-a60c-71c1-8f31-c556cd91a340",
+      "status": "ACTIVE VISIBLE PRODUCTION — 58-BEAT BUILD CONFIG WRITTEN; FINAL TARGET/MAP/CAPTIONS/BUILDER/QC INCOMPLETE",
+      "target": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v3-map-caption-reconciled-review-1920.mp4",
+      "targetExists": false,
+      "lastArtifact": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v3-map-caption-reconciled-config.json",
+      "lastArtifactSha256": "5fa4a5378a8c9dfc60d4ef6579b7b4438f76d0b977fd24be7827daaf4aff09e0",
+      "lastArtifactAt": "2026-07-26T14:48:24-07:00"
+    },
+    "pathOwnership": "DISJOINT; NO MAKER MAY TOUCH ANOTHER TITLE'S SOURCE OR DELIVERY PATH",
+    "nextGate": "EACH EXACT SUCCESSOR HASH TUPLE ROUTES INDEPENDENTLY TO EPISODE MEDIA QUALITY; MAKER CANNOT JUDGE"
+  },
+  "episode02V18JudgeHandoff": {
+    "status": "HOLD — EXACT FROZEN TUPLE MATCHED AND INDEPENDENTLY REJECTED",
+    "handoffId": "WE-EMQ-E02-V18-FULL-AV-2026-07-26",
+    "path": "handoff-episode-02-v18-independent-emq-judge-2026-07-26.md",
+    "sha256": "7f25913560fe30a5ec36dfa9d82cabb27cede205e8468d6107df6c6a454f48c9",
+    "judgeTask": "/root/emq_e02_v18_judge",
+    "mp4Sha256": "97b32455ba6a6f0195d60646eeda3b5a2c558cef2b46cb8877a4d35e6346e1bc",
+    "manifestSha256": "7e5aaee410d04bf109f9b60fa353ec972da81d7b41cd48d9bbf3fc6e981cc4c3",
+    "qcSha256": "1dc95997f32383ecc30f1cb7fc870973d38341ef21a601cd4bd7cd99d6e6d482",
+    "builderSha256": "3b2705ebaa4d665b0288d8f50ebb8376032a131d81c65bb5e518f93af951dc0e",
+    "configSha256": "4eaceebde6bbd979b506a5ad149fb537b6efbba8c9f421e95bd3a2e2b4972884",
+    "verdict": "HOLD",
+    "judgeReport": "../episode-media-quality/evidence-2026-07-26/emq-e02-v18-full-av-judge-2026-07-26.md",
+    "judgeReportSha256": "dd205f4b912a3989f9efae7288c7ec4d779fef181f347f54e765be38c282905d",
+    "judgeReceipt": "../episode-media-quality/evidence-2026-07-26/emq-e02-v18-full-av-judge-2026-07-26.json",
+    "judgeReceiptSha256": "642da4f772759a0e5c6dea3b65a5da95f83ae59b7590e0b598c24ab6d9935de3",
+    "holdReasons": [
+      "candidate-wide graphic-card versus painterly/scenic identity, background and master-style drift",
+      "semantic failures at cue 07 (86.8–105.0) and cue 15 (219.0–235.6), plus partial shot-job rows across the 61-occurrence matrix",
+      "trustworthy full audible normal-speed and actual-player caption behavior proof unavailable"
+    ],
+    "makerMayJudgeOrRepair": false,
+    "releaseAuthority": "NONE — NO ANIMATION, SITE, DEPLOYMENT, PUBLIC PLAYER OR RELEASE ACTION"
+  },
+  "motionIdentCandidate": {
+    "status": "BUILT LOCALLY / ALI-SELECTED CANDIDATE / NOT YET INTEGRATED OR PUBLIC",
+    "sourcePath": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-alternate-rewind-ai-v6.mp4",
+    "mp4Sha256": "713c576b2f6468fe4df962acd2c4d48163391899f99c9a2bfc187cc795ae0ed6",
+    "matchingWebpSha256": "3348a654db859729259a79bb4ad45f045d1771179630c4dffa27c5e5a7798a76",
+    "staticFallbackSha256": "bcc6f7dd919f9f2859cb0d0d39e7dd27cb48e0839641df6a020e79527a31362c",
+    "spec": "motion-ident-integration-spec-2026-07-26.md",
+    "specSha256": "05d9f78e168659f6f508f2100155a04bbb1755137289005ea7b73f5e936db9b8",
+    "evidence": "evidence/motion-ident-candidate-2026-07-26.json",
+    "evidenceSha256": "9843fb2aee395f805057c3621676a5325759b3410ccd4c1951d3d59aaa4674c9",
+    "placement": "Full episodes: after cold-open value and before title/recap; optional rewind interstitial only for a genuine rewind; short AI outro after spoken CTA. Short social: never pre-value.",
+    "audio": "SOURCE AND CANONICAL VARIANTS SILENT; any later sound tag is a separate rights-cleared candidate",
+    "acceptanceOwner": "Episode Media Quality",
+    "integrationStatus": "QUEUED FOR EVERY TITLE; DOES NOT ACTIVATE A TITLE; EPISODE 02 V18 MAKER LANE REMAINS UNCHANGED"
+  },
+  "tradingCardsHandoff": {
+    "status": "SPECIFIED / CAPTURED FOR RECEIVER REVIEW — NO CARD ART OR PACK COMMISSION AUTHORIZED",
+    "path": "ownership-handoff-trading-cards-weekly-episode-engine-2026-07-26.md",
+    "sha256": "5279ed830eb2ce3dc5672efe3aad6e4bf1928f23cd8db2bb9e13995af8932e3d",
+    "engineSupplies": "canonical concepts, characters/guests, copy/source/rights and stable pack key/version",
+    "receiverOwns": "Trading Cards card-product art, card system, pack design, economy and independent acceptance",
+    "receiverOwnerEntry": "BLOCKED — registry references trading-cards/CHARTER.md and trading-cards/state.json, but those durable files are absent"
+  },
+  "studyPackSourceHandoff": {
+    "status": "RECEIVED AND DISPOSITIONED / CANONICAL INTAKE PARTIALLY ACCEPTED / NO COMPONENT ADMISSION / FINAL ART BRAND-LOCKED",
+    "spec": "STUDY-PACK-SOURCE-PACKET-SPEC.md",
+    "specSha256": "baaa31f586cfbb080c3cfde3c3e80b2c322483e05bc1e6c946db80b058102e13",
+    "backfill": "study-pack-source-packets/episodes-01-04.backfill.json",
+    "backfillSha256": "3ad7af03076594fb0535d0c2f0d69eb51846798c0b952f84ff4699054ff82c91",
+    "episodePackets": [
+      "episode-01-study-pack-source-v1",
+      "episode-02-study-pack-source-v1",
+      "episode-03-study-pack-source-v1",
+      "episode-04-study-pack-source-v1"
+    ],
+    "producerScope": "core lesson, concepts, remember line, work/life applications, Try-On and Cheat Sheet briefs, card candidates/source/rights, quiz objectives, image/crop jobs and return links",
+    "receiverScope": "Blend & Snap component dispositions, Study Pack composition, café experience and acceptance",
+    "receiverReceipt": "../blend-snap/episode-01-04-study-pack-source-receiver-receipt-2026-07-26.json",
+    "receiverReceiptSha256": "c8746e45fbdbf0bc0d880d486e7c97e0c893fbf58e48804ffa92d1e26d1e5998",
+    "acceptedAsIntake": "E01–04 canonical teaching inputs, Cheat Sheet briefs and quiz objectives; E02–04 Try-On briefs",
+    "held": "all Study Sheets; concept/character cards; episode images/crops; return links; E01 Try-On; live E02–04 Try-On admission",
+    "episode01TryOnBlocker": "current Episode 01 route performs Episode 02's briefing job",
+    "visualLock": "NO FINAL STUDY PACK OR CARD ART BEFORE BRAND RULING",
+    "futureWeeklyEngine": "REQUIRED AT RELEASE GATE G; PUBLIC ROUTES BOUND AT GATE H"
+  },
+  "homepageCurrentEpisodeHandoff": {
+    "status": "CONSUMER ISOLATED CANDIDATE INDEPENDENTLY ACCEPTED / PRODUCER ATOMIC RECORD ABSENT / NOT LIVE, DEPLOYED OR PUBLIC",
+    "contractVersion": "EPX-HOME-CURRENT-EPISODE-v1",
+    "path": "ownership-handoff-town-entry-current-episode-module-2026-07-26.md",
+    "sha256": "53cb1c49bb99af96d8a75022a8ec91a71f80f421b116a8bf42aa28c443d2d6f2",
+    "lockedBoundary": "HOMEPAGE MASTHEAD/HERO IS EVERGREEN BRAND ARCHITECTURE; WEEKLY RELEASE DATA RENDERS IN A SEPARATE CURRENT-EPISODE MODULE",
+    "atomicFields": [
+      "number",
+      "title",
+      "summary",
+      "checksum-bound image and alt",
+      "explicit nullable read/watch/listen links",
+      "release date",
+      "complete song or null",
+      "accepted card-pack key or null",
+      "self-contained fallback",
+      "release/public authority",
+      "record checksum"
+    ],
+    "currentImplementationTruth": "PARTIAL — projection can update current cards and one hero action, while Episode 04/weekly-song values remain independently hard-coded in homepage.js and index.html",
+    "consumerEvidence": "../town-entry-homepage/first-visit-introduction-candidate-v1-evidence-2026-07-26.md",
+    "consumerEvidenceSha256": "c69c56611830c0a825689e2ecbe0a1add4cbec6531fc51c82d010eacce6ec5ef",
+    "consumerIndependentVerdict": "../town-entry-homepage/evidence/first-visit-introduction-v1-independent-2026-07-26/INDEPENDENT-VERDICT.md",
+    "consumerIndependentVerdictSha256": "516f0aafca6575b082b79a7ee4fe1692b60a7168aa9be33c15c9a4c50aaf2c1a",
+    "consumerDisposition": "ACCEPT / VERIFIED LOCALLY FOR EXACT ISOLATED CANDIDATE — EVERGREEN MASTHEAD PRESERVED; SEPARATE BELOW-HERO MODULE; EPISODE 04 LABELLED PREVIOUSLY PUBLISHED FALLBACK; NO MIXED FIELDS",
+    "producerRecord": "ABSENT — NO COMPLETE ACCEPTED EPX-HOME-CURRENT-EPISODE-v1 RECORD EXISTS",
+    "producer": "Weekly Episodes — Engine & Production",
+    "consumerPresentationOwner": "LAiDIES Homepage & Town Entry",
+    "validationDeliveryOwner": "Platform",
+    "sharedIntegrationOwner": "Control Room",
+    "execution": "QUEUED — COMPLETE PRODUCER RECORD AND NON-COLLIDING JOINT CONTROL ROOM ROUTE LOCK REQUIRED; NO LIVE HOMEPAGE OR PUBLIC FILE CHANGED"
+  },
+  "releaseManifestSpec": "EPISODE-RELEASE-MANIFEST-SPEC.md",
+  "releaseManifestSchemaVersion": "2.0.0",
+  "releaseManifestSpecSha256": "44cd9c65f0ba6b00e61dd380c72b96e03db241d04f5e4753a2008ca3c3d52068",
+  "rejectedReleaseManifestSchemaCandidate": {
+    "id": "EPX-CF13-SCHEMA-2026-07-26-v1",
+    "path": "release-manifest-schema-candidate-2026-07-26.json",
+    "status": "STALE — REJECTED BY PLATFORM AND CHICK FLICKS; REVIEW CLOSED"
+  },
+  "releaseManifestSchemaCandidate": {
+    "id": "EPX-CF13-SCHEMA-2026-07-26-v2",
+    "path": "release-manifest-schema-candidate-v2-2026-07-26.json",
+    "payloadSha256": "f62c3cf67363096ea161ad91dd529eb4087e86c46ef19573843552941cbae5f1",
+    "fileSha256": "b1813da7654277b8fa3dd8e8106c10ec63d16f45fdd0485af81d6744a5470fad",
+    "status": "CHICK FLICKS HOLD / REJECT FOR ADMISSION — V2 INTACT; NO FURTHER SCHEMA EXPANSION UNTIL A REAL RELEASE REQUIRES IT",
+    "test": "RELEASE MANIFEST V2 CONTRACT PASS valid=11 invalid=22 schema=draft2020 mutation_controls=5",
+    "platformVerdict": "PASS — checksum_bound=40 schema_negative=3 mutation_controls=5",
+    "platformReceipt": "../platform-reliability/independent-review-episode-release-interface-v2-2026-07-26.md",
+    "chickFlicksVerdict": "HOLD — five schema-valid cross-record identity/format admission false accepts",
+    "chickFlicksReceipt": "../chick-flicks/independent-acceptance-episode-release-schema-v2-2026-07-26.md",
+    "sharedLiveIntegration": "BLOCKED — JOINT CONTROL ROOM LOCK HELD"
+  },
+  "chickFlicksOwnershipHandoffSha256": "135df1f0bbf7c920bbf14f8fdd5f25c7a6ef215980ee1792f5c9a069e255419b",
   "openBlockers": [
-    "All promoted motion films are HOLD pending independent complete audiovisual, caption and public-player evidence.",
-    "Analytics script presence/custom Episode watch event is not a product-learning loop; aggregated evidence ingestion is not wired.",
-    "The canon-to-issue-JSON/article/narration fan-out still has a documented second-source drift risk."
+    "Chick Flicks rejected exact release-contract v2 for five cross-record identity/format admission false accepts; repair is intentionally deferred until a real release makes it blocking.",
+    "Episodes 01 v26, 02 welcome-ident v2 and 03 v13 have independently passed their local picture/player gates and remain HOLD only for identified human full-title 1x unmuted audible watches.",
+    "Episode 04's exact v8 + Founding Mothers ident v3 master is an independently accepted release-integration candidate, but no checksum-bound release deployment or public-origin verification exists.",
+    "Trailer v5 has an accepted title-specific Welcome ident and passed player-functional evidence; it remains HOLD on the heroine-outfit authority and identified human full-title 1x unmuted audible watch.",
+    "Ali-selected motion-ident candidate is not integrated or public; every per-title derivative and placement requires checksum-bound Episode Media Quality acceptance.",
+    "Weekly Episode-to-Trading Cards content handoff is specified, but the registered Trading Cards dossier/state owner-entry is missing and no pack or art work is authorized.",
+    "Blend & Snap accepted Episodes 01–04 canonical Study Pack inputs only for reconciliation; no component is admitted. Study Sheets, card candidates, images/crops and return links remain held; Episode 01 Try-On performs the wrong episode job.",
+    "Town Entry's isolated current-module consumer is independently accepted and preserves the evergreen masthead, but no complete accepted EPX-HOME-CURRENT-EPISODE-v1 producer record or joint live-route lock exists.",
+    "Episode 5 replacement substance/story architecture and concept-fidelity matrix do not yet exist.",
+    "Ali has not approved the reconstructed Episode 5 Gate 1 architecture.",
+    "Canon-to-derived issue JSON and the complete surface checker remain unimplemented.",
+    "Persistent scheduler and aggregated analytics ingestion remain unwired.",
+    "All promoted motion films remain subject to independent Episode Media Quality admission and exact public proof."
   ],
+  "nextTrigger": {
+    "type": "human-full-title-watches-and-trailer-outfit-authority",
+    "owner": "Assigned human witnesses; Ali for Trailer heroine outfit only",
+    "aliDecisionNow": "TRAILER OUTFIT AUTHORITY ONLY — use the existing frame-by-frame visual package, not prose",
+    "nextAliDecision": "Select the authoritative Trailer heroine outfit; no E01/E02/E03 visual decision is currently required",
+    "status": "WAITING ON THREE EPISODE HUMAN WATCHES, ONE TRAILER OUTFIT RULING AND THE RESULTING TRAILER HUMAN WATCH"
+  },
   "lastRun": {
-    "date": "2026-07-25",
-    "type": "one-time launch deep dive",
-    "result": "REPORT READY"
+    "date": "2026-07-27",
+    "type": "Frozen successor and independent media-gate reconciliation",
+    "result": "E01 V26, E02 IDENT V2 AND E03 V13 ARE HELD ONLY FOR HUMAN FULL-TITLE 1X UNMUTED WATCHES; E04 IS AN ACCEPTED LOCAL RELEASE-INTEGRATION CANDIDATE; TRAILER V5 IS HELD FOR OUTFIT AUTHORITY AND HUMAN WATCH; NO MEDIA MAKER, DEPLOYMENT OR PUBLIC MUTATION"
   }
 }

@@ -97,11 +97,16 @@ hash, saved URL or Miss Jeeves. Status promotion requires changing the
 catalogue record only after the named content evidence and independent judge
 pass. The exact artifact must contain the admitted body.
 
-LIBRAiRY 101 books build durable mental models. Vocab owns concise AI-specific
-definitions and examples; Concepts owns mechanism, distinction, nuance and
-application. The same concept may cross-link but may not be fully taught in
-both. The Verification Rulebook remains HOLD/PREVIEW despite its local expert
-pass until owner, native accessibility and newcomer-transfer gates clear.
+LIBRAiRY 101 books build durable mental models. Ali removed the standalone
+Vocab 101 book from **The 101s** catalogue on 2026-07-27 and confirmed that its
+useful content was rolled into Concepts 101. Vocab was a book, never a shelf.
+Concepts now contains all 16 retained terms in a quick-reference section as
+well as the deeper mechanism lessons. The former Vocab source and rendered
+fragment remain only as fail-closed migration evidence. Concepts still needs a
+reconciled mechanism, distinction, nuance and application contract before
+admission. The
+Verification Rulebook remains HOLD/PREVIEW despite its local expert pass until
+owner, native accessibility and newcomer-transfer gates clear.
 
 ## Subproduct contracts
 

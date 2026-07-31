@@ -71,6 +71,15 @@ async function contextFor(options = {}) {
         return original.call(this, key, value);
       };
     }
+    if (settings.blockGirlTalkRemoval) {
+      const originalRemove = Storage.prototype.removeItem;
+      Storage.prototype.removeItem = function (key) {
+        if (key === "laidies_gt_local_state_v1") {
+          throw new DOMException("Synthetic removal denial", "SecurityError");
+        }
+        return originalRemove.call(this, key);
+      };
+    }
     if (settings.initialGirlTalkState !== undefined) {
       localStorage.setItem(
         "laidies_gt_local_state_v1",
@@ -391,6 +400,55 @@ try {
     localStorage.getItem("laidies_gt_local_state_v1"))),
     "blocked storage creates no local completion envelope");
   await deniedContext.close();
+
+  const retainedGirlTalkState = {
+    version: 1,
+    stickers: ["T1"],
+    dares: [],
+    penalties: ["BEIGE"]
+  };
+  const clearContext = await contextFor({ initialGirlTalkState: retainedGirlTalkState });
+  const clearPage = await clearContext.newPage();
+  await clearPage.addInitScript(() =>
+    localStorage.setItem("unrelated_local_record", "preserve-me"));
+  await clearPage.goto(`${origin}/games/girl-talk.html`, { waitUntil: "domcontentloaded" });
+  check(await clearPage.locator("#gtClearLocal").isVisible(),
+    "Girl Talk exposes a visible clear-local-record control");
+  check(await clearPage.locator("#gtStickerCount").innerText() === "1" &&
+    await clearPage.locator("#gtPenaltyCount").innerText() === "1",
+    "valid retained Girl Talk state renders before clear");
+  await clearPage.locator("#gtClearLocal").click();
+  await clearPage.waitForFunction(() => document.activeElement?.id === "gtResult");
+  check((await clearPage.locator("#gtResult").innerText()).toLowerCase().includes("local record cleared"),
+    "clear reports exact local-record success");
+  check(await clearPage.evaluate(() =>
+    localStorage.getItem("laidies_gt_local_state_v1")) === null,
+    "clear removes the Girl Talk envelope");
+  check(await clearPage.evaluate(() =>
+    localStorage.getItem("unrelated_local_record")) === "preserve-me",
+    "clear preserves unrelated browser state");
+  check(await clearPage.locator("#gtStickerCount").innerText() === "0" &&
+    await clearPage.locator("#gtPenaltyCount").innerText() === "0",
+    "clear refreshes visible local counts");
+  await clearContext.close();
+
+  const blockedClearContext = await contextFor({
+    initialGirlTalkState: retainedGirlTalkState,
+    blockGirlTalkRemoval: true
+  });
+  const blockedClearPage = await blockedClearContext.newPage();
+  await blockedClearPage.goto(`${origin}/games/girl-talk.html`, { waitUntil: "domcontentloaded" });
+  await blockedClearPage.locator("#gtClearLocal").click();
+  await blockedClearPage.waitForFunction(() => document.activeElement?.id === "gtResult");
+  check((await blockedClearPage.locator("#gtResult").innerText()).toLowerCase().includes("not cleared"),
+    "denied removal reports an honest failure");
+  check(await blockedClearPage.evaluate(() =>
+    localStorage.getItem("laidies_gt_local_state_v1")) !== null,
+    "denied removal preserves the existing Girl Talk envelope");
+  check(await blockedClearPage.locator("#gtStickerCount").innerText() === "1" &&
+    await blockedClearPage.locator("#gtPenaltyCount").innerText() === "1",
+    "denied removal preserves visible local counts");
+  await blockedClearContext.close();
 
   const mobileContext = await contextFor({ viewport: { width: 320, height: 700 } });
   const mobilePage = await mobileContext.newPage();

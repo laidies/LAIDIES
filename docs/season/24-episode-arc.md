@@ -12,6 +12,12 @@ Outsider -> beginner -> practitioner -> strategist -> leader -> mentor.
 
 Every issue should move both the AI fluency and the identity story forward. The issue is not only "about a topic." It is an episode in the story of a woman becoming more confident, useful, discerning, and generous with AI.
 
+> **AUTHORITY STATUS — RECONCILED 2026-07-24:** Episodes 1–5 below reflect
+> released canon or locked rulings. D-2026-07-24-018 locks Episode 6’s
+> capability but not its public title. Rows 7–24 and the act boundaries remain
+> a legacy proposal pending full-season resequencing; do not use them as
+> production authority.
+
 ## Act 1: The Awakening
 
 Issues 1-6. Losing the fear, getting comfortable.
@@ -22,14 +28,17 @@ Issues 1-6. Losing the fear, getting comfortable.
 
 | Issue | Public title | Core AI concept | Emotional beat | Website/module direction |
 | --- | --- | --- | --- | --- |
-| 01 | On Wednesdays We Use AI | What AI is and how to try a first interaction | Private embarrassment becomes permission to start | Tool try-on, beginner quiz, first card pack |
+| 01 | On Wednesdays We Do AI | What AI is and how to try a first safe interaction | Private embarrassment becomes permission to start | Tool try-on, beginner quiz, first card pack |
 | 02 | Tell Me What You Want | Prompting as delegation | First tiny win: "that took eight minutes?" | Specificity quiz, prompt rewrite card pack, Try-On Debrief |
 | 03 | The Burn Book Problem | Hallucinations, verification, and receipts | First betrayal: AI sounded certain, she caught it | Receipts checklist, hallucination quiz, Burn Book examples |
-| 04 | The Boy Band Lineup | ChatGPT vs Claude vs Gemini, with strengths and tradeoffs | She picks a tool, and choice becomes agency | Tool comparison guide, "which tool is your lead singer?" quiz |
-| 05 | The AI Group Chat Roll Call | Companies, products, models, people, and categories | She can place names when she hears them | Who's Who glossary pack, company/model cards |
-| 06 | Ask Jeeves Could Never | Why AI is bigger than a chatbot: AlphaFold, math, and breakthrough moments | Awe: "Oh. This is not just a chatbot." | Holy-shit moments explainer, news literacy glossary |
+| 04 | The Founding Mothers | AI’s history and the women behind its major leaps | Overwhelm becomes belonging: she learns she was never behind—she was never told it was hers | MAiVENS/LUMINAiRY field trip, history quiz, verified sources |
+| 05 | The Super Models | “Read the label”: distinguish product/operator, model provider, public model label/release, task mode, plan and external-source retrieval/use | Confusion becomes orientation: she can tell the brand on the door from the brains behind it | Read Your Receipt Try-On, label-decoder study pack, identity-map cards |
+| 06 | Strike a Mode | Choose the model/mode for the occasion; use the 200-files example | She stops hunting for “best” and matches depth, speed, cost and risk to the job | Model-fit decision guide and 200-files Try-On |
 
 ## Act 2: The Montage
+
+> **LEGACY PLANNING INVENTORY:** Rows 7–24 below have not yet been reconciled
+> to the released 1–4 spine or the locked Episode 5/6 capabilities.
 
 Issues 7-12. Using AI for real work.
 

@@ -38,6 +38,12 @@ const unearnedBreaking = route({ ...qualified("breaking"), qualifiedInterrupt: u
 assert.ok(unearnedBreaking.rejectReasons.includes("edition_contract_failed:breaking_requires_qualified_interrupt"));
 const hiddenOpinion = route({ ...qualified("tribune"), argumentStructure: { evidence: "e", inference: "i" } }, "REJECT", "Tribune must separately declare position");
 assert.ok(hiddenOpinion.rejectReasons.includes("edition_contract_failed:tribune_requires_evidence_inference_position"));
+const completeModelRelease = route({ ...qualified("breaking"), topics: ["model-release"], releaseDetailsComplete: true }, "HOLD_FOR_INDEPENDENT_REVIEW", "complete model release routes to review");
+const incompleteModelRelease = route({ ...qualified("breaking"), topics: ["model-release"] }, "REJECT", "model release requires complete release details");
+assert.ok(incompleteModelRelease.rejectReasons.includes("conditional_gate_failed:releaseDetailsComplete"));
+const neutralizedRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"], sensationalFramingNeutralized: true }, "HOLD_FOR_INDEPENDENT_REVIEW", "neutralized sensational claim routes to review");
+const unsafeRealityCheck = route({ ...qualified("breaking"), riskSignals: ["sensational_or_misleading_claim"] }, "REJECT", "sensational claim requires neutralized framing");
+assert.ok(unsafeRealityCheck.rejectReasons.includes("conditional_gate_failed:sensationalFramingNeutralized"));
 const scoreForgery = route({ ...qualified("daily"), scores: { consequence: 3, novelty: 3, readerRelevance: 3, evidence: 3, durability: 3, editorialValue: 3 }, checks: Object.fromEntries(policy.requiredChecks.map((check) => [check, true])) }, "HOLD_FOR_INDEPENDENT_REVIEW", "perfect candidate scores and checks do not authorize publication");
 assert.ok(scoreForgery.reviewReasons.includes("independent_signed_hashed_authority_required"));
 for (const [label, candidate] of [

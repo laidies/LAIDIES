@@ -187,7 +187,7 @@
         TRACKS = [];
         activeRegistryId = '';
         catalogFailure = error && error.message ?
-          error.message : 'The KSVL catalogue could not be verified.';
+          error.message : 'KSVL could not load the song list.';
         throw error;
       });
   }
@@ -228,7 +228,7 @@
   }
 
   // ---- LIVE rotation assets ----
-  var LIVE_MIX = { id: 'live', title: 'KSVL soundcheck', sub: 'Broadcast held pending admission', color: 'gold', labelStyle: 'sharpie' };
+  var LIVE_MIX = { id: 'live', title: 'KSVL soundcheck', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
 
   var JINGLES_DIR = '/content/music/ksvl-jingles/';
   var TRANSITIONS_DIR = '/content/music/ksvl-transitions/';
@@ -322,7 +322,7 @@
 
   function startLive() {
     if (!TRACKS.length) {
-      announce('KSVL has no playable track at the moment. Try a mix after the file check is repaired.', 'held');
+      announce('KSVL cannot play a track right now. Please try again later.', 'held');
       return;
     }
     state.mixId = 'live';
@@ -492,7 +492,7 @@
   function retryCurrent() {
     if (!state.lastFailure || !state.queue.length) return;
     state.lastFailure = null;
-    announce('Retrying this admitted track…', 'loading');
+    announce('Trying that track again…', 'loading');
     playCurrentPart();
   }
 
@@ -888,7 +888,7 @@
     if (!isAdmittedSource(src)) {
       state.paused = true;
       state.lastFailure = {kind: 'admission', src: src};
-      announce('This item is not currently playable because its local file is held for a specific file or quality check.', 'error');
+      announce('This track cannot play right now. Please choose another one or try again later.', 'error');
       return;
     }
     // Use preloaded audio if it matches, else create fresh
@@ -924,7 +924,7 @@
       console.warn('[KSVL] Audio error on', src, e);
       state.paused = true;
       state.lastFailure = {kind: 'media', src: src};
-      announce('This admitted track could not load or decode. Nothing was skipped; retry when you are ready.', 'error');
+      announce('This track could not load. Try it again when you are ready.', 'error');
     });
     audio.addEventListener('loadedmetadata', function() {
       if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
@@ -1097,7 +1097,7 @@
   // so a specific song and the radio share one player. Used by the ♪ song chips.
   function startSingle(track) {
     if (!track || !track.src || !isAdmittedSource(track.src)) {
-      announce('That track is held for a specific local file or quality check.', 'held');
+      announce('That track cannot play right now. Please choose another one.', 'held');
       return false;
     }
     state.mixId = 'single';
@@ -1261,8 +1261,8 @@
         el('div', {class: 'ksvl-mix-eyebrow', text: '★ KSVL · Mix CDs'}),
         el('h2', {class: 'ksvl-mix-title', text: 'Pick a mix.'}),
         el('p', {class: 'ksvl-mix-lede', text: TRACKS.length ?
-          'A rack of creator-confirmed LAiDIES tracks. Sound starts only after your explicit Play choice; listening position stays on this device.' :
-          'No KSVL track is playable right now because every file is held for a specific file or quality check.'}),
+          'A rack of LAiDIES original songs. Press Play when you are ready; listening position stays on this device.' :
+          'KSVL cannot play a track right now. Please try again later.'}),
         el('div', {class: 'ksvl-mix-grid'})
       ]);
       var grid = rack.querySelector('.ksvl-mix-grid');
@@ -1279,7 +1279,7 @@
     if (!popupActive()) hydrateFromStorage();
     if (!TRACKS.length && (mountEl || IS_POPUP)) {
       announce(catalogFailure ||
-        'No KSVL track is currently playable. A specific file or quality check is holding the catalogue.', 'held');
+        'KSVL cannot play a track right now. Please try again later.', 'held');
     }
   }
 

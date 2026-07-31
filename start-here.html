@@ -2,29 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Start Here — LAiDIES · SUNNYVAiLE</title>
-  <meta http-equiv="refresh" content="0; url=/visitors-centre.html" />
-  <link rel="canonical" href="https://laidies.ai/visitors-centre.html" />
-  <script>location.replace('/visitors-centre.html');</script>
+  <meta name="description" content="Choose one useful LAiDIES route and check the Visitor’s Centre’s current owner-published status." />
+  <link rel="canonical" href="https://laidies.ai/start-here.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    :root{color-scheme:light;--ink:#271b31;--paper:#fffdfb;--plum:#7d2852;--line:#d6c8d0}
+    body{margin:0;background:linear-gradient(150deg,#f8ecdd 0%,#f6dfe4 42%,#c9e5df 100%);color:var(--ink);font:500 1rem/1.55 Jost,sans-serif}
+    header,main{width:min(100% - 32px,960px);margin-inline:auto}
+    header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+    header a{color:var(--plum);font-weight:800}
+    .skip-link{position:fixed;left:16px;top:12px;z-index:10;transform:translateY(-180%);padding:10px 14px;background:#fff;color:var(--plum);font-weight:800}.skip-link:focus{transform:translateY(0)}
+    main{display:grid;gap:22px;padding:clamp(40px,8vw,96px) 0}
+    .intro,.status-card{padding:clamp(24px,5vw,54px);border:1px solid var(--line);background:var(--paper);box-shadow:0 16px 50px rgba(39,27,49,.08)}
+    .eyebrow{margin:0;color:var(--plum);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    h1{max-width:780px;margin:.2em 0;font-size:clamp(2.6rem,8vw,6.5rem);line-height:.9}
+    .lede{max-width:680px;font-size:clamp(1.05rem,2vw,1.3rem)}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .button{display:inline-block;padding:13px 17px;border:2px solid var(--plum);background:var(--plum);color:#fff;font-weight:800;text-decoration:none}
+    .button.secondary{background:transparent;color:var(--plum)}
+    #start-status{padding:14px 16px;border-left:6px solid #2f8f8b;background:#f5f0f5;font-weight:700}
+    #start-status[data-mode="fail-closed"]{border-color:#c25b7d}
+    #start-destination h2{margin:.4rem 0;font-size:clamp(1.55rem,4vw,2.4rem);line-height:1}
+    #start-destination a{color:var(--plum);font-weight:800}
+    .receipt{font-size:.75rem;overflow-wrap:anywhere}
+    @media(max-width:520px){header{align-items:flex-start;gap:14px}main{padding-top:28px}.actions{display:grid}.button{text-align:center}}
+  </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
     plausible.init()
   </script>
-  <!-- Microsoft Clarity (heatmaps + session recordings) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xnqcp37urd");
-  </script>
 </head>
 <body>
-  <p style="font-family: Jost, sans-serif; padding: 40px; text-align: center;">
-    The Welcome Wagon moved to the Visitor's Centre —
-    <a href="/visitors-centre.html">come on in</a>.
-  </p>
+  <a class="skip-link" href="#start-main">Skip to main content</a>
+  <header>
+    <a href="/" aria-label="LAiDIES Homepage">LAiDIES</a>
+    <a href="/">Back to the Homepage</a>
+  </header>
+  <main id="start-main" tabindex="-1">
+    <section class="intro" aria-labelledby="start-title">
+      <p class="eyebrow">Visitor’s Centre · one ordinary doorway</p>
+      <h1 id="start-title">Start with one useful route.</h1>
+      <p class="lede">You do not need to learn the whole town, create an account or hold a Resident Card. Check the current Visitor’s Centre status below, then decide whether to open it.</p>
+      <div class="actions">
+        <a class="button" href="#welcome-status">Check Visitor’s Centre status</a>
+        <a class="button secondary" href="/">Choose another Homepage route</a>
+      </div>
+    </section>
+    <section class="status-card" id="welcome-status" aria-labelledby="status-title">
+      <p class="eyebrow">Checksum-bound shared readiness v1</p>
+      <h2 id="status-title">Visitor’s Centre status</h2>
+      <p id="start-status" role="status" aria-live="polite">Checking the owner-published readiness record&hellip;</p>
+      <article id="start-destination"></article>
+      <p class="receipt" id="start-receipt"></p>
+    </section>
+  </main>
+  <noscript><p><a href="/visitors-centre.html">Open the Visitor’s Centre to check its current page.</a> JavaScript is required only for the checksum-bound status projection.</p></noscript>
+  <script src="/content/site/readiness/v1/readiness-runtime-v1.js?v=1.0.0"></script>
+  <script>
+  (function () {
+    'use strict';
+    var EXPECTED = '2cb13956032e45a0bd2cd3132fe5630a8f0b7d4b5da1b88509c7d1a58bc19b61';
+    var URL = '/content/site/readiness/v1/entry-readiness-projection.v1.json';
+    var mode = new URLSearchParams(location.search).get('entry_projection');
+    var api = window.LAIDIESEntryReadinessV1;
+    var status = document.querySelector('#start-status');
+    var destination = document.querySelector('#start-destination');
+    var receiptLine = document.querySelector('#start-receipt');
+
+    function render(receipt, envelope) {
+      var receiver = api.visitorCentreSemanticReceiver(receipt);
+      var item = receiver.destinations.find(function (entry) {
+        return entry.destinationId === 'visitors-centre';
+      });
+      status.dataset.mode = receiver.mode;
+      status.dataset.errorCode = receiver.errorCode || '';
+      status.textContent = receiver.announcement;
+      destination.replaceChildren();
+      var label = document.createElement('p');
+      label.className = 'eyebrow';
+      label.textContent = item.label;
+      var title = document.createElement('h2');
+      title.textContent = item.name;
+      var summary = document.createElement('p');
+      summary.textContent = item.summary;
+      var limitation = document.createElement('p');
+      limitation.textContent = item.limitation;
+      var action = document.createElement('a');
+      action.href = item.route;
+      action.textContent = item.actionLabel;
+      destination.append(label, title, summary, limitation, action);
+      receiptLine.textContent = receipt.mode === 'fresh'
+        ? 'Projection ' + receipt.projectionId + ' · payload ' + receipt.projectionSha256 + ' · fresh until ' + envelope.payload.validUntil
+        : 'Projection rejected · ' + receipt.errorCode;
+      document.dispatchEvent(new CustomEvent('laidies:start-readiness', {
+        detail: { mode: receipt.mode, errorCode: receipt.errorCode }
+      }));
+    }
+
+    async function load() {
+      if (!api) throw new Error('READINESS_RUNTIME_UNAVAILABLE');
+      var envelope = null;
+      if (mode !== 'missing') {
+        var response = await fetch(URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error('PROJECTION_FETCH_' + response.status);
+        envelope = await response.json();
+      }
+      if (mode === 'tamper') {
+        envelope = JSON.parse(JSON.stringify(envelope));
+        envelope.payload.destinations[0].label += ' changed';
+      }
+      var options = { expectedPayloadSha256: EXPECTED };
+      if (mode === 'stale') {
+        options.now = new Date(Date.parse(envelope.payload.validUntil) + 1).toISOString();
+      }
+      if (mode === 'conflict') {
+        options.previousReceipt = {
+          projectionId: envelope.payload.projectionId,
+          projectionSha256: '0'.repeat(64),
+          sequence: envelope.payload.sequence
+        };
+      }
+      render(await api.receive(envelope, options), envelope);
+    }
+
+    load().catch(function (error) {
+      status.dataset.mode = 'fail-closed';
+      status.dataset.errorCode = error.message || 'PROJECTION_TRANSPORT_FAILURE';
+      status.textContent = 'Current destination status is unavailable. Use the ordinary link below to check the named page.';
+      destination.innerHTML = "<a href=\"/visitors-centre.html\">Open the Visitor’s Centre</a>";
+    });
+  })();
+  </script>
 </body>
 </html>

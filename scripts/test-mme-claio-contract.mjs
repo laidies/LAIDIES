@@ -89,7 +89,10 @@ check(/@media \(max-width: 760px\)/.test(css), "mobile/reflow layout is missing"
 check(/location\.replace\('\/games\/madame-claio\.html'\)/.test(redirect), "legacy route lacks canonical replacement");
 check(/Cocktail Fortune has retired/.test(redirect), "legacy recovery copy does not say the old product retired");
 check(/separate playful reflection room/.test(redirect), "legacy copy conflates cocktail and reflection products");
-check(/separate drink-picker game, not a Mme CLAi-O reading/.test(bws), "Businesswomen's Special does not preserve its separate product frame");
+check(
+  /The BRONZE AiGE(?:&rsquo;|'|’)s separate (?:drink-picker )?game,\s+not a Mme CLAi-O reading/.test(bws),
+  "Businesswomen's Special does not preserve its separate product frame"
+);
 check(/spirit-free lane/.test(bws), "Businesswomen's Special boundary omits its spirit-free route");
 
 check(/Safari\/VoiceOver\/native zoom remain explicit human gates/.test(spec), "operating spec overclaims native accessibility evidence");

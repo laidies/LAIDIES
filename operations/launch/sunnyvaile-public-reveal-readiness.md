@@ -1,7 +1,7 @@
 # SUNNYVAiLE public reveal readiness
 
-**Status:** Public domain verified; launch package ready; social posts not yet
-published
+**Status:** Public mechanics verified; LIBRAiRY arrival visual gate reopened;
+social posts not yet published
 **Purpose:** one-time public reintroduction of LAiDIES and the new website,
 followed by a stable weekly operating rhythm
 
@@ -17,10 +17,13 @@ followed by a stable weekly operating rhythm
   labels, Dream Phone call/remix, Resident/Post Office/Community entry and one
   non-sensitive FAiRY Godmother request passed. See
   `operations/review-packets/grand-reopening-production-cutover-2026-07-24.md`.
-- **ANNOUNCEMENT READY BUT NOT PUBLISHED:** the ruled Instagram feed/Story and
-  LinkedIn package is ready. No direct publisher is installed, the in-app
-  browser is not signed into Instagram and the ChatGPT Chrome Extension is
-  absent from the active Chrome profile. No channel post or URL is claimed.
+- **ANNOUNCEMENT ON HOLD:** the ruled Instagram feed/Story and LinkedIn package
+  is prepared, but owner review rejected the current LIBRAiRY arrival as
+  visually underwhelming. The replacement must be approved, implemented and
+  production-verified before publishing. LinkedIn company-admin access is now
+  visibly verified for organization `125584075`; authenticated ownership of
+  Instagram `@laidies.ai` is also visibly verified through the account's Edit
+  profile and New post controls. No channel post or URL is claimed.
 
 - **CURRENT LIBRARY REPAIR DEPLOYED:** commit
   `9dc9153dbd509262ad3b323b0afb3fbc381e7689` is pushed and deployed to the
@@ -104,9 +107,10 @@ followed by a stable weekly operating rhythm
 - **NEWS CONTRACT REPAIRED:** the public rack contains only the current,
   source-checked WEDNESDAY Edition and Tribune. TODAY is retired; the former
   daily feed is manual-only candidate intake.
-- **OPEN GATE:** authenticated Instagram/LinkedIn publication access. The
-  production domain, public promise ledger and current Library owner feedback
-  are verified.
+- **OPEN GATE:** owner approval, implementation and production verification of
+  the replacement LIBRAiRY arrival. The existing production domain, public
+  promise ledger, LinkedIn company-admin access and authenticated Instagram
+  `@laidies.ai` access are verified.
 
 ## This is a reintroduction, not a routine episode post
 

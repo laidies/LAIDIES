@@ -701,3 +701,13 @@ All fetched or verified 2026-07-22 UTC unless noted.
 7. **Anthropic publishes no numeric human-agreement target for LLM judges.** The 0.83 TNR floor in Gate 10 is **[INFERENCE]** — derived from "10 of 12 known-fails caught" being the point where a miss becomes likelier than not across an episode. It is a starting number, not a validated one.
 8. **Gate 4's Ep5 verdict is a flag, not a finding.** I did not diff the Copilot routing claim against the ledger.
 9. **The Substance Sheet has never been used.** Everything in §4.3 is a reconstruction of what it *would* have contained, built from Ali's own recorded endorsement. The first real one will reveal what the format is missing.
+# SUPERSEDED SUBSTANCE-SHEET ASSUMPTION — 2026-07-24
+
+> The rule below that a substance sheet contains “no voice, no jokes, no
+> analogy” and treats metaphor vocabulary as decoration is **not valid for
+> LAiDIES episode approval**. LAiDIES analogies and references often perform
+> the teaching; they must be tested for technical accuracy and concept
+> fidelity, not stripped out of the governing artifact. Current authority is
+> `operations/checklists/episode-concept-fidelity-gate-template.md` plus
+> `operations/CODEX-WORKING-AGREEMENT.md`. This research remains preserved as
+> historical reasoning; do not derive the Gate 1 format from it.

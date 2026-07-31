@@ -1,23 +1,25 @@
-# Welcome Wagon Visitor's Centre — operating specification
+# Visitor’s Centre — operating specification
 
-**Status:** BOUNDED LOCAL PASS — independent Repair 1 rejudge 92/100. This is
-not owner approval, native-accessibility proof, public readiness or a
-downstream-lifecycle claim.
+**Status:** RECOVERY — PRIOR FUNCTIONAL BASE REJECTED BY ALI; INTENDED
+EXPERIENCE/FUNCTIONALITY/SPEC WORK ACTIVE; REPLACEMENT VISUAL PRODUCTION HELD
+FOR THE SITEWIDE BRAND DIRECTION. Prior interaction, state, accessibility and
+native evidence remains technical characterization only. It is not a product,
+Brand, integration, release or public candidate.
 
 ## Identity and purpose
 
-- **Product:** Welcome Wagon Visitor's Centre (`/visitors-centre.html`).
+- **Product:** Visitor’s Centre (`/visitors-centre.html`).
 - **Parent building/product:** SUNNYVAiLE town entry; complementary to, but not a replacement for, the homepage.
 - **Product type:** Orientation/discovery room and handoff service.
 - **Audience:** New or returning visitors who want a clear introduction or a named town destination without memorizing the map.
 - **User job:** Understand the room's purpose, discover a named building through the wall map or directory, and leave through one intentional next route.
 - **Why LAiDIES offers it:** It makes orientation welcoming and legible without turning it into mandatory onboarding before practical AI learning.
-- **Distinct contribution:** A room-first front desk—map on the wall, named directory, in-place destination reveal—not a dashboard or seventeen-card product grid.
+- **Distinct contribution:** A colourful, vibrant and unmistakably LAiDIES arrival place in which the environment itself performs orientation. The prior neutral white-page/front-desk/map/directory composition was rejected and cannot be revived by reskinning it.
 - **Explicit non-goals:** The Centre does not make a downstream service ready, subscribe/mail/open/join/refer someone, issue rewards, require a tour/postcard/sign-in, or certify account persistence.
 
 ## Experience model
 
-- **Diegetic metaphor:** Welcome Wagon front desk in an inhabited SUNNYVAiLE room. The map is spatial delight; the named directory is the equal, required non-map route.
+- **Diegetic metaphor:** Not yet selected. The sitewide Brand direction must arrive before the Visitor owner may resume visual selection. Map, named directory and destination-reveal capabilities remain requirements, but they do not authorize the rejected front-desk composition, a boxed web layout or an independently selected replacement style.
 - **Ten-second comprehension:** “This is the front desk. I can choose a building by its name or map, see what happens there, and step inside. The tour and postcard are optional.”
 - **New-user journey:** Arrive → read orientation/starter route → choose map or directory → receive live destination reveal → choose “Step inside” or return to map. The visitor need not complete the tour, trailer, postcard or account flow.
 - **Returning-user journey:** Reopen the room → choose a destination directly; local prior selection may be used for presentation only and cannot imply a durable personal history. A returning visitor receives a useful continuation only if the destination is currently admitted by its owner.
@@ -53,13 +55,13 @@ downstream-lifecycle claim.
 
 ## Visual, voice and media
 
-- **Approved direction:** Room first. Map on the wall; named directory; reveal in place. Maintain one clear exit and reserve the full town as optional depth.
-- **Character/location/canon rules:** Welcome Wagon is the front desk. Current candidate uses the room/map and `assets/final_map/sunnyvaile-town-map-final-v5.webp`; visual acceptance requires the pending Ali room-first ruling.
+- **Approved direction:** NONE. Ali rejected the prior neutral room-first/boxed composition and then ruled that broader Visitor visual production must wait for the sitewide Brand direction. Pre-ruling exploratory specimens are unadmitted Brand-championship inputs only; they are not an owner selection or implementation target.
+- **Character/location/canon rules:** The result must feel like entering the Visitor’s Centre inside SUNNYVAiLE, not opening a generic orientation website. Existing map and path-bound pre-ruling assets are optional inputs, not naming authority for the replacement composition.
 - **Voice/copy rules:** Welcoming, specific and action-true: “choose,” “see,” “step inside,” “start the tour,” “prepare/share a postcard.” Do not say “sent,” “opened,” “joined,” “earned,” or “unlocked” without the owning authoritative event.
 - **Required asset states:** Legible map plus named fallback; welcome postcard `assets/postcards/from-sunnyvaile/pc-welcome.png`; welcome title art; optional trailer/audio state with alt/caption/control/failure treatment.
 - **Motion/audio/narration continuity:** Tour/trailer/anthem must be optional, pauseable, keyboard-operable and reduced-motion compatible. No media can obstruct destination choice.
-- **Rejected/prohibited patterns:** Numbered pins, map-memory tests, long generic destination-card roll, dashboard-like onboarding, a postcard/tour gate, and a visual pass inferred solely from interaction code (BTB-050).
-- **Owner decision still required:** Ali's visual/experience ruling on the room-first candidate; no code/asset change is implied by this spec.
+- **Rejected/prohibited patterns:** The prior white-page/front-desk/map/directory grammar; neutral or off-palette shells; boxed-module and generic-card composition; “functional base now, Brand later”; incremental restyling of the rejected candidate; numbered pins; map-memory tests; long generic destination-card rolls; dashboard-like onboarding; postcard/tour gates; and any visual PASS inferred from interaction code or technical tests.
+- **Owner decision still required:** Sitewide Brand direction, through the controlled championship. Ali is not asked to choose among independently generated Visitor directions. A later Visitor-specific gate requires an explicit bounded continuation after the sitewide direction.
 
 ## Technical and operational contract
 
@@ -83,13 +85,13 @@ downstream-lifecycle claim.
 
 ## Dependencies and ownership
 
-- **Parent champion:** Town Entry & Homepage; Visitor's Centre champion owns room contract and records.
+- **Parent champion:** Town Entry & Homepage; Visitor’s Centre champion owns room contract and records.
 - **Subchampions:** None. Postcard, trailer/tour, directory, and destination owners are dependencies rather than subproducts.
 - **Required specialist guilds:** Product/UX, accessibility, frontend/runtime QA, visual/brand, Platform Reliability, Analytics/Privacy; Post Office/Episode Media judges for their handoffs.
 - **Upstream dependencies:** Homepage/Start Here, shared directory/map/global navigation, trailer/media, Post Office, analytics/privacy configuration, public-promise registry.
 - **Downstream consumers:** Chosen building/product routes and Town Entry orientation.
 - **Cross-product conflicts/handoffs:** Centre cannot override a destination's status, shared directory or global tour/reward behavior. Any destination promotion needs owner/readiness reconciliation. The homepage uses Centre as its orientation route but does not own its visual ruling.
-- **Freshness/maintenance owner:** Visitor's Centre champion checks directory/map labels and local recovery on shared dependency changes; Town Entry/Platform coordinate release evidence; destination champions own their availability.
+- **Freshness/maintenance owner:** Visitor’s Centre champion checks directory/map labels and local recovery on shared dependency changes; Town Entry/Platform coordinate release evidence; destination champions own their availability.
 
 ## Acceptance and release
 
@@ -100,7 +102,7 @@ downstream-lifecycle claim.
 - **Backend/data/reward:** Directory route binding and unknown/missing data recovery pass; postcard/trailer outcomes remain separately owned and require their provider/product evidence.
 - **Visual/media:** Map/room/asset loading, trailer controls/captions/failure and optional audio behavior reviewed on exact candidate; owner visual ruling recorded.
 - **Exact candidate/release/public verification:** Local interaction evidence already covers selected map/directory/reveal/return/postcard mechanics and 390×844. A new exact artifact must pass full clean journey; public verification needs the same bounded public-origin suite and approved analytics configuration.
-- **Current status/unresolved decisions:** **BUILDING.** Deterministic clean-state comprehension assertions, directory/map recovery, keyboard focus return, storage failure, mobile/reflow/reduced-motion and truthful trailer/tour/postcard handoffs pass in the maker source/browser candidate. Human comprehension, independent judgment, native Safari/VoiceOver/zoom, owner visual approval, approved analytics and exact public-origin verification remain open.
+- **Current status/unresolved decisions:** **RECOVERY / VISUAL PRODUCTION HELD.** Deterministic clean-state, directory/map recovery, keyboard, storage, responsive, reduced-motion, handoff and bounded native checks characterize useful capabilities in the rejected base only. They do not admit its composition. Intended-experience/functionality/spec recovery may continue. Visual selection and implementation wait for the sitewide Brand direction and a bounded continuation. The eventual replacement must separately pass building experience, Brand/world continuity, product truth, responsive/accessibility, human comprehension, technical integration, analytics and exact release/public-origin gates.
 
 ## Source trail
 

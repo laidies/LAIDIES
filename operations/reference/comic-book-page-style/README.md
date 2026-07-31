@@ -11,3 +11,8 @@ big sound-effects) — Ali: "we could have these from time to time."
 single comic portraits (see ../trading-cards) and emphasis word-bursts (see ../font-and-text-emphasis).
 Prompt for: irregular panels, bold black ink outlines, halftone dot shading, flat comic color,
 speech balloons, a sound-effect word — keep the LAiDIES cast + [[brand-palette-and-type-lock]] accents.
+
+This reference governs page composition and comic mechanics. Every person inside
+the page must still match the master people-rendering style in
+`operations/episode-visual-system-lock.md`. Halftone may treat a panel or printed
+surface; it must not collapse faces into generic flat pop art.

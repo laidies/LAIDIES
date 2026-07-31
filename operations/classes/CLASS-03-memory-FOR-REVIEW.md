@@ -43,8 +43,9 @@ hundred Tuesdays. This screen is how the new café becomes your regular.
 
 ## The two nouns, used precisely throughout
 - **the tool** — the thing you click. Memory belongs to the tool.
-- **the model** — the part that produces the words. It does not remember you; it is *handed*
-  what the tool stored.
+- **the model** — a core component that uses the supplied input to produce an
+  output. It does not own the product's saved memory; the product decides what
+  stored information to supply for the task.
 ⚠ This distinction is load-bearing here. If she leaves thinking the thing that writes is also
 the thing that remembers her, the class has failed.
 

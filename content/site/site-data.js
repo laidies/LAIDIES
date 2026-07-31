@@ -237,8 +237,8 @@ window.LAIDIES_SITE_DATA = {
       "heroImage": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp",
       "oneLineDescription": "The one in which the work AI feels strangely familiar.",
       "act": "Act 1",
-      "lesson": "The company makes the model; the app is just where you shop it.",
-      "emotionalBeat": "The work one is not a mystery; it can be a familiar model in a different store.",
+      "lesson": "Provider, model, product and tools are different parts of the experience—and each can change what comes back.",
+      "emotionalBeat": "The choices stop feeling mysterious once she can name which part actually changed.",
       "siteLinks": [],
       "websiteModules": {
         "quiz": null,
@@ -777,10 +777,10 @@ window.LAIDIES_SITE_DATA = {
           "options": [
             "It only finds old webpages",
             "It refuses to draft",
-            "It can create a new first pass from your instructions",
+            "It can create new content from your instructions and other inputs",
             "It always knows the truth"
           ],
-          "answer": "It can create a new first pass from your instructions",
+          "answer": "It can create new content from your instructions and other inputs",
           "explain": "Episode 1 frames AI as something that can draft, summarize, compare, translate tone, and organize, not just search.",
           "review": "Find it in the Core Lesson.",
           "reviewUrl": "issues/issue-01.html"
@@ -1269,13 +1269,13 @@ window.LAIDIES_SITE_DATA = {
           "bonus": true,
           "prompt": "⭐ BONUS — from next week. Next episode is called The Super Models. In AI, a \"model\" is:",
           "options": [
-            "The trained brain doing the actual work, no matter which app you open",
+            "A core component of an AI system that uses inputs to produce outputs",
             "A smaller test version of an AI",
             "The template you fill in when writing a prompt",
             "The company behind the app"
           ],
-          "answer": "The trained brain doing the actual work, no matter which app you open",
-          "explain": "ChatGPT, Claude, Gemini: those are apps. Underneath each one is a model, the trained brain doing the work. Next Wednesday, the whole lineup gets introduced properly.",
+          "answer": "The trained component that turns an input into an output",
+          "explain": "A model may produce words or images, interpret material, make a prediction or choose a next action. You might use it through an app, API or coding tool. The product around it can add instructions, memory, search, files, tools and other models.",
           "review": "Reread the scene in Episode 04.",
           "reviewUrl": "issues/issue-04.html"
         },

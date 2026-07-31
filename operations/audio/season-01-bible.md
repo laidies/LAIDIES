@@ -13,7 +13,8 @@ promises in the announcer's season promo are the four act milestones:
 ## Format (locked)
 
 - **Length:** **15–20 minutes** (corrected 2026-07-09, Ali — the old "8–12
-  minutes" was never real: Ep 4 ran 17:48, Ep 5 ~16). One lesson per episode.
+  minutes" was never real: Ep 4 ran 17:48; an old Episode 5 draft was
+  approximately 16 minutes, but Episode 5 is not recorded). One lesson per episode.
   The article carries the depth; the episode carries the story.
 - **The cocktail party explanation delivers a QUOTABLE (Ali 2026-07-07):**
   the segment leads with a short line you could actually repeat at a
@@ -27,7 +28,7 @@ promises in the announcer's season promo are the four act milestones:
   wrong; "you have to onboard them, give them guidance and guardrails,
   the lay of the land, manage them and review their work — and you've
   done this all before" (Ali's wording, Ep 1). The onboarding verbs ARE
-  the season: context (Ep 2) → guardrails/verification (Eps 3-4) →
+  the season: context (Ep 2) → verification (Ep 3) →
   review/judgment (Ep 22). Two non-negotiable limits: context must be handed over
   (→ Ep 2 delegation) and out-of-the-box it checks plausibility, not
   truth (→ Ep 3 Burn Book).
@@ -95,19 +96,25 @@ promises in the announcer's season promo are the four act milestones:
 - **"Remember, ladies"** — one fresh aphorism per episode; the 24
   lines together are the season's quotable spine (poster potential).
 
-## Season map — LOCKED (Ali 2026-07-08 — re-sequenced for the learning arc + the saint Court)
+## Season map — RELEASED SPINE + PROVISIONAL FUTURE
 
-The four promo promises are the acts. Re-ordered so each week only needs what came before, safety
-lands before heavy use, and the agents/leadership arc is the payoff. Eps 1–4 recorded/locked; Ep 5
-teased. Grounded vs 2026 AI-skills demand + agentic/multimodal/embedded trends (facts ledger).
+Episodes 1–4 are released. Episode 5’s title/capability and Episode 6’s
+capability are locked by D-2026-07-24-018/019. Episode 6’s public title,
+*Strike a Mode*, is locked by D-2026-07-24-021. Episodes 7–24 remain unruled;
+the older rows are retained as planning inventory, not production authority.
 
 **ACT I — SHE STOPS FEELING BEHIND (1–8): fluency, alone.**
-1. **On Wednesdays We Use AI** — what AI is; the auditions. ✅
+1. **On Wednesdays We Do AI** — what AI is; the auditions. ✅
 2. **Tell Me What You Want** — prompting is delegation. ✅
 3. **The Burn Book Problem** — confidently wrong; verify. ✅
-4. **Every SLAiYER Needs a Watcher** — the cast; which tool for which job. ✅ *(absorbed old "picking your tool")*
-5. **The Skeleton Key** — memory/context; set up once. 🔜 teased
-6. **What Not to Paste** — privacy + guardrails. *(moved up from old #14 — before the document weeks)*
+4. **The Founding Mothers** — AI’s history and the women behind its major leaps. ✅
+5. **The Super Models** — read the label: product/operator, model provider,
+   public label/release, task mode, plan and external-source retrieval/use. 🔜
+6. **Strike a Mode** — choose the model/mode for the occasion; the 200-files example. *(capability and title locked)*
+
+**Episodes 7–24 below are a legacy planning inventory, not an approved
+production order.**
+
 7. **Just Talk to It** — multimodal: voice + show it (screenshots, camera). ⭐ NEW
 8. **The Two-Minute Summary** — reclaim reading time.
 
@@ -149,7 +156,12 @@ her own story (Miranda really is an editor), NOT an assigned one:
 **Production cascade still owed** (not one-per-episode): LUMINAiRY entries, portraits, saint songs, homepage strip
 and Closet "Your Luminaries" picker for the 4 new saints (Samantha/Deloris/Oprah/J.Lo) + Cher/Deb/Regina copy.
 
-**Re-sequencing moves (2026-07-08):** Ep 4 keeps "the cast" (old "picking your tool" Ep 5 **dropped**, not duplicated) · privacy → Ep 6 · verification = concept once (Ep 3) + workflow once (Ep 11) · staying-current → Ep 23. **Added:** multimodal (7), embedded (10), the saint Court (18–19). **Merged:** teach+mentor (21), judgment+centaur (22).
+**SUPERSEDED FOR EPISODES 4–6 by D-2026-07-24-018/019 — historic
+2026-07-08 note:** Ep 4 keeps "the cast" (old "picking your tool" Ep 5
+**dropped**, not duplicated) · privacy → Ep 6 · verification = concept once
+(Ep 3) + workflow once (Ep 11) · staying-current → Ep 23. **Added:**
+multimodal (7), embedded (10), the saint Court (18–19). **Merged:**
+teach+mentor (21), judgment+centaur (22).
 
 ## Facts locked (Currency Rule — every activity verified vs the live site, 2026-07-07)
 

@@ -63,8 +63,19 @@ Use `LEARNING-CONTENT-STANDARD.md` whenever this section is substantive.
 
 - Building-as-experience mechanic: how the environment and pictured objects
   become the interface rather than decoration:
+- Exact experience-admission rule: identify the representative desktop/mobile
+  artifact that already expresses the intended place, palette, energy and
+  LAiDIES/SUNNYVAiLE world. A neutral shell, generic boxed layout, wireframe or
+  “brand later” candidate is technical evidence only and cannot become an
+  owner-review, integration or Brand-PASS candidate:
 - Sitewide visual-system authority and any deliberate product-level variation:
 - Approved visual direction, palette, illustration system and references:
+- Complete `VISUAL-ASSET-INVENTORY.md`: source scan, rendered desktop/mobile
+  and meaningful states, and `KEEP / ADAPT / REPLACE / REMOVE` disposition for
+  every visible image, CSS background, dynamic/state asset, character, icon,
+  responsive variant and fallback. The product owner discovers these; Ali is
+  not asked to supply files one at a time:
+- Exact visual debt and replacement-production queue:
 - Character/location/canon rules:
 - Voice and copy rules:
 - Required asset types/sizes/states:
@@ -78,6 +89,9 @@ Use `LEARNING-CONTENT-STANDARD.md` whenever this section is substantive.
 - Frontend modules:
 - Backend/services/providers:
 - Data model and authoritative stores:
+- Complete producer/consumer touchpoint map:
+- Create/read/update/remove/revoke/refund propagation:
+- Authoritative completion events and idempotency keys:
 - Identity/session:
 - Persistence and cross-device truth:
 - Reward/economy contract:
@@ -121,3 +135,8 @@ Use `LEARNING-CONTENT-STANDARD.md` whenever this section is substantive.
 
 List locked decisions, owner direction, primary research, code/data evidence,
 tests and dated observations. Separate facts from inference.
+
+Attach or reference the product's `FUNCTIONALITY-MAP.md`. A prose statement
+that the product “uses Supabase,” “saves to the Closet” or “awards a reward”
+does not satisfy the technical contract without the exact end-to-end producer,
+store/service, consumer, failure and verification record.

@@ -15,7 +15,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const defaultPolicyPath = path.resolve(scriptDirectory, "../operations/newsstand-autopublish-policy.json");
 const EDITIONS = ["daily", "breaking", "weekly", "tribune"];
 const SOURCE_TYPES = ["primary", "affected_party", "independent", "secondary_analysis"];
-const CANDIDATE_FIELDS = new Set(["id", "slug", "edition", "date", "headline", "scores", "topics", "riskSignals", "sources", "checks", "editorialJob", "briefingItems", "developments", "qualifiedInterrupt", "argumentStructure"]);
+const CANDIDATE_FIELDS = new Set(["id", "slug", "edition", "date", "headline", "scores", "topics", "riskSignals", "sources", "checks", "editorialJob", "briefingItems", "developments", "qualifiedInterrupt", "argumentStructure", "releaseDetailsComplete", "sensationalFramingNeutralized"]);
 const SCORE_FIELDS = ["consequence", "novelty", "readerRelevance", "evidence", "durability", "editorialValue"];
 
 function unique(values) { return [...new Set(values)]; }
@@ -70,6 +70,13 @@ export function evaluateCandidate(candidate, policy) {
   else for (const field of SCORE_FIELDS) if (!Number.isInteger(candidate.scores[field]) || candidate.scores[field] < 0 || candidate.scores[field] > 3) rejectReasons.push(`missing_or_invalid:scores.${field}`);
   if (!Array.isArray(candidate?.topics) || !candidate.topics.every((topic) => typeof topic === "string") || new Set(candidate?.topics || []).size !== (candidate?.topics || []).length) rejectReasons.push("missing_or_invalid:topics");
   if (!Array.isArray(candidate?.riskSignals) || !candidate.riskSignals.every((signal) => typeof signal === "string") || new Set(candidate?.riskSignals || []).size !== (candidate?.riskSignals || []).length) rejectReasons.push("missing_or_invalid:riskSignals");
+
+  for (const [gate, trigger] of Object.entries(policy.conditionalGates || {})) {
+    const topicTriggered = (trigger.topics || []).some((topic) => candidate?.topics?.includes(topic));
+    const signalTriggered = (trigger.riskSignals || []).some((signal) => candidate?.riskSignals?.includes(signal));
+    if ((topicTriggered || signalTriggered) && candidate?.[gate] !== true) rejectReasons.push(`conditional_gate_failed:${gate}`);
+    if (candidate?.[gate] !== undefined && typeof candidate[gate] !== "boolean") rejectReasons.push(`missing_or_invalid:${gate}`);
+  }
 
   const sources = Array.isArray(candidate?.sources) ? candidate.sources : [];
   if (sources.length < policy.minimumSources) rejectReasons.push(`insufficient_sources:${sources.length}`);

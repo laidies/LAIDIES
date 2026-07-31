@@ -2,9 +2,9 @@
  * THE WELCOME TOUR — first-visit guided walk through SUNNYVAiLE.
  *
  * Seventeen stops, one escort chip — the full guided walk through
- * SUNNYVAiLE in order, from the Visitor's Centre all the way to MAiKEOVER
+ * SUNNYVAiLE in order, from the Visitor’s Centre all the way to MAiKEOVER
  * (make your card), which ends the tour. Starts ONLY when the visitor asks
- * (menu item, homepage button, or the Visitor's Centre offer) — never
+ * (menu item, homepage button, or the Visitor’s Centre offer) — never
  * auto-plays, never returns after finish/skip.
  *
  * State: localStorage 'laidies_welcome_tour' = { step, startedAt, done, skipped }
@@ -16,20 +16,20 @@
   var KEY = 'laidies_welcome_tour';
 
   var STOPS = [
-    { href: '/visitors-centre.html', name: "The Welcome Wagon", icon: 'map',
-      line: "Every good town starts at the Visitor's Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
+    { href: '/visitors-centre.html', name: "Visitor’s Centre", icon: 'map',
+      line: "Every good town starts at the Visitor’s Centre — press play on the trailer up top for a quick taste, then follow me and I'll walk you through every stop in town." },
     { href: '/newsstand.html', name: 'The NewsStand', icon: 'news',
-      line: "Check the four source-checked desks: a qualified interruption, consequential briefing, durable synthesis or sourced argument. A quiet desk means no story earned the paper." },
+      line: "Catch breaking news, a clear daily explainer, the week’s bigger picture and The Tribune’s take on the questions behind the headlines." },
     { href: '/chick-flicks.html', name: 'The Chick Flicks', icon: 'vhs',
       line: "Pull a released episode off the New Releases wall and open its full issue — always a chick flick." },
     { href: '/blend-snap.html', name: 'The Blend & Snap', icon: 'cup',
-      line: "Order an episode's Study Pack menu and see exactly what is ready, held, planned or unavailable before you choose a next step." },
+      line: "Order an episode’s Study Pack and choose a Try-On, guide or activity that is ready now." },
     { href: '/sunnyvaile-high.html', name: 'SUNNYVAiLE High', icon: 'gradcap',
       line: "Try a Pop Quiz or class that is currently available. Any score or keepsake is device-local unless the page explicitly proves an account record." },
     { href: '/library.html', name: 'The LIBRAiRY', icon: 'book',
       line: "When the jargon lands on the table, this is the rack where you look it up — the Glossary, the straight answers, and Miss Jeeves at the desk." },
     { href: '/luminairy.html', name: 'The LUMINAiRY', icon: 'candle',
-      line: "Visit the three portrait wings on Lantern Hill. Profile research and audio stay visibly held until each exact claim, source and rights record clears review." },
+      line: "Visit the three portrait wings on Lantern Hill and meet the Patron Saints, MAiVENS and Trailblazers behind AI." },
     { href: '/games/madame-claio.html', name: "Mme CLAi-O's", icon: 'crystal',
       line: "Call the psychic hotline and step in for your reading — practical advice, late-night-commercial drama." },
     { href: '/games/fairy-godmother.html', name: 'FAiRY Godmother', icon: 'wand',
@@ -39,17 +39,17 @@
     { href: '/mall.html', name: 'The Mall', icon: 'bag',
       line: "Ten stores, all references — every pop-culture moment the town reaches for has its own storefront, with a Directory at the door." },
     { href: '/games/dream-phone.html', name: 'Dream Phone', icon: 'phone',
-      line: "Try the experimental Dream Phone: pick a caller for a playful, prewritten reframe — not personalized or professional advice." },
+      line: "Call a SUNNYVAiLE character for a playful new perspective, or play For Real / As If and investigate an AI claim." },
     { href: '/sorority-house.html', name: 'Delta LAi Nu', icon: 'home',
-      line: "Visit the Delta LAi Nu clubhouse preview. Account, room and Closet access are available only where the receiving page proves them." },
+      line: "Visit the Delta LAi Nu clubhouse for Girl Talk, community rooms and your Closet." },
     { href: '/town-hall.html', name: 'Town Hall', icon: 'columns',
       line: "Deb's office — meet the mayor who's been here longer than anyone, read the poster saga, and drop a Comment Card if something needs handling." },
     { href: '/post-office.html', name: 'The Post Office', icon: 'mail',
-      line: "Request the Wednesday Postcard through Buttondown, check the held Resident Card account desk, or prepare a local postcard. This page cannot confirm subscription, email delivery or sign-in." },
+      line: "Get the Wednesday Postcard, sign in or make a SUNNYVAiLE postcard of your own." },
     { href: '/radio.html', name: 'KSVL 99.9', icon: 'radio',
-      line: "Listen to creator-confirmed LAiDIES originals at KSVL 99.9. Listening position stays on this device." },
+      line: "Listen to LAiDIES original songs at KSVL 99.9. Your place in the song stays on this device." },
     { href: '/maikeover.html', name: 'MAiKEOVER on MAiN', icon: 'lipstick',
-      line: "Take the chair, style a device-local Resident Card preview and see the page's honest account status. Cross-device identity is not promised." }
+      line: "Take the chair, make your Resident Card and give your SUNNYVAiLE identity a proper makeover." }
   ];
 
   function readState() {
@@ -200,7 +200,7 @@
     chip.innerHTML =
       '<p class="svwt-eyebrow"><span>' + ic('bus', 'eb3', 13) + ' Welcome Tour · complete</span></p>'
       + '<p class="svwt-name">' + ic('star', 'fin', 17) + ' Official Tourist!</p>'
-      + '<p class="svwt-line">You\'ve visited every stop. If you want, make a device-local Resident Card preview here; the page will label any account features that are still held.</p>'
+      + '<p class="svwt-line">You\'ve visited every stop. If you want, finish by making your Resident Card at MAiKEOVER on MAiN.</p>'
       + '<a class="svwt-next" href="#maikeover-form" onclick="this.closest(\'.svwt-chip\').remove()">Preview my card ★</a>';
     document.body.appendChild(chip);
     setTimeout(function () {
@@ -209,7 +209,7 @@
     }, 30000);
   }
 
-  // Offer chip: shown ONLY on the Visitor's Centre to visitors who have
+  // Offer chip: shown ONLY on the Visitor’s Centre to visitors who have
   // never started, finished, or skipped the tour.
   function renderOffer() {
     injectStyle();
@@ -267,7 +267,7 @@
       renderChip(state);
       return;
     }
-    // Never started, never dismissed → offer it, on the Visitor's Centre only.
+    // Never started, never dismissed → offer it, on the Visitor’s Centre only.
     if (!state && pathNow() === '/visitors-centre.html') {
       renderOffer();
     }

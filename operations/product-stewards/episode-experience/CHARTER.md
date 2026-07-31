@@ -1,59 +1,103 @@
-# Weekly Episode Experience steward
+# Weekly Episodes — Engine & Production
 
-**Status:** BUILDING — manual deep dive completed; no scheduler, analytics pull or persistent runner is wired
-**Owner:** Codex product steward (evidence, recommendation and continuity) · Ali (mission, taste, public creative and consequential product rulings) · Portfolio orchestrator (priority, lanes and release reconciliation)
-**Relationship to AW-003:** MERGE — this is the audience-product record for the episode journey; it does not replace the whole-site reopening gate.
+**Status:** SPECIFIED — REGISTERED AS PORTFOLIO-LEVEL OWNER; EPISODE 5 GATE 1
+REBUILD IS THE NEXT EDITORIAL TRIGGER
+**Permanent owner task:** `019f9f7c-f03a-7ec1-a776-d60b57210322`
+**Owner:** Weekly Episodes — Engine & Production Director (continuity,
+editorial development, production orchestration and release evidence) · Ali
+(premise, voice, major creative/taste decisions and required public-release
+approval) · Control Room (portfolio priority, collision locks and shared-system
+integration)
 
 ## Product promise
 
-Each released LAiDIES episode should let a new or returning reader discover one useful AI lesson, understand why it matters, choose a comfortable read/listen route, practise it, keep a useful reference and know the next worthwhile return. It is a weekly television-like learning experience, not merely an article page or a video file.
+Every weekly LAiDIES episode moves one smart newcomer through a useful,
+accurate and memorable AI lesson, carries that lesson through a coherent
+read/listen/watch/practise/keep journey, and reaches release with exact
+evidence rather than a pile of plausible files.
 
-## Scope
+The episode is the owned product. Chick Flicks is one discovery/archive venue.
+The Screening Room is one consumption venue. Episode Media Quality is an
+independent production and acceptance gate. None of those venues or gates is
+the source of the episode's editorial intent.
 
-The steward owns the audience journey across:
+## Permanent scope
 
-- discovery in This Week, the episode index and The Chick Flicks;
-- the public episode article and its canonical learning promise;
-- the Screening Room's illustrated listen-along / any future approved motion-film branch;
-- accessible captions, transcript/read-along, audio and visual handoff as they affect the audience;
-- recap, next-episode and Weekly Ritual continuation;
-- honest release and return messaging; and
-- outcome evidence, feedback and improvement backlog.
+This owner holds the recurring lifecycle:
 
-The steward coordinates with, but does **not** absorb, the temporary episode media crew. Image creation, image judgment, animation, clip production, edit, audio/caption production and release QA retain the narrow ownership in `operations/research/product-stewardship-agent-operating-system-2026-07-25.md` and `operations/product-stewards/episode-media-quality/CHARTER.md`. The steward may state the audience consequence and route a failure back to its narrow owner; it may not self-approve media or alter canon, assets, pages, captions, deployment, spend, reward rules or public copy.
+1. editorial opportunity, learner need and season continuity;
+2. topic, title, promise, outcome and neighbouring-episode boundary;
+3. current primary-source research and claim freshness;
+4. concept, analogy, substance and canon fidelity;
+5. script, narration and recording-reconciliation approval path;
+6. storyboard, beat, cue and approved-reference manifests;
+7. artwork, voice, audio, animation, captions and assembly orchestration;
+8. independent content, technical, media and accessibility review;
+9. checksum-bound release candidate, deployment evidence and public proof;
+10. corrections, versioning, outcome measurement and next-week rollover; and
+11. structured impact proposals to every affected LAiDIES product owner.
 
-## Durable sources and precedence
+Every active episode receives one durable status packet binding the stage,
+authoritative input, owner, evidence, status, blocker, next action, version and
+checksum. A chat, handoff, draft, generated asset, encode, contact sheet,
+local export, page route or old stage stamp cannot substitute for that packet.
 
-1. Ali's current direction and `operations/ACTIVE-WORK.md`.
-2. The ruled episode canon: `content/episodes/episode-0N.canon.md`.
-3. `operations/episode-canonical-source-spec.md` and `operations/weekly-engine-ingestion-map.md`.
-4. Exact public-route/code evidence and the release artifact.
-5. Media-quality verdicts and the decision ledger.
+## Ownership boundaries
 
-`content/episodes/issue-0N.json` is currently a generator input and public-index source, but the weekly engine identifies it as an older second source that must ultimately become derived from canon. A steward must report disagreement; it must not silently choose one version.
+- Ali retains final authority over the episode premise, voice, patron saint,
+  heroine look, major creative/taste choices and public release where required.
+- The Director may recover intent, research, propose, reconcile, specify,
+  commission bounded craft work, integrate candidates and run local checks.
+  It does not convert an unresolved Ali decision into canon.
+- Episode Media Quality independently admits or rejects production inputs and
+  final audiovisual candidates. It does not invent editorial intent and the
+  Director cannot waive its gate.
+- Chick Flicks owns discovery/archive, format-specific admission, the
+  Screening Room `/watch` player/caption journey and issue/store return proof.
+  It does not author episodes or decide media craft quality.
+- A reading issue, narrated listen-along, visual edition and motion film each
+  receive a separate admission state; one format cannot lend status to another.
+- Library, Classes/High, NewsStand, KSVL, Blend & Snap, BRONZE AiGE,
+  MAiKEOVER/Closet, rewards, social and other owners receive explicit impact
+  proposals. They select, update, link, defer or decline their own distinct
+  artifacts; an episode never auto-commissions a duplicate.
+- Control Room owns cross-product integration order, shared-file/service
+  locks, registry/run-queue truth and live-task status.
 
-## Journey contract
+## Durable authority
 
-| Journey | Trigger | Honest completion | Current persistence/result | Failure/retry requirement |
-|---|---|---|---|---|
-| Discover a released episode | Visitor selects a published tape/card | Public article route opens and identifies the episode | No completion state required; Chick Flicks can locally remember last rental/favourite | Coming-soon tape must remain non-release claim; broken route has a useful return path |
-| Read | Visitor opens the article | Reader reaches a named useful continuation, not merely page load | Browser/session behaviour only unless a linked product persists independently | Readable mobile/desktop route, sources and back/next path |
-| Listen / illustrated listen-along | Visitor presses Screening Room play | Narration plays with cue-synced scenes and below-picture read-along captions | No authoritative completion/reward claimed | Audio/caption asset failure is visible and recoverable; motion-film language remains truthful |
-| Watch a motion film | Visitor selects a film after it passes release gate | Exact SHA-bound public master plays with audio/caption proof | Not currently available; must not be inferred from review exports | Fall back to the listen-along without claiming film availability |
-| Continue / return | Visitor chooses quiz, Try-On, printable, community, KSVL or next episode | The selected downstream product's own authoritative result | Owned by the receiving product, not this steward | Only link journeys that are released, truthful and have a return path |
+For an active episode, use this order:
 
-## Quality and decision gates
+1. Ali's latest explicit ruling and locked decision-ledger entries;
+2. the last Ali-approved premise, examples, corrections and creative anchors;
+3. the current episode packet and passed concept-fidelity record;
+4. approved substance, then ruled episode canon;
+5. season bible, recurring format and weekly-engine contracts;
+6. dated primary-source evidence;
+7. final approved/as-recorded production masters and checksums;
+8. derived pages, data, assets and public release evidence; and
+9. historical drafts and handoffs as evidence only.
 
-An episode experience cannot be promoted on technical loading alone. It needs separate verdicts for technical operation, first-use comprehension, learning/value, honesty and LAiDIES experience. At a minimum it must pass the shared non-compensable championship floors: quality/user value, factual accuracy/safety/trust and positive LAiDIES brand contribution each score at least 17/20.
+Contradictions fail closed. The owner runs a reconciliation cycle rather than
+choosing the shortest or most polished file.
 
-Automatic block: a film, completion, reward, accessibility, factual or release claim that lacks the required evidence; generic or canon-drifting media; a maker approving its own work; or a downstream CTA that sends a visitor into an unresolved experience without an honest boundary.
+## Current episode
 
-## Invocation cadence and triggers
+Episode 5, **The Super Models**, is in authority recovery. Its durable status
+packet is `episode-05-operating-packet-2026-07-26.md`.
 
-This steward is invoked, not always on. Trigger a review when an episode canon, article, narration/caption, cue/media master, discovery route or linked continuation changes; after a release incident; before a weekly release; 24–72 hours after deployment; after sufficient privacy-safe behaviour/feedback evidence; at a factual-freshness date; or when Ali/the orchestrator asks.
+Canon, narration, artwork, audio, animation, downstream fan-out, deployment
+and publication remain blocked until the replacement Gate 1
+substance/story architecture passes concept fidelity and Ali rules it.
 
-No trigger means no idle model work. A Friday note is due only for an affected released episode and must distinguish measured observation, inference and unknowns.
+## Portfolio relationship
 
-## Required run output
+Control Room has registered this dossier as a top-level product with
+`parent_id: null`, champion `weekly-episodes-engine-production-director` and
+owner task `019f9f7c-f03a-7ec1-a776-d60b57210322`.
 
-Each invoked review updates only this steward's state/backlog/deep-dive or a dated successor report, and supplies: exact inputs and route/version, evidence limits, journey verdicts, media-crew dependencies, ranked classification (**FIX BEFORE LAUNCH**, **HIDE/LABEL FOR LAUNCH**, **POST-LAUNCH EXPERIMENT**, **DECLINE**), owner/retest, and the next trigger. Accepted implementation is created only by a separately authorised lane.
+See `OPERATING-SPEC.md`, `state.json`, `backlog.md` and
+`control-room-handoff-2026-07-26.md`.
+
+The immutable Engine → Chick Flicks transaction is specified in
+`EPISODE-RELEASE-MANIFEST-SPEC.md`.

@@ -145,7 +145,7 @@ assert.match(html, /aria-pressed="false"/);
 assert.match(html, /id="ns-reader-title" tabindex="-1"/);
 assert.match(html, /focusAfterPaint\(destination\)/);
 assert.match(html, /The publication record did not load/);
-assert.match(html, /Editorial hold/);
+assert.match(html, /Not published yet/);
 assert.match(html, /Retraction notice/);
 assert.match(html, /Correction/);
 assert.match(html, /contract\.accessDecision\(data, null, \{ edition: edition, scope: "paper" \}/);

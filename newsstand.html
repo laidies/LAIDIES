@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
     <link rel="stylesheet" href="/content/newsstand.css?v=20260725-four-publications-v1">
     <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
-    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>
@@ -29,7 +29,9 @@
       };
       plausible.init();
     </script>
-  </head>
+    <link rel="canonical" href="https://laidies.ai/newsstand" />
+  <meta property="og:url" content="https://laidies.ai/newsstand" />
+</head>
   <body>
     <a class="sv-skip-link" href="#newsstand-main">Skip to content</a>
     <header class="topbar">
@@ -77,7 +79,7 @@
               <span class="ns-paper__masthead" aria-hidden="true">Archive art · The Weekly desk</span>
               <span class="ns-paper__fresh" data-fresh-for="weekly" hidden>Hot off the press</span>
             </button>
-            <button class="ns-paper ns-paper--tribune" type="button" data-edition="tribune" aria-pressed="false" aria-label="Open The Tribune, the sourced argument paper">
+            <button class="ns-paper ns-paper--tribune" type="button" data-edition="tribune" aria-pressed="false" aria-label="Open The Tribune for opinion and the bigger questions behind the news">
               <img
                 src="/assets/building-interiors/delivery-20260724-newsstand-comic-v1/newsstand-paper-tribune-comic-candidate-v1.png"
                 alt=""
@@ -90,22 +92,22 @@
         <div class="ns-publications" aria-label="The four NewsStand publications">
           <button class="ns-publication" type="button" data-edition="breaking" aria-pressed="false">
             <strong>The Breaking</strong>
-            <span class="ns-publication__job">Rare, qualified interruption</span>
+            <span class="ns-publication__job">News as it happens</span>
             <span class="ns-publication__status" data-status-for="breaking">Checking the desk…</span>
           </button>
           <button class="ns-publication" type="button" data-edition="daily" aria-pressed="false">
             <strong>The Daily</strong>
-            <span class="ns-publication__job">Consequential briefing</span>
+            <span class="ns-publication__job">What changed and why it matters</span>
             <span class="ns-publication__status" data-status-for="daily">Checking the desk…</span>
           </button>
           <button class="ns-publication" type="button" data-edition="weekly" aria-pressed="false">
             <strong>The Weekly</strong>
-            <span class="ns-publication__job">Durable weekly synthesis</span>
+            <span class="ns-publication__job">The week&rsquo;s bigger picture</span>
             <span class="ns-publication__status" data-status-for="weekly">Checking the desk…</span>
           </button>
           <button class="ns-publication" type="button" data-edition="tribune" aria-pressed="false">
             <strong>The Tribune</strong>
-            <span class="ns-publication__job">Sourced argument</span>
+            <span class="ns-publication__job">Opinion and big questions</span>
             <span class="ns-publication__status" data-status-for="tribune">Checking the desk…</span>
           </button>
         </div>
@@ -116,7 +118,7 @@
           <p class="ns-address">The SUNNYVAiLE NewsStand · No. 2 MAiN · Keeper: Paige</p>
           <div class="ns-state__copy">
             <h1 id="ns-title">Checking Paige’s desk.</h1>
-            <p id="ns-state-detail">The NewsStand will show what is current, quiet, held or overdue after its dated publication record loads.</p>
+            <p id="ns-state-detail">Paige is checking today&rsquo;s rack for the latest published stories.</p>
             <p class="ns-system-status" id="ns-system-status" role="status" aria-live="polite"></p>
           </div>
           <div class="ns-state__actions">
@@ -178,13 +180,13 @@
         var EDITION = {
           breaking: {
             label: "The Breaking",
-            title: "The qualified interrupt.",
-            empty: "No qualified Breaking story is live right now. A clear day is a valid result."
+            title: "News as it happens.",
+            empty: "No breaking story right now. Enjoy the quiet."
           },
           daily: {
             label: "The Daily",
-            title: "The consequential briefing.",
-            empty: "No Daily issue has been filed in this reader yet. Paige will not fill one with low-consequence headlines."
+            title: "What changed and why it matters.",
+            empty: "Today’s edition is not on the rack yet."
           },
           weekly: {
             label: "The Weekly",
@@ -448,7 +450,7 @@
           var label = EDITION[edition] ? EDITION[edition].label : "NewsStand";
           var teaser = firstSentence(story.laidies_read || story.the_story);
           var status = contract.storyState(story);
-          var statusLabel = status === "corrected" ? "Corrected" : "Source-checked";
+          var statusLabel = status === "corrected" ? "Corrected" : "Reported";
           return [
             '<a class="ns-front-story" href="#', escapeHTML(story.slug), '">',
               '<span class="ns-front-story__edition">', escapeHTML(label), "</span>",
@@ -477,7 +479,7 @@
           var isTribune = edition === "tribune";
           var state = contract.storyState(story);
           if (state === "hold") {
-            return '<div class="ns-story-notice ns-story-notice--hold"><strong>Editorial hold</strong><p>This story is not available while its source and accuracy review is completed.</p></div>';
+            return '<div class="ns-story-notice ns-story-notice--hold"><strong>Not published yet</strong><p>Paige is still checking this story. It will stay off the rack until it is ready to read.</p></div>';
           }
           if (state === "retracted") {
             return '<div class="ns-story-notice ns-story-notice--retracted"><strong>Retracted</strong><p>' +
@@ -540,7 +542,7 @@
         function renderAccessNotice(decision) {
           var label = decision.state === "retracted" ? "Retracted" :
             decision.state === "stale" ? "Source check overdue" :
-            decision.state === "hold" ? "Editorial hold" :
+            decision.state === "hold" ? "Not published yet" :
             decision.state === "quiet" ? "Quiet desk" :
             decision.state === "no-data" ? "No approved data" :
             "Publication unavailable";
@@ -580,7 +582,7 @@
 
         function stateMessage(edition, state, publication) {
           if (state === "quiet") return publication.note;
-          if (state === "hold") return publication.note || "This desk is on editorial hold.";
+          if (state === "hold") return publication.note || "This issue is not published yet.";
           if (state === "stale") return "Paige’s dated source check is overdue. This desk is not being presented as current.";
           if (state === "unavailable") return "This publication record is unavailable. Nothing is being presented as current.";
           return EDITION[edition].empty;
@@ -682,7 +684,7 @@
             });
             document.getElementById("ns-reader-title").textContent =
               routeAccess.state === "stale" ? "Archived route · check overdue." :
-              routeAccess.state === "hold" ? "Editorial hold." : "Story unavailable.";
+              routeAccess.state === "hold" ? "Not published yet." : "Story unavailable.";
             return true;
           }
           var story = stories.filter(function (item) { return item.slug === slug; })[0];
@@ -719,7 +721,7 @@
           document.getElementById("ns-reader-title").textContent =
             decision.state === "retracted" ? "Retraction notice." :
             decision.state === "stale" ? "Archived route · check overdue." :
-            decision.state === "hold" ? "Editorial hold." :
+            decision.state === "hold" ? "Not published yet." :
             decision.canExpose ? "Inside the paper." : "Story unavailable.";
           return true;
         }
@@ -747,7 +749,7 @@
         function statusCopy(state, publication) {
           if (state === "current") return "Current · checked " + formatDate(publication.lastCheckedAt);
           if (state === "quiet") return "Quiet · checked " + formatDate(publication.lastCheckedAt);
-          if (state === "hold") return "Editorial hold";
+          if (state === "hold") return "Not published";
           if (state === "stale") return "Check overdue · not current";
           return "Unavailable";
         }
@@ -787,9 +789,9 @@
             detail.textContent = "The record loaded, but no approved stories were filed. Paige will not substitute filler.";
             system.textContent = "No approved story data.";
           } else if (dataset.state === "hold") {
-            title.textContent = "The NewsStand is on hold.";
-            detail.textContent = "Stories stay off the counter until the editorial hold is cleared.";
-            system.textContent = "Editorial hold.";
+            title.textContent = "Today’s papers are not on the rack yet.";
+            detail.textContent = "Paige is still checking the stories. Come back soon.";
+            system.textContent = "Nothing new to read yet.";
           } else if (dataset.state === "stale") {
             title.textContent = "Paige’s check is overdue.";
             detail.textContent = "The papers are not being presented as current until their sources and status are checked again.";
@@ -810,7 +812,7 @@
               title.textContent = current.map(function (edition) { return EDITION[edition].label; }).join(" and ") +
                 (current.length === 1 ? " is current." : " are current.");
               detail.textContent = "Last desk check: " + formatDate(data.lastCheckedAt) +
-                ". Quiet papers are a deliberate no-filler result; held, stale or unavailable papers stay off the counter." +
+                ". If there is nothing new worth printing, Paige leaves the rack quiet." +
                 (dataset.staleEditions && dataset.staleEditions.length ? " One or more checks are overdue." : "") +
                 (dataset.unavailableEditions && dataset.unavailableEditions.length ? " One or more records are unavailable." : "");
               system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");

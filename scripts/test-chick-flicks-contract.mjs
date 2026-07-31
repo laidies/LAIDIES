@@ -77,6 +77,19 @@ check("favourite and last-rental memory are explicitly device-local", () => {
   assert.doesNotMatch(page, /Resident Card favourite|Put it on my member card|On my member card/);
 });
 
+check("last-rental return is validated, useful and reversibly device-local", () => {
+  assert.match(page, /id="cfReturnVisit"[\s\S]*hidden[\s\S]*aria-labelledby="cf-return-title"/);
+  assert.match(page, /id="cfContinueRental"[\s\S]*Continue with this tape/);
+  assert.match(page, /id="cfClearRental"[\s\S]*Clear and start over/);
+  assert.match(page, /function validatedLastRental\(\)/);
+  assert.match(page, /\/\^\\d\{2\}\$\/\.test\(stored\)/);
+  assert.match(page, /!episode \|\| !episode\._available/);
+  assert.match(page, /removeLocal\("laidies_cf_last_rental"\)/);
+  assert.match(page, /selectEpisode\(current\)/);
+  assert.match(page, /This browser would not let the store clear the device-only rental/);
+  assert.match(styles, /\.cf-return-visit\[hidden\][\s\S]*display: none/);
+});
+
 check("tape selection is a focused issue handoff, never completion", () => {
   assert.match(page, /takeHome\.href = episode\._safeIssueUrl/);
   assert.match(page, /rental\.focus\(\{ preventScroll: true \}\)/);

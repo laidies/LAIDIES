@@ -15,43 +15,43 @@ window.NEWSSTAND_DATA = {
   publications: {
     breaking: {
       edition: "breaking",
-      job: "A rare, qualified interruption when waiting would materially disadvantage the reader.",
+      job: "News as it happens, when waiting would leave readers behind.",
       status: "quiet",
       publishedAt: null,
       updatedAt: "2026-07-25T19:30:00Z",
       lastCheckedAt: "2026-07-25T19:30:00Z",
       maxAgeHours: 24,
-      note: "No qualified Breaking story is live. A clear day is a valid result."
+      note: "No breaking story right now. Enjoy the quiet."
     },
     daily: {
       edition: "daily",
-      job: "An edited briefing of consequential changes since the previous issue.",
+      job: "A clear explanation of what changed and why it matters.",
       status: "quiet",
       publishedAt: null,
       updatedAt: "2026-07-25T19:30:00Z",
       lastCheckedAt: "2026-07-25T19:30:00Z",
       maxAgeHours: 36,
-      note: "No Daily issue is filed. Paige will not fill one with low-consequence headlines."
+      note: "Today’s edition is not on the rack yet."
     },
     weekly: {
       edition: "weekly",
-      job: "Durable synthesis that connects the week’s evidence without repeating the headline cycle.",
+      job: "The week’s bigger picture, connecting the stories without repeating every headline.",
       status: "hold",
       publishedAt: null,
       updatedAt: "2026-07-25T19:30:00Z",
       lastCheckedAt: "2026-07-25T19:30:00Z",
       maxAgeHours: 192,
-      note: "The Weekly is on editorial hold while its health and privacy context receives independent approval."
+      note: "This Weekly story is still being checked and is not published yet."
     },
     tribune: {
       edition: "tribune",
-      job: "A sourced argument that separates evidence, inference and the position being argued.",
+      job: "Opinion and big questions, with the evidence clearly separated from the argument.",
       status: "current",
       publishedAt: "2026-07-24T16:00:00Z",
       updatedAt: "2026-07-25T19:30:00Z",
       lastCheckedAt: "2026-07-25T19:30:00Z",
       maxAgeHours: 336,
-      note: "One current sourced argument is filed."
+      note: "One Tribune article is on the rack."
     }
   },
   stories: [
@@ -117,7 +117,7 @@ window.NEWSSTAND_DATA = {
       aidb_credit: null,
       tags: ["privacy", "health", "ChatGPT", "verification", "permissions"],
       saint_lane: "Elle Woods · Read the fine print",
-      badge: "EDITORIAL HOLD · THE WEEKLY"
+      badge: "COMING SOON · THE WEEKLY"
     },
     {
       id: "label-is-not-a-truth-detector",

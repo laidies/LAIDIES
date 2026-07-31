@@ -3,6 +3,70 @@
 **Status:** BOUNDED LOCAL PASS — independent Repair 1 rejudge 91/100; all real
 provider, moderation, owner, native-accessibility, analytics and public gates remain held.
 
+## VISUAL SOURCE INVENTORY COMPLETE — 2026-07-27
+
+`VISUAL-ASSET-INVENTORY.md` now reconciles the actual Sorority House,
+Community and Girl Talk assets against the approved building experience and
+Ali's explicit corrections.
+
+- The current exterior is preserved as the incumbent place-establishing asset.
+- The current interior is a structural bridge, not the operable four-door
+  house experience.
+- June's existing scene is rejected and requires a complete character reset
+  everywhere.
+- `assets/laidy-character-v1.png` is explicitly rejected as the FAiRY
+  Godmother binding. A bounded local Community successor now uses the canonical
+  credits plate and factual product-role copy; independent visual/copy review
+  remains required.
+- The four rendered wing doors and truthful entry corkboard are missing.
+- Existing Girl Talk card art may be adapted in-room only after the hall
+  geometry is accepted.
+- Invented quotes, speech bubbles, “special moves,” biographies and personality
+  claims are prohibited unless exact canon or Ali approval supports them.
+
+No visual candidate, generation, production integration or deployment is
+authorised by the inventory.
+
+### Bounded Community character repair independently accepted
+
+The exact local `community.html` successor SHA
+`2fc0bf686820118e5bd78125fc56f617c716ac2b873af4250e9edf816dde6640`
+is independently accepted for this narrow repair:
+
+- the rejected `assets/laidy-character-v1.png` FAiRY binding is absent;
+- the canonical FAiRY credits plate is used for thumbnail and overlay;
+- FAiRY, Mme CLAi-O and Deb use factual/bounded role text without invented
+  quotations, speech bubbles or “special moves”;
+- seven records, filters, overlay, focus return, desktop/mobile layout and
+  zero-provider local behaviour remain intact.
+
+Evidence:
+`independent-review-community-character-source-copy-successor-2026-07-27.md`
+SHA
+`8513d029c149b9c2c68e2d581a2ab13adff978589f66935e8a7e71805a4b25d6`.
+This does not approve provider identity, real-person consent, broader character
+canon, Trading Cards, release or public deployment.
+
+## OWNER ENTRY RECOVERED — 2026-07-26
+
+`EXPERIENCE-BRIEF.md` and `FUNCTIONALITY-MAP.md` now recover the complete
+building tree, four visitor scopes, provider/identity axes, posting completion,
+moderation, deletion, rewards and accessibility/failure propagation. The
+executable completion packet is
+`build-packet-building-completion-2026-07-26.md`.
+
+Shared provider, account identity, moderation, deletion and reward-source
+contracts are **DEPENDENCY HANDOFFS** queued to Platform in
+`platform-handoff-provider-identity-moderation-2026-07-26.md`. They remain
+`BLOCKED — BUILD REMAINS REQUIRED`; this dossier recovery does not promote the
+bounded candidate or mutate shared platform state.
+
+Fresh owner-entry verification also found **SH-B06A — BUILD BEFORE LAUNCH**:
+the current Girl Talk page fails the 320px horizontal-overflow browser check.
+The historical 138-check pass remains evidence of the accepted Repair 1
+candidate, not a PASS for current working source. Repair and independently
+rerun the complete browser suite before promotion.
+
 ## REPAIR 1 VERIFIED LOCALLY — 2026-07-25
 
 The independent five-P0 rejection is repaired and independently rejudged at
@@ -27,6 +91,21 @@ The independent five-P0 rejection is repaired and independently rejudged at
 
 Evidence:
 `maker-evidence-community-provider-girl-talk-repair1-2026-07-25.md`.
+
+## COMMUNITY RESIDENT CARD BOUNDARY ACCEPTED LOCALLY — 2026-07-27
+
+The obsolete `laidies-my-card` Community consumer is removed. Unvalidated
+device data can no longer create a dynamic member card or enter markup, and
+the page no longer promises Resident Card community sign-in or cross-device
+progress. The seven stock cards, filters, overlays, Space/Enter activation,
+Escape close and exact focus return remain intact.
+
+Independent evidence:
+`independent-review-community-resident-card-boundary-2026-07-27.md`
+SHA-256
+`0fceeb1b4af1ed64e3ce66b6f76c80eed932b1b2174e494e3f27e405f0cd4226`.
+This clears only the local identity/injection boundary; provider, moderation,
+account, analytics, native accessibility, release and public gates remain.
 
 ## EARLIER BOUNDED P0 FOUNDATION
 

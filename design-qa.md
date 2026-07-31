@@ -274,7 +274,7 @@ overlay; 390px table crop and stacked reading; and no horizontal overflow.
 ## Findings and fix history
 
 1. P2 — the global automatic Welcome Tour offer overlapped the page's primary hero actions.
-   - Fix: suppress the generic offer on this page because the Visitor's Centre already provides a prominent, page-specific guided-tour action.
+   - Fix: suppress the generic offer on this page because the Visitor’s Centre already provides a prominent, page-specific guided-tour action.
    - Post-fix verification: no overlap at 1280 × 720 or 390 × 844.
 2. The original Visitor Centre scope was too narrow: a map repeated the
    homepage without doing enough arrival work.
@@ -640,7 +640,7 @@ overlay; 390px table crop and stacked reading; and no horizontal overflow.
 - Town Hall preserves the existing hub controller and hash aliases, full Deb
   archive, both audio buttons, poster downloads, all four Regular destinations,
   Town Regular storage/highlighting, feedback type/subject/body/count fields,
-  signed-in and anonymous Supabase payload path, and Visitors Centre handoff.
+  signed-in and anonymous Supabase payload path, and Visitor’s Centre handoff.
 - Sorority House preserves every existing community fallback URL, all seven
   live Hyvor page IDs, Girl Talk, the Closet, the Resident Card route, all five
   house rules, `.sv-hero`, charm placement, and every shared defer script.
@@ -843,3 +843,19 @@ overlay; 390px table crop and stacked reading; and no horizontal overflow.
 
 passed for construction and responsive behaviour; visual candidate approval is
 still open
+
+## LIBRAiRY arrival v7 layered implementation — 2026-07-24
+
+The accepted v7 Living Stacks working direction is now integrated in
+`library.html` with exact HTML branding, department labels, book interactions
+and the real Miss Jeeves form. Source and implementation were compared in one
+combined image; desktop, tablet and mobile states were exercised; all four
+shipped question examples, the sourced-answer handoff and full-book reader
+passed. Detailed evidence is in
+`operations/design-qa/library-arrival-v7-20260724/`.
+
+### Final result
+
+passed for fidelity to the accepted working environment, responsive behaviour,
+accessibility structure and functional journeys. The inherited book-cover
+palette remains an explicit owner gate and is not approved by this result.

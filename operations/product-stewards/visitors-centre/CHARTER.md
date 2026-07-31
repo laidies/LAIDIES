@@ -1,4 +1,4 @@
-# Welcome Wagon Visitor's Centre Steward
+# Visitor’s Centre Steward
 
 **Status:** BUILDING — bounded local relaunch repair cycle; no persistent runner, analytics pull, deployment, or autonomous external authority is wired.
 **Relationship to AW-003:** MERGE — supplies evidence and launch-ranked recommendations to the reopening gate.
@@ -6,7 +6,7 @@
 
 ## Product promise
 
-The Welcome Wagon is SUNNYVAiLE's front desk: a new visitor can understand that she is welcome, see what the town offers, choose a named destination without memorizing the map, and leave with one useful next step. It makes the town feel inhabited without making orientation a prerequisite to practical AI learning.
+The Visitor’s Centre is SUNNYVAiLE's front desk: a new visitor can understand that she is welcome, see what the town offers, choose a named destination without memorizing the map, and leave with one useful next step. It makes the town feel inhabited without making orientation a prerequisite to practical AI learning.
 
 ## Product boundary
 
@@ -18,7 +18,7 @@ The Welcome Wagon is SUNNYVAiLE's front desk: a new visitor can understand that 
 
 | State | Journey | Authoritative success | Current evidence limit |
 |---|---|---|---|
-| New visitor | Enter → understand Visitor's Centre → choose wall-map or named-directory building → reveal destination → leave through its valid CTA | Chosen named destination is correctly exposed and the visitor reaches an intentional next route. | Local directory/map selection, reveal and return state passed at 390 × 844; clean-state comprehension is not yet tested. |
+| New visitor | Enter → understand Visitor’s Centre → choose wall-map or named-directory building → reveal destination → leave through its valid CTA | Chosen named destination is correctly exposed and the visitor reaches an intentional next route. | Local directory/map selection, reveal and return state passed at 390 × 844; clean-state comprehension is not yet tested. |
 | New visitor | Enter → trailer/tour offer → start, decline, or defer | Tour is voluntary, clear and never blocks a learning route. | Tour is shared/global; no full visitor-centre-to-tour accessibility/recovery verdict. |
 | New/returning | Choose postcard → note/email/share handoff | The handoff is accurate about what happens next; it does not claim mailed/opened/joined/rewarded state it cannot prove. | Local postcard choice/note/email state passed; real lifecycle belongs to Post Office and is not proven. |
 | Failure/degraded | Map/directory/trailer/script unavailable | Named directory and obvious route fallback remain usable; no false completion claim. | Systematic no-JS, failed-data, keyboard and real-device recovery evidence is open. |
@@ -29,7 +29,7 @@ The Welcome Wagon is SUNNYVAiLE's front desk: a new visitor can understand that 
 2. Building names are discoverable without numbered pins or map-memory tests; named directory is a required accessible fallback.
 3. One primary next step is clear at every state; the full town remains optional.
 4. Trailer/tour/postcard are invitations, never gates to learning, membership or belonging.
-5. The Visitor's Centre may hand off to a product but cannot imply that its downstream account, newsletter, sharing, referral or reward lifecycle succeeded.
+5. The Visitor’s Centre may hand off to a product but cannot imply that its downstream account, newsletter, sharing, referral or reward lifecycle succeeded.
 6. Mobile, keyboard, reduced-motion, focus and network/storage failure states are product requirements, not polish.
 
 ## Release gate

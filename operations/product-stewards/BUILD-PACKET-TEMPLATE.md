@@ -32,6 +32,8 @@
 | Complete main-page/subpage capability and cross-building journey |  |  |  |
 | Accuracy, safety and trust |  |  |  |
 | Positive LAiDIES brand contribution |  |  |  |
+| Complete visual asset discovery and disposition | Exact source scan plus rendered desktop/mobile/state inventory; every visible asset has `KEEP / ADAPT / REPLACE / REMOVE`, governing references, evidence and owner |  |  |
+| Replacement artwork and page-level visual coherence | Every `REPLACE`/`ADAPT` item has an independently judged exact-use asset; complete page renders contain no stale, off-canon, missing, duplicated or rejected art |  |  |
 | UX and accessibility |  |  |  |
 | Frontend/backend/data integrity |  |  |  |
 | Visual/media quality when applicable |  |  |  |

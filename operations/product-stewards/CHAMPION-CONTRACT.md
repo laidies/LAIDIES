@@ -28,6 +28,14 @@ Persistence comes from the product folder:
 - decisions linked to `operations/engine/LEDGER.md`; and
 - reusable learning linked to `operations/painpoints-log.md`.
 
+Every champion and subchampion also follows
+`operations/product-stewards/OWNER-ENTRY-CONTRACT.md`. Before substantive work,
+run `node scripts/check-product-stewards.mjs --owner-entry <product-id>` and
+recover the product from the exact registry-bound dossier/state paths. A task
+title or initialization prompt does not substitute for this preflight.
+Missing building experience intent permits an intent-recovery cycle only;
+missing subproduct dossier/state permits a dossier-recovery cycle only.
+
 ## Champion responsibilities
 
 Each champion must:
@@ -38,10 +46,13 @@ Each champion must:
    what persists and what result/next step appears;
 3. research the product, its users, subject matter, comparable experiences,
    best-in-class patterns, relevant standards and changing external context;
-4. own new-user, returning-user, mobile, desktop, anonymous, signed-in and
-   failure journeys where applicable;
+4. own and separately evaluate first-time, returning-without-Resident-Card and
+   Resident Card journeys, plus mobile, desktop, anonymous, signed-in and
+   failure states where applicable; record how each state is truthfully
+   recognized and test the transitions between them;
 5. trace frontend, backend, data, external services, completion events,
-   persistence, rewards and costs;
+   persistence, rewards and costs through a complete `FUNCTIONALITY-MAP.md`
+   covering every producer, consumer and cross-page touchpoint;
 6. protect content quality, factual/technical accuracy and positive LAiDIES
    brand contribution as non-compensable standards;
 7. design the complete experience so the building's purpose becomes its page
@@ -49,7 +60,16 @@ Each champion must:
    operated, understand every meaningful capability without hunting, and see
    its relationships to owned subpages and the rest of SUNNYVAiLE;
 8. inspect visual quality, correct sitewide style, palette, canon and platform
-   fit across the full route tree—not only the landing page;
+   fit across the full route tree—not only the landing page. The champion,
+   never Ali, owns discovery: it must enumerate every visible image, CSS
+   background, responsive variant, dynamic/state asset, character depiction,
+   icon and fallback used by its owned routes and subproducts in a
+   `VISUAL-ASSET-INVENTORY.md`; render the actual desktop/mobile states; and
+   assign each asset `KEEP`, `ADAPT`, `REPLACE` or `REMOVE` against the exact
+   current approved references. `KEEP` requires exact-use evidence, while
+   stale, dingy, off-canon, low-quality, duplicated, missing or merely
+   available art becomes an owned correction rather than an Ali discovery
+   task;
 9. maintain accessibility, safety, privacy, reliability and honest promises;
 10. define meaningful analytics and customer-feedback evidence;
 11. keep a ranked improvement/experiment backlog and a freshness plan;
@@ -64,6 +84,22 @@ The champion cannot declare the building complete when a subpage, activity,
 content source, state transition, backend dependency, visual system or
 cross-building handoff inside its public promise is merely documented,
 unreviewed, disconnected or left for Ali to discover.
+
+A building owner may not ask Ali to locate weak images one at a time. A visual
+review triggered by a style ruling, page redesign, stale asset, canon change or
+quality concern begins with a source-and-render inventory of the complete owned
+tree. The owner then produces and independently judges the required
+replacements and presents Ali with the coherent page-level result or a bounded
+taste decision—not a scavenger hunt through individual files.
+
+Every visible element must have a disposition in the functionality map. A
+local handler or displayed count is insufficient where the intended result
+depends on another page, an authoritative backend write, account/cross-device
+state, delivery, moderation, ownership, fulfilment, revocation or refund.
+For an Ali-approved intended capability, that disposition follows
+`BUILD-COMPLETION-POLICY.md`: incomplete means a build obligation. Temporary
+disable/hold/hide controls may protect visitors but cannot become the accepted
+product or close the work.
 
 Every substantial learning product also follows
 `operations/product-stewards/LEARNING-CONTENT-STANDARD.md`. Its champion must
@@ -175,9 +211,12 @@ deployment and publication still require their applicable authority.
 The first run must produce a full gap analysis and launch-ranked plan:
 
 - `FIX BEFORE LAUNCH`
-- `HIDE/LABEL FOR LAUNCH`
+- `BUILD BEFORE LAUNCH`
+- `BLOCKED — BUILD REMAINS REQUIRED`
 - `OWNER REVIEW REQUIRED`
-- `POST-LAUNCH EXPERIMENT`
+- `INTENTIONAL LATER RELEASE` only with a named release/trigger, product reason,
+  owner, dependencies and acceptance contract; moving current launch scope
+  later requires Ali's explicit approval
 - `DECLINE`
 
 The deep dive is the beginning of ownership, not the end.
@@ -189,6 +228,11 @@ public promise, incident, user evidence, analytics threshold, source freshness
 or scheduled health-review date changes. Products affected by the weekly
 episode participate in that week's operating cycle; unaffected products do not
 invent busywork.
+
+Every trigger reopens the same owner entry point. A new idea, episode impact or
+dependency change is first reconciled against the current product tree,
+contract, backlog and affected owners; it does not create a second product or
+parallel source of truth by implication.
 
 ## Competition
 
@@ -220,3 +264,14 @@ prompt it has inspected the actual full-resolution artifact and recorded:
 If this evidence does not exist, the artifact is `ROUGH EXPLORATION`, not an
 owner-review option. A structurally interesting idea cannot pass on concept
 merit when its visible execution fails the brand or product bar.
+
+For a building, the exact artifact being judged must already be a credible
+version of the intended experience. A neutral shell, generic card grid, white
+page of boxed modules, wireframe, “functional base” or candidate whose colour,
+world and environmental composition are deferred to a later Brand/styling
+pass is `TECHNICAL EVIDENCE ONLY`. It receives no building-experience or Brand
+PASS and cannot be recommended, integrated or presented to Ali for approval.
+The independent reviewer must compare the exact desktop and mobile candidate
+with the current Homepage world target and answer whether the environment and
+pictured objects are actually the interface. A later reskin cannot rescue a
+generic or rejected composition.

@@ -2,6 +2,10 @@
 
 Keep this file short. It should tell a fresh Codex thread what matters next.
 
+This is the durable priority/theme list, not proof of the one task currently in
+progress. For live execution status, read `operations/ACTIVE-WORK.md`; for
+approved rulings, read `operations/engine/LEDGER.md`.
+
 ## Website
 
 - Continue simplifying homepage organization so it feels guided instead of chaotic.

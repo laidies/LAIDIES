@@ -15,7 +15,10 @@ Source file: `content/episodes/issue-03.json`
 
 - Visual world: grown-up Burn Book investigation desk, not teen scrapbook.
 - Objects: glossy notebook, legal pad, receipts, source tabs, highlighter, glitter pen, flip phone, tiny butterfly clip, lip gloss, courtroom sticky notes, one Spring Fling-style ID check.
-- Palette: pearl/cream, plum, muted rose, icy blue, silver, tiny highlighter yellow.
+- Palette: deep-plum ink with the established LAiDIES pink, cyan/sky and
+  violet families in cleaner, brighter, highly saturated 1990s versions;
+  silver and tiny yellow may support the evidence-desk objects. Do not use
+  muted rose or a pearl/cream-dominant treatment.
 - Keep real copy as editable type. Do not bury the lesson inside generated image text.
 - Use labels, crossed-out claims, receipt strips, timeline arrows, and pink-circled evidence.
 - Avoid fearmongering, generic AI safety lecture, tech-bro certainty, or "women need cute references" energy.

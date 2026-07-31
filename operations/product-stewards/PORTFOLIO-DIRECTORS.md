@@ -14,6 +14,13 @@ The Director admits a building direction only after its reconciled
 `EXPERIENCE-BRIEF.md` exists. It does not make a Library layout the template
 for every building.
 
+While D-2026-07-26-058 remains open, the current painterly site and every
+existing Library/sitewide A/B/C mockup are provisional evidence only. Building
+owners may continue non-style and reversible work, but no global visual
+language may propagate before the controlled championship clears
+`brand-experience-director/build-packet-sitewide-style-championship-2026-07-26.md`
+and Ali records the final ruling.
+
 ## Functionality & Platform Director
 
 Owns the shared contracts for identity/accounts, profile/permissions,
@@ -26,6 +33,23 @@ trigger, complete interaction, real dependency, authoritative completion
 event, data/identity/persistence, consequences, visible result/next step,
 failure behaviour, privacy/security/moderation/accessibility/analytics,
 observed-versus-inferred evidence, gap/owner/paths and acceptance proof.
+
+Every building also maintains `FUNCTIONALITY-MAP.md` using the shared template.
+The Director reconciles producer → authoritative store/service → consumer
+touchpoints across pages, owns shared dependency locks and prevents each
+building from inventing parallel identity, reward, save, delivery, moderation
+or analytics systems.
+
+The Director also owns the recognition and continuity contract separating
+first-time visitors, returning visitors without a Resident Card, device-local
+Card holders and verified account-backed residents. Building owners decide
+the useful experience for each state; this Director verifies that recognition,
+persistence, permissions and transitions are real and do not overclaim.
+
+For every Ali-approved intended shared capability, the Director enforces
+`BUILD-COMPLETION-POLICY.md`. A temporary safety hold does not resolve the
+backend gap, narrow the intended product or authorize a building-complete
+verdict.
 
 ## Media & Animation Director
 

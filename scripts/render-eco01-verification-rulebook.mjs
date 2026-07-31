@@ -7,12 +7,16 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE_REL = process.env.ECO01_SOURCE || "content/library-books/verification-rulebook.json";
 const SOURCE = path.join(ROOT, SOURCE_REL);
-const OUTPUT = path.join(ROOT, process.env.ECO01_OUTPUT || "grimoire/verification-rulebook.html");
+const OUTPUT_REL = process.env.ECO01_OUTPUT || "content/library-books/rendered/verification-rulebook.html";
+const OUTPUT = path.join(ROOT, OUTPUT_REL);
 const LEDGER_OUTPUT = path.join(ROOT, process.env.ECO01_LEDGER_OUTPUT || "content/library-books/verification-rulebook.claims.json");
 
 const book = JSON.parse(fs.readFileSync(SOURCE, "utf8"));
 const sourceBytes = fs.readFileSync(SOURCE);
 const sourceSha = crypto.createHash("sha256").update(sourceBytes).digest("hex");
+// This is intentionally a content address, not an editorial/admission claim.
+// A changed canonical JSON must produce a changed reader binding.
+const contentVersion = `sha256-${sourceSha}`;
 
 function fail(message) {
   throw new Error(`ECO-01 source rejected: ${message}`);
@@ -193,6 +197,7 @@ const output = `<!doctype html>
   <meta name="robots" content="noindex,nofollow">
   <meta name="laidies:canonical-source" content="/${SOURCE_REL}">
   <meta name="laidies:canonical-source-sha256" content="${sourceSha}">
+  <meta name="laidies:content-version" content="${contentVersion}">
   <meta name="laidies:editorial-status" content="${esc(book.status)}">
   <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png">
   <link rel="stylesheet" href="/styles.css?v=sticky-fix-2">
@@ -332,12 +337,13 @@ const output = `<!doctype html>
         <h2 id="metadata-title">Review, freshness and corrections</h2>
         <dl class="vr-meta-grid">
           <div><dt>Published</dt><dd>${esc(book.published)}</dd></div>
+          <div><dt>Content version</dt><dd><code>${contentVersion}</code></dd></div>
           <div><dt>Last reviewed</dt><dd>${esc(book.lastReviewed)} · maker review only</dd></div>
           <div><dt>Next review</dt><dd>${esc(book.nextReview)}</dd></div>
           <div><dt>What can change</dt><dd>${esc(book.whatCanChange)}</dd></div>
         </dl>
         <p><a href="${esc(book.correctionRoute)}">Report a correction about a chapter, claim or source</a>. Include the relevant ID and what you found; do not email private source material.</p>
-        <p><strong>Canonical source:</strong> <code>/${SOURCE_REL}</code><br><strong>Source SHA-256:</strong> <code>${sourceSha}</code></p>
+        <p><strong>Canonical source:</strong> <code>/${SOURCE_REL}</code><br><strong>Source SHA-256:</strong> <code>${sourceSha}</code><br><strong>Content version:</strong> <code>${contentVersion}</code></p>
       </section>
       <section class="vr-sources" aria-labelledby="sources-title">
         <h2 id="sources-title">Source drawer</h2>
@@ -443,6 +449,7 @@ const derivedLedger = {
   bookId: book.bookId,
   generatedFrom: `/${SOURCE_REL}`,
   generatedFromSha256: sourceSha,
+  contentVersion,
   ledgerStatus: "CANDIDATE_UNDER_INDEPENDENT_REVIEW",
   reviewedOn: book.lastReviewed,
   reviewer: "ECO-01 maker — not an independent accuracy approval",
@@ -450,8 +457,11 @@ const derivedLedger = {
   claims: book.claimRegistry,
   sources: [...sourceMap.values()]
 };
+fs.mkdirSync(path.dirname(LEDGER_OUTPUT), { recursive: true });
+fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
 fs.writeFileSync(LEDGER_OUTPUT, `${JSON.stringify(derivedLedger, null, 2)}\n`);
 fs.writeFileSync(OUTPUT, output.replace(/[ \t]+$/gm, ""));
-console.log(`Rendered ${path.relative(ROOT, OUTPUT)} from ${SOURCE_REL}`);
+console.log(`Rendered ${OUTPUT_REL} from ${SOURCE_REL}`);
 console.log(`Generated ${path.relative(ROOT, LEDGER_OUTPUT)} from ${SOURCE_REL}`);
 console.log(`source_sha256=${sourceSha}`);
+console.log(`content_version=${contentVersion}`);
