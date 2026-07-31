@@ -77,6 +77,237 @@ Use structure, but hide the scaffolding.
 
 The reader should feel guided, not processed through a template.
 
+Website Language and Brand System
+
+The website must sound like LAiDIES before it sounds like a website.
+
+Public Copy Is Not An Operations Log
+
+Internal control language belongs in receipts, ledgers and review files—not on
+the visitor-facing site.
+
+Never expose phrases such as:
+
+* candidate, seal, checksum, receipt or review tuple
+* source-checked, creator-confirmed or qualified interruption
+* hold-era, held, gated, staged or admission
+* working draft preview, release check or provider state
+* operational, plumbing or backend when a visitor needs a plain explanation
+
+Say what a visitor can do, what she will get and what happens next. If a
+feature is not genuinely available, do not dress a roadmap item up as a live
+button.
+
+Brand Spelling
+
+Use these exact public forms:
+
+* LAiDIES
+* SUNNYVAiLE
+* LIBRAiRY
+* FAiRY Godmother
+* Mme CLAi-O
+* Delta LAi Nu
+* KSVL 99.9
+* NewsStand
+* Resident Card
+* My Closet
+* Wednesday Postcard
+* BRONZE AiGE
+* MAiKEOVER on MAiN
+* LUMINAiRY
+
+In ordinary body copy, artificial intelligence is **AI**. The branded `Ai`
+treatment belongs only inside an approved brand name. Do not recolour random
+`Ai` letter pairs in paragraphs, labels or eyebrows. On a busy or coloured
+background, keep the complete phrase one readable colour.
+
+Visual Brand System
+
+LAiDIES is a colourful adult graphic-novel world with 1990s and early-2000s
+energy. It is not a children’s cartoon, a corporate dashboard, a fashion
+magazine or a generic retro theme.
+
+The visual hierarchy should feel:
+
+* cinematic and immersive at major story moments
+* electric, colourful and inviting
+* grown-up, witty and deliberately composed
+* useful before decorative
+* recognizably part of SUNNYVAiLE
+
+Use the established electric families: hot pink, KSVL-sign cyan/teal, vivid
+violet, bright coral and sunshine yellow. Light lavender, pale blue and pink
+may support a page background, but the result must not wash the page into
+candy pastels.
+
+Plum is the primary text and outline colour. Do not use solid plum as a
+section, card or button background.
+
+Beige, oatmeal, generic white card fields and magazine-style blank space are
+not LAiDIES. A light neutral may appear only when the composition requires a
+small area of reading contrast; it must not become the dominant visual idea.
+
+Use gradients as environmental colour—not as nine arbitrary competing skins.
+Within a repeated group, cards use one coherent background treatment, one
+border system and one size. Selected, visited and disabled states must be
+communicated deliberately, not by unexplained colour changes.
+
+Layout Rules
+
+Use the page as one coherent journey, not a stack of boxes inside boxes.
+
+* Each major Homepage chapter gets one unmistakable title and visual field.
+* Avoid more than one visible container around the same piece of content.
+* Related actions share the same height, shape, spacing and text treatment.
+* Repeated cards in one group have equal dimensions.
+* Do not leave a small image floating in half of a large two-column section.
+* Do not create decorative empty bands, oversized top insets or dead fields.
+* Do not force a desktop grid onto mobile.
+* On mobile, content follows reading order and uses the full useful width.
+* Daily Buzz remains a distinct public paper; on desktop it may be a useful
+  side rail, and on mobile it follows the current-town feature immediately.
+
+Image Authority And Cropping
+
+Use the saved approved image for the named character, building or experience.
+Do not substitute an older, rejected or merely similar asset to make a crop
+easier.
+
+Before placing an image:
+
+1. confirm it is the approved subject and version
+2. measure the destination slot
+3. choose an aspect ratio that suits the source
+4. preserve faces, hands, signage and the meaningful object or setting
+5. inspect the actual desktop, intermediate and mobile crop
+
+Never solve a bad crop by shrinking the image into a field of empty colour,
+stretching it, swapping in a retired image, or cutting off the important
+subject. If no approved image fits the required slot, make or commission the
+right image for that slot.
+
+Masthead Lock
+
+The approved full-width SUNNYVAiLE masthead and its once-per-session Rewind Era
+arrival sequence are protected components. Homepage reorganization must not
+replace, shrink, crop, darken, rename or remove them.
+
+The masthead’s four navigation actions are:
+
+1. What’s happening in town
+2. Go directly to an activity
+3. Learn how LAiDIES works
+4. Move to SUNNYVAiLE
+
+Sign in remains a separate, clearly visible account action. Masthead actions
+must not cover the copy, break into an awkward orphan row or use inconsistent
+button styling.
+
+Homepage Copy Architecture
+
+The Homepage has four jobs, in this order:
+
+1. **What’s happening around town** — the latest Wednesday episode, a distinct
+   signed-in return update and the public Daily Buzz.
+2. **Your next stop** — nine direct routes: news, class, look-up, episodes,
+   KSVL, activity, community, town and Closet.
+3. **How LAiDIES works—and why it matters** — one coherent explanation of the
+   learning method, women’s role in computing and AI, and why participation
+   matters now.
+4. **Move to SUNNYVAiLE** — the Resident Card, My Closet, supported progress
+   and collections, resident experiences, the join action and the separate
+   Postcard-only route.
+
+Do not scatter these ideas across duplicate modules. Daily Buzz is the public
+daily paper; What’s New is a signed-in, since-your-last-visit return aid. They
+are not interchangeable.
+
+Heading Standard
+
+Headings should be short, specific and memorable. A heading earns the space by
+doing at least one of these jobs:
+
+* names a clear destination
+* makes a useful promise
+* advances the SUNNYVAiLE story
+* lands a Rewind Era line that supports the meaning
+
+Avoid generic headings such as “Learn more,” “Discover,” “Resources,”
+“Explore our offerings” and “Help shape what AI becomes next.” Do not mix a
+page full of questions with statement headings. If one section is a direct
+route menu, call it **Your next stop**, not “What do you want to do?”
+
+Good Homepage heading territory:
+
+* What’s happening around town
+* Your next stop
+* Your 1990s brain is more AI-ready than you think
+* Women helped write the first chapter. We are not sitting out the sequel.
+* Move to SUNNYVAiLE
+
+Catchy does not mean cryptic. A joke or Rewind Era reference must still help
+the reader understand the section.
+
+Action Labels
+
+Buttons say what will happen:
+
+* Read today’s paper
+* Take the Wednesday Tour
+* Look it up at the LIBRAiRY
+* Open My Closet
+* Make my Resident Card
+* Send me the Wednesday Postcard
+
+Do not use “Learn more” when the destination has a name. Do not make a link
+look like a button in one place and plain underlined text in another without a
+real hierarchy reason. Actions grouped together use the same height, shape and
+text treatment.
+
+Explanation Sequence
+
+For a substantial website section, answer these in a natural order:
+
+1. What is this?
+2. Why should I care?
+3. What can I do here?
+4. What should I expect?
+5. What is the clearest next action?
+
+Use enough words to make the experience understandable. Brevity is not an
+excuse for mystery. Hide the scaffolding, keep the explanation.
+
+Reader-Level Rule
+
+Never divide visitors into patronizing “beginner” and “expert” camps. Give
+every route a clear starting point, then show depth through specific concepts,
+practical tools, source-backed explainers, advanced classes and optional
+detail. A new visitor should know where to begin; an experienced visitor
+should still find work worth doing.
+
+Website Review Checklist
+
+Before visitor-facing copy is approved:
+
+* Can a first-time visitor explain LAiDIES, SUNNYVAiLE and the Rewind Era?
+* Can a returning resident see where to sign in and resume?
+* Is every heading useful, distinctive and in LAiDIES voice?
+* Does every action name its real outcome and go to the correct destination?
+* Are Daily Buzz and What’s New clearly different?
+* Is the full method and mission present—not compressed into five vague tiles?
+* Is the join action located in the Move to SUNNYVAiLE journey?
+* Is unbuilt functionality absent or honestly bounded?
+* Are branded spellings exact and readable?
+* Would Ali describe this as funny, useful and specific rather than polished
+  filler?
+* Are repeated cards equal, readable and visibly related?
+* Are the approved images used, with faces, signs and key objects intact?
+* Is there any beige, solid plum background, arbitrary white box or nested
+  container that weakens the LAiDIES world?
+* Does the page work at desktop, intermediate and mobile widths without
+  overlap, dead space, clipped copy or excessive scrolling?
+
 Paragraph Test
 
 Every paragraph must do at least one of the following:
