@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAiDIES Homepage · Incumbent + Daily Pager</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #fffdfb;
+    }
+
+    #incumbent-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fffdfb;
+    }
+
+    .preview-error {
+      max-width: 680px;
+      margin: 12vh auto;
+      padding: 28px;
+      color: #3a1838;
+      font: 600 18px/1.55 system-ui, sans-serif;
+    }
+
+    body.mobile-proof {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #d8d8dd;
+    }
+
+    body.mobile-proof #incumbent-frame {
+      width: 390px;
+      height: 844px;
+      flex: 0 0 390px;
+    }
+
+    body.intermediate-proof {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background: #d8d8dd;
+    }
+
+    body.intermediate-proof #incumbent-frame {
+      width: 1000px;
+      height: 844px;
+      flex: 0 0 1000px;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="incumbent-frame"
+    title="LAiDIES light Homepage incumbent with the Daily information column"
+    src="/index.html"
+  ></iframe>
+  <script>
+    const previewParams = new URLSearchParams(location.search);
+    if (previewParams.get("proof") === "mobile") {
+      document.body.classList.add("mobile-proof");
+    }
+    if (previewParams.get("proof") === "intermediate") {
+      document.body.classList.add("intermediate-proof");
+    }
+    const previewSection = previewParams.get("section");
+    if (previewSection && /^[a-z0-9-]+$/i.test(previewSection)) {
+      document.querySelector("#incumbent-frame").src = `/index.html#${previewSection}`;
+    }
+  </script>
+    <script type="module" src="./preview.js?v=128"></script>
+</body>
+</html>
