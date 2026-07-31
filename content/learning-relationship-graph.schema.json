@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/learning-relationship-graph.schema.json",
+  "title": "LAiDIES governed learning relationship graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "governedSources", "nodes", "relationships", "searchProofs", "renderedProofs", "conflictChecks", "knownBlockers"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "status": { "enum": ["BUILT_LOCALLY", "APPROVED", "VERIFIED_PUBLICLY"] },
+    "governedSources": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "path", "role"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["CONTENT_INVENTORY", "SEARCH_INDEX", "CLASS_REGISTER", "CLAIM_REGISTER", "NEWS_REGISTER"] }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "surface", "status", "sourcePath", "searchTerms"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "surface": { "enum": ["EPISODE", "BOOK", "CLASS", "NEWS", "TOOL", "CONCEPT"] },
+          "status": { "enum": ["PUBLIC", "LOCAL_APPROVED", "OWNER_REVIEW", "HOLD", "DRAFT", "PREVIEW"] },
+          "sourcePath": { "type": "string", "minLength": 1 },
+          "searchTerms": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } },
+          "claimIds": { "type": "array", "items": { "type": "string" } },
+          "analogy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["mapping", "limit"],
+            "properties": {
+              "mapping": { "type": "string", "minLength": 8 },
+              "limit": { "type": "string", "minLength": 8 }
+            }
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "from", "to", "type", "direction", "reason", "placement", "status"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "from": { "type": "string", "minLength": 1 },
+          "to": { "type": "string", "minLength": 1 },
+          "type": { "enum": ["LOOK_UP", "GO_DEEPER", "PRACTISE", "APPLY_TO_NEWS", "PREREQUISITE", "NEXT_EXPERIENCE", "CORRECTS", "REINFORCES_WITH_SONG", "SUPPLIES_DAILY_DERIVATIVE"] },
+          "direction": { "enum": ["ONE_WAY_INTENTIONAL", "RECIPROCAL_REQUIRED"] },
+          "reason": { "type": "string", "minLength": 30 },
+          "placement": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["RENDERED", "PLANNED_BLOCKED", "REJECTED"] },
+          "blockerId": { "type": "string" }
+        }
+      }
+    },
+    "searchProofs": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["query", "expectedSiteIndexId"],
+        "properties": {
+          "query": { "type": "string", "minLength": 2 },
+          "expectedSiteIndexId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "renderedProofs": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sourcePath", "contains", "relationshipId"],
+        "properties": {
+          "sourcePath": { "type": "string", "minLength": 1 },
+          "contains": { "type": "string", "minLength": 4 },
+          "relationshipId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "conflictChecks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "nodeId", "siteIndexId", "mustContain", "blockerId"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "kind": { "const": "SEARCH_INDEX_MISMATCH" },
+          "nodeId": { "type": "string", "minLength": 1 },
+          "siteIndexId": { "type": "string", "minLength": 1 },
+          "mustContain": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } },
+          "blockerId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "knownBlockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "severity", "description", "owner", "nextAction", "resolutionTaskId"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "severity": { "enum": ["RELEASE_BLOCKING", "COVERAGE_GAP"] },
+          "description": { "type": "string", "minLength": 20 },
+          "owner": { "type": "string", "minLength": 1 },
+          "nextAction": { "type": "string", "minLength": 20 },
+          "resolutionTaskId": { "type": "string", "pattern": "^LCR-[0-9]{3}$" }
+        }
+      }
+    }
+  }
+}

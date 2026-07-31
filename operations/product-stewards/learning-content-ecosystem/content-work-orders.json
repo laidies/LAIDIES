@@ -57,6 +57,15 @@
       "disposition": "QUEUED_WITH_TRIGGER",
       "workOrderIds": ["LCWO-009"],
       "checkedAt": "2026-07-31"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/validation-receipts/2026-07-31/stage-4-learning-system-concepts-gpt-5-6-price-cuts-repaired-2026-07-31.md",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "workOrderIds": [
+        "LCWO-007"
+      ],
+      "checkedAt": "2026-07-31",
+      "reason": "The dated price/access change applies the existing model/product/API distinction. Its only unmet durable learning need is the already-owned token-rate-versus-accepted-task-cost method, which remains queued until a named model-choice class, Library guide or tool reaches specification."
     }
   ],
   "workOrders": [
@@ -457,15 +466,15 @@
       "surface": "OTHER",
       "action": "CREATE",
       "ownerProductId": "platform-reliability",
-      "targetPaths": ["content/learning-relationship-graph.schema.json", "content/learning-relationship-graph.json", "scripts/check-learning-relationships.mjs"],
-      "status": "SPECIFIED",
+      "targetPaths": ["content/learning-relationship-graph.schema.json", "content/learning-relationship-graph.json", "content/learning-blocker-resolution-queue.json", "scripts/check-learning-relationships.mjs", "operations/product-stewards/learning-content-ecosystem/learning-relationship-inventory-report.json"],
+      "status": "BUILT_LOCALLY",
       "dispatchState": "READY_TO_DISPATCH",
       "priority": "P0",
-      "nextAction": "Create a governed relationship graph and validator that inventories discoverable content, concept/canon IDs, search terms, prerequisites, next experiences, applications, corrections and typed related-content links; require exact reciprocal or intentionally one-way placements in episodes, books, classes, news and tools.",
-      "nextTrigger": "Immediate build: current surface-specific search and manually authored links do not prove complete sitewide ingestion, relationship coverage or contradiction detection.",
+      "nextAction": "Execute the named resolution queue beginning with LCR-003 representative class admission and LCR-007 Episode 04 search-metadata correction; backfill the remaining inventory only through canonical typed relationships and exact surface proof.",
+      "nextTrigger": "The local graph, validator, inventory report and executable resolution queue are built. Open blockers now have owners, review dates, closure checks and fail-on-overdue enforcement; owner builds and public surface admission remain required.",
       "acceptanceEvidence": ["Schema and representative graph", "Full content inventory report", "Typed semantic link decisions", "Conflict/orphan/stale-link tests", "Exact search-query and rendered Learn more proof across representative surfaces"],
       "reviewChain": [
-        {"stage":"BUILD","owner":"platform-reliability","status":"REQUIRED"},
+        {"stage":"BUILD","owner":"platform-reliability","status":"PASS_LOCAL"},
         {"stage":"LEARNING","owner":"learning-content-ecosystem","status":"REQUIRED"},
         {"stage":"SEARCH","owner":"miss-jeeves","status":"REQUIRED"},
         {"stage":"SURFACE","owner":"affected-product-champions","status":"REQUIRED"},
@@ -488,7 +497,7 @@
         "derivativeFeeds": {"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"Graph supplies canonical IDs and limits to Paige-tip/Promptoscope intake without creating parallel truth.","evidencePaths":[]}
       },
       "artifactBinding": {"status":"UNBOUND","manifestPath":null,"sha256":null},
-      "evidencePaths": ["operations/product-stewards/learning-content-ecosystem/concept-map.md", "operations/product-stewards/learning-content-ecosystem/claim-register.json"],
+      "evidencePaths": ["operations/product-stewards/learning-content-ecosystem/concept-map.md", "operations/product-stewards/learning-content-ecosystem/claim-register.json", "content/learning-relationship-graph.schema.json", "content/learning-relationship-graph.json", "content/learning-blocker-resolution-queue.json", "scripts/check-learning-relationships.mjs", "operations/product-stewards/learning-content-ecosystem/learning-relationship-inventory-report.json"],
       "publicRelease": {"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null}
     }
   ]

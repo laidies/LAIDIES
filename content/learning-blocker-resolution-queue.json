@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-07-31",
+  "policy": {
+    "readyMeans": "The task has an owner, an executable next action and closure evidence. It is not waiting for another planning pass.",
+    "reviewCadenceDays": 7,
+    "overdueRule": "An open task past nextReviewAt is a validation failure and must be escalated to Control Room.",
+    "closureRule": "A blocker closes only when every closureCheck has exact evidence and the originating relationship validator passes without that blocker."
+  },
+  "tasks": [
+    {
+      "id": "LCR-001",
+      "blockerId": "BLK-LIBRARY-HOLD",
+      "status": "READY_TO_EXECUTE",
+      "owner": "library",
+      "priority": "P0",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-07",
+      "nextAction": "Run content-quality admission on Vocab 101, Concepts 101 and Briefing 101, preserving separate lookup, depth and procedure jobs.",
+      "closureChecks": ["Each destination has a current admitted status", "Search metadata uses the canonical content ID", "Desktop and mobile Learn more placement is reviewed", "Held alternatives remain suppressed"],
+      "escalateTo": "control-room"
+    },
+    {
+      "id": "LCR-002",
+      "blockerId": "BLK-RULEBOOK-PLACEHOLDER",
+      "status": "READY_TO_EXECUTE",
+      "owner": "library",
+      "priority": "P0",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-07",
+      "nextAction": "Build the complete Verification Rulebook from the Episode 03 method, source it, review transfer usefulness and replace the placeholder state.",
+      "closureChecks": ["Complete source and rendered book exist", "Accuracy and anti-slop review pass", "Episode 03 link lands on the exact method", "Dream Phone handoff is distinct and useful"],
+      "escalateTo": "control-room"
+    },
+    {
+      "id": "LCR-003",
+      "blockerId": "BLK-CLASS-NOT-ADMITTED",
+      "status": "IN_PROGRESS",
+      "owner": "sunnyvaile-high",
+      "priority": "P0",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-03",
+      "nextAction": "Advance What You're Looking At through exact source, script, class-template, accessibility, transfer and catalogue admission checks; keep media/public claims held.",
+      "closureChecks": ["Class admission manifest passes", "Official-source recheck is current", "Unfamiliar learner can complete the named task", "Accessible recovery and mobile class journey pass", "Episode 01 reciprocal placement passes"],
+      "escalateTo": "control-room"
+    },
+    {
+      "id": "LCR-004",
+      "blockerId": "BLK-TOOL-PREVIEW",
+      "status": "READY_TO_EXECUTE",
+      "owner": "dream-phone",
+      "priority": "P1",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-07",
+      "nextAction": "Run the verification-game learning, safety, accessibility and public-experience gates without turning the game into a fact-checking promise.",
+      "closureChecks": ["Preview disposition is explicit", "Practice outcome and limits are tested", "Mobile and keyboard journeys pass", "Episode 03 reciprocal placement is approved"],
+      "escalateTo": "control-room"
+    },
+    {
+      "id": "LCR-005",
+      "blockerId": "BLK-DAILY-NOT-PUBLIC",
+      "status": "READY_TO_EXECUTE",
+      "owner": "newsstand-daily",
+      "priority": "P1",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-07",
+      "nextAction": "Bind one eligible Paige tip to a current canonical claim, admit it, render it in Daily Buzz and verify the exact public release identity.",
+      "closureChecks": ["Derivative source and limits are current", "Daily wording is useful and LAiDIES-specific", "Exact rendered card and destination pass", "Public discovery receipt exists"],
+      "escalateTo": "control-room"
+    },
+    {
+      "id": "LCR-006",
+      "blockerId": "BLK-FULL-INVENTORY-BACKFILL",
+      "status": "READY_TO_EXECUTE",
+      "owner": "learning-content-ecosystem",
+      "priority": "P1",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-07",
+      "nextAction": "Inventory remaining tools, games, quizzes and Study Packs with canonical IDs, status, concept role, overlap and next-experience decisions.",
+      "closureChecks": ["Every substantial learning item has one canonical node", "Orphans and duplicates are dispositioned", "Held and stale content is suppressed", "Relationship and search validators pass"],
+      "escalateTo": "control-room"
+    },
+    {
+      "id": "LCR-007",
+      "blockerId": "BLK-EP04-INDEX-CONTRADICTION",
+      "status": "READY_TO_EXECUTE",
+      "owner": "miss-jeeves",
+      "priority": "P0",
+      "openedAt": "2026-07-31",
+      "nextReviewAt": "2026-08-03",
+      "nextAction": "Replace Episode 04's incorrect types-of-AI search metadata with its released women-in-AI history scope and run exact discovery queries.",
+      "closureChecks": ["Search summary matches released Episode 04", "Women and AI history queries resolve to Episode 04", "Types-of-AI queries no longer misroute to Episode 04", "Direct route and canonical metadata remain unchanged"],
+      "escalateTo": "control-room"
+    }
+  ]
+}

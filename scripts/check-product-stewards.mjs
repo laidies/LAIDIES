@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { checkContentWorkOrders } from "./check-content-work-orders.mjs";
 import { checkDailyLearningDerivatives } from "./check-daily-learning-derivatives.mjs";
+import { checkLearningRelationships } from "./check-learning-relationships.mjs";
 
 const root = process.cwd();
 const base = path.join(root, "operations", "product-stewards");
@@ -23,6 +24,8 @@ const contentWorkOrders = checkContentWorkOrders({ root });
 errors.push(...(contentWorkOrders.errors || []).map((error) => `content work orders: ${error}`));
 const dailyDerivatives = checkDailyLearningDerivatives({ root });
 errors.push(...(dailyDerivatives.errors || []).map((error) => `daily learning derivatives: ${error}`));
+const learningRelationships = checkLearningRelationships({ root });
+errors.push(...(learningRelationships.errors || []).map((error) => `learning relationships: ${error}`));
 
 function findAdmissionManifests(directory) {
   const found = [];
@@ -310,4 +313,13 @@ console.log(`content_records_covered=${contentWorkOrders.coveredRecords}`);
 console.log(`content_ready_to_dispatch=${contentWorkOrders.readyToDispatch.join(",") || "none"}`);
 console.log(`daily_learning_derivatives=${dailyDerivatives.records || 0}`);
 console.log(`daily_learning_derivatives_public=${dailyDerivatives.publicRecords || 0}`);
+const openResolutionTasks = (learningRelationships.blockers || [])
+  .map((blocker) => blocker.resolution)
+  .filter((task) => task && task.status !== "RESOLVED");
+console.log(`learning_resolution_tasks_open=${openResolutionTasks.length}`);
+for (const task of openResolutionTasks) {
+  console.log(
+    `learning_resolution_task=${task.id}|${task.status}|${task.priority}|owner=${task.owner}|review=${task.nextReviewAt}|next=${task.nextAction}`
+  );
+}
 if (ownerEntryId) console.log(`owner_entry_product=${ownerEntryId}:PASS`);
