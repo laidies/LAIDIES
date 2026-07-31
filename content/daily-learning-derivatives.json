@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "owner": "newsstand-daily",
+  "status": "ACTIVE",
+  "updatedAt": "2026-07-31",
+  "emptyStates": {
+    "paige_tip": "Paige is checking today’s tip against the receipts. No filler while she does.",
+    "promptoscope": "The Promptoscope is recalibrating. Mercury has not been blamed."
+  },
+  "records": [
+    {
+      "id": "DLD-2026-07-31-PAIGE-GENERATION-IS-NOT-VERIFICATION",
+      "type": "paige_tip",
+      "status": "HOLD",
+      "date": "2026-07-31",
+      "headline": "Draft first. Check second.",
+      "body": "Generative AI can make the draft. It cannot make the draft true. Check the claim against the original source before you use it.",
+      "audienceJob": "Give a less-technical reader one bounded action that reinforces the difference between generation and verification.",
+      "sourceClaimIds": ["CLM-DEF-GENERATIVE-AI"],
+      "sourceContentIds": ["CONCEPT-GENERATIVE-AI"],
+      "canonicalPath": "content/library-books/vocab-101.md",
+      "relatedConceptIds": ["generative-ai", "verification"],
+      "freshness": {
+        "lastCheckedAt": "2026-07-31",
+        "expiresAt": "2026-08-07",
+        "recheckTriggers": ["The canonical generative-AI definition changes.", "The source claim enters correction, hold or retraction."]
+      },
+      "correction": { "supersedes": null, "retractedAt": null, "reason": null },
+      "reviewEvidence": { "accuracy": null, "editorial": null, "laidiesVoice": null, "formatFit": null },
+      "publicEligibility": "INELIGIBLE"
+    },
+    {
+      "id": "DLD-2026-07-31-PROMPTOSCOPE-ONE-SOURCE-OF-TRUTH",
+      "type": "promptoscope",
+      "status": "HOLD",
+      "date": "2026-07-31",
+      "headline": "Your rules are talking over each other.",
+      "body": "Today favours one source of truth, one positive reference and one visible acceptance test. Expect confident chaos if you hand the model six competing briefs.",
+      "audienceJob": "Use the horoscope form to make one prompt-design principle memorable without pretending astrology caused the result.",
+      "sourceClaimIds": ["CLM-DEF-GENERATIVE-AI"],
+      "sourceContentIds": ["CONCEPT-PROMPT-CONTEXT"],
+      "canonicalPath": "operations/product-stewards/newsstand/DAILY-NEWSPAPER-EXPERIENCE-BRIEF.md",
+      "relatedConceptIds": ["prompt-context", "acceptance-tests"],
+      "freshness": {
+        "lastCheckedAt": "2026-07-31",
+        "expiresAt": "2026-08-07",
+        "recheckTriggers": ["The prompt-context canon changes.", "The source claim enters correction, hold or retraction."]
+      },
+      "correction": { "supersedes": null, "retractedAt": null, "reason": null },
+      "reviewEvidence": { "accuracy": null, "editorial": null, "laidiesVoice": null, "formatFit": null },
+      "publicEligibility": "INELIGIBLE"
+    }
+  ]
+}

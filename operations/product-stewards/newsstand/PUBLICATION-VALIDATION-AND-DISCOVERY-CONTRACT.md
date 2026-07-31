@@ -1,0 +1,159 @@
+# NewsStand publication validation and discovery contract
+
+**Status:** ACTIVE OPERATING CONTRACT — AUTOMATIC DISPATCH; PUBLICATION REMAINS GATED
+**Owner:** NewsStand champion with Control Room orchestration
+**Applies to:** The Breaking, The Daily, The Weekly and The Tribune
+
+## The promise
+
+Ali does not have to remember to request each review, and a published story
+does not become discoverable merely because its record exists.
+
+Two separate automatic chains apply:
+
+1. a **candidate validation chain**, triggered whenever a qualified candidate
+   is created or materially changed; and
+2. a **published discovery chain**, triggered only when an exact story becomes
+   `published` or `corrected` in the canonical public dataset.
+
+Neither chain grants publication, deployment or correction authority.
+
+## Candidate validation trigger
+
+At the beginning of every NewsStand radar cycle, reconcile:
+
+- `operations/drafts/**/candidate.json`;
+- NewsStand story evidence records;
+- the radar log; and
+- the canonical public dataset.
+
+A candidate triggers the chain when its file hash is not already bound to a
+terminal `REJECT`, `HOLD`, `PASS` or superseding receipt. A materially changed
+hash is a new candidate identity and must be reviewed again.
+
+### Required chain
+
+| Order | Owner | Required output | Automatic stop |
+|---|---|---|---|
+| 1 | NewsStand edition editor | Exact edition/template ruling and complete draft | Wrong edition, missing template fields or filler |
+| 2 | AI Research & Accuracy | Dated claim map; primary-source retrieval; evidence/inference/position separation | Unresolved source, stale claim or unsupported statement |
+| 3 | Relevant risk specialist | Security/privacy/health/legal/safety review when the subject requires it | Material unresolved risk or missing domain evidence |
+| 4 | Learning System & Concepts | Durable-vs-dated distinction; exact Concepts/Class/Episode/Library dispositions; coverage in the machine-checked content work-order queue | Duplicated teaching, orphaned learning opportunity or recommendation without an owner/path/trigger |
+| 5 | Brand/editorial and accessibility judge | Actual rendered article in its edition; voice, comprehension, mobile and accessibility floors | Any required floor below 17/20 or inaccessible result |
+| 6 | NewsStand champion | Reconciled exact candidate packet and correction/freshness contract | Any missing or conflicting receipt |
+| 7 | Release owner | Versioned artifact, rollback and public verification plan | No exact publication authority or failed release proof |
+
+The maker cannot approve its own work. Later stages do not start after a
+terminal rejection. A hold records the precise owner, missing evidence and
+next trigger.
+
+The chain is `ACTIVE` only while a named task is executing a named output.
+Writing “review required” in a packet is not a trigger and is not progress.
+
+Before Stage 6 reconciliation, the exact rendered artifact must also carry the
+twelve gate results defined by the Learning Content Ecosystem operating spec.
+This includes search ingestion, semantic cross-linking, sitewide canon
+consistency, KSVL/song opportunity and source-bound Paige-tip/Promptoscope
+derivative rulings. A generic editorial PASS cannot stand in for those
+separate results. Any missing gate is a terminal HOLD for this candidate.
+
+## Published discovery trigger
+
+Control Room compares the canonical public dataset with the last durable
+publication receipt. A new or corrected public story automatically triggers
+all applicable discovery checks below against the exact released story hash.
+
+### Discovery surfaces
+
+1. **Homepage current-information column**
+   - show the current Breaking item when one exists;
+   - show at least one real Daily News item when an issue exists;
+   - show the information itself, not a teaser-only link;
+   - use an honest checked-and-quiet state when no item qualifies;
+   - preserve the Homepage’s approved visual system and content hierarchy.
+
+2. **NewsStand front desk**
+   - newest eligible story appears under the correct paper;
+   - publication status and checked date are visible;
+   - direct hash and paper routes reach the same article;
+   - held, stale or retracted bodies never leak.
+
+3. **Back issues**
+   - the story appears in the latest-five view for its edition when applicable;
+   - “See all” exposes the complete eligible index;
+   - archive search finds headline, topic, source and controlled tags;
+   - topic browsing works across editions.
+
+4. **Related learning**
+   - `class_notes` names the exact Concepts, LIBRAiRY, class, episode or tool
+     continuation and its learning payoff;
+   - the Learning System intake records link/update/create/decline for every
+     material durable idea;
+   - relevant durable content links back to the dated NewsStand application
+     only when that reciprocal link improves understanding.
+   - semantic matching must inspect all governed surfaces rather than relying
+     only on manually remembered neighbours; every chosen and rejected link
+     records its learning relationship.
+
+5. **Open-web discovery**
+   - the NewsStand route remains in the sitemap with correct canonical and
+     `og:url`;
+   - the story has a stable address and useful title/description for sharing;
+   - a machine-readable latest-publications feed is rebuilt from approved
+     public records only;
+   - corrected and retracted records update the feed without exposing held
+     copy.
+
+6. **Daily learning derivatives**
+   - the exact story receives a Paige daily-tip and Promptoscope fit ruling;
+   - admitted derivatives cite the canonical item internally, preserve claim
+     limits and carry an expiry/recheck date;
+   - no derivative store, renderer or source-bound record means `BUILD REQUIRED`,
+     never an invented homepage string.
+
+7. **Returning-reader signals**
+   - device-local “new since your last visit” compares the last successfully
+     viewed publication timestamp with eligible public records;
+   - it stores no raw search text, article body, account or sensitive reading
+     history;
+   - signed-in cross-device following/saving is a later account feature and
+     must not be implied by device-local state.
+
+8. **Optional distribution**
+   - Audience & Growth receives a derivative scan only after exact public
+     verification;
+   - social, email, Resident Card inbox or push notification requires its own
+     approved channel, accessible derivative and publication authority;
+   - no candidate or held story enters those channels.
+
+## Reader journeys that must pass
+
+- first visit → understand the four papers → find the newest story;
+- returning visit → see what is new since the last successful visit;
+- direct story address → readable story → exact sources → related learning;
+- edition → latest five → complete index;
+- topic/search → cross-edition result → article → return to the prior results;
+- corrected story → visible correction adjacent to the article;
+- held/stale/retracted story → no body exposure through paper, search, direct
+  address, Homepage, feed or derivative.
+
+Desktop, 390 px, keyboard, focus restoration, reduced motion and native
+screen-reader semantics remain required. Public verification must check the
+released artifact, not a local fixture.
+
+## Current implementation truth
+
+- The NewsStand currently has edition selection, direct hash stories, archive
+  search, source links, correction/retraction controls and fail-closed reader
+  tests.
+- The twice-daily News Radar and daily Control Room automations exist.
+- The candidate evaluator is review-routing only and cannot publish.
+- The Homepage Daily column is still an isolated design candidate, not a
+  released discovery surface.
+- A complete public machine-readable LAiDIES NewsStand feed and an accepted
+  “new since your last visit” journey are not yet released.
+
+Therefore current publication discovery is **PARTIAL**. The automatic
+dispatch contract is active; full public discovery is not complete until the
+Homepage, feed and returning-reader gates are built, independently accepted,
+released and publicly verified.

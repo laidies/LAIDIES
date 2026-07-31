@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/daily-learning-derivatives.schema.json",
+  "title": "LAiDIES source-bound daily learning derivatives",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "owner", "status", "updatedAt", "emptyStates", "records"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "owner": { "const": "newsstand-daily" },
+    "status": { "enum": ["ACTIVE", "HOLD", "SUPERSEDED"] },
+    "updatedAt": { "type": "string", "format": "date" },
+    "emptyStates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["paige_tip", "promptoscope"],
+      "properties": {
+        "paige_tip": { "type": "string", "minLength": 1 },
+        "promptoscope": { "type": "string", "minLength": 1 }
+      }
+    },
+    "records": { "type": "array", "items": { "$ref": "#/$defs/record" } }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "type", "status", "date", "headline", "body", "audienceJob",
+        "sourceClaimIds", "sourceContentIds", "canonicalPath", "relatedConceptIds",
+        "freshness", "correction", "reviewEvidence", "publicEligibility"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^DLD-[0-9]{4}-[0-9]{2}-[0-9]{2}-(PAIGE|PROMPTOSCOPE)-[A-Z0-9-]+$" },
+        "type": { "enum": ["paige_tip", "promptoscope"] },
+        "status": { "enum": ["CANDIDATE", "HOLD", "APPROVED", "PUBLISHED", "CORRECTED", "RETRACTED", "EXPIRED"] },
+        "date": { "type": "string", "format": "date" },
+        "headline": { "type": "string", "minLength": 1 },
+        "body": { "type": "string", "minLength": 1 },
+        "audienceJob": { "type": "string", "minLength": 1 },
+        "sourceClaimIds": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "sourceContentIds": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "canonicalPath": { "type": "string", "minLength": 1 },
+        "relatedConceptIds": { "type": "array", "items": { "type": "string" } },
+        "freshness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lastCheckedAt", "expiresAt", "recheckTriggers"],
+          "properties": {
+            "lastCheckedAt": { "type": "string", "format": "date" },
+            "expiresAt": { "type": "string", "format": "date" },
+            "recheckTriggers": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+          }
+        },
+        "correction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["supersedes", "retractedAt", "reason"],
+          "properties": {
+            "supersedes": { "type": ["string", "null"] },
+            "retractedAt": { "type": ["string", "null"], "format": "date" },
+            "reason": { "type": ["string", "null"] }
+          }
+        },
+        "reviewEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["accuracy", "editorial", "laidiesVoice", "formatFit"],
+          "properties": {
+            "accuracy": { "type": ["string", "null"] },
+            "editorial": { "type": ["string", "null"] },
+            "laidiesVoice": { "type": ["string", "null"] },
+            "formatFit": { "type": ["string", "null"] }
+          }
+        },
+        "publicEligibility": { "enum": ["INELIGIBLE", "ELIGIBLE"] }
+      }
+    }
+  }
+}

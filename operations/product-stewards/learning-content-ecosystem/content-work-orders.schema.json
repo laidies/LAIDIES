@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.com/schemas/content-work-orders.schema.json",
+  "title": "LAiDIES recommendation-to-release work orders",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "owner", "status", "updatedAt", "orchestration", "intakeCoverage", "workOrders"],
+  "properties": {
+    "schemaVersion": { "const": "1.1.0" },
+    "owner": { "const": "learning-content-ecosystem" },
+    "status": { "enum": ["ACTIVE", "HOLD", "SUPERSEDED"] },
+    "updatedAt": { "type": "string", "format": "date" },
+    "orchestration": { "type": "object" },
+    "intakeCoverage": { "type": "array", "items": { "$ref": "#/$defs/intake" } },
+    "workOrders": { "type": "array", "items": { "$ref": "#/$defs/workOrder" } }
+  },
+  "$defs": {
+    "intake": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "disposition", "workOrderIds", "checkedAt"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "disposition": { "enum": ["WORK_ORDERS_CREATED", "NO_BUILD_REQUIRED", "QUEUED_WITH_TRIGGER"] },
+        "workOrderIds": { "type": "array", "items": { "type": "string" } },
+        "checkedAt": { "type": "string", "format": "date" },
+        "reason": { "type": "string" }
+      }
+    },
+    "workOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "title", "sourceRefs", "surface", "action", "ownerProductId",
+        "targetPaths", "status", "dispatchState", "priority", "nextAction",
+        "nextTrigger", "acceptanceEvidence", "reviewChain", "evidencePaths",
+        "qualityGates", "artifactBinding", "publicRelease"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^LCWO-[0-9]{3}$" },
+        "title": { "type": "string", "minLength": 1 },
+        "sourceRefs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "surface": { "enum": ["NEWSSTAND", "LIBRAIRY", "CLASS", "CONCEPT", "EPISODE", "TOOL", "GAME", "STUDY_PACK", "OTHER"] },
+        "action": { "enum": ["CORRECT", "UPDATE", "EXTEND", "CREATE", "QUEUE_WITH_TRIGGER"] },
+        "ownerProductId": { "type": "string", "minLength": 1 },
+        "targetPaths": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "status": {
+          "enum": [
+            "CAPTURED", "SPECIFIED", "BUILDING", "BUILT_LOCALLY",
+            "EDITORIAL_REVIEW", "CONTENT_VERIFIED", "EXPERIENCE_VERIFIED",
+            "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY",
+            "QUEUED_WITH_TRIGGER", "BLOCKED_BUILD_REMAINS_REQUIRED", "DECLINED"
+          ]
+        },
+        "dispatchState": { "enum": ["READY_TO_DISPATCH", "DISPATCHED", "NOT_READY", "CLOSED"] },
+        "priority": { "enum": ["P0", "P1", "P2"] },
+        "nextAction": { "type": "string", "minLength": 1 },
+        "nextTrigger": { "type": "string", "minLength": 1 },
+        "acceptanceEvidence": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "reviewChain": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+        "qualityGates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "accuracy", "antiSlop", "currentBestPractice", "laidiesVoice",
+            "analogyIntegrity", "usefulnessDepth", "formatFit", "searchIndexing",
+            "relationshipLinking", "canonConsistency", "songOpportunity", "derivativeFeeds"
+          ],
+          "properties": {
+            "accuracy": { "$ref": "#/$defs/qualityGate" },
+            "antiSlop": { "$ref": "#/$defs/qualityGate" },
+            "currentBestPractice": { "$ref": "#/$defs/qualityGate" },
+            "laidiesVoice": { "$ref": "#/$defs/qualityGate" },
+            "analogyIntegrity": { "$ref": "#/$defs/qualityGate" },
+            "usefulnessDepth": { "$ref": "#/$defs/qualityGate" },
+            "formatFit": { "$ref": "#/$defs/qualityGate" }
+            ,"searchIndexing": { "$ref": "#/$defs/qualityGate" }
+            ,"relationshipLinking": { "$ref": "#/$defs/qualityGate" }
+            ,"canonConsistency": { "$ref": "#/$defs/qualityGate" }
+            ,"songOpportunity": { "$ref": "#/$defs/qualityGate" }
+            ,"derivativeFeeds": { "$ref": "#/$defs/qualityGate" }
+          }
+        },
+        "artifactBinding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "manifestPath", "sha256"],
+          "properties": {
+            "status": { "enum": ["UNBOUND", "BOUND"] },
+            "manifestPath": { "type": ["string", "null"] },
+            "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
+          }
+        },
+        "evidencePaths": { "type": "array", "items": { "type": "string" } },
+        "blockedBy": { "type": "string" },
+        "declineReason": { "type": "string" },
+        "publicRelease": { "type": "object" }
+      }
+    },
+    "qualityGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "status", "evidenceRequired", "evidencePaths"],
+      "properties": {
+        "owner": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["REQUIRED", "PASS", "HOLD", "NOT_APPLICABLE"] },
+        "evidenceRequired": { "type": "string", "minLength": 1 },
+        "evidencePaths": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
