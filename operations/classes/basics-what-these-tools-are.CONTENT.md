@@ -18,10 +18,9 @@ model by itself.
 - **The app or assistant** is the product around the experience: interface,
   account, settings, instructions, conversation history, permissions, limits
   and any connected capabilities.
-- **The model** processes the information supplied for the current task and
-  produces or helps select the next output or action. Current general-purpose
-  models may work with text, images and other media; “just a text engine” is no
-  longer a safe description.
+- **The model** is the trained component that turns an input into an output.
+  It may produce words or images, interpret material, make a prediction or
+  choose a next action; “just a text engine” is not a safe description.
 - **Tools and retrieval** are optional capabilities the product may make
   available: web search, file handling, code execution, function calls or
   connected services. Availability varies by product, account and setting.
@@ -80,10 +79,10 @@ claim receives a checked date and a 30-day recheck date.
 
 ## Analogy, then its limit
 
-Think of the app as a studio, the model as one performer, and tools as equipment
-the studio may make available. This separates the layers. But a model is not a
-person, and product orchestration is not literally a studio; return to the
-request-flow diagram for the actual mechanism.
+Think of the product as a studio, the model as one performer, and tools as
+equipment the studio may make available. The picture helps separate the cast;
+it is not a technical blueprint. Return to the request-flow diagram for the
+actual mechanism.
 
 ## Apply it
 
@@ -118,6 +117,11 @@ Hold or correct explanations that say:
 
 Checked 2026-07-26; recheck product-capability claims by 2026-08-25 and again
 before recording.
+
+Core definitions reconciled 2026-07-29 against NIST AI 600-1, NIST AI
+100-2e2025 and the OECD AI-system explanatory memorandum. The detailed source
+map is
+`../product-stewards/learning-content-ecosystem/EPISODE-01-CONCEPT-DEFINITION-RESEARCH-2026-07-29.md`.
 
 - OpenAI, *ChatGPT Search*: <https://help.openai.com/en/articles/9237897-chatgpt-search>
 - OpenAI, *Apps in ChatGPT*: <https://help.openai.com/en/articles/11487775-connectors-in>

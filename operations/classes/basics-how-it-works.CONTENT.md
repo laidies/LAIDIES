@@ -1,33 +1,101 @@
 # How these tools actually work
-*SUNNYVAiLE High · The Basics. Teaching content. Plain teaching carries; analogy garnishes. Pairs with "What these tools are, and what they're for."*
+*SUNNYVAiLE High · The Basics. Teaching content. Plain teaching carries; analogy garnishes. Pairs with “What these tools are, and what they’re for.”*
+
+**Accuracy status:** RESEARCHED REPLACEMENT — 2026-07-29
+**Maintained source map:** `operations/product-stewards/learning-content-ecosystem/EPISODE-01-CONCEPT-DEFINITION-RESEARCH-2026-07-29.md`
 
 ---
 
-Last class we split it in two: the **tool** (the app you click) and the **model** (the engine that produces the words). This one is about that engine — what it actually is, and how it turns your question into an answer.
+Last class separated four things that are easy to blur together:
 
-## What "large language model" means
-Three words, worth taking one at a time.
+- the **product** you use;
+- the **model** that processes inputs and produces outputs;
+- the **context** supplied for this task; and
+- any **tools** the product makes available, such as search, files or code.
 
-- **Language** — its whole world is words. It reads language and produces language; that's all it does. Not pictures, not math the way a calculator does it, not a filing cabinet of facts to look up. Words in, words out.
-- **Model** — a model here is something built to capture the *patterns* of a thing so it can make more of it. A weather model captures how weather behaves to predict tomorrow; a language model captures how language behaves — which words tend to follow which — to predict the next word. It's not a copy of the internet in a drawer; it's a pattern-map of how writing tends to go, boiled down from reading an enormous amount of it.
-- **Large** — two things are large, and both matter: the amount it read to learn those patterns (about all the writing it could get), and the model itself — billions of tiny dials inside it that get tuned, which it needs to capture something as subtle as human language. At that size, it can hold the patterns of almost any subject and write fluently on it.
+This class explains the model without pretending the model is the whole
+product.
 
-## How it learns
-It didn't learn from rules. It was shown real writing with the next word hidden and made to guess; when it's wrong, it nudges those billions of dials a hair toward the right answer — then again, and again, billions of times, across nearly everything written. Slowly the dials settle into a setting that has soaked up how language works: grammar, tone, the way facts are usually stated, the shape of an argument. Nobody wrote those rules in; it took them from the examples.
+## What “large language model” means
 
-## How it answers
-When you use it, the dials are frozen. You give it your words; it runs them through all those dials; out comes its best guess at the next word — then it adds that and does it again, building the answer one word at a time. It's the autocomplete on your phone, scaled up almost past belief: instead of guessing your next word, it can continue a whole coherent, genuinely useful answer.
+A **model** is the trained component of an AI system that turns an input into
+an output. That output might be words or images, a prediction or a choice
+about what to do next. Training shapes the model rather than a developer
+writing a complete rule for every possible task.
 
-Which sounds like glorified autocomplete — and underneath, it is still predicting words. But two things make it far more than that. Because it learned from so much writing that *works a problem through* — explanations, arguments, worked examples — its answers come out reasoning-shaped, not just grammatical. And the newest models go further: instead of blurting the first likely answer, they can **reason it out** — work the problem in steps, check themselves, revise — and only then reply. Some tools even show that "thinking…" happening, or let you switch it on for hard questions. It's still built from predicting words; it's just predicting the words of a careful working-through, which is why they've gotten so much better at anything with steps — math, logic, planning, untangling something messy.
+A **language model** is trained to work with sequences of language. A **large
+language model**, or LLM, is a language model with many learned parameters and
+training at substantial scale. Some current models are also multimodal, so
+they can work with combinations of text, images, audio, video or code.
 
-## Why one engine can do all of it
-Here's what makes it a genuinely new kind of tool, not just a faster one. Every piece of software you've used before was built for a job, by hand — someone wrote the rules: a calculator's rules for arithmetic, your tax software's rules for tax. It does what it was programmed to do, and nothing else.
+“Model” and “product” are not interchangeable. A model may be offered through
+an app, an API or a coding tool. A product may combine one or more models with
+instructions, memory, search, files, code execution and other components.
 
-This one wasn't given rules. It learned patterns from examples, and those patterns turned out general enough that the *same engine* can draft an email, explain a contract, plan a week of dinners, or write computer code. Nobody built a "plan a trip" button — it can plan a trip because a trip plan is just more language to continue, and it soaked up how language like that tends to go. That's the leap: from single-purpose tools you operate with menus and buttons, to one general tool you just talk to — one that improvises from patterns instead of following fixed rules.
+## How training shapes a model
 
-And here is the trade you're making. Because it *generates* new text rather than *retrieving* something that already exists, two things are true at the same time: it can produce something shaped exactly to you that existed nowhere before — and it can produce something that's wrong with total confidence. Same root. The power and the catch are the same fact.
+During training, a language model learns statistical relationships in its
+training data. One important training objective is predicting a missing or
+next token. Repeating that objective at scale adjusts the model’s parameters
+so it can produce continuations that follow patterns in language and other
+material it learned from.
+
+That mechanism matters, but “it predicts the next word” is not a complete
+explanation of the system a learner is using. Tokens are not always whole
+words, current models can work across several kinds of input and output, and a
+current product can call tools, route among components or make more than one
+model pass before returning a response.
+
+## What happens when you ask
+
+Use this map:
+
+1. You make a request in a product.
+2. The product supplies instructions and the context available for that task.
+3. A model processes that input and produces an output or a next action.
+4. If tools are available, the system may search, inspect a file, run code or
+   perform another bounded action, then place the result back into the
+   context.
+5. The system returns a response through the product.
+
+This is why the same request can behave differently across products, models,
+settings, tools and account plans.
+
+## What “reasoning” changes—and what it does not
+
+Some current models and product modes spend more computation on a task before
+returning an answer. A system may generate intermediate steps, use tools,
+compare candidates or apply a verifier. These approaches can improve
+performance on some multi-step tasks.
+
+Do not teach “it checks itself” as a guarantee. A reasoning mode can still
+make an error, use a weak source, misunderstand the request or confidently
+present unsupported content. Better task performance is not the same thing as
+automatic factual verification.
+
+## Generation, retrieval and evidence
+
+Generative AI produces content from a request and the material supplied for
+the task. Retrieval or search brings existing material into that task.
+Current products can combine both.
+
+That combination is useful: the model can explain or transform retrieved
+material. It still does not turn every returned claim into a fact. The source
+may be weak, stale or misread, and the model may add an unsupported statement.
+For consequential claims, open the source and check whether it actually
+supports the claim.
 
 ## The one thing to carry out of here
-Reasoning or not, it gives you the most *plausible* answer, not, on purpose, the *true* one. Working a problem through lowers the odds of a wrong answer on hard questions — it doesn't turn it into a fact-checker. When it's wrong it's exactly as fluent and sure of itself as when it's right, because nothing in it is checking against the world. It isn't lying; it can't tell. So anything that matters — a number, a date, a name, a legal or medical detail — you check.
 
-Not magic, not a mind — a very good next-word predictor that read almost everything, now able to work a problem through before it answers. Once *that* clicks, the rest of the classes are just where the buttons are.
+The model is one component, not the whole product. It can produce an
+impressively useful response without possessing lived judgment or guaranteed
+access to the truth.
+
+Keep the map:
+
+**request → product instructions and context → model → optional tools → response**
+
+Then keep the habit:
+
+**the model matters; so does everything around it. Important claims still need
+evidence.**
