@@ -1,0 +1,63 @@
+{
+  "receiptId": "EMQ-E03-V14-LOCAL-SUCCESSOR-2026-08-01",
+  "recordedAt": "2026-08-01T20:23:49Z",
+  "scope": "Checksum-bound local successor assembly and technical validation. This is not independent final-title admission.",
+  "candidate": {
+    "path": "assets/video/episode-03-full-v14-repaired-review.mp4",
+    "sha256": "b67aa6d74b488c54317d42616c95908c080be962bd54c7d1d51ad471173660a7",
+    "durationSeconds": 1048.0,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "status": "BUILT_LOCALLY_HOLD"
+  },
+  "parent": {
+    "path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+    "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f"
+  },
+  "captions": {
+    "path": "assets/captions/episode-03.vtt",
+    "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+    "cueCount": 211,
+    "lastCueEndSeconds": 1046.95
+  },
+  "boundEvidence": {
+    "repairManifest": {
+      "path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/repair-production-manifest.json",
+      "sha256": "dbffa9545b961ff477bdcd7db6f745a5b10c746981a429a209445c56c0f5a986"
+    },
+    "assemblyReceipt": {
+      "path": "operations/video-qa/episode-03-v14-successor-assembly-2026-08-01.json",
+      "sha256": "8670cfe2527bc52090423fc77cfd4a4e6858b0986c73533f6d08c16dd9c0c6d7"
+    },
+    "validationReceipt": {
+      "path": "operations/video-qa/episode-03-v14-successor-validation-2026-08-01.json",
+      "sha256": "526bdd5119bde13dd03ccce9d9c58ec769ed648fc35fd122fb9d73e5256c9bfa"
+    },
+    "assemblyLineage": {
+      "path": "operations/video-qa/assembly-lineage/episode-03-v14-successor-lineage-2026-08-01.json",
+      "sha256": "a459c5472067445dd453e3dff0869086e41b1ecd518b6b5715322509536ca4ca",
+      "status": "RECONCILED"
+    },
+    "contactSheet": {
+      "path": "operations/video-qa/episode-03-v14-successor-midpoint-contact-sheet.jpg",
+      "sha256": "6619d5f1c1e00b22857b2bc7a845cc6aa69e0b0c914aaadb2496baaf720940ca"
+    }
+  },
+  "technicalChecks": {
+    "parentAndCaptionIdentity": "PASS",
+    "exactParentAudioPayload": "PASS",
+    "durationAndClock": "PASS",
+    "completeFrameDecode": "PASS",
+    "blackFrameScan": "PASS_NO_EVENTS",
+    "captionCoverage": "PASS",
+    "fiveRepairWindowSceneOrderSamples": "PASS"
+  },
+  "hold": {
+    "reasonCode": "HOLD_COMPLETE_1X_AUDIBLE_NARRATION_PICTURE_REVIEW_PENDING",
+    "timecode": "00:00.000-17:28.000",
+    "smallestNextAction": "A qualified independent reviewer watches and hears this exact SHA-256 at 1x from start to finish and returns a checksum-bound PASS/HOLD with genuine timecodes."
+  },
+  "verdict": "HOLD",
+  "releaseAuthority": "NONE",
+  "mutationTruth": "No public player, released media, site deployment or publication binding was changed."
+}

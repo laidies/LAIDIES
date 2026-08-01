@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "lineage_id": "episode-03-v14-successor-2026-08-01",
+  "content_id": "episode-03",
+  "repository_root": "../../..",
+  "state": "SUCCESSOR_ASSEMBLED_HOLD",
+  "source_inventory": {
+    "manifest_path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/repair-production-manifest.json",
+    "sha256": "dbffa9545b961ff477bdcd7db6f745a5b10c746981a429a209445c56c0f5a986",
+    "collection_key": "outputs"
+  },
+  "prior_sequences": [
+    {
+      "sequence_id": "episode-03-p01-p03-opening-setup-and-title-v1",
+      "path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/review-sequences/p01-p03-opening-setup-and-title-review-v1.mp4",
+      "sha256": "64eaa43fc6973305083ac41358889365c4b358c8237e457ffd771c3d79dce959",
+      "occurrences": ["p01", "p02", "p03"],
+      "audio_seconds": [20.68, 50.7],
+      "disposition": "REVIEWED_CANDIDATE"
+    },
+    {
+      "sequence_id": "episode-03-p17-p20-fake-citation-to-blue-hoodie-v1",
+      "path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/review-sequences/p17-p20-fake-citation-to-blue-hoodie-review-v1.mp4",
+      "sha256": "f4e991ba9689ee6a9ac5184603dac08441770faad8549889ef7abf1e624632be",
+      "occurrences": ["p17", "p18", "p19", "p20"],
+      "audio_seconds": [326.738, 400.99],
+      "disposition": "REVIEWED_CANDIDATE"
+    },
+    {
+      "sequence_id": "episode-03-p25-p30-three-piles-to-law-clerk-v1",
+      "path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/review-sequences/p25-p30-three-piles-to-law-clerk-review-v1.mp4",
+      "sha256": "0e037cd7ef84f555708138cf820bea8f8b36108cd92bb7ead8c0c0292a48dfae",
+      "occurrences": ["p25", "p26", "p27", "p28", "p29", "p30"],
+      "audio_seconds": [477.19, 582.39],
+      "disposition": "REVIEWED_CANDIDATE"
+    },
+    {
+      "sequence_id": "episode-03-p33-same-answer-different-outfit-v1",
+      "path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/review-sequences/p33-same-answer-different-outfit-review-v1.mp4",
+      "sha256": "ae8f304225b305f25fa9e4c4f8b14912e70d6a1632ba57b3aad4837ebd1dd405",
+      "occurrences": ["p33"],
+      "audio_seconds": [604.87, 634.61],
+      "disposition": "REVIEWED_CANDIDATE"
+    },
+    {
+      "sequence_id": "episode-03-p47-town-extras-to-signoff-v1",
+      "path": "operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/review-sequences/p47-town-extras-to-signoff-review-v1.mp4",
+      "sha256": "88001838a0abb2754a637240fc68281ec2b8a70a4042a7d6e29da865dd706b96",
+      "occurrences": ["p47"],
+      "audio_seconds": [957.89, 1024.25],
+      "disposition": "REVIEWED_CANDIDATE"
+    }
+  ],
+  "successor": {
+    "path": "assets/video/episode-03-full-v14-repaired-review.mp4",
+    "sha256": "b67aa6d74b488c54317d42616c95908c080be962bd54c7d1d51ad471173660a7",
+    "included_sequence_sha256": [
+      "64eaa43fc6973305083ac41358889365c4b358c8237e457ffd771c3d79dce959",
+      "f4e991ba9689ee6a9ac5184603dac08441770faad8549889ef7abf1e624632be",
+      "0e037cd7ef84f555708138cf820bea8f8b36108cd92bb7ead8c0c0292a48dfae",
+      "ae8f304225b305f25fa9e4c4f8b14912e70d6a1632ba57b3aad4837ebd1dd405",
+      "88001838a0abb2754a637240fc68281ec2b8a70a4042a7d6e29da865dd706b96"
+    ],
+    "supersession_receipts": []
+  },
+  "admission_status": "HOLD",
+  "hold_reasons": [
+    "The successor passes deterministic assembly, audio, caption, decode, black-frame and scene-order validation but has not received a complete independent audible 1x narration-picture review.",
+    "No public player, release or deployment binding is authorized by this lineage receipt."
+  ]
+}

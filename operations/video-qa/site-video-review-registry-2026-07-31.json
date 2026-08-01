@@ -19,6 +19,13 @@
         "sha256": "161315d1647c67b900c67784ce226ab21f8813686903174298e3af22cc619bc0",
         "expected_lineage_status": "PREASSEMBLY_HOLD",
         "admission_status": "HOLD"
+      },
+      {
+        "id": "episode-03-v14-successor",
+        "path": "operations/video-qa/assembly-lineage/episode-03-v14-successor-lineage-2026-08-01.json",
+        "sha256": "a459c5472067445dd453e3dff0869086e41b1ecd518b6b5715322509536ca4ca",
+        "expected_lineage_status": "RECONCILED",
+        "admission_status": "HOLD"
       }
     ]
   },
@@ -358,35 +365,34 @@
     {
       "id": "03",
       "content_type": "episode",
-      "master_path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
-      "master_sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
+      "master_path": "assets/video/episode-03-full-v14-repaired-review.mp4",
+      "master_sha256": "b67aa6d74b488c54317d42616c95908c080be962bd54c7d1d51ad471173660a7",
       "caption_path": "assets/captions/episode-03.vtt",
       "caption_sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
       "expected_occurrences": 49,
       "relevance_review": {
         "reviewed_occurrences": 49,
-        "status": "FAIL",
-        "basis": "The owner actual-master audit describes all 49 assembled occurrences against contemporaneous narration: 2 require source replacement, 7 require retiming, 24 require purposeful animation, 10 receive a bounded source-treatment PASS and 6 are CLOSE_ENOUGH. Independent admission remains pending."
+        "status": "HOLD",
+        "basis": "The five checksum-bound v14 repair windows replace or retime the identified narration-picture failures and pass deterministic source-to-successor comparisons. This technical result is not independent semantic admission; the exact v14 successor still requires a complete audible 1x narration-picture review."
       },
       "continuity_and_occlusion_review": {
         "reviewed_occurrences": 49,
-        "status": "FAIL",
-        "basis": "Start/middle/end samples cover all 49 occurrences and expose seven timing/hand-off failures plus the 62.6-second closing card that obscures multiple distinct destinations. No obvious sampled subject disappearance was seen; the complete normal-speed watch remains pending after repair."
+        "status": "HOLD",
+        "basis": "The v14 opening, dense middle runs, repeated-answer sequence and closing destination run now have explicit narration-aligned cuts. Full decode and black-frame scans pass, but continuous transitions and occlusion remain HOLD until the complete normal-speed audible watch."
       },
       "motion_semantics_review": {
         "reviewed_occurrences": 49,
-        "status": "FAIL",
-        "basis": "Sixteen semantically acceptable occurrences have bounded source or structural motion evidence, but none has independent final-master motion admission. Twenty-four relevant occurrences remain overly static; nine additional occurrences are semantic replacement or timing blockers."
+        "status": "HOLD",
+        "basis": "The exact successor preserves admitted loops and adds purposeful visual changes across the five repaired windows. Deterministic samples find no technical scene-order failure, but motion semantics cannot receive a complete PASS without continuous independent review."
       },
       "open_findings": [
-        "Two exact-audio repair review sequences are bound in operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/repair-production-manifest.json and pass deterministic audiovisual validation; they remain local review candidates only",
+        "Exact v14 successor validation: operations/video-qa/episode-03-v14-successor-validation-2026-08-01.json",
+        "Five exact-audio repair sequences are bound in operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/repair-production-manifest.json and pass deterministic audiovisual validation",
         "Owner repair queue: operations/video-qa/episode-03-occurrence-audit-2026-08-01/owner-occurrence-review.md",
-        "2 placements require replacement, 7 require retiming and 24 require meaningful local or narrative animation",
         "Preserve the approved LAiDIES ident and independently source-admitted cue-30 law-library loop",
-        "Split the 62.6-second closing occurrence into destination-specific shots and preserve the signoff card only for the final maxim",
-        "Full 1x audible watch and independent post-repair admission remain pending"
+        "Full 1x audible narration-picture watch and independent post-repair admission remain pending"
       ],
-      "admission_status": "FAIL"
+      "admission_status": "HOLD"
     },
     {
       "id": "04",

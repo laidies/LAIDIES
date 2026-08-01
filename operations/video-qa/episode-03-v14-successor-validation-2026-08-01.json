@@ -1,0 +1,67 @@
+{
+  "status": "TECHNICAL_AND_SCENE_ORDER_PASS_INDEPENDENT_NORMAL_SPEED_REVIEW_REQUIRED",
+  "publication_authority": false,
+  "successor": {
+    "path": "assets/video/episode-03-full-v14-repaired-review.mp4",
+    "sha256": "b67aa6d74b488c54317d42616c95908c080be962bd54c7d1d51ad471173660a7",
+    "duration_seconds": 1048.0,
+    "audio_payload_sha256": "c79a21349ef22723013372a0dfe0b6de9a7cae8b0c16e4b292aef947face7cd0",
+    "geometry": "1920x1080",
+    "frame_rate": 30
+  },
+  "checks": {
+    "parent_sha256_matches": true,
+    "caption_sha256_matches": true,
+    "successor_sha256_matches": true,
+    "audio_payload_matches_parent": true,
+    "duration_delta_seconds": 0.0,
+    "full_decode_pass": true,
+    "full_decode_stderr": "",
+    "black_frame_scan_pass": true,
+    "black_frame_events": [],
+    "caption_cue_count": 211,
+    "caption_last_end_seconds": 1046.95,
+    "captions_within_successor": true,
+    "scene_order_samples": [
+      {
+        "id": "p01-p03-opening-setup-and-title",
+        "successor_time": 35.69,
+        "source_time": 15.01,
+        "mean_absolute_pixel_delta": 0.1653,
+        "picture_matches_admitted_source": true
+      },
+      {
+        "id": "p17-p20-fake-citation-to-blue-hoodie",
+        "successor_time": 363.864,
+        "source_time": 37.126,
+        "mean_absolute_pixel_delta": 0.2133,
+        "picture_matches_admitted_source": true
+      },
+      {
+        "id": "p25-p30-three-piles-to-law-clerk",
+        "successor_time": 529.79,
+        "source_time": 52.6,
+        "mean_absolute_pixel_delta": 0.141,
+        "picture_matches_admitted_source": true
+      },
+      {
+        "id": "p33-same-answer-different-outfit",
+        "successor_time": 619.74,
+        "source_time": 14.87,
+        "mean_absolute_pixel_delta": 0.173,
+        "picture_matches_admitted_source": true
+      },
+      {
+        "id": "p47-town-extras-to-signoff",
+        "successor_time": 991.07,
+        "source_time": 33.18,
+        "mean_absolute_pixel_delta": 0.1424,
+        "picture_matches_admitted_source": true
+      }
+    ],
+    "scene_order_pass": true
+  },
+  "contact_sheet": "operations/video-qa/episode-03-v14-successor-midpoint-contact-sheet.jpg",
+  "contact_sheet_sha256": "6619d5f1c1e00b22857b2bc7a845cc6aa69e0b0c914aaadb2496baaf720940ca",
+  "next_gate": "independent full 1x audible narration-picture review of the complete successor master"
+}
