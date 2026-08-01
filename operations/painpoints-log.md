@@ -9442,6 +9442,19 @@ _Original source ID: repository #36_
 - **Privacy/IP/reputation:** Local internal page only; no public film, deploy
   or release state changed.
 
+### 2026-08-01 recurrence and prevention update
+
+- The failure recurred: the inbox still loaded the superseded Episode 03 v13
+  and Episode 04 v9 states after v15 and v10 had become the exact review cuts,
+  and `ACTIVE-WORK.md` named two different paths, one of which did not exist.
+- The owner queue now has a separate machine-readable source at
+  `operations/control-room/owner-review-queue.json`, exposes only exact items
+  that need Ali now, keeps unfinished work in a non-action bucket, and tests
+  the current media hashes at phone and desktop widths.
+- **Strengthened prevention rule:** A human-review successor receipt is not
+  complete until it atomically updates the owner queue and its exact-media
+  browser test. A receipt-only status change must fail the handoff.
+
 ## BTB-253 · Landscape scenes were treated as decorative thumbnail strips
 
 - **Date:** 2026-07-29

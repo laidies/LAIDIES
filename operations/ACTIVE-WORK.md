@@ -207,7 +207,7 @@ AW-003 is complete only when:
 - Existing static/build/link/media checks and selected public journey smoke
   tests remain useful baseline evidence.
 - The Control Room now has one current human review inbox at
-  `operations/product-stewards/control-room/review-inbox.html`. It directly
+  `operations/control-room/review-inbox.html`. It directly
   binds the accepted Episode 01 v26, Episode 02 ident-v2, Episode 03 v13 and
   Trailer v5 masters and captions, separates Episode 04 as already public, and
   saves exact PASS/HOLD notes locally without implying release.

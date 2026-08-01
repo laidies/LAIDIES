@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-01T23:10:00Z",
+  "title": "Ali's review inbox",
+  "summary": {
+    "review_now": 2,
+    "being_built": 3,
+    "blocked_no_ali_action": 2
+  },
+  "review_now": [
+    {
+      "id": "episode-03-v15-human-watch",
+      "kind": "opening-day film",
+      "title": "Episode 03 — The Burn Book Problem",
+      "ask": "Watch the complete film once at normal speed with sound on.",
+      "why_you": "The exact cut has passed the available technical, visual and narration-picture checks. A person still needs to hear the whole programme and catch any genuine timing, pronunciation, mix or continuity problem.",
+      "decision": "PASS if nothing blocks release. HOLD with exact timecodes if anything does.",
+      "duration_label": "17:28",
+      "master": {
+        "path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+        "sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75"
+      },
+      "captions": {
+        "path": "assets/captions/episode-03.vtt",
+        "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be"
+      },
+      "evidence_path": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v15-independent-full-title-review-receipt-2026-08-01.json"
+    },
+    {
+      "id": "episode-04-v10-human-watch",
+      "kind": "opening-day film",
+      "title": "Episode 04 — The Founding Mothers",
+      "ask": "Watch the complete film once at normal speed with sound on.",
+      "why_you": "The rebuilt exact cut has passed the available technical and visual checks, including the repaired sequences. A person still needs to hear and watch the entire film continuously.",
+      "decision": "PASS if nothing blocks release. HOLD with exact timecodes if anything does.",
+      "duration_label": "20:22",
+      "master": {
+        "path": "assets/video/episode-04-full-v10-repaired-review.mp4",
+        "sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb"
+      },
+      "captions": {
+        "path": "assets/captions/episode-04.vtt",
+        "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4"
+      },
+      "evidence_path": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json"
+    }
+  ],
+  "being_built": [
+    {
+      "title": "Episode 02 — Tell Me What You Want",
+      "status": "Repairing the 61-item narration-picture and motion queue.",
+      "next_owner": "Episode media builder",
+      "ali_action": "None yet — wait for a frozen successor cut."
+    },
+    {
+      "title": "Episode 01 — On Wednesdays We Do AI",
+      "status": "Still requires occurrence-level motion and continuity repair before a final owner watch.",
+      "next_owner": "Episode media builder",
+      "ali_action": "None yet — do not review the older cut as final."
+    },
+    {
+      "title": "The Trailer",
+      "status": "Continuity and full-title repair/reconciliation remain open; the old outfit-choice prompt is stale and is not being sent back to you.",
+      "next_owner": "Trailer media builder",
+      "ali_action": "None yet — wait for one canonical successor cut."
+    }
+  ],
+  "blocked_no_ali_action": [
+    {
+      "title": "Account-entry end-to-end test",
+      "reason": "Needs an isolated Supabase staging project and a controlled non-personal mail sink. Existing production RLS and cross-device continuation proof remains valid.",
+      "owner": "Platform infrastructure"
+    },
+    {
+      "title": "Audience and social recovery admission",
+      "reason": "Existing local content remains unadmitted while its exact recovery disposition is reconciled. Nothing is waiting for a taste decision from you right now.",
+      "owner": "Control Room"
+    }
+  ]
+}
