@@ -40,7 +40,11 @@ if (!Array.isArray(gate.required_gates) || gate.required_gates.length < 12) {
   fail('The complete media gate list is missing.');
 }
 
-for (const required of ['occurrence_narration_or_purpose_relevance', 'occurrence_motion_continuity_and_occlusion']) {
+for (const required of [
+  'occurrence_narration_or_purpose_relevance',
+  'occurrence_motion_continuity_and_occlusion',
+  'recurring_opening_and_closing_credits'
+]) {
   if (!gate.required_gates?.includes(required)) fail(`Opening-day gate omits ${required}.`);
 }
 

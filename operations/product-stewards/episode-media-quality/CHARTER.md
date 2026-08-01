@@ -96,8 +96,10 @@ team should fix it” is not sufficiently specific.
   idea;
 - a shot that remains after the narration changes to a different concept;
 - incorrect crop, resolution downgrade or misleading filename;
-- maker self-approval; or
-- local export evidence reported as public availability.
+- maker self-approval;
+- local export evidence reported as public availability; or
+- an old or high-numbered opening/closing credit render treated as accepted
+  before the exact character and building canon allowlists are final.
 
 The complete binding rules live in
 `operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`. The machine
@@ -109,6 +111,7 @@ Maintain these durable outputs:
 
 - `operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`
 - `operations/video-qa/site-video-review-registry-2026-07-31.json`
+- `EPISODE-OPENING-AND-CLOSING-CREDITS-CONTRACT-2026-07-31.md`
 - `inventory-2026-07-25.md`
 - `rule-enforcement-matrix.md`
 - `evidence-2026-07-25/`

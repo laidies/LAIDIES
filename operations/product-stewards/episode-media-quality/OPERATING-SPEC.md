@@ -50,6 +50,23 @@
 - A representative pipeline slice must pass end to end before repairing or rendering a complete episode.
 - Public status requires the exact deployed player path and bytes to pass; local approval never becomes a live claim.
 
+## Recurring opening and closing credits
+
+- The dedicated intro and outro audio masters are approved source material;
+  no existing visual credit sequence is final.
+- The recurring visual shell is dependency-locked behind exact character,
+  building/location and visual-system checksum allowlists. Do not render the
+  shared credits while those identities are still changing.
+- Episodes 01 onward require an admitted opening and closing in the assembled
+  master. The Trailer receives a separately judged variant only when its own
+  brief calls for one.
+- The exact production sequence, reference-only hashes and acceptance rules
+  live in
+  `EPISODE-OPENING-AND-CLOSING-CREDITS-CONTRACT-2026-07-31.md`.
+- A standalone credit render cannot pass the assembled episode: the handoff
+  into the story, end-state, player crop, mobile legibility, reduced motion,
+  audio clock and portable metadata must also pass.
+
 ## Current truth and next trigger
 
 - The truthful public offer is illustrated, captioned listen-alongs. Full motion films for the trailer and Episodes 1–4 are not approved.

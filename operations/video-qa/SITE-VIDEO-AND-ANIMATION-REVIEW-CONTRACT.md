@@ -88,6 +88,11 @@ time.
 - A new master, changed timing, replaced source asset, revised narration or
   changed player crop invalidates every affected occurrence row and every
   derivative publication until rechecked.
+- Recurring episode opening/closing visuals remain dependency-held until exact
+  character, building/location and visual-system checksum allowlists are final.
+  Existing or high-numbered credit renders have no release priority. The
+  binding requirements live in
+  `operations/product-stewards/episode-media-quality/EPISODE-OPENING-AND-CLOSING-CREDITS-CONTRACT-2026-07-31.md`.
 
 ## Required programme/surface gates
 

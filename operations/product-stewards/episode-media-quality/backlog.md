@@ -17,6 +17,12 @@
 
 ## P0 — opening-day film cutline
 
+- **Recurring opening and closing credits:** preserve the approved dedicated
+  audio masters, but keep every existing visual build reference-only. Finalize
+  the exact character, building/location and visual-system checksum allowlists;
+  then design and admit one shared credits shell before producing the Episode
+  01–04 variants.
+
 - **Trailer:** record the bounded outfit continuity choice; complete a full 1× audible watch of the exact 58-beat v5 comic master; repair only selected continuity changes and time-coded defects actually observed; then bind the accepted exact identity to the real player.
 - **Episode 01 — On Wednesdays We Do AI:** complete all 71 occurrence rows and replace insufficient still-only coverage with purposeful motion before the full 1× audible owner watch.
 - **Episode 02 — Tell Me What You Want:** preserve the admitted 61-occurrence narration map, rebuild the still-only visual edition where animation is required, then complete the full 1× audible owner watch.

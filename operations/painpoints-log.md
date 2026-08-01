@@ -11036,3 +11036,29 @@ _Original source ID: repository #36_
   asset cannot bypass the experience gate.
 - **Possible Behind the Build angle:** The difference between “the pixels
   moved” and “the animation actually taught the thing.”
+
+## BTB-306 — Thirty-two exports are not one accepted credit sequence
+
+- **Date:** 2026-07-31
+- **Area:** Recurring episode opening and closing credits / visual canon.
+- **Surprise:** Multiple opening and closing credit videos existed—including an
+  opening labelled v32 and a closing labelled v7—alongside approved dedicated
+  music. Later experience records had reopened both visual sequences, but file
+  recency and the surviving audio made it easy to assume the credits were
+  finished or nearly finished.
+- **Root cause:** The credit renders were not bound to one current acceptance
+  contract or to exact character, building and visual-system allowlists. Music
+  approval, export existence, visual acceptance and assembled-episode quality
+  therefore looked like one status when they were four different gates.
+- **Prevention rule:** Recurring credit visuals cannot enter production until
+  exact character, building/location and visual-system checksum allowlists are
+  final. Existing renders remain reference-only unless expressly re-admitted.
+  Preserve approved audio independently, build one representative shared shell,
+  then test each episode-specific derivative and its transitions inside the
+  checksum-bound assembled episode and real responsive player.
+- **Why the fix works:** Stable canon prevents repeated rebuilding and retired
+  identities from propagating through every episode, while useful approved
+  music is preserved instead of discarded with the failed visual edit.
+- **Possible Behind the Build angle:** LAiDIES had thirty-two opening versions
+  and still did not have opening credits—because “exported” and “accepted” are
+  different jobs.

@@ -4,7 +4,7 @@
   "updated": "2026-07-31",
   "status": "RUNNING",
   "active_objective": "Operate one occurrence-level video and animation admission gate for every visitor surface, starting with the Trailer and opening-day Episodes 01-04.",
-  "current_stage": "UNIVERSAL_GATE_ACTIVE_OPENING_CUTLINE_RECONCILIATION",
+  "current_stage": "UNIVERSAL_GATE_ACTIVE_OPENING_CUTLINE_AND_CREDITS_DEPENDENCY_HOLD",
   "authoritative_trailer_base": {
     "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
     "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
@@ -30,11 +30,13 @@
     "narration_picture_timing": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
     "visual_identity_and_continuity": "HOLD_PENDING_OUTFIT_DECISION_AND_FULL_TITLE_RECONCILIATION",
     "motion_and_animation": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
+    "recurring_opening_and_closing_credits": "HOLD_PENDING_CHARACTER_BUILDING_AND_VISUAL_SYSTEM_CANON",
     "human_full_audible_watch": "HOLD",
     "public_exact_identity": "FAIL_NOT_RELEASED"
   },
   "next_actions": [
     "Apply operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md to every episode, class, demonstration, explainer, music video, promo, ident, silent instructional animation and ambient loop before site binding.",
+    "Keep existing opening/closing credit videos reference-only; after the character, building/location and visual-system checksum allowlists are final, execute operations/product-stewards/episode-media-quality/EPISODE-OPENING-AND-CLOSING-CREDITS-CONTRACT-2026-07-31.md.",
     "Record the one bounded Trailer outfit choice in the review inbox without changing unrelated accepted bytes.",
     "Complete the occurrence-level narration-or-purpose, continuity, occlusion and motion-semantics rows before each identified full 1x audible watch.",
     "Render a successor only for the selected outfit-continuity change and defects actually proven by the watch.",
