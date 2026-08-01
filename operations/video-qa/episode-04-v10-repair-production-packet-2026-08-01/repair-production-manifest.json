@@ -23,8 +23,16 @@
       "audio_seconds": [250.3, 341.55],
       "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p19-p20-ada-narration-review-v1.mp4",
       "sha256": "f5d9c61a70d267a88eaacc6e67fa1529b0859e2bba452cf75aea263a1108d15c",
-      "status": "REVIEW_SEQUENCE_BUILT_ADDITIONAL_VISUAL_REQUIRED",
-      "remaining_concern": "The final capability-limit and credit-erasure beat is too similar to the preceding Ada frame."
+      "status": "SUPERSEDED_LOCAL_REVIEW_SEQUENCE",
+      "remaining_concern": "Superseded because its mislabeled final frame repeated the music metaphor and did not cover capability limits or credit erasure."
+    },
+    {
+      "occurrences": ["p19", "p20"],
+      "audio_seconds": [250.3, 341.55],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p19-p20-ada-narration-review-v2.mp4",
+      "sha256": "9c8fc6644c3a977452714e528b0d95b8d80f932f1a04cd97221256ae4aa85764",
+      "status": "REVIEW_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED",
+      "remaining_concern": "Independent historical accuracy, Ada likeness, generated-frame artifact, narration alignment and normal-speed continuity judgment required."
     },
     {
       "occurrences": ["p37", "p38"],
@@ -48,7 +56,7 @@
     {"occurrences": ["p04", "p05"], "status": "MOTION_REVIEW_HELD", "owner": "Independent video review"},
     {"occurrences": ["p14"], "status": "REPLACE_REQUIRED", "owner": "Weekly Episodes visual production"},
     {"occurrences": ["p18"], "status": "INDEPENDENT_REFERENCE_AND_ERA_REVIEW_REQUIRED", "owner": "Independent accuracy and visual review"},
-    {"occurrences": ["p20"], "status": "ADDITIONAL_VISUAL_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p20"], "status": "CANDIDATE_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED", "owner": "Independent accuracy and visual review"},
     {"occurrences": ["p22", "p23"], "status": "NEW_EVENT_SPECIFIC_VISUALS_REQUIRED", "owner": "Weekly Episodes visual production"},
     {"occurrences": ["p25", "p27"], "status": "NEW_EVENT_SPECIFIC_VISUALS_REQUIRED", "owner": "Weekly Episodes visual production"},
     {"occurrences": ["p30"], "status": "MOTION_AND_OCCLUSION_REVIEW_HELD", "owner": "Independent video review"},
@@ -58,4 +66,3 @@
   "successor_admission": "HOLD",
   "required_next_gate": "Independent exact-audio normal-speed review, missing-art completion, assembled-successor occurrence invalidation, complete 1x audible responsive-player watch"
 }
-

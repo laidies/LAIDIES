@@ -11342,3 +11342,26 @@ _Original source ID: repository #36_
   to pass without weakening the media gate or inventing playable class tapes.
 - **Possible Behind the Build angle:** The animation was not the problem. The
   missing part was a trustworthy way to prove it.
+
+## BTB-318 — A correct filename can hide the wrong visual idea
+
+- **Date:** 2026-08-01
+- **Area:** Episode visual repair / narration-picture review / provenance.
+- **Failure:** The first Episode 04 Ada repair sequence included a frame named
+  `p20-ada-capability-limits.jpg`, but the visible image repeated the prior
+  glowing music-note metaphor. The filename implied coverage of the machine's
+  limits even though the pixels showed neither precise instructions nor the
+  boundary that it only does what people know how to order it to do.
+- **Root cause:** A production label was allowed to stand in for a fresh visual
+  description and narration comparison. Because the subject was still Ada and
+  the machine, a semantically distinct gap looked superficially complete.
+- **Prevention rule:** Every review-sequence segment must record what is
+  visibly present, the exact narration it is intended to support and any
+  inference required. Filenames, prompts and intended meanings are never
+  evidence of pixel meaning. Repeated visual metaphors must be rejected when
+  the narration has moved to a different concept.
+- **Why the fix works:** It exposes near-duplicate or mislabeled coverage before
+  master assembly and forces a distinct visual beat for each meaning-bearing
+  claim, even when the same historical subject remains on screen.
+- **Possible Behind the Build angle:** The image was called “capability
+  limits.” It was actually more music notes.

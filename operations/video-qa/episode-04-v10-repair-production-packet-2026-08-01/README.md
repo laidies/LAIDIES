@@ -8,7 +8,10 @@ This packet converts the 55-occurrence owner audit of the Episode 04 v9 master
 into a production queue. Every finding is bound to the exact narration window,
 the actual assembled visual and the next admissible action. Four exact-audio
 review sequences have been built where existing approved art can form a
-meaningful progression. They still require independent, normal-speed review
+meaningful progression. A fifth sequence now replaces the incomplete Ada v1
+cut with six distinct narration-aligned beats, including separate capability-
+limit, 1843 evidence and credit-erasure visuals. They still require independent,
+normal-speed review
 before they can enter an assembled successor.
 
 ## Exact parent
@@ -25,7 +28,7 @@ before they can enter an assembled successor.
 | Occurrences | Narration window | Local review sequence | Owner disposition |
 | --- | ---: | --- | --- |
 | p16–p17 | 03:40.75–04:04.88 | `review-sequences/p16-p17-maivens-entry-review-v1.mp4` | Strong canonical hall-to-Ada progression; independent review required. |
-| p19–p20 | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v1.mp4` | First three beats materially improve relevance; final capability/credit beat is still visually thin. |
+| p19–p20 | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat candidate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
 | p37–p38 | 11:22.45–12:44.23 | `review-sequences/p37-p38-karen-narration-review-v1.mp4` | Clear search-terms → retrieval diagram → exact quote progression; independent review required. |
 | p43 | 14:03.80–14:55.53 | `review-sequences/p43-modern-language-to-chatbox-review-v1.mp4` | Replaces a generic desk hold with a 2017 language-system → November 2022 chatbox → user-desk progression. |
 
@@ -41,8 +44,10 @@ fabricated narration. Their checksums are in `source-sha256.txt`.
   actual LUMINAiRY/MAiVENS bridge rather than a pop-culture image that does not
   represent the narration.
 - **Ada p18–p20:** independently judge the London/1843 bridge and the new
-  p19–p20 sequence. Build one distinct capability-limit/credit-erasure beat;
-  do not pretend the fourth near-duplicate Ada frame solves it.
+  p19–p20 v2 sequence. The missing capability-limit and credit-erasure beats
+  are now represented by distinct generated candidates, but their historical
+  accuracy, Ada likeness, artifacts and exact-audio timing still require an
+  independent verdict. Do not promote the sequence on maker review alone.
 - **Hedy p22–p23:** one Hedy-at-a-desk image and a no-Hedy time-jump cannot
   carry roughly ninety seconds about film stardom, invention, frequency
   hopping, Navy shelving, Wi-Fi/Bluetooth lineage and late recognition. New
@@ -69,4 +74,3 @@ independent reviewer watches it with the exact audio at normal speed and records
 invalidated and reviewed against the new master, followed by one complete 1x
 audible watch in the real responsive player. Technical decode, visible pixel
 motion, filenames and maker review are never substitutes for that gate.
-
