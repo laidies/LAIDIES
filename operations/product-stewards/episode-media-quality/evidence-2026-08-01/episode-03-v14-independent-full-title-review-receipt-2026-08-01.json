@@ -1,0 +1,163 @@
+{
+  "receiptId": "EMQ-E03-V14-FULL-TITLE-2026-08-01",
+  "recordedAt": "2026-08-01T20:26:55Z",
+  "reviewer": "Weekly Episodes owner acting independently of the Episode 03 v14 maker",
+  "scope": "Read-only independent full-title review of the exact local successor master. No media, caption, player, site, deployment, public, account or credential state was changed.",
+  "candidate": {
+    "path": "assets/video/episode-03-full-v14-repaired-review.mp4",
+    "sha256": "b67aa6d74b488c54317d42616c95908c080be962bd54c7d1d51ad471173660a7",
+    "durationSeconds": 1048.0,
+    "geometry": "1920x1080",
+    "frameRate": 30,
+    "statusBeforeReview": "BUILT_LOCALLY"
+  },
+  "boundEvidence": {
+    "technicalValidation": {
+      "path": "operations/video-qa/episode-03-v14-successor-validation-2026-08-01.json",
+      "sha256": "526bdd5119bde13dd03ccce9d9c58ec769ed648fc35fd122fb9d73e5256c9bfa",
+      "result": "TECHNICAL_AND_SCENE_ORDER_PASS_INDEPENDENT_NORMAL_SPEED_REVIEW_REQUIRED"
+    },
+    "successorAssembly": {
+      "path": "operations/video-qa/episode-03-v14-successor-assembly-2026-08-01.json",
+      "sha256": "8670cfe2527bc52090423fc77cfd4a4e6858b0986c73533f6d08c16dd9c0c6d7"
+    },
+    "captionTrack": {
+      "path": "assets/captions/episode-03.vtt",
+      "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "cueCount": 211,
+      "lastCueEndSeconds": 1046.95
+    },
+    "audioPayloadSha256": "c79a21349ef22723013372a0dfe0b6de9a7cae8b0c16e4b292aef947face7cd0",
+    "machineTranscript": {
+      "temporaryPath": "/private/tmp/episode-03-v14-whisper-small-en.json",
+      "sha256": "a9ef9c42efed4b3ac45c6f745482b1e84acc2601d5860ce9c9041fb0beeb6ad7",
+      "model": "faster-whisper-small.en",
+      "wordCount": 2349,
+      "scriptUnitAlignment": "162/162 (100.0%)",
+      "useLimit": "Speech-presence and text-comparison evidence only; not evidence of naturalness, pronunciation, mix, speaker identity or human audibility."
+    },
+    "priorOccurrenceAuthority": {
+      "path": "operations/video-qa/episode-03-occurrence-audit-2026-08-01/episode-03-occurrence-audit.json",
+      "candidateReviewedThere": "v13 parent",
+      "use": "The v14 assembly replaces five named windows. Open occurrence findings outside those windows remain applicable because those exact parent windows were preserved."
+    }
+  },
+  "methods": [
+    "Recomputed and matched the exact candidate SHA-256.",
+    "Reconciled the v14 successor graph against the v13 49-occurrence audit and all five replacement windows.",
+    "Confirmed all-frame decode, full clock, no black-frame events, exact parent audio payload, caption checksum and caption coverage from the bound validator.",
+    "Inspected 131 evenly distributed full-title frames and dense all-segment evidence for every repaired sequence against the contemporaneous narration and source manifest.",
+    "Measured the complete mono audio signal: -19.5 LUFS integrated, 4.5 LU loudness range, -1.4 dBFS true peak and no detected silence longer than 1.507 seconds.",
+    "Transcribed the complete audio and aligned all 162 tagged-script units; the generated alignment produced the expected 211 cues.",
+    "Did not claim an auditory listen: this execution environment exposes decoded signal, transcript and images but no auditory-perception channel."
+  ],
+  "repairedWindowVerdicts": [
+    {
+      "timecode": "00:20.680-00:50.700",
+      "id": "p01-p03-opening-setup-and-title",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Unsupported-information setup, maybe-to-lanyard beat, exact Episode 03 title and client cold open progress in narration order without title overlap."
+    },
+    {
+      "timecode": "05:26.738-06:40.990",
+      "id": "p17-p20-fake-citation-to-blue-hoodie",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Claim, fake citation, jurisdiction/date/decision/exception examples and blue-hoodie payoff now follow the spoken examples."
+    },
+    {
+      "timecode": "07:57.190-09:42.390",
+      "id": "p25-p30-three-piles-to-law-clerk",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Verification questions, Elle timeline, Draft/Claim/Receipt cards, outfit/alibi line and law-clerk payoff are restored in narration order."
+    },
+    {
+      "timecode": "10:04.870-10:34.610",
+      "id": "p33-same-answer-different-outfit",
+      "verdict": "CLOSE_ENOUGH",
+      "finding": "The Regina question card and repeated Chutney-alibi montage communicate an unsupported answer returning in changed packaging. The montage is analogical rather than a literal depiction of the two popped-collar polos."
+    },
+    {
+      "timecode": "15:57.890-17:04.250",
+      "id": "p47-town-extras-to-signoff",
+      "verdict": "PASS_SEMANTIC_SEQUENCE",
+      "finding": "Rule, High/quiz, KSVL, Mme CLAi-O, Dream Phone, charms/Closet and final Elle/Regina signoff advance with the spoken destinations; the rejected fake map is absent."
+    }
+  ],
+  "openOccurrenceDefects": [
+    {
+      "occurrences": ["p00"],
+      "timecode": "00:00.000-00:18.700",
+      "defect": "The three-panel recap remains a long static hold without purposeful progression across the delegation recap."
+    },
+    {
+      "occurrences": ["p07"],
+      "timecode": "01:48.400-02:15.000",
+      "defect": "The welcome-ident occurrence retains a static surrounding bridge and does not provide continuous semantic progression through the full spoken welcome/question transition."
+    },
+    {
+      "occurrences": ["p10"],
+      "timecode": "02:58.000-03:19.000",
+      "defect": "The newspaper headline remains essentially unchanged while narration moves from the NewsStand realization into fact-checking responsibility."
+    },
+    {
+      "occurrences": ["p12", "p13"],
+      "timecode": "03:42.000-04:21.700",
+      "defect": "The court-record comparison and hallucination definition remain long static cards across several distinct explanatory beats."
+    },
+    {
+      "occurrences": ["p15", "p16"],
+      "timecode": "04:44.000-05:28.000",
+      "defect": "The Claire's-headband and claim/receipt graphics remain static across the evidence-versus-conclusion and verification setup."
+    },
+    {
+      "occurrences": ["p23", "p24"],
+      "timecode": "07:24.000-08:02.000",
+      "defect": "The verification and Elle-timeline cards remain static through the fresh-perm contradiction and its transfer to AI checking."
+    },
+    {
+      "occurrences": ["p32"],
+      "timecode": "09:42.400-10:06.000",
+      "defect": "The Regina/Burn Book question card remains static while narration moves from human judgment into the limits of asking a model whether it is sure."
+    },
+    {
+      "occurrences": ["p34", "p35", "p36"],
+      "timecode": "10:23.700-11:31.000",
+      "defect": "Three dense fact cards remain static through changing claims about improved tools, evaluation incentives, sycophancy and the KPMG citation failure."
+    },
+    {
+      "occurrences": ["p39", "p40", "p41", "p42", "p43", "p44"],
+      "timecode": "11:51.200-14:52.000",
+      "defect": "The three-move method, full Prompt Like Elle page, cocktail explanation and weekly rule are delivered as extended static cards; p43 alone holds for 50.7 seconds across the worked example, method recap and cocktail-party explanation."
+    },
+    {
+      "occurrences": ["p46"],
+      "timecode": "15:30.000-16:00.900",
+      "defect": "The no-invented-receipts card remains static while the try-on moves through three materially different claim-selection tests."
+    },
+    {
+      "occurrences": ["p48"],
+      "timecode": "17:03.500-17:28.000",
+      "defect": "The Episode 04 teaser remains a single static card for the complete next-week story beat; final treatment still lacks independently admitted purposeful progression."
+    }
+  ],
+  "subverdicts": {
+    "candidateIdentityClockDecodeAndBlackScan": "PASS",
+    "audioPayloadAndCaptionContinuity": "PASS",
+    "machineSpeechPresenceAndScriptCoverage": "PASS",
+    "fiveRepairedSequences": "PASS_WITH_ONE_CLOSE_ENOUGH_ANALOGICAL_ROW",
+    "fullTitleNarrationPictureRelevance": "HOLD_21_UNREPAIRED_OCCURRENCES_REMAIN",
+    "fullTitleMotionSemanticsAndPacing": "HOLD_21_UNREPAIRED_OCCURRENCES_REMAIN",
+    "completeNormalSpeedAudibleHumanQualityReview": "NOT_PERFORMED_ENVIRONMENT_HAS_NO_AUDITORY_PERCEPTION_CHANNEL"
+  },
+  "hold": {
+    "reasonCodes": [
+      "HOLD_21_UNREPAIRED_OCCURRENCE_MOTION_AND_PACING_DEFECTS",
+      "HOLD_COMPLETE_1X_AUDIBLE_AND_CONTINUOUS_SEMANTIC_WATCH_NOT_TRUTHFULLY_OBSERVABLE"
+    ],
+    "fullTitleBoundary": "00:00.000-17:28.000",
+    "smallestNextAction": "Preserve the exact v14 audio, captions and five repaired windows. Build one isolated successor that adds purposeful local motion or narration-specific shot progression only for the 21 named untouched occurrences, beginning with the 50.7-second p43 hold at 13:33.400-14:24.100; then obtain an independent human unmuted 1x full-title watch of the new exact hash."
+  },
+  "verdict": "HOLD",
+  "releaseAuthority": "NONE",
+  "mutationTruth": "No media, caption, player, site, deployment, public, account or credential file was edited or bound by this review."
+}
