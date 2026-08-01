@@ -365,6 +365,54 @@ if (!assemblyLineage) {
   }
 }
 
+const townEntryCue = registry.town_entry_transformation_cue;
+if (!townEntryCue) {
+  fail('The recurring SUNNYVAiLE town-entry cue gate is not bound to the registry.');
+} else {
+  await verifyFile('Town-entry cue manifest', townEntryCue.manifest_path, townEntryCue.manifest_sha256);
+  await verifyFile('Town-entry cue validator', townEntryCue.validator_path, townEntryCue.validator_sha256);
+  await verifyFile('Town-entry cue regression', townEntryCue.regression_test_path, townEntryCue.regression_test_sha256);
+  await verifyFile(
+    'Town-entry cue technical validator',
+    townEntryCue.technical_validator_path,
+    townEntryCue.technical_validator_sha256
+  );
+
+  const validatorFile = path.join(root, townEntryCue.validator_path || '');
+  const manifestFile = path.join(root, townEntryCue.manifest_path || '');
+  if (fs.existsSync(validatorFile) && fs.existsSync(manifestFile)) {
+    try {
+      const { validateTownEntryManifest } = await import(pathToFileURL(validatorFile).href);
+      const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+      const result = validateTownEntryManifest(manifest, root);
+      if (!result.valid) {
+        for (const error of result.errors) fail(`Town-entry cue: ${error.code}: ${error.message}`);
+      }
+      if (result.status !== townEntryCue.expected_status) {
+        fail(`Town-entry cue status ${result.status} does not match ${townEntryCue.expected_status}.`);
+      }
+    } catch (error) {
+      fail(`Town-entry cue validator could not run: ${error.message}`);
+    }
+  }
+
+  const regressionFile = path.join(root, townEntryCue.regression_test_path || '');
+  if (fs.existsSync(regressionFile)) {
+    const result = spawnSync(process.execPath, [regressionFile], { cwd: root, encoding: 'utf8' });
+    if (result.status !== 0 || !result.stdout.includes('TOWN-ENTRY CUE REGRESSION: PASS')) {
+      fail(`Town-entry cue regression did not prove MISLEADING_SOURCE fail-closed behavior: ${result.stderr || result.stdout}`);
+    }
+  }
+
+  const technicalValidatorFile = path.join(root, townEntryCue.technical_validator_path || '');
+  if (fs.existsSync(technicalValidatorFile)) {
+    const result = spawnSync('python3', [technicalValidatorFile], { cwd: root, encoding: 'utf8' });
+    if (result.status !== 0 || !result.stdout.includes('SUNNYVAiLE TOWN-ENTRY CUE TECHNICAL VALIDATION: PASS')) {
+      fail(`Town-entry cue technical validation failed: ${result.stderr || result.stdout}`);
+    }
+  }
+}
+
 const admittedAssetPaths = new Set();
 for (const asset of registry.direct_motion_assets ?? []) {
   admittedAssetPaths.add(asset.path);

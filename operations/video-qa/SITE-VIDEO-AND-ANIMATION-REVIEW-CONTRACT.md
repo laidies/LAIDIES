@@ -114,6 +114,25 @@ time.
   `scripts/test-video-assembly-lineage.mjs`. The regression must prove that a
   successor which silently omits the recovered Ada sequence fails with
   `ORPHANED_SCENE`; prose compliance is not sufficient.
+- A recurring visual change from the ordinary world into an episode-specific
+  SUNNYVAiLE state must make that story transition understandable. When the
+  narration does not explicitly announce it, the default visible cue is
+  `NOW ENTERING SUNNYVAiLE` followed by
+  `REWIND ERA GLOW-UP: DIALING UP...`. The cue is silent, uses the approved
+  dial-up/CRT visual language, may not cover a face or critical action, and
+  must clear before the episode-specific reveal is held.
+- The town-entry cue does not rescue an irrelevant, misleading or broken
+  transformation. The underlying picture must still pass narration relevance,
+  identity, continuity, occlusion and motion-semantics review. In particular,
+  a label cannot turn the rejected Episode 04 costume change into an acceptable
+  shot when the spoken words concern a different subject.
+- Every episode, class or later visitor-facing use of the cue is a separate
+  occurrence. It must bind the exact cue master, exact transformation source,
+  insertion timing and independent normal-speed review. The shared cue and its
+  episode bindings are machine-enforced by
+  `scripts/check-town-entry-transformation-cue.mjs`; its regression must prove
+  that a rejected or misleading transformation cannot be admitted merely by
+  attaching the cue.
 - Recurring episode opening/closing visuals remain dependency-held until exact
   character, building/location and visual-system checksum allowlists are final.
   Existing or high-numbered credit renders have no release priority. The

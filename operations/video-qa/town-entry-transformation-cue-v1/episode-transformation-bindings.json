@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-01",
+  "status": "HOLD",
+  "purpose": "Make recurring ordinary-world to SUNNYVAiLE visual transformations understandable without changing episode narration.",
+  "required_copy": {
+    "line_1": "NOW ENTERING SUNNYVAiLE",
+    "line_2": "REWIND ERA GLOW-UP: DIALING UP..."
+  },
+  "cue_master": {
+    "path": "operations/video-qa/town-entry-transformation-cue-v1/sunnyvaile-town-entry-cue-overlay-v1.mov",
+    "sha256": "35a4215b03972ac695f78cbaa28818ee98b5b1f5f8544115d7ed0acdcf2e5c72",
+    "builder_path": "scripts/build-sunnyvaile-town-entry-cue-v1.py",
+    "builder_sha256": "5ae556f4923b3c7ae1b959a3229519849e514c44a48e783b8b3288d841b05d98",
+    "style_reference_path": "assets/video/sunnyvaile-logo-reveal.mp4",
+    "style_reference_sha256": "1df211669ecf1067b69fecd3d24badf1dc156e650512bc2e373823509eaa45e9",
+    "silent": true,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "cue_end_seconds": 3.08,
+    "clears_before_final_reveal": true
+  },
+  "bindings": [
+    {
+      "id": "episode-01-recurring-town-entry",
+      "content_id": "episode-01",
+      "occurrence_kind": "SUNNYVAILE_ENTRY",
+      "status": "RECOVERED_SOURCE_HOLD",
+      "source_semantic_status": "REQUIRES_REBUILD_AND_REVIEW",
+      "cue_required": true,
+      "cue_attached": false,
+      "independent_review_status": "HOLD",
+      "admission_status": "HOLD",
+      "source_assets": [
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f01-comic.png", "sha256": "184d8c745df1da68b45be097ce5ce7c75f96f22bbde42df01b50739830d11c2c"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f02-comic.png", "sha256": "f440ce5c12438fbf90b315b689602881b320ff007e6f45c83fdbe8b6e3b41ef1"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f03-comic.png", "sha256": "2260bb7d0c719cbc3984a54c738ea8fa13762db24bc00fb82a75d94c0cad1615"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f04-comic.png", "sha256": "c9f451606ece49ec06f3c777c6885c48b6d23377313a6da4478413ce22ada2f3"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f05-comic.png", "sha256": "b7301cffa8dba3e856033aa65d08d9cda555d11e7429da47e70b6e53f5c68d6e"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f06-comic.png", "sha256": "26a0d02a2b8c894452af54037ec2f553263a8ea400d04de4f8148182e5f7587a"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f07-comic.png", "sha256": "c0f1746368e1587f0e26b968e9dcce38a4a4400b273a191e1872905b42b18200"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f08-comic.png", "sha256": "00213245cfeb61dbc3214514cfd42bc6194dbc45458aecd0b302905c85c0f9db"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f09-comic.png", "sha256": "e58799945f4a03c483b7bbaec97a538507aebee21de8ea089fd47f70c8f028a3"},
+        {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png", "sha256": "c2e083c3400938164bfdc56962464976471961dcb41783b50c1876281f13f597"}
+      ],
+      "exact_next_action": "Rebuild the approved recovered frame sequence, attach the shared cue before the episode-specific reveal, then run full-context normal-speed review."
+    },
+    {
+      "id": "episode-02-recurring-town-entry",
+      "content_id": "episode-02",
+      "occurrence_kind": "SUNNYVAILE_ENTRY",
+      "status": "RECOVERED_SOURCE_HOLD",
+      "source_semantic_status": "REQUIRES_REBUILD_AND_REVIEW",
+      "cue_required": true,
+      "cue_attached": false,
+      "independent_review_status": "HOLD",
+      "admission_status": "HOLD",
+      "source_assets": [
+        {"path": "assets/episodes/ep-02/comic/ep02-open-09p0-transformation-stage-corporate-no-wand-comic.png", "sha256": "8fb4c86257572670942eb10ca7e0465ae9ecbb66df7331f64a0c0b01a9083a45"},
+        {"path": "assets/episodes/ep-02/comic/ep02-open-09p1-transformation-poof-build-no-wand-comic.png", "sha256": "919c0cd8cd80380716ce054f3a6fd7c177ff5a167fcbe0d828ff0602ff5c558b"},
+        {"path": "assets/episodes/ep-02/comic/ep02-open-09p2-transformation-poof-cover-no-wand-comic.png", "sha256": "7075942964045792ad2b2fa329554327f207a36d8489253074ac5f584e403e00"},
+        {"path": "assets/episodes/ep-02/comic/ep02-open-09p3-transformation-poof-clearing-empire-records-no-wand-comic.png", "sha256": "f0feea70cbe38fd37ede58989ef7b4bbf2d187eff39e8953180494533f66c451"},
+        {"path": "assets/episodes/ep-02/comic/ep02-open-09p4-transformation-reveal-empire-records-no-wand-comic.png", "sha256": "9d1cfb22b1f775dbe2d1115f2a205b9c35f44b6372629c2338e363a6de9d3764"}
+      ],
+      "exact_next_action": "Rebuild the approved recovered frame sequence, attach the shared cue before the episode-specific reveal, then run full-context normal-speed review."
+    },
+    {
+      "id": "episode-03-recurring-town-entry",
+      "content_id": "episode-03",
+      "occurrence_kind": "SUNNYVAILE_ENTRY",
+      "status": "REVIEW_READY",
+      "source_semantic_status": "CLOSE_ENOUGH_PENDING_INDEPENDENT_REVIEW",
+      "cue_required": true,
+      "cue_attached": true,
+      "cue_master_path": "operations/video-qa/town-entry-transformation-cue-v1/sunnyvaile-town-entry-cue-overlay-v1.mov",
+      "cue_start_seconds": 0.0,
+      "cue_end_seconds": 3.08,
+      "clears_before_final_reveal": true,
+      "independent_review_status": "HOLD",
+      "admission_status": "HOLD",
+      "narration_context": "This week, Elle Woods teaches us what to check before we believe what comes back.",
+      "source_assets": [
+        {"path": "assets/episodes/ep-03/comic/ep03-cue08-canva-transformation-once-v2.mp4", "sha256": "1567bd047cf253e6e88571c600998bd423d331a22e7c3e1497ce714475324c21"}
+      ],
+      "review_candidate": {
+        "path": "operations/video-qa/town-entry-transformation-cue-v1/episode-03-town-entry-cue-review-v1.mp4",
+        "sha256": "a0bec3388e19474485561fa797904d9391f4557964b1f21854a1deb242ff7db9"
+      },
+      "contact_sheet": {
+        "path": "operations/video-qa/town-entry-transformation-cue-v1/episode-03-town-entry-cue-contact-v1.png",
+        "sha256": "aff7e4b9a08803eb159e9e64608a0a114577491366b02d2092ad98228cf51854"
+      },
+      "exact_next_action": "Run an independent full-speed context review; HOLD until the reviewer confirms cue legibility, narration compatibility, face clearance and final-reveal timing."
+    },
+    {
+      "id": "episode-04-recurring-town-entry",
+      "content_id": "episode-04",
+      "occurrence_kind": "SUNNYVAILE_ENTRY",
+      "status": "REPLACEMENT_REQUIRED",
+      "source_semantic_status": "REJECTED",
+      "cue_required": true,
+      "cue_attached": false,
+      "independent_review_status": "FAIL",
+      "admission_status": "HOLD",
+      "source_assets": [
+        {"path": "assets/episodes/ep-04/pixel/ep04-open-15p4-transformation-reveal-clueless-stage-no-wand-v1-1920.png", "sha256": "b6a92dfa1ac46db9e14ff31d1218fe8fc93488df16caf37c835b63dc25174d7d"}
+      ],
+      "rejection_reason": "The costume transformation contradicts the AI-origins and LUMINAiRY narration at p14. A label cannot repair the semantic mismatch.",
+      "exact_next_action": "Author or locate a narration-compatible SUNNYVAiLE entry transformation, review it independently, and only then attach the shared cue."
+    }
+  ],
+  "explicit_exclusions": [
+    {
+      "id": "trailer-b39-makeover-resident-card",
+      "content_id": "trailer",
+      "source_master_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+      "source_master_sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+      "status": "EXCLUDED",
+      "reason": "B39 is the separate Makeover on Main resident-card glow-up, not the recurring episode transition into SUNNYVAiLE. It retains its own continuity repair."
+    }
+  ],
+  "admission_rule": "A cue-attached binding may pass only when its underlying transformation source is narration-compatible, independently reviewed, face-safe, clear before the final reveal and checksum-bound."
+}

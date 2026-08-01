@@ -22,6 +22,18 @@
       }
     ]
   },
+  "town_entry_transformation_cue": {
+    "manifest_path": "operations/video-qa/town-entry-transformation-cue-v1/episode-transformation-bindings.json",
+    "manifest_sha256": "fd60ad0f0bfce1674c1f439b8517e1088c459a2ba6dbc5a54d8bb19867b8e974",
+    "validator_path": "scripts/check-town-entry-transformation-cue.mjs",
+    "validator_sha256": "963ac9e9b33fc09544ca1ae6fb938569fb5aca04a2f89cc4cd40ffcd2f340c56",
+    "regression_test_path": "scripts/test-town-entry-transformation-cue.mjs",
+    "regression_test_sha256": "b752f80b52c8e7d3439aa8b72fa0e4f8a958568407a8d543a7058761df313add",
+    "technical_validator_path": "scripts/validate-sunnyvaile-town-entry-cue-v1.py",
+    "technical_validator_sha256": "9240becfbc9a50dfd33e5df1376a967f9e6610b4047df05849d786c7660dab6f",
+    "expected_status": "HOLD",
+    "rule": "An unexplained recurring transformation into SUNNYVAiLE uses the exact shared dial-up cue, but the cue cannot admit a narration-incompatible or rejected source."
+  },
   "admission_rule": "Every visitor-facing video or animation is admitted occurrence by occurrence. Narrated media is judged against the words spoken at that moment; silent media is judged against its learning, interface or narrative purpose. Sampling, file playback and measured pixel movement cannot produce a complete PASS.",
   "scope": {
     "content_types": [

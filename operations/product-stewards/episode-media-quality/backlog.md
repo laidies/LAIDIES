@@ -17,6 +17,15 @@
 
 ## P0 — opening-day film cutline
 
+- **Recurring SUNNYVAiLE transformation cue:** preserve the shared silent
+  `NOW ENTERING SUNNYVAiLE` / `REWIND ERA GLOW-UP: DIALING UP...` master as the
+  default explanation when narration does not announce the transformation.
+  Rebuild the recovered Episode 01 and Episode 02 frame sequences with the cue,
+  independently review the Episode 03 exact-source candidate, and author a
+  truthful Episode 04 transformation before attaching it there. Never attach
+  the cue to the rejected Episode 04 p14 costume beat or Trailer B39 resident-
+  card makeover.
+
 - **Recurring opening and closing credits:** preserve the approved dedicated
   audio masters, but keep every existing visual build reference-only. Finalize
   the exact character, building/location and visual-system checksum allowlists;
