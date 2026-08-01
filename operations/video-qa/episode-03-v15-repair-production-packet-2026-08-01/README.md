@@ -36,6 +36,13 @@ single failure: p43 at `13:33.400–14:24.100`.
   inferred assumptions and a smooth plausible answer, then returns to the
   court-record-versus-Burn-Book comparison exactly when the narration says
   that checking is what distinguishes them.
+- `p15-p16-evidence-conclusion-review-v1.mp4` replaces the static
+  Claire's-headband and claims/receipts holds with seven narration-specific
+  beats.
+- It keeps the single-box example visible through its explanation, then moves
+  through clue, assumption, permission to use AI, the butter joke, claim and
+  receipt at the exact spoken turns. Every beat has continuous motion; source
+  changes, not arbitrary zoom states, carry the semantic progression.
 
 ## Gates
 
@@ -47,7 +54,7 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10, p15–16, p23–24, p32, p44,
+The independent review still holds p00, p07, p10, p23–24, p32, p44,
 p46 and p48. Those occurrences must receive narration-specific
 progression without altering the five v14 repair windows or the three
 completed v15 review sequences.
