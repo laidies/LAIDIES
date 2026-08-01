@@ -42,6 +42,29 @@ SHA-256: `d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4`
 - contact strips show visible rain in both repaired windows; and
 - the Grace moth remains visible across the sampled repaired sequence.
 
+### Encoded-frame Grace continuity gate
+
+The Grace successor has also passed a deterministic check of every encoded
+frame. This check reconstructs the expected foreground composite and compares
+it to the decoded H.264 pixels instead of trusting the builder's
+`visible_story_object_frames` counter.
+
+- 379/379 frames decoded at 1920 × 1080 and 30 fps, with no black frames;
+- all 134 moth-flight frames retained the foreground object;
+- the moth crossed Grace's protected-person mask for 30 frames (frames
+  104–133) and retained at least 97.45% of its expected foreground pixel
+  contribution through that overlap;
+- all 223 landing/hold frames retained the landed moth; and
+- maximum mean absolute error against the deterministic expected composite was
+  2.04 levels after H.264 encoding.
+
+| Evidence | SHA-256 |
+| --- | --- |
+| `grace-moth-v3-encoded-frame-continuity.json` | `a7e158f5f78edcb74ba28122e246889a632aca7f5d496c9a4a2e3ad92675a6ea` |
+| `grace-moth-v3-flight-continuity.jpg` | `8bb53f193ecab2e6426e8bc17a7d9572c44a5c596d4a502ce9f53d13e5bcc8e0` |
+| `grace-moth-v3-landing-continuity.jpg` | `dc0de47424f9f43283803722dc82e2c5061b8bab2bea144ad01b090fdcc4a8b2` |
+| `scripts/validate-episode-04-grace-moth-v3.py` | `2fa6563ee7eeab53476b6b9cd83677d37b980687527549a1155baafb9a142085` |
+
 These mechanical and sampled visual checks do not replace the required
 independent, normal-speed semantic review.
 
@@ -49,6 +72,7 @@ independent, normal-speed semantic review.
 
 - `assets/video/fx/build-ep04-perceptible-rain-and-grace-moth-v3.py`
 - `scripts/build-episode-04-rain-grace-context-review.py`
+- `scripts/validate-episode-04-grace-moth-v3.py`
 - `manifest.json`
 - `context-review-manifest.json`
 

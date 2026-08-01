@@ -11365,3 +11365,27 @@ _Original source ID: repository #36_
   claim, even when the same historical subject remains on screen.
 - **Possible Behind the Build angle:** The image was called “capability
   limits.” It was actually more music notes.
+
+## BTB-319 — An animation counter did not prove the object survived encoding
+
+- **Date:** 2026-08-01
+- **Area:** Episode 04 Grace Hopper moth / foreground continuity / encoded-frame QA.
+- **Failure:** A builder reported hundreds of `visible_story_object_frames`,
+  but that counter only proved that execution entered the moth-rendering code.
+  It could not prove that the protected-person compositor, H.264 encode or
+  final pixel output had not erased the moth—the exact defect Ali had seen.
+- **Root cause:** **Code-path evidence was mistaken for rendered-pixel
+  evidence.** A sampled contact strip also left unsampled gaps during the
+  critical foreground/background crossing.
+- **Prevention rule:** For story objects whose path crosses a protected person
+  or foreground mask, reconstruct the intended composite for every frame and
+  compare it to every decoded delivery frame. Measure the object's pixel
+  contribution specifically inside the mask overlap, create dense flight and
+  landing strips, and keep independent normal-speed narration/taste review as
+  a separate gate.
+- **Why the fix works:** The Episode 04 successor now proves the moth survives
+  all 134 flight frames, including 30 person-mask overlap frames, and all 223
+  landing/hold frames in the actual encoded MP4. A loop counter can no longer
+  pass a visually absent story event.
+- **Possible Behind the Build angle:** The moth was in the code. Was it still
+  in the movie?

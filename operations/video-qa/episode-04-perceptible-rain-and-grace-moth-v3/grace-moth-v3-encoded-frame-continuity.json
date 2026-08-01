@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-01T12:23:34.661489+00:00",
+  "status": "MECHANICAL_FOREGROUND_CONTINUITY_PASS_INDEPENDENT_NORMAL_SPEED_REVIEW_REQUIRED",
+  "release_authority": "NONE",
+  "scope": "Episode 04 cue 30 Grace Hopper moth v3 encoded-frame foreground continuity",
+  "candidate": "assets/episodes/ep-04/pixel/ep04-scene-05-grace-moth-landing-comic-event-v3.mp4",
+  "candidate_sha256": "ec171ff100363db616f7295842e3ad8a430ffd7f755c68a2eb9b7e479560ae43",
+  "source_bindings": {
+    "builder": {
+      "expected_sha256": "4dd061ad4949e054f64dd947fe4107b11f8a6629d2e99ee0ed8183212755c24d",
+      "actual_sha256": "4dd061ad4949e054f64dd947fe4107b11f8a6629d2e99ee0ed8183212755c24d"
+    },
+    "candidate": {
+      "expected_sha256": "ec171ff100363db616f7295842e3ad8a430ffd7f755c68a2eb9b7e479560ae43",
+      "actual_sha256": "ec171ff100363db616f7295842e3ad8a430ffd7f755c68a2eb9b7e479560ae43"
+    },
+    "grace_end": {
+      "expected_sha256": "a26009bfae2e1282c076251b16af29d1db344c68d1eef7aa2cd2e0088b05bbf5",
+      "actual_sha256": "a26009bfae2e1282c076251b16af29d1db344c68d1eef7aa2cd2e0088b05bbf5"
+    },
+    "people_mask": {
+      "expected_sha256": "d6c26f0b4ed0b5913a3838a2bbdffc656a8fd56248937678d5fb730885f63e68",
+      "actual_sha256": "d6c26f0b4ed0b5913a3838a2bbdffc656a8fd56248937678d5fb730885f63e68"
+    }
+  },
+  "video": {
+    "decoded_frames": 379,
+    "nominal_frames": 379,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "duration_seconds": 12.633333333333333
+  },
+  "checks": {
+    "checksum_bindings": true,
+    "decode_complete": true,
+    "geometry": true,
+    "no_black_frames": true,
+    "encoded_matches_expected_composite": true,
+    "moth_visible_through_flight": true,
+    "moth_survives_person_mask_overlap": true,
+    "moth_visible_after_landing": true
+  },
+  "metrics": {
+    "encoded_expected_mae_mean": 2.000226,
+    "encoded_expected_mae_max": 2.036089,
+    "flight_frames_measured": 134,
+    "flight_preservation_ratio_min": 0.971327,
+    "flight_preservation_ratio_mean": 0.992912,
+    "person_mask_overlap_frames": 30,
+    "person_mask_overlap_first_last": [
+      104,
+      133
+    ],
+    "person_mask_overlap_preservation_ratio_min": 0.974519,
+    "person_mask_overlap_preservation_ratio_mean": 1.015914,
+    "landing_frames_measured": 223,
+    "landing_preservation_ratio_min": 1.024604,
+    "landing_preservation_ratio_mean": 1.025508,
+    "black_frames": []
+  },
+  "evidence": {
+    "flight_contact_sheet": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/grace-moth-v3-flight-continuity.jpg",
+    "landing_contact_sheet": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/grace-moth-v3-landing-continuity.jpg"
+  },
+  "limits": [
+    "This proves the exact encoded candidate retains the deterministic foreground composite, including where the moth overlaps the protected person mask.",
+    "It does not independently admit narration fit, natural motion, taste, or normal-speed viewer quality.",
+    "The exact-audio context clip must still receive an independent normal-speed occurrence verdict before episode-master admission."
+  ]
+}
