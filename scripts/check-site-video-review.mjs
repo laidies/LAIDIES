@@ -4,7 +4,8 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const registryPath = path.join(root, 'operations/video-qa/site-video-review-registry-2026-07-31.json');
@@ -318,6 +319,48 @@ for (const surface of registry.runtime_surfaces ?? []) {
     }
     if (!source.includes('not a playable or approved class')) {
       fail(`${surface.id}: the explicit non-playable production status is absent.`);
+    }
+  }
+}
+
+const assemblyLineage = registry.assembly_lineage;
+if (!assemblyLineage) {
+  fail('The successor-assembly lineage gate is not bound to the registry.');
+} else {
+  await verifyFile('Assembly-lineage schema', assemblyLineage.schema_path, assemblyLineage.schema_sha256);
+  await verifyFile('Assembly-lineage validator', assemblyLineage.validator_path, assemblyLineage.validator_sha256);
+  await verifyFile('Assembly-lineage regression test', assemblyLineage.regression_test_path, assemblyLineage.regression_test_sha256);
+
+  const validatorFile = path.join(root, assemblyLineage.validator_path || '');
+  if (fs.existsSync(validatorFile)) {
+    try {
+      const { validateLineageManifest } = await import(pathToFileURL(validatorFile).href);
+      for (const binding of assemblyLineage.manifests ?? []) {
+        await verifyFile(`${binding.id}: assembly lineage manifest`, binding.path, binding.sha256);
+        const file = path.join(root, binding.path || '');
+        if (!fs.existsSync(file)) continue;
+        const manifest = JSON.parse(fs.readFileSync(file, 'utf8'));
+        const result = validateLineageManifest(manifest, file);
+        if (!result.valid) {
+          for (const error of result.errors) fail(`${binding.id}: ${error.code}: ${error.message}`);
+        }
+        if (result.lineage_status !== binding.expected_lineage_status) {
+          fail(`${binding.id}: lineage status ${result.lineage_status} does not match ${binding.expected_lineage_status}.`);
+        }
+        if (manifest.admission_status !== binding.admission_status) {
+          fail(`${binding.id}: admission status ${manifest.admission_status} does not match ${binding.admission_status}.`);
+        }
+      }
+    } catch (error) {
+      fail(`Assembly-lineage validator could not run: ${error.message}`);
+    }
+  }
+
+  const regressionFile = path.join(root, assemblyLineage.regression_test_path || '');
+  if (fs.existsSync(regressionFile)) {
+    const result = spawnSync(process.execPath, [regressionFile], { cwd: root, encoding: 'utf8' });
+    if (result.status !== 0 || !result.stdout.includes('VIDEO ASSEMBLY LINEAGE REGRESSION: PASS')) {
+      fail(`Assembly-lineage regression did not prove ORPHANED_SCENE fail-closed behavior: ${result.stderr || result.stdout}`);
     }
   }
 }

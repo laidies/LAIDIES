@@ -108,6 +108,12 @@ time.
   tracked builder, source hashes, delivery hash and durable review receipt must
   remain sufficient to find or reproduce it before a later assembler can claim
   the narration window is uncovered.
+- This rule is machine-enforced by
+  `scripts/check-video-assembly-lineage.mjs`, the checksum-bound manifests in
+  `operations/video-qa/assembly-lineage/`, and the negative regression in
+  `scripts/test-video-assembly-lineage.mjs`. The regression must prove that a
+  successor which silently omits the recovered Ada sequence fails with
+  `ORPHANED_SCENE`; prose compliance is not sufficient.
 - Recurring episode opening/closing visuals remain dependency-held until exact
   character, building/location and visual-system checksum allowlists are final.
   Existing or high-numbered credit renders have no release priority. The

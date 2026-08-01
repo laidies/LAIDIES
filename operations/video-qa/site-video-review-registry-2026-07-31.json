@@ -4,6 +4,24 @@
   "status": "HOLD",
   "contract": "operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md",
   "occurrence_schema": "operations/video-qa/site-video-occurrence.schema.json",
+  "assembly_lineage": {
+    "schema_path": "operations/video-qa/assembly-lineage/successor-assembly-lineage.schema.json",
+    "schema_sha256": "f639d9f70d83d2faebf7d7f879dac0f63dda7121f2ead535d03e47137b3604bf",
+    "validator_path": "scripts/check-video-assembly-lineage.mjs",
+    "validator_sha256": "86d260fc332685aec596cc0d7aa88aed9b6734a567ec4c1e3ee8c63b430d14d1",
+    "regression_test_path": "scripts/test-video-assembly-lineage.mjs",
+    "regression_test_sha256": "c0ef34816829a80a1098102d3866d3b0f3b46ed29b5fe20eb5583893de68df18",
+    "rule": "Every successor must include every active prior sequence for the same narration window or bind an explicit old-hash to new-hash supersession receipt. Silent omission is ORPHANED_SCENE.",
+    "manifests": [
+      {
+        "id": "episode-04-v10-repair-preassembly",
+        "path": "operations/video-qa/assembly-lineage/episode-04-preassembly-lineage-2026-08-01.json",
+        "sha256": "161315d1647c67b900c67784ce226ab21f8813686903174298e3af22cc619bc0",
+        "expected_lineage_status": "PREASSEMBLY_HOLD",
+        "admission_status": "HOLD"
+      }
+    ]
+  },
   "admission_rule": "Every visitor-facing video or animation is admitted occurrence by occurrence. Narrated media is judged against the words spoken at that moment; silent media is judged against its learning, interface or narrative purpose. Sampling, file playback and measured pixel movement cannot produce a complete PASS.",
   "scope": {
     "content_types": [
