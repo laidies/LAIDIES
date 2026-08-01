@@ -11436,3 +11436,29 @@ _Original source ID: repository #36_
   held for independent review.
 - **Possible Behind the Build angle:** We did not need another portrait. We
   needed to look through the archive properly.
+
+## BTB-322 — A finished scene disappeared because the next assembler never inherited it
+
+- **Date:** 2026-08-01
+- **Area:** Episode 04 Ada Lovelace / source lineage / successor assembly.
+- **Failure:** A complete 96-second, eight-shot Ada narration sequence existed,
+  had a tracked builder and historical playback evidence, but later
+  full-episode builders bypassed it without an explicit rejection or
+  supersession record. The website ultimately repeated a five-second loop
+  instead, making completed work appear never to have existed.
+- **Root cause:** **Assembly input selection was not reconciled against prior
+  built/reviewed scene manifests.** The absence of a file from a newer builder
+  was treated as a neutral implementation detail rather than a provenance
+  break.
+- **Prevention rule:** Before building any successor master, compare its exact
+  scene/source manifest with every checksum-bound built, reviewed or accepted
+  sequence covering the same narration window. Any omitted sequence must have
+  an explicit supersession receipt naming the old/new hashes and reason;
+  otherwise fail closed as `ORPHANED_SCENE`. Ignored media must remain bound to
+  a tracked builder, source hashes and review receipt.
+- **Why the fix works:** The recovered Ada sequence is again audible in its
+  exact 04:05–05:41 context, while the sitewide contract makes silent omission
+  a named release-blocking failure instead of allowing another assembler to
+  erase completed work.
+- **Possible Behind the Build angle:** The animation was not missing. The
+  assembly line forgot it existed.

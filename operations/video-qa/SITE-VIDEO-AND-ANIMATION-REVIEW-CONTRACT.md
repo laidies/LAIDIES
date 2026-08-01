@@ -98,6 +98,16 @@ time.
 - A new master, changed timing, replaced source asset, revised narration or
   changed player crop invalidates every affected occurrence row and every
   derivative publication until rechecked.
+- Before assembling a successor, compare its exact scene/source manifest with
+  every checksum-bound sequence previously marked built, reviewed or accepted
+  for the same narration window. A prior sequence may disappear only when an
+  explicit supersession receipt names the old hash, the new hash and the
+  evidence-based reason for replacement. An omitted prior sequence without
+  that receipt is an `ORPHANED_SCENE` failure and holds the successor.
+- Ignored or externally stored media is not exempt from the orphan check. Its
+  tracked builder, source hashes, delivery hash and durable review receipt must
+  remain sufficient to find or reproduce it before a later assembler can claim
+  the narration window is uncovered.
 - Recurring episode opening/closing visuals remain dependency-held until exact
   character, building/location and visual-system checksum allowlists are final.
   Existing or high-numbered credit renders have no release priority. The

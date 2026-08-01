@@ -6,12 +6,16 @@ change.
 
 This packet converts the 55-occurrence owner audit of the Episode 04 v9 master
 into a production queue. Every finding is bound to the exact narration window,
-the actual assembled visual and the next admissible action. Ten current
+the actual assembled visual and the next admissible action. Eleven current
 exact-audio review sequences are now built where existing art can form a
-meaningful progression. The opening candidate separates ordinary chat,
-interruption, reflection, deeper doubt and the launch question. The Ada v2 cut
-uses six distinct narration-aligned beats, including separate capability-limit,
-1843 evidence and credit-erasure visuals. The p14 candidate removes the
+meaningful progression; the Ada count deliberately includes a recovered prior
+sequence and a newer alternate until an independent reviewer chooses or
+hybridizes them. The opening candidate separates ordinary chat, interruption,
+reflection, deeper doubt and the launch question. The recovered Ada v4 cut is
+the original 96-second, eight-shot narration-synced sequence that later
+assemblers silently bypassed. The Ada v2 alternate adds distinct
+capability-limit, 1843 evidence and credit-erasure visuals that may improve its
+last two beats. The p14 candidate removes the
 unrelated *Clueless* transformation and preserves the LUMINAiRY introduction
 for p15, where the narration actually reaches it. Every sequence still requires
 independent normal-speed review before it can enter an assembled successor.
@@ -32,7 +36,8 @@ independent normal-speed review before it can enter an assembled successor.
 | p03–p06 | 00:40.96–01:41.50 | `review-sequences/p03-p06-opening-narration-review-v2.mp4` | Exact-audio five-beat candidate replaces the repetitive still/zoom run. Two window sources contain measurable rain motion; the wide realization is deliberately a distinct still composition, not claimed as animation. Independent narration-fit, perceptibility and shot-progression review required. |
 | p14 | 03:05.00–03:22.00 | `review-sequences/p14-question-bridge-review-v1.mp4` | Exact-audio three-beat candidate replaces the unrelated outfit transformation with desk → question → “landed on your desk.” The beats are deliberate stills with hard cuts and are not falsely represented as animation. Independent narration-fit, legibility and p13/p15 transition review required. |
 | p16–p17 | 03:40.75–04:04.88 | `review-sequences/p16-p17-maivens-entry-review-v1.mp4` | Strong canonical hall-to-Ada progression; independent review required. |
-| p19–p20 | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat candidate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
+| p18–p20 | 04:05.30–05:41.55 | `review-sequences/p18-p20-ada-recovered-v4-review-v1.mp4` | Recovered canonical prior sequence: eight timed Ada/machine shots, subtle pans and zooms, rain and candle movement, and exact parent-master audio. It technically passes at 2,888 frames; independent normal-speed narration-fit, identity, historical-detail and hybrid review remains required. |
+| p19–p20 alternate | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat alternate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure. Compare its final two beats with the recovered v4; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
 | p22–p23 | 05:46.57–07:17.30 | `review-sequences/p22-p23-hedy-review-v1.mp4` | Exact-audio eight-beat candidate now separates film stardom, private invention, the jamming problem, frequency-hopping motion, the exact line, Navy shelving, wireless lineage and late recognition. It uses existing approved art and no new likeness generation. Independent likeness, historical-detail, exact-text, narration-fit and retime-naturalness review required. |
 | p25–p27 | 07:22.30–09:05.57 | `review-sequences/p25-p27-eniac-review-v1.mp4` | Exact-audio nine-beat candidate now separates ENIAC scale, hands-on programming, the six names, rewiring, the exact First Programmers line, credit erasure, rediscovery, the era handoff and the truthful 1952 bridge. Independent six-programmer likeness, historical-detail, exact-text, narration-fit and retime-naturalness review required. |
 | p37–p38 | 11:22.45–12:44.23 | `review-sequences/p37-p38-karen-narration-review-v1.mp4` | Clear search-terms → retrieval diagram → exact quote progression; independent review required. |
@@ -55,11 +60,14 @@ fabricated narration. Their checksums are in `source-sha256.txt`.
   narration, the text card remains legible long enough and the cut enters p15's
   canonical LUMINAiRY reveal cleanly. Do not pull the LUMINAiRY into p14; its
   first narrated introduction begins in p15.
-- **Ada p18–p20:** independently judge the London/1843 bridge and the new
-  p19–p20 v2 sequence. The missing capability-limit and credit-erasure beats
-  are now represented by distinct generated candidates, but their historical
-  accuracy, Ada likeness, artifacts and exact-audio timing still require an
-  independent verdict. Do not promote the sequence on maker review alone.
+- **Ada p18–p20:** independently watch the recovered 96-second v4 sequence at
+  normal speed with exact audio and compare it with the p19–p20 v2 alternate.
+  The recovered sequence preserves the original eight-shot Ada/machine arc;
+  the newer alternate may better support the capability-limit and
+  credit-erasure lines. Record an explicit `KEEP_RECOVERED`, `USE_V2` or
+  `HYBRIDIZE` decision, then recheck historical accuracy, Ada likeness,
+  artifacts, narration timing and adjacent transitions. Do not promote either
+  sequence on maker or technical review alone.
 - **Hedy p22–p23:** independently judge the new exact-audio eight-beat
   candidate. Confirm the approved Hedy depictions remain a coherent likeness,
   the signal motion is perceptible and natural after retiming, the exact line

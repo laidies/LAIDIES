@@ -1,0 +1,111 @@
+{
+  "status": "TECHNICAL_PASS_HUMAN_AND_INDEPENDENT_REVIEW_REQUIRED",
+  "authority": "NO_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "output": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p18-p20-ada-recovered-v4-review-v1.mp4",
+  "output_sha256": "b4200b1f76157ca63ff13011491d8e6a3a787c8960a3f0ed12d48edec622a5cc",
+  "probe": {
+    "format": {
+      "duration": "96.233333"
+    },
+    "streams": [
+      {
+        "index": 0,
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "nb_frames": "2888"
+      },
+      {
+        "index": 1,
+        "codec_type": "audio",
+        "codec_name": "aac"
+      }
+    ],
+    "probe_method": "OpenCV frame geometry/count; AAC is fixed by the bound builder and decoded below with ffmpeg."
+  },
+  "audio_decode_confirmed": true,
+  "shot_motion": [
+    {
+      "shot": 1,
+      "seconds": [
+        0,
+        13
+      ],
+      "mean_absolute_difference": 18.764098,
+      "changed_pixel_fraction_over_4": 0.897326
+    },
+    {
+      "shot": 2,
+      "seconds": [
+        13,
+        25
+      ],
+      "mean_absolute_difference": 1.282437,
+      "changed_pixel_fraction_over_4": 0.096399
+    },
+    {
+      "shot": 3,
+      "seconds": [
+        25,
+        37
+      ],
+      "mean_absolute_difference": 16.873371,
+      "changed_pixel_fraction_over_4": 0.868696
+    },
+    {
+      "shot": 4,
+      "seconds": [
+        37,
+        48
+      ],
+      "mean_absolute_difference": 16.359474,
+      "changed_pixel_fraction_over_4": 0.862518
+    },
+    {
+      "shot": 5,
+      "seconds": [
+        48,
+        60
+      ],
+      "mean_absolute_difference": 16.678916,
+      "changed_pixel_fraction_over_4": 0.868353
+    },
+    {
+      "shot": 6,
+      "seconds": [
+        60,
+        72
+      ],
+      "mean_absolute_difference": 18.624064,
+      "changed_pixel_fraction_over_4": 0.89887
+    },
+    {
+      "shot": 7,
+      "seconds": [
+        72,
+        84
+      ],
+      "mean_absolute_difference": 18.751594,
+      "changed_pixel_fraction_over_4": 0.89824
+    },
+    {
+      "shot": 8,
+      "seconds": [
+        84,
+        96.266667
+      ],
+      "mean_absolute_difference": 1.082404,
+      "changed_pixel_fraction_over_4": 0.062071
+    }
+  ],
+  "technical_checks": {
+    "resolution_1920x1080": true,
+    "fps_30": true,
+    "frames_2888": true,
+    "aac_audio": true,
+    "duration_frame_aligned": true,
+    "measurable_motion_in_each_shot": true
+  },
+  "human_gate": "HOLD_PENDING_INDEPENDENT_NORMAL_SPEED_NARRATION_FIT_IDENTITY_ACCURACY_AND_HYBRID_DECISION"
+}
