@@ -70,9 +70,20 @@ enter the next full successor.
 ## Remaining v15 repair groups
 
 All 21 occurrence holds named by the independent v14 review now have bounded
-narration-specific local repair sequences. They must still pass independent
-normal-speed narration-picture review before successor-master assembly. The
-five v14 repair windows and protected p07 spoken-welcome ident remain fixed.
+narration-specific local repair sequences and have been assembled into the v15
+review successor. The five v14 repair windows and protected p07 spoken-welcome
+ident remain fixed.
+
+## Successor master
+
+The bounded sequences have now been assembled over the frozen v14 master as
+`assets/video/episode-03-full-v15-repaired-review.mp4`, SHA-256
+`6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75`.
+The 17:28 local review master passes full decode, black-frame, exact parent-
+audio, 211-cue caption coverage and repair-window scene-order checks. It is
+still `BUILT LOCALLY / HOLD`: a qualified independent reviewer must watch and
+hear this exact hash at normal speed before it can be accepted or bound to
+public playback.
 
 The p00 opening recap now progresses through the existing approved comic strip
 in four narration-bound beats: a complete establishing view, delegation at the
