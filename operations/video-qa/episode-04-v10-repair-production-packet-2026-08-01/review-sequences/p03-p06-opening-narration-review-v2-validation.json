@@ -1,0 +1,118 @@
+{
+  "status": "TECHNICAL_PASS_INDEPENDENT_SEMANTIC_REVIEW_REQUIRED",
+  "authority": "NO_EDITORIAL_ACCEPTANCE_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "output": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p03-p06-opening-narration-review-v2.mp4",
+  "output_sha256": "eb02422c40d46906cb3de2bb11d6f48a21eefc90ecf19fffc4631a46f6f88d88",
+  "expected": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 1816,
+    "duration_seconds": 60.54
+  },
+  "observed": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 1816,
+    "duration_seconds": 60.53333333333333
+  },
+  "checks": {
+    "geometry_pass": true,
+    "frame_count_pass": true,
+    "duration_pass": true,
+    "decode_pass": true,
+    "audio_present": true,
+    "black_frame_events": [],
+    "build_receipt_hash_matches": true
+  },
+  "segment_motion_evidence": [
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-open-04-desk-comic-v1-face-lock-1920-loop-v1.mp4",
+      "kind": "video",
+      "output_window_seconds": [
+        0.0,
+        10.208
+      ],
+      "motion": {
+        "frames_read": 308,
+        "fps": 30.0,
+        "mean_abs_luma_delta": 0.159364,
+        "median_abs_luma_delta": 0.044549,
+        "fraction_deltas_above_0_1": 0.091205
+      },
+      "interpretation": "measurable pixel change only; independent review must judge perceptibility and meaning"
+    },
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-cue04-local-motion-v2-rain-visible.mp4",
+      "kind": "video",
+      "output_window_seconds": [
+        10.208,
+        25.64
+      ],
+      "motion": {
+        "frames_read": 465,
+        "fps": 30.0,
+        "mean_abs_luma_delta": 0.261438,
+        "median_abs_luma_delta": 0.190972,
+        "fraction_deltas_above_0_1": 0.961207
+      },
+      "interpretation": "measurable pixel change only; independent review must judge perceptibility and meaning"
+    },
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-scene-01-cold-open-v5-window-realization-review.png",
+      "kind": "still",
+      "output_window_seconds": [
+        25.64,
+        37.04
+      ],
+      "motion": {
+        "frames_read": 344,
+        "fps": 30.0,
+        "mean_abs_luma_delta": 0.112399,
+        "median_abs_luma_delta": 0.0,
+        "fraction_deltas_above_0_1": 0.005831
+      },
+      "interpretation": "deliberately still editorial beat with subtle camera drift; not claimed as animation"
+    },
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-cue05-local-motion-v3-rain-prominent.mp4",
+      "kind": "video",
+      "output_window_seconds": [
+        37.04,
+        52.1
+      ],
+      "motion": {
+        "frames_read": 453,
+        "fps": 30.0,
+        "mean_abs_luma_delta": 0.297376,
+        "median_abs_luma_delta": 0.17053,
+        "fraction_deltas_above_0_1": 0.926991
+      },
+      "interpretation": "measurable pixel change only; independent review must judge perceptibility and meaning"
+    },
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-open-07-questions-comic-v1-exact-text-1920.png",
+      "kind": "still",
+      "output_window_seconds": [
+        52.1,
+        60.54
+      ],
+      "motion": {
+        "frames_read": 253,
+        "fps": 30.0,
+        "mean_abs_luma_delta": 0.001177,
+        "median_abs_luma_delta": 1.7e-05,
+        "fraction_deltas_above_0_1": 0.003968
+      },
+      "interpretation": "deliberately still editorial beat with subtle camera drift; not claimed as animation"
+    }
+  ],
+  "explicit_limits": [
+    "pixel change does not prove useful animation",
+    "source filenames and maker intent do not prove narration-picture fit",
+    "the wide realization beat is intentionally a still composition and is not represented as animated",
+    "an independent reviewer must watch exact audio at normal speed and record PASS, CLOSE_ENOUGH, RETIME, REPLACE or ADD_OR_REPAIR_ANIMATION",
+    "a successor master still requires complete occurrence re-audit and an audible responsive-player watch"
+  ]
+}

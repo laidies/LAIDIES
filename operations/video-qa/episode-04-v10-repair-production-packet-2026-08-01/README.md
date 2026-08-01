@@ -6,13 +6,13 @@ change.
 
 This packet converts the 55-occurrence owner audit of the Episode 04 v9 master
 into a production queue. Every finding is bound to the exact narration window,
-the actual assembled visual and the next admissible action. Four exact-audio
-review sequences have been built where existing approved art can form a
-meaningful progression. A fifth sequence now replaces the incomplete Ada v1
-cut with six distinct narration-aligned beats, including separate capability-
-limit, 1843 evidence and credit-erasure visuals. They still require independent,
-normal-speed review
-before they can enter an assembled successor.
+the actual assembled visual and the next admissible action. Five current
+exact-audio review sequences have been built where existing art can form a
+meaningful progression. The opening candidate now separates ordinary chat,
+interruption, reflection, deeper doubt and the launch question. The Ada v2 cut
+uses six distinct narration-aligned beats, including separate capability-limit,
+1843 evidence and credit-erasure visuals. Every sequence still requires
+independent normal-speed review before it can enter an assembled successor.
 
 ## Exact parent
 
@@ -27,6 +27,7 @@ before they can enter an assembled successor.
 
 | Occurrences | Narration window | Local review sequence | Owner disposition |
 | --- | ---: | --- | --- |
+| p03–p06 | 00:40.96–01:41.50 | `review-sequences/p03-p06-opening-narration-review-v2.mp4` | Exact-audio five-beat candidate replaces the repetitive still/zoom run. Two window sources contain measurable rain motion; the wide realization is deliberately a distinct still composition, not claimed as animation. Independent narration-fit, perceptibility and shot-progression review required. |
 | p16–p17 | 03:40.75–04:04.88 | `review-sequences/p16-p17-maivens-entry-review-v1.mp4` | Strong canonical hall-to-Ada progression; independent review required. |
 | p19–p20 | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat candidate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
 | p37–p38 | 11:22.45–12:44.23 | `review-sequences/p37-p38-karen-narration-review-v1.mp4` | Clear search-terms → retrieval diagram → exact quote progression; independent review required. |
@@ -37,9 +38,11 @@ fabricated narration. Their checksums are in `source-sha256.txt`.
 
 ## Remaining repair queue
 
-- **Opening p03–p06:** rebuild the repetitive still/zoom sequence. Rain
-  candidates for p04/p05 are held for independent perceptibility and normal-
-  speed semantic-motion review; p03 and p06 still need better visual coverage.
+- **Opening p03–p06:** independently judge the new five-beat candidate at
+  normal speed. Confirm the rain is perceptible without obscuring the heroine,
+  the deliberate still reflection beat earns its hold, the shot progression
+  does not read as repeated zooms and the exact question card lands cleanly.
+  Do not promote it on technical motion evidence or maker review alone.
 - **LUMINAiRY p14:** remove the unrelated *Clueless* transformation. Use an
   actual LUMINAiRY/MAiVENS bridge rather than a pop-culture image that does not
   represent the narration.
