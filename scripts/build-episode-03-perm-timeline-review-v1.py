@@ -21,6 +21,9 @@ RECEIPT = OUT / "p23-p24-perm-timeline-review-v1-build.json"
 START = 444.0
 END = 482.0
 FPS = 30
+OCCURRENCES = "p23-p24"
+COMMENT = "LOCAL EPISODE 03 P23-P24 REVIEW SEQUENCE — NO RELEASE AUTHORITY"
+EDITORIAL_DECISION = "Replace two long static cards with six narration-specific beats that move from Elle's timeline through the fresh-perm contradiction, repeated confident alibis and back to the exact detail that fails. Existing approved Episode 03 art carries the meaning; continuous camera motion is secondary."
 
 SEGMENTS = [
     {"start": 444.0, "end": 447.0, "source": "assets/episodes/ep-03/comic/ep03-scene-08-elle-file-comic-rebalance-v1.png", "visible_description": "Elle studies the testimony against a visible timeline, looking for the detail that does not fit.", "narration": "She's waiting for the detail that doesn't fit."},
@@ -69,7 +72,7 @@ def build() -> None:
         labels.append(f"[{label}]")
     filters.append("".join(labels) + f"concat=n={len(labels)}:v=1:a=0[vout]")
     audio_index = len(SEGMENTS)
-    command += ["-filter_complex", ";".join(filters), "-map", "[vout]", "-map", f"{audio_index}:a:0", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(FPS), "-fps_mode", "cfr", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", f"{END - START:.3f}", "-movflags", "+faststart", "-metadata", "comment=LOCAL EPISODE 03 P23-P24 REVIEW SEQUENCE — NO RELEASE AUTHORITY", str(OUTPUT)]
+    command += ["-filter_complex", ";".join(filters), "-map", "[vout]", "-map", f"{audio_index}:a:0", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(FPS), "-fps_mode", "cfr", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-t", f"{END - START:.3f}", "-movflags", "+faststart", "-metadata", f"comment={COMMENT}", str(OUTPUT)]
     run(command)
 
     midpoint_inputs = []
@@ -79,10 +82,10 @@ def build() -> None:
     for index in range(len(SEGMENTS)):
         filters.append(f"[{index}:v]scale=320:180[t{index}]")
         labels.append(f"[t{index}]")
-    filters.append("".join(labels) + "xstack=inputs=6:layout=0_0|320_0|640_0|960_0|1280_0|1600_0[out]")
+    filters.append("".join(labels) + f"hstack=inputs={len(SEGMENTS)}[out]")
     run([str(FFMPEG), "-y", *midpoint_inputs, "-filter_complex", ";".join(filters), "-map", "[out]", "-frames:v", "1", str(CONTACT)])
 
-    receipt = {"status": "BUILT_LOCALLY_INDEPENDENT_REVIEW_REQUIRED", "publication_authority": False, "master": {"path": str(MASTER.relative_to(ROOT)), "sha256": MASTER_SHA256}, "window": {"occurrences": "p23-p24", "start_seconds": START, "end_seconds": END, "duration_seconds": END - START}, "sequence": {"path": str(OUTPUT.relative_to(ROOT)), "sha256": sha256(OUTPUT)}, "contact_sheet": {"path": str(CONTACT.relative_to(ROOT)), "sha256": sha256(CONTACT)}, "segments": SEGMENTS, "editorial_decision": "Replace two long static cards with six narration-specific beats that move from Elle's timeline through the fresh-perm contradiction, repeated confident alibis and back to the exact detail that fails. Existing approved Episode 03 art carries the meaning; continuous camera motion is secondary.", "next_gate": "deterministic duration/audio/scene-order checks, contact-sheet inspection and independent normal-speed narration-picture review before successor assembly"}
+    receipt = {"status": "BUILT_LOCALLY_INDEPENDENT_REVIEW_REQUIRED", "publication_authority": False, "master": {"path": str(MASTER.relative_to(ROOT)), "sha256": MASTER_SHA256}, "window": {"occurrences": OCCURRENCES, "start_seconds": START, "end_seconds": END, "duration_seconds": END - START}, "sequence": {"path": str(OUTPUT.relative_to(ROOT)), "sha256": sha256(OUTPUT)}, "contact_sheet": {"path": str(CONTACT.relative_to(ROOT)), "sha256": sha256(CONTACT)}, "segments": SEGMENTS, "editorial_decision": EDITORIAL_DECISION, "next_gate": "deterministic duration/audio/scene-order checks, contact-sheet inspection and independent normal-speed narration-picture review before successor assembly"}
     RECEIPT.write_text(json.dumps(receipt, indent=2) + "\n")
     print(json.dumps(receipt["sequence"], indent=2))
 

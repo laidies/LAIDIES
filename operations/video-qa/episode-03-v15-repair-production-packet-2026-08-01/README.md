@@ -43,10 +43,15 @@ single failure: p43 at `13:33.400–14:24.100`.
   through clue, assumption, permission to use AI, the butter joke, claim and
   receipt at the exact spoken turns. Every beat has continuous motion; source
   changes, not arbitrary zoom states, carry the semantic progression.
+- `p32-judgment-review-v1.mp4` replaces the 23.6-second static judgment hold
+  with four narration-specific beats.
+- It moves from delegated grunt work and retained human judgment through the
+  Regina George “are you sure?” comparison, lands the limited-value verdict,
+  and returns to an actual verification checklist.
 
 ## Gates
 
-Each builder binds every source hash and creates a nine-frame contact sheet.
+Each builder binds every source hash and creates a beat-by-beat contact sheet.
 The deterministic validators check exact duration and frame count, 1920×1080
 at 30 fps, audio presence, long silence and black frames. A separate normal-
 speed narration-picture review is still required before either sequence may
@@ -54,7 +59,7 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10, p32, p44, p46 and p48.
+The independent review still holds p00, p07, p10, p44, p46 and p48.
 Those occurrences must receive narration-specific progression without
 altering the five v14 repair windows or the completed v15 review sequences.
 

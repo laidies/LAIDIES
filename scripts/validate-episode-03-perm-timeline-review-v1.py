@@ -19,6 +19,7 @@ BUILD = PACKET / "review-sequences/p23-p24-perm-timeline-review-v1-build.json"
 OUTPUT = PACKET / "p23-p24-perm-timeline-review-v1-validation.json"
 EXPECTED_DURATION = 38.0
 EXPECTED_FRAMES = 1140
+EXPECTED_SEGMENTS = 6
 
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -38,8 +39,8 @@ def main() -> None:
         errors.append("sequence checksum drift")
     if abs(build["window"]["duration_seconds"] - EXPECTED_DURATION) > 0.0001:
         errors.append("declared p23-p24 duration drift")
-    if len(build["segments"]) != 6:
-        errors.append("p23-p24 sequence must contain six narration-specific beats")
+    if len(build["segments"]) != EXPECTED_SEGMENTS:
+        errors.append(f"repair sequence must contain {EXPECTED_SEGMENTS} narration-specific beats")
     for prior, current in zip(build["segments"], build["segments"][1:]):
         if abs(prior["end"] - current["start"]) > 0.0001:
             errors.append("segment clock gap or overlap")
@@ -84,7 +85,7 @@ def main() -> None:
     if not motion_pairs_change:
         errors.append("one or more narration beats are visually static from opening to closing frame")
 
-    result = {"status": "PASS" if not errors else "FAIL", "publication_authority": False, "sequence": {"path": str(SEQUENCE.relative_to(ROOT)), "sha256": sha256(SEQUENCE), "duration_seconds": duration, "decoded_frames": decoded_frames, "geometry": "1920x1080", "frame_rate": 30}, "checks": {"build_receipt_checksum_and_clock": "PASS" if not any("checksum" in error or "clock" in error for error in errors) else "FAIL", "full_decode": "PASS" if decoded_frames == EXPECTED_FRAMES else "FAIL", "black_scan": "PASS" if not black_events else "FAIL", "audio_presence_and_long_silence_scan": "PASS" if "Audio: aac" in metadata and not silence_events else "FAIL", "narration_specific_segment_count": "PASS" if len(build["segments"]) == 6 else "FAIL", "continuous_motion_per_narration_beat": "PASS" if motion_pairs_change else "FAIL"}, "errors": errors, "next_gate": "independent normal-speed narration-picture review; deterministic validation does not replace hearing or editorial admission"}
+    result = {"status": "PASS" if not errors else "FAIL", "publication_authority": False, "sequence": {"path": str(SEQUENCE.relative_to(ROOT)), "sha256": sha256(SEQUENCE), "duration_seconds": duration, "decoded_frames": decoded_frames, "geometry": "1920x1080", "frame_rate": 30}, "checks": {"build_receipt_checksum_and_clock": "PASS" if not any("checksum" in error or "clock" in error for error in errors) else "FAIL", "full_decode": "PASS" if decoded_frames == EXPECTED_FRAMES else "FAIL", "black_scan": "PASS" if not black_events else "FAIL", "audio_presence_and_long_silence_scan": "PASS" if "Audio: aac" in metadata and not silence_events else "FAIL", "narration_specific_segment_count": "PASS" if len(build["segments"]) == EXPECTED_SEGMENTS else "FAIL", "continuous_motion_per_narration_beat": "PASS" if motion_pairs_change else "FAIL"}, "errors": errors, "next_gate": "independent normal-speed narration-picture review; deterministic validation does not replace hearing or editorial admission"}
     OUTPUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
     if errors:
