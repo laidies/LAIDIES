@@ -68,7 +68,10 @@ def build() -> None:
     filters, labels = [], []
     for index, segment in enumerate(SEGMENTS):
         label = f"v{index}"
-        filters.append(f"[{index}:v]scale=2000:1125:force_original_aspect_ratio=increase,crop=2000:1125,zoompan=z='min(zoom+0.00020,1.035)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={segment['frames']}:s=1920x1080:fps={FPS},setsar=1,format=yuv420p,trim=duration={segment['duration_seconds']:.3f},setpts=PTS-STARTPTS[{label}]")
+        source_filter = f"[{index}:v]"
+        if crop := segment.get("crop"):
+            source_filter += f"crop={crop},"
+        filters.append(f"{source_filter}scale=2000:1125:force_original_aspect_ratio=increase,crop=2000:1125,zoompan=z='min(zoom+0.00020,1.035)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={segment['frames']}:s=1920x1080:fps={FPS},setsar=1,format=yuv420p,trim=duration={segment['duration_seconds']:.3f},setpts=PTS-STARTPTS[{label}]")
         labels.append(f"[{label}]")
     filters.append("".join(labels) + f"concat=n={len(labels)}:v=1:a=0[vout]")
     audio_index = len(SEGMENTS)

@@ -69,9 +69,16 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10 and p48.
+The independent review still holds p07, p10 and p48.
 Those occurrences must receive narration-specific progression without
 altering the five v14 repair windows or the completed v15 review sequences.
+
+The p00 opening recap now progresses through the existing approved comic strip
+in four narration-bound beats: a complete establishing view, delegation at the
+computer, a structured brief, and the sendable result. It does not substitute
+new character art or alter the frozen narration. The local sequence still
+requires independent normal-speed narration-picture admission before successor
+assembly.
 
 The p23–p24 fresh-perm/timeline sequence has been rebuilt as six
 narration-specific beats: Elle finds the detail, Chutney supplies the shower
