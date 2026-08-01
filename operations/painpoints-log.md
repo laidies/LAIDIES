@@ -11167,3 +11167,27 @@ _Original source ID: repository #36_
   each second.
 - **Possible Behind the Build angle:** The animation was good. The edit was
   wrong. Why LAiDIES now reviews sources and final timing as separate gates.
+
+## BTB-311 — Millisecond narration boundaries do not always fit a 30 fps frame grid
+
+- **Date:** 2026-08-01
+- **Area:** Episode repair packets / exact-audio review / timing validation.
+- **Surprise:** An Episode 03 repair sequence preserved the exact 105.200-second
+  parent-audio window and decoded cleanly, but its picture stream ended two
+  frames before the fractional caption boundary. A validator that measured only
+  picture-frame count rejected the otherwise correct audiovisual review clip.
+- **Root cause:** Caption-derived edit points are expressed in milliseconds,
+  while a 30 fps picture can change only every 33.3 milliseconds. Concatenated
+  segments can therefore accumulate a bounded frame-tail difference even when
+  the container and exact parent audio end at the correct boundary.
+- **Prevention rule:** Narration-aligned review packets must validate both clocks:
+  the MP4 container/audio duration must match the requested source window within
+  0.01 seconds, and the picture stream may end no more than two 30 fps frames
+  early while the final frame is held through the sub-frame audio tail. Any
+  longer picture gap, picture overrun, decode error or wrong audio window fails.
+- **Why the fix works:** It preserves exact spoken context without pretending
+  fractional caption timestamps are exact video frames, while keeping a strict
+  upper bound that still catches real missing-picture defects.
+- **Possible Behind the Build angle:** The edit was right to the millisecond—but
+  video still comes in frames. How LAiDIES validates both clocks without hiding
+  a real timing mistake.
