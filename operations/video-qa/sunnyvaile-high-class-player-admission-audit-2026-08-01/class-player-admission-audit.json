@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "audit_id": "sunnyvaile-high-class-player-admission-2026-08-01",
+  "reviewed_at": "2026-08-01T10:51:52Z",
+  "reviewer": "Codex — Episode Media Quality",
+  "route_or_surface": "/learn/class.html?c=<registered-class-slug>",
+  "status": "FAIL_CLOSED",
+  "source": {
+    "path": "learn/class.html",
+    "sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c"
+  },
+  "data_bindings": [
+    {
+      "path": "content/site/high-classes.json",
+      "sha256": "1b871520cac77b756ea3a8d5554aabcbca21e1afae881e39acb1283678fd9088"
+    },
+    {
+      "path": "content/site/high-learning-ledger.json",
+      "sha256": "40e6d310aeb8d8de601b052db297f55776dee53f30f2ff6735ff6ec93719780f"
+    }
+  ],
+  "current_state": {
+    "registered_classes": 37,
+    "live_register_rows": 0,
+    "rows_with_video_path": 0,
+    "rows_with_learning_record": 1,
+    "learning_ledger_records": 2,
+    "admitted_class_learning_records": 0,
+    "playable_class_occurrences": 0
+  },
+  "admission_logic": {
+    "required_register_status": "live",
+    "requires_non_null_video_path": true,
+    "required_learning_status": "admitted",
+    "requires_current_review_interval": true,
+    "requires_source_interval_to_contain_review_interval": true,
+    "requires_exact_register_ledger_video_binding": true,
+    "all_conditions_required": true
+  },
+  "observed_fail_closed_result": "Every current class row opens an explicitly labelled production-status dialog. No class tape is presented as playable or approved.",
+  "visitor_playback_contract": {
+    "page_load_autoplay": false,
+    "user_trigger_required": true,
+    "native_controls_required": true,
+    "playsinline_required": true,
+    "preload": "metadata",
+    "poster_required_before_admission": true,
+    "escape_close_required": true,
+    "focus_return_required": true
+  },
+  "future_video_admission_requirements": [
+    "exact final MP4 and poster paths with SHA-256 bindings",
+    "live class register row with filmed and verified dates",
+    "current admitted learning record whose video binding matches the register",
+    "approved narration and exact transcript or an explicit silent demonstration purpose",
+    "complete occurrence-level visual-description and narration-or-purpose relevance review",
+    "continuity, identity, occlusion, flicker and motion-semantics verdicts for every occurrence",
+    "captions and audio-description review",
+    "normal-speed final-player watch-through with sound when present",
+    "responsive player proof at 390, 1000 and 1280 CSS pixels",
+    "keyboard, reduced-motion, Safari and screen-reader proof",
+    "independent instructional, factual/currentness, accessibility and unfamiliar-learner review",
+    "owner visual approval and exact release receipt"
+  ],
+  "held_runtime_motion": [
+    {
+      "name": "tvpulse",
+      "type": "CSS_KEYFRAMES",
+      "status": "HOLD",
+      "reason": "The player admission audit does not classify or admit this instructional affordance animation."
+    },
+    {
+      "name": "crton",
+      "type": "CSS_KEYFRAMES",
+      "status": "HOLD",
+      "reason": "The player admission audit does not classify or admit this modal-opening animation."
+    }
+  ],
+  "limitations": [
+    "This proves that the current class player blocks unadmitted media; it does not admit a class video.",
+    "No current class-tape occurrence exists to review against narration or purpose.",
+    "The separate CSS animation occurrences remain held in the sitewide motion inventory."
+  ]
+}

@@ -11293,3 +11293,28 @@ _Original source ID: repository #36_
   repair boundary for a narration-timed replacement.
 - **Possible Behind the Build angle:** Five seconds became fifty: the tiny
   runtime setting that turned a relevant Ada animation into the wrong scene.
+
+## BTB-316 — A video player is not evidence that a video exists
+
+- **Date:** 2026-08-01
+- **Area:** SUNNYVAiLE High / class media admission / visitor truth.
+- **Failure:** The sitewide motion inventory correctly found a dynamic class
+  video renderer, but discovery alone could make the surface look like one of
+  five unreviewed playable videos. In fact, the register contains 37 planned
+  classes, zero live rows and zero video paths, while the learning ledger has
+  zero admitted class records. The renderer deliberately shows a production
+  status card instead of a tape.
+- **Root cause:** Capability discovery and visitor occurrence truth were
+  represented in different gates. A code path capable of creating a video was
+  not machine-bound to the data conditions that determine whether any visitor
+  can actually reach it.
+- **Prevention rule:** Every dynamic media renderer must declare and machine-
+  check its current admission state as well as its capability. The class player
+  requires a live register row, a non-null exact video binding and a current
+  admitted learning record; any first playable row invalidates the zero-state
+  audit and triggers the complete occurrence-level video review.
+- **Why the fix works:** It keeps unfinished classes honest without confusing
+  fail-closed infrastructure with missing review work, while ensuring that the
+  first real tape cannot silently bypass the universal media gate.
+- **Possible Behind the Build angle:** The television worked. There was still
+  nothing it was allowed to play.

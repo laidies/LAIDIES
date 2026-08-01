@@ -196,6 +196,57 @@ for (const surface of registry.runtime_surfaces ?? []) {
   if (!surface.proof_pattern || !source.includes(surface.proof_pattern)) {
     fail(`${surface.id}: fail-closed proof pattern is absent.`);
   }
+  if (surface.source_sha256) {
+    await verifyFile(`${surface.id}: runtime source`, surface.path, surface.source_sha256);
+  }
+  if (surface.evidence_path || surface.evidence_sha256) {
+    await verifyFile(`${surface.id}: runtime evidence`, surface.evidence_path, surface.evidence_sha256);
+  }
+  for (const binding of surface.data_bindings ?? []) {
+    await verifyFile(`${surface.id}: data binding`, binding.path, binding.sha256);
+  }
+
+  if (surface.current_state_check?.type === 'class-player-three-gate') {
+    const registerFile = path.join(root, surface.current_state_check.register_path || '');
+    const ledgerFile = path.join(root, surface.current_state_check.ledger_path || '');
+    if (!fs.existsSync(registerFile) || !fs.existsSync(ledgerFile)) {
+      fail(`${surface.id}: class-player state files are missing.`);
+      continue;
+    }
+    const register = JSON.parse(fs.readFileSync(registerFile, 'utf8'));
+    const ledger = JSON.parse(fs.readFileSync(ledgerFile, 'utf8'));
+    const classes = Array.isArray(register.classes) ? register.classes : [];
+    const classRecords = Array.isArray(ledger.records)
+      ? ledger.records.filter((record) => record.kind === 'class')
+      : [];
+    const liveRows = classes.filter((item) => item.status === 'live');
+    const videoRows = classes.filter((item) => typeof item.video === 'string' && item.video.trim());
+    const admittedRecords = classRecords.filter((record) => record.status === 'admitted');
+    const playableRows = classes.filter((item) => {
+      if (item.status !== 'live' || typeof item.video !== 'string' || !item.video.trim()) return false;
+      const record = classRecords.find((candidate) => candidate.recordId === item.learning_record);
+      return Boolean(record && record.status === 'admitted' && record.bindings?.videoPath === item.video);
+    });
+    const expected = surface.current_state_check.expected;
+    const actual = {
+      registered_classes: classes.length,
+      live_register_rows: liveRows.length,
+      rows_with_video_path: videoRows.length,
+      admitted_class_learning_records: admittedRecords.length,
+      playable_class_occurrences: playableRows.length
+    };
+    for (const [field, expectedValue] of Object.entries(expected ?? {})) {
+      if (actual[field] !== expectedValue) {
+        fail(`${surface.id}: ${field} changed from ${expectedValue} to ${actual[field]}. Re-audit the class-player admission state.`);
+      }
+    }
+    if (!source.includes("cls.status === 'live' && cls.video && admitted")) {
+      fail(`${surface.id}: the three-condition live playback gate is absent.`);
+    }
+    if (!source.includes('not a playable or approved class')) {
+      fail(`${surface.id}: the explicit non-playable production status is absent.`);
+    }
+  }
 }
 
 const admittedAssetPaths = new Set();

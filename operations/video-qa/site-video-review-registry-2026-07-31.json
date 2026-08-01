@@ -88,7 +88,32 @@
       "path": "learn/class.html",
       "status": "FAIL_CLOSED",
       "proof_pattern": "has not been filmed yet",
-      "note": "A class without an exact admitted video binding renders an explicit not-filmed state rather than inventing availability."
+      "source_sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c",
+      "evidence_path": "operations/video-qa/sunnyvaile-high-class-player-admission-audit-2026-08-01/class-player-admission-audit.json",
+      "evidence_sha256": "673586c0e309557a8650b979271dcf363b740e26d17d95a9d078197e2afbe28d",
+      "data_bindings": [
+        {
+          "path": "content/site/high-classes.json",
+          "sha256": "1b871520cac77b756ea3a8d5554aabcbca21e1afae881e39acb1283678fd9088"
+        },
+        {
+          "path": "content/site/high-learning-ledger.json",
+          "sha256": "40e6d310aeb8d8de601b052db297f55776dee53f30f2ff6735ff6ec93719780f"
+        }
+      ],
+      "current_state_check": {
+        "type": "class-player-three-gate",
+        "register_path": "content/site/high-classes.json",
+        "ledger_path": "content/site/high-learning-ledger.json",
+        "expected": {
+          "registered_classes": 37,
+          "live_register_rows": 0,
+          "rows_with_video_path": 0,
+          "admitted_class_learning_records": 0,
+          "playable_class_occurrences": 0
+        }
+      },
+      "note": "A class without a live register row, an exact video path and a current admitted learning record renders an explicit not-filmed state rather than inventing availability. Any change to the current zero-playable state forces a new audit."
     }
   ],
   "direct_motion_assets": [
