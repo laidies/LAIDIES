@@ -10715,6 +10715,79 @@ _Original source ID: repository #36_
 - **Possible Behind the Build angle:** The difference between writing an idea
   down and building an operating system that can remember it for you.
 
+## BTB-293 — Product availability, benefit and change timing are separate claims
+
+- **Date:** 2026-07-31
+- **Area:** NewsStand / AI-product releases / reader account impact.
+- **Failure:** A GPT-5.6 price article first turned “remains available” into
+  “now available” for Free users, then generalized lower credit consumption
+  from paid subscribers to every account. Each sentence sounded plausible, but
+  together they implied a new Free entitlement and a higher Free allowance
+  that OpenAI had not announced.
+- **Root cause:** The explanation merged three different questions: who can
+  access a model, what changed in this release, and which users receive a
+  metered benefit. A correct plan list was treated as proof that every listed
+  plan shared the same before/after effect.
+- **Prevention rule:** For every plan-sensitive product update, build a claim
+  matrix with exact plan, surface, prior state, current state, changed meter and
+  stated beneficiary. Preserve temporal verbs such as “remains” and “now,” and
+  scope each benefit to the source's named population. Never infer a higher
+  limit from lower credit consumption; state whether the allowance changed,
+  whether each action costs less against it, or whether the source is silent.
+- **Why the fix works:** Readers can immediately distinguish access from a new
+  entitlement, a cheaper meter from a larger allowance, and paid-account
+  benefits from unproved Free-account effects.
+- **Possible Behind the Build angle:** Why “you have access” and “you get more”
+  are not the same product announcement.
+- **Publication status:** VERIFIED INTERNAL LEARNING — private NewsStand
+  candidate; no public change.
+
+## BTB-294 — A production image request must not expose a construction layer as the answer
+
+- **Date:** 2026-07-31
+- **Area:** Social creative / image generation / founder review.
+- **Failure:** A generated atmospheric texture was displayed while building a
+  teaser image. Although intended only as a compositing layer, it appeared in
+  the review stream as if it were the requested deliverable and understandably
+  looked unrelated to the announcement.
+- **Root cause:** The image-generation tool automatically surfaced its raw
+  output before the approved town image, exact typography and announcement
+  message had been composited into the finished asset.
+- **Prevention rule:** For founder-facing production-image requests, generate
+  only a reviewable whole concept or explicitly state before generation that a
+  visible result is a non-deliverable layer. Prefer a finished deterministic
+  composite when brand-critical text and approved source imagery are required;
+  inspect the final asset before naming it as ready.
+- **Why the fix works:** The review surface contains either a real option or a
+  clearly labelled construction artifact, so Ali is never asked to interpret
+  an unfinished layer as design work.
+- **Possible Behind the Build angle:** Why an image layer can be technically
+  useful and still be the wrong thing to show a creative director.
+
+## BTB-295 — A current bio can hide a retired social experience
+
+- **Date:** 2026-07-31
+- **Area:** Audience & Growth / Instagram / LinkedIn / grand reopening.
+- **Failure:** The Instagram bio and current domain were updated, but the grid,
+  pins, Highlights and LinkedIn history still led with the retired colour
+  system, old domain, Grimoire and obsolete product language. Looking only at
+  profile settings would have falsely treated the channel as migrated.
+- **Root cause:** Social migration was tracked as profile copy and a future
+  campaign, not as a complete public surface with replacement sequencing.
+  Archive actions were also separated from the obligation to build the posts
+  that must replace them.
+- **Prevention rule:** A social migration audit must inspect profile identity,
+  every pinned object, the visible grid, Highlights, accessibility/OCR, links
+  and recent captions. Build and approve a replacement runway before archiving
+  obsolete posts; bind every archive to the exact live replacement and verify
+  the resulting account surface after publication.
+- **Why the fix works:** The account changes as one intentional public story
+  instead of becoming an empty or internally inconsistent profile, and the
+  replacement work cannot disappear behind a recommendation to “refresh
+  social.”
+- **Possible Behind the Build angle:** Why changing a bio is not the same as
+  moving a brand.
+
 ## BTB-296 — Two valid-looking components can still make one incoherent social object
 
 - **Date:** 2026-07-31
@@ -10737,6 +10810,176 @@ _Original source ID: repository #36_
   become durable exclusions rather than reusable inventory.
 - **Possible Behind the Build angle:** How two finished-looking designs made
   one unfinished campaign—and why the whole object has to be the test.
+
+## BTB-297 — “Custom vintage type” is not a substitute for the actual brand type grammar
+
+- **Date:** 2026-07-31
+- **Area:** Audience & Growth / social creative / typography.
+- **Failure:** A first `COMING SOON` treatment was prominent but used flared
+  serif letters and a swash, making SUNNYVAiLE read like a saloon promotion
+  rather than LAiDIES.
+- **Root cause:** The image brief asked for dimensional Rewind Era campaign
+  lettering without binding the letter construction to LAiDIES' live rounded,
+  geometric masthead language. The model filled that ambiguity with a generic
+  vintage-entertainment style.
+- **Prevention rule:** Brand-critical generated typography must name both the
+  required live type grammar and the prohibited neighbouring genres. For
+  current LAiDIES campaign art, specify bold rounded geometric display forms,
+  then explicitly reject serif, Western, circus, script, swash and signboard
+  treatments. Review the letter shapes—not only prominence, spelling and
+  colour—before founder presentation.
+- **Why the fix works:** It constrains the model to the brand's recognizable
+  construction while still allowing a bespoke dimensional treatment, so
+  “stylized” does not drift into an unrelated nostalgia category.
+- **Possible Behind the Build angle:** The difference between asking AI for
+  “retro” and teaching it which decade, subculture and brand you actually mean.
+
+## BTB-298 — One useful source is not one piece of copy pasted into every channel
+
+- **Date:** 2026-07-31
+- **Area:** Learning-content intake / NewsStand Daily / source attribution.
+- **Surprise:** One credited professional-advice reel legitimately supported
+  both a Paige workplace tip and a mutual-support Daily note, but those two
+  surfaces have different audience jobs. Treating the reel as a generic “content
+  idea” would either lose it in a log or produce duplicated, unattributed copy.
+- **Root cause:** Social sources arrive in the shape of a post, while the site
+  needs decisions about canonical learning ownership, derivative format,
+  attribution, privacy and the surfaces where the idea does *not* belong.
+- **Prevention rule:** Every useful external content seed receives one bounded
+  intake that records the verified source, attribution boundary, canonical
+  owner, distinct derivative jobs, related-learning links, safety guardrails and
+  explicit no-fit surfaces. Do not create a new class, book, song or recurring
+  column merely because the source can be paraphrased into one.
+- **Why the fix works:** The source becomes executable work without becoming
+  slop or duplication: each admitted derivative has a clear job and gate, the
+  durable lesson points to its existing canonical home, and rejected formats do
+  not quietly reappear later.
+- **Possible Behind the Build angle:** How one 94-second reel became two useful
+  ideas—and why neither of them is a copy of the reel.
+
+## BTB-299 — One approved edit must not silently become a permanent AI rule
+
+- **Date:** 2026-07-31
+- **Area:** Learning-content intake / AI workflow education / instruction maintenance.
+- **Surprise:** A plausible social-media “improvement loop” advised comparing an
+  AI draft with the published version and writing the lesson directly into a
+  skill file. The useful feedback-loop idea was real, but the shorthand erased
+  the difference among a factual correction, a one-off editorial choice and a
+  reusable rule.
+- **Root cause:** Social tips reward a short automatic loop, while trustworthy
+  instruction maintenance requires classification, more than one example,
+  human judgement, tests, versioning and rollback. Memory, standing instructions
+  and skills were also treated as interchangeable.
+- **Prevention rule:** Treat creator posts as discovery leads, not evidence.
+  Before persisting an edit, classify it as factual, one-off or recurring; only
+  recurring candidate rules proceed to multi-example evaluation. Keep the old
+  version and never let one output silently rewrite its own governing rules.
+- **Why the fix works:** It preserves the useful learning loop while preventing
+  overfitting, contradiction, error persistence and instruction sprawl.
+- **Possible Behind the Build angle:** Why your AI should not turn every edit
+  into a permanent rule.
+
+## BTB-300 — A real feature is not automatically a working workflow
+
+- **Date:** 2026-07-31
+- **Area:** Learning-content intake / Daily tips / classes / expectation design.
+- **Surprise:** Several plausible creator tips described outcomes that may be
+  possible, but compressed or omitted the prerequisites, setup, customization,
+  human decision, test and upkeep required to make the result reliable. A
+  reader can follow the visible steps correctly and still experience a large
+  expectation gap.
+- **Root cause:** Capability proof was mistaken for workflow proof. Short-form
+  content rewards a clean result, while the operating conditions that produced
+  it are less visible and less shareable.
+- **Prevention rule:** Treat every external AI tip as discovery, not operating
+  instructions. Before LAiDIES publishes a derivative, apply the Missing Middle
+  Check: outcome, capability, prerequisites, setup, judgement, boundaries,
+  test and upkeep. The Daily card names one consequential omission and links to
+  the accepted parent that teaches the complete setup. If that parent does not
+  exist or is not publicly verified, hold the card and create the exact build
+  order.
+- **Why the fix works:** It preserves genuinely useful discoveries without
+  repeating hype, gives the learner a practical next action and makes every
+  short tip feed durable learning rather than becoming isolated content.
+- **Possible Behind the Build angle:** The missing middle between an AI demo
+  that looks effortless and a workflow you can actually trust.
+
+## BTB-301 — Build waves can silently become launch omissions
+
+- **Date:** 2026-07-31
+- **Area:** Whole-town launch planning / building ownership / catalogue scope.
+- **Surprise:** A sensible dependency sequence was described as waves, but it
+  left room to interpret later build order as permission to open SUNNYVAiLE
+  without complete building experiences. It also lacked one exact content
+  floor for “enough classes, books and media,” so local owners could finish
+  their pages while the town still felt empty.
+- **Root cause:** Product sequencing, opening-day scope and future catalogue
+  depth were recorded in different inventories without one machine-checked
+  contract binding all 17 buildings, shared systems and minimum content.
+- **Prevention rule:** Every whole-site release gets one exact opening-day
+  manifest. It must cover every canonical building, name each building's useful
+  content floor, shared dependency, acceptance proof and next action, and bind
+  the episode/content cutline. Phases describe execution order only. A checker
+  must fail if any canonical building or required catalogue family disappears.
+- **Why the fix works:** Owners can build in dependency order without shrinking
+  the promise, while catalogue depth remains deliberately bounded instead of
+  becoming either an empty launch or an impossible “build every idea” mandate.
+- **Possible Behind the Build angle:** How LAiDIES learned the difference
+  between opening the whole town and trying to finish every future idea before
+  the doors open.
+
+## BTB-302 — A publicly hosted film is not discoverable merely because the player can load it
+
+- **Date:** 2026-07-31
+- **Area:** Episode 04 / Homepage / Chick Flicks / Screening Room.
+- **Surprise:** The checksum-bound Episode 04 master remained publicly
+  available and the Screening Room loaded it after the Episode 04 shelf link
+  was activated, but a visitor could reasonably conclude that no video was
+  live. The prominent Homepage and issue actions said “Listen,” the Chick
+  Flicks loading state said no released tapes were present, and an initial
+  direct arrival at `/watch?ep=04` visibly showed Episode 01 with an empty
+  `0:00 / 0:00` player until the Episode 04 shelf link was activated.
+- **Root cause:** Release verification proved immutable media delivery, exact
+  player binding and captions, but did not retain a cold-visitor discovery
+  contract spanning the Homepage label, issue CTA, Chick Flicks loading state
+  and direct deep-link first render.
+- **Prevention rule:** Every public film release must pass a fresh-session
+  discovery test from each promoted entry surface plus a direct deep link. The
+  first stable render must show the requested episode title and format, load
+  non-zero media metadata, and use an explicit “Watch” CTA when a motion film
+  is available. Loading and failure copy must not assert an empty catalogue
+  while released items are merely awaiting a manifest.
+- **Why the fix works:** It tests the visitor's ability to find and recognize
+  the released object, not only the storage URL and eventual player state.
+- **Possible Behind the Build angle:** The episode video was live; the website
+  still taught visitors that it was not.
+
+## BTB-303 — A later ident build can regress a parallel content-repair branch
+
+- **Date:** 2026-07-31
+- **Area:** Episode 04 / video lineage / public release.
+- **Failure:** The public Episode 04 object had the latest approved welcome
+  ident but inherited v8 picture content. A separate v9 content repair existed
+  locally and was independently held. File timestamps therefore made the
+  v8-derived ident build look newest while known picture defects remained,
+  including a 52-second Heroine desk hold across the Google/ChatGPT history
+  passage and thin Ada coverage.
+- **Root cause:** Identity insertion and editorial repair were built as sibling
+  branches without one required successor graph or a final all-dimensions owner
+  watch. Technical delivery verification then became easier to see than the
+  unresolved editorial state.
+- **Prevention rule:** Every episode build must name one immutable parent and
+  all incorporated successor repairs. Before release, compare the candidate
+  against every newer sibling branch and open HOLD finding; then run one
+  normal-speed owner watch covering picture relevance, motion, timing, audio,
+  captions and identity together. A later timestamp or one newly approved
+  insert never makes a sibling branch the latest complete cut.
+- **Why the fix works:** It prevents independently correct inserts from
+  silently discarding other repairs and makes “latest” mean the most complete
+  reconciled lineage, not the last file written.
+- **Possible Behind the Build angle:** The newest export contained the newest
+  logo—and the older movie.
+
 ## BTB-304 — A release packet is not reviewable when the review surface is missing
 
 - **Date:** 2026-07-31
@@ -10763,3 +11006,33 @@ _Original source ID: repository #36_
   finished film.
 - **Possible Behind the Build angle:** Why five existing videos became zero
   launch-ready videos—and how one honest review queue fixes the difference.
+
+## BTB-305 — A moving file is not proof of meaningful animation
+
+- **Date:** 2026-07-31
+- **Area:** All site video and animation / episodes / classes / explainers.
+- **Failure:** Sampled picture checks and mechanical motion evidence allowed
+  opening-day records to describe Episodes 01–03 as passing narration timing,
+  continuity and motion. The exact manifests show Episode 01's 71 placements
+  are all stills, Episode 02's 61 placements are all stills with camera motion
+  disabled, and Episode 03's semantic-motion judgments remain pending. Ali's
+  normal-speed review of Episode 04 also found missing rain, changing zoom
+  states presented as animation and a moth disappearing behind Grace Hopper's
+  arm.
+- **Root cause:** Review was organized around files, samples and measurable
+  pixel change rather than every occurrence's actual visual content, meaning,
+  timing, layer continuity and contribution to the words or learning purpose.
+- **Prevention rule:** Every visitor-facing video or animation—episodes,
+  classes, demos, explainers, music, promos, idents, silent instructional
+  motion and ambient loops—must be reviewed occurrence by occurrence. Describe
+  what is actually visible at normal speed, compare it with the exact narration
+  or silent purpose, and resolve it as PASS, CLOSE_ENOUGH, RETIME, REPLACE or
+  ADD_OR_REPAIR_ANIMATION. A zoom/pan on a still is not animation; motion
+  metrics cannot substitute for semantic judgment; incorrect occlusion or
+  disappearance is a FAIL. Any timing, asset, master or crop change invalidates
+  affected rows.
+- **Why the fix works:** The registry and checker bind human meaning and visual
+  integrity to the exact file and surface, so a playable or technically moving
+  asset cannot bypass the experience gate.
+- **Possible Behind the Build angle:** The difference between “the pixels
+  moved” and “the animation actually taught the thing.”

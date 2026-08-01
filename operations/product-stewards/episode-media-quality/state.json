@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "product_id": "episode-media-quality",
+  "updated": "2026-07-31",
+  "status": "RUNNING",
+  "active_objective": "Operate one occurrence-level video and animation admission gate for every visitor surface, starting with the Trailer and opening-day Episodes 01-04.",
+  "current_stage": "UNIVERSAL_GATE_ACTIVE_OPENING_CUTLINE_RECONCILIATION",
+  "authoritative_trailer_base": {
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+    "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+    "lineage": "58-beat comic v4 master with the canonical Trailer-specific B08 welcome ident inserted as v5",
+    "beat_map": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat-map.json",
+    "captions": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt"
+  },
+  "superseded_do_not_use": [
+    {
+      "path": "assets/video/episode-trailer-narration-motion-v16-wardrobe-locked-review.mp4",
+      "reason": "Retired painterly generation; it predates and must never replace the later 58-beat all-comic lineage."
+    },
+    {
+      "label": "v15/v16 repair branch",
+      "reason": "There is no authoritative later v15/v16 successor. Version numbers must not be treated as recency without a bound source path and checksum."
+    }
+  ],
+  "open_gates": {
+    "lineage_and_exact_master": "PASS",
+    "decode_and_clock": "PASS",
+    "captions": "PASS",
+    "content_accuracy": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
+    "narration_picture_timing": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
+    "visual_identity_and_continuity": "HOLD_PENDING_OUTFIT_DECISION_AND_FULL_TITLE_RECONCILIATION",
+    "motion_and_animation": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
+    "human_full_audible_watch": "HOLD",
+    "public_exact_identity": "FAIL_NOT_RELEASED"
+  },
+  "next_actions": [
+    "Apply operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md to every episode, class, demonstration, explainer, music video, promo, ident, silent instructional animation and ambient loop before site binding.",
+    "Record the one bounded Trailer outfit choice in the review inbox without changing unrelated accepted bytes.",
+    "Complete the occurrence-level narration-or-purpose, continuity, occlusion and motion-semantics rows before each identified full 1x audible watch.",
+    "Render a successor only for the selected outfit-continuity change and defects actually proven by the watch.",
+    "Run decode, captions, real desktop/mobile player and full 1x audible human-watch gates before release consideration."
+  ],
+  "authority": {
+    "local_build": true,
+    "commit_and_push": true,
+    "deploy_or_publish": false
+  }
+}

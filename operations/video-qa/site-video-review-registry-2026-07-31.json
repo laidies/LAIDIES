@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-31",
+  "status": "HOLD",
+  "contract": "operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md",
+  "occurrence_schema": "operations/video-qa/site-video-occurrence.schema.json",
+  "admission_rule": "Every visitor-facing video or animation is admitted occurrence by occurrence. Narrated media is judged against the words spoken at that moment; silent media is judged against its learning, interface or narrative purpose. Sampling, file playback and measured pixel movement cannot produce a complete PASS.",
+  "scope": {
+    "content_types": [
+      "trailer",
+      "episode",
+      "class_lesson",
+      "class_demonstration",
+      "lab_or_tool_demonstration",
+      "explainer",
+      "music_video_or_visualizer",
+      "homepage_or_building_film",
+      "promo_or_social_embed",
+      "logo_ident",
+      "silent_instructional_animation",
+      "ambient_loop"
+    ],
+    "formats": ["mp4", "webm", "m4v", "gif", "lottie", "rive", "css_animation"],
+    "occurrence_dispositions": ["PASS", "CLOSE_ENOUGH", "RETIME", "REPLACE", "ADD_OR_REPAIR_ANIMATION"],
+    "source_types": ["still", "camera_move_on_still", "ambient_loop", "semantic_animation", "demonstration", "live_action", "decorative_motion"]
+  },
+  "monitored_visitor_sources": [
+    "index.html",
+    "preview-homepage.html",
+    "watch.html",
+    "learn/class.html",
+    "content/site/high-classes.json",
+    "content/site/high-learning-ledger.json",
+    "content/episodes/episode-01-cues.json",
+    "content/episodes/episode-02-cues.json",
+    "content/episodes/episode-03-cues.json",
+    "content/episodes/episode-04-cues.json"
+  ],
+  "runtime_surfaces": [
+    {
+      "id": "screening-room",
+      "path": "watch.html",
+      "status": "FAIL_CLOSED",
+      "proof_pattern": "var EPISODE_FILMS = {};",
+      "note": "No full motion-film binding is admitted in the current local player. Cue-level motion is still registry-controlled."
+    },
+    {
+      "id": "class-player",
+      "path": "learn/class.html",
+      "status": "FAIL_CLOSED",
+      "proof_pattern": "has not been filmed yet",
+      "note": "A class without an exact admitted video binding renders an explicit not-filmed state rather than inventing availability."
+    }
+  ],
+  "direct_motion_assets": [
+    {
+      "id": "sunnyvaile-logo-reveal",
+      "content_type": "logo_ident",
+      "path": "assets/video/sunnyvaile-logo-reveal.mp4",
+      "sha256": "1df211669ecf1067b69fecd3d24badf1dc156e650512bc2e373823509eaa45e9",
+      "bound_sources": [
+        "preview-homepage.html",
+        "content/episodes/episode-01-cues.json",
+        "content/episodes/episode-02-cues.json",
+        "content/episodes/episode-03-cues.json"
+      ],
+      "occurrence_review": {
+        "expected_occurrences": 4,
+        "reviewed_occurrences": 0,
+        "status": "HOLD",
+        "reason": "The asset exists and its bindings are known, but each final crop, timing, transition, reduced-motion fallback and narrative purpose has not yet been recorded under this occurrence contract."
+      },
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "episode-04-ada-loop-cue",
+      "content_type": "ambient_loop",
+      "path": "assets/episodes/ep-04/clips/ep04-scene-03-ada-loop-v1.mp4",
+      "sha256": "343e37c02c4873ae71c7fed8e21bb6d4c52b7ccc0bfb05770a223b84ee36b3b4",
+      "bound_sources": ["content/episodes/episode-04-cues.json"],
+      "occurrence_review": {
+        "expected_occurrences": 1,
+        "reviewed_occurrences": 0,
+        "status": "HOLD",
+        "reason": "The cue binding exists, but the exact narration match, visible semantic motion, loop seam and final responsive crop have not been admitted."
+      },
+      "admission_status": "HOLD"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "trailer",
+      "content_type": "trailer",
+      "master_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+      "master_sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+      "caption_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+      "caption_sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+      "expected_occurrences": 58,
+      "relevance_review": {"reviewed_occurrences": 0, "status": "HOLD"},
+      "continuity_and_occlusion_review": {"reviewed_occurrences": 0, "status": "HOLD"},
+      "motion_semantics_review": {"reviewed_occurrences": 0, "status": "HOLD"},
+      "open_findings": ["Full 58-occurrence audit not completed", "Heroine outfit continuity decision remains open", "Full 1x audible watch not completed"],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "01",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+      "master_sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+      "caption_path": "assets/captions/episode-01.vtt",
+      "caption_sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+      "expected_occurrences": 71,
+      "relevance_review": {"reviewed_occurrences": 13, "status": "HOLD", "basis": "The existing independent judge sampled 13 source windows; the remaining occurrences were not admitted."},
+      "continuity_and_occlusion_review": {"reviewed_occurrences": 13, "status": "HOLD"},
+      "motion_semantics_review": {"reviewed_occurrences": 71, "status": "FAIL", "basis": "The exact 71-placement manifest records every placement as a still."},
+      "open_findings": ["58 occurrence rows remain unreviewed", "All 71 placements are stills; zoom or pan cannot count as animation", "Full 1x audible watch not completed"],
+      "admission_status": "FAIL"
+    },
+    {
+      "id": "02",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+      "master_sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+      "caption_path": "assets/captions/episode-02.vtt",
+      "caption_sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+      "expected_occurrences": 61,
+      "relevance_review": {"reviewed_occurrences": 61, "status": "PASS", "basis": "The existing full A/V judge reviewed all 61 narration-picture occurrences."},
+      "continuity_and_occlusion_review": {"reviewed_occurrences": 61, "status": "PASS"},
+      "motion_semantics_review": {"reviewed_occurrences": 61, "status": "FAIL", "basis": "The exact 61-placement manifest records still sources with camera motion disabled for every placement."},
+      "open_findings": ["The entire current visual edition is still-only", "Full 1x audible watch not completed"],
+      "admission_status": "FAIL"
+    },
+    {
+      "id": "03",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+      "master_sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
+      "caption_path": "assets/captions/episode-03.vtt",
+      "caption_sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "expected_occurrences": 49,
+      "relevance_review": {"reviewed_occurrences": 1, "status": "HOLD", "basis": "Cue 30 was exactly judged; whole-title coherence was only sampled."},
+      "continuity_and_occlusion_review": {"reviewed_occurrences": 1, "status": "HOLD"},
+      "motion_semantics_review": {"reviewed_occurrences": 0, "status": "HOLD", "basis": "The manifest identifies 15 ambient loops, one one-shot-then-freeze and 33 static holds, but every independent semantic-motion verdict remains pending."},
+      "open_findings": ["48 occurrence rows remain unreviewed", "All 49 semantic-motion judgments remain unresolved", "Full 1x audible watch not completed"],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "04",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+      "master_sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
+      "caption_path": "assets/captions/episode-04.vtt",
+      "caption_sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+      "expected_occurrences": 55,
+      "relevance_review": {"reviewed_occurrences": 0, "status": "FAIL", "basis": "A complete occurrence audit does not exist and known narration-picture mismatches are open."},
+      "continuity_and_occlusion_review": {"reviewed_occurrences": 0, "status": "FAIL", "basis": "Known issues include the Grace Hopper moth disappearing behind her arm and unreconciled identity/continuity defects."},
+      "motion_semantics_review": {"reviewed_occurrences": 0, "status": "FAIL", "basis": "Known failures include missing rain, early zoom-state stills presented as animation, a one-shot/freeze Ada sequence and long near-static holds."},
+      "open_findings": ["Rain outside the window is missing where environmental animation is expected", "Early sequence uses static images at changing zoom states rather than animation", "Grace Hopper's moth briefly disappears behind her arm", "Ada sequence lacks the intended semantic motion", "A roughly 52-second desk hold contradicts the 2017/2022 narration", "Full 55-occurrence audit and full 1x audible watch not completed"],
+      "admission_status": "FAIL"
+    }
+  ]
+}

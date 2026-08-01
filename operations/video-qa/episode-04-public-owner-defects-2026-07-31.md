@@ -12,6 +12,11 @@ IS NOT ACCEPTED AS CURRENT OR FINAL
 Ali reported timing problems, missing images and missing animations in the
 public Episode 04 cut. Named examples:
 
+- rain expected outside the window is missing rather than visibly animated;
+- the early sequence uses static images at different zoom states instead of
+  the animation the sequence is meant to contain;
+- the moth in the Grace Hopper sequence briefly disappears behind her arm,
+  which is a layer/occlusion continuity failure;
 - the 2017 Google / November 2022 ChatGPT passage returns to and holds on the
   Heroine instead of showing the events being narrated;
 - substantial Ada animation/coverage expected from production is absent;
@@ -52,6 +57,10 @@ Before a successor can be proposed for release:
 1. reconcile one authoritative Episode 04 base rather than branching ident and
    content repairs independently;
 2. create a narration-to-picture occurrence audit for all 55 placements;
+   each row must describe the actual frames and motion, quote the narration at
+   that time, and resolve as PASS, CLOSE_ENOUGH, RETIME, REPLACE or
+   ADD_OR_REPAIR_ANIMATION under
+   `operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`;
 3. replace the 52-second modern desk hold with event-specific 2017 and November
    2022 coverage, retaining a brief Heroine callback only where the narration
    explicitly returns to her desk;
@@ -59,5 +68,8 @@ Before a successor can be proposed for release:
    Engine representation and semantic motion rather than a short one-shot plus
    long freeze/flicker holds;
 5. address the remaining independent v9 HOLD findings before owner review;
-6. complete a normal-speed owner watch for image relevance, animation, timing,
+6. restore and visibly verify the missing rain, replace zoom-state stills where
+   semantic animation is required, and repair the Grace/moth layer ordering so
+   no subject or prop disappears incorrectly;
+7. complete a normal-speed owner watch for image relevance, animation, timing,
    audio and captions before changing the public binding.

@@ -22,6 +22,10 @@ if (typeof program.media_gate_manifest !== 'string' || !fs.existsSync(path.join(
   errors.push('Opening-day media gate manifest is missing.');
 }
 
+if (typeof program.site_video_gate_manifest !== 'string' || !fs.existsSync(path.join(root, program.site_video_gate_manifest))) {
+  errors.push('Universal site video and animation gate manifest is missing.');
+}
+
 const registered = registry.products
   .filter((product) => product.kind === 'building')
   .sort((a, b) => a.building_number - b.building_number);

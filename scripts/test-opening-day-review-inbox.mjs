@@ -107,12 +107,27 @@ try {
 
     await page.locator('#tabs button').filter({ hasText: 'Episode 04' }).click();
     assert.equal(await page.locator('#status').textContent(), 'REBUILD REQUIRED');
+
+    await page.locator('#tabs button').filter({ hasText: 'Trailer' }).click();
+    assert.equal(await page.locator('#status').textContent(), 'DECISION + FULL WATCH REQUIRED');
+    assert.equal(await page.locator('#programmeDecisionPanel').isVisible(), true, `${width}px: Trailer decision is hidden`);
+    assert.equal(await page.locator('#programmeDecision option').count(), 4, `${width}px: bounded outfit choices missing`);
+    await page.click('#save');
+    assert.equal(await page.locator('#saved').textContent(), 'Choose the Trailer outfit before saving this receipt.');
+    await page.selectOption('#programmeDecision', 'multicolour_trailer_signature');
+    assert.match(await page.locator('#programmeDecisionDetail').textContent(), /latest explicit Trailer correction/);
+    await page.click('#save');
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await page.locator('#tabs button').first().waitFor();
+    await page.locator('#tabs button').filter({ hasText: 'Trailer' }).click();
+    assert.equal(await page.locator('#programmeDecision').inputValue(), 'multicolour_trailer_signature', `${width}px: Trailer choice did not restore`);
+    await noOverflow(page, `${width}px Trailer decision`);
     await page.screenshot({
       path: path.join(evidenceDir, width === 390 ? 'review-inbox-mobile.png' : 'review-inbox-desktop.png'),
       fullPage: true
     });
     assert.deepEqual(pageErrors, [], `${width}px: page errors ${pageErrors.join('; ')}`);
-    results.push(`${width}px: exact Episode 01 metadata/captions, saved review restore, Episode 04 hold and no overflow`);
+    results.push(`${width}px: exact Episode 01 metadata/captions, saved review restore, Episode 04 hold, Trailer choice and no overflow`);
     await page.close();
   }
 } finally {

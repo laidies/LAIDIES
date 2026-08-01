@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/internal/site-video-occurrence.schema.json",
+  "title": "LAiDIES visitor-facing video and animation occurrence review",
+  "description": "One review row for one exact appearance of video or animation on a visitor-facing surface. A source reused four times requires four rows.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "content_id",
+    "content_type",
+    "route_or_surface",
+    "placement_id",
+    "parent_master_path",
+    "parent_master_version",
+    "parent_master_sha256",
+    "transcript_or_purpose_path",
+    "transcript_or_purpose_sha256",
+    "narration_excerpt_or_silent_purpose",
+    "source_asset_path",
+    "source_asset_sha256",
+    "source_type",
+    "visual_description",
+    "intended_job",
+    "observed_result",
+    "relevance_disposition",
+    "disposition_reason",
+    "continuity_identity_verdict",
+    "occlusion_flicker_verdict",
+    "motion_semantics_verdict",
+    "exact_repair_action",
+    "reviewer",
+    "reviewed_at",
+    "normal_speed_final_context_confirmed",
+    "sound_audible_when_present"
+  ],
+  "anyOf": [
+    {
+      "required": ["start_seconds", "end_seconds"]
+    },
+    {
+      "required": ["interface_trigger"]
+    }
+  ],
+  "properties": {
+    "content_id": {"type": "string", "minLength": 1},
+    "content_type": {
+      "enum": [
+        "trailer",
+        "episode",
+        "class_lesson",
+        "class_demonstration",
+        "lab_or_tool_demonstration",
+        "explainer",
+        "music_video_or_visualizer",
+        "homepage_or_building_film",
+        "promo_or_social_embed",
+        "logo_ident",
+        "silent_instructional_animation",
+        "ambient_loop"
+      ]
+    },
+    "route_or_surface": {"type": "string", "minLength": 1},
+    "placement_id": {"type": "string", "minLength": 1},
+    "parent_master_path": {"type": "string", "minLength": 1},
+    "parent_master_version": {"type": "string", "minLength": 1},
+    "parent_master_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "transcript_or_purpose_path": {"type": "string", "minLength": 1},
+    "transcript_or_purpose_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "start_seconds": {"type": "number", "minimum": 0},
+    "end_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "interface_trigger": {"type": "string", "minLength": 1},
+    "narration_excerpt_or_silent_purpose": {"type": "string", "minLength": 1},
+    "source_asset_path": {"type": "string", "minLength": 1},
+    "source_asset_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_type": {
+      "enum": [
+        "still",
+        "camera_move_on_still",
+        "ambient_loop",
+        "semantic_animation",
+        "demonstration",
+        "live_action",
+        "decorative_motion"
+      ]
+    },
+    "visual_description": {"type": "string", "minLength": 1},
+    "intended_job": {"type": "string", "minLength": 1},
+    "observed_result": {"type": "string", "minLength": 1},
+    "relevance_disposition": {
+      "enum": ["PASS", "CLOSE_ENOUGH", "RETIME", "REPLACE", "ADD_OR_REPAIR_ANIMATION"]
+    },
+    "disposition_reason": {"type": "string", "minLength": 1},
+    "continuity_identity_verdict": {"enum": ["PASS", "HOLD", "FAIL"]},
+    "occlusion_flicker_verdict": {"enum": ["PASS", "HOLD", "FAIL"]},
+    "motion_semantics_verdict": {"enum": ["PASS", "HOLD", "FAIL", "NOT_APPLICABLE"]},
+    "exact_repair_action": {"type": "string", "minLength": 1},
+    "replacement_or_animation_brief": {"type": "string"},
+    "corrected_start_seconds": {"type": "number", "minimum": 0},
+    "corrected_end_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "reviewer": {"type": "string", "minLength": 1},
+    "reviewed_at": {"type": "string", "format": "date-time"},
+    "normal_speed_final_context_confirmed": {"type": "boolean"},
+    "sound_audible_when_present": {"type": "boolean"}
+  }
+}

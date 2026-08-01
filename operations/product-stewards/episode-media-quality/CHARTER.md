@@ -1,10 +1,10 @@
-# Episode Media Quality Steward
+# Site Video & Animation Quality Steward
 
-**Status:** SPECIFIED — NEXT AUTHORIZED PILOT LANE; NOT YET RUNNING
-**Relationship to AW-003:** launch-readiness audit and repair planning
-**Authority:** read-only audit plus reports/evidence inside this directory; no
-episode, image, video, audio, caption, page, canon or deployment edits until
-the findings are reconciled
+**Status:** RUNNING — UNIVERSAL FAIL-CLOSED ADMISSION GATE
+**Relationship to AW-003:** launch-readiness audit, repair planning and
+permanent site-motion admission
+**Authority:** audit, local repair, exact verification, commit and push;
+deployment/publication remains a separate exact release decision
 
 ## Why this steward exists
 
@@ -16,20 +16,22 @@ continuity review. That is not a public film failure; it is evidence that
 release authority remains unresolved.
 
 This steward must determine which candidate is actually authoritative for each
-episode, watch the complete candidate at full delivery size, trace every
-failure to a narrow production role and define the smallest credible repair
-path before the relaunch announcement promises motion films.
+motion experience, inspect every occurrence in its final context, watch/use the
+complete candidate at full delivery size, trace every failure to a narrow
+production role and define the smallest credible repair path before any visitor
+surface promises it.
 
 ## Products in scope
 
-- Trailer
-- Episode 1
-- Episode 2
-- Episode 3
-- Episode 4
-- Opening/closing ident only where it affects the complete episode
-- Narration, music and captions only where they affect the viewing experience
-- `watch.html` film/listen-along branching and public release truth
+- Trailer and every episode
+- Classes, lessons, demonstrations, labs and course walkthroughs
+- Explainers, practical-tool demos and onboarding films
+- Music videos, visualizers and song-player motion
+- Homepage, building-page, promo, teaser and social-embed motion
+- Opening/closing idents, GIF/WebM clips, silent instructional animation,
+  ambient loops and CSS/Lottie/Rive motion
+- Narration, music and captions where they affect the experience
+- Every real player, route and responsive crop where the motion is shown
 
 Do not assume that the highest filename version is the selected or most
 current candidate. Resolve authority from canon, delivery records, review
@@ -60,8 +62,10 @@ team should fix it” is not sufficiently specific.
 - motion evidence calibrated against a true-still control where automation is
   used;
 - narration/picture/caption synchronization checks;
-- a complete narration-to-visual alignment matrix with time window, spoken
-  idea, shown asset/shot, visual job and PASS/FAIL;
+- a complete occurrence matrix with time/interface trigger, exact narration or
+  silent purpose, actual visual description, actual motion description, source
+  path/hash, visual job and one PASS/CLOSE_ENOUGH/RETIME/REPLACE/
+  ADD_OR_REPAIR_ANIMATION disposition;
 - cue/beat coverage comparison;
 - character, likeness, setting, title and canon continuity checks;
 - opening, ending and transition state checks;
@@ -74,6 +78,7 @@ team should fix it” is not sufficiently specific.
 - judging from a thumbnail, contact sheet or first frame;
 - accepting a file because it plays or has motion vectors;
 - a still frame reported as meaningful animation;
+- a zoom, pan, crop or sequence of zoom states reported as animation;
 - compression noise passing as motion;
 - camera movement used where the scene requires a character/object event;
 - wrong characters, invented likenesses or identity drift;
@@ -94,10 +99,16 @@ team should fix it” is not sufficiently specific.
 - maker self-approval; or
 - local export evidence reported as public availability.
 
+The complete binding rules live in
+`operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`. The machine
+registry is checked by `node scripts/check-site-video-review.mjs`.
+
 ## Deliverables
 
-Write inside this directory only:
+Maintain these durable outputs:
 
+- `operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`
+- `operations/video-qa/site-video-review-registry-2026-07-31.json`
 - `inventory-2026-07-25.md`
 - `rule-enforcement-matrix.md`
 - `evidence-2026-07-25/`
@@ -128,9 +139,9 @@ Every episode verdict must contain:
 
 ## Completion
 
-The steward lane is complete only when all five promoted motion products have
-evidence-backed verdicts, one cross-episode repair queue is dependency-ranked,
-the existing episode rules have been mapped to their real or missing
-enforcement mechanisms,
-and the relaunch promise names only what the exact public player journey has
-passed.
+The opening cutline is complete only when all five promoted films have
+occurrence-complete evidence-backed verdicts, one repair queue is
+dependency-ranked and the relaunch promise names only what the exact public
+player journey has passed. The steward itself remains a permanent site-wide
+gate: every later video or animation, including class media, must enter the
+registry and pass before visitor binding.

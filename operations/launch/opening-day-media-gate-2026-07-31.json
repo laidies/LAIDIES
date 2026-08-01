@@ -3,7 +3,8 @@
   "updated": "2026-07-31",
   "status": "HOLD",
   "opening_day_cutline": ["trailer", "01", "02", "03", "04"],
-  "release_rule": "A title is opening-ready only when the exact checksum-bound master passes content accuracy, narration-picture timing, image and identity continuity, intended animation/motion, complete captions, full decode, an identified human full-title 1x audible watch, the real responsive website player, exact public bytes and discovery/correction propagation. A local file, isolated player pass or successful upload cannot substitute for another gate.",
+  "release_rule": "A title is opening-ready only when the exact checksum-bound master passes the universal site video and animation contract occurrence by occurrence: content accuracy, narration-or-purpose relevance, image and identity continuity, occlusion, intended animation/motion, complete captions, full decode, an identified human full-title 1x audible watch, the real responsive website player, exact public bytes and discovery/correction propagation. A sampled review, local file, isolated player pass, motion score or successful upload cannot substitute for another gate.",
+  "site_video_review_registry": "operations/video-qa/site-video-review-registry-2026-07-31.json",
   "review_surface": "operations/control-room/review-inbox.html",
   "current_public_finding": {
     "checked_at": "2026-07-31T17:19:35-07:00",
@@ -23,6 +24,8 @@
     "narration_picture_timing",
     "visual_identity_and_continuity",
     "motion_and_animation",
+    "occurrence_narration_or_purpose_relevance",
+    "occurrence_motion_continuity_and_occlusion",
     "human_full_audible_watch",
     "website_player",
     "responsive_and_accessible_playback",
@@ -33,18 +36,41 @@
     {
       "id": "trailer",
       "title": "The Trailer",
-      "status": "REBUILD REQUIRED",
+      "status": "DECISION + FULL WATCH REQUIRED",
       "release_ready": false,
       "master": {
         "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
         "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
-        "role": "last checksum-bound complete review master; not the unfinished v15/v16 successor"
+        "role": "authoritative 58-beat comic reconciliation base with Trailer-specific B08 ident; not release-ready"
       },
       "captions": {
         "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
         "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
         "cue_count": 207,
         "coverage": "complete for v5"
+      },
+      "decision_required": {
+        "id": "trailer_heroine_outfit",
+        "prompt": "Choose the Heroine's signature look for the Welcome Trailer.",
+        "recommended": "multicolour_trailer_signature",
+        "evidence_path": "operations/product-stewards/episode-media-quality/evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html",
+        "options": [
+          {
+            "value": "multicolour_trailer_signature",
+            "label": "Multicolour dress — Trailer signature",
+            "detail": "Recommended by the bound evidence package because it follows the latest explicit Trailer correction. It requires changing the seven yellow-plaid beats."
+          },
+          {
+            "value": "yellow_plaid_signature",
+            "label": "Yellow plaid — Trailer signature",
+            "detail": "Keeps the seven yellow-plaid beats and changes the two multicolour beats."
+          },
+          {
+            "value": "explicit_two_look_exception",
+            "label": "Two-look exception",
+            "detail": "Keeps both looks only if the Trailer explicitly establishes that this is intentional, not a continuity error."
+          }
+        ]
       },
       "gates": {
         "exact_master": "PASS",
@@ -54,6 +80,8 @@
         "narration_picture_timing": "HOLD",
         "visual_identity_and_continuity": "HOLD",
         "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
         "human_full_audible_watch": "HOLD",
         "website_player": "PASS",
         "responsive_and_accessible_playback": "PASS",
@@ -61,14 +89,17 @@
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
-        "Ali reported timing errors and missing images/animations; those defects have not been cleared by a complete watch of a final successor.",
+        "Ali reported timing errors and missing images/animations; existing mechanical evidence does not reproduce a broken clock or missing media, so a complete audible watch of this exact v5 hash must confirm or time-code the visible defects.",
         "The v5 heroine-outfit decision remained open.",
-        "v15/v16 repair work contains review imagery but no rendered, checksum-bound successor film.",
+        "The larger-numbered v16 film is a retired painterly generation and is forbidden as a repair source.",
         "The Screening Room admission points at a different partial caption lineage ending 64.356 seconds before the narration, so it cannot bind v5 safely."
       ],
-      "next_action": "Finish one authoritative Trailer successor from the v16 repair source, reconcile the 58-beat picture map and full caption clock, then run the full gate and human watch before any site binding.",
+      "next_action": "Record the bounded outfit choice in the review inbox and complete one full 1x audible watch of the exact v5 hash. Render a successor only for the selected continuity change and any time-coded defects actually observed, then rerun the full gate before site binding.",
       "evidence": [
         "operations/product-stewards/episode-media-quality/ali-review-packet.md",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v5-welcome-ident-independent-judge-2026-07-26.json",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v4-independent-full-title-judge-2026-07-26.json",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v4-representative-player-witness-successor-2026-07-26.json",
         "operations/product-stewards/episode-media-quality/evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html",
         "operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-representative-player-harness-2026-07-26"
       ]
@@ -76,7 +107,7 @@
     {
       "id": "01",
       "title": "Episode 01 — On Wednesdays We Do AI",
-      "status": "READY FOR OWNER WATCH",
+      "status": "OCCURRENCE AUDIT + MOTION REBUILD REQUIRED",
       "release_ready": false,
       "master": {
         "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
@@ -94,9 +125,11 @@
         "decode_and_clock": "PASS",
         "captions": "PASS",
         "content_accuracy": "PASS",
-        "narration_picture_timing": "PASS",
-        "visual_identity_and_continuity": "PASS",
-        "motion_and_animation": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "FAIL",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "FAIL",
         "human_full_audible_watch": "HOLD",
         "website_player": "PASS",
         "responsive_and_accessible_playback": "PASS",
@@ -104,10 +137,12 @@
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
+        "The prior independent judge sampled 13 source windows; it did not admit all 71 narration-picture occurrences.",
+        "The exact 71-placement manifest records every placement as a still. Zoom, pan or crop changes do not satisfy the animation gate.",
         "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
         "The exact motion master is not bound to the public Screening Room."
       ],
-      "next_action": "Complete one full 1x audible watch with time-coded HOLD notes or PASS, then bind this exact master/captions to the real site player and verify public playback and discovery.",
+      "next_action": "Complete all 71 occurrence rows against the narration, create or admit semantic animation where still-only coverage is insufficient, then complete the full 1x audible watch and rerun the exact-player gate before any site binding.",
       "evidence": [
         "operations/product-stewards/episode-media-quality/evidence-2026-07-27/emq-e01-v26-fresh-independent-judge-2026-07-27.md"
       ]
@@ -115,7 +150,7 @@
     {
       "id": "02",
       "title": "Episode 02 — Tell Me What You Want",
-      "status": "READY FOR OWNER WATCH",
+      "status": "MOTION REBUILD + OWNER WATCH REQUIRED",
       "release_ready": false,
       "master": {
         "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
@@ -135,7 +170,9 @@
         "content_accuracy": "PASS",
         "narration_picture_timing": "PASS",
         "visual_identity_and_continuity": "PASS",
-        "motion_and_animation": "PASS",
+        "motion_and_animation": "FAIL",
+        "occurrence_narration_or_purpose_relevance": "PASS",
+        "occurrence_motion_continuity_and_occlusion": "FAIL",
         "human_full_audible_watch": "HOLD",
         "website_player": "PASS",
         "responsive_and_accessible_playback": "PASS",
@@ -143,10 +180,11 @@
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
+        "All 61 narration-picture occurrences were reviewed, but the exact placement manifest records still sources with camera motion disabled throughout. The current visual edition cannot pass the animation gate.",
         "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
         "The exact motion master is not bound to the public Screening Room."
       ],
-      "next_action": "Complete one full 1x audible watch with time-coded HOLD notes or PASS, then bind this exact master/captions to the real site player and verify public playback and discovery.",
+      "next_action": "Preserve the admitted 61-occurrence narration relevance map, add or admit purposeful animation where the final experience requires it, then complete the full 1x audible watch and rerun the exact-player gate before site binding.",
       "evidence": [
         "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-full-av-judge-2026-07-26.md",
         "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-welcome-ident-v2-representative-player-independent-judge-2026-07-26.md"
@@ -155,7 +193,7 @@
     {
       "id": "03",
       "title": "Episode 03 — The Burn Book Problem",
-      "status": "READY FOR OWNER WATCH",
+      "status": "COMPLETE OCCURRENCE AUDIT REQUIRED",
       "release_ready": false,
       "master": {
         "path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
@@ -173,9 +211,11 @@
         "decode_and_clock": "PASS",
         "captions": "PASS",
         "content_accuracy": "PASS",
-        "narration_picture_timing": "PASS",
-        "visual_identity_and_continuity": "PASS",
-        "motion_and_animation": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
         "human_full_audible_watch": "HOLD",
         "website_player": "PASS",
         "responsive_and_accessible_playback": "PASS",
@@ -183,10 +223,12 @@
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
+        "Cue 30 was judged exactly, but whole-title coherence was only sampled; 48 other occurrences remain unadmitted.",
+        "The 49-placement manifest identifies 15 ambient loops, one one-shot-then-freeze and 33 static holds, while every independent semantic-motion verdict remains pending.",
         "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
         "The exact motion master is not bound to the public Screening Room."
       ],
-      "next_action": "Complete one full 1x audible watch with time-coded HOLD notes or PASS, then bind this exact master/captions to the real site player and verify public playback and discovery.",
+      "next_action": "Complete all 49 occurrence rows for narration relevance, continuity, occlusion and motion semantics; repair every RETIME, REPLACE or ADD_OR_REPAIR_ANIMATION result; then complete the full 1x audible watch before site binding.",
       "evidence": [
         "operations/product-stewards/episode-media-quality/evidence-2026-07-27/emq-e03-v13-fresh-independent-judge-2026-07-27.md"
       ]
@@ -215,6 +257,8 @@
         "narration_picture_timing": "FAIL",
         "visual_identity_and_continuity": "FAIL",
         "motion_and_animation": "FAIL",
+        "occurrence_narration_or_purpose_relevance": "FAIL",
+        "occurrence_motion_continuity_and_occlusion": "FAIL",
         "human_full_audible_watch": "HOLD",
         "website_player": "HOLD",
         "responsive_and_accessible_playback": "HOLD",
@@ -223,6 +267,9 @@
       },
       "known_issues": [
         "The public player serves the older v8 hash, not this v9 candidate.",
+        "Rain outside the window is missing where environmental animation is expected.",
+        "The early sequence presents static images at changing zoom states rather than actual animation.",
+        "The Grace Hopper moth briefly disappears behind her arm, which fails the occlusion and continuity gate.",
         "The Ada sequence is substantially static and missing the intended multi-shot animation coverage.",
         "A roughly 52-second irrelevant desk hold replaces the spoken 2017 and 2022 events.",
         "The Analytical Engine, Grace Hopper debugging and ENIAC passages require factual and visual correction.",

@@ -86,14 +86,21 @@ reviews and exact admission/release receipts are complete.
 
 Trailer and Episodes 01–04 now have one fail-closed opening-day media gate in
 `operations/launch/opening-day-media-gate-2026-07-31.json`, checked by
-`node scripts/check-opening-day-media.mjs`. Current truth is **0/5
-release-ready**: Episodes 01–03 are queued for one identified complete 1×
-audible watch; the Trailer and Episode 04 require editorial rebuilds before a
-final owner watch. The public Episode 04 object is the older v8 branch and is
-not opening-day-admitted. Ali's usable watch-and-note surface is
-`operations/control-room/review-inbox.html`. Only an exact master that passes
-all twelve gates may be bound to the real website player and move to public
-verification.
+`node scripts/check-opening-day-media.mjs`. A universal occurrence-level gate
+now also applies to **every** site video and animation—including classes,
+demos, explainers, music, promos, idents, silent instructional motion and
+ambient loops—under
+`operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`, checked by
+`node scripts/check-site-video-review.mjs`. Current opening truth is **0/5
+release-ready**. Episode 01 and Episode 02 fail the current motion standard
+because their exact placement manifests are still-only; Episode 03 and the
+Trailer require complete occurrence review; Episode 04 requires editorial and
+motion rebuild. The public Episode 04 object is the older v8 branch and is not
+opening-day-admitted. Ali's usable watch-and-note surface is
+`operations/control-room/review-inbox.html`. Only an exact master whose every
+occurrence passes narration-or-purpose relevance, continuity, occlusion and
+motion semantics—plus the other release gates—may be bound to a real website
+player and move to public verification.
 
 Run the persistent product-champion system in risk-ranked cycles. Require an
 `OPERATING-SPEC.md` before a champion builds, then complete the
