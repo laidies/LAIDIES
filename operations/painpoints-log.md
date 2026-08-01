@@ -11268,3 +11268,28 @@ _Original source ID: repository #36_
   timing repair to propagate across every affected episode.
 - **Possible Behind the Build angle:** The animation was perfect. The slot was
   2.5 seconds too short.
+
+## BTB-315 — A five-second clip can become fifty seconds on the page
+
+- **Date:** 2026-08-01
+- **Area:** Screening Room / direct episode cues / runtime video transforms.
+- **Failure:** Episode 04's Ada clip looked like a bounded five-second loop in
+  storage, but its website cue lasted 49.7 seconds. The Screening Room also
+  slowed the clip to half speed, so visitors saw nearly five repetitions while
+  the narration moved through arithmetic, instructions, symbols, music, method
+  and the machine's capability limit. The source's first/last-frame SSIM was
+  only `0.119635`, making every hard-loop jump visible.
+- **Root cause:** Asset review measured the media file, not the occurrence the
+  renderer created from the cue window, playback-rate default and loop rule.
+  A broadly relevant illustration concealed an incoherent visitor experience.
+- **Prevention rule:** Direct video and animation audits must combine the cue
+  window, renderer transforms and exact source asset into a full-duration
+  runtime-context review sequence. Measure loop seams, describe the visible
+  pixels against the contemporaneous narration and admit the occurrence—not
+  the stored file. A short source cannot pass a long semantic window merely by
+  being loopable.
+- **Why the fix works:** It tests what the visitor actually sees and hears,
+  catches hidden playback-rate and repetition effects, and produces an exact
+  repair boundary for a narration-timed replacement.
+- **Possible Behind the Build angle:** Five seconds became fifty: the tiny
+  runtime setting that turned a relevant Ada animation into the wrong scene.

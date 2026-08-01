@@ -130,9 +130,18 @@
       ],
       "occurrence_review": {
         "expected_occurrences": 1,
-        "reviewed_occurrences": 0,
-        "status": "HOLD",
-        "reason": "The cue binding exists, but the exact narration match, visible semantic motion, loop seam and final responsive crop have not been admitted."
+        "reviewed_occurrences": 1,
+        "status": "FAIL",
+        "disposition_counts": {
+          "PASS": 0,
+          "CLOSE_ENOUGH": 0,
+          "RETIME": 0,
+          "REPLACE": 1,
+          "ADD_OR_REPAIR_ANIMATION": 0
+        },
+        "evidence_path": "operations/video-qa/episode-04-ada-loop-occurrence-audit-2026-08-01/episode-04-ada-loop-occurrence-audit.json",
+        "evidence_sha256": "d133bd9059a9b62cd0a053cfbcbce65ff28a4a93ee105e65b370ce7876d8e68c",
+        "reason": "The exact Screening Room occurrence is described against its 49.7-second narration window and rendered with the runtime's 0.5x hard-loop behavior. The five-second source repeats almost five times, depicts only one portion of the spoken progression, changes Ada's face/posture/framing and has a severe 0.119635 first/last-frame SSIM seam. It requires a narration-timed multi-shot replacement plus audible 1x and independent review."
       },
       "admission_status": "HOLD"
     }

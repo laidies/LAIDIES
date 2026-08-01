@@ -1,0 +1,98 @@
+{
+  "audit_id": "episode-04-ada-loop-occurrence-audit-2026-08-01",
+  "status": "FAIL",
+  "release_state": "HOLD",
+  "created_at": "2026-08-01T03:35:41-07:00",
+  "contract": "operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md",
+  "occurrence_schema": "operations/video-qa/site-video-occurrence.schema.json",
+  "source": {
+    "path": "assets/episodes/ep-04/clips/ep04-scene-03-ada-loop-v1.mp4",
+    "sha256": "343e37c02c4873ae71c7fed8e21bb6d4c52b7ccc0bfb05770a223b84ee36b3b4",
+    "duration_seconds": 5.0,
+    "width": 1920,
+    "height": 1080,
+    "frames_per_second": 30,
+    "audio_stream": false
+  },
+  "runtime_binding": {
+    "cue_sheet": "content/episodes/episode-04-cues.json",
+    "cue_sheet_sha256": "8cd20dc34aeada067262fdde797308e370749194a560cc9d8878d092cc60baf6",
+    "renderer": "watch.html",
+    "renderer_sha256": "ca757a9c72713c385bf3fe854d12f8c4f677dd652d866c2d1ff5d065e625d70f",
+    "renderer_behavior": "The visitor player autoplays, loops and slows video cues to 0.5x unless a cue declares another rate. This five-second source therefore becomes a ten-second perceptual loop and repeats almost five times in its 49.7-second cue window."
+  },
+  "caption_authority": {
+    "path": "assets/captions/episode-04.vtt",
+    "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4"
+  },
+  "review_sequence": {
+    "path": "operations/video-qa/episode-04-ada-loop-occurrence-audit-2026-08-01/review-sequences/episode-04-ada-loop-exact-website-context.mp4",
+    "sha256": "ad11a2ff00c35865227be6d514c704d588a6e714dd73ece4f362c5b2f0ba2ac5",
+    "duration_seconds": 49.67,
+    "audio_decode_confirmed": true,
+    "human_audible_review_completed": false
+  },
+  "loop_seam": {
+    "first_frame": "operations/video-qa/episode-04-ada-loop-occurrence-audit-2026-08-01/frames/seam-first.png",
+    "first_frame_sha256": "4ca73c2c2059214836db342d7f08abd349587db3c17a2fcd74aefac7115ae35b",
+    "last_frame": "operations/video-qa/episode-04-ada-loop-occurrence-audit-2026-08-01/frames/seam-last.png",
+    "last_frame_sha256": "a0c2791b8ad0c0b3e963b73b803817c0c69fd0fa0a7ede42cee232c70461c454",
+    "ssim": 0.119635,
+    "verdict": "FAIL",
+    "reason": "The first and last frames are compositionally very different. A hard loop visibly jumps the camera, Ada and the foreground musical notes."
+  },
+  "occurrences": [
+    {
+      "content_id": "episode-04",
+      "content_type": "episode",
+      "route_or_surface": "/watch.html?ep=04",
+      "placement_id": "episode-04-cue-19-ada-loop",
+      "parent_master_path": "watch.html",
+      "parent_master_version": "source-current-2026-08-01",
+      "parent_master_sha256": "ca757a9c72713c385bf3fe854d12f8c4f677dd652d866c2d1ff5d065e625d70f",
+      "transcript_or_purpose_path": "assets/captions/episode-04.vtt",
+      "transcript_or_purpose_sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+      "start_seconds": 250.3,
+      "end_seconds": 300.0,
+      "interface_trigger": "Open Episode 04 in the Screening Room and play through 04:10.3–05:00.0.",
+      "narration_excerpt_or_silent_purpose": "The narrator introduces a young Ada facing the Analytical Engine. Ada explains that everyone else saw arithmetic, while she understood that precisely written instructions could let a machine work with symbols, set them to music and follow a step-by-step method; she then warns that the machine has no power to originate anything.",
+      "source_asset_path": "assets/episodes/ep-04/clips/ep04-scene-03-ada-loop-v1.mp4",
+      "source_asset_sha256": "343e37c02c4873ae71c7fed8e21bb6d4c52b7ccc0bfb05770a223b84ee36b3b4",
+      "source_type": "ambient_loop",
+      "visual_description": "A single illustrated Ada stands in a brass mechanical study beside the Analytical Engine, holding a punched card. Rain falls outside, candles glow and a gold musical-note trail grows from the machinery into oversized foreground notes. Across the five seconds, the camera and Ada's face, pose and scale shift substantially instead of remaining locked.",
+      "intended_job": "Make Ada's conceptual leap visible: arithmetic becomes general instructions, symbols and music, while preserving her identity and the period-machine setting across the full spoken explanation.",
+      "observed_result": "The punched card, engine and musical notes support only part of the narration. The same five-second visual is slowed and repeated almost five times across a 49.7-second explanation containing several distinct ideas. It never depicts the progression from arithmetic to instructions to symbols to a written method and then to the capability limit. The 0.119635 first/last-frame SSIM confirms a severe hard-loop jump, and the existing motion proof records large character/camera shifts and changes to Ada's face and posture.",
+      "relevance_disposition": "REPLACE",
+      "disposition_reason": "The image concept is relevant to one beat, but the occurrence is too long and semantically varied for one unstable loop. It fails visual progression, identity continuity and seamless-loop quality.",
+      "continuity_identity_verdict": "FAIL",
+      "occlusion_flicker_verdict": "FAIL",
+      "motion_semantics_verdict": "FAIL",
+      "exact_repair_action": "Replace cue 19 with a narration-timed multi-shot Ada sequence: establish Ada and the Analytical Engine; show arithmetic/adding-machine framing; show precise instructions and the punched card; reveal symbols and restrained musical notes; show the step-by-step method; then bridge to the capability-limit beat at 04:59.56. Use locked Ada identity, stable 16:9 composition and subtle background-only motion. Any loop must pass a measured seam check and a full audible 1x review before admission.",
+      "replacement_or_animation_brief": "Use the already defined Ada shot direction and the Episode 04 v10 repair packet as planning authority, but do not promote its local candidates without independent identity, historical, motion and final-context review. Keep Ada stable; animate rain, candlelight, gears and a restrained note thread. No camera drift, face change, pose change, foreground-note takeover or hard loop seam.",
+      "corrected_start_seconds": 250.3,
+      "corrected_end_seconds": 300.0,
+      "reviewer": "Codex maker audit; independent approval pending",
+      "reviewed_at": "2026-08-01T03:35:41-07:00",
+      "normal_speed_final_context_confirmed": false,
+      "sound_audible_when_present": false
+    }
+  ],
+  "evidence": [
+    {
+      "path": "operations/video-qa/episode-04-ada-loop-occurrence-audit-2026-08-01/frames/contact-sheet.png",
+      "sha256": "9ab46048c3b6ab667cca09c6fb1841fe1ee018c7e6c34e21b620aef0dd7f5c16"
+    },
+    {
+      "path": "operations/video-qa/firefly-20260723/EP04-ADA-MOTION-PROOF.md",
+      "role": "prior controlled-motion comparison and identity/camera findings"
+    },
+    {
+      "path": "assets/episodes/ep-04/pixel/ep04-shot-direction.md",
+      "role": "intended semantic-motion direction"
+    }
+  ],
+  "admission": {
+    "status": "HOLD",
+    "reason": "The current visitor cue is a confirmed REPLACE. The exact-audio sequence decodes, but no replacement has completed identity, historical, seam, responsive, audible 1x and independent review."
+  }
+}

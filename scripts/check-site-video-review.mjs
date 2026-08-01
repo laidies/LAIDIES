@@ -11,6 +11,7 @@ const registryPath = path.join(root, 'operations/video-qa/site-video-review-regi
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
 const errors = [];
 const validStatuses = new Set(['PASS', 'HOLD', 'FAIL']);
+let occurrenceSchema = null;
 const requiredContentTypes = [
   'trailer',
   'episode',
@@ -55,6 +56,57 @@ async function verifyFile(label, relativePath, expectedHash) {
   if (actual !== expectedHash) fail(`${label}: checksum mismatch (${actual}).`);
 }
 
+function verifySchemaBoundOccurrenceEvidence(label, relativePath, expectedCount) {
+  if (!occurrenceSchema || !relativePath) return;
+  const file = path.join(root, relativePath);
+  if (!fs.existsSync(file)) return;
+
+  let evidence;
+  try {
+    evidence = JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (error) {
+    fail(`${label}: occurrence evidence is not valid JSON (${error.message}).`);
+    return;
+  }
+
+  // Older audits predate the occurrence schema. New evidence that explicitly
+  // binds the schema must validate instead of merely existing by checksum.
+  if (evidence.occurrence_schema !== registry.occurrence_schema) return;
+  if (!Array.isArray(evidence.occurrences)) {
+    fail(`${label}: schema-bound evidence requires an occurrences array.`);
+    return;
+  }
+  if (evidence.occurrences.length !== expectedCount) {
+    fail(`${label}: schema-bound evidence contains ${evidence.occurrences.length} occurrences, expected ${expectedCount}.`);
+  }
+
+  for (const [index, occurrence] of evidence.occurrences.entries()) {
+    for (const field of occurrenceSchema.required ?? []) {
+      if (!Object.hasOwn(occurrence, field)) {
+        fail(`${label}: occurrence ${index + 1} omits required field ${field}.`);
+      }
+    }
+    const anyOfSatisfied = (occurrenceSchema.anyOf ?? []).some((variant) =>
+      (variant.required ?? []).every((field) => Object.hasOwn(occurrence, field))
+    );
+    if (!anyOfSatisfied) {
+      fail(`${label}: occurrence ${index + 1} has neither a timed window nor an interface trigger.`);
+    }
+    for (const [field, definition] of Object.entries(occurrenceSchema.properties ?? {})) {
+      if (!Object.hasOwn(occurrence, field)) continue;
+      if (definition.enum && !definition.enum.includes(occurrence[field])) {
+        fail(`${label}: occurrence ${index + 1} has invalid ${field}=${occurrence[field]}.`);
+      }
+      if (definition.type === 'boolean' && typeof occurrence[field] !== 'boolean') {
+        fail(`${label}: occurrence ${index + 1} requires boolean ${field}.`);
+      }
+      if (definition.pattern && typeof occurrence[field] === 'string' && !(new RegExp(definition.pattern).test(occurrence[field]))) {
+        fail(`${label}: occurrence ${index + 1} has invalid ${field}.`);
+      }
+    }
+  }
+}
+
 if (!fs.existsSync(path.join(root, registry.contract || ''))) {
   fail('The binding site-video review contract is missing.');
 }
@@ -63,7 +115,7 @@ const occurrenceSchemaPath = path.join(root, registry.occurrence_schema || '');
 if (!registry.occurrence_schema || !fs.existsSync(occurrenceSchemaPath)) {
   fail('The machine-valid occurrence review schema is missing.');
 } else {
-  const occurrenceSchema = JSON.parse(fs.readFileSync(occurrenceSchemaPath, 'utf8'));
+  occurrenceSchema = JSON.parse(fs.readFileSync(occurrenceSchemaPath, 'utf8'));
   const requiredOccurrenceFields = [
     'route_or_surface',
     'placement_id',
@@ -163,6 +215,11 @@ for (const asset of registry.direct_motion_assets ?? []) {
       `${asset.id} occurrence evidence`,
       asset.occurrence_review?.evidence_path,
       asset.occurrence_review?.evidence_sha256
+    );
+    verifySchemaBoundOccurrenceEvidence(
+      `${asset.id} occurrence evidence`,
+      asset.occurrence_review?.evidence_path,
+      reviewed
     );
     const dispositionCounts = asset.occurrence_review?.disposition_counts;
     if (!dispositionCounts || typeof dispositionCounts !== 'object') {
