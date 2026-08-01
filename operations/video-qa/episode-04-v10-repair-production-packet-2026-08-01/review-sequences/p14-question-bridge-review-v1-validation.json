@@ -1,0 +1,53 @@
+{
+  "status": "TECHNICAL_PASS_INDEPENDENT_SEMANTIC_REVIEW_REQUIRED",
+  "authority": "NO_EDITORIAL_ACCEPTANCE_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "output": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p14-question-bridge-review-v1.mp4",
+  "output_sha256": "191e829a9a9e65228e37ab1e708eed1ae7b372aa31323aa29fd5db74ad0decb8",
+  "expected": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 510,
+    "duration_seconds": 17.0,
+    "audio_channels": "mono",
+    "audio_sample_rate_hz": 48000
+  },
+  "observed": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 510,
+    "duration_seconds": 17.0
+  },
+  "checks": {
+    "geometry_pass": true,
+    "frame_count_pass": true,
+    "duration_pass": true,
+    "decode_pass": true,
+    "audio_present": true,
+    "mono_48000_hz_audio_pass": true,
+    "black_frame_events": [],
+    "hard_cuts_distinct_pass": true,
+    "source_hashes_match": true,
+    "build_receipt_hash_matches": true
+  },
+  "cut_evidence": [
+    {
+      "cut_seconds": 3.566666666666667,
+      "mean_abs_pixel_delta": 37.701487,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 10.366666666666667,
+      "mean_abs_pixel_delta": 78.962049,
+      "distinct_visual_pass": true
+    }
+  ],
+  "explicit_limits": [
+    "mechanical validation does not prove narration-picture meaning",
+    "the three deliberate still beats are not represented as animation",
+    "an independent reviewer must watch the exact audio at normal speed and record PASS, CLOSE_ENOUGH, RETIME, REPLACE or ADD_OR_REPAIR_ANIMATION",
+    "p13-to-p14 and p14-to-p15 continuity must be judged in the assembled successor",
+    "a successor master still requires complete occurrence re-audit and an audible responsive-player watch"
+  ]
+}

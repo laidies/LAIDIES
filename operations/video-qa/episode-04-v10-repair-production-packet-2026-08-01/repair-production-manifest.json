@@ -11,6 +11,22 @@
   },
   "review_sequences": [
     {
+      "occurrences": ["p03", "p04", "p05", "p06"],
+      "audio_seconds": [40.96, 101.5],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p03-p06-opening-narration-review-v2.mp4",
+      "sha256": "eb02422c40d46906cb3de2bb11d6f48a21eefc90ecf19fffc4631a46f6f88d88",
+      "status": "REVIEW_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED",
+      "remaining_concern": "Independent narration fit, rain perceptibility, heroine protection and normal-speed shot-progression judgment required."
+    },
+    {
+      "occurrences": ["p14"],
+      "audio_seconds": [185.0, 202.0],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p14-question-bridge-review-v1.mp4",
+      "sha256": "191e829a9a9e65228e37ab1e708eed1ae7b372aa31323aa29fd5db74ad0decb8",
+      "status": "REVIEW_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED",
+      "remaining_concern": "Independent narration fit, text legibility, hold duration and p13/p15 transition judgment required."
+    },
+    {
       "occurrences": ["p16", "p17"],
       "audio_seconds": [220.75, 244.876],
       "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p16-p17-maivens-entry-review-v1.mp4",
@@ -52,9 +68,8 @@
     }
   ],
   "repair_queue": [
-    {"occurrences": ["p03", "p06"], "status": "NEW_VISUAL_OR_SEQUENCE_REQUIRED", "owner": "Weekly Episodes visual production"},
-    {"occurrences": ["p04", "p05"], "status": "MOTION_REVIEW_HELD", "owner": "Independent video review"},
-    {"occurrences": ["p14"], "status": "REPLACE_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p03", "p04", "p05", "p06"], "status": "CANDIDATE_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED", "owner": "Independent video review"},
+    {"occurrences": ["p14"], "status": "CANDIDATE_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED", "owner": "Independent video review"},
     {"occurrences": ["p18"], "status": "INDEPENDENT_REFERENCE_AND_ERA_REVIEW_REQUIRED", "owner": "Independent accuracy and visual review"},
     {"occurrences": ["p20"], "status": "CANDIDATE_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED", "owner": "Independent accuracy and visual review"},
     {"occurrences": ["p22", "p23"], "status": "NEW_EVENT_SPECIFIC_VISUALS_REQUIRED", "owner": "Weekly Episodes visual production"},
