@@ -30,6 +30,12 @@ single failure: p43 at `13:33.400–14:24.100`.
 - It moves from Chutney's repeated alibi through active source checking and
   the limits of improved tools, then introduces the Nature, Stanford and KPMG
   cards only when each named claim is spoken.
+- `p12-p13-hallucination-review-v1.mp4` replaces 39.7 seconds of two long
+  static cards with five narration-specific beats.
+- It moves from the model's confident voice through mixed-quality inputs,
+  inferred assumptions and a smooth plausible answer, then returns to the
+  court-record-versus-Burn-Book comparison exactly when the narration says
+  that checking is what distinguishes them.
 
 ## Gates
 
@@ -41,7 +47,7 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10, p12–13, p15–16, p23–24,
-p32, p44, p46 and p48. Those occurrences must receive narration-specific
+The independent review still holds p00, p07, p10, p15–16, p23–24, p32, p44,
+p46 and p48. Those occurrences must receive narration-specific
 progression without altering the five v14 repair windows or the three
 completed v15 review sequences.
