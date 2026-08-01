@@ -8,7 +8,7 @@ already repaired windows. It addresses the 21 remaining motion/pacing defects
 identified by the independent full-title review, beginning with the longest
 single failure: p43 at `13:33.400–14:24.100`.
 
-## Completed visible repair
+## Completed visible repairs
 
 - `p43-method-to-cocktail-review-v1.mp4` replaces the 50.7-second static
   cocktail-card hold with nine narration-specific beats.
@@ -20,17 +20,23 @@ single failure: p43 at `13:33.400–14:24.100`.
 - The exact p43 master audio window is carried for review. The future full
   successor must retain the complete v14 audio stream and external caption
   track unchanged.
+- `p39-p42-three-move-method-review-v1.mp4` replaces 102.2 seconds of four
+  static method cards with nine narration-specific beats.
+- It moves from source checking and official guidance through all three
+  Prompt Like Elle moves, the file-in-court example, the no-invented-receipts
+  rule and the complete worked prompt.
 
 ## Gates
 
-The builder binds every source hash and creates a nine-frame contact sheet.
-The deterministic validator checks exact duration, 1,521 decoded frames,
-1920×1080 at 30 fps, audio presence, long silence and black frames. A separate
-normal-speed narration-picture review is still required before this sequence
-may enter the next full successor.
+Each builder binds every source hash and creates a nine-frame contact sheet.
+The deterministic validators check exact duration and frame count, 1920×1080
+at 30 fps, audio presence, long silence and black frames. A separate normal-
+speed narration-picture review is still required before either sequence may
+enter the next full successor.
 
 ## Remaining v15 repair groups
 
 The independent review still holds p00, p07, p10, p12–13, p15–16, p23–24,
-p32, p34–36, p39–42, p44, p46 and p48. Those occurrences must receive
-narration-specific progression without altering the five v14 repair windows.
+p32, p34–36, p44, p46 and p48. Those occurrences must receive narration-
+specific progression without altering the five v14 repair windows or the two
+completed v15 review sequences.
