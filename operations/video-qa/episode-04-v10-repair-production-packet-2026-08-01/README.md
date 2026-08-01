@@ -6,9 +6,9 @@ change.
 
 This packet converts the 55-occurrence owner audit of the Episode 04 v9 master
 into a production queue. Every finding is bound to the exact narration window,
-the actual assembled visual and the next admissible action. Six current
-exact-audio review sequences have been built where existing art can form a
-meaningful progression. The opening candidate now separates ordinary chat,
+the actual assembled visual and the next admissible action. Seven current
+exact-audio review sequences are now built where existing art can form a
+meaningful progression. The opening candidate separates ordinary chat,
 interruption, reflection, deeper doubt and the launch question. The Ada v2 cut
 uses six distinct narration-aligned beats, including separate capability-limit,
 1843 evidence and credit-erasure visuals. The p14 candidate removes the
@@ -35,6 +35,7 @@ independent normal-speed review before it can enter an assembled successor.
 | p19–p20 | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat candidate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
 | p37–p38 | 11:22.45–12:44.23 | `review-sequences/p37-p38-karen-narration-review-v1.mp4` | Clear search-terms → retrieval diagram → exact quote progression; independent review required. |
 | p43 | 14:03.80–14:55.53 | `review-sequences/p43-modern-language-to-chatbox-review-v1.mp4` | Replaces a generic desk hold with a 2017 language-system → November 2022 chatbox → user-desk progression. |
+| p46–p49 | 15:25.80–16:43.67 | `review-sequences/p46-p49-modern-criticism-review-v1.mp4` | Exact-audio candidate now follows research → stochastic parrot → Google context → disputed departure → colleague protest → Kate Crawford's supply-chain critique. The dismissal image no longer appears before the narration reaches it. Independent accuracy, likeness, narration-fit and transition review required. |
 
 The review sequences use exact parent-master audio, hard editorial cuts and no
 fabricated narration. Their checksums are in `source-sha256.txt`.
@@ -65,9 +66,12 @@ fabricated narration. Their checksums are in `source-sha256.txt`.
   rediscovery visual and a truthful 1952 bridge.
 - **Grace p30:** the v3 moth candidate is held. The moth may not disappear
   behind Grace's arm or violate foreground/background occlusion.
-- **Modern criticism p46/p48:** the dismissal visual is narratively useful only
-  later. Remove it from the early slot and retime it to the actual dismissal/
-  protest narration before testing the whole sequence.
+- **Modern criticism p46–p49:** independently judge the exact-audio candidate
+  at normal speed. Confirm the researcher identities and parrot analogy are
+  accurate, the Google/context and disputed-departure beats do not overstate
+  the underlying facts, the collective protest is visually clear, and Kate's
+  supply-chain motion begins only when she enters the narration. Judge the
+  p45/p46 and p49/p50 transitions in the assembled successor.
 - **Closing p50–p51:** replace the long catch-all hall hold with a progression
   that follows the women checking the whole machine, the 200-year lineage,
   browser/chatbot reality, agentic-AI boundary, LAiDIES next steps and the
