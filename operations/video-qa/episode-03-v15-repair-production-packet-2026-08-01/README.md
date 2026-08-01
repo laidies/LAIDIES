@@ -54,7 +54,14 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10, p23–24, p32, p44,
-p46 and p48. Those occurrences must receive narration-specific
-progression without altering the five v14 repair windows or the three
-completed v15 review sequences.
+The independent review still holds p00, p07, p10, p32, p44, p46 and p48.
+Those occurrences must receive narration-specific progression without
+altering the five v14 repair windows or the completed v15 review sequences.
+
+The p23–p24 fresh-perm/timeline sequence has been rebuilt as six
+narration-specific beats: Elle finds the detail, Chutney supplies the shower
+timeline, domain knowledge exposes the contradiction, the AI lesson is made
+explicit, the same polished alibi repeats three times, and Elle returns to the
+one detail that cannot survive contact with the timeline. The local sequence
+still requires independent normal-speed narration-picture admission before it
+can be assembled into a successor master.
