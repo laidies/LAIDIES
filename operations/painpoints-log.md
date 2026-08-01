@@ -11062,3 +11062,27 @@ _Original source ID: repository #36_
 - **Possible Behind the Build angle:** LAiDIES had thirty-two opening versions
   and still did not have opening credits—because “exported” and “accepted” are
   different jobs.
+
+## BTB-307 — Filenames can promise three shots while the pixels repeat one
+
+- **Date:** 2026-08-01
+- **Area:** Episode visual production / source selection / narration coverage.
+- **Failure:** Several Episode 04 source sets were named `start`, `mid` and
+  `end`, but visual inspection found byte-identical ENIAC files, nearly
+  identical Hedy variants and a fourth Ada frame too similar to carry a new
+  capability-limit and credit-erasure beat. A semantically harmful older ENIAC
+  frame also foregrounded men during narration about women being erased from
+  the credit.
+- **Root cause:** Shot intent was inferred from filenames, sequence position
+  and export count before the candidate pixels were compared with one another
+  and with each narration beat.
+- **Prevention rule:** Before editing a long narrated passage, render and view a
+  source-set contact sheet, compute checksums, describe each candidate and map
+  it to one distinct narration purpose. Duplicate, near-duplicate or
+  counter-narrative art does not count as coverage. If the source set cannot
+  sustain the passage, record `NEW_VISUAL_REQUIRED` instead of manufacturing
+  variety with crops or camera moves.
+- **Why the fix works:** Editors begin with a truthful coverage map, so every
+  cut advances the story and missing art is visible before assembly.
+- **Possible Behind the Build angle:** The files said start, middle and end.
+  The pictures said same, same and same.

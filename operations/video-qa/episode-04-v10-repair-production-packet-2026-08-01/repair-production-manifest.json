@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "title": "Episode 04 v10 repair production packet",
+  "status": "RUNNING",
+  "authority": "LOCAL_REPAIR_AND_REVIEW_ONLY",
+  "parent_master": {
+    "path": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+    "sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
+    "captions": "assets/captions/episode-04.vtt",
+    "captions_sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4"
+  },
+  "review_sequences": [
+    {
+      "occurrences": ["p16", "p17"],
+      "audio_seconds": [220.75, 244.876],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p16-p17-maivens-entry-review-v1.mp4",
+      "sha256": "956daeeb70d1685ddac0e871816d09cd076fc2e3b20b344de89a370c7bc9c558",
+      "status": "REVIEW_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED",
+      "remaining_concern": "Independent canon, era, narration alignment and normal-speed continuity judgment required."
+    },
+    {
+      "occurrences": ["p19", "p20"],
+      "audio_seconds": [250.3, 341.55],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p19-p20-ada-narration-review-v1.mp4",
+      "sha256": "f5d9c61a70d267a88eaacc6e67fa1529b0859e2bba452cf75aea263a1108d15c",
+      "status": "REVIEW_SEQUENCE_BUILT_ADDITIONAL_VISUAL_REQUIRED",
+      "remaining_concern": "The final capability-limit and credit-erasure beat is too similar to the preceding Ada frame."
+    },
+    {
+      "occurrences": ["p37", "p38"],
+      "audio_seconds": [682.45, 764.23],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p37-p38-karen-narration-review-v1.mp4",
+      "sha256": "78a16db4b73a67e99b6d8fd9853aaf71edf45208946703c8e535da4623191f63",
+      "status": "REVIEW_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED",
+      "remaining_concern": "Independent accuracy, narration alignment and normal-speed hold-duration judgment required."
+    },
+    {
+      "occurrences": ["p43"],
+      "audio_seconds": [843.8, 895.53],
+      "path": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p43-modern-language-to-chatbox-review-v1.mp4",
+      "sha256": "61d8d5dfb387760063fee758846e602f984c37b0601407ef03ec3298d4558cf8",
+      "status": "REVIEW_SEQUENCE_BUILT_INDEPENDENT_REVIEW_REQUIRED",
+      "remaining_concern": "Independent event accuracy and narration-picture timing judgment required."
+    }
+  ],
+  "repair_queue": [
+    {"occurrences": ["p03", "p06"], "status": "NEW_VISUAL_OR_SEQUENCE_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p04", "p05"], "status": "MOTION_REVIEW_HELD", "owner": "Independent video review"},
+    {"occurrences": ["p14"], "status": "REPLACE_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p18"], "status": "INDEPENDENT_REFERENCE_AND_ERA_REVIEW_REQUIRED", "owner": "Independent accuracy and visual review"},
+    {"occurrences": ["p20"], "status": "ADDITIONAL_VISUAL_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p22", "p23"], "status": "NEW_EVENT_SPECIFIC_VISUALS_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p25", "p27"], "status": "NEW_EVENT_SPECIFIC_VISUALS_REQUIRED", "owner": "Weekly Episodes visual production"},
+    {"occurrences": ["p30"], "status": "MOTION_AND_OCCLUSION_REVIEW_HELD", "owner": "Independent video review"},
+    {"occurrences": ["p46", "p48"], "status": "RETIME_PLAN_READY", "owner": "Weekly Episodes editor"},
+    {"occurrences": ["p50", "p51"], "status": "NEW_CLOSING_SEQUENCE_REQUIRED", "owner": "Weekly Episodes visual production"}
+  ],
+  "successor_admission": "HOLD",
+  "required_next_gate": "Independent exact-audio normal-speed review, missing-art completion, assembled-successor occurrence invalidation, complete 1x audible responsive-player watch"
+}
+
