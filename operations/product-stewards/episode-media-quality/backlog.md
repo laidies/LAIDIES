@@ -27,7 +27,7 @@
 - **Episode 01 — On Wednesdays We Do AI:** complete all 71 occurrence rows and replace insufficient still-only coverage with purposeful motion before the full 1× audible owner watch.
 - **Episode 02 — Tell Me What You Want:** preserve the admitted 61-occurrence narration map, rebuild the still-only visual edition where animation is required, then complete the full 1× audible owner watch.
 - **Episode 03 — The Burn Book Problem:** complete all 49 relevance/continuity/motion rows; judge the 15 ambient loops, one one-shot/freeze and 33 static holds in the final experience before the full owner watch.
-- **Episode 04 — The Founding Mothers:** rebuild the failed historical and narration-picture sequences on one authoritative base; complete the visual audit, exact-player proof and full audible watch before replacing public v8.
+- **Episode 04 — The Founding Mothers:** the 55/55 owner actual-frame/purpose audit is complete on v9 and proves 14 launch-blocking occurrences plus 6 shot-variety/hold-duration repairs. Independently review the exact-audio rain and Grace-moth contexts; rebuild the remaining narration-specific sequences; assemble one successor only from admitted components; then complete exact-player proof and the full audible watch before replacing the current listen-along/public object.
 
 ## P1 — portable listening and correction propagation
 
