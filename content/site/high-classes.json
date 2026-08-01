@@ -67,9 +67,65 @@
         "Trace how instructions, files, search and tool results can become working context",
         "Choose one real task and name what still needs verification"
       ],
+      "path": [
+        "Start with one ordinary task. Name the product or app handling the request.",
+        "Name the model as one component inside that product—not the whole experience.",
+        "Mark what the app deliberately supplies as working context: your request, instructions, conversation, files, memory or selected tool results.",
+        "Name any optional capability the app uses, such as search, file handling, calculation or a connected service.",
+        "Finish with the human boundary: the claim, decision or outcome that still needs checking."
+      ],
+      "mistake": "Treating a polished answer as proof that you know where it came from. Fluency does not tell you whether the response was generated from patterns, grounded in a current source, shaped by saved context or checked against the real world.",
+      "analogy": "Think of the app as a studio, the model as one performer and tools as equipment the studio may make available. It helps separate the cast; it is not a technical blueprint, and the model is not a person.",
+      "mechanism": "The app assembles the instructions and working context for the task. A model processes what it is given and produces—or helps select—the next output or action. If the app uses search, files or another tool, selected results can be added to that context. None of those layers makes an important claim automatically true.",
+      "demo": {
+        "variable": "whether a current source is supplied as working context",
+        "task": "A colleague asks whether a newly announced reimbursement rule applies to an expense submitted on Friday.",
+        "bad": {
+          "input": "Does the new reimbursement rule apply to an expense I submit on Friday?",
+          "output": "Yes. New reimbursement rules generally apply to all expenses submitted after they are announced.",
+          "verdict": "It sounds decisive, but no rule, date or responsible source was supplied. The answer filled the gap with a plausible generalisation."
+        },
+        "why": "The model only had the question. It did not have the operative rule or a current source, so there was no evidence for the confident conclusion.",
+        "fix": "Give the app the responsible source—or use a visible search capability to find it—then require the answer to identify the exact sentence and effective date it relies on.",
+        "good": {
+          "input": "Using only the attached policy notice, tell me whether the rule applies to an expense submitted on Friday. Quote the effective-date sentence. If the notice does not settle it, say what is missing.",
+          "output": "The notice says the rule applies to expenses submitted on or after Monday. A Friday submission falls before that date. I would still confirm that no later notice replaced this one.",
+          "verdict": "The source entered the working context, the conclusion points to its evidence and the remaining verification boundary stays visible."
+        }
+      },
+      "practice": {
+        "title": "Map one task before you hand it over",
+        "intro": "Choose a real, low-risk task. The map makes you name what each layer is doing—and what remains yours to judge.",
+        "capabilities": [
+          "No extra capability needed",
+          "Current web search",
+          "A file or document",
+          "Calculation or code",
+          "A connected service"
+        ],
+        "explain_back_prompt": "In your own words: why is an AI app more than a model?"
+      },
+      "take_home": {
+        "title": "The App / Model / Context / Check map",
+        "description": "Keep the map beside any AI task: what you want, what the app must supply, what capability may help, what must be verified and what private information stays out.",
+        "filename": "laidies-app-model-context-check-map.txt"
+      },
+      "related": {
+        "book": {
+          "name": "The Glossary",
+          "href": "/library.html",
+          "why": "Look up model, context, retrieval, memory and the other words products often blur together."
+        },
+        "episode": {
+          "name": "Episode 01 · On Wednesdays We Do AI",
+          "href": "/issues/issue-01.html",
+          "why": "Return to the story that opens the first safe interaction with AI."
+        }
+      },
+      "experience_version": "odc-101-v1",
       "learning_record": "class-basics-what-youre-looking-at",
       "learning_content": "operations/classes/basics-what-these-tools-are.CONTENT.md",
-      "note": "Cycle 5 teaching candidate repaired against current official product sources. It remains unfilmed, path-unverified, independently unreviewed and not admitted."
+      "note": "The guided class route, visitor task map, answer feedback, assessment, take-home download and device-local completion restore are built locally. The class remains unfilmed, independently unreviewed and not admitted for release."
     },
     {
       "slug": "basics-versions-and-cutoffs",

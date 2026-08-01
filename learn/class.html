@@ -400,7 +400,7 @@
 .testcard__msg strong{font:600 clamp(16px,3vw,30px)/1.2 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase}
 .testcard__msg span{font-size:14px;opacity:.8;max-width:46ch;line-height:1.6}
 </style>
-<link rel="stylesheet" href="/content/site/class-v2.css?v=20260724-1">
+<link rel="stylesheet" href="/content/site/class-v2.css?v=20260731-1">
 </head>
 <body class="class-v2">
 
@@ -537,6 +537,69 @@
       <p id="cd-mech"></p>
     </div>
 
+    <section class="class-lab" id="class-lab" hidden aria-labelledby="class-lab-title">
+      <div class="class-lab__intro">
+        <p class="class-lab__eyebrow">Try it on</p>
+        <h2 id="class-lab-title"></h2>
+        <p id="class-lab-intro"></p>
+      </div>
+      <form class="task-map" id="task-map-form">
+        <label>
+          <span>My task</span>
+          <textarea id="task-map-task" rows="2" required placeholder="Example: compare two quotes and flag anything I should verify"></textarea>
+        </label>
+        <label>
+          <span>Working context the app needs</span>
+          <textarea id="task-map-context" rows="2" required placeholder="The request, constraints, source material and relevant facts"></textarea>
+        </label>
+        <label>
+          <span>Capability that would actually help</span>
+          <select id="task-map-capability" required></select>
+        </label>
+        <label>
+          <span>What I still need to check or decide</span>
+          <textarea id="task-map-check" rows="2" required placeholder="The current fact, source support, judgement or final outcome"></textarea>
+        </label>
+        <label>
+          <span>What stays private or outside the tool</span>
+          <textarea id="task-map-private" rows="2" required placeholder="Personal, confidential or unnecessary information"></textarea>
+        </label>
+        <label class="task-map__explain">
+          <span id="task-map-explain-label">Explain it back</span>
+          <textarea id="task-map-explain" rows="3" required></textarea>
+        </label>
+        <button class="class-action" type="submit">Build my task map</button>
+      </form>
+      <div class="task-map__result" id="task-map-result" tabindex="-1" hidden>
+        <h3>Your task map</h3>
+        <dl id="task-map-output"></dl>
+        <div class="task-map__actions">
+          <button class="class-action class-action--secondary" id="task-map-copy" type="button">Copy</button>
+          <button class="class-action class-action--secondary" id="task-map-download" type="button">Download</button>
+        </div>
+        <p class="task-map__status" id="task-map-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="class-check" id="class-check" hidden aria-labelledby="class-check-title">
+      <div class="class-check__intro">
+        <p class="class-lab__eyebrow">Check the wiring</p>
+        <h2 id="class-check-title">Can you spot which layer is doing what?</h2>
+        <p>Answer all five. Each answer explains the reasoning; this is practice, not a gotcha.</p>
+      </div>
+      <form id="class-check-form"></form>
+      <div class="class-check__result" id="class-check-result" role="status" hidden></div>
+    </section>
+
+    <section class="take-home" id="take-home" hidden aria-labelledby="take-home-title">
+      <div>
+        <p class="class-lab__eyebrow">Take it with you</p>
+        <h2 id="take-home-title"></h2>
+        <p id="take-home-description"></p>
+      </div>
+      <p class="take-home__completion" id="class-completion-status" role="status">Build your map and finish the check to complete this class.</p>
+    </section>
+
     <!-- Where this lesson connects to the rest of the town. Anyone can google a how-to;
          the reason to be here is that the lesson goes somewhere. -->
     <section class="onward" id="cd-onward" hidden>
@@ -563,7 +626,7 @@
 (function () {
   'use strict';
 
-  var DATA = '/content/site/high-classes.json?v=20260726-1';
+  var DATA = '/content/site/high-classes.json?v=20260731-1';
   var LEARNING_DATA = '/content/site/high-learning-ledger.json?v=20260726-1';
   var $ = function (id) { return document.getElementById(id); };
 
@@ -880,7 +943,11 @@
       return record.kind === 'class' && record.recordId === cls.learning_record;
     })[0] || null : null;
 
-    render(cls, subject, siblings, subjects, review);
+    var assessment = review ? ledger.records.filter(function (record) {
+      return record.recordId === review.assessmentCandidateId;
+    })[0] || null : null;
+
+    render(cls, subject, siblings, subjects, review, assessment);
   }).catch(function () {
     renderUnavailable('The class and learning review could not be loaded.',
       'The register or its learning-admission record is unavailable. Return to SUNNYVAiLE High for the 101 shelf or Pop Quiz.');
@@ -908,7 +975,7 @@
     }
   }
 
-  function render(cls, subject, siblings, subjects, review) {
+  function render(cls, subject, siblings, subjects, review, assessment) {
     var periodLabel = 'Period ' + cls.period;
     var admitted = isCurrentAdmission(review);
     var live = cls.status === 'live' && cls.video && admitted;
@@ -992,6 +1059,8 @@
       $('cd-mech-card').hidden = false;
     }
 
+    wireGuidedExperience(cls, assessment);
+
     // Where this goes next — tool, book, episode. Only what genuinely exists.
     var LABEL = { tool: 'Try it yourself', book: 'Read it up', episode: 'Listen to the episode' };
     var rel = cls.related || {};
@@ -1066,6 +1135,177 @@
     }
 
     wireTelevision(cls, live);
+  }
+
+  function wireGuidedExperience(cls, assessment) {
+    if (!cls.practice || !cls.take_home || !assessment || !assessment.questions) return;
+
+    var progressKey = 'laidies_class_progress_v1';
+    var classVersion = cls.experience_version || cls.slug + '-v1';
+    var state = { mapBuilt: false, quizPassed: false, score: 0 };
+
+    function readProgress() {
+      try {
+        var all = JSON.parse(localStorage.getItem(progressKey) || '{}');
+        var saved = all[cls.slug + '|' + classVersion];
+        if (saved) state = saved;
+      } catch (_) {}
+    }
+
+    function writeProgress() {
+      try {
+        var all = JSON.parse(localStorage.getItem(progressKey) || '{}');
+        all[cls.slug + '|' + classVersion] = state;
+        localStorage.setItem(progressKey, JSON.stringify(all));
+      } catch (_) {}
+    }
+
+    function clean(value) { return String(value || '').trim(); }
+
+    function mapText() {
+      return [
+        'LAiDIES · ' + cls.take_home.title,
+        '',
+        'TASK', clean($('task-map-task').value),
+        '',
+        'APP / WORKING CONTEXT', clean($('task-map-context').value),
+        '',
+        'CAPABILITY', clean($('task-map-capability').value),
+        '',
+        'HUMAN CHECK', clean($('task-map-check').value),
+        '',
+        'KEEP OUT', clean($('task-map-private').value),
+        '',
+        'EXPLAIN IT BACK', clean($('task-map-explain').value)
+      ].join('\n');
+    }
+
+    function updateCompletion() {
+      var status = $('class-completion-status');
+      if (state.mapBuilt && state.quizPassed) {
+        status.innerHTML = '<strong>Class complete.</strong> Your task map is ready to use. ' +
+          'Completion is saved on this device; sign-in restoration remains gated until the shared learning ledger is released.';
+        var eventId = cls.slug + '|' + classVersion;
+        try {
+          document.dispatchEvent(new CustomEvent('laidies:class-completed', { detail: {
+            event_id: eventId,
+            resident_id: null,
+            class_id: cls.slug,
+            class_version: classVersion,
+            completed_at: state.completedAt,
+            evidence_type: 'task-map-plus-assessment',
+            reward_status: 'awaiting-shared-ledger'
+          }}));
+        } catch (_) {}
+      } else if (state.mapBuilt) {
+        status.textContent = 'Task map built. Finish the check to complete the class.';
+      } else if (state.quizPassed) {
+        status.textContent = 'Check passed. Build your own task map to complete the class.';
+      }
+    }
+
+    readProgress();
+    $('class-lab-title').textContent = cls.practice.title;
+    $('class-lab-intro').textContent = cls.practice.intro;
+    $('task-map-explain-label').textContent = cls.practice.explain_back_prompt;
+    $('task-map-capability').innerHTML = '<option value="">Choose one</option>' +
+      cls.practice.capabilities.map(function (item) {
+        return '<option value="' + esc(item) + '">' + esc(item) + '</option>';
+      }).join('');
+    $('take-home-title').textContent = cls.take_home.title;
+    $('take-home-description').textContent = cls.take_home.description;
+    $('class-lab').hidden = false;
+    $('take-home').hidden = false;
+
+    $('task-map-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (clean($('task-map-explain').value).length < 24) {
+        $('task-map-explain').setCustomValidity('Explain the difference in a complete sentence.');
+        $('task-map-explain').reportValidity();
+        return;
+      }
+      $('task-map-explain').setCustomValidity('');
+      var rows = [
+        ['Task', $('task-map-task').value],
+        ['Working context', $('task-map-context').value],
+        ['Capability', $('task-map-capability').value],
+        ['What I will check', $('task-map-check').value],
+        ['What stays out', $('task-map-private').value]
+      ];
+      $('task-map-output').innerHTML = rows.map(function (row) {
+        return '<dt>' + esc(row[0]) + '</dt><dd>' + esc(clean(row[1])) + '</dd>';
+      }).join('');
+      $('task-map-result').hidden = false;
+      state.mapBuilt = true;
+      if (state.quizPassed && !state.completedAt) state.completedAt = new Date().toISOString();
+      writeProgress();
+      updateCompletion();
+      $('task-map-result').focus();
+    });
+
+    $('task-map-copy').addEventListener('click', function () {
+      var value = mapText();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () {
+          $('task-map-status').textContent = 'Copied.';
+        }).catch(function () {
+          $('task-map-status').textContent = 'Copy was unavailable. Use Download instead.';
+        });
+      }
+    });
+
+    $('task-map-download').addEventListener('click', function () {
+      var blob = new Blob([mapText()], { type: 'text/plain;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = cls.take_home.filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      $('task-map-status').textContent = 'Downloaded.';
+    });
+
+    $('class-check-form').innerHTML = assessment.questions.map(function (question, index) {
+      return '<fieldset class="check-question" data-question="' + esc(question.id) + '">' +
+        '<legend><span>' + (index + 1) + '</span>' + esc(question.prompt) + '</legend>' +
+        question.options.map(function (option) {
+          return '<label><input type="radio" name="' + esc(question.id) + '" value="' + esc(option) + '" required>' +
+            '<span>' + esc(option) + '</span></label>';
+        }).join('') +
+        '<p class="check-question__feedback" hidden></p>' +
+      '</fieldset>';
+    }).join('') + '<button class="class-action" type="submit">Check my answers</button>';
+    $('class-check').hidden = false;
+
+    $('class-check-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var score = 0;
+      assessment.questions.forEach(function (question) {
+        var fieldset = document.querySelector('[data-question="' + question.id + '"]');
+        var selected = fieldset.querySelector('input:checked');
+        var feedback = fieldset.querySelector('.check-question__feedback');
+        var correct = selected && selected.value === question.answer;
+        if (correct) score += 1;
+        fieldset.dataset.correct = correct ? 'true' : 'false';
+        feedback.hidden = false;
+        feedback.innerHTML = '<strong>' + (correct ? 'Yes.' : 'Not quite.') + '</strong> ' +
+          esc(question.explanation) + (correct ? '' : ' <span>' + esc(question.reviewAction) + '</span>');
+      });
+      state.score = score;
+      state.quizPassed = score >= 4;
+      if (state.mapBuilt && state.quizPassed && !state.completedAt) state.completedAt = new Date().toISOString();
+      writeProgress();
+      $('class-check-result').hidden = false;
+      $('class-check-result').innerHTML = state.quizPassed
+        ? '<strong>' + score + ' of 5.</strong> You can distinguish the layers and keep the human check visible.'
+        : '<strong>' + score + ' of 5.</strong> Review the feedback, change any answer that now looks different and try again.';
+      updateCompletion();
+      $('class-check-result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    updateCompletion();
   }
 
   function wireTelevision(cls, live) {

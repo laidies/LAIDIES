@@ -288,6 +288,274 @@ body.class-v2 {
   border-style: solid;
 }
 
+.class-v2 .class-lab,
+.class-v2 .class-check,
+.class-v2 .take-home {
+  width: min(1180px, calc(100% - 40px));
+  margin: 38px auto 0;
+  color: var(--cl-ink);
+  border: 3px solid var(--cl-ink);
+  box-shadow: 12px 14px 0 var(--cl-purple);
+}
+
+.class-v2 .class-lab {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.45fr);
+  background: linear-gradient(135deg, #ef5ca6, #f7d45c 49%, #69cce0);
+}
+
+.class-v2 .class-lab__intro,
+.class-v2 .class-check__intro {
+  padding: clamp(26px, 4vw, 54px);
+}
+
+.class-v2 .class-lab__eyebrow {
+  margin: 0 0 12px;
+  font: 800 12px/1.2 Jost, sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.class-v2 .class-lab h2,
+.class-v2 .class-check h2,
+.class-v2 .take-home h2 {
+  margin: 0 0 16px;
+  color: var(--cl-ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.class-v2 .class-lab__intro > p:last-child,
+.class-v2 .class-check__intro > p:last-child,
+.class-v2 .take-home p {
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.class-v2 .task-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: clamp(26px, 4vw, 54px);
+  background: rgba(255, 253, 248, 0.88);
+  border-left: 3px solid var(--cl-ink);
+}
+
+.class-v2 .task-map label {
+  display: block;
+}
+
+.class-v2 .task-map label > span {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 800;
+}
+
+.class-v2 .task-map textarea,
+.class-v2 .task-map select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 54px;
+  padding: 13px 14px;
+  color: var(--cl-ink);
+  background: white;
+  border: 2px solid var(--cl-ink);
+  border-radius: 10px;
+  font: 500 16px/1.35 Jost, sans-serif;
+}
+
+.class-v2 .task-map textarea:focus,
+.class-v2 .task-map select:focus {
+  outline: 4px solid rgba(20, 207, 234, 0.48);
+  outline-offset: 2px;
+}
+
+.class-v2 .task-map__explain,
+.class-v2 .task-map .class-action {
+  grid-column: 1 / -1;
+}
+
+.class-v2 .class-action {
+  min-height: 54px;
+  padding: 14px 22px;
+  color: white;
+  background: var(--cl-ink);
+  border: 2px solid var(--cl-ink);
+  border-radius: 999px;
+  font: 800 16px/1.2 Jost, sans-serif;
+  cursor: pointer;
+}
+
+.class-v2 .class-action:hover,
+.class-v2 .class-action:focus-visible {
+  color: var(--cl-ink);
+  background: var(--cl-cyan);
+  outline: 3px solid white;
+  outline-offset: -6px;
+}
+
+.class-v2 .class-action--secondary {
+  color: var(--cl-ink);
+  background: white;
+}
+
+.class-v2 .task-map__result {
+  grid-column: 1 / -1;
+  padding: 28px;
+  background: var(--cl-ink);
+  color: white;
+  border-top: 3px solid var(--cl-ink);
+}
+
+.class-v2 .task-map__result h3 {
+  margin: 0 0 18px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.class-v2 .task-map__result dl {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.35fr) minmax(0, 1fr);
+  gap: 10px 18px;
+  margin: 0;
+}
+
+.class-v2 .task-map__result dt {
+  color: var(--cl-cyan);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.class-v2 .task-map__result dd {
+  margin: 0;
+}
+
+.class-v2 .task-map__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.class-v2 .task-map__status {
+  min-height: 1.5em;
+  margin: 10px 0 0;
+}
+
+.class-v2 .class-check {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.45fr);
+  background: linear-gradient(145deg, #ef4d9c, #b75cc4 58%, #6c7cd1);
+}
+
+.class-v2 .class-check__intro {
+  color: white;
+}
+
+.class-v2 .class-check__intro h2 {
+  color: white;
+}
+
+.class-v2 #class-check-form {
+  padding: clamp(24px, 3vw, 42px);
+  background: rgba(255, 253, 248, 0.94);
+  border-left: 3px solid var(--cl-ink);
+}
+
+.class-v2 .check-question {
+  margin: 0 0 22px;
+  padding: 0 0 22px;
+  border: 0;
+  border-bottom: 2px solid rgba(7, 16, 47, 0.2);
+}
+
+.class-v2 .check-question legend {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.class-v2 .check-question legend span {
+  display: inline-grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: white;
+  background: var(--cl-purple);
+  border-radius: 50%;
+}
+
+.class-v2 .check-question label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 8px 0;
+  padding: 10px 12px;
+  background: white;
+  border: 2px solid rgba(7, 16, 47, 0.16);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.class-v2 .check-question input {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  accent-color: var(--cl-purple);
+}
+
+.class-v2 .check-question__feedback {
+  margin: 12px 0 0;
+  padding: 14px;
+  background: rgba(20, 207, 234, 0.14);
+  border-left: 5px solid var(--cl-cyan);
+}
+
+.class-v2 .check-question[data-correct="false"] .check-question__feedback {
+  background: rgba(255, 118, 95, 0.14);
+  border-left-color: var(--cl-coral);
+}
+
+.class-v2 .check-question__feedback span {
+  display: block;
+  margin-top: 6px;
+}
+
+.class-v2 .class-check__result {
+  grid-column: 1 / -1;
+  padding: 18px 24px;
+  color: white;
+  background: var(--cl-ink);
+  border-top: 3px solid var(--cl-ink);
+  font-size: 18px;
+}
+
+.class-v2 .take-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+  gap: 30px;
+  align-items: center;
+  padding: clamp(28px, 4vw, 54px);
+  background: linear-gradient(115deg, #68cfe1, #b28fe3 47%, #ef68aa);
+}
+
+.class-v2 .take-home__completion {
+  margin: 0;
+  padding: 22px;
+  background: rgba(255, 253, 248, 0.88);
+  border: 2px solid var(--cl-ink);
+  border-radius: 14px;
+}
+
 @media (max-width: 760px) {
   .class-v2 .slide,
   .class-v2 .cls-head,
@@ -317,5 +585,30 @@ body.class-v2 {
     width: 100%;
     border-right: 0;
     border-bottom: 1px solid rgba(7, 16, 47, 0.2);
+  }
+
+  .class-v2 .class-lab,
+  .class-v2 .class-check,
+  .class-v2 .take-home {
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr;
+    box-shadow: 7px 8px 0 var(--cl-purple);
+  }
+
+  .class-v2 .task-map,
+  .class-v2 #class-check-form {
+    grid-template-columns: 1fr;
+    border-top: 3px solid var(--cl-ink);
+    border-left: 0;
+  }
+
+  .class-v2 .task-map label,
+  .class-v2 .task-map__explain,
+  .class-v2 .task-map .class-action {
+    grid-column: 1;
+  }
+
+  .class-v2 .task-map__result dl {
+    grid-template-columns: 1fr;
   }
 }

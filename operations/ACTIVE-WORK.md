@@ -75,6 +75,15 @@ visitor-ready class contracts at entry, working and judgement levels. Use
 `node scripts/check-opening-day-classes.mjs`; a local lesson draft cannot be
 reported as an opening-day class until the full visitor experience passes.
 
+ODC-101, **What You're Looking At**, now has its reusable guided class
+experience built locally: worked example, visitor task map, answer feedback,
+five-question check, downloadable take-home, device-local completion restore
+and a versioned completion event that deliberately leaves reward calculation
+to the shared ledger. Its phone and desktop journey test passes. It remains
+BUILDING—not release-ready—until its real-interface teaching media, captions,
+transcript, poster, independent content/accessibility/unfamiliar-learner
+reviews and exact admission/release receipts are complete.
+
 Run the persistent product-champion system in risk-ranked cycles. Require an
 `OPERATING-SPEC.md` before a champion builds, then complete the
 research → specification → competition → build packet → specialist
