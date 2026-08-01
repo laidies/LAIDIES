@@ -1274,7 +1274,7 @@ window.LAIDIES_SITE_DATA = {
             "The template you fill in when writing a prompt",
             "The company behind the app"
           ],
-          "answer": "The trained component that turns an input into an output",
+          "answer": "A core component of an AI system that uses inputs to produce outputs",
           "explain": "A model may produce words or images, interpret material, make a prediction or choose a next action. You might use it through an app, API or coding tool. The product around it can add instructions, memory, search, files, tools and other models.",
           "review": "Reread the scene in Episode 04.",
           "reviewUrl": "issues/issue-04.html"
