@@ -53,6 +53,11 @@ single failure: p43 at `13:33.400–14:24.100`.
 - It introduces the ten-minute exercise, identifies the three claim types,
   asks where the support came from, performs the visible source check, and
   lands the Chutney/Elle verification rule.
+- `p44-weekly-rule-review-v1.mp4` replaces the 27.9-second static weekly-rule
+  hold with six narration-specific beats.
+- It finishes the confident-friend analogy, distinguishes guessing from
+  intent, demands the receipt, closes the episode, and introduces the weekly
+  ten-minute Try-On at the spoken transition.
 
 ## Gates
 
@@ -64,7 +69,7 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10, p44 and p48.
+The independent review still holds p00, p07, p10 and p48.
 Those occurrences must receive narration-specific progression without
 altering the five v14 repair windows or the completed v15 review sequences.
 
