@@ -11140,3 +11140,30 @@ _Original source ID: repository #36_
 - **Possible Behind the Build angle:** The shot list said “side by side.” The
   screen showed one bad answer. Why LAiDIES now makes every video prove what is
   actually on screen.
+
+## BTB-310 — A source-level motion pass can hide an assembled timing failure
+
+- **Date:** 2026-08-01
+- **Area:** Episode 03 / final-master timing / motion admission.
+- **Failure:** Episode 03 had a strong source-level history, including 15
+  ambient loops, an approved welcome ident, a repaired law-library loop and an
+  earlier 47/49 picture-relevance result. Actual-master occurrence review still
+  found two wrong visuals, seven sources attached to the wrong narration beat,
+  twenty-four relevant but overly static passages and a 62.6-second closing
+  card that concealed several distinct destination instructions.
+- **Root cause:** Source motion, source relevance and final-master timing were
+  reviewed as adjacent facts rather than one visitor experience. A source
+  could therefore be genuinely animated and relevant somewhere in the episode
+  while still appearing too early, too late or across narration it did not
+  depict.
+- **Prevention rule:** Source-level semantic and motion evidence may be reused
+  only as supporting evidence. Final admission must describe the actual pixels
+  at every assembled occurrence, compare them with contemporaneous narration,
+  and verify start and end boundaries. Long mixed-purpose narration intervals
+  must be split into purpose-specific shots; a valid animated source cannot
+  cure a mistimed edit.
+- **Why the fix works:** It preserves expensive approved motion while exposing
+  the edit decisions that determine what viewers actually see and learn at
+  each second.
+- **Possible Behind the Build angle:** The animation was good. The edit was
+  wrong. Why LAiDIES now reviews sources and final timing as separate gates.
