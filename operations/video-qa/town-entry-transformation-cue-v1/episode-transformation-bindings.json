@@ -26,11 +26,11 @@
       "id": "episode-01-recurring-town-entry",
       "content_id": "episode-01",
       "occurrence_kind": "SUNNYVAILE_ENTRY",
-      "status": "RECOVERED_SOURCE_HOLD",
-      "source_semantic_status": "REQUIRES_REBUILD_AND_REVIEW",
+      "status": "REPLACEMENT_REQUIRED",
+      "source_semantic_status": "REJECTED",
       "cue_required": true,
       "cue_attached": false,
-      "independent_review_status": "HOLD",
+      "independent_review_status": "FAIL",
       "admission_status": "HOLD",
       "source_assets": [
         {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f01-comic.png", "sha256": "184d8c745df1da68b45be097ce5ce7c75f96f22bbde42df01b50739830d11c2c"},
@@ -44,18 +44,30 @@
         {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/recurring-transformation-f09-comic.png", "sha256": "e58799945f4a03c483b7bbaec97a538507aebee21de8ea089fd47f70c8f028a3"},
         {"path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-transformation-reveal-comic.png", "sha256": "c2e083c3400938164bfdc56962464976471961dcb41783b50c1876281f13f597"}
       ],
-      "exact_next_action": "Rebuild the approved recovered frame sequence, attach the shared cue before the episode-specific reveal, then run full-context normal-speed review."
+      "rejection_reason": "This recovered wand and Fairy Godmother sequence is superseded by the later shared no-wand, no-Fairy-Godmother transformation specification. File recovery is not current creative approval.",
+      "exact_next_action": "Create a new five-frame no-wand transformation batch under the current shared specification, attach the recurring cue, and run a full-context normal-speed review before any master edit."
     },
     {
       "id": "episode-02-recurring-town-entry",
       "content_id": "episode-02",
       "occurrence_kind": "SUNNYVAILE_ENTRY",
-      "status": "RECOVERED_SOURCE_HOLD",
-      "source_semantic_status": "REQUIRES_REBUILD_AND_REVIEW",
+      "status": "REVIEW_READY",
+      "source_semantic_status": "NARRATION_COMPATIBLE_PENDING_INDEPENDENT_REVIEW",
       "cue_required": true,
-      "cue_attached": false,
+      "cue_attached": true,
+      "cue_master_path": "operations/video-qa/town-entry-transformation-cue-v1/sunnyvaile-town-entry-cue-overlay-v1.mov",
+      "cue_start_seconds": 0.0,
+      "cue_end_seconds": 3.08,
+      "clears_before_final_reveal": true,
       "independent_review_status": "HOLD",
       "admission_status": "HOLD",
+      "source_master_path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+      "source_master_sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+      "context_start_seconds": 117.0,
+      "transformation_start_seconds": 122.77,
+      "transformation_end_seconds": 129.09,
+      "context_end_seconds": 134.95,
+      "narration_context": "So I did what I do when I need to get out of my own head. I took it to town.",
       "source_assets": [
         {"path": "assets/episodes/ep-02/comic/ep02-open-09p0-transformation-stage-corporate-no-wand-comic.png", "sha256": "8fb4c86257572670942eb10ca7e0465ae9ecbb66df7331f64a0c0b01a9083a45"},
         {"path": "assets/episodes/ep-02/comic/ep02-open-09p1-transformation-poof-build-no-wand-comic.png", "sha256": "919c0cd8cd80380716ce054f3a6fd7c177ff5a167fcbe0d828ff0602ff5c558b"},
@@ -63,7 +75,23 @@
         {"path": "assets/episodes/ep-02/comic/ep02-open-09p3-transformation-poof-clearing-empire-records-no-wand-comic.png", "sha256": "f0feea70cbe38fd37ede58989ef7b4bbf2d187eff39e8953180494533f66c451"},
         {"path": "assets/episodes/ep-02/comic/ep02-open-09p4-transformation-reveal-empire-records-no-wand-comic.png", "sha256": "9d1cfb22b1f775dbe2d1115f2a205b9c35f44b6372629c2338e363a6de9d3764"}
       ],
-      "exact_next_action": "Rebuild the approved recovered frame sequence, attach the shared cue before the episode-specific reveal, then run full-context normal-speed review."
+      "sequence_candidate": {
+        "path": "operations/video-qa/town-entry-transformation-cue-v1/episode-02-town-entry-sequence-v1.mp4",
+        "sha256": "16ec53563abe4f8acfc9a0068051d469231015ff041da352dcd6d4b8160935b8"
+      },
+      "review_candidate": {
+        "path": "operations/video-qa/town-entry-transformation-cue-v1/episode-02-town-entry-context-review-v1.mp4",
+        "sha256": "03999262c02c06c98ab8a36412486852b115762130cd8ae1f9c0423e895364ca"
+      },
+      "contact_sheet": {
+        "path": "operations/video-qa/town-entry-transformation-cue-v1/episode-02-town-entry-context-contact-v1.png",
+        "sha256": "e2c0acd78addfeb93aab43c2071cf63b4648406e0be359b800eb26e5a7b9a77f"
+      },
+      "builder": {
+        "path": "scripts/build-episode-02-town-entry-review-v1.py",
+        "sha256": "6e58f8995db716b6144172311562c61e321b159587c11b11d464b6ef79530589"
+      },
+      "exact_next_action": "Run an independent normal-speed review of the exact 117.00-134.95 second context; confirm cue legibility, narration alignment, face clearance, transformation continuity and the clean return to Blend & Snap."
     },
     {
       "id": "episode-03-recurring-town-entry",

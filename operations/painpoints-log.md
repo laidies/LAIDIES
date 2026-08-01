@@ -11462,3 +11462,15 @@ _Original source ID: repository #36_
   erase completed work.
 - **Possible Behind the Build angle:** The animation was not missing. The
   assembly line forgot it existed.
+
+## BTB-324 — File recovery is not current creative approval
+
+- **Date:** 2026-07-31
+- **Area:** Episode 01 recurring transformation / asset authority / media repair.
+- **Failure:** A recovered Episode 01 wand-and-Fairy-Godmother frame sequence was initially described as an approved source ready to rebuild, even though a later shared transformation specification explicitly removed the wand and Fairy Godmother.
+- **Root cause:** The recovery pass proved that the files existed and once served the scene, then accidentally promoted that provenance fact into present-day creative authority without comparing the source date and content against the latest governing specification.
+- **Prevention rule:** Before rebuilding any recovered media, compare its exact source date, prompt and visible content with every later shared or episode-specific specification. If the later rule conflicts, mark the recovered source `REJECTED` or `SUPERSEDED`; never let availability, a plausible filename or former use imply current approval.
+- **Why the fix works:** Episode 01 now fails closed as `REPLACEMENT_REQUIRED`, while Episode 02 advances only because its exact no-wand frame set matches the current specification and survives a narration-bound context review.
+- **Machine check implemented:** The recurring town-entry manifest and technical validator require Episode 01 to remain rejected, bind Episode 02 to its exact `122.77–129.09s` narration interval, and preserve independent-review HOLD before any master edit.
+- **Possible Behind the Build angle:** We found the missing scene—and then deliberately did not use it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
