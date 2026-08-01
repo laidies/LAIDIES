@@ -25,6 +25,11 @@ single failure: p43 at `13:33.400–14:24.100`.
 - It moves from source checking and official guidance through all three
   Prompt Like Elle moves, the file-in-court example, the no-invented-receipts
   rule and the complete worked prompt.
+- `p34-p36-evidence-facts-review-v1.mp4` realigns 67.3 seconds of evidence
+  images with the exact narration they support.
+- It moves from Chutney's repeated alibi through active source checking and
+  the limits of improved tools, then introduces the Nature, Stanford and KPMG
+  cards only when each named claim is spoken.
 
 ## Gates
 
@@ -37,6 +42,6 @@ enter the next full successor.
 ## Remaining v15 repair groups
 
 The independent review still holds p00, p07, p10, p12–13, p15–16, p23–24,
-p32, p34–36, p44, p46 and p48. Those occurrences must receive narration-
-specific progression without altering the five v14 repair windows or the two
+p32, p44, p46 and p48. Those occurrences must receive narration-specific
+progression without altering the five v14 repair windows or the three
 completed v15 review sequences.
