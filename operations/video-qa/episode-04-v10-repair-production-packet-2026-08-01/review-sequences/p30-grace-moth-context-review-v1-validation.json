@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "status": "TECHNICAL_CONTEXT_PASS_INDEPENDENT_NORMAL_SPEED_REVIEW_REQUIRED",
+  "authority": "NO_EDITORIAL_ACCEPTANCE_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "scope": "Episode 04 p30 Grace Hopper moth exact-audio narration context",
+  "episode_v9_window_seconds": [
+    611.0,
+    631.0
+  ],
+  "repair_in_context_seconds": [
+    4.0,
+    16.62
+  ],
+  "repair_in_episode_seconds": [
+    615.0,
+    627.62
+  ],
+  "bindings": {
+    "master": {
+      "path": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+      "expected_sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
+      "actual_sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4"
+    },
+    "candidate": {
+      "path": "assets/episodes/ep-04/pixel/ep04-scene-05-grace-moth-landing-comic-event-v3.mp4",
+      "expected_sha256": "ec171ff100363db616f7295842e3ad8a430ffd7f755c68a2eb9b7e479560ae43",
+      "actual_sha256": "ec171ff100363db616f7295842e3ad8a430ffd7f755c68a2eb9b7e479560ae43"
+    },
+    "context": {
+      "path": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/episode-04-grace-moth-context-review.mp4",
+      "expected_sha256": "c1491c3825010d8952a1e10656feb2dbc982e4e6b7654147e73f04ba2ba9d187",
+      "actual_sha256": "c1491c3825010d8952a1e10656feb2dbc982e4e6b7654147e73f04ba2ba9d187"
+    },
+    "context_manifest": {
+      "path": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/context-review-manifest.json",
+      "expected_sha256": "0613b73edb45e53e159e5551d38e573904ccb1322fdef11f256d2f1e349490d7",
+      "actual_sha256": "0613b73edb45e53e159e5551d38e573904ccb1322fdef11f256d2f1e349490d7"
+    },
+    "encoded_gate": {
+      "path": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/grace-moth-v3-encoded-frame-continuity.json",
+      "expected_sha256": "a7e158f5f78edcb74ba28122e246889a632aca7f5d496c9a4a2e3ad92675a6ea",
+      "actual_sha256": "a7e158f5f78edcb74ba28122e246889a632aca7f5d496c9a4a2e3ad92675a6ea"
+    }
+  },
+  "observed": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 600,
+    "duration_seconds": 20.0
+  },
+  "checks": {
+    "checksum_bindings": true,
+    "manifest_bindings": true,
+    "encoded_foreground_continuity_gate_pass": true,
+    "geometry_1920x1080_30fps": true,
+    "frame_count_600": true,
+    "duration_20_seconds": true,
+    "full_decode": true,
+    "aac_audio_present": true,
+    "mono_48000_hz_audio": true,
+    "no_black_events": true,
+    "surrounding_parent_picture_preserved": true,
+    "inserted_candidate_picture_preserved": true
+  },
+  "black_events": [],
+  "surrounding_picture_comparisons": [
+    {
+      "label": "pre-repair parent picture",
+      "context_seconds": 1.0,
+      "master_seconds": 612.0,
+      "mean_abs_pixel_delta_after_context_encode": 0.363747,
+      "parent_picture_preserved_pass": true
+    },
+    {
+      "label": "pre-repair handoff",
+      "context_seconds": 3.5,
+      "master_seconds": 614.5,
+      "mean_abs_pixel_delta_after_context_encode": 0.365473,
+      "parent_picture_preserved_pass": true
+    },
+    {
+      "label": "post-repair parent picture",
+      "context_seconds": 17.0,
+      "master_seconds": 628.0,
+      "mean_abs_pixel_delta_after_context_encode": 0.518809,
+      "parent_picture_preserved_pass": true
+    },
+    {
+      "label": "post-repair tail",
+      "context_seconds": 19.0,
+      "master_seconds": 630.0,
+      "mean_abs_pixel_delta_after_context_encode": 0.425985,
+      "parent_picture_preserved_pass": true
+    }
+  ],
+  "inserted_picture_comparisons": [
+    {
+      "candidate_seconds": 0.5,
+      "context_seconds": 4.5,
+      "mean_abs_pixel_delta_after_context_encode": 0.179552,
+      "candidate_picture_preserved_pass": true
+    },
+    {
+      "candidate_seconds": 2.5,
+      "context_seconds": 6.5,
+      "mean_abs_pixel_delta_after_context_encode": 0.393588,
+      "candidate_picture_preserved_pass": true
+    },
+    {
+      "candidate_seconds": 4.4,
+      "context_seconds": 8.4,
+      "mean_abs_pixel_delta_after_context_encode": 0.388753,
+      "candidate_picture_preserved_pass": true
+    },
+    {
+      "candidate_seconds": 7.0,
+      "context_seconds": 11.0,
+      "mean_abs_pixel_delta_after_context_encode": 0.390748,
+      "candidate_picture_preserved_pass": true
+    },
+    {
+      "candidate_seconds": 10.0,
+      "context_seconds": 14.0,
+      "mean_abs_pixel_delta_after_context_encode": 0.196109,
+      "candidate_picture_preserved_pass": true
+    },
+    {
+      "candidate_seconds": 12.2,
+      "context_seconds": 16.2,
+      "mean_abs_pixel_delta_after_context_encode": 0.345707,
+      "candidate_picture_preserved_pass": true
+    }
+  ],
+  "encoded_foreground_metrics": {
+    "encoded_expected_mae_mean": 2.000226,
+    "encoded_expected_mae_max": 2.036089,
+    "flight_frames_measured": 134,
+    "flight_preservation_ratio_min": 0.971327,
+    "flight_preservation_ratio_mean": 0.992912,
+    "person_mask_overlap_frames": 30,
+    "person_mask_overlap_first_last": [
+      104,
+      133
+    ],
+    "person_mask_overlap_preservation_ratio_min": 0.974519,
+    "person_mask_overlap_preservation_ratio_mean": 1.015914,
+    "landing_frames_measured": 223,
+    "landing_preservation_ratio_min": 1.024604,
+    "landing_preservation_ratio_mean": 1.025508,
+    "black_frames": []
+  },
+  "evidence": {
+    "contact_sheet": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p30-grace-moth-context-review-v1-contact-sheet.jpg",
+    "timeline_contact_sheet": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p30-grace-moth-context-review-v1-timeline-contact-sheet.jpg",
+    "encoded_flight_contact_sheet": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/grace-moth-v3-flight-continuity.jpg",
+    "encoded_landing_contact_sheet": "operations/video-qa/episode-04-perceptible-rain-and-grace-moth-v3/grace-moth-v3-landing-continuity.jpg"
+  },
+  "required_human_gate": {
+    "status": "HOLD",
+    "review": "Independent normal-speed watch with exact narration",
+    "allowed_verdicts": [
+      "PASS",
+      "CLOSE_ENOUGH",
+      "RETIME",
+      "REPLACE",
+      "ADD_OR_REPAIR_ANIMATION"
+    ],
+    "must_judge": [
+      "whether the moth action reflects the narration at the exact time it appears",
+      "whether the moth stays perceptibly in front of Grace through the arm overlap",
+      "whether flight, landing and hold feel natural at normal speed",
+      "whether p29-to-p30 and p30-to-p31 transitions work in the assembled successor"
+    ]
+  },
+  "explicit_limits": [
+    "This maker-side gate proves exact-window placement, decode, audio, source binding and encoded foreground continuity.",
+    "It does not independently admit narration fit, natural motion, taste, historical accuracy or successor-master use.",
+    "A successor still requires occurrence invalidation and one complete 1x audible responsive-player watch."
+  ]
+}

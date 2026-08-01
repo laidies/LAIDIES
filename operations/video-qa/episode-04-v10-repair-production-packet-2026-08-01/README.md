@@ -6,7 +6,7 @@ change.
 
 This packet converts the 55-occurrence owner audit of the Episode 04 v9 master
 into a production queue. Every finding is bound to the exact narration window,
-the actual assembled visual and the next admissible action. Eleven current
+the actual assembled visual and the next admissible action. Twelve current
 exact-audio review sequences are now built where existing art can form a
 meaningful progression; the Ada count deliberately includes a recovered prior
 sequence and a newer alternate until an independent reviewer chooses or
@@ -40,6 +40,7 @@ independent normal-speed review before it can enter an assembled successor.
 | p19–p20 alternate | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat alternate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure. Compare its final two beats with the recovered v4; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
 | p22–p23 | 05:46.57–07:17.30 | `review-sequences/p22-p23-hedy-review-v1.mp4` | Exact-audio eight-beat candidate now separates film stardom, private invention, the jamming problem, frequency-hopping motion, the exact line, Navy shelving, wireless lineage and late recognition. It uses existing approved art and no new likeness generation. Independent likeness, historical-detail, exact-text, narration-fit and retime-naturalness review required. |
 | p25–p27 | 07:22.30–09:05.57 | `review-sequences/p25-p27-eniac-review-v1.mp4` | Exact-audio nine-beat candidate now separates ENIAC scale, hands-on programming, the six names, rewiring, the exact First Programmers line, credit erasure, rediscovery, the era handoff and the truthful 1952 bridge. Independent six-programmer likeness, historical-detail, exact-text, narration-fit and retime-naturalness review required. |
+| p30 | 10:11.00–10:31.00 | `../episode-04-perceptible-rain-and-grace-moth-v3/episode-04-grace-moth-context-review.mp4` | Exact-audio context proves the repaired moth occupies 10:15.00–10:27.62, remains encoded through all 30 Grace-arm overlap frames with at least 97.45% foreground preservation, and leaves the parent picture intact before and after. Technical context gate passes; independent normal-speed narration-fit, natural-motion and transition review remains required. |
 | p37–p38 | 11:22.45–12:44.23 | `review-sequences/p37-p38-karen-narration-review-v1.mp4` | Clear search-terms → retrieval diagram → exact quote progression; independent review required. |
 | p43 | 14:03.80–14:55.53 | `review-sequences/p43-modern-language-to-chatbox-review-v1.mp4` | Replaces a generic desk hold with a 2017 language-system → November 2022 chatbox → user-desk progression. |
 | p46–p49 | 15:25.80–16:43.67 | `review-sequences/p46-p49-modern-criticism-review-v1.mp4` | Exact-audio candidate now follows research → stochastic parrot → Google context → disputed departure → colleague protest → Kate Crawford's supply-chain critique. The dismissal image no longer appears before the narration reaches it. Independent accuracy, likeness, narration-fit and transition review required. |
@@ -78,8 +79,14 @@ fabricated narration. Their checksums are in `source-sha256.txt`.
   dignity, their names and the credit-erasure/rediscovery evidence are exact,
   the credit-reveal match cut is intentional, and the 1952 event remains
   natural after retiming.
-- **Grace p30:** the v3 moth candidate is held. The moth may not disappear
-  behind Grace's arm or violate foreground/background occlusion.
+- **Grace p30:** independently watch the exact-audio 20-second context at
+  normal speed. The encoded-frame gate now proves the moth remains in the
+  foreground through all 30 Grace-arm overlap frames and that the repair is
+  inserted at 10:15.00–10:27.62 without erasing the surrounding parent
+  picture. Confirm that the flight, landing and hold feel natural; that the
+  action reflects the narration when it appears; and that p29/p30 and p30/p31
+  transitions work in the assembled successor. Mechanical continuity is not
+  editorial admission.
 - **Modern criticism p46–p49:** independently judge the exact-audio candidate
   at normal speed. Confirm the researcher identities and parrot analogy are
   accurate, the Google/context and disputed-departure beats do not overstate
