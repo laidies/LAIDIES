@@ -127,6 +127,60 @@ The demonstration must show the result honestly. If the after case still
 fails, the learner records **revise**, **investigate** or **decline** rather
 than tidying the output for camera.
 
+## Work-life transfer cases
+
+These cases turn the method back toward real work. They are not instructions
+to treat people like models. The AI mirror makes the hidden workflow visible;
+the learner still owns the conversation, judgement and consequence.
+
+### Give the next move enough context
+
+**Compressed claim:** “It already knows the project. Ask it to finish the
+handoff.”
+
+The learner should classify this as **true only under stated conditions**.
+Useful project context must have been captured, retained, permitted and made
+available in the current tool, account and conversation. A colleague’s memory,
+a private inbox, an unshared file and a decision that was never written down do
+not become available because the requester remembers them.
+
+**Artifact:** a context handoff containing:
+
+- the exact next job;
+- the relevant background—not the whole archive;
+- decisions already made and their authoritative records;
+- open questions and named owners;
+- information the tool is not permitted to receive; and
+- the check that proves the recipient received the intended context.
+
+The transfer is complete only when the learner can distinguish **I remember
+it**, **we recorded it**, **this tool can access it** and **this is the current
+source**.
+
+### Do not answer the bad brief yet
+
+**Compressed claim:** “Give the perfect response to this loaded question.”
+
+The learner should classify the magic-comeback promise as **misleading**. A
+tool can generate wording, but it cannot establish the other person’s motive,
+choose the learner’s risk tolerance or know the organizational consequence.
+
+Before drafting a response, complete an **approach brief**:
+
+1. What outcome matters here?
+2. Which assumption or frame should not be accepted without question?
+3. What facts are known, missing or unsafe to paste?
+4. What are three reasonable response approaches and their trade-offs?
+5. Which decision remains human-owned?
+6. What would make this a stop/escalate situation rather than a writing job?
+
+**Artifact:** one short response the learner can stand behind, plus the reason
+she selected it and the condition that would make her choose another route.
+
+These cases originate in the governed Work-Life AI Mirror bank. They may not
+become Daily cards until the lab, exact parent links and independent workplace
+review pass.
+
 ## Misconceptions to resist
 
 - If the feature exists, the workflow exists.
