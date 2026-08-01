@@ -105,9 +105,18 @@
       ],
       "occurrence_review": {
         "expected_occurrences": 4,
-        "reviewed_occurrences": 0,
-        "status": "HOLD",
-        "reason": "The asset exists and its bindings are known, but each final crop, timing, transition, reduced-motion fallback and narrative purpose has not yet been recorded under this occurrence contract."
+        "reviewed_occurrences": 4,
+        "status": "FAIL",
+        "disposition_counts": {
+          "PASS": 1,
+          "CLOSE_ENOUGH": 0,
+          "RETIME": 3,
+          "REPLACE": 0,
+          "ADD_OR_REPAIR_ANIMATION": 0
+        },
+        "evidence_path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/sunnyvaile-logo-reveal-occurrence-audit.json",
+        "evidence_sha256": "bc2fab66fa04dfd1d473c4db55392714598aeb06db37fe66821be0aff0e28b49",
+        "reason": "All four known occurrences are described against their exact silent purpose and rendered window. The preview homepage preserves the complete eight-second ident at desktop and mobile widths. Episode 01, 02 and 03 each replace it at 5.5 seconds, interrupting the meaning-bearing WHERE GIRL POWER MEETS MACHINE POWER line before it finishes; those three occurrences require RETIME and an independent audible 1x review after repair."
       },
       "admission_status": "HOLD"
     },

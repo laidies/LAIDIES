@@ -158,6 +158,24 @@ for (const asset of registry.direct_motion_assets ?? []) {
   if (!Number.isInteger(expected) || expected < 1 || !Number.isInteger(reviewed) || reviewed < 0 || reviewed > expected) {
     fail(`${asset.id}: occurrence coverage is invalid.`);
   }
+  if (reviewed > 0) {
+    await verifyFile(
+      `${asset.id} occurrence evidence`,
+      asset.occurrence_review?.evidence_path,
+      asset.occurrence_review?.evidence_sha256
+    );
+    const dispositionCounts = asset.occurrence_review?.disposition_counts;
+    if (!dispositionCounts || typeof dispositionCounts !== 'object') {
+      fail(`${asset.id}: reviewed occurrences require disposition counts.`);
+    } else {
+      const counted = Object.values(dispositionCounts).reduce((total, count) => (
+        Number.isInteger(count) && count >= 0 ? total + count : Number.NaN
+      ), 0);
+      if (!Number.isFinite(counted) || counted !== reviewed) {
+        fail(`${asset.id}: disposition counts do not total reviewed occurrences.`);
+      }
+    }
+  }
   if (!validStatuses.has(asset.admission_status)) fail(`${asset.id}: admission status is invalid.`);
   if (asset.admission_status === 'PASS' && (asset.occurrence_review.status !== 'PASS' || reviewed !== expected)) {
     fail(`${asset.id}: PASS requires complete occurrence review.`);

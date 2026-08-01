@@ -1,0 +1,182 @@
+{
+  "created_at": "2026-08-01T03:18:00-07:00",
+  "status": "FAIL",
+  "release_state": "HOLD",
+  "maker_may_judge_or_approve": false,
+  "gate_rule": "Describe the actual rendered visual first, compare it with the exact narration or silent purpose at that occurrence, then assign PASS, CLOSE_ENOUGH, RETIME, REPLACE or ADD_OR_REPAIR_ANIMATION. A shared source asset is not admitted merely because the file itself is coherent.",
+  "asset": {
+    "path": "assets/video/sunnyvaile-logo-reveal.mp4",
+    "sha256": "1df211669ecf1067b69fecd3d24badf1dc156e650512bc2e373823509eaa45e9",
+    "duration_seconds": 8,
+    "width": 1600,
+    "height": 900,
+    "audio": "none",
+    "actual_visual_sequence": "A dark dial-up terminal establishes the connection, a deliberate CRT/static wash clears the screen, then a neon WELCOME TO SUNNYVAiLE lockup appears while WHERE GIRL POWER MEETS MACHINE POWER types underneath.",
+    "asset_level_finding": "The source master is coherent, branded and internally complete. The material failures are occurrence timing defects in three episode title sequences, not an asset-identity or source-file defect."
+  },
+  "review_counts": {
+    "expected_occurrences": 4,
+    "reviewed_occurrences": 4,
+    "pass_recommendations": 1,
+    "close_enough_recommendations": 0,
+    "retime_recommendations": 3,
+    "replace_recommendations": 0,
+    "add_or_repair_animation_recommendations": 0,
+    "independent_reviews_complete": 0
+  },
+  "source_evidence": [
+    {
+      "path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/frames/frame-01s.png",
+      "sha256": "95c5aa5a8ce246620f9934874dfed4005350df3b01897c2d4a7d1be88c685e80",
+      "time_seconds": 1.25,
+      "description": "Dial-up terminal phase."
+    },
+    {
+      "path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/frames/frame-03s.png",
+      "sha256": "b25ddfbc6f410f034fb3689f4e6ccbb9e10e4455cd67221cf783bd76094ac83b",
+      "time_seconds": 3.26,
+      "description": "CRT/static transition phase."
+    },
+    {
+      "path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/frames/frame-05s.png",
+      "sha256": "4a70a28482b253260f40a6aaa93483e13b6459b74dda770bc1c5c8f3af6525d4",
+      "time_seconds": 5.25,
+      "description": "The SUNNYVAiLE lockup is present, but the supporting line is only WHERE GIRL POWER ME at the episode cut boundary."
+    },
+    {
+      "path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/frames/frame-07s.png",
+      "sha256": "4bd6b337e346b1cd54f773e26f94093df147550aad05f1cf2fa6b1c1014dbc47",
+      "time_seconds": 7.25,
+      "description": "The full WHERE GIRL POWER MEETS MACHINE POWER supporting line is visible."
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "homepage-preview-masthead",
+      "binding_path": "preview-homepage.html",
+      "binding_sha256": "656547ecd7016edb649cadc7691678bf23fd9d95ee1a26b1ceafa8a7d21b15f7",
+      "purpose": "A silent once-per-session branded arrival that introduces SUNNYVAiLE before the homepage explanation.",
+      "window_seconds": {
+        "start": 0,
+        "stop": 8,
+        "available": 8
+      },
+      "actual_rendered_visual": "The complete terminal, CRT/static and neon lockup sequence plays. The final WELCOME TO SUNNYVAiLE and WHERE GIRL POWER MEETS MACHINE POWER lockup remains fully visible in both checked layouts.",
+      "contemporaneous_narration": null,
+      "purpose_match": "Direct match. The visual introduces the town and the brand promise without competing narration.",
+      "responsive_geometry": {
+        "desktop_1280x800": {
+          "rendered_width": 1280,
+          "rendered_height": 400,
+          "object_fit": "cover",
+          "object_position": "50% 40%",
+          "scroll_y": 0,
+          "crop_finding": "The 16:9 source is vertically cropped into the 3.2:1 masthead, but all semantically required lockup text remains inside the safe band."
+        },
+        "mobile_390x844": {
+          "rendered_width": 390,
+          "rendered_height": 219.375,
+          "object_fit": "cover",
+          "object_position": "50% 40%",
+          "scroll_y": 0,
+          "crop_finding": "The source renders at its native 16:9 aspect and the complete lockup is visible."
+        }
+      },
+      "fallback": {
+        "path": "assets/video/sunnyvaile-logo-reveal-endframe.png",
+        "sha256": "32a1dc3eabc00e087331280b9ee6068ba1e625fee707317e2769a964fb5ea97d",
+        "behavior": "Reduced-motion visitors and same-session returns receive the complete final lockup rather than a replay."
+      },
+      "evidence": [
+        {
+          "path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/frames/homepage-desktop-final.png",
+          "sha256": "522ae035e6cc718f3fed5061ffb867380f403db6e40990b0a7541376c1dd4265",
+          "description": "Desktop final state at scrollY 0."
+        },
+        {
+          "path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/frames/homepage-mobile.png",
+          "sha256": "b41762e022a7d706458a148ebb980879e5b3a50f1d49ce512462233f955d3515",
+          "description": "Mobile complete lockup and immediate following homepage context."
+        }
+      ],
+      "recommended_disposition": "PASS",
+      "independent_review": "PENDING",
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "episode-01-title-ident",
+      "binding_path": "content/episodes/episode-01-cues.json",
+      "binding_sha256": "f36062f62be7db8107b0a5bf0044a4a19fa004c731703e0ffe3eda8487ef6a0d",
+      "purpose": "Open Episode 01 with the shared SUNNYVAiLE welcome ident before the town-building title montage.",
+      "window_seconds": {
+        "start": 0,
+        "stop": 5.5,
+        "available": 5.5,
+        "source_duration": 8,
+        "truncated_by": 2.5
+      },
+      "actual_rendered_visual": "The terminal and CRT/static transition complete, and the SUNNYVAiLE lockup appears, but the supporting line is interrupted around WHERE GIRL POWER ME before MEETS MACHINE POWER is shown.",
+      "contemporaneous_narration": null,
+      "purpose_match": "The intended brand welcome is relevant, but the edit cuts its meaning-bearing final line mid-reveal.",
+      "recommended_disposition": "RETIME",
+      "exact_repair": "Give the ident its full 8.0-second source window and retime the remaining title montage within the existing 25-second title segment, or build and separately admit a purposeful 5.5-second episode-bumper derivative. Do not speed up or truncate the approved eight-second master.",
+      "independent_review": "PENDING_AFTER_REPAIR",
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "episode-02-title-ident",
+      "binding_path": "content/episodes/episode-02-cues.json",
+      "binding_sha256": "451d7c697033d311da05c8e4a50f06b2e2b1ca0857335b8009233201b9b3071e",
+      "purpose": "Open Episode 02 with the shared SUNNYVAiLE welcome ident before the town-building title montage.",
+      "window_seconds": {
+        "start": 0,
+        "stop": 5.5,
+        "available": 5.5,
+        "source_duration": 8,
+        "truncated_by": 2.5
+      },
+      "actual_rendered_visual": "The terminal and CRT/static transition complete, and the SUNNYVAiLE lockup appears, but the supporting line is interrupted around WHERE GIRL POWER ME before MEETS MACHINE POWER is shown.",
+      "contemporaneous_narration": null,
+      "purpose_match": "The intended brand welcome is relevant, but the edit cuts its meaning-bearing final line mid-reveal.",
+      "recommended_disposition": "RETIME",
+      "exact_repair": "Give the ident its full 8.0-second source window and retime the remaining title montage within the existing 25-second title segment, or build and separately admit a purposeful 5.5-second episode-bumper derivative. Do not speed up or truncate the approved eight-second master.",
+      "independent_review": "PENDING_AFTER_REPAIR",
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "episode-03-title-ident",
+      "binding_path": "content/episodes/episode-03-cues.json",
+      "binding_sha256": "aa770874293609ec41676839880471effce2a12f906d198cbf7230db31ed09a9",
+      "purpose": "Open Episode 03 with the shared SUNNYVAiLE welcome ident before the town-building title montage.",
+      "window_seconds": {
+        "start": 0,
+        "stop": 5.5,
+        "available": 5.5,
+        "source_duration": 8,
+        "truncated_by": 2.5
+      },
+      "actual_rendered_visual": "The terminal and CRT/static transition complete, and the SUNNYVAiLE lockup appears, but the supporting line is interrupted around WHERE GIRL POWER ME before MEETS MACHINE POWER is shown.",
+      "contemporaneous_narration": null,
+      "purpose_match": "The intended brand welcome is relevant, but the edit cuts its meaning-bearing final line mid-reveal.",
+      "recommended_disposition": "RETIME",
+      "exact_repair": "Give the ident its full 8.0-second source window and retime the remaining title montage within the existing 25-second title segment, or build and separately admit a purposeful 5.5-second episode-bumper derivative. Do not speed up or truncate the approved eight-second master.",
+      "independent_review": "PENDING_AFTER_REPAIR",
+      "admission_status": "HOLD"
+    }
+  ],
+  "shared_blocker": {
+    "type": "IDENT_WINDOW_SHORTER_THAN_SEMANTIC_SOURCE_END",
+    "affected_occurrences": [
+      "episode-01-title-ident",
+      "episode-02-title-ident",
+      "episode-03-title-ident"
+    ],
+    "finding": "Each episode replaces the eight-second ident at 5.5 seconds. The meaning-bearing supporting line does not finish until approximately 7.25 seconds.",
+    "owner": "Weekly Episodes",
+    "next_action": "Repair one title template and propagate the exact admitted timing to Episodes 01-03, then run a complete audible 1x watch and independent occurrence review on each rebuilt title segment."
+  },
+  "admission": {
+    "status": "HOLD",
+    "reason": "Three of four visitor-bound occurrences truncate the ident before its final branded statement completes. The homepage placement is evidence-complete but still awaits independent review; the three episode title sequences must be repaired and re-reviewed."
+  }
+}

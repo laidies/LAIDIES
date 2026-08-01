@@ -11244,3 +11244,27 @@ _Original source ID: repository #36_
   keeping unrelated experiments out of live-content claims.
 - **Possible Behind the Build angle:** The animation had no video file—so the
   video checker could not see it.
+
+## BTB-314 — A correct eight-second ident can fail inside a 5.5-second slot
+
+- **Date:** 2026-08-01
+- **Area:** Shared motion assets / occurrence timing / episode title templates.
+- **Failure:** The SUNNYVAiLE welcome ident was coherent and complete as an
+  eight-second source file, and its homepage occurrence preserved the full
+  message. Episodes 01–03 each replaced it after 5.5 seconds, cutting the
+  supporting line around `WHERE GIRL POWER ME` before `MEETS MACHINE POWER`
+  became visible.
+- **Root cause:** The shared asset was reviewed as a file, while the consuming
+  title template was treated as a separate edit concern. No gate compared the
+  duration of the occurrence window with the time of the asset's last
+  semantically required frame.
+- **Prevention rule:** For every shared video or animation, measure every bound
+  occurrence window against the source duration and the timestamp of the final
+  meaning-bearing frame. An occurrence that ends earlier must be retimed or use
+  a separately admitted derivative; a good master cannot make a truncated
+  occurrence pass.
+- **Why the fix works:** It preserves the approved source while catching the
+  template-level edit that visitors actually see, and it allows one verified
+  timing repair to propagate across every affected episode.
+- **Possible Behind the Build angle:** The animation was perfect. The slot was
+  2.5 seconds too short.
