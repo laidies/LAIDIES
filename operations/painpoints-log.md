@@ -11086,3 +11086,30 @@ _Original source ID: repository #36_
   cut advances the story and missing art is visible before assembly.
 - **Possible Behind the Build angle:** The files said start, middle and end.
   The pictures said same, same and same.
+
+## BTB-308 — Seventy-one valid still placements can still make one unwatchable episode
+
+- **Date:** 2026-08-01
+- **Area:** Episode assembly / occurrence review / motion semantics.
+- **Failure:** Episode 01's exact v26 master decoded successfully and had a
+  complete 71-placement manifest, but an occurrence-by-occurrence review found
+  71 static holds, long runs of repeated text cards and stills, nine sources
+  requiring replacement and seven mistimed placements. The remaining 55
+  placements still require meaningful narrative or local animation, or a
+  purposeful shot sequence. Technical validity and source-level relevance had
+  hidden an experience that was not launch-watchable.
+- **Root cause:** The production gate counted a correctly assembled still as a
+  completed visual occurrence. It did not enforce narrative progression,
+  duplicate-run limits, purposeful shot variety or real local motion across
+  the finished programme.
+- **Prevention rule:** Every finished visitor-facing video must bind its exact
+  narration to every actual occurrence, detect duplicate and near-duplicate
+  runs, and assign `PASS`, `CLOSE_ENOUGH`, `RETIME`, `REPLACE` or
+  `ADD_OR_REPAIR_ANIMATION`. A still is admitted only when the static treatment
+  is deliberately appropriate for the duration and learning purpose. Camera
+  zooms or pans do not cure missing narrative motion. The repaired title still
+  requires a full 1x audible watch and independent admission.
+- **Why the fix works:** It judges the experience viewers receive instead of
+  rewarding a valid timeline for containing the expected number of files.
+- **Possible Behind the Build angle:** How 71 technically valid pictures made
+  a video no one should have to watch—and the occurrence gate that caught it.
