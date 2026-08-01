@@ -69,9 +69,10 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p07.
-That occurrence must receive narration-specific progression without
-altering the five v14 repair windows or the completed v15 review sequences.
+All 21 occurrence holds named by the independent v14 review now have bounded
+narration-specific local repair sequences. They must still pass independent
+normal-speed narration-picture review before successor-master assembly. The
+five v14 repair windows and protected p07 spoken-welcome ident remain fixed.
 
 The p00 opening recap now progresses through the existing approved comic strip
 in four narration-bound beats: a complete establishing view, delegation at the
@@ -92,6 +93,13 @@ women-built-it reveal, and the exact Episode 04 title landing. It reuses only
 sources already bound into the current Episode 03 or Episode 04 repair paths;
 it does not revive retired teaser art. The local sequence still requires
 independent normal-speed narration-picture admission before successor assembly.
+
+The p07 welcome bridge now keeps the cold-open question on screen until it is
+finished, reuses the existing spoken-welcome ident at 116.18–123.82, recalls
+David Rose with the current Episode 02 source, and hands off to the correct
+Episode 03 Elle Woods weekly look. It does not load a second ident or substitute
+an alternate outfit. The local sequence still requires independent normal-
+speed narration-picture admission before successor assembly.
 
 The p23–p24 fresh-perm/timeline sequence has been rebuilt as six
 narration-specific beats: Elle finds the detail, Chutney supplies the shower
