@@ -10737,3 +10737,29 @@ _Original source ID: repository #36_
   become durable exclusions rather than reusable inventory.
 - **Possible Behind the Build angle:** How two finished-looking designs made
   one unfinished campaign—and why the whole object has to be the test.
+## BTB-304 — A release packet is not reviewable when the review surface is missing
+
+- **Date:** 2026-07-31
+- **Area:** Trailer and Episodes 01–04 / owner review / launch admission.
+- **Failure:** The durable Ali review packet linked to an interactive review
+  inbox that did not exist, while technical receipts were scattered across
+  episode-specific folders. At the same time, the packet called the stale
+  public Episode 04 v8 upload accepted even though current editorial evidence
+  held both v8 and v9. This made the films difficult to inspect and made a
+  successful upload easier to see than unresolved picture defects.
+- **Root cause:** Master identity, captions, editorial findings, human full
+  watch, website playback and public identity were recorded in separate
+  systems without one fail-closed programme manifest or a checker that required
+  the promised owner-review surface to exist.
+- **Prevention rule:** Every opening film must appear in one checksum-bound
+  media gate with explicit PASS/HOLD/FAIL verdicts for exact master, clock,
+  captions, accuracy, narration-picture timing, continuity, motion, complete
+  audible watch, real responsive player, public identity and discovery. The
+  checker must also require one working review surface that plays the exact
+  cut and exports time-coded human findings. No individual gate may substitute
+  for another.
+- **Why the fix works:** Ali receives one usable queue instead of a filesystem
+  hunt, and the machine refuses to equate a file, player pass or upload with a
+  finished film.
+- **Possible Behind the Build angle:** Why five existing videos became zero
+  launch-ready videos—and how one honest review queue fixes the difference.

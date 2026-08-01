@@ -84,6 +84,17 @@ BUILDING—not release-ready—until its real-interface teaching media, captions
 transcript, poster, independent content/accessibility/unfamiliar-learner
 reviews and exact admission/release receipts are complete.
 
+Trailer and Episodes 01–04 now have one fail-closed opening-day media gate in
+`operations/launch/opening-day-media-gate-2026-07-31.json`, checked by
+`node scripts/check-opening-day-media.mjs`. Current truth is **0/5
+release-ready**: Episodes 01–03 are queued for one identified complete 1×
+audible watch; the Trailer and Episode 04 require editorial rebuilds before a
+final owner watch. The public Episode 04 object is the older v8 branch and is
+not opening-day-admitted. Ali's usable watch-and-note surface is
+`operations/control-room/review-inbox.html`. Only an exact master that passes
+all twelve gates may be bound to the real website player and move to public
+verification.
+
 Run the persistent product-champion system in risk-ranked cycles. Require an
 `OPERATING-SPEC.md` before a champion builds, then complete the
 research → specification → competition → build packet → specialist

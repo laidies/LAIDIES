@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Opening-day film review · LAiDIES Control Room</title>
+  <style>
+    :root {
+      --plum: #40133d;
+      --pink: #ef2aaa;
+      --teal: #20cbd0;
+      --coral: #ff6b62;
+      --violet: #7752ed;
+      --cream: #fff7d3;
+      --ink: #210c2a;
+      --panel: rgba(255,255,255,.94);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Jost, Avenir Next, Avenir, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 8% 5%, rgba(255,228,90,.68), transparent 19rem),
+        radial-gradient(circle at 92% 12%, rgba(238,63,151,.28), transparent 25rem),
+        radial-gradient(circle at 82% 95%, rgba(49,114,223,.26), transparent 30rem),
+        linear-gradient(135deg,#ecd9f3 0%,#d9e8fb 51%,#efcce9 100%);
+    }
+    button, select, textarea { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 60px; }
+    .mast {
+      padding: clamp(24px,4vw,48px);
+      color: white;
+      border: 4px solid var(--plum);
+      border-radius: 28px;
+      background: linear-gradient(125deg,#ef4d9c,#b75cc4 58%,#6c7cd1);
+      box-shadow: 12px 14px 0 var(--teal);
+    }
+    .eyebrow { margin: 0 0 10px; font-size: .82rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: var(--cream); }
+    h1 { margin: 0; font-size: clamp(2.2rem,5vw,4.4rem); line-height: .94; max-width: 850px; }
+    .mast p:last-child { max-width: 760px; margin: 20px 0 0; font-size: 1.12rem; line-height: 1.55; }
+    .truth { display: flex; flex-wrap: wrap; gap: 10px; margin: 34px 0 18px; }
+    .truth span { padding: 9px 14px; border: 2px solid var(--plum); border-radius: 999px; background: var(--cream); font-weight: 850; }
+    .programme-tabs { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; margin: 18px 0; }
+    .programme-tabs button { min-height: 66px; padding: 12px; border: 3px solid var(--plum); border-radius: 17px; background: rgba(255,255,255,.72); color: var(--plum); font-weight: 900; cursor: pointer; }
+    .programme-tabs button[aria-selected="true"] { background: var(--pink); box-shadow: 0 7px 0 var(--violet); }
+    .review-card { overflow: hidden; border: 4px solid var(--plum); border-radius: 28px; background: var(--panel); box-shadow: 10px 12px 0 rgba(64,19,61,.14); }
+    .review-heading { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; padding: 25px clamp(20px,3vw,38px); border-bottom: 3px solid var(--plum); background: linear-gradient(115deg,#68cfe1,#b28fe3 47%,#ef68aa); }
+    h2 { margin: 0; font-size: clamp(1.7rem,4vw,3rem); line-height: 1; }
+    .status { padding: 10px 14px; border: 2px solid var(--plum); border-radius: 999px; background: var(--cream); font-size: .78rem; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .player-wrap { padding: clamp(16px,3vw,32px); background: #1d0c26; }
+    video { display: block; width: 100%; max-height: 72vh; background: #09040c; border-radius: 16px; }
+    .hash { margin: 12px 0 0; color: #eadff0; font: 700 .76rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; overflow-wrap: anywhere; }
+    .review-grid { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr); gap: 0; }
+    .review-grid > section { padding: clamp(22px,3vw,36px); }
+    .review-grid > section + section { border-left: 3px solid var(--plum); background: rgba(230,220,255,.55); }
+    h3 { margin: 0 0 14px; font-size: 1.35rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0 0 9px; line-height: 1.42; }
+    .gates { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; margin: 18px 0 0; }
+    .gate { display: flex; justify-content: space-between; gap: 10px; padding: 10px 11px; border: 1px solid rgba(64,19,61,.25); border-radius: 10px; background: white; font-size: .82rem; font-weight: 750; }
+    .gate b { font-size: .72rem; letter-spacing: .04em; }
+    .gate[data-verdict="PASS"] b { color: #087d70; }
+    .gate[data-verdict="HOLD"] b { color: #8c5600; }
+    .gate[data-verdict="FAIL"] b { color: #b01642; }
+    label { display: block; margin: 0 0 8px; font-weight: 850; }
+    select, textarea { width: 100%; border: 2px solid var(--plum); border-radius: 12px; background: white; color: var(--plum); }
+    select { padding: 11px; }
+    textarea { min-height: 150px; margin-top: 16px; padding: 13px; resize: vertical; }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .actions button { min-height: 48px; border: 2px solid var(--plum); border-radius: 12px; color: var(--plum); font-weight: 900; cursor: pointer; }
+    #save { background: var(--teal); }
+    #download { background: var(--coral); }
+    .saved { min-height: 1.3em; margin: 10px 0 0; font-size: .85rem; font-weight: 800; }
+    .boundary { margin: 28px 0 0; padding: 18px 20px; border-left: 8px solid var(--coral); background: rgba(255,255,255,.75); line-height: 1.5; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 20px, 620px); padding-top: 10px; }
+      .mast { border-radius: 20px; box-shadow: 6px 8px 0 var(--teal); }
+      .programme-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .programme-tabs button:first-child { grid-column: 1 / -1; }
+      .review-heading, .review-grid { grid-template-columns: 1fr; }
+      .review-heading { align-items: start; }
+      .status { white-space: normal; width: fit-content; }
+      .review-grid > section + section { border-left: 0; border-top: 3px solid var(--plum); }
+      .gates { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="mast">
+      <p class="eyebrow">LAiDIES Control Room · opening-day film gate</p>
+      <h1>Watch the exact cut. Catch the exact problem.</h1>
+      <p>Trailer and Episodes 01–04 cannot reach opening day until every timing, image, animation, caption, sound and website-player gate passes. A saved review here records only your human watch; it never silently releases a film.</p>
+    </header>
+
+    <div class="truth" aria-label="Current release truth">
+      <span id="readyCount">0/5 release-ready</span>
+      <span>Episodes 01–03 need a full watch</span>
+      <span>Trailer + Episode 04 need rebuilding</span>
+    </div>
+
+    <nav class="programme-tabs" aria-label="Choose a film" id="tabs"></nav>
+
+    <article class="review-card">
+      <header class="review-heading">
+        <h2 id="title">Loading…</h2>
+        <span class="status" id="status">HOLD</span>
+      </header>
+      <div class="player-wrap">
+        <video id="player" controls preload="metadata" playsinline></video>
+        <p class="hash" id="hash"></p>
+      </div>
+      <div class="review-grid">
+        <section>
+          <h3>What still needs attention</h3>
+          <ul id="issues"></ul>
+          <h3>Opening-day gates</h3>
+          <div class="gates" id="gates"></div>
+        </section>
+        <section>
+          <h3>Your complete-watch receipt</h3>
+          <label for="decision">Result for this exact cut</label>
+          <select id="decision">
+            <option value="">Not reviewed</option>
+            <option value="PASS">PASS — no release-blocking problem</option>
+            <option value="HOLD">HOLD — problems found</option>
+          </select>
+          <label for="notes" style="margin-top:16px">Time-coded notes</label>
+          <textarea id="notes" placeholder="Example: 08:43–09:35 — narration discusses 2017/2022, but the picture stays on an unrelated desk."></textarea>
+          <div class="actions">
+            <button type="button" id="save">Save on this device</button>
+            <button type="button" id="download">Download receipt</button>
+          </div>
+          <p class="saved" id="saved" role="status"></p>
+        </section>
+      </div>
+    </article>
+
+    <p class="boundary"><strong>Release boundary:</strong> a PASS here proves the full human watch only. The film remains held until every machine gate, website-player test, exact public checksum and discovery/correction check also passes.</p>
+  </main>
+
+  <script>
+    const gateUrl = '../launch/opening-day-media-gate-2026-07-31.json';
+    const rootPrefix = '../../';
+    const state = { gate: null, active: '01' };
+    const labels = { trailer: 'Trailer', '01': 'Episode 01', '02': 'Episode 02', '03': 'Episode 03', '04': 'Episode 04' };
+    const gateLabels = {
+      exact_master: 'Exact master', decode_and_clock: 'Decode + clock', captions: 'Captions',
+      content_accuracy: 'Content accuracy', narration_picture_timing: 'Narration ↔ picture timing',
+      visual_identity_and_continuity: 'Images + continuity', motion_and_animation: 'Motion + animation',
+      human_full_audible_watch: 'Full audible watch', website_player: 'Website player',
+      responsive_and_accessible_playback: 'Mobile + accessibility', public_exact_identity: 'Exact public file',
+      discovery_and_correction_propagation: 'Discovery + corrections'
+    };
+
+    function storageKey(id) { return `laidies-opening-film-review:${id}:${programme(id).master.sha256}`; }
+    function programme(id = state.active) { return state.gate.programmes.find(item => item.id === id); }
+    function el(id) { return document.getElementById(id); }
+
+    function renderTabs() {
+      el('tabs').replaceChildren(...state.gate.programmes.map(item => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = labels[item.id];
+        button.setAttribute('aria-selected', String(item.id === state.active));
+        button.addEventListener('click', () => { state.active = item.id; render(); });
+        return button;
+      }));
+    }
+
+    function render() {
+      const item = programme();
+      renderTabs();
+      el('title').textContent = item.title;
+      el('status').textContent = item.status;
+      el('hash').textContent = `Exact review master · SHA-256 ${item.master.sha256}`;
+      const player = el('player');
+      player.pause();
+      player.replaceChildren();
+      player.src = rootPrefix + item.master.path;
+      const track = document.createElement('track');
+      track.kind = 'captions'; track.label = 'English'; track.srclang = 'en';
+      track.src = rootPrefix + item.captions.path; track.default = true;
+      player.append(track);
+      player.load();
+
+      el('issues').replaceChildren(...item.known_issues.map(text => {
+        const li = document.createElement('li'); li.textContent = text; return li;
+      }));
+      el('gates').replaceChildren(...state.gate.required_gates.map(key => {
+        const row = document.createElement('div'); row.className = 'gate'; row.dataset.verdict = item.gates[key];
+        const name = document.createElement('span'); name.textContent = gateLabels[key] || key;
+        const result = document.createElement('b'); result.textContent = item.gates[key];
+        row.append(name, result); return row;
+      }));
+
+      const saved = JSON.parse(localStorage.getItem(storageKey(item.id)) || 'null');
+      el('decision').value = saved?.decision || '';
+      el('notes').value = saved?.notes || '';
+      el('saved').textContent = saved ? `Saved ${new Date(saved.saved_at).toLocaleString()}` : '';
+    }
+
+    function receipt() {
+      const item = programme();
+      return {
+        schema_version: 1,
+        programme: item.id,
+        title: item.title,
+        master_path: item.master.path,
+        master_sha256: item.master.sha256,
+        captions_path: item.captions.path,
+        captions_sha256: item.captions.sha256,
+        decision: el('decision').value || 'NOT REVIEWED',
+        notes: el('notes').value.trim(),
+        watch_contract: 'Complete title at 1x, unmuted and audible; time-code every release-blocking problem.',
+        saved_at: new Date().toISOString(),
+        release_boundary: 'This receipt is the human-watch gate only and is not release or publication approval.'
+      };
+    }
+
+    el('save').addEventListener('click', () => {
+      const data = receipt();
+      localStorage.setItem(storageKey(data.programme), JSON.stringify(data));
+      el('saved').textContent = `Saved ${new Date(data.saved_at).toLocaleString()}`;
+    });
+
+    el('download').addEventListener('click', () => {
+      const data = receipt();
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2) + '\n'], { type: 'application/json' }));
+      link.download = `opening-film-${data.programme}-${data.decision.toLowerCase().replaceAll(' ', '-')}-receipt.json`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+
+    fetch(gateUrl, { cache: 'no-store' })
+      .then(response => { if (!response.ok) throw new Error(`Gate ${response.status}`); return response.json(); })
+      .then(gate => {
+        state.gate = gate;
+        el('readyCount').textContent = `${gate.programmes.filter(item => item.release_ready).length}/5 release-ready`;
+        render();
+      })
+      .catch(error => {
+        el('title').textContent = 'Review gate failed to load';
+        el('status').textContent = 'FAIL CLOSED';
+        el('issues').innerHTML = `<li>${error.message}. Open this page through the local preview server, not as a file:// URL.</li>`;
+      });
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # LAiDIES release state
 
-**Updated:** 2026-07-26 23:38 PDT
+**Updated:** 2026-07-31 17:31 PDT
 **Release owner:** current whole-site release and product-champion orchestrator
 **Rule:** `LOCAL`, `COMMITTED`, `PUSHED`, `DEPLOYED`, and `PUBLICLY VERIFIED`
 are different states. A change may use only the highest state for which evidence
@@ -17,6 +17,15 @@ is recorded here.
 | 2026-07-26 announcement candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Clean-worktree artifact `/tmp/laidies-clean-artifact-20260726b.uK3zYP`: 1,085 files, 959.56 MiB, 0 missing, 0 oversized; inline JS 349/132, local links 1,915/110, KSVL 29/29, FAiRY page contract, and Screening Room source/artifact browser matrices pass. Exact critical-file hashes match the immutable deployment and custom domain. The internal 750 MiB advisory remains a performance warning, not a Cloudflare file-count or per-file limit failure. |
 | EOD release candidate | `PUSHED / DEPLOYED / PUBLICLY VERIFIED` | Release-source commit `0c6db9d2d45f865abfac7b1f5fe2ee7655827565`; curated artifact `/tmp/laidies-eod-final.NeFVs6`; 1,069 files; 1,005,029,435 bytes; identity SHA-256 `6276ae94c0c04074769be127f7b21f1f0f4032a4cfb066909cd4f0d14f02d7d5`. |
 | Trailer and Episodes 1–4 motion films | `E04 DEPLOYED / PUBLICLY VERIFIED · OTHERS HOLD` | Episode 04 exact master SHA-256 `9e8eea3b019eea64cbd8eed9ac30ce1c9441428b0acd000c06ca11ea658b3d70` is public at `https://films.laidies.ai/episodes/episode-04-full-v8-welcome-founding-mothers-ident-v3-9e8eea3b019e.mp4`; exact VTT SHA-256 `1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4`. Independent release-integration verdict SHA-256 `94bb26b91b1f88e6a71aef808607af95c5c9e6ee502ed0bef24bdde224c5465f`. Trailer/E01/E02/E03 remain HOLD. |
+
+> **2026-07-31 opening-day media correction:** the Episode 04 row above is a
+> historical technical deployment receipt, not a current editorial admission.
+> The hosted v8 object is an older sibling branch; the newer v9 candidate also
+> remains held for factual, timing, continuity and motion defects. Trailer and
+> Episodes 01–04 are therefore **0/5 opening-day release-ready** under
+> `operations/launch/opening-day-media-gate-2026-07-31.json`. Preserve the
+> historical receipt, but do not call its film accepted or use it as the
+> opening-day source until an exact reconciled successor passes all gates.
 
 ## What this means
 

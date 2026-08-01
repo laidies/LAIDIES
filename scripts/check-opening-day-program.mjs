@@ -18,6 +18,10 @@ if (typeof program.class_catalogue_manifest !== 'string' || !fs.existsSync(path.
   errors.push('Opening-day class catalogue manifest is missing.');
 }
 
+if (typeof program.media_gate_manifest !== 'string' || !fs.existsSync(path.join(root, program.media_gate_manifest))) {
+  errors.push('Opening-day media gate manifest is missing.');
+}
+
 const registered = registry.products
   .filter((product) => product.kind === 'building')
   .sort((a, b) => a.building_number - b.building_number);

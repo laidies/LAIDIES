@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-31",
+  "status": "HOLD",
+  "opening_day_cutline": ["trailer", "01", "02", "03", "04"],
+  "release_rule": "A title is opening-ready only when the exact checksum-bound master passes content accuracy, narration-picture timing, image and identity continuity, intended animation/motion, complete captions, full decode, an identified human full-title 1x audible watch, the real responsive website player, exact public bytes and discovery/correction propagation. A local file, isolated player pass or successful upload cannot substitute for another gate.",
+  "review_surface": "operations/control-room/review-inbox.html",
+  "current_public_finding": {
+    "checked_at": "2026-07-31T17:19:35-07:00",
+    "watch_page": "https://laidies.ai/watch.html?ep=04",
+    "finding": "The public player binds only Episode 04 and binds the older v8 object. The current local candidate binds no motion films. Trailer and Episodes 01-03 are not publicly watchable as motion films, and the Episode 04 object is not the newest or editorially accepted cut.",
+    "episode_04_public_url": "https://films.laidies.ai/episodes/episode-04-full-v8-welcome-founding-mothers-ident-v3-9e8eea3b019e.mp4",
+    "episode_04_public_sha256": "9e8eea3b019eea64cbd8eed9ac30ce1c9441428b0acd000c06ca11ea658b3d70",
+    "http_status": 200,
+    "content_length": 284902235,
+    "etag": "6e44a75f68804e86196133e23f04e79f"
+  },
+  "required_gates": [
+    "exact_master",
+    "decode_and_clock",
+    "captions",
+    "content_accuracy",
+    "narration_picture_timing",
+    "visual_identity_and_continuity",
+    "motion_and_animation",
+    "human_full_audible_watch",
+    "website_player",
+    "responsive_and_accessible_playback",
+    "public_exact_identity",
+    "discovery_and_correction_propagation"
+  ],
+  "programmes": [
+    {
+      "id": "trailer",
+      "title": "The Trailer",
+      "status": "REBUILD REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
+        "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
+        "role": "last checksum-bound complete review master; not the unfinished v15/v16 successor"
+      },
+      "captions": {
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+        "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+        "cue_count": 207,
+        "coverage": "complete for v5"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "HOLD",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "Ali reported timing errors and missing images/animations; those defects have not been cleared by a complete watch of a final successor.",
+        "The v5 heroine-outfit decision remained open.",
+        "v15/v16 repair work contains review imagery but no rendered, checksum-bound successor film.",
+        "The Screening Room admission points at a different partial caption lineage ending 64.356 seconds before the narration, so it cannot bind v5 safely."
+      ],
+      "next_action": "Finish one authoritative Trailer successor from the v16 repair source, reconcile the 58-beat picture map and full caption clock, then run the full gate and human watch before any site binding.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/ali-review-packet.md",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-representative-player-harness-2026-07-26"
+      ]
+    },
+    {
+      "id": "01",
+      "title": "Episode 01 — On Wednesdays We Do AI",
+      "status": "READY FOR OWNER WATCH",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+        "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+        "role": "current exact review candidate"
+      },
+      "captions": {
+        "path": "assets/captions/episode-01.vtt",
+        "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+        "cue_count": 246,
+        "coverage": "complete"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "PASS",
+        "visual_identity_and_continuity": "PASS",
+        "motion_and_animation": "PASS",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
+        "The exact motion master is not bound to the public Screening Room."
+      ],
+      "next_action": "Complete one full 1x audible watch with time-coded HOLD notes or PASS, then bind this exact master/captions to the real site player and verify public playback and discovery.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-27/emq-e01-v26-fresh-independent-judge-2026-07-27.md"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Episode 02 — Tell Me What You Want",
+      "status": "READY FOR OWNER WATCH",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+        "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+        "role": "current exact review candidate"
+      },
+      "captions": {
+        "path": "assets/captions/episode-02.vtt",
+        "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+        "cue_count": 194,
+        "coverage": "complete"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "PASS",
+        "visual_identity_and_continuity": "PASS",
+        "motion_and_animation": "PASS",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
+        "The exact motion master is not bound to the public Screening Room."
+      ],
+      "next_action": "Complete one full 1x audible watch with time-coded HOLD notes or PASS, then bind this exact master/captions to the real site player and verify public playback and discovery.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-full-av-judge-2026-07-26.md",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-welcome-ident-v2-representative-player-independent-judge-2026-07-26.md"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Episode 03 — The Burn Book Problem",
+      "status": "READY FOR OWNER WATCH",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
+        "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
+        "role": "current exact review candidate"
+      },
+      "captions": {
+        "path": "assets/captions/episode-03.vtt",
+        "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+        "cue_count": 211,
+        "coverage": "complete"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "PASS",
+        "visual_identity_and_continuity": "PASS",
+        "motion_and_animation": "PASS",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
+        "The exact motion master is not bound to the public Screening Room."
+      ],
+      "next_action": "Complete one full 1x audible watch with time-coded HOLD notes or PASS, then bind this exact master/captions to the real site player and verify public playback and discovery.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-27/emq-e03-v13-fresh-independent-judge-2026-07-27.md"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Episode 04 — The Founding Mothers",
+      "status": "REBUILD REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
+        "sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
+        "role": "newest local review candidate; not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-04.vtt",
+        "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+        "cue_count": 236,
+        "coverage": "complete"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "FAIL",
+        "narration_picture_timing": "FAIL",
+        "visual_identity_and_continuity": "FAIL",
+        "motion_and_animation": "FAIL",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "HOLD",
+        "responsive_and_accessible_playback": "HOLD",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "The public player serves the older v8 hash, not this v9 candidate.",
+        "The Ada sequence is substantially static and missing the intended multi-shot animation coverage.",
+        "A roughly 52-second irrelevant desk hold replaces the spoken 2017 and 2022 events.",
+        "The Analytical Engine, Grace Hopper debugging and ENIAC passages require factual and visual correction.",
+        "One image attributes Emily Bender's concept to Timnit Gebru."
+      ],
+      "next_action": "Rebuild the editorial picture sequence and historically inaccurate passages on one authoritative base, complete the 55-occurrence visual audit, then run the full exact-player and human watch gates before replacing the stale public v8 object.",
+      "evidence": [
+        "operations/video-qa/episode-04-public-owner-defects-2026-07-31.md",
+        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e04-v9-independent-judge-2026-07-26.md"
+      ]
+    }
+  ]
+}
