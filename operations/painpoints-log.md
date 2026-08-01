@@ -11191,3 +11191,30 @@ _Original source ID: repository #36_
 - **Possible Behind the Build angle:** The edit was right to the millisecond—but
   video still comes in frames. How LAiDIES validates both clocks without hiding
   a real timing mistake.
+
+## BTB-312 — A relevant illustration can still fail a sixteen-minute trailer
+
+- **Date:** 2026-08-01
+- **Area:** Trailer / narration-picture pacing / final-master admission.
+- **Failure:** All 58 beats in the exact current trailer were inspected against
+  the words being spoken. Most illustrations were broadly relevant, but seven
+  material heroine appearances used an unresolved outfit, fifteen shots crossed
+  into narration they did not depict and twenty more relied on long static
+  holds where the explanation needed purposeful progression. The final town
+  postcard alone remained unchanged for the 64-second anthem outro.
+- **Root cause:** Earlier source/style judgments answered whether an image
+  belonged somewhere in the trailer, not whether the assembled viewer
+  experience changed meaningfully as the narration advanced. Relevance became
+  a proxy for pacing, motion, timing and continuity.
+- **Prevention rule:** Long-form video must be admitted occurrence by
+  occurrence from the exact current master. Each row needs an actual-frame
+  description, contemporaneous narration, duration and visible-motion evidence,
+  an exact boundary check and a bounded repair disposition. A relevant still is
+  acceptable only when its static duration is purposeful; mixed-purpose
+  narration and long outros require progressing shot sequences. Unresolved
+  character continuity authority must be decided before replacement generation.
+- **Why the fix works:** The gate preserves useful approved art while exposing
+  the editing and motion work required to make it genuinely watchable and
+  teachable.
+- **Possible Behind the Build angle:** The pictures were right. The trailer was
+  still wrong.

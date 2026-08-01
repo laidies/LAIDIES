@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-07-31",
+  "updated": "2026-08-01",
   "status": "HOLD",
   "contract": "operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md",
   "occurrence_schema": "operations/video-qa/site-video-occurrence.schema.json",
@@ -20,9 +20,31 @@
       "silent_instructional_animation",
       "ambient_loop"
     ],
-    "formats": ["mp4", "webm", "m4v", "gif", "lottie", "rive", "css_animation"],
-    "occurrence_dispositions": ["PASS", "CLOSE_ENOUGH", "RETIME", "REPLACE", "ADD_OR_REPAIR_ANIMATION"],
-    "source_types": ["still", "camera_move_on_still", "ambient_loop", "semantic_animation", "demonstration", "live_action", "decorative_motion"]
+    "formats": [
+      "mp4",
+      "webm",
+      "m4v",
+      "gif",
+      "lottie",
+      "rive",
+      "css_animation"
+    ],
+    "occurrence_dispositions": [
+      "PASS",
+      "CLOSE_ENOUGH",
+      "RETIME",
+      "REPLACE",
+      "ADD_OR_REPAIR_ANIMATION"
+    ],
+    "source_types": [
+      "still",
+      "camera_move_on_still",
+      "ambient_loop",
+      "semantic_animation",
+      "demonstration",
+      "live_action",
+      "decorative_motion"
+    ]
   },
   "monitored_visitor_sources": [
     "index.html",
@@ -77,7 +99,9 @@
       "content_type": "ambient_loop",
       "path": "assets/episodes/ep-04/clips/ep04-scene-03-ada-loop-v1.mp4",
       "sha256": "343e37c02c4873ae71c7fed8e21bb6d4c52b7ccc0bfb05770a223b84ee36b3b4",
-      "bound_sources": ["content/episodes/episode-04-cues.json"],
+      "bound_sources": [
+        "content/episodes/episode-04-cues.json"
+      ],
       "occurrence_review": {
         "expected_occurrences": 1,
         "reviewed_occurrences": 0,
@@ -96,11 +120,30 @@
       "caption_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
       "caption_sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
       "expected_occurrences": 58,
-      "relevance_review": {"reviewed_occurrences": 0, "status": "HOLD"},
-      "continuity_and_occlusion_review": {"reviewed_occurrences": 0, "status": "HOLD"},
-      "motion_semantics_review": {"reviewed_occurrences": 0, "status": "HOLD"},
-      "open_findings": ["Full 58-occurrence audit not completed", "Heroine outfit continuity decision remains open", "Full 1x audible watch not completed"],
-      "admission_status": "HOLD"
+      "relevance_review": {
+        "reviewed_occurrences": 58,
+        "status": "FAIL",
+        "basis": "The owner actual-master audit describes all 58 v5 beats against contemporaneous narration: 7 require source replacement after the heroine-outfit authority decision, 15 require retiming and 20 additional beats require purposeful motion or shot progression."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 58,
+        "status": "FAIL",
+        "basis": "Start/middle/end samples cover all 58 beats. Seven material yellow-plaid heroine appearances conflict with the trailer-specific multicolour treatment; no obvious sampled subject disappearance was seen, but the complete 1x watch remains pending after repair."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 58,
+        "status": "FAIL",
+        "basis": "The exact v5 samples preserve the working B08 ident and visible change in four declared-motion beats, but most of the 16-minute programme remains long static holds. 20 additional beats need purposeful animation or narration-progressing sequences, and timing/source blockers must be repaired first."
+      },
+      "open_findings": [
+        "Owner repair queue: operations/video-qa/trailer-v5-occurrence-audit-2026-08-01/owner-occurrence-review.md",
+        "Resolve the exact canonical trailer heroine outfit before generating replacements for B01, B04, B07, B15, B31, B39 and B56",
+        "15 beats require splitting or shifting to the narration they actually depict",
+        "20 additional relevant beats require meaningful local animation or purposeful shot progression; B58 alone holds one postcard for the 64-second anthem outro",
+        "Preserve the current v5 B08 LAiDIES welcome ident, exact narration, music and captions",
+        "Full 1x audible watch, responsive-player proof and independent post-repair occurrence admission remain pending"
+      ],
+      "admission_status": "FAIL"
     },
     {
       "id": "01",
@@ -110,10 +153,27 @@
       "caption_path": "assets/captions/episode-01.vtt",
       "caption_sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
       "expected_occurrences": 71,
-      "relevance_review": {"reviewed_occurrences": 71, "status": "FAIL", "basis": "The owner actual-frame audit describes all 71 assembled occurrences against contemporaneous narration: 9 require source replacement, 7 require retiming, and 55 require meaningful narrative/local animation or a purposeful shot sequence. Independent admission remains pending after repair."},
-      "continuity_and_occlusion_review": {"reviewed_occurrences": 71, "status": "FAIL", "basis": "Start/middle/end samples cover all 71 occurrences. The audit identifies repeated still runs, retired or inconsistent sources, mistimed building cards and an internal state swap at p08. A full normal-speed audible watch remains required after repair."},
-      "motion_semantics_review": {"reviewed_occurrences": 71, "status": "FAIL", "basis": "The exact 71-placement manifest and actual-master samples show all 71 placements are static holds. No occurrence has admitted narrative or local motion; zoom or pan cannot count as animation."},
-      "open_findings": ["Owner repair queue: operations/video-qa/episode-01-occurrence-audit-2026-08-01/owner-occurrence-review.md", "All 71 placements are static; 9 require replacement, 7 retiming, and 55 meaningful narrative/local animation or purposeful shot sequences", "Long duplicate runs and retired or mistimed sources remain in the exact v26 master", "Full 1x audible watch and independent post-repair admission remain pending"],
+      "relevance_review": {
+        "reviewed_occurrences": 71,
+        "status": "FAIL",
+        "basis": "The owner actual-frame audit describes all 71 assembled occurrences against contemporaneous narration: 9 require source replacement, 7 require retiming, and 55 require meaningful narrative/local animation or a purposeful shot sequence. Independent admission remains pending after repair."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 71,
+        "status": "FAIL",
+        "basis": "Start/middle/end samples cover all 71 occurrences. The audit identifies repeated still runs, retired or inconsistent sources, mistimed building cards and an internal state swap at p08. A full normal-speed audible watch remains required after repair."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 71,
+        "status": "FAIL",
+        "basis": "The exact 71-placement manifest and actual-master samples show all 71 placements are static holds. No occurrence has admitted narrative or local motion; zoom or pan cannot count as animation."
+      },
+      "open_findings": [
+        "Owner repair queue: operations/video-qa/episode-01-occurrence-audit-2026-08-01/owner-occurrence-review.md",
+        "All 71 placements are static; 9 require replacement, 7 retiming, and 55 meaningful narrative/local animation or purposeful shot sequences",
+        "Long duplicate runs and retired or mistimed sources remain in the exact v26 master",
+        "Full 1x audible watch and independent post-repair admission remain pending"
+      ],
       "admission_status": "FAIL"
     },
     {
@@ -124,10 +184,27 @@
       "caption_path": "assets/captions/episode-02.vtt",
       "caption_sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
       "expected_occurrences": 61,
-      "relevance_review": {"reviewed_occurrences": 61, "status": "FAIL", "basis": "The owner actual-master audit describes all 61 assembled occurrences against contemporaneous narration: 14 require source replacement, 13 require retiming, and 34 require meaningful local or narrative animation. The earlier blanket source-level PASS is superseded for this exact master."},
-      "continuity_and_occlusion_review": {"reviewed_occurrences": 61, "status": "FAIL", "basis": "Start/middle/end samples cover all 61 occurrences and expose multiple title-card overruns and missing handoffs between narrative beats. The approved ident appears without obvious sampled occlusion, but the full normal-speed watch remains pending after repair."},
-      "motion_semantics_review": {"reviewed_occurrences": 61, "status": "FAIL", "basis": "Sixty placements are static holds. The remaining placement contains the approved welcome ident but has a static surrounding bridge, so no complete occurrence has admitted narrative/local motion."},
-      "open_findings": ["Owner repair queue: operations/video-qa/episode-02-occurrence-audit-2026-08-01/owner-occurrence-review.md", "14 placements require replacement, 13 require retiming, and 34 require meaningful local or narrative animation", "The approved welcome ident must be preserved while its static bridge is repaired", "Full 1x audible watch and independent post-repair admission remain pending"],
+      "relevance_review": {
+        "reviewed_occurrences": 61,
+        "status": "FAIL",
+        "basis": "The owner actual-master audit describes all 61 assembled occurrences against contemporaneous narration: 14 require source replacement, 13 require retiming, and 34 require meaningful local or narrative animation. The earlier blanket source-level PASS is superseded for this exact master."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 61,
+        "status": "FAIL",
+        "basis": "Start/middle/end samples cover all 61 occurrences and expose multiple title-card overruns and missing handoffs between narrative beats. The approved ident appears without obvious sampled occlusion, but the full normal-speed watch remains pending after repair."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 61,
+        "status": "FAIL",
+        "basis": "Sixty placements are static holds. The remaining placement contains the approved welcome ident but has a static surrounding bridge, so no complete occurrence has admitted narrative/local motion."
+      },
+      "open_findings": [
+        "Owner repair queue: operations/video-qa/episode-02-occurrence-audit-2026-08-01/owner-occurrence-review.md",
+        "14 placements require replacement, 13 require retiming, and 34 require meaningful local or narrative animation",
+        "The approved welcome ident must be preserved while its static bridge is repaired",
+        "Full 1x audible watch and independent post-repair admission remain pending"
+      ],
       "admission_status": "FAIL"
     },
     {
@@ -138,10 +215,29 @@
       "caption_path": "assets/captions/episode-03.vtt",
       "caption_sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
       "expected_occurrences": 49,
-      "relevance_review": {"reviewed_occurrences": 49, "status": "FAIL", "basis": "The owner actual-master audit describes all 49 assembled occurrences against contemporaneous narration: 2 require source replacement, 7 require retiming, 24 require purposeful animation, 10 receive a bounded source-treatment PASS and 6 are CLOSE_ENOUGH. Independent admission remains pending."},
-      "continuity_and_occlusion_review": {"reviewed_occurrences": 49, "status": "FAIL", "basis": "Start/middle/end samples cover all 49 occurrences and expose seven timing/hand-off failures plus the 62.6-second closing card that obscures multiple distinct destinations. No obvious sampled subject disappearance was seen; the complete normal-speed watch remains pending after repair."},
-      "motion_semantics_review": {"reviewed_occurrences": 49, "status": "FAIL", "basis": "Sixteen semantically acceptable occurrences have bounded source or structural motion evidence, but none has independent final-master motion admission. Twenty-four relevant occurrences remain overly static; nine additional occurrences are semantic replacement or timing blockers."},
-      "open_findings": ["Two exact-audio repair review sequences are bound in operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/repair-production-manifest.json and pass deterministic audiovisual validation; they remain local review candidates only", "Owner repair queue: operations/video-qa/episode-03-occurrence-audit-2026-08-01/owner-occurrence-review.md", "2 placements require replacement, 7 require retiming and 24 require meaningful local or narrative animation", "Preserve the approved LAiDIES ident and independently source-admitted cue-30 law-library loop", "Split the 62.6-second closing occurrence into destination-specific shots and preserve the signoff card only for the final maxim", "Full 1x audible watch and independent post-repair admission remain pending"],
+      "relevance_review": {
+        "reviewed_occurrences": 49,
+        "status": "FAIL",
+        "basis": "The owner actual-master audit describes all 49 assembled occurrences against contemporaneous narration: 2 require source replacement, 7 require retiming, 24 require purposeful animation, 10 receive a bounded source-treatment PASS and 6 are CLOSE_ENOUGH. Independent admission remains pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 49,
+        "status": "FAIL",
+        "basis": "Start/middle/end samples cover all 49 occurrences and expose seven timing/hand-off failures plus the 62.6-second closing card that obscures multiple distinct destinations. No obvious sampled subject disappearance was seen; the complete normal-speed watch remains pending after repair."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 49,
+        "status": "FAIL",
+        "basis": "Sixteen semantically acceptable occurrences have bounded source or structural motion evidence, but none has independent final-master motion admission. Twenty-four relevant occurrences remain overly static; nine additional occurrences are semantic replacement or timing blockers."
+      },
+      "open_findings": [
+        "Two exact-audio repair review sequences are bound in operations/video-qa/episode-03-v14-repair-production-packet-2026-08-01/repair-production-manifest.json and pass deterministic audiovisual validation; they remain local review candidates only",
+        "Owner repair queue: operations/video-qa/episode-03-occurrence-audit-2026-08-01/owner-occurrence-review.md",
+        "2 placements require replacement, 7 require retiming and 24 require meaningful local or narrative animation",
+        "Preserve the approved LAiDIES ident and independently source-admitted cue-30 law-library loop",
+        "Split the 62.6-second closing occurrence into destination-specific shots and preserve the signoff card only for the final maxim",
+        "Full 1x audible watch and independent post-repair admission remain pending"
+      ],
       "admission_status": "FAIL"
     },
     {
@@ -152,10 +248,30 @@
       "caption_path": "assets/captions/episode-04.vtt",
       "caption_sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
       "expected_occurrences": 55,
-      "relevance_review": {"reviewed_occurrences": 55, "status": "FAIL", "basis": "The owner actual-frame audit describes and disposes all 55 assembled v9 occurrences. Fourteen launch-blocking occurrences remain and the audit is not independent admission."},
-      "continuity_and_occlusion_review": {"reviewed_occurrences": 55, "status": "FAIL", "basis": "The owner audit covers every placement and confirms the Grace Hopper moth occlusion plus unresolved historical/canon and sequence-continuity defects. Independent judgment remains pending."},
-      "motion_semantics_review": {"reviewed_occurrences": 55, "status": "FAIL", "basis": "The owner audit covers every placement and confirms absent rain, still/zoom substitution, broken moth compositing, long holds and insufficient event-specific coverage. Exact-audio review sequences now exist for p16/p17, p19/p20, p37/p38 and p43; rain and moth motion candidates remain held."},
-      "open_findings": ["A checksum-bound v10 repair production packet now maps every owner finding to an exact next action", "Four exact-audio review sequences exist for p16/p17, p19/p20, p37/p38 and p43 but require independent judgment; p20 still needs a distinct capability-limit/credit visual", "New event-specific coverage remains required for p03, p06, p14, p22, p23, p25, p27, p50 and p51", "The new p18 London/1843 bridge requires independent reference and era judgment", "Rain and Grace moth successors remain local review candidates only", "p46/p48 require the dismissal visual to be retimed to its actual narration", "Independent occurrence admission, successor assembly and full 1x audible watch are not complete"],
+      "relevance_review": {
+        "reviewed_occurrences": 55,
+        "status": "FAIL",
+        "basis": "The owner actual-frame audit describes and disposes all 55 assembled v9 occurrences. Fourteen launch-blocking occurrences remain and the audit is not independent admission."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 55,
+        "status": "FAIL",
+        "basis": "The owner audit covers every placement and confirms the Grace Hopper moth occlusion plus unresolved historical/canon and sequence-continuity defects. Independent judgment remains pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 55,
+        "status": "FAIL",
+        "basis": "The owner audit covers every placement and confirms absent rain, still/zoom substitution, broken moth compositing, long holds and insufficient event-specific coverage. Exact-audio review sequences now exist for p16/p17, p19/p20, p37/p38 and p43; rain and moth motion candidates remain held."
+      },
+      "open_findings": [
+        "A checksum-bound v10 repair production packet now maps every owner finding to an exact next action",
+        "Four exact-audio review sequences exist for p16/p17, p19/p20, p37/p38 and p43 but require independent judgment; p20 still needs a distinct capability-limit/credit visual",
+        "New event-specific coverage remains required for p03, p06, p14, p22, p23, p25, p27, p50 and p51",
+        "The new p18 London/1843 bridge requires independent reference and era judgment",
+        "Rain and Grace moth successors remain local review candidates only",
+        "p46/p48 require the dismissal visual to be retimed to its actual narration",
+        "Independent occurrence admission, successor assembly and full 1x audible watch are not complete"
+      ],
       "admission_status": "FAIL"
     }
   ]
