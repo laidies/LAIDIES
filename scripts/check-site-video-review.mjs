@@ -95,6 +95,44 @@ for (const format of ['mp4', 'webm', 'm4v', 'gif', 'lottie', 'rive', 'css_animat
   if (!registry.scope?.formats?.includes(format)) fail(`Scope omits ${format}.`);
 }
 
+const sitewideInventory = registry.sitewide_inventory;
+if (!sitewideInventory) {
+  fail('The deterministic sitewide motion inventory is not bound to the registry.');
+} else {
+  await verifyFile('Sitewide motion inventory JSON', sitewideInventory.json_path, sitewideInventory.json_sha256);
+  await verifyFile('Sitewide motion inventory report', sitewideInventory.report_path, sitewideInventory.report_sha256);
+  const inventoryFile = path.join(root, sitewideInventory.json_path || '');
+  if (fs.existsSync(inventoryFile)) {
+    const inventory = JSON.parse(fs.readFileSync(inventoryFile, 'utf8'));
+    if (inventory.contract !== registry.contract) fail('Sitewide inventory is bound to a different review contract.');
+    if (inventory.status !== sitewideInventory.status) fail('Sitewide inventory status does not match the registry.');
+    const countBindings = {
+      scanned_source_files: inventory.route_scope?.scanned_source_files,
+      literal_motion_references: inventory.summary?.literal_motion_references,
+      unregistered_literal_references: inventory.summary?.unregistered_literal_references,
+      missing_literal_motion_files: inventory.summary?.missing_literal_motion_files,
+      dynamic_video_renderers: inventory.summary?.dynamic_video_renderers,
+      runtime_animation_definitions: inventory.summary?.runtime_animation_definitions,
+      semantic_or_instructional_runtime_animations: inventory.summary?.semantic_or_instructional_runtime_animations
+    };
+    for (const [field, actual] of Object.entries(countBindings)) {
+      if (sitewideInventory[field] !== actual) fail(`Sitewide inventory count mismatch for ${field}.`);
+    }
+    if ((inventory.route_scope?.missing_sitemap_files ?? []).length) fail('Sitewide inventory has unresolved sitemap routes.');
+    if (sitewideInventory.status === 'PASS' && (
+      sitewideInventory.unregistered_literal_references !== 0 ||
+      sitewideInventory.missing_literal_motion_files !== 0 ||
+      sitewideInventory.dynamic_video_renderers !== 0 ||
+      sitewideInventory.runtime_animation_definitions !== 0
+    )) {
+      fail('Sitewide inventory cannot PASS while unadmitted motion surfaces remain.');
+    }
+  }
+  if (!validStatuses.has(sitewideInventory.status)) fail('Sitewide inventory status is invalid.');
+  const builderFile = path.join(root, sitewideInventory.builder || '');
+  if (!sitewideInventory.builder || !fs.existsSync(builderFile)) fail('Sitewide inventory builder is missing.');
+}
+
 for (const surface of registry.runtime_surfaces ?? []) {
   const file = path.join(root, surface.path || '');
   if (!fs.existsSync(file)) {
@@ -203,7 +241,9 @@ for (const programme of registry.programmes ?? []) {
 }
 
 const everything = [...(registry.direct_motion_assets ?? []), ...(registry.programmes ?? [])];
-const allPass = everything.length > 0 && everything.every((item) => item.admission_status === 'PASS');
+const allPass = everything.length > 0 &&
+  everything.every((item) => item.admission_status === 'PASS') &&
+  sitewideInventory?.status === 'PASS';
 if ((registry.status === 'PASS') !== allPass) {
   fail(`Registry status ${registry.status} does not match all-items-pass=${allPass}.`);
 }
@@ -221,6 +261,7 @@ console.log(`- tracked exact items: ${everything.length}`);
 console.log(`- admitted: ${everything.filter((item) => item.admission_status === 'PASS').length}`);
 console.log(`- hold: ${held.map((item) => item.id).join(', ') || 'none'}`);
 console.log(`- fail: ${failed.map((item) => item.id).join(', ') || 'none'}`);
+console.log(`- sitewide inventory: ${sitewideInventory?.status ?? 'missing'}`);
 console.log(`- registry admission: ${registry.status}`);
 
 if (process.argv.includes('--require-ready') && !allPass) {

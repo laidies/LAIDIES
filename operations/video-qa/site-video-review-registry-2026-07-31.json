@@ -58,6 +58,23 @@
     "content/episodes/episode-03-cues.json",
     "content/episodes/episode-04-cues.json"
   ],
+  "sitewide_inventory": {
+    "inventory_date": "2026-08-01",
+    "json_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.json",
+    "json_sha256": "d8352528d9587224ff2dfdb4f5eba78c672f9e9b306b1fc191ec955907a60a9f",
+    "report_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.md",
+    "report_sha256": "97de9f096991eb7a70123950da04a359b0a4adfe17a4dc5a8ec34d2f2575be2a",
+    "builder": "scripts/build-sitewide-motion-inventory.mjs",
+    "status": "HOLD",
+    "scanned_source_files": 224,
+    "literal_motion_references": 5,
+    "unregistered_literal_references": 0,
+    "missing_literal_motion_files": 0,
+    "dynamic_video_renderers": 5,
+    "runtime_animation_definitions": 149,
+    "semantic_or_instructional_runtime_animations": 71,
+    "reason": "The deterministic visitor-surface scan found no missing or unknown literal motion file, but five runtime video renderers and 149 CSS/JavaScript motion definitions still require exact purpose classification and occurrence admission. Storage-only experiments are not treated as visitor-bound."
+  },
   "runtime_surfaces": [
     {
       "id": "screening-room",

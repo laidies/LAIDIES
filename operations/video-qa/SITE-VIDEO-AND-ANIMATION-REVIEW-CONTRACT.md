@@ -6,6 +6,8 @@
 **Machine registry:** `operations/video-qa/site-video-review-registry-2026-07-31.json`
 **Occurrence schema:** `operations/video-qa/site-video-occurrence.schema.json`
 **Checker:** `node scripts/check-site-video-review.mjs`
+**Sitewide inventory builder:** `node scripts/build-sitewide-motion-inventory.mjs`
+**Sitewide inventory freshness check:** `node scripts/build-sitewide-motion-inventory.mjs --check`
 
 ## The rule
 
@@ -20,6 +22,14 @@ here before release. This is not limited to episodes. It covers:
 - promos, teasers and social embeds shown on the site;
 - logo idents, GIFs, WebM clips, Lottie/Rive motion and CSS-driven instructional animation;
 - ambient loops and silent animation used inside any of those experiences.
+
+The deterministic sitewide inventory must be rebuilt whenever visitor routes,
+page dependencies, media bindings, CSS keyframes or JavaScript motion change.
+Literal video bindings, runtime-created video players, CSS keyframes, Web
+Animations API calls, animation-frame loops and timed media swaps all remain
+`HOLD` until classified. A motion file sitting in storage is not live merely
+because it exists; a visitor page or runtime binding is the evidence that puts
+it inside the release gate.
 
 The review unit is **each occurrence on the final timeline or interface**, not
 merely each source file. Reusing one clip five times creates five review

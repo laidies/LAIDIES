@@ -11218,3 +11218,29 @@ _Original source ID: repository #36_
   teachable.
 - **Possible Behind the Build angle:** The pictures were right. The trailer was
   still wrong.
+
+## BTB-313 — The animation with no video file can still escape a video gate
+
+- **Date:** 2026-08-01
+- **Area:** Sitewide motion / classes / homepage / games / shared runtime.
+- **Failure:** The universal video contract correctly covered CSS and
+  JavaScript animation in prose, but its machine registry primarily discovered
+  literal media-file paths. Runtime-created video players, CSS keyframes,
+  animation-frame loops, Web Animations API calls and timed image swaps could
+  therefore exist on visitor pages without appearing in the enforceable
+  inventory.
+- **Root cause:** File-oriented discovery treated motion as a collection of
+  MP4, WebM and GIF assets. Much of the site's actual motion is behaviour in
+  HTML, CSS and JavaScript and has no standalone motion file to find.
+- **Prevention rule:** Rebuild the deterministic sitemap- and page-dependency
+  motion inventory whenever routes, dependencies, media bindings or runtime
+  motion change. Every literal motion reference, runtime-created video player,
+  CSS keyframe, Web Animations API call, animation-frame loop and timed media
+  swap remains `HOLD` until classified and reviewed. Files in storage do not
+  become visitor-facing merely by existing; the page/runtime binding is the
+  evidence that puts them inside the gate.
+- **Why the fix works:** It inventories the behaviour a visitor can actually
+  encounter, including motion that is implemented entirely in code, while
+  keeping unrelated experiments out of live-content claims.
+- **Possible Behind the Build angle:** The animation had no video file—so the
+  video checker could not see it.
