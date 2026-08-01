@@ -11318,3 +11318,27 @@ _Original source ID: repository #36_
   first real tape cannot silently bypass the universal media gate.
 - **Possible Behind the Build angle:** The television worked. There was still
   nothing it was allowed to play.
+
+## BTB-317 — A blanket animation hold needs an evidence-bound exit
+
+- **Date:** 2026-08-01
+- **Area:** Sitewide motion inventory / class-player interface motion.
+- **Failure:** The deterministic inventory found every runtime animation, but
+  treated all 149 definitions as an undifferentiated HOLD. Even the bounded TV
+  affordance and CRT-open transition on the fail-closed class player had no
+  machine-checkable path from discovery to admission after responsive,
+  keyboard and reduced-motion review.
+- **Root cause:** Discovery and admission were conflated. The registry could
+  describe literal media occurrences, but it had no exact source-bound review
+  record for a named CSS or JavaScript animation definition.
+- **Prevention rule:** Admit runtime animation only through an exact
+  `source path + kind + name + source hash` record that states its interface
+  purpose, expected and reviewed occurrence counts, responsive result,
+  reduced-motion result and hashed evidence. Any source change invalidates the
+  binding automatically. Passing interface motion must never imply that a
+  separate video, class or content record is admitted.
+- **Why the fix works:** The universal scan remains fail-closed for the other
+  147 definitions while allowing two fully evidenced class-player transitions
+  to pass without weakening the media gate or inventing playable class tapes.
+- **Possible Behind the Build angle:** The animation was not the problem. The
+  missing part was a trustworthy way to prove it.

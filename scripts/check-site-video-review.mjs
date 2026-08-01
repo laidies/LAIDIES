@@ -24,6 +24,7 @@ const requiredContentTypes = [
   'promo_or_social_embed',
   'logo_ident',
   'silent_instructional_animation',
+  'interface_motion',
   'ambient_loop'
 ];
 
@@ -148,6 +149,7 @@ for (const format of ['mp4', 'webm', 'm4v', 'gif', 'lottie', 'rive', 'css_animat
 }
 
 const sitewideInventory = registry.sitewide_inventory;
+let sitewideInventoryData = null;
 if (!sitewideInventory) {
   fail('The deterministic sitewide motion inventory is not bound to the registry.');
 } else {
@@ -156,6 +158,7 @@ if (!sitewideInventory) {
   const inventoryFile = path.join(root, sitewideInventory.json_path || '');
   if (fs.existsSync(inventoryFile)) {
     const inventory = JSON.parse(fs.readFileSync(inventoryFile, 'utf8'));
+    sitewideInventoryData = inventory;
     if (inventory.contract !== registry.contract) fail('Sitewide inventory is bound to a different review contract.');
     if (inventory.status !== sitewideInventory.status) fail('Sitewide inventory status does not match the registry.');
     const countBindings = {
@@ -165,6 +168,9 @@ if (!sitewideInventory) {
       missing_literal_motion_files: inventory.summary?.missing_literal_motion_files,
       dynamic_video_renderers: inventory.summary?.dynamic_video_renderers,
       runtime_animation_definitions: inventory.summary?.runtime_animation_definitions,
+      reviewed_runtime_animation_definitions: inventory.summary?.reviewed_runtime_animation_definitions,
+      admitted_runtime_animation_definitions: inventory.summary?.admitted_runtime_animation_definitions,
+      unreviewed_or_unadmitted_runtime_animation_definitions: inventory.summary?.unreviewed_or_unadmitted_runtime_animation_definitions,
       semantic_or_instructional_runtime_animations: inventory.summary?.semantic_or_instructional_runtime_animations
     };
     for (const [field, actual] of Object.entries(countBindings)) {
@@ -175,7 +181,7 @@ if (!sitewideInventory) {
       sitewideInventory.unregistered_literal_references !== 0 ||
       sitewideInventory.missing_literal_motion_files !== 0 ||
       sitewideInventory.dynamic_video_renderers !== 0 ||
-      sitewideInventory.runtime_animation_definitions !== 0
+      sitewideInventory.unreviewed_or_unadmitted_runtime_animation_definitions !== 0
     )) {
       fail('Sitewide inventory cannot PASS while unadmitted motion surfaces remain.');
     }
@@ -183,6 +189,73 @@ if (!sitewideInventory) {
   if (!validStatuses.has(sitewideInventory.status)) fail('Sitewide inventory status is invalid.');
   const builderFile = path.join(root, sitewideInventory.builder || '');
   if (!sitewideInventory.builder || !fs.existsSync(builderFile)) fail('Sitewide inventory builder is missing.');
+}
+
+const runtimeReviewKeys = new Set();
+for (const review of registry.runtime_animation_reviews ?? []) {
+  const key = `${review.source_path}:${review.kind}:${review.name}`;
+  if (runtimeReviewKeys.has(key)) fail(`${review.id}: duplicate runtime-animation review key ${key}.`);
+  runtimeReviewKeys.add(key);
+  if (!registry.scope?.content_types?.includes(review.content_type)) fail(`${review.id}: unknown content type ${review.content_type}.`);
+  if (!registry.scope?.source_types?.includes(review.source_type)) fail(`${review.id}: unknown source type ${review.source_type}.`);
+  if (!validStatuses.has(review.admission_status)) fail(`${review.id}: invalid admission status.`);
+  if (!review.interface_trigger || !review.silent_purpose) fail(`${review.id}: interface trigger and silent purpose are required.`);
+  if (!Number.isInteger(review.expected_instances) || review.expected_instances < 1) fail(`${review.id}: expected_instances must be positive.`);
+  if (review.reviewed_instances !== review.expected_instances) fail(`${review.id}: reviewed instances do not cover expected instances.`);
+  await verifyFile(`${review.id}: runtime source`, review.source_path, review.source_sha256);
+  await verifyFile(`${review.id}: runtime evidence`, review.evidence_path, review.evidence_sha256);
+
+  const evidenceFile = path.join(root, review.evidence_path || '');
+  if (fs.existsSync(evidenceFile)) {
+    let evidence;
+    try {
+      evidence = JSON.parse(fs.readFileSync(evidenceFile, 'utf8'));
+    } catch (error) {
+      fail(`${review.id}: runtime evidence is not valid JSON (${error.message}).`);
+    }
+    if (evidence) {
+      if (evidence.source_path !== review.source_path || evidence.source_sha256 !== review.source_sha256) {
+        fail(`${review.id}: runtime evidence is bound to a different source.`);
+      }
+      if (evidence.reviewed_class_instances !== review.reviewed_instances) fail(`${review.id}: evidence instance count does not match the registry.`);
+      const animationEvidence = (evidence.animation_reviews ?? []).find((item) => item.kind === review.kind && item.name === review.name);
+      if (!animationEvidence || animationEvidence.status !== review.admission_status || animationEvidence.source_type !== review.source_type) {
+        fail(`${review.id}: exact animation evidence is missing or disagrees with the registry.`);
+      }
+      for (const capture of evidence.captures ?? []) {
+        await verifyFile(`${review.id}: responsive capture`, capture.path, capture.sha256);
+      }
+      if (review.admission_status === 'PASS') {
+        if (evidence.status !== 'PASS') fail(`${review.id}: PASS requires a PASS evidence receipt.`);
+        if (!evidence.checks?.desktop_and_mobile || !evidence.checks?.no_horizontal_overflow) {
+          fail(`${review.id}: PASS requires desktop/mobile and overflow proof.`);
+        }
+        if (!evidence.checks?.reduced_motion_disables_both_animations) {
+          fail(`${review.id}: PASS requires reduced-motion proof.`);
+        }
+      }
+    }
+  }
+
+  if (review.admission_status === 'PASS') {
+    if (review.responsive_review?.desktop_1280 !== 'PASS' ||
+        review.responsive_review?.mobile_390 !== 'PASS' ||
+        review.responsive_review?.horizontal_overflow !== 'PASS') {
+      fail(`${review.id}: PASS requires explicit responsive PASS results.`);
+    }
+    if (review.reduced_motion_review?.status !== 'PASS') fail(`${review.id}: PASS requires a reduced-motion PASS.`);
+  }
+
+  const inventoryEntry = sitewideInventoryData?.runtime_animations?.find((item) =>
+    item.source_path === review.source_path && item.kind === review.kind && item.name === review.name
+  );
+  if (!inventoryEntry) {
+    fail(`${review.id}: reviewed animation is absent from the deterministic sitewide inventory.`);
+  } else {
+    if (inventoryEntry.review_id !== review.id) fail(`${review.id}: sitewide inventory is not bound to this exact review.`);
+    if (inventoryEntry.admission_status !== review.admission_status) fail(`${review.id}: sitewide inventory status disagrees with the review.`);
+    if (inventoryEntry.source_sha256 !== review.source_sha256) fail(`${review.id}: sitewide inventory source checksum disagrees with the review.`);
+  }
 }
 
 for (const surface of registry.runtime_surfaces ?? []) {

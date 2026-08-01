@@ -18,6 +18,7 @@
       "promo_or_social_embed",
       "logo_ident",
       "silent_instructional_animation",
+      "interface_motion",
       "ambient_loop"
     ],
     "formats": [
@@ -61,9 +62,9 @@
   "sitewide_inventory": {
     "inventory_date": "2026-08-01",
     "json_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.json",
-    "json_sha256": "d8352528d9587224ff2dfdb4f5eba78c672f9e9b306b1fc191ec955907a60a9f",
+    "json_sha256": "539c0abb0523647dd203e453fab1f53b266db7f96a0847ea9ca856fc78c39ce4",
     "report_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.md",
-    "report_sha256": "97de9f096991eb7a70123950da04a359b0a4adfe17a4dc5a8ec34d2f2575be2a",
+    "report_sha256": "3fa60c819cf9c3b0a30371bf78af6538b74c86006084033fa1e66e7fd6cc75db",
     "builder": "scripts/build-sitewide-motion-inventory.mjs",
     "status": "HOLD",
     "scanned_source_files": 224,
@@ -72,8 +73,11 @@
     "missing_literal_motion_files": 0,
     "dynamic_video_renderers": 5,
     "runtime_animation_definitions": 149,
+    "reviewed_runtime_animation_definitions": 2,
+    "admitted_runtime_animation_definitions": 2,
+    "unreviewed_or_unadmitted_runtime_animation_definitions": 147,
     "semantic_or_instructional_runtime_animations": 71,
-    "reason": "The deterministic visitor-surface scan found no missing or unknown literal motion file, but five runtime video renderers and 149 CSS/JavaScript motion definitions still require exact purpose classification and occurrence admission. Storage-only experiments are not treated as visitor-bound."
+    "reason": "The deterministic visitor-surface scan found no missing or unknown literal motion file. Two exact SUNNYVAiLE High interface-motion definitions are source-bound, responsive, reduced-motion reviewed and admitted; five runtime video renderers and the remaining 147 CSS/JavaScript motion definitions stay held for exact purpose classification and occurrence admission. Storage-only experiments are not treated as visitor-bound."
   },
   "runtime_surfaces": [
     {
@@ -114,6 +118,60 @@
         }
       },
       "note": "A class without a live register row, an exact video path and a current admitted learning record renders an explicit not-filmed state rather than inventing availability. Any change to the current zero-playable state forces a new audit."
+    }
+  ],
+  "runtime_animation_reviews": [
+    {
+      "id": "sunnyvaile-high-class-tv-affordance",
+      "content_type": "interface_motion",
+      "source_path": "learn/class.html",
+      "source_sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c",
+      "kind": "CSS_KEYFRAMES",
+      "name": "tvpulse",
+      "source_type": "semantic_animation",
+      "interface_trigger": "A registered class page renders its television control.",
+      "silent_purpose": "Make the small television control discoverable without changing lesson meaning or claiming that a class tape is available.",
+      "expected_instances": 37,
+      "reviewed_instances": 37,
+      "responsive_review": {
+        "desktop_1280": "PASS",
+        "mobile_390": "PASS",
+        "horizontal_overflow": "PASS"
+      },
+      "reduced_motion_review": {
+        "status": "PASS",
+        "behavior": "The pulse is removed and the teal ring remains visible at opacity 0.5."
+      },
+      "evidence_path": "operations/video-qa/sunnyvaile-high-class-runtime-motion-audit-2026-08-01/class-runtime-motion-audit.json",
+      "evidence_sha256": "b31d98a3dbd1d3565c7bcb3ced57a8ac9f39a6f6eb103e8aee5c553c96ceaba8",
+      "admission_status": "PASS",
+      "reason": "The exact template was verified across all 37 registered class states, with desktop/mobile visual proof, keyboard behavior, no overflow and a static reduced-motion affordance."
+    },
+    {
+      "id": "sunnyvaile-high-class-crt-open",
+      "content_type": "interface_motion",
+      "source_path": "learn/class.html",
+      "source_sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c",
+      "kind": "CSS_KEYFRAMES",
+      "name": "crton",
+      "source_type": "decorative_motion",
+      "interface_trigger": "A visitor activates the television control.",
+      "silent_purpose": "Open the class-tape or production-status dialog with a brief, one-shot CRT power-on transition.",
+      "expected_instances": 37,
+      "reviewed_instances": 37,
+      "responsive_review": {
+        "desktop_1280": "PASS",
+        "mobile_390": "PASS",
+        "horizontal_overflow": "PASS"
+      },
+      "reduced_motion_review": {
+        "status": "PASS",
+        "behavior": "The CRT transition is removed; the dialog opens immediately in its stable final state."
+      },
+      "evidence_path": "operations/video-qa/sunnyvaile-high-class-runtime-motion-audit-2026-08-01/class-runtime-motion-audit.json",
+      "evidence_sha256": "b31d98a3dbd1d3565c7bcb3ced57a8ac9f39a6f6eb103e8aee5c553c96ceaba8",
+      "admission_status": "PASS",
+      "reason": "The exact user-triggered 0.42-second transition was verified as one-shot, responsive, non-blocking, keyboard-safe and absent under reduced motion across all 37 class states."
     }
   ],
   "direct_motion_assets": [

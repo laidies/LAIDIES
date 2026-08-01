@@ -14,6 +14,10 @@ const outputReportPath = path.join(root, 'operations/video-qa/sitewide-motion-in
 const checkOnly = process.argv.includes('--check');
 
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+const runtimeAnimationReviews = new Map((registry.runtime_animation_reviews ?? []).map((review) => [
+  `${review.source_path}:${review.kind}:${review.name}`,
+  review
+]));
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 const tracked = execFileSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' })
   .split('\n')
@@ -139,6 +143,8 @@ function extractRuntimeAnimations(sourcePath, source, sourceHash) {
   for (const { kind, pattern } of patterns) {
     for (const match of source.matchAll(pattern)) {
       const name = kind === 'CSS_KEYFRAMES' ? match[1] : `${kind.toLowerCase()}-${lineNumber(source, match.index)}`;
+      const review = runtimeAnimationReviews.get(`${sourcePath}:${kind}:${name}`);
+      const reviewMatchesSource = Boolean(review && review.source_sha256 === sourceHash);
       const riskClass = /(?:watch\.html|learn\/class\.html|preview-homepage\.html|games\/|charm-hunt|ksvl-player)/.test(sourcePath)
         ? 'SEMANTIC_OR_INSTRUCTIONAL_REVIEW_REQUIRED'
         : 'UI_OR_DECORATIVE_CLASSIFICATION_REQUIRED';
@@ -150,10 +156,18 @@ function extractRuntimeAnimations(sourcePath, source, sourceHash) {
         kind,
         name,
         risk_class: riskClass,
-        owner_classification: 'REQUIRES_OWNER_CLASSIFICATION',
-        reviewed_occurrences: 0,
-        admission_status: 'HOLD',
-        reason: 'Runtime motion is not admitted until its visitor purpose, responsive behavior, reduced-motion behavior and exact occurrences are classified and reviewed.'
+        owner_classification: reviewMatchesSource ? review.source_type : 'REQUIRES_OWNER_CLASSIFICATION',
+        review_id: reviewMatchesSource ? review.id : null,
+        reviewed_occurrences: reviewMatchesSource ? review.reviewed_instances : 0,
+        expected_occurrences: reviewMatchesSource ? review.expected_instances : null,
+        evidence_path: reviewMatchesSource ? review.evidence_path : null,
+        evidence_sha256: reviewMatchesSource ? review.evidence_sha256 : null,
+        admission_status: reviewMatchesSource ? review.admission_status : 'HOLD',
+        reason: reviewMatchesSource
+          ? review.reason
+          : review
+            ? 'A runtime-motion review exists, but its source checksum no longer matches. Re-audit the changed source.'
+            : 'Runtime motion is not admitted until its visitor purpose, responsive behavior, reduced-motion behavior and exact occurrences are classified and reviewed.'
       });
     }
   }
@@ -229,7 +243,15 @@ const uniqueAnimations = [...new Map(runtimeAnimations.map((item) => [`${item.so
 
 const missingMedia = uniqueMedia.filter((item) => item.normalized_path && !item.exists);
 const unregisteredMedia = uniqueMedia.filter((item) => item.inventory_disposition === 'UNREGISTERED_HOLD');
-const inventoryStatus = missingSitemapFiles.length || missingMedia.length ? 'FAIL' : 'HOLD';
+const unresolvedLiteralMedia = uniqueMedia.filter((item) => item.admission_status !== 'PASS');
+const reviewedAnimations = uniqueAnimations.filter((item) => item.review_id);
+const admittedAnimations = uniqueAnimations.filter((item) => item.admission_status === 'PASS');
+const unresolvedAnimations = uniqueAnimations.filter((item) => item.admission_status !== 'PASS');
+const inventoryStatus = missingSitemapFiles.length || missingMedia.length
+  ? 'FAIL'
+  : unregisteredMedia.length || unresolvedLiteralMedia.length || uniqueRenderers.length || unresolvedAnimations.length
+    ? 'HOLD'
+    : 'PASS';
 const inventory = {
   schema_version: 1,
   inventory_date: '2026-08-01',
@@ -251,6 +273,9 @@ const inventory = {
     missing_literal_motion_files: missingMedia.length,
     dynamic_video_renderers: uniqueRenderers.length,
     runtime_animation_definitions: uniqueAnimations.length,
+    reviewed_runtime_animation_definitions: reviewedAnimations.length,
+    admitted_runtime_animation_definitions: admittedAnimations.length,
+    unreviewed_or_unadmitted_runtime_animation_definitions: unresolvedAnimations.length,
     semantic_or_instructional_runtime_animations: uniqueAnimations.filter((item) => item.risk_class === 'SEMANTIC_OR_INSTRUCTIONAL_REVIEW_REQUIRED').length,
     ui_or_decorative_runtime_animations_requiring_classification: uniqueAnimations.filter((item) => item.risk_class === 'UI_OR_DECORATIVE_CLASSIFICATION_REQUIRED').length
   },
@@ -272,10 +297,13 @@ const report = `# Sitewide motion inventory — 2026-08-01\n\n` +
   `- Unregistered literal references held: ${inventory.summary.unregistered_literal_references}\n` +
   `- Missing literal motion files: ${inventory.summary.missing_literal_motion_files}\n` +
   `- Dynamic video renderers held: ${inventory.summary.dynamic_video_renderers}\n` +
-  `- Runtime animation definitions held for classification: ${inventory.summary.runtime_animation_definitions}\n` +
+  `- Runtime animation definitions discovered: ${inventory.summary.runtime_animation_definitions}\n` +
+  `- Runtime animation definitions reviewed: ${inventory.summary.reviewed_runtime_animation_definitions}\n` +
+  `- Runtime animation definitions admitted: ${inventory.summary.admitted_runtime_animation_definitions}\n` +
+  `- Runtime animation definitions still held: ${inventory.summary.unreviewed_or_unadmitted_runtime_animation_definitions}\n` +
   `- Semantic/instructional runtime animations: ${inventory.summary.semantic_or_instructional_runtime_animations}\n\n` +
   `## Release rule\n\n` +
-  `Every unregistered literal motion reference, dynamic video renderer and runtime animation stays **HOLD**. Semantic or instructional motion needs an occurrence-level description, purpose or contemporaneous narration comparison, responsive proof, reduced-motion behavior and independent review. Decorative/UI motion must first be classified and then checked for responsive, accessibility and interaction correctness.\n\n` +
+  `Every unregistered literal motion reference and dynamic video renderer stays **HOLD**. A runtime animation can leave HOLD only through an exact source-bound registry review. Semantic or instructional motion needs an occurrence-level description, purpose or contemporaneous narration comparison, responsive proof and reduced-motion behavior. Decorative/UI motion must be classified and checked for responsive, accessibility and interaction correctness. A PASS for interface motion does not admit a separate video asset.\n\n` +
   `## Unregistered or missing literal motion\n\n` +
   (unregisteredMedia.length
     ? unregisteredMedia.map((item) => `- \`${item.source_path}:${item.line}\` → \`${item.normalized_path ?? item.literal}\` (${item.exists ? 'exists, unregistered' : 'missing or external/unresolved'})`).join('\n')
@@ -286,7 +314,7 @@ const report = `# Sitewide motion inventory — 2026-08-01\n\n` +
     : '- None.') +
   `\n\n## Runtime motion by source\n\n` +
   ([...new Map(uniqueAnimations.map((item) => [item.source_path, uniqueAnimations.filter((candidate) => candidate.source_path === item.source_path)])).entries()]
-    .map(([sourcePath, items]) => `- \`${sourcePath}\`: ${items.length} (${items.map((item) => item.name).join(', ')})`)
+    .map(([sourcePath, items]) => `- \`${sourcePath}\`: ${items.length} (${items.map((item) => `${item.name}: ${item.admission_status}`).join(', ')})`)
     .join('\n') || '- None.') +
   `\n`;
 
