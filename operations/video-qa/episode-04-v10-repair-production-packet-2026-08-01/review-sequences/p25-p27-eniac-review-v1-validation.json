@@ -1,0 +1,117 @@
+{
+  "status": "TECHNICAL_PASS_INDEPENDENT_SEMANTIC_REVIEW_REQUIRED",
+  "authority": "NO_EDITORIAL_ACCEPTANCE_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "output": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p25-p27-eniac-review-v1.mp4",
+  "output_sha256": "e74cec3da8e1cb66f3a7811edd47d3c589ff96e38951148c64de044284ac09c6",
+  "expected": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 3098,
+    "duration_seconds": 103.26666666666667,
+    "audio_channels": "mono",
+    "audio_sample_rate_hz": 48000
+  },
+  "observed": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 3098,
+    "duration_seconds": 103.26666666666667
+  },
+  "checks": {
+    "geometry_pass": true,
+    "frame_count_pass": true,
+    "duration_pass": true,
+    "decode_pass": true,
+    "probe_pass": true,
+    "audio_present": true,
+    "mono_48000_audio": true,
+    "blackdetect_pass": true,
+    "hard_cuts_distinct": true,
+    "encoded_motion_pass": true,
+    "source_hashes_match": true,
+    "output_hash_matches_build": true
+  },
+  "black_events": [],
+  "hard_cut_evidence": [
+    {
+      "cut_frame": 452,
+      "cut_seconds": 15.066667,
+      "mean_abs_pixel_delta": 26.980833,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 904,
+      "cut_seconds": 30.133333,
+      "mean_abs_pixel_delta": 36.998426,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1182,
+      "cut_seconds": 39.4,
+      "mean_abs_pixel_delta": 36.997934,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1767,
+      "cut_seconds": 58.9,
+      "mean_abs_pixel_delta": 60.5193,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1895,
+      "cut_seconds": 63.166667,
+      "mean_abs_pixel_delta": 65.557008,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 2474,
+      "cut_seconds": 82.466667,
+      "mean_abs_pixel_delta": 3.062928,
+      "required_delta_floor": 2.5,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 2751,
+      "cut_seconds": 91.7,
+      "mean_abs_pixel_delta": 49.327888,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 2948,
+      "cut_seconds": 98.266667,
+      "mean_abs_pixel_delta": 36.508808,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    }
+  ],
+  "motion_evidence": [
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-cue26-credit-reveal-event-v1.mp4",
+      "mean_abs_pixel_delta": 12.123183,
+      "required_delta_floor": 2.0,
+      "encoded_motion_pass": true
+    },
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-timejump-04-philadelphia-1952-comic-event-v1.mp4",
+      "mean_abs_pixel_delta": 32.518009,
+      "required_delta_floor": 2.0,
+      "encoded_motion_pass": true
+    }
+  ],
+  "semantic_boundary": "Technical pass does not admit likeness, historical accuracy, text artifacts, narration fit, taste, natural motion, transitions, or release readiness.",
+  "required_next_gate": [
+    "independent normal-speed narration-picture review",
+    "independent six-programmer likeness, names and historical-detail review",
+    "independent exact-text artifact review",
+    "independent judgment that credit-reveal and time-jump retimes remain natural",
+    "independent p24/p25 and p27/p28 transition review"
+  ]
+}

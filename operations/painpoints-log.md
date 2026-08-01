@@ -11413,3 +11413,26 @@ _Original source ID: repository #36_
   required for naturalness and meaning.
 - **Possible Behind the Build angle:** The lights came up beautifully. They
   just stayed up for seventy seconds too long.
+
+## BTB-321 — An approved asset library can be better than another likeness generation
+
+- **Date:** 2026-08-01
+- **Area:** Episode 04 Hedy Lamarr and ENIAC repair / historical likeness continuity.
+- **Failure:** The repair queue initially classified both sequences as needing
+  new event-specific visuals, even though the approved asset library already
+  contained distinct film-set, invention, signal, quote, programming,
+  credit-erasure, rediscovery and exact-date material.
+- **Root cause:** The earlier audit evaluated the assembled master, not the
+  full approved-variant inventory. A missing beat in the master was treated as
+  proof that the beat did not exist anywhere in the production library.
+- **Prevention rule:** Before generating a new historical likeness, describe
+  and map every approved variant, exact-text artifact and event clip to the
+  narration beats. Generate only when a visible semantic gap remains after
+  that inventory. Existing assets still require fresh source-hash, historical,
+  likeness and narration-fit review in their new occurrence.
+- **Why the fix works:** Hedy and ENIAC now have eight- and nine-beat exact-audio
+  candidates without introducing new likeness drift, unverifiable historical
+  details or unnecessary generation cost. The candidates remain correctly
+  held for independent review.
+- **Possible Behind the Build angle:** We did not need another portrait. We
+  needed to look through the archive properly.

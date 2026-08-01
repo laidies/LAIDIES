@@ -6,7 +6,7 @@ change.
 
 This packet converts the 55-occurrence owner audit of the Episode 04 v9 master
 into a production queue. Every finding is bound to the exact narration window,
-the actual assembled visual and the next admissible action. Eight current
+the actual assembled visual and the next admissible action. Ten current
 exact-audio review sequences are now built where existing art can form a
 meaningful progression. The opening candidate separates ordinary chat,
 interruption, reflection, deeper doubt and the launch question. The Ada v2 cut
@@ -33,6 +33,8 @@ independent normal-speed review before it can enter an assembled successor.
 | p14 | 03:05.00–03:22.00 | `review-sequences/p14-question-bridge-review-v1.mp4` | Exact-audio three-beat candidate replaces the unrelated outfit transformation with desk → question → “landed on your desk.” The beats are deliberate stills with hard cuts and are not falsely represented as animation. Independent narration-fit, legibility and p13/p15 transition review required. |
 | p16–p17 | 03:40.75–04:04.88 | `review-sequences/p16-p17-maivens-entry-review-v1.mp4` | Strong canonical hall-to-Ada progression; independent review required. |
 | p19–p20 | 04:10.30–05:41.55 | `review-sequences/p19-p20-ada-narration-review-v2.mp4` | Six-beat candidate separates machine, instructions, symbols/music, capability limits, 1843 evidence and credit erasure; generated frames remain held for independent accuracy, likeness and normal-speed review. v1 is superseded. |
+| p22–p23 | 05:46.57–07:17.30 | `review-sequences/p22-p23-hedy-review-v1.mp4` | Exact-audio eight-beat candidate now separates film stardom, private invention, the jamming problem, frequency-hopping motion, the exact line, Navy shelving, wireless lineage and late recognition. It uses existing approved art and no new likeness generation. Independent likeness, historical-detail, exact-text, narration-fit and retime-naturalness review required. |
+| p25–p27 | 07:22.30–09:05.57 | `review-sequences/p25-p27-eniac-review-v1.mp4` | Exact-audio nine-beat candidate now separates ENIAC scale, hands-on programming, the six names, rewiring, the exact First Programmers line, credit erasure, rediscovery, the era handoff and the truthful 1952 bridge. Independent six-programmer likeness, historical-detail, exact-text, narration-fit and retime-naturalness review required. |
 | p37–p38 | 11:22.45–12:44.23 | `review-sequences/p37-p38-karen-narration-review-v1.mp4` | Clear search-terms → retrieval diagram → exact quote progression; independent review required. |
 | p43 | 14:03.80–14:55.53 | `review-sequences/p43-modern-language-to-chatbox-review-v1.mp4` | Replaces a generic desk hold with a 2017 language-system → November 2022 chatbox → user-desk progression. |
 | p46–p49 | 15:25.80–16:43.67 | `review-sequences/p46-p49-modern-criticism-review-v1.mp4` | Exact-audio candidate now follows research → stochastic parrot → Google context → disputed departure → colleague protest → Kate Crawford's supply-chain critique. The dismissal image no longer appears before the narration reaches it. Independent accuracy, likeness, narration-fit and transition review required. |
@@ -58,13 +60,16 @@ fabricated narration. Their checksums are in `source-sha256.txt`.
   are now represented by distinct generated candidates, but their historical
   accuracy, Ada likeness, artifacts and exact-audio timing still require an
   independent verdict. Do not promote the sequence on maker review alone.
-- **Hedy p22–p23:** one Hedy-at-a-desk image and a no-Hedy time-jump cannot
-  carry roughly ninety seconds about film stardom, invention, frequency
-  hopping, Navy shelving, Wi-Fi/Bluetooth lineage and late recognition. New
-  event-specific visuals are required.
-- **ENIAC p25 and p27:** the two existing six-programmer frames can establish
-  programming work, but the sequence still needs a distinct credit-erasure/
-  rediscovery visual and a truthful 1952 bridge.
+- **Hedy p22–p23:** independently judge the new exact-audio eight-beat
+  candidate. Confirm the approved Hedy depictions remain a coherent likeness,
+  the signal motion is perceptible and natural after retiming, the exact line
+  is legible, and the film-star → inventor → shelved work → wireless legacy
+  progression follows the narration without overclaiming causation.
+- **ENIAC p25 and p27:** independently judge the new exact-audio nine-beat
+  candidate. Confirm the six programmers are represented accurately and with
+  dignity, their names and the credit-erasure/rediscovery evidence are exact,
+  the credit-reveal match cut is intentional, and the 1952 event remains
+  natural after retiming.
 - **Grace p30:** the v3 moth candidate is held. The moth may not disappear
   behind Grace's arm or violate foreground/background occlusion.
 - **Modern criticism p46–p49:** independently judge the exact-audio candidate

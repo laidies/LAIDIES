@@ -1,0 +1,104 @@
+{
+  "status": "TECHNICAL_PASS_INDEPENDENT_SEMANTIC_REVIEW_REQUIRED",
+  "authority": "NO_EDITORIAL_ACCEPTANCE_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "output": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p22-p23-hedy-review-v1.mp4",
+  "output_sha256": "5de93c0cb742b67b0eef4c3d3ef79d138862645d173c8c47aa23f5edf23191e8",
+  "expected": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 2722,
+    "duration_seconds": 90.73333333333333,
+    "audio_channels": "mono",
+    "audio_sample_rate_hz": 48000
+  },
+  "observed": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 2722,
+    "duration_seconds": 90.73333333333333
+  },
+  "checks": {
+    "geometry_pass": true,
+    "frame_count_pass": true,
+    "duration_pass": true,
+    "decode_pass": true,
+    "probe_pass": true,
+    "audio_present": true,
+    "mono_48000_audio": true,
+    "blackdetect_pass": true,
+    "hard_cuts_distinct": true,
+    "encoded_motion_pass": true,
+    "source_hashes_match": true,
+    "output_hash_matches_build": true
+  },
+  "black_events": [],
+  "hard_cut_evidence": [
+    {
+      "cut_frame": 272,
+      "cut_seconds": 9.066667,
+      "mean_abs_pixel_delta": 31.187506,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 569,
+      "cut_seconds": 18.966667,
+      "mean_abs_pixel_delta": 31.185596,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1048,
+      "cut_seconds": 34.933333,
+      "mean_abs_pixel_delta": 31.148553,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1445,
+      "cut_seconds": 48.166667,
+      "mean_abs_pixel_delta": 72.436852,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1557,
+      "cut_seconds": 51.9,
+      "mean_abs_pixel_delta": 69.795503,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 1840,
+      "cut_seconds": 61.333333,
+      "mean_abs_pixel_delta": 60.506308,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_frame": 2310,
+      "cut_seconds": 77.0,
+      "mean_abs_pixel_delta": 60.505509,
+      "required_delta_floor": 5.0,
+      "distinct_visual_pass": true
+    }
+  ],
+  "motion_evidence": [
+    {
+      "source": "assets/episodes/ep-04/pixel/ep04-cue22-local-motion-v1.mp4",
+      "mean_abs_pixel_delta": 0.299751,
+      "required_delta_floor": 0.1,
+      "encoded_motion_pass": true
+    }
+  ],
+  "semantic_boundary": "Technical pass does not admit likeness, historical accuracy, text artifacts, narration fit, taste, natural motion, transitions, or release readiness.",
+  "required_next_gate": [
+    "independent normal-speed narration-picture review",
+    "independent Hedy likeness and historical-detail review",
+    "independent exact-text artifact review",
+    "independent judgment that the compressed signal motion remains natural",
+    "independent p21/p22 and p23/p24 transition review"
+  ]
+}
