@@ -1,0 +1,92 @@
+{
+  "status": "TECHNICAL_PASS_INDEPENDENT_SEMANTIC_REVIEW_REQUIRED",
+  "authority": "NO_EDITORIAL_ACCEPTANCE_SUCCESSOR_MASTER_OR_RELEASE_AUTHORITY",
+  "output": "operations/video-qa/episode-04-v10-repair-production-packet-2026-08-01/review-sequences/p50-p51-closing-review-v1.mp4",
+  "output_sha256": "233f73950c9863de4e25956101c914b8ecefb5a98819f2c2b7c32e23dac354a9",
+  "expected": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 3730,
+    "duration_seconds": 124.33333333333333,
+    "audio_channels": "mono",
+    "audio_sample_rate_hz": 48000
+  },
+  "observed": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30.0,
+    "frames": 3730,
+    "duration_seconds": 124.33333333333333
+  },
+  "checks": {
+    "geometry_pass": true,
+    "frame_count_pass": true,
+    "duration_pass": true,
+    "decode_pass": true,
+    "audio_present": true,
+    "mono_48000_hz_audio_pass": true,
+    "black_frame_events": [],
+    "hard_cuts_distinct_pass": true,
+    "lights_up_encoded_motion_pass": true,
+    "lights_up_first_last_mean_luminance_delta": 57.960885,
+    "lights_up_first_last_mean_abs_pixel_delta": 57.980758,
+    "source_hashes_match": true,
+    "build_receipt_hash_matches": true
+  },
+  "cut_evidence": [
+    {
+      "cut_seconds": 7.866667,
+      "mean_abs_pixel_delta": 89.158559,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 15.4,
+      "mean_abs_pixel_delta": 41.078854,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 32.433333,
+      "mean_abs_pixel_delta": 85.640486,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 36.9,
+      "mean_abs_pixel_delta": 83.756487,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 52.266667,
+      "mean_abs_pixel_delta": 60.835168,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 57.633333,
+      "mean_abs_pixel_delta": 89.075463,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 67.0,
+      "mean_abs_pixel_delta": 84.93588,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 81.766667,
+      "mean_abs_pixel_delta": 49.29684,
+      "distinct_visual_pass": true
+    },
+    {
+      "cut_seconds": 100.8,
+      "mean_abs_pixel_delta": 70.50239,
+      "distinct_visual_pass": true
+    }
+  ],
+  "explicit_limits": [
+    "mechanical validation does not prove narration-picture meaning, historical accuracy, likeness or taste",
+    "the lights-up check proves visible encoded change, not that the retimed motion feels natural",
+    "the other nine beats are deliberate stills and are not represented as animation",
+    "an independent reviewer must watch the exact audio at normal speed and record PASS, CLOSE_ENOUGH, RETIME, REPLACE or ADD_OR_REPAIR_ANIMATION",
+    "p49-to-p50 and p51-to-p52 continuity must be judged in the assembled successor",
+    "a successor master still requires complete occurrence re-audit and an audible responsive-player watch"
+  ]
+}

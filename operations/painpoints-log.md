@@ -11389,3 +11389,27 @@ _Original source ID: repository #36_
   pass a visually absent story event.
 - **Possible Behind the Build angle:** The moth was in the code. Was it still
   in the movie?
+
+## BTB-320 — A good animation can still occupy the wrong narration window
+
+- **Date:** 2026-08-01
+- **Area:** Episode 04 closing / occurrence-level narration-picture timing.
+- **Failure:** A visually valid 79-second hall-lights animation was held across
+  almost the entire closing, long after the narration moved through browser
+  reality, agentic AI, cocktail lineage, named women, the field trip and the
+  final assignment. A separate cocktail card then stood in for another 45
+  seconds of unrelated closing narration.
+- **Root cause:** The admitted source was treated as sufficient coverage for
+  the full occurrence instead of being timed to the one narrated event it
+  actually depicts. Visual quality and semantic duration were conflated.
+- **Prevention rule:** Event-specific motion must be compressed or trimmed to
+  the exact narration window for that event. When the narration moves to a new
+  meaning-bearing subject, cut to a source that visibly depicts that subject;
+  a strong animation never earns a catch-all hold by itself.
+- **Why the fix works:** The closing candidate confines the complete lights-up
+  arc to the 7.53-second “lights come up” line, then advances through nine
+  separately described narration-bound beats. The validator proves the retimed
+  event still changes visibly, while independent normal-speed review remains
+  required for naturalness and meaning.
+- **Possible Behind the Build angle:** The lights came up beautifully. They
+  just stayed up for seventy seconds too long.
