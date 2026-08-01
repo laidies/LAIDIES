@@ -69,8 +69,8 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p07 and p48.
-Those occurrences must receive narration-specific progression without
+The independent review still holds p07.
+That occurrence must receive narration-specific progression without
 altering the five v14 repair windows or the completed v15 review sequences.
 
 The p00 opening recap now progresses through the existing approved comic strip
@@ -85,6 +85,13 @@ draft, human news-desk review, the two verification questions, the front-page
 claim, and the writer's byline responsibility. The local sequence still
 requires independent normal-speed narration-picture admission before successor
 assembly.
+
+The p48 next-time preview now moves through five narration-bound beats: the
+Episode 03 sign-off, the Episode 04 announcement, the origin question, the
+women-built-it reveal, and the exact Episode 04 title landing. It reuses only
+sources already bound into the current Episode 03 or Episode 04 repair paths;
+it does not revive retired teaser art. The local sequence still requires
+independent normal-speed narration-picture admission before successor assembly.
 
 The p23–p24 fresh-perm/timeline sequence has been rebuilt as six
 narration-specific beats: Elle finds the detail, Chutney supplies the shower
