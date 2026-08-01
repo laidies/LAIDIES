@@ -11113,3 +11113,30 @@ _Original source ID: repository #36_
   rewarding a valid timeline for containing the expected number of files.
 - **Possible Behind the Build angle:** How 71 technically valid pictures made
   a video no one should have to watch—and the occurrence gate that caught it.
+
+## BTB-309 — An intended picture job is not evidence of the picture viewers receive
+
+- **Date:** 2026-08-01
+- **Area:** Episode 02 / semantic relevance / actual-master admission.
+- **Failure:** Episode 02 inherited a blanket 61/61 semantic-relevance PASS from
+  earlier source and assembly review. When the actual current master was
+  described occurrence by occurrence against the words being spoken, fourteen
+  visuals were wrong or materially incomplete and thirteen were attached to
+  the wrong narration beat. Examples included a promise of side-by-side
+  results represented by only the failed output, a generic title where the
+  narration required a concrete barista consequence and a proof card where the
+  narration had already moved into the LIBRAiRY.
+- **Root cause:** Review accepted the declared picture job and source intent as
+  a proxy for the assembled viewer experience. It did not force the reviewer to
+  say what was actually visible at that second before assigning relevance.
+- **Prevention rule:** Every visitor-facing video occurrence must first contain
+  a plain-language description of the actual assembled pixels, then the exact
+  contemporaneous narration, and only then a bounded relevance and repair
+  verdict. Source manifests, picture-job labels and earlier blanket PASSes are
+  reopened whenever this evidence is absent or the final master changes.
+- **Why the fix works:** The gate compares the experience to the lesson instead
+  of comparing an editor's intention to its own label, exposing mistiming and
+  missing visual information before release.
+- **Possible Behind the Build angle:** The shot list said “side by side.” The
+  screen showed one bad answer. Why LAiDIES now makes every video prove what is
+  actually on screen.
