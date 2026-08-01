@@ -48,6 +48,11 @@ single failure: p43 at `13:33.400–14:24.100`.
 - It moves from delegated grunt work and retained human judgment through the
   Regina George “are you sure?” comparison, lands the limited-value verdict,
   and returns to an actual verification checklist.
+- `p46-three-claim-tryon-review-v1.mp4` replaces the 30.9-second static
+  no-invented-receipts hold with six narration-specific beats.
+- It introduces the ten-minute exercise, identifies the three claim types,
+  asks where the support came from, performs the visible source check, and
+  lands the Chutney/Elle verification rule.
 
 ## Gates
 
@@ -59,7 +64,7 @@ enter the next full successor.
 
 ## Remaining v15 repair groups
 
-The independent review still holds p00, p07, p10, p44, p46 and p48.
+The independent review still holds p00, p07, p10, p44 and p48.
 Those occurrences must receive narration-specific progression without
 altering the five v14 repair windows or the completed v15 review sequences.
 
