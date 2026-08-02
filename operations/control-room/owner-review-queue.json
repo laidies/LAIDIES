@@ -1,13 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-01T23:10:00Z",
+  "generated_at": "2026-08-02T03:20:00Z",
   "title": "Ali's review inbox",
   "summary": {
-    "review_now": 2,
-    "being_built": 3,
+    "review_now": 3,
+    "being_built": 2,
     "blocked_no_ali_action": 2
   },
   "review_now": [
+    {
+      "id": "episode-02-v20-human-watch",
+      "kind": "opening-day film",
+      "title": "Episode 02 — Tell Me What You Want",
+      "ask": "Watch the complete film once at normal speed with sound on.",
+      "why_you": "All 61 narration-picture and motion repairs are now assembled into one exact successor cut. The full title decodes, its 29,625-frame clock is intact, its AAC narration is byte-identical to the frozen master, and its captions are unchanged. A person still needs to hear and watch the complete programme continuously.",
+      "decision": "PASS if nothing blocks release. HOLD with exact timecodes if anything does.",
+      "duration_label": "16:27",
+      "master": {
+        "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+        "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc"
+      },
+      "captions": {
+        "path": "assets/captions/episode-02.vtt",
+        "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f"
+      },
+      "evidence_path": "operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json"
+    },
     {
       "id": "episode-03-v15-human-watch",
       "kind": "opening-day film",
@@ -46,12 +64,6 @@
     }
   ],
   "being_built": [
-    {
-      "title": "Episode 02 — Tell Me What You Want",
-      "status": "Repairing the 61-item narration-picture and motion queue.",
-      "next_owner": "Episode media builder",
-      "ali_action": "None yet — wait for a frozen successor cut."
-    },
     {
       "title": "Episode 01 — On Wednesdays We Do AI",
       "status": "Still requires occurrence-level motion and continuity repair before a final owner watch.",
