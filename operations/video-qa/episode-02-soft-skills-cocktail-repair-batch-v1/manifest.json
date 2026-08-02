@@ -1,0 +1,79 @@
+{
+  "schema": "laidies.episode-02.soft-skills-cocktail-repair-batch.v1",
+  "created_at": "2026-08-02T01:00:20.769875+00:00",
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_REVIEW_REQUIRED_NOT_PUBLIC",
+  "authority": {
+    "accepted": false,
+    "release": false,
+    "deploy": false,
+    "public": false
+  },
+  "scope": {
+    "occurrences": "p39-p46",
+    "seconds": [
+      674.0,
+      808.0
+    ]
+  },
+  "frozen_master": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "builder": {
+    "path": "scripts/build-episode-02-soft-skills-cocktail-repair-batch-v1.py",
+    "sha256": "b46969f731fa74bb0f7272bdaafcb051e9bfac7f0b1b1258838170317de70c58",
+    "size_bytes": 13060
+  },
+  "sources": {
+    "study": {
+      "path": "assets/episodes/ep-02/comic/ep02-concept-bcg-study-comic.png",
+      "sha256": "81459f9ebf67ba45650fb149fd03e258081e5e029dbd1ed60fdfa7eaa26fc752",
+      "size_bytes": 2515478
+    },
+    "quote": {
+      "path": "assets/episodes/ep-02/comic/ep02-quote-mollick-comic.png",
+      "sha256": "f803c63823c800ab847ff10b739ca4b8ea6939d9267deb739fbd0b65330c2aef",
+      "size_bytes": 1697716
+    },
+    "soft": {
+      "path": "assets/episodes/ep-02/comic/ep02-emph-soft-skills-win-comic.png",
+      "sha256": "65dd4067d9ef26c0a83d656506af3f5605b6ac022a3ee63560278df21d87f54e",
+      "size_bytes": 2732680
+    },
+    "delegation": {
+      "path": "assets/episodes/ep-02/comic/ep02-emph-delegation-comic.png",
+      "sha256": "d5961713f08c0873c670e63822640027f1de1e1f82e324cf963a19c3a67f0d7a",
+      "size_bytes": 3251442
+    },
+    "cocktail": {
+      "path": "assets/episodes/ep-02/comic/ep02-cocktail-comic.png",
+      "sha256": "a1f21199b0bc2ff4f1b7bf62afe25a3a4917427e2f1d60133cf274158b58c868",
+      "size_bytes": 2786751
+    }
+  },
+  "output": {
+    "path": "operations/video-qa/episode-02-soft-skills-cocktail-repair-batch-v1/episode-02-p39-p46-soft-skills-cocktail-repaired-review-v1.mp4",
+    "sha256": "97d56c0ebaafa61970a5160a3d6f090c20e550a304bc1e9ad5f568662ae63ffb",
+    "size_bytes": 59995233
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-02-soft-skills-cocktail-repair-batch-v1/episode-02-p39-p46-soft-skills-cocktail-contact-v1.jpg",
+    "sha256": "a4a8024cca27129f4f514f728abd3307811a9a38a9fba7791da75f8db9a41ba5",
+    "size_bytes": 1138413
+  },
+  "checks": {
+    "full_av_decode": "PASS",
+    "decoded_frames": 4020,
+    "expected_frames": 4020,
+    "frozen_audio_correlation": 0.9999836949374415,
+    "audio_tail_samples_at_48khz": 768,
+    "audio_tail_rule": "PASS_SUB_FRAME_BTB_311"
+  },
+  "semantic_repairs": {
+    "p39": "the Harvard/BCG results now resolve into the narrated non-technical differentiator: briefing, context, and judgment",
+    "p40-p44": "Mollick's observation and the explanation of the formerly dismissed soft skills reveal in the narration's exact conceptual order",
+    "p45-p46": "the cocktail-party question now becomes the delegation explanation, assistant brief, and failure-to-specify payoff",
+    "motion": "purposeful narrated text-region progression; no generic camera-only movement"
+  }
+}
