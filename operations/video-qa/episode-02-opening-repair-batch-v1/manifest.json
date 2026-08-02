@@ -1,0 +1,107 @@
+{
+  "authority": {
+    "accepted": false,
+    "deploy": false,
+    "public": false,
+    "release": false
+  },
+  "builder": {
+    "path": "scripts/build-episode-02-opening-repair-batch-v1.py",
+    "sha256": "f4d9e6b17961573051b34e3de2818035071e4c0e9daa0ee1a15045ce948ae741",
+    "size_bytes": 13222
+  },
+  "checks": {
+    "decoded_frames": 4530,
+    "expected_frames": 4530,
+    "full_av_decode": "PASS"
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-02-opening-repair-batch-v1/episode-02-opening-p00-p10-contact-v1.jpg",
+    "sha256": "5649e6d594f43ade25b59e3124ba6900a2f2d1e717eff94f1d15f9f1de7b493d",
+    "size_bytes": 854029
+  },
+  "created_at": "2026-08-01T23:45:21.015075+00:00",
+  "frozen_master": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "output": {
+    "path": "operations/video-qa/episode-02-opening-repair-batch-v1/episode-02-opening-p00-p10-repaired-review-v1.mp4",
+    "sha256": "627210383dca5a2ab47c6cdc08e0e6e2f25de16f46d49ffe9c8c1aea3dbd7bbd",
+    "size_bytes": 156472309
+  },
+  "preserved": {
+    "approved_laidies_ident_seconds": [
+      91.34,
+      98.59
+    ],
+    "narration_source": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "town_entry_transformation_source": {
+      "path": "operations/video-qa/town-entry-transformation-cue-v1/episode-02-town-entry-context-review-v1.mp4",
+      "sha256": "03999262c02c06c98ab8a36412486852b115762130cd8ae1f9c0423e895364ca",
+      "size_bytes": 7622742
+    }
+  },
+  "schema": "laidies.episode-02.opening-repair-batch.v1",
+  "scope": {
+    "occurrences": "p00-p10",
+    "seconds": [
+      0.0,
+      151.0
+    ]
+  },
+  "semantic_repairs": {
+    "motion": "sequential panel/interface/comparison state reveals; no camera-only motion claim",
+    "p03": "title clears after 2.6 seconds; desk narration receives desk picture",
+    "p10": "duplicated failed desk replaced by narrated bad-versus-useful comparison"
+  },
+  "sources": {
+    "p00": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-01-previously-strip-comic.png",
+      "sha256": "ae0d66fda6bd4e113638033a1bfc42bc5f0625c50d192a6af912ce6d1a39061f",
+      "size_bytes": 2914146
+    },
+    "p01": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-02-thisweek-teaser-comic.png",
+      "sha256": "ee6430989745cfb7fdde9999f56becf19a04816f0b116baa9b58a66fef9fe1ec",
+      "size_bytes": 3142082
+    },
+    "p02": {
+      "path": "assets/video/delivery-20260723-ep02-v16-cover-v3/ep02-open-03-title-comic.png",
+      "sha256": "6697ebc7071affae27e30ed2008c731da41cec53d4e6e06e47542463c90c534e",
+      "size_bytes": 3513577
+    },
+    "p03": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-03-title-comic.png",
+      "sha256": "f78b5927f8f40f9a3ddf732242b332c2101c15387f8e36e138103f8c0964c7a7",
+      "size_bytes": 2761641
+    },
+    "p04": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-04-cold-open-desk-comic.png",
+      "sha256": "a759e2bc2d4b75d5e4d91b1b87a23446249ac89b39ca14ff299739a918203e68",
+      "size_bytes": 2801982
+    },
+    "p05": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-05-throw-pillow-comic.png",
+      "sha256": "34db030e09ff91b544d4a0388b089b9e783f64ed42a863499c540ebe2cfeaa4d",
+      "size_bytes": 3067712
+    },
+    "p06": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-06-thinking-closeup-comic.png",
+      "sha256": "56c442917538b3e952151ff82a9f2e67be0ca1ee979abe4af1855aedf2d22e07",
+      "size_bytes": 3109021
+    },
+    "p08": {
+      "path": "assets/episodes/ep-02/comic/ep02-open-08-to-town-comic.png",
+      "sha256": "32d253768151a5b53525b5b5064767f87235c7297a21067708c13c0fb2ae8f04",
+      "size_bytes": 3521289
+    },
+    "p10": {
+      "path": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png",
+      "sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "size_bytes": 3444298
+    }
+  },
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_REVIEW_REQUIRED_NOT_PUBLIC"
+}
