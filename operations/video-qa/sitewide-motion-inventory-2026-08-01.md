@@ -30,10 +30,10 @@ Every unregistered literal motion reference and dynamic video renderer stays **H
 
 ## Dynamic video renderers
 
-- `learn/class.html:1360` — return '<video controls playsinline preload="metadata"' +
+- `learn/class.html:1688` — return '<video controls playsinline preload="metadata"' +
 - `preview-homepage.html:829` — <video autoplay muted playsinline preload="auto"
-- `watch.html:550` — var v = document.createElement('video');
-- `watch.html:624` — el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay loop playsinline></video>';
+- `watch.html:625` — var v = document.createElement('video');
+- `watch.html:796` — el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay loop playsinline></video>';
 - `watch.pre-mp4.html:285` — el.innerHTML = '<video class="scene-img" src="' + esc(c.src) + '" muted autoplay loop playsinline></video>';
 
 ## Runtime motion by source
@@ -84,5 +84,5 @@ Every unregistered literal motion reference and dynamic video renderer stays **H
 - `styles.css`: 14 (hotlinePulse: HOLD, aliveCtaPulse: HOLD, wheelIdle: HOLD, fortuneCount: HOLD, djBoothGlow: HOLD, packWrapperShine: HOLD, mixCdTilt: HOLD, tryOnNudge: HOLD, stickerWiggle: HOLD, badgeGlow: HOLD, cardDeckLift: HOLD, keypadGlow: HOLD, softPinkPulse: HOLD, activeSoftPinkPulse: HOLD)
 - `sunnyvaile-high.html`: 1 (shPanelIn: HOLD)
 - `town-hall.html`: 1 (thPanelIn: HOLD)
-- `watch.html`: 5 (panLtr: HOLD, panRtl: HOLD, panZoom: HOLD, trackJitter: HOLD, animation_frame_loop-679: HOLD)
+- `watch.html`: 5 (panLtr: HOLD, panRtl: HOLD, panZoom: HOLD, trackJitter: HOLD, animation_frame_loop-851: HOLD)
 - `watch.pre-mp4.html`: 5 (panLtr: HOLD, panRtl: HOLD, panZoom: HOLD, trackJitter: HOLD, animation_frame_loop-331: HOLD)

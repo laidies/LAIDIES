@@ -11679,3 +11679,31 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The cover was on the lock screen but
   missing from the screen people were actually watching.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-331 — Registered media is not the same as admitted media
+
+- **Date:** 2026-08-02
+- **Area:** Universal site-video registry / fail-closed playback.
+- **Failure:** The universal checker verified programme masters and their
+  admission statuses, but its later page-reference scan recognized only direct
+  motion assets. Exact held Episode candidates named by fail-closed admission
+  data were therefore falsely reported as absent from the registry.
+- **Root cause:** Two checks independently constructed different definitions
+  of “registered media,” and one variable name incorrectly implied that every
+  registered path was admitted.
+- **Prevention rule:** Build one canonical registered-media path set from both
+  direct motion assets and programme masters before scanning consumer
+  surfaces. Keep registration and admission as separate fields: a page may
+  name a checksum-bound held candidate, but it may bind playback only when its
+  exact admission record passes.
+- **Why the fix works:** The checker now accepts exact programme identities as
+  registered while preserving their HOLD/FAIL status and the player’s
+  independent `admitted` condition. This removes a false gate failure without
+  weakening release control.
+- **Machine check implemented:** `scripts/check-site-video-review.mjs` now
+  validates the current five opening-day masters, the screening-room
+  fail-closed source and the deterministic sitewide inventory from the same
+  registry.
+- **Possible Behind the Build angle:** The guest list can include someone who
+  has not been cleared to enter; registration is not admission.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.

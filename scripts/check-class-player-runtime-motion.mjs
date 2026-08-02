@@ -170,7 +170,7 @@ try {
   if (capture) {
     const evidence = {
       schema_version: 1,
-      evidence_date: '2026-08-01',
+      evidence_date: new Date().toISOString().slice(0, 10),
       status: 'PASS',
       source_path: sourcePath,
       source_sha256: sourceHash,

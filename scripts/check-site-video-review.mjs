@@ -413,9 +413,17 @@ if (!townEntryCue) {
   }
 }
 
-const admittedAssetPaths = new Set();
+// A reviewed programme master remains a registered media identity even while
+// its admission status is HOLD or FAIL. Consumer surfaces may name that exact
+// candidate in fail-closed admission data without claiming it is playable.
+// Keep one canonical registration set for both direct assets and programmes so
+// the cross-surface scan does not falsely report a checksum-bound programme as
+// missing from this registry.
+const registeredAssetPaths = new Set(
+  (registry.programmes ?? []).map((programme) => programme.master_path)
+);
 for (const asset of registry.direct_motion_assets ?? []) {
-  admittedAssetPaths.add(asset.path);
+  registeredAssetPaths.add(asset.path);
   await verifyFile(asset.id, asset.path, asset.sha256);
   if (!validStatuses.has(asset.occurrence_review?.status)) {
     fail(`${asset.id}: occurrence review has no PASS/HOLD/FAIL status.`);
@@ -500,7 +508,7 @@ for (const sourcePath of monitoredSources) {
   const references = source.match(referencePattern) ?? [];
   for (const reference of references) {
     const normalized = reference.replace(/^\//, '');
-    if (!admittedAssetPaths.has(normalized)) {
+    if (!registeredAssetPaths.has(normalized)) {
       fail(`${sourcePath}: motion reference ${normalized} is absent from the review registry.`);
     }
   }

@@ -99,9 +99,9 @@
   "sitewide_inventory": {
     "inventory_date": "2026-08-01",
     "json_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.json",
-    "json_sha256": "539c0abb0523647dd203e453fab1f53b266db7f96a0847ea9ca856fc78c39ce4",
+    "json_sha256": "0a549320e6968dda7c4fba4e733385e7b11f42a759616cf4ad8d501d03b269e1",
     "report_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.md",
-    "report_sha256": "3fa60c819cf9c3b0a30371bf78af6538b74c86006084033fa1e66e7fd6cc75db",
+    "report_sha256": "4300a8cd3ab489c714e01aa718a09540d85f0b13a88dcd04bf5f4846e805823e",
     "builder": "scripts/build-sitewide-motion-inventory.mjs",
     "status": "HOLD",
     "scanned_source_files": 224,
@@ -121,25 +121,26 @@
       "id": "screening-room",
       "path": "watch.html",
       "status": "FAIL_CLOSED",
-      "proof_pattern": "var EPISODE_FILMS = {};",
-      "note": "No full motion-film binding is admitted in the current local player. Cue-level motion is still registry-controlled."
+      "proof_pattern": "admission.admissionStatus === 'admitted'",
+      "source_sha256": "bc180d099e8fb1159506e5fea27073a5fe8c756f2c4e73f3d9fb130bd61b3de9",
+      "note": "The screening room binds a full film only when the exact programme admission record says admitted. Held candidates may be named by checksum-bound admission data but remain non-playable."
     },
     {
       "id": "class-player",
       "path": "learn/class.html",
       "status": "FAIL_CLOSED",
       "proof_pattern": "has not been filmed yet",
-      "source_sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c",
+      "source_sha256": "58a7db1f14c3c22fbb8839208cc19585933b95f37b93859fb0cb3bc48f49e7f7",
       "evidence_path": "operations/video-qa/sunnyvaile-high-class-player-admission-audit-2026-08-01/class-player-admission-audit.json",
-      "evidence_sha256": "673586c0e309557a8650b979271dcf363b740e26d17d95a9d078197e2afbe28d",
+      "evidence_sha256": "143e958694edbb4c35b7b83272409de32dc53c9d01b5179694594d9eb1a3a377",
       "data_bindings": [
         {
           "path": "content/site/high-classes.json",
-          "sha256": "1b871520cac77b756ea3a8d5554aabcbca21e1afae881e39acb1283678fd9088"
+          "sha256": "8c1c277da838a5b00c6cd5e303e4b77c09ac37d4ee0252f836374ef85f16649d"
         },
         {
           "path": "content/site/high-learning-ledger.json",
-          "sha256": "40e6d310aeb8d8de601b052db297f55776dee53f30f2ff6735ff6ec93719780f"
+          "sha256": "ada9a95e0eafaa81d80bd79cc4538a47ac1d1920dc53218b1729649fd1e54ed8"
         }
       ],
       "current_state_check": {
@@ -147,7 +148,7 @@
         "register_path": "content/site/high-classes.json",
         "ledger_path": "content/site/high-learning-ledger.json",
         "expected": {
-          "registered_classes": 37,
+          "registered_classes": 38,
           "live_register_rows": 0,
           "rows_with_video_path": 0,
           "admitted_class_learning_records": 0,
@@ -162,14 +163,14 @@
       "id": "sunnyvaile-high-class-tv-affordance",
       "content_type": "interface_motion",
       "source_path": "learn/class.html",
-      "source_sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c",
+      "source_sha256": "58a7db1f14c3c22fbb8839208cc19585933b95f37b93859fb0cb3bc48f49e7f7",
       "kind": "CSS_KEYFRAMES",
       "name": "tvpulse",
       "source_type": "semantic_animation",
       "interface_trigger": "A registered class page renders its television control.",
       "silent_purpose": "Make the small television control discoverable without changing lesson meaning or claiming that a class tape is available.",
-      "expected_instances": 37,
-      "reviewed_instances": 37,
+      "expected_instances": 38,
+      "reviewed_instances": 38,
       "responsive_review": {
         "desktop_1280": "PASS",
         "mobile_390": "PASS",
@@ -180,22 +181,22 @@
         "behavior": "The pulse is removed and the teal ring remains visible at opacity 0.5."
       },
       "evidence_path": "operations/video-qa/sunnyvaile-high-class-runtime-motion-audit-2026-08-01/class-runtime-motion-audit.json",
-      "evidence_sha256": "b31d98a3dbd1d3565c7bcb3ced57a8ac9f39a6f6eb103e8aee5c553c96ceaba8",
+      "evidence_sha256": "cbae8c8050129f7a27a8976ccdb538e18d60bb18c93786e21cb684b33cda8eca",
       "admission_status": "PASS",
-      "reason": "The exact template was verified across all 37 registered class states, with desktop/mobile visual proof, keyboard behavior, no overflow and a static reduced-motion affordance."
+      "reason": "The exact template was verified across all 38 registered class states, with desktop/mobile visual proof, keyboard behavior, no overflow and a static reduced-motion affordance."
     },
     {
       "id": "sunnyvaile-high-class-crt-open",
       "content_type": "interface_motion",
       "source_path": "learn/class.html",
-      "source_sha256": "a5d42660bcceba010217984e2d20b6c7f4dcc911348be9716f4d5a98d2e71e7c",
+      "source_sha256": "58a7db1f14c3c22fbb8839208cc19585933b95f37b93859fb0cb3bc48f49e7f7",
       "kind": "CSS_KEYFRAMES",
       "name": "crton",
       "source_type": "decorative_motion",
       "interface_trigger": "A visitor activates the television control.",
       "silent_purpose": "Open the class-tape or production-status dialog with a brief, one-shot CRT power-on transition.",
-      "expected_instances": 37,
-      "reviewed_instances": 37,
+      "expected_instances": 38,
+      "reviewed_instances": 38,
       "responsive_review": {
         "desktop_1280": "PASS",
         "mobile_390": "PASS",
@@ -206,9 +207,9 @@
         "behavior": "The CRT transition is removed; the dialog opens immediately in its stable final state."
       },
       "evidence_path": "operations/video-qa/sunnyvaile-high-class-runtime-motion-audit-2026-08-01/class-runtime-motion-audit.json",
-      "evidence_sha256": "b31d98a3dbd1d3565c7bcb3ced57a8ac9f39a6f6eb103e8aee5c553c96ceaba8",
+      "evidence_sha256": "cbae8c8050129f7a27a8976ccdb538e18d60bb18c93786e21cb684b33cda8eca",
       "admission_status": "PASS",
-      "reason": "The exact user-triggered 0.42-second transition was verified as one-shot, responsive, non-blocking, keyboard-safe and absent under reduced motion across all 37 class states."
+      "reason": "The exact user-triggered 0.42-second transition was verified as one-shot, responsive, non-blocking, keyboard-safe and absent under reduced motion across all 38 class states."
     }
   ],
   "direct_motion_assets": [
