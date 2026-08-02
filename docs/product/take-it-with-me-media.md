@@ -1,8 +1,10 @@
 # Take LAiDIES with you
 
-**Status:** SPECIFIED — KSVL has a partial local player foundation; the shared
-episode player, offline saves, podcast feed, YouTube release path and music
-distribution are BUILD REQUIRED
+**Status:** PARTIAL LOCAL FOUNDATION — KSVL and the Screening Room have Media
+Session controls; Trailer and Episodes 01–04 have held portable packages and a
+fail-closed RSS preview adapter. Persistent sitewide playback, offline saves,
+an admitted public podcast feed, YouTube release path and music distribution
+remain BUILD REQUIRED.
 **Decision owner:** Ali for public account/channel submissions and final
 release admission; Platform, Weekly Episodes and KSVL can build and validate
 the underlying package without waiting for a distribution-account decision
@@ -243,8 +245,8 @@ is not currency.
 |---|---|
 | KSVL website playback | PARTIAL LOCAL FOUNDATION — real player and Media Session controls exist; full public/right/accessibility verification remains open |
 | Episode illustrated listen-along | EXISTS; not yet one persistent background/offline player |
-| Episode audio masters | INCOMPLETE/NEEDS RELEASE RECONCILIATION |
-| Podcast RSS generator/feed | BUILD REQUIRED |
+| Episode audio masters | BUILT LOCALLY / HOLD for Trailer and Episodes 01–04; sound-on human review and release admission remain open |
+| Podcast RSS generator/feed | BUILT LOCALLY / HOLD — internal five-item preview has zero enclosures; release mode refuses unadmitted packages |
 | Apple Podcasts listing | NOT SUBMITTED/NOT PUBLICLY VERIFIED |
 | Spotify podcast listing | NOT SUBMITTED/NOT PUBLICLY VERIFIED |
 | YouTube podcast/channel release system | BUILD REQUIRED; prior references treated YouTube mainly as hosting fallback |
