@@ -1,0 +1,1082 @@
+{
+  "schema": "laidies.control-room.work-index.v1",
+  "generated_at": "2026-08-02T19:56:29.247Z",
+  "truth_rule": "This is a generated operational index. NEEDS_ALI_NOW is populated only by the objectively admitted owner-review queue. Local, built, approved, released and publicly verified are distinct states.",
+  "scope": {
+    "portfolio_products_and_buildings": true,
+    "sitewide_systems": true,
+    "content_and_media": true,
+    "release_and_publication": true,
+    "site_and_agent_health": true,
+    "analytics_visitors_and_signups": true,
+    "schedule_and_weekly_episode_engine": true,
+    "social_and_campaigns": true,
+    "recommendations_and_learning_loop": true,
+    "blockers_owners_and_exact_next_actions": true
+  },
+  "source_freshness": {
+    "operations/product-stewards/control-room/portfolio-work-inventory.json": "2026-07-31",
+    "operations/control-room/owner-review-queue.json": "2026-08-02T13:30:00Z",
+    "operations/product-stewards/run-queue.json": "2026-08-02",
+    "operations/product-stewards/registry.json": "2026-07-26"
+  },
+  "runtime_health": {
+    "owner_entry": {
+      "total": 67,
+      "missing_dossier": 25,
+      "missing_state": 5,
+      "missing_visual_asset_inventory": 12,
+      "ready": 30
+    },
+    "stale_runtime_records_quarantined": 3,
+    "ordinary_product_steward_check": "RUN_SEPARATELY",
+    "strict_owner_entry_gate": "FAIL_BUILD_REQUIRED"
+  },
+  "control_modules": [
+    {
+      "name": "Portfolio work",
+      "status": "LIVE_GENERATED",
+      "next_action": "Regenerate this index whenever canonical portfolio or owner-queue state changes."
+    },
+    {
+      "name": "Owner decisions and reviews",
+      "status": "LIVE_GENERATED",
+      "next_action": "Admit only objective-pass work through the owner-review queue."
+    },
+    {
+      "name": "Agent and champion health",
+      "status": "PARTIAL",
+      "next_action": "Connect actual Codex task liveness and dispatch receipts; stale-file detection alone is not live health."
+    },
+    {
+      "name": "Site health and release verification",
+      "status": "BUILD_REQUIRED",
+      "next_action": "Ingest latest exact public-verification and journey receipts into this index."
+    },
+    {
+      "name": "Visitors and popular journeys",
+      "status": "BUILD_REQUIRED",
+      "next_action": "Connect privacy-safe aggregate analytics; unknown values must remain unknown, not zero."
+    },
+    {
+      "name": "New sign-ups and returning residents",
+      "status": "BUILD_REQUIRED",
+      "next_action": "Connect verified privacy-safe Resident Card aggregates without exposing personal data."
+    },
+    {
+      "name": "Upcoming episode and content schedule",
+      "status": "BUILD_REQUIRED",
+      "next_action": "Generate from accepted release plans and weekly-cycle state, not informal dates."
+    },
+    {
+      "name": "Social content and channel operations",
+      "status": "BUILD_REQUIRED",
+      "next_action": "Reconcile recovery authority, then ingest built/approved/scheduled/published truth and measurement."
+    },
+    {
+      "name": "Recommendations and learning loop",
+      "status": "PARTIAL",
+      "next_action": "Ingest ranked opportunities, measured outcomes and accepted/rejected dispositions with owners."
+    }
+  ],
+  "counts": {
+    "NEEDS_ALI_NOW": 0,
+    "INTERNAL_REPAIR": 5,
+    "BUILDING": 19,
+    "BLOCKED": 7,
+    "READY_TO_RELEASE": 0,
+    "VERIFIED_PUBLICLY": 1,
+    "BACKLOG": 31
+  },
+  "categories": {
+    "NEEDS_ALI_NOW": [],
+    "INTERNAL_REPAIR": [
+      {
+        "id": "trailer-v8-human-watch",
+        "title": "The Trailer — Welcome to SUNNYVAiLE",
+        "owner": "Episode Media Quality",
+        "current_truth": "HOLD is already recorded. Continue adding timecodes and specific notes; do not assess this cut for release.",
+        "next_action": "No further owner review. Preserve Ali's existing timecoded feedback and rebuild from admitted sources.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "episode-01-v27-human-watch",
+        "title": "Episode 01 — On Wednesdays We Do AI",
+        "owner": "Episode Media Quality",
+        "current_truth": "INTERNAL REPAIR REQUIRED. Do not ask Ali for PASS/HOLD on this cut.",
+        "next_action": "No further owner review until the objective visual, identity, motion, relevance and continuity gates pass.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "episode-02-v20-human-watch",
+        "title": "Episode 02 — Tell Me What You Want",
+        "owner": "Episode Media Quality",
+        "current_truth": "INTERNAL REPAIR REQUIRED. Do not ask Ali for PASS/HOLD on this cut.",
+        "next_action": "No owner review until the objective media gate is reconciled and passes.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "episode-03-v15-human-watch",
+        "title": "Episode 03 — The Burn Book Problem",
+        "owner": "Episode Media Quality",
+        "current_truth": "INTERNAL REPAIR REQUIRED. Do not ask Ali for PASS/HOLD on this cut.",
+        "next_action": "No owner review until every objective occurrence gate passes.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "episode-04-v10-human-watch",
+        "title": "Episode 04 — The Founding Mothers",
+        "owner": "Episode Media Quality",
+        "current_truth": "INTERNAL REPAIR REQUIRED. Do not ask Ali for PASS/HOLD on this cut.",
+        "next_action": "No owner review until every objective occurrence gate passes.",
+        "source": "operations/control-room/owner-review-queue.json"
+      }
+    ],
+    "BUILDING": [
+      {
+        "id": "OWNER-QUEUE-BUILD-1",
+        "title": "ODC-101 — What You're Looking At",
+        "owner": "Product owner",
+        "current_truth": "Review animatic built: 4:09 film, 54 caption cues, transcript and poster all pass the bounded technical gate. The public class remains unbound.",
+        "next_action": "No action yet. Teaching, accuracy, accessibility and independent media reviewers go first; it reaches Review now only after those gates pass.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "PWI-001",
+        "title": "Homepage and Town Entry information architecture",
+        "owner": "town-entry-homepage",
+        "building_or_function": "Homepage / Town Entry",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "A design lane exists, but Ali has not accepted a final coherent Homepage and rejected reorganizations must not be revived.",
+        "next_action": "Return to the last accepted visual direction; preserve the approved masthead, four clear sections and Daily Buzz rail; complete responsive, language, link and visual review before any release claim.",
+        "done_when": "Ali accepts the exact desktop/mobile candidate and all navigation, account-state, content-truth, accessibility and public verification gates pass.",
+        "sources": [
+          "operations/product-stewards/town-entry-homepage/backlog.md",
+          "operations/product-stewards/control-room/sitewide-page-improvement-inventory-2026-07-30.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-002",
+        "title": "Building-by-building experience completion",
+        "owner": "platform-reliability",
+        "building_or_function": "All 17 buildings and shared platform",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "All canonical buildings have stewards, but readiness and visual maturity differ materially and many intended journeys remain held.",
+        "next_action": "Work through one building/function at a time while shared systems remain separately owned; close content, frontend, backend, responsive, accessibility and release gates for each.",
+        "done_when": "Every building has an accepted intended experience, truthful availability, complete visitor journeys and exact public release evidence.",
+        "sources": [
+          "operations/product-stewards/registry.json",
+          "operations/product-stewards/control-room/sitewide-page-improvement-inventory-2026-07-30.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-005",
+        "title": "Classes catalogue, curriculum and AIDB Summer Adventure patterns",
+        "owner": "classes, learning-content-ecosystem",
+        "building_or_function": "SUNNYVAiLE High",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "Thirty-seven class previews and useful external-program patterns are recorded, but the complete catalogue, real lesson bodies and progression have not been reconciled.",
+        "next_action": "Inventory every proposed class, merge duplicates, apply the experience-flexible metadata and select the smallest launch set with complete materials rather than more previews.",
+        "done_when": "A truthful catalogue exposes only complete classes, preserves later ideas with triggers and connects each class to its concepts, practice, episodes, books and current evidence.",
+        "sources": [
+          "operations/product-stewards/sunnyvaile-high/backlog.md",
+          "operations/product-stewards/learning-content-ecosystem/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-006",
+        "title": "Content opportunity work-order and review pipeline",
+        "owner": "learning-content-ecosystem, newsstand",
+        "building_or_function": "Cross-format editorial and learning operations",
+        "priority": "NOW",
+        "status": "BUILT LOCALLY",
+        "disposition": "BUILDING",
+        "current_truth": "Machine-checked work orders and blocker resolution exist locally, but open owner builds still prevent end-to-end evidence that recommendations consistently become released content.",
+        "next_action": "Complete the current work orders through artifact build, independent review, relationship/index update, release and public discovery receipts.",
+        "done_when": "A material signal can produce a news item, concept/book/class/episode update, song/daily derivative decision and public discovery without an orphan recommendation or silent block.",
+        "sources": [
+          "operations/product-stewards/learning-content-ecosystem/content-work-orders.json",
+          "content/learning-blocker-resolution-queue.json",
+          "content/learning-relationship-graph.json"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-011",
+        "title": "Daily tips, Promptoscope and related derivative feeds",
+        "owner": "newsstand-daily, mme-claio-reading, learning-content-ecosystem",
+        "building_or_function": "The Daily / Mme CLAi-O / Learning System",
+        "priority": "NOW",
+        "status": "BUILT LOCALLY",
+        "disposition": "BUILDING",
+        "current_truth": "Derivative requirements exist, but current content must remain source-aware and the Promptoscope cannot route to unrelated card readings.",
+        "next_action": "Finish source-to-derivative records, separate the horoscope and card-reading jobs, and prove daily rotation, suppression and public rendering.",
+        "done_when": "New or corrected knowledge can feed accurate tips and appropriate Promptoscope candidates without duplicating, contradicting or misrouting content.",
+        "sources": [
+          "operations/product-stewards/learning-content-ecosystem/content-work-orders.json",
+          "operations/product-stewards/newsstand/backlog.md",
+          "operations/product-stewards/mme-claio/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-013",
+        "title": "Closet, progress and personal collection",
+        "owner": "closet-progression, resident-card",
+        "building_or_function": "MAiKEOVER on MAiN / shared continuation",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "Account-backed continuation has evidence, but the complete visual Closet, native add/remove controls, inventory semantics and sitewide consumers are not launch-proven together.",
+        "next_action": "Define the authoritative inventory categories and visitor states, complete native add/remove and cross-context tests, then align every collection consumer.",
+        "done_when": "A resident can understand, add, remove, organize and resume every supported saved item and progress state across devices without false ownership claims.",
+        "sources": [
+          "operations/product-stewards/control-room/communications-rewards-cards-closet-reuse-inventory-2026-07-30.md",
+          "operations/product-stewards/maikeover/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-018",
+        "title": "Trading Cards packs, binder, gifting and teaching catalogue",
+        "owner": "trading-cards, closet-progression, blend-snap",
+        "building_or_function": "Blend & Snap / Closet",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "Twenty candidate fronts were accepted and parts of gifting/metadata have evidence; backs, pack logic, catalogue admission, rewards and complete binder use remain open.",
+        "next_action": "Finish the card schema, backs and teaching roles, then implement deterministic packs, duplicate handling, binder, gifting, ownership and release evidence.",
+        "done_when": "Cards teach accurately, have approved art/front/back, enter one authoritative catalogue and can be earned, viewed, organized and gifted without ownership or economy ambiguity.",
+        "sources": [
+          "operations/product-stewards/trading-cards/backlog.md",
+          "operations/product-stewards/trading-cards/inventory-evidence-2026-07-26.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-020",
+        "title": "Resident messaging and community rooms",
+        "owner": "community, platform-reliability",
+        "building_or_function": "Delta LAi Nu / shared messaging",
+        "priority": "NEXT",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "Some chat/account plumbing has public evidence on a separate release, while discoverability, notifications, moderation, blocking and complete resident UX remain unresolved.",
+        "next_action": "Reconcile the verified service, then build message visibility, unread state, reporting/blocking, moderation operations, privacy and mobile journeys into the Sorority House and Closet surfaces.",
+        "done_when": "Residents can find, send, receive, manage and report messages through a safe intuitive interface, with clear notification and moderation behavior.",
+        "sources": [
+          "operations/product-stewards/control-room/communications-rewards-cards-closet-reuse-inventory-2026-07-30.md",
+          "operations/product-stewards/sorority-house/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-023",
+        "title": "Town directory, building explanation and map",
+        "owner": "town-entry-homepage, visitors-centre",
+        "building_or_function": "Town Entry / Visitor's Centre",
+        "priority": "NEXT",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "A canonical directory exists, but the visitor-facing explanation of town layout and each building's current offer has not reached an accepted coherent experience.",
+        "next_action": "Use the authoritative directory and approved building imagery to build one useful orientation surface; do not invent a fake town map or expose held destinations as available.",
+        "done_when": "A first-time visitor can understand where things live and reach a relevant open destination without decoding internal architecture.",
+        "sources": [
+          "operations/product-stewards/town-entry-homepage/backlog.md",
+          "operations/product-stewards/visitors-centre/backlog.md",
+          "operations/product-stewards/registry.json"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-027",
+        "title": "Episode 5 and Super Models concept",
+        "owner": "episode-experience, episode-media-quality",
+        "building_or_function": "Weekly Episode Engine / Chick Flicks",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "The fashion analogy is a decided direction but exact episode scope and full production gates remain open.",
+        "next_action": "Complete the concept-fidelity matrix and ruled episode brief before script, storyboard, media and complement production.",
+        "done_when": "The released episode accurately teaches its selected model concept, uses the analogy within its limits and ships every required learning/media derivative.",
+        "sources": [
+          "operations/product-stewards/episode-experience/backlog.md",
+          "operations/engine/LEDGER.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-029",
+        "title": "Secure mobile Control Room for a one-woman operation",
+        "owner": "platform-reliability",
+        "building_or_function": "Internal Control Room",
+        "priority": "NEXT",
+        "status": "BUILT LOCALLY",
+        "disposition": "BUILDING",
+        "current_truth": "A local dashboard and review inbox exist; secure remote access, authenticated actions, notifications and external data connections are not operational.",
+        "next_action": "Define the smallest secure remote architecture and action receipt model, then connect read-only health/schedule/review data before enabling approvals or mutations.",
+        "done_when": "Ali can use laptop or phone to see site/agent/content/release/social/analytics/signup truth, review exact artifacts and issue bounded actions that return durable receipts.",
+        "sources": [
+          "operations/product-stewards/control-room/DASHBOARD-CONTRACT.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-036",
+        "title": "LAiDIES master and episode logo animation system",
+        "owner": "episode-media-quality, town-entry-homepage, episode-experience",
+        "building_or_function": "Shared Brand / Homepage / episode masters",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "The exact master and Trailer/Episodes 01–04 animation mapping are approved locally; Homepage placement and insertion into episode masters remain separate work.",
+        "next_action": "Preserve the accepted animation and Homepage transition, then insert each approved episode ident into its correct master with reduced-motion/fallback and exact release proof.",
+        "done_when": "The master and episode-specific idents appear in approved roles without crop, duplication or playback failure, and corrections propagate through the media release system.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/episode-experience/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-040",
+        "title": "Product Stewardship League and blocker escalation",
+        "owner": "platform-reliability",
+        "building_or_function": "Control Room / all product stewards",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "Sixty-seven products are registered and validators pass, but owner-entry debt, external evidence connections and unresolved blockers remain.",
+        "next_action": "Use the portfolio inventory in each Control Room cycle, require exact unblock actions/review dates and surface only decision-ready Ali choices in the Action Centre.",
+        "done_when": "Every product and initiative has a live owner/status/trigger, overdue blockers fail validation, accepted work produces visible outcomes and no lane disappears in prose.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/registry.json",
+          "operations/product-stewards/control-room/DASHBOARD-CONTRACT.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-043",
+        "title": "Behind the Build learning and correction system",
+        "owner": "learning-content-ecosystem, classes, newsstand",
+        "building_or_function": "Learning System / editorial operations",
+        "priority": "NEXT",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "A raw painpoint ledger and product specification exist; systematic conversion into tips, classes, posts and corrections is not fully operational.",
+        "next_action": "Route qualifying painpoints into the content work-order pipeline, decide the correct format and complete one public-quality example through review and discovery.",
+        "done_when": "Reusable failures and fixes become accurate, useful LAiDIES learning only when evidence supports them, with private information removed and current practice verified.",
+        "sources": [
+          "docs/product/behind-the-build-learning-system.md",
+          "operations/painpoints-log.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-046",
+        "title": "Dream Phone hallucination and verification game",
+        "owner": "dream-phone-game, learning-content-ecosystem",
+        "building_or_function": "Dream Phone Booth",
+        "priority": "NEXT",
+        "status": "BUILDING",
+        "disposition": "BUILDING",
+        "current_truth": "A Dream Phone experience exists, but the intended game that helps distinguish hallucination from supported claims is not a fully accepted learning journey.",
+        "next_action": "Define claim/evidence rounds, explanations, safe source set, scoring and transfer outcome; build and test a complete representative game loop.",
+        "done_when": "Players improve at checking claims and explaining why evidence supports or fails to support them, without the game presenting verdicts as professional advice.",
+        "sources": [
+          "operations/product-stewards/dream-phone/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-047",
+        "title": "FAiRY Godmother useful prompt and writing help",
+        "owner": "fairy-answer-quality, fairy-godmother, learning-content-ecosystem",
+        "building_or_function": "FAiRY Godmother's House",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "A recovered experience and typed answer-quality direction exist, but complete safety, retrieval, usefulness, reward and public gates remain open.",
+        "next_action": "Build the typed router, evidence/uncertainty behavior and concept handoffs; test real prompt/draft help, failure and privacy cases before hero promotion.",
+        "done_when": "The tool reliably makes a provided prompt or draft clearer and more useful, explains enough to transfer, protects private/high-stakes use and charges Plays correctly.",
+        "sources": [
+          "operations/product-stewards/fairy-godmother/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-048",
+        "title": "Search, indexing, relationships and contradiction prevention",
+        "owner": "learning-content-ecosystem, miss-jeeves, platform-reliability",
+        "building_or_function": "LIBRAiRY / sitewide discovery",
+        "priority": "NOW",
+        "status": "BUILT LOCALLY",
+        "disposition": "BUILDING",
+        "current_truth": "A relationship graph, work orders and resolution queue exist locally; all content is not yet comprehensively indexed, related and contradiction-checked through public release.",
+        "next_action": "Close the open resolution queue and require every new/corrected artifact to update search ingestion, related content, learn-more boxes, sitemap/feed metadata and conflicting consumers.",
+        "done_when": "Readers can find content by task/concept, follow useful cross-format links and receive one coherent explanation across news, episodes, books, classes and tools.",
+        "sources": [
+          "content/learning-relationship-graph.json",
+          "content/learning-blocker-resolution-queue.json",
+          "operations/product-stewards/learning-content-ecosystem/content-work-orders.json"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-050",
+        "title": "Resident Card, Closet and Wednesday Postcard move-in journey",
+        "owner": "resident-card, closet-progression, newsletter-delivery, post-office",
+        "building_or_function": "Move to SUNNYVAiLE / Post Office / MAiKEOVER",
+        "priority": "NOW",
+        "status": "BUILDING",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "The intended single-signup rule is clear: Postcard selected by default with an opt-out, plus a separate Postcard-only route; all provider and UI proof is not closed.",
+        "next_action": "Reconcile signup consent copy and data flow, prove delivery/unsubscribe and build the complete move-in explanation around Card, Closet, progress, benefits and Postcard.",
+        "done_when": "One resident signup creates the Card and selected Postcard subscription with visible opt-out, while Postcard-only signup works independently and every consent/delivery state is verified.",
+        "sources": [
+          "operations/product-stewards/post-office/backlog.md",
+          "operations/product-stewards/resident-card/backlog.md",
+          "operations/product-stewards/control-room/handoff-post-office-postcards-inventory-spec-2026-07-26-1300.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      }
+    ],
+    "BLOCKED": [
+      {
+        "id": "OWNER-QUEUE-BLOCK-1",
+        "title": "Account-entry end-to-end test",
+        "owner": "Platform infrastructure",
+        "current_truth": "Needs an isolated Supabase staging project and a controlled non-personal mail sink. Existing production RLS and cross-device continuation proof remains valid.",
+        "next_action": "Responsible owner resolves the named dependency; no Ali action is implied.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "OWNER-QUEUE-BLOCK-2",
+        "title": "Audience and social recovery admission",
+        "owner": "Control Room",
+        "current_truth": "Existing local content remains unadmitted while its exact recovery disposition is reconciled. Nothing is waiting for a taste decision from you right now.",
+        "next_action": "Responsible owner resolves the named dependency; no Ali action is implied.",
+        "source": "operations/control-room/owner-review-queue.json"
+      },
+      {
+        "id": "PWI-028",
+        "title": "Social formats and Thursday Try-On",
+        "owner": "audience-growth, try-on, episode-experience",
+        "building_or_function": "Audience & Growth / Blend & Snap",
+        "priority": "NEXT",
+        "status": "HOLD",
+        "disposition": "BLOCKED — BUILD REMAINS REQUIRED",
+        "current_truth": "Format candidates exist, but the Audience/social source freeze and destination readiness gates prevent publishing or scheduling.",
+        "next_action": "Resolve the scoped recovery disposition, then bind each derivative to an exact approved destination, licensed/native media and measurement plan.",
+        "done_when": "A weekly social cadence uses only approved public sources, drives useful actions, respects rights and records published—not merely built—truth and learning.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/audience-growth/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-030",
+        "title": "Analytics, signups and evidence-backed recommendations",
+        "owner": "audience-growth, platform-reliability",
+        "building_or_function": "Control Room / privacy-safe measurement",
+        "priority": "NEXT",
+        "status": "BLOCKED",
+        "disposition": "BLOCKED — BUILD REMAINS REQUIRED",
+        "current_truth": "Visitors, signups, return behavior and page performance remain unknown where authorized aggregate sources or verified exports are absent.",
+        "next_action": "Connect approved privacy-safe aggregate analytics and Resident Card counts, define exposure-aware measures and feed ranked recommendations into the Control Room.",
+        "done_when": "The dashboard distinguishes unknown from zero and shows source-dated visitors, new signups, return, journeys, popular/low-attention pages and actionable recommendations.",
+        "sources": [
+          "operations/product-stewards/control-room/DASHBOARD-CONTRACT.md",
+          "operations/product-stewards/audience-growth/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "STALE-RUNTIME-town-entry-homepage",
+        "title": "Stale runtime record — town-entry-homepage",
+        "owner": "/root",
+        "current_truth": "The prior RUNNING claim is quarantined. Last heartbeat: 2026-07-26T21:05:00Z.",
+        "next_action": "A scheduler-backed reconciler must confirm actual task liveness and write a fresh dispatch receipt before any entry may return to RUNNING.",
+        "source": "operations/product-stewards/run-queue.json"
+      },
+      {
+        "id": "STALE-RUNTIME-brand-experience",
+        "title": "Stale runtime record — brand-experience",
+        "owner": "019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+        "current_truth": "The prior RUNNING claim is quarantined. Last heartbeat: 2026-07-26T21:03:13Z.",
+        "next_action": "A scheduler-backed reconciler must confirm actual task liveness and write a fresh dispatch receipt before any entry may return to RUNNING.",
+        "source": "operations/product-stewards/run-queue.json"
+      },
+      {
+        "id": "STALE-RUNTIME-functionality-platform-identity",
+        "title": "Stale runtime record — functionality-platform-identity",
+        "owner": "019f9f59-6f59-7500-af47-455f39d1c0c5",
+        "current_truth": "The prior RUNNING claim is quarantined. Last heartbeat: 2026-07-26T20:46:00Z.",
+        "next_action": "A scheduler-backed reconciler must confirm actual task liveness and write a fresh dispatch receipt before any entry may return to RUNNING.",
+        "source": "operations/product-stewards/run-queue.json"
+      }
+    ],
+    "READY_TO_RELEASE": [],
+    "VERIFIED_PUBLICLY": [
+      {
+        "id": "PWI-012",
+        "title": "Resident identity, sign-in and cross-device continuation",
+        "owner": "resident-card, sign-in, platform-reliability",
+        "building_or_function": "Shared account platform",
+        "priority": "NOW",
+        "status": "PUBLICLY VERIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "RLS isolation, Card/allowlisted continuation restore and account switching have public evidence on a separate exact release; magic-link entry/recovery and several native UI journeys remain held.",
+        "next_action": "Reconcile the verified release into active source truth and provision isolated account-entry testing for magic-link delivery, UI sign-out and Closet-native propagation.",
+        "done_when": "New and returning residents can create, sign in, recover, sign out and continue across devices through the real UI with isolation, cleanup and failure proof.",
+        "sources": [
+          "operations/product-stewards/control-room/communications-rewards-cards-closet-reuse-inventory-2026-07-30.md",
+          "operations/product-stewards/resident-card/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      }
+    ],
+    "BACKLOG": [
+      {
+        "id": "PWI-003",
+        "title": "Experience-flexible learning pathways",
+        "owner": "learning-content-ecosystem, classes, miss-jeeves, closet-progression",
+        "building_or_function": "Learning System across High, LIBRAiRY, episodes, tools and Closet",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "The site has scattered beginner/advanced references but no owned system for different knowledge, job context or desired depth.",
+        "next_action": "Define the four support modes, metadata contract, discovery treatment and voluntary domain-specific preference rules; pilot them on one class and its related book, episode and tool.",
+        "done_when": "Every substantial learning item states assumed knowledge, useful outcome, depth choices and next step, and representative users can find an appropriate route without being permanently graded or labelled.",
+        "sources": [
+          "operations/product-stewards/learning-content-ecosystem/backlog.md",
+          "docs/growth/ali-idea-backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-004",
+        "title": "Get the Best Out of Your AI Tool masterclass",
+        "owner": "classes, learning-content-ecosystem",
+        "building_or_function": "SUNNYVAiLE High",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "Research and a seven-lesson pathway exist; no lesson is scripted, filmed, admitted or public.",
+        "next_action": "Reconcile the class catalogue and experience-level pilot, then commission the lesson briefs, Try-Ons, assessments, complement links and production sequence.",
+        "done_when": "The seven lessons form a verified practical pathway using one safe real project, with current product claims, exercises, assessment and related content.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/sunnyvaile-high/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-007",
+        "title": "The Daily as a complete SUNNYVAiLE newspaper",
+        "owner": "newsstand-daily, newsstand",
+        "building_or_function": "NewsStand with Homepage Daily Buzz preview",
+        "priority": "NEXT",
+        "status": "CAPTURED",
+        "disposition": "BUILDING",
+        "current_truth": "The complete-newspaper direction is captured; the Homepage rail is only a preview and must not substitute for the paper.",
+        "next_action": "Design and build the newspaper information architecture for sourced AI reporting, Paige's tip, Promptoscope, Mme CLAi-O reading, song, town notes and clearly labelled fictional sections.",
+        "done_when": "The full paper works on desktop/mobile, preserves source truth and corrections, and the Homepage rail displays today's information with small working routes to underlying destinations.",
+        "sources": [
+          "operations/product-stewards/newsstand/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-008",
+        "title": "Daily curiosity and mutual-support note",
+        "owner": "newsstand-daily, community, luminairy",
+        "building_or_function": "The Daily with Community and LUMINAiRY inputs",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "The purpose and anti-cringe boundaries are captured and one credited, original credit-action seed is recorded; no column name, accepted 30-entry editorial bank or rendering exists.",
+        "next_action": "Draft and independently review a 30-entry bank of specific curiosity, credit, invitation, advocacy and opportunity-sharing actions, then select the column name from the actual writing.",
+        "done_when": "Fresh, non-repetitive daily notes are useful, original, non-condescending and render in the full paper plus its compact Homepage preview.",
+        "sources": [
+          "operations/product-stewards/newsstand/backlog.md",
+          "operations/product-stewards/newsstand/NS-20-curiosity-mutual-support-seed-bank.md",
+          "docs/growth/ali-idea-backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-009",
+        "title": "Fictional town newspaper sections",
+        "owner": "newsstand-daily",
+        "building_or_function": "The Daily",
+        "priority": "NEXT",
+        "status": "CAPTURED",
+        "disposition": "BUILDING",
+        "current_truth": "Funny weather, town gossip, notices and announcement-teasing ideas exist but are not yet a ruled recurring package.",
+        "next_action": "Write the format and labelling rules that separate fictional town fun from sourced AI reporting, then create a finite launch bank with freshness and canon review.",
+        "done_when": "Readers can immediately distinguish town fiction from real reporting and the recurring sections remain funny, coherent and useful rather than filler.",
+        "sources": [
+          "operations/product-stewards/newsstand/backlog.md",
+          "docs/growth/ali-idea-backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-010",
+        "title": "Resident classifieds",
+        "owner": "community, newsstand-daily",
+        "building_or_function": "Community / Daily classifieds",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "Study buddies, card trades and social-plan listings are captured but identity, privacy, moderation, expiry and safe contact are not specified.",
+        "next_action": "Return after core community moderation and identity pass; define allowed posts, expiry, reporting, blocking, contact relay and location/privacy boundaries.",
+        "done_when": "Verified residents can safely create, manage, expire and report bounded listings without exposing private contact or location data.",
+        "sources": [
+          "operations/product-stewards/newsstand/backlog.md",
+          "operations/product-stewards/sorority-house/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-014",
+        "title": "Butterfly Clip earning and spending economy",
+        "owner": "platform-reliability, closet-progression, fairy-plays",
+        "building_or_function": "Shared rewards economy",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "The currency and ledger principles are specified; a complete authoritative earn/spend/grant/revoke/balance system is not live.",
+        "next_action": "Lock the earn table, redemption catalogue, anti-abuse rules, total-earned and total-spent ledger, transaction reasons and cross-product API before rewarding more actions.",
+        "done_when": "Residents can earn enough through meaningful learning/community actions, see every transaction and redeem without duplicate grants, coercive loops or balance inconsistency.",
+        "sources": [
+          "docs/product/butterfly-clip-economy.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-015",
+        "title": "Building loyalty cards, stamps, charms and badges",
+        "owner": "closet-progression, platform-reliability",
+        "building_or_function": "Townwide collection and recognition",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "The metaphor and partial objects exist, but there is no complete townwide grant, display, revocation and duplicate-prevention system.",
+        "next_action": "Reconcile stamps, charms, badges and loyalty cards into one collection model and identify which exact meaningful outcomes grant each object.",
+        "done_when": "Every collectible has one authority, clear meaning, accessible display, deterministic grant/revoke behavior and a useful relationship to the next site action.",
+        "sources": [
+          "docs/product/building-loyalty-cards.md",
+          "docs/product/butterfly-clip-economy.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-016",
+        "title": "Bring-your-people rewards and two-person rituals",
+        "owner": "postcards-referral, community, closet-progression",
+        "building_or_function": "Post Office / Community / shared rewards",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "Postcard rewards, BEST FRIENDS and gifting foundations are specified or partially evidenced, but the complete consented social loop is not released.",
+        "next_action": "Reconcile referral, gifting and postcard lifecycle with identity, consent, abuse prevention, rewards and the mutual-support culture standard.",
+        "done_when": "A resident can invite or support another woman through a clear, consented action with truthful delivery, appropriate rewards and no MLM or pressure dynamics.",
+        "sources": [
+          "docs/product/bring-your-people-reward-loops.md",
+          "operations/product-stewards/post-office/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-017",
+        "title": "FAiRY Plays and Butterfly Clip redemption",
+        "owner": "fairy-plays, fairy-answer-quality, platform-reliability",
+        "building_or_function": "FAiRY Godmother's House / shared economy",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "Plays are a registered ledger concept, but authoritative credits, use tracking and an optional Clip-to-Play exchange are not complete.",
+        "next_action": "Decide the safe free allowance and exchange rate only after answer-cost and success evidence; implement total granted, earned, spent and spent-on records with idempotency.",
+        "done_when": "Residents can understand and audit Plays, earn or redeem them fairly, and successful uses debit exactly once while failures do not consume value.",
+        "sources": [
+          "operations/product-stewards/fairy-godmother/backlog.md",
+          "docs/product/butterfly-clip-economy.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-019",
+        "title": "Scholastic-style Book Fair",
+        "owner": "book-fair, sunnyvaile-high, mall",
+        "building_or_function": "SUNNYVAiLE High / Mall",
+        "priority": "NEXT",
+        "status": "CAPTURED",
+        "disposition": "BUILDING",
+        "current_truth": "The Book Fair is registered and intentionally not presented as a finished store; fulfilment, catalogue, Clip redemption and free-core rules remain open.",
+        "next_action": "Define the educational catalogue and whether items are digital, physical or collectible; bind price/Clip cost, stock, fulfilment, rights, returns and accessibility before designing the storefront.",
+        "done_when": "The Book Fair offers real, deliverable, non-coercive learning objects without paywalling core literacy or promising unavailable rewards.",
+        "sources": [
+          "operations/product-stewards/sunnyvaile-high/backlog.md",
+          "docs/product/butterfly-clip-economy.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-021",
+        "title": "What is everyone reading? room and future book club",
+        "owner": "community, library",
+        "building_or_function": "Delta LAi Nu / LIBRAiRY",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "The prompt and book-club expansion are captured; the provider and moderation prerequisites are not ready.",
+        "next_action": "After core community gates pass, test one bounded reading prompt before commissioning recurring clubs or programming.",
+        "done_when": "The room supports safe, useful recommendations and discussion with source links, moderation, privacy and a demonstrated return reason.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/sorority-house/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-022",
+        "title": "Useful Tour Guide companion",
+        "owner": "visitors-centre, town-entry-homepage, miss-jeeves",
+        "building_or_function": "Visitor's Centre / shared wayfinding",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "A deterministic companion specification exists; the permanent character, verified catalogue, authored fact bank and live behavior are not built.",
+        "next_action": "Reconcile tour state and shared destination truth, select the character, build a small sourced fact bank and prototype quiet unobtrusive reactions on one page.",
+        "done_when": "The optional guide answers where-to-find questions, offers verified discoveries and hands off substantive questions without covering content or inventing availability.",
+        "sources": [
+          "docs/product/tour-guide-companion.md",
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/visitors-centre/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-024",
+        "title": "Portable listening and watching for episodes and songs",
+        "owner": "episode-experience, ksvl, screening-room",
+        "building_or_function": "Chick Flicks / KSVL / external media channels",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "The take-it-with-me requirement and channel options are specified; feeds, public channel release and continuous update propagation are not operational.",
+        "next_action": "Choose the canonical audio/video feeds and distribution sequence, prepare compliant masters/covers/metadata and prove website-to-platform version identity before publishing.",
+        "done_when": "People can safely listen while driving or walking and watch through appropriate channels, with accessibility, rights, current versions and working links back to LAiDIES.",
+        "sources": [
+          "docs/product/take-it-with-me-media.md",
+          "operations/product-stewards/episode-experience/backlog.md",
+          "operations/product-stewards/ksvl/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-025",
+        "title": "Media metadata, covers and correction propagation",
+        "owner": "episode-media-quality, ksvl-catalogue, platform-reliability",
+        "building_or_function": "Shared media release system",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "A media release schema exists, but complete publisher-specific metadata, band/artist names, cover sets and update propagation are not proven end to end.",
+        "next_action": "Populate canonical episode and song release records, define platform mappings and make freshness corrections rebuild and republish every affected master/feed entry with receipts.",
+        "done_when": "Every release has approved title, number, contributors, artist/band, artwork, descriptions, rights, captions/transcript, version and exact cross-channel update proof.",
+        "sources": [
+          "content/data/media-release.schema.json",
+          "content/data/media-releases/README.md",
+          "docs/product/take-it-with-me-media.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-026",
+        "title": "Weekly ingestion and distribution engine",
+        "owner": "episode-experience, learning-content-ecosystem, audience-growth",
+        "building_or_function": "Weekly Episode Engine",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "The engine map and many controls exist, but complete recurring production, content propagation, media distribution and public verification are not one closed automatic cycle.",
+        "next_action": "Close the next real episode through every gate and consumer, including concepts, classes, books, cards, songs, Daily/social derivatives, media channels and correction propagation.",
+        "done_when": "A weekly episode ships on schedule with exact approved assets, every required derivative/update, public discovery and a durable release receipt without hidden manual gaps.",
+        "sources": [
+          "operations/weekly-engine-ingestion-map.md",
+          "operations/product-stewards/episode-experience/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-031",
+        "title": "Ask residents what they want next",
+        "owner": "town-feedback, audience-growth",
+        "building_or_function": "Town Hall / Audience & Growth",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "A poll idea exists, but its old timing is stale and it is not attached to a decision that results could change.",
+        "next_action": "Return when a real roadmap decision has bounded options; define audience, sampling, privacy and how results alter the decision.",
+        "done_when": "A consented feedback mechanism informs a named choice and reports what was heard and what changed without pretending respondents represent everyone.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/town-hall/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-032",
+        "title": "DJ JAIDY request experience",
+        "owner": "dj-booth, ksvl",
+        "building_or_function": "KSVL DJ Booth",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "The request concept, stage name and tone examples are captured; rights, safety, production and request-service behavior are not specified.",
+        "next_action": "Return after core KSVL catalogue and request-service gates; define bounded inspiration inputs, style choices, moderation, rights and output ownership.",
+        "done_when": "Residents can make safe song requests that produce clearly governed, rights-safe, catalogue-ready outcomes without targeting or harassing real people.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/ksvl/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-033",
+        "title": "Founder-made merch and physical objects",
+        "owner": "mall",
+        "building_or_function": "The Mall",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "Small-batch 3D-printed, embellished and one-off product ideas are captured; no offer, demand proof or fulfilment operation is approved.",
+        "next_action": "Return after the core site is stable and repeated demand exists; test one founder-made item with real cost, time, stock, fulfilment, accessibility, refund and IP evidence.",
+        "done_when": "Any offer is real, voluntary, accurately described, fulfilment-ready and does not paywall learning or consume disproportionate founder time.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/mall/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-034",
+        "title": "Reference Closet shop, watch, listen and read links",
+        "owner": "closet-progression, mall",
+        "building_or_function": "Reference Closet / Mall",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "Use cases and disclosure guardrails are captured; core Closet, availability verification and commerce policies are not ready.",
+        "next_action": "After core Closet completion, define dated availability checks, affiliate disclosure, rights and a lesson-first card schema before adding one pilot link.",
+        "done_when": "Links support a real learning/reference job, disclose relationships, remain current and never turn the Closet into a random storefront.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/mall/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-035",
+        "title": "Sustainable revenue without pressure or paywalls",
+        "owner": "mall, audience-growth",
+        "building_or_function": "Portfolio sustainability",
+        "priority": "LATER",
+        "status": "SPECIFIED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "Anti-MLM, no-paywall and evidence-first principles are locked; no paid offer is live or authorized.",
+        "next_action": "Maintain the idea bank and cost baseline; activate only when a specific user value, demand signal, delivery cost, support/refund plan and Ali decision are evidence-ready.",
+        "done_when": "A bounded offer passes trust, editorial independence, accessibility, fulfilment and sustainability gates without distorting learning or community behavior.",
+        "sources": [
+          "docs/product/sustainable-growth-and-revenue-principles.md",
+          "operations/finance/laidies-cost-and-sustainability-baseline.md",
+          "operations/agents/monetization-idea-bank.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-037",
+        "title": "Rewind Era reference canon intake",
+        "owner": "learning-content-ecosystem, episode-experience",
+        "building_or_function": "Shared editorial and learning canon",
+        "priority": "NEXT",
+        "status": "CAPTURED",
+        "disposition": "BUILDING",
+        "current_truth": "Zoolander, Jurassic Park and Polly Pocket are captured candidates, but no exact owner or approved teaching job admits a name to canon.",
+        "next_action": "Define the canon intake owner and evidence fields, then assess each candidate only against a ruled lesson, episode or brand job and the limits of its analogy.",
+        "done_when": "Every used reference has an approved explanatory purpose, accurate analogy boundary, rights-safe treatment and consumers; unused names remain candidates, not canon.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/learning-content-ecosystem/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-038",
+        "title": "TLDR / Hot Goss voice format",
+        "owner": "newsstand",
+        "building_or_function": "NewsStand voice package",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "The phrase and five-part explanatory job are captured, but they cannot rename the four locked papers and no recurring package is accepted.",
+        "next_action": "Test the line as a limited label or recurring device inside a future NewsStand voice cycle; retain the locked publication names.",
+        "done_when": "The format improves comprehension and LAiDIES voice without obscuring source status, publication role or correction behavior.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/newsstand/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-039",
+        "title": "Butterfly Clip rating language and interaction",
+        "owner": "platform-reliability",
+        "building_or_function": "Shared feedback pattern",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "The broken-clip-to-ten scale and slider idea are captured, but no real feedback decision or non-currency semantic is assigned.",
+        "next_action": "Use only when a product owner has a real outcome to rate; separate decorative rating values from spendable Butterfly Clip balances.",
+        "done_when": "The accessible interaction produces useful product evidence, uses you/we language correctly and cannot be confused with an economy grant.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "docs/product/butterfly-clip-economy.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-041",
+        "title": "Mutual-advancement culture across LAiDIES",
+        "owner": "community, luminairy, learning-content-ecosystem",
+        "building_or_function": "Community, LUMINAiRY and all editorial/learning surfaces",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILD BEFORE LAUNCH",
+        "current_truth": "Ali's principle is explicit, but it is not yet a cross-site content and community standard with observable behaviors.",
+        "next_action": "Define the writing, moderation, recognition and product rules that reward credit, invitations, useful feedback, opportunity sharing and collective advancement while banning scarcity/competition framing.",
+        "done_when": "Representative copy, community mechanics, recognition and moderation consistently help women include and advance one another without generic empowerment or confidence-deficit language.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/sorority-house/backlog.md",
+          "operations/product-stewards/luminairy/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-042",
+        "title": "Quotables, lyrics and memory hooks system",
+        "owner": "learning-content-ecosystem, ksvl, episode-experience",
+        "building_or_function": "Learning System / KSVL / episodes",
+        "priority": "NEXT",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "The system is specified and candidate lines exist, but the sitewide showcase, retrieval and exact source/rights controls are not complete.",
+        "next_action": "Inventory existing approved hooks and lyrics, link each to its concept and source, then expose them only where they strengthen recall and have current rights/provenance.",
+        "done_when": "Useful hooks are searchable, non-duplicative, source-bound and measured for recall rather than repeated as decorative copy.",
+        "sources": [
+          "docs/product/quotables-and-memory-hooks-system.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-044",
+        "title": "Terminal, PowerShell and command analogy",
+        "owner": "learning-content-ecosystem, classes, library-101",
+        "building_or_function": "Concepts / High / LIBRAiRY",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "The secret-menu analogy is captured, but it is not a standalone product and its limits are not yet written.",
+        "next_action": "Use it only when a ruled lesson needs command-line vocabulary; explain where exact syntax, permissions and execution risk stop matching the menu analogy.",
+        "done_when": "The selected content accurately explains the concept, boundaries and safe practice without implying hidden commands are harmless shortcuts.",
+        "sources": [
+          "docs/growth/ali-idea-backlog.md",
+          "operations/product-stewards/learning-content-ecosystem/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-045",
+        "title": "Music videos for selected LAiDIES songs",
+        "owner": "ksvl, episode-media-quality",
+        "building_or_function": "KSVL / destination building / episode media",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "INTENTIONAL LATER RELEASE",
+        "current_truth": "The idea is accepted as a pilot candidate, but no song has a fully admitted master, rights, destination and approved visual grammar.",
+        "next_action": "Select one exact creator-confirmed song after its destination and rights pass, then commission a bounded video and independent media-quality review.",
+        "done_when": "One music video has correct master audio, exact lyrics, artist metadata, cover/thumbnail, rights, accessible presentation and a working destination.",
+        "sources": [
+          "operations/product-stewards/idea-inbox/backlog.md",
+          "operations/product-stewards/ksvl/idea-acceptance-selected-song-music-video-pilot-2026-07-26.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-049",
+        "title": "Latest-since-your-visit and signed-in return experience",
+        "owner": "town-entry-homepage, resident-card, platform-reliability",
+        "building_or_function": "Homepage / shared continuation",
+        "priority": "NOW",
+        "status": "SPECIFIED",
+        "disposition": "BUILDING",
+        "current_truth": "The Homepage job is defined, but personalized changes must not be claimed when the visitor is signed out and the ranking/suppression logic is not fully proven.",
+        "next_action": "Define first-visit, signed-out returning and signed-in returning states; cap and rank changes, use verified release dates and preserve privacy-safe continuation.",
+        "done_when": "Visitors see a small relevant set rather than a giant missed-items list, and signed-in users can resume supported progress from authoritative state.",
+        "sources": [
+          "operations/product-stewards/town-entry-homepage/backlog.md",
+          "operations/product-stewards/control-room/communications-rewards-cards-closet-reuse-inventory-2026-07-30.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-051",
+        "title": "Daily mobile app or PWA opportunity",
+        "owner": "platform-reliability, newsstand-daily, town-entry-homepage",
+        "building_or_function": "Future delivery platform",
+        "priority": "LATER",
+        "status": "CAPTURED",
+        "disposition": "OWNER DECISION REQUIRED",
+        "current_truth": "The opportunity is parked; a native app, PWA and mobile web have not been compared after the Daily and privacy-safe delivery contracts mature.",
+        "next_action": "When the recorded triggers pass, compare mobile web, PWA, native and no-app-yet against offline use, notifications, privacy, cost, maintenance and actual audience need.",
+        "done_when": "Ali receives one evidence-ready platform recommendation with scope, cost, data flow, exit path and smallest reversible proof.",
+        "sources": [
+          "operations/product-stewards/idea-inbox/backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      },
+      {
+        "id": "PWI-052",
+        "title": "Model ignored my rule troubleshooting lesson",
+        "owner": "classes, learning-content-ecosystem",
+        "building_or_function": "SUNNYVAiLE High / Behind the Build",
+        "priority": "NEXT",
+        "status": "CAPTURED",
+        "disposition": "BUILDING",
+        "current_truth": "The Help! format candidate and instructional need are routed to Masterclass Lesson 4, but the mechanism, examples and mitigations are not yet authored.",
+        "next_action": "Write the concept brief for single-model and agent-system failures, map causes to mitigations and build controlled examples with outcome-level proof.",
+        "done_when": "Learners can diagnose why rules were not followed, choose an appropriate mitigation and verify the actual result rather than trusting a repair report.",
+        "sources": [
+          "operations/product-stewards/idea-inbox/backlog.md",
+          "docs/growth/ali-idea-backlog.md"
+        ],
+        "source": "operations/product-stewards/control-room/portfolio-work-inventory.json"
+      }
+    ]
+  }
+}

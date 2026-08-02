@@ -12,6 +12,12 @@ const queuePath = path.join(root, 'operations/control-room/owner-review-queue.js
 const mediaGatePath = path.join(root, 'operations/launch/opening-day-media-gate-2026-07-31.json');
 const packageIndex = JSON.parse(fs.readFileSync(path.join(root, 'operations/video-qa/opening-day-portable-media-v1/package-index.json')));
 const queue = JSON.parse(fs.readFileSync(queuePath));
+const reviewFixture = JSON.parse(JSON.stringify(queue));
+reviewFixture.review_now = reviewFixture.internal_repair_required;
+reviewFixture.internal_repair_required = [];
+reviewFixture.summary.review_now = reviewFixture.review_now.length;
+reviewFixture.summary.internal_repair_required = 0;
+const baseline = {...reviewFixture.summary};
 const queueShaBefore = crypto.createHash('sha256').update(fs.readFileSync(queuePath)).digest('hex');
 const mediaGateShaBefore = crypto.createHash('sha256').update(fs.readFileSync(mediaGatePath)).digest('hex');
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-human-review-'));
@@ -22,7 +28,7 @@ const packageFor = (programme) => {
   return JSON.parse(fs.readFileSync(path.join(root, entry.manifest.path)));
 };
 const makeReceipt = (reviewId, decision, note = '') => {
-  const item = queue.review_now.find((candidate) => candidate.id === reviewId);
+  const item = reviewFixture.review_now.find((candidate) => candidate.id === reviewId);
   const programme = reviewId.startsWith('trailer') ? 'trailer' : reviewId.match(/episode-(\d{2})/)[1];
   const portable = packageFor(programme);
   const film = decision;
@@ -51,7 +57,7 @@ const run = (receipt, queueName, extra = []) => {
   const receiptPath = path.join(temporary, `${receipt.review_id}-${Math.random()}.json`);
   const testQueuePath = path.join(temporary, queueName);
   const testMediaGatePath = path.join(temporary, `${queueName}-media-gate.json`);
-  if (!fs.existsSync(testQueuePath)) fs.copyFileSync(queuePath, testQueuePath);
+  if (!fs.existsSync(testQueuePath)) fs.writeFileSync(testQueuePath, `${JSON.stringify(reviewFixture, null, 2)}\n`);
   if (!fs.existsSync(testMediaGatePath)) fs.copyFileSync(mediaGatePath, testMediaGatePath);
   fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
   const receiptDir = path.join(temporary, `${queueName}-receipts`);
@@ -69,8 +75,8 @@ try {
   assert.equal(applied.result.status, 0, applied.result.stderr);
   assert.match(applied.result.stdout, /RECORDED PASS/);
   const passQueue = JSON.parse(fs.readFileSync(applied.testQueuePath));
-  assert.equal(passQueue.summary.review_now, 4);
-  assert.equal(passQueue.summary.completed_review, 1);
+  assert.equal(passQueue.summary.review_now, baseline.review_now - 1);
+  assert.equal(passQueue.summary.completed_review, (baseline.completed_review || 0) + 1);
   assert.equal(passQueue.completed_review[0].id, pass.review_id);
   assert.equal(passQueue.completed_review[0].human_review_receipt.decision, 'PASS');
   assert.equal(fs.readdirSync(applied.receiptDir).length, 1);
@@ -100,10 +106,11 @@ try {
   const held = run(goodHold, 'hold-queue.json', ['--apply']);
   assert.equal(held.result.status, 0, held.result.stderr);
   const holdQueue = JSON.parse(fs.readFileSync(held.testQueuePath));
-  assert.equal(holdQueue.summary.review_now, 4);
-  assert.equal(holdQueue.summary.being_built, 1);
-  assert.equal(holdQueue.being_built[0].id, goodHold.review_id);
-  assert.match(holdQueue.being_built[0].status, /HUMAN HOLD RECORDED/);
+  assert.equal(holdQueue.summary.review_now, baseline.review_now - 1);
+  assert.equal(holdQueue.summary.being_built, baseline.being_built + 1);
+  const heldItem = holdQueue.being_built.find((item) => item.id === goodHold.review_id);
+  assert.ok(heldItem, 'held review item missing from being-built queue');
+  assert.match(heldItem.status, /HUMAN HOLD RECORDED/);
   const holdGate = JSON.parse(fs.readFileSync(held.testMediaGatePath));
   const holdProgramme = holdGate.programmes.find((item) => item.id === '02');
   assert.equal(holdProgramme.gates.human_full_audible_watch, 'HOLD');

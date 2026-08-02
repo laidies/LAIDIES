@@ -30,64 +30,16 @@ try{
   fs.mkdirSync(evidenceDir,{recursive:true});
   for(const width of [390,1280]){
     const page=await browser.newPage({viewport:{width,height:950}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
-    await page.goto(`${base}/operations/control-room/review-inbox.html`,{waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();
-    assert.equal(await page.locator('#readyCount').textContent(),'5');assert.equal(await page.locator('#buildCount').textContent(),'1');assert.equal(await page.locator('#doneCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
-    assert.equal(await page.locator('#readyTabs button').count(),5);assert.equal(await page.locator('#title').textContent(),'The Trailer — Welcome to SUNNYVAiLE');
-    assert.match(await page.locator('#hash').textContent(),/1be8c4f167612940/);assert.equal(await page.locator('#building .work-card').count(),1);assert.match(await page.locator('#building .work-card').first().textContent(),/ODC-101/);assert.equal(await page.locator('#completed .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
-    assert.equal(await page.locator('#coverGrid .cover').count(),4);assert.match(await page.locator('#audioHash').textContent(),/b60321e1c6e70440/);
-    const expected=[
-      {title:'The Trailer',hash:/1be8c4f167612940/,min:966,max:968},
-      {title:'Episode 01',hash:/50311e89c1664c1f/,min:1171,max:1173},
-      {title:'Episode 02',hash:/2b8bd0c3cfb968ad/,min:986,max:988},
-      {title:'Episode 03',hash:/6a7f2381666b355a/,min:1047,max:1049},
-      {title:'Episode 04',hash:/9fc40d965cf67e08/,min:1221,max:1223}
-    ];
-    for(const item of expected){
-      await page.locator('#readyTabs button').filter({hasText:item.title}).click();
-      assert.match(await page.locator('#hash').textContent(),item.hash);
-      await page.locator('#player').evaluate((video,title)=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',()=>reject(new Error(`${title} metadata failed`)),{once:true})}),item.title);
-      const media=await page.locator('#player').evaluate(video=>({duration:video.duration,width:video.videoWidth,height:video.videoHeight,tracks:video.querySelectorAll('track[kind="captions"]').length}));
-      assert.ok(media.duration>item.min&&media.duration<item.max,`${item.title} duration ${media.duration}`);assert.equal(media.width,1920);assert.equal(media.height,1080);assert.equal(media.tracks,1);
-      assert.equal(await page.locator('#coverGrid .cover').count(),4,`${item.title} cover family`);
-      await page.locator('#audioPlayer').evaluate((audio,title)=>new Promise((resolve,reject)=>{if(audio.readyState>=1)return resolve();audio.addEventListener('loadedmetadata',resolve,{once:true});audio.addEventListener('error',()=>reject(new Error(`${title} audio metadata failed`)),{once:true})}),item.title);
-      const audioDuration=await page.locator('#audioPlayer').evaluate(audio=>audio.duration);assert.ok(audioDuration>item.min&&audioDuration<item.max,`${item.title} audio duration ${audioDuration}`);
-      assert.match(await page.locator('#audioDownload').getAttribute('href'),/\.m4a$/,`${item.title} exact audio download`);
-    }
-    await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
-    await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
-    await page.locator('#player').evaluate(video=>{video.currentTime=73;video.dispatchEvent(new Event('timeupdate'))});await page.click('#captureTime');assert.equal(await page.locator('#notes').inputValue(),'00:01:13 — ');
-    await page.locator('#readyTabs button').filter({hasText:'Episode 02'}).click();
-    await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
-    await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
-    assert.ok(Math.abs(await page.locator('#player').evaluate(video=>video.currentTime)-73)<2,'film progress did not resume after switching titles');
-    assert.match(await page.locator('#progressStatus').textContent(),/Resumed at 00:01:13/);
-    await page.selectOption('#decision','HOLD');await page.selectOption('#coverDecision','PASS');await page.fill('#notes','picture is wrong');await page.click('#save');assert.match(await page.locator('#saved').textContent(),/requires at least one timecoded note/);await page.fill('#notes','00:42 — test note');await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
-    const storedBeforeReload=await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'));assert.match(storedBeforeReload,/00:42/);
-    await page.reload({waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();await page.waitForTimeout(500);
-    await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
-    const reloadState=await page.evaluate(()=>({stored:localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'),notes:document.querySelector('#notes')?.value,title:document.querySelector('#title')?.textContent}));
-    assert.equal(reloadState.notes,'00:42 — test note',JSON.stringify(reloadState));
-    await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
-    assert.ok(Math.abs(await page.locator('#player').evaluate(video=>video.currentTime)-73)<2,'film progress did not resume after reload');
-    assert.match(await page.locator('#progressStatus').textContent(),/Resumed at 00:01:13/);
-    assert.equal(await page.locator('#decision').inputValue(),'HOLD');assert.equal(await page.locator('#notes').inputValue(),'00:42 — test note');
-    assert.equal(await page.locator('#coverDecision').inputValue(),'PASS');
-    await page.selectOption('#decision','PASS');await page.locator('#fullWatch').uncheck();await page.click('#save');
-    assert.match(await page.locator('#saved').textContent(),/Film PASS requires the full-watch confirmation/);
-    await page.locator('#fullWatch').check();await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
-    const savedReceipt=JSON.parse(await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch')));
-    assert.equal(savedReceipt.schema_version,3);assert.equal(savedReceipt.completed_full_title_unmuted_1x,true);assert.equal(savedReceipt.decision,'PASS');
-    assert.equal(savedReceipt.master.sha256,'50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a');
-    assert.equal(savedReceipt.captions.sha256,'191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539');
-    assert.equal(savedReceipt.cover_artifacts.length,4);assert.equal(savedReceipt.audio.role,'AUDIO_MASTER');
-    const downloadPromise=page.waitForEvent('download');await page.click('#download');const receiptDownload=await downloadPromise;
-    assert.equal(receiptDownload.suggestedFilename(),'episode-01-v27-human-watch-receipt.json');
-    const stream=await receiptDownload.createReadStream();let downloaded='';for await(const chunk of stream)downloaded+=chunk.toString();
-    const downloadedReceipt=JSON.parse(downloaded);assert.equal(downloadedReceipt.master.sha256,savedReceipt.master.sha256);assert.equal(downloadedReceipt.release_boundary,'Human review gate only. This is not release, deployment or publication approval.');
-    if(receiptEvidencePath&&width===1280)fs.writeFileSync(receiptEvidencePath,downloaded);
-    await page.locator('#readyTabs button').filter({hasText:'Episode 04'}).click();assert.match(await page.locator('#hash').textContent(),/9fc40d965cf67e08/);
+    await page.goto(`${base}/operations/control-room/review-inbox.html`,{waitUntil:'domcontentloaded'});await page.locator('#nothingReady').waitFor();
+    assert.equal(await page.locator('#readyCount').textContent(),'0');assert.equal(await page.locator('#buildCount').textContent(),'1');assert.equal(await page.locator('#repairCount').textContent(),'5');assert.equal(await page.locator('#doneCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
+    assert.equal(await page.locator('#readyTabs button').count(),0);assert.equal(await page.locator('#reviewPanel').isHidden(),true);assert.equal(await page.locator('#nothingReady').isVisible(),true);
+    assert.equal(await page.locator('#repairs .work-card').count(),5);assert.match(await page.locator('#repairs').textContent(),/Trailer/);assert.match(await page.locator('#repairs').textContent(),/Episode 04/);assert.match(await page.locator('#repairs').textContent(),/No action for Ali/);
+    assert.equal(await page.locator('#building .work-card').count(),1);assert.match(await page.locator('#building .work-card').first().textContent(),/ODC-101/);assert.equal(await page.locator('#completed .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
+    assert.equal(await page.locator('#modules .work-card').count(),9);assert.equal(await page.locator('#portfolioIndex .portfolio-group').count(),7);
+    assert.equal(await page.locator('#captionBand').count(),1,'review player template requires one below-picture caption band');
+    assert.equal(await page.locator('details.technical-details').count(),1,'technical checksums must be collapsed behind details');
     const overflow=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,body:document.body.scrollWidth}));assert.ok(overflow.document<=overflow.viewport+1,JSON.stringify(overflow));assert.ok(overflow.body<=overflow.viewport+1,JSON.stringify(overflow));
     assert.deepEqual(errors,[]);await page.screenshot({path:path.join(evidenceDir,width===390?'mobile.png':'desktop.png'),fullPage:true});await page.close();
   }
-    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact films, captions, audio downloads, four-cover families, resumable playback and checksum-bound human-review receipts for Trailer + Episode 01–04)');
+    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; zero premature reviews, five visible internal repairs, no Ali debugging action, responsive work inventory, below-picture caption template and collapsed technical details)');
 }finally{await browser.close();server.close()}
