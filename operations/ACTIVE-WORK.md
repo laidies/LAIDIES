@@ -92,11 +92,15 @@ demos, explainers, music, promos, idents, silent instructional motion and
 ambient loops—under
 `operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`, checked by
 `node scripts/check-site-video-review.mjs`. Current opening truth is **0/5
-release-ready**. Episode 01 and Episode 02 fail the current motion standard
-because their exact placement manifests are still-only; Episode 03 and the
-Trailer require complete occurrence review; Episode 04 requires editorial and
-motion rebuild. The public Episode 04 object is the older v8 branch and is not
-opening-day-admitted. Ali's usable watch-and-note surface is
+release-ready**, but the production queue is no longer a five-film rebuild.
+The exact Trailer v8 and Episode 01 v27, Episode 02 v20, Episode 03 v15 and
+Episode 04 v10 successors are built locally, checksum-bound across the
+universal registry, launch gate, playback package, portable package and owner
+review inbox, and have no confirmed remaining machine- or visual-review
+defect. All five are now in one `OWNER WATCH REQUIRED` queue for a complete
+human sound-on 1x review plus cover-family acceptance. The public Episode 04
+v8 object remains a historical deployment and is not opening-day-admitted.
+Ali's usable watch-and-note surface is
 `operations/control-room/review-inbox.html`. Only an exact master whose every
 occurrence passes narration-or-purpose relevance, continuity, occlusion and
 motion semantics—plus the other release gates—may be bound to a real website
