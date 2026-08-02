@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "class_id": "ODC-101",
+  "class_slug": "basics-what-youre-looking-at",
+  "public_title": "What You're Looking At",
+  "status": "REVIEW_ANIMATIC",
+  "voice_status": "PROVISIONAL_SYSTEM_VOICE_NOT_RELEASE_APPROVED",
+  "checked_on": "2026-08-02",
+  "recheck_on": "2026-09-01",
+  "purpose": "A narration-timed review animatic for the real-interface teaching segment. It is not a released class tape and must not be bound to the public player.",
+  "sources": [
+    {
+      "title": "ChatGPT Search",
+      "url": "https://help.openai.com/en/articles/9237897-chatgpt-search",
+      "checked_on": "2026-08-02",
+      "use": "Current official support for visible Search selection, automatic search and source links."
+    },
+    {
+      "title": "Memory FAQ",
+      "url": "https://help.openai.com/en/articles/8590148-memory-faq",
+      "checked_on": "2026-08-02",
+      "use": "Current official support for memory as context that may persist beyond one chat."
+    },
+    {
+      "title": "Apps in ChatGPT",
+      "url": "https://help.openai.com/en/articles/11487775-connectors-in",
+      "checked_on": "2026-08-02",
+      "use": "Current official support for connected tools, retrieved context, permissions and actions."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "01-title",
+      "eyebrow": "SUNNYVAiLE HIGH · THE BASICS · PERIOD 01",
+      "title": "What you're looking at",
+      "deck": "The app. The model. The context. The check.",
+      "visual": "title",
+      "narration": "A polished AI answer can look finished long before it is trustworthy. So this class is not a tour of obvious buttons. It is the useful map underneath the screen: the app, the model, the working context, any optional tools, and the part that still belongs to you."
+    },
+    {
+      "id": "02-four-layers",
+      "eyebrow": "ONE SCREEN · FOUR DIFFERENT JOBS",
+      "title": "Do not call all of it “the AI.”",
+      "deck": "APP → MODEL → OPTIONAL TOOLS → RESPONSE\nCONTEXT moves through the whole job. Verification does not disappear.",
+      "visual": "flow",
+      "narration": "When you open ChatGPT, Claude or Gemini, you are using a product, not touching a model by itself. The app assembles the experience around the model. It can add instructions, conversation, files, memory or tool results to the working context. The model processes what it is given. Optional tools may search, calculate, read a file or connect to another service. Then the app presents the response. Those layers can work together, but they are not the same thing."
+    },
+    {
+      "id": "03-app",
+      "eyebrow": "LAYER 01 · THE APP",
+      "title": "The studio around the performance.",
+      "deck": "Interface · account · settings · permissions · limits · history · connected capabilities",
+      "visual": "interface",
+      "narration": "Start with the app. It is the interface, account, settings, permissions, limits, conversation history and connected capabilities around the job. Two apps can offer similar models but behave differently because their search, memory, file, privacy and account features differ. That is why a tip that works in one product, plan or setting may not work in another."
+    },
+    {
+      "id": "04-model",
+      "eyebrow": "LAYER 02 · THE MODEL",
+      "title": "One powerful component—not the whole building.",
+      "deck": "It interprets input and produces—or helps select—the next output or action.",
+      "visual": "model",
+      "narration": "The model is one trained component inside that product. It can produce words or images, interpret material, make a prediction or help choose a next action. Calling it only a text engine is no longer a safe shortcut. But giving the model more abilities does not make every answer current, sourced or correct. Fluency is a presentation quality, not a receipt."
+    },
+    {
+      "id": "05-context",
+      "eyebrow": "LAYER 03 · WORKING CONTEXT",
+      "title": "What did the app actually hand over?",
+      "deck": "Your request · relevant conversation · instructions · files · memory · selected tool results",
+      "visual": "context",
+      "narration": "Context is the material made available for this task. It can include your request, relevant conversation, instructions, files, memory, or selected results from tools. Context is not the same thing as verified truth. A new chat also does not guarantee that nothing persisted: a product may supply saved instructions or memory according to its controls. Ask what information was deliberately supplied, and leave private material out unless the job and the product's protections genuinely require it."
+    },
+    {
+      "id": "06-tools-search",
+      "eyebrow": "LAYER 04 · OPTIONAL TOOLS",
+      "title": "Search can bring evidence into the room.",
+      "deck": "Search is one capability. Availability and labels can vary by product, account and setting.",
+      "visual": "official-search",
+      "narration": "Tools are optional capabilities the product may make available. Search is one of them. OpenAI's current help page says ChatGPT can search automatically when a question may benefit from the web, and also shows a visible Search choice in its source menu. Search can bring timely evidence into the working context. The model still has to interpret that evidence, and you still have to inspect whether the cited source supports the claim."
+    },
+    {
+      "id": "07-worked-example",
+      "eyebrow": "THE WORKED EXAMPLE",
+      "title": "A confident guess is not a policy answer.",
+      "deck": "QUESTION ONLY\n“Does the new reimbursement rule apply on Friday?”\n\nSOURCE-BOUND\n“Using only this notice, quote the effective date. If it does not settle the question, say what is missing.”",
+      "visual": "before-after",
+      "narration": "Imagine a colleague asks whether a newly announced reimbursement rule applies to an expense submitted on Friday. If you ask only the question, the model may fill the missing rule and date with a plausible generalisation. It can sound decisive without having the operative policy. Change one meaningful variable: supply the responsible notice, or use visible search to find it, then require the answer to identify the exact effective-date sentence. The better answer is not better because it sounds cautious. It is better because the evidence entered the context and the remaining uncertainty stayed visible."
+    },
+    {
+      "id": "08-citation-check",
+      "eyebrow": "A CITATION IS A DOOR, NOT A GOLD STAR",
+      "title": "Open it. Read it. Compare the claim.",
+      "deck": "1. Current source?\n2. Supports this exact claim?\n3. Responsible and recent enough for this decision?",
+      "visual": "check",
+      "narration": "A citation gives you somewhere to look. It does not prove the answer is right. When current or consequential facts matter, ask three questions. Did the product use a current source? Does that source support this exact claim? And is the source responsible and recent enough for the decision? If the answer affects money, health, rights, work or another person, verification is part of the task—not optional homework after the task."
+    },
+    {
+      "id": "09-task-map",
+      "eyebrow": "YOUR TRY-ON",
+      "title": "Map one real task before you hand it over.",
+      "deck": "OUTPUT · CONTEXT · OPTIONAL TOOL · CHECK · PRIVATE INFORMATION",
+      "visual": "task-map",
+      "narration": "Now choose one low-risk task of your own. Write down what you want the model to produce. Name the context the app must supply. Choose an optional tool only if it helps. Mark the claim or outcome that still needs checking. Then name the private information that stays out. That map is more useful than memorising one interface, because interfaces move. The jobs underneath them remain recognisable."
+    },
+    {
+      "id": "10-explain-back",
+      "eyebrow": "THE EXIT CHECK",
+      "title": "An AI app is more than a model because…",
+      "deck": "Finish the sentence without using the studio analogy.\n\nIf you can name context, optional tools and the verification boundary, you have the map.",
+      "visual": "outro",
+      "narration": "Finish this sentence in your own words: an AI app is more than a model because… A strong answer names the context the app supplies, the optional tools it may use and the verification that still belongs to you. You do not need to know every technical detail before you begin. You do need to know which part is doing what, what evidence entered the job, and where your judgement still matters. That is what you are looking at."
+    }
+  ]
+}

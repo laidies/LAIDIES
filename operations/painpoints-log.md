@@ -11600,3 +11600,30 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** We fixed the films, but the checklist
   kept sending them back to the edit bay.
 - **Publication status:** VERIFIED INTERNAL LEARNING — process correction only.
+
+## BTB-328 — Repaired class copy does not automatically retire its old media script
+
+- **Date:** 2026-08-02
+- **Area:** Classes / teaching-media assembly / canonical source resolution.
+- **Failure:** ODC-101's approved written class had replaced a condescending
+  “name the furniture” explanation, while an older narration file and mockup
+  still contained that retired framing. Starting production from the most
+  obvious audio asset would have put rejected teaching back into the class.
+- **Root cause:** Written-content approval and media-input authority were stored
+  separately, with no preflight check that the narration matched the current
+  canonical class source.
+- **Prevention rule:** Before assembling class or sitewide teaching media,
+  resolve the governing content source first; reject scripts or audio under a
+  superseded path or containing named retired framing. The media verifier must
+  test this boundary before checking codec or presentation quality.
+- **Why the fix works:** The ODC-101 animatic is generated from a new
+  source-bound scene script, and its verifier fails if the retired language
+  enters the transcript while also proving the required app/model/context/
+  tools/verification concepts are present.
+- **Machine check implemented:**
+  `scripts/check-odc-101-review-animatic.mjs` enforces canonical concepts,
+  forbidden retired phrases, exact output hashes and the no-public-binding
+  boundary.
+- **Possible Behind the Build angle:** A polished recording can preserve the
+  wrong lesson perfectly; fix the source before pressing Record.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
