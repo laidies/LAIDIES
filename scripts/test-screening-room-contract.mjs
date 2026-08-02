@@ -65,7 +65,7 @@ assert.match(page, /action\('seekforward'/);
 assert.match(page, /action\('seekto'/);
 assert.match(page, /configureMediaSession\(tape, __ep\)/);
 assert.match(page, /configureMediaSession\(v, ep\)/);
-assert.equal(admission.schemaVersion, 1);
+assert.equal(admission.schemaVersion, 2);
 const admittedRule = admissionSchema.$defs.programme.allOf[0].then;
 assert.deepEqual(admittedRule.properties.holds, { maxItems: 0 });
 assert.deepEqual(admittedRule.properties.captionCoverage, { const: "complete" });
@@ -87,6 +87,16 @@ for (const id of ids) {
   const record = admission.programmes[id];
   assert.ok(record, `${id}: admission record missing`);
   assert.equal(record.admissionStatus, "hold", `${id}: must remain held`);
+  assert.equal(record.humanReviewStatus, "pending", `${id}: human full-title review must remain pending`);
+  assert.equal(sha256(record.reviewFilm), record.reviewFilmSha256, `${id}: review-film hash mismatch`);
+  assert.equal(sha256(record.reviewEvidence), record.reviewEvidenceSha256, `${id}: review-evidence hash mismatch`);
+  assert.equal(sha256(record.occurrenceAuthority), record.occurrenceAuthoritySha256, `${id}: occurrence-authority hash mismatch`);
+  const occurrenceAuthority = JSON.parse(read(record.occurrenceAuthority));
+  const authoritativeOccurrenceCount = occurrenceAuthority.occurrence_count
+    ?? occurrenceAuthority.placement_count
+    ?? occurrenceAuthority.occurrences?.length;
+  assert.equal(record.expectedOccurrenceCount, authoritativeOccurrenceCount, `${id}: expected occurrence count differs from authority`);
+  assert.ok(record.holds.some((hold) => /human full-title unmuted 1x review pending/i.test(hold)), `${id}: explicit human-review hold missing`);
   assert.equal(record.cueSheetSha256, derived.editions[id]
     ? derived.editions[id].sourceCueSha256
     : sha256(cuePath), `${id}: source cue authority hash mismatch`);

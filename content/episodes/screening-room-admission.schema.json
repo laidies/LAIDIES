@@ -5,7 +5,7 @@
   "type": "object",
   "required": ["schemaVersion", "programmes"],
   "properties": {
-    "schemaVersion": { "const": 1 },
+    "schemaVersion": { "const": 2 },
     "asOf": { "type": "string", "format": "date" },
     "programmes": {
       "type": "object",
@@ -44,7 +44,10 @@
       "required": [
         "admissionStatus", "cueSheet", "cueSheetSha256", "audio", "audioSha256",
         "audioDurationSeconds", "captions", "captionsSha256", "captionEndSeconds",
-        "captionCoverage", "expectedOccurrenceCount", "occurrences", "holds"
+        "captionCoverage", "reviewFilm", "reviewFilmSha256", "reviewFilmDurationSeconds",
+        "reviewEvidence", "reviewEvidenceSha256", "humanReviewStatus",
+        "occurrenceAuthority", "occurrenceAuthoritySha256",
+        "expectedOccurrenceCount", "occurrences", "holds"
       ],
       "properties": {
         "admissionStatus": { "enum": ["hold", "admitted"] },
@@ -62,6 +65,14 @@
         "captionsSha256": { "pattern": "^[a-f0-9]{64}$" },
         "captionEndSeconds": { "type": "number", "exclusiveMinimum": 0 },
         "captionCoverage": { "enum": ["complete", "partial"] },
+        "reviewFilm": { "type": "string", "minLength": 1 },
+        "reviewFilmSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "reviewFilmDurationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "reviewEvidence": { "type": "string", "minLength": 1 },
+        "reviewEvidenceSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "humanReviewStatus": { "enum": ["pending", "pass", "hold"] },
+        "occurrenceAuthority": { "type": "string", "minLength": 1 },
+        "occurrenceAuthoritySha256": { "pattern": "^[a-f0-9]{64}$" },
         "expectedOccurrenceCount": { "type": "integer", "minimum": 1 },
         "occurrences": {
           "type": "array",
