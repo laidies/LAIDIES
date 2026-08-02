@@ -61,6 +61,30 @@ writing, research, teaching, images, animation, video, audio, code, data,
 content pipelines, social assets, releases and operational systems. Do not
 defer a preventable failure to Ali or to a final release review.
 
+## MINIMUM SUFFICIENT WORK — mandatory
+
+Meet the LAiDIES quality bar with the smallest complete workflow that reliably
+achieves the user outcome. Do not add audits, proofs, artifacts, abstractions,
+documentation, tools, variants or review loops merely because they are
+possible. Before each material step, ask whether it changes a decision,
+prevents a plausible failure, satisfies a release requirement or improves the
+real visitor result. If not, omit it.
+
+Reuse durable verified facts and approved assets. Do not re-prove settled
+authorship, ownership, identity, canon or technical facts unless the relevant
+bytes changed, the evidence expired, a contradiction appeared or the next
+action genuinely depends on renewed proof. Scope regression testing to the
+changed surface plus its real downstream dependencies. Prefer one
+representative pilot over many speculative variants, one authoritative record
+over duplicate reports, and one bounded correction over a full rebuild.
+
+Quality and efficiency are joint acceptance criteria. Never save time by
+skipping accuracy, freshness, LAiDIES voice, teaching quality, accessibility,
+canon, privacy, security or visible-output review. Never protect those
+standards with work that cannot affect the outcome. Record why any unusually
+expensive or broad step is necessary before doing it, and stop when the
+acceptance conditions are met.
+
 ## ADAPTIVE MODEL + CREDIT ROUTING — mandatory
 
 Use the least expensive model/reasoning configuration that can reliably meet

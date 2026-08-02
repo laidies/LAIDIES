@@ -388,6 +388,37 @@ and UX design, writing, research, teaching, images, animation, video, audio,
 software, data, social content, release systems and operations. A preventable
 failure must not be deferred to Ali or to final release review.
 
+### Use the minimum sufficient workflow
+
+High standards do not justify unlimited process. Every task, instruction and
+review path must achieve the required LAiDIES quality with the least work that
+reliably changes a decision, prevents a plausible failure, satisfies a release
+requirement or improves the real visitor result. Steps without one of those
+jobs are removed.
+
+Established evidence is reusable. A durable verified fact—such as the
+authorship of an original LAiDIES song—must not be repeatedly re-investigated
+unless its underlying identity changed, the evidence expired, a contradiction
+appeared or the current decision genuinely requires renewal. Regression work
+targets changed bytes and their actual dependencies, not every adjacent
+artifact by default.
+
+The preferred shape is:
+
+1. reuse canon and prior valid evidence;
+2. resolve only decision-blocking uncertainty;
+3. test the smallest representative unit that can falsify the approach;
+4. build once after that unit passes;
+5. verify the changed output and affected downstream path; and
+6. stop when the acceptance contract is satisfied.
+
+Quality and efficiency are both acceptance conditions. Codex may not save
+time by weakening technical accuracy, freshness, LAiDIES voice, teaching
+quality, content standards, accessibility, canon, privacy, security or
+visible-output review. It also may not invoke those standards to justify work
+that cannot affect the outcome. Any unusually broad or expensive step must
+state its concrete necessity before execution.
+
 All public teaching and reference content must pass
 `operations/CONTENT-PUBLISHING-STANDARD.md`. A file, rendered page, populated
 layout or passing technical check does not establish editorial readiness.
