@@ -1,0 +1,56 @@
+{
+  "schema": "laidies.episode-01.opening-repair-batch.validation.v1",
+  "status": "TECHNICAL_AND_MAKER_VISUAL_PASS_HOLD_INDEPENDENT_FULL_TITLE_REVIEW",
+  "scope": {
+    "occurrences": "p00-p10",
+    "seconds": [
+      0.0,
+      129.5
+    ]
+  },
+  "immutable_identity": {
+    "frozen_master_sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+    "repair_batch_sha256": "d8067035976e432045d7442d6974e30c41021f45fbc9a072338090039ed54277",
+    "contact_sha256": "2d27ec14506f777262a74e4612943d790050ef4d21e6a2d348a2294e925c3bed",
+    "external_vtt_sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539"
+  },
+  "technical_checks": {
+    "duration_seconds": 129.5,
+    "frame_rate": 30,
+    "decoded_frames": 3885,
+    "expected_frames": 3885,
+    "full_audio_video_decode": "PASS",
+    "black_intervals_at_least_0_25_seconds": [],
+    "silence_intervals_at_least_1_8_seconds_below_minus_45_db": []
+  },
+  "audio_continuity": {
+    "comparison": "Frozen v26 and repair batch decoded to mono 16 kHz signed PCM over 00:00.000-02:09.500",
+    "master_samples": 2072000,
+    "batch_samples": 2072000,
+    "best_pearson_correlation": 0.9999934584741704,
+    "best_lag_samples_at_16khz": 0,
+    "result": "PASS_NO_DETECTED_SHIFT_OR_CONTENT_CHANGE"
+  },
+  "maker_visual_checks": {
+    "approved_episode_01_yellow_plaid_heroine_preserved": "PASS",
+    "approved_laidies_ident_preserved_at_93_900_to_101_920": "PASS",
+    "steve_visual_begins_with_steve_narration": "PASS",
+    "rejected_fake_town_map_absent": "PASS",
+    "mistakes_reading_receipts_narration_uses_approved_work_scene": "PASS",
+    "group_chat_narration_uses_established_get_in_loser_interstitial": "PASS",
+    "generic_zoom_or_pan_used_as_motion_substitute": false
+  },
+  "remaining_gate": {
+    "status": "HOLD",
+    "owner": "independent_episode_media_quality_reviewer",
+    "required_action": "Review the exact immutable batch and eventual full-title successor at normal speed with sound; return checksum-bound PASS or timecoded HOLD.",
+    "maker_may_self_accept": false
+  },
+  "authority": {
+    "accepted": false,
+    "release": false,
+    "deploy": false,
+    "public": false,
+    "player_binding": false
+  }
+}
