@@ -1,0 +1,71 @@
+{
+  "schema": "laidies.episode-02.radio-library-proof-repair-batch.v1",
+  "created_at": "2026-08-02T00:43:04.682212+00:00",
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_REVIEW_REQUIRED_NOT_PUBLIC",
+  "authority": {
+    "accepted": false,
+    "release": false,
+    "deploy": false,
+    "public": false
+  },
+  "scope": {
+    "occurrences": "p35-p38",
+    "seconds": [
+      600.0,
+      674.0
+    ]
+  },
+  "frozen_master": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "builder": {
+    "path": "scripts/build-episode-02-radio-library-proof-repair-batch-v1.py",
+    "sha256": "12842eefc52f841041fe4b3def81c682d4d7c2cf01083f7c0ad9cf77425e2900",
+    "size_bytes": 10257
+  },
+  "sources": {
+    "britney": {
+      "path": "assets/episodes/ep-02/comic/ep02-emph-britney-comic.png",
+      "sha256": "a1f39210d91f92c44a976f96d6655d5fc42a5d9b140935912b0f7479dc1905a7",
+      "size_bytes": 3384573
+    },
+    "radio": {
+      "path": "assets/episodes/ep-02/comic/ep02-scene-30-request-the-song-comic.png",
+      "sha256": "d3064e905dc780c5dde73be1804bc64f7ff85f0ecc6287feab881c2178eacf0c",
+      "size_bytes": 3589251
+    },
+    "library": {
+      "path": "assets/episodes/ep-02/comic/ep02-scene-31-libraiy-comic.png",
+      "sha256": "60d185d2f5745446719ce464e48f3e25aae519048f7769965d834f3c8f81cdd7",
+      "size_bytes": 3752383
+    },
+    "study": {
+      "path": "assets/episodes/ep-02/comic/ep02-concept-bcg-study-comic.png",
+      "sha256": "81459f9ebf67ba45650fb149fd03e258081e5e029dbd1ed60fdfa7eaa26fc752",
+      "size_bytes": 2515478
+    }
+  },
+  "output": {
+    "path": "operations/video-qa/episode-02-radio-library-proof-repair-batch-v1/episode-02-p35-p38-radio-library-proof-repaired-review-v1.mp4",
+    "sha256": "0d9b228bf8242e5984eead9fda9337d817468c1107f2d3d847419be147f83e4b",
+    "size_bytes": 39074629
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-02-radio-library-proof-repair-batch-v1/episode-02-p35-p38-radio-library-proof-contact-v1.jpg",
+    "sha256": "9a9c9d0fa118fc548e9a6de6fc2f1869ca3747520d5ed3e1ea5a4ac2bd12e421",
+    "size_bytes": 898844
+  },
+  "checks": {
+    "full_av_decode": "PASS",
+    "decoded_frames": 2220,
+    "expected_frames": 2220
+  },
+  "semantic_repairs": {
+    "p35": "Britney-level specificity now resolves into the narrated instruction to iterate instead of restarting",
+    "p36-p37": "the new-hire revision, KSVL song request, CD purchase, and not-spinning-the-dial analogy now share the exact beat",
+    "p38": "the LIBRAiRY research beat now reveals the Harvard/BCG sample, speed result, and quality result in narration order",
+    "motion": "purposeful narrated state progression; no generic camera-only movement"
+  }
+}
