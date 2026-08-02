@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build held, checksum-bound portable packages for the Trailer and Episode 01.
+"""Build held, checksum-bound portable packages for the Trailer and Episodes 01–04.
 
 The audio masters are stream-copied from the exact held visual masters. Nothing
 in this builder grants release, publication, destination delivery or player
@@ -58,6 +58,57 @@ PROGRAMMES = {
         "episodeNumber": 1,
         "releaseDate": None,
         "captionPath": "assets/captions/episode-01.vtt",
+    },
+    "02": {
+        "releaseId": "laidies-episode-02-tell-me-what-you-want-v1",
+        "releaseType": "EPISODE",
+        "title": "Tell Me What You Want",
+        "description": "The one in which she types something vague into ChatGPT, gets back garbage, and discovers the problem was never the technology. It was the ask.",
+        "canonicalUrl": "https://laidies.ai/issues/issue-02",
+        "canonRefs": [
+            "content/episodes/episode-02.canon.md",
+            "content/episodes/issue-02.json",
+            "docs/product/take-it-with-me-media.md",
+            "operations/video-qa/opening-day-playback-binding-v1/manifest.json",
+        ],
+        "seasonNumber": 1,
+        "episodeNumber": 2,
+        "releaseDate": None,
+        "captionPath": "assets/captions/episode-02.vtt",
+    },
+    "03": {
+        "releaseId": "laidies-episode-03-the-burn-book-problem-v1",
+        "releaseType": "EPISODE",
+        "title": "The Burn Book Problem",
+        "description": "The one in which she gets a Regina George-confident answer, catches the Chutney detail, and checks the timeline before it borrows her name.",
+        "canonicalUrl": "https://laidies.ai/issues/issue-03",
+        "canonRefs": [
+            "content/episodes/episode-03.canon.md",
+            "content/episodes/issue-03.json",
+            "docs/product/take-it-with-me-media.md",
+            "operations/video-qa/opening-day-playback-binding-v1/manifest.json",
+        ],
+        "seasonNumber": 1,
+        "episodeNumber": 3,
+        "releaseDate": "2026-06-17",
+        "captionPath": "assets/captions/episode-03.vtt",
+    },
+    "04": {
+        "releaseId": "laidies-episode-04-the-founding-mothers-v1",
+        "releaseType": "EPISODE",
+        "title": "The Founding Mothers",
+        "description": "The one in which she realizes she's talked to AI every day for weeks with no idea where it came from — goes looking for the origin story, and finds out it was women all along.",
+        "canonicalUrl": "https://laidies.ai/issues/issue-04",
+        "canonRefs": [
+            "content/episodes/episode-04.canon.md",
+            "content/episodes/issue-04.json",
+            "docs/product/take-it-with-me-media.md",
+            "operations/video-qa/opening-day-playback-binding-v1/manifest.json",
+        ],
+        "seasonNumber": 1,
+        "episodeNumber": 4,
+        "releaseDate": "2026-06-24",
+        "captionPath": "assets/captions/episode-04.vtt",
     },
 }
 
@@ -258,7 +309,7 @@ def main() -> None:
         "buildIdentity": "opening-day-portable-media-v1",
         "status": "BUILT LOCALLY / HOLD",
         "authority": {"accept": False, "release": False, "deliver": False, "deploy": False, "publish": False},
-        "purpose": "Exact portable audio, transcript, artwork and metadata packages for the Trailer and Episode 01.",
+        "purpose": "Exact portable audio, transcript, artwork and metadata packages for the Trailer and Episodes 01–04.",
         "programmes": entries,
         "remainingGate": "Qualified independent human unmuted 1x review, visual cover acceptance, release admission and destination-specific public verification.",
     }

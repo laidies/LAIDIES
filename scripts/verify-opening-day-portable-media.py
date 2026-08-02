@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify held Trailer/Episode 01 portable packages and fail-closed state."""
+"""Verify held Trailer/Episodes 01–04 portable packages and fail-closed state."""
 
 from __future__ import annotations
 
@@ -141,7 +141,7 @@ def main() -> None:
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_root = Path(temp_dir)
-        for programme in ("trailer", "01"):
+        for programme in ("trailer", "01", "02", "03", "04"):
             manifest_path = PACKAGE_ROOT / programme / "media-release.json"
             manifest = json.loads(manifest_path.read_text())
             errors += schema_errors(manifest, schema, schema, f"$.{programme}")
@@ -195,10 +195,10 @@ def main() -> None:
         raise SystemExit(1)
 
     print("Opening-day portable-media verifier: PASS")
-    print("- 2 schema-conformant held packages")
+    print("- 5 schema-conformant held packages")
     print("- exact film audio packet payload preserved in each M4A master")
     print("- captions, searchable transcripts and four cover derivatives sealed")
-    print("- 8 destination entries HOLD / 0 delivered / 0 public")
+    print("- 20 destination entries HOLD / 0 delivered / 0 public")
     print("- public film registry empty and Screening Room admissions held")
 
 
