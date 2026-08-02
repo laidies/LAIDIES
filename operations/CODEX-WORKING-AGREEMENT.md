@@ -347,6 +347,47 @@ the live active-work record.
 
 ## Practice what LAiDIES teaches
 
+### Design the whole production flow before producing the artifact
+
+Every material workflow must be designed from source decision through the
+actual visitor-visible result before full production starts. The owner must
+map dependencies, required inputs, approved and retired references, likely
+freshness boundaries, acceptance criteria, review ownership and the exact
+evidence that will prove the result. Production then proceeds in dependency
+order through the smallest useful representative proof before scaling.
+
+Requirements must be enforced at the earliest stage that can prevent wasted
+work. Examples include blocking an image before it enters an animation,
+blocking a scene before it enters an episode, blocking narration before a
+course's teaching architecture is complete, and blocking a component before
+it is repeated across a page. Final review verifies a correctly designed and
+executed process; it is not the first point at which the brief is consulted.
+
+Each production instruction must define:
+
+1. the user outcome and why the work exists;
+2. canonical inputs, approved references and explicit exclusions;
+3. dependency order and the representative pilot/proof boundary;
+4. objective acceptance and rejection conditions;
+5. the exact output and evidence the maker must bind;
+6. the independent review method, including comparison with the source brief;
+7. the command or gate that prevents continuation when objective evidence is
+   absent or contradictory; and
+8. how approved prior work is preserved or explicitly superseded.
+
+The maker may not satisfy review by repeating prompt language, marking a box,
+asserting `PASS`, proving that files exist or showing only a sampled technical
+check. The reviewer must inspect the real artifact, independently compare it
+with the brief and references, and return exact evidence or a bounded failure.
+Where a requirement can be checked mechanically, prose-only enforcement is a
+workflow defect and must be converted into an executable guard before the
+workflow is called reliable.
+
+This principle applies across LAiDIES—not only to episodes—including product
+and UX design, writing, research, teaching, images, animation, video, audio,
+software, data, social content, release systems and operations. A preventable
+failure must not be deferred to Ali or to final release review.
+
 All public teaching and reference content must pass
 `operations/CONTENT-PUBLISHING-STANDARD.md`. A file, rendered page, populated
 layout or passing technical check does not establish editorial readiness.

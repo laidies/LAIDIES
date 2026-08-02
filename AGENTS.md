@@ -26,6 +26,41 @@ over uncommitted work. That's the only git caution — everything else is fair g
 Read the brief/task → do the work (image, or CapCut project + video export) → save
 to the named delivery path → report what you made and any concerns.
 
+## END-TO-END PRODUCTION DESIGN — mandatory for every task
+
+Before producing anything, design the whole path from source inputs to the
+visitor-visible result. Work in dependency order so downstream polish is not
+built on unapproved or incomplete foundations. At minimum:
+
+1. identify the real user goal and the final acceptance conditions;
+2. inventory the governing canon, approved references, retired/off-limits
+   material, required inputs and unresolved decisions;
+3. order the work by dependency and identify the cheapest representative
+   proof that can expose a wrong approach before full production;
+4. convert every objective requirement that can be checked mechanically into
+   a validator or build guard at the earliest stage where it can fail;
+5. require subjective review only for genuinely qualitative judgment, after
+   objective failures have already been removed;
+6. make the producer record artifact-bound evidence for each requirement, and
+   make the reviewer independently inspect the real output against the
+   original brief and references—not the producer's checklist language;
+7. stop before expensive downstream work when an upstream gate fails; and
+8. preserve approved work and prove any successor retained it unless an exact
+   supersession was approved.
+
+Instructions are not complete merely because they describe the desired
+result. They must make bypass difficult: name required inputs and outputs,
+define failure states, bind exact files/checksums where identity matters, say
+which command proves compliance and prevent build/release when evidence is
+missing. A self-authored `PASS`, prose assurance, file-exists check, sampled
+spot check or technically valid export is never proof that the result meets
+the brief.
+
+This rule applies to the entire LAiDIES operation: product and UX design,
+writing, research, teaching, images, animation, video, audio, code, data,
+content pipelines, social assets, releases and operational systems. Do not
+defer a preventable failure to Ali or to a final release review.
+
 ## ADAPTIVE MODEL + CREDIT ROUTING — mandatory
 
 Use the least expensive model/reasoning configuration that can reliably meet
