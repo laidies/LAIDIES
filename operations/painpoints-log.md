@@ -11849,3 +11849,30 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The narration sounded finished. The
   course was not—and that is exactly how shallow AI training gets made.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-337 — Named quality gates created more confidence than enforcement justified
+
+- **Date:** 2026-08-02
+- **Area:** Learning-content ecosystem / recommendation-to-release pipeline.
+- **Failure:** Work orders named accuracy, freshness, voice, anti-slop,
+  usefulness and format gates, but the validator only rejected a `PASS` with
+  no evidence and a late-stage artifact without a binding. It did not require
+  all applicable gates, existing evidence receipts, independent review and
+  feature-specific proof before a content-verified or later status.
+- **Root cause:** Schema completeness was mistaken for release-readiness
+  enforcement. The presence of the right questions looked stronger than the
+  evidence state, which was largely empty.
+- **Prevention rule:** Treat empty evidence as unreviewed. No item may claim
+  `CONTENT_VERIFIED` or later unless every applicable gate passes with existing
+  artifact-bound evidence, the manifest checksum reproduces, independent
+  reviewers pass and each publishing feature proves its own adapted treatment.
+- **Why the fix works:** The release-readiness checker now permits early work
+  to remain honestly captured or built while failing closed on any later claim
+  that lacks the complete evidence chain.
+- **Machine check implemented:**
+  `scripts/check-content-release-readiness.mjs`, integrated into
+  `scripts/check-product-stewards.mjs`.
+- **Possible Behind the Build angle:** A checklist can be AI slop too. The
+  question is not whether the boxes exist; it is whether the release is
+  impossible without the receipts.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.

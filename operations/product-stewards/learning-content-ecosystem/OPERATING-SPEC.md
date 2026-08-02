@@ -126,6 +126,10 @@ Every governed concept must eventually include:
 
 ## Cross-format operating rules
 
+`LEARNING-ORCHESTRATION-GUIDE.md` is the controlling role, depth, style,
+learner-life, connection and anti-duplication contract for every format. A
+surface list in this specification is only a summary.
+
 - **LIBRAiRY:** durable, revisable reference treatment. A book needs a distinct
   lookup job and must not become a class transcript or episode recap.
 - **Classes:** observable skill through narration, animation, current
@@ -148,6 +152,16 @@ Every governed concept must eventually include:
 - **Daily tips and Promptoscope:** may remix a verified concept into a bounded,
   source-linked daily form. They do not originate canon, silently broaden a
   claim or retain a volatile recommendation beyond its freshness limit.
+- **Career/work-life AI mirrors:** begin with a genuine workplace situation,
+  provide practical choices and use the AI parallel only when the mapping and
+  limit are faithful. AI must not be presented as the answer to a structural or
+  interpersonal problem it cannot solve.
+- **KSVL songs:** reinforce one ruled idea or behaviour through a strong hook
+  and correct metadata; they cannot carry the only explanation of a nuanced
+  concept.
+- **Community and Town Group Chat:** create application, explanation, humour
+  and mutual support without requiring sensitive disclosure or duplicating the
+  lesson.
 
 If two items perform the same job, prefer link, correction, update, merge or
 extension. A new item needs a remaining learner job that the current owner

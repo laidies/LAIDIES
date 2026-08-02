@@ -6,6 +6,8 @@ import { spawnSync } from "node:child_process";
 import { checkContentWorkOrders } from "./check-content-work-orders.mjs";
 import { checkDailyLearningDerivatives } from "./check-daily-learning-derivatives.mjs";
 import { checkLearningRelationships } from "./check-learning-relationships.mjs";
+import { checkLearningOrchestrationGuide } from "./check-learning-orchestration-guide.mjs";
+import { checkContentReleaseReadiness } from "./check-content-release-readiness.mjs";
 
 const root = process.cwd();
 const base = path.join(root, "operations", "product-stewards");
@@ -23,10 +25,14 @@ const ids = new Set();
 const ownerEntryGaps = [];
 const contentWorkOrders = checkContentWorkOrders({ root });
 errors.push(...(contentWorkOrders.errors || []).map((error) => `content work orders: ${error}`));
+const contentReleaseReadiness = checkContentReleaseReadiness({ root });
+errors.push(...(contentReleaseReadiness.errors || []).map((error) => `content release readiness: ${error}`));
 const dailyDerivatives = checkDailyLearningDerivatives({ root });
 errors.push(...(dailyDerivatives.errors || []).map((error) => `daily learning derivatives: ${error}`));
 const learningRelationships = checkLearningRelationships({ root });
 errors.push(...(learningRelationships.errors || []).map((error) => `learning relationships: ${error}`));
+const learningOrchestration = checkLearningOrchestrationGuide({ root });
+errors.push(...(learningOrchestration.errors || []).map((error) => `learning orchestration: ${error}`));
 const portfolioInventory = spawnSync(
   process.execPath,
   [path.join(root, "scripts", "build-portfolio-work-inventory.mjs")],
@@ -321,6 +327,8 @@ console.log(`owner_entry_gaps=${JSON.stringify(ownerEntryGapCounts)}`);
 console.log(`content_work_orders=${contentWorkOrders.workOrders}`);
 console.log(`content_records_covered=${contentWorkOrders.coveredRecords}`);
 console.log(`content_ready_to_dispatch=${contentWorkOrders.readyToDispatch.join(",") || "none"}`);
+console.log(`content_release_ready=${contentReleaseReadiness.ready.join(",") || "none"}`);
+console.log(`content_release_held=${contentReleaseReadiness.held.length}`);
 console.log(`daily_learning_derivatives=${dailyDerivatives.records || 0}`);
 console.log(`daily_learning_derivatives_public=${dailyDerivatives.publicRecords || 0}`);
 const openResolutionTasks = (learningRelationships.blockers || [])

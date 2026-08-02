@@ -15,7 +15,11 @@ does not approve, build, admit or publish the content.
 - **Trigger source and date:**
 - **Intended learner:**
 - **Problem or question she brings:**
+- **Why LAiDIES is teaching this:**
+- **Why it is important now:**
+- **Where this appears in her work, home, creative or civic life:**
 - **Observable result she should be able to produce, explain or judge:**
+- **Concrete situation in which she will use it next:**
 - **Why this matters now:**
 
 ## 2. Canonical concept ownership
@@ -25,6 +29,10 @@ does not approve, build, admit or publish the content.
   `operations/product-stewards/learning-content-ecosystem/concept-map.md`:
 - **Canonical LIBRAiRY owner or proposed owner:**
 - **Adjacent concepts that must remain distinct:**
+- **Prerequisite concepts or abilities:**
+- **Misconceptions this item must prevent or repair:**
+- **Existing item this extends rather than repeats:**
+- **Next useful concept and experience:**
 - **Current evidence, disagreements and freshness trigger:**
 - **Does the concept map need an update?** yes / no — reason:
 
@@ -60,6 +68,17 @@ explained; duplication is not.
 | Interactive tool |  | Solve a real problem and expose the useful transformation |  |  |
 | Game / assessment |  | Rehearse judgment or behaviour with feedback and replay |  |  |
 | NewsStand |  | Apply the durable idea to dated reality |  |  |
+| Promptoscope |  | Funny daily recognition of one bounded AI pattern |  |  |
+| AI daily tip |  | One useful move, why it works, its boundary and deeper route |  |  |
+| Career / work-life AI mirror |  | Practical workplace guidance plus a faithful AI connection |  |  |
+| KSVL song |  | Mnemonic and emotional retrieval cue for ruled learning |  |  |
+| Community / Town Group Chat |  | Apply, explain, compare and support through town life |  |  |
+
+**Controlling format guide:**
+`operations/product-stewards/learning-content-ecosystem/LEARNING-ORCHESTRATION-GUIDE.md`
+
+For every selected surface, also record assumed level, depth, style, inbound
+source and exact outbound next experience.
 
 ## 5. Format-specific admission question
 
@@ -88,6 +107,8 @@ explained; duplication is not.
 - **Proposed status:** CAPTURED / DECIDED / SPECIFIED / DEFERRED / DECLINE
 - **Next evidence or decision required:**
 - **No-duplicate check completed by/date:**
+- **Relationship graph update or ruled no-update:**
+- **Search/index registration owner/action:**
 
 For a NewsStand-triggered intake, every material downstream idea must be
 assigned now. `DEFERRED` is valid only with an exact destination owner and

@@ -92,6 +92,9 @@ The machine-readable contract and run command live in
 
 ## Surface jobs
 
+The complete format, depth, voice, learner-life and handoff contract is
+`LEARNING-ORCHESTRATION-GUIDE.md`. The summary below never overrides it.
+
 - **Episode:** create the need, stakes and memorable narrative encounter; show
   the idea in action.
 - **Concepts / LIBRAiRY:** provide the accurate, durable, revisable explanation
@@ -107,6 +110,14 @@ The machine-readable contract and run command live in
   for an already ruled concept; it does not introduce competing canon.
 - **NewsStand:** apply or update the durable idea against dated evidence under
   its own sourcing, correction and editorial contract.
+- **Promptoscope and daily tips:** bounded, source-linked daily recognition or
+  action; never originate canon or replace the deeper setup.
+- **Career/work-life AI mirrors:** solve or illuminate a real workplace
+  situation while making the AI parallel faithful and useful.
+- **KSVL songs:** mnemonic and emotional retrieval for already ruled learning;
+  never the only explanation of nuance.
+- **Community/Town Group Chat:** application, explanation and mutual support;
+  not duplicate instruction or fake social proof.
 
 One concept may appear on several surfaces only when these jobs are genuinely
 different.
