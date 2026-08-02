@@ -1,0 +1,104 @@
+{
+  "schema": "laidies.episode-02.v20.occurrence-repaired-review.v1",
+  "created_at": "2026-08-02T03:12:37.237139+00:00",
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_FULL_TITLE_REVIEW_REQUIRED_NOT_PUBLIC",
+  "authority": {
+    "accepted": false,
+    "release": false,
+    "deploy": false,
+    "public": false,
+    "player_binding": false
+  },
+  "frozen_master": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "captions": {
+    "path": "assets/captions/episode-02.vtt",
+    "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+    "size_bytes": 21622
+  },
+  "builder": {
+    "path": "scripts/assemble-episode-02-v20-repaired-review.py",
+    "sha256": "884876094e1a310c6af801c8a04cca8a11f27bab6c8a4e71ecb7a5b01913e926",
+    "size_bytes": 7830
+  },
+  "batch_coverage": [
+    {
+      "start": 0.0,
+      "end": 151.0,
+      "path": "operations/video-qa/episode-02-opening-repair-batch-v1/episode-02-opening-p00-p10-repaired-review-v1.mp4",
+      "sha256": "627210383dca5a2ab47c6cdc08e0e6e2f25de16f46d49ffe9c8c1aea3dbd7bbd",
+      "size_bytes": 156472309
+    },
+    {
+      "start": 151.0,
+      "end": 283.6,
+      "path": "operations/video-qa/episode-02-context-cafe-repair-batch-v1/episode-02-p11-p18-context-cafe-repaired-review-v1.mp4",
+      "sha256": "32f445d29cd3b3cfd0089d4e468d57ec5caea076e0d27aeef3019b28b970deff",
+      "size_bytes": 85491242
+    },
+    {
+      "start": 283.6,
+      "end": 430.0,
+      "path": "operations/video-qa/episode-02-specificity-delegation-repair-batch-v1/episode-02-p19-p26-specificity-delegation-repaired-review-v1.mp4",
+      "sha256": "f74d3d0f985f7b5a98b2d36a5bb83a75170d19d1ba4eef1490f2767b5f275664",
+      "size_bytes": 77606022
+    },
+    {
+      "start": 430.0,
+      "end": 600.0,
+      "path": "operations/video-qa/episode-02-policy-proof-repair-batch-v1/episode-02-p27-p34-policy-proof-repaired-review-v1.mp4",
+      "sha256": "a4f9dbc579dbf3bda9ffb698b4fdfbccc58c4be4f979b3c6777ba7b0b85c5706",
+      "size_bytes": 82799774
+    },
+    {
+      "start": 600.0,
+      "end": 674.0,
+      "path": "operations/video-qa/episode-02-radio-library-proof-repair-batch-v1/episode-02-p35-p38-radio-library-proof-repaired-review-v1.mp4",
+      "sha256": "0d9b228bf8242e5984eead9fda9337d817468c1107f2d3d847419be147f83e4b",
+      "size_bytes": 39074629
+    },
+    {
+      "start": 674.0,
+      "end": 808.0,
+      "path": "operations/video-qa/episode-02-soft-skills-cocktail-repair-batch-v1/episode-02-p39-p46-soft-skills-cocktail-repaired-review-v1.mp4",
+      "sha256": "97d56c0ebaafa61970a5160a3d6f090c20e550a304bc1e9ad5f568662ae63ffb",
+      "size_bytes": 59995233
+    },
+    {
+      "start": 808.0,
+      "end": 904.0,
+      "path": "operations/video-qa/episode-02-postcard-tryon-repair-batch-v1/episode-02-p47-p53-postcard-tryon-repaired-review-v1.mp4",
+      "sha256": "055f441744f0efb56e9b052e2f2c8063bd3785b478ce8dc320d3321137b8a757",
+      "size_bytes": 69388801
+    },
+    {
+      "start": 904.0,
+      "end": 987.48,
+      "path": "operations/video-qa/episode-02-study-pack-signoff-repair-batch-v1/episode-02-p54-p60-study-pack-signoff-repaired-review-v1.mp4",
+      "sha256": "40c9618c68f98990012705508d0f3cf11e2272c7ca314a457c91d826697eb6cc",
+      "size_bytes": 98584725
+    }
+  ],
+  "output": {
+    "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+    "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc",
+    "size_bytes": 669476716
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-02-v20-occurrence-repaired-review/episode-02-v20-occurrence-repaired-contact-v1.jpg",
+    "sha256": "b55d09d8d253f37e4be14baffcbcf91dd3898ed6d673b94e03ab31555a0fed02",
+    "size_bytes": 1427035
+  },
+  "checks": {
+    "full_av_decode": "PASS",
+    "decoded_frames": 29625,
+    "expected_frames": 29625,
+    "frozen_aac_payload": "PASS_BYTE_IDENTICAL",
+    "aac_payload_sha256": "ef3754574b72fce8fba9bfad5545efc65c6062dcbd0c72b5590de0ee9d1a014e",
+    "caption_authority": "PASS_EXTERNAL_VTT_UNCHANGED"
+  },
+  "next_gate": "independent complete normal-speed sound-on full-title review of this exact output hash"
+}
