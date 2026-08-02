@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T00:00:00-07:00",
+  "status": "BUILT LOCALLY / HOLD",
+  "purpose": "Prepare one fail-closed, checksum-bound handoff for the Trailer and Episodes 01-04 without making any held film or provisional cover public.",
+  "authority": {
+    "accept": false,
+    "release": false,
+    "playerBind": false,
+    "deploy": false,
+    "publish": false
+  },
+  "publicState": {
+    "watchPage": "watch.html",
+    "episodeFilmsRegistry": "empty",
+    "admissionRegistry": "content/episodes/screening-room-admission.json",
+    "requiredAdmissionStatus": "hold",
+    "truth": "The public Screening Room remains cover-only. No local review master is bound to public playback."
+  },
+  "sharedGates": [
+    "qualified independent human watches and hears the exact film hash from start to finish at normal speed",
+    "authoritative episode cover is designed from the named identity source, includes the canonical title, passes crop-safe derivatives and receives explicit visual acceptance",
+    "exact released film, captions, cover and metadata are sealed in the versioned take-it-with-me package",
+    "screening-room occurrence evidence and release admission are completed for the accepted film hash",
+    "public-host media identity is available and verified before the player registry changes"
+  ],
+  "programmes": {
+    "trailer": {
+      "canonicalTitle": "The Trailer — Welcome to SUNNYVAiLE",
+      "film": {
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v8-multicolour-review-1920.mp4",
+        "sha256": "1be8c4f16761294053ec784004be63679743a2d5fef0375fdb7e850280a1332e",
+        "durationSeconds": 967.2,
+        "status": "BUILT LOCALLY / HOLD"
+      },
+      "captions": {
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+        "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+        "coverage": "complete local successor"
+      },
+      "reviewEvidence": {
+        "path": "operations/video-qa/trailer-v8-multicolour-review/manifest.json",
+        "sha256": "0c6a918b2dff1161be2c8f35fe9182c030e4e7d699297e70163b4712e9e60ce2"
+      },
+      "cover": {
+        "status": "BUILD REQUIRED",
+        "identitySource": {
+          "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-b08-title-laidies-no-pink-yellow-comic-v3-1920.png",
+          "sha256": "ce325f71038e4f3ce2bd0508435cd9ee20b8e30e11c81b1404fa211db07e1953"
+        },
+        "currentFallback": {
+          "path": "assets/postcards/from-sunnyvaile/pc-welcome.png",
+          "sha256": "ea9a907df2d4693c0ce69d69674538f0319eff7cd313e7c7e39222c4e761722d",
+          "disposition": "temporary public fallback; not authoritative episode artwork"
+        },
+        "nextAction": "Design one approved Trailer cover master and crop-safe site, podcast, YouTube and share derivatives from the canonical Trailer identity."
+      },
+      "readyForBinding": false
+    },
+    "01": {
+      "canonicalTitle": "On Wednesdays We Do AI",
+      "film": {
+        "path": "assets/video/episode-01-full-v27-occurrence-repaired-review.mp4",
+        "sha256": "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a",
+        "durationSeconds": 1172.27,
+        "status": "BUILT LOCALLY / HOLD"
+      },
+      "captions": {
+        "path": "assets/captions/episode-01.vtt",
+        "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+        "coverage": "complete"
+      },
+      "reviewEvidence": {
+        "path": "operations/video-qa/episode-01-full-v27-occurrence-repaired-review/manifest.json",
+        "sha256": "d293aa522f76823005e31588d1b3c9222f0c936af372621488b165c6f811cd9b"
+      },
+      "cover": {
+        "status": "BUILD REQUIRED",
+        "identitySource": {
+          "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-01-on-wednesdays-we-do-ai-clean-electric-v2-still.png",
+          "sha256": "52c14d41f9906ad7403db859e97a7403e9229bb3615e8093d739bf05b3dd680a"
+        },
+        "currentFallback": {
+          "path": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp",
+          "sha256": "6b28f5a78ad2ec0ef0256899ee49ae444fda2104531d52832baf289077d2d4a1",
+          "disposition": "REJECT FOR RELEASE IDENTITY — visible wording says USE AI, contradicting canonical title DO AI"
+        },
+        "nextAction": "Design an Episode 01 cover master that names On Wednesdays We Do AI and derives its symbols from the approved episode-specific ident."
+      },
+      "readyForBinding": false
+    },
+    "02": {
+      "canonicalTitle": "Tell Me What You Want",
+      "film": {
+        "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+        "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc",
+        "durationSeconds": 987.48,
+        "status": "BUILT LOCALLY / HOLD"
+      },
+      "captions": {
+        "path": "assets/captions/episode-02.vtt",
+        "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+        "coverage": "complete"
+      },
+      "reviewEvidence": {
+        "path": "operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json",
+        "sha256": "0c40de38854352d001df0d4286e3938bf1b5a7637bbc4193f9cbcba8e6ae5c24"
+      },
+      "cover": {
+        "status": "BUILD REQUIRED",
+        "identitySource": {
+          "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-clean-electric-v2-still.png",
+          "sha256": "10a34df0875a5d7c8928920c2b755050f96323f970df05b28e010a4b99f83814"
+        },
+        "currentFallback": {
+          "path": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp",
+          "sha256": "e4b3f2b1abab2573eb7086f76a55d17fca1f1d27e301cf09a964abfec355bdb9",
+          "disposition": "temporary public fallback; title is correct but artwork is not admitted as release identity"
+        },
+        "nextAction": "Design an Episode 02 cover master that names Tell Me What You Want and derives its symbols from the approved episode-specific ident."
+      },
+      "readyForBinding": false
+    },
+    "03": {
+      "canonicalTitle": "The Burn Book Problem",
+      "film": {
+        "path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+        "sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75",
+        "durationSeconds": 1048,
+        "status": "BUILT LOCALLY / HOLD"
+      },
+      "captions": {
+        "path": "assets/captions/episode-03.vtt",
+        "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+        "coverage": "complete"
+      },
+      "reviewEvidence": {
+        "path": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v15-independent-full-title-review-receipt-2026-08-01.json",
+        "sha256": "829090f1f81aa220d948ab5dd51ead568562b9c95ecb43cbff9d41f389d5f9c1"
+      },
+      "cover": {
+        "status": "BUILD REQUIRED",
+        "identitySource": {
+          "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-03-the-burn-book-problem-clean-electric-v2-still.png",
+          "sha256": "827928bcf453e336f94a001623039ad786524fbe01807746ca73032321b27913"
+        },
+        "currentFallback": {
+          "path": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp",
+          "sha256": "b830f0bc57141a697bf515d48bbc1f5c0f2bef0cb2f2190852674ba76eaed0b2",
+          "disposition": "temporary public fallback; title is correct but artwork is not admitted as release identity"
+        },
+        "nextAction": "Design an Episode 03 cover master that names The Burn Book Problem and derives its symbols from the approved episode-specific ident."
+      },
+      "readyForBinding": false
+    },
+    "04": {
+      "canonicalTitle": "The Founding Mothers",
+      "film": {
+        "path": "assets/video/episode-04-full-v10-repaired-review.mp4",
+        "sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb",
+        "durationSeconds": 1222.37,
+        "status": "BUILT LOCALLY / HOLD"
+      },
+      "captions": {
+        "path": "assets/captions/episode-04.vtt",
+        "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+        "coverage": "complete"
+      },
+      "reviewEvidence": {
+        "path": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json",
+        "sha256": "458184cb7c8912b6797fb1b5a7e5e6d21a61b1fb98bc1686a8e88dc5c26c3f0a"
+      },
+      "cover": {
+        "status": "BUILD REQUIRED",
+        "identitySource": {
+          "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-04-founding-mothers-clean-electric-v2-still.png",
+          "sha256": "7095e26656ba8c7c935ae3e5d3aeb791d0007f9e313ef1d69aa1e8560c1f6517"
+        },
+        "currentFallback": {
+          "path": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp",
+          "sha256": "5b875512b0a080a3ed7fcbf810767b566636f1bf704176ed72c1125295cc0eb8",
+          "disposition": "REJECT FOR RELEASE IDENTITY — visible wording is unrelated to The Founding Mothers"
+        },
+        "nextAction": "Design an Episode 04 cover master that names The Founding Mothers and derives its symbols from the approved episode-specific ident."
+      },
+      "readyForBinding": false
+    }
+  },
+  "activationOrderAfterAllGatesPass": [
+    "seal accepted film, captions, cover and metadata hashes",
+    "complete exact screening-room occurrence admission",
+    "stage public-host media objects without changing visitor routes",
+    "bind exact admitted URLs in the Screening Room registry",
+    "verify responsive playback, captions, poster crops and failure fallback",
+    "deploy through the controlled release lane and verify public bytes",
+    "propagate the same release identity to podcast, YouTube and other admitted take-it-with-me destinations"
+  ]
+}
