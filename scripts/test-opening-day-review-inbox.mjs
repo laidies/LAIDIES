@@ -31,9 +31,9 @@ try{
   for(const width of [390,1280]){
     const page=await browser.newPage({viewport:{width,height:950}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(`${base}/operations/control-room/review-inbox.html`,{waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();
-    assert.equal(await page.locator('#readyCount').textContent(),'5');assert.equal(await page.locator('#buildCount').textContent(),'0');assert.equal(await page.locator('#doneCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
+    assert.equal(await page.locator('#readyCount').textContent(),'5');assert.equal(await page.locator('#buildCount').textContent(),'1');assert.equal(await page.locator('#doneCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
     assert.equal(await page.locator('#readyTabs button').count(),5);assert.equal(await page.locator('#title').textContent(),'The Trailer — Welcome to SUNNYVAiLE');
-    assert.match(await page.locator('#hash').textContent(),/1be8c4f167612940/);assert.equal(await page.locator('#building .work-card').count(),0);assert.equal(await page.locator('#completed .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
+    assert.match(await page.locator('#hash').textContent(),/1be8c4f167612940/);assert.equal(await page.locator('#building .work-card').count(),1);assert.match(await page.locator('#building .work-card').first().textContent(),/ODC-101/);assert.equal(await page.locator('#completed .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
     assert.equal(await page.locator('#coverGrid .cover').count(),4);assert.match(await page.locator('#audioHash').textContent(),/b60321e1c6e70440/);
     const expected=[
       {title:'The Trailer',hash:/1be8c4f167612940/,min:966,max:968},
