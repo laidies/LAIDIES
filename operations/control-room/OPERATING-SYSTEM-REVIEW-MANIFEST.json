@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-02T13:07:46-07:00",
+  "purpose": "Bind the authoritative read-only operating-system review packet for Claude Code Opus 5.",
+  "authority_file": "operations/control-room/LAIDIES-OPERATING-SYSTEM-AUTHORITY.md",
+  "authority_sha256": "7e92d910e66b7477f222c4f78a737e773bef4ad640d55766105b41e6f5a5f7b7",
+  "prompt_file": "operations/control-room/CLAUDE-OPUS-5-OPERATING-SYSTEM-AUDIT-PROMPT.md",
+  "prompt_sha256": "f422b866f19ddabd4bab92b8c0c51acb89bb3fca9ceb55f881ba39cd42a8a2e0",
+  "service_inventory_seed": "operations/control-room/THIRD-PARTY-SERVICE-INVENTORY-SEED.json",
+  "service_inventory_seed_sha256": "1c4746a21c1f1583987e176f7798aa7423f8fa32119ca9ac82fed931750df8e1",
+  "coverage_matrix": "operations/control-room/OPERATING-SYSTEM-REVIEW-COVERAGE-MATRIX.md",
+  "coverage_matrix_sha256": "5cd6512d66f304a4113132d63e9cb9f9a5d3094f1c9e1a301f4fdaddef853fde",
+  "identity_authority": "operations/product-stewards/resident-card/CURRENT-IDENTITY-CONTINUATION-AUTHORITY-2026-08-02.md",
+  "identity_authority_sha256": "f55a57c1c487770244bf1d3eda428f7d004d43bf678637161cf1d2723cfe1974",
+  "sources": [
+    {
+      "path": "operations/CODEX-WORKING-AGREEMENT.md",
+      "sha256": "bc65c76e27bb3366ae0ba1bae4d72e5f017f00d3b8885029a0694b31c17cf477"
+    },
+    {
+      "path": "operations/ACTIVE-WORK.md",
+      "sha256": "4b2584e80f3e0d826a1dacc9276bef7ea51e3ea4a5aee55a039d11c4807bf7d8"
+    },
+    {
+      "path": "operations/engine/LEDGER.md",
+      "sha256": "dc4c55f3fdfcac2af5a842c207d6a147b47aeb634fb27cd3afa055d600a78eff"
+    },
+    {
+      "path": "operations/laidies-operating-model.md",
+      "sha256": "692f98463181ade57474e067a412d72b13a8fe28595909627e8544aab0a760fb"
+    },
+    {
+      "path": "operations/control-room/OPERATING-MODEL-DIAGNOSTIC-2026-08-02.md",
+      "sha256": "d28132e5e7f3192f4ef0262a99adcf433a00b6e638548800219d22d7744c14bf"
+    },
+    {
+      "path": "operations/research/agent-operations-playbook.md",
+      "sha256": "4fc086532210233206de345fdc887382bf66a41fc6b32075b11fadfb2ea0f0ea"
+    },
+    {
+      "path": "operations/assets/active-asset-registry.json",
+      "sha256": "912ee3e17e1af7faab79a5075a7167eedd2ff26b42305ae28efd30a7d60d36a1"
+    },
+    {
+      "path": "operations/control-room/work-index.json",
+      "sha256": "1a805ef4adaf10cc501f30effdb50d3c5e9251195571ce496441bde695275cad"
+    },
+    {
+      "path": "operations/control-room/owner-review-queue.json",
+      "sha256": "89592623fc6b812956a83055229fa877730a503e72b940d000f8a224d19b821d"
+    }
+  ],
+  "known_service_evidence": {
+    "hyvor": {
+      "website_id": "15519",
+      "repository_state": "PARTIAL / REQUIRES AUTHENTICATED JOURNEY RECONCILIATION",
+      "evidence_paths": [
+        "content/site/community-room.js",
+        "content/site/sorority-house-v2.js",
+        "docs/community/ai-chat-room-digest-plan.md",
+        "scripts/build-chat-room-digest.js",
+        "operations/launch/whole-site-reopening-qa-matrix.md"
+      ],
+      "do_not_infer": [
+        "current subscription status",
+        "credentials availability",
+        "successful signed-in posting",
+        "moderation outcome",
+        "reward completion",
+        "digest automation runtime"
+      ]
+    }
+  },
+  "review_constraints": [
+    "read-only",
+    "no image generation",
+    "no video rendering",
+    "no account or provider mutation",
+    "no deploy or publication",
+    "distinguish documentary intent from executable proof"
+  ]
+}
