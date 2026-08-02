@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/opening-day-human-review-receipt.schema.json",
+  "title": "LAiDIES opening-day human film review receipt",
+  "type": "object",
+  "required": [
+    "schema_version", "review_id", "reviewer", "title", "queue_generated_at",
+    "master", "captions", "audio", "cover_artifacts",
+    "completed_full_title_unmuted_1x", "film_decision", "cover_decision",
+    "decision", "timecoded_notes", "watch_contract", "saved_at",
+    "release_boundary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": 3 },
+    "review_id": { "type": "string", "minLength": 1 },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "queue_generated_at": { "type": "string", "format": "date-time" },
+    "master": { "$ref": "#/$defs/media" },
+    "captions": { "$ref": "#/$defs/file" },
+    "audio": { "$ref": "#/$defs/audio" },
+    "cover_artifacts": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/cover" }
+    },
+    "completed_full_title_unmuted_1x": { "type": "boolean" },
+    "film_decision": { "enum": ["PASS", "HOLD", "NOT REVIEWED"] },
+    "cover_decision": { "enum": ["PASS", "HOLD", "NOT REVIEWED"] },
+    "decision": { "enum": ["PASS", "HOLD", "PARTIAL"] },
+    "timecoded_notes": { "type": "string" },
+    "watch_contract": { "type": "string", "minLength": 1 },
+    "saved_at": { "type": "string", "format": "date-time" },
+    "release_boundary": {
+      "const": "Human review gate only. This is not release, deployment or publication approval."
+    }
+  },
+  "$defs": {
+    "file": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "media": {
+      "type": "object",
+      "required": ["path", "sha256", "duration_seconds"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "duration_seconds": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": ["role", "sourcePath", "sha256"],
+      "properties": {
+        "role": { "const": "AUDIO_MASTER" },
+        "sourcePath": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "cover": {
+      "type": "object",
+      "required": ["kind", "path", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["MASTER_EPISODE_COVER", "YOUTUBE_THUMBNAIL", "SITE_POSTER", "SHARE_IMAGE"] },
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "film_decision": { "const": "PASS" } } },
+      "then": { "properties": { "completed_full_title_unmuted_1x": { "const": true } } }
+    },
+    {
+      "if": { "properties": { "decision": { "const": "PASS" } } },
+      "then": {
+        "properties": {
+          "film_decision": { "const": "PASS" },
+          "cover_decision": { "const": "PASS" },
+          "completed_full_title_unmuted_1x": { "const": true }
+        }
+      }
+    }
+  ]
+}

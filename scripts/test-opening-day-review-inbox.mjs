@@ -11,6 +11,7 @@ const playwrightRoot=process.env.PLAYWRIGHT_CORE_PATH||path.join(root,'.ds-sync/
 const chrome=process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const {chromium}=await import(pathToFileURL(path.join(playwrightRoot,'index.mjs')));
 const evidenceDir=process.env.REVIEW_INBOX_EVIDENCE_DIR||path.join(root,'operations/control-room/evidence/owner-review-inbox-2026-08-01');
+const receiptEvidencePath=process.env.REVIEW_RECEIPT_PATH||'';
 const types={'.html':'text/html; charset=utf-8','.json':'application/json; charset=utf-8','.mp4':'video/mp4','.m4a':'audio/mp4','.vtt':'text/vtt; charset=utf-8','.jpg':'image/jpeg'};
 
 const server=http.createServer((request,response)=>{
@@ -71,9 +72,22 @@ try{
     assert.match(await page.locator('#progressStatus').textContent(),/Resumed at 00:01:13/);
     assert.equal(await page.locator('#decision').inputValue(),'HOLD');assert.equal(await page.locator('#notes').inputValue(),'00:42 — test note');
     assert.equal(await page.locator('#coverDecision').inputValue(),'PASS');
+    await page.selectOption('#decision','PASS');await page.locator('#fullWatch').uncheck();await page.click('#save');
+    assert.match(await page.locator('#saved').textContent(),/Film PASS requires the full-watch confirmation/);
+    await page.locator('#fullWatch').check();await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
+    const savedReceipt=JSON.parse(await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch')));
+    assert.equal(savedReceipt.schema_version,3);assert.equal(savedReceipt.completed_full_title_unmuted_1x,true);assert.equal(savedReceipt.decision,'PASS');
+    assert.equal(savedReceipt.master.sha256,'50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a');
+    assert.equal(savedReceipt.captions.sha256,'191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539');
+    assert.equal(savedReceipt.cover_artifacts.length,4);assert.equal(savedReceipt.audio.role,'AUDIO_MASTER');
+    const downloadPromise=page.waitForEvent('download');await page.click('#download');const receiptDownload=await downloadPromise;
+    assert.equal(receiptDownload.suggestedFilename(),'episode-01-v27-human-watch-receipt.json');
+    const stream=await receiptDownload.createReadStream();let downloaded='';for await(const chunk of stream)downloaded+=chunk.toString();
+    const downloadedReceipt=JSON.parse(downloaded);assert.equal(downloadedReceipt.master.sha256,savedReceipt.master.sha256);assert.equal(downloadedReceipt.release_boundary,'Human review gate only. This is not release, deployment or publication approval.');
+    if(receiptEvidencePath&&width===1280)fs.writeFileSync(receiptEvidencePath,downloaded);
     await page.locator('#readyTabs button').filter({hasText:'Episode 04'}).click();assert.match(await page.locator('#hash').textContent(),/9fc40d965cf67e08/);
     const overflow=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,body:document.body.scrollWidth}));assert.ok(overflow.document<=overflow.viewport+1,JSON.stringify(overflow));assert.ok(overflow.body<=overflow.viewport+1,JSON.stringify(overflow));
     assert.deepEqual(errors,[]);await page.screenshot({path:path.join(evidenceDir,width===390?'mobile.png':'desktop.png'),fullPage:true});await page.close();
   }
-    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact films, captions, audio downloads, one-click timecodes and four-cover families for Trailer + Episode 01–04)');
+    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact films, captions, audio downloads, four-cover families, resumable playback and checksum-bound human-review receipts for Trailer + Episode 01–04)');
 }finally{await browser.close();server.close()}
