@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "class_id": "ODC-101",
+  "status": "VOICE_AUDITION_RECEIVED_HOLD",
+  "scope": "Final narration workbench for the real-interface teaching segment; not the complete interactive class runtime.",
+  "instructional_design_standard": {
+    "path": "operations/classes/CLASS-MEDIA-PRODUCTION-STANDARD.md",
+    "sha256": "e0a5522633fce69ff087ef21911e458d0df5af700a6c133bb80fcc4f33c3ef9e",
+    "delivery": "teach_your_smartest_best_friend",
+    "volatile_ui_policy": "durable_narration_plus_replaceable_current_path_inserts"
+  },
+  "voice": {
+    "provider": "ElevenLabs Studio",
+    "display_name": "Hope — upbeat and clear",
+    "voice_id": "tnSpp4vdxKPjI9w0GnoV",
+    "model": "Eleven v3",
+    "model_id": "eleven_v3",
+    "settings": null,
+    "format": "single warm adult-peer tutorial voice",
+    "approval": "OWNER_SELECTED_SAMPLE_RECEIVED_PENDING_EXACT_SETTINGS_AND_FULL_SCRIPT_RENDER"
+  },
+  "narration_word_count": 704,
+  "target_runtime_seconds": {
+    "minimum": 265,
+    "maximum": 290
+  },
+  "source_check": {
+    "checked_on": "2026-08-02",
+    "recheck_before_release": true,
+    "official_sources_only": true
+  },
+  "inputs": [
+    {
+      "path": "operations/classes/odc-101-teaching-media-script-2026-08-02.json",
+      "sha256": "d0a96901f9a3938c7398388125106d66124dfc15f0d92ff0e085e562cb6aa9f5"
+    },
+    {
+      "path": "operations/classes/basics-what-these-tools-are.CONTENT.md",
+      "sha256": "920b54286144eebd75147161a51debaf4f06d00b8302d8c911137fc109b5bc48"
+    }
+  ],
+  "workbench": [
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/recording-script.md",
+      "sha256": "876bead84e1252481fd4635758cf5703a2afe267054f6b5c11c1a4e4d76263a2"
+    },
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/README.md",
+      "sha256": "69e9c6229969f8abfe81e8934c771ed2bc3563199a7406681dbdd388c12e4762"
+    },
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/recording-revisions.md",
+      "sha256": "787110ee47b9ac78e8536822d5197e074d12b68b1d1c4f64fe1579c629555c73"
+    },
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/voice-audition-script.md",
+      "sha256": "26d0c6527c2e8b66e16850d0bb9f45fc22cbf5271e396df51ffa691556a9c8e0"
+    },
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/ODC-101-hope-eleven-v3-voice-audition-v1.wav",
+      "sha256": "52e5c38d693cca00b19ccc8c2962f8de9febe7fdcbf915b480f00a09dd03f518"
+    },
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/voice-audition-receipt.json",
+      "sha256": "8a2e0ea7d0dd2d0fc16f72bca30cb0dbc0e0fc1a70a488f18134e08916cf35ae"
+    },
+    {
+      "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/visual-evidence-plan.md",
+      "sha256": "d6897ea003ee48e01c9df877cbb4f8441b51abdb264a7a0466a7280015067b7a"
+    }
+  ],
+  "release_requirements": [
+    "Exact remaining Hope voice settings captured against the received Eleven v3 audition",
+    "Approved final narration audio with exact checksum",
+    "Completed recording revision log and reconciled as-recorded transcript",
+    "Picture retimed to the approved audio",
+    "Every scene passes the smart-best-friend delivery and instructional visual-job gate",
+    "Current real screenshots or screen recordings used for repeatable product actions",
+    "Volatile menu paths isolated in dated, separately replaceable current-path inserts",
+    "New external captions aligned to the approved audio with accessible wrapping and reading speed",
+    "Current official-source recheck",
+    "Narration-to-picture semantic review for every scene",
+    "Measured final loudness and true peak",
+    "Qualified human full sound-on 1x review of the exact successor master",
+    "Explicit class catalogue and player admission"
+  ],
+  "release_boundary": "No audio, captions, picture, class catalogue or public player is admitted by this package."
+}

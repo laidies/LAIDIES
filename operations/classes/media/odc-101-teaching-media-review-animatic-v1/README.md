@@ -16,8 +16,13 @@ retired “name the furniture” framing.
 - Transcript and poster: beside the master
 - Actual rendered-frame evidence: `rendered-contact-sheet.png`
 
-The current system voice is a timing witness, not an approved performance.
-The exact source, timing and output hashes are in `manifest.json`.
+The current system voice is a timing witness, not an approved performance. Its
+VTT timings were estimated from script word counts; they are useful for this
+animatic only and must not become release captions. The exact source, timing
+and output hashes are in `manifest.json`.
+
+The final narration workbench and release sequence are in
+`../odc-101-final-narration-production-2026-08-02/`.
 
 ## Release boundary
 

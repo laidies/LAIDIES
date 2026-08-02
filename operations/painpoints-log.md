@@ -11736,3 +11736,90 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** A film should enter quality control
   when it exists—not only after someone can stumble across it on the website.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-333 — A timing voice and estimated captions are not course narration
+
+- **Date:** 2026-08-02
+- **Area:** SUNNYVAiLE High / class narration / accessibility.
+- **Failure:** The opening-day class review animatics had complete synthetic
+  voices and VTT files, which made the packages look closer to release-ready
+  than they were. The
+  voice was only a timing witness, and cue lengths were estimated from script
+  word counts rather than aligned to what a listener actually hears.
+- **Root cause:** Visual timing, performance approval and caption production
+  were represented in one artifact even though they are separate gates.
+- **Prevention rule:** Every narrated class must keep four identities separate:
+  canonical teaching script, performance workbench, approved final audio with
+  as-recorded transcript, and captions timed from that exact audio. Provisional
+  audio and estimated captions must carry an explicit non-release boundary.
+- **Why the fix works:** ODC-101, ODC-201 and ODC-LAB-01 now have
+  checksum-bound narration workbenches, course-wide performance direction,
+  pronunciation notes, revision logs and a gate that confirms each provisional
+  animatic remains unbound. The course voice remains an explicit owner
+  selection rather than an accidental default. After comparing auditions, Ali
+  selected **Hope — upbeat and clear** with Eleven v3. The exact voice ID,
+  model and 39.19-second audition are now checksum-bound; the remaining Studio
+  settings and full-script performance are intentionally held. Final picture
+  and captions cannot advance until the approved full audio exists.
+- **Machine check implemented:**
+  `scripts/check-odc-101-final-narration-package.mjs` protects the ODC-101
+  content-specific contract, while
+  `scripts/check-opening-day-class-narration-packages.mjs` verifies all three
+  canonical inputs, workbench hashes, narration word counts, voice-selection
+  boundary, provisional-caption disclosure and null public-media claims.
+- **Possible Behind the Build angle:** Captions can look finished while still
+  being timed to words on a page instead of words a person hears.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-334 — Audio tags are model-specific production instructions
+
+- **Date:** 2026-08-02
+- **Area:** SUNNYVAiLE High / ElevenLabs Studio / narration performance.
+- **Failure:** Square-bracket directions that had changed tone correctly in
+  episode narration were spoken aloud during a course audition.
+- **Root cause:** The project was using Studio's default Multilingual v2 model.
+  ElevenLabs audio tags are an Eleven v3 feature, so the model identity changed
+  the meaning of the same script markup.
+- **Prevention rule:** Bind the model ID as part of every narration identity.
+  Confirm `eleven_v3` visibly before audition, correction and full render; test
+  one short tagged passage before generating a whole class. Never assume a
+  voice selection also preserves the model.
+- **Why the fix works:** Returning to Eleven v3 restored performance-tag
+  behaviour, and the package now rejects missing or different model IDs.
+- **Machine check implemented:**
+  `scripts/check-opening-day-class-narration-packages.mjs` and
+  `scripts/check-odc-101-final-narration-package.mjs` require Hope's exact
+  voice ID plus the `eleven_v3` model ID.
+- **Possible Behind the Build angle:** The direction was not wrong; the actor
+  had been handed it in a language that production had silently switched off.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-335 — Durable teaching and volatile product navigation need different edit boundaries
+
+- **Date:** 2026-08-02
+- **Area:** SUNNYVAiLE High / recorded lessons / freshness maintenance.
+- **Failure:** A useful class can become expensive and stale when exact menu
+  paths are embedded throughout otherwise-durable narration, while decorative
+  imagery can leave a learner unable to reproduce the setup being described.
+- **Root cause:** The teaching concept, current product route and visual style
+  were treated as one indivisible video layer instead of materials with
+  different instructional jobs and freshness rates.
+- **Prevention rule:** Narration teaches the stable job, decision and risk as a
+  smart friend would. Current product paths live in dated, separately
+  replaceable screen-recording or screenshot inserts. Every visual occurrence
+  declares whether it explains, demonstrates, compares, signals or prompts
+  practice; decorative imagery cannot stand in for a procedure.
+- **Why the fix works:** A moved button now triggers a bounded insert,
+  transcript-fragment and metadata refresh. A changed capability, access rule,
+  privacy boundary or workflow still reopens the full claim, narration,
+  practice and related-content chain. This keeps classes current without
+  weakening their usefulness.
+- **Machine check implemented:**
+  `scripts/check-opening-day-class-narration-packages.mjs` and
+  `scripts/check-odc-101-final-narration-package.mjs` bind the canonical
+  recorded-lesson standard, smart-best-friend direction, real-interface
+  evidence requirement and replaceable current-path policy into all three
+  opening-day class packages.
+- **Possible Behind the Build angle:** A button moved. The lesson did not have
+  to be thrown away with it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
