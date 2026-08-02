@@ -104,7 +104,8 @@ The beats, in order. This episode has **surface drift** between the spoken narra
 - "Not magic. Not born last Tuesday." — *the wrap*
 - "…Well. Almost no movie stars." — *walking into the quiet wing*
 - "Don't just learn from books. Learn from hooks." — *KSVL motto (site canon)*
-- ⏳ **PENDING:** the best two lines from the Ep4 anthem ("It Was Women All Along") — add once the Suno lyrics are transcribed into the repo; they are not written down anywhere yet. Do not invent them.
+- "The fathers only named it. It took a Godmother to make it." — *The Priors, “It Was Women All Along”*
+- "Oh, the future has a mother — she’s been here the whole time." — *The Priors, “It Was Women All Along”*
 
 ## discussion_prompt
 *(→ **Delta LAi Nu** weekly room/thread · article "rooms" box · community.html. From `issue-04.json → communityPrompt` + the v4 rooms line.)*
@@ -135,7 +136,7 @@ No try-on task this week — a field trip. Go up to the LUMINAiRY, walk into the
 - **title:** "It Was Women All Along" *(the Ep4 Wednesday Anthem)*
 - **file:** `content/music/dj-jaidy-week-04-it-was-women-all-along.mp3` *(present on disk; two other week-04 tracks also exist: `…-open-the-grimoire.mp3`, `…-the-library.mp3` — "It Was Women All Along" is the one named in the v4 episode rail as The Song.)*
 - **callout line (verified, from narration):** *"…turn on K-S-V-L, ninety-nine point nine, for this week's anthem."* (KSVL = 99.9 FM per [[ksvl-frequency-canon]].)
-- **lyrics:** ⏳ **PENDING** — the anthem exists as audio but its lyrics aren't transcribed anywhere in the repo. Do not invent them. When the Suno lyric sheet is saved, paste it here and add the best two lines to `quotables[]`.
+- **lyrics:** ✅ **FINAL AS RECORDED** — [the exact Ali-edited lyric source](../../operations/audio/ep4-founding-mothers-anthem.md). This source establishes the words, not their timing; timed lyrics/captions remain missing and must not be inferred.
 
 ## references[]
 *(→ **LIBRAiRY** further-reading shelf. Primary sources behind the verified facts — full citations in the facts ledger.)*

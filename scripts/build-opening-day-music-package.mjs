@@ -129,6 +129,23 @@ function lyricEvidence(relativePath) {
   };
 }
 
+function reconciledLyricEvidence(relativePath, registryStatus) {
+  const evidence = lyricEvidence(relativePath);
+  if (!relativePath || registryStatus !== "AS_RECORDED_LYRICS_APPROVED") return evidence;
+  const canonPath = "content/episodes/episode-04.canon.md";
+  requireFile(canonPath, "episode canon");
+  const canon = fs.readFileSync(absolute(canonPath), "utf8");
+  if (!canon.includes("operations/audio/ep4-founding-mothers-anthem.md") || canon.includes("the best two lines from the Ep4 anthem")) {
+    return evidence;
+  }
+  return {
+    status: "AS_RECORDED_LYRICS_APPROVED",
+    sourcePath: relativePath,
+    sha256: sha256(relativePath),
+    publicUseAllowed: true,
+  };
+}
+
 function trackTitle(registryTitle) {
   return registryTitle.replace(/^Ep\s+\d+\s+·\s+/, "");
 }
@@ -152,6 +169,8 @@ function releaseProblems(track) {
   else problems.push("square artwork exists but distribution approval and rights receipt are missing");
   if (track.lyrics.status === "AS_RECORDED_LYRICS_MISSING") {
     problems.push("exact as-recorded lyrics and timed lyrics/captions missing");
+  } else if (track.lyrics.status === "AS_RECORDED_LYRICS_APPROVED") {
+    problems.push("timed lyrics/captions missing");
   } else {
     problems.push("found lyric source is not yet reconciled into episode canon and KSVL registry");
     problems.push("timed lyrics/captions missing");
@@ -168,7 +187,7 @@ function buildTrack(registryTrack) {
   }
   const audio = parseAudio(registryTrack.src);
   const artwork = parseArtwork(evidence.artwork, evidence.artworkCuration);
-  const lyrics = lyricEvidence(evidence.lyrics);
+  const lyrics = reconciledLyricEvidence(evidence.lyrics, registryTrack.lyricStatus);
   const item = {
     id: registryTrack.id,
     status: "HOLD",
@@ -218,7 +237,7 @@ function main() {
       tracks: items.length,
       exactAudioFiles: items.filter((item) => item.audio.sha256).length,
       approvedArtwork: 0,
-      reconciledAsRecordedLyrics: 0,
+      reconciledAsRecordedLyrics: items.filter((item) => item.lyrics.status === "AS_RECORDED_LYRICS_APPROVED").length,
       heldDestinations,
       releaseReadyTracks: 0,
     },
