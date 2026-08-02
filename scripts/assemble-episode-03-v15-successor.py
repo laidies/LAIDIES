@@ -7,6 +7,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+from media_builder_admission import AdmissionError, require_media_builder_admission
+
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_SCRIPT = ROOT / "scripts/assemble-episode-03-v14-successor.py"
@@ -50,6 +52,10 @@ def load_base():
 
 
 def main() -> None:
+    try:
+        require_media_builder_admission(Path(__file__), ROOT)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     base = load_base()
     base.PARENT = ROOT / "assets/video/episode-03-full-v14-repaired-review.mp4"
     base.PARENT_SHA256 = "b67aa6d74b488c54317d42616c95908c080be962bd54c7d1d51ad471173660a7"

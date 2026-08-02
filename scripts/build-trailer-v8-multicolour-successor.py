@@ -20,6 +20,9 @@ from pathlib import Path
 import imageio_ffmpeg
 from PIL import Image, ImageDraw, ImageFont
 
+from media_builder_admission import require_media_builder_admission
+from video_source_admission import AdmissionError, require_video_source_admission
+
 
 ROOT = Path(__file__).resolve().parents[1]
 FFMPEG = Path(imageio_ffmpeg.get_ffmpeg_exe())
@@ -185,12 +188,22 @@ def make_contact() -> None:
 
 
 def main() -> None:
+    try:
+        require_media_builder_admission(Path(__file__), ROOT)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     required = [BASE, CAPTIONS]
     required += [CANDIDATE_DIR / filename for _, _, _, filename in STILLS]
     required += [CANDIDATE_DIR / item[3] for item in B39_STATES]
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     if missing:
         raise SystemExit("Missing required source(s):\n- " + "\n- ".join(missing))
+    source_paths = [CANDIDATE_DIR / filename for _, _, _, filename in STILLS]
+    source_paths += [CANDIDATE_DIR / item[3] for item in B39_STATES]
+    try:
+        require_video_source_admission(CANDIDATE_DIR / "manifest.json", ROOT, source_paths)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     changes = build()
     run([str(FFMPEG), "-v", "error", "-i", str(OUTPUT), "-map", "0:v:0", "-map", "0:a:0", "-f", "null", "-"])

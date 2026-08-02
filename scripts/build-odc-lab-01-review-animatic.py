@@ -16,6 +16,8 @@ from pathlib import Path
 import imageio_ffmpeg
 from PIL import Image, ImageDraw
 
+from media_builder_admission import AdmissionError, require_media_builder_admission
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = ROOT / "operations/classes/odc-lab-01-teaching-media-script-2026-08-02.json"
@@ -181,6 +183,10 @@ def make_audio(scene: dict, target: float, aiff: Path, wav: Path) -> None:
 
 
 def main() -> None:
+    try:
+        require_media_builder_admission(Path(__file__), ROOT)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     spec = json.loads(SPEC.read_text())
     if BUILD.exists():
         shutil.rmtree(BUILD)

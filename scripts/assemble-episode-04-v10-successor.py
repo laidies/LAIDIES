@@ -17,6 +17,8 @@ from pathlib import Path
 
 import imageio_ffmpeg
 
+from media_builder_admission import AdmissionError, require_media_builder_admission
+
 
 ROOT = Path(__file__).resolve().parents[1]
 FFMPEG = Path(imageio_ffmpeg.get_ffmpeg_exe())
@@ -341,4 +343,8 @@ def build() -> None:
 
 
 if __name__ == "__main__":
+    try:
+        require_media_builder_admission(Path(__file__), ROOT)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     build()

@@ -1,0 +1,47 @@
+{
+  "schema": "laidies.media-builder-admission-registry.v1",
+  "updated_at": "2026-08-02T00:00:00Z",
+  "policy": "Default deny. ADMITTED requires exact builder bytes, exact source bytes, an independently reviewed source-admission manifest, and a passed five-minute opening pilot.",
+  "builders": {
+    "scripts/build-trailer-v8-multicolour-successor.py": {
+      "status": "BLOCKED",
+      "product": "Trailer",
+      "reason": "The current wardrobe-candidate manifest is explicitly unadmitted and fails 117 source-admission checks."
+    },
+    "scripts/build-episode-01-full-v27-occurrence-repaired-review.py": {
+      "status": "BLOCKED",
+      "product": "Episode 01",
+      "reason": "Current visual occurrences include rejected illumination overlays and lack one complete exact source-admission manifest."
+    },
+    "scripts/assemble-episode-02-v20-repaired-review.py": {
+      "status": "FROZEN_INPUT",
+      "product": "Episode 02",
+      "reason": "The exact v20 tuple is held for independent human review and must not be rebuilt or altered."
+    },
+    "scripts/assemble-episode-03-v15-successor.py": {
+      "status": "FROZEN_INPUT",
+      "product": "Episode 03",
+      "reason": "The exact v15 tuple is held for independent human review and must not be rebuilt or altered."
+    },
+    "scripts/assemble-episode-04-v10-successor.py": {
+      "status": "FROZEN_INPUT",
+      "product": "Episode 04",
+      "reason": "The exact v10 tuple is held for independent human review and must not be rebuilt or altered."
+    },
+    "scripts/build-odc-101-review-animatic.py": {
+      "status": "BLOCKED",
+      "product": "ODC-101",
+      "reason": "Provisional timing voice and generic animatic are not admitted course narration or final teaching media."
+    },
+    "scripts/build-odc-201-review-animatic.py": {
+      "status": "BLOCKED",
+      "product": "ODC-201",
+      "reason": "Provisional timing voice and generic animatic are not admitted course narration or final teaching media."
+    },
+    "scripts/build-odc-lab-01-review-animatic.py": {
+      "status": "BLOCKED",
+      "product": "ODC-LAB-01",
+      "reason": "Provisional timing voice and generic animatic are not admitted course narration or final teaching media."
+    }
+  }
+}

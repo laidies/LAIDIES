@@ -13,6 +13,8 @@ from pathlib import Path
 import imageio_ffmpeg
 from PIL import Image
 
+from media_builder_admission import AdmissionError, require_media_builder_admission
+
 
 ROOT = Path(__file__).resolve().parents[1]
 FFMPEG = Path(imageio_ffmpeg.get_ffmpeg_exe())
@@ -115,6 +117,10 @@ def verify() -> dict[str, object]:
 
 
 def main() -> None:
+    try:
+        require_media_builder_admission(Path(__file__), ROOT)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     batch_records = verify_inputs()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     assemble(); make_contact(); checks = verify()

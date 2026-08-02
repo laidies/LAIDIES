@@ -20,6 +20,8 @@ from pathlib import Path
 import imageio_ffmpeg
 from PIL import Image, ImageOps
 
+from media_builder_admission import AdmissionError, require_media_builder_admission
+
 
 ROOT = Path(__file__).resolve().parents[1]
 FFMPEG = Path(imageio_ffmpeg.get_ffmpeg_exe())
@@ -115,11 +117,12 @@ def fitted(source: Path, key: str = "") -> Image.Image:
 
 
 def focus_variant(source: Path, output: Path, box: tuple[int, int, int, int], key: str = "") -> Path:
+    # REJECTED 2026-08-02 (Ali visual review): do not darken a frame and paste
+    # a bright rectangular crop over it. The visible box is not illumination;
+    # it is a compositing defect. Preserve the clean full-frame source until a
+    # deliberately masked animation is designed and admitted.
     original = fitted(source, key)
-    image = Image.blend(original, Image.new("RGB", original.size, (10, 5, 18)), 0.44)
-    x0, y0, x1, y1 = box
-    image.paste(original.crop(box), (x0, y0))
-    image.save(output, optimize=True)
+    original.save(output, optimize=True)
     return output
 
 
@@ -211,6 +214,10 @@ def verify() -> dict[str, object]:
 
 
 def main() -> None:
+    try:
+        require_media_builder_admission(Path(__file__), ROOT)
+    except AdmissionError as error:
+        raise SystemExit(str(error)) from error
     required = [MASTER, OPENING, ONRAMP, *SOURCES.values()]
     missing = [str(path.relative_to(ROOT)) for path in required if not path.exists()]
     if missing:
