@@ -11707,3 +11707,32 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The guest list can include someone who
   has not been cleared to enter; registration is not admission.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-332 — A universal media gate must include held production assets
+
+- **Date:** 2026-08-02
+- **Area:** Classes / universal site-video registry / launch admission.
+- **Failure:** Three complete opening-day class animatics passed their own
+  bounded technical gates but were absent from the universal site-video
+  registry because they were not yet referenced by a public class player.
+  The universal count therefore described only visitor-bound media, not every
+  video and animation being prepared for the site.
+- **Root cause:** The deterministic visitor-surface inventory and the
+  production-media registry were treated as if they had identical scope.
+  Storage-only review candidates were correctly excluded from the public
+  surface scan, but no separate registration step brought them under the
+  universal review contract.
+- **Prevention rule:** Register every production master as soon as it becomes
+  a reviewable exact artifact, even when its public binding remains null.
+  Record its real occurrence count, captions, checksums, incomplete review
+  dimensions and explicit HOLD boundary. Keep the public-surface inventory as
+  the independent proof of what visitors can actually encounter.
+- **Why the fix works:** ODC-101, ODC-201 and ODC-LAB-01 are now checksum-bound
+  to the same relevance, continuity, occlusion and motion-semantics contract
+  as episodes, while the class player still reports zero playable films.
+- **Machine check implemented:** `scripts/check-site-video-review.mjs`
+  verifies all three class masters and captions alongside the five
+  opening-day films and preserves zero admitted media.
+- **Possible Behind the Build angle:** A film should enter quality control
+  when it exists—not only after someone can stumble across it on the website.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
