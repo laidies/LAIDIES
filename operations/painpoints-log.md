@@ -11473,8 +11473,23 @@ _Original source ID: repository #36_
   exact 04:05–05:41 context, while the sitewide contract makes silent omission
   a named release-blocking failure instead of allowing another assembler to
   erase completed work.
+- **Machine check implemented:** The Episode 04 lineage manifest now binds all
+  13 review sequences from the repair inventory (12 active, one explicitly
+  superseded). The sitewide video checker runs the lineage validator and a
+  negative regression that removes recovered Ada from a simulated successor;
+  that omission must fail as `ORPHANED_SCENE` before the registry can validate.
 - **Possible Behind the Build angle:** The animation was not missing. The
   assembly line forgot it existed.
+## BTB-323 — Synthetic media borrows authority from the product around it
+
+- **Date:** 2026-08-01
+- **Area:** NewsStand / synthetic-media verification / product trust.
+- **Failure:** A generated aerial image could be accurately labeled as synthetic and still look more evidentiary because it was created inside Google Earth, a product readers associate with observed geography.
+- **Root cause:** Verification treated the pixels and watermark as the whole claim while overlooking the authority conveyed by the producing interface, location context and export path.
+- **Prevention rule:** For synthetic-media stories, inspect both the artifact and its product context. Ask whether the interface, map, document, search result or institutional surface lends the output authority it did not earn; preserve original share context, date/source metadata and provenance; require independent corroboration for consequential visual claims.
+- **Why the fix works:** It gives readers a durable check that survives changes in watermark technology and avoids the false choice between “obviously fake” and “authentic evidence.”
+- **Possible Behind the Build angle:** The costume-photo-booth-in-a-courthouse problem: why where an AI image appears can matter as much as what its pixels show.
+- **Publication status:** VERIFIED INTERNAL LEARNING — private NewsStand candidate; no public change.
 
 ## BTB-324 — File recovery is not current creative approval
 
@@ -11487,3 +11502,81 @@ _Original source ID: repository #36_
 - **Machine check implemented:** The recurring town-entry manifest and technical validator require Episode 01 to remain rejected, bind Episode 02 to its exact `122.77–129.09s` narration interval, and preserve independent-review HOLD before any master edit.
 - **Possible Behind the Build angle:** We found the missing scene—and then deliberately did not use it.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-325 — Episode and song identities need a single reconciliation gate
+
+- **Date:** 2026-08-01
+- **Area:** Opening-day portable media / KSVL metadata / Episode 04.
+- **Failure:** Episode 04’s KSVL registry binds `It Was Women All Along` by
+  The Priors, while the site episode catalogue identifies `The LIBRAiRY` by DJ
+  JAIDY as its weekly song. Both source files exist, so a package assembler
+  could plausibly distribute either one under the same episode without an
+  explicit correction decision.
+- **Root cause:** Episode identity and music identity are maintained in
+  separate registries without a checksum-bound cross-registry reconciliation
+  requirement before portable distribution.
+- **Prevention rule:** Every episode release package must carry separate
+  episode-title and weekly-song fields, compare all music references across
+  the episode catalogue, player and track registry, and fail closed on any
+  mismatch until an owner records the canonical mapping.
+- **Why the fix works:** The opening-day package now records both Episode 04
+  alternatives as `RECONCILIATION_REQUIRED`, and its local validator prevents
+  Episode 03’s `The Burn Book Problem` from being replaced by its song
+  `Don't Be Chutney on the Stand`.
+- **Possible Behind the Build angle:** A soundtrack may belong to an episode,
+  but it is not the episode title.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-326 — Re-verifying unchanged media can become the work instead of supporting it
+
+- **Date:** 2026-08-01
+- **Area:** Opening-day video repair / production throughput.
+- **Failure:** Five substantially complete titles consumed more than twenty
+  hours because individual defects became separate repair, evidence and review
+  cycles, while unchanged hashes were repeatedly checked. The internal record
+  grew much faster than the number of visitor-ready outputs.
+- **Root cause:** The workflow optimized for proving every intermediate step
+  independently instead of producing one authoritative defect list, one
+  batched successor and one consolidated quality pass per title.
+- **Prevention rule:** Use a WIP limit of one foreground title plus one
+  independent-review lane. Freeze one defect list, repair all known items in a
+  single batch, run one consolidated technical/semantic QC pass, and queue the
+  immutable successor for human sound-on review. Do not re-audit unchanged
+  hashes; timebox investigation to fifteen minutes before choosing the
+  simplest safe implementation or recording one exact blocker.
+- **Why the fix works:** Production continues while human review is pending,
+  evidence remains sufficient but bounded, and progress is measured in
+  playable, reviewable masters rather than the number of intermediate files.
+- **Possible Behind the Build angle:** The quality gate became a traffic jam.
+  We kept the gate and removed the queue inside the queue.
+- **Publication status:** VERIFIED INTERNAL LEARNING — process correction only.
+
+## BTB-327 — A repaired master can still look unfinished when downstream gates retain the old hash
+
+- **Date:** 2026-08-02
+- **Area:** Opening-day media / status reconciliation / production throughput.
+- **Failure:** Trailer and Episodes 01–04 had current checksum-bound successor
+  masters in the owner review inbox and playback package, while the universal
+  video registry and launch gate still named older v5/v26/v19/v14/v9 cuts and
+  instructed the team to repeat repairs that were already complete.
+- **Root cause:** Candidate identity advanced in the build and review records
+  without one required reconciliation step for every downstream gate that
+  controls scheduling and release readiness.
+- **Prevention rule:** After a successor passes consolidated technical and
+  visual review, run one deterministic reconciliation that copies its exact
+  film and caption identities into the universal registry and opening-day
+  gate, converts resolved defect queues into a single human-review HOLD, and
+  validates all dependent packages. Never schedule work from a gate whose
+  master hash differs from the owner-review or playback-binding hash.
+- **Why the fix works:** The launch checker now reports five current owner-watch
+  candidates and no rebuild queue, while the public player remains fail-closed.
+  Completed production cannot silently re-enter the repair pipeline merely
+  because a status file lagged behind it.
+- **Machine check implemented:**
+  `scripts/reconcile-opening-day-media-current-candidates.mjs` updates both
+  governing records from the checksum-bound playback package; the opening-day
+  media, playback, portable-media and responsive review-inbox verifiers all
+  pass against the same five candidates.
+- **Possible Behind the Build angle:** We fixed the films, but the checklist
+  kept sending them back to the edit bay.
+- **Publication status:** VERIFIED INTERNAL LEARNING — process correction only.

@@ -9,6 +9,8 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const gatePath = path.join(root, 'operations/launch/opening-day-media-gate-2026-07-31.json');
 const gate = JSON.parse(fs.readFileSync(gatePath, 'utf8'));
+const bindingPath = path.join(root, 'operations/video-qa/opening-day-playback-binding-v1/manifest.json');
+const binding = JSON.parse(fs.readFileSync(bindingPath, 'utf8'));
 const siteRegistryPath = path.join(root, gate.site_video_review_registry || '');
 const siteRegistry = fs.existsSync(siteRegistryPath)
   ? JSON.parse(fs.readFileSync(siteRegistryPath, 'utf8'))
@@ -62,6 +64,17 @@ for (const id of requiredIds) {
   }
 
   const siteProgramme = siteRegistry?.programmes?.find((item) => item.id === id);
+  const boundProgramme = binding?.programmes?.[id];
+  if (!boundProgramme) {
+    fail(`${id}: missing from the current opening-day playback binding.`);
+  } else {
+    if (programme.master?.path !== boundProgramme.film?.path || programme.master?.sha256 !== boundProgramme.film?.sha256) {
+      fail(`${id}: launch gate master is stale relative to the current playback binding.`);
+    }
+    if (programme.captions?.path !== boundProgramme.captions?.path || programme.captions?.sha256 !== boundProgramme.captions?.sha256) {
+      fail(`${id}: launch gate captions are stale relative to the current playback binding.`);
+    }
+  }
   if (!siteProgramme) {
     fail(`${id}: missing from the universal site video review registry.`);
   } else {

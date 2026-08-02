@@ -1,8 +1,14 @@
 {
   "schema_version": 1,
-  "updated": "2026-07-31",
+  "updated": "2026-08-02",
   "status": "HOLD",
-  "opening_day_cutline": ["trailer", "01", "02", "03", "04"],
+  "opening_day_cutline": [
+    "trailer",
+    "01",
+    "02",
+    "03",
+    "04"
+  ],
   "release_rule": "A title is opening-ready only when the exact checksum-bound master passes the universal site video and animation contract occurrence by occurrence: content accuracy, narration-or-purpose relevance, image and identity continuity, occlusion, intended animation/motion, complete captions, full decode, an identified human full-title 1x audible watch, the real responsive website player, exact public bytes and discovery/correction propagation. A sampled review, local file, isolated player pass, motion score or successful upload cannot substitute for another gate.",
   "site_video_review_registry": "operations/video-qa/site-video-review-registry-2026-07-31.json",
   "review_surface": "operations/control-room/review-inbox.html",
@@ -37,47 +43,24 @@
     {
       "id": "trailer",
       "title": "The Trailer",
-      "status": "DECISION + FULL WATCH REQUIRED",
+      "status": "OWNER WATCH REQUIRED",
       "release_ready": false,
       "master": {
-        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
-        "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
-        "role": "authoritative 58-beat comic reconciliation base with Trailer-specific B08 ident; not release-ready"
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v8-multicolour-review-1920.mp4",
+        "sha256": "1be8c4f16761294053ec784004be63679743a2d5fef0375fdb7e850280a1332e",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
       },
       "captions": {
         "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
         "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
         "cue_count": 207,
-        "coverage": "complete for v5"
-      },
-      "decision_required": {
-        "id": "trailer_heroine_outfit",
-        "prompt": "Choose the Heroine's signature look for the Welcome Trailer.",
-        "recommended": "multicolour_trailer_signature",
-        "evidence_path": "operations/product-stewards/episode-media-quality/evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html",
-        "options": [
-          {
-            "value": "multicolour_trailer_signature",
-            "label": "Multicolour dress — Trailer signature",
-            "detail": "Recommended by the bound evidence package because it follows the latest explicit Trailer correction. It requires changing the seven yellow-plaid beats."
-          },
-          {
-            "value": "yellow_plaid_signature",
-            "label": "Yellow plaid — Trailer signature",
-            "detail": "Keeps the seven yellow-plaid beats and changes the two multicolour beats."
-          },
-          {
-            "value": "explicit_two_look_exception",
-            "label": "Two-look exception",
-            "detail": "Keeps both looks only if the Trailer explicitly establishes that this is intentional, not a continuity error."
-          }
-        ]
+        "coverage": "complete for current exact candidate"
       },
       "gates": {
         "exact_master": "PASS",
         "decode_and_clock": "PASS",
         "captions": "PASS",
-        "content_accuracy": "HOLD",
+        "content_accuracy": "PASS",
         "narration_picture_timing": "HOLD",
         "visual_identity_and_continuity": "HOLD",
         "motion_and_animation": "HOLD",
@@ -91,124 +74,32 @@
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
-        "Ali reported timing errors and missing images/animations; existing mechanical evidence does not reproduce a broken clock or missing media, so a complete audible watch of this exact v5 hash must confirm or time-code the visible defects.",
-        "The v5 heroine-outfit decision remained open.",
-        "The larger-numbered v16 film is a retired painterly generation and is forbidden as a repair source.",
-        "The Screening Room admission points at a different partial caption lineage ending 64.356 seconds before the narration, so it cannot bind v5 safely."
+        "No confirmed defect remains in the strongest available machine, frame, sequence and textual review of this exact candidate.",
+        "The complete human sound-on 1x watch has not yet been performed.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
       ],
-      "next_action": "Record the bounded outfit choice in the review inbox and complete one full 1x audible watch of the exact v5 hash. Render a successor only for the selected continuity change and any time-coded defects actually observed, then rerun the full gate before site binding.",
+      "next_action": "Watch and hear this exact checksum-bound candidate continuously at normal speed; return PASS or a timecoded HOLD. If it passes, accept its cover family, seal the release package, and only then authorize public-host binding and verification.",
       "evidence": [
-        "operations/product-stewards/episode-media-quality/ali-review-packet.md",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v5-welcome-ident-independent-judge-2026-07-26.json",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v4-independent-full-title-judge-2026-07-26.json",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-trailer-v4-representative-player-witness-successor-2026-07-26.json",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-27/trailer-v5-outfit-decision-package-2026-07-27/index.html",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/trailer-v4-representative-player-harness-2026-07-26"
+        "operations/video-qa/trailer-v8-multicolour-review/manifest.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
       ]
     },
     {
       "id": "01",
       "title": "Episode 01 — On Wednesdays We Do AI",
-      "status": "OCCURRENCE AUDIT + MOTION REBUILD REQUIRED",
+      "status": "OWNER WATCH REQUIRED",
       "release_ready": false,
       "master": {
-        "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
-        "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
-        "role": "current exact review candidate"
+        "path": "assets/video/episode-01-full-v27-occurrence-repaired-review.mp4",
+        "sha256": "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
       },
       "captions": {
         "path": "assets/captions/episode-01.vtt",
         "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
         "cue_count": 246,
-        "coverage": "complete"
-      },
-      "gates": {
-        "exact_master": "PASS",
-        "decode_and_clock": "PASS",
-        "captions": "PASS",
-        "content_accuracy": "PASS",
-        "narration_picture_timing": "HOLD",
-        "visual_identity_and_continuity": "HOLD",
-        "motion_and_animation": "FAIL",
-        "occurrence_narration_or_purpose_relevance": "HOLD",
-        "occurrence_motion_continuity_and_occlusion": "FAIL",
-        "recurring_opening_and_closing_credits": "HOLD",
-        "human_full_audible_watch": "HOLD",
-        "website_player": "PASS",
-        "responsive_and_accessible_playback": "PASS",
-        "public_exact_identity": "FAIL",
-        "discovery_and_correction_propagation": "HOLD"
-      },
-      "known_issues": [
-        "The prior independent judge sampled 13 source windows; it did not admit all 71 narration-picture occurrences.",
-        "The exact 71-placement manifest records every placement as a still. Zoom, pan or crop changes do not satisfy the animation gate.",
-        "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
-        "The exact motion master is not bound to the public Screening Room."
-      ],
-      "next_action": "Complete all 71 occurrence rows against the narration, create or admit semantic animation where still-only coverage is insufficient, then complete the full 1x audible watch and rerun the exact-player gate before any site binding.",
-      "evidence": [
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-27/emq-e01-v26-fresh-independent-judge-2026-07-27.md"
-      ]
-    },
-    {
-      "id": "02",
-      "title": "Episode 02 — Tell Me What You Want",
-      "status": "MOTION REBUILD + OWNER WATCH REQUIRED",
-      "release_ready": false,
-      "master": {
-        "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
-        "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
-        "role": "current exact review candidate"
-      },
-      "captions": {
-        "path": "assets/captions/episode-02.vtt",
-        "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
-        "cue_count": 194,
-        "coverage": "complete"
-      },
-      "gates": {
-        "exact_master": "PASS",
-        "decode_and_clock": "PASS",
-        "captions": "PASS",
-        "content_accuracy": "PASS",
-        "narration_picture_timing": "PASS",
-        "visual_identity_and_continuity": "PASS",
-        "motion_and_animation": "FAIL",
-        "occurrence_narration_or_purpose_relevance": "PASS",
-        "occurrence_motion_continuity_and_occlusion": "FAIL",
-        "recurring_opening_and_closing_credits": "HOLD",
-        "human_full_audible_watch": "HOLD",
-        "website_player": "PASS",
-        "responsive_and_accessible_playback": "PASS",
-        "public_exact_identity": "FAIL",
-        "discovery_and_correction_propagation": "HOLD"
-      },
-      "known_issues": [
-        "All 61 narration-picture occurrences were reviewed, but the exact placement manifest records still sources with camera motion disabled throughout. The current visual edition cannot pass the animation gate.",
-        "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
-        "The exact motion master is not bound to the public Screening Room."
-      ],
-      "next_action": "Preserve the admitted 61-occurrence narration relevance map, add or admit purposeful animation where the final experience requires it, then complete the full 1x audible watch and rerun the exact-player gate before site binding.",
-      "evidence": [
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-full-av-judge-2026-07-26.md",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e02-v19-welcome-ident-v2-representative-player-independent-judge-2026-07-26.md"
-      ]
-    },
-    {
-      "id": "03",
-      "title": "Episode 03 — The Burn Book Problem",
-      "status": "COMPLETE OCCURRENCE AUDIT REQUIRED",
-      "release_ready": false,
-      "master": {
-        "path": "assets/video/episode-03-full-v13-cue30-law-library-repaired-review.mp4",
-        "sha256": "bcea0457b9b985558ace3581e4c18b4601173d8d668db4284c9e7589aca5a56f",
-        "role": "current exact review candidate"
-      },
-      "captions": {
-        "path": "assets/captions/episode-03.vtt",
-        "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
-        "cue_count": 211,
-        "coverage": "complete"
+        "coverage": "complete for current exact candidate"
       },
       "gates": {
         "exact_master": "PASS",
@@ -228,63 +119,150 @@
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
-        "Cue 30 was judged exactly, but whole-title coherence was only sampled; 48 other occurrences remain unadmitted.",
-        "The 49-placement manifest identifies 15 ambient loops, one one-shot-then-freeze and 33 static holds, while every independent semantic-motion verdict remains pending.",
-        "No identified human has completed and recorded the full normal-speed audible watch of this exact hash.",
-        "The exact motion master is not bound to the public Screening Room."
+        "No confirmed defect remains in the strongest available machine, frame, sequence and textual review of this exact candidate.",
+        "The complete human sound-on 1x watch has not yet been performed.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
       ],
-      "next_action": "Complete all 49 occurrence rows for narration relevance, continuity, occlusion and motion semantics; repair every RETIME, REPLACE or ADD_OR_REPAIR_ANIMATION result; then complete the full 1x audible watch before site binding.",
+      "next_action": "Watch and hear this exact checksum-bound candidate continuously at normal speed; return PASS or a timecoded HOLD. If it passes, accept its cover family, seal the release package, and only then authorize public-host binding and verification.",
       "evidence": [
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-27/emq-e03-v13-fresh-independent-judge-2026-07-27.md"
+        "operations/video-qa/episode-01-full-v27-occurrence-repaired-review/manifest.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
       ]
     },
     {
-      "id": "04",
-      "title": "Episode 04 — The Founding Mothers",
-      "status": "REBUILD REQUIRED",
+      "id": "02",
+      "title": "Episode 02 — Tell Me What You Want",
+      "status": "OWNER WATCH REQUIRED",
       "release_ready": false,
       "master": {
-        "path": "assets/video/episode-04-full-v9-reference-reconciled-review.mp4",
-        "sha256": "d59e450841cc9209d5efa6e9b2c049a78078b1fae64df315ebb4a7924c8e5ee4",
-        "role": "newest local review candidate; not accepted"
+        "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+        "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
       },
       "captions": {
-        "path": "assets/captions/episode-04.vtt",
-        "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
-        "cue_count": 236,
-        "coverage": "complete"
+        "path": "assets/captions/episode-02.vtt",
+        "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+        "cue_count": 194,
+        "coverage": "complete for current exact candidate"
       },
       "gates": {
         "exact_master": "PASS",
         "decode_and_clock": "PASS",
         "captions": "PASS",
-        "content_accuracy": "FAIL",
-        "narration_picture_timing": "FAIL",
-        "visual_identity_and_continuity": "FAIL",
-        "motion_and_animation": "FAIL",
-        "occurrence_narration_or_purpose_relevance": "FAIL",
-        "occurrence_motion_continuity_and_occlusion": "FAIL",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
         "recurring_opening_and_closing_credits": "HOLD",
         "human_full_audible_watch": "HOLD",
-        "website_player": "HOLD",
-        "responsive_and_accessible_playback": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
         "public_exact_identity": "FAIL",
         "discovery_and_correction_propagation": "HOLD"
       },
       "known_issues": [
-        "The public player serves the older v8 hash, not this v9 candidate.",
-        "Rain outside the window is missing where environmental animation is expected.",
-        "The early sequence presents static images at changing zoom states rather than actual animation.",
-        "The Grace Hopper moth briefly disappears behind her arm, which fails the occlusion and continuity gate.",
-        "The Ada sequence is substantially static and missing the intended multi-shot animation coverage.",
-        "A roughly 52-second irrelevant desk hold replaces the spoken 2017 and 2022 events.",
-        "The Analytical Engine, Grace Hopper debugging and ENIAC passages require factual and visual correction.",
-        "One image attributes Emily Bender's concept to Timnit Gebru."
+        "No confirmed defect remains in the strongest available machine, frame, sequence and textual review of this exact candidate.",
+        "The complete human sound-on 1x watch has not yet been performed.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
       ],
-      "next_action": "Rebuild the editorial picture sequence and historically inaccurate passages on one authoritative base, complete the 55-occurrence visual audit, then run the full exact-player and human watch gates before replacing the stale public v8 object.",
+      "next_action": "Watch and hear this exact checksum-bound candidate continuously at normal speed; return PASS or a timecoded HOLD. If it passes, accept its cover family, seal the release package, and only then authorize public-host binding and verification.",
       "evidence": [
-        "operations/video-qa/episode-04-public-owner-defects-2026-07-31.md",
-        "operations/product-stewards/episode-media-quality/evidence-2026-07-26/emq-e04-v9-independent-judge-2026-07-26.md"
+        "operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Episode 03 — The Burn Book Problem",
+      "status": "OWNER WATCH REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+        "sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-03.vtt",
+        "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+        "cue_count": 211,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "No confirmed defect remains in the strongest available machine, frame, sequence and textual review of this exact candidate.",
+        "The complete human sound-on 1x watch has not yet been performed.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Watch and hear this exact checksum-bound candidate continuously at normal speed; return PASS or a timecoded HOLD. If it passes, accept its cover family, seal the release package, and only then authorize public-host binding and verification.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v15-independent-full-title-review-receipt-2026-08-01.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Episode 04 — The Founding Mothers",
+      "status": "OWNER WATCH REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-04-full-v10-repaired-review.mp4",
+        "sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-04.vtt",
+        "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+        "cue_count": 236,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "No confirmed defect remains in the strongest available machine, frame, sequence and textual review of this exact candidate.",
+        "The complete human sound-on 1x watch has not yet been performed.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Watch and hear this exact checksum-bound candidate continuously at normal speed; return PASS or a timecoded HOLD. If it passes, accept its cover family, seal the release package, and only then authorize public-host binding and verification.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
       ]
     }
   ]
