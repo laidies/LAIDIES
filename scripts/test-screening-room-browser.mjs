@@ -95,6 +95,15 @@ async function open(programme = "01", options = {}) {
     }, options.progress);
   }
   const page = await context.newPage();
+  if (options.admissionOverride) {
+    await page.route("**/content/episodes/screening-room-admission.json", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(options.admissionOverride)
+      })
+    );
+  }
   for (const pattern of options.abort || []) await page.route(pattern, (route) => route.abort());
   if (options.rejectPlay) {
     await page.addInitScript(() => {
@@ -153,6 +162,39 @@ try {
   assert.ok(await commute.page.locator("#tape").evaluate((audio) => Math.abs(audio.currentTime - 40) < 0.5));
   await commute.context.close();
 
+  const admissionFixture = JSON.parse(
+    fs.readFileSync(path.join(root, "content/episodes/screening-room-admission.json"), "utf8")
+  );
+  const admittedEpisode = admissionFixture.programmes["01"];
+  admittedEpisode.admissionStatus = "admitted";
+  admittedEpisode.holds = [];
+  admittedEpisode.filmPublicUrl = `${base}/assets/video/episode-01-full-v27-occurrence-repaired-review.mp4`;
+  admittedEpisode.filmSha256 = "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a";
+  admittedEpisode.filmDurationSeconds = 1172.22;
+  admittedEpisode.posterPublicUrl = `${base}/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp`;
+  admittedEpisode.posterSha256 = "6b28f5a78ad2ec0ef0256899ee49ae444fda2104531d52832baf289077d2d4a1";
+  admittedEpisode.occurrences = Array.from(
+    { length: admittedEpisode.expectedOccurrenceCount },
+    (_, index) => ({ fixtureOccurrence: index + 1 })
+  );
+
+  const admitted = await open("01", { admissionOverride: admissionFixture, mediaSession: true });
+  await admitted.page.locator(".film-player").waitFor();
+  assert.equal(
+    await admitted.page.locator(".film-player").getAttribute("src"),
+    admittedEpisode.filmPublicUrl,
+    "admitted film did not bind from its admission record"
+  );
+  assert.equal(await admitted.page.locator(".scene.is-live").count(), 0, "admitted film fell through to cue stills");
+  assert.match(await admitted.page.locator("#scrNote").textContent(), /complete illustrated film/i);
+  await admitted.page.waitForFunction(() => window.__mediaSessionProbe?.metadata?.artwork?.[0]?.src);
+  assert.equal(
+    (await admitted.page.evaluate(() => window.__mediaSessionProbe.metadata.artwork[0].src)),
+    admittedEpisode.posterPublicUrl,
+    "admitted poster did not reach Media Session metadata"
+  );
+  await admitted.context.close();
+
   const returning = await open("02", {
     progress: { version: 1, programme: "02", time: 321.4 }
   });
@@ -203,6 +245,7 @@ try {
   console.log("failure_modes=cues,captions,audio,visual,playback");
   console.log("trailer_caption_tail=complete_and_visible");
   console.log("media_session=metadata,play,pause,seekbackward,seekforward,seekto");
+  console.log("admission_binding=held_unbound,admitted_film_and_poster_bound");
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));

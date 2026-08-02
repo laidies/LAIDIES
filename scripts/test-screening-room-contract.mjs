@@ -14,10 +14,11 @@ const warnings = [];
 const failures = [];
 const sha256 = (file) => crypto.createHash("sha256").update(fs.readFileSync(path.join(root, file))).digest("hex");
 const admission = JSON.parse(read("content/episodes/screening-room-admission.json"));
+const admissionSchema = JSON.parse(read("content/episodes/screening-room-admission.schema.json"));
 const derived = JSON.parse(read("content/episodes/screening-room-derived-editions.json"));
 const isArtifact = exists("build-report.json");
 
-assert.match(page, /var EPISODE_FILMS = \{\}/);
+assert.doesNotMatch(page, /var EPISODE_FILMS/);
 assert.match(page, /Motion-film editions are not approved for the public Screening Room/);
 assert.match(page, /A motion-film edition is not approved for public screening/);
 assert.doesNotMatch(page, /final motion films are completing their continuity check/i);
@@ -47,7 +48,13 @@ assert.doesNotMatch(page, /Episode watch/);
 assert.match(page, /Listen-along start/);
 assert.match(page, /cover-only audio edition/i);
 assert.match(page, /screening-room-admission\.json/);
-assert.match(page, /admission\.admissionStatus === 'release'/);
+assert.match(page, /admission\.admissionStatus === 'admitted'/);
+assert.match(page, /admission\.filmPublicUrl/);
+assert.match(page, /admission\.posterPublicUrl/);
+assert.match(page, /admission\.holds\.length === 0/);
+assert.match(page, /admission\.captionCoverage === 'complete'/);
+assert.match(page, /isAdmissionSha\(admission\.filmSha256\)/);
+assert.match(page, /isAdmittedMediaUrl\(admission\.filmPublicUrl\)/);
 assert.match(page, /admission\.occurrences\.length === admission\.expectedOccurrenceCount/);
 assert.match(page, /HELD_VISUAL_COVERS/);
 assert.match(page, /function configureMediaSession\(media, programme\)/);
@@ -59,6 +66,12 @@ assert.match(page, /action\('seekto'/);
 assert.match(page, /configureMediaSession\(tape, __ep\)/);
 assert.match(page, /configureMediaSession\(v, ep\)/);
 assert.equal(admission.schemaVersion, 1);
+const admittedRule = admissionSchema.$defs.programme.allOf[0].then;
+assert.deepEqual(admittedRule.properties.holds, { maxItems: 0 });
+assert.deepEqual(admittedRule.properties.captionCoverage, { const: "complete" });
+assert.deepEqual(admittedRule.required, [
+  "filmPublicUrl", "filmSha256", "filmDurationSeconds", "posterPublicUrl", "posterSha256"
+]);
 assert.equal(derived.schemaVersion, 1);
 
 const published = index.episodes.filter((episode) => episode.status === "published");
@@ -87,7 +100,7 @@ for (const id of ids) {
   for (const [position, cue] of sheet.cues.entries()) {
     assert.ok(Number.isFinite(cue.t) && cue.t >= prior, `${id}: cue ${position} is out of order`);
     prior = cue.t;
-    if (record.admissionStatus === "release" && cue.src) {
+    if (record.admissionStatus === "admitted" && cue.src) {
       assert.ok(exists(cue.src), `${id}: missing released cue asset ${cue.src}`);
     }
   }

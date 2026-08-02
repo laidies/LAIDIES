@@ -48,6 +48,11 @@
       ],
       "properties": {
         "admissionStatus": { "enum": ["hold", "admitted"] },
+        "filmPublicUrl": { "type": "string", "pattern": "^https://" },
+        "filmSha256": { "pattern": "^[a-f0-9]{64}$" },
+        "filmDurationSeconds": { "type": "number", "exclusiveMinimum": 0 },
+        "posterPublicUrl": { "type": "string", "pattern": "^https://" },
+        "posterSha256": { "pattern": "^[a-f0-9]{64}$" },
         "cueSheet": { "type": "string" },
         "cueSheetSha256": { "pattern": "^[a-f0-9]{64}$" },
         "audio": { "type": "string" },
@@ -62,9 +67,24 @@
           "type": "array",
           "items": { "$ref": "#/$defs/occurrence" }
         },
-        "holds": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        "holds": { "type": "array", "items": { "type": "string" } }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "admissionStatus": { "const": "admitted" } } },
+          "then": {
+            "required": [
+              "filmPublicUrl", "filmSha256", "filmDurationSeconds",
+              "posterPublicUrl", "posterSha256"
+            ],
+            "properties": {
+              "captionCoverage": { "const": "complete" },
+              "holds": { "maxItems": 0 }
+            }
+          }
+        }
+      ]
     },
     "occurrence": {
       "type": "object",

@@ -312,11 +312,9 @@
     var startOver = document.getElementById('startOver');
     var playerFailed = false;
 
-    // Public playback stays on the cue-synced illustrated listen-along until
-    // the large motion masters pass owner continuity review and move to a
-    // dependable streaming host. Review files on the studio drive are not
-    // public release URLs.
-    var EPISODE_FILMS = {};
+    // Film URLs come only from the checksum-bound admission registry after a
+    // complete occurrence set is admitted. Review files on the studio drive
+    // are never embedded as public release URLs.
     // Read-along captions. Timed against the narration audio, which runs the same
     // length as the film (20:22.40 for Ep4), so the VTT drops on with no offset.
     // Ep1/Ep2 captions are forced-aligned to those episodes' own narration audio
@@ -343,7 +341,19 @@
       '04': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp'
     };
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
-    function filmFor(ep) { return EPISODE_FILMS[episodeKey(ep)] || null; }
+    function filmFor(admission) {
+      return admission && admission.admissionStatus === 'admitted'
+        ? admission.filmPublicUrl || null
+        : null;
+    }
+    function isAdmissionSha(value) { return /^[a-f0-9]{64}$/.test(String(value || '')); }
+    function isAdmittedMediaUrl(value) {
+      try {
+        var url = new URL(value, location.origin);
+        return url.protocol === 'https:'
+          || ((location.hostname === 'localhost' || location.hostname === '127.0.0.1') && url.origin === location.origin);
+      } catch (error) { return false; }
+    }
     function captionsFor(ep) { return EPISODE_CAPTIONS[episodeKey(ep)] || null; }
     function configureMediaSession(media, programme) {
       if (!media || !('mediaSession' in navigator) || !('MediaMetadata' in window)) return;
@@ -885,7 +895,15 @@
           ? payloads[1].programmes[episodeKey(ep)]
           : null;
         var visualsReleased = admission
-          && admission.admissionStatus === 'release'
+          && admission.admissionStatus === 'admitted'
+          && admission.captionCoverage === 'complete'
+          && Array.isArray(admission.holds)
+          && admission.holds.length === 0
+          && isAdmittedMediaUrl(admission.filmPublicUrl)
+          && isAdmissionSha(admission.filmSha256)
+          && Number(admission.filmDurationSeconds) > 0
+          && isAdmittedMediaUrl(admission.posterPublicUrl)
+          && isAdmissionSha(admission.posterSha256)
           && Array.isArray(admission.occurrences)
           && admission.occurrences.length === admission.expectedOccurrenceCount;
         if (!visualsReleased) {
@@ -917,6 +935,9 @@
           screeningMeta.textContent = 'Cover-only audio edition · static cover · read-along captions';
           screeningIntro.textContent = 'The narration and read-along captions play while one static episode cover remains on screen.';
           scrNote.textContent = 'This is a held cover-only audio edition. It is not an illustrated motion film or a narration-specific visual sequence.';
+        } else if (visualsReleased) {
+          if (admission.posterPublicUrl) HELD_VISUAL_COVERS[episodeKey(ep)] = admission.posterPublicUrl;
+          scrNote.textContent = 'Watch the complete illustrated film, or use the player controls to listen on the go.';
         }
 
         // build the broadcast: title bumper -> narration -> end bumper
@@ -962,7 +983,7 @@
         });
 
         var __ep = (typeof epNum !== 'undefined' ? epNum : (new URLSearchParams(location.search).get('ep') || '01'));
-        var __film = filmFor(__ep);
+        var __film = visualsReleased ? filmFor(admission) : null;
 
         if (__film && mountFilm(__film, __ep)) { return; }
 

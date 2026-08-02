@@ -136,8 +136,13 @@ def main() -> None:
         errors.append("package index is not BUILT LOCALLY / HOLD")
     if any(package_index.get("authority", {}).values()):
         errors.append("package index grants authority")
-    if not re.search(r"var\s+EPISODE_FILMS\s*=\s*\{\s*\}\s*;", WATCH.read_text()):
-        errors.append("public watch registry is not empty")
+    watch_source = WATCH.read_text()
+    if re.search(r"var\s+EPISODE_FILMS", watch_source):
+        errors.append("public watch page still has a manual film registry")
+    if "admission.admissionStatus === 'admitted'" not in watch_source or "admission.filmPublicUrl" not in watch_source:
+        errors.append("public watch page is not bound to the admitted film contract")
+    if "admission.holds.length === 0" not in watch_source or "isAdmissionSha(admission.filmSha256)" not in watch_source:
+        errors.append("public watch page does not fail closed on holds and film identity")
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_root = Path(temp_dir)
@@ -153,6 +158,8 @@ def main() -> None:
                 errors.append(f"{programme}: a destination is not fail-closed")
             if admission["programmes"][programme]["admissionStatus"] != "hold":
                 errors.append(f"{programme}: screening-room admission is not hold")
+            if admission["programmes"][programme].get("filmPublicUrl"):
+                errors.append(f"{programme}: held screening-room admission exposes a film URL")
             if binding["programmes"][programme]["readyForBinding"] is not False:
                 errors.append(f"{programme}: playback binding is marked ready")
 
@@ -199,7 +206,8 @@ def main() -> None:
     print("- exact film audio packet payload preserved in each M4A master")
     print("- captions, searchable transcripts and four cover derivatives sealed")
     print("- 20 destination entries HOLD / 0 delivered / 0 public")
-    print("- public film registry empty and Screening Room admissions held")
+    print("- no manual public film registry; Screening Room consumes only admitted URLs")
+    print("- all 5 current admissions remain held with no film URL")
 
 
 if __name__ == "__main__":
