@@ -171,8 +171,8 @@ try {
   admittedEpisode.filmPublicUrl = `${base}/assets/video/episode-01-full-v27-occurrence-repaired-review.mp4`;
   admittedEpisode.filmSha256 = "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a";
   admittedEpisode.filmDurationSeconds = 1172.22;
-  admittedEpisode.posterPublicUrl = `${base}/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp`;
-  admittedEpisode.posterSha256 = "6b28f5a78ad2ec0ef0256899ee49ae444fda2104531d52832baf289077d2d4a1";
+  admittedEpisode.posterPublicUrl = `${base}/assets/media/opening-day-covers-v1/01/01-site.jpg`;
+  admittedEpisode.posterSha256 = "4336aa009cbc031ffba0583f7eb44200e2dc447fc162867d0104f584e545cff6";
   admittedEpisode.occurrences = Array.from(
     { length: admittedEpisode.expectedOccurrenceCount },
     (_, index) => ({ fixtureOccurrence: index + 1 })
@@ -184,6 +184,11 @@ try {
     await admitted.page.locator(".film-player").getAttribute("src"),
     admittedEpisode.filmPublicUrl,
     "admitted film did not bind from its admission record"
+  );
+  assert.equal(
+    await admitted.page.locator(".film-player").getAttribute("poster"),
+    admittedEpisode.posterPublicUrl,
+    "admitted poster did not bind to the visible film player"
   );
   assert.equal(await admitted.page.locator(".scene.is-live").count(), 0, "admitted film fell through to cue stills");
   assert.match(await admitted.page.locator("#scrNote").textContent(), /complete illustrated film/i);

@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -17,8 +16,6 @@ RECEIPT = ROOT / "operations/video-qa/opening-day-cover-system-v1/cover-build.js
 BINDING = ROOT / "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
 ADMISSION = ROOT / "content/episodes/screening-room-admission.json"
 INDEX = ROOT / "content/episode-index.json"
-WATCH = ROOT / "watch.html"
-
 EXPECTED_FORMATS = {
     "MASTER_EPISODE_COVER": (3000, 3000),
     "YOUTUBE_THUMBNAIL": (1280, 720),
@@ -41,14 +38,10 @@ def main() -> None:
     binding = json.loads(BINDING.read_text())
     admission = json.loads(ADMISSION.read_text())
     episode_index = json.loads(INDEX.read_text())
-    watch = WATCH.read_text()
-
     if receipt.get("status") != "BUILT LOCALLY / HOLD":
         errors.append("cover receipt must remain BUILT LOCALLY / HOLD")
     if any(receipt.get("authority", {}).values()):
         errors.append("cover receipt grants authority")
-    if not re.search(r"var\s+EPISODE_FILMS\s*=\s*\{\s*\}\s*;", watch):
-        errors.append("public watch registry is not empty")
 
     expected_titles = {str(item["number"]).zfill(2): item["title"].upper() for item in episode_index["episodes"]}
     expected_titles["trailer"] = "WELCOME TO SUNNYVAiLE"

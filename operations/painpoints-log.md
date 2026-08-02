@@ -11654,3 +11654,28 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** The form was hidden in the HTML. CSS
   brought it back from the dead.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-330 — Media metadata artwork is not the visible video poster
+
+- **Date:** 2026-08-02
+- **Area:** Screening Room / opening-day playback / episode cover identity.
+- **Failure:** The admitted episode cover was supplied to Media Session
+  metadata but not to the actual HTML video element. Before playback, visitors
+  could therefore see a black or arbitrary first frame even though the browser
+  and operating-system media controls knew the correct cover.
+- **Root cause:** Media Session artwork and the visible player poster were
+  treated as one presentation surface, and the browser test asserted only the
+  metadata path.
+- **Prevention rule:** Every admitted video must bind the same checksum-bound
+  cover URL to both `video.poster` and Media Session artwork. Browser tests
+  must assert the visible player attribute as well as the metadata record, and
+  fixtures must use the current held/admitted cover family rather than retired
+  fallback art.
+- **Why the fix works:** The player now presents the exact programme cover
+  before playback without weakening the existing fail-closed admission gate.
+- **Machine check implemented:**
+  `scripts/test-screening-room-browser.mjs` verifies held media stays unbound
+  and an admitted film and poster bind together at 320px, 390px and 1280px.
+- **Possible Behind the Build angle:** The cover was on the lock screen but
+  missing from the screen people were actually watching.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.

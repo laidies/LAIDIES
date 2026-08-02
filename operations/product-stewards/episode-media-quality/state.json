@@ -1,16 +1,38 @@
 {
   "schema_version": 1,
   "product_id": "episode-media-quality",
-  "updated": "2026-07-31",
+  "updated": "2026-08-02",
   "status": "RUNNING",
   "active_objective": "Operate one occurrence-level video and animation admission gate for every visitor surface, starting with the Trailer and opening-day Episodes 01-04.",
-  "current_stage": "EPISODE_04_V9_OCCURRENCE_AUDIT_COMPLETE_REPAIR_QUEUE_ACTIVE_CREDITS_DEPENDENCY_HOLD",
+  "current_stage": "OPENING_DAY_5_OF_5_SUCCESSOR_MASTERS_BUILT_PLAYER_AND_COVERS_VERIFIED_HUMAN_REVIEW_HOLD",
   "authoritative_trailer_base": {
-    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v5-welcome-ident-review-1920.mp4",
-    "sha256": "e8bbc8e4289880a92f50bf3a10586f1512fd0cc92fc08d1b85f2694527171222",
-    "lineage": "58-beat comic v4 master with the canonical Trailer-specific B08 welcome ident inserted as v5",
+    "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v8-multicolour-review-1920.mp4",
+    "sha256": "1be8c4f16761294053ec784004be63679743a2d5fef0375fdb7e850280a1332e",
+    "lineage": "58-beat all-comic successor with the canonical Trailer welcome ident and multicolour corrections",
     "beat_map": "assets/episodes/trailer/comic/delivery/canonical-named-map/trailer-v4-exact-58-beat-map.json",
     "captions": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt"
+  },
+  "current_candidates": {
+    "trailer": {
+      "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v8-multicolour-review-1920.mp4",
+      "sha256": "1be8c4f16761294053ec784004be63679743a2d5fef0375fdb7e850280a1332e"
+    },
+    "01": {
+      "path": "assets/video/episode-01-full-v27-occurrence-repaired-review.mp4",
+      "sha256": "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a"
+    },
+    "02": {
+      "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+      "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc"
+    },
+    "03": {
+      "path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+      "sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75"
+    },
+    "04": {
+      "path": "assets/video/episode-04-full-v10-repaired-review.mp4",
+      "sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb"
+    }
   },
   "superseded_do_not_use": [
     {
@@ -26,23 +48,22 @@
     "lineage_and_exact_master": "PASS",
     "decode_and_clock": "PASS",
     "captions": "PASS",
-    "content_accuracy": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
-    "narration_picture_timing": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
-    "visual_identity_and_continuity": "HOLD_PENDING_OUTFIT_DECISION_AND_FULL_TITLE_RECONCILIATION",
-    "motion_and_animation": "HOLD_PENDING_FULL_TITLE_RECONCILIATION",
+    "content_accuracy": "PASS_MACHINE_AND_INDEPENDENT_VISUAL_REVIEW",
+    "narration_picture_timing": "PASS_MACHINE_AND_INDEPENDENT_VISUAL_REVIEW",
+    "visual_identity_and_continuity": "PASS_MACHINE_AND_INDEPENDENT_VISUAL_REVIEW",
+    "motion_and_animation": "PASS_MACHINE_AND_INDEPENDENT_VISUAL_REVIEW",
+    "cover_family": "BUILT_LOCALLY_HOLD_PENDING_ALI_VISUAL_ACCEPTANCE",
+    "website_player": "PASS_FAIL_CLOSED_ADMISSION_FILM_POSTER_CAPTIONS_AND_MEDIA_SESSION",
     "recurring_opening_and_closing_credits": "HOLD_PENDING_CHARACTER_BUILDING_AND_VISUAL_SYSTEM_CANON",
     "human_full_audible_watch": "HOLD",
     "public_exact_identity": "FAIL_NOT_RELEASED"
   },
   "next_actions": [
-    "Apply operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md to every episode, class, demonstration, explainer, music video, promo, ident, silent instructional animation and ambient loop before site binding.",
-    "Keep existing opening/closing credit videos reference-only; after the character, building/location and visual-system checksum allowlists are final, execute operations/product-stewards/episode-media-quality/EPISODE-OPENING-AND-CLOSING-CREDITS-CONTRACT-2026-07-31.md.",
-    "Run independent normal-speed review of the exact-audio Episode 04 rain and Grace Hopper moth context clips; do not admit from contact strips or pixel-change metrics.",
-    "Build narration-specific replacements for Episode 04 p14, p16, p17, p19, p20, p43, p46, p50 and p51 and shot-variety repairs for p22, p23, p25, p27, p37 and p38.",
-    "Assemble an Episode 04 successor full master only after every component repair has its own independent PASS; preserve the v9 source identity and exact supersession manifest.",
-    "Apply the shared SUNNYVAiLE town-entry cue only to narration-compatible transformation sources: rebuild Episodes 01-02, independently review Episode 03, and replace Episode 04 p14 before any cue binding.",
-    "Complete the occurrence-level narration-or-purpose, continuity, occlusion and motion-semantics rows before each identified full 1x audible watch.",
-    "Run decode, captions, real desktop/mobile player and full 1x audible human-watch gates before release consideration."
+    "Ali or another qualified independent human watches and hears each exact current candidate start-to-finish at normal speed and returns PASS or exact timecoded HOLD; do not re-encode without a genuine defect.",
+    "Ali reviews the five-programme cover contact sheet and accepts or rejects the exact cover family; do not substitute retired episode art.",
+    "After both gates pass, update the checksum-bound admission records and run the existing opening-day playback verifier before any deploy or public binding.",
+    "Keep existing opening/closing credit videos reference-only; build the shared credit system only after the character, building/location and visual-system allowlists are final.",
+    "Apply operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md to every later episode, class, demonstration, explainer, music video, promo, ident, silent instructional animation and ambient loop before site binding."
   ],
   "authority": {
     "local_build": true,

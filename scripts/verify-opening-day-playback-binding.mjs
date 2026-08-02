@@ -32,6 +32,8 @@ if (!/admission\.filmPublicUrl/.test(watch)) errors.push('watch.html does not co
 if (!/admission\.holds\.length === 0/.test(watch)) errors.push('watch.html does not fail closed on unresolved holds');
 if (!/isAdmissionSha\(admission\.filmSha256\)/.test(watch)) errors.push('watch.html does not require an admitted film checksum');
 if (!/isAdmittedMediaUrl\(admission\.filmPublicUrl\)/.test(watch)) errors.push('watch.html does not require an admitted HTTPS media URL');
+if (!/mountFilm\(__film, __ep, admission\.posterPublicUrl\)/.test(watch)) errors.push('watch.html does not bind the admitted poster to the visible film player');
+if (!/v\.poster = poster/.test(watch)) errors.push('film player does not apply its admitted poster');
 
 const expectedTitles = Object.fromEntries(episodeIndex.episodes.map((episode) => [String(episode.number).padStart(2, '0'), episode.title]));
 for (const [key, programme] of Object.entries(manifest.programmes)) {
