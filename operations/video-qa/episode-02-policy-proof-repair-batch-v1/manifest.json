@@ -1,0 +1,76 @@
+{
+  "schema": "laidies.episode-02.policy-proof-repair-batch.v1",
+  "created_at": "2026-08-02T00:31:41.892823+00:00",
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_REVIEW_REQUIRED_NOT_PUBLIC",
+  "authority": {
+    "accepted": false,
+    "release": false,
+    "deploy": false,
+    "public": false
+  },
+  "scope": {
+    "occurrences": "p27-p34",
+    "seconds": [
+      430.0,
+      600.0
+    ]
+  },
+  "frozen_master": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "builder": {
+    "path": "scripts/build-episode-02-policy-proof-repair-batch-v1.py",
+    "sha256": "31b7deac09e5fc6fd65f82d132d92ad04d570ea15c34f920c4875aa767491340",
+    "size_bytes": 10903
+  },
+  "sources": {
+    "questions": {
+      "path": "assets/episodes/ep-02/comic/ep02-concept-brief-questions-comic.png",
+      "sha256": "12b74cf69ad680ccba45587a55eba6624274eb75d5f3f1cfd5401d821dc5fc5f",
+      "size_bytes": 2833726
+    },
+    "match": {
+      "path": "assets/episodes/ep-02/comic/ep02-scene-25-match-this-comic.png",
+      "sha256": "774f99bfacb1f3c2953d4631de60fd62c87c25ddf87a011e7eae10e582f7fde7",
+      "size_bytes": 3337121
+    },
+    "vague": {
+      "path": "assets/episodes/ep-02/comic/ep02-scene-26-vague-ask-comic.png",
+      "sha256": "86f8fa3a2896dcac51ffa2827231f45179877401b7815d4b4d09903061845d72",
+      "size_bytes": 3774970
+    },
+    "pivot": {
+      "path": "assets/episodes/ep-02/comic/ep02-scene-27-pivot-comic.png",
+      "sha256": "eb58db9d8591d0864c1b00692a7b64ae2cce6b3ad36b349461072a06f57a98e8",
+      "size_bytes": 2599133
+    },
+    "specific": {
+      "path": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png",
+      "sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "size_bytes": 3444298
+    }
+  },
+  "output": {
+    "path": "operations/video-qa/episode-02-policy-proof-repair-batch-v1/episode-02-p27-p34-policy-proof-repaired-review-v1.mp4",
+    "sha256": "a4f9dbc579dbf3bda9ffb698b4fdfbccc58c4be4f979b3c6777ba7b0b85c5706",
+    "size_bytes": 82799774
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-02-policy-proof-repair-batch-v1/episode-02-p27-p34-policy-proof-contact-v1.jpg",
+    "sha256": "81fa0bb25565b506927a10ca443910316e84faaa3f55b86fad7e83895ca5dcec",
+    "size_bytes": 1476926
+  },
+  "checks": {
+    "full_av_decode": "PASS",
+    "decoded_frames": 5100,
+    "expected_frames": 5100
+  },
+  "semantic_repairs": {
+    "p27-p28": "briefing questions now resolve into the exact Match this example before the policy setup",
+    "p29-p30": "the vague request and wall of text now lead through the narrated PIVOT joke into the second briefing attempt",
+    "p31-p34": "the senior-manager brief, useful answer, contractor exemption, and reading-job payoff reveal with their exact narration",
+    "motion": "purposeful narrated state progression; no generic camera-only movement"
+  }
+}
