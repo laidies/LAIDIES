@@ -35,8 +35,11 @@ for (const [key, programme] of Object.entries(manifest.programmes)) {
   checkFile(`${key} review evidence`, programme.reviewEvidence);
   checkFile(`${key} identity source`, programme.cover.identitySource);
   checkFile(`${key} current fallback`, programme.cover.currentFallback);
+  checkFile(`${key} cover-system receipt`, programme.cover.coverSystemReceipt);
+  for (const artifact of programme.cover.artifacts || []) checkFile(`${key} ${artifact.kind}`, artifact);
   if (programme.film.status !== 'BUILT LOCALLY / HOLD') errors.push(`${key}: film status is not BUILT LOCALLY / HOLD`);
-  if (programme.cover.status !== 'BUILD REQUIRED') errors.push(`${key}: cover status must remain BUILD REQUIRED`);
+  if (programme.cover.status !== 'BUILT LOCALLY / HOLD') errors.push(`${key}: cover status must remain BUILT LOCALLY / HOLD`);
+  if ((programme.cover.artifacts || []).length !== 4) errors.push(`${key}: expected 4 held cover derivatives`);
   if (programme.readyForBinding !== false) errors.push(`${key}: readyForBinding must be false`);
   if (admission.programmes[key]?.admissionStatus !== 'hold') errors.push(`${key}: public admission status is not hold`);
   if (key !== 'trailer' && expectedTitles[key] !== programme.canonicalTitle) {
@@ -51,8 +54,8 @@ if (errors.length) {
 }
 
 console.log('Opening-day playback binding verifier: PASS');
-console.log('- 5/5 exact local film, caption, evidence, identity-source and fallback hashes match');
+console.log('- 5/5 exact local film, caption, evidence, identity-source, cover-family and fallback hashes match');
 console.log('- 5/5 public admission states remain HOLD');
 console.log('- watch.html EPISODE_FILMS remains empty');
-console.log('- 5/5 cover masters remain BUILD REQUIRED');
+console.log('- 5/5 cover masters plus derivatives are BUILT LOCALLY / HOLD');
 console.log('- 0/5 programmes are marked ready for binding');
