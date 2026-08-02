@@ -1,0 +1,229 @@
+{
+  "authority": {
+    "accepted": false,
+    "deploy": false,
+    "player_binding": false,
+    "public": false,
+    "release": false
+  },
+  "builder": {
+    "path": "scripts/build-episode-01-onramp-gap-repair-batch-v1.py",
+    "sha256": "0ef61109bb76e026500ffe27d06c54186c5568f5a14286c07d2c8f5ab78c20e5",
+    "size_bytes": 11496
+  },
+  "checks": {
+    "decoded_frames": 7500,
+    "expected_frames": 7500,
+    "full_av_decode": "PASS"
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-01-onramp-gap-repair-batch-v1/episode-01-p11-p25-contact-v1.jpg",
+    "sha256": "99281a82f2c2a70f71bda221b7e2afe7f3bd9f2be50506723b6dd72b45e3b8e6",
+    "size_bytes": 1205657
+  },
+  "created_at": "2026-08-02T04:11:47.808630+00:00",
+  "frozen_master": {
+    "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+    "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351",
+    "size_bytes": 627122305
+  },
+  "output": {
+    "path": "operations/video-qa/episode-01-onramp-gap-repair-batch-v1/episode-01-p11-p25-repaired-review-v1.mp4",
+    "sha256": "21cad0965031725cecccec7ceb0ae44f60446cc9f61222fed146c9b2392ccd64",
+    "size_bytes": 130197051
+  },
+  "replacement_logic": {
+    "p12": "Repeated group-chat card replaced by list/personal-cost sequence.",
+    "p16": "Empty reading room replaced by late-night pressure resolving into the LIBRAiRY.",
+    "p20": "Repeated adoption-gap card replaced by encouragement/praise evidence plus Steve callback.",
+    "p24": "Repeated canyon card replaced by invisible-work sequence resolving into the physics problem."
+  },
+  "schema": "laidies.episode-01.onramp-gap-repair-batch.v1",
+  "scope": {
+    "occurrences": "p11-p25",
+    "seconds": [
+      129.5,
+      379.5
+    ]
+  },
+  "semantic_timing": [
+    {
+      "end": 143.0,
+      "id": "group-chat",
+      "source_state_count": 3,
+      "start": 129.5
+    },
+    {
+      "end": 160.8,
+      "id": "six-month-list",
+      "source_state_count": 3,
+      "start": 143.0
+    },
+    {
+      "end": 179.5,
+      "id": "terrible-onramp",
+      "source_state_count": 4,
+      "start": 160.8
+    },
+    {
+      "end": 191.7,
+      "id": "calendar-tetris",
+      "source_state_count": 3,
+      "start": 179.5
+    },
+    {
+      "end": 203.9,
+      "id": "personal-cost",
+      "source_state_count": 3,
+      "start": 191.7
+    },
+    {
+      "end": 224.0,
+      "id": "late-night-search",
+      "source_state_count": 3,
+      "start": 203.9
+    },
+    {
+      "end": 246.5,
+      "id": "found-the-town",
+      "source_state_count": 3,
+      "start": 224.0
+    },
+    {
+      "end": 267.4,
+      "id": "one-hundred-vs-78",
+      "source_state_count": 3,
+      "start": 246.5
+    },
+    {
+      "end": 279.85,
+      "id": "same-desks-gap",
+      "source_state_count": 3,
+      "start": 267.4
+    },
+    {
+      "end": 292.3,
+      "id": "encouraged-and-praised",
+      "source_state_count": 3,
+      "start": 279.85
+    },
+    {
+      "end": 310.05,
+      "id": "cutting-corners",
+      "source_state_count": 3,
+      "start": 292.3
+    },
+    {
+      "end": 327.8,
+      "id": "credibility-and-effort",
+      "source_state_count": 3,
+      "start": 310.05
+    },
+    {
+      "end": 346.4,
+      "id": "pattern-recognition",
+      "source_state_count": 3,
+      "start": 327.8
+    },
+    {
+      "end": 365.0,
+      "id": "invisible-work-physics",
+      "source_state_count": 3,
+      "start": 346.4
+    },
+    {
+      "end": 379.5,
+      "id": "physics-dolly",
+      "source_state_count": 3,
+      "start": 365.0
+    }
+  ],
+  "sources": {
+    "canyon": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-canyon-montage-comic.png",
+      "sha256": "17ca9be22b93aa90524dd94ba6064498b9db485777acbbba5360c5d49f0cc4f3",
+      "size_bytes": 2967795
+    },
+    "dolly": {
+      "path": "assets/video/episode-01-v26-image-repair-batch-v1/ep01-dolly-physics-stage-p25-v1-1920.png",
+      "sha256": "97a823362d335c9293cc2f66530659e0de834753726895ff41171618a5ba41e3",
+      "size_bytes": 3865582
+    },
+    "encouraged": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-encouraged-vs-corners-comic.png",
+      "sha256": "fd7ba425dd83b3c099f2365f8b59b16154b180c77cc59a559248e9eef4f835c6",
+      "size_bytes": 2686229
+    },
+    "fleece": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-fleece-vest-onramp-comic.png",
+      "sha256": "2ccbe6e9deaba8879990c8b82a2fea409a10693dc8ec623caac00966db08c865",
+      "size_bytes": 2861077
+    },
+    "gap": {
+      "path": "assets/video/comic-interstitials-v1/ep01-cue-19.png",
+      "sha256": "a45ce0e62dbd6640ae5f1679c5705c6b88a4fda6c3cb3047cae8d67d5d0d744a",
+      "size_bytes": 1444844
+    },
+    "get_in": {
+      "path": "assets/video/comic-interstitials-v1/get-in-loser.png",
+      "sha256": "8bc94e20c818ebf4d3a67d0cd6c2911317aa76a75ce2e7a46fa7a7328dccdd9a",
+      "size_bytes": 1383115
+    },
+    "groundbreaking_end": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-groundbreaking-c-end-comic.png",
+      "sha256": "feea7c4043efb0777233d0b30b5748cfc6fedfc30103e70eda504c459345fec9",
+      "size_bytes": 2140118
+    },
+    "invisible_load": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-invisible-load-comic.png",
+      "sha256": "0c4eefe179b93d8a3d46404b954258484039f240e45856d06b4a3dad8fbe2010",
+      "size_bytes": 2825600
+    },
+    "library": {
+      "path": "assets/video/comic-interstitials-v1/library-current-pixel-v1.png",
+      "sha256": "afdffebcb527aaa29e9f0d464ecf1f91f90547bea5088107b9dc465c9476390a",
+      "size_bytes": 2572763
+    },
+    "miranda": {
+      "path": "assets/video/episode-01-v26-image-repair-batch-v1/ep01-miranda-calendar-pressure-p14-v1-1920.png",
+      "sha256": "f80ebbeeb56c720452b46da933a4d977bfcbae2cabd8c2e92c65da6dbf6c5b47",
+      "size_bytes": 3623580
+    },
+    "pattern": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-pattern-recognition-comic.png",
+      "sha256": "f38e62d8a79b334a9a45fae02971c94e06a36723a93c2d4be35803d66ddd5959",
+      "size_bytes": 2259212
+    },
+    "personal_cost": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-personal-cost-comic.png",
+      "sha256": "eaf48060b6431d0bfcdfda201b4f4b431f2ebd9bfd3e7723a74441865a1b504a",
+      "size_bytes": 2157889
+    },
+    "physics_end": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-physics-problem-c-end-comic.png",
+      "sha256": "92b90296f72a77eb0f976c674996b2aa47920e7312712f26e46b284588ba01f9",
+      "size_bytes": 2236235
+    },
+    "physics_start": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-physics-problem-a-start-comic.png",
+      "sha256": "4d5458980a2daf847ea7cab505a7d1e8a386f2aae4276bb8fee911808a599063",
+      "size_bytes": 2167229
+    },
+    "putting_off": {
+      "path": "assets/video/comic-interstitials-v1/ep01-cue-11.png",
+      "sha256": "3372f70523709cd1134fca220ccdd4c1cb2e89c07d08e03ce02a711e1433fb1d",
+      "size_bytes": 1353692
+    },
+    "stat_100_78": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-100-vs-78-comic.png",
+      "sha256": "cf79361128529278d50a7d1c2b82eb292d9b49f97183ddfeb855aeeb6fe4c7fe",
+      "size_bytes": 2501063
+    },
+    "steve": {
+      "path": "assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png",
+      "sha256": "1ec406f7339fbabc390b33e31a181a9fdfb89d269d1d1acecaa771c79653b592",
+      "size_bytes": 2869506
+    }
+  },
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_REVIEW_REQUIRED_NOT_PUBLIC"
+}

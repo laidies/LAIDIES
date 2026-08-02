@@ -1,0 +1,79 @@
+{
+  "schema": "laidies.episode-media-quality.validation.v1",
+  "validated_at": "2026-08-02T04:12:46Z",
+  "status": "MAKER_TECHNICAL_AND_VISUAL_PASS_HOLD_INDEPENDENT_REVIEW_NOT_PUBLIC",
+  "scope": {
+    "episode": "01",
+    "occurrences": "p11-p25",
+    "source_seconds": [129.5, 379.5],
+    "duration_seconds": 250.0
+  },
+  "identity": {
+    "frozen_master": {
+      "path": "assets/video/episode-01-full-v26-source-admitted-review.mp4",
+      "sha256": "f5985a39363eb75514766186817d0105beab9fa6695accf40e0972698e1d1351"
+    },
+    "review_batch": {
+      "path": "operations/video-qa/episode-01-onramp-gap-repair-batch-v1/episode-01-p11-p25-repaired-review-v1.mp4",
+      "sha256": "21cad0965031725cecccec7ceb0ae44f60446cc9f61222fed146c9b2392ccd64"
+    },
+    "contact_sheet": {
+      "path": "operations/video-qa/episode-01-onramp-gap-repair-batch-v1/episode-01-p11-p25-contact-v1.jpg",
+      "sha256": "99281a82f2c2a70f71bda221b7e2afe7f3bd9f2be50506723b6dd72b45e3b8e6"
+    },
+    "manifest": {
+      "path": "operations/video-qa/episode-01-onramp-gap-repair-batch-v1/manifest.json",
+      "sha256": "7a980bac70cde31be8d46cfb34ce44847e0cb8f6bd36f2df63ce9b4098434b47"
+    },
+    "captions": {
+      "path": "assets/captions/episode-01.vtt",
+      "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+      "changed": false
+    }
+  },
+  "technical_checks": {
+    "dimensions": "1920x1080",
+    "frame_rate": 30,
+    "expected_frames": 7500,
+    "decoded_frames": 7500,
+    "full_av_decode": "PASS",
+    "black_events_at_least_0_25_seconds": 0,
+    "silence_events_below_minus_45_db_at_least_1_8_seconds": 0,
+    "audio_preservation": {
+      "source_samples": 24000000,
+      "batch_samples": 24000000,
+      "compared_samples": 24000000,
+      "sample_rate": 48000,
+      "channels": 2,
+      "lag_samples": 0,
+      "pcm_correlation": 0.9999785510906709,
+      "result": "PASS"
+    }
+  },
+  "maker_visual_review": {
+    "contact_sheet_reviewed": true,
+    "aspect_distortion": "NONE_OBSERVED",
+    "important_subject_or_text_crops": "NONE_OBSERVED",
+    "sequence_order": "PASS",
+    "narration_alignment": "PASS_AT_CONTACT_SHEET_LEVEL",
+    "specific_replacements": {
+      "p12": "PASS: repeated group-chat card replaced by list and personal-cost progression.",
+      "p16": "PASS: empty reading room replaced by late-night pressure resolving into the current LIBRAiRY exterior.",
+      "p20": "PASS: repeated adoption-gap card replaced by encouragement/praise evidence and Steve callback.",
+      "p24": "PASS: repeated canyon card replaced by invisible-work imagery resolving into the physics problem.",
+      "p13": "PASS: weak tiny Groundbreaking start frame removed; the sequence now resolves from the fleece-vest example into the readable Groundbreaking payoff."
+    }
+  },
+  "remaining_gate": {
+    "status": "HOLD",
+    "required_action": "Independent qualified reviewer watches and hears the exact review-batch hash at normal speed with sound on, then returns checksum-bound PASS or timecoded HOLD.",
+    "reason": "Maker and machine checks cannot substitute for an independent full-speed audible semantic review."
+  },
+  "authority": {
+    "accepted": false,
+    "deploy": false,
+    "player_binding": false,
+    "public": false,
+    "release": false
+  }
+}
