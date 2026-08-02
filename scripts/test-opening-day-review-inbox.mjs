@@ -50,8 +50,11 @@ try{
       assert.equal(await page.locator('#coverGrid .cover').count(),4,`${item.title} cover family`);
       await page.locator('#audioPlayer').evaluate((audio,title)=>new Promise((resolve,reject)=>{if(audio.readyState>=1)return resolve();audio.addEventListener('loadedmetadata',resolve,{once:true});audio.addEventListener('error',()=>reject(new Error(`${title} audio metadata failed`)),{once:true})}),item.title);
       const audioDuration=await page.locator('#audioPlayer').evaluate(audio=>audio.duration);assert.ok(audioDuration>item.min&&audioDuration<item.max,`${item.title} audio duration ${audioDuration}`);
+      assert.match(await page.locator('#audioDownload').getAttribute('href'),/\.m4a$/,`${item.title} exact audio download`);
     }
     await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
+    await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
+    await page.locator('#player').evaluate(video=>{video.currentTime=73});await page.click('#captureTime');assert.equal(await page.locator('#notes').inputValue(),'00:01:13 — ');
     await page.selectOption('#decision','HOLD');await page.selectOption('#coverDecision','PASS');await page.fill('#notes','00:42 — test note');await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
     const storedBeforeReload=await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'));assert.match(storedBeforeReload,/00:42/);
     await page.reload({waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();await page.waitForTimeout(500);
@@ -64,5 +67,5 @@ try{
     const overflow=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,body:document.body.scrollWidth}));assert.ok(overflow.document<=overflow.viewport+1,JSON.stringify(overflow));assert.ok(overflow.body<=overflow.viewport+1,JSON.stringify(overflow));
     assert.deepEqual(errors,[]);await page.screenshot({path:path.join(evidenceDir,width===390?'mobile.png':'desktop.png'),fullPage:true});await page.close();
   }
-    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact films, audio-only editions and four-cover families for Trailer + Episode 01–04)');
+    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact films, captions, audio downloads, one-click timecodes and four-cover families for Trailer + Episode 01–04)');
 }finally{await browser.close();server.close()}
