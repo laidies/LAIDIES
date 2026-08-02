@@ -31,9 +31,9 @@ try{
   for(const width of [390,1280]){
     const page=await browser.newPage({viewport:{width,height:950}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(`${base}/operations/control-room/review-inbox.html`,{waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();
-    assert.equal(await page.locator('#readyCount').textContent(),'5');assert.equal(await page.locator('#buildCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
+    assert.equal(await page.locator('#readyCount').textContent(),'5');assert.equal(await page.locator('#buildCount').textContent(),'0');assert.equal(await page.locator('#doneCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
     assert.equal(await page.locator('#readyTabs button').count(),5);assert.equal(await page.locator('#title').textContent(),'The Trailer — Welcome to SUNNYVAiLE');
-    assert.match(await page.locator('#hash').textContent(),/1be8c4f167612940/);assert.equal(await page.locator('#building .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
+    assert.match(await page.locator('#hash').textContent(),/1be8c4f167612940/);assert.equal(await page.locator('#building .work-card').count(),0);assert.equal(await page.locator('#completed .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
     assert.equal(await page.locator('#coverGrid .cover').count(),4);assert.match(await page.locator('#audioHash').textContent(),/b60321e1c6e70440/);
     const expected=[
       {title:'The Trailer',hash:/1be8c4f167612940/,min:966,max:968},
@@ -61,7 +61,7 @@ try{
     await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
     assert.ok(Math.abs(await page.locator('#player').evaluate(video=>video.currentTime)-73)<2,'film progress did not resume after switching titles');
     assert.match(await page.locator('#progressStatus').textContent(),/Resumed at 00:01:13/);
-    await page.selectOption('#decision','HOLD');await page.selectOption('#coverDecision','PASS');await page.fill('#notes','00:42 — test note');await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
+    await page.selectOption('#decision','HOLD');await page.selectOption('#coverDecision','PASS');await page.fill('#notes','picture is wrong');await page.click('#save');assert.match(await page.locator('#saved').textContent(),/requires at least one timecoded note/);await page.fill('#notes','00:42 — test note');await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
     const storedBeforeReload=await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'));assert.match(storedBeforeReload,/00:42/);
     await page.reload({waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();await page.waitForTimeout(500);
     await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();

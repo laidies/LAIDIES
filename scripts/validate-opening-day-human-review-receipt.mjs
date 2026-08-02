@@ -14,7 +14,8 @@ if (!receiptPath) {
 
 const readJson = (file) => JSON.parse(fs.readFileSync(path.resolve(root, file), 'utf8'));
 const sha256 = (file) => crypto.createHash('sha256').update(fs.readFileSync(path.resolve(root, file))).digest('hex');
-const queue = readJson('operations/control-room/owner-review-queue.json');
+const queuePath = process.env.REVIEW_QUEUE_PATH || 'operations/control-room/owner-review-queue.json';
+const queue = readJson(queuePath);
 const packageIndex = readJson('operations/video-qa/opening-day-portable-media-v1/package-index.json');
 const receipt = readJson(receiptPath);
 const errors = [];
@@ -27,7 +28,11 @@ const required = [
 ];
 for (const key of required) if (!(key in receipt)) errors.push(`missing ${key}`);
 
-const queued = queue.review_now.find((item) => item.id === receipt.review_id);
+const queued = [
+  ...(queue.review_now || []),
+  ...(queue.being_built || []),
+  ...(queue.completed_review || [])
+].find((item) => item.id === receipt.review_id);
 if (!queued) errors.push(`review_id is not in the current owner queue: ${receipt.review_id}`);
 const programme = receipt.review_id?.startsWith('trailer') ? 'trailer' : receipt.review_id?.match(/episode-(\d{2})/)?.[1];
 const packageEntry = packageIndex.programmes.find((item) => item.programme === programme);
@@ -50,6 +55,8 @@ const verifyFile = (label, file, expected) => {
 
 if (receipt.schema_version !== 3) errors.push('schema_version must be 3');
 if (!receipt.reviewer?.trim()) errors.push('reviewer is required');
+if (!Number.isFinite(Date.parse(receipt.queue_generated_at))) errors.push('queue_generated_at must be an ISO date-time');
+if (!Number.isFinite(Date.parse(receipt.saved_at))) errors.push('saved_at must be an ISO date-time');
 if (!['PASS', 'HOLD', 'NOT REVIEWED'].includes(receipt.film_decision)) errors.push('invalid film_decision');
 if (!['PASS', 'HOLD', 'NOT REVIEWED'].includes(receipt.cover_decision)) errors.push('invalid cover_decision');
 if (!['PASS', 'HOLD', 'PARTIAL'].includes(receipt.decision)) errors.push('invalid decision');
@@ -79,6 +86,7 @@ for (const expected of expectedCovers) {
 
 if (receipt.film_decision === 'PASS' && receipt.completed_full_title_unmuted_1x !== true) errors.push('film PASS requires completed full-title unmuted 1x attestation');
 if ((receipt.film_decision === 'HOLD' || receipt.cover_decision === 'HOLD') && !receipt.timecoded_notes?.trim()) errors.push('HOLD requires a specific note');
+if (receipt.film_decision === 'HOLD' && !/(?:^|\n)\d{2}:\d{2}(?::\d{2})?(?:\s*[–-]\s*\d{2}:\d{2}(?::\d{2})?)?\s*[—-]/m.test(receipt.timecoded_notes || '')) errors.push('film HOLD requires at least one timecoded finding');
 const expectedOverall = receipt.film_decision === 'HOLD' || receipt.cover_decision === 'HOLD'
   ? 'HOLD'
   : receipt.film_decision === 'PASS' && receipt.cover_decision === 'PASS' && receipt.completed_full_title_unmuted_1x === true

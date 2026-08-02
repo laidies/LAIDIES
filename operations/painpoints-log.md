@@ -9442,6 +9442,19 @@ _Original source ID: repository #36_
 - **Privacy/IP/reputation:** Local internal page only; no public film, deploy
   or release state changed.
 
+### 2026-08-02 recurrence and prevention update
+
+The repaired inbox could create and validate a decision receipt, but there was
+no command that durably recorded it or removed the completed item from Ali's
+queue. That left another manual reconciliation cycle after the human review.
+The review contract now includes one fail-closed intake command: validate the
+receipt against the current queued identity and real file hashes, preserve its
+exact bytes, move PASS decisions to Reviewed, move HOLD decisions back to
+Being built with timecoded findings, and keep partial decisions in Review now.
+Recording a receipt cannot release, deploy, publish or bind public playback.
+The reusable rule is: a decision surface is not operational until the owner's
+answer has a tested, idempotent path into the governing state.
+
 ### 2026-08-01 recurrence and prevention update
 
 - The failure recurred: the inbox still loaded the superseded Episode 03 v13
