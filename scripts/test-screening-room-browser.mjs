@@ -185,9 +185,9 @@ try {
 
   const trailer = await open("trailer");
   await trailer.page.waitForFunction(() => document.querySelector("#tape").duration > 960);
-  await trailer.page.locator("#tape").evaluate((audio) => { audio.currentTime = 903; });
-  await trailer.page.waitForFunction(() => document.querySelector(".cap-who")?.textContent === "Caption status");
-  assert.match(await trailer.page.locator(".cap-txt").textContent(), /no words have been invented/i);
+  await trailer.page.locator("#tape").evaluate((audio) => { audio.currentTime = 929; });
+  await trailer.page.waitForFunction(() => /buried it in buzzwords/i.test(document.querySelector(".cap-txt")?.textContent || ""));
+  assert.equal(await trailer.page.locator(".cap-who").textContent(), "The LAiDIES");
   await trailer.context.close();
 
   await expectFailure("**/episode-01-cues.json", "cues");
@@ -201,7 +201,7 @@ try {
   console.log("viewports=320,390,1280");
   console.log("keyboard=slider-arrow,end,home");
   console.log("failure_modes=cues,captions,audio,visual,playback");
-  console.log("trailer_partial_caption_gap=explicit");
+  console.log("trailer_caption_tail=complete_and_visible");
   console.log("media_session=metadata,play,pause,seekbackward,seekforward,seekto");
 } finally {
   await browser.close();
