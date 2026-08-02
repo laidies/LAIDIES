@@ -1,0 +1,84 @@
+{
+  "schema": "laidies.episode-02.postcard-tryon-repair-batch.v1",
+  "created_at": "2026-08-02T02:43:08.567339+00:00",
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_REVIEW_REQUIRED_NOT_PUBLIC",
+  "authority": {
+    "accepted": false,
+    "release": false,
+    "deploy": false,
+    "public": false
+  },
+  "scope": {
+    "occurrences": "p47-p53",
+    "seconds": [
+      808.0,
+      904.0
+    ]
+  },
+  "frozen_master": {
+    "path": "assets/video/episode-02-full-v19-welcome-ident-v2-review.mp4",
+    "sha256": "80bfa02d457f3eb1f4318459b083b31be0cb9eac819180ef2a78f0c758449814",
+    "size_bytes": 583542700
+  },
+  "builder": {
+    "path": "scripts/build-episode-02-postcard-tryon-repair-batch-v1.py",
+    "sha256": "af9e1b9758c9cf06487737004b6e45e3747b96fcab494271dfd7d509d750e61a",
+    "size_bytes": 7836
+  },
+  "helper_builder": {
+    "path": "scripts/build-episode-02-soft-skills-cocktail-repair-batch-v1.py",
+    "sha256": "b46969f731fa74bb0f7272bdaafcb051e9bfac7f0b1b1258838170317de70c58",
+    "size_bytes": 13060
+  },
+  "sources": {
+    "cocktail": {
+      "path": "assets/episodes/ep-02/comic/ep02-cocktail-comic.png",
+      "sha256": "a1f21199b0bc2ff4f1b7bf62afe25a3a4917427e2f1d60133cf274158b58c868",
+      "size_bytes": 2786751
+    },
+    "postcard": {
+      "path": "assets/episodes/ep-02/comic/ep02-scene-36-postcard-comic.png",
+      "sha256": "e03bbdd2a0fe353653333741c60a08d804d3da9fb8aea2c283c9538ff343f29a",
+      "size_bytes": 3726457
+    },
+    "title": {
+      "path": "assets/episodes/ep-02/comic/ep02-title-card-comic-v2.png",
+      "sha256": "420684011e5947081693f481d0bb44b3911654979c79ead007c906cd0ddfbf75",
+      "size_bytes": 3360424
+    },
+    "tryon": {
+      "path": "assets/episodes/ep-02/comic/ep02-tryon-comic.png",
+      "sha256": "1138c6f9553b267a22acd6419f4aa18255b888ceb756c5dd135ac82ae3927b01",
+      "size_bytes": 2235569
+    },
+    "comparison": {
+      "path": "assets/episodes/ep-02/comic/ep02-comicpage-vague-vs-specific.png",
+      "sha256": "6f920dcb6dfba5fbb8e7bb2a5b4f9f4f59370c2ec1d1429ea846b25405c2f186",
+      "size_bytes": 3444298
+    }
+  },
+  "output": {
+    "path": "operations/video-qa/episode-02-postcard-tryon-repair-batch-v1/episode-02-p47-p53-postcard-tryon-repaired-review-v1.mp4",
+    "sha256": "055f441744f0efb56e9b052e2f2c8063bd3785b478ce8dc320d3321137b8a757",
+    "size_bytes": 69388801
+  },
+  "contact": {
+    "path": "operations/video-qa/episode-02-postcard-tryon-repair-batch-v1/episode-02-p47-p53-postcard-tryon-contact-v1.jpg",
+    "sha256": "f837e67d4a257fd8f600eafe894064b99f73d6fb6450ce6b725df01fc678a3eb",
+    "size_bytes": 1173875
+  },
+  "checks": {
+    "full_av_decode": "PASS",
+    "decoded_frames": 2880,
+    "expected_frames": 2880,
+    "frozen_audio_correlation": 0.999991648523974,
+    "audio_tail_samples_at_48khz": 0,
+    "audio_tail_rule": "PASS_SUB_FRAME_BTB_311"
+  },
+  "semantic_repairs": {
+    "p47-p49": "the career-example cheese joke now hands off visibly into the Post Office and the narrated better-with-your-people postcard",
+    "p50-p51": "the episode close now preserves the Episode 02 identity before introducing the on-site ten-minute Try-On",
+    "p52-p53": "the real task, lazy first ask, David Rose specificity pass, side-by-side answers, and specificity payoff reveal in narration order",
+    "motion": "purposeful narrated-region progression; no generic quote-card substitution or camera-only movement"
+  }
+}
