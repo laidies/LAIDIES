@@ -36,7 +36,7 @@
       <nav class="ready-list" id="readyTabs" aria-label="Items ready for Ali"></nav>
       <article class="review" id="reviewPanel">
         <header class="review-head"><h3 id="title">Loading…</h3><span class="status">Needs your review</span></header>
-        <div class="player"><video id="player" controls preload="metadata" playsinline></video><p class="hash" id="hash"></p></div>
+        <div class="player"><video id="player" controls preload="metadata" playsinline></video><p class="hash" id="hash"></p><p class="hash" id="progressStatus"></p></div>
         <section class="package" aria-labelledby="portableTitle">
           <div class="package-head"><h4 id="portableTitle">Listen anywhere + cover family</h4><p>The audio is copied from this exact film. Review the four covers once here; no platform delivery has occurred.</p></div>
           <div class="package-grid"><div class="audio-card"><strong>Audio-only edition</strong><audio id="audioPlayer" controls preload="metadata"></audio><a class="download-link" id="audioDownload" download>Download exact audio</a><p class="mini-hash" id="audioHash"></p></div><div class="cover-grid" id="coverGrid"></div></div>
@@ -68,16 +68,19 @@
     const $=id=>document.getElementById(id); const state={queue:null,index:0,packages:{}};
     const rootPath='../../';
     const key=id=>`laidies-owner-review:${id}`;
+    const progressKey=id=>`laidies-owner-review-progress:${id}`;
     function item(){return state.queue.review_now[state.index]}
     function stored(){try{return JSON.parse(localStorage.getItem(key(item().id)))||{}}catch{return{}}}
+    function storedProgress(id=item().id){try{return JSON.parse(localStorage.getItem(progressKey(id)))||{}}catch{return{}}}
+    function savePlayback(review=item()){const video=$('player');if(!state.queue||!review||!video||!Number.isFinite(video.currentTime)||video.currentTime<1)return;localStorage.setItem(progressKey(review.id),JSON.stringify({master_sha256:review.master.sha256,time:video.currentTime,ended:video.ended,saved_at:new Date().toISOString()}))}
     function programmeId(reviewId){return reviewId.startsWith('trailer')?'trailer':reviewId.match(/episode-(\d{2})/)?.[1]}
     function render(){
       const q=state.queue; $('readyCount').textContent=q.summary.review_now; $('buildCount').textContent=q.summary.being_built; $('blockedCount').textContent=q.summary.blocked_no_ali_action;
       $('readyTabs').innerHTML=q.review_now.map((x,i)=>`<button class="ready-tab" type="button" data-index="${i}" aria-selected="${i===state.index}"><b>${x.title}</b><span>${x.duration_label} · complete audible watch</span></button>`).join('');
-      $('readyTabs').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{state.index=Number(b.dataset.index);render()}));
+      $('readyTabs').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{savePlayback(x);$('player').onpause=null;$('player').pause();$('audioPlayer').pause();state.index=Number(b.dataset.index);render()}));
       const x=item(); const s=stored(); $('title').textContent=x.title; $('ask').textContent=x.ask; $('why').textContent=x.why_you; $('decisionCopy').textContent=x.decision; $('hash').textContent=`Exact master SHA-256: ${x.master.sha256}`;
       $('decision').value=s.film_decision||s.decision||'';$('coverDecision').value=s.cover_decision||'';$('notes').value=s.timecoded_notes||'';$('saved').textContent=s.saved_at?`Saved on this device ${new Date(s.saved_at).toLocaleString()}`:'';
-      $('player').innerHTML=''; const src=document.createElement('source');src.src=rootPath+x.master.path;src.type='video/mp4';$('player').append(src);const tr=document.createElement('track');tr.kind='captions';tr.label='English';tr.srclang='en';tr.src=rootPath+x.captions.path;tr.default=true;$('player').append(tr);$('player').load();
+      $('player').innerHTML=''; const src=document.createElement('source');src.src=rootPath+x.master.path;src.type='video/mp4';$('player').append(src);const tr=document.createElement('track');tr.kind='captions';tr.label='English';tr.srclang='en';tr.src=rootPath+x.captions.path;tr.default=true;$('player').append(tr);const prior=storedProgress(x.id);$('progressStatus').textContent='';$('player').onloadedmetadata=()=>{if(prior.master_sha256===x.master.sha256&&prior.time>5&&prior.time<$('player').duration-5){$('player').currentTime=prior.time;$('progressStatus').textContent=`Resumed at ${stamp(prior.time)} on this device.`}};$('player').ontimeupdate=()=>{if(Math.floor($('player').currentTime)%5===0)savePlayback(x)};$('player').onpause=()=>savePlayback(x);$('player').onended=()=>savePlayback(x);$('player').load();
       const portable=state.packages[programmeId(x.id)];const audio=portable?.assets?.find(asset=>asset.role==='AUDIO_MASTER');const covers=portable?.artwork||[];
       $('audioPlayer').src=audio?rootPath+audio.sourcePath:'';$('audioPlayer').load();$('audioDownload').href=audio?rootPath+audio.sourcePath:'';$('audioDownload').hidden=!audio;$('audioHash').textContent=audio?`Exact audio SHA-256: ${audio.sha256}`:'Portable audio package unavailable.';
       $('coverGrid').innerHTML=covers.map(cover=>`<figure class="cover" data-kind="${cover.kind}"><img src="${rootPath+cover.sourcePath}" alt="${cover.altText}"><figcaption>${cover.kind.replaceAll('_',' ')}</figcaption></figure>`).join('');
@@ -85,9 +88,11 @@
       $('blocked').innerHTML=q.blocked_no_ali_action.map(x=>`<article class="work-card"><h3>${x.title}</h3><p>${x.reason}</p><p>Owner: ${x.owner}</p></article>`).join('');
     }
     function receipt(){const x=item();const film=$('decision').value||'NOT REVIEWED';const cover=$('coverDecision').value||'NOT REVIEWED';const overall=film==='HOLD'||cover==='HOLD'?'HOLD':film==='PASS'&&cover==='PASS'?'PASS':'NOT REVIEWED';return{schema_version:2,review_id:x.id,title:x.title,master_path:x.master.path,master_sha256:x.master.sha256,film_decision:film,cover_decision:cover,decision:overall,timecoded_notes:$('notes').value.trim(),watch_contract:'Complete title at 1x, unmuted and audible; time-code every release-blocking problem. Review all four cover formats once.',saved_at:new Date().toISOString(),release_boundary:'Human review only. This is not release, deployment or publication approval.'}}
+    function stamp(value){const seconds=Math.max(0,Math.floor(value||0));return[Math.floor(seconds/3600),Math.floor((seconds%3600)/60),seconds%60].map(part=>String(part).padStart(2,'0')).join(':')}
     $('save').addEventListener('click',()=>{const r=receipt();localStorage.setItem(key(r.review_id),JSON.stringify(r));$('saved').textContent=`Saved on this device ${new Date(r.saved_at).toLocaleString()}`});
     $('copy').addEventListener('click',async()=>{const r=receipt();const text=`LAiDIES REVIEW RECEIPT\n${JSON.stringify(r,null,2)}`;try{await navigator.clipboard.writeText(text);$('saved').textContent='Copied. Paste this into the Codex task.'}catch{localStorage.setItem(key(r.review_id),JSON.stringify(r));$('saved').textContent='Clipboard was unavailable. Review saved here; copy the notes into Codex.'}});
-    $('captureTime').addEventListener('click',()=>{const seconds=Math.max(0,Math.floor($('player').currentTime||0));const stamp=[Math.floor(seconds/3600),Math.floor((seconds%3600)/60),seconds%60].map(part=>String(part).padStart(2,'0')).join(':');const notes=$('notes');notes.value=`${notes.value}${notes.value.trim()?'\n':''}${stamp} — `;notes.focus();notes.setSelectionRange(notes.value.length,notes.value.length)});
+    $('captureTime').addEventListener('click',()=>{const notes=$('notes');notes.value=`${notes.value}${notes.value.trim()?'\n':''}${stamp($('player').currentTime)} — `;notes.focus();notes.setSelectionRange(notes.value.length,notes.value.length)});
+    window.addEventListener('pagehide',()=>savePlayback());
     Promise.all([fetch(queueUrl,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`Queue ${r.status}`);return r.json()}),fetch('../../operations/video-qa/opening-day-portable-media-v1/package-index.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`Packages ${r.status}`);return r.json()})]).then(async([q,index])=>{state.queue=q;const manifests=await Promise.all(index.programmes.map(entry=>fetch(rootPath+entry.manifest.path,{cache:'no-store'}).then(r=>r.json())));index.programmes.forEach((entry,i)=>state.packages[entry.programme]=manifests[i]);render()}).catch(e=>{$('title').textContent='Review queue failed to load';$('reviewPanel').querySelector('.review-body').innerHTML=`<div><p>${e.message}. Use the local preview URL, not a file:// link.</p></div>`});
   </script>
 </body>

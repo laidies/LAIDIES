@@ -54,13 +54,21 @@ try{
     }
     await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
     await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
-    await page.locator('#player').evaluate(video=>{video.currentTime=73});await page.click('#captureTime');assert.equal(await page.locator('#notes').inputValue(),'00:01:13 — ');
+    await page.locator('#player').evaluate(video=>{video.currentTime=73;video.dispatchEvent(new Event('timeupdate'))});await page.click('#captureTime');assert.equal(await page.locator('#notes').inputValue(),'00:01:13 — ');
+    await page.locator('#readyTabs button').filter({hasText:'Episode 02'}).click();
+    await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
+    await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
+    assert.ok(Math.abs(await page.locator('#player').evaluate(video=>video.currentTime)-73)<2,'film progress did not resume after switching titles');
+    assert.match(await page.locator('#progressStatus').textContent(),/Resumed at 00:01:13/);
     await page.selectOption('#decision','HOLD');await page.selectOption('#coverDecision','PASS');await page.fill('#notes','00:42 — test note');await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
     const storedBeforeReload=await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'));assert.match(storedBeforeReload,/00:42/);
     await page.reload({waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();await page.waitForTimeout(500);
     await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
     const reloadState=await page.evaluate(()=>({stored:localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'),notes:document.querySelector('#notes')?.value,title:document.querySelector('#title')?.textContent}));
     assert.equal(reloadState.notes,'00:42 — test note',JSON.stringify(reloadState));
+    await page.locator('#player').evaluate(video=>new Promise((resolve,reject)=>{if(video.readyState>=1)return resolve();video.addEventListener('loadedmetadata',resolve,{once:true});video.addEventListener('error',reject,{once:true})}));
+    assert.ok(Math.abs(await page.locator('#player').evaluate(video=>video.currentTime)-73)<2,'film progress did not resume after reload');
+    assert.match(await page.locator('#progressStatus').textContent(),/Resumed at 00:01:13/);
     assert.equal(await page.locator('#decision').inputValue(),'HOLD');assert.equal(await page.locator('#notes').inputValue(),'00:42 — test note');
     assert.equal(await page.locator('#coverDecision').inputValue(),'PASS');
     await page.locator('#readyTabs button').filter({hasText:'Episode 04'}).click();assert.match(await page.locator('#hash').textContent(),/9fc40d965cf67e08/);
