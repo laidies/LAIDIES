@@ -11627,3 +11627,30 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** A polished recording can preserve the
   wrong lesson perfectly; fix the source before pressing Record.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-329 — A reusable component can make hidden class work appear twice
+
+- **Date:** 2026-08-02
+- **Area:** Classes / reusable route / responsive learner experience.
+- **Failure:** The new Missing Middle practice initially appeared alongside the
+  older task-map form even though the older form carried the HTML `hidden`
+  attribute. A shared component rule assigning `display: grid` overrode the
+  browser's hidden presentation and made the page look like two unrelated
+  exercises had been stacked together.
+- **Root cause:** The reusable class route assumed every practice shared one
+  form, and its component display rules did not explicitly preserve the
+  semantic hidden state when a second data-driven practice kind was added.
+- **Prevention rule:** Branch reusable learner journeys on an explicit
+  data-owned `practice.kind`; whenever a component class assigns `display`, add
+  and test a matching `[hidden] { display: none; }` rule. Run the new practice
+  and one existing-class regression at 390px and 1280px before committing.
+- **Why the fix works:** Each class can provide a distinct useful activity
+  without forking the whole page shell, while hidden alternatives remain truly
+  absent and the existing guided class continues to work.
+- **Machine check implemented:**
+  `scripts/test-odc-lab-01-class-experience.mjs` verifies the new branch,
+  downloads, assessment, completion restore and overflow; the existing
+  `scripts/test-opening-class-experience.mjs` remains the regression gate.
+- **Possible Behind the Build angle:** The form was hidden in the HTML. CSS
+  brought it back from the dead.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.

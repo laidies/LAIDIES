@@ -25,7 +25,7 @@ const parseClock = (clock) => {
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
 const sourceReceipt = JSON.parse(fs.readFileSync(sourceReceiptPath, 'utf8'));
-const publicClasses = fs.readFileSync(publicClassesPath, 'utf8');
+const publicClasses = JSON.parse(fs.readFileSync(publicClassesPath, 'utf8'));
 
 assert.equal(manifest.class_id, 'ODC-LAB-01');
 assert.equal(manifest.status, 'BUILT_LOCALLY_HOLD');
@@ -39,8 +39,11 @@ assert.equal(sourceReceipt.status, 'PASS_FOR_REVIEW_ANIMATIC');
 assert.equal(sourceReceipt.checked_on, '2026-08-02');
 assert.equal(sourceReceipt.classification, 'MISLEADING_AS_STATED');
 assert.equal(sha256(sourceReceiptPath), manifest.source_receipt_sha256);
-assert.ok(!publicClasses.includes('ODC-LAB-01'), 'review animatic must not create a public ODC-LAB-01 class binding');
-assert.ok(!publicClasses.includes('what-the-viral-reel-left-out'), 'review animatic must not create a public ODC-LAB-01 route');
+const localClassRoute = publicClasses.classes.find((item) => item.slug === 'what-the-viral-reel-left-out');
+assert.ok(localClassRoute, 'local ODC-LAB-01 class route is missing');
+assert.equal(localClassRoute.status, 'scripted');
+assert.equal(localClassRoute.video, null, 'review animatic must not be bound to the class player');
+assert.equal(localClassRoute.poster, null, 'review poster must not be presented as release-approved');
 
 for (const output of manifest.outputs) {
   const absolute = path.join(root, output.path);
@@ -121,6 +124,7 @@ console.log(JSON.stringify({
   captions: cueMatches.length,
   scenes: spec.scenes.length,
   source_claims_checked: sourceReceipt.sources.length,
-  public_binding_changed: false,
+  local_class_route_built: true,
+  public_video_binding_changed: false,
   release_status: manifest.status
 }, null, 2));

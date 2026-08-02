@@ -579,6 +579,122 @@
         </div>
         <p class="task-map__status" id="task-map-status" role="status"></p>
       </div>
+
+      <form class="missing-middle" id="missing-middle-form" hidden>
+        <div class="missing-middle__starter">
+          <label>
+            <span>Choose your practice</span>
+            <select id="missing-middle-mode">
+              <option value="guided">Guided: the reusable AI skill claim</option>
+              <option value="low-risk">Low risk: meeting notes into follow-ups</option>
+              <option value="advanced">Advanced: bring a current claim</option>
+            </select>
+          </label>
+          <button class="class-action class-action--secondary" id="missing-middle-load" type="button">Load this practice</button>
+          <p>Loading a practice replaces the fields below. It never connects an account or sends your text anywhere.</p>
+        </div>
+
+        <fieldset>
+          <legend>1. What is actually being promised?</legend>
+          <label class="missing-middle__wide">
+            <span>The claim</span>
+            <textarea id="missing-middle-claim" rows="2" required></textarea>
+          </label>
+          <label>
+            <span>Your first classification</span>
+            <select id="missing-middle-classification" required>
+              <option value="">Choose one</option>
+              <option>Supported as stated</option>
+              <option>True but incomplete</option>
+              <option>Misleading as stated</option>
+              <option>Unsupported</option>
+            </select>
+          </label>
+          <label>
+            <span>The outcome you need</span>
+            <textarea id="missing-middle-outcome" rows="2" required></textarea>
+          </label>
+          <label class="missing-middle__wide">
+            <span>What the current product can actually do</span>
+            <textarea id="missing-middle-capability" rows="3" required></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Fill in the missing middle</legend>
+          <label>
+            <span>Prerequisites</span>
+            <textarea id="missing-middle-prerequisites" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Setup and instructions</span>
+            <textarea id="missing-middle-setup" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Human judgement that stays visible</span>
+            <textarea id="missing-middle-judgement" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Boundaries and stop conditions</span>
+            <textarea id="missing-middle-boundaries" rows="3" required></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Prove it before you trust it</legend>
+          <label>
+            <span>Normal case</span>
+            <textarea id="missing-middle-normal" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Edge case</span>
+            <textarea id="missing-middle-edge" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Stop case</span>
+            <textarea id="missing-middle-stop" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Visible acceptance test</span>
+            <textarea id="missing-middle-acceptance" rows="3" required></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Decide what happens next</legend>
+          <label>
+            <span>Upkeep owner and re-check trigger</span>
+            <textarea id="missing-middle-upkeep" rows="3" required></textarea>
+          </label>
+          <label>
+            <span>Decision</span>
+            <select id="missing-middle-decision" required>
+              <option value="">Choose one</option>
+              <option>Build</option>
+              <option>Revise</option>
+              <option>Investigate</option>
+              <option>Decline</option>
+              <option>Monitor</option>
+            </select>
+          </label>
+          <label class="missing-middle__wide">
+            <span>Why this is the right decision</span>
+            <textarea id="missing-middle-reason" rows="3" required></textarea>
+          </label>
+        </fieldset>
+        <button class="class-action" type="submit">Build my Missing Middle card</button>
+      </form>
+
+      <div class="task-map__result" id="missing-middle-result" tabindex="-1" hidden>
+        <h3>Your Missing Middle card</h3>
+        <dl id="missing-middle-output"></dl>
+        <div class="task-map__actions">
+          <button class="class-action class-action--secondary" id="missing-middle-copy" type="button">Copy</button>
+          <button class="class-action class-action--secondary" id="missing-middle-download" type="button">Download accessible HTML</button>
+          <button class="class-action class-action--secondary" id="missing-middle-print" type="button">Print</button>
+        </div>
+        <p class="task-map__status" id="missing-middle-status" role="status"></p>
+      </div>
     </section>
 
     <section class="class-check" id="class-check" hidden aria-labelledby="class-check-title">
@@ -626,8 +742,8 @@
 (function () {
   'use strict';
 
-  var DATA = '/content/site/high-classes.json?v=20260731-1';
-  var LEARNING_DATA = '/content/site/high-learning-ledger.json?v=20260726-1';
+  var DATA = '/content/site/high-classes.json?v=20260802-1';
+  var LEARNING_DATA = '/content/site/high-learning-ledger.json?v=20260802-1';
   var $ = function (id) { return document.getElementById(id); };
 
   function param() {
@@ -1140,6 +1256,11 @@
   function wireGuidedExperience(cls, assessment) {
     if (!cls.practice || !cls.take_home || !assessment || !assessment.questions) return;
 
+    if (cls.practice.kind === 'missing-middle') {
+      wireMissingMiddleExperience(cls, assessment);
+      return;
+    }
+
     var progressKey = 'laidies_class_progress_v1';
     var classVersion = cls.experience_version || cls.slug + '-v1';
     var state = { mapBuilt: false, quizPassed: false, score: 0 };
@@ -1301,6 +1422,213 @@
       $('class-check-result').innerHTML = state.quizPassed
         ? '<strong>' + score + ' of 5.</strong> You can distinguish the layers and keep the human check visible.'
         : '<strong>' + score + ' of 5.</strong> Review the feedback, change any answer that now looks different and try again.';
+      updateCompletion();
+      $('class-check-result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    updateCompletion();
+  }
+
+  function wireMissingMiddleExperience(cls, assessment) {
+    var progressKey = 'laidies_class_progress_v1';
+    var classVersion = cls.experience_version || cls.slug + '-v1';
+    var state = { mapBuilt: false, quizPassed: false, score: 0 };
+    var fields = [
+      ['claim', 'Claim'],
+      ['classification', 'Classification'],
+      ['outcome', 'Outcome'],
+      ['capability', 'Current capability'],
+      ['prerequisites', 'Prerequisites'],
+      ['setup', 'Setup'],
+      ['judgement', 'Human judgement'],
+      ['boundaries', 'Boundaries and stop conditions'],
+      ['normal', 'Normal case'],
+      ['edge', 'Edge case'],
+      ['stop', 'Stop case'],
+      ['acceptance', 'Acceptance test'],
+      ['upkeep', 'Upkeep'],
+      ['decision', 'Decision'],
+      ['reason', 'Decision reason']
+    ];
+
+    function readProgress() {
+      try {
+        var all = JSON.parse(localStorage.getItem(progressKey) || '{}');
+        var saved = all[cls.slug + '|' + classVersion];
+        if (saved) state = saved;
+      } catch (_) {}
+    }
+
+    function writeProgress() {
+      try {
+        var all = JSON.parse(localStorage.getItem(progressKey) || '{}');
+        all[cls.slug + '|' + classVersion] = state;
+        localStorage.setItem(progressKey, JSON.stringify(all));
+      } catch (_) {}
+    }
+
+    function clean(value) { return String(value || '').trim(); }
+    function valueFor(key) { return clean($('missing-middle-' + key).value); }
+
+    function cardText() {
+      var lines = ['LAiDIES · ' + cls.take_home.title, ''];
+      fields.forEach(function (field) {
+        lines.push(field[1].toUpperCase(), valueFor(field[0]), '');
+      });
+      lines.push('Built locally in your browser. Re-check product claims against a current responsible source before relying on them.');
+      return lines.join('\n');
+    }
+
+    function cardHTML() {
+      var rows = fields.map(function (field) {
+        return '<section><h2>' + esc(field[1]) + '</h2><p>' + esc(valueFor(field[0])).replace(/\n/g, '<br>') + '</p></section>';
+      }).join('');
+      return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+        '<title>' + esc(cls.take_home.title) + '</title><style>' +
+        'body{margin:0;background:#e7def6;color:#40163f;font:16px/1.45 system-ui,sans-serif}main{max-width:850px;margin:auto;padding:32px}' +
+        'header{padding:28px;border:3px solid #40163f;border-radius:26px;background:linear-gradient(115deg,#68cfe1,#b28fe3 47%,#ef68aa)}' +
+        'h1{margin:0;font-size:clamp(2rem,7vw,4.2rem);line-height:.95}small{display:block;margin-top:12px;font-weight:700}' +
+        '.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}section{padding:16px;border:2px solid #40163f;border-radius:16px;background:#fff9f2}' +
+        'h2{margin:0 0 7px;font-size:1rem;text-transform:uppercase;letter-spacing:.07em}p{margin:0;white-space:normal}@media(max-width:620px){main{padding:14px}.grid{grid-template-columns:1fr}}' +
+        '@media print{body{background:#fff}main{max-width:none;padding:0}section{break-inside:avoid}.grid{gap:8px}}</style>' +
+        '<main><header><h1>' + esc(cls.take_home.title) + '</h1><small>LAiDIES · SUNNYVAiLE High</small></header>' +
+        '<div class="grid">' + rows + '</div></main></html>';
+    }
+
+    function updateCompletion() {
+      var status = $('class-completion-status');
+      if (state.mapBuilt && state.quizPassed) {
+        status.innerHTML = '<strong>Class complete.</strong> Your Missing Middle card is ready. ' +
+          'Completion is saved on this device; sign-in restoration remains gated until the shared learning ledger is released.';
+        var eventId = cls.slug + '|' + classVersion;
+        try {
+          document.dispatchEvent(new CustomEvent('laidies:class-completed', { detail: {
+            event_id: eventId,
+            resident_id: null,
+            class_id: cls.slug,
+            class_version: classVersion,
+            completed_at: state.completedAt,
+            evidence_type: 'missing-middle-card-plus-assessment',
+            reward_status: 'awaiting-shared-ledger'
+          }}));
+        } catch (_) {}
+      } else if (state.mapBuilt) {
+        status.textContent = 'Missing Middle card built. Finish the check to complete the class.';
+      } else if (state.quizPassed) {
+        status.textContent = 'Check passed. Build your Missing Middle card to complete the class.';
+      }
+    }
+
+    function loadPreset() {
+      var mode = $('missing-middle-mode').value;
+      var preset = cls.practice.presets[mode];
+      if (!preset) return;
+      fields.forEach(function (field) {
+        var input = $('missing-middle-' + field[0]);
+        if (Object.prototype.hasOwnProperty.call(preset, field[0])) input.value = preset[field[0]];
+        else input.value = '';
+      });
+      $('missing-middle-status').textContent = preset.status || 'Practice loaded. Make it accurate for the task in front of you.';
+    }
+
+    readProgress();
+    $('class-lab-title').textContent = cls.practice.title;
+    $('class-lab-intro').textContent = cls.practice.intro;
+    $('class-lab').classList.add('class-lab--missing-middle');
+    $('task-map-form').hidden = true;
+    $('task-map-result').hidden = true;
+    $('missing-middle-form').hidden = false;
+    $('take-home-title').textContent = cls.take_home.title;
+    $('take-home-description').textContent = cls.take_home.description;
+    $('class-check-title').textContent = cls.practice.check_title;
+    $('class-lab').hidden = false;
+    $('take-home').hidden = false;
+    loadPreset();
+
+    $('missing-middle-load').addEventListener('click', loadPreset);
+    $('missing-middle-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      $('missing-middle-output').innerHTML = fields.map(function (field) {
+        return '<dt>' + esc(field[1]) + '</dt><dd>' + esc(valueFor(field[0])).replace(/\n/g, '<br>') + '</dd>';
+      }).join('');
+      $('missing-middle-result').hidden = false;
+      state.mapBuilt = true;
+      if (state.quizPassed && !state.completedAt) state.completedAt = new Date().toISOString();
+      writeProgress();
+      updateCompletion();
+      $('missing-middle-result').focus();
+    });
+
+    $('missing-middle-copy').addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(cardText()).then(function () {
+          $('missing-middle-status').textContent = 'Copied.';
+        }).catch(function () {
+          $('missing-middle-status').textContent = 'Copy was unavailable. Use Download instead.';
+        });
+      }
+    });
+
+    $('missing-middle-download').addEventListener('click', function () {
+      var blob = new Blob([cardHTML()], { type: 'text/html;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = url;
+      link.download = cls.take_home.filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      $('missing-middle-status').textContent = 'Downloaded as accessible HTML.';
+    });
+
+    $('missing-middle-print').addEventListener('click', function () {
+      var popup = window.open('', '_blank');
+      if (!popup) {
+        $('missing-middle-status').textContent = 'Print window was blocked. Download the HTML card and print it from your browser.';
+        return;
+      }
+      popup.document.open();
+      popup.document.write(cardHTML());
+      popup.document.close();
+      try { popup.opener = null; } catch (_) {}
+      popup.addEventListener('load', function () { popup.print(); });
+    });
+
+    $('class-check-form').innerHTML = assessment.questions.map(function (question, index) {
+      return '<fieldset class="check-question" data-question="' + esc(question.id) + '">' +
+        '<legend><span>' + (index + 1) + '</span>' + esc(question.prompt) + '</legend>' +
+        question.options.map(function (option) {
+          return '<label><input type="radio" name="' + esc(question.id) + '" value="' + esc(option) + '" required>' +
+            '<span>' + esc(option) + '</span></label>';
+        }).join('') +
+        '<p class="check-question__feedback" hidden></p>' +
+      '</fieldset>';
+    }).join('') + '<button class="class-action" type="submit">Check my answers</button>';
+    $('class-check').hidden = false;
+
+    $('class-check-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var score = 0;
+      assessment.questions.forEach(function (question) {
+        var fieldset = document.querySelector('[data-question="' + question.id + '"]');
+        var selected = fieldset.querySelector('input:checked');
+        var feedback = fieldset.querySelector('.check-question__feedback');
+        var correct = selected && selected.value === question.answer;
+        if (correct) score += 1;
+        fieldset.dataset.correct = correct ? 'true' : 'false';
+        feedback.hidden = false;
+        feedback.innerHTML = '<strong>' + (correct ? 'Yes.' : 'Not quite.') + '</strong> ' +
+          esc(question.explanation) + (correct ? '' : ' <span>' + esc(question.reviewAction) + '</span>');
+      });
+      state.score = score;
+      state.quizPassed = score >= 4;
+      if (state.mapBuilt && state.quizPassed && !state.completedAt) state.completedAt = new Date().toISOString();
+      writeProgress();
+      $('class-check-result').hidden = false;
+      $('class-check-result').innerHTML = state.quizPassed
+        ? '<strong>' + score + ' of 5.</strong> You found the missing workflow, not just the shiny claim.'
+        : '<strong>' + score + ' of 5.</strong> Review the feedback, then try the questions again.';
       updateCompletion();
       $('class-check-result').scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
