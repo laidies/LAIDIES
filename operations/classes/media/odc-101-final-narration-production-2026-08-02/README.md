@@ -1,40 +1,45 @@
 # ODC-101 final narration production package
 
-Status: **VOICE AUDITION RECEIVED / HOLD**
+Status: **VOICE AUDITION RETAINED / NARRATION REJECTED / TEACHING-DESIGN HOLD**
 
-This package turns the approved, source-current ODC-101 teaching-media script
-into a recordable performance without pretending that the existing macOS
-system voice is release narration.
+The Hope audition remains useful evidence for the selected course-voice
+direction. The short recording script is rejected as an instructional product
+and must not be recorded. ODC-101 now returns to teaching design under
+`operations/classes/odc-101-teaching-design-brief-2026-08-02.md`.
 
 ## Scope
 
-The recording covers the approximately 4½-minute real-interface teaching
-segment. The complete class also contains the guided Try-On, answer feedback,
-assessment and take-home material. The catalogue's longer class runtime refers
-to that complete learner journey, not to a requirement for eight minutes of
-continuous voiceover.
+ODC-101 is a multi-lesson class. Each lesson needs its own learner question,
+mechanism, worked example, action, diagnostic feedback, transfer check and
+return point. No predetermined narration runtime controls that design.
 
 ## Release sequence
 
-1. Review the checksum-bound Hope audition as one continuous Studio generation.
-   The selected voice and model are Hope (`tnSpp4vdxKPjI9w0GnoV`) and Eleven v3
-   (`eleven_v3`). Capture the exact remaining settings before the full script.
-2. Listen to the complete export at 1× and record every accepted wording or
+1. Approve the class teaching design and every lesson contract.
+2. Specify and review the controlled examples, practice and cumulative
+   assessment.
+3. Verify the evidence and product-specific boundaries.
+4. Write and independently review successor narration lesson by lesson.
+5. Review the checksum-bound Hope audition as the voice direction. The selected
+   voice and model are Hope (`tnSpp4vdxKPjI9w0GnoV`) and Eleven v3
+   (`eleven_v3`). Capture the exact remaining settings before any full script.
+6. Listen to each complete export at 1× and record every accepted wording or
    performance change in `recording-revisions.md`.
-3. Create an as-recorded transcript from the accepted audio and reconcile it
+7. Create an as-recorded transcript from the accepted audio and reconcile it
    to the canonical class source.
-4. Re-time picture to the accepted audio. Do not stretch the audio to fit the
+8. Re-time picture to the accepted audio. Do not stretch the audio to fit the
    provisional animatic.
-5. Build the visual evidence plan. Use real screenshots or screen recordings
+9. Build the visual evidence plan. Use real screenshots or screen recordings
    for repeatable product actions; isolate exact navigation in dated,
    separately replaceable current-path inserts.
-6. Generate new external captions from the accepted audio. The review
+10. Generate new external captions from the accepted audio. The review
    animatic's word-count-derived VTT is not a release-caption source.
-7. Check caption sync, reading speed, line wrapping, source freshness,
+11. Check caption sync, reading speed, line wrapping, source freshness,
    narration-to-picture meaning, loudness, pronunciation and the whole class
    route.
-8. A qualified human completes one full sound-on 1× review of the exact master.
-9. Only the checksum-bound accepted successor may be admitted to the class
+12. A qualified human completes one full sound-on 1× review of each exact lesson
+    master and the complete class journey.
+13. Only checksum-bound accepted successors may be admitted to the class
    catalogue/player.
 
 ## Voice and mix boundary

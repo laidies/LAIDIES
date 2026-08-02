@@ -11823,3 +11823,29 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** A button moved. The lesson did not have
   to be thrown away with it.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-336 — A technically complete lesson can still fail to teach
+
+- **Date:** 2026-08-02
+- **Area:** SUNNYVAiLE High / course architecture / narration readiness.
+- **Failure:** An opening-day class script could pass voice, timing, caption and
+  media-package checks while remaining a short, generic overview. It named
+  useful practices but did not sufficiently explain why the system behaved as
+  described, compare good and bad examples, diagnose failure or support
+  transfer across tools.
+- **Root cause:** Production readiness was assessed before a complete
+  class-and-lesson teaching design was bound. Runtime and rendering artifacts
+  became a proxy for instructional completeness.
+- **Prevention rule:** No class narration may advance until the class promise
+  and every lesson bind a human narrative problem, curiosity/prediction,
+  visible causal mechanism, analogy boundary, worked contrast, learner action,
+  diagnostic feedback, consequence and new-context transfer. Substantial
+  classes may contain multiple resumable lessons; do not compress the teaching
+  job into one convenient video.
+- **Why the fix works:** The course now begins with the learner's problem and
+  uses story to create the technical question. It then makes the mechanism
+  visible, tests one changed variable, returns the decision to the learner and
+  verifies that the mental model survives a changed interface or tool.
+- **Possible Behind the Build angle:** The narration sounded finished. The
+  course was not—and that is exactly how shallow AI training gets made.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.

@@ -1,13 +1,19 @@
 {
   "schema_version": 1,
   "class_id": "ODC-101",
-  "status": "VOICE_AUDITION_RECEIVED_HOLD",
+  "status": "TEACHING_DESIGN_CANDIDATE_NARRATION_REJECTED_HOLD",
   "scope": "Final narration workbench for the real-interface teaching segment; not the complete interactive class runtime.",
   "instructional_design_standard": {
     "path": "operations/classes/CLASS-MEDIA-PRODUCTION-STANDARD.md",
-    "sha256": "e0a5522633fce69ff087ef21911e458d0df5af700a6c133bb80fcc4f33c3ef9e",
+    "sha256": "6fb90085c4c7b5aeea31e43ed020c91bd1d8434d0441121768d35698f7a46b9f",
     "delivery": "teach_your_smartest_best_friend",
     "volatile_ui_policy": "durable_narration_plus_replaceable_current_path_inserts"
+  },
+  "teaching_design": {
+    "path": "operations/classes/odc-101-teaching-design-brief-2026-08-02.md",
+    "sha256": "d77c56051a610732be3af3235c06745050ae9a0c05777884d48078edf84b4381",
+    "status": "CANDIDATE_PENDING_INDEPENDENT_INSTRUCTIONAL_REVIEW",
+    "class_structure": "MULTI_LESSON"
   },
   "voice": {
     "provider": "ElevenLabs Studio",
@@ -42,11 +48,11 @@
   "workbench": [
     {
       "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/recording-script.md",
-      "sha256": "876bead84e1252481fd4635758cf5703a2afe267054f6b5c11c1a4e4d76263a2"
+      "sha256": "2e378b0a912f8eca06547c4f7a3740641c9f28286ca60a62f1a9271a090b16b3"
     },
     {
       "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/README.md",
-      "sha256": "69e9c6229969f8abfe81e8934c771ed2bc3563199a7406681dbdd388c12e4762"
+      "sha256": "41e00ce1b7eeedc79c501b91bc8df3c29da2ccbd0d72245f78c25620248e8221"
     },
     {
       "path": "operations/classes/media/odc-101-final-narration-production-2026-08-02/recording-revisions.md",
@@ -70,6 +76,8 @@
     }
   ],
   "release_requirements": [
+    "Approved class teaching design with lesson-level mechanism, practice, diagnosis and transfer",
+    "Story-led beginner explanation with curiosity, prediction, visible causal mechanism, analogy boundary and new-context transfer",
     "Exact remaining Hope voice settings captured against the received Eleven v3 audition",
     "Approved final narration audio with exact checksum",
     "Completed recording revision log and reconciled as-recorded transcript",

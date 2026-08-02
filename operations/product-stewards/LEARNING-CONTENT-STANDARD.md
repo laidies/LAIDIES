@@ -64,6 +64,58 @@ pop-culture reference—is never sufficient reason to use one.
 Repetition is justified only when a different modality or retrieval context
 meaningfully reinforces learning.
 
+## Class and lesson architecture
+
+Every class is designed before narration. A class owns a complete learner
+promise and may contain several lessons. Each lesson owns one coherent
+learning outcome and must be useful as a resumable unit; a chapter marker in a
+long video is not automatically a lesson.
+
+Every lesson record must state, before scripting:
+
+1. **Learner need:** why someone would choose or need this lesson.
+2. **Learner question:** the question the teaching will answer.
+3. **Observable outcome:** what the learner can explain, do, diagnose, decide
+   or transfer afterward.
+4. **Mechanism:** why the concept or procedure behaves as described, including
+   what information enters which system layer and what does not.
+5. **Adjacent distinctions:** the similar concepts the learner must not
+   collapse together.
+6. **Worked example:** a concrete task with visible inputs, action, result and
+   interpretation.
+7. **Controlled comparison:** when causation is being taught, change one
+   meaningful variable and explain why the result changed.
+8. **Learner action:** a low-risk Try-On that requires doing or deciding, not
+   merely watching.
+9. **Feedback and failure diagnosis:** why an answer works, what is missing and
+   the smallest useful correction.
+10. **Retrieval and transfer check:** a new example or explain-back that proves
+    the learner can use the model outside the demonstration.
+11. **Return point and next experience:** what is saved, where the learner can
+   resume and which lesson or resource logically follows.
+12. **Narrative problem:** the human situation, character goal, tension or
+   mistake that makes the technical question worth answering.
+13. **Curiosity and prediction:** what the learner is asked to notice, predict
+   or explain before being shown the answer.
+14. **Story-to-system bridge:** how the narrative maps to the real mechanism,
+   which visual makes that mechanism visible and exactly where the analogy
+   stops.
+15. **Consequence and agency:** what the learner can now notice, choose,
+   challenge or create because she understands the mechanism.
+
+The required sequence is:
+
+`human situation → curiosity/prediction → mechanism → example/comparison → learner action → feedback/diagnosis → consequence → transfer check`
+
+When a class extends an episode, preserve the episode's character problem and
+learning idea as the entry point. The class owns the deeper causal explanation,
+worked contrasts, practice and transfer; it must not merely recap the plot or
+repeat the episode's analogy.
+
+A lesson that only defines, lists tips, tours interface controls or tells the
+learner to follow steps is incomplete. A polished script, narration file,
+animatic or quiz cannot compensate for a missing teaching design.
+
 ## Mandatory intake and complement gate
 
 Before a champion scripts or commissions a new substantial learning item, copy
@@ -110,6 +162,9 @@ For every substantial item, record:
 - explanation, application and misconception-resistance checks;
 - overlap, gap and recommended product home;
 - quality/accuracy risk, freshness owner and correction path.
+
+For a class, also record the class-level promise and lesson map. For every
+lesson, bind the fifteen lesson-architecture fields above before narration.
 
 ## Release gate
 

@@ -1,6 +1,10 @@
 # ODC-201 final narration production package
 
-Status: **DRAFT PERFORMANCE WORKBENCH / CONTENT REVIEW HOLD**
+Status: **TEACHING DESIGN REQUIRED / NARRATION HOLD**
+
+Do not record the current draft. First approve the class promise, lesson map,
+mechanisms, examples, guided practice, diagnostic feedback, transfer checks and
+cumulative assessment under the canonical teaching-design standard.
 
 The existing 5:50 system-voice animatic is a storyboard and timing experiment,
 not the clock for final animation. After the independent source and teaching

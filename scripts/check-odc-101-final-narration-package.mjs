@@ -14,7 +14,7 @@ const currentAnimatic = JSON.parse(fs.readFileSync(path.join(root, 'operations/c
 const sha256 = (file) => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 
 assert.equal(manifest.class_id, 'ODC-101');
-assert.equal(manifest.status, 'VOICE_AUDITION_RECEIVED_HOLD');
+assert.equal(manifest.status, 'TEACHING_DESIGN_CANDIDATE_NARRATION_REJECTED_HOLD');
 assert.equal(manifest.voice.provider, 'ElevenLabs Studio');
 assert.equal(manifest.voice.display_name, 'Hope — upbeat and clear');
 assert.equal(manifest.voice.voice_id, 'tnSpp4vdxKPjI9w0GnoV');
@@ -26,6 +26,9 @@ assert.equal(manifest.instructional_design_standard.path, 'operations/classes/CL
 assert.equal(manifest.instructional_design_standard.delivery, 'teach_your_smartest_best_friend');
 assert.equal(manifest.instructional_design_standard.volatile_ui_policy, 'durable_narration_plus_replaceable_current_path_inserts');
 assert.equal(sha256(path.join(root, manifest.instructional_design_standard.path)), manifest.instructional_design_standard.sha256, 'instructional design standard drifted');
+assert.equal(manifest.teaching_design.status, 'CANDIDATE_PENDING_INDEPENDENT_INSTRUCTIONAL_REVIEW');
+assert.equal(manifest.teaching_design.class_structure, 'MULTI_LESSON');
+assert.equal(sha256(path.join(root, manifest.teaching_design.path)), manifest.teaching_design.sha256, 'teaching design drifted');
 assert.match(manifest.release_boundary, /No audio, captions, picture, class catalogue or public player is admitted/);
 
 for (const item of [...manifest.inputs, ...manifest.workbench]) {
@@ -54,6 +57,12 @@ for (const required of ['Hope — upbeat and clear', 'Eleven v3', 'one continuou
 for (const required of ['smartest best friend', 'real screenshots or screen recordings', 'replaceable current-path']) {
   assert.ok(normalizedRecordingScript.includes(required), `instructional production contract missing: ${required}`);
 }
+assert.match(recordingScript, /REJECTED AS INSTRUCTIONALLY INCOMPLETE \/ DO NOT RECORD/);
+const teachingDesign = fs.readFileSync(path.join(root, manifest.teaching_design.path), 'utf8');
+for (const required of ['Why a learner would take this class', 'Questions the teaching must answer', 'Observable end-of-class abilities', 'Lesson 1', 'Lesson 6', 'Mechanism / why', 'Controlled comparison', 'Guided Try-On', 'Diagnose and repair', 'Transfer between products']) {
+  assert.ok(teachingDesign.includes(required), `teaching design missing: ${required}`);
+}
+assert.ok(manifest.release_requirements.some((item) => /Approved class teaching design/.test(item)), 'teaching-design release gate missing');
 const visualPlan = fs.readFileSync(path.join(packageRoot, 'visual-evidence-plan.md'), 'utf8');
 for (const required of ['screen recording', 'screenshot', 'volatile current-path insert', 'non-personal fixture', 'freshness response']) {
   assert.ok(visualPlan.toLowerCase().includes(required), `visual evidence plan missing: ${required}`);
@@ -77,5 +86,5 @@ console.log(JSON.stringify({
   package_status: manifest.status,
   narration_words: narrationWords,
   public_binding_changed: false,
-  next_gate: 'exact Hope settings capture and full continuous Eleven v3 narration render'
+  next_gate: 'independent instructional review of the multi-lesson design, then successor lesson narration'
 }, null, 2));

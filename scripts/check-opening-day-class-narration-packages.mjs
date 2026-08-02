@@ -15,21 +15,21 @@ const packages = [
     directory: 'odc-101-final-narration-production-2026-08-02',
     script: 'operations/classes/odc-101-teaching-media-script-2026-08-02.json',
     animatic: 'operations/classes/media/odc-101-teaching-media-review-animatic-v1/manifest.json',
-    expectedStatus: 'VOICE_AUDITION_RECEIVED_HOLD'
+    expectedStatus: 'TEACHING_DESIGN_CANDIDATE_NARRATION_REJECTED_HOLD'
   },
   {
     id: 'ODC-201',
     directory: 'odc-201-final-narration-production-2026-08-02',
     script: 'operations/classes/odc-201-teaching-media-script-2026-08-02.json',
     animatic: 'operations/classes/media/odc-201-teaching-media-review-animatic-v1/manifest.json',
-    expectedStatus: 'DRAFT_PERFORMANCE_WORKBENCH_HOLD_PENDING_CONTENT_REVIEW'
+    expectedStatus: 'TEACHING_DESIGN_REQUIRED_NARRATION_HOLD'
   },
   {
     id: 'ODC-LAB-01',
     directory: 'odc-lab-01-final-narration-production-2026-08-02',
     script: 'operations/classes/odc-lab-01-teaching-media-script-2026-08-02.json',
     animatic: 'operations/classes/media/odc-lab-01-teaching-media-review-animatic-v1/manifest.json',
-    expectedStatus: 'DRAFT_PERFORMANCE_WORKBENCH_HOLD_PENDING_CONTENT_REVIEW'
+    expectedStatus: 'TEACHING_DESIGN_REQUIRED_NARRATION_HOLD'
   }
 ];
 
@@ -85,6 +85,16 @@ for (const item of packages) {
   assert.ok(manifest.release_requirements.some((item) => /instructional visual-job gate/.test(item)), `${item.id} visual-job release gate missing`);
   assert.ok(manifest.release_requirements.some((item) => /real screenshots or screen recordings/.test(item)), `${item.id} real-interface evidence gate missing`);
   assert.ok(manifest.release_requirements.some((item) => /replaceable current-path inserts/.test(item)), `${item.id} replaceable UI insert gate missing`);
+  assert.ok(manifest.release_requirements.some((item) => /Approved class teaching design/.test(item)), `${item.id} teaching-design release gate missing`);
+
+  if (item.id === 'ODC-101') {
+    assert.equal(manifest.teaching_design.status, 'CANDIDATE_PENDING_INDEPENDENT_INSTRUCTIONAL_REVIEW');
+    assert.equal(manifest.teaching_design.class_structure, 'MULTI_LESSON');
+    assert.equal(sha256(path.join(root, manifest.teaching_design.path)), manifest.teaching_design.sha256, 'ODC-101 teaching design drifted');
+    assert.match(packageScript, /REJECTED AS INSTRUCTIONALLY INCOMPLETE \/ DO NOT RECORD/);
+  } else {
+    assert.match(packageScript, /TEACHING DESIGN REQUIRED \/ DO NOT RECORD/, `${item.id} narration must remain blocked before design`);
+  }
 
   const catalogueItem = catalogue.classes.find((entry) => entry.id === item.id);
   assert.ok(catalogueItem, `${item.id} opening-day catalogue entry missing`);
@@ -103,5 +113,5 @@ for (const item of packages) {
 console.log(JSON.stringify({
   status: 'PASS',
   packages: results,
-  next_gate: 'content/source admission as required, exact Hope settings capture, then full continuous Eleven v3 narration render'
+  next_gate: 'class and lesson teaching-design approval before any successor narration'
 }, null, 2));

@@ -1,6 +1,9 @@
 # ODC-201 — final narration recording script
 
-Status: **DRAFT PERFORMANCE WORKBENCH / CONTENT REVIEW HOLD**
+Status: **TEACHING DESIGN REQUIRED / DO NOT RECORD**
+
+This draft cannot advance until a class-level promise and lesson-by-lesson
+teaching design pass the canonical class teaching-design gate.
 
 Voice: **Hope — upbeat and clear** (`tnSpp4vdxKPjI9w0GnoV`, Eleven v3)
 

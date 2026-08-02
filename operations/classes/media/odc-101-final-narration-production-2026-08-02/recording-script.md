@@ -1,12 +1,18 @@
 # ODC-101 — final narration recording script
 
-Status: **READY FOR VOICE AUDITION / NOT RELEASE AUDIO**
+Status: **REJECTED AS INSTRUCTIONALLY INCOMPLETE / DO NOT RECORD**
+
+This short explainer does not satisfy the approved multi-lesson teaching
+architecture in `operations/classes/odc-101-teaching-design-brief-2026-08-02.md`.
+It is retained only as historical wording evidence. Build and approve the
+lesson designs, examples, practice and assessment before writing successor
+narration.
 
 Voice: **Hope — upbeat and clear** (`tnSpp4vdxKPjI9w0GnoV`, Eleven v3)
 
 Format: one warm tutorial voice; no announcer and no character performance
 
-Target: approximately **4:25–4:50** before any optional bumper
+Historical rejected target: approximately **4:25–4:50**
 
 Source of meaning: `operations/classes/odc-101-teaching-media-script-2026-08-02.json`
 
