@@ -1,0 +1,38 @@
+{
+  "schema": "laidies.episode-media-quality.validation.v1",
+  "status": "BUILT_LOCALLY_HOLD_INDEPENDENT_HUMAN_SOUND_ON_REVIEW_REQUIRED_NOT_PUBLIC",
+  "master": {
+    "path": "assets/video/episode-01-full-v27-occurrence-repaired-review.mp4",
+    "sha256": "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a",
+    "duration_seconds": 1172.27,
+    "decoded_frames": 35168,
+    "full_av_decode": "PASS"
+  },
+  "visual_review": {
+    "contact_path": "operations/video-qa/episode-01-full-v27-occurrence-repaired-review/episode-01-full-v27-contact-v1.jpg",
+    "contact_sha256": "b75181da64e8ec6210ac083b69e11f477cedb2ff1f287d69c5658aa636225e3f",
+    "full_title_dense_contact_review": "PASS",
+    "episode_01_approved_outfit_continuity": "PASS",
+    "rejected_ballerina_or_tutu_asset_present": false,
+    "episode_02_teaser_character_continuity": "PASS_CHARACTER_FREE_TEASER"
+  },
+  "machine_checks": {
+    "black_frames_0_25_seconds_or_longer": "NONE_DETECTED",
+    "silence_1_8_seconds_or_longer_below_minus_45_db": "NONE_DETECTED",
+    "parent_to_successor_audio_apsnr_db": 161.331,
+    "caption_vtt_sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+    "caption_srt_sha256": "45875eac8e6f605cfd9fc001f2df61717383a10f906c81cdc12ae5d2484b52f5"
+  },
+  "remaining_gate": {
+    "owner": "qualified independent human Episode Media Quality reviewer",
+    "required_action": "Watch and hear this exact master checksum from 00:00.000 through 19:32.270 unmuted at 1x and return checksum-bound PASS or timecoded HOLD.",
+    "reason": "Machine signal and transcript checks do not constitute human hearing."
+  },
+  "authority": {
+    "accepted": false,
+    "deploy": false,
+    "player_binding": false,
+    "public": false,
+    "release": false
+  }
+}
