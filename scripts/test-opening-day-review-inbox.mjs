@@ -30,10 +30,11 @@ try{
   for(const width of [390,1280]){
     const page=await browser.newPage({viewport:{width,height:950}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(`${base}/operations/control-room/review-inbox.html`,{waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();
-    assert.equal(await page.locator('#readyCount').textContent(),'4');assert.equal(await page.locator('#buildCount').textContent(),'1');assert.equal(await page.locator('#blockedCount').textContent(),'2');
-    assert.equal(await page.locator('#readyTabs button').count(),4);assert.equal(await page.locator('#title').textContent(),'Episode 01 — On Wednesdays We Do AI');
-    assert.match(await page.locator('#hash').textContent(),/50311e89c1664c1f/);assert.equal(await page.locator('#building .work-card').count(),1);assert.equal(await page.locator('#blocked .work-card').count(),2);
+    assert.equal(await page.locator('#readyCount').textContent(),'5');assert.equal(await page.locator('#buildCount').textContent(),'0');assert.equal(await page.locator('#blockedCount').textContent(),'2');
+    assert.equal(await page.locator('#readyTabs button').count(),5);assert.equal(await page.locator('#title').textContent(),'The Trailer — Welcome to SUNNYVAiLE');
+    assert.match(await page.locator('#hash').textContent(),/1be8c4f167612940/);assert.equal(await page.locator('#building .work-card').count(),0);assert.equal(await page.locator('#blocked .work-card').count(),2);
     const expected=[
+      {title:'The Trailer',hash:/1be8c4f167612940/,min:966,max:968},
       {title:'Episode 01',hash:/50311e89c1664c1f/,min:1171,max:1173},
       {title:'Episode 02',hash:/2b8bd0c3cfb968ad/,min:986,max:988},
       {title:'Episode 03',hash:/6a7f2381666b355a/,min:1047,max:1049},
@@ -50,6 +51,7 @@ try{
     await page.selectOption('#decision','HOLD');await page.fill('#notes','00:42 — test note');await page.click('#save');await page.locator('#saved').filter({hasText:'Saved on this device'}).waitFor();
     const storedBeforeReload=await page.evaluate(()=>localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'));assert.match(storedBeforeReload,/00:42/);
     await page.reload({waitUntil:'domcontentloaded'});await page.locator('#readyTabs button').first().waitFor();await page.waitForTimeout(500);
+    await page.locator('#readyTabs button').filter({hasText:'Episode 01'}).click();
     const reloadState=await page.evaluate(()=>({stored:localStorage.getItem('laidies-owner-review:episode-01-v27-human-watch'),notes:document.querySelector('#notes')?.value,title:document.querySelector('#title')?.textContent}));
     assert.equal(reloadState.notes,'00:42 — test note',JSON.stringify(reloadState));
     assert.equal(await page.locator('#decision').inputValue(),'HOLD');assert.equal(await page.locator('#notes').inputValue(),'00:42 — test note');
@@ -57,5 +59,5 @@ try{
     const overflow=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,body:document.body.scrollWidth}));assert.ok(overflow.document<=overflow.viewport+1,JSON.stringify(overflow));assert.ok(overflow.body<=overflow.viewport+1,JSON.stringify(overflow));
     assert.deepEqual(errors,[]);await page.screenshot({path:path.join(evidenceDir,width===390?'mobile.png':'desktop.png'),fullPage:true});await page.close();
   }
-    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact current Episode 01–04 masters)');
+    console.log('OWNER REVIEW INBOX: PASS (390px + 1280px; exact current Trailer + Episode 01–04 masters)');
 }finally{await browser.close();server.close()}
