@@ -34,6 +34,10 @@ if (!/isAdmissionSha\(admission\.filmSha256\)/.test(watch)) errors.push('watch.h
 if (!/isAdmittedMediaUrl\(admission\.filmPublicUrl\)/.test(watch)) errors.push('watch.html does not require an admitted HTTPS media URL');
 if (!/mountFilm\(__film, __ep, admission\.posterPublicUrl\)/.test(watch)) errors.push('watch.html does not bind the admitted poster to the visible film player');
 if (!/v\.poster = poster/.test(watch)) errors.push('film player does not apply its admitted poster');
+if (!/isAdmittedMediaUrl\(admission\.audio\)/.test(watch)) errors.push('Listen only does not require an admitted narration URL');
+if (!/isAdmissionSha\(admission\.audioSha256\)/.test(watch)) errors.push('Listen only does not require an admitted narration checksum');
+if (!/segments\[mainSegIdx\]\.audio = admission\.audio/.test(watch)) errors.push('Listen only does not bind audio from the admission record');
+if (!/screeningMode\.hidden = false/.test(watch)) errors.push('admitted Watch / Listen only controls are not activated');
 
 const expectedTitles = Object.fromEntries(episodeIndex.episodes.map((episode) => [String(episode.number).padStart(2, '0'), episode.title]));
 for (const [key, programme] of Object.entries(manifest.programmes)) {
@@ -65,5 +69,6 @@ console.log('Opening-day playback binding verifier: PASS');
 console.log('- 5/5 exact local film, caption, evidence, identity-source, cover-family and fallback hashes match');
 console.log('- 5/5 public admission states remain HOLD');
 console.log('- watch.html has no manual film registry and consumes only admitted public URLs');
+console.log('- admitted films expose explicit Watch / Listen only modes using the checksum-bound narration record');
 console.log('- 5/5 cover masters plus derivatives are BUILT LOCALLY / HOLD');
 console.log('- 0/5 programmes are marked ready for binding');

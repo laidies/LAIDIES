@@ -129,6 +129,7 @@ try {
   const newcomer = await open("01");
   await newcomer.page.locator(".scene.is-live").waitFor();
   assert.equal(await newcomer.page.locator("#resumePanel").isVisible(), false, "newcomer saw a false resume prompt");
+  assert.equal(await newcomer.page.locator("#screeningMode").isVisible(), false, "held film exposed the watch/listen switch");
   assert.deepEqual(
     await newcomer.page.locator(".screening-program a[data-ep]").evaluateAll((links) =>
       links.map((link) => link.getAttribute("data-ep"))),
@@ -192,13 +193,48 @@ try {
   );
   assert.equal(await admitted.page.locator(".scene.is-live").count(), 0, "admitted film fell through to cue stills");
   assert.match(await admitted.page.locator("#scrNote").textContent(), /complete illustrated film/i);
+  assert.equal(await admitted.page.locator("#screeningMode").isVisible(), true, "admitted film did not expose playback modes");
+  assert.equal(await admitted.page.locator("#watchMode").getAttribute("aria-pressed"), "true");
   await admitted.page.waitForFunction(() => window.__mediaSessionProbe?.metadata?.artwork?.[0]?.src);
   assert.equal(
     (await admitted.page.evaluate(() => window.__mediaSessionProbe.metadata.artwork[0].src)),
     admittedEpisode.posterPublicUrl,
     "admitted poster did not reach Media Session metadata"
   );
+  await admitted.page.locator("#listenMode").click();
+  await admitted.page.waitForFunction(() => document.querySelector("#tape").getAttribute("src"));
+  assert.equal(
+    await admitted.page.locator("#tape").getAttribute("src"),
+    admittedEpisode.audio,
+    "Listen only did not bind the admitted narration URL"
+  );
+  assert.equal(await admitted.page.locator(".film-player").isVisible(), false, "film remained visible in Listen only mode");
+  assert.equal(await admitted.page.locator(".listen-only-cover").isVisible(), true, "Listen only cover is not visible");
+  assert.equal(await admitted.page.locator(".deck").isVisible(), true, "Listen only transport is not visible");
+  assert.equal(await admitted.page.locator("#listenMode").getAttribute("aria-pressed"), "true");
+  assert.match(await admitted.page.locator("#screeningMeta").textContent(), /background and lock-screen controls/i);
+  await admitted.page.locator("#watchMode").click();
+  assert.equal(await admitted.page.locator(".film-player").isVisible(), true, "Watch did not restore the admitted film");
+  assert.equal(await admitted.page.locator(".deck").isVisible(), false, "audio transport remained visible in Watch mode");
+  assert.equal(await admitted.page.locator("#watchMode").getAttribute("aria-pressed"), "true");
   await admitted.context.close();
+
+  const admittedMobile = await open("01", {
+    admissionOverride: admissionFixture,
+    viewport: { width: 320, height: 820 }
+  });
+  await admittedMobile.page.locator("#screeningMode").waitFor();
+  assert.equal(
+    await admittedMobile.page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    true,
+    "320px admitted Watch / Listen only layout overflows horizontally"
+  );
+  const modeButtons = await admittedMobile.page.locator("#screeningMode button").evaluateAll((buttons) =>
+    buttons.map((button) => ({ width: button.getBoundingClientRect().width, height: button.getBoundingClientRect().height }))
+  );
+  assert.ok(Math.abs(modeButtons[0].width - modeButtons[1].width) < 1, "playback mode controls are uneven at 320px");
+  assert.ok(modeButtons.every((button) => button.height >= 44), "playback mode control is below the minimum touch target");
+  await admittedMobile.context.close();
 
   const returning = await open("02", {
     progress: { version: 1, programme: "02", time: 321.4 }
@@ -250,7 +286,7 @@ try {
   console.log("failure_modes=cues,captions,audio,visual,playback");
   console.log("trailer_caption_tail=complete_and_visible");
   console.log("media_session=metadata,play,pause,seekbackward,seekforward,seekto");
-  console.log("admission_binding=held_unbound,admitted_film_and_poster_bound");
+  console.log("admission_binding=held_unbound,admitted_film_poster_and_listen_only_bound");
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));

@@ -22,6 +22,21 @@
     .scr-title { font: 900 clamp(26px, 4vw, 40px)/1.1 'Playfair Display', serif; color: #fffdfb; margin: 0 0 4px; }
     .scr-sub { font: 400 14px/1.5 'Jost', sans-serif; color: rgba(255,253,251,0.66); margin: 0 0 20px; }
 
+    .screening-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 14px 0;
+      padding: 6px; border: 1px solid rgba(201,162,39,0.42); border-radius: 12px; background: rgba(23,9,27,0.78); }
+    .screening-mode[hidden] { display: none; }
+    .screening-mode button { min-height: 48px; border: 0; border-radius: 8px; padding: 10px 16px;
+      background: transparent; color: rgba(255,253,251,0.72); font: 800 12px/1.2 'Jost', sans-serif;
+      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+    .screening-mode button[aria-pressed="true"] { background: var(--gold, #c9a227); color: #341446; }
+    .screening-mode button:focus-visible { outline: 3px solid #fffdfb; outline-offset: 2px; }
+    .listen-only-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      background: #000; }
+    .listen-only-label { position: absolute; left: 16px; bottom: 16px; z-index: 7; margin: 0;
+      padding: 8px 11px; border: 1px solid rgba(255,253,251,0.35); border-radius: 7px;
+      background: rgba(23,9,27,0.86); color: #fffdfb; font: 800 10px/1.25 'Jost', sans-serif;
+      letter-spacing: 0.13em; text-transform: uppercase; }
+
     /* ---- the stage -------------------------------------------------- */
     .theatre { position: relative; border-radius: 14px; overflow: hidden; background: #000;
       aspect-ratio: 16 / 9; border: 2px solid rgba(201,162,39,0.5); box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
@@ -238,6 +253,11 @@
           <span id="screeningMeta">Illustrated listen-along · captions available</span>
         </div>
 
+        <div class="screening-mode" id="screeningMode" aria-label="Choose how to play this episode" hidden>
+          <button type="button" id="watchMode" aria-pressed="true">Watch</button>
+          <button type="button" id="listenMode" aria-pressed="false">Listen only</button>
+        </div>
+
         <div class="theatre" id="theatre">
           <button class="big-play" id="bigPlay" type="button" aria-label="Play episode">▶</button>
           <div class="vhs-osd" id="osd">⏸ STOP · SP 0:00:00</div>
@@ -308,6 +328,10 @@
     var retryMedia = document.getElementById('retryMedia');
     var resumePanel = document.getElementById('resumePanel');
     var resumeText = document.getElementById('resumeText');
+    var screeningMode = document.getElementById('screeningMode');
+    var watchMode = document.getElementById('watchMode');
+    var listenMode = document.getElementById('listenMode');
+    var playerMode = 'listen-along';
     var resumePlayback = document.getElementById('resumePlayback');
     var startOver = document.getElementById('startOver');
     var playerFailed = false;
@@ -594,9 +618,10 @@
       var theatre = document.getElementById('theatre');
       if (!theatre) return false;
       // strip the stills-player chrome — the film carries its own controls
-      var bp = document.getElementById('bigPlay'); if (bp) bp.remove();
-      var od = document.getElementById('osd'); if (od) od.remove();
+      var bp = document.getElementById('bigPlay'); if (bp) bp.style.display = 'none';
+      var od = document.getElementById('osd'); if (od) od.style.display = 'none';
       var deck = document.querySelector('.deck'); if (deck) deck.style.display = 'none';
+      if (chaptersEl) chaptersEl.style.display = 'none';
       var v = document.createElement('video');
       v.className = 'film-player';
       v.src = src; v.controls = true; v.playsInline = true; v.preload = 'metadata';
@@ -615,10 +640,105 @@
         if (tr.track) tr.track.mode = 'hidden';
       }
       theatre.appendChild(v);
-      if (vtt) mountCaptionBar(v, theatre);
+      if (vtt) {
+        v._captionBar = mountCaptionBar(v, theatre);
+        v._captionBar.dataset.playerMode = 'watch';
+      }
       configureMediaSession(v, ep);
       theatre.classList.add('is-film');
-      return true;
+      playerMode = 'watch';
+      return v;
+    }
+
+    function mountAdmittedModeSwitcher(video, admission, ep) {
+      var audioReady = admission
+        && isAdmittedMediaUrl(admission.audio)
+        && isAdmissionSha(admission.audioSha256)
+        && Number(admission.audioDurationSeconds) > 0;
+      if (!video || !audioReady || !screeningMode || !watchMode || !listenMode) return;
+
+      var deck = document.querySelector('.deck');
+      var listenCover = document.createElement('img');
+      listenCover.className = 'listen-only-cover';
+      listenCover.src = admission.posterPublicUrl;
+      listenCover.alt = '';
+      listenCover.hidden = true;
+      var listenLabel = document.createElement('p');
+      listenLabel.className = 'listen-only-label';
+      listenLabel.textContent = 'Listen only · background playback';
+      listenLabel.hidden = true;
+      theatre.appendChild(listenCover);
+      theatre.appendChild(listenLabel);
+
+      var audioCaptionBar = null;
+      var audioStarted = false;
+
+      function setPressed(mode) {
+        watchMode.setAttribute('aria-pressed', mode === 'watch' ? 'true' : 'false');
+        listenMode.setAttribute('aria-pressed', mode === 'listen' ? 'true' : 'false');
+      }
+
+      function showListenMode() {
+        var continuePlaying = !video.paused;
+        var at = Number.isFinite(video.currentTime) ? video.currentTime : 0;
+        video.pause();
+        video.hidden = true;
+        video.style.display = 'none';
+        if (video._captionBar) video._captionBar.hidden = true;
+        listenCover.hidden = false;
+        listenLabel.hidden = false;
+        theatre.classList.remove('is-film');
+        playerMode = 'listen-only';
+        if (deck) deck.style.display = 'flex';
+        if (chaptersEl) chaptersEl.style.display = 'flex';
+        if (!audioStarted || segKind !== 'main') {
+          segments[mainSegIdx].audio = admission.audio;
+          loadSegment(mainSegIdx);
+          audioStarted = true;
+        }
+        seekPending = at;
+        try { tape.currentTime = at; } catch (error) {}
+        if (!audioCaptionBar) {
+          var captionSrc = captionsFor(ep);
+          if (captionSrc) {
+            audioCaptionBar = mountAudioCaptionBar(tape, theatre, captionSrc, ep);
+            audioCaptionBar.dataset.playerMode = 'listen';
+          }
+        }
+        if (audioCaptionBar) audioCaptionBar.hidden = false;
+        configureMediaSession(tape, ep);
+        screeningMeta.textContent = 'Listen only · background and lock-screen controls · captions available';
+        scrNote.textContent = 'Listen without keeping the film on screen. Playback can continue while you walk, commute or use another app, subject to your device settings.';
+        setPressed('listen');
+        if (continuePlaying) tape.play().catch(function () {});
+      }
+
+      function showWatchMode() {
+        var continuePlaying = audioStarted && !tape.paused;
+        var at = audioStarted && segKind === 'main' && Number.isFinite(tape.currentTime) ? tape.currentTime : 0;
+        tape.pause();
+        listenCover.hidden = true;
+        listenLabel.hidden = true;
+        if (audioCaptionBar) audioCaptionBar.hidden = true;
+        video.hidden = false;
+        video.style.display = 'block';
+        if (video._captionBar) video._captionBar.hidden = false;
+        try { video.currentTime = at; } catch (error) {}
+        if (deck) deck.style.display = 'none';
+        if (chaptersEl) chaptersEl.style.display = 'none';
+        theatre.classList.add('is-film');
+        playerMode = 'watch';
+        configureMediaSession(video, ep);
+        screeningMeta.textContent = 'Complete illustrated film · captions available';
+        scrNote.textContent = 'Watch the complete illustrated film, or choose Listen only for background and lock-screen playback.';
+        setPressed('watch');
+        if (continuePlaying) video.play().catch(function () {});
+      }
+
+      watchMode.addEventListener('click', showWatchMode);
+      listenMode.addEventListener('click', showListenMode);
+      screeningMode.hidden = false;
+      showWatchMode();
     }
     var cues = [], duration = 0;
     var currentIdx = -1;
@@ -774,7 +894,7 @@
       if (segDur && el >= segDur) { advanceSegment(); return; }
       if (segDur) tape.volume = Math.max(0, Math.min(1, el / 0.6, (segDur - el) / 0.6));
       else tape.volume = 1;
-      showScene(cueIndexFor(el));
+      if (playerMode !== 'listen-only') showScene(cueIndexFor(el));
       var d = segDur || duration || (cues.length ? cues[cues.length - 1].t + 26 : 0);
       var pct = d ? Math.min(100, (el / d) * 100) : 0;
       fill.style.width = pct + '%';
@@ -800,7 +920,8 @@
       document.querySelector('main').classList.toggle('seg-bumper', seg.kind !== 'main');
       seekPending = segStart;
       tape.src = seg.audio;
-      showScene(0); tick();
+      if (playerMode !== 'listen-only') showScene(0);
+      tick();
     }
     function advanceSegment() {
       if (advancing) return;
@@ -846,10 +967,14 @@
 
     btnPlay.addEventListener('click', togglePlay);
     if (bigPlay) bigPlay.addEventListener('click', togglePlay);
-    theatre.addEventListener('click', function (e) { if (e.target.closest('a, .cta-btn, .big-play')) return; togglePlay(); });
+    theatre.addEventListener('click', function (e) {
+      if (playerMode === 'watch' || e.target.closest('a, .cta-btn, .big-play')) return;
+      togglePlay();
+    });
     document.addEventListener('keydown', function (e) {
       if (e.code !== 'Space' || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
       if (e.target.closest('input, textarea, select, button, a, [contenteditable="true"]')) return;
+      if (playerMode === 'watch') return;
       e.preventDefault(); togglePlay();
     });
 
@@ -986,7 +1111,13 @@
         var __ep = (typeof epNum !== 'undefined' ? epNum : (new URLSearchParams(location.search).get('ep') || '01'));
         var __film = visualsReleased ? filmFor(admission) : null;
 
-        if (__film && mountFilm(__film, __ep, admission.posterPublicUrl)) { return; }
+        if (__film) {
+          var __video = mountFilm(__film, __ep, admission.posterPublicUrl);
+          if (__video) {
+            mountAdmittedModeSwitcher(__video, admission, __ep);
+            return;
+          }
+        }
 
         configureMediaSession(tape, __ep);
         loadSegment(0);
