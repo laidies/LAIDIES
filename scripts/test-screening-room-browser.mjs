@@ -68,6 +68,27 @@ const browser = await chromium.launch({ executablePath: chrome, headless: true }
 
 async function open(programme = "01", options = {}) {
   const context = await browser.newContext({ viewport: options.viewport || { width: 1280, height: 900 } });
+  if (options.mediaSession) {
+    await context.addInitScript(() => {
+      window.__mediaSessionProbe = { handlers: {}, metadata: null, playbackState: "none" };
+      window.MediaMetadata = class MediaMetadata {
+        constructor(metadata) {
+          Object.assign(this, metadata);
+          window.__mediaSessionProbe.metadata = metadata;
+        }
+      };
+      Object.defineProperty(navigator, "mediaSession", {
+        configurable: true,
+        value: {
+          setActionHandler(name, handler) { window.__mediaSessionProbe.handlers[name] = handler; },
+          set metadata(value) { this._metadata = value; },
+          get metadata() { return this._metadata; },
+          set playbackState(value) { window.__mediaSessionProbe.playbackState = value; },
+          get playbackState() { return window.__mediaSessionProbe.playbackState; }
+        }
+      });
+    });
+  }
   if (options.progress) {
     await context.addInitScript((progress) => {
       localStorage.setItem("laidies_screening_progress_v1", JSON.stringify(progress));
@@ -113,6 +134,24 @@ try {
   await newcomer.page.keyboard.press("Home");
   assert.equal(await newcomer.page.locator("#track").getAttribute("aria-valuenow"), "0", "Home did not seek to start");
   await newcomer.context.close();
+
+  const commute = await open("04", { mediaSession: true });
+  await commute.page.waitForFunction(() => window.__mediaSessionProbe?.metadata?.title);
+  const mediaSession = await commute.page.evaluate(() => ({
+    metadata: window.__mediaSessionProbe.metadata,
+    handlers: Object.keys(window.__mediaSessionProbe.handlers).sort()
+  }));
+  assert.equal(mediaSession.metadata.title, "Episode 04 · The Founding Mothers");
+  assert.equal(mediaSession.metadata.artist, "LAiDIES");
+  assert.equal(mediaSession.metadata.album, "The Wednesday Tour · Season 1");
+  assert.match(mediaSession.metadata.artwork[0].src, /ep-04\.webp$/);
+  assert.deepEqual(mediaSession.handlers, ["pause", "play", "seekbackward", "seekforward", "seekto"]);
+  await commute.page.locator("#tape").evaluate((audio) => { audio.currentTime = 30; });
+  await commute.page.evaluate(() => window.__mediaSessionProbe.handlers.seekforward({ seekOffset: 20 }));
+  assert.ok(await commute.page.locator("#tape").evaluate((audio) => Math.abs(audio.currentTime - 50) < 0.5));
+  await commute.page.evaluate(() => window.__mediaSessionProbe.handlers.seekbackward({ seekOffset: 10 }));
+  assert.ok(await commute.page.locator("#tape").evaluate((audio) => Math.abs(audio.currentTime - 40) < 0.5));
+  await commute.context.close();
 
   const returning = await open("02", {
     progress: { version: 1, programme: "02", time: 321.4 }
@@ -163,6 +202,7 @@ try {
   console.log("keyboard=slider-arrow,end,home");
   console.log("failure_modes=cues,captions,audio,visual,playback");
   console.log("trailer_partial_caption_gap=explicit");
+  console.log("media_session=metadata,play,pause,seekbackward,seekforward,seekto");
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));

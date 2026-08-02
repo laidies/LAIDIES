@@ -51,6 +51,14 @@ assert.match(page, /screening-room-admission\.json/);
 assert.match(page, /admission\.admissionStatus === 'release'/);
 assert.match(page, /admission\.occurrences\.length === admission\.expectedOccurrenceCount/);
 assert.match(page, /HELD_VISUAL_COVERS/);
+assert.match(page, /function configureMediaSession\(media, programme\)/);
+assert.match(page, /album: 'The Wednesday Tour · Season 1'/);
+assert.match(page, /setActionHandler\(name, handler\)/);
+assert.match(page, /action\('seekbackward'/);
+assert.match(page, /action\('seekforward'/);
+assert.match(page, /action\('seekto'/);
+assert.match(page, /configureMediaSession\(tape, __ep\)/);
+assert.match(page, /configureMediaSession\(v, ep\)/);
 assert.equal(admission.schemaVersion, 1);
 assert.equal(derived.schemaVersion, 1);
 

@@ -345,6 +345,46 @@
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(ep) { return EPISODE_FILMS[episodeKey(ep)] || null; }
     function captionsFor(ep) { return EPISODE_CAPTIONS[episodeKey(ep)] || null; }
+    function configureMediaSession(media, programme) {
+      if (!media || !('mediaSession' in navigator) || !('MediaMetadata' in window)) return;
+      var key = episodeKey(programme);
+      var cover = HELD_VISUAL_COVERS[key];
+      var title = (document.getElementById('scrTitle').textContent || 'The Wednesday Tour').trim();
+      var type = /\.webp(?:$|\?)/i.test(cover || '') ? 'image/webp' : 'image/png';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title,
+          artist: 'LAiDIES',
+          album: 'The Wednesday Tour · Season 1',
+          artwork: cover ? [{ src: cover, type: type }] : []
+        });
+      } catch (error) {}
+
+      function action(name, handler) {
+        try { navigator.mediaSession.setActionHandler(name, handler); } catch (error) {}
+      }
+      function seekTo(seconds) {
+        var limit = Number.isFinite(media.duration) ? media.duration : seconds;
+        media.currentTime = Math.max(0, Math.min(limit, seconds));
+      }
+      action('play', function () { media.play().catch(function () {}); });
+      action('pause', function () { media.pause(); });
+      action('seekbackward', function (details) {
+        seekTo(media.currentTime - ((details && details.seekOffset) || 15));
+      });
+      action('seekforward', function (details) {
+        seekTo(media.currentTime + ((details && details.seekOffset) || 15));
+      });
+      action('seekto', function (details) {
+        if (details && Number.isFinite(details.seekTime)) seekTo(details.seekTime);
+      });
+      media.addEventListener('play', function () {
+        try { navigator.mediaSession.playbackState = 'playing'; } catch (error) {}
+      });
+      media.addEventListener('pause', function () {
+        try { navigator.mediaSession.playbackState = 'paused'; } catch (error) {}
+      });
+    }
     var PROGRESS_KEY = 'laidies_screening_progress_v1';
     var savedProgress = null;
     var lastProgressWrite = 0;
@@ -565,6 +605,7 @@
       }
       theatre.appendChild(v);
       if (vtt) mountCaptionBar(v, theatre);
+      configureMediaSession(v, ep);
       theatre.classList.add('is-film');
       return true;
     }
@@ -925,6 +966,7 @@
 
         if (__film && mountFilm(__film, __ep)) { return; }
 
+        configureMediaSession(tape, __ep);
         loadSegment(0);
         var __captions = captionsFor(__ep);
         if (__captions) mountAudioCaptionBar(tape, theatre, __captions, __ep);
