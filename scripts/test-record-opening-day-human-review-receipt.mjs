@@ -9,9 +9,11 @@ import {spawnSync} from 'node:child_process';
 
 const root = process.cwd();
 const queuePath = path.join(root, 'operations/control-room/owner-review-queue.json');
+const mediaGatePath = path.join(root, 'operations/launch/opening-day-media-gate-2026-07-31.json');
 const packageIndex = JSON.parse(fs.readFileSync(path.join(root, 'operations/video-qa/opening-day-portable-media-v1/package-index.json')));
 const queue = JSON.parse(fs.readFileSync(queuePath));
 const queueShaBefore = crypto.createHash('sha256').update(fs.readFileSync(queuePath)).digest('hex');
+const mediaGateShaBefore = crypto.createHash('sha256').update(fs.readFileSync(mediaGatePath)).digest('hex');
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-human-review-'));
 const command = path.join(root, 'scripts/record-opening-day-human-review-receipt.mjs');
 
@@ -48,15 +50,17 @@ const makeReceipt = (reviewId, decision, note = '') => {
 const run = (receipt, queueName, extra = []) => {
   const receiptPath = path.join(temporary, `${receipt.review_id}-${Math.random()}.json`);
   const testQueuePath = path.join(temporary, queueName);
+  const testMediaGatePath = path.join(temporary, `${queueName}-media-gate.json`);
   if (!fs.existsSync(testQueuePath)) fs.copyFileSync(queuePath, testQueuePath);
+  if (!fs.existsSync(testMediaGatePath)) fs.copyFileSync(mediaGatePath, testMediaGatePath);
   fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
   const receiptDir = path.join(temporary, `${queueName}-receipts`);
   const result = spawnSync(process.execPath, [command, receiptPath, ...extra], {
     cwd: root,
-    env: {...process.env, REVIEW_QUEUE_PATH: testQueuePath, REVIEW_RECEIPT_DIR: receiptDir},
+    env: {...process.env, REVIEW_QUEUE_PATH: testQueuePath, REVIEW_MEDIA_GATE_PATH: testMediaGatePath, REVIEW_RECEIPT_DIR: receiptDir},
     encoding: 'utf8'
   });
-  return {result, testQueuePath, receiptDir, receiptPath};
+  return {result, testQueuePath, testMediaGatePath, receiptDir, receiptPath};
 };
 
 try {
@@ -70,10 +74,17 @@ try {
   assert.equal(passQueue.completed_review[0].id, pass.review_id);
   assert.equal(passQueue.completed_review[0].human_review_receipt.decision, 'PASS');
   assert.equal(fs.readdirSync(applied.receiptDir).length, 1);
+  const passGate = JSON.parse(fs.readFileSync(applied.testMediaGatePath));
+  const passProgramme = passGate.programmes.find((item) => item.id === '01');
+  assert.equal(passProgramme.gates.human_full_audible_watch, 'PASS');
+  assert.equal(passProgramme.gates.recurring_opening_and_closing_credits, 'HOLD');
+  assert.equal(passProgramme.gates.public_exact_identity, 'FAIL');
+  assert.equal(passProgramme.release_ready, false);
+  assert.equal(passProgramme.human_review_receipt.decision, 'PASS');
 
   const idempotent = spawnSync(process.execPath, [command, applied.receiptPath, '--apply'], {
     cwd: root,
-    env: {...process.env, REVIEW_QUEUE_PATH: applied.testQueuePath, REVIEW_RECEIPT_DIR: applied.receiptDir},
+    env: {...process.env, REVIEW_QUEUE_PATH: applied.testQueuePath, REVIEW_MEDIA_GATE_PATH: applied.testMediaGatePath, REVIEW_RECEIPT_DIR: applied.receiptDir},
     encoding: 'utf8'
   });
   assert.equal(idempotent.status, 0, idempotent.stderr);
@@ -93,10 +104,17 @@ try {
   assert.equal(holdQueue.summary.being_built, 1);
   assert.equal(holdQueue.being_built[0].id, goodHold.review_id);
   assert.match(holdQueue.being_built[0].status, /HUMAN HOLD RECORDED/);
+  const holdGate = JSON.parse(fs.readFileSync(held.testMediaGatePath));
+  const holdProgramme = holdGate.programmes.find((item) => item.id === '02');
+  assert.equal(holdProgramme.gates.human_full_audible_watch, 'HOLD');
+  assert.match(holdProgramme.status, /REBUILD REQUIRED/);
+  assert.match(holdProgramme.next_action, /timecoded film findings/);
 
   const queueShaAfter = crypto.createHash('sha256').update(fs.readFileSync(queuePath)).digest('hex');
+  const mediaGateShaAfter = crypto.createHash('sha256').update(fs.readFileSync(mediaGatePath)).digest('hex');
   assert.equal(queueShaAfter, queueShaBefore, 'fixture test mutated the real owner queue');
-  console.log('HUMAN REVIEW RECEIPT INTAKE: PASS (validation, exact recording, queue transition, idempotency and timecoded HOLD boundary)');
+  assert.equal(mediaGateShaAfter, mediaGateShaBefore, 'fixture test mutated the real media gate');
+  console.log('HUMAN REVIEW RECEIPT INTAKE: PASS (validation, exact recording, queue and launch-gate transition, idempotency and timecoded HOLD boundary)');
 } finally {
   fs.rmSync(temporary, {recursive: true, force: true});
 }

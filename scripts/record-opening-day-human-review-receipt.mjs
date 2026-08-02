@@ -15,8 +15,10 @@ if (!receiptArg) {
 }
 
 const queueRelative = process.env.REVIEW_QUEUE_PATH || 'operations/control-room/owner-review-queue.json';
+const mediaGateRelative = process.env.REVIEW_MEDIA_GATE_PATH || 'operations/launch/opening-day-media-gate-2026-07-31.json';
 const receiptDirRelative = process.env.REVIEW_RECEIPT_DIR || 'operations/video-qa/human-review-receipts';
 const queuePath = path.resolve(root, queueRelative);
+const mediaGatePath = path.resolve(root, mediaGateRelative);
 const receiptPath = path.resolve(root, receiptArg);
 const receiptDir = path.resolve(root, receiptDirRelative);
 const validator = path.resolve(root, 'scripts/validate-opening-day-human-review-receipt.mjs');
@@ -55,6 +57,7 @@ if (!apply) {
 }
 
 const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
+const mediaGate = JSON.parse(fs.readFileSync(mediaGatePath, 'utf8'));
 const pools = ['review_now', 'being_built', 'completed_review'];
 let source = null;
 for (const pool of pools) {
@@ -62,6 +65,18 @@ for (const pool of pools) {
   if (found && !source) source = found;
 }
 if (!source) throw new Error(`Cannot locate ${receipt.review_id} in ${queueRelative}`);
+
+const programmeId = receipt.review_id.startsWith('trailer')
+  ? 'trailer'
+  : receipt.review_id.match(/episode-(\d{2})/)?.[1];
+const programme = mediaGate.programmes?.find((candidate) => candidate.id === programmeId);
+if (!programme) throw new Error(`Cannot locate programme ${programmeId || '<unknown>'} in ${mediaGateRelative}`);
+if (programme.master?.path !== receipt.master.path || programme.master?.sha256 !== receipt.master.sha256) {
+  throw new Error(`${programmeId}: launch gate master does not match the exact reviewed master`);
+}
+if (programme.captions?.path !== receipt.captions.path || programme.captions?.sha256 !== receipt.captions.sha256) {
+  throw new Error(`${programmeId}: launch gate captions do not match the exact reviewed captions`);
+}
 
 const prior = [...(queue.completed_review || []), ...(queue.being_built || [])]
   .find((item) => item.id === receipt.review_id && item.human_review_receipt?.sha256 === receiptSha);
@@ -107,10 +122,32 @@ queue.summary.being_built = queue.being_built.length;
 queue.summary.blocked_no_ali_action = (queue.blocked_no_ali_action || []).length;
 queue.summary.completed_review = queue.completed_review.length;
 queue.last_human_review_receipt_at = receipt.saved_at;
+
+programme.human_review_receipt = receiptRecord;
+if (!programme.evidence.includes(destinationRelative)) programme.evidence.push(destinationRelative);
+if (receipt.film_decision === 'PASS') {
+  programme.gates.human_full_audible_watch = 'PASS';
+  programme.status = 'HUMAN WATCH PASS — OTHER RELEASE GATES HOLD';
+  programme.known_issues = (programme.known_issues || []).filter((issue) =>
+    !/human sound-on 1x watch|full audible watch|complete human.*watch/i.test(issue)
+  );
+  programme.next_action = 'Resolve the remaining independently owned release gates shown in this record; do not repeat the exact human sound-on watch unless the master changes.';
+} else if (receipt.film_decision === 'HOLD') {
+  programme.gates.human_full_audible_watch = 'HOLD';
+  programme.status = 'HUMAN REVIEW HOLD — REBUILD REQUIRED';
+  const issue = `Human review receipt ${receiptSha.slice(0, 12)}: ${receipt.timecoded_notes.trim()}`;
+  if (!programme.known_issues.includes(issue)) programme.known_issues.push(issue);
+  programme.next_action = `Repair only the timecoded film findings in ${destinationRelative}, build a checksum-distinct successor, and return that successor to human review.`;
+}
+programme.release_ready = mediaGate.required_gates.every((gate) => programme.gates[gate] === 'PASS');
+mediaGate.last_human_review_receipt_at = receipt.saved_at;
+
 writeJsonAtomic(queuePath, queue);
+writeJsonAtomic(mediaGatePath, mediaGate);
 
 console.log(`HUMAN REVIEW RECEIPT: RECORDED ${receipt.decision}`);
 console.log(`- receipt ${destinationRelative}`);
 console.log(`- receipt SHA-256 ${receiptSha}`);
 console.log(`- remaining owner reviews ${queue.summary.review_now}`);
+console.log(`- launch gate human watch ${programme.gates.human_full_audible_watch}; release-ready ${programme.release_ready}`);
 console.log('- release boundary preserved: no release, deployment, publication or public-player binding changed');

@@ -9455,6 +9455,13 @@ Recording a receipt cannot release, deploy, publish or bind public playback.
 The reusable rule is: a decision surface is not operational until the owner's
 answer has a tested, idempotent path into the governing state.
 
+The intake now also updates the exact matching programme's
+`human_full_audible_watch` launch gate. It verifies the master and caption
+identity first, records the receipt as evidence, and deliberately leaves
+credits, public identity, discovery and every other independent release gate
+unchanged. This prevents a completed watch from disappearing from the inbox
+while remaining falsely unfinished in the launch record.
+
 ### 2026-08-01 recurrence and prevention update
 
 - The failure recurred: the inbox still loaded the superseded Episode 03 v13
