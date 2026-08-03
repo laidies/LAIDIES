@@ -9,14 +9,25 @@ const fs = require('fs');
 const path = require('path');
 
 // Pass a public-artifact directory to validate the exact deployable cue/media
-// contract after public transforms have run. With no argument, audit the
-// working studio tree as before.
-const ROOT = path.resolve(process.argv[2] || path.join(__dirname, '..'));
+// contract after public transforms have run. With no root argument, audit the
+// working studio tree. --episode NN limits the audit to the requested title so
+// one episode's gate cannot be blocked by unrelated work in another episode.
+const args = process.argv.slice(2);
+const episodeIndex = args.indexOf('--episode');
+const requestedEpisode = episodeIndex >= 0 ? String(args[episodeIndex + 1] || '').padStart(2, '0') : null;
+const rootArg = args.find((arg, index) => arg !== '--episode' && index !== episodeIndex + 1);
+const ROOT = path.resolve(rootArg || path.join(__dirname, '..'));
 const EPISODE_DIR = path.join(ROOT, 'content', 'episodes');
 const cueFiles = fs
   .readdirSync(EPISODE_DIR)
   .filter((name) => /^episode-(?:\d{2}|trailer)-cues\.json$/.test(name))
+  .filter((name) => !requestedEpisode || name === `episode-${requestedEpisode}-cues.json`)
   .sort();
+
+if (requestedEpisode && cueFiles.length === 0) {
+  console.error(`No cue sheet found for episode ${requestedEpisode}.`);
+  process.exit(1);
+}
 
 const failures = [];
 const warnings = [];

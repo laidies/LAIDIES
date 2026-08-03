@@ -1,0 +1,10 @@
+{
+  "name": "laidies-website-homepage",
+  "private": true,
+  "scripts": {
+    "gate:episode": "bash operations/engine/gate.sh 2",
+    "test:operational-integrity": "node scripts/test-operational-integrity.mjs",
+    "test:work-resolution-loop": "node scripts/test-work-resolution-loop.mjs",
+    "ci": "npm run gate:episode && npm run test:operational-integrity && npm run test:work-resolution-loop"
+  }
+}
