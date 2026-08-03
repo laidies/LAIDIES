@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import crypto from 'node:crypto';
 
 const root = process.cwd();
 const checker = path.join(root, 'scripts/check-operational-integrity.mjs');
@@ -11,7 +12,20 @@ const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-integrity-'));
 const validRegistryPath = path.join(dir, 'valid-registry.json');
 const validRunQueuePath = path.join(dir, 'valid-run-queue.json');
-fs.writeFileSync(validRegistryPath, JSON.stringify({ entries: [], retired_paths: [] }));
+const fixtureAssetPath = 'scripts/check-operational-integrity.mjs';
+const fixtureAssetSha = crypto.createHash('sha256')
+  .update(fs.readFileSync(path.join(root, fixtureAssetPath)))
+  .digest('hex');
+const validRegistry = {
+  entries: [{
+    role: 'fixture.active-asset',
+    status: 'ACTIVE',
+    path: fixtureAssetPath,
+    sha256: fixtureAssetSha
+  }],
+  retired_paths: []
+};
+fs.writeFileSync(validRegistryPath, JSON.stringify(validRegistry));
 fs.writeFileSync(validRunQueuePath, JSON.stringify({
   active: [],
   stale_runtime_records: [],
@@ -29,7 +43,11 @@ const positive = spawnSync(process.execPath, [checker], {
 if (positive.status !== 0) {
   throw new Error(`controlled valid fixture must pass:\n${positive.stdout}${positive.stderr}`);
 }
+const positiveOutput = `${positive.stdout}${positive.stderr}`;
 const runNegative = ({ name, env, expected }) => {
+  if (positiveOutput.includes(expected)) {
+    throw new Error(`${name} expected marker is already present in the valid baseline: ${expected}`);
+  }
   const negative = spawnSync(process.execPath, [checker], {
     cwd: root,
     encoding: 'utf8',
@@ -54,25 +72,38 @@ runNegative({
   expected: 'cannot enter Ali review'
 });
 
-const registryPath = path.join(root, 'operations/assets/active-asset-registry.json');
-const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
-const missingBindings = structuredClone(registry);
-for (const entry of missingBindings.entries || []) {
-  entry.status = 'ACTIVE';
-  entry.path = null;
-}
+const missingBindings = structuredClone(validRegistry);
+missingBindings.entries[0].path = null;
 const missingBindingsPath = path.join(dir, 'active-assets-missing-bindings.json');
 fs.writeFileSync(missingBindingsPath, JSON.stringify(missingBindings));
 runNegative({
   name: 'ACTIVE asset binding mutation',
   env: { LAIDIES_ASSET_REGISTRY_PATH: missingBindingsPath },
-  expected: 'ACTIVE asset requires path'
+  expected: 'fixture.active-asset: ACTIVE asset requires path'
 });
 
-const runQueuePath = path.join(root, 'operations/product-stewards/run-queue.json');
-const runQueue = JSON.parse(fs.readFileSync(runQueuePath, 'utf8'));
+const missingSha = structuredClone(validRegistry);
+missingSha.entries[0].sha256 = null;
+const missingShaPath = path.join(dir, 'active-assets-missing-sha.json');
+fs.writeFileSync(missingShaPath, JSON.stringify(missingSha));
+runNegative({
+  name: 'ACTIVE asset SHA mutation',
+  env: { LAIDIES_ASSET_REGISTRY_PATH: missingShaPath },
+  expected: 'fixture.active-asset: ACTIVE asset requires sha256'
+});
+
+const uppercaseSha = structuredClone(validRegistry);
+uppercaseSha.entries[0].sha256 = fixtureAssetSha.toUpperCase();
+const uppercaseShaPath = path.join(dir, 'active-assets-uppercase-sha.json');
+fs.writeFileSync(uppercaseShaPath, JSON.stringify(uppercaseSha));
+runNegative({
+  name: 'ACTIVE asset uppercase SHA mutation',
+  env: { LAIDIES_ASSET_REGISTRY_PATH: uppercaseShaPath },
+  expected: 'fixture.active-asset: ACTIVE asset requires sha256'
+});
+
 for (const arrayName of ['stale_runtime_records', 'stale_portfolio_work']) {
-  const staleRunning = structuredClone(runQueue);
+  const staleRunning = JSON.parse(fs.readFileSync(validRunQueuePath, 'utf8'));
   staleRunning[arrayName] = [{
     product_id: `${arrayName}-fixture`,
     system_id: `${arrayName}-fixture`,
@@ -87,7 +118,7 @@ for (const arrayName of ['stale_runtime_records', 'stale_portfolio_work']) {
   runNegative({
     name: `${arrayName} stale RUNNING mutation`,
     env: { LAIDIES_RUN_QUEUE_PATH: stalePath },
-    expected: 'stale RUNNING record'
+    expected: `${arrayName}-fixture: stale RUNNING record`
   });
 }
 fs.rmSync(dir, { recursive: true, force: true });

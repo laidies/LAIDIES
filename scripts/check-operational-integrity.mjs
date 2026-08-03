@@ -76,11 +76,11 @@ for (const entry of registry.entries || []) {
   if (typeof entry.path !== 'string' || !entry.path.trim()) {
     errors.push(`${entry.role || 'UNKNOWN_ROLE'}: ACTIVE asset requires path`);
   }
-  if (typeof entry.sha256 !== 'string' || !/^[a-f0-9]{64}$/i.test(entry.sha256)) {
+  if (typeof entry.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(entry.sha256)) {
     errors.push(`${entry.role || 'UNKNOWN_ROLE'}: ACTIVE asset requires sha256`);
   }
   if (typeof entry.path !== 'string' || !entry.path.trim() ||
-      typeof entry.sha256 !== 'string' || !/^[a-f0-9]{64}$/i.test(entry.sha256)) continue;
+      typeof entry.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(entry.sha256)) continue;
   const target = path.join(root, entry.path);
   if (!fs.existsSync(target)) { errors.push(`${entry.role}: active asset missing: ${entry.path}`); continue; }
   const actual = crypto.createHash('sha256').update(fs.readFileSync(target)).digest('hex');
@@ -94,6 +94,7 @@ const runRecords = Object.values(runQueue)
   .filter(Array.isArray)
   .flat();
 for (const item of runRecords) {
+  if (!item || typeof item !== 'object') continue;
   if (!String(item.status || '').startsWith('RUNNING')) continue;
   const heartbeat = Date.parse(item.heartbeat_at || '');
   if (!Number.isFinite(heartbeat) || Date.now() - heartbeat > 24 * 60 * 60 * 1000) {

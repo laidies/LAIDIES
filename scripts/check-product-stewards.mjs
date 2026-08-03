@@ -21,6 +21,15 @@ const ownerEntryId = ownerEntryIndex >= 0 ? args[ownerEntryIndex + 1] : null;
 const strictOwnerEntry = args.includes("--strict-owner-entry");
 
 const errors = [];
+const operationalIntegrity = spawnSync(
+  process.execPath,
+  [path.join(root, "scripts", "check-operational-integrity.mjs")],
+  { cwd: root, encoding: "utf8" }
+);
+if (operationalIntegrity.status !== 0) {
+  const detail = `${operationalIntegrity.stdout || ""}\n${operationalIntegrity.stderr || ""}`.trim();
+  errors.push(`operational integrity: ${detail || `validator exited ${operationalIntegrity.status}`}`);
+}
 const ids = new Set();
 const ownerEntryGaps = [];
 const contentWorkOrders = checkContentWorkOrders({ root });
