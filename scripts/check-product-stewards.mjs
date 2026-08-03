@@ -30,6 +30,15 @@ if (operationalIntegrity.status !== 0) {
   const detail = `${operationalIntegrity.stdout || ""}\n${operationalIntegrity.stderr || ""}`.trim();
   errors.push(`operational integrity: ${detail || `validator exited ${operationalIntegrity.status}`}`);
 }
+const operationalIntegrityFixtures = spawnSync(
+  process.execPath,
+  [path.join(root, "scripts", "test-operational-integrity.mjs")],
+  { cwd: root, encoding: "utf8" }
+);
+if (operationalIntegrityFixtures.status !== 0) {
+  const detail = `${operationalIntegrityFixtures.stdout || ""}\n${operationalIntegrityFixtures.stderr || ""}`.trim();
+  errors.push(`operational integrity fixtures: ${detail || `validator exited ${operationalIntegrityFixtures.status}`}`);
+}
 const ids = new Set();
 const ownerEntryGaps = [];
 const contentWorkOrders = checkContentWorkOrders({ root });

@@ -69,7 +69,7 @@ fs.writeFileSync(badPath, JSON.stringify(bad));
 runNegative({
   name: 'Ali review admission mutation',
   env: { LAIDIES_QUEUE_PATH: badPath },
-  expected: 'cannot enter Ali review'
+  expected: `${bad.review_now[0].id}: cannot enter Ali review; content_accuracy=`
 });
 
 const missingBindings = structuredClone(validRegistry);
@@ -121,5 +121,24 @@ for (const arrayName of ['stale_runtime_records', 'stale_portfolio_work']) {
     expected: `${arrayName}-fixture: stale RUNNING record`
   });
 }
+
+const mixedMembers = JSON.parse(fs.readFileSync(validRunQueuePath, 'utf8'));
+mixedMembers.some_brand_new_array = [
+  null,
+  'a-string',
+  42,
+  {
+    product_id: 'null-guard-fixture',
+    status: 'RUNNING_TEST_FIXTURE',
+    heartbeat_at: '2026-01-01T00:00:00Z'
+  }
+];
+const mixedMembersPath = path.join(dir, 'mixed-run-queue-members.json');
+fs.writeFileSync(mixedMembersPath, JSON.stringify(mixedMembers));
+runNegative({
+  name: 'null and non-object run-queue member guard',
+  env: { LAIDIES_RUN_QUEUE_PATH: mixedMembersPath },
+  expected: 'null-guard-fixture: stale RUNNING record'
+});
 fs.rmSync(dir, { recursive: true, force: true });
 console.log('OPERATIONAL INTEGRITY TEST PASS');
