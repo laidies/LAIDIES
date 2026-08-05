@@ -32,6 +32,10 @@ if tool == "Bash":
     cmd = str(ti.get("command") or "")
     if TARGET.search(cmd.replace("\\", "/")):
         hit = cmd
+elif tool == "apply_patch":
+    cmd = str(ti.get("command") or "")
+    if TARGET.search(cmd.replace("\\", "/")):
+        hit = cmd
 elif tool in ("Write", "Edit", "NotebookEdit"):
     fp = str(ti.get("file_path") or "").replace("\\", "/")
     if TARGET.search(fp):
@@ -49,8 +53,9 @@ print(json.dumps({"hookSpecificOutput": {
         "The Wednesday Engine has four human gates. They are the only places the\n"
         "week is allowed to stop and wait for her judgement. An agent creating one\n"
         "does not 'move things along' — it removes the gate.\n\n"
-        "What to do instead: tell her what is waiting, in one line, and let her run\n"
-        "the command herself. She is the only one who can approve it."
+        "What to do instead: record the waiting state and surface one decision to\n"
+        "Ali. After her explicit approval, use the designated human-authority\n"
+        "recorder; do not manufacture the approval in an ordinary maker lane."
         % hit
     ),
 }}))

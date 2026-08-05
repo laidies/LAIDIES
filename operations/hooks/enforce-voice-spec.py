@@ -34,15 +34,14 @@ try:
 except Exception:
     sys.exit(0)
 
-if data.get("tool_name") not in ("Write", "Edit", "NotebookEdit"):
+if data.get("tool_name") not in ("Write", "Edit", "NotebookEdit", "apply_patch"):
     sys.exit(0)
 
 ti = data.get("tool_input") or {}
-path = str(ti.get("file_path") or "")
-if not path:
-    sys.exit(0)
-
-norm = path.replace("\\", "/")
+patch_command = str(ti.get("command") or "") if data.get("tool_name") == "apply_patch" else ""
+paths = [str(ti.get("file_path") or "")]
+paths.extend(re.findall(r"^\*\*\* (?:Add|Update|Delete) File: (.+)$", patch_command, re.MULTILINE))
+paths = [candidate.replace("\\", "/") for candidate in paths if candidate]
 
 # ── is this episode prose? ──────────────────────────────────────────────────
 # Deliberately specific. This does not police the machinery, the operations
@@ -57,17 +56,23 @@ PROSE_PATTERNS = [
     r"email/buttondown/issue-\d{2}\.md$",                    # the newsletter
     r"community/weekly-prompts/issue-\d{2}\.md$",            # the prompt
 ]
-if not any(re.search(p, norm) for p in PROSE_PATTERNS):
+matched_paths = [candidate for candidate in paths if any(re.search(pattern, candidate) for pattern in PROSE_PATTERNS)]
+if not matched_paths:
     sys.exit(0)
 
 # Working copies, archives and rejects are not the show.
-base = os.path.basename(norm)
-if (".pre-" in base or ".stale-" in base
-        or "/_superseded/" in norm or "/_rejected/" in norm
-        or "/_archive/" in norm or "/.versions/" in norm):
+active_paths = []
+for norm in matched_paths:
+    base = os.path.basename(norm)
+    if (".pre-" in base or ".stale-" in base
+            or "/_superseded/" in norm or "/_rejected/" in norm
+            or "/_archive/" in norm or "/.versions/" in norm):
+        continue
+    active_paths.append(norm)
+if not active_paths:
     sys.exit(0)
 
-body = str(ti.get("content") or ti.get("new_string") or "")
+body = str(ti.get("content") or ti.get("new_string") or patch_command)
 if not body.strip():
     sys.exit(0)                      # a pure deletion carries no voice
 
@@ -126,7 +131,7 @@ if not missing_read and not missing_file:
 # ── build the refusal ───────────────────────────────────────────────────────
 lines = [
     "BLOCKED — you are about to write LAiDIES episode prose:",
-    "    %s" % path,
+    "    %s" % ", ".join(active_paths),
     "without having read the voice sources in this session.",
     "",
     "This is not a formality. On 2026-07-22 a draft shipped a product-comparison",
