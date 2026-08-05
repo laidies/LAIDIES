@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "migration_status": "VERIFIED_CONFIGURATION_ONLY_DISPATCHER_PAUSED",
+  "verified_at": "2026-08-02T22:22:00Z",
+  "dispatcher": {
+    "automation_id": "laidies-product-champion-orchestrator",
+    "required_status": "PAUSED",
+    "target_thread_id": "019fc5b9-71c3-71e0-bda8-547439df4bfc",
+    "superseded_target_thread_id": "019f9ac4-28d9-73b2-b54e-2fc5641749f2",
+    "required_prompt_fragments": [
+      "operations/runtime/work-resolution-loop.json",
+      "operations/control-room/work-index.json",
+      "operations/release-control/RELEASE-STATE.md",
+      "operations/product-stewards/registry.json",
+      "28f483e25c021e37e0acd2687abcae26a6d66927",
+      "9f161385-7486-4207-9afe-8512ea453973"
+    ],
+    "forbidden_prompt_fragments": [
+      "operations/work-index.json",
+      "operations/release/RELEASE-STATE.json",
+      "operations/product-stewards/registry.yaml",
+      "1a5ae63f32dae817aee1986349e184a6e6314ee3",
+      "4f52df88-f875-4b24-89cd-d7649ee1df1a"
+    ]
+  },
+  "related_automations": [
+    {
+      "automation_id": "laidies-platform-site-health",
+      "required_prompt_fragment": "operations/release-control/RELEASE-STATE.md"
+    },
+    {
+      "automation_id": "laidies-weekly-episodes-production-cycle",
+      "required_prompt_fragment": "operations/release-control/RELEASE-STATE.md"
+    }
+  ],
+  "resume_gate": [
+    "checker passes against the live automation files",
+    "dispatcher remains PAUSED during verification",
+    "one bounded manual dry run completes without opening a production lane",
+    "no overlap exists with an already-active Control Room run",
+    "Ali separately authorizes resume"
+  ]
+}

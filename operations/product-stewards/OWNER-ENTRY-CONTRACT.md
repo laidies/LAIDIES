@@ -20,15 +20,16 @@ Then read:
 2. `operations/CODEX-WORKING-AGREEMENT.md`;
 3. `operations/ACTIVE-WORK.md`;
 4. `operations/engine/LEDGER.md`;
-5. `CHAMPION-CONTRACT.md`, `ORCHESTRATOR.md`, the registry and run queue;
-6. the exact dossier and state named by the product's registry row;
-7. the parent building's current brief/spec/state when the product is a
+5. `operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md`;
+6. `CHAMPION-CONTRACT.md`, `ORCHESTRATOR.md`, the registry and run queue;
+7. the exact dossier and state named by the product's registry row;
+8. the parent building's current brief/spec/state when the product is a
    subproduct;
-8. affected dependency owners and shared platform records;
-9. current source/content/code and latest acceptance evidence; and
-10. `VISITOR-STATE-EVALUATION-STANDARD.md`; and
-11. `BUILD-COMPLETION-POLICY.md`; and
-12. relevant prevention rules from `operations/painpoints-log.md`.
+9. affected dependency owners and shared platform records;
+10. current source/content/code and latest acceptance evidence; and
+11. `VISITOR-STATE-EVALUATION-STANDARD.md`; and
+12. `BUILD-COMPLETION-POLICY.md`; and
+13. relevant prevention rules from `operations/painpoints-log.md`.
 
 Learning products also read `LEARNING-CONTENT-STANDARD.md` and complete the
 learning intake/complement card. Visual/design work also reads the applicable
