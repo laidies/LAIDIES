@@ -31,5 +31,11 @@ jobs:
         run: npm run test:queue-claims
       - name: Work-resolution loop
         run: npm run test:work-resolution-loop
+      - name: Operational dependency — canonical instructions
+        run: node scripts/check-canonical-instruction-dependencies.mjs
+      - name: Operational dependency — dispatcher migration
+        run: node scripts/check-dispatcher-migration.mjs
+      - name: Operational dependency — media defects
+        run: node scripts/check-media-defect-fixtures.mjs
       - name: Operational integrity
         run: npm run test:operational-integrity
