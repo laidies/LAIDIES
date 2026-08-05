@@ -27,6 +27,7 @@ function validateWorkflowText(text) {
   if (!deployJob.includes('deployments-before.json') || !deployJob.includes('deployments-after.json')) errors.push('deployment is not isolated from prior deployments');
   if (!deployJob.includes('curl --fail') || !deployJob.includes('deployed_library_sha')) errors.push('deployed Library bytes are not verified');
   if (!text.includes('playwright-core@1.62.1') || !text.includes('CHROME_PATH=') || !text.includes('PLAYWRIGHT_CORE_PATH=')) errors.push('Library browser runtime is not pinned and provisioned');
+  if (!text.includes('run: npm run ci:build') || text.includes('run: npm run ci\n')) errors.push('preview build is coupled to unrelated portfolio operational status');
   if (!deployJob.includes('PROJECT_NAME: laidies-sunnyvaile-preview') || deployJob.includes('PROJECT_NAME: laidies-sunnyvaile\n')) errors.push('preview is not isolated from the production Pages project');
   if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
   return errors;
@@ -97,6 +98,7 @@ const workflowRejects = [
   workflow.replaceAll('PROJECT_NAME: laidies-sunnyvaile-preview', 'PROJECT_NAME: laidies-sunnyvaile'),
   workflow.replace('CF-Access-Client-Id', 'X-Removed-Access-Client-Id'),
   workflow.replace('playwright-core@1.62.1', 'playwright-core@latest'),
+  workflow.replace('run: npm run ci:build', 'run: npm run ci'),
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(validateWorkflowText(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
 

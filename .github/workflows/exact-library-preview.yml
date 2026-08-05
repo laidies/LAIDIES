@@ -69,8 +69,8 @@ jobs:
           test -x "$chromium_path"
           echo "PLAYWRIGHT_CORE_PATH=$playwright_root/playwright-core" >> "$GITHUB_ENV"
           echo "CHROME_PATH=$chromium_path" >> "$GITHUB_ENV"
-      - name: Minimum integrity CI
-        run: npm run ci
+      - name: Minimum artifact and build integrity CI
+        run: npm run ci:build
       - name: Library product and responsive browser checks
         run: node scripts/test-library-product.cjs && node scripts/test-library-modular-reading-system.mjs
       - name: Prove the old inline-handler defect is rejected
