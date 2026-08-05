@@ -33,6 +33,13 @@ printf "  article     : %s\n" "${ART:-‹missing›}"
 printf "  canon       : %s\n" "$([ -f "$CANON" ] && echo "$CANON" || echo '‹missing›')"
 echo
 
+if [ "${#SURFACES[@]}" -eq 0 ]; then
+  red "no episode surfaces exist for episode ${NN}; nothing to check cannot pass"
+  echo
+  echo "════ result: ${FAIL} fail · ${WARN} warn ════"
+  exit 1
+fi
+
 # 1 · BANNED phrases (slop / false-exclusivity) — FAIL
 echo "· banned phrases"
 BANNED=( "move nobody makes" "secret nobody says" "nobody says out loud" "thing nobody tells you" \
