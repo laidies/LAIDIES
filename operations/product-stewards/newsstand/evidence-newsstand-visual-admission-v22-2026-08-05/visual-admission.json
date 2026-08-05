@@ -1,0 +1,121 @@
+{
+  "schema": "laidies.building-visual-admission.v1",
+  "admission_id": "newsstand-visual-v22-20260805",
+  "owner_id": "newsstand",
+  "status": "PASS",
+  "control_room_result": "ADMIT",
+  "candidate": {
+    "path": "newsstand.html",
+    "sha256": "f1f6ae95eae82d81b847f3e3f474a834b379010cac87ced60f70697b90449967"
+  },
+  "route_artifacts": [
+    {
+      "path": "newsstand.html",
+      "sha256": "f1f6ae95eae82d81b847f3e3f474a834b379010cac87ced60f70697b90449967"
+    },
+    {
+      "path": "content/newsstand.css",
+      "sha256": "422531dda4fa6c1435d4b293b575a9f1c39336d0039cd95601d28d70642ad3b2"
+    },
+    {
+      "path": "content/site/newsstand-catchup-v1.js",
+      "sha256": "f2193796a6e09383bf6130a80307b74619b9623a1e17a984bf9294c9a63397d6"
+    }
+  ],
+  "environment_assets": [
+    {
+      "path": "assets/town-characters/scenes/paige-scene.png",
+      "sha256": "aaac97b8c8802b14f6f29a18fc0c22aed2e38f24af562ba549d91d895d6eea5a",
+      "role": "newsstand.arrival.paige-source-check"
+    },
+    {
+      "path": "assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/newsstand-live-four-paper-rack-crop-v1.png",
+      "sha256": "81df9892a8131aa742e7c60e9a1cfc069faf8fc852ff409e5ade44bfa4c8d143",
+      "role": "newsstand.object.counter.four-paper-rack"
+    },
+    {
+      "path": "assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-breaking-v1.png",
+      "sha256": "c9f8c41ae1296ea83ef2105d8cb7461a9b4ccf4238d4fab83eef2d69f1865a20",
+      "role": "newsstand.object.mobile-slot.breaking"
+    },
+    {
+      "path": "assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-daily-v1.png",
+      "sha256": "4394aa746dc469e0875602616709bafbb4427495c13978050eb2607ef4a12e0f",
+      "role": "newsstand.object.mobile-slot.daily"
+    },
+    {
+      "path": "assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-weekly-v1.png",
+      "sha256": "123215c2fa6701ff4824a1436a0497a3d7f7d323d5403b272c7fcfc259a0d8d1",
+      "role": "newsstand.object.mobile-slot.weekly"
+    },
+    {
+      "path": "assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-tribune-v1.png",
+      "sha256": "d8bd5ca65d2e8b8fbcf3b8bc8e5922ef40a49a00abb3b514b10372c3fbb36ea4",
+      "role": "newsstand.object.mobile-slot.tribune"
+    }
+  ],
+  "screenshots": {
+    "desktop_1440": {
+      "path": "operations/product-stewards/newsstand/evidence-newsstand-rack-successor-v22-2026-08-05/desktop-1440.png",
+      "sha256": "fddbf75165f5f9db27b1c49fa933886c482e14e209df2020777590ec53d7a6f7",
+      "candidate_sha256": "f1f6ae95eae82d81b847f3e3f474a834b379010cac87ced60f70697b90449967",
+      "viewport_width": 1440
+    },
+    "mobile_390": {
+      "path": "operations/product-stewards/newsstand/evidence-newsstand-rack-successor-v22-2026-08-05/mobile-chooser-390.png",
+      "sha256": "71b15ab2d4a54d83b769c43323e7cc0ce2291c454b982a8aa319c8f3486f0d12",
+      "candidate_sha256": "f1f6ae95eae82d81b847f3e3f474a834b379010cac87ced60f70697b90449967",
+      "viewport_width": 390
+    },
+    "mobile_320": {
+      "path": "operations/product-stewards/newsstand/evidence-newsstand-rack-successor-v22-2026-08-05/mobile-chooser-320.png",
+      "sha256": "1c9144866865ce8b3a6e9d9495693af145986a3216c9e0d7808b7fff484d40ca",
+      "candidate_sha256": "f1f6ae95eae82d81b847f3e3f474a834b379010cac87ced60f70697b90449967",
+      "viewport_width": 320
+    }
+  },
+  "roles": {
+    "information_architecture_judge": {
+      "agent_id": "/root/newsstand_ia_judge",
+      "result": "ACCEPT",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/evidence-newsstand-visual-admission-v22-2026-08-05/information-architecture.md",
+        "sha256": "aef562491d87741a7b8b09f03a987a60064240329d1ef600588da6bd94690f2e"
+      }
+    },
+    "product_ux_judge": {
+      "agent_id": "/root/newsstand_ux_judge",
+      "result": "ACCEPT",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/evidence-newsstand-visual-admission-v22-2026-08-05/product-ux.md",
+        "sha256": "5a9da96e74fed31360272fd9ff508631b3a864b12862d5683d5f5b5caacb8fae"
+      }
+    },
+    "brand_visual_judge": {
+      "agent_id": "/root/newsstand_brand_judge",
+      "result": "ACCEPT",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/evidence-newsstand-visual-admission-v22-2026-08-05/brand-visual.md",
+        "sha256": "7382810d7ae1b17509b1338dac04ef1e1a6aeaf7869c3c7216c5d2d547fcc92e"
+      }
+    },
+    "red_team": {
+      "agent_id": "/root/newsstand_red_team",
+      "result": "UNSHAKEN",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/evidence-newsstand-visual-admission-v22-2026-08-05/red-team.md",
+        "sha256": "3e9a95cc631341b9f6dd66a275d07a708eb3d161cf0f5638d15864f39b8ebd9f"
+      }
+    },
+    "claude_opus_5_reviewer": {
+      "agent_id": "claude-code-opus-5-newsstand-v22-20260805",
+      "model_id": "claude-opus-5",
+      "recommendation": "ADMIT",
+      "receipt": {
+        "path": "operations/product-stewards/newsstand/evidence-newsstand-visual-admission-v22-2026-08-05/claude-opus-5-review.md",
+        "sha256": "459a56a17459bd351db06d7753461786943c887c4bd02631980d8533caf6742b"
+      }
+    }
+  },
+  "scope_limit": "Local visual/frontend candidate only. Content freshness, publication authority, native assistive technology, deployment, public-origin verification and the paused dispatcher remain separate."
+}

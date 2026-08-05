@@ -29,6 +29,14 @@
           if (PUBLICATION_STATUSES.indexOf(item.status) === -1) errors.push(edition + " publication status is invalid");
           if (!validDate(item.updatedAt) || !validDate(item.lastCheckedAt)) errors.push(edition + " timestamps are invalid");
           if (!(Number(item.maxAgeHours) > 0)) errors.push(edition + " maxAgeHours is invalid");
+          if (edition === "daily" && item.status === "current") {
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(String(item.editionDate || ""))) errors.push("daily editionDate is invalid");
+            if (!item.issue || item.issue.status !== "complete") errors.push("daily issue readiness is incomplete");
+            var issueItems = item.issue && [].concat(item.issue.storyIds || [], item.issue.serviceRecordIds || []);
+            var quietIssue = item.issue && item.issue.disposition === "quiet" && item.issue.sourceIdentity &&
+              /^[a-f0-9]{64}$/.test(String(item.issue.sourceIdentity.radarSha256 || ""));
+            if ((!issueItems || !issueItems.length) && !quietIssue) errors.push("daily issue has no admitted story or service item and no governed quiet disposition");
+          }
         }
       });
     }
@@ -68,12 +76,29 @@
     return (Date.parse(now) - Date.parse(iso)) / 3600000;
   }
 
+  function calendarDateInZone(iso, timeZone) {
+    var parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: timeZone || "America/Vancouver",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(new Date(iso));
+    var values = {};
+    parts.forEach(function (part) { values[part.type] = part.value; });
+    return [values.year, values.month, values.day].join("-");
+  }
+
   function effectivePublicationState(publication, now) {
     if (!publication) return "unavailable";
     if (publication.status === "hold" || publication.status === "unavailable" || publication.status === "quiet") {
       return publication.status;
     }
-    return ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours) ? "stale" : "current";
+    if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
+    if (publication.edition === "daily" && publication.editionDate &&
+        publication.editionDate !== calendarDateInZone(now, publication.editorialTimeZone)) {
+      return "archive";
+    }
+    return "current";
   }
 
   function visibleStories(data, edition, now) {
@@ -95,7 +120,11 @@
     var errors = validate(data);
     if (errors.length) return { state: "load-failure", errors: errors, publications: {} };
     if (data.datasetStatus === "hold") return { state: "hold", errors: [], publications: {} };
-    if (!data.stories.length) return { state: "no-data", errors: [], publications: {} };
+    var governedQuietDaily = data.publications && data.publications.daily &&
+      effectivePublicationState(data.publications.daily, now) === "current" &&
+      data.publications.daily.issue && data.publications.daily.issue.status === "complete" &&
+      data.publications.daily.issue.disposition === "quiet";
+    if (!data.stories.length && !governedQuietDaily) return { state: "no-data", errors: [], publications: {} };
     var publications = {};
     EDITIONS.forEach(function (edition) {
       publications[edition] = effectivePublicationState(data.publications[edition], now);
@@ -143,6 +172,26 @@
 
     var publication = data.publications && data.publications[edition];
     var publicationState = effectivePublicationState(publication, now);
+    var directStoryState = story && context && context.scope === "hash"
+      ? storyState(story)
+      : null;
+    if (directStoryState === "retracted") {
+      return {
+        canExpose: false,
+        preserveNotice: true,
+        state: "retracted",
+        edition: edition,
+        reason: story.retraction && story.retraction.reason || "This story has been withdrawn."
+      };
+    }
+    if (directStoryState === "hold") {
+      return {
+        canExpose: false,
+        state: "hold",
+        edition: edition,
+        reason: "This story is not published yet."
+      };
+    }
     if (publicationState === "stale") {
       return {
         canExpose: false,
@@ -159,6 +208,14 @@
     }
     if (publicationState === "quiet") {
       return { canExpose: false, state: "quiet", edition: edition, reason: publication.note || "No qualified issue is filed." };
+    }
+    if (story && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours)) {
+      return {
+        canExpose: false,
+        state: "stale",
+        edition: edition,
+        reason: "This story needs a new source check before it can be shown again."
+      };
     }
     if (!story) {
       return { canExpose: true, state: "current", edition: edition, reason: "" };

@@ -10,38 +10,45 @@
 window.NEWSSTAND_DATA = {
   schemaVersion: "1.0.0",
   datasetStatus: "published",
-  generatedAt: "2026-07-25T19:30:00Z",
-  lastCheckedAt: "2026-07-25T19:30:00Z",
+  generatedAt: "2026-08-03T22:00:00Z",
+  lastCheckedAt: "2026-08-03T22:00:00Z",
   publications: {
     breaking: {
       edition: "breaking",
       job: "News as it happens, when waiting would leave readers behind.",
       status: "quiet",
       publishedAt: null,
-      updatedAt: "2026-07-25T19:30:00Z",
-      lastCheckedAt: "2026-07-25T19:30:00Z",
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
       maxAgeHours: 24,
       note: "No breaking story right now. Enjoy the quiet."
     },
     daily: {
       edition: "daily",
+      editionDate: "2026-08-03",
+      editorialTimeZone: "America/Vancouver",
+      issue: {
+        status: "complete",
+        storyIds: ["eu-ai-act-transparency-starts"],
+        serviceRecordIds: ["daily-2026-08-03-paige-tip", "daily-2026-08-03-promptoscope", "daily-2026-08-03-career-life", "daily-2026-08-03-mme-claio"]
+      },
       job: "A clear explanation of what changed and why it matters.",
-      status: "quiet",
-      publishedAt: null,
-      updatedAt: "2026-07-25T19:30:00Z",
-      lastCheckedAt: "2026-07-25T19:30:00Z",
+      status: "current",
+      publishedAt: "2026-08-03T22:00:00Z",
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
       maxAgeHours: 36,
-      note: "Today’s edition is not on the rack yet."
+      note: "Today’s complete edition is on the rack with sourced reporting and governed service desks."
     },
     weekly: {
       edition: "weekly",
       job: "The week’s bigger picture, connecting the stories without repeating every headline.",
-      status: "hold",
+      status: "quiet",
       publishedAt: null,
-      updatedAt: "2026-07-25T19:30:00Z",
-      lastCheckedAt: "2026-07-25T19:30:00Z",
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
       maxAgeHours: 192,
-      note: "This Weekly story is still being checked and is not published yet."
+      note: "No Weekly synthesis is ready. Paige will not pad the paper with a repeated headline."
     },
     tribune: {
       edition: "tribune",
@@ -58,7 +65,7 @@ window.NEWSSTAND_DATA = {
     {
       id: "chatgpt-health-permission-screen",
       slug: "chatgpt-health-permission-screen",
-      edition: "weekly",
+      edition: "breaking",
       status: "hold",
       publishedAt: "2026-07-24T16:00:00Z",
       updatedAt: "2026-07-25T19:30:00Z",
@@ -117,7 +124,71 @@ window.NEWSSTAND_DATA = {
       aidb_credit: null,
       tags: ["privacy", "health", "ChatGPT", "verification", "permissions"],
       saint_lane: "Elle Woods · Read the fine print",
-      badge: "COMING SOON · THE WEEKLY"
+      badge: "COMING SOON · THE BREAKING"
+    },
+    {
+      id: "eu-ai-act-transparency-starts",
+      slug: "eu-ai-act-transparency-starts",
+      edition: "daily",
+      status: "published",
+      publishedAt: "2026-08-03T22:00:00Z",
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+      the_story: "Article 50 of the European Union’s AI Act began applying on August 2, 2026. The European Commission’s guidance says providers of certain AI systems must make people aware when they are interacting directly with AI and must add machine-readable marks to certain AI-generated or manipulated outputs. Professional deployers have separate disclosure duties for emotion-recognition and biometric-categorisation systems, deepfakes, and AI-generated or manipulated text published to inform the public on matters of public interest when it has not received human review or editorial control. The Commission also describes a limited transition to December 2, 2026 for the marking-and-detection obligation for certain systems already on the market before August 2. The exact duty depends on the system, actor, use and exception; this is a practical orientation, not legal advice.",
+      laidies_read: "Think of the rule as caller ID for particular AI encounters—not a lie detector for everything on the screen. In covered situations, the person or system behind the interaction may need to tell you that AI is involved, and some generated media needs a machine-readable origin signal. That disclosure helps you ask the next question. It does not prove that the output is accurate, fair, safe or lawful.",
+      what_this_means: "If you are in the EU, expect clearer disclosure in the covered situations: direct AI interaction, certain generated or manipulated media, deepfakes, emotion recognition, biometric categorisation and some public-interest text without human editorial control. If you publish or deploy AI professionally, do not turn this article into a compliance checklist; use the Commission’s current guidance and qualified advice for your exact role and system. As a reader, treat a label as useful origin context. Still check the claim, source and date separately—and do not assume that an unlabelled item is human-made or compliant.",
+      cocktail_party: "“Europe’s Article 50 transparency rules started on August 2. In covered situations, people should be told when they are interacting with AI or seeing certain AI-generated or manipulated content. The label is useful caller ID, not proof that the content is true.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "The current <a href=\"#label-is-not-a-truth-detector\"><strong>Tribune</strong></a> explains the durable rule: provenance and labelling can help establish origin; the underlying claim still needs evidence.",
+      sources: [
+        {
+          id: "ec-article-50-guidelines-2026-07-20",
+          label: "European Commission — Guidelines on Article 50 transparency obligations (July 20, 2026)",
+          url: "https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems",
+          publisherType: "regulator",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "ec-article-50-quick-facts-2026-07-20",
+          label: "European Commission — Quick facts: transparency rules for AI systems",
+          url: "https://digital-strategy.ec.europa.eu/en/factpages/quick-facts-transparency-rules-ai-systems",
+          publisherType: "regulator",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "eurlex-ai-act-2024-1689",
+          label: "EUR-Lex — Regulation (EU) 2024/1689, Articles 50 and 113",
+          url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en",
+          publisherType: "primary-document",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "eurlex-ai-act-amendment-2026-1744",
+          label: "EUR-Lex — Regulation (EU) 2026/1744, Article 111(4) and recital 38",
+          url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744",
+          publisherType: "primary-document",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["AI Act", "transparency", "labels", "deepfakes", "European Union"],
+      saint_lane: "Elle Woods · Read the label and the fine print",
+      badge: "AT THE LEGAL DESK · THE DAILY"
     },
     {
       id: "label-is-not-a-truth-detector",
