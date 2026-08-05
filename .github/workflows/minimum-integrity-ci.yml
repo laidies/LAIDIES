@@ -31,6 +31,8 @@ jobs:
         run: npm run test:queue-claims
       - name: Output path CLI regression guard
         run: npm run test:output-path-cli-guards
+      - name: Rejection prevention closure
+        run: npm run test:rejection-prevention
       - name: Work-resolution loop
         run: npm run test:work-resolution-loop
       - name: Operational dependency — canonical instructions

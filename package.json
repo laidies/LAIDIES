@@ -8,9 +8,10 @@
     "test:media-defects": "node scripts/test-media-defect-fixtures.mjs",
     "test:newsstand-canon": "node scripts/test-newsstand-canonical-migration.mjs",
     "test:queue-claims": "node scripts/test-product-steward-claim-policy.mjs",
+    "test:rejection-prevention": "node scripts/test-rejection-prevention.mjs",
     "test:operational-integrity": "node scripts/test-operational-integrity.mjs",
     "test:output-path-cli-guards": "node scripts/test-output-path-cli-guards.mjs",
     "test:work-resolution-loop": "node scripts/test-work-resolution-loop.mjs",
-    "ci": "npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:work-resolution-loop && npm run test:operational-integrity"
+    "ci": "npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:rejection-prevention && npm run test:work-resolution-loop && npm run test:operational-integrity"
   }
 }
