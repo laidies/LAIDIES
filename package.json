@@ -3,8 +3,10 @@
   "private": true,
   "scripts": {
     "gate:episode": "bash operations/engine/gate.sh 2",
+    "test:codex-hooks": "node scripts/test-codex-hook-guards.mjs",
+    "test:media-defects": "node scripts/test-media-defect-fixtures.mjs",
     "test:operational-integrity": "node scripts/test-operational-integrity.mjs",
     "test:work-resolution-loop": "node scripts/test-work-resolution-loop.mjs",
-    "ci": "npm run gate:episode && npm run test:work-resolution-loop && npm run test:operational-integrity"
+    "ci": "npm run gate:episode && npm run test:codex-hooks && npm run test:media-defects && npm run test:work-resolution-loop && npm run test:operational-integrity"
   }
 }

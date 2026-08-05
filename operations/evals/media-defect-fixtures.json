@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "status": "ACTIVE_FAILURE_CORPUS",
+  "rule": "Every fixture is a known reject. Deterministic guards block objective substitutions; the human rubric judges only the real perceptual requirement.",
+  "fixtures": [
+    {
+      "id": "EVAL-MEDIA-001",
+      "category": "retired_wordmark",
+      "source": "operations/assets/active-asset-registry.json",
+      "source_assertion": { "type": "retired_asset", "path": "approved-assets/brand-logos/laidies-wordmark-final-b-light.svg" },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "input admission", "code": "ASSET_RETIRED", "requirement": "Reject any source path listed in retired_paths even when its folder or filename says approved or final." },
+      "human_rubric": { "question": "Does the rendered title use the current LAiDIES wordmark treatment?", "fail_when": "A retired logo or materially different wordmark is visible." }
+    },
+    {
+      "id": "EVAL-MEDIA-002",
+      "category": "wrong_heroine",
+      "source": "operations/video-qa/site-video-review-registry-2026-07-31.json",
+      "source_assertion": { "type": "text_contains", "needles": ["opening heroine is off-model"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "pilot admission", "code": "IDENTITY_REFERENCE_MISSING", "requirement": "Bind the exact active heroine identity reference before generation or assembly." },
+      "human_rubric": { "question": "Is the heroine recognizably the admitted character in every required view?", "fail_when": "Face, age, silhouette or character identity drifts from the admitted reference." }
+    },
+    {
+      "id": "EVAL-MEDIA-003",
+      "category": "wrong_outfit",
+      "source": "operations/control-room/owner-review-queue.json",
+      "source_assertion": { "type": "text_contains", "needles": ["knee-high socks", "chunky loafers"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "input admission", "code": "WARDROBE_SUBSTITUTION", "requirement": "Bind the product-specific wardrobe role and reject every forbidden_substitutions value." },
+      "human_rubric": { "question": "Does the full visible outfit match the admitted product-specific reference?", "fail_when": "Any garment, shoe or accessory revives a rejected or wrong-episode treatment." }
+    },
+    {
+      "id": "EVAL-MEDIA-004",
+      "category": "false_or_old_map",
+      "source": "operations/assets/active-asset-registry.json",
+      "source_assertion": { "type": "active_role_and_retired", "role": "town.canonical-map", "active_path": "assets/final_map/sunnyvaile-town-map-final-v5.webp", "retired_path": "assets/sunnyvaile-town-map-v9-canon.png" },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "input admission", "code": "FALSE_TOWN_GEOGRAPHY", "requirement": "Accept only the checksum-bound town.canonical-map role; reject historical or generated substitute geography." },
+      "human_rubric": { "question": "Does the visible geography agree with the canonical town map and named destination relationships?", "fail_when": "A street, building or route is invented, moved or mislabeled." }
+    },
+    {
+      "id": "EVAL-MEDIA-005",
+      "category": "irrelevant_or_invented_characters",
+      "source": "operations/video-qa/site-video-review-registry-2026-07-31.json",
+      "source_assertion": { "type": "text_contains", "needles": ["MAiVENS are incorrectly presented as town characters"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "storyboard admission", "code": "CHARACTER_ROLE_CONFLICT", "requirement": "Every named character must resolve to the current roster and permitted narrative role before picture production." },
+      "human_rubric": { "question": "Does each visible person belong in this scene and perform the role the narration assigns?", "fail_when": "A historical MAiVEN, invented extra or unrelated character is presented as a town resident or distracts from the teaching job." }
+    },
+    {
+      "id": "EVAL-MEDIA-006",
+      "category": "caption_placement",
+      "source": "operations/video-qa/trailer-v8-human-preview-hold-2026-08-02/receipt.json",
+      "source_assertion": { "type": "text_contains", "needles": ["native default captions over the picture", "caption band below it"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "player build", "code": "CAPTION_OVERLAY", "requirement": "Require the external caption track and a dedicated below-picture rail; disallow default burned or native overlay presentation." },
+      "human_rubric": { "question": "Are readable synchronized captions below the picture at desktop, mobile and zoomed layouts?", "fail_when": "Captions cover meaningful picture content, clip, overflow or become unreadable." }
+    },
+    {
+      "id": "EVAL-MEDIA-007",
+      "category": "caption_casing",
+      "source": "operations/video-qa/site-video-review-registry-2026-07-31.json",
+      "source_assertion": { "type": "text_contains", "needles": ["caption capitalization is not preserving approved spelled terms"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "caption build", "code": "CANONICAL_TERM_CASING", "requirement": "Compare caption tokens with the canonical term allowlist before packaging." },
+      "human_rubric": { "question": "Do captions preserve intended names and stylized terms without harming readability?", "fail_when": "LAiDIES names or product terms are recased, misspelled or semantically altered." }
+    },
+    {
+      "id": "EVAL-MEDIA-008",
+      "category": "static_slideshow",
+      "source": "operations/video-qa/site-video-review-registry-2026-07-31.json",
+      "source_assertion": { "type": "text_contains", "needles": ["predominantly as static slides rather than meaningful narration-synchronised animation"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "pilot gate", "code": "MOTION_JOB_UNPROVED", "requirement": "Require occurrence-level motion intent and observed-result verdicts before full assembly; camera drift does not count as meaningful motion." },
+      "human_rubric": { "question": "At normal speed, does picture or local motion develop with the narration rather than hold as a slideshow?", "fail_when": "Long static holds, generic pans or zooms replace meaningful action, progression or environmental life." }
+    },
+    {
+      "id": "EVAL-MEDIA-009",
+      "category": "light_box_overlay",
+      "source": "operations/control-room/owner-review-queue.json",
+      "source_assertion": { "type": "text_contains", "needles": ["recurring unrelated light-box overlays"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "occurrence review", "code": "UNRELATED_OVERLAY", "requirement": "Every overlay must have an occurrence-level narration or purpose job; otherwise block the assembly." },
+      "human_rubric": { "question": "Does every overlay clarify the current idea without covering the scene or looking like an unrelated rectangular light box?", "fail_when": "An overlay lacks a narration job, obscures meaningful content or repeats as generic decoration." }
+    },
+    {
+      "id": "EVAL-MEDIA-010",
+      "category": "missing_animation",
+      "source": "operations/video-qa/episode-04-public-owner-defects-2026-07-31.md",
+      "source_assertion": { "type": "text_contains", "needles": ["missing images and missing animations"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "occurrence review", "code": "REQUIRED_ANIMATION_MISSING", "requirement": "Every required motion occurrence needs a bound output and independent observed-result verdict before title assembly passes." },
+      "human_rubric": { "question": "Does each beat that requires change, action or explanation visibly animate at the right narration moment?", "fail_when": "A required event is absent, frozen, mistimed or replaced by unrelated motion." }
+    }
+  ]
+}

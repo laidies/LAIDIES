@@ -15,6 +15,9 @@ const registry = JSON.parse(fs.readFileSync(path.join(base, "registry.json"), "u
 const queue = JSON.parse(fs.readFileSync(path.join(base, "run-queue.json"), "utf8"));
 const events = JSON.parse(fs.readFileSync(path.join(base, "event-dictionary.json"), "utf8"));
 const guilds = JSON.parse(fs.readFileSync(path.join(base, "guilds.json"), "utf8"));
+const learningResolutionQueue = JSON.parse(
+  fs.readFileSync(path.join(root, "content", "learning-blocker-resolution-queue.json"), "utf8")
+);
 const args = process.argv.slice(2);
 const ownerEntryIndex = args.indexOf("--owner-entry");
 const ownerEntryId = ownerEntryIndex >= 0 ? args[ownerEntryIndex + 1] : null;
@@ -30,7 +33,18 @@ errors.push(...(contentReleaseReadiness.errors || []).map((error) => `content re
 const dailyDerivatives = checkDailyLearningDerivatives({ root });
 errors.push(...(dailyDerivatives.errors || []).map((error) => `daily learning derivatives: ${error}`));
 const learningRelationships = checkLearningRelationships({ root });
-errors.push(...(learningRelationships.errors || []).map((error) => `learning relationships: ${error}`));
+const learningResolutionOwners = new Map(
+  (learningResolutionQueue.tasks || []).map((task) => [task.id, task.owner])
+);
+const deferredLearningErrors = [];
+for (const error of learningRelationships.errors || []) {
+  const resolutionId = /^(LCR-\d+)\b/.exec(error)?.[1];
+  const scopedOwnerId = resolutionId ? learningResolutionOwners.get(resolutionId) : null;
+  const isUnrelatedScopedError =
+    ownerEntryId && !strictOwnerEntry && scopedOwnerId && scopedOwnerId !== ownerEntryId;
+  if (isUnrelatedScopedError) deferredLearningErrors.push(error);
+  else errors.push(`learning relationships: ${error}`);
+}
 const learningOrchestration = checkLearningOrchestrationGuide({ root });
 errors.push(...(learningOrchestration.errors || []).map((error) => `learning orchestration: ${error}`));
 const portfolioInventory = spawnSync(
@@ -311,7 +325,7 @@ const counts = registry.products.reduce((acc, product) => {
   return acc;
 }, {});
 
-console.log("PRODUCT STEWARD SYSTEM PASS");
+console.log("PRODUCT STEWARD STRUCTURE PASS");
 console.log(`products=${registry.products.length}`);
 console.log(`active=${queue.active.length} (${queue.concurrency_policy})`);
 console.log(`events=${events.events.length}`);
@@ -327,6 +341,8 @@ console.log(`owner_entry_gaps=${JSON.stringify(ownerEntryGapCounts)}`);
 console.log(`content_work_orders=${contentWorkOrders.workOrders}`);
 console.log(`content_records_covered=${contentWorkOrders.coveredRecords}`);
 console.log(`content_ready_to_dispatch=${contentWorkOrders.readyToDispatch.join(",") || "none"}`);
+const deliveryAttention = queue.active.length === 0 && contentWorkOrders.readyToDispatch.length > 0;
+console.log(`autonomous_delivery=${deliveryAttention ? 'ATTENTION_REQUIRED' : 'ACTIVE_OR_NO_READY_WORK'}${deliveryAttention ? ` active=0 ready_to_dispatch=${contentWorkOrders.readyToDispatch.length}` : ''}`);
 console.log(`content_release_ready=${contentReleaseReadiness.ready.join(",") || "none"}`);
 console.log(`content_release_held=${contentReleaseReadiness.held.length}`);
 console.log(`daily_learning_derivatives=${dailyDerivatives.records || 0}`);
@@ -342,3 +358,6 @@ for (const task of openResolutionTasks) {
   );
 }
 if (ownerEntryId) console.log(`owner_entry_product=${ownerEntryId}:PASS`);
+for (const error of deferredLearningErrors) {
+  console.log(`owner_entry_unrelated_attention=learning relationships: ${error}`);
+}
