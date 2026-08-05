@@ -1026,6 +1026,21 @@ const server = http.createServer((request, response) => {
     await homepageJeeves.page.goto(`${origin}/index.html#reference`, {
       waitUntil: "domcontentloaded"
     });
+    await homepageJeeves.page.click('#homepage-jeeves-form button[type="submit"]');
+    await homepageJeeves.page.waitForTimeout(50);
+    check(
+      homepageJeeves.page.url() === `${origin}/index.html#reference` &&
+        await homepageJeeves.page.locator("#lookup").evaluate((node) => document.activeElement === node),
+      "Homepage blank Miss Jeeves submit stays in place and focuses the question input"
+    );
+    await homepageJeeves.page.fill("#lookup", "   ");
+    await homepageJeeves.page.click('#homepage-jeeves-form button[type="submit"]');
+    await homepageJeeves.page.waitForTimeout(50);
+    check(
+      homepageJeeves.page.url() === `${origin}/index.html#reference` &&
+        await homepageJeeves.page.locator("#lookup").evaluate((node) => document.activeElement === node),
+      "Homepage whitespace-only Miss Jeeves submit stays in place and focuses the question input"
+    );
     const transferredQuestion = "How do I know if it's telling the truth?";
     await homepageJeeves.page.fill("#lookup", transferredQuestion);
     await homepageJeeves.page.click('#homepage-jeeves-form button[type="submit"]');

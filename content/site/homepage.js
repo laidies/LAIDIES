@@ -97,9 +97,16 @@
   /* lookup form → the LIBRAiRY reference desk (Miss Jeeves) */
   var refForm = document.querySelector('.reference form');
   if (refForm) {
+    var refInput = refForm.querySelector('#lookup');
     refForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      window.location.href = '/library.html';
+      if (!refInput) return;
+      var query = refInput.value.trim();
+      if (!query) {
+        refInput.focus();
+        return;
+      }
+      window.location.href = '/library.html#miss-jeeves?q=' + encodeURIComponent(query.slice(0, 240));
     });
   }
 
