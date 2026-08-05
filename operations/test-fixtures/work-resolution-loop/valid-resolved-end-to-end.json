@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "system_status": "HEALTHY",
+  "records": [
+    {
+      "work_id": "WRK-20260802-release-proof",
+      "work_type": "release",
+      "title": "Trace one release from capture through public verification",
+      "status": "RESOLVED",
+      "product": { "id": "platform-reliability", "outcome": "Bind one accepted site artifact to exact public bytes and rollback." },
+      "owner": { "id": "whole-site-release-owner", "role": "accountable owner" },
+      "acceptance_owner": { "id": "release-verifier", "role": "independent release verifier" },
+      "write_scope": ["operations/release-control/RELEASE-STATE.md"],
+      "next_action": { "id": "REL-MONITOR", "description": "Monitor the bound public release and preserve its rollback target." },
+      "deadline_at": "2026-08-02T20:00:00Z",
+      "next_check_at": "2026-08-02T20:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "execution": { "maker_id": "release-packager", "judge_id": "release-verifier" },
+      "evidence": [
+        { "evidence_id": "EV-REL-01", "artifact": "operations/release-control/RELEASE-STATE.md", "collected_at": "2026-08-02T19:00:00Z", "verdict": "PASS", "verifier": "release-verifier" }
+      ],
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "TR-01", "owner_id": "whole-site-release-owner", "artifact": "release work record", "result": "PASS", "at": "2026-08-02T10:00:00Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "TR-02", "owner_id": "whole-site-release-owner", "artifact": "admitted input manifest", "result": "PASS", "at": "2026-08-02T10:30:00Z" },
+        { "stage": "BRIEF", "receipt_id": "TR-03", "owner_id": "whole-site-release-owner", "artifact": "release acceptance contract", "result": "PASS", "at": "2026-08-02T11:00:00Z" },
+        { "stage": "PILOT", "receipt_id": "TR-04", "owner_id": "release-packager", "artifact": "representative artifact proof", "result": "PASS", "at": "2026-08-02T12:00:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "TR-05", "owner_id": "release-packager", "artifact": "curated release artifact", "result": "PASS", "at": "2026-08-02T13:00:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "TR-06", "owner_id": "release-packager", "artifact": "build validation report", "result": "PASS", "at": "2026-08-02T14:00:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "TR-07", "owner_id": "release-verifier", "artifact": "immutable artifact verdict", "result": "PASS", "at": "2026-08-02T15:00:00Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "TR-08", "owner_id": "whole-site-release-owner", "artifact": "integrated release manifest", "result": "PASS", "at": "2026-08-02T16:00:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "TR-09", "owner_id": "Ali", "artifact": "existing release authority receipt", "result": "PASS", "at": "2026-08-02T16:30:00Z" },
+        { "stage": "RELEASE", "receipt_id": "TR-10", "owner_id": "whole-site-release-owner", "artifact": "Cloudflare deployment 9f161385-7486-4207-9afe-8512ea453973", "result": "PASS", "at": "2026-08-02T17:00:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "TR-11", "owner_id": "release-verifier", "artifact": "custom-domain and immutable byte parity", "result": "PASS", "at": "2026-08-02T18:00:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "TR-12", "owner_id": "whole-site-release-owner", "artifact": "release learning scan", "result": "PASS", "at": "2026-08-02T18:30:00Z" }
+      ],
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-02T19:00:00Z"
+    }
+  ]
+}

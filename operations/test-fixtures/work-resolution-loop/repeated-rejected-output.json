@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "system_status": "ATTENTION_REQUIRED",
+  "records": [
+    {
+      "work_id": "WRK-20260802-rejected-output",
+      "work_type": "artwork",
+      "title": "Repeatedly rejected artwork",
+      "status": "IN_PROGRESS",
+      "owner": { "id": "art-producer", "role": "accountable owner" },
+      "next_action": { "id": "ART-03", "description": "Regenerate the rejected output." },
+      "deadline_at": "2026-08-05T17:00:00Z",
+      "next_check_at": "2026-08-03T17:00:00Z",
+      "retry_count": 2,
+      "same_failure_count": 2,
+      "activity_receipt": { "receipt_id": "ACT-20260802-01", "at": "2026-08-02T10:00:00Z", "evidence_ref": "candidate-3" },
+      "evidence": [{ "evidence_id": "EV-01", "failure_id": "FAIL-20260802-art-direction", "artifact": "candidate-2", "collected_at": "2026-08-02T09:00:00Z", "verdict": "REJECTED", "verifier": "independent-review" }]
+    }
+  ]
+}
