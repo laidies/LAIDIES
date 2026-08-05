@@ -1,6 +1,6 @@
 # LIBRAiRY 101 subproduct dossier
 
-**Status:** **BUILDING — CONCEPTS 101 LOCALLY ADMITTED; THREE OPENING BOOKS HELD**
+**Status:** **BUILDING — CONCEPTS 101 LOCALLY ADMITTED; THREE GOVERNED CANDIDATES HELD**
 
 ## Job
 
@@ -29,9 +29,11 @@ Concepts 101 is the sole locally admitted book and remains unreleased. Briefing
 content/reader PASS, but remains held pending owner admission and release gates.
 Setup 101 now has a checksum-bound local source, claims ledger, rendered book,
 truthful shelf preview, fail-capable validator and independent bounded PASS; it
-remains held pending owner/admission and release gates. Accounts 101 remains on
-factual-integrity hold. Vocab 101 is not visible and must not be reintroduced as
-a separate book.
+remains held pending owner/admission and release gates. Accounts 101 now has a
+checksum-bound local source, claims ledger, rendered book, truthful shelf
+preview, fail-capable validator and independent bounded privacy/content PASS;
+it remains held pending owner/admission and release gates. Vocab 101 is not
+visible and must not be reintroduced as a separate book.
 
 ## Acceptance
 

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "bookId": "accounts-101",
+  "title": "Accounts 101",
+  "status": "HOLD_INDEPENDENT_CONTENT_ADMISSION_REQUIRED",
+  "contentVersion": "accounts-101-2026-08-05.1",
+  "productJob": "A compact high-trust reference for deciding what must be known before pasting real material into an AI product; not a privacy notice, provider plan table or class.",
+  "audience": "A reader with real work or personal material who needs a safe next action before using an AI product.",
+  "learnerOutcome": "The reader can identify the exact tool/account, the material and her authority, find the governing policy and stop when any answer is unknown.",
+  "decisionRule": {
+    "id": "A101-P001",
+    "steps": [
+      {"order": 1, "name": "Name the exact door", "purpose": "Identify the product, account, workspace and any connected app or third-party action actually receiving the material."},
+      {"order": 2, "name": "Name the material", "purpose": "Identify whether it contains credentials, personal data, confidential work, client information, regulated data or contract-restricted content."},
+      {"order": 3, "name": "Check your authority", "purpose": "Confirm that the applicable employer, client, contract and data-classification rules permit this exact use in this exact account."},
+      {"order": 4, "name": "Check the current provider rule", "purpose": "Use the provider's current official privacy, data-use, retention, sharing and connected-service documentation for the exact product/account."},
+      {"order": 5, "name": "Stop when unknown", "purpose": "Do not paste the real material until the authorized owner resolves any missing answer; minimize, anonymize or use an approved route only when that is genuinely permitted."}
+    ],
+    "nonRemedy": "Later deletion may be available, but it does not turn an unauthorized disclosure into an authorized one and must not be the safety plan.",
+    "limitation": "This reference is not legal advice and cannot authorize a tool, account, upload or data use."
+  },
+  "temptingWrongAnswers": [
+    {"statement": "It is paid, so I can paste the client deck.", "verdict": "reject", "reason": "Payment does not prove organizational approval, permitted data, contractual scope or provider behavior."},
+    {"statement": "I used my work email, so it is approved.", "verdict": "reject", "reason": "An email address or work device does not by itself identify the governing contract, workspace or policy."},
+    {"statement": "I will delete the chat afterward.", "verdict": "reject", "reason": "Deletion is not advance permission and cannot be assumed to reverse disclosure, processing or connected-service transfer."},
+    {"statement": "The consumer training setting is off, so the NDA is irrelevant.", "verdict": "reject", "reason": "A provider setting cannot override a contract, client restriction, employer policy or lack of authority."}
+  ],
+  "analogy": {
+    "id": "A101-A001",
+    "name": "Elle reads the rule",
+    "mapping": "Elle Woods wins by noticing the exact rule everyone else skipped; the useful move here is checking the governing account and policy before acting.",
+    "limit": "The film scene is a memory cue, not privacy, security or legal evidence. The real answer comes from current official terms and the authorized owner."
+  },
+  "ownership": {
+    "privacyTerms": "The LAiDIES Privacy and Terms pages own what this site itself collects, uses, retains and shares.",
+    "residentCard": "Resident Card owns LAiDIES identity and continuation; it does not approve an external AI account.",
+    "toolCards": "Maintained provider tool cards own current plan names, menu paths, settings and product-specific data behavior.",
+    "classes": "SUNNYVAiLE High may own guided workplace scenarios and feedback; this book remains the pre-paste lookup rule."
+  },
+  "sources": [
+    {
+      "id": "SRC-NIST-GAI-PROFILE",
+      "publisher": "NIST",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "url": "https://doi.org/10.6028/NIST.AI.600-1",
+      "checkedOn": "2026-08-05",
+      "scope": "Cross-sector risk-management source supporting governed, context-specific treatment of privacy, information security and organizational AI use.",
+      "limitation": "It does not decide an individual's contract, employer policy or provider account settings."
+    },
+    {
+      "id": "SRC-OPENAI-CONSUMER-DATA",
+      "publisher": "OpenAI",
+      "title": "Data Usage for Consumer Services FAQ",
+      "url": "https://help.openai.com/en/articles/7039943-data-usage-for-consumer-services-faq",
+      "checkedOn": "2026-08-05",
+      "scope": "Current official example showing that data use depends on service, account and settings and that consumer and business offerings have different governing documentation.",
+      "limitation": "OpenAI-specific and subject to product, plan, region, setting and policy change."
+    },
+    {
+      "id": "SRC-ANTHROPIC-DATA",
+      "publisher": "Anthropic",
+      "title": "How do you use personal data in model training?",
+      "url": "https://privacy.anthropic.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training",
+      "checkedOn": "2026-08-05",
+      "scope": "Current official example distinguishing consumer and commercial data roles and directing commercial users to customer policies and terms.",
+      "limitation": "Anthropic-specific and subject to product, plan, customer agreement and policy change."
+    }
+  ],
+  "freshness": {
+    "owner": "Library editorial, privacy and AI product accuracy owners",
+    "nextReview": "BEFORE_RELEASE",
+    "triggers": [
+      "a cited provider materially changes data-use or account documentation",
+      "the LAiDIES Privacy, Terms or Resident Card boundary changes",
+      "a reader interprets payment, work email, a setting or deletion as authorization"
+    ]
+  },
+  "correctionRoute": {
+    "type": "mailto",
+    "address": "hello@laidies.ai",
+    "subject": "Accounts 101 correction",
+    "privacyBoundary": "Name the section and a current public source; do not email passwords, account details, private files, personal data or confidential work material."
+  },
+  "authorityBoundary": "This source record is not legal advice, does not authorize an account or upload, does not alter LAiDIES Privacy/Terms, and does not admit or publish the book."
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0.0",
+  "bookId": "accounts-101",
+  "status": "BUILT_LOCALLY_MAKER_ONLY_BOOK_REMAINS_HOLD",
+  "contentVersion": "accounts-101-2026-08-05.1",
+  "renderedPath": "content/library-books/rendered/accounts-101.html",
+  "renderedSha256": "d2e760ab9f72f825a63e05af704c41a46951034b442633e8cd8750ebf65cccef",
+  "canonicalSourcePath": "content/library-books/accounts-101.source.json",
+  "canonicalSourceSha256": "a43d64707621982592f58130f134eaddf6cbdefd8bc6605bb3572504555cc704",
+  "makerReviewDate": "2026-08-05",
+  "makerAuthority": "No self-admission; independent privacy/content and newcomer judgment required.",
+  "claims": [
+    {
+      "id": "A101-C001",
+      "class": "durable_authority_boundary",
+      "publicWording": "A paid plan, work email, work device or reassuring setting does not by itself establish authorization for real material.",
+      "requiredRenderedPhrases": [
+        "A paid plan, work email or reassuring toggle does not answer the real question",
+        "It does not mean the app is on your work laptop, colleagues use it, you signed in with a work email, the plan is paid"
+      ],
+      "sourceIds": ["SRC-NIST-GAI-PROFILE"],
+      "scope": "Conservative decision boundary; actual authority comes from applicable policy, agreement and authorized owner."
+    },
+    {
+      "id": "A101-C002",
+      "class": "currentness_sensitive_provider_boundary",
+      "publicWording": "Data behavior can differ by product, account, plan, workspace, setting, connected service, region and date; current official documentation for the exact route is required.",
+      "requiredRenderedPhrases": [
+        "Provider behavior can differ by product, account, plan, workspace, setting, region and date",
+        "Does a connected app, custom action or third-party service receive any part of the input?"
+      ],
+      "sourceIds": ["SRC-OPENAI-CONSUMER-DATA", "SRC-ANTHROPIC-DATA"],
+      "scope": "Provider examples only; no frozen plan table or universal training/retention claim."
+    },
+    {
+      "id": "A101-C003",
+      "class": "stop_and_escalate_rule",
+      "publicWording": "If the exact account, authority or governing rule is unknown, do not paste the real material until the authorized owner resolves it.",
+      "requiredRenderedPhrases": [
+        "If you cannot identify the exact account, your authority and the rule for this material, do not paste the real material",
+        "“Unknown” is a stop sign, not a request to guess"
+      ],
+      "sourceIds": ["SRC-NIST-GAI-PROFILE"],
+      "scope": "Low-risk minimum; not legal advice or a substitute for organizational policy."
+    },
+    {
+      "id": "A101-C004",
+      "class": "non_remedy_and_product_ownership",
+      "publicWording": "Deletion is not advance permission; LAiDIES Privacy/Terms own this site's disclosures, Resident Card owns LAiDIES identity, and provider tool cards own current settings.",
+      "requiredRenderedPhrases": [
+        "Deletion does not make an unauthorized disclosure authorized",
+        "the Privacy page and Terms own what this site collects, uses, retains and shares",
+        "The Resident Card owns LAiDIES identity and continuation; it does not approve an external AI account"
+      ],
+      "sourceIds": [],
+      "scope": "Product ownership and risk-management boundary; no deletion or legal guarantee."
+    }
+  ],
+  "sources": [
+    {"id": "SRC-NIST-GAI-PROFILE", "url": "https://doi.org/10.6028/NIST.AI.600-1", "checkedOn": "2026-08-05", "primary": true, "recheck": "On material NIST revision or before release."},
+    {"id": "SRC-OPENAI-CONSUMER-DATA", "url": "https://help.openai.com/en/articles/7039943-data-usage-for-consumer-services-faq", "checkedOn": "2026-08-05", "primary": true, "recheck": "Before release or material source change."},
+    {"id": "SRC-ANTHROPIC-DATA", "url": "https://privacy.anthropic.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training", "checkedOn": "2026-08-05", "primary": true, "recheck": "Before release or material source change."}
+  ],
+  "integrationBindings": [
+    {
+      "path": "library.html",
+      "sha256": "2c75e9e45934c967191850423263283b837e82d39d564c307388793e71a2c3b6",
+      "requiredPhrases": [
+        "Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown."
+      ]
+    }
+  ],
+  "forbiddenRenderedPhrases": [
+    "When the tool is free, the product is you",
+    "Free tools get smarter by reading the room",
+    "the safe version is usually the one with an invoice attached",
+    "Personal account: assume every word",
+    "Company-approved account, within policy: the real work is the whole point",
+    "Personal account today might become part of what a stranger's AI model knows next year",
+    "anything you paste into a company-approved business account stays inside the business agreement",
+    "training default ON",
+    "training default OFF"
+  ]
+}
