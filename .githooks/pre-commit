@@ -14,6 +14,10 @@ for check in check-town check-episode-cues check-local-links check-inline-js; do
   fi
 done
 
+if [ -f "$TOPLEVEL/scripts/test-output-path-cli-guards.mjs" ]; then
+  node "$TOPLEVEL/scripts/test-output-path-cli-guards.mjs" || fail=1
+fi
+
 if [ "$fail" -ne 0 ]; then
   echo ""
   echo "Commit blocked. Fix what's listed above, or bypass with --no-verify if you mean it."
