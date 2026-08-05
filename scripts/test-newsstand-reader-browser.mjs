@@ -143,9 +143,9 @@ const server = http.createServer((request, response) => {
     }
     if (process.env.NEWSSTAND_CATCHUP_CALIBRATION === "visitor-date-gate") {
       source = source.replaceAll(
-        'Date.parse(item.admission.reviewedAt) <= Date.now() + 300000;',
-        'Date.parse(item.admission.reviewedAt) <= Date.now() + 300000 && item.editionDate <= localToday();'
-      ).replace('return localDateOnly(new Date());', 'return "2026-08-03";');
+        'Date.parse(item.admission.reviewedAt) <= Date.now();',
+        'Date.parse(item.admission.reviewedAt) <= Date.now() && item.editionDate <= "2026-08-03";'
+      );
     }
     response.writeHead(200, { "content-type": "text/javascript; charset=utf-8" });
     response.end(source);
@@ -185,6 +185,16 @@ const server = http.createServer((request, response) => {
   if (requestUrl.pathname === "/content/newsstand-daily-issues.json") {
     try {
       const fixture = new URL(request.headers.referer).searchParams.get("fixture");
+      if (["pre-release", "post-release"].includes(fixture)) {
+        const referer = new URL(request.headers.referer);
+        const clock = TEST_CLOCKS[referer.searchParams.get("clock") || "same-day"] || TEST_CLOCKS["same-day"];
+        const value = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
+        const issue = value.issues.find((item) => item.editionDate === "2026-08-04");
+        issue.admission.reviewedAt = new Date(new Date(clock).getTime() + (fixture === "pre-release" ? 1 : -1)).toISOString();
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(JSON.stringify(value));
+        return;
+      }
       if (fixture === "daily-issues-load-failure") {
         response.writeHead(503);
         response.end("intentional canonical Daily issue-store load failure");
@@ -490,11 +500,21 @@ try {
   const honolulu = await openPage("/newsstand.html?clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Honolulu" });
   await waitForValue(honolulu, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "released Daily in Honolulu");
   await waitForValue(honolulu, "document.querySelector('#ns-catchup-since').max", "2026-08-04", "released Daily Catch Me Up maximum in Honolulu");
+  await act(honolulu, "localStorage.setItem('laidies_newsstand_seen_v1', JSON.stringify({lastVisit:{updated_at:'2026-08-05T00:30:00Z'},seen:{}}));window.dispatchEvent(new CustomEvent('laidies:continuation-change'))");
+  await waitForValue(honolulu, "document.querySelector('#ns-catchup-since').value", "2026-08-04", "stable visit date in Honolulu");
   honolulu.close();
   const kiritimati = await openPage("/newsstand.html?clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Kiritimati" });
   await waitForValue(kiritimati, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "literal edition label in Kiritimati");
   check(await value(kiritimati, "document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Current · Aug 4 ’26'"), true, "date-only Daily labels do not shift to August 5 in UTC+14");
+  await act(kiritimati, "localStorage.setItem('laidies_newsstand_seen_v1', JSON.stringify({lastVisit:{updated_at:'2026-08-05T00:30:00Z'},seen:{}}));window.dispatchEvent(new CustomEvent('laidies:continuation-change'))");
+  await waitForValue(kiritimati, "document.querySelector('#ns-catchup-since').value", "2026-08-04", "stable visit date in Kiritimati");
   kiritimati.close();
+  const preRelease = await openPage("/newsstand.html?fixture=pre-release&clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Honolulu" });
+  await waitForValue(preRelease, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Latest complete edition · August 3, 2026", "one millisecond pre-release issue remains hidden");
+  preRelease.close();
+  const postRelease = await openPage("/newsstand.html?fixture=post-release&clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Honolulu" });
+  await waitForValue(postRelease, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "one millisecond post-release issue is available");
+  postRelease.close();
   await base.call("Page.bringToFront");
   check(await value(base, "document.querySelectorAll('.ns-publication').length"), 4, "four physical papers");
   check(await value(base, "getComputedStyle(document.querySelector('.ns-counter-browse')).display"), "none", "desktop does not show a redundant swipe instruction");

@@ -117,25 +117,23 @@
     return String(value || "").slice(0, 10);
   }
 
-  function localDateOnly(value) {
+  function editorialDateOnly(value) {
     var parsed = value instanceof Date ? value : new Date(value);
     if (!Number.isFinite(parsed.getTime())) return dateOnly(value);
-    return [
-      parsed.getFullYear(),
-      String(parsed.getMonth() + 1).padStart(2, "0"),
-      String(parsed.getDate()).padStart(2, "0")
-    ].join("-");
-  }
-
-  function localToday() {
-    return localDateOnly(new Date());
+    var parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Vancouver", year: "numeric", month: "2-digit", day: "2-digit"
+    }).formatToParts(parsed).reduce(function (result, part) {
+      if (part.type !== "literal") result[part.type] = part.value;
+      return result;
+    }, {});
+    return [parts.year, parts.month, parts.day].join("-");
   }
 
   function availableThroughDate() {
     var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
     var latest = issues.filter(function (item) {
       return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate || "") &&
-        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now() + 300000;
+        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now();
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
     return latest ? latest.editionDate : currentDailyDate();
   }
@@ -172,7 +170,7 @@
 
   function currentDailyDate() {
     return dateOnly(data.publications && data.publications.daily &&
-      (data.publications.daily.editionDate || data.publications.daily.publishedAt)) || localToday();
+      (data.publications.daily.editionDate || data.publications.daily.publishedAt)) || editorialDateOnly(new Date());
   }
 
   function canonicalJson(value) {
@@ -264,7 +262,7 @@
     var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
     var issue = issues.filter(function (item) {
       return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate) &&
-        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now() + 300000;
+        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now();
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
     var publication = data.publications && data.publications.daily;
     if (!issue || !publication) return;
@@ -379,7 +377,7 @@
   }
 
   function eligibleDerivatives() {
-    var today = localToday();
+    var today = availableThroughDate();
     return derivatives && Array.isArray(derivatives.records)
       ? derivatives.records.filter(function (record) {
           return ["APPROVED", "PUBLISHED"].indexOf(record.status) !== -1 &&
@@ -390,7 +388,7 @@
   }
 
   function eligibleColumns() {
-    var today = localToday();
+    var today = availableThroughDate();
     return columns && Array.isArray(columns.records)
       ? columns.records.filter(function (record) {
           return ["APPROVED", "PUBLISHED"].indexOf(record.status) !== -1 &&
@@ -751,7 +749,7 @@
     if (!input || !run) return;
     var fallback = new Date(Date.now() - 7 * DAY_MS);
     syncCatchupAvailability();
-    input.value = localDateOnly(previousVisit || fallback);
+    input.value = editorialDateOnly(previousVisit || fallback);
     var visitSealed = false;
     input.addEventListener("input", function () { input.setAttribute("data-user-edited", "true"); });
     input.addEventListener("change", function () { input.setAttribute("data-user-edited", "true"); });
@@ -836,7 +834,7 @@
     function reconcileVisit() {
       previousVisit = latestPreviousVisit(readState());
       if (previousVisit && input.getAttribute("data-user-edited") !== "true") {
-        input.value = localDateOnly(previousVisit);
+        input.value = editorialDateOnly(previousVisit);
       }
       if (!visitSealed) {
         visitSealed = true;
