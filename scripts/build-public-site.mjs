@@ -13,14 +13,31 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import crypto from 'node:crypto';
+import { assertActiveAsset, compileActiveAssetRegistry } from './lib/active-asset-admission.mjs';
+import { assertLibraryAdmissionFreshness } from './compile-library-admission.mjs';
 import {
   CONTEXT_NAV_SOURCE_PATH,
   CONTEXT_NAV_SOURCE_SHA256,
-  distributeContextNavigation,
 } from './lib/context-navigation-distribution-v1.mjs';
+import { transformPublicHtml } from './lib/public-html-transform.mjs';
+import {
+  assertNoInternalReviewFilmFields,
+  projectScreeningRoomAdmissionForPublic,
+} from './lib/public-screening-room-admission.mjs';
+import { partitionPublicRuntimeFamilyMembers } from './lib/public-runtime-family-admission.mjs';
+
+const cliArgs = process.argv.slice(2);
+if (cliArgs.includes('--help') || cliArgs.includes('-h')) {
+  console.log('Usage: node scripts/build-public-site.mjs [output-directory]');
+  process.exit(0);
+}
+if (cliArgs.length > 1 || (cliArgs[0] && cliArgs[0].startsWith('-'))) {
+  throw new Error('expected at most one output directory; flag-like output paths are rejected');
+}
 
 const root = path.resolve(import.meta.dirname, '..');
-const output = path.resolve(process.argv[2] || path.join(process.env.TMPDIR || '/tmp', 'laidies-public-site'));
+assertLibraryAdmissionFreshness({ root });
+const output = path.resolve(cliArgs[0] || path.join(process.env.TMPDIR || '/tmp', 'laidies-public-site'));
 const maxFileBytes = 25 * 1024 * 1024;
 const warnBytes = 750 * 1024 * 1024;
 const failBytes = 1100 * 1024 * 1024;
@@ -47,14 +64,73 @@ const queued = new Set();
 const queue = [];
 const missing = [];
 const oversized = [];
+const prohibitedSourceReferences = [];
+const prohibitedSourceKeys = new Set();
+const transformedText = new Map();
 let totalBytes = 0;
 
 const derivedManifestPath = 'content/episodes/screening-room-derived-editions.json';
+const screeningAdmissionPath = 'content/episodes/screening-room-admission.json';
+const defaultAssetRegistryPath = path.join(root, 'operations/assets/active-asset-registry.json');
+const assetRegistryPath = process.env.LAIDIES_ASSET_REGISTRY_PATH
+  ? path.resolve(process.env.LAIDIES_ASSET_REGISTRY_PATH)
+  : defaultAssetRegistryPath;
+const runtimeFamilyManifestPath = 'operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/runtime-family-manifest.v1.json';
+const assetRegistry = compileActiveAssetRegistry(JSON.parse(fs.readFileSync(assetRegistryPath, 'utf8')));
 const derivedManifest = JSON.parse(fs.readFileSync(path.join(root, derivedManifestPath), 'utf8'));
 const derivedEditions = new Map(
   Object.entries(derivedManifest.editions || {}).map(([episode, edition]) => [edition.sourceCuePath, { episode, ...edition }]),
 );
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
+
+function compileRuntimeFamilyManifest(manifest) {
+  if (!manifest || manifest.schema !== 'laidies.public-runtime-families.v1' || manifest.default_policy !== 'DENY') {
+    throw new Error('runtime family manifest must declare laidies.public-runtime-families.v1 with default_policy DENY');
+  }
+  if (!Array.isArray(manifest.families) || manifest.families.length !== 6 || !Array.isArray(manifest.exclusions)) {
+    throw new Error('runtime family manifest must contain six families and an exclusions array');
+  }
+  const members = new Map();
+  const exclusions = new Map();
+  const validate = (entry, label) => {
+    if (!entry || typeof entry.path !== 'string' || !entry.path || entry.path.startsWith('/') || entry.path.includes('\\')) {
+      throw new Error(`${label} has an invalid path`);
+    }
+    if (!/^[a-f0-9]{64}$/.test(entry.sha256 || '')) throw new Error(`${label} has no valid sha256`);
+    for (const field of ['consumer', 'job', 'source_reason', 'authority_owner']) {
+      if (typeof entry[field] !== 'string' || !entry[field].trim()) throw new Error(`${label} has no ${field}`);
+    }
+    const normalized = path.posix.normalize(entry.path);
+    if (normalized !== entry.path || normalized === '..' || normalized.startsWith('../')) throw new Error(`${label} escapes or is not normalized`);
+    const absolute = path.join(root, normalized);
+    if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) throw new Error(`${label} is missing: ${normalized}`);
+    if (sha256(fs.readFileSync(absolute)) !== entry.sha256) throw new Error(`${label} checksum mismatch: ${normalized}`);
+    return normalized;
+  };
+  for (const family of manifest.families) {
+    if (!family || typeof family.id !== 'string' || !family.id || !Array.isArray(family.members) || family.members.length === 0) {
+      throw new Error('runtime family must have an id and explicit members');
+    }
+    for (const member of family.members) {
+      const normalized = validate(member, `runtime family ${family.id} member`);
+      if (members.has(normalized)) throw new Error(`duplicate runtime family member: ${normalized}`);
+      members.set(normalized, { ...member, family: family.id });
+    }
+  }
+  for (const exclusion of manifest.exclusions) {
+    const normalized = validate(exclusion, 'runtime family exclusion');
+    if (!Array.isArray(exclusion.reasons) || exclusion.reasons.length === 0) throw new Error(`runtime family exclusion has no reasons: ${normalized}`);
+    if (exclusions.has(normalized)) throw new Error(`duplicate runtime family exclusion: ${normalized}`);
+    exclusions.set(normalized, exclusion);
+  }
+  for (const member of members.keys()) {
+    if (exclusions.has(member)) throw new Error(`runtime family member is also excluded: ${member}`);
+  }
+  return { members, exclusions };
+}
+
+const runtimeFamilyManifest = JSON.parse(fs.readFileSync(path.join(root, runtimeFamilyManifestPath), 'utf8'));
+const runtimeFamilies = compileRuntimeFamilyManifest(runtimeFamilyManifest);
 
 const contextNavBytes = fs.readFileSync(path.join(root, CONTEXT_NAV_SOURCE_PATH));
 if (sha256(contextNavBytes) !== CONTEXT_NAV_SOURCE_SHA256) {
@@ -116,7 +192,16 @@ function enqueue(relative, requiredBy = 'release entry', { allowExtensionless = 
   const normalized = allowExtensionless && relative === path.basename(relative)
     ? relative
     : normalizeRelative(relative);
-  if (!normalized || isDenied(normalized) || queued.has(normalized)) return;
+  if (!normalized || (isDenied(normalized) && !assetRegistry.exact.has(normalized))) return;
+  if (runtimeFamilies.exclusions.has(normalized)) {
+    const key = `${normalized}\0${requiredBy}`;
+    if (!prohibitedSourceKeys.has(key)) {
+      prohibitedSourceKeys.add(key);
+      prohibitedSourceReferences.push({ path: normalized, requiredBy, reasons: runtimeFamilies.exclusions.get(normalized).reasons });
+    }
+    return;
+  }
+  if (queued.has(normalized)) return;
   const absolute = path.join(root, normalized);
   if (!fs.existsSync(absolute)) {
     missing.push({ path: normalized, requiredBy });
@@ -125,19 +210,6 @@ function enqueue(relative, requiredBy = 'release entry', { allowExtensionless = 
   if (fs.statSync(absolute).isDirectory()) return;
   queued.add(normalized);
   queue.push(normalized);
-}
-
-function enqueueTree(relativeDirectory, predicate = () => true) {
-  const absoluteDirectory = path.join(root, relativeDirectory);
-  if (!fs.existsSync(absoluteDirectory)) return;
-  for (const dirent of fs.readdirSync(absoluteDirectory, { withFileTypes: true })) {
-    const relative = `${relativeDirectory}/${dirent.name}`.split(path.sep).join('/');
-    if (dirent.isDirectory()) {
-      if (!isDenied(relative)) enqueueTree(relative, predicate);
-    } else if (dirent.isFile() && predicate(relative)) {
-      enqueue(relative, 'runtime-generated public asset');
-    }
-  }
 }
 
 function visitorHtmlEntries() {
@@ -205,8 +277,18 @@ function extractLocalReferences(source, relative) {
 }
 
 function publicTextSource(relative, source) {
+  if (relative === derivedManifestPath) {
+    const publicManifest = JSON.parse(source);
+    delete publicManifest.editions?.trailer;
+    return `${JSON.stringify(publicManifest, null, 2)}\n`;
+  }
+  if (relative === screeningAdmissionPath) {
+    const projected = projectScreeningRoomAdmissionForPublic(source);
+    assertNoInternalReviewFilmFields(projected);
+    return projected;
+  }
   const edition = derivedEditions.get(relative);
-  if (!edition) return distributeContextNavigation(relative, source);
+  if (!edition) return transformPublicHtml(relative, source);
   if (sha256(source) !== edition.sourceCueSha256) {
     throw new Error(`Derived edition source hash mismatch: ${relative}`);
   }
@@ -243,7 +325,7 @@ function publicTextSource(relative, source) {
   if (sha256(outputSource) !== edition.artifactCueSha256) {
     throw new Error(`Derived edition artifact hash mismatch: ${relative}`);
   }
-  return distributeContextNavigation(relative, outputSource);
+  return transformPublicHtml(relative, outputSource);
 }
 
 function copyFile(relative) {
@@ -253,34 +335,21 @@ function copyFile(relative) {
     missing.push({ path: relative, requiredBy: 'symlinks are not allowed in the public artifact' });
     return;
   }
+  const isText = relative === '_redirects' || textExtensions.has(path.extname(relative).toLowerCase());
+  if (!isText) assertActiveAsset({ relativePath: relative, absolutePath: sourcePath, registry: assetRegistry });
   if (stat.size > maxFileBytes) {
     oversized.push({ path: relative, bytes: stat.size });
     return;
   }
   const destination = path.join(output, relative);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
-  const isText = textExtensions.has(path.extname(relative).toLowerCase());
-  const source = isText
-    ? publicTextSource(relative, fs.readFileSync(sourcePath, 'utf8'))
-    : null;
+  const source = isText ? transformedText.get(relative) : null;
+  if (isText && typeof source !== 'string') throw new Error(`text dependency was not preflighted: ${relative}`);
   if (source === null) fs.copyFileSync(sourcePath, destination);
   else fs.writeFileSync(destination, source);
   copied.add(relative);
   totalBytes += source === null ? stat.size : Buffer.byteLength(source);
 
-  if (source !== null) {
-    for (const dependency of extractLocalReferences(source, relative)) {
-      if (!isDenied(dependency) && !queued.has(dependency)) {
-        const absolute = path.join(root, dependency);
-        if (fs.existsSync(absolute) && fs.statSync(absolute).isFile()) {
-          queued.add(dependency);
-          queue.push(dependency);
-        } else {
-          missing.push({ path: dependency, requiredBy: relative });
-        }
-      }
-    }
-  }
 }
 
 fs.mkdirSync(output, { recursive: true });
@@ -288,7 +357,6 @@ for (const entry of visitorHtmlEntries()) enqueue(entry);
 for (const entry of [
   '404.html',
   '_redirects',
-  'favicon.ico',
   'manifest.webmanifest',
   'robots.txt',
   'sitemap.xml',
@@ -301,20 +369,14 @@ for (const entry of [
 }
 
 // These assets are selected at runtime from data or constructed paths, so a
-// static reference crawl cannot discover them. Keep this list explicit and
-// visitor-facing: it is a release manifest, not permission to copy the studio.
-// The reader constructs filenames under the approved bright family at
-// runtime. Copy that production family only; the root library folder also
-// contains superseded/original cover systems that are studio evidence, not
-// public dependencies.
-enqueueTree('assets/library-101/bright-family-v2', (relative) => relative.endsWith('.png'));
-enqueueTree('assets/mme-claio/reading-cards', (relative) => relative.endsWith('.webp'));
-enqueueTree('assets/stickers/ksvl', (relative) => relative.endsWith('.png'));
-enqueueTree('assets/puffies', (relative) => relative.endsWith('.png'));
-enqueueTree('assets/charms');
-enqueueTree('assets/postcards/from-sunnyvaile');
+// static reference crawl cannot discover them. The checksum-bound manifest is
+// the complete enumerated build source: directory membership is never public
+// authority and exclusions can never be promoted by this builder.
+const publicRuntimeFamilies = partitionPublicRuntimeFamilyMembers(runtimeFamilies.members, assetRegistry.exact);
+for (const member of publicRuntimeFamilies.active) {
+  enqueue(member.path, `${member.source_reason}; consumer=${member.consumer}; job=${member.job}; owner=${member.authority_owner}`);
+}
 for (const entry of [
-  'content/episodes/episode-trailer-cues.json',
   'content/episodes/episode-01-cues.json',
   'content/episodes/episode-02-cues.json',
   'content/episodes/episode-03-cues.json',
@@ -328,26 +390,76 @@ for (const entry of [
   'content/site/readiness/v1/entry-readiness-projection.v1.json',
   'content/site/readiness/v1/readiness-current-projection-v1.schema.json',
   'content/site/readiness/v1/readiness-runtime-v1.js',
-  'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
-  'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp',
+]) {
+  enqueue(entry, 'runtime-generated public data');
+}
+const runtimeGeneratedAssets = new Map([
+  'assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
+  'assets/episodes/ep-02/comic/ep02-title-card-comic-v2.png',
   'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',
-  'assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp',
-  'assets/avatars/claires/claires-avatar-butterfly-clip.png',
-  'assets/avatars/claires/claires-avatar-velvet-scrunchie.png',
-  'assets/avatars/claires/claires-avatar-claw-clip.png',
-  'assets/avatars/claires/claires-avatar-snap-barrette.png',
-  'assets/avatars/claires/claires-avatar-butterfly-hair-tinsel.png',
+  'assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png',
   'assets/brand/ksvl-cd-mini-pearl-plum.png',
   'assets/brand/ksvl-cd-mini-champagne-lime.png',
   'assets/brand/ksvl-cd-mini-blush-pink.png',
   'assets/brand/ksvl-cd-mini-teal-mint.png',
   'assets/brand/ksvl-cd-mini-lavender-pop.png',
   'assets/brand/ksvl-cd-mini-aqua-blue.png',
-]) {
-  enqueue(entry, 'runtime-generated public asset');
+].map((entry) => [entry, { path: entry, sha256: sha256(fs.readFileSync(path.join(root, entry))) }]));
+const publicRuntimeGeneratedAssets = partitionPublicRuntimeFamilyMembers(runtimeGeneratedAssets, assetRegistry.exact);
+for (const entry of publicRuntimeGeneratedAssets.active) {
+  enqueue(entry.path, 'runtime-generated public asset');
 }
 
-while (queue.length) copyFile(queue.shift());
+// Resolve the complete dependency graph before copying or applying asset
+// admission. This makes prohibited source references visible even when an
+// earlier unregistered binary would otherwise stop the build first.
+const dependencyOrder = [];
+while (queue.length) {
+  const relative = queue.shift();
+  dependencyOrder.push(relative);
+  const isText = relative === '_redirects' || textExtensions.has(path.extname(relative).toLowerCase());
+  if (!isText) continue;
+  const source = publicTextSource(relative, fs.readFileSync(path.join(root, relative), 'utf8'));
+  transformedText.set(relative, source);
+  for (const dependency of extractLocalReferences(source, relative)) {
+    enqueue(dependency, `reference from ${relative}`);
+  }
+}
+
+if (prohibitedSourceReferences.length) {
+  console.error(`PROHIBITED_SOURCE_REFERENCE: ${prohibitedSourceReferences.length}`);
+  for (const item of prohibitedSourceReferences.slice(0, 50)) {
+    console.error(`  - ${item.path} (required by ${item.requiredBy}; ${item.reasons.join('; ')})`);
+  }
+}
+if (missing.length) {
+  console.error(`Missing public dependencies: ${missing.length}`);
+  for (const item of missing.slice(0, 30)) console.error(`  - ${item.path} (required by ${item.requiredBy})`);
+}
+const dependencyReport = {
+  binaryAssets: dependencyOrder
+    .filter((relative) => {
+      const isText = relative === '_redirects' || textExtensions.has(path.extname(relative).toLowerCase());
+      return !isText;
+    })
+    .map((relative) => {
+      const absolute = path.join(root, relative);
+      return {
+        path: relative,
+        sha256: sha256(fs.readFileSync(absolute)),
+        bytes: fs.statSync(absolute).size,
+      };
+    })
+    .sort((a, b) => a.path.localeCompare(b.path)),
+  prohibitedSourceReferences: prohibitedSourceReferences
+    .map((item) => ({ ...item, reasons: [...item.reasons].sort() }))
+    .sort((a, b) => a.path.localeCompare(b.path) || a.requiredBy.localeCompare(b.requiredBy)),
+  missing: [...missing].sort((a, b) => a.path.localeCompare(b.path) || a.requiredBy.localeCompare(b.requiredBy)),
+};
+fs.writeFileSync(path.join(output, 'dependency-report.json'), `${JSON.stringify(dependencyReport, null, 2)}\n`);
+if (prohibitedSourceReferences.length || missing.length) process.exit(1);
+
+for (const relative of dependencyOrder) copyFile(relative);
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -357,18 +469,24 @@ const report = {
   mebibytes: Number((totalBytes / 1024 / 1024).toFixed(2)),
   missing,
   oversized,
+  prohibitedSourceReferences,
+  runtimeFamilyManifest: {
+    path: runtimeFamilyManifestPath,
+    sha256: sha256(fs.readFileSync(path.join(root, runtimeFamilyManifestPath))),
+    families: runtimeFamilyManifest.families.length,
+    members: runtimeFamilies.members.size,
+    activeMembersCopied: publicRuntimeFamilies.active.length,
+    heldMembersExcluded: publicRuntimeFamilies.held.length,
+    exclusions: runtimeFamilies.exclusions.size,
+  },
 };
 fs.writeFileSync(path.join(output, 'build-report.json'), `${JSON.stringify(report, null, 2)}\n`);
 
 console.log(`Public artifact: ${copied.size} files, ${report.mebibytes} MiB`);
 console.log(`Output: ${output}`);
-if (missing.length) {
-  console.error(`Missing public dependencies: ${missing.length}`);
-  for (const item of missing.slice(0, 30)) console.error(`  - ${item.path} (required by ${item.requiredBy})`);
-}
 if (oversized.length) {
   console.error(`Oversized public dependencies: ${oversized.length}`);
   for (const item of oversized) console.error(`  - ${item.path} (${(item.bytes / 1024 / 1024).toFixed(2)} MiB)`);
 }
 if (totalBytes >= warnBytes) console.warn(`Warning: artifact exceeds ${warnBytes / 1024 / 1024} MiB.`);
-if (missing.length || oversized.length || totalBytes >= failBytes) process.exit(1);
+if (missing.length || prohibitedSourceReferences.length || oversized.length || totalBytes >= failBytes) process.exit(1);
