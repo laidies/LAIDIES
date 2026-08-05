@@ -889,8 +889,20 @@
     flex-direction: column;
   }
 
+  /* Cast is a gallery at desktop size. On a phone it must become a complete,
+     scannable cast list: the hidden horizontal strip left most people offscreen. */
+  .issue-feature .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
   .issue-feature .cast-card {
-    flex-basis: 58vw;
+    flex: none;
+    padding-right: 0;
   }
 
   .issue-feature .rail-row {

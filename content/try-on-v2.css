@@ -62,8 +62,7 @@ body:has(.tryon-hero) main {
       rgba(5, 13, 39, 0.42) 65%,
       rgba(5, 13, 39, 0.2) 100%
     ),
-    url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
-      center / cover no-repeat !important;
+    linear-gradient(145deg, #172653 0%, #432b71 54%, #176a7d 100%) !important;
   box-shadow: none !important;
   isolation: isolate;
 }
@@ -78,6 +77,19 @@ body:has(.tryon-hero) main {
     radial-gradient(circle at 72% 20%, rgba(244, 63, 157, 0.38), transparent 27%),
     radial-gradient(circle at 20% 82%, rgba(16, 205, 227, 0.2), transparent 34%);
   transform: rotate(-2deg);
+}
+
+.tryon-visual-held {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: .65rem .9rem;
+  border: 2px dashed rgba(255,249,239,.7);
+  border-radius: .7rem;
+  color: var(--to-cream);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .tryon-hero > div {
@@ -477,8 +489,7 @@ body:has(.tryon-hero) main {
     min-height: 48rem;
     background:
       linear-gradient(180deg, rgba(5, 13, 39, 0.94), rgba(5, 13, 39, 0.72)),
-      url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
-        center / cover no-repeat !important;
+      linear-gradient(145deg, #172653, #432b71 54%, #176a7d) !important;
   }
 
   .tryon-hero .desk-note {

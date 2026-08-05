@@ -4,7 +4,6 @@
   var slug = (location.pathname.split("/").pop() || "").replace(/\.html$/, "");
   var configs = {
     "as-seen-on-tv": {
-      interior: "/assets/mall-interiors-comic/as-seen-on-tv-interior-candidate-v1.webp",
       roomTitle: "Surf the reference channels.",
       roomNote: "The room is the remote. Choose a wall, then tune the searchable signal below.",
       action: "Queue this reference",
@@ -21,7 +20,6 @@
       utilityMode: "next"
     },
     "books-and-records": {
-      interior: "/assets/mall-interiors-comic/books-and-records-interior-candidate-v1.webp",
       roomTitle: "Flip until something catches.",
       roomNote: "Paperbacks on the left, singles in the middle, soundtracks at the listening post.",
       action: "Put it on the pile",
@@ -36,7 +34,6 @@
       ]
     },
     "food-court": {
-      interior: "/assets/mall-interiors-comic/food-court-interior-candidate-v1.webp",
       roomTitle: "Build the tray.",
       roomNote: "Start with a drink, add the sugar aisle, then decide what counts as dinner.",
       action: "Add it to the tray",
@@ -51,7 +48,6 @@
       ]
     },
     "gizmos-and-gadgets": {
-      interior: "/assets/mall-interiors-comic/gizmos-and-gadgets-interior-candidate-v1.webp",
       roomTitle: "Try it before you take it home.",
       roomNote: "Personal audio on the left, communication at the demo bench, play-tech to the right.",
       action: "Leave it on the demo bench",
@@ -66,7 +62,6 @@
       ]
     },
     "hanger-management": {
-      interior: "/assets/mall-interiors-comic/hanger-management-interior-candidate-v1.webp",
       roomTitle: "Pull a look. Test the energy.",
       roomNote: "Tops and dresses, denim and shoes, then the finishing rail by the fitting rooms.",
       action: "Take it to the fitting room",
@@ -81,7 +76,6 @@
       ]
     },
     "last-summer": {
-      interior: "/assets/mall-interiors-comic/last-summer-interior-candidate-v1.webp",
       roomTitle: "Pin the memory before it changes.",
       roomNote: "School-day evidence on the left, excursions in the middle, sleepover archives on the right.",
       action: "Pin it to the scrapbook",
@@ -96,7 +90,6 @@
       ]
     },
     "maiybe": {
-      interior: "/assets/mall-interiors-comic/maiybe-interior-candidate-v2.webp",
       roomTitle: "Open the Caboodles.",
       roomNote: "Hair and skin on the left, colour at the tester island, scent and tools by the mirrors.",
       action: "Put it in the Caboodles",
@@ -111,7 +104,6 @@
       ]
     },
     "mall-kiosk": {
-      interior: "/assets/mall-interiors-comic/mall-kiosk-interior-candidate-v1.webp",
       roomTitle: "Spin the rack.",
       roomNote: "The kiosk is the delightful wildcard: games, collectables and the odd thing by the till.",
       action: "Keep this odd little thing",
@@ -128,7 +120,6 @@
       utilityMode: "random"
     },
     "rollin-with-my-homies": {
-      interior: "/assets/mall-interiors-comic/rollin-with-my-homies-interior-candidate-v1.webp",
       roomTitle: "Call the energy, not the costume.",
       roomNote: "Scripted references, real-world references and ensemble chemistry share one casting room.",
       action: "Put this energy on the call sheet",
@@ -158,13 +149,12 @@
   var titleNode = hero && hero.querySelector("h1");
   var tagNode = hero && hero.querySelector(".shop-hero-tag");
   var eyebrowNode = hero && hero.querySelector(".shop-hero-eyebrow");
-  var storefrontImage = main.querySelector(".shop-storefront img");
+  var storefrontHeld = main.querySelector(".shop-storefront .mall-storefront-held");
   var titleHTML = titleNode ? titleNode.innerHTML : document.title.split("·")[0].trim();
   var titleText = titleNode ? titleNode.textContent.trim() : document.title.split("·")[0].trim();
   var tagHTML = tagNode ? tagNode.innerHTML : "";
   var eyebrowHTML = eyebrowNode ? eyebrowNode.innerHTML : "The Mall";
-  var storefrontSrc = storefrontImage ? storefrontImage.getAttribute("src") : "";
-  var storefrontAlt = storefrontImage ? storefrontImage.getAttribute("alt") : titleText + " storefront";
+  var storefrontAlt = storefrontHeld ? storefrontHeld.getAttribute("aria-label") : titleText + " storefront artwork is being prepared";
   var items = [];
 
   main.querySelectorAll(".item-list").forEach(function (list) {
@@ -303,7 +293,7 @@
           '<button class="mall-shop-v2__enter" id="mallShopEnter" type="button">Step through the doors ↓</button>' +
         "</div>" +
         '<figure class="mall-shop-v2__storefront">' +
-          '<img src="' + escapeAttribute(storefrontSrc) + '" alt="' + escapeAttribute(storefrontAlt) + '">' +
+          '<div class="mall-storefront-held" data-asset-status="held" role="img" aria-label="' + escapeAttribute(storefrontAlt) + '">Visual held</div>' +
           '<figcaption>Storefront · SUNNYVAiLE Mall</figcaption>' +
         "</figure>" +
       "</section>" +
@@ -317,7 +307,7 @@
         "</div>" +
         '<div class="mall-shop-v2__floor-scroller">' +
           '<figure class="mall-shop-v2__floor" id="mallShopRoom">' +
-            '<img src="' + config.interior + '" alt="Candidate graphic-novel interior of ' + escapeAttribute(titleText) + '">' +
+            '<span class="mall-shop-v2__room-held" aria-hidden="true">Shop room visual held</span>' +
             config.zones.map(function (zone, index) {
               return '<button class="mall-shop-v2__hotspot mall-shop-v2__hotspot--' + index + '" type="button" data-zone="' + index + '" aria-pressed="false">' +
                 escapeHTML(zone.label) + "</button>";
@@ -345,8 +335,9 @@
       '<section class="mall-shop-v2__ledger">' +
         '<div class="mall-shop-v2__ledger-wrap">' +
           '<div class="mall-shop-v2__ledger-head">' +
-            '<p class="mall-shop-v2__ledger-kicker">The complete shop register</p>' +
-            "<h2>Search every shelf.</h2>" +
+            '<p class="mall-shop-v2__ledger-kicker">Current local sampler</p>' +
+            "<h2>Search this page's shelves.</h2>" +
+            '<p class="mall-shop-v2__ledger-boundary">Local search works across the references shown here. This is not yet a complete, source-reviewed or rights-cleared catalogue.</p>' +
             '<div class="mall-shop-v2__ledger-tools">' +
               '<label><span class="visually-hidden">Search this shop</span><input class="mall-shop-v2__search" id="mallShopSearch" type="search" placeholder="Type a title, product, person or memory…" autocomplete="off"></label>' +
               '<span class="mall-shop-v2__count" id="mallShopCount"></span>' +
@@ -356,7 +347,7 @@
         "</div>" +
       "</section>" +
       '<section class="mall-shop-v2__exit">' +
-        '<p class="mall-shop-v2__exit-copy">This shop keeps its whole source list, but the room now gives that list a job. Nothing here is pretending to be for sale.</p>' +
+        '<p class="mall-shop-v2__exit-copy">This shop uses its current inline sampler to power the room. The complete catalogue is still held, and nothing here is pretending to be for sale.</p>' +
         '<a href="/mall.html">Back through the Mall atrium →</a>' +
       "</section>";
   }

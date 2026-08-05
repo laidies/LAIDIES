@@ -1,5 +1,5 @@
 // SUNNYVAiLE navigation authentication state.
-// Signed out: "Sign in" → the Post Office sign-in desk.
+// Signed out: "Sign in" → the private Resident Card continuation desk.
 // Signed in: initials/avatar + "My Closet" → the resident's Closet.
 // Supports both the shared inner-page header and the Homepage's own header.
 (function () {
@@ -7,7 +7,7 @@
 
   var PROJECT_REF = 'swqnkxzebxdbgyrzpdne';
   var KEY = 'sb-' + PROJECT_REF + '-auth-token';
-  var SIGN_IN_HREF = '/post-office.html#signin';
+  var SIGN_IN_HREF = '/resident-card.html#rcAccountTitle';
   var CLOSET_HREF = '/laidies-card.html';
 
   function getSession() {

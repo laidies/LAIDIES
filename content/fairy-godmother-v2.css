@@ -316,6 +316,15 @@ body *::after {
   object-position: 40% center;
 }
 
+.fg-exterior-held,
+.fg-room-image-held {
+  background: var(--fg-purple-deep, #38177a);
+}
+
+.fg-room-image-held {
+  min-height: clamp(180px, 28vw, 420px);
+}
+
 .fg-room-sign {
   position: absolute;
   top: clamp(34px, 5vw, 70px);

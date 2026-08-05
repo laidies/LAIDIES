@@ -146,7 +146,7 @@
       '<div class="sv-yah-panel">' +
       '  <button type="button" class="sv-yah-close" aria-label="Close map">×</button>' +
       '  <div class="sv-yah-panel-title"><strong>★ SUNNYV<span class="ai">Ai</span>LE Town Map</strong><span>Tap any stop to head there</span></div>' +
-      '  <div class="sv-yah-map"><img src="' + escapeHtml(window.SV_MAP_ASSET || '/assets/sunnyvaile-town-map.png') + '" alt="Map of SUNNYVAiLE">' + pins + '</div>' +
+      '  <div class="sv-yah-map"><img src="' + escapeHtml(window.SV_MAP_ASSET || '/assets/final_map/sunnyvaile-town-map-final-v5.webp') + '" alt="Map of SUNNYVAiLE">' + pins + '</div>' +
       '</div>';
     document.body.appendChild(modal);
 

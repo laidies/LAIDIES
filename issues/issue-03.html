@@ -7,7 +7,7 @@
 <meta name="description" content="The one where she gets a Regina George–confident answer, catches the one detail that doesn't fit, and checks the timeline before it borrows her name. AI hallucination + verification.">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
 <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <style>
@@ -39,7 +39,7 @@
 
   /* Cinematic pixel-art hero — the tape's title card, in the world */
   .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
-    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-03/pixel/ep03-scene-01-cold-open.jpg') center 30%/cover}
+    background:linear-gradient(180deg,rgba(14,9,24,.38) 0%,rgba(11,7,18,.70) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-03/comic/ep03-title-card-comic-v2.png') center/cover}
   .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
   .tv-hero>*{position:relative;z-index:2}
   .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
@@ -86,6 +86,9 @@
   .film .frames{position:absolute;inset:0;z-index:1}
   .film .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .film .frames img~img{display:none}   /* only the first (poster) frame shows until video exists */
+  .film .frames--held{display:grid;place-content:center;padding:28px;text-align:center;color:var(--cream);background:radial-gradient(circle at 18% 20%,rgba(244,166,54,.35) 0 8%,transparent 8.5%),linear-gradient(145deg,#281333,#653260 55%,#bc6f92)}
+  .film-held-title{font-family:'VT323',monospace;font-size:clamp(2rem,7vw,4rem);letter-spacing:.12em;line-height:1;text-transform:uppercase;text-shadow:3px 3px 0 rgba(12,6,14,.25)}
+  .film-held-sub{margin-top:12px;font-family:'VT323',monospace;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:#f7dfae}
   .film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.12) 3px 6px);mix-blend-mode:multiply}
   .film-bug{position:absolute;top:13px;right:15px;z-index:3;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.8)}
   .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:32px 20px 14px;color:var(--cream);font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.04em;background:linear-gradient(0deg,rgba(12,6,14,.9),transparent)}
@@ -181,6 +184,7 @@
   .cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .cast-card{text-align:center;text-decoration:none;color:var(--cream)}
   .cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid rgba(201,162,39,.4);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+  .cast-portrait-held{width:100%;aspect-ratio:2/3;display:grid;place-items:center;padding:16px;text-align:center;border-radius:10px;color:#fff;font:800 .82rem/1.25 'Jost',sans-serif;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(145deg,#5f4685 0%,#775596 54%,#c96652 120%);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
   .cast-card b{display:block;margin-top:9px;font-size:.92rem}
   .cast-card span{font-family:'VT323',monospace;font-size:.95rem;color:var(--sky);letter-spacing:.03em}
 
@@ -318,7 +322,7 @@
 
   <div class="mark"><div class="k">Saying it twice isn't checking</div><h2>Chutney Can Say It Thrice</h2></div>
   <figure class="film" aria-label="Scene — Chutney's three claims">
-    <div class="frames" data-frames="ep03-scene-05-bethany.png"><img src="../assets/episodes/ep-03/pixel/ep03-scene-05-bethany.jpg" alt="" loading="lazy"></div>
+    <div class="frames frames--held" data-issue03-held="bethany" aria-hidden="true"><span class="film-held-title">Same claim. New polo.</span><span class="film-held-sub">Scene six · verification needs a receipt</span></div>
     <span class="film-bug">S1·E03 · SC 06</span>
     <figcaption class="film-cap">The same wrong answer, twice, in two popped-collar polos.</figcaption>
   </figure>
@@ -334,7 +338,7 @@
 
   <div class="mark" id="verification-method"><div class="k">The method</div><h2>David, Meet Elle.</h2></div>
   <figure class="film" aria-label="Scene — the method, show your work">
-    <div class="frames" data-frames="ep03-scene-06-show-your-work.png"><img src="../assets/episodes/ep-03/pixel/ep03-scene-06-show-your-work.jpg" alt="" loading="lazy"></div>
+    <div class="frames frames--held" data-issue03-held="show-your-work" aria-hidden="true"><span class="film-held-title">Show your work.</span><span class="film-held-sub">Scene seven · David meets Elle</span></div>
     <span class="film-bug">S1·E03 · SC 07</span>
     <figcaption class="film-cap">Last week David taught you to say what you want. This week Elle teaches you what to check.</figcaption>
   </figure>
@@ -347,7 +351,7 @@
 
   <div class="mark" id="receipts-pass"><div class="k">The handoff</div><h2>The Receipts Pass</h2></div>
   <figure class="film" aria-label="Scene — the receipts pass">
-    <div class="frames" data-frames="ep03-scene-03-newsstand.png"><img src="../assets/episodes/ep-03/comic/ep03-scene-03-newsstand-comic.png" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep03-scene-03-newsstand.png"><img src="../assets/episodes/ep-03/comic/ep03-title-card-comic-v2.png" alt="Episode 03 · The Burn Book Problem" loading="lazy"></div>
     <span class="film-bug">S1·E03 · SC 08</span>
     <figcaption class="film-cap">Three checks before it borrows your name.</figcaption>
   </figure>
@@ -376,7 +380,7 @@
     <p class="eyebrow">So remember, ladies…</p>
     <h2>Do not be Chutney on the stand. Be Elle with the timeline.</h2>
   </section>
-  <p class="rooms">Got a sharper "remember, ladies" than that one? Post it in the rooms — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit.</p>
+  <p class="rooms">Got a sharper "remember, ladies" than that one? Take it to one of the <a href="/sorority-house.html"><strong>discussion rooms at Delta LAi Nu</strong></a>. You can explore without a Resident Card; posting uses the room provider's own sign-in. If we feature your line later, the credit stays yours.</p>
 
   <!-- LISTEN -->
   <div class="listen-wrap"><a class="listen" href="/watch.html?ep=03">▶ Listen to this episode</a></div>
@@ -420,9 +424,9 @@
   <span class="eyebrow">The cast of this episode</span>
   <h2>The Patron SA<span class="ai">i</span>NTS in "The Burn Book Problem"</h2>
   <div class="cast-grid">
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.jpg" alt="Elle Woods" onerror="this.remove()" loading="lazy"><b>Elle Woods</b><span>Patron of the file · verification</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.jpg" alt="Cher Horowitz" onerror="this.remove()" loading="lazy"><b>Cher Horowitz</b><span>Draft vs. claim</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/regina-george-cautionary-red-y2k-stained-glass.jpg" alt="Regina George" onerror="this.remove()" loading="lazy"><b>Regina George</b><span>Cautionary red · confidence ≠ evidence</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Elle Woods</b><span>Patron of the file · verification</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Cher Horowitz</b><span>Draft vs. claim</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Regina George</b><span>Cautionary red · confidence ≠ evidence</span></a>
   </div>
 </div></section>
 
@@ -434,8 +438,8 @@
     <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Availability checked at the café</small></a>
     <a class="rail-btn rb4" href="/radio.html">The Song<small>This week's track</small></a>
     <a class="rail-btn rb6" href="/bronze-aige.html#answers">Cocktail<small>Why does it make things up?</small></a>
-    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
-    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
+    <a class="rail-btn rb3" href="/sorority-house.html">Rooms<small>See the discussion rooms at Delta LAi Nu</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Check what you learned</small></a>
   </div>
 </div>
 

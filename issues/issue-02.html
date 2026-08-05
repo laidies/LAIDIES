@@ -7,7 +7,7 @@
 <meta name="description" content="The one where she types something vague, gets back the world's most useless paragraph, channels David Rose about specificity, and watches AI produce something she'd actually send to a VP. Prompting + context.">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
 <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <style>
@@ -39,7 +39,7 @@
 
   /* Cinematic pixel-art hero — the tape's title card, in the world */
   .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
-    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/episodes/ep-02/pixel/ep02-scene-01-staring-contest.jpg') center 30%/cover}
+    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%)}
   .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
   .tv-hero>*{position:relative;z-index:2}
   .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
@@ -150,6 +150,7 @@
   .cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .cast-card{text-align:center;text-decoration:none;color:var(--cream)}
   .cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid rgba(201,162,39,.4);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+  .cast-portrait-held{width:100%;aspect-ratio:2/3;display:grid;place-items:center;padding:16px;text-align:center;border-radius:10px;color:#fff;font:800 .82rem/1.25 'Jost',sans-serif;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(145deg,#5f4685 0%,#775596 54%,#c96652 120%);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
   .cast-card b{display:block;margin-top:9px;font-size:.92rem}
   .cast-card span{font-family:'VT323',monospace;font-size:.95rem;color:var(--sky);letter-spacing:.03em}
 
@@ -230,11 +231,6 @@
   <blockquote class="pull"><p>Why does AI read my mind some days, and completely <em>ignore</em> me on others?</p></blockquote>
 
   <div class="mark"><div class="k">To town</div><h2>The variable wasn't the tool</h2><div class="sub">Corner table at the Blend &amp; Snap, both drafts side by side.</div></div>
-  <figure class="film" aria-label="Scene 02 — two outputs, side by side">
-    <div class="frames" data-frames="ep02-scene-02-side-by-side.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-02-side-by-side.jpg" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E02 · SC 02</span>
-    <figcaption class="film-cap">Same tool, two results. The thing that changed was the ask.</figcaption>
-  </figure>
   <p>So I did what I do with any problem I can't out-stubborn at my desk: I took it to town. Corner table at the Blend &amp; Snap, oat latte, KSVL on low. I pulled both drafts back up — the word-salad from that morning, the director update I'd barely touched — and set them side by side. It wasn't the tool that changed between the two. <strong>It was me: what I'd typed to get each one.</strong></p>
   <p>AI can't read your mind. What's in your head stays in your head until you type it out — and the tool works with your words, and nothing else.</p>
 
@@ -293,16 +289,11 @@
   <p><strong>And one line in that summary — <em>full-time teams only, contractors exempt until Q1</em> — is the whole reason you opened AI.</strong> You could have written the summary yourself. What you couldn't do in the twenty minutes before the meeting was read twelve pages of compliance language and catch the contractor carve-out buried inside it. That's not a writing task; it's a <em>reading</em> task — and it's the part AI just did for you, in an output tailored to your instructions.</p>
 
   <div class="mark"><div class="k">Don't change the station</div><h2>Iterate like you would with a new hire</h2></div>
-  <figure class="film" aria-label="Scene 08 — call into the radio">
-    <div class="frames" data-frames="ep02-scene-08-radio.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-08-radio.jpg" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E02 · SC 08</span>
-    <figcaption class="film-cap">Ask for the exact song. Don't keep flipping the dial.</figcaption>
-  </figure>
   <p>And if the first answer isn't quite right? You don't start from scratch — you tell it what's off, exactly like you would with a real new hire. <em>It's calling into the radio and asking for exactly what you want to hear (or finally shelling out twenty bucks at HMV for the CD) — not constantly changing the station, hoping it lands on one playing a track you like.</em></p>
 
   <div class="mark"><div class="k">The evidence</div><h2>Turns out "soft" was the hard part</h2><div class="sub">So I went looking at the LIBR<span class="ai">Ai</span>RY — the town's reference desk — and there it was.</div></div>
   <figure class="film" aria-label="Scene 09 — the LIBRAiRY">
-    <div class="frames" data-frames="ep02-scene-09-libraiy.png"><img src="../assets/episodes/ep-02/pixel/ep02-scene-09-libraiy.jpg" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep02-scene-09-libraiy.png"><img src="../assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt="The bright SUNNYVAiLE Library reference desk" loading="lazy"></div>
     <span class="film-bug">S1·E02 · SC 09</span>
     <figcaption class="film-cap">The skills filed under "soft" for a generation are the ones that now win.</figcaption>
   </figure>
@@ -334,7 +325,7 @@
     <p class="eyebrow">So remember, ladies…</p>
     <h2>AI can't read your mind — so tell it what you want. Be specific. Be bold. Be David Rose about it.</h2>
   </section>
-  <p class="rooms">Got a sharper "remember, ladies" than that one? Post it in the rooms — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit.</p>
+  <p class="rooms">Got a sharper "remember, ladies" than that one? Take it to one of the <a href="/sorority-house.html"><strong>discussion rooms at Delta LAi Nu</strong></a>. You can explore without a Resident Card; posting uses the room provider's own sign-in. If we feature your line later, the credit stays yours.</p>
 
   <!-- LISTEN -->
   <div class="listen-wrap"><a class="listen" href="/watch.html?ep=02">▶ Listen to this episode</a></div>
@@ -378,9 +369,9 @@
   <span class="eyebrow">The cast of this episode</span>
   <h2>The Patron SA<span class="ai">i</span>NTS in "Tell Me What You Want"</h2>
   <div class="cast-grid">
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/david-rose-y2k-stained-glass.jpg" alt="David Rose" onerror="this.remove()" loading="lazy"><b>David Rose</b><span>Patron of specificity · the prompt</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/miranda-priestly-y2k-stained-glass.jpg" alt="Miranda Priestly" onerror="this.remove()" loading="lazy"><b>Miranda Priestly</b><span>The cerulean speech · context</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/elle-woods-y2k-stained-glass.jpg" alt="Elle Woods" onerror="this.remove()" loading="lazy"><b>Elle Woods</b><span>The application video · a good prompt</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>David Rose</b><span>Patron of specificity · the prompt</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Miranda Priestly</b><span>The cerulean speech · context</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Elle Woods</b><span>The application video · a good prompt</span></a>
   </div>
 </div></section>
 
@@ -392,8 +383,8 @@
     <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Availability checked at the café</small></a>
     <a class="rail-btn rb4" href="/radio.html">The Song<small>This week's track</small></a>
     <a class="rail-btn rb6" href="/bronze-aige.html#answers">Cocktail<small>What's a prompt, really?</small></a>
-    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
-    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
+    <a class="rail-btn rb3" href="/sorority-house.html">Rooms<small>See the discussion rooms at Delta LAi Nu</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Check what you learned</small></a>
   </div>
 </div>
 

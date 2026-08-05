@@ -292,6 +292,51 @@ html:not([data-luminairy-claims="loaded"]) [data-lum-claim-block] {
   color: var(--lum-paper);
 }
 
+.lum-closet-door {
+  display: grid;
+  min-height: 112px;
+  padding: 20px 22px;
+  align-content: center;
+  gap: 7px;
+  color: var(--lum-paper);
+  background:
+    linear-gradient(110deg, rgba(85, 201, 232, 0.16), transparent 45%),
+    rgba(255, 250, 244, 0.05);
+  border: 2px solid rgba(255, 250, 244, 0.44);
+  text-decoration: none;
+}
+
+.lum-closet-door:hover,
+.lum-closet-door:focus-visible {
+  color: var(--lum-paper);
+  border-color: var(--lum-mint);
+  outline: 3px solid var(--lum-pink);
+  outline-offset: 3px;
+}
+
+.lum-closet-door__kicker {
+  color: var(--lum-mint);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lum-closet-door strong {
+  font-family: var(--lum-display);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.lum-closet-door small {
+  max-width: 62ch;
+  color: rgba(255, 250, 244, 0.76);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
 .lum-page > .sv-eyebrow {
   width: min(100% - 48px, 1320px);
   margin: clamp(54px, 7vw, 96px) auto 22px !important;
@@ -411,19 +456,30 @@ html:not([data-luminairy-claims="loaded"]) [data-lum-claim-block] {
 .lum-page #wing-saints {
   --wing-accent: var(--lum-pink);
   --gold: var(--lum-pink);
-  background-image: url("/assets/sunnyvaile-interiors/luminairy-saints-wing.png");
+  background-image: none;
 }
 
 .lum-page #wing-mavens {
   --wing-accent: var(--lum-cyan);
   --gold: var(--lum-cyan);
-  background-image: url("/assets/sunnyvaile-interiors/luminairy-maivens-wing.png");
+  background-image: none;
 }
 
 .lum-page #wing-builders {
   --wing-accent: var(--lum-orange);
   --gold: var(--lum-orange);
-  background-image: url("/assets/sunnyvaile-interiors/luminairy-trailblazers-wing.png");
+  background-image: none;
+}
+
+.lum-nave-held,
+.lum-page .wing-door__art-held {
+  width: 100%;
+  min-height: clamp(210px, 34vw, 520px);
+  background: var(--lum-purple, #6336c6);
+}
+
+.lum-page .wing-door__art-held {
+  min-height: 100%;
 }
 
 .lum-page .wing-panel > h2:first-child,

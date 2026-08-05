@@ -16,25 +16,22 @@
 (function () {
   'use strict';
 
-  // Site-wide favicon: the pink-heart LAiDIES tile. Runs on every page that
-  // loads this script, so sub-pages match the homepage. Skips pages that
-  // already declare their own PNG icon (e.g. index.html). /favicon.ico at the
-  // site root is the default fallback for anything this doesn't touch.
+  // Site-wide favicon: the admitted LAiDIES heart signet. Runs on every page
+  // that loads this script, so sub-pages match the homepage. Pages with an
+  // explicit icon keep it; otherwise use the exact ACTIVE brand asset.
   (function ensureFavicon() {
-    if (document.querySelector('link[rel="icon"][type="image/png"]')) return;
+    if (document.querySelector('link[rel="icon"]')) return;
     var add = function (rel, href, sizes) {
       var l = document.createElement('link');
       l.rel = rel; l.href = href;
       if (sizes) l.setAttribute('sizes', sizes);
       (document.head || document.documentElement).appendChild(l);
     };
-    add('icon', '/assets/brand/laidies-favicon-32.png', '32x32');
-    add('icon', '/assets/brand/laidies-favicon-512.png', '512x512');
-    add('apple-touch-icon', '/assets/brand/laidies-favicon-180.png');
+    add('icon', '/approved-assets/brand-logos/laidies-favicon-final.svg', 'any');
   })();
 
   var JOIN_HREF = '/maikeover.html';
-  var SIGNIN_HREF = '/post-office.html#signin';
+  var SIGNIN_HREF = '/resident-card.html#rcAccountTitle';
   var QUICK_LINKS = [
     { label: 'Latest Episode', href: '/chick-flicks.html' },
     { label: 'Look it up', href: '/library.html' },
@@ -303,9 +300,28 @@
     })();
   }
 
+  // Account-backed continuation is shared across town. Load the idempotent
+  // bootstrap from the shared header so ordinary pages collect and restore only
+  // the explicitly supported private continuation fields.
+  function mountContinuation() {
+    if (window.LAIDIESResidentContinuationBootstrapV1 ||
+        document.querySelector('script[data-laidies-continuation-bootstrap]')) {
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1';
+    script.async = true;
+    script.dataset.laidiesContinuationBootstrap = '1';
+    document.head.appendChild(script);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount);
+    document.addEventListener('DOMContentLoaded', function () {
+      mount();
+      mountContinuation();
+    });
   } else {
     mount();
+    mountContinuation();
   }
 })();

@@ -46,7 +46,7 @@
   main.className = "mall-shop-v2 mall-shop-v2--pieces-of-flair";
   main.innerHTML = buildShell();
 
-  var selectedImage = main.querySelector("#flairSelectedImage");
+  var selectedObject = main.querySelector("#flairSelectedObject");
   var selectedName = main.querySelector("#flairSelectedName");
   var carryButton = main.querySelector("#flairCarry");
   var carryStatus = main.querySelector("#flairCarryStatus");
@@ -103,7 +103,7 @@
           '<button class="mall-shop-v2__enter" id="flairEnter" type="button">Step through the doors ↓</button>' +
         "</div>" +
         '<figure class="mall-shop-v2__storefront">' +
-          '<img src="/assets/mall-storefronts/pieces-of-flair.jpg?v=20260709" alt="Pieces of Flair storefront in the SUNNYVAiLE Mall">' +
+          '<div class="mall-storefront-held" data-asset-status="held" role="img" aria-label="Pieces of Flair storefront artwork is being prepared">Visual held</div>' +
           '<figcaption>Storefront · SUNNYVAiLE Mall</figcaption>' +
         "</figure>" +
       "</section>" +
@@ -117,7 +117,7 @@
         "</div>" +
         '<div class="mall-shop-v2__floor-scroller">' +
           '<figure class="mall-shop-v2__floor" id="flairRoom">' +
-            '<img src="/assets/mall-interiors-comic/pieces-of-flair-interior-candidate-v1.webp" alt="Candidate graphic-novel interior of Pieces of Flair">' +
+            '<div class="mall-shop-v2__room-held" role="img" aria-label="Pieces of FLAiR room visual held">Pieces of FLAiR room visual held</div>' +
             ZONES.map(function (zone, index) {
               return '<button class="mall-shop-v2__hotspot mall-shop-v2__hotspot--' + index + '" type="button" data-flair-zone="' + index + '">' + zone.label + "</button>";
             }).join("") +
@@ -125,7 +125,7 @@
         "</div>" +
         '<p class="mall-shop-v2__slide-note">Slide the room sideways to visit every department →</p>' +
         '<div class="mall-flair-v2__bench" id="flairBench">' +
-          '<figure class="mall-flair-v2__object"><img id="flairSelectedImage" alt=""></figure>' +
+          '<figure class="mall-flair-v2__object"><div id="flairSelectedObject" class="mall-flair-v2__object-held" data-asset-status="held" role="img"></div></figure>' +
           '<div class="mall-flair-v2__selection" aria-live="polite">' +
             '<p class="mall-shop-v2__selection-kicker">On the styling counter</p>' +
             '<h3 id="flairSelectedName"></h3>' +
@@ -164,8 +164,8 @@
 
   function render() {
     var avatar = AVATARS[selected];
-    selectedImage.src = imagePath(avatar);
-    selectedImage.alt = avatar.name;
+    selectedObject.textContent = avatar.name;
+    selectedObject.setAttribute("aria-label", avatar.name + " visual held");
     selectedName.textContent = avatar.name;
     carryButton.textContent = worn === avatar.name ? "Remove from my card" : "Carry this on my card";
     carryButton.setAttribute("aria-pressed", String(worn === avatar.name));
@@ -188,15 +188,11 @@
       button.type = "button";
       button.setAttribute("data-avatar-index", entry.index);
       button.setAttribute("aria-current", String(entry.index === selected));
-      button.innerHTML = '<img src="' + imagePath(entry.avatar) + '" alt=""><span>' + entry.avatar.name + "</span>";
+      button.innerHTML = '<span class="mall-flair-v2__reel-art-held" aria-hidden="true">Visual held</span><span>' + entry.avatar.name + "</span>";
       li.appendChild(button);
       reel.appendChild(li);
     });
     main.querySelector("#flairCount").textContent = visible.length + " pieces on this fixture";
-  }
-
-  function imagePath(avatar) {
-    return "/assets/avatars/claires/claires-avatar-" + avatar.slug + ".png?v=20260701-1";
   }
 
   function readWorn() {

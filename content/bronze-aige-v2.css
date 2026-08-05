@@ -52,6 +52,32 @@ body:has(.bronze-room) .sv-yah-chip {
   filter: saturate(1.08) contrast(1.04) brightness(0.78);
 }
 
+.bronze-room__held-note {
+  position: absolute;
+  z-index: 2;
+  top: 29%;
+  left: 50%;
+  width: min(760px, 84%);
+  margin: 0;
+  padding: 14px 18px;
+  transform: translateX(-50%);
+  border-left: 8px solid var(--bz-pink);
+  background: rgba(8, 11, 34, 0.9);
+  color: #fffdf9;
+  text-align: center;
+  font: 700 clamp(13px, 1.6vw, 18px)/1.45 "Jost", sans-serif;
+}
+
+.bronze-stage-held {
+  margin: 0 0 24px;
+  padding: 24px;
+  border-left: 10px solid var(--bz-pink);
+  background: var(--bz-midnight);
+  color: #fffdf9;
+}
+.bronze-stage-held strong { display: block; color: var(--bz-cyan); font: 800 22px/1.2 "Jost", sans-serif; }
+.bronze-stage-held span { display: block; margin-top: 8px; font: 600 15px/1.5 "Jost", sans-serif; }
+
 .bronze-room::after {
   content: "";
   position: absolute;
@@ -180,25 +206,33 @@ body:has(.bronze-room) .sv-yah-chip {
   width: clamp(116px, 11vw, 164px);
 }
 
-.bronze-object--fortune img {
+.bronze-object--fortune .bronze-held-fortune {
   display: block;
   width: 100%;
   aspect-ratio: 1;
-  object-fit: contain;
+  padding: 10px;
+  border: 1px dashed currentColor;
+  border-radius: 8px;
+  background: rgba(23,17,41,.72);
+  color: #fff;
+  font: 800 10px/1.2 "Jost", sans-serif;
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
   filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.55)) saturate(1.2);
   transition: transform 180ms ease, filter 180ms ease;
 }
 
-.bronze-object--fortune > span {
+.bronze-object--fortune > span:last-child {
   position: absolute;
   left: 62%;
   bottom: 8%;
   white-space: nowrap;
 }
 
-.bronze-object--fortune:hover img,
-.bronze-object--fortune:focus-visible img,
-.bronze-object--fortune.is-open img {
+.bronze-object--fortune:hover .bronze-held-fortune,
+.bronze-object--fortune:focus-visible .bronze-held-fortune,
+.bronze-object--fortune.is-open .bronze-held-fortune {
   transform: rotate(-3deg) scale(1.07);
   filter: drop-shadow(0 12px 24px rgba(247, 79, 157, 0.68)) saturate(1.28) brightness(1.08);
 }
@@ -354,12 +388,26 @@ body:has(.bronze-room) .sv-yah-chip {
   text-align: center;
 }
 
-.bronze-fortune-interface__object img {
-  display: block;
+.bronze-fortune-held {
+  display: grid;
+  place-items: center;
   width: min(100%, 420px);
+  aspect-ratio: 4 / 3;
   margin: 0 auto;
-  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.46)) saturate(1.15);
+  padding: 28px;
+  border: 2px dashed #9ff3e8;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #171129, #503481 58%, #d64186);
+  color: #fff;
+  font: 800 clamp(13px, 2vw, 18px)/1.3 "Jost", sans-serif;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.46), inset 0 0 0 8px rgba(255,255,255,.08);
 }
+
+.bronze-fortune-held[data-fortune-state="choosing"] { background: linear-gradient(145deg, #171129, #6b42df 58%, #f6d96d); }
+.bronze-fortune-held[data-fortune-state="revealed"] { background: linear-gradient(145deg, #171129, #d64186 58%, #9ff3e8); }
 
 .bronze-fortune-interface__controls {
   display: grid;
@@ -828,7 +876,7 @@ body:has(.bronze-room) .sv-yah-chip {
     align-items: center;
   }
 
-  .bronze-object--fortune img {
+  .bronze-object--fortune .bronze-held-fortune {
     width: 58px;
     margin-left: 5px;
   }

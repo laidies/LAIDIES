@@ -101,7 +101,7 @@
   fortuneInterface.className = "bronze-fortune-interface";
   fortuneInterface.innerHTML =
     '<div class="bronze-fortune-interface__object">' +
-      '<img id="bronzeFortuneFrame" src="/assets/bws-fortune-teller/frame-1-closed.webp" alt="A folded paper fortune teller on the BRONZE AiGE bar">' +
+      '<div id="bronzeFortuneFrame" class="bronze-fortune-held" data-asset-status="held" data-fortune-state="ready">Paper fortune teller visual held · choose a lane, then deal</div>' +
     "</div>" +
     '<div class="bronze-fortune-interface__controls">' +
       '<label for="bronzeFortuneLane">What is the table drinking?</label>' +
@@ -344,12 +344,6 @@
   var deal = document.getElementById("bronzeFortuneDeal");
   var lane = document.getElementById("bronzeFortuneLane");
   var result = document.getElementById("bronzeFortuneResult");
-  var frameSequence = [
-    "/assets/bws-fortune-teller/frame-1-closed.webp",
-    "/assets/bws-fortune-teller/frame-2-open-vertical.webp",
-    "/assets/bws-fortune-teller/frame-3-open-horizontal.webp",
-    "/assets/bws-fortune-teller/frame-4-reveal.webp"
-  ];
 
   function revealDrink() {
     if (!catalogue) {
@@ -360,13 +354,8 @@
     deal.disabled = true;
     result.hidden = true;
     fortuneStatus.textContent = "The paper fortune teller is choosing…";
-    if (reduceMotion) {
-      frame.src = frameSequence[frameSequence.length - 1];
-    } else {
-      frameSequence.forEach(function (src, index) {
-        setTimeout(function () { frame.src = src; }, index * 170);
-      });
-    }
+    frame.dataset.fortuneState = "choosing";
+    frame.textContent = "Fortune teller is choosing…";
     setTimeout(function () {
       var selectedLane = lane.value;
       if (!["cocktail", "spiritFree"].includes(selectedLane)) {
@@ -392,6 +381,8 @@
       document.getElementById("bronzeFortuneOrder").textContent = drink.order;
       document.getElementById("bronzeFortuneNote").textContent = drink.note;
       result.hidden = false;
+      frame.dataset.fortuneState = "revealed";
+      frame.textContent = "Fortune dealt · see your suggestion";
       result.setAttribute("tabindex", "-1");
       deal.textContent = "Deal another";
       deal.disabled = false;
@@ -417,7 +408,7 @@
           : "This browser could not save it; the result remains on this page.");
       renderState();
       result.focus();
-    }, reduceMotion ? 0 : frameSequence.length * 170 + 80);
+    }, reduceMotion ? 0 : 760);
   }
 
   deal.addEventListener("click", revealDrink);

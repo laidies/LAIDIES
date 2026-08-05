@@ -15,7 +15,7 @@
     { src: '/content/music/dj-jaidy-impossible-to-underestimate-you.mp3', title: 'Impossible to Underestimate You' },
     { src: '/content/music/debs-tomorrow-problem.mp3', title: "Tomorrow\'s Problem" },
     { src: '/content/music/dj-jaidy-week-04-it-was-women-all-along.mp3', title: 'It Was Women All Along' },
-    { src: '/content/music/mme-clai-o-call-me-now.mp3', title: 'Mme CLAi-O (Call me now!)' }
+    { src: '/content/music/game-mme-claio.mp3', title: 'Mme CLAi-O (Call me now!)' }
   ];
 
   const STORAGE_KEY = 'laidies-mini-player';

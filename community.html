@@ -18,9 +18,8 @@
   <meta name="twitter:description" content="AI fluency for women with full calendars, high standards, and no patience for beige tech explanations." />
   <meta name="twitter:image" content="https://laidies.ai/assets/brand/social/laidies-logo-square-social-pearl-1080-v2.png" />
   <meta name="theme-color" content="#4b2148" />
-  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -491,6 +490,26 @@
       /* subtle shadow to lift from bg */
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
     }
+    .thumb-card .thumb-marker,
+    .overlay-marker {
+      display: grid;
+      place-items: center;
+      border: 3px dashed rgba(17,24,59,.72);
+      border-radius: 50%;
+      color: var(--plum);
+      background: rgba(255,255,255,.82);
+      font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      letter-spacing: .06em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+    .thumb-card .thumb-marker {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      z-index: 2;
+    }
 
     /* Info section below */
     .thumb-card .thumb-info {
@@ -688,6 +707,12 @@
       position: relative;
       z-index: 2;
     }
+    .overlay-marker {
+      width: 180px;
+      height: 180px;
+      position: relative;
+      z-index: 2;
+    }
 
     .overlay-body {
       padding: 20px 22px 24px;
@@ -766,7 +791,7 @@
   <link rel="stylesheet" href="content/site/laidies-bg.css?v=laidies-bg-1" />
   <link rel="stylesheet" href="/content/community-index-v2.css?v=20260724-1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
@@ -786,7 +811,7 @@
 
   <main class="community-index-main">
     <div class="community-arrival">
-      <img src="/assets/rerolls-20260714/willow-and-sorority-continuity/building-interiors/delta-lai-nu-sorority-house-interior.png" alt="The SUNNYVAiLE sorority house common room, with a staircase, lounge, bulletin board, and doors to the community rooms.">
+      <p class="community-arrival-held" role="note"><strong>Delta LAi Nu · Community Rooms</strong><span>The common-room artwork is being rebuilt. Every discussion destination remains listed below.</span></p>
     </div>
 
     <section class="community-ritual-entry" aria-labelledby="communityEntryTitle">
@@ -820,7 +845,7 @@
         <!-- Card 1: Ali — LAYERED: laser bg + photo on top -->
         <div class="thumb-card" data-type="member" data-tags="member help progress connect founder" data-card="ali">
           <div class="thumb-bg card-bg-laser">
-            <img class="thumb-photo" src="assets/people/dream-phone-boss-ali.png" alt="Ali" />
+            <span class="thumb-marker" role="img" aria-label="Ali visual marker only; profile image held">A</span>
           </div>
           <div class="thumb-info">
             <h3>Ali</h3>
@@ -830,7 +855,7 @@
         <!-- Card 2: Eugina — LAYERED: holo bg -->
         <div class="thumb-card" data-type="member" data-tags="member founder" data-card="eugina">
           <div class="thumb-bg card-bg-holo">
-            <img class="thumb-photo" src="assets/people/eugina-lim.jpg" alt="Eugina" />
+            <span class="thumb-marker" role="img" aria-label="Eugina visual marker only; profile image held">E</span>
           </div>
           <div class="thumb-info">
             <h3>Eugina</h3>
@@ -840,7 +865,7 @@
         <!-- Card 3: Sara — LAYERED: lightning bg -->
         <div class="thumb-card" data-type="member" data-tags="member founder" data-card="sara">
           <div class="thumb-bg card-bg-lightning">
-            <img class="thumb-photo" src="assets/people/sara-baxter.png" alt="Sara" />
+            <span class="thumb-marker" role="img" aria-label="Sara visual marker only; profile image held">S</span>
           </div>
           <div class="thumb-info">
             <h3>Sara</h3>
@@ -850,7 +875,7 @@
         <!-- Card 4: Josh — LAYERED: arcade bg -->
         <div class="thumb-card" data-type="member" data-tags="member connect" data-card="josh">
           <div class="thumb-bg card-bg-arcade">
-            <img class="thumb-photo" src="assets/people/josh-hudson.png" alt="Josh" />
+            <span class="thumb-marker" role="img" aria-label="Josh visual marker only; profile image held">J</span>
           </div>
           <div class="thumb-info">
             <h3>Josh</h3>
@@ -860,7 +885,7 @@
         <!-- Card 5: FAiRY Godmother (stock) — exact accepted character source -->
         <div class="thumb-card" data-type="stock" data-tags="stock help" data-card="laidy">
           <div class="thumb-bg card-bg-doodle">
-            <img class="thumb-photo" src="assets/video/sunnyvaile-credits-v1-plates/opening-05-fairy-godmother-rerender-lit-v2.png" alt="The FAiRY Godmother in her Willow Lane parlour" />
+            <span class="thumb-marker" role="img" aria-label="FAiRY Godmother visual held">FG</span>
           </div>
           <div class="thumb-info">
             <h3><span class="brand-word-inline" aria-label="FAiRY Godmother"><span aria-hidden="true">F<span data-brand-ai>Ai</span>RY Godmother</span></span></h3>
@@ -870,7 +895,7 @@
         <!-- Card 6: Mme CLAi-O (stock) — sunset bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock help connect" data-card="claio">
           <div class="thumb-bg card-bg-sunset">
-            <img class="thumb-photo" src="assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708" alt="Mme CLAi-O" />
+            <span class="thumb-marker" role="img" aria-label="Mme CLAi-O visual marker only; profile image held">MC</span>
           </div>
           <div class="thumb-info">
             <h3>Mme <span class="brand-word-inline" aria-label="CLAi-O"><span aria-hidden="true">CL<span data-brand-ai>Ai</span>-O</span></span></h3>
@@ -880,7 +905,7 @@
         <!-- Card 7: Deb (stock) — confetti bg -->
         <div class="thumb-card" data-type="stock" data-tags="stock progress" data-card="deb">
           <div class="thumb-bg card-bg-confetti">
-            <img class="thumb-photo" src="assets/deb-80s-portrait-stare-v1.png" alt="Deb" />
+            <span class="thumb-marker" role="img" aria-label="Deb visual held">D</span>
           </div>
           <div class="thumb-info">
             <h3>Deb</h3>
@@ -972,7 +997,7 @@
   // === CARD DATA ===
   const cardData = {
     ali: {
-      photo: 'assets/people/dream-phone-boss-ali.png',
+      marker: 'A',
       bgClass: 'card-bg-laser',
       name: 'Ali',
       era: 'Founder Era',
@@ -981,7 +1006,7 @@
       tags: ['Indirect Tax', 'Women-in-Tax', 'TEI', 'ChatGPT', 'Claude Code', 'Codex', 'Open to connect']
     },
     eugina: {
-      photo: 'assets/people/eugina-lim.jpg',
+      marker: 'E',
       bgClass: 'card-bg-holo',
       name: 'Eugina',
       era: 'Founding Spark Era',
@@ -990,7 +1015,7 @@
       tags: ['OG LAiDY', 'Echo Architect', 'Original Three', 'WIT']
     },
     sara: {
-      photo: 'assets/people/sara-baxter.png',
+      marker: 'S',
       bgClass: 'card-bg-lightning',
       name: 'Sara',
       era: 'Founding Spark Era',
@@ -999,7 +1024,7 @@
       tags: ['OG LAiDY', 'Day One Energy', 'Original Three', 'WIT']
     },
     josh: {
-      photo: 'assets/people/josh-hudson.png',
+      marker: 'J',
       bgClass: 'card-bg-arcade',
       name: 'Josh',
       era: 'The Crew · WIT Champion',
@@ -1008,7 +1033,7 @@
       tags: ['First Five Tracks', 'WIT Champion', 'Hackathon Crew', 'GenAI Tax']
     },
     laidy: {
-      photo: 'assets/video/sunnyvaile-credits-v1-plates/opening-05-fairy-godmother-rerender-lit-v2.png',
+      marker: 'FG',
       bgClass: 'card-bg-doodle',
       name: 'FAiRY Godmother',
       era: 'Willow Lane',
@@ -1017,7 +1042,7 @@
       tags: ['FAiRY Godmother', 'Prompt transformation', 'Work drafting', 'Here to help']
     },
     claio: {
-      photo: 'assets/town-characters/scenes/mme-claio-scene.jpg?v=20260708',
+      marker: 'MC',
       bgClass: 'card-bg-sunset',
       name: 'Mme CLAi-O',
       era: 'Psychic Hotline Era',
@@ -1026,12 +1051,12 @@
       tags: ['Mme CLAi-O', 'Shopkeeper', 'Here to help']
     },
     deb: {
-      photo: 'assets/deb-80s-portrait-stare-v1.png',
+      marker: 'D',
       bgClass: 'card-bg-confetti',
       name: 'Deb',
       era: 'Early Retirement Era',
       desc: 'A current SUNNYVAiLE town-character record.',
-      meta: '<strong>Current role:</strong> this directory preserves the existing Deb portrait while exact character biography and role copy await canon review.',
+      meta: '<strong>Current role:</strong> the profile visual is held while exact character biography and role copy await canon review.',
       tags: ['Deb', 'Town character', 'Canon review']
     }
   };
@@ -1073,7 +1098,9 @@
     const photoSrc = data.photo;
     
     overlayPhotoArea.className = 'overlay-photo-area ' + bgClass;
-    if (photoSrc) {
+    if (data.marker) {
+      overlayPhotoArea.innerHTML = `<span class="overlay-marker" role="img" aria-label="${data.name} visual marker only; profile image held">${data.marker}</span>`;
+    } else if (photoSrc) {
       overlayPhotoArea.innerHTML = `<img src="${photoSrc}" alt="${data.name}" />`;
     } else {
       overlayPhotoArea.innerHTML = '';

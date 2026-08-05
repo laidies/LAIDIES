@@ -45,6 +45,12 @@
   filter: saturate(1.08) contrast(1.03);
 }
 
+.bookfair-v2 .bf-room--held { display: grid; background: var(--bf-ink); }
+.bookfair-v2 .bf-room-held { align-self: start; margin: 0; padding: 28px; color: white; text-align: center; border-bottom: 8px solid var(--bf-cyan); }
+.bookfair-v2 .bf-room-held strong { display: block; color: var(--bf-pink); font: 800 clamp(24px, 4vw, 44px)/1.1 "Jost", sans-serif; }
+.bookfair-v2 .bf-room-held span { display: block; margin-top: 10px; font: 600 16px/1.5 "Jost", sans-serif; }
+.bookfair-v2 .bf-room--held .bf-room-copy { background: none; }
+
 .bookfair-v2 .bf-room-copy {
   position: absolute;
   inset: 0;

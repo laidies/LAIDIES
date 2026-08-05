@@ -4574,7 +4574,8 @@ function renderCardPackIssueOptions() {
 
 function createEpisodeTradingCard(card) {
   const article = document.createElement("article");
-  article.className = `episode-trading-card${card.portrait ? " has-portrait-art" : ""}`;
+  const heldVisual = card.visualState === "HELD";
+  article.className = `episode-trading-card${heldVisual ? " has-held-visual" : card.portrait ? " has-portrait-art" : ""}`;
   article.dataset.packCard = card.id;
   article.dataset.packIssue = card.issue;
   article.dataset.packTitle = card.title;
@@ -4592,16 +4593,24 @@ function createEpisodeTradingCard(card) {
 
   const front = document.createElement("div");
   front.className = "episode-card-face episode-card-front";
-  const image = document.createElement("img");
-  image.src = card.image;
-  image.alt = card.alt || `${card.title} trading card`;
+  if (heldVisual) {
+    const held = document.createElement("p");
+    held.className = "card-visual-held";
+    held.textContent = "Card visual held";
+    front.appendChild(held);
+  } else if (card.image) {
+    const image = document.createElement("img");
+    image.src = card.image;
+    image.alt = card.alt || `${card.title} trading card`;
+    front.appendChild(image);
+  }
   const frontCopy = document.createElement("div");
   const issue = document.createElement("span");
   issue.textContent = card.issueLabel || card.issue;
   const title = document.createElement("h3");
   title.textContent = card.title;
   frontCopy.append(issue, title);
-  front.append(image, frontCopy);
+  front.append(frontCopy);
 
   const back = document.createElement("div");
   back.className = "episode-card-face episode-card-back";
@@ -4635,9 +4644,21 @@ function createIssueCard(episode, isFeatured) {
   article.className = `issue-card${isFeatured ? " featured" : ""}`;
   article.dataset.generatedIssueCard = String(episode.number);
 
-  const image = document.createElement("img");
-  image.src = episode.heroImage;
-  image.alt = "";
+  const heldHero = episode.heroVisualState === "HELD" && episode.heroImage === null;
+  let visual;
+  if (heldHero) {
+    visual = document.createElement("div");
+    visual.className = "issue-card__hero-held";
+    const heldLabel = document.createElement("span");
+    heldLabel.textContent = "Episode artwork held. ";
+    const heldDetail = document.createElement("strong");
+    heldDetail.textContent = "The reading edition is available.";
+    visual.append(heldLabel, heldDetail);
+  } else {
+    visual = document.createElement("img");
+    visual.src = episode.heroImage;
+    visual.alt = "";
+  }
 
   const copy = document.createElement("div");
   const meta = document.createElement("p");
@@ -4656,7 +4677,7 @@ function createIssueCard(episode, isFeatured) {
   link.textContent = `Read episode ${episode.number}`;
 
   copy.append(meta, title, description, link);
-  article.append(image, copy);
+  article.append(visual, copy);
   return article;
 }
 
@@ -4851,19 +4872,13 @@ function renderStickerDrop(reward, options = {}) {
   const stickerAsset = getQuizStickerAsset(reward);
   quizStickerCard.replaceChildren();
   if (earned) {
-    const sheet = document.createElement("img");
-    sheet.className = "quiz-sticker-sheet";
-    sheet.src = resolveSiteUrl("assets/quiz-sticker-sheet.png");
-    sheet.alt = "LAiDIES glossy sticker sheet reward preview";
-    sheet.loading = "lazy";
-    sheet.decoding = "async";
     const badge = document.createElement("span");
     badge.className = "quiz-sticker-pending";
-    badge.textContent = "Glossy sticker drop";
+    badge.textContent = "Sticker artwork held";
     const name = document.createElement("span");
     name.className = "quiz-sticker-name";
     name.textContent = stickerAsset.label;
-    quizStickerCard.append(sheet, badge, name);
+    quizStickerCard.append(badge, name);
   } else {
     const pending = document.createElement("span");
     pending.className = "quiz-sticker-pending";
@@ -6367,12 +6382,9 @@ function renderButterflyClips(container, score) {
   if (!container) return;
   container.replaceChildren();
   for (let index = 0; index < score; index += 1) {
-    const clip = document.createElement("img");
+    const clip = document.createElement("span");
     clip.className = "butterfly-clip-token";
-    clip.src = "assets/butterfly-clip-rating-token.png";
-    clip.alt = "";
-    clip.loading = "lazy";
-    clip.decoding = "async";
+    clip.setAttribute("aria-hidden", "true");
     container.append(clip);
   }
 }

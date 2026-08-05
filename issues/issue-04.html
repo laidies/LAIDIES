@@ -7,7 +7,7 @@
 <meta name="description" content="The one where she goes looking for where AI even came from — and finds out it was women all along.">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
 <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <style>
@@ -18,6 +18,7 @@
     --measure:720px; --wide:840px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  html,body{max-width:100%;overflow-x:hidden}
   body{font-family:'Jost',system-ui,sans-serif;color:#f2eaf3;background:#160f1d;line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased}
   body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.15) 2px 3px);mix-blend-mode:multiply;opacity:.45}
   .ai{color:inherit;text-transform:none}
@@ -86,6 +87,8 @@
   .film .frames{position:absolute;inset:0;z-index:1}
   .film .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .film .frames img~img{display:none}   /* only the first (poster) frame shows until video exists */
+  .film .frames--held{display:grid;place-items:center;padding:clamp(28px,6vw,72px);text-align:center;background:linear-gradient(145deg,#251a3d 0%,#5f4685 48%,#c96652 115%)}
+  .film .frames--held span{max-width:720px;color:#fff;font:800 clamp(1.25rem,3.5vw,2.65rem)/1.08 'Jost',sans-serif;letter-spacing:-.025em;text-shadow:0 3px 20px rgba(0,0,0,.35)}
   .film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.12) 3px 6px);mix-blend-mode:multiply}
   .film-bug{position:absolute;top:13px;right:15px;z-index:3;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.8)}
   .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:32px 20px 14px;color:var(--cream);font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.04em;background:linear-gradient(0deg,rgba(12,6,14,.9),transparent)}
@@ -93,6 +96,7 @@
   /* Maven identity card (small credit beneath the scene film) */
   .idcard{max-width:var(--measure);margin:16px auto 0;display:flex;align-items:center;gap:16px}
   .idcard>img{width:66px;height:99px;object-fit:cover;border-radius:8px;border:1px solid rgba(201,162,39,.5);flex:none;box-shadow:0 12px 26px -14px rgba(58,24,56,.6)}
+  .idcard .idcard-held{width:66px;height:99px;display:grid;place-items:center;border-radius:8px;border:1px dashed rgba(201,162,39,.8);background:linear-gradient(145deg,#302047,#76598c);color:#f7e7a8;font:800 2rem/1 'Playfair Display',serif;flex:none;box-shadow:0 12px 26px -14px rgba(58,24,56,.6)}
   .idmeta{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
   .idmeta b{font-weight:800;font-size:1.18rem;color:#fff;letter-spacing:-.01em;line-height:1.05}
   .idmeta .idrole{font-family:'VT323',monospace;font-size:1.02rem;color:#c3b2d8;letter-spacing:.03em}
@@ -125,6 +129,7 @@
   .trio{max-width:var(--wide);margin:26px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .trio figure{margin:0}
   .trio img{width:100%;border-radius:10px;border:1px solid rgba(201,162,39,.45);box-shadow:0 16px 34px -18px rgba(58,24,56,.6)}
+  .trio .cast-portrait-held{min-height:180px}
   .trio figcaption{margin-top:9px;text-align:center;font-family:'VT323',monospace;font-size:.98rem;color:#c3b2d8}
 
   /* Cocktail */
@@ -182,6 +187,7 @@
   .cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .cast-card{text-align:center;text-decoration:none;color:var(--cream)}
   .cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid rgba(201,162,39,.4);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+  .cast-portrait-held{width:100%;aspect-ratio:2/3;display:grid;place-items:center;padding:16px;text-align:center;border-radius:10px;color:#fff;font:800 .82rem/1.25 'Jost',sans-serif;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(145deg,#5f4685 0%,#775596 54%,#c96652 120%);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
   .cast-card b{display:block;margin-top:9px;font-size:.92rem}
   .cast-card span{font-family:'VT323',monospace;font-size:.95rem;color:var(--sky);letter-spacing:.03em}
 
@@ -193,7 +199,7 @@
   .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
   .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
 
-  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .trio{grid-template-columns:1fr} .cast-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .trio{grid-template-columns:1fr} .cast-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
 </style>
   <link rel="stylesheet" href="/content/issue-feature-v2.css?v=20260724-1">
   <script defer src="/content/issue-feature-v2.js?v=20260724-1"></script>
@@ -252,7 +258,7 @@
   <div class="mark"><div class="k">This week, a flashback</div><h2>The quiet wing at the back of the LUMIN<span class="ai">Ai</span>RY</h2><div class="sub">Everyone knows the front room — the patron saints, the Chers and the Elles. Almost nobody walks to the back.</div></div>
 
   <figure class="film" aria-label="Scene 02 — into the LUMiNAiRY">
-    <div class="frames" data-frames="ep04-scene-02-luminairy-v2.png|ep04-scene-02-luminairy-v2-b-mid.png|ep04-scene-02-luminairy-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-open-17-maivens-hall-comic-v3-canonical-cathedral-interior-1920.png" alt="" loading="lazy"></div>
+    <div class="frames frames--held" data-portrait-art="held"><span>The quiet wing · history without invented portraits</span></div>
     <span class="film-bug">S1·E04 · SC 02</span>
     <figcaption class="film-cap">Up the hill, into the quiet wing behind the saints.</figcaption>
   </figure>
@@ -263,12 +269,12 @@
   <div class="scene" id="algorithm-story">
     <div class="mark"><div class="k">1843 · The Idea</div><h2>The first algorithm, for a machine nobody had built</h2><div class="sub">She saw that numbers were only the beginning. For a hundred years the credit went to the man whose machine it was.</div></div>
     <figure class="film" aria-label="Scene 03 — Ada Lovelace, 1843">
-      <div class="frames" data-frames="ep04-scene-03-ada.png|ep04-scene-03-ada-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-03-ada-comic-v4-timnit-style-lock-black-gloves-1920.png" alt="" loading="lazy"></div>
+      <div class="frames frames--held" data-portrait-art="held"><span>1843 · Ada Lovelace sees music where others see arithmetic</span></div>
       <span class="film-bug">S1·E04 · SC 03</span>
       <figcaption class="film-cap">1843 — she saw music where everyone else saw arithmetic.</figcaption>
     </figure>
     <div class="idcard">
-      <img src="../assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.jpg" alt="Ada Lovelace" onerror="this.remove()" loading="lazy">
+      <span class="idcard-held" aria-hidden="true">A</span>
       <div class="idmeta"><b>Ada Lovelace</b><span class="idrole">Keeper of the first algorithm</span></div>
     </div>
   </div>
@@ -280,12 +286,12 @@
   <div class="scene">
     <div class="mark"><div class="k">1942 · The Signal</div><h2>Inventing between takes</h2><div class="sub">Billed as the most beautiful woman in the world — so nobody watched what she was actually doing.</div></div>
     <figure class="film" aria-label="Scene 04 — Hedy Lamarr, 1942">
-      <div class="frames" data-frames="ep04-scene-04-hedy.png|ep04-scene-04-hedy-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-04-hedy-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
+      <div class="frames frames--held" data-portrait-art="held"><span>1942 · Hedy Lamarr invents between takes</span></div>
       <span class="film-bug">S1·E04 · SC 04</span>
       <figcaption class="film-cap">1942 — the bombshell who was inventing between takes.</figcaption>
     </figure>
     <div class="idcard">
-      <img src="../assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.jpg" alt="Hedy Lamarr" onerror="this.remove()" loading="lazy">
+      <span class="idcard-held" aria-hidden="true">H</span>
       <div class="idmeta"><span class="cue c-pink"><span class="play">▶</span> 1942 · The Signal</span><b>Hedy Lamarr</b><span class="idrole">Keeper of the signal</span></div>
     </div>
   </div>
@@ -300,12 +306,12 @@
     </figure>
     <div class="mark"><div class="k">1945 · The First Program</div><h2>Six women, no manual, no language</h2><div class="sub">They programmed it by hand, cable by cable. The press decided they were models.</div></div>
     <figure class="film" aria-label="Scene 04B — the ENIAC Six, 1945">
-      <div class="frames" data-frames="ep04-scene-04b-eniac-a-start.png|ep04-scene-04b-eniac.png|ep04-scene-04b-eniac-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-04b-eniac-comic-v4-strong-face-shadows-six-women-1920.png" alt="" loading="lazy"></div>
+      <div class="frames frames--held" data-portrait-art="held"><span>1945 · Six women program the ENIAC by hand</span></div>
       <span class="film-bug">S1·E04 · SC 04B</span>
       <figcaption class="film-cap">1945 — the first programmers. The press thought they were models.</figcaption>
     </figure>
     <div class="idcard">
-      <img src="../assets/mavens/y2k-stained-glass-v2/eniac-six-y2k-stained-glass.jpg" alt="The ENIAC Six" onerror="this.remove()" loading="lazy">
+      <span class="idcard-held" aria-hidden="true">6</span>
       <div class="idmeta"><span class="cue c-peri"><span class="play">▶</span> 1945 · The First Program</span><b>The ENIAC Six</b><span class="idrole">Jean · Betty · Kay · Marlyn · Ruth · Frances</span></div>
     </div>
   </div>
@@ -320,12 +326,12 @@
     </figure>
     <div class="mark"><div class="k">1952 · The Language</div><h2>She taught the machine to meet us halfway</h2><div class="sub">Why should a person have to think like a machine? So she built the thing that translates.</div></div>
     <figure class="film" aria-label="Scene 05 — Grace Hopper, 1952">
-      <div class="frames" data-frames="ep04-scene-05-grace.png|ep04-scene-05-grace-b-mid.png|ep04-scene-05-grace-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-05-grace-b-mid-comic-v1-locked-1920.png" alt="" loading="lazy"></div>
+      <div class="frames frames--held" data-portrait-art="held"><span>1952 · Grace Hopper teaches the machine to meet us halfway</span></div>
       <span class="film-bug">S1·E04 · SC 05</span>
       <figcaption class="film-cap">1952 — why should a person have to think like a machine?</figcaption>
     </figure>
     <div class="idcard">
-      <img src="../assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.jpg" alt="Grace Hopper" onerror="this.remove()" loading="lazy">
+      <span class="idcard-held" aria-hidden="true">G</span>
       <div class="idmeta"><span class="cue c-tang"><span class="play">▶</span> 1952 · The Language</span><b>Grace Hopper</b><span class="idrole">Keeper of the compiler</span></div>
     </div>
   </div>
@@ -361,12 +367,12 @@
   <div class="scene">
     <div class="mark"><div class="k">1972 · The Finding</div><h2>How a machine finds the right thing</h2><div class="sub">It's the rare words that carry the meaning — the arithmetic under every search box you've ever used.</div></div>
     <figure class="film" aria-label="Scene 08 — Karen Spärck Jones, 1972">
-      <div class="frames" data-frames="ep04-scene-08-karen.png|ep04-scene-08-karen-b-mid.png|ep04-scene-08-karen-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-08-karen-comic-v3-clean-nose-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
+      <div class="frames frames--held" data-portrait-art="held"><span>1972 · Karen Spärck Jones finds meaning in the rare words</span></div>
       <span class="film-bug">S1·E04 · SC 08</span>
       <figcaption class="film-cap">1972 — it's the rare words that carry the meaning.</figcaption>
     </figure>
     <div class="idcard">
-      <img src="../assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.jpg" alt="Karen Spärck Jones" onerror="this.remove()" loading="lazy">
+      <span class="idcard-held" aria-hidden="true">K</span>
       <div class="idmeta"><span class="cue c-sky"><span class="play">▶</span> 1972 · The Finding</span><b>Karen Spärck Jones</b><span class="idrole">Keeper of the finding</span></div>
     </div>
   </div>
@@ -382,12 +388,12 @@
     </figure>
     <div class="mark"><div class="k">2012 · The Sight</div><h2>The brain was never the problem</h2><div class="sub">We'd never given it enough to look at. So she gave it millions upon millions of pictures.</div></div>
     <figure class="film" aria-label="Scene 09 — Fei-Fei Li, 2012">
-      <div class="frames" data-frames="ep04-scene-09-fei-fei-a-start.png|ep04-scene-09-fei-fei.png|ep04-scene-09-fei-fei-b-mid.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-09-fei-fei-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
+      <div class="frames frames--held" data-portrait-art="held"><span>2012 · Fei-Fei Li gives the machine enough of the world to see</span></div>
       <span class="film-bug">S1·E04 · SC 09</span>
       <figcaption class="film-cap">2012 — she gave it enough to look at, and it finally saw.</figcaption>
     </figure>
     <div class="idcard">
-      <img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.jpg" alt="Fei-Fei Li" onerror="this.remove()" loading="lazy">
+      <span class="idcard-held" aria-hidden="true">F</span>
       <div class="idmeta"><span class="cue c-coral"><span class="play">▶</span> 2012 · The Sight</span><b>Fei-Fei Li</b><span class="idrole">Keeper of the field</span></div>
     </div>
   </div>
@@ -416,14 +422,14 @@
   <!-- THE CHECKERS -->
   <div class="mark"><div class="k">The part the highlight reel skips</div><h2>The women who check the whole machine</h2><div class="sub">As it got powerful, another set of women got loud — on purpose.</div></div>
   <figure class="film" aria-label="Scene 11 — the checkers">
-    <div class="frames" data-frames="ep04-scene-11-checkers.png|ep04-scene-11-checkers-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-11a-joy-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
+    <div class="frames frames--held" data-portrait-art="held"><span>The women who check the whole machine</span></div>
     <span class="film-bug">S1·E04 · SC 11</span>
     <figcaption class="film-cap">The women who check the whole machine.</figcaption>
   </figure>
   <div class="trio">
-    <figure><img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.jpg" alt="Joy Buolamwini" loading="lazy"><figcaption>Joy Buolamwini · the mirror</figcaption></figure>
-    <figure><img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.jpg" alt="Timnit Gebru" loading="lazy"><figcaption>Timnit Gebru · the room</figcaption></figure>
-    <figure><img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.jpg" alt="Kate Crawford" loading="lazy"><figcaption>Kate Crawford · the map</figcaption></figure>
+    <figure><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><figcaption>Joy Buolamwini · the mirror</figcaption></figure>
+    <figure><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><figcaption>Timnit Gebru · the room</figcaption></figure>
+    <figure><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><figcaption>Kate Crawford · the map</figcaption></figure>
   </div>
   <p><strong>Joy Buolamwini</strong>, a grad student at MIT, goes to use face-detection software — and it can't see her dark skin. Not until she literally holds up a white mask. So she proves it: tests the big commercial systems and shows they fail hardest of all on darker-skinned women.</p>
   <p><strong>Timnit Gebru</strong> teamed up with a linguist, <strong>Emily Bender</strong>, to warn that these language machines can sound brilliant while understanding nothing. Bender named it: a <em>stochastic parrot</em> — a bird that mimics speech perfectly, with not the faintest idea what it's saying. Gebru raised it inside Google, and in twenty-twenty she was abruptly gone. Thousands of her colleagues signed their names in protest.</p>
@@ -437,7 +443,7 @@
     </figure>
     <div class="mark"><div class="k">The lights come up</div><h2>Not magic. Not born last Tuesday.</h2></div>
   <figure class="film" aria-label="Scene 12 — the lights come up">
-    <div class="frames" data-frames="ep04-scene-12-lights-up-v2.png|ep04-scene-12-lights-up-v2-b-mid.png|ep04-scene-12-lights-up-v2-c-end.png"><img src="../assets/episodes/ep-04/pixel/ep04-splash-lights-up-comic-v1-end-blazing-1920.png" alt="" loading="lazy"></div>
+    <div class="frames frames--held" data-portrait-art="held"><span>Almost two hundred years · and the lights come up</span></div>
     <span class="film-bug">S1·E04 · SC 12</span>
     <figcaption class="film-cap">Almost two hundred years, holding all of it.</figcaption>
   </figure>
@@ -455,7 +461,7 @@
     <p class="eyebrow">So remember, ladies…</p>
     <h2>You were never behind on AI. You were just never told it was yours.</h2>
   </section>
-  <p class="rooms">Got a sharper "remember, ladies" than that one? Post it in the rooms — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit.</p>
+  <p class="rooms">Got a sharper "remember, ladies" than that one? Take it to one of the <a href="/sorority-house.html"><strong>discussion rooms at Delta LAi Nu</strong></a>. You can explore without a Resident Card; posting uses the room provider's own sign-in. If we feature your line later, the credit stays yours.</p>
 
   <!-- LISTEN -->
   <div class="listen-wrap"><a class="listen" href="/watch.html?ep=04">▶ Listen to this episode</a></div>
@@ -507,14 +513,14 @@
   <span class="eyebrow">The cast of this episode</span>
   <h2>The M<span class="ai">Ai</span>VENS in "The Founding Mothers"</h2>
   <div class="cast-grid">
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/ada-lovelace-y2k-stained-glass.jpg" alt="Ada Lovelace" loading="lazy"><b>Ada Lovelace</b><span>The first algorithm · 1843</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/hedy-lamarr-y2k-stained-glass.jpg" alt="Hedy Lamarr" loading="lazy"><b>Hedy Lamarr</b><span>The signal · 1942</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/grace-hopper-y2k-stained-glass.jpg" alt="Grace Hopper" loading="lazy"><b>Grace Hopper</b><span>The compiler · 1952</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/karen-sparck-jones-y2k-stained-glass.jpg" alt="Karen Spärck Jones" loading="lazy"><b>Karen Spärck Jones</b><span>The finding · 1972</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.jpg" alt="Fei-Fei Li" loading="lazy"><b>Fei-Fei Li</b><span>The sight · 2012</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/joy-buolamwini-y2k-stained-glass.jpg" alt="Joy Buolamwini" loading="lazy"><b>Joy Buolamwini</b><span>The mirror</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/timnit-gebru-y2k-stained-glass.jpg" alt="Timnit Gebru" loading="lazy"><b>Timnit Gebru</b><span>The room</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/kate-crawford-y2k-stained-glass.jpg" alt="Kate Crawford" loading="lazy"><b>Kate Crawford</b><span>The map</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Ada Lovelace</b><span>The first algorithm · 1843</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Hedy Lamarr</b><span>The signal · 1942</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Grace Hopper</b><span>The compiler · 1952</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Karen Spärck Jones</b><span>The finding · 1972</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Fei-Fei Li</b><span>The sight · 2012</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Joy Buolamwini</b><span>The mirror</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Timnit Gebru</b><span>The room</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Kate Crawford</b><span>The map</span></a>
   </div>
 </div></section>
 
@@ -522,7 +528,6 @@
 <div style="padding:0 24px">
   <div class="memoriam">
     <div class="mem-k">✦&nbsp;&nbsp;In memoriam&nbsp;&nbsp;✦</div>
-    <img src="../assets/mavens/y2k-stained-glass-v2/alan-turing-y2k-stained-glass.jpg" alt="Alan Turing — stained-glass portrait" onerror="this.remove()" loading="lazy">
     <h3>Alan Turing<span>1912–1954</span></h3>
     <p>This story is the women's. But it rests on a foundation, and one of its architects was Alan Turing — who imagined the machine itself, and the test we still use to ask whether it thinks. In 1952, the country he had helped save prosecuted him for being gay and chemically castrated him — the price of staying out of prison. He was dead within two years; it took Britain half a century to apologize. He is not a M<span class="ai">Ai</span>VEN — he is the reason so many of them had a machine to build on, and a reminder that brilliance has been erased here for <em>who you love</em> as much as <em>what you are</em>. We keep his name lit, too.</p>
   </div>
@@ -536,8 +541,8 @@
     <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Availability checked at the café</small></a>
     <a class="rail-btn rb4" href="/radio.html">The Song<small>It Was Women All Along</small></a>
     <a class="rail-btn rb6" href="/bronze-aige.html#cocktail-ep04">Cocktail<small>What IS it, actually?</small></a>
-    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
-    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
+    <a class="rail-btn rb3" href="/sorority-house.html">Rooms<small>See the discussion rooms at Delta LAi Nu</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Check what you learned</small></a>
   </div>
 </div>
 
@@ -548,12 +553,6 @@
   function link(s){ return '/luminairy.html?meet='+s+'#mavens'; }
   document.querySelectorAll('.cast-card').forEach(function(a){
     var s=slug(a.querySelector('img')); if(s) a.setAttribute('href', link(s));
-  });
-  document.querySelectorAll('.idcard > img').forEach(function(img){
-    var s=slug(img); if(!s) return;
-    img.style.cursor='pointer';
-    img.setAttribute('title','Meet her at the LUMiNAiRY');
-    img.addEventListener('click', function(){ window.location.href=link(s); });
   });
 })();
 </script>

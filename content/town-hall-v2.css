@@ -34,8 +34,28 @@ body:has(.town-hall-room) .sv-yah-chip,
   margin: 0 auto;
   overflow: hidden;
   border-radius: 0;
-  background: var(--th2-midnight);
+  background:
+    radial-gradient(circle at 50% 22%, rgba(69, 205, 239, 0.24), transparent 31%),
+    linear-gradient(135deg, #080b22 0%, #40245f 52%, #5f274f 100%);
   isolation: isolate;
+}
+
+.town-hall-room__held {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(115deg, transparent 0 24%, rgba(255, 255, 255, 0.06) 24% 25%, transparent 25% 74%, rgba(255, 255, 255, 0.06) 74% 75%, transparent 75%),
+    radial-gradient(circle at 50% 72%, rgba(247, 79, 157, 0.22), transparent 42%);
+}
+
+.town-hall-room__held span,
+.th-regular-portrait-held {
+  color: rgba(255, 255, 255, 0.7);
+  font: 800 10px/1.2 "Jost", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .town-hall-room > img {
@@ -390,7 +410,9 @@ body:has(.town-hall-room) .sv-yah-chip,
 #hub-characters .th-regular-portrait {
   border-bottom: 6px solid var(--th2-cyan);
   border-radius: 0;
-  background: var(--th2-midnight);
+  background:
+    radial-gradient(circle at 50% 34%, rgba(69, 205, 239, 0.28), transparent 31%),
+    linear-gradient(145deg, var(--th2-midnight), #40245f 60%, #7a2f57);
 }
 
 #hub-characters .th-regular:nth-child(2n) .th-regular-portrait {
@@ -463,6 +485,50 @@ body:has(.town-hall-room) .sv-yah-chip,
 
 #hub-feedback #town-hall-form {
   max-width: none !important;
+}
+
+#hub-feedback #th-intake-fields {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#hub-feedback #th-intake-fields > legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+#hub-feedback .th-intake-release-hold {
+  margin: 0;
+  padding: 14px 16px;
+  border: 2px solid var(--th2-ink);
+  border-left: 6px solid var(--th2-orange);
+  background: #fff3df;
+  color: var(--th2-ink) !important;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+#hub-feedback #town-hall-form[data-intake-state="release-hold"] #th-intake-fields {
+  opacity: 0.58;
+}
+
+#hub-feedback #town-hall-form[data-intake-state="release-hold"] input,
+#hub-feedback #town-hall-form[data-intake-state="release-hold"] textarea,
+#hub-feedback #town-hall-form[data-intake-state="release-hold"] button {
+  cursor: not-allowed;
+}
+
+#hub-feedback #town-hall-form[data-intake-state="release-hold"] [data-th-type-chip] {
+  background: #f2eee9 !important;
+  color: #56586a !important;
 }
 
 #hub-feedback input,
@@ -668,6 +734,39 @@ body:has(.town-hall-room) .sv-yah-chip,
   }
 }
 
+.th-correction-status {
+  max-width: 620px;
+  margin: 0 0 22px;
+  border: 1px solid rgba(75, 33, 72, 0.2);
+  border-left: 5px solid var(--th2-pink, var(--rose));
+  background: var(--cream);
+  color: var(--plum);
+  box-shadow: 5px 6px 0 rgba(69, 205, 239, 0.18);
+}
+
+.th-correction-status > summary {
+  min-height: 44px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font: 800 14px/1.35 "Jost", sans-serif;
+  letter-spacing: 0.035em;
+}
+
+.th-correction-status > summary:focus-visible {
+  outline: 3px solid var(--th2-purple, #6938cc);
+  outline-offset: 3px;
+}
+
+.th-correction-status__body {
+  padding: 0 16px 15px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.th-correction-status__body p {
+  margin: 8px 0 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .town-hall-v2-page *,
   .town-hall-v2-page *::before,
@@ -679,4 +778,15 @@ body:has(.town-hall-room) .sv-yah-chip,
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+.town-hall-art-held {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 160px;
+  background: #35106f;
+  color: #fff;
+  font: 800 0.78rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

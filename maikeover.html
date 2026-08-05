@@ -11,7 +11,7 @@
   <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
@@ -45,9 +45,8 @@
   <header class="sv-header"></header>
 
   <section class="sv-hero mo-room" aria-label="The MAiKEOVER vanity">
-    <img class="mo-room__backdrop" src="assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png" alt="A straight-on illustrated Y2K salon vanity with one large lit mirror, three smaller candidate mirrors, seven tool drawers and a pink styling chair" loading="eager">
+    <p class="mo-room__held" role="status" style="position:absolute;inset:12%;z-index:1;display:grid;place-items:center;margin:0;padding:24px;border:3px dashed rgba(255,253,251,.72);border-radius:18px;color:#fffdfb;background:linear-gradient(145deg,rgba(113,55,214,.54),rgba(21,188,224,.28));font:800 clamp(13px,1.6vw,22px)/1.35 Jost,sans-serif;letter-spacing:.12em;text-align:center;text-transform:uppercase;">Vanity visual held · styling controls remain available.</p>
     <p class="mo-room__brand"><span class="ai">MAiKEOVER</span> <span>on <span class="ai">MAiN</span></span></p>
-    <div class="mo-candidate-mount" id="moCandidateMount" aria-live="polite"></div>
     <div class="mo-mirror-mount" id="moMirrorMount" aria-label="Your live Resident Card mirror"></div>
     <nav class="mo-tool-tray" aria-label="Vanity tool drawers">
       <button type="button" data-mo-tool="look" aria-pressed="true">Look</button>
@@ -74,8 +73,9 @@
       and leave MAiN Street with a card that feels like yours.
     </p>
     <p class="mo-persistence-state" id="moPersistenceState" role="status" aria-live="polite">
-      <strong>Device-local card:</strong> saving keeps this card in this browser
-      on this device. It is not yet an account, public card, or cross-device copy.
+      <strong>Local-first card:</strong> saving keeps this card in this browser
+      on this device. Private account continuation is available at the Resident
+      Card desk; this local save alone is not a public card or cross-device copy.
     </p>
 
     <p style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; color: var(--rose); font-size: 17px; text-align: center; padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 24px 0;">
@@ -87,7 +87,7 @@
     <section id="mo-chair" style="--gold:#f6c04a; margin:8px 0 40px;">
       <p class="mo-section-kicker">The vanity drawers</p>
       <h2 style="margin-bottom:6px;">Pick up one tool at a time.</h2>
-      <p class="sv-lede" style="margin-top:0;">Your choices update the mirror above. Style and save the card, then sign the guest book—all without leaving the chair.</p>
+      <p class="sv-lede" style="margin-top:0;">Your choices update the mirror above. Style and save the card here; use the Resident Card desk only if you want private account continuation.</p>
       <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Look drawer open · the portrait booth is getting a safety upgrade.</p>
 
       <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
@@ -122,13 +122,11 @@
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
             <p style="margin:0 0 10px; font-size:14px; color:var(--plum-soft);"><strong>The AI portrait booth is temporarily closed for a safety upgrade.</strong> You can still style and save the rest of your Resident Card today. No photo leaves this page while the booth is closed.</p>
-            <div style="display:flex; gap:8px; margin-bottom:10px;">
-              <button type="button" class="mo-mode on" data-mode="photo" disabled style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:not-allowed;">Use my photo</button>
-              <button type="button" class="mo-mode" data-mode="scratch" disabled style="flex:1; background:var(--cream); color:var(--plum); border:1.5px solid var(--line); border-radius:999px; padding:9px; font-family:inherit; font-weight:700; font-size:13px; cursor:not-allowed;">No photo — build one</button>
+            <div id="moPortraitHold" role="status" tabindex="-1" style="margin:0 0 12px; padding:12px 14px; border-left:6px solid var(--rose); background:#fff3f7; color:#2b1230; font-size:13px; font-weight:700;">
+              No photo picker, description prompt or portrait provider is loaded while the booth is closed. A future booth must pass consent, retention/deletion, safety, three-candidate comparison and save-contract review before these controls return.
             </div>
-            <input type="file" id="moPhoto" accept="image/*" disabled aria-describedby="moStatus" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif;">
-            <textarea id="moDescribe" hidden disabled aria-describedby="moStatus" placeholder="Describe the LAiDY: hair, skin tone, features, vibe — e.g. warm brown skin, long dark curls, brown eyes, big smile" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:14px 'Jost',sans-serif; min-height:70px; resize:vertical;"></textarea>
 
+            <div id="moPortraitOptionsHeld" hidden aria-hidden="true">
             <div class="mo-sub">The Era's Tour — pick one</div>
             <div class="mo-chips" id="moEra"></div>
             <p id="moEraDesc" style="margin:0 0 6px; font-size:12px; color:var(--plum-soft);"></p>
@@ -142,10 +140,9 @@
 
             <div class="mo-sub">Backdrop behind you — pick one</div>
             <div class="mo-chips" id="moBackdrop"></div>
+            </div>
 
-            <button type="button" id="moMake" disabled aria-disabled="true" style="margin-top:14px; background:var(--rose); color:var(--cream); border:0; border-radius:999px; padding:12px 24px; font-family:inherit; font-weight:800; font-size:13px; letter-spacing:.06em; text-transform:uppercase; cursor:not-allowed; opacity:.55;">Portrait booth temporarily closed</button>
-            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">The rest of the Resident Card maker remains open.</div>
-            <div id="moCands" style="display:flex; gap:10px; margin-top:12px;"></div>
+            <div id="moStatus" role="status" aria-live="polite" style="margin-top:10px; font-size:13px; color:var(--plum-soft); min-height:18px;">Portrait comparison is unavailable. The rest of the Resident Card maker remains open.</div>
           </div>
 
           <!-- Background -->
@@ -333,7 +330,7 @@
           <!-- Handle -->
           <div>
             <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your @handle</label>
-            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Your Closet's shareable address (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">not claimed yet</span>). <a href="#mo-claim-card" style="color:var(--rose);font-weight:700;text-decoration:underline;">Claim your handle just below ↓</a> — needs a quick sign-in.</p>
+            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Handle claims and public Closet addresses are currently held (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">no public handle</span>). Your saved card remains in this browser only.</p>
           </div>
 
           <!-- Save -->
@@ -352,13 +349,9 @@
       .mo-chips .chip.on { background:var(--rose); color:var(--cream); border-color:var(--rose); font-weight:700; }
       .mo-sub { font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:11px; letter-spacing:.1em; text-transform:uppercase; margin:12px 0 4px; }
       .mo-mode.on { background:var(--rose) !important; color:var(--cream) !important; border-color:var(--rose) !important; }
-      #moBgChips .mo-bg, #moCands .mo-cand { cursor:pointer; }
+      #moBgChips .mo-bg { cursor:pointer; }
       #moBgChips .mo-bg { width:54px; height:36px; border-radius:8px; border:2px solid transparent; }
       #moBgChips .mo-bg.on { border-color:var(--rose); box-shadow:0 0 0 2px rgba(155,63,95,.25); }
-      #moCands .mo-cand { width:88px; height:88px; border-radius:12px; overflow:hidden; border:2px solid var(--line); background:var(--pearl); display:flex; align-items:center; justify-content:center; }
-      #moCands .mo-cand.on { border-color:var(--rose); }
-      #moCands .mo-cand img { width:100%; height:100%; object-fit:cover; display:block; }
-      #moCands .mo-cand .sp { color:var(--plum-soft); font-size:20px; }
       @media (max-width:720px){ .mo-chair-grid { grid-template-columns:1fr !important; } .mo-card-col { position:static !important; } }
     </style>
     <!-- ===== /THE CHAIR ===== -->
@@ -371,10 +364,12 @@
 
     <div id="mo-new-here" hidden></div>
 
-    <h2 class="mo-claim-intro">Claim your Closet URL.</h2>
+    <h2 class="mo-claim-intro">Closet handles are held.</h2>
 
     <p class="mo-claim-intro">
-      Your Closet gets a shareable address. Pick a handle — send it in a text, put it on a friendship necklace, whatever. Once you claim it, that's you. Only lowercase letters, numbers, and underscores. 3 to 24 characters.
+      You can make and save a Resident Card on this device. Private account
+      continuation is available at the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a>.
+      Public handles and shareable Closet addresses remain held.
     </p>
 
     <div id="mo-claim-card" style="background: var(--pearl); border-radius: 14px; padding: 26px 28px; margin: 22px 0 32px; border: 1px solid var(--line);">
@@ -384,7 +379,7 @@
       <div class="mo-claim-state" data-state="held" tabindex="-1">
         <p style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 700; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Account release check</p>
         <h3 style="margin:0 0 10px; color:var(--plum);">The guest book is not taking claims yet.</h3>
-        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">You can make and save your Resident Card on this device. Handle claims, public Closet links, account restoration and cross-device copies stay closed until their privacy and two-device checks pass.</p>
+        <p style="margin:0; color:var(--plum-soft); line-height:1.55;">You can make and save your Resident Card on this device. Private account continuation is available at the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a>; handle claims and public Closet links remain held.</p>
       </div>
 
       <!-- Loading placeholder -->
@@ -400,7 +395,7 @@
         <p id="mo-claim-result-label" style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
         <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
         <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
-        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved, public or available on another device. <button type="button" id="mo-local-signin" style="background:none; border:0; padding:0; color:var(--rose); font-weight:700; text-decoration:underline; cursor:pointer; font:inherit;">Open the account step for @<span class="mo-your-handle2"></span> →</button></p>
+        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved or public. <a id="mo-local-signin" href="/resident-card.html#rcAccountTitle" style="color:var(--rose); font-weight:700; text-decoration:underline;">Keep it with a private account at the Resident Card desk →</a></p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
           <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>
@@ -409,16 +404,6 @@
 
       <!-- Claim form -->
       <div class="mo-claim-state" data-state="claim-form" hidden>
-
-        <!-- Inline sign in / sign up (magic link, no password) -->
-        <div id="mo-auth-box" style="margin: 0 0 20px; padding: 14px 16px; background: rgba(155,63,95,0.06); border-radius: 10px;">
-          <p style="margin: 0 0 8px; font-size: 14px; color: var(--plum);"><strong>Sign in — or sign up</strong>, same box. A successful account check can reserve your handle and retain supported card fields. Cross-device restoration is not claimed until the controlled journey passes. No password: we email you a link.</p>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <input id="mo-email" type="email" autocomplete="email" placeholder="you@email.com" style="flex: 1; min-width: 180px; box-sizing: border-box; background: var(--cream); border: 1.5px solid var(--line); color: var(--plum); border-radius: 10px; padding: 10px 12px; font: 15px 'Jost', sans-serif;">
-            <button id="mo-signin-btn" type="button" style="background: var(--rose); color: var(--cream); border: 0; border-radius: 999px; padding: 10px 18px; font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap;">Email me a link →</button>
-          </div>
-          <p id="mo-email-status" role="status" aria-live="polite" style="margin: 8px 0 0; font-size: 13px; color: var(--plum-soft); min-height: 16px;"></p>
-        </div>
 
         <label for="mo-username-input" style="display: block; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 10px;">★ Pick a handle</label>
         <div style="display: flex; align-items: center; gap: 0; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--cream); transition: border-color 200ms ease;">
@@ -432,7 +417,7 @@
           <input type="checkbox" id="mo-public-check" style="width: 18px; height: 18px; margin-top: 2px; accent-color: var(--rose); cursor: pointer; flex-shrink: 0;" />
           <label for="mo-public-check" style="cursor: pointer; flex: 1;">
             <span style="display: block; font-size: 14px; font-weight: 600; color: var(--plum);">Make my Closet visible right away</span>
-            <span style="display: block; margin-top: 4px; font-size: 12px; color: var(--plum-soft); line-height: 1.5;">When on, your handle URL shows your card face + collections. You can flip it off any time in your Closet.</span>
+            <span style="display: block; margin-top: 4px; font-size: 12px; color: var(--plum-soft); line-height: 1.5;">When on, anyone with your link sees only the approved public Card fields. Your collections and browser-only activity stay private.</span>
           </label>
         </div>
 
@@ -458,7 +443,6 @@
   <script>
   (function(){
     'use strict';
-    var AVATAR_API = 'https://laidies-avatar.wednesday-laidies.workers.dev';
     var CARD_BG = {
       classic:  'linear-gradient(135deg,#fffdfb 0%,#f8eef2 100%)',
       pinklilac:'linear-gradient(160deg,#fbe9ef 0%,#e7dcf6 100%)',
@@ -522,9 +506,7 @@
         var image = document.createElement('img');
         var safePreview = window.LAIDIESResidentCard &&
           window.LAIDIESResidentCard.isSafeAssetPath(state.avatar);
-        var safeGeneratedPng = /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(state.avatar) &&
-          state.avatar.length <= 6000000;
-        if (safePreview || safeGeneratedPng) {
+        if (safePreview) {
           image.src = state.avatar;
           image.alt = 'avatar';
           image.style.width = '100%';
@@ -609,15 +591,6 @@
     A_BG.forEach(function(v,i){ var c=document.createElement('button');c.type='button';c.className='chip'+(i===bgIdx2?' on':'');c.textContent=v.l;c.setAttribute('aria-pressed',i===bgIdx2?'true':'false');
       c.onclick=function(){ bgIdx2=i; Array.prototype.forEach.call(bgC.children,function(x,j){x.classList.toggle('on',j===i);x.setAttribute('aria-pressed',j===i?'true':'false');}); };
       bgC.appendChild(c); });
-    function avatarExtras(){
-      var nm=($('moNameNeck').value||'').trim().replace(/"/g,'');
-      var a=A_ACC.filter(function(v,i){return accOn2[i];}).map(function(v){ if(v.name) return nm?('a gold name-plate necklace that clearly reads "'+nm+'" in cursive script'):v.p; return v.p; });
-      if(A_ERA[eraIdx2].p) a.push(A_ERA[eraIdx2].p);
-      if(A_FIT[fitIdx2].p) a.push(A_FIT[fitIdx2].p);
-      a.push(A_BG[bgIdx2].p);
-      return a.join(', ');
-    }
-
     // ---- selects + name ----
     $('moSongSel').addEventListener('change', renderPreview);
     $('moSaintSel').addEventListener('change', renderPreview);
@@ -626,111 +599,8 @@
     $('moCarrySel').addEventListener('change', renderPreview);
     $('moNameInput').addEventListener('input', renderPreview);
 
-    // ---- avatar generation ----
-    function canvasPng(f){
-      return new Promise(function(res,rej){
-        var url=URL.createObjectURL(f), img=new Image();
-        img.onload=function(){
-          var max=1024,w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;
-          var s=Math.min(1,max/Math.max(w,h)),cw=Math.round(w*s),ch=Math.round(h*s);
-          var c=document.createElement('canvas');c.width=cw;c.height=ch;
-          c.getContext('2d').drawImage(img,0,0,cw,ch);
-          URL.revokeObjectURL(url); res(c.toDataURL('image/png').replace(/^data:[^,]+,/,''));
-        };
-        img.onerror=function(){ URL.revokeObjectURL(url); rej(new Error('decode')); };
-        img.src=url;
-      });
-    }
-    function rawB64(f){ return new Promise(function(res){var r=new FileReader();r.onload=function(){res(String(r.result).replace(/^data:[^,]+,/,''));};r.readAsDataURL(f);}); }
-    async function toUpload(f){ try{ return await canvasPng(f); }catch(e){ return await rawB64(f); } }
-    // downscale a picked avatar to ~420px so the data URL fits in localStorage
-    function shrink(dataUrl){
-      return new Promise(function(res){
-        var img=new Image();
-        img.onload=function(){ var S=420,c=document.createElement('canvas');c.width=S;c.height=S;
-          c.getContext('2d').drawImage(img,0,0,S,S); res(c.toDataURL('image/png')); };
-        img.src=dataUrl;
-      });
-    }
-
-    // ---- photo vs no-photo mode ----
-    var moMode='photo';
-    Array.prototype.forEach.call(document.querySelectorAll('.mo-mode'), function(b){
-      b.onclick=function(){
-        moMode=b.getAttribute('data-mode');
-        Array.prototype.forEach.call(document.querySelectorAll('.mo-mode'), function(x){ x.classList.toggle('on', x===b); });
-        var photo=(moMode==='photo');
-        $('moPhoto').hidden=!photo;
-        $('moDescribe').hidden=photo;
-      };
-    });
-
-    $('moMake').addEventListener('click', async function(){
-      var go=this;
-      var body;
-      if(moMode==='scratch'){
-        var desc=$('moDescribe').value.trim();
-        if(!desc){ $('moStatus').textContent='Describe your LAiDY first ↑'; return; }
-        go.disabled=true;
-        body = JSON.stringify({ itemPrompt: desc + ', ' + avatarExtras() });
-      } else {
-        var f = $('moPhoto').files[0];
-        if(!f){ $('moStatus').textContent='Choose a photo first ↑'; return; }
-        go.disabled=true;
-        $('moStatus').textContent='Reading your photo…';
-        var b64; try{ b64=await toUpload(f); }catch(e){ $('moStatus').textContent='Could not read that image — try a JPG or PNG.'; go.disabled=false; return; }
-        body = JSON.stringify({ image:b64, traits:{ extras: avatarExtras() } });
-      }
-      var cands=$('moCands'); cands.innerHTML='';
-      var slots=[]; for(var i=0;i<3;i++){ var s=document.createElement('button'); s.type='button'; s.className='mo-cand'; s.disabled=true; s.setAttribute('aria-label','Avatar candidate '+(i+1)+' loading'); s.innerHTML='<span class="sp">…</span>'; cands.appendChild(s); slots.push(s); }
-      var done=0, ready=0, firstPicked=false, lastErr='', t0=Date.now();
-      var tick=setInterval(function(){
-        if(ready>=3){ return; }
-        var s=Math.round((Date.now()-t0)/1000);
-        $('moStatus').textContent = ready>0
-          ? (ready+' of 3 ready — tap one, or wait for the rest… ('+s+'s)')
-          : ('Making 3 avatars — about 30 seconds… ('+s+'s)');
-      }, 1000);
-      $('moStatus').textContent='Making 3 avatars — about 30 seconds…';
-      function finish(){
-        done++;
-        if(done>=3){
-          go.disabled=false; clearInterval(tick);
-          if(ready===0){ $('moStatus').textContent='That did not work — '+(lastErr||'please try again')+'.'; }
-          else { $('moStatus').textContent='Done ★ — tap the one that looks most like you'; }
-        }
-      }
-      function selectCand(dataUrl, slot){
-        Array.prototype.forEach.call(cands.children,function(x){ x.classList.remove('on'); });
-        slot.classList.add('on');
-        shrink(dataUrl).then(function(small){ state.avatar=small; renderPreview(); });
-      }
-      for(let k=0;k<3;k++){
-        (async function(){
-          await new Promise(function(r){ setTimeout(r,k*700); });
-          var ok=false;
-          for(var a=0;a<2&&!ok;a++){
-            try{
-              var r=await fetch(AVATAR_API,{method:'POST',headers:{'Content-Type':'application/json'},body:body});
-              var dd=await r.json();
-              if(dd.image){
-                var url='data:image/png;base64,'+dd.image;
-                var im=document.createElement('img'); im.src=url;
-                slots[k].innerHTML=''; slots[k].appendChild(im);
-                slots[k].disabled=false;
-                slots[k].setAttribute('aria-label','Choose avatar candidate '+(k+1));
-                slots[k].onclick=function(){ selectCand(url, slots[k]); };
-                if(!firstPicked){ firstPicked=true; selectCand(url, slots[k]); }
-                ready++;
-                ok=true;
-              } else { lastErr=(dd && dd.error) || 'no image'; }
-            }catch(e){ lastErr=String(e && e.message || e); }
-          }
-          if(!ok){ slots[k].innerHTML='<span class="sp">✕</span>'; }
-          finish();
-        })();
-      }
-    });
+    // The portrait provider, photo intake and candidate renderer are excluded
+    // while the booth is held. Styling and device-local Card save remain.
 
     // ---- save ----
     function announceCardSave(message, color) {
@@ -813,7 +683,11 @@
       var bg = fields.cardBg; if(bg && CARD_BG[bg]){ state.bg=bg;
         var chips=$('moBgChips').children, idx=BG_ORDER.indexOf(bg); if(chips[idx]) { chips[idx].classList.add('on'); chips[idx].setAttribute('aria-pressed','true'); } }
       else if ($('moBgChips').children[0]) { $('moBgChips').children[0].classList.add('on'); $('moBgChips').children[0].setAttribute('aria-pressed','true'); }
-      var av = fields.cardAvatarUrl; if(av){ state.avatar=av; }
+      var av = fields.cardAvatarUrl;
+      if (av && window.LAIDIESResidentCard &&
+          window.LAIDIESResidentCard.isSafeAssetPath(av)) {
+        state.avatar = av;
+      }
       if(fields.song) $('moSongSel').value=fields.song;
       if(fields.saint) $('moSaintSel').value=fields.saint;
       if(fields.movie) $('moMovieSel').value=fields.movie;
@@ -1023,21 +897,6 @@
       } catch (_) { /* keep the flag; a later visit can retry */ }
     }
 
-    // Email magic-link sign-in / sign-up (returns to this page authenticated).
-    async function sendMagicLink() {
-      var emailEl = document.getElementById('mo-email');
-      var statusEl = document.getElementById('mo-email-status');
-      var email = (emailEl.value || '').trim();
-      if (!email || email.indexOf('@') < 1) { statusEl.textContent = 'Enter a valid email.'; statusEl.style.color = '#a83243'; return; }
-      var btn = document.getElementById('mo-signin-btn'); btn.disabled = true; var o = btn.textContent; btn.textContent = 'Sending…';
-      try {
-        var r = await supabase.auth.signInWithOtp({ email: email, options: { emailRedirectTo: window.location.href } });
-        if (r.error) { statusEl.textContent = r.error.message || 'Could not send — try again.'; statusEl.style.color = '#a83243'; }
-        else { statusEl.textContent = '★ Check your email — we sent a sign-in link. Open it on this device and you\'re in.'; statusEl.style.color = '#2c7d3c'; }
-      } catch (e) { statusEl.textContent = 'Could not send — try again.'; statusEl.style.color = '#a83243'; }
-      btn.disabled = false; btn.textContent = o;
-    }
-
     function renderClaimed(handle, localOnly) {
       var origin = window.location.origin;
       var handleEl = card.querySelector('.mo-your-handle');
@@ -1071,10 +930,6 @@
       input.addEventListener('input', handleInput);
       claimBtn.addEventListener('click', handleClaim);
       input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !claimBtn.disabled) { e.preventDefault(); handleClaim(); } });
-      var signinBtn = document.getElementById('mo-signin-btn'); if (signinBtn) signinBtn.addEventListener('click', sendMagicLink);
-      var emailEl = document.getElementById('mo-email'); if (emailEl) emailEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); sendMagicLink(); } });
-      var localSignin = document.getElementById('mo-local-signin');
-      if (localSignin) localSignin.addEventListener('click', function () { setState('claim-form'); var ab = document.getElementById('mo-auth-box'); if (ab) ab.hidden = false; var em = document.getElementById('mo-email'); if (em) em.focus(); });
     }
 
     function wireCopy() {
@@ -1114,7 +969,6 @@
       wireClaimForm();
 
       if (session) {
-        var ab = document.getElementById('mo-auth-box'); if (ab) ab.hidden = true; // already signed in
         // Do they already have a reserved handle on the server?
         try {
           var profile = await supabase.from('member_profiles').select('card_username').eq('id', session.user.id).maybeSingle();

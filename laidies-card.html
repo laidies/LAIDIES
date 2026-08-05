@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
-  <meta name="description" content="Your SUNNYVAiLE Closet — your Resident Card, saved finds, collectibles and progress in one place.">
-  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <meta name="description" content="Your SUNNYVAiLE Closet — your Resident Card and supported saved progress in one place, with browser-only items clearly identified.">
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
@@ -530,7 +530,7 @@
     }
     .wallet-card-visit:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgba(0,0,0,0.3); }
 
-    /* Butterfly Clip Jar — Pop Quiz scores banked as clips */
+    /* Device-local Quiz + Express progress summary — never a wallet. */
     .clip-jar { display: flex; gap: 22px; align-items: stretch; flex-wrap: wrap; padding: 6px 0 2px; }
     .clip-jar-glass {
       flex: 0 0 150px; min-height: 150px;
@@ -561,10 +561,8 @@
     .clip-jar-ledger .clip-amount { font-weight: 700; white-space: nowrap; }
     .clip-jar-ledger .clip-amount.is-broken { color: var(--rose); font-style: italic; }
     .clip-jar-ledger .clip-empty { justify-content: center; font-style: italic; color: var(--plum-soft, var(--plum)); font-family: 'Playfair Display', Georgia, serif; }
-    /* Bracelet-mounted charm row: real bracelet PNG as background, 7 charms
-       positioned so each charm's own top gold ring interlocks visually with the
-       bracelet's hanging jump ring at that position — "hooked into" the bracelet.
-       Container has extra bottom margin so hanging charms don't clip below. */
+    /* CSS chain and seven hanging rings. Existing Charm Hunt slots and state
+       reads remain unchanged; this is presentation only, not visual approval. */
     .charm-week-chain {
       display: block;
       position: relative;
@@ -574,12 +572,17 @@
       aspect-ratio: 6 / 1;
       padding: 0;
       overflow: visible;
-      background-image: url('/assets/charms/charm-bracelet-base.png?v=20260703-1');
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-size: 100% auto;
+      background:
+        radial-gradient(circle at 13% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        radial-gradient(circle at 23% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        radial-gradient(circle at 33% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        radial-gradient(circle at 44% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        radial-gradient(circle at 55% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        radial-gradient(circle at 65% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        radial-gradient(circle at 76% 62%, #fffdfb 0 5px, #d4a853 5.5px 7px, transparent 7.5px),
+        linear-gradient(180deg, transparent 59%, #d4a853 59% 62%, #f5da8a 62% 64%, transparent 64%);
     }
-    .charm-week-chain::before { display: none; }
+    .charm-week-chain::before { content: ""; display: block; position: absolute; inset: 0; pointer-events: none; }
     /* Both charm and empty-marker share the SAME top attach-line — right at the
        bracelet's built-in hanging-ring row (~62% of container height). The
        charm's own baked-in gold ring (top of its PNG) overlaps the bracelet's
@@ -955,13 +958,12 @@
     <div class="closet-arrival-copy">
       <p>Delta L<span class="ai">Ai</span> Nu · Resident storage</p>
       <h1>The Closet</h1>
-      <span>Your Resident Card, Wednesday route and everything saved to your Closet.</span>
+      <span>Your Resident Card and supported saved progress, all in one place.</span>
     </div>
   </div>
 
   <div id="closetPersistenceState" role="status" aria-live="polite" style="margin:14px 0 22px;padding:14px 16px;background:#eef8f7;border:2px solid #57b6c0;border-left-width:8px;border-radius:8px;color:#3a1838;font:600 14px/1.5 'Jost',sans-serif;">
-    Device-local view: this Closet currently shows supported information saved
-    in this browser. It does not prove account restoration or cross-device sync.
+    Checking whether this Closet is browser-only or backed by your private account.
   </div>
 
   <!-- Public mode banner -->
@@ -1050,7 +1052,7 @@
 
     <div class="card-actions" id="selfCardActions">
       <button type="button" class="card-action-btn card-action-btn--primary" id="editCardBtn">✎ Edit my card</button>
-      <button type="button" class="card-action-btn" id="shareCardBtn" disabled aria-describedby="closetPersistenceState">Card sharing is coming later</button>
+      <button type="button" class="card-action-btn" id="shareCardBtn" hidden disabled aria-describedby="closetPersistenceState">Share my public card</button>
     </div>
     <div class="card-actions" id="publicCardActions" hidden>
       <a class="card-action-btn card-action-btn--primary" href="/maikeover.html">Get your own card →</a>
@@ -1140,7 +1142,7 @@
       var TILES = [
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
         { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
-        { icon: '🦋', label: 'Butterfly clips',   src: 'clipJarTotal',   target: 'butterflyJar',     total: null, pub: false, hint: 'Quiz scores, banked' },
+        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'This-device summary' },
         { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Express tours' },
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
@@ -1423,7 +1425,8 @@
           min-width: 0; color: inherit; text-decoration: none; }
         .puffy-item-main:focus-visible { outline: 3px solid var(--rose, #9b3f5f); outline-offset: 4px; }
         .puffy-item:hover { border-color: var(--rose, #9b3f5f); transform: translateY(-1px); }
-        .puffy-item-clip { width: 30px; height: 30px; background: url(/assets/butterfly-clip-rating-token.png) center/contain no-repeat; }
+        .puffy-item-clip { width: 30px; height: 20px; border: 2px solid var(--plum, #4b2148); border-radius: 999px 999px 6px 6px; background: linear-gradient(135deg, #f8bdd3, #d66c99); box-shadow: 2px 2px 0 rgba(75,33,72,.22); transform: rotate(-8deg); }
+        .puffy-item-clip::after { content: ""; display: block; width: 5px; height: 5px; margin: 5px auto; border-radius: 50%; background: #fff7d2; box-shadow: 7px 0 0 #fff7d2; }
         .puffy-item-body b { display: block; font-size: 14px; font-weight: 700; }
         .puffy-item-body small { display: block; font-size: 12px; color: var(--plum-soft, #6b3a66); }
         .puffy-peel { border: 0; background: transparent; color: var(--plum-soft, #6b3a66); font-size: 18px; cursor: pointer; line-height: 1; }
@@ -1484,20 +1487,20 @@
       <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely — every stop page has one.</p>
     </div>
 
-    <!-- Butterfly Clip Jar — Pop Quiz scores, banked as clips -->
+    <!-- Device-local summary of Pop Quiz scores and Express completions. -->
     <div class="vessel vessel--clip-jar" id="butterflyJar">
       <div class="vessel-header">
-        <h3 class="vessel-title">Butterfly Clip Jar</h3>
-        <span class="vessel-count" id="clipJarCount">Empty jar</span>
+        <h3 class="vessel-title">Quiz + Express Progress</h3>
+        <span class="vessel-count" id="clipJarCount">No local records yet</span>
       </div>
       <div class="clip-jar">
         <div class="clip-jar-glass" aria-hidden="true">
           <span class="clip-jar-total" id="clipJarTotal">0</span>
-          <span class="clip-jar-unit">butterfly clips</span>
+          <span class="clip-jar-unit">local record points</span>
         </div>
         <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
       </div>
-      <p class="vessel-note">Pop Quiz scores from SUNNYVAiLE High, paid out in butterfly clips — your best score per episode goes in the jar. Extra credit pays twelve. Bombing pays one, and it's broken. <a href="/sunnyvaile-high.html#report-card">Your graded Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a> · <a href="/bookfair.html">Spend them at the Book Fair →</a></p>
+      <p class="vessel-note">On this device, this is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or synced account history. <a href="/sunnyvaile-high.html#report-card">Your local Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
     </div>
 
     <!-- Trading Card Binder -->
@@ -1702,17 +1705,6 @@
       <input type="text" class="edit-field-input" id="editMotto" placeholder="chaos coordinator · main character · reformed people-pleaser" maxlength="80" />
     </label>
 
-    <div class="edit-field" style="background: rgba(197, 106, 138, 0.06); border: 1px solid rgba(197, 106, 138, 0.22); border-radius: 10px; padding: 18px 20px; margin-top: 24px;">
-      <div style="display: flex; align-items: flex-start; gap: 12px;">
-        <input type="checkbox" id="editIsPublic" style="width: 20px; height: 20px; margin-top: 3px; accent-color: #c56a8a; cursor: pointer; flex-shrink: 0;" />
-        <label for="editIsPublic" style="cursor: pointer; flex: 1;">
-          <span style="display: block; font-family: 'Jost', sans-serif; font-weight: 700; color: #4b2148; font-size: 14px; letter-spacing: 0.02em;">Make my Closet visible at my handle URL</span>
-          <span style="display: block; margin-top: 6px; font-size: 13px; color: rgba(75, 33, 72, 0.72); line-height: 1.5;">When on, anyone with your handle sees your card face, saint, song, and collections. When off, your URL says "no one home right now." <strong>Your stickers stay yours either way.</strong></span>
-          <span id="editIsPublicHint" style="display: none; margin-top: 8px; font-size: 12px; color: rgba(75, 33, 72, 0.6); font-style: italic;">Claim a handle at MAiKEOVER first — then this switch turns something on.</span>
-        </label>
-      </div>
-    </div>
-
     <div class="save-actions">
       <button type="button" class="cancel-btn" id="cancelEditBtn">Cancel</button>
       <button type="button" class="save-btn" id="saveCardBtn">Stamp my Resident Card</button>
@@ -1723,8 +1715,10 @@
 
 <footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
 
-<script src="content/site/supabase-config.js" defer></script>
+<script src="content/site/supabase-config.js"></script>
 <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
+<script src="/content/site/resident-account-runtime-v1.js?v=20260727-account-1"></script>
 <script>
 (function() {
   'use strict';
@@ -1859,10 +1853,9 @@
       currentProfile.card_username &&
       currentProfile.member_card_is_public === true
     );
+    shareBtn.hidden = !canShare;
     shareBtn.disabled = !canShare;
-    shareBtn.textContent = canShare
-      ? 'Share my public card'
-      : 'Card sharing is coming later';
+    shareBtn.textContent = 'Share my public card';
   }
   if (shareBtn) {
     shareBtn.addEventListener('click', function() {
@@ -2055,21 +2048,7 @@
         el.classList.add('is-empty');
       }
     };
-    var envelope = readCardEnvelope();
-    var saintPick = envelope && envelope.fields ? envelope.fields.saint : '';
-    if (saintPick && (window.SAINT_LABEL || SAINT_LABEL)[saintPick]) {
-      var saintEl = document.getElementById('covenSaintPick');
-      if (saintEl) {
-        saintEl.textContent = (window.SAINT_LABEL || SAINT_LABEL)[saintPick];
-        saintEl.classList.remove('is-empty');
-      }
-    } else {
-      var emptySaint = document.getElementById('covenSaintPick');
-      if (emptySaint) {
-        emptySaint.textContent = '— pick one —';
-        emptySaint.classList.add('is-empty');
-      }
-    }
+    applyPick('covenSaintPick',   LS.saint,       window.SAINT_LABEL || SAINT_LABEL);
     applyPick('covenMavenPick',   LS.maven,       MAVEN_LABEL);
     applyPick('covenBuilderPick', LS.builder,     BUILDER_LABEL);
     applyPick('covenTownPick',    LS.townRegular, TOWN_LABEL);
@@ -2081,6 +2060,12 @@
     var result = contract.read(localStorage);
     return result.state === 'saved' ? result.envelope : null;
   }
+
+  window.addEventListener('storage', function(event) {
+    if (event.key === LS.saint || event.key === LS.maven || event.key === LS.builder || event.key === LS.townRegular) {
+      hydrateCoven();
+    }
+  });
 
   function readCache() {
     var envelope = readCardEnvelope();
@@ -2163,7 +2148,7 @@
     if (!el || !profile) return;
     var contract = window.LAIDIESResidentCard;
     if (contract && contract.replaceWithSafeImage(
-      el, profile.card_avatar_url, 'Resident Card portrait'
+      el, profile.card_avatar_url, profile.card_avatar_alt || 'Resident Card portrait'
     )) {
       return;
     }
@@ -2237,6 +2222,7 @@
           card_role: ch.role,
           resident_number: ch.residentNumber,
           card_avatar_url: ch.avatar,
+          card_avatar_alt: ch.avatarAlt || '',
           favorite_saint: ch.favoriteSaint,
           favorite_episode: ch.favoriteEpisode,
           favorite_storefront: ch.favoriteStorefront,
@@ -2446,10 +2432,6 @@
       var el = document.getElementById(id);
       return el ? String(el.value || '').trim() : '';
     };
-    var checked = function(id) {
-      var el = document.getElementById(id);
-      return el ? !!el.checked : null;
-    };
     var patch = {
       display_name: val('editName'),
       favorite_song: val('editSong'),
@@ -2462,8 +2444,6 @@
       favorite_quote: val('editQuote'),
       card_motto: val('editMotto')
     };
-    var isPublic = checked('editIsPublic');
-    if (isPublic !== null) patch.member_card_is_public = isPublic;
     return patch;
   }
 
@@ -2483,13 +2463,6 @@
     set('editCocktail', p.favorite_cocktail);
     set('editQuote', p.favorite_quote);
     set('editMotto', p.card_motto);
-    var pubBox = document.getElementById('editIsPublic');
-    if (pubBox) pubBox.checked = !!p.member_card_is_public;
-    // If they have no username claimed yet, dim the toggle + show the hint
-    var hint = document.getElementById('editIsPublicHint');
-    var hasUsername = !!p.card_username;
-    if (hint) hint.style.display = hasUsername ? 'none' : 'block';
-    if (pubBox) pubBox.disabled = !hasUsername;
   }
 
   function wireSaveButton() {
@@ -2519,7 +2492,7 @@
           return;
         }
         renderProfile(Object.assign({}, readCache(), patch));
-        saveBtn.textContent = 'Saved on this device — sign in at MAiKEOVER to keep it';
+        saveBtn.textContent = 'Saved on this device — use the Resident Card desk for private account continuation';
         setTimeout(function() {
           saveBtn.disabled = false;
           saveBtn.textContent = original;
@@ -2597,7 +2570,7 @@
     if (currentSession) {
       if (persistenceState) {
         persistenceState.textContent =
-          'Controlled signed-in preflight state: account data is being exercised here, but cross-device restoration is not approved until the complete two-device suite passes.';
+          'Account-backed view: loading the supported private Card and continuation for this signed-in resident.';
       }
       var own = await loadOwnProfile();
       if (own) {
@@ -2625,7 +2598,7 @@
       populateEditForm(cached);
       if (persistenceState) {
         persistenceState.textContent =
-          'Device-local view: this Closet shows supported information saved in this browser. It does not prove account restoration or cross-device sync.';
+          'Device-local view: sign in at the Resident Card desk to restore your private Card and supported continuation on another device. The Puffy Board and pouch are included; prompts, messages, drafts and other free-form activity stay in this browser.';
       }
     }
 
@@ -2636,6 +2609,7 @@
   init();
 })();
 </script>
+  <script src="/content/site/closet-account-bridge-v1.js?v=20260727-account-1"></script>
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>
@@ -2689,10 +2663,8 @@
   })();
   (function renderClipJar() {
     'use strict';
-    // Butterfly Clip Jar — derived straight from the quiz records (same
-    // math as the quiz's butterfly rating: clips = best score, min 1
-    // broken clip for a bombed attempt), so it can never drift from the
-    // Pop Quiz and it rides the existing member-card sync when that ships.
+    // Device-local Quiz + Express progress summary. It reads product-owned
+    // local records but does not create currency, rewards, ownership or sync.
     function stored(key) {
       try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; }
     }
@@ -2707,41 +2679,33 @@
       var best = Math.round(Number(r.bestScore) || 0);
       var attempted = best > 0 || Number(r.attempts) > 0 || Boolean(r.completedAt);
       if (!attempted) return;
-      var isBroken = best < 2;
-      var clips = Math.max(best, 1);
+      var points = best;
       var m = String(key).match(/(\d+)/);
       var label = m ? 'EP ' + ('0' + Number(m[1])).slice(-2) : String(key).toUpperCase();
-      rows.push({ label: label, clips: clips, isBroken: isBroken, kind: 'quiz' });
-      total += clips;
+      rows.push({ label: label, points: points, kind: 'quiz' });
+      total += points;
     });
-    // Express tour clips — 1 butterfly clip per episode kept up with via the
-    // 4 learning stops (laidies_express_done, stamped by sv-tour-checkin.js).
+    // Each completed Express tour contributes one local summary point.
     var expressDone = stored('laidies_express_done');
     Object.keys(expressDone).sort().forEach(function(key) {
       var e = expressDone[key] || {};
       var epn = Number(e.episode || key);
       var label = epn ? 'EP ' + ('0' + epn).slice(-2) : String(key).toUpperCase();
-      rows.push({ label: label, clips: 1, isBroken: false, kind: 'express' });
+      rows.push({ label: label, points: 1, kind: 'express' });
       total += 1;
     });
-    // Subtract Book Fair spending so the jar shows what's AVAILABLE to spend.
-    var redeemed = stored('laidies_bookfair_redeemed');
-    var spent = 0;
-    Object.keys(redeemed).forEach(function(k){ spent += Number(redeemed[k] && redeemed[k].cost) || 0; });
-    var available = Math.max(0, total - spent);
     var countEl = document.getElementById('clipJarCount');
     var totalEl = document.getElementById('clipJarTotal');
     var ledger = document.getElementById('clipJarLedger');
     if (!countEl || !totalEl || !ledger) return;
-    totalEl.textContent = String(available);
-    countEl.textContent = total === 0 ? 'Empty jar'
-      : (available === 0 ? 'All spent' : available + ' clip' + (available === 1 ? '' : 's'))
-        + (spent ? ' · ' + spent + ' spent at the fair' : '');
+    totalEl.textContent = String(total);
+    countEl.textContent = total === 0 ? 'No local records yet'
+      : total + ' local record point' + (total === 1 ? '' : 's');
     ledger.innerHTML = '';
     if (!rows.length) {
       var empty = document.createElement('li');
       empty.className = 'clip-empty';
-      empty.textContent = 'No clips yet — the jar fills one Pop Quiz at a time.';
+      empty.textContent = 'No local progress recorded yet — complete a Pop Quiz or Express tour on this device.';
       ledger.appendChild(empty);
       return;
     }
@@ -2751,10 +2715,10 @@
       ep.className = 'clip-ep';
       ep.textContent = row.label + (row.kind === 'express' ? ' Express tour' : ' Pop Quiz');
       var amount = document.createElement('span');
-      amount.className = 'clip-amount' + (row.isBroken ? ' is-broken' : '');
-      amount.textContent = row.isBroken
-        ? '🦋 1 clip (it’s broken)'
-        : '🦋 ' + row.clips + ' clip' + (row.clips === 1 ? '' : 's');
+      amount.className = 'clip-amount';
+      amount.textContent = row.kind === 'express'
+        ? 'Express tour complete'
+        : 'Best quiz score: ' + row.points;
       li.append(ep, amount);
       ledger.appendChild(li);
     });

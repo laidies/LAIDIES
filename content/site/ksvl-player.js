@@ -17,8 +17,6 @@
   'use strict';
 
   var MUSIC = '/content/music/';
-  var SAINT_INTROS = '/content/music/ksvl-transitions/';
-
   // ---- Track library (single source of truth) ----
   // The `intro` field, when present, points to a DJ SunnyV recorded intro that
   // plays right before the track (in mix queues + live rotation + play-all).
@@ -28,18 +26,18 @@
     { id: 'wednesdays-in-sv',      title: 'Wednesdays in SUNNYVAiLE',              artist: 'THE LAiDIES',   src: MUSIC + 'the-laidies-wednesday-in-sunnyvaile.mp3',           mixes: ['anthems'] },
 
     // PATRON SAiNTS
-    { id: 'saint-bette',           title: 'Bette Midler · PATRON SAiNT of Range',             artist: 'The Ensembles',   src: MUSIC + 'saint-bette-midler.mp3',       intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-bette-midler.mp3',     mixes: ['saints'] },
-    { id: 'saint-buffy',           title: 'Buffy · PATRON SAiNT of SLAiYING',                 artist: 'The Overfits',    src: MUSIC + 'saint-buffy-summers.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-buffy-summers.mp3',    mixes: ['saints'] },
-    { id: 'saint-cher',            title: 'Cher · PATRON SAiNT of Early Adoption',            artist: 'The Overfits',    src: MUSIC + 'saint-cher-horowitz.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-cher-horowitz.mp3',    mixes: ['saints'] },
-    { id: 'saint-david',           title: 'David Rose · PATRON SAiNT of Specificity',         artist: 'Chain of Thought', src: MUSIC + 'saint-david-rose.mp3',         intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-david-rose.mp3',       mixes: ['saints'] },
-    { id: 'saint-deb',             title: 'Deb · PATRON SAiNT of Loop Me Out',                artist: 'Latent Space',    src: MUSIC + 'saint-deb.mp3',                intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-deb.mp3',              mixes: ['saints'] },
-    { id: 'saint-dolly',           title: 'Dolly Parton · PATRON SAiNT of Common Sense',      artist: "Grand Ol' Query", src: MUSIC + 'saint-dolly-parton.mp3',       intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-dolly-parton.mp3',     mixes: ['saints'] },
-    { id: 'saint-elle',            title: 'Elle Woods · PATRON SAiNT of Receipts',            artist: 'The Regressions', src: MUSIC + 'saint-elle-woods.mp3',         intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-elle-woods.mp3',       mixes: ['saints'] },
-    { id: 'saint-golden-girls',    title: 'The Golden Girls · PATRON SAiNT of Never Too Late', artist: 'The Diffusions',  src: MUSIC + 'saint-golden-girls.mp3',       intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-golden-girls.mp3',    mixes: ['saints'] },
-    { id: 'saint-miranda',         title: 'Miranda · PATRON SAiNT of Standards',              artist: 'Latent Space',    src: MUSIC + 'saint-miranda-priestly.mp3',   intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-miranda-priestly.mp3', mixes: ['saints'] },
-    { id: 'saint-regina',          title: 'Regina · PATRON SAiNT of Dangerous Confidence',    artist: 'The Embeddings',  src: MUSIC + 'saint-regina-george.mp3',      intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-regina-george.mp3',    mixes: ['saints'] },
-    { id: 'saint-samantha',        title: 'Samantha · PATRON SAiNT of Orientation',           artist: 'The Bots',        src: MUSIC + 'saint-samantha-jones.mp3',     intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-samantha-jones.mp3',  mixes: ['saints'] },
-    { id: 'saint-sister-mary-clarence', title: 'Sister Mary Clarence · PATRON SAiNT of Teaching', artist: 'The Embeddings', src: MUSIC + 'saint-sister-mary-clarence.mp3', intro: SAINT_INTROS + 'dj-sunnyv-intro-saint-sister-mary-clarence.mp3', mixes: ['saints'] },
+    { id: 'saint-bette',           title: 'Bette Midler · PATRON SAiNT of Range',             artist: 'The Ensembles',   src: MUSIC + 'saint-bette-midler.mp3',     mixes: ['saints'] },
+    { id: 'saint-buffy',           title: 'Buffy · PATRON SAiNT of SLAiYING',                 artist: 'The Overfits',    src: MUSIC + 'saint-buffy-summers.mp3',    mixes: ['saints'] },
+    { id: 'saint-cher',            title: 'Cher · PATRON SAiNT of Early Adoption',            artist: 'The Overfits',    src: MUSIC + 'saint-cher-horowitz.mp3',    mixes: ['saints'] },
+    { id: 'saint-david',           title: 'David Rose · PATRON SAiNT of Specificity',         artist: 'Chain of Thought', src: MUSIC + 'saint-david-rose.mp3',       mixes: ['saints'] },
+    { id: 'saint-deb',             title: 'Deb · PATRON SAiNT of Loop Me Out',                artist: 'Latent Space',    src: MUSIC + 'saint-deb.mp3',              mixes: ['saints'] },
+    { id: 'saint-dolly',           title: 'Dolly Parton · PATRON SAiNT of Common Sense',      artist: "Grand Ol' Query", src: MUSIC + 'saint-dolly-parton.mp3',     mixes: ['saints'] },
+    { id: 'saint-elle',            title: 'Elle Woods · PATRON SAiNT of Receipts',            artist: 'The Regressions', src: MUSIC + 'saint-elle-woods.mp3',       mixes: ['saints'] },
+    { id: 'saint-golden-girls',    title: 'The Golden Girls · PATRON SAiNT of Never Too Late', artist: 'The Diffusions',  src: MUSIC + 'saint-golden-girls.mp3',    mixes: ['saints'] },
+    { id: 'saint-miranda',         title: 'Miranda · PATRON SAiNT of Standards',              artist: 'Latent Space',    src: MUSIC + 'saint-miranda-priestly.mp3', mixes: ['saints'] },
+    { id: 'saint-regina',          title: 'Regina · PATRON SAiNT of Dangerous Confidence',    artist: 'The Embeddings',  src: MUSIC + 'saint-regina-george.mp3',    mixes: ['saints'] },
+    { id: 'saint-samantha',        title: 'Samantha · PATRON SAiNT of Orientation',           artist: 'The Bots',        src: MUSIC + 'saint-samantha-jones.mp3',  mixes: ['saints'] },
+    { id: 'saint-sister-mary-clarence', title: 'Sister Mary Clarence · PATRON SAiNT of Teaching', artist: 'The Embeddings', src: MUSIC + 'saint-sister-mary-clarence.mp3', mixes: ['saints'] },
 
     // Activities
     { id: 'ask-laidy',             title: 'Ask LAiDY',                             artist: 'DJ SunnyV',       src: MUSIC + 'game-ask-laidy.mp3',                                 mixes: ['activities'] },
@@ -52,10 +50,10 @@
     { id: 'the-newsstand',         title: 'The NewsStand',                         artist: 'The Embeddings',  src: MUSIC + 'sunnyvaile-newsstand.mp3',                           mixes: ['activities'] },
 
     // Episodes
-    { id: 'ep-01',                 title: 'Ep 01 · On Wednesdays We Do AI',                       artist: 'The Regressions', src: MUSIC + 'dj-jaidy-week-01-on-wednesday-we-do-ai.mp3',           intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-01.mp3', mixes: ['episodes'] },
-    { id: 'ep-02',                 title: 'Ep 02 · Tell Me What You Want',                        artist: 'The Predicts',    src: MUSIC + 'dj-jaidy-week-02-tell-me-what-you-want.mp3',           intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-02.mp3', mixes: ['episodes'] },
-    { id: 'ep-03',                 title: "Ep 03 · Don't Be Chutney on the Stand",                artist: 'The Overfits',    src: MUSIC + 'dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3',    intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-03.mp3', mixes: ['episodes'] },
-    { id: 'ep-04',                 title: 'Ep 04 · It Was Women All Along',                       artist: 'The Priors',      src: MUSIC + 'dj-jaidy-week-04-it-was-women-all-along.mp3',          intro: SAINT_INTROS + 'dj-sunnyv-intro-episode-04.mp3', mixes: ['episodes'] },
+    { id: 'ep-01',                 title: 'Ep 01 · On Wednesdays We Do AI',                       artist: 'The Regressions', src: MUSIC + 'dj-jaidy-week-01-on-wednesday-we-do-ai.mp3', mixes: ['episodes'] },
+    { id: 'ep-02',                 title: 'Ep 02 · Tell Me What You Want',                        artist: 'The Predicts',    src: MUSIC + 'dj-jaidy-week-02-tell-me-what-you-want.mp3', mixes: ['episodes'] },
+    { id: 'ep-03',                 title: "Ep 03 · Don't Be Chutney on the Stand",                artist: 'The Overfits',    src: MUSIC + 'dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3', mixes: ['episodes'] },
+    { id: 'ep-04',                 title: 'Ep 04 · It Was Women All Along',                       artist: 'The Priors',      src: MUSIC + 'dj-jaidy-week-04-it-was-women-all-along.mp3', mixes: ['episodes'] },
 
     // B-side
     { id: 'every-slaiyer-watcher', title: 'Every SLAiYER Needs a Watcher',                       artist: 'The Embeddings',  src: MUSIC + 'dj-jaidy-every-slaiyer-needs-a-watcher.mp3',           mixes: ['bside'] },
@@ -193,14 +191,13 @@
   }
 
   // ---- Mix definitions (order matters — display order in the rack) ----
-  var CD_IMG_DIR = '/assets/brand/';
   var MIXES = [
-    { id: 'all',        title: 'All Songs',     sub: 'Everything KSVL has',                     color: 'plum',   labelStyle: 'sharpie', image: CD_IMG_DIR + 'ksvl-cd-mini-pearl-plum.png' },
-    { id: 'anthems',    title: 'Anthems',       sub: 'The town identity tracks',                color: 'gold',   labelStyle: 'sharpie', image: CD_IMG_DIR + 'ksvl-cd-mini-champagne-lime.png' },
-    { id: 'saints',     title: 'PATRON SAiNTS', sub: 'One track per saint',                     color: 'rose',   labelStyle: 'sharpie', image: CD_IMG_DIR + 'ksvl-cd-mini-blush-pink.png' },
-    { id: 'activities', title: 'Activities',    sub: 'Game themes + hangouts',                  color: 'teal',   labelStyle: 'sharpie', image: CD_IMG_DIR + 'ksvl-cd-mini-teal-mint.png' },
-    { id: 'episodes',   title: 'Episodes',      sub: 'DJ SunnyV intros, one per issue',         color: 'purple', labelStyle: 'sharpie', image: CD_IMG_DIR + 'ksvl-cd-mini-lavender-pop.png' },
-    { id: 'bside',      title: 'B-side',        sub: "Bonus tracks that don't fit elsewhere",   color: 'aqua',   labelStyle: 'sharpie', image: CD_IMG_DIR + 'ksvl-cd-mini-aqua-blue.png' }
+    { id: 'all',        title: 'All Songs',     sub: 'Everything KSVL has',                     color: 'plum',   labelStyle: 'sharpie' },
+    { id: 'anthems',    title: 'Anthems',       sub: 'The town identity tracks',                color: 'gold',   labelStyle: 'sharpie' },
+    { id: 'saints',     title: 'PATRON SAiNTS', sub: 'One track per saint',                     color: 'rose',   labelStyle: 'sharpie' },
+    { id: 'activities', title: 'Activities',    sub: 'Game themes + hangouts',                  color: 'teal',   labelStyle: 'sharpie' },
+    { id: 'episodes',   title: 'Episodes',      sub: 'One original song per issue',             color: 'purple', labelStyle: 'sharpie' },
+    { id: 'bside',      title: 'B-side',        sub: "Bonus tracks that don't fit elsewhere",   color: 'aqua',   labelStyle: 'sharpie' }
   ];
 
   function tracksForMix(mixId) {
@@ -227,98 +224,8 @@
     };
   }
 
-  // ---- LIVE rotation assets ----
+  // The live control is a truthful catalogue shuffle while programme objects remain unadmitted.
   var LIVE_MIX = { id: 'live', title: 'KSVL soundcheck', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
-
-  var JINGLES_DIR = '/content/music/ksvl-jingles/';
-  var TRANSITIONS_DIR = '/content/music/ksvl-transitions/';
-  var SPOTS_DIR = '/content/music/ksvl-spots/';
-  var INTROS_DIR = '/content/music/ksvl-spots/intros/';
-
-  // Standalone jingles — station bumpers that play on their own between tracks.
-  // (Station ID is used only as the opener; Signoff is used only when a mix wraps.)
-  var LIVE_JINGLES = [
-    { title: 'KSVL Wednesday', src: JINGLES_DIR + 'jingle-ksvl-wednesday.mp3' },
-    { title: 'KSVL Sting',     src: JINGLES_DIR + 'jingle-ksvl-sting-a.mp3' },
-    { title: 'KSVL Sting',     src: JINGLES_DIR + 'jingle-ksvl-sting-b.mp3' }
-  ];
-
-  // DJ segments. Weather and Traffic are PAIRED with a jingle bumper — they play as a single atomic
-  // unit (jingle bumper → DJ report) so the traffic report can never happen without the traffic jingle.
-  // DJ Signoff is intentionally NOT in the rotation pool — it only plays when the user hits Stop.
-  var LIVE_TRANSITIONS = [
-    { title: 'DJ SunnyV · Signature Open', artist: 'KSVL', src: TRANSITIONS_DIR + 'dj-sunnyv-signature-open.mp3' },
-    { title: 'DJ SunnyV · Time-Check',     artist: 'KSVL', src: TRANSITIONS_DIR + 'dj-jaidy-time-check.mp3' },
-    { title: 'DJ SunnyV · On the Air',     artist: 'KSVL', src: TRANSITIONS_DIR + 'dj-sunnyv-general.mp3' },
-    { title: 'DJ SunnyV · Between Tracks', artist: 'KSVL', src: TRANSITIONS_DIR + 'dj-sunnyv-general-2.mp3' },
-    { title: 'DJ SunnyV · Call in a Request', artist: 'KSVL', src: TRANSITIONS_DIR + 'dj-sunnyv-request.mp3' },
-    { title: 'SUNNYVAiLE Weather', artist: 'KSVL', parts: [
-      { src: JINGLES_DIR + 'jingle-ksvl-weather-a.mp3', title: 'KSVL Weather', artist: 'KSVL' },
-      { src: TRANSITIONS_DIR + 'dj-jaidy-weather.mp3',  title: 'SUNNYVAiLE Weather Report', artist: 'DJ SunnyV' }
-    ]},
-    { title: 'SUNNYVAiLE Weather', artist: 'KSVL', parts: [
-      { src: JINGLES_DIR + 'jingle-ksvl-weather-b.mp3', title: 'KSVL Weather', artist: 'KSVL' },
-      { src: TRANSITIONS_DIR + 'dj-jaidy-weather.mp3',  title: 'SUNNYVAiLE Weather Report', artist: 'DJ SunnyV' }
-    ]},
-    { title: 'SUNNYVAiLE Traffic', artist: 'KSVL', parts: [
-      { src: JINGLES_DIR + 'jingle-ksvl-traffic.mp3',        title: 'KSVL Traffic', artist: 'KSVL' },
-      { src: TRANSITIONS_DIR + 'dj-jaidy-traffic-report.mp3', title: 'SUNNYVAiLE Traffic Report', artist: 'DJ SunnyV' }
-    ]}
-  ];
-
-  var LIVE_COMMERCIALS = [
-    { store: 'Mayor Deb',              intro: INTROS_DIR + 'intro-deb-psa.mp3',           spot: SPOTS_DIR + 'spot-deb-psa.mp3' },
-    { store: 'The Blend & Snap',       intro: INTROS_DIR + 'intro-blend-and-snap.mp3',    spot: SPOTS_DIR + 'spot-blend-and-snap-v2.mp3' },
-    { store: 'The BRONZE AiGE',        intro: INTROS_DIR + 'intro-bronze-aige.mp3',       spot: SPOTS_DIR + 'spot-bronze-aige-v2.mp3' },
-    { store: 'Mme CLAi-O',             intro: INTROS_DIR + 'intro-mme-claio.mp3',         spot: SPOTS_DIR + 'spot-mme-claio-v2.mp3' },
-    { store: 'The LUMINAiRY',         intro: INTROS_DIR + 'intro-luminairy.mp3',        spot: SPOTS_DIR + 'spot-luminairy.mp3' },
-    { store: 'The Post Office',        intro: INTROS_DIR + 'intro-post-office.mp3',       spot: SPOTS_DIR + 'spot-post-office.mp3' },
-    { store: 'Delta LAi Nu',           intro: INTROS_DIR + 'intro-delta-lai-nu.mp3',      spot: SPOTS_DIR + 'spot-delta-lai-nu.mp3' },
-    { store: 'The Mall',               intro: INTROS_DIR + 'intro-mall-claires.mp3',      spot: SPOTS_DIR + 'spot-mall-pieces-of-flair-v2.mp3' },
-    { store: 'SUNNYVAiLE High',        intro: INTROS_DIR + 'intro-sunnyvaile-high.mp3',   spot: SPOTS_DIR + 'spot-sunnyvaile-high-v2.mp3' },
-    { store: 'The Chick Flicks',       intro: INTROS_DIR + 'intro-chick-flicks.mp3',      spot: SPOTS_DIR + 'spot-chick-flicks-v2.mp3' },
-    { store: 'The FAiRY Godmother',    intro: INTROS_DIR + 'intro-fairy-godmother.mp3',   spot: SPOTS_DIR + 'spot-fairy-godmother.mp3' }
-  ];
-
-  function shuffle(arr) {
-    var a = arr.slice();
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-
-  // Builds a rotation queue. Always opens with the KSVL station-ID jingle,
-  // then rotates blocks of: song → jingle → song → transition → song → commercial (intro+spot as one atomic unit).
-  function buildLiveQueue() {
-    var songs = shuffle(TRACKS);
-    var jingles = shuffle(LIVE_JINGLES);
-    var transitions = shuffle(LIVE_TRANSITIONS);
-    var commercials = shuffle(LIVE_COMMERCIALS);
-    var queue = [stationOpener()];
-    var si = 0, ji = 0, ti = 0, ci = 0;
-    // 8 blocks; nextTrack() wraps via modulo so it loops indefinitely.
-    for (var b = 0; b < 8; b++) {
-      queue.push(wrapWithIntro(songs[si++ % songs.length]));
-      var jg = jingles[ji++ % jingles.length];
-      queue.push({ title: jg.title, artist: 'KSVL', src: jg.src });
-      queue.push(wrapWithIntro(songs[si++ % songs.length]));
-      // Transition may be a single track OR a paired jingle+report atomic unit.
-      queue.push(transitions[ti++ % transitions.length]);
-      queue.push(wrapWithIntro(songs[si++ % songs.length]));
-      var com = commercials[ci++ % commercials.length];
-      queue.push({
-        title: com.store,
-        artist: 'KSVL Sponsors',
-        parts: [
-          { src: com.intro, title: 'And now, a word from ' + com.store + '…', artist: 'DJ SunnyV' },
-          { src: com.spot,  title: com.store,                                artist: 'KSVL Sponsors' }
-        ]
-      });
-    }
-    return queue;
-  }
 
   function startLive() {
     if (!TRACKS.length) {
@@ -706,8 +613,7 @@
       navigator.mediaSession.metadata = new MediaMetadata({
         title: title || 'KSVL 99.9',
         artist: artist || 'SUNNYVAiLE Community RAiDIO',
-        album: 'KSVL 99.9 · SUNNYVAiLE Community RAiDIO',
-        artwork: [{ src: '/assets/ksvl-media-artwork.png', sizes: '512x512', type: 'image/png' }]
+        album: 'KSVL 99.9 · SUNNYVAiLE Community RAiDIO'
       });
       navigator.mediaSession.playbackState = state.paused ? 'paused' : 'playing';
       if (!mediaSessionArmed) {
@@ -1039,27 +945,6 @@
     }
   }
 
-  // Every playback starts with the KSVL station-ID jingle
-  function stationOpener() {
-    return {
-      title: 'KSVL · SUNNYVAiLE\'s Own',
-      artist: 'KSVL',
-      src: JINGLES_DIR + 'jingle-ksvl-station-id.mp3'
-    };
-  }
-
-  // Signoff pair (jingle → DJ farewell). Only plays when the user hits Stop.
-  function signoffPair() {
-    return {
-      title: 'KSVL · Signing off',
-      artist: 'KSVL',
-      parts: [
-        { src: JINGLES_DIR + 'jingle-ksvl-signoff.mp3',       title: 'KSVL · Goodnight',        artist: 'KSVL' },
-        { src: TRANSITIONS_DIR + 'dj-jaidy-signoff.mp3',      title: 'DJ SunnyV · Signing off',  artist: 'DJ SunnyV' }
-      ]
-    };
-  }
-
   function startMix(mixId, startTrackIndex) {
     var mix = MIXES.filter(function(m) { return m.id === mixId; })[0];
     if (!mix) return;
@@ -1151,17 +1036,9 @@
     try { localStorage.removeItem('laidies_ksvl_player_state_v1'); } catch(e) {}
   }
 
-  // User-facing Stop. First click triggers the signoff pair; second click force-closes.
+  // Programme objects remain held; Stop therefore ends the admitted catalogue directly.
   function stopPlayer() {
-    if (state.signingOff) { realStopPlayer(); return; }
-    if (!state.queue.length) { realStopPlayer(); return; }
-    state.signingOff = true;
-    state.mixId = 'signoff';
-    state.queue = [signoffPair()];
-    state.index = 0;
-    state.currentPart = 0;
-    state.preloadedAudio = null; state.preloadedSrc = null;
-    playCurrentPart();
+    realStopPlayer();
   }
 
   // ---- Rack UI ----

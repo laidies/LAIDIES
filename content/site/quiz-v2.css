@@ -34,6 +34,12 @@ body.quiz-v2 {
   filter: saturate(1.08) contrast(1.04);
 }
 
+.quiz-v2 .quiz-deskhero--held { display: grid; place-items: center; padding: 28px; background: var(--q-ink); color: white; text-align: center; }
+.quiz-v2 .quiz-deskhero--held p { margin: 0; }
+.quiz-v2 .quiz-deskhero--held strong { display: block; color: var(--q-pink); font: 800 clamp(28px, 6vw, 58px)/1.1 "Jost", sans-serif; }
+.quiz-v2 .quiz-deskhero--held span { display: block; margin-top: 10px; font: 600 16px/1.5 "Jost", sans-serif; }
+.quiz-v2 .quiz-deskhero--held::after { display: none; }
+
 .quiz-v2 .quiz-deskhero::after {
   background: linear-gradient(180deg, transparent 72%, rgba(7, 16, 47, 0.34));
 }

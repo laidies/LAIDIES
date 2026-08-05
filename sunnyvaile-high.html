@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="/content/site/sunnyvaile-high-v2.css?v=20260724-3">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -33,23 +33,9 @@
 
   <header class="sv-header"></header>
 
-  <div class="sv-hero"><img id="sh-hero-img" src="assets/building-interiors/sunnyvaile-high-hallway.jpg?v=20260708" alt="Inside SUNNYVAiLE High — a locker-lined hallway with plum, teal and gold lockers, a checkerboard floor, a SUNNYVAiLE HIGH banner, a GO CENTAURS! pennant and a trophy case" loading="eager"></div>
-  <script>
-    // Hero shows the everyday classroom; it dresses up as the Scholastic Book Fair gym
-    // ONLY while the Fair is in town (same schedule as the Book Fair section below).
-    (function () {
-      var ANCHOR = new Date('2026-07-06T00:00:00'), FAIR_DAYS = 7, PERIOD_DAYS = 28, DAY = 864e5;
-      var el = document.getElementById('sh-hero-img');
-      if (!el) return;
-      var elapsed = new Date() - ANCHOR;
-      if (elapsed < 0) return;
-      var cycleStart = ANCHOR.getTime() + Math.floor(elapsed / (PERIOD_DAYS * DAY)) * PERIOD_DAYS * DAY;
-      if (new Date() - cycleStart < FAIR_DAYS * DAY) {
-        el.src = 'assets/building-interiors/sunnyvaile-high-book-fair.jpg?v=20260707';
-        el.alt = 'The SUNNYVAiLE High gym set up as a Scholastic Book Fair — a heart at center court, a SCHOLASTIC BOOK FAIR banner, a GO CENTAURS! pennant, book-display tables and heart balloons';
-      }
-    })();
-  </script>
+  <div class="sv-hero sh-visual-hold" role="img" aria-label="SUNNYVAiLE High interior artwork is being rebuilt">
+    <p><strong>SUNNYVAiLE High</strong><span>The hallway artwork is being rebuilt. Pop Quiz, class previews, the 101 shelf and Book Fair routes remain open below.</span></p>
+  </div>
 
   <main>
 
@@ -69,10 +55,7 @@
 
     <h2>The Pop Quiz</h2>
 
-    <figure style="margin: 14px 0 20px;">
-      <img src="assets/building-interiors/sunnyvaile-high-pop-quiz.jpg?v=20260707" alt="A SUNNYVAiLE High pop-quiz desk — a scantron bubble sheet with a No. 2 pencil, a POP QUIZ · WEDNESDAY chalkboard, the CENTAURS crest and a scantron grading machine in the back" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: 0 10px 26px rgba(75,33,72,0.16);">
-      <figcaption style="margin-top: 8px; font-size: 13px; color: var(--plum); opacity: 0.72; font-style: italic;">Room 101. Wednesdays. Pencils ready.</figcaption>
-    </figure>
+    <div class="sh-room-hold" role="note"><strong>Room 101 · Pop Quiz</strong><span>The room artwork is being refreshed; the working quiz is open below.</span></div>
 
     <p>Pick one of the available Episode quizzes, answer every question, then inspect what each answer means and where to reread it. The quiz checks recall and judgment; it does not certify mastery.</p>
 
@@ -551,10 +534,7 @@
 
     <h2>Season 1 · the 101 shelf</h2>
 
-    <figure style="margin: 14px 0 20px;">
-      <img src="assets/building-interiors/sunnyvaile-high-classroom.jpg?v=20260707" alt="A SUNNYVAiLE High classroom — desks stacked with textbooks, a green chalkboard and a globe, where the Season 1 classes meet" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: 0 10px 26px rgba(75,33,72,0.16);">
-      <figcaption style="margin-top: 8px; font-size: 13px; color: var(--plum); opacity: 0.72; font-style: italic;">Seven 101 textbooks. Take a seat, take notes.</figcaption>
-    </figure>
+    <div class="sh-room-hold" role="note"><strong>Season 1 · the 101 shelf</strong><span>The classroom artwork is being rebuilt; the books and written class previews remain available.</span></div>
 
     <p>The intro curriculum — one 101 textbook per topic. These are books you read, and they live on the 101 shelf in the LIBR<span class="ai">Ai</span>RY. The <a href="/learn/class.html" style="color: var(--rose); text-decoration: underline;">classroom</a> shows the proposed demonstration plans while the screen-recorded classes are still in production.</p>
 
@@ -629,7 +609,6 @@
       .bf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 16px; margin: 16px 0; }
       .bf-item { position: relative; text-align: center; padding: 14px 8px 12px; background: var(--cream); border: 1.5px dashed rgba(155,63,95,0.3); border-radius: 12px; }
       .bf-item .bf-art { display: block; width: 64px; height: 64px; margin: 0 auto 8px; object-fit: contain; }
-      .bf-item .bf-emoji { display: block; font-size: 44px; line-height: 64px; height: 64px; }
       .bf-item .bf-name { display: block; font-family: 'Jost', sans-serif; font-size: 11.5px; font-weight: 700; color: var(--plum); line-height: 1.3; }
       .bf-item .bf-note { display: block; font-size: 10px; color: var(--plum-soft, #6b3a66); font-style: italic; margin-top: 3px; }
       .bf-item.bf-earned { border-style: solid; border-color: var(--gold); background: linear-gradient(160deg, #fffdf6, #fdf3e0); }
@@ -785,7 +764,7 @@
         }
 
         function art(p) {
-          return '<img class="bf-art" src="/assets/puffies/puffy-' + p.slug + '.png" alt="" onerror="this.outerHTML=\'<span class=&quot;bf-emoji&quot;>' + p.emoji + '</span>\'">';
+          return '';
         }
 
         if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);

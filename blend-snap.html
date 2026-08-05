@@ -7,7 +7,6 @@
   <meta name="description" content="The Blend & Snap at MAiN Street No. 4 — order the weekly pack menu and see exactly which review, practice, reference, card, and quiz pieces are ready.">
   <meta property="og:title" content="The Blend & Snap · LAiDIES">
   <meta property="og:description" content="Order your usual, check exactly what is ready in an episode's Study Pack menu, and follow the corkboard around town.">
-  <meta property="og:image" content="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-jojo-counter-comic-candidate-v1.png">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
   <style>
@@ -49,22 +48,38 @@
       background: var(--bs-midnight);
       border-bottom: 8px solid var(--bs-pink);
     }
-    .bs-hero > img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .bs-hero__held {
+      display: grid;
+      width: min(100% - 48px, 920px);
+      min-height: 100%;
+      margin: 0 auto;
+      place-items: center;
+      padding: 42px;
+      border: 3px dashed rgba(255,253,251,.72);
+      border-radius: 18px;
+      color: var(--bs-paper);
+      background:
+        linear-gradient(145deg, rgba(113,55,214,.72), rgba(21,188,224,.34)),
+        repeating-linear-gradient(0deg, rgba(255,253,251,.12) 0 2px, transparent 2px 42px);
+      font-size: clamp(15px, 1.8vw, 23px);
+      font-weight: 800;
+      letter-spacing: .12em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
     }
     .bs-special-on-board {
       position: absolute;
-      left: 72.1%;
-      top: 10.4%;
-      width: 10.7%;
-      min-height: 11%;
-      padding: 5px;
-      border: 0;
-      background: transparent;
+      right: clamp(22px, 6vw, 84px);
+      bottom: clamp(22px, 6vw, 72px);
+      width: min(100% - 44px, 340px);
+      min-height: 88px;
+      padding: 14px 18px;
+      border: 3px solid var(--bs-paper);
+      border-radius: 12px;
+      background: var(--bs-pink);
       color: var(--bs-midnight);
+      box-shadow: 7px 7px 0 var(--bs-cyan);
       text-align: center;
       cursor: pointer;
     }
@@ -262,6 +277,16 @@
       font-weight: 700;
       text-align: right;
     }
+    .bs-quiz-handoff {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      padding: 18px 0;
+      border-top: 3px double var(--bs-purple);
+    }
+    .bs-quiz-handoff h3 { margin: 0; font-size: 18px; line-height: 1.1; }
+    .bs-quiz-handoff p { margin: 5px 0 0; color: rgba(17,24,59,.67); font-size: 14px; }
     .bs-pack-fallback[hidden],
     .bs-pack-retry[hidden] { display: none; }
     .bs-pack-fallback,
@@ -325,6 +350,14 @@
       border-top: 1px solid var(--bs-line);
     }
     .bs-receipt__components a { font-weight: 800; text-underline-offset: 3px; }
+    .bs-receipt__quiz-handoff {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 3px double var(--bs-purple);
+    }
+    .bs-receipt__quiz-handoff h4 { margin: 0; font-size: 16px; }
+    .bs-receipt__quiz-handoff p { margin: 5px 0 0; }
+    .bs-receipt__quiz-handoff a { display: inline-block; margin-top: 8px; font-weight: 800; text-underline-offset: 3px; }
 
     .bs-regulars {
       margin-top: 24px;
@@ -393,37 +426,37 @@
     .bs-noticeboard-head .bs-kicker { color: var(--bs-mint); }
     .bs-noticeboard-head p { margin: 0; color: rgba(255,253,251,.72); font-size: 17px; }
     .bs-board-wrap {
-      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
       margin-top: 34px;
-    }
-    .bs-board-wrap > img {
-      display: block;
-      width: 100%;
-      height: auto;
+      padding: 24px;
       border: 4px solid var(--bs-cyan);
+      background:
+        repeating-linear-gradient(0deg, rgba(255,253,251,.12) 0 1px, transparent 1px 28px),
+        #7f4c36;
       box-shadow: 10px 10px 0 var(--bs-purple);
     }
     .bs-notice {
-      position: absolute;
-      width: 20.5%;
-      height: 36%;
-      border: 0;
-      background: transparent;
+      display: grid;
+      min-height: 148px;
+      place-content: center;
+      padding: 18px;
+      border: 2px solid rgba(17,24,59,.7);
+      background: var(--bs-paper);
+      color: var(--bs-midnight);
       cursor: pointer;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 3px 4px 0 rgba(17,24,59,.32);
     }
     .bs-notice:hover,
     .bs-notice:focus-visible {
       outline: 5px solid var(--bs-lime);
       outline-offset: 3px;
     }
-    .bs-notice:nth-of-type(1) { left: 6.6%; top: 10%; }
-    .bs-notice:nth-of-type(2) { left: 29.5%; top: 10%; }
-    .bs-notice:nth-of-type(3) { left: 51.7%; top: 10%; }
-    .bs-notice:nth-of-type(4) { left: 73.6%; top: 10%; }
-    .bs-notice:nth-of-type(5) { left: 6.4%; top: 53.5%; }
-    .bs-notice:nth-of-type(6) { left: 29%; top: 53.5%; }
-    .bs-notice:nth-of-type(7) { left: 51.4%; top: 53.5%; }
-    .bs-notice:nth-of-type(8) { left: 73.8%; top: 53.5%; }
     .bs-notice--study-pack {
       z-index: 2;
       display: grid;
@@ -474,10 +507,17 @@
         min-height: 0;
         aspect-ratio: 1 / 1.02;
       }
-      .bs-hero > img {
-        object-position: 51% center;
+      .bs-hero__held {
+        width: calc(100% - 32px);
+        padding: 28px;
+        font-size: 13px;
       }
-      .bs-special-on-board { display: none; }
+      .bs-special-on-board {
+        right: 16px;
+        bottom: 18px;
+        width: calc(100% - 32px);
+        min-height: 76px;
+      }
       .bs-state__inner,
       .bs-usual,
       .bs-counter,
@@ -502,21 +542,28 @@
         width: 100%;
         margin: 26px 0 0;
       }
-      .bs-menu-line { grid-template-columns: 1fr; gap: 8px; }
+      .bs-menu-line,
+      .bs-quiz-handoff { grid-template-columns: 1fr; gap: 8px; }
       .bs-menu-unavailable { max-width: none; text-align: left; }
       .bs-receipt__components li { grid-template-columns: 1fr; }
       .bs-receipt { box-shadow: 7px 7px 0 var(--bs-cyan); }
       .bs-regular { grid-template-columns: 68px minmax(0, 1fr); }
       .bs-regular__go { grid-column: 2; }
       .bs-noticeboard-head { align-items: start; }
-      .bs-board-wrap > img { box-shadow: 7px 7px 0 var(--bs-purple); }
+      .bs-board-wrap {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+        box-shadow: 7px 7px 0 var(--bs-purple);
+      }
+      .bs-notice { min-height: 92px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
@@ -536,7 +583,7 @@
 
   <main class="bs-main">
     <section class="bs-hero" aria-label="JoJo at the Blend & Snap counter">
-      <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-jojo-counter-comic-candidate-v1.png" alt="JoJo slides a heart latte across the Blend & Snap counter in bright SUNNYVAiLE">
+      <p class="bs-hero__held" role="status">JoJo counter visual held · the Study Pack menu remains open for ordering.</p>
       <button class="bs-special-on-board" id="bsOrderHero" type="button">
         <strong id="bsHeroSpecial">Episode pack menu</strong>
         <span>Order at the counter</span>
@@ -601,6 +648,7 @@
           <button class="svb-action" id="bsOrderMenu" type="button" disabled>Loading the Special</button>
         </div>
         <div id="bsComponents" aria-live="polite"></div>
+        <div id="bsQuizHandoff" aria-live="polite"></div>
       </div>
 
       <article class="bs-receipt" id="bsReceipt" aria-live="polite">
@@ -609,6 +657,7 @@
           <h3 id="bsReceiptTitle">Episode pack menu</h3>
           <p id="bsReceiptCopy">JoJo is checking the menu.</p>
           <ul class="bs-receipt__components" id="bsReceiptComponents"></ul>
+          <div class="bs-receipt__quiz-handoff" id="bsReceiptQuizHandoff"></div>
         </div>
         <div class="bs-receipt__actions">
           <a class="svb-action" id="bsTakeEpisode" href="/chick-flicks.html">Read the Episode</a>
@@ -637,18 +686,17 @@
       </div>
 
       <div class="bs-board-wrap">
-        <img src="/assets/building-interiors/delivery-20260723-blend-snap-comic-v1/blend-snap-corkboard-comic-candidate-v1.png" alt="Blend & Snap community corkboard with eight notices; the Study Pack notice has a current availability label">
         <a class="bs-notice bs-notice--study-pack" href="#the-study-pack" aria-label="Open the Study Pack menu and check current availability">
           <strong>Study Pack menu</strong>
           <span>Availability checked before every order</span>
         </a>
-        <a class="bs-notice" href="/sunnyvaile-high.html" aria-label="Pop Quiz help at SUNNYVAiLE High"></a>
-        <a class="bs-notice" href="/chick-flicks.html" aria-label="Chick Flicks episode rewind club"></a>
-        <a class="bs-notice" href="/bronze-aige.html" aria-label="BRONZE AiGE post-quiz debrief"></a>
-        <a class="bs-notice" href="/radio.html" aria-label="KSVL earworm study session"></a>
-        <a class="bs-notice" href="/luminairy.html" aria-label="LUMINAiRY field trip — meet a MAiVEN"></a>
-        <a class="bs-notice" href="/sorority-house.html" aria-label="Delta LAi Nu Girl Talk — Resident Card required"></a>
-        <a class="bs-notice" href="/library.html" aria-label="LIBRAiRY citation rescue"></a>
+        <a class="bs-notice" href="/sunnyvaile-high.html" aria-label="Pop Quiz help at SUNNYVAiLE High">Pop Quiz help at SUNNYVAiLE High</a>
+        <a class="bs-notice" href="/chick-flicks.html" aria-label="Chick Flicks episode rewind club">Chick Flicks episode rewind club</a>
+        <a class="bs-notice" href="/bronze-aige.html" aria-label="BRONZE AiGE post-quiz debrief">BRONZE AiGE post-quiz debrief</a>
+        <a class="bs-notice" href="/radio.html" aria-label="KSVL earworm study session">KSVL earworm study session</a>
+        <a class="bs-notice" href="/luminairy.html" aria-label="LUMINAiRY field trip — meet a MAiVEN">LUMINAiRY field trip — meet a MAiVEN</a>
+        <a class="bs-notice" href="/sorority-house.html" aria-label="Delta LAi Nu Girl Talk — Resident Card required">Delta LAi Nu Girl Talk — Resident Card required</a>
+        <a class="bs-notice" href="/library.html" aria-label="LIBRAiRY citation rescue">LIBRAiRY citation rescue</a>
       </div>
 
       <p class="bs-quiet">
@@ -785,9 +833,29 @@
       function componentActionLabel(component) {
         if (component.id === "try_on") return "Open the Try-On →";
         if (component.id === "cheat_sheet") return "Open the Cheat Sheet →";
-        if (component.id === "quiz") return "Walk to the Quiz →";
         if (component.id === "trading_cards") return "Open the Cards →";
         return "Open →";
+      }
+
+      function renderQuizHandoff(handoff, container, receiptMode) {
+        container.replaceChildren();
+        var heading = document.createElement(receiptMode ? "h4" : "h3");
+        heading.textContent = "Check understanding next door";
+        var copy = document.createElement("p");
+        copy.textContent = handoff.label + " · " + handoff.job + ". " + handoff.publicNote;
+        container.append(heading, copy);
+        if (handoff.status === "available") {
+          var link = document.createElement("a");
+          link.href = handoff.route;
+          link.textContent = "Go to SUNNYVAiLE High →";
+          container.appendChild(link);
+        } else {
+          var status = document.createElement("span");
+          status.className = "bs-component-status";
+          status.dataset.status = handoff.status;
+          status.textContent = handoff.statusLabel;
+          container.appendChild(status);
+        }
       }
 
       function renderReceipt(pack) {
@@ -824,6 +892,11 @@
           }
           list.appendChild(item);
         });
+        renderQuizHandoff(
+          pack.quizHandoff,
+          document.getElementById("bsReceiptQuizHandoff"),
+          true
+        );
       }
 
       function openReceipt(pack, trigger) {
@@ -899,10 +972,11 @@
 
       function validatePackManifest(manifest, episodes) {
         var statuses = ["available", "held", "planned", "unavailable"];
-        var requiredComponents = ["study_sheet", "try_on", "cheat_sheet", "trading_cards", "quiz"];
+        var requiredComponents = ["study_sheet", "try_on", "cheat_sheet", "trading_cards"];
         var manifestKeys = ["schemaVersion", "manifestId", "updatedAt", "freshThrough", "packs"];
-        var packKeys = ["episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components"];
+        var packKeys = ["episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components", "quizHandoff"];
         var componentKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
+        var quizHandoffKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
         var today = window.__BLEND_SNAP_TODAY ||
           new Date().toISOString().slice(0, 10);
         if (!manifest || manifest.schemaVersion !== "1.0.0" ||
@@ -929,7 +1003,7 @@
         var seenPacks = {};
         manifest.packs.forEach(function(pack) {
           var requiredForPack = pack.episodeNumber === 1
-            ? ["try_on", "cheat_sheet", "trading_cards", "quiz"]
+            ? ["try_on", "cheat_sheet", "trading_cards"]
             : requiredComponents;
           var episode = episodeByNumber[pack.episodeNumber];
           var episodeRoute = "/" + String(episode && episode.issueUrl || "").replace(/^\//, "");
@@ -942,6 +1016,16 @@
               !Array.isArray(pack.components) ||
               pack.components.length !== requiredForPack.length) {
             throw new Error("pack does not match published episode");
+          }
+          var quizHandoff = pack.quizHandoff;
+          if (!quizHandoff || !hasOnlyKeys(quizHandoff, quizHandoffKeys) ||
+              quizHandoff.id !== "quiz" || !statuses.includes(quizHandoff.status) ||
+              !quizHandoff.label || !quizHandoff.job || !quizHandoff.statusLabel ||
+              !quizHandoff.publicNote ||
+              (quizHandoff.status === "available" &&
+                (!safeRoute(quizHandoff.route) || quizHandoff.route !== "/learn/quiz.html#quiz-start")) ||
+              (quizHandoff.status !== "available" && quizHandoff.route !== null)) {
+            throw new Error("Quiz handoff contract invalid");
           }
           seenPacks[pack.episodeNumber] = true;
           var ids = [];
@@ -1027,6 +1111,11 @@
         document.getElementById("bsPackFallback").hidden = true;
         document.getElementById("bsPackRetry").hidden = true;
         renderMenuComponents(currentPack);
+        renderQuizHandoff(
+          currentPack.quizHandoff,
+          document.getElementById("bsQuizHandoff"),
+          false
+        );
         setOrderAvailability(true, "Order Episode " + episodeNumber + " pack menu");
 
         var past = sortedEpisodes.slice(1);
@@ -1134,6 +1223,8 @@
         document.getElementById("bsPackFallback").hidden = false;
         document.getElementById("bsPackRetry").hidden = false;
         document.getElementById("bsComponents").replaceChildren();
+        document.getElementById("bsQuizHandoff").replaceChildren();
+        document.getElementById("bsReceiptQuizHandoff").replaceChildren();
         document.getElementById("bsRegulars").innerHTML =
           "<p>Past pack menus are unavailable until the same inventory check passes.</p>";
         receipt.classList.remove("is-open");

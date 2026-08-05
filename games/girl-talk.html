@@ -9,7 +9,7 @@
     <meta property="og:title" content="Girl Talk · Delta LAi Nu · LAiDIES · SUNNYVAiLE" />
     <meta property="og:description" content="A private, honour-system Truth or Dare game with a sticker collection saved on this device." />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -146,7 +146,7 @@
         filter: blur(30px);
         z-index: 0;
       }
-      /* card-back.png is a 2:3 portrait card — never crop it into a circle */
+        /* The held deck keeps its 2:3 physical card shape. */
       .hero-image-wrap img {
         width: 200px;
         height: 300px;
@@ -300,9 +300,7 @@
       .gt-card {
         position: relative;
         width: 100%;
-        /* Match the Codex card artwork (1024x1536 = 2:3 portrait playing-card
-           proportions). Aspect-ratio keeps the full artwork visible without
-           cropping when background-size: cover is applied. */
+        /* Preserve the 2:3 portrait physical card shape without image faces. */
         aspect-ratio: 2 / 3;
         transform-style: preserve-3d;
         transition: transform 0.55s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -318,68 +316,61 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-end;  /* prompt sits in lower portion of card image */
+        justify-content: flex-end;
         text-align: center;
         box-shadow: 0 18px 40px rgba(75, 33, 72, 0.18);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
       }
       .gt-card-back {
-        background-image: url('../assets/games/girl-talk/card-back.png');
-        background-color: #2a1330; /* fallback while image loads / if 404s */
+        background: #2a1330;
         color: var(--pearl);
       }
-      /* Card back text is decoration only — the card-back.png has GIRL TALK
-         baked in. Kept for screen readers / asset fallback, hidden visually. */
       .gt-card-back-art,
       .gt-card-back-hint {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
       }
       .gt-card-front {
         transform: rotateY(180deg);
         padding-bottom: clamp(28px, 6vw, 44px);
+        overflow: hidden;
       }
       .gt-card-front.is-truth {
-        background-image: url('../assets/games/girl-talk/truth-card-face.png');
-        background-color: #fbe5ec; /* fallback */
+        background: radial-gradient(circle at 18% 16%, rgba(255,255,255,.9) 0 4%, transparent 4.5%), radial-gradient(circle at 82% 22%, rgba(155,63,95,.18) 0 10%, transparent 10.5%), linear-gradient(145deg, #f9e9f1, #dfe5ff 58%, #f9c9dd);
         color: var(--plum);
       }
       .gt-card-front.is-dare {
-        background-image: url('../assets/games/girl-talk/dare-card-face.png');
-        background-color: #4b2148; /* fallback */
+        background: radial-gradient(circle at 78% 16%, rgba(201,162,39,.35) 0 7%, transparent 7.5%), radial-gradient(circle at 16% 80%, rgba(255,255,255,.12) 0 12%, transparent 12.5%), linear-gradient(145deg, #26122d, #6f2c66 58%, #b95d78);
         color: var(--pearl);
       }
-      /* The TRUTH / DARE label is baked into the card-face images.
-         Hidden visually, kept for screen readers. */
       .gt-card-type {
         position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
+        top: clamp(26px, 6vw, 42px);
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 9px 16px;
+        border: 2px solid currentColor;
+        border-radius: 999px;
+        background: rgba(255,253,251,.8);
+        color: var(--plum);
+        font-size: clamp(.8rem, 2vw, 1rem);
+        font-weight: 900;
+        letter-spacing: .2em;
+        line-height: 1;
+        text-transform: uppercase;
       }
+      .gt-card-front.is-dare .gt-card-type { background: rgba(75,33,72,.72); color: var(--pearl); }
       .gt-card-prompt {
         font-size: clamp(1rem, 2.3vw, 1.18rem);
         line-height: 1.45;
         font-weight: 600;
         margin: 0 0 10px;
         max-width: 420px;
-        /* Sit in the lower portion of the card art where the "empty centre
-           space for text overlay" lives in the Codex-generated faces.
-           Subtle backing so the prompt stays readable against varied art. */
+        /* Real text is the card's source of meaning, not an image overlay. */
         padding: 12px 14px;
         background: rgba(255, 253, 251, 0.78);
         border-radius: 10px;
@@ -699,9 +690,7 @@
     <main>
       <div class="game-page-wrap">
         <!-- Hero -->
-        <div class="hero-image-wrap">
-          <img src="../assets/games/girl-talk/card-back.png" alt="Girl Talk card back — plum and gold with a pink and teal heart gem" onerror="this.style.display='none'; this.parentNode.style.display='none';" />
-        </div>
+        <div class="hero-image-wrap gt-hero-held" role="note">Girl Talk deck artwork held · the private card game remains open below.</div>
 
         <!-- Title -->
         <div class="game-page-title">
@@ -737,7 +726,7 @@
               <div class="gt-card-back-art">GIRL TALK</div>
               <div class="gt-card-back-hint">Tap "Draw a card" to flip your first card.</div>
             </div>
-            <div class="gt-card-face gt-card-front is-truth" id="gtCardFront" aria-hidden="true">
+            <div class="gt-card-face gt-card-front is-truth" id="gtCardFront" data-asset-status="held" aria-hidden="true">
               <span class="gt-card-type" id="gtCardType">TRUTH</span>
               <p class="gt-card-prompt" id="gtCardPrompt" tabindex="-1">&nbsp;</p>
               <p class="gt-card-room" id="gtCardRoom"></p>
@@ -1381,7 +1370,7 @@
     <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <!-- Canonical SUNNYVAiLE chrome — sv-global-header MUST load before sv-nav-auth -->
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-    <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-back-nav.js?v=2"></script>
     <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>

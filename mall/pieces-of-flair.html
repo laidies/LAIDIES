@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/content/mall-flair-v2.css?v=20260724-1">
   <script defer src="/content/site/mall-flair-v2.js?v=20260724-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <style>
@@ -273,10 +273,10 @@
           btn.setAttribute('data-name', a.name);
           btn.setAttribute('aria-label', 'Carry ' + a.name);
           if (worn === a.name) btn.classList.add('is-worn');
-          var img = document.createElement('img');
-          img.src = '/assets/avatars/claires/claires-avatar-' + a.slug + '.png?v=20260701-1';
-          img.alt = a.name;
-          img.loading = 'lazy';
+          var art = document.createElement('span');
+          art.className = 'avatar-art-held';
+          art.setAttribute('aria-hidden', 'true');
+          art.textContent = 'Visual held';
           var cap = document.createElement('div');
           cap.className = 'avatar-caption';
           var nm = document.createElement('span');
@@ -287,7 +287,7 @@
           cta.textContent = worn === a.name ? 'Carrying' : 'Carry this →';
           cap.appendChild(nm);
           cap.appendChild(cta);
-          btn.appendChild(img);
+          btn.appendChild(art);
           btn.appendChild(cap);
           btn.addEventListener('click', function() { wear(a.slug, a.name); });
           shelf.appendChild(btn);

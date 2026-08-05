@@ -9,9 +9,8 @@
   <meta property="og:description" content="Did the analogy stick, or do we need to call the group chat?" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#9b3f5f" />
-  <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
   <link rel="manifest" href="../manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800;900&display=swap">
@@ -770,14 +769,26 @@
     .quiz-butterfly-rating .butterfly-clip {
       display: inline-block;
       width: 26px;
-      height: 26px;
-      background: url("../assets/butterfly-clip-rating-token.png") center / contain no-repeat;
-      filter: grayscale(1) saturate(0.3);
+      height: 17px;
+      border: 2px solid #6f263f;
+      border-radius: 999px 999px 6px 6px;
+      background: linear-gradient(135deg, #f7c2d5, #d66c99);
+      box-shadow: 2px 2px 0 rgba(75, 33, 72, 0.18);
       opacity: 0.26;
       transform: rotate(-12deg);
     }
+    .quiz-butterfly-rating .butterfly-clip::after {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 4px;
+      margin: 4px auto;
+      border-radius: 50%;
+      background: #fff8dc;
+      box-shadow: 6px 0 0 #fff8dc;
+    }
     .quiz-butterfly-rating .butterfly-clip.is-filled {
-      filter: drop-shadow(0 0 10px rgba(155, 63, 95, 0.44));
+      box-shadow: 0 0 10px rgba(155, 63, 95, 0.44), 2px 2px 0 rgba(75, 33, 72, 0.18);
       opacity: 1;
     }
     .quiz-butterfly-rating .butterfly-clip:nth-child(even) {
@@ -958,8 +969,8 @@
     <a class="brand" href="/">LAiDIES</a>
   </header>
 
-  <div class="quiz-deskhero">
-    <img src="/assets/building-interiors/sunnyvaile-high-pop-quiz.jpg" alt="A SUNNYVAiLE High classroom on quiz day — a Scantron sheet and a No. 2 pencil on a wood desk, with POP QUIZ &middot; WEDNESDAY on the chalkboard and the CENTAURS crest on the wall." loading="eager" />
+  <div class="quiz-deskhero quiz-deskhero--held" role="note">
+    <p><strong>Room 101 · Pop Quiz</strong><span>The classroom artwork is being refreshed. The working quiz begins below.</span></p>
   </div>
 
   <main>
@@ -1082,7 +1093,7 @@
   <script src="../content/site/brand-polish.js?v=wm2" defer></script>
   <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script>
   (function(){

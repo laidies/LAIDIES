@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <!-- Deliberately no ksvl-player / quick-rail on this page: the Screening
        Room plays its own narration track and wants a dark, focused stage. -->
@@ -45,6 +45,8 @@
         filter .65s ease; }
     .scene.is-live { opacity: 1; transform: scale(1); filter: saturate(1) brightness(1); }
     .scene-img { position: absolute; inset: -6%; width: 112%; height: 112%; object-fit: cover; }
+    .scene.scene--static-cover { transform: none; filter: none; transition: opacity .2s linear; }
+    .scene.scene--static-cover .scene-img { inset: 0; width: 100%; height: 100%; object-fit: contain; transform: none; animation: none; }
     .pan-ltr .scene-img { animation: panLtr var(--dur, 30s) linear forwards; }
     .pan-rtl .scene-img { animation: panRtl var(--dur, 30s) linear forwards; }
     .pan-zoom .scene-img { animation: panZoom var(--dur, 30s) linear forwards; }
@@ -206,6 +208,7 @@
     main.seg-bumper .chapters, main.seg-bumper .deck-mark { display: none; }
   </style>
   <link rel="stylesheet" href="/content/watch-v2.css?v=20260724-1">
+  <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260803-1">
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -233,13 +236,20 @@
         <p class="scr-eyebrow">The Chick Flicks · Screening Room One</p>
         <p class="screening-house-status">Illustrated listen-alongs</p>
       </div>
-      <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do A<span class="ai">i</span></h1>
+      <h1 class="scr-title" id="scrTitle">Episode 01 · On Wednesdays We Do AI</h1>
       <p class="scr-sub" id="screeningIntro">Choose a tape, take your seat, and press play. Read-along captions are available.</p>
+
+      <nav class="episode-format-nav" id="episodeFormatNav" data-theme="dark" aria-label="Choose Episode 01 format">
+        <a class="episode-format-nav__choice" id="formatRead" href="/issues/issue-01.html"><span>Read</span><small>Full written episode</small></a>
+        <a class="episode-format-nav__choice" id="formatListen" href="/watch.html?ep=01&amp;mode=listen" aria-current="page"><span>Listen</span><small>Narration + captions</small></a>
+        <span class="episode-format-nav__choice" id="formatWatch" aria-disabled="true"><span>Watch</span><small>Not available yet</small></span>
+        <p class="episode-format-nav__status" id="formatStatus" role="status">You’re listening to Episode 01. Visual edition not admitted yet.</p>
+      </nav>
 
       <nav class="screening-program" aria-label="Screening programme">
         <span class="screening-program-label">On the shelf</span>
         <a href="/watch.html?ep=trailer" data-ep="trailer"><b>Trailer</b><span>Welcome to SUNNYVA<span class="ai">i</span>LE</span></a>
-        <a href="/watch.html?ep=01" data-ep="01"><b>01</b><span>On Wednesdays We Do A<span class="ai">i</span></span></a>
+        <a href="/watch.html?ep=01" data-ep="01"><b>01</b><span>On Wednesdays We Do AI</span></a>
         <a href="/watch.html?ep=02" data-ep="02"><b>02</b><span>Tell Me What You Want</span></a>
         <a href="/watch.html?ep=03" data-ep="03"><b>03</b><span>The Burn Book Problem</span></a>
         <a href="/watch.html?ep=04" data-ep="04"><b>04</b><span>The Founding Mothers</span></a>
@@ -311,6 +321,7 @@
     var epCandidate = (params.get('ep') || '01').toLowerCase();
     var invalidEpisode = PUBLIC_EPISODES.indexOf(epCandidate) === -1;
     var ep = invalidEpisode ? '01' : epCandidate;
+    var requestedFormat = params.get('mode') === 'watch' ? 'watch' : 'listen';
     var TUNE = params.has('tune') && (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
 
     var theatre = document.getElementById('theatre');
@@ -335,6 +346,48 @@
     var resumePlayback = document.getElementById('resumePlayback');
     var startOver = document.getElementById('startOver');
     var playerFailed = false;
+    var episodeFormatNav = document.getElementById('episodeFormatNav');
+    var formatRead = document.getElementById('formatRead');
+    var formatListen = document.getElementById('formatListen');
+    var formatWatch = document.getElementById('formatWatch');
+    var formatStatus = document.getElementById('formatStatus');
+
+    function setFormatNavigation(visualsReleased) {
+      var key = episodeKey(ep);
+      var label = ep === 'trailer' ? 'the Trailer' : 'Episode ' + key;
+      var readUrl = ep === 'trailer'
+        ? '/issues/issue-trailer.html'
+        : '/issues/issue-' + key + '.html';
+      episodeFormatNav.setAttribute('aria-label', 'Choose ' + label + ' format');
+      formatRead.href = readUrl;
+      formatRead.removeAttribute('aria-current');
+      formatListen.href = '/watch.html?ep=' + encodeURIComponent(key) + '&mode=listen';
+      formatListen.setAttribute('aria-current', 'page');
+      if (visualsReleased) {
+        var watchLink = document.createElement('a');
+        watchLink.className = formatWatch.className;
+        watchLink.id = 'formatWatch';
+        watchLink.href = '/watch.html?ep=' + encodeURIComponent(key) + '&mode=watch';
+        watchLink.innerHTML = '<span>Watch</span><small>Complete visual edition</small>';
+        formatWatch.replaceWith(watchLink);
+        formatWatch = watchLink;
+        if (requestedFormat === 'watch') {
+          formatListen.removeAttribute('aria-current');
+          formatWatch.setAttribute('aria-current', 'page');
+          formatStatus.textContent = 'You’re watching ' + label + '.';
+        } else {
+          formatStatus.textContent = 'You’re listening to ' + label + '. Watch is also available.';
+        }
+      } else {
+        formatWatch.removeAttribute('href');
+        formatWatch.setAttribute('aria-disabled', 'true');
+        formatWatch.innerHTML = '<span>Watch</span><small>Not available yet</small>';
+        formatStatus.textContent = requestedFormat === 'watch'
+          ? 'Watch is not admitted for ' + label + ' yet. The Listen edition is open instead.'
+          : 'You’re listening to ' + label + '. Visual edition not admitted yet.';
+      }
+    }
+    setFormatNavigation(false);
 
     // Film URLs come only from the checksum-bound admission registry after a
     // complete occurrence set is admitted. Review files on the studio drive
@@ -344,25 +397,22 @@
     // Ep1/Ep2 captions are forced-aligned to those episodes' own narration audio
     // (operations/tools/align.py) — same audio the comic-sync renders carry.
     var EPISODE_CAPTIONS = {
-      'trailer': '/assets/captions/episode-trailer.vtt',
       '01': '/assets/captions/episode-01.vtt',
       '02': '/assets/captions/episode-02.vtt',
       '03': '/assets/captions/episode-03.vtt',
       '04': '/assets/captions/episode-04.vtt'
     };
     var EPISODE_CAPTION_STATUS = {
-      'trailer': { coverage: 'complete' },
       '01': { coverage: 'complete' },
       '02': { coverage: 'complete' },
       '03': { coverage: 'complete' },
       '04': { coverage: 'complete' }
     };
     var HELD_VISUAL_COVERS = {
-      'trailer': '/assets/postcards/from-sunnyvaile/pc-welcome.png',
-      '01': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-01.webp',
-      '02': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-02.webp',
+      '01': '/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
+      '02': '/assets/episodes/ep-02/comic/ep02-title-card-comic-v2.png',
       '03': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-03.webp',
-      '04': '/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp'
+      '04': '/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png'
     };
     function episodeKey(ep) { return ep === 'trailer' ? 'trailer' : String(ep).padStart(2, '0'); }
     function filmFor(admission) {
@@ -470,10 +520,12 @@
         : '/issues/issue-' + episodeKey(ep) + '.html';
     }
     var screeningMeta = document.getElementById('screeningMeta');
-    var narratedOnly = episodeKey(ep) === '03' || episodeKey(ep) === '04';
+    var currentEpisodeKey = episodeKey(ep);
+    var currentCaptionStatus = EPISODE_CAPTION_STATUS[currentEpisodeKey] || null;
+    var narratedOnly = currentEpisodeKey === '03' || currentEpisodeKey === '04';
     if (screeningMeta) {
-      screeningMeta.textContent = EPISODE_CAPTION_STATUS[episodeKey(ep)].coverage === 'partial'
-        ? EPISODE_CAPTION_STATUS[episodeKey(ep)].note
+      screeningMeta.textContent = currentCaptionStatus && currentCaptionStatus.coverage === 'partial'
+        ? currentCaptionStatus.note
         : narratedOnly
           ? 'Narrated edition · visual format loading · read-along captions available'
         : captionsFor(ep)
@@ -650,7 +702,7 @@
       return v;
     }
 
-    function mountAdmittedModeSwitcher(video, admission, ep) {
+    function mountAdmittedModeSwitcher(video, admission, ep, initialMode) {
       var audioReady = admission
         && isAdmittedMediaUrl(admission.audio)
         && isAdmissionSha(admission.audioSha256)
@@ -738,9 +790,10 @@
       watchMode.addEventListener('click', showWatchMode);
       listenMode.addEventListener('click', showListenMode);
       screeningMode.hidden = false;
-      showWatchMode();
+      if (initialMode === 'listen') showListenMode();
+      else showWatchMode();
     }
-    var cues = [], duration = 0;
+    var cues = [], duration = 0, coverOnlyEdition = false;
     var currentIdx = -1;
     var segments = [], segIdx = 0, mainSegIdx = -1, segKind = 'main', segDur = null, advancing = false, segStart = 0, seekPending = 0;
 
@@ -769,6 +822,7 @@
     function buildScene(c, i) {
       var el = document.createElement('div');
       el.className = 'scene';
+      if (coverOnlyEdition) el.classList.add('scene--static-cover');
       var dur = ((cues[i + 1] ? cues[i + 1].t : duration || c.t + 30) - c.t) + 4;
       el.style.setProperty('--dur', dur + 's');
       var cap = function (kicker, line) {
@@ -1009,6 +1063,16 @@
       failPlayer('route', 'This programme is not on the public tape list.');
       return;
     }
+    if (ep === 'trailer') {
+      document.getElementById('scrTitle').innerHTML = brand('The Trailer · Welcome to SUNNYVAiLE');
+      document.title = 'The Trailer · The Screening Room · SUNNYVAiLE';
+      screeningIntro.textContent = 'The trailer is being rebuilt before it returns to the public Screening Room.';
+      screeningMeta.textContent = 'Trailer playback temporarily unavailable';
+      screeningArticleLink.href = '/issues/issue-trailer.html';
+      setFormatNavigation(false);
+      failPlayer('release', 'Trailer playback is temporarily unavailable. Read the illustrated tour while the new cut is checked.');
+      return;
+    }
     Promise.all([
       fetch('/content/episodes/episode-' + ep + '-cues.json', { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('Cue request failed'); return r.json(); }),
@@ -1032,6 +1096,7 @@
           && isAdmissionSha(admission.posterSha256)
           && Array.isArray(admission.occurrences)
           && admission.occurrences.length === admission.expectedOccurrenceCount;
+        setFormatNavigation(visualsReleased);
         if (!visualsReleased) {
           data = Object.assign({}, data, {
             edition: { kind: 'cover-only-audio' },
@@ -1052,16 +1117,18 @@
             : ((((data.title && data.title.cues) || []).filter(function (c) { return c.type === 'title'; })[0]) || {}).title
               || ((data.cues || []).filter(function (c) { return c.type === 'title'; })[0] || {}).title
               || '';
-          document.getElementById('scrTitle').innerHTML = 'Episode ' + esc(data.episode)
-            + (titleText ? ' · ' + brand(titleText) : '');
+          document.getElementById('scrTitle').textContent = 'Episode ' + data.episode
+            + (titleText ? ' · ' + titleText : '');
           document.title = 'Episode ' + data.episode
             + (titleText ? ' · ' + titleText : '') + ' · The Screening Room · SUNNYVAiLE';
         }
         if (data.edition && data.edition.kind === 'cover-only-audio') {
+          coverOnlyEdition = true;
           screeningMeta.textContent = 'Cover-only audio edition · static cover · read-along captions';
           screeningIntro.textContent = 'The narration and read-along captions play while one static episode cover remains on screen.';
           scrNote.textContent = 'This is a held cover-only audio edition. It is not an illustrated motion film or a narration-specific visual sequence.';
         } else if (visualsReleased) {
+          coverOnlyEdition = false;
           if (admission.posterPublicUrl) HELD_VISUAL_COVERS[episodeKey(ep)] = admission.posterPublicUrl;
           scrNote.textContent = 'Watch the complete illustrated film, or use the player controls to listen on the go.';
         }
@@ -1114,7 +1181,7 @@
         if (__film) {
           var __video = mountFilm(__film, __ep, admission.posterPublicUrl);
           if (__video) {
-            mountAdmittedModeSwitcher(__video, admission, __ep);
+            mountAdmittedModeSwitcher(__video, admission, __ep, requestedFormat);
             return;
           }
         }

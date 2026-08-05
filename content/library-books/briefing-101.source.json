@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0.0",
+  "bookId": "briefing-101",
+  "title": "Briefing 101",
+  "status": "HOLD_INDEPENDENT_CONTENT_ADMISSION_REQUIRED",
+  "productJob": "A compact durable procedure for turning a vague request into a usable AI brief; not a class or a replacement for Episode 2's narrative demonstration.",
+  "audience": "A reader with a real task who needs a scannable prompting reference.",
+  "learnerOutcome": "The reader can write and check a five-part brief containing job, audience, format, tone and constraints.",
+  "procedure": {
+    "id": "B101-P001",
+    "name": "The five-part brief",
+    "steps": [
+      {
+        "order": 1,
+        "name": "Job and outcome",
+        "purpose": "Name the deliverable and what it must help its reader do."
+      },
+      {
+        "order": 2,
+        "name": "Audience",
+        "purpose": "Name who will use it and the relevant situation."
+      },
+      {
+        "order": 3,
+        "name": "Format",
+        "purpose": "Specify useful length and structure."
+      },
+      {
+        "order": 4,
+        "name": "Tone",
+        "purpose": "Describe the writing choices that should create the intended tone."
+      },
+      {
+        "order": 5,
+        "name": "Constraints",
+        "purpose": "Name required sources, facts and boundaries, what must be preserved or excluded, and what uncertainty must be flagged."
+      }
+    ],
+    "beforeDraft": "If a required part is unknown, ask up to three questions and wait for the answers.",
+    "afterDraft": "Check the result against all five parts and independently verify consequential claims.",
+    "limitation": "This procedure can improve task fit but cannot guarantee understanding, compliance, quality or truth."
+  },
+  "controlledComparison": {
+    "id": "B101-X001",
+    "variable": "Brief completeness",
+    "heldConstant": [
+      "harmless task",
+      "product",
+      "visible model or mode",
+      "source material",
+      "session",
+      "evaluation criteria"
+    ],
+    "vaguePrompt": "Help with the deck.",
+    "briefedPrompt": "Review the attached Q3 deck for my VP meeting tomorrow. Identify the one slide that most obscures the decision we need. Reply with the slide number, the problem in one direct sentence and one concrete revision. Use only the deck, preserve every sourced number and flag any claim you cannot verify from it.",
+    "evaluationCriteria": [
+      "fit to intended job",
+      "use of supplied material",
+      "requested shape",
+      "claims requiring independent checking"
+    ],
+    "limitation": "A single comparison is an observation for that product, model and task, not proof of a universal performance law."
+  },
+  "analogies": [
+    {
+      "id": "B101-A001",
+      "name": "Sharp new hire",
+      "mapping": "The system can lack the user's workplace context and norms.",
+      "limit": "A model is not a colleague and the analogy establishes nothing about competence, truth, confidentiality, memory, permissions or access."
+    },
+    {
+      "id": "B101-A002",
+      "name": "Romy and Michele",
+      "mapping": "Polished presentation can hide missing substance.",
+      "limit": "A vague prompt does not always cause fabrication and a detailed brief does not make an answer factual."
+    },
+    {
+      "id": "B101-A003",
+      "name": "David and Moira",
+      "mapping": "An instruction can make sense to the speaker without specifying the action another doer needs.",
+      "limit": "An AI system is not David, does not experience human confusion and can produce plausible output without understanding the incomplete instruction."
+    }
+  ],
+  "continuation": {
+    "destination": "/issues/issue-02.html",
+    "job": "Episode 2 owns the David-and-Moira narrative demonstration; Briefing 101 owns the durable procedure."
+  },
+  "sources": [
+    {
+      "id": "SRC-ANTHROPIC-PROMPTING",
+      "publisher": "Anthropic",
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "checkedOn": "2026-08-03",
+      "scope": "Provider-scoped guidance for current Claude models: clear and direct instructions, relevant context, desired output format and constraints, examples, positive formatting instructions, and the new-employee analogy.",
+      "limitation": "Does not establish a universal rule for every AI product, model or task and does not guarantee truth or quality."
+    },
+    {
+      "id": "SRC-OPENAI-PROMPTING",
+      "publisher": "OpenAI",
+      "title": "Prompt engineering",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "checkedOn": "2026-08-03",
+      "scope": "Provider-scoped guidance distinguishing instructions, examples and relevant context and recommending precise instructions for current models.",
+      "limitation": "Provider and model guidance can change and does not promise a result across all tools."
+    }
+  ],
+  "freshness": {
+    "owner": "Library editorial and AI research accuracy owners",
+    "nextReview": "BEFORE_RELEASE",
+    "triggers": [
+      "either provider guide materially changes",
+      "the procedure or a source-bound claim changes",
+      "learner evidence shows a step or analogy misleads"
+    ]
+  },
+  "correctionRoute": {
+    "type": "mailto",
+    "address": "hello@laidies.ai",
+    "subject": "Briefing 101 correction",
+    "requiredContext": [
+      "section or claim ID",
+      "what the reader found",
+      "source if available"
+    ],
+    "privacyBoundary": "Do not email private work material."
+  },
+  "authorityBoundary": "This source record does not admit the book, alter the Library catalogue or authorize deployment or publication."
+}

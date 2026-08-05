@@ -36,23 +36,28 @@
   "searchProofs": [
     { "query": "what is AI", "expectedSiteIndexId": "ep-01" },
     { "query": "prompting", "expectedSiteIndexId": "ep-02" },
-    { "query": "why does ai make things up", "expectedSiteIndexId": "concept-hallucination" }
+    { "query": "why does ai make things up", "expectedSiteIndexId": "concept-hallucination" },
+    { "query": "women in AI history", "expectedSiteIndexId": "ep-04", "expectedUrl": "/issues/issue-04.html", "requireMissJeevesScore": true },
+    { "query": "who built AI", "expectedSiteIndexId": "ep-04", "expectedUrl": "/issues/issue-04.html", "requireMissJeevesScore": true },
+    { "query": "founding mothers", "expectedSiteIndexId": "ep-04", "expectedUrl": "/issues/issue-04.html", "requireMissJeevesScore": true }
+  ],
+  "searchExclusions": [
+    { "query": "types of AI", "excludedSiteIndexId": "ep-04" },
+    { "query": "what kinds of AI are there", "excludedSiteIndexId": "ep-04" },
+    { "query": "which AI do I use", "excludedSiteIndexId": "ep-04" }
   ],
   "renderedProofs": [
     { "sourcePath": "content/library-books/rendered/vocab-101.html", "contains": "/issues/issue-02.html#context-explained", "relationshipId": "REL-EP02-VOCAB-CONTEXT" },
     { "sourcePath": "content/library-books/rendered/vocab-101.html", "contains": "/issues/issue-03.html#burn-book-problem", "relationshipId": "REL-EP03-VOCAB-HALLUCINATION" },
     { "sourcePath": "content/library-books/rendered/vocab-101.html", "contains": "/issues/issue-04.html#ai-winter-story", "relationshipId": "REL-EP04-VOCAB-AI-WINTER" }
   ],
-  "conflictChecks": [
-    { "id": "CONFLICT-EP04-SEARCH-METADATA", "kind": "SEARCH_INDEX_MISMATCH", "nodeId": "episode:04", "siteIndexId": "ep-04", "mustContain": ["women", "history"], "blockerId": "BLK-EP04-INDEX-CONTRADICTION" }
-  ],
+  "conflictChecks": [],
   "knownBlockers": [
     { "id": "BLK-LIBRARY-HOLD", "severity": "RELEASE_BLOCKING", "description": "The relevant LIBRAiRY books remain on explicit editorial or architecture hold and cannot be promoted as released destinations.", "owner": "library", "nextAction": "Complete the named content-quality admission and then re-run relationship, search and rendered-surface proof.", "resolutionTaskId": "LCR-001" },
-    { "id": "BLK-RULEBOOK-PLACEHOLDER", "severity": "RELEASE_BLOCKING", "description": "Episode 03 links to a Verification Rulebook destination that the learning inventory rejects as incomplete placeholder content.", "owner": "library", "nextAction": "Build and admit the complete Verification Rulebook or remove the public promise and provide an honest available alternative.", "resolutionTaskId": "LCR-002" },
+    { "id": "BLK-RULEBOOK-PLACEHOLDER", "severity": "RELEASE_BLOCKING", "description": "The Verification Rulebook is complete and locally verified, but remains correctly held until volatile claims and the correction-intake, native-accessibility, newcomer, owner and release gates pass.", "owner": "library", "nextAction": "Refresh the current-provider claims, close the named admission gates and admit only the exact independently accepted book.", "resolutionTaskId": "LCR-002" },
     { "id": "BLK-CLASS-NOT-ADMITTED", "severity": "RELEASE_BLOCKING", "description": "The representative Basics class is scripted but unfilmed, independently unreviewed and not admitted to the public class catalogue.", "owner": "sunnyvaile-high", "nextAction": "Finish the class admission packet, accessibility and experience review before enabling reciprocal public links.", "resolutionTaskId": "LCR-003" },
     { "id": "BLK-TOOL-PREVIEW", "severity": "RELEASE_BLOCKING", "description": "Dream Phone verification practice is indexed as preview and has not passed the complete public learning-experience gate.", "owner": "dream-phone", "nextAction": "Complete the preview-to-public product review before Episode 03 presents it as an available next step.", "resolutionTaskId": "LCR-004" },
     { "id": "BLK-DAILY-NOT-PUBLIC", "severity": "RELEASE_BLOCKING", "description": "Daily learning derivatives are governed local records and are not a publicly verified Daily Buzz feed.", "owner": "newsstand-daily", "nextAction": "Admit an exact derivative record and verify its rendered Daily Buzz placement before discovery claims change.", "resolutionTaskId": "LCR-005" },
-    { "id": "BLK-FULL-INVENTORY-BACKFILL", "severity": "COVERAGE_GAP", "description": "The learning inventory covers the primary books, episodes, two stories and the High collection, but other tools and future surfaces still need canonical item-level nodes.", "owner": "learning-content-ecosystem", "nextAction": "Backfill remaining governed products without treating machine-discovered candidates as approved content relationships.", "resolutionTaskId": "LCR-006" },
-    { "id": "BLK-EP04-INDEX-CONTRADICTION", "severity": "RELEASE_BLOCKING", "description": "The search index describes Episode 04 as a types-of-AI lesson even though its released title and governed inventory identify the women-in-AI history episode.", "owner": "miss-jeeves", "nextAction": "Correct the Episode 04 search summary, topics and aliases from released canon, then prove the history queries resolve without breaking existing routes.", "resolutionTaskId": "LCR-007" }
+    { "id": "BLK-FULL-INVENTORY-BACKFILL", "severity": "COVERAGE_GAP", "description": "The learning inventory covers the primary books, episodes, two stories and the High collection, but other tools and future surfaces still need canonical item-level nodes.", "owner": "learning-content-ecosystem", "nextAction": "Backfill remaining governed products without treating machine-discovered candidates as approved content relationships.", "resolutionTaskId": "LCR-006" }
   ]
 }

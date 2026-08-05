@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Chick Flicks · LAiDIES · SUNNYVAiLE</title>
     <meta name="description" content="Browse released and forthcoming LAiDIES episodes at The Chick Flicks, then open a verified issue or illustrated listen-along.">
-    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png">
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="/content/chick-flicks.css?v=20260724-room-v2">
     <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-    <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+    <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -35,17 +35,30 @@
     <main class="cf-page">
       <section class="cf-wall" aria-label="The Chick Flicks New Releases rental wall">
         <div class="cf-wall__scene">
-          <img
-            class="cf-wall__room"
-            src="/assets/building-interiors/delivery-20260724-chick-flicks-v1/chick-flicks-new-releases-wall-comic-candidate-v1.png"
-            alt="A bright graphic-novel video rental store wall with two empty New Releases bays"
-            width="1659"
-            height="948"
-          >
+          <p class="cf-held-visual cf-wall__held" role="status">New Releases wall visual held · browse the live VHS shelf below.</p>
           <div class="cf-wall__bay" id="cfWallBay" aria-label="Available episode tapes"></div>
           <p class="cf-wall__empty" id="cfWallEmpty" hidden>No released tapes in this aisle yet.</p>
+          <div class="cf-mobile-shelf" id="cfMobileShelf" aria-label="Available episode tapes on mobile"></div>
+          <section class="cf-rental" id="cfRental" aria-labelledby="cf-rental-title" aria-live="polite" aria-atomic="true" tabindex="-1">
+            <div class="cf-rental__object">
+              <p class="cf-held-visual cf-rental__held">Rental-card visual held · tape details remain available.</p>
+              <p class="cf-rental__episode" id="cfRentalEpisode">No tape selected</p>
+            </div>
+            <div class="cf-rental__copy">
+              <p class="cf-kicker">The rental card · preview before opening</p>
+              <h2 id="cf-rental-title">Choose a tape from the wall.</h2>
+              <p id="cfRentalCopy">Its episode description will appear here before you open anything.</p>
+              <p class="cf-rental__lesson"><strong>Inside:</strong> <span id="cfRentalLesson">The episode’s practical lesson will appear here.</span></p>
+              <p class="cf-rental__format" id="cfRentalFormat">Select a tape to see its availability and what happens next.</p>
+              <p class="cf-rental__due" id="cfRentalDue">Return by Friday · spiritually</p>
+              <div class="cf-rental__actions">
+                <a id="cfTakeHome" href="/issues/issue-04.html" hidden>Take the tape home · open the full episode issue</a>
+                <button id="cfFavourite" type="button" hidden>Save as favourite on this device</button>
+              </div>
+              <p class="cf-rental__member" id="cfMemberStatus">No favourite tape saved on this device.</p>
+            </div>
+          </section>
         </div>
-        <div class="cf-mobile-shelf" id="cfMobileShelf" aria-label="Available episode tapes on mobile"></div>
       </section>
 
       <section class="cf-state" aria-labelledby="cf-title">
@@ -58,9 +71,6 @@
           <div class="cf-state__actions">
             <button type="button" data-rent-latest disabled>Rent the latest released tape</button>
             <button type="button" data-retry-catalogue hidden>Retry the tape manifest</button>
-            <button class="cf-spot" type="button" data-src="/content/music/ksvl-spots/spot-chick-flicks-v2.mp3">
-              Hear Becky’s store spot
-            </button>
           </div>
         </div>
         <aside id="cfReturnVisit" class="cf-return-visit" hidden aria-labelledby="cf-return-title">
@@ -90,29 +100,6 @@
         </div>
         <p class="cf-aisles__status" id="cfAisleStatus" role="status" aria-live="polite">Checking the Season 1 tape manifest…</p>
       </nav>
-
-      <section class="cf-rental" id="cfRental" aria-labelledby="cf-rental-title" aria-live="polite" aria-atomic="true" tabindex="-1">
-        <div class="cf-rental__object">
-          <img
-            src="/assets/building-interiors/delivery-20260724-chick-flicks-v1/chick-flicks-rental-card-comic-candidate-v1.png"
-            alt="A Chick Flicks member-rental sleeve with a Return by Friday stamp and Be Kind, Rewind ticket"
-            width="1448"
-            height="1086"
-          >
-          <p class="cf-rental__episode" id="cfRentalEpisode">No tape selected</p>
-        </div>
-        <div class="cf-rental__copy">
-          <p class="cf-kicker">The rental card</p>
-          <h2 id="cf-rental-title">Nothing is actually due.</h2>
-          <p id="cfRentalCopy">The joke is the joke. Choose a released tape and Becky will stamp it before you leave.</p>
-          <p class="cf-rental__due" id="cfRentalDue">Return by Friday · spiritually</p>
-          <div class="cf-rental__actions">
-            <a id="cfTakeHome" href="/issues/issue-04.html" hidden>Take the tape home</a>
-            <button id="cfFavourite" type="button" hidden>Save as favourite on this device</button>
-          </div>
-          <p class="cf-rental__member" id="cfMemberStatus">No favourite tape saved on this device.</p>
-        </div>
-      </section>
 
       <section class="cf-counter" aria-labelledby="cf-rules-title">
         <div class="cf-counter__rules">
@@ -237,7 +224,7 @@
           var tag = latest && episode.number === latest.number ? '<span class="cf-tape__new">Latest</span>' : "";
           var stateLabel = state === "forthcoming" ? "coming soon" :
             episode.status === "published" ? "temporarily unavailable" : "unavailable";
-          var label = released ? "Rent Episode " + number + " — " + episode.title :
+          var label = released ? "Preview Episode " + number + " — " + episode.title + ", available now" :
             "Episode " + number + " — " + episode.title + ", " + stateLabel;
           return [
             '<button class="cf-tape', released ? "" : " is-coming", '" type="button" data-episode="', number,
@@ -247,7 +234,7 @@
               '<img src="', IMAGE_ROOT, "ep-", number, '.webp" alt="" width="554" height="720">',
               '<span class="cf-tape__fallback" hidden aria-hidden="true">EP ', number,
                 '<small>Cover unavailable</small></span>',
-              '<span class="cf-tape__label">EP ', number, released ? " · rent" :
+              '<span class="cf-tape__label">EP ', number, released ? " · preview" :
                 state === "forthcoming" ? " · coming soon" : " · unavailable", "</span>",
             "</button>"
           ].join("");
@@ -296,33 +283,23 @@
           });
 
           Array.prototype.forEach.call(document.querySelectorAll(".cf-tape"), function (button) {
+            function episodeForButton() {
+              var number = Number(button.getAttribute("data-episode"));
+              return episodes.filter(function (item) { return item.number === number; })[0];
+            }
+            button.addEventListener("focus", function () {
+              var episode = episodeForButton();
+              if (episode) previewEpisode(episode, false);
+            });
+            button.addEventListener("mouseenter", function () {
+              var episode = episodeForButton();
+              if (episode) previewEpisode(episode, false);
+            });
             button.addEventListener("click", function () {
               var number = Number(button.getAttribute("data-episode"));
-              var episode = episodes.filter(function (item) { return item.number === number; })[0];
-              if (!episode || !episode._available) {
-                var state = episode ? releaseState(episode) : "unavailable";
-                var forthcoming = state === "forthcoming";
-                var publishedButUnavailable = episode && episode.status === "published";
-                document.getElementById("cfRentalEpisode").textContent =
-                  "EP " + episodeNumber(number) +
-                  (forthcoming ? " · coming soon" :
-                    publishedButUnavailable ? " · temporarily unavailable" : " · unavailable");
-                document.getElementById("cf-rental-title").textContent =
-                  forthcoming ? "This tape is still forthcoming." :
-                    publishedButUnavailable ? "This released tape is behind the counter." :
-                      "This tape is unavailable.";
-                document.getElementById("cfRentalCopy").textContent =
-                  forthcoming ?
-                    "That case is a shelf promise, not a finished episode. Becky will move it to New Releases when it is ready." :
-                    publishedButUnavailable ?
-                      "Its issue destination could not be verified, so Chick Flicks will not offer a broken rental link." :
-                      "The manifest does not promise a future release for this tape, so it stays unavailable.";
-                takeHome.hidden = true;
-                favourite.hidden = true;
-                revealRental();
-                return;
-              }
-              selectEpisode(episode);
+              var episode = episodeForButton();
+              if (!episode) return;
+              previewEpisode(episode, true);
             });
           });
         }
@@ -357,7 +334,19 @@
 
         function revealRental() {
           var rental = document.getElementById("cfRental");
-          rental.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
+          var selectedTape = Array.prototype.filter.call(document.querySelectorAll(".cf-tape.is-selected"), function (button) {
+            var rect = button.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0;
+          })[0];
+          var decision = takeHome.hidden ? document.getElementById("cfRentalFormat") : takeHome;
+          var inViewport = function (element) {
+            if (!element) return false;
+            var rect = element.getBoundingClientRect();
+            return rect.top >= 0 && rect.bottom <= window.innerHeight;
+          };
+          if (!inViewport(selectedTape) || !inViewport(decision)) {
+            rental.scrollIntoView({ behavior: scrollBehavior(), block: "nearest" });
+          }
           window.requestAnimationFrame(function () {
             try { rental.focus({ preventScroll: true }); } catch (error) { rental.focus(); }
           });
@@ -370,22 +359,59 @@
           return date.toLocaleDateString("en-CA", { month: "long", day: "numeric" });
         }
 
-        function selectEpisode(episode) {
+        function previewValue(value, fallback) {
+          return typeof value === "string" && value.trim() ? value.trim() : fallback;
+        }
+
+        function markSelectedTape(number) {
+          Array.prototype.forEach.call(document.querySelectorAll(".cf-tape"), function (button) {
+            var matches = button.getAttribute("data-episode") === number;
+            button.classList.toggle("is-selected", matches);
+            if (matches) button.setAttribute("aria-current", "true");
+            else button.removeAttribute("aria-current");
+          });
+        }
+
+        function previewEpisode(episode, moveFocus) {
           selected = episode;
           var number = episodeNumber(episode.number);
+          var state = releaseState(episode);
+          var forthcoming = state === "forthcoming";
+          var publishedButUnavailable = episode.status === "published" && state === "unavailable";
+          markSelectedTape(number);
           document.getElementById("cfRentalEpisode").textContent =
-            "EP " + number + " · " + episode.title;
-          document.getElementById("cf-rental-title").textContent =
-            "Return by Friday. Spiritually.";
+            "EP " + number + " · " + episode.title + " · " +
+            (state === "released" ? "available now" :
+              forthcoming ? "coming soon" :
+                publishedButUnavailable ? "temporarily unavailable" : "unavailable");
+          document.getElementById("cf-rental-title").textContent = episode.title;
           document.getElementById("cfRentalCopy").textContent =
-            "Becky has stamped the rental card. Nothing is actually due; the stamp just remembers what you took home.";
+            previewValue(episode.oneLineDescription, "No episode description is available yet.");
+          document.getElementById("cfRentalLesson").textContent =
+            previewValue(episode.lesson, "No practical lesson has been listed yet.");
+          document.getElementById("cfRentalFormat").textContent =
+            state === "released" ?
+              "Available now · Take the tape home opens the full episode issue." :
+              forthcoming ?
+                "Coming soon · This tape cannot open an issue until the episode is released." :
+                publishedButUnavailable ?
+                  "Temporarily unavailable · Its issue destination could not be verified, so no rental link is offered." :
+                  "Unavailable · The manifest does not promise a future release or an issue destination for this tape.";
           document.getElementById("cfRentalDue").textContent =
-            "Stamped return date · " + nextFriday();
-          takeHome.href = episode._safeIssueUrl;
-          takeHome.hidden = false;
-          favourite.hidden = false;
+            state === "released" ? "Stamped return date · " + nextFriday() : "No rental stamp while this tape is unavailable";
+          takeHome.hidden = state !== "released";
+          favourite.hidden = state !== "released";
+          if (state === "released") {
+            takeHome.href = episode._safeIssueUrl;
+            takeHome.textContent = "Take the tape home · open the full episode issue";
+            takeHome.setAttribute("aria-label", "Take Episode " + number + " home — open the full episode issue");
+          }
           updateMemberStatus();
-          revealRental();
+          if (moveFocus) revealRental();
+        }
+
+        function selectEpisode(episode) {
+          previewEpisode(episode, true);
         }
 
         function validatedLastRental() {
@@ -492,33 +518,6 @@
           });
           renderWall();
           document.querySelector(".cf-wall").scrollIntoView({ behavior: scrollBehavior(), block: "start" });
-        });
-
-        var activeAudio = null;
-        var activeAudioButton = null;
-        document.querySelector(".cf-spot").addEventListener("click", function () {
-          var button = this;
-          if (activeAudioButton === button) {
-            activeAudio.pause();
-            button.classList.remove("is-playing");
-            activeAudio = null;
-            activeAudioButton = null;
-            return;
-          }
-          if (activeAudio) activeAudio.pause();
-          activeAudio = new Audio(button.getAttribute("data-src"));
-          activeAudioButton = button;
-          button.classList.add("is-playing");
-          activeAudio.addEventListener("ended", function () {
-            button.classList.remove("is-playing");
-            activeAudio = null;
-            activeAudioButton = null;
-          });
-          activeAudio.play().catch(function () {
-            button.classList.remove("is-playing");
-            activeAudio = null;
-            activeAudioButton = null;
-          });
         });
 
         function validateEpisodes(data) {

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/town-hall-v2.css?v=20260725-2">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
@@ -35,7 +35,7 @@
   <header class="sv-header"></header>
 
   <div class="sv-hero town-hall-room" aria-labelledby="townHallRoomTitle">
-    <img src="assets/building-interiors/town-hall-civic-chamber.jpg?v=20260708" alt="Inside SUNNYVAiLE Town Hall — the civic chamber with gallery seating, a curved mayor's counter, a reception desk, a brochure rack, and a corkboard of heart-pinned notices" loading="eager">
+    <div class="town-hall-room__held" aria-hidden="true"><span>Civic room visual held</span></div>
     <div class="town-hall-room__copy">
       <p class="town-hall-room__kicker">Civic Square · SUNNYVAiLE</p>
       <h1 id="townHallRoomTitle">Town Hall.</h1>
@@ -124,7 +124,7 @@
     <h2>About Mayor Deb</h2>
 
     <figure style="margin:14px 0 24px;">
-      <img src="assets/building-interiors/town-hall-deb-desk.jpg?v=20260708" alt="Mayor Deb at her Town Hall desk in a jewel-tone shell suit, reviewing a clipboard beside a beige Y2K computer, potted jacarandas and a corkboard of hearts around her" loading="lazy" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 10px 26px rgba(75,33,72,0.16);">
+      <div class="town-hall-art-held" data-asset-status="held" role="img" aria-label="Mayor Deb's Town Hall desk artwork is being prepared.">Visual held</div>
       <figcaption style="margin-top:8px;font-size:13px;color:var(--plum);opacity:0.72;font-style:italic;">Mayor Deb, at her desk. Four terms and counting.</figcaption>
     </figure>
 
@@ -224,10 +224,10 @@
         <div class="deb-poster-gallery__subeyebrow">☆ The 1999 Original</div>
         <figure class="deb-poster deb-poster--hero">
           <div class="deb-poster__frame">
-            <img src="assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted-web.jpg?v=20260716" alt="Deb's 1999 campaign poster — Die Hard idiom, HR-redacted" loading="lazy">
+            <span class="town-hall-art-held" data-asset-status="held" role="img" aria-label="Deb's 1999 campaign poster artwork is held for rights review.">Visual held</span>
           </div>
           <figcaption>Deb's 1999 campaign poster · The one that started it all</figcaption>
-          <a class="deb-poster__print" href="assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted.png" download>Download to print →</a>
+          <span class="deb-poster__print deb-poster__print--held">Print download held · rights review</span>
         </figure>
         <p class="deb-poster-gallery__origin-note">She couldn't be bothered to make a poster, so she used the movie one. HR came around after with a Sharpie.</p>
       </div>
@@ -239,24 +239,24 @@
         <div class="deb-poster-gallery__grid">
           <figure class="deb-poster">
             <div class="deb-poster__frame">
-              <img src="assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999-web.jpg?v=20260716" alt="NOPE poster — Mayor Deb, SUNNYVAiLE, since 1999" loading="lazy">
+              <span class="town-hall-art-held" data-asset-status="held" role="img" aria-label="Mayor Deb NOPE poster artwork is held for rights review.">Visual held</span>
             </div>
             <figcaption>Mayor Deb · SUNNYVAiLE · Since 1999</figcaption>
-            <a class="deb-poster__print" href="assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999.png" download>Download to print →</a>
+            <span class="deb-poster__print deb-poster__print--held">Print download held · rights review</span>
           </figure>
           <figure class="deb-poster">
             <div class="deb-poster__frame">
-              <img src="assets/printables/deb-nope-poster-loop-me-out-web.jpg?v=20260716" alt="NOPE poster — Loop Me Out edition" loading="lazy">
+              <span class="town-hall-art-held" data-asset-status="held" role="img" aria-label="Loop Me Out poster artwork is held for rights review.">Visual held</span>
             </div>
             <figcaption>Loop Me Out edition</figcaption>
-            <a class="deb-poster__print" href="assets/printables/deb-nope-poster-loop-me-out.png" download>Download to print →</a>
+            <span class="deb-poster__print deb-poster__print--held">Print download held · rights review</span>
           </figure>
           <figure class="deb-poster">
             <div class="deb-poster__frame">
-              <img src="assets/printables/deb-nope-poster-deb-flection-trademark-web.jpg?v=20260716" alt="NOPE poster — Deb-flection™ edition" loading="lazy">
+              <span class="town-hall-art-held" data-asset-status="held" role="img" aria-label="Deb-flection poster artwork is held for rights review.">Visual held</span>
             </div>
             <figcaption>Deb-flection™ edition</figcaption>
-            <a class="deb-poster__print" href="assets/printables/deb-nope-poster-deb-flection-trademark.png" download>Download to print →</a>
+            <span class="deb-poster__print deb-poster__print--held">Print download held · rights review</span>
           </figure>
         </div>
         <p class="deb-poster-gallery__note">The intern's second attempt to get Deb out of it (2003), after the Die Hard sabotage failed in 1999. Nobody ran. The intern has not tried a third time.</p>
@@ -283,6 +283,7 @@
       .deb-poster figcaption { margin-top: 14px; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 14px; color: var(--plum); }
       .deb-poster__print { display: inline-block; margin-top: 8px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); text-decoration: none; border-bottom: 1.5px solid transparent; transition: border-color 0.2s ease; }
       .deb-poster__print:hover { border-bottom-color: var(--rose); }
+      .deb-poster__print--held { color: var(--plum-soft, #7a5875); border-bottom: 0; }
       .deb-poster--hero figcaption { font-size: 15px; }
       .deb-poster-gallery__note { margin: 22px 0 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 15px; color: var(--plum-soft, #7a5875); line-height: 1.55; }
     </style>
@@ -305,7 +306,7 @@
       <div class="th-regulars-grid">
 
         <a class="th-regular" href="/games/madame-claio.html" data-town-slug="mme-claio">
-          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/mme-claio-portrait-pixel-v1.png" alt="Mme CLAi-O" loading="lazy"></div>
+          <div class="th-regular-portrait"><span class="th-regular-portrait-held" aria-hidden="true">Portrait held</span></div>
           <span class="th-regular-role">Psychic · Oracle</span>
           <h3 class="th-regular-name">Mme CL<span class="ai">Ai</span>-O</h3>
           <p class="th-regular-body">Reading-card deck, crystal ball, tarot in a caftan. Visit her shop for a reading.</p>
@@ -313,7 +314,7 @@
         </a>
 
         <a class="th-regular" href="/games/fairy-godmother.html" data-town-slug="fairy-godmother">
-          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/laidy-fairy-godmother-portrait-pixel-v1.png" alt="FAiRY Godmother" loading="lazy"></div>
+          <div class="th-regular-portrait"><span class="th-regular-portrait-held" aria-hidden="true">Portrait held</span></div>
           <span class="th-regular-role">Wishmaker · Willow Lane</span>
           <h3 class="th-regular-name">F<span class="ai">Ai</span>RY Godmother</h3>
           <p class="th-regular-body">Grants wishes, dispenses bonus plays. Bring your question, leave with a plan.</p>
@@ -321,7 +322,7 @@
         </a>
 
         <a class="th-regular" href="/radio.html" data-town-slug="dj-sunnyv">
-          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/dj-sunnyv-portrait-pixel-v1.png" alt="DJ SunnyV" loading="lazy"></div>
+          <div class="th-regular-portrait"><span class="th-regular-portrait-held" aria-hidden="true">Portrait held</span></div>
           <span class="th-regular-role">Voice of KSVL</span>
           <h3 class="th-regular-name">DJ SunnyV</h3>
           <p class="th-regular-body">In-town DJ at KSVL Community R<span class="ai">Ai</span>DIO. Spins the Wednesday Anthem, hosts the intros.</p>
@@ -329,7 +330,7 @@
         </a>
 
         <a class="th-regular" href="#hub-deb" data-town-slug="mayor-deb">
-          <div class="th-regular-portrait"><img src="assets/pixel-restyle/characters/mayor-deb-portrait-pixel-v1.png" alt="Mayor Deb" loading="lazy"></div>
+          <div class="th-regular-portrait"><span class="th-regular-portrait-held" aria-hidden="true">Portrait held</span></div>
           <span class="th-regular-role">Mayor · Deb-flection™</span>
           <h3 class="th-regular-name">Mayor Deb</h3>
           <p class="th-regular-body">SUNNYV<span class="ai">Ai</span>LE's four-term mayor since 1999. The NOPE trilogy is hers. So is Town Hall.</p>
@@ -517,8 +518,22 @@
         The private Town Hall inbox is still in release preflight and is not open for submissions yet. When it opens, this form will confirm only that the service accepted a card — not that anyone has read, reviewed, or replied to it. Do not include private or sensitive information. This is not an emergency or guaranteed-response channel.
       </p>
 
-      <form id="town-hall-form" style="display: grid; gap: 18px; max-width: 620px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 10px;" role="radiogroup" aria-label="Submission type">
+      <details class="th-correction-status" id="town-hall-correction-status">
+        <summary>Correction &amp; accountability status</summary>
+        <div class="th-correction-status__body">
+          <p><strong>Correction or accountability requests are not open for submission.</strong></p>
+          <p>There is no current receipt, staff-status lookup, public civic record, or response promise.</p>
+          <p>A future authorised path would need an exact public location, responsible owner, private-detail protection, bounded receipt, and approved correction publication.</p>
+        </div>
+      </details>
+
+      <form id="town-hall-form" data-intake-state="release-hold" style="display: grid; gap: 18px; max-width: 620px;">
+        <p class="th-intake-release-hold" id="th-intake-release-hold" role="status">
+          <strong>Inbox closed while release preflight is underway.</strong> Nothing entered here can be delivered or saved, so please do not add a draft or sensitive information.
+        </p>
+        <fieldset id="th-intake-fields" disabled aria-describedby="th-intake-release-hold">
+          <legend>Private comment card fields</legend>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;" role="radiogroup" aria-label="Submission type">
           <label style="cursor: pointer;">
             <input type="radio" name="th-type" value="compliment" required style="position: absolute; opacity: 0; pointer-events: none;" />
             <span data-th-type-chip style="display: inline-flex; align-items: center; padding: 8px 18px; background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--plum); transition: all 160ms ease;">★ Compliment</span>
@@ -531,23 +546,24 @@
             <input type="radio" name="th-type" value="suggestion" style="position: absolute; opacity: 0; pointer-events: none;" />
             <span data-th-type-chip style="display: inline-flex; align-items: center; padding: 8px 18px; background: var(--cream); border: 1.5px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--plum); transition: all 160ms ease;">★ Suggestion</span>
           </label>
-        </div>
+          </div>
 
-        <label style="display: block;">
+          <label style="display: block;">
           <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose);">Subject <span style="opacity: 0.7; letter-spacing: 0.04em; text-transform: none; font-weight: 500; color: var(--plum-soft);">(optional)</span></span>
           <input id="th-subject" type="text" maxlength="100" autocomplete="off" placeholder="One-line summary — like the envelope on your desk" style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--line); border-radius: 8px; font: inherit; font-size: 15px;" />
-        </label>
+          </label>
 
-        <label style="display: block;">
+          <label style="display: block;">
           <span style="display: block; margin: 0 0 6px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose);">Your note</span>
           <textarea id="th-body" required minlength="3" maxlength="2000" rows="5" aria-describedby="th-body-count" placeholder="Say it plain. The intern is used to being blamed for everything, so if it's a compliment, be specific about who deserves it." style="width: 100%; padding: 12px 14px; background: var(--cream); color: var(--plum); border: 1.5px solid var(--line); border-radius: 8px; font: inherit; font-size: 15px; resize: vertical;"></textarea>
           <span id="th-body-count" style="display: block; margin-top: 4px; font-family: 'Jost', sans-serif; font-size: 11px; color: var(--plum-soft); text-align: right;">0 / 2000</span>
-        </label>
+          </label>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 6px;">
           <button id="th-submit" type="submit" style="padding: 12px 26px; background: var(--plum); color: var(--cream); border: 0; border-radius: 999px; font-weight: 800; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: transform 200ms ease;">File it →</button>
           <span id="th-status" role="status" aria-live="polite" aria-atomic="true" style="font-size: 13px; color: var(--plum-soft); line-height: 1.4;"></span>
-        </div>
+          </div>
+        </fieldset>
       </form>
     </section>
 

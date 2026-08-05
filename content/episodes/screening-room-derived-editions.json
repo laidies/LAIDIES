@@ -4,6 +4,45 @@
   "owner": "Screening Room product champion",
   "reviewStatus": "hold",
   "editions": {
+    "trailer": {
+      "sourceCuePath": "content/episodes/episode-trailer-cues.json",
+      "sourceCueSha256": "225e72a2b15590fce89737ccc8eead81cef153de1268b1a07a7303fc4d28341a",
+      "artifactCueSha256": "c3b03c3c65c9f677fa141bc5111e9d0c1aff10daaa79d5a44c42c5798c0c5696",
+      "kind": "cover-only-audio",
+      "cover": "/assets/postcards/from-sunnyvaile/pc-welcome.png",
+      "rule": "preserve cue starts and chapters; replace every visual occurrence with one static cover; preserve source hold provenance",
+      "removedSemantics": [
+        "source visual types",
+        "source visual assets"
+      ],
+      "authority": "HOLD — derived fallback only; not visual or title admission"
+    },
+    "01": {
+      "sourceCuePath": "content/episodes/episode-01-cues.json",
+      "sourceCueSha256": "49678225153d2ddba5c06e9fb6e82f3da447b6d88179baabe8e7ac2ac31476ba",
+      "artifactCueSha256": "cebf4d10614bfb4cf4c171cb2885f0b956bf8dfd0976d46f62153c181e164bb7",
+      "kind": "cover-only-audio",
+      "cover": "/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png",
+      "rule": "preserve cue starts and chapters; replace every visual occurrence with one static cover; preserve source hold provenance",
+      "removedSemantics": [
+        "source visual types",
+        "source visual assets"
+      ],
+      "authority": "HOLD — derived fallback only; exact existing static cover admitted for this cover-only job, not motion, cue-image or physical VHS admission"
+    },
+    "02": {
+      "sourceCuePath": "content/episodes/episode-02-cues.json",
+      "sourceCueSha256": "926b589e5394bf9479af94b5e365e4e1a6016e402eb42d1285b0ca2847899db5",
+      "artifactCueSha256": "f6b6c24d1c799d59e04b3f4c6f25cb68bedde601dafc79c8aeb4ed081026b967",
+      "kind": "cover-only-audio",
+      "cover": "/assets/episodes/ep-02/comic/ep02-title-card-comic-v2.png",
+      "rule": "preserve cue starts and chapters; replace every visual occurrence with one static cover; preserve source hold provenance",
+      "removedSemantics": [
+        "source visual types",
+        "source visual assets"
+      ],
+      "authority": "HOLD — derived fallback only; exact existing static cover admitted for this cover-only job, not motion, cue-image or physical VHS admission"
+    },
     "03": {
       "sourceCuePath": "content/episodes/episode-03-cues.json",
       "sourceCueSha256": "aa770874293609ec41676839880471effce2a12f906d198cbf7230db31ed09a9",
@@ -17,12 +56,12 @@
     "04": {
       "sourceCuePath": "content/episodes/episode-04-cues.json",
       "sourceCueSha256": "8cd20dc34aeada067262fdde797308e370749194a560cc9d8878d092cc60baf6",
-      "artifactCueSha256": "8c33dd0ad85eea1c64e22fc467474f6a7573865fd7555b749217cf442e28f980",
+      "artifactCueSha256": "0376876a70d1ae56564a7fc9f2adaca2dc75bfa1e787c6f33e4d1a1333cfc3b1",
       "kind": "cover-only-audio",
-      "cover": "/assets/sunnyvaile-interiors/episode-vhs-boxes/ep-04.webp",
+      "cover": "/assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png",
       "rule": "preserve cue starts; replace every visual occurrence including the held Ada loop with one static cover; preserve source hold provenance",
       "removedSemantics": ["source visual types", "source visual assets", "Ada video loop"],
-      "authority": "HOLD — derived fallback only; not visual or title admission"
+      "authority": "HOLD — derived fallback only; exact existing static cover admitted for this cover-only job, not motion, cue-image or film-poster admission"
     }
   }
 }

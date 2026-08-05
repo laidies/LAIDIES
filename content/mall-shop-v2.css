@@ -243,15 +243,34 @@ main.mall-shop-v2 {
 .mall-shop-v2__floor {
   position: relative;
   min-width: 820px;
+  min-height: 460px;
+  aspect-ratio: 16 / 9;
   margin: 0;
-  background: var(--mall-night);
+  background:
+    radial-gradient(circle at 18% 30%, rgba(42, 214, 207, 0.28), transparent 25%),
+    radial-gradient(circle at 82% 34%, rgba(244, 84, 146, 0.28), transparent 28%),
+    linear-gradient(135deg, var(--mall-night) 0%, #273f79 48%, #55245d 100%);
   border-block: 8px solid var(--mall-night);
   box-shadow: 0 22px 55px rgba(7, 15, 44, 0.22);
 }
 
-.mall-shop-v2__floor img {
-  width: 100%;
-  display: block;
+.mall-shop-v2__room-held {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .mall-shop-v2__room-held {
+    right: auto;
+    width: min(340px, calc(100vw - 32px));
+  }
 }
 
 .mall-shop-v2__hotspot {
@@ -482,6 +501,14 @@ main.mall-shop-v2 {
 
 .mall-shop-v2__ledger-head {
   padding: clamp(2rem, 5vw, 4.5rem) clamp(1rem, 5vw, 4.5rem) 1.5rem;
+}
+
+.mall-shop-v2__ledger-boundary {
+  max-width: 68ch;
+  margin: 8px 0 18px;
+  color: var(--mall-muted, #5c4450);
+  font-size: 0.98rem;
+  line-height: 1.55;
 }
 
 .mall-shop-v2__ledger-tools {
@@ -718,4 +745,19 @@ main.mall-shop-v2 {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+.mall-storefront-held,
+.mall-atrium-held,
+.mall-flair-v2__object-held,
+.mall-flair-v2__reel-art-held,
+.avatar-art-held {
+  display: grid;
+  place-items: center;
+  min-height: 120px;
+  width: 100%;
+  background: #35106f;
+  color: #fff;
+  font: 800 0.78rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

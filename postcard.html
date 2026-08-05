@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <style>
     .pc-wrap { max-width: 760px; margin: 0 auto; }
@@ -115,7 +115,7 @@
       <!-- ============ COMPOSE MODE (default) ============ -->
       <section id="pc-compose">
         <div class="pc-arrival" aria-labelledby="pcComposeTitle">
-          <img src="/assets/building-interiors/delivery-20260723-post-office-comic-v1/post-office-penny-counter-comic-candidate-v1.png" alt="Penny welcomes you to the SUNNYVAiLE Post Office counter, with mail slots and a postcard rack behind her.">
+          <span class="pc-arrival__held" aria-hidden="true">Post Office counter visual held</span>
         </div>
 
         <header class="pc-title">
@@ -131,6 +131,10 @@
             <p>Slide along the rack. The selected card follows you to the writing desk.</p>
           </div>
           <div class="pc-grid" id="pcGrid" aria-label="Choose a postcard"></div>
+          <p class="pc-status" id="pcSelectionBoundary" aria-live="polite">Checking postcard availability. No postcard has been selected.</p>
+          <noscript>
+            <p class="pc-status">The postcard artwork is being checked before it enters the public rack. No postcard has been selected or sent.</p>
+          </noscript>
         </section>
 
         <section class="pc-desk" aria-labelledby="pcDeskTitle">
@@ -159,7 +163,7 @@
             <div class="pc-card" id="pcPrev">
               <div class="pc-card-inner">
                 <div class="pc-face pc-face--front">
-                  <img id="pcPrevImg" src="/assets/postcards/from-sunnyvaile/pc-welcome.png" alt="The front of your postcard">
+                  <img id="pcPrevImg" alt="" hidden>
                 </div>
                 <div class="pc-face pc-face--back">
                   <div class="pc-back-msg">
@@ -215,24 +219,10 @@
   <script>
   (function () {
     'use strict';
-    // ---- Postcard set: the real "Postcard from SUNNYVAiLE" invite scenes (clean 3:2). ----
-    var PC_BASE = '/assets/postcards/from-sunnyvaile/';
-    var POSTCARDS = [
-      { id: 'welcome',        label: 'Welcome',         file: 'pc-welcome.png' },
-      { id: 'youve-got-mail', label: "You've Got Mail", file: 'pc-youve-got-mail.png' },
-      { id: 'dial-up',        label: 'Dial-Up',         file: 'pc-dial-up.png' },
-      { id: 'main-street',    label: 'Main Street',     file: 'pc-main-street.png' },
-      { id: 'blend-snap',    label: 'Blend & Snap', file: 'pc-blend-and-snap.png' },
-      { id: 'chick-flicks',  label: 'Chick Flicks', file: 'pc-chick-flicks.png' },
-      { id: 'mme-claio',     label: "Mme CLAi-O's", file: 'pc-mme-claio.png' },
-      { id: 'bronze-aige',   label: 'BRONZE AiGE',  file: 'pc-bronze-aige.png' },
-      { id: 'ksvl',          label: 'KSVL',         file: 'pc-ksvl.png' },
-      { id: 'library',       label: 'The LIBRAiRY', file: 'pc-library.png' },
-      { id: 'park',          label: 'The Park',     file: 'pc-park.png' },
-      { id: 'sorority',      label: 'Delta LAi Nu', file: 'pc-sorority-house.png' },
-      { id: 'puffy-binder',  label: 'Puffy Binder', file: 'pc-puffy-binder.png' }
-    ];
-    var byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
+    // The verified catalogue is the only source for picker entries on both Post Office surfaces.
+    var CATALOG_URL = '/content/site/postcard-catalog.json';
+    var POSTCARDS = [];
+    var byId = {};
 
     function esc(s){ return String(s||'').replace(/[<>&"]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
     function bindFlip(cardId, btnId) {
@@ -247,8 +237,8 @@
     // Public links now contain only a postcard choice. Notes and writer handles
     // belong in the user-controlled share message, never a URL or analytics
     // surface, so every supported link opens the composition desk.
-    var picked = POSTCARDS[0].id;
-    renderCompose();
+    var picked = null;
+    loadCatalogue();
 
     // ---------------- COMPOSE ----------------
 
@@ -259,14 +249,14 @@
       picked = byId[params.get('pc')] ? params.get('pc') : POSTCARDS[0].id;
 
       var grid = document.getElementById('pcGrid');
-      POSTCARDS.forEach(function (p, i) {
+      POSTCARDS.forEach(function (p) {
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'pc-thumb' + (p.id === picked ? ' is-picked' : '');
         b.dataset.id = p.id;
         b.setAttribute('aria-pressed', p.id === picked ? 'true' : 'false');
-        b.innerHTML = '<img src="' + PC_BASE + p.file + '" alt="' + esc(p.label) + ' postcard" loading="lazy">'
-                    + '<span class="pc-caption">' + esc(p.label) + '</span>';
+        b.innerHTML = '<img src="' + p.publicPath + '" alt="' + esc(p.alt) + '" loading="lazy">'
+                    + '<span class="pc-caption">' + esc(p.composerLabel) + '</span>';
         b.addEventListener('click', function () {
           picked = p.id;
           Array.prototype.forEach.call(grid.children, function (c) {
@@ -274,15 +264,15 @@
             c.classList.toggle('is-picked', isPicked);
             c.setAttribute('aria-pressed', isPicked ? 'true' : 'false');
           });
-          var pv = document.getElementById('pcPrevImg'); if (pv) pv.src = PC_BASE + p.file;
-          status(p.label + ' selected.');
+          var pv = document.getElementById('pcPrevImg'); if (pv) { pv.src = p.publicPath; pv.alt = p.alt; pv.hidden = false; }
+          status(p.composerLabel + ' selected.');
         });
         grid.appendChild(b);
       });
 
       // live two-sided preview
       var pvImg = document.getElementById('pcPrevImg');
-      if (pvImg) pvImg.src = PC_BASE + (byId[picked] || POSTCARDS[0]).file;
+      if (pvImg) { pvImg.src = (byId[picked] || POSTCARDS[0]).publicPath; pvImg.alt = (byId[picked] || POSTCARDS[0]).alt; pvImg.hidden = false; }
       function updateLocalPreview() {
         document.getElementById('pcPrevNote').textContent = note() || 'Come find me in SUNNYVAiLE.';
         var signature = document.getElementById('pcPrevSignature');
@@ -307,6 +297,61 @@
         status('Opening your email app. This page cannot confirm a send.');
         location.href = mailHref();
       });
+    }
+
+    function validCatalogue(payload) {
+      var seenIds = {}, seenFiles = {};
+      if (!payload || payload.schemaVersion !== '1.0.0' || payload.catalogId !== 'postcard-picker-v1' ||
+        typeof payload.preDispatchBoundary !== 'string' || !payload.preDispatchBoundary ||
+        !Array.isArray(payload.cards)) return null;
+      if (payload.visualState === 'HELD' && payload.cards.length === 0) return { held: true, cards: [] };
+      if (payload.visualState !== 'ACTIVE' || payload.cards.length !== 11) return null;
+      if (!payload.cards.every(function (p) {
+        if (!p || typeof p.id !== 'string' || !/^[a-z0-9-]+$/.test(p.id) || seenIds[p.id] ||
+          typeof p.file !== 'string' || !/^pc-[a-z0-9-]+\.png$/.test(p.file) || seenFiles[p.file] ||
+          typeof p.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(p.sha256) ||
+          typeof p.rackLabel !== 'string' || !p.rackLabel || typeof p.composerLabel !== 'string' || !p.composerLabel ||
+          typeof p.alt !== 'string' || !p.alt || typeof p.publicPath !== 'string' ||
+          !/^\/assets\/[A-Za-z0-9_.\/-]+\.(?:avif|jpe?g|png|webp)$/.test(p.publicPath)) return false;
+        seenIds[p.id] = true; seenFiles[p.file] = true; return true;
+      })) return null;
+      return { held: false, cards: payload.cards };
+    }
+
+    function catalogueHeld(boundary) {
+      var grid = document.getElementById('pcGrid');
+      grid.textContent = 'The postcard artwork is being checked before it enters the public rack.';
+      var preview = document.getElementById('pcPrevImg');
+      preview.removeAttribute('src'); preview.alt = ''; preview.hidden = true;
+      document.getElementById('pcSelectionBoundary').textContent = boundary;
+      status('Postcard artwork held. No postcard has been selected or sent.');
+      ['pcShare', 'pcCopy'].forEach(function (id) { var button = document.getElementById(id); button.disabled = true; });
+      ['pcText', 'pcEmail'].forEach(function (id) { var link = document.getElementById(id); link.hidden = true; link.setAttribute('aria-disabled', 'true'); });
+    }
+
+    function catalogueFailure() {
+      var grid = document.getElementById('pcGrid');
+      grid.textContent = 'The postcard catalogue could not be verified. No postcard has been selected or loaded.';
+      var preview = document.getElementById('pcPrevImg');
+      preview.removeAttribute('src'); preview.alt = ''; preview.hidden = true;
+      document.getElementById('pcSelectionBoundary').textContent = 'No postcard is selected. The local composer and share tools are unavailable until the catalogue can be verified.';
+      status('The postcard catalogue could not be verified.');
+      ['pcShare', 'pcCopy'].forEach(function (id) { var button = document.getElementById(id); button.disabled = true; });
+      ['pcText', 'pcEmail'].forEach(function (id) { var link = document.getElementById(id); link.hidden = true; link.setAttribute('aria-disabled', 'true'); });
+    }
+
+    function loadCatalogue() {
+      fetch(CATALOG_URL, { cache: 'no-store' })
+        .then(function (response) { if (!response.ok) throw new Error('catalogue unavailable'); return response.json(); })
+        .then(function (payload) {
+          var catalogue = validCatalogue(payload);
+          if (!catalogue) throw new Error('catalogue invalid');
+          if (catalogue.held) { catalogueHeld(payload.preDispatchBoundary); return; }
+          POSTCARDS = catalogue.cards; byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
+          document.getElementById('pcSelectionBoundary').textContent = payload.preDispatchBoundary;
+          renderCompose();
+        })
+        .catch(catalogueFailure);
     }
 
     function handle() {

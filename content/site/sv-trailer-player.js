@@ -4,7 +4,7 @@
    On play it pauses every other <audio> on the page (incl. the KSVL player). */
 (function () {
   'use strict';
-  var SRC = '/content/music/trailer-narration.mp3';
+  var PLAYER_STATE = 'HELD';
 
   function fmt(t) {
     if (!isFinite(t) || t < 0) t = 0;
@@ -54,6 +54,15 @@
     if (host.dataset.svtpReady) return;
     host.dataset.svtpReady = '1';
     host.classList.add('svtp');
+    if (PLAYER_STATE === 'HELD') {
+      host.innerHTML =
+        '<div class="svtp-body">'
+        + '<p class="svtp-eyebrow">★ The Trailer</p>'
+        + '<p class="svtp-title">Welcome to SUNNYV<span class="ai">Ai</span>LE</p>'
+        + '<p class="svtp-cap" role="status">The trailer audio is being checked before public playback. Nothing is playing or downloaded.</p>'
+        + '</div>';
+      return;
+    }
     host.innerHTML =
       '<button class="svtp-btn" type="button" aria-label="Play the Trailer">' + PLAY + PAUSE + '</button>'
       + '<div class="svtp-body">'
@@ -62,7 +71,7 @@
       + '<p class="svtp-cap">Press play for the full audio tour of town — the show, the streets, and how a Wednesday works.</p>'
       + '<div class="svtp-bar" role="slider" aria-label="Seek" tabindex="0" aria-valuemin="0" aria-valuenow="0"><div class="svtp-fill"></div></div>'
       + '<div class="svtp-times"><span class="svtp-cur">0:00</span><span class="svtp-dur">--:--</span></div>'
-      + '<audio preload="metadata" src="' + SRC + '"></audio>'
+      + '<audio preload="metadata"></audio>'
       + '</div>';
 
     var audio = host.querySelector('audio');

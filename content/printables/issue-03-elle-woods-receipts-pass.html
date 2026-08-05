@@ -152,6 +152,18 @@
       object-fit: cover;
       border: 1px solid rgba(37, 25, 35, 0.25);
     }
+    .hero-card--receipts { min-height: 2.04in; display: grid; place-items: center; padding: 0.18in; text-align: center; background: linear-gradient(135deg, #ffe1ef, #fff1bf 52%, #d4eff0); color: var(--plum); }
+    .hero-card--receipts b { display:block; color:var(--pink); font-family:Georgia,"Times New Roman",serif; font-size:clamp(2rem,7vw,3.6rem); letter-spacing:.1em; line-height:.95; text-shadow:2px 2px 0 #fff; }
+    .hero-card--receipts span { display:block; margin-top:.14in; font-size:10px; font-weight:900; letter-spacing:.1em; line-height:1.32; text-transform:uppercase; }
+
+    @media screen and (max-width: 720px) {
+      .sheet, .page { width: 100%; }
+      .page { height: auto; min-height: 11in; padding: 0.32in; }
+      .cover { grid-template-columns: 1fr; }
+      .grid.two, .grid.three, .steps { grid-template-columns: 1fr !important; }
+      .hero-card { max-width: 22rem; margin: 0 auto; }
+      table { width: 100%; table-layout: fixed; }
+    }
 
     .callout {
       margin-top: 0.18in;
@@ -292,8 +304,8 @@
             Do not be Chutney on the stand. Be Elle with the timeline.
           </div>
         </div>
-        <figure class="hero-card">
-          <img src="../../assets/episodes/issue-03/section-read-the-file-v2.jpg" alt="">
+        <figure class="hero-card hero-card--receipts" aria-label="Read the file: put the claim on the stand">
+          <div><b>READ THE FILE</b><span>Put the claim on the stand.</span></div>
         </figure>
       </div>
 

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/bronze-aige-v2.css?v=20260725-p0">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -32,7 +32,7 @@
   <header class="sv-header"></header>
 
   <div class="sv-hero bronze-room" aria-labelledby="bronzeRoomTitle">
-    <img src="assets/building-interiors/bronze-aige-interior.jpg?v=20260708c" alt="Inside the BRONZE AiGE — a plum-velvet music lounge with a red-curtained stage, jukebox, bar, café tables, and the Businesswomen's Special fortune teller waiting on the bar" loading="eager">
+    <p class="bronze-room__held-note" role="note">The room artwork is being polished. All six online stations remain available.</p>
     <div class="bronze-room__copy">
       <p class="bronze-room__kicker">MAiN Street · No. 7 · SUNNYVAiLE</p>
       <h1 id="bronzeRoomTitle"><span class="bronze-title-bar">The BRONZE</span> <span class="ai">Ai</span>GE.</h1>
@@ -43,7 +43,7 @@
     </div>
     <nav class="bronze-room__controls" aria-label="Operate the BRONZE AiGE bar">
       <button type="button" class="bronze-object bronze-object--fortune" data-bronze-panel="bronze-fortune" aria-controls="bronze-fortune" aria-expanded="false">
-        <img src="/assets/bws-fortune-teller/frame-1-closed.webp" alt="">
+        <span class="bronze-held-fortune" data-asset-status="held" aria-hidden="true">Fortune Teller · held</span>
         <span>The Fortune Teller</span>
       </button>
       <button type="button" class="bronze-object bronze-object--menu" data-bronze-panel="bronze-menu" aria-controls="bronze-menu" aria-expanded="false"><span>Tonight's Specials</span></button>
@@ -426,9 +426,7 @@ Dress code: main character.</div>
 
     <h2 id="bzLiveH2">Tonight’s recorded stage</h2>
 
-    <figure style="margin: 0 0 24px; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 34px rgba(52,20,70,.28); line-height: 0;">
-      <img src="assets/building-interiors/bronze-aige-live-band.jpg?v=20260708" alt="THE LAiDIES on the BRONZE AiGE stage — the house band mid-set under the disco ball, the THE LAiDIES kick drum lit in pink neon, plum velvet curtains and heart sconces" loading="lazy" style="width: 100%; height: auto; display: block;">
-    </figure>
+    <div class="bronze-stage-held" role="note"><strong>Recorded stage artwork held</strong><span>The admitted recorded track and its playback controls remain below. This is not a live venue.</span></div>
 
     <div id="bzBandBox" style="margin: 24px 0 40px; padding: 28px 32px; background: linear-gradient(135deg, var(--plum-deep) 0%, var(--rose) 100%); border-radius: 12px; color: var(--cream);">
       <p id="bzEyebrow" style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);">★ Recorded set · STAGE PREVIEW</p>

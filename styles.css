@@ -1531,11 +1531,7 @@ h3 {
   align-items: center;
   justify-content: center;
   border: 0;
-  background:
-    rgba(255, 250, 253, 0.92)
-    url("assets/reference-drawer-plaque.png")
-    center / 100% 100%
-    no-repeat;
+  background: rgba(255, 250, 253, 0.92);
   filter: drop-shadow(2px 2px 0 rgba(16, 8, 5, 0.62));
   color: var(--ink);
   font-family: var(--font-body);
@@ -3160,7 +3156,6 @@ h3 {
   border-radius: 10px;
   background:
     linear-gradient(135deg, rgba(255, 248, 252, 0.88), rgba(155, 63, 95, 0.1) 38%, rgba(18, 182, 196, 0.22)),
-    url("assets/businesswomen-special-fortune-teller-v1.png") center / cover no-repeat,
     #9b3f5f;
   box-shadow: 6px 6px 0 var(--ink);
   padding: clamp(14px, 2.2vw, 24px);
@@ -3565,7 +3560,6 @@ h3 {
     margin-bottom: 0;
     background:
       linear-gradient(rgba(255, 248, 252, 0.78), rgba(255, 248, 252, 0.12)),
-      url("assets/businesswomen-special-fortune-teller-v1.png") center / cover no-repeat,
       #9b3f5f;
   }
 
@@ -4180,7 +4174,6 @@ h3 {
   border-radius: 8px;
   background:
     radial-gradient(circle at 70% 18%, rgba(255, 242, 92, 0.44), transparent 22%),
-    url("assets/dream-phone-cordless-crop.png") center / contain no-repeat,
     linear-gradient(135deg, rgba(255, 236, 248, 0.98), rgba(230, 252, 255, 0.96));
   box-shadow: 4px 4px 0 var(--ink);
 }
@@ -7740,6 +7733,36 @@ h3 {
   object-fit: contain;
 }
 
+.episode-trading-card.has-held-visual .episode-card-front {
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 242, 92, 0.4), transparent 22%),
+    radial-gradient(circle at 82% 18%, rgba(81, 214, 223, 0.28), transparent 24%),
+    linear-gradient(145deg, #4b2148, #9b3f5f 58%, #d486aa);
+}
+
+.card-visual-held {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  margin: 18px;
+  padding: 14px;
+  min-height: 0;
+  border: 2px dashed rgba(255, 253, 251, 0.78);
+  border-radius: 6px;
+  color: #fffdfb;
+  font-size: 0.74rem !important;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.episode-trading-card.has-held-visual .episode-card-front > div {
+  background: rgba(255, 253, 251, 0.96);
+}
+
 .episode-card-front > div {
   position: relative;
   z-index: 3;
@@ -10301,16 +10324,17 @@ html {
 .butterfly-clip-token {
   width: 30px;
   height: 22px;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  object-fit: contain;
+  border: 2px solid var(--ink);
+  border-radius: 999px 999px 7px 7px;
+  background: linear-gradient(135deg, #f8bdd3, var(--hot-pink));
+  box-shadow: 2px 2px 0 var(--ink);
   transform: none;
 }
 
 .butterfly-clip-token::after {
-  display: none;
+  display: block;
+  top: 6px;
+  left: 8px;
 }
 
 .psychic-visual {
@@ -11171,7 +11195,6 @@ html {
 .site-header .brand img,
 .back-bar .brand img,
 .preview-header img[src*="laidies-logo-wordmark"] {
-  content: url("assets/brand/laidies-logo-header-approved-v6.png") !important;
   display: block !important;
   width: clamp(118px, 13vw, 172px) !important;
   max-width: 42vw;
@@ -11187,7 +11210,6 @@ html {
 
 .logo-img[src*="laidies-logo-wordmark"],
 .header-content img[src*="laidies-logo-wordmark"] {
-  content: url("assets/brand/laidies-logo-masthead-approved-v3.png") !important;
   display: block !important;
   width: min(420px, 82vw) !important;
   max-width: 100% !important;
@@ -11278,7 +11300,6 @@ h3,
 .site-header .brand img,
 .back-bar .brand img,
 .preview-header img[src*="laidies-logo-wordmark"] {
-  content: url("assets/brand/laidies-logo-header-approved-v6.png") !important;
   width: clamp(118px, 11vw, 158px) !important;
   max-width: 100% !important;
   max-height: none !important;

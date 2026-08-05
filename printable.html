@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Printable Preview | LAiDIES</title>
   <meta name="description" content="Preview and download the LAiDIES weekly printable.">
-  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
@@ -307,7 +307,7 @@
       </style>
   <link rel="stylesheet" href="/content/printable-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -333,10 +333,10 @@
       <div class="pr-hero-copy">
         <span class="eyebrow" id="printableEyebrow">Episode printable</span>
         <h1 id="printableTitle">Printable Preview</h1>
-        <p class="lede" id="printableDescription">Preview the weekly printable first. Download it only when you are ready.</p>
+        <p class="lede" id="printableDescription">See what the weekly printable will cover and whether its pages are ready.</p>
       </div>
       <div class="preview-actions">
-        <a class="button" id="downloadPdf" href="/printable.html" download>Download PDF</a>
+        <a class="button" id="downloadPdf" aria-disabled="true">PDF held</a>
         <a class="button secondary" id="funPackLink" href="/#activities">Explore LAiDIES activities</a>
       </div>
     </section>
@@ -347,21 +347,21 @@
           <p class="pr-kicker">The reference-room worktable</p>
           <h2 id="prWorktableTitle">Four sheets. One useful move.</h2>
         </div>
-        <p>Read them here, slide along the desk, or take the complete PDF with you.</p>
+        <p>The preview and complete PDF appear here only after their content, source, print and accessibility checks pass.</p>
       </header>
 
       <div class="printable-shell" aria-label="Printable preview pages">
         <div class="page-grid" id="pageGrid"></div>
-        <p class="unavailable" id="unavailableMessage" hidden>This printable is not public yet. Try the current week's Bag instead.</p>
+        <p class="unavailable" id="unavailableMessage" hidden>This printable is not public yet. Its description remains available while the preview sheets and PDF are checked.</p>
       </div>
     </section>
 
     <section class="pr-dispatch" aria-labelledby="prDispatchTitle">
       <p class="pr-kicker">Reference-room checkout</p>
       <h2 id="prDispatchTitle">Keep the pages. Try the move.</h2>
-      <p>The PDF is the desk reference. Continue with any LAiDIES activity that fits what you want to do next.</p>
+      <p>Continue with any LAiDIES activity that fits what you want to do next. The PDF link will appear here when the exact file is approved.</p>
       <div class="pr-dispatch-actions">
-        <a class="button" id="downloadPdfBottom" href="/printable.html" download>Take the complete PDF →</a>
+        <a class="button" id="downloadPdfBottom" aria-disabled="true">PDF held</a>
         <a class="button secondary" id="funPackLinkBottom" href="/#activities">Explore LAiDIES activities</a>
         <a class="wednesday-return" data-wednesday-return href="/">← Back to the Bag</a>
       </div>
@@ -378,56 +378,28 @@
 
     var printables = {
       1: {
+        status: "HELD",
         eyebrow: "Episode 01 printable",
         title: "Open the Tab",
-        description: "A four-page desk reference for your first safe, useful AI reps.",
-        pdf: "assets/prompt-cheat-sheet-issue01.pdf",
-        filename: "prompt-cheat-sheet-issue01.pdf",
-        pages: [
-          "content/printables/previews/issue-01-open-the-tab-page-1.png",
-          "content/printables/previews/issue-01-open-the-tab-page-2.png",
-          "content/printables/previews/issue-01-open-the-tab-page-3.png",
-          "content/printables/previews/issue-01-open-the-tab-page-4.png"
-        ]
+        description: "A four-page desk reference for your first safe, useful AI reps. Preview sheets and PDF held for review."
       },
       2: {
+        status: "HELD",
         eyebrow: "Episode 02 printable",
         title: "Prompt Specificity Cheat Sheet",
-        description: "A four-page prompt specificity cheat sheet for turning vague asks into useful work output.",
-        pdf: "assets/prompt-cheat-sheet-issue02.pdf",
-        filename: "prompt-cheat-sheet-issue02.pdf",
-        pages: [
-          "content/printables/previews/prompt-cheat-sheet-page-1.png",
-          "content/printables/previews/prompt-cheat-sheet-page-2.png",
-          "content/printables/previews/prompt-cheat-sheet-page-3.png",
-          "content/printables/previews/prompt-cheat-sheet-page-4.png"
-        ]
+        description: "A four-page prompt specificity cheat sheet for turning vague asks into useful work output. Preview sheets and PDF held for review."
       },
       4: {
+        status: "HELD",
         eyebrow: "Episode 04 printable",
         title: "The Founding Mothers Timeline",
-        description: "A four-page desk reference: the timeline of the women who built AI, the four Study Pack words fully defined, and this week's field trip.",
-        pdf: "assets/prompt-cheat-sheet-issue04.pdf",
-        filename: "prompt-cheat-sheet-issue04.pdf",
-        pages: [
-          "content/printables/previews/issue-04-founding-mothers-page-1.png",
-          "content/printables/previews/issue-04-founding-mothers-page-2.png",
-          "content/printables/previews/issue-04-founding-mothers-page-3.png",
-          "content/printables/previews/issue-04-founding-mothers-page-4.png"
-        ]
+        description: "A four-page desk reference: the timeline of the women who built AI, the four Study Pack words fully defined, and this week's field trip. Preview sheets and PDF held for review."
       },
       3: {
+        status: "HELD",
         eyebrow: "Episode 03 printable",
         title: "The Elle Woods Receipts Pass",
-        description: "A four-page receipts pass for checking claims, timelines, domain rules, contradictions, and sources before the paragraph borrows your name.",
-        pdf: "assets/prompt-cheat-sheet-issue03.pdf",
-        filename: "prompt-cheat-sheet-issue03.pdf",
-        pages: [
-          "content/printables/previews/issue-03-elle-receipts-pass-page-1.png",
-          "content/printables/previews/issue-03-elle-receipts-pass-page-2.png",
-          "content/printables/previews/issue-03-elle-receipts-pass-page-3.png",
-          "content/printables/previews/issue-03-elle-receipts-pass-page-4.png"
-        ]
+        description: "A four-page receipts pass for checking claims, timelines, domain rules, contradictions, and sources before the paragraph borrows your name. Preview sheets and PDF held for review."
       }
     };
 
@@ -480,6 +452,22 @@
       if (title) title.textContent = "Printable in the works";
       if (eyebrow) eyebrow.textContent = "Not public yet";
       if (description) description.textContent = "This week's printable is not packed yet. The current Bag still works.";
+      return;
+    }
+
+    if (printable.status === "HELD") {
+      if (pageGrid) pageGrid.hidden = true;
+      if (unavailableMessage) unavailableMessage.hidden = false;
+      [downloadPdf, downloadPdfBottom].forEach(function(link) {
+        if (!link) return;
+        link.removeAttribute("href");
+        link.removeAttribute("download");
+        link.setAttribute("aria-disabled", "true");
+      });
+      document.title = printable.title + " | LAiDIES Printable";
+      if (title) title.textContent = printable.title;
+      if (eyebrow) eyebrow.textContent = printable.eyebrow;
+      if (description) description.textContent = printable.description;
       return;
     }
 

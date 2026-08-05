@@ -54,8 +54,7 @@ body:has(.rc-page) .sv-yah-chip {
       rgba(5, 13, 39, 0.45) 66%,
       rgba(5, 13, 39, 0.18) 100%
     ),
-    url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
-      center / cover no-repeat;
+    linear-gradient(145deg, #172653 0%, #432b71 54%, #176a7d 100%);
   isolation: isolate;
 }
 
@@ -73,6 +72,18 @@ body:has(.rc-page) .sv-yah-chip {
 
 .rc-arrival-copy {
   width: min(100%, 43rem);
+}
+
+.rc-arrival__held {
+  margin: 0 0 1.25rem;
+  padding: .75rem 1rem;
+  border: 2px dashed rgba(255,249,239,.7);
+  border-radius: .7rem;
+  color: var(--rc2-cream);
+  font-size: .78rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .rc-arrival .sv-eyebrow {
@@ -346,8 +357,7 @@ body:has(.rc-page) .sv-yah-chip {
     padding-inline: 1.15rem;
     background:
       linear-gradient(180deg, rgba(5, 13, 39, 0.94), rgba(5, 13, 39, 0.72)),
-      url("/assets/building-interiors/delivery-20260724-maikeover-v1/maikeover-vanity-station-comic-candidate-v1.png")
-        center / cover no-repeat;
+      linear-gradient(145deg, #172653, #432b71 54%, #176a7d);
   }
 
   .rc-arrival h1 {

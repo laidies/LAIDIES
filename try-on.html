@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Try-On | LAiDIES</title>
   <meta name="description" content="Do the weekly LAiDIES Try-On exercise and save your notes on this device.">
-  <link rel="icon" type="image/png" href="assets/brand/laidies-logo-square-pearl-512-v1.png">
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
@@ -569,27 +569,38 @@
       margin-top: 10px;
     }
 
-    .clip-row img {
+    .clip-row .clip-marker {
       width: 100%;
       max-width: 34px;
+      aspect-ratio: 1.45 / 1;
       justify-self: center;
-      filter: saturate(0.2) brightness(0.72);
+      border: 2px solid var(--wine);
+      border-radius: 999px 999px 7px 7px;
+      background: linear-gradient(135deg, #f7c1d6, var(--hot-pink));
+      box-shadow: 2px 2px 0 rgba(75, 33, 72, 0.18);
       opacity: 0.32;
       transform: rotate(-6deg);
-      transition: filter 160ms ease, opacity 160ms ease, transform 160ms ease;
+      transition: box-shadow 160ms ease, opacity 160ms ease, transform 160ms ease;
     }
-
-    .clip-row img:nth-child(even) {
+    .clip-row .clip-marker::after {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 5px;
+      margin: calc(50% - 4px) auto 0;
+      border-radius: 50%;
+      background: #fff8dc;
+      box-shadow: 7px 0 0 #fff8dc;
+    }
+    .clip-row .clip-marker:nth-child(even) {
       transform: rotate(7deg);
     }
-
-    .clip-row img.is-active {
-      filter: saturate(1.15) brightness(1.06) drop-shadow(0 0 10px rgba(155, 63, 95, 0.34));
+    .clip-row .clip-marker.is-active {
+      box-shadow: 0 0 10px rgba(155, 63, 95, 0.34), 2px 2px 0 rgba(75, 33, 72, 0.18);
       opacity: 1;
       transform: translateY(-2px) rotate(-4deg);
     }
-
-    .clip-row img:nth-child(even).is-active {
+    .clip-row .clip-marker:nth-child(even).is-active {
       transform: translateY(-2px) rotate(6deg);
     }
 
@@ -753,7 +764,7 @@
       </style>
   <link rel="stylesheet" href="/content/try-on-v2.css?v=20260724-1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -779,6 +790,7 @@
   <main>
     <section class="tryon-hero" aria-labelledby="tryonTitle">
       <div>
+        <p class="tryon-visual-held">Vanity visual held · the Try-On remains available.</p>
         <span class="eyebrow" id="episodeEyebrow">Episode Try-On</span>
         <h1 id="tryonTitle">The Try-On fitting room.</h1>
         <p class="lede" id="tryonLede">The five-minute move from this week&rsquo;s Study Pack. Try the lesson on one real work task, compare the fit, and save what changed.</p>
@@ -923,7 +935,6 @@
 
     var completionStorageKey = "laidiesWednesdayRitualVisits";
     var tryOnStorageKey = "laidiesWednesdayTryOnNotes";
-    var clipAsset = "assets/butterfly-clip-rating-token.png";
     var ratingDescriptions = [
       "Ouch. Stepped on a broken butterfly clip.",
       "Barely clipped.",
@@ -1230,9 +1241,8 @@
       if (clipRow) {
         clipRow.replaceChildren();
         for (var i = 1; i <= 10; i += 1) {
-          var clip = document.createElement("img");
-          clip.src = clipAsset;
-          clip.alt = "";
+          var clip = document.createElement("span");
+          clip.className = "clip-marker";
           if (i <= score) clip.classList.add("is-active");
           clipRow.appendChild(clip);
         }
@@ -1267,7 +1277,7 @@
     function saveTryOn() {
       var rating = tryonRating ? Math.max(0, Math.min(10, Number(tryonRating.value) || 0)) : 0;
       var map = readJson(tryOnStorageKey, {});
-      map[issueKey] = {
+      var record = {
         rating: rating,
         notes: tryonNotes ? tryonNotes.value.trim() : "",
         answerToCheck: answerToCheck ? answerToCheck.value.trim() : "",
@@ -1276,13 +1286,21 @@
         ratingDescription: ratingDescriptions[rating] || "",
         savedAt: new Date().toISOString()
       };
+      var hasContent = Boolean(record.notes || record.answerToCheck || record.receiptsChecked || record.saferVersion);
+      if (!hasContent) {
+        if (saveStatus) {
+          saveStatus.hidden = false;
+          saveStatus.textContent = "Add a note or work sample before saving. Nothing was saved and this Try-On was not marked complete.";
+        }
+        return;
+      }
+      map[issueKey] = record;
       var saved = writeJson(tryOnStorageKey, map);
       if (saved) markTryOnComplete();
       if (saveStatus) {
-        var hasContent = Boolean(map[issueKey].notes || map[issueKey].answerToCheck || map[issueKey].receiptsChecked || map[issueKey].saferVersion);
-        saveStatus.hidden = saved ? !hasContent : false;
+        saveStatus.hidden = false;
         saveStatus.textContent = saved
-          ? (hasContent ? "Saved to this device for now." : "")
+          ? "Saved to this device for now."
           : "Could not save on this device. Your text is still on this page; copy it before leaving.";
       }
     }

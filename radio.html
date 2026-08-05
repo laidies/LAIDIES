@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/radio-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script src="/content/site/supabase-config.js" defer></script>
@@ -60,7 +60,7 @@
     @media (prefers-reduced-motion: reduce) { .ksvl-hero-tunein__dot { animation: none; } }
   </style>
   <div class="sv-hero ksvl-studio" aria-labelledby="ksvlStudioTitle">
-    <img src="assets/building-interiors/ksvl-booth.jpg?v=20260707" alt="Inside the KSVL 99.9 booth — a mixing console with heart-topped mics, ON AIR sign, walls of records, and the SUNNYVAiLE street glowing through the window at dusk" loading="eager">
+    <div class="ksvl-studio-held" data-asset-status="held" role="img" aria-label="KSVL studio artwork is being prepared."></div>
     <div class="ksvl-studio__copy">
       <p class="ksvl-studio__kicker">MAiN Street · 99.9 FM · SUNNYVAiLE</p>
       <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>
@@ -191,7 +191,7 @@
 
     <h2>Mix CDs</h2>
 
-    <p>Six Sharpie-labelled shelves are being stocked. They do not play or shuffle yet. For something to enjoy now, <a href="/chick-flicks.html">open the episode shelf</a> or <a href="/library.html">learn in the LIBRAiRY</a>.</p>
+    <p>Six Sharpie-labelled shelves are stocked from KSVL's current catalogue. Open a case to see the tracks that pass the station check; an available Play button means that exact track is ready. Tracks that do not pass stay unavailable. Nothing starts automatically, and listening position stays on this device.</p>
 
     <style>
       .ksvl-live-band {
@@ -289,8 +289,13 @@
       .ksvl-band-flip:focus-visible { outline: none; }
       .ksvl-band-flip:focus-visible .ksvl-band-face--front { box-shadow: 0 0 0 3px var(--rose), 0 8px 20px rgba(75,33,72,0.28); }
 
-      /* Cover art on the front */
-      .ksvl-band-cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+      /* Asset-free held cover on the front. The named record and its controls remain usable. */
+      .ksvl-band-held-face { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 7px; padding: 22px; background: linear-gradient(145deg, #40286f 0%, #7e417d 48%, #c56c82 100%); color: var(--cream); }
+      .ksvl-band-held-face::before { content: ""; position: absolute; inset: 12px; border: 2px dashed rgba(255,253,251,0.62); border-radius: 3px; pointer-events: none; }
+      .ksvl-band-held-label, .ksvl-band-held-format, .ksvl-band-held-band, .ksvl-band-held-album { position: relative; z-index: 1; margin: 0; }
+      .ksvl-band-held-label { align-self: flex-start; padding: 4px 7px; border: 1px solid rgba(255,253,251,0.72); border-radius: 999px; font-family: "Jost", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .ksvl-band-held-format, .ksvl-band-held-band { font-family: "Jost", sans-serif; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+      .ksvl-band-held-album { font-family: "Playfair Display", Georgia, serif; font-size: clamp(19px, 2.2vw, 27px); font-style: italic; font-weight: 700; line-height: 1.08; }
       .ksvl-band-face--front::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, transparent 0 22px, rgba(255,255,255,0.24) 22px 24px); pointer-events: none; opacity: 0.28; }
 
       /* ▶ play-whole-album button (front bottom-right) */
@@ -335,16 +340,16 @@
         'use strict';
 
         var ALBUMS = [
-          { band: 'THE LAiDIES',      album: 'Welcome to the Grid',        format: 'LP',       cover: '/assets/albums/the-laidies-welcome-to-the-grid.png' },
-          { band: 'The Overfits',     album: 'Memorized',                  format: 'LP',       cover: '/assets/albums/the-overfits-memorized.png' },
-          { band: 'The Embeddings',   album: 'Deep Vectors',               format: 'LP',       cover: '/assets/albums/the-embeddings-deep-vectors.png' },
-          { band: 'The Regressions',  album: 'Please Fit This Curve',      format: 'EP',       cover: '/assets/albums/the-regressions-please-fit-this-curve.png' },
-          { band: 'The Bots',         album: 'Dial-Up the Dance Floor',    format: 'EP',       cover: '/assets/albums/the-bots-dial-up-the-dance-floor.png' },
-          { band: 'Latent Space',     album: 'Between Layers',             format: 'EP',       cover: '/assets/albums/latent-space-between-layers.png' },
-          { band: 'The Predicts',     album: 'Told You So',                format: 'EP',       cover: '/assets/albums/the-predicts-told-you-so.png' },
-          { band: 'The Recalls',      album: 'Down at the Blend & Snap',   format: '7" single', cover: '/assets/albums/the-recalls-down-at-the-blend-and-snap.png' },
-          { band: 'Chain of Thought', album: 'David Says',                 format: '7" single', cover: '/assets/albums/chain-of-thought-david-says.png' },
-          { band: "Grand Ol' Query",  album: 'Common Sense',               format: '7" single', cover: '/assets/albums/grand-ol-query-common-sense.png' }
+          { band: 'THE LAiDIES',      album: 'Welcome to the Grid',        format: 'LP' },
+          { band: 'The Overfits',     album: 'Memorized',                  format: 'LP' },
+          { band: 'The Embeddings',   album: 'Deep Vectors',               format: 'LP' },
+          { band: 'The Regressions',  album: 'Please Fit This Curve',      format: 'EP' },
+          { band: 'The Bots',         album: 'Dial-Up the Dance Floor',    format: 'EP' },
+          { band: 'Latent Space',     album: 'Between Layers',             format: 'EP' },
+          { band: 'The Predicts',     album: 'Told You So',                format: 'EP' },
+          { band: 'The Recalls',      album: 'Down at the Blend & Snap',   format: '7" single' },
+          { band: 'Chain of Thought', album: 'David Says',                 format: '7" single' },
+          { band: "Grand Ol' Query",  album: 'Common Sense',               format: '7" single' }
         ];
 
         function waitForKSVL(cb) {
@@ -369,15 +374,28 @@
             flip.setAttribute('tabindex', '0');
             flip.setAttribute('aria-label', 'Flip ' + a.band + ' — ' + a.album + ' to see the tracklist');
 
-            // Front — cover art + ▶ play-whole-album button
+            // Front — asset-free held record face + ▶ play-whole-album button
             var front = document.createElement('div');
             front.className = 'ksvl-band-face ksvl-band-face--front';
-            var img = document.createElement('img');
-            img.className = 'ksvl-band-cover-img';
-            img.src = a.cover;
-            img.alt = a.band + ' — ' + a.album + ' cover';
-            img.loading = 'lazy';
-            front.appendChild(img);
+            var heldFace = document.createElement('div');
+            heldFace.className = 'ksvl-band-held-face';
+            var heldLabel = document.createElement('p');
+            heldLabel.className = 'ksvl-band-held-label';
+            heldLabel.textContent = 'Album visual held';
+            heldFace.appendChild(heldLabel);
+            var heldFormat = document.createElement('p');
+            heldFormat.className = 'ksvl-band-held-format';
+            heldFormat.textContent = a.format + ' · ' + tracks.length + (tracks.length === 1 ? ' track' : ' tracks');
+            heldFace.appendChild(heldFormat);
+            var heldBand = document.createElement('p');
+            heldBand.className = 'ksvl-band-held-band';
+            heldBand.textContent = a.band;
+            heldFace.appendChild(heldBand);
+            var heldAlbum = document.createElement('p');
+            heldAlbum.className = 'ksvl-band-held-album';
+            heldAlbum.textContent = a.album;
+            heldFace.appendChild(heldAlbum);
+            front.appendChild(heldFace);
             var playBtn = document.createElement('button');
             playBtn.className = 'ksvl-band-play-btn';
             playBtn.type = 'button';
@@ -526,7 +544,7 @@
       <p class="ksvl-stickers-lede">KSVL stickers are coming later. Listening does not add a sticker to your collection yet.</p>
 
       <figure style="margin:14px 0 20px;">
-        <img src="assets/building-interiors/ksvl-sticker-banner.jpg?v=20260708" alt="A pile of KSVL 99.9 vinyl stickers — CHARTER LISTENER, DON'T JUST LEARN FROM BOOKS LEARN FROM HOOKS!, ALL WEDNESDAYS, ENCORE, MIX CD ALCHEMY and the SUNNYVAiLE band decals" loading="lazy" style="width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 10px 26px rgba(75,33,72,0.16);">
+        <div class="ksvl-sticker-banner-held" data-asset-status="held" role="img" aria-label="KSVL sticker-banner artwork is being prepared.">Sticker banner visual held</div>
       </figure>
 
       <div class="ksvl-stickers-status" id="ksvl-stickers-status"></div>

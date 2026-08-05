@@ -20,11 +20,7 @@ var PRODUCTS = [
     giftable: true,
     department: "prints",
     preview: "poster-set",
-    images: [
-      "/assets/printables/deb-nope-poster-loop-me-out-web.jpg?v=20260716",
-      "/assets/printables/deb-nope-poster-deb-flection-trademark-web.jpg?v=20260716",
-      "/assets/printables/deb-nope-poster-mayor-sunnyvaile-since-1999-web.jpg?v=20260716"
-    ],
+    images: [],
     blurb: "The full NOPE trilogy — “Loop Me Out,” “Deb-flection™,” and “Mayor since 1999.” Deb's whole philosophy, pulled straight from the print bin.",
     buyUrl: "#"
   },
@@ -35,7 +31,7 @@ var PRODUCTS = [
     giftable: true,
     department: "prints",
     preview: "poster",
-    img: "/assets/printables/deb-1999-campaign-poster-yippee-ki-ai-hr-redacted-web.jpg?v=20260716",
+    img: "",
     blurb: "The one that started it all — the Die Hard poster she never asked for, HR-redacted in Sharpie.",
     buyUrl: "#"
   },
@@ -46,10 +42,7 @@ var PRODUCTS = [
     giftable: true,
     department: "prints",
     preview: "window-set",
-    images: [
-      "/assets/mavens/y2k-stained-glass-v3-finished/grace-hopper-y2k-stained-glass.png",
-      "/assets/mavens/y2k-stained-glass-v3-finished/hedy-lamarr-y2k-stained-glass.png"
-    ],
+    images: [],
     blurb: "A gallery-grade print of one real woman from the LUMINAiRY's MAiVENS wing. Grace Hopper and Hedy Lamarr are on the counter while the rest of the range is checked.",
     buyUrl: "#"
   },
@@ -60,12 +53,7 @@ var PRODUCTS = [
     giftable: true,
     department: "prints",
     preview: "window-set",
-    images: [
-      "/assets/mavens/y2k-stained-glass-v3-finished/grace-hopper-y2k-stained-glass.png",
-      "/assets/mavens/y2k-stained-glass-v3-finished/hedy-lamarr-y2k-stained-glass.png",
-      "/assets/mavens/y2k-stained-glass-v3-finished/timnit-gebru-y2k-stained-glass.png",
-      "/assets/mavens/y2k-stained-glass-v3-finished/fei-fei-li-y2k-stained-glass.png"
-    ],
+    images: [],
     blurb: "A boxed mini-print set from the real-women windows. The full production count is still being confirmed; the four approved examples shown are the actual art.",
     buyUrl: "#"
   },
@@ -76,19 +64,17 @@ var PRODUCTS = [
     giftable: true,
     department: "prints",
     preview: "landscape",
-    img: "/assets/episodes/ep-04/pixel/ep04-scene-05-grace-b-mid-comic-v1-locked-1920.png",
+    img: "",
     blurb: "A current graphic-novel scene from Episode 04: Grace Hopper, the moth, and the machine — not the retired pixel frame that used to stand in for this product.",
     buyUrl: "#"
   },
   {
     name: "Puffy Sticker Sheet",
     price: "$8",
-    tag: "Source-art preview",
+    tag: "Preview in production",
     giftable: true,
     department: "small-goods",
-    preview: "landscape",
-    img: "/assets/puffies/contact-sheets/all-usable-puffy-stickers-contact-sheet.png",
-    blurb: "The approved puffy collection gathered in one place. This is the real source-art sheet; the final retail backing card is still being produced.",
+    blurb: "A Puffy Sticker Sheet is planned. The retail backing card and product proof are still in production.",
     buyUrl: "#"
   },
   {
@@ -152,7 +138,7 @@ var PRODUCTS = [
     giftable: true,
     department: "digital",
     preview: "landscape",
-    img: "/assets/playlist-mix-cd-v2.png",
+    img: "",
     blurb: "The saint anthems and episode songs, mixed by DJ SunnyV. The real KSVL disc art is here; the Gumroad download link is not connected yet.",
     buyUrl: "#"
   }
@@ -269,7 +255,7 @@ var PRODUCTS = [
         product.preview === "landscape" ? " shop-product__art--landscape" : "";
       return '<div class="shop-product__art' + artClass + '"><img src="' + esc(product.img) + '" alt="' + esc(product.name) + '" loading="lazy"></div>';
     }
-    return "";
+    return '<div class="shop-product__art shop-product__art--held" data-asset-status="held" role="img" aria-label="' + esc(product.name) + ' visual held">Visual held</div>';
   }
 
   function departmentLabel(value) {

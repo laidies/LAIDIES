@@ -2,7 +2,7 @@
   "use strict";
 
   var toolCopy = {
-    look: "Look drawer open · make or upload your avatar.",
+    look: "Look drawer open · style the card while the portrait booth remains safely closed.",
     backdrop: "Backdrop drawer open · choose the card and portrait setting.",
     soundtrack: "Soundtrack drawer open · choose the song that follows you home.",
     saint: "Patron Saint drawer open · pick the voice you want in your corner.",
@@ -48,25 +48,15 @@
 
   function moveLiveObjects() {
     var mirrorMount = document.getElementById("moMirrorMount");
-    var candidateMount = document.getElementById("moCandidateMount");
     var card = document.getElementById("moCard");
-    var candidates = document.getElementById("moCands");
     var controls = document.querySelector(".mo-controls");
     var claimCard = document.getElementById("mo-claim-card");
 
     if (mirrorMount && card) mirrorMount.appendChild(card);
-    if (candidateMount && candidates) candidateMount.appendChild(candidates);
     if (controls && controls.children[9] && claimCard) {
       controls.children[9].appendChild(claimCard);
     }
 
-    if (candidateMount && candidates && window.MutationObserver) {
-      var syncCandidateState = function () {
-        candidateMount.classList.toggle("has-candidates", candidates.children.length > 0);
-      };
-      new MutationObserver(syncCandidateState).observe(candidates, { childList: true });
-      syncCandidateState();
-    }
   }
 
   function setTool(tool, shouldScroll) {

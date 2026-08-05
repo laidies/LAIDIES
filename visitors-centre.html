@@ -8,7 +8,6 @@
   <meta property="og:title" content="Visitor’s Centre · LAiDIES">
   <meta property="og:description" content="The front door to SUNNYVAiLE. Find the whole town and choose your first stop.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png">
   <script>document.documentElement.classList.add("js");</script>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
@@ -65,8 +64,20 @@
       inset: 0;
       z-index: 0;
       background:
-        url("/assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png")
-        center top / cover no-repeat;
+        radial-gradient(circle at 18% 28%, rgba(21, 188, 224, .3), transparent 28%),
+        radial-gradient(circle at 82% 34%, rgba(242, 84, 169, .25), transparent 31%),
+        linear-gradient(135deg, #eaf8ff 0%, #e9e1ff 53%, #ffe6f3 100%);
+    }
+    .vc-room-art-held {
+      position: absolute;
+      z-index: 1;
+      left: 5.2%;
+      bottom: 5%;
+      color: #3d3564;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .19em;
+      text-transform: uppercase;
     }
     .vc-room-art::after {
       content: "";
@@ -403,10 +414,29 @@
       border-top: 1px solid var(--line);
     }
     .vc-fallback-links a {
+      display: block;
+      margin-top: 5px;
       font-weight: 800;
       text-decoration-thickness: 2px;
       text-underline-offset: 3px;
     }
+    .vc-fallback-state,
+    .vc-fallback-summary,
+    .vc-fallback-action { display: block; }
+    .vc-fallback-state {
+      width: fit-content;
+      padding: 2px 7px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: var(--purple);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .vc-fallback-summary { margin-top: 3px; color: var(--ink-soft); font-size: 13px; line-height: 1.35; }
+    .vc-fallback-action { margin-top: 5px; color: var(--purple); font-size: 12px; font-weight: 800; }
     .vc-fallback-limit {
       display: block;
       margin-top: 3px;
@@ -485,39 +515,108 @@
       background: var(--cream);
     }
 
-    .vc-orientation {
+    .vc-ticket-rack {
       position: relative;
       left: 50%;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       width: 100vw;
       margin-left: -50vw;
-      gap: 0;
       margin-top: 34px;
-      background: var(--midnight);
-    }
-    .vc-panel {
-      padding: clamp(22px, 2.6vw, 34px);
+      padding: clamp(40px, 5vw, 72px) 0;
+      border-top: 8px solid var(--teal);
+      border-bottom: 8px solid var(--pink);
       background:
-        radial-gradient(circle at 10% 20%, rgba(113,55,214,.5), transparent 35%),
+        linear-gradient(135deg, rgba(113,55,214,.34), transparent 38%),
         var(--midnight);
       color: var(--cream);
     }
-    .vc-panel--pink {
-      border-left: 3px solid rgba(255,253,251,.45);
-      border-right: 3px solid rgba(255,253,251,.45);
-      background:
-        radial-gradient(circle at 90% 80%, rgba(255,155,61,.38), transparent 35%),
-        var(--purple);
+    .vc-ticket-rack__inner {
+      width: min(100% - 40px, 1320px);
+      margin: 0 auto;
     }
-    .vc-panel h3 {
+    .vc-ticket-rack__intro {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(320px, 1.2fr);
+      gap: 16px clamp(28px, 6vw, 86px);
+      align-items: end;
+      margin-bottom: 30px;
+    }
+    .vc-ticket-rack__intro h3 {
       margin: 0;
-      font-size: clamp(27px, 3vw, 38px);
-      line-height: 1.05;
+      font-size: clamp(34px, 4.2vw, 58px);
+      line-height: .98;
       letter-spacing: -.03em;
     }
-    .vc-panel p { margin: 14px 0 0; }
-    .vc-panel .vc-actions { margin-top: 20px; }
+    .vc-ticket-rack__intro > p:last-child { margin: 0; color: rgba(255,253,251,.82); }
+    .vc-ticket-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 26px);
+    }
+    .vc-ticket {
+      position: relative;
+      display: flex;
+      min-height: 270px;
+      padding: 24px 24px 20px;
+      border: 3px solid var(--ink);
+      border-top: 12px solid var(--ticket-accent, var(--teal));
+      border-radius: 4px;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 27px, rgba(31,21,52,.08) 27px 28px),
+        var(--cream);
+      box-shadow: 8px 9px 0 var(--ticket-shadow, var(--purple));
+      color: var(--ink);
+      flex-direction: column;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .vc-ticket::before,
+    .vc-ticket::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 28px;
+      border: 3px solid var(--ink);
+      background: var(--midnight);
+      transform: translateY(-50%);
+    }
+    .vc-ticket::before { left: -9px; border-left: 0; border-radius: 0 18px 18px 0; }
+    .vc-ticket::after { right: -9px; border-right: 0; border-radius: 18px 0 0 18px; }
+    .vc-ticket--tour { --ticket-accent: var(--teal); --ticket-shadow: var(--cyan); }
+    .vc-ticket--trailer { --ticket-accent: var(--pink); --ticket-shadow: var(--orange); }
+    .vc-ticket--postcard { --ticket-accent: var(--purple); --ticket-shadow: var(--pink); }
+    .vc-ticket:hover,
+    .vc-ticket:focus-visible {
+      transform: translateY(-7px);
+      box-shadow: 11px 13px 0 var(--ticket-shadow, var(--purple));
+    }
+    .vc-ticket:focus-visible { outline: 4px solid var(--cream); outline-offset: 5px; }
+    .vc-ticket__type {
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .vc-ticket strong {
+      display: block;
+      margin-top: 13px;
+      padding-bottom: 13px;
+      border-bottom: 5px double currentColor;
+      font-size: clamp(25px, 2.4vw, 38px);
+      line-height: 1;
+      letter-spacing: -.025em;
+    }
+    .vc-ticket__job { margin-top: 14px; color: var(--ink-soft); font-weight: 700; }
+    .vc-ticket__result {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 2px solid currentColor;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .vc-ticket__limit { margin-top: 8px; font-size: 11px; font-weight: 750; }
     .vc-trailer-wrap {
       margin-top: 22px;
       border-radius: 18px;
@@ -947,7 +1046,6 @@
       }
       .vc-hub-head,
       .vc-reveal,
-      .vc-orientation,
       .vc-postcard-workspace,
       .vc-postcard-fields,
       .vc-explainer {
@@ -964,10 +1062,9 @@
       .vc-explainer { width: min(100% - 32px, 1180px); }
       .vc-postcard-rack { gap: 12px; }
       .vc-postcard-desk { box-shadow: 7px 7px 0 var(--pink); }
-      .vc-panel--pink {
-        border-top: 3px solid rgba(255,253,251,.45);
-        border-left: 0;
-      }
+      .vc-ticket-rack__intro { grid-template-columns: 1fr; }
+      .vc-ticket-strip { grid-template-columns: 1fr; }
+      .vc-ticket { min-height: 230px; }
       .vc-map-spot,
       .vc-map-spot-label { display: none; }
     }
@@ -1019,7 +1116,7 @@
       }
     }
   </style>
-  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-07-26-v1-807bbe6b17ab"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sunnyvaile-directory.js?v=20260723-v2"></script>
@@ -1044,6 +1141,7 @@
   <main class="vc-main">
     <section class="vc-room" aria-labelledby="vc-title">
       <div class="vc-room-art">
+        <span class="vc-room-art-held" aria-hidden="true">Lobby visual held</span>
         <div class="vc-map-stage" id="vc-map-stage" aria-label="Interactive SUNNYVAiLE town map">
           <img id="vc-map-image" src="/assets/final_map/sunnyvaile-town-map-final-v5.webp" alt="Illustrated map of SUNNYVAiLE; every destination is also available by name in the directory below">
         </div>
@@ -1098,64 +1196,165 @@
         <nav id="vc-directory-fallback" class="vc-directory-fallback" aria-label="All SUNNYVAiLE destinations">
           <strong class="vc-fallback-intro">All 17 named routes. The interactive map adds selection details when available.</strong>
           <ol class="vc-fallback-links">
-            <li><a href="/visitors-centre.html" data-vc-id="visitors-centre">Visitor’s Centre</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/newsstand.html" data-vc-id="newsstand">The NewsStand</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/chick-flicks.html" data-vc-id="chick-flicks">The Chick Flicks</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/blend-snap.html" data-vc-id="blend-snap">The Blend &amp; Snap</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/games/madame-claio.html" data-vc-id="mme-claio">Mme CLAi-O's Shop</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/maikeover.html" data-vc-id="maikeover">MAiKEOVER on MAiN</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/bronze-aige.html" data-vc-id="bronze-aige">The BRONZE AiGE</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/games/dream-phone.html" data-vc-id="dream-phone">The Phone Booth (Dream Phone)</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/mall.html" data-vc-id="mall">The Mall</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/radio.html" data-vc-id="ksvl-radio">KSVL Community RAiDIO</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/post-office.html" data-vc-id="post-office">The SUNNYVAiLE Post Office</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/town-hall.html" data-vc-id="town-hall">Town Hall</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/library.html" data-vc-id="library">SUNNYVAiLE LIBRAiRY</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/sunnyvaile-high.html" data-vc-id="sunnyvaile-high">SUNNYVAiLE High</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/games/fairy-godmother.html" data-vc-id="fairy-godmother">The FAiRY Godmother's House</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/sorority-house.html" data-vc-id="sorority-house">The Sorority House · Delta LAi Nu</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
-            <li><a href="/luminairy.html" data-vc-id="sanctuary">The LUMINAiRY</a><span class="vc-fallback-limit">Open the named route only to check its current page.</span></li>
+            <!-- ENTRY_READINESS_STATIC_DIRECTORY_START -->
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/visitors-centre.html" data-vc-id="visitors-centre">Visitor’s Centre</a>
+              <span class="vc-fallback-summary">Open Visitor’s Centre to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/newsstand.html" data-vc-id="newsstand">The NewsStand</a>
+              <span class="vc-fallback-summary">Open The NewsStand to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/chick-flicks.html" data-vc-id="chick-flicks">The Chick Flicks</a>
+              <span class="vc-fallback-summary">Open The Chick Flicks to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/blend-snap.html" data-vc-id="blend-snap">The Blend &amp; Snap</a>
+              <span class="vc-fallback-summary">Open The Blend &amp; Snap to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/games/madame-claio.html" data-vc-id="mme-claio">Mme CLAi-O&#39;s Shop</a>
+              <span class="vc-fallback-summary">Open Mme CLAi-O&#39;s Shop to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/maikeover.html" data-vc-id="maikeover">MAiKEOVER on MAiN</a>
+              <span class="vc-fallback-summary">Open MAiKEOVER on MAiN to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/bronze-aige.html" data-vc-id="bronze-aige">The BRONZE AiGE</a>
+              <span class="vc-fallback-summary">Open The BRONZE AiGE to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/games/dream-phone.html" data-vc-id="dream-phone">The Phone Booth (Dream Phone)</a>
+              <span class="vc-fallback-summary">Open The Phone Booth (Dream Phone) to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/mall.html" data-vc-id="mall">The Mall</a>
+              <span class="vc-fallback-summary">Open The Mall to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/radio.html" data-vc-id="ksvl-radio">KSVL Community RAiDIO</a>
+              <span class="vc-fallback-summary">Open KSVL Community RAiDIO to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/post-office.html" data-vc-id="post-office">The SUNNYVAiLE Post Office</a>
+              <span class="vc-fallback-summary">Open The SUNNYVAiLE Post Office to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/town-hall.html" data-vc-id="town-hall">Town Hall</a>
+              <span class="vc-fallback-summary">Open Town Hall to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/library.html" data-vc-id="library">SUNNYVAiLE LIBRAiRY</a>
+              <span class="vc-fallback-summary">Open SUNNYVAiLE LIBRAiRY to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/sunnyvaile-high.html" data-vc-id="sunnyvaile-high">SUNNYVAiLE High</a>
+              <span class="vc-fallback-summary">Open SUNNYVAiLE High to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/games/fairy-godmother.html" data-vc-id="fairy-godmother">The FAiRY Godmother&#39;s House</a>
+              <span class="vc-fallback-summary">Open The FAiRY Godmother&#39;s House to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/sorority-house.html" data-vc-id="sorority-house">The Sorority House · Delta LAi Nu</a>
+              <span class="vc-fallback-summary">Open The Sorority House · Delta LAi Nu to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <li data-vc-static-docket="true" data-vc-state="held">
+              <span class="vc-fallback-state">Owner readiness receipt pending</span>
+              <a href="/luminairy.html" data-vc-id="sanctuary">The LUMINAiRY</a>
+              <span class="vc-fallback-summary">Open The LUMINAiRY to check its current owner-published status.</span>
+              <span class="vc-fallback-limit">No fresh owner readiness receipt is present. Open the named route only to check its current page; navigation is not completion.</span>
+              <span class="vc-fallback-action">Open page — check current status</span>
+            </li>
+            <!-- ENTRY_READINESS_STATIC_DIRECTORY_END -->
           </ol>
         </nav>
       </div>
 
-      <div class="vc-orientation">
-        <section class="vc-panel">
-          <p class="vc-kicker">Optional guided walk</p>
-          <h3>Take the town one stop at a time.</h3>
-          <p>
-            The shared tour starts only when requested. This desk does not claim
-            tour progress, listening, destination readiness or completion.
-          </p>
-          <div class="vc-actions">
-            <a class="vc-action vc-action--teal" href="?welcome-tour=start">Request tour start</a>
+      <section class="vc-ticket-rack" aria-labelledby="vc-ticket-rack-title">
+        <div class="vc-ticket-rack__inner">
+          <div class="vc-ticket-rack__intro">
+            <div>
+              <p class="vc-kicker">The front-desk ticket rail</p>
+              <h3 id="vc-ticket-rack-title">Three optional ways to begin.</h3>
+            </div>
+            <p>The wall map and named directory are the main way around town. These tickets clearly show where they go and what they do before you open them.</p>
           </div>
-        </section>
-
-        <section class="vc-panel vc-panel--pink">
-          <p class="vc-kicker">Short introduction</p>
-          <h3>Meet the town without taking the full walk.</h3>
-          <p>
-            The illustrated trailer is an optional receiving route. This desk
-            does not claim that playback starts or finishes.
-          </p>
-          <div class="vc-actions">
-            <a class="vc-action vc-action--primary" href="/watch.html?ep=trailer">Open the illustrated trailer</a>
+          <div class="vc-ticket-strip">
+            <a class="vc-ticket vc-ticket--tour" href="?welcome-tour=start">
+              <span class="vc-ticket__type">Optional guided walk</span>
+              <strong>Welcome Tour ticket</strong>
+              <span class="vc-ticket__job">Take the town one stop at a time with pause, skip and direct navigation still available.</span>
+              <span class="vc-ticket__result">Request tour start</span>
+              <span class="vc-ticket__limit">Starts only when requested. Progress is device-local; this ticket does not prove listening, readiness or completion.</span>
+            </a>
+            <a class="vc-ticket vc-ticket--trailer" href="/watch.html?ep=trailer">
+              <span class="vc-ticket__type">Short illustrated introduction</span>
+              <strong>Town trailer ticket</strong>
+              <span class="vc-ticket__job">Open the receiving video player for a short introduction to SUNNYVAiLE.</span>
+              <span class="vc-ticket__result">Open the illustrated trailer</span>
+              <span class="vc-ticket__limit">This ticket opens the player; it does not claim that playback starts or finishes.</span>
+            </a>
+            <a class="vc-ticket vc-ticket--postcard" href="/postcard.html">
+              <span class="vc-ticket__type">Post Office handoff</span>
+              <strong>Postcard desk ticket</strong>
+              <span class="vc-ticket__job">Continue to postcard creation in the Post Office product.</span>
+              <span class="vc-ticket__result">Open postcard handoff</span>
+              <span class="vc-ticket__limit">This desk does not prepare, share, send, deliver, join or award anything.</span>
+            </a>
           </div>
-        </section>
-
-        <section class="vc-panel">
-          <p class="vc-kicker">Postcard desk</p>
-          <h3>Continue to the postcard product.</h3>
-          <p>
-            Preparation, sharing, sending, delivery, joining and reward remain
-            owned by the receiving postcard and Post Office products.
-          </p>
-          <div class="vc-actions">
-            <a class="vc-action" href="/postcard.html">Open postcard handoff</a>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </section>
 
     <p class="vc-handoff-boundary">

@@ -7,7 +7,7 @@
 <meta name="description" content="The pilot. She stops waiting for a free weekend, tells AI the truth about one dreaded email, and finds out the gender gap was never a confidence problem — it's a physics problem. Get in loser, we're learning AI.">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
 <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <style>
@@ -173,6 +173,7 @@
   .cast-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .cast-card{text-align:center;text-decoration:none;color:var(--cream)}
   .cast-card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid rgba(201,162,39,.4);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+  .cast-portrait-held{width:100%;aspect-ratio:2/3;display:grid;place-items:center;padding:16px;text-align:center;border-radius:10px;color:#fff;font:800 .82rem/1.25 'Jost',sans-serif;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(145deg,#5f4685 0%,#775596 54%,#c96652 120%);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
   .cast-card b{display:block;margin-top:9px;font-size:.92rem}
   .cast-card span{font-family:'VT323',monospace;font-size:.95rem;color:var(--sky);letter-spacing:.03em}
 
@@ -187,6 +188,7 @@
   @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .trio{grid-template-columns:1fr} .cast-grid{grid-template-columns:repeat(2,1fr)} }
 </style>
   <link rel="stylesheet" href="/content/issue-feature-v2.css?v=20260724-1">
+  <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260803-1">
   <script defer src="/content/issue-feature-v2.js?v=20260724-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -210,26 +212,25 @@
 <!-- Canonical town header (sv-global-header.js rewrites this in place) -->
 <header class="sv-header"></header>
 
+<nav class="episode-format-nav" aria-label="Choose Episode 01 format">
+  <a class="episode-format-nav__choice" href="/issues/issue-01.html" aria-current="page"><span>Read</span><small>Full written episode</small></a>
+  <a class="episode-format-nav__choice" href="/watch.html?ep=01&amp;mode=listen"><span>Listen</span><small>Narration + captions</small></a>
+  <span class="episode-format-nav__choice" aria-disabled="true"><span>Watch</span><small>Not available yet</small></span>
+  <p class="episode-format-nav__status">You’re reading Episode 01. Visual edition not admitted yet.</p>
+</nav>
+
 <!-- CINEMATIC PIXEL HERO — the tape, paused on its opening frame -->
 <header class="tv-hero">
   <div class="osd"><span>❚❚ SP</span><span>S1 · E01</span></div>
-  <p class="tv-meta">SEASON 1 · EPISODE 01 · ACT 1: THE AWAKENING</p>
+  <p class="tv-meta">SEASON 1 · EPISODE 01 · READING EDITION</p>
   <h1 class="tv-title">ON WEDNESDAYS WE <em>DO Ai</em></h1>
   <p class="tv-logline">The one where she stops waiting for a free weekend, tells AI the truth about one dreaded email, and finds out the gap was never confidence — it was physics.</p>
   <div class="tv-tags"><span>LESSON · <b>What AI is + why start</b></span><span>STARS · <b>Cher, Dolly &amp; the icons</b></span><span><b>~10 MIN READ</b></span></div>
-  <a class="hero-listen" href="/watch.html?ep=01">▶ Listen to this episode</a>
 </header>
 
-<div class="spine"><div class="spine-inner">SUNNYVAiLE VIDEO <span class="dot">·</span> S1 E01 <span class="dot">·</span> SP <span class="dot">·</span> ❚❚ <span class="end">BE KIND, REWIND ⟲</span></div></div>
+<div class="spine"><div class="spine-inner">READING EDITION <span class="dot">·</span> S1 E01 <span class="dot">·</span> ~10 MIN <span class="end">KEEP YOUR PLACE</span></div></div>
 
 <main>
-
-  <!-- Ep01 dark-VHS port: content COMPLETE (prose from issue-01-reskin.html,
-       beats from content/episodes/episode-01.canon.md). Scene images reference
-       ../assets/episodes/ep-01/pixel/ep01-scene-*.png — drop Codex's final
-       stills there and the page lights up; until then the .film blocks show the
-       gradient placeholder. Not yet linked from the site — promote to
-       issue-01.html once the art is placed. -->
 
   <div class="prev">
     <p class="eyebrow">▶ New here? Start on a Wednesday</p>
@@ -237,15 +238,13 @@
   </div>
 
   <div class="mark"><div class="k">I couldn't help but wonder…</div></div>
-  <figure class="film" aria-label="Scene 01 — Steve gets the standing ovation">
+  <figure class="film" aria-label="Steve receives a standing ovation while her better draft remains unfinished">
     <div class="frames" data-frames="ep01-scene-01-steve-ovation.png"><img src="../assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 01</span>
     <figcaption class="film-cap">4:52 on a Tuesday. Steve gets the standing ovation. Her better, footnoted version is still in drafts.</figcaption>
   </figure>
   <p class="lead">…why every AI resource I found was either written by men in fleece vests (say no more), or so surface-level it basically amounted to "AI is transformative!" AI is transformative? <em>Groundbreaking.</em></p>
-    <figure class="film" aria-label="Scene 01 — the standing ovation">
+    <figure class="film" aria-label="The office applauds Steve while she tries to understand what changed">
       <div class="frames"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png" alt="" loading="lazy"></div>
-      <span class="film-bug">S1·E01 · SC 01</span>
       <figcaption class="film-cap">Everyone stood up. She was still trying to work out what it did.</figcaption>
     </figure>
 
@@ -254,18 +253,16 @@
   <p>So eventually I stopped waiting and started tinkering. I built something small that actually helped with my real job. It wasn't pretty. It definitely wasn't perfect. But it worked well enough to make me realize: <em>oh. I can do this.</em> The thing stopping me wasn't ability. It was that nobody had explained it in a way that made me want to start.</p>
 
   <div class="mark"><div class="k">The on-ramp</div><h2>Written by Men in Fleece Vests</h2><div class="sub">Too technical, too shallow, or too many hours — none of it written for a woman already carrying too much.</div></div>
-  <figure class="film" aria-label="Scene — the terrible on-ramp">
+  <figure class="film" aria-label="An inaccessible AI learning on-ramp built for someone else">
     <div class="frames" data-frames="ep01-scene-02-on-ramp.png"><img src="../assets/episodes/ep-01/pixel/ep01-02-scene-comic-v1.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 02</span>
     <figcaption class="film-cap">Everything on the on-ramp was written for someone who wasn't you.</figcaption>
   </figure>
   <p>I started <strong>L<span class="ai">Ai</span>DIES</strong> because the on-ramp I needed didn't exist. Everything was either too technical (written for people who wanted to build models, not use them), too shallow (listicles with all the nutritional value of a rice cake), or too time-consuming (40-hour courses marketed to people who apparently don't have jobs, children, or a standing Thursday happy hour with friends).</p>
   <p>So I made something different. Posted every Wednesday, written for women in corporate roles who are already competent, already busy, and just need someone to explain this in a way that connects to actual work rather than theoretical computer science. Think of it like Elle Woods' approach to Harvard Law: she didn't show up knowing everything. She showed up underestimated, learned the system faster than anyone expected, and won because she brought a different kind of intelligence nobody in that room had thought to apply. <strong>If any of that sounds familiar: get in loser, we're learning AI.</strong></p>
 
   <div class="mark"><div class="k">The gap</div><h2>It's Not a Confidence Problem. It's a Physics Problem.</h2></div>
-  <figure class="film" aria-label="Scene — the invisible load and the canyon">
+  <figure class="film" aria-label="The invisible workload widening an AI access gap into a canyon">
     <div class="frames" data-frames="ep01-scene-03-canyon.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-canyon-montage-comic.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 03</span>
     <figcaption class="film-cap">A gap you don't close compounds week over week — into a canyon.</figcaption>
   </figure>
   <p class="lead">The commentary loves to blame confidence and imposter syndrome. That's not what I experienced, and it's not what I hear from the women I talk to. What I hear is: I'm already drowning, I have no idea where to start, and even if I did — when exactly am I supposed to do this?</p>
@@ -279,18 +276,16 @@
   <p>And here's the cruel part: the tool that could give you time back requires time you don't have to learn. So you don't start. The gap compounds week over week. And a year from now the distance between you and the colleague who started six months ago isn't a gap. It's a canyon.</p>
 
   <div class="mark"><div class="k">Build your own bridge</div><h2>Dolly Was Right</h2></div>
-  <figure class="film" aria-label="Scene — Dolly's bridge">
+  <figure class="film" aria-label="Dolly Parton energy for building your own bridge into AI">
     <div class="frames" data-frames="ep01-scene-04-dolly-bridge.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-dolly-parton-comic.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 04</span>
     <figcaption class="film-cap">Nobody's coming to build it for you. So — honey — build it.</figcaption>
   </figure>
   <blockquote class="pull"><p>"You'd better get to building your own bridge, honey — because ain't nobody building it for you."</p><div class="who">Dolly Parton energy</div></blockquote>
   <p>This isn't about becoming technical. It's about not leaving a genuinely useful tool sitting unopened on your desk while everyone else figures out what it can do. The bridge is yours to build — and the good news is you can start with one plank.</p>
 
   <div class="mark"><div class="k">The stakes</div><h2>A Future Built by Half the Population</h2></div>
-  <figure class="film" aria-label="Scene — Fei-Fei Li">
-    <div class="frames" data-frames="ep01-scene-05-fei-fei.png"><img src="../assets/episodes/ep-04/pixel/ep04-scene-09-fei-fei-comic-v2-timnit-style-lock-1920.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 05</span>
+  <figure class="film" aria-label="Fei-Fei Li and the need for women to shape AI's future">
+    <div class="frames" data-portrait-art="held"></div>
     <figcaption class="film-cap">The world calls her the "Godmother of AI" — a nickname she distances from.</figcaption>
   </figure>
   <p>Fei-Fei Li, the Stanford professor the world calls the "Godmother of AI" — a media nickname she's distanced herself from, not a title she claims — put the stakes plainly:</p>
@@ -298,9 +293,8 @@
   <p>And this isn't just about fairness. When women don't use the tools, the tools learn from a skewed pool of users and literally get worse for women — the less women use them, the less they work for women, and the cycle keeps going. Getting women involved in AI isn't charity. It makes the technology better for all of us.</p>
 
   <div class="mark"><div class="k">The flip</div><h2>The Gap Is a Starting Line, Not a Finish Line</h2></div>
-  <figure class="film" aria-label="Scene — the flip">
+  <figure class="film" aria-label="The AI gap reframed as a starting line instead of a finish line">
     <div class="frames" data-frames="ep01-scene-06-the-flip.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-the-flip-14pts-c-end-comic.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 06</span>
     <figcaption class="film-cap">The women who start now are the ones who end up in front.</figcaption>
   </figure>
   <p><strong>Wait — didn't we just say women use AI <em>less</em>?</strong> We did, and it's still true. Both facts fit together once you see <em>which</em> women, at <em>which</em> stage. The gap is widest for women earlier in their careers. But zoom in on the senior women who pushed past that first awkward phase, and it reverses.</p>
@@ -312,18 +306,16 @@
   <p>The women who begin now are the ones who end up in front — because they bring the one thing AI cannot replicate: <strong>a career's worth of judgment.</strong> The instinct that something's off in a document before you can even articulate why.</p>
 
   <div class="mark"><div class="k">The first win</div><h2>Oh. I Can Do This.</h2></div>
-  <figure class="film" aria-label="Scene — the first tiny win at the Blend & Snap">
+  <figure class="film" aria-label="Her first small AI win at the Blend and Snap">
     <div class="frames" data-frames="ep01-scene-07-first-win.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-blend-snap-win-c-end-comic-v4-style-fix-textfix.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 07</span>
     <figcaption class="film-cap">Four days of dread. Eleven minutes of work.</figcaption>
   </figure>
   <p>Here's what it actually looks like when you start. A Sunday at the Blend &amp; Snap. There's an email you've dreaded for four days — the delicate one, to the stakeholder who reads tone into your line breaks. You open the tab and tell AI the truth: who it's for, what you need from them, and the part you can't say out loud.</p>
   <p>A draft comes back in nine seconds. It's 80% right — and the other 20% is wrong in ways only you can see. So you fix it with your own judgment and hit send. Four days of dread, eleven minutes of work. The work didn't get worse. It got done faster, and the time you got back is yours. That's the whole reframe: the thing stopping you was never ability. It was that nobody had made you want to start.</p>
 
   <div class="mark"><div class="k">The explainer</div><h2>The Most Talented New Hire You'll Ever Manage</h2><div class="sub">What you'd say if someone asked "so what IS AI?" over drinks.</div></div>
-  <figure class="film" aria-label="Scene — AI as the most talented new hire">
+  <figure class="film" aria-label="AI explained as a talented new hire who still needs management">
     <div class="frames" data-frames="ep01-scene-08-new-hire.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260721-autonomous-rerolls/ep01-new-hire-comic-v5-fix.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 08</span>
     <figcaption class="film-cap">Superhuman range. Astonishing speed. Zero lived judgment.</figcaption>
   </figure>
   <p>Imagine someone who has absorbed an enormous amount of human writing — books, articles, forums, manuals, billions of documents — but has never lived a single day of real life. No job, no relationships, no consequences. They sound incredibly knowledgeable because they've absorbed how language works, how ideas connect, how arguments are built. But they don't <em>understand</em> any of it the way you do — through experience, through getting things wrong, through building judgment one decision at a time over a career.</p>
@@ -331,26 +323,23 @@
   <p>Under the hood, when you type into ChatGPT, Claude, or Gemini, what it's doing is prediction — generating what comes next, word by word, from everything it absorbed in training. What grew out of all that prediction is impressive enough that the experts can't even agree what to call it, or whether "reasoning" is the right word. But two limits aren't up for debate — and they're the two that decide whether it helps you or embarrasses you.</p>
 
   <div class="mark"><div class="k">Limit one — context</div><h2>Cher's Closet Can't See the Room</h2></div>
-  <figure class="film" aria-label="Scene — Cher's closet computer">
+  <figure class="film" aria-label="Cher's closet computer cannot know the context outside its screen">
     <div class="frames" data-frames="ep01-scene-09-chers-closet.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-cher-closet-comic.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 09</span>
     <figcaption class="film-cap">Endless outfit combinations — no idea the client is hostile.</figcaption>
   </figure>
   <p>Limit one: it doesn't know your context until you hand it over. Think of Cher's closet computer from <em>Clueless</em> — it can generate outfit combinations all day long, but it has no idea the meeting is with a conservative client already looking for a reason to dismiss you… unless you tell it. That contextual judgment lives with you, and handing it over well is a skill — <em>it's literally next week's episode.</em> It's the Louboutins of professional life: anyone can buy the shoe, but not everyone knows how to walk in it.</p>
 
   <div class="mark"><div class="k">Limit two — hallucination</div><h2>The Burn Book Problem</h2></div>
-  <figure class="film" aria-label="Scene — the Burn Book">
+  <figure class="film" aria-label="The Burn Book as a warning about confident invented details">
     <div class="frames" data-frames="ep01-scene-10-burn-book.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-burn-book-regina-comic-textfix.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 10</span>
     <figcaption class="film-cap">Every entry invented — all delivered with the same confidence.</figcaption>
   </figure>
   <p>Limit two: AI can be confidently, spectacularly wrong. A generated answer can sound polished and plausible while containing unsupported or invented information. It's the Burn Book from <em>Mean Girls:</em> every entry was invented, and every one was delivered with the same unbothered confidence. "Made out with a hot dog" lands with the certainty of a fact. <strong>Regina George energy, but make it software.</strong></p>
   <blockquote class="pull"><p>Your job is knowing which parts to trust and which to push back on. You've been doing that with other people's work your entire career. <em>This is no different.</em></p></blockquote>
 
   <div class="mark"><div class="k">The takeaway</div><h2>Don't Pull a Cher</h2></div>
-  <figure class="film" aria-label="Scene — don't pull a Cher, the Statue of Liberty">
+  <figure class="film" aria-label="Cher confidently misremembering the Statue of Liberty inscription">
     <div class="frames" data-frames="ep01-scene-11-dont-pull-a-cher.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-rsvp-cher-comic-textfix.png" alt="" loading="lazy"></div>
-    <span class="film-bug">S1·E01 · SC 11</span>
     <figcaption class="film-cap">Confident is not the same as correct. Keep your judgment on the output.</figcaption>
   </figure>
   <p>The thing to avoid is pulling a Cher — confidently, wrongly insisting it says "R.S.V.P." on the Statue of Liberty. Confidence is not correctness, in a group chat or in a chatbot. So use AI for its superhuman range and speed, hand it your real context, and keep your own judgment on the 20% only you can see. You don't need a technical background. You need someone to explain it clearly and a group of women to figure it out with. That's this. One Wednesday at a time.</p>
@@ -367,10 +356,7 @@
     <p class="eyebrow">So remember, ladies…</p>
     <h2>You'll need more than a cup of ambition to keep up in the male-dominated world of AI. Lucky for you, this series comes in small sips.</h2>
   </section>
-  <p class="rooms">Got a sharper "remember, ladies" line that would make Dolly proud? Post it in the rooms — our residents-only chats at the sorority house. Your Resident Card gets you in the door, and favourites get featured, with credit. We're trailblazers here, not idea thieves.</p>
-
-  <!-- LISTEN -->
-  <div class="listen-wrap"><a class="listen" href="/watch.html?ep=01">▶ Listen to this episode</a></div>
+  <p class="rooms">Got a sharper "remember, ladies" line that would make Dolly proud? Take it to one of the <a href="/sorority-house.html"><strong>discussion rooms at Delta LAi Nu</strong></a>. You can explore without a Resident Card; posting uses the room provider's own sign-in. If we feature your line later, the credit stays yours.</p>
 
   <!-- NEXT -->
   <div class="next">
@@ -381,7 +367,7 @@
 
   <!-- FIELD TRIP -->
   <div class="tryon">
-    <p class="eyebrow">Your scene · the try-on</p>
+    <p class="eyebrow">Try it now</p>
     <h3>Get in, loser. We're learning AI.</h3>
     <p>Open ChatGPT, Claude, and Gemini and give all three the same small, real task — the avoided email, or your version of it. Tell them the truth about who it's for and what you need, then compare what comes back. The products combine models, instructions, tools and interface choices differently, so their responses may not match. Compare what each understood, what was useful and what you would change. Ten minutes counts when it's pointed at a real thing you actually need.</p>
     <a class="btn" href="/blend-snap.html#the-study-pack">Open the Study Pack →</a>
@@ -406,15 +392,28 @@
 
 </main>
 
+<section class="episode-related" aria-labelledby="episode-related-title">
+  <p class="eyebrow">Continue this idea</p>
+  <h2 id="episode-related-title">Your next useful step</h2>
+  <p>Episode 01 gets you through the door. Continue with the next episode when you’re ready to turn that first try into a brief AI can actually use.</p>
+  <div class="episode-related__links">
+    <a class="episode-related__link" href="/issues/issue-02.html">
+      <strong>Episode 02 · Tell Me What You Want</strong>
+      <span>Learn how context and specificity turn a vague request into useful work.</span>
+    </a>
+  </div>
+  <p class="episode-related__truth">Classes, Library sections and NewsStand stories appear here only after their exact destination is admitted and directly extends this lesson.</p>
+</section>
+
 <!-- CAST -->
 <section class="cast"><div class="cast-in">
   <span class="eyebrow">The cast of this episode</span>
   <h2>The Patron SA<span class="ai">i</span>NTS in "On Wednesdays We Do AI"</h2>
   <div class="cast-grid">
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/cher-horowitz-y2k-stained-glass.jpg" alt="Cher Horowitz" onerror="this.remove()" loading="lazy"><b>Cher Horowitz</b><span>The closet computer · context is yours</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/dolly-parton-y2k-stained-glass.jpg" alt="Dolly Parton" onerror="this.remove()" loading="lazy"><b>Dolly Parton</b><span>Build your own bridge</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/mavens/y2k-stained-glass-v2/fei-fei-li-y2k-stained-glass.jpg" alt="Fei-Fei Li" onerror="this.remove()" loading="lazy"><b>Fei-Fei Li</b><span>A future built by half the population</span></a>
-    <a class="cast-card" href="/luminairy.html"><img src="../assets/saints/y2k-stained-glass-v2/regina-george-cautionary-red-y2k-stained-glass.jpg" alt="Regina George" onerror="this.remove()" loading="lazy"><b>Regina George</b><span>Cautionary red · confidence ≠ correctness</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Cher Horowitz</b><span>The closet computer · context is yours</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Dolly Parton</b><span>Build your own bridge</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Fei-Fei Li</b><span>A future built by half the population</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Regina George</b><span>Cautionary red · confidence ≠ correctness</span></a>
   </div>
 </div></section>
 
@@ -426,8 +425,8 @@
     <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Availability checked at the café</small></a>
     <a class="rail-btn rb4" href="/radio.html">The Song<small>This week's track</small></a>
     <a class="rail-btn rb6" href="/bronze-aige.html#answers">Cocktail<small>So… what IS AI?</small></a>
-    <a class="rail-btn rb3" href="/community.html">Rooms<small>Talk it over at Delta LAi Nu</small></a>
-    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Collect your sticker</small></a>
+    <a class="rail-btn rb3" href="/sorority-house.html">Rooms<small>See the discussion rooms at Delta LAi Nu</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Check what you learned</small></a>
   </div>
 </div>
 

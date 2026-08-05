@@ -15,6 +15,7 @@
   var bodyCount = document.getElementById("th-body-count");
   var submitBtn = document.getElementById("th-submit");
   var statusEl = document.getElementById("th-status");
+  var intakeFields = document.getElementById("th-intake-fields");
   var submitting = false;
   var supabaseClient = null;
   var ALLOWED_TYPES = ["compliment", "complaint", "suggestion"];
@@ -49,8 +50,28 @@
     bodyCount.textContent = bodyInput.value.length + " / 2000";
   }
 
+  function setIntakeState(state) {
+    form.dataset.intakeState = state;
+    var held = state === "release-hold";
+    if (intakeFields) intakeFields.disabled = held;
+    if (held) {
+      submitting = false;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Inbox not open yet";
+      setStatus(
+        "Town Hall submissions are still in release preflight. Nothing entered here can be delivered or saved.",
+        "idle"
+      );
+    }
+  }
+
   function productionAdapter() {
     async function client() {
+      if (!SUBMISSION_RELEASED) {
+        var holdError = new Error("Town Hall intake is in release preflight");
+        holdError.code = "release-hold";
+        throw holdError;
+      }
       if (supabaseClient) return supabaseClient;
       var cfg = window.LAIDIES_SUPABASE_CONFIG;
       if (!cfg || !cfg.url || !cfg.anonKey) {
@@ -189,15 +210,19 @@
   });
   bodyInput.addEventListener("input", updateBodyCount);
   updateBodyCount();
-  if (!isLocalPreflight() && !SUBMISSION_RELEASED) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Inbox not open yet";
-    setStatus("Town Hall submissions are still in release preflight.", "idle");
-  }
+  if (!isLocalPreflight() && !SUBMISSION_RELEASED) setIntakeState("release-hold");
+  else setIntakeState("preflight");
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
     if (submitting) return;
+    if (form.dataset.intakeState === "release-hold") {
+      setStatus(
+        "Town Hall submissions are still in release preflight. Nothing entered here can be delivered or saved.",
+        "idle"
+      );
+      return;
+    }
 
     var checkedType = typeInputs.find(function (input) {
       return input.checked;

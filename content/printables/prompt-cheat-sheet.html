@@ -133,6 +133,9 @@
       object-fit: cover;
       border: 1px solid rgba(37, 25, 35, 0.28);
     }
+    .hero-card--brief { min-height: 190px; display: grid; place-items: center; text-align: center; background: linear-gradient(135deg, #ffd6e8, #fff5bd 53%, #c9f0ec); color: var(--ink); }
+    .hero-card--brief b { display:block; color: var(--pink); font-size: clamp(2.3rem, 7vw, 4.8rem); letter-spacing: .12em; line-height: .95; text-shadow: 2px 2px 0 #fff; }
+    .hero-card--brief span { display:block; max-width: 18rem; margin-top: .7rem; font-size: .74rem; font-weight: 800; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; }
 
     .callout {
       background: var(--soft);
@@ -392,8 +395,8 @@
           <h1>The Prompting Cheat Sheet</h1>
           <p class="dek">Your prompt is not a wish. It is a brief. The better the brief, the less your AI has to guess.</p>
         </div>
-        <figure class="hero-card">
-          <img src="../../assets/printables/prompt-cheat-sheet-hero.png" alt="Y2K desk scene with a pink prompt binder, laptop, sticky notes, and LAiDIES-style accessories.">
+        <figure class="hero-card hero-card--brief" aria-label="BRIEF: make the assignment clear before asking AI to help">
+          <div><b>BRIEF</b><span>Make the assignment clear before asking AI to help.</span></div>
         </figure>
       </header>
 

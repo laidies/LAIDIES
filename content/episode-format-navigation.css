@@ -1,0 +1,177 @@
+/* Shared Episode Read / Listen / Watch control — pilot on Episode 01. */
+.episode-format-nav {
+  --format-bg: #fffdf8;
+  --format-ink: #090f2b;
+  --format-border: #090f2b;
+  --format-active: #45d6b4;
+  --format-focus: #2455e6;
+  position: sticky;
+  top: 72px;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: min(760px, calc(100% - 32px));
+  margin: 14px auto;
+  padding: 8px;
+  border: 2px solid var(--format-border);
+  border-radius: 14px;
+  background: var(--format-bg);
+  box-shadow: 0 10px 28px rgba(9, 15, 43, .18);
+  font-family: "Jost", system-ui, sans-serif;
+}
+
+.episode-format-nav[data-theme="dark"] {
+  --format-bg: #241027;
+  --format-ink: #fffdfb;
+  --format-border: #57b6c0;
+  --format-active: #e982ab;
+  --format-focus: #fffdfb;
+}
+
+.episode-format-nav__choice {
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 2px solid transparent;
+  border-radius: 9px;
+  color: var(--format-ink) !important;
+  background: transparent;
+  font-size: .84rem;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+  text-decoration: none;
+}
+
+.episode-format-nav__choice small {
+  font-size: .64rem;
+  font-weight: 700;
+  opacity: .72;
+}
+
+.episode-format-nav__choice[aria-current="page"] {
+  border-color: var(--format-border);
+  background: var(--format-active);
+  color: #090f2b !important;
+}
+
+.episode-format-nav__choice[href]:hover {
+  border-color: var(--format-border);
+  transform: translateY(-1px);
+}
+
+.episode-format-nav__choice:focus-visible {
+  outline: 3px solid var(--format-focus);
+  outline-offset: 3px;
+}
+
+.episode-format-nav__choice[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .52;
+  border-style: dashed;
+  border-color: currentColor;
+}
+
+.episode-format-nav__status {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 2px 8px 0;
+  color: var(--format-ink);
+  font-size: .72rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.episode-related {
+  max-width: 760px;
+  margin: 54px auto;
+  padding: clamp(22px, 4vw, 36px);
+  border: 2px solid #090f2b;
+  background: #fffdf8;
+  box-shadow: 9px 9px 0 #45d6b4;
+  color: #090f2b;
+}
+
+.episode-related h2,
+.episode-related p {
+  margin-top: 0;
+}
+
+.episode-related__links {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.episode-related__link {
+  display: block;
+  min-height: 48px;
+  padding: 14px 16px;
+  border: 2px solid #090f2b;
+  color: #090f2b !important;
+  background: #f5f0ff;
+  text-decoration: none;
+}
+
+.episode-related__link strong,
+.episode-related__link span {
+  display: block;
+}
+
+.episode-related__link span {
+  margin-top: 4px;
+  font-size: .86rem;
+  line-height: 1.45;
+}
+
+.episode-related__link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 #2455e6;
+}
+
+.episode-related__link:focus-visible {
+  outline: 3px solid #2455e6;
+  outline-offset: 3px;
+}
+
+.episode-related__truth {
+  margin: 18px 0 0;
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+  .episode-format-nav {
+    top: 66px;
+    width: calc(100% - 20px);
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .episode-format-nav__choice {
+    min-height: 52px;
+    padding-inline: 5px;
+    font-size: .78rem;
+  }
+
+  .episode-format-nav__choice small {
+    font-size: .58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .episode-format-nav__choice,
+  .episode-related__link {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media print {
+  .episode-format-nav { position: static; box-shadow: none; }
+}

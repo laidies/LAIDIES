@@ -26,6 +26,12 @@ body {
   display: block;
 }
 
+.sh-hero-held { min-height: clamp(280px, 48vw, 620px); display: grid; place-items: center; padding: 32px; background: var(--sh-night); color: white; text-align: center; border-bottom: 9px solid var(--sh-cyan); }
+.sh-hero-held strong { display: block; color: var(--sh-pink); font: 400 clamp(42px, 8vw, 96px)/.95 "Anton", sans-serif; }
+.sh-hero-held span { display: block; max-width: 720px; margin-top: 16px; font: 650 clamp(16px, 2vw, 22px)/1.5 "Jost", sans-serif; }
+.sh-house-held { margin: 0; padding: 18px; background: var(--sh-night); color: white; border-bottom: 7px solid var(--sh-cyan); text-align: center; font: 700 16px/1.45 "Jost", sans-serif; }
+.sh-girl-talk-marker { display: grid; place-items: center; flex: 0 0 120px; aspect-ratio: 2/3; background: var(--sh-night); border: 5px solid var(--sh-pink); color: white; text-align: center; font: 400 28px/.9 "Anton", sans-serif; }
+
 main.sh-page {
   width: min(100%, 1440px);
   max-width: none;

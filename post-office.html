@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script defer src="/content/site/sv-building-mechanics.js?v=20260723-1"></script>
@@ -18,10 +18,20 @@
     .po-room {
       aspect-ratio: 1672 / 941;
       max-height: 780px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 22% 26%, rgba(81, 211, 204, 0.25), transparent 28%),
+        radial-gradient(circle at 78% 34%, rgba(246, 110, 148, 0.24), transparent 30%),
+        linear-gradient(135deg, #11183b 0%, #3e3f82 54%, #6d315e 100%);
     }
 
-    .po-room > img {
-      object-position: center 49%;
+    .po-room__held {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
     .po-rent {
@@ -370,34 +380,32 @@
   <header class="sv-header"></header>
 
   <section class="sv-hero svb-room po-room" aria-label="Penny's counter at the SUNNYVAiLE Post Office">
-    <img src="/assets/building-interiors/delivery-20260723-post-office-comic-v1/post-office-penny-counter-comic-candidate-v1.png" alt="Penny, the SUNNYVAiLE postmistress, handing a blank postcard across the counter" loading="eager">
+    <span class="po-room__held" aria-hidden="true">Post Office room visual held</span>
   </section>
 
   <main class="svb-main">
     <header class="svb-title">
       <p class="svb-title__eyebrow">Civic Square · SUNNYVAiLE</p>
       <h1>The SUNNYV<span class="ai">Ai</span>LE Post Office</h1>
-      <p class="svb-title__lede">Request the Wednesday Postcard, check the Resident Card desk, choose a postcard, or open a published edition. Penny will tell you exactly what this page can confirm.</p>
+      <p class="svb-title__lede">Request the Wednesday Postcard, check the Resident Card desk, or open a published edition. The postcard art rack stays closed until its artwork is approved.</p>
     </header>
 
     <section class="svb-band" aria-labelledby="po-counter-title">
       <div class="svb-band__inner">
         <p class="svb-kicker">Penny’s counter · open now</p>
-        <h2 id="po-counter-title">The Buttondown request desk and postcard rack are open.</h2>
-        <p class="svb-band__copy">Buttondown owns newsletter signup and delivery. This page can open that request, but it cannot confirm a subscription or an email. The Resident Card account desk is held; composing a postcard remains local until you choose a device sharing tool.</p>
+        <h2 id="po-counter-title">The Buttondown request desk is open.</h2>
+        <p class="svb-band__copy">Buttondown owns newsletter signup and delivery. This page can open that request, but it cannot confirm a subscription or an email. The Resident Card account desk and postcard artwork remain held.</p>
         <div class="svb-actions">
           <a class="svb-action" href="#rent">Request the newsletter</a>
           <a class="svb-action svb-action--mint" href="#signin">Check account status</a>
-          <a class="svb-action svb-action--cyan" href="#rack">Pick a postcard</a>
+          <a class="svb-action svb-action--cyan" href="#rack">Check the postcard rack</a>
           <a class="svb-action" href="#archive">Open published editions</a>
         </div>
       </div>
     </section>
 
     <section class="svb-section po-rent" id="rent" aria-labelledby="po-rent-title">
-      <a class="po-rent__object" href="https://buttondown.com/laidies" aria-label="Open the Wednesday Postcard signup">
-        <img src="/assets/postcards/from-sunnyvaile/pc-youve-got-mail.png" alt="You've Got Mail from SUNNYVAiLE postcard" loading="lazy">
-      </a>
+      <a class="po-rent__object" href="https://buttondown.com/laidies" aria-label="Open the Wednesday Postcard signup"><span>Wednesday Postcard</span></a>
       <div class="po-form">
         <p class="svb-kicker">Counter one · newsletter request</p>
         <h2 id="po-rent-title">Ask Buttondown for the Wednesday Postcard.</h2>
@@ -433,19 +441,23 @@
       <div class="svb-section">
         <header class="svb-section__head">
         <p class="svb-kicker">Counter three · the postcard rack</p>
-          <h2 id="po-rack-title">Pick the one that sounds like her.</h2>
-          <p class="svb-section__intro">The postcards are the controls. Choose one from the rack and Penny puts it on the writing desk.</p>
+          <h2 id="po-rack-title">The artwork is being checked before the rack opens.</h2>
+          <p class="svb-section__intro">The inherited postcard images are not approved for public use. The rack will reopen when one coherent, verified family is ready.</p>
         </header>
       </div>
       <div class="po-rack" id="poPostcardRack" aria-label="SUNNYVAiLE postcard rack"></div>
+      <noscript>
+        <p class="svb-honest-note">The postcard artwork is held whether JavaScript is available or not. No postcard has been selected or sent.</p>
+      </noscript>
       <div class="po-writing-desk" id="poWritingDesk">
-        <img id="poPostcardPreview" src="/assets/postcards/from-sunnyvaile/pc-welcome.png" alt="Welcome to SUNNYVAiLE postcard">
+        <img id="poPostcardPreview" alt="" hidden>
         <div>
           <p class="svb-kicker">On the writing desk</p>
-          <h3 id="poPostcardTitle">Welcome to SUNNYVAiLE</h3>
+          <h3 id="poPostcardTitle">Checking the postcard rack</h3>
           <p>Write your note, then send it by text, email, or link from the full postcard desk.</p>
+          <p class="svb-honest-note" id="poPostcardBoundary" aria-live="polite">Checking postcard availability. No postcard has been selected.</p>
           <div class="svb-actions">
-            <a class="svb-action svb-action--cyan" id="poWriteLink" href="/postcard.html?pc=welcome">Write this postcard</a>
+            <a class="svb-action svb-action--cyan" id="poWriteLink" hidden>Write this postcard</a>
           </div>
         </div>
       </div>

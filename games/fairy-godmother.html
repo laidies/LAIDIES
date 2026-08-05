@@ -8,10 +8,9 @@
     <meta property="og:title" content="FAiRY GODMOTHER | LAiDIES" />
     <meta property="og:description" content="Experimental work-drafting preview: improve a non-sensitive prompt or draft, then check the result yourself." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://laidies.ai/assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#b95d78" />
-    <link rel="icon" type="image/png" href="../assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
     <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -278,6 +277,31 @@
         outline: none;
         border-color: #c75b86;
         box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.16);
+      }
+      .fg-preview-slip {
+        margin: 0 0 22px;
+        padding: 12px 14px;
+        border: 1.5px solid rgba(111, 38, 63, 0.25);
+        border-radius: 12px;
+        background: rgba(255, 253, 251, 0.88);
+        color: #3f1737;
+      }
+      .fg-preview-slip summary {
+        cursor: pointer;
+        color: #7a2742;
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .fg-preview-slip summary:focus-visible {
+        outline: 3px solid #7a2742;
+        outline-offset: 4px;
+      }
+      .fg-preview-slip p {
+        margin: 10px 0 0;
+        font-size: 0.86rem;
+        line-height: 1.55;
       }
 
       .fairy-buttons {
@@ -754,102 +778,6 @@
         font-style: italic;
       }
 
-      /* Newsletter signup gate */
-      .laidy-gate {
-        padding: clamp(20px, 4vw, 30px);
-        background: linear-gradient(155deg, #fff5eb 0%, #fdf0e8 60%, #faf4ef 100%);
-        border: 2px solid #d4a574;
-        border-radius: 16px;
-        color: #3a2010;
-        box-shadow: 0 8px 32px rgba(160, 100, 50, 0.18), inset 0 0 36px rgba(212, 165, 116, 0.08);
-      }
-      .laidy-gate h3 {
-        font-family: 'Dancing Script', cursive;
-        font-size: clamp(1.4rem, 3.2vw, 1.85rem);
-        color: #7a2742;
-        margin: 0 0 8px;
-        line-height: 1.2;
-      }
-      .laidy-gate p {
-        font-size: 0.95rem;
-        line-height: 1.55;
-        color: #4a3020;
-        margin: 0 0 14px;
-      }
-      .laidy-gate-form {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        align-items: stretch;
-        margin: 6px 0 8px;
-      }
-      .laidy-gate-form input[type="email"] {
-        flex: 1 1 220px;
-        min-width: 180px;
-        padding: 12px 14px;
-        border: 1.5px solid rgba(111, 38, 63, 0.32);
-        border-radius: 10px;
-        background: #fffdfb;
-        color: #2d1729;
-        font-family: 'Jost', sans-serif;
-        font-size: 0.95rem;
-      }
-      .laidy-gate-form input[type="email"]:focus {
-        outline: none;
-        border-color: #c75b86;
-        box-shadow: 0 0 0 4px rgba(199, 91, 134, 0.18);
-      }
-      .laidy-gate-form button {
-        padding: 12px 22px;
-        border: 2px solid #4b2148;
-        border-radius: 999px;
-        background: #4b2148;
-        color: #fffdfb;
-        font-family: 'Jost', sans-serif;
-        font-size: 0.92rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: transform 0.15s, background 0.15s;
-      }
-      .laidy-gate-form button:hover:not(:disabled) {
-        transform: scale(1.03);
-        background: #6f263f;
-      }
-      .laidy-gate-form button:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-      .laidy-gate-already {
-        font-size: 0.85rem;
-        color: rgba(75, 33, 72, 0.78);
-        margin: 6px 0 0;
-      }
-      .laidy-gate-already a {
-        color: #7a2742;
-        text-decoration: underline;
-        cursor: pointer;
-        font-weight: 700;
-      }
-      .laidy-gate-status {
-        margin-top: 10px;
-        min-height: 1.2em;
-        font-size: 0.88rem;
-        font-weight: 700;
-        color: #7a2742;
-        font-style: italic;
-      }
-      .laidy-gate-ps {
-        margin: 14px 0 0;
-        padding-top: 12px;
-        border-top: 1px dashed rgba(180, 130, 80, 0.32);
-        font-size: 0.82rem;
-        line-height: 1.5;
-        color: rgba(74, 48, 32, 0.78);
-      }
-      .laidy-gate-ps em { font-style: italic; }
-
       /* Elle "check your outfit" disclosure at bottom of every response */
       .laidy-disclosure {
         margin: 24px -4px -4px;
@@ -881,7 +809,7 @@
       <link rel="stylesheet" href="../content/site/mini-player.css">
       <link rel="stylesheet" href="../content/fairy-godmother-v2.css?v=20260724-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
@@ -911,8 +839,7 @@
     </nav>
   </header>
 
-    <div class="fg-exterior">
-      <img src="../assets/sunnyvaile-buildings/y2k-v3-rethink-20260715/web/11-fairy-godmother-house-v6.jpg?v=20260716" alt="The FAiRY Godmother's enchanted garden cottage" loading="eager" />
+    <div class="fg-exterior fg-exterior-held" data-asset-status="held">
       <div class="fg-exterior-copy" aria-hidden="true">
         <span>Walk-ins welcome</span>
         <strong>Stuck prompt?<br>Come inside.</strong>
@@ -949,13 +876,17 @@
 
         <!-- THE PARLOUR IS THE INTERFACE -->
         <section class="fg-room" aria-labelledby="fgRoomTitle">
-          <img class="fg-room-image" src="../assets/building-interiors/fairy-godmother-parlor.jpg" alt="The FAiRY Godmother's advice parlour, with a writing desk, telephone, correspondence basket, and a wall of past notes" />
+          <div class="fg-room-image fg-room-image-held" role="img" aria-label="The FAiRY Godmother's advice parlour artwork is being prepared."></div>
           <div class="fg-room-sign">
             <span>Advice parlour</span>
             <strong id="fgRoomTitle">Take a seat at the desk.</strong>
           </div>
 
           <section class="fairy-console" aria-label="FAiRY Godmother advice desk">
+            <details class="fg-preview-slip" id="fgPreviewStatus">
+              <summary>Preview status slip</summary>
+              <p><strong>One local work-drafting preview.</strong> This is not an account, balance, reward or cross-device record. No FAiRY Play is granted, reserved, spent, released or refunded here.</p>
+            </details>
             <div class="fg-console-heading">
               <p>Step one</p>
               <h2>Pick your PATRON SA<span class="ai-highlight">i</span>NT&rsquo;s energy.</h2>
@@ -984,7 +915,7 @@
 
             <div class="fairy-buttons">
               <button class="wand-button" type="button" id="wandButton">
-                <img src="../assets/fairy-wand.png" alt=""> <span>Wave the Wand</span>
+                <span class="wand-icon" aria-hidden="true">✦</span> <span>Wave the Wand</span>
               </button>
               <button class="random-button" type="button" id="randomButton">
                 Surprise me
@@ -1103,28 +1034,8 @@
     const MAX_PROMPT_CHARS = 8000;
     const ADVICE_TIMEOUT_MS = 15000;
 
-    // ===== NEWSLETTER GATE STATE =====
-    const SUBSCRIBE_URL = "https://laidies-subscribe.wednesday-laidies.workers.dev";
     const FREE_WISHES_LIMIT = 1;
-    const LS_SUBSCRIBER_KEY = "laidies_subscriber";
     const LS_FREE_WISHES_KEY = "laidies_free_wishes_used";
-
-    function getSubscriber() {
-      try {
-        const raw = localStorage.getItem(LS_SUBSCRIBER_KEY);
-        if (!raw) return null;
-        const parsed = JSON.parse(raw);
-        return parsed && parsed.email ? parsed : null;
-      } catch { return null; }
-    }
-    function setSubscriber(email) {
-      try {
-        localStorage.setItem(LS_SUBSCRIBER_KEY, JSON.stringify({
-          email: String(email).trim().toLowerCase(),
-          signedUpAt: new Date().toISOString(),
-        }));
-      } catch {}
-    }
     function getFreeWishesUsed() {
       try { return parseInt(localStorage.getItem(LS_FREE_WISHES_KEY) || "0", 10) || 0; }
       catch { return 0; }
@@ -1263,7 +1174,7 @@
       wandBtn.disabled = loading;
       randomBtn.disabled = loading;
       wandBtn.innerHTML = loading
-        ? '<img src="../assets/fairy-wand.png" alt=""><span>The FAiRY Godmother is reading&hellip;</span>'
+        ? '<span class="wand-icon" aria-hidden="true">✦</span><span>The FAiRY Godmother is reading&hellip;</span>'
         : ORIGINAL_WAND_HTML;
     }
 
@@ -1290,121 +1201,6 @@
       if (coachActions) coachActions.classList.remove("is-visible");
       if (feedbackEl) feedbackEl.classList.remove("is-visible");
       revealScroll();
-    }
-
-    // Show the newsletter signup gate in place of a response.
-    function showGate(pendingPromptText, pendingEnergy) {
-      scrollHeader.textContent = "Preview complete";
-      scrollMode.textContent = "";
-      scrollFooter.textContent = "";
-      if (coachActions) coachActions.classList.remove("is-visible");
-      if (feedbackEl) feedbackEl.classList.remove("is-visible");
-
-      const gate = document.createElement("div");
-      gate.className = "laidy-gate";
-      gate.innerHTML = `
-        <h3>This local preview is complete.</h3>
-        <p>Email signup does not create a verified allowance on this page. The full FAiRY service remains unavailable until its account, safety, and response controls are live.</p>
-        <form class="laidy-gate-form" autocomplete="email">
-          <input type="email" required placeholder="you@yourdomain.com" aria-label="Email address" />
-          <button type="submit">Join the newsletter</button>
-        </form>
-        <p class="laidy-gate-already">Already a LAiDIES subscriber? That is lovely, but this page does not verify it.</p>
-        <p class="laidy-gate-ps"><em>Newsletter signup is separate from FAiRY access. No FAiRY Play, member allowance, or reward is granted here.</em></p>
-        <p class="laidy-gate-status" aria-live="polite"></p>
-      `;
-
-      scrollBody.innerHTML = "";
-      scrollBody.appendChild(gate);
-
-      const form = gate.querySelector(".laidy-gate-form");
-      const input = gate.querySelector("input[type='email']");
-      const button = gate.querySelector("button");
-      const status = gate.querySelector(".laidy-gate-status");
-      const alreadyLink = gate.querySelector("[data-already]");
-
-      async function submitEmail(email) {
-        button.disabled = true;
-        const originalLabel = button.textContent;
-        button.textContent = "Checking…";
-        status.textContent = "";
-
-        let result = "error";
-        try {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 8000);
-          const response = await fetch(SUBSCRIBE_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ email: email }),
-            signal: controller.signal,
-          });
-          clearTimeout(timer);
-          if (response.ok) {
-            const data = await response.json().catch(() => ({}));
-            result = String(data && data.status ? data.status : "error");
-          }
-        } catch (err) {
-          console.error("Gate signup error:", err);
-        }
-
-        button.disabled = false;
-        button.textContent = originalLabel;
-
-        if (result === "created") {
-          setSubscriber(email);
-          status.textContent = "You’re in. Wand’s warming up…";
-          setTimeout(() => {
-            if (pendingPromptText) questionEl.value = pendingPromptText;
-            if (pendingEnergy) modeEl.value = pendingEnergy;
-            runWand();
-          }, 600);
-          return;
-        }
-        if (result === "already") {
-          setSubscriber(email);
-          status.textContent = "You’re already in LAiDIES, honey. Picking up where you left off…";
-          setTimeout(() => {
-            if (pendingPromptText) questionEl.value = pendingPromptText;
-            if (pendingEnergy) modeEl.value = pendingEnergy;
-            runWand();
-          }, 600);
-          return;
-        }
-        if (result === "invalid") {
-          status.textContent = "That email doesn’t look right — double-check it?";
-          return;
-        }
-        if (result === "rate_limited") {
-          status.textContent = "Newsletter is busy at the moment — try again in a minute?";
-          return;
-        }
-        status.textContent = "Signup hit a snag. Try again in a moment.";
-      }
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = String(input.value || "").trim().toLowerCase();
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
-          status.textContent = "That email doesn’t look right — double-check it?";
-          return;
-        }
-        submitEmail(email);
-      });
-
-      alreadyLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        const email = (input.value || "").trim().toLowerCase()
-          || (window.prompt("What email did you use to subscribe?") || "").trim().toLowerCase();
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          status.textContent = "Need your subscribed email to let you in.";
-          return;
-        }
-        submitEmail(email);
-      });
-
-      revealScroll();
-      setTimeout(() => { try { input.focus(); } catch {} }, 200);
     }
 
     function findSectionHeader(matcher) {

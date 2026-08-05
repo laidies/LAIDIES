@@ -56,16 +56,7 @@ body:has(.ksvl-studio) .sv-yah-chip {
 }
 
 .ksvl-studio::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  opacity: 0;
-  background: url("/assets/building-interiors/ksvl-booth.jpg?v=20260707") center / cover no-repeat;
-  clip-path: polygon(18.5% 0%, 34.5% 0%, 34.5% 16.5%, 18.5% 16.5%);
-  filter: brightness(1.95) saturate(1.35);
-  transition: opacity 240ms ease;
-  pointer-events: none;
+  content: none;
 }
 
 .ksvl-studio.is-live::before {
@@ -452,9 +443,9 @@ body:has(.ksvl-studio) .sv-yah-chip {
 
 .radio-v2-page #ksvl-request {
   position: relative;
-  min-height: 760px;
+  min-height: 0;
   margin: 0 !important;
-  padding: 64px 58px 64px 43% !important;
+  padding: 64px 58px !important;
   overflow: hidden;
   color: var(--radio-ink) !important;
   background: #eefaff !important;
@@ -464,13 +455,20 @@ body:has(.ksvl-studio) .sv-yah-chip {
 }
 
 .radio-v2-page #ksvl-request::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 38%;
-  background: url("/assets/town-characters/scenes/dj-sunnyv-scene.png") center 34% / cover no-repeat;
-  border-right: 6px solid var(--radio-cyan);
+  content: none;
 }
+
+.ksvl-studio-held,
+.ksvl-sticker-banner-held {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: clamp(220px, 42vw, 620px);
+  background: var(--radio-purple);
+  color: #fff;
+}
+
+.ksvl-sticker-banner-held { min-height: 160px; }
 
 .radio-v2-page #ksvl-request > * {
   position: relative;

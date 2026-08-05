@@ -205,6 +205,35 @@ body {
   display: block;
 }
 
+.shop-room__base--held {
+  aspect-ratio: 1672 / 941;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 44px;
+  box-sizing: border-box;
+  background:
+    linear-gradient(90deg, rgba(22, 198, 220, .15) 1px, transparent 1px) 0 0 / 25% 100%,
+    linear-gradient(180deg, #121934 0%, #2b2454 56%, #11192f 100%);
+  color: var(--shop-pearl);
+  text-align: center;
+}
+
+.shop-room__base--held strong {
+  font-size: clamp(24px, 3.2vw, 48px);
+  letter-spacing: .08em;
+}
+
+.shop-room__base--held span {
+  max-width: 46ch;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .shop-print {
   position: absolute;
   z-index: 2;
@@ -972,4 +1001,16 @@ body {
   .shop-hotspot {
     transition: none;
   }
+}
+.shop-product__art--held,
+.shop-print-held {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 96px;
+  background: #35106f;
+  color: #fff;
+  font: 800 0.72rem/1.2 "Jost", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

@@ -7,7 +7,7 @@
 <meta name="description" content="Before the season starts, your heroine owes you a tour. A show about learning AI, made for smart, busy women — a new episode every Wednesday, one useful thing each, no jargon. Welcome to SUNNYVAiLE.">
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=VT323&display=swap" rel="stylesheet">
 <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
+<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <style>
@@ -37,9 +37,10 @@
   .shelf-strip{background:#111013;color:var(--cream);text-align:center;font-family:'VT323',monospace;font-size:1.05rem;letter-spacing:.08em;padding:7px 16px}
   .shelf-strip b{color:var(--teal);font-weight:400}
 
-  /* Cinematic pixel-art hero — the tape's title card, in the world */
+  /* Cinematic title card — the town is named in real article text. */
   .tv-hero{position:relative;overflow:hidden;padding:118px 24px 88px;text-align:center;color:var(--cream);
-    background:linear-gradient(180deg,rgba(14,9,24,.46) 0%,rgba(11,7,18,.72) 66%,rgba(11,7,18,.94) 100%), url('../assets/sunnyvaile-buildings/y2k-v3-defairytale/episode-pixel/scenic-town-shots/05-whole-town-golden-afternoon-overlook-pixel-v1.png') center 40%/cover}
+    background:radial-gradient(circle at 50% -18%,rgba(244,166,54,.52),transparent 42%),radial-gradient(circle at 15% 42%,rgba(87,182,192,.28),transparent 34%),linear-gradient(180deg,#392143 0%,#1b1227 62%,#0b0712 100%)}
+  .tv-hero::before{content:"";position:absolute;inset:18px max(5vw,24px);border:1px solid rgba(231,220,245,.22);border-radius:18px;pointer-events:none;background:linear-gradient(90deg,transparent 49.7%,rgba(231,220,245,.08) 50%,transparent 50.3%),linear-gradient(transparent 49.7%,rgba(231,220,245,.07) 50%,transparent 50.3%)}
   .tv-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,rgba(0,0,0,.16) 2px 4px);mix-blend-mode:multiply}
   .tv-hero>*{position:relative;z-index:2}
   .osd{position:absolute;top:14px;left:18px;right:18px;z-index:3;display:flex;justify-content:space-between;font-family:'VT323',monospace;font-size:1.05rem;color:#7be0d0;letter-spacing:.1em;text-shadow:0 0 8px rgba(87,182,192,.7)}
@@ -74,6 +75,11 @@
   .film .frames{position:absolute;inset:0;z-index:1}
   .film .frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .film .frames img~img{display:none}
+  .film .frames--location{display:grid;place-content:center;text-align:center;padding:28px;color:var(--cream);background:radial-gradient(circle at 18% 22%,rgba(255,255,255,.2) 0 3%,transparent 3.6%),linear-gradient(145deg,#321934,#6a315c 54%,#ca748f)}
+  .film .frames--mme{background:radial-gradient(circle at 78% 18%,rgba(244,166,54,.46) 0 8%,transparent 8.5%),linear-gradient(145deg,#231134,#56366f 54%,#bd6d9b)}
+  .film .frames--delta{background:radial-gradient(circle at 18% 20%,rgba(87,182,192,.36) 0 8%,transparent 8.5%),linear-gradient(145deg,#4b2148,#86547b 54%,#d48b9a)}
+  .film-location{font-family:'VT323',monospace;font-size:clamp(2rem,7vw,4rem);letter-spacing:.12em;line-height:.95;text-transform:uppercase;text-shadow:3px 3px 0 rgba(12,6,14,.26)}
+  .film-location-sub{margin-top:13px;font-family:'VT323',monospace;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:#f7dfae}
   .film::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 3px,rgba(0,0,0,.12) 3px 6px);mix-blend-mode:multiply}
   .film-bug{position:absolute;top:13px;right:15px;z-index:3;font-family:'VT323',monospace;font-size:1rem;color:var(--cream);letter-spacing:.1em;text-shadow:0 1px 5px rgba(0,0,0,.8)}
   .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:32px 20px 14px;color:var(--cream);font-family:'VT323',monospace;font-size:1.08rem;letter-spacing:.04em;background:linear-gradient(0deg,rgba(12,6,14,.9),transparent)}
@@ -115,7 +121,7 @@
   .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
   .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
 
-  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} }
+  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .spine-inner{justify-content:center;flex-wrap:wrap;gap:4px 10px} .spine-inner .end{margin-left:0} }
 </style>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
@@ -157,7 +163,7 @@
   <p>I'm your heroine. I can't say that with a straight face either, but the promo guy insists. I'm not an expert — <em>I'm a few steps ahead of you, that's all.</em> I put off learning AI for longer than I'll admit on the record — the full confession is Episode One — and now I'm walking the road one Wednesday at a time and reporting back. I make the mistakes so you can skip them. I do the reading so you don't have to.</p>
 
   <figure class="film" aria-label="SUNNYVAiLE — the welcome wagon">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/01-welcome-wagon-visitors-centre.webp" alt="The Welcome Wagon visitors' centre in SUNNYVAiLE" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="visitors-centre"><span class="film-location">Welcome to SUNNYVAiLE</span><span class="film-location-sub">The town is the teaching method</span></div>
     <span class="film-bug">SUNNYVAiLE · WELCOME</span>
     <figcaption class="film-cap">Sunny v-A-i-l-e. See what we did there?</figcaption>
   </figure>
@@ -187,7 +193,7 @@
 
   <!-- STOP 1 -->
   <figure class="film" aria-label="Stop 1 — the NewsStand">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp" alt="The SUNNYVAiLE NewsStand" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="newsstand"><span class="film-location">The NewsStand</span><span class="film-location-sub">Stop one · AI news in actual English</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 1</span>
     <figcaption class="film-cap">Stop one — the NewsStand, first door on Main Street.</figcaption>
   </figure>
@@ -195,7 +201,7 @@
 
   <!-- STOP 2 -->
   <figure class="film" aria-label="Stop 2 — the Chick Flicks">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/07-the-chick-flicks.webp" alt="The Chick Flicks video rental store" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="chick-flicks"><span class="film-location">The Chick Flicks</span><span class="film-location-sub">Stop two · episodes on the shelf</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 2</span>
     <figcaption class="film-cap">Stop two — the Chick Flicks. Every episode's a tape on the shelf.</figcaption>
   </figure>
@@ -203,7 +209,7 @@
 
   <!-- STOP 3 -->
   <figure class="film" aria-label="Stop 3 — the Blend & Snap">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/08-blend-and-snap.webp" alt="The Blend and Snap coffee shop" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="blend-snap"><span class="film-location">Blend &amp; Snap</span><span class="film-location-sub">Stop three · study pack and try-on</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 3</span>
     <figcaption class="film-cap">Stop three — the Blend &amp; Snap. Sit down; this is the study pack.</figcaption>
   </figure>
@@ -211,7 +217,7 @@
 
   <!-- STOP 4 -->
   <figure class="film" aria-label="Stop 4 — SUNNYVAiLE High">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/14-sunnyvaile-high.webp" alt="SUNNYVAiLE High" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="sunnyvaile-high"><span class="film-location">SUNNYVAiLE High</span><span class="film-location-sub">Stop four · pop quiz</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 4</span>
     <figcaption class="film-cap">Stop four — SUNNYVAiLE High. The pop quiz. Yes, with posters.</figcaption>
   </figure>
@@ -219,7 +225,7 @@
 
   <!-- STOP 5 -->
   <figure class="film" aria-label="Stop 5 — free time at Mme CLAiO's">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/06-mme-claios-shop.webp" alt="Mme CLAiO's fortune-telling shop" loading="lazy"></div>
+    <div class="frames frames--location frames--mme" data-trailer-held="mme-claio-shop" aria-hidden="true"><span class="film-location">Mme CLAi-O's</span><span class="film-location-sub">Stop five · scheduled free time</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 5</span>
     <figcaption class="film-cap">Stop five — scheduled free time. My favourite kind of structure.</figcaption>
   </figure>
@@ -227,7 +233,7 @@
 
   <!-- STOP 6 -->
   <figure class="film" aria-label="Stop 6 — MAiKEOVER on Main">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/09-maikeover-on-maine.webp" alt="MAiKEOVER on Main storefront" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="maikeover"><span class="film-location">MAiKEOVER on Main</span><span class="film-location-sub">Stop six · Resident Card</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 6</span>
     <figcaption class="film-cap">Stop six — MAiKEOVER on Main. Your Resident Card. The town remembers you.</figcaption>
   </figure>
@@ -235,7 +241,7 @@
 
   <!-- STOP 7 -->
   <figure class="film" aria-label="Stop 7 — the Bronze AiGE">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/05-bronze-aige.webp" alt="The Bronze AiGE bar" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="bronze-aige"><span class="film-location">The Bronze AiGE</span><span class="film-location-sub">Stop seven · happy hour</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 7</span>
     <figcaption class="film-cap">Stop seven — the Bronze AiGE. Happy hour, and the Businesswomen's Special.</figcaption>
   </figure>
@@ -243,7 +249,7 @@
 
   <!-- STOP 8 -->
   <figure class="film" aria-label="Stop 8 — Delta LAi Nu">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/10-delta-lai-nu-sorority-house.webp" alt="Delta LAi Nu sorority house" loading="lazy"></div>
+    <div class="frames frames--location frames--delta" data-trailer-held="delta-lai-nu-house" aria-hidden="true"><span class="film-location">Delta LAi Nu</span><span class="film-location-sub">Stop eight · rooms, Girl Talk, closet</span></div>
     <span class="film-bug">SUNNYVAiLE · STOP 8</span>
     <figcaption class="film-cap">Stop eight — Delta L<span class="ai">Ai</span> Nu. The rooms, Girl Talk, and your closet upstairs.</figcaption>
   </figure>
@@ -252,7 +258,7 @@
   <!-- THE RADIO -->
   <div class="mark"><div class="k">My favourite building in town</div><h2>KSVL · community radio · 99.9</h2></div>
   <figure class="film" aria-label="KSVL community radio">
-    <div class="frames"><img src="../assets/sunnyvaile-buildings/y2k-v3/16-ksvl-community-raidio.webp" alt="KSVL community radio station" loading="lazy"></div>
+    <div class="frames frames--location" data-trailer-held="ksvl"><span class="film-location">KSVL 99.9</span><span class="film-location-sub">Community radio · learn from hooks</span></div>
     <span class="film-bug">SUNNYVAiLE · KSVL 99.9</span>
     <figcaption class="film-cap">Don't just learn from books. Learn from hooks.</figcaption>
   </figure>

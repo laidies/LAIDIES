@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/mme-claio-deck.schema.json",
+  "title": "Mme CLAi-O governed reflection deck",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "deck_id", "cards"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "deck_id": { "const": "mme-claio-reflection-deck" },
+    "cards": {
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "card", "read", "message", "move", "art_slug"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "card": { "type": "string", "minLength": 1 },
+          "read": { "type": "string", "minLength": 1 },
+          "message": { "type": "string", "minLength": 1 },
+          "move": { "type": "string", "minLength": 1 },
+          "art_slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        }
+      }
+    }
+  }
+}

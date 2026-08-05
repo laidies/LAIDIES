@@ -91,26 +91,53 @@ main.cf-page {
 .cf-wall__scene {
   position: relative;
   width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.85fr);
+  gap: 18px;
+  padding: clamp(28px, 5vw, 70px) max(24px, calc((100vw - 1320px) / 2));
   overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 79, 154, 0.18), transparent 32%),
+    repeating-linear-gradient(0deg, rgba(255, 250, 244, 0.13) 0 3px, transparent 3px 72px),
+    #0a1231;
 }
 
-.cf-wall__room {
-  display: block;
-  width: 100%;
-  height: auto;
+.cf-held-visual {
+  margin: 0;
+  border: 2px dashed rgba(255, 250, 244, 0.78);
+  border-radius: 10px;
+  color: var(--cf-paper);
+  background: linear-gradient(135deg, rgba(121, 73, 222, 0.72), rgba(18, 201, 232, 0.34));
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cf-wall__held {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 720px);
+  padding: 12px 18px;
 }
 
 .cf-wall__bay {
-  position: absolute;
-  left: 9.25%;
-  top: 36.2%;
-  width: 52.1%;
-  height: 33.8%;
+  position: relative;
+  width: 100%;
+  min-height: 252px;
+  justify-self: center;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: end;
-  gap: 0;
-  padding: 1.8% 1.2% 0.6%;
+  gap: clamp(4px, 1vw, 14px);
+  padding: 28px 18px 18px;
+  border: 3px solid rgba(255, 250, 244, 0.78);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, transparent 0 72%, rgba(255, 250, 244, 0.82) 72% 75%, transparent 75%),
+    linear-gradient(180deg, rgba(18, 201, 232, 0.32), rgba(121, 73, 222, 0.38));
 }
 
 .cf-tape {
@@ -176,6 +203,11 @@ main.cf-page {
   filter: drop-shadow(0 17px 11px rgba(3, 7, 28, 0.56));
 }
 
+.cf-tape.is-selected {
+  z-index: 3;
+  filter: drop-shadow(0 0 0.5rem rgba(18, 201, 232, 0.88)) drop-shadow(0 13px 9px rgba(3, 7, 28, 0.5));
+}
+
 .cf-tape:focus-visible {
   outline: 4px solid var(--cf-cyan);
   outline-offset: 2px;
@@ -226,10 +258,11 @@ main.cf-page {
 }
 
 .cf-wall__empty {
-  position: absolute;
-  left: 15%;
-  top: 48%;
-  max-width: 42%;
+  position: relative;
+  grid-column: 1 / -1;
+  align-self: center;
+  justify-self: center;
+  max-width: 620px;
   margin: 0;
   color: var(--cf-paper);
   font-family: var(--cf-display);
@@ -456,27 +489,37 @@ main.cf-page {
 
 .cf-rental {
   scroll-margin-top: 60px;
-  width: min(100% - 48px, 1260px);
-  margin: clamp(52px, 8vw, 112px) auto;
+  width: 100%;
+  margin: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
-  gap: clamp(32px, 7vw, 100px);
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-self: stretch;
+  padding: 16px;
+  border: 3px solid rgba(255, 250, 244, 0.78);
+  border-radius: 14px;
+  color: var(--cf-ink);
+  background: var(--cf-paper);
 }
 
 .cf-rental__object {
   position: relative;
 }
 
-.cf-rental__object img {
-  display: block;
-  width: 100%;
-  height: auto;
-  mix-blend-mode: multiply;
+.cf-rental__held {
+  display: grid;
+  min-height: 74px;
+  place-items: center;
+  padding: 12px;
+  border-color: rgba(16, 24, 59, 0.6);
+  color: var(--cf-ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 24, 59, 0.12) 0 1px, transparent 1px 24px),
+    linear-gradient(135deg, rgba(255, 79, 154, 0.42), rgba(18, 201, 232, 0.28));
 }
 
 .cf-rental__episode {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   color: var(--cf-ink);
   font-size: 13px;
   font-weight: 800;
@@ -484,6 +527,13 @@ main.cf-page {
   line-height: 1.25;
   text-align: center;
   text-transform: uppercase;
+}
+
+.cf-rental__object img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
 }
 
 .cf-kicker {
@@ -508,16 +558,34 @@ main.cf-page {
   text-transform: uppercase;
 }
 
+.cf-rental__copy h2 {
+  margin: 6px 0 10px;
+  font-size: clamp(30px, 3.2vw, 48px);
+}
+
 .cf-rental__copy > p:not(.cf-kicker) {
   margin: 0;
   color: rgba(16, 24, 59, 0.72);
-  font-size: 17px;
-  line-height: 1.62;
+  font-size: 14px;
+  line-height: 1.42;
+}
+
+.cf-rental__lesson,
+.cf-rental__format {
+  margin-top: 10px !important;
+}
+
+.cf-rental__lesson strong {
+  color: var(--cf-purple);
+}
+
+.cf-rental__format {
+  font-weight: 700;
 }
 
 .cf-rental__due {
-  margin-top: 20px !important;
-  padding: 12px 0;
+  margin-top: 10px !important;
+  padding: 8px 0;
   border-top: 2px solid var(--cf-purple);
   border-bottom: 2px solid var(--cf-purple);
   color: var(--cf-purple) !important;
@@ -529,7 +597,7 @@ main.cf-page {
 .cf-rental__actions {
   display: grid;
   gap: 12px;
-  margin-top: 22px;
+  margin-top: 12px;
 }
 
 .cf-rental__actions a {
@@ -547,7 +615,7 @@ main.cf-page {
 }
 
 .cf-rental__member {
-  margin-top: 18px !important;
+  margin-top: 10px !important;
   font-size: 13px !important;
   font-style: italic;
 }
@@ -663,6 +731,10 @@ main.cf-page {
 }
 
 @media (max-width: 900px) {
+  .cf-wall__scene {
+    grid-template-columns: 1fr;
+  }
+
   .cf-rental,
   .cf-trailer {
     grid-template-columns: 1fr;
@@ -679,10 +751,9 @@ main.cf-page {
 }
 
 @media (max-width: 640px) {
-  .cf-wall__room {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center;
+  .cf-wall__scene {
+    padding: 22px 12px;
+    gap: 14px;
   }
 
   .cf-wall__bay {
@@ -701,6 +772,58 @@ main.cf-page {
     padding: 18px 7px 11px;
     background:
       linear-gradient(180deg, #0a1231 0 12%, #0e7c83 12% 100%);
+  }
+
+  .cf-rental {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .cf-rental__held {
+    min-height: 40px;
+    padding: 7px 10px;
+    font-size: 9px;
+  }
+
+  .cf-rental__episode {
+    margin-top: 4px;
+    font-size: 11px;
+  }
+
+  .cf-rental__copy h2 {
+    margin: 4px 0 6px;
+    font-size: 28px;
+  }
+
+  .cf-rental__copy > p:not(.cf-kicker) {
+    font-size: 12px;
+    line-height: 1.28;
+  }
+
+  .cf-rental__lesson,
+  .cf-rental__format {
+    margin-top: 6px !important;
+  }
+
+  .cf-rental__due {
+    margin-top: 6px !important;
+    padding: 5px 0;
+    font-size: 10px !important;
+  }
+
+  .cf-rental__actions {
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .cf-rental__member {
+    margin-top: 6px !important;
+  }
+
+  .cf-wall__held {
+    width: min(100%, 390px);
+    padding: 11px 14px;
+    font-size: 10px;
   }
 
   .cf-mobile-shelf.is-empty {
@@ -781,11 +904,6 @@ main.cf-page {
     width: min(100% - 30px, 1260px);
   }
 
-  .cf-rental {
-    margin-top: 58px;
-  }
-
-  .cf-rental__copy h2,
   .cf-counter h2,
   .cf-trailer h2 {
     font-size: clamp(42px, 13vw, 64px);
