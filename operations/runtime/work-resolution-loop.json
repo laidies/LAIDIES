@@ -793,22 +793,27 @@
       "work_id": "WRK-20260803-chain-of-thought-card",
       "work_type": "learning-claim-correction",
       "title": "Correct the universal Chain of Thought trading-card claim",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "product": {
         "id": "learning-content-ecosystem",
-        "outcome": "One provider-bounded maintained reasoning concept replaces the unsupported universal card claim and feeds its current consumers."
+        "outcome": "The unsupported Chain of Thought card has no executable consumer; its stale generation prompt is retired while the separate Episode 02 prompting signal remains routed."
       },
       "owner": {
         "id": "learning-content-ecosystem",
         "role": "Learning System & Concepts accountable owner"
       },
       "acceptance_owner": {
-        "id": "learning-content-ecosystem",
-        "role": "concept integrity and consumer propagation owner"
+        "id": "independent-learning-corrections-judge",
+        "role": "independent concept integrity and consumer-propagation judge"
       },
+      "write_scope": [
+        "operations/codex-prompts/_concept-cards-popart-by-episode.md",
+        "scripts/test-learning-claim-corrections.mjs",
+        "operations/runtime/work-resolution-loop.json"
+      ],
       "next_action": {
         "id": "CHAIN-OF-THOUGHT-CORRECTION-01",
-        "description": "Accept or reject SIG-AIDB-2026-08-02-CHAIN-OF-THOUGHT-CARD; record the executable-surface retirement; remove or supersede the regeneration wording in _concept-cards-popart-by-episode.md; reconcile the Episode 02 signal; and register a provider-scoped maintained claim only if the concept is retained."
+        "description": "Completed: the unsafe regeneration prompt is an explicit RETIRED — DO NOT GENERATE tombstone. No maintained claim was created because no Chain of Thought consumer is retained; the separate Episode 02 prompting signal remains routed."
       },
       "deadline_at": "2026-08-05T18:00:00Z",
       "next_check_at": "2026-08-05T16:30:00Z",
@@ -819,6 +824,10 @@
         "command": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem",
         "checked_at": "2026-08-03T15:45:00Z"
       },
+      "execution": {
+        "maker_id": "learning-content-ecosystem",
+        "judge_id": "independent-learning-corrections-judge"
+      },
       "evidence": [
         {
           "evidence_id": "EV-AIDB-CHAIN-OF-THOUGHT-HANDOFF",
@@ -826,14 +835,37 @@
           "verifier": "AIDB private evidence and owner-decision handoff",
           "verdict": "PASS",
           "collected_at": "2026-08-03T15:45:00Z"
+        },
+        {
+          "evidence_id": "EV-CHAIN-OF-THOUGHT-RETIREMENT",
+          "artifact": "operations/codex-prompts/_concept-cards-popart-by-episode.md",
+          "verifier": "independent judge PASS; sha256:3696ba91d4fd6ec9fd536015ddda6182275652284e652bf63fb86f8ef3299f72; test-learning-claim-corrections.mjs PASS",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T19:03:00Z"
         }
+      ],
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-05T19:04:00Z",
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "COT-TR-01", "owner_id": "learning-content-ecosystem", "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-02-trading-cards-chain-of-thought.md", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "COT-TR-02", "owner_id": "learning-content-ecosystem", "artifact": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "BRIEF", "receipt_id": "COT-TR-03", "owner_id": "learning-content-ecosystem", "artifact": "WRK-20260803-chain-of-thought-card", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PILOT", "receipt_id": "COT-TR-04", "owner_id": "learning-content-ecosystem", "artifact": "No retained consumer; a retirement tombstone is the complete correction", "result": "NOT_APPLICABLE", "at": "2026-08-05T18:58:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "COT-TR-05", "owner_id": "learning-content-ecosystem", "artifact": "operations/codex-prompts/_concept-cards-popart-by-episode.md", "result": "PASS", "at": "2026-08-05T19:00:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "COT-TR-06", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs", "result": "PASS", "at": "2026-08-05T19:01:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "COT-TR-07", "owner_id": "independent-learning-corrections-judge", "artifact": "exact prompt sha256:3696ba91d4fd6ec9fd536015ddda6182275652284e652bf63fb86f8ef3299f72", "result": "PASS", "at": "2026-08-05T19:03:00Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "COT-TR-08", "owner_id": "learning-content-ecosystem", "artifact": "commit 7e3559e8", "result": "PASS", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "COT-TR-09", "owner_id": "learning-content-ecosystem", "artifact": "No Ali decision required for factual retirement with no current consumer", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "RELEASE", "receipt_id": "COT-TR-10", "owner_id": "learning-content-ecosystem", "artifact": "No public consumer exists", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "COT-TR-11", "owner_id": "learning-content-ecosystem", "artifact": "No public consumer exists", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "COT-TR-12", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs", "result": "PASS", "at": "2026-08-05T19:04:00Z" }
       ]
     },
     {
       "work_id": "WRK-20260803-token-ratio-correction",
       "work_type": "learning-claim-correction",
       "title": "Correct and propagate the reversed English token ratio",
-      "status": "OPEN",
+      "status": "RESOLVED",
       "product": {
         "id": "learning-content-ecosystem",
         "outcome": "Library and Concepts 101 use one current, explicitly approximate token conversion with all current consumers derived from the maintained claim."
@@ -843,12 +875,18 @@
         "role": "Learning System & Concepts accountable owner"
       },
       "acceptance_owner": {
-        "id": "learning-content-ecosystem",
-        "role": "concept integrity and consumer propagation owner"
+        "id": "independent-learning-corrections-judge",
+        "role": "independent concept integrity and consumer-propagation judge"
       },
+      "write_scope": [
+        "content/library-books/handbook-ch1.md",
+        "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+        "scripts/test-learning-claim-corrections.mjs",
+        "operations/runtime/work-resolution-loop.json"
+      ],
       "next_action": {
         "id": "TOKEN-RATIO-CORRECTION-01",
-        "description": "Accept SIG-AIDB-2026-08-03-TOKEN-RATIO; identify the authoritative source before regeneration; correct the handbook to approximately 0.75 English words per token or 1.3 tokens per word with model and language limits; preserve the safer rendered Concepts 101 wording unless deliberately superseded; then sweep consumers and register the maintained claim."
+        "description": "Completed locally: the handbook uses the bounded current ratio; Concepts 101 intentionally keeps compatible non-numeric wording; one maintained claim binds the official source and both consumers. Public release remains a separate gate."
       },
       "deadline_at": "2026-08-05T18:00:00Z",
       "next_check_at": "2026-08-05T16:30:00Z",
@@ -859,6 +897,10 @@
         "command": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem",
         "checked_at": "2026-08-03T15:45:00Z"
       },
+      "execution": {
+        "maker_id": "learning-content-ecosystem",
+        "judge_id": "independent-learning-corrections-judge"
+      },
       "evidence": [
         {
           "evidence_id": "EV-AIDB-TOKEN-RATIO-HANDOFF",
@@ -866,7 +908,30 @@
           "verifier": "OpenAI and Google provider evidence mapped in handoff",
           "verdict": "PASS",
           "collected_at": "2026-08-03T15:45:00Z"
+        },
+        {
+          "evidence_id": "EV-TOKEN-RATIO-CORRECTION",
+          "artifact": "content/library-books/handbook-ch1.md; operations/product-stewards/learning-content-ecosystem/claim-register.json",
+          "verifier": "independent judge PASS; handbook sha256:04ff7588682f01a1d07e8c3b85e3b3ef1ee18fc7154268f526cd8966c44a3d14; claim-register sha256:8e13ea3962927dd321af8ae002b518c582eb978506da7a4561ebcb2c95130265",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T19:03:00Z"
         }
+      ],
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-05T19:04:00Z",
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "TOKEN-TR-01", "owner_id": "learning-content-ecosystem", "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-03-library-token-ratio.md", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "TOKEN-TR-02", "owner_id": "learning-content-ecosystem", "artifact": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "BRIEF", "receipt_id": "TOKEN-TR-03", "owner_id": "learning-content-ecosystem", "artifact": "WRK-20260803-token-ratio-correction", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PILOT", "receipt_id": "TOKEN-TR-04", "owner_id": "learning-content-ecosystem", "artifact": "One canonical paragraph and two-consumer maintained claim", "result": "PASS", "at": "2026-08-05T18:58:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "TOKEN-TR-05", "owner_id": "learning-content-ecosystem", "artifact": "content/library-books/handbook-ch1.md; operations/product-stewards/learning-content-ecosystem/claim-register.json", "result": "PASS", "at": "2026-08-05T19:00:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "TOKEN-TR-06", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs; scripts/check-content-freshness.mjs validation_errors=0", "result": "PASS", "at": "2026-08-05T19:01:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "TOKEN-TR-07", "owner_id": "independent-learning-corrections-judge", "artifact": "handbook sha256:04ff7588682f01a1d07e8c3b85e3b3ef1ee18fc7154268f526cd8966c44a3d14; claim-register sha256:8e13ea3962927dd321af8ae002b518c582eb978506da7a4561ebcb2c95130265", "result": "PASS", "at": "2026-08-05T19:03:00Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "TOKEN-TR-08", "owner_id": "learning-content-ecosystem", "artifact": "commit 7e3559e8", "result": "PASS", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "TOKEN-TR-09", "owner_id": "learning-content-ecosystem", "artifact": "No Ali decision required for a bounded factual correction", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "RELEASE", "receipt_id": "TOKEN-TR-10", "owner_id": "learning-content-ecosystem", "artifact": "Public release remains separate", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "TOKEN-TR-11", "owner_id": "learning-content-ecosystem", "artifact": "Not publicly verified", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "TOKEN-TR-12", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs", "result": "PASS", "at": "2026-08-05T19:04:00Z" }
       ]
     },
     {
