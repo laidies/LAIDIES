@@ -19,6 +19,7 @@ const program = JSON.parse(fs.readFileSync(programPath, 'utf8'));
 const errors = [];
 const assetRegistry = JSON.parse(fs.readFileSync(path.join(root, 'operations/assets/active-asset-registry.json'), 'utf8'));
 const requireLaunchReady = process.argv.includes('--require-launch-ready');
+const calibrateReadinessSchema = process.argv.includes('--calibrate-readiness-schema');
 let mediaGate = null;
 let classCatalogue = null;
 let siteVideoGate = null;
@@ -34,6 +35,42 @@ function readManifest(manifestPath, missingMessage) {
 
 function existingRelativeFile(value) {
   return typeof value === 'string' && value.length > 0 && fs.existsSync(path.join(root, value));
+}
+
+function readJsonRelative(value) {
+  if (!existingRelativeFile(value)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(path.join(root, value), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function validClassStatusReceipt(item) {
+  const receipt = readJsonRelative(item?.release_receipt);
+  if (!receipt || receipt.class_id !== item.id
+      || receipt.release_ready !== item.release_ready
+      || receipt.admission_status !== item.admission_status
+      || receipt.public_verification !== item.public_verification
+      || receipt.authority !== 'HOLD_STATUS_RECEIPT_NOT_RELEASE_APPROVAL'
+      || !Array.isArray(receipt.bound_evidence) || receipt.bound_evidence.length < 2
+      || !Array.isArray(receipt.remaining_gates) || receipt.remaining_gates.length < 2) return false;
+  return receipt.bound_evidence.every(binding => existingRelativeFile(binding.path)
+    && /^[a-f0-9]{64}$/.test(binding.sha256 || '')
+    && crypto.createHash('sha256').update(fs.readFileSync(path.join(root, binding.path))).digest('hex') === binding.sha256);
+}
+
+function receiptBindsProgramme(item) {
+  const receipt = readJsonRelative(item?.release_receipt);
+  if (!receipt || !/^[a-f0-9]{64}$/.test(item?.master_sha256 || '')) return false;
+  const strings = [];
+  const visit = value => {
+    if (typeof value === 'string') strings.push(value);
+    else if (Array.isArray(value)) value.forEach(visit);
+    else if (value && typeof value === 'object') Object.values(value).forEach(visit);
+  };
+  visit(receipt);
+  return strings.includes(item.master_sha256);
 }
 
 function visualAdmission(product) {
@@ -124,16 +161,21 @@ const mediaTotal = mediaProgrammes.length;
 
 function strictClassReadiness(manifest) {
   const classes = manifest?.classes;
-  const schemaPresent = manifest?.opening_day_ready === true
-    && manifest?.public_verification === 'PASS'
+  const expectedIds = ['ODC-101', 'ODC-201', 'ODC-LAB-01'];
+  const schemaPresent = manifest?.readiness_schema === 'PRESENT'
+    && typeof manifest?.opening_day_ready === 'boolean'
+    && typeof manifest?.public_verification === 'string'
     && Array.isArray(classes)
-    && classes.length === 3
+    && classes.length === expectedIds.length
+    && expectedIds.every(id => classes.some(item => item.id === id))
     && classes.every(item => typeof item.release_ready === 'boolean'
       && typeof item.admission_status === 'string'
       && typeof item.public_verification === 'string'
-      && existingRelativeFile(item.release_receipt));
+      && validClassStatusReceipt(item));
   const ready = schemaPresent
     && manifest.status === 'PASS'
+    && manifest.opening_day_ready === true
+    && manifest.public_verification === 'PASS'
     && classes.every(item => item.release_ready === true
       && item.admission_status === 'PASS'
       && item.public_verification === 'PASS');
@@ -146,16 +188,19 @@ function strictSiteVideoReadiness(manifest) {
     ? programmes.filter(item => openingMediaIds.has(item.id) || ['odc-101', 'odc-201', 'odc-lab-01'].includes(item.id))
     : [];
   const expectedIds = ['trailer', '01', '02', '03', '04', 'odc-101', 'odc-201', 'odc-lab-01'];
-  const schemaPresent = manifest?.opening_day_ready === true
-    && manifest?.public_verification === 'PASS'
+  const schemaPresent = manifest?.readiness_schema === 'PRESENT'
+    && typeof manifest?.opening_day_ready === 'boolean'
+    && typeof manifest?.public_verification === 'string'
     && openingProgrammes.length === expectedIds.length
     && expectedIds.every(id => openingProgrammes.some(item => item.id === id))
     && openingProgrammes.every(item => typeof item.release_ready === 'boolean'
       && typeof item.admission_status === 'string'
       && typeof item.public_verification === 'string'
-      && existingRelativeFile(item.release_receipt));
+      && receiptBindsProgramme(item));
   const ready = schemaPresent
     && manifest.status === 'PASS'
+    && manifest.opening_day_ready === true
+    && manifest.public_verification === 'PASS'
     && openingProgrammes.every(item => item.release_ready === true
       && item.admission_status === 'PASS'
       && item.public_verification === 'PASS');
@@ -183,6 +228,22 @@ function strictLibraryReadiness(manifest) {
 const classReadiness = strictClassReadiness(classCatalogue);
 const siteVideoReadiness = strictSiteVideoReadiness(siteVideoGate);
 const libraryReadiness = strictLibraryReadiness(libraryAdmission);
+if (calibrateReadinessSchema) {
+  const classMissingField = structuredClone(classCatalogue);
+  delete classMissingField.classes[0].release_ready;
+  const videoFalseAsText = structuredClone(siteVideoGate);
+  videoFalseAsText.opening_day_ready = 'false';
+  const classReceiptIsOnlyAFile = structuredClone(classCatalogue);
+  classReceiptIsOnlyAFile.classes[0].release_receipt = 'AGENTS.md';
+  if (!classReadiness.schemaPresent || classReadiness.ready
+      || !siteVideoReadiness.schemaPresent || siteVideoReadiness.ready
+      || strictClassReadiness(classMissingField).schemaPresent
+      || strictClassReadiness(classReceiptIsOnlyAFile).schemaPresent
+      || strictSiteVideoReadiness(videoFalseAsText).schemaPresent) {
+    throw new Error('Opening-day readiness schema calibration failed');
+  }
+  console.log('OPENING DAY READINESS SCHEMA CALIBRATION PASS honest_hold=present_not_ready missing_class_field=rejected file_only_receipt=rejected string_boolean=rejected');
+}
 const launchReady = buildingReady === planned.length
   && visualReady === planned.length
   && mediaTotal === openingMediaIds.size
