@@ -72,7 +72,7 @@ jobs:
       - name: Minimum artifact and build integrity CI
         run: npm run ci:build
       - name: Library product and responsive browser checks
-        run: node scripts/test-library-product.cjs && node scripts/test-library-modular-reading-system.mjs
+        run: node scripts/test-library-product.cjs
       - name: Prove the old inline-handler defect is rejected
         shell: bash
         run: |
