@@ -19,6 +19,8 @@ const governed = [
   'content/episodes/episode-04.canon.md',
   'content/issues/issue-02.md',
   'content/issues/issue-03.md',
+  'issues/issue-01-magazine.html',
+  'issues/issue-03-magazine.html',
   'scripts/run-weekly-production.js',
 ];
 const errors = [];
