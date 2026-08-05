@@ -10,7 +10,23 @@
 
 ---
 
-## 1. The reference library — THE LAiDIES GRIMOIRE
+## 1. The reference library — ⛔ THE GRIMOIRE IS RETIRED
+
+> **SUPERSEDED 2026-08-03 (Ali).** The Grimoire was dismantled and its content
+> turned into **LIBRAiRY books**. 19,751 words were extracted from
+> `_superseded/grimoire/` into `content/library-books/`
+> (`operations/library-decisions.md:202`). Only one Grimoire page survives:
+> `grimoire/verification-rulebook.html`.
+>
+> **Do not use the eight-section Grimoire architecture below.** It is kept for
+> history and for mapping old names only. Current architecture lives in
+> `operations/library-decisions.md`.
+>
+> ⚠ Dead `grimoire/*.html` stubs are still on disk and at least two surfaces
+> still fetch them. Do not link to any of them.
+>
+> This also means **section 2's retired-name table maps old names onto Grimoire
+> sections that no longer exist** — treat its right-hand column as historical.
 
 The durable reference system. Eight sections, each with one job:
 
@@ -42,7 +58,7 @@ These old names are **retired. Do not use them in public or internal copy.** Map
 | Reference Closet | **The Lore Closet** | Pop-culture references and analogies. |
 | Receipts (as a feature/page) | **The Chamber of Receipts** | A Q&A format can live inside it; the name is Chamber of Receipts. |
 | Receipts Coven | **The Coven** | Same concept. The full freshness/spec build is **backlog**. |
-| Hot Goss | **Retired** | The weekly news/cards concept survives and moves to the weekly surface (This Week). Its new label is an **open decision** — do not reuse "Hot Goss." |
+| Hot Goss | **The Weekly at the NewsStand** | The retired name must not appear in current visitor copy. Current news lives at the NewsStand as The Breaking, The Daily, The Weekly and The Tribune. |
 | Book of Receipts | **The Chamber of Receipts** | Older episode-era name. |
 
 ---
@@ -123,7 +139,7 @@ Pieces in other styles — even ones already on disk — are out of scope for th
 
 ## 10. Open decisions (need Ali)
 
-1. **Weekly news lane name.** Retiring "Hot Goss" leaves the weekly news cards (including the fake pop-culture headline cards) without a label. Option A: keep them unbranded inside This Week ("the news"). Option B: a new in-world name. Pick one — don't let it sit unnamed and drift.
+1. **Weekly news lane name. Resolved 2026-08-03:** the current weekly publication is **The Weekly** at the **NewsStand**. Fictional town material must remain clearly labelled and cannot masquerade as sourced news.
 2. **Potions Shelf reader label.** Resolved — renamed to **The Decoder** (plain-English name; "Potions Shelf" retired). The Legally Blonde subtitle — *"Feel comfortable using AI jargon in everyday life. I ~~object~~ prompt!"* — now rides on The Decoder. Site pages/URL still say "potions-shelf" until a separate rename pass.
 3. **Where this index lives.** Resolved — the writing lock and this index now live in the repo at `Website/operations/voice/`, versioned alongside the site. Start every agent brief with "read the canon index first."
 

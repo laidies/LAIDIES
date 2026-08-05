@@ -353,7 +353,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 | KSVL / DJ Booth track | `games/dj-booth.html#djApp` | ✅ wired (⏳ lyrics pending) |
 | MAiKEOVER quote picker | Residence/Resident Card | 🔧 feed `quotables[]` into pool |
 | Community rooms | `community.html#chat-rooms` | 🔧 seed thread with `discussion_prompt` |
-| Hot Goss | `hot-goss.html` | 🔧 homepage-only until launch approval |
+| The Weekly | `newsstand.html` | 🔧 NewsStand editorial admission required |
 
 ---
 

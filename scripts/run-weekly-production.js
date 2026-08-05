@@ -155,7 +155,7 @@ const sectionAgents = [
   ["Sign-Off Generator Agent", "Reusable lAIdies closer lines", "Copies, submissions, social reuse"],
   ["DJ JAIDY Agent", "Weekly AI song drops and House DJ identity", "Requests, plays, episode-track completion"],
   ["Playlist / Mix CD Agent", "Starter playlists, copyable track lists, and member mixes", "Spotify opens, copied tracklists, mix submissions"],
-  ["Hot Goss Agent", "Contextual AI news", "Clicks, saves, discussion"],
+  ["NewsStand Editor", "Contextual AI news", "Clicks, saves, discussion"],
   ["Glossary / Reference Closet Agent", "Reusable references", "Searches, clicks, return visits"],
   ["Community Room Agent", "Participation ritual", "Comments, replies, useful prompts"],
   ["Member Card Agent", "Identity and opt-in", "Submissions, completion, consent clarity"],
@@ -419,7 +419,7 @@ function buildReviewPacket(episode, episodes, freshness) {
     !exists(bodyPath) && !exists(pagePath) ? "- The website issue page will generate after the article source exists." : "",
     !hasQuiz ? "- Add the issue quiz to content/site/quizzes.json and set websiteModules.quiz." : "",
     !hasCardPack ? "- Add card-pack cards to content/site/card-packs.json and set websiteModules.cardPack." : "",
-    !(episode.siteLinks || []).length ? "- Add siteLinks so the newsletter and issue page point to quiz, card pack, Try-On, glossary, and Hot Goss." : "",
+    !(episode.siteLinks || []).length ? "- Add siteLinks so the newsletter and issue page point to quiz, card pack, Try-On, glossary, and the NewsStand where relevant." : "",
     voiceFindings.length ? "- Revise the flagged voice/cadence items before scheduling." : "",
     technicalFindings.length ? "- Verify receipt-sensitive claims before publishing." : "",
     freshness.result.gate !== "PASS"
@@ -504,7 +504,7 @@ ${(episode.siteLinks || []).length ? episode.siteLinks.map((link) => `- ${link.t
 - Card pack: ${cardPackKey || "not set"}
 - Community thread: ${episode.websiteModules?.communityThread || "not set"}
 - Glossary terms: ${(episode.websiteModules?.glossaryTerms || episode.glossaryTerms || []).join(", ") || "not set"}
-- Hot Goss placement: ${episode.websiteModules?.hotGossPlacement || "not set"}
+- NewsStand placement: ${episode.websiteModules?.newsstandPlacement || "not set"}
 
 ## Recommended Next Actions
 
@@ -819,7 +819,7 @@ ${buildScoreRows()}
 
 The newsletter and issue page should link out to the website parts that carry the issue experience.
 
-${siteLinks.length ? siteLinks.map((link) => `- ${link.type}: ${link.label} -> ${link.url}`).join("\n") : "- No siteLinks set yet. Add links for quiz, card pack, Try-On, glossary/reference, community, and Hot Goss where relevant."}
+${siteLinks.length ? siteLinks.map((link) => `- ${link.type}: ${link.label} -> ${link.url}`).join("\n") : "- No siteLinks set yet. Add links for quiz, card pack, Try-On, glossary/reference, community, and the NewsStand where relevant."}
 
 ## Mme CLAI-O Taste Benchmark Check
 
@@ -1338,7 +1338,7 @@ function buildWeeklyCommandCenter(episode, viewerPaths, freshness) {
         <h2>Publish Order</h2>
         <ol>
           <li>Before launch: approve/fix the issue article and website page.</li>
-          <li>Before launch: approve/fix quiz, card pack, Hot Goss, glossary, and community links.</li>
+          <li>Before launch: approve/fix quiz, card pack, NewsStand, glossary, and community links.</li>
           <li>Before launch: approve and schedule the Buttondown newsletter.</li>
           <li>Website launch: deploy the website with only published issues visible.</li>
           <li>Issue launch on Wednesday, June 10, 2026: mark Issue 2 published and rerun the weekly workflow.</li>

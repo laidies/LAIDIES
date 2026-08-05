@@ -6,7 +6,8 @@ window.LAIDIES_SITE_DATA = {
       "title": "On Wednesdays We Do AI",
       "status": "published",
       "issueUrl": "issues/issue-01.html",
-      "heroImage": "assets/ugh-as-if.png",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which she realizes AI is already being added to the invisible load, says \"ugh, as if,\" and opens the tab anyway.",
       "act": "Act 1: The Awakening",
       "lesson": "What AI is and how to have a first safe interaction with the major tools.",
@@ -55,7 +56,7 @@ window.LAIDIES_SITE_DATA = {
           "Sex and the City",
           "The Devil Wears Prada"
         ],
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -65,7 +66,8 @@ window.LAIDIES_SITE_DATA = {
       "title": "Tell Me What You Want",
       "status": "published",
       "issueUrl": "issues/issue-02.html",
-      "heroImage": "assets/issue-02-hero.png",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which she types something vague into ChatGPT, gets back garbage, and discovers the problem was never the technology. It was the ask.",
       "act": "Act 1: The Awakening",
       "lesson": "How to write specific, context-rich prompts that produce usable work output.",
@@ -92,9 +94,9 @@ window.LAIDIES_SITE_DATA = {
           "type": "glossary"
         },
         {
-          "label": "Read this week's Hot Goss",
-          "url": "this-week.html#hot-goss",
-          "type": "hotGoss"
+          "label": "Read The Weekly at the NewsStand",
+          "url": "newsstand.html",
+          "type": "newsstand"
         }
       ],
       "websiteModules": {
@@ -106,7 +108,7 @@ window.LAIDIES_SITE_DATA = {
           "Context",
           "Token"
         ],
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -117,7 +119,8 @@ window.LAIDIES_SITE_DATA = {
       "status": "published",
       "releaseDate": "2026-06-17",
       "issueUrl": "issues/issue-03.html",
-      "heroImage": "assets/issue-03-hero.png",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which she gets a Regina George-confident answer, catches the Chutney detail, and checks the timeline before it borrows her name.",
       "act": "Act 1: The Awakening",
       "lesson": "How to check, challenge, source, and contain AI output when it sounds confident but may be wrong, missing context, or not relevant to the real work.",
@@ -144,9 +147,9 @@ window.LAIDIES_SITE_DATA = {
           "type": "glossary"
         },
         {
-          "label": "Read this week's Hot Goss",
+          "label": "Read The Weekly at the NewsStand",
           "url": "newsstand.html",
-          "type": "hotGoss"
+          "type": "newsstand"
         },
         {
           "label": "Listen to Don't Be Chutney on the Stand",
@@ -171,7 +174,7 @@ window.LAIDIES_SITE_DATA = {
           "file": "content/music/dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3",
           "playerUrl": "games/dj-booth.html#djApp"
         },
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -183,7 +186,8 @@ window.LAIDIES_SITE_DATA = {
       "status": "published",
       "releaseDate": "2026-06-24",
       "issueUrl": "issues/issue-04.html",
-      "heroImage": "assets/building-interiors/luminairy-nave.jpg",
+      "heroImage": "assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png",
+      "heroVisualState": "ACTIVE",
       "oneLineDescription": "The one in which she realizes she's talked to AI every day for weeks with no idea where it came from — goes looking for the origin story, and finds out it was women all along.",
       "act": "Act 1: The Awakening",
       "lesson": "Which AI tool to open for which job, what the words everyone says actually mean, and how to work with any of them — matching the type to the task, not ranking who's \"best.\"",
@@ -222,7 +226,7 @@ window.LAIDIES_SITE_DATA = {
           "file": "content/music/dj-jaidy-week-04-the-library.mp3",
           "playerUrl": "games/dj-booth.html#djApp"
         },
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -234,7 +238,8 @@ window.LAIDIES_SITE_DATA = {
       "status": "draft",
       "releaseDate": null,
       "issueUrl": null,
-      "heroImage": "assets/sunnyvaile-interiors/episode-vhs-boxes/ep-05.webp",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which the work AI feels strangely familiar.",
       "act": "Act 1",
       "lesson": "Provider, model, product and tools are different parts of the experience—and each can change what comes back.",
@@ -246,7 +251,7 @@ window.LAIDIES_SITE_DATA = {
         "communityThread": null,
         "glossaryTerms": [],
         "weeklySong": null,
-        "hotGossPlacement": null
+        "newsstandPlacement": null
       },
       "issuePageStatus": "not-built"
     }
@@ -1305,8 +1310,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Open the Tab Card",
-        "image": "assets/ugh-as-if.png",
-        "alt": "A pink 90s desk scene about opening the AI tab anyway",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Try one tiny AI move.",
         "prompt": "Open the tool and ask it to help with one real work thing for ten minutes.",
@@ -1317,8 +1321,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Small Sips Card",
-        "image": "assets/9-to-5-chaos.png",
-        "alt": "A pink 9 to 5 workday scene with notes, coffee, and AI practice energy",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Keep the first try tiny.",
         "prompt": "Do one small AI experiment instead of turning learning into a second unpaid job.",
@@ -1329,8 +1332,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Cher Closet Card",
-        "image": "assets/lets-chat.png",
-        "alt": "A stylish 90s inspired phone and desk scene with pop culture references",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Make tech feel usable.",
         "prompt": "Name one place where AI could work like Cher's closet computer: practical, visual, and actually helpful.",
@@ -1341,8 +1343,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Judgment Card",
-        "image": "assets/send-it.png",
-        "alt": "A pink corporate desk scene about deciding what is ready to send",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Keep your standards.",
         "prompt": "Use AI for a draft, then make one human judgment call before anything leaves your laptop.",
@@ -1353,20 +1354,18 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Room Key Card",
-        "image": "assets/laidies-logo.png",
-        "alt": "The LAiDIES neon logo",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Bring one question to the room.",
         "prompt": "Share where you are starting, what you are trying, or what feels confusing.",
-        "reward": "Collected when learning stops being a solo spiral and starts becoming a group chat with receipts."
+        "reward": "Collection is held. Use this discussion prompt without claiming a card or reward."
       },
       {
         "id": "specificity",
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Specificity Card",
-        "image": "assets/trading-card-specificity.webp",
-        "alt": "A neon pink trading card scene with a note that says Be Specific",
+        "visualState": "HELD",
         "portrait": false,
         "unlockTitle": "Be David Rose about it.",
         "prompt": "Turn one vague ask into the painfully specific version and share the before-and-after.",
@@ -1377,8 +1376,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Girl Power Prompt",
-        "image": "assets/trading-card-girl-power.webp",
-        "alt": "A bright Y2K trading card scene with two women improving a prompt together",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Fix one prompt in the room.",
         "prompt": "Help another member add audience, context, constraints, or a good example.",
@@ -1389,8 +1387,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Try-On Card",
-        "image": "assets/trading-card-try-on.webp",
-        "alt": "A pastel board game trading card scene with a spinner, rings, and a Try It On note",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Do the weekly try-on.",
         "prompt": "Complete the prompt, revise once, and post what changed after the second pass.",
@@ -1401,8 +1398,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Rewrite Remix",
-        "image": "assets/trading-card-rewrite-remix.webp",
-        "alt": "A glam Y2K trading card scene with a laptop, flip phone, and three rewrite cards",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Rewrite the messy one.",
         "prompt": "Use AI to make one draft direct, warmer, and executive-clean. Keep the version with judgment.",
@@ -1413,8 +1409,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Receipts Card",
-        "image": "assets/trading-card-receipts.webp",
-        "alt": "A pink evidence desk trading card scene with a magnifying glass and receipts note",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Ask for the source.",
         "prompt": "Catch one AI answer that needs a citation, correction, date check, or better receipt.",

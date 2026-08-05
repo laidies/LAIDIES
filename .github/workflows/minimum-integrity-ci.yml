@@ -17,4 +17,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm run ci
+      - name: Episode gate
+        run: npm run gate:episode
+      - name: Episode cue scope calibration
+        run: npm run test:episode-cue-scope
+      - name: Codex hook guards
+        run: npm run test:codex-hooks
+      - name: Learned media defect fixtures
+        run: npm run test:media-defects
+      - name: NewsStand canon migration
+        run: npm run test:newsstand-canon
+      - name: Queue claim expiry and collision guards
+        run: npm run test:queue-claims
+      - name: Work-resolution loop
+        run: npm run test:work-resolution-loop
+      - name: Operational integrity
+        run: npm run test:operational-integrity

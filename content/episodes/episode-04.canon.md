@@ -214,7 +214,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 | LUMINAiRY (MAiVEN wing) | `luminairy.html` (+ `MAVEN_BIOS`) | ✅ 11 women wired (bio-only, sourced) + Turing memoriam |
 | BRONZE AiGE cocktail wall | `bronze-aige.html` | 🔧 add `cocktail_party` line to the archive wall |
 | KSVL track | `radio.html` / `ksvl-player.js` | 🔧 confirm "It Was Women All Along" wired for ep04 (⏳ lyrics pending) |
-| NewsStand cover | `hot-goss.html` | ◻︎ homepage-only per `issue-04.json` |
+| NewsStand cover | `newsstand.html` · The Weekly | ◻︎ NewsStand editorial admission required per `issue-04.json` |
 | MAiKEOVER quote picker | quote field on the Resident Card | 🔧 feed `quotables[]` into the pickable pool |
 | Delta LAi Nu rooms | `delta-lai-nu.html` / `community.html` | 🔧 seed the week's thread with `discussion_prompt` |
 
