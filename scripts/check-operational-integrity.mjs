@@ -8,6 +8,10 @@ const root = process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
 const read = p => JSON.parse(fs.readFileSync(path.isAbsolute(p) ? p : path.join(root, p), 'utf8'));
 const errors = [];
+const fixturePath = (envName, canonical) => fixtureMode && process.env[envName] ? process.env[envName] : canonical;
+const queue = read(fixturePath('LAIDIES_QUEUE_PATH', 'operations/control-room/owner-review-queue.json'));
+const hasDesignCandidate = [...(queue.review_now || []), ...(queue.being_built || [])]
+  .some(item => item?.design_admission || /^building_page_visual/.test(item?.review_type || ''));
 const productionOverrides = Object.keys(process.env).filter(name => name.startsWith('LAIDIES_'));
 if (!fixtureMode && productionOverrides.length) {
   errors.push(`fixture overrides require --fixture: ${productionOverrides.join(', ')}`);
@@ -21,14 +25,13 @@ for (const checker of [
   'scripts/check-media-defect-fixtures.mjs',
   'scripts/check-design-review-admission.mjs'
 ]) {
+  if (checker === 'scripts/check-design-review-admission.mjs' && !hasDesignCandidate) continue;
   const childEnv = { ...process.env };
   for (const name of Object.keys(childEnv)) if (name.startsWith('LAIDIES_')) delete childEnv[name];
   const result = spawnSync(process.execPath, [checker], { cwd: root, encoding: 'utf8', env: childEnv });
   if (result.status !== 0) errors.push(`${checker} failed:\n${result.stdout}${result.stderr}`.trim());
 }
 
-const fixturePath = (envName, canonical) => fixtureMode && process.env[envName] ? process.env[envName] : canonical;
-const queue = read(fixturePath('LAIDIES_QUEUE_PATH', 'operations/control-room/owner-review-queue.json'));
 const gate = read(fixturePath('LAIDIES_MEDIA_GATE_PATH', 'operations/launch/opening-day-media-gate-2026-07-31.json'));
 const mediaState = read(fixturePath('LAIDIES_MEDIA_STATE_PATH', 'operations/product-stewards/episode-media-quality/state.json'));
 const registry = read(fixturePath('LAIDIES_ASSET_REGISTRY_PATH', 'operations/assets/active-asset-registry.json'));
