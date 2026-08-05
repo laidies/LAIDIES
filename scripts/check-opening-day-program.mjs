@@ -22,6 +22,7 @@ const requireLaunchReady = process.argv.includes('--require-launch-ready');
 let mediaGate = null;
 let classCatalogue = null;
 let siteVideoGate = null;
+let libraryAdmission = null;
 
 function readManifest(manifestPath, missingMessage) {
   if (typeof manifestPath !== 'string' || !fs.existsSync(path.join(root, manifestPath))) {
@@ -49,6 +50,15 @@ function visualAdmission(product) {
 classCatalogue = readManifest(program.class_catalogue_manifest, 'Opening-day class catalogue manifest is missing.');
 mediaGate = readManifest(program.media_gate_manifest, 'Opening-day media gate manifest is missing.');
 siteVideoGate = readManifest(program.site_video_gate_manifest, 'Universal site video and animation gate manifest is missing.');
+libraryAdmission = readManifest(program.library_admission_manifest, 'Opening-day Library admission manifest is missing.');
+
+const expectedLibraryBookIds = ['concepts-101', 'briefing-101', 'setup-101', 'accounts-101'];
+const configuredLibraryBookIds = Array.isArray(program.library_opening_book_ids)
+  ? program.library_opening_book_ids
+  : [];
+if (JSON.stringify(configuredLibraryBookIds) !== JSON.stringify(expectedLibraryBookIds)) {
+  errors.push(`Opening-day Library book IDs must be ${expectedLibraryBookIds.join(', ')} in dependency order; found ${configuredLibraryBookIds.join(', ') || '<none>'}.`);
+}
 
 const registered = registry.products
   .filter((product) => product.kind === 'building')
@@ -152,14 +162,34 @@ function strictSiteVideoReadiness(manifest) {
   return { schemaPresent, ready, total: openingProgrammes.length };
 }
 
+function strictLibraryReadiness(manifest) {
+  const books = Array.isArray(manifest?.books) ? manifest.books : [];
+  const rows = expectedLibraryBookIds.map(id => books.find(item => item.book_id === id)).filter(Boolean);
+  const schemaPresent = rows.length === expectedLibraryBookIds.length
+    && rows.every(item => typeof item.source_path === 'string'
+      && /^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(item.source_path)
+      && existingRelativeFile(item.source_path.slice(1))
+      && typeof item.artifact_sha256 === 'string'
+      && /^[a-f0-9]{64}$/.test(item.artifact_sha256)
+      && crypto.createHash('sha256').update(fs.readFileSync(path.join(root, item.source_path.slice(1)))).digest('hex') === item.artifact_sha256);
+  const ready = schemaPresent
+    && rows.every(item => item.status === 'available'
+      && item.correction_state === 'clear'
+      && typeof item.admission_version === 'string'
+      && !/proposal|candidate|hold/i.test(item.admission_version));
+  return { schemaPresent, ready, admitted: rows.filter(item => item.status === 'available').length, total: expectedLibraryBookIds.length };
+}
+
 const classReadiness = strictClassReadiness(classCatalogue);
 const siteVideoReadiness = strictSiteVideoReadiness(siteVideoGate);
+const libraryReadiness = strictLibraryReadiness(libraryAdmission);
 const launchReady = buildingReady === planned.length
   && visualReady === planned.length
   && mediaTotal === openingMediaIds.size
   && mediaReady === openingMediaIds.size
   && mediaGate?.status === 'PASS'
   && classReadiness.ready
+  && libraryReadiness.ready
   && siteVideoReadiness.ready;
 
 if (requireLaunchReady && !launchReady) {
@@ -176,6 +206,11 @@ if (requireLaunchReady && !launchReady) {
     errors.push('Strict launch class readiness is fail-closed: the class catalogue lacks the required opening_day_ready/public_verification and per-class release_ready/admission_status/public_verification/release_receipt schema.');
   } else if (!classReadiness.ready) {
     errors.push(`Strict launch requires all ${classReadiness.total}/3 classes PASS with public verification.`);
+  }
+  if (!libraryReadiness.schemaPresent) {
+    errors.push(`Strict launch Library readiness is fail-closed: all ${libraryReadiness.total} opening books need checksum-bound admission records; found ${libraryReadiness.admitted} available.`);
+  } else if (!libraryReadiness.ready) {
+    errors.push(`Strict launch requires all ${libraryReadiness.total} opening Library books available with clear correction state and final admission versions.`);
   }
   if (!siteVideoReadiness.schemaPresent) {
     errors.push('Strict launch site-video readiness is fail-closed: the registry lacks the required opening_day_ready/public_verification and per-programme release_ready/admission_status/public_verification/release_receipt schema.');
@@ -197,6 +232,7 @@ console.log(`- ${program.shared_systems.length} shared-system contracts covered`
 console.log(`- ${Object.keys(program.launch_catalogue).length} catalogue floors covered`);
 console.log(`- Opening media: ${mediaReady}/${mediaTotal} release-ready; gate=${mediaGate?.status || 'UNKNOWN'}`);
 console.log(`- Classes: ${classReadiness.ready ? 'READY' : 'NOT READY'}; strict readiness schema=${classReadiness.schemaPresent ? 'present' : 'missing'}`);
+console.log(`- Library books: ${libraryReadiness.ready ? 'READY' : 'NOT READY'}; available=${libraryReadiness.admitted}/${libraryReadiness.total}; strict readiness schema=${libraryReadiness.schemaPresent ? 'present' : 'missing'}`);
 console.log(`- Site video: ${siteVideoReadiness.ready ? 'READY' : 'NOT READY'}; strict readiness schema=${siteVideoReadiness.schemaPresent ? 'present' : 'missing'}`);
 console.log(`- LAUNCH READINESS: ${launchReady ? 'PASS' : 'HOLD'}`);
 console.log('- Opening cutline specification: Trailer + Episodes 01–04');
