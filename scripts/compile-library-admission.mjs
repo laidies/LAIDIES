@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assertPropagationConsumable } from "./library-correction-service.mjs";
 
 const SOURCE_PATH = /^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/;
 const ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -11,12 +12,83 @@ const VERSION = /^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/;
 const SHA256 = /^[a-f0-9]{64}$/;
 const START = "/* LIBRARY_ADMISSION_COMPILED_START */";
 const END = "/* LIBRARY_ADMISSION_COMPILED_END */";
+const ACCEPTED_CORRECTION_SCHEMA_VERSION = "library-correction-propagations.v1";
+const ACCEPTED_CORRECTION_AUTHORITY = "LOCAL_ACCEPTED_TERMINAL_STATE_ONLY_NO_ADMISSION_AUTHORITY";
+const ACCEPTED_CORRECTION_KEYS = new Set(["schema_version", "authority", "propagations"]);
+
+const TERMINAL_CORRECTION_STATES = new Set(["resolved_corrected", "demoted"]);
+
+function acceptedCorrectionHolds(propagations, manifestBookIds) {
+  if (propagations == null) return new Map();
+  if (!Array.isArray(propagations)) {
+    throw new Error("accepted correction propagations must be an array");
+  }
+  const holds = new Map();
+  const versions = new Set();
+  for (const propagation of propagations) {
+    assertPropagationConsumable(propagation);
+    if (!TERMINAL_CORRECTION_STATES.has(propagation.state)) {
+      throw new Error(`${propagation.correction_id || "correction"}: only terminal correction state may reach admission`);
+    }
+    if (versions.has(propagation.version_id)) {
+      throw new Error(`${propagation.version_id}: duplicate correction propagation version`);
+    }
+    versions.add(propagation.version_id);
+    const compiler = propagation.admission_compiler;
+    const bookId = compiler.book_id;
+    if (!manifestBookIds.has(bookId)) {
+      throw new Error(`${bookId || "correction"}: correction propagation has no admission record`);
+    }
+    if (propagation.site_index.book_id !== bookId ||
+        propagation.miss_jeeves.book_id !== bookId ||
+        propagation.puffy_recheck.book_id !== bookId) {
+      throw new Error(`${bookId}: correction consumers disagree on book_id`);
+    }
+    if (propagation.site_index.action !== "suppress-until-current-admission" ||
+        propagation.miss_jeeves.action !== "suppress-until-current-admission" ||
+        propagation.puffy_recheck.action !== "recheck-admission-on-reopen" ||
+        propagation.puffy_recheck.preserve_unavailable_marker !== true) {
+      throw new Error(`${bookId}: correction consumer actions are incomplete`);
+    }
+    if (propagation.state === "demoted" &&
+        (compiler.required_action !== "demote-to-hold" ||
+         compiler.required_correction_state !== "correction-required")) {
+      throw new Error(`${bookId}: demotion propagation is not fail-closed`);
+    }
+    if (propagation.state === "resolved_corrected" &&
+        (compiler.required_action !== "require-independent-readmission" ||
+         compiler.required_correction_state !== "corrected-pending-readmission")) {
+      throw new Error(`${bookId}: corrected propagation bypasses readmission`);
+    }
+    holds.set(bookId, compiler.required_correction_state);
+  }
+  return holds;
+}
 
 function exactKeys(value, allowed) {
   return Object.keys(value).every((key) => allowed.has(key));
 }
 
-export function compileAdmissionManifest(manifest, { root = process.cwd() } = {}) {
+function readAcceptedCorrectionState(absolutePath) {
+  if (!fs.existsSync(absolutePath) || !fs.statSync(absolutePath).isFile()) {
+    throw new Error("accepted correction propagation file is required");
+  }
+  const state = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+  if (!state || typeof state !== "object" || Array.isArray(state) ||
+      Object.keys(state).length !== ACCEPTED_CORRECTION_KEYS.size ||
+      !exactKeys(state, ACCEPTED_CORRECTION_KEYS) ||
+      state.schema_version !== ACCEPTED_CORRECTION_SCHEMA_VERSION ||
+      state.authority !== ACCEPTED_CORRECTION_AUTHORITY ||
+      !Array.isArray(state.propagations)) {
+    throw new Error("accepted correction propagation boundary is invalid");
+  }
+  return state;
+}
+
+export function compileAdmissionManifest(manifest, {
+  root = process.cwd(),
+  correctionPropagations = []
+} = {}) {
   if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) {
     throw new Error("admission manifest must be an object");
   }
@@ -26,6 +98,12 @@ export function compileAdmissionManifest(manifest, { root = process.cwd() } = {}
       ? manifest.entries
       : null;
   if (!rows) throw new Error("admission manifest must contain books[]");
+
+  const manifestBookIds = new Set(rows.map((row) => row?.book_id).filter(Boolean));
+  const correctionHolds = acceptedCorrectionHolds(
+    correctionPropagations,
+    manifestBookIds
+  );
 
   const records = Object.create(null);
   const seen = new Set();
@@ -46,6 +124,9 @@ export function compileAdmissionManifest(manifest, { root = process.cwd() } = {}
       throw new Error(`invalid or duplicate book_id: ${id || "(missing)"}`);
     }
     seen.add(id);
+    if (correctionHolds.has(id)) {
+      continue;
+    }
     const available = row.status === "available";
     const boundHold = row.status === "hold" && Boolean(row.source_path);
     if (!available && !boundHold) {
@@ -149,14 +230,17 @@ export function renderCompiledAdmission(records) {
 export function compileLibraryAdmission({
   root = process.cwd(),
   manifestPath = "content/library-books/admission-manifest.json",
+  correctionPropagationPath = "content/library-books/corrections/accepted-correction-propagations.json",
   libraryPath = "library.html"
 } = {}) {
   const absoluteManifest = path.resolve(root, manifestPath);
+  const absoluteCorrectionPropagations = path.resolve(root, correctionPropagationPath);
   const absoluteLibrary = path.resolve(root, libraryPath);
+  const acceptedCorrectionState = readAcceptedCorrectionState(absoluteCorrectionPropagations);
   const records = fs.existsSync(absoluteManifest)
     ? compileAdmissionManifest(
         JSON.parse(fs.readFileSync(absoluteManifest, "utf8")),
-        { root }
+        { root, correctionPropagations: acceptedCorrectionState.propagations }
       )
     : Object.create(null);
   const source = fs.readFileSync(absoluteLibrary, "utf8");
@@ -166,7 +250,46 @@ export function compileLibraryAdmission({
   const replacement = `${START}\n${renderCompiledAdmission(records)}\n`;
   const next = source.slice(0, start) + replacement + source.slice(end);
   if (next !== source) fs.writeFileSync(absoluteLibrary, next);
-  return { manifestPresent: fs.existsSync(absoluteManifest), admitted: Object.keys(records) };
+  return {
+    manifestPresent: fs.existsSync(absoluteManifest),
+    admitted: Object.keys(records),
+    acceptedCorrections: acceptedCorrectionState.propagations.length
+  };
+}
+
+export function assertLibraryAdmissionFreshness({
+  root = process.cwd(),
+  manifestPath = "content/library-books/admission-manifest.json",
+  correctionPropagationPath = "content/library-books/corrections/accepted-correction-propagations.json",
+  libraryPath = "library.html"
+} = {}) {
+  const absoluteManifest = path.resolve(root, manifestPath);
+  const absoluteCorrectionPropagations = path.resolve(root, correctionPropagationPath);
+  const absoluteLibrary = path.resolve(root, libraryPath);
+  if (!fs.existsSync(absoluteManifest) || !fs.statSync(absoluteManifest).isFile()) {
+    throw new Error("library admission manifest is required for public build");
+  }
+  if (!fs.existsSync(absoluteLibrary) || !fs.statSync(absoluteLibrary).isFile()) {
+    throw new Error("library source is required for public build");
+  }
+  const acceptedCorrectionState = readAcceptedCorrectionState(absoluteCorrectionPropagations);
+  const records = compileAdmissionManifest(
+    JSON.parse(fs.readFileSync(absoluteManifest, "utf8")),
+    { root, correctionPropagations: acceptedCorrectionState.propagations }
+  );
+  const source = fs.readFileSync(absoluteLibrary, "utf8");
+  const start = source.indexOf(START);
+  const end = source.indexOf(END);
+  if (start < 0 || end < start) throw new Error("library admission markers are missing");
+  const expected = `${START}\n${renderCompiledAdmission(records)}\n`;
+  const actual = source.slice(start, end);
+  if (actual !== expected) {
+    throw new Error("library compiled admission is stale for current manifest/correction state");
+  }
+  return Object.freeze({
+    admitted: Object.keys(records),
+    acceptedCorrections: acceptedCorrectionState.propagations.length
+  });
 }
 
 const invoked = process.argv[1] &&
@@ -175,7 +298,7 @@ if (invoked) {
   try {
     const result = compileLibraryAdmission();
     console.log(
-      `LIBRARY ADMISSION COMPILE PASS manifest=${result.manifestPresent ? "present" : "absent"} admitted=${result.admitted.length}`
+      `LIBRARY ADMISSION COMPILE PASS manifest=${result.manifestPresent ? "present" : "absent"} admitted=${result.admitted.length} accepted_corrections=${result.acceptedCorrections}`
     );
   } catch (error) {
     console.error(`LIBRARY ADMISSION COMPILE FAIL: ${error.message}`);

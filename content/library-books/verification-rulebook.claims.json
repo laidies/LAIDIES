@@ -2,10 +2,10 @@
   "schemaVersion": "2.0.0",
   "bookId": "verification-rulebook",
   "generatedFrom": "/content/library-books/verification-rulebook.json",
-  "generatedFromSha256": "ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd",
-  "contentVersion": "sha256-ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd",
+  "generatedFromSha256": "38cd8c629a661e76e2beb6da2531d32a2c1b949c082e08aca6db225f1ac85dc3",
+  "contentVersion": "sha256-38cd8c629a661e76e2beb6da2531d32a2c1b949c082e08aca6db225f1ac85dc3",
   "ledgerStatus": "CANDIDATE_UNDER_INDEPENDENT_REVIEW",
-  "reviewedOn": "2026-07-25",
+  "reviewedOn": "2026-08-03",
   "reviewer": "ECO-01 maker — not an independent accuracy approval",
   "canonicalVerdicts": [
     "SUPPORTED",
@@ -39,14 +39,19 @@
       "sourceIds": [
         "SRC-OAI-WEB-SEARCH"
       ],
-      "supportLocation": "Web search guide, Overview and Citations sections: web search can access up-to-date information and responses include URL citation annotations.",
+      "supportLocation": "Web search guide, Web search and Output and citations sections: web search can access up-to-date information and responses include inline URL citation annotations.",
       "publicationVersion": "Current web documentation",
-      "accessed": "2026-07-25",
+      "accessed": "2026-08-03",
       "scope": "OpenAI API web-search tool; availability and implementation depend on current provider documentation.",
       "qualification": "Provider documentation establishes the provider-described capability, not comparative accuracy.",
       "status": "QUALIFIED",
-      "nextReview": "Before release and 2026-10-25",
-      "history": []
+      "nextReview": "Before release and 2026-11-03",
+      "history": [
+        {
+          "date": "2026-08-03",
+          "change": "Reopened the current official web-search guide before release; capability, citation behavior, scope and qualification remain supported."
+        }
+      ]
     },
     {
       "id": "VR-C003",
@@ -56,14 +61,19 @@
       "sourceIds": [
         "SRC-GOOGLE-GROUNDING"
       ],
-      "supportLocation": "Grounding with Google Search, How it works and Grounding metadata sections: search, processing, grounded response and citation metadata.",
-      "publicationVersion": "Current web documentation",
-      "accessed": "2026-07-25",
+      "supportLocation": "Grounding with Google Search, How grounding with Google Search works and Understanding the grounding response: real-time web content, grounded response and inline URL citation annotations.",
+      "publicationVersion": "Current web documentation · page updated 2026-07-30 UTC",
+      "accessed": "2026-08-03",
       "scope": "Gemini API grounding feature; does not establish source quality, entailment or universal truth.",
       "qualification": "Provider documentation establishes the provider-described operation only.",
       "status": "QUALIFIED",
-      "nextReview": "Before release and 2026-10-25",
-      "history": []
+      "nextReview": "Before release and 2026-11-03",
+      "history": [
+        {
+          "date": "2026-08-03",
+          "change": "Reopened the official page after its 2026-07-30 update; current google_search workflow and inline citation annotations still support the bounded claim."
+        }
+      ]
     },
     {
       "id": "VR-C004",
@@ -73,14 +83,19 @@
       "sourceIds": [
         "SRC-ANTHROPIC-HALLUCINATION"
       ],
-      "supportLocation": "Reduce hallucinations, Allow Claude to say “I don’t know,” Use direct quotes, Verify with citations, and Limitations sections.",
+      "supportLocation": "Reduce hallucinations, Basic hallucination minimization strategies and closing limitation: allow uncertainty, use direct quotes, verify with citations, and always validate critical information.",
       "publicationVersion": "Current web documentation",
-      "accessed": "2026-07-25",
+      "accessed": "2026-08-03",
       "scope": "Risk-reduction guidance, not comparative model evidence or a guarantee.",
       "qualification": "Provider guidance plus its explicit limitation.",
       "status": "SUPPORTED",
-      "nextReview": "Before release and 2026-10-25",
-      "history": []
+      "nextReview": "Before release and 2026-11-03",
+      "history": [
+        {
+          "date": "2026-08-03",
+          "change": "Reopened the current official guidance; the named techniques and explicit critical-information limitation remain present."
+        }
+      ]
     },
     {
       "id": "VR-C005",
@@ -221,14 +236,19 @@
       "sourceIds": [
         "SRC-ANTHROPIC-HALLUCINATION"
       ],
-      "supportLocation": "Reduce hallucinations, Limitations: techniques reduce but do not eliminate hallucinations; critical information needs validation.",
+      "supportLocation": "Reduce hallucinations, closing limitation: the techniques significantly reduce hallucinations but do not eliminate them; critical information must still be validated.",
       "publicationVersion": "Current web documentation",
-      "accessed": "2026-07-25",
+      "accessed": "2026-08-03",
       "scope": "Prompt use with generative AI; no prompt can certify arbitrary sources or conclusions.",
       "qualification": "Safety limit retained next to the prompt.",
       "status": "SUPPORTED",
-      "nextReview": "Before release and 2026-10-25",
-      "history": []
+      "nextReview": "Before release and 2026-11-03",
+      "history": [
+        {
+          "date": "2026-08-03",
+          "change": "Reopened the current official guidance; its non-elimination and critical-validation warning continues to support this limitation."
+        }
+      ]
     },
     {
       "id": "VR-C013",

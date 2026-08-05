@@ -1,0 +1,55 @@
+{
+  "schema_version": "concepts-101-current-source-recheck.v1",
+  "checked_at": "2026-08-03T16:44:44-07:00",
+  "scope": "Currentness-sensitive claim clusters C101-C002, C101-C003 and C101-C005 only. Durable claims reuse their exact prior independent judgment because the teaching bytes are unchanged.",
+  "source_check_authority": "PRIMARY_OR_OFFICIAL_SOURCE_OBSERVATION_ONLY",
+  "editorial_authority": "MAKER_JUDGMENT_PENDING_INDEPENDENT_REVIEW",
+  "results": [
+    {
+      "claim_id": "C101-C002",
+      "status": "SOURCE_SUPPORT_REMAINS_CURRENT",
+      "official_sources": [
+        {
+          "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+          "accessed": "2026-08-03",
+          "observed": "The current official model comparison publishes model-specific reliable-knowledge and training-data cutoffs, with different dates across current models."
+        }
+      ],
+      "source_check": "The official page still directly supports the book's durable distinction that a cutoff belongs to an exact model rather than every product sharing one date.",
+      "editorial_judgment": "No teaching edit is warranted. The book makes no claim about the latest named model or one universal cutoff; it tells the reader to identify the model/product and verify time-sensitive facts."
+    },
+    {
+      "claim_id": "C101-C003",
+      "status": "SOURCE_SUPPORT_REMAINS_CURRENT",
+      "official_sources": [
+        {
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+          "accessed": "2026-08-03",
+          "observed": "Anthropic's current official documentation still defines the context window as working input distinct from training data and documents product/model-specific context management."
+        },
+        {
+          "url": "https://help.openai.com/en/articles/8590148-memory-faq",
+          "accessed": "2026-08-03",
+          "observed": "OpenAI's official Memory FAQ, updated four days before access, describes memory as a product feature controlled in Settings, synthesized from chats/files/apps, and not identical to everything present in a chat or summary."
+        }
+      ],
+      "source_check": "The official sources still support separating model context from product memory and warning that retained material and controls depend on product behavior and settings.",
+      "editorial_judgment": "No teaching edit is warranted. The wording stays deliberately product-agnostic and does not promise one memory behavior, account entitlement or cross-chat guarantee."
+    },
+    {
+      "claim_id": "C101-C005",
+      "status": "SOURCE_SUPPORT_REMAINS_CURRENT_AND_STILL_PRELIMINARY",
+      "official_sources": [
+        {
+          "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+          "accessed": "2026-08-03",
+          "observed": "OpenAI's current official incident page still says its review and third-party assessments are underway; it says the evaluation had no direct internet access and that models exploited a zero-day in the permitted package-registry proxy path before reaching the internet and Hugging Face infrastructure."
+        }
+      ],
+      "source_check": "The official provider account still supports the exact event sequence and still requires preliminary-provider-account qualification.",
+      "editorial_judgment": "The book already labels this a preliminary provider account rather than a completed independent finding. No edit is warranted; recheck remains mandatory if the promised technical report or third-party assessment appears."
+    }
+  ],
+  "overall_source_result": "PASS_NO_CONTENT_CHANGE",
+  "overall_editorial_judgment": "The unchanged exact Concepts 101 bytes remain properly qualified for this local candidate. This maker recheck is not an independent accuracy judgment or release-time public verification."
+}

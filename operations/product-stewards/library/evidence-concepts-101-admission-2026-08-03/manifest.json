@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "status": "EXACT_LOCAL_REVIEW_CANDIDATE_HOLD",
+  "book_id": "concepts-101",
+  "content_version": "concepts-101-2026-08-03.1",
+  "candidate": {
+    "path": "content/library-books/rendered/concepts-101.html",
+    "sha256": "bb25fae48b640f53112bd9191391e66dbbf5bf4a8603d6c5bd55a8cf85508f4b"
+  },
+  "claims": {
+    "path": "content/library-books/concepts-101.claims.json",
+    "sha256": "d8b5abefa36ce3921f206d9f4311828f01e38a54d6dd5fa2fc2999ae442fe44a"
+  },
+  "publication_proposal": {
+    "path": "content/library-books/admission-manifest.json",
+    "sha256": "b7bcb021900444c2cf7ac73e9173844766c7719dccff0a6ef5c821928b0ad342",
+    "status": "hold",
+    "admitted_books": 0
+  },
+  "reader": {
+    "path": "library.html",
+    "sha256": "4b20308191d6ea02520636ee9eaeb767d2978bb94d8452a94eb4d68bae037775"
+  },
+  "test": {
+    "path": "scripts/test-library-product.cjs",
+    "sha256": "2fb2a96178a4e0221ea6115c8abeb4a83f1cdfc749113507ad22961f398570bc",
+    "result": "PASS checks=68 external_requests_blocked=44"
+  },
+  "search_index": {
+    "path": "content/site/site-index.json",
+    "sha256": "f95d7921932fff48fc5483e78845790f05c89c628886ca86c424e8c59c6683d5",
+    "status": "preview-held-nonoperable"
+  },
+  "book_standard": {
+    "path": "operations/product-stewards/LEARNING-CONTENT-STANDARD.md",
+    "sha256": "d139158454b816eaef07cb10e61b0c63683274037e2c57c4ea026768dd60a856",
+    "independent_scope_judgment": "PASS"
+  },
+  "rendered_evidence": [
+    {
+      "path": "operations/product-stewards/library/evidence-concepts-101-admission-2026-08-03/rendered/concepts-101-reader-desktop-1440x1000.png",
+      "sha256": "6028be322bb7b5e56fed392ef1ac980d4b3fb3a2e74daaa3d40624c217f8332e"
+    },
+    {
+      "path": "operations/product-stewards/library/evidence-concepts-101-admission-2026-08-03/rendered/concepts-101-reader-mobile-start-390x844.png",
+      "sha256": "f442844068ecbe2230e51249023884a103d4960c45a3f002b95575001d9e082d"
+    },
+    {
+      "path": "operations/product-stewards/library/evidence-concepts-101-admission-2026-08-03/rendered/concepts-101-reader-mobile-exact-section-390x844.png",
+      "sha256": "351c0873f2932bf19f876b3daf87fbd9197d7335ffb604256bb7ba893e1d1dd6"
+    }
+  ],
+  "limitations": [
+    "Review fixture admits the exact book only for local evidence; production remains hold.",
+    "Native Safari, VoiceOver and 200 percent zoom evidence is not included.",
+    "No Ali taste approval, deployment, publication or public-origin proof is inferred."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "laidies.building-visual-admission.v1",
+  "admission_id": "library-visual-v4-20260804",
+  "owner_id": "library",
+  "status": "PASS",
+  "control_room_result": "ADMIT",
+  "candidate": {
+    "path": "library.html",
+    "sha256": "2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43"
+  },
+  "route_artifacts": [
+    {
+      "path": "library.html",
+      "sha256": "2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43"
+    },
+    {
+      "path": "content/site/puffy-bookmarks.js",
+      "sha256": "c66f73109e4c74fd84129d512afc5ddd970f6f4fe6c339bf3ef2e630f6757efe"
+    }
+  ],
+  "environment_assets": [
+    {
+      "path": "assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png",
+      "sha256": "54904f475ab3352957a3008c8df2cf9fc2b72bdd73cb26d898c3b8572dfda7db",
+      "role": "library.arrival.reference-desk"
+    },
+    {
+      "path": "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+      "sha256": "e5c34f940bbe7a2802103d87029220e74b526e82f21f661b0e3baf805423fed8",
+      "role": "library.shelf.case-and-reel"
+    },
+    {
+      "path": "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png",
+      "sha256": "0f69a36c6bb4567823505467e184b965e2cd33d5d593df5497b8e7917f9cb0a0",
+      "role": "library.shelf.fascia.101s"
+    },
+    {
+      "path": "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png",
+      "sha256": "79178649f76093700ebc29c18443a17129c3a4cd6d5700246a6417aba39f951c",
+      "role": "library.shelf.fascia.tools"
+    },
+    {
+      "path": "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png",
+      "sha256": "51d484e0c1e78ffe2c5559bf7ecaa32fcd0797be969d90a07cbc4ae7297edb4e",
+      "role": "library.shelf.fascia.reference"
+    }
+  ],
+  "screenshots": {
+    "desktop_1440": {
+      "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/screenshots/library-production-full-1440x1000.png",
+      "sha256": "64680a23b92474d3f21ffdd39fb90c4872f6cca2a44c751e3d84fe7ac8f421ea",
+      "candidate_sha256": "2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43",
+      "viewport_width": 1440
+    },
+    "mobile_390": {
+      "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/screenshots/library-production-full-390x844.png",
+      "sha256": "6334634e8a95ca50c974d48de37ed18222961d731e1e4e927fbb63441d95b1c2",
+      "candidate_sha256": "2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43",
+      "viewport_width": 390
+    },
+    "mobile_320": {
+      "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/screenshots/library-production-full-320x760.png",
+      "sha256": "e79281803c09557687f60a0d9450325478ddeed35af7b9c7e8bedefbf731361a",
+      "candidate_sha256": "2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43",
+      "viewport_width": 320
+    }
+  },
+  "roles": {
+    "information_architecture_judge": {
+      "agent_id": "maxwell-3-library-ia-final",
+      "result": "ACCEPT",
+      "receipt": {
+        "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/information-architecture-judge.md",
+        "sha256": "f266f6ecc9ba8188d85c48cdc1c5ee0c8eacb3a88b5e6d95fc342d235fe6cd00"
+      }
+    },
+    "product_ux_judge": {
+      "agent_id": "pasteur-3-library-product-ux-final",
+      "result": "ACCEPT",
+      "receipt": {
+        "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/product-ux-judge.md",
+        "sha256": "f92b49c3fa1c12fcdd6a08a8fcca560fcb6a6ee74de3619a5864ccd289311615"
+      }
+    },
+    "brand_visual_judge": {
+      "agent_id": "hypatia-3-library-brand-final",
+      "result": "ACCEPT",
+      "receipt": {
+        "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/brand-visual-judge.md",
+        "sha256": "7ed8d3d0e346d04a8d248c958ade350cf0800b44898f8057541e81dae8b64cc5"
+      }
+    },
+    "red_team": {
+      "agent_id": "mcclintock-3-library-red-final",
+      "result": "UNSHAKEN",
+      "receipt": {
+        "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/red-team.md",
+        "sha256": "791a6cc5a8170e890e8f9e1d9b05a5013eb32be95d9c38a1ffe365e5d8a29692"
+      }
+    },
+    "claude_opus_5_reviewer": {
+      "agent_id": "claude-code-opus5-library-final",
+      "model_id": "claude-opus-5",
+      "recommendation": "ADMIT",
+      "receipt": {
+        "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/claude-opus-5-review.md",
+        "sha256": "2e82cca8e61a2678263d9ea8ed8c81173ffb15aee2200da0cab17238bf8bd69b"
+      }
+    }
+  },
+  "scope_limit": "Visual/frontend candidate only. Catalogue depth, correction service, native assistive-technology, account continuity, deployment and public-origin gates remain open."
+}

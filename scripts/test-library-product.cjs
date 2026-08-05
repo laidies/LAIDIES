@@ -8,6 +8,18 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const root = path.resolve(process.env.LIBRARY_ROOT || process.cwd());
+const captureDir = process.env.LIBRARY_CAPTURE_DIR
+  ? path.resolve(process.env.LIBRARY_CAPTURE_DIR)
+  : null;
+const calibrateProductionControls =
+  process.env.LIBRARY_PRODUCTION_CONTROL_CALIBRATION === "undersized";
+const calibrateShelfGeometry =
+  process.env.LIBRARY_SHELF_GEOMETRY_CALIBRATION === "oversubscribed";
+const calibrateInlineHandler =
+  process.env.LIBRARY_INLINE_HANDLER_CALIBRATION === "inline-submit";
+const calibratePuffyFocus =
+  process.env.LIBRARY_PUFFY_FOCUS_CALIBRATION === "broken-dialog";
+if (captureDir) fs.mkdirSync(captureDir, { recursive: true });
 let fixtureRoot = null;
 const playwrightRoot =
   process.env.PLAYWRIGHT_CORE_PATH ||
@@ -21,6 +33,25 @@ const mime = {
   ".jpg": "image/jpeg",
   ".webp": "image/webp"
 };
+function relativeLuminance(hex) {
+  const channels = hex.match(/[a-f0-9]{2}/gi).map((value) => parseInt(value, 16) / 255);
+  const linear = channels.map((value) =>
+    value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
+  );
+  return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+}
+function contrastRatio(first, second) {
+  const a = relativeLuminance(first);
+  const b = relativeLuminance(second);
+  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+function compositeHex(background, foreground, alpha) {
+  const bg = background.match(/[a-f0-9]{2}/gi).map((value) => parseInt(value, 16));
+  const fg = foreground.match(/[a-f0-9]{2}/gi).map((value) => parseInt(value, 16));
+  return bg.map((value, index) =>
+    Math.round(value * (1 - alpha) + fg[index] * alpha).toString(16).padStart(2, "0")
+  ).join("");
+}
 
 const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent(
@@ -29,9 +60,18 @@ const server = http.createServer((request, response) => {
   const relative = pathname === "/" ? "library.html" : pathname.replace(/^\/+/, "");
   const requestRoot =
     request.headers["x-library-fixture"] === "1" && fixtureRoot ? fixtureRoot : root;
-  const target = path.resolve(requestRoot, relative);
+  let targetRoot = requestRoot;
+  let target = path.resolve(requestRoot, relative);
   if (
-    !target.startsWith(requestRoot + path.sep) ||
+    requestRoot !== root &&
+    !fs.existsSync(target) &&
+    relative.startsWith("assets/")
+  ) {
+    targetRoot = root;
+    target = path.resolve(root, relative);
+  }
+  if (
+    !target.startsWith(targetRoot + path.sep) ||
     !fs.existsSync(target) ||
     fs.statSync(target).isDirectory()
   ) {
@@ -52,8 +92,16 @@ const server = http.createServer((request, response) => {
   fs.mkdirSync(path.join(fixtureRoot, "content/library-books/rendered"), {
     recursive: true
   });
+  fs.mkdirSync(path.join(fixtureRoot, "content/library-books/corrections"), {
+    recursive: true
+  });
   fs.mkdirSync(path.join(fixtureRoot, "content/site"), { recursive: true });
   fs.copyFileSync(path.join(root, "library.html"), path.join(fixtureRoot, "library.html"));
+  const growthFixtureSource = fs.readFileSync(path.join(root, "library.html"), "utf8").replace(
+    "];\nconst ADMITTED_BOOK_RECORDS=",
+    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[{id:'growth-fixture',t:'Growth Fixture',topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an added 101s shelf department.',img:B+'textbook-concepts-101.png',c:'#7038c9'}]}];\nconst ADMITTED_BOOK_RECORDS=`
+  );
+  fs.writeFileSync(path.join(fixtureRoot, "library-growth.html"), growthFixtureSource);
   /* Vocab 101 is no longer public catalogue inventory. The synthetic reader
      fixture deliberately exposes only the isolated copy so the generic
      admission/reader/Puffy contract can still be exercised without restoring
@@ -61,14 +109,28 @@ const server = http.createServer((request, response) => {
   const fixtureLibraryPath = path.join(fixtureRoot, "library.html");
   fs.writeFileSync(
     fixtureLibraryPath,
-    fs.readFileSync(fixtureLibraryPath, "utf8").replace(
-      "id:'vocab-101',t:'Vocab 101',listed:false",
-      "id:'vocab-101',t:'Vocab 101',listed:true"
-    )
+    fs.readFileSync(fixtureLibraryPath, "utf8")
+      .replace(
+        "id:'vocab-101',t:'Vocab 101',listed:false",
+        "id:'vocab-101',t:'Vocab 101',listed:true"
+      )
+      .replace("img:'',c:'#245ed1'", "img:B+'textbook-vocab-101.png',c:'#245ed1'")
   );
   fs.copyFileSync(
     path.join(root, "content/site/site-index.json"),
     path.join(fixtureRoot, "content/site/site-index.json")
+  );
+  fs.copyFileSync(
+    path.join(root, "content/site/resident-card-contract-v1.js"),
+    path.join(fixtureRoot, "content/site/resident-card-contract-v1.js")
+  );
+  fs.copyFileSync(
+    path.join(root, "content/site/puffy-bookmarks.js"),
+    path.join(fixtureRoot, "content/site/puffy-bookmarks.js")
+  );
+  fs.copyFileSync(
+    path.join(root, "content/library-books/corrections/accepted-correction-propagations.json"),
+    path.join(fixtureRoot, "content/library-books/corrections/accepted-correction-propagations.json")
   );
   const admittedArtifact =
     '<!doctype html><html><head><meta name="laidies:content-version" content="reader-v1"></head><body><main class="gr-page"><h1>Vocab 101</h1><h2>Deep Link Section</h2><p>Verified reader fixture.</p><section class="term"><h3>Fixture term</h3><p>A second focusable contents destination.</p></section></main></body></html>';
@@ -80,6 +142,34 @@ const server = http.createServer((request, response) => {
   const artifactHash = crypto
     .createHash("sha256")
     .update(admittedArtifact)
+    .digest("hex");
+  const conceptsArtifactPath = path.join(
+    fixtureRoot,
+    "content/library-books/rendered/concepts-101.html"
+  );
+  fs.copyFileSync(
+    path.join(root, "content/library-books/rendered/concepts-101.html"),
+    conceptsArtifactPath
+  );
+  const conceptsArtifactHash = crypto
+    .createHash("sha256")
+    .update(fs.readFileSync(conceptsArtifactPath))
+    .digest("hex");
+  const rulebookArtifactPath = path.join(
+    fixtureRoot,
+    "content/library-books/rendered/verification-rulebook.html"
+  );
+  fs.copyFileSync(
+    path.join(root, "content/library-books/rendered/verification-rulebook.html"),
+    rulebookArtifactPath
+  );
+  fs.copyFileSync(
+    path.join(root, "content/library-books/verification-rulebook.json"),
+    path.join(fixtureRoot, "content/library-books/verification-rulebook.json")
+  );
+  const rulebookArtifactHash = crypto
+    .createHash("sha256")
+    .update(fs.readFileSync(rulebookArtifactPath))
     .digest("hex");
   const admissionRecord = {
     book_id: "vocab-101",
@@ -94,9 +184,35 @@ const server = http.createServer((request, response) => {
     correction_state: "clear",
     artifact_sha256: artifactHash
   };
+  const conceptsAdmissionRecord = {
+    book_id: "concepts-101",
+    status: "available",
+    source_path: "/content/library-books/rendered/concepts-101.html",
+    content_version: "concepts-101-2026-08-03.1",
+    admission_version: "admission-fixture-v1",
+    source_references: ["content/library-books/concepts-101.claims.json"],
+    claim_references: ["C101-C001", "C101-C002", "C101-C003", "C101-C004", "C101-C005", "C101-C006"],
+    reviewed_at: "2026-08-03T13:29:24-07:00",
+    review_owner: "Library exact Concepts reader fixture",
+    correction_state: "clear",
+    artifact_sha256: conceptsArtifactHash
+  };
+  const rulebookAdmissionRecord = {
+    book_id: "how-to-check",
+    status: "available",
+    source_path: "/content/library-books/rendered/verification-rulebook.html",
+    content_version: "sha256-38cd8c629a661e76e2beb6da2531d32a2c1b949c082e08aca6db225f1ac85dc3",
+    admission_version: "admission-fixture-v1",
+    source_references: ["content/library-books/verification-rulebook.json"],
+    claim_references: Array.from({ length: 14 }, (_, index) => `VR-C${String(index + 1).padStart(3, "0")}`),
+    reviewed_at: "2026-08-03T14:21:00-07:00",
+    review_owner: "Library exact Verification Rulebook reader fixture",
+    correction_state: "clear",
+    artifact_sha256: rulebookArtifactHash
+  };
   fs.writeFileSync(
     path.join(fixtureRoot, "content/library-books/admission-manifest.json"),
-    JSON.stringify({ books: [admissionRecord] })
+    JSON.stringify({ books: [admissionRecord, conceptsAdmissionRecord, rulebookAdmissionRecord] })
   );
   compileLibraryAdmission({ root: fixtureRoot });
 
@@ -232,6 +348,7 @@ const server = http.createServer((request, response) => {
       const url = route.request().url();
       if (/\/content\/site\/site-index\.json/.test(url)) {
         siteIndexRequests++;
+        if (options.slowSiteIndex) await new Promise((resolve) => setTimeout(resolve, 450));
         if (options.failSiteIndex) return route.abort();
         if (options.malformedSiteIndex) {
           return route.fulfill({
@@ -276,27 +393,93 @@ const server = http.createServer((request, response) => {
     await baseline.page.goto(`${origin}/library.html`, {
       waitUntil: "domcontentloaded"
     });
-    await baseline.page.waitForSelector(".stage-book");
+    await baseline.page.waitForSelector(".bk");
+    const librarySource = fs.readFileSync(path.join(root, "library.html"), "utf8");
+    const inspectedLibrarySource = calibrateInlineHandler
+      ? librarySource.replace('<form class="jv-form">', '<form class="jv-form" onsubmit="return false">')
+      : librarySource;
     check(
-      (await baseline.page.locator(".stage-book").count()) === 14,
-      "current 14-book catalogue renders without removed Vocab 101"
+      !/\son(?:click|submit|change|input|keydown)\s*=/i.test(inspectedLibrarySource),
+      "Library uses closure-local listeners instead of inline event handlers"
     );
     check(
-      (await baseline.page.locator(".stage-book[data-library-status=hold]").count()) ===
-        7 &&
-        (await baseline.page
-          .locator(".stage-book[data-library-status=preview]")
-          .count()) === 7,
-      "catalogue exposes seven holds and seven previews"
+      !/#4b2148\b/i.test(librarySource) &&
+        !/rgba?\(\s*75\s*,\s*33\s*,\s*72(?:\s*[,\)])/i.test(librarySource),
+      "retired plum is absent in hex and RGB functional forms"
+    );
+    const wayfindingPresentation = await baseline.page.locator(".shelf-guide").evaluate((guide) => ({
+      background: getComputedStyle(guide).backgroundColor,
+      colors: [...guide.querySelectorAll("h2,.eyebrow,.shelf-caption,.shelf-instruction,.catalogue-control,.catalogue-result")]
+        .map((node) => getComputedStyle(node).color)
+    }));
+    const mobileCaptionPresentation = await baseline.page.locator(".mobile-shelf-caption").evaluateAll((captions) =>
+      captions.map((caption) => ({
+        background: getComputedStyle(caption).backgroundColor,
+        colors: [caption, ...caption.querySelectorAll("b,.reel-cue")].map((node) => getComputedStyle(node).color)
+      }))
     );
     check(
-      (await baseline.page.locator("button.stage-book").count()) === 0 &&
-        (await baseline.page.locator("button.mobile-book").count()) === 0,
-      "no held or preview cover is operable"
+      wayfindingPresentation.background === "rgba(7, 20, 47, 0.4)" &&
+        wayfindingPresentation.colors.every((color) => color === "rgb(255, 255, 255)") &&
+        ["4e187f", "9238c6", "ec4e9f", "806fe4", "24c7d4"].every((background) =>
+          contrastRatio("ffffff", compositeHex(background, "07142f", 0.4)) >= 4.5
+        ) &&
+        mobileCaptionPresentation.every((caption) =>
+          caption.background === "rgba(7, 20, 47, 0.4)" &&
+          caption.colors.every((color) => color === "rgb(255, 255, 255)")
+        ) &&
+        ["4e187f", "9238c6", "ec4e9f", "806fe4", "24c7d4"].every((background) =>
+          contrastRatio("ffffff", compositeHex(background, "07142f", 0.4)) >= 4.5
+        ),
+      "wayfinding text clears 4.5 to 1 against every rendered gradient band"
+    );
+    check(
+      (await baseline.page.locator(".department").count()) === 3 &&
+        (await baseline.page.locator(".bk").count()) === 14,
+      "three physical shelf departments render together in the integrated room"
+    );
+    await baseline.page.waitForFunction(() =>
+      [...document.querySelectorAll('.ledge img')].length === 3 &&
+      [...document.querySelectorAll('.ledge img')].every((image) => image.complete && image.naturalWidth > 0)
+    );
+    check(
+      (await baseline.page.locator('.ledge img').count()) === 3 &&
+        await baseline.page.locator('.ledge img').evaluateAll((images) =>
+          images.every((image) => image.complete && image.naturalWidth > 0 && /library-shelf-sign-/.test(image.src))
+        ),
+      "each department renders its admitted mounted metal sign asset"
+    );
+    const catalogueCount = await baseline.page.locator(".bk").count();
+    const holdCount = await baseline.page.locator(".bk[data-library-status=hold]").count();
+    const previewCount = await baseline.page.locator(".bk[data-library-status=preview]").count();
+    const sourceReadyCount = await baseline.page.locator(".bk[data-library-status=available]").count();
+    check(
+      catalogueCount === 14 && holdCount === 6 && previewCount === 7 && sourceReadyCount === 1,
+      "catalogue source truth exposes one admitted book, six holds and seven previews"
+    );
+    check(
+      (await baseline.page.locator("button.bk").count()) === 14,
+      "every held or preview cover remains inspectable without opening the reader"
+    );
+    await baseline.page.selectOption("#catalogue-topic", "privacy-safety");
+    check(
+      (await baseline.page.locator("button.bk").count()) === 2 &&
+        (await baseline.page.getByRole("button", { name: /^Preview Accounts 101\./ }).count()) === 1 &&
+        (await baseline.page.getByRole("button", { name: /^Preview What Not to Paste\./ }).count()) === 1,
+      "Browse by Topic narrows the physical shelves to the matching books"
+    );
+    await baseline.page.selectOption("#catalogue-topic", "all");
+    await baseline.page.getByRole("button", { name: /^Preview Accounts 101\./ }).click();
+    check(
+      (await baseline.page.locator("#book-preview-title").innerText()).length > 0 &&
+        (await baseline.page.locator("#book-preview-summary").innerText()).length > 0 &&
+        (await baseline.page.locator("#book-preview-read").isHidden()) &&
+        (await baseline.page.locator("#reader").isHidden()),
+      "a cover explains its contents and availability before any reader can open"
     );
     check(
       (await baseline.page.locator("#library-status").innerText()).includes(
-        "reviewed book by book"
+        "Every cover shows whether it is ready"
       ) && (await baseline.page.locator("#reader").isHidden()),
       "newcomer sees truthful shelf status and closed reader"
     );
@@ -308,19 +491,196 @@ const server = http.createServer((request, response) => {
     );
     await baseline.context.close();
 
+    const desktopShelf = await makePage({ viewport: { width: 1440, height: 1000 } });
+    await desktopShelf.page.goto(`${origin}/library.html`, {
+      waitUntil: "domcontentloaded"
+    });
+    await desktopShelf.page.waitForSelector(".department .bk");
+    await desktopShelf.page.waitForFunction(() =>
+      [...document.querySelectorAll(".department .bk img")].every(
+        (image) => image.complete && image.naturalWidth > 0
+      )
+    );
+    if (calibrateShelfGeometry) {
+      await desktopShelf.page.evaluate(() => {
+        const toolsFirstRow = document.querySelector(".department:nth-child(2) .brow--1");
+        const book = toolsFirstRow?.querySelector(".bk");
+        if (toolsFirstRow && book) toolsFirstRow.append(book.cloneNode(true));
+      });
+    }
+    const desktopFirstPage = await desktopShelf.page.evaluate(() =>
+      [...document.querySelectorAll(".department")].map((department) => ({
+        labels: [...department.querySelectorAll(".bk")].map((book) => book.getAttribute("aria-label")),
+        rowCounts: [...department.querySelectorAll(".brow")].map((row) => row.querySelectorAll(".bk").length),
+        coverHeights: [...department.querySelectorAll(".bk img")].map((cover) => cover.getBoundingClientRect().height)
+      }))
+    );
+    check(
+      desktopFirstPage.every(
+        (department) =>
+          department.labels.length <= 4 &&
+          department.rowCounts.every((count) => count <= 2) &&
+          department.coverHeights.every((height) => height >= 180)
+      ),
+      "desktop shelves keep at most two large readable covers per row"
+    );
+    const shelfStatusAccessibility = await desktopShelf.page.evaluate(() =>
+      [...document.querySelectorAll("button.bk")].every((book) => {
+        const status = book.querySelector(".bk-status");
+        const accessibleStatus = book.querySelector(".sr-only")?.textContent?.trim();
+        const visibleStatus = status?.textContent?.trim();
+        return Boolean(
+          visibleStatus && accessibleStatus &&
+            book.getAttribute("aria-label")?.includes(accessibleStatus) &&
+            Number.parseFloat(getComputedStyle(status).fontSize) >= 14
+        );
+      })
+    );
+    check(
+      shelfStatusAccessibility,
+      "every shelf cover exposes its availability in a readable visible label and accessible name"
+    );
+    const toolsPageOne = desktopFirstPage[1].labels;
+    await desktopShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
+    const crossShelfPreviewTitle = await desktopShelf.page.locator('#book-preview-title').innerText();
+    check(
+      (await desktopShelf.page.locator('#book-preview-inside').innerText()).includes('Prediction, training') &&
+        (await desktopShelf.page.locator('#book-preview-meta').innerText()).includes('read straight through or jump to one idea'),
+      "selected cover explains concrete coverage and reading depth before opening"
+    );
+    const toolsPager = desktopShelf.page.getByLabel("THE TOOLS shelf pages");
+    await toolsPager.getByRole("button", { name: "Next" }).click();
+    await desktopShelf.page.waitForFunction(() =>
+      document.activeElement?.closest?.("#shelf-pages") && document.activeElement?.tagName === "BUTTON"
+    );
+    const toolsPageTwo = await desktopShelf.page
+      .locator(".department:nth-child(2) .bk")
+      .evaluateAll((books) => books.map((book) => book.getAttribute("aria-label")));
+    check(
+      new Set([...toolsPageOne, ...toolsPageTwo]).size === 6 &&
+        toolsPageTwo.length === 2 &&
+        (await desktopShelf.page.getByLabel("THE TOOLS shelf pages").innerText()).includes("Page 2 of 2") &&
+        (await desktopShelf.page.evaluate(() => document.activeElement?.textContent?.trim())) === "Previous" &&
+        (await desktopShelf.page.locator('#book-preview-title').innerText()) === crossShelfPreviewTitle &&
+        !(await desktopShelf.page.locator('#book-preview').getAttribute('class')).includes('is-empty'),
+      "Tools growth uses a second shelf page without shrinking books or clearing another shelf's preview"
+    );
+    if (captureDir) {
+      await desktopShelf.page.waitForFunction(() => {
+        const pager = document.querySelector('[aria-label="THE TOOLS shelf pages"]');
+        const labels = [...document.querySelectorAll('.department:nth-child(2) .bk')]
+          .map((book) => book.getAttribute('aria-label') || '');
+        return pager?.textContent.includes('Page 2 of 2') &&
+          labels.some((label) => label.includes('Copilot')) &&
+          labels.some((label) => label.includes('Perplexity'));
+      });
+      await desktopShelf.page.screenshot({
+        path: path.join(captureDir, "library-production-tools-page-2-1440x1000.png"),
+        fullPage: true
+      });
+    }
+    await desktopShelf.context.close();
+
+    const growthShelf = await makePage({ fixture: true, viewport: { width: 1440, height: 1000 } });
+    await growthShelf.page.goto(`${origin}/library-growth.html`, { waitUntil: "domcontentloaded" });
+    await growthShelf.page.waitForSelector(".shelf-unit:nth-child(2) .bk");
+    const growthGeometry = await growthShelf.page.evaluate(() => {
+      const book = document.querySelector('.shelf-unit:nth-child(2) .bk');
+      const room = document.querySelector('.libroom');
+      return {
+        units: document.querySelectorAll('.shelf-unit').length,
+        departments: document.querySelectorAll('.department').length,
+        bookWidth: book?.getBoundingClientRect().width || 0,
+        roomHeight: room?.getBoundingClientRect().height || 0,
+        documentOverflow: document.documentElement.scrollWidth > innerWidth
+      };
+    });
+    check(
+      growthGeometry.units === 2 &&
+        growthGeometry.departments === 4 &&
+        growthGeometry.bookWidth >= 120 &&
+        growthGeometry.roomHeight > 900 &&
+        growthGeometry.documentOverflow === false,
+      "a fourth shelf department renders as a second real shelf unit with a legible book and no page rebuild"
+    );
+    if (captureDir) {
+      await growthShelf.page.screenshot({
+        path: path.join(captureDir, "library-growth-fourth-collection-1440x1000.png"),
+        fullPage: true
+      });
+    }
+    await growthShelf.context.close();
+
+    const responsiveShelf = await makePage({ viewport: { width: 1440, height: 1000 } });
+    await responsiveShelf.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
+    await responsiveShelf.page.waitForSelector(".department .bk");
+    const askButtonHeights = [
+      (await responsiveShelf.page.locator(".jv-form button[type=submit]").boundingBox()).height
+    ];
+    check(
+      (await responsiveShelf.page.locator(".department .bk").count()) === 12,
+      "desktop shelf starts with paged large-cover inventory"
+    );
+    await responsiveShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
+    check(
+      (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
+        !(await responsiveShelf.page.locator("#book-preview").getAttribute("class")).includes("is-empty"),
+      "desktop selected-book preview opens before a breakpoint change"
+    );
+    await responsiveShelf.page.setViewportSize({ width: 390, height: 844 });
+    await responsiveShelf.page.waitForFunction(() => document.querySelectorAll(".department .bk").length === 14);
+    askButtonHeights.push(
+      (await responsiveShelf.page.locator(".jv-form button[type=submit]").boundingBox()).height
+    );
+    check(
+      (await responsiveShelf.page.locator(".department .bk").count()) === 14 &&
+        (await responsiveShelf.page.locator(".department .brow--2").count()) === 0,
+      "desktop to mobile resize rerenders complete single-reel inventory"
+    );
+    check(
+      (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
+        !(await responsiveShelf.page.locator("#book-preview").getAttribute("class")).includes("is-empty") &&
+        (await responsiveShelf.page.evaluate(() => document.activeElement?.id)) === "book-preview-title",
+      "desktop-to-mobile rerender preserves the selected preview and keyboard place"
+    );
+    await responsiveShelf.page.setViewportSize({ width: 320, height: 760 });
+    askButtonHeights.push(
+      (await responsiveShelf.page.locator(".jv-form button[type=submit]").boundingBox()).height
+    );
+    check(
+      askButtonHeights.every((height) => height >= 44),
+      "Ask Miss Jeeves primary submit target remains at least 44px at 1440, 390 and 320"
+    );
+    await responsiveShelf.page.setViewportSize({ width: 1440, height: 1000 });
+    await responsiveShelf.page.waitForFunction(() => document.querySelectorAll(".department .bk").length === 12);
+    const resizedDesktopRows = await responsiveShelf.page.locator(".department .brow").evaluateAll((rows) =>
+      rows.map((row) => row.querySelectorAll(".bk").length)
+    );
+    check(
+      resizedDesktopRows.every((count) => count <= 2),
+      "mobile to desktop resize restores paged two-cover rows"
+    );
+    check(
+      (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
+        !(await responsiveShelf.page.locator("#book-preview").getAttribute("class")).includes("is-empty") &&
+        (await responsiveShelf.page.evaluate(() => document.activeElement?.id)) === "book-preview-title",
+      "mobile-to-desktop rerender preserves the selected preview and keyboard place"
+    );
+    await responsiveShelf.context.close();
+
     const heldHash = await makePage();
     await heldHash.page.goto(`${origin}/library.html#vocab-101`, {
       waitUntil: "domcontentloaded"
     });
     await heldHash.page.waitForFunction(() =>
       document.querySelector("#library-status")?.textContent.includes(
-        "Vocab 101 is not published yet"
+        "Vocab 101 is not available yet"
       )
     );
     check(
       (await heldHash.page.locator("#reader").isHidden()) &&
         (await heldHash.page.locator("#library-status").innerText()).includes(
-          "Removed from the catalogue"
+          "Not in the current catalogue"
         ),
       "held direct hash cannot bypass publication status"
     );
@@ -331,15 +691,36 @@ const server = http.createServer((request, response) => {
       waitUntil: "domcontentloaded"
     });
     await jeeves.page.fill("#jv-q", "which AI should I use?");
+    const jeevesErrorsBefore = pageErrors.length;
+    await jeeves.page.click('.jv-form button[type="submit"]');
     await jeeves.page.waitForSelector(".jv-answer");
+    check(
+      (await jeeves.page.locator(".jv-answer").count()) === 1 &&
+        jeeves.page.url() === `${origin}/library.html` &&
+        pageErrors.length === jeevesErrorsBefore,
+      "Miss Jeeves visible Ask button submits in place without a ReferenceError"
+    );
     await jeeves.page.waitForFunction(
-      () => document.querySelectorAll(".jv-answer-links .jv-held").length === 2
+      () =>
+        document.querySelectorAll(".jv-answer-links .jv-held").length === 1 &&
+        document.querySelectorAll(".jv-answer-links button").length === 1
     );
     check(
-      (await jeeves.page.locator(".jv-answer-links .jv-held").count()) === 2 &&
-        (await jeeves.page.locator(".jv-answer-links button").count()) === 0,
-      "Miss Jeeves cannot route around two held book destinations"
+      (await jeeves.page.locator(".jv-answer-links .jv-held").count()) === 1 &&
+        (await jeeves.page.locator(".jv-answer-links button").count()) === 1,
+      "Miss Jeeves keeps the held comparison book suppressed and offers the admitted Concepts 101 book"
     );
+    await jeeves.page.getByRole("button", { name: "Learn how models differ" }).click();
+    await jeeves.page.waitForFunction(
+      () =>
+        document.getElementById("reader")?.classList.contains("on") &&
+        document.getElementById("rt")?.textContent.trim() === "Concepts 101"
+    );
+    check(
+      (await jeeves.page.locator("#rt").innerText()).trim() === "Concepts 101",
+      "Miss Jeeves opens the admitted Concepts 101 reader instead of a dead destination"
+    );
+    await jeeves.page.keyboard.press("Escape");
     await jeeves.page.fill("#jv-q", "why does AI make up facts?");
     await jeeves.page.waitForFunction(
       () =>
@@ -354,13 +735,309 @@ const server = http.createServer((request, response) => {
           1,
       "Miss Jeeves omits removed Vocab and retains the held verification route plus real alternate"
     );
+    const heldLabelSize = await jeeves.page.evaluate(() =>
+      Number.parseFloat(getComputedStyle(document.querySelector(".jv-held")).fontSize)
+    );
+    await jeeves.page.fill("#jv-q", "will AI take my job?");
+    await jeeves.page.waitForFunction(() =>
+      document.querySelectorAll('.jv-answer-links button').length === 1
+    );
+    const deeperLabelSize = await jeeves.page.evaluate(() =>
+      Number.parseFloat(getComputedStyle(document.querySelector(".jv-answer-links b")).fontSize)
+    );
+    check(
+      (await jeeves.page.locator('.jv-answer-links a[href="/newsstand.html"]').count()) === 0 &&
+        (await jeeves.page.locator('.jv-answer-links button').count()) === 1 &&
+        /do not have that coverage ready yet/i.test(await jeeves.page.locator('.jv-answer h3').innerText()) &&
+        heldLabelSize >= 14 && deeperLabelSize >= 12,
+      "jobs answer tells the truth about missing coverage, opens one live Concepts section and keeps readable result labels"
+    );
+    if (captureDir) {
+      await jeeves.page.setViewportSize({ width: 390, height: 844 });
+      await jeeves.page.screenshot({
+        path: path.join(captureDir, 'miss-jeeves-jobs-answer-390x844.png'),
+        fullPage: true
+      });
+    }
+    await jeeves.page.locator('.jv-answer-links button').click();
+    await jeeves.page.waitForFunction(() =>
+      document.querySelector('#reader')?.getAttribute('aria-hidden') === 'false' &&
+      location.hash.startsWith('#concepts-101::') &&
+      (()=>{
+        const heading=document.querySelector('#rtxt h2[aria-current="location"]');
+        if(!heading?.textContent.includes('The four types')||document.activeElement!==heading)return false;
+        const rect=heading.getBoundingClientRect();
+        return rect.top>=0&&rect.top<innerHeight;
+      })()
+    );
+    check(
+      await jeeves.page.locator('#rtxt h2[aria-current="location"]', { hasText: 'The four types' }).isVisible() &&
+        await jeeves.page.locator('#rtxt h2[aria-current="location"]', { hasText: 'The four types' }).evaluate((heading) => {
+          const rect=heading.getBoundingClientRect();
+          return document.activeElement===heading && rect.top>=0 && rect.top<innerHeight;
+        }),
+      "jobs answer's sole live route focuses and reveals the exact durable Concepts 101 section"
+    );
+    await jeeves.page.locator('#reader-close').click();
+    await jeeves.page.fill('#jv-q', 'qzxvplmokn');
+    await jeeves.page.waitForSelector('.jv-none');
+    const jeevesEmptyState = await jeeves.page.locator('.jv-none').evaluate((state) => ({
+      color:getComputedStyle(state).color,
+      background:getComputedStyle(state).backgroundColor,
+      text:state.textContent
+    }));
+    check(
+      jeevesEmptyState.color === 'rgb(255, 255, 255)' &&
+        jeevesEmptyState.background === 'rgba(7, 20, 47, 0.4)' &&
+        /nothing filed/i.test(jeevesEmptyState.text) &&
+        ['4e187f','9238c6','ec4e9f','806fe4','24c7d4'].every((background) =>
+          contrastRatio('ffffff', compositeHex(background, '07142f', 0.4)) >= 4.5
+        ),
+      'Miss Jeeves zero-result text clears 4.5 to 1 against every gradient stop'
+    );
+    if (captureDir) {
+      await jeeves.page.screenshot({
+        path: path.join(captureDir, 'miss-jeeves-zero-result-390x844.png'),
+        fullPage: true
+      });
+    }
     await jeeves.page.fill("#jv-q", "environment energy");
     await jeeves.page.waitForTimeout(50);
     check(
       (await jeeves.page.locator('a[href="/grimoire/chamber-of-receipts.html"]').count()) === 0,
       "lexical index cannot route around current Library admission state"
     );
+    await jeeves.page.fill("#jv-q", "how does ai work");
+    await jeeves.page.waitForTimeout(50);
+    check(
+      (await jeeves.page.locator('.jv-card', { hasText: "Concepts 101" }).count()) === 1,
+      "admitted Concepts 101 search metadata resolves to one operable Miss Jeeves result"
+    );
     await jeeves.context.close();
+
+    if (captureDir) {
+      const loadingIndex = await makePage({
+        slowSiteIndex: true,
+        viewport: { width: 390, height: 844 }
+      });
+      await loadingIndex.page.goto(`${origin}/library.html`, { waitUntil: 'domcontentloaded' });
+      await loadingIndex.page.fill('#jv-q', 'qzxvplmokn');
+      await loadingIndex.page.waitForSelector('.jv-none');
+      await loadingIndex.page.screenshot({
+        path: path.join(captureDir, 'miss-jeeves-loading-390x844.png'),
+        fullPage: true
+      });
+      await loadingIndex.context.close();
+    }
+
+    const productionReader = await makePage({
+      viewport: { width: 1440, height: 1000 },
+      cardSeed: { version: 1, fields: { displayName: "Production reader check" } }
+    });
+    await productionReader.page.goto(`${origin}/library.html`, {
+      waitUntil: "domcontentloaded"
+    });
+    if (captureDir) {
+      for (const viewport of [
+        { width: 1440, height: 1000 },
+        { width: 390, height: 844 },
+        { width: 320, height: 760 }
+      ]) {
+        const capturePage = await makePage({
+          viewport,
+          cardSeed: { version: 1, fields: { displayName: "Production capture" } }
+        });
+        await capturePage.page.goto(`${origin}/library.html`, {
+          waitUntil: "domcontentloaded"
+        });
+        await capturePage.page.waitForFunction(() =>
+          [...document.querySelectorAll(".department .bk img")].every(
+            (image) => image.complete && image.naturalWidth > 0
+          )
+        );
+        await capturePage.page.screenshot({
+          path: path.join(
+            captureDir,
+            `library-production-full-${viewport.width}x${viewport.height}.png`
+          ),
+          fullPage: true
+        });
+        await capturePage.context.close();
+      }
+    }
+    await productionReader.page
+      .getByRole("button", { name: /^Preview Concepts 101\./ })
+      .evaluate((node) => node.click());
+    await productionReader.page.waitForSelector(
+      "#book-preview:not(.is-empty) #book-preview-read:not([hidden])"
+    );
+    if (captureDir) {
+      await productionReader.page.screenshot({
+        path: path.join(captureDir, "library-production-selected-preview-1440x1000.png"),
+        fullPage: true
+      });
+      await productionReader.page.setViewportSize({ width: 390, height: 844 });
+      await productionReader.page.screenshot({
+        path: path.join(captureDir, "library-production-selected-preview-390x844.png"),
+        fullPage: true
+      });
+      await productionReader.page.setViewportSize({ width: 1440, height: 1000 });
+    }
+    await productionReader.page.locator("#book-preview-read").click();
+    await productionReader.page.waitForSelector("#rtxt h2", { state: "attached" });
+    await productionReader.page.waitForSelector(".book .band .puffy-btn");
+    if (calibrateProductionControls) {
+      await productionReader.page.addStyleTag({
+        content:
+          ".book .band .puffy-btn,.book .txt .puffy-btn,#reader-close{" +
+          "min-height:1px!important;height:20px!important;font-size:8px!important;padding:0!important}"
+      });
+    }
+    for (const viewport of [
+      { width: 1440, height: 1000 },
+      { width: 390, height: 844 },
+      { width: 320, height: 760 }
+    ]) {
+      await productionReader.page.setViewportSize(viewport);
+      await productionReader.page.evaluate(() => window.scrollTo(0, 0));
+      const productionControlState = await productionReader.page.evaluate(() => {
+        const measure = (node) => {
+          const rect = node.getBoundingClientRect();
+          return {
+            width: rect.width,
+            height: rect.height,
+            fontSize: Number.parseFloat(getComputedStyle(node).fontSize)
+          };
+        };
+        return {
+          wholeBook: measure(document.querySelector(".book .band .puffy-btn")),
+          exactSection: measure(document.querySelector(".book .term .puffy-btn")),
+          back: measure(document.getElementById("reader-close")),
+          documentFits:
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth + 1,
+          readerFits:
+            document.getElementById("reader").scrollWidth <=
+            document.getElementById("reader").clientWidth + 1
+        };
+      });
+      check(
+        [
+          productionControlState.wholeBook,
+          productionControlState.exactSection,
+          productionControlState.back
+        ].every(
+          (control) =>
+            control.width >= 44 && control.height >= 44 && control.fontSize >= 14
+        ) &&
+          productionControlState.documentFits &&
+          productionControlState.readerFits,
+        `production Concepts reader has readable 44px Save/Back controls and no overflow at ${viewport.width}px`
+      );
+      if (captureDir) {
+        await productionReader.page.screenshot({
+          path: path.join(
+            captureDir,
+            `library-production-reader-${viewport.width}x${viewport.height}.png`
+          )
+        });
+      }
+    }
+    await productionReader.page.locator(".book .band .puffy-btn").click();
+    await productionReader.page.waitForFunction(() =>
+      [...document.querySelectorAll(".puffy-option img")].length === 10 &&
+      [...document.querySelectorAll(".puffy-option img")].every(
+        (image) => image.complete && image.naturalWidth > 0
+      )
+    );
+    if (calibratePuffyFocus) {
+      await productionReader.page.evaluate(() => {
+        document.querySelector('.puffy-picker').removeAttribute('aria-modal');
+      });
+    }
+    check(
+      (await productionReader.page.locator(".puffy-option").count()) === 10,
+      "production whole-book Save exposes all 10 active Puffy Stickers"
+    );
+    check(
+      await productionReader.page.locator(".puffy-option img").evaluateAll(
+        (images) => images.length === 10 && images.every((image) => image.complete && image.naturalWidth > 0)
+      ),
+      "production whole-book Save visibly renders all 10 active Puffy Sticker images"
+    );
+    const puffyDialogState = await productionReader.page.evaluate(() => {
+      const picker = document.querySelector('.puffy-picker');
+      const rect = picker.getBoundingClientRect();
+      const actions = [...picker.querySelectorAll('a[href],button:not([hidden])')]
+        .filter((node) => node.getClientRects().length > 0)
+        .map((node) => {
+          const box = node.getBoundingClientRect();
+          return box.top >= rect.top - 1 && box.bottom <= rect.bottom + 1 && box.left >= rect.left - 1 && box.right <= rect.right + 1;
+        });
+      return {
+        modal: picker.getAttribute('aria-modal'),
+        fits: picker.scrollHeight <= picker.clientHeight + 1,
+        actionsContained: actions.every(Boolean)
+      };
+    });
+    check(
+      puffyDialogState.modal === 'true' && puffyDialogState.fits && puffyDialogState.actionsContained,
+      `production Puffy picker is modal and fully contained at 320px ${JSON.stringify(puffyDialogState)}`
+    );
+    const puffyOptions = productionReader.page.locator('.puffy-option');
+    const puffyLastControl = productionReader.page.locator('.puffy-picker-foot a');
+    await puffyLastControl.focus();
+    await productionReader.page.keyboard.press('Tab');
+    check(
+      await puffyOptions.first().evaluate((node) => document.activeElement === node),
+      'production Puffy picker traps forward Tab at its final control'
+    );
+    await puffyOptions.first().focus();
+    await productionReader.page.keyboard.press('Shift+Tab');
+    check(
+      await puffyLastControl.evaluate((node) => document.activeElement === node),
+      'production Puffy picker traps reverse Tab at its first control'
+    );
+    await productionReader.page.keyboard.press('Escape');
+    check(
+      (await productionReader.page.locator('.puffy-picker').count()) === 0 &&
+      await productionReader.page.locator('.book .band .puffy-btn').evaluate((node) => document.activeElement === node),
+      'production Puffy picker Escape closes and returns focus to its invoking Save control'
+    );
+    await productionReader.page.locator('.book .band .puffy-btn').click();
+    await productionReader.page.waitForFunction(() =>
+      [...document.querySelectorAll('.puffy-option img')].length === 10 &&
+      [...document.querySelectorAll('.puffy-option img')].every((image) => image.complete && image.naturalWidth > 0)
+    );
+    if (captureDir) {
+      await productionReader.page.screenshot({
+        path: path.join(captureDir, "library-production-whole-book-puffy-320x760.png")
+      });
+    }
+    await productionReader.page.locator(".puffy-option").first().click();
+    await productionReader.page.locator(".book .term .puffy-btn").first().click();
+    check(
+      (await productionReader.page.locator(".puffy-option").count()) === 10,
+      "production exact-section Save exposes the same 10 active Puffy Stickers"
+    );
+    await productionReader.context.close();
+
+    const homepageJeeves = await makePage();
+    await homepageJeeves.page.goto(`${origin}/index.html#reference`, {
+      waitUntil: "domcontentloaded"
+    });
+    const transferredQuestion = "How do I know if it's telling the truth?";
+    await homepageJeeves.page.fill("#lookup", transferredQuestion);
+    await homepageJeeves.page.click('#homepage-jeeves-form button[type="submit"]');
+    await homepageJeeves.page.waitForURL(`${origin}/library.html#miss-jeeves`);
+    await homepageJeeves.page.waitForSelector(".jv-answer");
+    check(
+      (await homepageJeeves.page.inputValue("#jv-q")) === transferredQuestion &&
+        homepageJeeves.page.url() === `${origin}/library.html#miss-jeeves` &&
+        (await homepageJeeves.page.locator(".jv-answer h3").innerText()).includes("hallucination"),
+      "Homepage transfers a question client-side, removes it from the URL and runs the direct Miss Jeeves answer"
+    );
+    await homepageJeeves.context.close();
 
     const indexFailure = await makePage({ failSiteIndex: true });
     await indexFailure.page.goto(`${origin}/library.html`, {
@@ -368,6 +1045,22 @@ const server = http.createServer((request, response) => {
     });
     await indexFailure.page.fill("#jv-q", "banana filing system");
     await indexFailure.page.waitForSelector('.jv-error[role="alert"]');
+    const failureErrorsBefore = pageErrors.length;
+    await indexFailure.page.locator("#jv-q").press("Enter");
+    await indexFailure.page.waitForTimeout(50);
+    check(
+      indexFailure.page.url() === `${origin}/library.html` &&
+        pageErrors.length === failureErrorsBefore &&
+        (await indexFailure.page.locator('.jv-error[role="alert"]').count()) === 1,
+      "Miss Jeeves failure submit stays in place without a ReferenceError"
+    );
+    if (captureDir) {
+      await indexFailure.page.setViewportSize({ width: 390, height: 844 });
+      await indexFailure.page.screenshot({
+        path: path.join(captureDir, 'miss-jeeves-error-390x844.png'),
+        fullPage: true
+      });
+    }
     await indexFailure.page.evaluate(() => {
       document.getElementById("jv-retry").click();
       document.getElementById("jv-retry").click();
@@ -395,11 +1088,16 @@ const server = http.createServer((request, response) => {
       await invalidIndex.context.close();
     }
 
-    const reader = await makePage({ fixture: true, viewport: { width: 900, height: 800 } });
+    const reader = await makePage({
+      fixture: true,
+      viewport: { width: 1200, height: 800 },
+      cardSeed: { version: 1, fields: { displayName: "Reader fixture" } }
+    });
     await reader.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
-    const opener = reader.page.locator('button.stage-book[aria-label="Open Vocab 101"]');
+    const opener = reader.page.getByRole("button", { name: /^Preview Vocab 101\./ });
     await opener.focus();
-    await opener.click();
+    await opener.evaluate((node) => node.click());
+    await reader.page.locator("#book-preview-read").click();
     await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
     check(
       (await reader.page.locator("#rtxt").innerText()).includes("Verified reader fixture") &&
@@ -419,47 +1117,278 @@ const server = http.createServer((request, response) => {
       await opener.evaluate((node) => node === document.activeElement),
       "Escape closes reader and restores the exact opener"
     );
-    await opener.click();
+    await opener.evaluate((node) => node.click());
+    await reader.page.locator("#book-preview-read").click();
     await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
     await reader.page.locator("#reader-close").click();
     check(
       await opener.evaluate((node) => node === document.activeElement),
       "Close control restores the exact opener"
     );
-    await opener.click();
+    await opener.evaluate((node) => node.click());
+    await reader.page.locator("#book-preview-read").click();
     await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
     await reader.page.locator("#reader").click({ position: { x: 2, y: 2 } });
     check(
       await opener.evaluate((node) => node === document.activeElement),
       "reader backdrop closes and restores the exact opener"
     );
+    await opener.evaluate((node) => node.click());
+    await reader.page.locator("#book-preview-read").click();
+    await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
+    await reader.page.waitForSelector(".book .band .puffy-btn");
+    check(
+      (await reader.page.locator(".book .band .puffy-btn").innerText()).toLowerCase().includes("save this book") &&
+        (await reader.page.locator(".book .term .puffy-btn").first().innerText()).toLowerCase().includes("save this section"),
+      "reader distinguishes whole-book and exact-section Puffy actions"
+    );
+    check(
+      (await reader.page.locator(".book .band .puffy-btn").getAttribute("aria-label")).toLowerCase().includes("save this book") &&
+        (await reader.page.locator(".book .term .puffy-btn").first().getAttribute("aria-label")).toLowerCase().includes("save this section"),
+      "accessible Puffy labels distinguish whole-book and exact-section saves"
+    );
+    await reader.page.locator(".book .band .puffy-btn").click();
+    check(
+      (await reader.page.locator(".puffy-option").count()) === 10,
+      "whole-book Puffy action offers the Resident Card holder's active 10"
+    );
+    await reader.page.locator(".book .term .puffy-btn").first().click();
+    check(
+      (await reader.page.locator(".puffy-option").count()) === 10,
+      "exact-section Puffy action offers the same active 10"
+    );
+    await reader.page.locator(".puffy-option").first().click();
+    await reader.page.locator("#reader-close").click();
     await reader.page.goto(
       `${origin}/library.html?deep-link-fixture=1#vocab-101::${encodeURIComponent("Deep Link Section")}`,
       { waitUntil: "domcontentloaded" }
     );
     await reader.page.waitForSelector("#rtxt h2", { state: "attached" });
-    const deepLinkState = await reader.page.evaluate(() => {
+      const deepLinkState = await reader.page.evaluate(() => {
         const heading = document.querySelector("#rtxt h2");
         return {
           ariaHidden: document.getElementById("reader").getAttribute("aria-hidden"),
           headingHidden: heading?.hidden,
           headingText: heading?.textContent.trim(),
-          bodyClass: document.body.className
+          bodyClass: document.body.className,
+          tocVisible: getComputedStyle(document.getElementById("rtoc")).display !== "none",
+          hiddenSections: [...document.querySelectorAll("#rtxt > *")].filter((node) => node.hidden).length
         };
       });
     check(
       deepLinkState.ariaHidden === "false" &&
         deepLinkState.headingHidden === false &&
-        deepLinkState.headingText === "Deep Link Section",
-      "exact-section deep link opens the currently admitted version"
+        deepLinkState.headingText === "Deep Link Section" &&
+        deepLinkState.tocVisible && deepLinkState.hiddenSections === 0,
+      "exact-section deep link opens the admitted version with the whole book and contents available"
     );
     await reader.context.close();
+
+    const conceptsReader = await makePage({
+      fixture: true,
+      viewport: { width: 1440, height: 1000 },
+      cardSeed: { version: 1, fields: { displayName: "Concepts reader fixture" } }
+    });
+    await conceptsReader.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
+    await conceptsReader.page.getByRole("button", { name: /^Preview Concepts 101\./ }).evaluate((node) => node.click());
+    await conceptsReader.page.locator("#book-preview-read").click();
+    await conceptsReader.page.waitForSelector("#rtxt h2", { state: "attached" });
+    const conceptsState = await conceptsReader.page.evaluate(() => {
+      const reader = document.getElementById("reader");
+      const headings = [...document.querySelectorAll("#rtxt h2,#rtxt h3")];
+      const bandRect = document.querySelector(".book .band").getBoundingClientRect();
+      const titleRect = document.getElementById("rt").getBoundingClientRect();
+      const textRect = document.getElementById("rtxt").getBoundingClientRect();
+      const ledeRect = document.querySelector("#rtxt .lede").getBoundingClientRect();
+      return {
+        text: document.getElementById("rtxt").innerText,
+        tocCount: document.querySelectorAll("#rtoc a").length,
+        topLevelHeadingCount: headings.filter((heading) => heading.tagName === "H2").length,
+        headingCount: headings.length,
+        uniqueHeadingIds: new Set(headings.map((heading) => heading.id)).size,
+        receiptPuffyCount: document.querySelectorAll("#rtxt .receipts [data-puffy-title], #rtxt .receipts .puffy-save-row").length,
+        tryIds: headings.filter((heading) => heading.textContent.trim() === "Try this").map((heading) => heading.id),
+        titleContained: titleRect.top >= bandRect.top && titleRect.bottom <= bandRect.bottom,
+        ledeFillRatio: ledeRect.width / textRect.width,
+        visibleDecorativeRules: [...document.querySelectorAll("#rtxt hr")]
+          .filter((rule) => getComputedStyle(rule).display !== "none").length,
+        fitsViewport: reader.scrollWidth <= reader.clientWidth
+      };
+    });
+    check(
+      conceptsState.text.includes("A model is part of the experience—not the whole thing.") &&
+        conceptsState.text.toLowerCase().includes("token & context window") &&
+        conceptsState.tocCount === conceptsState.topLevelHeadingCount &&
+        conceptsState.headingCount === conceptsState.uniqueHeadingIds &&
+        conceptsState.receiptPuffyCount === 0 &&
+        conceptsState.tryIds.length === 4 &&
+        new Set(conceptsState.tryIds).size === 4 &&
+        conceptsState.titleContained &&
+        conceptsState.ledeFillRatio >= 0.75 &&
+        conceptsState.visibleDecorativeRules === 0 &&
+        conceptsState.fitsViewport,
+      "exact Concepts 101 artifact renders with complete contents, unclipped title, full reading width, unique anchors, no decorative dot rules and no overflow"
+    );
+    if (captureDir) {
+      await conceptsReader.page.screenshot({
+        path: path.join(captureDir, "concepts-101-reader-desktop-1440x1000.png")
+      });
+    }
+    await conceptsReader.page.setViewportSize({ width: 390, height: 844 });
+    await conceptsReader.page.evaluate(() => window.scrollTo(0, 0));
+    check(
+      await conceptsReader.page.evaluate(() => {
+        const reader = document.getElementById("reader");
+        const body = document.querySelector("#rtxt");
+        const mobileToc = document.getElementById("mobile-toc");
+        return reader.scrollWidth <= reader.clientWidth &&
+          body.getBoundingClientRect().width <= 390 &&
+          getComputedStyle(mobileToc).display !== "none" &&
+          document.querySelectorAll("#rtoc-mobile a").length === 6 &&
+          !mobileToc.open;
+      }),
+      "exact Concepts 101 reader reflows without mobile overflow and keeps a compact section finder"
+    );
+    await conceptsReader.page.locator("#mobile-toc summary").click();
+    check(
+      await conceptsReader.page.evaluate(() => {
+        const mobileToc = document.getElementById("mobile-toc");
+        return mobileToc.open && document.querySelectorAll("#rtoc-mobile a").length === 6;
+      }),
+      "mobile reader exposes the full top-level book contents on demand"
+    );
+    await conceptsReader.page.locator("#mobile-toc summary").click();
+    if (captureDir) {
+      await conceptsReader.page.screenshot({
+        path: path.join(captureDir, "concepts-101-reader-mobile-start-390x844.png")
+      });
+    }
+    await conceptsReader.page.setViewportSize({ width: 1440, height: 1000 });
+    const secondTry = conceptsReader.page.getByRole("heading", { name: "Try this", exact: true }).nth(1);
+    const secondTryId = await secondTry.getAttribute("id");
+    await conceptsReader.page.locator(`#${secondTryId} + .puffy-save-row .puffy-btn`).click();
+    await conceptsReader.page.locator(".puffy-option").first().click();
+    const exactSectionSave = await conceptsReader.page.evaluate(() => {
+      const rows = JSON.parse(localStorage.getItem("laidies_puffies_board") || "[]");
+      return rows.find((row) => row.book_id === "concepts-101" && row.title === "Try this");
+    });
+    check(
+      exactSectionSave?.section_id === secondTryId &&
+        exactSectionSave?.url.endsWith(`::${encodeURIComponent("@" + secondTryId)}`),
+      "duplicate-title section save stores its own stable unique anchor"
+    );
+    await conceptsReader.page.goto(`${origin}${exactSectionSave.url}`, { waitUntil: "domcontentloaded" });
+    await conceptsReader.page.reload({ waitUntil: "domcontentloaded" });
+    await conceptsReader.page.waitForSelector("#rtxt h2", { state: "attached" });
+    const reopenedSection = await conceptsReader.page.evaluate(() => {
+      const heading = document.querySelector('#rtxt [aria-current="location"]');
+      const visiblePuffyRows = [...document.querySelectorAll("#rtxt .puffy-save-row")]
+        .filter((row) => row.getClientRects().length > 0);
+      return {
+        id: heading?.id || "",
+        hidden: heading?.hidden ?? true,
+        readerOpen: document.getElementById("reader").classList.contains("on"),
+        hash: location.hash,
+        ids: [...document.querySelectorAll("#rtxt h2,#rtxt h3")]
+          .filter((node) => node.textContent.trim() === "Try this")
+          .map((node) => node.id),
+        visiblePuffyRows: visiblePuffyRows.length,
+        mobileTocDisplay: getComputedStyle(document.getElementById("mobile-toc")).display,
+        desktopTocDisplay: getComputedStyle(document.getElementById("rtoc")).display
+      };
+    });
+    check(
+      reopenedSection.id === secondTryId && !reopenedSection.hidden && reopenedSection.readerOpen &&
+        reopenedSection.visiblePuffyRows > 1 && reopenedSection.mobileTocDisplay === "none" &&
+        reopenedSection.desktopTocDisplay !== "none",
+      `duplicate-title section route reopens the exact saved occurrence ${JSON.stringify(reopenedSection)}`
+    );
+    await conceptsReader.page.setViewportSize({ width: 390, height: 844 });
+    await conceptsReader.page.waitForFunction((targetId) => {
+      const target = document.getElementById(targetId);
+      if (!target) return false;
+      const rect = target.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight;
+    }, secondTryId);
+    check(
+      await conceptsReader.page.evaluate(() =>
+        getComputedStyle(document.getElementById("mobile-toc")).display !== "none" &&
+        [...document.querySelectorAll("#rtxt > *")].every((node) => !node.hidden)
+      ),
+      "saved exact section keeps the whole book and mobile contents navigation available"
+    );
+    if (captureDir) {
+      await conceptsReader.page.screenshot({
+        path: path.join(captureDir, "concepts-101-reader-mobile-exact-section-390x844.png")
+      });
+    }
+    await conceptsReader.context.close();
+
+    const rulebookReader = await makePage({
+      fixture: true,
+      viewport: { width: 1440, height: 1000 },
+      cardSeed: { version: 1, fields: { displayName: "Rulebook reader fixture" } }
+    });
+    await rulebookReader.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
+    await rulebookReader.page.getByRole("button", { name: /^Preview How to Check AI's Work\./ }).evaluate((node) => node.click());
+    await rulebookReader.page.locator("#book-preview-read").click();
+    await rulebookReader.page.waitForSelector("#rtxt .vr-chapter", { state: "attached" });
+    const rulebookState = await rulebookReader.page.evaluate(() => ({
+      chapters: document.querySelectorAll("#rtxt .vr-chapter").length,
+      forms: document.querySelectorAll("#rtxt .vr-check").length,
+      hasOpeningPromise: Boolean(document.querySelector("#rtxt .vr-hero .vr-promise")),
+      duplicateTitle: Boolean(document.querySelector("#rtxt .vr-hero h1")),
+      hasPrompt: Boolean(document.querySelector("#rtxt #vr-prompt-text")),
+      hasTransfer: Boolean(document.querySelector("#rtxt [data-transfer]")),
+      hasSources: Boolean(document.querySelector("#rtxt .vr-sources")),
+      administrativePuffy: document.querySelectorAll("#rtxt .vr-metadata .puffy-save-row,#rtxt .vr-sources .puffy-save-row").length,
+      overflow: document.getElementById("reader").scrollWidth > document.getElementById("reader").clientWidth
+    }));
+    check(
+      rulebookState.chapters === 7 && rulebookState.forms >= 8 && rulebookState.hasOpeningPromise && !rulebookState.duplicateTitle &&
+        rulebookState.hasPrompt && rulebookState.hasTransfer && rulebookState.hasSources &&
+        rulebookState.administrativePuffy === 0 && !rulebookState.overflow,
+      `integrated Verification Rulebook retains its complete book, method tools and source drawer ${JSON.stringify(rulebookState)}`
+    );
+    await rulebookReader.page.locator('#rtxt .vr-check[data-check="opening"] input[data-correct="true"]').check();
+    await rulebookReader.page.locator('#rtxt .vr-check[data-check="opening"] button[type="submit"]').click();
+    check(
+      (await rulebookReader.page.locator('#rtxt .vr-check[data-check="opening"] .vr-feedback').innerText())
+        .includes("Keyed choices match the model key"),
+      "integrated Verification Rulebook check provides its bounded feedback instead of a dead form"
+    );
+    if (captureDir) {
+      await rulebookReader.page.screenshot({
+        path: path.join(captureDir, "verification-rulebook-reader-desktop-1440x1000.png")
+      });
+    }
+    await rulebookReader.page.setViewportSize({ width: 390, height: 844 });
+    const rulebookMobileState = await rulebookReader.page.evaluate(() => {
+        const reader = document.getElementById("reader");
+        const forms = [...document.querySelectorAll("#rtxt .vr-check")];
+        return {
+          readerClientWidth: reader.clientWidth,
+          readerScrollWidth: reader.scrollWidth,
+          wideForms: forms.map((form, index) => ({ index, clientWidth: form.clientWidth, scrollWidth: form.scrollWidth }))
+            .filter((form) => form.scrollWidth > form.clientWidth)
+        };
+      });
+    check(
+      rulebookMobileState.readerScrollWidth <= rulebookMobileState.readerClientWidth && !rulebookMobileState.wideForms.length,
+      `integrated Verification Rulebook and its method checks reflow without mobile overflow ${JSON.stringify(rulebookMobileState)}`
+    );
+    if (captureDir) {
+      await rulebookReader.page.screenshot({
+        path: path.join(captureDir, "verification-rulebook-reader-mobile-390x844.png")
+      });
+    }
+    await rulebookReader.context.close();
 
     const reduced = await makePage({ fixture: true });
     await reduced.page.emulateMedia({ reducedMotion: "reduce" });
     await reduced.page.goto(`${origin}/library.html`, { waitUntil: "domcontentloaded" });
     check(
-      await reduced.page.locator(".stage-book").first().evaluate(
+      await reduced.page.locator(".bk").first().evaluate(
         (node) => parseFloat(getComputedStyle(node).transitionDuration) <= 0.00001
       ),
       "reader page honors reduced-motion preference"
@@ -531,7 +1460,7 @@ const server = http.createServer((request, response) => {
     check(
       takeoverResult.initiallyPrivate &&
         takeoverResult.readerHidden &&
-        takeoverResult.status.includes("Vocab 101 is not published yet"),
+        takeoverResult.status.includes("Vocab 101 is not available yet"),
       "catalogue authority is private and runtime takeover cannot open a held book"
     );
     check(
@@ -619,9 +1548,9 @@ const server = http.createServer((request, response) => {
       (await corrupt.page.locator("html").getAttribute("data-puffy-visitor-state")) ===
         "returning-without-card" &&
         (await corrupt.page.locator("#puffyVisitorState").innerText()).includes(
-          "Welcome back on this device"
+          "older Puffy saves"
         ),
-      "returning visitor without a Card gets same-device continuation copy"
+      "returning visitor without a Card gets legacy-save and Card-required copy"
     );
     await corrupt.context.close();
 
@@ -664,7 +1593,9 @@ const server = http.createServer((request, response) => {
     );
     await deniedCleanup.context.close();
 
-    const hostileWrite = await makePage();
+    const hostileWrite = await makePage({
+      cardSeed: { version: 1, fields: { displayName: "Safety fixture" } }
+    });
     await hostileWrite.page.goto(`${origin}/library.html`, {
       waitUntil: "domcontentloaded"
     });
@@ -693,7 +1624,9 @@ const server = http.createServer((request, response) => {
     );
     await hostileWrite.context.close();
 
-    const persistence = await makePage();
+    const persistence = await makePage({
+      cardSeed: { version: 1, fields: { displayName: "Puffy fixture" } }
+    });
     await persistence.page.goto(`${origin}/library.html`, {
       waitUntil: "domcontentloaded"
     });
@@ -755,13 +1688,13 @@ const server = http.createServer((request, response) => {
     await persistence.page.locator(".puffy-item-main").click();
     await persistence.page.waitForFunction(() =>
       document.querySelector("#library-status")?.textContent.includes(
-        "Vocab 101 is not published yet"
+        "Vocab 101 is not available yet"
       )
     );
     check(
       (await persistence.page.locator("#reader").isHidden()) &&
         (await persistence.page.locator("#library-status").innerText()).includes(
-          "Removed from the catalogue"
+          "Not in the current catalogue"
         ),
       "Closet reopen routes back through the current Library admission check"
     );
@@ -787,9 +1720,9 @@ const server = http.createServer((request, response) => {
       (await visitorFirst.page.locator("html").getAttribute("data-puffy-visitor-state")) ===
         "first-time" &&
         (await visitorFirst.page.locator("#puffyVisitorState").innerText()).includes(
-          "Resident Card or account is not required"
+          "Make your Resident Card"
         ),
-      "first-time visitor gets optional device-local Puffy copy"
+      "first-time visitor gets the Resident Card requirement before choosing Puffies"
     );
     await visitorFirst.context.close();
 
@@ -855,9 +1788,9 @@ const server = http.createServer((request, response) => {
       (await crossTabB.locator("html").getAttribute("data-puffy-visitor-state")) ===
         "returning-without-card" &&
         (await crossTabB.locator("#puffyVisitorState").innerText()).includes(
-          "came from this browser"
+          "older Puffy saves"
         ),
-      "cross-tab create refreshes same-device visitor-state truth"
+      "cross-tab create refreshes the no-Card legacy-save truth"
     );
     await crossTabA.evaluate((record) => {
       localStorage.setItem(
@@ -884,9 +1817,9 @@ const server = http.createServer((request, response) => {
       (await crossTabB.locator("html").getAttribute("data-puffy-visitor-state")) ===
         "first-time" &&
         (await crossTabB.locator("#puffyVisitorState").innerText()).includes(
-          "only in this browser"
+          "Make your Resident Card"
         ),
-      "cross-tab removal restores first-visit visitor-state truth"
+      "cross-tab removal restores the first-visit Card requirement"
     );
     await crossTabContext.close();
 
@@ -911,18 +1844,15 @@ const server = http.createServer((request, response) => {
     await denied.page
       .locator("#puffy-denied-section + .puffy-save-row .puffy-btn")
       .click();
-    await denied.page.locator(".puffy-option").first().click();
     check(
-      (await denied.page
-        .locator("html")
-        .getAttribute("data-puffy-storage")) === "failed" &&
-        (await denied.page.locator("#puffyStorageStatus").innerText()).includes(
-          "Nothing was saved or removed"
+      (await denied.page.locator(".puffy-card-required").count()) === 1 &&
+        (await denied.page.locator(".puffy-card-required").innerText()).includes(
+          "Resident Card"
         ) &&
         !(await denied.page.locator("#puffy-denied-section + .puffy-save-row .puffy-btn").getAttribute("class")).includes(
           "is-placed"
         ),
-      "storage denial reports persistent truth and claims no save"
+      "storage denial cannot establish a Resident Card and blocks a false Puffy save"
     );
     await denied.context.close();
 
@@ -932,7 +1862,7 @@ const server = http.createServer((request, response) => {
     );
     check(
       publicationRequests.every((url) =>
-        /\/content\/library-books\/rendered\/vocab-101\.html$/.test(url)
+        /\/content\/library-books\/rendered\/(?:vocab-101|concepts-101|verification-rulebook)\.html$/.test(url)
       ),
       "hostile catalogue values produce zero publication request attempts"
     );

@@ -79,6 +79,7 @@
     'usable-25-images/75-pink-teal-magic-wand.png'
   ];
   var activePicker = null;
+  var activePickerOpener = null;
   var storageFailed = false;
   var recoveryCount = 0;
   var recoveryRemovedCount = 0;
@@ -433,10 +434,15 @@
     return '/assets/puffies/' + (stickerByFile(file) ? file : DEFAULT_POUCH[0]);
   }
 
-  function closePicker() {
+  function closePicker(restoreFocus) {
     if (!activePicker) return;
+    var opener = activePickerOpener;
     activePicker.remove();
     activePicker = null;
+    activePickerOpener = null;
+    if (restoreFocus !== false && opener && opener.isConnected && typeof opener.focus === 'function') {
+      opener.focus({ preventScroll: true });
+    }
   }
 
   function positionPicker(picker, anchor) {
@@ -450,11 +456,36 @@
     picker.style.top = top + 'px';
   }
 
+  function openCardRequirement(anchor) {
+    closePicker(false);
+    var picker = document.createElement('div');
+    picker.className = 'puffy-picker puffy-card-required';
+    picker.setAttribute('role', 'dialog');
+    picker.setAttribute('aria-modal', 'true');
+    picker.setAttribute('aria-label', 'Resident Card required to save with a Puffy Sticker');
+    picker.innerHTML =
+      '<div class="puffy-picker-head"><b>Make your Resident Card to save</b>' +
+        '<span>Puffy Stickers create shortcuts on the Puffy Board in My Closet. Your Card unlocks your pouch of 10 active stickers on this device.</span></div>' +
+      '<div class="puffy-card-required-actions"><a href="/laidies-card.html#sectionCard">Make my Resident Card</a>' +
+        '<button type="button">Keep reading</button></div>';
+    picker.querySelector('button').addEventListener('click', function () { closePicker(true); });
+    document.body.appendChild(picker);
+    activePicker = picker;
+    activePickerOpener = anchor;
+    positionPicker(picker, anchor);
+    picker.querySelector('a').focus();
+  }
+
   function openPicker(anchor, el, id, paint) {
-    closePicker();
+    if (!hasDeviceLocalCard()) {
+      openCardRequirement(anchor);
+      return;
+    }
+    closePicker(false);
     var picker = document.createElement('div');
     picker.className = 'puffy-picker';
     picker.setAttribute('role', 'dialog');
+    picker.setAttribute('aria-modal', 'true');
     picker.setAttribute('aria-label', 'Choose a puffy sticker');
     picker.innerHTML =
       '<div class="puffy-picker-head"><b>Choose from your 10</b><span>Your personal Puffy Sticker pouch. Each one can mean something different to you.</span></div>' +
@@ -488,7 +519,7 @@
           placedAt: new Date().toISOString()
         });
         if (!save(list)) return;
-        closePicker();
+        closePicker(true);
         paint();
         document.dispatchEvent(new CustomEvent('puffies:changed'));
       });
@@ -498,12 +529,13 @@
     peel.hidden = !current;
     peel.addEventListener('click', function () {
       if (!save(load().filter(function (p) { return p.id !== id; }))) return;
-      closePicker();
+      closePicker(true);
       paint();
       document.dispatchEvent(new CustomEvent('puffies:changed'));
     });
     document.body.appendChild(picker);
     activePicker = picker;
+    activePickerOpener = anchor;
     positionPicker(picker, anchor);
     picker.querySelector('.puffy-option').focus();
   }
@@ -524,8 +556,8 @@
       var placedItem = find(load(), id);
       var placed = Boolean(placedItem);
       btn.classList.toggle('is-placed', placed);
-      btn.setAttribute('aria-label', placed ? 'Change or remove the puffy sticker saving this section' : 'Choose a puffy sticker to save this section to your Closet');
-      btn.title = placed ? 'Saved to your Puffy Board — click to change it' : 'Choose a puffy to save this exact place';
+      btn.setAttribute('aria-label', placed ? 'Change or remove the puffy sticker saving this ' + kind : 'Choose a puffy sticker to save this ' + kind + ' to your Closet');
+      btn.title = placed ? 'Saved to your Puffy Board — click to change it' : 'Choose a puffy to save this ' + kind;
       var art = btn.querySelector('.puffy-button-art');
       var label = btn.querySelector('.puffy-button-label');
       if (placed) {
@@ -569,26 +601,30 @@
     css.textContent =
       '.puffy-save-row{display:flex;justify-content:flex-end;align-items:center;grid-column:2;margin-top:7px}' +
       '.puffy-btn{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(36,94,209,.34);background:#fff;' +
-      'color:#263654;font:800 9px/1.15 Jost,sans-serif;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;padding:5px 9px 5px 6px;border-radius:999px;}' +
+      'min-width:44px;min-height:44px;color:#263654;font:800 14px/1.2 Jost,sans-serif;letter-spacing:.035em;text-transform:uppercase;cursor:pointer;padding:7px 11px 7px 8px;border-radius:999px;}' +
       '.puffy-btn:hover,.puffy-btn:focus-visible{background:#f2f7ff;outline:2px solid rgba(88,217,232,.8);outline-offset:2px;}' +
       '.puffy-button-art{position:relative;display:inline-block;width:28px;height:28px;flex:0 0 28px;}' +
       '.puffy-button-art img{position:absolute;inset:0;width:28px;height:28px;object-fit:contain;filter:drop-shadow(0 2px 2px rgba(10,20,55,.18));}' +
       '.puffy-button-art .puffy-chosen{transform:rotate(-5deg)}' +
       '.puffy-btn.is-placed .puffy-button-label{color:var(--accent,#d62886)}' +
-      '.puffy-picker{position:fixed;z-index:10000;background:#f6f2ff;color:#07142f;border:2px solid #1d5fce;border-radius:9px;' +
-      'box-shadow:0 20px 55px rgba(4,14,42,.35);padding:14px;max-height:72vh;display:flex;flex-direction:column;}' +
+      '.puffy-picker{position:fixed;z-index:10000;box-sizing:border-box;background:#f6f2ff;color:#07142f;border:2px solid #1d5fce;border-radius:9px;' +
+      'box-shadow:0 20px 55px rgba(4,14,42,.35);padding:14px;max-height:72vh;display:flex;flex-direction:column;overflow:hidden;}' +
       '.puffy-picker-head{display:flex;flex-direction:column;gap:2px;margin:0 0 10px;padding:0 2px 9px;border-bottom:1px solid #cdd9f4}' +
       '.puffy-picker-head b{font:800 16px/1.15 Jost,sans-serif}.puffy-picker-head span{font:500 11px/1.35 Jost,sans-serif;color:#52617f}' +
-      '.puffy-picker-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;padding:2px 2px 4px}' +
+      '.puffy-picker-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;padding:2px 2px 4px;min-height:0;overflow:auto}' +
       '.puffy-option{display:flex;flex-direction:column;align-items:center;gap:3px;min-height:69px;border:1px solid transparent;border-radius:6px;' +
-      'background:#fff;color:#283554;font:700 8px/1.15 Jost,sans-serif;cursor:pointer;padding:4px 2px;text-align:center}' +
+      'background:#fff;color:#283554;font:700 12px/1.2 Jost,sans-serif;cursor:pointer;padding:6px 3px;text-align:center}' +
       '.puffy-option:hover,.puffy-option:focus-visible{border-color:#18c6d8;background:#eafcff;outline:0}.puffy-option.is-current{border-color:#e84a95;background:#fff0f7}' +
       '.puffy-option img{display:block;width:43px;height:43px;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(10,20,55,.2))}' +
       '.puffy-picker-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding-top:9px;border-top:1px solid #cdd9f4;text-align:right}' +
-      '.puffy-picker-foot a{color:#245ed1;font:800 9px Jost,sans-serif;letter-spacing:.05em;text-transform:uppercase}' +
-      '.puffy-picker-peel{border:0;background:transparent;color:#a02f69;font:800 10px Jost,sans-serif;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;text-decoration:underline}' +
+      '.puffy-picker-foot a{display:inline-flex;align-items:center;min-height:44px;color:#245ed1;font:800 12px Jost,sans-serif;letter-spacing:.04em;text-transform:uppercase}' +
+      '.puffy-picker-peel{min-height:44px;border:0;background:transparent;color:#a02f69;font:800 12px Jost,sans-serif;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;text-decoration:underline}' +
+      '.puffy-card-required-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.puffy-card-required-actions a,.puffy-card-required-actions button{' +
+      'min-height:44px;border:2px solid #07142f;background:#e982ab;color:#07142f;border-radius:8px;padding:10px 13px;font:800 14px/1.2 Jost,sans-serif;text-decoration:none;cursor:pointer}' +
+      '.puffy-card-required-actions button{background:#fff}' +
       '@media(max-width:900px){.puffy-save-row{grid-column:1;margin-top:10px;justify-content:flex-start}}' +
-      '@media(max-width:560px){.puffy-picker-grid{grid-template-columns:repeat(3,1fr)}.puffy-btn{font-size:8px}}';
+      '@media(max-width:560px){.puffy-picker-grid{grid-template-columns:repeat(3,1fr)}}' +
+      '@media(max-width:360px){.puffy-picker{padding:10px}.puffy-picker-grid{gap:5px}.puffy-option{min-height:70px;padding:3px 2px;font-size:10px}.puffy-option img{width:36px;height:36px}.puffy-picker-foot{margin-top:7px;padding-top:6px}}';
     document.head.appendChild(css);
     targets.forEach(wireTarget);
   }
@@ -598,6 +634,14 @@
     var editor = document.getElementById('puffyPouchEditor');
     var editButton = document.getElementById('puffyPouchEdit');
     if (!pouch || !editor || !editButton || pouch.getAttribute('data-ready') === 'true') return;
+    if (!hasDeviceLocalCard()) {
+      pouch.innerHTML = '<p class="puffy-empty">Make your Resident Card to choose your 10 active Puffy Stickers and save books or exact sections to this device.</p>';
+      editButton.hidden = true;
+      var lockedCount = document.getElementById('puffyPouchCount');
+      if (lockedCount) lockedCount.textContent = 'Resident Card required';
+      return;
+    }
+    editButton.hidden = false;
     pouch.setAttribute('data-ready', 'true');
 
     var css = document.createElement('style');
@@ -782,9 +826,9 @@
     document.documentElement.setAttribute('data-puffy-visitor-state', state);
     var copy = {
       'first-time':
-        'First visit: Puffy saves are optional shortcuts kept only in this browser. A Resident Card or account is not required.',
+        'Make your Resident Card to choose your 10 active Puffy Stickers and save places to My Closet on this device.',
       'returning-without-card':
-        'Welcome back on this device. These Puffy saves came from this browser; reopening one asks the Library to check its current publication status again.',
+        'This browser has older Puffy saves but no current Resident Card. Make your Card to place new Puffies; existing records remain device-local.',
       'device-local-card':
         'Device-local Resident Card found. Your Card and Puffy saves are separate browser records; the Card does not add Library access, login, backup or sync.',
       'verified-account-local-puffy':
@@ -805,9 +849,37 @@
     closePicker();
   });
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') closePicker();
-  });
-  window.addEventListener('resize', closePicker);
+    if (!activePicker) return;
+    if (ev.key === 'Escape') {
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      closePicker(true);
+      return;
+    }
+    if (ev.key !== 'Tab') return;
+    ev.stopImmediatePropagation();
+    var focusable = Array.prototype.slice.call(activePicker.querySelectorAll(
+      'a[href],button:not([disabled]):not([hidden]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])'
+    )).filter(function (node) { return node.getClientRects().length > 0; });
+    if (!focusable.length) {
+      ev.preventDefault();
+      activePicker.focus();
+      return;
+    }
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (!activePicker.contains(document.activeElement)) {
+      ev.preventDefault();
+      first.focus();
+    } else if (ev.shiftKey && document.activeElement === first) {
+      ev.preventDefault();
+      last.focus();
+    } else if (!ev.shiftKey && document.activeElement === last) {
+      ev.preventDefault();
+      first.focus();
+    }
+  }, true);
+  window.addEventListener('resize', function () { closePicker(true); });
   window.addEventListener('storage', function (event) {
     if (event.storageArea !== localStorage) return;
     if (event.key === KEY || event.key === null) {
@@ -822,5 +894,8 @@
       }));
     }
   });
-  document.addEventListener('laidies:identity-changed', paintVisitorState);
+  document.addEventListener('laidies:identity-changed', function () {
+    paintVisitorState();
+    initPouch();
+  });
 })();

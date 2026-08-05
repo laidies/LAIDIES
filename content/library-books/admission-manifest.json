@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "manifest_version": "library-admission-proposal-2026-07-26.1",
-  "frozen_at": "2026-07-26T10:25:37-07:00",
-  "authority": "EDITORIAL_PROPOSAL_ONLY_ZERO_BOOKS_ADMITTED",
+  "manifest_version": "library-admission-local-2026-08-03.3",
+  "frozen_at": "2026-08-03T17:14:00-07:00",
+  "authority": "LOCAL_PRODUCTION_ADMISSION_CONCEPTS_101_ONLY_PENDING_COMBINED_LIBRARY_JUDGMENT_ALI_TASTE_AND_RELEASE",
   "books": [
     {
       "book_id": "how-to-check",
       "status": "hold",
       "source_path": "/content/library-books/rendered/verification-rulebook.html",
-      "content_version": "sha256-ac3ec15f27898ad69c9ac142a86e51948b5d024437b89dcd11cf336ad81fdacd",
-      "admission_version": "proposal-2026-07-26.1",
+      "content_version": "sha256-38cd8c629a661e76e2beb6da2531d32a2c1b949c082e08aca6db225f1ac85dc3",
+      "admission_version": "proposal-2026-08-03.2",
       "source_references": [
         "content/library-books/verification-rulebook.json",
         "content/library-books/verification-rulebook.claims.json",
@@ -38,10 +38,43 @@
         "VR-C013",
         "VR-C014"
       ],
-      "reviewed_at": "2026-07-26T10:25:37-07:00",
-      "review_owner": "Library editorial admission lane / Codex",
+      "reviewed_at": "2026-08-03T14:21:00-07:00",
+      "review_owner": "Library currentness refresh maker — pending independent rejudgment",
       "correction_state": "blocked-no-triage-ledger",
-      "artifact_sha256": "9c2863b850d3c287bd7bfa4ff79e4cbe040eb15cf911e62c289e4aec0a44c237"
+      "artifact_sha256": "c862bc77deef8a54318f29e8aed35cbf9b8d76dea70044f0f12badfa64a96155"
+    },
+    {
+      "book_id": "concepts-101",
+      "status": "available",
+      "source_path": "/content/library-books/rendered/concepts-101.html",
+      "content_version": "concepts-101-2026-08-03.1",
+      "admission_version": "concepts-101-first-book-local-admission-2026-08-03.1",
+      "source_references": [
+        "content/library-books/concepts-101.claims.json",
+        "operations/product-stewards/library/evidence-concepts-101-claim-audit-2026-08-03/independent-judgment.md",
+        "operations/product-stewards/library/evidence-concepts-101-admission-2026-08-03/independent-content-admission-judgment.md",
+        "operations/product-stewards/library/evidence-concepts-101-first-book-admission-2026-08-03/independent-newcomer-admission-verdict.md",
+        "https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+        "https://help.openai.com/en/articles/8590148-memory-faq",
+        "https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf",
+        "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+        "https://openai.com/charter/",
+        "https://deepmind.google/research/publications/66938/"
+      ],
+      "claim_references": [
+        "C101-C001",
+        "C101-C002",
+        "C101-C003",
+        "C101-C004",
+        "C101-C005",
+        "C101-C006"
+      ],
+      "reviewed_at": "2026-08-03T17:14:00-07:00",
+      "review_owner": "Concepts 101 first-book maker plus independent newcomer/admission judge; combined Library production integration pending independent judgment",
+      "correction_state": "clear",
+      "artifact_sha256": "bb25fae48b640f53112bd9191391e66dbbf5bf4a8603d6c5bd55a8cf85508f4b"
     }
   ]
 }

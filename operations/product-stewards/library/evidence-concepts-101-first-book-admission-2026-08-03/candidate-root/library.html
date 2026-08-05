@@ -5,7 +5,7 @@
 <meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
 <link rel="canonical" href="https://laidies.ai/library" />
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
+<script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
 <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
 <style>
 :root{--midnight:#07142f;--plum:#3a1838;--rose:#9b3f5f;--pink:#f056a6;--cyan:#18c6d8;--periwinkle:#8c7cf2;--coral:#f47f7b;--teal:#2a6b73;--ink:#182341;--cream:#fffdfb}
@@ -14,7 +14,7 @@ body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);
   background:linear-gradient(150deg,#f6dfe4 0%,#e4d9f1 52%,#c9e5df 100%);background-attachment:fixed}
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 
-.wrap{max-width:none;margin:0;padding:0}
+.wrap{max-width:none;margin:0;padding:0 0 72px}
 .library-world{position:relative;overflow:hidden;
   background:linear-gradient(154deg,#4e187f 0%,#9238c6 27%,#ec4e9f 52%,#806fe4 73%,#24c7d4 100%);
   color:#fff}
@@ -33,8 +33,29 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .arrival-brand p{display:none}
 .arrival-brand p strong{color:#fff}
 .arrival-brand .mobile-instruction{display:none}
-.library-intro{position:relative;display:grid;grid-template-columns:1fr;gap:16px;align-items:start;
-  margin:0;padding:clamp(28px,3.6vw,46px) clamp(26px,7vw,108px) clamp(24px,3vw,38px);
+.stage-departments{position:absolute;inset:0;z-index:5;pointer-events:none}
+.stage-department{position:absolute;top:25.5%;color:#fff;text-align:center;font-size:clamp(9px,1.05vw,16px);font-weight:800;letter-spacing:.16em;text-shadow:0 2px 7px rgba(7,20,47,.9)}
+.stage-department:nth-child(1){left:3.8%;width:21%}.stage-department:nth-child(2){left:26%;width:20.4%}.stage-department:nth-child(3){left:48.1%;width:20.4%}
+.stage-books{position:absolute;inset:0;z-index:6}
+.stage-book{position:absolute;border:2px solid transparent;border-radius:6px;background:transparent;padding:0;cursor:pointer}
+.stage-book.soon{cursor:default}
+.stage-book:focus-visible,.stage-book:not(.soon):hover{outline:none;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(24,198,216,.3),0 10px 22px rgba(7,20,47,.3)}
+.stage-cover{position:absolute;inset:-3%;width:106%;height:106%;display:block;object-fit:contain;
+  filter:drop-shadow(0 5px 5px rgba(7,20,47,.38));transition:transform .15s,filter .15s}
+.stage-book:not(.soon):hover .stage-cover,.stage-book:not(.soon):focus-visible .stage-cover{
+  transform:translateY(-4%) rotate(-1.5deg);filter:drop-shadow(0 10px 8px rgba(7,20,47,.48))}
+.stage-book.soon .stage-cover{filter:saturate(.72) brightness(.82) drop-shadow(0 4px 4px rgba(7,20,47,.34))}
+.stage-availability{position:absolute;z-index:7;left:50%;bottom:2%;transform:translateX(-50%);width:max-content;max-width:118%;
+  padding:3px 6px;background:var(--midnight);color:#fff;border:1px solid var(--cyan);border-radius:4px;
+  font-size:clamp(6px,.53vw,9px);font-weight:800;letter-spacing:.08em;line-height:1.1;text-transform:uppercase;
+  box-shadow:0 3px 7px rgba(7,20,47,.36)}
+.stage-book .tip{position:absolute;left:50%;bottom:103%;width:max-content;max-width:210px;transform:translate(-50%,6px);opacity:0;pointer-events:none;
+ z-index:8;background:#fff;color:var(--ink);border:1px solid #eccadd;border-radius:10px;padding:8px 11px;text-align:center;
+ font-size:11px;line-height:1.3;box-shadow:0 9px 22px rgba(60,30,55,.3);transition:opacity .14s,transform .14s}
+.stage-book .tip b{display:block;font-size:13px;margin-bottom:2px}.stage-book .tip em{font-style:normal;color:#a5306a;font-weight:800}
+.stage-book:focus-visible .tip,.stage-book:not(.soon):hover .tip{opacity:1;transform:translate(-50%,0)}
+.library-intro{position:relative;display:grid;grid-template-columns:minmax(320px,.9fr) minmax(300px,1.1fr);gap:clamp(28px,5vw,76px);align-items:center;
+  margin:0;padding:clamp(36px,5vw,64px) clamp(26px,7vw,108px);
   overflow:hidden;border-radius:0;background:transparent;
   color:#fffdfb;box-shadow:none}
 .library-intro::before,.library-intro::after{content:none}
@@ -44,37 +65,62 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .titleblock h1{font-family:'Jost',system-ui,sans-serif;font-size:clamp(42px,6vw,76px);font-weight:800;color:#fffdfb;line-height:.92;
   text-shadow:3px 3px 0 rgba(7,20,47,.34),-2px -2px 0 rgba(139,226,232,.15)}
 .titleblock .ai{color:#8be2e8}
-.lede{max-width:920px;margin:0;padding:0;text-align:left;border:0;
+.lede{max-width:640px;margin:0;padding:0;text-align:left;border:0;
   font-family:'Jost',system-ui,sans-serif;font-size:clamp(18px,2vw,23px);font-weight:700;line-height:1.4;color:#fffdfb}
 .lede small{display:block;margin-top:11px;font-family:'Jost';font-size:15px;line-height:1.5;color:#fffdfb}
 
+/* ── The visitor route: the shelves are primary, help and saving are secondary ── */
+.library-route{position:relative;width:100%;margin:0;padding:clamp(42px,5vw,72px) clamp(24px,7vw,108px) 38px;
+  overflow:hidden;background:linear-gradient(135deg,#f3cdd9 0%,#e4d9f1 54%,#c8e6e2 100%);
+  color:var(--midnight)}
+.library-route::before,.library-route::after{content:none}
+.library-route>*{position:relative;z-index:1}
+.library-route-head{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(460px,1.5fr);gap:38px;align-items:end;max-width:1320px;margin:0 auto}
+.library-route .eyebrow{margin-bottom:8px;color:#07142f;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.library-route h2{font-family:'Jost',system-ui,sans-serif;font-size:clamp(25px,3vw,43px);font-weight:800;line-height:1.04;color:var(--midnight);
+  text-shadow:3px 3px 0 rgba(240,86,166,.2)}
+.library-route-intro{margin:0;color:#3f4d6b;font-size:18px;line-height:1.6;font-weight:600}
+.library-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(42px,7vw,96px);row-gap:8px;max-width:1180px;margin:28px auto 0}
+.library-step{position:relative;min-width:0;padding:20px 0 16px;display:grid;grid-template-columns:88px minmax(0,1fr);gap:16px;align-items:start}
+.library-step+.library-step{padding-left:0}
+.step-number{font-family:'Jost',system-ui,sans-serif;font-size:clamp(40px,4.3vw,64px);font-weight:800;line-height:.82;
+  color:#225dc5;text-shadow:3px 3px 0 #75e0e9}
+.library-step:nth-child(2) .step-number{color:#783dcb;text-shadow:3px 3px 0 #f3a7d0}
+.library-step:nth-child(3) .step-number{color:#d83c88;text-shadow:3px 3px 0 #8c7cf2}
+.library-step:nth-child(4) .step-number{color:#167c8f;text-shadow:3px 3px 0 #bca7ff}
+.library-step b{display:block;margin-bottom:7px;color:var(--midnight);font-size:19px;line-height:1.25;letter-spacing:.01em}
+.library-step b span{display:block;margin-bottom:5px;color:#216f82;font-size:12px;line-height:1.35;letter-spacing:.13em;text-transform:uppercase}
+.library-step p{margin:0;color:#2f2443;font-size:17px;line-height:1.5}
+.library-step a{color:#7138b7;text-underline-offset:3px}
+
 /* ── Ask Miss Jeeves — the reference desk ── */
-.jv{position:relative;z-index:10;display:grid;grid-template-columns:minmax(260px,.58fr) minmax(420px,1.42fr);
-  column-gap:clamp(28px,5vw,72px);row-gap:12px;align-items:end;width:auto;margin:0;
-  background:transparent;color:#fff;padding:0 clamp(24px,7vw,108px) clamp(34px,4.5vw,58px);
-  border:0;border-radius:0;box-shadow:none;overflow:visible}
-.jv::before{content:none}
+.jv{position:relative;z-index:10;width:auto;margin:clamp(20px,3.2vw,40px) clamp(20px,5vw,72px);
+  background:rgba(7,20,47,.86);color:#fff;
+  padding:clamp(30px,4vw,52px) clamp(24px,7vw,108px);border:0;border-radius:0;
+  box-shadow:0 20px 50px rgba(7,20,47,.22);overflow:hidden}
+.jv{margin:0 clamp(24px,7vw,108px) clamp(44px,6vw,82px)}
+.jv::before{content:"REFERENCE DESK";position:absolute;right:28px;top:18px;color:rgba(255,255,255,.76);font-size:11px;font-weight:800;letter-spacing:.16em}
 .jv::after{content:none}
 .jv>*{position:relative;z-index:1}
-.jv-head{grid-column:1;grid-row:1/3;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
+.jv-head{display:flex;align-items:center;gap:11px;margin-bottom:15px}
 .jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.64);border-radius:999px;
   color:#fffdfb;background:rgba(236,122,120,.26);padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.jv-head .h{font-family:'Jost',system-ui,sans-serif;font-size:clamp(42px,4vw,58px);font-weight:800;color:#fff;line-height:1.02}
-.jv-head .h small{display:block;font-family:'Jost';font-size:15px;font-weight:600;color:#fff;letter-spacing:.01em;margin-top:7px;line-height:1.45}
-.jv-form{grid-column:2;grid-row:1;display:flex;gap:9px}
+.jv-head .h{font-family:'Jost',system-ui,sans-serif;font-size:clamp(28px,3vw,40px);font-weight:800;color:#fff;line-height:1.02}
+.jv-head .h small{display:block;font-family:'Jost';font-size:14px;font-weight:500;color:#e0e8ff;letter-spacing:.01em;margin-top:5px}
+.jv-form{display:flex;gap:9px}
 .jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #7792c8;border-radius:10px;
   font:inherit;font-size:17px;background:#fff;color:var(--midnight)}
 .jv-form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(24,198,216,.24)}
 .jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#260d2b;
-  min-height:44px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  font:inherit;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .jv-form button:hover{filter:brightness(1.05)}
-.jv-chips{grid-column:2;grid-row:2;display:flex;flex-wrap:wrap;gap:7px;margin:0}
-.jv-chips b{font-size:13px;letter-spacing:.04em;color:#fff;align-self:center;margin-right:2px;font-weight:700}
-.jv-chip{border:1px solid rgba(255,255,255,.72);background:rgba(7,20,47,.34);color:#fff;border-radius:20px;padding:7px 13px;font:inherit;font-size:14px;cursor:pointer}
+.jv-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.jv-chips b{font-size:13px;letter-spacing:.04em;color:#d0ddfa;align-self:center;margin-right:2px;font-weight:600}
+.jv-chip{border:1px solid #7186b3;background:#17264a;color:#fff;border-radius:20px;padding:7px 13px;font:inherit;font-size:14px;cursor:pointer}
 .jv-chip{min-height:44px}
 .jv-chip:nth-of-type(2){border-color:#8c7cf2}.jv-chip:nth-of-type(3){border-color:#f47f7b}.jv-chip:nth-of-type(4){border-color:#18c6d8}
 .jv-chip:hover{background:#243967;border-color:var(--pink)}
-.jv-results{grid-column:1/-1;margin-top:4px;display:grid;gap:9px}
+.jv-results{margin-top:16px;display:grid;gap:9px}
 .jv-answer{position:relative;overflow:hidden;background:#fff;border:1px solid #ecdccb;border-left:6px solid var(--cyan);
   border-radius:11px;padding:18px 20px 16px;color:var(--ink)}
 .jv-answer::after{content:"MISS JEEVES";position:absolute;right:14px;top:8px;color:#d7e2f6;font-size:9px;
@@ -85,12 +131,12 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-answer p{max-width:850px;margin:7px 0 12px;color:#5f4358;font-size:14px;line-height:1.55}
 .jv-answer p strong{color:var(--ink)}
 .jv-answer-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border-top:1px solid #eadfec;padding-top:11px}
-.jv-answer-links b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
+.jv-answer-links b{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#69799f}
 .jv-answer-links a,.jv-answer-links button{appearance:none;border:0;background:none;padding:0;color:#8f2e67;font:inherit;
   font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .jv-answer-links a:hover,.jv-answer-links button:hover{color:#c02d84}
-.jv-answer-links .jv-held{border:1px dashed #947893;background:#fff7fb;color:#70425f;border-radius:8px;padding:8px 11px;font:700 14px/1.35 Jost,sans-serif}
-.library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#07142f;font:750 14px/1.5 Jost,sans-serif}
+.jv-answer-links .jv-held{border:1px dashed #947893;background:#fff7fb;color:#70425f;border-radius:8px;padding:8px 11px;font:700 10px/1.35 Jost,sans-serif}
+.library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#4b2148;font:750 14px/1.5 Jost,sans-serif}
 .library-status:empty{display:none}
 .reader-error{margin:18px 0;padding:18px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
 .reader-error h3{margin:0 0 8px;font:800 20px/1.2 Jost,sans-serif}.reader-error p{margin:0 0 12px}
@@ -99,14 +145,14 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
   text-decoration:none;background:#fff;border:1px solid #ecdccb;border-radius:11px;padding:12px 15px;
   transition:transform .12s,box-shadow .12s,border-color .12s}
 button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
-.jv-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(7,20,47,.18);border-color:var(--pink)}
-.jv-type{grid-row:1/3;align-self:center;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+.jv-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(75,33,72,.14);border-color:var(--pink)}
+.jv-type{grid-row:1/3;align-self:center;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
   color:#fff;background:var(--teal);border-radius:6px;padding:5px 8px;white-space:nowrap;text-align:center}
-.jv-episode{background:#d92f7f}.jv-101{background:#2467c8}.jv-concept{background:#008b9e;color:#07142f}.jv-tool{background:#6d1eb5}
+.jv-episode{background:#d92f7f}.jv-101{background:#2467c8}.jv-concept{background:#008b9e}.jv-tool{background:#6d1eb5}
 .jv-reference{background:#007ea8}.jv-activity{background:#a32fbd}.jv-building{background:#5650c7}
 .jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
 .jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
-.jv-none{display:block;margin:0;padding:12px 14px;background:rgba(7,20,47,.4);color:#fff;font-size:14px;font-weight:700;line-height:1.5}
+.jv-none{font-size:14px;color:#8a6a80;font-style:italic;padding:6px 2px}
 .jv-error{padding:14px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
 .jv-error p{margin:0 0 10px}.jv-error button{border:2px solid #07142f;background:#fff;color:#07142f;padding:9px 13px;font:800 11px/1 Jost,sans-serif;cursor:pointer}
 .mobile-catalogue{display:none}
@@ -115,48 +161,56 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
    Each bay paginates at six books, so catalogue growth never shrinks covers. */
 .libroom{position:relative;width:100%;aspect-ratio:1672/940;overflow:hidden;
   background:transparent}
-.unit{position:absolute;left:5%;right:5%;top:1%;bottom:4%;z-index:1}
-.shelf-unit{position:absolute;inset:0;
+.unit{position:absolute;left:5%;right:5%;top:1%;bottom:4%;z-index:1;
   background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat;
   filter:drop-shadow(0 16px 22px rgba(7,20,47,.4))}
-.libroom.has-multiple-units{aspect-ratio:auto;overflow:visible;padding:1% 5% 4%}
-.libroom.has-multiple-units .unit{position:relative;inset:auto;display:grid;gap:clamp(18px,2vw,32px)}
-.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;aspect-ratio:1672/940}
 .department{position:absolute;top:0;bottom:0;width:33.333%}
 .department:nth-child(1){left:0}.department:nth-child(2){left:33.333%}.department:nth-child(3){left:66.666%}
 .bay{position:absolute;inset:0}
 .mobile-shelf-caption{display:none}
-.ledge{position:absolute;left:9%;right:9%;top:2.2%;height:8.5%;display:flex;align-items:center;justify-content:center;z-index:6}
-.ledge img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 7px rgba(7,20,47,.38))}
+.ledge{position:absolute;left:9%;right:9%;top:2.2%;height:8.5%;display:flex;align-items:center;justify-content:center;z-index:6;
+  background:linear-gradient(180deg,#2d3d61 0%,#07142f 72%);border:1px solid #b7c3d3;color:#fff;
+  box-shadow:0 4px 0 #c8ccd3,0 8px 10px rgba(7,20,47,.34);
+  font:800 clamp(9px,1vw,15px)/1 'Jost',system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.ledge::before,.ledge::after{content:"";position:absolute;top:100%;width:7px;height:11px;background:#aeb5c0;box-shadow:inset 0 0 0 1px #707886}
+.ledge::before{left:11%}.ledge::after{right:11%}
 .brow{position:absolute;left:8%;right:8%;display:flex;align-items:flex-end;justify-content:center;gap:6%;z-index:2}
 .brow--1{bottom:51.5%;height:38%}.brow--2{bottom:10.5%;height:38%}.brow--3{display:none}
 .bk{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;cursor:pointer;
   border:0;background:none;padding:0;transform-origin:bottom center;
   transition:transform .16s cubic-bezier(.2,.8,.3,1),filter .16s;filter:drop-shadow(0 5px 6px rgba(0,0,0,.42))}
 .bk img{max-height:100%;max-width:100%;width:auto;height:auto;display:block;transform:translateY(3%)}
-.bk-status{position:absolute;left:50%;bottom:1px;z-index:3;transform:translateX(-50%);width:max-content;max-width:118%;padding:4px 7px;background:#07142f;color:#fff;font-size:14px;font-weight:800;line-height:1.1;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 2px 5px rgba(7,20,47,.35)}
+.bk-status{position:absolute;left:50%;bottom:1px;z-index:3;transform:translateX(-50%);width:max-content;max-width:118%;padding:3px 5px;background:#07142f;color:#fff;font-size:clamp(7px,.58vw,9px);font-weight:800;line-height:1.1;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 2px 5px rgba(7,20,47,.35)}
 .bk:hover,.bk:focus-visible{transform:translateY(-13%) rotate(-2deg);filter:drop-shadow(0 12px 13px rgba(0,0,0,.5));outline:none;z-index:20}
+.bk .tip{position:absolute;left:50%;bottom:108%;transform:translateX(-50%) translateY(5px);opacity:0;pointer-events:none;
+  z-index:30;transition:opacity .16s,transform .16s;background:#fff;color:var(--ink);border:1px solid #eccadd;
+  width:max-content;max-width:210px;white-space:normal;text-align:center;line-height:1.32;
+  font-size:11.5px;font-weight:500;padding:8px 12px;border-radius:11px;box-shadow:0 9px 22px rgba(60,30,55,.30)}
+.bk .tip b{display:block;font-family:'Playfair Display',serif;font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:3px}
+.bk .tip em{font-style:normal;color:#a5306a;font-weight:800}
+.bk:hover .tip,.bk:focus-visible .tip{opacity:1;transform:translateX(-50%) translateY(0)}
+.bk .tip{display:none}
+/* on hover, JS lifts the book's bay + shelf-row so the popup renders in front of everything */
+.bay.lift{z-index:60}.brow.lift{z-index:40}
 .bk.soon{cursor:default}
 .bk.soon img{opacity:.82;filter:grayscale(.2)}
 .bk.soon:hover{transform:none}.bk.soon .tip{border-color:#d9c8df}
-.shelf-guide{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,2.2fr);gap:clamp(24px,4vw,58px);align-items:start;
-  width:100%;padding:clamp(28px,3vw,42px) clamp(24px,7vw,108px) clamp(28px,4vw,48px);background:rgba(7,20,47,.4);color:#fff}
-.shelf-guide .eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
-.shelf-guide h2{margin-top:7px;font-family:'Jost',system-ui,sans-serif;font-size:clamp(56px,4.25vw,64px);font-weight:800;line-height:.95;color:#fff}
+.shelf-guide{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,2.25fr);gap:clamp(28px,5vw,76px);align-items:center;
+  width:100%;padding:0 clamp(24px,7vw,108px) clamp(28px,4vw,48px);background:transparent;color:#fff}
+.shelf-guide .eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#dceeff}
+.shelf-guide h2{margin-top:7px;font-family:'Jost',system-ui,sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;line-height:1;color:#fff}
 .shelf-captions{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(22px,4vw,58px);padding:0;background:transparent}
-.shelf-caption{text-align:left;color:#fff;font-size:15px;line-height:1.52}
+.shelf-caption{text-align:left;color:#f6f3ff;font-size:15px;line-height:1.52}
 .shelf-caption b{display:block;margin-bottom:6px;font-family:'Jost',system-ui,sans-serif;font-size:16px;font-weight:800;letter-spacing:.08em;color:#fff}
 .shelf-instruction{grid-column:1/-1;margin:0;color:#fff;font-size:16px;font-weight:700;line-height:1.45}
 .shelf-pages{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:0 clamp(22px,7vw,110px) 19px;background:transparent}
-.shelf-page-nav{display:flex;justify-content:center;align-items:center;gap:8px;color:var(--midnight);font-size:13px}
-.shelf-page-nav strong{font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-.shelf-page-nav .shelf-page-count{min-width:72px;text-align:center}
-.shelf-page-nav button{min-width:44px;min-height:44px;border:2px solid var(--midnight);background:#fff;color:var(--midnight);padding:10px 12px;font:800 14px/1 Jost,sans-serif;cursor:pointer}
+.shelf-page-nav{display:flex;justify-content:center;align-items:center;gap:8px;color:#513c60;font-size:13px}
+.shelf-page-nav button{border:2px solid var(--midnight);background:#fff;color:var(--midnight);padding:8px 10px;font:800 10px/1 Jost,sans-serif;cursor:pointer}
 .shelf-page-nav button:disabled{opacity:.4;cursor:not-allowed}
-.catalogue-controls{grid-column:1/-1;display:grid;grid-template-columns:minmax(230px,1.45fr) repeat(3,minmax(145px,.72fr));gap:12px;align-items:end;margin-top:8px}
+.catalogue-controls{grid-column:1/-1;display:grid;grid-template-columns:minmax(240px,1.6fr) minmax(150px,.7fr) minmax(170px,.7fr);gap:12px;align-items:end;margin-top:8px}
 .catalogue-control{display:grid;gap:5px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
-.catalogue-control input,.catalogue-control select{width:100%;min-height:46px;border:2px solid rgba(255,255,255,.9);border-radius:0;background:#f4efff;color:var(--midnight);padding:10px 12px;font:700 15px/1.3 Jost,sans-serif}
-.catalogue-control input::placeholder{color:#5c5370}.catalogue-control input:focus,.catalogue-control select:focus{outline:3px solid #72e5ee;outline-offset:2px}
+.catalogue-control input,.catalogue-control select{width:100%;min-height:46px;border:1px solid rgba(255,255,255,.72);border-radius:0;background:rgba(7,20,47,.78);color:#fff;padding:10px 12px;font:600 15px/1.3 Jost,sans-serif}
+.catalogue-control input::placeholder{color:#e1dcf2}.catalogue-control input:focus,.catalogue-control select:focus{outline:3px solid #72e5ee;outline-offset:2px}
 .catalogue-result{grid-column:1/-1;margin:0;color:#fff;font-size:14px;font-weight:650;line-height:1.4}
 .visitor-state{grid-column:1/-1;margin:0;padding:2px 0 0;color:#efeaff;font-size:13px;line-height:1.5}
 .visitor-state:empty{display:none}
@@ -170,19 +224,27 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   width:100%;margin:0;padding:28px clamp(24px,7vw,108px) 34px;
   border:0;background:rgba(255,255,255,.9);
   box-shadow:0 -12px 34px rgba(7,20,47,.14);color:var(--midnight)}
+.checkout-preview.is-empty{grid-template-columns:1fr;text-align:center}
+.checkout-preview.is-empty .checkout-cover,.checkout-preview.is-empty .checkout-action{display:none}
+.checkout-preview.is-empty{position:relative;width:100%;margin:0;padding:46px clamp(24px,7vw,108px) 52px;border:0;border-radius:0;
+  overflow:visible;background:transparent;box-shadow:none;text-align:left;color:var(--midnight)}
 .checkout-preview.is-empty{display:none}
+.checkout-preview.is-empty::before,.checkout-preview.is-empty::after{content:none}
+.checkout-preview.is-empty .checkout-copy{position:relative;z-index:1;max-width:1000px;margin:0}
+.checkout-preview.is-empty .checkout-kicker{color:#9b2d70;font-size:13px}
+.checkout-preview.is-empty .checkout-copy h2{max-width:900px;margin:8px 0 9px;color:#07142f;font-family:'Jost',system-ui,sans-serif;font-size:clamp(34px,4.6vw,68px);font-weight:800;line-height:.98;
+  text-shadow:4px 4px 0 rgba(240,86,166,.24)}
+.checkout-preview.is-empty .checkout-copy p{max-width:760px;color:#493457;font-size:18px;font-weight:650}
 .checkout-cover{height:230px;display:flex;align-items:center;justify-content:center}
 .checkout-cover img{max-width:100%;max-height:100%;filter:drop-shadow(0 8px 8px rgba(33,19,47,.28))}
 .checkout-kicker{color:#8f2e67;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 .checkout-copy h2{margin:5px 0 7px;font-family:'Jost',system-ui,sans-serif;font-size:clamp(25px,3vw,38px);font-weight:800;line-height:1.05}
 .checkout-copy h2:focus{outline:none}
 .checkout-copy p{max-width:680px;margin:0;color:#563f5f;font-size:15px;line-height:1.5}
-.checkout-copy .checkout-inside{margin-top:10px;color:#332141}
-.checkout-inside b{color:var(--midnight)}
 .checkout-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;color:#574561;font-size:14px}
 .checkout-meta b{color:var(--midnight)}
 .checkout-action{display:grid;gap:8px;width:170px}
-.checkout-action button{min-height:44px;border:2px solid var(--midnight);background:var(--pink);color:#260d2b;padding:13px 16px;
+.checkout-action button{border:2px solid var(--midnight);background:var(--pink);color:#260d2b;padding:13px 16px;
   font:800 12px/1.1 Jost,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:4px 4px 0 var(--midnight)}
 .checkout-action button[hidden]{display:none}
 .checkout-action small{color:#70425f;font-size:13px;line-height:1.4;text-align:center}
@@ -221,7 +283,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt h2::before{counter-increment:sec;content:counter(sec,decimal-leading-zero);position:absolute;top:16px;left:0;font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent);opacity:.62}
 .book .txt h2::after{content:"";display:block;width:56px;height:4px;border-radius:3px;background:var(--accent);margin-top:12px}
 .book .txt h3{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;margin:26px 0 6px;color:var(--accent)}
-.book .txt [aria-current="location"]:focus{outline:0;background:color-mix(in srgb,var(--accent) 9%,#f7f5ff);border-left:6px solid var(--accent);padding:7px 10px}
 .book .txt h4{font-family:'Playfair Display',serif;font-size:17px;margin:20px 0 5px;color:var(--accent-ink)}
 .book .txt p{margin:0 0 14px}
 .book .txt ul,.book .txt ol{margin:0 0 16px;padding-left:20px}
@@ -295,7 +356,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .band .t>.puffy-btn{color:#fff}
 .book .band .puffy-save-row{justify-content:flex-start;margin-top:10px}
 .book .band button:not(.puffy-btn){align-self:center;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;
-  min-width:44px;min-height:44px;padding:10px 14px;font-weight:800;font-size:14px;line-height:1.2;box-shadow:4px 4px 0 #18c6d8;transition:transform .15s,box-shadow .15s}
+  padding:8px 13px;font-weight:800;font-size:11px;box-shadow:4px 4px 0 #18c6d8;transition:transform .15s,box-shadow .15s}
 .book .band button:not(.puffy-btn):hover{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
 .book .band button:not(.puffy-btn):focus-visible{outline:3px solid #fff;outline-offset:3px}
 .book .body{grid-template-columns:214px 1fr;background:#f4f6ff}
@@ -371,12 +432,19 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt details{margin:12px 0;padding:12px;background:#fff;border:1px solid #c9d6f1}.book .txt summary{cursor:pointer;font-weight:900}
 .book .txt .vr-source-list,.book .txt .vr-handoffs,.book .txt .vr-ledger-list{padding:0;list-style:none}.book .txt .vr-source-list li,.book .txt .vr-handoffs li,.book .txt .vr-ledger-list>li{padding:12px 0;border-bottom:1px solid #c9d6f1}
 .book .txt .vr-claim{margin:13px 0;padding:12px;background:#fff;border-left:5px solid var(--accent)}
-.book .band .puffy-save-row .puffy-btn,.book .txt .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 11px 7px 8px;font-size:14px;line-height:1.2;letter-spacing:.035em}
+.book .txt .puffy-save-row .puffy-btn{padding:4px 8px 4px 5px;font-size:8px;letter-spacing:.055em}
 .book .txt table{border-color:#c9d6f1;border-radius:3px}
 .book .txt th,.book .txt td{border-bottom-color:#dbe4ff}
 .book .txt tbody tr:nth-child(even){background:#f0f4ff}
 .book .txt::after{content:"SUNNYVAiLE LIBRAiRY · RETURN TO THE SHELF WHEN YOU ARE DONE";height:auto;margin:42px 0 0;padding-top:13px;
   color:#68789a;border-top:1px solid #cbd6ec;background:none;font-size:8px;font-weight:800;letter-spacing:.18em;text-align:center}
+.book.focused{width:min(900px,100%)}
+.book.focused .body{grid-template-columns:1fr}
+.book.focused .toc{display:none}
+.book.focused .mobile-toc{display:none}
+.book.focused .txt{padding:38px 58px 50px}
+.book.focused .txt h3:first-child{margin-top:0}
+.book.focused .txt [hidden]{display:none!important}
 
 @media(max-width:900px){
   .book .txt{padding:30px 30px 46px}
@@ -400,6 +468,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .book .band{min-height:0;flex:0 0 auto;padding:20px 18px 17px;align-items:flex-start;flex-direction:column}
   .book .band::after{content:none}.book .band .m{max-width:100%;font-size:8px;line-height:1.45}
   .book .band .t{font-size:27px}.book .band button:not(.puffy-btn){align-self:flex-start;margin-top:11px}
+  .book.focused .txt{padding:26px 22px 34px}
   .book .txt .term,.book .txt .term-feature{display:block;margin:0;padding:18px 2px 19px}
   .book .txt .term-feature{margin:10px -6px;padding:19px 10px}
   .book .txt .term h3{margin:0 0 10px;padding:0;font-size:19px}
@@ -409,13 +478,12 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .book .txt .vr-check,.book .txt .vr-transfer{padding:15px 13px}.book .txt .vr-prompt{margin:26px -8px;padding:21px 16px}
   .jv-form{flex-wrap:wrap}.jv-form input{flex:1 1 100%}.jv-form button{flex:1 1 100%;padding:13px}
   .entry{height:40vh;min-height:230px}
-  .library-intro{grid-template-columns:minmax(0,1fr);margin:0;padding:25px 20px 21px;gap:12px;border-radius:0}
+  .library-intro{grid-template-columns:minmax(0,1fr);margin:0;padding:30px 20px 29px;gap:14px;border-radius:0}
   .library-intro::after{width:68%}.titleblock{min-width:0;margin:0}.titleblock .eyebrow{font-size:10px;letter-spacing:.15em}.titleblock h1{font-size:clamp(34px,11vw,42px);line-height:.98;overflow-wrap:anywhere}.lede{font-size:16px;margin:0}.lede small{font-size:14px}
   /* Phone: each department becomes a compact horizontal shelf reel. The real
      metal case continues off-screen while covers stay at a readable 160px. */
   .libroom{aspect-ratio:auto;height:auto;overflow:hidden;padding:4px 8px 12px;background:transparent}
-  .unit{position:relative;inset:auto;display:grid;gap:14px;padding:0 4px}
-  .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;aspect-ratio:auto;background:none;filter:none;display:grid;gap:14px}
+  .unit{position:relative;inset:auto;background:none;filter:none;display:grid;gap:14px;padding:0 4px}
   .department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:relative;inset:auto;width:100%;max-width:460px;margin:0 auto}
   .bay{position:relative;inset:auto;width:100%;height:330px;aspect-ratio:auto;overflow:hidden;
     background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') left center/auto 100% no-repeat;
@@ -425,17 +493,17 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .brow--1{bottom:28px;height:252px}.brow--2,.brow--3{display:none}
   .bk{flex:0 0 160px;height:232px;scroll-snap-align:start}
   .bk img{width:160px;max-width:160px;max-height:232px}
-  .bk-status{font-size:14px}
-  .mobile-shelf-caption{display:block;margin:2px 18px 8px;padding:10px 12px;background:rgba(7,20,47,.4);text-align:left;color:#fff;font-size:14px;line-height:1.42}
+  .bk-status{font-size:9px}
+  .mobile-shelf-caption{display:block;margin:2px 18px 8px;text-align:left;color:#f6f3ff;font-size:14px;line-height:1.42}
   .mobile-shelf-caption b{display:block;margin-bottom:2px;font-family:'Jost',system-ui,sans-serif;font-size:17px;font-weight:800;letter-spacing:.07em;color:#fff}
   .mobile-shelf-caption .reel-cue{display:block;margin-top:4px;color:#fff;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-  .shelf-guide{display:block;padding:24px 20px 22px}.shelf-guide h2{font-size:32px}.shelf-captions{display:none}.shelf-instruction{margin-top:9px;font-size:14px}.shelf-pages{grid-template-columns:1fr;padding:0 18px 18px}
+  .shelf-guide{display:block;padding:0 20px 22px}.shelf-guide h2{font-size:27px}.shelf-captions{display:none}.shelf-instruction{margin-top:9px;font-size:14px}.shelf-pages{grid-template-columns:1fr;padding:0 18px 18px}
   .catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}.catalogue-result{font-size:13px}
   .library-handback{align-items:flex-start;flex-direction:column;padding:22px 20px 28px}.library-handback a{width:100%;text-align:center}
   .checkout-preview{grid-template-columns:90px minmax(0,1fr);gap:14px;width:100%;margin:0;padding:24px 18px;box-shadow:none}
   .checkout-cover{height:150px}.checkout-copy h2{font-family:'Jost',system-ui,sans-serif;font-size:23px;font-weight:800}.checkout-copy p{font-size:15px}
   .checkout-action{grid-column:1/-1;width:100%}.checkout-action button{width:100%}
-  .jv{display:block;margin:0;padding:0 20px 28px;border-radius:0}.jv::before{content:none}.jv-head{display:flex;margin:0 0 15px;align-items:flex-start;flex-direction:column}.jv-head .h{font-size:29px}.jv-head .h small{font-size:14px;line-height:1.45}.jv-chips{margin-top:12px}.jv-results{margin-top:16px}
+  .jv{margin:0 18px 38px;padding:27px 20px 24px;border-radius:0}.jv::before{content:none}.jv-head{align-items:flex-start;flex-direction:column}.jv-head .h{font-size:29px}.jv-head .h small{font-size:14px;line-height:1.45}
   .book .txt .example{grid-template-columns:1fr}
   .arrival-visual{height:260px}
   .arrival-visual>img{object-position:72% center}
@@ -445,6 +513,16 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .arrival-brand h1 .room{font-size:clamp(27px,9vw,38px)}
   .arrival-brand p{display:none}
   .arrival-brand .desktop-instruction{display:none}.arrival-brand .mobile-instruction{display:inline}
+  .stage-departments{display:none}
+  .stage-books{display:block;pointer-events:none}
+  .stage-book .tip,.stage-availability{display:none}
+  .library-route{margin:0;padding:38px 18px 28px}
+  .library-route-head{grid-template-columns:1fr;gap:11px}
+  .library-route h2{font-size:29px}.library-route-intro{font-size:15px}
+  .library-steps{grid-template-columns:1fr;margin-top:18px}
+  .library-step{padding:16px 0;grid-template-columns:54px 1fr;gap:12px}
+  .library-step+.library-step{padding-left:0;border-left:0}
+  .step-number{font-size:43px}
   .mobile-catalogue{display:none}
   .mobile-department{min-width:0}
   .mobile-department-head{padding:0 18px 9px}
@@ -478,7 +556,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 <div class="wrap">
   <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
-    <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt="Miss Jeeves at the reference desk inside the bright purple-walled SUNNYVAiLE LIBRAiRY">
+    <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v3-lighter-carpet.png" alt="Miss Jeeves at the reference desk inside the bright purple-walled SUNNYVAiLE LIBRAiRY">
   </section>
 
   <div class="library-world">
@@ -497,9 +575,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   <section class="jv" id="miss-jeeves" aria-labelledby="miss-jeeves-title">
     <div class="jv-head">
       <span class="jv-kicker">Reference desk</span>
-      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
+      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the source.</small></div>
     </div>
-    <form class="jv-form">
+    <form class="jv-form" onsubmit="return jvGo(event)">
       <input id="jv-q" type="text" autocomplete="off" placeholder="e.g. how do I know if it's telling the truth?" aria-label="Ask Miss Jeeves a question">
       <button type="submit">Ask</button>
     </form>
@@ -507,7 +585,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <b>Try:</b>
       <button class="jv-chip" type="button">which AI do I use?</button>
       <button class="jv-chip" type="button">how do I write a better prompt?</button>
-      <button class="jv-chip" type="button">how does AI work?</button>
+      <button class="jv-chip" type="button">will AI take my job?</button>
       <button class="jv-chip" type="button">what's a hallucination?</button>
     </div>
     <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
@@ -519,7 +597,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <h2 id="shelf-guide-title">What do you need?</h2>
     </div>
     <div class="shelf-captions" id="shelf-captions" aria-label="What each Library shelf contains"></div>
-    <p class="shelf-instruction">Browse by shelf or topic, preview before opening, then read one section or the whole book.</p>
+    <p class="shelf-instruction">Browse a shelf, preview before opening, then read one section or the whole book. A Puffy Sticker can save either exact place.</p>
     <div class="catalogue-controls" aria-label="Find a book in the Library catalogue">
       <label class="catalogue-control">Search titles and topics
         <input id="catalogue-search" type="search" placeholder="e.g. privacy, prompts or ChatGPT" autocomplete="off">
@@ -527,11 +605,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <label class="catalogue-control">Shelf
         <select id="catalogue-collection">
           <option value="all">All shelves</option><option value="0">The 101s</option><option value="1">The Tools</option><option value="2">Reference</option>
-        </select>
-      </label>
-      <label class="catalogue-control">Topic
-        <select id="catalogue-topic">
-          <option value="all">All topics</option><option value="basics">AI basics</option><option value="getting-started">Getting started</option><option value="choosing-tools">Choosing tools</option><option value="prompting">Prompting</option><option value="privacy-safety">Privacy &amp; safety</option><option value="checking-research">Checking &amp; research</option><option value="impact-society">Work &amp; society</option>
         </select>
       </label>
       <label class="catalogue-control">Availability
@@ -552,7 +625,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <div class="checkout-kicker">At the checkout desk</div>
       <h2 id="book-preview-title" tabindex="-1">Choose a book from the shelves.</h2>
       <p id="book-preview-summary">Its cover preview will tell you what it contains and whether it is ready before you open it.</p>
-      <p id="book-preview-inside" class="checkout-inside"></p>
       <div class="checkout-meta" id="book-preview-meta"></div>
     </div>
     <div class="checkout-action"><button type="button" id="book-preview-read" hidden>Read this book</button><small id="book-preview-status"></small></div>
@@ -560,8 +632,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
   <p class="library-status" id="library-status" role="status" aria-live="polite">Every cover shows whether it is ready. Choose one to preview what it contains; held books cannot open.</p>
   <section class="library-handback" aria-labelledby="saved-finds-title">
-    <p><strong id="saved-finds-title">Your saved Library places</strong><span>With a Resident Card, a Puffy Sticker can save a whole book or an exact section to the Puffy Board in My Closet on this device. <span id="library-saved-count">Checking this browser for saved Library places…</span></span></p>
-    <a href="/laidies-card.html#puffyPouch">Open My Closet in the Sorority House</a>
+    <p><strong id="saved-finds-title">Saved finds stay in My Closet.</strong><span id="library-saved-count">Checking this browser for saved Library places…</span></p>
+    <a href="/laidies-card.html#puffyPouch">Open saved finds in the Sorority House Closet</a>
   </section>
   </div>
 </div>
@@ -570,7 +642,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 <div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
   <div class="book">
     <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
-      <button id="reader-close" type="button">← back to the shelf</button></div>
+      <button id="reader-close" type="button" onclick="closeBook()">← back to the shelf</button></div>
     <details class="mobile-toc" id="mobile-toc"><summary>Find a section in this book</summary><nav id="rtoc-mobile" aria-label="Book contents"></nav></details>
     <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><div class="txt" id="rtxt"></div></div>
   </div>
@@ -581,36 +653,36 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 'use strict';
 const B='assets/library-101/bright-family-v2/';
 const SECTIONS=[
- {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',mcap:'Plain-English basics.',
+ {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',
   books:[
    /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
       Vocab 101 from the public catalogue; it must not render on either shelf. */
    {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
-   {id:'concepts-101',t:'Concepts 101',topics:['basics'],status:'available',statusLabel:'Ready to read now',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',inside:'Prediction, training, confident-sounding mistakes, and how to use an answer without treating it as truth.',depth:'Plain-English foundation · read straight through or jump to one idea',img:B+'textbook-concepts-101.png',c:'#7038c9'},
-   {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'hold',statusLabel:'Editorial review',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
-   {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'hold',statusLabel:'Currency review',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#1597a7'},
-   {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Factual-integrity review',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#e45e55'}
+   {id:'concepts-101',t:'Concepts 101',status:'hold',statusLabel:'Architecture and owner review',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',img:B+'textbook-concepts-101.png',c:'#7038c9'},
+   {id:'briefing-101',t:'Briefing 101',status:'hold',statusLabel:'Editorial review',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
+   {id:'setup-101',t:'Setup 101',status:'hold',statusLabel:'Currency review',s:'Set it up once so every tool already knows how you work.',img:B+'textbook-setup-101.png',c:'#1597a7'},
+   {id:'accounts-101',t:'Accounts 101',status:'hold',statusLabel:'Factual-integrity review',s:"What's safe to paste and what never is — the privacy basics.",img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
- {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:"Which one to open for which job. Who's Who is here now; the per-tool guides land with Episode 5.",mcap:'Choose a tool for the job.',
+ {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:"Which one to open for which job. Who's Who is here now; the per-tool guides land with Episode 5.",
   books:[
-   {id:'whos-who',t:"Who's Who in AI",topics:['choosing-tools'],status:'hold',statusLabel:'Currentness and depth review',s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c'},
-   {id:'chatgpt',t:'ChatGPT',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
-   {id:'claude',t:'Claude',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'The careful one — a strong writer and thinker.',soon:'EP 5',img:B+'book-claude.png'},
-   {id:'gemini',t:'Gemini',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'Google’s one, wired into the Google apps you already use.',soon:'EP 5',img:B+'book-gemini.png'},
-   {id:'copilot',t:'Copilot',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
-   {id:'perplexity',t:'Perplexity',topics:['choosing-tools','checking-research'],status:'preview',statusLabel:'Lands EP 5',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
+   {id:'whos-who',t:"Who's Who in AI",status:'hold',statusLabel:'Currentness and depth review',s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c'},
+   {id:'chatgpt',t:'ChatGPT',status:'preview',statusLabel:'Lands EP 5',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
+   {id:'claude',t:'Claude',status:'preview',statusLabel:'Lands EP 5',s:'The careful one — a strong writer and thinker.',soon:'EP 5',img:B+'book-claude.png'},
+   {id:'gemini',t:'Gemini',status:'preview',statusLabel:'Lands EP 5',s:'Google’s one, wired into the Google apps you already use.',soon:'EP 5',img:B+'book-gemini.png'},
+   {id:'copilot',t:'Copilot',status:'preview',statusLabel:'Lands EP 5',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
+   {id:'perplexity',t:'Perplexity',status:'preview',statusLabel:'Lands EP 5',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
   ]},
- {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'The look-it-up answers — sourced, and how to check the machine yourself.',mcap:'Sourced answers and checking guides.',
+ {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'The look-it-up answers — sourced, and how to check the machine yourself.',
   books:[
-   {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research'],status:'hold',statusLabel:'Source re-verification',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
-   {id:'how-to-check',t:"How to Check AI's Work",topics:['checking-research'],status:'hold',statusLabel:'Not yet available · independent learning, accuracy, brand and accessibility review open',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'AFTER REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
-   {id:'what-not-to-paste',t:'What Not to Paste',topics:['privacy-safety'],status:'preview',statusLabel:'Lands EP 7',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
-   {id:'prompt-cookbook',t:'The Prompt Cookbook',topics:['prompting'],status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
+   {id:'straight-answers',t:'Straight Answers About AI',status:'hold',statusLabel:'Source re-verification',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
+   {id:'how-to-check',t:"How to Check AI's Work",status:'hold',statusLabel:'Not yet available · independent learning, accuracy, brand and accessibility review open',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'AFTER REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
+   {id:'what-not-to-paste',t:'What Not to Paste',status:'preview',statusLabel:'Lands EP 7',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
+   {id:'prompt-cookbook',t:'The Prompt Cookbook',status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
   ]}
 ];
 const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_START */
-{"concepts-101":{"sourcePath":"/content/library-books/rendered/concepts-101.html","contentVersion":"concepts-101-2026-08-03.1","admissionVersion":"concepts-101-first-book-local-admission-2026-08-03.1","correctionState":"clear","artifactSha256":"bb25fae48b640f53112bd9191391e66dbbf5bf4a8603d6c5bd55a8cf85508f4b"}}
+{"concepts-101":{"sourcePath":"/content/library-books/rendered/concepts-101.html","contentVersion":"concepts-101-2026-08-03.1","admissionVersion":"concepts-101-first-book-local-candidate-2026-08-03.1","correctionState":"clear","artifactSha256":"bb25fae48b640f53112bd9191391e66dbbf5bf4a8603d6c5bd55a8cf85508f4b"}}
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
 const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
@@ -654,127 +726,89 @@ function reportLibraryStatus(message){
  if(status)status.textContent=message||'';
 }
 
-/* Every department stays visible in the recovered three-bay room. Desktop
-   pages after four books — two large covers per row — while phone reels keep
-   every book swipeable at the fixed 160px size. Growth adds pages, never tiny
-   covers. */
-const SHELF_CAPACITY=4;
+/* Every department stays visible in the recovered three-bay room. Each bay
+   pages independently after six books, so growth adds pages, not tiny covers. */
+const SHELF_CAPACITY=6;
 const activeShelfPages=SECTIONS.map(()=>0);
-const compactShelfMedia=matchMedia('(max-width:560px)');
-let compactShelfLayout=compactShelfMedia.matches;
-const catalogueFilter={q:'',collection:'all',topic:'all',status:'all'};
+const catalogueFilter={q:'',collection:'all',status:'all'};
 let previewReturnFocus=null;
 function catalogueBookMatches(book,sectionIndex){
  if(book.listed===false)return false;
  if(catalogueFilter.collection!=='all'&&Number(catalogueFilter.collection)!==sectionIndex)return false;
- if(catalogueFilter.topic!=='all'&&!(book.topics||[]).includes(catalogueFilter.topic))return false;
  const state=bookIsAvailable(book)?'ready':book.status;
  if(catalogueFilter.status!=='all'&&catalogueFilter.status!==state)return false;
  if(!catalogueFilter.q)return true;
  return `${book.t} ${book.s||''} ${SECTIONS[sectionIndex].name}`.toLowerCase().includes(catalogueFilter.q);
 }
 function shelfSplit(books){
- if(compactShelfLayout)return [books];
- return [books.slice(0,2),books.slice(2,4)];
+ const rows=Array.from({length:matchMedia('(max-width:560px)').matches?1:2},()=>[]),visible=books;
+ let index=0,remaining=visible.length;
+ for(let row=0;row<rows.length;row+=1){
+  const take=Math.max(1,Math.ceil(remaining/(rows.length-row)));
+  rows[row]=visible.slice(index,index+take);index+=take;remaining-=take;
+ }
+ return rows;
 }
 const shelfBook=b=>{
+ const tip=`<span class="tip"><b>${b.t}</b>${b.s||''}${!bookIsAvailable(b)?` <em>· ${bookVisitorStatus(b)}</em>`:''}</span>`;
  const label=bookIsAvailable(b)?'Ready now':b.status==='hold'?'Preview only':'Coming later';
- return `<button class="bk${bookIsAvailable(b)?'':' soon'}" type="button" data-book-id="${b.id}" data-preview-book="${b.id}" data-library-status="${b.status}" aria-label="Preview ${b.t}. ${bookVisitorStatus(b)}"><img src="${b.img}" alt=""><span class="sr-only">${bookVisitorStatus(b)}</span><span class="bk-status" aria-hidden="true">${label}</span></button>`;
+ return `<button class="bk${bookIsAvailable(b)?'':' soon'}" type="button" data-library-status="${b.status}" onclick="previewBook('${b.id}')" aria-label="Preview ${b.t}"><img src="${b.img}" alt=""><span class="sr-only">${bookVisitorStatus(b)}</span><span class="bk-status" aria-hidden="true">${label}</span>${tip}</button>`;
 };
+function bindShelfFocus(){
+ document.querySelectorAll('.bk').forEach(book=>{
+  const bay=book.closest('.bay'),row=book.closest('.brow');
+  const lift=()=>{bay?.classList.add('lift');row?.classList.add('lift');};
+  const lower=()=>{bay?.classList.remove('lift');row?.classList.remove('lift');};
+  book.addEventListener('mouseenter',lift);book.addEventListener('mouseleave',lower);
+  book.addEventListener('focus',lift);book.addEventListener('blur',lower);
+ });
+}
 function renderShelf(){
  const navs=[];
  let matchCount=0;
- let currentPageVisibleCount=0;
- const renderedDepartments=SECTIONS.map((section,sectionIndex)=>{
+ document.getElementById('wallcase').innerHTML=SECTIONS.map((section,sectionIndex)=>{
   const visible=section.books.filter(book=>book.listed!==false).filter(book=>catalogueBookMatches(book,sectionIndex));
   matchCount+=visible.length;
-  const pageCapacity=compactShelfLayout?Math.max(visible.length,1):SHELF_CAPACITY;
+  const pageCapacity=SHELF_CAPACITY;
   const pageCount=Math.max(1,Math.ceil(visible.length/pageCapacity));
   activeShelfPages[sectionIndex]=Math.min(activeShelfPages[sectionIndex],pageCount-1);
   const page=activeShelfPages[sectionIndex];
   const pageBooks=visible.slice(page*pageCapacity,(page+1)*pageCapacity);
-  currentPageVisibleCount+=pageBooks.length;
   const rows=shelfSplit(pageBooks).map((books,rowIndex)=>`<div class="brow brow--${rowIndex+1}">${books.map(shelfBook).join('')}</div>`).join('');
-  const controls=pageCount>1?`<button type="button" data-shelf-page-index="${sectionIndex}" data-shelf-page-delta="-1" ${page===0?'disabled':''}>Previous</button><span class="shelf-page-count">Page ${page+1} of ${pageCount}</span><button type="button" data-shelf-page-index="${sectionIndex}" data-shelf-page-delta="1" ${page===pageCount-1?'disabled':''}>Next</button>`:`<span class="shelf-page-count">All ${visible.length} shown</span>`;
-  navs.push(`<div class="shelf-page-nav" aria-label="${section.name} shelf pages"><strong>${section.name}</strong>${controls}</div>`);
+  navs.push(pageCount>1?`<div class="shelf-page-nav"><button type="button" onclick="changeShelfPage(${sectionIndex},-1)" ${page===0?'disabled':''}>Previous</button><span>${section.name}: ${page+1} of ${pageCount}</span><button type="button" onclick="changeShelfPage(${sectionIndex},1)" ${page===pageCount-1?'disabled':''}>Next</button></div>`:'<span></span>');
   const empty=pageBooks.length?'':`<p class="empty-bay">No matching books on this shelf.</p>`;
-  return `<section class="department" aria-labelledby="shelf-title-${sectionIndex}"><h2 class="sr-only" id="shelf-title-${sectionIndex}">${section.name}</h2><p class="mobile-shelf-caption"><b>${section.name}</b>${section.mcap||section.cap}<span class="reel-cue">Swipe to browse.</span></p><div class="bay"><div class="ledge" aria-hidden="true"><img src="${section.sign}" alt=""></div>${rows}${empty}</div></section>`;
- });
- const shelfUnits=[];
- for(let index=0;index<renderedDepartments.length;index+=3){
-  shelfUnits.push(`<div class="shelf-unit" aria-label="Library shelf unit ${Math.floor(index/3)+1}">${renderedDepartments.slice(index,index+3).join('')}</div>`);
- }
- const wallcase=document.getElementById('wallcase');
- wallcase.innerHTML=shelfUnits.join('');
- document.querySelector('.libroom')?.classList.toggle('has-multiple-units',shelfUnits.length>1);
+  return `<section class="department" aria-labelledby="shelf-title-${sectionIndex}"><h2 class="sr-only" id="shelf-title-${sectionIndex}">${section.name}</h2><p class="mobile-shelf-caption"><b>${section.name}</b>${section.cap}<span class="reel-cue">Swipe shelf to browse every book.</span></p><div class="bay"><div class="ledge" aria-hidden="true">${section.name}</div>${rows}${empty}</div></section>`;
+ }).join('');
  document.getElementById('shelf-captions').innerHTML=SECTIONS.map(section=>`<p class="shelf-caption"><b>${section.name}</b>${section.cap}</p>`).join('');
  const shelfPages=document.getElementById('shelf-pages');
  shelfPages.innerHTML=navs.join('');
- shelfPages.hidden=false;
+ shelfPages.hidden=!navs.some(item=>item.includes('<button'));
  const result=document.getElementById('catalogue-result');
- if(result)result.textContent=matchCount?`${matchCount} ${matchCount===1?'book matches':'books match'}; ${currentPageVisibleCount} ${currentPageVisibleCount===1?'is':'are'} visible on the current shelf pages. Choose a cover to preview it.`:'No books match. Clear a filter or ask Miss Jeeves in your own words.';
+ if(result)result.textContent=matchCount?`${matchCount} ${matchCount===1?'book':'books'} match. Choose a cover to preview it.`:'No books match. Clear a filter or ask Miss Jeeves in your own words.';
+ bindShelfFocus();
 }
 function resetBookPreview(){
  const preview=document.getElementById('book-preview');preview.classList.add('is-empty');
- delete preview.dataset.bookId;
  document.getElementById('shelf-pages').after(preview);
  document.getElementById('book-preview-title').textContent='Choose a book from the shelves.';
  document.getElementById('book-preview-summary').textContent='Its cover preview will tell you what it contains and whether it is ready before you open it.';
- document.getElementById('book-preview-inside').textContent='';
 }
-function changeShelfPage(sectionIndex,delta){
- const preview=document.getElementById('book-preview');
- const openPreviewBook=preview.classList.contains('is-empty')?null:preview.dataset.bookId;
- const previewSection=SECTIONS.findIndex(section=>section.books.some(book=>book.id===openPreviewBook));
- activeShelfPages[sectionIndex]+=delta;
- if(previewSection===sectionIndex)resetBookPreview();
- renderShelf();
- const shelfSlot=document.getElementById('shelf-pages').children[sectionIndex];
- const intendedLabel=delta>0?'Next':'Previous';
- requestAnimationFrame(()=>{
-  const intended=[...(shelfSlot?.querySelectorAll('button')||[])].find(button=>button.textContent.trim()===intendedLabel&&!button.disabled);
-  (intended||shelfSlot?.querySelector('button:not([disabled])'))?.focus();
- });
-}
+function changeShelfPage(sectionIndex,delta){activeShelfPages[sectionIndex]+=delta;resetBookPreview();renderShelf();}
 renderShelf();
-compactShelfMedia.addEventListener?.('change',event=>{
- if(event.matches===compactShelfLayout)return;
- const preview=document.getElementById('book-preview');
- const openPreviewBook=preview.classList.contains('is-empty')?null:preview.dataset.bookId;
- compactShelfLayout=event.matches;
- activeShelfPages.fill(0);
- if(openPreviewBook&&!compactShelfLayout){
-  const sectionIndex=SECTIONS.findIndex(section=>section.books.some(book=>book.id===openPreviewBook));
-  if(sectionIndex>=0){
-   const visible=SECTIONS[sectionIndex].books.filter(book=>book.listed!==false).filter(book=>catalogueBookMatches(book,sectionIndex));
-   const bookIndex=visible.findIndex(book=>book.id===openPreviewBook);
-   if(bookIndex>=0)activeShelfPages[sectionIndex]=Math.floor(bookIndex/SHELF_CAPACITY);
-  }
- }
- resetBookPreview();
- renderShelf();
- if(openPreviewBook){
-  const bookButton=document.querySelector(`.bk[data-book-id="${openPreviewBook}"]`);
-  if(bookButton){bookButton.focus({preventScroll:true});previewBook(openPreviewBook);reportLibraryStatus('Shelf layout updated. Your book preview is still open.');}
- }
-});
 function filterCatalogue(){
  catalogueFilter.q=(document.getElementById('catalogue-search')?.value||'').trim().toLowerCase();
  catalogueFilter.collection=document.getElementById('catalogue-collection')?.value||'all';
- catalogueFilter.topic=document.getElementById('catalogue-topic')?.value||'all';
  catalogueFilter.status=document.getElementById('catalogue-status')?.value||'all';
  activeShelfPages.fill(0);resetBookPreview();renderShelf();
 }
 document.getElementById('catalogue-search')?.addEventListener('input',filterCatalogue);
 document.getElementById('catalogue-collection')?.addEventListener('change',filterCatalogue);
-document.getElementById('catalogue-topic')?.addEventListener('change',filterCatalogue);
 document.getElementById('catalogue-status')?.addEventListener('change',filterCatalogue);
 function previewBook(id){
  const book=ALL[id];if(!book)return;
  previewReturnFocus=document.activeElement;
  const section=SECTIONS.find(item=>item.books.includes(book));
  const preview=document.getElementById('book-preview');
- preview.dataset.bookId=id;
  const selectedDepartment=previewReturnFocus?.closest?.('.department');
  if(matchMedia('(max-width:560px)').matches&&selectedDepartment)selectedDepartment.after(preview);
  else document.getElementById('shelf-pages').after(preview);
@@ -782,12 +816,6 @@ function previewBook(id){
  const cover=document.getElementById('book-preview-cover');cover.src=book.img;cover.alt=`${book.t} cover`;
  document.getElementById('book-preview-title').textContent=book.t;
  document.getElementById('book-preview-summary').textContent=book.s||'No description is available yet.';
- const topicLabels={
-  basics:'AI basics',prompting:'Prompting',"getting-started":'Getting started',"choosing-tools":'Choosing tools',
-  "privacy-safety":'Privacy and safety',"checking-research":'Checking and research',"impact-society":'Work and society'
- };
- const inside=book.inside||(book.topics||[]).map(topic=>topicLabels[topic]||topic).join(', ');
- document.getElementById('book-preview-inside').innerHTML=`<b>Inside this book:</b> ${inside||'Coverage details are still being prepared.'}`;
  const depth=book.depth||(section?.name==='REFERENCE'?'Sourced deep-dive reference':section?.name==='THE TOOLS'?'Quick practical guide':'Plain-English foundation');
  document.getElementById('book-preview-meta').innerHTML=`<span><b>Shelf:</b> ${section?.name||'Library'}</span><span><b>Depth:</b> ${depth}</span><span><b>Availability:</b> ${bookVisitorStatus(book)}</span>`;
  const read=document.getElementById('book-preview-read'),status=document.getElementById('book-preview-status'),action=read.closest('.checkout-action');
@@ -877,10 +905,11 @@ loadJeevesIndex();
 const JEEVES_ANSWERS=[
   {
     match:q=>/\b(will|could|can)\b.*\bai\b.*\b(job|work|career)\b|\bai\b.*\b(take|replace|steal)\b.*\b(job|work)\b/.test(q),
-    title:'The honest answer is: we do not have that coverage ready yet.',
-    answer:'A trustworthy answer changes by role, task, country and evidence date. The Library’s Jobs &amp; Work answer is still being re-verified, so Miss Jeeves will not pretend it is ready. Start with what the different kinds of AI actually do; the dedicated sourced answer will appear when its evidence is current and checked.',
+    title:'Not as one blanket yes or no.',
+    answer:'AI is already changing <strong>parts of jobs</strong>. Recent U.S. payroll evidence found lower employment among early-career workers in some of the most AI-exposed occupations, while experienced workers in the same fields held steady or grew. That is a warning sign—not proof AI will delete every job. Your risk depends on the work inside your role: routine, repeatable “move information from A to B” tasks are more exposed, while judgment, relationships, hands-on work and deep expertise are harder to replace. Audit the tasks in your week—not just your job title—and move your time toward the parts where you direct, check and own the decision.',
     links:[
-      {label:'Learn what different kinds of AI actually do',book:'concepts-101',heading:'The four types everyone argues about'}
+      {label:'Read the sourced Jobs & Work answer',book:'straight-answers',heading:'Is AI replacing jobs right now'},
+      {label:'Check which jobs are most affected',book:'straight-answers',heading:'Which jobs are most affected'}
     ]
   },
   {
@@ -923,7 +952,7 @@ function escapeJeevesText(value){
 function renderJeevesAnswer(intent){
   const links=intent.links.map(link=>link.book
     ? (bookIsAvailable(ALL[link.book])
-      ? `<button type="button" data-open-book="${escapeJeevesText(link.book)}" data-open-heading="${escapeJeevesText(link.heading)}">${link.label}</button>`
+      ? `<button type="button" onclick="openBook('${link.book}','${link.heading.replace(/'/g,"\\'")}')">${link.label}</button>`
       : `<span class="jv-held">${link.label} · ${bookVisitorStatus(ALL[link.book])}</span>`)
     : `<a href="${link.url}">${link.label}</a>`).join('');
   return `<article class="jv-answer">
@@ -959,7 +988,7 @@ function jvSearch(q){
   }).filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,6);
   if(!scored.length){box.innerHTML=`<p class="jv-none">Miss Jeeves checks the catalogue… nothing filed under that yet. Try “which AI do I use?” or “how do I check it's true?”</p>`;return;}
   box.innerHTML=scored.map(({e})=>e.destination.kind==='book'
-   ? `<button type="button" class="jv-card" data-open-book="${escapeJeevesText(e.destination.bookId)}">
+   ? `<button type="button" class="jv-card" onclick="openBook('${e.destination.bookId}')">
      <span class="jv-type jv-${e.type}">${escapeJeevesText(e.type)}</span>
      <span class="jv-t">${escapeJeevesText(e.title)}</span>
      <span class="jv-s">${escapeJeevesText(e.summary)}</span></button>`
@@ -968,16 +997,8 @@ function jvSearch(q){
      <span class="jv-t">${escapeJeevesText(e.title)}${e.status==='coming'?' · <em style="font-style:normal;color:#b06">soon</em>':''}</span>
      <span class="jv-s">${escapeJeevesText(e.summary)}</span></a>`).join('');
 }
-document.querySelector('.jv-form').addEventListener('submit',event=>{
- event.preventDefault();
- jvSearch(document.getElementById('jv-q').value);
-});
+function jvGo(ev){ev.preventDefault();jvSearch(document.getElementById('jv-q').value);return false;}
 document.getElementById('jv-q').addEventListener('input',e=>jvSearch(e.target.value));
-document.getElementById('jv-results').addEventListener('click',event=>{
- const control=event.target.closest('[data-open-book]');
- if(!control)return;
- openBook(control.dataset.openBook,control.dataset.openHeading||'');
-});
 document.querySelectorAll('.jv-chip').forEach(c=>c.addEventListener('click',()=>{
   document.getElementById('jv-q').value=c.textContent;jvSearch(c.textContent);document.getElementById('jv-q').focus();
 }));
@@ -1065,20 +1086,25 @@ function motionBehavior(){
  return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
 }
 function focusBookSection(txt,headingNeedle){
+  [...txt.children].forEach(el=>{el.hidden=false;});
   txt.querySelectorAll('[aria-current="location"]').forEach(el=>el.removeAttribute('aria-current'));
   if(!headingNeedle)return;
   const heading=findBookHeading(txt,headingNeedle);
   if(!heading)return;
   heading.setAttribute('aria-current','location');
-  heading.setAttribute('tabindex','-1');
-  heading.focus({preventScroll:true});
-}
-async function settleBookSection(txt,headingNeedle){
-  focusBookSection(txt,headingNeedle);
-  if(!headingNeedle)return;
-  try{await document.fonts?.ready;}catch(error){}
-  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
-  scrollBookTo(headingNeedle);
+  /* Some rendered books group sections inside page wrappers. In that case,
+     keep the complete book visible and scroll to the saved passage instead of
+     hiding every top-level wrapper and producing an empty reader. */
+  if(heading.parentElement!==txt)return;
+  const level=Number(heading.tagName.slice(1));
+  const keep=new Set();
+  let node=heading;
+  while(node){
+    if(node!==heading&&/^H[1-6]$/.test(node.tagName)&&Number(node.tagName.slice(1))<=level)break;
+    keep.add(node);
+    node=node.nextElementSibling;
+  }
+  [...txt.children].forEach(el=>{el.hidden=!keep.has(el);});
 }
 function hydrateVerificationRulebook(txt){
  const submissionState=({fieldsValid,keyedMatch,prose})=>{
@@ -1179,7 +1205,7 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       const bytes=await r.arrayBuffer();
       if(await sha256Hex(bytes)!==publication.record.artifactSha256)throw new Error('artifact mismatch');
       return new TextDecoder().decode(bytes);
-    }).then(async h=>{
+    }).then(h=>{
       if(loadToken!==readerLoadToken)return;
       const doc=new DOMParser().parseFromString(h,'text/html');
       const version=doc.querySelector('meta[name="laidies:content-version"]')?.getAttribute('content');
@@ -1195,7 +1221,8 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       setBookToc(toc,[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources')).map(h=>`<a href="#${h.id}">${h.textContent.trim()}</a>`).join(''));
       if(id==='how-to-check')hydrateVerificationRulebook(txt);
       if(window.svPuffyScan)window.svPuffyScan();
-      await settleBookSection(txt,headingNeedle);
+      focusBookSection(txt,headingNeedle);
+      requestAnimationFrame(()=>scrollBookTo(headingNeedle));
     }).catch(()=>{
       if(loadToken!==readerLoadToken)return;
       txt.innerHTML='<section class="reader-error" role="alert"><h3>This book did not load.</h3><p>The short shelf description is not a substitute for the full book. Your place is safe; try the book again or return to the shelf.</p><button type="button" id="reader-retry">Try this book again</button></section>';
@@ -1223,7 +1250,7 @@ addEventListener('keydown',e=>{
  if(!reader.classList.contains('on'))return;
  if(e.key==='Escape'){closeBook();return;}
  if(e.key!=='Tab')return;
- const focusable=[...reader.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden&&el.getClientRects().length);
+ const focusable=[...reader.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden);
  if(!focusable.length)return;
  const first=focusable[0],last=focusable[focusable.length-1];
  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
@@ -1234,15 +1261,7 @@ Object.defineProperty(window,'openBook',{value:openBook,writable:false,configura
 Object.defineProperty(window,'closeBook',{value:closeBook,writable:false,configurable:false});
 Object.defineProperty(window,'previewBook',{value:previewBook,writable:false,configurable:false});
 Object.defineProperty(window,'changeShelfPage',{value:changeShelfPage,writable:false,configurable:false});
-document.getElementById('reader-close').addEventListener('click',closeBook);
-document.getElementById('wallcase').addEventListener('click',event=>{
- const preview=event.target.closest('[data-preview-book]');
- if(preview)previewBook(preview.dataset.previewBook);
-});
-document.getElementById('shelf-pages').addEventListener('click',event=>{
- const page=event.target.closest('[data-shelf-page-index][data-shelf-page-delta]');
- if(page)changeShelfPage(Number(page.dataset.shelfPageIndex),Number(page.dataset.shelfPageDelta));
-});
+Object.defineProperty(window,'jvGo',{value:jvGo,writable:false,configurable:false});
 if(location.hash.startsWith('#miss-jeeves?')){
   const incoming=new URLSearchParams(location.hash.slice('#miss-jeeves?'.length)).get('q');
   const query=(incoming||'').trim().slice(0,240);
