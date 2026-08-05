@@ -20,6 +20,7 @@ const automationsRoot = path.resolve(fixtureMode && process.env.LAIDIES_AUTOMATI
   : path.join(os.homedir(), '.codex/automations'));
 const contract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
 const errors = [];
+const ciConfigurationOnly = !fixtureMode && process.env.CI === 'true';
 
 const readAutomation = id => {
   const file = path.join(automationsRoot, id, 'automation.toml');
@@ -41,6 +42,24 @@ if (contract.migration_status !== 'VERIFIED_CONFIGURATION_ONLY_DISPATCHER_PAUSED
 }
 
 const expected = contract.dispatcher;
+if (expected?.required_status !== 'PAUSED') errors.push('dispatcher.required_status must remain PAUSED');
+if (!expected?.automation_id || !expected?.target_thread_id || !expected?.superseded_target_thread_id) {
+  errors.push('dispatcher identity and target migration fields are incomplete');
+}
+if (!(expected?.required_prompt_fragments || []).length || !(expected?.forbidden_prompt_fragments || []).length) {
+  errors.push('dispatcher prompt migration fragments are incomplete');
+}
+
+if (ciConfigurationOnly) {
+  if (errors.length) {
+    console.error('DISPATCHER MIGRATION CI CONTRACT FAIL');
+    for (const error of errors) console.error(`- ${error}`);
+    process.exit(1);
+  }
+  console.log('DISPATCHER MIGRATION CI CONFIGURATION CONTRACT PASS — LIVE AUTOMATION STATE UNVERIFIED');
+  process.exit(0);
+}
+
 const dispatcher = readAutomation(expected.automation_id);
 const status = tomlString(dispatcher.text, 'status');
 const target = tomlString(dispatcher.text, 'target_thread_id');
