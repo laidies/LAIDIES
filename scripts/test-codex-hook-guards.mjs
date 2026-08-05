@@ -14,6 +14,25 @@ function run(relative, payload) {
   });
 }
 
+const sessionStart = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
+  cwd: root,
+  encoding: 'utf8',
+});
+assert.equal(sessionStart.status, 0, 'session-start lesson injection must run');
+const sessionPayload = JSON.parse(sessionStart.stdout);
+const sessionContext = sessionPayload?.hookSpecificOutput?.additionalContext || '';
+assert.match(sessionContext, /pilot before batching/i, 'permanent preamble must be injected');
+assert.match(sessionContext, /ACTIVE LESSONS/, 'active lesson feed must be injected');
+assert.match(sessionContext, /One writer owns a building lane at a time/, 'current collision-prevention lesson must reach sessions');
+
+const missingLessons = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
+  cwd: root,
+  env: { ...process.env, LAIDIES_LESSONS_PATH: path.join(root, 'operations', '__missing-lessons-calibration__.md') },
+  encoding: 'utf8',
+});
+assert.notEqual(missingLessons.status, 0, 'missing active-lessons feed must fail closed');
+assert.match(missingLessons.stderr, /LESSONS-ACTIVE\.md is missing/, 'missing-feed failure must be explicit');
+
 const approval = run('operations/hooks/block-approval-forgery.py', {
   hook_event_name: 'PreToolUse',
   tool_name: 'apply_patch',
@@ -46,4 +65,4 @@ const shipcheck = run('operations/hooks/episode-shipcheck.sh', {
 assert.equal(shipcheck.status, 2, 'missing episode surfaces must fail the post-edit shipcheck');
 assert.match(shipcheck.stderr, /SHIP-CHECK FAILED/);
 
-console.log('CODEX HOOK GUARDS PASS approval_deny=1 approval_allow=1 voice_deny=1 shipcheck_deny=1');
+console.log('CODEX HOOK GUARDS PASS session_lessons=1 approval_deny=1 approval_allow=1 voice_deny=1 shipcheck_deny=1');
