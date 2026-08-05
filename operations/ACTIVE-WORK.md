@@ -23,12 +23,35 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-04
+**Last reconciled:** 2026-08-05
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-05 launch-truth reconciliation
+
+- NewsStand Daily availability now follows its independently admitted release
+  instant worldwide. Visitor timezone may personalize display but cannot hide,
+  advance or rename an edition. Extreme-timezone and pre/post-release fixtures
+  pass; no public deployment was made.
+- The Library opening set is exactly Concepts 101, Briefing 101, Setup 101 and
+  Accounts 101. Vocab 101 remains retired as a separate title. Concepts is the
+  sole locally admitted book; the other three now have governed, independently
+  accepted local candidates and remain checksum-bound `HOLD` pending owner
+  admission and release. The curated build passes.
+- Opening-day Classes, Library and site-video records now all have a complete
+  readiness schema. Structural completeness is no longer conflated with public
+  PASS: Classes are 0/3 ready, Library is 1/4 locally admitted, site video is
+  0/8 ready and all three systems report `NOT READY`.
+- The strict whole-town gate remains the release authority. Current exact truth
+  is 0/17 release-ready buildings, 0/17 current visual admissions and 0/5
+  opening media ready. The visual count includes stale Library and NewsStand
+  exact identities after content/runtime changes plus missing admission pointers
+  on the other buildings; it is not evidence that their pages are absent.
+- Dispatcher heartbeat remains intentionally **PAUSED**. No deploy, publication,
+  private credential/provider action or public verification occurred.
 
 ## 2026-08-04 public health reconciliation
 
