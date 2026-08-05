@@ -115,7 +115,7 @@ if [ "$SCOPE" = "episode" ] || [ "$SCOPE" = "all" ]; then
   run blocking voice       "no comparison tables, no 'member', no 'course', AI is 'it'" \
       -- bash operations/engine/checks/check-prose-voice.sh "$NN"
   run blocking cues        "this episode's cue sheet: valid order, every image/video file really on disk" \
-      -- node scripts/check-episode-cues.js
+      -- node scripts/check-episode-cues.js --episode "$NN"
   echo
 fi
 

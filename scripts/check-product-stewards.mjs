@@ -8,6 +8,7 @@ import { checkDailyLearningDerivatives } from "./check-daily-learning-derivative
 import { checkLearningRelationships } from "./check-learning-relationships.mjs";
 import { checkLearningOrchestrationGuide } from "./check-learning-orchestration-guide.mjs";
 import { checkContentReleaseReadiness } from "./check-content-release-readiness.mjs";
+import { validateRunQueueClaims } from "./lib/product-steward-claim-policy.mjs";
 
 const root = process.cwd();
 const base = path.join(root, "operations", "product-stewards");
@@ -24,6 +25,7 @@ const ownerEntryId = ownerEntryIndex >= 0 ? args[ownerEntryIndex + 1] : null;
 const strictOwnerEntry = args.includes("--strict-owner-entry");
 
 const errors = [];
+errors.push(...validateRunQueueClaims(queue).map((error) => `run queue claims: ${error}`));
 const ids = new Set();
 const ownerEntryGaps = [];
 const contentWorkOrders = checkContentWorkOrders({ root });

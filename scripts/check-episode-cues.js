@@ -9,13 +9,19 @@ const fs = require('fs');
 const path = require('path');
 
 // Pass a public-artifact directory to validate the exact deployable cue/media
-// contract after public transforms have run. With no argument, audit the
-// working studio tree as before.
-const ROOT = path.resolve(process.argv[2] || path.join(__dirname, '..'));
+// contract after public transforms have run. `--episode NN` narrows an episode
+// gate to the episode it claims to judge; an unscoped invocation still audits
+// every cue sheet.
+const args = process.argv.slice(2);
+const episodeIndex = args.indexOf('--episode');
+const selectedEpisode = episodeIndex >= 0 ? String(args[episodeIndex + 1] || '').padStart(2, '0') : null;
+const rootArgument = args.find((value, index) => index !== episodeIndex && index !== episodeIndex + 1 && !value.startsWith('-'));
+const ROOT = path.resolve(rootArgument || path.join(__dirname, '..'));
 const EPISODE_DIR = path.join(ROOT, 'content', 'episodes');
 const cueFiles = fs
   .readdirSync(EPISODE_DIR)
   .filter((name) => /^episode-(?:\d{2}|trailer)-cues\.json$/.test(name))
+  .filter((name) => !selectedEpisode || name === `episode-${selectedEpisode}-cues.json`)
   .sort();
 
 const failures = [];
@@ -57,6 +63,7 @@ function groupsFor(sheet) {
 }
 
 console.log('EPISODE CUE AUDIT');
+if (!cueFiles.length) failures.push(`no cue sheet found for episode ${selectedEpisode || 'selection'}`);
 
 for (const filename of cueFiles) {
   const sheetPath = path.join(EPISODE_DIR, filename);
