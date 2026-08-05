@@ -187,7 +187,7 @@ prove Mme CLAi-O stays local and does not leak an account claim.
 |---|---|---|
 | Identity/account/permissions | None consumed; signed-in state does not alter the reading | `APPROVED BRIEF/ARTIFACT` |
 | Local saves/progression | Mme keys only; same browser/device; no guarantee after clearing/private mode | `APPROVED BRIEF/ARTIFACT` |
-| Rewards/economy/Closet | Hotline Regular is local-only in this product; shared code that imports it as an account `merit_badge` is a collision requiring Platform/Identity reconciliation | `CURRENT IMPLEMENTATION OBSERVED` + `LOCKED LEDGER` |
+| Rewards/economy/Closet | Hotline Regular is local-only; shared reward projection must exclude every `scope='device-local'` keepsake before account-event construction | `CURRENT IMPLEMENTATION OBSERVED` + `LOCKED LEDGER` |
 | Community/moderation | None; no user content | `APPROVED BRIEF/ARTIFACT` |
 | Referral/newsletter/delivery | None | `APPROVED BRIEF/ARTIFACT` |
 | AI service | None; randomized local authored deck | `APPROVED BRIEF/ARTIFACT` |
@@ -237,10 +237,10 @@ integrity and visual/media are separately blocking gates.
 - **Owner visual decision:** choose a controlled room/object composition after
   current, capability-preserving candidates and independent full-resolution
   review exist. `UNKNOWN`
-- **Platform reconciliation:** exclude Hotline Regular from account import or
-  obtain a new explicit reward decision and implement the full grant/display/
-  remove/revoke/privacy contract; current local-only copy is authoritative for
-  Mme CLAi-O. `LOCKED LEDGER`
+- **Platform reconciliation:** the local-only decision is implemented by
+  excluding every `scope='device-local'` keepsake from account reward
+  projection. Any future durable reward remains a new product decision with a
+  full grant/display/remove/revoke/privacy contract. `LOCKED LEDGER`
 - **Non-goals:** typed prompts, personalization, professional advice,
   prediction, crisis support, account-wide reading history, paid readings,
   urgency/exploitation loops and physical merchandise without new authority.

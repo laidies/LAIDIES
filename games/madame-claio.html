@@ -11,514 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&family=VT323&display=swap">
     <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
-
-      :root {
-        --hotline-pink: #b95d78;
-        --hotline-gold: #ffd700;
-        --hotline-dark: #1a0a12;
-        --hotline-plum: #2d0f1f;
-        --hotline-card-bg: rgba(20, 5, 15, 0.92);
-        --hotline-card-border: linear-gradient(135deg, #ffd700, #b95d78, #ffd700);
-      }
-
-      body {
-        /* Background painted by the .laidies-bg--dark layer (laidies-bg.css).
-           transparent !important neutralizes styles.css's body !important. */
-        background: transparent !important;
-        min-height: 100vh;
-        font-family: 'Jost', sans-serif;
-        color: #f0e6ec;
-      }
-
-      /* ===== Site Header ===== */
-      .site-header {
-        background: rgba(26, 10, 18, 0.95);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid rgba(185, 93, 120, 0.15);
-      }
-      .site-header .nav a { color: #f0e6ec; }
-      .site-header .nav a:hover { color: var(--hotline-pink); }
-
-      /* ===== Call Counter Badge ===== */
-      .call-counter {
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background: rgba(20, 5, 15, 0.9);
-        border: 1px solid rgba(255, 215, 0, 0.4);
-        border-radius: 20px;
-        padding: 6px 14px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: var(--hotline-gold);
-        letter-spacing: 0.05em;
-        z-index: 100;
-        box-shadow: 0 2px 12px rgba(255, 215, 0, 0.15);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .call-counter.pulse {
-        animation: counterPulse 0.5s ease;
-      }
-      @keyframes counterPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.15); box-shadow: 0 2px 20px rgba(255, 215, 0, 0.4); }
-        100% { transform: scale(1); }
-      }
-
-      /* ===== Main Content ===== */
-      .game-page-wrap {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: clamp(18px, 4vw, 48px) clamp(14px, 3vw, 32px);
-        padding-top: 70px;
-      }
-      .game-page-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 14px 24px;
-        background: rgba(26, 10, 18, 0.9);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(185, 93, 120, 0.15);
-      }
-      .game-page-header a {
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-decoration: none;
-        color: var(--hotline-pink);
-      }
-      .game-page-header a:hover { text-decoration: underline; }
-
-      .game-page-title {
-        display: grid;
-        gap: 8px;
-        margin-bottom: 32px;
-        text-align: center;
-      }
-      .game-page-title .eyebrow {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--hotline-gold);
-        font-weight: 700;
-      }
-      .game-page-title h1 {
-        font-family: 'Georgia', serif;
-        font-size: clamp(2.2rem, 5vw, 3.4rem);
-        line-height: 1.1;
-        background: linear-gradient(135deg, var(--hotline-pink), var(--hotline-gold), var(--hotline-pink));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: none;
-      }
-      .game-page-title .subtitle {
-        color: rgba(255, 230, 241, 0.9) !important;
-        font-size: 1rem;
-        font-style: italic;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      /* ===== Psychic Stage with Crystal Ball Glow ===== */
-      .psychic-stage {
-        text-align: center;
-        margin-bottom: 32px;
-        position: relative;
-      }
-
-      .crystal-ball-container {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 24px;
-      }
-
-      /* Crystal ball glow pulse */
-      .crystal-ball-container::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 85%;
-        height: 85%;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(185, 93, 120, 0.3), rgba(128, 0, 128, 0.15), transparent 70%);
-        animation: crystalGlow 3s ease-in-out infinite;
-        z-index: 0;
-        filter: blur(20px);
-      }
-
-      @keyframes crystalGlow {
-        0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-        50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
-      }
-      @keyframes crystalFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
-      }
-
-
-      /* Sparkle decorations */
-      .crystal-ball-container::after {
-        content: '✦';
-        position: absolute;
-        top: 10%;
-        right: 5%;
-        font-size: 1.2rem;
-        color: var(--hotline-gold);
-        animation: sparkleRotate 4s ease-in-out infinite;
-        z-index: 3;
-      }
-
-      .sparkle-1, .sparkle-2, .sparkle-3, .sparkle-4 {
-        position: absolute;
-        color: var(--hotline-gold);
-        font-size: 0.9rem;
-        z-index: 3;
-        pointer-events: none;
-      }
-      .sparkle-1 {
-        top: 5%;
-        left: 10%;
-        animation: sparkleFloat 3.5s ease-in-out infinite 0.5s;
-      }
-      .sparkle-2 {
-        bottom: 15%;
-        right: 8%;
-        animation: sparkleFloat 2.8s ease-in-out infinite 1s;
-      }
-      .sparkle-3 {
-        top: 40%;
-        left: 2%;
-        animation: sparkleFloat 4s ease-in-out infinite 0.2s;
-      }
-      .sparkle-4 {
-        bottom: 25%;
-        left: 5%;
-        animation: sparkleFloat 3.2s ease-in-out infinite 1.5s;
-      }
-
-      @keyframes sparkleRotate {
-        0%, 100% { opacity: 0.4; transform: rotate(0deg) scale(0.8); }
-        50% { opacity: 1; transform: rotate(180deg) scale(1.2); }
-      }
-      @keyframes sparkleFloat {
-        0%, 100% { opacity: 0.3; transform: translateY(0) scale(0.7); }
-        50% { opacity: 1; transform: translateY(-6px) scale(1.1); }
-      }
-
-      .crystal-ball-container img {
-        position: relative;
-        z-index: 1;
-        max-width: 340px;
-        width: 100%;
-        height: auto;
-        border-radius: 14px;
-        border: 2.5px solid rgba(185, 93, 120, 0.55);
-        box-shadow: 0 8px 30px rgba(185, 93, 120, 0.35), 0 0 60px rgba(128, 0, 128, 0.16);
-        filter: drop-shadow(0 8px 24px rgba(185, 93, 120, 0.32));
-        animation: crystalFloat 4s ease-in-out infinite;
-        transition: transform 0.3s ease;
-      }
-      .crystal-ball-container:hover img {
-        transform: scale(1.02);
-      }
-
-      /* ===== Call Button with Pulsing Glow ===== */
-      .call-button {
-        display: inline-block;
-        margin-top: 8px;
-        padding: 16px 40px;
-        border: none;
-        border-radius: 50px;
-        background: linear-gradient(135deg, #b95d78, #d4006a);
-        color: white;
-        font-size: 1.15rem;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-        cursor: pointer;
-        text-transform: uppercase;
-        transition: transform 0.15s, box-shadow 0.2s;
-        box-shadow: 0 0 20px rgba(185, 93, 120, 0.4), 0 0 60px rgba(185, 93, 120, 0.15);
-        animation: buttonPulse 2.5s ease-in-out infinite;
-        position: relative;
-        overflow: hidden;
-      }
-      .call-button::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        animation: buttonShine 3s ease-in-out infinite;
-      }
-      @keyframes buttonPulse {
-        0%, 100% { box-shadow: 0 0 20px rgba(185, 93, 120, 0.4), 0 0 60px rgba(185, 93, 120, 0.15); }
-        50% { box-shadow: 0 0 30px rgba(185, 93, 120, 0.6), 0 0 80px rgba(185, 93, 120, 0.25); }
-      }
-      @keyframes buttonShine {
-        0% { transform: translateX(-100%) rotate(45deg); }
-        30%, 100% { transform: translateX(100%) rotate(45deg); }
-      }
-      .call-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 35px rgba(185, 93, 120, 0.7), 0 0 90px rgba(185, 93, 120, 0.3);
-      }
-      .call-button:active { transform: scale(0.97); }
-      .call-button:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-        animation: none;
-      }
-
-      /* ===== Calling Transition ===== */
-      .calling-state {
-        display: none;
-        text-align: center;
-        padding: 32px 20px;
-        margin-top: 24px;
-      }
-      .calling-state.is-visible { display: block; animation: fadeIn 0.3s ease; }
-      .calling-text {
-        font-family: 'Georgia', serif;
-        font-size: 1.1rem;
-        color: #ffc7dc !important;
-        font-style: italic;
-      }
-      .calling-dots {
-        display: inline-block;
-        animation: dotPulse 1.2s steps(4, end) infinite;
-      }
-      @keyframes dotPulse {
-        0% { content: ''; }
-        25% { content: '.'; }
-        50% { content: '..'; }
-        75% { content: '...'; }
-      }
-      .calling-dots::after {
-        content: '';
-        animation: dotsAnim 1.5s steps(4, end) infinite;
-      }
-      @keyframes dotsAnim {
-        0% { content: ''; }
-        25% { content: '.'; }
-        50% { content: '..'; }
-        75%, 100% { content: '...'; }
-      }
-      .calling-stars {
-        margin-top: 12px;
-        font-size: 1.3rem;
-        animation: starsFloat 1.5s ease-in-out infinite;
-      }
-      @keyframes starsFloat {
-        0%, 100% { opacity: 0.5; transform: translateY(0); }
-        50% { opacity: 1; transform: translateY(-4px); }
-      }
-
-      /* ===== Fortune Card — Premium Dark Tarot Style ===== */
-      .fortune-card {
-        margin-top: 28px;
-        padding: 28px 24px;
-        border-radius: 16px;
-        background: var(--hotline-card-bg);
-        border: 2px solid transparent;
-        background-clip: padding-box;
-        position: relative;
-        display: none;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 215, 0, 0.1);
-      }
-      .fortune-card::before {
-        content: '';
-        position: absolute;
-        inset: -2px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, var(--hotline-gold), var(--hotline-pink), var(--hotline-gold));
-        z-index: -1;
-        opacity: 0.8;
-      }
-      .fortune-card.is-visible {
-        display: block;
-        animation: cardReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
-      @keyframes cardReveal {
-        0% { opacity: 0; transform: translateY(20px) scale(0.95) rotateX(5deg); }
-        100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0); }
-      }
-      @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-
-      .fortune-card-flourish {
-        text-align: center;
-        font-size: 0.8rem;
-        color: var(--hotline-gold) !important;
-        margin-bottom: 12px;
-        opacity: 0;
-        animation: flourishIn 0.5s ease 0.4s forwards;
-        letter-spacing: 0.05em;
-      }
-      @keyframes flourishIn {
-        0% { opacity: 0; transform: scale(0.8); }
-        100% { opacity: 1; transform: scale(1); }
-      }
-
-      .fortune-card-name {
-        font-family: 'Dancing Script', cursive;
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--hotline-gold) !important;
-        text-align: center;
-        margin-bottom: 16px;
-        text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
-      }
-
-      .fortune-card-read {
-        margin: 16px 0 0;
-        font-size: 1.2rem;
-        font-style: italic;
-        line-height: 1.6;
-        color: #fff8fc !important;
-        text-align: center;
-        text-shadow: 0 0 20px rgba(185, 93, 120, 0.15);
-      }
-      .fortune-card-message {
-        margin: 14px 0 0;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        color: rgba(255, 248, 252, 0.96) !important;
-        padding: 12px 16px;
-        border-left: 2px solid rgba(255, 215, 0, 0.58);
-        font-style: normal;
-      }
-      .fortune-card-move {
-        margin-top: 16px;
-        padding: 16px;
-        background: rgba(255, 215, 0, 0.12);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 215, 0, 0.38);
-        border-left: 3px solid var(--hotline-gold);
-      }
-      .fortune-card-move strong {
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--hotline-gold);
-        display: block;
-        margin-bottom: 6px;
-      }
-      .fortune-card-move p {
-        margin: 0;
-        line-height: 1.6;
-        color: #fff8fc !important;
-        font-size: 0.95rem;
-      }
-
-      /* ===== Call History ===== */
-      .call-history {
-        margin-top: 40px;
-        display: grid;
-        gap: 12px;
-      }
-      .call-history-title {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: rgba(255, 230, 241, 0.88) !important;
-        margin-bottom: 4px;
-      }
-      .history-card {
-        padding: 14px 16px;
-        background: rgba(255, 248, 252, 0.1);
-        border: 1px solid rgba(185, 93, 120, 0.34);
-        border-radius: 10px;
-        opacity: 1;
-        transition: opacity 0.2s;
-      }
-      .history-card:hover { opacity: 1; }
-      .history-card-name {
-        font-family: 'Georgia', serif;
-        font-size: 0.9rem;
-        color: var(--hotline-gold) !important;
-        margin-bottom: 4px;
-      }
-      .history-card-text {
-        font-size: 0.82rem;
-        color: rgba(255, 248, 252, 0.9) !important;
-        line-height: 1.4;
-      }
-
-      /* ===== Microcopy & Badge ===== */
-      .reading-progress {
-        text-align: center;
-        margin-top: 24px;
-        font-size: 0.82rem;
-        color: rgba(255, 230, 241, 0.88) !important;
-      }
-      .progress-bar {
-        width: 200px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.22);
-        border-radius: 4px;
-        margin: 8px auto 0;
-        overflow: hidden;
-      }
-      .progress-bar-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--hotline-pink), var(--hotline-gold));
-        border-radius: 4px;
-        transition: width 0.5s ease;
-        width: 0%;
-      }
-
-      .microcopy {
-        font-size: 0.82rem;
-        color: rgba(255, 230, 241, 0.82) !important;
-        margin-top: 16px;
-        text-align: center;
-      }
-
-      .badge-reveal {
-        margin-top: 24px;
-        padding: 18px;
-        border: 2px solid var(--hotline-gold);
-        border-radius: 14px;
-        text-align: center;
-        display: none;
-        background: rgba(255, 215, 0, 0.1);
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
-        animation: badgeGlow 2s ease-in-out infinite;
-      }
-      .badge-reveal.is-visible { display: block; }
-      @keyframes badgeGlow {
-        0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.1); }
-        50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.2); }
-      }
-      .badge-reveal strong { color: var(--hotline-gold); font-size: 1.05rem; }
-      .badge-reveal p { color: rgba(255, 248, 252, 0.92) !important; margin-top: 8px; font-size: 0.9rem; }
-
-      /* Ambient background stars now provided by .laidies-bg--dark (laidies-bg.css). */
-
-      /* Responsive adjustments */
-      @media (max-width: 600px) {
-        .call-counter {
-          position: static;
-          text-align: center;
-          margin-bottom: 12px;
-          display: inline-block;
-        }
-        .crystal-ball-container img { max-width: 220px; }
-        .fortune-card { padding: 20px 16px; }
-      }
-    </style>
     <!-- Privacy-friendly analytics by Plausible -->
     <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
     <script>
@@ -527,7 +19,7 @@
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
     <link rel="stylesheet" href="../content/site/laidies-bg.css?v=laidies-bg-1" />
-    <link rel="stylesheet" href="../content/madame-claio-v2.css?v=20260724-1" />
+    <link rel="stylesheet" href="../content/madame-claio-v2.css?v=20260804-mme-successor-v1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
@@ -559,9 +51,6 @@
     </nav>
   </header>
 
-    <div class="sv-hero sv-hero-held" data-asset-status="held" role="img" aria-label="Mme CLAi-O's storefront artwork is being prepared." style="width:100%; min-height:clamp(160px,32vh,300px); display:block; background:#301070; position:relative;">
-    </div>
-
     <!-- Kept for the existing state engine; the visible count is now in the room state. -->
     <div class="call-counter" id="callCounter" aria-hidden="true">Call 0</div>
 
@@ -571,24 +60,38 @@
           <a href="/" data-weekly-return-link>&larr; Back to SUNNYVAiLE</a>
         </div>
 
-        <section class="game-page-title">
-          <div>
-            <p class="eyebrow">MA<span class="ai-highlight">i</span>N STREET · No. 5 · PSYCHIC READINGS</p>
-            <h1>Mme CLA<span class="ai-highlight">i</span>-O</h1>
-            <p class="subtitle">Playful reflection. Late-night-commercial drama. No predictions.</p>
-          </div>
-          <button class="claio-song-button" type="button"
-                  aria-label="Play the Madame CLAi-O song on KSVL"
-                  data-src="/content/music/game-mme-claio.mp3"
-                  onclick="window.playLaidiesTheme(this);">
-            <span class="play-icon" aria-hidden="true">Play</span>
-            <span class="pause-icon" aria-hidden="true">Pause</span>
-            <span>Mme CLA<span class="ai-highlight">i</span>-O on KSVL</span>
-          </button>
-        </section>
+        <noscript>
+          <style>.claio-room .call-button,.claio-deck-hotspot{display:none!important}</style>
+          <section class="claio-no-js" role="status">
+            <strong>The deck needs JavaScript to shuffle.</strong>
+            Nothing was drawn or saved. You can still read the product and safety boundaries below, then return to SUNNYVAiLE.
+          </section>
+        </noscript>
 
         <!-- THE SÉANCE TABLE IS THE INTERFACE -->
         <section class="claio-room" id="claioRoom" aria-labelledby="claioArrivalStatus">
+          <section class="game-page-title" aria-labelledby="claioPageTitle">
+            <div>
+              <p class="eyebrow">MA<span class="ai-highlight">i</span>N STREET · No. 5 · PSYCHIC READINGS</p>
+              <h1 id="claioPageTitle">Mme CLA<span class="ai-highlight">i</span>-O</h1>
+              <p class="subtitle">One random authored reflection. Never a prediction.</p>
+              <p class="claio-title-boundary">
+                Not tailored to you or an answer, prediction or professional advice.
+                For emergencies or safety, health, legal, financial or current-fact
+                decisions, use real-world help.
+              </p>
+            </div>
+            <button class="claio-song-button" type="button"
+                    aria-label="Play the Madame CLAi-O song on KSVL"
+                    aria-pressed="false"
+                    data-src="/content/music/game-mme-claio.mp3"
+                    onclick="window.playLaidiesTheme(this);">
+              <span class="play-icon" aria-hidden="true">Play</span>
+              <span class="pause-icon" aria-hidden="true">Pause</span>
+              <span>Mme CLA<span class="ai-highlight">i</span>-O on KSVL</span>
+            </button>
+          </section>
+
           <div class="claio-room-visual">
             <img class="claio-room-image" src="../assets/building-interiors/mme-claio-reading-room.jpg" alt="Mme CLAi-O's reading room with a crystal ball, fanned cards, and a stacked deck on a velvet séance table" />
             <button class="claio-deck-hotspot" id="claioDeckHotspot" type="button" aria-label="Cut the deck on the séance table" disabled>
@@ -605,7 +108,8 @@
               you, does not analyze or answer a question, and is not a
               prediction or professional advice. Keep it, adapt it or ignore it.
             </p>
-            <button class="call-button" type="button" id="fortuneButton" disabled>Cut the deck</button>
+            <p class="claio-persistence-notice" id="claioPersistenceNotice" hidden></p>
+            <button class="call-button" type="button" id="claioFortuneButton" disabled>Cut the deck</button>
           </div>
 
           <div class="calling-state" id="callingState" role="status" aria-live="polite" aria-atomic="true">
@@ -629,6 +133,7 @@
                 <p id="fortuneMove"></p>
               </div>
             </div>
+            <button class="call-button fortune-card-repeat" id="fortuneRepeatButton" type="button">Pull another</button>
           </div>
           <p class="sr-only" id="claioLiveStatus" role="status" aria-live="polite" aria-atomic="true"></p>
         </section>
@@ -662,6 +167,7 @@
               </div>
               <button type="button" class="claio-clear-button" id="clearClaioHistory">Clear Mme CLAi-O data</button>
             </div>
+            <div class="call-history-cards" id="callHistoryCards"></div>
           </div>
 
           <div class="claio-resident-note">
@@ -852,7 +358,7 @@
         : -1;
       let drawPending = false;
 
-      const button = document.getElementById("fortuneButton");
+      const button = document.getElementById("claioFortuneButton");
       const callingState = document.getElementById("callingState");
       const cardEl = document.getElementById("fortuneCard");
       const cardName = document.getElementById("fortuneCardName");
@@ -864,10 +370,12 @@
       const progressText = document.getElementById("progressText");
       const progressFill = document.getElementById("progressFill");
       const historyEl = document.getElementById("callHistory");
+      const historyCardsEl = document.getElementById("callHistoryCards");
       const badgeEl = document.getElementById("badgeReveal");
       const safetyEl = document.getElementById("claioSafety");
       const liveStatusEl = document.getElementById("claioLiveStatus");
       const storageStatusEl = document.getElementById("claioStorageStatus");
+      const persistenceNoticeEl = document.getElementById("claioPersistenceNotice");
       const clearButton = document.getElementById("clearClaioHistory");
       const deckHotspot = document.getElementById("claioDeckHotspot");
       let deckAvailable = false;
@@ -933,7 +441,8 @@
       }
 
       function updateProgress() {
-        if (readingCount >= BADGE_THRESHOLD) {
+        const hasKeepsake = Boolean(sanitizedBadgeStore()['hotline-regular']);
+        if (hasKeepsake) {
           document.getElementById('readingProgress').style.display = 'none';
           badgeEl.classList.add('is-visible');
         } else {
@@ -950,18 +459,23 @@
         storageStatusEl.textContent = storageAvailable
           ? 'Recent readings and the Hotline Regular keepsake stay only in this browser on this device. Clearing browser data removes them.'
           : 'Browser storage is unavailable. You can still draw cards, but this page cannot save the count, history or keepsake after you leave.';
+        if (persistenceNoticeEl) {
+          persistenceNoticeEl.hidden = storageAvailable;
+          persistenceNoticeEl.textContent = storageAvailable ? '' :
+            'This reading works, but browser storage is unavailable. Nothing from this visit will be saved.';
+        }
       }
 
       function renderHistory() {
         // Clear old history cards (keep the header and reset control).
-        const existingCards = historyEl.querySelectorAll('.history-card');
+        const existingCards = historyCardsEl.querySelectorAll('.history-card');
         existingCards.forEach(c => c.remove());
 
         if (callHistory.length === 0) {
           historyEl.style.display = 'none';
           return;
         }
-        historyEl.style.display = 'grid';
+        historyEl.style.display = 'block';
         const recent = callHistory.slice(-3).reverse();
         recent.forEach(item => {
           const canonical = canonicalCard(item.card);
@@ -983,8 +497,48 @@
             div.append(image);
           }
           div.append(name, text);
-          historyEl.appendChild(div);
+          historyCardsEl.appendChild(div);
         });
+      }
+
+      function restoreStoredValue(key, rawValue) {
+        return rawValue === null ? storageRemove(key) : storageSet(key, rawValue);
+      }
+
+      function persistReadingState(nextCount, nextHistory, includeHotlineKeepsake) {
+        const previousCount = storageGet(STORAGE_KEYS.count);
+        const previousHistory = storageGet(STORAGE_KEYS.history);
+        const previousBadges = storageGet(STORAGE_KEYS.badges);
+        if (!storageAvailable) return false;
+        const nextCountRaw = String(nextCount);
+        const nextHistoryRaw = JSON.stringify(nextHistory);
+        const badges = sanitizedBadgeStore();
+        if (includeHotlineKeepsake) {
+          badges['hotline-regular'] = {
+            id: 'hotline-regular',
+            title: 'Hotline Regular local keepsake',
+            sticker: 'Mme CLAi-O',
+            unlockedAt: new Date().toISOString(),
+            source: 'Madame CLAi-O',
+            scope: 'device-local'
+          };
+        }
+        const nextBadgesRaw = includeHotlineKeepsake ? JSON.stringify(badges) : null;
+        const countWritten = storageSet(STORAGE_KEYS.count, nextCountRaw);
+        const historyWritten = storageSet(STORAGE_KEYS.history, nextHistoryRaw);
+        const badgeWritten = !includeHotlineKeepsake || storageSet(STORAGE_KEYS.badges, nextBadgesRaw);
+        const verified = countWritten && historyWritten && badgeWritten && storageAvailable &&
+          storageGet(STORAGE_KEYS.count) === nextCountRaw &&
+          storageGet(STORAGE_KEYS.history) === nextHistoryRaw &&
+          (!includeHotlineKeepsake || (
+            storageGet(STORAGE_KEYS.badges) === nextBadgesRaw &&
+            Boolean(sanitizedBadgeStore()['hotline-regular'])
+          ));
+        if (verified) return true;
+        restoreStoredValue(STORAGE_KEYS.count, previousCount);
+        restoreStoredValue(STORAGE_KEYS.history, previousHistory);
+        restoreStoredValue(STORAGE_KEYS.badges, previousBadges);
+        return false;
       }
 
       function nextIndex(length, prev) {
@@ -1048,13 +602,15 @@
 
           cardEl.classList.add("is-visible");
 
-          readingCount = Math.min(readingCount + 1, MAX_READING_COUNT);
-          storageSet(STORAGE_KEYS.count, readingCount.toString());
-
-          // Update call history
-          callHistory.push({ card: fortune.card, read: fortune.read });
-          if (callHistory.length > MAX_HISTORY) callHistory = callHistory.slice(-MAX_HISTORY);
-          storageSet(STORAGE_KEYS.history, JSON.stringify(callHistory));
+          const nextCount = Math.min(readingCount + 1, MAX_READING_COUNT);
+          const nextHistory = callHistory.concat({ card: fortune.card, read: fortune.read }).slice(-MAX_HISTORY);
+          const hadHotlineKeepsake = Boolean(sanitizedBadgeStore()['hotline-regular']);
+          const shouldPersistHotlineKeepsake = nextCount >= BADGE_THRESHOLD && !hadHotlineKeepsake;
+          const readingPersisted = persistReadingState(nextCount, nextHistory, shouldPersistHotlineKeepsake);
+          if (readingPersisted) {
+            readingCount = nextCount;
+            callHistory = nextHistory;
+          }
 
           updateCounter();
           updateProgress();
@@ -1066,40 +622,44 @@
           counterEl.classList.add('pulse');
 
           // Badge check
-          if (readingCount >= BADGE_THRESHOLD) {
-            badgeEl.classList.add("is-visible");
-            try {
-              const badges = sanitizedBadgeStore();
-              if (!badges["hotline-regular"]) {
-                badges["hotline-regular"] = {
-                  id: "hotline-regular",
-                  title: "Hotline Regular local keepsake",
-                  sticker: "Mme CLAi-O",
-                  unlockedAt: new Date().toISOString(),
-                  source: "Madame CLAi-O",
-                  scope: "device-local"
-                };
-                storageSet(STORAGE_KEYS.badges, JSON.stringify(badges));
-              }
-            } catch(e) {}
-          }
+          const keepsakePersisted = readingPersisted && shouldPersistHotlineKeepsake &&
+            Boolean(sanitizedBadgeStore()['hotline-regular']);
+          updateProgress();
 
-          liveStatusEl.textContent = `Reading complete: ${fortune.card}.`;
+          liveStatusEl.textContent = readingPersisted
+            ? `Reading complete: ${fortune.card}. Saved on this device.${keepsakePersisted ? ' Hotline Regular local keepsake saved.' : ''}`
+            : `Reading complete: ${fortune.card}. Browser storage is unavailable, so the count, history and keepsake were not saved.`;
           cardEl.focus({ preventScroll: true });
           cardEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         }, reduceMotion ? 0 : 1500);
       });
 
       clearButton?.addEventListener('click', () => {
+        const previousCount = storageGet(STORAGE_KEYS.count);
+        const previousHistory = storageGet(STORAGE_KEYS.history);
+        const previousBadges = storageGet(STORAGE_KEYS.badges);
+        const countRemoved = storageRemove(STORAGE_KEYS.count);
+        const historyRemoved = storageRemove(STORAGE_KEYS.history);
+        const badges = sanitizedBadgeStore();
+        delete badges['hotline-regular'];
+        const badgeStored = Object.keys(badges).length
+          ? storageSet(STORAGE_KEYS.badges, JSON.stringify(badges))
+          : storageRemove(STORAGE_KEYS.badges);
+        const clearSucceeded = countRemoved && historyRemoved && badgeStored && storageAvailable &&
+          storageGet(STORAGE_KEYS.count) === null &&
+          storageGet(STORAGE_KEYS.history) === null &&
+          !sanitizedBadgeStore()['hotline-regular'];
+        if (!clearSucceeded) {
+          restoreStoredValue(STORAGE_KEYS.count, previousCount);
+          restoreStoredValue(STORAGE_KEYS.history, previousHistory);
+          restoreStoredValue(STORAGE_KEYS.badges, previousBadges);
+          updateStorageTruth();
+          liveStatusEl.textContent = 'Mme CLAi-O data could not be cleared completely. The page is keeping the current visible state and is not claiming success.';
+          return;
+        }
         readingCount = 0;
         callHistory = [];
         lastIndex = -1;
-        storageRemove(STORAGE_KEYS.count);
-        storageRemove(STORAGE_KEYS.history);
-        const badges = sanitizedBadgeStore();
-        delete badges['hotline-regular'];
-        if (Object.keys(badges).length) storageSet(STORAGE_KEYS.badges, JSON.stringify(badges));
-        else storageRemove(STORAGE_KEYS.badges);
         cardEl.classList.remove('is-visible');
         updateCounter();
         updateProgress();
@@ -1114,7 +674,8 @@
         return {
           count: readingCount,
           history: callHistory.slice(),
-          storageAvailable: storageAvailable
+          storageAvailable: storageAvailable,
+          hasHotlineKeepsake: Boolean(sanitizedBadgeStore()['hotline-regular'])
         };
       };
 
@@ -1165,7 +726,7 @@
         });
       })();
     </script>
-      <script src="../content/site/madame-claio-v2.js?v=20260724-1"></script>
+      <script src="../content/site/madame-claio-v2.js?v=20260804-mme-successor-v1"></script>
       <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm2" defer></script>
     <script src="../content/site/laidies-bg.js?v=laidies-bg-1" defer></script>
@@ -1175,7 +736,11 @@
     if (window.playLaidiesTheme) return;
     var activeBtn = null, activeAudio = null;
     function stopActive() {
-      if (activeBtn) activeBtn.classList.remove('is-playing');
+      if (activeBtn) {
+        activeBtn.classList.remove('is-playing');
+        activeBtn.setAttribute('aria-label', 'Play the Madame CLAi-O song on KSVL');
+        activeBtn.setAttribute('aria-pressed', 'false');
+      }
       if (activeAudio) { try { activeAudio.pause(); } catch(e){} }
       activeBtn = null; activeAudio = null;
     }
@@ -1189,6 +754,8 @@
       audio.addEventListener('error', function() { if (activeAudio === audio) stopActive(); });
       audio.play().catch(function() { if (activeAudio === audio) stopActive(); });
       btn.classList.add('is-playing');
+      btn.setAttribute('aria-label', 'Pause the Madame CLAi-O song on KSVL');
+      btn.setAttribute('aria-pressed', 'true');
       activeBtn = btn; activeAudio = audio;
     };
   })();

@@ -1292,9 +1292,10 @@ const hiddenMeritBadges = {
   },
   "hotline-regular": {
     id: "hotline-regular",
-    title: "Hotline Regular merit badge",
+    title: "Hotline Regular local keepsake",
     sticker: "Mme CLAi-O",
     source: "Madame CLAi-O",
+    scope: "device-local",
     unlockMessage:
       "Hotline Regular unlocked. You have called more times than Cher changed outfits before her driver's test. Madame CLAi-O recognizes your number.",
   },
@@ -1373,7 +1374,6 @@ const hiddenMeritBadges = {
 // (slated to become charms in the later "secret merit badge" audit) and are
 // intentionally left OUT of this set so they keep landing in the diary.
 const MERIT_BADGE_IDS = new Set([
-  "hotline-regular", // 5 Madame CLAi-O readings
   "remix-scholar", // played all Dream Phone remix cards in one call
   "cold-read", // won Dream Phone first-try, zero wrong numbers (skill achievement)
   "try-on-regular", // 5 Five-Minute Try-On dares
@@ -2636,6 +2636,7 @@ function getLocalRewardEvents(userId) {
   // as reward_type "merit_badge"; everything else stays a diary "secret_badge".
   Object.values(getSecretBadges()).forEach((badge) => {
     if (!badge?.id) return;
+    if (badge.scope === "device-local") return;
     const isMerit = MERIT_BADGE_IDS.has(badge.id);
     events.push({
       user_id: userId,
@@ -2780,6 +2781,10 @@ async function mergeSecretBadgesFromAccount(userId) {
     const id = String(event.dedupe_key || "").replace(/^secret-badge:/, "");
     const badge = hiddenMeritBadges[id];
     if (!badge) return;
+    // Historical account rows cannot promote a device-local keepsake into the
+    // shared reward store. A future durable version needs a new lifecycle
+    // contract and a different governed reward identity.
+    if (badge.scope === "device-local") return;
     badges[id] = {
       id,
       title: event.title || badge.title,
@@ -3600,7 +3605,7 @@ fortuneButton?.addEventListener("click", () => {
     line.className = "fortune-line fortune-line--unlock";
     const labelEl = document.createElement("strong");
     labelEl.className = "fortune-label";
-    labelEl.textContent = "Merit badge:";
+    labelEl.textContent = "Local keepsake:";
     const textEl = document.createElement("span");
     textEl.textContent = ` ${unlockMessage}`;
     line.append(labelEl, textEl);
@@ -4005,10 +4010,11 @@ function unlockSecretBadge(badgeId, sourceOverride = "") {
     sticker: badge.sticker,
     unlockedAt: new Date().toISOString(),
     source: sourceOverride || badge.source,
+    ...(badge.scope ? { scope: badge.scope } : {}),
   };
   storeSecretBadges(badges);
   renderSecretBadges();
-  scheduleMemberRewardSync();
+  if (badge.scope !== "device-local") scheduleMemberRewardSync();
   showBadgeToast(badge);
   return badge.unlockMessage;
 }

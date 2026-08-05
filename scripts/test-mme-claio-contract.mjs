@@ -2,6 +2,11 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import {
+  extractProjection,
+  runBuild,
+  validateDeck
+} from "./build-mme-claio-deck.mjs";
 
 const root = process.cwd();
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
@@ -13,9 +18,15 @@ const check = (condition, message) => {
 const page = read("games/madame-claio.html");
 const css = read("content/madame-claio-v2.css");
 const enhancement = read("content/site/madame-claio-v2.js");
+const shared = read("script.js");
+const handbook = read("handbook.html");
 const redirect = read("games/cocktail-fortune.html");
 const bws = read("games/businesswomens-special.html");
 const spec = read("operations/product-stewards/mme-claio/OPERATING-SPEC.md");
+const deck = JSON.parse(read("content/data/mme-claio-deck.json"));
+const deckSchema = JSON.parse(read("content/data/mme-claio-deck.schema.json"));
+const meritBadgeSetBody = shared.match(/const MERIT_BADGE_IDS = new Set\(\[([\s\S]*?)\]\);/)?.[1] || "";
+const accountBadgeMergeBody = shared.match(/async function mergeSecretBadgesFromAccount\(userId\) \{([\s\S]*?)\n\}/)?.[1] || "";
 
 for (const file of [
   "operations/product-stewards/mme-claio/CHARTER.md",
@@ -26,12 +37,31 @@ for (const file of [
   check(fs.existsSync(path.join(root, file)), `missing steward record: ${file}`);
 }
 
-const deckStart = page.indexOf("const fortuneCards=[");
-const deckEnd = page.indexOf("];", deckStart);
-check(deckStart >= 0 && deckEnd > deckStart, "fortune deck cannot be located");
-const deckSource = page.slice(deckStart, deckEnd);
-const cardCount = (deckSource.match(/\{card:/g) || []).length;
+let cardCount = 0;
+try {
+  validateDeck(deck, deckSchema, { root });
+  cardCount = deck.cards.length;
+} catch (error) {
+  failures.push(error.message);
+}
 check(cardCount === 100, `expected unchanged 100-card deck, found ${cardCount}`);
+try {
+  check(JSON.stringify(extractProjection(page)) === JSON.stringify(deck), "canonical deck JSON and inline projection differ");
+  runBuild({ root, checkOnly: true });
+} catch (error) {
+  failures.push(error.message);
+}
+check(/id="claioDeckData"/.test(page), "inline canonical deck projection is missing");
+check(!/const fortuneCards=\[/.test(page), "hard-coded legacy deck remains in the page controller");
+check(!/ART_ALIASES|function cardSlug\(/.test(page), "card art identity is still inferred or aliased at runtime");
+check(/fortune\.art_slug/.test(page) && /canonical\.art_slug/.test(page), "explicit art_slug is not used for current and history art");
+check(!/full 60-card deck/.test(page), "stale 60-card deck description remains");
+check(/let deckAvailable = false/.test(page), "runtime deck does not begin fail closed");
+check(/EXPECTED_DECK_SHA256 = '[a-f0-9]{64}'/.test(page), "runtime deck is not checksum bound");
+check(/crypto\.subtle\.digest\('SHA-256', bytes\)/.test(page), "runtime deck does not verify exact inline bytes");
+check(/actual !== EXPECTED_DECK_SHA256/.test(page), "runtime deck does not reject stale exact bytes");
+check(/id="claioFortuneButton" disabled/.test(page) && /id="claioDeckHotspot"[^>]+disabled/.test(page), "draw controls are not disabled before exact deck admission");
+check(!/id="fortuneButton"/.test(page), "Mme page still collides with the shared legacy fortune handler");
 check(/function nextIndex\(length, prev\)/.test(page), "non-repeat selector is missing");
 check(/findIndex\(card => card\.card === callHistory\[callHistory\.length - 1\]\.card\)/.test(page), "returning user does not restore the last-card exclusion");
 
@@ -50,6 +80,12 @@ for (const phrase of [
   check(page.includes(phrase), `visible boundary is missing: ${phrase}`);
 }
 check(!/\b(?:988|911|999|112)\b/.test(page), "page assumes a local emergency/hotline number");
+const titleBoundaryAt = page.indexOf('class="claio-title-boundary"');
+const roomActionAt = page.indexOf('class="claio-deck-hotspot"');
+check(titleBoundaryAt >= 0 && titleBoundaryAt < roomActionAt, "complete compact boundary is not visible before the first room action");
+check(/id="fortuneRepeatButton"/.test(page), "mobile result lacks an adjacent repeat action");
+check(/repeatButton\.addEventListener\("click"/.test(enhancement), "mobile result repeat action is not wired to the governed draw control");
+check(/<noscript>[\s\S]*The deck needs JavaScript to shuffle[\s\S]*Nothing was drawn or saved/.test(page), "no-JavaScript recovery truth is missing");
 
 check(/const MAX_READING_COUNT = 10000/.test(page), "count maximum is not explicit");
 check(/Number\.isSafeInteger\(value\)/.test(page), "stored count is not safe-integer validated");
@@ -74,6 +110,17 @@ check(/Hotline Regular local keepsake/.test(page), "badge is not framed as a loc
 check(/not an account reward or member benefit/.test(page), "badge does not deny durable reward scope");
 check(/id="clearClaioHistory"/.test(page), "local reset control is missing");
 check(/delete badges\['hotline-regular'\]/.test(page), "reset does not remove Mme CLAi-O's local keepsake");
+check(/const readingPersisted = persistReadingState/.test(page) && /const keepsakePersisted = readingPersisted/.test(page), "keepsake progress is not gated on persisted reading state");
+check(/function persistReadingState\(nextCount, nextHistory, includeHotlineKeepsake\)/.test(page), "reading and threshold keepsake are not one transaction");
+check(/restoreStoredValue\(STORAGE_KEYS\.badges, previousBadges\)/.test(page), "failed threshold keepsake write cannot roll back badge storage");
+check(/hasHotlineKeepsake: Boolean\(sanitizedBadgeStore\(\)\['hotline-regular'\]\)/.test(page), "arrival state cannot distinguish count from saved keepsake");
+check(/if \(!clearSucceeded\)[\s\S]*could not be cleared completely/.test(page), "failed local deletion can still announce success");
+check(/"hotline-regular": \{[\s\S]*?scope: "device-local"/.test(shared), "shared Hotline Regular catalog does not bind device-local scope");
+check(!meritBadgeSetBody.includes('"hotline-regular"'), "shared merit set still classifies Hotline Regular as an account reward");
+check(/if \(badge\.scope === "device-local"\) return;/.test(shared), "shared account importer does not exclude device-local keepsakes");
+check(/if \(badge\.scope === "device-local"\) return;/.test(accountBadgeMergeBody), "historical account rows can rehydrate a device-local keepsake");
+check(/scope: badge\.scope/.test(shared), "shared unlock writer drops the device-local scope");
+check(/device-local Hotline Regular keepsake/.test(handbook) && !/Hotline Regular badge/.test(handbook), "Handbook still claims Hotline Regular as a durable badge");
 
 check(/role="status" aria-live="polite" aria-atomic="true"/.test(page), "dynamic state lacks live status semantics");
 check(/id="fortuneCard" role="region"[\s\S]*tabindex="-1"/.test(page), "reading result is not programmatically focusable");

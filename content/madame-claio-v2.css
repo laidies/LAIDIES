@@ -12,7 +12,7 @@
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: visible;
   background: var(--cl-ink) !important;
   color: #fff;
   font-family: "Jost", sans-serif;
@@ -29,6 +29,12 @@ body *::after {
 }
 
 .call-counter {
+  display: none !important;
+}
+
+/* This page owns an explicit Back to SUNNYVAiLE control; the shared floating
+   rail is redundant and otherwise covers the room or reading card. */
+.sv-side-rail {
   display: none !important;
 }
 
@@ -70,6 +76,9 @@ body *::after {
 }
 
 .game-page-header.claio-return a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   color: #fff;
   font: 800 .76rem/1 "Jost", sans-serif;
   letter-spacing: .1em;
@@ -82,16 +91,34 @@ body *::after {
   text-decoration: none;
 }
 
+.claio-no-js {
+  padding: 18px clamp(22px, 6vw, 92px);
+  border-bottom: 3px solid var(--cl-coral);
+  background: var(--cl-midnight);
+  color: #fff;
+  font-size: .95rem;
+  line-height: 1.5;
+}
+
+.claio-no-js strong {
+  display: block;
+  color: var(--cl-mint);
+  font-weight: 900;
+}
+
 .game-page-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 40px;
   align-items: end;
   margin: 0;
-  padding: clamp(54px, 7vw, 96px) clamp(24px, 7vw, 112px);
-  background:
-    linear-gradient(115deg, rgba(49, 94, 232, .19), transparent 38%),
-    var(--cl-midnight);
+  padding: clamp(34px, 4.5vw, 66px) clamp(24px, 6vw, 92px) clamp(28px, 4vw, 54px);
+  background: linear-gradient(180deg, rgba(7, 11, 32, .96) 0%, rgba(7, 11, 32, .76) 72%, transparent 100%);
   color: #fff;
   text-align: left;
 }
@@ -110,7 +137,7 @@ body *::after {
   margin: 0;
   color: #fff !important;
   font-family: "Anton", sans-serif !important;
-  font-size: clamp(4rem, 8.4vw, 8.4rem);
+  font-size: clamp(3.6rem, 7vw, 7.2rem);
   font-weight: 400;
   letter-spacing: -.018em;
   line-height: .9;
@@ -129,11 +156,20 @@ body *::after {
 
 .game-page-title .subtitle {
   max-width: none;
-  margin: 20px 0 0;
+  margin: 14px 0 0;
   color: rgba(255, 255, 255, .76) !important;
-  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
   font-style: normal;
   font-weight: 600;
+}
+
+.claio-title-boundary {
+  max-width: 78ch;
+  margin: 11px 0 0;
+  color: rgba(255, 255, 255, .72) !important;
+  font-size: .75rem;
+  font-weight: 650;
+  line-height: 1.45;
 }
 
 .claio-song-button {
@@ -172,7 +208,7 @@ body *::after {
 
 .claio-room {
   position: relative;
-  min-height: 960px;
+  min-height: 1040px;
   overflow: hidden;
   background: var(--cl-ink);
   isolation: isolate;
@@ -211,10 +247,10 @@ body *::after {
 
 .claio-arrival {
   position: absolute;
-  top: clamp(56px, 7vw, 102px);
+  top: clamp(300px, 28vw, 380px);
   left: clamp(24px, 6vw, 92px);
   z-index: 3;
-  width: min(34vw, 480px);
+  width: min(31vw, 420px);
   color: #fff;
   text-shadow: 0 2px 14px rgba(7, 11, 32, .82);
 }
@@ -236,7 +272,7 @@ body *::after {
   margin: 0;
   color: #fff !important;
   font-family: "Anton", sans-serif !important;
-  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-size: clamp(2.25rem, 3vw, 3.4rem);
   font-weight: 400;
   letter-spacing: .01em;
   line-height: .94;
@@ -265,6 +301,22 @@ body *::after {
   letter-spacing: 0;
   line-height: 1.5;
   text-transform: none;
+}
+
+.claio-persistence-notice {
+  margin: 14px 0 0 !important;
+  padding: 12px 14px;
+  border: 2px solid var(--cl-coral);
+  background: var(--cl-midnight);
+  color: #fff !important;
+  font-size: .84rem !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+  text-transform: none !important;
+}
+
+.claio-persistence-notice[hidden] {
+  display: none !important;
 }
 
 .call-button {
@@ -334,11 +386,13 @@ body *::after {
 .claio-deck-hotspot:hover,
 .claio-deck-hotspot:focus-visible {
   border-color: var(--cl-cyan);
-  outline: none;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
   box-shadow: 0 0 0 5px rgba(21, 198, 216, .25);
 }
 
 .calling-state {
+  display: none;
   position: absolute;
   top: 51%;
   left: 50%;
@@ -375,20 +429,22 @@ body *::after {
 }
 
 .fortune-card {
+  display: none;
   position: absolute;
-  top: 52px;
+  top: clamp(270px, 25vw, 340px);
   right: clamp(24px, 4vw, 64px);
-  bottom: 52px;
+  bottom: auto;
   z-index: 4;
-  width: min(59vw, 820px);
+  width: min(52vw, 720px);
+  max-height: none;
   margin: 0;
   padding: clamp(24px, 3vw, 42px);
-  overflow-y: auto;
-  border: 0;
-  border-left: 10px solid var(--cl-pink);
+  overflow: visible;
+  border: 3px solid rgba(255, 255, 255, .88);
+  border-left: 9px solid var(--cl-pink);
   border-radius: 0;
   background: rgba(7, 11, 32, .93);
-  box-shadow: 14px 14px 0 rgba(21, 198, 216, .86);
+  box-shadow: 12px 12px 0 rgba(21, 198, 216, .82);
   color: #fff;
   backdrop-filter: blur(14px);
 }
@@ -436,19 +492,23 @@ body *::after {
 }
 
 .claio-safety.claio-safety--static {
+  display: grid;
+  grid-template-columns: minmax(260px, .7fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 90px);
+  align-items: center;
   position: relative;
   inset: auto;
   z-index: auto;
   width: 100%;
-  padding: clamp(28px, 4vw, 48px) clamp(24px, 7vw, 112px);
-  border-width: 3px 0;
+  padding: clamp(34px, 4vw, 54px) clamp(24px, 7vw, 112px);
+  border-width: 3px 0 0;
   box-shadow: none;
 }
 
 .claio-safety.claio-safety--static h3 {
-  max-width: 24ch;
+  max-width: 16ch;
   color: #fff !important;
-  font-size: clamp(1.8rem, 4vw, 3.7rem);
+  font-size: clamp(1.8rem, 3vw, 3rem);
 }
 
 .claio-safety.claio-safety--static p {
@@ -473,10 +533,14 @@ body *::after {
 
 .fortune-card.is-visible {
   display: grid;
-  grid-template-columns: minmax(190px, .68fr) minmax(0, 1fr);
-  gap: clamp(26px, 3.5vw, 54px);
+  grid-template-columns: minmax(180px, .62fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 42px);
   align-items: center;
   animation: claioReveal .42s ease both;
+}
+
+.fortune-card-repeat {
+  display: none;
 }
 
 @keyframes claioReveal {
@@ -507,8 +571,8 @@ body *::after {
 }
 
 .fortune-card-art {
-  width: min(100%, 285px);
-  max-height: 500px;
+  width: min(100%, 245px);
+  max-height: 350px;
   display: block;
   margin: 0;
   border-radius: 12px;
@@ -518,7 +582,7 @@ body *::after {
 }
 
 .fortune-card-name {
-  margin: 25px 0 0;
+  margin: 20px 0 0;
   color: #fff !important;
   font-family: "Playfair Display", serif !important;
   font-size: clamp(1.55rem, 2.7vw, 2.65rem);
@@ -607,18 +671,24 @@ body *::after {
 }
 
 .call-history {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  min-width: 0;
   margin: 0;
 }
 
+.call-history-cards {
+  min-width: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .call-history-header {
-  grid-column: 1 / -1;
   display: flex;
   gap: 24px;
   align-items: end;
   justify-content: space-between;
+  margin-bottom: 22px;
 }
 
 .call-history-title {
@@ -741,7 +811,9 @@ body *::after {
 }
 
 .claio-resident-note a {
-  display: inline-block;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   margin-top: 22px;
   padding-bottom: 7px;
   border-bottom: 2px solid var(--cl-cyan);
@@ -758,6 +830,7 @@ body *::after {
 }
 
 .badge-reveal {
+  display: none;
   grid-column: 1 / -1;
   margin: 0;
   padding: 23px 26px;
@@ -767,6 +840,10 @@ body *::after {
   box-shadow: none;
   text-align: left;
   animation: none;
+}
+
+.badge-reveal.is-visible {
+  display: block;
 }
 
 .badge-reveal strong {
@@ -785,7 +862,7 @@ body *::after {
   border-top: 1px solid rgba(255, 255, 255, .14);
   background: #03050e;
   color: var(--cl-periwinkle) !important;
-  font-family: "VT323", monospace;
+  font-family: "Jost", sans-serif;
   font-size: clamp(.92rem, 1.35vw, 1.2rem);
   letter-spacing: .05em;
   line-height: 1.25;
@@ -800,11 +877,17 @@ body *::after {
 
 @media (max-width: 1050px) {
   .claio-arrival {
-    width: min(39vw, 420px);
+    width: min(36vw, 390px);
   }
 
   .fortune-card {
-    width: min(65vw, 760px);
+    width: min(58vw, 680px);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1099px) {
+  .claio-deck-hotspot {
+    display: none;
   }
 }
 
@@ -814,15 +897,27 @@ body *::after {
   }
 
   .game-page-title {
+    position: relative;
+    inset: auto;
+    order: 1;
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 64px 22px 70px;
+    gap: 22px;
+    padding: 46px 22px 52px;
+    background:
+      linear-gradient(130deg, rgba(49, 94, 232, .2), transparent 58%),
+      var(--cl-midnight);
   }
 
   .game-page-title h1 {
     font-size: clamp(3rem, 15.5vw, 5.2rem);
     overflow-wrap: anywhere;
     white-space: normal;
+  }
+
+  .claio-title-boundary {
+    max-width: 44ch;
+    font-size: .88rem;
+    line-height: 1.5;
   }
 
   .claio-song-button {
@@ -844,7 +939,7 @@ body *::after {
   .claio-arrival {
     position: relative;
     inset: auto;
-    order: 1;
+    order: 3;
     width: 100%;
     padding: 54px 22px 62px;
     background:
@@ -854,7 +949,7 @@ body *::after {
   }
 
   .claio-arrival h2 {
-    font-size: clamp(3rem, 14vw, 5rem);
+    font-size: clamp(2.8rem, 12vw, 4.4rem);
   }
 
   .claio-room-visual {
@@ -870,10 +965,31 @@ body *::after {
   }
 
   .claio-deck-hotspot {
-    top: 58%;
-    left: 54%;
-    width: 24%;
-    height: 22%;
+    top: auto;
+    right: auto;
+    bottom: 22px;
+    left: 22px;
+    width: auto;
+    min-height: 44px;
+    padding: 13px 20px;
+    border: 2px solid var(--cl-ink);
+    border-radius: 8px;
+    background: var(--cl-pink);
+    box-shadow: 7px 7px 0 var(--cl-cyan);
+    color: var(--cl-ink);
+    font: 900 .76rem/1 "Jost", sans-serif;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .claio-deck-hotspot span {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
   }
 
   .calling-state {
@@ -901,10 +1017,25 @@ body *::after {
     gap: 42px;
   }
 
+  .fortune-card-repeat {
+    display: inline-flex;
+    width: calc(100% - 10px);
+    margin-top: 0;
+  }
+
+  .claio-arrival > .call-button {
+    display: none;
+  }
+
+  .claio-safety.claio-safety--static {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .claio-safety {
     position: relative;
     inset: auto;
-    order: 4;
+    order: 5;
     width: 100%;
     padding: 44px 22px 52px;
     box-shadow: none;
@@ -926,25 +1057,36 @@ body *::after {
   }
 
   .call-history {
-    position: relative;
+    position: static;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .call-history-cards {
+    max-width: 100%;
     grid-template-columns: repeat(3, 142px);
     grid-auto-flow: column;
     gap: 16px;
     margin-right: -22px;
-    padding: 128px 22px 6px 0;
+    padding: 0 22px 6px 0;
     overflow-x: auto;
     scroll-snap-type: x proximity;
   }
 
   .call-history-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 22px;
+    position: static;
+    width: auto;
     align-items: start;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 22px;
   }
+
+  /* The page already provides a persistent Back to SUNNYVAiLE control above
+     the room. The shared floating rail otherwise obscures the reading card on
+     narrow screens. */
 
   .history-card {
     flex: 0 0 142px;
@@ -952,6 +1094,8 @@ body *::after {
   }
 
   .claio-resident-note {
+    min-width: 0;
+    max-width: 100%;
     padding-left: 22px;
   }
 
@@ -981,12 +1125,7 @@ body *::after {
     width: 100%;
   }
 
-  .claio-deck-hotspot {
-    top: 58%;
-    left: 55%;
-    width: 25%;
-    height: 23%;
-  }
+  .claio-deck-hotspot { left: 18px; bottom: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

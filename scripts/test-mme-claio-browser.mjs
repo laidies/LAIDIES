@@ -29,7 +29,8 @@ const mime = new Map([
 ]);
 
 const server = http.createServer((request, response) => {
-  const urlPath = decodeURIComponent(new URL(request.url, "http://127.0.0.1").pathname);
+  const requestUrl = new URL(request.url, "http://127.0.0.1");
+  const urlPath = decodeURIComponent(requestUrl.pathname);
   const relative = urlPath === "/" ? "index.html" : urlPath.replace(/^\/+/, "");
   const resolved = path.resolve(servedRoot, relative);
   if (!resolved.startsWith(`${servedRoot}${path.sep}`) && resolved !== path.join(servedRoot, "index.html")) {
@@ -41,8 +42,23 @@ const server = http.createServer((request, response) => {
       response.writeHead(404).end("Not found");
       return;
     }
+    let body = data;
+    if (relative === "games/madame-claio.html") {
+      const fixture = requestUrl.searchParams.get("deck_fixture");
+      if (fixture === "stale") {
+        body = data.toString("utf8").replace(
+          "A shiny opportunity still needs a friction check.",
+          "A semantically valid stale projection remains accepted."
+        );
+      } else if (fixture === "malformed") {
+        body = data.toString("utf8").replace(
+          /(<script type="application\/json" id="claioDeckData">)[^<]*/,
+          "$1{"
+        );
+      }
+    }
     response.writeHead(200, { "content-type": mime.get(path.extname(resolved)) || "application/octet-stream" });
-    response.end(data);
+    response.end(body);
   });
 });
 
@@ -85,10 +101,13 @@ async function openPage({
   viewport = { width: 1000, height: 850 },
   seed = {},
   disableStorage = false,
-  clockNow = null
+  failRemove = false,
+  failSetKey = null,
+  clockNow = null,
+  deckFixture = null
 } = {}) {
   const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
-  await context.addInitScript(({ stored, denied, fixedNow }) => {
+  await context.addInitScript(({ stored, denied, removeDenied, deniedSetKey, fixedNow }) => {
     if (Number.isFinite(fixedNow)) {
       Date.now = () => fixedNow;
     }
@@ -103,20 +122,51 @@ async function openPage({
       for (const [key, value] of Object.entries(stored)) {
         localStorage.setItem(key, value);
       }
+      if (removeDenied) {
+        Object.defineProperty(Storage.prototype, "removeItem", {
+          configurable: true,
+          value() { throw new Error("remove disabled"); }
+        });
+      }
+      if (deniedSetKey) {
+        const originalSetItem = Storage.prototype.setItem;
+        Object.defineProperty(Storage.prototype, "setItem", {
+          configurable: true,
+          value(key, value) {
+            if (key === deniedSetKey) throw new Error("selected write disabled");
+            return originalSetItem.call(this, key, value);
+          }
+        });
+      }
     }
     let index = 0;
     const values = [0, 0, 0.5, 0.25, 0.75, 0.1, 0.9];
     Math.random = () => values[Math.min(index++, values.length - 1)];
-  }, { stored: seed, denied: disableStorage, fixedNow: clockNow });
+  }, { stored: seed, denied: disableStorage, removeDenied: failRemove, deniedSetKey: failSetKey, fixedNow: clockNow });
   const page = await context.newPage();
-  page.on("pageerror", (error) => failures.push(`browser exception: ${error.message}`));
-  await page.goto(`${origin}/games/madame-claio.html`, { waitUntil: "domcontentloaded" });
-  await page.locator("#fortuneButton").waitFor({ state: "visible" });
+  page.on("pageerror", (error) => {
+    const detail = error.stack || error.message;
+    if (/scripts\.clarity\.ms/.test(detail) && /storage disabled/.test(detail)) return;
+    failures.push(`browser exception: ${detail}`);
+  });
+  const fixtureQuery = deckFixture ? `?deck_fixture=${encodeURIComponent(deckFixture)}` : "";
+  await page.goto(`${origin}/games/madame-claio.html${fixtureQuery}`, { waitUntil: "domcontentloaded" });
+  await page.locator("#claioFortuneButton").waitFor({ state: "attached" });
+  if (!deckFixture) {
+    await page.waitForFunction(() => {
+      const button = document.querySelector("#claioFortuneButton");
+      const hotspot = document.querySelector("#claioDeckHotspot");
+      return button && hotspot && !button.disabled && !hotspot.disabled &&
+        button.textContent.trim() === "Cut the deck";
+    });
+  }
   return { context, page };
 }
 
 async function draw(page, expectedCount) {
-  await page.locator("#fortuneButton").click();
+  const main = page.locator("#claioFortuneButton");
+  const control = await main.isVisible() ? main : page.locator("#claioDeckHotspot");
+  await control.click();
   await page.waitForFunction(
     (count) => window.getClaioLocalState?.().count === count &&
       document.querySelector("#fortuneCard")?.classList.contains("is-visible"),
@@ -125,6 +175,27 @@ async function draw(page, expectedCount) {
 }
 
 try {
+  for (const deckFixture of ["malformed", "stale"]) {
+    const held = await openPage({ deckFixture });
+    await held.page.waitForFunction(() =>
+      document.querySelector("#claioFortuneButton")?.disabled &&
+      document.querySelector("#claioDeckHotspot")?.disabled
+    );
+    await held.page.evaluate(() => {
+      document.querySelector("#claioFortuneButton")?.click();
+      document.querySelector("#claioDeckHotspot")?.click();
+    });
+    check(!(await held.page.locator("#fortuneCard").evaluate(element => element.classList.contains("is-visible"))),
+      `${deckFixture} runtime deck exposed a reading`);
+    check(await held.page.evaluate(() => localStorage.getItem("claio-call-count") === null),
+      `${deckFixture} runtime deck wrote a call count`);
+    check(await held.page.evaluate(() => localStorage.getItem("claio-call-history") === null),
+      `${deckFixture} runtime deck wrote reading history`);
+    check((await held.page.locator("#claioLiveStatus").innerText()).includes("deck is unavailable"),
+      `${deckFixture} runtime deck did not disclose unavailability`);
+    await held.context.close();
+  }
+
   const validBadgeDate = "2024-02-29T12:00:00.000Z";
   const unrelatedBadge = {
     id: "other-keepsake",
@@ -172,7 +243,7 @@ try {
   check(await page.evaluate(() => document.activeElement?.id === "claioSafety"), "safety boundary cannot receive programmatic focus");
   check(await page.locator("#claioSafety").evaluate((element) => getComputedStyle(element).outlineStyle !== "none"), "safety focus indicator is not visible");
 
-  await page.locator("#fortuneButton").focus();
+  await page.locator("#claioFortuneButton").focus();
   await page.keyboard.press("Enter");
   await page.waitForFunction(() => window.getClaioLocalState?.().count === 1);
   await page.locator("#fortuneCard.is-visible").waitFor();
@@ -199,7 +270,7 @@ try {
   check((await page.locator("#badgeReveal").innerText()).includes("not an account reward"), "keepsake copy implies durable reward scope");
 
   await page.locator("#clearClaioHistory").click();
-  check(await page.evaluate(() => document.activeElement?.id === "fortuneButton"), "reset did not return focus to the draw control");
+  check(await page.evaluate(() => document.activeElement?.id === "claioFortuneButton"), "reset did not return focus to the draw control");
   check((await page.locator("#claioLiveStatus").innerText()).includes("were cleared from this browser"), "reset was not announced");
   check(await page.evaluate(() => localStorage.getItem("claio-call-count") === null), "reset left local call count");
   check(await page.evaluate(() => localStorage.getItem("claio-call-history") === null), "reset left local history");
@@ -210,10 +281,78 @@ try {
 
   const denied = await openPage({ disableStorage: true });
   check((await denied.page.locator("#claioStorageStatus").innerText()).includes("storage is unavailable"), "storage failure is not disclosed");
-  await denied.page.locator("#fortuneButton").click();
+  await denied.page.locator("#claioFortuneButton").click();
   await denied.page.locator("#fortuneCard.is-visible").waitFor();
   check(await denied.page.evaluate(() => document.activeElement?.id === "fortuneCard"), "storage denial broke reading completion");
+  for (let attempt = 1; attempt < 5; attempt += 1) {
+    const previousCard = await denied.page.locator("#fortuneCardName").innerText();
+    await denied.page.evaluate(() => document.querySelector("#claioFortuneButton")?.click());
+    await denied.page.waitForFunction((prior) =>
+      document.querySelector("#fortuneCardName")?.textContent !== prior &&
+      document.querySelector("#fortuneCard")?.classList.contains("is-visible") &&
+      document.querySelector("#claioFortuneButton")?.textContent.trim() === "PULL ANOTHER",
+      previousCard
+    );
+  }
+  const deniedState = await denied.page.evaluate(() => window.getClaioLocalState());
+  check(deniedState.count === 0 && deniedState.history.length === 0, "storage denial falsely advanced saved progress");
+  check(!(await denied.page.locator("#badgeReveal").isVisible()), "storage denial falsely unlocked Hotline Regular");
+  check(!(await denied.page.locator("#claioArrivalStatus").innerText()).includes("Hotline Regular"), "storage denial falsely claimed Hotline Regular status");
+  check((await denied.page.locator("#claioLiveStatus").innerText()).includes("were not saved"), "storage denial did not announce unsaved result");
   await denied.context.close();
+
+  const partialKeepsakeWrite = await openPage({
+    failSetKey: "laidiesSecretBadges",
+    seed: {
+      "claio-call-count": "4",
+      "claio-call-history": JSON.stringify([{ card: "The Jelly Sandal", read: "canonicalized after load" }])
+    }
+  });
+  await partialKeepsakeWrite.page.locator("#claioFortuneButton").click();
+  await partialKeepsakeWrite.page.locator("#fortuneCard.is-visible").waitFor();
+  const partialState = await partialKeepsakeWrite.page.evaluate(() => window.getClaioLocalState());
+  check(partialState.count === 4, "failed keepsake write advanced saved reading count");
+  check(await partialKeepsakeWrite.page.evaluate(() => localStorage.getItem("claio-call-count") === "4"), "failed keepsake write did not roll back raw count");
+  check(await partialKeepsakeWrite.page.evaluate(() => JSON.parse(localStorage.getItem("claio-call-history") || "[]").length === 1), "failed keepsake write did not roll back raw history");
+  check(!(await partialKeepsakeWrite.page.locator("#badgeReveal").isVisible()), "failed keepsake write exposed the keepsake");
+  check(!(await partialKeepsakeWrite.page.locator("#claioArrivalStatus").innerText()).includes("Hotline Regular"), "failed keepsake write falsely greeted Hotline Regular");
+  check((await partialKeepsakeWrite.page.locator("#claioLiveStatus").innerText()).includes("were not saved"), "failed keepsake write did not disclose rollback");
+  await partialKeepsakeWrite.context.close();
+
+  const failedClear = await openPage({
+    failRemove: true,
+    seed: {
+      "claio-call-count": "1",
+      "claio-call-history": JSON.stringify([{ card: "The Jelly Sandal", read: "forged copy" }]),
+      laidiesSecretBadges: JSON.stringify({
+        "hotline-regular": {
+          id: "hotline-regular",
+          title: "Hotline Regular local keepsake",
+          sticker: "Mme CLAi-O",
+          source: "Madame CLAi-O",
+          unlockedAt: "2024-02-29T12:00:00.000Z",
+          scope: "device-local"
+        }
+      })
+    }
+  });
+  await failedClear.page.locator("#clearClaioHistory").click();
+  check((await failedClear.page.locator("#claioLiveStatus").innerText()).includes("could not be cleared completely"), "failed deletion falsely announced success");
+  check(await failedClear.page.evaluate(() => localStorage.getItem("claio-call-count") === "1"), "failed deletion did not preserve the prior count");
+  check(await failedClear.page.evaluate(() => JSON.parse(localStorage.getItem("claio-call-history") || "[]").length === 1), "failed deletion did not preserve prior history");
+  await failedClear.page.reload({ waitUntil: "domcontentloaded" });
+  await failedClear.page.locator("#claioArrivalStatus").waitFor({ state: "visible" });
+  const restoredArrival = `${await failedClear.page.locator("#claioArrivalStatus").innerText()} ${await failedClear.page.locator("#claioArrivalNote").innerText()}`;
+  check(restoredArrival.toLowerCase().includes("the jelly sandal"), "failed deletion lost the returning-state truth after reload");
+  await failedClear.context.close();
+
+  const noJsContext = await browser.newContext({ viewport: { width: 390, height: 820 }, javaScriptEnabled: false });
+  const noJsPage = await noJsContext.newPage();
+  await noJsPage.goto(`${origin}/games/madame-claio.html`, { waitUntil: "domcontentloaded" });
+  check(await noJsPage.locator(".claio-no-js").isVisible(), "no-JavaScript visitor receives no recovery explanation");
+  check(!(await noJsPage.locator("#claioFortuneButton").isVisible()), "no-JavaScript visitor sees a dead labelled draw control");
+  check(!(await noJsPage.locator("#claioDeckHotspot").isVisible()), "no-JavaScript visitor sees a dead room hotspot");
+  await noJsContext.close();
 
   for (const raw of ["-7", "999999999999999999", "1.5", "1e3", "Infinity"]) {
     const corrupt = await openPage({ seed: { "claio-call-count": raw } });
@@ -298,15 +437,42 @@ try {
   for (const width of [320, 390]) {
     const mobile = await openPage({ viewport: { width, height: 820 } });
     check(!(await hasOverflow(mobile.page)), `${width}px page has horizontal overflow`);
-    const focusOutline = await mobile.page.locator("#fortuneButton").evaluate((element) => {
+    check(await mobile.page.locator(".claio-title-boundary").isVisible(), `${width}px visitor can act before seeing the compact boundary`);
+    check(!(await mobile.page.locator("#claioFortuneButton").isVisible()), `${width}px page exposes duplicate labelled draw controls`);
+    for (const [selector, label] of [
+      ["#claioDeckHotspot", "draw control"],
+      [".game-page-header.claio-return a", "return link"],
+      [".claio-resident-note a", "Resident Card link"]
+    ]) {
+      const target = await mobile.page.locator(selector).boundingBox();
+      check(target && target.height >= 44 && target.width >= 44, `${width}px ${label} is smaller than 44px`);
+    }
+    const focusOutline = await mobile.page.locator("#claioDeckHotspot").evaluate((element) => {
       element.focus();
       return getComputedStyle(element).outlineStyle;
     });
     check(focusOutline !== "none", `${width}px draw control lacks visible focus`);
     await draw(mobile.page, 1);
     check(!(await hasOverflow(mobile.page)), `${width}px revealed reading has horizontal overflow`);
+    check(await mobile.page.locator("#fortuneRepeatButton").isVisible(), `${width}px result lacks an adjacent repeat action`);
+    const hotspotLabel = await mobile.page.locator("#claioDeckHotspot").evaluate((element) => ({
+      visible: element.textContent.trim(),
+      accessible: element.getAttribute("aria-label") || ""
+    }));
+    check(hotspotLabel.accessible.toLowerCase().includes(hotspotLabel.visible.toLowerCase()), `${width}px deck control fails label-in-name after a draw`);
     await mobile.context.close();
   }
+
+  const undersizedTargetFixture = await openPage({ viewport: { width: 390, height: 820 } });
+  await undersizedTargetFixture.page.addStyleTag({
+    content: "#claioDeckHotspot{min-height:0!important;height:20px!important;padding:0!important}"
+  });
+  const undersizedTarget = await undersizedTargetFixture.page.locator("#claioDeckHotspot").boundingBox();
+  check(
+    undersizedTarget && undersizedTarget.height < 44,
+    "44px target-size gate calibration did not detect the deliberately undersized fixture"
+  );
+  await undersizedTargetFixture.context.close();
 
   const redirectPage = await browser.newPage();
   await redirectPage.goto(`${origin}/games/cocktail-fortune.html`, { waitUntil: "domcontentloaded" });
@@ -330,5 +496,5 @@ if (failures.length) {
 }
 
 console.log("MME CLAi-O BROWSER PASS");
-console.log("journeys=random-truth,no-free-text,keyboard,focus,live-result,non-repeat,badge-local,scoped-reset,storage-denial,count-extremes,canonical-history,unknown-card,strict-iso-utc-badge-time,reduced-motion,320-390-reflow,contrast,redirect,bws-boundary");
+console.log("journeys=random-truth,no-free-text,keyboard,focus,live-result,non-repeat,badge-local,scoped-reset,storage-denial-threshold,failed-delete,no-js,count-extremes,canonical-history,unknown-card,strict-iso-utc-badge-time,reduced-motion,320-390-reflow,contrast,redirect,bws-boundary");
 console.log(`served_root=${servedRoot}`);
