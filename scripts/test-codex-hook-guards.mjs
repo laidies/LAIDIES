@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -26,8 +27,16 @@ function run(relative, payload) {
   });
 }
 
+const fixtureDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-hook-queue-'));
+process.on('exit', () => fs.rmSync(fixtureDirectory, { recursive: true, force: true }));
+const emptyQueuePath = path.join(fixtureDirectory, 'empty-run-queue.json');
+const activeQueuePath = path.join(fixtureDirectory, 'active-run-queue.json');
+fs.writeFileSync(emptyQueuePath, JSON.stringify({ active: [] }));
+fs.writeFileSync(activeQueuePath, JSON.stringify({ active: [{ product_id: 'library', claim_id: 'claim-library-test' }] }));
+
 const sessionStart = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
   cwd: root,
+  env: { ...process.env, LAIDIES_RUN_QUEUE_PATH: emptyQueuePath },
   encoding: 'utf8',
 });
 assert.equal(sessionStart.status, 0, 'session-start lesson injection must run');
@@ -39,6 +48,14 @@ assert.match(sessionContext, /The Daily publishes as a complete daily SUNNYVAiLE
 assert.match(sessionContext, /ACTIVE LESSONS/, 'active lesson feed must be injected');
 assert.match(sessionContext, /One writer owns a building lane at a time/, 'current collision-prevention lesson must reach sessions');
 assert.match(sessionContext, /CLAIMED LANE — NONE/, 'an unclaimed session must be explicit while the dispatcher is paused');
+
+const activeQueue = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
+  cwd: root,
+  env: { ...process.env, LAIDIES_RUN_QUEUE_PATH: activeQueuePath },
+  encoding: 'utf8',
+});
+assert.equal(activeQueue.status, 0, 'an active queue claim must be injectable');
+assert.match(activeQueue.stdout, /ACTIVE QUEUE CLAIMS.*library \(claim-library-test\)/, 'active queue claim must reach session context');
 
 const explicitLane = spawnSync('/usr/bin/python3', [path.join(root, '.codex/hooks/session_start.py')], {
   cwd: root,
