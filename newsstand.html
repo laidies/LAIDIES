@@ -328,21 +328,25 @@
 
         function formatDate(iso) {
           if (!iso) return "";
-          var value = new Date(String(iso).indexOf("T") === -1 ? iso + "T12:00:00Z" : iso);
+          var dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(String(iso));
+          var value = new Date(dateOnly ? iso + "T00:00:00Z" : iso);
           if (isNaN(value)) return iso;
           return value.toLocaleDateString("en-CA", {
             year: "numeric",
             month: "long",
-            day: "numeric"
+            day: "numeric",
+            timeZone: dateOnly ? "UTC" : undefined
           });
         }
 
         function formatCompactDate(iso) {
           if (!iso) return "";
-          var value = new Date(String(iso).indexOf("T") === -1 ? iso + "T12:00:00Z" : iso);
+          var dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(String(iso));
+          var value = new Date(dateOnly ? iso + "T00:00:00Z" : iso);
           if (isNaN(value)) return iso;
-          return value.toLocaleDateString("en-CA", { month: "short", day: "numeric" }) +
-            " ’" + String(value.getFullYear()).slice(-2);
+          return value.toLocaleDateString("en-CA", {
+            month: "short", day: "numeric", timeZone: dateOnly ? "UTC" : undefined
+          }) + " ’" + (dateOnly ? String(iso).slice(2, 4) : String(value.getFullYear()).slice(-2));
         }
 
         function publisherFor(url) {

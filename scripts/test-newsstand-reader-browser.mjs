@@ -14,7 +14,8 @@ const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const NOW_STALE = "2026-06-01T00:00:00Z";
 const TEST_CLOCKS = {
   "same-day": "2026-08-04T23:00:00-07:00",
-  "next-day": "2026-08-05T12:00:00-07:00"
+  "next-day": "2026-08-05T12:00:00-07:00",
+  "released-worldwide": "2026-08-05T06:30:00Z"
 };
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
 const RETRACTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json";
@@ -135,10 +136,17 @@ function mime(file) {
 
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, "http://127.0.0.1");
-  if (requestUrl.pathname === "/content/site/newsstand-catchup-v1.js" &&
-      process.env.NEWSSTAND_CATCHUP_CALIBRATION === "bypass-access-gate") {
-    const source = fs.readFileSync(path.join(ROOT, "content", "site", "newsstand-catchup-v1.js"), "utf8")
-      .replace('if (dataset.state !== "ready") {', 'if (false) {');
+  if (requestUrl.pathname === "/content/site/newsstand-catchup-v1.js" && process.env.NEWSSTAND_CATCHUP_CALIBRATION) {
+    let source = fs.readFileSync(path.join(ROOT, "content", "site", "newsstand-catchup-v1.js"), "utf8");
+    if (process.env.NEWSSTAND_CATCHUP_CALIBRATION === "bypass-access-gate") {
+      source = source.replace('if (dataset.state !== "ready") {', 'if (false) {');
+    }
+    if (process.env.NEWSSTAND_CATCHUP_CALIBRATION === "visitor-date-gate") {
+      source = source.replaceAll(
+        'Date.parse(item.admission.reviewedAt) <= Date.now() + 300000;',
+        'Date.parse(item.admission.reviewedAt) <= Date.now() + 300000 && item.editionDate <= localToday();'
+      ).replace('return localDateOnly(new Date());', 'return "2026-08-03";');
+    }
     response.writeHead(200, { "content-type": "text/javascript; charset=utf-8" });
     response.end(source);
     return;
@@ -289,7 +297,7 @@ const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, mil
 
 async function openPage(pathname, options = {}) {
   const target = await fetch(
-    `${new URL(devtoolsEndpoint).origin.replace("ws:", "http:")}/json/new?${encodeURIComponent(siteOrigin + pathname)}`,
+    `${new URL(devtoolsEndpoint).origin.replace("ws:", "http:")}/json/new?${encodeURIComponent("about:blank")}`,
     { method: "PUT" }
   ).then((response) => response.json());
   const socket = await connect(target.webSocketDebuggerUrl);
@@ -297,6 +305,9 @@ async function openPage(pathname, options = {}) {
   await client.call("Runtime.enable");
   await client.call("Page.enable");
   await client.call("Page.bringToFront");
+  if (options.timezone) {
+    await client.call("Emulation.setTimezoneOverride", { timezoneId: options.timezone });
+  }
   await client.call("Emulation.setDeviceMetricsOverride", {
     width: options.width || 1280,
     height: options.height || 900,
@@ -308,6 +319,7 @@ async function openPage(pathname, options = {}) {
       features: [{ name: "prefers-reduced-motion", value: "reduce" }]
     });
   }
+  await client.call("Page.navigate", { url: siteOrigin + pathname });
   for (let attempt = 0; attempt < 100; attempt += 1) {
     const ready = await client.call("Runtime.evaluate", {
       expression: "document.readyState === 'complete' && !!document.querySelector('#ns-title')",
@@ -331,12 +343,13 @@ async function value(client, expression) {
 }
 
 async function waitForValue(client, expression, expected, label) {
+  let actual;
   for (let attempt = 0; attempt < 100; attempt += 1) {
-    const actual = await value(client, expression);
+    actual = await value(client, expression);
     if (Object.is(actual, expected)) return actual;
     await sleep(25);
   }
-  throw new Error(label + " did not settle to the expected value");
+  throw new Error(label + " did not settle to the expected value; actual=" + JSON.stringify(actual));
 }
 
 async function act(client, expression) {
@@ -474,6 +487,14 @@ try {
   await act(rollover, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
   check(await value(rollover, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-04", "next-day Daily opens the exact latest complete edition");
   rollover.close();
+  const honolulu = await openPage("/newsstand.html?clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Honolulu" });
+  await waitForValue(honolulu, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "released Daily in Honolulu");
+  await waitForValue(honolulu, "document.querySelector('#ns-catchup-since').max", "2026-08-04", "released Daily Catch Me Up maximum in Honolulu");
+  honolulu.close();
+  const kiritimati = await openPage("/newsstand.html?clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Kiritimati" });
+  await waitForValue(kiritimati, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "literal edition label in Kiritimati");
+  check(await value(kiritimati, "document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Current · Aug 4 ’26'"), true, "date-only Daily labels do not shift to August 5 in UTC+14");
+  kiritimati.close();
   await base.call("Page.bringToFront");
   check(await value(base, "document.querySelectorAll('.ns-publication').length"), 4, "four physical papers");
   check(await value(base, "getComputedStyle(document.querySelector('.ns-counter-browse')).display"), "none", "desktop does not show a redundant swipe instruction");
@@ -524,8 +545,8 @@ try {
   if (process.env.NEWSSTAND_CATCHUP_CALIBRATION === "future-date-default") {
     await act(base, "document.querySelector('#ns-catchup-since').max='2999-12-31';document.querySelector('#ns-catchup-since').value='2999-12-31'");
   }
-  check(await value(base, "(() => { const d = new Date(); const local = [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); const input = document.querySelector('#ns-catchup-since'); return input.max === local && input.value <= local; })()"), true, "Catch Me Up uses the visitor's local calendar date and cannot default to tomorrow");
-  check(await value(base, "document.querySelector('#ns-catchup-since').value='2999-12-31';document.querySelector('#ns-catchup-run').click();document.querySelector('#ns-catchup-since').value === document.querySelector('#ns-catchup-since').max"), true, "Catch Me Up clamps a scripted future start date to local today");
+  check(await value(base, "(() => { const input = document.querySelector('#ns-catchup-since'); return input.max === '2026-08-04' && input.value <= input.max; })()"), true, "Catch Me Up follows the newest released edition rather than the visitor's calendar");
+  check(await value(base, "document.querySelector('#ns-catchup-since').value='2999-12-31';document.querySelector('#ns-catchup-run').click();document.querySelector('#ns-catchup-since').value === document.querySelector('#ns-catchup-since').max"), true, "Catch Me Up clamps a scripted future start date to the newest released edition");
   check(await value(base, "document.querySelector('#ns-catchup-since').value='2026-07-30';document.querySelector('#ns-catchup-since').dispatchEvent(new Event('input'));document.querySelector('#ns-catchup-run').click();document.querySelectorAll('.ns-catchup-item').length >= 1"), true, "Catch Me Up preserves eligible dated history");
   check(await value(base, "Array.from(document.querySelectorAll('[data-catchup-role]')).map((node) => node.dataset.catchupRole).join(',')"), "daily,weekly,history", "Catch Me Up orders Daily then Weekly then older history");
   check(await value(base, "document.querySelector('[data-catchup-role=\"daily\"]') !== null"), true, "Catch Me Up retains the latest complete Daily with its exact edition date");

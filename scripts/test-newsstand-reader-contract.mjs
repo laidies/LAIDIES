@@ -259,6 +259,9 @@ assert.doesNotMatch(html, /var firstPaper = document\.querySelector\("\.ns-publi
 assert.match(catchup, /SUNNYVA<span class="ns-brand-i">i<\/span>LE paper/, "generated Daily heading must preserve the canonical lowercase i");
 assert.match(css, /\.ns-brand-i\s*\{[\s\S]*?text-transform:\s*none;/, "canonical lowercase i override must defeat inherited uppercase transforms");
 assert.match(catchup, /quietIssue[\s\S]*?ns-daily-quiet-desks[\s\S]*?All nine service desks were checked/, "quiet Daily must collapse its desk-by-desk empty record");
+assert.doesNotMatch(catchup, /item\.editionDate <= localToday\(\)/, "a released edition cannot be hidden by the visitor's calendar date");
+assert.match(catchup, /Date\.parse\(item\.admission\.reviewedAt\) <= Date\.now\(\) \+ 300000/, "Daily availability must follow the admitted release instant");
+assert.match(catchup, /timeZone: \/\^\\d\{4\}-\\d\{2\}-\\d\{2\}\$\/\.test\(source\) \? "UTC" : undefined/, "edition labels must preserve the literal date in every visitor time zone");
 assert.match(css, /@media \(max-width: 720px\)[\s\S]*?\.ns-rack-stage\s*\{[\s\S]*?display:\s*none;/, "mobile must not repeat the four papers in a second control set");
 for (const edition of ["breaking", "daily", "weekly", "tribune"]) {
   assert.match(css, new RegExp(`newsstand-rack-${edition}-v1\\.png`), `${edition}: mobile control needs its exact paper-slot crop`);

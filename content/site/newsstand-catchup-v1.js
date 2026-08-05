@@ -131,24 +131,43 @@
     return localDateOnly(new Date());
   }
 
+  function availableThroughDate() {
+    var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
+    var latest = issues.filter(function (item) {
+      return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate || "") &&
+        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now() + 300000;
+    }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
+    return latest ? latest.editionDate : currentDailyDate();
+  }
+
+  function syncCatchupAvailability() {
+    var input = document.getElementById("ns-catchup-since");
+    if (!input) return;
+    input.max = availableThroughDate();
+    if (input.value && input.value > input.max) input.value = input.max;
+  }
+
   function formatDate(value) {
     var source = String(value || "");
     var parsed = /^\d{4}-\d{2}-\d{2}$/.test(source)
-      ? new Date(source + "T12:00:00")
+      ? new Date(source + "T00:00:00Z")
       : new Date(source);
     return Number.isFinite(parsed.getTime()) ? parsed.toLocaleDateString("en-CA", {
-      year: "numeric", month: "long", day: "numeric"
+      year: "numeric", month: "long", day: "numeric",
+      timeZone: /^\d{4}-\d{2}-\d{2}$/.test(source) ? "UTC" : undefined
     }) : value;
   }
 
   function formatCompactDate(value) {
     var source = String(value || "");
     var parsed = /^\d{4}-\d{2}-\d{2}$/.test(source)
-      ? new Date(source + "T12:00:00")
+      ? new Date(source + "T00:00:00Z")
       : new Date(source);
     if (!Number.isFinite(parsed.getTime())) return value;
-    return parsed.toLocaleDateString("en-CA", { month: "short", day: "numeric" }) +
-      " ’" + String(parsed.getFullYear()).slice(-2);
+    var dateOnlyValue = /^\d{4}-\d{2}-\d{2}$/.test(source);
+    return parsed.toLocaleDateString("en-CA", {
+      month: "short", day: "numeric", timeZone: dateOnlyValue ? "UTC" : undefined
+    }) + " ’" + (dateOnlyValue ? source.slice(2, 4) : String(parsed.getFullYear()).slice(-2));
   }
 
   function currentDailyDate() {
@@ -244,7 +263,8 @@
     if (!contract || !data || data.datasetStatus !== "published") return;
     var issues = dailyIssues && Array.isArray(dailyIssues.issues) ? dailyIssues.issues : [];
     var issue = issues.filter(function (item) {
-      return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate) && item.editionDate <= localToday();
+      return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate) &&
+        item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now() + 300000;
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
     var publication = data.publications && data.publications.daily;
     if (!issue || !publication) return;
@@ -266,6 +286,7 @@
     publication.note = issue.disposition === "quiet"
       ? "This complete edition is quiet: no consequential report or admitted service item was filed for this date."
       : publication.note;
+    syncCatchupAvailability();
   }
 
   function publicationStatusCopy(state, publication) {
@@ -662,8 +683,8 @@
     if (!input || !target) return;
     var since = input.value;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(since)) return;
-    if (since > localToday()) {
-      since = localToday();
+    if (since > availableThroughDate()) {
+      since = availableThroughDate();
       input.value = since;
     }
     var now = new Date().toISOString();
@@ -729,7 +750,7 @@
     var run = document.getElementById("ns-catchup-run");
     if (!input || !run) return;
     var fallback = new Date(Date.now() - 7 * DAY_MS);
-    input.max = localToday();
+    syncCatchupAvailability();
     input.value = localDateOnly(previousVisit || fallback);
     var visitSealed = false;
     input.addEventListener("input", function () { input.setAttribute("data-user-edited", "true"); });
