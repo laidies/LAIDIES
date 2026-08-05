@@ -16,3 +16,4 @@ mechanical fixture enforces it. Historical detail belongs in
 10. One writer owns a building lane at a time. Shared files have a separate owner; reviewers do not overwrite the candidate they are judging.
 11. Pilot before batching. After two failed repair cycles, stop the composition or production method and correct the root cause.
 12. Local, committed, pushed, deployed, publicly verified and published are distinct. Never promote one state from evidence for another.
+13. A visual admission must cover the complete manifest asset set and exact reviewer receipts. A self-selected asset subset or unbound red-team/Opus label is not evidence.

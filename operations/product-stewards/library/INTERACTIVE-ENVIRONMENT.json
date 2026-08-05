@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "owner_id": "library",
+  "building_name": "SUNNYVAiLE LIBRAiRY",
+  "route": "/library.html",
+  "status": "BUILDING",
+  "visual_experience_admission": {
+    "status": "PASS",
+    "admission_id": "library-visual-v4-20260804",
+    "record": {
+      "path": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/visual-admission.json",
+      "sha256": "d1e05a8e8b7961234abba3fcb30e5764d0a0f6ce03fe0fcf582914287a5a84c0"
+    }
+  },
+  "environment_assets": [
+    "assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png",
+    "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+    "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png",
+    "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png",
+    "assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png"
+  ],
+  "cards_or_sections_are_primary": false,
+  "hidden_hotspots": false,
+  "opening_day_feature_ids": [
+    "browse-library-catalogue",
+    "ask-miss-jeeves",
+    "open-exact-section",
+    "puffy-save-and-return",
+    "related-learning-handoff"
+  ],
+  "features": [
+    {
+      "id": "browse-library-catalogue",
+      "visitor_job": "Browse the shelves and choose an available reference.",
+      "environment_object": "Physical book covers placed in the three shelf bays.",
+      "primary_control": ".bk",
+      "plain_language_equivalent": ".bk",
+      "result": "#reader",
+      "states": ["available", "held", "preview", "load-error", "retry"],
+      "desktop": "Book objects operate directly in the full room.",
+      "mobile": "The same book objects recompose into labelled shelf reels.",
+      "accessibility": "Buttons expose exact book names and availability; the reader has close/return focus behavior.",
+      "growth_behavior": "Catalogue data populates repeatable shelf bays; more books add shelf inventory rather than requiring a new room image.",
+      "new_feature_behavior": "A new collection receives a named aisle or bay in the Library directory and reuses the operable-book grammar.",
+      "preview_contract": "Selecting or focusing a cover reveals its title, plain-language coverage, contents topics, availability and the result of opening it without opening the reader and without hover dependence.",
+      "opened_experience": "An available book opens as a readable reference-book workspace with continuous scroll, contents navigation, section links and an obvious return to the same shelf position; no decorative page-turn sequence.",
+      "evidence": ["library.html", "scripts/test-library-product.cjs"]
+    },
+    {
+      "id": "ask-miss-jeeves",
+      "visitor_job": "Ask a plain-language question at the reference desk.",
+      "environment_object": "Miss Jeeves and her reference desk pictured in the room.",
+      "primary_control": "#jv-q, .jv-form button[type=submit]",
+      "plain_language_equivalent": "#miss-jeeves",
+      "result": "#jv-results",
+      "states": ["loading", "answer", "no-answer", "index-error", "retry"],
+      "desktop": "The form is integrated into the continuous reference-desk field immediately beneath Miss Jeeves in the masthead.",
+      "mobile": "The same labelled form follows the Miss Jeeves masthead and precedes shelf browsing.",
+      "accessibility": "The visible prompt has an exact form label; submit is keyboard operable and answers use a live results region.",
+      "growth_behavior": "Miss Jeeves indexes additional admitted Library inventory without changing the reference-desk station.",
+      "new_feature_behavior": "New reference capabilities extend the desk only when their real service and state contracts exist.",
+      "preview_contract": "The visible desk label explains that Miss Jeeves accepts a plain-language question and returns a direct answer plus its exact source before the visitor enters the desk view.",
+      "opened_experience": "The desk opens as a focused question-and-answer workspace in the room, with loading, answer, no-answer, source and return states rather than a generic search-results page.",
+      "evidence": ["library.html", "scripts/test-library-product.cjs"]
+    },
+    {
+      "id": "open-exact-section",
+      "visitor_job": "Open the useful section rather than losing place in a long reference.",
+      "environment_object": "The opened physical book and its contents.",
+      "primary_control": "#rtoc a",
+      "plain_language_equivalent": "#rtoc a",
+      "result": "#rtxt",
+      "states": ["section-open", "deep-link", "invalid-link", "held"],
+      "desktop": "The book opens in place over the Library.",
+      "mobile": "The opened book uses a single readable column.",
+      "accessibility": "Dialog, labelled title, close and section links are present; independent focus review remains required.",
+      "growth_behavior": "Each admitted book supplies its own generated contents; longer or additional books do not change the room shell.",
+      "new_feature_behavior": "A new reading tool enters the opened-book workspace rather than an unrelated page section.",
+      "preview_contract": "The selected-book preview lists the book's real topics and makes clear that opening enters a scrollable reference with section navigation.",
+      "opened_experience": "The contents remain visible on wide screens and collapse into an accessible jump menu on compact screens; selecting a section scrolls within the continuous book and preserves close/return context.",
+      "evidence": ["library.html", "scripts/test-library-product.cjs"]
+    },
+    {
+      "id": "puffy-save-and-return",
+      "visitor_job": "Save an exact useful book or passage and recover it later.",
+      "environment_object": "Puffy Sticker applied to the open book or passage.",
+      "primary_control": ".puffy-btn",
+      "plain_language_equivalent": ".puffy-shortcut a",
+      "result": "/laidies-card.html#puffyPouch",
+      "states": ["empty", "saved", "removed", "storage-denied", "invalid-target", "current-hold"],
+      "desktop": "Save controls live on the opened book; arrival-room discoverability remains to be judged.",
+      "mobile": "The same save control lives with the opened passage.",
+      "accessibility": "Named buttons and device-local scope exist; complete focus/result/return review remains required.",
+      "growth_behavior": "The Puffy pouch validates and reopens a growing set of canonical book and section locations.",
+      "new_feature_behavior": "New save types require a canonical location and shared ownership contract before appearing on an object.",
+      "preview_contract": "The open-book save control names the exact book or section it will save and its device-local scope before activation.",
+      "opened_experience": "Saving changes the control state in place, confirms the exact saved target and offers a direct but optional path to the Puffy pouch without ejecting the visitor from the book.",
+      "evidence": ["library.html", "content/site/puffy-bookmarks.js", "scripts/test-library-product.cjs"]
+    },
+    {
+      "id": "related-learning-handoff",
+      "visitor_job": "Continue from a reference into the right lesson, episode, current evidence or bounded help.",
+      "environment_object": "The related route inside the opened reference book.",
+      "primary_control": ".jv-answer-links a, .jv-answer-links button, #rtxt a",
+      "plain_language_equivalent": ".jv-answer-links a, .jv-answer-links button, #rtxt a",
+      "result": "Owned destination or explicit held state.",
+      "states": ["available", "held", "removed", "return"],
+      "desktop": "Appears in the opened book/reference-desk result rather than an unrelated card rail.",
+      "mobile": "Same result links follow the answer or passage.",
+      "accessibility": "Link purpose and held state are textual; destination return journey remains to be independently judged.",
+      "growth_behavior": "Related destinations are data-driven and expand without adding a card rail to the room.",
+      "new_feature_behavior": "A new cross-building handoff appears in the relevant opened book or desk answer, with an exact return path.",
+      "preview_contract": "Every related route states its destination type, purpose and availability before activation.",
+      "opened_experience": "The handoff opens the owned destination or an explicit held state and provides a reliable return to the originating answer or passage.",
+      "evidence": ["library.html", "content/site/site-index.json", "scripts/test-library-product.cjs"]
+    }
+  ],
+  "maker_receipt": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/frontend-maker-receipt.md",
+  "independent_judge_receipt": "operations/product-stewards/library/evidence-library-current-visual-admission-v4-2026-08-04/visual-admission.json",
+  "current_blockers": [
+    "Concepts 101 is the only locally admitted book; all other covers must remain truthful preview-only or coming-later inventory.",
+    "A real correction intake, claim-location ledger and propagation path are not implemented.",
+    "Native Safari/VoiceOver and public-origin verification remain open.",
+    "Account-backed or cross-device Library continuation is unsupported and must not be claimed."
+  ]
+}
