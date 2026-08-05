@@ -23,12 +23,316 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-07-27
+**Last reconciled:** 2026-08-04
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-04 public health reconciliation
+
+The exact public root remains deployment
+`9f161385-7486-4207-9afe-8512ea453973` from commit
+`28f483e25c021e37e0acd2687abcae26a6d66927`; the fetched 86,340-byte root
+hashes `a40c13d14a009a4ec8a3fa3aaa91bf362efda642e12d8b47af392fba4d7e699c`.
+That is the current public truth, not the dirty local candidate.
+
+- **P0 — public Library / Ask Miss Jeeves:** submitting “what is a
+  hallucination?” twice threw `ReferenceError: jvGo is not defined` at public
+  `/library:467:57` and navigated to `/library?`. The local successor removes
+  every inline event attribute, binds the form and dynamic controls through
+  closure-local listeners, and adds successful and failure-submit assertions
+  for no navigation and no page error. The runtime failure mechanism remains
+  removed in the current visual/content successor at `library.html` SHA-256
+  `48a98fde7806dcbb85c6c6a96a0d4a8dc5114a77c4a309c4027c3a347275e9ae`;
+  the 93-check product suite passes and its deliberate inline-handler
+  calibration fails. Independent runtime re-judgment passes at verdict SHA-256
+  `836d20b4756c4db40c6f8136a09de8879352ba97327fc2c1804f93a9303c1c51`.
+  Build, deploy and public-origin verification remain required.
+- **P1 — Issue 04 shared header:** the public 320px route is 344/345px wide;
+  `.svgh-nav/menu` is the stable overflow source. The exact local route repair
+  independently passes at 1440/390/320. The 2026-08-05 recovery narrowed a
+  stale Ada-card test, reproduced the legacy header at `360.453125px` inside a
+  320px viewport, and removed an unrelated whole-HTML aggregate from the
+  shared-header gate while preserving exact source/version checks on all 59
+  consumers. Exact recovery receipt SHA-256
+  `398861e85836c9185d38854a3bb4defd895f072c89b5ecbb8872b67fd7ef8c14`.
+  The current shared-header source is now checksum-bound across all 59 active
+  public-build consumers; the local binding and three-route browser matrix pass
+  calibrated negative tests. Independent binding judgment passes at verdict
+  SHA-256
+  `1193379610cc50df20761c5ea702c2bd4416b4e4fc9b3193a4617855f4d80c88`.
+  Build, deploy and public-origin verification remain required.
+- **Privacy hold:** current public Privacy copy describes Clarity too narrowly
+  and omits cookies/pseudonymous identifiers, consent behavior and retention;
+  Privacy and Terms also lack canonical and `og:url` metadata. The local
+  successor now discloses the verified Plausible and Clarity behavior,
+  Clarity's general 30-day recording period plus its longer random-subset and
+  favourite/labelled/click/heatmap retention, cookie/pseudonymous-ID use, and
+  LAiDIES' current lack of a consent choice/signal; it adds both metadata pairs
+  and passes a calibrated disclosure gate. Independent Privacy/accuracy
+  judgment passes at verdict SHA-256
+  `7319b3f806cdb6d3d199342b55225a2b5349b12e0036bf68757a22af27f8c297`.
+  Ali must still confirm the legal controller name and durable privacy contact.
+- **NewsStand / Daily:** the exact local Paige/four-paper/Catch Me Up candidate
+  is built locally and independently accepted by Brand, Creative, UX, red-team
+  and Claude Code Opus 5. It passes 202 rendered checks repeatedly, uses one
+  physical four-slot rack plus a complete mobile overview/large-paper snap rack,
+  treats the August 4 Daily as the latest complete archive after Vancouver
+  calendar rollover to August 5, preserves a
+  truthful quiet Weekly and recovers valid shared Daily links even when optional
+  service columns fail. The screenshots are genuine PNG evidence. The old
+  checks hid a missing Daily operation: August 4 had a quiet radar receipt but
+  no dated composer, writer or schedule. Strict release mode now rejects August
+  3 service rows for an August 4 issue. The manual producer→independent
+  admission→canonical store→reader path now preserves the August 3 archive and
+  emits an exact August 4 quiet issue with nine governed empty desks and no
+  carried-forward content. Manual recurrence is documented; scheduler, native
+  AT, correction/rollback, public verification and deployment remain
+  HOLD; the dispatcher remains PAUSED.
+- **Owner-entry runtime:** a global overdue learning follow-up no longer blocks
+  unrelated product owners. `--owner-entry episode-experience` now passes with
+  an explicit LCR-003 attention line; the responsible `sunnyvaile-high` owner
+  and both strict/global portfolio checks still fail on that exact overdue
+  blocker. `scripts/test-product-steward-owner-entry-scope.mjs` calibrates all
+  three outcomes. This restores bounded building work without hiding the
+  SUNNYVAiLE High obligation or restarting the paused dispatcher.
+- **Backend hold:** historical Resident continuation proof exists, but current
+  credentialed provider/public-origin magic-link, sign-out, two-device,
+  authoritative Closet CRUD and reward-ledger verification has not been rerun.
+  Local contracts are not provider proof.
+- **Curated public-asset closure:** COMPLETE for source safety. The
+  independently accepted builder produces 546 files / 404.81 MiB. Fresh
+  inventory is 329 binaries: 327 exact ACTIVE public dependencies and two
+  source-only held trailer inputs absent from public output; prohibited
+  references=0 and missing=0. The real build, source narrowing and exact ACTIVE
+  parity checks pass; both default-DENY and dropped-binary bad inputs fail.
+  Final verdict SHA-256
+  `5fb267beccad6c078e07609233d0cf90a8de0ee51e3d11b10c3690e9e403dcab`.
+  This completes WRK-20260803-public-asset-closure only; visual/page quality,
+  deployment and release remain open. The dispatcher remains PAUSED.
+
+## 2026-08-03 recovered runtime cutline
+
+The active foreground remains AW-003: complete all 17 buildings and promoted
+features for launch. The recovered operating system is now running from durable
+repository records with the dispatcher intentionally **PAUSED**. Product-owner
+entry is structurally complete at **67/67**; this permits truthful owner work
+but does not make any feature release-ready. All 17 buildings have fail-closed
+interactive-environment manifests and remain `BUILDING`. The whole-town gate
+has zero manifest errors, one unresolved primary room control and 36
+explicit holds.
+
+The current checkout's Resident identity regression is now repaired locally.
+The exact released account and bounded-continuation modules are restored, the
+current Homepage, shared navigation, Resident Card and Closet are reconnected,
+and stale Card-as-community-key and released-Trading-Cards claims are removed.
+Independent judgment accepts the 21-file exact candidate as
+`BOUNDED LOCAL RESTORATION ONLY`; receipt SHA-256
+`030f9a609004f038c7b2f092faa3777d79fd9f73afa8f1e155e6c44babbd6f22`.
+This does not prove a new deployment, provider state, migration application or
+public-origin parity; production truth remains the previously verified release.
+
+The MAiKEOVER/Resident Card/Closet gate and owner records are now reconciled to
+that release authority instead of the superseded 2026-07-27 closed-email state.
+On exact local bytes, MAiKEOVER no longer duplicates the Resident Card email
+intake; Closet hides held public-visibility/Share controls, routes optional
+private continuation to the Resident Card desk and correctly includes the Puffy
+Board/pouch in bounded continuation while leaving free-form activity local.
+Static, 38/38 contract, 136/136 browser, continuation, identity, cross-device,
+nav-auth and deterministic Account A/B privacy suites pass; the account gate's
+duplicate-email fixture fails as intended. Independent Product UX accepts the
+bounded repair. Receipt SHA-256
+`02ea890f880c8d14b10d620c8c28e81b1c657db03ed2b6025c2c5d433cb56d7e`.
+MAiKEOVER remains `BUILDING`: its visual environment, public Card/handles,
+portrait service, rewards, native AT, changed-byte provider/public regression,
+deployment and public verification remain open.
+
+Both isolated rejected LIBRAiRY successors remain quarantined. The current
+production-page candidate is `library.html` SHA-256
+`2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43`.
+It follows Ali's chosen structure: sharp daylit Miss Jeeves interior masthead,
+vibrant page-native reference desk and wayfinding, then the real three-bay metal
+shelf with mounted sign artwork and large runtime book objects. It retains
+preview-before-open, scalable shelf paging, truthful availability, Homepage →
+Miss Jeeves transfer, one admitted Concepts 101 reader, whole-book and exact-
+section Puffy saves, and honest four-state/device-local boundaries. The Library
+suite passes 101 checks and its deliberate broken-dialog calibration fails.
+Role-distinct creative, IA, Product/UX, Brand and hostile red-team gates accept
+the same exact bytes; Claude Opus 5 recommends ADMIT at 18/20 for creative,
+product, finish, UX and Brand and 17/20 for best-webpage ambition. Exact
+1440/390/320 captures, the settled exact-section state, Tools page two and the
+101s-extension growth witness are bound in visual admission
+`library-visual-v4-20260804`. This is the first whole-town visual admission and
+remains **LOCAL / VISUAL LAYER ACCEPTED / NOT RELEASED**. Only Concepts 101 is
+admitted; catalogue depth, correction service, native AT, account continuity,
+deployment and public-origin verification remain separate. ODC-101 remains
+deferred behind the whole-town foreground.
+
+The public builder remains default-DENY. Exact owner and independent judgments
+have now admitted the current Library 19-path visual batch, the bounded KSVL
+49-member catalogue, Mme CLAi-O's 96 reading-card images, the 75-member Puffy
+catalogue and the 28-member charm catalogue. Unsafe source edges were removed
+without replacement art from KSVL programme objects and the Book Fair's seven
+ungoverned Puffy requests. KSVL's source repair is independently accepted.
+Dream Phone's first portrait-source candidate was rejected because an earlier
+repair introduced a CSS-drawn phone, glyph controls and fake-avatar fallback
+code. The reuse audit proved no governed phone artwork exists, and the exact
+successor now independently passes source repair with a plain labelled live
+dial pad, all 25 caller actions preserved and no fake substitute visuals. This
+is functional source acceptance only; final phone/portrait/booth art and whole-
+building admission remain open. Independent Media
+judgment accepted 40 exact static issue-page bytes and held 12 for off-canon
+Library art, baked brand/canon text, missing real-person likeness authority or
+an undeclared consumer; only the accepted 40 are registry-integrated. The
+existing Mme CLAi-O reading room and Closet arrival room have now passed
+independent exact-byte review and independent registry integration for their
+current page jobs; neither acceptance proves the whole building. Trading Cards
+was found to ignore its canonical catalogue while client randomness and local
+storage falsely implied released packs, ownership, duplicates, trading and
+Closet persistence. The held/rejected character-art references have been
+removed and the executable experience now exposes only a canonical-data-driven
+prompt preview with explicit no-collection boundaries. The exact bounded
+successor is independently accepted at `games/trading-cards.html` SHA-256
+`4c256c0da02b8249e726dd3d560e813cf3e17c5f92c64d4b66018418e513463b`;
+this accepts a truthful local prompt preview, not packs, ownership, trading,
+economy, Closet collection or public release. The deterministic current closure
+is 481 reachable binaries, ACTIVE=318, UNREGISTERED_DEFAULT_DENY=163,
+prohibited references=0 and missing=0. Exact builder/inventory path, SHA and
+byte parity now passes, its deliberately dropped-binary calibration fails, and
+independent judgment accepts the source graph only. The real builder still
+fails closed on the first Post Office card. All 11 incumbent Post Office picker
+images remain owner-HOLD: picker mechanics do not supply Brand, exact-use,
+provenance or release-master approval. An exhaustive existing-asset reuse audit
+is active before any replacement art can be considered. No release or
+deployment is implied.
+
+The Library incident exposed a non-media admission bypass. The repaired design
+gate now requires role-distinct research, creative experience design,
+environment art, frontend implementation, product/UX and Brand judgments, red
+team, Claude Opus 5 and Control Room admission on one current SHA tuple. It also
+requires the four canonical visitor states, failure/recovery, Closet/Puffy/
+charm/Miss Jeeves handoffs and visible spatial growth. Thirty-seven negative
+fixtures and two passing twins pass, and all rejected Library artifact SHAs are
+quarantined. The recovered exact candidate above is the only Library direction
+admitted for Ali review; its evidence is candidate-bound and does not
+rehabilitate either rejected successor.
+
+The opening-day checker now enforces that separation at the whole-town level.
+Its truthful current result is `SPEC VALID — LAUNCH HOLD`: 17/17 buildings are
+listed, 0/17 are release-ready and 1/17 has exact visual-experience admission.
+A future `RELEASE_READY` or `VERIFIED_PUBLICLY` building must bind its current
+page path and SHA, admitted artwork authority, independent ACCEPT receipt and
+real 1440/390/320 captures. The calibrated negative fixture deliberately
+promotes a building without that tuple and is rejected. Technical/source PASS
+can no longer promote a visually incomplete building.
+
+The same fail-open pattern has now been corrected across the release path.
+Strict opening-day mode fails on the current 0/17 release-ready buildings,
+1/17 visual admissions, 0/5 media and
+missing class/site-video readiness schemas; delivery liveness fails on 14
+dispatchable work orders with zero active lanes; content strict mode fails at
+zero release-ready records; Daily strict modes reject empty/held-only editions;
+and release-manifest strict mode rejects empty artifacts or a missing/empty
+`index.html`. Each gate has a deliberately bad fixture that proves it can fail.
+The dispatcher remains PAUSED; the liveness failure diagnoses the stall without
+silently restarting it.
+
+Two additional newcomer-comprehension repairs are independently accepted
+locally: the Visitor's Centre static/failure directory now previews truthful
+availability, limitation and action for all 17 destinations, and Chick Flicks'
+selected VHS now previews exact episode contents, lesson, availability and
+navigation consequence beside the shelf. Neither repair approves building art,
+fresh owner readiness, media, release or public state.
+
+Three further building-object repairs are independently accepted locally:
+Blend & Snap now keeps the three-part Study Pack inventory/receipt separate
+from its explicit SUNNYVAiLE High Quiz handoff; Post Office uses one
+checksum-bound 11-card catalogue for rack, composer and honest no-JavaScript
+fallbacks; NewsStand papers show eligible headline, teaser and story count
+before pull without leaking held stories. These remain bounded comprehension/
+growth passes, not whole-building, editorial, provider, art or release passes.
+
+The rejected NewsStand predecessor remains exact bundle
+`5cc1021be32a60e26d5e9500246a8a93f616ca2367ffb1ea83593b691c19e7fc`;
+its tilted CSS boxes, pseudo-folds, circles, stripes and gradients remain banned.
+The accepted successor is v13: `newsstand.html` SHA
+`5409897d…da0b`, CSS SHA `fff6583f…1cc`, Catch Up JS SHA
+`d0836c1a…f96`. It uses Paige's admitted arrival crop and one exact ACTIVE
+1680×625 physical four-slot rack behind live paper controls. Brand, Creative,
+UX, red-team and Claude Code Opus 5 pass; the 10-fixture contract, repeated
+202-check browser matrix, deliberate future-date failure and curated 548-file
+build pass. Native accessibility, editorial release, deployment and
+public-origin verification remain open; the accepted rack must not be rebuilt.
+
+The Library's accepted correction/demotion propagation now independently passes
+locally. The accepted-state boundary is mandatory and schema/authority-bound,
+and the curated public build checks that the compiled Library is fresh before
+asset traversal. Seventeen targeted checks pass. This is a fail-closed safety
+repair only: the Rulebook remains `HOLD`, the compiled public book set remains
+empty, and no provider, asset, release or deployment authority is implied.
+
+### 2026-08-03 14:54 PDT runtime truth repair
+
+A direct ledger check found that background execution had stopped: the run
+queue had zero active entries, five work records had crossed their next-check
+times, and the ledger still claimed `HEALTHY`. The canonical runtime now says
+`ATTENTION_REQUIRED`; the unreceipted Episode-format dispatch is `OPEN` rather
+than fake-active, its exact re-dispatch condition is recorded, and all five
+next-check times match their real deferred or current review windows. The Work
+Index and Owner Control Plane were regenerated from that source. Work-loop,
+operational-integrity, dispatcher-migration, Owner Control Plane data and
+browser checks pass. The dispatcher remains **PAUSED**. This restores truthful
+control state; it does not make any building or media item release-ready.
+
+The opening-media follow-up then exposed and repaired one stale mechanical
+release binding: `watch.html` had legitimately changed for the Episode-format
+navigation pilot while the video-review registry and deterministic motion
+inventory still bound its predecessor. The gate failed on the checksum
+mismatch before repair. The inventory was regenerated, the exact source and
+derived hashes/counts were reconciled, and the site-video registry,
+opening-media gate, Screening Room contract, playback binding and inventory
+freshness checks now pass. This removes a false gate failure only: opening-day
+media remains honestly **0/5 release-ready**, Trailer remains in the rebuild
+queue and Episode 02 still requires its independent full-title unmuted 1x
+review. Historical task-bound reports remain inputs, not proof of live work;
+the Library design-admission lane is now complete and waiting only on Ali's
+exact local review decision.
+
+The Episode 01 Read/Listen/Watch pilot's first independent judgment correctly
+rejected stale evidence identity. The repaired exact candidate now binds the
+actual Read page, Listen page, shared navigation CSS, episode index and current
+authority inputs; the retired Episode 01 slug and obsolete public production
+comment are removed. The gate was calibrated to fail on a corrupted page hash,
+then returned PASS after restoration. Existing Episode 01 art and cover bytes
+were reused unchanged. All four live episode pages also stop claiming a
+Resident Card unlocks community posting or promising an unproved quiz sticker;
+their room handoffs now preserve the separate provider-sign-in boundary. Source
+truth and the desktop/mobile visible journey pass;
+native keyboard/screen-reader judgment and Chick Flicks format admission remain
+open, so Episodes 02–04 propagation, motion-film claims and release stay held.
+
+### 2026-08-04 Weekly Episodes format-gate reconciliation
+
+The current checksum-bound Episode 01 format-navigation successor is locally
+accepted by Chick Flicks for Read, cover-only Listen and visibly held Watch.
+The shared selector's retired-gold regression was replaced with the locked teal
+and pink candy values and the manifest rebound; static/browser regression passes
+33/33. Native accessibility remains HOLD because this environment exposed no
+real Safari + VoiceOver witness. Chromium/source semantics are not promoted to
+native proof. Episodes 02–04 propagation, media, deployment and public claims
+remain held; the deployed site still serves the predecessor experience.
+
+Episode 05's exact Gate 1 architecture is now decision-ready. Concept fidelity,
+technical truth and teaching/transfer passed the original candidate. The
+recurring-format judge found three missing bindings; the Director issued one
+immutable architecture-only successor adding the cold-open/audible transition,
+Mall and LIBRAiRY story beats, and an audio-complete relationship map. The
+recurring-format rejudge then passed. Ali's one current episode decision is
+whether to approve that composite learning/story architecture as the basis for
+canon reconciliation. No canon, script, narration, art, media or release work
+is authorized before her verdict.
 
 ## Active objective — AW-003
 
@@ -75,14 +379,16 @@ visitor-ready class contracts at entry, working and judgement levels. Use
 `node scripts/check-opening-day-classes.mjs`; a local lesson draft cannot be
 reported as an opening-day class until the full visitor experience passes.
 
-ODC-101, **What You're Looking At**, now has its reusable guided class
-experience built locally: worked example, visitor task map, answer feedback,
-five-question check, downloadable take-home, device-local completion restore
-and a versioned completion event that deliberately leaves reward calculation
-to the shared ledger. Its phone and desktop journey test passes. It remains
-BUILDING—not release-ready—until its real-interface teaching media, captions,
-transcript, poster, independent content/accessibility/unfamiliar-learner
-reviews and exact admission/release receipts are complete.
+ODC-101, **What You're Looking At**, remains **INTERNAL REPAIR REQUIRED**.
+Ali rejected the instructional product as not good enough. The short narration
+is rejected, and the current teaching-design candidate is not approved: its
+recurring story spine, worked examples, lesson practice and cumulative
+assessment remain too generic or unspecified. Existing guided-class code,
+phone/desktop tests and the technically passing review animatic are preserved
+as bounded implementation/timing evidence only; they are not evidence that the
+class teaches well. Do not record, polish, re-present or advance the animatic.
+Return to a materially stronger multi-lesson teaching design, then require an
+independent teaching gate before any successor narration or Ali review.
 
 Trailer and Episodes 01–04 now have one fail-closed opening-day media gate in
 `operations/launch/opening-day-media-gate-2026-07-31.json`, checked by
@@ -92,16 +398,20 @@ demos, explainers, music, promos, idents, silent instructional motion and
 ambient loops—under
 `operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md`, checked by
 `node scripts/check-site-video-review.mjs`. Current opening truth is **0/5
-release-ready**, but the production queue is no longer a five-film rebuild.
-The exact Trailer v8 and Episode 01 v27, Episode 02 v20, Episode 03 v15 and
-Episode 04 v10 successors are built locally, checksum-bound across the
-universal registry, launch gate, playback package, portable package and owner
-review inbox, and have no confirmed remaining machine- or visual-review
-defect. All five are now in one `OWNER WATCH REQUIRED` queue for a complete
-human sound-on 1x review plus cover-family acceptance. The public Episode 04
-v8 object remains a historical deployment and is not opening-day-admitted.
-Ali's usable watch-and-note surface is
-`operations/control-room/review-inbox.html`. Only an exact master whose every
+release-ready**. The exact Trailer v8 and Episode 01 v27, Episode 02 v20,
+Episode 03 v15 and Episode 04 v10 successors are built locally, but the
+objective launch gate still records failed or unresolved content, timing,
+identity, motion, relevance, continuity and recurring-credit requirements.
+Ali's direct review exposed material defects that prior machine and visual
+reports failed to admit. All five have therefore been removed from
+`OWNER WATCH REQUIRED` and placed in `INTERNAL_REPAIR_REQUIRED`; existing Ali
+feedback remains binding evidence, but no further owner review is requested
+until objective prerequisites pass. The public Episode 04 v8 object remains a
+historical deployment and is not opening-day-admitted. Ali's media review
+surface is `operations/control-room/review-inbox.html`; no opening-day film may
+appear under Review now while its objective gate is failing. This does not
+exclude a separately accepted non-media product-direction decision such as the
+exact Library environment proof in the Owner Control Plane. Only an exact master whose every
 occurrence passes narration-or-purpose relevance, continuity, occlusion and
 motion semantics—plus the other release gates—may be bound to a real website
 player and move to public verification.
@@ -114,10 +424,10 @@ implementation → independent judgment → exact verification loop.
 Ali's 2026-07-26 correction is now explicit: backend, contract and deterministic
 test passes do not establish that a building page is designed. The prior queue
 parked most buildings at owner-visual gates before producing credible,
-competing, owner-review candidates. The active three lanes are therefore the
-LIBRAiRY room-first benchmark, the Visitor's Centre first-arrival experience
-and Blend & Snap as the first transfer test of the room/object interaction
-grammar. Their portfolio brief is
+competing, owner-review candidates. The current room/object programme is
+therefore governed building by building, with the exact LIBRAiRY successor held
+as the representative Ali decision and one unresolved physical control
+retained explicitly rather than hidden by generic cards or hotspots. Its portfolio brief is
 `operations/product-stewards/building-experience-readiness-2026-07-26.md`.
 The artwork pipeline is active under
 `operations/product-stewards/artwork-production-system-2026-07-26.md`; building
@@ -228,11 +538,12 @@ AW-003 is complete only when:
 
 ### Still open
 
-- Backfill and reconcile operating specifications for the remaining product
-  registry in risk/dependency order; ownership exists for all 65 products, but
-  most do not yet have the normalized operating contract.
-- Execute the current three champion lanes and independently review their exact
-  outputs.
+- Preserve 67/67 owner-entry completeness while independently comparing every
+  consequential dossier boundary to the executing route; structural entry is
+  not product or release acceptance.
+- Preserve Ali's rejection of both isolated LIBRAiRY directions. Do not ask for
+  another review until the exact combined production successor passes the
+  current whole-page visual/product gate.
 - Complete the full building-experience design cycle for all 17 buildings;
   plumbing, truthful copy and local test passes are foundations, not visual or
   product completion.
@@ -247,15 +558,20 @@ AW-003 is complete only when:
 
 ### Next action
 
-Complete and reconcile the three active champion lanes. Then select the next
-three triggers from the registry using public harm, hero-product value,
-dependency leverage and reversibility: authoritative identity/reward services,
-core learning products, and promoted integrations outrank decorative work.
-Continue without requesting routine sequencing approval; surface only a
-bounded decision involving Ali's taste, mission, public identity, meaningful
-spend/data authority or an irreducible product trade-off.
+Keep the default-DENY public builder intact. The exact source graph is now
+independently accepted; resolve the first admission blocker through the bounded
+Post Office postcard-family Brand/canon/provenance/exact-use decision. Do not
+admit the held 11-card incumbent family, remove the postcard job, or generate
+substitute art without the required authority. In parallel, finish independent
+The Dream Phone plain-control source repair is independently accepted; keep its
+final artwork and whole-building admission open. The 40 accepted issue-page
+static assets are integrated; retain the other 12 on HOLD. Integrate
+only accepted exact subsets and regenerate the inventory. Complete
+the exact combined Library whole-page judgment separately. Trailer plus
+Episodes 01–04 remain 0/5 release-ready, so no whole-town release can bypass the
+opening-media gate.
 
-## Paused objective — AW-002
+## Paused objective — AW-002 (historical candidate superseded by AW-003 proof)
 
 ### Recover the real LIBRAiRY benchmark and rebuild the Visitor's Centre from it
 
@@ -404,7 +720,7 @@ AW-001 is complete only when:
 | Metered public tools | SAFETY PAUSE DEPLOYED AND SOURCE-VERIFIED | MAiKEOVER paid generation is disabled at the Worker, public debug routes are removed, unapproved origins are rejected and the page labels the portrait booth temporarily closed. One immediate POST verification hit a propagating old edge and generated one paid image; future safety deploys must verify allocation/source before any mutation probe. See BTB-047 and BTB-052 |
 | Quotables/Overheard | SPECIFIED; SHOWCASE NOT BUILT | Product document exists; public discovery system does not |
 | Behind the Build learning system | SPECIFIED; CANONICAL LEDGER + CAPTURE RULE + EDITORIAL QUEUE INSTALLED | All 40 recovered records are consolidated as BTB-001–BTB-040 with source snapshots/checksums; new records continue sequentially; one candidate has a PUBLISHABLE DRAFT but is not Ali-approved/published; historic RAW verification and the public index remain open |
-| News system | PUBLIC CONTRACT REPAIRED; DAILY/BREAKING/WEEKLY RADAR ACTIVE; AUTO-PUBLISH EVALUATOR IN SHADOW MODE | The NewsStand product lineup is **The Breaking, The Daily, The Weekly and The Tribune**. The currently deployed surface still uses the older WEDNESDAY Edition/Tribune labels and requires a separate implementation/public verification pass. The Breaking carries qualifying new model releases and other developments readers should not wait to learn about. A twice-daily radar prepares `daily`, `breaking`, `weekly` and `tribune` candidates. The evaluator classifies structured The Daily/The Weekly candidates as `WOULD_AUTO_PUBLISH`, `HOLD` or `REJECT`; The Breaking remains human-reviewed. The public The Daily/The Breaking surfaces and automatic write/deploy/monitor/rollback path remain unbuilt and unauthorized until the earned-autonomy calibration contract is met. |
+| News system | EXACT V13 BUILT LOCALLY + INDEPENDENT VISUAL/UX/RED-TEAM ACCEPT; IMMUTABLE DAILY SNAPSHOT + MANUAL CANONICAL PIPELINE BUILT; RELEASE HOLD | The NewsStand lineup is **The Breaking, The Daily, The Weekly and The Tribune**. The current local route has an accepted Paige/physical-four-paper/Catch Me Up experience and passes the curated build, but it is not deployed or publicly verified. Radar discovery operates; the current evaluator only HOLDs/REJECTs and does not auto-publish. The manual Daily path admits the August 3 archive and honest August 4 quiet edition with complete checksum-bound story snapshots; all Daily visitor paths resist post-validation global-memory mutation. Scheduler, correction/rollback, native AT, deploy and public-origin proof remain unbuilt or unverified. |
 | Episode 5 | GATE 1 REJECTED; CONCEPT RECONSTRUCTION REQUIRED | Public title **The Super Models** remains locked. The receipt may survive as an end exercise, but it cannot replace the full fashion-house-to-season teaching system. No downstream generation is authorized |
 | Episode 6 | TITLE AND CAPABILITY LOCKED; SUBSTANCE NOT YET BUILT | **Strike a Mode**: choose the model/mode for the occasion, including the 200-files example. Full Episode 6 substance follows Episode 5 Gate 1/canon |
 | Codex model/credit routing | CONFIGURED FOR NEW TASKS; CURRENT CHAT STILL COMPOSER-CONTROLLED | Project defaults are Sol/Medium foreground, High planning, Terra/Medium subagents and Fast off. Extra High/Max/Ultra require a stated exception; active-chat picker choices can override the project files |
@@ -515,8 +831,10 @@ task:
 Codex owns this order and will re-rank it when evidence changes. A reorder must
 be recorded; nothing simply disappears.
 
-1. **FOREGROUND — AW-001: Episode 5 + season architecture.** Rule the lesson before
-   producing prose, art, audio or weekly derivatives.
+1. **FOREGROUND — AW-003: all 17 buildings and promoted launch features.**
+   Close one exact building/function blocker at a time, preserve the rejected
+   Library quarantine and do not return to Episode 5 production while the
+   whole-town launch programme owns the foreground.
 2. **P0 READ-ONLY VERIFICATION; THEN SAFETY REPAIR — MAiKEOVER metered
    endpoint.** Compare deployed Worker/version and usage controls to local
    source without invoking generation. If confirmed, remove public debug
@@ -567,15 +885,17 @@ be recorded; nothing simply disappears.
 
 ## Next action
 
-Build a concept-fidelity matrix from the approved Episode 5 decisions and the
-recurring episode template, then produce a new substance/story architecture
-that teaches the complete fashion system. Do not write canon/script/art/audio
-before Ali approves the replacement at Gate 1.
+Continue AW-003 from the smallest independently judgeable building or shared
+launch blocker. Close the current exact candidate, then select the next
+non-colliding blocker from the opening-day programme. Develop the accepted
+Library page architecture internally, but do not present another Library
+visual until the repaired design-admission firewall passes on one exact
+desktop/mobile candidate.
 
 ## Checkpoint rule
 
-If Ali shares a new idea while AW-001 is active, capture it and continue this
+If Ali shares a new idea while AW-003 is active, capture it and continue this
 foreground work. Codex may open a bounded lane when the idea is independent and
 safe under `operations/PARALLEL-WORK.md`. If she says **Switch now**, update
-this file with AW-001’s exact resume point before opening a new foreground
+this file with AW-003’s exact resume point before opening a new foreground
 objective; every open lane keeps its own checkpoint.
