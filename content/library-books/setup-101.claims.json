@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "bookId": "setup-101",
+  "status": "BUILT_LOCALLY_MAKER_ONLY_BOOK_REMAINS_HOLD",
+  "contentVersion": "setup-101-2026-08-05.1",
+  "renderedPath": "content/library-books/rendered/setup-101.html",
+  "renderedSha256": "e2fd6fe449ea0bfbb3e4bd0009ec4072e48d0f89a524a09a024c6c6029fd83f9",
+  "canonicalSourcePath": "content/library-books/setup-101.source.json",
+  "canonicalSourceSha256": "2ad7ba1cd93bbd91a1c868c76f2affec252d709cee07aea168bb2e6e74191ce9",
+  "makerReviewDate": "2026-08-05",
+  "makerAuthority": "No self-admission; independent content and newcomer judgment required.",
+  "claims": [
+    {
+      "id": "S101-C001",
+      "class": "durable_laidies_synthesis",
+      "publicWording": "Standing instructions, optional memory and a project serve different context jobs; the labels used by products vary.",
+      "requiredRenderedPhrases": [
+        "Standing instructions are for stable preferences and recurring output rules",
+        "Optional memory is for a fact or preference that may help across conversations",
+        "A project or workspace is for the instructions, chats and permitted files that belong to one continuing job"
+      ],
+      "sourceIds": ["SRC-OPENAI-CUSTOM-INSTRUCTIONS", "SRC-OPENAI-MEMORY", "SRC-OPENAI-PROJECTS", "SRC-ANTHROPIC-PERSONALIZATION"],
+      "scope": "A cross-product sorting model, not a claim that every product implements all three locations."
+    },
+    {
+      "id": "S101-C002",
+      "class": "currentness_sensitive_provider_guidance",
+      "publicWording": "Memory and personalization behavior varies by product, plan, account, setting, mode, country and rollout and must be reviewable because remembered facts can become stale.",
+      "requiredRenderedPhrases": [
+        "Memory is product-, plan-, account-, setting- and rollout-dependent",
+        "being able to review, correct or remove it"
+      ],
+      "sourceIds": ["SRC-OPENAI-MEMORY", "SRC-ANTHROPIC-PERSONALIZATION"],
+      "scope": "Current provider examples only; no universal memory behavior."
+    },
+    {
+      "id": "S101-C003",
+      "class": "currentness_sensitive_provider_guidance",
+      "publicWording": "Projects can keep one job's context together but do not by themselves prove isolation, confidentiality, retention, sharing boundaries or cross-device behavior.",
+      "requiredRenderedPhrases": [
+        "It does not automatically prove isolation, confidentiality, retention, sharing boundaries or cross-device behavior"
+      ],
+      "sourceIds": ["SRC-OPENAI-PROJECTS", "SRC-ANTHROPIC-PERSONALIZATION"],
+      "scope": "Product-, account-, plan-, workspace-, sharing- and settings-specific."
+    },
+    {
+      "id": "S101-C004",
+      "class": "safety_and_ownership_boundary",
+      "publicWording": "Passwords and access tokens belong nowhere in AI instructions, memory, projects or chats; other sensitive material requires governing authorization, and Accounts 101 owns the deeper account boundary.",
+      "requiredRenderedPhrases": [
+        "Passwords and access tokens go nowhere in AI instructions, memory, projects or chats",
+        "Placement is not permission to upload",
+        "Accounts 101 owns account, training, retention, sharing and sensitive-data boundaries"
+      ],
+      "sourceIds": [],
+      "scope": "Conservative minimum rule plus explicit handoff; this book does not decide upload authority."
+    }
+  ],
+  "sources": [
+    {"id": "SRC-OPENAI-CUSTOM-INSTRUCTIONS", "url": "https://help.openai.com/en/articles/8096356-custom-instructions-for-chatgpt", "checkedOn": "2026-08-05", "primary": true, "recheck": "Before release or material source change."},
+    {"id": "SRC-OPENAI-MEMORY", "url": "https://help.openai.com/en/articles/8590148-memory-faq", "checkedOn": "2026-08-05", "primary": true, "recheck": "Before release or material source change."},
+    {"id": "SRC-OPENAI-PROJECTS", "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt", "checkedOn": "2026-08-05", "primary": true, "recheck": "Before release or material source change."},
+    {"id": "SRC-ANTHROPIC-PERSONALIZATION", "url": "https://support.anthropic.com/en/articles/10185728-understanding-claude-s-personalization-features", "checkedOn": "2026-08-05", "primary": true, "recheck": "Before release or material source change."}
+  ],
+  "integrationBindings": [
+    {
+      "path": "library.html",
+      "sha256": "88fac8d64f1766af59ffdfc6cf5374dfaee0a596009bd46b5dedb444849bae6d",
+      "requiredPhrases": [
+        "Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you."
+      ]
+    }
+  ],
+  "forbiddenRenderedPhrases": [
+    "Every new chat is a stranger",
+    "somewhere the tool reads before every conversation",
+    "travels with you tool to tool",
+    "One key, every door",
+    "highest-leverage five minutes",
+    "Not every tool keeps memory at all",
+    "the other spent twenty minutes once",
+    "everything arrives already sounding like her"
+    ,"past-chat search"
+  ]
+}

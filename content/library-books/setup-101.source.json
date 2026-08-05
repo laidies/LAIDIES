@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "bookId": "setup-101",
+  "title": "Setup 101",
+  "status": "HOLD_INDEPENDENT_CONTENT_ADMISSION_REQUIRED",
+  "contentVersion": "setup-101-2026-08-05.1",
+  "productJob": "A compact durable reference for deciding whether information belongs in standing instructions, optional memory, one project or nowhere; not a provider walkthrough or class.",
+  "audience": "A reader who wants an AI tool to stop starting from zero without putting the wrong information in the wrong place.",
+  "learnerOutcome": "The reader can sort ordinary working context into four locations and identify when product, account or employer rules must be checked before saving anything.",
+  "mentalModel": {
+    "standingInstructions": "Stable preferences and recurring output rules that should apply broadly when the product supports them.",
+    "optionalMemory": "A fact or preference the product may carry between conversations; it must be reviewable because it can become stale or wrong.",
+    "projectWorkspace": "Files, instructions and context for one continuing job, subject to the product's actual account, plan, sharing and isolation behavior.",
+    "nowhere": "Passwords, access tokens and material prohibited by law, agreement, employer policy or the governing account rules.",
+    "boundary": "The sorting method can transfer between tools. The settings, data, availability and privacy behavior do not."
+  },
+  "analogy": {
+    "id": "S101-A001",
+    "name": "Three labelled places",
+    "mapping": "Standing instructions are the note you reuse, memory is a pencil note that may need correcting, and a project is the labelled binder for one job.",
+    "limit": "The labels explain the different jobs only. They do not prove that a product offers the feature, applies it everywhere, isolates the data or keeps it private."
+  },
+  "sortingCheck": {
+    "id": "S101-X001",
+    "items": [
+      {"item": "Use Canadian spelling", "bestFit": "standing-instructions", "reason": "A stable output preference."},
+      {"item": "My role changed last month", "bestFit": "optional-memory", "reason": "Potentially useful across chats, but likely to change and therefore reviewable."},
+      {"item": "The current board-pack PDF", "bestFit": "project-workspace", "reason": "Material for one continuing job, only if the governing account and policy allow it."},
+      {"item": "A deadline for this launch", "bestFit": "project-workspace", "reason": "Specific to one job and likely to expire."},
+      {"item": "My password", "bestFit": "nowhere", "reason": "A secret credential does not belong in instructions, memory, a project or chat."},
+      {"item": "A client's NDA-restricted file", "bestFit": "nowhere-until-authorized", "reason": "Use only after the contract, employer policy and approved account explicitly permit it."}
+    ],
+    "limitation": "A placement answer is not upload authority. Product behavior and organizational rules remain decisive."
+  },
+  "continuation": {
+    "accounts101": "Accounts 101 owns account, training, retention, sharing and sensitive-data boundaries.",
+    "toolCards": "Maintained provider tool cards own exact menu paths, plan availability and current controls.",
+    "classes": "SUNNYVAiLE High may own a guided setup activity with action and feedback; this book remains the lookup model."
+  },
+  "sources": [
+    {
+      "id": "SRC-OPENAI-CUSTOM-INSTRUCTIONS",
+      "publisher": "OpenAI",
+      "title": "ChatGPT Custom Instructions",
+      "url": "https://help.openai.com/en/articles/8096356-custom-instructions-for-chatgpt",
+      "checkedOn": "2026-08-05",
+      "scope": "Current ChatGPT example showing account-wide instructions that a user can edit or delete.",
+      "limitation": "ChatGPT-specific; third-party tools, GPTs, plans and managed workspaces can behave differently."
+    },
+    {
+      "id": "SRC-OPENAI-MEMORY",
+      "publisher": "OpenAI",
+      "title": "Memory FAQ",
+      "url": "https://help.openai.com/en/articles/8590148-memory-faq",
+      "checkedOn": "2026-08-05",
+      "scope": "Current ChatGPT example distinguishing saved memories and referenced chat history and describing user controls.",
+      "limitation": "The feature is changing and availability differs by plan, surface, country, settings and rollout."
+    },
+    {
+      "id": "SRC-OPENAI-PROJECTS",
+      "publisher": "OpenAI",
+      "title": "Projects in ChatGPT",
+      "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+      "checkedOn": "2026-08-05",
+      "scope": "Current ChatGPT example of a workspace combining chats, files and project instructions, with multiple memory modes.",
+      "limitation": "ChatGPT-specific project behavior varies by plan, workspace, sharing state and chosen memory mode."
+    },
+    {
+      "id": "SRC-ANTHROPIC-PERSONALIZATION",
+      "publisher": "Anthropic",
+      "title": "Understanding Claude's Personalization Features",
+      "url": "https://support.anthropic.com/en/articles/10185728-understanding-claude-s-personalization-features",
+      "checkedOn": "2026-08-05",
+      "scope": "Current Claude example distinguishing account-wide profile preferences, project-specific instructions and response styles.",
+      "limitation": "Claude-specific; availability can depend on plan, settings and rollout."
+    }
+  ],
+  "freshness": {
+    "owner": "Library editorial and AI product accuracy owners",
+    "nextReview": "BEFORE_RELEASE",
+    "triggers": [
+      "a named provider changes or retires a referenced feature",
+      "account, plan, region, workspace or sharing behavior changes materially",
+      "a reader interprets a storage location as privacy or upload authority"
+    ]
+  },
+  "correctionRoute": {
+    "type": "mailto",
+    "address": "hello@laidies.ai",
+    "subject": "Setup 101 correction",
+    "privacyBoundary": "Name the section and the current public source; do not email passwords, private files or confidential work material."
+  },
+  "authorityBoundary": "This source record does not admit the book, change the Library catalogue or authorize deployment or publication."
+}

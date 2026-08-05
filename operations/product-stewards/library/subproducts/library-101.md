@@ -26,10 +26,12 @@ approval.
 
 Concepts 101 is the sole locally admitted book and remains unreleased. Briefing
 101 has a complete source, claims ledger, rendered book and independent bounded
-content/reader PASS, but remains held pending exact integration rebind, owner
-admission and release gates. Setup 101 remains on currency hold. Accounts 101
-remains on factual-integrity hold. Vocab 101 is not visible and must not be
-reintroduced as a separate book.
+content/reader PASS, but remains held pending owner admission and release gates.
+Setup 101 now has a checksum-bound local source, claims ledger, rendered book,
+truthful shelf preview, fail-capable validator and independent bounded PASS; it
+remains held pending owner/admission and release gates. Accounts 101 remains on
+factual-integrity hold. Vocab 101 is not visible and must not be reintroduced as
+a separate book.
 
 ## Acceptance
 
