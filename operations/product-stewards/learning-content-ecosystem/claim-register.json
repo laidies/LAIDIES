@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE",
-  "updatedAt": "2026-07-30",
+  "updatedAt": "2026-08-05",
   "coverage": {
     "state": "PARTIAL_BACKFILL",
     "scope": "Representative Episode 01 definition/statistic cluster plus machine-discovered candidates across current content and production sources.",
@@ -68,6 +68,17 @@
       "accessedAt": "2026-07-29",
       "status": "CURRENT",
       "notes": "Every entry in the episode analogy was invented; do not describe a mixture of true and false entries."
+    },
+    {
+      "id": "SRC-OPENAI-TOKEN-COUNTING-2026-08-05",
+      "title": "What are tokens and how to count them?",
+      "publisher": "OpenAI Help Center",
+      "authority": "FIRST_PARTY_PRODUCT",
+      "url": "https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them",
+      "publishedOrUpdated": "Current OpenAI Help Center page; exact update date is not stably exposed",
+      "accessedAt": "2026-08-05",
+      "status": "CURRENT",
+      "notes": "OpenAI's English rule of thumb is one token is about four characters or three quarters of a word; exact tokenization varies by model, encoding and language."
     }
   ],
   "claims": [
@@ -524,6 +535,66 @@
         "oldWording": "Women were described as using AI at 78% of men's rate or as having 25% lower adoption without the current paper version and scope.",
         "reason": "The May 2026 working-paper version supplies the current sample, estimates and limits.",
         "recordPath": "operations/product-stewards/learning-content-ecosystem/CORRECTION-episode-01-definitions-and-class-reuse-2026-07-29.md",
+        "publicHandling": "CORRECTION_REQUIRED"
+      }
+    },
+    {
+      "id": "CLM-DEF-ENGLISH-TOKEN-RATIO",
+      "canonicalKey": "english-token-word-ratio",
+      "type": "definition",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "ANNUAL",
+      "canonicalWording": "For common English text, one token is roughly 0.75 words, or about 1.3 tokens per word. This is a rule of thumb, not an exact conversion; counts vary by model, encoding and language.",
+      "applicability": {
+        "products": ["LIBRAiRY token and context-window explanations"],
+        "versions": [],
+        "plans": [],
+        "regions": []
+      },
+      "sourceIds": ["SRC-OPENAI-TOKEN-COUNTING-2026-08-05"],
+      "evidenceSummary": "OpenAI states that one token is approximately four characters or three quarters of an English word and warns that tokenization varies.",
+      "limitations": [
+        "The ratio is approximate and should not be used as an exact billing or context calculation.",
+        "Non-English text and different model encodings can produce different ratios."
+      ],
+      "lastCheckedAt": "2026-08-05",
+      "nextReviewAt": "2027-08-05",
+      "recheckTriggers": [
+        "OpenAI materially changes its token-counting guidance.",
+        "A LAiDIES consumer introduces a different numeric conversion.",
+        "A provider-specific lesson requires exact model tokenization."
+      ],
+      "owner": "learning-content-ecosystem",
+      "consumers": [
+        {
+          "id": "CON-HANDBOOK-CH1-TOKEN-RATIO",
+          "surface": "SLAiYER Handbook Chapter 1",
+          "owner": "library",
+          "path": "content/library-books/handbook-ch1.md",
+          "locator": "4. Token & context window",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-05"
+        },
+        {
+          "id": "CON-CONCEPTS101-TOKEN-RATIO",
+          "surface": "Concepts 101 rendered entry",
+          "owner": "library",
+          "path": "content/library-books/rendered/concepts-101.html",
+          "locator": "Token",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-05",
+          "notes": "The rendered book intentionally keeps the safer non-numeric wording; it is consistent with this claim and does not restate the ratio."
+        }
+      ],
+      "correction": {
+        "effectiveAt": "2026-08-05",
+        "severity": "MATERIAL",
+        "oldWording": "The handbook reversed the relationship as 0.75 tokens per word.",
+        "reason": "OpenAI's rule of thumb is approximately 0.75 English words per token, equivalent to about 1.3 tokens per word.",
+        "recordPath": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-03-library-token-ratio.md",
         "publicHandling": "CORRECTION_REQUIRED"
       }
     }

@@ -369,7 +369,7 @@ Ask your tool its cutoff. Check your account tier.
 
 Two related ideas, often used interchangeably even though they're not the same.
 
-A **token** is a chunk of text — usually a word or part of one. AI doesn't process letters; it processes tokens. The rough rule for English: about 0.75 tokens per word, or four characters per token. When you hear "this model has a 200k token context window," that's roughly 150,000 words of working memory.
+A **token** is a chunk of text — usually a word or part of one. AI doesn't process letters; it processes tokens. A useful rough rule for common English text is about 0.75 words per token — roughly 1.3 tokens per word, or four characters per token. The exact count varies by model, encoding and language. When you hear "this model has a 200k token context window," that's roughly 150,000 English words of working memory.
 
 The **context window** is how much the tool can hold in mind at the same time — everything you've typed in this conversation, every file you've attached, every instruction the tool was given at the start. Anthropic calls it the model's *"working memory" — separate from the training data, which is the model's long-term knowledge.*
 

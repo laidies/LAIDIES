@@ -328,24 +328,10 @@ Deliver → `assets/cards/concept-popart/embedding-card-{front,back,front-foil}-
 > Apply the SHARED FOIL RECIPE to the finished `embedding-card-front-v1.png` — full prismatic holo,
 > Ben-Day dots sparkling, iridescent bursts; keep **EMBEDDING** banner + caption legible.
 
-## 2.7 — CHAIN OF THOUGHT  *(common)*
-Deliver → `assets/cards/concept-popart/chain-of-thought-card-{front,back,front-foil}-v1.png`
-### FRONT
-> Pop-art comic **trading card**, 1200 × 1680, rounded corners, white border — SAME system as
-> `jojo-card-front-v1.png`: bold outlines, Ben-Day halftone, flat **candy** color (pink #e982ab,
-> teal #57b6c0, coral #ec7a78, periwinkle #b3abe7) over black ink, burst frame. SCENE: pop-art
-> numbered **stepping-stones 1 → 2 → 3** across a gap, a chain of linked thought-bubbles showing the
-> work step by step. Comic **banner**: **CHAIN OF THOUGHT**. Caption burst: **"Making AI show its
-> work, step by step."** Star + chain-link stickers. Nothing postdates 1999.
-### BACK
-> Pop-art comic **card back**, 1200 × 1680, white border — SAME candy system, text IN-generation.
-> Top banner **CHAIN OF THOUGHT**. One bold panel, verbatim, large legible: **"Chain of thought is a
-> prompting trick: ask AI to think step by step before answering. It forces the model to reason
-> through a problem rather than jumping to conclusions. Works surprisingly well for complex tasks."**
-> Sticker: a chain link + a star.
-### FOIL
-> Apply the SHARED FOIL RECIPE to the finished `chain-of-thought-card-front-v1.png` — full prismatic
-> holo, Ben-Day dots sparkling, iridescent bursts; keep **CHAIN OF THOUGHT** banner + caption legible.
+## 2.7 — CHAIN OF THOUGHT — RETIRED; DO NOT GENERATE
+The former card incorrectly claimed that asking for visible steps forces a model to reason. No current
+trading-card consumer uses this concept and no replacement card is authorized. Preserve Episode 02's
+separate prompting correction route; do not regenerate the former front, back or foil assets.
 
 ## 2.8 — FEW-SHOT LEARNING  *(common)*
 Deliver → `assets/cards/concept-popart/few-shot-learning-card-{front,back,front-foil}-v1.png`
