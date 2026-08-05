@@ -2,6 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const root = path.resolve(process.env.LIBRARY_ROOT || process.cwd());
 const read = (relative) =>
@@ -18,6 +19,14 @@ const sections = Function("B", `"use strict"; return (${match[1]});`)(
   "assets/library-101/bright-family-v2/"
 );
 const books = sections.flatMap((section) => section.books);
+const compiledMatch = page.match(
+  /\/\* LIBRARY_ADMISSION_COMPILED_START \*\/\n([\s\S]*?)\n\/\* LIBRARY_ADMISSION_COMPILED_END \*\//
+);
+if (!compiledMatch) throw new Error("compiled Library admission is not parseable");
+const admitted = JSON.parse(compiledMatch[1]);
+if (process.env.LIBRARY_CONTRACT_CALIBRATION === "stale-admission-sha" && admitted["concepts-101"]) {
+  admitted["concepts-101"].artifactSha256 = "0".repeat(64);
+}
 const ids = new Set();
 const allowed = new Set(["available", "preview", "hold", "not-published"]);
 
@@ -27,8 +36,8 @@ for (const book of books) {
   ids.add(book.id);
   if (!allowed.has(book.status)) throw new Error(`${book.id} has invalid status`);
   if (!book.statusLabel) throw new Error(`${book.id} lacks a visible status label`);
-  if (book.status === "available" && !book.src) {
-    throw new Error(`${book.id} is available without a source`);
+  if (book.status === "available" && !admitted[book.id]) {
+    throw new Error(`${book.id} is available without compiled admission`);
   }
 }
 
@@ -38,8 +47,17 @@ const counts = Object.fromEntries(
     books.filter((book) => book.status === status).length
   ])
 );
-if (counts.hold !== 8 || counts.preview !== 7 || counts.available !== 0) {
+if (counts.hold !== 7 || counts.preview !== 7 || counts.available !== 1) {
   throw new Error(`unexpected truthful catalogue state ${JSON.stringify(counts)}`);
+}
+if (Object.keys(admitted).length !== 1 || !admitted["concepts-101"]) {
+  throw new Error(`unexpected compiled Library admission ${JSON.stringify(Object.keys(admitted))}`);
+}
+for (const [id, record] of Object.entries(admitted)) {
+  const target = path.join(root, record.sourcePath.replace(/^\/+/, ""));
+  if (!fs.existsSync(target)) throw new Error(`${id} admitted source is missing`);
+  const actual = crypto.createHash("sha256").update(fs.readFileSync(target)).digest("hex");
+  if (actual !== record.artifactSha256) throw new Error(`${id} admitted source hash is stale`);
 }
 
 for (const contract of [
@@ -111,5 +129,5 @@ if (puffies.includes("var a = document.createElement('a');")) {
 }
 
 console.log(
-  `LIBRAiRY CONTRACT PASS · books=${books.length} · hold=${counts.hold} · preview=${counts.preview} · available=${counts.available} · Puffy write/read truth`
+  `LIBRAiRY CONTRACT PASS · books=${books.length} · hold=${counts.hold} · preview=${counts.preview} · admitted=${Object.keys(admitted).length} · Puffy write/read truth`
 );
