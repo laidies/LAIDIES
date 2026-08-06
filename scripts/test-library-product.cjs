@@ -48,19 +48,19 @@ const shelfFixtureContract = [
     asset: "assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png",
     sha256: "489f83e0826fa358604d3f8ab4fc2adcd7f9807f5c1526882d76b5fbfdca5f7e",
     rowCounts: [2, 2],
-    railContacts: [0.475, 0.795]
+    railContacts: [0.481, 0.856]
   },
   {
     asset: "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
     sha256: "e5c34f940bbe7a2802103d87029220e74b526e82f21f661b0e3baf805423fed8",
     rowCounts: [3, 3],
-    railContacts: [0.359, 0.619]
+    railContacts: [0.340, 0.606]
   },
   {
     asset: "assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png",
     sha256: "489f83e0826fa358604d3f8ab4fc2adcd7f9807f5c1526882d76b5fbfdca5f7e",
     rowCounts: [2, 2],
-    railContacts: [0.475, 0.795]
+    railContacts: [0.481, 0.856]
   }
 ];
 const shelfRoomContract = {

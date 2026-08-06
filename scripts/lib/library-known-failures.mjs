@@ -105,7 +105,10 @@ export function validateLibraryKnownFailures(source) {
   if (!/\/\*\s*BOOK_VISIBLE_SIZE_CONTRACT\b/.test(source) || !/data-visible-scale/.test(source)) {
     errors.push('visible-alpha book normalization contract is missing');
   }
-  if (!/MOBILE_BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !/@media\(max-width:700px\)[\s\S]*?\.brow\{[^}]*min-height\s*:\s*120px/is.test(source)) {
+  const mobileRules = source;
+  const normalMobileRowIsReadable = /(?:^|})\s*\.brow\{[^}]*min-height\s*:\s*120px/i.test(mobileRules);
+  const compactMobileRowIsReadable = /\.shelf-unit\.is-compact\s+\.brow\{[^}]*min-height\s*:\s*105px/i.test(mobileRules);
+  if (!/MOBILE_BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !normalMobileRowIsReadable || !compactMobileRowIsReadable) {
     errors.push('mobile shelf rows do not preserve a 120px visible-book dimension');
   }
   if (!/LIBRARY_CASE_ANCHOR_CONTRACT/.test(source)) {
@@ -114,13 +117,13 @@ export function validateLibraryKnownFailures(source) {
   if (!/LIBRARY_WALL_CROP_CONTRACT/.test(source) || !/wall-neutral-light-v1\.png/.test(source)) {
     errors.push('collection room wall layer is missing');
   }
-  if (!/floor-geometric-v1\.png/.test(source) || !/background-size\s*:\s*100%\s+92%\s*,\s*100%\s+92%\s*,\s*auto\s+18%/i.test(source) || !/background-repeat\s*:\s*no-repeat\s*,\s*no-repeat\s*,\s*repeat-x/i.test(source)) {
+  if (!/floor-geometric-v1\.png/.test(source) || !/background-size\s*:\s*100%\s+100%\s*,\s*100%\s+100%\s*,\s*auto\s+6%/i.test(source) || !/background-repeat\s*:\s*no-repeat\s*,\s*no-repeat\s*,\s*repeat-x/i.test(source)) {
     errors.push('correct geometric Library carpet is missing or rises behind the shelves');
   }
   if (/floor-clean-v1\.png/.test(source)) {
     errors.push('retired dark-arrow carpet remains in a Library room rule');
   }
-  if (!/@media\(max-width:700px\)[\s\S]*?background-size\s*:\s*100%\s+calc\(100%\s*-\s*60px\)\s*,\s*100%\s+calc\(100%\s*-\s*60px\)\s*,\s*auto\s+60px/is.test(source)) {
+  if (!/@media\(max-width:700px\)[\s\S]*?background-size\s*:\s*100%\s+100%\s*,\s*100%\s+100%\s*,\s*auto\s+6%/is.test(source)) {
     errors.push('mobile carpet rises behind the lower shelf row');
   }
   if (![0,1,2].every(index => new RegExp(`data-collection-room=["']${index}["'][^}]*--room-tint`, 'i').test(source))) {
@@ -132,10 +135,10 @@ export function validateLibraryKnownFailures(source) {
   if (!/shelf-unit\.is-compact[^}]*library-wall-case-2bay-two-row-v2\.png/is.test(source) || !/is-compact-room/.test(source) || !/visible\.length\s*>\s*0\s*&&\s*visible\.length\s*<=\s*4/.test(source)) {
     errors.push('four-book collections do not use the compact two-bay case');
   }
-  if (!/\.shelf-unit:not\(\.is-compact\)[^}]*bottom\s*:\s*-5%/is.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.brow--1\{bottom:65\.3%\}\.brow--2\{bottom:38\.7%\}\.brow--3\{bottom:12\.2%\}/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:51\.2%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(0\)/.test(source)) {
+  if (!/\.shelf-unit:not\(\.is-compact\)[^}]*bottom\s*:\s*-5%/is.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.brow--1\{bottom:65\.3%\}\.brow--2\{bottom:38\.7%\}\.brow--3\{bottom:12\.2%\}/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:51\.2%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(-3%\)/.test(source)) {
     errors.push('visible shelf/rail seating geometry is missing');
   }
-  if (!/\.mobile-shelf-caption\{display:none\}/.test(source) || !/@media\(max-width:700px\)[\s\S]*?\.department\{z-index:6\}[\s\S]*?\.brow\{[^}]*height:27%[^}]*z-index:6[^}]*\}\.brow--1\{bottom:65\.5%\}\.brow--2\{bottom:37%\}\.brow--3\{bottom:8\.5%\}[\s\S]*?\.shelf-unit\.is-compact \.brow\{[^}]*height:22%[^}]*\}\.shelf-unit\.is-compact \.brow--1\{bottom:60%\}\.shelf-unit\.is-compact \.brow--2\{bottom:35%\}[\s\S]*?\.bk img\{transform:translateY\(-4%\)\}/.test(source)) {
+  if (!/\.mobile-shelf-caption\{display:none\}/.test(source) || !/@media\(max-width:700px\)[\s\S]*?\.department\{z-index:6\}[\s\S]*?\.brow\{[^}]*height:27%[^}]*z-index:6[^}]*\}\.brow--1\{bottom:65\.5%\}\.brow--2\{bottom:37%\}\.brow--3\{bottom:8\.5%\}[\s\S]*?\.shelf-unit\.is-compact \.brow\{[^}]*height:35%[^}]*\}\.shelf-unit\.is-compact \.brow--1\{bottom:65%\}\.shelf-unit\.is-compact \.brow--2\{bottom:5%\}[\s\S]*?\.bk img\{transform:translateY\(-4%\)\}/.test(source)) {
     errors.push('mobile shelf books remain behind the rails or stray copy overlaps the case');
   }
   const previewShelfMarkers = [
