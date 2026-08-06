@@ -14104,3 +14104,29 @@ while remaining falsely unfinished in the launch record.
   it does not prove the book teaches well.
 - **Publication status:** INTERNAL CORRECTION — 0 Library books admitted; no
   preview, deploy or publication authorized.
+
+## BTB-415 — Re-inventing a locked palette erased the approved visual language
+
+- **Date:** 2026-08-05
+- **Area:** LIBRAiRY page design and book-choice path.
+- **Failure:** Successive Library repairs guessed at blue, purple and pastel
+  surfaces instead of recovering the committed Episode 01 Study Pack gradient
+  recipes. The page also made preview navigation incomplete by omitting a clear
+  return from the pre-open book view.
+- **Prevention rule:** Before changing a building palette, resolve the exact
+  committed Brand/reference implementation and reuse its literal colour stops.
+  The Library interaction remains one click from cover or Preview control to a
+  full preview, followed by an explicit Back-to-shelf or admitted Open choice;
+  Back restores the initiating focus and scroll context.
+- **Why the correction works:** The Library now reuses the tracked Episode 01
+  pink-violet-periwinkle, cyan-blue, light pink-blue and pink-yellow-blue
+  gradients. A calibrated known-failure check rejects missing gradient stops or
+  preview-choice controls, and the browser exercise confirms held-book truth
+  plus exact focus return.
+- **Machine/durable evidence:**
+  `operations/design-explorations/study-pack-storefront-20260728/prototype/src/styles.css`;
+  `library.html`; `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`; `operations/DECISIONS.md`.
+- **Possible Behind the Build angle:** A design system is not a list of colour
+  names; it is the exact working recipes and interactions people approved.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
