@@ -20,8 +20,8 @@ export function validateLibraryKnownFailures(source) {
   const jeevesText = cssBodies(source, '.jv').join('\n').toLowerCase();
   const shelfGuideText = cssBodies(source, '.shelf-guide').join('\n').toLowerCase();
   const worldText = cssBodies(source, '.library-world').join('\n').toLowerCase();
-  if (!['#65d1e3','#9cb9ed'].every(token => jeevesText.includes(token))) {
-    errors.push('locked Episode 01 blue Miss Jeeves gradient is missing');
+  if (!['239,77,156','113,55,214','101,209,227'].every(token => jeevesText.includes(token)) || !jeevesText.includes('assets/library/episode-01-pop-comic-bg-v1.png')) {
+    errors.push('pink-purple-blue comic Miss Jeeves background is missing');
   }
   const jeevesSuggestions = [
     ['how do I write a better prompt?', 'prompt-brief', 'ep-02'],
@@ -95,7 +95,7 @@ export function validateLibraryKnownFailures(source) {
   if (!/shelf-unit\.is-compact[^}]*library-wall-case-2bay-two-row-v2\.png/is.test(source) || !/is-compact-room/.test(source) || !/visible\.length\s*>\s*0\s*&&\s*visible\.length\s*<=\s*4/.test(source)) {
     errors.push('four-book collections do not use the compact two-bay case');
   }
-  if (!/bottom\s*:\s*\.8%/.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:49\.4%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(2\.5%\)/.test(source)) {
+  if (!/\.shelf-unit:not\(\.is-compact\)[^}]*bottom\s*:\s*-5%/is.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:49\.4%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(2\.5%\)/.test(source)) {
     errors.push('visible shelf/rail seating geometry is missing');
   }
   const previewShelfMarkers = [
@@ -120,6 +120,9 @@ export function validateLibraryKnownFailures(source) {
   }
   if (!/CATALOGUE_ROUNDED_GRAMMAR_CONTRACT/.test(source) || !/\.shelf-guide \.eyebrow\s*\{[^}]*border-radius\s*:\s*999px/is.test(source) || !/\.shelf-caption\s*\{[^}]*border-radius\s*:\s*24px/is.test(source) || !/\.catalogue-controls\s*\{[^}]*border-radius\s*:\s*24px/is.test(source)) {
     errors.push('rounded catalogue grammar or highlighted eyebrow is missing');
+  }
+  if (!/\.catalogue-closet\s*\{[^}]*justify-content\s*:\s*center[^}]*min-height\s*:\s*76px/is.test(source) || !/\.catalogue-closet strong\s*\{[^}]*display\s*:\s*block/is.test(source)) {
+    errors.push('Closet copy is not vertically aligned inside its control');
   }
   if (!/CATALOGUE_QUIET_DEFAULT_CONTRACT/.test(source) || !/!catalogueHasActiveFilter\s*\?\s*['"]['"]/i.test(source)) {
     errors.push('quiet default catalogue result contract is missing');

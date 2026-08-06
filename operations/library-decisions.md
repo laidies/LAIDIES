@@ -55,6 +55,16 @@ Last reconciled: 2026-08-05.
   identity, face, body, clothing and clean textures while editing only the
   named room object. Reject the blotchy/lumpy v6 image and the confused
   under-stair wall junction it introduced.
+- **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
+  section must not repeat the blue-led catalogue surface immediately below it.
+  Use the locked vivid pink → purple → blue gradient with the approved
+  Episode 01 pop-comic background visible at supporting opacity. Keep strong
+  quiet zones behind every working input, button and body-copy line so comic
+  energy never reduces legibility.
+- **Closet control alignment — 2026-08-06.** Centre the My Closet title and
+  device-state copy vertically as one left-aligned text group inside the pill.
+  Give it enough internal height and width that the last word is not stranded
+  by avoidable padding or an undersized catalogue column.
 - **Miss Jeeves sample-question boundary — 2026-08-06.** Suggested questions
   must be a specific, bounded reader question or job and stay within
   deterministic routes supported by current admitted Library material.

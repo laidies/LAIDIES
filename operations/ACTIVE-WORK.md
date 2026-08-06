@@ -36,11 +36,12 @@ Ali explicitly switches or they invalidate the approach.
 
 The current `library.html` is a **LOCAL MAKER CANDIDATE / NOT DEPLOYED / NOT
 PUBLICLY VERIFIED** at SHA-256
-`a4c91b2f881555702752c68ab43937df18d1a8323279269282f76fcab7f835c5`.
+`c233778411d3f1e94c9b6c77cb539838634ef157d5e215aa12f089d59d901ed8`.
 The one permitted maker browser check found no horizontal overflow or console
-errors; confirmed 140px-high visible 101 covers meet their rails; confirmed the
-single-source compact case has one centre upright and meets the room floor; and
-exercised collection guide → exact shelf with focus and URL hash preserved.
+errors; confirmed the Closet copy is vertically centred in a 76px control; the
+Miss Jeeves section uses the approved pop-comic asset under a legible locked
+pink → purple → blue gradient; the Tools case visibly meets the floor; and the
+collection guide → exact shelf focus/hash behaviour remains intact.
 The page now uses the exact title **The LIBRAiRY**, the clean working-desk
 masthead with coherent metal under-stair stacks, rounded collection guides and
 catalogue controls, a highlighted catalogue eyebrow, a clean two-bay/two-row
