@@ -224,6 +224,9 @@ functional/accessibility/responsive breakage, followed directly by Ali's
 judgment of the exact visible candidate. Multi-role, dossier and repeated
 procedural page-review cycles are prohibited; content-accuracy admission and
 exact public-deployment verification remain unchanged.
+Successor SHA `7d4d01f4…c7c9` was rejected for oversized mostly empty shelf
+rooms, floating/awkward books and pasted-on labels, then fully removed. The
+clean active baseline is checkpoint SHA `db924c0d…bd6e`; it is not approved.
 
 The public builder remains default-DENY. Exact owner and independent judgments
 have now admitted the current Library 19-path visual batch, the bounded KSVL

@@ -9,6 +9,13 @@ Last reconciled: 2026-08-05.
 
 ## Current overrides
 
+- **Exact successor rejection — 2026-08-05.** `library.html` SHA
+  `7d4d01f4…c7c9` is rejected and quarantined: oversized mostly empty shelving
+  rooms, awkward/floating books and pasted-on title labels fail the Library
+  experience. Do not repair or reuse that composition. The active page baseline
+  is restored checkpoint SHA `db924c0d…bd6e`; it is a safe checkpoint, not an
+  approved page. Preserve the accepted masthead and physical-shelf concept while
+  finding a coherent way to make books readable.
 - **Page-review cutline — 2026-08-05.** A Library page successor receives one
   maker browser check for objective functional, accessibility and responsive
   breakage, then Ali judges the exact visible candidate. Do not commission
