@@ -2,7 +2,6 @@ const requiredAssets = [
   'assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
   'assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png',
   'assets/building-interiors/library-shelf/room/floor-geometric-v1.png',
-  'assets/library/library-printer-sign-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
@@ -28,14 +27,11 @@ export function validateLibraryKnownFailures(source) {
   if (source.includes('library-interior-purple-sign-wall-v8-clean-jeeves.png')) {
     errors.push('rejected over-rendered floppy-sign masthead remains');
   }
-  if (!/arrival-printer-sign[^>]*library-printer-sign-v1\.png/.test(source)) {
-    errors.push('localized printer sign is missing');
+  if (/arrival-prop|arrival-printer-sign|library-printer-sign-v1\.png/.test(source)) {
+    errors.push('rejected sticker-like masthead overlay remains');
   }
   if (/arrival-scanner|library-flatbed-scanner-v1\.png/.test(source)) {
     errors.push('rejected floating scanner overlay remains');
-  }
-  if (!/\.arrival-visual>\.arrival-printer-sign\{left:79\.2%;top:70\.2%;width:8\.2%/.test(source)) {
-    errors.push('printer sign is not seated beside the printer');
   }
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));

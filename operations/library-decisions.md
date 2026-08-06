@@ -186,6 +186,14 @@ Last reconciled: 2026-08-05.
   `.library-handback` band must not be restored.
 - **Mobile reading order.** Explanation precedes the objects it explains and
   never becomes stranded beside the next section heading.
+- **Masthead overlay rejection — 2026-08-06.** Commit `75dc0f97` and every
+  separate `arrival-prop` treatment are rejected: the clock and printer signs
+  read as flat CSS stickers pasted over a photographic room. Do not restore
+  them or solve this with another absolute-positioned transparent asset. The
+  text-free v4 masthead remains the protected baseline. Future clocks, signs or
+  desk equipment must be integrated into one bounded scene composite with the
+  room's perspective, lighting, material texture, occlusion and grain while
+  preserving Miss Jeeves and all pixels outside the approved edit masks.
 
 ## Current implementation assets
 

@@ -7,7 +7,6 @@ const assets = [
   'assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
   'assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png',
   'assets/building-interiors/library-shelf/room/floor-geometric-v1.png',
-  'assets/library/library-printer-sign-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
@@ -19,7 +18,7 @@ const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gra
 <!-- MISS_JEEVES_SUGGESTION_CONTRACT --><div class="jv-chips"><button>how do I write a better prompt?</button><button>what's a hallucination?</button><button>who built AI?</button><button>what is generative AI?</button></div>
 <script>const jeevesRoutes=[{id:'prompt-brief',sourceId:'ep-02'},{id:'hallucination-basics',sourceId:'ep-03'},{id:'women-built-ai',sourceId:'ep-04'},{id:'generative-ai-basics',sourceId:'concept-generative'}];const answer='<article data-answer-id="prompt-brief"><a data-source-id="ep-02"></a></article>';</script>
 <button id="book-preview-back">Back to the shelf</button><button>Open this book</button>
-<style>.arrival-visual>.arrival-printer-sign{left:79.2%;top:70.2%;width:8.2%}</style><h1 id="library-title">The LIBR<span class="ai">Ai</span>RY</h1><small>Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.</small><p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p><img class="arrival-printer-sign" src="assets/library/library-printer-sign-v1.png"><a class="catalogue-closet" hidden><span id="library-saved-count"></span></a><script>const closet=output.closest('.catalogue-closet');closet.hidden=!count;</script><div class="shelf-guide-heading"></div><div class="shelf-captions"></div><script>section.books.filter(book=>book.listed!==false&&book.img).slice(0,3);const guide='<a class="shelf-caption" href="#library-shelf-\${sectionIndex}" data-shelf-jump="\${sectionIndex}"><div class="shelf-caption-art"></div></a>';const room='<div id="library-shelf-\${sectionIndex}"></div>';</script><p class="library-status sr-only" id="library-status"></p><div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1" data-book-count="1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
+<h1 id="library-title">The LIBR<span class="ai">Ai</span>RY</h1><small>Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.</small><p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p><a class="catalogue-closet" hidden><span id="library-saved-count"></span></a><script>const closet=output.closest('.catalogue-closet');closet.hidden=!count;</script><div class="shelf-guide-heading"></div><div class="shelf-captions"></div><script>section.books.filter(book=>book.listed!==false&&book.img).slice(0,3);const guide='<a class="shelf-caption" href="#library-shelf-\${sectionIndex}" data-shelf-jump="\${sectionIndex}"><div class="shelf-caption-art"></div></a>';const room='<div id="library-shelf-\${sectionIndex}"></div>';</script><p class="library-status sr-only" id="library-status"></p><div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1" data-book-count="1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
 
 assert.deepEqual(validateLibraryKnownFailures(good), []);
 
@@ -28,9 +27,8 @@ const fixtures = [
   [good.replace('library-interior-from-credits-dechromed-v4-no-baked-text.png', 'library-interior-purple-sign-wall-v7-clean-metal-stacks.png'), 'mottled Miss Jeeves v7 masthead'],
   [good.replace('library-interior-from-credits-dechromed-v4-no-baked-text.png', 'library-interior-style-b-hand-inked-animation.png'), 'replacement hand-inked masthead'],
   [good.replace('library-interior-from-credits-dechromed-v4-no-baked-text.png', 'library-interior-purple-sign-wall-v8-clean-jeeves.png'), 'over-rendered floppy-sign masthead'],
-  [good.replace('class="arrival-printer-sign"', 'class="arrival-printer-removed"'), 'localized printer sign'],
+  [good + '<img class="arrival-prop arrival-printer-sign" src="assets/library/library-printer-sign-v1.png">', 'sticker-like masthead overlay'],
   [good + '<img class="arrival-scanner" src="assets/library/library-flatbed-scanner-v1.png">', 'floating scanner overlay'],
-  [good.replace('left:79.2%', 'left:9%'), 'seated beside the printer'],
   [good.replace('Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.', 'Ask Miss Jeeves when you only know the question.'), 'ask-or-browse orientation'],
   [good.replace('aria-live="polite" hidden', 'aria-live="polite"'), 'Resident Card setup copy'],
   [good.replace('113,55,214', '65,209,227'), 'Miss Jeeves background'],
