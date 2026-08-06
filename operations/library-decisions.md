@@ -24,6 +24,18 @@ Last reconciled: 2026-08-05.
   locked-palette wall colours. Render books behind the case artwork: signs and
   metal rails stay in front, books fit wholly inside one shelf opening, and no
   cover may cross a sign, upright or rail.
+- **Working reference-desk masthead — 2026-08-06.** The Library masthead is a
+  functioning, funny reference desk rather than an empty room photograph. Keep
+  a readable environmental sign above the computers—including the established
+  “DON'T FEED THE PRINTER” joke—and visible librarian equipment such as a
+  scanner and practical desk tools. These are physical scene details, not
+  floating interface labels, and must not obstruct the title or Miss Jeeves.
+- **Shelf density and floor contact — 2026-08-06.** Four-book collections use a
+  compact two-bay case rather than four books scattered across a mostly empty
+  three-bay case. Six-book collections may use all three bays. In every case,
+  visible cover pixels sit directly on the rail and the visible bottom of the
+  case meets the room floor/base line; transparent padding may not make books
+  or furniture appear to float.
 
 - **Exact successor rejection — 2026-08-05.** `library.html` SHA
   `7d4d01f4…c7c9` is rejected and quarantined: oversized mostly empty shelving
@@ -111,6 +123,7 @@ Last reconciled: 2026-08-05.
 
 ## Current implementation assets
 
+- Masthead: `assets/building-interiors/library-interior-purple-sign-wall-v5.png`
 - Room: `assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png`
 - Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
 
@@ -122,7 +135,6 @@ tools-shelf-kit.png
 reference-shelf-kit.png
 library-shelf-unit-5-shelf-upright
 library-aisle-backdrop-v1.png
-library-interior-purple-sign-wall-v5.png
 bk-status
 shelf-pages
 library-handback

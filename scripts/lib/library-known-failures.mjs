@@ -1,7 +1,8 @@
 const requiredAssets = [
-  'assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
+  'assets/building-interiors/library-interior-purple-sign-wall-v5.png',
   'assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
+  'assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
   'assets/library/episode-01-pop-comic-bg-v1.png'
 ];
@@ -58,11 +59,17 @@ export function validateLibraryKnownFailures(source) {
   if (!/LIBRARY_SHELF_DEPTH_CONTRACT/.test(source) || !/\.shelf-unit::after\s*\{[^}]*z-index\s*:\s*5[^}]*library-wall-case-3bay-v1\.png/is.test(source) || !/data-book-count/i.test(source)) {
     errors.push('foreground metal frame / shelf depth contract is missing');
   }
+  if (!/shelf-unit\.is-compact[^}]*library-shelf-unit-2-row-full-width-v1\.png/is.test(source) || !/is-compact-room/.test(source) || !/visible\.length\s*>\s*0\s*&&\s*visible\.length\s*<=\s*4/.test(source)) {
+    errors.push('four-book collections do not use the compact two-bay case');
+  }
+  if (!/bottom\s*:\s*\.8%/.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:52\.6%\}\.shelf-unit\.is-compact \.brow--2\{bottom:21\.1%\}/.test(source) || !/\.bk img\{[^}]*translateY\(2\.5%\)/.test(source)) {
+    errors.push('visible shelf/rail seating geometry is missing');
+  }
   const previewShelfMarkers = [
     'BOOK_PREVIEW_CHOICE_CONTRACT',
     'data-preview-book',
-    'class="library-room-unit"',
-    'class="shelf-unit"',
+    'class="library-room-unit',
+    'class="shelf-unit',
     'class="brow brow--'
   ];
   const missingPreviewShelf = previewShelfMarkers.filter(marker => !source.includes(marker));

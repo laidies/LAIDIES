@@ -14181,3 +14181,37 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Correct z-order is the difference between
   a book sitting on a shelf and a picture pasted over one.
 - **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-418 — Shelf capacity must match the collection in front of it
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY physical collection rooms and reference desk.
+- **Failure:** Four covers were spread across a nine-opening case, leaving an
+  empty centre bay and an empty third row; transparent padding also left the
+  covers and the whole case looking slightly above their rails and floor. At
+  the same time, an already-made working reference-desk image with the printer
+  sign, computers, scanner and librarian tools had been retired instead of
+  checked against Ali's current direction.
+- **Prevention rule:** Choose physical display assets by visible capacity before
+  positioning content: four books use the real two-bay/two-row case, six books
+  may use the three-bay case, visible cover pixels must touch the measured rail,
+  and the case's visible feet/base must meet the room floor line. Search existing
+  approved and supplied assets before replacing a remembered world-building
+  detail.
+- **Why the correction works:** The 101s and Reference collections now render
+  in a two-by-two case sized to their four covers, with rail contact bound to the
+  source asset's measured geometry and the case seated on the baseboard/floor.
+  The masthead now uses the existing working-desk image containing the exact
+  physical details Ali requested. The known-failure preflight rejects a missing
+  compact case, missing room class or missing rail seating transform.
+- **Machine/durable evidence:** `library.html`;
+  `assets/building-interiors/library-interior-purple-sign-wall-v5.png`;
+  `assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `scripts/test-library-product.cjs`;
+  `operations/library-decisions.md`; `operations/DECISIONS.md`.
+- **Possible Behind the Build angle:** A convincing physical interface starts
+  with capacity and contact: the right-size case, books touching rails, and feet
+  touching the floor.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
