@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { validateLibraryKnownFailures } from './lib/library-known-failures.mjs';
 
 const assets = [
-  'assets/building-interiors/library-interior-purple-sign-wall-v7-clean-metal-stacks.png',
+  'assets/building-interiors/library-interior-style-b-hand-inked-animation.png',
   'assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
@@ -22,6 +22,7 @@ const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gra
 assert.deepEqual(validateLibraryKnownFailures(good), []);
 
 const fixtures = [
+  [good.replace('library-interior-style-b-hand-inked-animation.png', 'library-interior-purple-sign-wall-v7-clean-metal-stacks.png'), 'mottled Miss Jeeves v7 masthead'],
   [good.replace('113,55,214', '65,209,227'), 'Miss Jeeves background'],
   [good.replace('MISS_JEEVES_SUGGESTION_CONTRACT', 'REMOVED_JEEVES_SUGGESTION_CONTRACT'), 'bounded suggestion contract'],
   [good.replace('who built AI?', 'how does AI work?'), 'broad Miss Jeeves suggestion'],

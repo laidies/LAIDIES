@@ -1,5 +1,5 @@
 const requiredAssets = [
-  'assets/building-interiors/library-interior-purple-sign-wall-v7-clean-metal-stacks.png',
+  'assets/building-interiors/library-interior-style-b-hand-inked-animation.png',
   'assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
@@ -14,6 +14,9 @@ function cssBodies(source, selector) {
 
 export function validateLibraryKnownFailures(source) {
   const errors = [];
+  if (source.includes('library-interior-purple-sign-wall-v7-clean-metal-stacks.png')) {
+    errors.push('rejected mottled Miss Jeeves v7 masthead remains');
+  }
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));
   const majorText = majorCss.join('\n').toLowerCase();

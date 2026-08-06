@@ -36,16 +36,18 @@ Ali explicitly switches or they invalidate the approach.
 
 The current `library.html` is a **LOCAL MAKER CANDIDATE / NOT DEPLOYED / NOT
 PUBLICLY VERIFIED** at SHA-256
-`c233778411d3f1e94c9b6c77cb539838634ef157d5e215aa12f089d59d901ed8`.
+`a66f5a002f676d5a90f19c7da9d8b18efa74dd729f899984d3bb0017661b59ff`.
 The one permitted maker browser check found no horizontal overflow or console
 errors; confirmed the Closet copy is vertically centred in a 76px control; the
 Miss Jeeves section uses the approved pop-comic asset under a legible locked
 pink → purple → blue gradient; the Tools case visibly meets the floor; and the
 collection guide → exact shelf focus/hash behaviour remains intact.
-The page now uses the exact title **The LIBRAiRY**, the clean working-desk
-masthead with coherent metal under-stair stacks, rounded collection guides and
-catalogue controls, a highlighted catalogue eyebrow, a clean two-bay/two-row
-compact case, and the bounded Miss Jeeves examples.
+The page now uses the exact title **The LIBRAiRY**, a clean deliberately
+hand-inked working-desk masthead with the printer joke and librarian tools,
+rounded collection guides and catalogue controls, a highlighted catalogue
+eyebrow, a clean two-bay/two-row compact case, and the bounded Miss Jeeves
+examples. Ali directly rejected the mottled whole-image v7 masthead; it is no
+longer referenced by the page or admitted by the known-failure preflight.
 
 The exact next gate is Ali's visual judgment of this local candidate. No Claude,
 multi-role or dossier review was commissioned. The legacy full product test

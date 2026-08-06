@@ -54,7 +54,13 @@ Last reconciled: 2026-08-05.
   corrections may not re-render Miss Jeeves or the whole room. Preserve her
   identity, face, body, clothing and clean textures while editing only the
   named room object. Reject the blotchy/lumpy v6 image and the confused
-  under-stair wall junction it introduced.
+  under-stair wall junction it introduced. The later
+  `library-interior-purple-sign-wall-v7-clean-metal-stacks.png` is also
+  rejected: the whole-image edit visibly mottled Miss Jeeves's face, hair,
+  cardigan and hands. The active local candidate uses the existing clean,
+  deliberately hand-inked scene
+  `library-interior-style-b-hand-inked-animation.png`; do not run another
+  whole-scene image edit over her.
 - **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
   section must not repeat the blue-led catalogue surface immediately below it.
   Use the locked vivid pink → purple → blue gradient with the approved
