@@ -32,19 +32,42 @@ Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-05 launch-truth reconciliation
 
+### LIBRAiRY false-PASS incident — current foreground truth
+
+Ali rejected the current `library.html` visual. It is **INTERNAL REPAIR
+REQUIRED / NOT READY FOR REVIEW**. Previous Library creative, Brand, UX,
+red-team and Opus verdicts are invalidated because they admitted repeated known
+failures: retired candy and white/plum surfaces, a flat-white wayfinding band,
+detached/floating and visibly unequal books, pasted status slabs, pagination
+residue, a generic navy saved-find handback and weak non-image page craft.
+
+The recurrence was an operating-system failure, not missing direction. The
+active lesson feed still prescribed candy; the generated AGENTS contract
+incorrectly elevated Canon to architecture authority; a discoverable Library
+candidate still prescribed candy and pagination; a stale hook pointed at
+`_library-v3.html`; and the claimed page-design hook was absent/unregistered.
+Those conflicts are removed. The registered post-edit Library preflight and
+Stop integrity gate now run `scripts/check-library-known-failures.mjs`. Its
+nine negative fixtures pass calibration, and the current page correctly fails
+on every remaining objective defect. No Library visual may enter review until
+that preflight passes and the foreground maker has compared real 1440/390/320
+renders against the agreed Library direction.
+
 - NewsStand Daily availability now follows its independently admitted release
   instant worldwide. Visitor timezone may personalize display but cannot hide,
   advance or rename an edition. Extreme-timezone and pre/post-release fixtures
   pass; no public deployment was made.
 - The Library opening set is exactly Concepts 101, Briefing 101, Setup 101 and
-  Accounts 101. Vocab 101 remains retired as a separate title. Concepts is the
-  sole locally admitted book; the other three now have governed, independently
-  accepted local candidates and remain checksum-bound `HOLD` pending owner
-  admission and release. The curated build passes.
+  Accounts 101. Vocab 101 remains retired as a separate title. All four opening
+  books are HOLD: Concepts is directly rejected and the other three require the
+  corrected learning-admission evidence. Their exact rendered sources and claims
+  remain preserved; visual admission, protected
+  preview, release and public verification remain separate and open.
 - Opening-day Classes, Library and site-video records now all have a complete
   readiness schema. Structural completeness is no longer conflated with public
-  PASS: Classes are 0/3 ready, Library is 1/4 locally admitted, site video is
-  0/8 ready and all three systems report `NOT READY`.
+  PASS: Classes are 0/3 ready, Library is 0/4 locally admitted, site video is
+  0/8 ready and all three systems report `NOT READY`; Library's four local
+  content admissions do not make the building release-ready.
 - The strict whole-town gate remains the release authority. Current exact truth
   is 0/17 release-ready buildings, 0/17 current visual admissions and 0/5
   opening media ready. The visual count includes stale Library and NewsStand
@@ -73,6 +96,14 @@ That is the current public truth, not the dirty local candidate.
   calibration fails. Independent runtime re-judgment passes at verdict SHA-256
   `836d20b4756c4db40c6f8136a09de8879352ba97327fc2c1804f93a9303c1c51`.
   Build, deploy and public-origin verification remain required.
+  The local same-origin successor now also has a privacy-safe measurement
+  contract and controlled topic taxonomy. `miss_jeeves_answer_outcome` records
+  only schema, placement, coverage outcome, topic ID, admitted source IDs,
+  result count and source health; its calibrated test detects a deliberately
+  leaked raw question and confirms the real sink contains none. Live collection
+  remains OFF: no `MISS_JEEVES_SIGNALS` production binding, provider connection
+  or public privacy disclosure has been admitted. Result-open measurement is
+  specified but intentionally waits for Ali's approved Homepage/Library control.
 - **P1 — Issue 04 shared header:** the public 320px route is 344/345px wide;
   `.svgh-nav/menu` is the stable overflow source. The exact local route repair
   independently passes at 1440/390/320. The 2026-08-05 recovery narrowed a
@@ -172,26 +203,22 @@ MAiKEOVER remains `BUILDING`: its visual environment, public Card/handles,
 portrait service, rewards, native AT, changed-byte provider/public regression,
 deployment and public verification remain open.
 
-Both isolated rejected LIBRAiRY successors remain quarantined. The current
-production-page candidate is `library.html` SHA-256
-`2a30520ebb6fbffc21069e72b726f8691380c740ed8b6b30ab11dc071f4c6a43`.
-It follows Ali's chosen structure: sharp daylit Miss Jeeves interior masthead,
-vibrant page-native reference desk and wayfinding, then the real three-bay metal
-shelf with mounted sign artwork and large runtime book objects. It retains
-preview-before-open, scalable shelf paging, truthful availability, Homepage →
-Miss Jeeves transfer, one admitted Concepts 101 reader, whole-book and exact-
-section Puffy saves, and honest four-state/device-local boundaries. The Library
-suite passes 101 checks and its deliberate broken-dialog calibration fails.
-Role-distinct creative, IA, Product/UX, Brand and hostile red-team gates accept
-the same exact bytes; Claude Opus 5 recommends ADMIT at 18/20 for creative,
-product, finish, UX and Brand and 17/20 for best-webpage ambition. Exact
-1440/390/320 captures, the settled exact-section state, Tools page two and the
-101s-extension growth witness are bound in visual admission
-`library-visual-v4-20260804`. This is the first whole-town visual admission and
-remains **LOCAL / VISUAL LAYER ACCEPTED / NOT RELEASED**. Only Concepts 101 is
-admitted; catalogue depth, correction service, native AT, account continuity,
-deployment and public-origin verification remain separate. ODC-101 remains
-deferred behind the whole-town foreground.
+Both isolated rejected LIBRAiRY successors remain quarantined. The former
+`library-visual-v4-20260804` admission and every later Library visual verdict
+are **INVALIDATED BY ALI'S 2026-08-05 REJECTION**. They are historical evidence,
+not a current direction, candidate or PASS. The current `library.html` SHA-256
+`615a80f75bede151067fa447eb514cc535c14a1c5c4bf4d19baa5fbe04077dab`
+is **REJECTED / DO NOT PREVIEW / DO NOT DEPLOY / DO NOT PUBLISH**. Ali found
+the covers too small to identify/read, the composition materially unchanged
+from the rejected shelf layout except for a blue recolour, and the result
+boring despite explicit direction. Its earlier calibrated objective checks
+remain integrity history only and cannot reopen the visual trajectory. The
+corrected maker preflight now rejects these bytes for the missing D-093
+informed-choice contract. The masthead and books-on-physical-shelves concept
+remain; the current scale and every other page area are rejected. Concepts 101
+is directly rejected; Briefing 101, Setup 101 and Accounts 101 are preserved
+source artifacts on HOLD under the corrected admission gate. The authorized Claude Opus
+review was stopped at Ali's direction and produced no receipt.
 
 The public builder remains default-DENY. Exact owner and independent judgments
 have now admitted the current Library 19-path visual batch, the bounded KSVL
@@ -231,16 +258,13 @@ provenance or release-master approval. An exhaustive existing-asset reuse audit
 is active before any replacement art can be considered. No release or
 deployment is implied.
 
-The Library incident exposed a non-media admission bypass. The repaired design
-gate now requires role-distinct research, creative experience design,
-environment art, frontend implementation, product/UX and Brand judgments, red
-team, Claude Opus 5 and Control Room admission on one current SHA tuple. It also
-requires the four canonical visitor states, failure/recovery, Closet/Puffy/
-charm/Miss Jeeves handoffs and visible spatial growth. Thirty-seven negative
-fixtures and two passing twins pass, and all rejected Library artifact SHAs are
-quarantined. The recovered exact candidate above is the only Library direction
-admitted for Ali review; its evidence is candidate-bound and does not
-rehabilitate either rejected successor.
+The Library incident exposed a non-media admission bypass. Role separation and
+receipt structure did not prevent known visual defects from reaching review.
+The new maker preflight therefore runs before those review roles and blocks the
+exact recurring objective patterns. Independent roles remain required only
+after the foreground candidate has zero known/objective defects and passes the
+same-viewport maker comparison. No Library direction is currently admitted for
+Ali review.
 
 The opening-day checker now enforces that separation at the whole-town level.
 Its truthful current result is `SPEC VALID — LAUNCH HOLD`: 17/17 buildings are
@@ -356,6 +380,34 @@ recurring-format rejudge then passed. Ali's one current episode decision is
 whether to approve that composite learning/story architecture as the basis for
 canon reconciliation. No canon, script, narration, art, media or release work
 is authorized before her verdict.
+
+### 2026-08-05 Weekly Episodes exact-tuple refresh
+
+The Episode 01 format pilot's v2 evidence became stale when later clean commits
+changed four checksum-bound sources. The fail-closed guard rejected the stale
+tuple. The manifest now binds the current committed sources; static and browser
+gates pass, and Chick Flicks independently accepts v3 for Read, cover-only
+Listen and visibly held Watch. Safari exposed the correct native accessibility
+tree with VoiceOver reported on, but the computer-control channel cannot hear
+spoken output. After two machine-only cycles, that approach stops: an identified
+independent human must hear and record the unchanged v3 sequence. Propagation,
+deployment and public claims remain held. Episode 05 is unchanged and still
+awaits Ali's Gate 1 architecture verdict; no canon or production has begun.
+
+### 2026-08-05 Episode 01 dark reading-template restoration
+
+Ali rejected the later split-screen Episode 01 cover and narrow right-hand
+copy column. The route now uses its earlier dark-VHS source again: the
+standing-ovation image spans the hero, the live title and metadata are centred,
+the article field remains dark, and the reading shell is 840px with a 720px
+measure. Read / Listen / Watch remains unchanged and truthful. The calibrated
+layout gate passed 17/17 at 1440, 390 and 320; the format browser suite passed
+33/33; the printable and four-episode mobile cast checks pass. An independent
+visual judge accepted the exact local page SHA
+`21b899c17f8e6250208f368b63273b96a362089fa76bacc0b98460f372a10cb4`.
+Because that checksum is newer than the prior Chick Flicks v3 receipt, format
+re-admission and the identified-human Safari + VoiceOver spoken-output witness
+remain open. Nothing was deployed or changed publicly.
 
 ## Active objective — AW-003
 
@@ -823,6 +875,24 @@ AW-001 is complete only when:
   fashion continuity all reinforce the lesson; the current Sol/Extra High
   credit experience remains a potential real cold open.
 
+### 2026-08-05 — Weekly Episodes opening-media launch reconciliation
+
+- Reconciled exact current opening-media evidence without changing media bytes.
+  Episodes 01 v27, 02 v20, 03 v15 and 04 v10 have no named machine/frame
+  defect requesting another render; all four remain HOLD for identified
+  qualified human full-title unmuted 1× reviews and later cover/release gates.
+- Found one launch-routing contradiction: the Control Room owner-review queue
+  still classifies those exact hashes as internal repair required, despite the
+  later universal-registry reconciliation explicitly prohibiting that carry-
+  forward. Weekly Episodes did not mutate the shared queue.
+- Durable handoff:
+  `operations/product-stewards/episode-experience/control-room-handoff-opening-media-human-review-reconciliation-2026-08-05.md`.
+- Trailer v8 remains separate and objectively failed. Its next eligible work is
+  source closure and one consolidated successor; the accepted B55 window alone
+  is not a full-title repair.
+- Episode 5 remains decision-ready but unapproved. No canon, media, integration,
+  deployment or publication authority was inferred.
+
 ## Captured without changing the active objective
 
 These ideas are safe and findable; they are not the current implementation
@@ -908,12 +978,14 @@ be recorded; nothing simply disappears.
 
 ## Next action
 
-Continue AW-003 from the smallest independently judgeable building or shared
-launch blocker. Close the current exact candidate, then select the next
-non-colliding blocker from the opening-day programme. Develop the accepted
-Library page architecture internally, but do not present another Library
-visual until the repaired design-admission firewall passes on one exact
-desktop/mobile candidate.
+Continue AW-003 page by page with Ali and the foreground Codex task, beginning
+with the Library. Establish and agree each page's purpose, hierarchy, visuals,
+functions, content, responsive behaviour and town relationships before the
+foreground implements it. Background agents are limited to inventory,
+research, testing and independent critique of an exact candidate; they may not
+originate, reinterpret or autonomously implement visitor-facing pages. Once Ali
+approves a reusable page pattern, agents may propagate that locked pattern
+without making new product or visual judgments.
 
 ## Checkpoint rule
 

@@ -15,11 +15,20 @@ const calibrateProductionControls =
   process.env.LIBRARY_PRODUCTION_CONTROL_CALIBRATION === "undersized";
 const calibrateShelfGeometry =
   process.env.LIBRARY_SHELF_GEOMETRY_CALIBRATION === "oversubscribed";
+const calibrateShelfContact =
+  process.env.LIBRARY_SHELF_CONTACT_CALIBRATION === "floating";
+const calibrateShelfFixture =
+  process.env.LIBRARY_SHELF_FIXTURE_CALIBRATION === "substituted";
+const calibrateNoPagination =
+  process.env.LIBRARY_NO_PAGINATION_CALIBRATION === "pager";
 const calibrateInlineHandler =
   process.env.LIBRARY_INLINE_HANDLER_CALIBRATION === "inline-submit";
 const calibratePuffyFocus =
   process.env.LIBRARY_PUFFY_FOCUS_CALIBRATION === "broken-dialog";
-if (captureDir) fs.mkdirSync(captureDir, { recursive: true });
+const candidateCaptureDir = captureDir ? path.join(captureDir, "candidate") : null;
+const fixtureCaptureDir = captureDir ? path.join(captureDir, "fixtures") : null;
+if (candidateCaptureDir) fs.mkdirSync(candidateCaptureDir, { recursive: true });
+if (fixtureCaptureDir) fs.mkdirSync(fixtureCaptureDir, { recursive: true });
 let fixtureRoot = null;
 const playwrightRoot =
   process.env.PLAYWRIGHT_CORE_PATH ||
@@ -33,6 +42,34 @@ const mime = {
   ".jpg": "image/jpeg",
   ".webp": "image/webp"
 };
+const correctionApiSubmissions = [];
+const shelfFixtureContract = [
+  {
+    asset: "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+    sha256: "e5c34f940bbe7a2802103d87029220e74b526e82f21f661b0e3baf805423fed8",
+    rowCounts: [2, 2],
+    railContacts: [0.355, 0.615]
+  },
+  {
+    asset: "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+    sha256: "e5c34f940bbe7a2802103d87029220e74b526e82f21f661b0e3baf805423fed8",
+    rowCounts: [3, 3],
+    railContacts: [0.355, 0.615]
+  },
+  {
+    asset: "assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png",
+    sha256: "e5c34f940bbe7a2802103d87029220e74b526e82f21f661b0e3baf805423fed8",
+    rowCounts: [2, 2],
+    railContacts: [0.355, 0.615]
+  }
+];
+const shelfRoomContract = {
+  asset: "assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png",
+  sha256: "0f760eb17993619982762e160aa119d8f4a363a5015af0bf723ac5ab0cc0ac09"
+};
+function sha256(filePath) {
+  return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+}
 function relativeLuminance(hex) {
   const channels = hex.match(/[a-f0-9]{2}/gi).map((value) => parseInt(value, 16) / 255);
   const linear = channels.map((value) =>
@@ -57,6 +94,22 @@ const server = http.createServer((request, response) => {
   const pathname = decodeURIComponent(
     new URL(request.url, "http://127.0.0.1").pathname
   );
+  if (pathname === "/api/library-corrections" && request.method === "POST") {
+    const chunks = [];
+    request.on("data", (chunk) => chunks.push(chunk));
+    request.on("end", () => {
+      const payload = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+      correctionApiSubmissions.push(payload);
+      response.writeHead(201, { "content-type": "application/json", "cache-control": "no-store" });
+      response.end(JSON.stringify({ status: "accepted", correction_id: "lc_browser_fixture", receipt_id: "lr_browser_fixture", state: "submitted", created_at: "2026-08-05T20:00:00.000Z", status_reference: "/api/library-corrections/status?receipt=lr_browser_fixture" }));
+    });
+    return;
+  }
+  if (pathname === "/api/library-corrections/status" && request.method === "GET") {
+    response.writeHead(200, { "content-type": "application/json", "cache-control": "no-store" });
+    response.end(JSON.stringify({ status: "ok", receipt_id: "lr_browser_fixture", state: "submitted", created_at: "2026-08-05T20:00:00.000Z", updated_at: "2026-08-05T20:00:00.000Z" }));
+    return;
+  }
   const relative = pathname === "/" ? "library.html" : pathname.replace(/^\/+/, "");
   const requestRoot =
     request.headers["x-library-fixture"] === "1" && fixtureRoot ? fixtureRoot : root;
@@ -99,7 +152,7 @@ const server = http.createServer((request, response) => {
   fs.copyFileSync(path.join(root, "library.html"), path.join(fixtureRoot, "library.html"));
   const growthFixtureSource = fs.readFileSync(path.join(root, "library.html"), "utf8").replace(
     "];\nconst ADMITTED_BOOK_RECORDS=",
-    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[{id:'growth-fixture',t:'Growth Fixture',topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an added 101s shelf department.',img:B+'textbook-concepts-101.png',c:'#7038c9'}]}];\nconst ADMITTED_BOOK_RECORDS=`
+    `,{name:'THE 101s — MORE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'More plain-English foundations added without shrinking the existing shelves.',mcap:'More plain-English foundations.',books:[1,2,3,4,5,6,7].map(number=>({id:'growth-fixture-'+number,t:'Growth Fixture '+number,topics:['basics'],status:'hold',statusLabel:'Fixture only',s:'A visible test book in an expanding 101s collection.',img:B+(number%2?'textbook-concepts-101.png':'textbook-briefing-101.png'),c:'#7038c9'}))}];\nconst ADMITTED_BOOK_RECORDS=`
   );
   fs.writeFileSync(path.join(fixtureRoot, "library-growth.html"), growthFixtureSource);
   /* Vocab 101 is no longer public catalogue inventory. The synthetic reader
@@ -131,6 +184,10 @@ const server = http.createServer((request, response) => {
   fs.copyFileSync(
     path.join(root, "content/library-books/corrections/accepted-correction-propagations.json"),
     path.join(fixtureRoot, "content/library-books/corrections/accepted-correction-propagations.json")
+  );
+  fs.writeFileSync(
+    path.join(fixtureRoot, "content/library-books/rejected-artifacts.json"),
+    JSON.stringify({ schema_version: "library-rejected-artifacts.v1", authority: "DIRECT_ALI_REJECTION_DEFAULT_DENY", artifacts: [] })
   );
   const admittedArtifact =
     '<!doctype html><html><head><meta name="laidies:content-version" content="reader-v1"></head><body><main class="gr-page"><h1>Vocab 101</h1><h2>Deep Link Section</h2><p>Verified reader fixture.</p><section class="term"><h3>Fixture term</h3><p>A second focusable contents destination.</p></section></main></body></html>';
@@ -210,6 +267,35 @@ const server = http.createServer((request, response) => {
     correction_state: "clear",
     artifact_sha256: rulebookArtifactHash
   };
+  const learningEvidencePath = path.join(fixtureRoot, "content/library-books/learning-admission-fixture.md");
+  fs.writeFileSync(learningEvidencePath, "Exact synthetic learning-admission fixture.\n");
+  const learningEvidenceSha = crypto.createHash("sha256").update(fs.readFileSync(learningEvidencePath)).digest("hex");
+  const learningEvidence = { path: "content/library-books/learning-admission-fixture.md", sha256: learningEvidenceSha };
+  const learningCriteria = {
+    governing_reader_question: "PASS",
+    single_causal_mental_model: "PASS",
+    truthful_scannable_architecture: "PASS",
+    coherent_scope: "PASS",
+    recurring_worked_case: "PASS",
+    mapped_analogies_with_limits: "PASS",
+    nonduplicative_concept_relationships: "PASS",
+    synthesis_and_retention_map: "PASS",
+    useful_next_experience: "PASS",
+    maintenance_and_currentness_contract: "PASS"
+  };
+  for (const record of [admissionRecord, conceptsAdmissionRecord, rulebookAdmissionRecord]) {
+    record.learning_admission = {
+      schema_version: "library-book-learning-admission.v1",
+      artifact_sha256: record.artifact_sha256,
+      learning_intake: learningEvidence,
+      architecture_evidence: learningEvidence,
+      instructional_verdict: learningEvidence,
+      unfamiliar_reader_verdict: learningEvidence,
+      criteria: { ...learningCriteria },
+      ali_rejection_state: "clear",
+      derivative_use: "allowed"
+    };
+  }
   fs.writeFileSync(
     path.join(fixtureRoot, "content/library-books/admission-manifest.json"),
     JSON.stringify({ books: [admissionRecord, conceptsAdmissionRecord, rulebookAdmissionRecord] })
@@ -310,6 +396,7 @@ const server = http.createServer((request, response) => {
       extraHTTPHeaders: options.fixture ? { "x-library-fixture": "1" } : {}
     });
     let siteIndexRequests = 0;
+    let jeevesApiRequests = 0;
     if (options.storageDenied) {
       await context.addInitScript(() => {
         Storage.prototype.setItem = function () {
@@ -346,6 +433,16 @@ const server = http.createServer((request, response) => {
     page.setDefaultTimeout(7000);
     await page.route("**/*", async (route) => {
       const url = route.request().url();
+      if (/\/api\/miss-jeeves(?:\?|$)/.test(url)) {
+        jeevesApiRequests++;
+        if (options.jeevesApiResponse) {
+          return route.fulfill({
+            status: options.jeevesApiStatus || 200,
+            contentType: "application/json",
+            body: JSON.stringify(options.jeevesApiResponse)
+          });
+        }
+      }
       if (/\/content\/site\/site-index\.json/.test(url)) {
         siteIndexRequests++;
         if (options.slowSiteIndex) await new Promise((resolve) => setTimeout(resolve, 450));
@@ -385,7 +482,12 @@ const server = http.createServer((request, response) => {
       external.push(url);
       return route.abort();
     });
-    return { context, page, siteIndexRequests: () => siteIndexRequests };
+    return {
+      context,
+      page,
+      siteIndexRequests: () => siteIndexRequests,
+      jeevesApiRequests: () => jeevesApiRequests
+    };
   }
 
   try {
@@ -409,7 +511,8 @@ const server = http.createServer((request, response) => {
     );
     const wayfindingPresentation = await baseline.page.locator(".shelf-guide").evaluate((guide) => ({
       background: getComputedStyle(guide).backgroundColor,
-      colors: [...guide.querySelectorAll("h2,.eyebrow,.shelf-caption,.shelf-instruction,.catalogue-control,.catalogue-result")]
+      backgroundImage: getComputedStyle(guide).backgroundImage,
+      colors: [...guide.querySelectorAll("h2,.eyebrow,.shelf-instruction,.catalogue-control,.catalogue-result")]
         .map((node) => getComputedStyle(node).color)
     }));
     const mobileCaptionPresentation = await baseline.page.locator(".mobile-shelf-caption").evaluateAll((captions) =>
@@ -419,24 +522,22 @@ const server = http.createServer((request, response) => {
       }))
     );
     check(
-      wayfindingPresentation.background === "rgba(7, 20, 47, 0.4)" &&
-        wayfindingPresentation.colors.every((color) => color === "rgb(255, 255, 255)") &&
-        ["4e187f", "9238c6", "ec4e9f", "806fe4", "24c7d4"].every((background) =>
-          contrastRatio("ffffff", compositeHex(background, "07142f", 0.4)) >= 4.5
-        ) &&
+      wayfindingPresentation.background === "rgba(0, 0, 0, 0)" &&
+        wayfindingPresentation.backgroundImage.includes("linear-gradient") &&
+        wayfindingPresentation.colors.every((color) => ["rgb(255, 255, 255)", "rgb(101, 227, 238)", "rgb(220, 231, 255)"].includes(color)) &&
         mobileCaptionPresentation.every((caption) =>
-          caption.background === "rgba(7, 20, 47, 0.4)" &&
-          caption.colors.every((color) => color === "rgb(255, 255, 255)")
-        ) &&
-        ["4e187f", "9238c6", "ec4e9f", "806fe4", "24c7d4"].every((background) =>
-          contrastRatio("ffffff", compositeHex(background, "07142f", 0.4)) >= 4.5
+          caption.background === "rgba(0, 0, 0, 0)" &&
+          caption.colors.every((color) => color === "rgb(7, 20, 47)" || color === "rgb(113, 52, 117)")
         ),
-      "wayfinding text clears 4.5 to 1 against every rendered gradient band"
+      "catalogue wayfinding uses the current electric Library field with readable LAiDIES typography"
     );
     check(
       (await baseline.page.locator(".department").count()) === 3 &&
-        (await baseline.page.locator(".bk").count()) === 14,
-      "three physical shelf departments render together in the integrated room"
+        (await baseline.page.locator(".library-room-unit").count()) === 1 &&
+        (await baseline.page.locator(".bk").count()) === 14 &&
+        librarySource.includes('library-interior-no-desk-v1.png') &&
+        librarySource.includes('library-wall-case-3bay-v1.png'),
+      "three collections render as distinct bays in the locked integrated Library room and case"
     );
     await baseline.page.waitForFunction(() =>
       [...document.querySelectorAll('.ledge img')].length === 3 &&
@@ -454,29 +555,55 @@ const server = http.createServer((request, response) => {
     const previewCount = await baseline.page.locator(".bk[data-library-status=preview]").count();
     const sourceReadyCount = await baseline.page.locator(".bk[data-library-status=available]").count();
     check(
-      catalogueCount === 14 && holdCount === 6 && previewCount === 7 && sourceReadyCount === 1,
-      "catalogue source truth exposes one admitted book, six holds and seven previews"
+      catalogueCount === 14 && holdCount === 3 && previewCount === 7 && sourceReadyCount === 4,
+      "catalogue source truth exposes the four-book opening set, three holds and seven previews"
     );
     check(
       (await baseline.page.locator("button.bk").count()) === 14,
       "every held or preview cover remains inspectable without opening the reader"
     );
-    await baseline.page.selectOption("#catalogue-topic", "privacy-safety");
+    await baseline.page.getByRole("button", { name: "Privacy & safety", exact: true }).click();
     check(
       (await baseline.page.locator("button.bk").count()) === 2 &&
         (await baseline.page.getByRole("button", { name: /^Preview Accounts 101\./ }).count()) === 1 &&
         (await baseline.page.getByRole("button", { name: /^Preview What Not to Paste\./ }).count()) === 1,
       "Browse by Topic narrows the physical shelves to the matching books"
     );
-    await baseline.page.selectOption("#catalogue-topic", "all");
-    await baseline.page.getByRole("button", { name: /^Preview Accounts 101\./ }).click();
+    await baseline.page.getByRole("button", { name: "All", exact: true }).click();
+    await baseline.page.locator('.bk[data-book-id="accounts-101"]').click();
     check(
       (await baseline.page.locator("#book-preview-title").innerText()).length > 0 &&
         (await baseline.page.locator("#book-preview-summary").innerText()).length > 0 &&
         (await baseline.page.locator("#book-preview-read").isHidden()) &&
         (await baseline.page.locator("#reader").isHidden()),
-      "a cover explains its contents and availability before any reader can open"
+      "a held cover explains its contents and availability without offering an unadmitted reader"
     );
+    const mobilePreviewPlacement = await baseline.page.locator('#book-preview').evaluate((preview) => ({
+      parent: preview.parentElement?.className || '',
+      previous: preview.previousElementSibling?.className || '',
+      next: preview.nextElementSibling?.className || ''
+    }));
+    check(
+      mobilePreviewPlacement.parent.includes('unit') &&
+        mobilePreviewPlacement.previous.includes('library-room-unit') &&
+        mobilePreviewPlacement.next === '',
+      `on mobile a selected-book preview opens after the complete integrated case, never beside the next collection heading ${JSON.stringify(mobilePreviewPlacement)}`
+    );
+    const openingBooks = [
+      ["concepts-101", "Concepts 101"],
+      ["briefing-101", "Briefing 101"],
+      ["setup-101", "Setup 101"],
+      ["accounts-101", "Accounts 101"]
+    ];
+    for (const [id, title] of openingBooks) {
+      await baseline.page.locator(`.bk[data-book-id="${id}"]`).click();
+      check(
+        (await baseline.page.locator("#book-preview-title").innerText()).trim() === title &&
+          (await baseline.page.locator("#book-preview-read").isHidden()) &&
+          (await baseline.page.locator("#reader").isHidden()),
+        `${title} remains inspectable but cannot open while its learning admission is held`
+      );
+    }
     check(
       (await baseline.page.locator("#library-status").innerText()).includes(
         "Every cover shows whether it is ready"
@@ -503,109 +630,183 @@ const server = http.createServer((request, response) => {
     );
     if (calibrateShelfGeometry) {
       await desktopShelf.page.evaluate(() => {
-        const toolsFirstRow = document.querySelector(".department:nth-child(2) .brow--1");
+        const toolsFirstRow = document.querySelectorAll(".department")[1]?.querySelector(".brow--1");
         const book = toolsFirstRow?.querySelector(".bk");
         if (toolsFirstRow && book) toolsFirstRow.append(book.cloneNode(true));
+      });
+    }
+    if (calibrateShelfContact) {
+      await desktopShelf.page.addStyleTag({ content: ".brow--1{bottom:57.5%!important;height:38%!important}" });
+    }
+    if (calibrateShelfFixture) {
+      await desktopShelf.page.evaluate(() => {
+        const firstFixture = document.querySelector('.library-room-unit .shelf-unit');
+        if (firstFixture) {
+          firstFixture.style.backgroundImage = "url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png')";
+        }
+      });
+    }
+    if (calibrateNoPagination) {
+      await desktopShelf.page.addStyleTag({ content: ".shelf-pages{display:block!important}" });
+      await desktopShelf.page.evaluate(() => {
+        const pager = document.createElement('div');
+        pager.id = 'shelf-pages';
+        pager.className = 'shelf-pages';
+        document.querySelector('.libroom')?.after(pager);
+        pager.hidden = false;
+        pager.innerHTML = '<button type="button">Next</button>';
       });
     }
     const desktopFirstPage = await desktopShelf.page.evaluate(() =>
       [...document.querySelectorAll(".department")].map((department) => ({
         labels: [...department.querySelectorAll(".bk")].map((book) => book.getAttribute("aria-label")),
         rowCounts: [...department.querySelectorAll(".brow")].map((row) => row.querySelectorAll(".bk").length),
-        coverHeights: [...department.querySelectorAll(".bk img")].map((cover) => cover.getBoundingClientRect().height)
+        coverHeights: [...department.querySelectorAll(".bk img")].map((cover) => cover.getBoundingClientRect().height),
+        fixtureUrl: getComputedStyle(department.closest('.shelf-unit')).backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1] || "",
+        roomUrl: getComputedStyle(department.closest('.library-room-unit')).backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1] || ""
       }))
     );
+    const fixtureBytesMatch = shelfFixtureContract.every(({ asset, sha256: expectedSha }) =>
+      fs.existsSync(path.join(root, asset)) && sha256(path.join(root, asset)) === expectedSha
+    ) && fs.existsSync(path.join(root, shelfRoomContract.asset)) &&
+      sha256(path.join(root, shelfRoomContract.asset)) === shelfRoomContract.sha256;
     check(
-      desktopFirstPage.every(
-        (department) =>
-          department.labels.length <= 4 &&
-          department.rowCounts.every((count) => count <= 2) &&
-          department.coverHeights.every((height) => height >= 180)
-      ),
-      "desktop shelves keep at most two large readable covers per row"
+      desktopFirstPage.every((department, index) =>
+        department.rowCounts.filter(Boolean).join(',') === shelfFixtureContract[index].rowCounts.join(',') &&
+        decodeURIComponent(new URL(department.fixtureUrl).pathname).endsWith(`/${shelfFixtureContract[index].asset}`) &&
+        decodeURIComponent(new URL(department.roomUrl).pathname).endsWith(`/${shelfRoomContract.asset}`) &&
+        department.coverHeights.every((height) => height >= 120)
+      ) && fixtureBytesMatch,
+      "desktop catalogue is bound to the locked room and integrated case bytes, expected books-per-rail and readable covers"
+    );
+    const shelfContact = await desktopShelf.page.evaluate(() =>
+      [...document.querySelectorAll('.shelf-unit')].flatMap((unit) => {
+        const unitBox = unit.getBoundingClientRect();
+        return [...unit.querySelectorAll('.department')].flatMap(department =>
+          [...department.querySelectorAll('.brow')].flatMap((row, index) => {
+            if (!row.querySelector('.bk')) return [];
+            const bookBox = row.querySelector('.bk img').getBoundingClientRect();
+            return [{ collection: Number(department.dataset.collection), row: index + 1, contact: (bookBox.bottom - unitBox.top) / unitBox.height }];
+          })
+        );
+      })
+    );
+    check(
+      shelfContact.length === shelfFixtureContract.reduce((total, fixture) => total + fixture.railContacts.length, 0) &&
+        shelfContact.every(({collection,row,contact}) =>
+          Math.abs(contact - shelfFixtureContract[collection].railContacts[row - 1]) <= 0.018
+        ),
+      `every occupied desktop book row meets the rail measured for its exact fixture instead of floating across it ${JSON.stringify(shelfContact)}`
     );
     const shelfStatusAccessibility = await desktopShelf.page.evaluate(() =>
       [...document.querySelectorAll("button.bk")].every((book) => {
         const status = book.querySelector(".bk-status");
         const accessibleStatus = book.querySelector(".sr-only")?.textContent?.trim();
-        const visibleStatus = status?.textContent?.trim();
         return Boolean(
-          visibleStatus && accessibleStatus &&
-            book.getAttribute("aria-label")?.includes(accessibleStatus) &&
-            Number.parseFloat(getComputedStyle(status).fontSize) >= 14
+          !status && accessibleStatus &&
+            book.getAttribute("aria-label")?.includes(accessibleStatus)
         );
       })
     );
     check(
       shelfStatusAccessibility,
-      "every shelf cover exposes its availability in a readable visible label and accessible name"
+      "every shelf cover exposes availability accessibly without a pasted status slab"
     );
-    const toolsPageOne = desktopFirstPage[1].labels;
+    const toolsBooks = desktopFirstPage[1];
+    check(
+      toolsBooks.labels.length === 6 && toolsBooks.rowCounts.filter(Boolean).join(',') === '3,3' &&
+        ["Who's Who in AI", 'ChatGPT', 'Claude', 'Gemini', 'Copilot', 'Perplexity'].every(title =>
+          toolsBooks.labels.some(label => label.includes(title))
+        ) &&
+        (await desktopShelf.page.locator('.shelf-pages').count()) === 0,
+      "all six Tool books are visible together on the physical shelf with no page controls"
+    );
+    const mobileShelfVisibility = {};
+    for (const width of [390, 320]) {
+      await desktopShelf.page.setViewportSize({ width, height: 1000 });
+      await desktopShelf.page.waitForFunction(() =>
+        document.querySelectorAll('.department .bk').length === 14 &&
+        [...document.querySelectorAll('.department .brow')].filter(row => row.querySelector('.bk')).length === 7
+      );
+      mobileShelfVisibility[width] = await desktopShelf.page.evaluate(() => {
+      const measure = () => ({
+        labels: [...document.querySelectorAll('.department .bk')].map(book => book.getAttribute('aria-label')),
+        rows: [...document.querySelectorAll('.department .brow')].filter(row => row.querySelector('.bk')).map(row => {
+          const box = row.getBoundingClientRect();
+          const books = [...row.querySelectorAll('.bk')].map(book => book.getBoundingClientRect());
+          return {
+            count: books.length,
+            horizontalOverflow: row.scrollWidth > row.clientWidth + 1,
+            allInside: books.every(book => book.left >= box.left - 1 && book.right <= box.right + 1),
+            minimumCoverHeight: Math.min(...[...row.querySelectorAll('.bk img')].map(image => image.getBoundingClientRect().height))
+          };
+        })
+      });
+        return measure();
+      });
+    }
+    await desktopShelf.page.setViewportSize({ width: 1440, height: 1000 });
+    check(
+      [390,320].every(width =>
+        mobileShelfVisibility[width].labels.length === 14 &&
+        mobileShelfVisibility[width].rows.length === 7 &&
+        mobileShelfVisibility[width].rows.every(row =>
+          row.count >= 1 && row.count <= 2 && !row.horizontalOverflow && row.allInside && row.minimumCoverHeight >= 118
+        )
+      ),
+      `all 14 books remain visible on real shelf rows at 390 and 320 without paging or horizontal overflow ${JSON.stringify(mobileShelfVisibility)}`
+    );
     await desktopShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
-    const crossShelfPreviewTitle = await desktopShelf.page.locator('#book-preview-title').innerText();
     check(
       (await desktopShelf.page.locator('#book-preview-inside').innerText()).includes('Prediction, training') &&
         (await desktopShelf.page.locator('#book-preview-meta').innerText()).includes('read straight through or jump to one idea'),
       "selected cover explains concrete coverage and reading depth before opening"
     );
-    const toolsPager = desktopShelf.page.getByLabel("THE TOOLS shelf pages");
-    await toolsPager.getByRole("button", { name: "Next" }).click();
-    await desktopShelf.page.waitForFunction(() =>
-      document.activeElement?.closest?.("#shelf-pages") && document.activeElement?.tagName === "BUTTON"
-    );
-    const toolsPageTwo = await desktopShelf.page
-      .locator(".department:nth-child(2) .bk")
-      .evaluateAll((books) => books.map((book) => book.getAttribute("aria-label")));
-    check(
-      new Set([...toolsPageOne, ...toolsPageTwo]).size === 6 &&
-        toolsPageTwo.length === 2 &&
-        (await desktopShelf.page.getByLabel("THE TOOLS shelf pages").innerText()).includes("Page 2 of 2") &&
-        (await desktopShelf.page.evaluate(() => document.activeElement?.textContent?.trim())) === "Previous" &&
-        (await desktopShelf.page.locator('#book-preview-title').innerText()) === crossShelfPreviewTitle &&
-        !(await desktopShelf.page.locator('#book-preview').getAttribute('class')).includes('is-empty'),
-      "Tools growth uses a second shelf page without shrinking books or clearing another shelf's preview"
-    );
-    if (captureDir) {
-      await desktopShelf.page.waitForFunction(() => {
-        const pager = document.querySelector('[aria-label="THE TOOLS shelf pages"]');
-        const labels = [...document.querySelectorAll('.department:nth-child(2) .bk')]
-          .map((book) => book.getAttribute('aria-label') || '');
-        return pager?.textContent.includes('Page 2 of 2') &&
-          labels.some((label) => label.includes('Copilot')) &&
-          labels.some((label) => label.includes('Perplexity'));
-      });
-      await desktopShelf.page.screenshot({
-        path: path.join(captureDir, "library-production-tools-page-2-1440x1000.png"),
-        fullPage: true
-      });
-    }
     await desktopShelf.context.close();
 
     const growthShelf = await makePage({ fixture: true, viewport: { width: 1440, height: 1000 } });
     await growthShelf.page.goto(`${origin}/library-growth.html`, { waitUntil: "domcontentloaded" });
-    await growthShelf.page.waitForSelector(".shelf-unit:nth-child(2) .bk");
+    await growthShelf.page.waitForSelector(".department[data-collection='3'] .bk");
     const growthGeometry = await growthShelf.page.evaluate(() => {
-      const book = document.querySelector('.shelf-unit:nth-child(2) .bk');
+      const units = [...document.querySelectorAll('.shelf-unit')];
+      const growthUnits = [...document.querySelectorAll('.department[data-collection="3"]')];
+      const firstUnit = growthUnits[0];
+      const secondUnit = growthUnits[1];
+      const book = firstUnit?.querySelector('.bk');
       const room = document.querySelector('.libroom');
       return {
-        units: document.querySelectorAll('.shelf-unit').length,
+        units: units.length,
+        growthUnits: growthUnits.length,
         departments: document.querySelectorAll('.department').length,
+        firstUnitWidth: firstUnit?.getBoundingClientRect().width || 0,
+        secondUnitWidth: secondUnit?.getBoundingClientRect().width || 0,
+        growthBooks: growthUnits.reduce((count,unit)=>count+unit.querySelectorAll('.bk').length,0),
         bookWidth: book?.getBoundingClientRect().width || 0,
+        bookHeight: book?.querySelector('img')?.getBoundingClientRect().height || 0,
         roomHeight: room?.getBoundingClientRect().height || 0,
         documentOverflow: document.documentElement.scrollWidth > innerWidth
       };
     });
     check(
       growthGeometry.units === 2 &&
-        growthGeometry.departments === 4 &&
-        growthGeometry.bookWidth >= 120 &&
+        growthGeometry.growthUnits === 2 &&
+        growthGeometry.departments === 5 &&
+        growthGeometry.growthBooks === 7 &&
+        Math.abs(growthGeometry.secondUnitWidth - growthGeometry.firstUnitWidth) <= 2 &&
+        growthGeometry.bookHeight >= 120 &&
         growthGeometry.roomHeight > 900 &&
         growthGeometry.documentOverflow === false,
-      "a fourth shelf department renders as a second real shelf unit with a legible book and no page rebuild"
+      `a seven-book collection gains two real continuation bays without pagination or smaller covers ${JSON.stringify(growthGeometry)}`
+    );
+    check(
+      (await growthShelf.page.locator('.bk').count()) === 21 &&
+        (await growthShelf.page.locator('.department[data-collection="3"] .bk').count()) === 7 &&
+        (await growthShelf.page.locator('.shelf-pages button').count()) === 0,
+      "a generated continuation bay keeps all seven added books visible without a markup edit or page controls"
     );
     if (captureDir) {
       await growthShelf.page.screenshot({
-        path: path.join(captureDir, "library-growth-fourth-collection-1440x1000.png"),
+        path: path.join(fixtureCaptureDir, "library-growth-fourth-collection-1440x1000.png"),
         fullPage: true
       });
     }
@@ -618,8 +819,8 @@ const server = http.createServer((request, response) => {
       (await responsiveShelf.page.locator(".jv-form button[type=submit]").boundingBox()).height
     ];
     check(
-      (await responsiveShelf.page.locator(".department .bk").count()) === 12,
-      "desktop shelf starts with paged large-cover inventory"
+      (await responsiveShelf.page.locator(".department .bk").count()) === 14,
+      "desktop shelf starts with the complete large-cover inventory"
     );
     await responsiveShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
     check(
@@ -628,14 +829,23 @@ const server = http.createServer((request, response) => {
       "desktop selected-book preview opens before a breakpoint change"
     );
     await responsiveShelf.page.setViewportSize({ width: 390, height: 844 });
-    await responsiveShelf.page.waitForFunction(() => document.querySelectorAll(".department .bk").length === 14);
+    await responsiveShelf.page.waitForFunction(() =>
+      document.querySelectorAll(".department .bk").length === 14 &&
+      [...document.querySelectorAll(".department .brow")].filter(row => row.querySelector('.bk')).length === 7
+    );
     askButtonHeights.push(
       (await responsiveShelf.page.locator(".jv-form button[type=submit]").boundingBox()).height
     );
+    const resizeRowCounts = await responsiveShelf.page.locator(".department .brow").evaluateAll(rows => rows.map(row => row.querySelectorAll('.bk').length));
     check(
       (await responsiveShelf.page.locator(".department .bk").count()) === 14 &&
-        (await responsiveShelf.page.locator(".department .brow--2").count()) === 0,
-      "desktop to mobile resize rerenders complete single-reel inventory"
+        (await responsiveShelf.page.locator(".department .brow").evaluateAll(rows =>
+          rows.filter(row => row.querySelector('.bk')).length === 7
+        )) &&
+        (await responsiveShelf.page.locator(".department .brow").evaluateAll(rows =>
+          rows.every(row => row.querySelectorAll('.bk').length <= 2)
+        )),
+      `desktop to mobile resize preserves all books across seven real shelf rows ${JSON.stringify(resizeRowCounts)}`
     );
     check(
       (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
@@ -652,13 +862,13 @@ const server = http.createServer((request, response) => {
       "Ask Miss Jeeves primary submit target remains at least 44px at 1440, 390 and 320"
     );
     await responsiveShelf.page.setViewportSize({ width: 1440, height: 1000 });
-    await responsiveShelf.page.waitForFunction(() => document.querySelectorAll(".department .bk").length === 12);
+    await responsiveShelf.page.waitForFunction(() => document.querySelectorAll(".department .bk").length === 14);
     const resizedDesktopRows = await responsiveShelf.page.locator(".department .brow").evaluateAll((rows) =>
       rows.map((row) => row.querySelectorAll(".bk").length)
     );
     check(
-      resizedDesktopRows.every((count) => count <= 2),
-      "mobile to desktop resize restores paged two-cover rows"
+      resizedDesktopRows.every((count) => count <= 3),
+      "mobile to desktop resize restores complete two-row shelves"
     );
     check(
       (await responsiveShelf.page.locator("#book-preview").count()) === 1 &&
@@ -755,7 +965,7 @@ const server = http.createServer((request, response) => {
     if (captureDir) {
       await jeeves.page.setViewportSize({ width: 390, height: 844 });
       await jeeves.page.screenshot({
-        path: path.join(captureDir, 'miss-jeeves-jobs-answer-390x844.png'),
+        path: path.join(candidateCaptureDir, 'miss-jeeves-jobs-answer-390x844.png'),
         fullPage: true
       });
     }
@@ -787,17 +997,14 @@ const server = http.createServer((request, response) => {
       text:state.textContent
     }));
     check(
-      jeevesEmptyState.color === 'rgb(255, 255, 255)' &&
-        jeevesEmptyState.background === 'rgba(7, 20, 47, 0.4)' &&
-        /nothing filed/i.test(jeevesEmptyState.text) &&
-        ['4e187f','9238c6','ec4e9f','806fe4','24c7d4'].every((background) =>
-          contrastRatio('ffffff', compositeHex(background, '07142f', 0.4)) >= 4.5
-        ),
-      'Miss Jeeves zero-result text clears 4.5 to 1 against every gradient stop'
+      jeevesEmptyState.color === 'rgb(7, 20, 47)' &&
+        jeevesEmptyState.background === 'rgb(255, 255, 255)' &&
+        /nothing filed/i.test(jeevesEmptyState.text),
+      'Miss Jeeves zero-result text remains readable on its light result surface'
     );
     if (captureDir) {
       await jeeves.page.screenshot({
-        path: path.join(captureDir, 'miss-jeeves-zero-result-390x844.png'),
+        path: path.join(candidateCaptureDir, 'miss-jeeves-zero-result-390x844.png'),
         fullPage: true
       });
     }
@@ -815,6 +1022,30 @@ const server = http.createServer((request, response) => {
     );
     await jeeves.context.close();
 
+    const arbitraryJeeves = await makePage({
+      jeevesApiResponse: {
+        status: 'ok',
+        mode: 'retrieval',
+        answer: 'Episode 04 is the strongest place to begin with women in AI.',
+        results: [{
+          id: 'ep-04', title: 'The Founding Mothers', url: '/issues/issue-04.html',
+          type: 'episode', section: 'Chick Flicks',
+          summary: 'The history of AI through the women who built its major leaps.', topics: ['women in ai']
+        }]
+      }
+    });
+    await arbitraryJeeves.page.goto(`${origin}/library.html`, { waitUntil: 'domcontentloaded' });
+    await arbitraryJeeves.page.fill('#jv-q', 'Where can I learn about women in AI?');
+    await arbitraryJeeves.page.click('.jv-form button[type="submit"]');
+    await arbitraryJeeves.page.waitForSelector('.jv-answer a[href="/issues/issue-04.html"]');
+    check(
+      arbitraryJeeves.jeevesApiRequests() === 1 &&
+        arbitraryJeeves.page.url() === `${origin}/library.html` &&
+        /Episode 04/.test(await arbitraryJeeves.page.locator('.jv-answer p').innerText()),
+      'an ordinary question uses the shared backend and returns one safe exact town destination without navigation'
+    );
+    await arbitraryJeeves.context.close();
+
     if (captureDir) {
       const loadingIndex = await makePage({
         slowSiteIndex: true,
@@ -824,7 +1055,7 @@ const server = http.createServer((request, response) => {
       await loadingIndex.page.fill('#jv-q', 'qzxvplmokn');
       await loadingIndex.page.waitForSelector('.jv-none');
       await loadingIndex.page.screenshot({
-        path: path.join(captureDir, 'miss-jeeves-loading-390x844.png'),
+        path: path.join(candidateCaptureDir, 'miss-jeeves-loading-390x844.png'),
         fullPage: true
       });
       await loadingIndex.context.close();
@@ -857,7 +1088,7 @@ const server = http.createServer((request, response) => {
         );
         await capturePage.page.screenshot({
           path: path.join(
-            captureDir,
+            candidateCaptureDir,
             `library-production-full-${viewport.width}x${viewport.height}.png`
           ),
           fullPage: true
@@ -873,12 +1104,12 @@ const server = http.createServer((request, response) => {
     );
     if (captureDir) {
       await productionReader.page.screenshot({
-        path: path.join(captureDir, "library-production-selected-preview-1440x1000.png"),
+        path: path.join(candidateCaptureDir, "library-production-selected-preview-1440x1000.png"),
         fullPage: true
       });
       await productionReader.page.setViewportSize({ width: 390, height: 844 });
       await productionReader.page.screenshot({
-        path: path.join(captureDir, "library-production-selected-preview-390x844.png"),
+        path: path.join(candidateCaptureDir, "library-production-selected-preview-390x844.png"),
         fullPage: true
       });
       await productionReader.page.setViewportSize({ width: 1440, height: 1000 });
@@ -937,7 +1168,7 @@ const server = http.createServer((request, response) => {
       if (captureDir) {
         await productionReader.page.screenshot({
           path: path.join(
-            captureDir,
+            candidateCaptureDir,
             `library-production-reader-${viewport.width}x${viewport.height}.png`
           )
         });
@@ -1011,7 +1242,7 @@ const server = http.createServer((request, response) => {
     );
     if (captureDir) {
       await productionReader.page.screenshot({
-        path: path.join(captureDir, "library-production-whole-book-puffy-320x760.png")
+        path: path.join(candidateCaptureDir, "library-production-whole-book-puffy-320x760.png")
       });
     }
     await productionReader.page.locator(".puffy-option").first().click();
@@ -1058,6 +1289,18 @@ const server = http.createServer((request, response) => {
     await indexFailure.page.goto(`${origin}/library.html`, {
       waitUntil: "domcontentloaded"
     });
+    await indexFailure.page.waitForTimeout(50);
+    check(
+      (await indexFailure.page.locator('#jv-results').innerText()).trim() === '',
+      "Miss Jeeves starts clean when the catalogue index is unavailable instead of showing an unsolicited error"
+    );
+    await indexFailure.page.fill("#jv-q", "what is a hallucination?");
+    await indexFailure.page.click('.jv-form button[type="submit"]');
+    check(
+      (await indexFailure.page.locator('.jv-answer').count()) === 1 &&
+        (await indexFailure.page.locator('.jv-error').count()) === 0,
+      "Miss Jeeves core answers still work when the wider catalogue index is unavailable"
+    );
     await indexFailure.page.fill("#jv-q", "banana filing system");
     await indexFailure.page.waitForSelector('.jv-error[role="alert"]');
     const failureErrorsBefore = pageErrors.length;
@@ -1072,20 +1315,17 @@ const server = http.createServer((request, response) => {
     if (captureDir) {
       await indexFailure.page.setViewportSize({ width: 390, height: 844 });
       await indexFailure.page.screenshot({
-        path: path.join(captureDir, 'miss-jeeves-error-390x844.png'),
+        path: path.join(candidateCaptureDir, 'miss-jeeves-error-390x844.png'),
         fullPage: true
       });
     }
-    await indexFailure.page.evaluate(() => {
-      document.getElementById("jv-retry").click();
-      document.getElementById("jv-retry").click();
-    });
+    await indexFailure.page.locator("#jv-service-retry").click();
     await indexFailure.page.waitForTimeout(100);
     check(
-      indexFailure.siteIndexRequests() === 2 &&
+      indexFailure.jeevesApiRequests() === 2 &&
         (await indexFailure.page.inputValue("#jv-q")) === "banana filing system" &&
         (await indexFailure.page.locator(".jv-error").count()) === 1,
-      "index failure is accessible, preserves the query and retries without duplicate requests"
+      "service failure is accessible, preserves the query and retries exactly once"
     );
     await indexFailure.context.close();
 
@@ -1119,6 +1359,25 @@ const server = http.createServer((request, response) => {
         (await reader.page.locator("#reader-close").evaluate((node) => node === document.activeElement)),
       "admitted exact artifact opens in the reader and focuses Close"
     );
+    await reader.page.locator("#reader-report").click();
+    await reader.page.locator("#correction-scope").selectOption("section");
+    await reader.page.locator("#correction-finding").fill("This exact section needs a source check.");
+    await reader.page.locator("#correction-form").evaluate((form) => form.requestSubmit());
+    await reader.page.waitForFunction(() => document.getElementById('correction-status')?.dataset.state === 'accepted');
+    check(
+      correctionApiSubmissions.at(-1)?.book_id === "vocab-101" &&
+        correctionApiSubmissions.at(-1)?.section_id === "book-section-deep-link-section" &&
+        correctionApiSubmissions.at(-1)?.content_version === "reader-v1" &&
+        (await reader.page.locator("#correction-status").innerText()).includes("lr_browser_fixture"),
+      "reader correction desk submits the exact book, section and version and shows a safe receipt"
+    );
+    await reader.page.locator("#correction-check").click();
+    await reader.page.waitForFunction(() => document.getElementById('correction-status')?.textContent.includes('Current status: submitted'));
+    check(
+      (await reader.page.locator("#correction-status").innerText()).includes("Current status: submitted"),
+      "reader correction receipt exposes its current resolution state"
+    );
+    await reader.page.locator("#correction-cancel").click();
     await reader.page.keyboard.press("Shift+Tab");
     check(
       await reader.page.evaluate(() =>
@@ -1246,7 +1505,7 @@ const server = http.createServer((request, response) => {
     );
     if (captureDir) {
       await conceptsReader.page.screenshot({
-        path: path.join(captureDir, "concepts-101-reader-desktop-1440x1000.png")
+        path: path.join(fixtureCaptureDir, "concepts-101-reader-desktop-1440x1000.png")
       });
     }
     await conceptsReader.page.setViewportSize({ width: 390, height: 844 });
@@ -1275,7 +1534,7 @@ const server = http.createServer((request, response) => {
     await conceptsReader.page.locator("#mobile-toc summary").click();
     if (captureDir) {
       await conceptsReader.page.screenshot({
-        path: path.join(captureDir, "concepts-101-reader-mobile-start-390x844.png")
+        path: path.join(fixtureCaptureDir, "concepts-101-reader-mobile-start-390x844.png")
       });
     }
     await conceptsReader.page.setViewportSize({ width: 1440, height: 1000 });
@@ -1334,7 +1593,7 @@ const server = http.createServer((request, response) => {
     );
     if (captureDir) {
       await conceptsReader.page.screenshot({
-        path: path.join(captureDir, "concepts-101-reader-mobile-exact-section-390x844.png")
+        path: path.join(fixtureCaptureDir, "concepts-101-reader-mobile-exact-section-390x844.png")
       });
     }
     await conceptsReader.context.close();
@@ -1374,7 +1633,7 @@ const server = http.createServer((request, response) => {
     );
     if (captureDir) {
       await rulebookReader.page.screenshot({
-        path: path.join(captureDir, "verification-rulebook-reader-desktop-1440x1000.png")
+        path: path.join(fixtureCaptureDir, "verification-rulebook-reader-desktop-1440x1000.png")
       });
     }
     await rulebookReader.page.setViewportSize({ width: 390, height: 844 });
@@ -1394,7 +1653,7 @@ const server = http.createServer((request, response) => {
     );
     if (captureDir) {
       await rulebookReader.page.screenshot({
-        path: path.join(captureDir, "verification-rulebook-reader-mobile-390x844.png")
+        path: path.join(fixtureCaptureDir, "verification-rulebook-reader-mobile-390x844.png")
       });
     }
     await rulebookReader.context.close();
@@ -1877,9 +2136,9 @@ const server = http.createServer((request, response) => {
     );
     check(
       publicationRequests.every((url) =>
-        /\/content\/library-books\/rendered\/(?:vocab-101|concepts-101|verification-rulebook)\.html$/.test(url)
+        /\/content\/library-books\/rendered\/(?:vocab-101|concepts-101|briefing-101|setup-101|accounts-101|verification-rulebook)\.html$/.test(url)
       ),
-      "hostile catalogue values produce zero publication request attempts"
+      "publication requests remain confined to exact admitted production and test-fixture artifacts"
     );
     check(pageErrors.length === 0, "hostile null and malformed records cause no page error");
   } finally {

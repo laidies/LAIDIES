@@ -15,6 +15,21 @@ const END = "/* LIBRARY_ADMISSION_COMPILED_END */";
 const ACCEPTED_CORRECTION_SCHEMA_VERSION = "library-correction-propagations.v1";
 const ACCEPTED_CORRECTION_AUTHORITY = "LOCAL_ACCEPTED_TERMINAL_STATE_ONLY_NO_ADMISSION_AUTHORITY";
 const ACCEPTED_CORRECTION_KEYS = new Set(["schema_version", "authority", "propagations"]);
+const REJECTED_ARTIFACT_SCHEMA = "library-rejected-artifacts.v1";
+const REJECTED_ARTIFACT_AUTHORITY = "DIRECT_ALI_REJECTION_DEFAULT_DENY";
+const LEARNING_ADMISSION_SCHEMA = "library-book-learning-admission.v1";
+const LEARNING_CRITERIA = Object.freeze([
+  "governing_reader_question",
+  "single_causal_mental_model",
+  "truthful_scannable_architecture",
+  "coherent_scope",
+  "recurring_worked_case",
+  "mapped_analogies_with_limits",
+  "nonduplicative_concept_relationships",
+  "synthesis_and_retention_map",
+  "useful_next_experience",
+  "maintenance_and_currentness_contract"
+]);
 
 const TERMINAL_CORRECTION_STATES = new Set(["resolved_corrected", "demoted"]);
 
@@ -85,9 +100,82 @@ function readAcceptedCorrectionState(absolutePath) {
   return state;
 }
 
+function readRejectedArtifacts(absolutePath) {
+  if (!fs.existsSync(absolutePath) || !fs.statSync(absolutePath).isFile()) {
+    throw new Error("Library rejected-artifact registry is required");
+  }
+  const state = JSON.parse(fs.readFileSync(absolutePath, "utf8"));
+  if (!state || state.schema_version !== REJECTED_ARTIFACT_SCHEMA ||
+      state.authority !== REJECTED_ARTIFACT_AUTHORITY || !Array.isArray(state.artifacts)) {
+    throw new Error("Library rejected-artifact registry is invalid");
+  }
+  const rejected = new Map();
+  for (const artifact of state.artifacts) {
+    if (!artifact || !ID.test(artifact.book_id || "") ||
+        !SHA256.test(artifact.artifact_sha256 || "") ||
+        artifact.status !== "HOLD_RETURN_TO_DRAFT" ||
+        artifact.derivative_use !== "PROHIBITED_EXCEPT_SOURCE_MINE" ||
+        typeof artifact.authority_owner !== "string" || !artifact.authority_owner.trim() ||
+        !Number.isFinite(Date.parse(artifact.rejected_at)) ||
+        !Array.isArray(artifact.objective_failures) || artifact.objective_failures.length === 0) {
+      throw new Error("Library rejected-artifact record is incomplete");
+    }
+    if (rejected.has(artifact.artifact_sha256)) throw new Error("duplicate rejected Library artifact");
+    rejected.set(artifact.artifact_sha256, artifact);
+  }
+  return rejected;
+}
+
+function assertEvidenceBinding(binding, label, root) {
+  if (!binding || typeof binding !== "object" || Array.isArray(binding) ||
+      !exactKeys(binding, new Set(["path", "sha256"])) ||
+      typeof binding.path !== "string" || !binding.path || binding.path.startsWith("/") ||
+      binding.path.includes("\\") || !SHA256.test(binding.sha256 || "")) {
+    throw new Error(`${label} evidence binding is invalid`);
+  }
+  const absolute = path.resolve(root, binding.path);
+  if (!absolute.startsWith(path.resolve(root) + path.sep) ||
+      !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) {
+    throw new Error(`${label} evidence is absent`);
+  }
+  const actual = crypto.createHash("sha256").update(fs.readFileSync(absolute)).digest("hex");
+  if (actual !== binding.sha256) throw new Error(`${label} evidence hash is stale`);
+}
+
+function assertLearningAdmission(row, root, rejectedArtifacts) {
+  const rejected = rejectedArtifacts.get(row.artifact_sha256);
+  if (rejected) {
+    throw new Error(`${row.book_id}: exact artifact was directly rejected and cannot be admitted or used as a derivative template`);
+  }
+  const admission = row.learning_admission;
+  const allowed = new Set([
+    "schema_version", "artifact_sha256", "learning_intake", "architecture_evidence",
+    "instructional_verdict", "unfamiliar_reader_verdict", "criteria",
+    "ali_rejection_state", "derivative_use"
+  ]);
+  if (!admission || typeof admission !== "object" || Array.isArray(admission) ||
+      !exactKeys(admission, allowed) || Object.keys(admission).length !== allowed.size ||
+      admission.schema_version !== LEARNING_ADMISSION_SCHEMA ||
+      admission.artifact_sha256 !== row.artifact_sha256 ||
+      admission.ali_rejection_state !== "clear" || admission.derivative_use !== "allowed") {
+    throw new Error(`${row.book_id}: mandatory learning admission is missing or invalid`);
+  }
+  assertEvidenceBinding(admission.learning_intake, `${row.book_id} learning intake`, root);
+  assertEvidenceBinding(admission.architecture_evidence, `${row.book_id} architecture`, root);
+  assertEvidenceBinding(admission.instructional_verdict, `${row.book_id} instructional verdict`, root);
+  assertEvidenceBinding(admission.unfamiliar_reader_verdict, `${row.book_id} unfamiliar-reader verdict`, root);
+  if (!admission.criteria || typeof admission.criteria !== "object" || Array.isArray(admission.criteria) ||
+      !exactKeys(admission.criteria, new Set(LEARNING_CRITERIA)) ||
+      Object.keys(admission.criteria).length !== LEARNING_CRITERIA.length ||
+      LEARNING_CRITERIA.some((criterion) => admission.criteria[criterion] !== "PASS")) {
+    throw new Error(`${row.book_id}: every mandatory artifact-bound book criterion must independently PASS`);
+  }
+}
+
 export function compileAdmissionManifest(manifest, {
   root = process.cwd(),
-  correctionPropagations = []
+  correctionPropagations = [],
+  rejectedArtifacts = new Map()
 } = {}) {
   if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) {
     throw new Error("admission manifest must be an object");
@@ -114,7 +202,8 @@ export function compileAdmissionManifest(manifest, {
     const allowed = new Set([
       "book_id", "status", "source_path", "content_version",
       "admission_version", "source_references", "claim_references",
-      "reviewed_at", "review_owner", "correction_state", "artifact_sha256"
+      "reviewed_at", "review_owner", "correction_state", "artifact_sha256",
+      "learning_admission"
     ]);
     if (!exactKeys(row, allowed)) {
       throw new Error(`unknown field in admission record ${row.book_id || "(unknown)"}`);
@@ -157,6 +246,7 @@ export function compileAdmissionManifest(manifest, {
         !Number.isFinite(Date.parse(row.reviewed_at))) {
       throw new Error(`${id}: review owner/date is missing or invalid`);
     }
+    if (available) assertLearningAdmission(row, root, rejectedArtifacts);
 
     const relative = row.source_path.replace(/^\/+/, "");
     const artifactPath = path.resolve(root, relative);
@@ -231,16 +321,19 @@ export function compileLibraryAdmission({
   root = process.cwd(),
   manifestPath = "content/library-books/admission-manifest.json",
   correctionPropagationPath = "content/library-books/corrections/accepted-correction-propagations.json",
+  rejectedArtifactPath = "content/library-books/rejected-artifacts.json",
   libraryPath = "library.html"
 } = {}) {
   const absoluteManifest = path.resolve(root, manifestPath);
   const absoluteCorrectionPropagations = path.resolve(root, correctionPropagationPath);
+  const absoluteRejectedArtifacts = path.resolve(root, rejectedArtifactPath);
   const absoluteLibrary = path.resolve(root, libraryPath);
   const acceptedCorrectionState = readAcceptedCorrectionState(absoluteCorrectionPropagations);
+  const rejectedArtifacts = readRejectedArtifacts(absoluteRejectedArtifacts);
   const records = fs.existsSync(absoluteManifest)
     ? compileAdmissionManifest(
         JSON.parse(fs.readFileSync(absoluteManifest, "utf8")),
-        { root, correctionPropagations: acceptedCorrectionState.propagations }
+        { root, correctionPropagations: acceptedCorrectionState.propagations, rejectedArtifacts }
       )
     : Object.create(null);
   const source = fs.readFileSync(absoluteLibrary, "utf8");
@@ -261,10 +354,12 @@ export function assertLibraryAdmissionFreshness({
   root = process.cwd(),
   manifestPath = "content/library-books/admission-manifest.json",
   correctionPropagationPath = "content/library-books/corrections/accepted-correction-propagations.json",
+  rejectedArtifactPath = "content/library-books/rejected-artifacts.json",
   libraryPath = "library.html"
 } = {}) {
   const absoluteManifest = path.resolve(root, manifestPath);
   const absoluteCorrectionPropagations = path.resolve(root, correctionPropagationPath);
+  const absoluteRejectedArtifacts = path.resolve(root, rejectedArtifactPath);
   const absoluteLibrary = path.resolve(root, libraryPath);
   if (!fs.existsSync(absoluteManifest) || !fs.statSync(absoluteManifest).isFile()) {
     throw new Error("library admission manifest is required for public build");
@@ -273,9 +368,10 @@ export function assertLibraryAdmissionFreshness({
     throw new Error("library source is required for public build");
   }
   const acceptedCorrectionState = readAcceptedCorrectionState(absoluteCorrectionPropagations);
+  const rejectedArtifacts = readRejectedArtifacts(absoluteRejectedArtifacts);
   const records = compileAdmissionManifest(
     JSON.parse(fs.readFileSync(absoluteManifest, "utf8")),
-    { root, correctionPropagations: acceptedCorrectionState.propagations }
+    { root, correctionPropagations: acceptedCorrectionState.propagations, rejectedArtifacts }
   );
   const source = fs.readFileSync(absoluteLibrary, "utf8");
   const start = source.indexOf(START);

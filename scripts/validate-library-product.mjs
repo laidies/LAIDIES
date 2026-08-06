@@ -24,8 +24,14 @@ const compiledMatch = page.match(
 );
 if (!compiledMatch) throw new Error("compiled Library admission is not parseable");
 const admitted = JSON.parse(compiledMatch[1]);
-if (process.env.LIBRARY_CONTRACT_CALIBRATION === "stale-admission-sha" && admitted["concepts-101"]) {
-  admitted["concepts-101"].artifactSha256 = "0".repeat(64);
+if (process.env.LIBRARY_CONTRACT_CALIBRATION === "unauthorized-admission") {
+  admitted["briefing-101"] = {
+    sourcePath: "/content/library-books/rendered/briefing-101.html",
+    contentVersion: "briefing-101-2026-08-05.1",
+    admissionVersion: "unauthorized-calibration",
+    correctionState: "clear",
+    artifactSha256: "0".repeat(64)
+  };
 }
 const ids = new Set();
 const allowed = new Set(["available", "preview", "hold", "not-published"]);
@@ -47,10 +53,10 @@ const counts = Object.fromEntries(
     books.filter((book) => book.status === status).length
   ])
 );
-if (counts.hold !== 7 || counts.preview !== 7 || counts.available !== 1) {
+if (counts.hold !== 8 || counts.preview !== 7 || counts.available !== 0) {
   throw new Error(`unexpected truthful catalogue state ${JSON.stringify(counts)}`);
 }
-if (Object.keys(admitted).length !== 1 || !admitted["concepts-101"]) {
+if (Object.keys(admitted).length !== 0) {
   throw new Error(`unexpected compiled Library admission ${JSON.stringify(Object.keys(admitted))}`);
 }
 for (const [id, record] of Object.entries(admitted)) {

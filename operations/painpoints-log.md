@@ -11523,6 +11523,155 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** We found the missing scene—and then deliberately did not use it.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
 
+## BTB-372 — A tested automatic state can still violate the first-visit contract
+
+- **Date:** 2026-08-03
+- **Area:** Dream Phone / two-door entry / first-visit orientation.
+- **Observation:** Dream Phone contained two accurate, conventional mode doors,
+  but startup code automatically clicked Just Call. The prior browser guard
+  faithfully tested that automatic state, so it passed while first-time
+  visitors could not see or choose both explained modes before entry.
+- **Prevention rule:** A first-render test must check the rendered state against
+  the governing visitor job, not merely reproduce current startup behavior. If
+  a route promises a choice, assert every choice and its boundary are visible
+  before output, assert destinations remain closed, then exercise each choice
+  explicitly with keyboard and pointer controls.
+- **Why the fix works:** Dream Phone now leaves its neutral entry visible, keeps
+  both experiences closed until chosen and uses stable IDs for both doors. The
+  browser guard checks that contract at 320, 390, 430 and 1440 pixels before it
+  deliberately enters Just Call or keyboard-navigates to the one-round game.
+- **Machine/durable evidence:** `scripts/test-dream-phone-contract.mjs`;
+  `scripts/test-dream-phone-browser.mjs`;
+  `operations/product-stewards/dream-phone/evidence-neutral-two-door-entry-maker-2026-08-03.md`.
+- **Possible Behind the Build angle:** Testing what a page does is not enough
+  when the page is confidently doing the wrong first thing.
+- **Publication status:** VERIFIED LOCALLY — no release or public verification.
+
+## BTB-373 — Different agents can all pass the same incomplete rubric
+
+- **Date:** 2026-08-03
+- **Area:** Building-page design / maker-judge separation / Control Room.
+- **Observation:** A LIBRAiRY prototype with tiny misaligned overlay controls,
+  detached CSS headings, blank white canvas, fixed visible capacity and poor
+  LAiDIES cohesion passed maker and independent-judge checks and reached Ali.
+  The growth test added only a dropdown option, the judge converted "visible
+  enough" into a qualitative PASS, the maker receipt still said `NOT READY FOR
+  ALI`, Claude Opus 5 had not reviewed the candidate and the screenshots shown
+  to Ali no longer matched the judge-bound hashes.
+- **Root cause:** Maker/judge separation existed, but every role consumed the
+  same incomplete mechanics rubric. The non-media owner-review path did not
+  enforce research, creative synthesis, four visitor states, cross-page object
+  placement, independent product/UX and Brand floors, red-team challenge,
+  cross-model review or current artifact identity.
+- **Prevention rule:** A building-page candidate requires role-distinct
+  research, creative experience design, environment art, frontend build,
+  product/UX judgment, Brand/visual judgment, red team, Claude Opus 5 review
+  and Control Room admission. Bind the original brief, incumbent, candidate,
+  four-state journey/handoff map and all receipts to current SHA-256 values.
+  Creative vision, product quality, professional finish, UX clarity, LAiDIES
+  cohesion and best-webpage ambition each require a non-compensable 17/20.
+  Selector-only growth, retained holds, scoped mechanics review, role reuse,
+  stale bytes and rejected candidates fail closed.
+- **Why the fix works:** The admission checker now evaluates queued HTML and
+  image candidates rather than skipping them. Thirty-seven negative fixtures
+  reproduce the incident classes and implemented/concept passing twins prove
+  the checker does not simply fail everything. The owner surface now shows
+  zero Ali items and the rejected Library directions remain quarantined.
+- **Machine/durable evidence:** `scripts/check-design-review-admission.mjs`;
+  `scripts/test-design-review-admission.mjs`;
+  `operations/control-room/rejections.json`;
+  `operations/control-room/evidence/library-environment-successor-v2-claude-opus-5-failure-review-2026-08-03.md`.
+- **Possible Behind the Build angle:** Independent reviewers do not create
+  independence when they are all grading the wrong exam.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-374 — A coded-candidate gate does not protect the concept attachment
+
+- **Date:** 2026-08-03
+- **Area:** Building visual concepts / agent skills / owner review admission.
+- **Observation:** After the coded Library candidate was rejected, three new
+  image-only concepts were shown directly to Ali. They repeated the underlying
+  product failure: one image carried too many jobs, books were too small,
+  Miss Jeeves was not a real input, the Closet was placed in the wrong
+  building, growth was not credible and plants/filler occupied functional
+  space. The repository checker applied only to queued coded candidates.
+- **Prevention rule:** Treat the earliest image, mockup, screenshot or
+  prototype as a review artifact. The product-champion skill and project agent
+  contract forbid displaying it before exact-byte queue admission. Force-detect
+  image/HTML artifacts, require desktop/mobile bindings, finite measured object
+  sizes, scalable page architecture, correct feature/building placement,
+  distinct judge evidence and a validated rejection quarantine.
+- **Why the fix works:** The presentation firewall now exists in both the
+  reusable skill and project instructions. The checker no longer depends on a
+  maker volunteering the right review type, rejects missing numeric fields,
+  validates quarantined paths/hashes, and exercises 37 negative fixtures plus
+  separate implemented and concept passing twins.
+- **Machine/durable evidence:**
+  `/Users/alisoneakin/.codex/skills/laidies-product-champion/SKILL.md`;
+  `scripts/check-design-review-admission.mjs`;
+  `scripts/test-design-review-admission.mjs`;
+  `operations/control-room/rejections.json`;
+  `operations/product-stewards/library/page-architecture-successor-2026-08-03.md`.
+- **Possible Behind the Build angle:** A quality gate after implementation is
+  too late when the first bad decision was the picture itself.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-365 — A printable image can carry a visible promise, not mere decoration
+
+- **Date:** 2026-08-03
+- **Area:** Issue 01 “Open the Tab” printable.
+- **Observation:** The hero was marked unused in curation but was visibly
+  rendered in the first-page header, where it set the printable’s title and
+  safe-first-rep frame.
+- **Prevention rule:** Before removing a flagged printable asset, inspect the
+  real rendered and print-media consumer. If it carries visible framing,
+  replace that framing with live, ink-safe text and test source absence, no
+  request, desktop/mobile reflow and print media.
+- **Why the fix works:** The image is replaced only in this printable by a
+  semantic “Open the Tab / One safe first rep” title card. Its four-by-three
+  space and lesson hierarchy remain, while print uses black text on white
+  paper without a visual asset.
+- **Machine/durable evidence:**
+  `operations/product-stewards/learning-content-ecosystem/evidence/issue-01-open-the-tab-safe-hero-maker-2026-08-03.md`;
+  `scripts/test-issue-01-open-the-tab-printable.mjs`.
+- **Possible Behind the Build angle:** Printables work best when their most
+  important words are real text you can read, print and keep.
+- **Publication status:** REPAIRED LOCALLY — no public change.
+
+## BTB-355 — A building can gain physical room objects without turning blocked artwork into a launch dependency
+
+- **Date:** 2026-08-03
+- **Area:** NewsStand / Visitor Centre / interactive building environments.
+- **Observation:** The NewsStand had three prohibited candidate images and only
+  two duplicated paper props for four publications; the Visitor Centre had
+  three truthful but generic panel links waiting behind a rejected lobby-art
+  direction. Both routes therefore had working links but unresolved physical
+  room controls.
+- **Diagnosis:** The implementation treated a rendered illustration as the
+  only way to make a control feel like an object in the building, even though
+  the real state, labels and actions already belonged in live DOM.
+- **Prevention rule:** When artwork is held, first ask whether the live control
+  itself can be the physical object. Use one conventional, keyboard-operable
+  DOM control per real job; put contents, current state, opening result and
+  boundary on it before activation; keep decorative/background art optional
+  and never duplicate the selector in an image hotspot. Reject this approach
+  when the feature genuinely depends on the missing visual output itself.
+- **Why the fix works:** Four live newspaper buttons now form Paige's rack and
+  scale by adding issues inside stable publications. Three live anchors form
+  the Visitor Centre ticket rail while the map/directory remain primary. Both
+  designs remove prohibited/generic predecessors, reflow conventionally and
+  preserve the existing reader/tour/player/Post Office ownership boundaries.
+- **Machine/durable evidence:** NewsStand contract/browser pass 98 rendered
+  checks and its independent verdict is
+  `operations/control-room/evidence/newsstand-four-paper-counter-independent-judge-2026-08-03.md`;
+  Visitor Centre contract/parity/browser pass 79 checks and its independent
+  verdict is
+  `operations/control-room/evidence/visitors-centre-front-desk-ticket-rail-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** The breakthrough was not generating a
+  better picture of a newspaper rack; it was making the newspapers themselves
+  work like the rack.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
 ## BTB-325 — Episode and song identities need a single reconciliation gate
 
 - **Date:** 2026-08-01
@@ -11876,3 +12025,2082 @@ while remaining falsely unfinished in the launch record.
   question is not whether the boxes exist; it is whether the release is
   impossible without the receipts.
 - **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-338 — An unadmitted image batch entered a full trailer because prose impersonated proof
+
+- **Date:** 2026-08-02
+- **Area:** Trailer / all site video and animation / source admission.
+- **Failure:** Trailer v8 was assembled from a manifest explicitly marked
+  `LOCAL CANDIDATE / UNADMITTED` with an unresolved decision required before
+  binding. Its rows said identity, wardrobe, town and composition were
+  “retained,” but the rendered pixels contained an off-model heroine, wrong
+  outfits, noncanonical and retired maps, invented people, unexplained story
+  beats and predominantly static slides. Ali found the first failure at
+  00:00 and further failures throughout the title.
+- **Root cause:** The builder checked that files existed but never checked
+  whether those exact bytes were admitted. Maker-authored `visual_review`
+  sentences were treated as if they were independent comparison evidence.
+  Later title checks concentrated on decode, clock, audio and sampled
+  narration fit; they did not make assembly impossible when character,
+  wardrobe, location, canon, asset currency, story comprehension or local
+  motion evidence was absent.
+- **Prevention rule:** A full-title video/animation builder must fail before
+  rendering unless every consumed source is checksum-bound in an `ADMITTED`
+  source manifest with an independent reviewer, exact approved references,
+  comparison evidence and occurrence-level PASS results for identity,
+  wardrobe, current location, canon role, non-retired status, visual style,
+  narration fit and story comprehension. Every occurrence also needs a
+  narration-motivated local-motion plan; camera movement alone is not
+  animation. Before full assembly, a different reviewer must watch the first
+  five minutes sound-on at normal speed and pass the checksum-bound pilot.
+- **Why the fix works:** `scripts/video_source_admission.py` validates those
+  bindings and `scripts/build-trailer-v8-multicolour-successor.py` now invokes
+  it before creating output. The exact v8 source manifest produces a
+  deterministic build stop because it is unadmitted and lacks the required
+  evidence. A valid synthetic fixture proves the contract can pass when the
+  complete evidence exists.
+- **Machine check implemented:** `scripts/test_video_source_admission.py`
+  verifies both the known v8 rejection and a complete passing contract. This
+  is the reusable admission primitive for every active episode, trailer,
+  class and site-animation builder; each builder still requires explicit
+  integration before it can claim coverage.
+- **Possible Behind the Build angle:** The prompt said “preserve everything.”
+  The pixels did not—and the green checks repeated the prompt instead of
+  looking at the result.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-339 — Final review cannot repair a workflow designed in the wrong order
+
+- **Date:** 2026-08-02
+- **Area:** Sitewide production / instruction design / review enforcement.
+- **Failure:** Detailed requirements existed, but some workflows generated
+  expensive downstream artifacts before proving the governing references,
+  dependencies and representative output. Final review then discovered
+  failures that should have blocked the first source image, scene, component
+  or narration draft.
+- **Root cause:** Instructions described the desired output without always
+  making dependency order, early rejection conditions, artifact-bound
+  evidence and independent source-to-result comparison executable. A late
+  checklist was treated as quality control even when upstream production had
+  never been constrained by it.
+- **Prevention rule:** Design every material workflow end to end before
+  production. Start from the user outcome, inventory canon and exclusions,
+  build the smallest representative proof, enforce objective requirements at
+  the earliest possible stage, and stop downstream work when evidence is
+  missing. The maker binds evidence; a separate reviewer compares the real
+  artifact with the original brief. Approved prior work must be retained or
+  explicitly superseded.
+- **Why the fix works:** The rule now lives in the repository's root
+  `AGENTS.md` and the standing working agreement, so it applies to product,
+  UX, writing, research, teaching, images, animation, video, audio, software,
+  data, social content and release operations—not only episodes.
+- **Machine check implemented:** No universal validator can prove every
+  qualitative requirement. Each workflow must now name and implement its own
+  earliest-stage guard; the Episode animation contract is the first concrete
+  conversion under this rule. A future Stop hook may run registered validators
+  as a backstop, but it must not replace build-time blocking.
+- **Possible Behind the Build angle:** A final checklist is not quality
+  control when the wrong thing has already been produced; the cheapest review
+  is the one that prevents the bad first brick.
+- **Live lesson captured from Ali:** “For the hundredth time, I thought I had
+  set it up properly—and I had not. The most frustrating part was not knowing
+  why it failed, or why the next attempt should be any different.” The useful
+  teaching is the difference between writing a rule, asking an agent to follow
+  it, and installing an executable constraint that prevents the wrong work
+  from starting. A future Behind the Build treatment must show the failed
+  setup, the bypass path, the new build-time stop and a deliberately bad test
+  that is rejected; it must not present another confident promise as proof.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-340 — Quality controls become waste when they re-prove settled facts
+
+- **Date:** 2026-08-02
+- **Area:** Sitewide operations / evidence reuse / delivery speed.
+- **Failure:** Work was spent re-validating settled facts, including the
+  originality of LAiDIES-created media, while visitor-visible defects and
+  launch-critical production remained open.
+- **Root cause:** Fail-closed language lacked an explicit proportionality rule.
+  The existence of a possible proof task was mistaken for evidence that the
+  task was necessary to the current decision.
+- **Prevention rule:** Use the minimum sufficient workflow. Reuse durable valid
+  evidence; reopen it only when the underlying identity changes, the evidence
+  expires, a contradiction appears or the active decision requires renewal.
+  Every material step must change a decision, prevent a plausible failure,
+  satisfy a real release requirement or improve the visitor result.
+- **Why the fix works:** Efficiency is now a co-equal acceptance condition in
+  the repository instructions and working agreement. It preserves accuracy,
+  freshness, voice, teaching quality, accessibility, canon, privacy and
+  visible-output review while removing process that cannot affect the outcome.
+- **Machine check implemented:** This is primarily a planning and scoping
+  constraint. Feature-specific validators remain required for objective
+  requirements; no universal validator should manufacture extra evidence work.
+- **Possible Behind the Build angle:** More checking is not always more
+  rigorous. Sometimes it only proves that the wrong work was completed very
+  carefully.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-341 — A concise handoff can silently erase a mature operating contract
+
+- **Date:** 2026-08-02
+- **Area:** Sitewide operations / agent re-entry / specification inheritance.
+- **Failure:** A current operating-model summary reduced the established
+  visitor-state contract to a smaller generic list, even though the repository
+  already required separate first-time, returning non-resident, local-Card,
+  authenticated, signed-out/expired and incomplete-Card journeys plus their
+  transitions. The same fragmentation risk affects building UX, learning,
+  writing, assets, rewards, freshness, revenue, rights and release controls.
+- **Root cause:** Detailed standards and product dossiers existed, but there
+  was no single precedence-bound dependency map requiring a new brief or
+  owner handoff to inherit them. A routing summary could therefore be mistaken
+  for product authority.
+- **Prevention rule:** A task brief routes work; it never replaces higher-order
+  rulings, sitewide standards, owner dossiers or accepted evidence. Every
+  material brief records its governing decisions, exact canonical
+  dependencies, visitor states, admitted references, early blockers,
+  independent judgment and return trigger. Conflict means specification
+  reconciliation—not improvisation.
+- **Why the fix works:**
+  `operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md` now defines the
+  authority order and required inheritance. Product owner entry requires it,
+  and `scripts/check-canonical-instruction-dependencies.mjs` is invoked by the
+  operational-integrity check.
+- **Machine check implemented:** The validator proves that the standing map
+  and key source contracts exist, owner entry requires the map and the visitor
+  contract retains the explicit identity states and non-borrowing PASS rule.
+  Qualitative execution still requires artifact-bound independent review.
+- **Possible Behind the Build angle:** The most dangerous lost instruction was
+  not deleted. It was summarized until the difficult parts disappeared.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-342 — Old “not tested” evidence repeatedly erased a newer released pass
+
+- **Date:** 2026-08-02
+- **Area:** Sitewide capability status / identity / release evidence.
+- **Failure:** Later summaries repeatedly described Supabase identity,
+  account-backed Closet and cross-device continuation as broadly untested even
+  though a checksum-bound release branch and public verification receipts
+  proved the core journey. Older pre-release audits were easier to find on the
+  active branch and were flattened into current truth.
+- **Root cause:** Evidence selection did not follow release ancestry and date.
+  A bounded remaining question was allowed to erase the verified core, while
+  release receipts living on another branch were omitted from normal search.
+- **Prevention rule:** Capability status must select the newest evidence by
+  accepted release ancestry, preserve every proven subflow and list only the
+  remaining delta. If Ali reports a test whose receipt is not on the active
+  branch, classify **EVIDENCE RECONCILIATION REQUIRED** and search release
+  history before asking her to repeat it or claiming the feature is missing.
+- **Why the fix works:**
+  `operations/product-stewards/resident-card/CURRENT-IDENTITY-CONTINUATION-AUTHORITY-2026-08-02.md`
+  now points directly to the release-branch receipts, states the verified
+  boundary and explicitly supersedes older global “not tested” summaries.
+- **Machine check implemented:** The operating-system review manifest binds
+  the current authority by checksum and the Claude audit prompt requires it
+  before assigning an identity gap. A future portfolio reconciler should make
+  newest-release evidence selection automatic across every capability.
+- **Possible Behind the Build angle:** A test can pass and still be “lost” if
+  the system keeps reading yesterday's red status before today's receipt.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-343 — A bounded proof must not inherit unrelated review work
+
+- **Date:** 2026-08-02
+- **Area:** Owner review / media proof presentation / decision efficiency.
+- **Failure:** The first owner-review rendering of an eight-second Trailer
+  transformation proof opened on a black player and inherited the Trailer's
+  full audio-and-cover-family panel. The underlying film loaded, but the page
+  made a one-question decision look like a broader programme review.
+- **Root cause:** The review inbox inferred every Trailer item had the same
+  scope from its programme ID. It had no item-level review-scope contract or
+  explicit poster binding.
+- **Prevention rule:** Every review item must declare its decision scope and
+  bind a meaningful visible poster. A bounded film proof hides unrelated
+  audio, artwork and decisions; its receipt marks those fields not applicable.
+  Desktop and mobile review-surface checks occur before the item reaches Ali.
+- **Why the fix works:** The owner sees the exact artifact and only the exact
+  decision needed. The proof cannot accidentally imply approval of covers,
+  portable audio, a full title, release, deployment or publication.
+- **Machine check implemented:** The Trailer B39 queue entry now declares
+  `film_only`, binds an exact poster checksum and was verified at desktop and
+  390px with zero horizontal overflow and hidden unrelated package controls.
+- **Possible Behind the Build angle:** Even a correct proof wastes time when
+  the review page asks three questions instead of one.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-344 — A frequent heartbeat can turn durable operations into an app-load incident
+
+- **Date:** 2026-08-02
+- **Area:** Control Room / Codex desktop runtime / scheduled dispatch.
+- **Failure:** The permanent dispatcher ran every 15 minutes inside one
+  increasingly large task. Desktop logs showed repeated full task-history
+  polling, stalled turn-list requests and stale resume errors while the Codex
+  app server consumed unusually high CPU and memory. Repository checks could
+  pass while the delivery runtime itself became unreliable.
+- **Root cause:** The automation cadence was shorter than the realistic work
+  window and the chat transcript—not the durable repository records—absorbed
+  every recurring run. The prompt also retained three superseded file paths,
+  increasing redundant recovery work on each cycle.
+- **Prevention rule:** Persistent operations live in concise canonical files;
+  scheduled runs load only the current delta. Set cadence longer than normal
+  execution time, prevent overlapping runs, migrate or rotate oversized task
+  histories, and fail the automation preflight when a mandatory canonical path
+  is missing. Passing product checks never proves scheduler/runtime health.
+- **Why the fix works:** It preserves autonomous execution while preventing
+  the orchestration transcript and repeated stale-path recovery from becoming
+  the bottleneck. Event-triggered dispatch remains available between scheduled
+  reconciliation runs.
+- **Machine check implemented:** Bounded run receipt
+  `operations/control-room/evidence/control-room-dispatcher-run-2026-08-02T195917-0700.md`
+  binds the observed state, missing paths and required migration trigger. The
+  automation cadence and target still require an explicit runtime change.
+- **Possible Behind the Build angle:** Automation is not autonomous when its
+  status thread becomes heavier than the work it coordinates.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-345 — Long operational identities can break a mobile control surface
+
+- **Date:** 2026-08-02
+- **Area:** Control Room / mobile operational UX / generated evidence.
+- **Failure:** The generated Owner Control page passed data checks but rendered
+  589 pixels wide on a 390-pixel phone. The exact deployment UUID, commit and
+  artifact hash in a module summary forced the header grid past the viewport.
+- **Root cause:** Card metadata allowed long words to wrap, but the module
+  header's first grid child retained its min-content width. Testing the schema
+  did not exercise the real generated identities in a browser.
+- **Prevention rule:** Any generated owner/control surface that renders task
+  IDs, hashes, URLs or deployment identities must constrain grid tracks with
+  `minmax(0,1fr)`, apply `min-width:0` to content children, allow technical
+  identities to wrap and run real-data browser checks at mobile and desktop
+  widths before admission.
+- **Why the fix works:** The operational evidence remains exact and copyable
+  without creating horizontal page scroll or requiring Ali to zoom out.
+- **Machine check implemented:**
+  `scripts/test-owner-control-plane-browser.mjs` loads the generated Owner
+  Control state at 390px and 1280px, asserts the live task, zero Ali items,
+  internal-repair count, exact public deployment and media HOLD, and fails on
+  document or body overflow.
+- **Possible Behind the Build angle:** A truthful dashboard can still fail if
+  the truth is a 64-character hash the layout was never tested with.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-346 — A passing control layer is not an operational agent runtime
+
+- **Date:** 2026-08-02
+- **Area:** Control Room / agent dispatch / maker-judge separation / asset admission.
+- **Failure:** The operating-system migration was marked resolved while its
+  whole-town work record pointed back to the Control Room task, the steward run
+  queue had zero active owners, and maker/judge names were labels rather than
+  separate live executions. The first real pilot then stopped at
+  `favicon.ico`; a maker treated it as the cutline, but an independent judge
+  proved it was only the first of 21 denied Homepage binary dependencies.
+- **Root cause:** Local validators checked record shape but did not reconcile
+  canonical active work with the live run queue and app-task liveness. The
+  asset-admission pilot also stopped on the first exception instead of testing
+  whether the proposed repair closed the whole required set.
+- **Prevention rule:** Operational completion requires a real task-bound maker
+  dispatch, a different live judge inspecting the exact artifact, and matching
+  ledger/run-queue task IDs and heartbeats. For default-deny admission, test
+  complete required-set closure; never treat the first missing asset as the
+  root cause without proving the next required assets pass.
+- **Why the fix works:** The migrated pilot used two separate live tasks. The
+  judge rejected a superficially plausible favicon-only repair and routed the
+  complete checksum-bound public-asset closure instead.
+- **Machine check implemented:** `scripts/check-work-resolution-loop.mjs`
+  cross-reconciles every `IN_PROGRESS`/`VERIFYING` record with the same active
+  run-queue work ID, task ID and heartbeat. The independent receipt is
+  `operations/control-room/evidence/runtime-pilot-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** An agent system becomes real when its
+  reviewer can stop the first agent from fixing the wrong first error.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-347 — Building completion is not synonymous with generating a new room
+
+- **Date:** 2026-08-03
+- **Area:** Whole-town visual production / building-as-interface / asset reuse.
+- **Failure:** Narrow source-safety repairs were described with PASS language
+  even though no complete building experience had passed. The correction then
+  overreached in the opposite direction and generated a dark brown,
+  institutional Library comparison even though a strong, vibrant incumbent
+  Library environment already existed. Ali rejected it immediately.
+- **Root cause:** The execution loop did not separate three questions: whether
+  unsafe art was removed, whether a good incumbent environment should be
+  preserved, and whether a building's pictured objects actually operate its
+  visitor jobs. It treated "build the environment" as "generate a new hero."
+- **Prevention rule:** Before any building image generation, classify the
+  incumbent exact asset as `KEEP / ADAPT / REPLACE` against the protected
+  Homepage/town palette and the building's real mechanic. `KEEP` means no new
+  art by default: integrate and judge the existing environment. Generate only
+  a proven gap, and never call a source-safety or functional PASS a complete
+  building PASS.
+- **Why the fix works:** It protects good work, prevents visual regression and
+  concentrates scarce production time on buildings with no admitted room or
+  object system. It also makes the final judge inspect the rendered visitor
+  experience instead of trusting an asset or test in isolation.
+- **Machine/durable evidence:**
+  `operations/control-room/evidence/whole-town-visual-truth-2026-08-03.md`
+  records the 17-building cutline and the rejected out-of-repository attempt.
+- **Possible Behind the Build angle:** The expensive mistake was not a bad
+  prompt; it was failing to ask whether new art was needed at all.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-348 — A preview below the viewport is not preview-before-open UX
+
+- **Date:** 2026-08-03
+- **Area:** Building-as-interface / object previews / responsive evidence.
+- **Failure:** The first Library successor correctly separated selecting a book
+  from opening it and rendered title, coverage, topics and availability in a
+  catalogue slip. At 1440 × 1000, however, that slip and the labelled Miss
+  Jeeves desk control fell below the initial viewport. Source and interaction
+  checks passed, but the decision information was not visible when needed.
+- **Root cause:** The maker tested that the preview existed and updated, not
+  that the initiating object and resulting decision information were visible
+  together at the required viewport.
+- **Prevention rule:** For every building object, rendered evidence must show
+  the initiating object, its preview/availability and the consequential action
+  together at desktop and compact mobile—or interaction must deterministically
+  reveal the preview without losing context. Test bounding rectangles, not only
+  DOM presence and click results.
+- **Why the fix works:** Visitors can understand what an object is, what it
+  contains and what opening will do before committing, while the room remains
+  the interface rather than a decorative masthead.
+- **Machine/durable evidence:**
+  `scripts/test-library-environment-successor.cjs` checks the 21-objective
+  journey contract; the independent judge's initial HOLD and corrected PASS are
+  bound in
+  `operations/design-explorations/library-environment-successor-20260803/`.
+- **Possible Behind the Build angle:** The feature was technically present;
+  the failure was that a real person could not see it at the moment of choice.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-349 — Fixed inventory counts turn a validator into stale documentation
+
+- **Date:** 2026-08-03
+- **Area:** Product contracts / expandable building inventories / SUNNYVAiLE High.
+- **Failure:** The High contract test asserted exactly four subjects and 37
+  planned classes while the canonical register contained five subjects and 38
+  unique planned classes. The product remained safely at zero live videos, but
+  the suite failed before it could prove the unchanged admission boundary.
+- **Root cause:** A growth-capable data register changed without the narrow
+  count assertion and owner brief changing in the same transaction.
+- **Prevention rule:** When a building inventory is intentionally expandable,
+  bind validators to schema, uniqueness, owner/admission parity and explicit
+  minimum/expected identity records. If an exact count is a real release
+  invariant, update the authority, register and test atomically and surface any
+  changed count as a review item rather than silently treating it as admission.
+- **Why the fix works:** The validator continues to detect missing/duplicate or
+  falsely live items while the interface can scale; owner authority still must
+  reconcile the new subject before content admission.
+- **Machine/durable evidence:** `scripts/test-sunnyvaile-high-contract.mjs`
+  now binds the current five/38 source identity and continues to prove zero
+  ready tapes, independent learning admission and non-mastery result framing.
+- **Possible Behind the Build angle:** A red test was useful, but it was
+  protecting yesterday's catalogue size instead of today's release boundary.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-350 — A test fixture must move when the governing admission policy moves
+
+- **Date:** 2026-08-03
+- **Area:** KSVL / media admission / browser regression fixtures.
+- **Failure:** KSVL's source validator proved the current creator-confirmed
+  registry contained 29/29 playable files, but the browser suite still used
+  that real registry as its synthetic zero-admission case, stamped a valid
+  restore with the retired registry ID and treated missing lyrics/transcripts
+  as audio blockers. A fixed 40 ms reload wait first hid the policy mismatch.
+- **Root cause:** The registry policy, identity and product ruling changed
+  atomically, but the adversarial fixtures continued to encode the superseded
+  policy and an old identity string.
+- **Prevention rule:** Derive valid fixtures from the current governing
+  registry identity. Construct held/adversarial fixtures explicitly and keep
+  them separate from the production-valid fixture. When policy changes, review
+  every negative assertion for whether it still protects a real admission
+  boundary; wait for observable state rather than elapsed milliseconds.
+- **Why the fix works:** The suite still proves per-track runtime fail-closed,
+  hostile registry rejection, no autoplay, playback failures, strict restore,
+  accessibility proxies and real decoded audio, while missing words remain
+  visible accessibility debt instead of silently disabling Ali's admitted
+  catalogue.
+- **Machine/durable evidence:** `scripts/validate-ksvl-catalogue.mjs` passes
+  `tracks=29 playable=29`; `scripts/test-ksvl-browser.mjs` now passes the
+  creator-confirmed registry plus an explicit all-held runtime fixture.
+- **Possible Behind the Build angle:** A red test can be wrong for a good
+  reason: it may still be enforcing the product decision you deliberately
+  replaced.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-351 — Matching key names in two source files is not a round-trip proof
+
+- **Date:** 2026-08-03
+- **Area:** LUMINAiRY / Closet / device-local producer-consumer contracts.
+- **Failure:** Static inspection suggested the Closet consumed all three
+  LUMINAiRY keys. In reality MAiVEN and TRAiLBLAZER read their raw producer
+  keys, while SAiNT read only the Resident Card envelope. A valid
+  `laidies_saint` choice could therefore disappear at the receiving surface.
+- **Root cause:** The producer and consumer each mentioned the same key in
+  source, but no browser journey carried exact values through the real pages
+  and checked initial render, change, clear, invalidation and return routes.
+- **Prevention rule:** A cross-building contract passes only when a real
+  producer action or same-origin fixture reaches the actual consumer and the
+  suite proves valid, changed, cleared, unknown/retired and denied states. Do
+  not infer propagation from constants, labels or storage reads in isolation.
+- **Why the fix works:** The Closet now reads all three exact LUMINAiRY
+  producer keys, listens for real second-tab storage changes and fails unknown
+  values closed without creating identity, account, ownership or sync claims.
+- **Machine/durable evidence:** `scripts/test-resident-card-browser.mjs`
+  passes 136/136, including three initial picks, real second-tab change/clear,
+  unknown fail-closed and exact producer return links; shared/static Card
+  contracts pass 34/34 and 31/31.
+- **Possible Behind the Build angle:** Both pages said the same storage key;
+  only an actual trip between the buildings proved whether the town worked.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-352 — A structurally complete owner record can still describe the wrong product
+
+- **Date:** 2026-08-03
+- **Area:** Owner-entry recovery / generated interfaces / runtime truth.
+- **Failure:** All 67 owner entries became structurally complete, but an
+  independent runtime comparison found three false boundaries: a redirect
+  dossier denied analytics that its page loaded; DJ Booth claimed registry
+  consumption while running a hard-coded seven-track player; and Try-On called
+  any successful save completion, including a blank save. A separate Mall copy
+  repair changed static HTML that the generic runtime immediately discarded,
+  so its source check passed while visitors still saw “The complete shop
+  register.”
+- **Root cause:** Recovery validated required headings and source phrases before
+  comparing claims to executed runtime behavior and the final rendered DOM.
+- **Prevention rule:** Owner-entry recovery must compare every consequential
+  boundary (data source, analytics/provider use, persistence, completion,
+  rewards and public state) to the executing route. When JavaScript replaces a
+  source region, test the rendered visitor-visible text at representative
+  viewports; static HTML is not evidence. Blank or partial activity must not
+  create completion state without an explicit product rule and browser proof.
+- **Why the fix works:** The dossiers now expose the real provider/data/state
+  boundaries; Mall visibly labels its nine searchable lists as local samplers
+  while holding catalogue authority; and Try-On rejects an empty save without
+  writing notes or completion state.
+- **Machine/durable evidence:** Group B and Mall search verdicts are in
+  `operations/control-room/evidence/owner-entry-recovery-group-b-independent-judge-2026-08-03.md`
+  and
+  `operations/control-room/evidence/mall-search-truth-repair-independent-judge-2026-08-03.md`;
+  `scripts/test-mall-shop-held-rooms.mjs` passes 225 rendered checks and
+  `scripts/test-try-on-save-browser.mjs` passes 14.
+- **Possible Behind the Build angle:** The form was complete and the tests were
+  green; the product description was still describing an interface no visitor
+  could actually see.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-353 — A truthful status sentence is not a physical control until visitors can find and operate it
+
+- **Date:** 2026-08-03
+- **Area:** FAiRY Godmother / building-environment controls / reward truth.
+- **Observation:** FAiRY already had truthful local-preview copy, but its
+  allowance-receipt feature remained `UNRESOLVED`: the only nearby note was
+  hidden and the result footer was only a wisdom count and clock time.
+- **Diagnosis:** Prose about a boundary did not give the room a discoverable,
+  keyboard-operable object or make the opening-day manifest's primary control
+  true.
+- **Prevention rule:** Where an environment contract names an object that
+  explains a held shared-state boundary, require a real always-available
+  control, test it before any service response at desktop and mobile, and bind
+  the manifest selector only to the current truth. A disclosure may deny
+  authority; it may never imitate a balance, receipt, account or transaction.
+- **Why the fix works:** The native preview-status slip is visible at the desk,
+  opens with the keyboard and explicitly denies account, reward, cross-device
+  and Play-transaction authority. The shared-ledger blocker remains explicit.
+- **Machine/durable evidence:**
+  `scripts/test-fairy-godmother-page-contract.mjs` and
+  `scripts/test-fairy-godmother-browser.mjs` pass; the independent receipt is
+  `operations/control-room/evidence/fairy-preview-status-slip-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** A good interface can make an unavailable
+  thing clear without pretending it exists.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-354 — A canonical asset repair must cover every executable fallback, not only the obvious consumer
+
+- **Date:** 2026-08-03
+- **Area:** ACTIVE asset registry / Episode cues / shared You Are Here runtime.
+- **Observation:** The active final-v5 town map already had a valid registry
+  role and checksum, while Episode 01 still selected a retired v9 map and the
+  shared map modal retained an unregistered legacy fallback.
+- **Diagnosis:** Asset authority was correct at the registry but not propagated
+  through all executable source choices; fixing only the episode would leave a
+  visitor-visible fallback outside default-deny authority.
+- **Prevention rule:** For a canonical-asset correction, enumerate every source
+  consumer and fallback, require each to resolve to the same ACTIVE exact bytes,
+  and retain a fixture that fails on the retired/unregistered paths. Inventory
+  parity must remain fail-closed rather than treating the selected active asset
+  as blanket admission.
+- **Why the fix works:** Both code paths now select the registry-bound final-v5
+  map; the targeted test rejects both old paths and verifies the asset checksum.
+- **Machine/durable evidence:**
+  `scripts/test-active-town-map-references.mjs`,
+  `scripts/check-media-defect-fixtures.mjs`, and the builder/inventory parity
+  checker pass; the independent receipt is
+  `operations/control-room/evidence/active-town-map-source-repair-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** An approved file is not enough if an old
+  fallback still decides what visitors see.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-356 — Passing current source tests cannot make an old screenshot current
+
+- **Date:** 2026-08-03
+- **Area:** Visual evidence identity / Mme CLAi-O / independent review.
+- **Failure:** Mme CLAi-O's current source and no-free-text browser tests passed,
+  but the maker packet reused screenshots that still showed the removed “What
+  is on your mind?” textarea. The first independent judgment correctly held the
+  packet even though the product bytes were sound.
+- **Root cause:** Render filenames were treated as current evidence without
+  recapturing and visually inspecting their pixels against the exact bound
+  source.
+- **Prevention rule:** Any maker receipt that claims current renders must
+  recapture them from the exact candidate, hash them after capture and inspect
+  the visible result for superseded controls before requesting judgment. A
+  source hash plus a green browser suite does not refresh an image file.
+- **Why the fix works:** Three renders were regenerated from the exact local
+  source with external requests blocked; the successor judge confirmed no
+  free-text control at desktop, 320px or in the safety-boundary crop.
+- **Machine/durable evidence:** The evidence-identity HOLD is
+  `operations/control-room/evidence/independent-mme-claio-current-reading-room-judge-2026-08-03.md`;
+  the accepted successor is
+  `operations/control-room/evidence/independent-mme-claio-current-reading-room-successor-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** The code was current. The screenshot was
+  lying about the product.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-357 — Renewing freshness must revalidate meaning, not only extend a date
+
+- **Date:** 2026-08-03
+- **Area:** Blend & Snap / manifest freshness / cross-entry truth.
+- **Failure:** The weekly-pack manifest expired on August 1. Updating its date
+  immediately exposed a second real contradiction: Episode 04's canonical
+  index had no card pack, while the café described one as planned and said the
+  episode included it.
+- **Root cause:** The expired manifest had drifted from its source authority;
+  treating renewal as a timestamp edit would have revived a false visitor
+  promise.
+- **Prevention rule:** A freshness renewal must rerun all authority-parity and
+  rendered cross-entry checks before the new date is accepted. If any status,
+  route or promise disagrees with canonical source, correct the meaning and
+  independently judge the complete renewal tuple; never extend the deadline
+  first and audit later.
+- **Why the fix works:** Episode 04 is now explicitly unavailable with no
+  route, the Welcome Tour previews variable availability, and the refreshed
+  manifest passes its source validator, 52 cross-entry checks and 114 rendered
+  journeys through August 3 only.
+- **Machine/durable evidence:** The independent receipt is
+  `operations/control-room/evidence/blend-snap-weekly-pack-freshness-truth-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** A stale date was the alarm; the real bug
+  was the promise hiding behind it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-358 — Route-owner absence is not workspace-wide asset clearance
+
+- **Date:** 2026-08-03
+- **Area:** LUMINAiRY / public-asset closure / evidence scope.
+- **Failure:** A corrected LUMINAiRY visual inventory accurately showed that 15
+  former portraits were absent from `luminairy.html`, but its first discovery
+  claim implied those assets were absent from the public dependency inventory.
+  Seven exact paths still appeared through ten Episode 01–04 issue-page/path
+  dependency pairs and eleven literal source occurrences. A later correction
+  then bound a public-inventory checksum whose bytes were overwritten when
+  another safe source-narrowing repair regenerated the shared inventory.
+- **Root cause:** A route-scoped source fact was described as a global asset
+  fact, and the evidence treated a changing generated inventory path as durable
+  evidence even though later runs replace its bytes.
+- **Prevention rule:** For route-level asset reconciliation, query every exact
+  path against both the owner source and every known cross-route consumer.
+  State owner-source absence, file/path dependency pairs and literal source
+  occurrences separately. Prefer a durable exact-source guard over a mutable
+  generated inventory path; never infer global clearance or admission from one
+  route's absence.
+- **Why the fix works:** The owner inventory now binds a deterministic guard
+  over the exact LUMINAiRY and Episode 01–04 source files, records 15 held
+  plaques, and explicitly retains the seven-path/ten-pair/eleven-occurrence
+  issue-page hold without depending on a replaceable inventory file.
+- **Machine/durable evidence:** The scoped correction is in
+  `operations/product-stewards/luminairy/VISUAL-ASSET-INVENTORY.md`; the
+  successor independent verdict is
+  `operations/control-room/evidence/luminairy-visual-inventory-reconciliation-successor-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** Removing an image from one room does not
+  remove it from the whole town.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-359 — A visible held label must not silently multiply a generic live region
+
+- **Date:** 2026-08-03
+- **Area:** MAiKEOVER / Resident Card asset-free held states / browser guards.
+- **Observation:** Adding a `role="status"` to the new Resident Card held
+  label caused the existing MAiKEOVER browser guard's generic
+  `[role="status"]` locator to resolve two elements. The visitor surface was
+  correct, but the broad selector made the proof ambiguous.
+- **Diagnosis:** The test encoded an unstated one-live-region assumption rather
+  than locating the intended status surface. Decorative/held labels do not
+  require a live-region role to be accessible.
+- **Prevention rule:** Before assigning a live-region role to a new held label,
+  search its shared browser guards for generic role selectors. Use ordinary
+  semantic text for static held labels, or tighten the guard to the intended
+  component; rerun every shared consumer suite after the change.
+- **Why the fix works:** The Resident Card and Try-On labels are now visible,
+  semantic paragraphs, and MAiKEOVER, Resident Card, and Try-On browser suites
+  all pass against the retained flows.
+- **Machine/durable evidence:**
+  `operations/product-stewards/maikeover/evidence-maikeover-held-vanity-maker-2026-08-03.md`.
+- **Possible Behind the Build angle:** Accessibility semantics work best when
+  they describe a real change, not a static caption.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-360 — A product total is not automatically every component's total
+
+- **Date:** 2026-08-03
+- **Area:** KSVL / catalogue guards / album-rack source narrowing.
+- **Observation:** KSVL has 29 available tracks, but the ten-band rack contains
+  a deliberate 25-track artist subset. An initial repair instruction would
+  have required the rack itself to represent all 29, silently changing the
+  product while attempting only to remove unadmitted cover art.
+- **Diagnosis:** The whole-station catalogue total was mistaken for a local
+  discovery component's membership contract.
+- **Prevention rule:** Before adding a count invariant, derive membership from
+  the exact component source and state whether it is complete, filtered or a
+  curated subset. Test both separately when a full catalogue and a subset
+  surface coexist; never make a repair expand content merely to satisfy the
+  global total.
+- **Why the fix works:** The held-cover guard binds the rack to its exact ten
+  bands and 25 track instances, while the separate Mix CDs `All Songs` shelf
+  remains bound to all 29 registry tracks.
+- **Machine/durable evidence:** The maker receipt is
+  `operations/product-stewards/ksvl/evidence-ksvl-held-album-faces-maker-2026-08-03.md`;
+  `scripts/validate-ksvl-catalogue.mjs` and
+  `scripts/test-ksvl-browser.mjs` keep the two totals distinct.
+- **Possible Behind the Build angle:** A global total can make a locally
+  correct shelf look incomplete when the shelf was never meant to be the whole
+  catalogue.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-361 — First-render tests must bind the actual automatic route state
+
+- **Date:** 2026-08-03
+- **Area:** Dream Phone / held-asset browser guard.
+- **Observation:** The booth automatically opens Just Call after load, so a
+  responsive guard that first tried to click the two-door entry timed out on a
+  correctly hidden button. The same page still preserves the two-door return
+  orientation and focus contract.
+- **Diagnosis:** The new test assumed the source's initial markup state was
+  the first visitor-visible state, instead of observing the route's automatic
+  transition.
+- **Prevention rule:** For a route with startup transitions, test the actual
+  first rendered interactive state before attempting an entry control. Test
+  the return/orientation state separately rather than forcing a hidden
+  predecessor control.
+- **Why the fix works:** The Dream Phone guard now checks its held label,
+  labelled live dialer and Founder marker after the automatic Just Call state,
+  while its existing Back/keyboard checks still prove the two-door return.
+- **Machine/durable evidence:**
+  `scripts/test-dream-phone-browser.mjs` and
+  `operations/product-stewards/dream-phone/evidence/dream-phone-two-held-assets-maker-2026-08-03.md`.
+- **Possible Behind the Build angle:** A first visit is what the page actually
+  does after it loads—not only the markup it begins with.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-362 — Animated scene frames are not automatically the interaction
+
+- **Date:** 2026-08-03
+- **Area:** BRONZE AiGE / Businesswomen's Special fortune teller.
+- **Observation:** Five paper-teller frames looked like functional game state,
+  but both the embedded and standalone product actually select from a private
+  catalogue through named lane/mood or deal controls and render their result as
+  live text. The frames only illustrated choosing/revealed transitions.
+- **Diagnosis:** Asset shape (a sequence of animation frames) was mistaken for
+  product authority without tracing controls, source selection, output,
+  focus, local receipt and failure recovery.
+- **Prevention rule:** Before replacing a multi-frame asset family, trace each
+  visitor input to the actual source of state and result. If the image only
+  illustrates a transition, replace it with an explicit visible state marker
+  and test source absence, no requests, reduced motion and the full result
+  contract; if image semantics carry the decision, hold for art instead.
+- **Why the fix works:** Both routes now show ready, choosing and revealed CSS
+  teller states while retaining their canonical catalogue, equal lanes,
+  results, local-only receipts and accessibility behavior. The full 102-check
+  browser suite confirms no frame request.
+- **Machine/durable evidence:**
+  `operations/product-stewards/bronze-aige/evidence/bronze-bws-held-fortune-frames-maker-2026-08-03.md`.
+- **Possible Behind the Build angle:** A picture can make a game feel alive;
+  it should not be the only thing proving the game is working.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-363 — A card's type must be live text, not a baked visual label
+
+- **Date:** 2026-08-03
+- **Area:** Girl Talk Truth/Dare card faces.
+- **Observation:** Girl Talk's random draw, prompt, local state and actions
+  already came from the live catalogue/DOM, but the only visible Truth/Dare
+  type label was baked into the two face images. The screen-reader label was
+  present but visually hidden.
+- **Diagnosis:** A decorative face had inherited responsibility for a core
+  meaning that must remain perceivable after an asset hold.
+- **Prevention rule:** When a card image contains a state/type label, expose
+  the same semantic text visibly in the live card component before treating the
+  image as optional. Test the type after a real draw as well as source absence,
+  no request, keyboard focus, mobile reflow and the state boundary.
+- **Why the fix works:** Girl Talk now renders a visible live Truth/Dare pill
+  on polished CSS faces, while its prompt, optional room link and local-only
+  actions remain unchanged. The 152-check browser suite proves the Truth card
+  meaning and full private/local journey without either image request.
+- **Machine/durable evidence:**
+  `operations/product-stewards/girl-talk/evidence/girl-talk-held-card-faces-maker-2026-08-03.md`.
+- **Possible Behind the Build angle:** A pretty card can set the mood; the
+  words that tell you what you drew should stay real text.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-366 — Local scores must never impersonate a wallet
+
+- **Date:** 2026-08-03
+- **Area:** SUNNYVAiLE High / Resident Card / shared reward boundary.
+- **Observation:** A Closet display converted browser-local best quiz scores
+  and Express completions into “banked,” spendable Butterfly Clips and
+  subtracted a local Book Fair record, even though no authoritative reward
+  ledger or fulfilment proof existed.
+- **Prevention rule:** A consumer may summarize product-local progress only
+  with an adjacent scope label. Before showing currency, ownership, spending,
+  available balance or sync, require an authoritative itemized grant/spend/
+  refund ledger and its consumer contract. Test seeded Book Fair data cannot
+  alter a progress-only display.
+- **Why the fix works:** The Card now renders a device-local Quiz + Express
+  Progress summary, removes Book Fair subtraction and wallet language, and a
+  focused browser guard covers cold, malformed and seeded states.
+- **Machine/durable evidence:**
+  `operations/product-stewards/resident-card/evidence-local-progress-asset-free-maker-2026-08-03.md`;
+  `scripts/test-local-progress-asset-free-browser.mjs`.
+- **Possible Behind the Build angle:** A number can be a score without being
+  money.
+- **Publication status:** BUILT LOCALLY — no public change.
+
+## BTB-364 — Control-plane tests must derive mutable queue counts
+
+- **Date:** 2026-08-03
+- **Area:** Control Room / owner review queue / operational integrity.
+- **Observation:** Moving a rejected Library proof from `Review Now` into
+  internal repair correctly changed the queue from seven to eight repairs, but
+  the Control Plane tests still asserted the historical number seven. A second
+  negative fixture assumed the first internal-repair item was always a failed
+  episode; once Library occupied that position, the fixture stopped testing
+  the media-admission guard at all.
+- **Prevention rule:** Tests for intentionally mutable owner queues must derive
+  counts from the canonical queue and select semantic fixtures by stable ID or
+  kind, never by array position. Time-based resolution checks must also advance
+  their explicit `next_check_at` during a real reconciliation instead of
+  leaving healthy open work immediately overdue.
+- **Why the fix works:** The generated Control Plane now proves exact queue
+  parity at any valid count, and the operational negative test deliberately
+  selects an objective media failure. Current work-resolution, dispatcher,
+  integrity, generated-state and rendered Control Plane checks pass while the
+  dispatcher remains paused.
+- **Machine/durable evidence:** `scripts/test-build-owner-control-plane.mjs`;
+  `scripts/test-owner-control-plane-browser.mjs`;
+  `scripts/test-operational-integrity.mjs`;
+  `operations/runtime/work-resolution-loop.json`.
+- **Possible Behind the Build angle:** A test can stay green while checking the
+  wrong object if it relies on a queue position instead of meaning.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-367 — An untracked manifest needs recoverable predecessor bytes
+
+- **Date:** 2026-08-03
+- **Area:** Whole-town environment manifests / maker-judge evidence.
+- **Observation:** MAiKEOVER's current closed portrait control, contract and
+  browser behavior all passed, but an independent judge could not prove the
+  claimed one-field manifest correction because the manifest was untracked and
+  `HEAD` contained no predecessor.
+- **Prevention rule:** Before editing an untracked governance or manifest file,
+  preserve the exact predecessor bytes at an evidence path and bind their
+  checksum. A prose before-hash is insufficient; the judge must be able to
+  reproduce a direct byte diff independently.
+- **Why the fix works:** The exact predecessor manifest was restored as a
+  checksum-matching archival artifact. Its direct diff to the candidate is one
+  `primary_control` value, allowing the judge to accept the correction without
+  trusting the maker's description.
+- **Machine/durable evidence:**
+  `operations/product-stewards/maikeover/evidence/portrait-hold-primary-control-predecessor-2026-08-03.json`;
+  `operations/control-room/evidence/maikeover-portrait-hold-primary-control-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** A hash proves identity only when the
+  reviewer can recover the bytes it names.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-368 — Enhanced destination previews need a semantic failure twin
+
+- **Date:** 2026-08-03
+- **Area:** Visitor's Centre / shared directory / no-JavaScript fallback.
+- **Observation:** The enhanced map could reveal a destination's readiness,
+  limitation and qualified action, while the static fallback exposed only a
+  name and route. A newcomer lost the explain-before-open contract exactly
+  when JavaScript or the shared directory failed.
+- **Prevention rule:** When an enhanced object preview is generated from a
+  sealed source, generate its static/no-JavaScript and dependency-failure twin
+  from the same fields and markers. Test exact parity, all supported viewports,
+  drift/tamper failures and the absence of invented completion or marketing
+  copy.
+- **Why the fix works:** The readiness builder now emits all 17 fallback
+  dockets from the sealed projection. Every held destination shows only its
+  bound state, summary, limitation and qualified action, while missing owner
+  receipts remain visible instead of being backfilled with promises.
+- **Machine/durable evidence:**
+  `operations/product-stewards/visitors-centre/evidence-static-semantic-docket-maker-2026-08-03.md`;
+  `operations/control-room/evidence/visitors-centre-static-semantic-docket-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** A graceful fallback should lose
+  animation, not meaning.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-369 — A route can be correct while its object boundary is wrong
+
+- **Date:** 2026-08-03
+- **Area:** Blend & Snap / Study Pack / SUNNYVAiLE High handoff.
+- **Observation:** The Quiz used the correct High route and copy said “next
+  door,” but the public manifest, menu and pickup receipt still counted it as
+  a Study Pack component. The UI therefore taught the wrong learning sequence
+  even though the click destination worked.
+- **Prevention rule:** When a flow has an adjacent assessment, reward or
+  receiving owner, model that handoff separately from the source object’s
+  inventory. Validate public/private parity, reject the adjacent object inside
+  the inventory, render it in a named handoff region and test both valid and
+  malformed data at desktop and mobile widths.
+- **Why the fix works:** Pack counts and receipt lines now mean only Pack
+  contents. The Quiz remains discoverable as a distinct High action without
+  implying it belongs to the Pack or that the café receives assessment state.
+- **Machine/durable evidence:**
+  `operations/product-stewards/blend-snap/evidence-quiz-handoff-semantic-boundary-composite-maker-2026-08-03.md`;
+  `operations/control-room/evidence/blend-snap-quiz-handoff-semantic-boundary-independent-judge-2026-08-03.md`;
+  `scripts/validate-blend-snap-packs.mjs`;
+  `scripts/test-blend-snap-browser.mjs`.
+- **Possible Behind the Build angle:** The route was right; the mental model
+  was not.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-370 — A passing viewport can still produce non-reproducible evidence
+
+- **Date:** 2026-08-03
+- **Area:** NewsStand / browser evidence capture.
+- **Observation:** NewsStand's source, DOM assertions and visual inspection
+  passed, but the 1440 screenshot changed across identical reruns while mobile
+  captures reproduced. The first desktop capture occurred before explicit web
+  font readiness and without frozen transition, caret, scrollbar and scroll
+  state.
+- **Prevention rule:** A screenshot used as checksum-bound judge evidence must
+  wait for every required font, disable animation/transition/caret/smooth
+  scroll, fix viewport metrics and integer scroll positions, clear focus and
+  selection, and reproduce byte-for-byte in two fresh profiles before the
+  maker records its hash.
+- **Why the fix works:** The evidence harness now freezes those variables. Two
+  fresh-profile 118-check runs reproduce the 1440, 390 and 320 PNGs exactly,
+  allowing the independent judge to bind the visual evidence without changing
+  NewsStand product behavior.
+- **Machine/durable evidence:**
+  `operations/product-stewards/newsstand/evidence-four-paper-live-contents-maker-2026-08-03.md`;
+  `operations/control-room/evidence/newsstand-four-paper-live-contents-independent-judge-2026-08-03.md`.
+- **Possible Behind the Build angle:** A screenshot can look identical to a
+  person and still fail as evidence when fonts or scroll state are moving.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-371 — Display copy cannot be the primary key for governed media
+
+- **Date:** 2026-08-03
+- **Area:** Mme CLAi-O / governed deck inventory / card-art mapping.
+- **Observation:** The 100-card reading deck was embedded directly in the page,
+  while art filenames were inferred from display names and two exceptions lived
+  in a separate runtime alias table. The experience passed, but a copy edit or
+  new card could silently break media identity or drift from the tested deck.
+- **Prevention rule:** Keep governed object copy and explicit media identity in
+  one schema-validated canonical record. Generate the runtime projection
+  deterministically, fail when it is stale, malformed or duplicated, and test
+  every referenced media family before the visitor route can pass.
+- **Why the fix works:** Mme CLAi-O now reads an inline projection generated
+  from one 100-record JSON deck with stable IDs and explicit art slugs. The
+  builder preserves the no-fetch reading path while contract and negative
+  fixtures reject schema weakening, missing fields/art, duplicates, malformed
+  data and stale projection bytes.
+- **Machine/durable evidence:** `content/data/mme-claio-deck.json`;
+  `content/data/mme-claio-deck.schema.json`;
+  `scripts/build-mme-claio-deck.mjs`;
+  `scripts/test-mme-claio-deck-build.mjs`;
+  `scripts/test-mme-claio-contract.mjs`.
+- **Possible Behind the Build angle:** A card title is presentation; it should
+  not secretly decide which production asset exists.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-375 — Build-time identity does not automatically protect runtime input
+
+- **Date:** 2026-08-03
+- **Area:** Mme CLAi-O / governed deck / runtime fail-closed behavior.
+- **Observation:** The deterministic builder rejected a stale inline 100-card
+  deck, but the browser accepted any projection with the right shape, count
+  and unique fields. A semantically changed card therefore still enabled both
+  draw controls when the page was served without first rebuilding it.
+- **Prevention rule:** For a governed generated projection used directly in a
+  visitor runtime, keep interactive controls disabled by default and admit the
+  projection only after its exact bytes match a separately generated canonical
+  digest. Test a structurally valid stale payload in the real browser, not only
+  malformed input and the build command.
+- **Why the fix works:** The generated Mme CLAi-O runtime pins the canonical
+  serialized-deck SHA-256 separately from the inline JSON, verifies the bytes
+  with Web Crypto and only then enables the table and primary draw controls.
+  Malformed and structurally valid stale fixtures stay disabled and cannot
+  create a reading, count or history entry.
+- **Machine/durable evidence:**
+  `operations/product-stewards/mme-claio/evidence-runtime-exact-deck-admission-maker-2026-08-03.md`;
+  `scripts/build-mme-claio-deck.mjs`;
+  `scripts/test-mme-claio-browser.mjs`.
+- **Possible Behind the Build angle:** The build knew the deck was stale; the
+  browser still needed its own proof.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-376 — A review firewall that ends at the queue does not protect the browser handoff
+
+- **Date:** 2026-08-03
+- **Area:** Building champions / visual review admission / Library.
+- **Observation:** The product-champion skill explicitly prohibited showing a
+  local building candidate before full design admission, and the owner-review
+  checker correctly failed closed once an item entered `review_now`. An agent
+  nevertheless opened an unadmitted Library exploration directly in Ali's
+  browser. Narrow technical and scoped judge passes had accumulated around an
+  experience that visibly failed scale, alignment, brand, spatial growth and
+  basic visitor clarity.
+- **Prevention rule:** Opening, linking, attaching or navigating Ali to any
+  building visual is itself review admission. Resolve the review URL only
+  through `scripts/resolve-design-review-url.mjs`; the resolver must find the
+  exact path and SHA-256 in `review_now` and reproduce the full design-admission
+  PASS. Raw `file://` paths and direct chat attachments are never alternate
+  review paths. After two failures on the same qualitative requirement, stop
+  repair iteration and issue a replacement direction or corrected production
+  packet.
+- **Why the fix works:** The last human-facing step now consumes the same
+  exact-byte authority as the queue. A technically valid local prototype
+  cannot reach Ali merely because an agent can open a browser.
+- **Machine/durable evidence:** `scripts/resolve-design-review-url.mjs`;
+  `scripts/test-design-review-admission.mjs`;
+  `operations/product-stewards/AUTONOMOUS-DELIVERY-RUNTIME.md`;
+  `$laidies-product-champion` visual presentation firewall.
+- **Possible Behind the Build angle:** The gate existed; the final handoff
+  route went around it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-377 — Missing metadata is not a visitor problem
+
+- **Date:** 2026-08-03
+- **Area:** Work admission / KSVL / minimum-sufficient-work enforcement.
+- **Observation:** An agent treated absent song summaries and lyrics as an
+  incomplete product surface even though KSVL already had the authorized songs
+  and the proposed context layer did not solve a demonstrated listener problem.
+  The operating rules said to avoid non-value work, but dispatch validation did
+  not require proof of a visitor-visible gap.
+- **Prevention rule:** Before any item leaves `OPEN`, require a concrete visitor
+  problem, evidence that the current experience does not already solve it, the
+  smallest complete change and explicit non-goals. A missing field, document,
+  summary or optional enhancement cannot create work by itself. Reject it as
+  `REJECTED — NO VISITOR DELTA`.
+- **Why the fix works:** The canonical work-loop checker now fails any
+  dispatched or active item without `work_admission`, and a negative fixture
+  reproduces the unnecessary KSVL-summary task. The product-champion skill and
+  autonomous runtime use the same admission rule.
+- **Machine/durable evidence:** `scripts/check-work-resolution-loop.mjs`;
+  `scripts/test-work-resolution-loop.mjs`;
+  `operations/test-fixtures/work-resolution-loop/missing-visitor-delta.json`;
+  `operations/runtime/WORK-RESOLUTION-LOOP.md`;
+  `operations/product-stewards/AUTONOMOUS-DELIVERY-RUNTIME.md`.
+- **Possible Behind the Build angle:** A backlog item can be perfectly formed
+  and still be the wrong work.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-378 — Re-rendering into a rejected screenshot path destroys its evidence identity
+
+- **Date:** 2026-08-03
+- **Area:** Design quarantine / visual evidence / operational integrity.
+- **Observation:** Three rejected Library screenshots were later re-rendered at
+  the same filenames. Their recorded rejection hashes no longer matched the
+  bytes on disk, so the design-admission and operational-integrity checks
+  correctly failed. The rejected HTML identity and its whole directory were
+  still quarantined, but the original screenshot bytes were no longer present.
+- **Prevention rule:** Treat every rendered review set as immutable. A successor
+  must render into a new candidate directory and receive a new identity; never
+  overwrite a screenshot path already cited by a rejection or judgment. When a
+  historical byte has already been lost, preserve its rejected SHA and evidence
+  honestly as historical/unavailable while retaining the parent candidate's
+  exact directory quarantine—never relabel the replacement byte as the rejected
+  one.
+- **Why the fix works:** New review renders cannot silently mutate old evidence,
+  and the quarantine continues blocking the entire rejected candidate directory
+  even when an old screenshot byte is unavailable.
+- **Machine/durable evidence:** `operations/control-room/rejections.json`;
+  `scripts/check-design-review-admission.mjs`;
+  `scripts/check-operational-integrity.mjs`.
+- **Possible Behind the Build angle:** A screenshot filename stayed the same;
+  the evidence did not.
+- **Publication status:** VERIFIED INTERNAL LEARNING — no public change.
+
+## BTB-379 — An approved template is not adopted until every current page consumes its contract
+
+- **Date:** 2026-08-03
+- **Area:** Weekly Episodes / written reader template / Read-Listen-Watch journey.
+- **Failure:** Ali had approved an Episode 1 reading-template direction, but
+  the current Episodes 01–04 pages still diverged into separately authored
+  surfaces. They emphasized Listen, displayed a `SUNNYVAiLE VIDEO` spine and
+  exposed production-facing labels such as `Cold open` on the written version.
+  The historical approval existed, but no shared contract or release check
+  proved that every episode page still delivered it.
+- **Prevention rule:** Treat the episode reader template as a versioned shared
+  visitor contract, not a visual reference. Every release must prove: one
+  obvious current mode; persistent same-episode Read/Listen/Watch controls;
+  honest unavailable-format states; reader-facing rather than production
+  terminology; exact related-content destinations; and parity across every
+  current episode at mobile, desktop, keyboard and public origin. A page that
+  cites the approved template but does not consume and pass that contract fails
+  release admission.
+- **Why the fix works:** A new episode cannot quietly reproduce an older or
+  video-shaped article shell. The guarded shared contract catches drift before
+  one page becomes the accidental template for the next.
+- **Machine/durable evidence:**
+  `operations/product-stewards/idea-inbox/handoff-episode-read-listen-watch-template-2026-08-03.md`;
+  `operations/runtime/work-resolution-loop.json#WRK-20260803-episode-format-navigation-template-repair`;
+  `operations/review-packets/episode-01-approved-template-qa.md`;
+  `issues/issue-01.html` through `issues/issue-04.html`; `watch.html`.
+- **Possible Behind the Build angle:** We approved the template. The pages
+  still forgot it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — repair dispatched; no
+  public change yet.
+
+## BTB-380 — “Recover the earlier design” requires the exact composition, not its newest descendant
+
+- **Date:** 2026-08-03
+- **Area:** LIBRAiRY / incumbent recovery / visual continuity.
+- **Failure:** The recovery lane treated the newest page that reused some
+  Library assets as the requested incumbent. It retained the older soft Miss
+  Jeeves image, cropped it at 2.6× and replaced the purple-wall integrated
+  three-bay room with one standalone shelf. Ali had meant the exact earlier
+  composition already recorded in `operations/library-decisions.md`.
+- **Prevention rule:** When Ali identifies an earlier design, bind the recovery
+  to her concrete visual markers and the durable decision record before editing:
+  exact masthead asset, room background, object assets, spatial relationships
+  and responsive behavior. Reusing one familiar asset or inheriting from the
+  newest file does not establish incumbent identity. Render the recovered
+  composition at desktop and mobile and compare those markers before review.
+- **Why the fix works:** Recovery becomes a byte-and-composition task rather
+  than another interpretation cycle, while later functional improvements can
+  be preserved deliberately instead of replacing the visual foundation.
+- **Machine/durable evidence:** `operations/library-decisions.md`;
+  `library.html`; `scripts/test-library-product.cjs`.
+- **Possible Behind the Build angle:** We found the right shelves only after
+  we stopped assuming the newest page was the incumbent.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local correction only;
+  independent page judgment and release gates remain open.
+
+## BTB-381 — A readable sentence can still fail when its layout and example are not exercised literally
+
+- **Date:** 2026-08-03
+- **Area:** LIBRAiRY how-to route / Homepage → Miss Jeeves handoff.
+- **Failure:** The how-to copy passed source and browser checks while a four-column
+  desktop grid squeezed the longest instruction into a thin, excessively tall
+  column. Separately, Miss Jeeves displayed “how do I know if it is telling the
+  truth?” as her example, but that literal question missed the direct answer
+  matcher. Both defects were visible only when the exact presentation and exact
+  suggested journey were exercised rather than inferred from valid markup.
+- **Prevention rule:** For instructional layouts, test the longest real item at
+  the widest supported desktop and narrow mobile widths and reject columns that
+  force ordinary prose into stranded lines. Every example prompt, suggested
+  query and quick link shown to visitors must be a literal automated journey
+  whose expected answer, destination and privacy state are asserted.
+- **Why the fix works:** The how-to route now uses a wide 2×2 desktop sequence
+  and one-column mobile sequence. The Homepage transfers Miss Jeeves questions
+  through a client-only fragment; the Library consumes and removes the raw
+  question from the URL, and the visible truth-checking example now reaches its
+  direct verification answer.
+- **Machine/durable evidence:** `library.html`; `index.html`;
+  `scripts/test-library-product.cjs` (59-check suite);
+  `operations/product-stewards/library/evidence-library-incumbent-recovery-2026-08-03/independent-how-to-layout-judgment-v8e8cd8bc.md`.
+- **Possible Behind the Build angle:** The prompt was right on the page. The
+  feature still did not recognize it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local correction only;
+  exact incremental judgment and release gates remain open.
+
+## BTB-382 — A strong class standard does not automatically govern a useful reference book
+
+- **Date:** 2026-08-03
+- **Area:** Learning system / LIBRAiRY content admission.
+- **Failure:** The learning standard named strong general outcomes and the
+  class-media standard encoded the Hannah Fry communication benchmark in
+  detail, but the Library had no equally explicit book-specific architecture.
+  That allowed accuracy, claims and rendering checks to be mistaken for proof
+  that every book delivered the intended LAiDIES explanation. A first repair
+  then overcorrected by risking class-like padding for compact FAQs and lookup
+  references.
+- **Prevention rule:** Maintain separate format contracts. A substantial book
+  needs a scannable durable explanation: human lookup job, plain mechanism,
+  distinctions, concrete visibility where needed, analogy limits, consequence,
+  evidence/freshness and a genuinely useful continuation. Compact references
+  use only the applicable subset and must never acquire filler sections,
+  examples, interactions or links to resemble a class. Apply Hannah Fry as an
+  explanation-quality lens, not a mandatory class sequence. Before opening,
+  the shelf/card must say what the item covers, what it does and whether it is
+  available.
+- **Why the fix works:** Content reviewers can now reject a thin or generic
+  book without forcing every reference object into narration, guided practice,
+  feedback and transfer exercises. Each format keeps its own cognitive job.
+- **Machine/durable evidence:**
+  `operations/product-stewards/LEARNING-CONTENT-STANDARD.md`;
+  `operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md`;
+  independent book matrix and two-pass standard judgment on 2026-08-03.
+- **Possible Behind the Build angle:** The class rubric was excellent. It was
+  still the wrong ruler for a glossary.
+- **Publication status:** VERIFIED INTERNAL LEARNING — standard corrected;
+  every Library book remains separately held until exact admission evidence.
+
+## BTB-383 — A section title is not a unique bookmark address
+
+- **Date:** 2026-08-03
+- **Area:** LIBRAiRY reader / Puffy exact-section saves.
+- **Failure:** The reader created Puffy controls for every heading, including
+  repeated `Receipts` headings, and reopened a saved section by the first title
+  containing the stored text. Concepts 101 contains repeated labels such as
+  `Try this`, so a valid save could reopen the wrong earlier section even while
+  the generic one-heading fixture passed.
+- **Prevention rule:** Expose Puffy controls only on intentional contents
+  destinations, exclude evidence/receipt furniture, and bind every save to a
+  deterministic unique section ID plus the exact book/content version. Preserve
+  title lookup only as a legacy fallback. Regression-test a real admitted
+  fixture containing duplicate labels and prove the second occurrence reopens
+  itself.
+- **Why the fix works:** Human-readable headings can repeat without weakening
+  retrieval identity; the stored destination is unique while old title links
+  continue to degrade safely.
+- **Machine/durable evidence:** `library.html`;
+  `scripts/test-library-product.cjs` (63-check suite);
+  `content/library-books/rendered/concepts-101.html`.
+- **Possible Behind the Build angle:** Saving “Try this” worked perfectly—until
+  the book had four of them.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local reader repair;
+  independent exact rejudgment and release gates remain open.
+
+## BTB-384 — A fixed-width source regex can turn safe formatting into a false system failure
+
+- **Date:** 2026-08-03
+- **Area:** LIBRAiRY admission / correction propagation.
+- **Failure:** The correction-propagation suite tried to prove that the reader
+  checks current admission by requiring two source strings to occur within 160
+  characters. A legitimate reader-format repair added the exact-section hash
+  handling between them, so the test failed even though `admittedBook(id)` was
+  still evaluated and guarded before any book opened. A second assertion had
+  also frozen obsolete Puffy explanatory prose rather than the current
+  admission-recheck promise.
+- **Prevention rule:** When a source-level guard must be asserted, isolate the
+  complete named function and verify the required calls and guard order within
+  that function; do not use arbitrary character-distance windows. Assert the
+  stable behavioral promise in visitor copy, not an older paragraph around it.
+  Keep a separate browser journey that proves held/corrected books remain
+  non-operable.
+- **Why the fix works:** Formatting and adjacent safe checks can change without
+  disabling the admission proof, while removal or reordering of the actual
+  guard still fails. The existing Library product browser suite separately
+  proves the visitor-visible fail-closed behavior.
+- **Machine/durable evidence:**
+  `scripts/test-library-correction-propagation.mjs` (17 checks);
+  `scripts/test-library-product.cjs` (65 checks); `library.html`;
+  `content/site/puffy-bookmarks.js`.
+- **Possible Behind the Build angle:** The safety guard never moved. The test
+  broke because a comment and two lines made it 161 characters away.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local test repair only;
+  book admission and release gates remain open.
+
+## BTB-385 — Canonical analogy limits and shelf links can drift from the visible book
+
+- **Date:** 2026-08-03
+- **Area:** LIBRAiRY content admission / pre-open comprehension.
+- **Failure:** Briefing 101's canonical record held the complete limits for the
+  “new hire” analogy, but the rendered book omitted several of them. Its shelf
+  preview still described the superseded analogy-led version, and Library and
+  Vocab routes targeted a heading removed by the bounded rewrite. General
+  content and reader tests passed because they did not compare those exact
+  visitor-visible contracts.
+- **Prevention rule:** For every admitted book, bind canonical analogy limits
+  to the rendered sentence, bind the shelf preview to the final reader job and
+  contents, and validate every book/section route against an exact existing
+  destination after any structural edit. A canonical record or working reader
+  is not enough when the visible explanation or pre-open promise has drifted.
+- **Why the fix works:** The claim checker now fails if any of the six new-hire
+  boundaries disappear, if old duplicated headings return, if the shelf stops
+  naming the five-part job/checking value, or if Library/Vocab point at the
+  removed heading.
+- **Machine/durable evidence:**
+  `scripts/check-briefing-101-claims.mjs`;
+  `content/library-books/rendered/briefing-101.html`; `library.html`;
+  `content/library-books/rendered/vocab-101.html`;
+  independent successor judgment SHA-256
+  `789db40744ef389fe18c5af2d10974462766f59097a2e655a5dfa4964642be3c`.
+- **Possible Behind the Build angle:** The book was corrected, but the shelf
+  was still advertising the old book.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local successor
+  passes; Briefing 101 and every other Library book remain on admission hold.
+
+## BTB-386 — A healthy dashboard can conceal an empty workshop
+
+- **Date:** 2026-08-03
+- **Area:** Control Room / autonomous delivery runtime.
+- **Failure:** The run queue contained no active task, five canonical work
+  records had crossed their next-check times, and one Episode-format item still
+  claimed `DISPATCHED` without a task receipt, while the runtime reported
+  `HEALTHY`. This made stopped background execution look operational and left
+  Ali reasonably expecting work that was not happening.
+- **Prevention rule:** Never infer live background execution from a durable lane
+  label or ready queue. A “running” claim requires a current task-bound runtime
+  receipt. Any overdue canonical record forces `ATTENTION_REQUIRED`, and an
+  unreceipted dispatch returns to `OPEN`. Keep the dispatcher paused until its
+  migration, bounded dry run, overlap clearance and separate resume decision
+  are complete.
+- **Why the fix works:** The work-resolution validator first failed on the five
+  overdue records and false health state; after canonical status/next-check
+  repair and control-surface regeneration, both work-resolution and operational
+  integrity checks passed without pretending a worker existed.
+- **Machine/durable evidence:**
+  `operations/runtime/work-resolution-loop.json`;
+  `operations/control-room/work-index.json`;
+  `operations/control-room/owner-state.json`;
+  `node scripts/check-work-resolution-loop.mjs`;
+  `node scripts/check-operational-integrity.mjs`;
+  `node scripts/check-dispatcher-migration.mjs`.
+- **Possible Behind the Build angle:** The dashboard said healthy. Nothing was
+  running.
+- **Publication status:** VERIFIED INTERNAL LEARNING — runtime truth repaired;
+  the dispatcher remains PAUSED and no autonomous heartbeat was restarted.
+
+## BTB-387 — Passing source checks can still hide unusably small objects
+
+- **Date:** 2026-08-03
+- **Area:** LIBRAiRY responsive catalogue / design admission.
+- **Failure:** The Library's source and contract checks passed while mobile book
+  covers rendered at roughly 98 CSS pixels and Miss Jeeves suggestion controls
+  rendered at roughly 37 pixels. The page technically contained the required
+  shelves, controls and explanations, but its primary objects were too small to
+  browse confidently and its touch targets missed the product floor.
+- **Prevention rule:** Every object-led building must measure its primary objects
+  and interactive targets in the live browser at the narrowest supported widths.
+  Assert an explicit object-legibility floor, the 44-pixel interaction floor,
+  partial-next-object or equivalent browse affordance, and the actual ordering
+  of contextual explanations. A source token, DOM presence or responsive media
+  query is not evidence of rendered usability.
+- **Why the fix works:** The current Library uses a horizontal real-metal shelf
+  reel at 390 and 320 pixels, where every cover is 160 CSS pixels wide, every
+  tested control is at least 44 pixels and the next book remains partly visible.
+  An independent live Product/UX judge repeated the journeys rather than relying
+  on the maker's source checks.
+- **Machine/durable evidence:** `library.html` SHA-256
+  `2197bf6915b266d9e29aefa6eb0a56979b2ed7bd5930fd9914af7af5cc0d00e5`;
+  `scripts/test-library-modular-reading-system.mjs`;
+  `operations/product-stewards/library/evidence-library-candidate-2026-08-03/product-ux-independent.md`.
+- **Possible Behind the Build angle:** Every feature was present. The books were
+  still too small to use.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local candidate
+  passes bounded Brand and Product/UX judgment; design admission, books, assets
+  and public release remain separate.
+
+## BTB-388 — A full-page builder cannot assume every HTML asset is a document
+
+- **Date:** 2026-08-03
+- **Area:** Curated public build / LIBRAiRY book admission.
+- **Failure:** Admitting the first real Library book made the public builder
+  traverse its rendered HTML fragment. The context-navigation transform then
+  rejected the fragment for lacking `</body>`, even though that absence is
+  correct for content mounted inside the Library reader. The previous builder
+  silently assumed every reachable `.html` file was a complete page.
+- **Prevention rule:** Classify HTML by an exact, narrow runtime contract before
+  applying document transforms. Only `content/library-books/rendered/*.html`
+  may remain an embeddable fragment; those fragments must reject a navigation
+  mount. Every other HTML input continues to require a complete document and
+  fail closed when `</body>` is missing.
+- **Why the fix works:** One shared transform now preserves only the named
+  fragment family and delegates all complete pages to the unchanged fail-closed
+  navigation distributor. Its calibrated test deliberately rejects both a
+  fragment with a navigation mount and a malformed full document.
+- **Machine/durable evidence:** `scripts/lib/public-html-transform.mjs` SHA-256
+  `46d2c8874bd8a60217e7022d554aabca78cf9b75b4859e7c027fb7409e9ffd8e`;
+  `scripts/test-public-html-transform.mjs` SHA-256
+  `a58addc6e5c1558c586a0c6061dcab37da7e6e82eba93b1682a8c6cd44b69209`;
+  builder/inventory parity passes with nine remaining asset references and zero
+  missing dependencies.
+- **Possible Behind the Build angle:** The first real book broke the site build
+  because a chapter fragment was mistaken for a whole webpage.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local build-path repair
+  only; the curated public build, Library visual admission and release remain
+  on HOLD.
+
+## BTB-389 — A missing reference is not permission to invent a replacement
+
+- **Date:** 2026-08-03
+- **Area:** Whole-town recovery / asset reuse / truthful feature restoration.
+- **Failure:** Recovery work repeatedly treated a rejected consumer reference,
+  an absent registration or a regressed checkout as proof that the underlying
+  asset or feature did not exist. That led to unnecessary replacement concepts,
+  allowed technically valid but visually unreviewed work to appear “passed,”
+  left a false Trading Cards system dormant behind hidden markup, and briefly
+  made a copy-only identity repair look sufficient even though the account and
+  continuation modules were absent from the checkout. One Closet registry edit
+  also entered an exact asset under the wrong family structure before the
+  fail-closed validator rejected it.
+- **Prevention rule:** Reuse first. Before generating art, hiding behavior or
+  rewriting product truth, search the repository, inspect the real bytes, trace
+  their authority and compare the current checkout with the verified release.
+  A rejected reference is not missing art; hidden executable behavior is not
+  removal; copy cannot restore a missing capability; a checksum or source PASS
+  is not visual/UX admission. Registry mutations must retain exact structural
+  placement and pass a calibrated default-DENY test.
+- **Why the fix works:** Mme CLAi-O and Closet reused existing room art and
+  received exact scoped admission. Trading Cards removed the entire false
+  random/local-storage implementation and now reads the canonical catalogue as
+  a bounded no-collection preview. Identity restoration recovered the exact
+  released modules, merged hardened client/SQL behavior, reconnected Homepage,
+  navigation, Resident Card and Closet, and then let browser tests expose two
+  additional missing integration edges before acceptance.
+- **Machine/durable evidence:** `operations/DECISIONS.md` reuse-first lock;
+  `games/trading-cards.html`; `scripts/test-trading-cards-truthful-preview.mjs`;
+  `resident-card.html`; `laidies-card.html`; `index.html`;
+  `content/site/sv-nav-auth.js`; `scripts/test-resident-card-contract.mjs`;
+  `scripts/test-resident-card-browser.mjs`;
+  `scripts/test-resident-continuation-ui.mjs`.
+- **Possible Behind the Build angle:** We almost redrew the room because one
+  doorway had lost its label.
+- **Publication status:** VERIFIED INTERNAL LEARNING — prevention and local
+  repairs only; no deployment, provider mutation or public-release authority.
+
+## BTB-390 — A gate that hashes the references but not the page can approve stale work
+
+- **Date:** 2026-08-03
+- **Area:** Episode format navigation / exact-candidate admission.
+- **Failure:** The Episode 01 pilot gate bound four authority inputs but not the
+  two visitor pages, the CSS they actually loaded or the episode index. It could
+  therefore describe current authority while a stale page tuple, retired slug
+  and obsolete internal production comment remained outside its identity seal.
+- **Prevention rule:** A visitor-facing gate must hash-bind the exact rendered
+  source pages, the actual shared assets they consume and any canonical index
+  that supplies their identity. Authority hashes supplement output identity;
+  they do not replace it. Calibrate the gate by corrupting one bound output hash
+  and require the exact expected failure before trusting a PASS.
+- **Why the fix works:** The corrected gate binds `issues/issue-01.html`,
+  `watch.html`, `content/episode-format-navigation.css`,
+  `content/episode-index.json` and the four current authority inputs. It rejects
+  the retired slug and production-note vocabulary, failed on a deliberately
+  corrupted issue hash, and passed only after exact restoration.
+- **Machine/durable evidence:**
+  `content/episodes/episode-format-navigation-pilot.json` SHA-256
+  `20880a3a113d91dd15ec29bb8a165824bc2dbddbc7ab777796d549102a6dd977`;
+  `scripts/check-episode-format-navigation-pilot.mjs` SHA-256
+  `31668086b5523662b9b58cde62e07cc4137a631369ae043af1486a57a9191e9e`.
+- **Possible Behind the Build angle:** The checklist knew the rules but could
+  not prove which webpage it had actually reviewed.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local source gate
+  only; native accessibility, propagation, deployment and public release remain
+  held.
+
+## BTB-391 — A validator preserved the rejected CSS object instead of the visitor job
+
+- **Date:** 2026-08-03
+- **Area:** NewsStand building-as-interface / visual and state admission.
+- **Failure:** The NewsStand contract test required `.ns-publications::after`
+  as proof of a physical counter rail. That exact pseudo-element belonged to
+  the rejected CSS-art composition, so the gate failed when the fake rail was
+  correctly removed. At the same time, the arrival said The Tribune was current
+  while its primary action still opened the held Weekly; the extensive state
+  suite did not compare the visible state with its highest-priority action.
+- **Prevention rule:** Encode the visitor job and forbidden regressions, never a
+  decorative implementation artifact. A continuous-counter check now requires
+  one counter surface, four zero-gap canonical controls and no publication or
+  counter pseudo-object selectors. Every live availability state must also
+  assert its matching primary action or truthful no-target orientation state.
+- **Why the fix works:** The exact existing Paige scene supplies the place; the
+  four publications remain live HTML inside one counter; the CTA derives from
+  the sole current paper and cannot promote held, stale or missing data. The
+  counter gate was calibrated by changing its required zero gap to 12px and
+  observing the expected failure before restoration.
+- **Machine/durable evidence:** `newsstand.html` SHA-256
+  `44e740842abaf948dd55fe22676931524a0e765e638680d39ce0899ea32134fd`;
+  `content/newsstand.css` SHA-256
+  `05b695cd240cba084864fcb27bad586d5ed83a2422a8afcbc8aa76f5b332021d`;
+  `scripts/test-newsstand-reader-contract.mjs`; 122-check rendered browser suite;
+  `operations/product-stewards/newsstand/evidence-paige-counter-successor-independent-verdict-2026-08-03.md`.
+- **Possible Behind the Build angle:** The automated check protected the fake
+  counter—and missed that the real button opened the wrong paper.
+- **Publication status:** VERIFIED INTERNAL LEARNING — bounded local Product/UX
+  acceptance only; Brand/owner, native accessibility, release and public proof
+  remain held.
+
+## BTB-392 — A semantic accessibility pass is not a native screen-reader pass
+
+- **Date:** 2026-08-04
+- **Area:** Episode Read/Listen/Watch navigation and native accessibility.
+- **Failure:** Source semantics, Chromium keyboard checks and reflow tests all
+  passed, but no real Safari + VoiceOver session was available. Treating those
+  checks as native evidence would have falsely closed the final accessibility
+  gate. The independent judge also caught retired gold in the shared selector,
+  proving that a scoped judge may surface—but cannot silently waive—another
+  objective release rule.
+- **Prevention rule:** Name the evidence ceiling. DOM/accessibility-tree and
+  automated keyboard checks establish semantics and browser behavior only;
+  any contract requiring native assistive technology stays HOLD until an exact
+  native session witnesses spoken state, focus order, activation, fallback,
+  zoom and failure recovery. Repair cross-discipline objective failures, rebind
+  the tuple and rerun affected judges rather than carrying forward stale PASS.
+- **Why the fix works:** Chick Flicks accepted the current local format states,
+  the retired color was removed and independently rebound, while the missing
+  VoiceOver witness remains one explicit blocker instead of an invented PASS.
+- **Machine/durable evidence:**
+  `operations/product-stewards/episode-experience/evidence-episode-01-format-navigation-native-accessibility-v2-judge-2026-08-04.md`;
+  `operations/product-stewards/chick-flicks/independent-admission-episode-01-format-navigation-v2-2026-08-04.md`;
+  `content/episodes/episode-format-navigation-pilot.json` SHA-256
+  `3773c9f7fa197f7332e6b2f9c99afce953285bf91d568c473777114ce3949f05`.
+- **Possible Behind the Build angle:** The accessibility tree said yes. The
+  screen reader had never been asked.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local pilot only; native
+  accessibility, propagation, deployment and public verification remain HOLD.
+
+## BTB-393 — A component PASS missed the browser boundary that visitors actually crossed
+
+- **Date:** 2026-08-04
+- **Area:** Public runtime recovery / Library, shared header and NewsStand.
+- **Failure:** Three locally accepted surfaces still failed at their real
+  boundaries. Library's inline form called an IIFE-private `jvGo`; Issue 04
+  loaded a shared-header byte under a stale cache key and overflowed at 320px;
+  Catch Me Up read raw story data instead of the canonical access decision,
+  dropped the same-day boundary and overwrote the earlier visit before an
+  account-backed merge could restore it. Integrity, source and partial browser
+  checks passed because none exercised those exact boundaries.
+- **Prevention rule:** Every visitor-facing gate must exercise the actual event
+  binding, cache-bound consumer URL, canonical access decision and asynchronous
+  state merge—not only the component's source. For inline handlers, require a
+  real submit with no navigation or page error and prohibit inline event
+  attributes. For shared assets, bind every public-build consumer to the source
+  checksum. For catch-up feeds, calibrate a global-hold fixture and require zero
+  exposed items/actions, inclusive date behavior and a delayed continuation
+  merge before accepting the feature.
+- **Why the fix works:** Library now uses closure-local listeners and its
+  calibrated browser test rejects an inline submit. Issue 04 binds the current
+  shared-header checksum and passes 1440/390/320 browser geometry. Catch Me Up
+  routes every story through the reader contract, orders Daily then Weekly then
+  eligible history, uses visit markers for merge-safe continuity and exposes
+  nothing under a global hold; its calibrated bad consumer is rejected.
+- **Machine/durable evidence:** `library.html` SHA-256
+  `7ab36a7d01e2ce481e89f5b64433ac8fbf99331479697224e36536c5d2e9edb1`;
+  `issues/issue-04.html` SHA-256
+  `85ab0c1ba4fd902cdfec477d8e14fc4a7b4ebaf7e2731885c2430cdf2e2b45e9`;
+  `content/site/newsstand-catchup-v1.js` SHA-256
+  `1eaaa08cd15e8301067634f4d8e2402335b54f893a9990f739d9483a802e5206`;
+  the three independent verdicts under the Library, Episode Experience and
+  NewsStand product-steward dossiers.
+- **Possible Behind the Build angle:** Four thousand checks can still miss the
+  one click a visitor makes if the test begins behind the boundary.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local repairs;
+  deployment and public-origin recovery remain HOLD.
+
+## BTB-394 — Source parity and asset admission are different release questions
+
+- **Date:** 2026-08-04
+- **Area:** Curated public build / asset closure.
+- **Failure:** The parity check inferred source closure from the builder's first
+  default-DENY failure and compared only summary counts. That allowed the
+  inventory's explicit Episode 04 mirror to drift from the builder while a
+  legitimate admission hold looked like a traversal defect.
+- **Prevention rule:** Emit the complete pre-admission binary dependency graph
+  from the real builder and compare every path, SHA and byte count to the
+  inventory. Report source parity separately from admission state, and
+  calibrate the gate by removing one binary tuple and requiring a hard failure.
+  The opening-day checker must separately require an exact current-page SHA,
+  asset authority, independent visual ACCEPT and 1440/390/320 evidence before
+  any building may use `RELEASE_READY` or `VERIFIED_PUBLICLY`.
+- **Why the fix works:** The final public projection contains exactly the 327
+  ACTIVE runtime binaries. The two remaining default-denied trailer inputs are
+  source-only and proven absent from the 546-file public artifact. A deliberately
+  removed ACTIVE asset makes the builder fail and a deliberately dropped
+  builder tuple makes parity fail. This closes source safety without pretending
+  the building pages are visually complete: a separate 17-building visual map
+  now distinguishes admitted reusable environments, held existing artwork and
+  genuinely missing production art. The calibrated launch gate also rejects a
+  deliberately promoted building with no visual tuple and reports the current
+  truth as 0/17 visually admitted.
+- **Machine/durable evidence:**
+  `scripts/build-public-site.mjs` SHA-256
+  `cd6e3e8bb076f14d8bd54171b8ff049ce89461177ac42bf367bb7d7b08fdac48`;
+  `operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-inventory.json`
+  SHA-256
+  `54be78962e72fe1c7292b4c6d0759f104d3957fe1f857bf7f4b09fbdcff1ef68`;
+  independent verdict SHA-256
+  `5fb267beccad6c078e07609233d0cf90a8de0ee51e3d11b10c3690e9e403dcab`.
+- **Possible Behind the Build angle:** A build can know every file it needs and
+  still be right to refuse to publish any of them.
+- **Publication status:** VERIFIED INTERNAL LEARNING — curated source-safety
+  closure accepted; page visuals, building experience, deployment and public
+  verification remain HOLD.
+
+## BTB-395 — Green structure checks concealed zero launchable work
+
+- **Date:** 2026-08-04
+- **Area:** Whole-town launch, autonomous delivery and release gates.
+- **Failure:** Several commands exited successfully or printed `PASS` while the
+  material result was zero: 0/17 visual admissions, 0/5 media, zero active
+  delivery lanes, zero release-ready content, or an empty artifact. Those
+  commands proved schema/integrity only, but their labels allowed them to be
+  mistaken for readiness.
+- **Prevention rule:** Every build-time structural check must name itself
+  `SPECIFICATION` or `INTEGRITY`. Every release consumer must invoke a separate
+  strict mode that fails nonzero on zero candidates, held-only records, missing
+  shared gates, idle dispatchable work or an empty public artifact.
+- **Why the fix works:** The current repository still reports the useful
+  structural facts, while strict opening-day, delivery-liveness, content,
+  Daily and artifact checks all reject their deliberately incomplete fixtures.
+  A missing visual candidate or inactive delivery queue can no longer disappear
+  behind a green command. The visual calibration reads the current admission
+  count rather than hard-coding zero, so the first legitimate admission cannot
+  break the guard. Screenshot states are asserted at capture time and
+  hash-bound; a file named `page-2` that visibly shows page one is rejected even
+  when the preceding DOM assertion passed.
+- **Internal rule/check updated:** `operations/DECISIONS.md` zero-item rule;
+  `scripts/check-opening-day-program.mjs`;
+  `scripts/check-delivery-liveness.mjs`;
+  `scripts/check-content-release-readiness.mjs`;
+  `scripts/check-daily-edition-columns.mjs`;
+  `scripts/check-daily-learning-derivatives.mjs`;
+  `scripts/create-release-manifest.mjs` and their calibrated tests.
+- **Possible Behind the Build angle:** A green check can mean the filing cabinet
+  is tidy while every shelf is empty.
+- **Publication status:** VERIFIED INTERNAL LEARNING — release remains HOLD.
+
+## BTB-396 — A familiar topic is not proof that a new primary publication is stale
+
+- **Date:** 2026-08-04
+- **Area:** NewsStand radar / current-source identity / AI research claims.
+- **Failure:** The August 1 radar classified a viral Astra mathematics claim as
+  stale recirculation of February's First Proof work without resolving the
+  exact new OpenAI item. OpenAI had published a distinct August 1 package with
+  ten claimed results, manuscripts, reasoning walkthroughs and Lean
+  formalizations. The topic was familiar; the evidence identity was new.
+- **Prevention rule:** Before assigning `STALE` to a current claim, resolve the
+  exact circulating URL or timestamped primary item and compare its date,
+  artifact set and operative claims with the suspected predecessor. A thematic
+  match is only a deduplication lead. `STALE` requires byte- or claim-level
+  identity evidence; when the exact item cannot be resolved, use `WATCH —
+  SOURCE IDENTITY UNRESOLVED` instead.
+- **Why the fix works:** The corrected radar now separates February's
+  independent First Proof evaluation from OpenAI's August Astra package and
+  routes the latter as a held Weekly verification reality check. This prevents
+  both duplicate hype and false dismissal of genuinely new evidence.
+- **Machine/durable evidence:**
+  `operations/newsstand-radar-log.md`; private packet
+  `operations/drafts/news-radar/2026-08-04-astra-ten-math-advances/`.
+- **Possible Behind the Build angle:** The hardest part of following AI news is
+  not spotting familiar words; it is proving whether today's receipt is
+  actually yesterday's story.
+- **Publication status:** VERIFIED INTERNAL LEARNING — private candidate held;
+  no public change.
+
+## BTB-406 — Final-source changes can make an accepted manifest stale before anyone notices
+
+- **Date:** 2026-08-05
+- **Area:** Episode format navigation / checksum-bound candidate identity.
+- **Failure:** Episode 01's v2 format admission bound correct working bytes,
+  but later clean commits changed the Read page, Listen page, episode index and
+  Screening Room admission while leaving the pilot manifest on the old hashes.
+  The repository therefore contained an accepted receipt and a clean commit,
+  but not the accepted tuple.
+- **Prevention rule:** Recompute every candidate-bound source hash from the
+  final staged or committed tree after all overlapping source work is complete,
+  then run the actual fail-closed validator and affected independent judge on
+  that same immutable tree. A clean commit and a recent receipt are not tuple
+  continuity.
+- **Why the fix works:** The pilot guard rejected all four stale bindings before
+  native or propagation claims could inherit v2. The manifest was rebound to
+  the current committed sources, objective/browser checks reran, and Chick
+  Flicks independently accepted only the exact v3 tuple.
+- **Machine/durable evidence:**
+  `content/episodes/episode-format-navigation-pilot.json` SHA-256
+  `2c585e50f8eb724a3480f8f73df7782a1aaa373b6236ad183dff49ef104bfcae`;
+  `operations/product-stewards/chick-flicks/independent-admission-episode-01-format-navigation-v3-2026-08-05.md`;
+  `operations/product-stewards/episode-experience/episode-01-format-navigation-pilot-v3-owner-receipt-2026-08-05.md`.
+- **Possible Behind the Build angle:** The receipt was real and the commit was
+  clean; the two no longer described the same webpage.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local format only;
+  native human accessibility, propagation, deployment and public proof remain
+  held.
+
+## BTB-397 — An obsolete safety gate tried to delete a released capability
+
+- **Date:** 2026-08-04
+- **Area:** MAiKEOVER, Resident Card, Closet, identity/continuation governance.
+- **Failure:** The current MAiKEOVER gate and several owner records still
+  enforced the 2026-07-27 closed-email interim state even though the 2026-07-29
+  release had publicly verified the private Resident Card account and bounded
+  continuation. Following that green gate literally would have removed a real
+  released capability. At the same time, actual stale source survived: a
+  duplicate dead MAiKEOVER email form, false public-collections copy and a
+  Closet visibility control for a held public product.
+- **Prevention rule:** Capability gates must resolve the newest authority by
+  release ancestry and date before enforcing absence/presence. One canonical
+  surface owns each personal-data intake. Held public controls stay out of the
+  visual and accessibility trees, and public projection copy is checked against
+  the actual allowlist/consumer branch.
+- **Why the fix works:** The gate now requires the sole Resident Card intake,
+  rejects a duplicate MAiKEOVER email form, rejects public-collections copy,
+  requires the admitted Puffy Board/pouch continuation keys and hides Share
+  unless an authoritative signed-in public profile exists. Its isolated
+  duplicate-email mutation fails; the exact local/static/browser/identity and
+  Account A/B privacy suites pass, followed by independent UX ACCEPT.
+- **Machine/durable evidence:**
+  `operations/product-stewards/maikeover/evidence/identity-authority-reconciliation-2026-08-04.md`
+  SHA-256
+  `02ea890f880c8d14b10d620c8c28e81b1c657db03ed2b6025c2c5d433cb56d7e`;
+  `scripts/check-maikeover-contract.mjs`.
+- **Possible Behind the Build angle:** Safety checks can become unsafe when
+  they remember an old hold more confidently than the release record.
+- **Publication status:** VERIFIED INTERNAL LEARNING — bounded local successor
+  accepted; no deploy, public Card or building visual admission.
+
+## BTB-398 — A fresh browser timestamp hid a missing daily newspaper
+
+- **Date:** 2026-08-04
+- **Area:** NewsStand Daily, Catch Me Up and recurring content operations.
+- **Failure:** The static August 3 Daily stayed inside its 36-hour freshness
+  window on August 4, so old validators and the browser could still look green.
+  No dated composer, canonical writer or schedule existed to turn the August 4
+  quiet radar result into an honest August 4 paper. The same review package
+  also mislabeled JPEG screenshots as PNG and left shared-page test handles
+  open, allowing proof to hang after its assertions.
+- **Prevention rule:** A recurring publication gate must validate the exact
+  local-calendar issue date, not only content age. Its producer must bind the
+  authoritative dated disposition, reject any prior-date carryover and emit an
+  explicit quiet issue when nothing qualifies. Evidence MIME and test-process
+  termination are part of the proof contract.
+- **Why the fix works:** August 3 rows now fail August 4 release readiness. The
+  deterministic private composer binds the exact AIDB dated receipt; an
+  independent checksum decision is required before the atomic/idempotent local
+  writer admits the issue. The reader consumes the dated store, presents the
+  zero-story, nine-empty-desk August 4 quiet edition and keeps August 3 in the
+  archive. Each complete Daily story is now bound into the accepted envelope
+  and canonical store; all visitor paths use that immutable snapshot rather
+  than mutable global memory. Arbitrary radar paths, incidental quiet phrasing,
+  duplicate desks, quiet/story conflicts, pre/post-validation tampering,
+  self-approval, conflicting dates and store failure all fail safely. The
+  reader suite exits after 193 checks and visual evidence is genuine PNG.
+- **Machine/durable evidence:**
+  `operations/product-stewards/newsstand/evidence/newsstand-calendar-reader-and-private-daily-producer-2026-08-04.md`.
+- **Possible Behind the Build angle:** “Fresh for 36 hours” and “today's paper
+  exists” are completely different promises.
+- **Publication status:** VERIFIED INTERNAL LEARNING — manual local
+  producer-to-reader pipeline built; scheduler, deploy and public proof held.
+
+## BTB-399 — Midnight, a background tab and one pixel exposed three false-green browser assumptions
+
+- **Date:** 2026-08-05
+- **Area:** NewsStand responsive UX, recurring-date truth and visual evidence.
+- **Failure:** A NewsStand candidate passed before midnight, then correctly
+  changed state after Vancouver rolled from August 4 to August 5. The browser
+  test had hard-coded the earlier state. Adding a deterministic rollover tab
+  then left the base tab in the background, where a `requestAnimationFrame`
+  geometry check could stall. After both test defects were fixed, independent
+  red-team runs still found the Catch Me Up heading sitting 1.09px beneath the
+  sticky header at 320×760 even though the 320×844 screenshot looked sound.
+- **Prevention rule:** Time-relative products must test a fixed same-day state
+  and the next local-calendar day. Browser evidence code must foreground the
+  exact target before animation-frame settling or capture. Sticky-header CTA
+  tests use strict measured geometry at the smallest supported viewport and run
+  repeatedly under an independent judge; a nearby taller screenshot is not a
+  substitute.
+- **Why the fix works:** The suite now freezes August 4 and August 5 separately,
+  verifies that The Daily becomes the latest complete edition while The Tribune
+  remains current, returns test and capture targets to the foreground, and
+  checks the 320×760 landing directly. Raising the Catch Me Up scroll margin
+  from 96px to 104px clears subpixel rounding. The normal 202-check suite passes
+  repeatedly; the deliberately bad future-date input fails the intended gate.
+- **Machine/durable evidence:**
+  `operations/product-stewards/newsstand/evidence-newsstand-rack-v12-admission-2026-08-05.md`;
+  `operations/product-stewards/newsstand/evidence-newsstand-rack-successor-v13-2026-08-05/mobile-catchup-landing-320.png`;
+  `scripts/test-newsstand-reader-browser.mjs`.
+- **Possible Behind the Build angle:** A launch can fail at midnight, in a tab
+  nobody can see, or by one pixel. Good browser proof has to model all three.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact v13 built and
+  accepted locally; not deployed or publicly verified.
+
+## BTB-400 — A correct header was blocked by a test counting somebody else's held portraits
+
+- **Date:** 2026-08-05
+- **Area:** Issue 04, shared global header and regression-gate ownership.
+- **Failure:** The current Issue 04/header bytes already fixed the 320px public
+  overflow, but their browser test stopped before measuring the header because
+  it required exactly one `.idcard-held` across the entire episode. Five other
+  historical portraits had since been correctly put on hold. A second shared
+  gate hashed all 59 complete consumer HTML files, so unrelated page copy and
+  content changes also appeared as header-integrity failures.
+- **Prevention rule:** A regression gate targets the smallest selector and
+  bytes owned by the requirement. Component tests may bind the shared source,
+  version, explicit consumer list and rendered geometry; they may not count
+  unrelated sibling content or checksum whole consuming pages merely because
+  the component is present there.
+- **Why the fix works:** The Ada assertion is scoped to
+  `#algorithm-story`. All 59 consumers must still request exactly one current
+  shared-header version whose source hash is fixed. The negative fixtures prove
+  both stale binding and the original geometry failure: the legacy `Account
+  status` header reaches 360.453125px at a 320px viewport and is rejected. The
+  current route, sibling issue layout and curated build pass.
+- **Machine/durable evidence:**
+  `operations/product-stewards/episode-experience/evidence-issue-04-shared-header-recovery-2026-08-05.md`;
+  `scripts/test-issue-04-inline-ada-card.mjs`;
+  `scripts/test-shared-header-cache-binding-v2.mjs`.
+- **Possible Behind the Build angle:** A narrow test is not a weaker test. It
+  is the difference between catching the header bug and arguing with six
+  unrelated portraits.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local header
+  integration passes; deploy and public-origin verification remain open.
+
+## BTB-401 — One overdue class task stopped every unrelated product owner
+
+- **Date:** 2026-08-04
+- **Area:** Product-steward owner entry and portfolio enforcement.
+- **Failure:** `check-product-stewards.mjs --owner-entry <product>` ran every
+  learning follow-up as an undifferentiated global error. LCR-003 belongs to
+  SUNNYVAiLE High, but its overdue date stopped Episode Experience, Platform
+  and every other owner before their own work could begin.
+- **Prevention rule:** A bounded owner-entry gate may fail on system structure
+  and obligations owned by the selected product. It reports another owner's
+  scoped failure as attention. The unscoped and strict portfolio gates retain
+  every global failure, so scope cannot become suppression.
+- **Why the fix works:** Learning relationship results now bind an overdue
+  follow-up to its owner. Episode Experience passes with an explicit attention
+  line; SUNNYVAiLE High fails on LCR-003; strict and global checks also fail.
+  The calibrated test asserts all three outcomes.
+- **Machine/durable evidence:**
+  `scripts/test-product-steward-owner-entry-scope.mjs`;
+  `scripts/check-product-stewards.mjs`;
+  `scripts/check-learning-relationships.mjs`.
+- **Possible Behind the Build angle:** A global safety check can make a system
+  less safe when it prevents unrelated repairs from starting.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local operating-system
+  repair only; dispatcher remains paused and no visitor release changed.
+
+## BTB-402 — Mme CLAi-O's first evidence packet hid four different classes of failure
+
+- **Date:** 2026-08-04
+- **Area:** Mme CLAi-O building-page design admission, evidence capture and account boundary.
+- **Failure:** The first successor still carried a legacy inline gold/gradient/
+  sparkle/Dancing Script layer, did not explicitly hide every pre-draw state,
+  allowed historical account reward rows to rehydrate a device-local keepsake,
+  and initially treated a browser screenshot response as if it had already been
+  saved to disk. The next evidence packet then mislabeled two real captures and
+  allowed count/history to commit before a keepsake-key-only write failure.
+  Moving source after review also made the original visual evidence stale even
+  when the visible repair was sound.
+- **Prevention rule:** Delete retired source systems instead of masking them.
+  Declare every default hidden/visible state in the active stylesheet. Test the
+  exact shared import function with historical records, not only the new write
+  path. Treat threshold progress and its keepsake as one rollback-capable write.
+  Save screenshot bytes explicitly, inspect what each capture actually depicts,
+  and freeze fresh post-repair captures under new filenames before judgment.
+- **Why the fix works:** Cut 2B removes the retired inline visual block, defines
+  the calling/result/keepsake base states, rejects every device-local catalogue
+  member during account merge, and binds 14 fresh viewport captures to exact
+  source and reference hashes. The calibrated contract test failed on the
+  historical replay before the import guard was added; the badge-key-only
+  browser fixture then failed before the transaction repair. Opus rejected the
+  mislabeled evidence before the real transition and reference link were fixed.
+- **Machine/durable evidence:**
+  `operations/product-stewards/mme-claio/evidence-visual-admission-v1-2026-08-05/maker-receipt.md`;
+  `scripts/test-mme-claio-contract.mjs`;
+  `scripts/test-mme-claio-browser.mjs`.
+- **Possible Behind the Build angle:** A polished screenshot can still conceal
+  stale CSS, an account-boundary bug and an unsaved evidence file. A real design
+  gate must bind the visible result to the source and failure paths that made it.
+- **Publication status:** VERIFIED INTERNAL LEARNING — exact local cut 2B passed
+  three independent gates; native accessibility, release, deploy and public
+  verification remain open.
+
+## BTB-403 — A visitor's calendar silently became a NewsStand release gate
+
+- **Date:** 2026-08-05
+- **Area:** NewsStand Daily availability, edition identity and Catch Me Up.
+- **Failure:** The canonical issue carried a fixed `America/Vancouver` date, but
+  the browser selected it with `editionDate <= localToday()` and formatted the
+  date-only label through the visitor's time zone. A released issue could be
+  hidden by one visitor's calendar while the same issue could be relabelled as
+  the next day in UTC+14.
+- **Prevention rule:** Gate availability on the independently admitted release
+  instant, never a calendar comparison. Format date-only edition identities as
+  literal dates. Browser time zone may personalize a greeting; it cannot hide,
+  advance or rename news.
+- **Why the fix works:** The reader now selects the newest complete issue whose
+  independent admission time has arrived, keeps Catch Me Up bounded to the
+  newest released edition, and formats edition dates in a zone-neutral UTC
+  representation. Honolulu and Kiritimati browser fixtures verify the same
+  released issue and label; a calibrated restored visitor-date gate fails.
+- **Machine/durable evidence:** `content/site/newsstand-catchup-v1.js`;
+  `newsstand.html`; `scripts/test-newsstand-reader-contract.mjs`;
+  `scripts/test-newsstand-reader-browser.mjs`.
+- **Possible Behind the Build angle:** Time zones are for display, timestamps
+  are for release—a one-line date comparison can turn global news into a local
+  embargo.
+- **Publication status:** VERIFIED INTERNAL LEARNING — local reader repair only;
+  no deploy or public verification.
+
+## BTB-404 — A truthful shelf edit invalidated the whole Library's visual identity
+
+- **Date:** 2026-08-05
+- **Area:** Library book admission, page identity and visual review.
+- **Failure:** Replacing unsafe held-book shelf copy correctly changed
+  `library.html`, but the design gate binds visual admission to the whole page
+  checksum. That made a content-only correction invalidate the Library's prior
+  visual admission even though no visual asset or layout rule was intentionally
+  changed. The same launch manifest had also described a retired Vocab 101 book
+  as required, so prose readiness and the real catalogue had drifted apart.
+- **Prevention rule:** Bind content, interaction and visual admissions to the
+  smallest exact identities that can change independently, while retaining a
+  composed-page check that fails when their integration changes visitor-visible
+  geometry. Launch manifests must validate canonical catalogue IDs and reject
+  retired objects, not merely count rows.
+- **Why the fix works:** The opening-day validator now rejects Vocab 101 and
+  requires the real Concepts, Briefing, Setup and Accounts set. Each governed
+  book carries a checksum-bound Library integration. The remaining visual gate
+  is reported as invalid rather than silently reused; it needs a permitted exact
+  reinspection before Library visual admission can return.
+- **Machine/durable evidence:** `scripts/check-opening-day-program.mjs`;
+  `scripts/check-library-vocab-concepts-consolidation.mjs`;
+  `scripts/check-accounts-101-claims.mjs`; `library.html`.
+- **Possible Behind the Build angle:** Strong checks can create false coupling:
+  correcting one sentence should not erase unrelated design evidence, but a
+  looser check must still catch a sentence that breaks the layout.
+- **Publication status:** VERIFIED INTERNAL LEARNING — catalogue and content
+  contracts repaired locally; visual admission, deploy and public verification
+  remain open.
+## BTB-405 — A primary newsroom index can omit its own material disclosure
+
+- **Date:** 2026-08-05
+- **Area:** NewsStand radar / primary-source discovery / freshness renewal.
+- **Failure:** The broad first-party newsroom sweep returned no new OpenAI item,
+  while OpenAI had published a material August 4 security disclosure at a
+  separate exact URL. The candidate-specific freshness sweep found it and
+  correctly invalidated a previously ready Breaking compound minutes before
+  its receipt expired.
+- **Prevention rule:** A current-news sweep must combine company/newsroom index
+  checks with topic-specific searches and exact-source rechecks for every
+  active P0/P1 identity. A quiet index is not evidence that the source estate
+  is quiet. Before renewing freshness, search for new primary pages using the
+  story's actors, mechanism and incident terms, then reopen every load-bearing
+  source.
+- **Why the fix works:** Broad discovery catches new identities; candidate-
+  specific retrieval catches updates and parallel disclosures that navigation
+  pages, feeds or crawlers omit. The second lane can invalidate readiness even
+  when the general sweep says clear.
+- **Machine/durable evidence:** `operations/newsstand-radar-log.md`;
+  `operations/product-stewards/newsstand/validation-receipts/2026-08-05/stage-7-freshness-renewal-cross-lab-cyber-evaluation-2026-08-05.md`;
+  OpenAI's `third-party-cyber-evaluations-involving-openai-models` disclosure;
+  UK AISI's `incident-report-unsanctioned-agent-behaviour-during-cyber-testing`.
+- **Possible Behind the Build angle:** The front page said nothing new; the
+  source-specific safety check found the story that changed the verdict.
+- **Publication status:** VERIFIED INTERNAL LEARNING — private candidate held;
+  no public change.
+
+## BTB-407 — One HOLD label sent reviewed episodes back into rendering
+
+- **Date:** 2026-08-05
+- **Area:** Opening-media review routing and Control Room owner queue.
+- **Failure:** The universal media registry used `HOLD` for four exact episode
+  successors whose frame/sequence checks were complete but whose human sound-on
+  reviews were pending. The Control Room queue interpreted that same word as an
+  objective production failure and instructed makers to repair the unchanged
+  hashes again, even though no timecoded defect existed.
+- **Prevention rule:** A media hold must name its gate class. `HOLD_HUMAN_REVIEW`
+  routes an immutable candidate to an identified human; `HOLD_REPAIR` requires
+  a checksum-bound defect and maker action. Never dispatch a new render from a
+  generic HOLD or from an inherited predecessor finding.
+- **Why the correction works:** The Weekly Episodes owner now binds Episodes
+  01–04 to their exact hashes, reviewed occurrence counts and human-only
+  immediate gates, while routing the stale shared queue to Control Room rather
+  than changing media or silently self-admitting it. Trailer remains in repair
+  because it has genuine timecoded failures.
+- **Machine/durable evidence:**
+  `operations/video-qa/site-video-review-registry-2026-07-31.json`;
+  `operations/video-qa/opening-day-media-gate-reconciliation-2026-08-01/README.md`;
+  `operations/control-room/owner-review-queue.json`;
+  `operations/product-stewards/episode-experience/control-room-handoff-opening-media-human-review-reconciliation-2026-08-05.md`.
+- **Possible Behind the Build angle:** A status word is not a workflow: the
+  reason for a hold determines whether the next person should listen or render.
+- **Publication status:** VERIFIED INTERNAL LEARNING — routing correction only;
+  no media, player, deploy or public change.
+
+## BTB-408 — A shared feature stylesheet silently replaced an approved page template
+
+- **Date:** 2026-08-05
+- **Area:** Episode 01 written edition and shared issue-page styling.
+- **Failure:** Episode 01 still contained its earlier dark, full-width reading
+  template, but the later `issue-feature-v2` body class and stylesheet overrode
+  it with a 43/57 split cover and pushed the live title and deck into a narrow
+  right-hand column. The source therefore looked superficially intact while the
+  browser rendered a different design.
+- **Prevention rule:** A page-specific approved template must opt into shared
+  visual layers explicitly. Protect its defining computed outcomes—hero layout,
+  source image, field colour, title alignment and reading measure—with a
+  calibrated browser regression, not an HTML-presence check.
+- **Why the correction works:** Episode 01 no longer loads or activates the
+  shared split-cover layer. Its existing dark-VHS source governs the route
+  again, while the independent Read / Listen / Watch control remains in place.
+  The new test checks 1440, 390 and 320 and proves it rejects a deliberately
+  reintroduced split grid.
+- **Machine/durable evidence:** `scripts/test-episode-01-dark-reading-template.mjs`;
+  `operations/product-stewards/episode-experience/evidence/episode-01-dark-reading-template-2026-08-05/results.json`;
+  `issues/issue-01.html`.
+- **Possible Behind the Build angle:** The old design was never deleted—one
+  selector hid it. Computed-style tests catch the page visitors see, not merely
+  the template developers think they shipped.
+- **Publication status:** VERIFIED LOCALLY — independent visual acceptance;
+  deploy and exact public verification remain open.
+
+## BTB-409 — An overdue record was mistaken for an unfinished product defect
+
+- **Date:** 2026-08-05
+- **Area:** Work-resolution truth, learning corrections and Control Room triage.
+- **Failure:** The runtime reported three overdue records as one undifferentiated
+  system failure. Two were small factual corrections that could be completed
+  without Ali; the third was an exact Episode 05 architecture candidate already
+  through maker and independent review and awaiting one Ali decision. Treating
+  all three as generic overdue work hid both the safe repairs and the real gate.
+- **Prevention rule:** Reconcile every overdue record against its current bytes,
+  consumer set and next authority. Complete safe factual repairs, retain a real
+  human-decision hold, and never make a validator green by extending a timestamp
+  or relabelling unfinished work.
+- **Why the correction works:** The token-ratio consumer and unsafe Chain of
+  Thought regeneration prompt now have calibrated regression coverage and
+  independent judgment. Their records close with exact evidence; the checker
+  now fails only on Episode 05, accurately exposing the decision it needs.
+- **Machine/durable evidence:** `scripts/test-learning-claim-corrections.mjs`;
+  `operations/runtime/work-resolution-loop.json`; commits `7e3559e8` and
+  `8f708b67`.
+- **Possible Behind the Build angle:** A red queue is useful only when every red
+  item still means the same thing: repair, decision or release—not merely old.
+- **Publication status:** VERIFIED LOCALLY — operational and learning-source
+  correction only; no deploy or public release.
+
+## BTB-410 — One product preview inherited every unrelated portfolio hold
+
+- **Date:** 2026-08-05
+- **Area:** Exact-commit preview admission and operational CI.
+- **Failure:** The protected Library preview initially ran the full portfolio
+  integrity command. An overdue Episode 05 decision therefore blocked Library
+  artifact preparation even though it could not change the Library bytes,
+  product checks, design admission, curated build or preview safety.
+- **Prevention rule:** Split artifact/build integrity from portfolio-state
+  integrity. A scoped preview must retain all checks that can reject its bytes
+  or visitor outcome; unrelated work deadlines and human decisions remain in
+  full CI and the Control Room, but do not gate another product's preview.
+- **Why the correction works:** `ci:build` retains the mechanical build,
+  content, media, routing and calibrated preview-contract checks. Full `ci`
+  still adds `test:operational-integrity`. The Library workflow then adds its
+  browser, design-admission, curated-build, manifest, protected-environment and
+  exact-live-byte gates.
+- **Machine/durable evidence:** commits `8a0dfa12` and `e59cafd8`;
+  `scripts/test-exact-commit-preview.mjs` with 15 calibrated rejections;
+  independent preview-contract verdict 2026-08-05.
+- **Possible Behind the Build angle:** A red light should stop only the lane it
+  can actually make unsafe; otherwise the system turns truthful holds into
+  delivery gridlock.
+- **Publication status:** VERIFIED LOCALLY — workflow and CI architecture only;
+  no preview deployment, credentials or public release.
+
+## BTB-411 — Content-gap analytics do not require a bank of raw questions
+
+- **Date:** 2026-08-05
+- **Area:** Miss Jeeves, product learning and privacy.
+- **Failure:** The useful product job—learning which subjects visitors seek and
+  where LAiDIES has no answer—can easily be translated into retaining verbatim
+  questions. Those questions may contain employers, health concerns, names or
+  other personal context that is unnecessary for content and layout decisions.
+- **Prevention rule:** Classify each request in memory into a small versioned
+  topic taxonomy, then emit only the controlled topic ID, exact/related/none/
+  unavailable outcome, placement and admitted source IDs. Raw wording, answers,
+  identity and inferred need never enter analytics or replay.
+- **Why the correction works:** A missing chips/GPU question produces the
+  controlled `compute-chips-gpus` gap signal without retaining its wording. The
+  calibrated privacy test first proves it can detect a deliberately leaked raw
+  question and then passes the actual aggregate event.
+- **Machine/durable evidence:** `_worker.js`;
+  `scripts/test-miss-jeeves-worker.mjs`;
+  `content/site/miss-jeeves-topic-taxonomy.json`;
+  `operations/product-stewards/library/MISS-JEEVES-MEASUREMENT-CONTRACT.md`.
+- **Possible Behind the Build angle:** You can learn what your audience needs
+  without building a dossier of what each person typed.
+- **Publication status:** VERIFIED LOCALLY — collection remains off until the
+  provider binding, retention, disclosure and public-origin gates pass.
+
+## BTB-412 — The Library rules existed, but the executable system contradicted them
+
+- **Date:** 2026-08-05
+- **Area:** LIBRAiRY maker preflight, active instructions and visual admission.
+- **Failure:** Ali repeatedly rejected the same candy/white-plum surfaces,
+  floating or unequal books, detached shelf, status slabs, pagination and
+  generic navy handback. The system claimed those failures were learned while
+  the active lesson feed still said candy, AGENTS elevated stale Canon to
+  architecture authority, a Library candidate still prescribed candy and
+  pagination, a stale hook named `_library-v3.html`, and the claimed page-design
+  hook did not exist or run. Review-role paperwork therefore substituted for a
+  producer guard.
+- **Prevention rule:** A repeated known defect is not closed by prose. Remove
+  contradictory active instructions, invalidate the false PASS, encode the
+  objective defect in a calibrated maker preflight, register that preflight on
+  Library edits and in Stop integrity, and require the current artifact to fail
+  until repaired. Qualitative craft still requires real same-viewport review.
+- **Why the correction works:** `scripts/test-library-known-failures.mjs`
+  independently rejects nine fixtures. `scripts/check-library-known-failures.mjs`
+  now rejects the actual current page with exact actionable failures. The Codex
+  post-edit hook and shared Stop integrity both execute that checker; session
+  start injects the corrected current decisions and lessons.
+- **Machine/durable evidence:** `scripts/lib/library-known-failures.mjs`;
+  `scripts/check-library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/hooks/library-maker-preflight.py`; `.codex/hooks.json`;
+  `scripts/test-codex-hook-guards.mjs`; `operations/ACTIVE-WORK.md`.
+- **Possible Behind the Build angle:** A rule is not learned until the old bad
+  page makes the new system turn red by itself.
+- **Publication status:** VERIFIED INTERNAL ENFORCEMENT — the current Library
+  remains rejected/internal repair; no visual admission, deploy or public
+  change.
+
+## BTB-413 — A two-click preview can still make the first choice blind
+
+- **Date:** 2026-08-05
+- **Area:** LIBRAiRY discovery and D-093 informed choice.
+- **Failure:** The product suite passed `cover selection → checkout preview →
+  reader`, but Ali could not knowingly choose a book because the covers were too
+  small and the shelf did not visibly expose title, job, contents, depth,
+  currentness and availability before that first selection.
+- **Prevention rule:** D-093 passes only when the real visitor can compare and
+  choose knowingly before opening: readable cover/title, adjacent synopsis with
+  all required decision cues, then a separate Open book action. Interaction
+  count is not comprehension evidence.
+- **Why the correction works:** The calibrated Library maker preflight now
+  requires explicit informed-choice structure and rejects exact SHA
+  `615a80f7…dab`; a ninth deliberate fixture proves the check can fail. Visual
+  legibility still requires real desktop/mobile inspection.
+- **Machine/durable evidence:** `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`; `operations/library-decisions.md`;
+  `operations/product-stewards/library/FUNCTIONALITY-MAP.md`.
+- **Possible Behind the Build angle:** A preview is not helpful if the user has
+  to make a blind choice to reach it.
+- **Publication status:** REJECTED / INTERNAL ONLY — no preview, deploy or
+  publication authorized.
+
+## BTB-414 — Nonempty review references admitted a book that failed its book contract
+
+- **Date:** 2026-08-05
+- **Area:** LIBRAiRY learning-content admission.
+- **Failure:** The compiler verified paths, hashes and nonempty review strings,
+  but did not verify the required learning intake, book architecture, objective
+  instructional criteria or direct rejection state. Concepts 101 was therefore
+  labelled available despite objectively failing the established book standard.
+- **Prevention rule:** Availability requires exact artifact-bound learning and
+  architecture evidence, enumerated PASS criteria, independent instructional
+  and unfamiliar-reader verdicts, and a clear direct-rejection state. Direct
+  rejection quarantines the exact hash and prohibits derivative/template use.
+- **Why the correction works:** The compiler now admits zero opening books,
+  rejects missing evidence or one failed criterion, and rejects the quarantined
+  Concepts hash regardless of review strings. A complete synthetic tuple proves
+  that valid admission remains possible.
+- **Machine/durable evidence:** `scripts/compile-library-admission.mjs`;
+  `scripts/test-validate-library-product.mjs`;
+  `content/library-books/rejected-artifacts.json`.
+- **Possible Behind the Build angle:** A checksum proves which book you tested;
+  it does not prove the book teaches well.
+- **Publication status:** INTERNAL CORRECTION — 0 Library books admitted; no
+  preview, deploy or publication authorized.
