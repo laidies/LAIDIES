@@ -2,6 +2,9 @@
   "name": "laidies-website-homepage",
   "private": true,
   "scripts": {
+    "preview:library": "node operations/tools/preview-server.js . 8765",
+    "test:miss-jeeves-backend": "node scripts/test-miss-jeeves-worker.mjs",
+    "test:library-correction-backend": "node scripts/test-library-correction-worker.mjs",
     "gate:episode": "bash operations/engine/gate.sh 2",
     "test:codex-hooks": "node scripts/test-codex-hook-guards.mjs",
     "test:agent-role-routing": "node scripts/test-agent-role-routing.mjs",
@@ -16,7 +19,7 @@
     "test:operational-integrity": "node scripts/test-operational-integrity.mjs",
     "test:output-path-cli-guards": "node scripts/test-output-path-cli-guards.mjs",
     "test:work-resolution-loop": "node scripts/test-work-resolution-loop.mjs",
-    "ci:build": "npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:agent-role-routing && npm run test:daily-private-pipeline && npm run test:learning-claim-corrections && npm run test:exact-commit-preview && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:rejection-prevention && npm run test:work-resolution-loop && node scripts/check-canonical-instruction-dependencies.mjs",
+    "ci:build": "npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:agent-role-routing && npm run test:daily-private-pipeline && npm run test:learning-claim-corrections && npm run test:exact-commit-preview && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:rejection-prevention && npm run test:work-resolution-loop && npm run test:miss-jeeves-backend && npm run test:library-correction-backend && node scripts/check-canonical-instruction-dependencies.mjs && node scripts/check-library-instruction-packet.mjs",
     "ci": "npm run ci:build && npm run test:operational-integrity"
   }
 }

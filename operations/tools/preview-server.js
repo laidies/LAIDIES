@@ -1,7 +1,7 @@
 // Static preview server WITH HTTP Range support, so video can be scrubbed.
 // Python's http.server ignores Range and returns the whole file -> no seeking.
 const http = require('http'), fs = require('fs'), path = require('path'), url = require('url');
-const ROOT = process.argv[2], PORT = +(process.argv[3] || 8221);
+const ROOT = path.resolve(process.argv[2] || '.'), PORT = +(process.argv[3] || 8221);
 const TYPES = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css',
   '.json':'application/json', '.mp4':'video/mp4', '.mp3':'audio/mpeg', '.vtt':'text/vtt',
   '.srt':'text/plain', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg',

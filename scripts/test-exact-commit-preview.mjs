@@ -92,6 +92,12 @@ for (const [candidate, candidateManifest, label] of rejects) {
 const workflowPath = path.resolve(import.meta.dirname, '..', '.github', 'workflows', 'exact-library-preview.yml');
 const workflow = fs.readFileSync(workflowPath, 'utf8');
 assert.deepEqual(validateWorkflowText(workflow), []);
+const packageJson = JSON.parse(fs.readFileSync(path.resolve(import.meta.dirname, '..', 'package.json'), 'utf8'));
+assert.equal(
+  packageJson.scripts?.['preview:library'],
+  'node operations/tools/preview-server.js . 8765',
+  'Library review must use the canonical HTTP preview server, never a raw file:// route'
+);
 const workflowRejects = [
   workflow.replace('[[ "$INPUT_COMMIT_SHA"', '[[ "${{ inputs.commit_sha }}"'),
   workflow.replace('  deploy-preview:\n', '  deploy-preview:\n    # actions/checkout\n'),
