@@ -36,18 +36,21 @@ Ali explicitly switches or they invalidate the approach.
 
 The current `library.html` is a **LOCAL MAKER CANDIDATE / NOT DEPLOYED / NOT
 PUBLICLY VERIFIED** at SHA-256
-`a66f5a002f676d5a90f19c7da9d8b18efa74dd729f899984d3bb0017661b59ff`.
+`3f85a7cd03037cb6530a15103177f9afa3c9031a2dbb7cf7d5fcc323ae44f133`.
 The one permitted maker browser check found no horizontal overflow or console
 errors; confirmed the Closet copy is vertically centred in a 76px control; the
 Miss Jeeves section uses the approved pop-comic asset under a legible locked
 pink → purple → blue gradient; the Tools case visibly meets the floor; and the
 collection guide → exact shelf focus/hash behaviour remains intact.
-The page now uses the exact title **The LIBRAiRY**, a clean deliberately
-hand-inked working-desk masthead with the printer joke and librarian tools,
-rounded collection guides and catalogue controls, a highlighted catalogue
-eyebrow, a clean two-bay/two-row compact case, and the bounded Miss Jeeves
-examples. Ali directly rejected the mottled whole-image v7 masthead; it is no
-longer referenced by the page or admitted by the known-failure preflight.
+The page now uses the exact title **The LIBRAiRY**, the earlier purple-room v5
+masthead recovery source, rounded collection guides and catalogue controls, a
+highlighted catalogue eyebrow, a clean two-bay/two-row compact case, and the
+bounded Miss Jeeves examples. The hand-inked whole-room replacement and the v8
+floppy-sign/checkout-card image are rejected and not referenced. The generic
+Resident Card/Puffy setup line is hidden from Library arrival and the abstract
+ask-or-browse sentence is replaced with direct visitor choices. The masthead
+character-quality issue remains open; v5 is a recovery baseline, not a visual
+acceptance claim.
 
 The exact next gate is Ali's visual judgment of this local candidate. No Claude,
 multi-role or dossier review was commissioned. The legacy full product test

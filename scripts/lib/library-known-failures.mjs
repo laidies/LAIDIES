@@ -1,5 +1,5 @@
 const requiredAssets = [
-  'assets/building-interiors/library-interior-style-b-hand-inked-animation.png',
+  'assets/building-interiors/library-interior-purple-sign-wall-v5.png',
   'assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
@@ -16,6 +16,12 @@ export function validateLibraryKnownFailures(source) {
   const errors = [];
   if (source.includes('library-interior-purple-sign-wall-v7-clean-metal-stacks.png')) {
     errors.push('rejected mottled Miss Jeeves v7 masthead remains');
+  }
+  if (source.includes('library-interior-style-b-hand-inked-animation.png')) {
+    errors.push('rejected replacement hand-inked masthead remains');
+  }
+  if (source.includes('library-interior-purple-sign-wall-v8-clean-jeeves.png')) {
+    errors.push('rejected over-rendered floppy-sign masthead remains');
   }
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));
@@ -55,6 +61,12 @@ export function validateLibraryKnownFailures(source) {
   }
   if (!/id=["']library-title["']>The LIBR<span class=["']ai["']>Ai<\/span>RY<\/h1>/i.test(source) || /The Town LIBR/i.test(source)) {
     errors.push('locked Library title is missing or the retired Town title remains');
+  }
+  if (!/Not sure where to start\? Ask Miss Jeeves\. Looking for a specific topic\? Browse the shelves\./.test(source)) {
+    errors.push('plain-language ask-or-browse orientation is missing');
+  }
+  if (!/<p class=["']visitor-state["'] id=["']puffyVisitorState["'][^>]*\shidden(?:\s|>)/i.test(source)) {
+    errors.push('generic Resident Card setup copy can still appear in the Library masthead');
   }
   if (!/class=["']shelf-guide-heading["']/.test(source) || !/class=["']shelf-captions["']/.test(source) || !/class=\\?['"]shelf-caption-art/.test(source) || !/section\.books\.filter\(book=>book\.listed!==false&&book\.img\)\.slice\(0,3\)/.test(source)) {
     errors.push('three-part comic collection guide is missing');

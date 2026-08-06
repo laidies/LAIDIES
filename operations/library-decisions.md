@@ -38,10 +38,15 @@ Last reconciled: 2026-08-05.
   cover may cross a sign, upright or rail.
 - **Working reference-desk masthead — 2026-08-06.** The Library masthead is a
   functioning, funny reference desk rather than an empty room photograph. Keep
-  a readable environmental sign above the computers—including the established
-  “DON'T FEED THE PRINTER” joke—and visible librarian equipment such as a
+  readable funny environmental signage—including the established “DON'T FEED
+  THE PRINTER” joke—and visible librarian equipment such as a
   scanner and practical desk tools. These are physical scene details, not
   floating interface labels, and must not obstruct the title or Miss Jeeves.
+  Do not add a redundant `SUNNYVAiLE LIBRAiRY` sign inside the room. Do not put
+  a checkout card on the wall or use “PLEASE REWIND YOUR FLOPPY”: neither
+  belongs there or communicates a useful Library idea. Any wall detail above
+  the public computers must have a plausible Library job, not merely fill
+  space.
 - **Shelf density and floor contact — 2026-08-06.** Four-book collections use a
   compact two-bay case rather than four books scattered across a mostly empty
   three-bay case. Six-book collections may use all three bays. In every case,
@@ -57,10 +62,17 @@ Last reconciled: 2026-08-05.
   under-stair wall junction it introduced. The later
   `library-interior-purple-sign-wall-v7-clean-metal-stacks.png` is also
   rejected: the whole-image edit visibly mottled Miss Jeeves's face, hair,
-  cardigan and hands. The active local candidate uses the existing clean,
-  deliberately hand-inked scene
-  `library-interior-style-b-hand-inked-animation.png`; do not run another
-  whole-scene image edit over her.
+  cardigan and hands. The later hand-inked replacement changed the entire
+  masthead and retained artificial texture, so it is rejected too. The v8
+  image edit over-rendered Miss Jeeves again and added nonsensical wall décor;
+  it is rejected. The page is restored to the earlier purple-room v5 source as
+  a recovery baseline, not a claim that the character problem is solved. Do
+  not run another whole-scene style replacement over her.
+- **Masthead orientation and Card timing — 2026-08-06.** Use direct visitor
+  choices: “Not sure where to start? Ask Miss Jeeves. Looking for a specific
+  topic? Browse the shelves.” Do not show generic Resident Card/Puffy setup in
+  the arrival masthead. Explain the Card only when the visitor first tries to
+  save; the save dialog already owns that explanation.
 - **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
   section must not repeat the blue-led catalogue surface immediately below it.
   Use the locked vivid pink → purple → blue gradient with the approved
