@@ -504,8 +504,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .arrival-visual{height:clamp(480px,55vw,760px);min-height:0;border-top:8px solid var(--ink);background:var(--midnight)}
 .arrival-visual>img{object-position:center center}
 .arrival-visual>.arrival-prop{position:absolute;z-index:2;height:auto;object-fit:contain;pointer-events:none}
-.arrival-visual>.arrival-clock{left:19.8%;top:7.8%;width:6.8%;filter:drop-shadow(0 4px 5px rgba(7,20,47,.24));transform:rotate(-.35deg)}
-.arrival-visual>.arrival-jammed-sign{left:7.9%;top:21.1%;width:21.5%;filter:drop-shadow(0 4px 5px rgba(7,20,47,.24));transform:rotate(-.3deg)}
 .arrival-visual>.arrival-printer-sign{left:79.2%;top:70.2%;width:8.2%;filter:drop-shadow(0 4px 4px rgba(7,20,47,.32));transform:rotate(-1deg)}
 .library-world{background:linear-gradient(120deg,#f2c6e5 0%,#c7d7f5 100%);color:var(--ink)}
 .jv{grid-template-columns:minmax(250px,.62fr) minmax(380px,1.38fr);align-items:center;
@@ -601,7 +599,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .department{z-index:6}.brow{left:9%;right:9%;height:27%;min-height:120px;gap:9%;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}
   .shelf-unit.is-compact .brow{left:3%;right:3%;height:22%;min-height:96px}.shelf-unit.is-compact .brow--1{bottom:60%}.shelf-unit.is-compact .brow--2{bottom:35%}
   .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}.bk img{transform:translateY(-4%)}
-  .arrival-visual>.arrival-prop{display:none}
+  .arrival-visual>.arrival-printer-sign{display:none}
 }
 @media(max-width:900px){
   .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(360px,72vw,620px)}
@@ -630,8 +628,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     </section>
     <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
       <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt="Miss Jeeves at the reference desk with public computers, metal bookcases and Library equipment">
-      <img class="arrival-prop arrival-clock" src="assets/library/library-wall-clock-v1.svg" alt="A colourful wall clock above the Library computers">
-      <img class="arrival-prop arrival-jammed-sign" src="assets/library/library-printer-jammed-sign-v1.svg" alt="Sign: Yes, the printer is jammed">
       <img class="arrival-prop arrival-printer-sign" src="assets/library/library-printer-sign-v1.png" alt="Sign: Don’t feed the printer">
     </section>
   </div>

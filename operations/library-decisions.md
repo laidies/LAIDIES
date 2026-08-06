@@ -186,14 +186,6 @@ Last reconciled: 2026-08-05.
   `.library-handback` band must not be restored.
 - **Mobile reading order.** Explanation precedes the objects it explains and
   never becomes stranded beside the next section heading.
-- **Masthead props are localized, scene-logical additions — 2026-08-06.** Keep
-  the approved text-free v4 room and Miss Jeeves pixels unchanged. Add a
-  colourful wall clock and the exact joke **“YES, THE PRINTER IS JAMMED.”** on
-  the computer wall; keep **“DON’T FEED THE PRINTER”** as a small sign beside
-  the printer. Do not regenerate the room to add props, invent unrelated wall
-  notices or place flat equipment across the desk edge. Desktop additions must
-  match their wall/table surface and disappear at the mobile crop rather than
-  overlap Miss Jeeves.
 
 ## Current implementation assets
 
