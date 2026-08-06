@@ -1,6 +1,9 @@
 const requiredAssets = [
-  'assets/building-interiors/library-interior-purple-sign-wall-v5.png',
-  'assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png',
+  'assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
+  'assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png',
+  'assets/building-interiors/library-shelf/room/floor-clean-v1.png',
+  'assets/library/library-printer-sign-v1.png',
+  'assets/library/library-flatbed-scanner-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
@@ -14,6 +17,9 @@ function cssBodies(source, selector) {
 
 export function validateLibraryKnownFailures(source) {
   const errors = [];
+  if (source.includes('library-interior-purple-sign-wall-v5.png')) {
+    errors.push('rejected lumpy Miss Jeeves v5 masthead remains');
+  }
   if (source.includes('library-interior-purple-sign-wall-v7-clean-metal-stacks.png')) {
     errors.push('rejected mottled Miss Jeeves v7 masthead remains');
   }
@@ -22,6 +28,9 @@ export function validateLibraryKnownFailures(source) {
   }
   if (source.includes('library-interior-purple-sign-wall-v8-clean-jeeves.png')) {
     errors.push('rejected over-rendered floppy-sign masthead remains');
+  }
+  if (!/arrival-printer-sign[^>]*library-printer-sign-v1\.png/.test(source) || !/arrival-scanner[^>]*library-flatbed-scanner-v1\.png/.test(source)) {
+    errors.push('localized printer sign or scanner masthead prop is missing');
   }
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));
@@ -98,8 +107,11 @@ export function validateLibraryKnownFailures(source) {
   if (!/LIBRARY_CASE_ANCHOR_CONTRACT/.test(source)) {
     errors.push('wall/case anchor contract is missing');
   }
-  if (!/LIBRARY_WALL_CROP_CONTRACT/.test(source) || !/background-size\s*:\s*cover\s*,\s*152%\s+auto/i.test(source)) {
-    errors.push('collection room is not cropped into the central wall');
+  if (!/LIBRARY_WALL_CROP_CONTRACT/.test(source) || !/wall-neutral-light-v1\.png/.test(source)) {
+    errors.push('collection room wall layer is missing');
+  }
+  if (!/floor-clean-v1\.png/.test(source) || !/background-size\s*:\s*100%\s+83\.3%\s*,\s*100%\s+83\.3%\s*,\s*100%\s+auto/i.test(source)) {
+    errors.push('shared unfiltered Library carpet layer is missing');
   }
   if (![0,1,2].every(index => new RegExp(`data-collection-room=["']${index}["'][^}]*--room-tint`, 'i').test(source))) {
     errors.push('distinct collection wall colours are missing');
@@ -110,8 +122,11 @@ export function validateLibraryKnownFailures(source) {
   if (!/shelf-unit\.is-compact[^}]*library-wall-case-2bay-two-row-v2\.png/is.test(source) || !/is-compact-room/.test(source) || !/visible\.length\s*>\s*0\s*&&\s*visible\.length\s*<=\s*4/.test(source)) {
     errors.push('four-book collections do not use the compact two-bay case');
   }
-  if (!/\.shelf-unit:not\(\.is-compact\)[^}]*bottom\s*:\s*-5%/is.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:49\.4%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(2\.5%\)/.test(source)) {
+  if (!/\.shelf-unit:not\(\.is-compact\)[^}]*bottom\s*:\s*-5%/is.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.brow--1\{bottom:65\.3%\}\.brow--2\{bottom:38\.7%\}\.brow--3\{bottom:12\.2%\}/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:51\.2%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(0\)/.test(source)) {
     errors.push('visible shelf/rail seating geometry is missing');
+  }
+  if (!/\.mobile-shelf-caption\{display:none\}/.test(source) || !/@media\(max-width:700px\)[\s\S]*?\.department\{z-index:6\}[\s\S]*?\.brow\{[^}]*height:27%[^}]*z-index:6[^}]*\}\.brow--1\{bottom:65\.5%\}\.brow--2\{bottom:37%\}\.brow--3\{bottom:8\.5%\}[\s\S]*?\.shelf-unit\.is-compact \.brow\{[^}]*height:22%[^}]*\}\.shelf-unit\.is-compact \.brow--1\{bottom:60%\}\.shelf-unit\.is-compact \.brow--2\{bottom:35%\}[\s\S]*?\.bk img\{transform:translateY\(-4%\)\}/.test(source)) {
+    errors.push('mobile shelf books remain behind the rails or stray copy overlaps the case');
   }
   const previewShelfMarkers = [
     'BOOK_PREVIEW_CHOICE_CONTRACT',

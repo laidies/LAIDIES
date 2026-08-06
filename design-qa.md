@@ -12,6 +12,49 @@ nine `community/*.html` Sorority House rooms, plus `try-on.html`,
 `bookfair.html`, `learn/quiz.html`, and `learn/class.html`  
 Scope: first implementation pass of the room-as-page building model.
 
+## LIBRAiRY shelf-contact and room-colour correction — 2026-08-06
+
+### Visual truth
+
+- User-rejected 101s state: `operations/design-qa/library-shelf-contact-20260806/source-user-rejected-101s.png`
+- Normalized source: `operations/design-qa/library-shelf-contact-20260806/source-101s-normalized-1440x810.png`
+- Source pixels: 1916 × 1016, normalized to 1440 × 810 for focused comparison.
+- Required outcome: complete cover art above the shelf lip, one unchanged Library carpet in all rooms, distinct wall colours, intact metal cases, and no rejected v5 masthead.
+
+### Implementation evidence
+
+- Desktop 101s region: `operations/design-qa/library-shelf-contact-20260806/candidate-101s-1440x810.png`
+- Desktop full page: `operations/design-qa/library-shelf-contact-20260806/candidate-full-desktop-1440.png`
+- Mobile full page: `operations/design-qa/library-shelf-contact-20260806/candidate-full-mobile-390.png`
+- Focused side-by-side: `operations/design-qa/library-shelf-contact-20260806/comparison-101s.png`
+- Desktop viewport: 1440 × 1000 CSS pixels, density 1; focused region normalized to 1440 × 810.
+- Mobile viewport: 390 × 844 CSS pixels, density 1.
+- State: unfiltered catalogue, all three physical collection rooms visible in the full capture.
+
+### Findings and fix history
+
+1. P1 — the rejected source placed book artwork behind the thick front rail, making the books look as though they had fallen behind the shelf.
+   - Fix: removed the desktop downward translation, lifted the upper rows to the rail's back edge, removed stray shelf-caption copy on mobile, and placed mobile books above the foreground rail layer.
+   - Post-fix evidence: every title and complete cover face is visible in the desktop comparison and mobile full capture.
+2. P1 — a single colour blend tinted the whole room photograph, changing the carpet with each section.
+   - Fix: replaced the whole-room tint with separate `wall-neutral-light-v1.png` and `floor-clean-v1.png` layers. The tint is sized to the wall; the carpet asset is unfiltered and identical in all rooms.
+   - Post-fix evidence: 101s is pink, Tools cyan and Reference purple while each floor retains the same navy geometric carpet.
+3. P1 — the active masthead had reverted to rejected v5, retaining lumpy rendering, redundant computer-wall signs and wood under-stair cases.
+   - Fix: removed v5 and restored the historical no-baked-text v4 source, which has metal cases and no redundant wall signs. Added a calibrated validator fixture that rejects any return of v5.
+4. P2 — the first replacement masthead did not contain the locked physical “DON'T FEED THE PRINTER” sign or a clearly identifiable scanner.
+   - Fix: added both as isolated transparent props over the no-baked-text room, leaving Miss Jeeves and the room pixels unchanged.
+   - Post-fix evidence: the desktop and mobile full-page captures show a readable wall sign above the public computers and a compact flatbed scanner on the reference counter; neither overlaps Miss Jeeves or the title.
+
+### Fidelity surfaces
+
+- Typography: unchanged; Library display and UI hierarchy remain consistent.
+- Spacing/layout: desktop books meet the rails without disappearing behind them; mobile shelf copy no longer overlaps the case.
+- Colours/tokens: section wall colours differ; carpet colour is invariant.
+- Image quality/assets: the rejected v5/v7/v8 and hand-inked mastheads are absent; existing intact wall, floor and metal-case assets are used.
+- Copy/content: shelf-guide explanations remain above the physical rooms; redundant shelf captions are hidden on mobile.
+
+Final result: passed.
+
 ## LIBRAiRY reader refresh — 2026-07-24
 
 ### Visual truth

@@ -50,11 +50,13 @@ Last reconciled: 2026-08-05.
 - **Shelf density and floor contact — 2026-08-06.** Four-book collections use a
   compact two-bay case rather than four books scattered across a mostly empty
   three-bay case. Six-book collections may use all three bays. In every case,
-  visible cover pixels sit directly on the rail and the visible bottom of the
-  case meets the room floor/base line; transparent padding may not make books
-  or furniture appear to float. A compact case must come from one intact source
-  render: do not stitch bays, duplicate the centre upright, or rebuild metal
-  rails from mismatched fragments.
+  each cover's complete bottom edge remains visible immediately above the
+  shelf's front lip. The rail may overlap the book's shadow but may not cover
+  its artwork or make it look as though it fell behind the shelf. The visible
+  bottom of the case meets the room floor/base line; transparent padding may
+  not make books or furniture appear to float. A compact case must come from
+  one intact source render: do not stitch bays, duplicate the centre upright,
+  or rebuild metal rails from mismatched fragments.
 - **Masthead preservation boundary — 2026-08-06.** Localized environmental
   corrections may not re-render Miss Jeeves or the whole room. Preserve her
   identity, face, body, clothing and clean textures while editing only the
@@ -65,9 +67,17 @@ Last reconciled: 2026-08-05.
   cardigan and hands. The later hand-inked replacement changed the entire
   masthead and retained artificial texture, so it is rejected too. The v8
   image edit over-rendered Miss Jeeves again and added nonsensical wall décor;
-  it is rejected. The page is restored to the earlier purple-room v5 source as
-  a recovery baseline, not a claim that the character problem is solved. Do
-  not run another whole-scene style replacement over her.
+  it is rejected. Ali also rejected the earlier purple-room v5 source on
+  2026-08-06: Miss Jeeves remains visibly lumpy, the public-computer signs are
+  redundant, and the under-stair cases are wood rather than metal. The active
+  source is the historical no-baked-text v4 room, which removes the redundant
+  signs and restores metal cases without another whole-scene generation. The
+  required printer joke and scanner are separate localized props, so they can
+  be positioned or replaced without changing Miss Jeeves or the room. This is
+  a bounded correction, not a visual-acceptance claim. Do not run another
+  whole-scene style replacement over her.
+  Each collection room uses the same unfiltered `floor-clean-v1.png` carpet;
+  only the wall layer changes colour between 101s, Tools and Reference.
 - **Masthead orientation and Card timing — 2026-08-06.** Use direct visitor
   choices: “Not sure where to start? Ask Miss Jeeves. Looking for a specific
   topic? Browse the shelves.” Do not show generic Resident Card/Puffy setup in
@@ -178,8 +188,8 @@ Last reconciled: 2026-08-05.
 
 ## Current implementation assets
 
-- Masthead: `assets/building-interiors/library-interior-purple-sign-wall-v7-clean-metal-stacks.png`
-- Room: `assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png`
+- Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png`
+- Rooms: shared `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png` plus unchanged `assets/building-interiors/library-shelf/room/floor-clean-v1.png`; wall tint varies by section and carpet does not.
 - Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; compact `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
 
 ## Retired inputs — machine-readable
@@ -194,5 +204,6 @@ bk-status
 shelf-pages
 library-handback
 library-interior-purple-sign-wall-v6-metal-stacks.png
+library-interior-purple-sign-wall-v5.png
 library-wall-case-2bay-clean-v1.png
 ```

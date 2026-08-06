@@ -503,6 +503,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .library-intro .lede small{color:var(--ink)}
 .arrival-visual{height:clamp(480px,55vw,760px);min-height:0;border-top:8px solid var(--ink);background:var(--midnight)}
 .arrival-visual>img{object-position:center center}
+.arrival-visual>.arrival-prop{position:absolute;z-index:2;height:auto;object-fit:contain;pointer-events:none}
+.arrival-visual>.arrival-printer-sign{left:9%;top:8%;width:18%;filter:drop-shadow(0 5px 5px rgba(7,20,47,.28));transform:rotate(-1deg)}
+.arrival-visual>.arrival-scanner{left:48%;top:66%;width:9%;filter:drop-shadow(0 7px 5px rgba(7,20,47,.3))}
 .library-world{background:linear-gradient(120deg,#f2c6e5 0%,#c7d7f5 100%);color:var(--ink)}
 .jv{grid-template-columns:minmax(250px,.62fr) minmax(380px,1.38fr);align-items:center;
   background:linear-gradient(120deg,rgba(239,77,156,.86) 0%,rgba(113,55,214,.84) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center/cover no-repeat;padding:clamp(34px,4.4vw,60px) clamp(24px,6vw,92px);
@@ -551,8 +554,8 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 .libroom{background:var(--midnight)}
 .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;overflow:hidden;
-  /* LIBRARY_WALL_CROP_CONTRACT: crop to the wall; the case is no longer staged in open floor. */
-  border-bottom:8px solid var(--ink);background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png');background-position:center,center 30%;background-size:cover,152% auto;background-repeat:no-repeat;background-blend-mode:color,normal}
+  /* LIBRARY_WALL_CROP_CONTRACT: colour belongs to the wall only. Every room keeps the same unfiltered carpet. */
+  border-bottom:8px solid var(--ink);background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png');background-position:center top,center top,center bottom;background-size:100% 83.3%,100% 83.3%,100% auto;background-repeat:no-repeat;background-blend-mode:normal,normal,normal}
 .library-room-unit[data-collection-room="0"]{--room-tint:rgba(240,86,166,.42)}
 .library-room-unit[data-collection-room="1"]{--room-tint:rgba(21,188,224,.42)}
 .library-room-unit[data-collection-room="2"]{--room-tint:rgba(112,56,201,.38)}
@@ -573,10 +576,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 /* LIBRARY_SHELF_DEPTH_CONTRACT: each row stays inside one opening; the real frame is layered above it. */
 .shelf-unit.is-compact .brow{height:25%;grid-template-columns:repeat(2,minmax(0,1fr))}.shelf-unit.is-compact .brow[data-book-count="1"]>.bk{grid-column:1/-1}.shelf-unit.is-compact .brow[data-book-count="2"]>.bk:first-child{grid-column:1}.shelf-unit.is-compact .brow[data-book-count="2"]>.bk:last-child{grid-column:2}
 .shelf-unit:not(.is-compact) .brow[data-book-count="1"]>.bk{grid-column:2}.shelf-unit:not(.is-compact) .brow[data-book-count="2"]>.bk:first-child{grid-column:1}.shelf-unit:not(.is-compact) .brow[data-book-count="2"]>.bk:last-child{grid-column:3}
-.brow--1{bottom:64.7%}.brow--2{bottom:38.7%}.brow--3{bottom:12.2%}.brow--4{display:none}
-.shelf-unit.is-compact .brow--1{bottom:49.4%}.shelf-unit.is-compact .brow--2{bottom:13.7%}.shelf-unit.is-compact .brow--3{display:none}
+.brow--1{bottom:65.3%}.brow--2{bottom:38.7%}.brow--3{bottom:12.2%}.brow--4{display:none}
+.shelf-unit.is-compact .brow--1{bottom:51.2%}.shelf-unit.is-compact .brow--2{bottom:13.7%}.shelf-unit.is-compact .brow--3{display:none}
 .bk{position:relative;flex:0 1 clamp(145px,15vw,220px);width:clamp(145px,15vw,220px);height:100%;max-height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;min-height:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 10px 7px rgba(58,24,56,.35));transition:transform .16s ease}
-.bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-height:0;object-fit:contain;transform:translateY(2.5%)}
+.bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-height:0;object-fit:contain;transform:translateY(0)}
 .bk:hover,.bk:focus-visible{transform:translateY(-7px) scale(1.04);outline:4px solid var(--yellow);outline-offset:4px}
 .bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
 .empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
@@ -586,15 +589,16 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .shelf-guide{display:block}.shelf-guide-heading{display:block}.shelf-guide-heading>p{margin-top:18px}.shelf-captions{grid-template-columns:1fr;margin-top:24px}.shelf-caption-art{min-height:190px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:24px}
   .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
   .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
-  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center,center bottom,center;background-size:cover,100% auto,cover;background-repeat:no-repeat;background-blend-mode:color,normal,normal}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png');background-position:center top,center top,center bottom;background-size:100% calc(100% - 100px),100% calc(100% - 100px),100% auto;background-repeat:no-repeat;background-blend-mode:normal,normal,normal}
   .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:none}
   .shelf-unit::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png');background-size:100% 100%;background-position:center}
   .shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{position:relative;inset:auto;width:min(620px,100%);aspect-ratio:2.1/1;margin:0 auto}
   .shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png');background-size:100% 100%;background-position:center bottom}
-  .ledge{top:3.9%;width:45%;height:7.2%}.mobile-shelf-caption{top:13%;font-size:14px}
-  .brow{left:9%;right:9%;height:31%;gap:9%}.brow--1{bottom:65%}.brow--2{bottom:33%}.brow--3{bottom:1%}
-  .shelf-unit.is-compact .brow{left:3%;right:3%;height:29%}.shelf-unit.is-compact .brow--1{bottom:49.4%}.shelf-unit.is-compact .brow--2{bottom:13.7%}
-  .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}
+  .ledge{top:3.9%;width:45%;height:7.2%}.mobile-shelf-caption{display:none}
+  .department{z-index:6}.brow{left:9%;right:9%;height:27%;gap:9%;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}
+  .shelf-unit.is-compact .brow{left:3%;right:3%;height:22%}.shelf-unit.is-compact .brow--1{bottom:60%}.shelf-unit.is-compact .brow--2{bottom:35%}
+  .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}.bk img{transform:translateY(-4%)}
+  .arrival-visual>.arrival-printer-sign{left:3%;top:7%;width:28%}.arrival-visual>.arrival-scanner{left:45%;top:65%;width:15%}
 }
 @media(max-width:900px){
   .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(360px,72vw,620px)}
@@ -622,7 +626,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p>
     </section>
     <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
-      <img src="assets/building-interiors/library-interior-purple-sign-wall-v5.png" alt="Miss Jeeves at the working reference desk with public computers, books, librarian tools and a printer bearing the sign Please do not feed the printer">
+      <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt="Miss Jeeves at the reference desk with public computers, metal bookcases and Library equipment">
+      <img class="arrival-prop arrival-printer-sign" src="assets/library/library-printer-sign-v1.png" alt="Sign: Don’t feed the printer">
+      <img class="arrival-prop arrival-scanner" src="assets/library/library-flatbed-scanner-v1.png" alt="">
     </section>
   </div>
 
