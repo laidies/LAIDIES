@@ -9,6 +9,15 @@ Last reconciled: 2026-08-05.
 
 ## Current overrides
 
+- **Collection guide restored — 2026-08-06.** Before the working catalogue
+  controls, show 101s, Tools and Reference as three distinct comic-pop visual
+  collection guides made from current book covers, with a short plain-English
+  explanation directly underneath each image. The guide explains which shelf
+  to choose; it does not reinstate the retired brown freestanding bookcase
+  assets, duplicate full book previews, or add availability warnings at rest.
+- **Library title — 2026-08-06.** The page title is **The LIBRAiRY**, not
+  **The Town LIBRAiRY**.
+
 - **Catalogue reading surface — 2026-08-06.** Pop-art is the energetic frame,
   not the surface behind working text. The catalogue heading, search, topic
   controls and Closet route use one quiet, high-contrast, square-cornered
@@ -131,9 +140,9 @@ Last reconciled: 2026-08-05.
 
 ## Current implementation assets
 
-- Masthead: `assets/building-interiors/library-interior-purple-sign-wall-v5.png`
+- Masthead: `assets/building-interiors/library-interior-purple-sign-wall-v6-metal-stacks.png`
 - Room: `assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png`
-- Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
+- Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; compact `assets/building-interiors/library-shelf/library-wall-case-2bay-clean-v1.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
 
 ## Retired inputs — machine-readable
 

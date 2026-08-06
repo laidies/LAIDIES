@@ -14243,3 +14243,34 @@ while remaining falsely unfinished in the launch record.
   empty input: they teach visitors how to ask and set the boundary of what the
   product can answer well.
 - **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-420 — A collection name is not enough wayfinding
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY catalogue introduction, masthead and compact cases.
+- **Failure:** The page retained the labels 101s, Tools and Reference but hid the
+  explanations of what those collections were for. The catalogue opened with a
+  large plain heading and immediately asked visitors to search, while a damaged
+  generated two-bay case left signs detached and frame edges mangled.
+- **Prevention rule:** Before catalogue controls, show each collection as one
+  coherent visual guide using current inventory and a direct “use this when…”
+  explanation. Filter retired inventory out of any generated collection art.
+  Derive capacity variants from an admitted clean case rather than repairing
+  generated transparency defects with positioning.
+- **Why the correction works:** The 101s, Tools and Reference now appear as
+  three square comic-pop panels made from their real covers, with explanations
+  directly underneath. The first maker render exposed and removed a blank slot
+  caused by retired Vocab 101. The compact case now derives from the clean
+  three-bay metal source, mounts its sign inside the header, keeps all four
+  books on measured rails and meets the room floor. The masthead keeps the
+  established working desk but replaces the warped under-stair wood with metal
+  stacks.
+- **Machine/durable evidence:** `library.html`;
+  `assets/building-interiors/library-interior-purple-sign-wall-v6-metal-stacks.png`;
+  `assets/building-interiors/library-shelf/library-wall-case-2bay-clean-v1.png`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/library-decisions.md`; `operations/ACTIVE-WORK.md`.
+- **Possible Behind the Build angle:** Good wayfinding explains the difference
+  between places before asking someone to choose one.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.

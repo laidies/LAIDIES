@@ -32,6 +32,26 @@ Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-05 launch-truth reconciliation
 
+### 2026-08-06 LIBRAiRY maker candidate — Ali visual judgment next
+
+The current `library.html` is a **LOCAL MAKER CANDIDATE / NOT DEPLOYED / NOT
+PUBLICLY VERIFIED** at SHA-256
+`76fe6f752b0eb816c9b02120e8edf64b4c65415dc2862f279d46c47319204330`.
+The one permitted maker browser check at 1440px and 390px found and repaired the
+blank retired-book slot in the collection guide, confirmed no horizontal
+overflow, confirmed the compact 101s/Reference cases meet the floor and books
+meet their rails, and exercised cover → held preview → exact shelf-focus return.
+The page now uses the exact title **The LIBRAiRY**, the working-desk masthead with
+metal under-stair stacks, a three-part comic collection guide with explanations,
+the clean two-bay compact case, and the bounded Miss Jeeves examples.
+
+The exact next gate is Ali's visual judgment of this local candidate. No Claude,
+multi-role or dossier review was commissioned. The legacy full product test
+still fails at `scripts/test-library-product.cjs:1057` because it expects
+Concepts 101 to be admitted and expose **Open this book**; current truth remains
+zero admitted books, so that expectation was not satisfied or weakened. No
+deploy, publication, spend, provider connection or Ali-authority action occurred.
+
 ### LIBRAiRY false-PASS incident — current foreground truth
 
 Ali rejected the current `library.html` visual. It is **INTERNAL REPAIR

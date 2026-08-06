@@ -517,10 +517,23 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-chip:nth-of-type(2){border-color:var(--purple)}.jv-chip:nth-of-type(3){border-color:var(--coral)}.jv-chip:nth-of-type(4){border-color:var(--cyan)}
 .jv-chip:hover,.jv-chip:focus-visible{background:var(--cyan);color:var(--ink);border-color:var(--yellow)}
 
-.shelf-guide{grid-template-columns:minmax(240px,.55fr) minmax(0,1.45fr);gap:clamp(20px,4vw,56px);
-  padding:clamp(38px,4.4vw,58px) clamp(24px,6vw,92px);background:linear-gradient(90deg,rgba(21,188,224,.97) 0%,rgba(21,188,224,.92) 42%,rgba(101,209,227,.78) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center 46%/cover no-repeat;color:var(--ink);
+.shelf-guide{grid-template-columns:1fr;gap:clamp(22px,3vw,36px);
+  padding:clamp(32px,4vw,52px) clamp(24px,6vw,92px);background:linear-gradient(90deg,rgba(21,188,224,.96) 0%,rgba(21,188,224,.9) 42%,rgba(101,209,227,.78) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center 46%/cover no-repeat;color:var(--ink);
   border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 var(--purple)}
-.shelf-guide .eyebrow{color:var(--midnight)}.shelf-guide h2{font-size:clamp(42px,4.5vw,64px);color:var(--ink);text-shadow:4px 4px 0 var(--cyan)}
+.shelf-guide-heading{display:grid;grid-template-columns:minmax(230px,.55fr) minmax(360px,1.45fr);gap:clamp(18px,4vw,56px);align-items:end}
+.shelf-guide .eyebrow{grid-column:1;color:var(--midnight)}
+.shelf-guide h2{grid-column:1;font-family:'Jost',system-ui,sans-serif;font-size:clamp(44px,5vw,72px);font-weight:800;line-height:.92;color:var(--cream);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:7px 7px 0 var(--pink)}
+.shelf-guide-heading>p{grid-column:2;grid-row:1/3;max-width:760px;margin:0;padding:16px 20px;border:3px solid var(--ink);background:var(--yellow);box-shadow:7px 7px 0 var(--cobalt);font-size:clamp(17px,1.55vw,22px);font-weight:800;line-height:1.4}
+.shelf-captions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.shelf-caption{display:grid;grid-template-rows:auto 1fr;margin:0;background:var(--cream);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--panel-accent,var(--pink));color:var(--ink)}
+.shelf-caption:nth-child(1){--panel-accent:var(--pink)}.shelf-caption:nth-child(2){--panel-accent:var(--yellow)}.shelf-caption:nth-child(3){--panel-accent:var(--purple)}
+.shelf-caption-art{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:0;min-height:210px;padding:18px 12px 0;overflow:hidden;background:linear-gradient(135deg,rgba(255,211,77,.86),rgba(242,84,169,.82)),url('assets/library/episode-01-pop-comic-bg-v1.png') center/cover no-repeat;border-bottom:4px solid var(--ink)}
+.shelf-caption:nth-child(2) .shelf-caption-art{background-image:linear-gradient(135deg,rgba(125,226,194,.83),rgba(21,188,224,.88)),url('assets/library/episode-01-pop-comic-bg-v1.png')}
+.shelf-caption:nth-child(3) .shelf-caption-art{background-image:linear-gradient(135deg,rgba(113,55,214,.82),rgba(242,84,169,.84)),url('assets/library/episode-01-pop-comic-bg-v1.png')}
+.shelf-caption-art img{width:31%;height:190px;object-fit:contain;filter:drop-shadow(0 8px 5px rgba(7,20,47,.42));transform:rotate(-5deg) translateY(4px)}
+.shelf-caption-art img:nth-child(2){z-index:2;width:36%;height:205px;transform:none}.shelf-caption-art img:nth-child(3){transform:rotate(5deg) translateY(4px)}
+.shelf-caption-copy{padding:17px 18px 19px;font-size:15px;line-height:1.48}
+.shelf-caption-copy b{display:block;margin-bottom:5px;font-family:'Jost',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:.06em;color:var(--ink)}
 .catalogue-controls{grid-template-columns:minmax(260px,1fr) minmax(190px,260px);gap:18px 22px;margin:0;padding:clamp(18px,2vw,26px);border:4px solid var(--ink);background:var(--cream);box-shadow:8px 8px 0 var(--pink)}
 /* CATALOGUE_CONTROL_SHAPE_CONTRACT: one square-cornered working surface. */
 .shelf-guide input,.shelf-guide button,.shelf-guide a,.shelf-guide .catalogue-controls,.shelf-guide .topic-links{border-radius:0}
@@ -540,15 +553,15 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .library-room-unit[data-collection-room="0"]{--room-tint:rgba(240,86,166,.42)}
 .library-room-unit[data-collection-room="1"]{--room-tint:rgba(21,188,224,.42)}
 .library-room-unit[data-collection-room="2"]{--room-tint:rgba(112,56,201,.38)}
-.library-room-unit.is-compact-room{aspect-ratio:2.05/1}
+.library-room-unit.is-compact-room{aspect-ratio:1.65/1}
 .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:absolute;left:4%;right:4%;top:3%;bottom:.8%;width:auto;margin:0;background:none;
   filter:drop-shadow(0 12px 16px rgba(49,20,54,.3))}
 .shelf-unit::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat}
-.shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{left:7%;right:7%;top:4%;bottom:0}
-.shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png');background-size:100% 100%;background-position:center}
+.shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{left:2%;right:2%;top:3%;bottom:.8%}
+.shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/library-wall-case-2bay-clean-v1.png');background-size:100% 100%;background-position:center}
 .department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:absolute;inset:0;width:100%;margin:0}
 .bay{position:absolute;inset:0}
-.ledge{position:absolute;z-index:6;left:50%;top:1%;width:min(330px,30%);height:9.5%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.ledge{position:absolute;z-index:6;left:50%;top:3.9%;width:min(320px,29%);height:7.2%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
 .ledge img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 7px rgba(58,24,56,.28))}
 .mobile-shelf-caption{position:absolute;z-index:3;left:6%;right:6%;top:12%;margin:0;text-align:center;color:var(--ink);font-weight:800;font-size:clamp(13px,1.25vw,17px)}
 .mobile-shelf-caption b{display:none}.reel-cue{display:none}
@@ -557,7 +570,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .shelf-unit.is-compact .brow{height:25%;grid-template-columns:repeat(2,minmax(0,1fr))}.shelf-unit.is-compact .brow[data-book-count="1"]>.bk{grid-column:1/-1}.shelf-unit.is-compact .brow[data-book-count="2"]>.bk:first-child{grid-column:1}.shelf-unit.is-compact .brow[data-book-count="2"]>.bk:last-child{grid-column:2}
 .shelf-unit:not(.is-compact) .brow[data-book-count="1"]>.bk{grid-column:2}.shelf-unit:not(.is-compact) .brow[data-book-count="2"]>.bk:first-child{grid-column:1}.shelf-unit:not(.is-compact) .brow[data-book-count="2"]>.bk:last-child{grid-column:3}
 .brow--1{bottom:64.7%}.brow--2{bottom:38.7%}.brow--3{bottom:12.2%}.brow--4{display:none}
-.shelf-unit.is-compact .brow--1{bottom:52.6%}.shelf-unit.is-compact .brow--2{bottom:21.1%}.shelf-unit.is-compact .brow--3{display:none}
+.shelf-unit.is-compact .brow--1{bottom:64.5%}.shelf-unit.is-compact .brow--2{bottom:34.9%}.shelf-unit.is-compact .brow--3{display:none}
 .bk{position:relative;flex:0 1 clamp(145px,15vw,220px);width:clamp(145px,15vw,220px);height:100%;max-height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;min-height:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 10px 7px rgba(58,24,56,.35));transition:transform .16s ease}
 .bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-height:0;object-fit:contain;transform:translateY(2.5%)}
 .bk:hover,.bk:focus-visible{transform:translateY(-7px) scale(1.04);outline:4px solid var(--yellow);outline-offset:4px}
@@ -566,17 +579,17 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 @media(max-width:700px){
   .jv{display:block}.jv-head{margin-bottom:18px}.jv-head .h{font-size:38px}.jv-form{display:grid;grid-template-columns:1fr auto}
-  .shelf-guide{display:block}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}
+  .shelf-guide{display:block}.shelf-guide-heading{display:block}.shelf-guide-heading>p{margin-top:18px}.shelf-captions{grid-template-columns:1fr;margin-top:24px}.shelf-caption-art{min-height:190px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:24px}
   .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
   .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
   .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center,center bottom,center;background-size:cover,100% auto,cover;background-repeat:no-repeat;background-blend-mode:color,normal,normal}
   .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:none}
   .shelf-unit::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png');background-size:100% 100%;background-position:center}
-  .shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{position:relative;inset:auto;width:min(620px,100%);aspect-ratio:1/1;margin:0 auto}
-  .shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png');background-size:100% 100%;background-position:center}
-  .ledge{top:1%;width:78%;height:12%}.mobile-shelf-caption{top:13%;font-size:14px}
+  .shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{position:relative;inset:auto;width:min(620px,100%);aspect-ratio:1.534/1;margin:0 auto}
+  .shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/library-wall-case-2bay-clean-v1.png');background-size:100% 100%;background-position:center}
+  .ledge{top:3.9%;width:45%;height:7.2%}.mobile-shelf-caption{top:13%;font-size:14px}
   .brow{left:9%;right:9%;height:31%;gap:9%}.brow--1{bottom:65%}.brow--2{bottom:33%}.brow--3{bottom:1%}
-  .shelf-unit.is-compact .brow{left:3%;right:3%;height:25%}.shelf-unit.is-compact .brow--1{bottom:52.6%}.shelf-unit.is-compact .brow--2{bottom:21.1%}
+  .shelf-unit.is-compact .brow{left:3%;right:3%;height:25%}.shelf-unit.is-compact .brow--1{bottom:64.5%}.shelf-unit.is-compact .brow--2{bottom:34.9%}
   .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}
 }
 @media(max-width:900px){
@@ -597,7 +610,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     <section class="library-intro" aria-labelledby="library-title">
       <div class="titleblock">
         <div class="eyebrow">Civic Square · SUNNYVAiLE</div>
-        <h1 id="library-title">The Town LIBR<span class="ai">Ai</span>RY</h1>
+        <h1 id="library-title">The LIBR<span class="ai">Ai</span>RY</h1>
       </div>
       <p class="lede">Come in with a question. Leave with the book—or the exact section—that helps.
         <small>Ask Miss Jeeves when you only know the question. Browse the shelves when you know what you want to understand.</small>
@@ -605,7 +618,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <p class="visitor-state" id="puffyVisitorState" aria-live="polite"></p>
     </section>
     <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
-      <img src="assets/building-interiors/library-interior-purple-sign-wall-v5.png" alt="Miss Jeeves at the working reference desk with computers, barcode scanner, printer, librarian tools and funny Library signs">
+      <img src="assets/building-interiors/library-interior-purple-sign-wall-v6-metal-stacks.png" alt="Miss Jeeves at the working reference desk with computers, barcode scanner, printer, metal book stacks, librarian tools and funny Library signs">
     </section>
   </div>
 
@@ -633,9 +646,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   </section>
 
   <section class="shelf-guide" aria-labelledby="shelf-guide-title">
-    <div>
+    <div class="shelf-guide-heading">
       <div class="eyebrow">Browse the catalogue</div>
       <h2 id="shelf-guide-title">Browse the shelves</h2>
+      <p>Start with the kind of help you need. Then choose a cover to see exactly what is inside.</p>
     </div>
     <div class="shelf-captions" id="shelf-captions" aria-label="What each Library shelf contains"></div>
     <div class="catalogue-controls" aria-label="Find a book in the Library catalogue">
@@ -706,7 +720,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 'use strict';
 const B='assets/library-101/bright-family-v2/';
 const SECTIONS=[
- {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'The plain-English basics — start here if the words themselves are the problem.',mcap:'Plain-English basics.',
+ {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'Start here for the plain-English building blocks: concepts, briefing, setup and accounts.',mcap:'Plain-English building blocks.',
   books:[
    /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
       Vocab 101 from the public catalogue; it must not render on either shelf. */
@@ -716,7 +730,7 @@ const SECTIONS=[
    {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'hold',statusLabel:'Admission revalidation required',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',img:B+'textbook-setup-101.png',c:'#1597a7'},
    {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Admission revalidation required',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
- {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:'Which one to open for which job. Preview the full tool shelf now; each guide opens when its current review is complete.',mcap:'Choose a tool for the job.',
+ {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
   books:[
    {id:'whos-who',t:"Who's Who in AI",topics:['choosing-tools'],status:'hold',statusLabel:'Currentness and depth review',s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c'},
    {id:'chatgpt',t:'ChatGPT',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
@@ -725,7 +739,7 @@ const SECTIONS=[
    {id:'copilot',t:'Copilot',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
    {id:'perplexity',t:'Perplexity',topics:['choosing-tools','checking-research'],status:'preview',statusLabel:'Lands EP 5',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
   ]},
- {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'The look-it-up answers — sourced, and how to check the machine yourself.',mcap:'Sourced answers and checking guides.',
+ {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'Use this shelf for a specific answer, a safety rule, or a reliable way to check what the AI told you.',mcap:'Sourced answers and checking guides.',
   books:[
    {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research'],status:'hold',statusLabel:'Source re-verification',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
    {id:'how-to-check',t:"How to Check AI's Work",topics:['checking-research'],status:'hold',statusLabel:'Not yet available · independent learning, accuracy, brand and accessibility review open',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'AFTER REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
@@ -839,7 +853,7 @@ function renderShelf(){
  const wallcase=document.getElementById('wallcase');
  wallcase.innerHTML=rooms.join('');
  document.querySelector('.libroom')?.classList.toggle('has-multiple-units',rooms.length>1);
- document.getElementById('shelf-captions').innerHTML=SECTIONS.map(section=>`<p class="shelf-caption"><b>${section.name}</b>${section.cap}</p>`).join('');
+ document.getElementById('shelf-captions').innerHTML=SECTIONS.map(section=>`<article class="shelf-caption"><div class="shelf-caption-art" aria-hidden="true">${section.books.filter(book=>book.listed!==false&&book.img).slice(0,3).map(book=>`<img src="${esc(book.img)}" alt="">`).join('')}</div><div class="shelf-caption-copy"><b>${esc(section.name)}</b>${esc(section.cap)}</div></article>`).join('');
  const result=document.getElementById('catalogue-result');
  /* CATALOGUE_QUIET_DEFAULT_CONTRACT: counts are useful only after a visitor filters. */
  const catalogueHasActiveFilter=Boolean(catalogueFilter.q||catalogueFilter.topic!=='all'||catalogueFilter.collection!=='all'||catalogueFilter.status!=='all');
