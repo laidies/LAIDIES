@@ -3,6 +3,8 @@ const requiredAssets = [
   'assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png',
   'assets/building-interiors/library-shelf/room/floor-geometric-v1.png',
   'assets/library/library-printer-sign-v1.png',
+  'assets/library/library-printer-jammed-sign-v1.svg',
+  'assets/library/library-wall-clock-v1.svg',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
@@ -30,6 +32,12 @@ export function validateLibraryKnownFailures(source) {
   }
   if (!/arrival-printer-sign[^>]*library-printer-sign-v1\.png/.test(source)) {
     errors.push('localized printer sign is missing');
+  }
+  if (!/arrival-jammed-sign[^>]*library-printer-jammed-sign-v1\.svg/.test(source) || !/Yes, the printer is jammed/i.test(source)) {
+    errors.push('printer-jam wall joke is missing');
+  }
+  if (!/arrival-clock[^>]*library-wall-clock-v1\.svg/.test(source)) {
+    errors.push('colourful Library wall clock is missing');
   }
   if (/arrival-scanner|library-flatbed-scanner-v1\.png/.test(source)) {
     errors.push('rejected floating scanner overlay remains');
@@ -109,7 +117,10 @@ export function validateLibraryKnownFailures(source) {
   if (!/\/\*\s*BOOK_VISIBLE_SIZE_CONTRACT\b/.test(source) || !/data-visible-scale/.test(source)) {
     errors.push('visible-alpha book normalization contract is missing');
   }
-  if (!/MOBILE_BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !/@media\(max-width:700px\)[\s\S]*?\.brow\{[^}]*min-height\s*:\s*120px/is.test(source)) {
+  const mobileRules = source.match(/@media\(max-width:700px\)\{[\s\S]*?<\/style>/i)?.[0] || '';
+  const normalMobileRowIsReadable = /(?:^|})\s*\.brow\{[^}]*min-height\s*:\s*120px/i.test(mobileRules);
+  const compactMobileRowIsReadable = /\.shelf-unit\.is-compact\s+\.brow\{[^}]*min-height\s*:\s*120px/i.test(mobileRules);
+  if (!/MOBILE_BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !normalMobileRowIsReadable || !compactMobileRowIsReadable) {
     errors.push('mobile shelf rows do not preserve a 120px visible-book dimension');
   }
   if (!/LIBRARY_CASE_ANCHOR_CONTRACT/.test(source)) {
