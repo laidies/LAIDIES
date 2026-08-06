@@ -219,6 +219,11 @@ remain; the current scale and every other page area are rejected. Concepts 101
 is directly rejected; Briefing 101, Setup 101 and Accounts 101 are preserved
 source artifacts on HOLD under the corrected admission gate. The authorized Claude Opus
 review was stopped at Ali's direction and produced no receipt.
+Library page correction now uses one maker browser check for objective
+functional/accessibility/responsive breakage, followed directly by Ali's
+judgment of the exact visible candidate. Multi-role, dossier and repeated
+procedural page-review cycles are prohibited; content-accuracy admission and
+exact public-deployment verification remain unchanged.
 
 The public builder remains default-DENY. Exact owner and independent judgments
 have now admitted the current Library 19-path visual batch, the bounded KSVL

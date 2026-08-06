@@ -9,6 +9,14 @@ Last reconciled: 2026-08-05.
 
 ## Current overrides
 
+- **Page-review cutline — 2026-08-05.** A Library page successor receives one
+  maker browser check for objective functional, accessibility and responsive
+  breakage, then Ali judges the exact visible candidate. Do not commission
+  multi-role, dossier or repeated procedural page reviews. Automated checks
+  remain only where they can reject a real defect. Book-content accuracy and
+  admission gates, privacy/security, and exact public deploy verification are
+  unchanged.
+
 - **Exact visual rejection — 2026-08-05.** `library.html` SHA
   `615a80f7…dab` is **REJECTED / DO NOT PREVIEW / DEPLOY / PUBLISH**: covers are
   unreadably small and the boring blue recolour repeats the rejected shelf
