@@ -17,14 +17,13 @@ Current source is implementation evidence; `EXPERIENCE-BRIEF.md` and
 | Capability/element | User trigger and page | Intended visible result | Current implementation/evidence | Status |
 |---|---|---|---|---|
 | Room arrival and capability explanation | Enter `/library.html` | Recognize a Library and understand shelves, status, Miss Jeeves, reader and Puffy/Closet | Live HTML room, instructions, catalogue and device-local save copy | OBSERVED; comprehension proof missing |
-| Desktop shelf catalogue | Focus/click a cover | Available book opens; held/preview cover gives exact status | Frozen `SECTIONS`; unavailable covers are focusable status spans; `ADMITTED_BOOK_SOURCES` is empty | VERIFIED LOCALLY for hold enforcement; no available book |
-| Mobile catalogue | Browse/tap at 320/390 px | Same inventory and truth without shrunken hotspots | Generated from the same frozen `SECTIONS` | VERIFIED LOCALLY mechanically; native visual/AT proof missing |
+| Desktop shelf catalogue | Choose one materially large cover on the proper physical shelf image | One click opens one full pre-open preview; preview then offers exact Back-to-shelf or admitted Open | Frozen `SECTIONS`; physical case and live cover objects; availability remains fail-closed | LOCAL CANDIDATE — exact visual judgment and admission remain open; 0 books admitted |
+| Mobile catalogue | Choose one readable cover on the upright physical shelf at 320/390 px | Same one-click preview and Back/Open choice without inline full previews or shrunken hotspots | Generated from the same frozen `SECTIONS` | LOCAL CANDIDATE — responsive proof remains required; 0 books admitted |
 | Publication status/live region | Attempt held/preview book | Plain explanation that the book did not open | `reportLibraryStatus()` updates `#library-status` | VERIFIED LOCALLY mechanically |
 | Direct saved/hash route | Open `/library.html#book::heading` | Open exact admitted section, or preserve current hold truth | Hash calls `openBook`; `admittedBook()` fails closed unless status and exact source pass | VERIFIED LOCALLY for hold enforcement |
-| Reader and contents | Open admitted book/section | Fetch exact source, open modal, navigate, close and return focus | Exact same-origin allow-list; redirects rejected; focus trap/Escape/backdrop/Close; explicit load error/retry | BUILT LOCALLY; zero admitted sources and native AT proof missing |
-| Miss Jeeves curated answer | Ask one of four recognized intents | Direct bounded answer, then admitted or honest held routes | Four inline lexical intents; book links check catalogue status | BUILT LOCALLY; claim/currentness and independent review incomplete |
-| Miss Jeeves lexical search | Type another query | Relevant controlled results or zero-result recovery | Fetches a versioned same-origin `site-index.json`; unavailable/malformed/stale responses show an accessible retry that preserves the query, and Library records are reconciled through admission state | VERIFIED LOCALLY for failure/retry and held-route enforcement; source/currentness review remains open |
-| Whole-book/exact-section Puffy save | In an admitted reader choose a sticker | Read-verified same-device save and visible state | `puffy-bookmarks.js`; exact supported route/sticker validation | VERIFIED LOCALLY on fixtures/exact artifact; no admitted production book |
+| Reader and contents | Open admitted book/section | Fetch exact source, open modal, navigate, close and return focus | Exact same-origin allow-list; redirects rejected; focus trap/Escape/backdrop/Close; explicit load error/retry | VERIFIED LOCALLY for the four exact opening-book sources; native AT proof remains open |
+| Miss Jeeves answer service | Ask in ordinary language from Homepage or Library | Direct bounded answer, then exact admitted places across town; Library prioritizes books/sections | Same-origin `/api/miss-jeeves` retrieves live safe index rows; optional grounded Workers AI synthesis; deterministic retrieval fallback; four curated intents remain an immediate bounded layer | VERIFIED LOCALLY for worker and browser contract; binding, deployment, public proof and source/currentness review remain open |
+| Whole-book/exact-section Puffy save | In an admitted reader choose a sticker | Read-verified same-device save and visible state | `puffy-bookmarks.js`; exact supported route/sticker validation | VERIFIED LOCALLY on the exact opening-set artifacts; public proof remains open |
 | Puffy pouch selection/purpose | Change ten stickers in Closet | Approved sticker set/private labels remain on this device | `laidies_puffy_sticker_pouch`; allow-list, limits and read-back | VERIFIED LOCALLY; native private-mode/migration proof open |
 | Closet Puffy board | Open `/laidies-card.html#puffyPouch` | See saves, reopen exact place or remove independently | Shared script reads canonical records; sibling anchor/remove control | VERIFIED LOCALLY same device |
 | Corrupt/unsafe save recovery | Load malformed local data | Remove invalid rows, preserve valid siblings, disclose recovery | Field/route/sticker/date allow-lists, dedupe-newest, limits and live status | VERIFIED LOCALLY deterministically |
@@ -32,27 +31,29 @@ Current source is implementation evidence; `EXPERIENCE-BRIEF.md` and
 | Cross-building continuations | Follow issue/High/NewsStand/FAiRY route | Reach admitted destination and useful handback | Some issue/index links exist; no complete handback registry | PARTIAL/INFERRED; P1 gap |
 | Retired Grimoire routes | Visit old AI-handbook URL | Redirect to current Library without treating legacy as current | Redirects documented; stale links remain | OBSERVED; migration incomplete |
 | Correction/report route | Find an exact error | Submit location-specific correction with receipt/status | No Library correction intake, ledger or propagation | MISSING; P0 before admitting books |
-| Aggregate analytics | Arrive/open/search/save/reopen/remove | Privacy-safe outcome evidence | Sitewide tags may exist; no Library event/delivery contract | MISSING; P1 |
+| Aggregate analytics | Ask/search/save/reopen/remove | Privacy-safe outcome evidence | Miss Jeeves worker has an optional aggregate signal boundary; no production binding/delivery proof | PARTIAL LOCALLY; binding/privacy disclosure/public proof missing |
 
 ## Visitor-state recognition and continuity
 
-Library does not use Card presence or account state as authorization. The
-Puffy producer and Closet consumer share the same device-local keys in all
-states.
+Library browsing, search and reading do not use Card presence or account state
+as authorization. Creating or changing a Puffy save does require a valid
+device-local Resident Card, because the visitor's active pouch of 10 belongs
+to My Closet. The Card does not unlock books, prove login, add ownership or
+make Puffy records sync beyond this browser/device.
 
 | Visitor state | Recognition source and proof scope | State loaded | Experience difference | Writes/services allowed | Cross-page continuity | Failure/fallback | Current verdict |
 |---|---|---|---|---|---|---|---|
-| First-time visitor | No valid Puffy board/pouch; Card/account irrelevant | Frozen catalogue; default pouch may initialize | Full orientation; no prior saves | Canonical local writes only; no backend | Library → Closet on same browser/device | Storage denial/corruption disclosed | BUILD BEFORE LAUNCH; same-device copy is temporary truth, not completion |
-| Returning, no Resident Card | Valid Puffy data on this browser/device; no identity inference | Saved board/pouch | Reopen/remove prior valid locations; current admission rechecked | Same local writes only | Same keys across Library/Closet | Stale/held save stays closed; invalid rows recovered | VERIFIED LOCALLY same device; no account claim |
-| Resident Card — device-local | Separately valid device-local Card envelope; not login proof | Same Puffy data plus Card elsewhere | No Library privilege or sync difference | Same local writes only | Card and Puffy coexist but are separate stores | Card loss/logout-like return does not change Puffy authority | BUILD BEFORE LAUNCH for intended resident continuity; Card cannot lend identity proof |
+| First-time visitor | No valid Resident Card or Puffy state | Frozen catalogue; no pouch editing | Full orientation and unrestricted browsing/search/reading; saving explains that a Card is required | No new Puffy write | Library → Card creation in the Sorority House/Closet | Storage denial disclosed; visitor can keep reading | VERIFIED LOCALLY; public/native proof open |
+| Returning, no Resident Card | Older valid Puffy data may remain on this browser/device; no identity inference | Existing board records only; active pouch and new placement remain locked | Reopen prior valid locations; make a Card before placing/changing a Puffy | No new Library Puffy write | Same local records remain truthful without implying a current Closet identity | Stale/held saves stay closed; invalid rows recovered | VERIFIED LOCALLY same device; no account claim |
+| Resident Card — device-local | Valid device-local Card envelope; not login proof | One active pouch of 10 total stickers, each with an optional personal purpose | Browse/read normally; every whole-book and exact-section save offers the same active 10 | Canonical local write/read-back only | Library saves return to the Puffy Board in My Closet on this device | Card loss blocks new/change actions without deleting older valid records | VERIFIED LOCALLY; no login, ownership or sync claim |
 | Resident Card — verified account-backed, if supported | Requires separately accepted auth session/profile/RLS evidence | Library still loads local Puffy data only | No supported account-backed Library behavior today | No Library account write/sync | No Puffy backup, merge or second-device restore | Fall back to exact local/device truth | BLOCKED — BUILD REMAINS REQUIRED behind Platform Identity |
 
 Required transition verdicts:
 
 | Transition | Current truth | Launch disposition |
 |---|---|---|
-| First visit → save → return without Card | Read-verified local round trip exists | VERIFIED LOCALLY; public/native proof open |
-| Visitor → create local Card → same-device return | Card does not alter Puffy behavior | BUILD BEFORE LAUNCH; run and pass the combined transition |
+| First visit without Card → save attempt | Card-required recovery appears; no Puffy write | VERIFIED LOCALLY |
+| Device-local Card → choose active 10 → save whole book or exact section → return | Both save contexts offer the same 10; read-verified local round trip exists | VERIFIED LOCALLY; public/native proof open |
 | Local Card → account claim | Outside Library and does not migrate Puffy records | BLOCKED — BUILD REMAINS REQUIRED behind Platform Identity |
 | Signed-in resident → sign out → return | Puffy remains browser-local; no accepted combined suite | BUILD BEFORE LAUNCH |
 | Second tab | Browser `storage` events repaint the Board and visitor-state copy after create/update/remove in another same-origin tab | VERIFIED LOCALLY in Chromium; native/browser-family proof remains open |
@@ -65,16 +66,16 @@ Required transition verdicts:
 
 | Capability/data object | Producer page/event | Frontend module | Backend/service/provider | Authoritative store/schema/key | Consumer pages | Identity/persistence scope | Current truth |
 |---|---|---|---|---|---|---|---|
-| Book catalogue/status | Editorial owner changes frozen record after admission evidence | `SECTIONS`, `ALL`, `admittedBook()` in `library.html` | None | Frozen page record plus `ADMITTED_BOOK_SOURCES` | Desktop/mobile shelves, Miss Jeeves, hash opener | Public artifact | All books hold/preview; source map empty |
-| Rendered admitted book | Editorial build produces exact file | `openBook()` fetch/parser/reader | Static hosting | Explicit `/content/library-books/rendered/<id>.html` pairing | Reader, contents, section saver | Public artifact | Files may exist; none is admitted |
-| Miss Jeeves curated answer | Maintainer edits `JEEVES_ANSWERS` | Inline matcher/renderer | None | Frozen page source | Library visitor; issue/book routes | Session only | Four answers; independent/currentness review incomplete |
-| Miss Jeeves index | Site build produces entries | `fetch(site-index.json)`, lexical scorer | Static hosting | `content/site/site-index.json` | Result cards and destination pages | Session only | Publication/freshness/error filtering incomplete |
-| Reader state | Cover/hash/Miss Jeeves opens admitted ID | Inline reader modal | Static source fetch | DOM/history hash | Current page and Puffy decorator | Session/history only | Built; inaccessible via current zero-admission catalogue |
+| Book catalogue/status | Editorial owner changes frozen record after admission evidence | `SECTIONS`, `ALL`, `admittedBook()` in `library.html` | None | Frozen page record plus `ADMITTED_BOOK_SOURCES` | Desktop/mobile shelves, Miss Jeeves, hash opener | Public artifact | Concepts, Briefing, Setup and Accounts 101 are exact locally admitted; all other books hold/preview/coming later |
+| Rendered admitted book | Editorial build produces exact file | `openBook()` fetch/parser/reader | Static hosting | Explicit `/content/library-books/rendered/<id>.html` pairing | Reader, contents, section saver | Public artifact | The four opening-set artifacts are admitted locally; other rendered files are not admitted by existence |
+| Miss Jeeves answer | Visitor asks from Homepage or Library | Curated intent plus `/api/miss-jeeves` client | Pages `_worker.js`; optional Workers AI binding | Current admitted `content/site/site-index.json`; no raw-query store | Library/Homepage visitor; exact town routes | Request only; aggregate signal excludes raw wording | Worker/browser contract verified locally; provider binding/public proof open |
+| Miss Jeeves learning signal | Completed answer outcome | Same request placement/outcome | Optional aggregate signal binding | Controlled placement/outcome/topic/source IDs | Product owner/Control Room | Aggregate only | Boundary and no-raw-query test pass; production binding/report absent |
+| Reader state | Cover/hash/Miss Jeeves opens admitted ID | Inline reader modal | Static source fetch | DOM/history hash | Current page and Puffy decorator | Session/history only | The four opening-set books open; other catalogue records remain inaccessible by status |
 | Puffy board record | Reader save after sticker choice | `content/site/puffy-bookmarks.js` | None | `localStorage['laidies_puffies_board']` canonical record | Library saved control; Closet board; reopen route | Browser/device only, anonymous | Read-verified local round trip |
 | Puffy pouch | Closet selection/purpose change | Shared Puffy script | None | `localStorage['laidies_puffy_sticker_pouch']` | Library picker; Closet pouch/board | Browser/device only, anonymous | Read-verified local round trip |
 | Resident Card | MAiKEOVER/Closet, outside Library | Resident Card/Closet modules | Possible Supabase paths elsewhere are not Library proof | Device-local Card envelope; separately possible auth session | Closet shell only; Library saves do not sync | Device or separately verified account | No Library signed-in behavior |
 | Library correction | Reader identifies exact error | MISSING | MISSING intake/triage service | MISSING claim/location ledger | Book, Miss Jeeves, index and dependent products | Must avoid raw private query/reading data | No path exists |
-| Library analytics outcome | Controlled UI outcome | MISSING event adapter | Approved aggregate provider, unverified | Controlled IDs/categories only | Product owner/Control Room | Aggregate | Script presence is not delivery proof |
+| Library analytics outcome | Controlled Miss Jeeves outcome | Worker adapter; other Library events missing | Approved aggregate provider, unverified | Controlled IDs/categories only | Product owner/Control Room | Aggregate | Miss Jeeves boundary exists locally; binding and delivery proof absent |
 
 ## 4. End-to-end transaction contract
 
@@ -97,12 +98,19 @@ redirect rejected → full reader → optional section/save → close/return foc
 
 ### Miss Jeeves
 
-`query → local normalization → curated intent or index → bounded answer/results
+`query → local normalization → curated intent or same-origin service → admitted
+retrieval → optional grounded synthesis or deterministic fallback → bounded answer/results
 → admission/status check → destination or honest hold/zero-result`
 
 - **Completion:** useful visible answer and every promoted destination works.
-- **Privacy:** query remains in page memory; never send raw query, answer,
-  reading text or inferred need to analytics/logs/session replay.
+- **Privacy:** the same-origin service may process the question to answer it;
+  analytics receives only controlled topic, outcome, placement and source IDs.
+  Never persist raw query, answer, reading text or inferred personal need to
+  analytics/logs/session replay.
+- **Measurement contract:** `MISS-JEEVES-MEASUREMENT-CONTRACT.md` defines the
+  decision jobs, controlled taxonomy, event denominator, prohibited data,
+  retention/access limits and fail-closed production prerequisites. The local
+  outcome event exists behind an optional binding; live collection remains off.
 - **Failure:** unavailable, malformed or stale index input now fails closed with
   an accessible retry that preserves the in-page query. Native AT/browser-family
   proof remains open.
@@ -146,7 +154,7 @@ Library rechecks admission → remove → local write/read-back → repaint`
 
 | Gap | User consequence | Required backend/data/service work | Shared contract owner | Product owner | Exact files/services | Acceptance proof | Launch disposition |
 |---|---|---|---|---|---|---|---|
-| Zero admitted books | Complete read/save journey cannot start | No new backend; finish editorial admission and artifact binding | Release reliability | Library | `library.html`; rendered books/evidence; `build-packet-p0-admitted-book-reader-puffy-closet-2026-07-26.md` | One admitted book passes content/trust/brand/a11y, reader, save→Closet→reopen/remove and public proof | BUILDING — BUILD REMAINS REQUIRED |
+| One admitted book only | The complete room works, but most catalogue value remains preview/coming later | Admit further books only after proportional content/trust/artifact review | Release depth | Library | `library.html`; rendered books/evidence | Concepts remains exact; each successor independently passes content and reader binding | BUILDING — additional books remain required for catalogue depth |
 | Miss Jeeves index ignores private admission | Search can route around holds | Build-time filtered index or runtime reconciliation | Content admission/release | Library/Miss Jeeves | `library.html`; index/builder | Held/stale fixtures never operable; visible unavailable state | BUILD BEFORE LAUNCH |
 | Silent index failure | Unexplained empty search | Explicit load/error/retry; no provider needed | Release reliability | Miss Jeeves | `library.html`; index route | 404/offline/malformed accessible recovery | BUILD BEFORE LAUNCH |
 | No correction ledger | Exact errors cannot propagate | Claim/location schema, receipt, triage, status and consumer propagation; service TBD | Shared correction | Library/content owners | Approved route/service; books/index/page | Submit→receipt→correct/demote→all consumers/public proof | BUILD BEFORE ADMITTING BOOKS |
@@ -168,8 +176,9 @@ Library rechecks admission → remove → local write/read-back → repaint`
   entitlement, owned book, mastery or FAiRY Play.
 - **Community/moderation:** no public query, annotation or save sharing.
 - **Referrals/postcards/newsletter/delivery:** none.
-- **AI service quality/safety:** Miss Jeeves is deterministic orientation, not
-  a model; claims still need source/currentness ownership.
+- **AI service quality/safety:** Miss Jeeves is a retrieval product. Optional AI
+  may summarize only supplied current results; deterministic retrieval remains
+  the fallback. Claims still need source/currentness ownership.
 - **Content admission/freshness:** frozen catalogue plus exact source allow-list
   is authority; files/index rows do not admit themselves.
 - **Analytics/customer evidence:** controlled aggregate outcomes only; raw

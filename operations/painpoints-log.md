@@ -14121,8 +14121,11 @@ while remaining falsely unfinished in the launch record.
 - **Why the correction works:** The Library now reuses the tracked Episode 01
   pink-violet-periwinkle, cyan-blue, light pink-blue and pink-yellow-blue
   gradients. A calibrated known-failure check rejects missing gradient stops or
-  preview-choice controls, and the browser exercise confirms held-book truth
-  plus exact focus return.
+  preview-choice controls. Ali's direct shelf correction also supersedes the
+  conflicting adjacent-preview rule: the real three-bay case and large covers
+  render alone, one click reveals one preview, and the browser exercise confirms
+  held-book truth plus exact focus return. The preflight now rejects any return
+  of the inline `shelf-book-record`/facts treatment.
 - **Machine/durable evidence:**
   `operations/design-explorations/study-pack-storefront-20260728/prototype/src/styles.css`;
   `library.html`; `scripts/lib/library-known-failures.mjs`;

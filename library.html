@@ -518,79 +518,55 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-chip:hover,.jv-chip:focus-visible{background:var(--cyan);color:var(--ink);border-color:var(--yellow)}
 
 .shelf-guide{grid-template-columns:minmax(240px,.55fr) minmax(0,1.45fr);gap:clamp(20px,4vw,56px);
-  padding:clamp(38px,4.4vw,58px) clamp(24px,6vw,92px);background:linear-gradient(110deg,#ef6bac 0%,#f7cf58 50%,#67bde8 100%);color:var(--ink);
+  padding:clamp(38px,4.4vw,58px) clamp(24px,6vw,92px);background:#67bde8 url('assets/library/episode-01-pop-comic-bg-v1.png') center 46%/cover no-repeat;color:var(--ink);
   border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 var(--purple)}
 .shelf-guide .eyebrow{color:var(--midnight)}.shelf-guide h2{font-size:clamp(42px,4.5vw,64px);color:var(--ink);text-shadow:4px 4px 0 var(--cyan)}
-.shelf-instruction{margin:0;color:var(--ink);font-size:17px}
+.shelf-instruction{margin:0;padding:12px 14px;border:3px solid var(--ink);background:var(--cream);color:var(--ink);font-size:17px;box-shadow:6px 6px 0 var(--yellow)}
 .catalogue-controls{grid-template-columns:minmax(260px,1fr) auto;gap:12px 22px;margin-top:8px}
 .catalogue-control{grid-column:1;color:var(--ink)}.catalogue-control input{border-color:var(--ink);background:var(--cream);color:var(--ink);box-shadow:5px 5px 0 var(--cyan)}
-.topic-links{grid-column:1/-1;gap:6px 14px}.topic-links b,.topic-link{color:var(--ink)}
+.topic-links{grid-column:1/-1;gap:6px 14px;padding:7px 12px;border:3px solid var(--ink);background:rgba(255,253,251,.94);box-shadow:5px 5px 0 var(--pink)}.topic-links b,.topic-link{color:var(--ink)}
 .topic-link:hover,.topic-link:focus-visible,.topic-link[aria-pressed="true"]{color:var(--ink);border-color:var(--yellow);background:var(--cyan)}
 .catalogue-closet{grid-column:2;grid-row:1;align-self:end;display:grid;gap:2px;max-width:260px;min-height:50px;padding:9px 13px;
   border:2px solid var(--ink);background:var(--cobalt);color:var(--cream);text-decoration:none;box-shadow:5px 5px 0 var(--yellow)}
 .catalogue-closet strong{font-size:14px}.catalogue-closet span{font-size:12px;line-height:1.3}
 .catalogue-closet:hover,.catalogue-closet:focus-visible{background:var(--cyan);color:var(--ink);outline:3px solid var(--yellow);outline-offset:2px}
-.catalogue-result{grid-column:1/-1;color:var(--ink)}.library-status{color:var(--ink)}.shelf-guide .library-status{color:var(--ink)}
+.catalogue-result{grid-column:1/-1;color:var(--ink)}.library-status{color:var(--ink)}.shelf-guide .library-status{padding:8px 12px;border:3px solid var(--ink);background:var(--yellow);color:var(--ink);box-shadow:5px 5px 0 var(--cobalt)}
 
-.libroom{background:#f7e3cf}
-.library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;inset:auto;aspect-ratio:auto;min-height:0;
-  padding:clamp(28px,4vw,58px) clamp(16px,4vw,64px) clamp(100px,10vw,150px);overflow:hidden;
-  background-image:url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');
-  background-position:center bottom,center top;background-size:100% auto,cover;background-repeat:no-repeat}
-.shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(1360px,100%);aspect-ratio:auto;margin:0 auto;
-  display:grid;gap:clamp(34px,5vw,66px);background:none;filter:none}
-.department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:relative;inset:auto;width:100%;margin:0}
-.live-collection{padding:0 0 clamp(10px,2vw,22px);border-top:10px solid var(--collection-accent,var(--cobalt))}
-.live-collection:nth-child(1){--collection-accent:var(--cobalt)}.live-collection:nth-child(2){--collection-accent:var(--pink)}.live-collection:nth-child(3){--collection-accent:var(--cyan)}
-.live-collection-heading{display:grid;justify-items:center;gap:8px;margin:0 auto 14px;text-align:center}
-.live-collection-heading img{display:block;width:min(430px,70%);height:76px;object-fit:contain;filter:drop-shadow(0 7px 7px rgba(58,24,56,.24))}
-.live-collection-heading p{max-width:740px;margin:0;color:var(--ink);font-size:16px;font-weight:750;line-height:1.45}
-.live-shelf{display:grid;gap:0}
-.live-shelf-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,64px);align-items:end;
-  padding:22px clamp(14px,2.5vw,36px) 0;background:linear-gradient(118deg,rgba(238,63,151,.18),rgba(255,228,90,.22) 42%,rgba(49,114,223,.19))}
-.shelf-book-record{display:grid;grid-template-columns:clamp(150px,14vw,205px) minmax(0,1fr);gap:clamp(16px,2vw,28px);align-items:end;
-  min-width:0;min-height:310px;padding:0;color:var(--ink)}
-.shelf-book-record .bk{align-self:end;width:100%;height:280px;align-items:flex-end;filter:drop-shadow(0 8px 7px rgba(58,24,56,.32))}
-.shelf-book-record .bk img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
-.shelf-book-record .bk:hover,.shelf-book-record .bk:focus-visible{transform:translateY(-5px);outline:3px solid #57b6c0;outline-offset:4px}
-.shelf-book-record .bk.soon:hover{transform:none}
-.shelf-book-copy{align-self:center;min-width:0;padding:4px 0 15px}.shelf-book-copy h3{display:inline;margin:0;
-  border-bottom:7px solid var(--collection-accent,var(--cobalt));font-family:'Jost',system-ui,sans-serif;font-size:clamp(24px,2vw,31px);font-weight:900;line-height:1.25;color:var(--ink)}
-.shelf-book-job{margin:15px 0 13px;font-size:15px;line-height:1.4}.shelf-book-job b{display:block;margin-bottom:3px;color:var(--cobalt);font-size:11px;letter-spacing:.09em;text-transform:uppercase}
-.shelf-book-facts{display:grid;gap:7px;margin:0}.shelf-book-facts div{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px}
-.shelf-book-facts dt{color:var(--purple);font-size:11px;font-weight:900;letter-spacing:.055em;text-transform:uppercase}
-.shelf-book-facts dd{margin:0;color:var(--ink);font-size:13px;line-height:1.32}
-.shelf-book-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}.shelf-book-actions button{min-height:44px;padding:10px 14px;
-  border:2px solid var(--ink);background:var(--yellow);color:var(--ink);font:900 13px/1.2 'Jost',system-ui,sans-serif;cursor:pointer;box-shadow:5px 5px 0 var(--cobalt)}
-.shelf-book-actions button:hover,.shelf-book-actions button:focus-visible{background:var(--cyan);outline:3px solid var(--pink);outline-offset:2px}
-.live-shelf-rail{position:relative;z-index:2;height:46px;overflow:hidden;background:#cabbe8;filter:drop-shadow(0 7px 5px rgba(58,24,56,.2))}
-.live-shelf-rail img{display:block;width:100%;height:150px;object-fit:cover;object-position:center 88%;filter:none}
-.empty-bay{position:relative;inset:auto;margin:20px;padding:28px;background:rgba(255,253,251,.86);color:#3a1838;text-shadow:none}
+.libroom{background:var(--midnight)}
+.library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;overflow:hidden;
+  border-bottom:8px solid var(--ink);background:url('assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png') center/cover no-repeat}
+.shelf-unit,.libroom.has-multiple-units .shelf-unit{position:absolute;left:4%;right:4%;top:4%;bottom:7%;width:auto;margin:0;
+  background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat;
+  filter:drop-shadow(0 12px 16px rgba(49,20,54,.3))}
+.department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:absolute;inset:0;width:100%;margin:0}
+.bay{position:absolute;inset:0}
+.ledge{position:absolute;z-index:4;left:50%;top:1.5%;width:min(360px,34%);height:12%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.ledge img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 7px rgba(58,24,56,.28))}
+.mobile-shelf-caption{position:absolute;z-index:3;left:6%;right:6%;top:12%;margin:0;text-align:center;color:var(--ink);font-weight:800;font-size:clamp(13px,1.25vw,17px)}
+.mobile-shelf-caption b{display:none}.reel-cue{display:none}
+.brow{position:absolute;left:7%;right:7%;height:28%;display:flex;align-items:flex-end;justify-content:center;gap:clamp(42px,7vw,118px);z-index:3}
+.brow--1{bottom:64.5%}.brow--2{bottom:37.2%}.brow--3{bottom:10.2%}.brow--4{display:none}
+.bk{position:relative;flex:0 1 clamp(145px,15vw,220px);width:clamp(145px,15vw,220px);height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 10px 7px rgba(58,24,56,.35));transition:transform .16s ease}
+.bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
+.bk:hover,.bk:focus-visible{transform:translateY(-7px) scale(1.04);outline:4px solid var(--yellow);outline-offset:4px}
+.bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
+.empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
 
-@media(max-width:800px){
-  .live-shelf-row{grid-template-columns:1fr}
-  .shelf-book-record{grid-template-columns:170px minmax(0,1fr)}
-}
 @media(max-width:700px){
   .jv{display:block}.jv-head{margin-bottom:18px}.jv-head .h{font-size:38px}.jv-form{display:grid;grid-template-columns:1fr auto}
   .shelf-guide{display:block}.shelf-instruction{margin-top:13px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}
   .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
   .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
-  .library-room-unit,.libroom.has-multiple-units .library-room-unit{padding:26px 10px 100px}
-  .live-collection-heading img{width:min(360px,90%);height:64px}.live-collection-heading p{padding:0 12px;font-size:15px}
-  .live-shelf-row{padding:16px 8px 0}
-  .shelf-book-record{grid-template-columns:clamp(130px,34vw,155px) minmax(0,1fr);gap:14px;min-height:285px;padding:0 10px}
-  .shelf-book-record .bk{height:235px}.shelf-book-copy h3{font-size:23px}.shelf-book-job{font-size:14px}
-  .shelf-book-facts div{grid-template-columns:1fr;gap:1px}.shelf-book-facts dd{font-size:14px}.shelf-book-actions button{width:100%}
-  .live-shelf-rail{height:38px}.live-shelf-rail img{height:125px}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center bottom,center;background-size:100% auto,cover;background-repeat:no-repeat}
+  .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png') center/100% 100% no-repeat}
+  .ledge{top:1%;width:78%;height:12%}.mobile-shelf-caption{top:13%;font-size:14px}
+  .brow{left:9%;right:9%;height:31%;gap:9%}.brow--1{bottom:65%}.brow--2{bottom:33%}.brow--3{bottom:1%}
+  .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}
 }
 @media(max-width:900px){
   .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(360px,72vw,620px)}
 }
-@media(max-width:420px){
-  .shelf-book-record{grid-template-columns:1fr}.shelf-book-record .bk{width:155px;height:220px;margin:0 auto}
-  .shelf-book-copy h3{text-align:center}.shelf-book-job,.shelf-book-facts{max-width:330px;margin-left:auto;margin-right:auto}
-}
+@media(max-width:420px){.bk{flex-basis:130px;width:130px}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
@@ -645,7 +621,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <h2 id="shelf-guide-title">Browse the shelves</h2>
     </div>
     <div class="shelf-captions" id="shelf-captions" aria-label="What each Library shelf contains"></div>
-      <p class="shelf-instruction">Every cover tells you what the book contains and whether it is ready before you open it. Search a title, browse by topic, or scroll the three physical collections.</p>
+      <p class="shelf-instruction">Choose any large cover once to preview what is inside and whether the book is ready. From there, go back to the same shelf or open an admitted book.</p>
     <div class="catalogue-controls" aria-label="Find a book in the Library catalogue">
       <label class="catalogue-control">Search titles and topics
         <input id="catalogue-search" type="search" placeholder="e.g. privacy, prompts or ChatGPT" autocomplete="off">
@@ -666,7 +642,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       </a>
       <p class="catalogue-result" id="catalogue-result" role="status" aria-live="polite"></p>
     </div>
-    <p class="library-status" id="library-status" role="status" aria-live="polite">Every cover shows whether it is ready. Choose one to preview what it contains; held books cannot open.</p>
+    <p class="library-status" id="library-status" role="status" aria-live="polite">Choose one cover to preview one book. Held books explain the hold and cannot open.</p>
   </section>
   <section class="libroom" aria-label="Browse the SUNNYVAiLE LIBRAiRY shelves">
     <div class="unit" id="wallcase"></div>
@@ -813,40 +789,14 @@ function shelfSplit(books,sectionIndex){
  const perRow=compactShelfLayout?2:(SHELF_LAYOUTS[sectionIndex]?.perRow||2);
  return Array.from({length:Math.ceil(books.length/perRow)},(_,index)=>books.slice(index*perRow,(index+1)*perRow));
 }
-/* BOOK_INFORMED_CHOICE_CONTRACT: the shelf shows the title, practical job,
-   contents, depth, currentness and availability before Preview or Open. */
-const SHELF_RAIL_ASSET='assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png';
+/* BOOK_PREVIEW_CHOICE_CONTRACT: the shelf is the physical catalogue. One cover
+   click opens one pre-open preview; the shelf itself never renders the preview. */
 const TOPIC_LABELS=Object.freeze({
  basics:'AI basics',prompting:'Prompting',"getting-started":'Getting started',"choosing-tools":'Choosing tools',
  "privacy-safety":'Privacy and safety',"checking-research":'Checking and research',"impact-society":'Work and society'
 });
 const esc=value=>String(value??'').replace(/[&<>"]/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[character]));
-function shelfDetails(book,section){
- return {
-  contents:book.inside||(book.topics||[]).map(topic=>TOPIC_LABELS[topic]||topic).join(', ')||'Coverage details are still being prepared.',
-  depth:book.depth||(section?.name==='REFERENCE'?'Sourced deep-dive reference':section?.name==='THE TOOLS'?'Quick practical guide':'Plain-English foundation'),
-  currentness:bookIsAvailable(book)?'Current admitted edition':bookStatusText(book),
-  availability:bookVisitorStatus(book)
- };
-}
-const shelfBook=(book,section)=>{
- const detail=shelfDetails(book,section);
- const open=bookIsAvailable(book)?`<button class="book-open-action" type="button" data-open-book="${esc(book.id)}">Open book</button>`:'';
- return `<article class="shelf-book-record" data-book-synopsis data-book-job data-book-contents data-book-depth data-book-currentness data-book-availability>
-  <button class="bk${bookIsAvailable(book)?'':' soon'}" type="button" data-book-id="${esc(book.id)}" data-preview-book="${esc(book.id)}" data-library-status="${esc(book.status)}" data-visible-scale="160" aria-label="Preview ${esc(book.t)}. ${esc(detail.availability)}"><img src="${esc(book.img)}" alt="${esc(book.t)} cover"><span class="sr-only">${esc(detail.availability)}</span></button>
-  <div class="shelf-book-copy">
-   <h3>${esc(book.t)}</h3>
-   <p class="shelf-book-job"><b>What it helps with</b>${esc(book.s||'A practical guide for this Library topic.')}</p>
-   <dl class="shelf-book-facts">
-    <div><dt>Inside</dt><dd>${esc(detail.contents)}</dd></div>
-    <div><dt>Depth</dt><dd>${esc(detail.depth)}</dd></div>
-    <div><dt>Currentness</dt><dd>${esc(detail.currentness)}</dd></div>
-    <div><dt>Availability</dt><dd>${esc(detail.availability)}</dd></div>
-   </dl>
-   <div class="shelf-book-actions"><button class="book-preview-action" type="button" data-preview-book="${esc(book.id)}">Preview this book</button>${open}</div>
-  </div>
- </article>`;
-};
+const shelfBook=book=>`<button class="bk${bookIsAvailable(book)?'':' soon'}" type="button" data-book-id="${esc(book.id)}" data-preview-book="${esc(book.id)}" data-library-status="${esc(book.status)}" data-visible-scale="160" aria-label="Preview ${esc(book.t)}. ${esc(bookVisitorStatus(book))}"><img src="${esc(book.img)}" alt="${esc(book.t)} cover"><span class="sr-only">${esc(bookVisitorStatus(book))}</span></button>`;
 function renderShelf(){
  const collectionSelect=document.getElementById('catalogue-collection');
  if(collectionSelect){
@@ -859,28 +809,21 @@ function renderShelf(){
  const visibleSectionIndexes=catalogueFilter.collection==='all'
   ?SECTIONS.map((section,index)=>index)
   :[Number(catalogueFilter.collection)].filter(index=>Number.isInteger(index)&&SECTIONS[index]);
- const departments=visibleSectionIndexes.map(sectionIndex=>{
+ const rooms=visibleSectionIndexes.map(sectionIndex=>{
   const section=SECTIONS[sectionIndex];
   const visible=section.books.filter(book=>book.listed!==false).filter(book=>catalogueBookMatches(book,sectionIndex));
   matchCount+=visible.length;
   const titleId=`shelf-title-${sectionIndex}`;
-  const rows=[];
-  const booksPerRow=compactShelfLayout?1:2;
-  for(let index=0;index<visible.length;index+=booksPerRow){
-   rows.push(`<div class="live-shelf-row">${visible.slice(index,index+booksPerRow).map(book=>shelfBook(book,section)).join('')}</div><div class="live-shelf-rail" aria-hidden="true"><img src="${SHELF_RAIL_ASSET}" alt=""></div>`);
-  }
-  if(!rows.length)rows.push('<p class="empty-bay">No matching books on this shelf.</p>');
-  return `<section class="department live-collection" data-collection="${sectionIndex}" aria-labelledby="${titleId}">
-   <header class="live-collection-heading"><img src="${esc(section.sign)}" alt="" aria-hidden="true"><h2 class="sr-only" id="${titleId}">${esc(section.name)}</h2><p>${esc(section.cap)}</p></header>
-   <div class="live-shelf">${rows.join('')}</div>
-  </section>`;
+  const rows=shelfSplit(visible,sectionIndex).map((books,rowIndex)=>`<div class="brow brow--${rowIndex+1}">${books.map(shelfBook).join('')}</div>`).join('');
+  const empty=visible.length?'':'<p class="empty-bay">No matching books on this shelf.</p>';
+  return `<div class="library-room-unit" data-collection-room="${sectionIndex}"><div class="shelf-unit" aria-label="${esc(section.name)} physical collection case"><section class="department" data-collection="${sectionIndex}" aria-labelledby="${titleId}"><h2 class="sr-only" id="${titleId}">${esc(section.name)}</h2><div class="bay"><div class="ledge" aria-hidden="true"><img src="${esc(section.sign)}" alt=""></div><p class="mobile-shelf-caption"><b>${esc(section.name)}</b>${esc(section.mcap||section.cap)}<span class="reel-cue">Choose a cover to preview.</span></p>${rows}${empty}</div></section></div></div>`;
  });
  const wallcase=document.getElementById('wallcase');
- wallcase.innerHTML=`<div class="library-room-unit"><div class="shelf-unit" data-department-count="${departments.length}" aria-label="SUNNYVAiLE LIBRAiRY physical catalogue shelves">${departments.join('')}</div></div>`;
- document.querySelector('.libroom')?.classList.remove('has-multiple-units');
+ wallcase.innerHTML=rooms.join('');
+ document.querySelector('.libroom')?.classList.toggle('has-multiple-units',rooms.length>1);
  document.getElementById('shelf-captions').innerHTML=SECTIONS.map(section=>`<p class="shelf-caption"><b>${section.name}</b>${section.cap}</p>`).join('');
  const result=document.getElementById('catalogue-result');
- if(result)result.textContent=matchCount?`${matchCount} ${matchCount===1?'book matches':'books match'}; every match is shown with its shelf notes.`:'No books match. Clear a filter or ask Miss Jeeves in your own words.';
+ if(result)result.textContent=matchCount?`${matchCount} ${matchCount===1?'book matches':'books match'}; choose a cover to preview one book.`:'No books match. Clear a filter or ask Miss Jeeves in your own words.';
 }
 function resetBookPreview(returnToShelf=false){
  const preview=document.getElementById('book-preview');preview.classList.add('is-empty');

@@ -34,10 +34,13 @@ Last reconciled: 2026-08-05.
   Concepts 101 SHA `bb25fae4…08f4b` is HOLD / RETURN TO DRAFT and may be mined
   for sourced facts only, never reused as a template. Briefing 101, Setup 101
   and Accounts 101 are HOLD pending the corrected learning-admission gate.
-- **D-093 informed choice is a visible visitor outcome, not a click sequence.**
-  Before selection, show readable cover/title plus adjacent job, contents,
-  depth, currentness and availability; then a separate **Open book** action.
-  A blind `cover → preview → reader` sequence fails. SHA `615a80f7…dab` fails.
+- **D-093 is superseded by Ali's direct 2026-08-05 shelf ruling.** The shelf
+  shows the proper physical case and materially large, readable book covers;
+  it does not render the full preview beside every book. One cover click opens
+  one preview with job, contents, depth, currentness and availability. The
+  preview then offers **Back to the shelf** or **Open this book** when admitted.
+  Back restores the exact initiating shelf control and position. Tiny covers
+  still fail; SHA `615a80f7…dab` remains rejected.
 
 - **No shelf pagination; current scale is rejected.** All books matching the current catalogue view remain
   visible together. Do not add Previous/Next pages and do not shrink covers to
