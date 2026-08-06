@@ -107,7 +107,7 @@ export function validateLibraryKnownFailures(source) {
   }
   const mobileRules = source;
   const normalMobileRowIsReadable = /(?:^|})\s*\.brow\{[^}]*min-height\s*:\s*120px/i.test(mobileRules);
-  const compactMobileRowIsReadable = /\.shelf-unit\.is-compact\s+\.brow\{[^}]*min-height\s*:\s*105px/i.test(mobileRules);
+  const compactMobileRowIsReadable = /\.shelf-unit\.is-compact\s+\.brow\{[^}]*min-height\s*:\s*120px/i.test(mobileRules);
   if (!/MOBILE_BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !normalMobileRowIsReadable || !compactMobileRowIsReadable) {
     errors.push('mobile shelf rows do not preserve a 120px visible-book dimension');
   }
