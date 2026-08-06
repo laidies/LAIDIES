@@ -900,95 +900,49 @@ const server = http.createServer((request, response) => {
     await jeeves.page.goto(`${origin}/library.html`, {
       waitUntil: "domcontentloaded"
     });
-    await jeeves.page.fill("#jv-q", "which AI should I use?");
     const jeevesErrorsBefore = pageErrors.length;
-    await jeeves.page.click('.jv-form button[type="submit"]');
-    await jeeves.page.waitForSelector(".jv-answer");
+    const suggestionRoutes = [
+      ['how do I write a better prompt?', 'prompt-brief', 'ep-02', '/issues/issue-02.html'],
+      ["what's a hallucination?", 'hallucination-basics', 'ep-03', '/issues/issue-03.html'],
+      ['who built AI?', 'women-built-ai', 'ep-04', '/issues/issue-04.html'],
+      ['what is generative AI?', 'generative-ai-basics', 'concept-generative', '/learn/glossary.html']
+    ];
+    check(
+      JSON.stringify(await jeeves.page.locator('.jv-chip').allTextContents()) ===
+        JSON.stringify(suggestionRoutes.map(([question]) => question)),
+      'Miss Jeeves shows only the four bounded, source-backed sample questions'
+    );
+    for (const [question, answerId, sourceId, href] of suggestionRoutes) {
+      await jeeves.page.getByRole('button', { name: question, exact: true }).click();
+      await jeeves.page.waitForSelector(`.jv-answer[data-answer-id="${answerId}"] a[data-source-id="${sourceId}"]`);
+      check(
+        (await jeeves.page.locator(`.jv-answer[data-answer-id="${answerId}"]`).count()) === 1 &&
+          (await jeeves.page.locator(`.jv-answer a[data-source-id="${sourceId}"][href="${href}"]`).count()) === 1 &&
+          jeeves.jeevesApiRequests() === 0,
+        `Miss Jeeves suggestion “${question}” resolves deterministically to ${sourceId}`
+      );
+    }
     check(
       (await jeeves.page.locator(".jv-answer").count()) === 1 &&
         jeeves.page.url() === `${origin}/library.html` &&
         pageErrors.length === jeevesErrorsBefore,
-      "Miss Jeeves visible Ask button submits in place without a ReferenceError"
-    );
-    await jeeves.page.waitForFunction(
-      () =>
-        document.querySelectorAll(".jv-answer-links .jv-held").length === 1 &&
-        document.querySelectorAll(".jv-answer-links button").length === 1
-    );
-    check(
-      (await jeeves.page.locator(".jv-answer-links .jv-held").count()) === 1 &&
-        (await jeeves.page.locator(".jv-answer-links button").count()) === 1,
-      "Miss Jeeves keeps the held comparison book suppressed and offers the admitted Concepts 101 book"
-    );
-    await jeeves.page.getByRole("button", { name: "Learn how models differ" }).click();
-    await jeeves.page.waitForFunction(
-      () =>
-        document.getElementById("reader")?.classList.contains("on") &&
-        document.getElementById("rt")?.textContent.trim() === "Concepts 101"
-    );
-    check(
-      (await jeeves.page.locator("#rt").innerText()).trim() === "Concepts 101",
-      "Miss Jeeves opens the admitted Concepts 101 reader instead of a dead destination"
-    );
-    await jeeves.page.keyboard.press("Escape");
-    await jeeves.page.fill("#jv-q", "why does AI make up facts?");
-    await jeeves.page.waitForFunction(
-      () =>
-        document.querySelectorAll(".jv-answer-links .jv-held").length === 1 &&
-        document.querySelectorAll(
-          '.jv-answer-links a[href="/issues/issue-03.html"]'
-        ).length === 1
-    );
-    check(
-      (await jeeves.page.locator(".jv-answer-links .jv-held").count()) === 1 &&
-        (await jeeves.page.locator('.jv-answer-links a[href="/issues/issue-03.html"]').count()) ===
-          1,
-      "Miss Jeeves omits removed Vocab and retains the held verification route plus real alternate"
-    );
-    const heldLabelSize = await jeeves.page.evaluate(() =>
-      Number.parseFloat(getComputedStyle(document.querySelector(".jv-held")).fontSize)
-    );
-    await jeeves.page.fill("#jv-q", "will AI take my job?");
-    await jeeves.page.waitForFunction(() =>
-      document.querySelectorAll('.jv-answer-links button').length === 1
-    );
-    const deeperLabelSize = await jeeves.page.evaluate(() =>
-      Number.parseFloat(getComputedStyle(document.querySelector(".jv-answer-links b")).fontSize)
-    );
-    check(
-      (await jeeves.page.locator('.jv-answer-links a[href="/newsstand.html"]').count()) === 0 &&
-        (await jeeves.page.locator('.jv-answer-links button').count()) === 1 &&
-        /do not have that coverage ready yet/i.test(await jeeves.page.locator('.jv-answer h3').innerText()) &&
-        heldLabelSize >= 14 && deeperLabelSize >= 12,
-      "jobs answer tells the truth about missing coverage, opens one live Concepts section and keeps readable result labels"
+      "Miss Jeeves sample questions answer in place without a ReferenceError"
     );
     if (captureDir) {
       await jeeves.page.setViewportSize({ width: 390, height: 844 });
       await jeeves.page.screenshot({
-        path: path.join(candidateCaptureDir, 'miss-jeeves-jobs-answer-390x844.png'),
+        path: path.join(candidateCaptureDir, 'miss-jeeves-bounded-answer-390x844.png'),
         fullPage: true
       });
     }
-    await jeeves.page.locator('.jv-answer-links button').click();
-    await jeeves.page.waitForFunction(() =>
-      document.querySelector('#reader')?.getAttribute('aria-hidden') === 'false' &&
-      location.hash.startsWith('#concepts-101::') &&
-      (()=>{
-        const heading=document.querySelector('#rtxt h2[aria-current="location"]');
-        if(!heading?.textContent.includes('The four types')||document.activeElement!==heading)return false;
-        const rect=heading.getBoundingClientRect();
-        return rect.top>=0&&rect.top<innerHeight;
-      })()
-    );
+    await jeeves.page.fill("#jv-q", "which AI should I use?");
+    await jeeves.page.click('.jv-form button[type="submit"]');
+    await jeeves.page.waitForSelector('.jv-answer[data-answer-id="choose-ai-for-the-job"]');
     check(
-      await jeeves.page.locator('#rtxt h2[aria-current="location"]', { hasText: 'The four types' }).isVisible() &&
-        await jeeves.page.locator('#rtxt h2[aria-current="location"]', { hasText: 'The four types' }).evaluate((heading) => {
-          const rect=heading.getBoundingClientRect();
-          return document.activeElement===heading && rect.top>=0 && rect.top<innerHeight;
-        }),
-      "jobs answer's sole live route focuses and reveals the exact durable Concepts 101 section"
+      /Choose for the job/i.test(await jeeves.page.locator('.jv-answer h3').innerText()) &&
+        jeeves.jeevesApiRequests() === 0,
+      'a manually typed “which AI” question is corrected to the Episode 04 job-first method'
     );
-    await jeeves.page.locator('#reader-close').click();
     await jeeves.page.fill('#jv-q', 'qzxvplmokn');
     await jeeves.page.waitForSelector('.jv-none');
     const jeevesEmptyState = await jeeves.page.locator('.jv-none').evaluate((state) => ({
@@ -1014,11 +968,12 @@ const server = http.createServer((request, response) => {
       (await jeeves.page.locator('a[href="/grimoire/chamber-of-receipts.html"]').count()) === 0,
       "lexical index cannot route around current Library admission state"
     );
-    await jeeves.page.fill("#jv-q", "how does ai work");
-    await jeeves.page.waitForTimeout(50);
+    await jeeves.page.fill("#jv-q", "how does AI work?");
+    await jeeves.page.waitForSelector('.jv-answer[data-answer-id="how-ai-works"]');
     check(
-      (await jeeves.page.locator('.jv-card', { hasText: "Concepts 101" }).count()) === 1,
-      "admitted Concepts 101 search metadata resolves to one operable Miss Jeeves result"
+      (await jeeves.page.locator('.jv-answer[data-answer-id="how-ai-works"]').count()) === 1 &&
+        jeeves.jeevesApiRequests() === 0,
+      'a manually typed broad AI question receives a bounded corrective answer without being advertised'
     );
     await jeeves.context.close();
 

@@ -36,6 +36,14 @@ Last reconciled: 2026-08-05.
   visible cover pixels sit directly on the rail and the visible bottom of the
   case meets the room floor/base line; transparent padding may not make books
   or furniture appear to float.
+- **Miss Jeeves sample-question boundary — 2026-08-06.** Suggested questions
+  must be a specific, bounded reader question or job and stay within
+  deterministic routes supported by current admitted Library material.
+  Do not suggest “Which AI do I use?” or “How does AI work?”: the first teaches
+  the wrong tool-choice method and the second is too broad for a useful,
+  catalogue-grounded answer. Tool-choice suggestions must model Episode 04's
+  job-first method. Every visible suggestion must resolve to an exact
+  answer/source route.
 
 - **Exact successor rejection — 2026-08-05.** `library.html` SHA
   `7d4d01f4…c7c9` is rejected and quarantined: oversized mostly empty shelving

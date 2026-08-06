@@ -14,6 +14,8 @@ const assets = [
 const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gradient(145deg,#ef4d9c,#b75cc4 58%,#6c7cd1)}.library-world{background:linear-gradient(120deg,#f2c6e5,#c7d7f5)}.jv{background:linear-gradient(125deg,#65d1e3,#9cb9ed)}.shelf-guide{background:#67bde8 url('assets/library/episode-01-pop-comic-bg-v1.png')}</style>
 <style>/* CATALOGUE_CONTROL_SHAPE_CONTRACT */.shelf-guide input,.shelf-guide button,.shelf-guide a,.shelf-guide .catalogue-controls,.shelf-guide .topic-links{border-radius:0}/* LIBRARY_WALL_CROP_CONTRACT */.library-room-unit{background-size:cover,152% auto}.library-room-unit[data-collection-room="0"]{--room-tint:pink}.library-room-unit[data-collection-room="1"]{--room-tint:cyan}.library-room-unit[data-collection-room="2"]{--room-tint:purple}.library-room-unit.is-compact-room{aspect-ratio:2/1}/* LIBRARY_SHELF_DEPTH_CONTRACT */.shelf-unit{bottom:.8%}.shelf-unit::after{z-index:5;background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png')}.shelf-unit.is-compact{bottom:0}.shelf-unit.is-compact::after{background:url('assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png')}.brow--1{bottom:64.7%}.brow--2{bottom:38.7%}.brow--3{bottom:12.2%}.shelf-unit.is-compact .brow--1{bottom:52.6%}.shelf-unit.is-compact .brow--2{bottom:21.1%}.bk img{transform:translateY(2.5%)}</style>
 <script>const BOOK_VISIBLE_SIZE_CONTRACT={};const LIBRARY_CASE_ANCHOR_CONTRACT={};const BOOK_PREVIEW_CHOICE_CONTRACT={};/* CATALOGUE_QUIET_DEFAULT_CONTRACT */const catalogueHasActiveFilter=false;const visible={length:4};const compactClass=visible.length>0&&visible.length<=4?' is-compact':'';result.textContent=!catalogueHasActiveFilter?'':'1 book found.';function resetBookPreview(){};resetBookPreview(true);returnTarget.focus({preventScroll:true});</script>
+<!-- MISS_JEEVES_SUGGESTION_CONTRACT --><div class="jv-chips"><button>how do I write a better prompt?</button><button>what's a hallucination?</button><button>who built AI?</button><button>what is generative AI?</button></div>
+<script>const jeevesRoutes=[{id:'prompt-brief',sourceId:'ep-02'},{id:'hallucination-basics',sourceId:'ep-03'},{id:'women-built-ai',sourceId:'ep-04'},{id:'generative-ai-basics',sourceId:'concept-generative'}];const answer='<article data-answer-id="prompt-brief"><a data-source-id="ep-02"></a></article>';</script>
 <button id="book-preview-back">Back to the shelf</button><button>Open this book</button>
 <p class="library-status sr-only" id="library-status"></p><div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1" data-book-count="1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
 
@@ -21,6 +23,11 @@ assert.deepEqual(validateLibraryKnownFailures(good), []);
 
 const fixtures = [
   [good.replace('#9cb9ed', '#ef4d9c'), 'Miss Jeeves gradient'],
+  [good.replace('MISS_JEEVES_SUGGESTION_CONTRACT', 'REMOVED_JEEVES_SUGGESTION_CONTRACT'), 'bounded suggestion contract'],
+  [good.replace('who built AI?', 'how does AI work?'), 'broad Miss Jeeves suggestion'],
+  [good.replace('what is generative AI?', 'what is an LLM?'), 'required bounded Miss Jeeves suggestion'],
+  [good.replace("sourceId:'ep-04'", "sourceId:'missing-ep-04'"), 'deterministic answer/source route'],
+  [good.replace('data-answer-id', 'data-answer-removed'), 'answer/source evidence attributes'],
   [good.replace('assets/library/episode-01-pop-comic-bg-v1.png', 'assets/library/missing-comic.png'), 'pop-comic catalogue background'],
   [good.replace('#c7d7f5', '#19d3d1'), 'Library world gradient'],
   [good + '<section class="library-handback"></section>', 'library-handback slab'],

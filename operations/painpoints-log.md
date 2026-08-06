@@ -14215,3 +14215,31 @@ while remaining falsely unfinished in the launch record.
   with capacity and contact: the right-size case, books touching rails, and feet
   touching the floor.
 - **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-419 — Suggested questions are part of the teaching and routing contract
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY Miss Jeeves reference desk.
+- **Failure:** Two of four sample questions were broad enough to invite vague
+  answers, and “Which AI do I use?” contradicted Episode 04's job-first tool
+  choice lesson. Both broad chips also pointed only toward held books, so the
+  visible examples promised a useful next step the current Library could not
+  provide.
+- **Prevention rule:** Treat every sample question as instructional copy and an
+  executable test case. It must be specific and bounded, resolve to a stable
+  curated answer, and expose at least one exact current source route. A
+  tool-choice example must name the job before the tool.
+- **Why the correction works:** The four visible examples now cover a better
+  prompt, hallucinations, the women who built AI and generative AI. Literal
+  browser clicks returned four distinct answer IDs and the live Episode 02,
+  Episode 03, Episode 04 and glossary routes without invoking the open-ended
+  backend.
+- **Machine/durable evidence:** `library.html`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `scripts/test-library-product.cjs`;
+  `operations/library-decisions.md`; `operations/DECISIONS.md`.
+- **Possible Behind the Build angle:** Example questions do more than fill an
+  empty input: they teach visitors how to ask and set the boundary of what the
+  product can answer well.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
