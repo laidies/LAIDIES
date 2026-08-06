@@ -63,6 +63,21 @@ export function validateLibraryKnownFailures(source) {
   if (/shelf-book-record|shelf-book-copy|shelf-book-facts|data-book-synopsis/i.test(source)) {
     errors.push('retired inline full-preview shelf treatment remains');
   }
+  if (/class=["'][^"']*\bshelf-instruction\b/i.test(source)) {
+    errors.push('rejected catalogue instruction paragraph remains visible');
+  }
+  if (/Choose one cover to preview one book|Held books explain the hold/i.test(source)) {
+    errors.push('rejected catalogue instruction or held-book warning copy remains');
+  }
+  if (!/CATALOGUE_CONTROL_SHAPE_CONTRACT/.test(source) || !/\.shelf-guide input,[^}]+border-radius\s*:\s*0/is.test(source)) {
+    errors.push('square-cornered catalogue control contract is missing');
+  }
+  if (!/CATALOGUE_QUIET_DEFAULT_CONTRACT/.test(source) || !/!catalogueHasActiveFilter\s*\?\s*['"]['"]/i.test(source)) {
+    errors.push('quiet default catalogue result contract is missing');
+  }
+  if (!/id=["']library-status["'][^>]*>\s*<\/p>/i.test(source) || !/class=["'][^"']*\blibrary-status\b[^"']*\bsr-only\b/i.test(source)) {
+    errors.push('catalogue live status is not initially empty and screen-reader-only');
+  }
   const previewChoiceMarkers = [
     'id="book-preview-back"',
     'Back to the shelf',

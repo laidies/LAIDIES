@@ -11,9 +11,10 @@ const assets = [
   'assets/library/episode-01-pop-comic-bg-v1.png'
 ].join(' ');
 const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gradient(145deg,#ef4d9c,#b75cc4 58%,#6c7cd1)}.library-world{background:linear-gradient(120deg,#f2c6e5,#c7d7f5)}.jv{background:linear-gradient(125deg,#65d1e3,#9cb9ed)}.shelf-guide{background:#67bde8 url('assets/library/episode-01-pop-comic-bg-v1.png')}</style>
-<script>const BOOK_VISIBLE_SIZE_CONTRACT={};const LIBRARY_CASE_ANCHOR_CONTRACT={};const BOOK_PREVIEW_CHOICE_CONTRACT={};function resetBookPreview(){};resetBookPreview(true);returnTarget.focus({preventScroll:true});</script>
+<style>/* CATALOGUE_CONTROL_SHAPE_CONTRACT */.shelf-guide input,.shelf-guide button,.shelf-guide a,.shelf-guide .catalogue-controls,.shelf-guide .topic-links{border-radius:0}</style>
+<script>const BOOK_VISIBLE_SIZE_CONTRACT={};const LIBRARY_CASE_ANCHOR_CONTRACT={};const BOOK_PREVIEW_CHOICE_CONTRACT={};/* CATALOGUE_QUIET_DEFAULT_CONTRACT */const catalogueHasActiveFilter=false;result.textContent=!catalogueHasActiveFilter?'':'1 book found.';function resetBookPreview(){};resetBookPreview(true);returnTarget.focus({preventScroll:true});</script>
 <button id="book-preview-back">Back to the shelf</button><button>Open this book</button>
-<div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
+<p class="library-status sr-only" id="library-status"></p><div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
 
 assert.deepEqual(validateLibraryKnownFailures(good), []);
 
@@ -30,6 +31,11 @@ const fixtures = [
   [good.replace('BOOK_PREVIEW_CHOICE_CONTRACT', 'REMOVED_PREVIEW_CHOICE_CONTRACT'), 'physical one-click shelf']
   ,[good.replace('id="book-preview-back"', 'id="preview-return-removed"'), 'one-click preview choice']
   ,[good + '<article class="shelf-book-record"><div class="shelf-book-copy"></div></article>', 'inline full-preview shelf']
+  ,[good + '<p class="shelf-instruction">Do this first</p>', 'instruction paragraph']
+  ,[good + '<p>Held books explain the hold and cannot open.</p>', 'held-book warning']
+  ,[good.replace('CATALOGUE_CONTROL_SHAPE_CONTRACT', 'REMOVED_CONTROL_SHAPE_CONTRACT'), 'square-cornered catalogue']
+  ,[good.replace('CATALOGUE_QUIET_DEFAULT_CONTRACT', 'REMOVED_QUIET_DEFAULT_CONTRACT'), 'quiet default catalogue']
+  ,[good.replace('class="library-status sr-only"', 'class="library-status"'), 'screen-reader-only']
 ];
 
 for (const [fixture, expected] of fixtures) {

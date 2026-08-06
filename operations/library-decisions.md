@@ -9,6 +9,15 @@ Last reconciled: 2026-08-05.
 
 ## Current overrides
 
+- **Catalogue reading surface — 2026-08-06.** Pop-art is the energetic frame,
+  not the surface behind working text. The catalogue heading, search, topic
+  controls and Closet route use one quiet, high-contrast, square-cornered
+  composition. Do not mix rounded and square control geometry. At rest, do not
+  show an instruction paragraph, held-book warning, or total-book count.
+  Search results appear only after a visitor searches or selects a topic, and
+  the result is contained inside the catalogue control surface rather than
+  floating over the comic background.
+
 - **Exact successor rejection — 2026-08-05.** `library.html` SHA
   `7d4d01f4…c7c9` is rejected and quarantined: oversized mostly empty shelving
   rooms, awkward/floating books and pasted-on title labels fail the Library

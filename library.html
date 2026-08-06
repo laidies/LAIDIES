@@ -518,19 +518,20 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-chip:hover,.jv-chip:focus-visible{background:var(--cyan);color:var(--ink);border-color:var(--yellow)}
 
 .shelf-guide{grid-template-columns:minmax(240px,.55fr) minmax(0,1.45fr);gap:clamp(20px,4vw,56px);
-  padding:clamp(38px,4.4vw,58px) clamp(24px,6vw,92px);background:#67bde8 url('assets/library/episode-01-pop-comic-bg-v1.png') center 46%/cover no-repeat;color:var(--ink);
+  padding:clamp(38px,4.4vw,58px) clamp(24px,6vw,92px);background:linear-gradient(90deg,rgba(21,188,224,.97) 0%,rgba(21,188,224,.92) 42%,rgba(101,209,227,.78) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center 46%/cover no-repeat;color:var(--ink);
   border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 var(--purple)}
 .shelf-guide .eyebrow{color:var(--midnight)}.shelf-guide h2{font-size:clamp(42px,4.5vw,64px);color:var(--ink);text-shadow:4px 4px 0 var(--cyan)}
-.shelf-instruction{margin:0;padding:12px 14px;border:3px solid var(--ink);background:var(--cream);color:var(--ink);font-size:17px;box-shadow:6px 6px 0 var(--yellow)}
-.catalogue-controls{grid-template-columns:minmax(260px,1fr) auto;gap:12px 22px;margin-top:8px}
-.catalogue-control{grid-column:1;color:var(--ink)}.catalogue-control input{border-color:var(--ink);background:var(--cream);color:var(--ink);box-shadow:5px 5px 0 var(--cyan)}
-.topic-links{grid-column:1/-1;gap:6px 14px;padding:7px 12px;border:3px solid var(--ink);background:rgba(255,253,251,.94);box-shadow:5px 5px 0 var(--pink)}.topic-links b,.topic-link{color:var(--ink)}
+.catalogue-controls{grid-template-columns:minmax(260px,1fr) minmax(190px,260px);gap:18px 22px;margin:0;padding:clamp(18px,2vw,26px);border:4px solid var(--ink);background:var(--cream);box-shadow:8px 8px 0 var(--pink)}
+/* CATALOGUE_CONTROL_SHAPE_CONTRACT: one square-cornered working surface. */
+.shelf-guide input,.shelf-guide button,.shelf-guide a,.shelf-guide .catalogue-controls,.shelf-guide .topic-links{border-radius:0}
+.catalogue-control{grid-column:1;color:var(--ink)}.catalogue-control input{border-color:var(--ink);background:#fff;color:var(--ink);box-shadow:5px 5px 0 var(--cyan)}
+.topic-links{grid-column:1/-1;gap:6px 14px;padding:14px 0 0;border:0;border-top:3px solid var(--ink);background:none;box-shadow:none}.topic-links b,.topic-link{color:var(--ink)}
 .topic-link:hover,.topic-link:focus-visible,.topic-link[aria-pressed="true"]{color:var(--ink);border-color:var(--yellow);background:var(--cyan)}
 .catalogue-closet{grid-column:2;grid-row:1;align-self:end;display:grid;gap:2px;max-width:260px;min-height:50px;padding:9px 13px;
   border:2px solid var(--ink);background:var(--cobalt);color:var(--cream);text-decoration:none;box-shadow:5px 5px 0 var(--yellow)}
 .catalogue-closet strong{font-size:14px}.catalogue-closet span{font-size:12px;line-height:1.3}
 .catalogue-closet:hover,.catalogue-closet:focus-visible{background:var(--cyan);color:var(--ink);outline:3px solid var(--yellow);outline-offset:2px}
-.catalogue-result{grid-column:1/-1;color:var(--ink)}.library-status{color:var(--ink)}.shelf-guide .library-status{padding:8px 12px;border:3px solid var(--ink);background:var(--yellow);color:var(--ink);box-shadow:5px 5px 0 var(--cobalt)}
+.catalogue-result{grid-column:1/-1;margin:0;padding:12px 0 0;border-top:3px solid var(--ink);color:var(--ink)}.catalogue-result:empty{display:none}.library-status{color:var(--ink)}
 
 .libroom{background:var(--midnight)}
 .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;overflow:hidden;
@@ -554,7 +555,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 @media(max-width:700px){
   .jv{display:block}.jv-head{margin-bottom:18px}.jv-head .h{font-size:38px}.jv-form{display:grid;grid-template-columns:1fr auto}
-  .shelf-guide{display:block}.shelf-instruction{margin-top:13px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}
+  .shelf-guide{display:block}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}
   .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
   .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
   .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center bottom,center;background-size:100% auto,cover;background-repeat:no-repeat}
@@ -621,7 +622,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <h2 id="shelf-guide-title">Browse the shelves</h2>
     </div>
     <div class="shelf-captions" id="shelf-captions" aria-label="What each Library shelf contains"></div>
-      <p class="shelf-instruction">Choose any large cover once to preview what is inside and whether the book is ready. From there, go back to the same shelf or open an admitted book.</p>
     <div class="catalogue-controls" aria-label="Find a book in the Library catalogue">
       <label class="catalogue-control">Search titles and topics
         <input id="catalogue-search" type="search" placeholder="e.g. privacy, prompts or ChatGPT" autocomplete="off">
@@ -642,7 +642,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       </a>
       <p class="catalogue-result" id="catalogue-result" role="status" aria-live="polite"></p>
     </div>
-    <p class="library-status" id="library-status" role="status" aria-live="polite">Choose one cover to preview one book. Held books explain the hold and cannot open.</p>
+    <p class="library-status sr-only" id="library-status" role="status" aria-live="polite"></p>
   </section>
   <section class="libroom" aria-label="Browse the SUNNYVAiLE LIBRAiRY shelves">
     <div class="unit" id="wallcase"></div>
@@ -823,7 +823,9 @@ function renderShelf(){
  document.querySelector('.libroom')?.classList.toggle('has-multiple-units',rooms.length>1);
  document.getElementById('shelf-captions').innerHTML=SECTIONS.map(section=>`<p class="shelf-caption"><b>${section.name}</b>${section.cap}</p>`).join('');
  const result=document.getElementById('catalogue-result');
- if(result)result.textContent=matchCount?`${matchCount} ${matchCount===1?'book matches':'books match'}; choose a cover to preview one book.`:'No books match. Clear a filter or ask Miss Jeeves in your own words.';
+ /* CATALOGUE_QUIET_DEFAULT_CONTRACT: counts are useful only after a visitor filters. */
+ const catalogueHasActiveFilter=Boolean(catalogueFilter.q||catalogueFilter.topic!=='all'||catalogueFilter.collection!=='all'||catalogueFilter.status!=='all');
+ if(result)result.textContent=!catalogueHasActiveFilter?'':matchCount?`${matchCount} ${matchCount===1?'book found':'books found'}.`:'No books found. Try another title or topic.';
 }
 function resetBookPreview(returnToShelf=false){
  const preview=document.getElementById('book-preview');preview.classList.add('is-empty');

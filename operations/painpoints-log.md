@@ -14133,3 +14133,27 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** A design system is not a list of colour
   names; it is the exact working recipes and interactions people approved.
 - **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-416 — Pop-art became visual noise behind catalogue instructions
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY catalogue controls.
+- **Failure:** Working copy and status sentences were placed directly over the
+  comic background, while rounded inputs and square panels used conflicting
+  geometry. The default state repeated instructions, a held-book warning and a
+  total count before the visitor had done anything.
+- **Prevention rule:** Use pop-art as the frame around one quiet,
+  high-contrast, square-cornered control surface. At rest, show only the search,
+  topic choices and Closet route. Show a contained result only after a visitor
+  searches or filters.
+- **Why the correction works:** The catalogue now has one cream working surface,
+  square controls, a muted comic frame and no unsolicited instruction, warning
+  or count. The browser check confirmed an empty default result, 14 visible
+  books, a contained two-book result for “privacy,” and a clean reset.
+- **Machine/durable evidence:** `library.html`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/library-decisions.md`; `operations/DECISIONS.md`.
+- **Possible Behind the Build angle:** A bold visual system still needs a quiet
+  place to read and make a choice.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
