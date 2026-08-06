@@ -25,7 +25,7 @@ const compiledMatch = page.match(
 if (!compiledMatch) throw new Error("compiled Library admission is not parseable");
 const admitted = JSON.parse(compiledMatch[1]);
 if (process.env.LIBRARY_CONTRACT_CALIBRATION === "unauthorized-admission") {
-  admitted["briefing-101"] = {
+  admitted["unauthorized-fixture"] = {
     sourcePath: "/content/library-books/rendered/briefing-101.html",
     contentVersion: "briefing-101-2026-08-05.1",
     admissionVersion: "unauthorized-calibration",
@@ -53,10 +53,11 @@ const counts = Object.fromEntries(
     books.filter((book) => book.status === status).length
   ])
 );
-if (counts.hold !== 8 || counts.preview !== 7 || counts.available !== 0) {
+if (counts.hold !== 4 || counts.preview !== 7 || counts.available !== 4) {
   throw new Error(`unexpected truthful catalogue state ${JSON.stringify(counts)}`);
 }
-if (Object.keys(admitted).length !== 0) {
+const expectedAdmitted = ["accounts-101", "briefing-101", "concepts-101", "setup-101"];
+if (JSON.stringify(Object.keys(admitted).sort()) !== JSON.stringify(expectedAdmitted)) {
   throw new Error(`unexpected compiled Library admission ${JSON.stringify(Object.keys(admitted))}`);
 }
 for (const [id, record] of Object.entries(admitted)) {
@@ -135,5 +136,5 @@ if (puffies.includes("var a = document.createElement('a');")) {
 }
 
 console.log(
-  `LIBRAiRY CONTRACT PASS · books=${books.length} · hold=${counts.hold} · preview=${counts.preview} · admitted=${Object.keys(admitted).length} · Puffy write/read truth`
+  `LIBRAiRY CONTRACT PASS · books=${books.length} · hold=${counts.hold} · preview=${counts.preview} · available=${counts.available} · admitted=${Object.keys(admitted).length} · Puffy write/read truth`
 );

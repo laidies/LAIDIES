@@ -245,7 +245,7 @@ const server = http.createServer((request, response) => {
     book_id: "concepts-101",
     status: "available",
     source_path: "/content/library-books/rendered/concepts-101.html",
-    content_version: "concepts-101-2026-08-03.1",
+    content_version: "concepts-101-2026-08-06.1",
     admission_version: "admission-fixture-v1",
     source_references: ["content/library-books/concepts-101.claims.json"],
     claim_references: ["C101-C001", "C101-C002", "C101-C003", "C101-C004", "C101-C005", "C101-C006"],
@@ -366,7 +366,7 @@ const server = http.createServer((request, response) => {
   );
   admissionRejects(
     { ...admissionRecord, content_version: "reader-v2" },
-    "content version"
+    "version"
   );
   check(
     admissionChecks.length === 4 && admissionChecks.every(Boolean),
@@ -574,9 +574,9 @@ const server = http.createServer((request, response) => {
     check(
       (await baseline.page.locator("#book-preview-title").innerText()).length > 0 &&
         (await baseline.page.locator("#book-preview-summary").innerText()).length > 0 &&
-        (await baseline.page.locator("#book-preview-read").isHidden()) &&
+        (await baseline.page.locator("#book-preview-read").isVisible()) &&
         (await baseline.page.locator("#reader").isHidden()),
-      "a held cover explains its contents and availability without offering an unadmitted reader"
+      "an admitted cover explains its contents before offering the full reader"
     );
     const mobilePreviewPlacement = await baseline.page.locator('#book-preview').evaluate((preview) => ({
       parent: preview.parentElement?.className || '',
@@ -599,16 +599,15 @@ const server = http.createServer((request, response) => {
       await baseline.page.locator(`.bk[data-book-id="${id}"]`).click();
       check(
         (await baseline.page.locator("#book-preview-title").innerText()).trim() === title &&
-          (await baseline.page.locator("#book-preview-read").isHidden()) &&
+          (await baseline.page.locator("#book-preview-read").isVisible()) &&
           (await baseline.page.locator("#reader").isHidden()),
-        `${title} remains inspectable but cannot open while its learning admission is held`
+        `${title} has a specific preview and offers its exact admitted reader`
       );
     }
     check(
-      (await baseline.page.locator("#library-status").innerText()).includes(
-        "Every cover shows whether it is ready"
-      ) && (await baseline.page.locator("#reader").isHidden()),
-      "newcomer sees truthful shelf status and closed reader"
+      (await baseline.page.getByRole("button", { name: /^Preview Concepts 101\. Ready to read now$/ }).count()) === 1 &&
+        (await baseline.page.locator("#reader").isHidden()),
+      "newcomer hears truthful opening-book status before choosing a reader"
     );
     check(
       (await baseline.page.evaluate(
@@ -758,8 +757,8 @@ const server = http.createServer((request, response) => {
     );
     await desktopShelf.page.getByRole("button", { name: /^Preview Concepts 101\./ }).click();
     check(
-      (await desktopShelf.page.locator('#book-preview-inside').innerText()).includes('Prediction, training') &&
-        (await desktopShelf.page.locator('#book-preview-meta').innerText()).includes('read straight through or jump to one idea'),
+      (await desktopShelf.page.locator('#book-preview-inside').innerText()).includes('Six connected sections') &&
+        (await desktopShelf.page.locator('#book-preview-meta').innerText()).includes('connected system model'),
       "selected cover explains concrete coverage and reading depth before opening"
     );
     await desktopShelf.context.close();
@@ -1436,7 +1435,7 @@ const server = http.createServer((request, response) => {
         headingCount: headings.length,
         uniqueHeadingIds: new Set(headings.map((heading) => heading.id)).size,
         receiptPuffyCount: document.querySelectorAll("#rtxt .receipts [data-puffy-title], #rtxt .receipts .puffy-save-row").length,
-        tryIds: headings.filter((heading) => heading.textContent.trim() === "Try this").map((heading) => heading.id),
+        systemMapIds: headings.filter((heading) => heading.textContent.trim() === "What reaches the model for this task").map((heading) => heading.id),
         titleContained: titleRect.top >= bandRect.top && titleRect.bottom <= bandRect.bottom,
         ledeFillRatio: ledeRect.width / textRect.width,
         visibleDecorativeRules: [...document.querySelectorAll("#rtxt hr")]
@@ -1445,13 +1444,12 @@ const server = http.createServer((request, response) => {
       };
     });
     check(
-      conceptsState.text.includes("A model is part of the experience—not the whole thing.") &&
-        conceptsState.text.toLowerCase().includes("token & context window") &&
+      conceptsState.text.includes("The model is not the whole product.") &&
+        conceptsState.text.toLowerCase().includes("tokens and the context window") &&
         conceptsState.tocCount === conceptsState.topLevelHeadingCount &&
         conceptsState.headingCount === conceptsState.uniqueHeadingIds &&
         conceptsState.receiptPuffyCount === 0 &&
-        conceptsState.tryIds.length === 4 &&
-        new Set(conceptsState.tryIds).size === 4 &&
+        conceptsState.systemMapIds.length === 1 &&
         conceptsState.titleContained &&
         conceptsState.ledeFillRatio >= 0.75 &&
         conceptsState.visibleDecorativeRules === 0 &&
@@ -1473,7 +1471,7 @@ const server = http.createServer((request, response) => {
         return reader.scrollWidth <= reader.clientWidth &&
           body.getBoundingClientRect().width <= 390 &&
           getComputedStyle(mobileToc).display !== "none" &&
-          document.querySelectorAll("#rtoc-mobile a").length === 6 &&
+          document.querySelectorAll("#rtoc-mobile a").length === document.querySelectorAll("#rtxt h2").length &&
           !mobileToc.open;
       }),
       "exact Concepts 101 reader reflows without mobile overflow and keeps a compact section finder"
@@ -1482,7 +1480,7 @@ const server = http.createServer((request, response) => {
     check(
       await conceptsReader.page.evaluate(() => {
         const mobileToc = document.getElementById("mobile-toc");
-        return mobileToc.open && document.querySelectorAll("#rtoc-mobile a").length === 6;
+        return mobileToc.open && document.querySelectorAll("#rtoc-mobile a").length === document.querySelectorAll("#rtxt h2").length;
       }),
       "mobile reader exposes the full top-level book contents on demand"
     );
@@ -1493,18 +1491,18 @@ const server = http.createServer((request, response) => {
       });
     }
     await conceptsReader.page.setViewportSize({ width: 1440, height: 1000 });
-    const secondTry = conceptsReader.page.getByRole("heading", { name: "Try this", exact: true }).nth(1);
-    const secondTryId = await secondTry.getAttribute("id");
-    await conceptsReader.page.locator(`#${secondTryId} + .puffy-save-row .puffy-btn`).click();
+    const systemMap = conceptsReader.page.getByRole("heading", { name: "What reaches the model for this task", exact: true });
+    const systemMapId = await systemMap.getAttribute("id");
+    await conceptsReader.page.locator(`#${systemMapId} + .puffy-save-row .puffy-btn`).click();
     await conceptsReader.page.locator(".puffy-option").first().click();
     const exactSectionSave = await conceptsReader.page.evaluate(() => {
       const rows = JSON.parse(localStorage.getItem("laidies_puffies_board") || "[]");
-      return rows.find((row) => row.book_id === "concepts-101" && row.title === "Try this");
+      return rows.find((row) => row.book_id === "concepts-101" && row.title === "What reaches the model for this task");
     });
     check(
-      exactSectionSave?.section_id === secondTryId &&
-        exactSectionSave?.url.endsWith(`::${encodeURIComponent("@" + secondTryId)}`),
-      "duplicate-title section save stores its own stable unique anchor"
+      exactSectionSave?.section_id === systemMapId &&
+        exactSectionSave?.url.endsWith(`::${encodeURIComponent("@" + systemMapId)}`),
+      "system-map section save stores its stable exact anchor"
     );
     await conceptsReader.page.goto(`${origin}${exactSectionSave.url}`, { waitUntil: "domcontentloaded" });
     await conceptsReader.page.reload({ waitUntil: "domcontentloaded" });
@@ -1519,7 +1517,7 @@ const server = http.createServer((request, response) => {
         readerOpen: document.getElementById("reader").classList.contains("on"),
         hash: location.hash,
         ids: [...document.querySelectorAll("#rtxt h2,#rtxt h3")]
-          .filter((node) => node.textContent.trim() === "Try this")
+          .filter((node) => node.textContent.trim() === "What reaches the model for this task")
           .map((node) => node.id),
         visiblePuffyRows: visiblePuffyRows.length,
         mobileTocDisplay: getComputedStyle(document.getElementById("mobile-toc")).display,
@@ -1527,10 +1525,10 @@ const server = http.createServer((request, response) => {
       };
     });
     check(
-      reopenedSection.id === secondTryId && !reopenedSection.hidden && reopenedSection.readerOpen &&
+      reopenedSection.id === systemMapId && !reopenedSection.hidden && reopenedSection.readerOpen &&
         reopenedSection.visiblePuffyRows > 1 && reopenedSection.mobileTocDisplay === "none" &&
         reopenedSection.desktopTocDisplay !== "none",
-      `duplicate-title section route reopens the exact saved occurrence ${JSON.stringify(reopenedSection)}`
+      `system-map section route reopens the exact saved section ${JSON.stringify(reopenedSection)}`
     );
     await conceptsReader.page.setViewportSize({ width: 390, height: 844 });
     await conceptsReader.page.waitForFunction((targetId) => {
@@ -1538,7 +1536,7 @@ const server = http.createServer((request, response) => {
       if (!target) return false;
       const rect = target.getBoundingClientRect();
       return rect.bottom > 0 && rect.top < window.innerHeight;
-    }, secondTryId);
+    }, systemMapId);
     check(
       await conceptsReader.page.evaluate(() =>
         getComputedStyle(document.getElementById("mobile-toc")).display !== "none" &&

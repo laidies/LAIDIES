@@ -24,7 +24,7 @@ function validate({ claimsRecord, sourceRecord, sourceBytes, renderedHtml, libra
   if (!renderedHtml.includes(`name="laidies:content-version" content="${sourceRecord.contentVersion}"`)) errors.push('rendered content version missing');
   if (sha(renderedHtml) !== claimsRecord.renderedSha256) errors.push('rendered hash mismatch');
   if (sha(sourceBytes) !== claimsRecord.canonicalSourceSha256) errors.push('canonical source hash mismatch');
-  if (!/HOLD/.test(claimsRecord.status) || !/HOLD/.test(sourceRecord.status)) errors.push('maker candidate must remain HOLD');
+  if (claimsRecord.status !== 'ADMITTED_LOCALLY_NOT_PUBLIC' || sourceRecord.status !== 'ADMITTED_LOCALLY_NOT_PUBLIC') errors.push('records must preserve local-only admission status');
   if (!Array.isArray(claimsRecord.claims) || claimsRecord.claims.length !== 4) errors.push('exactly four claim families required');
   for (const claim of claimsRecord.claims || []) {
     for (const phrase of claim.requiredRenderedPhrases || []) {
@@ -79,4 +79,4 @@ if (process.argv.includes('--calibrate')) {
   console.log('SETUP 101 CLAIMS CALIBRATION PASS password_to_memory=rejected upload_authority_bypass=rejected universal_shelf_promise=rejected');
 }
 
-console.log(`SETUP 101 CLAIMS PASS claims=${claims.claims.length} sources=${source.sources.length} sorting_items=${source.sortingCheck.items.length} rendered_sha256=${claims.renderedSha256} status=HOLD`);
+console.log(`SETUP 101 CLAIMS PASS claims=${claims.claims.length} sources=${source.sources.length} sorting_items=${source.sortingCheck.items.length} rendered_sha256=${claims.renderedSha256} status=ADMITTED_LOCALLY_NOT_PUBLIC`);

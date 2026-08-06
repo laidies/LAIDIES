@@ -1,482 +1,165 @@
-<meta name="laidies:content-version" content="concepts-101-2026-08-03.1">
-<div class="gr-page">
-<p class="lede">Everyone keeps saying "AI" like it's one thing you already know how to open. It isn't. Under that one name tag sits an engine, a pile of things it read once and then stopped reading, a working memory that fills up and starts dropping details, and a habit of sounding certain even when it's wrong. This book lifts the hood. No math — just the moving parts, what each one actually does, and where each one slips, so the next time someone says "just use AI" you know exactly what's down there.</p>
+<meta name="laidies:content-version" content="concepts-101-2026-08-06.1">
+<div class="gr-page" data-book-id="concepts-101">
+<p class="eyebrow">THE 101s · CONCEPTS 101</p>
+<h1>Follow one request through the system.</h1>
+<p class="lede">AI is not one mysterious thing that either “knows” or “doesn’t know.” A product gathers your request and the material available for this task, sends that context to a trained model, may let the model use tools, and returns an output that still needs judgment. This book gives you one connected map of that trip so the vocabulary stops floating around as seventeen unrelated definitions.</p>
 
-<h2>Model / LLM</h2>
+<div class="callout"><b>The whole map in one line</b><p><strong>Your goal + prompt + available context → product → model → optional tools → output → your check.</strong> Training shaped the model before today’s task. Retrieval, memory and tools can add material now. None of them makes the result automatically true.</p></div>
 
-<p>A <span class="term">model</span> is the trained component of an AI system that turns an input into an output. It may produce words or images, interpret material, make a prediction or choose a next action.</p>
+<h2>What the analogy gets right—and where it stops</h2>
+<p>Think of the system as a reference-desk workflow. Your question and the material you bring are the request; the product is the desk that decides what can be used; the model is one worker producing a candidate answer; tools are the catalogue, calculator or scanner; and your check determines whether the result is fit to leave the desk.</p>
+<p><strong>The limit:</strong> a real librarian can understand responsibility, notice social context and refuse for human reasons. An AI model does not become a person, a professional or an authority because the workflow resembles a desk. The analogy maps the hand-offs. It does not prove judgment, truth, confidentiality or permission.</p>
 
-<p>Episode 05 uses one maintained picture for the relationship: the provider is the fashion house; the model is the house’s supermodel; an app is a boutique or department store where you may encounter one or more models. The picture helps separate the cast; the software is not literally organized like a fashion business.</p>
-
-<p>An <span class="term">LLM</span>—large language model—is designed to work with language. It may be one component in a larger system that also handles images, search, files, code or other tools. You do not need to memorize every model name. You do need to know that the model is not the whole product.</p>
-
-<h3>The four things people blur together</h3>
+<h2>Start with the question you actually have</h2>
+<p>Use this book when you need to answer one of these questions:</p>
 <ul>
-<li><strong>The provider</strong> develops and operates products and models.</li>
-<li><strong>The model</strong> transforms input into output.</li>
-<li><strong>The product</strong> supplies the interface, account, instructions, permissions, limits and visible features.</li>
-<li><strong>The tools</strong> let the system search, inspect files, run code or act through a connected service when the product permits it.</li>
+<li><strong>What is producing this answer?</strong> Read “The system, not one magic box.”</li>
+<li><strong>What information can it use right now?</strong> Read “What reaches the model for this task.”</li>
+<li><strong>How can it search, inspect or act?</strong> Read “What tools add.”</li>
+<li><strong>Why can a polished answer still be wrong?</strong> Read “Where the answer can fail.”</li>
+<li><strong>What do reasoning, agentic and AGI actually mean?</strong> Read “Capability labels are not one ladder.”</li>
+<li><strong>I only need a definition.</strong> Jump to “Concepts quick reference.”</li>
 </ul>
 
-<p>Some people use <em>harness</em> for the software that surrounds a model and helps it use tools or complete a workflow. It can be a useful engineering term, but it does not replace the four-part map above.</p>
+<h2>The recurring case: a client handover email</h2>
+<p>We will follow one harmless, ordinary job through every section: you want an AI assistant to draft a client handover email from your notes and the current service policy.</p>
+<p>The useful result must name the new contact, preserve the date and commitments in your notes, use the current policy, and flag anything the sources do not establish. That gives us something concrete to inspect. If the answer invents a promise, uses an old policy or drops the date, the failure is visible.</p>
 
-<p>One product can offer several models, route between them automatically or hide the choice entirely. The same model can also behave differently when the product changes its instructions, context or available tools. <strong>A model is part of the experience—not the whole thing.</strong></p>
-
-<h3>How models and modes differ</h3>
-
-<p>Models can differ in the material they accept, the outputs they produce, their speed, cost, context capacity, tool use and performance on particular tasks. Some products also offer modes that spend more computation before answering. Those modes can improve some multi-step work; they do not turn the result into verified truth.</p>
-
-<p>Do not memorize a permanent “fast model versus reasoning model” rule. Product names, defaults and routing change, and not every provider exposes the same choice. “Reasoning” is also not a warranty: a slower answer can still begin from a bad assumption, misunderstand the task or use weak evidence.</p>
-
-<h3>Which one when</h3>
-<ol>
-<li>What must the output be—text, image, analysis, code or an action?</li>
-<li>Does the task need current sources, files, calculations or another tool?</li>
-<li>What privacy, permission, plan or regional limits apply?</li>
-<li>How will you recognize a good result?</li>
-<li>Which important parts still require an outside check?</li>
-</ol>
-
-<p>For a quick, recoverable task, the default option may be enough. For a complex task, a more capable model or deeper-computation mode may be worth testing. For a consequential task, the answer is never simply “use the expensive one”: use appropriate expertise, primary evidence and human review as well.</p>
-
-<h3>Where it goes wrong</h3>
-
-<p><strong>Blaming the model for the whole result.</strong> The missing feature may belong to the product, plan, permissions, context or tools.</p>
-<p><strong>Treating a provider reputation as a task test.</strong> “Best writer” or “best reasoner” is too broad to decide whether this result serves this audience.</p>
-<p><strong>Equating more compute with correctness.</strong> Deeper processing can help without checking the source, jurisdiction, date or assumptions that matter.</p>
-<p><strong>Following a stale model guide.</strong> Names, defaults, prices and access change. Date every comparison and recheck it before teaching or buying.</p>
-
-<div class="callout"><b>A model is part of the experience—not the whole thing.</b><p>Provider, model, product and tools can each change what comes back. Name the layer before you try to fix it.</p></div>
-
-<h3>Try this</h3>
-
-<p>Choose one harmless task whose quality you can judge. In one product, note the date, visible model or mode (if the product shows it), tools and account plan. Run the task with the default option and one alternative available to you. Keep the request and context the same. Compare what each understood, what each made you fix and whether the extra time or cost improved this task enough to matter.</p>
-
-<div class="receipts"><h3>Receipts</h3><ul>
-<li>OECD. <a href="https://oecd.ai/en/wonk/definition-">Explanatory memorandum on the updated definition of an AI system.</a></li>
-<li>OpenAI. <a href="https://developers.openai.com/api/docs/models">Models.</a></li>
-<li>Anthropic. <a href="https://platform.claude.com/docs/en/about-claude/models/overview">Models overview.</a></li>
-<li>Google. <a href="https://ai.google.dev/gemini-api/docs/models">Gemini API models.</a></li>
-<li>Ethan Mollick. <a href="https://www.oneusefulthing.org/p/a-guide-to-which-ai-to-use-in-the">A Guide to Which AI to Use in the Agentic Era.</a> Useful scout framing; provider details still require current official verification.</li>
-</ul></div>
-
-<hr>
-
-<h2>Training data</h2>
-
-<p><span class="term">Training data</span> is the collection of examples used to adjust a model while it is being built. The mix depends on the model and provider: it may include public, licensed, partner-provided, human-created or synthetic material, with filtering and later training stages used for different purposes.</p>
-
+<h2>The system, not one magic box</h2>
+<h3>Provider, product, model and tools do different jobs</h3>
 <ul>
-<li><strong>Language models</strong> learn patterns from text and may also be trained on code, mathematics or structured examples.</li>
-<li><strong>Image, audio and video models</strong> learn patterns from the media types they are designed to accept or produce, often paired with labels or descriptions.</li>
-<li><strong>Multimodal models</strong> are built to work across more than one kind of material, such as text and images.</li>
+<li><strong>The provider</strong> develops and operates models and products.</li>
+<li><strong>The product</strong> is the app or service you open. It controls the interface, account, instructions, permissions, available models and tools.</li>
+<li><strong>The model</strong> is a trained component that transforms input into output. A large language model, or LLM, is designed to work with language.</li>
+<li><strong>The tools</strong> are extra capabilities the product may connect: search, file retrieval, calculators, code execution or actions in another service.</li>
 </ul>
+<p>The model is not the whole product. The same model can behave differently when the product changes its instructions, available context, tools or safety controls. One product may expose several models, choose one automatically or hide the model name.</p>
 
-<p>During training, the model’s parameters are adjusted as it learns patterns from those examples. That is different from the material available during today’s task. A document you attach, a page a search tool retrieves or a fact a product remembers can become current context without becoming new training data. The trained model is not automatically reading a live source when you ask a question; live information requires a product feature or tool that actually supplies it.</p>
+<h3>What training did before you arrived</h3>
+<p><strong>Training data</strong> is the collection of examples used to adjust a model while it is being built so its parameters can learn patterns. The mix and training stages vary by model and provider. The important boundary is this: training happened before your current request.</p>
+<p>Your handover notes are not automatically “training data” simply because you attach them. They can become <strong>current context</strong> for this task. What the provider may retain or use later depends on the exact product, account, settings and governing terms; Accounts 101 owns that decision.</p>
 
-<h3>The cutoff, explained</h3>
+<h3>What “generative” describes</h3>
+<p><strong>Generative AI</strong> produces content from learned patterns plus the instructions and material available now. The output might be text, an image, audio, video or code. “Generative” describes the kind of output. It does not mean the system searched the web, checked a source, understood your organization or earned permission to use private material.</p>
+<p>In our case, the language model generates the handover draft. It is not retrieving a finished email from a filing cabinet. It produces a new sequence based on patterns, your prompt and the context the product supplied.</p>
 
-<p>A <strong>knowledge cutoff</strong> describes the boundary of the information represented in a particular trained model. It is not one date shared by every product, and the model’s own answer about its cutoff is not authoritative. Identify the exact model or product you are using, consult its current official documentation when a cutoff is published, and verify time-sensitive claims against current primary sources.</p>
+<h3>Where “algorithm” fits</h3>
+<p>An <strong>algorithm</strong> is a defined procedure for transforming input into output. AI systems contain many algorithms: training procedures, tokenization, retrieval ranking and generation among them. “The algorithm” is therefore usually too vague to explain a result. Ask which procedure or system layer matters.</p>
 
-<p>Imagine a friend who watched every episode of <em>Sex and the City</em> through the 2004 finale and stopped there. She remembers all of it — Carrie's column, the Aidan years, the Berger Post-It. Ask her about anything pre-2004 and she's flawless. Ask her about <em>And Just Like That</em> — about Big having a heart attack on the Peloton in the first episode of the spin-off — and she has nothing. That's not on her. That's where the watching stopped.</p>
+<div class="callout"><b>Retention map</b><p><strong>Before today:</strong> training shaped the model. <strong>During this task:</strong> the product assembles context and may use tools. <strong>After the answer:</strong> you decide whether the output is supported and usable.</p></div>
 
-<p>The model is similar: its trained knowledge is not a live feed. Three practical moves:</p>
+<h2>What reaches the model for this task</h2>
+<h3>Prompt and context are related, not identical</h3>
+<p>A <strong>prompt</strong> is what you give the system to work from: a question, instruction, example, image, file or combination. <strong>Context</strong> is the wider material available when the model produces this response. It may include the prompt, product instructions, earlier turns, retrieved passages, attached files or remembered details.</p>
+<p>For the handover email, the prompt states the job and constraints. The notes and policy supply evidence. Product instructions may add a default style. The model can only use material that actually reaches its working context; a file sitting elsewhere on your computer is not silently available.</p>
 
-<ol>
-<li><strong>Supply the current source.</strong> Paste the current policy, attach the recent document or provide the relevant passage. The model can use it as context, but you still need to check that the answer represents it correctly.</li>
-<li><strong>Use a product with live retrieval.</strong> A search or retrieval tool can bring current material into the task. Check which sources it actually fetched and whether they support the answer.</li>
-<li><strong>Check the exact product documentation.</strong> Model identity, cutoff, search access and source behaviour can differ by product, plan and date.</li>
-</ol>
+<h3>Tokens and the context window</h3>
+<p>A <strong>token</strong> is a small unit a model processes—often a word, part of a word or punctuation. Tokenization varies by model and language. The <strong>context window</strong> is the bounded working input available while the model produces a response.</p>
+<p>That working space is not the model’s training data. Products may select, truncate or summarize earlier material before it reaches the model. A large advertised limit means more can fit; it does not guarantee that every detail will be used equally well.</p>
+<p>Research using multi-document question answering and key-value retrieval found position-sensitive performance in selected models and controlled tasks. That is a reason to make evidence easy to locate and to check the result—not a universal law or a current-product benchmark, and not a promise that “the middle always fails.”</p>
 
-<p>What you cannot do is treat a fluent answer as proof that a time-sensitive claim is current. Check the claim against a current official or primary source.</p>
+<h3>Memory is a product feature</h3>
+<p>A <strong>memory</strong> feature may carry selected information between conversations and place relevant parts into later context. It is not the context window, a complete transcript or a guaranteed project record. What can be retained, how it is selected and which controls exist depend on the product, account and settings.</p>
+<p>If the correct client name or house style matters, include the authoritative version in the task. Do not assume an old remembered detail is current.</p>
 
-<h3>Where it goes wrong</h3>
-
-<p><strong>The cutoff trap.</strong> You ask the tool about something current — last month's policy, this quarter's launch, today's news. The tool answers confidently, in the present tense, as if the information were live. It isn't. The model is filling in from old patterns. The most dangerous version: the tool invents a recent thing that doesn't exist (a product, a person, a paper) because the <em>pattern</em> of "a recent thing about X" is in its training data even when the specific X isn't.</p>
-
-<p>How to spot it: anything time-sensitive. Anything with a version number or a date. Anything where <em>"as of when?"</em> is a fair question.</p>
-
-<div class="callout"><b>She graduated. She hasn't been to class since.</b><p>A trained model is not automatically following today’s news. For anything current, identify the exact model and product, then check the claim against a live official or primary source. A cutoff date can warn you about a boundary; it cannot certify that an older fact is still true.</p></div>
-
-<h3>Try this</h3>
-
-<p>Choose one time-sensitive answer from a tool you use. Record the exact product and visible model, if shown. Find the provider’s current official model information, then open the primary source for the claim itself. Compare what the product said with what each source actually establishes.</p>
-
-<div class="receipts"><h3>Receipts</h3><ul>
-<li>OpenAI. <a href="https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/">How ChatGPT and our foundation models are developed.</a> One provider’s description of training sources, pattern learning and the distinction between training and use.</li>
-<li>Anthropic. <a href="https://platform.claude.com/docs/en/about-claude/models/overview">Models overview.</a> Current model-specific information, including published cutoff dates where provided.</li>
-</ul></div>
-
-<hr>
-
-<h2>Token &amp; context window</h2>
-
-<p>Two related ideas, often used interchangeably even though they're not the same.</p>
-
-<p>A <span class="term">token</span> is a chunk a model processes—often a word, part of a word or punctuation. Tokenization varies by model and language, so use the provider’s tokenizer or documentation when an exact count matters.</p>
-
-<p>The <span class="term">context window</span> is the bounded input a model can work with while producing a response. It may include instructions, conversation turns, retrieved passages or attached material, but the exact contents depend on how the product selects, truncates or summarizes them. It is working space for the current response, not the model’s training data.</p>
-
-<p>Published context capacities vary by model and can change as products are updated. Check the current official page for the exact model and product you are using. A large advertised limit tells you what can fit; it does not guarantee that every detail will be used equally well.</p>
-
-<p>Sounds enormous. It is. But there's a crucial second fact: more isn't always better.</p>
-
-<h3>The context window degrades under load</h3>
-
-<p>Longer input can make relevant information harder for a model to use reliably, even when the material fits within the advertised limit. The effect depends on the model, task, input structure and product.</p>
-
-<p>In <em>“Lost in the Middle: How Language Models Use Long Contexts”</em>, Liu and colleagues tested selected language models on multi-document question answering and key-value retrieval. In those controlled tasks, performance often changed with the position of the relevant information and was frequently strongest near the beginning or end rather than the middle.</p>
-
-<p>That study demonstrates a real position-sensitivity problem in the models and tasks it tested. It does not establish a universal percentage drop, prove that every current product behaves the same way or guarantee that the middle answer in your own document will be weakest. Practically:</p>
-
-<ul>
-<li>Do not assume that fitting a document inside the limit means every passage will be used reliably.</li>
-<li>Make the relevant evidence easy to locate and test whether the answer is supported by the source.</li>
-<li>"Just paste in everything" is rarely as good as "paste in the relevant section, plus the one fact that matters."</li>
-</ul>
-
-<h3>Memory is not the context window</h3>
-
-<p>Quick clarification because the terms blur, and the difference matters.</p>
+<h3>A knowledge cutoff is a warning, not a warranty</h3>
+<p>A <strong>knowledge cutoff</strong> describes a model-specific boundary in the information represented through training. It is not one date shared by every product, and the model’s own answer about its cutoff is not authoritative. A cutoff also cannot prove that an older fact remains true.</p>
+<p>For the current service policy, use the current official policy itself. A model may know an older version perfectly and still give the wrong answer for today.</p>
 
 <div class="example">
-<div class="ex-bad"><b>Context window — the material available for this response</b><p>The product decides which instructions, turns, files and retrieved passages are placed on the desk.</p></div>
-<div class="ex-good"><b>Memory feature — product-managed context across conversations</b><p>A product may retain or synthesize selected details from earlier chats, files or settings and place relevant parts on the desk later.</p></div>
+<div class="ex-bad"><b>Failure</b><p>“Use what you remember about our policy.” The product may supply an old memory, the model’s trained information may be stale, or no policy may reach the context at all.</p></div>
+<div class="ex-good"><b>Recoverable request</b><p>“Use the attached policy dated 6 August 2026. For every commitment in the draft, point to the supporting line. If the policy does not establish it, flag it instead of guessing.”</p></div>
 </div>
 
-<p>Memory comes onto the desk as context. What can be retained, how it is selected, whether earlier chats or files can be referenced and which controls are available all depend on the product, account and settings. Do not assume that a new chat forgets everything or that a memory feature preserves a complete project record. Check the product’s current documentation and re-supply any source or constraint the task cannot safely proceed without.</p>
+<h2>What tools add</h2>
+<h3>Retrieval fetches; grounding connects</h3>
+<p><strong>Retrieval</strong> is the step where a system searches for or fetches material relevant to the task. It might search the web, a company knowledge base or uploaded files. Retrieval can fail by finding the wrong source, missing the best source or returning stale material.</p>
+<p><strong>Grounding</strong> means making the answer traceable to supplied or retrieved evidence. A grounded answer should let you see which claim came from which passage. Grounding can still fail if the source is weak, the passage does not support the claim or the answer stretches beyond its scope.</p>
+<p>For the handover email, retrieval may locate the policy. Grounding should connect each promise in the draft to the exact policy line. A citation-shaped link is not enough; open it and check that it supports the sentence.</p>
 
-<h3>How to use the window well</h3>
+<h3>Multimodal means more than one kind of material</h3>
+<p>A <strong>multimodal</strong> system can work with more than one type of input or output, such as text and images. That can let it read a photographed note or inspect a chart. It does not guarantee accurate reading, complete extraction or factual interpretation. Important names and numbers still need comparison with the original.</p>
 
-<p>Three moves that compound.</p>
+<h3>A sandbox limits consequences</h3>
+<p>A <strong>sandbox</strong> is an isolated environment intended to limit what code or an automated system can access or affect. It is one control, not a synonym for safety. Permissions, containment, monitoring and an independent stop mechanism do different jobs.</p>
+<p>In our email case, a draft-only workspace limits consequences better than direct send access. But the draft can still contain a false promise. Containment reduces what the system can do; it does not make what the system says correct.</p>
 
+<h2>Where the answer can fail</h2>
+<h3>Hallucination can be one wrong detail</h3>
+<p>A <strong>hallucination</strong> is false or unsupported content inside an AI-generated answer. It may be one invented date, quote, person, source or commitment in otherwise useful work. The system is not necessarily lying; lying requires intent.</p>
+<p>Generative models are optimized to produce plausible output from patterns and current context. Plausibility and support are not the same target. Missing evidence, ambiguous instructions, weak retrieval and product design can all create room for confident guessing.</p>
+<p>In the handover draft, “Your renewal price is locked for twelve months” sounds helpful. If neither the notes nor policy say it, the sentence is unsupported regardless of how polished it sounds.</p>
+
+<h3>Use a check that can fail</h3>
 <ol>
-<li><strong>Keep one conversation focused on one thing.</strong> When you switch topics, start a fresh chat. Don't make the tool drag a 60-turn architecture discussion behind your follow-up question about formatting an email. The fresher the context, the sharper the answer.</li>
-<li><strong>For long documents, make the evidence findable.</strong> Supply the source clearly, name the passages or questions that matter, and require the answer to point back to them. Position can affect performance, but source checking matters more than a universal top-versus-middle recipe.</li>
-<li><strong>Watch for drift, and reset early.</strong> The signal: tone shifts. Your original constraints get dropped. The answer paraphrases your source instead of quoting it. That's the model losing the thread. Close the chat, open a new one, and re-paste only the parts that still matter.</li>
+<li><strong>Mark the material claims.</strong> Names, dates, numbers, commitments, policies and causal explanations carry the risk.</li>
+<li><strong>Match each claim to evidence.</strong> Find the exact passage, calculation or qualified reviewer.</li>
+<li><strong>Check scope and date.</strong> A real source can still concern another account, region, version or time.</li>
+<li><strong>Keep the unsupported part out.</strong> Revise, qualify or remove it. Asking the same model “Are you sure?” is not independent verification.</li>
 </ol>
 
-<h3>Where it goes wrong</h3>
+<div class="callout"><b>The model supplies a candidate, not the final authority.</b><p>The right question is not “Did AI write this?” It is “Which parts matter, what supports them, and who is authorized to decide?”</p></div>
 
-<p><strong>The wall-of-text trap.</strong> You paste a 60-page document and ask three questions. By question three, the answer <em>sounds</em> right but is paraphrasing the gist rather than quoting the source. You won't catch the slip unless you check against the document.</p>
+<h2>Capability labels are not one ladder</h2>
+<h3>Reasoning model</h3>
+<p>A <strong>reasoning model</strong> or reasoning mode spends additional computation on some multi-step tasks before producing an answer. It can improve performance on particular problems. It does not certify the assumptions, sources or conclusion. A slower answer can still reason carefully from the wrong policy.</p>
 
-<p><strong>The eternal-thread trap.</strong> You assume a long-running product thread still exposes every earlier detail to the model. The product may truncate, summarize or select prior material, and important constraints can be missed. Long projects need a maintained source of truth, not faith in chat history.</p>
+<h3>Agentic AI</h3>
+<p><strong>Agentic AI</strong> can pursue a goal through multiple steps and use tools with some autonomy. The risk changes because the system can do more than produce a draft: it may search, edit files, send messages or trigger another service. Evaluate the goal, permissions, environment, checkpoints, logs and independent stop—not only the model’s answer quality.</p>
+<p>Drafting the email is generative. Finding the policy is retrieval. Comparing claims may use reasoning. Sending the email is an action. One product can combine all four; the labels describe dimensions of the system, not four rival species.</p>
 
-<div class="callout"><b>If she's losing the plot, turn the page.</b><p>Picture a chalkboard at a long study session. Six hours in, the formula from the top corner is long gone. When the tone drifts or your original constraints stop showing up, that's the board filling. Start a fresh chat with just the constraints and continue.</p></div>
+<h3>AGI</h3>
+<p><strong>Artificial general intelligence, or AGI,</strong> is a disputed idea about systems with broad capability and transfer across many unfamiliar intellectual tasks. There is no single agreed test or finish line. Definitions may emphasize breadth, performance, autonomy or economic value differently.</p>
+<p>LAiDIES’ present position is that AGI does not exist today. That statement must still be presented with the boundary: credible experts disagree about definitions, thresholds and timelines. When someone claims AGI has arrived, ask which definition, which tasks, which comparison and which independent evidence.</p>
 
-<h3>Try this</h3>
+<h3>AI winter</h3>
+<p>An <strong>AI winter</strong> is a period when enthusiasm, funding or institutional support for AI falls after expectations outrun results. It is a historical pattern, not a forecast that every boom must collapse on schedule. The useful lesson is to separate demonstrated capability from promises and market heat.</p>
 
-<p>Two short experiments.</p>
-
-<p><strong>First, test position rather than assuming it.</strong> Use a harmless document whose answers you can verify. Ask comparable questions about passages near the beginning, middle and end. Check every answer against the document and note whether position changed accuracy for this product, model and task. One trial is an observation, not a universal benchmark.</p>
-
-<p><strong>Second, test continuity.</strong> In a long planning conversation, ask the product to restate the original constraints, then compare the answer with your source record. If anything material is missing, re-supply the authoritative constraints or begin a focused thread. Do not infer a universal failure point from the number of exchanges.</p>
-
-<div class="receipts"><h3>Receipts</h3><ul>
-<li>Anthropic. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Context windows.</a> Definition, current sizes, "context rot" framing.</li>
-<li>Liu, Lin, Hewitt, Paranjape, Bevilacqua, Petroni, &amp; Liang. <a href="https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf">Lost in the Middle: How Language Models Use Long Contexts.</a> Stanford, <em>Transactions of ACL</em>, 2024.</li>
-<li>Anthropic. <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents.</a></li>
-<li>OpenAI. <a href="https://help.openai.com/en/articles/8590148-memory-faq">Memory FAQ.</a> One product’s current memory sources, controls and limitations; other products can differ.</li>
-</ul></div>
-
-<hr>
-
-<h2>Hallucination</h2>
-
-<p>A <span class="term">hallucination</span> is false or unsupported content delivered as part of an AI-generated answer. It might be one invented citation, wrong date or made-up detail inside otherwise useful work—not only a completely fictional response. The system is not lying; lying requires intent.</p>
-
-<p>A hallucination can be a fabricated source (a real-looking journal article that doesn't exist), an invented quote, a wrong date, a person who never worked at the company AI named them at, a legal precedent that was never filed, a price that doesn't match the live one. The category isn't "obvious errors." It's <em>"errors that look exactly like correct answers."</em></p>
-
-<p>The risk varies by model, task, context and evaluation. Do not use one benchmark as a universal “hallucination rate.” A current system can still place one unsupported claim inside an otherwise useful answer, so consequential claims need evidence rather than a confidence score.</p>
-
-<h3>Why hallucinations happen</h3>
-
-<p>Generative models are built to produce plausible output from patterns in their training and the context supplied now. Plausibility and factual support are not the same target. Rare facts, missing context, ambiguous questions and weak source material can all create room for an answer that sounds right without being right.</p>
-
-<p>OpenAI’s 2025 research adds another part of the picture: many common evaluations reward a lucky guess more than an honest abstention. That can encourage confident guessing. It is an important mechanism, not a complete single-cause theory for every hallucination in every model or product.</p>
-
-<p>The practical conclusion is deliberately less dramatic: current systems can reduce hallucinations, but none earns a blanket exemption from checking.</p>
-
-<h3>How to reduce hallucinations</h3>
-
-<p>There is no magic sentence that makes an answer true. Use a checking design:</p>
-
-<ol>
-<li><strong>Supply the right material.</strong> Give the system the current policy, document, dataset or source it should use.</li>
-<li><strong>Ask for traceable support.</strong> Connect each consequential claim to the exact passage, calculation or source—not merely citation-shaped text.</li>
-<li><strong>Permit uncertainty.</strong> Ask it to mark missing evidence, ambiguity and unresolved conflicts rather than fill the gap. Treat that as one useful instruction, not a guarantee.</li>
-<li><strong>Use the right tool.</strong> Current facts may need live search; arithmetic may need code or a calculator; private or high-stakes work may need an approved specialist system or no public AI tool at all.</li>
-<li><strong>Check outside the answer.</strong> Open the source, reproduce the calculation or ask a qualified person. Asking the same model to praise its own work is not independent verification.</li>
-</ol>
-
-<p>Do not ask a consumer chatbot to reveal private internal reasoning as your quality check. Ask for evidence, assumptions, a concise method you can inspect or a result you can reproduce.</p>
-
-<h3>How to spot one</h3>
-
-<p>The deeper skill is detection <em>after</em> the AI has answered. The pattern that catches hallucinations is the Elle Woods move: look for the detail that doesn't survive contact with reality.</p>
-
-<p>Chutney Windham gave a calm, confident, repeated alibi — she was in the shower right after a fresh perm. Sounded true. Sounded true twice. Fell apart on one specific check: you don't wash a fresh perm without destroying it. The story collapsed on a single piece of domain knowledge.</p>
-
-<p>AI hallucinations work the same way. The answer is fluent, internally consistent, and confident. It collapses on the one specific check:</p>
-
+<h2>Put the map to work</h2>
+<p>When an AI result disappoints you, locate the layer before changing everything:</p>
 <ul>
-<li>Does this link actually open?</li>
-<li>Does the quote actually appear on that page?</li>
-<li>Was this person at the title the model gave them?</li>
-<li>Does this number match the source it cited?</li>
-<li>Was this legal case actually filed? In which court? When?</li>
+<li><strong>Wrong job or shape?</strong> Fix the prompt or brief.</li>
+<li><strong>Missing or stale information?</strong> Supply or retrieve the right source.</li>
+<li><strong>Dropped detail?</strong> Reduce or restructure the context and make evidence findable.</li>
+<li><strong>Missing capability?</strong> Check the product, model, plan, permissions or tools.</li>
+<li><strong>Unsupported claim?</strong> Verify outside the answer and remove what does not survive.</li>
+<li><strong>Risky action?</strong> Reduce permissions, use a sandbox, require checkpoints or keep the task draft-only.</li>
 </ul>
+<p>You now have one model for the whole system: <strong>training shaped the model; the product assembles context; tools may extend what the system can see or do; the model produces a candidate; evidence and human authority decide what happens next.</strong></p>
 
-<h3>Where it goes wrong</h3>
-
-<p><strong>Trusting fluency.</strong> The output sounds right. It uses the right vocabulary. It's structured the way a real answer would be structured. <em>Plausibility isn't truth.</em> The most expensive mistakes in the corporate AI era so far have all had this shape: someone read a fluent AI answer, didn't verify, sent it to a client or a court or a board.</p>
-
-<p><strong>Asking the model "are you sure?"</strong> Asking AI to verify itself produces another fluent answer with no actual verification underneath. The model is generating "the kind of thing someone confident would say" — which is sometimes the same kind of thing it said the first time. That's Chutney repeating her alibi, not Elle finding the contradiction.</p>
-
-<p><strong>Confusing reasoning models with reliability.</strong> Reasoning models and product modes may improve performance on some multi-step tasks, but that is not a guarantee of factual accuracy. They can still misunderstand the task, use a weak source or produce an unsupported claim. More deliberate is not infallible.</p>
-
-<div class="callout"><b>Plausibility isn't truth.</b><p>The whole danger of a hallucination is that it wears the same confident voice as a correct answer. You can't hear the difference. You can only check it — one link, one quote, one number, against the real source.</p></div>
-
-<h3>Try this</h3>
-
-<p>Take a recent AI answer you used or nearly used. Pick one claim that carries a fact, name, date or number. Open the original source and ask three questions: does it say this, does it apply here, and is it current enough for the decision? The lesson is not how fast you can verify it. The lesson is whether the answer survives contact with the evidence.</p>
-
-<div class="receipts"><h3>Receipts</h3><ul>
-<li>Kalai, Nachum, Vempala &amp; Zhang. <a href="https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf">Why Language Models Hallucinate.</a> OpenAI / Georgia Tech, September 2025. The training-rewards-guessing finding.</li>
-<li>Anthropic. <a href="https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations">Reduce hallucinations.</a> The four-move playbook.</li>
-<li>NIST. <a href="https://doi.org/10.6028/NIST.AI.600-1">Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile.</a> Section 2.2 defines confabulation and its practical scope.</li>
-</ul></div>
-
-<hr>
-
-<h2>The four types everyone argues about</h2>
-
-<p>Generative, reasoning, agentic, AGI. These four words get thrown around meetings — sometimes all in the same sentence — as if they were rival products you have to pick between. They're best understood <em>together</em>, because the whole point is how they differ. Picture the kind of show this brand was raised on: a group of friends fighting supernatural forces, each with a different role in the fight.</p>
-
-<h3>1. Generative AI — makes</h3>
-
-<p><strong>Plain meaning.</strong> Generative AI produces content from your request and the material you give it: a paragraph, image, slide, song, video or piece of code. “Generative” describes what it produces; it does not tell you whether the content is true or whether the wider system can take actions.</p>
-
-<h3>2. Reasoning models — think first</h3>
-
-<p>The Watcher in the library. Works the whole problem through, then says what to do. Slower, and better at math, logic, multi-step plans — anything that needs its work checked.</p>
-
-<h3>3. Agentic AI — acts</h3>
-
-<p><strong>Plain meaning.</strong> Agentic AI can pursue a goal through several
-steps and use connected tools to take actions. A generative system can draft an
-itinerary. An agentic system might search available flights, compare them
-against your rules, ask you to approve one, book it through a connected travel
-account and add it to your calendar.</p>
-
-<p><strong>The change that matters.</strong> The output is no longer only an
-answer for you to review. The system can change something outside the chat.
-That can remove tedious work, but it can also turn a mistake into a sent email,
-an altered file, a purchase or a deleted record.</p>
-
-<h4>Picture it: Cher’s closet computer, one step further</h4>
-
-<p>In <em>Clueless</em>, the closet computer compares what Cher owns and
-recommends an outfit. It stops at the recommendation. An agent connected to the
-closet, her calendar and a shopping account could check the occasion, see what
-is available, order the missing shoes after approval and schedule the return
-for anything that does not fit.</p>
-
+<h2>Current sources and limits</h2>
 <ul>
-<li><strong>The goal</strong> is the occasion she needs to dress for.</li>
-<li><strong>The tools</strong> are the wardrobe catalogue, calendar and shop.</li>
-<li><strong>The permissions</strong> decide whether it may only recommend, reserve an item or actually buy it.</li>
-<li><strong>The actions</strong> are the real changes: the order, calendar entry and return.</li>
+<li>OECD. <a href="https://oecd.ai/en/wonk/definition-">Explanatory memorandum on the updated definition of an AI system.</a></li>
+<li>OpenAI. <a href="https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/">How ChatGPT and our foundation models are developed.</a></li>
+<li>Anthropic. <a href="https://platform.claude.com/docs/en/about-claude/models/overview">Models overview.</a></li>
+<li>Anthropic. <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Context windows.</a></li>
+<li>OpenAI. <a href="https://help.openai.com/en/articles/8590148-memory-faq">Memory FAQ.</a></li>
+<li>Liu et al. <a href="https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf">Lost in the Middle: How Language Models Use Long Contexts.</a></li>
+<li>NIST. <a href="https://doi.org/10.6028/NIST.AI.600-1">Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile.</a></li>
+<li>OpenAI. <a href="https://openai.com/charter/">OpenAI Charter.</a></li>
+<li>Google DeepMind. <a href="https://deepmind.google/research/publications/66938/">Levels of AGI for Operationalizing Progress on the Path to AGI.</a></li>
 </ul>
-
-<p><strong>Where the analogy stops.</strong> The AI does not understand the
-room, own the consequences or possess Cher’s judgment. It acts from the
-information, tools and rules it has been given. If those are incomplete, it
-can complete the wrong task very efficiently.</p>
-
-<p><strong>Why you care.</strong> Agentic systems move AI from “Is this answer
-good?” to “Should this system be allowed to do this?” The upside is less
-manual coordination. The new risk is that access, authority and errors can
-travel beyond the chat box.</p>
-
-<p><strong>What to do.</strong> Before an agent runs, define the goal, give it
-the least access it needs, require approval before money/messages/deletions,
-and make sure you can inspect and undo the actions it takes.</p>
-
-<h3>Sandbox — a working room with real walls</h3>
-
-<p><strong>Plain meaning.</strong> A sandbox is a deliberately limited
-environment where software or an AI agent can work without automatically
-reaching everything else. It can restrict which files, tools, accounts,
-credentials and network destinations the system can use.</p>
-
-<h4>Picture it: a rehearsal studio prepared for one scene</h4>
-
-<p>The actor gets the right props and a marked stage, but not the keys to every
-room in the theatre. The marks on the floor are instructions. The locked doors
-are the sandbox. Telling someone “do not leave” is not the same as making it
-impossible to leave.</p>
-
-<p><strong>Where the analogy stops.</strong> A sandbox is made from technical
-controls, not literal walls. Every allowed service, package source, credential
-and network route can become another door. “Sandboxed” therefore means
-constrained; it does not mean magically isolated or impossible to escape.</p>
-
-<p><strong>Four safety jobs are often confused.</strong></p>
-
-<ul>
-<li><strong>Permissions</strong> decide what the agent is allowed to reach.</li>
-<li><strong>The sandbox</strong> enforces a boundary around where it can act.</li>
-<li><strong>Monitoring</strong> watches the sequence of actions and where they are heading.</li>
-<li><strong>An independent stop</strong> lets someone outside that sequence halt the work.</li>
-</ul>
-
-<p><strong>Least privilege</strong> means giving the agent only the access it
-needs for this job, for only as long as it needs it. That reduces the blast
-radius if the agent, a connected tool or someone else's code behaves
-unexpectedly.</p>
-
-<p><strong>Why you care.</strong> If an AI can use tools, files or accounts,
-ask: What can it actually reach? Which limits are enforced rather than merely
-written? Is the whole action trail monitored? Who can stop it? What can be
-undone?</p>
-
-<p><strong>A current example.</strong> In its preliminary account of a 2026
-cyber evaluation, OpenAI said its models were placed in a highly isolated
-environment with network access constrained to an internal package-registry
-proxy. OpenAI said the models exploited a previously unknown vulnerability in
-that permitted path, reached the internet and later compromised Hugging Face
-infrastructure while pursuing benchmark answers. OpenAI said its review was
-still underway, so treat this as the provider’s preliminary account rather
-than a completed independent finding. The durable lesson is not that sandboxes
-are useless. It is that a sandbox is one security layer, and every permitted
-path still needs its own controls, monitoring and stop conditions.</p>
-
-<h3>4. AGI — the disputed threshold</h3>
-
-<p><strong>Plain meaning.</strong> Artificial general intelligence is the name
-for AI capability broad enough to perform across many kinds of intellectual
-work rather than one narrow task. AGI is a real research goal, not an imaginary
-category. The unresolved argument is where the finish line sits, how to test it
-and whether any current system has crossed it.</p>
-
-<p><strong>Why you care.</strong> AGI claims shape job fears, product promises,
-investment decisions and policy debates. One definition may mean a highly
-autonomous system that beats people at most economically valuable work. Another
-may grade breadth and performance in levels. Without the definition, “AGI is
-here” and “AGI is years away” can sound like opposite answers while measuring
-different finish lines.</p>
-
-<p><strong>The LAiDIES ladder.</strong> Today, you usually bring AI one piece
-of the job: a question, draft, image or decision. The AGI promise is one system
-with enough range and independence to take on the whole intellectual job across
-unfamiliar situations. A spectacular result on one exam proves height on one
-rung; AGI claims also need breadth across the ladder.</p>
-
-<p><strong>What to do when you hear “AGI.”</strong> Ask: Which definition?
-What range of tasks? How independently? Under what conditions? Compared with
-which people? What evidence? A label without an operational test is a claim,
-not a measured result.</p>
-
-<p class="go-deeper"><strong>Check the competing finish lines.</strong>
-OpenAI’s Charter defines AGI around highly autonomous systems outperforming
-people at most economically valuable work. Google DeepMind’s Levels of AGI
-framework separates breadth, performance and autonomy into measurable levels.
-Those are two serious definitions—and they are not the same test. See the
-<a href="https://openai.com/charter/">OpenAI Charter</a> and Google DeepMind’s
-<a href="https://deepmind.google/research/publications/66938/">Levels of AGI</a>.</p>
-
-<div class="receipts"><h3>Receipts</h3><ul>
-<li>OpenAI. <a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/">OpenAI and Hugging Face partner to address security incident during model evaluation.</a> Preliminary provider account; investigation and external assessments were still underway.</li>
-<li>OpenAI. <a href="https://openai.com/charter/">OpenAI Charter.</a> OpenAI’s mission-specific AGI definition.</li>
-<li>Google DeepMind. <a href="https://deepmind.google/research/publications/66938/">Levels of AGI for Operationalizing Progress on the Path to AGI.</a> Framework separating performance, generality and deployment autonomy.</li>
-</ul></div>
-
-<div class="callout"><b>These describe different dimensions, not separate species.</b><p>A tool can generate an output, reason through a problem and act through connected tools in the same task. “General” asks a different question: how broad and capable is the system across many kinds of work? That is why impressive generative, reasoning or agentic behaviour does not settle the AGI argument by itself.</p></div>
-
-<hr>
+<p>Product names, modes, context limits, memory behaviour and provider documentation can change. Recheck current official documentation before relying on a product-specific claim. For a correction, use <a href="mailto:hello@laidies.ai?subject=Concepts%20101%20correction">hello@laidies.ai</a>; name the section and public source, and do not send private material.</p>
 
 <h2>Concepts quick reference</h2>
+<p>Use this section when you need one definition. Each term points back to the connected system above.</p>
+<div class="term"><h3>Agentic AI</h3><p>AI that can pursue a goal through multiple steps and tools with some autonomy. Judge its permissions, checkpoints, logs, environment and stop controls—not only its answer.</p></div>
+<div class="term"><h3>AGI</h3><p>Artificial general intelligence: the disputed idea of broad capability and transfer across many unfamiliar intellectual tasks. There is no single agreed test or finish line.</p></div>
+<div class="term"><h3>AI winter</h3><p>A period when AI enthusiasm, funding or institutional support falls after expectations outrun results. It is a historical pattern, not an automatic forecast.</p></div>
+<div class="term"><h3>Context</h3><p>The material available for this response: prompts, instructions, conversation, files, retrieved passages or remembered details actually supplied by the product.</p></div>
+<div class="term"><h3>Context window</h3><p>The bounded working input a model can use for one response. Products may select, truncate or summarize what enters it; it is working space, not training data.</p></div>
+<div class="term"><h3>Generative AI</h3><p>AI that produces new content from learned patterns plus current instructions and material. Generating content does not prove that it is true or authorized.</p></div>
+<div class="term"><h3>Grounding</h3><p>Connecting an answer to supplied or retrieved evidence so its claims can be traced and checked. A weak source can still produce a weak grounded answer.</p></div>
+<div class="term"><h3>Hallucination</h3><p>False or unsupported content inside an AI-generated answer. It can be one wrong detail in otherwise useful work.</p></div>
+<div class="term"><h3>Knowledge cutoff</h3><p>A model-specific boundary in information represented through training. For anything current, use a live official or primary source.</p></div>
+<div class="term"><h3>Model / large language model (LLM)</h3><p>A model is a trained component that transforms input into output. An LLM is designed for language. Neither is the whole product.</p></div>
+<div class="term"><h3>Multimodal</h3><p>A system that can work with more than one type of material, such as text and images. More input types do not guarantee accurate interpretation.</p></div>
+<div class="term"><h3>Prompt</h3><p>What you give the AI to work from: a question, instruction, example, image, file or combination.</p></div>
+<div class="term"><h3>Reasoning model</h3><p>A model or mode that uses additional computation for some multi-step tasks. More computation can help without certifying the sources or answer.</p></div>
+<div class="term"><h3>Sandbox</h3><p>An isolated environment intended to limit what code or an automated system can access or affect. It limits consequences; it does not make output correct.</p></div>
+<div class="term"><h3>Retrieval</h3><p>The step where a system searches for or fetches relevant material. Retrieval finds material; grounding connects claims to it.</p></div>
+<div class="term"><h3>Token</h3><p>A small unit a model processes, often a word, part of a word or punctuation. Tokenization varies by model and language.</p></div>
+<div class="term"><h3>Training data</h3><p>The examples used to adjust a model so its parameters can learn patterns. Material supplied today is current context, not automatically new training data.</p></div>
 
-<p>This is the useful terminology formerly collected in Vocab 101, now kept
-inside Concepts 101 on <strong>The 101s</strong> shelf. The short definitions
-help you recognize a term; the lessons above explain how the machinery works
-and where it can fail.</p>
-
-<div class="term"><h3>Agentic AI</h3><p>AI that can pursue a goal through
-multiple steps and use tools to act, rather than only generate an answer.
-Permissions, approvals and an undo path matter because its actions can leave
-the chat.</p></div>
-
-<div class="term"><h3>AGI</h3><p>Artificial general intelligence: the disputed
-idea of AI capability broad enough to perform across many kinds of
-intellectual work. There is no single agreed test or finish line.</p></div>
-
-<div class="term"><h3>AI winter</h3><p>A period when AI promises outran
-results, enthusiasm and funding fell, and the field became less fashionable.
-The work did not disappear; research continued through the downturn.</p></div>
-
-<div class="term"><h3>Context</h3><p>The background that makes a request about
-your actual situation: the audience, goal, source material, constraints,
-history and details the AI needs to see.</p></div>
-
-<div class="term"><h3>Context window</h3><p>The amount of conversation,
-instructions, retrieved material and attached content an AI can work with at
-one time. The product may select, truncate or summarize what enters that
-window. It is working space, not the model’s training data.</p></div>
-
-<div class="term"><h3>Generative AI</h3><p>AI that produces content from your
-request and the material you give it—such as text, an image, audio, video or
-code. It can make the draft. It cannot make it true.</p></div>
-
-<div class="term"><h3>Grounding</h3><p>Requiring an AI answer to use specific
-material—such as a document, transcript, database result or live source—rather
-than relying only on patterns learned in training. Grounding makes evidence
-checkable; it does not guarantee the source was current or interpreted
-correctly.</p></div>
-
-<div class="term"><h3>Hallucination</h3><p>False or unsupported content
-delivered as part of an AI answer. It can be one invented citation or wrong
-date inside useful work. Polished is a style; evidence is a standard.</p></div>
-
-<div class="term"><h3>Knowledge cutoff</h3><p>The date after which a model’s
-trained knowledge may not represent newer events or information. Cutoffs are
-model-specific; current claims still need a live official or primary source.</p></div>
-
-<div class="term"><h3>Model / large language model (LLM)</h3><p>The trained
-component that turns an input into an output. A product can add instructions,
-memory, search, files, tools and other models around it. A large language
-model, or LLM, is designed to work with language.</p></div>
-
-<div class="term"><h3>Multimodal</h3><p>Able to work with more than one kind of
-material—such as text, images, audio or video—inside the same model or task.
-Using more modes does not remove the need to check what the model missed or
-inferred.</p></div>
-
-<div class="term"><h3>Prompt</h3><p>What you give the AI to work from: a
-question, instruction, request, pasted source or attached file. A useful prompt
-states the job, audience, constraints and what a good result should do.</p></div>
-
-<div class="term"><h3>Reasoning model</h3><p>A model designed to spend more
-computation working through a problem before answering. It can help with logic
-and multi-step work, but slower thinking is not a guarantee of correctness.</p></div>
-
-<div class="term"><h3>Sandbox</h3><p>A technically limited environment that
-controls what software or an agent can reach and change. It is an enforced
-boundary, not merely an instruction to stay within one.</p></div>
-
-<div class="term"><h3>Retrieval</h3><p>The step where an AI system searches
-outside its trained model and brings relevant material into the current task.
-Retrieval fetches material; grounding makes the answer use it. Either can fail
-if the wrong or stale source is selected.</p></div>
-
-<div class="term"><h3>Token</h3><p>A small chunk of text a model processes,
-which may be a word, part of a word or punctuation. Tokens are the units that
-fill a context window.</p></div>
-
-<div class="term"><h3>Training data</h3><p>The examples used to train a model
-so its parameters can learn patterns. The mix and training stages vary by
-model and provider. A file attached to today’s task is current context, not
-new training.</p></div>
-
+<p class="meta">Content version: 2026-08-06.1 · current-source review required before public release.</p>
 </div>

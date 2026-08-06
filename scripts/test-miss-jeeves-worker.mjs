@@ -147,7 +147,7 @@ const chipsWithoutAi = await (await ask('Why are chips so important to AI?')).js
 assert.equal(chipsWithoutAi.status, 'not_covered', 'deterministic fallback must not pretend generic AI material covers chips');
 
 const tokenWithoutAi = await (await ask('What is a token?')).json();
-assert.equal(tokenWithoutAi.results[0]?.url, '/library.html#concepts-101::@book-section-token-context-window');
+assert.equal(tokenWithoutAi.results[0]?.url, '/library.html#concepts-101::@book-section-tokens-and-the-context-window');
 
 const invalidIndexEnv = envWith();
 invalidIndexEnv.ASSETS.fetch = async () => Response.json({ _meta: {}, entries: {} });

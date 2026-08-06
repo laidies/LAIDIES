@@ -1,218 +1,80 @@
 {
   "schemaVersion": "1.0.0",
   "bookId": "concepts-101",
+  "contentVersion": "concepts-101-2026-08-06.1",
   "renderedPath": "content/library-books/rendered/concepts-101.html",
-  "renderedSha256": "bb25fae48b640f53112bd9191391e66dbbf5bf4a8603d6c5bd55a8cf85508f4b",
-  "auditPath": "operations/product-stewards/library/evidence-concepts-101-claim-audit-2026-08-03/audit.md",
-  "auditSha256": "40400c77d86fb75625a3b32ff61c02969658f2ec9b04567dbe6dc3e6b1ebeafe",
-  "ledgerStatus": "BUILT_LOCALLY_MAKER_ONLY_BOOK_REMAINS_HOLD",
-  "reviewedOn": "2026-08-03",
-  "reviewer": "Concepts 101 correction maker; not an independent accuracy or admission approval",
+  "renderedSha256": "74f08314fb98672ce5f247eaf7db16fb6beeffa3f08f0572ed562818d92b602c",
+  "canonicalSourcePath": "content/library-books/concepts-101.source.json",
+  "ledgerStatus": "ADMITTED_LOCALLY_NOT_PUBLIC",
+  "reviewedOn": "2026-08-06",
   "claims": [
     {
       "id": "C101-C001",
       "class": "durable",
-      "renderedLocator": "Training data",
-      "publicWording": "Training data is the collection of examples used to adjust a model while it is being built; its sources and training stages vary by model and provider.",
-      "requiredRenderedPhrases": [
-        "the collection of examples used to adjust a model while it is being built",
-        "A document you attach, a page a search tool retrieves or a fact a product remembers can become current context without becoming new training data"
-      ],
-      "sourceIds": [
-        "SRC-OAI-MODEL-DEVELOPMENT"
-      ],
-      "sourceLocator": "What is ChatGPT and how does it work; three primary sources of information; training adjusts model parameters to learn patterns.",
-      "sourceLimitation": "This is one provider's description of its own foundation-model development, used to support the generic distinction rather than a universal corpus inventory.",
-      "freshnessTrigger": "Recheck if the provider materially changes its training explanation or the book adds model-specific data claims.",
-      "propagatedQuickReference": {
-        "term": "Training data",
-        "requiredPhrases": [
-          "parameters can learn patterns",
-          "mix and training stages vary by model and provider",
-          "current context, not new training"
-        ]
-      }
+      "renderedLocator": "The system, not one magic box",
+      "publicWording": "A model is one component inside a wider product and AI system.",
+      "requiredRenderedPhrases": ["The model is not the whole product", "provider", "product", "model", "tools"],
+      "sourceIds": ["SRC-OECD-AI-SYSTEM"],
+      "sourceLimitation": "The OECD definition supports the model/system distinction, not one product's interface."
     },
     {
       "id": "C101-C002",
-      "class": "currentness_sensitive",
-      "renderedLocator": "The cutoff, explained",
-      "publicWording": "A knowledge cutoff is model-specific; identify the exact model and product and verify time-sensitive claims against current official or primary sources.",
-      "requiredRenderedPhrases": [
-        "It is not one date shared by every product",
-        "the model’s own answer about its cutoff is not authoritative",
-        "verify time-sensitive claims against current primary sources"
-      ],
-      "sourceIds": [
-        "SRC-ANTHROPIC-MODELS"
-      ],
-      "sourceLocator": "Current model table and per-model knowledge-cutoff fields.",
-      "sourceLimitation": "Provider documentation establishes only that provider's current model information; a cutoff is not proof that an older claim remains true.",
-      "freshnessTrigger": "Before release; whenever a named model, product, cutoff or search capability changes; otherwise every 90 days.",
-      "propagatedQuickReference": {
-        "term": "Knowledge cutoff",
-        "requiredPhrases": [
-          "model-specific",
-          "live official or primary source"
-        ]
-      }
+      "class": "durable",
+      "renderedLocator": "What training did before you arrived",
+      "publicWording": "Training adjusts model parameters from examples before the current task; attached material can become current context without becoming new training data.",
+      "requiredRenderedPhrases": ["training happened before your current request", "current context", "not automatically \u201ctraining data\u201d"],
+      "sourceIds": ["SRC-OECD-AI-SYSTEM", "SRC-OPENAI-MODEL-DEVELOPMENT"],
+      "sourceLimitation": "Training corpora and stages differ by provider and model."
     },
     {
       "id": "C101-C003",
       "class": "currentness_sensitive",
-      "renderedLocator": "Token & context window / Memory is not the context window",
-      "publicWording": "A context window is bounded working input; products can select, truncate or summarize prior material, and cross-chat memory behavior depends on product, account and settings.",
-      "requiredRenderedPhrases": [
-        "the exact contents depend on how the product selects, truncates or summarizes them",
-        "What can be retained, how it is selected, whether earlier chats or files can be referenced and which controls are available all depend on the product, account and settings"
-      ],
-      "sourceIds": [
-        "SRC-ANTHROPIC-CONTEXT",
-        "SRC-OPENAI-MEMORY"
-      ],
-      "sourceLocator": "Anthropic Context windows overview; OpenAI Memory FAQ sections on memory sources, summary and controls.",
-      "sourceLimitation": "The sources document specific products and illustrate why context and memory behavior cannot be stated as one universal product contract.",
-      "freshnessTrigger": "Before release; on product memory/context documentation change; otherwise every 90 days.",
-      "propagatedQuickReference": {
-        "term": "Context window",
-        "requiredPhrases": [
-          "select, truncate or summarize",
-          "working space, not the model’s training data"
-        ]
-      }
+      "renderedLocator": "What reaches the model for this task",
+      "publicWording": "Context is bounded working material; memory, product instructions and retrieval behaviour depend on the exact product and settings.",
+      "requiredRenderedPhrases": ["bounded working input", "Memory is a product feature", "depend on the product, account and settings"],
+      "sourceIds": ["SRC-ANTHROPIC-CONTEXT", "SRC-OPENAI-MEMORY"],
+      "sourceLimitation": "The linked sources describe provider-specific current behaviour and must be rechecked before release.",
+      "freshnessTrigger": "Before public release and whenever product context or memory documentation changes."
     },
     {
       "id": "C101-C004",
       "class": "durable",
-      "renderedLocator": "The context window degrades under load",
-      "publicWording": "Lost in the Middle found position-sensitive performance in selected models on multi-document question answering and key-value retrieval; it did not establish a universal percentage or guarantee every product behaves the same way.",
-      "requiredRenderedPhrases": [
-        "multi-document question answering and key-value retrieval",
-        "does not establish a universal percentage drop",
-        "One trial is an observation, not a universal benchmark"
-      ],
-      "sourceIds": [
-        "SRC-LIU-LOST-MIDDLE"
-      ],
-      "sourceLocator": "Abstract, tasks and positional-performance results.",
-      "sourceLimitation": "The controlled study covers the models, tasks and configurations it tested; it is not a universal current-product benchmark.",
-      "freshnessTrigger": "Recheck if the book adds a percentage, universal mechanism or current-product performance claim, or if a material successor study changes the teaching conclusion.",
-      "propagatedQuickReference": null
+      "renderedLocator": "Where the answer can fail",
+      "publicWording": "A hallucination can be one false or unsupported detail in an otherwise useful AI-generated answer.",
+      "requiredRenderedPhrases": ["false or unsupported content", "one invented date, quote, person, source or commitment"],
+      "sourceIds": ["SRC-NIST-GENAI"],
+      "sourceLimitation": "NIST uses the formal term confabulation; hallucination is the colloquial term used in the book."
     },
     {
       "id": "C101-C005",
-      "class": "currentness_sensitive",
-      "renderedLocator": "Sandbox — a working room with real walls / A current example",
-      "publicWording": "OpenAI's preliminary account said models in a constrained cyber-evaluation environment exploited a permitted package-proxy path, reached the internet and later compromised Hugging Face infrastructure; the review remained underway.",
-      "requiredRenderedPhrases": [
-        "In its preliminary account of a 2026 cyber evaluation",
-        "OpenAI said its review was still underway",
-        "the provider’s preliminary account rather than a completed independent finding"
-      ],
-      "sourceIds": [
-        "SRC-OAI-HF-INCIDENT"
-      ],
-      "sourceLocator": "July 28 and July 29 updates; What happened during this incident; preliminary-findings and ongoing-review language.",
-      "sourceLimitation": "Provider account, explicitly preliminary and not a completed independent investigation; the incident is a dated example rather than the definition of sandboxing.",
-      "freshnessTrigger": "Before release; on any OpenAI, Hugging Face, METR, Redwood or technical-report update that changes the incident account.",
-      "propagatedQuickReference": null
+      "class": "durable",
+      "renderedLocator": "Long context can hide the important part",
+      "publicWording": "Long-context performance can depend on where relevant information appears in the tested models and tasks.",
+      "requiredRenderedPhrases": ["multi-document question answering and key-value retrieval", "not a universal law or a current-product benchmark"],
+      "sourceIds": ["SRC-LIU-LONG-CONTEXT"],
+      "sourceLimitation": "The study covers its tested models, tasks and configurations only."
     },
     {
       "id": "C101-C006",
       "class": "durable",
-      "renderedLocator": "AGI — the disputed threshold / Check the competing finish lines",
-      "publicWording": "OpenAI's Charter and Google DeepMind's Levels of AGI use materially different operational frames for AGI, so an AGI claim must name its definition and test.",
-      "requiredRenderedPhrases": [
-        "OpenAI’s Charter defines AGI around highly autonomous systems outperforming people at most economically valuable work",
-        "Google DeepMind’s Levels of AGI framework separates breadth, performance and autonomy into measurable levels",
-        "they are not the same test"
-      ],
-      "sourceIds": [
-        "SRC-OAI-CHARTER",
-        "SRC-GDM-LEVELS-AGI"
-      ],
-      "sourceLocator": "OpenAI Charter mission definition; Levels of AGI abstract and framework dimensions.",
-      "sourceLimitation": "These are influential but not universally agreed definitions; neither source alone resolves current AGI attainment.",
-      "freshnessTrigger": "Recheck on either source's revision or if the book makes a current-system AGI-attainment claim.",
-      "propagatedQuickReference": {
-        "term": "AGI",
-        "requiredPhrases": [
-          "disputed idea",
-          "no single agreed test or finish line"
-        ]
-      }
+      "renderedLocator": "Put the map to work",
+      "publicWording": "A useful repair must match the failed system layer.",
+      "requiredRenderedPhrases": ["Wrong job or shape?", "Missing or stale information?", "Unsupported claim?", "Risky action?"],
+      "sourceIds": [],
+      "sourceLimitation": "LAiDIES instructional synthesis derived from the book's connected model."
     }
   ],
   "sources": [
-    {
-      "id": "SRC-OAI-MODEL-DEVELOPMENT",
-      "title": "How ChatGPT and our foundation models are developed",
-      "publisher": "OpenAI",
-      "url": "https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-ANTHROPIC-MODELS",
-      "title": "Models overview",
-      "publisher": "Anthropic",
-      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-ANTHROPIC-CONTEXT",
-      "title": "Context windows",
-      "publisher": "Anthropic",
-      "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-OPENAI-MEMORY",
-      "title": "Memory FAQ",
-      "publisher": "OpenAI",
-      "url": "https://help.openai.com/en/articles/8590148-memory-faq",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-LIU-LOST-MIDDLE",
-      "title": "Lost in the Middle: How Language Models Use Long Contexts",
-      "publisher": "Transactions of the Association for Computational Linguistics",
-      "url": "https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-OAI-HF-INCIDENT",
-      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
-      "publisher": "OpenAI",
-      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-OAI-CHARTER",
-      "title": "OpenAI Charter",
-      "publisher": "OpenAI",
-      "url": "https://openai.com/charter/",
-      "primary": true,
-      "accessed": "2026-08-03"
-    },
-    {
-      "id": "SRC-GDM-LEVELS-AGI",
-      "title": "Levels of AGI for Operationalizing Progress on the Path to AGI",
-      "publisher": "Google DeepMind",
-      "url": "https://deepmind.google/research/publications/66938/",
-      "primary": true,
-      "accessed": "2026-08-03"
-    }
+    {"id":"SRC-OECD-AI-SYSTEM","title":"What is AI? Can you make a clear distinction between AI and non-AI systems?","publisher":"OECD.AI","url":"https://oecd.ai/en/wonk/definition-","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OPENAI-MODEL-DEVELOPMENT","title":"How ChatGPT and our foundation models are developed","publisher":"OpenAI","url":"https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-ANTHROPIC-CONTEXT","title":"Context windows","publisher":"Anthropic","url":"https://platform.claude.com/docs/en/build-with-claude/context-windows","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OPENAI-MEMORY","title":"Memory FAQ","publisher":"OpenAI","url":"https://help.openai.com/en/articles/8590148-memory-faq","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-NIST-GENAI","title":"Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile","publisher":"NIST","url":"https://doi.org/10.6028/NIST.AI.600-1","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-LIU-LONG-CONTEXT","title":"Lost in the Middle: How Language Models Use Long Contexts","publisher":"Transactions of the Association for Computational Linguistics","url":"https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf","primary":true,"accessed":"2026-08-06"}
   ],
   "forbiddenRenderedPatterns": [
     "KPMG / GPTZero incident",
-    "more than six months",
-    "release new models every few months",
+    "OpenAI and Hugging Face partner to address security incident",
     "degrades more than 30%",
     "The middle answer will be the weakest",
     "one to two million tokens"

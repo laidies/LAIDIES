@@ -28,11 +28,11 @@ const requiredPhraseErrors = (renderedText, claims) => {
 if (ledger.schemaVersion !== "1.0.0" || ledger.bookId !== "briefing-101") {
   fail("wrong ledger schema or book identity");
 }
-if (ledger.status !== "BUILT_LOCALLY_MAKER_ONLY_BOOK_REMAINS_HOLD" || !/No self-admission/.test(ledger.makerAuthority)) {
-  fail("maker-only HOLD boundary is missing");
+if (ledger.status !== "ADMITTED_LOCALLY_NOT_PUBLIC" || !/does not authorize deployment or publication/.test(ledger.makerAuthority)) {
+  fail("local-only admission boundary is missing");
 }
-if (canonical.status !== "HOLD_INDEPENDENT_CONTENT_ADMISSION_REQUIRED" || canonical.bookId !== "briefing-101") {
-  fail("canonical source lost its HOLD or book identity");
+if (canonical.status !== "ADMITTED_LOCALLY_NOT_PUBLIC" || canonical.bookId !== "briefing-101") {
+  fail("canonical source lost its local-only admission status or book identity");
 }
 if (sha256(rendered) !== ledger.renderedSha256) {
   fail(`rendered hash drift ledger=${ledger.renderedSha256} actual=${sha256(rendered)}`);
@@ -168,5 +168,5 @@ if (process.argv.includes("--calibrate")) {
 console.log(
   `BRIEFING 101 CLAIMS PASS claims=${ledger.claims.length} sources=${ledger.sources.length} ` +
     `procedure_steps=${canonical.procedure.steps.length} comparisons=1 analogies=${canonical.analogies.length} ` +
-    `rendered_sha256=${ledger.renderedSha256} status=HOLD`
+    `rendered_sha256=${ledger.renderedSha256} status=ADMITTED_LOCALLY_NOT_PUBLIC`
 );

@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "manifest_version": "library-opening-set-owner-admission-2026-08-05.1",
-  "frozen_at": "2026-08-05T15:30:00-07:00",
-  "authority": "LOCAL_PRODUCTION_ADMISSION_OPENING_SET_FOUR_BOOKS_OWNER_ACCEPTED_AFTER_INDEPENDENT_JUDGMENT_AND_RELEASE_FRESHNESS_RECHECK",
+  "manifest_version": "library-opening-set-learning-admission-2026-08-06.1",
+  "frozen_at": "2026-08-06T15:20:00-07:00",
+  "authority": "LOCAL_PRODUCTION_ADMISSION_FOUR_BOOKS_ARTIFACT_BOUND_INSTRUCTIONAL_AND_UNFAMILIAR_READER_PASS_RELEASE_NOT_AUTHORIZED",
   "books": [
     {
       "book_id": "how-to-check",
@@ -45,88 +45,99 @@
     },
     {
       "book_id": "concepts-101",
-      "status": "hold",
+      "status": "available",
       "source_path": "/content/library-books/rendered/concepts-101.html",
-      "content_version": "concepts-101-2026-08-03.1",
-      "admission_version": "concepts-101-ali-rejected-2026-08-05.1",
-      "source_references": [
-        "content/library-books/concepts-101.claims.json",
-        "operations/product-stewards/library/evidence-concepts-101-claim-audit-2026-08-03/independent-judgment.md",
-        "operations/product-stewards/library/evidence-concepts-101-admission-2026-08-03/independent-content-admission-judgment.md",
-        "operations/product-stewards/library/evidence-concepts-101-first-book-admission-2026-08-03/independent-newcomer-admission-verdict.md",
-        "https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/",
-        "https://platform.claude.com/docs/en/about-claude/models/overview",
-        "https://platform.claude.com/docs/en/build-with-claude/context-windows",
-        "https://help.openai.com/en/articles/8590148-memory-faq",
-        "https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf",
-        "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
-        "https://openai.com/charter/",
-        "https://deepmind.google/research/publications/66938/"
-      ],
-      "claim_references": [
-        "C101-C001",
-        "C101-C002",
-        "C101-C003",
-        "C101-C004",
-        "C101-C005",
-        "C101-C006"
-      ],
-      "reviewed_at": "2026-08-05T21:52:00-07:00",
-      "review_owner": "Ali direct unfamiliar-reader rejection; prior maker, owner and admission verdicts invalidated",
-      "correction_state": "content-rejected-return-to-draft",
-      "artifact_sha256": "bb25fae48b640f53112bd9191391e66dbbf5bf4a8603d6c5bd55a8cf85508f4b"
+      "content_version": "concepts-101-2026-08-06.1",
+      "admission_version": "concepts-101-learning-admission-2026-08-06.1",
+      "source_references": ["content/library-books/concepts-101.source.json", "content/library-books/concepts-101.claims.json"],
+      "claim_references": ["C101-C001", "C101-C002", "C101-C003", "C101-C004", "C101-C005", "C101-C006"],
+      "reviewed_at": "2026-08-06T15:20:00-07:00",
+      "review_owner": "Independent instructional judge and independent unfamiliar-reader judge; Library product owner local admission",
+      "correction_state": "clear",
+      "artifact_sha256": "74f08314fb98672ce5f247eaf7db16fb6beeffa3f08f0572ed562818d92b602c",
+      "learning_admission": {
+        "schema_version": "library-book-learning-admission.v1",
+        "artifact_sha256": "74f08314fb98672ce5f247eaf7db16fb6beeffa3f08f0572ed562818d92b602c",
+        "learning_intake": {"path": "operations/product-stewards/library/LEARNING-CONTENT-INTAKE-OPENING-SET-2026-08-06.md", "sha256": "b834a1c6fd00853ee7cc0e5bcb4101dc60bed271ece0edc2f90372628c871b65"},
+        "architecture_evidence": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/concepts-101-architecture.md", "sha256": "33ddd5a2cf113190b63fd8656cad739211e595d4e6ca3367bc46caaa0d8df03a"},
+        "instructional_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-instructional-verdict.md", "sha256": "e308002c7cc8ecbd0f305cc22e4a99cbcaac6e5c42daa7a5fe702a1c0ed23c3d"},
+        "unfamiliar_reader_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-unfamiliar-reader-verdict.md", "sha256": "4ac41b96a6dbd4bcc60a25ea4ebd87d9776a7cd12e95c24a4b4b1562e2435de9"},
+        "criteria": {"governing_reader_question":"PASS","single_causal_mental_model":"PASS","truthful_scannable_architecture":"PASS","coherent_scope":"PASS","recurring_worked_case":"PASS","mapped_analogies_with_limits":"PASS","nonduplicative_concept_relationships":"PASS","synthesis_and_retention_map":"PASS","useful_next_experience":"PASS","maintenance_and_currentness_contract":"PASS"},
+        "ali_rejection_state": "clear",
+        "derivative_use": "allowed"
+      }
     },
     {
       "book_id": "briefing-101",
-      "status": "hold",
+      "status": "available",
       "source_path": "/content/library-books/rendered/briefing-101.html",
       "content_version": "briefing-101-2026-08-05.1",
-      "admission_version": "briefing-101-owner-admission-2026-08-05.1",
-      "source_references": [
-        "content/library-books/briefing-101.source.json",
-        "content/library-books/briefing-101.claims.json",
-        "operations/product-stewards/library/evidence-briefing-101-admission-2026-08-03/independent-content-and-reader-successor-v-ee3d1a0d.md"
-      ],
+      "admission_version": "briefing-101-learning-admission-2026-08-06.1",
+      "source_references": ["content/library-books/briefing-101.source.json", "content/library-books/briefing-101.claims.json"],
       "claim_references": ["B101-C001", "B101-C002", "B101-C003", "B101-C004", "B101-C005", "B101-C006"],
-      "reviewed_at": "2026-08-05T00:00:00-07:00",
-      "review_owner": "Independent bounded content and reader judge; Library product owner admission; release-owner source recheck 2026-08-05",
-      "correction_state": "admission-evaluator-revalidation-required",
-      "artifact_sha256": "ece8ad7f6769bc6b0aa7a98455d30aa5a46475010be14c6cd66b0576ecabfa58"
+      "reviewed_at": "2026-08-06T15:20:00-07:00",
+      "review_owner": "Independent instructional judge and independent unfamiliar-reader judge; Library product owner local admission",
+      "correction_state": "clear",
+      "artifact_sha256": "4a22f431b60902d249827395c69bb11fa3aaf18a4352d18cb1c4765c0c7904d9",
+      "learning_admission": {
+        "schema_version": "library-book-learning-admission.v1",
+        "artifact_sha256": "4a22f431b60902d249827395c69bb11fa3aaf18a4352d18cb1c4765c0c7904d9",
+        "learning_intake": {"path": "operations/product-stewards/library/LEARNING-CONTENT-INTAKE-OPENING-SET-2026-08-06.md", "sha256": "b834a1c6fd00853ee7cc0e5bcb4101dc60bed271ece0edc2f90372628c871b65"},
+        "architecture_evidence": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/briefing-101-architecture.md", "sha256": "a6b32be9ece54c842b052c42ef25c06acc6d38865cb77f11d976fc3fc8e12d84"},
+        "instructional_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-instructional-verdict.md", "sha256": "e308002c7cc8ecbd0f305cc22e4a99cbcaac6e5c42daa7a5fe702a1c0ed23c3d"},
+        "unfamiliar_reader_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-unfamiliar-reader-verdict.md", "sha256": "4ac41b96a6dbd4bcc60a25ea4ebd87d9776a7cd12e95c24a4b4b1562e2435de9"},
+        "criteria": {"governing_reader_question":"PASS","single_causal_mental_model":"PASS","truthful_scannable_architecture":"PASS","coherent_scope":"PASS","recurring_worked_case":"PASS","mapped_analogies_with_limits":"PASS","nonduplicative_concept_relationships":"PASS","synthesis_and_retention_map":"PASS","useful_next_experience":"PASS","maintenance_and_currentness_contract":"PASS"},
+        "ali_rejection_state": "clear",
+        "derivative_use": "allowed"
+      }
     },
     {
       "book_id": "setup-101",
-      "status": "hold",
+      "status": "available",
       "source_path": "/content/library-books/rendered/setup-101.html",
       "content_version": "setup-101-2026-08-05.1",
-      "admission_version": "setup-101-owner-admission-2026-08-05.1",
-      "source_references": [
-        "content/library-books/setup-101.source.json",
-        "content/library-books/setup-101.claims.json"
-      ],
+      "admission_version": "setup-101-learning-admission-2026-08-06.1",
+      "source_references": ["content/library-books/setup-101.source.json", "content/library-books/setup-101.claims.json"],
       "claim_references": ["S101-C001", "S101-C002", "S101-C003", "S101-C004"],
-      "reviewed_at": "2026-08-05T00:00:00-07:00",
-      "review_owner": "Independent bounded content and reader judge; Library product owner admission; release-owner source recheck 2026-08-05",
-      "correction_state": "admission-evaluator-revalidation-required",
-      "artifact_sha256": "e2fd6fe449ea0bfbb3e4bd0009ec4072e48d0f89a524a09a024c6c6029fd83f9"
+      "reviewed_at": "2026-08-06T15:20:00-07:00",
+      "review_owner": "Independent instructional judge and independent unfamiliar-reader judge; Library product owner local admission",
+      "correction_state": "clear",
+      "artifact_sha256": "44a287ff32d3e041870bd477da99e0edda55a36d04b7a1725656552e89db348b",
+      "learning_admission": {
+        "schema_version": "library-book-learning-admission.v1",
+        "artifact_sha256": "44a287ff32d3e041870bd477da99e0edda55a36d04b7a1725656552e89db348b",
+        "learning_intake": {"path": "operations/product-stewards/library/LEARNING-CONTENT-INTAKE-OPENING-SET-2026-08-06.md", "sha256": "b834a1c6fd00853ee7cc0e5bcb4101dc60bed271ece0edc2f90372628c871b65"},
+        "architecture_evidence": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/setup-101-architecture.md", "sha256": "f043532a5948f921de030cecda2c3f3dd0e41301486af83c278e86dd4df1370a"},
+        "instructional_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-instructional-verdict.md", "sha256": "e308002c7cc8ecbd0f305cc22e4a99cbcaac6e5c42daa7a5fe702a1c0ed23c3d"},
+        "unfamiliar_reader_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-unfamiliar-reader-verdict.md", "sha256": "4ac41b96a6dbd4bcc60a25ea4ebd87d9776a7cd12e95c24a4b4b1562e2435de9"},
+        "criteria": {"governing_reader_question":"PASS","single_causal_mental_model":"PASS","truthful_scannable_architecture":"PASS","coherent_scope":"PASS","recurring_worked_case":"PASS","mapped_analogies_with_limits":"PASS","nonduplicative_concept_relationships":"PASS","synthesis_and_retention_map":"PASS","useful_next_experience":"PASS","maintenance_and_currentness_contract":"PASS"},
+        "ali_rejection_state": "clear",
+        "derivative_use": "allowed"
+      }
     },
     {
       "book_id": "accounts-101",
-      "status": "hold",
+      "status": "available",
       "source_path": "/content/library-books/rendered/accounts-101.html",
-      "content_version": "accounts-101-2026-08-05.1",
-      "admission_version": "accounts-101-owner-admission-2026-08-05.1",
-      "source_references": [
-        "content/library-books/accounts-101.source.json",
-        "content/library-books/accounts-101.claims.json",
-        "https://doi.org/10.6028/NIST.AI.600-1",
-        "https://help.openai.com/en/articles/7039943-data-usage-for-consumer-services-faq",
-        "https://privacy.anthropic.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training"
-      ],
+      "content_version": "accounts-101-2026-08-06.2",
+      "admission_version": "accounts-101-learning-admission-2026-08-06.2",
+      "source_references": ["content/library-books/accounts-101.source.json", "content/library-books/accounts-101.claims.json"],
       "claim_references": ["A101-C001", "A101-C002", "A101-C003", "A101-C004"],
-      "reviewed_at": "2026-08-05T00:00:00-07:00",
-      "review_owner": "Independent privacy/content and newcomer judge; Library product owner admission; release-owner source recheck 2026-08-05",
-      "correction_state": "admission-evaluator-revalidation-required",
-      "artifact_sha256": "d2e760ab9f72f825a63e05af704c41a46951034b442633e8cd8750ebf65cccef"
+      "reviewed_at": "2026-08-06T15:20:00-07:00",
+      "review_owner": "Independent instructional judge and independent unfamiliar-reader judge; Library product owner local admission",
+      "correction_state": "clear",
+      "artifact_sha256": "9b2bf286ea8dbb560ba3154aee41ab12848a913fd4b8708eba1dc4c35e4bd1d6",
+      "learning_admission": {
+        "schema_version": "library-book-learning-admission.v1",
+        "artifact_sha256": "9b2bf286ea8dbb560ba3154aee41ab12848a913fd4b8708eba1dc4c35e4bd1d6",
+        "learning_intake": {"path": "operations/product-stewards/library/LEARNING-CONTENT-INTAKE-OPENING-SET-2026-08-06.md", "sha256": "b834a1c6fd00853ee7cc0e5bcb4101dc60bed271ece0edc2f90372628c871b65"},
+        "architecture_evidence": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/accounts-101-architecture.md", "sha256": "162afc1728df13f548c150bac05961e0fa2dc9c0be89d1fdc666efcf16dd6d79"},
+        "instructional_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-instructional-verdict.md", "sha256": "e308002c7cc8ecbd0f305cc22e4a99cbcaac6e5c42daa7a5fe702a1c0ed23c3d"},
+        "unfamiliar_reader_verdict": {"path": "operations/product-stewards/library/evidence-opening-set-content-2026-08-06/independent-unfamiliar-reader-verdict.md", "sha256": "4ac41b96a6dbd4bcc60a25ea4ebd87d9776a7cd12e95c24a4b4b1562e2435de9"},
+        "criteria": {"governing_reader_question":"PASS","single_causal_mental_model":"PASS","truthful_scannable_architecture":"PASS","coherent_scope":"PASS","recurring_worked_case":"PASS","mapped_analogies_with_limits":"PASS","nonduplicative_concept_relationships":"PASS","synthesis_and_retention_map":"PASS","useful_next_experience":"PASS","maintenance_and_currentness_contract":"PASS"},
+        "ali_rejection_state": "clear",
+        "derivative_use": "allowed"
+      }
     }
   ]
 }

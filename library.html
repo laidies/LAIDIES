@@ -731,10 +731,10 @@ const SECTIONS=[
    /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
       Vocab 101 from the public catalogue; it must not render on either shelf. */
    {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
-   {id:'concepts-101',t:'Concepts 101',topics:['basics'],status:'hold',statusLabel:'Returned to draft',s:'How it actually works, minus the math — prediction, training, why it sounds so sure.',inside:'This edition is being rebuilt after unfamiliar-reader testing found it hard to follow, scan and retain.',depth:'Return to draft · representative-section pilot required before a full rewrite',img:B+'textbook-concepts-101.png',c:'#7038c9'},
-   {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'hold',statusLabel:'Admission revalidation required',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
-   {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'hold',statusLabel:'Admission revalidation required',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',img:B+'textbook-setup-101.png',c:'#1597a7'},
-   {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Admission revalidation required',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',img:B+'textbook-accounts-101.png',c:'#e45e55'}
+   {id:'concepts-101',t:'Concepts 101',topics:['basics'],status:'available',statusLabel:'Ready to read',s:'Follow one request through product, context, model, tools, output and the human check.',inside:'Six connected sections, one client-handover example and a 17-term quick reference.',depth:'Plain-English foundation · connected system model',img:B+'textbook-concepts-101.png',c:'#7038c9'},
+   {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'available',statusLabel:'Ready to read',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',inside:'Five-part procedure, controlled comparison, worked examples and checking boundaries.',depth:'Plain-English foundation · reusable procedure',img:B+'textbook-briefing-101.png',c:'#d83f86'},
+   {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'available',statusLabel:'Ready to read',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',inside:'Four-place sorting model, six-item worked table and product-specific limits.',depth:'Plain-English foundation · reusable sorting model',img:B+'textbook-setup-101.png',c:'#1597a7'},
+   {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'available',statusLabel:'Ready to read',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',inside:'Five-step decision rule, tempting wrong answers and a safe stop condition.',depth:'Plain-English foundation · account and authority decision',img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
  {name:'THE TOOLS',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-tools-v1.png',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
   books:[
@@ -755,7 +755,7 @@ const SECTIONS=[
 ];
 const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_START */
-{}
+{"accounts-101":{"sourcePath":"/content/library-books/rendered/accounts-101.html","contentVersion":"accounts-101-2026-08-06.2","admissionVersion":"accounts-101-learning-admission-2026-08-06.2","correctionState":"clear","artifactSha256":"9b2bf286ea8dbb560ba3154aee41ab12848a913fd4b8708eba1dc4c35e4bd1d6"},"briefing-101":{"sourcePath":"/content/library-books/rendered/briefing-101.html","contentVersion":"briefing-101-2026-08-05.1","admissionVersion":"briefing-101-learning-admission-2026-08-06.1","correctionState":"clear","artifactSha256":"4a22f431b60902d249827395c69bb11fa3aaf18a4352d18cb1c4765c0c7904d9"},"concepts-101":{"sourcePath":"/content/library-books/rendered/concepts-101.html","contentVersion":"concepts-101-2026-08-06.1","admissionVersion":"concepts-101-learning-admission-2026-08-06.1","correctionState":"clear","artifactSha256":"74f08314fb98672ce5f247eaf7db16fb6beeffa3f08f0572ed562818d92b602c"},"setup-101":{"sourcePath":"/content/library-books/rendered/setup-101.html","contentVersion":"setup-101-2026-08-05.1","admissionVersion":"setup-101-learning-admission-2026-08-06.1","correctionState":"clear","artifactSha256":"44a287ff32d3e041870bd477da99e0edda55a36d04b7a1725656552e89db348b"}}
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
 const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
@@ -1039,7 +1039,7 @@ const JEEVES_ANSWERS=[
     title:'AI predicts what should come next from patterns it learned during training.',
     answer:'During training, the system studies many examples and adjusts a large set of numerical settings so it becomes better at predicting the next useful piece of an answer. When you ask a question, it builds a response one piece at a time from those learned patterns. That is why it can explain and draft convincingly, but can also produce an answer that sounds right without being true.',
     links:[
-      {label:'Preview Concepts 101',book:'concepts-101',heading:'How prediction becomes an answer'},
+      {label:'Open Concepts 101',book:'concepts-101',heading:'The system, not one magic box'},
       {label:"See how to check AI's work",book:'how-to-check',heading:'Ask for receipts'}
     ]
   },
@@ -1049,7 +1049,7 @@ const JEEVES_ANSWERS=[
     title:'The honest answer is: we do not have that coverage ready yet.',
     answer:'A trustworthy answer changes by role, task, country and evidence date. The Library’s Jobs &amp; Work answer is still being re-verified, so Miss Jeeves will not pretend it is ready. Start with what the different kinds of AI actually do; the dedicated sourced answer will appear when its evidence is current and checked.',
     links:[
-      {label:'Learn what different kinds of AI actually do',book:'concepts-101',heading:'The four types everyone argues about'}
+      {label:'Learn what different capability labels mean',book:'concepts-101',heading:'Capability labels are not one ladder'}
     ]
   },
   {
@@ -1059,7 +1059,7 @@ const JEEVES_ANSWERS=[
     answer:'Start with the task. Use an all-rounder for everyday drafting and thinking, a source-led research tool when the answer must come with evidence, and the assistant built into your work suite when the job lives inside those apps. Then give two tools the same real task and keep the one whose output you can actually use and verify.',
     links:[
       {label:"Open Who's Who in AI",book:'whos-who',heading:'Which one for which job'},
-      {label:'Learn how models differ',book:'concepts-101',heading:'Which one when'}
+      {label:'Learn how products, models and tools differ',book:'concepts-101',heading:'The system, not one magic box'}
     ]
   },
   {
@@ -1246,7 +1246,7 @@ function renderShelfCopy(b,txt,toc,fallback){
   txt.innerHTML=fallback||b.body||'<p>This book is still being written.</p>';
   const headings=[...txt.querySelectorAll('h1,h2,h3')];
   assignBookSectionAnchors(txt);
-  const entries=headings.filter(h=>!h.closest('.receipts'));
+  const entries=headings.filter(h=>!h.closest('.receipts')&&(h.tagName==='H1'||h.tagName==='H2'));
   if(entries.length){
     setBookToc(toc,entries.map(h=>`<a href="#${h.id}">${h.textContent.trim()}</a>`).join(''));
   }else{

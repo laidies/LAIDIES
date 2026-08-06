@@ -23,7 +23,7 @@ function validate({ claimsRecord, sourceRecord, sourceBytes, renderedHtml, libra
   if (!renderedHtml.includes(`name="laidies:content-version" content="${sourceRecord.contentVersion}"`)) errors.push('rendered content version missing');
   if (sha(renderedHtml) !== claimsRecord.renderedSha256) errors.push('rendered hash mismatch');
   if (sha(sourceBytes) !== claimsRecord.canonicalSourceSha256) errors.push('canonical source hash mismatch');
-  if (!/HOLD/.test(claimsRecord.status) || !/HOLD/.test(sourceRecord.status)) errors.push('maker candidate must remain HOLD');
+  if (claimsRecord.status !== 'ADMITTED_LOCALLY_NOT_PUBLIC' || sourceRecord.status !== 'ADMITTED_LOCALLY_NOT_PUBLIC') errors.push('records must preserve local-only admission status');
   if (!Array.isArray(claimsRecord.claims) || claimsRecord.claims.length !== 4) errors.push('exactly four claim families required');
   const text = visibleText(renderedHtml);
   for (const claim of claimsRecord.claims || []) {
@@ -51,6 +51,8 @@ function validate({ claimsRecord, sourceRecord, sourceBytes, renderedHtml, libra
     if (!row || row.verdict !== 'reject') errors.push(`safety proof must reject ${pattern}`);
   }
   if (!sourceRecord.decisionRule?.steps || sourceRecord.decisionRule.steps.length !== 5) errors.push('five-step pre-paste rule required');
+  if (!sourceRecord.workedDecision?.routes || sourceRecord.workedDecision.routes.length !== 3) errors.push('three-route worked decision required');
+  if (!text.includes('One decision through all five checks') || !text.includes('Use only the approved minimized brief')) errors.push('worked decision is not visible in rendered book');
   if (!sourceRecord.decisionRule?.limitation?.includes('not legal advice')) errors.push('legal/authority limit missing');
   if (!sourceRecord.analogy?.limit?.includes('not privacy, security or legal evidence')) errors.push('analogy evidence limit missing');
   if (!sourceRecord.ownership?.privacyTerms || !sourceRecord.ownership?.residentCard || !sourceRecord.ownership?.toolCards || !sourceRecord.ownership?.classes) errors.push('product ownership boundaries incomplete');
@@ -76,4 +78,4 @@ if (process.argv.includes('--calibrate')) {
   console.log('ACCOUNTS 101 CLAIMS CALIBRATION PASS paid_safe=rejected work_email_safe=rejected delete_later=rejected setting_overrides_nda=rejected unsafe_shelf=rejected');
 }
 
-console.log(`ACCOUNTS 101 CLAIMS PASS claims=${claims.claims.length} sources=${source.sources.length} wrong_answers=${source.temptingWrongAnswers.length} rendered_sha256=${claims.renderedSha256} status=HOLD`);
+console.log(`ACCOUNTS 101 CLAIMS PASS claims=${claims.claims.length} sources=${source.sources.length} wrong_answers=${source.temptingWrongAnswers.length} rendered_sha256=${claims.renderedSha256} status=ADMITTED_LOCALLY_NOT_PUBLIC`);

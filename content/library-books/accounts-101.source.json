@@ -2,8 +2,8 @@
   "schemaVersion": "1.0.0",
   "bookId": "accounts-101",
   "title": "Accounts 101",
-  "status": "HOLD_INDEPENDENT_CONTENT_ADMISSION_REQUIRED",
-  "contentVersion": "accounts-101-2026-08-05.1",
+  "status": "ADMITTED_LOCALLY_NOT_PUBLIC",
+  "contentVersion": "accounts-101-2026-08-06.2",
   "productJob": "A compact high-trust reference for deciding what must be known before pasting real material into an AI product; not a privacy notice, provider plan table or class.",
   "audience": "A reader with real work or personal material who needs a safe next action before using an AI product.",
   "learnerOutcome": "The reader can identify the exact tool/account, the material and her authority, find the governing policy and stop when any answer is unknown.",
@@ -18,6 +18,16 @@
     ],
     "nonRemedy": "Later deletion may be available, but it does not turn an unauthorized disclosure into an authorized one and must not be the safety plan.",
     "limitation": "This reference is not legal advice and cannot authorize a tool, account, upload or data use."
+  },
+  "workedDecision": {
+    "job": "Turn a contract-restricted client handover note into a short email.",
+    "material": ["client identity", "private phone number", "unresolved complaint", "contract-restricted work information"],
+    "routes": [
+      {"door": "personal AI account", "authority": "absent", "disposition": "stop; do not paste"},
+      {"door": "employer-managed approved workspace", "authority": "client-agreement permission still unknown", "disposition": "stop and ask"},
+      {"door": "approved managed workspace with a minimized brief", "authority": "authorized owner confirms employer and client permission", "providerRule": "current account data-use, retention, sharing and connected-service rules checked", "disposition": "use only the approved minimized brief and verify the draft outside the AI system"}
+    ],
+    "lesson": "Provider brand or approved-tool status cannot substitute for exact account, material, authority and current-rule evidence."
   },
   "temptingWrongAnswers": [
     {"statement": "It is paid, so I can paste the client deck.", "verdict": "reject", "reason": "Payment does not prove organizational approval, permitted data, contractual scope or provider behavior."},
