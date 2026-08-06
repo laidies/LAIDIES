@@ -437,7 +437,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
      a real metal shelf row; there is no hidden horizontal reel or pagination. */
   .libroom{aspect-ratio:auto;height:auto;overflow:hidden;padding:0;background:#f8f5ff}
   .unit{position:relative;inset:auto;display:grid;gap:0;padding:0}
-  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;inset:auto;aspect-ratio:auto;padding:28px 8px 128px;overflow:hidden;background-image:url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center bottom,center;background-size:100% auto,cover;background-repeat:no-repeat}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;inset:auto;aspect-ratio:auto;padding:28px 8px 60px;overflow:hidden;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-position:center top,center top,center bottom;background-size:100% calc(100% - 60px),100% calc(100% - 60px),auto 60px;background-repeat:no-repeat,no-repeat,repeat-x}
   .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:100%;margin:0;justify-self:stretch;aspect-ratio:auto;background:none;filter:none;display:grid;gap:14px}
   .department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:relative;inset:auto;width:100%;max-width:460px;margin:0 auto}
   .bay{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:8/9;overflow:visible;background:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png') center/100% 100% no-repeat;filter:drop-shadow(0 7px 11px rgba(60,30,55,.24))}
@@ -504,8 +504,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .arrival-visual{height:clamp(480px,55vw,760px);min-height:0;border-top:8px solid var(--ink);background:var(--midnight)}
 .arrival-visual>img{object-position:center center}
 .arrival-visual>.arrival-prop{position:absolute;z-index:2;height:auto;object-fit:contain;pointer-events:none}
-.arrival-visual>.arrival-printer-sign{left:9%;top:8%;width:18%;filter:drop-shadow(0 5px 5px rgba(7,20,47,.28));transform:rotate(-1deg)}
-.arrival-visual>.arrival-scanner{left:48%;top:66%;width:9%;filter:drop-shadow(0 7px 5px rgba(7,20,47,.3))}
+.arrival-visual>.arrival-printer-sign{left:79.2%;top:70.2%;width:8.2%;filter:drop-shadow(0 4px 4px rgba(7,20,47,.32));transform:rotate(-1deg)}
 .library-world{background:linear-gradient(120deg,#f2c6e5 0%,#c7d7f5 100%);color:var(--ink)}
 .jv{grid-template-columns:minmax(250px,.62fr) minmax(380px,1.38fr);align-items:center;
   background:linear-gradient(120deg,rgba(239,77,156,.86) 0%,rgba(113,55,214,.84) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png') center/cover no-repeat;padding:clamp(34px,4.4vw,60px) clamp(24px,6vw,92px);
@@ -549,13 +548,14 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .catalogue-closet{grid-column:2;grid-row:1;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:4px;max-width:320px;min-height:76px;padding:13px 18px;
   border:2px solid var(--ink);background:var(--cobalt);color:var(--cream);text-decoration:none;box-shadow:5px 5px 0 var(--yellow)}
 .catalogue-closet strong{display:block;font-size:16px;line-height:1.15}.catalogue-closet span{display:block;font-size:13px;line-height:1.35}
+.catalogue-closet[hidden]{display:none}
 .catalogue-closet:hover,.catalogue-closet:focus-visible{background:var(--cyan);color:var(--ink);outline:3px solid var(--yellow);outline-offset:2px}
 .catalogue-result{grid-column:1/-1;margin:0;padding:12px 0 0;border-top:3px solid var(--ink);color:var(--ink)}.catalogue-result:empty{display:none}.library-status{color:var(--ink)}
 
 .libroom{background:var(--midnight)}
 .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;overflow:hidden;
   /* LIBRARY_WALL_CROP_CONTRACT: colour belongs to the wall only. Every room keeps the same unfiltered carpet. */
-  border-bottom:8px solid var(--ink);background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png');background-position:center top,center top,center bottom;background-size:100% 83.3%,100% 83.3%,100% auto;background-repeat:no-repeat;background-blend-mode:normal,normal,normal}
+  border-bottom:8px solid var(--ink);background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-position:center top,center top,center bottom;background-size:100% 92%,100% 92%,auto 18%;background-repeat:no-repeat,no-repeat,repeat-x;background-blend-mode:normal,normal,normal}
 .library-room-unit[data-collection-room="0"]{--room-tint:rgba(240,86,166,.42)}
 .library-room-unit[data-collection-room="1"]{--room-tint:rgba(21,188,224,.42)}
 .library-room-unit[data-collection-room="2"]{--room-tint:rgba(112,56,201,.38)}
@@ -589,16 +589,17 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .shelf-guide{display:block}.shelf-guide-heading{display:block}.shelf-guide-heading>p{margin-top:18px}.shelf-captions{grid-template-columns:1fr;margin-top:24px}.shelf-caption-art{min-height:190px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:24px}
   .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
   .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
-  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png');background-position:center top,center top,center bottom;background-size:100% calc(100% - 100px),100% calc(100% - 100px),100% auto;background-repeat:no-repeat;background-blend-mode:normal,normal,normal}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 60px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-position:center top,center top,center bottom;background-size:100% calc(100% - 60px),100% calc(100% - 60px),auto 60px;background-repeat:no-repeat,no-repeat,repeat-x;background-blend-mode:normal,normal,normal}
   .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:none}
   .shelf-unit::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png');background-size:100% 100%;background-position:center}
   .shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{position:relative;inset:auto;width:min(620px,100%);aspect-ratio:2.1/1;margin:0 auto}
   .shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png');background-size:100% 100%;background-position:center bottom}
   .ledge{top:3.9%;width:45%;height:7.2%}.mobile-shelf-caption{display:none}
-  .department{z-index:6}.brow{left:9%;right:9%;height:27%;gap:9%;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}
-  .shelf-unit.is-compact .brow{left:3%;right:3%;height:22%}.shelf-unit.is-compact .brow--1{bottom:60%}.shelf-unit.is-compact .brow--2{bottom:35%}
+  /* MOBILE_BOOK_VISIBLE_SIZE_CONTRACT: normal-case rows retain enough height for a readable cover at the narrowest admitted viewport. */
+  .department{z-index:6}.brow{left:9%;right:9%;height:27%;min-height:120px;gap:9%;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}
+  .shelf-unit.is-compact .brow{left:3%;right:3%;height:22%;min-height:96px}.shelf-unit.is-compact .brow--1{bottom:60%}.shelf-unit.is-compact .brow--2{bottom:35%}
   .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}.bk img{transform:translateY(-4%)}
-  .arrival-visual>.arrival-printer-sign{left:3%;top:7%;width:28%}.arrival-visual>.arrival-scanner{left:45%;top:65%;width:15%}
+  .arrival-visual>.arrival-printer-sign{display:none}
 }
 @media(max-width:900px){
   .library-intro{grid-template-columns:1fr}.arrival-visual{height:clamp(360px,72vw,620px)}
@@ -628,7 +629,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
       <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png" alt="Miss Jeeves at the reference desk with public computers, metal bookcases and Library equipment">
       <img class="arrival-prop arrival-printer-sign" src="assets/library/library-printer-sign-v1.png" alt="Sign: Don’t feed the printer">
-      <img class="arrival-prop arrival-scanner" src="assets/library/library-flatbed-scanner-v1.png" alt="">
     </section>
   </div>
 
@@ -676,7 +676,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
         <button class="topic-link" type="button" data-topic="checking-research" aria-pressed="false">Checking &amp; research</button>
         <button class="topic-link" type="button" data-topic="impact-society" aria-pressed="false">Work &amp; society</button>
       </nav>
-      <a class="catalogue-closet" href="/laidies-card.html#puffyPouch">
+      <a class="catalogue-closet" href="/laidies-card.html#puffyPouch" hidden>
         <strong>My Closet</strong>
         <span id="library-saved-count">Checking this device for saved Library places…</span>
       </a>
@@ -1581,12 +1581,14 @@ if(location.hash.startsWith('#miss-jeeves?')){
 }
 function paintLibrarySavedCount(){
  const output=document.getElementById('library-saved-count');if(!output)return;
+ const closet=output.closest('.catalogue-closet');
  try{
   const raw=JSON.parse(localStorage.getItem('laidies_puffies_board')||'[]');
   if(!Array.isArray(raw))throw new Error('invalid board');
   const count=raw.filter(item=>item&&typeof item==='object'&&typeof item.url==='string'&&/^\/library\.html(?:#|$)/.test(item.url)).length;
-  output.textContent=count?`${count} saved Library ${count===1?'place':'places'} on this device.`:'No Library places are saved on this device yet.';
- }catch(error){output.textContent='Saved-find count is unavailable in this browser. Your Library still works without it.';}
+  closet.hidden=!count;
+  output.textContent=count?`${count} saved Library ${count===1?'place':'places'} on this device.`:'';
+ }catch(error){closet.hidden=true;output.textContent='';}
 }
 document.addEventListener('DOMContentLoaded',paintLibrarySavedCount);
 document.addEventListener('puffies:changed',paintLibrarySavedCount);

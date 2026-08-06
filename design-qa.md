@@ -12,7 +12,55 @@ nine `community/*.html` Sorority House rooms, plus `try-on.html`,
 `bookfair.html`, `learn/quiz.html`, and `learn/class.html`  
 Scope: first implementation pass of the room-as-page building model.
 
-## LIBRAiRY shelf-contact and room-colour correction — 2026-08-06
+## LIBRAiRY scene-logic correction — 2026-08-06
+
+### Exact correction
+
+- User-rejected source: `/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/codex-clipboard-24994d50-c588-40b4-a9f2-9c451e114226.png`.
+- Focused source/candidate comparison: `operations/design-qa/library-scene-logic-correction-20260806/comparison-rejected-vs-current-reference.png`.
+- Candidate SHA-256: `2fa1f9f403ca42b5259a4a59e85a5c4f4ceb55cc5f1dc0b8173efea13282a5e8`.
+- Desktop masthead: `operations/design-qa/library-scene-logic-correction-20260806/candidate-masthead-1718x1000.png`.
+- Desktop 101s: `operations/design-qa/library-scene-logic-correction-20260806/candidate-101s-1718x1000.png`.
+- Desktop Tools: `operations/design-qa/library-scene-logic-correction-20260806/candidate-tools-1718x1000.png`.
+- Desktop Reference: `operations/design-qa/library-scene-logic-correction-20260806/candidate-reference-1718x1000.png`.
+- Mobile masthead: `operations/design-qa/library-scene-logic-correction-20260806/candidate-mobile-clip-390x844.png`.
+- Viewports: 1718 × 1000 and 390 × 844 CSS pixels.
+
+### Findings and corrections
+
+1. P1 — changing the carpet had raised it behind the lower shelf row and made
+   the shelving look displaced.
+   - Fix: every room now uses the same crop from the accepted masthead carpet;
+     desktop exposes it only under the grounded case and mobile limits it to
+     the 60px floor zone.
+2. P1 — the printer joke was pasted above the public computers at the wrong
+   physical location and the added scanner hung over the counter edge.
+   - Fix: the sign is a small localized prop seated beside the printer; the
+     rejected scanner overlay and its asset are removed. Miss Jeeves and the
+     accepted room source were not re-rendered.
+3. P1 — an empty My Closet pill appeared even when there was nothing to use.
+   - Fix: it is hidden at rest and appears only after the device contains at
+     least one saved Library place.
+4. P1 — a prior validator accepted carpet and visible-book prose without
+   enforcing the rendered geometry.
+   - Fix: calibrated failures now reject the old carpet, a mobile carpet taller
+     than the floor zone, the scanner overlay, old sign placement, an empty
+     Closet control and a mobile normal-case row below 120px.
+
+### Verification truth
+
+- All three desktop rooms show distinct wall colours, the same carpet, intact
+  metal cases, covers above the rails and case feet meeting the floor.
+- At 390px, the page reports 390px document width with no horizontal overflow;
+  normal-case rows preserve 120px and compact rows preserve 96px.
+- The browser screenshot backend did not produce a trustworthy full-page
+  mobile shelf composite after viewport override, so only the exact masthead
+  capture and measured shelf geometry are retained here; no false mobile visual
+  PASS is claimed.
+
+Final result: objective correction passed; exact visual acceptance remains Ali's.
+
+## LIBRAiRY shelf-contact and room-colour correction — 2026-08-06 (historical; superseded above)
 
 ### Visual truth
 
@@ -53,7 +101,7 @@ Scope: first implementation pass of the room-as-page building model.
 - Image quality/assets: the rejected v5/v7/v8 and hand-inked mastheads are absent; existing intact wall, floor and metal-case assets are used.
 - Copy/content: shelf-guide explanations remain above the physical rooms; redundant shelf captions are hidden on mobile.
 
-Final result: passed.
+Historical result: superseded after Ali rejected the prop placement and carpet treatment.
 
 ## LIBRAiRY reader refresh — 2026-07-24
 

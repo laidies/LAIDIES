@@ -39,8 +39,7 @@ Last reconciled: 2026-08-05.
 - **Working reference-desk masthead — 2026-08-06.** The Library masthead is a
   functioning, funny reference desk rather than an empty room photograph. Keep
   readable funny environmental signage—including the established “DON'T FEED
-  THE PRINTER” joke—and visible librarian equipment such as a
-  scanner and practical desk tools. These are physical scene details, not
+  THE PRINTER” joke—and visible practical desk tools. These are physical scene details, not
   floating interface labels, and must not obstruct the title or Miss Jeeves.
   Do not add a redundant `SUNNYVAiLE LIBRAiRY` sign inside the room. Do not put
   a checkout card on the wall or use “PLEASE REWIND YOUR FLOPPY”: neither
@@ -72,11 +71,13 @@ Last reconciled: 2026-08-05.
   redundant, and the under-stair cases are wood rather than metal. The active
   source is the historical no-baked-text v4 room, which removes the redundant
   signs and restores metal cases without another whole-scene generation. The
-  required printer joke and scanner are separate localized props, so they can
-  be positioned or replaced without changing Miss Jeeves or the room. This is
+  required printer joke is a separate localized prop seated beside the printer,
+  so it can be positioned or replaced without changing Miss Jeeves or the room.
+  Do not add a scanner as a floating overlay: the rejected attempt hung over the
+  desk edge and did not read as part of the physical scene. This is
   a bounded correction, not a visual-acceptance claim. Do not run another
   whole-scene style replacement over her.
-  Each collection room uses the same unfiltered `floor-clean-v1.png` carpet;
+  Each collection room uses the same unfiltered `floor-geometric-v1.png` carpet;
   only the wall layer changes colour between 101s, Tools and Reference.
 - **Masthead orientation and Card timing — 2026-08-06.** Use direct visitor
   choices: “Not sure where to start? Ask Miss Jeeves. Looking for a specific
@@ -189,7 +190,7 @@ Last reconciled: 2026-08-05.
 ## Current implementation assets
 
 - Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png`
-- Rooms: shared `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png` plus unchanged `assets/building-interiors/library-shelf/room/floor-clean-v1.png`; wall tint varies by section and carpet does not.
+- Rooms: shared `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png` plus `assets/building-interiors/library-shelf/room/floor-geometric-v1.png`; wall tint varies by section and carpet does not.
 - Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; compact `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
 
 ## Retired inputs — machine-readable

@@ -1,9 +1,8 @@
 const requiredAssets = [
   'assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
   'assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png',
-  'assets/building-interiors/library-shelf/room/floor-clean-v1.png',
+  'assets/building-interiors/library-shelf/room/floor-geometric-v1.png',
   'assets/library/library-printer-sign-v1.png',
-  'assets/library/library-flatbed-scanner-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
   'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
@@ -29,8 +28,14 @@ export function validateLibraryKnownFailures(source) {
   if (source.includes('library-interior-purple-sign-wall-v8-clean-jeeves.png')) {
     errors.push('rejected over-rendered floppy-sign masthead remains');
   }
-  if (!/arrival-printer-sign[^>]*library-printer-sign-v1\.png/.test(source) || !/arrival-scanner[^>]*library-flatbed-scanner-v1\.png/.test(source)) {
-    errors.push('localized printer sign or scanner masthead prop is missing');
+  if (!/arrival-printer-sign[^>]*library-printer-sign-v1\.png/.test(source)) {
+    errors.push('localized printer sign is missing');
+  }
+  if (/arrival-scanner|library-flatbed-scanner-v1\.png/.test(source)) {
+    errors.push('rejected floating scanner overlay remains');
+  }
+  if (!/\.arrival-visual>\.arrival-printer-sign\{left:79\.2%;top:70\.2%;width:8\.2%/.test(source)) {
+    errors.push('printer sign is not seated beside the printer');
   }
   const majorSelectors = ['body', '.library-hero', '.jv', '.shelf-guide'];
   const majorCss = majorSelectors.flatMap(selector => cssBodies(source, selector));
@@ -101,8 +106,11 @@ export function validateLibraryKnownFailures(source) {
   if (/compactShelfLayout\s*\?\s*['"]\.department['"]\s*:\s*['"]\.library-room-unit['"]/i.test(source)) {
     errors.push('desktop preview is still allowed to detach from the selected physical collection');
   }
-  if (!/BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !/data-visible-scale/.test(source)) {
+  if (!/\/\*\s*BOOK_VISIBLE_SIZE_CONTRACT\b/.test(source) || !/data-visible-scale/.test(source)) {
     errors.push('visible-alpha book normalization contract is missing');
+  }
+  if (!/MOBILE_BOOK_VISIBLE_SIZE_CONTRACT/.test(source) || !/@media\(max-width:700px\)[\s\S]*?\.brow\{[^}]*min-height\s*:\s*120px/is.test(source)) {
+    errors.push('mobile shelf rows do not preserve a 120px visible-book dimension');
   }
   if (!/LIBRARY_CASE_ANCHOR_CONTRACT/.test(source)) {
     errors.push('wall/case anchor contract is missing');
@@ -110,8 +118,14 @@ export function validateLibraryKnownFailures(source) {
   if (!/LIBRARY_WALL_CROP_CONTRACT/.test(source) || !/wall-neutral-light-v1\.png/.test(source)) {
     errors.push('collection room wall layer is missing');
   }
-  if (!/floor-clean-v1\.png/.test(source) || !/background-size\s*:\s*100%\s+83\.3%\s*,\s*100%\s+83\.3%\s*,\s*100%\s+auto/i.test(source)) {
-    errors.push('shared unfiltered Library carpet layer is missing');
+  if (!/floor-geometric-v1\.png/.test(source) || !/background-size\s*:\s*100%\s+92%\s*,\s*100%\s+92%\s*,\s*auto\s+18%/i.test(source) || !/background-repeat\s*:\s*no-repeat\s*,\s*no-repeat\s*,\s*repeat-x/i.test(source)) {
+    errors.push('correct geometric Library carpet is missing or rises behind the shelves');
+  }
+  if (/floor-clean-v1\.png/.test(source)) {
+    errors.push('retired dark-arrow carpet remains in a Library room rule');
+  }
+  if (!/@media\(max-width:700px\)[\s\S]*?background-size\s*:\s*100%\s+calc\(100%\s*-\s*60px\)\s*,\s*100%\s+calc\(100%\s*-\s*60px\)\s*,\s*auto\s+60px/is.test(source)) {
+    errors.push('mobile carpet rises behind the lower shelf row');
   }
   if (![0,1,2].every(index => new RegExp(`data-collection-room=["']${index}["'][^}]*--room-tint`, 'i').test(source))) {
     errors.push('distinct collection wall colours are missing');
@@ -151,8 +165,8 @@ export function validateLibraryKnownFailures(source) {
   if (!/CATALOGUE_ROUNDED_GRAMMAR_CONTRACT/.test(source) || !/\.shelf-guide \.eyebrow\s*\{[^}]*border-radius\s*:\s*999px/is.test(source) || !/\.shelf-caption\s*\{[^}]*border-radius\s*:\s*24px/is.test(source) || !/\.catalogue-controls\s*\{[^}]*border-radius\s*:\s*24px/is.test(source)) {
     errors.push('rounded catalogue grammar or highlighted eyebrow is missing');
   }
-  if (!/\.catalogue-closet\s*\{[^}]*justify-content\s*:\s*center[^}]*min-height\s*:\s*76px/is.test(source) || !/\.catalogue-closet strong\s*\{[^}]*display\s*:\s*block/is.test(source)) {
-    errors.push('Closet copy is not vertically aligned inside its control');
+  if (!/class=["'][^"']*catalogue-closet[^"']*["'][^>]*\shidden(?:\s|>)/i.test(source) || !/\.catalogue-closet\[hidden\]\s*\{[^}]*display\s*:\s*none/is.test(source) || !/closet\.hidden\s*=\s*!count/.test(source) || /No Library places are saved on this device yet\./.test(source)) {
+    errors.push('empty My Closet control remains visible in the catalogue');
   }
   if (!/CATALOGUE_QUIET_DEFAULT_CONTRACT/.test(source) || !/!catalogueHasActiveFilter\s*\?\s*['"]['"]/i.test(source)) {
     errors.push('quiet default catalogue result contract is missing');

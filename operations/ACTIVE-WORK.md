@@ -36,7 +36,7 @@ Ali explicitly switches or they invalidate the approach.
 
 The current `library.html` is a **LOCAL MAKER CANDIDATE / NOT DEPLOYED / NOT
 PUBLICLY VERIFIED** at SHA-256
-`fffdc68605b12ed8bf962e6c113414c3039b554d3e058f888ea684d8b2807f30`.
+`2fa1f9f403ca42b5259a4a59e85a5c4f4ceb55cc5f1dc0b8173efea13282a5e8`.
 The one permitted maker browser check found no horizontal overflow or console
 errors; confirmed the Closet copy is vertically centred in a 76px control; the
 Miss Jeeves section uses the approved pop-comic asset under a legible locked
@@ -55,18 +55,28 @@ rejected and blocked by the preflight. All occupied shelf rows are raised to the
 metal rail and the old downward book translation is removed, so the complete
 cover remains visible instead of appearing to have fallen behind the front
 lip. Every collection room now composes its coloured wall separately from the
-same unfiltered `floor-clean-v1.png` carpet, so the carpet no longer changes
+same unfiltered `floor-geometric-v1.png` carpet, so the carpet no longer changes
 with the section wall colour.
 
 The shelf/contact/carpet correction is locally verified. The cleaner masthead
-now adds the locked physical “DON'T FEED THE PRINTER” sign and a recognizable
-flatbed scanner as separate transparent props; neither required re-rendering
-Miss Jeeves or the whole room. No Claude, multi-role or dossier review was
+now seats the locked physical “DON'T FEED THE PRINTER” sign beside the printer.
+The rejected scanner overlay was removed because it hung over the counter and
+did not read as part of the room; neither correction re-rendered Miss Jeeves or
+the whole room. The empty My Closet control is hidden until this device has a
+real saved Library place. No Claude, multi-role or dossier review was
 commissioned. The legacy full product test
 still fails at `scripts/test-library-product.cjs:1057` because it expects
 Concepts 101 to be admitted and expose **Open this book**; current truth remains
 zero admitted books, so that expectation was not satisfied or weakened. No
 deploy, publication, spend, provider connection or Ali-authority action occurred.
+
+The known-failure checker now rejects the former carpet, a mobile carpet layer
+that rises behind the lower shelf row, the rejected scanner overlay, the old
+printer-sign placement, an empty visible My Closet control and mobile rows that
+do not preserve the 120px normal-case visible-book floor. The current exact
+candidate passes that calibrated objective preflight and the Library owner-entry
+check. This remains a local maker candidate, not Ali acceptance, deployment or
+public verification. Content admission remains a separate hold.
 
 ### LIBRAiRY false-PASS incident — current foreground truth
 
