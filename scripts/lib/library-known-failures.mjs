@@ -1,8 +1,8 @@
 const requiredAssets = [
-  'assets/building-interiors/library-interior-purple-sign-wall-v6-metal-stacks.png',
+  'assets/building-interiors/library-interior-purple-sign-wall-v7-clean-metal-stacks.png',
   'assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png',
-  'assets/building-interiors/library-shelf/library-wall-case-2bay-clean-v1.png',
+  'assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png',
   'assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png',
   'assets/library/episode-01-pop-comic-bg-v1.png'
 ];
@@ -56,6 +56,9 @@ export function validateLibraryKnownFailures(source) {
   if (!/class=["']shelf-guide-heading["']/.test(source) || !/class=["']shelf-captions["']/.test(source) || !/class=\\?['"]shelf-caption-art/.test(source) || !/section\.books\.filter\(book=>book\.listed!==false&&book\.img\)\.slice\(0,3\)/.test(source)) {
     errors.push('three-part comic collection guide is missing');
   }
+  if (!/data-shelf-jump/.test(source) || !/href=\\?["']#library-shelf-\$\{sectionIndex\}/.test(source) || !/id=\\?["']library-shelf-\$\{sectionIndex\}/.test(source)) {
+    errors.push('collection guides do not link to their exact physical shelves');
+  }
   if (!['#f2c6e5','#c7d7f5'].every(token => worldText.includes(token))) {
     errors.push('locked Episode 01 light Library world gradient is missing');
   }
@@ -89,10 +92,10 @@ export function validateLibraryKnownFailures(source) {
   if (!/LIBRARY_SHELF_DEPTH_CONTRACT/.test(source) || !/\.shelf-unit::after\s*\{[^}]*z-index\s*:\s*5[^}]*library-wall-case-3bay-v1\.png/is.test(source) || !/data-book-count/i.test(source)) {
     errors.push('foreground metal frame / shelf depth contract is missing');
   }
-  if (!/shelf-unit\.is-compact[^}]*library-wall-case-2bay-clean-v1\.png/is.test(source) || !/is-compact-room/.test(source) || !/visible\.length\s*>\s*0\s*&&\s*visible\.length\s*<=\s*4/.test(source)) {
+  if (!/shelf-unit\.is-compact[^}]*library-wall-case-2bay-two-row-v2\.png/is.test(source) || !/is-compact-room/.test(source) || !/visible\.length\s*>\s*0\s*&&\s*visible\.length\s*<=\s*4/.test(source)) {
     errors.push('four-book collections do not use the compact two-bay case');
   }
-  if (!/bottom\s*:\s*\.8%/.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*\.8%/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:64\.5%\}\.shelf-unit\.is-compact \.brow--2\{bottom:34\.9%\}/.test(source) || !/\.bk img\{[^}]*translateY\(2\.5%\)/.test(source)) {
+  if (!/bottom\s*:\s*\.8%/.test(source) || !/\.shelf-unit\.is-compact[^}]*bottom\s*:\s*0(?:[;}])/.test(source) || !/\.shelf-unit\.is-compact \.brow--1\{bottom:49\.4%\}\.shelf-unit\.is-compact \.brow--2\{bottom:13\.7%\}/.test(source) || !/\.bk img\{[^}]*translateY\(2\.5%\)/.test(source)) {
     errors.push('visible shelf/rail seating geometry is missing');
   }
   const previewShelfMarkers = [
@@ -115,8 +118,8 @@ export function validateLibraryKnownFailures(source) {
   if (/Choose one cover to preview one book|Held books explain the hold/i.test(source)) {
     errors.push('rejected catalogue instruction or held-book warning copy remains');
   }
-  if (!/CATALOGUE_CONTROL_SHAPE_CONTRACT/.test(source) || !/\.shelf-guide input,[^}]+border-radius\s*:\s*0/is.test(source)) {
-    errors.push('square-cornered catalogue control contract is missing');
+  if (!/CATALOGUE_ROUNDED_GRAMMAR_CONTRACT/.test(source) || !/\.shelf-guide \.eyebrow\s*\{[^}]*border-radius\s*:\s*999px/is.test(source) || !/\.shelf-caption\s*\{[^}]*border-radius\s*:\s*24px/is.test(source) || !/\.catalogue-controls\s*\{[^}]*border-radius\s*:\s*24px/is.test(source)) {
+    errors.push('rounded catalogue grammar or highlighted eyebrow is missing');
   }
   if (!/CATALOGUE_QUIET_DEFAULT_CONTRACT/.test(source) || !/!catalogueHasActiveFilter\s*\?\s*['"]['"]/i.test(source)) {
     errors.push('quiet default catalogue result contract is missing');

@@ -12,7 +12,8 @@ Last reconciled: 2026-08-05.
 - **Collection guide restored — 2026-08-06.** Before the working catalogue
   controls, show 101s, Tools and Reference as three distinct comic-pop visual
   collection guides made from current book covers, with a short plain-English
-  explanation directly underneath each image. The guide explains which shelf
+  explanation directly underneath each image. Each complete guide is an
+  operable route to that exact physical shelf. The guide explains which shelf
   to choose; it does not reinstate the retired brown freestanding bookcase
   assets, duplicate full book previews, or add availability warnings at rest.
 - **Library title — 2026-08-06.** The page title is **The LIBRAiRY**, not
@@ -20,9 +21,11 @@ Last reconciled: 2026-08-05.
 
 - **Catalogue reading surface — 2026-08-06.** Pop-art is the energetic frame,
   not the surface behind working text. The catalogue heading, search, topic
-  controls and Closet route use one quiet, high-contrast, square-cornered
-  composition. Do not mix rounded and square control geometry. At rest, do not
-  show an instruction paragraph, held-book warning, or total-book count.
+  controls and Closet route use one quiet, high-contrast composition with the
+  rounded panels and pill controls established by Miss Jeeves. The catalogue
+  eyebrow uses the same coloured pill treatment so it reads as part of the
+  same page system. At rest, do not show an instruction paragraph, held-book
+  warning, or total-book count.
   Search results appear only after a visitor searches or selects a topic, and
   the result is contained inside the catalogue control surface rather than
   floating over the comic background.
@@ -44,7 +47,14 @@ Last reconciled: 2026-08-05.
   three-bay case. Six-book collections may use all three bays. In every case,
   visible cover pixels sit directly on the rail and the visible bottom of the
   case meets the room floor/base line; transparent padding may not make books
-  or furniture appear to float.
+  or furniture appear to float. A compact case must come from one intact source
+  render: do not stitch bays, duplicate the centre upright, or rebuild metal
+  rails from mismatched fragments.
+- **Masthead preservation boundary — 2026-08-06.** Localized environmental
+  corrections may not re-render Miss Jeeves or the whole room. Preserve her
+  identity, face, body, clothing and clean textures while editing only the
+  named room object. Reject the blotchy/lumpy v6 image and the confused
+  under-stair wall junction it introduced.
 - **Miss Jeeves sample-question boundary — 2026-08-06.** Suggested questions
   must be a specific, bounded reader question or job and stay within
   deterministic routes supported by current admitted Library material.
@@ -140,9 +150,9 @@ Last reconciled: 2026-08-05.
 
 ## Current implementation assets
 
-- Masthead: `assets/building-interiors/library-interior-purple-sign-wall-v6-metal-stacks.png`
+- Masthead: `assets/building-interiors/library-interior-purple-sign-wall-v7-clean-metal-stacks.png`
 - Room: `assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png`
-- Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; compact `assets/building-interiors/library-shelf/library-wall-case-2bay-clean-v1.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
+- Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; compact `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
 
 ## Retired inputs — machine-readable
 
@@ -155,4 +165,6 @@ library-aisle-backdrop-v1.png
 bk-status
 shelf-pages
 library-handback
+library-interior-purple-sign-wall-v6-metal-stacks.png
+library-wall-case-2bay-clean-v1.png
 ```
