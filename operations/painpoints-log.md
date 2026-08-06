@@ -14157,3 +14157,27 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** A bold visual system still needs a quiet
   place to read and make a choice.
 - **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-417 — A shelf background cannot place books inside the shelf
+
+- **Date:** 2026-08-06
+- **Area:** LIBRAiRY physical collection rooms.
+- **Failure:** The metal case was rendered as a background behind the books, so
+  covers painted over signs, uprights and rails. Repeating the uncropped room
+  image also made the cases look freestanding in the middle of the same room.
+- **Prevention rule:** Composite physical display furniture in depth order:
+  cropped wall behind, books in the openings, then the real transparent frame
+  and signs in front. Bind book positions to actual bay centres and give each
+  collection a stable room identity rather than styling by render order.
+- **Why the correction works:** The approved transparent case is now the
+  foreground layer, two-book rows occupy the outer bay centres, three-book rows
+  occupy all three centres, and cover height is constrained to one opening.
+  Stable collection IDs apply pink, blue and purple wall treatments after the
+  room photograph is cropped into its central wall.
+- **Machine/durable evidence:** `library.html`;
+  `scripts/lib/library-known-failures.mjs`;
+  `scripts/test-library-known-failures.mjs`;
+  `operations/library-decisions.md`; `operations/DECISIONS.md`.
+- **Possible Behind the Build angle:** Correct z-order is the difference between
+  a book sitting on a shelf and a picture pasted over one.
+- **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.

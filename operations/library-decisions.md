@@ -17,6 +17,13 @@ Last reconciled: 2026-08-05.
   Search results appear only after a visitor searches or selects a topic, and
   the result is contained inside the catalogue control surface rather than
   floating over the comic background.
+- **Collection-room depth and identity — 2026-08-06.** The three collection
+  rooms must not look like the same freestanding-room photograph stacked three
+  times. Crop the approved room image into its central wall so the metal case
+  reads against that wall, and give 101s, Tools and Reference distinct
+  locked-palette wall colours. Render books behind the case artwork: signs and
+  metal rails stay in front, books fit wholly inside one shelf opening, and no
+  cover may cross a sign, upright or rail.
 
 - **Exact successor rejection — 2026-08-05.** `library.html` SHA
   `7d4d01f4…c7c9` is rejected and quarantined: oversized mostly empty shelving

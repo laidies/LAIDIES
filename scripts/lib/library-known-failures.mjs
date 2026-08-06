@@ -49,6 +49,15 @@ export function validateLibraryKnownFailures(source) {
   if (!/LIBRARY_CASE_ANCHOR_CONTRACT/.test(source)) {
     errors.push('wall/case anchor contract is missing');
   }
+  if (!/LIBRARY_WALL_CROP_CONTRACT/.test(source) || !/background-size\s*:\s*cover\s*,\s*152%\s+auto/i.test(source)) {
+    errors.push('collection room is not cropped into the central wall');
+  }
+  if (![0,1,2].every(index => new RegExp(`data-collection-room=["']${index}["'][^}]*--room-tint`, 'i').test(source))) {
+    errors.push('distinct collection wall colours are missing');
+  }
+  if (!/LIBRARY_SHELF_DEPTH_CONTRACT/.test(source) || !/\.shelf-unit::after\s*\{[^}]*z-index\s*:\s*5[^}]*library-wall-case-3bay-v1\.png/is.test(source) || !/data-book-count/i.test(source)) {
+    errors.push('foreground metal frame / shelf depth contract is missing');
+  }
   const previewShelfMarkers = [
     'BOOK_PREVIEW_CHOICE_CONTRACT',
     'data-preview-book',

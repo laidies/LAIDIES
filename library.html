@@ -535,20 +535,26 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 
 .libroom{background:var(--midnight)}
 .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;overflow:hidden;
-  border-bottom:8px solid var(--ink);background:url('assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png') center/cover no-repeat}
-.shelf-unit,.libroom.has-multiple-units .shelf-unit{position:absolute;left:4%;right:4%;top:4%;bottom:7%;width:auto;margin:0;
-  background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat;
+  /* LIBRARY_WALL_CROP_CONTRACT: crop to the wall; the case is no longer staged in open floor. */
+  border-bottom:8px solid var(--ink);background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/delivery-20260722-library-interior-no-desk-v1/library-interior-no-desk-v1.png');background-position:center,center 30%;background-size:cover,152% auto;background-repeat:no-repeat;background-blend-mode:color,normal}
+.library-room-unit[data-collection-room="0"]{--room-tint:rgba(240,86,166,.42)}
+.library-room-unit[data-collection-room="1"]{--room-tint:rgba(21,188,224,.42)}
+.library-room-unit[data-collection-room="2"]{--room-tint:rgba(112,56,201,.38)}
+.shelf-unit,.libroom.has-multiple-units .shelf-unit{position:absolute;inset:3% 4%;width:auto;margin:0;background:none;
   filter:drop-shadow(0 12px 16px rgba(49,20,54,.3))}
+.shelf-unit::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat}
 .department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:absolute;inset:0;width:100%;margin:0}
 .bay{position:absolute;inset:0}
-.ledge{position:absolute;z-index:4;left:50%;top:1.5%;width:min(360px,34%);height:12%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.ledge{position:absolute;z-index:6;left:50%;top:1%;width:min(330px,30%);height:9.5%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
 .ledge img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 7px rgba(58,24,56,.28))}
 .mobile-shelf-caption{position:absolute;z-index:3;left:6%;right:6%;top:12%;margin:0;text-align:center;color:var(--ink);font-weight:800;font-size:clamp(13px,1.25vw,17px)}
 .mobile-shelf-caption b{display:none}.reel-cue{display:none}
-.brow{position:absolute;left:7%;right:7%;height:28%;display:flex;align-items:flex-end;justify-content:center;gap:clamp(42px,7vw,118px);z-index:3}
-.brow--1{bottom:64.5%}.brow--2{bottom:37.2%}.brow--3{bottom:10.2%}.brow--4{display:none}
-.bk{position:relative;flex:0 1 clamp(145px,15vw,220px);width:clamp(145px,15vw,220px);height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 10px 7px rgba(58,24,56,.35));transition:transform .16s ease}
-.bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
+.brow{position:absolute;left:1.5%;right:1.5%;height:24%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;justify-items:center;gap:0;z-index:3}
+/* LIBRARY_SHELF_DEPTH_CONTRACT: each row stays inside one opening; the real frame is layered above it. */
+.brow[data-book-count="1"]>.bk{grid-column:2}.brow[data-book-count="2"]>.bk:first-child{grid-column:1}.brow[data-book-count="2"]>.bk:last-child{grid-column:3}
+.brow--1{bottom:65.5%}.brow--2{bottom:40.5%}.brow--3{bottom:15.5%}.brow--4{display:none}
+.bk{position:relative;flex:0 1 clamp(145px,15vw,220px);width:clamp(145px,15vw,220px);height:100%;max-height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;min-height:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 10px 7px rgba(58,24,56,.35));transition:transform .16s ease}
+.bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-height:0;object-fit:contain}
 .bk:hover,.bk:focus-visible{transform:translateY(-7px) scale(1.04);outline:4px solid var(--yellow);outline-offset:4px}
 .bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
 .empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
@@ -558,8 +564,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   .shelf-guide{display:block}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}
   .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
   .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
-  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center bottom,center;background-size:100% auto,cover;background-repeat:no-repeat}
-  .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png') center/100% 100% no-repeat}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 100px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/floor-clean-v1.png'),url('assets/building-interiors/library-shelf/room/wall-lavender-masthead-v1.png');background-position:center,center bottom,center;background-size:cover,100% auto,cover;background-repeat:no-repeat;background-blend-mode:color,normal,normal}
+  .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:none}
+  .shelf-unit::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png')}
   .ledge{top:1%;width:78%;height:12%}.mobile-shelf-caption{top:13%;font-size:14px}
   .brow{left:9%;right:9%;height:31%;gap:9%}.brow--1{bottom:65%}.brow--2{bottom:33%}.brow--3{bottom:1%}
   .bk{flex-basis:clamp(126px,36vw,158px);width:clamp(126px,36vw,158px);max-width:158px}
@@ -814,7 +821,7 @@ function renderShelf(){
   const visible=section.books.filter(book=>book.listed!==false).filter(book=>catalogueBookMatches(book,sectionIndex));
   matchCount+=visible.length;
   const titleId=`shelf-title-${sectionIndex}`;
-  const rows=shelfSplit(visible,sectionIndex).map((books,rowIndex)=>`<div class="brow brow--${rowIndex+1}">${books.map(shelfBook).join('')}</div>`).join('');
+  const rows=shelfSplit(visible,sectionIndex).map((books,rowIndex)=>`<div class="brow brow--${rowIndex+1}" data-book-count="${books.length}">${books.map(shelfBook).join('')}</div>`).join('');
   const empty=visible.length?'':'<p class="empty-bay">No matching books on this shelf.</p>';
   return `<div class="library-room-unit" data-collection-room="${sectionIndex}"><div class="shelf-unit" aria-label="${esc(section.name)} physical collection case"><section class="department" data-collection="${sectionIndex}" aria-labelledby="${titleId}"><h2 class="sr-only" id="${titleId}">${esc(section.name)}</h2><div class="bay"><div class="ledge" aria-hidden="true"><img src="${esc(section.sign)}" alt=""></div><p class="mobile-shelf-caption"><b>${esc(section.name)}</b>${esc(section.mcap||section.cap)}<span class="reel-cue">Choose a cover to preview.</span></p>${rows}${empty}</div></section></div></div>`;
  });
