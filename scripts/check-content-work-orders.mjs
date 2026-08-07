@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
 
 const GATES = [
   "accuracy", "antiSlop", "currentBestPractice", "laidiesVoice", "analogyIntegrity",
@@ -22,6 +23,7 @@ function walk(directory, predicate) {
 
 export function checkContentWorkOrders({ root = process.cwd() } = {}) {
   const errors = [];
+  const producerContractBlocked = [];
   const queuePath = path.join(root, "operations/product-stewards/learning-content-ecosystem/content-work-orders.json");
   const registryPath = path.join(root, "operations/product-stewards/registry.json");
   let queue;
@@ -56,11 +58,32 @@ export function checkContentWorkOrders({ root = process.cwd() } = {}) {
         errors.push(`${order.id} claims VERIFIED_PUBLICLY without exact public release proof`);
       }
     }
+    if (["EDITORIAL_REVIEW", "CONTENT_VERIFIED", "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY"].includes(order.status)) {
+      for (const field of ["producerContractPath", "producerReviewPath", "semanticAdmissionPath"]) {
+        if (!order[field] || !fs.existsSync(path.join(root, order[field]))) errors.push(`${order.id} ${order.status} lacks ${field}`);
+      }
+    }
     if (order.status === "QUEUED_WITH_TRIGGER" && order.dispatchState !== "NOT_READY") errors.push(`${order.id} queued trigger must be NOT_READY`);
     if (order.status === "BUILT_LOCALLY") {
       for (const target of order.targetPaths) {
         const fileTarget = target.split("#")[0];
         if (!fs.existsSync(path.join(root, fileTarget))) errors.push(`${order.id} built target missing: ${fileTarget}`);
+      }
+    }
+    if (order.dispatchState === "READY_TO_DISPATCH") {
+      const contractPath = order.producerContractPath && path.join(root, order.producerContractPath);
+      if (!contractPath || !fs.existsSync(contractPath)) {
+        producerContractBlocked.push(`${order.id}:missing producerContractPath`);
+      } else {
+        try {
+          const contract = JSON.parse(fs.readFileSync(contractPath, "utf8"));
+          const result = inspectContentProducerContract(contract, { root });
+          if (contract.candidateId !== order.id) result.errors.push(`candidateId must equal ${order.id}`);
+          if (contract.status !== "READY_TO_DRAFT") result.errors.push("status must be READY_TO_DRAFT");
+          if (result.errors.length) producerContractBlocked.push(`${order.id}:${result.errors.join("; ")}`);
+        } catch (error) {
+          producerContractBlocked.push(`${order.id}:producer contract unreadable: ${error.message}`);
+        }
       }
     }
   }
@@ -80,7 +103,8 @@ export function checkContentWorkOrders({ root = process.cwd() } = {}) {
     errors,
     workOrders: orders.size,
     coveredRecords: coverage.size,
-    readyToDispatch: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH").map((order) => order.id),
+    readyToDispatch: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH" && !producerContractBlocked.some((item) => item.startsWith(`${order.id}:`))).map((order) => order.id),
+    producerContractBlocked,
     queuedWithTrigger: [...orders.values()].filter((order) => order.status === "QUEUED_WITH_TRIGGER").map((order) => order.id)
   };
 }
@@ -97,5 +121,6 @@ if (direct) {
   console.log(`work_orders=${result.workOrders}`);
   console.log(`covered_records=${result.coveredRecords}`);
   console.log(`ready_to_dispatch=${result.readyToDispatch.join(",") || "none"}`);
+  console.log(`producer_contract_blocked=${result.producerContractBlocked.join(" | ") || "none"}`);
   console.log(`queued_with_trigger=${result.queuedWithTrigger.join(",") || "none"}`);
 }

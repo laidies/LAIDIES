@@ -4,6 +4,8 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
+import { inspectProseQualityReview } from "./check-prose-quality-admission.mjs";
 
 const REQUIRED_GATES = [
   "accuracy", "antiSlop", "currentBestPractice", "laidiesVoice",
@@ -25,6 +27,15 @@ function existingEvidence(root, evidencePath) {
 
 function sha256(filePath) {
   return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+}
+
+function readJsonRecord(root, recordPath, label, reasons) {
+  if (!existingEvidence(root, recordPath) || !recordPath.endsWith(".json")) {
+    reasons.push(`${label}:MISSING`);
+    return null;
+  }
+  try { return JSON.parse(fs.readFileSync(path.join(root, recordPath), "utf8")); }
+  catch { reasons.push(`${label}:INVALID_JSON`); return null; }
 }
 
 function validGateReceipt({ root, receiptPath, order, gateName }) {
@@ -67,20 +78,47 @@ function validGateReceipt({ root, receiptPath, order, gateName }) {
   return true;
 }
 
-export function checkContentReleaseReadiness({ root = process.cwd() } = {}) {
+export function checkContentReleaseReadiness({ root = process.cwd(), requireReady = null } = {}) {
   const queuePath = path.join(root, "operations/product-stewards/learning-content-ecosystem/content-work-orders.json");
   const errors = [];
   let queue;
   try {
     queue = JSON.parse(fs.readFileSync(queuePath, "utf8"));
   } catch (error) {
-    return { errors: [`content work orders invalid: ${error.message}`], ready: [], held: [] };
+    return {
+      errors: [`content work orders invalid: ${error.message}`],
+      ready: [],
+      held: [],
+      requiredReady: requireReady,
+      readinessThresholdMet: requireReady === null ? null : false
+    };
   }
 
   const ready = [];
   const held = [];
   for (const order of queue.workOrders || []) {
     const reasons = [];
+    const producerContract = readJsonRecord(root, order.producerContractPath, "producerContract", reasons);
+    if (producerContract) {
+      const result = inspectContentProducerContract(producerContract, { root });
+      if (producerContract.candidateId !== order.id) reasons.push("producerContract:CANDIDATE_MISMATCH");
+      if (producerContract.status !== "READY_TO_DRAFT") reasons.push(`producerContract:${producerContract.status || "NO_STATUS"}`);
+      if (result.errors.length) reasons.push(`producerContract:INVALID(${result.errors.join("|")})`);
+    }
+    const producerReview = readJsonRecord(root, order.producerReviewPath, "producerReview", reasons);
+    if (producerReview) {
+      const result = inspectProseQualityReview(producerReview, { root });
+      if (producerReview.candidateId !== order.id) reasons.push("producerReview:CANDIDATE_MISMATCH");
+      if (producerReview.stage !== "PRODUCER_SELF_REVIEW" || producerReview.verdict !== "PASS") reasons.push("producerReview:NOT_PASS");
+      if (result.errors.length) reasons.push(`producerReview:INVALID(${result.errors.join("|")})`);
+    }
+    const semanticAdmission = readJsonRecord(root, order.semanticAdmissionPath, "semanticAdmission", reasons);
+    if (semanticAdmission) {
+      const result = inspectProseQualityReview(semanticAdmission, { root });
+      if (semanticAdmission.candidateId !== order.id) reasons.push("semanticAdmission:CANDIDATE_MISMATCH");
+      if (semanticAdmission.stage !== "INDEPENDENT_SEMANTIC_ADMISSION" || semanticAdmission.verdict !== "PASS") reasons.push("semanticAdmission:NOT_PASS");
+      if (result.errors.length) reasons.push(`semanticAdmission:INVALID(${result.errors.join("|")})`);
+    }
     for (const gateName of REQUIRED_GATES) {
       const gate = order.qualityGates?.[gateName];
       if (!gate || !["PASS", "NOT_APPLICABLE"].includes(gate.status)) {
@@ -152,18 +190,47 @@ export function checkContentReleaseReadiness({ root = process.cwd() } = {}) {
       }
     }
   }
-  return { errors, ready, held };
+  return {
+    errors,
+    ready,
+    held,
+    requiredReady: requireReady,
+    readinessThresholdMet: requireReady === null ? null : ready.length >= requireReady
+  };
 }
 
 const direct = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (direct) {
-  const result = checkContentReleaseReadiness();
+  const requireReadyIndex = process.argv.indexOf("--require-ready");
+  let requireReady = null;
+  if (requireReadyIndex !== -1) {
+    const rawMinimum = process.argv[requireReadyIndex + 1];
+    if (!/^[1-9]\d*$/.test(rawMinimum || "")) {
+      console.error("CONTENT RELEASE READINESS USAGE FAIL");
+      console.error("- --require-ready needs a positive integer minimum");
+      process.exit(2);
+    }
+    requireReady = Number(rawMinimum);
+  }
+
+  const result = checkContentReleaseReadiness({ requireReady });
   if (result.errors.length) {
     console.error("CONTENT RELEASE READINESS FAIL");
     for (const error of result.errors) console.error(`- ${error}`);
     process.exit(1);
   }
-  console.log("CONTENT RELEASE ADMISSION INTEGRITY PASS");
+  if (requireReady !== null && !result.readinessThresholdMet) {
+    console.error("CONTENT RELEASE READINESS FAIL");
+    console.error(`- required release-ready minimum=${requireReady}; actual=${result.ready.length}`);
+    if (process.argv.includes("--details")) {
+      for (const item of result.held) console.error(`hold=${item.id}|${item.reasons.join(";")}`);
+    }
+    process.exit(1);
+  }
+
+  console.log(result.ready.length === 0
+    ? "CONTENT RELEASE ADMISSION INTEGRITY VALID — RELEASE HOLD"
+    : "CONTENT RELEASE ADMISSION INTEGRITY VALID");
   console.log(`release_ready=${result.ready.join(",") || "none"}`);
   console.log(`held=${result.held.length}`);
   if (process.argv.includes("--details")) {

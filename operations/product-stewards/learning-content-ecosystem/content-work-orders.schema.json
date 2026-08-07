@@ -91,6 +91,9 @@
             "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
           }
         },
+        "producerContractPath": { "type": "string", "minLength": 1 },
+        "producerReviewPath": { "type": "string", "minLength": 1 },
+        "semanticAdmissionPath": { "type": "string", "minLength": 1 },
         "evidencePaths": { "type": "array", "items": { "type": "string" } },
         "blockedBy": { "type": "string" },
         "declineReason": { "type": "string" },

@@ -39,13 +39,25 @@ hash is a new candidate identity and must be reviewed again.
 | 2 | AI Research & Accuracy | Dated claim map; primary-source retrieval; evidence/inference/position separation | Unresolved source, stale claim or unsupported statement |
 | 3 | Relevant risk specialist | Security/privacy/health/legal/safety review when the subject requires it | Material unresolved risk or missing domain evidence |
 | 4 | Learning System & Concepts | Durable-vs-dated distinction; exact Concepts/Class/Episode/Library dispositions; coverage in the machine-checked content work-order queue | Duplicated teaching, orphaned learning opportunity or recommendation without an owner/path/trigger |
-| 5 | Brand/editorial and accessibility judge | Actual rendered article in its edition; voice, comprehension, mobile and accessibility floors | Any required floor below 17/20 or inaccessible result |
+| 5 | Independent semantic, Brand/editorial and accessibility judges | Valid prevention-first producer contract; exact-prose `PRODUCER_SELF_REVIEW`; role-distinct `INDEPENDENT_SEMANTIC_ADMISSION` bound to the exact source prose, manifest and rendered HTML; actual rendered article and desktop/mobile captures; voice, comprehension, mobile and accessibility floors | Missing/invalid shared records; drifted prose, manifest or render identity; glossary accumulation, decorative analogy, missing mechanism, generic action, any required floor below 17/20 or inaccessible result |
 | 6 | NewsStand champion | Reconciled exact candidate packet and correction/freshness contract | Any missing or conflicting receipt |
 | 7 | Release owner | Versioned artifact, rollback and public verification plan | No exact publication authority or failed release proof |
 
 The maker cannot approve its own work. Later stages do not start after a
 terminal rejection. A hold records the precise owner, missing evidence and
 next trigger.
+
+Stage 5 is additionally governed by
+`operations/product-stewards/newsstand/STAGE-5-COMPREHENSION-GATE.md` and shared
+decision `D-2026-08-07-099`. Before drafting or dispatch, explanatory prose
+needs a valid producer contract. Before independent review, its producer must
+record an exact-prose `PRODUCER_SELF_REVIEW`. Before Stage 5 can pass meaning,
+a role-distinct reviewer must record an `INDEPENDENT_SEMANTIC_ADMISSION` against
+the same source prose, manifest and rendered HTML. Both review stages are
+validated with `scripts/check-prose-quality-admission.mjs`; the checker verifies
+record and byte integrity but does not manufacture editorial authority. The
+semantic record precedes and complements, rather than replaces, Stage 5's
+actual-render Brand/editorial and accessibility judgment.
 
 The chain is `ACTIVE` only while a named task is executing a named output.
 Writing “review required” in a packet is not a trigger and is not progress.
