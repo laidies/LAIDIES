@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/content-quality-learning-record.schema.json",
+  "title": "Pending reusable content-quality learning",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "incidentId", "candidateId", "artifactSha256", "failureFamilies", "reviewReceipt", "requiredProducerRepair", "status"],
+  "properties": {
+    "schemaVersion": { "const": "laidies-content-quality-learning-record.v1" },
+    "incidentId": { "type": "string", "minLength": 1 },
+    "candidateId": { "type": "string", "minLength": 1 },
+    "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "failureFamilies": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "reviewReceipt": { "type": "object" },
+    "requiredProducerRepair": { "type": "string", "minLength": 1 },
+    "status": { "const": "PENDING_OWNER_ADMISSION" }
+  }
+}

@@ -64,6 +64,12 @@ candidate review. Explain-back/transfer evidence is checksum-bound, and every
 material claim maps a candidate excerpt to a source excerpt with scope and
 freshness.
 
+Every verdict also closes its learning-loop transition. PASS records no new
+reusable defect. HOLD/REJECT identifies an evidence gap, candidate-only repair,
+or a reusable defect with a checksum-bound pending learning record. Reusable
+records wait for Learning-owner admission before entering the negative
+registry; admission changes the registry SHA and invalidates stale contracts.
+
 ## Durable learning loop
 
 Every verified rejection adds the smallest reusable failure to
@@ -87,9 +93,9 @@ Ratchet targets:
   seven rejected bypasses, including stale-registry and omitted-later-failure
   cases.
 - `node scripts/test-prose-quality-admission.mjs` — one valid teaching
-  artifact, one hold and thirteen rejected false passes; exact known-bad,
+  artifact, one hold and fourteen rejected false passes; exact known-bad,
   manifest decoy, stale registry, unbound observation, reviewer mismatch,
-  unrelated source and flat-ratchet cases are rejected.
+  unrelated source, flat-ratchet and silent-rejection cases are rejected.
 - `node scripts/test-content-release-readiness.mjs` — strict release path
   requires both records and holds missing/mismatched evidence.
 - `node scripts/check-content-work-orders.mjs` — zero current orders eligible
