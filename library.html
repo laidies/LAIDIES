@@ -333,7 +333,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt .lede{position:relative;max-width:760px;margin:0 0 35px;padding:22px 24px 22px 28px;color:#17213b;
   background:color-mix(in srgb,var(--accent) 9%,#f7f4ff);border-left:8px solid var(--accent);
   font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.48}
-.book .txt .lede::before{content:"WHY THESE WORDS";display:block;margin-bottom:9px;color:var(--accent);
+.book .txt .lede::before{content:"WHAT THIS BOOK WILL HELP YOU UNDERSTAND";display:block;margin-bottom:9px;color:var(--accent);
   font-family:'Jost',sans-serif;font-size:9px;font-weight:900;letter-spacing:.2em}
 .book .txt .lede::first-letter{float:none;margin:0;font:inherit;color:inherit}
 .book .txt h2{margin:46px -18px 8px;padding:14px 18px 13px;color:#fff;background:var(--accent);
@@ -389,7 +389,10 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .book .txt details{margin:12px 0;padding:12px;background:#fff;border:1px solid #c9d6f1}.book .txt summary{cursor:pointer;font-weight:900}
 .book .txt .vr-source-list,.book .txt .vr-handoffs,.book .txt .vr-ledger-list{padding:0;list-style:none}.book .txt .vr-source-list li,.book .txt .vr-handoffs li,.book .txt .vr-ledger-list>li{padding:12px 0;border-bottom:1px solid #c9d6f1}
 .book .txt .vr-claim{margin:13px 0;padding:12px;background:#fff;border-left:5px solid var(--accent)}
-.book .band .puffy-save-row .puffy-btn,.book .txt .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 11px 7px 8px;font-size:14px;line-height:1.2;letter-spacing:.035em}
+.book .band .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 11px 7px 8px;font-size:14px;line-height:1.2;letter-spacing:.035em}
+.book .txt .puffy-save-row{margin:2px 0 10px;justify-content:flex-end}
+.book .txt .puffy-save-row .puffy-btn{min-width:44px;min-height:40px;padding:5px 8px;border-color:transparent;background:transparent;color:#5a6680;font-size:11px;line-height:1.2;letter-spacing:.025em;opacity:.7}
+.book .txt .puffy-save-row .puffy-btn:hover,.book .txt .puffy-save-row .puffy-btn:focus-visible{background:#eef3ff;color:#263654;opacity:1}
 .book .txt table{border-color:#c9d6f1;border-radius:3px}
 .book .txt th,.book .txt td{border-bottom-color:#dbe4ff}
 .book .txt tbody tr:nth-child(even){background:#f0f4ff}
@@ -733,8 +736,8 @@ const SECTIONS=[
    /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
       Vocab 101 from the public catalogue; it must not render on either shelf. */
    {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
-   {id:'concepts-101',t:'Concepts 101',topics:['basics'],status:'available',statusLabel:'Ready to read',s:'Follow one request through product, context, model, tools, output and the human check.',inside:'Six connected sections, one client-handover example and a 17-term quick reference.',depth:'Plain-English foundation · connected system model',img:B+'textbook-concepts-101.png',c:'#7038c9'},
-   {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'available',statusLabel:'Ready to read',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',inside:'Five-part procedure, controlled comparison, worked examples and checking boundaries.',depth:'Plain-English foundation · reusable procedure',img:B+'textbook-briefing-101.png',c:'#d83f86'},
+   {id:'concepts-101',t:'AI Fundamentals 101',topics:['basics'],status:'hold',statusLabel:'Local rebuild for review',s:'Follow one real request through the complete AI system, then look up any foundational concept when you need it.',inside:'Introduction, connected chapters, one client-handover case, a repair map and an alphabetical Concept Index.',depth:'Plain-English foundation · connected AI system map',img:B+'textbook-ai-fundamentals-101.png',c:'#7038c9'},
+   {id:'briefing-101',t:'Briefing 101',topics:['prompting','getting-started'],status:'hold',statusLabel:'Exact review in progress',s:'Turn a vague request into a usable brief: job, audience, format, tone and constraints — plus what to check before you send.',inside:'Five-part procedure, controlled comparison, worked examples and checking boundaries.',depth:'Plain-English foundation · reusable procedure',img:B+'textbook-briefing-101.png',c:'#d83f86'},
    {id:'setup-101',t:'Setup 101',topics:['getting-started'],status:'available',statusLabel:'Ready to read',s:'Decide what belongs in standing instructions, optional memory, one project—or nowhere—before you expect it to follow you.',inside:'Four-place sorting model, six-item worked table and product-specific limits.',depth:'Plain-English foundation · reusable sorting model',img:B+'textbook-setup-101.png',c:'#1597a7'},
    {id:'accounts-101',t:'Accounts 101',topics:['privacy-safety','getting-started'],status:'available',statusLabel:'Ready to read',s:'Before you paste real material, verify the exact account, your authority and the current rule—and stop when any answer is unknown.',inside:'Five-step decision rule, tempting wrong answers and a safe stop condition.',depth:'Plain-English foundation · account and authority decision',img:B+'textbook-accounts-101.png',c:'#e45e55'}
   ]},
@@ -750,16 +753,20 @@ const SECTIONS=[
  {name:'REFERENCE',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-reference-v1.png',cap:'Use this shelf for a specific answer, a safety rule, or a reliable way to check what the AI told you.',mcap:'Sourced answers and checking guides.',
   books:[
    {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research'],status:'hold',statusLabel:'Source re-verification',s:'Sourced answers to the big questions — jobs, data, the environment.',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
-   {id:'how-to-check',t:"How to Check AI's Work",topics:['checking-research'],status:'hold',statusLabel:'Not yet available · independent learning, accuracy, brand and accessibility review open',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'AFTER REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
+   {id:'how-to-check',t:"How to Check AI's Work",topics:['checking-research'],status:'hold',statusLabel:'Local review ready · observed newcomer check still required',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
    {id:'what-not-to-paste',t:'What Not to Paste',topics:['privacy-safety'],status:'preview',statusLabel:'Lands EP 7',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
    {id:'prompt-cookbook',t:'The Prompt Cookbook',topics:['prompting'],status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
   ]}
 ];
 const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
 /* LIBRARY_ADMISSION_COMPILED_START */
-{"accounts-101":{"sourcePath":"/content/library-books/rendered/accounts-101.html","contentVersion":"accounts-101-2026-08-06.2","admissionVersion":"accounts-101-learning-admission-2026-08-06.2","correctionState":"clear","artifactSha256":"9b2bf286ea8dbb560ba3154aee41ab12848a913fd4b8708eba1dc4c35e4bd1d6"},"briefing-101":{"sourcePath":"/content/library-books/rendered/briefing-101.html","contentVersion":"briefing-101-2026-08-05.1","admissionVersion":"briefing-101-learning-admission-2026-08-06.1","correctionState":"clear","artifactSha256":"4a22f431b60902d249827395c69bb11fa3aaf18a4352d18cb1c4765c0c7904d9"},"concepts-101":{"sourcePath":"/content/library-books/rendered/concepts-101.html","contentVersion":"concepts-101-2026-08-06.1","admissionVersion":"concepts-101-learning-admission-2026-08-06.1","correctionState":"clear","artifactSha256":"74f08314fb98672ce5f247eaf7db16fb6beeffa3f08f0572ed562818d92b602c"},"setup-101":{"sourcePath":"/content/library-books/rendered/setup-101.html","contentVersion":"setup-101-2026-08-05.1","admissionVersion":"setup-101-learning-admission-2026-08-06.1","correctionState":"clear","artifactSha256":"44a287ff32d3e041870bd477da99e0edda55a36d04b7a1725656552e89db348b"}}
+{}
 /* LIBRARY_ADMISSION_COMPILED_END */
 ).map(([id,record])=>[id,Object.freeze(record)])));
+const LOCAL_REVIEW_BOOK_RECORDS=Object.freeze({
+ 'briefing-101':Object.freeze({sourcePath:'/content/library-books/rendered/briefing-101.html',contentVersion:'briefing-101-2026-08-06.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'b9c58ceb6067f1dcf044d1d1e49de9967ddcfe9370910bcc059fc7a51d76f95e'}),
+ 'how-to-check':Object.freeze({sourcePath:'/content/library-books/rendered/verification-rulebook.html',contentVersion:'sha256-6f9898d4ec3f0151e7aa171132e78b9227d76f65a18b1abc5f725c81577b7274',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'19cf0fc41ac79ca34f595bbc1956c8410513421adb9ae0a7e8e060bffb78753c'})
+});
 const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
  section.books=Object.freeze(section.books.map(book=>Object.freeze({...book})));
  section.books.forEach(book=>{catalogue[book.id]=book;});
@@ -768,7 +775,8 @@ const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
 SECTIONS.forEach(Object.freeze);
 Object.freeze(SECTIONS);
 function exactAdmittedBookRecord(id){
- const record=ADMITTED_BOOK_RECORDS[id];
+ const localReviewHost=location.hostname==='127.0.0.1'||location.hostname==='localhost';
+ const record=localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:ADMITTED_BOOK_RECORDS[id];
  if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
  const source=record.sourcePath;
  if(typeof source!=='string'||!/^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(source))return null;
@@ -1041,7 +1049,7 @@ const JEEVES_ANSWERS=[
     title:'AI predicts what should come next from patterns it learned during training.',
     answer:'During training, the system studies many examples and adjusts a large set of numerical settings so it becomes better at predicting the next useful piece of an answer. When you ask a question, it builds a response one piece at a time from those learned patterns. That is why it can explain and draft convincingly, but can also produce an answer that sounds right without being true.',
     links:[
-      {label:'Open Concepts 101',book:'concepts-101',heading:'The system, not one magic box'},
+      {label:'Open AI Fundamentals 101',book:'concepts-101',heading:'Chapter 1 — The complete AI system'},
       {label:"See how to check AI's work",book:'how-to-check',heading:'Ask for receipts'}
     ]
   },
@@ -1051,7 +1059,7 @@ const JEEVES_ANSWERS=[
     title:'The honest answer is: we do not have that coverage ready yet.',
     answer:'A trustworthy answer changes by role, task, country and evidence date. The Library’s Jobs &amp; Work answer is still being re-verified, so Miss Jeeves will not pretend it is ready. Start with what the different kinds of AI actually do; the dedicated sourced answer will appear when its evidence is current and checked.',
     links:[
-      {label:'Learn what different capability labels mean',book:'concepts-101',heading:'Capability labels are not one ladder'}
+      {label:'Learn what AGI claims actually mean',book:'concepts-101',heading:'AGI: a disputed definition'}
     ]
   },
   {
@@ -1061,7 +1069,7 @@ const JEEVES_ANSWERS=[
     answer:'Start with the task. Use an all-rounder for everyday drafting and thinking, a source-led research tool when the answer must come with evidence, and the assistant built into your work suite when the job lives inside those apps. Then give two tools the same real task and keep the one whose output you can actually use and verify.',
     links:[
       {label:"Open Who's Who in AI",book:'whos-who',heading:'Which one for which job'},
-      {label:'Learn how products, models and tools differ',book:'concepts-101',heading:'The system, not one magic box'}
+      {label:'Learn how products, models and tools differ',book:'concepts-101',heading:'AI system, product, model and tool'}
     ]
   },
   {
@@ -1283,14 +1291,15 @@ function sectionAnchorSlug(value){
 function assignBookSectionAnchors(txt){
   const seen=new Map();
   [...txt.querySelectorAll('h1,h2,h3,h4')].forEach(heading=>{
-    const slug=sectionAnchorSlug(heading.textContent.trim());
+    const sourceId=(heading.getAttribute('id')||'').trim();
+    const slug=sourceId||'book-section-'+sectionAnchorSlug(heading.textContent.trim());
     const occurrence=(seen.get(slug)||0)+1;
     seen.set(slug,occurrence);
-    heading.id='book-section-'+slug+(occurrence>1?'-'+occurrence:'');
+    heading.id=slug+(occurrence>1?'-'+occurrence:'');
   });
 }
 function decoratePuffySections(b,id,txt){
-  const targets=(id==='vocab-101'?[...txt.querySelectorAll('.term')]:[...txt.querySelectorAll('h2,h3')])
+  const targets=(id==='vocab-101'?[...txt.querySelectorAll('.term')]:[...txt.querySelectorAll('h2')])
     .filter(target=>!target.closest('.receipts,.vr-metadata,.vr-sources'));
   targets.forEach(target=>{
     const heading=target.matches('h1,h2,h3')?target:target.querySelector('h3');
@@ -1302,7 +1311,7 @@ function decoratePuffySections(b,id,txt){
     target.setAttribute('data-puffy-content-version',admittedBook(id)?.record.contentVersion||'legacy-unversioned');
     target.setAttribute('data-puffy-title',sectionTitle);
     target.setAttribute('data-puffy-kind','section');
-    target.setAttribute('data-puffy-action-label','Save this section');
+    target.setAttribute('data-puffy-action-label','Save place');
     target.setAttribute('data-puffy-summary',b.t+' · SUNNYVAiLE LIBRAiRY');
     target.setAttribute('data-puffy-url','/library.html#'+id+'::'+encodeURIComponent('@'+sectionId));
   });
@@ -1513,8 +1522,9 @@ function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
       if(id==='how-to-check')hydrateVerificationRulebook(txt);
       if(window.svPuffyScan)window.svPuffyScan();
       await settleBookSection(txt,headingNeedle);
-    }).catch(()=>{
+    }).catch((error)=>{
       if(loadToken!==readerLoadToken)return;
+      txt.dataset.readerLoadError=String(error&&error.message||error||'unknown');
       txt.innerHTML='<section class="reader-error" role="alert"><h3>This book did not load.</h3><p>The short shelf description is not a substitute for the full book. Your place is safe; try the book again or return to the shelf.</p><button type="button" id="reader-retry">Try this book again</button></section>';
       setBookToc(toc,'');
       const retry=document.getElementById('reader-retry');

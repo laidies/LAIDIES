@@ -24,6 +24,7 @@ const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gra
 assert.deepEqual(validateLibraryKnownFailures(good), []);
 
 const fixtures = [
+  [good + "<script>const artifactSha256='3bf3d6bddd659af063426701541c4d19debc2a39707bde2f7435a555cc835508';</script>", 'directly rejected AI Fundamentals artifact'],
   [good.replace('library-interior-from-credits-dechromed-v4-no-baked-text.png', 'library-interior-purple-sign-wall-v5.png'), 'lumpy Miss Jeeves v5 masthead'],
   [good.replace('library-interior-from-credits-dechromed-v4-no-baked-text.png', 'library-interior-purple-sign-wall-v7-clean-metal-stacks.png'), 'mottled Miss Jeeves v7 masthead'],
   [good.replace('library-interior-from-credits-dechromed-v4-no-baked-text.png', 'library-interior-style-b-hand-inked-animation.png'), 'replacement hand-inked masthead'],

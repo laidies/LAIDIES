@@ -15,6 +15,9 @@ function cssBodies(source, selector) {
 
 export function validateLibraryKnownFailures(source) {
   const errors = [];
+  if (/3bf3d6bddd659af063426701541c4d19debc2a39707bde2f7435a555cc835508/i.test(source)) {
+    errors.push('directly rejected AI Fundamentals artifact remains locally openable');
+  }
   if (source.includes('library-interior-purple-sign-wall-v5.png')) {
     errors.push('rejected lumpy Miss Jeeves v5 masthead remains');
   }
