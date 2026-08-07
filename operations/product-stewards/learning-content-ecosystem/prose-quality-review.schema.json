@@ -8,7 +8,7 @@
     "schemaVersion", "candidateId", "stage", "contentClass", "surface",
     "maker", "reviewer", "reviewMode", "reviewedAt", "artifact",
     "calibration", "reverseBrief", "outcomes", "failureFamilies",
-    "factualReview", "ratchet", "verdict", "limitations"
+    "factualReview", "ratchet", "learningDisposition", "verdict", "limitations"
   ],
   "properties": {
     "schemaVersion": { "const": "laidies-prose-quality-review.v1" },
@@ -21,12 +21,16 @@
     "reviewMode": { "const": "EXACT_PROSE_IN_FULL" },
     "reviewedAt": { "type": "string", "format": "date-time" },
     "artifact": { "type": "object" },
-    "calibration": { "type": "object" },
+    "calibration": {
+      "type": "object",
+      "required": ["registrySha256", "reviewerPrincipalId", "reviewedAt", "negatives", "positive"]
+    },
     "reverseBrief": { "type": "object" },
     "outcomes": { "type": "object" },
     "failureFamilies": { "type": "object" },
     "factualReview": { "type": "object" },
     "ratchet": { "type": "object" },
+    "learningDisposition": { "type": "object" },
     "verdict": { "enum": ["PASS", "HOLD", "REJECT"] },
     "limitations": { "type": "array" }
   }

@@ -18,16 +18,18 @@ try {
   const candidatePath = "content/candidate.md";
   const manifestPath = "content/manifest.json";
   const sourcePath = "evidence/source.md";
+  const observationPath = "evidence/reader-observation.md";
   write(badPath, "This glossary repeats labels. A random Cher reference decorates it. No connected mechanism or useful decision appears.\n");
   write(goodPath, "Start with her real work problem. Follow the request through context and evidence. The result is a useful decision she can try elsewhere.\n");
   const candidateBody = "Your manager asks whether the policy allows a promise. The product places your request and the current policy into context. The model drafts an answer, but the policy remains the evidence. Check the promised date against the policy before sending. Think of Elle Woods bringing the correct case file: the file supports the claim; the confidence does not. This works for a travel rule too: supply the current rule, then verify the consequential detail. The point feels practical, specific and a little fun—not like homework.\n";
   write(candidatePath, candidateBody);
-  write(manifestPath, '{"candidate":"fixture"}\n');
-  write(sourcePath, "Current authoritative policy source.\n");
+  write(manifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "fixture", surface: "LIBRAIRY", contentClass: "EXPLANATION", reviewText: bind(candidatePath) }));
+  write(sourcePath, "Current authoritative policy source states that the policy is the evidence for the promise.\n");
+  write(observationPath, "The reader explained that context supplies material, the policy supports the claim and a human checks the consequential detail.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
-  write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
+  const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
-    negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), failureFamilies: negativeFamilies }],
+    negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
     positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION"] }]
   }));
 
@@ -35,21 +37,23 @@ try {
   const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
   const outcomes = Object.fromEntries(required.map(name => [name, {
     verdict: "PASS", observation: `${name} is demonstrated in the exact prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }],
-    ...(["explainBack", "unseenTransfer"].includes(name) ? { readerEvidence: { prompt: `Test ${name}.`, observedResponse: "The reader explained the mechanism in another case.", expectedEvidence: "Names context, evidence and human check." } } : {})
+    ...(["explainBack", "unseenTransfer"].includes(name) ? { readerEvidence: { prompt: `Test ${name}.`, observedResponse: "The reader explained the mechanism in another case.", expectedEvidence: "Names context, evidence and human check.", observationBinding: bind(observationPath) } } : {})
   }]));
   const receipt = {
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: "fixture", stage: "INDEPENDENT_SEMANTIC_ADMISSION", contentClass: "EXPLANATION", surface: "LIBRAIRY",
-    maker: "maker", reviewer: { id: "independent-reader", role: "learning and prose reviewer" }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: "2026-08-07T07:00:00-07:00",
+    maker: "maker", reviewer: { id: "independent-reader", principalId: "independent-reader-principal", role: "learning and prose reviewer", independentFromMaker: true, artifactFirst: true }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: "2026-08-07T07:00:00-07:00",
     artifact: { reviewText: bind(candidatePath), manifest: bind(manifestPath) },
     calibration: {
-      negative: { exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "This glossary repeats labels.", locator: "bad.txt:1" }] },
+      registrySha256: hash(registry), reviewerPrincipalId: "independent-reader-principal", reviewedAt: "2026-08-07T06:59:00-07:00",
+      negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "This glossary repeats labels.", locator: "bad.txt:1" }] }],
       positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["real problem", "connected mechanism"], evidence: [{ excerpt: "Start with her real work problem.", locator: "good.txt:1" }] }
     },
     reverseBrief: { humanQuestion: "Can I make this promise?", promisedPayoff: "Diagnose and check the answer.", centralMentalModel: "Context and model create a draft; evidence supports the decision.", dailyLifeConnection: "A manager handover.", surfaceJob: "Durable explanation.", desiredReaderFeeling: "Oh, I get it now." },
     outcomes,
     failureFamilies: Object.fromEntries(FAILURE_FAMILIES.map(name => [name, { present: false, observation: `${name} is absent after exact-prose review.`, artifactLocator: "candidate.md:1" }])),
-    factualReview: { disposition: "CLAIMS_REVIEWED", sourceBindings: [bind(sourcePath)], reviewedThrough: "2026-08-07", nextTrigger: "source changes", correctionOwner: "fixture-owner" },
+    factualReview: { disposition: "CLAIMS_REVIEWED", sourceBindings: [bind(sourcePath)], claimMap: [{ claimId: "fixture-policy-evidence", status: "VERIFIED", candidateEvidence: [{ excerpt: "the policy remains the evidence", locator: "candidate.md:1" }], sourceBinding: bind(sourcePath), sourceEvidence: [{ excerpt: "policy is the evidence for the promise", locator: "source.md:1" }], scopeAndFreshness: "Synthetic fixture; recheck when source changes." }], reviewedThrough: "2026-08-07", nextTrigger: "source changes", correctionOwner: "fixture-owner" },
     ratchet: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0, reviewIssues: 0, reviewCycles: 1, priorComparable: { reviewIssues: 1, reviewCycles: 2 }, onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" },
+    learningDisposition: { disposition: "NO_NEW_DEFECT", rationale: "Synthetic valid fixture introduces no new reusable defect." },
     verdict: "PASS", limitations: ["Synthetic calibration only."]
   };
   const inspect = value => inspectProseQualityReview(value, { root }).errors;
@@ -60,17 +64,31 @@ try {
   assert.match(inspect(missing).join("\n"), /unseenTransfer is missing/);
   const defect = structuredClone(receipt); defect.failureFamilies.decorativeAnalogy.present = true;
   assert.match(inspect(defect).join("\n"), /decorativeAnalogy is present/);
-  const self = structuredClone(receipt); self.reviewer.id = self.maker;
+  const self = structuredClone(receipt); self.reviewer.principalId = self.maker;
   assert.match(inspect(self).join("\n"), /cannot be maker self-review/);
-  const uncalibrated = structuredClone(receipt); uncalibrated.calibration.negative.verdict = "PASS";
+  const uncalibrated = structuredClone(receipt); uncalibrated.calibration.negatives[0].verdict = "PASS";
   assert.match(inspect(uncalibrated).join("\n"), /must be rejected/);
   const repeated = structuredClone(receipt); repeated.ratchet.repeatedKnownDefects = 1;
   assert.match(inspect(repeated).join("\n"), /repeated known defect/);
   const knownBadPass = structuredClone(receipt); knownBadPass.artifact.reviewText = bind(badPath);
   assert.match(inspect(knownBadPass).join("\n"), /exact known-bad prose|does not occur/);
-  const held = structuredClone(receipt); held.verdict = "HOLD"; held.outcomes.unseenTransfer.verdict = "HOLD";
+  const held = structuredClone(receipt); held.verdict = "HOLD"; held.outcomes.unseenTransfer.verdict = "HOLD"; held.learningDisposition = { disposition: "EVIDENCE_GAP", rationale: "Observed transfer evidence remains incomplete." };
   assert.deepEqual(inspect(held), [], "truthful HOLD must preserve incomplete learning");
-  console.log("PROSE QUALITY CALIBRATION PASS valid=1 hold=1 rejected=7 exact_known_bad=1");
+  const wrongManifest = structuredClone(receipt); wrongManifest.artifact.reviewText = bind(goodPath);
+  assert.match(inspect(wrongManifest).join("\n"), /manifest is not bound to the reviewed prose/);
+  const staleRegistry = structuredClone(receipt); staleRegistry.calibration.registrySha256 = "0".repeat(64);
+  assert.match(inspect(staleRegistry).join("\n"), /registrySha256 is stale/);
+  const fakeObservation = structuredClone(receipt); fakeObservation.outcomes.explainBack.readerEvidence.observationBinding = { path: "evidence/missing.md", sha256: "0".repeat(64) };
+  assert.match(inspect(fakeObservation).join("\n"), /file missing/);
+  const wrongCalibrationReviewer = structuredClone(receipt); wrongCalibrationReviewer.calibration.reviewerPrincipalId = "someone-else";
+  assert.match(inspect(wrongCalibrationReviewer).join("\n"), /calibration reviewer does not match/);
+  const unrelatedSource = structuredClone(receipt); unrelatedSource.factualReview.claimMap[0].sourceEvidence[0].excerpt = "words absent from source";
+  assert.match(inspect(unrelatedSource).join("\n"), /does not occur/);
+  const flatRatchet = structuredClone(receipt); flatRatchet.ratchet.reviewIssues = flatRatchet.ratchet.priorComparable.reviewIssues;
+  assert.match(inspect(flatRatchet).join("\n"), /review issues did not decrease/);
+  const silentReject = structuredClone(held); delete silentReject.learningDisposition;
+  assert.match(inspect(silentReject).join("\n"), /learningDisposition is required/);
+  console.log("PROSE QUALITY CALIBRATION PASS valid=1 hold=1 rejected=14 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 learning_disposition=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

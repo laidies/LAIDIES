@@ -19,7 +19,10 @@
     "readerContract": { "type": "object" },
     "canonicalTruth": { "type": "array", "minItems": 1 },
     "positiveExemplars": { "type": "array", "minItems": 1 },
-    "knownFailurePreflight": { "type": "object" },
+    "knownFailurePreflight": {
+      "type": "object",
+      "required": ["registryVersion", "registrySha256", "negativeExemplarIds", "dispositions", "knownDefectsRemaining"]
+    },
     "draftArchitecture": { "type": "object" },
     "representativeProofPlan": { "type": "object" },
     "ratchet": { "type": "object" },

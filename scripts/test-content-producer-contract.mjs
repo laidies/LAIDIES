@@ -62,7 +62,14 @@ try {
   assert.match(inspect(badAnalogy).join("\n"), /analogyPlan\[0\]\.mapping/);
   const remaining = structuredClone(contract); remaining.knownFailurePreflight.knownDefectsRemaining = ["templateRepetition"];
   assert.match(inspect(remaining).join("\n"), /known defects remain/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=5");
+  const staleRegistry = structuredClone(contract); staleRegistry.knownFailurePreflight.registrySha256 = "0".repeat(64);
+  assert.match(inspect(staleRegistry).join("\n"), /registrySha256 is stale/);
+  const laterRegistry = JSON.parse(fs.readFileSync(registry, "utf8"));
+  laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesTo: ["EXPLANATION"], path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
+  fs.writeFileSync(registry, JSON.stringify(laterRegistry));
+  const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
+  assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=7 all_negatives=1 stale_registry=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

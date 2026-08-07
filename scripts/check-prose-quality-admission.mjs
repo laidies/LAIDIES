@@ -147,16 +147,52 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   if (receipt?.factualReview?.disposition === "CLAIMS_REVIEWED") {
     require(Array.isArray(receipt.factualReview.sourceBindings) && receipt.factualReview.sourceBindings.length > 0, "factual claims require bound sources");
     for (const [index, binding] of (receipt.factualReview.sourceBindings || []).entries()) loadBinding(root, binding, `factualReview.sourceBindings[${index}]`, errors);
-  } else require(text(receipt?.factualReview?.rationale), "NO_MATERIAL_CLAIMS requires a rationale");
+    require(Array.isArray(receipt.factualReview.claimMap) && receipt.factualReview.claimMap.length > 0, "factual claims require a claim-to-source map");
+    for (const [index, claim] of (receipt.factualReview.claimMap || []).entries()) {
+      require(text(claim?.claimId), `factualReview.claimMap[${index}].claimId is required`);
+      require(["VERIFIED", "QUALIFIED"].includes(claim?.status), `factualReview.claimMap[${index}].status is invalid`);
+      evidenceAppears(artifactBody, claim?.candidateEvidence, `factualReview.claimMap[${index}].candidateEvidence`, errors);
+      const sourceBody = loadBinding(root, claim?.sourceBinding, `factualReview.claimMap[${index}].sourceBinding`, errors);
+      const sourceRegistered = (receipt.factualReview.sourceBindings || []).some(binding => binding.path === claim?.sourceBinding?.path && binding.sha256 === claim?.sourceBinding?.sha256);
+      require(sourceRegistered, `factualReview.claimMap[${index}] source is not in sourceBindings`);
+      evidenceAppears(sourceBody, claim?.sourceEvidence, `factualReview.claimMap[${index}].sourceEvidence`, errors);
+      require(text(claim?.scopeAndFreshness), `factualReview.claimMap[${index}].scopeAndFreshness is required`);
+    }
+  } else {
+    require(text(receipt?.factualReview?.rationale), "NO_MATERIAL_CLAIMS requires a rationale");
+    require(text(receipt?.factualReview?.claimScan?.observation), "NO_MATERIAL_CLAIMS requires an exact-prose claim scan");
+    evidenceAppears(artifactBody, receipt?.factualReview?.claimScan?.artifactEvidence, "factualReview.claimScan.artifactEvidence", errors);
+  }
   for (const field of ["reviewedThrough", "nextTrigger", "correctionOwner"]) require(text(receipt?.factualReview?.[field]), `factualReview.${field} is required`);
 
   require(receipt?.ratchet?.repeatedKnownDefects === 0 || receipt?.verdict !== "PASS", "PASS forbidden with a repeated known defect");
   require(receipt?.ratchet?.objectiveDefectsFirstFoundAtReview === 0 || receipt?.verdict !== "PASS", "PASS forbidden with an objective defect first found at review");
   if (receipt?.ratchet?.priorComparable) {
-    require(receipt.ratchet.reviewIssues <= receipt.ratchet.priorComparable.reviewIssues, "review issues did not improve or hold against the comparable candidate");
-    require(receipt.ratchet.reviewCycles <= receipt.ratchet.priorComparable.reviewCycles, "review cycles did not improve or hold against the comparable candidate");
+    require(receipt.ratchet.reviewIssues < receipt.ratchet.priorComparable.reviewIssues, "review issues did not decrease against the comparable candidate");
+    require(receipt.ratchet.reviewCycles < receipt.ratchet.priorComparable.reviewCycles, "review cycles did not decrease against the comparable candidate");
   }
   require(receipt?.ratchet?.onKnownDefect === "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW", "known defects must repair the producer before another review");
+
+  const learning = receipt?.learningDisposition;
+  require(["NO_NEW_DEFECT", "REUSABLE_DEFECT_RECORDED", "CANDIDATE_REPAIR_ONLY", "EVIDENCE_GAP"].includes(learning?.disposition), "learningDisposition is required");
+  require(text(learning?.rationale), "learningDisposition.rationale is required");
+  if (receipt?.verdict === "PASS") require(learning?.disposition === "NO_NEW_DEFECT", "PASS must record NO_NEW_DEFECT");
+  if (["HOLD", "REJECT"].includes(receipt?.verdict)) require(learning?.disposition !== "NO_NEW_DEFECT", "HOLD/REJECT must disposition the learning gap");
+  if (learning?.disposition === "REUSABLE_DEFECT_RECORDED") {
+    const recordBody = loadBinding(root, learning.recordBinding, "learningDisposition.recordBinding", errors);
+    if (recordBody) {
+      try {
+        const record = JSON.parse(recordBody);
+        require(record.schemaVersion === "laidies-content-quality-learning-record.v1", "learning record schemaVersion mismatch");
+        require(record.candidateId === receipt.candidateId, "learning record candidateId mismatch");
+        require(record.artifactSha256 === receipt.artifact?.reviewText?.sha256, "learning record artifact mismatch");
+        require(record.status === "PENDING_OWNER_ADMISSION", "new reusable learning must await owner admission");
+        require(Array.isArray(record.failureFamilies) && record.failureFamilies.length > 0, "learning record requires failure families");
+      } catch (error) {
+        if (error instanceof SyntaxError) errors.push(`learning record invalid JSON: ${error.message}`);
+      }
+    }
+  }
 
   if (artifactBody && [...negativeRegistry.values()].some(negative => sha256(Buffer.from(artifactBody)) === negative.sha256) && receipt?.verdict === "PASS") errors.push("exact known-bad prose cannot receive PASS");
   return { errors, verdict: receipt?.verdict || null, qualityAuthority: receipt?.stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? "INDEPENDENT_REVIEW" : "NONE" };
