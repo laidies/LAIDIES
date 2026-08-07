@@ -102,6 +102,7 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
     if (producerContract) {
       const result = inspectContentProducerContract(producerContract, { root });
       if (producerContract.candidateId !== order.id) reasons.push("producerContract:CANDIDATE_MISMATCH");
+      if (producerContract.surface !== order.surface) reasons.push("producerContract:SURFACE_MISMATCH");
       if (producerContract.status !== "READY_TO_DRAFT") reasons.push(`producerContract:${producerContract.status || "NO_STATUS"}`);
       if (result.errors.length) reasons.push(`producerContract:INVALID(${result.errors.join("|")})`);
     }
@@ -118,6 +119,20 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
       if (semanticAdmission.candidateId !== order.id) reasons.push("semanticAdmission:CANDIDATE_MISMATCH");
       if (semanticAdmission.stage !== "INDEPENDENT_SEMANTIC_ADMISSION" || semanticAdmission.verdict !== "PASS") reasons.push("semanticAdmission:NOT_PASS");
       if (result.errors.length) reasons.push(`semanticAdmission:INVALID(${result.errors.join("|")})`);
+    }
+    if (producerReview && semanticAdmission) {
+      if (producerReview.surface !== semanticAdmission.surface || producerReview.contentClass !== semanticAdmission.contentClass) reasons.push("semanticAdmission:CONTENT_IDENTITY_MISMATCH");
+      if (producerReview.artifact?.reviewText?.path !== semanticAdmission.artifact?.reviewText?.path || producerReview.artifact?.reviewText?.sha256 !== semanticAdmission.artifact?.reviewText?.sha256) reasons.push("semanticAdmission:PRODUCER_REVIEW_TEXT_MISMATCH");
+      if (producerReview.artifact?.manifest?.path !== semanticAdmission.artifact?.manifest?.path || producerReview.artifact?.manifest?.sha256 !== semanticAdmission.artifact?.manifest?.sha256) reasons.push("semanticAdmission:PRODUCER_MANIFEST_MISMATCH");
+    }
+    if (order.successorOf) {
+      for (const [label, review] of [["producerReview", producerReview], ["semanticAdmission", semanticAdmission]]) {
+        if (review && (review.lineage?.kind !== "SUCCESSOR" || review.lineage?.predecessorCandidateId !== order.successorOf)) reasons.push(`${label}:SUCCESSOR_LINEAGE_MISMATCH`);
+      }
+    }
+    for (const [label, review] of [["producerReview", producerReview], ["semanticAdmission", semanticAdmission]]) {
+      if (!review) continue;
+      if (review.artifact?.manifest?.path !== order.artifactBinding?.manifestPath || review.artifact?.manifest?.sha256 !== order.artifactBinding?.sha256) reasons.push(`${label}:RELEASE_ARTIFACT_MISMATCH`);
     }
     for (const gateName of REQUIRED_GATES) {
       const gate = order.qualityGates?.[gateName];
@@ -202,6 +217,7 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
 const direct = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (direct) {
   const requireReadyIndex = process.argv.indexOf("--require-ready");
+  const requireIdIndex = process.argv.indexOf("--require-id");
   let requireReady = null;
   if (requireReadyIndex !== -1) {
     const rawMinimum = process.argv[requireReadyIndex + 1];
@@ -226,6 +242,20 @@ if (direct) {
       for (const item of result.held) console.error(`hold=${item.id}|${item.reasons.join(";")}`);
     }
     process.exit(1);
+  }
+  if (requireIdIndex !== -1) {
+    const requiredId = process.argv[requireIdIndex + 1];
+    if (!requiredId) {
+      console.error("CONTENT RELEASE READINESS USAGE FAIL\n- --require-id needs a work-order ID");
+      process.exit(2);
+    }
+    if (!result.ready.includes(requiredId)) {
+      console.error("CONTENT RELEASE READINESS FAIL");
+      console.error(`- required work order is not release-ready: ${requiredId}`);
+      const held = result.held.find(item => item.id === requiredId);
+      if (held) console.error(`hold=${held.id}|${held.reasons.join(";")}`);
+      process.exit(1);
+    }
   }
 
   console.log(result.ready.length === 0

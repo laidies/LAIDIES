@@ -16,7 +16,7 @@ const REQUIRED_BY_CLASS = {
   EXPLANATION: [...CORE, ...TEACHING],
   REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "usefulAction", "analogyIntegrity"],
   FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "usefulAction", "analogyIntegrity"],
-  NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "usefulAction", "analogyIntegrity"],
+  NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
   PRACTICE: [...CORE, "retrievalOrPractice", "practiceFeedback", "unseenTransfer", "recoveryRoute"],
   INTERACTIVE: [...CORE, "dailyLifeConnection", "usefulAction", "practiceFeedback", "honestLimits"],
   PROMOTIONAL: [...CORE, "truthfulPromise", "clearAction"],
@@ -167,6 +167,13 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   require(receipt?.ratchet?.repeatedKnownDefects === 0 || receipt?.verdict !== "PASS", "PASS forbidden with a repeated known defect");
   require(receipt?.ratchet?.objectiveDefectsFirstFoundAtReview === 0 || receipt?.verdict !== "PASS", "PASS forbidden with an objective defect first found at review");
+  require(["FIRST", "SUCCESSOR"].includes(receipt?.lineage?.kind), "lineage.kind is required");
+  if (receipt?.lineage?.kind === "SUCCESSOR") {
+    require(text(receipt?.lineage?.predecessorCandidateId), "successor lineage requires predecessorCandidateId");
+    require(Boolean(receipt?.ratchet?.priorComparable), "successor must bind a prior comparable candidate");
+  } else {
+    require(text(receipt?.lineage?.noComparableReason), "first candidate requires a noComparableReason");
+  }
   if (receipt?.ratchet?.priorComparable) {
     require(receipt.ratchet.reviewIssues < receipt.ratchet.priorComparable.reviewIssues, "review issues did not decrease against the comparable candidate");
     require(receipt.ratchet.reviewCycles < receipt.ratchet.priorComparable.reviewCycles, "review cycles did not decrease against the comparable candidate");

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/content-artifact-manifest.schema.json",
+  "title": "LAiDIES content artifact identity manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "candidateId", "surface", "contentClass", "reviewText"],
+  "properties": {
+    "schemaVersion": { "const": "laidies-content-artifact-manifest.v1" },
+    "candidateId": { "type": "string", "minLength": 1 },
+    "surface": { "type": "string", "minLength": 1 },
+    "contentClass": { "type": "string", "minLength": 1 },
+    "reviewText": { "$ref": "#/$defs/binding" },
+    "rendered": { "$ref": "#/$defs/binding" }
+  },
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    }
+  }
+}

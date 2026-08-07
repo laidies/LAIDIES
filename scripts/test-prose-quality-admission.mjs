@@ -30,7 +30,7 @@ try {
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
-    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION"] }]
+    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION", "NEWS"] }]
   }));
 
   const excerpt = candidateBody.slice(0, 80);
@@ -53,6 +53,7 @@ try {
     failureFamilies: Object.fromEntries(FAILURE_FAMILIES.map(name => [name, { present: false, observation: `${name} is absent after exact-prose review.`, artifactLocator: "candidate.md:1" }])),
     factualReview: { disposition: "CLAIMS_REVIEWED", sourceBindings: [bind(sourcePath)], claimMap: [{ claimId: "fixture-policy-evidence", status: "VERIFIED", candidateEvidence: [{ excerpt: "the policy remains the evidence", locator: "candidate.md:1" }], sourceBinding: bind(sourcePath), sourceEvidence: [{ excerpt: "policy is the evidence for the promise", locator: "source.md:1" }], scopeAndFreshness: "Synthetic fixture; recheck when source changes." }], reviewedThrough: "2026-08-07", nextTrigger: "source changes", correctionOwner: "fixture-owner" },
     ratchet: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0, reviewIssues: 0, reviewCycles: 1, priorComparable: { reviewIssues: 1, reviewCycles: 2 }, onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" },
+    lineage: { kind: "SUCCESSOR", predecessorCandidateId: "fixture-prior" },
     learningDisposition: { disposition: "NO_NEW_DEFECT", rationale: "Synthetic valid fixture introduces no new reusable defect." },
     verdict: "PASS", limitations: ["Synthetic calibration only."]
   };
@@ -86,9 +87,24 @@ try {
   assert.match(inspect(unrelatedSource).join("\n"), /does not occur/);
   const flatRatchet = structuredClone(receipt); flatRatchet.ratchet.reviewIssues = flatRatchet.ratchet.priorComparable.reviewIssues;
   assert.match(inspect(flatRatchet).join("\n"), /review issues did not decrease/);
+  const missingLineage = structuredClone(receipt); delete missingLineage.lineage;
+  assert.match(inspect(missingLineage).join("\n"), /lineage.kind is required/);
+  const unboundSuccessor = structuredClone(receipt); delete unboundSuccessor.lineage.predecessorCandidateId;
+  assert.match(inspect(unboundSuccessor).join("\n"), /successor lineage requires predecessorCandidateId/);
   const silentReject = structuredClone(held); delete silentReject.learningDisposition;
   assert.match(inspect(silentReject).join("\n"), /learningDisposition is required/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=1 hold=1 rejected=14 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 learning_disposition=1");
+  const missingComparable = structuredClone(receipt); delete missingComparable.ratchet.priorComparable;
+  assert.match(inspect(missingComparable).join("\n"), /successor must bind a prior comparable/);
+  const newsManifest = JSON.parse(fs.readFileSync(path.join(root, manifestPath), "utf8"));
+  newsManifest.contentClass = "NEWS";
+  fs.writeFileSync(path.join(root, manifestPath), JSON.stringify(newsManifest));
+  const news = structuredClone(receipt); news.contentClass = "NEWS"; news.artifact.manifest = bind(manifestPath);
+  news.outcomes.datedChange = structuredClone(news.outcomes.plainClarity);
+  news.outcomes.consequenceAndUncertainty = structuredClone(news.outcomes.readerValue);
+  assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
+  const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
+  assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=16 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

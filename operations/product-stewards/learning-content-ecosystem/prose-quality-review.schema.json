@@ -8,7 +8,7 @@
     "schemaVersion", "candidateId", "stage", "contentClass", "surface",
     "maker", "reviewer", "reviewMode", "reviewedAt", "artifact",
     "calibration", "reverseBrief", "outcomes", "failureFamilies",
-    "factualReview", "ratchet", "learningDisposition", "verdict", "limitations"
+    "factualReview", "ratchet", "lineage", "learningDisposition", "verdict", "limitations"
   ],
   "properties": {
     "schemaVersion": { "const": "laidies-prose-quality-review.v1" },
@@ -30,6 +30,7 @@
     "failureFamilies": { "type": "object" },
     "factualReview": { "type": "object" },
     "ratchet": { "type": "object" },
+    "lineage": { "type": "object" },
     "learningDisposition": { "type": "object" },
     "verdict": { "enum": ["PASS", "HOLD", "REJECT"] },
     "limitations": { "type": "array" }
