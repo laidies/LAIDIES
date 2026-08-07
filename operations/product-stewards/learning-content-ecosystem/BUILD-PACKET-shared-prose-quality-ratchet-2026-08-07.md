@@ -92,8 +92,8 @@ Ratchet targets:
 - `node scripts/test-content-producer-contract.mjs` — one valid contract,
   seven rejected bypasses, including stale-registry and omitted-later-failure
   cases.
-- `node scripts/test-prose-quality-admission.mjs` — two valid artifacts, one
-  hold and sixteen rejected false passes; exact known-bad,
+- `node scripts/test-prose-quality-admission.mjs` — one valid teaching
+  artifacts, one hold and sixteen rejected false passes; exact known-bad,
   manifest decoy, stale registry, unbound observation, reviewer mismatch,
   unrelated source, flat-ratchet, successor-without-comparable, explanatory
   NEWS-without-transfer and silent-rejection cases are rejected.
