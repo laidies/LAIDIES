@@ -1,120 +1,50 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.2.0",
   "bookId": "concepts-101",
-  "title": "Concepts 101",
-  "status": "ADMITTED_LOCALLY_NOT_PUBLIC",
-  "contentVersion": "concepts-101-2026-08-06.1",
-  "productJob": "A durable reference for tracing one AI request from the reader's goal through product, context, model and optional tools to an output that still needs a human check.",
-  "audience": "A reader without technical background who needs a connected mental model rather than isolated definitions.",
-  "readerQuestion": "What happens between asking an AI for something and deciding whether I can use the result?",
-  "learnerOutcome": "The reader can locate a failure in the system and choose the next safe action: improve the brief, supply a current source, reduce context, check a product capability, verify a claim or limit an action.",
-  "causalModel": {
-    "oneLine": "goal + prompt + available context -> product -> model -> optional tools -> output -> human check",
-    "beforeTask": "Training shaped the model before the reader's current request.",
-    "duringTask": "The product assembles context and may let the model use retrieval or other tools.",
-    "afterOutput": "Evidence, authority and human judgment determine whether the result can be used."
+  "displayTitle": "AI Fundamentals 101",
+  "stableIdReason": "The existing concepts-101 route is retained as a compatibility alias after the approved title change.",
+  "status": "ALI_REJECTED_INTERNAL_REPAIR_REQUIRED_NOT_ADMITTED_NOT_PUBLIC",
+  "contentVersion": "ai-fundamentals-101-2026-08-06.5",
+  "canonicalContentPath": "content/library-books/rendered/concepts-101.html",
+  "canonicalContentFormat": "complete static HTML reader fragment; no separate generated render exists",
+  "claimsPath": "content/library-books/concepts-101.claims.json",
+  "readerJob": "Understand the parts of an AI system, see how they work together, look up one unfamiliar term and match a failure to a useful repair.",
+  "causalModel": "goal -> product assembles instructions and initial context -> trained model may call retrieval or tools -> returned material updates context -> model produces output -> evidence and human decision",
+  "workedCase": "A client handover email traced from meeting note and current policy through an unsupported generated promise, verification and corrected output.",
+  "chapterOrder": [
+    "Introduction — One request, followed all the way through",
+    "Chapter 1 — Meet the parts of the system",
+    "Chapter 2 — How a model is made and run",
+    "Chapter 3 — What the system has for this task",
+    "Chapter 4 — How the system finds information and acts",
+    "Chapter 5 — Multi-step systems and agents",
+    "Chapter 6 — Why answers fail and how to check them",
+    "Chapter 7 — Labels that need careful handling",
+    "Final chapter — Diagnose the failed part"
+  ],
+  "corePath": ["product", "model", "prompt", "context", "tool", "hallucination", "verification"],
+  "conceptInventory": [
+    "concept-agent", "concept-agi", "concept-ai-system", "concept-ai-winter", "concept-api", "concept-benchmark", "concept-compute", "concept-context", "concept-context-window", "concept-embedding", "concept-evaluation", "concept-fine-tuning", "concept-generative-ai", "concept-gpu", "concept-grounding", "concept-guardrail", "concept-hallucination", "concept-harness", "concept-inference", "concept-instruction", "concept-knowledge-cutoff", "concept-llm", "concept-loop", "concept-markdown", "concept-mcp", "concept-memory", "concept-model", "concept-model-types", "concept-multimodal", "concept-observability", "concept-open-labels", "concept-parameters", "concept-permission", "concept-product", "concept-prompt", "concept-prompt-injection", "concept-provider", "concept-rag", "concept-reasoning-model", "concept-retrieval", "concept-routing", "concept-rule", "concept-sampling", "concept-sandbox", "concept-schema", "concept-session", "concept-skill", "concept-sub-agent", "concept-token", "concept-tool", "concept-training", "concept-training-data", "concept-vector-search", "concept-verification", "concept-workflow", "concept-wrapper"
+  ],
+  "requiredMovesPerConcept": ["plain meaning", "bounded analogy", "real-world example", "system relationship"],
+  "terminologyBoundaries": {
+    "agent": "Terminology varies; judge actual capability, access and action.",
+    "harness": "Used here as LAiDIES product-engineering vocabulary, not a universal standard.",
+    "skill": "Used here as LAiDIES product-engineering vocabulary, not a universal standard.",
+    "loopEngineering": "Used here as LAiDIES product-engineering shorthand, not a universal standard.",
+    "reasoningModel": "Provider label, not a universal definition or truth certificate.",
+    "AGI": "Disputed definition and tests; LAiDIES position is clearly labelled.",
+    "openLabels": "Access and rights labels, not safety or accuracy conclusions."
   },
-  "recurringWorkedCase": {
-    "job": "Draft a client handover email.",
-    "authoritativeInputs": ["reader's handover notes", "current service policy"],
-    "requiredOutcome": ["correct new contact", "preserved date", "preserved commitments", "unknowns flagged"],
-    "visibleFailures": ["invented promise", "old policy", "dropped date"]
-  },
-  "sections": [
-    {
-      "title": "The system, not one magic box",
-      "readerQuestion": "What is producing this answer?",
-      "mechanism": "Provider, product, model and tools are separate layers.",
-      "distinction": "A model is not the whole product.",
-      "action": "Name the system layer before diagnosing the failure."
-    },
-    {
-      "title": "What reaches the model for this task",
-      "readerQuestion": "What information can it use right now?",
-      "mechanism": "The product selects prompt, instructions, conversation, files, retrieved passages and possibly remembered details into bounded context.",
-      "distinction": "Training data, current context, memory and a live source are not interchangeable.",
-      "action": "Supply the current source and make the important evidence easy to find."
-    },
-    {
-      "title": "What tools add",
-      "readerQuestion": "How can it search, inspect or act?",
-      "mechanism": "A permitted tool can fetch material, calculate, run code or affect another service.",
-      "distinction": "Retrieval is not grounding; grounding is not verification; a sandbox is not a truth check.",
-      "action": "Check sources, permissions and consequences separately."
-    },
-    {
-      "title": "Where the answer can fail",
-      "readerQuestion": "Why can a polished answer still be wrong?",
-      "mechanism": "Generation produces a plausible candidate, while weak sources, missing context and unsupported details can survive into fluent output.",
-      "distinction": "One unsupported detail is enough to be a hallucination; requested creative invention is different.",
-      "action": "Match consequential claims to exact current evidence outside the answer."
-    },
-    {
-      "title": "Capability labels are not one ladder",
-      "readerQuestion": "What changes when a system reasons for longer or can take actions?",
-      "mechanism": "Additional computation and tools can expand capability and consequences without guaranteeing correctness.",
-      "distinction": "Reasoning, agentic AI and disputed AGI definitions are not one quality scale.",
-      "action": "Evaluate goal, permissions, checkpoints, logs and the stop path."
-    },
-    {
-      "title": "Put the map to work",
-      "readerQuestion": "What should I change next?",
-      "mechanism": "Different failure locations require different repairs.",
-      "distinction": "Changing tools cannot repair a missing brief; rewriting a prompt cannot add a missing product capability.",
-      "action": "Choose the repair that matches the failed layer."
-    }
-  ],
-  "quickReferenceTerms": [
-    "Agentic AI", "AGI", "AI winter", "Context", "Context window", "Generative AI", "Grounding", "Hallucination", "Knowledge cutoff", "Model / large language model (LLM)", "Multimodal", "Prompt", "Reasoning model", "Sandbox", "Retrieval", "Token", "Training data"
-  ],
-  "sources": [
-    {
-      "id": "SRC-OECD-AI-SYSTEM",
-      "publisher": "OECD.AI",
-      "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
-      "url": "https://oecd.ai/en/wonk/definition-",
-      "checkedOn": "2026-08-06",
-      "scope": "AI system, model, training and input/output distinctions.",
-      "limitation": "A policy definition does not describe every product interface or provider contract."
-    },
-    {
-      "id": "SRC-OPENAI-MODEL-DEVELOPMENT",
-      "publisher": "OpenAI",
-      "title": "How ChatGPT and our foundation models are developed",
-      "url": "https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/",
-      "checkedOn": "2026-08-06",
-      "scope": "Provider example of training, learned parameters and stepwise generation.",
-      "limitation": "OpenAI-specific account; used as an example rather than a universal model-development contract."
-    },
-    {
-      "id": "SRC-NIST-GENAI",
-      "publisher": "NIST",
-      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
-      "url": "https://doi.org/10.6028/NIST.AI.600-1",
-      "checkedOn": "2026-08-06",
-      "scope": "Confabulation or hallucination risk and its relationship to generative model design.",
-      "limitation": "Risk framework, not a promise about one product or response."
-    },
-    {
-      "id": "SRC-LIU-LONG-CONTEXT",
-      "publisher": "Transactions of the Association for Computational Linguistics",
-      "title": "Lost in the Middle: How Language Models Use Long Contexts",
-      "url": "https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf",
-      "checkedOn": "2026-08-06",
-      "scope": "Position-sensitive performance in the tested long-context tasks and models.",
-      "limitation": "Does not establish a universal percentage or current-product benchmark."
-    }
-  ],
   "freshness": {
-    "owner": "Library editorial and AI research accuracy owners",
+    "owner": "Library editorial and Learning System accuracy owners",
     "nextReview": "BEFORE_PUBLIC_RELEASE",
-    "triggers": ["source change", "product-specific claim added", "learner evidence shows confusion", "correction received"]
+    "triggers": ["source change", "provider-specific terminology changes", "definition contract changes", "learner evidence shows confusion", "correction received"]
   },
   "correctionRoute": {
-    "type": "mailto",
     "address": "hello@laidies.ai",
-    "subject": "Concepts 101 correction",
+    "subject": "AI Fundamentals 101 correction",
     "privacyBoundary": "Name the section and public source; do not send private material."
   },
-  "authorityBoundary": "This source record does not itself admit, deploy or publish the book."
+  "authorityBoundary": "Local review copy only. Independent accuracy and unfamiliar-reader passes are required before local admission. Deployment, publication and public-origin verification require separate authority."
 }

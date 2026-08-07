@@ -1,82 +1,138 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.2.0",
   "bookId": "concepts-101",
-  "contentVersion": "concepts-101-2026-08-06.1",
+  "title": "AI Fundamentals 101",
+  "contentVersion": "ai-fundamentals-101-2026-08-06.5",
   "renderedPath": "content/library-books/rendered/concepts-101.html",
-  "renderedSha256": "74f08314fb98672ce5f247eaf7db16fb6beeffa3f08f0572ed562818d92b602c",
-  "canonicalSourcePath": "content/library-books/concepts-101.source.json",
-  "ledgerStatus": "ADMITTED_LOCALLY_NOT_PUBLIC",
+  "renderedSha256": "3bf3d6bddd659af063426701541c4d19debc2a39707bde2f7435a555cc835508",
+  "architectureMetadataPath": "content/library-books/concepts-101.source.json",
+  "architectureMetadataSha256": "b6532a34b8e463ffc9f4be5f7b6bf79952afadef36bba35363dcc6da5b4502b1",
+  "ledgerStatus": "ALI_REJECTED_INTERNAL_REPAIR_REQUIRED_NOT_ADMITTED_NOT_PUBLIC",
   "reviewedOn": "2026-08-06",
-  "claims": [
+  "structuralContract": {
+    "chapterOrder": [
+      "Introduction — One request, followed all the way through",
+      "Chapter 1 — Meet the parts of the system",
+      "Chapter 2 — How a model is made and run",
+      "Chapter 3 — What the system has for this task",
+      "Chapter 4 — How the system finds information and acts",
+      "Chapter 5 — Multi-step systems and agents",
+      "Chapter 6 — Why answers fail and how to check them",
+      "Chapter 7 — Labels that need careful handling",
+      "Final chapter — Diagnose the failed part"
+    ],
+    "conceptCount": 56,
+    "requiredMovesPerConcept": ["plain meaning", "bounded analogy", "real-world example", "system relationship"],
+    "indexRule": "Every indexed term points to one unique concept teaching unit.",
+    "analogyRule": "Every analogy is adjacent to an explicit limit.",
+    "workedCase": "A client handover email from meeting notes and the current service policy.",
+    "releaseBoundary": "Independent accuracy and unfamiliar-reader review are required before local admission; deployment and publication require separate authority."
+  },
+  "conceptEvidenceGroups": [
     {
-      "id": "C101-C001",
-      "class": "durable",
-      "renderedLocator": "The system, not one magic box",
-      "publicWording": "A model is one component inside a wider product and AI system.",
-      "requiredRenderedPhrases": ["The model is not the whole product", "provider", "product", "model", "tools"],
+      "conceptIds": ["concept-ai-system", "concept-provider", "concept-product", "concept-model", "concept-model-types", "concept-llm", "concept-generative-ai", "concept-multimodal", "concept-tool"],
+      "sourceIds": ["SRC-OECD-AI-SYSTEM", "SRC-GOOGLE-ML-GLOSSARY", "SRC-NIST-GENAI"],
+      "boundary": "Formal system and glossary sources support the core distinctions; the surrounding product map and examples are explicitly LAiDIES synthesis."
+    },
+    {
+      "conceptIds": ["concept-training-data", "concept-training", "concept-parameters", "concept-token", "concept-inference", "concept-compute", "concept-gpu", "concept-fine-tuning", "concept-sampling"],
+      "sourceIds": ["SRC-GOOGLE-ML-GLOSSARY", "SRC-NVIDIA-GPU"],
+      "boundary": "Architectures, tokenizers, training methods and sampling controls vary by model and product; hardware claims are bounded to the cited general mechanism."
+    },
+    {
+      "conceptIds": ["concept-prompt", "concept-instruction", "concept-context", "concept-context-window", "concept-session", "concept-memory", "concept-knowledge-cutoff"],
+      "sourceIds": ["SRC-GOOGLE-ML-GLOSSARY", "SRC-OPENAI-MEMORY"],
+      "boundary": "Prompt/context terms are durable; session, memory, context limits and cutoffs are product/model-specific and require before-release recheck."
+    },
+    {
+      "conceptIds": ["concept-retrieval", "concept-embedding", "concept-vector-search", "concept-rag", "concept-grounding", "concept-api", "concept-permission", "concept-sandbox", "concept-prompt-injection", "concept-schema", "concept-markdown"],
+      "sourceIds": ["SRC-GOOGLE-ML-GLOSSARY", "SRC-NIST-SANDBOX", "SRC-OPENAI-PROMPT-INJECTION", "SRC-JSON-SCHEMA", "SRC-COMMONMARK"],
+      "boundary": "Implementations vary. Retrieval, grounding, permission, containment and validation are intentionally separated; none alone proves truth."
+    },
+    {
+      "conceptIds": ["concept-workflow", "concept-agent", "concept-sub-agent", "concept-routing", "concept-wrapper", "concept-harness", "concept-skill", "concept-rule", "concept-mcp", "concept-loop", "concept-observability"],
+      "sourceIds": ["SRC-ANTHROPIC-AGENTS", "SRC-MCP-INTRO", "SRC-MCP-ARCHITECTURE"],
+      "boundary": "Agent terminology varies. Harness, skill and loop engineering are explicitly scoped as LAiDIES product-engineering vocabulary rather than universal standards."
+    },
+    {
+      "conceptIds": ["concept-hallucination", "concept-verification", "concept-evaluation", "concept-benchmark", "concept-guardrail"],
+      "sourceIds": ["SRC-NIST-GENAI", "SRC-GOOGLE-ML-GLOSSARY"],
+      "boundary": "Evaluation evidence applies only to defined tasks and conditions; live consequential claims still require claim-specific verification."
+    },
+    {
+      "conceptIds": ["concept-reasoning-model", "concept-agi", "concept-ai-winter", "concept-open-labels"],
+      "sourceIds": ["SRC-OPENAI-REASONING", "SRC-DEEPMIND-AGI", "SRC-STANFORD-AI-WINTER", "SRC-OSI-OSAID", "SRC-OSI-OPEN-WEIGHTS"],
+      "boundary": "Reasoning-model and AGI labels are not universal; AI-winter causation is not claimed; access labels do not establish safety or accuracy."
+    }
+  ],
+  "claimClusters": [
+    {
+      "id": "AF101-C001",
+      "chapter": "Chapter 1",
+      "claim": "The model is one trained component inside a wider product and AI system.",
       "sourceIds": ["SRC-OECD-AI-SYSTEM"],
-      "sourceLimitation": "The OECD definition supports the model/system distinction, not one product's interface."
+      "limitation": "The surrounding product map is LAiDIES instructional synthesis; implementations vary."
     },
     {
-      "id": "C101-C002",
-      "class": "durable",
-      "renderedLocator": "What training did before you arrived",
-      "publicWording": "Training adjusts model parameters from examples before the current task; attached material can become current context without becoming new training data.",
-      "requiredRenderedPhrases": ["training happened before your current request", "current context", "not automatically \u201ctraining data\u201d"],
-      "sourceIds": ["SRC-OECD-AI-SYSTEM", "SRC-OPENAI-MODEL-DEVELOPMENT"],
-      "sourceLimitation": "Training corpora and stages differ by provider and model."
+      "id": "AF101-C002",
+      "chapter": "Chapter 2",
+      "claim": "Training adjusts parameters before the current task; inference applies the trained model to new input.",
+      "sourceIds": ["SRC-GOOGLE-ML-GLOSSARY"],
+      "limitation": "Training methods and model architectures vary."
     },
     {
-      "id": "C101-C003",
-      "class": "currentness_sensitive",
-      "renderedLocator": "What reaches the model for this task",
-      "publicWording": "Context is bounded working material; memory, product instructions and retrieval behaviour depend on the exact product and settings.",
-      "requiredRenderedPhrases": ["bounded working input", "Memory is a product feature", "depend on the product, account and settings"],
-      "sourceIds": ["SRC-ANTHROPIC-CONTEXT", "SRC-OPENAI-MEMORY"],
-      "sourceLimitation": "The linked sources describe provider-specific current behaviour and must be rechecked before release.",
-      "freshnessTrigger": "Before public release and whenever product context or memory documentation changes."
+      "id": "AF101-C003",
+      "chapter": "Chapter 3",
+      "claim": "Current context, session state, product memory and training-time knowledge are distinct.",
+      "sourceIds": ["SRC-GOOGLE-ML-GLOSSARY"],
+      "limitation": "Session and memory behaviour are product-specific and must be rechecked before release."
     },
     {
-      "id": "C101-C004",
-      "class": "durable",
-      "renderedLocator": "Where the answer can fail",
-      "publicWording": "A hallucination can be one false or unsupported detail in an otherwise useful AI-generated answer.",
-      "requiredRenderedPhrases": ["false or unsupported content", "one invented date, quote, person, source or commitment"],
+      "id": "AF101-C004",
+      "chapter": "Chapter 4",
+      "claim": "Retrieval, grounding, permissions and containment solve different problems.",
+      "sourceIds": ["SRC-GOOGLE-ML-GLOSSARY", "SRC-NIST-SANDBOX"],
+      "limitation": "Implementations and product terminology vary."
+    },
+    {
+      "id": "AF101-C005",
+      "chapter": "Chapter 5",
+      "claim": "Agents and harnesses surround models with tools, state, routing and controls; MCP standardizes a connection, not trust or permission.",
+      "sourceIds": ["SRC-ANTHROPIC-AGENTS", "SRC-MCP-INTRO", "SRC-MCP-ARCHITECTURE"],
+      "limitation": "Agent terminology is not standardized across the field."
+    },
+    {
+      "id": "AF101-C006",
+      "chapter": "Chapter 6",
+      "claim": "Plausible generation is not evidence; consequential claims require verification outside the generated answer.",
       "sourceIds": ["SRC-NIST-GENAI"],
-      "sourceLimitation": "NIST uses the formal term confabulation; hallucination is the colloquial term used in the book."
+      "limitation": "Verification methods depend on the claim and consequence."
     },
     {
-      "id": "C101-C005",
-      "class": "durable",
-      "renderedLocator": "Long context can hide the important part",
-      "publicWording": "Long-context performance can depend on where relevant information appears in the tested models and tasks.",
-      "requiredRenderedPhrases": ["multi-document question answering and key-value retrieval", "not a universal law or a current-product benchmark"],
-      "sourceIds": ["SRC-LIU-LONG-CONTEXT"],
-      "sourceLimitation": "The study covers its tested models, tasks and configurations only."
-    },
-    {
-      "id": "C101-C006",
-      "class": "durable",
-      "renderedLocator": "Put the map to work",
-      "publicWording": "A useful repair must match the failed system layer.",
-      "requiredRenderedPhrases": ["Wrong job or shape?", "Missing or stale information?", "Unsupported claim?", "Risky action?"],
-      "sourceIds": [],
-      "sourceLimitation": "LAiDIES instructional synthesis derived from the book's connected model."
+      "id": "AF101-C007",
+      "chapter": "Chapter 7",
+      "claim": "AGI and access labels require their exact definition, test and terms rather than assumptions from the label.",
+      "sourceIds": ["SRC-DEEPMIND-AGI", "SRC-OSI-OSAID", "SRC-OSI-OPEN-WEIGHTS"],
+      "limitation": "AGI definitions remain disputed; access terms must be checked for each system."
     }
   ],
   "sources": [
-    {"id":"SRC-OECD-AI-SYSTEM","title":"What is AI? Can you make a clear distinction between AI and non-AI systems?","publisher":"OECD.AI","url":"https://oecd.ai/en/wonk/definition-","primary":true,"accessed":"2026-08-06"},
-    {"id":"SRC-OPENAI-MODEL-DEVELOPMENT","title":"How ChatGPT and our foundation models are developed","publisher":"OpenAI","url":"https://openai.com/policies/how-chatgpt-and-our-foundation-models-are-developed/","primary":true,"accessed":"2026-08-06"},
-    {"id":"SRC-ANTHROPIC-CONTEXT","title":"Context windows","publisher":"Anthropic","url":"https://platform.claude.com/docs/en/build-with-claude/context-windows","primary":true,"accessed":"2026-08-06"},
-    {"id":"SRC-OPENAI-MEMORY","title":"Memory FAQ","publisher":"OpenAI","url":"https://help.openai.com/en/articles/8590148-memory-faq","primary":true,"accessed":"2026-08-06"},
-    {"id":"SRC-NIST-GENAI","title":"Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile","publisher":"NIST","url":"https://doi.org/10.6028/NIST.AI.600-1","primary":true,"accessed":"2026-08-06"},
-    {"id":"SRC-LIU-LONG-CONTEXT","title":"Lost in the Middle: How Language Models Use Long Contexts","publisher":"Transactions of the Association for Computational Linguistics","url":"https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.tacl2023.pdf","primary":true,"accessed":"2026-08-06"}
-  ],
-  "forbiddenRenderedPatterns": [
-    "KPMG / GPTZero incident",
-    "OpenAI and Hugging Face partner to address security incident",
-    "degrades more than 30%",
-    "The middle answer will be the weakest",
-    "one to two million tokens"
+    {"id":"SRC-OECD-AI-SYSTEM","publisher":"OECD.AI","title":"Updates to the OECD definition of an AI system","url":"https://oecd.ai/en/wonk/ai-system-definition-update/","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-GOOGLE-ML-GLOSSARY","publisher":"Google for Developers","title":"Machine Learning Glossary","url":"https://developers.google.com/machine-learning/glossary","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-NVIDIA-GPU","publisher":"NVIDIA","title":"GPU performance background","url":"https://docs.nvidia.com/deeplearning/performance/dl-performance-gpu-background/index.html","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-NIST-GENAI","publisher":"NIST","title":"Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile","url":"https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OPENAI-MEMORY","publisher":"OpenAI","title":"Memory FAQ","url":"https://help.openai.com/en/articles/8590148-memory-faq","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-ANTHROPIC-AGENTS","publisher":"Anthropic","title":"Building effective agents","url":"https://www.anthropic.com/engineering/building-effective-agents","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-MCP-INTRO","publisher":"Model Context Protocol","title":"Introduction","url":"https://modelcontextprotocol.io/docs/getting-started/intro","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-MCP-ARCHITECTURE","publisher":"Model Context Protocol","title":"Architecture overview","url":"https://modelcontextprotocol.io/docs/learn/architecture","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-NIST-SANDBOX","publisher":"NIST","title":"Sandbox glossary","url":"https://csrc.nist.gov/glossary/term/sandbox","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OPENAI-PROMPT-INJECTION","publisher":"OpenAI","title":"Prompt injections","url":"https://openai.com/safety/prompt-injections/","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-JSON-SCHEMA","publisher":"JSON Schema","title":"What is JSON Schema?","url":"https://json-schema.org/overview/what-is-jsonschema","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-COMMONMARK","publisher":"CommonMark","title":"CommonMark specification 0.31.2","url":"https://spec.commonmark.org/0.31.2/","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OPENAI-REASONING","publisher":"OpenAI","title":"What is AI?","url":"https://openai.com/academy/what-is-ai/","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-DEEPMIND-AGI","publisher":"Google DeepMind","title":"Levels of AGI for Operationalizing Progress on the Path to AGI","url":"https://deepmind.google/research/publications/66938/","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-STANFORD-AI-WINTER","publisher":"Stanford HAI","title":"AI Index Report 2023, Chapter 8","url":"https://hai.stanford.edu/assets/files/hai_ai-index-report-2023_chapter_8.pdf","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OSI-OSAID","publisher":"Open Source Initiative","title":"Open Source AI Definition 1.0","url":"https://opensource.org/ai/open-source-ai-definition","primary":true,"accessed":"2026-08-06"},
+    {"id":"SRC-OSI-OPEN-WEIGHTS","publisher":"Open Source Initiative","title":"Open Weights: not quite what you've been told","url":"https://opensource.org/ai/open-weights","primary":true,"accessed":"2026-08-06"}
   ]
 }

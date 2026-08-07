@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { assertPropagationConsumable } from "./library-correction-service.mjs";
+import { checkBookFromRepository } from "./check-library-book-content-admission.mjs";
 
 const SOURCE_PATH = /^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/;
 const ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -17,7 +18,7 @@ const ACCEPTED_CORRECTION_AUTHORITY = "LOCAL_ACCEPTED_TERMINAL_STATE_ONLY_NO_ADM
 const ACCEPTED_CORRECTION_KEYS = new Set(["schema_version", "authority", "propagations"]);
 const REJECTED_ARTIFACT_SCHEMA = "library-rejected-artifacts.v1";
 const REJECTED_ARTIFACT_AUTHORITY = "DIRECT_ALI_REJECTION_DEFAULT_DENY";
-const LEARNING_ADMISSION_SCHEMA = "library-book-learning-admission.v1";
+const LEARNING_ADMISSION_SCHEMA = "library-book-learning-admission.v2";
 const LEARNING_CRITERIA = Object.freeze([
   "governing_reader_question",
   "single_causal_mental_model",
@@ -151,7 +152,7 @@ function assertLearningAdmission(row, root, rejectedArtifacts) {
   const allowed = new Set([
     "schema_version", "artifact_sha256", "learning_intake", "architecture_evidence",
     "instructional_verdict", "unfamiliar_reader_verdict", "criteria",
-    "ali_rejection_state", "derivative_use"
+    "ali_rejection_state", "derivative_use", "canonical_source", "cold_reader_outcome"
   ]);
   if (!admission || typeof admission !== "object" || Array.isArray(admission) ||
       !exactKeys(admission, allowed) || Object.keys(admission).length !== allowed.size ||
@@ -164,6 +165,8 @@ function assertLearningAdmission(row, root, rejectedArtifacts) {
   assertEvidenceBinding(admission.architecture_evidence, `${row.book_id} architecture`, root);
   assertEvidenceBinding(admission.instructional_verdict, `${row.book_id} instructional verdict`, root);
   assertEvidenceBinding(admission.unfamiliar_reader_verdict, `${row.book_id} unfamiliar-reader verdict`, root);
+  assertEvidenceBinding(admission.canonical_source, `${row.book_id} complete canonical source`, root);
+  assertEvidenceBinding(admission.cold_reader_outcome, `${row.book_id} observed cold-reader outcome`, root);
   if (!admission.criteria || typeof admission.criteria !== "object" || Array.isArray(admission.criteria) ||
       !exactKeys(admission.criteria, new Set(LEARNING_CRITERIA)) ||
       Object.keys(admission.criteria).length !== LEARNING_CRITERIA.length ||
@@ -298,6 +301,10 @@ export function compileAdmissionManifest(manifest, {
     }
     if (boundHold) {
       continue;
+    }
+    const contentAdmissionErrors = checkBookFromRepository(id, { root });
+    if (contentAdmissionErrors.length) {
+      throw new Error(`${id}: shared substantial-book admission failed: ${contentAdmissionErrors.join("; ")}`);
     }
     records[id] = {
       sourcePath: row.source_path,

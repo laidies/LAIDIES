@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/library-book-cold-reader-review.schema.json",
+  "title": "LAiDIES substantial-book cold-reader outcome receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "artifactSha256", "reviewMode", "reviewer", "reviewedAt",
+    "makerReceiptsOpenedAfterColdRead", "reverseBrief", "readerTasks",
+    "nonCompensableVetoes", "participantEvidencePaths", "verdict", "limitations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "library-book-cold-reader-review.v1" },
+    "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "reviewMode": { "const": "ARTIFACT_FIRST_COLD" },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewedAt": { "type": "string", "format": "date-time" },
+    "makerReceiptsOpenedAfterColdRead": { "const": true },
+    "reverseBrief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["readerJob", "centralMentalModel", "practicalPayoff", "readingMode"],
+      "properties": {
+        "readerJob": { "type": "string", "minLength": 1 },
+        "centralMentalModel": { "type": "string", "minLength": 1 },
+        "practicalPayoff": { "type": "string", "minLength": 1 },
+        "readingMode": { "type": "string", "minLength": 1 }
+      }
+    },
+    "readerTasks": {
+      "type": "array",
+      "minItems": 4,
+      "contains": { "type": "object", "properties": { "kind": { "const": "UNSEEN_TRANSFER" } } },
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "prompt", "observedResponse", "expectedEvidence", "verdict", "artifactLocator"],
+        "properties": {
+          "kind": { "enum": ["ORIENTATION", "LOOKUP", "EXPLAIN_BACK", "UNSEEN_TRANSFER", "ANALOGY_STRIP_TEST", "ROUTE_RECOVERY"] },
+          "prompt": { "type": "string", "minLength": 1 },
+          "observedResponse": { "type": "string", "minLength": 1 },
+          "expectedEvidence": { "type": "string", "minLength": 1 },
+          "verdict": { "enum": ["PASS", "HOLD"] },
+          "artifactLocator": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "nonCompensableVetoes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "openingOrientation", "promiseFidelity", "connectedProgression", "lookupAndRecovery",
+        "unseenTransfer", "analogyIntegrity", "audienceExamples", "misconceptionResistance",
+        "materialAccuracy", "continuousRenderedReadability", "laidiesVoice"
+      ],
+      "properties": {
+        "openingOrientation": { "const": "PASS" },
+        "promiseFidelity": { "const": "PASS" },
+        "connectedProgression": { "const": "PASS" },
+        "lookupAndRecovery": { "const": "PASS" },
+        "unseenTransfer": { "const": "PASS" },
+        "analogyIntegrity": { "const": "PASS" },
+        "audienceExamples": { "const": "PASS" },
+        "misconceptionResistance": { "const": "PASS" },
+        "materialAccuracy": { "const": "PASS" },
+        "continuousRenderedReadability": { "const": "PASS" },
+        "laidiesVoice": { "const": "PASS" }
+      }
+    },
+    "participantEvidencePaths": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "verdict": { "const": "ADMISSION_CANDIDATE" },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  }
+}

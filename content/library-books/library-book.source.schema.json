@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/library-book.source.schema.json",
+  "title": "LAiDIES complete renderable Library book source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "bookId", "contentVersion", "displayTitle", "readerJob",
+    "lede", "intro", "chapters", "sourceReferences", "correctionRoute", "freshness"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "library-book-source.v1" },
+    "bookId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "contentVersion": { "type": "string", "minLength": 1 },
+    "displayTitle": { "type": "string", "minLength": 1 },
+    "eyebrow": { "type": "string" },
+    "readerJob": { "type": "string", "minLength": 20 },
+    "lede": { "type": "string", "minLength": 20 },
+    "intro": { "$ref": "#/$defs/section" },
+    "chapters": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/section" }
+    },
+    "sourceReferences": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "correctionRoute": { "type": "string", "minLength": 1 },
+    "freshness": {
+      "type": "object",
+      "required": ["reviewedThrough", "nextTrigger", "owner"],
+      "properties": {
+        "reviewedThrough": { "type": "string" },
+        "nextTrigger": { "type": "string", "minLength": 1 },
+        "owner": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "navLabel", "bodyHtml"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "navLabel": { "type": "string", "minLength": 1 },
+        "bodyHtml": { "type": "string", "minLength": 40 }
+      }
+    }
+  }
+}
