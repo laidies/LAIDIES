@@ -1048,3 +1048,11 @@ foreground work. Codex may open a bounded lane when the idea is independent and
 safe under `operations/PARALLEL-WORK.md`. If she says **Switch now**, update
 this file with AW-003’s exact resume point before opening a new foreground
 objective; every open lane keeps its own checkpoint.
+
+### 2026-08-08 governed learning-source intake checkpoint
+
+- **Current state:** `CAPTURED / ROUTED — NO ARTIFACT COMMISSION`.
+- **Literal completed work:** Stanford's Artificial Intelligence playlist, the Wharton GAIL Prompt Library, MIT Open Learning's foundational-course directory and Ethan Mollick's X/LinkedIn profiles are classified in `operations/product-stewards/learning-content-ecosystem/LEARNING-SOURCE-ROSTER.md` by exact learning job, evidence tier, freshness boundary and next-use check. Ali directly confirmed the Stanford-channel provenance.
+- **Truth boundary:** Wharton is accepted for attributed prompt-practice research; MIT and Stanford are exact-item course/mechanism discovery sources; Mollick social posts are leads only and must return to original evidence. Inclusion does not create canon, commission content or authorize a public recommendation.
+- **Next trigger:** an admitted content job needs one exact source item; the receiving owner then verifies title/author/date, claims, accessibility, level, access/cost and currentness before use.
+- **Authority:** no content, concept map, surface artifact, route, deployment, publication, subscription, account, spend or public-release state changed.
