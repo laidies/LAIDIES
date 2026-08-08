@@ -51,7 +51,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Langfuse | NOT ADOPTED | only if the JSONL judge log misses a measured calibration drift |
 | R2 artifact/archive migration | NOT STARTED | account/configuration and spend authority, recovery proof and a 5 GB bounded reference-safe pilot |
 | Library mobile shelf defect | FAIL / LOCKED | Control Room visual integration owner repairs 120px visible-cover requirement and reruns exact browser/preflight evidence |
-| Public release | NOT AUTHORIZED | Ali approval, deployment evidence and exact live-origin verification |
+| Public release | CONTROLLER IN REVIEW / CURRENT SOURCE BLOCKED | automatic `main:/` deployment is contained; the manual exact-artifact controller is calibrated locally, but the current source fails its curated build on 11 missing/untracked dependencies. Provider variables/environment protection and any artifact-specific deployment remain separately unauthorized |
 
 ## Current explicit whole-system failure
 

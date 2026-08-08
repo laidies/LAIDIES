@@ -1,8 +1,8 @@
 # GitHub Pages automatic-deployment incident — 2026-08-08
 
-Status: **HOLD — EXTERNAL CONFIGURATION APPROVAL REQUIRED**
+Status: **CONTAINED — WORKFLOW CONTROL ACTIVE; CURATED RELEASE CONTROLLER IN REVIEW**
 Owner: Control Room / release integration
-Evidence time: 2026-08-08 13:35 PDT
+Evidence time: 2026-08-08 13:48 PDT
 
 ## What happened
 
@@ -34,14 +34,21 @@ any Pages configuration whose `build_type` is not `workflow`. The required
 `work-truth` job now reads the live repository Pages configuration and fails
 closed while automatic legacy deployment remains active.
 
-The next external action is to change GitHub Pages from legacy `main:/` to
-workflow-controlled releases. That provider/publication configuration mutation
-requires Ali's explicit approval. After it is changed, a separate release
-package must create the curated artifact and require exact approval, deployment
-identity and live-byte verification. Do not restore automatic root publication.
+Ali approved the provider configuration change. GitHub Pages now reports
+`build_type: workflow`. PR #27 passed both the calibrated release-boundary test
+and the live configuration check, then merged as
+`fab6a847cded0f7c8b9ed44887b23b36d3143ab8`. Hosted main run `31277702862`
+passed. The merge created zero Pages deployment runs.
+
+The next package is a separate exact production-release controller. It must
+build only an explicit public-entry dependency closure, bind an artifact
+identity, require an Ali-bound manual dispatch, deploy through the protected
+production environment and verify the public boundary. Do not restore automatic
+root publication.
 
 ## Authority truth
 
 The in-progress automatic deployment was cancelled to prevent unintended
-publication. No replacement deploy, public release, spend, provider purchase or
-Ali approval was performed or inferred.
+publication. Ali approved and the task applied only the change to
+workflow-controlled Pages. No replacement deploy, public release, spend or
+provider purchase was performed or inferred.

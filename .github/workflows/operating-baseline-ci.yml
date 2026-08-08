@@ -33,6 +33,8 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/$GITHUB_REPOSITORY/pages" > "$RUNNER_TEMP/pages-config.json"
           node scripts/check-github-pages-release-boundary.mjs "$RUNNER_TEMP/pages-config.json"
+      - name: Production release controller calibration
+        run: npm run test:production-release-controller
       - name: Append-only work truth and calibration
         run: |
           node scripts/test-project-work-events.mjs
