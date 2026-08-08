@@ -19,6 +19,16 @@
         "hooks": [
           {
             "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/block-handwritten-status.py\"",
+            "statusMessage": "Protecting derived work status"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
             "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/block-approval-forgery.py\"",
             "statusMessage": "Protecting human approval gates"
           }
@@ -43,6 +53,16 @@
             "type": "command",
             "command": "bash \"$(git rev-parse --show-toplevel)/operations/hooks/episode-shipcheck.sh\"",
             "statusMessage": "Running episode and prose gates"
+          }
+        ]
+      },
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/library-maker-preflight.py\"",
+            "statusMessage": "Rejecting known LIBRAiRY regressions"
           }
         ]
       }
