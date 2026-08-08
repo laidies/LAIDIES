@@ -1,18 +1,14 @@
-<!-- GENERATED FILE — DO NOT EDIT.
-     Source: Website-homepage/operations/codex-contract/AGENTS.template.md
-     Rebuild: ./Website-homepage/operations/codex-contract/build-agents-md.sh -->
-
 # CODEX SCOPE CONTRACT — read this before doing anything
 
 ## READ THIS FIRST — canon, then the decisions router
 
-1. `operations/voice/laidies-canon-index.md` — **the Canon Index.** The single
+1. `{{OPS}}/voice/laidies-canon-index.md` — **the Canon Index.** The single
    source of truth for names, retired names, saint lanes, status labels,
    overloaded words and backlog. It has instructed for weeks that every agent brief start
    with it; nothing pointed at it until now. Read it first.
    ⚠ An **older, superseded copy** lives at `Website/operations/voice/` — never
    read or edit that one. The live copy is under `Website-homepage/`.
-2. `operations/DECISIONS.md` — the router: authority order, per-area decision
+2. `{{OPS}}/DECISIONS.md` — the router: authority order, per-area decision
    docs, and the process/tooling decisions that post-date the Canon Index.
 
 The Canon Index is not product-architecture authority. For LIBRAiRY architecture,
@@ -80,8 +76,8 @@ Serial execution of genuinely independent work is a defect, not caution.
 - Subagents are **read / analysis lanes by default**. Research, inventory, search,
   extraction, verification, review.
 - **Exactly one thread writes to any given file path.** Never two.
-- Writes to shared or canonical files — `operations/ACTIVE-WORK.md`,
-  `operations/engine/LEDGER.md`, `operations/painpoints-log.md`, canon and
+- Writes to shared or canonical files — `{{OPS}}/ACTIVE-WORK.md`,
+  `{{OPS}}/engine/LEDGER.md`, `{{OPS}}/painpoints-log.md`, canon and
   index files — happen in the **foreground thread only**.
 - If a lane must write, name the exact paths it owns in its brief, and give no
   other lane those paths.
@@ -105,7 +101,7 @@ against the **original brief and the real artifact** — never against the lane'
 summary of itself — and resolve conflicts before anything is shown to Ali.
 
 **One painpoints entry per task.** Subagents never append to
-`operations/painpoints-log.md`. They return learnings to the foreground, which
+`{{OPS}}/painpoints-log.md`. They return learnings to the foreground, which
 writes a single consolidated entry at the end. Parallel appends to one file
 interleave and lose content.
 
@@ -150,7 +146,7 @@ closing any task that corrects a defect, rule or standard:
 
 1. search the repository for every other place the same pattern occurs;
 2. fix them in the same task, or list them explicitly as remaining;
-3. if the fix is a rule, add it to `operations/DECISIONS.md` so it binds
+3. if the fix is a rule, add it to `{{OPS}}/DECISIONS.md` so it binds
    future work instead of being rediscovered.
 
 Ep4's motion QC was fixed in July and the same fail-open bug stayed live in
@@ -378,9 +374,9 @@ subagents to **GPT-5.6 Terra / Medium**, 2 concurrent threads, and Fast mode off
 
 Before material work, read:
 
-- `operations/CODEX-WORKING-AGREEMENT.md`
-- `operations/ACTIVE-WORK.md`
-- `operations/engine/LEDGER.md`
+- `{{OPS}}/CODEX-WORKING-AGREEMENT.md`
+- `{{OPS}}/ACTIVE-WORK.md`
+- `{{OPS}}/engine/LEDGER.md`
 
 Ali may share new ideas while work is underway. Capture them in the appropriate
 durable source and continue the active task by default. Do not silently switch
@@ -403,7 +399,7 @@ limitations honestly.
 
 At the end of every material task, scan for meaningful failures, surprises,
 non-obvious fixes or reusable successes. Append qualifying learnings to
-`operations/painpoints-log.md` in the same task and record the prevention rule
+`{{OPS}}/painpoints-log.md` in the same task and record the prevention rule
 plus a possible public Behind the Build angle. Before similar work, search the
 ledger and reuse its relevant rules.
 
@@ -413,23 +409,23 @@ Before creating or editing any episode/trailer visual, transition, recurring
 ident, speech bubble, emphasis frame, comic spread, trading-card insert,
 landscape, or background, read:
 
-`operations/episode-visual-system-lock.md`
+`{{OPS}}/episode-visual-system-lock.md`
 
 The exact master people-rendering style is:
 
-`assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png`
+`{{ROOT}}assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png`
 
 That image governs how every person is drawn. Character-specific references
 govern identity.
 
 **Real historical women require a bound likeness reference.** Before rendering
 Ada Lovelace, Grace Hopper, Karen Sparck Jones, the ENIAC Six or any other real
-person, confirm that `operations/reference/real-people/<person>/` contains at
+person, confirm that `{{OPS}}/reference/real-people/<person>/` contains at
 least one actual image file. If it is empty, **stop and say so** — do not
 generate a face from the name. An empty reference directory is the single
 mechanical cause of likenesses that don't match, and the guidance that says
 "references govern identity" is unenforceable without them. Run:
 
-    node scripts/check-real-person-references.mjs The saved category libraries govern bubbles, lettering, page
+    node {{ROOT}}scripts/check-real-person-references.mjs The saved category libraries govern bubbles, lettering, page
 layout, cards, and environments. Do not substitute a generic comic style, a
 generated group portrait, a retired wordmark, or an old welcome-back candidate.
