@@ -36,8 +36,11 @@ if (cliArgs.length > 1 || (cliArgs[0] && cliArgs[0].startsWith('-'))) {
 }
 
 const root = path.resolve(import.meta.dirname, '..');
-assertLibraryAdmissionFreshness({ root });
 const output = path.resolve(cliArgs[0] || path.join(process.env.TMPDIR || '/tmp', 'laidies-public-site'));
+if (output === root || output.startsWith(`${root}${path.sep}`)) {
+  throw new Error('public artifact output must be outside the source repository');
+}
+assertLibraryAdmissionFreshness({ root });
 const maxFileBytes = 25 * 1024 * 1024;
 const warnBytes = 750 * 1024 * 1024;
 const failBytes = 1100 * 1024 * 1024;

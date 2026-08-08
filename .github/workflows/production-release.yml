@@ -1,0 +1,131 @@
+name: Exact production release
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_commit:
+        description: Exact 40-character source commit to release
+        required: true
+        type: string
+      artifact_identity_sha256:
+        description: Exact prepared public-artifact identity
+        required: true
+        type: string
+      approval_confirmation:
+        description: APPROVE <artifact identity> FOR PRODUCTION
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: laidies-production-release
+  cancel-in-progress: false
+
+jobs:
+  prepare-exact-artifact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SOURCE_COMMIT: ${{ inputs.source_commit }}
+      EXPECTED_IDENTITY: ${{ inputs.artifact_identity_sha256 }}
+      APPROVAL_CONFIRMATION: ${{ inputs.approval_confirmation }}
+      APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
+      CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
+      ARTIFACT_DIR: ${{ github.workspace }}/.release/site
+      RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_commit }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify immutable source, controller and Ali-bound dispatch
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_COMMIT" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$EXPECTED_IDENTITY" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$CONTROLLER_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$GITHUB_ACTOR" = "$APPROVER_LOGIN"
+          test "$APPROVAL_CONFIRMATION" = "APPROVE $EXPECTED_IDENTITY FOR PRODUCTION"
+          test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+          test -z "$(git status --porcelain)"
+          git cat-file -e "$CONTROLLER_SHA^{commit}"
+          git diff --quiet "$CONTROLLER_SHA" "$SOURCE_COMMIT" -- \
+            .github/workflows/production-release.yml \
+            operations/release-control/public-entrypoints.json \
+            scripts/build-public-site.mjs \
+            scripts/create-release-manifest.mjs \
+            scripts/check-production-release-approval.mjs
+      - run: npm ci
+      - name: Release-controller calibration
+        run: npm run test:production-release-controller
+      - name: Required repository checks
+        run: npm run ci
+      - name: Build curated public artifact
+        run: node scripts/build-public-site.mjs "$ARTIFACT_DIR"
+      - name: Bind exact artifact and approval
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          node scripts/create-release-manifest.mjs "$ARTIFACT_DIR" "$RECEIPT_DIR/artifact-manifest.json"
+          actual_identity="$(jq -r .identitySha256 "$RECEIPT_DIR/artifact-manifest.json")"
+          test "$actual_identity" = "$EXPECTED_IDENTITY"
+          jq -n \
+            --arg sourceCommit "$SOURCE_COMMIT" \
+            --arg artifactIdentitySha256 "$EXPECTED_IDENTITY" \
+            --arg approvedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg confirmation "$APPROVAL_CONFIRMATION" \
+            '{schema:"laidies.production-release-approval.v1",sourceCommit:$sourceCommit,artifactIdentitySha256:$artifactIdentitySha256,approvedBy:"Ali",decision:"APPROVE_PRODUCTION_RELEASE",publicUrl:"https://laidies.ai/",approvedAt:$approvedAt,confirmation:$confirmation}' \
+            > "$RECEIPT_DIR/approval.json"
+          node scripts/check-production-release-approval.mjs "$RECEIPT_DIR/approval.json"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.ARTIFACT_DIR }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-release-receipt-${{ inputs.source_commit }}
+          path: ${{ env.RECEIPT_DIR }}
+          if-no-files-found: error
+          retention-days: 90
+
+  deploy-production:
+    needs: prepare-exact-artifact
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: production-release-receipt-${{ inputs.source_commit }}
+          path: ${{ github.workspace }}/receipt
+      - name: Deploy exact curated artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify live public boundary
+        shell: bash
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          expected_index="$(jq -r '.files[] | select(.path == "index.html") | .sha256' "$GITHUB_WORKSPACE/receipt/artifact-manifest.json")"
+          [[ "$expected_index" =~ ^[a-f0-9]{64}$ ]]
+          curl --fail --silent --show-error --retry 8 --retry-all-errors "$PAGE_URL" > "$RUNNER_TEMP/page-url-index.html"
+          test "$(sha256sum "$RUNNER_TEMP/page-url-index.html" | cut -d' ' -f1)" = "$expected_index"
+          curl --fail --silent --show-error --retry 8 --retry-all-errors https://laidies.ai/ > "$RUNNER_TEMP/custom-domain-index.html"
+          test "$(sha256sum "$RUNNER_TEMP/custom-domain-index.html" | cut -d' ' -f1)" = "$expected_index"
+          test "$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' https://laidies.ai/operations/ACTIVE-WORK.md)" = 404
+          test "$(curl --silent --show-error --location --output /dev/null --write-out '%{http_code}' https://laidies.ai/operations/COMMIT-QUEUE.md)" = 404
