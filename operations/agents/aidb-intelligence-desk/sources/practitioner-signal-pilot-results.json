@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "asOf": "2026-08-07",
+  "status": "PILOT_EVIDENCE_COMPLETE_BOUNDED_RECURRENCE_ADMITTED",
+  "rosterPath": "operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json",
+  "signals": [
+    {
+      "id": "PSIG-2026-08-07-ANTHROPIC-HARNESS",
+      "sourceId": "SRC-ANTHROPIC-ENGINEERING",
+      "state": "ROUTE",
+      "exactOriginal": {
+        "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+        "publishedAt": "2026-03-24",
+        "accessedAt": "2026-08-07",
+        "establishes": "Anthropic reports that long-running work benefits from structured artifact handoffs, that self-evaluation is lenient, and that maker/evaluator separation helps; it also warns that harness parts should be removed when no longer load-bearing."
+      },
+      "primaryVerification": {
+        "url": "https://www.anthropic.com/engineering",
+        "status": "VERIFIED_OFFICIAL_SOURCE",
+        "limits": "Anthropic describes its own experiments and Claude-specific observations; this does not prove every architecture transfers unchanged to LAiDIES or other model families."
+      },
+      "boundedLaidiesTest": {
+        "status": "PASS",
+        "evidence": [
+          "scripts/test-independent-content-judge.mjs",
+          "scripts/test-codex-hook-guards.mjs",
+          "scripts/test-serve-review-door.mjs"
+        ],
+        "result": "LAiDIES now uses a compact artifact handoff, a different-family independent prose judge and an enforcing Review Door; each calibration rejects a known-bad case."
+      },
+      "duplicationCheck": "MERGED_WITH_FABLE_RECOMMENDATIONS_AND_EXISTING_D099_CONTROLS",
+      "bestRoute": "LAiDIES operating system",
+      "receivingOwner": "Control Room / foreground operating-system owner",
+      "ownerRuling": "ACCEPT_APPLIED_BOUNDEDLY",
+      "publicAuthority": false
+    },
+    {
+      "id": "PSIG-2026-08-07-STANFORD-AI-INDEX-INFRASTRUCTURE",
+      "sourceId": "SRC-STANFORD-HAI-INDEX",
+      "state": "ROUTE",
+      "exactOriginal": {
+        "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+        "publishedAt": "2026-04-01",
+        "accessedAt": "2026-08-07",
+        "establishes": "The 2026 AI Index explicitly connects AI infrastructure, chips and data centres with technical capability, investment, markets, policy, public opinion and responsible-AI questions."
+      },
+      "primaryVerification": {
+        "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/economy",
+        "status": "VERIFIED_INSTITUTIONAL_CHAPTER",
+        "limits": "Each statistic still requires its exact chapter, methodology and underlying citation; the report is not a substitute for current product documentation or independent reporting."
+      },
+      "boundedLaidiesTest": {
+        "status": "PASS_SOURCE_FIT_ONLY",
+        "evidence": [
+          "content/library-books/pilots/ai-fundamentals-101-v2/review-text.md",
+          "operations/product-stewards/learning-content-ecosystem/CROSS-SURFACE-ANTI-SLOP-INCIDENT-2026-08-07.md"
+        ],
+        "result": "The held book lacks the full chips-to-public-consequences teaching arc Ali required; this report has a distinct evidence job for the successor source map but does not authorize prose reuse or admission."
+      },
+      "duplicationCheck": "MERGE_WITH_AI_FUNDAMENTALS_SUCCESSOR_AND_NEWSSTAND_TRIBUNE_SOURCE_MAP; NO_STANDALONE_ARTIFACT",
+      "bestRoute": "AI Fundamentals successor source map and related NewsStand Tribune analysis",
+      "receivingOwner": "SUNNYVAiLE LIBRAiRY owner",
+      "ownerRuling": "ACCEPT_SOURCE_ONLY_AFTER_CONTENT_LOCK_HANDOFF",
+      "publicAuthority": false
+    },
+    {
+      "id": "PSIG-2026-08-07-ALLIE-MILLER-PRACTICAL-WORKFLOWS",
+      "sourceId": "SRC-ALLIE-K-MILLER",
+      "state": "PARK",
+      "exactOriginal": {
+        "url": "https://www.alliekmiller.com/resources",
+        "publishedAt": null,
+        "accessedAt": "2026-08-07",
+        "establishes": "Her current public resource catalogue includes nontechnical guides on context, agents, connectors, risk and practical AI workflows."
+      },
+      "primaryVerification": {
+        "url": "https://www.alliekmiller.com/",
+        "status": "VERIFIED_SELF_DESCRIBED_BACKGROUND_AND_CURRENT_COMMERCIAL_SURFACE",
+        "limits": "Biography, client claims and recommendations are self-published; the surface markets paid and email-gated products. It is a discovery source, not independent evidence or product authority."
+      },
+      "boundedLaidiesTest": {
+        "status": "PASS_SCOUT_FIT_ONLY",
+        "evidence": [
+          "operations/product-stewards/idea-inbox/handoff-practical-ai-for-home-life-2026-08-07.md",
+          "operations/product-stewards/learning-content-ecosystem/CAREER-TIP-SOURCE-ROSTER.md"
+        ],
+        "result": "The use-case categories overlap existing home-life and career routes; future ideas should be mined only for distinct jobs, then verified against official sources and tested before drafting."
+      },
+      "duplicationCheck": "MERGE_WITH_EXISTING_HOME_LIFE_AND_CAREER_BANKS; DO_NOT_CREATE_ALLIE_MILLER_FEED_OR_TIP_SERIES",
+      "bestRoute": "Monthly inspiration-only scout within the bounded practitioner roster",
+      "receivingOwner": "Learning System & Concepts",
+      "ownerRuling": "PARK_AS_SECONDARY_SCOUT",
+      "publicAuthority": false
+    },
+    {
+      "id": "PSIG-2026-08-07-SIMON-WILLISON-FEED",
+      "sourceId": "SRC-SIMON-WILLISON",
+      "state": "TEST",
+      "exactOriginal": {
+        "url": "https://feeds.simonwillison.net/about/",
+        "publishedAt": null,
+        "accessedAt": "2026-08-07",
+        "establishes": "Simon Willison publishes official Atom endpoints and a disclosure boundary for vendor previews and paid travel."
+      },
+      "primaryVerification": {
+        "url": "https://simonwillison.net/atom/everything-but-beats/",
+        "status": "VERIFIED_OFFICIAL_FEED_ENDPOINT",
+        "limits": "The feed proves a stable lawful discovery channel, not the accuracy or relevance of any future post."
+      },
+      "boundedLaidiesTest": {
+        "status": "PASS_CHANNEL_ONLY",
+        "evidence": [
+          "operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json"
+        ],
+        "result": "The feed can support read-only candidate discovery without X, Instagram, subscriptions or scraping. No content signal was promoted in this pilot."
+      },
+      "duplicationCheck": "CHECK_EACH_POST_AGAINST_AIDB_MOLLICK_AND_OFFICIAL_DOCS",
+      "bestRoute": "AIDB Intelligence Desk candidate discovery",
+      "receivingOwner": "AIDB Intelligence Desk",
+      "ownerRuling": "ACCEPT_CANDIDATE_CHANNEL_NOT_RECURRING_YET",
+      "publicAuthority": false
+    }
+  ],
+  "recurringExpansion": "ADMITTED_2026_08_08_INSIDE_EXISTING_DESK_FOR_PROMOTED_AND_PILOT_SOURCES_ONLY",
+  "publicationAuthority": false,
+  "spendAuthority": false
+}

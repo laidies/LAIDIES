@@ -1,7 +1,7 @@
 # AIDB Intelligence Desk
 
-**Status:** SPECIFIED — initial July backfill built; scheduled Codex task and
-first live recurrence remain to be verified.
+**Status:** ACTIVE — AIDB and Mollick recurrence verified; bounded practitioner
+roster recurrence admitted 2026-08-08 inside the same desk.
 
 ## Purpose
 
@@ -76,6 +76,18 @@ LAiDIES test`
   plan or region when material, and evidence date. Do not generalize an OpenAI
   technique to Claude or Gemini, or an API technique to a consumer chat
   product, without separate evidence.
+
+### Bounded practitioner-source recurrence
+
+`IIR-20260803-013` passed its bounded pilot with thirteen roster entries, four
+processed signals and three useful receiving-owner rulings. On 2026-08-08 the
+Control Room admitted recurrence inside this existing twice-daily desk. Only
+`PROMOTED` and `PILOT` roster sources run on their recorded cadence;
+`CANDIDATE` sources are opened only for an active question or a due roster
+review. Candidate inclusion still does not equal recurring promotion. The
+extension cannot alter the AIDB or Mollick cursors, create a new agent/pipeline,
+follow or subscribe to accounts, scrape against terms, spend, publish or edit
+another owner's state.
 
 Mollick is a trusted practical and research-informed voice, but remains a
 scout rather than product authority. Do not subscribe, ingest comments as

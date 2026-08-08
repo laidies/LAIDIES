@@ -2,7 +2,7 @@
   "schema_version": 3,
   "agent_id": "aidb-intelligence-desk",
   "status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED",
-  "as_of": "2026-07-30",
+  "as_of": "2026-08-08",
   "source": {
     "discovery": "https://aidailybrief.ai/agent.json",
     "newsletter_fallback": "https://aidailybrief.beehiiv.com/",
@@ -13,8 +13,8 @@
   },
   "source_cursors": {
     "aidb": {
-      "processed_through": "2026-07-29",
-      "processed_items": 24
+      "processed_through": "2026-08-07",
+      "processed_items": 32
     },
     "ethan_mollick_one_useful_thing": {
       "latest_seen_published_at": "2026-07-23T18:05:24.000Z",
@@ -23,22 +23,34 @@
       "initialization_result": "OVERLAP_NO_DUPLICATE"
     }
   },
-  "processed_through": "2026-07-29",
-  "processed_editions": 24,
+  "processed_through": "2026-08-07",
+  "processed_editions": 32,
   "backfill_start": "2026-07-01",
   "backfill_record": "backfill-2026-07-01-to-2026-07-26.md",
   "last_initialization_run": "2026-07-27T10:15:16-07:00",
-  "last_live_run": "2026-07-30T11:31:17-07:00",
-  "last_run_result": "ACTIONABLE_AIDB_2026_07_29_PACING_FRONTIER_NEW_NEWSSTAND_SIGNAL_NO_NEW_MOLLICK_NO_SITE_CHANGE",
-  "last_source_generated": "2026-07-30T15:59:30.623Z",
-  "last_output": "daily/2026-07-30.md",
+  "last_live_run": "2026-08-08T08:46:10-07:00",
+  "last_run_result": "AIDB_NEW_ONE_EDITION_MERGED_EXISTING_SCIENCE_ROUTE_MOLLICK_QUIET_NO_NEW_HANDOFF_OR_OPERATIONS_CHANGE",
+  "last_source_generated": "2026-08-08T15:34:30.863Z",
+  "last_output": "daily/2026-08-08.md",
   "latest_synthesis": "syntheses/2026-07-01-to-2026-07-27-useful-patterns.md",
-  "latest_handoff": "handoffs/2026-07-27-btb-gpt-5p6-setup.md",
-  "latest_site_refresh_handoff": "handoffs/site-refresh/2026-07-27-episode-01-study-pack-sample.md",
+  "latest_handoff": "handoffs/2026-08-03-practitioner-signal-radar-acceptance.md",
+  "latest_site_refresh_handoff": "handoffs/site-refresh/2026-08-06-straight-answers-data-centres.md",
   "research_tracks": {
     "aidb_reference_tracing": {
       "status": "ACTIVE",
       "contract": "sources/aidb-reference-tracing.md"
+    },
+    "practitioner_signal_pilot": {
+      "status": "PILOT_EVIDENCE_COMPLETE_BOUNDED_RECURRENCE_ADMITTED",
+      "idea_receipt": "IIR-20260803-013",
+      "contract": "sources/practitioner-signal-pilot.md",
+      "acceptance_receipt": "handoffs/2026-08-03-practitioner-signal-radar-acceptance.md",
+      "candidate_roster": "sources/practitioner-source-roster.json",
+      "pilot_results": "sources/practitioner-signal-pilot-results.json",
+      "candidate_roster_limit": 20,
+      "pilot_signal_limit": 5,
+      "pilot_result": "13_CANDIDATES_4_SIGNALS_3_USEFUL_OWNER_RULINGS",
+      "recurring_expansion": "ADMITTED_2026_08_08_EXISTING_AUTOMATION_PROMOTED_AND_PILOT_SOURCES_ONLY"
     },
     "new_model_new_manners": {
       "status": "FORMAT_TEST",
@@ -50,17 +62,18 @@
   "newsstand_interaction": {
     "status": "SPECIFIED",
     "contract": "handoffs/NEWSSTAND-INTERACTION-CONTRACT.md",
-    "outbound_cursor": "handoffs/newsstand/2026-07-30-pacing-the-frontier.md",
-    "last_disposition_seen": "WATCH_OPEN_WEIGHT_POLICY_2026_07_29",
+    "outbound_cursor": "handoffs/newsstand/2026-08-06-data-centre-community-agency.md",
+    "last_disposition_seen": "CONSUMED_PACING_THE_FRONTIER_2026_07_30",
     "publication_authority": false
   },
   "site_refresh": {
     "status": "ACTIVE_REGISTER_SEEDED",
     "contract": "handoffs/SITE-REFRESH-INTERACTION-CONTRACT.md",
     "register": "site-refresh-register.md",
-    "last_incremental_scan": "2026-07-30",
-    "last_full_inventory_scan": null,
+    "last_incremental_scan": "2026-08-08",
+    "last_full_inventory_scan": "2026-08-02",
     "latest_episode_review": "episode-01-02-study-pack-learning-and-visual-audit",
+    "latest_handoff": "handoffs/site-refresh/2026-08-06-straight-answers-data-centres.md",
     "public_edit_authority": false
   },
   "runtime": {
@@ -68,7 +81,7 @@
     "automation_id": "laidies-aidb-intelligence-desk-daily",
     "automation_status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED"
   },
-  "next_action": "On the next scheduled recurrence, check both official source endpoints, process every item after its independent cursor in publication order, resolve material named references to exact original items, verify consequential claims against current provider or primary evidence, assess the gated New Model, New Manners function without assuming a format, send only qualified dated signals through the NewsStand interaction contract, inspect due or triggered site freshness rows, write only bounded owner handoffs, and report actionable, watch, quiet, or source-unavailable truthfully.",
+  "next_action": "On the next scheduled recurrence, process AIDB and Mollick first, then inspect only due PROMOTED or PILOT roster sources; keep CANDIDATE sources on-trigger or due-roster-review only. Resolve material named references to exact originals, verify consequential claims against current provider or primary evidence, route one distinct reader job to its best owner, inspect due site freshness rows, and report actionable, watch, quiet, duplicate or source-unavailable truthfully.",
   "publication_authority": false,
   "infrastructure_change_authority": false
 }
