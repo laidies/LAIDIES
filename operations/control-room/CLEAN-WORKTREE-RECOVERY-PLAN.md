@@ -2,7 +2,7 @@
 
 Status: **IN PROGRESS — CLEAN INTEGRATION ACTIVE / SOURCE PRESERVED**
 Owner: Control Room / repository integration
-Updated: 2026-08-08 13:15 PDT
+Updated: 2026-08-08 13:35 PDT
 
 ## Measured problem
 
@@ -54,10 +54,12 @@ Full encrypted snapshot `ff1c716b` passed `check --read-data`, a complete
 80,739-file scratch restore, immutable-byte comparison and representative
 restored-route checks. Write-stable follow-up snapshot `4a996ba9` then passed
 stable source fingerprints, sampled restored-byte comparison and route checks.
-The clean non-iCloud worktree `/Users/alisoneakin/LAIDIES-integration` now carries
-the first bounded operating-baseline package from `origin/main`. The remaining
-cleanup hold is exact path disposition plus two clean non-iCloud drills; no
-archive move or deletion is authorized yet.
+The clean non-iCloud worktree `/Users/alisoneakin/LAIDIES-integration` carried
+the first bounded operating-baseline package from `origin/main`; PR #26 merged
+it as `13fafe62`. The pre-merge branch at `c096ea51` and a fresh post-merge
+worktree at `13fafe62` both passed the exact operating suite. The remaining
+cleanup hold is exact path disposition; no archive move or deletion is
+authorized merely because the operating foundation passed two drills.
 
 ## Prevention
 
