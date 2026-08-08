@@ -32,6 +32,15 @@ Every handoff must include:
 8. acceptance owner and remaining proof;
 9. next trigger/action;
 10. whether public, deploy, spend or Ali approval authority was used.
+11. worktree truth: `NO_REPOSITORY_MUTATION`, `UNCOMMITTED_OWNED`, `COMMITTED`,
+    `PUSHED`, `DEPLOYED` or `VERIFIED_PUBLICLY`, plus every changed path and the
+    exact commit when applicable.
+
+A completion-level handoff cannot bind `UNCOMMITTED_OWNED` work. Changed work
+remains unfinished until its exact owned paths are intentionally committed.
+Uncommitted work may be preserved under `HOLD` or `BLOCKED` only when the owner,
+reason and next trigger are explicit. Never sweep unrelated dirty paths into a
+commit to satisfy this rule.
 
 `RUNNING` additionally requires a live task/turn or heartbeat, an exact current
 action, bounded scope and current evidence time under D-2026-07-26-057.

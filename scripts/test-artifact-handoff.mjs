@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict'; import crypto from 'node:crypto'; import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import {spawnSync} from 'node:child_process';
+const root=process.cwd(), dir=fs.mkdtempSync(path.join(root,'operations/runtime/handoff-fixture-')), artifact=path.join(dir,'artifact.txt'), brief=path.join(dir,'brief.md'), handoff=path.join(dir,'handoff.json'); fs.writeFileSync(artifact,'exact\n');fs.writeFileSync(brief,'brief\n');const rel=p=>path.relative(root,p),sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const good={task:'w',outcome:'reader outcome',artifact:{path:rel(artifact),sha256:sha(artifact)},brief:{path:rel(brief),sha256:sha(brief)},inputs:[],forbidden:['prior verdicts'],accept:['exact bytes'],run:['test'],return:{status:'PASS'},budget:{in:1,out:1,wall:1},evidence_time:'2026-08-08T00:00:00-07:00',locks:[],acceptance_owner:'judge',next_trigger:'none',authority_truth:{public:false,deploy:false,spend:false,ali_approval:false},worktree_truth:{state:'NO_REPOSITORY_MUTATION',paths:[]}};
+try{
+  fs.writeFileSync(handoff,JSON.stringify(good));let run=spawnSync(process.execPath,['scripts/check-artifact-handoff.mjs',rel(handoff)],{encoding:'utf8'});assert.equal(run.status,0);
+  good.artifact.sha256='0'.repeat(64);fs.writeFileSync(handoff,JSON.stringify(good));run=spawnSync(process.execPath,['scripts/check-artifact-handoff.mjs',rel(handoff)],{encoding:'utf8'});assert.equal(run.status,1);assert.match(run.stderr,/sha256 mismatch/);good.artifact.sha256=sha(artifact);
+  good.worktree_truth={state:'UNCOMMITTED_OWNED',paths:['candidate.html'],owner:'maker',reason:'awaiting review',next_trigger:'review'};fs.writeFileSync(handoff,JSON.stringify(good));run=spawnSync(process.execPath,['scripts/check-artifact-handoff.mjs',rel(handoff)],{encoding:'utf8'});assert.equal(run.status,1);assert.match(run.stderr,/PASS cannot bind UNCOMMITTED_OWNED/);
+  good.return.status='HOLD';fs.writeFileSync(handoff,JSON.stringify(good));run=spawnSync(process.execPath,['scripts/check-artifact-handoff.mjs',rel(handoff)],{encoding:'utf8'});assert.equal(run.status,0);
+  console.log('ARTIFACT HANDOFF CALIBRATION PASS exact=allowed stale=blocked uncommitted_pass=blocked owned_hold=allowed');
+}finally{fs.rmSync(dir,{recursive:true,force:true});}
