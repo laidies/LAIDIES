@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "evidence_time": "2026-08-08T15:43:49-07:00",
+  "policy": "Additive first; subtractive only after the replacement has run for two weeks and a full-tree off-site restore has passed. UNKNOWN never moves.",
+  "inventory": {
+    "path": "/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json",
+    "schema_version": 2,
+    "file_count": 65925,
+    "bytes": 84334212604,
+    "unknown_count": 5250,
+    "dirty_file_count": 9792,
+    "tracked_modified": 219,
+    "untracked": 9573,
+    "dispositions": {
+      "HOLD_UNKNOWN": 4299,
+      "KEEP_OUT_OF_GIT": 2810,
+      "REVIEW_FOR_EXACT_PACKAGE_COMMIT": 2624,
+      "PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF": 32,
+      "REVIEW_TRACKED_GENERATED_FILE": 27
+    }
+  },
+  "candidates": [
+    {
+      "path": "../Website/operations/voice/",
+      "classification": "HISTORICAL_SUPERSEDED_OUTSIDE_CURRENT_WORKTREE",
+      "size_bytes_approx": 81920,
+      "decision": "KEEP_IN_PLACE_UNTIL_FULL_TREE_RESTORE_PROOF",
+      "reason": "DECISIONS.md identifies the copy as superseded but also says the stranded Website tree contains other material and must not be deleted casually."
+    },
+    {
+      "path": "operations/laidies-operating-model.md",
+      "classification": "HISTORICAL_WITH_LIVE_CONSUMERS",
+      "decision": "REPAIR_CONSUMERS_THEN_ARCHIVE_AFTER_TWO_WEEK_PARITY",
+      "live_consumers": ["operations/research/B-weekly-cycle-automation.md", "operations/control-room/OPERATING-SYSTEM-REVIEW-MANIFEST.json"]
+    },
+    {
+      "path": "operations/PARALLEL-WORK.md",
+      "classification": "ACTIVE_AUTHORITY_PENDING_MERGE",
+      "decision": "KEEP_UNTIL_WORKING_AGREEMENT_REPLACEMENT_RUNS_TWO_WEEKS",
+      "live_consumers": ["operations/ACTIVE-WORK.md", "operations/CODEX-WORKING-AGREEMENT.md", "PROJECT-HOME.md", "operations/engine/LEDGER.md"]
+    },
+    {
+      "path": "operations/product-stewards/ORCHESTRATOR.md",
+      "classification": "HISTORICAL_WITH_LEDGER_REFERENCES",
+      "decision": "KEEP_UNTIL_EVENT_PROJECTION_PARITY_AND_CONSUMER_REPAIR"
+    },
+    {
+      "path": "operations/product-stewards/OWNER-ENTRY-CONTRACT.md",
+      "classification": "ACTIVE_CHECKER_DEPENDENCY",
+      "decision": "KEEP",
+      "live_consumers": ["scripts/check-canonical-instruction-dependencies.mjs", "operations/product-stewards/sunnyvaile-high/subproducts/classes.md"]
+    },
+    {
+      "path": "operations/product-stewards/CHAMPION-CONTRACT.md",
+      "classification": "ACTIVE_TEST_AND_OWNER_DEPENDENCY",
+      "decision": "KEEP",
+      "live_consumers": ["scripts/test-design-review-admission.mjs", "operations/product-stewards/resident-card/CHARTER.md"]
+    },
+    {
+      "path": "operations/product-stewards/PROACTIVE-IMPROVEMENT-CONTRACT.md",
+      "classification": "LEDGER_BOUND_DECISION_SOURCE",
+      "decision": "KEEP_UNTIL_DECISION_SUPERSESSION"
+    },
+    {
+      "path": "operations/research/agent-operations-playbook.md",
+      "classification": "TIER_D_RESEARCH_WITH_LIVE_RESEARCH_REFERENCES",
+      "decision": "ARCHIVE_AFTER_REFERENCE_REWRITE_AND_RESTORE_PROOF"
+    },
+    {
+      "path": "operations/agents/agent-role-performance-standards.md",
+      "classification": "TIER_D_WITH_LIVE_WEEKLY_PRODUCTION_CONSUMERS",
+      "decision": "KEEP_UNTIL_WEEKLY_PRODUCTION_REPLACEMENT",
+      "live_consumers": ["scripts/run-weekly-production.js", "operations/weekly-command-center.html"]
+    },
+    {
+      "path": "operations/control-room/LAIDIES-OPERATING-SYSTEM-AUTHORITY.md",
+      "classification": "PREDECESSOR_AUTHORITY_STILL_BOUND_TO_REVIEW_MANIFEST",
+      "decision": "KEEP_UNTIL_FABLE_REPLACEMENT_PARITY_RUNS_TWO_WEEKS"
+    },
+    {
+      "path": "operations/control-room/OPERATING-SYSTEM-REVIEW-COVERAGE-MATRIX.md",
+      "classification": "TIER_D_CANDIDATE",
+      "decision": "ARCHIVE_AFTER_FULL_TREE_RESTORE_PROOF"
+    },
+    {
+      "path": "operations/control-room/CLAUDE-OPUS-5-OPERATING-SYSTEM-AUDIT-PROMPT.md",
+      "classification": "HISTORICAL",
+      "decision": "ARCHIVE_AFTER_FULL_TREE_RESTORE_PROOF"
+    },
+    {
+      "path": "operations/control-room/CLAUDE-OPUS-ARCHITECTURE-AUDIT-RECONCILIATION-2026-08-04.md",
+      "classification": "HISTORICAL_EVIDENCE",
+      "decision": "ARCHIVE_AFTER_FULL_TREE_RESTORE_PROOF"
+    }
+  ],
+  "moved_or_deleted": [],
+  "standalone_recovery_drills": [
+    {
+      "path": "/Users/alisoneakin/Projects/laidies",
+      "commit": "f921e1c1f08156f6ad81fec585c7d6afcffd247a",
+      "result": "FULL_CI_PASS"
+    },
+    {
+      "path": "/Users/alisoneakin/Projects/laidies-drill-2",
+      "commit": "f921e1c1f08156f6ad81fec585c7d6afcffd247a",
+      "result": "FULL_CI_PASS_AND_EXACT_TEN_PATH_BUILD_HOLD_REPRODUCED"
+    }
+  ],
+  "blockers": [
+    "Replacement event projection has not yet run beside current dashboards for two weeks",
+    "Several archive candidates still have active consumers",
+    "4,299 dirty inventory paths remain HOLD_UNKNOWN and may not move",
+    "Every path selected for migration or retirement still requires an exact owner/package disposition"
+  ]
+}

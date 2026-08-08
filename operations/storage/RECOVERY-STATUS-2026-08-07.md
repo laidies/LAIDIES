@@ -1,4 +1,4 @@
-# Recovery status — updated 2026-08-08 15:38 PDT
+# Recovery status — updated 2026-08-08 15:43 PDT
 
 ## Proven now
 
@@ -15,7 +15,7 @@
 - Write-stable follow-up snapshot: `4a996ba9`, taken after writes were paused. The representative source fingerprint was unchanged before and after the snapshot; sampled `restic dump`/restore hashes and the three restored routes passed. This closes the live-source limitation for bounded integration work, but it does not authorize deletion of the iCloud worktree.
 - Clean-checkout drills: the pre-merge branch at `c096ea51` and post-merge worktree at `13fafe62` passed the exact operating-baseline commands, but both shared the original iCloud repository's Git object database. They prove clean checkout behavior, not independent non-iCloud source storage.
 - Two standalone non-iCloud drills: `/Users/alisoneakin/Projects/laidies` and `/Users/alisoneakin/Projects/laidies-drill-2` are separate fresh partial clones, each with its own local `.git`, exact branch commit `f921e1c1f08156f6ad81fec585c7d6afcffd247a`, clean tracked state and full `npm run ci` PASS. The second clone also reproduced the curated public builder's exact fail-closed ten-path hold. These drills prove independent source storage and repeatable operation; exact disposition of every migrated path and the timed parity/consumer gates still prevent old-copy retirement.
-- Current inventory: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json`, generated 2026-08-08T19:31:46Z; 65,925 files / 84,334,209,258 bytes; dirty 9,794 (219 tracked modifications, 9,575 untracked). Dispositions: `HOLD_UNKNOWN=4,299`, `REVIEW_FOR_EXACT_PACKAGE_COMMIT=2,626`, `PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF=32`, `REVIEW_TRACKED_GENERATED_FILE=27`, `KEEP_OUT_OF_GIT=2,810`.
+- Current inventory: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json`, generated 2026-08-08T22:43:49Z from the standalone tool using explicit `--root`; 65,925 files / 84,334,212,604 bytes; dirty 9,792 (219 tracked modifications, 9,573 untracked). Dispositions: `HOLD_UNKNOWN=4,299`, `REVIEW_FOR_EXACT_PACKAGE_COMMIT=2,624`, `PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF=32`, `REVIEW_TRACKED_GENERATED_FILE=27`, `KEEP_OUT_OF_GIT=2,810`.
 
 ## Limitation closed for bounded integration
 

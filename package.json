@@ -16,7 +16,8 @@
     "test:rejection-prevention": "node scripts/test-rejection-prevention.mjs",
     "test:operational-integrity": "node scripts/test-operational-integrity.mjs",
     "test:output-path-cli-guards": "node scripts/test-output-path-cli-guards.mjs",
+    "test:repository-storage-inventory": "node scripts/test-inventory-repository-storage.mjs",
     "test:work-resolution-loop": "node scripts/test-work-resolution-loop.mjs",
-    "ci": "npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:agent-role-routing && npm run test:daily-private-pipeline && npm run test:exact-commit-preview && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:rejection-prevention && npm run test:work-resolution-loop && node scripts/check-canonical-instruction-dependencies.mjs && npm run test:operational-integrity"
+    "ci": "npm run gate:episode && npm run test:episode-cue-scope && npm run test:codex-hooks && npm run test:agent-role-routing && npm run test:daily-private-pipeline && npm run test:exact-commit-preview && npm run test:media-defects && npm run test:newsstand-canon && npm run test:queue-claims && npm run test:output-path-cli-guards && npm run test:repository-storage-inventory && npm run test:rejection-prevention && npm run test:work-resolution-loop && node scripts/check-canonical-instruction-dependencies.mjs && npm run test:operational-integrity"
   }
 }
