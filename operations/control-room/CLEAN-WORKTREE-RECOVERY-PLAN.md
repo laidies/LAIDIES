@@ -1,8 +1,8 @@
 # Clean worktree recovery plan
 
-Status: **IN PROGRESS — NON-DESTRUCTIVE**
+Status: **IN PROGRESS — CLEAN INTEGRATION ACTIVE / SOURCE PRESERVED**
 Owner: Control Room / repository integration
-Updated: 2026-08-08 12:31 PDT
+Updated: 2026-08-08 13:15 PDT
 
 ## Measured problem
 
@@ -10,7 +10,7 @@ The current Homepage worktree contains 219 tracked modifications and 9,575
 untracked files (9,794 dirty files total) in the inventory generated
 2026-08-08T19:31:46Z. `HOLD_UNKNOWN=4,299`; those files cannot move. A further
 2,626 paths require exact-package review, 2,810 stay out of Git, 32 are archive
-candidates now blocked on a write-stable recovery snapshot, and 27 tracked
+candidates still blocked on exact disposition and non-iCloud drills, and 27 tracked
 generated files require explicit disposition.
 
 The active `homepage-redesign` branch is also an integration backlog, not a
@@ -48,13 +48,16 @@ which assets are current.
    operational-integrity and product-steward checks, and identify the exact
    commit ready to push or release.
 
-## Recovery threshold now met—and remaining hold
+## Recovery threshold met—and clean integration started
 
 Full encrypted snapshot `ff1c716b` passed `check --read-data`, a complete
 80,739-file scratch restore, immutable-byte comparison and representative
-restored-route checks. The remaining cleanup hold is narrower: the first full
-snapshot read a changing worktree, so a final incremental snapshot must be
-taken during a declared write-stable window and verified before archive moves.
+restored-route checks. Write-stable follow-up snapshot `4a996ba9` then passed
+stable source fingerprints, sampled restored-byte comparison and route checks.
+The clean non-iCloud worktree `/Users/alisoneakin/LAIDIES-integration` now carries
+the first bounded operating-baseline package from `origin/main`. The remaining
+cleanup hold is exact path disposition plus two clean non-iCloud drills; no
+archive move or deletion is authorized yet.
 
 ## Prevention
 

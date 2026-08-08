@@ -1,4 +1,4 @@
-# Recovery status — updated 2026-08-08 12:31 PDT
+# Recovery status — updated 2026-08-08 13:15 PDT
 
 ## Proven now
 
@@ -12,13 +12,14 @@
 - Immutable-byte check: snapshot `restic dump` SHA-256 and restored SHA-256 for `Website-homepage/operations/runtime/work-resolution-loop.json` both equal `627589f7e47dc22f8f1a67e03864fb56bf5e098c8aa81a3ddf16874ccbeaaa31`.
 - Restored-site check: local scratch server returned HTTP 200 and expected titles for `index.html` (`LAiDIES — SUNNYVAiLE`), `library.html` (`SUNNYVAiLE LIBRAiRY`) and `content/library-books/pilots/ai-fundamentals-101-v2/review.html` (`AI Fundamentals 101 — local review draft`). Route recovery does not approve the held book or Library design.
 - Automated recurrence: nightly incremental backup, weekly repository integrity check and monthly sampled restore/route drill are active. No retention deletion policy has been enabled.
+- Write-stable follow-up snapshot: `4a996ba9`, taken after writes were paused. The representative source fingerprint was unchanged before and after the snapshot; sampled `restic dump`/restore hashes and the three restored routes passed. This closes the live-source limitation for bounded integration work, but it does not authorize deletion of the iCloud worktree.
 - Current inventory: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json`, generated 2026-08-08T19:31:46Z; 65,925 files / 84,334,209,258 bytes; dirty 9,794 (219 tracked modifications, 9,575 untracked). Dispositions: `HOLD_UNKNOWN=4,299`, `REVIEW_FOR_EXACT_PACKAGE_COMMIT=2,626`, `PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF=32`, `REVIEW_TRACKED_GENERATED_FILE=27`, `KEEP_OUT_OF_GIT=2,810`.
 
-## Important limitation found
+## Limitation closed for bounded integration
 
-The first full backup read a live, changing iCloud worktree. One pre-backup hash did not match the eventual snapshot because the source changed during the 2:43 backup; the restored bytes did match the immutable snapshot exactly. This is not restore corruption, but it means the snapshot is not proven atomic across every file.
+The first full backup read a live, changing iCloud worktree. One pre-backup hash did not match the eventual snapshot because the source changed during the 2:43 backup; the restored bytes did match the immutable snapshot exactly. This was source movement, not restore corruption.
 
-Before any destructive cleanup or worktree migration, take one final incremental snapshot during a declared write-stable window, bind its snapshot ID and representative hashes from `restic dump`, and rerun the sampled recovery drill. Do not call the iCloud tree retired until two clean non-iCloud work drills pass.
+Snapshot `4a996ba9` supplied the required write-stable follow-up and sampled recovery drill. Bounded clean-branch integration may proceed. Destructive cleanup and retirement of the iCloud tree remain prohibited until two clean non-iCloud work drills pass and every moved path has an exact disposition.
 
 ## Authority truth
 

@@ -1,8 +1,8 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 12:31 PDT
+**Evidence time:** 2026-08-08 13:15 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
-**Status:** `IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY`
+**Status:** `IN_PROGRESS_CLEAN_INTEGRATION`
 **Authority:** internal operating-model implementation evidence only
 
 This record reconciles the actual accepted report at `/Users/alisoneakin/Documents/LAIDIES-Fable5-Review-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md` (SHA-256 `8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb`) with the changes implemented after it. `PASS` below means the named local mechanism was calibrated and passed. It does not mean the Library, website, backup migration or public release is complete.
@@ -19,8 +19,8 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Derive status from append-only events | PASS PILOT | `operations/runtime/work-events.jsonl`; `scripts/project-work-events.mjs`; write guard and stale-projection calibration |
 | Cap active negative calibration context without deleting learning | PASS | `scripts/build-content-calibration-set.mjs`; active cap 20; overflow remains preserved in the registry |
 | Keep owner entry scoped while preserving a full audit | PASS SCOPED | targeted Library entry passes; unknown owner fails; global audit remains separately fail-closed |
-| Establish independent recovery evidence before cleanup | PASS RECOVERY / WRITE-STABLE SNAPSHOT STILL REQUIRED | Git bundle passed; full Restic snapshot `ff1c716b` passed all-pack read, 80,739-file restore, immutable-byte comparison and three restored-route checks; live-tree drift requires one final write-stable incremental snapshot before cleanup |
-| Protect the default branch | LOCAL PASS / HOSTED NARROW GATE IN REPAIR | `.githooks/pre-push` blocks direct pushes to `main`; hosted `Operating baseline CI / work-truth` exists but is not yet eligible to require because the latest exact-commit run remains under repair |
+| Establish independent recovery evidence before cleanup | PASS FOR BOUNDED INTEGRATION | Git bundle passed; full Restic snapshot `ff1c716b` passed all-pack read and full restore; write-stable snapshot `4a996ba9` passed stable fingerprints, sampled restored-byte comparison and three route checks |
+| Protect the default branch | PASS HOSTED | `.githooks/pre-push` blocks direct pushes to `main`; hosted run `31275046939` passed on exact commit `ced956af`; `main` now requires strict `work-truth`, a PR, admin enforcement, and denies force-push/deletion |
 | Pilot trusted practitioner/source intake | PASS PILOT | 13-source roster, four evidence-bound signals, three useful owner rulings; recurrence remains parked |
 | Capture practical home-life AI as a distinct reader job | SPECIFIED | durable idea-inbox handoff; no premature content commission or public feature |
 | Exclude retained history from routine retrieval | PASS | repository ignore boundaries preserve explicit recovery through unrestricted search |
@@ -35,8 +35,8 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 
 | Item | Truth | Completion trigger |
 |---|---|---|
-| Full encrypted off-site backup and restore | PASS WITH LIVE-SOURCE LIMIT | snapshot `ff1c716b`, `check --read-data`, full scratch restore and restored routes passed; take one write-stable incremental snapshot before destructive cleanup |
-| Move the worktree out of iCloud | NOT STARTED — recovery threshold met, integration plan required | take and verify the write-stable snapshot; create clean non-iCloud integration worktree from `origin/main`; migrate bounded packages; run two clean drills before old copy removal |
+| Full encrypted off-site backup and restore | PASS FOR BOUNDED INTEGRATION | snapshot `ff1c716b`, `check --read-data`, full scratch restore and restored routes passed; write-stable snapshot `4a996ba9` and sampled drill also passed |
+| Move the worktree out of iCloud | STARTED — SOURCE STILL PRESERVED | clean non-iCloud branch `integration/operating-model-foundation-20260808` was built from `origin/main`; push/PR and two clean drills remain before any old-copy retirement |
 | Archive/delete old operating-model material | TIMED PARITY / CONSUMER REPAIR | replacement projection runs for two weeks, live consumers are repaired and full restore proof exists; UNKNOWN never moves |
 | Collapse durable roles/dossiers | PILOT, NOT MASS MIGRATED | event projection must first cover 14 active legacy records, then prove parity for two weeks before mirrors retire one consumer group at a time |
 | Retire the prose handoff/control contract after migration | TIMED PARITY | the replacement artifact schema and checker now exist; the current Control Room contract remains authoritative until all consumers use the checked shape and event projection runs beside it for two weeks |
@@ -44,7 +44,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Correct or exempt Episode 1 exemplar contradictions | ALI/EPISODE OWNER DECISION | the positive exemplar conflicts with the current title and autocomplete rules; changing public teaching bytes is outside this internal OS task |
 | Sitewide style championship and whole-town opening threshold | ALI DECISION | no operating-model implementation can substitute for the named taste and launch-scope rulings |
 | Three observed unfamiliar readers | NOT DONE | one exact complete substantial-book render survives orientation, lookup, explain-back and unseen-transfer sessions with three real people |
-| Hosted GitHub branch protection | PARTIAL VERIFIED / REQUIRED CHECK NOT YET ENABLED | PR requirement and destructive-push protections are configured; require only the narrow `work-truth` check after its exact hosted run is green; do not require the broadly failing integrity suite |
+| Hosted GitHub branch protection | PASS VERIFIED | required PR and strict `work-truth` are active with admin enforcement; force-push and deletion are disabled; the broad integrity suite remains deliberately non-required |
 | Practitioner-source recurrence | PARKED | Control Room approves cadence/automation scope; existing AIDB cycle continues independently |
 | Internal operating metrics | MECHANISM BUILT / COVERAGE INCOMPLETE | event metrics are derived without false zeroes; nine of ten are currently unavailable because legacy active work has not migrated |
 | Plausible or equivalent public outcome analytics | NOT WIRED | after launch only when a bounded trial can change a real decision; no subscription was started |
@@ -67,7 +67,7 @@ The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 lo
 
 The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. The live parity check correctly fails because 14 active legacy work IDs are not yet represented in the append-only event source. That failure prevents the two-week retirement clock from being falsely started. The current metrics projector consequently reports nine metrics unavailable rather than claiming zero performance.
 
-The 12:31 PDT recovery and Git reconciliation found two operating risks the earlier status understated. First, the full encrypted snapshot and complete scratch restore now exist, but a long backup of a live worktree is not atomic; snapshot-derived hashes, not pre-backup live hashes, are recovery authority. Second, `homepage-redesign` had accumulated 309 commits and 5,998 changed files beyond `origin/main` with no open PR. Commit discipline and integration discipline are now separate states; the repair path is bounded clean PR packages, never a mega-PR.
+The 13:15 PDT reconciliation closed the write-stable backup dependency with snapshot `4a996ba9`, activated strict hosted `work-truth` branch protection, and formed the first bounded non-iCloud integration branch from `origin/main`. The package deliberately excludes the partial product-steward registry and Library visitor files; it contains only the canonical operating spine and executable enforcement needed by the narrow CI gate. Commit discipline and integration discipline remain separate states: every successor moves as an exact package, never as the 5,998-file branch backlog.
 
 ## Authority truth
 
