@@ -1,0 +1,63 @@
+name: The Daily private review draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_date:
+        description: Vancouver editorial date (YYYY-MM-DD)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  compose-private-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ISSUE_DATE: ${{ inputs.issue_date }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate the exact dated source
+        id: paths
+        shell: bash
+        run: |
+          if [[ ! "$ISSUE_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "Invalid issue_date; expected YYYY-MM-DD" >&2
+            exit 1
+          fi
+          radar="operations/agents/aidb-intelligence-desk/daily/${ISSUE_DATE}.md"
+          output="operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${ISSUE_DATE}.json"
+          if [[ ! -f "$radar" ]]; then
+            echo "NO_INPUT — authoritative AIDB record is absent at $radar; this is not a quiet edition" >&2
+            exit 1
+          fi
+          echo "radar=$radar" >> "$GITHUB_OUTPUT"
+          echo "output=$output" >> "$GITHUB_OUTPUT"
+
+      - name: Run fail-closed Daily contracts
+        run: |
+          node scripts/test-compose-daily-edition.mjs
+          node scripts/test-promote-daily-edition.mjs
+          node scripts/test-newsstand-reader-contract.mjs
+
+      - name: Compose private review envelope
+        run: |
+          node scripts/compose-daily-edition.mjs \
+            --date "$ISSUE_DATE" \
+            --radar "${{ steps.paths.outputs.radar }}" \
+            --output "${{ steps.paths.outputs.output }}"
+          node -e 'const fs=require("fs");const p=process.argv[1];const v=JSON.parse(fs.readFileSync(p));if(v.mode!=="PRIVATE_DRAFT_ONLY"||v.canonicalWrite!==false||v.deployActionTaken!==false)process.exit(1)' "${{ steps.paths.outputs.output }}"
+
+      - name: Upload private review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-private-review-${{ inputs.issue_date }}-${{ github.sha }}
+          path: ${{ steps.paths.outputs.output }}
+          if-no-files-found: error
+          retention-days: 7
