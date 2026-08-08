@@ -66,6 +66,12 @@ Those are current source defects owned by the relevant product lanes. The
 Library visitor-facing lock prevents this operating-model task from substituting
 new or unreviewed imagery.
 
+The 15:52 PDT clean-baseline reconciliation compared 2,651 actionable dirty
+paths against `/Users/alisoneakin/Projects/laidies` by exact SHA-256 without
+mutating either tree. Twenty-one tracked paths differ and 2,630 paths are absent
+from the clean branch; none already match. This rules out a bulk “already
+integrated” cleanup. Exact owner/package review remains the next recovery lane.
+
 The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 local enforcement/configuration checks passed, including `git diff --check`; the explicit whole-system command failed only on the five work-resolution records and the locked 120px Library regression listed above. The repository inventory was refreshed to 65,888 files / 84,333,897,353 bytes with 5,261 `UNKNOWN` paths; `UNKNOWN` remains immovable.
 
 The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. The live parity check correctly fails because 14 active legacy work IDs are not yet represented in the append-only event source. That failure prevents the two-week retirement clock from being falsely started. The current metrics projector consequently reports nine metrics unavailable rather than claiming zero performance.
