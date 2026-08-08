@@ -6,6 +6,13 @@ import process from 'node:process';
 import { execFileSync } from 'node:child_process';
 
 function parseArgs(argv) {
+  if (argv.length === 1 && argv[0] === '--help') {
+    console.log('Usage: node scripts/build-public-site.mjs --root <repository> --output <directory> [--entrypoints <json>]');
+    process.exit(0);
+  }
+  if (argv.length === 1 && argv[0].startsWith('-')) {
+    throw new Error('flag-like output paths are rejected');
+  }
   if (argv.length === 1 && !argv[0].startsWith('-')) return { output: argv[0] };
   const result = {};
   for (let index = 0; index < argv.length; index += 2) {

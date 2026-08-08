@@ -65,3 +65,45 @@ Ali's separate artifact-specific verdict.
 No workflow was dispatched. No Pages artifact was uploaded or deployed. The
 existing public site was not replaced or judged. No spend, purchase,
 subscription or Library visitor/content edit occurred.
+
+## Main-branch recovery checkpoint — 14:37 PDT
+
+The controller merge exposed a second repository-integrity defect at exact
+`main` commit `ff7536ad709d83e18bd00da4e9f4120152665faf`: `package.json`
+required checks and fixtures that were absent from the branch even though the
+exact files remained recoverable in Git history. The recovery branch restores
+only those historical operational dependencies plus six historically tracked
+media files required by the Episode 2 gate and trailer dependency walk.
+
+Verified after recovery:
+
+- Episode 2 mechanical gate: `PASS` (5/5).
+- Episode-cue missing-input calibration: `PASS`.
+- queue-claim policy calibration: `PASS`.
+- output-path CLI calibration: `PASS`.
+- canonical-instruction dependency check: `PASS` (15 required sources).
+- work-resolution-loop calibration: `PASS`.
+- media-defect fixture calibration: `PASS`.
+
+The complete `npm run ci` and curated public build remain blocked. These are
+now evidence-bearing failures rather than missing-checker crashes:
+
+1. The Daily private-pipeline fixture expects the newer canonical NewsStand
+   dataset; `main` still carries its predecessor visitor dataset. NewsStand
+   owns that public editorial reconciliation.
+2. The NewsStand canonical migration checker reports retired fields and routes
+   across episode metadata and visitor surfaces. NewsStand plus Episodes own
+   those meaning-bearing migrations.
+3. The rejection-prevention registry references `LESSON-13`, which the current
+   protected `operations/LESSONS-ACTIVE.md` does not define. Control Room owns
+   that canonical reconciliation; the Library rejection records must not be
+   silently rewritten by release integration.
+4. Operational integrity reports overdue/stale work records and many active
+   registry assets absent from `main`. Their owning product lanes must either
+   restore the exact admitted bytes or correct the registry status.
+5. The public builder still rejects eight absent Book Fair assets, one
+   untracked Closet hero and one absent DJ Sunnyv portrait. The recovered town
+   panorama becomes eligible only after this checkpoint is committed.
+
+No failing check was weakened or removed. No public copy, Library source,
+release workflow dispatch, Pages upload, deployment or spend occurred.

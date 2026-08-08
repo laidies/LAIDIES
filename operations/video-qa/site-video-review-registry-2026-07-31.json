@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-02",
+  "status": "HOLD",
+  "readiness_schema": "PRESENT",
+  "opening_day_ready": false,
+  "public_verification": "HOLD",
+  "contract": "operations/video-qa/SITE-VIDEO-AND-ANIMATION-REVIEW-CONTRACT.md",
+  "occurrence_schema": "operations/video-qa/site-video-occurrence.schema.json",
+  "assembly_lineage": {
+    "schema_path": "operations/video-qa/assembly-lineage/successor-assembly-lineage.schema.json",
+    "schema_sha256": "f639d9f70d83d2faebf7d7f879dac0f63dda7121f2ead535d03e47137b3604bf",
+    "validator_path": "scripts/check-video-assembly-lineage.mjs",
+    "validator_sha256": "86d260fc332685aec596cc0d7aa88aed9b6734a567ec4c1e3ee8c63b430d14d1",
+    "regression_test_path": "scripts/test-video-assembly-lineage.mjs",
+    "regression_test_sha256": "c0ef34816829a80a1098102d3866d3b0f3b46ed29b5fe20eb5583893de68df18",
+    "rule": "Every successor must include every active prior sequence for the same narration window or bind an explicit old-hash to new-hash supersession receipt. Silent omission is ORPHANED_SCENE.",
+    "manifests": [
+      {
+        "id": "episode-04-v10-repair-preassembly",
+        "path": "operations/video-qa/assembly-lineage/episode-04-preassembly-lineage-2026-08-01.json",
+        "sha256": "161315d1647c67b900c67784ce226ab21f8813686903174298e3af22cc619bc0",
+        "expected_lineage_status": "PREASSEMBLY_HOLD",
+        "admission_status": "HOLD"
+      },
+      {
+        "id": "episode-03-v14-successor",
+        "path": "operations/video-qa/assembly-lineage/episode-03-v14-successor-lineage-2026-08-01.json",
+        "sha256": "a459c5472067445dd453e3dff0869086e41b1ecd518b6b5715322509536ca4ca",
+        "expected_lineage_status": "RECONCILED",
+        "admission_status": "HOLD"
+      }
+    ]
+  },
+  "town_entry_transformation_cue": {
+    "manifest_path": "operations/video-qa/town-entry-transformation-cue-v1/episode-transformation-bindings.json",
+    "manifest_sha256": "56274a5862b363c11218b5c3c84a20dae9b6f38d98352141b263b9f8b73b4153",
+    "validator_path": "scripts/check-town-entry-transformation-cue.mjs",
+    "validator_sha256": "963ac9e9b33fc09544ca1ae6fb938569fb5aca04a2f89cc4cd40ffcd2f340c56",
+    "regression_test_path": "scripts/test-town-entry-transformation-cue.mjs",
+    "regression_test_sha256": "b752f80b52c8e7d3439aa8b72fa0e4f8a958568407a8d543a7058761df313add",
+    "technical_validator_path": "scripts/validate-sunnyvaile-town-entry-cue-v1.py",
+    "technical_validator_sha256": "63e0f875cdf2869e2fb35bbe3811baa4d07d5b509ac5742911d20fd4f889c9ac",
+    "expected_status": "HOLD",
+    "rule": "An unexplained recurring transformation into SUNNYVAiLE uses the exact shared dial-up cue, but the cue cannot admit a narration-incompatible or rejected source."
+  },
+  "admission_rule": "Every visitor-facing video or animation is admitted occurrence by occurrence. Narrated media is judged against the words spoken at that moment; silent media is judged against its learning, interface or narrative purpose. Sampling, file playback and measured pixel movement cannot produce a complete PASS.",
+  "scope": {
+    "content_types": [
+      "trailer",
+      "episode",
+      "class_lesson",
+      "class_demonstration",
+      "lab_or_tool_demonstration",
+      "explainer",
+      "music_video_or_visualizer",
+      "homepage_or_building_film",
+      "promo_or_social_embed",
+      "logo_ident",
+      "silent_instructional_animation",
+      "interface_motion",
+      "ambient_loop"
+    ],
+    "formats": [
+      "mp4",
+      "webm",
+      "m4v",
+      "gif",
+      "lottie",
+      "rive",
+      "css_animation"
+    ],
+    "occurrence_dispositions": [
+      "PASS",
+      "CLOSE_ENOUGH",
+      "RETIME",
+      "REPLACE",
+      "ADD_OR_REPAIR_ANIMATION"
+    ],
+    "source_types": [
+      "still",
+      "camera_move_on_still",
+      "ambient_loop",
+      "semantic_animation",
+      "demonstration",
+      "live_action",
+      "decorative_motion"
+    ]
+  },
+  "monitored_visitor_sources": [
+    "index.html",
+    "preview-homepage.html",
+    "watch.html",
+    "learn/class.html",
+    "content/site/high-classes.json",
+    "content/site/high-learning-ledger.json",
+    "content/episodes/episode-01-cues.json",
+    "content/episodes/episode-02-cues.json",
+    "content/episodes/episode-03-cues.json",
+    "content/episodes/episode-04-cues.json"
+  ],
+  "sitewide_inventory": {
+    "inventory_date": "2026-08-01",
+    "json_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.json",
+    "json_sha256": "0a549320e6968dda7c4fba4e733385e7b11f42a759616cf4ad8d501d03b269e1",
+    "report_path": "operations/video-qa/sitewide-motion-inventory-2026-08-01.md",
+    "report_sha256": "4300a8cd3ab489c714e01aa718a09540d85f0b13a88dcd04bf5f4846e805823e",
+    "builder": "scripts/build-sitewide-motion-inventory.mjs",
+    "status": "HOLD",
+    "scanned_source_files": 224,
+    "literal_motion_references": 5,
+    "unregistered_literal_references": 0,
+    "missing_literal_motion_files": 0,
+    "dynamic_video_renderers": 5,
+    "runtime_animation_definitions": 149,
+    "reviewed_runtime_animation_definitions": 2,
+    "admitted_runtime_animation_definitions": 2,
+    "unreviewed_or_unadmitted_runtime_animation_definitions": 147,
+    "semantic_or_instructional_runtime_animations": 71,
+    "reason": "The deterministic visitor-surface scan found no missing or unknown literal motion file. Two exact SUNNYVAiLE High interface-motion definitions are source-bound, responsive, reduced-motion reviewed and admitted; five runtime video renderers and the remaining 147 CSS/JavaScript motion definitions stay held for exact purpose classification and occurrence admission. Storage-only experiments are not treated as visitor-bound."
+  },
+  "runtime_surfaces": [
+    {
+      "id": "screening-room",
+      "path": "watch.html",
+      "status": "FAIL_CLOSED",
+      "proof_pattern": "admission.admissionStatus === 'admitted'",
+      "source_sha256": "bc180d099e8fb1159506e5fea27073a5fe8c756f2c4e73f3d9fb130bd61b3de9",
+      "note": "The screening room binds a full film only when the exact programme admission record says admitted. Held candidates may be named by checksum-bound admission data but remain non-playable."
+    },
+    {
+      "id": "class-player",
+      "path": "learn/class.html",
+      "status": "FAIL_CLOSED",
+      "proof_pattern": "has not been filmed yet",
+      "source_sha256": "58a7db1f14c3c22fbb8839208cc19585933b95f37b93859fb0cb3bc48f49e7f7",
+      "evidence_path": "operations/video-qa/sunnyvaile-high-class-player-admission-audit-2026-08-01/class-player-admission-audit.json",
+      "evidence_sha256": "143e958694edbb4c35b7b83272409de32dc53c9d01b5179694594d9eb1a3a377",
+      "data_bindings": [
+        {
+          "path": "content/site/high-classes.json",
+          "sha256": "8c1c277da838a5b00c6cd5e303e4b77c09ac37d4ee0252f836374ef85f16649d"
+        },
+        {
+          "path": "content/site/high-learning-ledger.json",
+          "sha256": "ada9a95e0eafaa81d80bd79cc4538a47ac1d1920dc53218b1729649fd1e54ed8"
+        }
+      ],
+      "current_state_check": {
+        "type": "class-player-three-gate",
+        "register_path": "content/site/high-classes.json",
+        "ledger_path": "content/site/high-learning-ledger.json",
+        "expected": {
+          "registered_classes": 38,
+          "live_register_rows": 0,
+          "rows_with_video_path": 0,
+          "admitted_class_learning_records": 0,
+          "playable_class_occurrences": 0
+        }
+      },
+      "note": "A class without a live register row, an exact video path and a current admitted learning record renders an explicit not-filmed state rather than inventing availability. Any change to the current zero-playable state forces a new audit."
+    }
+  ],
+  "runtime_animation_reviews": [
+    {
+      "id": "sunnyvaile-high-class-tv-affordance",
+      "content_type": "interface_motion",
+      "source_path": "learn/class.html",
+      "source_sha256": "58a7db1f14c3c22fbb8839208cc19585933b95f37b93859fb0cb3bc48f49e7f7",
+      "kind": "CSS_KEYFRAMES",
+      "name": "tvpulse",
+      "source_type": "semantic_animation",
+      "interface_trigger": "A registered class page renders its television control.",
+      "silent_purpose": "Make the small television control discoverable without changing lesson meaning or claiming that a class tape is available.",
+      "expected_instances": 38,
+      "reviewed_instances": 38,
+      "responsive_review": {
+        "desktop_1280": "PASS",
+        "mobile_390": "PASS",
+        "horizontal_overflow": "PASS"
+      },
+      "reduced_motion_review": {
+        "status": "PASS",
+        "behavior": "The pulse is removed and the teal ring remains visible at opacity 0.5."
+      },
+      "evidence_path": "operations/video-qa/sunnyvaile-high-class-runtime-motion-audit-2026-08-01/class-runtime-motion-audit.json",
+      "evidence_sha256": "cbae8c8050129f7a27a8976ccdb538e18d60bb18c93786e21cb684b33cda8eca",
+      "admission_status": "PASS",
+      "reason": "The exact template was verified across all 38 registered class states, with desktop/mobile visual proof, keyboard behavior, no overflow and a static reduced-motion affordance."
+    },
+    {
+      "id": "sunnyvaile-high-class-crt-open",
+      "content_type": "interface_motion",
+      "source_path": "learn/class.html",
+      "source_sha256": "58a7db1f14c3c22fbb8839208cc19585933b95f37b93859fb0cb3bc48f49e7f7",
+      "kind": "CSS_KEYFRAMES",
+      "name": "crton",
+      "source_type": "decorative_motion",
+      "interface_trigger": "A visitor activates the television control.",
+      "silent_purpose": "Open the class-tape or production-status dialog with a brief, one-shot CRT power-on transition.",
+      "expected_instances": 38,
+      "reviewed_instances": 38,
+      "responsive_review": {
+        "desktop_1280": "PASS",
+        "mobile_390": "PASS",
+        "horizontal_overflow": "PASS"
+      },
+      "reduced_motion_review": {
+        "status": "PASS",
+        "behavior": "The CRT transition is removed; the dialog opens immediately in its stable final state."
+      },
+      "evidence_path": "operations/video-qa/sunnyvaile-high-class-runtime-motion-audit-2026-08-01/class-runtime-motion-audit.json",
+      "evidence_sha256": "cbae8c8050129f7a27a8976ccdb538e18d60bb18c93786e21cb684b33cda8eca",
+      "admission_status": "PASS",
+      "reason": "The exact user-triggered 0.42-second transition was verified as one-shot, responsive, non-blocking, keyboard-safe and absent under reduced motion across all 38 class states."
+    }
+  ],
+  "direct_motion_assets": [
+    {
+      "id": "sunnyvaile-logo-reveal",
+      "content_type": "logo_ident",
+      "path": "assets/video/sunnyvaile-logo-reveal.mp4",
+      "sha256": "1df211669ecf1067b69fecd3d24badf1dc156e650512bc2e373823509eaa45e9",
+      "bound_sources": [
+        "preview-homepage.html",
+        "content/episodes/episode-01-cues.json",
+        "content/episodes/episode-02-cues.json",
+        "content/episodes/episode-03-cues.json"
+      ],
+      "occurrence_review": {
+        "expected_occurrences": 4,
+        "reviewed_occurrences": 4,
+        "status": "FAIL",
+        "disposition_counts": {
+          "PASS": 1,
+          "CLOSE_ENOUGH": 0,
+          "RETIME": 3,
+          "REPLACE": 0,
+          "ADD_OR_REPAIR_ANIMATION": 0
+        },
+        "evidence_path": "operations/video-qa/sunnyvaile-logo-reveal-occurrence-audit-2026-08-01/sunnyvaile-logo-reveal-occurrence-audit.json",
+        "evidence_sha256": "bc2fab66fa04dfd1d473c4db55392714598aeb06db37fe66821be0aff0e28b49",
+        "reason": "All four known occurrences are described against their exact silent purpose and rendered window. The preview homepage preserves the complete eight-second ident at desktop and mobile widths. Episode 01, 02 and 03 each replace it at 5.5 seconds, interrupting the meaning-bearing WHERE GIRL POWER MEETS MACHINE POWER line before it finishes; those three occurrences require RETIME and an independent audible 1x review after repair."
+      },
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "episode-04-ada-loop-cue",
+      "content_type": "ambient_loop",
+      "path": "assets/episodes/ep-04/clips/ep04-scene-03-ada-loop-v1.mp4",
+      "sha256": "343e37c02c4873ae71c7fed8e21bb6d4c52b7ccc0bfb05770a223b84ee36b3b4",
+      "bound_sources": [
+        "content/episodes/episode-04-cues.json"
+      ],
+      "occurrence_review": {
+        "expected_occurrences": 1,
+        "reviewed_occurrences": 1,
+        "status": "FAIL",
+        "disposition_counts": {
+          "PASS": 0,
+          "CLOSE_ENOUGH": 0,
+          "RETIME": 0,
+          "REPLACE": 1,
+          "ADD_OR_REPAIR_ANIMATION": 0
+        },
+        "evidence_path": "operations/video-qa/episode-04-ada-loop-occurrence-audit-2026-08-01/episode-04-ada-loop-occurrence-audit.json",
+        "evidence_sha256": "d133bd9059a9b62cd0a053cfbcbce65ff28a4a93ee105e65b370ce7876d8e68c",
+        "reason": "The exact Screening Room occurrence is described against its 49.7-second narration window and rendered with the runtime's 0.5x hard-loop behavior. The five-second source repeats almost five times, depicts only one portion of the spoken progression, changes Ada's face/posture/framing and has a severe 0.119635 first/last-frame SSIM seam. It requires a narration-timed multi-shot replacement plus audible 1x and independent review."
+      },
+      "admission_status": "HOLD"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "trailer",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/video-qa/trailer-v8-human-preview-hold-2026-08-02/receipt.json",
+      "content_type": "trailer",
+      "master_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v8-multicolour-review-1920.mp4",
+      "master_sha256": "1be8c4f16761294053ec784004be63679743a2d5fef0375fdb7e850280a1332e",
+      "caption_path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+      "caption_sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+      "expected_occurrences": 58,
+      "relevance_review": {
+        "reviewed_occurrences": 58,
+        "status": "FAIL",
+        "basis": "Ali began the human sound-on review of the exact v8 hash and confirmed release-blocking visual defects immediately: the opening heroine is off-model, her wardrobe is wrong, and the street is not the approved SUNNYVAiLE; the title plays predominantly as static slides rather than meaningful narration-synchronised animation; Hedy and other MAiVENS are incorrectly presented as town characters; caption capitalization is not preserving approved spelled terms. The exact wardrobe candidate batch used by v8 was explicitly LOCAL CANDIDATE / UNADMITTED and required a decision before binding."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 58,
+        "status": "FAIL",
+        "basis": "Ali began the human sound-on review of the exact v8 hash and confirmed release-blocking visual defects immediately: the opening heroine is off-model, her wardrobe is wrong, and the street is not the approved SUNNYVAiLE; the title plays predominantly as static slides rather than meaningful narration-synchronised animation; Hedy and other MAiVENS are incorrectly presented as town characters; caption capitalization is not preserving approved spelled terms. The exact wardrobe candidate batch used by v8 was explicitly LOCAL CANDIDATE / UNADMITTED and required a decision before binding."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 58,
+        "status": "FAIL",
+        "basis": "Ali began the human sound-on review of the exact v8 hash and confirmed release-blocking visual defects immediately: the opening heroine is off-model, her wardrobe is wrong, and the street is not the approved SUNNYVAiLE; the title plays predominantly as static slides rather than meaningful narration-synchronised animation; Hedy and other MAiVENS are incorrectly presented as town characters; caption capitalization is not preserving approved spelled terms. The exact wardrobe candidate batch used by v8 was explicitly LOCAL CANDIDATE / UNADMITTED and required a decision before binding."
+      },
+      "open_findings": [
+        "Human preview HOLD evidence: operations/video-qa/trailer-v8-human-preview-hold-2026-08-02/receipt.json",
+        "00:00–00:06: opening heroine identity, wardrobe, rendering style and location fail the approved references; the scene is not approved SUNNYVAiLE.",
+        "Trailer-wide: the picture behaves predominantly as a slideshow; camera moves or zooms do not satisfy meaningful animation synchronized to narration.",
+        "04:55: the woman is not the approved heroine and the surrounding men/people are invented, unidentified characters with no established canon role.",
+        "05:48: heroine wardrobe continuity fails; an episode-specific outfit replaces the locked Trailer look.",
+        "06:03: a retired SUNNYVAiLE map is used instead of the current approved town geography/map.",
+        "06:19: an invented human tour guide is placed over another obsolete/noncanonical town map.",
+        "07:25: JoJo appears at Blend & Snap without any character introduction or explanation of her role.",
+        "Trailer-wide: the story never explains the heroine’s corporate-to-Rewind-Era transformation and never names or explains the Rewind Era.",
+        "09:33–09:35: the transformation flashes the Episode 4 yellow-plaid outfit before switching to the intended Trailer outfit.",
+        "Approx. 13:36–14:05 / LUMINAiRY sequence: Hedy and the other MAiVENS must not be presented as SUNNYVAiLE town characters.",
+        "Trailer-wide captions: preserve exact approved capitalization when names and terms are spelled aloud.",
+        "Collect the remainder of Ali’s timecoded review notes before one consolidated successor build.",
+        "Public film binding, release, deploy and publication remain unauthorized and fail-closed."
+      ],
+      "admission_status": "FAIL"
+    },
+    {
+      "id": "01",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/video-qa/episode-01-full-v27-occurrence-repaired-review/manifest.json",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-01-full-v27-occurrence-repaired-review.mp4",
+      "master_sha256": "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a",
+      "caption_path": "assets/captions/episode-01.vtt",
+      "caption_sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+      "expected_occurrences": 71,
+      "relevance_review": {
+        "reviewed_occurrences": 71,
+        "status": "HOLD",
+        "basis": "The exact v27 successor contains the consolidated 71-occurrence repair, complete captions and a full decode pass. The repaired visual sequence cleared the available frame, sequence and textual checks. Continuous human sound-on judgment remains pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 71,
+        "status": "HOLD",
+        "basis": "The exact v27 successor contains the consolidated 71-occurrence repair, complete captions and a full decode pass. The repaired visual sequence cleared the available frame, sequence and textual checks. Continuous human sound-on judgment remains pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 71,
+        "status": "HOLD",
+        "basis": "The exact v27 successor contains the consolidated 71-occurrence repair, complete captions and a full decode pass. The repaired visual sequence cleared the available frame, sequence and textual checks. Continuous human sound-on judgment remains pending."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/video-qa/episode-01-full-v27-occurrence-repaired-review/manifest.json",
+        "No machine- or visual-review defect currently requests another render.",
+        "A qualified human must watch and hear this exact hash continuously at 1x and return PASS or a timecoded HOLD.",
+        "The exact cover family still requires one visual acceptance before release identity can be sealed.",
+        "Public film binding, release, deploy and publication remain unauthorized and fail-closed."
+      ],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "02",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+      "master_sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc",
+      "caption_path": "assets/captions/episode-02.vtt",
+      "caption_sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+      "expected_occurrences": 61,
+      "relevance_review": {
+        "reviewed_occurrences": 61,
+        "status": "HOLD",
+        "basis": "The exact v20 successor contains all 61 narration-picture and motion repairs, preserves the frozen audio payload and captions, and passed full decode plus independent visual review. Continuous human sound-on judgment remains pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 61,
+        "status": "HOLD",
+        "basis": "The exact v20 successor contains all 61 narration-picture and motion repairs, preserves the frozen audio payload and captions, and passed full decode plus independent visual review. Continuous human sound-on judgment remains pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 61,
+        "status": "HOLD",
+        "basis": "The exact v20 successor contains all 61 narration-picture and motion repairs, preserves the frozen audio payload and captions, and passed full decode plus independent visual review. Continuous human sound-on judgment remains pending."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json",
+        "No machine- or visual-review defect currently requests another render.",
+        "A qualified human must watch and hear this exact hash continuously at 1x and return PASS or a timecoded HOLD.",
+        "The exact cover family still requires one visual acceptance before release identity can be sealed.",
+        "Public film binding, release, deploy and publication remain unauthorized and fail-closed."
+      ],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "03",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v15-independent-full-title-review-receipt-2026-08-01.json",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+      "master_sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75",
+      "caption_path": "assets/captions/episode-03.vtt",
+      "caption_sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+      "expected_occurrences": 49,
+      "relevance_review": {
+        "reviewed_occurrences": 49,
+        "status": "HOLD",
+        "basis": "The exact v15 successor clears all 13 repaired sequences covering the 21 prior occurrence holds, full decode, caption and audio-payload continuity, and the strongest available full-title visual/textual review. Continuous human sound-on judgment remains pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 49,
+        "status": "HOLD",
+        "basis": "The exact v15 successor clears all 13 repaired sequences covering the 21 prior occurrence holds, full decode, caption and audio-payload continuity, and the strongest available full-title visual/textual review. Continuous human sound-on judgment remains pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 49,
+        "status": "HOLD",
+        "basis": "The exact v15 successor clears all 13 repaired sequences covering the 21 prior occurrence holds, full decode, caption and audio-payload continuity, and the strongest available full-title visual/textual review. Continuous human sound-on judgment remains pending."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v15-independent-full-title-review-receipt-2026-08-01.json",
+        "No machine- or visual-review defect currently requests another render.",
+        "A qualified human must watch and hear this exact hash continuously at 1x and return PASS or a timecoded HOLD.",
+        "The exact cover family still requires one visual acceptance before release identity can be sealed.",
+        "Public film binding, release, deploy and publication remain unauthorized and fail-closed."
+      ],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "04",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json",
+      "content_type": "episode",
+      "master_path": "assets/video/episode-04-full-v10-repaired-review.mp4",
+      "master_sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb",
+      "caption_path": "assets/captions/episode-04.vtt",
+      "caption_sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+      "expected_occurrences": 55,
+      "relevance_review": {
+        "reviewed_occurrences": 55,
+        "status": "HOLD",
+        "basis": "The exact v10 successor clears the repaired sequences, full decode, caption and audio-payload continuity, dense full-title visual inspection and the strongest available narration-picture review. No confirmed media defect remains. Continuous human sound-on judgment remains pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 55,
+        "status": "HOLD",
+        "basis": "The exact v10 successor clears the repaired sequences, full decode, caption and audio-payload continuity, dense full-title visual inspection and the strongest available narration-picture review. No confirmed media defect remains. Continuous human sound-on judgment remains pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 55,
+        "status": "HOLD",
+        "basis": "The exact v10 successor clears the repaired sequences, full decode, caption and audio-payload continuity, dense full-title visual inspection and the strongest available narration-picture review. No confirmed media defect remains. Continuous human sound-on judgment remains pending."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json",
+        "No machine- or visual-review defect currently requests another render.",
+        "A qualified human must watch and hear this exact hash continuously at 1x and return PASS or a timecoded HOLD.",
+        "The exact cover family still requires one visual acceptance before release identity can be sealed.",
+        "Public film binding, release, deploy and publication remain unauthorized and fail-closed."
+      ],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "odc-101",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/classes/media/odc-101-teaching-media-review-animatic-v1/manifest.json",
+      "content_type": "class_lesson",
+      "master_path": "assets/classes/odc-101/odc-101-what-youre-looking-at-review-animatic-v1.mp4",
+      "master_sha256": "e54a22f3d81aa23bc348b3d8675428dc996b28d0928e955b365c1c565f1c39bf",
+      "caption_path": "assets/classes/odc-101/odc-101-what-youre-looking-at-review-animatic-v1.vtt",
+      "caption_sha256": "f1d3f3aeb1f429426dcda559ddbcc5a095b956d94a77e044d93cdd3306ca1490",
+      "expected_occurrences": 10,
+      "relevance_review": {
+        "reviewed_occurrences": 10,
+        "status": "HOLD",
+        "basis": "All ten narration-timed scenes are assembled, described by the source-bound script and represented in the rendered contact sheet. Independent accuracy and unfamiliar-learner judgment remain pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 10,
+        "status": "HOLD",
+        "basis": "The exact animatic passes full decode, clock and caption continuity. Independent full-title visual and human sound-on review remain pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 10,
+        "status": "HOLD",
+        "basis": "Every scene has narration-timed visual treatment, but the current camera motion and provisional system voice are review witnesses rather than release-approved media."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/classes/media/odc-101-teaching-media-review-animatic-v1/manifest.json",
+        "The provisional system voice is not an approved performance.",
+        "Teaching, accuracy, accessibility, unfamiliar-learner and independent human sound-on review remain pending.",
+        "Public class video, poster, admission and player binding remain fail-closed."
+      ],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "odc-201",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/classes/media/odc-201-teaching-media-review-animatic-v1/manifest.json",
+      "content_type": "class_lesson",
+      "master_path": "assets/classes/odc-201/odc-201-from-chatting-to-working-review-animatic-v1.mp4",
+      "master_sha256": "0515850dd79e6251b1e5ca8238693e1109dd7fa57472dbfc69aff65b765a3513",
+      "caption_path": "assets/classes/odc-201/odc-201-from-chatting-to-working-review-animatic-v1.vtt",
+      "caption_sha256": "5bee5abb7c764559226e31f0d4bbb4d54dc6098531582acabbd72523a29c54b1",
+      "expected_occurrences": 13,
+      "relevance_review": {
+        "reviewed_occurrences": 13,
+        "status": "HOLD",
+        "basis": "All thirteen narration-timed scenes are assembled and source-checked by the bounded class gate. Independent accuracy and unfamiliar-learner judgment remain pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 13,
+        "status": "HOLD",
+        "basis": "The exact animatic passes full decode, clock and caption continuity. Independent full-title visual and human sound-on review remain pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 13,
+        "status": "HOLD",
+        "basis": "Every scene has narration-timed visual treatment, but the current camera motion and provisional system voice are review witnesses rather than release-approved media."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/classes/media/odc-201-teaching-media-review-animatic-v1/manifest.json",
+        "The provisional system voice is not an approved performance.",
+        "Teaching, accuracy, accessibility, unfamiliar-learner and independent human sound-on review remain pending.",
+        "The working-brief practice and completion plumbing remain separate launch work.",
+        "Public class video, poster, admission and player binding remain fail-closed."
+      ],
+      "admission_status": "HOLD"
+    },
+    {
+      "id": "odc-lab-01",
+      "release_ready": false,
+      "public_verification": "HOLD",
+      "release_receipt": "operations/classes/media/odc-lab-01-teaching-media-review-animatic-v1/manifest.json",
+      "content_type": "lab_or_tool_demonstration",
+      "master_path": "assets/classes/odc-lab-01/odc-lab-01-what-the-viral-reel-left-out-review-animatic-v1.mp4",
+      "master_sha256": "c657a8421017f3138f11d530bd52ed985bbc2fa06e932dfff06f983934335a44",
+      "caption_path": "assets/classes/odc-lab-01/odc-lab-01-what-the-viral-reel-left-out-review-animatic-v1.vtt",
+      "caption_sha256": "af3718310263b1bca5d2d5836a87f2b4564c2a3e02cb856d79e8d169b59e4399",
+      "expected_occurrences": 15,
+      "relevance_review": {
+        "reviewed_occurrences": 15,
+        "status": "HOLD",
+        "basis": "All fifteen narration-timed scenes are assembled and source-checked by the bounded lab gate. Independent accuracy and unfamiliar-learner judgment remain pending."
+      },
+      "continuity_and_occlusion_review": {
+        "reviewed_occurrences": 15,
+        "status": "HOLD",
+        "basis": "The exact animatic passes full decode, clock and caption continuity. Independent full-title visual and human sound-on review remain pending."
+      },
+      "motion_semantics_review": {
+        "reviewed_occurrences": 15,
+        "status": "HOLD",
+        "basis": "Every scene has narration-timed visual treatment, but the current camera motion and provisional system voice are review witnesses rather than release-approved media."
+      },
+      "open_findings": [
+        "Current exact-candidate evidence: operations/classes/media/odc-lab-01-teaching-media-review-animatic-v1/manifest.json",
+        "The provisional system voice is not an approved performance.",
+        "Teaching, accuracy, accessibility, unfamiliar-learner and independent human sound-on review remain pending.",
+        "The Missing Middle practice, downloadable card and completion plumbing remain separate launch work.",
+        "Public class video, poster, admission and player binding remain fail-closed."
+      ],
+      "admission_status": "HOLD"
+    }
+  ]
+}
