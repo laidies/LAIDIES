@@ -1,8 +1,8 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 13:15 PDT
+**Evidence time:** 2026-08-08 13:35 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
-**Status:** `IN_PROGRESS_CLEAN_INTEGRATION`
+**Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
 
 This record reconciles the actual accepted report at `/Users/alisoneakin/Documents/LAIDIES-Fable5-Review-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md` (SHA-256 `8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb`) with the changes implemented after it. `PASS` below means the named local mechanism was calibrated and passed. It does not mean the Library, website, backup migration or public release is complete.
@@ -36,7 +36,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Item | Truth | Completion trigger |
 |---|---|---|
 | Full encrypted off-site backup and restore | PASS FOR BOUNDED INTEGRATION | snapshot `ff1c716b`, `check --read-data`, full scratch restore and restored routes passed; write-stable snapshot `4a996ba9` and sampled drill also passed |
-| Move the worktree out of iCloud | STARTED — SOURCE STILL PRESERVED | clean non-iCloud branch `integration/operating-model-foundation-20260808` was built from `origin/main`; push/PR and two clean drills remain before any old-copy retirement |
+| Move the worktree out of iCloud | OPERATING FOUNDATION INTEGRATED — SOURCE STILL PRESERVED | PR #26 merged as `13fafe62`; pre-merge `c096ea51` and fresh post-merge `13fafe62` clean drills passed; individual path disposition still gates old-copy retirement |
 | Archive/delete old operating-model material | TIMED PARITY / CONSUMER REPAIR | replacement projection runs for two weeks, live consumers are repaired and full restore proof exists; UNKNOWN never moves |
 | Collapse durable roles/dossiers | PILOT, NOT MASS MIGRATED | event projection must first cover 14 active legacy records, then prove parity for two weeks before mirrors retire one consumer group at a time |
 | Retire the prose handoff/control contract after migration | TIMED PARITY | the replacement artifact schema and checker now exist; the current Control Room contract remains authoritative until all consumers use the checked shape and event projection runs beside it for two weeks |
@@ -67,7 +67,7 @@ The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 lo
 
 The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. The live parity check correctly fails because 14 active legacy work IDs are not yet represented in the append-only event source. That failure prevents the two-week retirement clock from being falsely started. The current metrics projector consequently reports nine metrics unavailable rather than claiming zero performance.
 
-The 13:15 PDT reconciliation closed the write-stable backup dependency with snapshot `4a996ba9`, activated strict hosted `work-truth` branch protection, and formed the first bounded non-iCloud integration branch from `origin/main`. The package deliberately excludes the partial product-steward registry and Library visitor files; it contains only the canonical operating spine and executable enforcement needed by the narrow CI gate. Commit discipline and integration discipline remain separate states: every successor moves as an exact package, never as the 5,998-file branch backlog.
+The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 
 ## Authority truth
 

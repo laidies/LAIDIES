@@ -1,13 +1,13 @@
 # LAiDIES commit queue
 
 **Status:** standing operational register
-**Last reconciled:** 2026-08-08 13:15 PDT
-**Integration branch:** `integration/operating-model-foundation-20260808`
+**Last reconciled:** 2026-08-08 13:35 PDT
+**Integration branch:** `integration/operating-model-status-20260808`
 **Preservation branch:** `homepage-redesign`
-**Remote relationship at reconciliation:** the integration branch is based on
-`origin/main` and locally committed through `2cc31ea4`; push and PR are the next
-gate. The preservation branch remains a backlog and nothing in this queue is
-public by implication.
+**Remote relationship at reconciliation:** operating-foundation PR #26 merged
+to `main` as `13fafe62`. This follow-up branch is based on that exact commit and
+adds the Pages release-boundary repair and current status only. The preservation
+branch remains a backlog and nothing in this queue is public by implication.
 
 The branch was 309 commits / 5,998 files ahead of `origin/main` with no open
 pull request. That is a preserved branch, not an integrated release line.
@@ -33,7 +33,7 @@ describe preservation state only:
 
 | Package | Product status | Exact scope | Git state | Evidence / blocker | Next action |
 |---|---|---|---|---|---|
-| Fable operating-system enforcement and recovery foundation | **BUILT / RECOVERY VERIFIED / CLEAN INTEGRATION ACTIVE** | append-only work events; artifact handoff; role routing; compact Standing Card/retrieval; lifecycle hooks; workspace baseline; exact-preview and narrow operating-baseline workflow; recovery records | **COMMITTED LOCALLY** — integration package through `2cc31ea4`; preservation commits remain on `homepage-redesign` | All six exact hosted-CI commands pass locally. Full snapshot `ff1c716b`, write-stable snapshot `4a996ba9`, restore checks and hosted run `31275046939` passed. `main` requires strict `work-truth`. The package excludes Library visitor files and the non-standalone steward registry. | Push the integration branch, open the bounded PR and require the exact PR run to pass before integration. |
+| Fable operating-system enforcement and recovery foundation | **INTEGRATED / RECOVERY VERIFIED / RELEASE BOUNDARY HELD** | append-only work events; artifact handoff; role routing; compact Standing Card/retrieval; lifecycle hooks; workspace baseline; exact-preview and narrow operating-baseline workflow; recovery records | **MERGED — PR #26 / `13fafe62`** | Required PR run and main run passed. Pre-merge `c096ea51` and fresh post-merge `13fafe62` non-iCloud drills passed. Automatic Pages run `31276827817` exposed legacy `main:/` publication and was cancelled; operational live paths remained 404. | Merge the calibrated Pages boundary only after Ali approves changing Pages to workflow-controlled releases; then build the separate curated production-release workflow. |
 | Dirty-worktree classification and recovery truth | **VERIFIED LOCALLY / PRESERVED** | `.gitignore`; `scripts/{inventory-repository-storage,test-inventory-repository-storage}.mjs`; `operations/storage/{RECOVERY-STATUS-2026-08-07.md,clutter-migration-manifest.json}` | **COMMITTED / PUSHED — `e6cfeaf4`** | Calibrated inventory schema 2 records file purpose, Git state and action; an intentionally ambiguous asset fails closed to `HOLD_UNKNOWN`. Runtime `.wrangler/state/`, `.artifacts/` and dated backups are excluded without deletion. | Use the machine inventory to form exact owner packages. Do not move `UNKNOWN`, archive anything or leave iCloud until the full restore proof passes. |
 | Known-bad AI Fundamentals independent rejection | **REJECTED / PRESERVED / DERIVATIVE USE PROHIBITED** | `operations/external-review/fable-5-laidies-operating-model-2026-08-07/AI-FUNDAMENTALS-KNOWN-BAD-BLIND-JUDGMENT.json`; `operations/product-stewards/library/CONTROL-ROOM-HANDOFF-2026-08-07-2254-PDT.md` | **COMMITTED / PUSHED — `4c66f110`** | Artifact, voice exemplar and positive exemplar hashes match; the Fable-family artifact-first judgment is `REJECT`; the independent-judge calibration rejects a missing artifact. | Consume this exact rejection in the successor producer contract. Do not display, release or source the rejected prose except bounded source mining. |
 | Content recommendation-to-result enforcement and daily derivative intake | **BUILT LOCALLY**; owner reviews and relationship-graph build remain open | `operations/product-stewards/learning-content-ecosystem/{OPERATING-SPEC.md,backlog.md,content-work-orders.json,content-work-orders.schema.json}`; `operations/product-stewards/newsstand/{DAILY-NEWSPAPER-EXPERIENCE-BRIEF.md,PUBLICATION-VALIDATION-AND-DISCOVERY-CONTRACT.md}`; `content/daily-learning-derivatives.{json,schema.json}`; `scripts/check-{content-work-orders,daily-learning-derivatives,product-stewards}.mjs`; scoped orchestrator/painpoint updates | **COMMITTED / PUSHED** — principally `36840b7f`, `cdea8452`, `4efe8312`, with accumulated supporting source/evidence checkpointed in `c8029168` | Eleven owned work orders cover all eight current NewsStand learning-impact records. Ali-decision routing and product-steward validators PASS. The two representative daily derivatives remain correctly `HOLD` / publicly ineligible. | Dispatch the ready owner orders and close their independent content/relation gates. Do not publish a daily derivative until its named reviews and exact release gates pass. |
