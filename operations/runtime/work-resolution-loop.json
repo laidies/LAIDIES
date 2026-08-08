@@ -1791,6 +1791,61 @@
           "collected_at": "2026-08-08T16:34:59Z"
         }
       ]
+    },
+    {
+      "work_id": "WRK-20260808-codex-cli-0p147-compatibility",
+      "work_type": "internal-operating-compatibility-ruling",
+      "title": "Rule a bounded Codex CLI 0.147.0 compatibility test",
+      "status": "OPEN",
+      "classification": "TEST",
+      "priority": "P2",
+      "source_idea_ids": [],
+      "product": {
+        "id": "platform-reliability",
+        "outcome": "Determine whether Codex CLI 0.147.0 plugin discovery, imported-session synchronization and MCP protocol support improve current LAiDIES operations without changing permission boundaries, duplicating routes or mutating current task history."
+      },
+      "owner": {
+        "id": "control-room-product-owner",
+        "role": "bounded dispatch and collision coordinator"
+      },
+      "acceptance_owner": {
+        "id": "platform-reliability",
+        "role": "runtime compatibility, permission and rollback authority"
+      },
+      "write_scope": [
+        "operations/agents/aidb-intelligence-desk/**",
+        "operations/product-stewards/platform-reliability/**",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "CODEX-0147-COMPATIBILITY-RULING-01",
+        "description": "Return ACCEPT, MERGE, PARK or DECLINE for the bounded isolated test in operations/agents/aidb-intelligence-desk/handoffs/2026-08-08-codex-cli-0p147-compatibility-test.md. If accepted, freeze the current 0.146.0-alpha.9.2 baseline and test plugin/catalog scoping, imported-session deduplication and MCP 2026-07-28 compatibility in a non-iCloud task branch. Keep --approve-for-me disabled; do not upgrade ambient runtime, edit shared config, install plugins, connect accounts, publish, deploy or spend during intake."
+      },
+      "deadline_at": "2026-08-13T20:00:00Z",
+      "next_check_at": "2026-08-10T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "work_admission": {
+        "visitor_problem": "Internal production can drift or duplicate capability routes when a developer-tool release is adopted from release notes without testing the exact installed version and current permission model.",
+        "existing_experience_gap": "OpenAI documents Codex CLI 0.147.0, while the local command reports 0.146.0-alpha.9.2; no isolated LAiDIES compatibility result exists.",
+        "smallest_complete_change": "Obtain one owner ruling and, only if accepted, run one isolated compatibility test against the frozen baseline.",
+        "non_goals": [
+          "Do not enable --approve-for-me.",
+          "Do not upgrade the ambient runtime or edit shared configuration during intake.",
+          "Do not install plugins, connect accounts, publish, deploy or spend.",
+          "Do not infer desktop behavior from a CLI changelog or create public content from the release note."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-AIDB-CODEX-0147-HANDOFF",
+          "artifact": "operations/agents/aidb-intelligence-desk/handoffs/2026-08-08-codex-cli-0p147-compatibility-test.md",
+          "sha256": "681221ed3a81ed51be9f30c6e3b95f28f0132b01d1c3b7a52a0355987c6a55db",
+          "verifier": "AIDB Intelligence Desk reconciliation of the official OpenAI changelog and local codex --version output",
+          "verdict": "PASS",
+          "collected_at": "2026-08-08T23:31:38Z"
+        }
+      ]
     }
   ]
 }
