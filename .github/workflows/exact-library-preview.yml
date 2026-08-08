@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      ARTIFACT_DIR: ${{ runner.temp }}/laidies-public-site
-      RECEIPT_DIR: ${{ runner.temp }}/laidies-preview-receipt
+      ARTIFACT_DIR: ${{ github.workspace }}/.artifacts/laidies-public-site
+      RECEIPT_DIR: ${{ github.workspace }}/.artifacts/laidies-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
       INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
       INPUT_LIBRARY_SHA256: ${{ inputs.library_sha256 }}
@@ -112,8 +112,8 @@ jobs:
         with:
           name: exact-library-preview-${{ inputs.commit_sha }}
           path: |
-            ${{ runner.temp }}/laidies-public-site
-            ${{ runner.temp }}/laidies-preview-receipt
+            ${{ env.ARTIFACT_DIR }}
+            ${{ env.RECEIPT_DIR }}
           if-no-files-found: error
           retention-days: 7
 
@@ -126,19 +126,19 @@ jobs:
     permissions:
       contents: read
     env:
-      DOWNLOAD_DIR: ${{ runner.temp }}/exact-library-preview
-      ARTIFACT_DIR: ${{ runner.temp }}/exact-library-preview/laidies-public-site
-      RECEIPT_DIR: ${{ runner.temp }}/exact-library-preview/laidies-preview-receipt
+      DOWNLOAD_DIR: ${{ github.workspace }}/.artifacts/exact-library-preview
+      ARTIFACT_DIR: ${{ github.workspace }}/.artifacts/exact-library-preview/laidies-public-site
+      RECEIPT_DIR: ${{ github.workspace }}/.artifacts/exact-library-preview/laidies-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
       INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: exact-library-preview-${{ inputs.commit_sha }}
-          path: ${{ runner.temp }}/exact-library-preview
+          path: ${{ env.DOWNLOAD_DIR }}
       - name: Deploy exact artifact to Cloudflare Pages preview
         shell: bash
-        working-directory: ${{ runner.temp }}
+        working-directory: ${{ github.workspace }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -209,6 +209,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: exact-library-preview-deployed-${{ inputs.commit_sha }}
-          path: ${{ runner.temp }}/exact-library-preview/laidies-preview-receipt
+          path: ${{ env.RECEIPT_DIR }}
           if-no-files-found: error
           retention-days: 7
