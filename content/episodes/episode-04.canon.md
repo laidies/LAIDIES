@@ -104,7 +104,8 @@ The beats, in order. This episode has **surface drift** between the spoken narra
 - "Not magic. Not born last Tuesday." — *the wrap*
 - "…Well. Almost no movie stars." — *walking into the quiet wing*
 - "Don't just learn from books. Learn from hooks." — *KSVL motto (site canon)*
-- ⏳ **PENDING:** the best two lines from the Ep4 anthem ("It Was Women All Along") — add once the Suno lyrics are transcribed into the repo; they are not written down anywhere yet. Do not invent them.
+- "The fathers only named it. It took a Godmother to make it." — *The Priors, “It Was Women All Along”*
+- "Oh, the future has a mother — she’s been here the whole time." — *The Priors, “It Was Women All Along”*
 
 ## discussion_prompt
 *(→ **Delta LAi Nu** weekly room/thread · article "rooms" box · community.html. From `issue-04.json → communityPrompt` + the v4 rooms line.)*
@@ -135,7 +136,7 @@ No try-on task this week — a field trip. Go up to the LUMINAiRY, walk into the
 - **title:** "It Was Women All Along" *(the Ep4 Wednesday Anthem)*
 - **file:** `content/music/dj-jaidy-week-04-it-was-women-all-along.mp3` *(present on disk; two other week-04 tracks also exist: `…-open-the-grimoire.mp3`, `…-the-library.mp3` — "It Was Women All Along" is the one named in the v4 episode rail as The Song.)*
 - **callout line (verified, from narration):** *"…turn on K-S-V-L, ninety-nine point nine, for this week's anthem."* (KSVL = 99.9 FM per [[ksvl-frequency-canon]].)
-- **lyrics:** ⏳ **PENDING** — the anthem exists as audio but its lyrics aren't transcribed anywhere in the repo. Do not invent them. When the Suno lyric sheet is saved, paste it here and add the best two lines to `quotables[]`.
+- **lyrics:** ✅ **FINAL AS RECORDED** — [the exact Ali-edited lyric source](../../operations/audio/ep4-founding-mothers-anthem.md). This source establishes the words, not their timing; timed lyrics/captions remain missing and must not be inferred.
 
 ## references[]
 *(→ **LIBRAiRY** further-reading shelf. Primary sources behind the verified facts — full citations in the facts ledger.)*
@@ -150,6 +151,39 @@ No try-on task this week — a field trip. Go up to the LUMINAiRY, walk into the
 - Bender, Gebru, McMillan-Major, Mitchell — "On the Dangers of Stochastic Parrots" (FAccT 2021). ACM DL 10.1145/3442188.3445922.
 - Kate Crawford — *Atlas of AI* (Yale UP 2021).
 - Alan Turing (in memoriam) — en.wikipedia.org/wiki/Alan_Turing.
+
+## cast[]
+Every real woman who appears in this episode's artwork, and the folder holding her
+photo references. **A name with no reference folder is BLOCKED from generation** —
+that is what produced the generic ENIAC women and the unverifiable Joy frame.
+Add photos to `operations/reference/real-people/<ref>/`, then re-run the batch builder.
+
+| Scene key | Who | ref folder |
+|---|---|---|
+| ada | Ada Lovelace | ada-lovelace |
+| hedy | Hedy Lamarr | hedy-lamarr |
+| eniac | Jean Jennings Bartik · Betty Snyder Holberton · Kay McNulty · Marlyn Wescoff · Ruth Lichterman · Frances Bilas | eniac-six |
+| grace | Grace Hopper | grace-hopper |
+| karen | Karen Spärck Jones | karen-sparck-jones |
+| fei-fei | Fei-Fei Li | fei-fei-li |
+| joy | Joy Buolamwini | joy-buolamwini |
+| timnit | Timnit Gebru | timnit-gebru |
+| emily | Emily Bender | emily-bender |
+| kate | Kate Crawford | kate-crawford |
+
+## heroine_outfit
+**ONE outfit for the whole episode.** She wears a different one each week, but the SAME one
+in every frame of this episode, with 90s-styled hair.
+
+> **EP4: yellow tartan/plaid shirt-jacket worn open over a white tee, butterfly hair clips,
+> loose 90s waves, small gold hoops, shoulder bag.**
+
+Established by the approved frames — `ep04-around-town-comic-v1-1920.png` (all four panels)
+and `ep04-sign-off-fieldtrip-comic-v1-1920.png`. Any frame with her in it must match these.
+
+⛔ **NEVER corporate.** No navy pantsuit, no blazer-and-blouse, no office tailoring. She lives
+in SUNNYVAiLE; she does not commute in from a law firm. In the 2026-07-22 batch she appeared
+in four different outfits, four of them corporate — all of those frames need redoing.
 
 ## artwork[]
 *(→ article · episode player. Pixel-art keyframes + directed inline clips, one per beat.)*
@@ -180,7 +214,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 | LUMINAiRY (MAiVEN wing) | `luminairy.html` (+ `MAVEN_BIOS`) | ✅ 11 women wired (bio-only, sourced) + Turing memoriam |
 | BRONZE AiGE cocktail wall | `bronze-aige.html` | 🔧 add `cocktail_party` line to the archive wall |
 | KSVL track | `radio.html` / `ksvl-player.js` | 🔧 confirm "It Was Women All Along" wired for ep04 (⏳ lyrics pending) |
-| NewsStand cover | `hot-goss.html` | ◻︎ homepage-only per `issue-04.json` |
+| NewsStand cover | `newsstand.html` · The Weekly | ◻︎ NewsStand editorial admission required per `issue-04.json` |
 | MAiKEOVER quote picker | quote field on the Resident Card | 🔧 feed `quotables[]` into the pickable pool |
 | Delta LAi Nu rooms | `delta-lai-nu.html` / `community.html` | 🔧 seed the week's thread with `discussion_prompt` |
 
