@@ -35,8 +35,10 @@ fail([
   { ...futureEvidence, payload: { verdict: 'HOLD', worktree_truth: heldTruth } },
   { ...futureBase, event_id: 'F3', at: '2026-08-08T19:02:00Z', type: 'WORK_RESOLVED', payload: { worktree_truth: heldTruth } }
 ], 'cannot bind UNCOMMITTED_OWNED');
-const commit = spawnSync('git', ['log', '-1', '--format=%H', '--', 'scripts/project-work-events.mjs'], { cwd: root, encoding: 'utf8' }).stdout.trim();
-const committedTruth = { state: 'COMMITTED', commit, paths: ['scripts/project-work-events.mjs'] };
+const commit = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
+const committedPath = spawnSync('git', ['diff-tree', '--no-commit-id', '--name-only', '-r', commit], { cwd: root, encoding: 'utf8' }).stdout.split(/\r?\n/).find(Boolean);
+if (!committedPath) throw new Error(`test fixture commit has no inspectable path: ${commit}`);
+const committedTruth = { state: 'COMMITTED', commit, paths: [committedPath] };
 const committed = run([
   futureBase,
   { ...futureEvidence, payload: { verdict: 'PASS', worktree_truth: committedTruth } },
