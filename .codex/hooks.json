@@ -1,0 +1,83 @@
+{
+  "description": "Load and enforce the LAiDIES delivery runtime.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/session_start.py\"",
+            "additionalContextLimit": 3000
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/block-handwritten-status.py\"",
+            "statusMessage": "Protecting derived work status"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/block-approval-forgery.py\"",
+            "statusMessage": "Protecting human approval gates"
+          }
+        ]
+      },
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/enforce-voice-spec.py\"",
+            "statusMessage": "Checking LAiDIES voice-source admission"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(git rev-parse --show-toplevel)/operations/hooks/episode-shipcheck.sh\"",
+            "statusMessage": "Running episode and prose gates"
+          }
+        ]
+      },
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/operations/hooks/library-maker-preflight.py\"",
+            "statusMessage": "Rejecting known LIBRAiRY regressions"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$(git rev-parse --show-toplevel)/.codex/hooks/stop_operational_integrity.py\"",
+            "timeout": 20,
+            "statusMessage": "Checking LAiDIES operating truth"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,214 @@
+name: Exact Library preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: Exact 40-character commit to build
+        required: true
+        type: string
+      library_sha256:
+        description: Expected SHA-256 of library.html at that commit
+        required: true
+        type: string
+      deploy_preview:
+        description: Deploy to the protected Cloudflare Pages preview environment
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  exact-library-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ARTIFACT_DIR: ${{ github.workspace }}/.artifacts/laidies-public-site
+      RECEIPT_DIR: ${{ github.workspace }}/.artifacts/laidies-preview-receipt
+      PROJECT_NAME: laidies-sunnyvaile-preview
+      INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
+      INPUT_LIBRARY_SHA256: ${{ inputs.library_sha256 }}
+      CONTROLLER_SHA: ${{ vars.PREVIEW_CONTROLLER_SHA }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit_sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify immutable source and Library candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$INPUT_COMMIT_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$INPUT_LIBRARY_SHA256" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$CONTROLLER_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$INPUT_COMMIT_SHA"
+          test "$(sha256sum library.html | cut -d' ' -f1)" = "$INPUT_LIBRARY_SHA256"
+          test -z "$(git status --porcelain)"
+          git cat-file -e "$CONTROLLER_SHA^{commit}"
+          git diff --quiet "$CONTROLLER_SHA" "$INPUT_COMMIT_SHA" -- \
+            .github/workflows/exact-library-preview.yml \
+            package.json package-lock.json scripts .codex/hooks operations/hooks operations/engine
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install pinned browser runtime for Library visitor checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --global playwright-core@1.62.1
+          npx --yes playwright@1.62.1 install --with-deps chromium
+          playwright_root="$(npm root --global)"
+          chromium_path="$(find "$HOME/.cache/ms-playwright" -type f -name chrome -path '*chromium-*' -print -quit)"
+          test -f "$playwright_root/playwright-core/package.json"
+          test -x "$chromium_path"
+          echo "PLAYWRIGHT_CORE_PATH=$playwright_root/playwright-core" >> "$GITHUB_ENV"
+          echo "CHROME_PATH=$chromium_path" >> "$GITHUB_ENV"
+      - name: Minimum integrity CI
+        run: npm run ci
+      - name: Library product and responsive browser checks
+        run: node scripts/test-library-product.cjs && node scripts/test-library-modular-reading-system.mjs
+      - name: Prove the old inline-handler defect is rejected
+        shell: bash
+        run: |
+          set -euo pipefail
+          if LIBRARY_INLINE_HANDLER_CALIBRATION=inline-submit node scripts/test-library-product.cjs > calibration.log 2>&1; then
+            cat calibration.log
+            echo 'Calibration unexpectedly passed' >&2
+            exit 1
+          fi
+          grep -F 'Library uses closure-local listeners instead of inline event handlers' calibration.log
+      - name: Exact visual and product review admission
+        run: node scripts/check-design-review-admission.mjs
+      - name: Build curated public artifact
+        run: node scripts/build-public-site.mjs "$ARTIFACT_DIR"
+      - name: Create exact artifact manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RECEIPT_DIR"
+          node scripts/create-release-manifest.mjs --release "$ARTIFACT_DIR" "$RECEIPT_DIR/artifact-manifest.json"
+      - name: Write prepared receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          identity="$(node -p "require('$RECEIPT_DIR/artifact-manifest.json').identitySha256")"
+          artifact_candidate="$(node -p "require('$RECEIPT_DIR/artifact-manifest.json').files.find(file=>file.path==='library.html').sha256")"
+          jq -n \
+            --arg commit "$INPUT_COMMIT_SHA" \
+            --arg source_candidate "$INPUT_LIBRARY_SHA256" \
+            --arg artifact_candidate "$artifact_candidate" \
+            --arg identity "$identity" \
+            '{schema:"laidies.exact-commit-preview.v1",status:"PREPARED_NO_DEPLOY",source_commit:$commit,project:"laidies-sunnyvaile-preview",candidate:{path:"library.html",source_sha256:$source_candidate,artifact_sha256:$artifact_candidate},artifact_manifest:{path:"artifact-manifest.json",identity_sha256:$identity},deployment_id:null,preview_url:null,checks:[{id:"minimum-integrity-ci",result:"PASS"},{id:"library-product-browser",result:"PASS"},{id:"library-inline-handler-calibration",result:"PASS"},{id:"design-review-admission",result:"PASS"},{id:"curated-public-build",result:"PASS"}]}' \
+            > "$RECEIPT_DIR/preview-receipt.json"
+          node scripts/check-exact-commit-preview.mjs "$RECEIPT_DIR/preview-receipt.json"
+      - name: Upload exact candidate and receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-library-preview-${{ inputs.commit_sha }}
+          path: |
+            ${{ env.ARTIFACT_DIR }}
+            ${{ env.RECEIPT_DIR }}
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy-preview:
+    if: ${{ inputs.deploy_preview }}
+    needs: exact-library-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: preview
+    permissions:
+      contents: read
+    env:
+      DOWNLOAD_DIR: ${{ github.workspace }}/.artifacts/exact-library-preview
+      ARTIFACT_DIR: ${{ github.workspace }}/.artifacts/exact-library-preview/laidies-public-site
+      RECEIPT_DIR: ${{ github.workspace }}/.artifacts/exact-library-preview/laidies-preview-receipt
+      PROJECT_NAME: laidies-sunnyvaile-preview
+      INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: exact-library-preview-${{ inputs.commit_sha }}
+          path: ${{ env.DOWNLOAD_DIR }}
+      - name: Deploy exact artifact to Cloudflare Pages preview
+        shell: bash
+        working-directory: ${{ github.workspace }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCESS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_READ_TOKEN }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          jq -e --arg commit "$INPUT_COMMIT_SHA" '
+            .schema == "laidies.exact-commit-preview.v1" and
+            .status == "PREPARED_NO_DEPLOY" and
+            .source_commit == $commit and
+            .project == "laidies-sunnyvaile-preview" and
+            .candidate.path == "library.html" and
+            .deployment_id == null and .preview_url == null and
+            ([.checks[] | select(.result == "PASS") | .id] | sort | unique) ==
+              ["curated-public-build","design-review-admission","library-inline-handler-calibration","library-product-browser","minimum-integrity-ci"]
+          ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
+          curl --fail --silent --show-error \
+            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_READ_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/apps" \
+            > "$RECEIPT_DIR/access-apps.json"
+          jq -e --arg domain "*.$PROJECT_NAME.pages.dev" \
+            '.success == true and any(.result[]; .domain == $domain)' \
+            "$RECEIPT_DIR/access-apps.json" >/dev/null
+          npx --yes wrangler@4.119.0 pages deployment list \
+            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-before.json"
+          review_branch="review-${INPUT_COMMIT_SHA:0:12}-${GITHUB_RUN_ID}"
+          npx --yes wrangler@4.119.0 pages deploy "$ARTIFACT_DIR" \
+            --project-name "$PROJECT_NAME" \
+            --branch "$review_branch" \
+            --commit-hash "$INPUT_COMMIT_SHA" \
+            --commit-dirty=false
+          npx --yes wrangler@4.119.0 pages deployment list \
+            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-after.json"
+          node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const [dir,commit,branch]=process.argv.slice(2);
+          const before=JSON.parse(fs.readFileSync(path.join(dir,'deployments-before.json'),'utf8'));
+          const after=JSON.parse(fs.readFileSync(path.join(dir,'deployments-after.json'),'utf8'));
+          const prior=new Set(before.map(item=>item.id));
+          const commitOf=item=>item?.source?.config?.commit_hash||item?.deployment_trigger?.metadata?.commit_hash;
+          const branchOf=item=>item?.source?.config?.branch||item?.deployment_trigger?.metadata?.branch;
+          const matches=after.filter(item=>!prior.has(item.id)&&commitOf(item)===commit&&branchOf(item)===branch);
+          if(matches.length!==1||!matches[0]?.id||!matches[0]?.url) throw new Error(`expected one newly created exact preview deployment, found ${matches.length}`);
+          const deployment=matches[0];
+          const receiptPath=path.join(dir,'preview-receipt.json');
+          const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
+          receipt.status='DEPLOYED_PREVIEW';receipt.deployment_id=deployment.id;receipt.preview_url=deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`;receipt.review_branch=branch;
+          fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
+          NODE
+          preview_url="$(jq -r .preview_url "$RECEIPT_DIR/preview-receipt.json")"
+          deployment_id="$(jq -r .deployment_id "$RECEIPT_DIR/preview-receipt.json")"
+          [[ "$preview_url" == "https://${deployment_id:0:8}.$PROJECT_NAME.pages.dev/" ]]
+          unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out '%{http_code}' "${preview_url}library.html")"
+          [[ "$unauthenticated_status" == 302 || "$unauthenticated_status" == 401 || "$unauthenticated_status" == 403 ]]
+          curl --fail --silent --show-error --retry 5 --retry-all-errors \
+            --header "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
+            --header "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
+            "${preview_url}library.html" > "$RECEIPT_DIR/deployed-library.html"
+          deployed_library_sha="$(sha256sum "$RECEIPT_DIR/deployed-library.html" | cut -d' ' -f1)"
+          expected_library_sha="$(jq -r .candidate.artifact_sha256 "$RECEIPT_DIR/preview-receipt.json")"
+          test "$deployed_library_sha" = "$expected_library_sha"
+          jq --arg sha "$deployed_library_sha" --arg unauthenticated "$unauthenticated_status" '.public_verification={route:"/library.html",http_status:200,unauthenticated_status:($unauthenticated|tonumber),access_protected:true,sha256:$sha,result:"PASS"}' \
+            "$RECEIPT_DIR/preview-receipt.json" > "$RECEIPT_DIR/preview-receipt.updated.json"
+          mv "$RECEIPT_DIR/preview-receipt.updated.json" "$RECEIPT_DIR/preview-receipt.json"
+      - name: Upload deployed preview receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-library-preview-deployed-${{ inputs.commit_sha }}
+          path: ${{ env.RECEIPT_DIR }}
+          if-no-files-found: error
+          retention-days: 7

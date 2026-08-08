@@ -1,0 +1,104 @@
+#!/usr/bin/env node
+
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+import { validateExactCommitPreview } from './check-exact-commit-preview.mjs';
+
+function validateWorkflowText(text) {
+  const errors = [];
+  const lines = text.split('\n');
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = lines[index].match(/^(\s*)run:\s*\|\s*$/);
+    if (!match) continue;
+    const indentation = match[1].length;
+    for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
+      const currentIndentation = lines[cursor].match(/^\s*/)[0].length;
+      if (lines[cursor].trim() && currentIndentation <= indentation) break;
+      if (lines[cursor].includes('${{ inputs.')) errors.push('workflow input is interpolated directly into shell');
+    }
+  }
+  const deployJob = text.split(/\n  deploy-preview:\n/)[1] || '';
+  if (deployJob.includes('actions/checkout')) errors.push('credentialed deploy job checks out candidate code');
+  if (!text.includes('CONTROLLER_SHA: ${{ vars.PREVIEW_CONTROLLER_SHA }}') || !text.includes('git diff --quiet "$CONTROLLER_SHA" "$INPUT_COMMIT_SHA"')) {
+    errors.push('candidate gate code is not pinned to the trusted controller');
+  }
+  if (!deployJob.includes('deployments-before.json') || !deployJob.includes('deployments-after.json')) errors.push('deployment is not isolated from prior deployments');
+  if (!deployJob.includes('curl --fail') || !deployJob.includes('deployed_library_sha')) errors.push('deployed Library bytes are not verified');
+  if (!text.includes('playwright-core@1.62.1') || !text.includes('CHROME_PATH=') || !text.includes('PLAYWRIGHT_CORE_PATH=')) errors.push('Library browser runtime is not pinned and provisioned');
+  if (!deployJob.includes('PROJECT_NAME: laidies-sunnyvaile-preview') || deployJob.includes('PROJECT_NAME: laidies-sunnyvaile\n')) errors.push('preview is not isolated from the production Pages project');
+  if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
+  return errors;
+}
+
+const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
+const librarySha = sha256('library candidate');
+const records = [
+  { path: 'index.html', bytes: 5, sha256: sha256('index') },
+  { path: 'library.html', bytes: 17, sha256: librarySha },
+];
+const identitySha = sha256(records.map((record) => `${record.sha256}  ${record.path}\n`).join(''));
+const manifest = {
+  schema: 'laidies-release-artifact-manifest/v1',
+  identitySha256: identitySha,
+  files: records,
+};
+const receipt = {
+  schema: 'laidies.exact-commit-preview.v1',
+  status: 'PREPARED_NO_DEPLOY',
+  source_commit: 'a'.repeat(40),
+  project: 'laidies-sunnyvaile-preview',
+  candidate: { path: 'library.html', source_sha256: sha256('library source'), artifact_sha256: librarySha },
+  artifact_manifest: { path: 'artifact-manifest.json', identity_sha256: identitySha },
+  deployment_id: null,
+  preview_url: null,
+  checks: [
+    { id: 'minimum-integrity-ci', result: 'PASS' },
+    { id: 'library-product-browser', result: 'PASS' },
+    { id: 'library-inline-handler-calibration', result: 'PASS' },
+    { id: 'design-review-admission', result: 'PASS' },
+    { id: 'curated-public-build', result: 'PASS' },
+  ],
+};
+
+assert.deepEqual(validateExactCommitPreview(receipt, manifest), []);
+const deployed = {
+  ...receipt,
+  status: 'DEPLOYED_PREVIEW',
+  deployment_id: '9f161385-7486-4207-9afe-8512ea453973',
+  preview_url: 'https://9f161385.laidies-sunnyvaile-preview.pages.dev/',
+  review_branch: 'review-aaaaaaaaaaaa-123456789',
+  public_verification: { route: '/library.html', http_status: 200, unauthenticated_status: 302, access_protected: true, sha256: librarySha, result: 'PASS' },
+};
+assert.deepEqual(validateExactCommitPreview(deployed, manifest), []);
+
+const rejects = [
+  [{ ...receipt, source_commit: 'main' }, manifest, 'exact commit'],
+  [{ ...receipt, candidate: { ...receipt.candidate, artifact_sha256: 'b'.repeat(64) } }, manifest, 'candidate mismatch'],
+  [{ ...receipt, checks: receipt.checks.filter((check) => check.id !== 'design-review-admission') }, manifest, 'missing gate'],
+  [{ ...deployed, preview_url: 'https://example.com/' }, manifest, 'foreign preview'],
+  [{ ...deployed, public_verification: { ...deployed.public_verification, sha256: 'd'.repeat(64) } }, manifest, 'live byte mismatch'],
+  [{ ...deployed, review_branch: 'review-bbbbbbbbbbbb-123456789' }, manifest, 'branch not bound to commit'],
+  [{ ...deployed, public_verification: { ...deployed.public_verification, access_protected: false } }, manifest, 'unprotected preview'],
+  [receipt, { ...manifest, identitySha256: 'c'.repeat(64) }, 'tampered manifest'],
+];
+for (const [candidate, candidateManifest, label] of rejects) {
+  assert(validateExactCommitPreview(candidate, candidateManifest).length > 0, `${label} must fail`);
+}
+
+const workflowPath = path.resolve(import.meta.dirname, '..', '.github', 'workflows', 'exact-library-preview.yml');
+const workflow = fs.readFileSync(workflowPath, 'utf8');
+assert.deepEqual(validateWorkflowText(workflow), []);
+const workflowRejects = [
+  workflow.replace('[[ "$INPUT_COMMIT_SHA"', '[[ "${{ inputs.commit_sha }}"'),
+  workflow.replace('  deploy-preview:\n', '  deploy-preview:\n    # actions/checkout\n'),
+  workflow.replaceAll('curl --fail', 'curl'),
+  workflow.replaceAll('PROJECT_NAME: laidies-sunnyvaile-preview', 'PROJECT_NAME: laidies-sunnyvaile'),
+  workflow.replace('CF-Access-Client-Id', 'X-Removed-Access-Client-Id'),
+  workflow.replace('playwright-core@1.62.1', 'playwright-core@latest'),
+];
+for (const [index, candidate] of workflowRejects.entries()) assert(validateWorkflowText(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
+
+console.log('EXACT COMMIT PREVIEW CONTRACT TEST PASS');
+console.log(`calibrated_rejections=${rejects.length + workflowRejects.length}`);

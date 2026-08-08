@@ -1,0 +1,1726 @@
+{
+  "schema_version": 1,
+  "system_status": "ATTENTION_REQUIRED",
+  "records": [
+    {
+      "work_id": "WRK-20260802-operating-system-migration",
+      "work_type": "operations",
+      "title": "Complete and verify the LAiDIES operating-system migration",
+      "status": "RESOLVED",
+      "product": {
+        "id": "platform-reliability",
+        "outcome": "Ali's decisions, live work, release truth and dispatcher state survive task changes and drive one enforceable delivery loop."
+      },
+      "owner": {
+        "id": "control-room-product-owner",
+        "role": "accountable integration owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-whole-site-platform-judge",
+        "role": "separate acceptance task after maker evidence"
+      },
+      "write_scope": [
+        ".codex/**",
+        ".agents/skills/laidies-delivery-runtime/**",
+        "operations/runtime/**",
+        "operations/control-room/**",
+        "operations/product-stewards/run-queue.json",
+        "operations/assets/active-asset-registry.json",
+        "scripts/*operational*",
+        "scripts/*dispatcher*",
+        "scripts/*owner-control*",
+        "scripts/*work-resolution*",
+        "operations/product-stewards/platform-reliability/**",
+        "platform-owned code and targeted tests named by the maker receipt"
+      ],
+      "next_action": {
+        "id": "TOWN-ASSET-CLOSURE-01",
+        "description": "Route the independently confirmed launch blocker: complete checksum-bound public-asset closure under clean Platform and Brand authority without weakening the default-deny builder."
+      },
+      "deadline_at": "2026-08-04T06:59:00Z",
+      "next_check_at": "2026-08-03T06:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 1,
+      "dispatch": {
+        "receipt_id": "DSP-20260803-platform-runtime-pilot-judge",
+        "to_owner_id": "independent-whole-site-platform-judge",
+        "channel": "codex-task",
+        "request": "Independently judge exact maker cutline ce28b8779347270dc0b8bcf4b99f7ce8a971d998b55051001e4915a9e62fcebf against the actual builder failure and dirty-file ownership boundary.",
+        "dispatched_at": "2026-08-03T04:49:00Z"
+      },
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry platform-reliability",
+        "checked_at": "2026-08-03T04:44:00Z"
+      },
+      "activity_receipt": {
+        "receipt_id": "ACT-20260803-platform-runtime-pilot-judge",
+        "task_id": "019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1",
+        "at": "2026-08-03T04:49:00Z",
+        "heartbeat_at": "2026-08-03T04:49:00Z",
+        "evidence_ref": "codex-app-liveness-snapshot:039c81e7-4fda-4a5c-b08e-474a9f7b774c:1"
+      },
+      "execution": {
+        "maker_id": "functionality-platform-director",
+        "judge_id": "independent-whole-site-platform-judge"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-OS-20260802-dispatcher-migration",
+          "artifact": "operations/runtime/dispatcher-migration.json",
+          "verifier": "scripts/check-dispatcher-migration.mjs",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T04:22:00Z"
+        },
+        {
+          "evidence_id": "EV-OS-20260802-owner-control-browser",
+          "artifact": "operations/control-room/evidence/owner-control-plane-2026-08-02/desktop.png",
+          "verifier": "scripts/test-owner-control-plane-browser.mjs",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T04:31:00Z"
+        },
+        {
+          "evidence_id": "EV-OS-20260802-known-reject-fixtures",
+          "artifact": "operations/evals/media-defect-fixtures.json",
+          "verifier": "scripts/test-media-defect-fixtures.mjs",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T04:31:00Z"
+        },
+        {
+          "evidence_id": "EV-OS-20260802-migration-receipt",
+          "artifact": "operations/control-room/evidence/operating-system-migration-receipt-2026-08-02.md",
+          "verifier": "operational-integrity-verifier",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T04:33:57Z"
+        },
+        {
+          "evidence_id": "EV-OS-20260803-runtime-false-positive",
+          "failure_id": "FAIL-20260803-runtime-records-without-live-owners",
+          "artifact": "operations/product-stewards/run-queue.json",
+          "verifier": "current app task liveness reconciliation",
+          "verdict": "FAIL",
+          "collected_at": "2026-08-03T04:44:00Z"
+        },
+        {
+          "evidence_id": "EV-OS-20260803-platform-maker-cutline",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/runtime-pilot-2026-08-03/platform-cutline.md",
+          "verifier": "sha256:ce28b8779347270dc0b8bcf4b99f7ce8a971d998b55051001e4915a9e62fcebf",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T04:49:00Z"
+        },
+        {
+          "evidence_id": "EV-OS-20260803-independent-runtime-judge",
+          "failure_id": "FAIL-20260803-incomplete-public-asset-closure",
+          "artifact": "operations/control-room/evidence/runtime-pilot-independent-judge-2026-08-03.md",
+          "verifier": "independent Town Entry consumer task 019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T04:54:00Z"
+        }
+      ],
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "OS-TR-01", "owner_id": "control-room-product-owner", "artifact": "operations/control-room/evidence/recovery-brief-2026-08-02.md", "result": "PASS", "at": "2026-08-02T20:47:41Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "OS-TR-02", "owner_id": "control-room-product-owner", "artifact": "operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md", "result": "PASS", "at": "2026-08-03T03:40:00Z" },
+        { "stage": "BRIEF", "receipt_id": "OS-TR-03", "owner_id": "control-room-product-owner", "artifact": "operations/control-room/OPERATING-MODEL-DIAGNOSTIC-2026-08-02.md", "result": "PASS", "at": "2026-08-03T03:45:00Z" },
+        { "stage": "PILOT", "receipt_id": "OS-TR-04", "owner_id": "functionality-platform-director", "artifact": "codex-app-liveness-snapshot:ea61845d-37e7-4f28-b2e2-3194bceea391:1", "result": "PASS", "at": "2026-08-03T04:44:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "OS-TR-05", "owner_id": "functionality-platform-director", "artifact": "operations/product-stewards/platform-reliability/evidence/runtime-pilot-2026-08-03/platform-cutline.md", "result": "PASS", "at": "2026-08-03T04:49:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "OS-TR-06", "owner_id": "operational-integrity-verifier", "artifact": "scripts/check-operational-integrity.mjs", "result": "PASS", "at": "2026-08-03T04:31:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "OS-TR-07", "owner_id": "independent-whole-site-platform-judge", "artifact": "operations/control-room/evidence/runtime-pilot-independent-judge-2026-08-03.md", "result": "PASS", "at": "2026-08-03T04:54:00Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "OS-TR-08", "owner_id": "control-room-product-owner", "artifact": "operations/runtime/work-resolution-loop.json", "result": "PASS", "at": "2026-08-03T04:55:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "OS-TR-09", "owner_id": "control-room-product-owner", "artifact": "No Ali decision was required to reject a mechanically incomplete asset-closure repair.", "result": "NOT_APPLICABLE", "at": "2026-08-03T04:55:00Z" },
+        { "stage": "RELEASE", "receipt_id": "OS-TR-10", "owner_id": "control-room-product-owner", "artifact": "No deployment or publication was required or authorized for this internal runtime migration.", "result": "NOT_APPLICABLE", "at": "2026-08-03T04:33:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "OS-TR-11", "owner_id": "control-room-product-owner", "artifact": "Internal operating-system migration; no public-state change was required.", "result": "NOT_APPLICABLE", "at": "2026-08-03T04:55:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "OS-TR-12", "owner_id": "control-room-product-owner", "artifact": "operations/painpoints-log.md#BTB-346", "result": "PASS", "at": "2026-08-03T04:55:00Z" }
+      ],
+      "prior_resolution_retracted_at": "2026-08-03T04:44:00Z",
+      "prior_resolution_retracted_reason": "The control layer passed local validators, but the supposed whole-town active record had no separately dispatched live owner and run-queue active remained empty. Operational completion requires a real maker/judge lifecycle, not role labels.",
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-03T04:55:00Z"
+    },
+    {
+      "work_id": "WRK-20260802-odc-101-teaching-design",
+      "work_type": "learning-product",
+      "title": "Repair ODC-101 teaching design without reviving the rejected candidate",
+      "status": "RUNNING",
+      "product": {
+        "id": "sunnyvaile-high",
+        "outcome": "A specific six-lesson ODC-101 design that teaches diagnosis and transfer through one coherent adult-relevant story, worked examples, guided practice and cumulative assessment."
+      },
+      "owner": {
+        "id": "sunnyvaile-high-classes-owner",
+        "role": "accountable product owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-teaching-reviewer",
+        "role": "independent teaching judge"
+      },
+      "write_scope": [
+        "operations/classes/odc-101-teaching-design-brief-2026-08-02.md",
+        "operations/classes/media/odc-101-final-narration-production-2026-08-02/**",
+        "operations/classes/opening-day-class-catalogue-2026-07-31.json",
+        "content/learning-blocker-resolution-queue.json",
+        "operations/control-room/owner-review-queue.json",
+        "operations/ACTIVE-WORK.md"
+      ],
+      "next_action": {
+        "id": "ODC101-V2-INDEPENDENT-REVIEW-AFTER-TOWN-CUTLINE-02",
+        "description": "At the whole-town check, bind the exact v2 candidate SHA-256 8d7b89294e3626d5efd7be24fc4f37d1b9e2645c3ab4e6bbe8c1a1aaf4866651 and dispatch independent teaching review only if the launch foreground has cleared; otherwise preserve and reschedule. Do not advance narration or the animatic."
+      },
+      "original_deadline_at": "2026-08-04T06:59:00Z",
+      "deadline_state": "MISSED_CONTINUING_NO_COMPLETION_CLAIM",
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 1,
+      "same_failure_count": 1,
+      "dispatch": {
+        "receipt_id": "DSP-20260803-odc-101-teaching-repair",
+        "to_owner_id": "sunnyvaile-high-classes-owner",
+        "channel": "codex-task",
+        "request": "Preserve useful implementation evidence but replace the rejected generic teaching design; do not record, polish or re-present the animatic.",
+        "dispatched_at": "2026-08-03T04:35:00Z"
+      },
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry sunnyvaile-high",
+        "checked_at": "2026-08-03T04:30:00Z"
+      },
+      "activity_receipt": {
+        "receipt_id": "ACT-20260803-odc-101-teaching-repair",
+        "task_id": "019fc5b9-71c3-71e0-bda8-547439df4bfc",
+        "at": "2026-08-03T04:35:00Z",
+        "heartbeat_at": "2026-08-03T04:35:00Z",
+        "evidence_ref": "operations/classes/odc-101-teaching-design-brief-2026-08-02.md"
+      },
+      "execution": {
+        "maker_id": "sunnyvaile-high-classes-owner",
+        "judge_id": "independent-teaching-reviewer"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-ODC101-REJECTION-01",
+          "failure_id": "FAIL-20260802-odc-101-generic-design",
+          "artifact": "operations/classes/odc-101-teaching-design-brief-2026-08-02.md",
+          "verifier": "Ali",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T03:55:00Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260802-whole-town-launch-completion",
+      "work_type": "whole-site-product",
+      "title": "Complete every launch building and promoted feature",
+      "status": "OPEN",
+      "product": {
+        "id": "platform-reliability",
+        "outcome": "All 17 buildings and every launch-promoted feature expose a truthful, complete, responsive and accessible visitor journey with exact release evidence."
+      },
+      "owner": {
+        "id": "whole-town-launch-owner",
+        "role": "accountable integration owner"
+      },
+      "acceptance_owner": {
+        "id": "whole-site-release-verifier",
+        "role": "independent whole-site judge"
+      },
+      "write_scope": [
+        "operations/launch/**",
+        "operations/control-room/**",
+        "operations/product-stewards/control-room/**",
+        "scripts/check-*launch*",
+        "scripts/test-*sitewide*",
+        "scripts/test-*browser*"
+      ],
+      "next_action": {
+        "id": "TOWN-CUTLINE-12",
+        "description": "TOWN-CUTLINE-12: whole-town-launch-owner freezes one isolated Library source/asset-registry tuple and obtains Library/Brand admission-or-removal for the five current builder-only Library binaries before Platform reruns parity, source-narrowing determinism and the curated builder on that immutable tuple. The five-file set supersedes the 2026-08-06 three-file observation and proves concurrent source drift. Sunnyvaile High Classes reseals the ODC-101 HOLD receipt against current teaching-brief bytes; Control Room normalizes two invalid RUNNING records and resolves overdue whole-town and Episode 05 checks without refreshing missed timestamps. Dispatcher remains PAUSED. Preserve identity/account/Closet/reward HOLD until exact deployed two-account/two-device provider proof and the first authoritative economic-ledger vertical. No local slice implies deployment or public readiness."
+      },
+      "original_deadline_at": "2026-08-04T06:59:00Z",
+      "deadline_state": "MISSED_CONTINUING_NO_LAUNCH_CLAIM",
+      "deadline_at": "2026-08-06T07:00:00Z",
+      "next_check_at": "2026-08-06T06:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "dispatch": {
+        "receipt_id": "DSP-20260803-whole-town-launch",
+        "to_owner_id": "whole-town-launch-owner",
+        "channel": "codex-task",
+        "request": "Make every building and promoted feature launch-complete; begin with exact whole-town reconciliation and repair shared blockers before isolated product polish.",
+        "dispatched_at": "2026-08-03T04:42:00Z"
+      },
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry platform-reliability",
+        "checked_at": "2026-08-03T04:31:00Z"
+      },
+      "activity_receipt": {
+        "receipt_id": "ACT-20260803-whole-town-launch",
+        "task_id": "019fc5b9-71c3-71e0-bda8-547439df4bfc",
+        "at": "2026-08-03T04:42:00Z",
+        "heartbeat_at": "2026-08-03T04:42:00Z",
+        "evidence_ref": "operations/launch/opening-day-building-function-inventory-2026-08-01.md"
+      },
+      "execution": {
+        "maker_id": "whole-town-launch-owner",
+        "judge_id": "whole-site-release-verifier"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-TOWN-DESIGN-FIREWALL-01",
+          "artifact": "operations/control-room/evidence/design-presentation-firewall-and-library-foundation-opus-verdict-2026-08-03.md",
+          "verifier": "claude-opus-5:sha256:26a7e9efc0154a4242d8387fb74aa5dd725179cae5bcb513c626743f34658d57",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T15:10:16Z"
+        },
+        {
+          "evidence_id": "EV-TOWN-LIBRARY-CURRENT-BYTE-PRODUCT-JUDGE",
+          "artifact": "operations/product-stewards/library/evidence-library-candidate-2026-08-03/product-ux-independent.md",
+          "verifier": "sha256:cdf3ad2db6e12b3166fead414aee15ed7a21fbd418fbaa03129fd13493a37313; library.html sha256:7f0a4ca7b27fbc0ffde7b00773cf80dfeec443a1a8a9acbb97541b1e3f7bcb38",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T22:54:47Z"
+        },
+        {
+          "evidence_id": "EV-TOWN-LIBRARY-CURRENT-BYTE-BRAND-JUDGE",
+          "artifact": "operations/product-stewards/library/evidence-library-candidate-2026-08-03/brand-visual-red-team-independent.md",
+          "verifier": "sha256:51b262516ce1cbee6678e949ef03a48672aac0b370beb1f48dca904fb1cd40e3; library.html sha256:7f0a4ca7b27fbc0ffde7b00773cf80dfeec443a1a8a9acbb97541b1e3f7bcb38",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T22:54:47Z"
+        },
+        {
+          "evidence_id": "EV-TOWN-TRAILER-B55-BOUNDED-OUTPUT-JUDGE",
+          "artifact": "operations/video-qa/trailer-b55-clean-electric-repair-v1/output-independent-verdict.md",
+          "verifier": "sha256:5edc2bee2512eb8bfda9ee147137c191d6e0cb38ac994e0463d9287f50d221fe; media sha256:5ed32801f3f4306c82770bb6e53a58e65f3aaab35a98c0ef23e42fe5fcd4c0d9; picture+technical A/V PASS; human sound-on HOLD",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T23:46:00Z"
+        },
+        {
+          "id": "EV-TOWN-PLATFORM-DAILY-HEALTH-20260806",
+          "evidence_id": "EV-TOWN-PLATFORM-DAILY-HEALTH-20260806",
+          "artifact": "operations/product-stewards/platform-reliability/state.json",
+          "verifier": "Platform daily health read-only reconciliation 2026-08-06; overlapping state bytes intentionally not overwritten",
+          "verdict": "FAIL",
+          "failure_id": "FAIL-20260806-platform-daily-health",
+          "collected_at": "2026-08-06T14:35:00Z",
+          "observed": "Fresh public GETs succeeded at 2026-08-06 14:35 UTC before DNS failed on later retries. Exact SHA-256: root a40c13d14a009a4ec8a3fa3aaa91bf362efda642e12d8b47af392fba4d7e699c; Library 56224cf63f76a36c164e8778aa8d78826d9b0c948c1b922a2410cba5d96ffe97; Issue 04 53c8a5ff3ca332f8547e3db8727986de68d3de9ea2e33fd4862555e62ce76605; Privacy 38af5eff31ef84e9aaef33ebc630f5353483116a5273503600233cdf8ee9d87f; Terms e6959f4507fcb7b0cd2b4a423c7e818491a726a25de9c726ddb7ec253da3026c; site-index 4e7fb20bc2a62a64fda676f98a38d7bc5b79f1550835f01586c26a8ee40aaf1b. Routes/root/robots/sitemap returned 200 and an unknown route returned 404 no-store. Today’s 320/1440 geometry, context-return and Miss Jeeves submit remain HOLD because interactive-browser proof was unavailable; source inspection is not a journey result. Builder-only Library paths requiring exact owner admission-or-removal are assets/building-interiors/library-interior-purple-sign-wall-v5.png, assets/building-interiors/library-shelf/delivery-20260722-transparent-v1/size-variants-v4/library-shelf-unit-2-row-full-width-v1.png, and assets/library/episode-01-pop-comic-bg-v1.png. Inventory is 341 binaries: 336 ACTIVE and 5 default-denied. Work loop fails twice on three overdue records; dispatcher remains PAUSED. Local identity contracts pass, but current deployed provider, authoritative Closet CRUD and reward-ledger proof remain absent."
+        },
+        {
+          "id": "EV-TOWN-PLATFORM-DAILY-HEALTH-20260807",
+          "evidence_id": "EV-TOWN-PLATFORM-DAILY-HEALTH-20260807",
+          "artifact": "operations/product-stewards/platform-reliability/state.json",
+          "verifier": "Platform daily health reconciliation 2026-08-07; fresh public GETs plus current local calibrated and fail-closed gates",
+          "verdict": "FAIL",
+          "failure_id": "FAIL-20260807-platform-daily-health",
+          "collected_at": "2026-08-07T15:05:00Z",
+          "observed": "Fresh public root remains exact recorded production SHA a40c13d14a009a4ec8a3fa3aaa91bf362efda642e12d8b47af392fba4d7e699c. Public back-nav matches accepted source 4490123a7d7e, while deployed shared-header SHA 72d5de443aa5 is older than local accepted successor 532de5ac8032; current browser geometry and navigation actions remain HOLD. Public Library still binds inline onsubmit to IIFE-private jvGo, and site-index SHA 4e7fb20bc2a62a64fda676f98a38d7bc5b79f1550835f01586c26a8ee40aaf1b still promises a banked butterfly clip without a reward ledger. Curated builder fails closed on wall-neutral-light-v1.png; parity identifies five builder-only Library binaries: library-wall-case-2bay-two-row-v2.png, floor-geometric-v1.png, wall-neutral-light-v1.png, textbook-ai-fundamentals-101.png and episode-01-pop-comic-bg-v1.png. Source-narrowing determinism fails. Work loop fails twice on invalid RUNNING for ODC-101 and trusted-course benchmark plus overdue whole-town and Episode 05. ODC-101 HOLD receipt declares teaching-brief SHA 8d7b8929 but current bytes hash cfe62a8f, so strict class readiness correctly fails closed. Credential-free identity/continuation contracts pass; current provider, authoritative Closet CRUD and economic ledger proof remain absent."
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-public-asset-closure",
+      "work_type": "whole-site-release-prerequisite",
+      "title": "Complete the checksum-bound curated public-asset closure",
+      "status": "RESOLVED",
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-04T20:10:00Z",
+      "product": {
+        "id": "platform-reliability",
+        "outcome": "The default-deny public builder has a complete, authority-owned manifest for every required binary asset instead of failing one unregistered file at a time."
+      },
+      "owner": {
+        "id": "whole-town-platform-integrator",
+        "role": "accountable shared-builder maker"
+      },
+      "acceptance_owner": {
+        "id": "brand-and-product-asset-authority",
+        "role": "independent authority review before registry integration"
+      },
+      "write_scope": [
+        "scripts/build-public-site.mjs",
+        "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/**",
+        "content/site/public-runtime-asset-manifest.json"
+      ],
+      "next_action": {
+        "id": "PUBLIC-ASSET-CLOSURE-COMPLETE-20260804",
+        "description": "Closure complete: preserve the accepted default-DENY builder and exact ACTIVE public projection. The two source-only held trailer inputs remain absent from the public artifact. Continue page and visual completion as separate launch work; do not infer deployment or release."
+      },
+      "original_deadline_at": "2026-08-04T06:59:00Z",
+      "deadline_state": "COMPLETE_AFTER_MISSED_ORIGINAL_DEADLINE",
+      "deadline_at": "2026-08-04T21:00:00Z",
+      "next_check_at": "2026-08-04T17:30:00Z",
+      "retry_count": 1,
+      "same_failure_count": 0,
+      "dispatch": {
+        "receipt_id": "DSP-20260803-post-office-held-arrivals-judge",
+        "to_owner_id": "brand-and-product-asset-authority",
+        "channel": "codex-task",
+        "request": "Independently diff, test and browser-judge exact two-page Post Office held-arrival candidate without approving art, provider, account, registry or release.",
+        "dispatched_at": "2026-08-03T06:31:00Z"
+      },
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry platform-reliability",
+        "checked_at": "2026-08-03T04:57:00Z"
+      },
+      "activity_receipt": {
+        "receipt_id": "ACT-20260803-post-office-held-arrivals-judge",
+        "task_id": "019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+        "at": "2026-08-03T06:31:00Z",
+        "heartbeat_at": "2026-08-03T06:31:00Z",
+        "evidence_ref": "codex-app-thread:019f9f7a-1337-7fc0-a37a-74c8a88bbe49"
+      },
+      "execution": {
+        "maker_id": "whole-town-platform-integrator",
+        "judge_id": "brand-and-product-asset-authority"
+      },
+      "lifecycle_trace": [
+        {"stage":"CAPTURE","receipt_id":"PA-TR-01","owner_id":"whole-town-platform-integrator","artifact":"operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-closure-handoff.md","result":"PASS","at":"2026-08-03T05:03:00Z"},
+        {"stage":"PREREQUISITES","receipt_id":"PA-TR-02","owner_id":"whole-town-platform-integrator","artifact":"operations/assets/active-asset-registry.json","result":"PASS","at":"2026-08-04T20:00:00Z"},
+        {"stage":"BRIEF","receipt_id":"PA-TR-03","owner_id":"whole-town-platform-integrator","artifact":"operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-closure-handoff.md","result":"PASS","at":"2026-08-03T05:03:00Z"},
+        {"stage":"PILOT","receipt_id":"PA-TR-04","owner_id":"whole-town-platform-integrator","artifact":"operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-inventory.json","result":"PASS","at":"2026-08-04T20:00:00Z"},
+        {"stage":"MAKER_BUILD","receipt_id":"PA-TR-05","owner_id":"whole-town-platform-integrator","artifact":"scripts/build-public-site.mjs","result":"PASS","at":"2026-08-04T20:00:00Z"},
+        {"stage":"DETERMINISTIC_CHECKS","receipt_id":"PA-TR-06","owner_id":"whole-town-platform-integrator","artifact":"operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/test-public-asset-source-narrowing.mjs; operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/check-builder-inventory-parity.mjs","result":"PASS","at":"2026-08-04T20:05:00Z"},
+        {"stage":"INDEPENDENT_REVIEW","receipt_id":"PA-TR-07","owner_id":"brand-and-product-asset-authority","artifact":"operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/independent-final-closure-verdict-2026-08-04.md","result":"PASS","at":"2026-08-04T20:10:00Z"},
+        {"stage":"OWNER_INTEGRATION","receipt_id":"PA-TR-08","owner_id":"whole-town-platform-integrator","artifact":"operations/runtime/work-resolution-loop.json","result":"PASS","at":"2026-08-04T20:10:00Z"},
+        {"stage":"ALI_DECISION","receipt_id":"PA-TR-09","owner_id":"whole-town-platform-integrator","artifact":"No Ali decision was required for narrow internal curated-source safety closure.","result":"NOT_APPLICABLE","at":"2026-08-04T20:10:00Z"},
+        {"stage":"RELEASE","receipt_id":"PA-TR-10","owner_id":"whole-town-platform-integrator","artifact":"No deployment or publication was authorized; the accepted result is a local curated build.","result":"NOT_APPLICABLE","at":"2026-08-04T20:10:00Z"},
+        {"stage":"PUBLIC_VERIFICATION","receipt_id":"PA-TR-11","owner_id":"whole-town-platform-integrator","artifact":"Local source-safety closure only; no public state changed.","result":"NOT_APPLICABLE","at":"2026-08-04T20:10:00Z"},
+        {"stage":"LEARNING_SCAN","receipt_id":"PA-TR-12","owner_id":"whole-town-platform-integrator","artifact":"operations/painpoints-log.md#BTB-394","result":"PASS","at":"2026-08-04T20:10:00Z"}
+      ],
+      "evidence": [
+        {
+          "evidence_id": "EV-POSTCARD-ACTIVE-OWNER-HOLD",
+          "failure_id": "FAIL-20260803-postcard-picker-active-admission",
+          "artifact": "operations/product-stewards/post-office/evidence/postcard-picker-owner-active-admission-2026-08-03.md",
+          "verifier": "Post Office product steward agent post_office_asset_owner",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T18:17:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-ROOT-CAUSE",
+          "failure_id": "FAIL-20260803-incomplete-public-asset-closure",
+          "artifact": "operations/control-room/evidence/runtime-pilot-independent-judge-2026-08-03.md",
+          "verifier": "independent-whole-site-platform-judge",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T04:54:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-MAKER-HANDOFF",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-closure-handoff.md",
+          "verifier": "sha256:f18dbc89a0340cda5672ecd80c62acc92b7284efced53dcb102756245efc59f6",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:03:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-MAKER-MANIFEST",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-inventory.json",
+          "verifier": "sha256:5c9d8d789390ed43398ba34f77df68c20755e88728282f4ee9628dceec603e79",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:03:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-BRAND-JUDGE-HOLD",
+          "failure_id": "FAIL-20260803-recursive-builder-passengers",
+          "artifact": "operations/control-room/evidence/public-asset-closure-brand-judge-2026-08-03.md",
+          "verifier": "Brand and Experience task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T05:13:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-NARROWED-BUILDER",
+          "artifact": "scripts/build-public-site.mjs",
+          "verifier": "sha256:8d434a1b17cfe954182860890dbd248661e1bb0d78e305a21054b9769be5aa25",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:22:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-RUNTIME-MANIFEST",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/runtime-family-manifest.v1.json",
+          "verifier": "sha256:a0f64f88bd005739a5c8e21d988eaad9817fd3de116b8759682bf687b28c8093",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:22:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-NARROWING-SUCCESSOR-HOLD",
+          "failure_id": "FAIL-20260803-builder-inventory-traversal-divergence",
+          "artifact": "operations/control-room/evidence/public-asset-narrowing-successor-judge-2026-08-03.md",
+          "verifier": "Brand and Experience task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T05:26:07Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-PARITY-CANDIDATE",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/check-builder-inventory-parity.mjs",
+          "verifier": "sha256:972bc2273094e25bd337cbacb5e2dc3528c5c8dce18ce8a1fc8ea293d77da026; PUBLIC ASSET BUILDER/INVENTORY PARITY PASS prohibited_references=175 missing=0 fail_closed=true",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:37:00Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-PARITY-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/public-asset-builder-inventory-parity-judge-2026-08-03.md",
+          "verifier": "independent Brand and Product Asset Authority task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:40:11Z"
+        },
+        {
+          "evidence_id": "EV-ASSET-CLOSURE-EXACT-SET-HARDENING",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/check-builder-inventory-parity.mjs",
+          "verifier": "sha256:d691a827fd9836815696460323fd6278878f28bc60f35bfb93c3ccc1d618a37d; exact_set=true",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:43:00Z"
+        },
+        {
+          "evidence_id": "EV-HOMEPAGE-SAFE-ASSET-MAKER",
+          "artifact": "index.html",
+          "verifier": "sha256:fe30a69cf4e9417f8741145c23cbcf745a739755e6685c7ffe23622d5edf444d; inventory prohibited references 175 -> 173",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:47:00Z"
+        },
+        {
+          "evidence_id": "EV-HOMEPAGE-SAFE-ASSET-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/homepage-safe-asset-repair-independent-judge-2026-08-03.md",
+          "verifier": "corrected maker receipt sha256:0f6fa091c63d9878bfb67300e31320769dfa15ccd78474aee8532940a0a62881; independent Town Entry task 019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:54:47Z"
+        },
+        {
+          "evidence_id": "EV-HOMEPAGE-SAFE-ASSET-CORRECTED-INVENTORY",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-inventory.json",
+          "verifier": "sha256:931a62f9f1b53101ab6dbc09e3bf87a0a12f3350a53da8bd1164fb3115fd52e8; two deterministic reruns matched",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:54:00Z"
+        },
+        {
+          "evidence_id": "EV-LUMINAIRY-OWNER-ENTRY-RECOVERY",
+          "artifact": "operations/product-stewards/luminairy/VISUAL-ASSET-INVENTORY.md",
+          "verifier": "node scripts/check-product-stewards.mjs --owner-entry luminairy",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:50:00Z"
+        },
+        {
+          "evidence_id": "EV-LUMINAIRY-HELD-ASSET-MAKER",
+          "artifact": "luminairy.html",
+          "verifier": "sha256:01f2e342fce4ce20cbc5e50a8ad15ac1276f0223eb563aab110c8acdc43d30a9; LUMINAiRY BROWSER PASS 54; prohibited references 173 -> 158",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:00:00Z"
+        },
+        {
+          "evidence_id": "EV-LUMINAIRY-HELD-ASSET-JUDGE-HOLD",
+          "failure_id": "FAIL-20260803-luminairy-held-label-contrast",
+          "artifact": "codex-app-thread:019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+          "verifier": "independent Brand and Product Asset Authority; all source/function gates passed; held label measured about 4.46:1",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T06:05:17Z"
+        },
+        {
+          "evidence_id": "EV-LUMINAIRY-HELD-CONTRAST-SUCCESSOR",
+          "artifact": "operations/product-stewards/luminairy/evidence/luminairy-held-contrast-repair-2026-08-03.md",
+          "verifier": "sha256:bf24927d316600a46db2abd06f4a8f7389b9a9e400aedf30cac60d1b5db2b9a8; luminairy sha256:952ffc574cb980512fea20a6ba2b07892f46688cdd99380222bcd91076e26d53; browser checks=55",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:10:00Z"
+        },
+        {
+          "evidence_id": "EV-TOWN-HALL-HELD-ASSET-MAKER",
+          "artifact": "operations/product-stewards/town-hall/evidence-town-hall-held-asset-maker-2026-08-03.md",
+          "verifier": "corrected receipt sha256:4580db12e30b0b93b7e22bfdd851c120a508c42d7bece9a067d3bbf586f3ad71; corrected immutable predecessor sha256:d3373045b972d89317bdd6864274db9931fde3e8432c97e2094ed7e64c3b19b5; Town Hall browser checks=58; prohibited references 158 -> 153",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:08:00Z"
+        },
+        {
+          "evidence_id": "EV-LUMINAIRY-HELD-CONTRAST-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/luminairy-held-asset-contrast-independent-judge-2026-08-03.md",
+          "verifier": "sha256:8353c38f8a408d257fc1cd09f6f09f34bb0e3ef59adb378135fc69fa0ab66525; independent Brand task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49; contrast 5.96:1/6.07:1",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:12:00Z"
+        },
+        {
+          "evidence_id": "EV-MALL-NINE-SHOP-HELD-ROOMS-MAKER",
+          "artifact": "operations/product-stewards/mall/evidence-mall-nine-shop-held-rooms-maker-2026-08-03.md",
+          "verifier": "mobile successor sha256:0bfdfb2c875822723b1bcae5997be30a4cd2da98063ea131b4e164a4c9d28ef2; 9 routes x 2 viewports; checks=189; mobile label visible before room scroll; prohibited references 153 -> 144",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:14:00Z"
+        },
+        {
+          "evidence_id": "EV-TOWN-HALL-HELD-ASSET-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/town-hall-held-asset-independent-judge-2026-08-03.md",
+          "verifier": "sha256:ef9b9e66fd47bf9ce6dc849627b0ccee12b81fe4221d6f55e61284c7158c8e32; independent Brand task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49; contract=35 browser=58",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:20:15Z"
+        },
+        {
+          "evidence_id": "EV-POST-OFFICE-HELD-ARRIVALS-MAKER",
+          "artifact": "operations/product-stewards/post-office/evidence-post-office-held-arrivals-maker-2026-08-03.md",
+          "verifier": "desktop-fill successor sha256:eed5a8516b7989e2c677d15d70e61054321f894545885d6dfde3b1a2a292e19b; picker=11; browser checks=103; prohibited references 144 -> 142",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:24:00Z"
+        },
+        {
+          "evidence_id": "EV-MALL-NINE-SHOP-HELD-ROOMS-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/mall-nine-shop-held-rooms-independent-judge-2026-08-03.md",
+          "verifier": "sha256:5e8c9d6d159a258f4357af2d7bb2942b4b8ed4679dca75648e0e78aab9a57287; independent Brand task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49; checks=189",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T06:30:00Z"
+        },
+        {
+          "evidence_id": "EV-ACTIVE-FAVICON-SOURCE-REPAIR-MAKER",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/active-favicon-maker-receipt.md",
+          "verifier": "sha256:257daffcc6214e0618fc97e2755b121f9d2be6399fe6a3b31d799b7046244616; ACTIVE favicon regression pages=19; prohibited references 141 -> 123",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T09:05:00Z"
+        },
+        {
+          "evidence_id": "EV-ACTIVE-FAVICON-SOURCE-REPAIR-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/active-favicon-source-repair-independent-judge-2026-08-03.md",
+          "verifier": "sha256:7ad00b70dd55d8d3f01fffaa6dc4908a21a65afd6abc35512275d22d761f43fe; exact_set=true missing=0 fail_closed=true; overall asset closure HOLD",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T09:10:00Z"
+        },
+        {
+          "evidence_id": "EV-LIBRARY-19-ASSET-REGISTRY-INTEGRATION-INDEPENDENT-JUDGE",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/library-current-asset-registry-integration-independent-judge-2026-08-03.md",
+          "verifier": "sha256:dfb367612d4f0917df85e11fdff03d8c9657d3aa9f1217ff570af3c7584ef5ec; inventory sha256:c36837b59266b6debfebc38ed62e86f11dac58ba592ef1d40974c5bdd4391221; ACTIVE=21 UNREGISTERED_DEFAULT_DENY=560 prohibited=21 missing=0",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T23:24:00Z"
+        },
+        {
+          "evidence_id": "EV-EPISODE-CAST-SOURCE-NARROWING-FINAL-INDEPENDENT-JUDGE",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/episode-cast-held-portrait-source-narrowing-final-independent-verdict-2026-08-03.md",
+          "verifier": "sha256:678d8cea47f79c204fdf4a5334447a5d70624e2bbf634fdc524f63c1420f474d; exact substitutions=10; viewports=1440,390,320",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T23:38:00Z"
+        },
+        {
+          "evidence_id": "EV-PUBLIC-ASSET-SOURCE-GRAPH-REFRESH-MAKER-20260804",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-closure-refresh-maker-2026-08-04.md",
+          "verifier": "sha256:f99d9ed88484cefe3a5636a916cac513bf6eb17fa64fe3f607c25dff78d71966; inventory sha256:f65b22d702eb81886d3cd46e327f472c7050356cd067557513a85187e21c17d7; 481 binaries; ACTIVE=318; UNREGISTERED_DEFAULT_DENY=163",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T15:55:00Z"
+        },
+      {
+        "evidence_id": "EV-PUBLIC-ASSET-SOURCE-GRAPH-REFRESH-INDEPENDENT-20260804",
+          "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/public-asset-closure-refresh-independent-verdict-2026-08-04.md",
+          "verifier": "sha256:334af0b8b881e58472360155235f2eef5c1a7a961efcf25967471d251af398da; exact path/SHA/bytes parity PASS; deliberate dropped-binary calibration FAIL; real builder expected FAIL on held Post Office asset",
+        "verdict": "PASS",
+        "collected_at": "2026-08-04T15:58:00Z"
+      },
+      {
+        "evidence_id": "EV-PUBLIC-ASSET-FINAL-CLOSURE-INDEPENDENT-20260804",
+        "artifact": "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/independent-final-closure-verdict-2026-08-04.md",
+        "verifier": "sha256:5fb267beccad6c078e07609233d0cf90a8de0ee51e3d11b10c3690e9e403dcab; clean build=546 files/404.81 MiB; inventory=329/327 ACTIVE/2 source-only holds/0 prohibited/0 missing; calibrated exact ACTIVE parity PASS",
+        "verdict": "PASS",
+        "collected_at": "2026-08-04T20:10:00Z"
+      }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-post-office-postcard-closure",
+      "work_type": "building-feature-repair",
+      "title": "Remove unsupported Post Office postcard picker choices",
+      "status": "RESOLVED",
+      "product": {
+        "id": "post-office",
+        "outcome": "Every postcard choice constructed by the visitor picker maps to the exact supported checksum-bound Post Office runtime family."
+      },
+      "owner": {
+        "id": "post-office-building-owner",
+        "role": "accountable product maker"
+      },
+      "acceptance_owner": {
+        "id": "independent-post-office-feature-judge",
+        "role": "separate exact-source and behavior reviewer"
+      },
+      "write_scope": [
+        "postcard.html",
+        "operations/product-stewards/post-office/**"
+      ],
+      "next_action": {
+        "id": "POSTCARD-ARRIVAL-ASSET-01",
+        "description": "Keep the separate candidate arrival image blocked and route it through the whole-town public-asset closure; the postcard picker repair is independently accepted."
+      },
+      "deadline_at": "2026-08-03T07:00:00Z",
+      "next_check_at": "2026-08-03T06:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "dispatch": {
+        "receipt_id": "DSP-20260803-post-office-postcard-judge",
+        "to_owner_id": "independent-post-office-feature-judge",
+        "channel": "codex-task",
+        "request": "Independently verify the exact picker candidate, source diff, supported runtime family equality, checksums and visitor-job preservation.",
+        "dispatched_at": "2026-08-03T05:34:00Z"
+      },
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry post-office",
+        "checked_at": "2026-08-03T05:31:00Z"
+      },
+      "activity_receipt": {
+        "receipt_id": "ACT-20260803-post-office-postcard-judge",
+        "task_id": "019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1",
+        "at": "2026-08-03T05:34:00Z",
+        "heartbeat_at": "2026-08-03T05:34:57Z",
+        "evidence_ref": "operations/control-room/evidence/post-office-postcard-picker-independent-judge-2026-08-03.md"
+      },
+      "execution": {
+        "maker_id": "post-office-building-owner",
+        "judge_id": "independent-post-office-feature-judge"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-POSTCARD-CLOSURE-JUDGE-HOLD",
+          "failure_id": "FAIL-20260803-unsupported-postcard-picker-members",
+          "artifact": "operations/control-room/evidence/public-asset-narrowing-successor-judge-2026-08-03.md",
+          "verifier": "Brand and Experience task 019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+          "verdict": "REJECTED",
+          "collected_at": "2026-08-03T05:26:07Z"
+        },
+        {
+          "evidence_id": "EV-POSTCARD-CLOSURE-MAKER-CANDIDATE",
+          "artifact": "operations/product-stewards/post-office/independent-judge-packet-postcard-picker-closure-2026-08-03.md",
+          "verifier": "sha256:17bf61427d2e149949e5a3b2602d1908a60983439f4d644809f6429bb75c4925",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:34:00Z"
+        },
+        {
+          "evidence_id": "EV-POSTCARD-CLOSURE-INDEPENDENT-JUDGE",
+          "artifact": "operations/control-room/evidence/post-office-postcard-picker-independent-judge-2026-08-03.md",
+          "verifier": "independent Post Office feature judge task 019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T05:34:57Z"
+        }
+      ],
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "PO-TR-01", "owner_id": "whole-town-platform-integrator", "artifact": "operations/control-room/evidence/public-asset-narrowing-successor-judge-2026-08-03.md", "result": "PASS", "at": "2026-08-03T05:26:07Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "PO-TR-02", "owner_id": "post-office-building-owner", "artifact": "operations/product-stewards/post-office/VISUAL-ASSET-INVENTORY.md", "result": "PASS", "at": "2026-08-03T05:31:00Z" },
+        { "stage": "BRIEF", "receipt_id": "PO-TR-03", "owner_id": "post-office-building-owner", "artifact": "operations/product-stewards/post-office/independent-judge-packet-postcard-picker-closure-2026-08-03.md", "result": "PASS", "at": "2026-08-03T05:31:00Z" },
+        { "stage": "PILOT", "receipt_id": "PO-TR-04", "owner_id": "post-office-building-owner", "artifact": "postcard.html", "result": "PASS", "at": "2026-08-03T05:32:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "PO-TR-05", "owner_id": "post-office-building-owner", "artifact": "postcard.html", "result": "PASS", "at": "2026-08-03T05:33:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "PO-TR-06", "owner_id": "post-office-building-owner", "artifact": "operations/product-stewards/post-office/tests/test-postcard-supported-picker.cjs", "result": "PASS", "at": "2026-08-03T05:34:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "PO-TR-07", "owner_id": "independent-post-office-feature-judge", "artifact": "operations/control-room/evidence/post-office-postcard-picker-independent-judge-2026-08-03.md", "result": "PASS", "at": "2026-08-03T05:34:57Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "PO-TR-08", "owner_id": "whole-town-platform-integrator", "artifact": "operations/runtime/work-resolution-loop.json", "result": "PASS", "at": "2026-08-03T05:35:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "PO-TR-09", "owner_id": "whole-town-platform-integrator", "artifact": "No Ali decision was required to remove two independently confirmed unsupported picker choices.", "result": "NOT_APPLICABLE", "at": "2026-08-03T05:35:00Z" },
+        { "stage": "RELEASE", "receipt_id": "PO-TR-10", "owner_id": "whole-town-platform-integrator", "artifact": "No deployment or publication was authorized for this bounded local repair.", "result": "NOT_APPLICABLE", "at": "2026-08-03T05:35:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "PO-TR-11", "owner_id": "whole-town-platform-integrator", "artifact": "Local repair only; the whole-site release remains blocked by public-asset closure.", "result": "NOT_APPLICABLE", "at": "2026-08-03T05:35:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "PO-TR-12", "owner_id": "whole-town-platform-integrator", "artifact": "No new qualifying failure beyond the existing public-asset closure incidents; no duplicate painpoint added.", "result": "PASS", "at": "2026-08-03T05:35:00Z" }
+      ],
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-03T05:35:00Z"
+    },
+    {
+      "work_id": "WRK-20260803-episode-05-gate-1",
+      "work_type": "episode-learning-architecture",
+      "title": "Independently review The Super Models Gate 1 architecture",
+      "status": "OPEN",
+      "product": {
+        "id": "episode-experience",
+        "outcome": "Episode 05 teaches Ali's complete AI fashion-system orientation accurately, usefully and through the recurring LAiDIES episode journey before any canon or production work begins."
+      },
+      "owner": {
+        "id": "weekly-episodes-engine-production-director",
+        "role": "accountable episode editorial and production owner"
+      },
+      "acceptance_owner": {
+        "id": "episode-05-gate-1-independent-review-panel",
+        "role": "four role-distinct concept-fidelity, technical-truth, teaching-transfer and recurring-format vetoes"
+      },
+      "write_scope": [
+        "operations/product-stewards/episode-experience/episode-05-gate-1-architecture-candidate-2026-08-03.md",
+        "operations/product-stewards/episode-experience/episode-05-gate-1-architecture-candidate-v2-2026-08-04.md",
+        "operations/product-stewards/episode-experience/evidence-episode-05-gate-1-*.md",
+        "operations/product-stewards/episode-experience/episode-05-gate-1-decision-ready-2026-08-04.md",
+        "operations/product-stewards/episode-experience/check-episode-05-gate-1.mjs",
+        "operations/product-stewards/episode-experience/state.json",
+        "operations/product-stewards/episode-experience/backlog.md",
+        "operations/product-stewards/episode-experience/control-room-handoff-episode-05-gate-1-candidate-2026-08-03.md",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "EP05-GATE1-ALI-ARCHITECTURE-DECISION",
+        "description": "Ali approves the exact composite Gate 1 architecture in episode-05-gate-1-decision-ready-2026-08-04.md or names one revision. Approval permits canon reconciliation only; no script or production begins."
+      },
+      "deadline_at": "2026-08-06T07:00:00Z",
+      "next_check_at": "2026-08-05T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry episode-experience",
+        "checked_at": "2026-08-03T14:01:00Z"
+      },
+      "execution": {
+        "maker_id": "weekly-episodes-engine-production-director",
+        "judge_id": "episode-05-gate-1-independent-review-panel"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-EP05-GATE1-CANDIDATE",
+          "artifact": "operations/product-stewards/episode-experience/episode-05-gate-1-architecture-candidate-2026-08-03.md",
+          "verifier": "sha256:996da1e266b08c1eee993ed04b4482d05e0d7d6ed0a3bb136b76f3cc44450c5c",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T14:08:00Z"
+        },
+        {
+          "evidence_id": "EV-EP05-GATE1-OBJECTIVE-GUARD",
+          "artifact": "operations/product-stewards/episode-experience/check-episode-05-gate-1.mjs",
+          "verifier": "EPISODE_05_GATE_1_OBJECTIVE_GUARD=PASS required_anchors=23 bound_inputs=6 authority=CANDIDATE_NOT_APPROVED",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T14:08:00Z"
+        },
+        {
+          "evidence_id": "EV-EP05-GATE1-CONCEPT-FIDELITY",
+          "artifact": "operations/product-stewards/episode-experience/evidence-episode-05-gate-1-concept-fidelity-2026-08-04.md",
+          "verifier": "independent concept-fidelity judge; sha256:eb2ca186bbe3ccf4766275de8b38bd8a55e21d0b7fdba9e595eae78f336c1599",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T14:35:00Z"
+        },
+        {
+          "evidence_id": "EV-EP05-GATE1-TECHNICAL-TRUTH",
+          "artifact": "operations/product-stewards/episode-experience/evidence-episode-05-gate-1-technical-truth-2026-08-04.md",
+          "verifier": "independent technical-truth judge; sha256:28f60572026779aea62c9ab723b4b0d1f464c14541f928d99d8eba41dc976626",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T14:35:00Z"
+        },
+        {
+          "evidence_id": "EV-EP05-GATE1-TEACHING-TRANSFER",
+          "artifact": "operations/product-stewards/episode-experience/evidence-episode-05-gate-1-teaching-transfer-2026-08-04.md",
+          "verifier": "independent teaching-transfer judge; sha256:0f54fed9aefeacc2a11c8b8a13b53f5bdc244b154f0410b09998fb553bc83bf3",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T14:36:00Z"
+        },
+        {
+          "evidence_id": "EV-EP05-GATE1-RECURRING-FORMAT-V2",
+          "artifact": "operations/product-stewards/episode-experience/evidence-episode-05-gate-1-recurring-format-v2-2026-08-04.md",
+          "verifier": "independent recurring-format judge; sha256:74077e07f162489d7f501f8ddb0d5ec4fada0ce7193d44bf5ae711a89aaf6e63",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T14:44:00Z"
+        },
+        {
+          "evidence_id": "EV-EP05-GATE1-ALI-DECISION-PACKET",
+          "artifact": "operations/product-stewards/episode-experience/episode-05-gate-1-decision-ready-2026-08-04.md",
+          "verifier": "sha256:83acc63bdfb3d9c562fa04a055c0f1087aae46bacf8a13a86a48d4ac1933316a; Ali decision pending",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T14:45:00Z"
+        }
+      ],
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "EP05-G1-TR-01", "owner_id": "weekly-episodes-engine-production-director", "artifact": "operations/product-stewards/episode-experience/episode-05-operating-packet-2026-07-26.md", "result": "PASS", "at": "2026-08-03T14:01:00Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "EP05-G1-TR-02", "owner_id": "weekly-episodes-engine-production-director", "artifact": "node scripts/check-product-stewards.mjs --owner-entry episode-experience", "result": "PASS", "at": "2026-08-03T14:01:00Z" },
+        { "stage": "BRIEF", "receipt_id": "EP05-G1-TR-03", "owner_id": "weekly-episodes-engine-production-director", "artifact": "operations/product-stewards/episode-experience/episode-05-operating-packet-2026-07-26.md", "result": "PASS", "at": "2026-08-03T14:02:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "EP05-G1-TR-04", "owner_id": "weekly-episodes-engine-production-director", "artifact": "operations/product-stewards/episode-experience/episode-05-gate-1-architecture-candidate-2026-08-03.md", "result": "PASS", "at": "2026-08-03T14:08:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "EP05-G1-TR-05", "owner_id": "weekly-episodes-engine-production-director", "artifact": "operations/product-stewards/episode-experience/check-episode-05-gate-1.mjs", "result": "PASS", "at": "2026-08-03T14:08:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "EP05-G1-TR-06", "owner_id": "episode-05-gate-1-independent-review-panel", "artifact": "Four applicable checksum-bound veto receipts; recurring-format predecessor HOLD repaired in immutable v2 and rejudged PASS", "result": "PASS", "at": "2026-08-04T14:44:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "EP05-G1-TR-07", "owner_id": "Ali", "artifact": "operations/product-stewards/episode-experience/episode-05-gate-1-decision-ready-2026-08-04.md", "result": "HOLD", "at": "2026-08-04T14:45:00Z" }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-chain-of-thought-card",
+      "work_type": "learning-claim-correction",
+      "title": "Correct the universal Chain of Thought trading-card claim",
+      "status": "RESOLVED",
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "The unsupported Chain of Thought card has no executable consumer; its stale generation prompt is retired while the separate Episode 02 prompting signal remains routed."
+      },
+      "owner": {
+        "id": "learning-content-ecosystem",
+        "role": "Learning System & Concepts accountable owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-learning-corrections-judge",
+        "role": "independent concept integrity and consumer-propagation judge"
+      },
+      "write_scope": [
+        "operations/codex-prompts/_concept-cards-popart-by-episode.md",
+        "scripts/test-learning-claim-corrections.mjs",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "CHAIN-OF-THOUGHT-CORRECTION-01",
+        "description": "Completed: the unsafe regeneration prompt is an explicit RETIRED — DO NOT GENERATE tombstone. No maintained claim was created because no Chain of Thought consumer is retained; the separate Episode 02 prompting signal remains routed."
+      },
+      "deadline_at": "2026-08-05T18:00:00Z",
+      "next_check_at": "2026-08-05T16:30:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem",
+        "checked_at": "2026-08-03T15:45:00Z"
+      },
+      "execution": {
+        "maker_id": "learning-content-ecosystem",
+        "judge_id": "independent-learning-corrections-judge"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-AIDB-CHAIN-OF-THOUGHT-HANDOFF",
+          "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-02-trading-cards-chain-of-thought.md",
+          "verifier": "AIDB private evidence and owner-decision handoff",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T15:45:00Z"
+        },
+        {
+          "evidence_id": "EV-CHAIN-OF-THOUGHT-RETIREMENT",
+          "artifact": "operations/codex-prompts/_concept-cards-popart-by-episode.md",
+          "verifier": "independent judge PASS; sha256:3696ba91d4fd6ec9fd536015ddda6182275652284e652bf63fb86f8ef3299f72; test-learning-claim-corrections.mjs PASS",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T19:03:00Z"
+        }
+      ],
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-05T19:04:00Z",
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "COT-TR-01", "owner_id": "learning-content-ecosystem", "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-02-trading-cards-chain-of-thought.md", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "COT-TR-02", "owner_id": "learning-content-ecosystem", "artifact": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "BRIEF", "receipt_id": "COT-TR-03", "owner_id": "learning-content-ecosystem", "artifact": "WRK-20260803-chain-of-thought-card", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PILOT", "receipt_id": "COT-TR-04", "owner_id": "learning-content-ecosystem", "artifact": "No retained consumer; a retirement tombstone is the complete correction", "result": "NOT_APPLICABLE", "at": "2026-08-05T18:58:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "COT-TR-05", "owner_id": "learning-content-ecosystem", "artifact": "operations/codex-prompts/_concept-cards-popart-by-episode.md", "result": "PASS", "at": "2026-08-05T19:00:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "COT-TR-06", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs", "result": "PASS", "at": "2026-08-05T19:01:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "COT-TR-07", "owner_id": "independent-learning-corrections-judge", "artifact": "exact prompt sha256:3696ba91d4fd6ec9fd536015ddda6182275652284e652bf63fb86f8ef3299f72", "result": "PASS", "at": "2026-08-05T19:03:00Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "COT-TR-08", "owner_id": "learning-content-ecosystem", "artifact": "commit 7e3559e8", "result": "PASS", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "COT-TR-09", "owner_id": "learning-content-ecosystem", "artifact": "No Ali decision required for factual retirement with no current consumer", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "RELEASE", "receipt_id": "COT-TR-10", "owner_id": "learning-content-ecosystem", "artifact": "No public consumer exists", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "COT-TR-11", "owner_id": "learning-content-ecosystem", "artifact": "No public consumer exists", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "COT-TR-12", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs", "result": "PASS", "at": "2026-08-05T19:04:00Z" }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-token-ratio-correction",
+      "work_type": "learning-claim-correction",
+      "title": "Correct and propagate the reversed English token ratio",
+      "status": "RESOLVED",
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "Library and Concepts 101 use one current, explicitly approximate token conversion with all current consumers derived from the maintained claim."
+      },
+      "owner": {
+        "id": "learning-content-ecosystem",
+        "role": "Learning System & Concepts accountable owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-learning-corrections-judge",
+        "role": "independent concept integrity and consumer-propagation judge"
+      },
+      "write_scope": [
+        "content/library-books/handbook-ch1.md",
+        "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+        "scripts/test-learning-claim-corrections.mjs",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "TOKEN-RATIO-CORRECTION-01",
+        "description": "Completed locally: the handbook uses the bounded current ratio; Concepts 101 intentionally keeps compatible non-numeric wording; one maintained claim binds the official source and both consumers. Public release remains a separate gate."
+      },
+      "deadline_at": "2026-08-05T18:00:00Z",
+      "next_check_at": "2026-08-05T16:30:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem",
+        "checked_at": "2026-08-03T15:45:00Z"
+      },
+      "execution": {
+        "maker_id": "learning-content-ecosystem",
+        "judge_id": "independent-learning-corrections-judge"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-AIDB-TOKEN-RATIO-HANDOFF",
+          "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-03-library-token-ratio.md",
+          "verifier": "OpenAI and Google provider evidence mapped in handoff",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T15:45:00Z"
+        },
+        {
+          "evidence_id": "EV-TOKEN-RATIO-CORRECTION",
+          "artifact": "content/library-books/handbook-ch1.md; operations/product-stewards/learning-content-ecosystem/claim-register.json",
+          "verifier": "independent judge PASS; handbook sha256:04ff7588682f01a1d07e8c3b85e3b3ef1ee18fc7154268f526cd8966c44a3d14; claim-register sha256:8e13ea3962927dd321af8ae002b518c582eb978506da7a4561ebcb2c95130265",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T19:03:00Z"
+        }
+      ],
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-05T19:04:00Z",
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "TOKEN-TR-01", "owner_id": "learning-content-ecosystem", "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-03-library-token-ratio.md", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "TOKEN-TR-02", "owner_id": "learning-content-ecosystem", "artifact": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "BRIEF", "receipt_id": "TOKEN-TR-03", "owner_id": "learning-content-ecosystem", "artifact": "WRK-20260803-token-ratio-correction", "result": "PASS", "at": "2026-08-03T15:45:00Z" },
+        { "stage": "PILOT", "receipt_id": "TOKEN-TR-04", "owner_id": "learning-content-ecosystem", "artifact": "One canonical paragraph and two-consumer maintained claim", "result": "PASS", "at": "2026-08-05T18:58:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "TOKEN-TR-05", "owner_id": "learning-content-ecosystem", "artifact": "content/library-books/handbook-ch1.md; operations/product-stewards/learning-content-ecosystem/claim-register.json", "result": "PASS", "at": "2026-08-05T19:00:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "TOKEN-TR-06", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs; scripts/check-content-freshness.mjs validation_errors=0", "result": "PASS", "at": "2026-08-05T19:01:00Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "TOKEN-TR-07", "owner_id": "independent-learning-corrections-judge", "artifact": "handbook sha256:04ff7588682f01a1d07e8c3b85e3b3ef1ee18fc7154268f526cd8966c44a3d14; claim-register sha256:8e13ea3962927dd321af8ae002b518c582eb978506da7a4561ebcb2c95130265", "result": "PASS", "at": "2026-08-05T19:03:00Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "TOKEN-TR-08", "owner_id": "learning-content-ecosystem", "artifact": "commit 7e3559e8", "result": "PASS", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "TOKEN-TR-09", "owner_id": "learning-content-ecosystem", "artifact": "No Ali decision required for a bounded factual correction", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "RELEASE", "receipt_id": "TOKEN-TR-10", "owner_id": "learning-content-ecosystem", "artifact": "Public release remains separate", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "TOKEN-TR-11", "owner_id": "learning-content-ecosystem", "artifact": "Not publicly verified", "result": "NOT_APPLICABLE", "at": "2026-08-05T19:04:00Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "TOKEN-TR-12", "owner_id": "learning-content-ecosystem", "artifact": "scripts/test-learning-claim-corrections.mjs", "result": "PASS", "at": "2026-08-05T19:04:00Z" }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-help-missing-middle-class",
+      "work_type": "learning-product-idea-resolution",
+      "title": "Resolve and build the Help / Missing Middle troubleshooting class family",
+      "status": "OPEN",
+      "classification": "MERGE",
+      "priority": "P1",
+      "source_idea_ids": ["IIR-20260727-003", "IIR-20260731-004", "IIR-20260731-006", "IIR-20260731-007"],
+      "work_order_ids": ["LCWO-014"],
+      "product": {
+        "id": "sunnyvaile-high",
+        "outcome": "A learner can diagnose why a model or governed agent system still misses the intended result, match the failure to a mitigation, test the repair on concrete cases and distinguish process evidence from outcome proof."
+      },
+      "owner": {
+        "id": "sunnyvaile-high-classes-owner",
+        "role": "accountable Classes product owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-teaching-reviewer",
+        "role": "independent mechanism, teaching and transfer judge"
+      },
+      "next_action": {
+        "id": "IIR-003-004-006-007-OWNER-RESOLUTION-01",
+        "description": "Dispatch existing LCWO-014 and ODC-LAB-01 to Classes. Return one durable ruling on whether Help is an in-class diagnostic label or a separately governed format, then independently review the existing class candidate; do not build another Missing Middle class."
+      },
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry sunnyvaile-high",
+        "checked_at": "2026-08-03T17:35:00Z"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-003-HELP-HANDOFF",
+          "artifact": "operations/product-stewards/idea-inbox/handoff-model-apology-loop-learning-2026-07-27.md",
+          "verifier": "Idea Inbox reconciliation against Learning intake, Classes sources and Control Room acknowledgement",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T17:35:00Z"
+        },
+        {
+          "evidence_id": "EV-LCWO-014-READY",
+          "artifact": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json#LCWO-014",
+          "verifier": "dispatchState=READY_TO_DISPATCH; status=BUILT_LOCALLY",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T17:35:00Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-viral-reel-daily-format",
+      "work_type": "learning-derivative-idea-resolution",
+      "title": "Owner-review the What the Viral Reel Left Out Daily format",
+      "status": "OPEN",
+      "classification": "MERGE",
+      "priority": "P1",
+      "source_idea_ids": ["IIR-20260731-004", "IIR-20260731-006", "IIR-20260731-007"],
+      "work_order_ids": ["LCWO-015"],
+      "product": {
+        "id": "newsstand-daily",
+        "outcome": "One governed Daily format gives a source-specific missing-middle check and routes only to an accepted complete parent without creator-callout copy or filler."
+      },
+      "owner": {
+        "id": "newsstand-daily-subchampion",
+        "role": "accountable Daily publication owner"
+      },
+      "acceptance_owner": {
+        "id": "newsstand-champion",
+        "role": "NewsStand owner acceptance with Learning and accuracy gates"
+      },
+      "next_action": {
+        "id": "LCWO-015-OWNER-REVIEW-01",
+        "description": "Control Room dispatches LCWO-015 for NewsStand and Learning owner review. Create the first held source-specific record only after its claim and exact accepted parent are bound; do not reserve or publish a filler slot."
+      },
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry newsstand-daily",
+        "checked_at": "2026-08-03T17:35:00Z"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-LCWO-015-READY",
+          "artifact": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json#LCWO-015",
+          "verifier": "dispatchState=READY_TO_DISPATCH; status=BUILT_LOCALLY",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T17:35:00Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-work-life-ai-mirror",
+      "work_type": "learning-product-idea-resolution",
+      "title": "Build and review the Work-Life AI Mirror bank and practice cases",
+      "status": "OPEN",
+      "classification": "MERGE",
+      "priority": "P1",
+      "source_idea_ids": ["IIR-20260801-008"],
+      "work_order_ids": ["LCWO-016"],
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "A governed 30-item bank connects real workplace situations to accurate bounded AI mirrors and supplies useful language, briefs or rehearsal artifacts without generic confidence advice."
+      },
+      "owner": {
+        "id": "learning-content-ecosystem",
+        "role": "Learning System and Concepts accountable owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-teaching-reviewer",
+        "role": "independent workplace, analogy and transfer judge"
+      },
+      "next_action": {
+        "id": "LCWO-016-BANK-PILOT-01",
+        "description": "LCWO-016 is BUILT_LOCALLY. After the whole-town launch foreground clears, dispatch the existing first four cases for evidence, workplace-safety, editorial and teaching review and require one usable rehearsal artifact; do not rebuild the existing 30-item bank."
+      },
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry learning-content-ecosystem",
+        "checked_at": "2026-08-03T17:35:00Z"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-LCWO-016-READY",
+          "artifact": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json#LCWO-016",
+          "verifier": "dispatchState=READY_TO_DISPATCH; status=BUILT_LOCALLY",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T17:35:00Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-town-group-chat-pilot",
+      "work_type": "editorial-format-idea-resolution",
+      "title": "Build and review the three-script Town Group Chat pilot",
+      "status": "OPEN",
+      "classification": "MERGE",
+      "priority": "P1",
+      "source_idea_ids": ["IIR-20260801-009"],
+      "work_order_ids": ["LCWO-017"],
+      "product": {
+        "id": "newsstand-daily",
+        "outcome": "Three original, clearly fictional, canon-safe mobile scripts prove whether Town Group Chat can support one AI memory hook, one town-continuity beat and one pure-comedy beat without resembling real resident messages."
+      },
+      "owner": {
+        "id": "newsstand-daily-subchampion",
+        "role": "accountable fictional NewsStand format owner"
+      },
+      "acceptance_owner": {
+        "id": "newsstand-champion",
+        "role": "NewsStand owner acceptance after character, Learning, Brand and accessibility review"
+      },
+      "next_action": {
+        "id": "LCWO-017-THREE-SCRIPT-PILOT-01",
+        "description": "LCWO-017 is BUILT_LOCALLY. After the whole-town launch foreground clears, dispatch the three existing scripts to character/canon, Editorial, Learning and Accessibility reviewers. Brand may select one visual pilot only after those verdicts; no motion, social derivative or public column begins."
+      },
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry newsstand-daily",
+        "checked_at": "2026-08-03T17:35:00Z"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-LCWO-017-READY",
+          "artifact": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json#LCWO-017",
+          "verifier": "dispatchState=READY_TO_DISPATCH; status=BUILT_LOCALLY",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T17:35:00Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-character-story-song-pilot",
+      "work_type": "audio-editorial-idea-resolution",
+      "title": "Select or decline one SUNNYVAiLE character text-crisis story-song pilot",
+      "status": "OPEN",
+      "classification": "NEXT",
+      "priority": "P1",
+      "source_idea_ids": ["IIR-20260731-005"],
+      "product": {
+        "id": "ksvl",
+        "outcome": "KSVL and one character owner make an evidence-bound pilot decision using one canon-stable tiny crisis, without copying the discovery reel or commissioning a series."
+      },
+      "owner": {
+        "id": "ksvl-champion",
+        "role": "accountable audio and pilot-fit owner"
+      },
+      "acceptance_owner": {
+        "id": "affected-building-owner",
+        "role": "character canon and premise acceptance owner"
+      },
+      "next_action": {
+        "id": "IIR-005-PREMISE-SELECTION-01",
+        "description": "KSVL and one affected building return ACCEPT, PARK or DECLINE. If accepted, bind one premise distinct from Town Group Chat, an approved character identity, original-music job and destination before any production; do not double-commission the shared Mayor Deb or Miss Jeeves beats."
+      },
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry ksvl",
+        "checked_at": "2026-08-03T17:35:00Z"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-005-KSVL-HANDOFF",
+          "artifact": "operations/product-stewards/idea-inbox/handoff-sunnyvaile-character-text-story-songs-2026-07-31.md",
+          "verifier": "Idea Inbox reconciliation against KSVL, character, Brand and Audience ownership",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T17:35:00Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-episode-format-navigation-template-repair",
+      "work_type": "public-episode-experience-repair",
+      "title": "Repair the written episode template and truthful Read / Listen / Watch switching",
+      "status": "STOP_LOSS_ROOT_CAUSE",
+      "classification": "NOW",
+      "priority": "P0",
+      "source_idea_ids": ["IIR-20260803-011"],
+      "product": {
+        "id": "episode-experience",
+        "outcome": "Every current episode provides a clear reader-first written page, exact and persistent Read/Listen/Watch switching, truthful unavailable-format states and precise related-learning links without exposing internal production language."
+      },
+      "owner": {
+        "id": "weekly-episodes-engine-production-director",
+        "role": "accountable episode product, editorial and template owner"
+      },
+      "acceptance_owner": {
+        "id": "independent-episode-journey-judge",
+        "role": "independent product/UX and accessibility judge with Chick Flicks format-admission evidence"
+      },
+      "write_scope": [
+        "operations/product-stewards/episode-experience/**",
+        "operations/product-stewards/screening-room/**",
+        "operations/review-packets/episode-*-template-*.md",
+        "issues/issue-01.html",
+        "issues/issue-02.html",
+        "issues/issue-03.html",
+        "issues/issue-04.html",
+        "watch.html",
+        "content/episode-page.css",
+        "content/episode-page.js",
+        "content/episode-index.json",
+        "content/episodes/screening-room-admission.json",
+        "targeted episode journey validators and fixtures"
+      ],
+      "next_action": {
+        "id": "EPISODE-01-DARK-TEMPLATE-FORMAT-READMISSION-THEN-NATIVE-WITNESS",
+        "description": "The exact restored dark-template page is independently accepted visually and passes local layout/format checks. Its new checksum supersedes Chick Flicks v3 identity, so first obtain Chick Flicks format re-admission on the exact current tuple; then an identified independent human must hear and record the Safari + VoiceOver sequence. Do not propagate Episodes 02-04 before both pass and a Control Room shared-file lock."
+      },
+      "original_deadline_at": "2026-08-04T06:59:00Z",
+      "deadline_state": "EXTERNAL_HUMAN_NATIVE_WITNESS_REQUIRED_MACHINE_APPROACH_STOPPED",
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 2,
+      "same_failure_count": 2,
+      "root_cause_route": {
+        "owner_id": "identified-independent-native-accessibility-human-judge",
+        "action": "Run one real Safari + VoiceOver session with an identified human listener on the unchanged v3 tuple and record spoken current/disabled states, same-episode activation, truthful Watch fallback, zoom/focus and recovery. Do not repeat machine-only evidence collection.",
+        "failure_fingerprint": "Computer-controlled DOM, Chromium and native Safari accessibility trees cannot hear or independently attest the speech VoiceOver emits.",
+        "review_due_at": "2026-08-12T16:00:00Z"
+      },
+      "work_admission": {
+        "visitor_problem": "A reader cannot immediately tell that Read, Listen and Watch are separate episode choices, encounters internal production language on the written page and cannot reliably switch formats while staying in the same episode.",
+        "existing_experience_gap": "Episodes 01-04 emphasize Listen, use a SUNNYVAiLE VIDEO spine and expose production-facing section labels; the Screening Room separates narrated and admitted visual states, but no shared persistent three-format contract currently joins those surfaces.",
+        "smallest_complete_change": "Reconcile one shared format-navigation and related-content contract, prove it on one representative episode including honest unavailable-Watch behavior, then propagate the guarded template to Episodes 01-04.",
+        "non_goals": [
+          "Do not rewrite episode canon or article substance.",
+          "Do not invent or admit unavailable visual editions.",
+          "Do not begin an unrelated visual redesign.",
+          "Do not publish or deploy without independent acceptance and exact release proof."
+        ]
+      },
+      "dispatch": {
+        "receipt_id": "DSP-20260803-episode-format-navigation-template-repair",
+        "to_owner_id": "weekly-episodes-engine-production-director",
+        "channel": "codex-task",
+        "request": "Accept IIR-20260803-011 and reconcile one shared truthful Read/Listen/Watch and related-content contract; prove one representative episode before guarded Episodes 01-04 propagation.",
+        "dispatched_at": "2026-08-03T18:47:00Z"
+      },
+      "owner_receipt": {
+        "receipt_id": "RCPT-20260803-weekly-episodes-format-navigation-pilot",
+        "owner_id": "weekly-episodes-engine-production-director",
+        "status": "DARK_TEMPLATE_VISUALLY_ACCEPTED_FORMAT_READMISSION_AND_IDENTIFIED_HUMAN_VOICEOVER_HOLD",
+        "artifact": "operations/product-stewards/episode-experience/independent-visual-acceptance-episode-01-dark-template-2026-08-05.md",
+        "artifact_sha256": "30d7baeea404fd7d2871de882b974fa40bfba1d1a99b5fa4e55254e8a3763ded",
+        "accepted_at": "2026-08-05T17:26:46Z"
+      },
+      "owner_entry_check": {
+        "verdict": "PASS",
+        "command": "node scripts/check-product-stewards.mjs --owner-entry episode-experience",
+        "checked_at": "2026-08-03T18:45:00Z"
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-011-CURRENT-EPISODE-SOURCE",
+          "failure_id": "FAIL-20260803-episode-written-format-navigation-drift",
+          "artifact": "issues/issue-01.html; issues/issue-02.html; issues/issue-03.html; issues/issue-04.html; watch.html",
+          "verifier": "Source inspection confirmed hero Listen-only emphasis, SUNNYVAiLE VIDEO spine, production-facing labels and format availability split",
+          "verdict": "FAIL",
+          "collected_at": "2026-08-03T18:45:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-APPROVED-TEMPLATE-LINEAGE",
+          "artifact": "operations/review-packets/episode-01-approved-template-qa.md; operations/review-packets/episode-terminology-and-template-audit.md",
+          "verifier": "Idea Inbox reconciliation against Ali-approved reading-template direction",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T18:45:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-OWNER-HANDOFF",
+          "artifact": "operations/product-stewards/idea-inbox/handoff-episode-read-listen-watch-template-2026-08-03.md",
+          "verifier": "Bounded visitor outcome, non-goals, owners and acceptance contract recorded",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T18:45:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-EPISODE-01-PILOT-STATIC",
+          "artifact": "content/episodes/episode-format-navigation-pilot.json; scripts/check-episode-format-navigation-pilot.mjs",
+          "verifier": "node scripts/check-episode-format-navigation-pilot.mjs",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T22:18:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-EPISODE-01-PILOT-BROWSER",
+          "failure_id": "FAIL-20260803-episode-native-accessibility-unverified",
+          "artifact": "operations/product-stewards/episode-experience/evidence/episode-format-navigation-pilot-2026-08-03/browser-results.json",
+          "verifier": "Historical predecessor-only layout evidence; exact corrected candidate inspected in the user's in-app browser but native keyboard/screen-reader review remains open",
+          "verdict": "FAIL",
+          "collected_at": "2026-08-03T22:18:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-CHICK-FLICKS-FORMAT-ADMISSION-V2",
+          "artifact": "operations/product-stewards/chick-flicks/independent-admission-episode-01-format-navigation-v2-2026-08-04.md",
+          "verifier": "independent Chick Flicks judge; sha256:917b85a4d9f6823448b0b549228af130f27c194990212565d6a42adfd75f4441",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T14:00:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-NATIVE-ACCESSIBILITY-V2",
+          "failure_id": "FAIL-20260803-episode-native-accessibility-unverified",
+          "artifact": "operations/product-stewards/episode-experience/evidence-episode-01-format-navigation-native-accessibility-v2-judge-2026-08-04.md",
+          "verifier": "independent native accessibility judge; sha256:6801e3a6cf08e36f1d19ddd8e60a268e4b08839462b1106d75f9bded33d64d1b",
+          "verdict": "FAIL",
+          "collected_at": "2026-08-04T14:00:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-EPISODE-01-PILOT-V3",
+          "artifact": "content/episodes/episode-format-navigation-pilot.json; operations/product-stewards/episode-experience/evidence/episode-format-navigation-pilot-2026-08-03/browser-results.json",
+          "verifier": "current static gate PASS; browser 33/33; manifest sha256:2c585e50f8eb724a3480f8f73df7782a1aaa373b6236ad183dff49ef104bfcae",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T15:40:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-CHICK-FLICKS-FORMAT-ADMISSION-V3",
+          "artifact": "operations/product-stewards/chick-flicks/independent-admission-episode-01-format-navigation-v3-2026-08-05.md",
+          "verifier": "independent Chick Flicks judge; sha256:4859c83bcb50731275ae47ef3f4e4775ba38cccb956c8db0a3e2a575d63a9fbb",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T15:44:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-NATIVE-ACCESSIBILITY-V3-MACHINE-CEILING",
+          "failure_id": "FAIL-20260803-episode-native-accessibility-unverified",
+          "artifact": "operations/product-stewards/episode-experience/evidence-episode-01-format-navigation-native-accessibility-v3-machine-ceiling-2026-08-05.md",
+          "verifier": "native Safari tree observed with VoiceOver reported on; no identified human heard spoken output; sha256:e71c9510108640a73a950c2335ed9711641adc7596d56675fa407a1f6b98e590",
+          "verdict": "FAIL",
+          "collected_at": "2026-08-05T15:33:00Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-EPISODE-01-DARK-TEMPLATE-LOCAL-ACCEPTANCE",
+          "artifact": "operations/product-stewards/episode-experience/independent-visual-acceptance-episode-01-dark-template-2026-08-05.md; operations/product-stewards/episode-experience/evidence/episode-01-dark-reading-template-2026-08-05/results.json",
+          "verifier": "calibrated browser layout gate PASS 17/17; format browser PASS 33/33; independent visual judge ACCEPT; page sha256:21b899c17f8e6250208f368b63273b96a362089fa76bacc0b98460f372a10cb4",
+          "verdict": "PASS",
+          "collected_at": "2026-08-05T17:26:46Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260803-practitioner-roster-proposal",
+      "work_type": "source-intelligence-pilot",
+      "title": "Propose the bounded practitioner-source roster and lawful monitoring method",
+      "status": "OPEN",
+      "product": {
+        "id": "aidb-intelligence-desk",
+        "outcome": "The existing AIDB desk can test whether a small expiring official/practitioner roster adds distinct current practice without creating another feed, publication or content quota."
+      },
+      "owner": {
+        "id": "aidb-intelligence-desk",
+        "role": "accountable private intelligence and source-promotion owner"
+      },
+      "acceptance_owner": {
+        "id": "control-room-product-owner",
+        "role": "cadence, collision, lawful automation and recurring-expansion gate owner"
+      },
+      "write_scope": [
+        "operations/agents/aidb-intelligence-desk/sources/practitioner-signal-pilot.md",
+        "operations/agents/aidb-intelligence-desk/sources/practitioner-roster-candidate.*",
+        "operations/agents/aidb-intelligence-desk/pilots/practitioner-signals/**",
+        "operations/agents/aidb-intelligence-desk/state.json",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "PRACTITIONER-ROSTER-PROPOSAL-01",
+        "description": "After Control Room confirms a collision-free lane, return a deduplicated 10–20-source candidate roster across OpenAI/Codex, Anthropic/Claude Code and one broader ecosystem with current role, relevance, tier, lawful channel, last verification, expiry, retirement trigger, terms/privacy boundary and zero-cost method. Do not begin the 3–5-signal pilot until the roster proposal passes desk review."
+      },
+      "deadline_at": "2026-08-15T20:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "work_admission": {
+        "visitor_problem": "LAiDIES may miss useful current practice that first appears in official engineering channels or first-hand practitioner work, while adding many feeds would create duplication and stale authority risk.",
+        "existing_experience_gap": "The desk has a complete evidence-and-routing chain but only two recurring scout cursors and no expiring candidate-roster view.",
+        "smallest_complete_change": "Propose one bounded 10–20-source candidate roster and lawful zero-cost monitoring method before any signal pilot or recurrence.",
+        "non_goals": [
+          "Do not create another agent, scheduler, publication or source of truth.",
+          "Do not follow, subscribe, activate X, scrape against terms, spend, publish or edit another owner's state.",
+          "Do not interrupt the independent AIDB or Mollick edition cursors.",
+          "Do not promote a candidate source or authorize recurring expansion from this record."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-013-AIDB-OWNER-ACCEPTANCE",
+          "artifact": "operations/agents/aidb-intelligence-desk/handoffs/2026-08-03-practitioner-signal-radar-acceptance.md",
+          "verifier": "AIDB receiving-owner ACCEPT — bounded pilot; recurring expansion parked",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T23:31:19Z"
+        },
+        {
+          "evidence_id": "EV-IIR-013-QUIET-CYCLE-TRIGGER",
+          "artifact": "operations/agents/aidb-intelligence-desk/daily/2026-08-03.md",
+          "verifier": "Official AIDB and One Useful Thing endpoints checked; no item after either independent cursor",
+          "verdict": "PASS",
+          "collected_at": "2026-08-03T23:31:19Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260804-ai-chips-shortage-quantum-route",
+      "work_type": "learning-concept-idea-resolution",
+      "title": "Rule the AI chips, shortage and quantum-computing learner route",
+      "status": "OPEN",
+      "classification": "MERGE",
+      "priority": "P2",
+      "source_idea_ids": ["IIR-20260804-015"],
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "A non-technical learner can connect the AI-compute map from task and model operations through CPU, GPU/accelerator, memory, server/data centre/cloud and semiconductor fabrication; explain why GPUs suit important AI workloads and why supply constraints occur; and distinguish quantum computing without a false replacement or shortage-cure implication."
+      },
+      "owner": {
+        "id": "learning-content-ecosystem",
+        "role": "Learning System & Concepts accountable concept-routing owner"
+      },
+      "acceptance_owner": {
+        "id": "control-room-product-owner",
+        "role": "collision, bounded dispatch and receiving-owner acceptance verifier"
+      },
+      "next_action": {
+        "id": "IIR-015-LEARNING-CONCEPT-ROUTE-01",
+        "description": "Control Room dispatches the Idea Inbox handoff to Learning. Return one link/correct/update/extend/create/decline ruling that binds a coherent CPU/GPU/accelerator/memory/data-centre/fabrication AI-compute map, the GPU parallel-computation mechanism, dated shortage boundary, quantum adjacency, misconception tests, current-source/freshness plan and smallest receiving surface. Do not research a full packet, script or build content during this prerequisite."
+      },
+      "deadline_at": "2026-08-07T22:30:00Z",
+      "next_check_at": "2026-08-07T22:30:00Z",
+      "retry_count": 1,
+      "same_failure_count": 1,
+      "redispatch_attempt": {
+        "receipt_id": "RDSP-20260806-iir015-learning-route-1",
+        "to_owner_id": "learning-content-ecosystem",
+        "channel": "codex-task",
+        "request": "Return one link/correct/update/extend/create/decline concept-routing ruling for IIR-20260804-015; do not open content production.",
+        "attempted_at": "2026-08-06T17:32:06Z",
+        "delivery_state": "UNCONFIRMED_TASK_TOOL_TIMEOUT",
+        "evidence_ref": "operations/product-stewards/idea-inbox/reconciliation-receipt-2026-08-06.md"
+      },
+      "work_admission": {
+        "visitor_problem": "People hear that AI depends on GPUs and chips, that chips are scarce and that quantum computing is coming, but usually receive disconnected headlines rather than a usable map of how the hardware layers work together.",
+        "existing_experience_gap": "No current owned LAiDIES concept, class, episode or LIBRAiRY treatment explains the chip mechanism, shortage boundary and quantum distinction together; Straight Answers contains only partial energy and infrastructure mentions.",
+        "smallest_complete_change": "Learning rules one concept boundary and smallest receiving surface before any content work order, preserving dated shortage claims separately from durable mechanism.",
+        "non_goals": [
+          "Do not commission or build a class, book, episode, article, visual, audio or interactive.",
+          "Do not imply quantum computers replace GPUs/accelerators or solve current chip shortages.",
+          "Do not interrupt Episode 5 or AW-003 launch recovery.",
+          "Do not publish, deploy, spend, create accounts or expose private data."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-015-IDEA-INBOX-HANDOFF",
+          "artifact": "operations/product-stewards/idea-inbox/handoff-ai-chips-shortage-quantum-explainer-2026-08-04.md",
+          "verifier": "Idea Inbox reconciliation against Learning intake, concept map, current Library inventory and active-work collision rules",
+          "verdict": "PASS",
+          "collected_at": "2026-08-04T22:35:29Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260806-straight-answers-data-centres",
+      "work_type": "site-content-freshness-resolution",
+      "title": "Refresh the existing Straight Answers data-centre town decision guide",
+      "status": "OPEN",
+      "classification": "UPDATE_EXISTING",
+      "priority": "P2",
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "A reader facing a local data-centre proposal can identify the decision levers that affect her town without being pushed into a generic pro- or anti-AI position."
+      },
+      "owner": {
+        "id": "learning-content-ecosystem",
+        "role": "Learning System & Concepts and LIBRAiRY accountable content owner"
+      },
+      "acceptance_owner": {
+        "id": "control-room-product-owner",
+        "role": "collision, bounded dispatch and receiving-owner acceptance verifier"
+      },
+      "write_scope": [
+        "content/library-books/straight-answers.md",
+        "content/library-books/rendered/straight-answers.html",
+        "operations/product-stewards/learning-content-ecosystem/freshness-signal-inbox.json",
+        "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "DATA-CENTRE-STRAIGHT-ANSWERS-01",
+        "description": "After Control Room confirms a collision-free Library source tuple, Learning/LIBRAiRY returns one accept/revise/decline ruling on the bounded handoff. If accepted, preserve the current conclusion, strengthen it with the named New York and Texas primary sources, add the compact pre-deal decision checklist, regenerate the maintained consumer and admit the claim freshness signal. Do not use the unresolved AIDB counts, Jasmine Sun attribution or Foxconn figures."
+      },
+      "deadline_at": "2026-08-14T22:00:00Z",
+      "next_check_at": "2026-08-12T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "work_admission": {
+        "visitor_problem": "The existing answer says the outcome depends on the deal but does not yet give a reader the current, concrete permit, cost-allocation, disclosure, zoning and community-benefit questions to ask.",
+        "existing_experience_gap": "Current New York and Texas primary records make those decision levers concrete, while the durable reader question and answer already exist.",
+        "smallest_complete_change": "Update one existing Straight Answers section and its maintained consumer; do not create a new topic or duplicate NewsStand story.",
+        "non_goals": [
+          "Do not interrupt the current Library launch/recovery lane or write without a collision-free source tuple.",
+          "Do not create a class, episode, book, NewsStand article or new public route.",
+          "Do not reuse unresolved scout counts, quotations or attributions.",
+          "Do not publish, deploy, spend or alter another owner's state."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-AIDB-20260806-DATA-CENTRE-SITE-REFRESH-HANDOFF",
+          "artifact": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-06-straight-answers-data-centres.md",
+          "verifier": "AIDB source-to-primary verification and current canonical duplication check",
+          "verdict": "PASS",
+          "collected_at": "2026-08-06T17:02:04Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260806-data-centre-community-agency-newsstand",
+      "work_type": "newsstand-intake-resolution",
+      "title": "Rule the verified data-centre community-agency signal",
+      "status": "OPEN",
+      "classification": "NEW_SIGNAL",
+      "priority": "P2",
+      "product": {
+        "id": "newsstand",
+        "outcome": "NewsStand independently decides whether the verified New York and Texas state actions change a current reader decision and warrant a dated treatment, WATCH or PASS."
+      },
+      "owner": {
+        "id": "newsstand-editorial-radar",
+        "role": "accountable independent news qualification and disposition owner"
+      },
+      "acceptance_owner": {
+        "id": "control-room-product-owner",
+        "role": "collision, bounded dispatch and receiving-owner disposition verifier"
+      },
+      "write_scope": [
+        "operations/newsstand-radar-log.md",
+        "operations/newsstand-editorial-radar.md",
+        "operations/drafts/news-radar/2026-08-06-data-centre-community-agency/**",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "DATA-CENTRE-NEWSSTAND-INTAKE-01",
+        "description": "NewsStand builds its independent primary-source read, then returns CONSUMED, MERGED, WATCH, PASS or SOURCE CONFLICT for the exact AIDB handoff. Qualify a dated treatment only if a current reader decision changed. Exclude the unresolved AIDB national counts, Texas all-applications halt, Jasmine Sun report, NDA quotations and Foxconn figures."
+      },
+      "deadline_at": "2026-08-08T22:00:00Z",
+      "next_check_at": "2026-08-07T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "work_admission": {
+        "visitor_problem": "Readers encountering a local data-centre proposal need a current decision frame about costs, permits, disclosure and enforceable community benefit rather than a generic pro- or anti-AI argument.",
+        "existing_experience_gap": "The NewsStand radar has no recorded exact state/community-agency identity through its 2026-08-06 morning run, while New York and Texas now provide primary evidence.",
+        "smallest_complete_change": "Return one independent NewsStand disposition on the bounded handoff; create no packet unless normal qualification passes.",
+        "non_goals": [
+          "Do not accept AIDB as factual authority or skip the independent primary-source read.",
+          "Do not treat two states as proof of a national trend.",
+          "Do not duplicate the durable Straight Answers update.",
+          "Do not publish, deploy or alert Ali without the normal NewsStand gates."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-AIDB-20260806-DATA-CENTRE-NEWSSTAND-HANDOFF",
+          "artifact": "operations/agents/aidb-intelligence-desk/handoffs/newsstand/2026-08-06-data-centre-community-agency.md",
+          "verifier": "AIDB exact-source resolution and current NewsStand identity search",
+          "verdict": "PASS",
+          "collected_at": "2026-08-06T17:02:04Z"
+        }
+      ]
+    },
+    {
+      "work_id": "WRK-20260806-trusted-free-ai-course-benchmark",
+      "work_type": "learning-curriculum-benchmark",
+      "title": "Review trusted free AI courses against the current LAiDIES curriculum",
+      "status": "RESOLVED",
+      "final_verdict": "PASS",
+      "resolved_at": "2026-08-07T17:31:28Z",
+      "classification": "MERGE_NEXT",
+      "priority": "P2",
+      "source_idea_ids": ["IIR-20260803-013"],
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "LAiDIES makes evidence-backed curriculum decisions from representative lessons in respected free AI courses instead of copying viral summaries, course catalogs or institutional prestige."
+      },
+      "owner": {
+        "id": "learning-content-ecosystem",
+        "role": "accountable concept, curriculum overlap and best-surface decision owner"
+      },
+      "acceptance_owner": {
+        "id": "control-room-product-owner",
+        "role": "bounded lane, collision and receiving-owner disposition verifier"
+      },
+      "write_scope": [
+        "operations/research/tutorials/_courses-and-curricula.md",
+        "operations/product-stewards/learning-content-ecosystem/course-benchmarks/**",
+        "operations/product-stewards/learning-content-ecosystem/concept-map.md",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "TRUSTED-FREE-AI-COURSE-BENCHMARK-COMPLETE-20260807",
+        "description": "Research is complete and foreground-reconciled. Preserve report SHA-256 cf80ef11f73e4dac2f3c797bb62c21432718d46d6b8044df99f805d4dec6736d and route only the three exact permanent-owner rulings through WRK-20260807-trusted-course-owner-rulings. Do not infer content authority."
+      },
+      "deadline_at": "2026-08-10T04:30:00Z",
+      "next_check_at": "2026-08-08T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "activity_receipt": {
+        "receipt_id": "ACT-20260806-trusted-free-ai-course-benchmark",
+        "task_id": "/root/trusted_free_course_benchmark",
+        "at": "2026-08-07T04:29:34Z",
+        "evidence_ref": "operations/PARALLEL-WORK.md#pw-028"
+      },
+      "execution": {
+        "maker_id": "/root/trusted_free_course_benchmark",
+        "judge_id": "idea-inbox-routing-director"
+      },
+      "work_admission": {
+        "visitor_problem": "LAiDIES cannot know whether its AI teaching is complete, well sequenced and genuinely comprehensible merely by monitoring trusted voices or reading course catalogs.",
+        "existing_experience_gap": "The July tutorial research compares syllabi and teaching architecture but explicitly does not review actual lessons against the current LAiDIES concept map, books, classes, Tips and Episode arc.",
+        "smallest_complete_change": "Run one representative official-course lesson benchmark and return at most three evidence-backed curriculum impact handoffs.",
+        "non_goals": [
+          "Do not watch every course end-to-end before testing the method.",
+          "Do not copy course scripts, slides, exercises or creative presentation.",
+          "Do not create, rewrite, publish or deploy LAiDIES content during the benchmark.",
+          "Do not change the 24-Episode arc without Weekly Episodes owner acceptance.",
+          "Do not enroll, subscribe, create accounts, spend, follow accounts or activate X.",
+          "Do not interrupt active launch recovery or existing Learning P0 work."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-013-TRUSTED-FREE-COURSE-CORRECTION",
+          "artifact": "operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-curriculum-benchmark-2026-08-06.md",
+          "verifier": "Idea Inbox reconciliation of Ali's explicit clarification, existing July tutorial research, official Stanford AI Lab/CS336 sources and current Learning ownership",
+          "verdict": "PASS",
+          "collected_at": "2026-08-07T04:23:42Z"
+        },
+        {
+          "evidence_id": "EV-IIR-013-TRUSTED-FREE-COURSE-PILOT",
+          "artifact": "operations/product-stewards/learning-content-ecosystem/course-benchmarks/trusted-free-ai-course-pilot-2026-08-06.md",
+          "sha256": "cf80ef11f73e4dac2f3c797bb62c21432718d46d6b8044df99f805d4dec6736d",
+          "verifier": "Idea Inbox foreground reconciliation against the original handoff, current LAiDIES surface records and current official Stanford/Google course pages",
+          "verdict": "PASS",
+          "collected_at": "2026-08-07T17:31:28Z"
+        }
+      ],
+      "lifecycle_trace": [
+        { "stage": "CAPTURE", "receipt_id": "IIR013-COURSE-TR-01", "owner_id": "idea-inbox", "artifact": "operations/product-stewards/idea-inbox/routing-receipts.md", "result": "PASS", "at": "2026-08-06T04:23:42Z" },
+        { "stage": "PREREQUISITES", "receipt_id": "IIR013-COURSE-TR-02", "owner_id": "idea-inbox", "artifact": "operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-curriculum-benchmark-2026-08-06.md", "result": "PASS", "at": "2026-08-07T04:23:42Z" },
+        { "stage": "BRIEF", "receipt_id": "IIR013-COURSE-TR-03", "owner_id": "learning-content-ecosystem", "artifact": "operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-curriculum-benchmark-2026-08-06.md", "result": "PASS", "at": "2026-08-07T04:23:42Z" },
+        { "stage": "PILOT", "receipt_id": "IIR013-COURSE-TR-04", "owner_id": "/root/trusted_free_course_benchmark", "artifact": "operations/product-stewards/learning-content-ecosystem/course-benchmarks/trusted-free-ai-course-pilot-2026-08-06.md", "result": "PASS", "at": "2026-08-07T04:33:00Z" },
+        { "stage": "MAKER_BUILD", "receipt_id": "IIR013-COURSE-TR-05", "owner_id": "/root/trusted_free_course_benchmark", "artifact": "operations/product-stewards/learning-content-ecosystem/course-benchmarks/trusted-free-ai-course-pilot-2026-08-06.md", "result": "PASS", "at": "2026-08-07T04:33:00Z" },
+        { "stage": "DETERMINISTIC_CHECKS", "receipt_id": "IIR013-COURSE-TR-06", "owner_id": "idea-inbox", "artifact": "sha256:cf80ef11f73e4dac2f3c797bb62c21432718d46d6b8044df99f805d4dec6736d", "result": "PASS", "at": "2026-08-07T17:31:28Z" },
+        { "stage": "INDEPENDENT_REVIEW", "receipt_id": "IIR013-COURSE-TR-07", "owner_id": "idea-inbox-routing-director", "artifact": "operations/product-stewards/idea-inbox/reconciliation-receipt-2026-08-07.md", "result": "PASS", "at": "2026-08-07T17:31:28Z" },
+        { "stage": "OWNER_INTEGRATION", "receipt_id": "IIR013-COURSE-TR-08", "owner_id": "idea-inbox", "artifact": "operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-owner-rulings-2026-08-07.md", "result": "PASS", "at": "2026-08-07T17:31:28Z" },
+        { "stage": "ALI_DECISION", "receipt_id": "IIR013-COURSE-TR-09", "owner_id": "idea-inbox", "artifact": "No Ali decision was required for a bounded internal research report.", "result": "NOT_APPLICABLE", "at": "2026-08-07T17:31:28Z" },
+        { "stage": "RELEASE", "receipt_id": "IIR013-COURSE-TR-10", "owner_id": "idea-inbox", "artifact": "Research-only route; no release was authorized or required.", "result": "NOT_APPLICABLE", "at": "2026-08-07T17:31:28Z" },
+        { "stage": "PUBLIC_VERIFICATION", "receipt_id": "IIR013-COURSE-TR-11", "owner_id": "idea-inbox", "artifact": "No LAiDIES public-state change occurred.", "result": "NOT_APPLICABLE", "at": "2026-08-07T17:31:28Z" },
+        { "stage": "LEARNING_SCAN", "receipt_id": "IIR013-COURSE-TR-12", "owner_id": "idea-inbox", "artifact": "operations/painpoints-log.md#BTB-429", "result": "PASS", "at": "2026-08-07T17:31:28Z" }
+      ]
+    },
+    {
+      "work_id": "WRK-20260807-trusted-course-owner-rulings",
+      "work_type": "cross-product-owner-rulings",
+      "title": "Disposition the three trusted-course curriculum impact requests",
+      "status": "OPEN",
+      "classification": "MERGE_NEXT",
+      "priority": "P2",
+      "source_idea_ids": ["IIR-20260803-013"],
+      "product": {
+        "id": "learning-content-ecosystem",
+        "outcome": "Each evidence-backed course-benchmark finding has one permanent-owner disposition and one exact destination or return trigger, without creating duplicate teaching or bypassing product holds."
+      },
+      "owner": {
+        "id": "control-room-product-owner",
+        "role": "bounded dispatch and cross-product collision coordinator"
+      },
+      "acceptance_owner": {
+        "id": "learning-content-ecosystem",
+        "role": "concept relationship and distinct best-surface verifier; each named permanent owner retains its surface authority"
+      },
+      "write_scope": [
+        "operations/product-stewards/idea-inbox/**",
+        "operations/product-stewards/learning-content-ecosystem/**",
+        "operations/product-stewards/library/**",
+        "operations/product-stewards/sunnyvaile-high/**",
+        "operations/product-stewards/episode-experience/**",
+        "operations/runtime/work-resolution-loop.json"
+      ],
+      "next_action": {
+        "id": "TRUSTED-COURSE-OWNER-RULINGS-DISPATCH-01",
+        "description": "Control Room dispatches the three exact questions in operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-owner-rulings-2026-08-07.md to: classes with Learning review; library-101 with Learning and Episode 5/6 collision review; and Learning for Verification/Accounts/High/Episode 3 routing. Require ACCEPT, MERGE, PARK or DECLINE. Do not create or edit content."
+      },
+      "deadline_at": "2026-08-12T22:00:00Z",
+      "next_check_at": "2026-08-08T16:00:00Z",
+      "retry_count": 0,
+      "same_failure_count": 0,
+      "work_admission": {
+        "visitor_problem": "Useful teaching patterns found in trusted courses can disappear as a report or be copied into multiple surfaces unless permanent owners explicitly disposition them.",
+        "existing_experience_gap": "The representative benchmark is complete, but Classes, LIBRAiRY 101, Verification/Accounts and Weekly Episodes have not accepted or declined the three proposed impacts.",
+        "smallest_complete_change": "Obtain one explicit permanent-owner ruling for each of the three checksum-bound requests and record the exact destination or return trigger.",
+        "non_goals": [
+          "Do not create, rewrite, film, publish or deploy content.",
+          "Do not change the 24-Episode arc or bypass Library, High, Verification or Episode holds.",
+          "Do not add a generic AI foundations or ethics course.",
+          "Do not copy course material, create accounts, enroll, subscribe, follow accounts or spend."
+        ]
+      },
+      "evidence": [
+        {
+          "evidence_id": "EV-IIR-013-TRUSTED-COURSE-RULING-PACKET",
+          "artifact": "operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-owner-rulings-2026-08-07.md",
+          "sha256": "914d3fdbccf05086dae2454e27d620cc126a95c487946c594477cbaf186c4b7a",
+          "verifier": "Idea Inbox foreground reconciliation of the exact checksum-bound benchmark and named registry owners",
+          "verdict": "PASS",
+          "collected_at": "2026-08-07T17:31:28Z"
+        }
+      ]
+    }
+  ]
+}

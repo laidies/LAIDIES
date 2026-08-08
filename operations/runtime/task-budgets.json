@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "rule": "Budgets are stop-and-rescope signals, never permission to skip verification.",
+  "classes": {
+    "mechanical": { "input_tokens": 10000, "output_tokens": 3000, "wall_minutes": 10, "escalate_when": "anything is ambiguous" },
+    "bounded_read": { "input_tokens": 30000, "output_tokens": 5000, "wall_minutes": 15, "escalate_when": "scope proves larger than stated" },
+    "sourced_research": { "input_tokens": 60000, "output_tokens": 10000, "wall_minutes": 30, "escalate_when": "sources conflict on a material claim" },
+    "page_build": { "input_tokens": 60000, "output_tokens": 15000, "wall_minutes": 45, "escalate_when": "second failed local verification" },
+    "substantial_prose": { "input_tokens": 50000, "output_tokens": 12000, "wall_minutes": 60, "escalate_when": "voice fails producer self-read twice" },
+    "visual_generation": { "input_tokens": 40000, "output_tokens": 8000, "wall_minutes": 40, "escalate_when": "second visible defect in one set" },
+    "independent_judgment": { "input_tokens": 30000, "output_tokens": 6000, "wall_minutes": 20, "escalate_when": "never; rescope the judgment instead" },
+    "architecture_debugging": { "input_tokens": 120000, "output_tokens": 20000, "wall_minutes": 90, "escalate_when": "state the reason before starting" }
+  }
+}

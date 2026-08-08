@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "OBSERVATION_WINDOW_STARTED",
+  "first_passed_at": "2026-08-08T09:58:12-07:00",
+  "earliest_retirement_review_at": "2026-08-22T09:58:12-07:00",
+  "required_continuous_days": 14,
+  "parity_scope": {
+    "active_legacy_ids": 15,
+    "projected_ids": 16,
+    "legacy_source": {
+      "path": "operations/runtime/work-resolution-loop.json",
+      "sha256": "6b5546a7e1841d4f81cf79fcba3db071aa027e9b717fe0ec61d7ff5ef6e33b64"
+    },
+    "event_source": {
+      "path": "operations/runtime/work-events.jsonl",
+      "sha256": "78c2f935031fada0b044f7b48cf9fd89ae37938f2225c10cf59ec3a77dbc132c"
+    },
+    "check": "node scripts/check-work-event-parity.mjs",
+    "observed_result": "WORK EVENT PARITY PASS active_legacy=15 projected=16"
+  },
+  "migration_boundary": "Each legacy record was admitted as a snapshot. Its exact legacy status remains legacy_status_at_migration; no start, resolution or normalization was inferred.",
+  "retirement_boundary": "No legacy consumer, status record, mirror, file or event may be archived or deleted from this first PASS. Eligibility requires fourteen continuous days of passing parity, repaired consumers and full-worktree restore proof, followed by a separate Control Room decision."
+}
