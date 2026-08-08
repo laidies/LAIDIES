@@ -67,6 +67,23 @@ path must remain uncommitted, the work remains `HOLD` or `BLOCKED` and names its
 owner, reason and next trigger. Read-only work records
 `NO_REPOSITORY_MUTATION`. Never sweep unrelated dirty paths into a commit.
 
+### Existing pinned tasks are not filesystem-isolated
+
+A separate Codex chat does **not** create a separate checkout. Before an
+existing pinned task begins its next new repository-writing unit, it must use a
+dedicated non-iCloud worktree or clone and its own task branch. The approved
+integration source is `/Users/alisoneakin/Projects/laidies`; do not share that
+same writable checkout between pinned tasks. Control Room records the exact
+worktree, branch, owned paths and integration owner.
+
+If a task already has uncommitted work in the iCloud tree, preserve it in
+place. Do not reset, clean, stash, delete, move or silently recreate it. Report
+the exact paths and Git state, then let the integration owner form a bounded
+recovery package. The iCloud tree is read-only for each task's next new unit
+unless Control Room assigns that exact recovery package. Every writing task
+stages only owned paths, inspects the staged diff, tests, commits and pushes;
+uncommitted output is `HOLD` or `BLOCKED`, never completion.
+
 ## PARALLEL WORK — mandatory
 
 Subagents are enabled (`features.multi_agent_v2`), capped at 2 concurrent threads.

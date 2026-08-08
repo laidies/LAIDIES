@@ -98,6 +98,15 @@ coordination and review cost, so Codex opens only work that can finish with a
 clear hand-back. One thing should need Ali’s attention at a time even when
 several things are moving backstage.
 
+Existing pinned tasks are conversation-separated, not filesystem-separated.
+Before an existing pinned task begins its next new repository-writing unit, it
+uses a dedicated non-iCloud worktree or clone and its own task branch. No two
+pinned tasks share a writable checkout. Any current dirty work in the iCloud
+tree stays preserved in place and is checkpointed by exact paths and Git state;
+do not reset, clean, stash, delete or move it. Each writing task stages only its
+owned paths, inspects the staged diff, tests, commits and pushes. Work that
+remains uncommitted is `HOLD` or `BLOCKED`, never complete.
+
 ## Adaptive model and credit stewardship
 
 Codex owns routine compute routing for LAiDIES. Ali should not have to decide

@@ -15270,3 +15270,26 @@ while remaining falsely unfinished in the launch record.
   was true in Git history and false in the operating system.
 - **Publication status:** INTERNAL OPERATING-SYSTEM RECOVERY / NO CLEANUP,
   DEPLOYMENT OR PUBLICATION.
+
+## BTB-459 — Separate pinned chats still shared one writable checkout
+
+- **Date:** 2026-08-08
+- **Area:** Pinned-task coordination, Git isolation and commit discipline.
+- **Failure risk:** Ali can work in several pinned chats believing each is
+  isolated while they all write into the same dirty iCloud checkout. One task
+  can overwrite, accidentally stage or misattribute another task’s work, and
+  “done” work can remain uncommitted.
+- **Root cause:** Conversation isolation was mistaken for filesystem isolation,
+  and the startup contract required path-scoped commits without requiring a
+  distinct non-iCloud worktree per existing pinned task.
+- **Prevention rule:** Existing pinned tasks preserve any current dirty bytes,
+  checkpoint exact paths and Git state, then use a dedicated non-iCloud
+  worktree and task branch for each next new writing unit. No two pinned tasks
+  share a writable checkout. Uncommitted output is `HOLD` or `BLOCKED`.
+- **Durable correction:** The standing notice was delivered to 17 existing
+  owner tasks without waking them into work; the AGENTS template/generated
+  copy, working agreement and decisions register now bind the same rule.
+- **Possible Behind the Build angle:** Why seventeen separate AI chats were
+  still editing one desk.
+- **Publication status:** INTERNAL OPERATING-SYSTEM COORDINATION / NO PRODUCT
+  CHANGE, DEPLOYMENT OR PUBLICATION.
