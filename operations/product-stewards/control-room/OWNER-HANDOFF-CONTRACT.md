@@ -1,7 +1,7 @@
 # Control Room owner handoff contract
 
-**Status:** ACTIVE  
-**Authority:** Portfolio Control Room  
+**Status:** ACTIVE
+**Authority:** Portfolio Control Room
 **Applies to:** Every permanent building, product, system and portfolio-function owner
 
 Owners do not require Ali to inspect their tasks for routine status. Material
