@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "authority": "PILOT_PROJECTION_ONLY",
+  "source": "operations/runtime/work-events.jsonl",
+  "rule": "Status is derived from append-only events and must not be hand-edited.",
+  "items": [
+    {
+      "work_id": "WRK-20260807-fable-operating-model-implementation",
+      "status": "IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY",
+      "title": "Implement the accepted Fable 5 operating-model recommendations",
+      "work_class": "operations",
+      "lane_mode": "foreground_write",
+      "acceptance_owner": "control-room-product-owner",
+      "admitted_at": "2026-08-07T21:18:00-07:00",
+      "started_at": "2026-08-07T21:19:00-07:00",
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:11:00-07:00",
+      "evidence": [
+        {
+          "evidence_id": "EV-FABLE-REVIEW-DOOR",
+          "verdict": "PASS",
+          "paths": [
+            "scripts/serve-review-door.mjs",
+            "scripts/test-serve-review-door.mjs",
+            "scripts/resolve-review-url.mjs"
+          ],
+          "test": "node scripts/test-serve-review-door.mjs && node scripts/test-resolve-review-url.mjs"
+        },
+        {
+          "evidence_id": "EV-FABLE-CONTENT-CHAIN",
+          "verdict": "PASS",
+          "paths": [
+            "scripts/check-prose-quality-admission.mjs",
+            "scripts/check-content-release-readiness.mjs",
+            "scripts/run-independent-content-judge.mjs"
+          ],
+          "test": "node scripts/test-prose-quality-admission.mjs && node scripts/test-content-release-readiness.mjs && node scripts/test-independent-content-judge.mjs"
+        },
+        {
+          "evidence_id": "EV-FABLE-DERIVED-STATUS",
+          "verdict": "PASS",
+          "paths": [
+            "operations/runtime/work-events.jsonl",
+            "scripts/project-work-events.mjs",
+            "operations/hooks/block-handwritten-status.py"
+          ],
+          "test": "node scripts/test-project-work-events.mjs && node scripts/test-codex-hook-guards.mjs"
+        },
+        {
+          "evidence_id": "EV-FABLE-PRACTITIONER-PILOT",
+          "verdict": "PASS",
+          "paths": [
+            "operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json",
+            "operations/agents/aidb-intelligence-desk/sources/practitioner-signal-pilot-results.json"
+          ],
+          "test": "node scripts/test-practitioner-signal-pilot.mjs && node scripts/check-practitioner-signal-pilot.mjs"
+        },
+        {
+          "evidence_id": "EV-FABLE-RECOVERY-PARTIAL",
+          "verdict": "PARTIAL_TRACKED_HISTORY_ONLY",
+          "paths": [
+            "operations/storage/RECOVERY-STATUS-2026-08-07.md",
+            "operations/storage/clutter-migration-manifest.json"
+          ],
+          "external_paths": [
+            "/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/laidies-full.bundle",
+            "/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json"
+          ],
+          "test": "git bundle verify + scratch clone + git fsck; node scripts/test-inventory-repository-storage.mjs"
+        },
+        {
+          "evidence_id": "EV-FABLE-CALIBRATION-CAP",
+          "verdict": "PASS",
+          "paths": [
+            "scripts/build-content-calibration-set.mjs"
+          ],
+          "test": "node scripts/test-build-content-calibration-set.mjs"
+        },
+        {
+          "evidence_id": "EV-FABLE-LOCAL-MAIN-PROTECTION",
+          "verdict": "PASS_LOCAL_ONLY",
+          "paths": [
+            ".githooks/pre-push"
+          ],
+          "test": "node scripts/test-pre-push-protection.mjs",
+          "unverified": "GitHub-hosted branch protection; gh CLI is not installed/authenticated."
+        },
+        {
+          "evidence_id": "EV-FABLE-TARGETED-OWNER-ENTRY",
+          "verdict": "PASS_SCOPED",
+          "paths": [
+            "scripts/check-product-stewards.mjs",
+            "scripts/test-product-steward-targeted-owner-entry.mjs"
+          ],
+          "test": "node scripts/test-product-steward-targeted-owner-entry.mjs && node scripts/check-product-stewards.mjs --owner-entry library",
+          "boundary": "Unrelated global attention is reported but does not block scoped owner entry; this is not a whole-portfolio PASS."
+        },
+        {
+          "evidence_id": "EV-FABLE-WHOLE-SYSTEM-AUDIT",
+          "verdict": "FAIL",
+          "paths": [
+            "scripts/check-operational-integrity.mjs"
+          ],
+          "failures": [
+            "One invalid historical RUNNING state",
+            "Four overdue work-resolution records",
+            "Locked Library mobile shelves do not preserve the required 120px visible-book dimension"
+          ],
+          "test": "node scripts/check-operational-integrity.mjs",
+          "lock": "Library visitor-facing integration lock prevents this owner from repairing the current shelf candidate in this change."
+        },
+        {
+          "evidence_id": "EV-FABLE-CONTROL-ROOM-HANDOFF",
+          "verdict": "RECORDED",
+          "handoff_id": "LIB-FABLE-IMPLEMENTATION-2026-08-07-2254",
+          "to": "control-room-product-owner",
+          "path": "operations/product-stewards/library/CONTROL-ROOM-HANDOFF-2026-08-07-2254-PDT.md",
+          "status": "IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY",
+          "next_trigger": "Control Room returns the Library visual lock with exact 120px repair scope, supplies storage/admin dependency, or the two-week projection parity date arrives."
+        },
+        {
+          "evidence_id": "EV-FABLE-RESTIC-CLIENT",
+          "verdict": "PASS_CLIENT_ONLY",
+          "path": "/Users/alisoneakin/.local/bin/restic",
+          "version": "0.19.1 darwin/arm64",
+          "release_asset_sha256": "7be0a144ccc377880f294204aa271d76e4b79554b42a751151d425ce6ebac143",
+          "test": "download checksum match; restic version",
+          "boundary": "No repository initialized and no backup/restore performed because scoped B2/R2 destination credentials are absent."
+        },
+        {
+          "evidence_id": "EV-FABLE-WIP-CAP",
+          "verdict": "PASS_CONFIGURED",
+          "paths": [
+            "../.codex/config.toml",
+            ".codex/config.toml",
+            "operations/codex-contract/AGENTS.template.md",
+            "AGENTS.md",
+            "operations/product-stewards/AUTONOMOUS-DELIVERY-RUNTIME.md"
+          ],
+          "test": "build-agents-md.sh; search confirms max_concurrent_threads_per_session=2 in both config layers and generated instructions",
+          "boundary": "The cap constrains execution; it does not retire historical dossiers or owner metadata before parity."
+        },
+        {
+          "evidence_id": "EV-FABLE-ACTUAL-REPORT-GAP-CONTROLS",
+          "verdict": "PASS_LOCAL",
+          "report_sha256": "8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb",
+          "paths": [
+            "scripts/check-task-budget.mjs",
+            "scripts/check-work-wip-limits.mjs",
+            "scripts/project-work-metrics.mjs",
+            "scripts/check-work-event-parity.mjs",
+            "scripts/check-artifact-handoff.mjs",
+            "scripts/resolve-review-url.mjs",
+            "scripts/serve-review-door.mjs"
+          ],
+          "tests": [
+            "node scripts/test-task-budget.mjs",
+            "node scripts/test-work-wip-limits.mjs",
+            "node scripts/test-project-work-metrics.mjs",
+            "node scripts/test-work-event-parity.mjs",
+            "node scripts/test-artifact-handoff.mjs",
+            "node scripts/test-resolve-review-url.mjs",
+            "node scripts/test-serve-review-door.mjs"
+          ],
+          "boundary": "Managed Review Door routes cannot prevent a person manually opening repository bytes through an OS file URL."
+        }
+      ],
+      "dependencies": [
+        {
+          "dependency_id": "DEP-FABLE-EXTERNAL-PROOF",
+          "status": "WAITING_EXTERNAL",
+          "items": [
+            "Three unfamiliar human readers for a substantial Library book",
+            "Off-site restic destination credentials and a user-approved storage provider",
+            "Ali release authority for any public or deployed change"
+          ],
+          "does_not_block": [
+            "Local enforcement",
+            "Local calibration",
+            "Source-learning pilot",
+            "Safe repository inventory"
+          ]
+        },
+        {
+          "dependency_id": "DEP-FABLE-EVENT-PARITY",
+          "status": "WAITING_EXTERNAL",
+          "items": [
+            "Control Room migration of 14 active legacy work IDs into append-only event authority",
+            "Two continuous weeks of passing projection parity before retirement or deletion"
+          ],
+          "does_not_block": [
+            "Local calibrated enforcement",
+            "Truthful implementation status",
+            "Managed Review Door class coverage"
+          ]
+        }
+      ],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-event-parity-dependency"
+    },
+    {
+      "work_id": "WRK-20260802-odc-101-teaching-design",
+      "status": "ADMITTED",
+      "title": "Repair ODC-101 teaching design without reviving the rejected candidate",
+      "work_class": "learning-product",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "independent-teaching-reviewer",
+      "admitted_at": "2026-08-08T05:12:00-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:00-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-odc-101"
+    },
+    {
+      "work_id": "WRK-20260802-whole-town-launch-completion",
+      "status": "ADMITTED",
+      "title": "Complete every launch building and promoted feature",
+      "work_class": "whole-site-product",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "whole-site-release-verifier",
+      "admitted_at": "2026-08-08T05:12:01-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:01-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-whole-town"
+    },
+    {
+      "work_id": "WRK-20260803-episode-05-gate-1",
+      "status": "ADMITTED",
+      "title": "Independently review The Super Models Gate 1 architecture",
+      "work_class": "episode-learning-architecture",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "episode-05-gate-1-independent-review-panel",
+      "admitted_at": "2026-08-08T05:12:02-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:02-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-episode-05"
+    },
+    {
+      "work_id": "WRK-20260803-help-missing-middle-class",
+      "status": "ADMITTED",
+      "title": "Resolve and build the Help / Missing Middle troubleshooting class family",
+      "work_class": "learning-product-idea-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "independent-teaching-reviewer",
+      "admitted_at": "2026-08-08T05:12:03-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:03-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-help-middle"
+    },
+    {
+      "work_id": "WRK-20260803-viral-reel-daily-format",
+      "status": "ADMITTED",
+      "title": "Owner-review the What the Viral Reel Left Out Daily format",
+      "work_class": "learning-derivative-idea-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "newsstand-champion",
+      "admitted_at": "2026-08-08T05:12:04-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:04-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-viral-reel"
+    },
+    {
+      "work_id": "WRK-20260803-work-life-ai-mirror",
+      "status": "ADMITTED",
+      "title": "Build and review the Work-Life AI Mirror bank and practice cases",
+      "work_class": "learning-product-idea-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "independent-teaching-reviewer",
+      "admitted_at": "2026-08-08T05:12:05-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:05-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-work-life"
+    },
+    {
+      "work_id": "WRK-20260803-town-group-chat-pilot",
+      "status": "ADMITTED",
+      "title": "Build and review the three-script Town Group Chat pilot",
+      "work_class": "editorial-format-idea-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "newsstand-champion",
+      "admitted_at": "2026-08-08T05:12:06-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:06-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-town-chat"
+    },
+    {
+      "work_id": "WRK-20260803-character-story-song-pilot",
+      "status": "ADMITTED",
+      "title": "Select or decline one SUNNYVAiLE character text-crisis story-song pilot",
+      "work_class": "audio-editorial-idea-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "affected-building-owner",
+      "admitted_at": "2026-08-08T05:12:07-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:07-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-story-song"
+    },
+    {
+      "work_id": "WRK-20260803-episode-format-navigation-template-repair",
+      "status": "ADMITTED",
+      "title": "Repair the written episode template and truthful Read / Listen / Watch switching",
+      "work_class": "public-episode-experience-repair",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "independent-episode-journey-judge",
+      "admitted_at": "2026-08-08T05:12:08-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:08-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-episode-format"
+    },
+    {
+      "work_id": "WRK-20260803-practitioner-roster-proposal",
+      "status": "ADMITTED",
+      "title": "Propose the bounded practitioner-source roster and lawful monitoring method",
+      "work_class": "source-intelligence-pilot",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "control-room-product-owner",
+      "admitted_at": "2026-08-08T05:12:09-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:09-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-practitioner"
+    },
+    {
+      "work_id": "WRK-20260804-ai-chips-shortage-quantum-route",
+      "status": "ADMITTED",
+      "title": "Rule the AI chips, shortage and quantum-computing learner route",
+      "work_class": "learning-concept-idea-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "control-room-product-owner",
+      "admitted_at": "2026-08-08T05:12:10-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:10-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-chips"
+    },
+    {
+      "work_id": "WRK-20260806-straight-answers-data-centres",
+      "status": "ADMITTED",
+      "title": "Refresh the existing Straight Answers data-centre town decision guide",
+      "work_class": "site-content-freshness-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "control-room-product-owner",
+      "admitted_at": "2026-08-08T05:12:11-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:11-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-straight-answers"
+    },
+    {
+      "work_id": "WRK-20260806-data-centre-community-agency-newsstand",
+      "status": "ADMITTED",
+      "title": "Rule the verified data-centre community-agency signal",
+      "work_class": "newsstand-intake-resolution",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "control-room-product-owner",
+      "admitted_at": "2026-08-08T05:12:12-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:12-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-data-centre-news"
+    },
+    {
+      "work_id": "WRK-20260807-trusted-course-owner-rulings",
+      "status": "ADMITTED",
+      "title": "Disposition the three trusted-course curriculum impact requests",
+      "work_class": "cross-product-owner-rulings",
+      "lane_mode": "legacy_migration_snapshot",
+      "acceptance_owner": "learning-content-ecosystem",
+      "admitted_at": "2026-08-08T05:12:13-07:00",
+      "started_at": null,
+      "resolved_at": null,
+      "last_event_at": "2026-08-08T05:12:13-07:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "last_event_id": "WKE-20260808-legacy-migration-course-rulings"
+    }
+  ]
+}
