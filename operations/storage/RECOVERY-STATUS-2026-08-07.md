@@ -1,22 +1,25 @@
-# Recovery status — updated 2026-08-08 06:54 PDT
+# Recovery status — updated 2026-08-08 12:31 PDT
 
 ## Proven now
 
-- Git history bundle: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/laidies-full.bundle`
-- Bundle SHA-256: `3ec898e040ed186d01d115a9bb7b9e997b71f3c54c9f431a7c61884fbe33c12e`
-- Size on disk: 6.9 GB.
-- `git bundle verify` reported a complete history containing 47 refs.
-- A scratch clone restored HEAD `7685fae95a2249334e1719144915ba706d853815`; `git fsck --no-dangling` passed. The scratch clone was then moved to Trash.
-- Full tracked, untracked and ignored path inventory: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json`
-- Inventory schema 2 result: 65,906 files / 84,334,000,122 bytes. It now records each path's Git state and disposition in addition to purpose, size, modification time and reference count.
-- Current dirty result: 236 tracked modifications and 9,626 untracked files. `HOLD_UNKNOWN=4,301`; `UNKNOWN` never moves. `KEEP_OUT_OF_GIT=2,810`; `REVIEW_FOR_EXACT_PACKAGE_COMMIT=2,689`; `PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF=35`; `REVIEW_TRACKED_GENERATED_FILE=27`.
-- Local runtime noise is now excluded at source: `.wrangler/state/`, `.artifacts/` and dated `*.bak-*` files are gitignored. This changes discovery only; it deletes nothing.
-- Encrypted AWS restic repository `58d7b464eb` exists in the private, least-privilege bucket `laidies-backup-310697203171-us-east-2`. Pilot snapshot `97cf1352` passed `restic check`, scratch restore and exact SHA-256 comparison for all three pilot files.
+- Git history bundle: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/laidies-full.bundle`; SHA-256 `3ec898e040ed186d01d115a9bb7b9e997b71f3c54c9f431a7c61884fbe33c12e`; 47 refs; scratch clone and `git fsck --no-dangling` passed.
+- Encrypted Restic repository: AWS S3 bucket `laidies-backup-310697203171-us-east-2`, repository ID `58d7b464eb`.
+- Full-tree snapshot: `ff1c716baa2e8e147c29e9fc4b6eb4576255d920cb130c4f81a022edbef9065f`, created 2026-08-08 07:05:43 PDT with tag `full-initial-2026-08-08`.
+- Backup result: 80,739 files; 94.632 GiB processed; 68.119 GiB added; 66.548 GiB stored; 2:43:38.
+- `restic check --read-data` read all 4,022 packs and reported no errors.
+- Full scratch restore path: `/tmp/laidies-restic-restore.YPW0Uj`; 80,739 restored files, matching the snapshot file count.
+- Measured full-restore window: 2026-08-08 10:46:15–12:15:19 PDT, approximately 1:29:04. The original terminal session was lost after completion, so no process exit code is claimed; matching file count, no remaining Restic process and the checks below are the retained completion evidence.
+- Immutable-byte check: snapshot `restic dump` SHA-256 and restored SHA-256 for `Website-homepage/operations/runtime/work-resolution-loop.json` both equal `627589f7e47dc22f8f1a67e03864fb56bf5e098c8aa81a3ddf16874ccbeaaa31`.
+- Restored-site check: local scratch server returned HTTP 200 and expected titles for `index.html` (`LAiDIES — SUNNYVAiLE`), `library.html` (`SUNNYVAiLE LIBRAiRY`) and `content/library-books/pilots/ai-fundamentals-101-v2/review.html` (`AI Fundamentals 101 — local review draft`). Route recovery does not approve the held book or Library design.
+- Automated recurrence: nightly incremental backup, weekly repository integrity check and monthly sampled restore/route drill are active. No retention deletion policy has been enabled.
+- Current inventory: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json`, generated 2026-08-08T19:31:46Z; 65,925 files / 84,334,209,258 bytes; dirty 9,794 (219 tracked modifications, 9,575 untracked). Dispositions: `HOLD_UNKNOWN=4,299`, `REVIEW_FOR_EXACT_PACKAGE_COMMIT=2,626`, `PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF=32`, `REVIEW_TRACKED_GENERATED_FILE=27`, `KEEP_OUT_OF_GIT=2,810`.
 
-## Not proven
+## Important limitation found
 
-This is **not a complete backup**. The Git bundle contains history, not the current dirty working tree. The AWS restic snapshot is a three-file connectivity and restore pilot, not the 95 GB LAiDIES tree. The current inventory identifies dirty paths but does not back up their bytes.
+The first full backup read a live, changing iCloud worktree. One pre-backup hash did not match the eventual snapshot because the source changed during the 2:43 backup; the restored bytes did match the immutable snapshot exactly. This is not restore corruption, but it means the snapshot is not proven atomic across every file.
 
-The official restic `0.19.1` Darwin arm64 binary is installed at `/Users/alisoneakin/.local/bin/restic`. Its downloaded release asset matched published SHA-256 `7be0a144ccc377880f294204aa271d76e4b79554b42a751151d425ce6ebac143`, and `restic version` passed. Scoped AWS destination credentials are stored in macOS Keychain and the backup identity cannot list the account or touch another bucket. The required full-tree encrypted backup, `restic check --read-data`, full-tree scratch restore, site-open-from-restore, measured RPO and measured RTO remain blocked on explicit approval of the estimated ~$2.19/month 95 GB upload. No worktree move out of iCloud and no archive deletion is safe before that proof exists.
+Before any destructive cleanup or worktree migration, take one final incremental snapshot during a declared write-stable window, bind its snapshot ID and representative hashes from `restic dump`, and rerun the sampled recovery drill. Do not call the iCloud tree retired until two clean non-iCloud work drills pass.
 
-AWS account configuration and the tiny pilot were used. No full backup spend, Cloudflare, Backblaze, deploy or publication authority was used.
+## Authority truth
+
+Backup and local recovery authority were used. No snapshot was forgotten or pruned; no source file was deleted or moved; no deploy, publication, public verification, Cloudflare change or Ali release authority was used.
