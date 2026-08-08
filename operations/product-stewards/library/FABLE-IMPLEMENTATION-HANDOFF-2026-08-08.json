@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task": "WRK-20260807-fable-operating-model-implementation",
+  "outcome": "LAiDIES work reaches Ali through a smaller calibrated loop that cannot promote local evidence into public or quality truth.",
+  "artifact": {
+    "path": "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md",
+    "sha256": "b66fb646d55646ff4fd1ba846a58fc13aceb6f7af20d472a4c832dbdfde9f00f"
+  },
+  "brief": {
+    "path": "operations/external-review/fable-5-laidies-operating-model-2026-08-07/FABLE-5-REVIEW-BRIEF.md",
+    "sha256": "fe0886b15235afdb343c4916f0ff27558d05b7155f33775414979c42e3b192db"
+  },
+  "inputs": [
+    {
+      "path": "operations/external-review/fable-5-laidies-operating-model-2026-08-07/AI-FUNDAMENTALS-KNOWN-BAD-BLIND-JUDGMENT.json",
+      "sha256": "3fb3119163b2300c815dd8a4786c5c44b05f1031c44efe85044703f3d7abb1fa"
+    }
+  ],
+  "forbidden": [
+    "Library visitor-facing page, current book prose, current visual candidate, reader, admission manifest or live route",
+    "destructive cleanup before full-worktree restore and two-week event parity",
+    "claims that a managed Review Door can prevent manual OS file opens"
+  ],
+  "accept": [
+    "Every safe local recommendation is implemented and negatively calibrated",
+    "Every unfinished recommendation names its exact timed, external, locked or Ali-owned dependency",
+    "No unavailable metric is represented as zero"
+  ],
+  "run": [
+    "node scripts/test-task-budget.mjs && node scripts/test-work-wip-limits.mjs",
+    "node scripts/test-project-work-metrics.mjs && node scripts/test-work-event-parity.mjs",
+    "node scripts/test-artifact-handoff.mjs && node scripts/test-resolve-review-url.mjs && node scripts/test-serve-review-door.mjs",
+    "node scripts/check-work-wip-limits.mjs",
+    "node scripts/check-work-event-parity.mjs"
+  ],
+  "return": {
+    "status": "IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY",
+    "observation": "All newly identified safe local controls pass calibration. Control Room migrated all 14 active legacy IDs as status-preserving snapshots; parity first passed at 2026-08-08T05:23:08-07:00 and the two-week observation window is now running."
+  },
+  "budget": { "in": 120000, "out": 20000, "wall": 90 },
+  "evidence_time": "2026-08-08T05:10:00-07:00",
+  "locks": ["Control Room Library visitor-facing integration lock"],
+  "acceptance_owner": "control-room-product-owner",
+  "next_trigger": "Maintain continuous parity through 2026-08-22T05:23:08-07:00. Then, only with repaired consumers and full-worktree restore proof, Control Room may evaluate retiring one consumer group; no deletion or archive is pre-authorized.",
+  "authority_truth": { "public": false, "deploy": false, "spend": false, "ali_approval": false }
+}
