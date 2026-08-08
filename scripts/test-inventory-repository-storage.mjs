@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const output = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-storage-inventory-')), 'inventory.json');
+const unknownFixture = path.join(root, 'assets', '__storage-inventory-calibration-unknown__.bin');
+fs.writeFileSync(unknownFixture, 'deliberately ambiguous; must fail closed\n');
+const result = spawnSync(process.execPath, ['scripts/inventory-repository-storage.mjs', '--summary-only', '--output', output], { cwd: root, encoding: 'utf8', timeout: 120000 });
+fs.rmSync(unknownFixture, { force: true });
+assert.equal(result.status, 0, result.stderr);
+const summary = JSON.parse(result.stdout);
+const inventory = JSON.parse(fs.readFileSync(output, 'utf8'));
+assert.ok(summary.file_count > 0);
+assert.equal(summary.schema_version, 2);
+assert.equal(summary.file_count, inventory.rows.length);
+assert.equal(inventory.rows.find(row => row.path === 'operations/DECISIONS.md')?.classification, 'AUTHORITY');
+assert.equal(inventory.rows.find(row => row.path === 'operations/runtime/STANDING-CARD.md')?.classification, 'ACTIVE_SOURCE');
+assert.equal(inventory.rows.find(row => row.path === 'operations/DECISIONS.md')?.git_state, 'TRACKED_MODIFIED');
+assert.equal(inventory.rows.find(row => row.path === 'operations/DECISIONS.md')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
+assert.equal(inventory.rows.find(row => row.path === 'scripts/inventory-repository-storage.mjs')?.git_state, 'UNTRACKED');
+assert.equal(inventory.rows.find(row => row.path === 'scripts/inventory-repository-storage.mjs')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
+assert.equal(inventory.rows.find(row => row.path === 'assets/__storage-inventory-calibration-unknown__.bin')?.classification, 'UNKNOWN');
+assert.equal(inventory.rows.find(row => row.path === 'assets/__storage-inventory-calibration-unknown__.bin')?.disposition, 'HOLD_UNKNOWN');
+assert.ok(summary.dirty_file_count > 0);
+assert.ok(summary.disposition_counts.REVIEW_FOR_EXACT_PACKAGE_COMMIT > 0);
+assert.equal(summary.unknown_move_rule, 'UNKNOWN never moves');
+fs.rmSync(path.dirname(output), { recursive: true, force: true });
+console.log(`REPOSITORY STORAGE INVENTORY CALIBRATION PASS files=${summary.file_count} unknown=${summary.counts.UNKNOWN || 0}`);
