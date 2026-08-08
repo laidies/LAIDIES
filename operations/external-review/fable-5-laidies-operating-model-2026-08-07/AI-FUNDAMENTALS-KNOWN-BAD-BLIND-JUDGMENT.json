@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "artifact": {
+    "path": "content/library-books/pilots/ai-fundamentals-101-v2/review-text.md",
+    "sha256": "b53cc56894f389beab91674ff0f00a617b161ec404ad1c0a7f972d8c2140352c"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "0dd6232bdce62fccae724245999b444ab39091826e022a5ed700a2a2656e5bf9"
+  },
+  "exemplar": {
+    "path": "content/episodes/episode-01.canon.md",
+    "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "f2dfc416556b12b919b294298f9c97cd6d158ec24012c67e5134ce9a5cd6d135",
+  "judgedAt": "2026-08-08T05:37:49.700Z",
+  "judgment": {
+    "verdict": "REJECT",
+    "summary": "The artifact is a diligent, largely accurate AI explainer with genuine reader value in Chapter 1 (the headline-interrogation method) and Chapter 6 (the failure taxonomy). But it fails on two independent grounds. First, objective integrity: Chapter 6 asks the reader to \"return to the workplace statement from Chapter 1\" that Chapter 1 never contains; the Introduction promises a sixth chapter on public consequences (\"who gains, who carries the cost\") that does not exist — the actual Chapter 6 is about output failure and verification; figure numbering starts at Figure 2 with no Figure 1; multiple Concept Index entries point to chapters that never mention the term (parameters, fine-tuning, sampling/temperature, embedding, sandbox, knowledge cutoff, reasoning model); several index anchors (#chapter-1, #chapter-3, #chapter-6) cannot resolve against the actual headings; and the OpenAI tokenizer screenshots cite learn.chatgpt.com, which is not a recognisable OpenAI documentation domain, undermining the \"fact-checked\" claim on its face. Second, voice: the writing lock makes Episode 1 the binding benchmark, and after a promising Introduction and Chapter 1 (the AOL window, shoulder pads, the 2:14 a.m. rack, \"expensive collection of rectangles\"), Chapters 2–6 collapse into exactly the register the lock bans — a generic, definition-led explainer with repeated \"In this book, X means...\" scaffolding (eight-plus occurrences), a symmetrical \"A practical example\" template in every chapter, and vague descriptive chapter headings. There are no patron saints, no canon references, and almost no Rewind Era texture past Chapter 1, despite the Introduction promising \"Rewind Era common sense\" throughout. The false index pointers also make roughly a third of the index glossary-only definitions disconnected from any explanation, violating the connected-not-glossary requirement. No unfamiliar-human explain-back or transfer evidence accompanies the artifact, so a PASS could not be issued on model judgment alone even if the defects were repaired. Because the missing consequences chapter and the pervasive voice collapse require substantive rewriting rather than spot fixes, the verdict is REJECT rather than HOLD.",
+    "objectiveDefects": [
+      {
+        "locator": "Chapter 6, 'How to examine an AI claim before accepting it', first line",
+        "problem": "Instructs the reader to 'Return to the workplace statement from Chapter 1: \"This AI can do the work of an entire customer-service department.\"' No such statement appears in Chapter 1 or anywhere earlier in the artifact. The callback is broken.",
+        "repair": "Either introduce that exact claim in Chapter 1 as a running example, or rewrite the Chapter 6 opener to introduce the claim fresh without a false callback."
+      },
+      {
+        "locator": "Introduction, numbered map item 6 vs. actual Chapter 6",
+        "problem": "The map promises a chapter on 'How technical choices become public consequences: who gains, who carries the cost or error... which policy lever could actually change the outcome.' No such chapter exists; the delivered Chapter 6 is about output failure and claim verification. The book's stated structure and delivered structure disagree.",
+        "repair": "Write the promised consequences chapter, or revise the Introduction map to describe the six chapters actually delivered."
+      },
+      {
+        "locator": "Introduction, numbered map item 3 vs. Chapters 1–3",
+        "problem": "Map item 3 promises 'inference, tokens, context windows, generative AI' as the third chapter. Tokens are taught in Chapters 1 and 2; generative AI and context windows in Chapter 2; Chapter 3 is context, sessions, memory and retrieval. The map does not match content placement.",
+        "repair": "Realign the map with actual chapter contents."
+      },
+      {
+        "locator": "Figures throughout (first figure is 'Figure 2' in Chapter 2)",
+        "problem": "Figure numbering begins at Figure 2; there is no Figure 1 anywhere. The tokenization diagram (visuals/08-tokenization-to-model.svg) carries no figure number while surrounding figures do.",
+        "repair": "Renumber figures sequentially from 1 and number the tokenization diagram, or add the missing Figure 1 to Chapter 1."
+      },
+      {
+        "locator": "Concept Index — Compute, Parameters, Fine-tuning, Sampling/temperature, Knowledge cutoff, Reasoning model, Embedding, Vector search, Sandbox, Prompt entries",
+        "problem": "Multiple pointers are false. 'Compute — See Chapter 2' but compute is defined in Chapter 1. Parameters, fine-tuning, sampling/temperature, knowledge cutoff and reasoning model are cited to Chapter 2 (and 3/6) but never appear in those chapters. Embedding and vector search cite 'Retrieval in Chapter 3' where neither term is mentioned. Sandbox cites Chapter 4, which never mentions sandboxes. Prompt cites Chapters 1 and 3, which never define it. These entries are glossary-only definitions with fabricated cross-references.",
+        "repair": "Audit every index pointer against the chapters; either teach the term in the cited chapter or mark the entry as index-only with no false 'See Chapter' claim."
+      },
+      {
+        "locator": "Concept Index anchor links: [See Chapter 6](#chapter-6), [See Chapter 3](#chapter-3), [Chapter 1](#chapter-1) etc.",
+        "problem": "The actual headings are of the form '## Chapter 6 — Why AI outputs fail and how to verify claims', so auto-generated anchors will not be #chapter-6; these links are dead as written, while other links in the same index correctly use full section slugs.",
+        "repair": "Replace the short anchors with the full generated heading slugs, matching the working links elsewhere in the index."
+      },
+      {
+        "locator": "Chapter 2 tokenization section and Chapter 2 'Tokens also explain...' paragraph",
+        "problem": "Spelling is internally inconsistent: 'tokenizer' (bolded definition, -ize) versus 'tokenisers' (-ise) in the same chapter. More broadly the artifact uses British -ise endings (summarise, organisation, authorised) while the writing lock mandates Canadian English, which prefers -ize.",
+        "repair": "Standardize spelling to Canadian English throughout and make tokenizer/tokenize consistent."
+      },
+      {
+        "locator": "Chapter 2, OpenAI tokenizer screenshot captions",
+        "problem": "The cited source is 'https://learn.chatgpt.com/docs/visualizations#explore-interactive-examples'. That is not a recognisable OpenAI documentation domain (OpenAI's tokenizer tool lives on platform.openai.com), so the sourcing of two screenshots and the 'captured 7 August 2026' claim is unverifiable on its face and appears fabricated or mis-cited.",
+        "repair": "Cite the real, verifiable OpenAI tokenizer URL and re-capture the screenshots from it, or remove the screenshots and the capture claim."
+      }
+    ],
+    "qualityFindings": [
+      {
+        "dimension": "voice",
+        "locator": "Chapters 3–6 and Concept Index",
+        "finding": "After Chapter 1 the register drops into exactly what the lock bans: a careful, personality-free explainer. The phrase 'In this book, X means/is...' recurs eight-plus times as visible scaffolding; there are no patron saints, no canon references, and essentially no Rewind Era texture despite the Introduction promising it. Nothing in these chapters would be recognisable as belonging beside Episode 1."
+      },
+      {
+        "dimension": "structure",
+        "locator": "Every chapter",
+        "finding": "Each chapter follows the same visible template — bolded definitions, a '### A practical example:' section, a closing rhetorical question in bold. The lock explicitly bans perfectly symmetrical, generated-feeling section patterns; the reader feels processed through a template."
+      },
+      {
+        "dimension": "headings",
+        "locator": "Chapter titles and section headings, e.g. 'Chapter 2 — How AI models are trained and produce results', 'Retrieval brings in material when it is needed'",
+        "finding": "Headings are descriptive and flat rather than short, specific and memorable per the heading standard. None names a destination, makes a promise, or lands a line; contrast Episode 1's 'It's not a confidence problem. It's a physics problem.'"
+      },
+      {
+        "dimension": "connectedness",
+        "locator": "Concept Index",
+        "finding": "Because many pointers are false (see objective defects), a substantial share of index entries function as free-floating glossary definitions never actually taught in the chapters — parameters, embeddings, fine-tuning, sampling, sandbox, knowledge cutoff, reasoning models. This is the disconnected-definitions failure mode the pass bar excludes."
+      },
+      {
+        "dimension": "usefulness",
+        "locator": "Chapter 1 'Use the system to read the headline'; Chapter 6 failure taxonomy",
+        "finding": "Genuinely strong: the headline-interrogation question list and the eight-way failure taxonomy give a non-technical reader concrete, transferable moves. These are the best parts of the artifact and worth preserving in any rewrite."
+      },
+      {
+        "dimension": "accuracy",
+        "locator": "Whole artifact",
+        "finding": "Technical claims are carefully hedged and largely correct on their face (training vs. inference, tokens, context windows, MCP, prompt injection, open-weight vs. open-source). The accuracy problem is the meta-claim: 'fact-checked through 7 August 2026' sits above an apparently fabricated documentation URL, which taints the sourcing claim."
+      },
+      {
+        "dimension": "evidence",
+        "locator": "Artifact as delivered",
+        "finding": "No observed unfamiliar-human explain-back or transfer evidence accompanies the artifact; per the pass bar, a model judgment cannot substitute for it, so PASS was unavailable regardless of other findings."
+      }
+    ],
+    "readerChange": "Real but partial. A non-technical reader who finishes Chapter 1 gains a usable new behaviour: locating an AI claim in the chips-to-product system and asking which component, which workload, which evidence — the 'Nvidia makes ChatGPT?' and per-question-water-number corrections are concrete and repeatable. Chapter 6's failure taxonomy (purpose, context, model, retrieval, tool, workflow, permission, decision) similarly upgrades 'check the AI' into a diagnostic habit. However, the middle chapters mostly deliver definitions rather than behaviour change, the promised payoff chapter on public consequences never arrives, and no explain-back or transfer evidence exists to confirm any of this lands with an actual unfamiliar reader.",
+    "voiceComparison": "Episode 1 is second-person, narrative, and emotionally specific: Steve's standing ovation, the four-day email, 'It read everything. It's lived nothing.', Regina George as the hallucination mechanism, Dolly telling her to build the bridge. Its references carry the teaching. This artifact's Introduction and Chapter 1 gesture toward that voice — the AOL window, shoulder pads, the 2:14 a.m. rack, 'a very expensive collection of rectangles' — and those lines would survive in a LAiDIES piece. But from Chapter 2 onward the voice vanishes: no heroine, no saints, no canon, no cultural shorthand, no jokes, just bolded definitions and 'In this book' scaffolding in a neutral policy-explainer register with British rather than Canadian spellings. Set beside Episode 1, roughly four-fifths of this artifact reads as a different publication entirely — precisely the 'generic AI explainer' and 'polished but personality-free draft' the lock's final smell test instructs to rewrite."
+  }
+}
