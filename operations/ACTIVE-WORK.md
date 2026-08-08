@@ -1056,3 +1056,11 @@ objective; every open lane keeps its own checkpoint.
 - **Truth boundary:** Wharton is accepted for attributed prompt-practice research; MIT and Stanford are exact-item course/mechanism discovery sources; Mollick social posts are leads only and must return to original evidence. Inclusion does not create canon, commission content or authorize a public recommendation.
 - **Next trigger:** an admitted content job needs one exact source item; the receiving owner then verifies title/author/date, claims, accessibility, level, access/cost and currentness before use.
 - **Authority:** no content, concept map, surface artifact, route, deployment, publication, subscription, account, spend or public-release state changed.
+
+### 2026-08-08 Wharton AI source-family expansion checkpoint
+
+- **Current state:** `VERIFIED SOURCE ROUTING / NO CONTENT COMMISSION`.
+- **Literal completed work:** Wharton is mapped beyond the Prompt Library across GAIL prompting and learning research, Wharton Human-AI Research, AI & Analytics research/learning resources, dated reports, webinars, podcasts, course descriptions, Primer/Studio and Mollick's official research index. The top immediate sources are GAIL prompting reports, the underlying-paper route for AI-tutor sequencing research and the Penn-restricted On-Demand Learning catalogue as a lesson comparator.
+- **Truth boundary:** exact technical reports or original papers may support bounded claims; institutional summaries are leads; course/product pages are comparators; interviews remain attributed commentary. No Wharton source automatically becomes canon or creates a new LAiDIES artifact.
+- **Next trigger:** an existing admitted learning job needs an exact Wharton item; the owner verifies its model/task/population/date, underlying evidence, access, accessibility, licence and currentness before use.
+- **Authority:** no content, concept map, class, book, episode, Study Pack, quiz, game, tool, NewsStand story, external subscription, route, deployment, publication, spend or public-release state changed.
