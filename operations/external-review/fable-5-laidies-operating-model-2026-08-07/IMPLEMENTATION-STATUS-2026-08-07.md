@@ -36,7 +36,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Item | Truth | Completion trigger |
 |---|---|---|
 | Full encrypted off-site backup and restore | PASS FOR BOUNDED INTEGRATION | snapshot `ff1c716b`, `check --read-data`, full scratch restore and restored routes passed; write-stable snapshot `4a996ba9` and sampled drill also passed |
-| Move the worktree out of iCloud | FIRST STANDALONE CLONE PASS — SOURCE STILL PRESERVED | `/Users/alisoneakin/Projects/laidies` has its own local `.git`, exact recovery commit `64900d7d`, clean tracked state and full CI PASS. Earlier drills shared the iCloud Git object database and did not prove independent storage. A second standalone drill plus exact path disposition still gate old-copy retirement. |
+| Move the worktree out of iCloud | TWO STANDALONE CLONES PASS — SOURCE STILL PRESERVED | `/Users/alisoneakin/Projects/laidies` and `/Users/alisoneakin/Projects/laidies-drill-2` have separate local `.git` databases, exact recovery commit `f921e1c1`, clean tracked state and full CI PASS. The second clone reproduced the exact ten-path curated-build hold. Independent storage is proven; exact path disposition plus timed parity/consumer gates still prevent old-copy retirement. |
 | Archive/delete old operating-model material | TIMED PARITY / CONSUMER REPAIR | replacement projection runs for two weeks, live consumers are repaired and full restore proof exists; UNKNOWN never moves |
 | Collapse durable roles/dossiers | PILOT, NOT MASS MIGRATED | event projection must first cover 14 active legacy records, then prove parity for two weeks before mirrors retire one consumer group at a time |
 | Retire the prose handoff/control contract after migration | TIMED PARITY | the replacement artifact schema and checker now exist; the current Control Room contract remains authoritative until all consumers use the checked shape and event projection runs beside it for two weeks |
@@ -56,8 +56,8 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 ## Current explicit whole-system hold
 
 Full `npm run ci` passes at exact recovery commit
-`2def7439a267d8b67b4a043a669a15acb5e65316`; the standalone clone repeats that
-PASS at `64900d7d6c89d13d42e0157046d7fd99da128285`. This is mechanical operating
+`2def7439a267d8b67b4a043a669a15acb5e65316`; both standalone clones repeat that
+PASS at `f921e1c1f08156f6ad81fec585c7d6afcffd247a`. This is mechanical operating
 integrity, not content or release approval.
 
 The curated public builder still fails closed on ten paths: eight absent Book
@@ -75,9 +75,11 @@ The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 pas
 The 15:20 PDT recovery continuation created the first genuinely standalone
 non-iCloud clone at `/Users/alisoneakin/Projects/laidies`. Unlike the earlier
 linked worktrees, its Git object database is local to that clone. Exact commit
-`64900d7d6c89d13d42e0157046d7fd99da128285` passes the full calibrated CI suite.
-The original iCloud source remains preserved because one more standalone drill
-and exact path dispositions are still required.
+`f921e1c1f08156f6ad81fec585c7d6afcffd247a` passes the full calibrated CI suite.
+At 15:38 PDT a second fresh clone at `/Users/alisoneakin/Projects/laidies-drill-2`
+independently passed the same suite and reproduced the exact ten-path curated
+builder hold. The original iCloud source remains preserved because exact path
+dispositions and the timed parity/consumer gates are still required.
 
 ## Authority truth
 
