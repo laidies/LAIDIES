@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+protected_ref="refs/heads/main"
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ "$remote_ref" == "$protected_ref" ]]; then
+    echo "DIRECT PUSH BLOCKED: main is protected locally. Push a feature branch and merge through a reviewed PR with CI." >&2
+    exit 1
+  fi
+done
+
+exit 0
