@@ -2,10 +2,42 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const eventsPath = process.env.LAIDIES_WORK_EVENTS_PATH || path.join(root, 'operations/runtime/work-events.jsonl');
 const allowed = new Set(['WORK_ADMITTED', 'WORK_STARTED', 'EVIDENCE_RECORDED', 'DEPENDENCY_RECORDED', 'WORK_RESOLVED', 'WORK_STOPPED', 'ARTIFACT_REVIEWED', 'DEFECT_RECORDED', 'DECISION_READY', 'DECISION_RECORDED', 'PUBLICLY_VERIFIED', 'CONTEXT_RECORDED', 'METRICS_COVERAGE_DECLARED']);
+const worktreeTruthCutoff = Date.parse(process.env.LAIDIES_WORKTREE_TRUTH_CUTOFF || '2026-08-08T11:15:00-07:00');
+const truthRequiredTypes = new Set(['EVIDENCE_RECORDED', 'ARTIFACT_REVIEWED', 'WORK_RESOLVED', 'PUBLICLY_VERIFIED']);
+const terminalTruthTypes = new Set(['WORK_RESOLVED', 'PUBLICLY_VERIFIED']);
+const worktreeStates = new Set(['NO_REPOSITORY_MUTATION', 'UNCOMMITTED_OWNED', 'COMMITTED', 'PUSHED', 'DEPLOYED', 'VERIFIED_PUBLICLY']);
+
+function verifyWorktreeTruth(event, lineNumber) {
+  if (!truthRequiredTypes.has(event.type) || Date.parse(event.at) < worktreeTruthCutoff) return;
+  const truth = event.payload?.worktree_truth;
+  if (!truth || !worktreeStates.has(truth.state)) throw new Error(`line ${lineNumber} ${event.type} missing valid worktree_truth`);
+  if (!Array.isArray(truth.paths)) throw new Error(`line ${lineNumber} worktree_truth.paths must be an array`);
+  if (truth.state === 'NO_REPOSITORY_MUTATION') {
+    if (truth.paths.length || truth.commit) throw new Error(`line ${lineNumber} NO_REPOSITORY_MUTATION cannot name paths or commit`);
+    return;
+  }
+  if (truth.state === 'UNCOMMITTED_OWNED') {
+    if (terminalTruthTypes.has(event.type)) throw new Error(`line ${lineNumber} ${event.type} cannot bind UNCOMMITTED_OWNED work`);
+    for (const key of ['owner', 'reason', 'next_trigger']) if (!truth[key]) throw new Error(`line ${lineNumber} UNCOMMITTED_OWNED missing ${key}`);
+    if (!/HOLD|BLOCK/i.test(String(event.payload.verdict || event.payload.status || ''))) throw new Error(`line ${lineNumber} UNCOMMITTED_OWNED evidence must remain HOLD or BLOCKED`);
+    return;
+  }
+  if (!truth.commit || !truth.paths.length) throw new Error(`line ${lineNumber} ${truth.state} requires commit and paths`);
+  const resolved = spawnSync('git', ['cat-file', '-e', `${truth.commit}^{commit}`], { cwd: root, encoding: 'utf8' });
+  if (resolved.status !== 0) throw new Error(`line ${lineNumber} worktree_truth commit does not resolve: ${truth.commit}`);
+  const listed = spawnSync('git', ['diff-tree', '--no-commit-id', '--name-only', '-r', truth.commit], { cwd: root, encoding: 'utf8' });
+  if (listed.status !== 0) throw new Error(`line ${lineNumber} cannot inspect worktree_truth commit ${truth.commit}`);
+  const committed = new Set(listed.stdout.split(/\r?\n/).filter(Boolean));
+  for (const changed of truth.paths) {
+    if (typeof changed !== 'string' || path.isAbsolute(changed) || changed.startsWith('../')) throw new Error(`line ${lineNumber} invalid worktree_truth path: ${changed}`);
+    if (!committed.has(changed)) throw new Error(`line ${lineNumber} worktree_truth path is not in commit ${truth.commit}: ${changed}`);
+  }
+}
 
 export function projectWorkEvents(file = eventsPath) {
   const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/).filter(Boolean);
@@ -22,6 +54,7 @@ export function projectWorkEvents(file = eventsPath) {
     if (!allowed.has(event.type)) throw new Error(`unknown event type ${event.type}`);
     if (Number.isNaN(Date.parse(event.at))) throw new Error(`invalid event time ${event.at}`);
     if (priorTime && Date.parse(event.at) < Date.parse(priorTime)) throw new Error(`event time moved backwards at ${event.event_id}`);
+    verifyWorktreeTruth(event, index + 1);
     seenEvents.add(event.event_id);
     priorTime = event.at;
     const item = work.get(event.work_id) || { work_id: event.work_id, status: 'UNADMITTED', title: null, work_class: null, lane_mode: null, acceptance_owner: null, admitted_at: null, started_at: null, resolved_at: null, last_event_at: null, evidence: [], dependencies: [], metric_events: [] };
