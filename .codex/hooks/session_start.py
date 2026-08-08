@@ -1,23 +1,27 @@
 #!/usr/bin/env python3
 import json
 import os
+import hashlib
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
-decisions_path = Path(os.environ.get("LAIDIES_DECISIONS_PATH", root / "operations" / "DECISIONS.md"))
-lessons_path = Path(os.environ.get("LAIDIES_LESSONS_PATH", root / "operations" / "LESSONS-ACTIVE.md"))
+standing_card_path = Path(os.environ.get("LAIDIES_STANDING_CARD_PATH", root / "operations" / "runtime" / "STANDING-CARD.md"))
+decisions_path = root / "operations" / "DECISIONS.md"
+lessons_path = root / "operations" / "LESSONS-ACTIVE.md"
+canon_path = root / "operations" / "voice" / "laidies-canon-index.md"
+agreement_path = root / "operations" / "CODEX-WORKING-AGREEMENT.md"
 queue_path = Path(os.environ.get("LAIDIES_RUN_QUEUE_PATH", root / "operations" / "product-stewards" / "run-queue.json"))
-if not decisions_path.is_file():
-    raise SystemExit("SessionStart blocked: operations/DECISIONS.md is missing")
-if not lessons_path.is_file():
-    raise SystemExit("SessionStart blocked: operations/LESSONS-ACTIVE.md is missing")
-
-decisions = decisions_path.read_text(encoding="utf-8").strip()
-lessons = lessons_path.read_text(encoding="utf-8").strip()
-if not decisions:
-    raise SystemExit("SessionStart blocked: operations/DECISIONS.md is empty")
-if not lessons:
-    raise SystemExit("SessionStart blocked: operations/LESSONS-ACTIVE.md is empty")
+if not standing_card_path.is_file():
+    raise SystemExit("SessionStart blocked: operations/runtime/STANDING-CARD.md is missing")
+standing_card = standing_card_path.read_text(encoding="utf-8").strip()
+if not standing_card:
+    raise SystemExit("SessionStart blocked: operations/runtime/STANDING-CARD.md is empty")
+for label, source_path in (("decisions", decisions_path), ("lessons", lessons_path), ("canon", canon_path), ("agreement", agreement_path)):
+    if not source_path.is_file():
+        raise SystemExit(f"SessionStart blocked: standing-card source {label} is missing")
+    expected = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    if f"{label}-sha256: {expected}" not in standing_card:
+        raise SystemExit("SessionStart blocked: STANDING-CARD.md is stale; run node scripts/build-standing-card.mjs")
 
 explicit_lane = os.environ.get("LAIDIES_CLAIMED_LANE", "").strip()
 if explicit_lane:
@@ -53,8 +57,7 @@ preamble = (
 print(json.dumps({"hookSpecificOutput": {
     "hookEventName": "SessionStart",
     "additionalContext": (
-        f"{preamble}\n\nSETTLED DECISION ROUTER — search before asking or choosing:\n{decisions}"
-        f"\n\nACTIVE LESSONS — apply only when relevant:\n{lessons}"
+        f"{preamble}\n\nSTANDING CARD — orientation only; retrieve exact authority when needed:\n{standing_card}"
         f"\n\n{lane_context}"
     )
 }}))
