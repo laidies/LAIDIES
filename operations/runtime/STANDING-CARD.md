@@ -1,9 +1,9 @@
 # LAiDIES standing card
 
 <!-- GENERATED FILE. Run: node scripts/build-standing-card.mjs -->
-decisions-sha256: b4cb0bc5164ff981f84c22058dc3b21e4920732838082be53bbc5fc2c13ad262
-lessons-sha256: b53cfd21cfc16586fd2a749304f94dfd454e6b63647a0e91b48caa905183f6e4
-canon-sha256: 09f942c6391d020e69ff367b096d2782d8cbfb98b0a3469c8fe0ae5485ef28be
+decisions-sha256: eca3c3d9f37055ee451bbc491a3ca20d5cd2e72d91afd8aeb1e11558d3ad4f89
+lessons-sha256: 769f2a243497a39d291ce1a0294cde96ffe03229150855c0b62f60736c1a827c
+canon-sha256: e093f3ecd7c221f8cee12c1620123632fdb8e4bd0d7016fe734fffb6c9da0fe4
 agreement-sha256: bc65c76e27bb3366ae0ba1bae4d72e5f017f00d3b8885029a0694b31c17cf477
 
 ## The job
@@ -39,6 +39,5 @@ This card is orientation, not full authority. Retrieve exact passages only when 
     node scripts/query-laidies-context.mjs --source decisions --query "term"
     node scripts/query-laidies-context.mjs --source lessons --query "term"
     node scripts/query-laidies-context.mjs --source canon --query "term"
-    node scripts/query-laidies-context.mjs --source product --product library --query "term"
 
 If a required source is absent or contradictory, stop only the affected work and route the conflict. Do not improvise from this summary.

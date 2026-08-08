@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-04",
+  "runtime_reconciliation": {
+    "status": "MIGRATED_RUNTIME_PILOT_PASS_DISPATCHER_PAUSED_STALE_RUN_QUARANTINED",
+    "finding": "The maker/judge pilot proved the dispatch contract, but its last public-asset judge task is no longer live. The prior RUNNING claim is quarantined instead of treating a stored heartbeat as liveness; whole-town launch and asset closure remain open in the canonical work-resolution loop.",
+    "next_action": "Keep the scheduled dispatcher PAUSED. Continue launch work in the current bounded foreground and create run-queue activity only for a genuinely live, separately owned maker or judge task."
+  },
+  "concurrency_policy": "COLLISION_AWARE_BY_SCOPE_AND_INTEGRATION_LOCK",
+  "claim_policy": {
+    "schema_version": 1,
+    "claim_ttl_hours": 4,
+    "heartbeat_stale_minutes": 30,
+    "pull_mode": "EXPLICIT_SESSION_CLAIM_ONLY_WHILE_DISPATCHER_PAUSED",
+    "expiry_action": "REMOVE_FROM_ACTIVE_AND_APPEND_STALE_RUNTIME_RECORD",
+    "rule": "A live manual lane must claim exact disjoint write scopes, heartbeat within 30 minutes and expire within four hours. Expiry never proves completion and never silently restarts or requeues the paused dispatcher."
+  },
+  "portfolio_locks": [
+    {
+      "lock_id": "sitewide-brand-artwork-system",
+      "owner_task_id": "019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+      "status": "PROVISIONAL_SHARED_STYLE_GOVERNANCE_BUILDING_CANDIDATES_ALLOWED_UNDER_D096",
+      "scope": "Shared cross-building visual-language, UI/typography-token and art-to-interface propagation only",
+      "allows": "Isolated checksum-bound building candidates may reuse admitted owner assets and proceed through D-2026-08-03-096 role-distinct design admission. Library and NewsStand are accepted proof that a building lane may advance without asserting a new sitewide style. Inventory/specification and the bounded Brand comparison remain allowed.",
+      "blocks": "Shared-token rollout, category-wide artwork propagation and all-17 visual-language migration before controlled desktop/mobile championship evidence passes and Ali selects the sitewide direction. A local building candidate may not claim sitewide authority from its own admission.",
+      "after_decision": "Audit every existing asset against the selected shared system as KEEP, ADAPT or REJECT; then make missing assets; then propagate and independently test the shared language without invalidating already-admitted building jobs unnecessarily.",
+      "last_evidence_at": "2026-08-05T11:26:10Z",
+      "authority": [
+        "operations/engine/LEDGER.md#D-2026-08-03-092",
+        "operations/engine/LEDGER.md#D-2026-08-03-093",
+        "operations/engine/LEDGER.md#D-2026-08-03-095",
+        "operations/engine/LEDGER.md#D-2026-08-03-096"
+      ]
+    },
+    {
+      "lock_id": "weekly-episodes-chick-flicks-release-manifest-interface",
+      "plain_name": "BACKSTAGE EPISODE RELEASE PLUMBING — NOT CURRENTLY BUILDING AN EPISODE OR CHANGING THE LIVE SITE",
+      "user_job": "Create a sealed chain-of-custody package binding the exact script, audio, captions, images, video, approvals and rollback state for a future episode release",
+      "owner_task_id": "019f9f7c-f03a-7ec1-a776-d60b57210322",
+      "acceptance_owner_task_ids": [
+        "019f9f59-6f59-7500-af47-455f39d1c0c5",
+        "019f9f74-6a48-7843-b7c7-5515ed8be282"
+      ],
+      "status": "V2_PLATFORM_PASS_CHICK_FLICKS_HOLD_QUEUED_UNTIL_REAL_RELEASE",
+      "scope": "Versioned episode candidate/admission/public-proof/rollback interface and deterministic fixtures",
+      "allows": "Visible episode/media production may proceed independently; no further schema expansion is needed until a real release reaches this gate",
+      "blocks": "Shared/live release-interface admission. Exact v2 passed Platform but Chick Flicks found five schema-valid semantic false accepts.",
+      "next_trigger": "REAL_EPISODE_RELEASE_REACHES_GATE_THEN_NEW_IMMUTABLE_V3_THEN_PLATFORM_PASS_THEN_CHICK_FLICKS_PASS",
+      "v2_acceptance_contract": "Execute the candidate-bound Draft 2020-12 schema; assert six reason-specific adversarial rejects; fail closed for missing, corrupt and checksum-mismatched inputs; and include mutation controls proving that weakening or removing each relevant constraint breaks the suite",
+      "executive_visibility": "SUPPRESS_UNLESS_EXACT_V2_PASSES_BOTH_GATES_OR_BLOCKS_A_REAL_EPISODE_RELEASE_OR_REQUIRES_ALI_DECISION",
+      "launch_critical_path": false,
+      "last_evidence_at": "2026-07-26T18:13:00Z"
+    }
+  ],
+  "active": [],
+  "stale_runtime_records": [
+    {
+      "product_id": "platform-reliability",
+      "work_id": "WRK-20260803-public-asset-closure",
+      "run_type": "CURATED_PUBLIC_ASSET_CLOSURE_INVENTORY",
+      "status": "COMPLETED_NO_DISPATCH",
+      "objective": "Enumerate every binary asset required by the curated public builder with exact hash, current admission state, consumer and authority owner.",
+      "current_action": "Reconciled and complete. The independently accepted curated build contains 546 files / 404.81 MiB. Fresh inventory: 329 binaries, ACTIVE=327, two source-only held trailer inputs absent from public output, prohibited references=0, missing=0. Default-DENY and exact-set parity calibrations fail on deliberate bad inputs. Page visuals, deployment and release remain separate. No dispatcher task is live.",
+      "heartbeat_at": "2026-08-03T11:58:00Z",
+      "last_evidence_at": "2026-08-04T20:10:00Z",
+      "write_scope": [
+        "scripts/build-public-site.mjs",
+        "operations/product-stewards/platform-reliability/evidence/public-asset-closure-2026-08-03/**",
+        "content/site/public-runtime-asset-manifest.json"
+      ],
+      "live_owner_tasks": [],
+      "integration_owner": "/root",
+      "acceptance_owner": "brand-and-product-asset-authority"
+    },
+    {
+      "product_id": "town-entry-homepage",
+      "run_type": "HOMEPAGE_CYCLE4_INDEPENDENT_CONSUMER_REVIEW",
+      "status": "STALE_RECONCILIATION_REQUIRED",
+      "objective": "Independently decide whether exact cycle-4 Homepage candidate materially beats the incumbent while preserving masthead, copy, assets, content order and behavior.",
+      "current_action": "Browser-verify candidate 69dd4f33…b094 against incumbent d09d2acb…1189 at desktop/mobile and return checksum-bound PASS/HOLD with visible evidence; no edits or Ali gate.",
+      "heartbeat_at": "2026-07-26T21:05:00Z",
+      "last_evidence_at": "2026-07-26T21:05:00Z",
+      "write_scope": [
+        "operations/product-stewards/town-entry-homepage/**",
+        "operations/prototypes/homepage-editorial-v1/**"
+      ],
+      "live_owner_tasks": [
+        "019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1"
+      ],
+      "integration_owner": "/root",
+      "shared_dependency_owner": "functionality-platform-director"
+    }
+  ],
+  "decision_ready": [],
+  "decision_holds": [
+    {
+      "product_id": "blend-snap",
+      "status": "NOT_READY_EXPERIENCE_AND_BRAND_WORLD_FLOORS_REQUIRED",
+      "evidence": "operations/product-stewards/blend-snap/CONTROL-ROOM-HANDOFF-2026-07-26-1125-PDT.md",
+      "proof_ceiling": "Useful isolated interaction evidence only: 92/92; product=18 trust=18 brand=18",
+      "next": "RETURN_THE_ACTUAL_CAFE_EXPERIENCE_NOT_A_SEPARATE_FUNCTIONAL_BASE_APPROVAL"
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "product_id": "newsstand",
+      "candidate_sha256": "5cc1021be32a60e26d5e9500246a8a93f616ca2367ffb1ea83593b691c19e7fc",
+      "status": "REJECTED_BY_ALI_AND_PRODUCT_REVIEW_DO_NOT_PRESENT_OR_INTEGRATE",
+      "reason": "Four functional publication controls were rendered as tilted CSS paper boxes with pseudo-folds, circles, stripes, gradients and shadows after removing Paige and the NewsStand environment. Functional checks do not make this a valid building experience.",
+      "evidence_ceiling": "Exact visual-direction rejection only; four-publication data, reader, preview, search and history work remains reusable. No asset admission, successor approval, deploy or public evidence.",
+      "next": "NARROW_PAIGE_ASSET_OWNER_RULING_THEN_ONE_CONTINUOUS_COUNTER_RACK_SUCCESSOR_WITH_NO_NEW_COVER_GENERATION",
+      "last_evidence_at": "2026-08-03T23:45:00Z"
+    },
+    {
+      "product_id": "visitors-centre",
+      "candidate_sha256": "d138d2a18e685f3f2923f00d966e2969dce14f2e2b1fb48bb38b0547266e9573",
+      "status": "REJECTED_BY_ALI_DO_NOT_INTEGRATE",
+      "reason": "Boring white page with boxes; generic front-desk/map/directory grammar does not create the experience of entering a colourful, vibrant LAiDIES building.",
+      "evidence_ceiling": "Superseded technical characterization only; not product, visual, experiential, integration, deploy or public evidence.",
+      "next": "MATERIALLY_NEW_ENVIRONMENT_AS_INTERFACE_VISITORS_CENTRE_CANDIDATE",
+      "last_evidence_at": "2026-07-26T19:36:00Z"
+    }
+  ],
+  "blocked_current_release": [
+    {
+      "product_id": "library",
+      "run_type": "P0_ADMITTED_BOOK_READER_PUFFY_CLOSET_VERTICAL",
+      "status": "BLOCKED_BUILD_REMAINS_REQUIRED",
+      "local_pass": "Content/trust, exact bound-HOLD artifact, reader/Miss Jeeves fail-closed mechanics and local contracts",
+      "visible_truth": "available=0; held objects=15; reader hidden; no admitted read/save/reopen/remove journey",
+      "blocker": "PR-12 local correction contract passes, but provider/project/region, migration/secret runner, abuse controls, triage/SLA, Privacy retention/export/delete authority, backup/purge, four consumer locks and independent staging cleanup/rollback remain unassigned; owner/newcomer/native/journey/release/public gates remain",
+      "next_trigger": "NAMED_AUTHORIZED_ISOLATED_STAGING_TARGET_AND_ACCOUNTABLE_OWNERS_THEN_REAL_CORRECTION_PROVIDER_PROOF_THEN_OWNER_HUMAN_NATIVE_GATES_AND_FULL_JOURNEY_REJUDGE",
+      "last_evidence_at": "2026-07-26T18:55:00Z"
+    }
+  ],
+  "completed_not_integrated": [
+    {
+      "product_id": "blend-snap",
+      "run_type": "ISOLATED_FUNCTIONAL_EXPERIENCE_CANDIDATE",
+      "status": "VERIFIED_LOCALLY_INDEPENDENTLY_ADMITTED_DECISION_READY_INTEGRATION_QUEUED",
+      "evidence": "operations/product-stewards/blend-snap/CONTROL-ROOM-HANDOFF-2026-07-26-1125-PDT.md",
+      "proof": "Independent repaired-candidate PASS: 92/92; product=18 trust=18 brand=18; desktop/390/320 failure evidence",
+      "blocker": "Ali functional-hierarchy ruling; Brand; real content/downstream/native acceptance; separate live integration and release gates",
+      "next_trigger": "ALI_APPROVE_REVISE_REJECT_MENU_ORDER_PICKUP_RECEIPT_THEN_BRAND_AND_SHARED_DEPENDENCY_RELEASE_THEN_EXACT_INTEGRATION_LOCK",
+      "last_evidence_at": "2026-07-26T18:25:50Z"
+    },
+    {
+      "product_id": "town-entry-homepage",
+      "run_type": "OWNED_ROUTE_READINESS_PROJECTION_V1_CONSUMER",
+      "status": "VERIFIED_LOCALLY_INDEPENDENTLY_ACCEPTED_INTEGRATION_HELD",
+      "evidence": "operations/product-stewards/town-entry-homepage/live-route-platform-v1-handoff-control-room-2026-07-26.md",
+      "proof": "Exact index.html, start-here.html and homepage.js candidate; independent Chromium 15/15; product=18 trust=19 brand=18; clean artifact 1,088 files with zero missing or oversized assets",
+      "blocker": "Non-null owner receipts, correction/CDN propagation, Safari/VoiceOver/real zoom, human comprehension, field performance, analytics/privacy, release binding, deployment and public-origin proof",
+      "next_trigger": "OWNER_RECEIPTS_OR_NATIVE_HUMAN_ADMISSION_OR_EXACT_RELEASE_INTEGRATION_LOCK",
+      "last_evidence_at": "2026-07-26T18:58:00Z"
+    },
+    {
+      "product_id": "newsstand",
+      "run_type": "AUDIENCE_WEEK_01_DAY_01_SOURCE_USE_REVIEW",
+      "status": "REPORT_READY_REPAIRS_REQUIRED",
+      "evidence": "operations/product-stewards/newsstand/evidence/audience-week-01-day-01-source-use-review-2026-07-26.md",
+      "proof": "W01-D1-02/04 ACCEPT; W01-D1-01/03/05 checksum-bound HOLD with exact wording repairs; all five read/listen boundaries ACCEPT",
+      "blocker": "Audience repair/regeneration and checksum-bound NewsStand re-review; all remaining Brand/rights/accessibility/measurement/Control Room/publisher/Ali gates",
+      "next_trigger": "REPAIRED_W01_D1_01_03_05_HASHES_OR_CHANGED_SOURCE_CANON_ROUTE_RECEIPT",
+      "last_evidence_at": "2026-07-26T19:16:10Z"
+    }
+  ],
+  "stale_portfolio_work": [
+    {
+      "system_id": "brand-experience",
+      "owner_task_id": "019f9f7a-1337-7fc0-a37a-74c8a88bbe49",
+      "status": "STALE_RECONCILIATION_REQUIRED",
+      "literal_work_now": "Run the separate checksum-bound Audience Week 01 Day 01 visual/voice review. Homepage cycle-4 maker output is complete and with Town Entry for independent product acceptance.",
+      "visible_deliverable": "Five exact Audience object ACCEPT/REVISE/REJECT verdicts with rights questions held; Homepage candidate remains 69dd4f33…b094 pending Town Entry.",
+      "heartbeat_at": "2026-07-26T21:03:13Z",
+      "write_scope": "operations/product-stewards/brand-experience/** and isolated approved comparison output paths only",
+      "blocker": "Homepage material-superiority verdict is pending Town Entry. Audience rights authority is separate and unresolved.",
+      "next_ali_decision": "None yet. Ask Ali only after a challenger is internally admitted as materially better than the incumbent."
+    },
+    {
+      "system_id": "functionality-platform-identity",
+      "owner_task_id": "019f9f59-6f59-7500-af47-455f39d1c0c5",
+      "status": "STALE_RECONCILIATION_REQUIRED",
+      "literal_work_now": "Lock 1 is durably closed. Mutate only current text/shared data from Welcome Wagon to locked Visitor’s Centre under the separate checksum-bound lock.",
+      "visible_deliverable": "Lock-1 final seal plus exact naming pre/post residual counts and Visitor/Town Entry/Platform acceptance; nav/domain/weekly locks remain separate.",
+      "heartbeat_at": "2026-07-26T20:46:00Z",
+      "write_scope": "operations/product-stewards/platform-reliability/** and isolated contract/tests only",
+      "blocker": "Naming shared-data and Town Entry residual classification remain; visible old-name art waits for Brand; no deploy/public/cache-provider mutation authorized.",
+      "next_ali_decision": "None for the local contract; staging authority only if an approved target cannot be found and exact cost/data implications are known."
+    }
+  ],
+  "completed_owner_entry_recovery": [
+    {
+      "product_id": "visitors-centre",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only the Visitor's Centre dossier, experience brief, functionality map and building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-65db-7003-a43f-fa8965f4b675"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/visitors-centre/**"
+    },
+    {
+      "product_id": "newsstand",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only the NewsStand dossier, experience brief, functionality map and building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-6821-70d2-81bb-02485922386a"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/newsstand/**"
+    },
+    {
+      "product_id": "chick-flicks",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only the Chick Flicks dossier, experience brief, functionality map and building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-6a48-7843-b7c7-5515ed8be282"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/chick-flicks/**"
+    },
+    {
+      "product_id": "blend-snap",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only the Blend & Snap dossier, experience brief, functionality map and building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-6c92-7581-88ec-73316d45adab"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/blend-snap/**"
+    },
+    {
+      "product_id": "mme-claio",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only Mme CLAi-O's dossier, experience brief, functionality map and building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-6f01-7691-913a-52e9bba4499f"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/mme-claio/**"
+    },
+    {
+      "product_id": "maikeover",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only MAiKEOVER and Closet owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-712b-7400-bc07-795faaf7a6de"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/maikeover/**"
+    },
+    {
+      "product_id": "bronze-aige",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only BRONZE AiGE owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-728a-7dc0-8c03-b810f560f40b"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/bronze-aige/**"
+    },
+    {
+      "product_id": "dream-phone",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only Dream Phone owner-entry records and a decision-aware building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-7454-7630-a42c-0011b98619e4"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/dream-phone/**"
+    },
+    {
+      "product_id": "mall",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only Mall owner-entry records and a commerce-decision-aware building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-763d-7f12-9fb1-9a329cc4cddd"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/mall/**"
+    },
+    {
+      "product_id": "ksvl",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only KSVL owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-77cb-7180-80f0-27b867dd1ad9"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/ksvl/**"
+    },
+    {
+      "product_id": "post-office",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only Post Office owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-79af-7993-9249-98e3e7abea40"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/post-office/**"
+    },
+    {
+      "product_id": "town-hall",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only Town Hall owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-7bb4-7443-9420-2603409b3abd"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/town-hall/**"
+    },
+    {
+      "product_id": "sunnyvaile-high",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only SUNNYVAiLE High owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-7ea0-78a1-9015-40f2c3333270"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/sunnyvaile-high/**"
+    },
+    {
+      "product_id": "fairy-godmother",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only FAiRY Godmother owner-entry records and its existing P0-contract-aligned building packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-8072-76b0-87eb-67f7d26705bf"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/fairy-godmother/**"
+    },
+    {
+      "product_id": "sorority-house",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only Sorority House owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-81fa-7921-a1df-d946c2c53279"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/sorority-house/**"
+    },
+    {
+      "product_id": "luminairy",
+      "run_type": "OWNER_ENTRY_RECOVERY",
+      "status": "RECOVERY_COMPLETE_AWAITING_INTEGRATION_LOCK",
+      "objective": "Recover only LUMINAiRY owner-entry records and its building-specific build packet.",
+      "heartbeat_at": "2026-07-26T17:27:00Z",
+      "live_owner_tasks": ["019f9f74-83af-7a82-9b00-9600eedeca28"],
+      "integration_owner": "/root",
+      "scope_lock": "operations/product-stewards/luminairy/**"
+    }
+  ],
+  "completed_system_initializations": [
+    {
+      "product_id": "episode-experience",
+      "owner_task_id": "019f9f7c-f03a-7ec1-a776-d60b57210322",
+      "run_type": "PERMANENT_WEEKLY_EPISODE_ENGINE_INITIALIZATION",
+      "status": "REPORT_READY_NEXT",
+      "completed_at": "2026-07-26T17:39:31Z",
+      "last_evidence_at": "2026-07-26T17:39:31Z",
+      "next": "EPISODE_5_GATE_1_FIDELITY_MATRIX_AND_REPLACEMENT_SUBSTANCE_REBUILD",
+      "collision_boundary": "Chick Flicks and Episode Media Quality remain independent handoffs; no Episode 5 production before fidelity matrix, replacement substance/story architecture, four vetoes and Ali Gate 1."
+    },
+    {
+      "product_id": "town-entry-homepage",
+      "owner_task_id": "019f9f7f-9cd2-7e33-a1a3-f61b0b9c9ca1",
+      "run_type": "PERMANENT_HOMEPAGE_TOWN_ENTRY_INITIALIZATION",
+      "status": "REPORT_READY_NEXT",
+      "completed_at": "2026-07-26T17:45:35Z",
+      "last_evidence_at": "2026-07-26T17:45:35Z",
+      "next": "CONTROL_ROOM_ADMISSION_OF_READINESS_PROJECTION_AND_SHARED_CONTRACT_PACKET",
+      "collision_boundary": "No live route edits, sitewide visual decisions, destination readiness overrides, launch publication or deployment without separate locks."
+    },
+    {
+      "product_id": "learning-content-ecosystem",
+      "owner_task_id": "019f9f7f-9e4c-72d2-8882-447bcbe01691",
+      "run_type": "PERMANENT_LEARNING_SYSTEM_INITIALIZATION",
+      "status": "REPORT_READY_NEXT",
+      "completed_at": "2026-07-26T17:43:05Z",
+      "last_evidence_at": "2026-07-26T17:43:05Z",
+      "next": "NEW_LEARNING_IDEA_EPISODE_IMPACT_CONCEPT_CORRECTION_OR_FRESHNESS_CHANGE",
+      "collision_boundary": "Surface owners retain episodes, classes, books, publications, tools and games; no duplicate artifacts or shared canon mutation outside integration."
+    },
+    {
+      "product_id": "audience-growth",
+      "owner_task_id": "019f9f7f-9fad-7d73-84fa-ba6f37e6ade1",
+      "run_type": "PERMANENT_AUDIENCE_GROWTH_INITIALIZATION",
+      "status": "REPORT_READY_NEXT",
+      "completed_at": "2026-07-26T17:43:47Z",
+      "last_evidence_at": "2026-07-26T17:43:47Z",
+      "next": "PRODUCT_BRAND_AND_ALI_APPROVED_CAMPAIGN_ADMISSION",
+      "collision_boundary": "No social publication, product-readiness override, Brand override, Post Office/NewsStand ownership, deployment or Ali public approval substitution."
+    },
+    {
+      "product_id": "idea-inbox",
+      "owner_task_id": "019f9f81-5da6-73a3-a1aa-0272a93ec821",
+      "run_type": "PERMANENT_IDEA_INBOX_INITIALIZATION",
+      "status": "REPORT_READY_NEXT",
+      "completed_at": "2026-07-26T17:46:13Z",
+      "last_evidence_at": "2026-07-26T17:46:13Z",
+      "next": "NEW_UNSORTED_IDEA_OR_SCHEDULED_PARKED_ITEM_REVIEW",
+      "collision_boundary": "No active-work interruption, priority mutation, implementation by default or shared authority edits without Control Room integration."
+    }
+  ],
+  "initializing_systems": [],
+  "waiting_external": [
+    {"product_id":"newsstand","gate":"RECURSIVE_SCHEMA_SOURCE_AUTHORITY_NATIVE_OWNER_AND_PUBLIC_GATES","status":"WAITING_FOR_RECURSIVE_RAW_DUPLICATE_REJECTION_EXECUTABLE_HASH_BOUND_SCHEMA_COMPLETE_POLICY_PROVENANCE_IMMUTABLE_SOURCE_RECEIPTS_CLAIM_BINDING_INDEPENDENT_AUTHORITY_LEDGER_CANONICAL_WRITE_CORRECTION_ROLLBACK_OWNER_VISUAL_NATIVE_ACCESSIBILITY_ANALYTICS_PUBLIC_ORIGIN_ARTIFACT_SIZE_AND_RELEASE_AUTHORITY"},
+    {"product_id":"screening-room","gate":"COMPLETE_OCCURRENCE_EVIDENCE_OWNER_MEDIA_TIMING_CONTINUITY_NATIVE_ANALYTICS_AND_PUBLIC_GATES","status":"WAITING_FOR_COMPLETE_OCCURRENCE_ADMISSION_NARRATION_IMAGE_ALIGNMENT_CHARACTER_BACKGROUND_STYLE_CONTINUITY_CAPTION_TIMING_OWNER_MEDIA_NATIVE_ACCESSIBILITY_ANALYTICS_PUBLIC_ORIGIN_ARTIFACT_SIZE_AND_RELEASE_AUTHORITY"},
+    {"product_id":"resident-card","gate":"OWNER_COMPREHENSION_NATIVE_ANALYTICS_ACCOUNT_AND_PUBLIC_GATES","status":"WAITING_FOR_OWNER_VISUAL_HUMAN_COMPREHENSION_SHARED_HEADER_NATIVE_ACCESSIBILITY_ANALYTICS_ACCOUNT_PUBLIC_CARD_HANDLE_RESERVATION_CROSS_DEVICE_PUBLIC_ORIGIN_ARTIFACT_SIZE_AND_RELEASE_AUTHORITY"},
+    {"product_id":"post-office","gate":"PROVIDER_NATIVE_OWNER_ANALYTICS_AND_PUBLIC_GATES","status":"WAITING_FOR_BUTTONDOWN_SUPABASE_PROVIDER_ANALYTICS_NATIVE_ACCESSIBILITY_OWNER_VISUAL_PUBLIC_ORIGIN_ARTIFACT_SIZE_AND_RELEASE_AUTHORITY"},
+    {"product_id":"luminairy","gate":"ATOMIC_EDITORIAL_RIGHTS_OWNER_NATIVE_ACCESSIBILITY_ANALYTICS_AND_PUBLIC_GATES","status":"WAITING_FOR_ATOMIC_RESEARCH_SOURCES_QUOTE_RIGHTS_OWNER_VISUAL_NATIVE_ACCESSIBILITY_KSVL_TOWN_HALL_ANALYTICS_PUBLIC_ORIGIN_ARTIFACT_SIZE_AND_RELEASE_AUTHORITY"},
+    {"product_id":"bronze-aige","gate":"OWNER_VISUAL_NATIVE_AUDIO_RIGHTS_ANALYTICS_PUBLIC_AND_ALCOHOL_ACTIVATION_GATES","status":"WAITING_FOR_OWNER_COSMO_VISUAL_NATIVE_ACCESSIBILITY_AUDIO_RIGHTS_ANALYTICS_PRIVACY_PUBLIC_ORIGIN_ARTIFACT_SIZE_ALCOHOL_POLICY_AND_RELEASE_AUTHORITY"},
+    {"product_id":"sorority-house","gate":"HUMAN_MODERATION_PROVIDER_NATIVE_ACCESSIBILITY_OWNER_ANALYTICS_AND_PUBLIC_GATES","status":"WAITING_FOR_MODERATION_INCIDENT_APPEAL_RETENTION_PRIVACY_OWNER_CONTROLLED_PROVIDER_NATIVE_ACCESSIBILITY_HUMAN_COMPREHENSION_ANALYTICS_PUBLIC_ORIGIN_AND_RELEASE_AUTHORITY"},
+    {"product_id":"town-hall","gate":"SERVER_STAFF_OWNER_NATIVE_ACCESSIBILITY_ANALYTICS_AND_PUBLIC_GATES","status":"WAITING_FOR_SERVER_VALIDATION_RATE_LIMIT_IDEMPOTENCY_LOGGING_STAGING_RLS_STAFF_TRIAGE_RETENTION_ACCOUNTABILITY_OWNER_VISUAL_NATIVE_ACCESSIBILITY_ANALYTICS_PUBLIC_ORIGIN_AND_RELEASE_AUTHORITY"},
+    {"product_id":"mall","gate":"EDITORIAL_RIGHTS_HYVOR_NATIVE_ACCESSIBILITY_OWNER_ANALYTICS_COMMERCE_AND_PUBLIC_GATES","status":"WAITING_FOR_EDITORIAL_RIGHTS_CURRENTNESS_HYVOR_MODERATION_PRIVACY_NATIVE_ACCESSIBILITY_OWNER_VISUAL_ANALYTICS_COMMERCE_FULFILMENT_PUBLIC_ORIGIN_AND_RELEASE_AUTHORITY"},
+    {"product_id":"mme-claio","gate":"OWNER_VISUAL_NATIVE_ACCESSIBILITY_PRIVACY_AND_PUBLIC_GATES","status":"WAITING_FOR_OWNER_VISUAL_SAFARI_VOICEOVER_NATIVE_ZOOM_PRIVACY_ANALYTICS_PUBLIC_ORIGIN_AND_RELEASE_AUTHORITY"},
+    {"product_id":"ksvl","gate":"OWNER_AUDIO_QUALITY_PUBLIC_ORIGIN_AND_REQUEST_SERVICE_CHECK","status":"WAITING_FOR_OWNER_AUDIO_QUALITY_PUBLIC_ORIGIN_NATIVE_ACCESSIBILITY_AND_REQUEST_SERVICE_EVIDENCE_WITHOUT_BLOCKING_29_PLAYABLE_TRACKS"},
+    {"product_id":"maikeover","gate":"PRODUCTION_IDENTITY_PRIVACY_AVATAR_REWARD_AND_PUBLIC_GATES","status":"WAITING_FOR_AUTH_EMAIL_SUPABASE_RLS_PUBLIC_PROJECTION_AVATAR_REWARD_TWO_DEVICE_OWNER_VISUAL_NATIVE_ACCESSIBILITY_AND_PUBLIC_AUTHORITY"},
+    {"product_id":"chick-flicks","gate":"OWNER_MEDIA_VISUAL_ACCESSIBILITY_AND_PUBLIC_GATES","status":"WAITING_FOR_OWNER_VISUAL_MOTION_MEDIA_SAFARI_VOICEOVER_NATIVE_ZOOM_SCREENING_ROOM_AND_PUBLIC_AUTHORITY"},
+    {"product_id":"dream-phone","gate":"PRODUCT_MODEL_ACCESSIBILITY_LEARNING_AND_PUBLIC_GATES","status":"WAITING_FOR_OWNER_PRODUCT_MODEL_VISUAL_SAFARI_VOICEOVER_NATIVE_ZOOM_ANALYTICS_REWARD_AND_PUBLIC_AUTHORITY"},
+    {"product_id":"fairy-godmother","gate":"P0_SEMANTIC_PROVIDER_TRIAL_AUTHORITY_PACKET","status":"WAITING_FOR_PROVIDER_DATA_COST_AND_PRIVACY_AUTHORITY"},
+    {"product_id":"sunnyvaile-high","gate":"INSTRUCTIONAL_MEDIA_NATIVE_REWARD_OWNER_ANALYTICS_AND_PUBLIC_GATES","status":"WAITING_FOR_INSTRUCTIONAL_ACCURACY_ASSESSMENT_UNFAMILIAR_LEARNER_NARRATION_MEDIA_CAPTIONS_OWNER_NATIVE_ACCESSIBILITY_BOOK_FAIR_REWARD_ACCOUNT_PRIVACY_ANALYTICS_CLEAN_ROUTE_PUBLIC_ORIGIN_ARTIFACT_SIZE_AND_RELEASE_AUTHORITY"}
+  ],
+  "completed_cycles": [
+    {"product_id":"newsstand","run_type":"FOUR_PUBLICATION_REVIEW_ROUTER_HISTORY_AND_DATE_REPAIR_3","status":"PASS_BOUNDED_REVIEW_ROUTER_BREAKING_78_DAILY_79_WEEKLY_74_TRIBUNE_82_ALL_PUBLICATIONS_RELEASE_HOLD","next":"RECURSIVE_SCHEMA_SOURCE_AUTHORITY_NATIVE_OWNER_AND_PUBLIC_GATES"},
+    {"product_id":"resident-card","run_type":"SHARED_DEVICE_LOCAL_CARD_PROJECTION_SECURITY_REPAIR_1","status":"PASS_BOUNDED_DEVICE_LOCAL_SECURITY_CONTRACT_81_PROMOTION_HOLD","next":"OWNER_COMPREHENSION_NATIVE_ANALYTICS_ACCOUNT_AND_PUBLIC_GATES"},
+    {"product_id":"screening-room","run_type":"LISTEN_ALONG_TRUTH_TIMING_ADMISSION_AND_FAILURE_REPAIR_1","status":"PASS_BOUNDED_LOCAL_REPAIR_70_ALL_TITLES_AND_RELEASE_HOLD","next":"COMPLETE_OCCURRENCE_EVIDENCE_OWNER_MEDIA_TIMING_CONTINUITY_NATIVE_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"post-office","run_type":"ARCHIVE_UNIQUENESS_AND_RETRY_FOCUS_REPAIR_3","status":"PASS_BOUNDED_LOCAL_CONTRACT_91_RELEASE_HOLD","next":"PROVIDER_NATIVE_OWNER_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"sunnyvaile-high","run_type":"SOURCE_CLASS_TEMPORAL_AUTHORITY_REPAIR_2","status":"PASS_BOUNDED_LOCAL_CONTRACT_90_PROMOTION_HOLD","next":"INSTRUCTIONAL_MEDIA_NATIVE_REWARD_OWNER_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"library","run_type":"CATALOGUE_AND_PUFFY_AUTHORITY_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CONTRACT_88_ALL_BOOKS_HELD_OR_PREVIEW","next":"PUFFY_RECOVERY_COPY_EDITORIAL_NATIVE_OWNER_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"post-office","run_type":"SERVICE_TRUTH_AND_ARCHIVE_URL_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CONTRACT_87_RELEASE_HOLD","next":"ARCHIVE_UNIQUENESS_PROVIDER_NATIVE_OWNER_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"luminairy","run_type":"DETERMINISTIC_MODAL_FOCUS_REPAIR_3","status":"PASS_BOUNDED_LOCAL_CONTRACT_90_ALL_PRODUCTION_CLAIMS_HELD","next":"ATOMIC_EDITORIAL_RIGHTS_OWNER_NATIVE_ACCESSIBILITY_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"bronze-aige","run_type":"SERVICE_CATALOGUE_RECEIPT_CALENDAR_EPISODE_AUDIO_REPAIR_2","status":"PASS_BOUNDED_LOCAL_CONTRACT_92_RELEASE_HOLD","next":"OWNER_VISUAL_NATIVE_AUDIO_RIGHTS_ANALYTICS_PUBLIC_AND_ALCOHOL_ACTIVATION_GATES"},
+    {"product_id":"sorority-house","run_type":"ROOM_STATE_GIRL_TALK_PRIVACY_AND_PROVIDER_BOUNDARY_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CONTRACT_91_RELEASE_HOLD","next":"HUMAN_MODERATION_PROVIDER_NATIVE_ACCESSIBILITY_OWNER_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"town-hall","run_type":"PRIVATE_INBOX_TRUST_AND_ACCESSIBILITY_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CONTRACT_87_SUBMISSION_AND_RELEASE_HOLD","next":"SERVER_STAFF_OWNER_NATIVE_ACCESSIBILITY_ANALYTICS_AND_PUBLIC_GATES"},
+    {"product_id":"mall","run_type":"GIFT_SHOP_STORAGE_AND_HELD_DESTINATION_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CONTRACT_92_RELEASE_HOLD","next":"EDITORIAL_RIGHTS_HYVOR_NATIVE_ACCESSIBILITY_OWNER_ANALYTICS_COMMERCE_AND_PUBLIC_GATES"},
+    {"product_id":"visitors-centre","run_type":"STATIC_DIRECTORY_AND_DESTINATION_LIMITATION_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CONTRACT_92_RELEASE_HOLD","next":"OWNER_VISUAL_HUMAN_COMPREHENSION_NATIVE_ACCESSIBILITY_ANALYTICS_DESTINATION_AND_PUBLIC_GATES"},
+    {"product_id":"maikeover","run_type":"CONTROLLED_ACCOUNT_AND_TWO_DEVICE_PREFLIGHT_REPAIR_2","status":"PASS_BOUNDED_LOCAL_CONTRACT_90_PRODUCTION_HOLD","next":"PRODUCTION_IDENTITY_PRIVACY_AVATAR_REWARD_AND_PUBLIC_GATES"},
+    {"product_id":"ksvl","run_type":"CREATOR_CONFIRMED_CATALOGUE_RESTORATION","status":"PASS_LOCAL_AND_RENDERED_29_TRACKS_PLAYABLE","next":"OWNER_AUDIO_QUALITY_PUBLIC_ORIGIN_AND_REQUEST_SERVICE_CHECK"},
+    {"product_id":"mme-claio","run_type":"CONTROLLED_FORTUNE_PERSISTENCE_ACCESSIBILITY_REDIRECT_REPAIR_2","status":"PASS_BOUNDED_LOCAL_CONTRACT_93_RELEASE_HOLD","next":"OWNER_VISUAL_NATIVE_ACCESSIBILITY_PRIVACY_AND_PUBLIC_GATES"},
+    {"product_id":"dream-phone","run_type":"PRODUCT_STATUS_TRUST_AND_STRICT_CALENDAR_REPAIR","status":"PASS_BOUNDED_LOCAL_TRUST_GATE_86_75_LAUNCH_HOLD","next":"PRODUCT_MODEL_ACCESSIBILITY_LEARNING_REWARD_AND_PUBLIC_GATES"},
+    {"product_id":"blend-snap","run_type":"WEEKLY_PACK_MANIFEST_REPAIR_2","status":"PASS_BOUNDED_LOCAL_MANIFEST_AND_FAILURE_GATE_90_RELEASE_HOLD","next":"STUDY_SHEET_TRADING_CARDS_ACCESSIBILITY_VISUAL_AND_PUBLIC_GATES"},
+    {"product_id":"chick-flicks","run_type":"EXACT_ARTIFACT_CATALOGUE_DISCOVERY_REPAIR_1","status":"PASS_BOUNDED_LOCAL_CATALOGUE_GATE_91_RELEASE_HOLD","next":"OWNER_MEDIA_VISUAL_ACCESSIBILITY_SCREENING_ROOM_AND_PUBLIC_GATES"},
+    {"product_id":"platform-reliability","run_type":"SCOPED_PRODUCT_READINESS_INTEGRATION_CHECKPOINT","status":"COMMITTED_AND_PUSHED_A821C20_NO_DEPLOY_OR_PUBLICATION","next":"RECORD_CHECKPOINT_AND_RESUME_NEXT_RISK_RANKED_PRODUCT"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_REPORT_CARD_LONG_NAME_REFLOW_REPAIR_4_INDEPENDENT_REVIEW","status":"PASS_BOUNDED_LOCAL_TRUTH_AND_REFLOW_GATE_PROMOTION_HOLD","next":"P0_CONTENT_ACCESSIBILITY_REWARD_AND_PUBLIC_GATES"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_REPORT_CARD_LONG_NAME_REFLOW_REPAIR_4","status":"BUILT_LOCALLY_14_ARTIFACT_JOURNEYS_LONG_NAME_BOUNDS_PASS","next":"P0_REPORT_CARD_LONG_NAME_REFLOW_REPAIR_4_INDEPENDENT_REVIEW"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_200_PERCENT_REFLOW_REPAIR_3_INDEPENDENT_REVIEW","status":"FAIL_REPORT_CARD_LONG_RESIDENT_NAME_COMPONENT_OVERFLOW","next":"P0_REPORT_CARD_LONG_NAME_REFLOW_REPAIR_4"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_200_PERCENT_REFLOW_REPAIR_3","status":"BUILT_LOCALLY_11_CONTRACT_AND_14_ARTIFACT_REFLOW_JOURNEYS_PASS","next":"P0_200_PERCENT_REFLOW_REPAIR_3_INDEPENDENT_REVIEW"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_LEARNING_LEDGER_REPAIR_2_INDEPENDENT_REVIEW","status":"FAIL_YEARBOOK_CLASS_AND_QUIZ_200_PERCENT_OVERFLOW","next":"P0_200_PERCENT_REFLOW_REPAIR_3"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_REGISTRY_CHRONOLOGY_INDEPENDENT_REAUDIT","status":"PASS_LOCAL_GATE_B_HARNESS_PROVIDER_AND_PROMOTION_HOLD","next":"P0_SEMANTIC_PROVIDER_TRIAL_AUTHORITY_PACKET"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_LEARNING_LEDGER_TRUTH_EMPTY_STORAGE_ZOOM_REPAIR","status":"BUILT_LOCALLY_11_CONTRACT_AND_10_ARTIFACT_JOURNEYS_PASS","next":"P0_LEARNING_LEDGER_REPAIR_2_INDEPENDENT_REVIEW"},
+    {"product_id":"newsstand","run_type":"P0_BROWSER_HISTORY_RESTORE_INDEPENDENT_REVIEW","status":"PASS_BOUNDED_HISTORY_GATE_OVERALL_RELEASE_HOLD_REMAINS","next":"OWNER_VISUAL_SAFARI_VOICEOVER_ARTIFACT_ROLLBACK_AND_PUBLIC_GATES"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_REGISTRY_CHRONOLOGY_REPAIR","status":"BUILT_LOCALLY_39_TESTS_CHRONOLOGY_PASS","next":"P0_PHASE_2_REGISTRY_CHRONOLOGY_INDEPENDENT_REAUDIT"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_LEARNING_LEDGER_INDEPENDENT_REVIEW","status":"FAIL_REWARD_COPY_SUPERLATIVE_EMPTY_STATE_STORAGE_TRUTH_AND_200_PERCENT_OVERFLOW","next":"P0_LEARNING_LEDGER_TRUTH_EMPTY_STORAGE_ZOOM_REPAIR"},
+    {"product_id":"newsstand","run_type":"P0_BROWSER_HISTORY_RESTORE_REPAIR","status":"BUILT_LOCALLY_73_RENDERED_HISTORY_CHECKS_PASS","next":"P0_BROWSER_HISTORY_RESTORE_INDEPENDENT_REVIEW"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_EXECUTABLE_PROVENANCE_INDEPENDENT_REAUDIT","status":"FAIL_REGISTRY_APPROVAL_AFTER_RUN_CHRONOLOGY_BYPASS","next":"P0_PHASE_2_REGISTRY_CHRONOLOGY_REPAIR"},
+    {"product_id":"newsstand","run_type":"P0_DATASET_GUARD_REPAIR_INDEPENDENT_REVIEW","status":"FAIL_BROWSER_BACK_LEAVES_ARTICLE_AND_DROPS_SEARCH_FOCUS","next":"P0_BROWSER_HISTORY_RESTORE_REPAIR"},
+    {"product_id":"sunnyvaile-high","run_type":"REPAIR_CLASSES_404_AND_PROVE_LEARNING_LEDGER","status":"BUILT_LOCALLY_10_CONTRACT_AND_6_ARTIFACT_JOURNEY_CHECKS_PASS","next":"P0_LEARNING_LEDGER_INDEPENDENT_REVIEW"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_SEMANTIC_PROVENANCE_RECEIPT_REPAIR","status":"BUILT_LOCALLY_38_TESTS_EXECUTABLE_PROVENANCE_PASS","next":"P0_PHASE_2_EXECUTABLE_PROVENANCE_INDEPENDENT_REAUDIT"},
+    {"product_id":"newsstand","run_type":"P0_DATASET_GUARD_STALE_AND_CORRECTION_REPAIR","status":"BUILT_LOCALLY_10_STATE_AND_37_RENDERED_CHECKS_PASS","next":"P0_DATASET_GUARD_REPAIR_INDEPENDENT_REVIEW"},
+    {"product_id":"newsstand","run_type":"P0_REPAIR_INDEPENDENT_EDITORIAL_AND_RENDERED_REVIEW","status":"HOLD_FAIL_DIRECT_HASH_SEARCH_DATASET_GUARD_STALE_STATUS_AND_CORRECTION_EVIDENCE","next":"P0_DATASET_GUARD_STALE_AND_CORRECTION_REPAIR"},
+    {"product_id":"library","run_type":"ECO_01_PRINT_CONTRAST_INDEPENDENT_REVIEW","status":"PASS_LOCAL_EXPERT_GATES_HOLD_NONLOCAL_ACCESSIBILITY_AND_NEWCOMER_STUDY","next":"HEADED_OWNER_SAFARI_VOICEOVER_NATIVE_ZOOM_AND_8_NEWCOMER_GATES"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_COST_TOKENIZER_PROVENANCE_INDEPENDENT_REAUDIT","status":"FAIL_ARBITRARY_AUTHORITY_BYTES_USAGE_LIMIT_RECEIPT_RECOUNT_AND_FUTURE_DATE","next":"P0_PHASE_2_SEMANTIC_PROVENANCE_RECEIPT_REPAIR"},
+    {"product_id":"library","run_type":"ECO_01_PRINT_CONTRAST_REPAIR","status":"BUILT_LOCALLY_40_BROWSER_CHECKS_PRINT_WARNING_21_TO_1","next":"ECO_01_PRINT_CONTRAST_INDEPENDENT_REVIEW"},
+    {"product_id":"library","run_type":"ECO_01_PROMPT_CONTRAST_INDEPENDENT_REVIEW","status":"HOLD_FAIL_PRINT_WARNING_CONTRAST_1_28_TO_1","next":"ECO_01_PRINT_CONTRAST_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_COST_TOKENIZER_PROVENANCE_REPAIR","status":"BUILT_LOCALLY_36_TESTS_AND_PROVENANCE_GATES_PASS","next":"P0_PHASE_2_COST_TOKENIZER_PROVENANCE_INDEPENDENT_REAUDIT"},
+    {"product_id":"library","run_type":"ECO_01_PROMPT_PANEL_CONTRAST_REPAIR","status":"BUILT_LOCALLY_30_BROWSER_AND_COMPUTED_CONTRAST_CHECKS_PASS","next":"ECO_01_PROMPT_CONTRAST_INDEPENDENT_REVIEW"},
+    {"product_id":"newsstand","run_type":"P0_PUBLICATION_STATE_ACCESSIBILITY_AND_TRUST_REPAIR","status":"BUILT_LOCALLY_DETERMINISTIC_AND_GLOBAL_CHECKS_PASS_RENDERED_REVIEW_PENDING","next":"P0_REPAIR_INDEPENDENT_EDITORIAL_AND_RENDERED_REVIEW"},
+    {"product_id":"library","run_type":"ECO_01_REPAIR_2_INDEPENDENT_REVIEW","status":"HOLD_FAIL_PROMPT_PANEL_COMPUTED_CONTRAST","next":"ECO_01_PROMPT_PANEL_CONTRAST_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_REPAIR_3_INDEPENDENT_AUDIT","status":"FAIL_RATE_DATE_NO_CHARGE_AND_TOKENIZER_PROVENANCE","next":"P0_PHASE_2_COST_TOKENIZER_PROVENANCE_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_QUOTED_APOSTROPHE_AND_METRIC_INTEGRITY_REPAIR","status":"BUILT_LOCALLY_34_TESTS_PASS_INDEPENDENT_AUDIT_PENDING","next":"P0_PHASE_2_REPAIR_3_INDEPENDENT_AUDIT"},
+    {"product_id":"library","run_type":"ECO_01_REASONING_TRUTH_C2PA_AND_BROWSER_REPAIR","status":"BUILT_LOCALLY_20_RENDERED_CHECKS_AND_TRUTH_TESTS_PASS","next":"ECO_01_REPAIR_2_INDEPENDENT_REVIEW"},
+    {"product_id":"newsstand","run_type":"INDEPENDENT_EDITORIAL_ACCESSIBILITY_VISUAL_TECHNICAL_REVIEW","status":"HOLD_FAIL_STATE_FOCUS_SCHEMA_HEALTH_EVIDENCE_AND_ARTIFACT_BINDING","next":"P0_PUBLICATION_STATE_ACCESSIBILITY_AND_TRUST_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_CLASSIFIER_HARNESS_REPAIR_2_INDEPENDENT_AUDIT","status":"FAIL_QUOTED_APOSTROPHE_LEAK_AND_ALL_ZERO_METRIC_ACCEPTANCE","next":"P0_PHASE_2_QUOTED_APOSTROPHE_AND_METRIC_INTEGRITY_REPAIR"},
+    {"product_id":"episode-media-quality","run_type":"EP04_P0_2_COORDINATE_REPAIR_INDEPENDENT_REVIEW","status":"PASS_BOUNDED_COORDINATE_PACKET_ONLY_PRODUCTION_BLOCKS_REMAIN","next":"OWNER_AUDIO_AND_RIGHTS_BOUND_PRODUCTION_PACKET_WHEN_AUTHORIZED"},
+    {"product_id":"episode-media-quality","run_type":"EP04_P0_2_COORDINATE_DEDUPLICATION_REPAIR","status":"BUILT_LOCALLY_DUPLICATE_ROWS_REMOVED_MANIFESTS_PASS","next":"EP04_P0_2_COORDINATE_REPAIR_INDEPENDENT_REVIEW"},
+    {"product_id":"library","run_type":"ECO_01_VERIFICATION_RULEBOOK_REPAIR_INDEPENDENT_REVIEW","status":"HARD_FAIL_UNASSESSED_PROSE_FALSE_CORRECT_AND_C2PA_LINK_BINDING","next":"ECO_01_REASONING_TRUTH_C2PA_AND_BROWSER_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_CLASSIFIER_HARNESS_EVIDENCE_INTEGRITY_REPAIR","status":"BUILT_LOCALLY_32_TESTS_PASS_INDEPENDENT_AUDIT_PENDING","next":"P0_PHASE_2_CLASSIFIER_HARNESS_REPAIR_2_INDEPENDENT_AUDIT"},
+    {"product_id":"library","run_type":"ECO_01_VERIFICATION_RULEBOOK_ACCEPTANCE_REPAIR","status":"BUILT_LOCALLY_14_OF_14_BINDINGS_AND_ACCEPTANCE_REPAIRS_PASS","next":"ECO_01_VERIFICATION_RULEBOOK_REPAIR_INDEPENDENT_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"EP04_P0_2_INDEPENDENT_ADMISSION_REVIEW","status":"PARTIAL_REFERENCE_ADMISSION_COORDINATE_DUPLICATES_FAIL","next":"EP04_P0_2_COORDINATE_DEDUPLICATION_REPAIR"},
+    {"product_id":"episode-media-quality","run_type":"EP04_P0_2_SOURCE_AND_EXECUTION_BINDING","status":"EVIDENCE_PACKET_READY_ALL_CUES_REMAIN_FAIL_OR_PENDING","next":"EP04_P0_2_INDEPENDENT_ADMISSION_REVIEW"},
+    {"product_id":"library","run_type":"ECO_01_VERIFICATION_RULEBOOK_INDEPENDENT_REVIEW","status":"HARD_FAIL_CLAIM_BINDING_INTERACTIONS_CURRENTNESS_AND_ACCESSIBILITY","next":"ECO_01_VERIFICATION_RULEBOOK_ACCEPTANCE_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_CLASSIFIER_REPAIR_AND_HARNESS_INDEPENDENT_REVIEW","status":"FAIL_HARNESS_EVIDENCE_INTEGRITY_AND_PASTED_CONTENT_ISOLATION","next":"P0_PHASE_2_CLASSIFIER_HARNESS_EVIDENCE_INTEGRITY_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_CLASSIFIER_ARCHITECTURE_REPAIR_AND_OFFLINE_HARNESS","status":"BUILT_LOCALLY_26_TESTS_AND_FROZEN_79_CASE_INTEGRITY_PASS","next":"P0_PHASE_2_CLASSIFIER_REPAIR_AND_HARNESS_INDEPENDENT_REVIEW"},
+    {"product_id":"library","run_type":"ECO_01_VERIFICATION_RULEBOOK_LOCAL_BUILD","status":"BUILT_LOCALLY_HOLD_SOURCE_LEDGER_EVAL_AND_RENDER_PASS","next":"ECO_01_VERIFICATION_RULEBOOK_INDEPENDENT_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"EP04_P0_1_INDEPENDENT_ADMISSION_REVIEW","status":"PARTIAL_FACTUAL_FLOOR_PASS_EXECUTION_BINDING_FAIL","next":"EP04_P0_2_SOURCE_AND_EXECUTION_BINDING"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_CLASSIFIER_INDEPENDENT_HELD_OUT_ARCHITECTURE_REVIEW","status":"FAIL_BEFORE_PROVIDER_TRIAL_FOUR_ARCHITECTURE_DEFECTS","next":"P0_PHASE_2_CLASSIFIER_ARCHITECTURE_REPAIR_AND_OFFLINE_HARNESS"},
+    {"product_id":"library","run_type":"ECO_01_VERIFICATION_RULEBOOK_BUILD_PACKET","status":"SPECIFIED_HIDE_OR_LABEL_UNTIL_INDEPENDENTLY_APPROVED","next":"ECO_01_VERIFICATION_RULEBOOK_LOCAL_BUILD"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_MEANING_AWARE_CLASSIFIER","status":"BUILT_LOCALLY_ARCHITECTURE_TESTS_PASS_REAL_SEMANTIC_ACCURACY_UNPROVEN","next":"P0_PHASE_2_CLASSIFIER_INDEPENDENT_HELD_OUT_ARCHITECTURE_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"EP04_P0_1_IDENTITY_HISTORY_TRANSITION_ADMISSION","status":"EVIDENCE_PACKET_READY_ALL_CUES_REMAIN_FAIL_OR_PENDING","next":"EP04_P0_1_INDEPENDENT_ADMISSION_REVIEW"},
+    {"product_id":"library","run_type":"CROSS_PRODUCT_CONTENT_ECOSYSTEM_INVENTORY_AND_CONCEPT_MAP_FOUNDATION","status":"BUILT_LOCALLY_FOUNDATION_ONLY","next":"ECO_01_VERIFICATION_RULEBOOK_BUILD_PACKET"},
+    {"product_id":"episode-media-quality","run_type":"EP04_PILOT_REFERENCE_BUNDLE_INDEPENDENT_REVIEW","status":"FAIL_NO_CUE_ADMITTED","next":"EP04_P0_1_IDENTITY_HISTORY_TRANSITION_ADMISSION"},
+    {"product_id":"post-office","run_type":"LOCAL_NON_MUTATING_SERVICE_AND_ACCESSIBILITY_SUITE","status":"VERIFIED_LOCALLY_EXTERNAL_SERVICE_RECEIPTS_BLOCKED","next":"APPROVED_TEST_IDENTITY_CONTROLLED_EXTERNAL_SUITE"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_ADVERSARIAL_REPAIR_2_INDEPENDENT_REVIEW","status":"FAIL_ARCHITECTURAL_SEMANTIC_AND_FALSE_POSITIVE_GAPS","next":"P0_PHASE_2_MEANING_AWARE_CLASSIFIER"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_ADVERSARIAL_REPAIR_2","status":"BUILT_LOCALLY_CONTRACT_TESTS_PASS_INDEPENDENT_REVIEW_PENDING","next":"P0_PHASE_2_ADVERSARIAL_REPAIR_2_INDEPENDENT_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"EP04_PILOT_REFERENCE_BUNDLE_CONSTRUCTION","status":"PENDING_OR_FAIL_REFERENCE_CANDIDATES_BOUND_NO_ADMISSIONS","next":"EP04_PILOT_REFERENCE_BUNDLE_INDEPENDENT_REVIEW"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_ADVERSARIAL_REPAIR_INDEPENDENT_REVIEW","status":"FAIL_MEANING_EQUIVALENT_SAFETY_AND_CURRENTNESS_BYPASSES","next":"P0_PHASE_2_ADVERSARIAL_REPAIR_2"},
+    {"product_id":"post-office","run_type":"OPERATING_SPEC_AND_CONTROLLED_SERVICE_PACKET","status":"SPECIFIED_EXTERNAL_SERVICE_RECEIPTS_UNVERIFIED","next":"LOCAL_NON_MUTATING_SERVICE_AND_ACCESSIBILITY_SUITE"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_ADVERSARIAL_REPAIR","status":"BUILT_LOCALLY_TESTS_PASS_INDEPENDENT_REVIEW_PENDING","next":"P0_PHASE_2_ADVERSARIAL_REPAIR_INDEPENDENT_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"EP04_PILOT_AUTHORITY_AND_REFERENCE_PREFLIGHT","status":"BLOCKED_AUDIO_CAPTION_AUTHORITY_AND_REFERENCE_ADMISSION","next":"EP04_PILOT_REFERENCE_BUNDLE_CONSTRUCTION_AND_AUDIO_OWNER_RECONCILIATION"},
+    {"product_id":"town-entry-homepage","run_type":"ENTRY_REPAIR_RENDERED_BROWSER_REVIEW","status":"VERIFIED_LOCALLY_NAMED_REPAIR_STATES","next":"EXACT_CLEAN_ARTIFACT_AND_OWNER_VISUAL_COMPREHENSION_REVIEW"},
+    {"product_id":"town-entry-homepage","run_type":"ENTRY_RECOVERY_AND_TRUTH_REPAIR","status":"BUILT_LOCALLY_DETERMINISTIC_GUARDRAILS_PASS","next":"ENTRY_REPAIR_RENDERED_BROWSER_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"REPRESENTATIVE_SEGMENT_CHAMPIONSHIP","status":"SPECIFIED_EP04_CONDITIONAL_RECOMMENDATION","next":"EP04_PILOT_AUTHORITY_AND_REFERENCE_PREFLIGHT"},
+    {"product_id":"fairy-godmother","run_type":"P0_PHASE_2_INDEPENDENT_SAFETY_ACCURACY_REVIEW","status":"FAIL_HARD_BOUNDARY_AND_RETRIEVAL_FALSE_NEGATIVES","next":"P0_PHASE_2_ADVERSARIAL_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_ROUTER_SAFETY_RETRIEVAL_PHASE_2","status":"BUILT_LOCALLY_UNIT_AND_FIXTURE_ROUTE_PASS","next":"P0_PHASE_2_INDEPENDENT_SAFETY_ACCURACY_REVIEW"},
+    {"product_id":"episode-media-quality","run_type":"REPRESENTATIVE_PIPELINE_FOUNDATION","status":"BUILT_LOCALLY_INDEPENDENT_VALIDATOR_REVIEW_PASS","next":"REPRESENTATIVE_SEGMENT_CHAMPIONSHIP"},
+    {"product_id":"town-entry-homepage","run_type":"EXACT_ARTIFACT_CLEAN_ENTRY_JOURNEY","status":"REPORT_READY_STATIC_TRANSPORT_ONLY_WITH_FOUR_CONFIRMED_FAILURES","next":"ENTRY_RECOVERY_AND_TRUTH_REPAIR"},
+    {"product_id":"fairy-godmother","run_type":"P0_BACKEND_PHASE_1","status":"BUILT_LOCALLY_INDEPENDENT_TECHNICAL_REVIEW_PASS_WITH_RECORDED_LIMITS","next":"P0_ROUTER_SAFETY_AND_RETRIEVAL_PHASE_2"},
+    {"product_id":"town-entry-homepage","run_type":"ENTRY_OPERATING_SPEC_AND_CLEAN_JOURNEY","status":"SPECIFIED","next":"EXECUTE_EXACT_ARTIFACT_CLEAN_ENTRY_JOURNEY"},
+    {"product_id":"episode-media-quality","run_type":"OPERATING_SPEC_AND_REPRESENTATIVE_PIPELINE","status":"SPECIFIED_ALL_MOTION_PRODUCTS_HOLD","next":"EXECUTE_REPRESENTATIVE_PIPELINE_BEFORE_FULL_SERIES_REPAIR"},
+    {"product_id":"platform-reliability","run_type":"PUBLIC_PROMISE_RECONCILIATION","status":"BUILDING_RECORDS_COMPLETE","next":"PRODUCT_OWNED_JOURNEY_AND_SERVICE_VERDICTS"},
+    {"product_id":"sunnyvaile-high","run_type":"P0_BUILD_AND_VERIFY","status":"BUILT_LOCALLY_JUDGE_PASS","next":"PUBLIC_VERIFICATION_AND_ZERO_LIVE_ROW_PROMISE_REVIEW"},
+    {"product_id":"newsstand","run_type":"PUBLICATION_CONTRACT_RECONCILIATION","status":"BUILT_LOCALLY_RELEASE_HOLD","next":"INDEPENDENT_EDITORIAL_ACCESSIBILITY_VISUAL_TECHNICAL_REVIEW"}
+  ],
+  "completed_manual_pilots_note": "Historical first-pass handoffs only. Current authority is completed_cycles plus waiting_external; historical next fields do not override them.",
+  "completed_manual_pilots": [
+    {"product_id":"fairy-godmother","status":"REPORT_READY","next":"BUILD_P0_FROM_RECOVERED_V18_IN_ISOLATED_STAGING"},
+    {"product_id":"dream-phone","status":"REPORT_READY","next":"PRODUCT_STATUS_DECISION"},
+    {"product_id":"girl-talk","status":"REPORT_READY","next":"COMMUNITY_COMPLETION_CONTRACT_CHANGE"},
+    {"product_id":"episode-media-quality","status":"REPORT_READY","next":"NEW_MEDIA_CANDIDATE"},
+    {"product_id":"visitors-centre","status":"REPORT_READY","next":"CLEAN_STATE_COMPREHENSION_AND_OWNER_VISUAL_RULING"},
+    {"product_id":"library","status":"REPORT_READY","next":"OWNER_REVIEW_AND_FRESH_BROWSER_EVIDENCE"},
+    {"product_id":"episode-experience","status":"REPORT_READY","next":"EXACT_RELEASE_AND_PUBLIC_ROUTE_VERIFICATION"},
+    {"product_id":"chick-flicks","status":"REPORT_READY","next":"EXACT_ARTIFACT_CATALOGUE_AND_DISCOVERY_TEST"},
+    {"product_id":"maikeover","status":"REPORT_READY","next":"CONTROLLED_ACCOUNT_AND_TWO_DEVICE_JOURNEY"},
+    {"product_id":"blend-snap","status":"REPORT_READY","next":"WEEKLY_PACK_AVAILABILITY_MANIFEST_DECISION"},
+    {"product_id":"newsstand","status":"REPORT_READY","next":"FOUR_PUBLICATION_CONTRACT_AND_PRODUCER_TO_READER_TEST"},
+    {"product_id":"post-office","status":"REPORT_READY","next":"CONTROLLED_THIRD_PARTY_DELIVERY_AND_FAILURE_SUITE"},
+    {"product_id":"sorority-house","status":"REPORT_READY","next":"CONTROLLED_POSTING_MODERATION_IDENTITY_AND_PERSISTENCE_SUITE"},
+    {"product_id":"sunnyvaile-high","status":"REPORT_READY","next":"REPAIR_CLASSES_404_AND_PROVE_LEARNING_LEDGER"},
+    {"product_id":"town-hall","status":"REPORT_READY","next":"CONTROLLED_SUBMISSION_TRIAGE_AND_ABUSE_SUITE"},
+    {"product_id":"ksvl","status":"REPORT_READY","next":"OWNER_AUDIO_QUALITY_PUBLIC_ORIGIN_AND_REQUEST_SERVICE_CHECK"},
+    {"product_id":"mme-claio","status":"REPORT_READY","next":"CONTROLLED_FORTUNE_PERSISTENCE_ACCESSIBILITY_AND_REDIRECT_SUITE"},
+    {"product_id":"luminairy","status":"REPORT_READY","next":"COMPLETE_CLAIM_SOURCE_FRESHNESS_CORRECTION_REGISTRY"},
+    {"product_id":"mall","status":"REPORT_READY","next":"ROUTE_BY_ROUTE_SHOP_READINESS_AND_CLAIM_REGISTER"},
+    {"product_id":"bronze-aige","status":"REPORT_READY","next":"OWNER_COSMO_AND_ALCOHOL_FRAMING_THEN_EXACT_JOURNEY_SUITE"},
+    {"product_id":"platform-reliability","status":"REPORT_READY","next":"EXACT_RELEASE_PROVENANCE_AND_CONTROLLED_SERVICE_SUITE"},
+    {"product_id":"town-entry-homepage","status":"REPORT_READY","next":"FRESH_ENTRY_JOURNEY_AND_OWNER_CAMPAIGN_TRIAD_APPROVAL"}
+  ],
+  "next_implementation_order": [
+    "visitors-centre",
+    "blend-snap",
+    "fairy-godmother",
+    "post-office",
+    "sorority-house",
+    "town-hall",
+    "maikeover",
+    "sunnyvaile-high",
+    "chick-flicks",
+    "newsstand",
+    "mme-claio",
+    "dream-phone",
+    "mall",
+    "bronze-aige",
+    "ksvl",
+    "luminairy"
+  ],
+  "queued_order": []
+}

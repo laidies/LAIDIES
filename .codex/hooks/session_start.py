@@ -47,11 +47,11 @@ else:
         )
 
 preamble = (
-    "Before material LAiDIES work, follow operations/product-stewards/"
-    "AUTONOMOUS-DELIVERY-RUNTIME.md and operations/assets/ASSET-CONTROL.md. "
-    "Never send objective FAIL/HOLD work to Ali. Resolve production assets "
-    "through the active registry, pilot before batching, and stop after two "
-    "failed repair cycles for root-cause correction."
+    "Before material LAiDIES work, follow operations/CODEX-WORKING-AGREEMENT.md "
+    "and use the standing card for orientation, retrieving exact authority only "
+    "when the task needs it. Never send objective FAIL/HOLD work to Ali. "
+    "Pilot before batching, and stop after two failed repair cycles for "
+    "root-cause correction."
 )
 
 print(json.dumps({"hookSpecificOutput": {
