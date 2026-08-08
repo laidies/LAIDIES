@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 13:35 PDT
+**Evidence time:** 2026-08-08 15:20 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -36,7 +36,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Item | Truth | Completion trigger |
 |---|---|---|
 | Full encrypted off-site backup and restore | PASS FOR BOUNDED INTEGRATION | snapshot `ff1c716b`, `check --read-data`, full scratch restore and restored routes passed; write-stable snapshot `4a996ba9` and sampled drill also passed |
-| Move the worktree out of iCloud | OPERATING FOUNDATION INTEGRATED — SOURCE STILL PRESERVED | PR #26 merged as `13fafe62`; pre-merge `c096ea51` and fresh post-merge `13fafe62` clean drills passed; individual path disposition still gates old-copy retirement |
+| Move the worktree out of iCloud | FIRST STANDALONE CLONE PASS — SOURCE STILL PRESERVED | `/Users/alisoneakin/Projects/laidies` has its own local `.git`, exact recovery commit `64900d7d`, clean tracked state and full CI PASS. Earlier drills shared the iCloud Git object database and did not prove independent storage. A second standalone drill plus exact path disposition still gate old-copy retirement. |
 | Archive/delete old operating-model material | TIMED PARITY / CONSUMER REPAIR | replacement projection runs for two weeks, live consumers are repaired and full restore proof exists; UNKNOWN never moves |
 | Collapse durable roles/dossiers | PILOT, NOT MASS MIGRATED | event projection must first cover 14 active legacy records, then prove parity for two weeks before mirrors retire one consumer group at a time |
 | Retire the prose handoff/control contract after migration | TIMED PARITY | the replacement artifact schema and checker now exist; the current Control Room contract remains authoritative until all consumers use the checked shape and event projection runs beside it for two weeks |
@@ -51,23 +51,33 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Langfuse | NOT ADOPTED | only if the JSONL judge log misses a measured calibration drift |
 | R2 artifact/archive migration | NOT STARTED | account/configuration and spend authority, recovery proof and a 5 GB bounded reference-safe pilot |
 | Library mobile shelf defect | FAIL / LOCKED | Control Room visual integration owner repairs 120px visible-cover requirement and reruns exact browser/preflight evidence |
-| Public release | CONTROLLER IN REVIEW / CURRENT SOURCE BLOCKED | automatic `main:/` deployment is contained; the manual exact-artifact controller is calibrated locally, but the current source fails its curated build on 11 missing/untracked dependencies. Provider variables/environment protection and any artifact-specific deployment remain separately unauthorized |
+| Public release | CONTROLLER IN DRAFT PR / CURRENT SOURCE BLOCKED | automatic `main:/` deployment is contained; the manual exact-artifact controller is merged and calibrated, but draft PR #29 remains unmerged and the current source fails its curated build on ten missing/untracked dependencies. Provider variables/environment protection and any artifact-specific deployment remain separately unauthorized. |
 
-## Current explicit whole-system failure
+## Current explicit whole-system hold
 
-`node scripts/check-operational-integrity.mjs` fails on:
+Full `npm run ci` passes at exact recovery commit
+`2def7439a267d8b67b4a043a669a15acb5e65316`; the standalone clone repeats that
+PASS at `64900d7d6c89d13d42e0157046d7fd99da128285`. This is mechanical operating
+integrity, not content or release approval.
 
-1. `WRK-20260802-odc-101-teaching-design` carrying invalid status `RUNNING`;
-2. four overdue work-resolution records;
-3. Library mobile shelf rows failing the required 120px visible-book dimension.
-
-These are current defects, not implementation success. They remain routed to their owning lanes. The Library visitor-facing lock prevents this operating-model task from modifying the shelf candidate.
+The curated public builder still fails closed on ten paths: eight absent Book
+Fair images, one unadmitted Closet hero and one absent DJ Sunnyv portrait.
+Those are current source defects owned by the relevant product lanes. The
+Library visitor-facing lock prevents this operating-model task from substituting
+new or unreviewed imagery.
 
 The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 local enforcement/configuration checks passed, including `git diff --check`; the explicit whole-system command failed only on the five work-resolution records and the locked 120px Library regression listed above. The repository inventory was refreshed to 65,888 files / 84,333,897,353 bytes with 5,261 `UNKNOWN` paths; `UNKNOWN` remains immovable.
 
 The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. The live parity check correctly fails because 14 active legacy work IDs are not yet represented in the append-only event source. That failure prevents the two-week retirement clock from being falsely started. The current metrics projector consequently reports nine metrics unavailable rather than claiming zero performance.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
+
+The 15:20 PDT recovery continuation created the first genuinely standalone
+non-iCloud clone at `/Users/alisoneakin/Projects/laidies`. Unlike the earlier
+linked worktrees, its Git object database is local to that clone. Exact commit
+`64900d7d6c89d13d42e0157046d7fd99da128285` passes the full calibrated CI suite.
+The original iCloud source remains preserved because one more standalone drill
+and exact path dispositions are still required.
 
 ## Authority truth
 

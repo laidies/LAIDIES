@@ -1,4 +1,4 @@
-# Recovery status — updated 2026-08-08 13:35 PDT
+# Recovery status — updated 2026-08-08 15:20 PDT
 
 ## Proven now
 
@@ -13,14 +13,15 @@
 - Restored-site check: local scratch server returned HTTP 200 and expected titles for `index.html` (`LAiDIES — SUNNYVAiLE`), `library.html` (`SUNNYVAiLE LIBRAiRY`) and `content/library-books/pilots/ai-fundamentals-101-v2/review.html` (`AI Fundamentals 101 — local review draft`). Route recovery does not approve the held book or Library design.
 - Automated recurrence: nightly incremental backup, weekly repository integrity check and monthly sampled restore/route drill are active. No retention deletion policy has been enabled.
 - Write-stable follow-up snapshot: `4a996ba9`, taken after writes were paused. The representative source fingerprint was unchanged before and after the snapshot; sampled `restic dump`/restore hashes and the three restored routes passed. This closes the live-source limitation for bounded integration work, but it does not authorize deletion of the iCloud worktree.
-- Non-iCloud drills: the pre-merge clean branch at `c096ea51` and a fresh post-merge worktree at `13fafe62` both passed the exact operating-baseline commands. This satisfies the two-drill recovery check for the operating foundation; individual dirty-tree paths still require exact disposition before any archive or deletion.
+- Clean-checkout drills: the pre-merge branch at `c096ea51` and post-merge worktree at `13fafe62` passed the exact operating-baseline commands, but both shared the original iCloud repository's Git object database. They prove clean checkout behavior, not independent non-iCloud source storage.
+- First standalone non-iCloud drill: `/Users/alisoneakin/Projects/laidies` is a fresh partial clone with its own local `.git`, exact branch commit `64900d7d6c89d13d42e0157046d7fd99da128285`, clean tracked state and full `npm run ci` PASS. This is the first true independent operating clone; a second clean standalone drill and exact disposition of every migrated path remain required before old-copy retirement.
 - Current inventory: `/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-inventory.json`, generated 2026-08-08T19:31:46Z; 65,925 files / 84,334,209,258 bytes; dirty 9,794 (219 tracked modifications, 9,575 untracked). Dispositions: `HOLD_UNKNOWN=4,299`, `REVIEW_FOR_EXACT_PACKAGE_COMMIT=2,626`, `PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF=32`, `REVIEW_TRACKED_GENERATED_FILE=27`, `KEEP_OUT_OF_GIT=2,810`.
 
 ## Limitation closed for bounded integration
 
 The first full backup read a live, changing iCloud worktree. One pre-backup hash did not match the eventual snapshot because the source changed during the 2:43 backup; the restored bytes did match the immutable snapshot exactly. This was source movement, not restore corruption.
 
-Snapshot `4a996ba9` supplied the required write-stable follow-up and sampled recovery drill. Bounded clean-branch integration may proceed. Destructive cleanup and retirement of the iCloud tree remain prohibited until two clean non-iCloud work drills pass and every moved path has an exact disposition.
+Snapshot `4a996ba9` supplied the required write-stable follow-up and sampled recovery drill. Bounded clean-branch integration may proceed. The first standalone clone drill passed at `64900d7d`; destructive cleanup and retirement of the iCloud tree remain prohibited until a second standalone drill passes and every moved path has an exact disposition.
 
 ## Authority truth
 
