@@ -1,0 +1,17 @@
+# Tracked source for the LAiDIES workspace-level Codex configuration.
+# Apply/check with: node scripts/sync-codex-workspace-config.mjs
+
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+plan_mode_reasoning_effort = "high"
+
+sandbox_mode = "danger-full-access"
+
+[agents]
+max_concurrent_threads_per_session = 2
+default_subagent_model = "gpt-5.6-terra"
+default_subagent_reasoning_effort = "medium"
+
+[features]
+multi_agent_v2 = true
+fast_mode = false
