@@ -23,4 +23,8 @@ for (const [role, phrases] of Object.entries(expected)) {
 const owner = fs.readFileSync(path.join(root, '.codex/agents/product_owner.toml'), 'utf8');
 assert.doesNotMatch(owner, /Read .*painpoints log/i, 'product owner must not universally preload the painpoints archive');
 
-console.log('AGENT ROLE ROUTING TEST PASS roles=5 whole_sources=5 painpoints_universal=0');
+const judge = fs.readFileSync(path.join(root, '.codex/agents/independent_judge.toml'), 'utf8');
+assert.match(judge, /NO independent semantic-admission authority/, 'same-family judge must not claim independent semantic admission');
+assert.match(judge, /run-independent-content-judge\.mjs/, 'semantic admission must route to the different-family judge');
+
+console.log('AGENT ROLE ROUTING TEST PASS roles=5 whole_sources=5 painpoints_universal=0 same_family_semantic_authority=denied different_family_route=required');
