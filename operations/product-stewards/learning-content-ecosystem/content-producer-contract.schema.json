@@ -7,7 +7,7 @@
   "required": [
     "schemaVersion", "candidateId", "surface", "contentClass", "producer",
     "readerContract", "canonicalTruth", "positiveExemplars",
-    "knownFailurePreflight", "draftArchitecture", "representativeProofPlan",
+    "knownFailurePreflight", "draftArchitecture", "communicationDesign", "representativeProofPlan",
     "ratchet", "status"
   ],
   "properties": {
@@ -24,6 +24,7 @@
       "required": ["registryVersion", "registrySha256", "negativeExemplarIds", "dispositions", "knownDefectsRemaining"]
     },
     "draftArchitecture": { "type": "object" },
+    "communicationDesign": { "type": "object" },
     "representativeProofPlan": { "type": "object" },
     "ratchet": { "type": "object" },
     "status": { "enum": ["READY_TO_DRAFT", "REPAIR_PRODUCER", "SUPERSEDED"] }

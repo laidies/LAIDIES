@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
-import { inspectProseQualityReview } from "./check-prose-quality-admission.mjs";
+import { inspectProseQualityReview, inspectProseReviewChain } from "./check-prose-quality-admission.mjs";
 
 const REQUIRED_GATES = [
   "accuracy", "antiSlop", "currentBestPractice", "laidiesVoice",
@@ -121,9 +121,8 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
       if (result.errors.length) reasons.push(`semanticAdmission:INVALID(${result.errors.join("|")})`);
     }
     if (producerReview && semanticAdmission) {
-      if (producerReview.surface !== semanticAdmission.surface || producerReview.contentClass !== semanticAdmission.contentClass) reasons.push("semanticAdmission:CONTENT_IDENTITY_MISMATCH");
-      if (producerReview.artifact?.reviewText?.path !== semanticAdmission.artifact?.reviewText?.path || producerReview.artifact?.reviewText?.sha256 !== semanticAdmission.artifact?.reviewText?.sha256) reasons.push("semanticAdmission:PRODUCER_REVIEW_TEXT_MISMATCH");
-      if (producerReview.artifact?.manifest?.path !== semanticAdmission.artifact?.manifest?.path || producerReview.artifact?.manifest?.sha256 !== semanticAdmission.artifact?.manifest?.sha256) reasons.push("semanticAdmission:PRODUCER_MANIFEST_MISMATCH");
+      const chain = inspectProseReviewChain(producerReview, semanticAdmission, { root });
+      if (chain.errors.length) reasons.push(`semanticAdmission:CHAIN_INVALID(${chain.errors.join("|")})`);
     }
     if (order.successorOf) {
       for (const [label, review] of [["producerReview", producerReview], ["semanticAdmission", semanticAdmission]]) {

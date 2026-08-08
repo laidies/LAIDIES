@@ -50,11 +50,11 @@ function validOrder() {
   const manifestPath = "content/fixture-manifest.json";
   const payloadPath = "content/fixture-payload.html";
   const renderedPath = "evidence/fixture-render.png";
-  const observationPath = "evidence/reader-observation.md";
+  const observationPaths = [1, 2, 3].map(index => `evidence/reader-observation-${index}.md`);
   const payloadBody = "<main>A real work question moves through context and evidence to a checked decision the reader can use elsewhere.</main>\n";
   write(payloadPath, payloadBody);
   write(renderedPath, "fixture render\n");
-  write(observationPath, "The reader explained the context, evidence and human decision in a different case.\n");
+  for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained the context, evidence and human decision in a different case.\n`);
   const manifestFile = write(manifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: id, surface: "LIBRAIRY", contentClass: "EXPLANATION", reviewText: { path: payloadPath, sha256: sha256(path.join(root, payloadPath)) } }));
   const binding = { status: "BOUND", manifestPath, sha256: sha256(manifestFile) };
   const qualityGates = {};
@@ -94,11 +94,13 @@ function validOrder() {
   const badPath = "evidence/known-bad.txt";
   const goodPath = "evidence/known-good.txt";
   const sourcePath = "evidence/source.md";
+  const benchmarkPath = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
   write(badPath, "A disconnected glossary uses a decorative comparison and gives the reader no useful decision.\n");
   write(goodPath, "A real problem moves through one mechanism and lands in a useful action the reader can transfer.\n");
   write(sourcePath, "Authoritative fixture source says context and evidence support a checked decision.\n");
+  write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
-  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction"];
+  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
@@ -113,19 +115,45 @@ function validOrder() {
     positiveExemplars: [{ id: "GOOD", strengthsToUse: ["connected mechanism"], patternsNotToCopy: ["exact structure"] }],
     knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
     draftArchitecture: { plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template." },
+    communicationDesign: {
+      benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V1",
+      benchmark: { path: benchmarkPath, sha256: sha256(path.join(root, benchmarkPath)) },
+      mode: "FULL",
+      surfaceAdaptation: "Connected written explanation, not a copied talk format.",
+      imitationBoundary: "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+      dimensions: {
+        humanQuestion: { disposition: "APPLY", reason: "A consequential work question gives purpose.", plannedEvidence: "Open with the real work question." },
+        usefulCuriosity: { disposition: "APPLY", reason: "Prediction reveals the initial model.", plannedEvidence: "Ask what supports the decision before the answer." },
+        invisibleProcessConcrete: { disposition: "APPLY", reason: "Context movement is hidden.", plannedEvidence: "Trace context and evidence to the checked decision." },
+        familiarTechnicalMovement: { disposition: "APPLY", reason: "The work case connects to the system.", plannedEvidence: "Move from work question to context and evidence and back." },
+        limitationsConsequences: { disposition: "APPLY", reason: "Unsupported action has a consequence.", plannedEvidence: "Name the evidence limit before the decision." },
+        humourSurprise: { disposition: "NOT_APPLICABLE", reason: "The fixture does not need humour." },
+        betterNextQuestion: { disposition: "APPLY", reason: "The reader needs a reusable check.", plannedEvidence: "End by asking what evidence supports the decision." }
+      }
+    },
     representativeProofPlan: { highestRisk: "understanding", plannedProof: "one section", acceptanceOutcome: "reader transfers it" },
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }
   }));
   const excerpt = "A real work question moves through context and evidence";
-  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
-  const outcomes = Object.fromEntries(outcomeNames.map(name => [name, { verdict: "PASS", observation: `${name} is present.`, artifactEvidence: [{ excerpt, locator: "fixture-payload.html:1" }], ...(["explainBack", "unseenTransfer"].includes(name) ? { readerEvidence: { prompt: `Test ${name}.`, observedResponse: "Reader explained it.", expectedEvidence: "Names context and evidence.", observationBinding: { path: observationPath, sha256: sha256(path.join(root, observationPath)) } } } : {}) }]));
+  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
   const review = stage => {
     const reviewerPrincipalId = stage === "PRODUCER_SELF_REVIEW" ? "maker" : "independent-reader-principal";
+    const isProducer = stage === "PRODUCER_SELF_REVIEW";
+    const outcomes = Object.fromEntries(outcomeNames.map(name => [name, {
+      verdict: "PASS",
+      observation: `${name} is present.`,
+      artifactEvidence: [{ excerpt, locator: "fixture-payload.html:1" }],
+      ...(["explainBack", "unseenTransfer"].includes(name)
+        ? isProducer
+          ? { simulatedReaderProbe: { prompt: `Probe ${name}.`, probeResponse: "A hypothetical reader explains context and evidence.", expectedEvidence: "Names context and evidence." } }
+          : { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "fixture-reader-admin", participants: observationPaths.map((observationPath, index) => ({ participantId: `reader-${index + 1}`, prompt: `Test ${name}.`, verbatimResponse: `Reader ${index + 1} explained context and evidence.`, expectedEvidence: "Names context and evidence.", observedAt: `2026-08-07T06:5${index}:00-07:00`, observationBinding: { path: observationPath, sha256: sha256(path.join(root, observationPath)) } })) } }
+        : {})
+    }]));
     return ({
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: id, stage, contentClass: "EXPLANATION", surface: "LIBRAIRY", maker: "maker",
-    reviewer: { id: stage === "PRODUCER_SELF_REVIEW" ? "maker-review" : "independent-reader", principalId: reviewerPrincipalId, role: "prose reviewer", ...(stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? { independentFromMaker: true, artifactFirst: true } : {}) }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: "2026-08-07T07:00:00-07:00",
+    reviewer: { id: isProducer ? "maker-review" : "independent-reader", principalId: reviewerPrincipalId, role: "prose reviewer", modelFamily: isProducer ? "openai" : "claude", ...(stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? { independentFromMaker: true, artifactFirst: true } : {}) }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: isProducer ? "2026-08-07T06:00:00-07:00" : "2026-08-07T07:00:00-07:00",
     artifact: { reviewText: { path: payloadPath, sha256: sha256(path.join(root, payloadPath)) }, manifest: { path: manifestPath, sha256: binding.sha256 } },
-    calibration: { registrySha256: sha256(registry), reviewerPrincipalId, reviewedAt: "2026-08-07T06:59:00-07:00", negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "A disconnected glossary uses a decorative comparison", locator: "known-bad.txt:1" }] }], positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["connected mechanism"], evidence: [{ excerpt: "A real problem moves through one mechanism", locator: "known-good.txt:1" }] } },
+    calibration: { registrySha256: sha256(registry), reviewerPrincipalId, reviewedAt: isProducer ? "2026-08-07T05:59:00-07:00" : "2026-08-07T06:59:00-07:00", negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "A disconnected glossary uses a decorative comparison", locator: "known-bad.txt:1" }] }], positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["connected mechanism"], evidence: [{ excerpt: "A real problem moves through one mechanism", locator: "known-good.txt:1" }] } },
     reverseBrief: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "A work question.", surfaceJob: "Durable explanation.", desiredReaderFeeling: "Oh, I get it now." },
     outcomes,
     failureFamilies: Object.fromEntries(allFailureFamilies.map(name => [name, { present: false, observation: `${name} absent.`, artifactLocator: "fixture-payload.html:1" }])),

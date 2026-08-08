@@ -9,24 +9,33 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
-const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
 const REQUIRED_BY_CLASS = {
   EPISODE: [...CORE, ...TEACHING, "storyCarriesMechanism", "humourServesLearning"],
   CLASS: [...CORE, ...TEACHING, "practiceFeedback"],
   EXPLANATION: [...CORE, ...TEACHING],
-  REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "usefulAction", "analogyIntegrity"],
-  FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "usefulAction", "analogyIntegrity"],
-  NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
-  PRACTICE: [...CORE, "retrievalOrPractice", "practiceFeedback", "unseenTransfer", "recoveryRoute"],
-  INTERACTIVE: [...CORE, "dailyLifeConnection", "usefulAction", "practiceFeedback", "honestLimits"],
+  REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
+  FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
+  NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
+  PRACTICE: [...CORE, "retrievalOrPractice", "practiceFeedback", "communicationBenchmark", "unseenTransfer", "recoveryRoute"],
+  INTERACTIVE: [...CORE, "dailyLifeConnection", "communicationBenchmark", "usefulAction", "practiceFeedback", "honestLimits"],
   PROMOTIONAL: [...CORE, "truthfulPromise", "clearAction"],
   MICROCOPY: [...CORE, "truthfulPromise", "clearAction"]
 };
 export const FAILURE_FAMILIES = [
   "glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti",
   "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem",
-  "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction"
+  "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction",
+  "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn",
+  "communicationPastiche", "entertainmentBeforeUnderstanding"
 ];
+
+export function enforcedFailureFamilies(registry) {
+  return [...new Set([
+    ...FAILURE_FAMILIES,
+    ...(registry?.negativeExemplars || []).flatMap(item => item.failureFamilies || [])
+  ])].sort();
+}
 
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const text = value => typeof value === "string" && value.trim().length > 0;
@@ -94,6 +103,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   }
 
   const negativeRegistry = new Map((registry.negativeExemplars || []).map(item => [item.id, item]));
+  const enforcedFamilies = enforcedFailureFamilies(registry);
   require(receipt?.calibration?.registrySha256 === sha256(registryBytes), "calibration registrySha256 is stale");
   require(receipt?.calibration?.reviewerPrincipalId === receipt?.reviewer?.principalId, "calibration reviewer does not match candidate reviewer");
   require(text(receipt?.calibration?.reviewedAt) && Date.parse(receipt.calibration.reviewedAt) <= Date.parse(receipt.reviewedAt), "calibration must be completed by this reviewer before candidate review");
@@ -130,13 +140,37 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
     require(text(outcome?.observation), `outcome ${outcomeName} needs a specific observation`);
     evidenceAppears(artifactBody, outcome?.artifactEvidence, `outcomes.${outcomeName}.artifactEvidence`, errors);
     if (["explainBack", "unseenTransfer"].includes(outcomeName)) {
-      for (const field of ["prompt", "observedResponse", "expectedEvidence"]) require(text(outcome?.readerEvidence?.[field]), `${outcomeName}.readerEvidence.${field} is required`);
-      loadBinding(root, outcome?.readerEvidence?.observationBinding, `${outcomeName}.readerEvidence.observationBinding`, errors);
+      require(!outcome?.readerEvidence, `${outcomeName}.readerEvidence is retired because it could not distinguish simulation from observation`);
+      if (receipt?.stage === "PRODUCER_SELF_REVIEW") {
+        const probe = outcome?.simulatedReaderProbe;
+        for (const field of ["prompt", "probeResponse", "expectedEvidence"]) require(text(probe?.[field]), `${outcomeName}.simulatedReaderProbe.${field} is required`);
+        require(!outcome?.observedReaderEvidence, `${outcomeName}: producer simulation cannot occupy observedReaderEvidence`);
+      } else {
+        const observed = outcome?.observedReaderEvidence;
+        require(observed?.evidenceType === "OBSERVED_HUMAN", `${outcomeName}.observedReaderEvidence must declare OBSERVED_HUMAN`);
+        require(text(observed?.administratorPrincipalId), `${outcomeName}.observedReaderEvidence.administratorPrincipalId is required`);
+        require(Array.isArray(observed?.participants), `${outcomeName}.observedReaderEvidence.participants is required`);
+        const minimum = receipt?.surface === "LIBRAIRY" && receipt?.verdict === "PASS" ? 3 : 1;
+        require((observed?.participants || []).length >= minimum, `${outcomeName}.observedReaderEvidence requires at least ${minimum} participant(s)`);
+        const ids = new Set();
+        const bindings = new Set();
+        for (const [index, participant] of (observed?.participants || []).entries()) {
+          for (const field of ["participantId", "prompt", "verbatimResponse", "expectedEvidence", "observedAt"]) require(text(participant?.[field]), `${outcomeName}.observedReaderEvidence.participants[${index}].${field} is required`);
+          require(!Number.isNaN(Date.parse(participant?.observedAt)), `${outcomeName}.observedReaderEvidence.participants[${index}].observedAt must be an ISO date-time`);
+          require(!ids.has(participant?.participantId), `${outcomeName}.observedReaderEvidence participant IDs must be unique`);
+          ids.add(participant?.participantId);
+          const binding = participant?.observationBinding;
+          loadBinding(root, binding, `${outcomeName}.observedReaderEvidence.participants[${index}].observationBinding`, errors);
+          const bindingKey = `${binding?.path || ""}:${binding?.sha256 || ""}`;
+          require(!bindings.has(bindingKey), `${outcomeName}.observedReaderEvidence observation bindings must be participant-specific`);
+          bindings.add(bindingKey);
+        }
+      }
     }
     if (receipt?.verdict === "PASS") require(outcome?.verdict === "PASS", `PASS forbidden: ${outcomeName} did not pass`);
   }
 
-  for (const family of FAILURE_FAMILIES) {
+  for (const family of enforcedFamilies) {
     const finding = receipt?.failureFamilies?.[family];
     require(typeof finding?.present === "boolean", `failureFamilies.${family}.present is required`);
     require(text(finding?.observation) && text(finding?.artifactLocator), `failureFamilies.${family} needs an observation and locator`);
@@ -203,6 +237,32 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   if (artifactBody && [...negativeRegistry.values()].some(negative => sha256(Buffer.from(artifactBody)) === negative.sha256) && receipt?.verdict === "PASS") errors.push("exact known-bad prose cannot receive PASS");
   return { errors, verdict: receipt?.verdict || null, qualityAuthority: receipt?.stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? "INDEPENDENT_REVIEW" : "NONE" };
+}
+
+export function inspectProseReviewChain(producer, independent, { root = ROOT } = {}) {
+  const errors = [];
+  const require = (condition, message) => { if (!condition) errors.push(message); };
+  const producerResult = inspectProseQualityReview(producer, { root });
+  const independentResult = inspectProseQualityReview(independent, { root });
+  errors.push(...producerResult.errors.map(error => `producer:${error}`));
+  errors.push(...independentResult.errors.map(error => `independent:${error}`));
+  require(producer?.stage === "PRODUCER_SELF_REVIEW", "producer stage must be PRODUCER_SELF_REVIEW");
+  require(independent?.stage === "INDEPENDENT_SEMANTIC_ADMISSION", "independent stage must be INDEPENDENT_SEMANTIC_ADMISSION");
+  for (const field of ["candidateId", "surface", "contentClass"]) require(producer?.[field] === independent?.[field], `cross-stage ${field} mismatch`);
+  for (const field of ["reviewText", "manifest", "rendered"]) {
+    const left = producer?.artifact?.[field];
+    const right = independent?.artifact?.[field];
+    if (!left && !right) continue;
+    require(left?.path === right?.path && left?.sha256 === right?.sha256, `cross-stage artifact.${field} mismatch`);
+  }
+  const producerTime = Date.parse(producer?.reviewedAt);
+  const independentTime = Date.parse(independent?.reviewedAt);
+  require(Number.isFinite(producerTime) && Number.isFinite(independentTime) && producerTime < independentTime, "producer review must precede independent review");
+  require(text(producer?.reviewer?.modelFamily), "producer reviewer.modelFamily is required for structural independence");
+  require(text(independent?.reviewer?.modelFamily), "independent reviewer.modelFamily is required for structural independence");
+  require(producer?.reviewer?.modelFamily !== independent?.reviewer?.modelFamily, "maker and independent judge must use different model families");
+  require(producer?.reviewer?.principalId !== independent?.reviewer?.principalId, "maker and independent judge principal must differ");
+  return { errors };
 }
 
 function main() {

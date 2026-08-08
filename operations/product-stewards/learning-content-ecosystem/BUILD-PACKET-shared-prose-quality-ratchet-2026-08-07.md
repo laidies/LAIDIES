@@ -24,8 +24,11 @@ Before drafting, the producer binds:
 3. one relevant positive LAiDIES exemplar and the useful patterns it provides;
 4. every registered known-bad failure, all cleared before production;
 5. the causal sequence, worked daily-life case, different transfer case and
-   useful action; and
-6. the mapping, limit and lesson job of any analogy or humour.
+   useful action;
+6. a proportional, destination-specific application of the maintained Hannah
+   Fry communication benchmark, with exact planned moves and an explicit
+   no-voice-imitation boundary; and
+7. the mapping, limit and lesson job of any analogy or humour.
 
 `scripts/check-content-producer-contract.mjs` checks this record before a work
 order can dispatch. The producer then reads the exact checksum-bound prose in
@@ -44,11 +47,14 @@ only a prose promise.
 `scripts/check-prose-quality-admission.mjs` requires artifact excerpts and
 reader outcomes for plain clarity, reader value, connected system, daily-life
 interaction, explain-back, unseen transfer, useful action, LAiDIES voice,
-engagement, factual integrity, freshness reviewability and surface fit. It
+engagement, factual integrity, freshness reviewability, surface fit and the
+applied communication benchmark. It
 rejects disconnected glossary accumulation, template repetition, decorative
 analogy, reference confetti, missing mechanism, generic action, jargon before
-meaning, factless confidence, stale claims, corporate sludge and joyless
-instruction.
+meaning, factless confidence, stale claims, corporate sludge, joyless
+instruction, benchmark name-dropping, curiosity without payoff, familiar
+examples with no technical return, pastiche and entertainment before
+understanding.
 
 Receipt-only checks may report integrity but have no prose-quality authority.
 The shared release check requires the producer contract, producer exact-prose
@@ -90,13 +96,14 @@ Ratchet targets:
 ## Verified calibration
 
 - `node scripts/test-content-producer-contract.mjs` — one valid contract,
-  seven rejected bypasses, including stale-registry and omitted-later-failure
-  cases.
-- `node scripts/test-prose-quality-admission.mjs` — one valid teaching
-  artifacts, one hold and sixteen rejected false passes; exact known-bad,
+  nine rejected bypasses, including stale-registry, omitted-later-failure,
+  benchmark-name-only and voice-imitation cases.
+- `node scripts/test-prose-quality-admission.mjs` — two valid teaching
+  artifacts, one hold and eighteen rejected false passes; exact known-bad,
   manifest decoy, stale registry, unbound observation, reviewer mismatch,
   unrelated source, flat-ratchet, successor-without-comparable, explanatory
-  NEWS-without-transfer and silent-rejection cases are rejected.
+  NEWS-without-transfer, missing communication benchmark, pastiche and
+  silent-rejection cases are rejected.
 - `node scripts/test-content-release-readiness.mjs` — strict release path
   requires both records and holds missing/mismatched evidence.
 - `node scripts/check-content-work-orders.mjs` — zero current orders eligible

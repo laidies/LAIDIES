@@ -46,6 +46,25 @@ State its limit when the mapping could mislead. Remove it if the explanation
 becomes clearer without it. Audience recognition—such as a 1990–2010
 pop-culture reference—is never sufficient reason to use one.
 
+## Hannah Fry communication benchmark
+
+Apply the maintained
+`learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md` as an
+explanation-quality lens across LAiDIES learning, not as a format template or
+voice to imitate. Translate its communication mechanics into the destination's
+distinct job: a human reason to care, useful curiosity where the answer reveals
+something, a concrete treatment of an otherwise invisible process, accurate
+movement between familiar experience and technical abstraction, retained
+limitations and consequences, earned humour or surprise, and a better next
+question.
+
+The application is proportional. Episodes, classes and substantial
+explanations use the full lens. References, FAQs, NewsStand explanations,
+practice and interactives use only the moves that improve their job.
+Promotional copy and microcopy may declare it not applicable. No content may
+pass by naming Hannah Fry, copying a talk structure, mimicking her voice or
+adding a catchy hook that never pays off in understanding.
+
 ## Format jobs
 
 - **LIBRAiRY:** durable conceptual understanding and reference value.
@@ -63,6 +82,71 @@ pop-culture reference—is never sufficient reason to use one.
 
 Repetition is justified only when a different modality or retrieval context
 meaningfully reinforces learning.
+
+## Book and durable-reference architecture
+
+A LIBRAiRY book is not a class in text form. It must be scannable, resumable
+and useful when a reader needs one answer as well as when she reads the whole
+book. It does not need to reproduce a class's narration, guided sequence,
+controlled practice or feedback loop.
+
+Before admission, a substantial explanatory book must provide the following in
+proportion to its job. A compact glossary, FAQ, lookup card or reference
+collection uses only the applicable subset: a precise answer or definition,
+the distinction or boundary needed to avoid error, and evidence/currency where
+its claims can change. Do not add sections, examples, interactions or onward
+links merely to make a compact reference resemble a book or class.
+
+1. **Reader question or job:** the human reason to open it and what it will
+   help the reader understand, choose or check.
+2. **Plain answer and mechanism:** the shortest accurate explanation early,
+   followed by enough of the real system to build a correct mental model.
+3. **Scannable route:** descriptive sections and contents that let a newcomer
+   predict what each part contains before opening or jumping to it.
+4. **Distinctions and failure points:** adjacent ideas, common confusions,
+   limitations and what can go wrong.
+5. **Concrete visibility:** a worked example, comparison, diagram, evidence or
+   observable case when the mechanism would otherwise remain abstract.
+6. **Analogy integrity:** an analogy only when it clarifies; a Rewind Era
+   reference only when it performs a real teaching job; and an explicit limit
+   wherever the mapping could mislead.
+7. **Consequence and useful action:** what the reader can now notice, decide,
+   ask, challenge or do differently.
+8. **Evidence and maintenance:** sources, uncertainty, date sensitivity,
+   freshness trigger and correction path appropriate to the claims.
+9. **Continuation, when one genuinely helps:** the most useful related book,
+   episode, class, tool or activity. Route deeper guided practice to a class
+   only when that different modality adds value; never add a filler link.
+
+Substantial explanatory books include a planned visual teaching layer wherever
+parts, sequence, scale, comparison, causality or interaction would be harder to
+understand in prose alone. Use the smallest useful form: a labelled diagram for
+parts and relationships, a flow chart for sequence or decision paths, an
+illustration for an otherwise invisible mechanism, and a comparison graphic
+for meaningful differences. Every visual must have a named teaching job and be
+explained by the surrounding prose; it may not be decoration, a repeated prose
+paragraph in picture form or a substitute for the mechanism.
+
+Technical labels, arrows and captions remain deterministic and editable rather
+than generated inside artwork. Visual meaning must survive mobile reflow,
+zoom, monochrome/colour-vision differences and image failure through a concise
+caption plus an equivalent text explanation. Accuracy review checks the visual
+relationships as well as its words. A book is not required to contain one
+visual per chapter: include one when it materially reduces the reader's mental
+work, and omit it when prose or a simple list is clearer.
+
+Before opening, the shelf or card must let an unfamiliar visitor tell what the
+book covers, what it will help her do and whether it is currently available.
+Inside a substantial book, its contents and section labels must let her predict
+where an answer lives before she jumps to it.
+
+A lightweight question, safe experiment or explain-back may improve a book,
+but class-style prediction, guided practice, diagnostic feedback and transfer
+exercises are required only when the book itself promises those outcomes.
+
+Apply the shared Hannah Fry communication benchmark proportionally: a book
+should create curiosity and make hidden processes concrete without being
+forced into a narrated class or lecture.
 
 ## Class and lesson architecture
 
@@ -168,7 +252,30 @@ lesson, bind the fifteen lesson-architecture fields above before narration.
 
 ## Release gate
 
+Structural checks prove only identity, completeness and required evidence
+presence. For a class, they must not issue a learning-quality verdict. Before
+new prose starts, require the shared prevention-first producer contract. Before
+narration or admission, require checksum-bound `PRODUCER_SELF_REVIEW` followed
+by role-distinct `INDEPENDENT_SEMANTIC_ADMISSION`, then a class-specific exact-
+artifact judgment showing a connected causal chain, a worked comparison,
+learner action with diagnostic feedback and an unseen transfer task. The
+explain-back and transfer observations must be checksum-bound, and every
+material claim must map an exact candidate excerpt to the exact supporting
+source excerpt. The
+shared known-bad calibration and the Classes rendered-artifact adapter must
+remain rejected. Missing or false-pass evidence keeps the class on HOLD.
+
 Content does not pass because it is readable, attractive, short, funny or
 technically rendered. Independent instructional and accuracy reviewers must
 show that a representative unfamiliar learner can understand, explain, apply
 and qualify it without reproducing a false or outdated claim.
+
+Any meaning-bearing still or animation in the learning artifact has its own
+non-compensable visual-media chain. Before generation it binds the exact
+companion words, teaching job, destination style/location, canon identity,
+era/wardrobe/props, physical relationships, semantic object map, text plan and
+motion class. Maker and role-distinct judge then inspect the same exact rendered
+pixels for usefulness, identity, anatomy, physics, period truth and text;
+animation also binds decoded final-occurrence frames, narration timing,
+continuity and loop/transition/one-shot truth. Visual polish cannot compensate
+for a contradiction or a picture that does not make the lesson clearer.

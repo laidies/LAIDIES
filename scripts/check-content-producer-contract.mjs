@@ -7,8 +7,16 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
+const COMMUNICATION_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
 const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
+const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
+const PROPORTIONAL_COMMUNICATION_CLASSES = new Set(["REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE"]);
+const COMMUNICATION_DIMENSIONS = [
+  "humanQuestion", "usefulCuriosity", "invisibleProcessConcrete",
+  "familiarTechnicalMovement", "limitationsConsequences", "humourSurprise",
+  "betterNextQuestion"
+];
 
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const text = value => typeof value === "string" && value.trim().length > 0;
@@ -101,6 +109,39 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     for (const field of ["concept", "analogy", "mapping", "limit", "whyItHelps"]) require(text(analogy?.[field]), `analogyPlan[${index}].${field} is required`);
   }
   require(text(architecture?.humourPlan?.lessonJob) || text(architecture?.humourPlan?.noneReason), "humourPlan must name how humour serves the lesson or why none is appropriate");
+
+  const communication = contract?.communicationDesign;
+  require(communication?.benchmarkId === "HANNAH_FRY_COMMUNICATION_LENS_V1", "communicationDesign.benchmarkId mismatch");
+  require(communication?.benchmark?.path === COMMUNICATION_BENCHMARK, `communicationDesign.benchmark.path must be ${COMMUNICATION_BENCHMARK}`);
+  boundFile(root, communication?.benchmark, "communicationDesign.benchmark", errors);
+  require(["FULL", "PROPORTIONAL", "NOT_APPLICABLE"].includes(communication?.mode), "communicationDesign.mode is required");
+  require(text(communication?.surfaceAdaptation), "communicationDesign.surfaceAdaptation is required");
+  require(communication?.imitationBoundary === "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA", "communicationDesign.imitationBoundary must prohibit Hannah Fry voice or persona imitation");
+  const expectedMode = FULL_COMMUNICATION_CLASSES.has(contract?.contentClass)
+    ? "FULL"
+    : PROPORTIONAL_COMMUNICATION_CLASSES.has(contract?.contentClass) ? "PROPORTIONAL" : "NOT_APPLICABLE";
+  require(communication?.mode === expectedMode, `${contract?.contentClass || "content"} requires communicationDesign.mode=${expectedMode}`);
+  let appliedDimensions = 0;
+  for (const dimension of COMMUNICATION_DIMENSIONS) {
+    const plan = communication?.dimensions?.[dimension];
+    require(["APPLY", "NOT_APPLICABLE"].includes(plan?.disposition), `communicationDesign.dimensions.${dimension}.disposition is required`);
+    require(text(plan?.reason), `communicationDesign.dimensions.${dimension}.reason is required`);
+    if (plan?.disposition === "APPLY") {
+      appliedDimensions += 1;
+      require(text(plan?.plannedEvidence), `communicationDesign.dimensions.${dimension}.plannedEvidence is required when applied`);
+      require(!/^hannah fry(?: inspired| style| benchmark)?[.! ]*$/i.test(plan?.plannedEvidence?.trim() || ""), `communicationDesign.dimensions.${dimension} cannot be satisfied by naming Hannah Fry`);
+    }
+  }
+  if (expectedMode === "FULL") {
+    require(appliedDimensions >= 6, "FULL communication design requires at least six applied benchmark dimensions");
+    for (const dimension of ["humanQuestion", "invisibleProcessConcrete", "familiarTechnicalMovement", "limitationsConsequences", "betterNextQuestion"]) {
+      require(communication?.dimensions?.[dimension]?.disposition === "APPLY", `FULL communication design must apply ${dimension}`);
+    }
+  } else if (expectedMode === "PROPORTIONAL") {
+    require(appliedDimensions >= 2, "PROPORTIONAL communication design requires at least two applied benchmark dimensions");
+  } else {
+    require(appliedDimensions === 0, "NOT_APPLICABLE communication design cannot claim applied benchmark dimensions");
+  }
 
   for (const field of ["highestRisk", "plannedProof", "acceptanceOutcome"]) require(text(contract?.representativeProofPlan?.[field]), `representativeProofPlan.${field} is required`);
   const metrics = contract?.ratchet?.targets;
