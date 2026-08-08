@@ -285,6 +285,256 @@ acceptance, implementation, priority or release.
   run queue and targeted owner-entry preflights for Idea Inbox, Learning System
   and SUNNYVAiLE High.
 
+## IIR-20260808-017 — A durable home for LAiDIES articles and explanations
+
+- **Captured:** `2026-08-08` PDT.
+- **Source:** Ali, direct Idea Inbox message.
+- **Idea preserved:** LAiDIES needs an obvious home—possibly NewsStand—for
+  articles and explanations that answer real questions in understandable
+  language. First example: why typing “Do not make mistakes,” “Do not
+  hallucinate,” or similar demands never guarantees the desired result.
+- **Intended feeling/examples:** The reader should understand what is actually
+  happening rather than receive another slogan. The answer should connect
+  instruction limits, evidence/source availability, context and instruction
+  conflicts, product/tool state, residual model failure and verification to
+  concrete things she can do instead.
+- **Links/screenshots:** None supplied.
+- **Duplicate/conflict findings:** The exact example materially overlaps
+  `IIR-20260727-003`, the existing apology/ignored-rule `Help!` concept and
+  `WRK-20260803-help-missing-middle-class`. A durable answer home also already
+  exists: held LIBRAiRY book `content/library-books/straight-answers.md`, an
+  evidence-based living FAQ. NewsStand's Daily/Weekly/Tribune products are
+  dated publication jobs; making them the sole evergreen home would blur news,
+  reference and practice. Current `content/site/site-index.json` still labels
+  Straight Answers `live`, while the Library backlog/operating truth keeps the
+  book held—so search/public status must be reconciled before any route opens.
+- **Classification:** `MERGE`.
+- **Reason:** Extend the existing Straight Answers reference for the causal
+  explanation; use NewsStand only when a dated event earns a current article;
+  merge practice into the existing `Help!` class route; let Miss Jeeves expose
+  the exact admitted answer. Do not create a generic fifth publication or
+  parallel article warehouse.
+- **Return trigger / reconsideration condition:** At
+  `2026-08-12T16:00:00Z`, Control Room dispatches the owner packet. Learning and
+  LIBRAiRY return the durable-home ruling, NewsStand returns an exact
+  relationship or no-fit ruling, and Classes merges the example into its
+  existing `Help!` review. A representative answer waits for owner acceptance,
+  current content-WIP clearance and the full Tier 1 prose/teaching gate.
+- **Accountable owner:** Learning System & Concepts for concept relationship;
+  LIBRAiRY for the canonical reference home.
+- **Parent and affected permanent owners:** NewsStand Daily/Weekly/Tribune;
+  SUNNYVAiLE High/Classes; Miss Jeeves; Platform/search; Editorial/Accuracy;
+  Control Room.
+- **Shared dependencies:** exact concept and misconception map; current primary
+  sources; dated product-layer examples; held-book admission truth; related
+  class availability; search status; correction and freshness triggers;
+  explain-back and unseen transfer.
+- **Durable proposed destination:** Existing _Straight Answers About AI_ plus
+  prepared packet
+  `operations/product-stewards/idea-inbox/handoff-laidies-articles-explanations-home-2026-08-08.md`.
+- **Handoff status:** `READY_TO_DISPATCH — OWNER RULINGS; NO CONTENT
+  COMMISSION` via `WRK-20260808-straight-answers-explainer-home`.
+- **Control Room status:** Material handoff staged at
+  `operations/product-stewards/idea-inbox/CONTROL-ROOM-HANDOFF-iir-017-2026-08-08.md`;
+  exact state is `IDLE — QUEUED`, not `RUNNING`.
+- **Foreground consequence:** `NO CHANGE — CAPTURE AND CONTINUE`.
+- **Evidence checked:** Canon/Decisions; Idea Inbox; Learning and Library
+  charters/specs/backlogs; current Straight Answers source/inventory; NewsStand
+  Daily/Weekly/Tribune contracts; existing `Help!` receipt and work route;
+  Miss Jeeves decision; current registry, run queue and owner-entry check.
+- **Authority truth:** No article, explanation, class, route, search record,
+  publication, deployment, spend or Ali approval occurred.
+
+### Material refinement — 2026-08-08: canonical is not discoverable
+
+- **Ali's concern:** _Straight Answers About AI_ is incredibly useful and may
+  become buried if it is treated only as one LIBRAiRY book.
+- **Observed source truth:** `library.html` shows it as one held cover;
+  `newsstand.html` and `start-here.html` contain no Straight Answers entry;
+  Homepage exposes only the generic Miss Jeeves route. The stale site-index
+  `live` row is neither a visible cold-visitor doorway nor release authority.
+- **Revised routing:** LIBRAiRY remains content authority, but NewsStand is now
+  the proposed primary visitor discovery home through a permanent,
+  question-led Straight Answers doorway outside the four-publication selector.
+  This is not a fifth newspaper. Homepage Miss Jeeves must deep-link a
+  visitor's specific question; Classes retains practice.
+- **Revised acceptance:** One representative proof must begin outside the
+  LIBRAiRY and complete `discover → exact answer → optional Help! practice →
+  return`. A correct but buried book fails.
+- **Classification:** `MERGE → REVISE`; no new idea ID.
+- **Handoff status:** Revised packet `READY_TO_DISPATCH`, SHA-256
+  `2de08ddfd9236582a56331d11c57c6e72d38d163369a09665906bf9b02d13f75`
+  after the one-book/column/radio refinement.
+- **Authority truth:** No page, link, navigation, article, book, class,
+  publication or deployment changed.
+
+### Material refinement — 2026-08-08: one book, multiple presentations
+
+- **Ali's decision:** All Straight Answers collectively remain in one canonical
+  LIBRAiRY book. NewsStand may feature individual questions as a recurring
+  column and KSVL may later adapt them for radio; neither becomes a competing
+  archive.
+- **Title direction:** **_Dear Miss Jeeves_** is the preferred working candidate
+  for the column and possible later programme. The character is always Miss
+  Jeeves. `Mrs Jeeves` is incorrect and `Ask Jeeves` is prohibited as a product
+  or programme name. Final public naming remains an Ali/Brand decision.
+- **Consumer contract:** Every NewsStand or KSVL treatment consumes the same
+  stable answer ID, sources, freshness and correction state and routes to the
+  exact book answer. Audio also requires transcript/captions.
+- **Future questions:** Visitor submissions remain `PARK`; they are private
+  editorial candidates only after approved consent, moderation, privacy,
+  retention/deletion, acknowledgement and correction handling. Selection does
+  not promise publication, and any answer enters the book only through normal
+  research/content admission.
+- **Classification:** remains `MERGE → REVISE`; no new idea ID.
+- **Authority truth:** No column, programme, voice generation, intake, page,
+  content, publication or priority change occurred.
+
+## IIR-20260808-018 — Dear Miss Jeeves: AI and scientific breakthroughs
+
+- **Captured:** `2026-08-08` PDT.
+- **Source:** Ali, direct Idea Inbox message and clarification that the AGI/math
+  distinction is her own hypothesis whose validity she wants tested.
+- **Idea preserved:** Answer “How is AI contributing to scientific
+  breakthroughs?” by connecting Move 37, AlphaFold, AI-assisted mathematics,
+  unfamiliar problem representations, the risk that people suppress a novel
+  correct result as a mistake, and the growing problem of verifying outputs
+  beyond one human's checking capacity.
+- **Ali's hypothesis:** Today's AI mainly answers human-posed questions inside
+  existing fields; a truly transformative AGI may originate important
+  questions, representations or frameworks that grow mathematics itself. This
+  is preserved as a hypothesis to test, not LAiDIES doctrine.
+- **Intended feeling/examples:** The reader connects the dots and sees both the
+  genuine scientific opportunity and the epistemic responsibility: surprising
+  is neither wrong nor correct until a suitable check survives. Move 37 is the
+  opening intuition; AlphaFold and mathematics show different discovery and
+  validation mechanisms.
+- **Links/screenshots:** No link supplied. Exact primary and institutional
+  sources are preserved in the handoff packet.
+- **Duplicate/conflict findings:** The held Straight Answers book already has
+  “When is AI wrong — and when is it just ahead of us?” with Move 37, math and
+  AlphaFold. It is the natural content authority but is too compressed for this
+  full question. AI Fundamentals owns the disputed AGI definition. The current
+  book also contains retired `Ask Jeeves` naming that must be corrected by its
+  owner in any successor.
+- **Preliminary evidence ruling:** Ali's distinction is substantially supported
+  as a useful framework, including by the First Proof researchers' split among
+  asking questions, developing frameworks and solving, and by DeepMind's own
+  Move 37 versus inventing-a-game comparison. It is not a consensus AGI test;
+  FunSearch, AlphaEvolve and Co-Scientist already perform bounded parts of
+  hypothesis generation, representation and novel construction.
+- **Claim corrections:** AlphaFold, not ProteinFold. The verified 2026 math
+  result is 9/353 open Erdős problems and 44/492 OEIS conjectures at a few
+  hundred dollars per attempted Erdős problem in a preprint; this must not be
+  merged with the separate 10-problem, 24-hour First Proof experiment. The
+  remembered points/3D example is `UNKNOWN`; likely candidates are FunSearch's
+  high-dimensional cap-set construction or AlphaEvolve's 11-dimensional
+  kissing-number result.
+- **Classification:** `MERGE → EXTEND / VERIFY`.
+- **Reason:** Extend or split the existing canonical Move 37 answer in the same
+  book; use _Dear Miss Jeeves_ and later KSVL only as same-ID presentation
+  channels. No new publication or duplicate archive is needed.
+- **Return trigger:** At `2026-08-12T16:00:00Z`, dispatch with IIR-017. Learning
+  rules the discovery-cycle model and hypothesis boundary; LIBRAiRY rules one
+  extended versus distinct answer ID; accuracy owners identify the remembered
+  example and verify current results. Content work waits for acceptance, WIP
+  clearance and the Tier 1 producer contract.
+- **Accountable owner:** Learning System & Concepts for concept/AGI boundary;
+  LIBRAiRY for the canonical Straight Answer.
+- **Affected owners:** NewsStand / _Dear Miss Jeeves_; KSVL; AI Fundamentals;
+  Weekly Episodes; Editorial Accuracy; AI Research; qualified mathematics and
+  science review; Control Room.
+- **Durable destination:**
+  `operations/product-stewards/idea-inbox/handoff-dear-miss-jeeves-ai-scientific-breakthroughs-2026-08-08.md`.
+- **Handoff status:** `READY_TO_DISPATCH — OWNER RULING; NO PROSE COMMISSION`;
+  merged into `WRK-20260808-straight-answers-explainer-home`.
+- **Foreground consequence:** `NO CHANGE — CAPTURE AND CONTINUE`.
+- **Authority truth:** No article, answer, book edit, column, episode, show,
+  script, visual, publication, deployment or priority change occurred.
+
+### Material refinement — 2026-08-08: advancement potential and informed agency
+
+- **Ali's binding direction:** LAiDIES must make the profound evidence-backed
+  potential for scientific advancement understandable: what AI may allow
+  humanity to discover or accomplish that was previously unreachable. This is
+  not “positive AI” framing. Material risks, consequences, distribution and
+  societal choices about governance remain part of the same discussion.
+- **Learning purpose:** Fundamentals exist so women can understand mechanisms,
+  evaluate competing claims and participate meaningfully in workplace and
+  public decisions—not merely recognize technical vocabulary.
+- **Editorial guard:** Do not pre-label advancement positive or negative and do
+  not repeat provider promotion. Separate demonstrated advancement, enabling
+  capability, plausible frontier and speculation; then name validation,
+  consequences, harms, distribution and governance choices.
+- **Resolved remembered example:** The source is the 1946 **Erdős planar
+  unit-distance conjecture**, disproved by an internal OpenAI model in 2026.
+  It concerns pairs of points one unit apart in a 2D plane. The novel route
+  used algebraic number theory and a high-dimensional Minkowski embedding to
+  construct planar point sets—not an ordinary 3D rotation. OpenAI's autonomy
+  statement remains company framing; external mathematicians reviewed and
+  contextualized the proof, with continued human improvement and interpretation.
+- **Classification:** remains `MERGE → EXTEND / VERIFY`; no new idea ID.
+- **Durable decision:** added to `operations/DECISIONS.md`; final content still
+  requires exact claims, owner acceptance and Tier 1 admission.
+- **Authority truth:** No prose, article, answer, book edit, publication or
+  deployment occurred.
+
+### Material refinement — 2026-08-08: cross-domain scientific horizon
+
+- **Ali's added requirement:** Paint the picture of how AI may shape a future
+  world across medicine, biology, physics, mathematics, materials and
+  engineering. Explain what AlphaFold actually changes for medical research
+  and identify other plausible advancement pathways without presenting a list
+  of famous systems as the answer.
+- **Preserved intended feeling:** The reader should be able to connect the
+  fields and imagine how the scientific process itself could change, while
+  knowing exactly where prediction ends and physical, mathematical, clinical
+  or social validation begins.
+- **Reconciliation:** This materially extends IIR-018's locked
+  advancement/agency direction; it is not a new idea, publication, class or
+  episode commission. Existing Straight Answers remains the canonical home.
+- **Teaching mechanism proposed for owner ruling:** organize examples around
+  `observe/represent → search/generate → simulate/predict → control/optimize →
+  experiment/learn → verify/explain/govern`; apply the same now/enables/future/
+  reality-check lens in each domain.
+- **Representative evidence preserved:** AlphaFold2/3; early experimental
+  antibiotic candidate search; GNoME plus the A-Lab; learned tokamak control;
+  formal mathematical proof/search; AI-assisted chip design/optimization; and
+  learned weather forecasting. These are examples for selection, not seven
+  automatic content orders.
+- **Classification:** remains `MERGE → EXTEND / VERIFY`; `READY_TO_DISPATCH`
+  with IIR-017.
+- **Return trigger:** Learning/LIBRAiRY rule the causal spine, transferable
+  example set and overview-versus-linked-answer structure; accuracy owners bind
+  each demonstrated result to current primary evidence and a precise limit.
+- **Authority truth:** No public prose, book edit, article, class, episode,
+  script, visual, publication or deployment occurred.
+
+### Material refinement — 2026-08-08: individual-level meaning
+
+- **Ali's added requirement:** After explaining the cross-domain scientific
+  horizon, translate it into what the advancement does or could mean at the
+  level of one person's life.
+- **Preserved intent:** Do not leave medicine, physics, mathematics,
+  engineering or materials as remote institutional achievements. Show possible
+  changes in health, family decisions, work, products, infrastructure and
+  public choices without promising that a capability will reach every person.
+- **Teaching mechanism proposed for owner ruling:** apply three simultaneous
+  seats—person/patient/family/customer, worker/expert/manager/founder and
+  citizen/community member—then state the remaining evidence/professional check
+  and who may be excluded or harmed.
+- **Guard:** Individual relevance is a bounded scenario, not a forecast or
+  testimonial. “Could help a researcher form a useful hypothesis sooner” must
+  not become “you will receive a diagnosis or treatment sooner.”
+- **Classification:** remains `MERGE → EXTEND / VERIFY`; no new ID or content
+  commission.
+- **Return trigger:** Learning/LIBRAiRY accept, revise or reject the
+  person/worker/citizen lens and require it for each selected domain example;
+  accuracy review separates demonstrated lived outcomes from plausible
+  individual implications.
+- **Authority truth:** No public prose, book edit, article, class, episode,
+  script, visual, publication or deployment occurred.
+
 ## Receipt template
 
 ### IIR-YYYYMMDD-NNN — Short descriptive label

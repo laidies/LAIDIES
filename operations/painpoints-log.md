@@ -14274,3 +14274,136 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Good wayfinding explains the difference
   between places before asking someone to choose one.
 - **Publication status:** LOCAL CANDIDATE ONLY — no deploy or public verification.
+
+## BTB-450 — A search index can quietly overrule a held content owner
+
+- **Date:** 2026-08-08
+- **Area:** LIBRAiRY / Miss Jeeves / sitewide discovery and publication truth.
+- **Failure risk:** `content/site/site-index.json` labels _Straight Answers
+  About AI_ `live` while the current Library backlog and operating contract
+  keep that book held pending source reconciliation and admission. Search or a
+  question-led guide could therefore expose stale or unadmitted content even
+  though the accountable product owner correctly withheld it.
+- **Root cause:** Discovery metadata retained an older availability claim and
+  is not yet proven to derive from the same fail-closed publication authority
+  used by the Library reader.
+- **Prevention rule:** Search, Miss Jeeves, related-content links and navigation
+  indexes may never originate availability. They consume the exact current
+  owner admission state and fail closed on unknown, held, stale or mismatched
+  records. A discovery label, route, local file or HTTP response is not release
+  evidence.
+- **Durable correction:** The contradiction is bound as a dependency in
+  `IIR-20260808-017` and
+  `WRK-20260808-straight-answers-explainer-home`. No visitor-facing correction
+  was made in the Idea Inbox cycle; Library and Platform/search must reconcile
+  the shared source before the proposed answer or Miss Jeeves route can open.
+- **Possible Behind the Build angle:** How a search box can publish something
+  its editor never approved.
+- **Publication status:** INTERNAL ROUTING FINDING / PUBLIC STATUS UNKNOWN / NO
+  SEARCH, LIBRARY, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-451 — The correct canonical home can still bury the product
+
+- **Date:** 2026-08-08
+- **Area:** Cross-town content authority, discovery and continuation.
+- **Failure risk:** Routing _Straight Answers About AI_ correctly to the
+  LIBRAiRY could be recorded as a successful product decision while visitors
+  who do not know the title never see it. One held catalogue cover, a generic
+  search prompt and a metadata row do not communicate that LAiDIES has sourced
+  answers to major questions.
+- **Root cause:** Content ownership and visitor discovery were treated as the
+  same job. The routing pass found where the answer bytes should live but did
+  not initially require a cold visitor to encounter the resource outside that
+  destination.
+- **Prevention rule:** Every substantial cross-town content family needs two
+  explicit contracts: canonical content authority and first-class discovery.
+  Admission requires one cold-visitor journey beginning outside the canonical
+  destination, opening the exact admitted item and completing its useful next
+  step/return. Search indexing alone, a buried catalogue record or a generic
+  “browse” link cannot satisfy discovery.
+- **Durable correction:** `IIR-20260808-017` now proposes LIBRAiRY as content
+  authority, a permanent question-led NewsStand doorway, exact Homepage Miss
+  Jeeves deep links and the existing `Help!` class as practice. The owner ruling
+  must prove `discover → answer → practice/return`; no interface was changed in
+  this routing cycle.
+- **Possible Behind the Build angle:** Why putting a useful answer in the right
+  database can make it disappear from the website.
+- **Publication status:** INTERNAL PRODUCT-ROUTING REVISION / NO PAGE,
+  NAVIGATION, PUBLICATION, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-453 — A memorable frontier claim can be a composite of different studies
+
+- **Date:** 2026-08-08
+- **Area:** Scientific and mathematics content intake.
+- **Failure risk:** “AI solved ten conjectures overnight for a few thousand
+  dollars” sounds specific enough to publish but appears to combine at least
+  two different 2026 records: a formal-proof preprint reporting nine Erdős
+  problems plus 44 OEIS conjectures at a few hundred dollars per attempted
+  Erdős problem, and a separate First Proof experiment using ten unpublished
+  lemmas, a 24-hour limit and several systems with different results/costs.
+- **Root cause:** Human memory retained the important scale and meaning while
+  blending the count, time, cost, problem set and evidence status.
+- **Prevention rule:** For every memorable frontier result, split the claim
+  into system/version, task set and denominator, success count, autonomy,
+  elapsed time, inference cost, verification method, publication/review status
+  and date. Bind each field to the exact primary or institutional source before
+  recombining it into prose; unknown fields remain unknown.
+- **Durable correction:** `IIR-20260808-018` preserves Ali's underlying insight
+  while separating the two records and routing qualified mathematics/science
+  verification before any Straight Answers candidate begins.
+- **Possible Behind the Build angle:** Why an honest memory can produce a false
+  statistic—and how LAiDIES reconstructs the receipt without losing the idea.
+- **Publication status:** INTERNAL CONTENT-INTAKE LEARNING / NO PROSE,
+  PUBLICATION OR DEPLOYMENT.
+
+## BTB-454 — A list of AI breakthroughs does not explain scientific advancement
+
+- **Date:** 2026-08-08
+- **Area:** Cross-domain science teaching and editorial architecture.
+- **Failure risk:** AlphaFold, Move 37, fusion control, material discovery and
+  theorem proving can be individually accurate yet leave a nontechnical reader
+  unable to explain what AI changed, why it matters or what might become
+  possible next. The result reads as a trophy shelf or company promotion.
+- **Root cause:** Examples were organized by famous system rather than by the
+  scientific work each system performs and the evidence that converts a
+  candidate into knowledge or a real-world outcome.
+- **Prevention rule:** Cross-domain science explanations use one causal spine:
+  observe/represent, search/generate, simulate/predict, control/optimize,
+  experiment/learn, verify/explain/govern. Every example must state what changed
+  now, what work that enables, what future becomes plausible and what physical,
+  mathematical, clinical, safety or governance check still remains.
+- **Durable correction:** `IIR-20260808-018` now binds a cross-domain horizon
+  map and an AlphaFold-to-medicine explanation to Learning/LIBRAiRY owner
+  ruling. It explicitly prevents the proposed overview from generating six
+  automatic content commissions.
+- **Possible Behind the Build angle:** Why “AlphaFold predicts protein
+  structures” is true but still does not tell a reader what could change in
+  medicine.
+- **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
+  PUBLICATION OR DEPLOYMENT.
+
+## BTB-455 — A scientific horizon remains abstract until it reaches one life
+
+- **Date:** 2026-08-08
+- **Area:** Science teaching, personal relevance and civic literacy.
+- **Failure risk:** A mechanism-rich explanation can show how AI changes
+  medicine, physics or engineering yet still leave the reader asking what any
+  of it has to do with her. Conversely, forcing personal relevance can turn an
+  enabling capability into a false promise about her diagnosis, job, bill or
+  safety.
+- **Root cause:** Domain outcomes and individual outcomes occur at different
+  stages and through institutions, professionals, markets and public systems;
+  the translation layer was implicit.
+- **Prevention rule:** Translate each selected advancement through three seats:
+  person/patient/family/customer, worker/expert/manager/founder and
+  citizen/community member. State the possible lived change, remaining
+  evidence or professional check, decision the person may face, and access,
+  harm and distribution boundary. Use “could” only for a named causal pathway,
+  never as promotional permission to skip the intervening steps.
+- **Durable correction:** `IIR-20260808-018` now requires the individual lens
+  alongside the cross-domain discovery loop and routes its acceptance to
+  Learning/LIBRAiRY before any prose commission.
+- **Possible Behind the Build angle:** How to answer “what could this mean for
+  me?” without promising that a laboratory result will become her treatment.
+- **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
+  PUBLICATION OR DEPLOYMENT.
