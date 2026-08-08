@@ -184,12 +184,21 @@ otherwise use a faithful everyday example or none.
 
 Material learning producers also bind the current Hannah Fry communication
 benchmark before drafting. Adapt the communication mechanics—not her voice,
-persona or a talk template—to the destination's job: human reason, useful
+persona or wording—to the destination's job: human reason, useful
 curiosity, concrete visibility for an invisible process, accurate movement
 between familiar experience and technical abstraction, retained limitations
 and consequences, and a better next question. Name-dropping the benchmark,
 adding a hook without explanatory payoff or using a familiar example that
 never reconnects to the mechanism fails production.
+
+For episodes, classes and substantial explanations, use the default explanatory
+arc: shared everyday or work experience and a live question; cause-and-effect
+mechanism link by link; an earned “oh, I get it now” click; then a small useful,
+precise or funny landing. The mechanism receives the largest share. Do not
+reveal before the mechanism earns the click, delay a safety-critical answer for
+suspense or inflate a bounded explanation into a grand moral. References,
+FAQs, NewsStand, practice and interactives adapt only the moves that serve their
+job and may answer first.
 
 Every rejection updates the shared exemplar/defect registry and the producer
 preflight before a successor is made. Targets are zero repeated known defects,

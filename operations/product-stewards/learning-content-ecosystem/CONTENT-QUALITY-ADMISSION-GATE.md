@@ -43,7 +43,10 @@ drafted, its owner must pass a checksum-bound producer contract against:
 - a destination-specific Hannah Fry communication design that binds applicable
   human-question, curiosity, concrete-mechanism, familiar-to-technical,
   limitation/consequence and better-next-question moves while prohibiting
-  voice or persona imitation; and
+  voice or persona imitation; for an episode, class or substantial explanation,
+  this also binds the shared starting point and live question, link-by-link
+  causal mechanism, earned click, small landing and safety boundary before
+  drafting; and
 - the exact teaching job and limit of every analogy, joke or Rewind Era detail.
 
 Executable contract:
@@ -92,9 +95,12 @@ retires or unpublishes content automatically.
 Material learning content also requires an exact-artifact
 `communicationBenchmark` outcome. The reviewer judges whether the selected
 communication moves actually improved clarity and engagement without weakening
-the mechanism. Name-dropping, curiosity without explanatory payoff, familiar
-examples that never reconnect to the technical idea, Hannah Fry pastiche and
-entertainment before understanding are explicit failure families.
+the mechanism. Full explanations also require an `explanationArc` outcome bound
+to the exact artifact. Name-dropping, curiosity without explanatory payoff,
+familiar examples that never reconnect to the technical idea, Hannah Fry
+pastiche, a hook that crowds out the mechanism, a click revealed before its
+mechanism, entertainment before understanding and an inflated ending are
+explicit failure families.
 
 ## Evidence rule
 

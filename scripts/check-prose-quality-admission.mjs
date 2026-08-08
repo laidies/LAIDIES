@@ -11,9 +11,9 @@ const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
 const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
 const REQUIRED_BY_CLASS = {
-  EPISODE: [...CORE, ...TEACHING, "storyCarriesMechanism", "humourServesLearning"],
-  CLASS: [...CORE, ...TEACHING, "practiceFeedback"],
-  EXPLANATION: [...CORE, ...TEACHING],
+  EPISODE: [...CORE, ...TEACHING, "explanationArc", "storyCarriesMechanism", "humourServesLearning"],
+  CLASS: [...CORE, ...TEACHING, "explanationArc", "practiceFeedback"],
+  EXPLANATION: [...CORE, ...TEACHING, "explanationArc"],
   REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
   FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
   NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
@@ -27,7 +27,8 @@ export const FAILURE_FAMILIES = [
   "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem",
   "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction",
   "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn",
-  "communicationPastiche", "entertainmentBeforeUnderstanding"
+  "communicationPastiche", "entertainmentBeforeUnderstanding",
+  "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"
 ];
 
 export function enforcedFailureFamilies(registry) {

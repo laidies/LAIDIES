@@ -98,9 +98,9 @@ function validOrder() {
   write(badPath, "A disconnected glossary uses a decorative comparison and gives the reader no useful decision.\n");
   write(goodPath, "A real problem moves through one mechanism and lands in a useful action the reader can transfer.\n");
   write(sourcePath, "Authoritative fixture source says context and evidence support a checked decision.\n");
-  write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
+  write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V2 test fixture.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
-  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding"];
+  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
@@ -116,7 +116,7 @@ function validOrder() {
     knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
     draftArchitecture: { plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template." },
     communicationDesign: {
-      benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V1",
+      benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V2",
       benchmark: { path: benchmarkPath, sha256: sha256(path.join(root, benchmarkPath)) },
       mode: "FULL",
       surfaceAdaptation: "Connected written explanation, not a copied talk format.",
@@ -129,13 +129,23 @@ function validOrder() {
         limitationsConsequences: { disposition: "APPLY", reason: "Unsupported action has a consequence.", plannedEvidence: "Name the evidence limit before the decision." },
         humourSurprise: { disposition: "NOT_APPLICABLE", reason: "The fixture does not need humour." },
         betterNextQuestion: { disposition: "APPLY", reason: "The reader needs a reusable check.", plannedEvidence: "End by asking what evidence supports the decision." }
+      },
+      explanationArc: {
+        mode: "DEFAULT_SUBSTANTIAL_EXPLANATION",
+        sharedStartingPoint: "A real work question needs a checked decision.",
+        curiosityGap: "Which part of the system supports the decision?",
+        mechanismSequence: ["The question defines the job.", "Context supplies material.", "Evidence supports the checked decision."],
+        earnedClick: "The fluent answer is not the evidence.",
+        smallLanding: "Ask what supports the decision.",
+        safetyBoundary: "State the need to check consequential details immediately.",
+        order: "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING"
       }
     },
     representativeProofPlan: { highestRisk: "understanding", plannedProof: "one section", acceptanceOutcome: "reader transfers it" },
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }
   }));
   const excerpt = "A real work question moves through context and evidence";
-  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
   const review = stage => {
     const reviewerPrincipalId = stage === "PRODUCER_SELF_REVIEW" ? "maker" : "independent-reader-principal";
     const isProducer = stage === "PRODUCER_SELF_REVIEW";

@@ -34,7 +34,7 @@ try {
   }));
 
   const excerpt = candidateBody.slice(0, 80);
-  const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
   const observedParticipants = observationPaths.map((observationPath, index) => ({
     participantId: `reader-${index + 1}`,
     prompt: "Explain the mechanism and use it in a different case.",
@@ -77,6 +77,12 @@ try {
   assert.match(inspect(nameOnly).join("\n"), /communicationBenchmark is missing/);
   const pastiche = structuredClone(receipt); pastiche.failureFamilies.communicationPastiche.present = true;
   assert.match(inspect(pastiche).join("\n"), /communicationPastiche is present/);
+  const missingArc = structuredClone(receipt); delete missingArc.outcomes.explanationArc;
+  assert.match(inspect(missingArc).join("\n"), /explanationArc is missing/);
+  const prematureClick = structuredClone(receipt); prematureClick.failureFamilies.prematureClickBeforeMechanism.present = true;
+  assert.match(inspect(prematureClick).join("\n"), /prematureClickBeforeMechanism is present/);
+  const inflatedEnding = structuredClone(receipt); inflatedEnding.failureFamilies.inflatedTakeawayEnding.present = true;
+  assert.match(inspect(inflatedEnding).join("\n"), /inflatedTakeawayEnding is present/);
   const self = structuredClone(receipt); self.reviewer.principalId = self.maker;
   assert.match(inspect(self).join("\n"), /cannot be maker self-review/);
   const uncalibrated = structuredClone(receipt); uncalibrated.calibration.negatives[0].verdict = "PASS";
@@ -134,7 +140,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=18 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=21 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

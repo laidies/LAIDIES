@@ -48,7 +48,7 @@ try {
       antiTemplateDecision: "Vary structure around the reader question; no repeated micro-template."
     },
     communicationDesign: {
-      benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V1",
+      benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V2",
       benchmark: { path: benchmarkPath, sha256: hash(benchmark) },
       mode: "FULL",
       surfaceAdaptation: "Use the benchmark as an explanation-quality lens for one connected written explanation, not as a copied talk format.",
@@ -61,6 +61,16 @@ try {
         limitationsConsequences: { disposition: "APPLY", reason: "Confidence does not establish policy support.", plannedEvidence: "Show the consequence of sending an unsupported promise and the exact checking limit." },
         humourSurprise: { disposition: "NOT_APPLICABLE", reason: "The short proof does not need a joke to make the mechanism clearer." },
         betterNextQuestion: { disposition: "APPLY", reason: "The reader should leave able to interrogate another system.", plannedEvidence: "End with the question: what evidence supports this consequential detail?" }
+      },
+      explanationArc: {
+        mode: "DEFAULT_SUBSTANTIAL_EXPLANATION",
+        sharedStartingPoint: "A manager is about to make a promise in a client handover.",
+        curiosityGap: "Which part of the AI system can actually support that promise?",
+        mechanismSequence: ["The request supplies the job.", "Context supplies relevant material.", "The model drafts language.", "Evidence and a human check support the consequential detail."],
+        earnedClick: "The fluent draft is not the evidence; the policy is.",
+        smallLanding: "Before sending, ask what supports the consequential detail.",
+        safetyBoundary: "State the need for human verification immediately; do not withhold it for suspense.",
+        order: "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING"
       }
     },
     representativeProofPlan: { highestRisk: "causal understanding", plannedProof: "one representative section", acceptanceOutcome: "reader explains and transfers it" },
@@ -86,12 +96,16 @@ try {
   assert.match(inspect(nameOnlyBenchmark).join("\n"), /cannot be satisfied by naming Hannah Fry/);
   const imitation = structuredClone(contract); imitation.communicationDesign.imitationBoundary = "WRITE_IN_HANNAH_FRY_STYLE";
   assert.match(inspect(imitation).join("\n"), /must prohibit Hannah Fry voice or persona imitation/);
+  const missingArc = structuredClone(contract); delete missingArc.communicationDesign.explanationArc;
+  assert.match(inspect(missingArc).join("\n"), /default substantial-explanation arc/);
+  const wrongArcOrder = structuredClone(contract); wrongArcOrder.communicationDesign.explanationArc.order = "REVEAL_THEN_EXPLAIN";
+  assert.match(inspect(wrongArcOrder).join("\n"), /must preserve the default explanatory sequence/);
   const laterRegistry = JSON.parse(fs.readFileSync(registry, "utf8"));
   laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesTo: ["EXPLANATION"], path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=9 all_negatives=1 stale_registry=1 communication_design=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

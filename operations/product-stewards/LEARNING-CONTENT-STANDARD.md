@@ -50,17 +50,23 @@ pop-culture reference—is never sufficient reason to use one.
 
 Apply the maintained
 `learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md` as an
-explanation-quality lens across LAiDIES learning, not as a format template or
-voice to imitate. Translate its communication mechanics into the destination's
-distinct job: a human reason to care, useful curiosity where the answer reveals
-something, a concrete treatment of an otherwise invisible process, accurate
-movement between familiar experience and technical abstraction, retained
-limitations and consequences, earned humour or surprise, and a better next
-question.
+explanation-quality lens across LAiDIES learning, never a voice to imitate.
+Translate its communication mechanics into the destination's distinct job: a
+human reason to care, useful curiosity where the answer reveals something, a
+concrete treatment of an otherwise invisible process, accurate movement
+between familiar experience and technical abstraction, retained limitations
+and consequences, earned humour or surprise, and a better next question.
 
-The application is proportional. Episodes, classes and substantial
-explanations use the full lens. References, FAQs, NewsStand explanations,
-practice and interactives use only the moves that improve their job.
+Episodes, classes and substantial explanations use the benchmark's default
+arc: a shared everyday or work starting point that opens a real question; the
+cause-and-effect mechanism in connected steps; an earned “oh, I get it now”
+click after the mechanism; and a small useful, precise or funny landing. The
+mechanism receives the largest share. Do not delay a safety-critical answer for
+suspense or inflate a bounded explanation into an inspirational moral.
+
+The application is proportional. References, FAQs, NewsStand explanations,
+practice and interactives use only the moves that improve their job; a lookup
+or safety surface may answer first and explain afterward.
 Promotional copy and microcopy may declare it not applicable. No content may
 pass by naming Hannah Fry, copying a talk structure, mimicking her voice or
 adding a catchy hook that never pays off in understanding.

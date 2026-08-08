@@ -111,7 +111,7 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(text(architecture?.humourPlan?.lessonJob) || text(architecture?.humourPlan?.noneReason), "humourPlan must name how humour serves the lesson or why none is appropriate");
 
   const communication = contract?.communicationDesign;
-  require(communication?.benchmarkId === "HANNAH_FRY_COMMUNICATION_LENS_V1", "communicationDesign.benchmarkId mismatch");
+  require(communication?.benchmarkId === "HANNAH_FRY_COMMUNICATION_LENS_V2", "communicationDesign.benchmarkId mismatch");
   require(communication?.benchmark?.path === COMMUNICATION_BENCHMARK, `communicationDesign.benchmark.path must be ${COMMUNICATION_BENCHMARK}`);
   boundFile(root, communication?.benchmark, "communicationDesign.benchmark", errors);
   require(["FULL", "PROPORTIONAL", "NOT_APPLICABLE"].includes(communication?.mode), "communicationDesign.mode is required");
@@ -137,10 +137,25 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     for (const dimension of ["humanQuestion", "invisibleProcessConcrete", "familiarTechnicalMovement", "limitationsConsequences", "betterNextQuestion"]) {
       require(communication?.dimensions?.[dimension]?.disposition === "APPLY", `FULL communication design must apply ${dimension}`);
     }
+    const arc = communication?.explanationArc;
+    require(arc?.mode === "DEFAULT_SUBSTANTIAL_EXPLANATION", "FULL communication design requires the default substantial-explanation arc");
+    for (const field of ["sharedStartingPoint", "curiosityGap", "earnedClick", "smallLanding", "safetyBoundary"]) {
+      require(text(arc?.[field]), `communicationDesign.explanationArc.${field} is required`);
+    }
+    require(array(arc?.mechanismSequence, 3), "communicationDesign.explanationArc.mechanismSequence requires at least three cause-and-effect steps");
+    require(arc?.order === "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING", "communicationDesign.explanationArc.order must preserve the default explanatory sequence");
   } else if (expectedMode === "PROPORTIONAL") {
     require(appliedDimensions >= 2, "PROPORTIONAL communication design requires at least two applied benchmark dimensions");
+    const arc = communication?.explanationArc;
+    require(["PROPORTIONAL", "NOT_APPLICABLE"].includes(arc?.mode), "PROPORTIONAL communication design must adapt or explicitly decline the default arc");
+    if (arc?.mode === "PROPORTIONAL") {
+      require(array(arc?.retainedMoves), "communicationDesign.explanationArc.retainedMoves is required when proportional");
+      require(text(arc?.adaptation), "communicationDesign.explanationArc.adaptation is required when proportional");
+    } else require(text(arc?.reason), "communicationDesign.explanationArc.reason is required when not applicable");
   } else {
     require(appliedDimensions === 0, "NOT_APPLICABLE communication design cannot claim applied benchmark dimensions");
+    require(communication?.explanationArc?.mode === "NOT_APPLICABLE", "NOT_APPLICABLE communication design must declare explanationArc.mode=NOT_APPLICABLE");
+    require(text(communication?.explanationArc?.reason), "communicationDesign.explanationArc.reason is required when not applicable");
   }
 
   for (const field of ["highestRisk", "plannedProof", "acceptanceOutcome"]) require(text(contract?.representativeProofPlan?.[field]), `representativeProofPlan.${field} is required`);
