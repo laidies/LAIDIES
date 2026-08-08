@@ -238,7 +238,7 @@ When you edit anything above, walk this list. ✅ = already true to canon · �
 | SUNNYVAiLE High course | Ep2 101 class | 🔧 confirm against `concepts[]` + `quiz[]` |
 | BRONZE AiGE cocktail wall | `bronze-aige.html` | 🔧 add `cocktail_party` line to the archive wall |
 | KSVL track | `radio.html` / `ksvl-player.js` | ✅ wired (⏳ lyrics pending) |
-| NewsStand cover | `hot-goss.html` WEDNESDAY Edition | ◻︎ optional — episode-as-news cover from meta + a hero fact + cocktail line |
+| NewsStand cover | `newsstand.html` · The Weekly | ◻︎ optional — episode-as-news cover from meta + a hero fact + cocktail line |
 | MAiKEOVER quote picker | quote field on the Residence Card | 🔧 feed `quotables[]` into the pickable pool |
 | Delta LAi Nu rooms | `delta-lai-nu.html` (sorority) | 🔧 seed the week's thread with `discussion_prompt` |
 

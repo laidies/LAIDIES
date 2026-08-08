@@ -6,7 +6,8 @@ window.LAIDIES_SITE_DATA = {
       "title": "On Wednesdays We Do AI",
       "status": "published",
       "issueUrl": "issues/issue-01.html",
-      "heroImage": "assets/ugh-as-if.png",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which she realizes AI is already being added to the invisible load, says \"ugh, as if,\" and opens the tab anyway.",
       "act": "Act 1: The Awakening",
       "lesson": "What AI is and how to have a first safe interaction with the major tools.",
@@ -55,7 +56,7 @@ window.LAIDIES_SITE_DATA = {
           "Sex and the City",
           "The Devil Wears Prada"
         ],
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -65,7 +66,8 @@ window.LAIDIES_SITE_DATA = {
       "title": "Tell Me What You Want",
       "status": "published",
       "issueUrl": "issues/issue-02.html",
-      "heroImage": "assets/issue-02-hero.png",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which she types something vague into ChatGPT, gets back garbage, and discovers the problem was never the technology. It was the ask.",
       "act": "Act 1: The Awakening",
       "lesson": "How to write specific, context-rich prompts that produce usable work output.",
@@ -92,9 +94,9 @@ window.LAIDIES_SITE_DATA = {
           "type": "glossary"
         },
         {
-          "label": "Read this week's Hot Goss",
-          "url": "this-week.html#hot-goss",
-          "type": "hotGoss"
+          "label": "Read The Weekly at the NewsStand",
+          "url": "newsstand.html",
+          "type": "newsstand"
         }
       ],
       "websiteModules": {
@@ -106,7 +108,7 @@ window.LAIDIES_SITE_DATA = {
           "Context",
           "Token"
         ],
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -117,7 +119,8 @@ window.LAIDIES_SITE_DATA = {
       "status": "published",
       "releaseDate": "2026-06-17",
       "issueUrl": "issues/issue-03.html",
-      "heroImage": "assets/issue-03-hero.png",
+      "heroImage": null,
+      "heroVisualState": "HELD",
       "oneLineDescription": "The one in which she gets a Regina George-confident answer, catches the Chutney detail, and checks the timeline before it borrows her name.",
       "act": "Act 1: The Awakening",
       "lesson": "How to check, challenge, source, and contain AI output when it sounds confident but may be wrong, missing context, or not relevant to the real work.",
@@ -144,9 +147,9 @@ window.LAIDIES_SITE_DATA = {
           "type": "glossary"
         },
         {
-          "label": "Read this week's Hot Goss",
+          "label": "Read The Weekly at the NewsStand",
           "url": "newsstand.html",
-          "type": "hotGoss"
+          "type": "newsstand"
         },
         {
           "label": "Listen to Don't Be Chutney on the Stand",
@@ -171,7 +174,7 @@ window.LAIDIES_SITE_DATA = {
           "file": "content/music/dj-jaidy-week-03-dont-be-chutney-on-the-stand.mp3",
           "playerUrl": "games/dj-booth.html#djApp"
         },
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
@@ -183,7 +186,8 @@ window.LAIDIES_SITE_DATA = {
       "status": "published",
       "releaseDate": "2026-06-24",
       "issueUrl": "issues/issue-04.html",
-      "heroImage": "assets/building-interiors/luminairy-nave.jpg",
+      "heroImage": "assets/episodes/ep-04/pixel/ep04-title-card-comic-v2.png",
+      "heroVisualState": "ACTIVE",
       "oneLineDescription": "The one in which she realizes she's talked to AI every day for weeks with no idea where it came from — goes looking for the origin story, and finds out it was women all along.",
       "act": "Act 1: The Awakening",
       "lesson": "Which AI tool to open for which job, what the words everyone says actually mean, and how to work with any of them — matching the type to the task, not ranking who's \"best.\"",
@@ -222,23 +226,24 @@ window.LAIDIES_SITE_DATA = {
           "file": "content/music/dj-jaidy-week-04-the-library.mp3",
           "playerUrl": "games/dj-booth.html#djApp"
         },
-        "hotGossPlacement": "homepage-only"
+        "newsstandPlacement": "newsstand-weekly"
       },
       "issuePageStatus": "manual-page-kept"
     },
     {
       "number": 5,
-      "slug": "welcome-to-sunnyvaile",
+      "slug": "the-super-models",
       "title": "The Super Models",
-      "subtitle": "The one in which the whole town opens its doors.",
+      "subtitle": "The one in which the work AI feels strangely familiar.",
       "status": "draft",
-      "releaseDate": "2026-07-01",
-      "issueUrl": "issues/issue-05.html",
-      "heroImage": "assets/sunnyvaile-town-map-locked.jpg",
-      "oneLineDescription": "The one in which the whole town opens its doors.",
-      "act": null,
-      "lesson": null,
-      "emotionalBeat": null,
+      "releaseDate": null,
+      "issueUrl": null,
+      "heroImage": null,
+      "heroVisualState": "HELD",
+      "oneLineDescription": "The one in which the work AI feels strangely familiar.",
+      "act": "Act 1",
+      "lesson": "Provider, model, product and tools are different parts of the experience—and each can change what comes back.",
+      "emotionalBeat": "The choices stop feeling mysterious once she can name which part actually changed.",
       "siteLinks": [],
       "websiteModules": {
         "quiz": null,
@@ -246,18 +251,18 @@ window.LAIDIES_SITE_DATA = {
         "communityThread": null,
         "glossaryTerms": [],
         "weeklySong": null,
-        "hotGossPlacement": null
+        "newsstandPlacement": null
       },
-      "issuePageStatus": "manual-page-kept"
+      "issuePageStatus": "not-built"
     }
   ],
   "quizzes": {
     "foundation": {
       "label": "Foundation Quiz",
-      "optionLabel": "Foundation: Why LAIDIES Exists",
+      "optionLabel": "Foundation: Why LAiDIES Exists",
       "title": "The AI gap is not a side plot. It is the reason this room exists.",
       "rereadUrl": "index.html#about",
-      "rereadLabel": "Reread the lAIdies why",
+      "rereadLabel": "Reread the LAiDIES why",
       "intro": "Answer fifteen foundation questions, then try the two bonus questions. The score is out of 15, but the extra credit girls can still get 17/15.",
       "maxScore": 15,
       "bonusScore": 2,
@@ -265,7 +270,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "gap-is-power-gap",
           "points": 1,
-          "prompt": "Why does the AI gap between men and women matter for lAIdies?",
+          "prompt": "Why does the AI gap between men and women matter for LAiDIES?",
           "options": [
             "Because AI is a personality test",
             "Because confidence and access gaps can become power, pay, and influence gaps",
@@ -274,13 +279,13 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Because confidence and access gaps can become power, pay, and influence gaps",
           "explain": "The point is not novelty. If one group gets fluent sooner, that group gets more say in how the work changes.",
-          "review": "Find it in the lAIdies positioning and About section.",
+          "review": "Find it in the LAiDIES positioning and About section.",
           "reviewUrl": "index.html#about"
         },
         {
           "id": "not-remedial",
           "points": 1,
-          "prompt": "What is the lAIdies stance on women learning AI?",
+          "prompt": "What is the LAiDIES stance on women learning AI?",
           "options": [
             "The references are the whole lesson",
             "Smart professionals deserve accurate, practical AI learning that is also enjoyable and memorable",
@@ -304,7 +309,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Someone else builds the habits, vocabulary, and confidence first",
           "explain": "Waiting feels reasonable in a full calendar, but early comfort compounds into workplace advantage.",
-          "review": "Find it in the lAIdies purpose and Episode 1 starting point.",
+          "review": "Find it in the LAiDIES purpose and Episode 1 starting point.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -318,7 +323,7 @@ window.LAIDIES_SITE_DATA = {
             "Because the tools explain office politics perfectly"
           ],
           "answer": "Because everyone is expected to magically know what to use, when to use it, and how to judge the output",
-          "explain": "lAIdies exists because AI fluency is becoming another quiet expectation, and quiet expectations rarely land evenly.",
+          "explain": "LAiDIES exists because AI fluency is becoming another quiet expectation, and quiet expectations rarely land evenly.",
           "review": "Find it in the Episode 1 working summary.",
           "reviewUrl": "issues/issue-01.html"
         },
@@ -334,13 +339,13 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "They can shape workflows, ask sharper questions, challenge weak outputs, and influence how AI gets used",
           "explain": "The larger goal is agency. Fluency helps women participate in decisions about the work, not just speed through tasks.",
-          "review": "Find it in the lAIdies purpose and community framing.",
+          "review": "Find it in the LAiDIES purpose and community framing.",
           "reviewUrl": "index.html#community-board"
         },
         {
           "id": "not-becoming-technical",
           "points": 1,
-          "prompt": "What does lAIdies reject as the price of AI fluency?",
+          "prompt": "What does LAiDIES reject as the price of AI fluency?",
           "options": [
             "Learning useful vocabulary",
             "Trying low-risk tools",
@@ -355,7 +360,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "confidence-loop",
           "points": 1,
-          "prompt": "Why does lAIdies make the first AI moves small?",
+          "prompt": "Why does LAiDIES make the first AI moves small?",
           "options": [
             "Small moves make confidence real enough to repeat",
             "Small moves mean the topic is not serious",
@@ -364,7 +369,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Small moves make confidence real enough to repeat",
           "explain": "The confidence loop starts with usable experience: try, compare, notice what works, keep judgment, and try again.",
-          "review": "Find it in the Episode 1 Fun Pack Try-On.",
+          "review": "Find it in the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -400,7 +405,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "foundational-reason",
           "points": 1,
-          "prompt": "What is one foundational reason lAIdies was created?",
+          "prompt": "What is one foundational reason LAiDIES was created?",
           "options": [
             "To make AI fluency practical, credible, and culturally alive for women before the gap gets wider",
             "To make AI feel unserious",
@@ -445,7 +450,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "why-a-town",
           "points": 1,
-          "prompt": "Why does lAIdies teach AI through a town — SUNNYVAiLE — instead of a plain how-to guide?",
+          "prompt": "Why does LAiDIES teach AI through a town — SUNNYVAiLE — instead of a plain how-to guide?",
           "options": [
             "Because a how-to guide would be more accurate",
             "Because a story you can walk around in makes the lessons stick, and gives you a reason to come back every week",
@@ -500,7 +505,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "The people who use, question, and shape the tools influence what gets automated, trusted, funded, and normalized",
           "explain": "AI adoption is not just personal productivity. It affects whose standards and assumptions get built into future workflows.",
-          "review": "Find it in the lAIdies purpose and community framing.",
+          "review": "Find it in the LAiDIES purpose and community framing.",
           "reviewUrl": "index.html#about"
         },
         {
@@ -516,7 +521,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "They become harder to sideline in conversations about the future of work",
           "explain": "Shared fluency changes posture: more questions, better standards, stronger participation, and less waiting for permission.",
-          "review": "Find it in the lAIdies mission and community framing.",
+          "review": "Find it in the LAiDIES mission and community framing.",
           "reviewUrl": "index.html#community-board"
         }
       ]
@@ -737,7 +742,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Open the tab and try one small thing",
           "explain": "Episode 1 is about starting small. Ten minutes beats waiting for a mythical free weekend.",
-          "review": "Find it in the opening and the Episode 1 Extra Credit Try-On.",
+          "review": "Find it in the opening and the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -758,7 +763,7 @@ window.LAIDIES_SITE_DATA = {
         {
           "id": "not-technical",
           "points": 1,
-          "prompt": "lAIdies is not asking you to become:",
+          "prompt": "LAiDIES is not asking you to become:",
           "options": [
             "More confident with useful tools",
             "Curious in public",
@@ -767,7 +772,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "The IT department in better shoes",
           "explain": "You can learn enough technical context to stop feeling locked out without turning into the help desk.",
-          "review": "Find it in the section about what lAIdies is and is not.",
+          "review": "Find it in the section about what LAiDIES is and is not.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -777,10 +782,10 @@ window.LAIDIES_SITE_DATA = {
           "options": [
             "It only finds old webpages",
             "It refuses to draft",
-            "It can create a new first pass from your instructions",
+            "It can create new content from your instructions and other inputs",
             "It always knows the truth"
           ],
-          "answer": "It can create a new first pass from your instructions",
+          "answer": "It can create new content from your instructions and other inputs",
           "explain": "Episode 1 frames AI as something that can draft, summarize, compare, translate tone, and organize, not just search.",
           "review": "Find it in the Core Lesson.",
           "reviewUrl": "issues/issue-01.html"
@@ -812,7 +817,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Try one manageable move instead of waiting to feel ready",
           "explain": "The series is meant to make AI practice small enough that people actually do it.",
-          "review": "Find it in the Episode 1 Extra Credit Try-On and Episode promise.",
+          "review": "Find it in the Episode 1 Try-On and Episode promise.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -827,7 +832,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "To see which tool feels most useful for the same low-risk task",
           "explain": "Same ask, different tools, better comparison. It is a try-on, not a final exam.",
-          "review": "Find it in the Episode 1 Extra Credit Try-On.",
+          "review": "Find it in the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -857,7 +862,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "A low-risk work explanation or draft you can judge",
           "explain": "The first try should be useful, small, and safe enough that you can learn without handing it the car keys.",
-          "review": "Find it in the Episode 1 Extra Credit Try-On.",
+          "review": "Find it in the Episode 1 Try-On.",
           "reviewUrl": "issues/issue-01.html"
         },
         {
@@ -965,18 +970,18 @@ window.LAIDIES_SITE_DATA = {
           "reviewUrl": "issues/issue-02.html"
         },
         {
-          "id": "drawing-game",
+          "id": "coffee-order",
           "points": 1,
-          "prompt": "What does the drawing-game analogy show?",
+          "prompt": "What does the coffee-order analogy show?",
           "options": [
-            "The person drawing can only use the details you give them",
-            "AI hates pencils",
-            "A vague description always wins",
-            "Prompting is mostly about being cute"
+            "AI is the brand-new café across town — it only makes what you actually order",
+            "AI already knows your usual from day one",
+            "A vague order still gets you exactly the right drink",
+            "Ordering coffee has nothing to do with prompting"
           ],
-          "answer": "The person drawing can only use the details you give them",
-          "explain": "The better the description, the more recognizable the result.",
-          "review": "Find it in 'Tell Me What You Want, What You Really Really Want.'",
+          "answer": "AI is the brand-new café across town — it only makes what you actually order",
+          "explain": "AI has never met you — it can't see your 'usual.' Spell out what you want every time, and the guessing stops.",
+          "review": "Find it in the coffee-order section of Episode 2.",
           "reviewUrl": "issues/issue-02.html"
         },
         {
@@ -1066,7 +1071,7 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Give AI the same real task twice: once vague, once specific",
           "explain": "The point is to see the difference. Same task, better brief, much better odds.",
-          "review": "Find it in the Episode 2 Extra Credit Try-On.",
+          "review": "Find it in the Episode 2 Try-On.",
           "reviewUrl": "issues/issue-02.html"
         },
         {
@@ -1082,7 +1087,8 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "AI hallucinations",
           "explain": "Episode 3 is about confident output that may be wrong, unsupported, outdated, or made up.",
-          "review": "Preview the next Episode once it drops."
+            "review": "Reread the hallucinations lesson in Episode 03.",
+            "reviewUrl": "issues/issue-03.html"
         },
         {
           "id": "bonus-receipts",
@@ -1097,7 +1103,8 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "Receipts",
           "explain": "If the claim matters, the source matters. Confidence is not a citation.",
-          "review": "Preview the next Episode once it drops."
+            "review": "Reread the receipts lesson in Episode 03.",
+            "reviewUrl": "issues/issue-03.html"
         }
       ]
     },
@@ -1267,13 +1274,13 @@ window.LAIDIES_SITE_DATA = {
           "bonus": true,
           "prompt": "⭐ BONUS — from next week. Next episode is called The Super Models. In AI, a \"model\" is:",
           "options": [
-            "The trained brain doing the actual work, no matter which app you open",
+            "A core component of an AI system that uses inputs to produce outputs",
             "A smaller test version of an AI",
             "The template you fill in when writing a prompt",
             "The company behind the app"
           ],
-          "answer": "The trained brain doing the actual work, no matter which app you open",
-          "explain": "ChatGPT, Claude, Gemini: those are apps. Underneath each one is a model, the trained brain doing the work. Next Wednesday, the whole lineup gets introduced properly.",
+          "answer": "A core component of an AI system that uses inputs to produce outputs",
+          "explain": "A model may produce words or images, interpret material, make a prediction or choose a next action. You might use it through an app, API or coding tool. The product around it can add instructions, memory, search, files, tools and other models.",
           "review": "Reread the scene in Episode 04.",
           "reviewUrl": "issues/issue-04.html"
         },
@@ -1290,7 +1297,8 @@ window.LAIDIES_SITE_DATA = {
           ],
           "answer": "OpenAI",
           "explain": "ChatGPT, Gemini, and Claude are products (the things you open). OpenAI is the company that makes ChatGPT. Telling the companies from the products from the models is exactly what \"The AI Group Chat Roll Call\" sorts out next week.",
-          "review": "Preview Episode 5, The AI Group Chat Roll Call, when it drops."
+            "review": "The explanation above is the available review; Episode 5 is not published.",
+            "reviewStatus": "held-future-episode"
         }
       ]
     }
@@ -1302,8 +1310,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Open the Tab Card",
-        "image": "assets/ugh-as-if.png",
-        "alt": "A pink 90s desk scene about opening the AI tab anyway",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Try one tiny AI move.",
         "prompt": "Open the tool and ask it to help with one real work thing for ten minutes.",
@@ -1314,8 +1321,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Small Sips Card",
-        "image": "assets/9-to-5-chaos.png",
-        "alt": "A pink 9 to 5 workday scene with notes, coffee, and AI practice energy",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Keep the first try tiny.",
         "prompt": "Do one small AI experiment instead of turning learning into a second unpaid job.",
@@ -1326,8 +1332,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Cher Closet Card",
-        "image": "assets/lets-chat.png",
-        "alt": "A stylish 90s inspired phone and desk scene with pop culture references",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Make tech feel usable.",
         "prompt": "Name one place where AI could work like Cher's closet computer: practical, visual, and actually helpful.",
@@ -1338,8 +1343,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Judgment Card",
-        "image": "assets/send-it.png",
-        "alt": "A pink corporate desk scene about deciding what is ready to send",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Keep your standards.",
         "prompt": "Use AI for a draft, then make one human judgment call before anything leaves your laptop.",
@@ -1350,20 +1354,18 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue01",
         "issueLabel": "Episode 01",
         "title": "Room Key Card",
-        "image": "assets/laidies-logo.png",
-        "alt": "The lAIdies neon logo",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Bring one question to the room.",
         "prompt": "Share where you are starting, what you are trying, or what feels confusing.",
-        "reward": "Collected when learning stops being a solo spiral and starts becoming a group chat with receipts."
+        "reward": "Collection is held. Use this discussion prompt without claiming a card or reward."
       },
       {
         "id": "specificity",
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Specificity Card",
-        "image": "assets/trading-card-specificity.webp",
-        "alt": "A neon pink trading card scene with a note that says Be Specific",
+        "visualState": "HELD",
         "portrait": false,
         "unlockTitle": "Be David Rose about it.",
         "prompt": "Turn one vague ask into the painfully specific version and share the before-and-after.",
@@ -1374,8 +1376,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Girl Power Prompt",
-        "image": "assets/trading-card-girl-power.webp",
-        "alt": "A bright Y2K trading card scene with two women improving a prompt together",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Fix one prompt in the room.",
         "prompt": "Help another member add audience, context, constraints, or a good example.",
@@ -1386,8 +1387,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Try-On Card",
-        "image": "assets/trading-card-try-on.webp",
-        "alt": "A pastel board game trading card scene with a spinner, rings, and a Try It On note",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Do the weekly try-on.",
         "prompt": "Complete the prompt, revise once, and post what changed after the second pass.",
@@ -1398,8 +1398,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Rewrite Remix",
-        "image": "assets/trading-card-rewrite-remix.webp",
-        "alt": "A glam Y2K trading card scene with a laptop, flip phone, and three rewrite cards",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Rewrite the messy one.",
         "prompt": "Use AI to make one draft direct, warmer, and executive-clean. Keep the version with judgment.",
@@ -1410,8 +1409,7 @@ window.LAIDIES_SITE_DATA = {
         "issue": "issue02",
         "issueLabel": "Episode 02",
         "title": "Receipts Card",
-        "image": "assets/trading-card-receipts.webp",
-        "alt": "A pink evidence desk trading card scene with a magnifying glass and receipts note",
+        "visualState": "HELD",
         "portrait": true,
         "unlockTitle": "Ask for the source.",
         "prompt": "Catch one AI answer that needs a citation, correction, date check, or better receipt.",

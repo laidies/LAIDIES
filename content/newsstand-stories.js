@@ -1,118 +1,257 @@
 /**
- * SUNNYVAiLE NewsStand — story library (Stage 1)
+ * SUNNYVAiLE NewsStand — canonical public publication dataset
  *
- * window.NEWSSTAND_STORIES : Array<Story>
+ * Schema: /content/newsstand.schema.json
+ * Public editions: breaking | daily | weekly | tribune
  *
- * Story shape:
- *   id, slug                                   — url + archive keys
- *   edition                                    — "today" | "wednesday" | "tribune"
- *   date                                       — ISO publish date
- *   thread, thread_subtitle, thread_entry      — Tribune only; null otherwise
- *   headline                                   — display title
- *   the_story                                  — paragraph HTML (The Argument for Tribune)
- *   laidies_read, what_this_means,             — paragraph HTML each
- *     cocktail_party
- *   watch_fors                                 — Tribune only: array of paragraph HTML strings
- *   closing_note                               — optional trailing paragraph (Tribune)
- *   class_notes                                — HTML string, inline <a> only where a real page exists
- *   sources                                    — [{ label, url, flag? ("vendor-sponsored" → ⚠️) }]
- *   aidb_credit                                — optional string
- *   tags                                       — array of tag strings (powers archive filters)
- *   saint_lane                                 — optional
- *   badge                                      — optional (e.g. "★ NEW · TRIBUNE ENTRY 1")
- *
- * Stage 2 automation will push into the same array. Human approve-to-publish
- * gate stays with Ali.
+ * A private radar or candidate never publishes directly to this object.
+ * The reader fails closed when this object is absent, malformed, held or stale.
  */
-window.NEWSSTAND_STORIES = [
-
-  // ---- Batch 01 · Story 1 · WEDNESDAY Edition ----------------------------
-  {
-    id: "botsitting-11-hours",
-    slug: "botsitting-11-hours",
-    edition: "wednesday",
-    date: "2026-06-28",
-    thread: null,
-    thread_subtitle: null,
-    thread_entry: null,
-    headline: "The 11 hours AI gives you, and the 6.4 it quietly takes back",
-    the_story: "A big new report put a number on something you've already felt. The Work AI Index 2026 — from Glean's Work AI Institute, with academics from Stanford, UC Berkeley, Emory and a handful of other universities, surveying 6,000 people who do most of their work on a computer across the US, UK and Australia — found that workers <em>say</em> AI saves them about 11 hours a week through automation. Then it takes 6.4 of them back. That clawed-back time finally has a name: <strong>botsitting</strong> — feeding the AI context, checking its work, fixing what it got confidently wrong, re-running the prompt, hopping between the four different tools you now keep open. Roughly an hour of cleanup for every hour of help. And despite 87% of people using AI, only 13% of companies said it had actually made the organization perform meaningfully better. There's a louder cousin the report names too: <strong>botshitting</strong> — shipping AI work you haven't checked, don't fully understand, and couldn't defend if someone asked. 69% admitted to it. <em>(One honest flag: Glean sells enterprise AI search, so it has a stake here. The academic co-authors and the 6,000-person sample are why it still carries weight.)</em>",
-    laidies_read: "Self-checkout was supposed to get you out of the store faster — no line, no cashier. Then you're scanning your own groceries, bagging your own groceries, and standing there punching in 4011 because the machine can't tell a banana from a turnip — until the light starts spinning and you're waving down the one attendant for the whole bank of machines. It did save you the line. It also quietly made you the cashier. That's botsitting exactly: the AI hands you the time back, then you spend it being the one who feeds it what it should've known and fixes what it got wrong — a job nobody put on your schedule.",
-    what_this_means: "Here's a finding the report buried that's worth saying out loud: men were 8% more likely than women to ship AI work they couldn't defend — and the researchers' own read is that women, who've always paid a steeper price for a visible mistake, already double- and triple-check before anything leaves their desk. So you may be doing the hard part already. The shift to make: stop trying to verify <em>everything</em> (that's the self-checkout trap — re-scanning every item by hand) and instead decide up front the one thing that, if it's wrong, blows up the meeting — and check only that, every time. The skill that separates the women getting faster from the ones getting buried isn't prompting. It's knowing what to never hand over.",
-    cocktail_party: "“You know that stat about AI saving you eleven hours a week? Turns out you hand six of them right back babysitting the thing — feeding it context, fixing what it got confidently wrong — basically scanning your own groceries at self-checkout. The time-save is real; so is the cleanup nobody counts.”",
-    watch_fors: null,
-    closing_note: null,
-    class_notes: "Catching confident-but-wrong output is the spine of <a href=\"/issues/issue-03.html\"><strong>Episode 3 — The Burn Book Problem</strong></a> (the hallucination lesson), and the <a href=\"/grimoire/slaiyer-handbook.html\"><strong>SLAiYER Handbook</strong></a>'s source-checking section is the how-to. <em>(New terms “botsitting”/“botshitting” aren't in the Decoder yet — drafted as entries in the Integrity Report.)</em>",
-    sources: [
-      { label: "Work AI Index 2026 — Glean Work AI Institute", url: "https://www.glean.com/work-ai-institute/work-ai-index", flag: "vendor-sponsored" }
-    ],
-    aidb_credit: "Surfaced via The AI Daily Brief",
-    tags: ["productivity", "verification", "hallucinations", "workflow"],
-    saint_lane: "Elle Woods · Receipts",
-    badge: null
+window.NEWSSTAND_DATA = {
+  schemaVersion: "1.0.0",
+  datasetStatus: "published",
+  generatedAt: "2026-08-03T22:00:00Z",
+  lastCheckedAt: "2026-08-03T22:00:00Z",
+  publications: {
+    breaking: {
+      edition: "breaking",
+      job: "News as it happens, when waiting would leave readers behind.",
+      status: "quiet",
+      publishedAt: null,
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
+      maxAgeHours: 24,
+      note: "No breaking story right now. Enjoy the quiet."
+    },
+    daily: {
+      edition: "daily",
+      editionDate: "2026-08-03",
+      editorialTimeZone: "America/Vancouver",
+      issue: {
+        status: "complete",
+        storyIds: ["eu-ai-act-transparency-starts"],
+        serviceRecordIds: ["daily-2026-08-03-paige-tip", "daily-2026-08-03-promptoscope", "daily-2026-08-03-career-life", "daily-2026-08-03-mme-claio"]
+      },
+      job: "A clear explanation of what changed and why it matters.",
+      status: "current",
+      publishedAt: "2026-08-03T22:00:00Z",
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
+      maxAgeHours: 36,
+      note: "Today’s complete edition is on the rack with sourced reporting and governed service desks."
+    },
+    weekly: {
+      edition: "weekly",
+      job: "The week’s bigger picture, connecting the stories without repeating every headline.",
+      status: "quiet",
+      publishedAt: null,
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
+      maxAgeHours: 192,
+      note: "No Weekly synthesis is ready. Paige will not pad the paper with a repeated headline."
+    },
+    tribune: {
+      edition: "tribune",
+      job: "Opinion and big questions, with the evidence clearly separated from the argument.",
+      status: "current",
+      publishedAt: "2026-07-24T16:00:00Z",
+      updatedAt: "2026-07-25T19:30:00Z",
+      lastCheckedAt: "2026-07-25T19:30:00Z",
+      maxAgeHours: 336,
+      note: "One Tribune article is on the rack."
+    }
   },
+  stories: [
+    {
+      id: "chatgpt-health-permission-screen",
+      slug: "chatgpt-health-permission-screen",
+      edition: "breaking",
+      status: "hold",
+      publishedAt: "2026-07-24T16:00:00Z",
+      updatedAt: "2026-07-25T19:30:00Z",
+      lastCheckedAt: "2026-07-25T19:30:00Z",
+      sourceApproval: {
+        status: "independent-review-required",
+        record: "/operations/product-stewards/newsstand/evidence/stories/chatgpt-health-permission-screen.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "ChatGPT can now read your health record. The permission screen is the whole story.",
+      the_story: "OpenAI announced <strong>Health in ChatGPT</strong> on July 23. It is beginning to roll out to logged-in U.S. users aged 18 and older on web and iOS across Free, Go, Plus and Pro plans. You can choose to connect Apple Health and supported medical records so ChatGPT can use that information when answering relevant questions. OpenAI says connected Health data and conversations that use it are not used to train its foundation models or target ads. By default, ChatGPT asks before using connected Health information, but you can change that to “always allow.” Disconnecting a source starts deletion of its synced data from OpenAI’s systems within 30 days; information already placed in conversation history remains until you delete those conversations. OpenAI’s help centre says this consumer Health product is not intended for clinical or covered-entity use and does not offer a Business Associate Agreement. This is a vendor product announcement, not independent clinical validation, and OpenAI explicitly says ChatGPT can still make mistakes and does not replace qualified medical care.",
+      laidies_read: "This is less “magic medical oracle” and more Cher’s digital closet after somebody added a locked drawer marked <em>private</em>. More context may make an answer more relevant, but the important questions are who has the key, when the drawer opens, what is remembered after it closes and which privacy rules actually apply. U.S. health-app data does not automatically receive the same HIPAA protection as a record held by a covered doctor, hospital or insurer. HHS says information sent at a person’s direction to an app that is not a covered entity or business associate may no longer be protected by the HIPAA Rules; the FTC separately regulates certain consumer health apps and breach notifications.",
+      what_this_means: "Before connecting anything, read four settings like they are the care instructions on the one dress you cannot replace: <strong>what is connected, whether access is once or always, what can become memory, and what remains in chat history after disconnection.</strong> Also read the product’s privacy terms instead of treating “health data” as a promise that HIPAA applies. The useful lane is preparation: summarize a timeline, translate unfamiliar language, notice questions you want to take to an appointment. For a diagnosis, treatment decision, medication change or urgent symptom, go back to the original record and a qualified professional. Personalization can make an answer more relevant; it does not make the model infallible.",
+      cocktail_party: "“ChatGPT can now connect to Apple Health and some medical records. The important bit is that connected data, memory and conversation history have different controls—and consumer health apps are not automatically covered by HIPAA. More context may improve relevance, but it still is not a doctor and you still check the original record.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "Use <a href=\"/content/library-books/rendered/accounts-101.html\"><strong>Accounts 101</strong></a> for the privacy basics, then revisit <a href=\"/issues/issue-03.html\"><strong>Episode 3 — The Burn Book Problem</strong></a> before trusting a confident health summary.",
+      sources: [
+        {
+          id: "openai-health-launch-2026-07-23",
+          label: "OpenAI — Launching Health in ChatGPT (July 23, 2026)",
+          url: "https://openai.com/index/health-in-chatgpt/",
+          publisherType: "vendor",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "openai-health-help-2026-07-25",
+          label: "OpenAI Help — Health access, controls and HIPAA eligibility",
+          url: "https://help.openai.com/en/articles/20001036-health-in-chatgpt",
+          publisherType: "vendor",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "hhs-health-apps-api-2025-05-30",
+          label: "U.S. HHS — The access right, health apps and APIs",
+          url: "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access-right-health-apps-apis/index.html",
+          publisherType: "regulator",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "ftc-health-breach-rule-2024",
+          label: "U.S. FTC — Health Breach Notification Rule for health apps",
+          url: "https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0",
+          publisherType: "regulator",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["privacy", "health", "ChatGPT", "verification", "permissions"],
+      saint_lane: "Elle Woods · Read the fine print",
+      badge: "COMING SOON · THE BREAKING"
+    },
+    {
+      id: "eu-ai-act-transparency-starts",
+      slug: "eu-ai-act-transparency-starts",
+      edition: "daily",
+      status: "published",
+      publishedAt: "2026-08-03T22:00:00Z",
+      updatedAt: "2026-08-03T22:00:00Z",
+      lastCheckedAt: "2026-08-03T22:00:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+      the_story: "Article 50 of the European Union’s AI Act began applying on August 2, 2026. The European Commission’s guidance says providers of certain AI systems must make people aware when they are interacting directly with AI and must add machine-readable marks to certain AI-generated or manipulated outputs. Professional deployers have separate disclosure duties for emotion-recognition and biometric-categorisation systems, deepfakes, and AI-generated or manipulated text published to inform the public on matters of public interest when it has not received human review or editorial control. The Commission also describes a limited transition to December 2, 2026 for the marking-and-detection obligation for certain systems already on the market before August 2. The exact duty depends on the system, actor, use and exception; this is a practical orientation, not legal advice.",
+      laidies_read: "Think of the rule as caller ID for particular AI encounters—not a lie detector for everything on the screen. In covered situations, the person or system behind the interaction may need to tell you that AI is involved, and some generated media needs a machine-readable origin signal. That disclosure helps you ask the next question. It does not prove that the output is accurate, fair, safe or lawful.",
+      what_this_means: "If you are in the EU, expect clearer disclosure in the covered situations: direct AI interaction, certain generated or manipulated media, deepfakes, emotion recognition, biometric categorisation and some public-interest text without human editorial control. If you publish or deploy AI professionally, do not turn this article into a compliance checklist; use the Commission’s current guidance and qualified advice for your exact role and system. As a reader, treat a label as useful origin context. Still check the claim, source and date separately—and do not assume that an unlabelled item is human-made or compliant.",
+      cocktail_party: "“Europe’s Article 50 transparency rules started on August 2. In covered situations, people should be told when they are interacting with AI or seeing certain AI-generated or manipulated content. The label is useful caller ID, not proof that the content is true.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "The current <a href=\"#label-is-not-a-truth-detector\"><strong>Tribune</strong></a> explains the durable rule: provenance and labelling can help establish origin; the underlying claim still needs evidence.",
+      sources: [
+        {
+          id: "ec-article-50-guidelines-2026-07-20",
+          label: "European Commission — Guidelines on Article 50 transparency obligations (July 20, 2026)",
+          url: "https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems",
+          publisherType: "regulator",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "ec-article-50-quick-facts-2026-07-20",
+          label: "European Commission — Quick facts: transparency rules for AI systems",
+          url: "https://digital-strategy.ec.europa.eu/en/factpages/quick-facts-transparency-rules-ai-systems",
+          publisherType: "regulator",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "eurlex-ai-act-2024-1689",
+          label: "EUR-Lex — Regulation (EU) 2024/1689, Articles 50 and 113",
+          url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=en",
+          publisherType: "primary-document",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "eurlex-ai-act-amendment-2026-1744",
+          label: "EUR-Lex — Regulation (EU) 2026/1744, Article 111(4) and recital 38",
+          url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744",
+          publisherType: "primary-document",
+          accessedAt: "2026-08-03",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["AI Act", "transparency", "labels", "deepfakes", "European Union"],
+      saint_lane: "Elle Woods · Read the label and the fine print",
+      badge: "AT THE LEGAL DESK · THE DAILY"
+    },
+    {
+      id: "label-is-not-a-truth-detector",
+      slug: "label-is-not-a-truth-detector",
+      edition: "tribune",
+      status: "published",
+      publishedAt: "2026-07-24T16:00:00Z",
+      updatedAt: "2026-07-25T19:30:00Z",
+      lastCheckedAt: "2026-07-25T19:30:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/label-is-not-a-truth-detector.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: "The Label Maker",
+      thread_subtitle: "provenance can show where content came from; it cannot decide whether the claim is true",
+      thread_entry: 1,
+      headline: "The label can tell you it was made with AI. It cannot tell you it is true.",
+      the_story: "Google said on July 24 that it is signing the EU AI Act Code of Practice on Transparency of AI-Generated Content. Google connected that commitment to its work on the C2PA provenance standard and SynthID watermarking. The European Commission describes the code as a voluntary way for providers and deployers to help demonstrate compliance with AI Act transparency obligations that begin applying on August 2, 2026. The Commission also says adherence is <em>not</em> conclusive evidence of compliance. Those are two different layers: a company’s announcement about the tools it supports, and the regulator’s description of what signing the code does and does not prove.",
+      laidies_read: "Think of the liner notes inside a CD. They can tell you who produced the track, who sang backup and where it was recorded. That is useful provenance. They cannot tell you whether the singer’s story actually happened. An AI label works the same way: it can help show that a file was generated or edited with a particular system. It does not fact-check the sentence, prove the picture’s caption or turn a polished claim into evidence.",
+      what_this_means: "Treat provenance as one receipt, not the whole investigation. If a label or content credential is present, use it to understand origin and editing history. Then separately check the claim against a named source, date and original context. If the label is missing, do not assume the content is human-made; marks and metadata can be absent, stripped or unsupported. If the label is present, do not assume the content is deceptive—or accurate. <strong>How it was made and whether it is true are different questions.</strong>",
+      cocktail_party: "“Google just signed Europe’s voluntary AI-content transparency code. The useful bit is provenance: a watermark or content credential can act like CD liner notes and show how something was made. It still cannot tell you whether the lyric—or the claim—is true.”",
+      watch_fors: [
+        "<strong>Does the mark survive the trip?</strong> A provenance system is only useful if platforms preserve and display it after content is resized, reposted or exported.",
+        "<strong>What happens to text?</strong> Images and audio have established watermarking approaches; reliable, interoperable marking of generated text remains a harder problem.",
+        "<strong>Can ordinary people understand the label?</strong> Machine-readable provenance helps systems exchange information, but the public still needs a clear explanation of what the signal proves—and what it does not."
+      ],
+      closing_note: "Transparency is a valuable layer. It is not a truth layer. LAiDIES will keep asking both questions: <em>where did this come from?</em> and <em>what evidence supports it?</em>",
+      class_notes: "This is the retrieval rule from <a href=\"/issues/issue-03.html\"><strong>Episode 3 — The Burn Book Problem</strong></a>: a receipt can establish origin, while the claim still needs evidence.",
+      sources: [
+        {
+          id: "google-eu-ai-transparency-code-2026-07-24",
+          label: "Google — Signing the EU AI Act transparency code (July 24, 2026)",
+          url: "https://blog.google/company-news/outreach-and-initiatives/public-policy/eu-ai-act-transparency-code-of-practice/",
+          publisherType: "vendor",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "ec-transparency-code-opinion-2026-07-09",
+          label: "European Commission — assessment of the transparency code (July 9, 2026)",
+          url: "https://digital-strategy.ec.europa.eu/en/library/commission-opinion-assessment-code-practice-transparency-ai-generated-content",
+          publisherType: "regulator",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "ec-transparency-code-faq-2026",
+          label: "European Commission — signing and Article 50 timing",
+          url: "https://digital-strategy.ec.europa.eu/en/faqs/signing-code-practice-transparency-ai-generated-content",
+          publisherType: "regulator",
+          accessedAt: "2026-07-25",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["provenance", "watermarking", "verification", "AI Act", "Google", "SynthID"],
+      saint_lane: "Elle Woods · Receipts",
+      badge: "THE TRIBUNE · THE LABEL MAKER · ENTRY 1"
+    }
+  ]
+};
 
-  // ---- Batch 01 · Story 2 · WEDNESDAY Edition ----------------------------
-  {
-    id: "claude-tag-group-chat",
-    slug: "claude-tag-group-chat",
-    edition: "wednesday",
-    date: "2026-06-28",
-    thread: null,
-    thread_subtitle: null,
-    thread_entry: null,
-    headline: "Claude just moved into the group chat",
-    the_story: "On June 23, Anthropic launched <strong>Claude Tag</strong> — a version of Claude that lives inside a Slack channel as a shared <em>team member</em> instead of a private chatbot. Anyone in the channel types @Claude, hands it a task, and it works through the steps on its own, posting updates in the thread while everyone gets on with their day. It runs on Claude Opus 4.8, remembers the channel over time (so you stop re-briefing it from scratch), and can keep working for hours. There's an optional <strong>ambient mode</strong> where it speaks up unprompted — nudging a stalled thread without being asked. It's in beta for Enterprise and Team plans, it replaces the old Claude-in-Slack app (retiring August 3), and admins control which channels and data it can see, plus how much it can spend. Anthropic says about 65% of its own product team's code is now written by an internal version of the tool.",
-    laidies_read: "Think about a game of telephone — a message whispered down a line, garbled a little more at every handoff, until what comes out the end barely matches what went in. That's the old way of working with AI: you brief it in your private chat, your coworker briefs <em>hers</em>, someone emails the half-finished version around — three separate whispered chains, everyone re-explaining the same project, no two versions quite matching. Claude Tag puts one Claude in the channel that everyone talks to directly: same context, same memory, no relay. The whisper-down-the-line becomes one conversation everybody's actually in.",
-    what_this_means: "The shift isn't “AI got smarter” — it's “AI moved into the room.” If your team already lives in Slack, the thing to <em>stop</em> doing is the relay: re-explaining the project to your own private chat while your colleague re-explains it to hers, emailing half-finished versions back and forth. But go in clear-eyed. The more a shared Claude learns your team, the harder it is to ever leave — that's months of accumulated context you can't easily pack up. And ambient mode means something is reading the room and deciding what you need to know. The settings — which channels, which data, what it can spend — aren't fine print; they're the whole safety story. Let it into one low-stakes channel first, on purpose.",
-    cocktail_party: "“Anthropic just put Claude <em>inside</em> the Slack channel as a shared teammate — everyone tags it, it remembers the whole project, so it kills the endless emailing-it-around and re-explaining. The catch: the more it learns your team, the harder it gets to ever switch away.”",
-    watch_fors: null,
-    closing_note: null,
-    class_notes: "This is the “AI as teammate” idea made real — the neighbourhood of <strong>Episode 5 — The AI Group Chat Roll Call</strong> (assembling your squad). <em>(Terms “agent/agentic” and “ambient AI” flagged as likely Decoder gaps in the Integrity Report.)</em>",
-    sources: [
-      { label: "Anthropic — Claude Tag launch (via VentureBeat)", url: "https://venturebeat.com/technology/anthropic-launches-claude-tag-replacing-its-slack-app-with-a-persistent-ai-teammate-that-learns-monitors-and-works-autonomously" },
-      { label: "Fortune — Claude Tag as “virtual employee” coverage", url: "https://fortune.com/2026/06/23/anthropic-claude-tag-virtual-employee-tool-slack/" }
-    ],
-    aidb_credit: "Surfaced via The AI Daily Brief",
-    tags: ["tools", "agents", "Slack", "teams", "governance"],
-    saint_lane: null,
-    badge: null
-  },
-
-  // ---- Batch 01 · Story 3 · THE TRIBUNE · Entry 1 ------------------------
-  {
-    id: "velvet-rope-01",
-    slug: "velvet-rope-01",
-    edition: "tribune",
-    date: "2026-06-28",
-    thread: "The Velvet Rope",
-    thread_subtitle: "who gets the good AI models, and who decides",
-    thread_entry: 1,
-    headline: "The Velvet Rope",
-    the_story: "The AI Daily Brief makes the case that the US has, almost by accident, started deciding <em>who</em> is allowed to use the most powerful AI — not through a clear law with published rules, but reactively, model by model, behind closed doors. Here's what actually happened (and it's worth being precise, because the precise version is more interesting than the headline). In early June, Anthropic released public versions of its Mythos-class models that were <em>deliberately weaker</em> — guardrailed so they couldn't do the most dangerous cyber work — while the full-strength model went to a small handful of firms by invitation. Within days, the government said it knew of a way those guardrails could be circumvented, and on June 12 the Commerce Department used an <strong>export-control lever</strong> to bar the two models (Fable 5 and Mythos 5) from all foreign nationals — including Anthropic's own foreign staff. Because no company can sort hundreds of millions of users by nationality in real time, the practical result was a global shutoff. How serious the underlying exploit really was is <strong>disputed</strong> — Anthropic calls it a narrow jailbreak; the government treated it as grave. The Brief's sharper point: an executive order ten days earlier had <em>explicitly</em> disclaimed mandatory licensing — and then the effect looked a great deal like it anyway. Some commentators have called it a “licensing regime”; that's their characterization, not a settled fact. What <em>is</em> fact: the government reached for an old lever, wasn't sure what to do, and the result was that access to the best models became something handed out at someone's discretion. <em>(The framing here is AIDB's, attributed — not a LAiDIES verdict.)</em>",
-    laidies_read: "Picture the Bronze AiGE on a Saturday night. The lights are on, the band's playing, the place is <em>open</em> — but there's a velvet rope across the door and a bouncer working from a list nobody's allowed to read. Some people get waved straight through; others stand outside for reasons that were never posted; and the list might be different tomorrow night. Nothing's <em>broken</em> — the club works fine. Someone just decided who gets in, and won't show you the rule. That's the frontier-model situation exactly: the models still work, they were never deleted — access to them just became a bouncer's call. And the tell that this is the right picture? This past Friday the rope opened a crack: a <em>small list</em> of companies got waved back in. Same club, same unposted list, slightly different names on it.",
-    what_this_means: "You don't have to follow AI policy to get caught behind the rope — and the lesson lands straight on your desk: access you don't control is access that can change without you. The practical hedge is the calm one — don't single-source the AI your work leans on, the way you'd never bet everything on one supplier who could raise the rope overnight. Keep a second model you actually know how to drive, and keep the context you reuse — your briefs, your templates, your “here's how I work” notes — somewhere portable, not locked inside one tool. That's not panic; it's the same resilience you'd build into anything important. A decision made in a room you'll never see shouldn't get to take your whole week with it.",
-    cocktail_party: "“The US government switched off Anthropic's two most powerful models overnight — not with a law, with an export-control order nobody outside the room got to see — and then half-reopened it for a short list of companies a couple of weeks later. It's less a rulebook than a bouncer with a list: the models work fine, someone just decides who gets in.”",
-    watch_fors: [
-      "<strong>Does the rope become permanent?</strong> A June 2 order already floated a 30-day government look at top models before release; days ago OpenAI's GPT-5.6 got a staggered government-approval rollout with only ~20 organizations let in early. A one-off is becoming a pattern.",
-      "<strong>The two-tier gap.</strong> Full-strength models to a trusted few, deliberately <em>de-tuned</em> versions to everyone else — worth watching whether the public frontier and the real frontier keep drifting apart.",
-      "<strong>Does gating US models just hand the lead to ungatable ones?</strong> Two days after the ban, China's Z.ai shipped GLM-5.2 — open-weight, free to download, a fraction of the price — and it promptly knocked Fable 5 off the top of the web-design leaderboard (helped along by Fable being <em>pulled</em> from the board by the ban). You can't export-control your way out of an open model anyone can run. <em>(It doesn't beat the US models everywhere — on the hardest long-horizon work they still lead — so this is a real race, not a rout.)</em>",
-      "<strong>The whiplash itself.</strong> Banned June 12, partly restored June 27. When access can swing that fast, anything you learn about a given model's availability has a short shelf life."
-    ],
-    closing_note: "No tidy answer here yet — that's the honest state of it. Is this reckless overreach or a government reluctantly hitting pause on something it didn't understand fast enough? Reasonable people are still arguing, and we'll report back as the rope moves.",
-    class_notes: "Which company owns which model — and how much power that hands whoever can switch it off — is <strong>Power Map</strong> territory. <em>(Proposed Chamber of Receipts entry: “Can a government switch off an AI model you're using?” — settled-fact version, drafted in the Integrity Report. The “is this overreach?” argument stays here in the Tribune, by the §4B rule.)</em>",
-    sources: [
-      { label: "NPR — partial lifting of the Anthropic export ban", url: "https://www.npr.org/2026/06/27/nx-s1-5871245/trump-administration-imposes-restrictions-for-anthropic-to-halt-access-to-2-ai-models" },
-      { label: "TechCrunch — Asian AI startups fill the gap as the ban drags on", url: "https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/" },
-      { label: "TechRadar — China's GLM-5.2 tops the web-design leaderboard", url: "https://www.techradar.com/pro/chinas-answer-to-claudes-fable-5-comes-top-of-the-html-web-design-contest-as-the-ceo-tells-elon-musk-glm-will-reach-mythos-class-before-q1-2027" },
-      { label: "The Rundown — White House staggered rollout of GPT-5.6", url: "https://www.therundown.ai/p/white-house-reins-in-openai-gpt-5-6" },
-      { label: "digitalapplied — US AI gatekeeping vs China's open-source play", url: "https://www.digitalapplied.com/blog/us-ai-gatekeeping-china-open-source-advantage-2026" },
-      { label: "Lawfare — a kill switch for frontier AI", url: "https://www.lawfaremedia.org/article/a-kill-switch-for-frontier-ai" }
-    ],
-    aidb_credit: "POV via The AI Daily Brief · facts on primary sources",
-    tags: ["policy", "access", "model-risk", "China", "open-weights", "governance"],
-    saint_lane: null,
-    badge: "★ THE TRIBUNE · VELVET ROPE · ENTRY 1"
-  }
-
-];
+/* Compatibility for old private inspection scripts only. Public code uses NEWSSTAND_DATA. */
+window.NEWSSTAND_STORIES = window.NEWSSTAND_DATA.stories;
