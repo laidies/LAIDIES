@@ -107,3 +107,33 @@ now evidence-bearing failures rather than missing-checker crashes:
 
 No failing check was weakened or removed. No public copy, Library source,
 release workflow dispatch, Pages upload, deployment or spend occurred.
+
+## Recovery checkpoint — 15:12 PDT
+
+Draft PR [#29](https://github.com/laidies/LAIDIES/pull/29) now includes exact
+commit `2def7439a267d8b67b4a043a669a15acb5e65316`. The predecessor NewsStand
+dataset and canonical migration were recovered from their committed lineage,
+six stale work records were normalized to truthful non-running states and the
+two undefined `LESSON-13` references were removed without weakening either
+Library rejection. Full `npm run ci` passes, including the calibrated
+NewsStand, rejection-prevention and work-resolution checks.
+
+The curated public build remains **HOLD** on exactly ten files:
+
+- `assets/bookfair/bf-wallpaper.png`
+- `assets/bookfair/bf-badge.png`
+- `assets/bookfair/bf-bookmark.png`
+- `assets/bookfair/bf-stickers.png`
+- `assets/bookfair/bf-postcard.png`
+- `assets/bookfair/bf-zine.png`
+- `assets/bookfair/bf-holocard.png`
+- `assets/bookfair/bf-poster.png`
+- `assets/closet/closet-interior-hero-pixel.png`
+- `assets/town-characters/y2k-portraits/dj-sunnyv-y2k-portrait.png`
+
+The eight Book Fair files and DJ portrait have no tracked bytes in repository
+history. The Closet hero exists only in the dirty iCloud worktree and has no
+current owner admission. None may be copied into the release branch as a
+shortcut. Their owning product lanes must admit exact reviewed bytes or remove
+the stale public reference. No workflow was dispatched, no artifact was
+approved, merged, deployed or publicly verified, and no spend occurred.
