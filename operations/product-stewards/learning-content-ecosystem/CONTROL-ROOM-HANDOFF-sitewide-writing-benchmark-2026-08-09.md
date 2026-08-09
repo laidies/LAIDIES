@@ -1,6 +1,6 @@
 # Control Room handoff: sitewide published-writing benchmark
 
-Evidence time: `2026-08-09T16:58:19-07:00`
+Evidence time: `2026-08-09T16:59:06-07:00`
 
 Product/system ID: `learning-content-ecosystem`
 
@@ -73,4 +73,6 @@ Authority truth: no public prose, book, article, class, episode, route or live
 artifact changed; no deploy, publication, spend or implied Ali release
 authority was used.
 
-Worktree truth: `UNCOMMITTED_OWNED` pending isolated commit and push.
+Worktree truth: `PUSHED`. Exact substantive commit `59ee5648` is on
+`origin/task/ai-fundamentals-restart-20260808`; this final handoff-only status
+refresh follows it.
