@@ -14,7 +14,7 @@
       "admitted_at": "2026-08-07T21:18:00-07:00",
       "started_at": "2026-08-07T21:19:00-07:00",
       "resolved_at": null,
-      "last_event_at": "2026-08-08T05:11:00-07:00",
+      "last_event_at": "2026-08-08T21:44:00-07:00",
       "evidence": [
         {
           "evidence_id": "EV-FABLE-REVIEW-DOOR",
@@ -163,6 +163,42 @@
             "node scripts/test-serve-review-door.mjs"
           ],
           "boundary": "Managed Review Door routes cannot prevent a person manually opening repository bytes through an OS file URL."
+        },
+        {
+          "evidence_id": "EV-FABLE-DIRTY-TREE-PACKAGE-QUEUE",
+          "verdict": "PASS",
+          "paths": [
+            "scripts/plan-repository-recovery-packages.mjs",
+            "scripts/test-plan-repository-recovery-packages.mjs",
+            "scripts/reconcile-repository-storage.mjs",
+            "/Users/alisoneakin/Documents/LAIDIES-recovery-2026-08-07/repository-recovery-packages.json"
+          ],
+          "observed": {
+            "dirty_paths": 9792,
+            "review_packages": 353,
+            "unknown_held": 4299,
+            "generated_out_of_git": 2810,
+            "historical_preserved": 32,
+            "untracked_for_review": 2603,
+            "tracked_diffs_for_review": 21,
+            "tracked_generated_for_review": 27
+          },
+          "test": "npm run test:repository-storage-reconciliation && npm run test:repository-recovery-packages && npm run ci",
+          "authority": "Internal recovery routing only; no path moved, deleted, staged for product import, deployed or published.",
+          "worktree_truth": {
+            "state": "COMMITTED",
+            "commit": "3ec84635",
+            "paths": [
+              "package.json",
+              "scripts/reconcile-repository-storage.mjs",
+              "scripts/test-reconcile-repository-storage.mjs",
+              "scripts/plan-repository-recovery-packages.mjs",
+              "scripts/test-plan-repository-recovery-packages.mjs",
+              "operations/storage/RECOVERY-STATUS-2026-08-07.md",
+              "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md",
+              "operations/painpoints-log.md"
+            ]
+          }
         }
       ],
       "dependencies": [
@@ -196,7 +232,7 @@
         }
       ],
       "metric_events": [],
-      "last_event_id": "WKE-20260808-event-parity-dependency"
+      "last_event_id": "WKE-20260808-dirty-tree-package-queue"
     },
     {
       "work_id": "WRK-20260802-odc-101-teaching-design",

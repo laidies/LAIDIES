@@ -67,8 +67,10 @@ for (const row of inventory.rows.filter(candidate => actionable.has(candidate.di
   rows.push({
     path: row.path,
     inventory_disposition: row.disposition,
+    classification: row.classification || 'UNKNOWN',
     git_state: row.git_state,
     bytes: row.bytes,
+    reference_count: Number.isInteger(row.reference_count) ? row.reference_count : 0,
     comparison,
     source_sha256: sourceSha256,
     baseline_sha256: baselineSha256

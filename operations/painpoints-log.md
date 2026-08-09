@@ -15391,3 +15391,31 @@ while remaining falsely unfinished in the launch record.
   a security system.
 - **Publication status:** INTERNAL OPERATING-SYSTEM RECOVERY / NO CONTENT
   ADMISSION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-464 — “Review individually” turned 2,651 files into one unactionable task
+
+- **Date:** 2026-08-08
+- **Area:** Dirty-tree recovery, storage classification and controlled commits.
+- **Failure risk:** A safe inventory can still leave every path in one giant
+  review pile, encouraging either permanent paralysis or a dangerous bulk
+  commit that mixes unrelated products and generated evidence.
+- **Root cause:** Reconciliation preserved exact bytes but dropped the
+  classification and reference fields needed downstream, and it supplied no
+  product/package routing layer.
+- **Prevention rule:** Storage recovery must end in bounded review packages,
+  not only file rows. Routing preserves tracked/untracked state, classification,
+  reference count and baseline comparison; missing evidence produces HOLD, and
+  a route never grants owner authority.
+- **Durable correction:** `plan-repository-recovery-packages.mjs` converts the
+  current 9,792 dirty paths into 353 product/operating review packages while
+  keeping 4,299 unknowns immovable, 32 archive candidates preserved and 2,810
+  generated/ignored paths out of Git. Its negative fixture proves a missing
+  reconciliation cannot become an import recommendation. The first hosted run
+  also exposed that the commit-binding gate was running on a depth-1 checkout,
+  so a truthful reference to the immediately preceding commit could not
+  resolve. Operating baseline CI now fetches full history, and the work-event
+  calibration fails if that requirement is removed.
+- **Possible Behind the Build angle:** The difference between an inventory and
+  a recovery queue.
+- **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
+  DEPLOYMENT OR PUBLICATION.
