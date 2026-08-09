@@ -102,6 +102,66 @@
       "builder_block": true,
       "deterministic_guard": { "stage": "occurrence review", "code": "REQUIRED_ANIMATION_MISSING", "requirement": "Every required motion occurrence needs a bound output and independent observed-result verdict before title assembly passes." },
       "human_rubric": { "question": "Does each beat that requires change, action or explanation visibly animate at the right narration moment?", "fail_when": "A required event is absent, frozen, mistimed or replaced by unrelated motion." }
+    },
+    {
+      "id": "EVAL-MEDIA-011",
+      "category": "impossible_object_geometry",
+      "source": "operations/art-requirements.md",
+      "source_assertion": { "type": "text_contains", "needles": ["Laptop and monitor screens face the user", "outside of a closed laptop lid"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "producer contract", "code": "IMPOSSIBLE_OBJECT_GEOMETRY", "requirement": "Bind required object surfaces and prohibited contradictions before generation; a maker must inspect the actual pixels before review." },
+      "human_rubric": { "question": "Do devices, furniture and props have plausible surfaces, supports, orientations and connections?", "fail_when": "A screen appears on the outside lid, a prop floats, an object intersects impossibly or its working surface faces the wrong direction." }
+    },
+    {
+      "id": "EVAL-MEDIA-012",
+      "category": "phantom_limbs",
+      "source": "operations/art-requirements.md",
+      "source_assertion": { "type": "text_contains", "needles": ["No missing or extra limbs", "hands with the wrong number of fingers"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "producer contract", "code": "ANATOMY_UNBOUND", "requirement": "Declare the visible action and body relationships before generation; hold the exact artifact until every visible person passes crop-level anatomy inspection." },
+      "human_rubric": { "question": "Does every visible hand, limb, finger, joint and body part connect plausibly through every required frame?", "fail_when": "Any phantom, missing, duplicated, fused, melted or impossible body part is visible." }
+    },
+    {
+      "id": "EVAL-MEDIA-013",
+      "category": "unrelated_or_gibberish_text",
+      "source": "operations/episode-visual-system-lock.md",
+      "source_assertion": { "type": "text_contains", "needles": ["Generate clean art without text by default", "misspellings and gibberish"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "text plan", "code": "UNPLANNED_GENERATED_TEXT", "requirement": "Use a deterministic editable text layer by default; purpose-built lettering binds exact approved copy and character-by-character comparison." },
+      "human_rubric": { "question": "Is every visible word intentional, exact, relevant and readable?", "fail_when": "The image contains gibberish, a misspelling, unrelated signage, false technical wording or any unapproved generated text." }
+    },
+    {
+      "id": "EVAL-MEDIA-014",
+      "category": "period_anachronism",
+      "source": "operations/art-requirements.md",
+      "source_assertion": { "type": "text_contains", "needles": ["PERIOD ACCURACY", "Nothing in frame may postdate the year of the scene"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "producer contract", "code": "PERIOD_EVIDENCE_UNBOUND", "requirement": "Bind scene year, age, location, wardrobe, accessories, technology and prohibited anachronisms before generation." },
+      "human_rubric": { "question": "Do the rendered clothes, accessories, objects, technology, typography, location and character age belong to the stated time and place?", "fail_when": "Any visible element postdates, predates or contradicts the scene without an explicit narrative reason." }
+    },
+    {
+      "id": "EVAL-MEDIA-015",
+      "category": "narration_visual_mismatch",
+      "source": "operations/episode-visual-system-lock.md",
+      "source_assertion": { "type": "text_contains", "needles": ["Motion that doesn't match the narration", "accurate to its content"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "producer contract and occurrence admission", "code": "COMPANION_MEANING_UNBOUND", "requirement": "Bind exact accompanying words, time window, proposition and visual job before generation; review the final rendered occurrence at normal speed." },
+      "human_rubric": { "question": "Does this exact picture or motion make the current text/narration clearer rather than merely share its mood or topic?", "fail_when": "The visual is decorative, generic, counter-narrative, late, early or semantically unrelated to the words it accompanies." }
+    },
+    {
+      "id": "EVAL-MEDIA-016",
+      "category": "loop_or_motion_class_error",
+      "source": "operations/episode-visual-system-lock.md",
+      "source_assertion": { "type": "text_contains", "needles": ["Zero net travel", "If a clip travels directionally"] },
+      "expected_verdict": "REJECT",
+      "builder_block": true,
+      "deterministic_guard": { "stage": "motion plan and decoded clip", "code": "MOTION_CLASS_CONFLICT", "requirement": "Classify loop, transition, one-shot or ambient motion before production; run calibrated loop/static checks on the exact output where applicable." },
+      "human_rubric": { "question": "Does the motion perform its declared semantic event and end in a physically and narratively coherent state?", "fail_when": "A directional shot is looped, a loop jumps, a still/pan impersonates required animation or the end state contradicts the next frame." }
     }
   ]
 }

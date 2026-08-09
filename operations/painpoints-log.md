@@ -15293,3 +15293,28 @@ while remaining falsely unfinished in the launch record.
   still editing one desk.
 - **Publication status:** INTERNAL OPERATING-SYSTEM COORDINATION / NO PRODUCT
   CHANGE, DEPLOYMENT OR PUBLICATION.
+
+## BTB-460 — A recovered validator was incomplete without its authority sources
+
+- **Date:** 2026-08-08
+- **Area:** Dirty-tree recovery and visual/media prevention controls.
+- **Failure risk:** Recovering only a validator and its fixture corpus can look
+  like a tidy two-file commit while leaving every new rule bound to authority
+  documents that do not exist in the clean checkout. The validator then fails,
+  or someone weakens it to make the package pass.
+- **Root cause:** File-level reconciliation identified differing bytes but did
+  not yet expand a candidate into its complete runtime and evidence dependency
+  closure.
+- **Prevention rule:** Treat a recovery candidate as a package, not a file.
+  Run its calibrated check in the isolated target checkout before committing;
+  every imported rule, validator, source and generated consumer required for
+  that check must travel together or the package remains held.
+- **Durable correction:** The first media-defect recovery package expanded from
+  two files to four after the calibrated test rejected six missing authority
+  sources. The control files and art authority match the preserved iCloud
+  bytes; the episode authority differs only by two removed trailing spaces.
+  Full repository CI passes in the isolated worktree.
+- **Possible Behind the Build angle:** Why copying the checker without the rule
+  book is not recovery.
+- **Publication status:** INTERNAL REPOSITORY RECOVERY / NO VISITOR CONTENT,
+  DEPLOYMENT OR PUBLICATION.

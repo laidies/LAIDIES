@@ -14,7 +14,7 @@ const fixturePath = path.resolve(root, fixtureMode && process.env.LAIDIES_MEDIA_
   : 'operations/evals/media-defect-fixtures.json');
 const corpus = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
 const errors = [];
-const required = new Set(['retired_wordmark','wrong_heroine','wrong_outfit','false_or_old_map','irrelevant_or_invented_characters','caption_placement','caption_casing','static_slideshow','light_box_overlay','missing_animation']);
+const required = new Set(['retired_wordmark','wrong_heroine','wrong_outfit','false_or_old_map','irrelevant_or_invented_characters','caption_placement','caption_casing','static_slideshow','light_box_overlay','missing_animation','impossible_object_geometry','phantom_limbs','unrelated_or_gibberish_text','period_anachronism','narration_visual_mismatch','loop_or_motion_class_error']);
 const ids = new Set();
 
 for (const fixture of corpus.fixtures || []) {
