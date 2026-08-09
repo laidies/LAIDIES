@@ -30,7 +30,7 @@ function verifyWorktreeTruth(event, lineNumber) {
   if (!truth.commit || !truth.paths.length) throw new Error(`line ${lineNumber} ${truth.state} requires commit and paths`);
   const resolved = spawnSync('git', ['cat-file', '-e', `${truth.commit}^{commit}`], { cwd: root, encoding: 'utf8' });
   if (resolved.status !== 0) throw new Error(`line ${lineNumber} worktree_truth commit does not resolve: ${truth.commit}`);
-  const listed = spawnSync('git', ['diff-tree', '--root', '--no-commit-id', '--name-only', '-r', truth.commit], { cwd: root, encoding: 'utf8' });
+  const listed = spawnSync('git', ['diff-tree', '--root', '--no-commit-id', '--name-only', '-r', '-m', truth.commit], { cwd: root, encoding: 'utf8' });
   if (listed.status !== 0) throw new Error(`line ${lineNumber} cannot inspect worktree_truth commit ${truth.commit}`);
   const committed = new Set(listed.stdout.split(/\r?\n/).filter(Boolean));
   for (const changed of truth.paths) {

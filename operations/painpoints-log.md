@@ -15414,7 +15414,9 @@ while remaining falsely unfinished in the launch record.
   also exposed that the commit-binding gate was running on a depth-1 checkout,
   so a truthful reference to the immediately preceding commit could not
   resolve. Operating baseline CI now fetches full history, and the work-event
-  calibration fails if that requirement is removed.
+  calibration fails if that requirement is removed. The clean-integration rerun
+  then exposed the complementary case: a merge commit needs parent-aware diff
+  inspection. The calibration now verifies both ordinary and merge commits.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,

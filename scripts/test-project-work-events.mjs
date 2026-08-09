@@ -40,7 +40,7 @@ fail([
   { ...futureBase, event_id: 'F3', at: '2026-08-08T19:02:00Z', type: 'WORK_RESOLVED', payload: { worktree_truth: heldTruth } }
 ], 'cannot bind UNCOMMITTED_OWNED');
 const commit = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout.trim();
-const committedPath = spawnSync('git', ['diff-tree', '--root', '--no-commit-id', '--name-only', '-r', commit], { cwd: root, encoding: 'utf8' }).stdout.split(/\r?\n/).find(Boolean);
+const committedPath = spawnSync('git', ['diff-tree', '--root', '--no-commit-id', '--name-only', '-r', '-m', commit], { cwd: root, encoding: 'utf8' }).stdout.split(/\r?\n/).find(Boolean);
 if (!committedPath) throw new Error(`test fixture commit has no inspectable path: ${commit}`);
 const committedTruth = { state: 'COMMITTED', commit, paths: [committedPath] };
 const committed = run([
@@ -50,4 +50,4 @@ const committed = run([
 ]);
 if (committed.status !== 0 || !committed.stdout.includes('"status": "RESOLVED"')) throw new Error(`committed resolution failed:\n${committed.stdout}${committed.stderr}`);
 fs.rmSync(tmp, { recursive: true, force: true });
-console.log('WORK EVENT PROJECTION CALIBRATION PASS hosted_history=full legacy_valid=1 legacy_rejected=4 future_missing_truth=blocked owned_hold=allowed uncommitted_resolution=blocked committed_resolution=allowed');
+console.log('WORK EVENT PROJECTION CALIBRATION PASS hosted_history=full merge_commit=inspectable legacy_valid=1 legacy_rejected=4 future_missing_truth=blocked owned_hold=allowed uncommitted_resolution=blocked committed_resolution=allowed');
