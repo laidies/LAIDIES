@@ -1,4 +1,4 @@
-# Recovery status — updated 2026-08-09 06:15 PDT
+# Recovery status — updated 2026-08-09 06:42 PDT
 
 ## Proven now
 
@@ -42,6 +42,28 @@ rows fell from 913 to 880, and ready owner-review work fell from 64 paths to 31.
 The 33 historical records were not deleted, moved, edited, staged or imported.
 `UNKNOWN` remains immovable, and Library visitor-facing work remains outside
 this recovery package.
+
+## Product-owner authority closure
+
+The 06:35 PDT review found that the apparently ready two-file
+`businesswomens-special` package would create an orphan in the clean branch:
+the clean baseline did not yet contain the registry or the Bronze parent
+charter/state. The prior dependency check saw only exact backticked paths, so it
+could not reject a structurally incomplete owner package.
+
+The planner now derives owner authority from the current product registry.
+Every product-owner package requires the registry plus its bound dossier/state
+and, for a subproduct, the parent's bound dossier/state in the clean baseline or
+the same exact package. A calibrated fixture reproduces the Businesswomen's
+Special shape and rejects it as `HOLD_MISSING_OWNER_AUTHORITY` while a complete
+Library owner package remains ready.
+
+Applied to the unchanged 9,792-path inventory, the real queue falls from 31
+ready reviewable paths to three: two AIDB concept-card images and one opening-day
+media-gate record. Eighty-five product packages now remain explicitly held on
+missing registry/parent authority rather than being offered for orphan import.
+No Businesswomen's Special, Bronze, Library or dirty-source byte was imported,
+edited, moved, deleted or staged.
 
 ## Authority truth
 

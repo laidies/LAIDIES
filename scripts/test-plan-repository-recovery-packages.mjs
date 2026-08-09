@@ -27,6 +27,8 @@ const rows = [
   { path: 'operations/product-stewards/stale.md', bytes: 100, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   { path: 'operations/product-stewards/transformed.md', bytes: 110, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   { path: 'operations/product-stewards/stale-target.md', bytes: 120, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
+  { path: 'operations/product-stewards/businesswomens-special/CHARTER.md', bytes: 130, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
+  { path: 'operations/product-stewards/businesswomens-special/state.json', bytes: 140, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   ...Array.from({ length: 26 }, (_, index) => ({
     path: `content/library-books/pilots/oversized-book/part-${String(index + 1).padStart(2, '0')}.md`,
     bytes: 10,
@@ -47,6 +49,20 @@ fs.mkdirSync(path.join(sourceRoot, 'operations/voice'), { recursive: true });
 fs.mkdirSync(path.join(baselineRoot, 'operations/voice'), { recursive: true });
 fs.writeFileSync(path.join(sourceRoot, 'operations/voice/settled.md'), 'settled\n');
 fs.writeFileSync(path.join(baselineRoot, 'operations/voice/settled.md'), 'settled\n');
+const registryPath = 'operations/product-stewards/registry.json';
+const registry = {
+  products: [
+    { id: 'library', dossier: 'library/CHARTER.md', state: 'library/state.json' },
+    { id: 'bronze-aige', dossier: 'bronze-aige/CHARTER.md', state: 'bronze-aige/state.json' },
+    { id: 'businesswomens-special', parent_id: 'bronze-aige', dossier: 'businesswomens-special/CHARTER.md', state: 'businesswomens-special/state.json' }
+  ]
+};
+fs.mkdirSync(path.dirname(path.join(sourceRoot, registryPath)), { recursive: true });
+fs.mkdirSync(path.dirname(path.join(baselineRoot, registryPath)), { recursive: true });
+fs.writeFileSync(path.join(sourceRoot, registryPath), `${JSON.stringify(registry)}\n`);
+fs.writeFileSync(path.join(baselineRoot, registryPath), `${JSON.stringify(registry)}\n`);
+fs.mkdirSync(path.join(baselineRoot, 'operations/product-stewards/library'), { recursive: true });
+fs.writeFileSync(path.join(baselineRoot, 'operations/product-stewards/library/CHARTER.md'), 'library authority\n');
 const missingDependency = 'operations/agents/aidb-intelligence-desk/handoffs/site-refresh/missing.md';
 fs.mkdirSync(path.dirname(path.join(sourceRoot, missingDependency)), { recursive: true });
 fs.writeFileSync(path.join(sourceRoot, missingDependency), 'dirty-only dependency\n');
@@ -107,8 +123,8 @@ const result = spawnSync(process.execPath, [
 assert.equal(result.status, 0, result.stderr);
 const report = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
 assert.equal(report.mutation, 'NONE');
-assert.equal(report.dirty_file_count, 37);
-assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 30);
+assert.equal(report.dirty_file_count, 39);
+assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 32);
 assert.equal(report.action_counts.REVIEW_TRACKED_DIFF, 1);
 assert.equal(report.action_counts.HOLD_UNKNOWN, 1);
 assert.equal(report.action_counts.PRESERVE_PENDING_ARCHIVE_GATES, 1);
@@ -136,6 +152,14 @@ assert.equal(dependencyHold.reviewable_count, 1);
 assert.equal(dependencyHold.package_status, 'HOLD_REFERENCED_DIRTY_PATH');
 assert.deepEqual(dependencyHold.unresolved_referenced_paths, [missingDependency]);
 assert.deepEqual(library.unresolved_referenced_paths, []);
+assert.deepEqual(library.unresolved_authority_paths, []);
+const orphanOwner = report.packages.find(group => group.package_key === 'product-steward:businesswomens-special:root');
+assert.equal(orphanOwner.reviewable_count, 2);
+assert.equal(orphanOwner.package_status, 'HOLD_MISSING_OWNER_AUTHORITY');
+assert.deepEqual(orphanOwner.unresolved_authority_paths, [
+  'operations/product-stewards/bronze-aige/CHARTER.md',
+  'operations/product-stewards/bronze-aige/state.json'
+]);
 const currentRuling = report.packages.find(group => group.package_key === 'operating-system:product-stewards:current');
 assert.equal(currentRuling.package_status, 'READY_FOR_OWNER_REVIEW');
 assert.equal(currentRuling.rows[0].recovery_ruling.status, 'CURRENT_IMPORT_RULING');
@@ -158,10 +182,12 @@ assert.equal(report.package_status_counts.READY_FOR_OWNER_REVIEW, 2);
 assert.equal(report.package_status_counts.HOLD_ROUTE_CONFIRMATION, 1);
 assert.equal(report.package_status_counts.HOLD_OVERSIZED_REQUIRES_SUBDIVISION, 1);
 assert.equal(report.package_status_counts.HOLD_REFERENCED_DIRTY_PATH, 1);
+assert.equal(report.package_status_counts.HOLD_MISSING_OWNER_AUTHORITY, 1);
 assert.match(report.safety_rules.join(' '), /UNKNOWN never moves/);
 assert.match(report.safety_rules.join(' '), /Only HIGH-confidence routes/);
 assert.match(report.safety_rules.join(' '), /exact backticked source path/);
+assert.match(report.safety_rules.join(' '), /registry and its bound product and parent owner paths/);
 assert.match(report.safety_rules.join(' '), /HOLD_STALE_RULING/);
 
 fs.rmSync(fixture, { recursive: true, force: true });
-console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=3 route_hold=1 oversized_hold=26 dependency_hold=1 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1 stale_source_hold=1 transformed_match=1 stale_target_hold=1');
+console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=3 route_hold=1 oversized_hold=26 dependency_hold=1 owner_authority_hold=2 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1 stale_source_hold=1 transformed_match=1 stale_target_hold=1');

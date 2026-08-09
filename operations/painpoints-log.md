@@ -15528,3 +15528,22 @@ while remaining falsely unfinished in the launch record.
   accepting the wrong product decision.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
   DEPLOYMENT OR PUBLICATION.
+
+## 2026-08-09 — A child dossier without its registry and parent is an orphan, not recovery
+
+- **Failure / surprise:** Businesswomen's Special appeared ready because its
+  two child files were small, correctly routed and had no unresolved
+  backticked dependencies. The clean branch did not contain the product
+  registry or Bronze parent dossier/state, so importing it would have created
+  a structurally ownerless record.
+- **Evidence observed:** The dirty registry binds the child to Bronze AiGE;
+  exact clean-baseline checks found the registry and both parent owner paths
+  absent. The previous planner read prose references but not registry structure.
+- **Prevention rule:** A product-owner recovery package requires the current
+  registry, its own bound dossier/state and any parent bound dossier/state in
+  the clean baseline or same exact package. Hold the package rather than
+  claiming a child file closes a dependency by itself.
+- **Possible Behind the Build angle:** Why two perfectly good files can still
+  be the wrong commit.
+- **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
+  DEPLOYMENT OR PUBLICATION.
