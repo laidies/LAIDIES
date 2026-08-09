@@ -14545,3 +14545,36 @@ while remaining falsely unfinished in the launch record.
   still failed—and how one stable question replaced a clever taxonomy.
 - **Publication status:** INTERNAL PROSE PROOF / NOT HUMAN-TESTED, SEMANTICALLY
   ADMITTED, RENDERED, DEPLOYED OR PUBLISHED.
+
+## BTB-461 — Clear chapters can still leave no connected mental model
+
+- **Date:** 2026-08-08
+- **Area:** Shared learning production, AI Fundamentals and adaptive depth.
+- **Failure risk:** A learner may understand each local definition yet remain
+  unable to draw how the parts connect, explain why the relationships matter
+  or use the model on a new product. Extra depth can worsen this by becoming a
+  vocabulary attic rather than answering genuine follow-up questions.
+- **Root cause:** Existing gates required connected prose, explain-back and
+  transfer but did not force the producer to define one cumulative system map,
+  declare each chapter's relationship contribution or observe blank-page
+  reconstruction. The positive-exemplar registry also contained Episode 01
+  but omitted the canonical Episode 02 and 03 Rewind Era teaching moves Ali
+  identified as representative LAiDIES practice.
+- **Prevention rule:** Before substantial connected teaching, bind the end-state
+  model, explicit prerequisite relationships and Draw it / Explain it / Use it
+  prompts. Every chapter and Nerd-O-Meter layer must extend the same map.
+  Require observed system reconstruction at Library admission. Prefer a
+  Rewind Era analogy when it measurably improves the model, but never stretch
+  the Spice Girls prompting cue or Burn Book authority-without-support mapping
+  into a complete technical mechanism.
+- **Durable correction:** D-2026-08-08-108, the learning standard, adaptive
+  depth contract, producer checker, semantic checker and Library cold-reader
+  checker now enforce the model. Episodes 02 and 03 are registered positive
+  exemplars. The AI Fundamentals route now builds one purpose-to-consequence
+  ecosystem and ends in blank-page reconstruction, explanation and new-case
+  use.
+- **Possible Behind the Build angle:** Why knowing every definition is not the
+  same as understanding the system—and the three tests that expose the
+  difference.
+- **Publication status:** INTERNAL LEARNING-SYSTEM CORRECTION / REVISED ROUTE
+  NOT RE-AUDITED, RENDERED, DEPLOYED OR PUBLISHED.

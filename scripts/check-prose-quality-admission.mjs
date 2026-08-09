@@ -29,7 +29,8 @@ export const FAILURE_FAMILIES = [
   "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn",
   "communicationPastiche", "entertainmentBeforeUnderstanding",
   "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding",
-  "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence"
+  "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence",
+  "memorizationWithoutMentalModel", "isolatedConceptSequence", "depthAsVocabularyAccumulation"
 ];
 
 export function enforcedFailureFamilies(registry) {
@@ -134,14 +135,15 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   for (const field of ["humanQuestion", "promisedPayoff", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredReaderFeeling"]) require(text(receipt?.reverseBrief?.[field]), `reverseBrief.${field} is required`);
 
-  const requiredOutcomes = REQUIRED_BY_CLASS[receipt?.contentClass] || [];
+  const requiredOutcomes = [...(REQUIRED_BY_CLASS[receipt?.contentClass] || [])];
+  if (receipt?.surface === "LIBRAIRY" && ["EXPLANATION", "REFERENCE"].includes(receipt?.contentClass)) requiredOutcomes.push("systemModelReconstruction");
   for (const outcomeName of requiredOutcomes) {
     const outcome = receipt?.outcomes?.[outcomeName];
     require(Boolean(outcome), `required outcome ${outcomeName} is missing`);
     require(["PASS", "HOLD", "FAIL"].includes(outcome?.verdict), `outcome ${outcomeName} verdict is invalid`);
     require(text(outcome?.observation), `outcome ${outcomeName} needs a specific observation`);
     evidenceAppears(artifactBody, outcome?.artifactEvidence, `outcomes.${outcomeName}.artifactEvidence`, errors);
-    if (["explainBack", "unseenTransfer"].includes(outcomeName)) {
+    if (["explainBack", "unseenTransfer", "systemModelReconstruction"].includes(outcomeName)) {
       require(!outcome?.readerEvidence, `${outcomeName}.readerEvidence is retired because it could not distinguish simulation from observation`);
       if (receipt?.stage === "PRODUCER_SELF_REVIEW") {
         const probe = outcome?.simulatedReaderProbe;

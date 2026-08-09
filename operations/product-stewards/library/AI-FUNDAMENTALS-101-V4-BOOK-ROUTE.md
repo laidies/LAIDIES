@@ -1,134 +1,367 @@
-# AI Fundamentals 101: complete replacement route
+# AI Fundamentals 101: connected book route
 
-**Status:** REPRESENTATIVE PRODUCTION ROUTE / NOT ADMITTED
-**Candidate:** `LIB-AI-FUNDAMENTALS-101-V4-OPENING-PROOF`
+**Status:** REVISED REPRESENTATIVE PRODUCTION ROUTE / NOT ADMITTED
+**Candidate:** `LIB-AI-FUNDAMENTALS-101-V4-CONNECTED-ROUTE`
 **Owner:** Library production with Learning System concept coherence
+**Depth:** one canonical book with cumulative Standard / Tell me more / Full
+nerd alert! sections; implementation remains uncommissioned
 
 ## Book promise
 
-Understand what AI is, how it works, why different systems behave differently
-and what changes when people use their outputs to make decisions or take
-action. The book assumes no technical background. It teaches one connected
-system, then provides a separate Concept Index for direct lookup.
+Understand what AI is, how its important parts work, why different systems
+behave differently and what changes when people use their outputs to make
+decisions or take action. The book assumes no technical background and does
+not reward memorising a vocabulary list. By the end, the reader should be able
+to draw the connected system, explain it in her own words and use it to reason
+about an unfamiliar AI product in everyday or working life.
+
+## The one system the whole book builds
+
+Every chapter adds to, revises or qualifies this same map:
+
+`human purpose and choices`
+`→ data, examples and objectives used to build or adapt a model`
+`→ trained model running inside a product`
+`+ current request, instructions, context, retrieved information and tools`
+`→ output`
+`→ optional software or physical action`
+`→ human or institutional decision`
+`→ real consequence, evaluation, correction and possible new data`
+
+Computing infrastructure supports training and use. Companies, researchers,
+governments and communities shape which systems exist, who can use them and
+which consequences are accepted. These are part of the AI ecosystem, not
+floating topics saved for a disconnected final chapter.
+
+This is a teaching map, not a claim that every AI product contains every part.
+Each worked example identifies which parts are present, absent or unknown.
+
+## How each chapter teaches
+
+Every chapter must contain, in a natural order rather than a repeated template:
+
+- the real reader question and shortest useful answer;
+- the prior piece of the system map it assumes;
+- one connected cause-and-effect explanation;
+- an everyday or work example in which the relationship is visible;
+- an analogy only if it makes that relationship easier to understand;
+- one practical judgment, action or prediction;
+- a return to the whole-system map showing exactly what was added; and
+- a Draw it / Explain it / Use it check that tests relationships, not recall.
+
+The Nerd-O-Meter layers behave like follow-up questions:
+
+- **Standard:** the complete core answer, connected mechanism, example,
+  practical use, important limitation and system-map addition.
+- **Tell me more:** “How does that work?”, “Why?”, “What connects to it?” and
+  “What changes if this part changes?”
+- **Full nerd alert!:** the underlying machinery, edge cases, evaluation,
+  disputed definitions and evidence, still taught from first principles.
+
+Higher settings add to the same diagram. They may never repair Standard or
+become a vocabulary attic.
 
 ## The route readers will see
 
 ### Introduction: Why understanding AI changes what you can do and decide
 
-**The reader asks:** Why should AI make sense to me now?
+**Reader question:** Why should AI make sense to me now?
 
-The opening begins with a recognisable workplace proposal that uses the label
-AI as though the label explains the system. It gives the shortest true answer,
-shows the input-to-consequence path and equips the reader with three questions
-she can use immediately.
+**Builds from:** ordinary encounters with AI claims and products; no technical
+knowledge.
+
+**Adds to the map:** the broad input → system → output → consequence path and
+the fact that “uses AI” is the start of a useful question, not an explanation.
+
+**Everyday/work case:** a workplace proposal uses the label AI without saying
+whether the product drafts, searches, ranks, decides or acts.
+
+**Reader can now:** replace the vague label with three useful questions: what
+does it do, what does it use and what happens after the output?
 
 ### Chapter 1: The kinds of AI you are already meeting
 
-**The reader asks:** Why do such different products all get called AI?
+**Reader question:** Why do such different products all get called AI?
 
-Begin with familiar encounters: systems that recognise patterns, predict,
-rank, recommend or generate. Keep search, comparison and tool use visible as
-additional product operations rather than forcing them into the same list.
-Then name the relationships carefully. Generative
-describes creating content. Agentic describes continuing across steps and
-using tools toward a goal. Either can appear inside a larger product. AGI and
-ASI are disputed or hypothetical claims about breadth of capability, not
-buttons, model names or inevitable product upgrades.
+**Builds from:** AI is a broad category and systems turn inputs into outputs
+with consequences.
+
+**Adds to the map:** a first orientation to systems that recognise, predict,
+rank, recommend or generate, plus products that continue through tools and
+actions. Generative and agentic describe different characteristics and may
+overlap. AGI and ASI are disputed or hypothetical breadth claims, not present
+product features or inevitable upgrades.
+
+**Everyday/work case:** compare a phone photo search, spam filter, streaming
+recommendation, image generator and tool-using travel assistant by what each
+actually does.
+
+**Depth follow-ups:** Tell me more separates tasks, methods and product
+behaviour without turning them into competing “types.” Full nerd alert!
+examines narrow/general boundaries, multimodality, embodied systems and why
+AGI definitions and tests remain disputed.
+
+**Reader can now:** explain why several AI labels can apply without collapsing
+them, and place a new product provisionally by observed behaviour rather than
+marketing language.
 
 ### Chapter 2: What an AI product is made of
 
-**The reader asks:** What sits behind the screen when I use an AI product?
+**Reader question:** What sits behind the screen when I use an AI product?
 
-Separate the interface, product software, model, current input, surrounding
-instructions, optional retrieval and tools, physical computing infrastructure,
-output and human decision. Define a model plainly before discussing how one is
-trained. Show why product, model, company and complete system are not synonyms.
+**Builds from:** different AI products perform different tasks.
 
-### Chapter 3: How an AI model learns, then answers
+**Adds to the map:** interface, product software, model, current input,
+surrounding instructions, optional retrieval, memory and tools, computing
+infrastructure, output and human decision. Model, product, company and complete
+system are not synonyms.
 
-**The reader asks:** How does a model become able to produce a result?
+**Everyday/work case:** follow one customer-service request through the visible
+chat window, product rules, model, policy retrieval and human approval.
 
-Explain training as repeated adjustment using examples and an objective;
-generalisation as useful performance on appropriate new cases; evaluation and
-post-training as distinct stages; and inference as applying the trained model
-to a new input. Separate prompting and current context from parameter-changing
-training.
+**Analogy candidate:** a television production may help separate the visible
+programme from the cast, script, editing, broadcast system and people making
+decisions—but only if learner testing shows the mapping reduces confusion.
+
+**Depth follow-ups:** Tell me more explains APIs, orchestration and product
+guardrails. Full nerd alert! adds model families, inference serving, hardware
+and why the same model can behave differently in different products.
+
+**Reader can now:** draw the major parts behind a familiar product and identify
+which part would need to change to alter information access, permission or
+behaviour.
+
+### Chapter 3: How an AI model learns, then produces a result
+
+**Reader question:** How does a model become able to produce a result?
+
+**Builds from:** a model is one trained component inside a product.
+
+**Adds to the map:** training data and examples, objective, repeated parameter
+adjustment, evaluation, post-training, generalisation and inference. Training
+changes the model; prompting and context influence one use of the trained
+model without ordinarily retraining it.
+
+**Everyday/work case:** contrast building a spam classifier from many labelled
+examples with using the finished classifier on one new email.
+
+**Analogy candidate:** learning to recognise a song from many listens may help
+separate learning a pattern from identifying one later instance, but it must
+not imply human memory, intention or understanding.
+
+**Depth follow-ups:** Tell me more makes loss, parameters, validation and
+post-training concrete. Full nerd alert! introduces token prediction,
+embeddings, gradient-based optimisation, overfitting and evaluation from first
+principles.
+
+**Reader can now:** explain the difference between training and inference,
+show where data, objectives and evaluation affect behaviour, and diagnose why
+adding a fact to a prompt is not the same as teaching the model permanently.
 
 ### Chapter 4: What information an AI product can use right now
 
-**The reader asks:** What does this product actually know or have available for
+**Reader question:** What does this product actually know or have available for
 this request?
 
-Distinguish patterns learned during training from the current context, context
-window, selected conversation history, attachments, retrieval, product memory
-and information fetched through tools. Explain why visible, stored,
-retrievable and supplied-to-the-model are different states.
+**Builds from:** training creates a model; a product supplies additional
+information when the model is used.
+
+**Adds to the map:** learned parameters, current context, context window,
+selected conversation history, attachments, retrieval, product memory and
+information fetched through tools. Visible, stored, retrievable and supplied
+to the model are different states.
+
+**Everyday/work case:** ask a workplace assistant about an updated leave policy
+and trace whether the current policy was actually retrieved and placed in the
+request context.
+
+**Rewind Era teaching candidate:** the canonical Episode 02 Spice Girls prompt
+move makes the first instruction memorable: tell the system what you actually
+want. The mechanism then adds context, constraints, useful output form and the
+human check. This is a retrieval cue for clear delegation, not a claim that one
+catchy line makes prompting reliable or changes the trained model.
+
+**Depth follow-ups:** Tell me more covers retrieval ranking, memory choices and
+context limits. Full nerd alert! covers token budgets, embeddings, vector
+search, caching and the difference between parameter memory and product state.
+
+**Reader can now:** draw which information entered one answer, explain what was
+missing and choose the smallest useful correction.
 
 ### Chapter 5: How AI systems use tools and take actions
 
-**The reader asks:** How does generated text turn into an action somewhere
+**Reader question:** How does generated output turn into an action somewhere
 else?
 
-Follow a request through model output, structured tool call, permission check,
-tool execution and returned observation. Separate connection from permission,
-generation from execution and a suggested action from an action that actually
-happened.
+**Builds from:** the model receives context and produces output inside a
+product.
+
+**Adds to the map:** structured tool request, connection, permission check,
+tool execution, returned observation, confirmation and action record.
+Connection is not permission; suggesting an action is not executing it.
+
+**Everyday/work case:** a travel assistant searches calendars and fares, then
+requests confirmation before booking.
+
+**Depth follow-ups:** Tell me more covers APIs, schemas, tool errors and human
+checkpoints. Full nerd alert! covers execution environments, authentication,
+least privilege, idempotency and auditable traces.
+
+**Reader can now:** distinguish a drafted email from a sent email, identify the
+permission boundary and predict where a tool failure will appear.
 
 ### Chapter 6: What makes agentic AI different from automation
 
-**The reader asks:** What changes when a system continues across several
+**Reader question:** What changes when a system continues across several
 steps?
 
-Compare fixed automation, a governed workflow and an agent loop. Explain goals,
-planning or routing, tools, observations, state, stopping conditions, human
-checkpoints and compounding error. Agentic does not mean conscious, correct,
+**Builds from:** models can produce tool requests and products can execute
+actions under permissions.
+
+**Adds to the map:** fixed automation, governed workflow and agent loop;
+goals, routing or planning, tools, observations, state, stopping conditions,
+escalation and compounding error. Agentic does not mean conscious, correct,
 unrestricted or generally intelligent.
 
-### Chapter 7: Why AI answers fail in different ways
+**Everyday/work case:** compare a scheduled invoice reminder, a fixed approval
+workflow and a system that investigates missing invoice details across tools.
 
-**The reader asks:** Why can two bad-looking results have completely different
+**Depth follow-ups:** Tell me more traces one complete loop and its failure
+points. Full nerd alert! covers planning patterns, state machines,
+multi-agent arrangements, evaluation and control research.
+
+**Reader can now:** draw the loop, distinguish agentic behaviour from ordinary
+automation and place a useful human checkpoint before consequences compound.
+
+### Chapter 7: Why AI systems fail in different ways
+
+**Reader question:** Why can two bad-looking results have completely different
 causes?
 
-Locate failures in the model, data, current context, retrieval, tool,
-interface, workflow or human/institutional decision. Separate hallucination,
-unreliability, brittleness, unfairness and unsafe use. Match the response to the
-failure instead of treating “verify everything” as the whole lesson.
+**Builds from:** the reader now knows the model, product, current information,
+tools, permissions and multi-step workflow.
+
+**Adds to the map:** failure locations across data, objective, model, context,
+retrieval, tool, interface, workflow, human decision and institution. Separate
+hallucination, unreliability, brittleness, unfairness, misuse and unsafe
+deployment.
+
+**Everyday/work case:** compare an invented policy citation, an outdated policy
+retrieval, a correct draft sent to the wrong person and an unfair prioritisation
+rule.
+
+**Rewind Era teaching candidate:** reuse the canonical Episode 03 Burn Book
+Problem for an unsupported claim that looks as finished and authoritative as a
+supported one. It can make the verification problem and social effect visible;
+it does not explain the internal token-generation mechanism or imply that every
+hallucination begins with a rumour or one small fact.
+
+**Depth follow-ups:** Tell me more matches tests and mitigations to failure
+locations. Full nerd alert! covers distribution shift, calibration, benchmark
+limits, red teaming and socio-technical evaluation.
+
+**Reader can now:** locate a failure before proposing a remedy and explain why
+“verify everything” is not a sufficient diagnosis.
 
 ### Chapter 8: Where your data goes in an AI product
 
-**The reader asks:** What can happen to information I provide?
+**Reader question:** What can happen to information I provide?
 
-Follow information through collection, immediate processing, context,
-storage, retrieval, sharing, possible model-improvement use, retention and
-deletion. Explain that product policy, account type, workplace configuration
-and provider terms matter; no single privacy statement describes every AI
-tool.
+**Builds from:** information can enter context, storage, retrieval, tools and
+institutional workflows.
 
-### Chapter 9: How AI changes work, resources and public choices
+**Adds to the map:** collection, immediate processing, context, storage,
+retrieval, sharing, possible model-improvement use, retention and deletion.
+Product policy, account type, workplace configuration and provider terms
+change the path.
 
-**The reader asks:** What changes beyond the answer on my screen?
+**Everyday/work case:** follow a confidential meeting summary through a
+personal account and a governed workplace account, without assuming either
+route from the interface alone.
 
-Connect a deployed system to tasks, professional responsibility,
-organisational incentives, labour, access, physical infrastructure, energy and
-water, standards and public governance. Separate present evidence, company
-framing, credible disagreement, forecast and speculation. Route fast-moving
-claims to the NewsStand rather than freezing them into evergreen prose.
+**Depth follow-ups:** Tell me more covers retention controls, administrator
+settings and data boundaries. Full nerd alert! covers telemetry, training-use
+pipelines, privacy-preserving techniques and limits of deletion claims.
+
+**Reader can now:** draw the possible data path, identify what must be checked
+before sharing sensitive information and explain which answer depends on the
+specific product configuration.
+
+### Chapter 9: How AI connects to work, resources and public choices
+
+**Reader question:** What changes beyond the answer on my screen?
+
+**Builds from:** complete AI systems are built, operated and governed by people
+and institutions, and their outputs can create consequences.
+
+**Adds to the map:** tasks, professional responsibility, organisational
+incentives, labour, access, physical computing infrastructure, energy and
+water, standards and governance. Present evidence, company framing, credible
+disagreement, forecast and speculation remain visibly distinct.
+
+**Everyday/work case:** trace one organisation's decision to deploy an AI
+assistant through changed tasks, accountability, vendor dependence, resource
+use and rules—not a false analogy to the dot-com boom or collapse.
+
+**Depth follow-ups:** Tell me more examines adoption choices and institutional
+trade-offs. Full nerd alert! examines compute supply chains, measurement
+uncertainty, policy instruments and competing economic evidence.
+
+**Reader can now:** extend the technical diagram into the wider AI ecosystem,
+explain who makes which choices and identify what evidence would change a
+claim about impact.
+
+### Final synthesis: Draw it, explain it, use it
+
+This is not a memory quiz.
+
+- **Draw it:** from a blank page, reconstruct the purpose → training/model →
+  product/context/tools → output/action → decision/consequence loop, then add
+  infrastructure and institutional actors. Mark optional parts as optional.
+- **Explain it:** choose one familiar AI product and explain why it behaves as
+  it does, where its information comes from, how an output can affect the
+  world and where a human choice remains.
+- **Use it:** analyse an unfamiliar everyday or workplace AI proposal, identify
+  present/absent/unknown parts, predict two plausible failure points and name a
+  useful next question or safeguard.
+
+A reader need not reproduce the book's wording. She passes by preserving the
+important relationships and using them well.
 
 ### Concept Index: Find the AI term you need
 
 The A-to-Z index gives each term a one-sentence meaning, its chapter anchor,
 the concept it is commonly confused with and its relationship to the complete
-system. It supports lookup without turning the chapters into a glossary.
+system. It supports lookup without turning the chapters into a glossary. Each
+entry links both to the first plain explanation and to any deeper Nerd-O-Meter
+section.
+
+## Visual teaching plan
+
+No chapter receives a diagram quota. A visual exists only when it reduces the
+mental work of understanding parts, sequence, scale or relationships.
+
+The priority candidate is one professionally illustrated, editable system map
+that grows cumulatively across the book and remains available for the final
+blank-page reconstruction. It is not drawn with CSS/HTML. Deterministic labels
+and arrows sit in editable layers. Each chapter uses only the relevant portion
+and reconnects it to the whole. Additional illustrations require a distinct
+teaching job and exact alignment with the accompanying prose.
 
 ## Production order
 
-1. Admit the exact Introduction as the representative voice and explanation
-   proof.
-2. Draft Chapter 1 and test whether readers can distinguish familiar AI kinds,
-   generative, agentic, AGI and ASI without a taxonomy wall.
-3. Draft Chapters 2 and 3 together so model, product, training and inference
-   cannot drift apart.
-4. Continue in prerequisite order through Chapters 4–9.
-5. Build the Concept Index from the admitted chapters, never ahead of them.
-6. Specify a visual only where prose has proved that a relationship remains
-   hard to understand. CSS/HTML drawings are prohibited.
+1. Audit this complete prerequisite and relationship route before more chapter
+   prose is produced.
+2. Preserve the exact R3 Introduction as a prior proof, but re-evaluate its fit
+   against this revised whole-book promise before admission.
+3. Draft Chapters 1–3 as one connected representative unit with the cumulative
+   system map and Standard/Tell me more/Full nerd alert! section plan.
+4. Run producer probes for Draw it / Explain it / Use it before independent
+   review; objective relationship defects return to production.
+5. Obtain observed unfamiliar-reader reconstruction, explain-back and unseen
+   application evidence on the exact prose before semantic admission.
+6. Continue in prerequisite order through Chapters 4–9; every chapter must
+   preserve and extend the same map.
+7. Build the Concept Index only from admitted chapter anchors.
+8. Commission visual production only after the prose and semantic object map
+   establish a real teaching need; CSS/HTML drawings remain prohibited.

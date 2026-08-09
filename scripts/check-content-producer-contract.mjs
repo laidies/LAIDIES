@@ -110,6 +110,20 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   }
   require(text(architecture?.humourPlan?.lessonJob) || text(architecture?.humourPlan?.noneReason), "humourPlan must name how humour serves the lesson or why none is appropriate");
 
+  if (["EPISODE", "CLASS", "EXPLANATION", "REFERENCE"].includes(contract?.contentClass)) {
+    const synthesis = architecture?.systemSynthesis;
+    for (const field of ["endState", "drawPrompt", "explainBackPrompt", "applicationPrompt"]) {
+      require(text(synthesis?.[field]), `draftArchitecture.systemSynthesis.${field} is required`);
+    }
+    require(array(synthesis?.relationshipClaims, 3), "draftArchitecture.systemSynthesis.relationshipClaims requires at least three system relationships");
+    for (const [index, relationship] of (synthesis?.relationshipClaims || []).entries()) {
+      for (const field of ["fromConcept", "relationship", "toConcept", "introducedAt"]) {
+        require(text(relationship?.[field]), `draftArchitecture.systemSynthesis.relationshipClaims[${index}].${field} is required`);
+      }
+    }
+    require(array(synthesis?.followUpQuestions, 4), "draftArchitecture.systemSynthesis.followUpQuestions requires how, why, connection and change questions");
+  }
+
   const substantialLibraryBook = /LIBRA[Ii]RY|LIBRARY/i.test(contract?.surface || "")
     && ["EXPLANATION", "REFERENCE"].includes(contract?.contentClass);
   if (substantialLibraryBook) {
@@ -129,6 +143,9 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       require(["INTRODUCTION", "CHAPTER", "CONCEPT_INDEX"].includes(entry?.kind), `draftArchitecture.readerRoute.entries[${index}].kind is invalid`);
       require(array(entry?.coverageTerms), `draftArchitecture.readerRoute.entries[${index}].coverageTerms is required`);
       require(Array.isArray(entry?.prerequisiteIds), `draftArchitecture.readerRoute.entries[${index}].prerequisiteIds must be an array`);
+      require(Array.isArray(entry?.conceptsIntroduced), `draftArchitecture.readerRoute.entries[${index}].conceptsIntroduced must be an array`);
+      require(array(entry?.connectionsAdded), `draftArchitecture.readerRoute.entries[${index}].connectionsAdded requires at least one relationship`);
+      require(text(entry?.readerCanNow), `draftArchitecture.readerRoute.entries[${index}].readerCanNow is required`);
       const normalizedTitle = (entry?.title || "").trim().toLowerCase();
       require(!opaqueTitles.has(normalizedTitle), `readerRoute title is a known opaque Library heading: ${entry?.title || "missing"}`);
       require((entry?.coverageTerms || []).some(term => text(term) && normalizedTitle.includes(term.trim().toLowerCase())), `readerRoute title must name at least one declared coverage term: ${entry?.title || "missing"}`);

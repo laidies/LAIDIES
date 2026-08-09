@@ -26,6 +26,10 @@
     "draftArchitecture": {
       "type": "object",
       "properties": {
+        "systemSynthesis": {
+          "type": "object",
+          "required": ["endState", "drawPrompt", "explainBackPrompt", "applicationPrompt", "relationshipClaims", "followUpQuestions"]
+        },
         "readerRoute": {
           "type": "object",
           "required": ["rule", "entries"],
@@ -36,7 +40,7 @@
               "minItems": 2,
               "items": {
                 "type": "object",
-                "required": ["destinationId", "kind", "title", "readerQuestion", "coverage", "coverageTerms", "prerequisiteIds"]
+                "required": ["destinationId", "kind", "title", "readerQuestion", "coverage", "coverageTerms", "prerequisiteIds", "conceptsIntroduced", "connectionsAdded", "readerCanNow"]
               }
             }
           }

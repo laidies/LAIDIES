@@ -39,6 +39,9 @@ drafted, its owner must pass a checksum-bound producer contract against:
 - every registered known-bad defect;
 - one connected causal sequence, a daily-life worked case and a different
   transfer case;
+- for episodes, classes, explanations and substantial reference works, the
+  intended whole-system mental model, at least three explicit relationships,
+  a prerequisite-led route and Draw it / Explain it / Use it prompts;
 - the useful action or decision the reader should gain;
 - a destination-specific Hannah Fry communication design that binds applicable
   human-question, curiosity, concrete-mechanism, familiar-to-technical,
@@ -101,6 +104,15 @@ familiar examples that never reconnect to the technical idea, Hannah Fry
 pastiche, a hook that crowds out the mechanism, a click revealed before its
 mechanism, entertainment before understanding and an inflated ending are
 explicit failure families.
+
+Connected learning fails when chapters or sections are individually readable
+but the learner receives no cumulative model, when depth is implemented as
+more terms rather than more mechanism and relationships, or when recognition
+and recall are accepted in place of reconstruction and transfer. A substantial
+LIBRAiRY explanation therefore adds a checksum-bound
+`systemModelReconstruction` outcome. Producer self-review may run a simulated
+probe only; independent admission requires observed human evidence bound to
+the exact candidate.
 
 ## Evidence rule
 
@@ -177,6 +189,12 @@ with the continuous rendered book and records a reverse brief plus observed
 reader responses. At minimum the receipt includes orientation, ordinary-
 language lookup with route recovery, explain-back and an unseen transfer case.
 The book's worked example cannot double as its transfer test.
+
+For a connected foundational book, the observed cold-reader evidence also
+includes blank-page system reconstruction. The reader may draw rough boxes and
+arrows or describe an equivalent flow; admission judges whether the important
+parts, direction and relationships are preserved, not drawing skill or recall
+of the book's wording.
 
 Opening orientation, promise fidelity, connected progression, lookup and
 recovery, unseen transfer, analogy integrity, audience-relevant examples,

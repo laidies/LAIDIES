@@ -34,7 +34,7 @@ try {
   }));
 
   const excerpt = candidateBody.slice(0, 80);
-  const required = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const required = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "systemModelReconstruction", "usefulAction", "analogyIntegrity"];
   const observedParticipants = observationPaths.map((observationPath, index) => ({
     participantId: `reader-${index + 1}`,
     prompt: "Explain the mechanism and use it in a different case.",
@@ -45,7 +45,7 @@ try {
   }));
   const outcomes = Object.fromEntries(required.map(name => [name, {
     verdict: "PASS", observation: `${name} is demonstrated in the exact prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }],
-    ...(["explainBack", "unseenTransfer"].includes(name) ? { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "reader-study-admin", participants: observedParticipants } } : {})
+    ...(["explainBack", "unseenTransfer", "systemModelReconstruction"].includes(name) ? { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "reader-study-admin", participants: observedParticipants } } : {})
   }]));
   outcomes.analogyIntegrity = {
     ...outcomes.analogyIntegrity,
@@ -80,6 +80,8 @@ try {
   assert.match(inspect(blind).join("\n"), /does not occur/);
   const missing = structuredClone(receipt); delete missing.outcomes.unseenTransfer;
   assert.match(inspect(missing).join("\n"), /unseenTransfer is missing/);
+  const noReconstruction = structuredClone(receipt); delete noReconstruction.outcomes.systemModelReconstruction;
+  assert.match(inspect(noReconstruction).join("\n"), /systemModelReconstruction is missing/);
   const defect = structuredClone(receipt); defect.failureFamilies.decorativeAnalogy.present = true;
   assert.match(inspect(defect).join("\n"), /decorativeAnalogy is present/);
   const analogyCheckbox = structuredClone(receipt); delete analogyCheckbox.outcomes.analogyIntegrity.observedAnalogyEvidence;
@@ -118,7 +120,7 @@ try {
   producer.reviewedAt = "2026-08-07T06:00:00-07:00";
   producer.calibration.reviewerPrincipalId = "maker";
   producer.calibration.reviewedAt = "2026-08-07T05:59:00-07:00";
-  for (const name of ["explainBack", "unseenTransfer"]) {
+  for (const name of ["explainBack", "unseenTransfer", "systemModelReconstruction"]) {
     delete producer.outcomes[name].observedReaderEvidence;
     producer.outcomes[name].simulatedReaderProbe = { prompt: `Probe ${name}`, probeResponse: "A hypothetical reader connects context, evidence and the human check.", expectedEvidence: "Mechanism and transfer." };
   }
@@ -153,7 +155,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=21 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=22 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 system_reconstruction=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

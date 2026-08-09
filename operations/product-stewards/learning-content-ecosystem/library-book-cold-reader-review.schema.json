@@ -29,14 +29,14 @@
     },
     "readerTasks": {
       "type": "array",
-      "minItems": 4,
+      "minItems": 5,
       "contains": { "type": "object", "properties": { "kind": { "const": "UNSEEN_TRANSFER" } } },
       "items": {
         "type": "object",
         "additionalProperties": false,
         "required": ["kind", "prompt", "observedResponse", "expectedEvidence", "verdict", "artifactLocator"],
         "properties": {
-          "kind": { "enum": ["ORIENTATION", "LOOKUP", "EXPLAIN_BACK", "UNSEEN_TRANSFER", "ANALOGY_STRIP_TEST", "ROUTE_RECOVERY"] },
+          "kind": { "enum": ["ORIENTATION", "LOOKUP", "EXPLAIN_BACK", "SYSTEM_RECONSTRUCTION", "UNSEEN_TRANSFER", "ANALOGY_STRIP_TEST", "ROUTE_RECOVERY"] },
           "prompt": { "type": "string", "minLength": 1 },
           "observedResponse": { "type": "string", "minLength": 1 },
           "expectedEvidence": { "type": "string", "minLength": 1 },
@@ -49,7 +49,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "openingOrientation", "promiseFidelity", "connectedProgression", "lookupAndRecovery",
+        "openingOrientation", "promiseFidelity", "connectedProgression", "systemReconstruction", "lookupAndRecovery",
         "unseenTransfer", "analogyIntegrity", "audienceExamples", "misconceptionResistance",
         "materialAccuracy", "continuousRenderedReadability", "laidiesVoice"
       ],
@@ -57,6 +57,7 @@
         "openingOrientation": { "const": "PASS" },
         "promiseFidelity": { "const": "PASS" },
         "connectedProgression": { "const": "PASS" },
+        "systemReconstruction": { "const": "PASS" },
         "lookupAndRecovery": { "const": "PASS" },
         "unseenTransfer": { "const": "PASS" },
         "analogyIntegrity": { "const": "PASS" },

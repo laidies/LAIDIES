@@ -46,9 +46,10 @@ const receipt = {
     { kind: "ORIENTATION", prompt: "What is this for?", observedResponse: "Understand product and model.", expectedEvidence: "Names the distinction.", verdict: "PASS", artifactLocator: "#introduction" },
     { kind: "LOOKUP", prompt: "Find the parts.", observedResponse: "Used Contents and returned.", expectedEvidence: "Uses route unaided.", verdict: "PASS", artifactLocator: "nav.book-contents" },
     { kind: "EXPLAIN_BACK", prompt: "Explain the system.", observedResponse: "Product supplies context to model; output is checked.", expectedEvidence: "Correct causal jobs.", verdict: "PASS", artifactLocator: "#parts" },
+    { kind: "SYSTEM_RECONSTRUCTION", prompt: "Draw the system from a blank page.", observedResponse: "Drew product to context to model to output to human check with labelled arrows.", expectedEvidence: "Important parts and directional relationships are preserved without source wording.", verdict: "PASS", artifactLocator: "#parts" },
     { kind: "UNSEEN_TRANSFER", prompt: "Diagnose an obsolete-policy answer.", observedResponse: "Check what policy reached context and verify the output.", expectedEvidence: "Finds evidence layer and bounded repair.", verdict: "PASS", artifactLocator: "#decision" }
   ],
-  nonCompensableVetoes: Object.fromEntries(["openingOrientation","promiseFidelity","connectedProgression","lookupAndRecovery","unseenTransfer","analogyIntegrity","audienceExamples","misconceptionResistance","materialAccuracy","continuousRenderedReadability","laidiesVoice"].map(key => [key, "PASS"])),
+  nonCompensableVetoes: Object.fromEntries(["openingOrientation","promiseFidelity","connectedProgression","systemReconstruction","lookupAndRecovery","unseenTransfer","analogyIntegrity","audienceExamples","misconceptionResistance","materialAccuracy","continuousRenderedReadability","laidiesVoice"].map(key => [key, "PASS"])),
   participantEvidencePaths: [evidencePath],
   verdict: "ADMISSION_CANDIDATE",
   limitations: []
@@ -66,6 +67,9 @@ assert.match(inspect(linkWall, source, { ...receipt, artifactSha256: sha256(link
 const noTransfer = { ...receipt, readerTasks: receipt.readerTasks.filter(task => task.kind !== "UNSEEN_TRANSFER") };
 assert.match(inspect(rendered, source, noTransfer).join("\n"), /unseen transfer/, "missing transfer outcome must fail");
 
+const noReconstruction = { ...receipt, readerTasks: receipt.readerTasks.filter(task => task.kind !== "SYSTEM_RECONSTRUCTION") };
+assert.match(inspect(rendered, source, noReconstruction).join("\n"), /system reconstruction/, "missing system reconstruction must fail");
+
 const disconnectedSource = { ...source, chapters: [{ ...source.chapters[0], bodyHtml: "short" }, source.chapters[1]] };
 assert.match(inspect(rendered, disconnectedSource).join("\n"), /bodyHtml is incomplete/, "outline-only source must fail");
 
@@ -76,4 +80,4 @@ assert.match(rejectedErrors.join("\n"), /exact artifact is directly rejected/, "
 assert.match(rejectedErrors.join("\n"), /repeated mini-template|link wall/, "known failure family must fail without relying only on its hash");
 
 fs.rmSync(tempRoot, { recursive: true, force: true });
-console.log("LIBRARY BOOK CONTENT ADMISSION CALIBRATION PASS · valid=1 rejected=5 exact_ali_rejection=1");
+console.log("LIBRARY BOOK CONTENT ADMISSION CALIBRATION PASS · valid=1 rejected=6 exact_ali_rejection=1 system_reconstruction=1");

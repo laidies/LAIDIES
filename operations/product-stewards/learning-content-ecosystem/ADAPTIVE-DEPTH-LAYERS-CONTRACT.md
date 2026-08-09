@@ -69,6 +69,45 @@ teaching, accuracy, examples, practical application or safety in Standard.
 - Search and Concept Index anchors resolve to one canonical location and may
   indicate that extra detail is available at a higher setting.
 
+## The follow-up-question model
+
+The deeper positions should feel like a good technical conversation with a
+patient, highly engaged friend—not like opening a second textbook. The author
+anticipates the questions an intelligent reader would naturally ask after the
+core explanation:
+
+1. **What does that mean in a situation I recognise?** Standard answers with a
+   faithful everyday or work example.
+2. **How does it actually work, and why?** Tell me more exposes the next causal
+   layer and reconnects it to the core model.
+3. **What connects to that, and what changes if one part changes?** Tell me
+   more adds relationships, contrasts and failure consequences.
+4. **What is happening underneath, where does the tidy explanation break and
+   what do experts still debate?** Full nerd alert! adds implementation,
+   edge cases, evidence and disagreement from first principles.
+
+Every added section must answer a named follow-up question and explicitly
+return to the shared system map. Adding terminology, trivia, citations or
+length without changing the reader's mental model is not depth.
+
+## Understanding, not memorisation
+
+For a substantial connected item, all three positions support the same three
+forms of learner proof at the depth shown:
+
+- **Draw it:** reconstruct the important parts and arrows. The diagram may be
+  rough; the relationships must be right.
+- **Explain it:** describe how and why the mechanism works in ordinary
+  language without reciting the source.
+- **Use it:** apply the model to an unfamiliar everyday or work situation and
+  predict a consequence or useful action.
+
+Standard must make all three possible for the core system. Higher positions
+add parts and relationships to the same diagram; they do not replace it with
+an unrelated technical appendix. Analogies are admitted only when observed
+learners draw, explain or transfer the mechanism more accurately after using
+them. An analogy is optional; improved understanding is not.
+
 ## Surface adaptations
 
 The shared architecture is eligible for substantial authored learning content,
@@ -140,7 +179,9 @@ explanation must prove:
    every representative desktop and mobile reading page without obscuring the
    content;
 6. every mode is derived deterministically from the same canonical source; and
-7. the full authored and freshness burden is sustainable for the owner.
+7. the full authored and freshness burden is sustainable for the owner; and
+8. unfamiliar readers can draw, explain and apply the connected model at
+   Standard, then correctly add the relationships revealed at higher depths.
 
 Measure mode changes and section completion only as privacy-safe aggregate
 behaviour. A click on Full nerd alert! is curiosity evidence, not proof of
@@ -160,6 +201,8 @@ Hold the implementation if:
 - the reader must scroll or navigate elsewhere to reach the control, or the
   persistent control obscures meaning-bearing content;
 - deeper sections merely add jargon, citations or length; or
+- chapters or depth layers are individually intelligible but do not reconnect
+  into one cumulative mental model; or
 - the surface owner cannot maintain and correct all visible layers.
 
 ## Ownership and next trigger

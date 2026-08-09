@@ -7,7 +7,7 @@ import { RENDERER_VERSION, renderLibraryBookSource, validateRenderableSource } f
 
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const PASS_VETOES = [
-  "openingOrientation", "promiseFidelity", "connectedProgression", "lookupAndRecovery",
+  "openingOrientation", "promiseFidelity", "connectedProgression", "systemReconstruction", "lookupAndRecovery",
   "unseenTransfer", "analogyIntegrity", "audienceExamples", "misconceptionResistance",
   "materialAccuracy", "continuousRenderedReadability", "laidiesVoice"
 ];
@@ -29,10 +29,11 @@ export function inspectColdReaderReceipt(receipt, artifactSha256, root) {
     require(typeof reverse?.[key] === "string" && reverse[key].trim(), `cold-reader reverse brief lacks ${key}`);
   }
   const tasks = Array.isArray(receipt?.readerTasks) ? receipt.readerTasks : [];
-  require(tasks.length >= 4, "at least four observed reader tasks are required");
+  require(tasks.length >= 5, "at least five observed reader tasks are required");
   require(tasks.some(task => task.kind === "UNSEEN_TRANSFER"), "an unseen transfer task is required");
   require(tasks.some(task => task.kind === "LOOKUP"), "a lookup task is required");
   require(tasks.some(task => task.kind === "EXPLAIN_BACK"), "an explain-back task is required");
+  require(tasks.some(task => task.kind === "SYSTEM_RECONSTRUCTION"), "a blank-page system reconstruction task is required");
   for (const task of tasks) {
     require(task?.verdict === "PASS", `${task?.kind || "reader task"} did not pass`);
     for (const key of ["prompt", "observedResponse", "expectedEvidence", "artifactLocator"]) {

@@ -16,13 +16,24 @@ A LAiDIES learner should leave able to:
    implications without presenting scenarios as facts;
 5. use examples and analogies that clarify without replacing the mechanism;
 6. explain the concept accurately to another person;
-7. apply or adapt the idea; and
-8. recognize misleading claims and identify evidence that would change the
+7. reconstruct the important parts and relationships as a diagram, flow or
+   other mental model rather than recalling a list of terms;
+8. apply or adapt the idea to a new everyday or work situation; and
+9. recognize misleading claims and identify evidence that would change the
    conclusion.
 
 Depth comes from instructional design, not word count. Begin simply when
 useful, then build the correct mental model, test it, add nuance and support
 transfer.
+
+For connected systems, vocabulary recall is never the terminal outcome. The
+learner must be able to show what connects to what, explain why the
+relationship matters and predict what changes when one part changes. A
+substantial learning item therefore plans three complementary demonstrations:
+**draw it** (reconstruct the important parts and links), **explain it** (teach
+the mechanism back in ordinary language) and **use it** (apply the model to a
+different practical case). The drawing may be boxes and arrows; artistic
+quality is irrelevant. Relationship accuracy is the evidence.
 
 ## Accuracy and uncertainty
 
@@ -153,6 +164,15 @@ exercises are required only when the book itself promises those outcomes.
 Apply the shared Hannah Fry communication benchmark proportionally: a book
 should create curiosity and make hidden processes concrete without being
 forced into a narrated class or lecture.
+
+For a connected foundational book, every chapter must declare what prior
+understanding it uses, what new part or relationship it adds and how the
+reader's whole-system model has changed. Chapters may introduce several terms
+only when those terms are needed to answer one coherent question. End-of-book
+admission requires the reader to reconstruct the whole system, explain why its
+parts matter and apply the connected model to an unfamiliar everyday or work
+example. A sequence of locally clear chapters still fails if the reader cannot
+connect them.
 
 ## Class and lesson architecture
 

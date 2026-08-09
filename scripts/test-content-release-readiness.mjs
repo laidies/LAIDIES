@@ -100,7 +100,7 @@ function validOrder() {
   write(sourcePath, "Authoritative fixture source says context and evidence support a checked decision.\n");
   write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V2 test fixture.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
-  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding", "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence"];
+  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding", "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence", "memorizationWithoutMentalModel", "isolatedConceptSequence", "depthAsVocabularyAccumulation"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
@@ -116,11 +116,23 @@ function validOrder() {
     knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
     draftArchitecture: {
       plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template.",
+      systemSynthesis: {
+        endState: "The reader reconstructs request context model evidence and human decision as one system.",
+        drawPrompt: "Draw request context model evidence and human decision with labelled arrows.",
+        explainBackPrompt: "Explain why context and evidence have different jobs.",
+        applicationPrompt: "Apply the connected model to an unfamiliar travel-policy decision.",
+        relationshipClaims: [
+          { fromConcept: "request", relationship: "defines the job for", toConcept: "product", introducedAt: "intro" },
+          { fromConcept: "context", relationship: "supplies current material to", toConcept: "model", introducedAt: "system-map" },
+          { fromConcept: "evidence", relationship: "supports the claim used in", toConcept: "human decision", introducedAt: "system-map" }
+        ],
+        followUpQuestions: ["How does it work?", "Why does evidence matter?", "What connects context to the model?", "What changes when evidence is missing?"]
+      },
       readerRoute: {
         rule: "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE",
         entries: [
-          { destinationId: "intro", kind: "INTRODUCTION", title: "Why AI decisions need your judgement", readerQuestion: "Why should I understand this?", coverage: "Purpose and consequence.", coverageTerms: ["AI", "judgement"], prerequisiteIds: [] },
-          { destinationId: "system-map", kind: "CHAPTER", title: "What an AI system does with a request", readerQuestion: "What happens between request and result?", coverage: "Input, model, evidence and decision.", coverageTerms: ["AI", "system", "request"], prerequisiteIds: ["intro"] }
+          { destinationId: "intro", kind: "INTRODUCTION", title: "Why AI decisions need your judgement", readerQuestion: "Why should I understand this?", coverage: "Purpose and consequence.", coverageTerms: ["AI", "judgement"], prerequisiteIds: [], conceptsIntroduced: ["request", "decision"], connectionsAdded: ["A request begins a path that ends in a human decision."], readerCanNow: "State why the system matters." },
+          { destinationId: "system-map", kind: "CHAPTER", title: "What an AI system does with a request", readerQuestion: "What happens between request and result?", coverage: "Input, model, evidence and decision.", coverageTerms: ["AI", "system", "request"], prerequisiteIds: ["intro"], conceptsIntroduced: ["context", "model", "evidence"], connectionsAdded: ["Context supplies material while evidence supports the consequential claim."], readerCanNow: "Draw and explain the connected request-to-decision system." }
         ]
       }
     },
@@ -154,7 +166,7 @@ function validOrder() {
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }
   }));
   const excerpt = "A real work question moves through context and evidence";
-  const outcomeNames = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const outcomeNames = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "systemModelReconstruction", "usefulAction", "analogyIntegrity"];
   const review = stage => {
     const reviewerPrincipalId = stage === "PRODUCER_SELF_REVIEW" ? "maker" : "independent-reader-principal";
     const isProducer = stage === "PRODUCER_SELF_REVIEW";
@@ -162,7 +174,7 @@ function validOrder() {
       verdict: "PASS",
       observation: `${name} is present.`,
       artifactEvidence: [{ excerpt, locator: "fixture-payload.html:1" }],
-      ...(["explainBack", "unseenTransfer"].includes(name)
+      ...(["explainBack", "unseenTransfer", "systemModelReconstruction"].includes(name)
         ? isProducer
           ? { simulatedReaderProbe: { prompt: `Probe ${name}.`, probeResponse: "A hypothetical reader explains context and evidence.", expectedEvidence: "Names context and evidence." } }
           : { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "fixture-reader-admin", participants: observationPaths.map((observationPath, index) => ({ participantId: `reader-${index + 1}`, prompt: `Test ${name}.`, verbatimResponse: `Reader ${index + 1} explained context and evidence.`, expectedEvidence: "Names context and evidence.", observedAt: `2026-08-07T06:5${index}:00-07:00`, observationBinding: { path: observationPath, sha256: sha256(path.join(root, observationPath)) } })) } }

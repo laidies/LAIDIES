@@ -46,6 +46,18 @@ try {
       transferCase: "A family travel plan.", usefulAction: "Check the source before acting.", analogyPlan: [],
       humourPlan: { lessonJob: "One workplace joke sharpens the consequence." }, formatSpecificStructure: "Connected explanation with separate lookup.",
       antiTemplateDecision: "Vary structure around the reader question; no repeated micro-template.",
+      systemSynthesis: {
+        endState: "The reader can reconstruct how a request moves through context model evidence and human decision.",
+        drawPrompt: "Draw request context model evidence and human decision with labelled arrows.",
+        explainBackPrompt: "Explain why the fluent draft is not the supporting evidence.",
+        applicationPrompt: "Apply the same connected model to an unfamiliar travel-policy answer.",
+        relationshipClaims: [
+          { fromConcept: "request", relationship: "supplies the job to", toConcept: "product", introducedAt: "intro" },
+          { fromConcept: "context", relationship: "supplies current material to", toConcept: "model", introducedAt: "system-map" },
+          { fromConcept: "evidence", relationship: "supports a consequential claim checked by", toConcept: "human decision", introducedAt: "system-map" }
+        ],
+        followUpQuestions: ["How does it work?", "Why does evidence matter?", "What connects context to the model?", "What changes if current evidence is absent?"]
+      },
       readerRoute: {
         rule: "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE",
         entries: [
@@ -56,7 +68,10 @@ try {
             readerQuestion: "Why should I understand this?",
             coverage: "Purpose, consequence and the practical payoff.",
             coverageTerms: ["AI", "judgement"],
-            prerequisiteIds: []
+            prerequisiteIds: [],
+            conceptsIntroduced: ["request", "decision"],
+            connectionsAdded: ["A request begins a path that ends in a human decision."],
+            readerCanNow: "State why the system matters to the decision."
           },
           {
             destinationId: "system-map",
@@ -65,7 +80,10 @@ try {
             readerQuestion: "What happens between my request and the result?",
             coverage: "Input, model, evidence and human decision.",
             coverageTerms: ["AI", "system", "request"],
-            prerequisiteIds: ["intro"]
+            prerequisiteIds: ["intro"],
+            conceptsIntroduced: ["context", "model", "evidence"],
+            connectionsAdded: ["Context supplies material to a model while evidence supports the consequential claim."],
+            readerCanNow: "Draw and explain the connected request-to-decision system."
           }
         ]
       }
@@ -131,12 +149,16 @@ try {
   assert.match(inspect(opaqueReaderTitle).join("\n"), /known opaque Library heading/);
   const hiddenPrerequisite = structuredClone(contract); hiddenPrerequisite.draftArchitecture.readerRoute.entries[1].prerequisiteIds = ["model-definition"];
   assert.match(inspect(hiddenPrerequisite).join("\n"), /prerequisite model-definition must appear before/);
+  const missingSynthesis = structuredClone(contract); delete missingSynthesis.draftArchitecture.systemSynthesis.drawPrompt;
+  assert.match(inspect(missingSynthesis).join("\n"), /systemSynthesis.drawPrompt is required/);
+  const isolatedChapter = structuredClone(contract); isolatedChapter.draftArchitecture.readerRoute.entries[1].connectionsAdded = [];
+  assert.match(inspect(isolatedChapter).join("\n"), /connectionsAdded requires at least one relationship/);
   const laterRegistry = JSON.parse(fs.readFileSync(registry, "utf8"));
   laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesTo: ["EXPLANATION"], path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=14 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 prerequisite_order=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=16 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

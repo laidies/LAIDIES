@@ -204,6 +204,16 @@ suspense or inflate a bounded explanation into a grand moral. References,
 FAQs, NewsStand, practice and interactives adapt only the moves that serve their
 job and may answer first.
 
+For connected learning, define one cumulative mental model before drafting.
+Every chapter or section declares what prior understanding it uses, what new
+part or relationship it adds and how it reconnects to the whole. Recognition
+and vocabulary recall are insufficient: substantial learning must enable the
+reader to draw the important parts and arrows, explain the mechanism in her own
+words and apply it to an unfamiliar everyday or work case. Deeper content
+answers natural follow-up questions—how, why, what connects and what changes—
+rather than adding a vocabulary attic. Analogies are optional and pass only
+when they improve reconstruction, explanation or transfer.
+
 Every rejection updates the shared exemplar/defect registry and the producer
 preflight before a successor is made. Targets are zero repeated known defects,
 zero objective defects first found by reviewers, fewer total review issues and
