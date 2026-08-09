@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "evidence_time": "2026-08-08T23:30:00-07:00",
+  "evidence_time": "2026-08-09T00:30:00-07:00",
   "authority": "Internal recovery routing only. A ruling does not authorize deletion, archiving, deployment, publication or public release.",
   "rulings": [
     {
@@ -103,6 +103,96 @@
       "authority": [
         "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
         "operations/product-stewards/library/EXPERIENCE-BRIEF.md"
+      ]
+    },
+    {
+      "path": "operations/runtime/STANDING-CARD.md",
+      "source_sha256": "e3aae9673e6ad3ea0432304fcf7e157cf1b3639fc13da6b5b4f1138a72f4e08e",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:runtime:legacy-projection-hold",
+      "reason": "These dirty bytes are an older generated Standing Card whose four source hashes predate the clean integration card. Regenerate from current canonical inputs; do not restore an older projection as authority.",
+      "authority": [
+        "scripts/build-standing-card.mjs",
+        "operations/runtime/STANDING-CARD.md in the clean integration branch"
+      ]
+    },
+    {
+      "path": "operations/runtime/work-resolution-loop.json",
+      "source_sha256": "6b5546a7e1841d4f81cf79fcba3db071aa027e9b717fe0ec61d7ff5ef6e33b64",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:runtime:legacy-projection-hold",
+      "reason": "This mutable legacy ledger is preserved as migration evidence but has been superseded by append-only work events and generated projections. Importing a different dirty snapshot would break the active parity window and revive handwritten status.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-event-parity-window.json",
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/runtime/WORK-RESOLUTION-LOOP.md",
+      "source_sha256": "9c471ff97ecede110867787ba28b2113c530667d2ebabddac9536972e98e4a37",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:runtime:legacy-projection-hold",
+      "reason": "This predecessor description makes the mutable work-resolution ledger canonical. Current Fable implementation derives work state from append-only events, so the document is retained only for source mining until the timed migration boundary closes.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-event-parity-window.json",
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/control-room/OPERATING-SYSTEM-REVIEW-MANIFEST.json",
+      "source_sha256": "cbfd07003943ca990a55f476d6fc8762db449e9e7ad60d5828691b18fe0f3695",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-review-packet-hold",
+      "reason": "This August 3 manifest binds the predecessor Claude operating-system review packet, including mutable-ledger and generated-dashboard snapshots. The accepted Fable report and implementation status now supersede it; preserve as historical input, not current authority.",
+      "authority": [
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/control-room/owner-app.html",
+      "source_sha256": "0da94fc157dbe36ec7acfc2e66bd02079e4688c5cfa1bde3fbbd475154099b6a",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This predecessor owner surface reads the stale mutable owner-state snapshot directly. Current work truth is event-derived and the old UI must not be restored without a current projection consumer migration.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-event-parity-window.json"
+      ]
+    },
+    {
+      "path": "operations/control-room/owner-review-queue.json",
+      "source_sha256": "e8efcc2b4bf363c72f7db3e7e099f7f231b072cce8af625fa68be5cf2edce1a3",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This August 4 queue snapshot carries obsolete candidate and Library review state. Current admission and review-door enforcement must regenerate or reconcile consumer state; the dirty snapshot is not restored as live truth.",
+      "authority": [
+        "scripts/resolve-design-review-url.mjs",
+        "scripts/check-design-review-admission.mjs",
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/control-room/owner-state.json",
+      "source_sha256": "f31de0cc59b37fc2c35b0a021b7f7d1f3186345ebff3f57f327441f880b92f2f",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This generated August 4 owner-state snapshot derives current work from the mutable legacy ledger and labels old sources fresh. It is preserved for comparison but cannot re-enter the clean branch as current state.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-current-projection.json"
+      ]
+    },
+    {
+      "path": "operations/control-room/work-index.json",
+      "source_sha256": "13545a0dc603936ef0718748b2179395a29b7c54429773423c2ddddb83ce25dc",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This generated August 4 work index projects mutable-ledger and stale queue state. Current work truth is append-only-event derived; preserve the old projection without restoring it as a live source.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-current-projection.json"
       ]
     }
   ]

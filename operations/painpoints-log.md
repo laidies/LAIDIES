@@ -15444,6 +15444,14 @@ while remaining falsely unfinished in the launch record.
   calibration was not wired into `package.json`. The import package now includes
   the complete five-file authority/registry/schema boundary, and required CI
   runs both calibrated visual-media checks.
+  The next apparently ready runtime package exposed the same boundary problem
+  in a different form: eight files were newer dirty bytes but older operating
+  truth. They included an out-of-date generated Standing Card, the mutable
+  ledger and its predecessor description, an old audit manifest, a UI that
+  consumed stale owner state, and three August 4 queue/projection snapshots.
+  Exact-SHA hold rulings now prevent those preserved bytes from returning as
+  current authority while append-only event parity is still running. “Newer
+  file” is therefore never treated as “newer system.”
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
