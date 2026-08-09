@@ -14,7 +14,7 @@
       "admitted_at": "2026-08-07T21:18:00-07:00",
       "started_at": "2026-08-07T21:19:00-07:00",
       "resolved_at": null,
-      "last_event_at": "2026-08-08T23:35:00-07:00",
+      "last_event_at": "2026-08-09T00:30:00-07:00",
       "evidence": [
         {
           "evidence_id": "EV-FABLE-REVIEW-DOOR",
@@ -246,6 +246,39 @@
               "operations/painpoints-log.md"
             ]
           }
+        },
+        {
+          "evidence_id": "EV-FABLE-RUNTIME-PROJECTION-RECOVERY-HOLDS",
+          "verdict": "PASS_LOCAL",
+          "source_commit": "824604b85137ac2e6937b2004d903eef6801b8ea",
+          "paths": [
+            "operations/storage/repository-recovery-package-rulings.json",
+            "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md",
+            "operations/painpoints-log.md"
+          ],
+          "observed": {
+            "stale_runtime_or_control_room_paths_held": 8,
+            "ready_packages": 123,
+            "ready_paths": 486,
+            "source_bytes_preserved": true
+          },
+          "tests": [
+            "npm run test:repository-recovery-packages",
+            "npm run ci"
+          ],
+          "locks_dependencies": "Append-only event parity window remains active through its recorded earliest retirement time; the dirty iCloud source is preserved and no current consumer was replaced.",
+          "acceptance_owner": "control-room-product-owner",
+          "next_trigger": "Select the next dependency-complete, current-authority package; do not import generated evidence or visitor-facing Library work.",
+          "boundary": "Internal recovery routing only. No Library page, book, visual, live route, deployment, publication, spend, destructive cleanup or Ali release authority used.",
+          "worktree_truth": {
+            "state": "COMMITTED",
+            "commit": "824604b85137ac2e6937b2004d903eef6801b8ea",
+            "paths": [
+              "operations/storage/repository-recovery-package-rulings.json",
+              "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md",
+              "operations/painpoints-log.md"
+            ]
+          }
         }
       ],
       "dependencies": [
@@ -279,7 +312,7 @@
         }
       ],
       "metric_events": [],
-      "last_event_id": "WKE-20260808-first-recovery-ruling"
+      "last_event_id": "WKE-20260809-runtime-projection-recovery-holds"
     },
     {
       "work_id": "WRK-20260802-odc-101-teaching-design",
