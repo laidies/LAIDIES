@@ -15462,7 +15462,11 @@ while remaining falsely unfinished in the launch record.
   differed from the normalized accepted target, but the ruling could bind only
   the source. Recovery rulings now bind both source and target SHAs for declared
   transformations. Matching target bytes close the item; either side changing
-  fails closed.
+  fails closed. Queue ranking then exposed 351 PNG/JPG before-and-after and
+  viewport screenshots under `operations/design-qa/` and
+  `operations/design-audits/` that were still labelled active source. Those
+  exact rendered-media locations are now generated evidence, with calibrated
+  fixtures, so preserved QA pixels do not masquerade as commit candidates.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,

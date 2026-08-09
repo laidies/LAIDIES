@@ -27,7 +27,7 @@ function classify(relative, tracked, ignored) {
     || /^operations\/launch\/[^/]+\/local-public-artifact\//i.test(relative)
     || /^operations\/product-stewards\/[^/]+\/campaigns\/[^/]+\/assets\//i.test(relative)
     || /\/evidence(?:-|\/).*\.(png|jpe?g|webp|mp4|mov|mkv|json)$/i.test(relative)
-    || /^operations\/(video-qa|design-explorations|review-packets|control-room\/evidence)\/.*\.(png|jpe?g|webp|mp4|mov|mkv|pdf|mp3|m4a|adts)$/i.test(relative)
+    || /^operations\/(video-qa|design-qa|design-audits|design-explorations|review-packets|control-room\/evidence)\/.*\.(png|jpe?g|webp|mp4|mov|mkv|pdf|mp3|m4a|adts)$/i.test(relative)
   ) return 'GENERATED';
   if (/^assets\//.test(relative) && tracked) return 'APPROVED_ASSET';
   if (/^(scripts|content|operations|docs|\.codex)\//.test(relative)) return 'ACTIVE_SOURCE';
