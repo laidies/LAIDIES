@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 21:42 PDT
+**Evidence time:** 2026-08-08 22:20 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -30,7 +30,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Replace prose handoff requirements with one checked artifact shape | PASS ADDITIVE | `operations/runtime/artifact-handoff.schema.json`; `scripts/check-artifact-handoff.mjs`; stale artifact bytes fail. The prose Control Room contract remains until consumer parity. |
 | Derive the ten Fable metrics without false zeroes | PASS MECHANISM / COVERAGE INCOMPLETE | `scripts/project-work-metrics.mjs`; incomplete event coverage reports unavailable, never zero; calibrated complete fixture derives first-pass acceptance and cycle time |
 | Make the two-week retirement condition executable | PASS CHECKER / OBSERVATION WINDOW ACTIVE | `scripts/check-work-event-parity.mjs` passes current ID coverage; `operations/runtime/work-event-parity-window.json` started the continuous observation window at 2026-08-08T09:58:12-07:00 and forbids retirement review before 2026-08-22T09:58:12-07:00 |
-| Convert the dirty tree into exact recovery review packages | PASS MECHANISM / NO CLEANUP AUTHORITY | `scripts/plan-repository-recovery-packages.mjs` groups all dirty inventory rows by product or operating domain and keeps unknown, historical and generated material fail-closed; its calibration rejects missing reconciliation by holding the row rather than guessing |
+| Convert the dirty tree into exact recovery review packages | PASS MECHANISM / NO CLEANUP AUTHORITY | `scripts/plan-repository-recovery-packages.mjs` groups all dirty inventory rows by product or operating domain and keeps unknown, historical and generated material fail-closed; inventory calibration now also proves launch snapshots and campaign assets remain generated output rather than false source candidates |
 
 ## Deliberately not called complete
 
@@ -78,6 +78,8 @@ The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 lo
 The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. Legacy IDs were subsequently admitted as explicit migration snapshots without inventing lifecycle history. Current parity passes (`active_legacy=14`, `projected=16`), and the observation window now forbids retirement review before 2026-08-22T09:58:12-07:00. The metrics projector continues to report unavailable measures where event coverage cannot support a value rather than claiming false zeroes.
 
 The 21:42 PDT storage-recovery continuation converted the 9,792-path dirty inventory into 353 bounded review packages. It did not call any path junk or safe to delete: 4,299 unknowns remain immovable, 32 historical/rejected paths remain preserved behind archive gates and 2,810 generated/ignored paths stay out of Git. The queue makes product-by-product recovery possible without bulk staging the shared tree.
+
+The 22:20 PDT classifier correction removed a false source signal from the queue. Exactly 908 files under `operations/launch/*/local-public-artifact/` and 282 campaign asset files are generated outputs, not source candidates. The refreshed queue now keeps 4,000 generated/ignored paths out of Git, routes 1,457 paths for review and identifies four exact baseline matches. No file was moved, deleted, staged or published.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 
