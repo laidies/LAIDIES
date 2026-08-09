@@ -1,12 +1,15 @@
 # Active work
 
 > **2026-08-08 AI Fundamentals restart:** The predecessor book remains rejected
-> and source-mining only. A current Chapter 3 source packet and prevention-first
-> V3 producer contract now define the representative method proof. Chapter 3
-> may not be spliced into old prose: representative acceptance would authorize
-> newly producing the Introduction, Chapters 1–6 and Concept Index as one
-> coherent successor, not admit any chapter or book. No prose, visual, reader,
-> preview, deployment or publication changed in this preparation unit.
+> and source-mining only. The successor now has a complete question-led
+> Introduction, nine-chapter route and Concept Index plan; its types-first
+> Chapter 1 distinguishes generative, agentic, general-purpose, AGI and ASI
+> before system parts and model training. Newly written Introduction–Chapter 3
+> prose plus exact source packet, producer contract, self-review and chapter-
+> component architecture exist on isolated branch
+> `task/ai-fundamentals-restart-20260808`. They are local candidate material,
+> not independent admission, rendered book, preview, deployment or publication.
+> Chapters 4–9 and final diagrams/illustrations are specified but not produced.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a

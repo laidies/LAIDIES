@@ -24,9 +24,11 @@ it cannot approve itself retroactively. No prose is discarded, rewritten or
 promoted by this intake.
 
 The new Introduction-through-Chapter-3 proof calibrates the production method
-and prerequisite progression; it is not a replacement block to splice into
-the predecessor. If that proof is
-accepted, the Introduction and Chapters 1–6 plus the Concept Index must be
+and prerequisite progression. Ali's 2026-08-08 direction makes Chapter 1 a
+dedicated five-axis map of AI types—including generative, agentic, AGI and
+ASI—before Chapter 2 system parts and Chapter 3 model training. It is not a
+replacement block to splice into the predecessor. If that proof is
+accepted, the Introduction and Chapters 1–9 plus the Concept Index must be
 newly produced and admitted under the same current standard and coherent voice.
 No mixed predecessor/successor book may enter the reader, preview, release or
 publication chain.
@@ -39,7 +41,7 @@ publication chain.
 - **Payoff:** A practical, connected system map; direct concept lookup; better
   choices at work and home; and sharper participation in public decisions.
 - **Prior knowledge:** No engineering, coding or AI vocabulary is assumed.
-- **LIBRAiRY job:** A durable, revisable book that works both as a six-chapter
+- **LIBRAiRY job:** A durable, revisable book that works both as a nine-chapter
   connected explanation and through a separate internal Concept Index.
 - **Non-jobs:** It is not a class transcript, provider catalogue, current
   product manual, news digest, glossary wall or claim that every AI system has
@@ -55,7 +57,7 @@ a voice or format to copy:
 2. Use curiosity or prediction only when the answer reveals a real system
    relationship; no cliff-hanger or cute hook without explanatory payoff.
 3. Make invisible infrastructure, training/inference, context flow, tool use,
-   agent loops and verification paths concrete through the smallest faithful
+   agent loops, failure paths and data/control paths concrete through the smallest faithful
    case, sequence, contrast or deterministic visual.
 4. Move from familiar work, home or public-discussion situations into the
    technical abstraction and then back to the consequential decision.
@@ -84,15 +86,16 @@ a voice or format to copy:
 Before producing new prose, the producer contract must pass the current shared
 checker. Ali has now requested the complete new beginning through Chapter 3 so
 she can judge the opening promise, prerequisite order and coherent voice—not a
-single isolated section. That bounded candidate must show the human reason,
-plain definition of a model before training, physical system, training versus
-inference, working information and the return to useful reader judgement. The
+single isolated section. That bounded candidate must show the human reason; a
+coherent types map; generative/agentic and specialised/general-purpose/AGI/ASI
+boundaries; a plain definition of a model before training; the physical system;
+training versus inference; and the return to useful reader judgement. The
 producer self-review then inspects those exact bytes; role-distinct review and
 unfamiliar-reader evidence follow only after the producer reports zero known or
 objective defects.
 
 Passing this bounded proof authorizes only the next production step: produce
-the remaining full-book successor in dependency order under the same
+the remaining Chapters 4–9 in dependency order under the same
 contract, current sources, voice and explanation arc. It does not admit the
 representative section, any predecessor chapter or the assembled book. The
 complete single-lineage book still requires exact-prose producer self-review,
@@ -107,16 +110,23 @@ into a repeated chapter template.
 
 ## Representative source boundary
 
+The complete route is specified in
+`AI-FUNDAMENTALS-101-COMPLETE-BOOK-OUTLINE-2026-08-08.md`. It adds the
+source-reconciliation gaps—AI-family relationships, generalisation,
+privacy/security/control and lifecycle/governance—without importing a technical
+course syllabus or making verification the book's organising idea.
+
 The current claim packet for the bounded proof is
 `AI-FUNDAMENTALS-101-BEGINNING-THROUGH-CH3-SOURCE-PACKET-2026-08-08.json`.
 It separates general mechanism from provider-specific examples and binds
 freshness triggers for AI-system scope, physical infrastructure, models,
-training, inference, tokens, context, conversation state, product memory and
+training, inference, data/objective/optimisation/evaluation, generalisation,
+post-training, tokens, context, conversation state, product memory and
 retrieval. The
 rejected Concepts claim packet remains source-mining history and is not the
 candidate authority.
 
-Chapter 3 owns the practical distinction among information that is visible,
+Chapter 4 owns the practical distinction among information that is visible,
 stored, retrievable and actually supplied to the model for this run. It does
 not take over Chapter 4's complete treatment of surrounding software or
 Chapter 6's complete treatment of grounding and verification.
@@ -126,5 +136,5 @@ Chapter 6's complete treatment of grounding and verification.
 Validate
 `AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR-PRODUCER-CONTRACT.json`
 against the current learning standard, benchmark, exemplar registry and exact
-Chapter 3 source packet. Only a current `READY_TO_DRAFT` result may start the
+beginning-through-Chapter-3 source packet. Only a current `READY_TO_DRAFT` result may start the
 new exact representative section.

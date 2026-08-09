@@ -88,6 +88,81 @@
       "freshnessTrigger": "Any change to the general model definition or a claim about one named model's architecture or parameters."
     },
     {
+      "claimId": "AIF-CH1-AI-FAMILY-RELATIONSHIPS",
+      "ruledClaim": "Artificial intelligence is the broad field. Machine learning is one way of building AI systems by learning patterns from data; deep learning is a machine-learning approach based on multilayer neural networks. Generative AI describes systems designed to create new content, while a large language model is one type of generative model centred on language. These categories overlap but are not synonyms.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — artificial intelligence, machine learning, deep model, generative AI and large language model",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "artificial intelligence; machine learning; deep model; generative AI; large language model",
+          "support": "Defines the nested technical categories and distinguishes generative models and LLMs from the broader AI and machine-learning fields.",
+          "scopeLimit": "The family tree is a beginner orientation. Boundaries and terminology can be debated at the edges, and not every AI system uses machine learning."
+        },
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "locator": "techniques and approaches",
+          "support": "Treats machine learning as one family of AI techniques rather than a synonym for the entire field.",
+          "scopeLimit": "The OECD definition is deliberately broad and does not supply a complete beginner taxonomy."
+        }
+      ],
+      "freshnessTrigger": "Any universal claim that collapses AI, machine learning, deep learning, generative AI or LLMs into one category."
+    },
+    {
+      "claimId": "AIF-CH1-GENERATIVE-AND-AGENTIC",
+      "ruledClaim": "Generative describes systems designed to produce new content. Agentic describes a surrounding operating pattern in which a system can pursue a goal by selecting actions, using tools, observing results and continuing across steps. The categories are not opposites and can overlap. Agentic behaviour does not establish AGI, consciousness, correctness or unrestricted autonomy.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — generative AI and agent",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "generative AI; agent",
+          "support": "Separates content-generating systems from agents that reason and plan actions on a user's behalf with some autonomy.",
+          "scopeLimit": "The term agent is used inconsistently across the industry. Chapter 1 supplies recognition only; the complete loop, permissions and stopping mechanism belongs in Chapter 6."
+        }
+      ],
+      "freshnessTrigger": "Any universal agent definition, named-product autonomy claim or claim that agentic capability proves general intelligence."
+    },
+    {
+      "claimId": "AIF-CH1-AGI-AND-ASI",
+      "ruledClaim": "AGI is a disputed proposed category concerned with broad generality and transfer across unfamiliar intellectual tasks; there is no universally agreed definition or test, and LAiDIES does not treat current systems as AGI. ASI is a hypothetical category for capability beyond human or collective-human levels across a broad intellectual range. Neither category is a current consumer product type or an inevitable next step, and timelines are forecasts rather than facts.",
+      "sources": [
+        {
+          "publisher": "Google DeepMind",
+          "title": "Levels of AGI for Operationalizing Progress on the Path to AGI",
+          "url": "https://deepmind.google/research/publications/66938/",
+          "sourceTier": "PRIMARY_RESEARCH_PUBLICATION",
+          "locator": "abstract and proposed depth/breadth framework",
+          "support": "Documents disagreement among AGI definitions and proposes performance and generality as separate dimensions, with autonomy treated separately.",
+          "scopeLimit": "One research team's proposed ontology, not consensus and not proof that AGI exists or will exist."
+        },
+        {
+          "publisher": "Google DeepMind",
+          "title": "From AGI to ASI",
+          "url": "https://deepmind.google/research/publications/239142/",
+          "sourceTier": "PRIMARY_RESEARCH_REPORT",
+          "locator": "abstract and uncertainty boundary",
+          "support": "Characterises artificial general superintelligence as a proposed post-AGI capability category and explicitly frames pathways and timing through large uncertainties and open questions.",
+          "scopeLimit": "A prospective research report. It supports a hypothetical definition and uncertainty boundary, not existence, inevitability or a timeline."
+        },
+        {
+          "publisher": "LAiDIES",
+          "title": "LAiDIES learning-content standard",
+          "path": "operations/product-stewards/LEARNING-CONTENT-STANDARD.md",
+          "sourceTier": "CANONICAL_PRODUCT_OWNER_DIRECTION",
+          "locator": "Accuracy and uncertainty — AGI",
+          "support": "Requires generality/transfer, present-capability, disagreement and product-owner position boundaries for AGI explanations.",
+          "scopeLimit": "Product-owner interpretation and teaching boundary; external definitions remain attributed and contested."
+        }
+      ],
+      "freshnessTrigger": "Before release and whenever LAiDIES' ruled position, an included lab definition, an agreed test claim or a public capability claim changes."
+    },
+    {
       "claimId": "AIF-CH2-TRAINING",
       "ruledClaim": "During training, a system uses examples and an objective or loss measure to adjust model parameters. Evaluation and post-training may further test or shape behaviour before deployment. The selected data, objectives and evaluations affect what the resulting model can do and where it fails.",
       "sources": [
@@ -111,6 +186,56 @@
         }
       ],
       "freshnessTrigger": "Any claim about a named model's training data, objective, post-training method, evaluation result or release process."
+    },
+    {
+      "claimId": "AIF-CH2-GENERALISATION-AND-POST-TRAINING",
+      "ruledClaim": "A useful model must generalise: apply learned patterns to appropriate new inputs rather than merely reproduce its training examples. Evaluation on held-out or otherwise separate cases helps test that behaviour. Fine-tuning and other post-training methods can further shape a previously trained model for a task or desired behaviour; prompting and supplying context affect a particular use without necessarily changing the model's parameters.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — generalization, overfitting, test set, fine-tuning and prompt",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "generalization; overfitting; test set; fine-tuning; prompt",
+          "support": "Defines performance on new data, failure through overfitting, held-out testing, fine-tuning and prompts as distinct concepts.",
+          "scopeLimit": "A compact conceptual boundary; exact evaluation design and post-training methods vary by model, task and provider."
+        },
+        {
+          "publisher": "Stanford University",
+          "title": "CS336: Language Modeling from Scratch",
+          "url": "https://cs336.stanford.edu/",
+          "sourceTier": "PRIMARY_RESEARCH_UNIVERSITY_COURSE",
+          "locator": "training, scaling laws, evaluation and alignment/reasoning course units",
+          "support": "Treats evaluation and post-training as distinct parts of the current language-model lifecycle.",
+          "scopeLimit": "An advanced language-model course; it checks mechanism completeness rather than beginner pacing."
+        }
+      ],
+      "freshnessTrigger": "Any named benchmark result, provider-specific post-training claim or assertion that a prompt, file or saved memory retrains the base model."
+    },
+    {
+      "claimId": "AIF-CH2-TRAINING-KNOWLEDGE-BOUNDARY",
+      "ruledClaim": "A trained model's internalized knowledge reflects the data and training process completed before that model version was produced. Providers may describe a training-data cutoff or a more conservative reliable-knowledge cutoff, but coverage is not perfectly clean or uniform. Newer information can be supplied during use through current context, retrieval or tools without automatically changing the model's parameters.",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "title": "Models overview — reliable knowledge cutoff and training data cutoff",
+          "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "Latest models comparison and knowledge-cutoff footnote",
+          "support": "Separates a reliable knowledge cutoff from the broader range of training data used and binds both to a particular model version.",
+          "scopeLimit": "Claude-specific example. No date or provider convention is universal, and a cutoff does not mean uniform knowledge of everything before it or zero exposure to everything after it."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — inference and training",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "training; inference",
+          "support": "Separates parameter-learning during training from applying the trained model to new input during inference.",
+          "scopeLimit": "The general training/inference distinction does not establish a named model's exact data coverage."
+        }
+      ],
+      "freshnessTrigger": "Before naming a model's cutoff or asserting what a current product can know without search, and whenever the provider changes its model/version documentation."
     },
     {
       "claimId": "AIF-CH2-INFERENCE",
@@ -195,6 +320,31 @@
       "freshnessTrigger": "Any named model capacity, context-management behaviour or provider-specific inclusion rule."
     },
     {
+      "claimId": "AIF-CH3-SYSTEM-AND-USER-INSTRUCTIONS",
+      "ruledClaim": "A product can supply higher-level system or developer instructions in addition to the user's visible request. These instructions help shape behaviour, boundaries and format for the current use; their exact form and precedence are product- and API-specific. A user's prompt is therefore not necessarily the only instruction in context.",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "title": "Create a Message — Claude API Reference",
+          "url": "https://platform.claude.com/docs/en/api/messages/create",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "top-level system parameter and user messages",
+          "support": "Separates the top-level system prompt from user-role input messages in the Messages API.",
+          "scopeLimit": "Claude API structure is an example. Products may use different role names, precedence and hidden instructions."
+        },
+        {
+          "publisher": "Anthropic",
+          "title": "System Prompts — Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "system prompts in Claude web and mobile products",
+          "support": "Documents that product-level system prompts can provide information and encourage behaviours before the user's request.",
+          "scopeLimit": "A dated Claude product example, not a universal disclosure of every product instruction."
+        }
+      ],
+      "freshnessTrigger": "Any claim about the exact hidden instructions, precedence or disclosure behaviour of a named product or model."
+    },
+    {
       "claimId": "AIF-CH3-CONVERSATION-STATE",
       "ruledClaim": "Conversation continuity is managed by surrounding product or API software, which may pass prior turns or link stored response state into a later request. A visible chat history does not by itself prove that every earlier detail was supplied to the model for the current response.",
       "sources": [
@@ -241,6 +391,22 @@
         }
       ],
       "freshnessTrigger": "Any named retrieval product/source or claim that grounding guarantees correctness."
+    },
+    {
+      "claimId": "AIF-CH3-EMBEDDINGS-AND-VECTOR-SEARCH",
+      "ruledClaim": "An embedding represents an item such as a passage, image or user in a numerical space so that related items can be placed near one another. A retrieval system can compare these vectors to find material that is semantically related to a query, then supply selected results to a model. Similarity is not the same as authority, correctness or permission.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — embedding and vector database",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "embedding; embedding space; vector database",
+          "support": "Defines embeddings as lower-dimensional numerical representations and vector databases as stores optimized for high-dimensional embedding search.",
+          "scopeLimit": "Recognition-level explanation only. Retrieval systems can also use keyword, metadata, graph or hybrid methods; embeddings do not establish source quality or access rights."
+        }
+      ],
+      "freshnessTrigger": "Any named embedding model, dimensionality, vector database, ranking result or universal claim about retrieval architecture."
     }
   ],
   "productionBoundaries": {

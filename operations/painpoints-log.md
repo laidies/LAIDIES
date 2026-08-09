@@ -14433,3 +14433,31 @@ while remaining falsely unfinished in the launch record.
   enough when the rest of the book speaks a different language.
 - **Publication status:** INTERNAL PRODUCTION-PREVENTION CORRECTION / NO PROSE,
   VISUAL, READER, DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-457 — Correct prose can still fail when the learning route and textbook components are implicit
+
+- **Date:** 2026-08-08
+- **Area:** Foundational Library book architecture and production.
+- **Failure risk:** A fluent draft can define terms accurately yet teach them in
+  the wrong order, hide its coverage behind opaque titles, collapse incompatible
+  AI taxonomies into one list or become a tiring prose column with no visual
+  structure. Final review then rediscovers decisions the producer should have
+  resolved before drafting.
+- **Root cause:** The previous production route treated outline quality,
+  prerequisite order and page-level teaching components as editorial judgement
+  after prose existed rather than as required producer inputs.
+- **Prevention rule:** Before substantial book prose, bind a complete
+  question-led outline, prerequisite progression, must-understand versus
+  recognition vocabulary, a non-exclusive type map where relevant and an exact
+  chapter-component map. Each diagram, illustration, box, worked case and
+  retrieval moment owns a cognitive job; no prose-only default, decorative
+  quota, empty placeholder or repeated template may pass production.
+- **Durable correction:** AI Fundamentals 101 now begins with five distinct
+  classification axes, separates generative, agentic, general-purpose, AGI and
+  ASI, defines model and system before training, and binds an exact visual/box/
+  case/retrieval plan for the Introduction, nine chapters and Concept Index.
+  The producer checker also rejects opaque routes and hidden prerequisite order.
+- **Possible Behind the Build angle:** Why a textbook can be factually correct
+  and still teach nothing—and how the outline and page components prevent it.
+- **Publication status:** INTERNAL PRODUCTION-PREVENTION CORRECTION / NO VISUAL,
+  READER, DEPLOYMENT OR PUBLIC CHANGE.
