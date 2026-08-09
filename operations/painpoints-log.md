@@ -15341,3 +15341,28 @@ while remaining falsely unfinished in the launch record.
   whole office is not a test of one locked door.
 - **Publication status:** INTERNAL OPERATING-SYSTEM RECOVERY / NO DEPLOYMENT OR
   PUBLICATION.
+
+## BTB-462 — Current voice authority still taught retired product architecture
+
+- **Date:** 2026-08-08
+- **Area:** Canon retrieval, writing authority and context reduction.
+- **Failure risk:** A producer can read the required Canon Index and Writing
+  Lock, follow them faithfully and still rebuild the retired Grimoire or expose
+  internal review language to visitors.
+- **Root cause:** Later decisions retired the Grimoire into LIBRAiRY books, but
+  the canonical voice sources retained current-tense Grimoire and SLAiYER
+  architecture. A dirty-tree rewrite also mixed valid anti-slop rules with
+  stale Homepage-specific names, making wholesale recovery unsafe.
+- **Prevention rule:** Canon recovery is semantic reconciliation, not file
+  copying. Current decisions and routed product dossiers override stale
+  architecture; reusable voice rules are separated from page-specific copy,
+  and a calibrated check rejects known retired assertions.
+- **Durable correction:** The Canon Index now labels the Grimoire history as
+  retired and binds The Weekly at the NewsStand. The Writing Lock removes three
+  current-tense Grimoire/SLAiYER assertions and adds plain public-copy, clear
+  heading, explanation and reader-respect rules. The generated Standing Card
+  is rebound to current source hashes and exposes product-dossier retrieval.
+- **Possible Behind the Build angle:** The AI followed the rulebook perfectly;
+  the rulebook was three decisions behind.
+- **Publication status:** INTERNAL AUTHORITY CONSOLIDATION / NO VISITOR COPY,
+  DEPLOYMENT OR PUBLICATION.
