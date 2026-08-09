@@ -15417,6 +15417,10 @@ while remaining falsely unfinished in the launch record.
   calibration fails if that requirement is removed. The clean-integration rerun
   then exposed the complementary case: a merge commit needs parent-aware diff
   inspection. The calibration now verifies both ordinary and merge commits.
+  Queue ranking then exposed 1,190 generated launch and campaign asset files
+  misclassified as active source. The inventory now identifies those two exact
+  output locations as generated, with calibrated fixtures, so they stay out of
+  Git without being deleted.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
