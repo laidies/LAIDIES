@@ -535,6 +535,54 @@ acceptance, implementation, priority or release.
 - **Authority truth:** No public prose, book edit, article, class, episode,
   script, visual, publication or deployment occurred.
 
+## IIR-20260808-019 — Stanford self-learning agents lecture concept stream
+
+- **Captured:** `2026-08-08` PDT.
+- **Source:** Ali, direct Idea Inbox message while watching a Stanford lecture.
+- **Idea preserved:** Keep a frictionless live record of the concepts Ali hears
+  and believes LAiDIES should track and potentially include. Do not make her
+  decide during the lecture whether each belongs in a class, book, episode,
+  article, tip or operating rule.
+- **Intended feeling/examples:** Preserve mechanisms, terms, demonstrations,
+  warnings, open questions and Ali's own connections in enough detail to
+  reconstruct why each mattered—not as a list of stripped-down task titles.
+- **Links/screenshots:** None supplied yet. Exact lecture title, course, speaker,
+  URL and timestamps are `UNKNOWN` and must not be inferred.
+- **Duplicate/conflict findings:** AI Fundamentals already routes agents,
+  sub-agents, skills, loops, memory, tools, permissions, monitoring, stopping
+  and verification. No exact committed “self-learning agents” treatment was
+  found. Idea Inbox state refers to `IIR-20260803-013` trusted-course owner
+  rulings, but that supporting dossier is absent from this clean remote branch;
+  this is an integration/recovery gap, not authority to invent a replacement.
+- **Classification:** `MERGE / RECONCILIATION REQUIRED`.
+- **Reason:** Learning owns the concept relationship and one maintained truth;
+  the recovered trusted-course/practitioner pipeline should verify the lecture
+  as a source. Each actual concept will be classified separately.
+- **Return trigger / reconsideration condition:** Append and reconcile each
+  concept as Ali sends it. Before a content work order, recover or rule the
+  missing `IIR-20260803-013` dossier, verify the exact source claim and obtain
+  Learning's best-surface ruling.
+- **Accountable owner:** Learning System & Concepts.
+- **Parent and affected permanent owners:** Control Room/integration owner;
+  trusted-course/practitioner-source owner; AI Fundamentals 101 / LIBRAiRY;
+  SUNNYVAiLE High; Weekly Episodes; NewsStand; affected internal operating
+  owner when a concept concerns LAiDIES' own agent system.
+- **Shared dependencies:** exact lecture identity and timestamp; claim/source
+  distinction; current product/version evidence; bounded LAiDIES test where
+  feasible; misconception boundary; learner level; freshness and correction
+  trigger; one canonical consumer map.
+- **Durable proposed destination:** live capture at
+  `operations/product-stewards/idea-inbox/lecture-capture-stanford-self-learning-agents-2026-08-08.md`.
+- **Handoff status:** `CAPTURED / CAPTURE STREAM OPEN`; no owner acceptance or
+  content commission.
+- **Foreground consequence:** `NO CHANGE — CAPTURE AND CONTINUE`.
+- **Evidence checked:** current Canon/Decisions and continuity sources; Idea
+  Inbox dossier; AI Fundamentals 101 architecture and concept inventory;
+  Learning standard; repository search for self-learning-agent overlap.
+- **Authority truth:** No research conclusion, course, book, lesson, episode,
+  article, Tip, agent implementation, account, subscription, publication,
+  deployment or spend occurred.
+
 ## Receipt template
 
 ### IIR-YYYYMMDD-NNN — Short descriptive label
