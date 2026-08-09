@@ -23,7 +23,26 @@
       "type": "object",
       "required": ["registryVersion", "registrySha256", "negativeExemplarIds", "dispositions", "knownDefectsRemaining"]
     },
-    "draftArchitecture": { "type": "object" },
+    "draftArchitecture": {
+      "type": "object",
+      "properties": {
+        "readerRoute": {
+          "type": "object",
+          "required": ["rule", "entries"],
+          "properties": {
+            "rule": { "const": "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE" },
+            "entries": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "object",
+                "required": ["destinationId", "kind", "title", "readerQuestion", "coverage", "coverageTerms", "prerequisiteIds"]
+              }
+            }
+          }
+        }
+      }
+    },
     "communicationDesign": { "type": "object" },
     "representativeProofPlan": { "type": "object" },
     "ratchet": { "type": "object" },

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "laidies-content-producer-contract.v1",
-  "candidateId": "LIB-AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR",
+  "candidateId": "LIB-AI-FUNDAMENTALS-101-V3-BEGINNING-THROUGH-CH3",
   "surface": "SUNNYVAiLE LIBRAiRY / AI Fundamentals 101",
   "contentClass": "EXPLANATION",
   "producer": "library-product-owner",
@@ -38,7 +38,7 @@
       "freshnessTrigger": "Any change to candidate scope, predecessor status, representative proof or surface reconciliation.",
       "source": {
         "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-FULL-BOOK-CONTINUATION-INTAKE-2026-08-08.md",
-        "sha256": "dc4033ceafd935c8813534250fcfd3a7dd267bd5de937fdab2b1d5ceeac4c2d2"
+        "sha256": "9f540f834022c56885d9991358f1b16bc8016d586b72eddf02e7a947b613984d"
       }
     },
     {
@@ -51,12 +51,12 @@
       }
     },
     {
-      "claimId": "LIB-AIF-CHAPTER-3-CLAIM-SOURCE-PACKET",
+      "claimId": "LIB-AIF-BEGINNING-THROUGH-CHAPTER-3-SOURCE-PACKET",
       "owner": "ai-research-accuracy",
       "freshnessTrigger": "Before producer self-review and again before release for every changed primary source, provider-specific claim, numerical claim or currentness trigger. General mechanism and provider examples must remain explicitly separated.",
       "source": {
-        "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-CHAPTER-3-SOURCE-PACKET-2026-08-08.json",
-        "sha256": "4c47c3a09fad7bff2fa94d48fd019b449fcaf76973e5fffd58d023404b6e14f2"
+        "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-BEGINNING-THROUGH-CH3-SOURCE-PACKET-2026-08-08.json",
+        "sha256": "14028f30b7192ea76ccf091e2066bdd15b94b8961035f8132946bd822f79bd61"
       }
     },
     {
@@ -139,10 +139,11 @@
   ],
   "knownFailurePreflight": {
     "registryVersion": "laidies-content-quality-exemplars.v1",
-    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "registrySha256": "d8cc8b97a56ab018d620f2d8933d3fcddad5a440c5bdc4edde5a8be856e82afd",
     "negativeExemplarIds": [
       "CQX-BAD-001",
-      "CQX-BAD-002"
+      "CQX-BAD-002",
+      "CQX-BAD-003"
     ],
     "dispositions": {
       "glossaryAccumulation": {
@@ -209,6 +210,16 @@
         "status": "CLEAR",
         "producerGuard": "Write like a smart colleague making a consequential system legible, not a standards document proving coverage. Cut process assurances and translate abstractions into people, information, operations and consequences.",
         "preventionEvidence": "communicationDesign binds familiar-to-technical movement and a return to the reader's better next question."
+      },
+      "opaqueChapterTitles": {
+        "status": "CLEAR",
+        "producerGuard": "Every visible Introduction, chapter and Concept Index title states the reader's real question or names the actual subject. A deck may add scope but cannot rescue a maker-facing or metaphorical title that hides it.",
+        "preventionEvidence": "draftArchitecture.readerRoute binds each visible title to its reader question, coverage terms and stable destination; the shared checker rejects known opaque labels and titles that name none of their declared coverage."
+      },
+      "prerequisiteOrderHiddenByTitles": {
+        "status": "CLEAR",
+        "producerGuard": "A chapter cannot use training, context, retrieval or other dependent concepts before the visible route has introduced the model/system concept they depend on.",
+        "preventionEvidence": "Chapter 1 answers what AI, a model, a product and the physical system are; Chapter 2 then explains training and inference; Chapter 3 then explains the information supplied during use. readerRoute.prerequisiteIds makes that order executable."
       }
     },
     "knownDefectsRemaining": []
@@ -227,12 +238,104 @@
     "workedCase": "A bounded workplace proposal to use AI for meeting preparation and follow-up travels through infrastructure, model, current context, retrieval permissions, workflow design, evidence checking and accountable managerial decisions. The case illuminates individual relationships but remains one example among home and public-service cases; it does not define the book's purpose.",
     "transferCase": "Without a supplied solution, the reader analyses a claim that a community service will use AI to reduce waiting times. She identifies the physical/product/model/workflow layers involved, the information and permissions required, the evidence that would support the promised outcome, who carries error and access consequences and the next question she would ask before supporting the proposal.",
     "usefulAction": "When an AI feature, output, workplace proposal or headline matters, ask: Which layer is this claim actually about? What information, permission or evidence shapes the result? What changed between training and this use? What important person, cost, uncertainty or consequence is missing? Who retains authority and what evidence would change the decision?",
-    "analogyPlan": [],
+    "analogyPlan": [
+      {
+        "concept": "The app is a doorway into a wider AI system, not the whole system.",
+        "analogy": "Internet Explorer was the doorway many Rewind Era readers used for the internet; it was not the internet itself.",
+        "mapping": "The familiar app icon maps to the AI product interface, while the wider networks, computers and services behind it map to the surrounding AI system.",
+        "limit": "AI systems are not internet architecture, and the analogy does not explain model training, inference or product-specific components.",
+        "whyItHelps": "It corrects the common collapse of app, model and AI system using a remembered distinction, then immediately returns to the real components."
+      },
+      {
+        "concept": "Only information supplied in the current working context can directly shape this model response.",
+        "analogy": "At Miss Jeeves's LIBRAiRY desk, the catalogue, shelves, saved note and books in the building are different from the exact pages placed on the working desk for one answer.",
+        "mapping": "The working desk maps to current context, desk capacity to the context window, the ongoing exchange to conversation state, a saved patron note to product memory and a catalogue fetch to retrieval.",
+        "limit": "The model is not a librarian, does not independently understand source authority and may use supplied information unevenly or incorrectly.",
+        "whyItHelps": "One coherent town-world scene makes five easily collapsed information states visible without turning them into five unrelated comparisons."
+      }
+    ],
     "humourPlan": {
-      "noneReason": "The representative successor does not require a joke or Rewind Era analogy. Use precise recognisable situations and add humour later only through a contract amendment that names its teaching job."
+      "lessonJob": "The line 'the cloud has a postcode' punctures the false sense that AI is immaterial and opens the physical infrastructure mechanism; any other wit must sharpen a distinction rather than decorate the page."
     },
-    "formatSpecificStructure": "Introduction: why practical and civic AI literacy matters and how to use the chapters plus Concept Index. Chapter 1: physical infrastructure—chips, servers, data centres, networks, electricity, cooling and compute. Chapter 2: how models are made and used—data, training, evaluation, inference, tokens, generative AI and other model types. Chapter 3: what the system has now—context, context window, sessions, memory and retrieval. Chapter 4: what surrounding software can add—tools, permissions, APIs, MCP, routing, wrappers and harnesses. Chapter 5: multi-step work—workflows, agents, sub-agents, skills, loops, monitoring and stopping. Chapter 6: why results and claims fail—grounding, hallucination, oversimplification, verification, evidence, contestability and human decision. Then a separate Concept Index with stable anchors, one-line meanings, chapter locations and explicit system relationships.",
-    "antiTemplateDecision": "The book body is one connected explanation, not a repeated entry set. Chapters use different explanatory forms because their mechanisms differ. The Concept Index performs compact recognition and routing only. Communication dimensions are outcomes to earn, not seven compulsory subheadings or a copied Hannah Fry format."
+    "formatSpecificStructure": "Introduction: What changes when you actually understand AI? Chapter 1: What is AI, exactly? Chapter 2: How does an AI model learn—and what happens when you use it? Chapter 3: Why does AI forget things you already told it? Chapter 4: How can AI search, calculate and take actions? Chapter 5: How does AI carry out a multi-step job? Chapter 6: Why can AI sound convincing and still be wrong? Then a separate Concept Index: Where can I look up one AI term? Every visible route includes a plain coverage deck.",
+    "antiTemplateDecision": "The book body is one connected explanation, not a repeated entry set. Chapters answer different reader questions and use different explanatory forms because their mechanisms differ. The Concept Index performs compact recognition and routing only. Communication dimensions are outcomes to earn, not seven compulsory subheadings or a copied Hannah Fry format.",
+    "readerRoute": {
+      "rule": "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE",
+      "entries": [
+        {
+          "destinationId": "introduction",
+          "kind": "INTRODUCTION",
+          "title": "What changes when you actually understand AI?",
+          "readerQuestion": "Why is understanding AI useful if I am not trying to build it?",
+          "coverage": "How a working system map improves everyday use, exposes weak claims and gives the reader a useful place in workplace and public decisions.",
+          "coverageTerms": ["AI", "understand"],
+          "prerequisiteIds": []
+        },
+        {
+          "destinationId": "chapter-1-what-is-ai",
+          "kind": "CHAPTER",
+          "title": "What is AI, exactly?",
+          "readerQuestion": "What am I actually using when I open an AI app?",
+          "coverage": "The difference among an AI system, product and model; the physical chips, servers, data centres, electricity, cooling and networks behind the screen; and the path from input to output.",
+          "coverageTerms": ["AI"],
+          "prerequisiteIds": ["introduction"]
+        },
+        {
+          "destinationId": "chapter-2-training-and-use",
+          "kind": "CHAPTER",
+          "title": "How does an AI model learn—and what happens when you use it?",
+          "readerQuestion": "How can training create a model that later produces a result from my request?",
+          "coverage": "Training data, objectives, parameter adjustment, evaluation, inference, tokens, representative model jobs and the difference between generation and verification.",
+          "coverageTerms": ["AI", "model", "learn"],
+          "prerequisiteIds": ["chapter-1-what-is-ai"]
+        },
+        {
+          "destinationId": "chapter-3-working-information",
+          "kind": "CHAPTER",
+          "title": "Why does AI forget things you already told it?",
+          "readerQuestion": "Why can a product show my earlier information but fail to use it in the current answer?",
+          "coverage": "Prompt, current context, context window, chat history, session state, files, product memory, retrieval and the boundary from training.",
+          "coverageTerms": ["AI", "forget"],
+          "prerequisiteIds": ["chapter-1-what-is-ai", "chapter-2-training-and-use"]
+        },
+        {
+          "destinationId": "chapter-4-tools-and-actions",
+          "kind": "CHAPTER",
+          "title": "How can AI search, calculate and take actions?",
+          "readerQuestion": "What lets an AI product do more than generate an answer?",
+          "coverage": "Retrieval, tools, APIs, MCP, permissions, routing, wrappers and harnesses around a model.",
+          "coverageTerms": ["AI", "search", "actions"],
+          "prerequisiteIds": ["chapter-1-what-is-ai", "chapter-3-working-information"]
+        },
+        {
+          "destinationId": "chapter-5-multi-step-work",
+          "kind": "CHAPTER",
+          "title": "How does AI carry out a multi-step job?",
+          "readerQuestion": "What turns one model response into a workflow or agent that continues working?",
+          "coverage": "Workflows, agents, sub-agents, skills, loops, observations, permissions, monitoring and stopping.",
+          "coverageTerms": ["AI", "multi-step"],
+          "prerequisiteIds": ["chapter-4-tools-and-actions"]
+        },
+        {
+          "destinationId": "chapter-6-convincing-but-wrong",
+          "kind": "CHAPTER",
+          "title": "Why can AI sound convincing and still be wrong?",
+          "readerQuestion": "Where can an AI-assisted result or claim fail, and which repair matches the failed layer?",
+          "coverage": "Missing input, stale retrieval, model error, tool or permission failure, interface omission, hallucination, evidence, contestability and human responsibility.",
+          "coverageTerms": ["AI", "wrong"],
+          "prerequisiteIds": ["chapter-1-what-is-ai", "chapter-2-training-and-use", "chapter-3-working-information", "chapter-4-tools-and-actions", "chapter-5-multi-step-work"]
+        },
+        {
+          "destinationId": "concept-index",
+          "kind": "CONCEPT_INDEX",
+          "title": "Where can I look up one AI term?",
+          "readerQuestion": "Where does one unfamiliar word belong in the complete system?",
+          "coverage": "Stable A–Z term anchors with a one-line meaning, chapter location and explicit relationship to the system map.",
+          "coverageTerms": ["AI", "term"],
+          "prerequisiteIds": ["chapter-1-what-is-ai"]
+        }
+      ]
+    }
   },
   "communicationDesign": {
     "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
@@ -281,25 +384,25 @@
     },
     "explanationArc": {
       "mode": "DEFAULT_SUBSTANTIAL_EXPLANATION",
-      "sharedStartingPoint": "An ordinary moment when a product appears to remember information the reader gave it earlier.",
-      "curiosityGap": "Which information can actually affect this run, and which information is merely visible, stored, retrievable or absent?",
+      "sharedStartingPoint": "AI now appears in ordinary tools, workplace proposals, headlines and public decisions, while most explanations begin with jargon or one branded app.",
+      "curiosityGap": "What is actually happening between a human goal and an AI-assisted result, and which parts should the reader use, question or keep under human judgement?",
       "mechanismSequence": [
-        "The surrounding product assembles instructions, the current message, selected history, attachments and permitted retrieved material.",
-        "Only the material supplied for this run enters the model's working context, within a bounded context window.",
-        "A session may organise the interaction and product memory may retain selected information, but neither guarantees inclusion in the current context.",
-        "Retrieval may fetch material into the run; that material can still be stale, incomplete, inapplicable or unavailable.",
-        "The trained model produces an output from what was supplied, while the reader still checks scope, authority, privacy and currency."
+        "A physical and software system receives a human goal and input through a product.",
+        "Training has already shaped a model's parameters; during inference the model processes the material supplied for this use.",
+        "The product decides which current message, history, files, memory and retrieved material enter the bounded working context.",
+        "The model produces a result from that supplied material, while surrounding software may add tools or actions.",
+        "Evidence, consequences, permissions and accountable human judgement determine what should happen next."
       ],
-      "earnedClick": "A smooth conversation can look like continuous remembering, but the useful diagnostic question is what the system actually had in its working context this time.",
-      "smallLanding": "Ask what is available for this run, where it came from, what persists and what must be supplied or verified.",
-      "safetyBoundary": "Do not infer a specific product's retention, context limits, permissions or memory behaviour from the general map; recheck product-specific behaviour before exact-prose review and release.",
+      "earnedClick": "There is no single all-knowing 'AI' making the decision: there is a chain of physical infrastructure, trained models, current information, surrounding software, evidence and people—and different failures require different repairs.",
+      "smallLanding": "When an AI result matters, locate the layer before you decide what to trust, change or ask next.",
+      "safetyBoundary": "State from the beginning that an AI output is not automatically evidence or a decision; do not infer a named product's retention, limits, permissions or behaviour from the general map.",
       "order": "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING"
     }
   },
   "representativeProofPlan": {
     "highestRisk": "A complete-looking book can still become a fluent technical tour: terms and diagrams may be accurate while curiosity, concrete mental visibility and the return to the reader's real decision are missing or repeated mechanically.",
-    "plannedProof": "After this contract passes, produce only the Chapter 3 context/session/memory/retrieval successor section and its adjacent deterministic flow plus Concept Index routing. It must be new exact bytes created after this contract. Do not splice it into, promote or re-review the predecessor working file as though the prevention-first chronology had occurred. Run exact-prose producer self-review before any role-distinct review. If the representative proof is accepted, newly produce the Introduction, Chapters 1–6 and Concept Index as one coherent successor under this same current contract; no predecessor prose may enter the assembled book.",
-    "acceptanceOutcome": "An unfamiliar reader can explain, without book wording, the difference between current context, conversation history, product memory, retrieval and training; identify what information the system can use in an unseen case; state one privacy or permission boundary; and ask the better next question. The exact prose must also show why the distinction matters, make the hidden information flow visible and avoid Hannah Fry imitation or a repeated communication template. Representative acceptance authorizes full-book production only; it does not admit the section or permit a mixed-version book."
+    "plannedProof": "After this amended contract passes, produce one new exact candidate containing the Introduction and Chapters 1–3 plus their readable contents route and text-equivalent visual callouts. It must be new exact bytes created after the contract and may source-mine but never copy or splice predecessor prose. Run exact-prose producer self-review before any role-distinct review. If Ali accepts the bounded beginning, newly produce Chapters 4–6 and the Concept Index as one coherent successor under the same current contract; no predecessor prose may enter the assembled book.",
+    "acceptanceOutcome": "An unfamiliar reader can explain why AI literacy matters; distinguish AI system, product and model; describe the physical path from request to computation; distinguish training from inference; explain tokens without reducing an LLM to simple autocomplete; distinguish current context, visible history, product memory, retrieval and training; and apply the map to a new case. The prose must be recognisably LAiDIES, enjoyable, source-reviewable and free of vague headings. Bounded acceptance authorizes remaining full-book production only; it does not admit the candidate or permit a mixed-version book."
   },
   "ratchet": {
     "targets": {

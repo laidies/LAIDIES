@@ -45,7 +45,30 @@ try {
       plainAnswer: "A plain answer first.", causalSequence: ["input", "mechanism", "decision"], workedCase: "Work handover case.",
       transferCase: "A family travel plan.", usefulAction: "Check the source before acting.", analogyPlan: [],
       humourPlan: { lessonJob: "One workplace joke sharpens the consequence." }, formatSpecificStructure: "Connected explanation with separate lookup.",
-      antiTemplateDecision: "Vary structure around the reader question; no repeated micro-template."
+      antiTemplateDecision: "Vary structure around the reader question; no repeated micro-template.",
+      readerRoute: {
+        rule: "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE",
+        entries: [
+          {
+            destinationId: "intro",
+            kind: "INTRODUCTION",
+            title: "Why AI decisions need your judgement",
+            readerQuestion: "Why should I understand this?",
+            coverage: "Purpose, consequence and the practical payoff.",
+            coverageTerms: ["AI", "judgement"],
+            prerequisiteIds: []
+          },
+          {
+            destinationId: "system-map",
+            kind: "CHAPTER",
+            title: "What an AI system does with a request",
+            readerQuestion: "What happens between my request and the result?",
+            coverage: "Input, model, evidence and human decision.",
+            coverageTerms: ["AI", "system", "request"],
+            prerequisiteIds: ["intro"]
+          }
+        ]
+      }
     },
     communicationDesign: {
       benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V2",
@@ -100,12 +123,18 @@ try {
   assert.match(inspect(missingArc).join("\n"), /default substantial-explanation arc/);
   const wrongArcOrder = structuredClone(contract); wrongArcOrder.communicationDesign.explanationArc.order = "REVEAL_THEN_EXPLAIN";
   assert.match(inspect(wrongArcOrder).join("\n"), /must preserve the default explanatory sequence/);
+  const missingReaderRoute = structuredClone(contract); delete missingReaderRoute.draftArchitecture.readerRoute;
+  assert.match(inspect(missingReaderRoute).join("\n"), /requires a readerRoute/);
+  const opaqueReaderTitle = structuredClone(contract); opaqueReaderTitle.draftArchitecture.readerRoute.entries[1].title = "What the system has now";
+  assert.match(inspect(opaqueReaderTitle).join("\n"), /known opaque Library heading/);
+  const hiddenPrerequisite = structuredClone(contract); hiddenPrerequisite.draftArchitecture.readerRoute.entries[1].prerequisiteIds = ["model-definition"];
+  assert.match(inspect(hiddenPrerequisite).join("\n"), /prerequisite model-definition must appear before/);
   const laterRegistry = JSON.parse(fs.readFileSync(registry, "utf8"));
   laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesTo: ["EXPLANATION"], path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=14 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 prerequisite_order=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

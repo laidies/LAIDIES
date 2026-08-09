@@ -114,7 +114,16 @@ function validOrder() {
     canonicalTruth: [{ claimId: "fixture", owner: "fixture-owner", freshnessTrigger: "source changes", source: { path: sourcePath, sha256: sha256(path.join(root, sourcePath)) } }],
     positiveExemplars: [{ id: "GOOD", strengthsToUse: ["connected mechanism"], patternsNotToCopy: ["exact structure"] }],
     knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
-    draftArchitecture: { plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template." },
+    draftArchitecture: {
+      plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template.",
+      readerRoute: {
+        rule: "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE",
+        entries: [
+          { destinationId: "intro", kind: "INTRODUCTION", title: "Why AI decisions need your judgement", readerQuestion: "Why should I understand this?", coverage: "Purpose and consequence.", coverageTerms: ["AI", "judgement"], prerequisiteIds: [] },
+          { destinationId: "system-map", kind: "CHAPTER", title: "What an AI system does with a request", readerQuestion: "What happens between request and result?", coverage: "Input, model, evidence and decision.", coverageTerms: ["AI", "system", "request"], prerequisiteIds: ["intro"] }
+        ]
+      }
+    },
     communicationDesign: {
       benchmarkId: "HANNAH_FRY_COMMUNICATION_LENS_V2",
       benchmark: { path: benchmarkPath, sha256: sha256(path.join(root, benchmarkPath)) },

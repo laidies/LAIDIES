@@ -110,6 +110,38 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   }
   require(text(architecture?.humourPlan?.lessonJob) || text(architecture?.humourPlan?.noneReason), "humourPlan must name how humour serves the lesson or why none is appropriate");
 
+  const substantialLibraryBook = /LIBRA[Ii]RY|LIBRARY/i.test(contract?.surface || "")
+    && ["EXPLANATION", "REFERENCE"].includes(contract?.contentClass);
+  if (substantialLibraryBook) {
+    const route = architecture?.readerRoute;
+    require(array(route?.entries, 2), "substantial Library book requires a readerRoute with at least two entries");
+    require(route?.rule === "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE", "readerRoute.rule must bind predictive titles and prerequisite order");
+    const seenDestinations = new Set();
+    const opaqueTitles = new Set([
+      "the physical system", "how training works", "what the product can use",
+      "what the system has now", "what stays true", "what may change",
+      "what belongs with one job", "meet the parts of the system"
+    ]);
+    for (const [index, entry] of (route?.entries || []).entries()) {
+      for (const field of ["destinationId", "title", "readerQuestion", "coverage"]) {
+        require(text(entry?.[field]), `draftArchitecture.readerRoute.entries[${index}].${field} is required`);
+      }
+      require(["INTRODUCTION", "CHAPTER", "CONCEPT_INDEX"].includes(entry?.kind), `draftArchitecture.readerRoute.entries[${index}].kind is invalid`);
+      require(array(entry?.coverageTerms), `draftArchitecture.readerRoute.entries[${index}].coverageTerms is required`);
+      require(Array.isArray(entry?.prerequisiteIds), `draftArchitecture.readerRoute.entries[${index}].prerequisiteIds must be an array`);
+      const normalizedTitle = (entry?.title || "").trim().toLowerCase();
+      require(!opaqueTitles.has(normalizedTitle), `readerRoute title is a known opaque Library heading: ${entry?.title || "missing"}`);
+      require((entry?.coverageTerms || []).some(term => text(term) && normalizedTitle.includes(term.trim().toLowerCase())), `readerRoute title must name at least one declared coverage term: ${entry?.title || "missing"}`);
+      for (const prerequisite of entry?.prerequisiteIds || []) {
+        require(seenDestinations.has(prerequisite), `readerRoute prerequisite ${prerequisite} must appear before ${entry?.destinationId || `entry ${index}`}`);
+      }
+      if (text(entry?.destinationId)) {
+        require(!seenDestinations.has(entry.destinationId), `readerRoute destinationId is duplicated: ${entry.destinationId}`);
+        seenDestinations.add(entry.destinationId);
+      }
+    }
+  }
+
   const communication = contract?.communicationDesign;
   require(communication?.benchmarkId === "HANNAH_FRY_COMMUNICATION_LENS_V2", "communicationDesign.benchmarkId mismatch");
   require(communication?.benchmark?.path === COMMUNICATION_BENCHMARK, `communicationDesign.benchmark.path must be ${COMMUNICATION_BENCHMARK}`);

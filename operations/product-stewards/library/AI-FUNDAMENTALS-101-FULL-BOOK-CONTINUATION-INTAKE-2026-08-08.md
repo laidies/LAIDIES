@@ -2,7 +2,7 @@
 
 **Status:** SPECIFIED — CHAPTER 3 SOURCE PACKET COMPLETE; SUCCESSOR PRODUCER CONTRACT MUST PASS BEFORE NEW PROSE
 **Owner:** Library product owner with Learning System & Concepts
-**Candidate:** `LIB-AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR`
+**Candidate:** `LIB-AI-FUNDAMENTALS-101-V3-BEGINNING-THROUGH-CH3`
 **Predecessor working file:** `content/library-books/pilots/ai-fundamentals-101-v2/review-text.md`
 **Predecessor working SHA-256:** `b53cc56894f389beab91674ff0f00a617b161ec404ad1c0a7f972d8c2140352c`
 **Public/deploy/spend authority:** none
@@ -23,8 +23,9 @@ current producer contract. The predecessor may be assessed and source-mined;
 it cannot approve itself retroactively. No prose is discarded, rewritten or
 promoted by this intake.
 
-The Chapter 3 representative proof calibrates the production method; it is
-not a replacement chapter to splice into the predecessor. If that proof is
+The new Introduction-through-Chapter-3 proof calibrates the production method
+and prerequisite progression; it is not a replacement block to splice into
+the predecessor. If that proof is
 accepted, the Introduction and Chapters 1–6 plus the Concept Index must be
 newly produced and admitted under the same current standard and coherent voice.
 No mixed predecessor/successor book may enter the reader, preview, release or
@@ -81,16 +82,17 @@ a voice or format to copy:
 ## Successor proof and stop conditions
 
 Before producing new prose, the producer contract must pass the current shared
-checker. The first successor proof is one complete representative section with
-its adjacent visual/Concept Index relationship—not the whole book. It must show
-the human reason, curiosity payoff, concrete invisible mechanism,
-familiar-to-technical return, limitations/consequences and better next question
-in exact prose. The producer self-review then inspects those exact bytes; a
-role-distinct reviewer and unfamiliar-reader evidence follow only after the
-producer reports zero known or objective defects.
+checker. Ali has now requested the complete new beginning through Chapter 3 so
+she can judge the opening promise, prerequisite order and coherent voice—not a
+single isolated section. That bounded candidate must show the human reason,
+plain definition of a model before training, physical system, training versus
+inference, working information and the return to useful reader judgement. The
+producer self-review then inspects those exact bytes; role-distinct review and
+unfamiliar-reader evidence follow only after the producer reports zero known or
+objective defects.
 
-Passing this representative proof authorizes only the next production step:
-produce the remaining full-book successor in dependency order under the same
+Passing this bounded proof authorizes only the next production step: produce
+the remaining full-book successor in dependency order under the same
 contract, current sources, voice and explanation arc. It does not admit the
 representative section, any predecessor chapter or the assembled book. The
 complete single-lineage book still requires exact-prose producer self-review,
@@ -105,12 +107,14 @@ into a repeated chapter template.
 
 ## Representative source boundary
 
-The current claim packet for the representative proof is
-`AI-FUNDAMENTALS-101-CHAPTER-3-SOURCE-PACKET-2026-08-08.json`. It separates
-general mechanism from provider-specific examples and binds freshness triggers
-for context, conversation state, product memory, retrieval and training. The
+The current claim packet for the bounded proof is
+`AI-FUNDAMENTALS-101-BEGINNING-THROUGH-CH3-SOURCE-PACKET-2026-08-08.json`.
+It separates general mechanism from provider-specific examples and binds
+freshness triggers for AI-system scope, physical infrastructure, models,
+training, inference, tokens, context, conversation state, product memory and
+retrieval. The
 rejected Concepts claim packet remains source-mining history and is not the
-Chapter 3 authority.
+candidate authority.
 
 Chapter 3 owns the practical distinction among information that is visible,
 stored, retrievable and actually supplied to the model for this run. It does
