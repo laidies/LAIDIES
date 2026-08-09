@@ -39,6 +39,7 @@ This record reconciles the repository-owned accepted report at `operations/exter
 | Keep modified generated evidence out of source commits | PASS | tracked generated files now remain preserved behind restore/archive gates instead of becoming commit candidates; the calibrated fixture distinguishes a tracked modification from active source work |
 | Keep rejected and exploratory design work out of current source recovery | PASS | untracked non-media files under design exploration/QA/audit locations remain preserved as historical evidence; explicit `REJECTION` names classify as rejected, and only current authority/active source text can create recovery dependency references |
 | Keep isolated prototypes and superseded held scaffolds out of current source recovery | PASS | untracked prototype copies, including duplicated media, remain historical; the explicitly held August 1 opening-day media scaffold remains preserved; calibrated adjacent current release source still routes to owner review |
+| Prevent storage recovery from deciding visitor-facing or Library-locked runtime changes | PASS BOUNDED RULING | exact-SHA holds now separate Homepage behaviour, the Miss Jeeves pilot taxonomy and the mixed site search index from source recovery; their product owners must reconcile successors, and changed bytes invalidate the holds |
 
 ## Deliberately not called complete
 

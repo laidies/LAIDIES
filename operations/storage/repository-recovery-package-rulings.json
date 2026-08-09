@@ -195,6 +195,42 @@
         "operations/runtime/work-events.jsonl",
         "operations/runtime/work-current-projection.json"
       ]
+    },
+    {
+      "path": "content/site/homepage.js",
+      "source_sha256": "55067d0218e90d5834043e6ef7ecc1bb23842b056bf4551dafa0edce248d5f10",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "platform:site-runtime:homepage-behaviour-hold",
+      "reason": "These dirty bytes materially change the visitor-facing Homepage: latest-episode selection, menu keyboard behaviour, the Homepage-to-Miss-Jeeves query handoff and the season panel. Recovery inventory cannot decide those product changes, and the registered Homepage asset authority binds a different homepage.js SHA. Preserve for Platform and Homepage owner reconciliation; do not restore through repository recovery.",
+      "authority": [
+        "operations/assets/active-asset-registry.json",
+        "index.html",
+        "operations/product-stewards/control-room/OWNER-HANDOFF-CONTRACT.md"
+      ]
+    },
+    {
+      "path": "content/site/miss-jeeves-topic-taxonomy.json",
+      "source_sha256": "072a3d33cb67e66ae934ab35fe9eedcb890730386c6987585485fdbed4139052",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "product-steward:library:miss-jeeves-taxonomy-hold",
+      "reason": "The file declares itself LOCKED_FOR_PILOT and governs Miss Jeeves analytics classification. It is Library-owned pilot source, not a storage-recovery decision. Preserve its exact bytes until the Library owner reconciles the active integration lock, analytics consumer and privacy contract.",
+      "authority": [
+        "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
+        "operations/product-stewards/library/EXPERIENCE-BRIEF.md",
+        "operations/product-stewards/event-dictionary.json"
+      ]
+    },
+    {
+      "path": "content/site/site-index.json",
+      "source_sha256": "0d62d8850cff406d44e4f011ef05c4d7f267e58dcfb1d0293d5a4247d1257050",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "product-steward:library:site-index-hold",
+      "reason": "These dirty search-catalog bytes mix valid Episode 04 corrections with Library candidate claims that are not admissible: they point at the rejected AI Fundamentals route, use local-review outside the file's declared live|preview|coming status set and label held material live. Preserve the mixed source; Library and site-search owners must produce a current, internally consistent successor rather than recover these bytes wholesale.",
+      "authority": [
+        "operations/product-stewards/learning-content-ecosystem/CROSS-SURFACE-ANTI-SLOP-INCIDENT-2026-08-07.md",
+        "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
+        "scripts/check-town.js"
+      ]
     }
   ]
 }

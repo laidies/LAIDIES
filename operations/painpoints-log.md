@@ -15492,3 +15492,21 @@ while remaining falsely unfinished in the launch record.
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
   DEPLOYMENT OR PUBLICATION.
+
+## 2026-08-09 — A route label cannot confer product authority
+
+- **Failure / surprise:** The ready recovery queue grouped three `content/site/`
+  files as one Platform package even though their changes crossed Homepage UX,
+  Library/Miss Jeeves pilot analytics and search-catalog content admission.
+- **Evidence observed:** `homepage.js` changed four visitor behaviours;
+  `miss-jeeves-topic-taxonomy.json` declared `LOCKED_FOR_PILOT`; and
+  `site-index.json` linked the rejected AI Fundamentals candidate while using a
+  `local-review` value outside its own declared status set.
+- **Prevention rule:** Storage recovery may bound and inspect product source,
+  but it may not infer product authority from a directory route. Split mixed
+  packages with exact-SHA owner holds whenever bytes change visitor behaviour,
+  locked pilot contracts or public content truth.
+- **Possible Behind the Build angle:** Why a clean Git tree is not worth silently
+  accepting the wrong product decision.
+- **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
+  DEPLOYMENT OR PUBLICATION.
