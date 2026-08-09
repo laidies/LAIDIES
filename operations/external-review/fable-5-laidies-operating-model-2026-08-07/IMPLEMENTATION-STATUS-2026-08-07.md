@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-09 01:40 PDT
+**Evidence time:** 2026-08-09 02:03 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -38,6 +38,7 @@ This record reconciles the repository-owned accepted report at `operations/exter
 | Keep design QA screenshots out of source recovery | PASS | PNG/JPG and other rendered media under `operations/design-qa/` and `operations/design-audits/` classify as generated evidence; calibrated fixtures prevent them from becoming source candidates |
 | Keep modified generated evidence out of source commits | PASS | tracked generated files now remain preserved behind restore/archive gates instead of becoming commit candidates; the calibrated fixture distinguishes a tracked modification from active source work |
 | Keep rejected and exploratory design work out of current source recovery | PASS | untracked non-media files under design exploration/QA/audit locations remain preserved as historical evidence; explicit `REJECTION` names classify as rejected, and only current authority/active source text can create recovery dependency references |
+| Keep isolated prototypes and superseded held scaffolds out of current source recovery | PASS | untracked prototype copies, including duplicated media, remain historical; the explicitly held August 1 opening-day media scaffold remains preserved; calibrated adjacent current release source still routes to owner review |
 
 ## Deliberately not called complete
 

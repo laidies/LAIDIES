@@ -23,6 +23,13 @@ function classify(relative, tracked, ignored) {
   if (/rejected-artifacts|known-bad|negative-fixture|rejected|rejection/i.test(relative)) return 'REJECTED';
   if (
     !ignored && !tracked
+    && (
+      /^operations\/.*\/prototypes\//i.test(relative)
+      || /^operations\/product-stewards\/episode-media-quality\/opening-day-release-packages-2026-08-01\//i.test(relative)
+    )
+  ) return 'HISTORICAL';
+  if (
+    !ignored && !tracked
     && /^operations\/design-(?:explorations|qa|audits)\//i.test(relative)
     && !/\.(png|jpe?g|webp|mp4|mov|mkv|pdf|mp3|m4a|adts)$/i.test(relative)
   ) return 'HISTORICAL';

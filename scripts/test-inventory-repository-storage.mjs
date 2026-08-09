@@ -40,6 +40,9 @@ write('operations/design-audits/site-20260723/desktop.png', 'design audit screen
 write('operations/design-explorations/library-rejected/ALI-REJECTION-2026-08-03.md', 'rejected direction\n');
 write('operations/design-explorations/old-prototype/index.html', 'historical prototype\n');
 write('operations/design-explorations/old-prototype/node_modules/tool/index.js', 'ignored dependency references `assets/__storage-inventory-calibration-unknown__.bin`\n');
+write('operations/product-stewards/town-entry-homepage/prototypes/first-visit-v1/public/assets/copied.webp', 'isolated prototype asset\n');
+write('operations/product-stewards/episode-media-quality/opening-day-release-packages-2026-08-01/opening-day-media-packages.json', '{"package_status":"SCAFFOLD_HOLD"}\n');
+write('operations/product-stewards/episode-media-quality/current-release-check.mjs', 'current active source\n');
 write('operations/launch/eod-fixture/local-public-artifact/index.html', 'generated site snapshot\n');
 write('operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png', 'generated campaign image\n');
 write('assets/__storage-inventory-calibration-unknown__.bin', 'deliberately ambiguous; must fail closed\n');
@@ -78,6 +81,12 @@ assert.equal(inventory.rows.find(row => row.path === 'operations/design-explorat
 assert.equal(inventory.rows.find(row => row.path === 'operations/design-explorations/old-prototype/index.html')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
 assert.equal(inventory.rows.find(row => row.path === 'operations/design-explorations/old-prototype/node_modules/tool/index.js')?.git_state, 'IGNORED');
 assert.equal(inventory.rows.find(row => row.path === 'operations/design-explorations/old-prototype/node_modules/tool/index.js')?.disposition, 'KEEP_OUT_OF_GIT');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/town-entry-homepage/prototypes/first-visit-v1/public/assets/copied.webp')?.classification, 'HISTORICAL');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/town-entry-homepage/prototypes/first-visit-v1/public/assets/copied.webp')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/opening-day-release-packages-2026-08-01/opening-day-media-packages.json')?.classification, 'HISTORICAL');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/opening-day-release-packages-2026-08-01/opening-day-media-packages.json')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/current-release-check.mjs')?.classification, 'ACTIVE_SOURCE');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/current-release-check.mjs')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
 assert.equal(inventory.rows.find(row => row.path === 'operations/launch/eod-fixture/local-public-artifact/index.html')?.classification, 'GENERATED');
 assert.equal(inventory.rows.find(row => row.path === 'operations/launch/eod-fixture/local-public-artifact/index.html')?.disposition, 'KEEP_OUT_OF_GIT');
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png')?.classification, 'GENERATED');
