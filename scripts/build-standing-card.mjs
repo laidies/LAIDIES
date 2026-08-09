@@ -64,6 +64,7 @@ This card is orientation, not full authority. Retrieve exact passages only when 
     node scripts/query-laidies-context.mjs --source decisions --query "term"
     node scripts/query-laidies-context.mjs --source lessons --query "term"
     node scripts/query-laidies-context.mjs --source canon --query "term"
+    node scripts/query-laidies-context.mjs --source product --product library --query "term"
 
 If a required source is absent or contradictory, stop only the affected work and route the conflict. Do not improvise from this summary.
 `;

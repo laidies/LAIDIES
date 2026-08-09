@@ -3,7 +3,7 @@
 <!-- GENERATED FILE. Run: node scripts/build-standing-card.mjs -->
 decisions-sha256: b0043371861c1292662e060ae282af67694fe9accfbac977dedb15d5f63772d9
 lessons-sha256: 769f2a243497a39d291ce1a0294cde96ffe03229150855c0b62f60736c1a827c
-canon-sha256: e093f3ecd7c221f8cee12c1620123632fdb8e4bd0d7016fe734fffb6c9da0fe4
+canon-sha256: 602cbacc8fc90c140038a19394d20fc27b30d2fcb175238d7e0936d6f798e2f6
 agreement-sha256: 7552c35913ee858ffa98f5055f1e15af1b0e89b8baa3f8b86dd8bd760b1a455f
 
 ## The job
@@ -39,5 +39,6 @@ This card is orientation, not full authority. Retrieve exact passages only when 
     node scripts/query-laidies-context.mjs --source decisions --query "term"
     node scripts/query-laidies-context.mjs --source lessons --query "term"
     node scripts/query-laidies-context.mjs --source canon --query "term"
+    node scripts/query-laidies-context.mjs --source product --product library --query "term"
 
 If a required source is absent or contradictory, stop only the affected work and route the conflict. Do not improvise from this summary.

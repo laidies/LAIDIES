@@ -2,10 +2,9 @@ LAiDIES Writing Lock
 
 This is the writing standard for LAiDIES.
 
-Canonical guide name: the SLAiYER Handbook.
-Formerly called "Setup School" and "The Watcher's Field Guide" — both retired.
-Never use the old names in public or internal copy. The Watcher idea may
-appear only as intro framing inside the SLAiYER Handbook, never as a title.
+The Grimoire, SLAiYER Handbook, Setup School and Watcher's Field Guide are
+retired architectures. Their useful source material moved into LIBRAiRY books.
+Do not revive the old names or routes in current copy.
 
 LAiDIES must sound like Ali writing LAiDIES — not like an AI-generated explainer with jokes sprinkled on top.
 
@@ -76,6 +75,31 @@ Avoid obvious AI-drafted patterns:
 Use structure, but hide the scaffolding.
 
 The reader should feel guided, not processed through a template.
+
+Public Copy Is Not An Operations Log
+
+Internal control language belongs in receipts, ledgers and review files—not on
+the visitor-facing site. Never expose labels such as candidate, checksum,
+receipt, review tuple, held, gated, staged, admission or release check when a
+visitor needs a plain explanation.
+
+Say what a visitor can do, what she will get and what happens next. If a
+feature is unavailable, do not dress a roadmap item up as a live button.
+
+Heading And Explanation Standard
+
+Headings must name a clear destination, make a useful promise or advance the
+SUNNYVAiLE story. Catchy cannot mean cryptic. Avoid generic labels such as
+“Learn more,” “Discover,” “Resources” and “Explore our offerings.”
+
+For a substantial explanation, answer naturally: what is this, why should I
+care, how does it work, what can I do with it, what should I expect and what is
+the clearest next action. Use enough words to make the experience understood;
+brevity is not an excuse for mystery.
+
+Never divide readers into patronizing beginner and expert camps. Give everyone
+a clear starting point, then offer depth through specific concepts, practical
+tools, source-backed explanation and optional detail.
 
 Paragraph Test
 
@@ -278,11 +302,12 @@ Bad LAiDIES technical writing:
 
 SLAiYER Handbook Standard
 
-The SLAiYER Handbook is the practical guide inside the Grimoire.
+The practical material formerly packaged as the SLAiYER Handbook now belongs
+in current LIBRAiRY books.
 
 It is not a normal Episode only. It must also work as a practical guide readers can return to.
 
-The SLAiYER Handbook should feel like:
+That practical Library material should feel like:
 
 * polished guide
 * LAiDIES article
@@ -430,16 +455,9 @@ Do not ask for “a cute AI graphic.” Give the brief. Standards are part of th
 
 LAiDIES is building a full universe, but each piece must stay honest.
 
-The LAiDIES Grimoire includes:
-
-* SLAiYER Handbook
-* Power Map
-* Coven
-* Lore Closet
-* The Decoder (formerly Potions Shelf)
-* Chamber of Receipts
-* Ask the Book
-* Patron Saints
+The retired Grimoire section list is historical source material, not current
+site architecture. Use the Library dossier routed by `operations/DECISIONS.md`
+for current shelves, books and reader journeys.
 
 Patron Saints (full themes + titles above under Canon Consistency Rule): Cher (The Makeover Artist), David Rose (The Curator), Elle Woods (The Attorney), Samantha Jones (The Publicist), Miranda Priestly (The Editor), Deb (The Gatekeeper), Buffy (The Slayer), Dolly Parton (The Boss), Sister Mary Clarence / Deloris Van Cartier (The Choir Director), Oprah (The Talk Show Host), J.Lo (The Triple Threat). Anti-saint: Regina George (The Cautionary Tale) — not a Court member.
 
