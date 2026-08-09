@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 22:52 PDT
+**Evidence time:** 2026-08-08 23:35 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -31,6 +31,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Derive the ten Fable metrics without false zeroes | PASS MECHANISM / COVERAGE INCOMPLETE | `scripts/project-work-metrics.mjs`; incomplete event coverage reports unavailable, never zero; calibrated complete fixture derives first-pass acceptance and cycle time |
 | Make the two-week retirement condition executable | PASS CHECKER / OBSERVATION WINDOW ACTIVE | `scripts/check-work-event-parity.mjs` passes current ID coverage; `operations/runtime/work-event-parity-window.json` started the continuous observation window at 2026-08-08T09:58:12-07:00 and forbids retirement review before 2026-08-22T09:58:12-07:00 |
 | Convert the dirty tree into exact recovery review packages | PASS MECHANISM / NO CLEANUP AUTHORITY | `scripts/plan-repository-recovery-packages.mjs` groups all dirty inventory rows by product or operating domain and keeps unknown, historical and generated material fail-closed; inventory calibration now also proves launch snapshots and campaign assets remain generated output rather than false source candidates |
+| Prevent a bounded package from reviving stale authority | PASS FIRST RULING | `operations/storage/repository-recovery-package-rulings.json` binds exact dirty-source SHA and splits the mixed product-stewards root. The current five-file visual-media gate is recoverable and its two negative calibrations run; pre-Fable champion/guild review machinery, the unreconciled environment standard and Library-specific event dictionary remain preserved and held. Changed bytes fail to `HOLD_STALE_RULING`. |
 
 ## Deliberately not called complete
 
@@ -94,6 +95,18 @@ references and leaves 129 packages / 498 paths ready for exact owner review.
 The one-path AIDB site-refresh register is correctly held rather than imported
 with eight broken internal references. No dirty source path was imported,
 deleted, moved, staged or committed by this classification step.
+
+The 23:35 PDT first owner review exposed a fourth false signal: a bounded,
+dependency-closed root package could still mix current corrections with stale
+or differently owned authority. Exact SHA-bound recovery rulings now split that
+boundary and become stale automatically when dirty-source bytes change. The
+current five-file visual-media gate is the only import candidate. The pre-Fable
+champion contract and nine-role guild process remain held as stale authority;
+the environment standard remains held until its locked principles are separated
+from obsolete process; the Library-specific event dictionary remains held for
+owner/destination reconciliation. The refreshed queue leaves 129 packages / 497
+paths ready and 73 packages with no reviewable work. No held file was imported,
+deleted, moved, archived, staged, deployed or published.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 

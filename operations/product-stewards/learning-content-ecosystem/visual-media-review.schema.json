@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/visual-media-review-1.0.0.json",
+  "title": "LAiDIES exact visual media review",
+  "type": "object",
+  "required": ["schemaVersion","candidateId","stage","verdict","reviewer","producerContract","artifact","companion","renderedEvidence","outcomes","visibleDefects","learningDisposition","lineage"],
+  "properties": {
+    "schemaVersion": {"const":"1.0.0"},
+    "stage": {"enum":["PRODUCER_SELF_REVIEW","INDEPENDENT_VISUAL_ADMISSION"]},
+    "verdict": {"enum":["PASS","HOLD","REJECT"]},
+    "artifact": {"type":"object","required":["path","sha256","kind"],"properties":{"path":{"type":"string"},"sha256":{"pattern":"^[a-f0-9]{64}$"},"kind":{"enum":["STILL","ANIMATION","ANIMATION_SOURCE","IDENT","LOOP"]}}},
+    "visibleDefects": {"type":"array"}
+  },
+  "allOf": [
+    {"if":{"properties":{"stage":{"const":"INDEPENDENT_VISUAL_ADMISSION"}}},"then":{"required":["producerReview"]}},
+    {"if":{"properties":{"lineage":{"properties":{"kind":{"const":"SUCCESSOR"}}}}},"then":{"required":["ratchet"]}}
+  ],
+  "additionalProperties": true
+}
