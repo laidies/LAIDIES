@@ -1,10 +1,14 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** SPECIFIED — Introduction through Chapter 3 rendered as a local
-review proof; no visual or book admitted
+**Status:** REJECTED / CALIBRATION ONLY — NO ACTIVE VISUAL PLAN
 **Owner:** Library
 **Applies to:** the complete nine-chapter AI Fundamentals 101 successor and its
-current Introduction-through-Chapter-3 review proof
+rejected Introduction-through-Chapter-3 evidence
+
+> Ali rejected every rendered visual on 2026-08-08. CSS/HTML-drawn images and
+> diagrams are prohibited. The table below records the rejected plan and cannot
+> authorize production; every replacement visual requires a new governed asset
+> brief and proof that it makes the lesson easier to understand.
 
 ## Governing rule
 

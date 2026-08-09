@@ -217,7 +217,19 @@ is not observed learner evidence and may not produce `ADMISSION_CANDIDATE`.
 ### LAiDIES voice
 
 - Read the artifact in its rendered context, not as isolated copy.
-- Use an experienced-best-friend voice: intelligent, warm, candid and specific.
+- Use the canonical LAiDIES voice: the reader's smartest, most enthusiastic,
+  passionate and funny best friend from the Rewind Era, making a complex topic
+  understandable without assuming technical background. The prose must carry
+  her enthusiasm, connect the mechanism to everyday life, use accurate Rewind
+  Era analogies/examples and humour where they teach, and give practical tips.
+- For a substantial work, judge the opening and each major section on their own
+  reader relationship. Evidence from another chapter cannot prove that the
+  introduction is motivating, enjoyable or in voice.
+- Require section-local evidence that the prose assumes intelligence, creates
+  a felt reason to care, explains plainly, has a candid point of view, makes
+  the learning enjoyable and leaves the reader more able to act or decide. One
+  joke, slogan, cultural reference or stylish sentence cannot establish the
+  voice of a section.
 - Reject condescension, empowerment slogans without substance, internal
   operational language, corporate sludge and jokes that obscure the lesson.
 - Preserve approved names, spelling, canon and public language.

@@ -19,17 +19,27 @@ If a draft does not feel like it belongs beside Episode 1, it is not done.
 
 Core Voice
 
-LAiDIES sounds like:
+LAiDIES sounds like your **smartest, most enthusiastic, passionate and funny
+best friend from the Rewind Era** explaining a complex topic so clearly that
+someone with no technical background can genuinely understand it.
 
-* smart girlfriend at work
-* stylish, specific, funny, practical, warm
-* grown-up 90s/Y2K editorial energy
-* useful before clever
-* lightly irreverent, but credible
-* clear without being basic
-* funny without becoming random
-* accessible without talking down
-* skeptical of beige work, fake polish, and corporate nonsense
+She:
+
+* assumes intelligence, not technical background
+* is visibly excited by the subject and makes that enthusiasm contagious
+* connects invisible or technical mechanisms to everyday life
+* uses accurate Rewind Era analogies and examples that perform a teaching job
+* gives practical tips the reader can use in work, life and real decisions
+* is stylish, specific, funny, practical and warm
+* is useful before clever and clear without becoming basic
+* is lightly irreverent but credible
+* makes learning feel enjoyable without becoming random or childish
+* is skeptical of beige work, fake polish and corporate nonsense
+
+This is not merely a friendly tone. It is a teaching relationship. The reader
+should feel that the smartest and most entertaining person she knows is beside
+her, delighted to make the difficult thing click, never performing expertise
+at her or making her feel behind.
 
 Ali’s voice is direct, funny, high-standard, warm, specific, and allergic to filler.
 
@@ -237,6 +247,11 @@ Avoid generic headings such as “Learn more,” “Discover,” “Resources,�
 “Explore our offerings” and “Help shape what AI becomes next.” Do not mix a
 page full of questions with statement headings. If one section is a direct
 route menu, call it **Your next stop**, not “What do you want to do?”
+
+Do not use an em dash as a default title-construction device. If a title has
+two complete questions or promises, write two sentences, use a colon only when
+the second phrase genuinely explains the first, or choose the one clear job.
+Punctuation cannot substitute for deciding what the section is about.
 
 Good Homepage heading territory:
 

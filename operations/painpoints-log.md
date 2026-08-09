@@ -14486,3 +14486,33 @@ while remaining falsely unfinished in the launch record.
   two steps—and why responsive teaching means recomposing, not shrinking.
 - **Publication status:** INTERNAL VISUAL-PRODUCTION LEARNING / LOCAL REVIEW
   PROOF ONLY / NO READER, DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-459 — Structured receipts admitted incoherent prose and a meaningless CSS diagram
+
+- **Date:** 2026-08-08
+- **Area:** Shared prose, analogy and visual production.
+- **Failure:** AI Fundamentals V3 passed producer self-review even though the
+  writing was incoherent, technically untidy and outside LAiDIES voice. Its
+  dress analogy was applied as a classification checkbox rather than a useful
+  explanation, and crude CSS/HTML shapes were presented as a textbook visual.
+- **Root cause:** The prose checker could verify that quoted evidence existed
+  without proving section-local technical coherence or the canonical voice.
+  Analogy records could assert a mapping and teaching job without evidence of
+  improved learner understanding. The shared visual checker files were also
+  absent from repository history, and the method did not explicitly prohibit
+  CSS/HTML drawings.
+- **Prevention rule:** Require technical coherence and the complete canonical
+  voice on the exact prose. Use an analogy only when it faithfully preserves
+  the mechanism, is simpler on first encounter and improves observed learner
+  explanation and transfer; otherwise omit it. CSS/HTML may style layout and
+  labels but may not draw an image or diagram. Quarantine the rejected exact
+  candidate and require every future producer contract to consume it.
+- **Durable correction:** D-2026-08-08-106, the shared prose/visual checkers,
+  schemas, negative registries and calibrated false-PASS fixtures enforce the
+  rule. The V3 source, renderer, HTML and PDF are preserved only as rejected
+  evidence; its outline, visual plan and producer contract are invalidated.
+- **Possible Behind the Build angle:** How a perfect-looking review receipt
+  admitted a lesson nobody could understand—and why LAiDIES now tests whether
+  an analogy teaches instead of whether a form mentions one.
+- **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NO NEW BOOK,
+  IMAGE, DIAGRAM, PREVIEW, DEPLOYMENT OR PUBLICATION.

@@ -111,6 +111,8 @@ try {
   assert.match(inspect(sameCase).join("\n"), /must be different/);
   const badAnalogy = structuredClone(contract); badAnalogy.draftArchitecture.analogyPlan = [{ concept: "model", analogy: "Cher" }];
   assert.match(inspect(badAnalogy).join("\n"), /analogyPlan\[0\]\.mapping/);
+  const checkboxAnalogy = structuredClone(contract); checkboxAnalogy.draftArchitecture.analogyPlan = [{ concept: "model", analogy: "a wardrobe", mapping: "labels map to labels", faithfulMechanism: "claims fidelity", whySimpler: "claims simplicity", whyItImprovesUnderstanding: "claims improvement" }];
+  assert.match(inspect(checkboxAnalogy).join("\n"), /analogyPlan\[0\]\.transferCheck/);
   const remaining = structuredClone(contract); remaining.knownFailurePreflight.knownDefectsRemaining = ["templateRepetition"];
   assert.match(inspect(remaining).join("\n"), /known defects remain/);
   const staleRegistry = structuredClone(contract); staleRegistry.knownFailurePreflight.registrySha256 = "0".repeat(64);

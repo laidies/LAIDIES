@@ -106,7 +106,7 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(architecture?.workedCase !== architecture?.transferCase, "workedCase and transferCase must be different");
   require(Array.isArray(architecture?.analogyPlan), "draftArchitecture.analogyPlan must be an array; use [] when no analogy earns a place");
   for (const [index, analogy] of (architecture?.analogyPlan || []).entries()) {
-    for (const field of ["concept", "analogy", "mapping", "limit", "whyItHelps"]) require(text(analogy?.[field]), `analogyPlan[${index}].${field} is required`);
+    for (const field of ["concept", "analogy", "mapping", "faithfulMechanism", "whySimpler", "whyItImprovesUnderstanding", "transferCheck"]) require(text(analogy?.[field]), `analogyPlan[${index}].${field} is required`);
   }
   require(text(architecture?.humourPlan?.lessonJob) || text(architecture?.humourPlan?.noneReason), "humourPlan must name how humour serves the lesson or why none is appropriate");
 

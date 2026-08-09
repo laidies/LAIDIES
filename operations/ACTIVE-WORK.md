@@ -1,19 +1,15 @@
 # Active work
 
-> **2026-08-08 AI Fundamentals restart:** The predecessor book remains rejected
-> and source-mining only. The successor now has a complete question-led
-> Introduction, nine-chapter route and Concept Index plan; its types-first
-> Chapter 1 distinguishes generative, agentic, general-purpose, AGI and ASI
-> before system parts and model training. Newly written Introduction–Chapter 3
-> prose plus exact source packet, producer contract, self-review and chapter-
-> component architecture exist on isolated branch
-> `task/ai-fundamentals-restart-20260808`. They are local candidate material,
-> not independent admission, preview, deployment or publication. The exact
-> Introduction-through-Chapter-3 candidate is now also a 25-page local review
-> PDF and responsive HTML proof with a beginning Concept Index and five
-> deterministic teaching visuals. Exact-pixel maker inspection passed after a
-> clipped mobile training loop was repaired. Chapters 4–9 are specified but not
-> drafted or rendered; role-distinct semantic and visual admission remain open.
+> **2026-08-08 AI Fundamentals false-pass correction:** Ali rejected the entire
+> V3 Introduction-through-Chapter-3 candidate, its job/five-axis opening, prose,
+> voice, analogy and CSS-drawn diagrams as incoherent and unusable. Every prior
+> self-review and maker-inspection verdict is invalid. The exact source, render,
+> renderer and PDF are quarantined under the Learning System known-bad evidence
+> folder; there is no active prose or visual candidate. The complete V3 outline,
+> visual plan and producer contract are rejected drafting authorities. The next
+> trigger is a blank-page, technically coherent outline and one representative
+> prose section produced under the revised analogy, voice and visual controls;
+> no book may be rendered until that proof passes.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a

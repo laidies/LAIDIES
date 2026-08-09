@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const HASH = /^[a-f0-9]{64}$/;
-const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
+const CORE = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
 const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
 const REQUIRED_BY_CLASS = {
   EPISODE: [...CORE, ...TEACHING, "explanationArc", "storyCarriesMechanism", "humourServesLearning"],
@@ -28,7 +28,8 @@ export const FAILURE_FAMILIES = [
   "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction",
   "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn",
   "communicationPastiche", "entertainmentBeforeUnderstanding",
-  "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"
+  "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding",
+  "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence"
 ];
 
 export function enforcedFailureFamilies(registry) {
@@ -165,6 +166,20 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
           const bindingKey = `${binding?.path || ""}:${binding?.sha256 || ""}`;
           require(!bindings.has(bindingKey), `${outcomeName}.observedReaderEvidence observation bindings must be participant-specific`);
           bindings.add(bindingKey);
+        }
+      }
+    }
+    if (outcomeName === "analogyIntegrity") {
+      require(typeof outcome?.analogyUsed === "boolean", "analogyIntegrity.analogyUsed is required");
+      if (outcome?.analogyUsed === true) {
+        for (const field of ["mechanismMapping", "whySimpler", "whyItImprovesUnderstanding", "transferPrompt"]) require(text(outcome?.[field]), `analogyIntegrity.${field} is required when an analogy is used`);
+        if (receipt?.stage === "PRODUCER_SELF_REVIEW") {
+          require(text(outcome?.simulatedAnalogyProbe?.response), "analogyIntegrity.simulatedAnalogyProbe.response is required in producer review");
+        } else {
+          const observed = outcome?.observedAnalogyEvidence;
+          require(observed?.evidenceType === "OBSERVED_HUMAN", "analogyIntegrity requires observed human evidence that the analogy improved understanding");
+          require(text(observed?.prompt) && text(observed?.verbatimResponse) && text(observed?.expectedEvidence), "analogyIntegrity observed evidence requires prompt, response and expected evidence");
+          loadBinding(root, observed?.observationBinding, "analogyIntegrity.observedAnalogyEvidence.observationBinding", errors);
         }
       }
     }

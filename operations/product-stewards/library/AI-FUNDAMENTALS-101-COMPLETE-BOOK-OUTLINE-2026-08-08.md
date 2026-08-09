@@ -1,6 +1,11 @@
 # AI Fundamentals 101 — complete book outline
 
-**Status:** SPECIFIED FOR SUCCESSOR PRODUCTION — NOT ADMITTED OR PUBLIC
+**Status:** REJECTED / CALIBRATION ONLY — NOT DRAFTING AUTHORITY
+
+> Ali rejected this route on 2026-08-08. Its job/five-axis opening, chapter
+> titles, analogy plan and visual component map may not be reused. The next
+> outline starts from a blank page and must establish familiar AI kinds in plain
+> language before introducing a technically coherent relationship among them.
 **Candidate:** `LIB-AI-FUNDAMENTALS-101-V3`
 **Audience:** women with no assumed technical background who want to understand
 AI well enough to use it, question it and participate in decisions about it

@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import { inspectVisualMediaProducerContract } from "./check-visual-media-producer-contract.mjs";
 
 const SHA = /^[a-f0-9]{64}$/;
-const BASE = ["semanticAlignment","styleAndLocationFit","characterAndTownIdentity","anatomyAndPhysics","textIntegrity","periodWardrobeAndProps","objectPurpose","renderedSizeLegibility"];
+const BASE = ["semanticAlignment","instructionalClarity","analogyMapping","visualHierarchyAndCognitiveLoad","styleAndLocationFit","characterAndTownIdentity","anatomyAndPhysics","textIntegrity","periodWardrobeAndProps","objectPurpose","renderedSizeLegibility"];
 const MOTION = ["motionMeaning","temporalAlignment","crossFrameContinuity","motionClassAndLoopTruth"];
 function hash(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
 function resolve(root, value) { return path.isAbsolute(value || "") ? value : path.join(root, value || ""); }
@@ -46,6 +46,10 @@ export function inspectVisualMediaReview(record, { root = process.cwd() } = {}) 
   for (const id of required) {
     const outcome = outcomes.get(id);
     if (!outcome || !new Set(["PASS","HOLD","FAIL"]).has(outcome.result) || !meaningful(outcome.observation) || !meaningful(outcome.artifactLocator)) errors.push(`outcome ${id} needs result, pixel observation and locator`);
+  }
+  if (["EXPLAIN", "COMPARE", "DEMONSTRATE"].includes(contract.intent?.visualJob)) {
+    const observation = record.learnerObservation || {};
+    if (!meaningful(observation.prompt) || !meaningful(observation.observedResponse) || !meaningful(observation.expectedEvidence) || !bind(root, observation.evidence, "learnerObservation.evidence", errors)) errors.push("teaching visual requires checksum-bound unfamiliar-viewer observation");
   }
   if (record.verdict === "PASS" && ([...outcomes.values()].some(item => item.result !== "PASS") || (record.visibleDefects || []).length)) errors.push("PASS cannot contain held/failed outcomes or visible defects");
   if (record.stage === "PRODUCER_SELF_REVIEW" && record.reviewer.principalId !== contract.maker?.principalId) errors.push("producer self-review principal must match maker");

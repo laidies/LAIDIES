@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const SHA = /^[a-f0-9]{64}$/;
 const CLASSES = new Set(["STILL", "ANIMATION", "ANIMATION_SOURCE", "IDENT", "LOOP"]);
 const JOBS = new Set(["ESTABLISH", "EXPLAIN", "COMPARE", "DEMONSTRATE", "REINFORCE", "COMPLICATE", "TRANSITION", "BREATHING"]);
+const RENDERING_METHODS = new Set(["GENERATED_RASTER", "APPROVED_RASTER_ASSET", "HAND_DRAWN_RASTER", "DETERMINISTIC_VECTOR_ASSET"]);
 
 function hash(file) { return crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
 function resolve(root, value) { return path.isAbsolute(value || "") ? value : path.join(root, value || ""); }
@@ -26,6 +27,7 @@ export function inspectVisualMediaProducerContract(record, { root = process.cwd(
   if (!record?.candidateId || !record?.surface) errors.push("candidateId and surface are required");
   if (!CLASSES.has(record?.mediaClass)) errors.push("mediaClass is invalid");
   if (record?.status !== "READY_TO_RENDER") errors.push("status must be READY_TO_RENDER");
+  if (!RENDERING_METHODS.has(record?.renderingMethod)) errors.push("renderingMethod must be a governed image/diagram asset; CSS/HTML drawings are forbidden");
 
   if (!binding(root, record?.registry, "registry", errors)) return { errors };
   let registry;
@@ -41,7 +43,7 @@ export function inspectVisualMediaProducerContract(record, { root = process.cwd(
   }
 
   const intent = record?.intent || {};
-  for (const field of ["placement", "scenePurpose", "viewerUnderstanding"]) if (!meaningful(intent[field])) errors.push(`intent.${field} is required`);
+  for (const field of ["placement", "scenePurpose", "viewerQuestion", "viewerUnderstanding", "proseInsufficientReason"]) if (!meaningful(intent[field])) errors.push(`intent.${field} is required`);
   if (!JOBS.has(intent.visualJob)) errors.push("intent.visualJob is invalid");
 
   if (!binding(root, record?.companion, "companion", errors)) errors.push("exact accompanying text, narration, caption or silent-purpose record must be bound");
@@ -72,6 +74,13 @@ export function inspectVisualMediaProducerContract(record, { root = process.cwd(
   if (!Array.isArray(record.objectMap) || !record.objectMap.length) errors.push("objectMap is required");
   for (const [index, object] of (record.objectMap || []).entries()) {
     if (!object.id || !meaningful(object.visualJob) || !meaningful(object.relationToCompanion) || !new Set(["REQUIRED", "OPTIONAL", "PROHIBITED"]).has(object.disposition)) errors.push(`objectMap[${index}] is incomplete`);
+  }
+  if (["EXPLAIN", "COMPARE", "DEMONSTRATE"].includes(intent.visualJob)) {
+    const map = record.instructionalMap || {};
+    if (!Array.isArray(map.familiarElements) || !map.familiarElements.length || map.familiarElements.some(item => !meaningful(item))) errors.push("instructionalMap.familiarElements is required for teaching visuals");
+    if (!Array.isArray(map.technicalElements) || !map.technicalElements.length || map.technicalElements.some(item => !meaningful(item))) errors.push("instructionalMap.technicalElements is required for teaching visuals");
+    if (!Array.isArray(map.explicitMappings) || !map.explicitMappings.length || map.explicitMappings.some(item => !meaningful(item))) errors.push("instructionalMap.explicitMappings is required for teaching visuals");
+    if (!meaningful(map.faithfulMechanism) || !meaningful(map.whySimpler) || !meaningful(map.unfamiliarViewerSuccess)) errors.push("instructionalMap must prove a faithful mechanism, a simpler first encounter and unfamiliar-viewer success");
   }
 
   const textPlan = record?.textPlan || {};

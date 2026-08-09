@@ -34,7 +34,7 @@ try {
   }));
 
   const excerpt = candidateBody.slice(0, 80);
-  const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const required = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
   const observedParticipants = observationPaths.map((observationPath, index) => ({
     participantId: `reader-${index + 1}`,
     prompt: "Explain the mechanism and use it in a different case.",
@@ -47,6 +47,15 @@ try {
     verdict: "PASS", observation: `${name} is demonstrated in the exact prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }],
     ...(["explainBack", "unseenTransfer"].includes(name) ? { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "reader-study-admin", participants: observedParticipants } } : {})
   }]));
+  outcomes.analogyIntegrity = {
+    ...outcomes.analogyIntegrity,
+    analogyUsed: true,
+    mechanismMapping: "The case file maps to evidence that supports a claim; confidence maps to unsupported presentation.",
+    whySimpler: "The familiar courtroom distinction makes support versus confidence visible before the technical language.",
+    whyItImprovesUnderstanding: "The reader can distinguish a fluent draft from evidence and apply that distinction to another policy.",
+    transferPrompt: "In a travel-policy answer, identify the claim, the supporting evidence and what confidence cannot prove.",
+    observedAnalogyEvidence: { evidenceType: "OBSERVED_HUMAN", prompt: "Use the comparison to explain a travel-policy answer.", verbatimResponse: "The current travel rule supports the claim; confident wording does not.", expectedEvidence: "Separates evidence from confidence in the new case.", observationBinding: bind(observationPaths[0]) }
+  };
   const receipt = {
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: "fixture", stage: "INDEPENDENT_SEMANTIC_ADMISSION", contentClass: "EXPLANATION", surface: "LIBRAIRY",
     maker: "maker", reviewer: { id: "independent-reader", principalId: "independent-reader-principal", role: "learning and prose reviewer", modelFamily: "claude", independentFromMaker: true, artifactFirst: true }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: "2026-08-07T07:00:00-07:00",
@@ -73,6 +82,8 @@ try {
   assert.match(inspect(missing).join("\n"), /unseenTransfer is missing/);
   const defect = structuredClone(receipt); defect.failureFamilies.decorativeAnalogy.present = true;
   assert.match(inspect(defect).join("\n"), /decorativeAnalogy is present/);
+  const analogyCheckbox = structuredClone(receipt); delete analogyCheckbox.outcomes.analogyIntegrity.observedAnalogyEvidence;
+  assert.match(inspect(analogyCheckbox).join("\n"), /observed human evidence/);
   const nameOnly = structuredClone(receipt); delete nameOnly.outcomes.communicationBenchmark;
   assert.match(inspect(nameOnly).join("\n"), /communicationBenchmark is missing/);
   const pastiche = structuredClone(receipt); pastiche.failureFamilies.communicationPastiche.present = true;
@@ -111,6 +122,8 @@ try {
     delete producer.outcomes[name].observedReaderEvidence;
     producer.outcomes[name].simulatedReaderProbe = { prompt: `Probe ${name}`, probeResponse: "A hypothetical reader connects context, evidence and the human check.", expectedEvidence: "Mechanism and transfer." };
   }
+  delete producer.outcomes.analogyIntegrity.observedAnalogyEvidence;
+  producer.outcomes.analogyIntegrity.simulatedAnalogyProbe = { response: "A simulated reader separates supporting evidence from confident wording in a travel-policy case." };
   assert.deepEqual(inspect(producer), [], "producer simulation is allowed only as a producer probe");
   assert.deepEqual(inspectProseReviewChain(producer, receipt, { root }).errors, [], "ordered cross-family chain must match");
   const sameFamily = structuredClone(receipt); sameFamily.reviewer.modelFamily = "openai";

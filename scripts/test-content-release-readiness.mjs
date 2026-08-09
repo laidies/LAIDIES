@@ -100,7 +100,7 @@ function validOrder() {
   write(sourcePath, "Authoritative fixture source says context and evidence support a checked decision.\n");
   write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V2 test fixture.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
-  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"];
+  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding", "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
@@ -154,7 +154,7 @@ function validOrder() {
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }
   }));
   const excerpt = "A real work question moves through context and evidence";
-  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const outcomeNames = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
   const review = stage => {
     const reviewerPrincipalId = stage === "PRODUCER_SELF_REVIEW" ? "maker" : "independent-reader-principal";
     const isProducer = stage === "PRODUCER_SELF_REVIEW";
@@ -168,6 +168,7 @@ function validOrder() {
           : { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "fixture-reader-admin", participants: observationPaths.map((observationPath, index) => ({ participantId: `reader-${index + 1}`, prompt: `Test ${name}.`, verbatimResponse: `Reader ${index + 1} explained context and evidence.`, expectedEvidence: "Names context and evidence.", observedAt: `2026-08-07T06:5${index}:00-07:00`, observationBinding: { path: observationPath, sha256: sha256(path.join(root, observationPath)) } })) } }
         : {})
     }]));
+    outcomes.analogyIntegrity.analogyUsed = false;
     return ({
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: id, stage, contentClass: "EXPLANATION", surface: "LIBRAIRY", maker: "maker",
     reviewer: { id: isProducer ? "maker-review" : "independent-reader", principalId: reviewerPrincipalId, role: "prose reviewer", modelFamily: isProducer ? "openai" : "claude", ...(stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? { independentFromMaker: true, artifactFirst: true } : {}) }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: isProducer ? "2026-08-07T06:00:00-07:00" : "2026-08-07T07:00:00-07:00",
