@@ -26,6 +26,8 @@ function classify(relative, tracked, ignored) {
     && (
       /^operations\/.*\/prototypes\//i.test(relative)
       || /^operations\/product-stewards\/episode-media-quality\/opening-day-release-packages-2026-08-01\//i.test(relative)
+      || /^operations\/control-room\/evidence\/(?:claude-opus-5-agent-contract-audit|.*(?:independent-judge|judge))-2026-08-03\.md$/i.test(relative)
+      || /^operations\/product-stewards\/audience-growth\/evidence-(?:content-helpfulness-measurement|visitors-centre-faq-question-signal)-acceptance-2026-08-03\.md$/i.test(relative)
     )
   ) return 'HISTORICAL';
   if (
