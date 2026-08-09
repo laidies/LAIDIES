@@ -20,7 +20,12 @@ function classify(relative, tracked, ignored) {
   if (/^(AGENTS\.md|operations\/(DECISIONS\.md|engine\/LEDGER\.md|voice\/|CODEX-WORKING-AGREEMENT\.md))/.test(relative)) return 'AUTHORITY';
   if (/^operations\/external-review\/.*(?:\/sources\/|\.zip$)/i.test(relative)) return 'HISTORICAL';
   if (/(^|\/)(archive|_archive)(\/|$)|(^|\/)_backup-|historical|audit-prompt/i.test(relative)) return 'HISTORICAL';
-  if (/rejected-artifacts|known-bad|negative-fixture|rejected/i.test(relative)) return 'REJECTED';
+  if (/rejected-artifacts|known-bad|negative-fixture|rejected|rejection/i.test(relative)) return 'REJECTED';
+  if (
+    !ignored && !tracked
+    && /^operations\/design-(?:explorations|qa|audits)\//i.test(relative)
+    && !/\.(png|jpe?g|webp|mp4|mov|mkv|pdf|mp3|m4a|adts)$/i.test(relative)
+  ) return 'HISTORICAL';
   if (
     ignored
     || /(^|\/)(dist|build|coverage|\.cache|node_modules)(\/|$)/i.test(relative)
@@ -112,7 +117,11 @@ export function buildInventory() {
     });
   }
   const byPath = new Map(rows.map(row => [row.path, row]));
-  const searchable = rows.filter(row => row.bytes <= 2_000_000 && /\.(md|json|html?|css|js|mjs|cjs|py|sh|toml|ya?ml|txt|csv|tsv)$/i.test(row.path));
+  const searchable = rows.filter(row =>
+    ['AUTHORITY', 'ACTIVE_SOURCE'].includes(row.classification)
+    && row.bytes <= 2_000_000
+    && /\.(md|json|html?|css|js|mjs|cjs|py|sh|toml|ya?ml|txt|csv|tsv)$/i.test(row.path)
+  );
   const patterns = rows.filter(row => row.classification === 'HISTORICAL' || row.classification === 'UNKNOWN').map(row => row.path);
   const chunks = [];
   for (let index = 0; index < patterns.length; index += 250) {
