@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-09 06:42 PDT
+**Evidence time:** 2026-08-09 06:55 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -41,6 +41,7 @@ This record reconciles the repository-owned accepted report at `operations/exter
 | Keep isolated prototypes and superseded held scaffolds out of current source recovery | PASS | untracked prototype copies, including duplicated media, remain historical; the explicitly held August 1 opening-day media scaffold remains preserved; calibrated adjacent current release source still routes to owner review |
 | Prevent storage recovery from deciding visitor-facing or Library-locked runtime changes | PASS BOUNDED RULING | exact-SHA holds now separate Homepage behaviour, the Miss Jeeves pilot taxonomy and the mixed site search index from source recovery; their product owners must reconcile successors, and changed bytes invalidate the holds |
 | Prevent orphan product-owner imports | PASS CALIBRATED | `scripts/plan-repository-recovery-packages.mjs` now requires the current registry and bound product/parent dossier/state before any product package becomes ready; the calibrated Businesswomen's Special fixture fails without its Bronze parent authority |
+| Close the final ready recovery paths without importing review clutter | PASS BOUNDED | Two exact private AIDB concept-render PNGs are SHA-bound holds because the tracked HTML source already exists and no consumer names the images; the consumed opening-day media manifest is recovered with four false owner-watch claims corrected to internal repair |
 
 ## Deliberately not called complete
 
@@ -177,6 +178,14 @@ bindings as dependencies. Its calibrated fixture rejects the orphan package,
 and the unchanged real inventory now reports only three ready reviewable paths;
 85 product packages are held for missing registry/parent authority. No product
 or Library source was imported by this correction.
+
+The 06:55 PDT final ready-path review separated source from rendered evidence.
+Two untracked AIDB screenshots explicitly mark themselves private rough
+exploration and have no current consumer, so exact-SHA rulings preserve them
+without restoring generated pixels to Git. The tracked opening-day media gate
+is consumed operational authority and corrects Episodes 01–04 from false owner
+watch status to internal repair while objective gates remain unresolved. No
+episode media, Library file, public route or deployment was changed.
 
 ## Authority truth
 

@@ -1,4 +1,4 @@
-# Recovery status — updated 2026-08-09 06:42 PDT
+# Recovery status — updated 2026-08-09 06:55 PDT
 
 ## Proven now
 
@@ -64,6 +64,22 @@ media-gate record. Eighty-five product packages now remain explicitly held on
 missing registry/parent authority rather than being offered for orphan import.
 No Businesswomen's Special, Bronze, Library or dirty-source byte was imported,
 edited, moved, deleted or staged.
+
+## Final ready-path disposition
+
+The 06:55 PDT review resolved the last three ready paths. Two untracked AIDB
+PNGs are exact private concept renders whose own visible label says they are
+not published LAiDIES cards. The tracked HTML source already exists in the
+clean branch and no current source consumes the PNGs. Exact-SHA rulings now
+preserve both images as held generated review output rather than source.
+
+The remaining tracked media-gate correction is current authority, not clutter.
+It removes four false `OWNER WATCH REQUIRED` claims and returns Episodes 01–04
+to `INTERNAL REPAIR REQUIRED` while their objective picture, identity, motion,
+occurrence and recurring-credit gates remain unresolved. The exact source SHA
+is bound for import and the operational/media checks consume this manifest.
+No visual asset, episode master, Library path, public route or deployment was
+changed.
 
 ## Authority truth
 

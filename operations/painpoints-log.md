@@ -15547,3 +15547,23 @@ while remaining falsely unfinished in the launch record.
   be the wrong commit.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
   DEPLOYMENT OR PUBLICATION.
+
+## 2026-08-09 — A rendered rough is not source, but a consumed HOLD ledger is
+
+- **Failure / surprise:** The final three ready recovery paths mixed two
+  untracked screenshots of a private AIDB concept with a tracked media-gate
+  correction used by live operational checks.
+- **Evidence observed:** Both PNGs visibly say `PRIVATE ROUGH EXPLORATION · NOT
+  A PUBLISHED LAIDIES CARD`, duplicate an already tracked HTML source and have
+  no filename consumer. The JSON diff instead removes four false owner-review
+  claims while `check-opening-day-media` and operational-integrity code consume
+  that exact manifest.
+- **Prevention rule:** Judge recovery at the artifact's real role. Preserve
+  deterministic screenshots and private renders outside source unless a
+  current consumer or admission record requires them; recover a tracked
+  operational ledger when its exact correction closes false work routing and
+  current checks consume it.
+- **Possible Behind the Build angle:** Why two colourful files were clutter and
+  one boring JSON file was the product-saving change.
+- **Publication status:** INTERNAL REPOSITORY RECOVERY / NO VISUAL ASSET,
+  EPISODE MASTER, LIBRARY FILE, DEPLOYMENT OR PUBLICATION.
