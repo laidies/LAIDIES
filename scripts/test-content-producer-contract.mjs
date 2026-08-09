@@ -21,6 +21,8 @@ try {
   const source = write(sourcePath, "Authoritative source fixture.\n");
   const benchmark = write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
   const sectionMapPath = "operations/product-stewards/library/fixture-section-teaching-map.json";
+  const methodPath = "operations/product-stewards/library/fixture-drafting-method.md";
+  const method = write(methodPath, "Plain conversational mechanism first; exact sources establish truth and LAiDIES teaching establishes the learning experience.\n");
   const sectionMap = write(sectionMapPath, JSON.stringify({
     schemaVersion: "laidies-section-teaching-map.v1",
     curriculumRule: "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
@@ -66,6 +68,7 @@ try {
       humourPlan: { lessonJob: "One workplace joke sharpens the consequence." }, formatSpecificStructure: "Connected explanation with separate lookup.",
       antiTemplateDecision: "Vary structure around the reader question; no repeated micro-template.",
       sectionTeachingMap: { path: sectionMapPath, sha256: hash(sectionMap) },
+      productionMethod: { path: methodPath, sha256: hash(method) },
       systemSynthesis: {
         endState: "The reader can reconstruct how a request moves through context model evidence and human decision.",
         drawPrompt: "Draw request context model evidence and human decision with labelled arrows.",
@@ -167,6 +170,8 @@ try {
   assert.match(inspect(wrongArcOrder).join("\n"), /must preserve the default explanatory sequence/);
   const missingReaderRoute = structuredClone(contract); delete missingReaderRoute.draftArchitecture.readerRoute;
   assert.match(inspect(missingReaderRoute).join("\n"), /requires a readerRoute/);
+  const missingMethod = structuredClone(contract); delete missingMethod.draftArchitecture.productionMethod;
+  assert.match(inspect(missingMethod).join("\n"), /productionMethod: exact path and SHA-256 are required/);
   const missingTeachingGoal = structuredClone(contract); delete missingTeachingGoal.draftArchitecture.readerRoute.entries[1].teachingGoal;
   assert.match(inspect(missingTeachingGoal).join("\n"), /teachingGoal is required/);
   const missingOutcomeQuestions = structuredClone(contract); delete missingOutcomeQuestions.draftArchitecture.readerRoute.entries[1].questionsAnswered;
@@ -213,7 +218,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=20 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=21 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 production_method=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

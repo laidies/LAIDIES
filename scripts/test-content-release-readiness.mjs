@@ -108,6 +108,8 @@ function validOrder() {
   }));
   const dispositions = Object.fromEntries(negativeFamilies.map(name => [name, { status: "CLEAR", producerGuard: `Prevent ${name}.`, preventionEvidence: `Fixture architecture explicitly prevents ${name}.` }]));
   const sectionMapPath = "operations/product-stewards/library/fixture-section-teaching-map.json";
+  const methodPath = "operations/product-stewards/library/fixture-drafting-method.md";
+  write(methodPath, "Plain conversational mechanism first.\n");
   write(sectionMapPath, JSON.stringify({
     schemaVersion: "laidies-section-teaching-map.v1",
     curriculumRule: "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
@@ -126,6 +128,7 @@ function validOrder() {
     draftArchitecture: {
       plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template.",
       sectionTeachingMap: { path: sectionMapPath, sha256: sha256(path.join(root, sectionMapPath)) },
+      productionMethod: { path: methodPath, sha256: sha256(path.join(root, methodPath)) },
       systemSynthesis: {
         endState: "The reader reconstructs request context model evidence and human decision as one system.",
         drawPrompt: "Draw request context model evidence and human decision with labelled arrows.",

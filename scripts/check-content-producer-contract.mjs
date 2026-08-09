@@ -127,6 +127,7 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   const substantialLibraryBook = /LIBRA[Ii]RY|LIBRARY/i.test(contract?.surface || "")
     && ["EXPLANATION", "REFERENCE"].includes(contract?.contentClass);
   if (substantialLibraryBook) {
+    boundFile(root, architecture?.productionMethod, "draftArchitecture.productionMethod", errors);
     const route = architecture?.readerRoute;
     require(array(route?.entries, 2), "substantial Library book requires a readerRoute with at least two entries");
     require(route?.rule === "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE", "readerRoute.rule must bind predictive titles and prerequisite order");
