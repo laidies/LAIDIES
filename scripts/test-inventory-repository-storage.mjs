@@ -33,6 +33,8 @@ git('commit', '--quiet', '-m', 'fixture baseline');
 
 write('operations/DECISIONS.md', 'canonical decision changed\n');
 write('operations/new-source.md', 'new active source\n');
+write('operations/external-review/fable-packet/sources/operations/DECISIONS.md', 'copied review input\n');
+write('operations/external-review/FABLE-5-v2-SUPERSEDED.zip', 'superseded review bundle\n');
 write('operations/launch/eod-fixture/local-public-artifact/index.html', 'generated site snapshot\n');
 write('operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png', 'generated campaign image\n');
 write('assets/__storage-inventory-calibration-unknown__.bin', 'deliberately ambiguous; must fail closed\n');
@@ -57,6 +59,10 @@ assert.equal(inventory.rows.find(row => row.path === 'operations/DECISIONS.md')?
 assert.equal(inventory.rows.find(row => row.path === 'operations/DECISIONS.md')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
 assert.equal(inventory.rows.find(row => row.path === 'operations/new-source.md')?.git_state, 'UNTRACKED');
 assert.equal(inventory.rows.find(row => row.path === 'operations/new-source.md')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
+assert.equal(inventory.rows.find(row => row.path === 'operations/external-review/fable-packet/sources/operations/DECISIONS.md')?.classification, 'HISTORICAL');
+assert.equal(inventory.rows.find(row => row.path === 'operations/external-review/fable-packet/sources/operations/DECISIONS.md')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
+assert.equal(inventory.rows.find(row => row.path === 'operations/external-review/FABLE-5-v2-SUPERSEDED.zip')?.classification, 'HISTORICAL');
+assert.equal(inventory.rows.find(row => row.path === 'operations/external-review/FABLE-5-v2-SUPERSEDED.zip')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
 assert.equal(inventory.rows.find(row => row.path === 'operations/launch/eod-fixture/local-public-artifact/index.html')?.classification, 'GENERATED');
 assert.equal(inventory.rows.find(row => row.path === 'operations/launch/eod-fixture/local-public-artifact/index.html')?.disposition, 'KEEP_OUT_OF_GIT');
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png')?.classification, 'GENERATED');
