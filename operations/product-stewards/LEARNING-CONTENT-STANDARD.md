@@ -5,6 +5,14 @@
 tools and educational games. NewsStand retains its separate sourcing and
 editorial rules.
 
+All published learning prose also consumes the sitewide writing benchmark:
+Ali's complete AI Fundamentals Introduction plus canonical Episodes 1–3. The
+four artifacts govern the standard of reader relationship, intelligence,
+clarity, usefulness, earned humour and enjoyment; they do not impose one
+surface's structure or references on another. NewsStand's sourcing and dated
+editorial rules remain additional requirements, never substitutes for this
+writing standard.
+
 ## Learner outcome
 
 A LAiDIES learner should leave able to:

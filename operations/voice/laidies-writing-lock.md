@@ -11,11 +11,22 @@ LAiDIES must sound like Ali writing LAiDIES — not like an AI-generated explain
 
 Gold Standard
 
-Episode 1 is the voice benchmark.
+Ali's AI Fundamentals 101 Introduction and canonical Episodes 1–3 are the
+sitewide writing benchmarks for anything LAiDIES publishes.
 
-Match that level of warmth, specificity, humour, pacing, clarity, usefulness, reference quality, and confidence. Use Canadian English.
+Every public surface must meet their level of intelligence, warmth,
+specificity, humour, pacing, clarity, usefulness, reference quality,
+confidence and reader relationship. Use Canadian English.
 
-If a draft does not feel like it belongs beside Episode 1, it is not done.
+This is a quality and relationship standard, not a format template. A button,
+FAQ, NewsStand report, reference entry, class, book and episode have different
+jobs. Adapt the amount of voice, humour, narrative and explanation to the job,
+but do not lower the standard or replace it with generic web, corporate,
+textbook or AI prose. Reuse the communication moves; never copy the episodes'
+structure, jokes or references by default.
+
+If a draft does not feel like it belongs beside all four benchmarks, at the
+depth appropriate to its surface, it is not done.
 
 For **AI Fundamentals 101**, Ali's complete authored introduction at
 `operations/product-stewards/library/AI-FUNDAMENTALS-101-ALI-WRITING-STANDARD-2026-08-09.md`
@@ -24,6 +35,13 @@ grammar, Canadian English and genuine repetition; they do not rewrite it into
 a generic explainer and add selected jokes back afterward. A cleaner draft
 that loses its cadence, conviction, three-part purpose or conversational
 relationship fails.
+
+The exact sitewide benchmark set is maintained in
+`operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json`.
+Every public-prose producer binds and reads all four exact artifacts before
+drafting. Exact-prose self-review and independent review must demonstrate how
+the candidate retains their relevant strengths without imitating or copying
+them.
 
 Core Voice
 

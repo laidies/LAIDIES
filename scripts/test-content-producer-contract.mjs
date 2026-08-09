@@ -42,10 +42,12 @@ try {
     ]
   }));
   const failureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
+  const sitewideWritingBenchmarkIds = ["GOOD", "GOOD-2", "GOOD-3", "GOOD-4"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
+    sitewideWritingBenchmarkIds,
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(bad), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies }],
-    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(good), useFor: ["EXPLANATION"] }]
+    positiveExemplars: sitewideWritingBenchmarkIds.map(id => ({ id, path: goodPath, sha256: hash(good), useFor: ["EXPLANATION"] }))
   }));
   const dispositions = Object.fromEntries(failureFamilies.map(key => [key, { status: "CLEAR", producerGuard: `Prevent ${key} before drafting.`, preventionEvidence: `Fixture architecture explicitly prevents ${key}.` }]));
   const contract = {
@@ -119,6 +121,12 @@ try {
       mode: "FULL",
       surfaceAdaptation: "Use the benchmark as an explanation-quality lens for one connected written explanation, not as a copied talk format.",
       imitationBoundary: "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+      sitewideWritingBenchmark: {
+        benchmarkIds: sitewideWritingBenchmarkIds,
+        surfaceAdaptation: "Retain the benchmark relationship and clarity in a durable explanation without copying an episode structure.",
+        strengthsToRetain: ["intelligent best-friend relationship", "clear useful mechanism", "earned humour"],
+        patternsNotToCopy: ["exact jokes", "episode plot", "reference density"]
+      },
       readerExperienceDesign: {
         dominantRelationship: "A smart, funny and enthusiastic friend helps the reader see why the mechanism matters, without speaking like a course module.",
         readerScaffolding: "HIDDEN_IN_PROSE",
@@ -169,6 +177,8 @@ try {
 
   const noExemplar = structuredClone(contract); noExemplar.positiveExemplars = [];
   assert.match(inspect(noExemplar).join("\n"), /positive exemplar/);
+  const missingSitewideWriting = structuredClone(contract); missingSitewideWriting.communicationDesign.sitewideWritingBenchmark.benchmarkIds.pop();
+  assert.match(inspect(missingSitewideWriting).join("\n"), /every sitewide writing benchmark/);
   const repeated = structuredClone(contract); repeated.knownFailurePreflight.dispositions.decorativeAnalogy.status = "OPEN";
   assert.match(inspect(repeated).join("\n"), /decorativeAnalogy is not CLEAR/);
   const sameCase = structuredClone(contract); sameCase.draftArchitecture.transferCase = sameCase.draftArchitecture.workedCase;
@@ -243,7 +253,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=23 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 production_method=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1 hidden_scaffolding=1 four_part_purpose=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=24 all_negatives=1 stale_registry=1 sitewide_writing=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 production_method=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1 hidden_scaffolding=1 four_part_purpose=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

@@ -1,5 +1,13 @@
 # Active work
 
+> **2026-08-09 sitewide published-writing lock:** Ali's complete AI
+> Fundamentals Introduction and canonical Episodes 1–3 jointly govern the
+> writing quality of anything LAiDIES publishes. Every public-prose producer
+> and exact-prose reviewer must consume all four current artifacts and adapt
+> their relevant strengths to the surface's job without copying their
+> structure, jokes or references. No public artifact was changed or released
+> by this decision.
+
 > **2026-08-09 AI Fundamentals authorial-source correction:** Ali's complete
 > authored Introduction is now the locked writing, voice and intent base for
 > the next AI Fundamentals 101 candidate. The agent-written R5 proof is

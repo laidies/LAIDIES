@@ -145,6 +145,25 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(Array.isArray(receipt?.calibration?.positive?.strengthsRetained) && receipt.calibration.positive.strengthsRetained.length > 0, "positive calibration must name strengths retained without copying its template");
   evidenceAppears(positiveBody, receipt?.calibration?.positive?.evidence, "calibration.positive.evidence", errors);
 
+  const sitewideWritingIds = registry.sitewideWritingBenchmarkIds || [];
+  require(Array.isArray(sitewideWritingIds) && sitewideWritingIds.length >= 4, "registry requires the complete sitewide writing benchmark set");
+  const suppliedWritingBenchmarks = new Map((receipt?.calibration?.sitewideWritingBenchmarks || []).map(item => [item.exemplarId, item]));
+  require(
+    suppliedWritingBenchmarks.size === sitewideWritingIds.length && sitewideWritingIds.every(id => suppliedWritingBenchmarks.has(id)),
+    "every sitewide writing benchmark must be reviewed against the exact prose"
+  );
+  for (const id of sitewideWritingIds) {
+    const exemplar = positiveRegistry.get(id);
+    const calibration = suppliedWritingBenchmarks.get(id);
+    require(Boolean(exemplar), `sitewide writing benchmark ${id} is not registered as a positive exemplar`);
+    let benchmarkBody = null;
+    if (exemplar) benchmarkBody = loadBinding(root, { path: exemplar.path, sha256: exemplar.sha256 }, `calibration.sitewideWritingBenchmarks.${id}`, errors);
+    require(calibration?.verdict === "PASS", `sitewide writing benchmark ${id} must be recognized as PASS`);
+    require(Array.isArray(calibration?.strengthsToRetain) && calibration.strengthsToRetain.length > 0, `sitewide writing benchmark ${id} must name strengths to retain`);
+    require(Array.isArray(calibration?.patternsNotToCopy) && calibration.patternsNotToCopy.length > 0, `sitewide writing benchmark ${id} must name patterns not to copy`);
+    evidenceAppears(benchmarkBody, calibration?.evidence, `calibration.sitewideWritingBenchmarks.${id}.evidence`, errors);
+  }
+
   for (const field of ["humanQuestion", "promisedPayoff", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredReaderFeeling"]) require(text(receipt?.reverseBrief?.[field]), `reverseBrief.${field} is required`);
 
   const requiredOutcomes = [...(REQUIRED_BY_CLASS[receipt?.contentClass] || [])];

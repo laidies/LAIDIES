@@ -14676,3 +14676,28 @@ while remaining falsely unfinished in the launch record.
   destroy the voice it is trying to preserve.
 - **Publication status:** INTERNAL AUTHORIAL-SOURCE CORRECTION / NO SUCCESSOR
   PROSE, ADMISSION, RENDER, DEPLOYMENT OR PUBLICATION.
+
+## BTB-466 — One gold-standard episode left the rest of the standard optional
+
+- **Date:** 2026-08-09
+- **Area:** Sitewide public-prose generation and review.
+- **Failure risk:** Producers can claim compliance by glancing at Episode 1 or
+  selecting one convenient exemplar while ignoring Ali's authored
+  relationship, Episode 2's practical mnemonic teaching and Episode 3's
+  authority-versus-support clarity.
+- **Root cause:** The Writing Lock named Episode 1 alone as the gold standard;
+  the registry stored the other approved examples but did not require every
+  producer or reviewer to consume the complete set.
+- **Prevention rule:** Maintain one checksum-bound sitewide benchmark set:
+  Ali's AI Fundamentals Introduction and canonical Episodes 1–3. Every public
+  prose contract binds all four, names the relevant strengths and explicitly
+  rejects copying their structures, jokes or reference density. Exact-prose
+  review calibrates against all four before judging the candidate.
+- **Durable correction:** D-2026-08-09-113, the Writing Lock, producer checker,
+  semantic checker and their fail-capable fixtures now enforce the complete
+  benchmark set. Promotional and microcopy classes receive proportional
+  communication treatment rather than `NOT_APPLICABLE`.
+- **Possible Behind the Build angle:** Why one favourite example is not enough
+  to define a voice across a whole publishing system.
+- **Publication status:** INTERNAL SITEWIDE WRITING-SYSTEM CORRECTION / NO
+  PUBLIC PROSE, ROUTE, DEPLOYMENT OR PUBLICATION CHANGED.

@@ -101,10 +101,12 @@ function validOrder() {
   write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V2 test fixture.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding", "technicallyIncoherentCategories", "analogyCheckboxWithoutLearningGain", "borrowedSectionEvidence", "memorizationWithoutMentalModel", "isolatedConceptSequence", "depthAsVocabularyAccumulation"];
+  const sitewideWritingBenchmarkIds = ["GOOD", "GOOD-2", "GOOD-3", "GOOD-4"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
+    sitewideWritingBenchmarkIds,
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
-    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: sha256(path.join(root, goodPath)), useFor: ["EXPLANATION"] }]
+    positiveExemplars: sitewideWritingBenchmarkIds.map(id => ({ id, path: goodPath, sha256: sha256(path.join(root, goodPath)), useFor: ["EXPLANATION"] }))
   }));
   const dispositions = Object.fromEntries(negativeFamilies.map(name => [name, { status: "CLEAR", producerGuard: `Prevent ${name}.`, preventionEvidence: `Fixture architecture explicitly prevents ${name}.` }]));
   const sectionMapPath = "operations/product-stewards/library/fixture-section-teaching-map.json";
@@ -155,6 +157,12 @@ function validOrder() {
       mode: "FULL",
       surfaceAdaptation: "Connected written explanation, not a copied talk format.",
       imitationBoundary: "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+      sitewideWritingBenchmark: {
+        benchmarkIds: sitewideWritingBenchmarkIds,
+        surfaceAdaptation: "Retain the benchmark relationship and clarity without copying an episode structure.",
+        strengthsToRetain: ["intelligent best-friend relationship", "clear useful mechanism"],
+        patternsNotToCopy: ["exact jokes", "episode plot"]
+      },
       readerExperienceDesign: {
         dominantRelationship: "A smart, funny and enthusiastic friend carries the mechanism without sounding like a course module.",
         readerScaffolding: "HIDDEN_IN_PROSE",
@@ -213,7 +221,7 @@ function validOrder() {
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: id, stage, contentClass: "EXPLANATION", surface: "LIBRAIRY", maker: "maker",
     reviewer: { id: isProducer ? "maker-review" : "independent-reader", principalId: reviewerPrincipalId, role: "prose reviewer", modelFamily: isProducer ? "openai" : "claude", ...(stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? { independentFromMaker: true, artifactFirst: true } : {}) }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: isProducer ? "2026-08-07T06:00:00-07:00" : "2026-08-07T07:00:00-07:00",
     artifact: { reviewText: { path: payloadPath, sha256: sha256(path.join(root, payloadPath)) }, manifest: { path: manifestPath, sha256: binding.sha256 } },
-    calibration: { registrySha256: sha256(registry), reviewerPrincipalId, reviewedAt: isProducer ? "2026-08-07T05:59:00-07:00" : "2026-08-07T06:59:00-07:00", negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "A disconnected glossary uses a decorative comparison", locator: "known-bad.txt:1" }] }], positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["connected mechanism"], evidence: [{ excerpt: "A real problem moves through one mechanism", locator: "known-good.txt:1" }] } },
+    calibration: { registrySha256: sha256(registry), reviewerPrincipalId, reviewedAt: isProducer ? "2026-08-07T05:59:00-07:00" : "2026-08-07T06:59:00-07:00", negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "A disconnected glossary uses a decorative comparison", locator: "known-bad.txt:1" }] }], positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["connected mechanism"], evidence: [{ excerpt: "A real problem moves through one mechanism", locator: "known-good.txt:1" }] }, sitewideWritingBenchmarks: sitewideWritingBenchmarkIds.map(exemplarId => ({ exemplarId, verdict: "PASS", strengthsToRetain: ["intelligent reader relationship", "connected usefulness"], patternsNotToCopy: ["exact structure", "exact wording"], evidence: [{ excerpt: "A real problem moves through one mechanism", locator: "known-good.txt:1" }] })) },
     reverseBrief: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "A work question.", surfaceJob: "Durable explanation.", desiredReaderFeeling: "Oh, I get it now." },
     outcomes,
     failureFamilies: Object.fromEntries(allFailureFamilies.map(name => [name, { present: false, observation: `${name} absent.`, artifactLocator: "fixture-payload.html:1" }])),

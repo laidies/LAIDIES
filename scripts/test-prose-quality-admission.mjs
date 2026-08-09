@@ -27,10 +27,12 @@ try {
   write(sourcePath, "Current authoritative policy source states that the policy is the evidence for the promise.\n");
   for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained that context supplies material, the policy supports the claim and a human checks the consequential detail.\n`);
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
+  const sitewideWritingBenchmarkIds = ["GOOD", "GOOD-2", "GOOD-3", "GOOD-4"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
+    sitewideWritingBenchmarkIds,
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
-    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION", "NEWS"] }]
+    positiveExemplars: sitewideWritingBenchmarkIds.map(id => ({ id, path: goodPath, sha256: hash(path.join(root, goodPath)), useFor: ["EXPLANATION", "NEWS"] }))
   }));
 
   const excerpt = candidateBody.slice(0, 80);
@@ -74,7 +76,14 @@ try {
     calibration: {
       registrySha256: hash(registry), reviewerPrincipalId: "independent-reader-principal", reviewedAt: "2026-08-07T06:59:00-07:00",
       negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "This glossary repeats labels.", locator: "bad.txt:1" }] }],
-      positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["real problem", "connected mechanism"], evidence: [{ excerpt: "Start with her real work problem.", locator: "good.txt:1" }] }
+      positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["real problem", "connected mechanism"], evidence: [{ excerpt: "Start with her real work problem.", locator: "good.txt:1" }] },
+      sitewideWritingBenchmarks: sitewideWritingBenchmarkIds.map(exemplarId => ({
+        exemplarId,
+        verdict: "PASS",
+        strengthsToRetain: ["intelligent reader relationship", "connected usefulness"],
+        patternsNotToCopy: ["exact structure", "exact wording"],
+        evidence: [{ excerpt: "Start with her real work problem.", locator: "good.txt:1" }]
+      }))
     },
     reverseBrief: { humanQuestion: "Can I make this promise?", promisedPayoff: "Diagnose and check the answer.", centralMentalModel: "Context and model create a draft; evidence supports the decision.", dailyLifeConnection: "A manager handover.", surfaceJob: "Durable explanation.", desiredReaderFeeling: "Oh, I get it now." },
     outcomes,
@@ -99,6 +108,8 @@ try {
   assert.match(inspect(analogyCheckbox).join("\n"), /observed human evidence/);
   const nameOnly = structuredClone(receipt); delete nameOnly.outcomes.communicationBenchmark;
   assert.match(inspect(nameOnly).join("\n"), /communicationBenchmark is missing/);
+  const missingSitewideWriting = structuredClone(receipt); missingSitewideWriting.calibration.sitewideWritingBenchmarks.pop();
+  assert.match(inspect(missingSitewideWriting).join("\n"), /every sitewide writing benchmark/);
   const pastiche = structuredClone(receipt); pastiche.failureFamilies.communicationPastiche.present = true;
   assert.match(inspect(pastiche).join("\n"), /communicationPastiche is present/);
   const missingArc = structuredClone(receipt); delete missingArc.outcomes.explanationArc;
@@ -170,7 +181,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 system_reconstruction=1 dominant_voice_span=1 four_part_purpose=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=25 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 sitewide_writing=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 system_reconstruction=1 dominant_voice_span=1 four_part_purpose=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

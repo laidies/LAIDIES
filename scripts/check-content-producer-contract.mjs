@@ -11,7 +11,7 @@ const COMMUNICATION_BENCHMARK = "operations/product-stewards/learning-content-ec
 const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
-const PROPORTIONAL_COMMUNICATION_CLASSES = new Set(["REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE"]);
+const PROPORTIONAL_COMMUNICATION_CLASSES = new Set(["REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const COMMUNICATION_DIMENSIONS = [
   "humanQuestion", "usefulCuriosity", "invisibleProcessConcrete",
   "familiarTechnicalMovement", "limitationsConsequences", "humourSurprise",
@@ -76,6 +76,24 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     require(array(use?.strengthsToUse), `positiveExemplars[${index}].strengthsToUse is required`);
     require(array(use?.patternsNotToCopy), `positiveExemplars[${index}].patternsNotToCopy is required`);
   }
+
+  const sitewideWritingIds = registry.sitewideWritingBenchmarkIds || [];
+  require(array(sitewideWritingIds, 4), "registry requires the complete sitewide writing benchmark set");
+  require(new Set(sitewideWritingIds).size === sitewideWritingIds.length, "sitewide writing benchmark IDs must be unique");
+  const sitewideWriting = contract?.communicationDesign?.sitewideWritingBenchmark;
+  const suppliedWritingIds = sitewideWriting?.benchmarkIds || [];
+  require(
+    suppliedWritingIds.length === sitewideWritingIds.length && sitewideWritingIds.every(id => suppliedWritingIds.includes(id)),
+    "every sitewide writing benchmark must be consumed before drafting"
+  );
+  for (const id of sitewideWritingIds) {
+    const exemplar = positives.get(id);
+    require(Boolean(exemplar), `sitewide writing benchmark ${id} is not registered as a positive exemplar`);
+    if (exemplar) boundFile(root, { path: exemplar.path, sha256: exemplar.sha256 }, `sitewide writing benchmark ${id}`, errors);
+  }
+  require(text(sitewideWriting?.surfaceAdaptation), "communicationDesign.sitewideWritingBenchmark.surfaceAdaptation is required");
+  require(array(sitewideWriting?.strengthsToRetain), "communicationDesign.sitewideWritingBenchmark.strengthsToRetain is required");
+  require(array(sitewideWriting?.patternsNotToCopy), "communicationDesign.sitewideWritingBenchmark.patternsNotToCopy is required");
 
   const negatives = registry.negativeExemplars || [];
   const negativeIds = negatives.map(item => item.id);
