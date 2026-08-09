@@ -295,3 +295,66 @@ explanation plus any distinct practice.
 
 **Authority truth:** captured and reconciled only. No definition, example,
 lesson, book edit, class, episode or publication is accepted.
+
+### NOTE-004 — Pretraining → fine-tuning → inference
+
+**Ali's wording:** “pretraining -> finetuning -> inference.”
+
+**Type:** foundational lifecycle sequence from Part 1; exact lecture wording,
+diagram and timestamp remain to be bound.
+
+**What is worth preserving:** this is a strong first map for understanding how
+a general model is initially trained, adapted and then used. LAiDIES should
+retain the arrows because the relationship is more useful than three isolated
+definitions, while correcting the impression that every modern model follows
+exactly one fine-tuning step or learns during every inference request.
+
+**Learner-safe relationship to verify:**
+
+1. **Pretraining:** large-scale initial training shapes a base model by adjusting
+   parameters from a broad training objective and dataset.
+2. **Post-training:** later training adapts behavior or capability. Supervised
+   fine-tuning can be one part, but preference optimization, reinforcement
+   learning, distillation or other methods may also be involved.
+3. **Inference:** the trained model processes current input and produces an
+   output. Ordinary inference uses learned parameters; it is not automatically
+   another parameter-updating training step.
+4. **Possible feedback loop:** a deliberately designed system may evaluate
+   inference results and use them as later training data or feedback. That loop
+   must be shown explicitly; it does not mean the deployed model silently
+   teaches itself from every conversation.
+
+**Existing LAiDIES overlap:** the current Concepts 101 artifact already defines
+Training, Fine-tuning and Inference and says training changes parameters before
+the task while inference uses them. The AI Fundamentals 101 successor contract
+already requires a training-versus-inference causal chapter. The distinct value
+of this note is the connected lifecycle and post-training boundary, not new
+standalone definitions.
+
+**Classification:** `MERGE / EXTEND`. Link the three existing concepts inside
+AI Fundamentals 101 and extend the relationship to `pretraining → post-training
+(including fine-tuning where applicable) → inference → optional governed
+feedback into later training`. Do not replace the beginner arrow with an
+exhaustive taxonomy.
+
+**Primary home recommendation:** AI Fundamentals 101 owns the lifecycle map and
+stable concept links. The self-improving-agents course may later add a High
+exercise only if learners trace where evaluation/feedback crosses from
+inference back into a later training process.
+
+**Affected owners:** Learning System & Concepts; LIBRAiRY / AI Fundamentals
+101; SUNNYVAiLE High; model-training/freshness and Editorial Accuracy owners;
+agent-systems owner for the optional feedback loop.
+
+**Investigation required before teaching:** bind the exact Part 1 diagram and
+lecture scope; compare its vocabulary with current primary training/post-
+training descriptions; identify which methods the lecturer groups under
+fine-tuning; and verify one current model-development example without implying
+that undisclosed provider recipes are known.
+
+**Return trigger:** after source and current-vocabulary binding, Learning rules
+`LINK` or `EXTEND` for the AI Fundamentals lifecycle map and decides whether the
+feedback-loop transfer case adds a distinct High practice.
+
+**Authority truth:** captured and reconciled only. No lifecycle diagram,
+definition, book edit, class, episode or publication is accepted.

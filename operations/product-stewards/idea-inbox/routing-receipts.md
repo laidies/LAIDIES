@@ -663,7 +663,7 @@ acceptance, implementation, priority or release.
   review remains bounded to the four videos she identified. Additional parts
   are discovery candidates, not automatically admitted scope.
 - **Remaining evidence gap:** exact timestamps/transcript passages for NOTE-001
-  through NOTE-003, their cited readings and current claim-level verification.
+  through NOTE-004, their cited readings and current claim-level verification.
 
 ### NOTE-003 — Emergent behavior in models
 
@@ -686,6 +686,28 @@ acceptance, implementation, priority or release.
   canonical explanation and any distinct High practice.
 - **Authority truth:** no definition, research conclusion, lesson, curriculum
   edit, publication or deployment occurred.
+
+### NOTE-004 — Pretraining → fine-tuning → inference
+
+- **Captured:** `2026-08-08` PDT from Ali's live lecture notes.
+- **Preserved relationship:** a base model is pretrained, later training adapts
+  it, and inference uses the resulting model on current input. Keep the arrows,
+  not just three disconnected terms.
+- **Required correction:** fine-tuning is one possible part of the broader
+  post-training stage, not a complete universal description. Ordinary inference
+  does not automatically update model parameters or learn from each request.
+- **Duplicate findings:** Concepts 101 already defines Training, Fine-tuning and
+  Inference; the AI Fundamentals successor already requires a training-versus-
+  inference causal chapter. The missing value is the connected lifecycle plus
+  an explicit optional feedback-to-later-training loop.
+- **Classification:** `MERGE / EXTEND` inside AI Fundamentals 101; High receives
+  only a distinct exercise tracing when inference evidence becomes later
+  training input.
+- **Return trigger:** bind the exact Part 1 diagram and current primary
+  pretraining/post-training vocabulary; verify one documented current example;
+  then Learning rules `LINK` or `EXTEND` and the smallest transfer case.
+- **Authority truth:** no lifecycle diagram, definition, lesson, curriculum edit,
+  publication or deployment occurred.
 
 ## Receipt template
 

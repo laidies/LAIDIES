@@ -108,3 +108,17 @@ Repository reconciliation found the underlying AI Fundamentals components but
 no maintained beginner bridge. Learning System & Concepts remains acceptance
 owner. The smallest useful proof is one example showing how the same continuous
 performance data can produce a sudden-looking pass/fail result.
+
+## NOTE-004 update — pretraining → fine-tuning → inference
+
+Ali's fourth concept is preserved as a lifecycle, not reduced to three glossary
+entries. Repository reconciliation found all three component definitions and an
+existing AI Fundamentals training-versus-inference chapter requirement. The
+distinct learner value is therefore the relationship and the feedback boundary.
+
+Classification is `MERGE / EXTEND`: use `pretraining → post-training (which may
+include fine-tuning) → inference`, then show a separate optional arrow where an
+explicitly designed system turns evaluated inference results into later
+training. This prevents the common misconception that a deployed model updates
+its parameters from every conversation. Learning System & Concepts remains the
+acceptance owner.
