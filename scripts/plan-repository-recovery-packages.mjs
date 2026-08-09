@@ -23,6 +23,32 @@ if (!Array.isArray(inventory.rows) || !Array.isArray(reconciliation.rows)) {
 
 const reconciled = new Map(reconciliation.rows.map(row => [row.path, row]));
 const MAX_REVIEWABLE_PATHS_PER_PACKAGE = 25;
+const MAX_DEPENDENCY_SCAN_BYTES = 2 * 1024 * 1024;
+const DEPENDENCY_SCAN_EXTENSIONS = new Set(['.html', '.js', '.json', '.md', '.mjs']);
+const sourceRoot = inventory.root ? path.resolve(inventory.root) : null;
+const baselineRoot = reconciliation.baseline_root ? path.resolve(reconciliation.baseline_root) : null;
+
+function normalizeRepositoryPath(candidate) {
+  let relative = candidate.trim().replace(/^\.\//, '');
+  if (relative.startsWith('Website-homepage/')) relative = relative.slice('Website-homepage/'.length);
+  if (!relative || path.isAbsolute(relative) || relative.includes('..') || relative.includes('*')) return null;
+  return relative.split(path.sep).join('/');
+}
+
+function exactSourceReferences(relative) {
+  if (!sourceRoot || !baselineRoot || !DEPENDENCY_SCAN_EXTENSIONS.has(path.extname(relative).toLowerCase())) return [];
+  const absolute = path.join(sourceRoot, relative);
+  if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile() || fs.statSync(absolute).size > MAX_DEPENDENCY_SCAN_BYTES) return [];
+  const contents = fs.readFileSync(absolute, 'utf8');
+  const references = new Set();
+  for (const match of contents.matchAll(/`([^`\n]+)`/g)) {
+    const normalized = normalizeRepositoryPath(match[1]);
+    if (!normalized || normalized === relative) continue;
+    const sourceCandidate = path.join(sourceRoot, normalized);
+    if (fs.existsSync(sourceCandidate) && fs.statSync(sourceCandidate).isFile()) references.add(normalized);
+  }
+  return [...references].sort();
+}
 
 function route(relative) {
   const parts = relative.split('/');
@@ -72,7 +98,7 @@ function action(row, comparison) {
   return row.disposition === 'NO_ACTION' ? 'NO_ACTION' : 'HOLD_UNRECOGNIZED_DISPOSITION';
 }
 
-function packageReadiness(routingConfidence, reviewableCount) {
+function packageReadiness(routingConfidence, reviewableCount, unresolvedReferencedPaths) {
   if (reviewableCount === 0) {
     return {
       status: 'NO_REVIEWABLE_WORK',
@@ -89,6 +115,12 @@ function packageReadiness(routingConfidence, reviewableCount) {
     return {
       status: 'HOLD_OVERSIZED_REQUIRES_SUBDIVISION',
       reason: `${reviewableCount} reviewable paths exceed the ${MAX_REVIEWABLE_PATHS_PER_PACKAGE}-path package limit.`
+    };
+  }
+  if (unresolvedReferencedPaths.length > 0) {
+    return {
+      status: 'HOLD_REFERENCED_DIRTY_PATH',
+      reason: `${unresolvedReferencedPaths.length} exact referenced source path(s) are absent from the clean baseline and outside this package.`
     };
   }
   return {
@@ -143,10 +175,17 @@ const packages = [...groups.values()]
     const reviewableCount = Object.entries(group.action_counts)
       .filter(([name]) => name.startsWith('REVIEW_'))
       .reduce((sum, [, count]) => sum + count, 0);
-    const readiness = packageReadiness(group.routing_confidence, reviewableCount);
+    const packagePaths = new Set(group.rows.map(row => row.path));
+    const unresolvedReferencedPaths = [...new Set(group.rows
+      .filter(row => row.proposed_action.startsWith('REVIEW_'))
+      .flatMap(row => exactSourceReferences(row.path))
+      .filter(reference => !packagePaths.has(reference) && !fs.existsSync(path.join(baselineRoot || '', reference))))]
+      .sort();
+    const readiness = packageReadiness(group.routing_confidence, reviewableCount, unresolvedReferencedPaths);
     return {
       ...group,
       reviewable_count: reviewableCount,
+      unresolved_referenced_paths: unresolvedReferencedPaths,
       package_status: readiness.status,
       package_status_reason: readiness.reason,
       rows: group.rows.sort((a, b) => a.path.localeCompare(b.path))
@@ -182,6 +221,7 @@ const report = {
     'A package key routes review; it does not confer owner authority.',
     `Packages with more than ${MAX_REVIEWABLE_PATHS_PER_PACKAGE} reviewable paths remain held until subdivided.`,
     'Only HIGH-confidence routes can become ready for owner review.',
+    'An exact backticked source path that exists only in the dirty source tree holds the package until the dependency is present in the clean baseline or included in the same package.',
     'Only exact reviewed paths may be committed together.'
   ],
   mutation: 'NONE',

@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 22:20 PDT
+**Evidence time:** 2026-08-08 22:52 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -82,6 +82,18 @@ The 21:42 PDT storage-recovery continuation converted the 9,792-path dirty inven
 The 22:20 PDT classifier correction removed a false source signal from the queue. Exactly 908 files under `operations/launch/*/local-public-artifact/` and 282 campaign asset files are generated outputs, not source candidates. The refreshed queue now keeps 4,000 generated/ignored paths out of Git, routes 1,457 paths for review and identifies four exact baseline matches. No file was moved, deleted, staged or published.
 
 The 22:33 PDT package-readiness correction removed a second false signal: a route label did not make a 129-path or 87-path group a bounded commit candidate. The planner now holds every non-high-confidence route and every package above 25 reviewable paths. Its deliberately bad fixtures prove that one weakly routed path and one 26-path package cannot become ready. Current result: 259 high-confidence bounded packages / 963 paths may proceed to exact owner review; 25 packages require route confirmation, four oversized packages require subdivision and 65 contain no reviewable work. No dirty source path was imported, deleted, moved, staged or committed by this classification step.
+
+The 22:52 PDT dependency-closure correction removed a third false signal: a
+small, high-confidence package could still point to dirty-only source outside
+its boundary. The planner now reads exact backticked repository paths in
+reviewable text files and holds a package when a named source file exists only
+in the dirty tree. Its calibrated bad fixture rejects that case while a
+self-contained package and a dependency already present in the clean baseline
+remain ready. The refreshed queue holds 130 packages on unresolved dirty-only
+references and leaves 129 packages / 498 paths ready for exact owner review.
+The one-path AIDB site-refresh register is correctly held rather than imported
+with eight broken internal references. No dirty source path was imported,
+deleted, moved, staged or committed by this classification step.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 

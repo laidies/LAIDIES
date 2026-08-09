@@ -15426,7 +15426,11 @@ while remaining falsely unfinished in the launch record.
   readiness: non-high-confidence routes are held for route confirmation, more
   than 25 reviewable paths are held for subdivision and only a high-confidence
   bounded group can reach owner review. Calibrated bad fixtures prove a weak
-  route and a 26-path group both fail closed.
+  route and a 26-path group both fail closed. A later one-path register exposed
+  one more false-ready state: its exact internal links named files that existed
+  only in the dirty tree. Readiness now also requires exact backticked source
+  dependencies to exist in the clean baseline or inside the same package; the
+  calibrated bad fixture fails and the clean/self-contained controls pass.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
