@@ -15318,3 +15318,26 @@ while remaining falsely unfinished in the launch record.
   book is not recovery.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO VISITOR CONTENT,
   DEPLOYMENT OR PUBLICATION.
+
+## BTB-461 — A calibration test imported the dirty workspace instead of its own fixture
+
+- **Date:** 2026-08-08
+- **Area:** Release-readiness recovery and fail-closed artifact manifests.
+- **Failure risk:** A release gate can appear calibrated in the long-lived dirty
+  checkout but abort before testing its own cases in a clean branch because it
+  imports unrelated validators and time-sensitive production records.
+- **Root cause:** One recovered test mixed the artifact-manifest boundary with
+  NewsStand Daily release rules, so importing the test executed expired live
+  records before the controlled manifest fixtures ran.
+- **Prevention rule:** Each calibration owns controlled fixtures for the exact
+  boundary it claims to test. Cross-product release rules travel in separate
+  dependency packages and may not be hidden imports in a manifest calibration.
+- **Durable correction:** `test-release-readiness-gates.mjs` now exercises only
+  the release manifest against missing paths, non-directories, empty artifacts,
+  missing and empty entrypoints, and one valid artifact. The test is wired into
+  `npm run ci`; integrity mode remains available for empty inventories while
+  explicit release mode fails closed.
+- **Possible Behind the Build angle:** Why a test that starts by reading the
+  whole office is not a test of one locked door.
+- **Publication status:** INTERNAL OPERATING-SYSTEM RECOVERY / NO DEPLOYMENT OR
+  PUBLICATION.
