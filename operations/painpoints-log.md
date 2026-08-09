@@ -14516,3 +14516,32 @@ while remaining falsely unfinished in the launch record.
   an analogy teaches instead of whether a form mentions one.
 - **Publication status:** INTERNAL OPERATING-SYSTEM CORRECTION / NO NEW BOOK,
   IMAGE, DIAGRAM, PREVIEW, DEPLOYMENT OR PUBLICATION.
+
+## BTB-460 — A better draft still repeated the producer's classification reflex
+
+- **Date:** 2026-08-08
+- **Area:** Foundational explanation production and learning-loop calibration.
+- **Failure:** Five internal V4 opening passes became progressively clearer but
+  still failed on dominant voice, casual reuse of future technical terms,
+  example counts, verb drift, capability added in recap, task/output/action and
+  permission boundaries, high-stakes framing and an AI/dot-com comparison Ali
+  rejected as historically false.
+- **Root cause:** The first reset retained a producer habit of reaching for a
+  compact verb taxonomy and a familiar historical analogy before proving that
+  either improved the reader's system model. Self-review read local sentences
+  as defensible instead of testing whether the complete vocabulary remained
+  stable across definition, example, recap, diagnostic, transfer and route.
+- **Prevention rule:** For a foundational opening, prefer one durable system
+  map and concrete result questions over an incomplete taxonomy. Bind every
+  taught term across its complete local lifecycle; keep output, permission,
+  execution and governance distinct. Judge the dominant emotional register,
+  not isolated jokes or enthusiasm. Do not compare AI or a possible AI bubble,
+  correction or collapse to the dot-com boom or collapse.
+- **Durable correction:** CQX-BAD-006 through CQX-BAD-010 preserve every exact
+  rejected lineage and invalidate stale producer contracts. The R3 opening
+  consumes them all, removes the analogy and verb taxonomy, and received an
+  artifact-first `READY_FOR_HUMAN_LEARNER_TEST` verdict on exact frozen bytes.
+- **Possible Behind the Build angle:** Why five increasingly polished drafts
+  still failed—and how one stable question replaced a clever taxonomy.
+- **Publication status:** INTERNAL PROSE PROOF / NOT HUMAN-TESTED, SEMANTICALLY
+  ADMITTED, RENDERED, DEPLOYED OR PUBLISHED.

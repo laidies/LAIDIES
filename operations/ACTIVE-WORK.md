@@ -1,15 +1,14 @@
 # Active work
 
-> **2026-08-08 AI Fundamentals false-pass correction:** Ali rejected the entire
-> V3 Introduction-through-Chapter-3 candidate, its job/five-axis opening, prose,
-> voice, analogy and CSS-drawn diagrams as incoherent and unusable. Every prior
-> self-review and maker-inspection verdict is invalid. The exact source, render,
-> renderer and PDF are quarantined under the Learning System known-bad evidence
-> folder; there is no active prose or visual candidate. The complete V3 outline,
-> visual plan and producer contract are rejected drafting authorities. The next
-> trigger is a blank-page, technically coherent outline and one representative
-> prose section produced under the revised analogy, voice and visual controls;
-> no book may be rendered until that proof passes.
+> **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
+> every prior V3 verdict remains invalid. A blank-page, question-led full-book
+> route and exact R3 Introduction now pass the current producer contract,
+> checksum-bound self-review and artifact-first Claude red-team, which returned
+> `READY_FOR_HUMAN_LEARNER_TEST`. Five rejected V4 lineage hashes are preserved
+> as CQX-BAD-006 through CQX-BAD-010. This is not semantic admission, Library
+> acceptance, a render or publication. Next trigger: observed explain-back and
+> unseen transfer with unfamiliar nontechnical learners. No rendering before
+> that proof. AI/dot-com boom or collapse comparisons are prohibited.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a
