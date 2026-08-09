@@ -1,6 +1,6 @@
 # Control Room handoff: AI Fundamentals Ali-authored writing standard
 
-Evidence time: `2026-08-09T16:51:09-07:00`
+Evidence time: `2026-08-09T16:53:16-07:00`
 
 Product/system ID: `learning-content-ecosystem`
 
@@ -66,5 +66,7 @@ chapters.
 Authority truth: no current book, route or public artifact changed; no deploy,
 publication, spend or implied Ali release authority was used.
 
-Worktree truth: substantive change `COMMITTED` at `286dcf81` in the dedicated
-worktree. Push remains pending until this handoff-only follow-up is committed.
+Worktree truth: `PUSHED`. Substantive change commit `286dcf81`; initial handoff
+commit `73e0295d`; remote branch
+`origin/task/ai-fundamentals-restart-20260808` verified at `73e0295d` before
+this final status-only handoff refresh.
