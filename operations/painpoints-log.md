@@ -15420,7 +15420,13 @@ while remaining falsely unfinished in the launch record.
   Queue ranking then exposed 1,190 generated launch and campaign asset files
   misclassified as active source. The inventory now identifies those two exact
   output locations as generated, with calibrated fixtures, so they stay out of
-  Git without being deleted.
+  Git without being deleted. A second ranking exposed that the word “package”
+  still covered 129 mixed scripts, 87 external-review files and other groups too
+  large or weakly routed to review safely. The planner now gives package-level
+  readiness: non-high-confidence routes are held for route confirmation, more
+  than 25 reviewable paths are held for subdivision and only a high-confidence
+  bounded group can reach owner review. Calibrated bad fixtures prove a weak
+  route and a 26-path group both fail closed.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
