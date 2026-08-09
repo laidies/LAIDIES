@@ -22,6 +22,7 @@ if (!Array.isArray(inventory.rows) || !Array.isArray(reconciliation.rows)) {
 }
 
 const reconciled = new Map(reconciliation.rows.map(row => [row.path, row]));
+const MAX_REVIEWABLE_PATHS_PER_PACKAGE = 25;
 
 function route(relative) {
   const parts = relative.split('/');
@@ -71,6 +72,31 @@ function action(row, comparison) {
   return row.disposition === 'NO_ACTION' ? 'NO_ACTION' : 'HOLD_UNRECOGNIZED_DISPOSITION';
 }
 
+function packageReadiness(routingConfidence, reviewableCount) {
+  if (reviewableCount === 0) {
+    return {
+      status: 'NO_REVIEWABLE_WORK',
+      reason: 'This package contains no path with a REVIEW action.'
+    };
+  }
+  if (routingConfidence !== 'HIGH') {
+    return {
+      status: 'HOLD_ROUTE_CONFIRMATION',
+      reason: `Routing confidence is ${routingConfidence}; confirm the exact owner and package boundary before review.`
+    };
+  }
+  if (reviewableCount > MAX_REVIEWABLE_PATHS_PER_PACKAGE) {
+    return {
+      status: 'HOLD_OVERSIZED_REQUIRES_SUBDIVISION',
+      reason: `${reviewableCount} reviewable paths exceed the ${MAX_REVIEWABLE_PATHS_PER_PACKAGE}-path package limit.`
+    };
+  }
+  return {
+    status: 'READY_FOR_OWNER_REVIEW',
+    reason: 'The route is high-confidence and the package is within the bounded review limit.'
+  };
+}
+
 const dirtyRows = inventory.rows.filter(row => !['TRACKED_CLEAN', 'IGNORED'].includes(row.git_state));
 const groups = new Map();
 const actionCounts = {};
@@ -113,14 +139,28 @@ for (const row of dirtyRows) {
 }
 
 const packages = [...groups.values()]
-  .map(group => ({
-    ...group,
-    reviewable_count: Object.entries(group.action_counts)
+  .map(group => {
+    const reviewableCount = Object.entries(group.action_counts)
       .filter(([name]) => name.startsWith('REVIEW_'))
-      .reduce((sum, [, count]) => sum + count, 0),
-    rows: group.rows.sort((a, b) => a.path.localeCompare(b.path))
-  }))
+      .reduce((sum, [, count]) => sum + count, 0);
+    const readiness = packageReadiness(group.routing_confidence, reviewableCount);
+    return {
+      ...group,
+      reviewable_count: reviewableCount,
+      package_status: readiness.status,
+      package_status_reason: readiness.reason,
+      rows: group.rows.sort((a, b) => a.path.localeCompare(b.path))
+    };
+  })
   .sort((a, b) => b.reviewable_count - a.reviewable_count || b.file_count - a.file_count || a.package_key.localeCompare(b.package_key));
+
+const packageStatusCounts = packages.reduce((counts, group) => {
+  counts[group.package_status] = (counts[group.package_status] || 0) + 1;
+  return counts;
+}, {});
+const readyReviewablePaths = packages
+  .filter(group => group.package_status === 'READY_FOR_OWNER_REVIEW')
+  .reduce((sum, group) => sum + group.reviewable_count, 0);
 
 const report = {
   schema_version: 1,
@@ -131,12 +171,17 @@ const report = {
   reconciliation_generated_at: reconciliation.generated_at,
   dirty_file_count: dirtyRows.length,
   package_count: packages.length,
+  maximum_reviewable_paths_per_package: MAX_REVIEWABLE_PATHS_PER_PACKAGE,
+  package_status_counts: packageStatusCounts,
+  ready_reviewable_paths: readyReviewablePaths,
   action_counts: actionCounts,
   safety_rules: [
     'No row is deleted, moved, staged or committed by this planner.',
     'UNKNOWN never moves.',
     'Referenced historical or rejected material remains preserved until archive gates pass.',
     'A package key routes review; it does not confer owner authority.',
+    `Packages with more than ${MAX_REVIEWABLE_PATHS_PER_PACKAGE} reviewable paths remain held until subdivided.`,
+    'Only HIGH-confidence routes can become ready for owner review.',
     'Only exact reviewed paths may be committed together.'
   ],
   mutation: 'NONE',
@@ -149,10 +194,14 @@ process.stdout.write(`${JSON.stringify({
   generated_at: report.generated_at,
   dirty_file_count: report.dirty_file_count,
   package_count: report.package_count,
+  maximum_reviewable_paths_per_package: report.maximum_reviewable_paths_per_package,
+  package_status_counts: report.package_status_counts,
+  ready_reviewable_paths: report.ready_reviewable_paths,
   action_counts: report.action_counts,
   top_packages: packages.slice(0, 12).map(group => ({
     package_key: group.package_key,
     routing_confidence: group.routing_confidence,
+    package_status: group.package_status,
     file_count: group.file_count,
     reviewable_count: group.reviewable_count,
     tracked_changes: group.tracked_changes,
