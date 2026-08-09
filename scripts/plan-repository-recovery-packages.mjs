@@ -51,6 +51,7 @@ const RULING_DECISIONS = new Set([
   'HOLD_AUTHORITY_RECONCILIATION',
   'HOLD_OWNER_RECONCILIATION'
 ]);
+const PRODUCT_REGISTRY_PATH = 'operations/product-stewards/registry.json';
 
 function normalizeRepositoryPath(candidate) {
   let relative = candidate.trim().replace(/^\.\//, '');
@@ -71,6 +72,39 @@ function exactSourceReferences(relative) {
     const sourceCandidate = path.join(sourceRoot, normalized);
     if (fs.existsSync(sourceCandidate) && fs.statSync(sourceCandidate).isFile()) references.add(normalized);
   }
+  return [...references].sort();
+}
+
+function productAuthorityReferences(packageKey) {
+  if (!packageKey.startsWith('product-steward:')) return [];
+  const references = new Set([PRODUCT_REGISTRY_PATH]);
+  if (!sourceRoot) return [...references];
+  const registryAbsolute = path.join(sourceRoot, PRODUCT_REGISTRY_PATH);
+  if (!fs.existsSync(registryAbsolute)) return [...references];
+
+  let registry;
+  try {
+    registry = JSON.parse(fs.readFileSync(registryAbsolute, 'utf8'));
+  } catch {
+    return [...references];
+  }
+  const products = Array.isArray(registry?.products) ? registry.products : [];
+  const productId = packageKey.split(':')[1];
+  const product = products.find(entry => entry?.id === productId);
+  if (!product) return [...references];
+
+  const addEntryPaths = entry => {
+    for (const relative of [entry?.dossier, entry?.state]) {
+      if (!relative || typeof relative !== 'string') continue;
+      references.add(normalizeRepositoryPath(`operations/product-stewards/${relative}`));
+    }
+  };
+  addEntryPaths(product);
+  if (product.parent_id) {
+    const parent = products.find(entry => entry?.id === product.parent_id);
+    if (parent) addEntryPaths(parent);
+  }
+  references.delete(null);
   return [...references].sort();
 }
 
@@ -122,7 +156,7 @@ function action(row, comparison) {
   return row.disposition === 'NO_ACTION' ? 'NO_ACTION' : 'HOLD_UNRECOGNIZED_DISPOSITION';
 }
 
-function packageReadiness(routingConfidence, reviewableCount, unresolvedReferencedPaths) {
+function packageReadiness(routingConfidence, reviewableCount, unresolvedReferencedPaths, unresolvedAuthorityPaths) {
   if (reviewableCount === 0) {
     return {
       status: 'NO_REVIEWABLE_WORK',
@@ -139,6 +173,12 @@ function packageReadiness(routingConfidence, reviewableCount, unresolvedReferenc
     return {
       status: 'HOLD_OVERSIZED_REQUIRES_SUBDIVISION',
       reason: `${reviewableCount} reviewable paths exceed the ${MAX_REVIEWABLE_PATHS_PER_PACKAGE}-path package limit.`
+    };
+  }
+  if (unresolvedAuthorityPaths.length > 0) {
+    return {
+      status: 'HOLD_MISSING_OWNER_AUTHORITY',
+      reason: `${unresolvedAuthorityPaths.length} registry or parent-owner authority path(s) are absent from the clean baseline and outside this package.`
     };
   }
   if (unresolvedReferencedPaths.length > 0) {
@@ -238,11 +278,17 @@ const packages = [...groups.values()]
       .flatMap(row => exactSourceReferences(row.path))
       .filter(reference => !packagePaths.has(reference) && !fs.existsSync(path.join(baselineRoot || '', reference))))]
       .sort();
-    const readiness = packageReadiness(group.routing_confidence, reviewableCount, unresolvedReferencedPaths);
+    const requiredAuthorityPaths = productAuthorityReferences(group.package_key);
+    const unresolvedAuthorityPaths = requiredAuthorityPaths
+      .filter(reference => !packagePaths.has(reference) && !fs.existsSync(path.join(baselineRoot || '', reference)))
+      .sort();
+    const readiness = packageReadiness(group.routing_confidence, reviewableCount, unresolvedReferencedPaths, unresolvedAuthorityPaths);
     return {
       ...group,
       reviewable_count: reviewableCount,
       unresolved_referenced_paths: unresolvedReferencedPaths,
+      required_authority_paths: requiredAuthorityPaths,
+      unresolved_authority_paths: unresolvedAuthorityPaths,
       package_status: readiness.status,
       package_status_reason: readiness.reason,
       rows: group.rows.sort((a, b) => a.path.localeCompare(b.path))
@@ -281,6 +327,7 @@ const report = {
     `Packages with more than ${MAX_REVIEWABLE_PATHS_PER_PACKAGE} reviewable paths remain held until subdivided.`,
     'Only HIGH-confidence routes can become ready for owner review.',
     'An exact backticked source path that exists only in the dirty source tree holds the package until the dependency is present in the clean baseline or included in the same package.',
+    'A product-owner package cannot become ready unless the registry and its bound product and parent owner paths are present in the clean baseline or the same package.',
     'A recovery ruling binds the exact dirty-source SHA; changed bytes become HOLD_STALE_RULING automatically.',
     'A HOLD ruling preserves bytes in place and grants no deletion, archive, import or current-authority claim.',
     'Only exact reviewed paths may be committed together.'

@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-09 02:03 PDT
+**Evidence time:** 2026-08-09 06:42 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -40,6 +40,7 @@ This record reconciles the repository-owned accepted report at `operations/exter
 | Keep rejected and exploratory design work out of current source recovery | PASS | untracked non-media files under design exploration/QA/audit locations remain preserved as historical evidence; explicit `REJECTION` names classify as rejected, and only current authority/active source text can create recovery dependency references |
 | Keep isolated prototypes and superseded held scaffolds out of current source recovery | PASS | untracked prototype copies, including duplicated media, remain historical; the explicitly held August 1 opening-day media scaffold remains preserved; calibrated adjacent current release source still routes to owner review |
 | Prevent storage recovery from deciding visitor-facing or Library-locked runtime changes | PASS BOUNDED RULING | exact-SHA holds now separate Homepage behaviour, the Miss Jeeves pilot taxonomy and the mixed site search index from source recovery; their product owners must reconcile successors, and changed bytes invalidate the holds |
+| Prevent orphan product-owner imports | PASS CALIBRATED | `scripts/plan-repository-recovery-packages.mjs` now requires the current registry and bound product/parent dossier/state before any product package becomes ready; the calibrated Businesswomen's Special fixture fails without its Bronze parent authority |
 
 ## Deliberately not called complete
 
@@ -167,6 +168,15 @@ missing implementation. A narrow, calibrated classifier now keeps those exact
 legacy patterns as historical evidence while current adjacent controls remain
 active. The full inventory/planner run reduced ready owner-review work from 64
 paths to 31 without deleting, moving or importing any preserved source.
+
+The 06:42 PDT owner review stopped an orphan import before it reached Git. The
+two Businesswomen's Special files closed a named dirty-tree dependency but the
+clean integration baseline did not yet contain the product registry or Bronze
+parent owner record. The recovery planner now treats those structural owner
+bindings as dependencies. Its calibrated fixture rejects the orphan package,
+and the unchanged real inventory now reports only three ready reviewable paths;
+85 product packages are held for missing registry/parent authority. No product
+or Library source was imported by this correction.
 
 ## Authority truth
 
