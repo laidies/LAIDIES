@@ -107,6 +107,15 @@ function validOrder() {
     positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: sha256(path.join(root, goodPath)), useFor: ["EXPLANATION"] }]
   }));
   const dispositions = Object.fromEntries(negativeFamilies.map(name => [name, { status: "CLEAR", producerGuard: `Prevent ${name}.`, preventionEvidence: `Fixture architecture explicitly prevents ${name}.` }]));
+  const sectionMapPath = "operations/product-stewards/library/fixture-section-teaching-map.json";
+  write(sectionMapPath, JSON.stringify({
+    schemaVersion: "laidies-section-teaching-map.v1",
+    curriculumRule: "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
+    units: [
+      { routeEntryId: "intro", teachingGoal: "Give the reader a reason and an initial connected map.", questionsAnswered: ["Why does this system matter to my decision?"], sections: [{ sectionId: "intro-purpose", title: "Why this matters", depth: "STANDARD", teachingGoal: "Connect the system to a consequential decision.", prerequisiteConcepts: [], conceptsIntroduced: ["request", "decision"], relationshipsAdded: ["A request begins a path that ends in a decision."], questionsAnswered: ["Why should I understand this system?"], learnerEvidence: "The reader states the consequence in ordinary language." }] },
+      { routeEntryId: "system-map", teachingGoal: "Connect context model evidence and human decision.", questionsAnswered: ["What happens between a request and a checked decision?"], sections: [{ sectionId: "system-path", title: "From request to checked decision", depth: "STANDARD", teachingGoal: "Trace the causal path without collapsing its parts.", prerequisiteConcepts: ["request", "decision"], conceptsIntroduced: ["context", "model", "evidence"], relationshipsAdded: ["Context supplies material while evidence supports the consequential claim."], questionsAnswered: ["How do context model evidence and judgement work together?"], learnerEvidence: "The reader draws and explains the path." }] }
+    ]
+  }));
   const producerContractPath = "evidence/producer-contract.json";
   write(producerContractPath, JSON.stringify({
     schemaVersion: "laidies-content-producer-contract.v1", candidateId: id, surface: "LIBRAIRY", contentClass: "EXPLANATION", producer: "maker", status: "READY_TO_DRAFT",
@@ -116,6 +125,7 @@ function validOrder() {
     knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
     draftArchitecture: {
       plainAnswer: "Plain answer.", causalSequence: ["question", "context", "decision"], workedCase: "Work case.", transferCase: "Travel case.", usefulAction: "Check evidence.", analogyPlan: [], humourPlan: { lessonJob: "A small joke sharpens the point." }, formatSpecificStructure: "Connected explanation.", antiTemplateDecision: "No repeated micro-template.",
+      sectionTeachingMap: { path: sectionMapPath, sha256: sha256(path.join(root, sectionMapPath)) },
       systemSynthesis: {
         endState: "The reader reconstructs request context model evidence and human decision as one system.",
         drawPrompt: "Draw request context model evidence and human decision with labelled arrows.",
@@ -131,8 +141,8 @@ function validOrder() {
       readerRoute: {
         rule: "VISIBLE_TITLES_PREDICT_COVERAGE_AND_PREREQUISITES_PRECEDE_USE",
         entries: [
-          { destinationId: "intro", kind: "INTRODUCTION", title: "Why AI decisions need your judgement", readerQuestion: "Why should I understand this?", coverage: "Purpose and consequence.", coverageTerms: ["AI", "judgement"], prerequisiteIds: [], conceptsIntroduced: ["request", "decision"], connectionsAdded: ["A request begins a path that ends in a human decision."], readerCanNow: "State why the system matters." },
-          { destinationId: "system-map", kind: "CHAPTER", title: "What an AI system does with a request", readerQuestion: "What happens between request and result?", coverage: "Input, model, evidence and decision.", coverageTerms: ["AI", "system", "request"], prerequisiteIds: ["intro"], conceptsIntroduced: ["context", "model", "evidence"], connectionsAdded: ["Context supplies material while evidence supports the consequential claim."], readerCanNow: "Draw and explain the connected request-to-decision system." }
+          { destinationId: "intro", kind: "INTRODUCTION", title: "Why AI decisions need your judgement", teachingGoal: "Give the reader a reason and an initial connected map.", questionsAnswered: ["Why does this system matter to my decision?"], coverage: "Purpose and consequence.", coverageTerms: ["AI", "judgement"], prerequisiteIds: [], conceptsIntroduced: ["request", "decision"], connectionsAdded: ["A request begins a path that ends in a human decision."], readerCanNow: "State why the system matters." },
+          { destinationId: "system-map", kind: "CHAPTER", title: "What an AI system does with a request", teachingGoal: "Connect context model evidence and human decision.", questionsAnswered: ["What happens between a request and a checked decision?"], coverage: "Input, model, evidence and decision.", coverageTerms: ["AI", "system", "request"], prerequisiteIds: ["intro"], conceptsIntroduced: ["context", "model", "evidence"], connectionsAdded: ["Context supplies material while evidence supports the consequential claim."], readerCanNow: "Draw and explain the connected request-to-decision system." }
         ]
       }
     },

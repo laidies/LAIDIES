@@ -26,6 +26,10 @@
     "draftArchitecture": {
       "type": "object",
       "properties": {
+        "sectionTeachingMap": {
+          "type": "object",
+          "required": ["path", "sha256"]
+        },
         "systemSynthesis": {
           "type": "object",
           "required": ["endState", "drawPrompt", "explainBackPrompt", "applicationPrompt", "relationshipClaims", "followUpQuestions"]
@@ -40,7 +44,7 @@
               "minItems": 2,
               "items": {
                 "type": "object",
-                "required": ["destinationId", "kind", "title", "readerQuestion", "coverage", "coverageTerms", "prerequisiteIds", "conceptsIntroduced", "connectionsAdded", "readerCanNow"]
+                "required": ["destinationId", "kind", "title", "teachingGoal", "questionsAnswered", "coverage", "coverageTerms", "prerequisiteIds", "conceptsIntroduced", "connectionsAdded", "readerCanNow"]
               }
             }
           }

@@ -1,6 +1,6 @@
 # AI Fundamentals 101: connected book route
 
-**Status:** REVISED REPRESENTATIVE PRODUCTION ROUTE / NOT ADMITTED
+**Status:** COMPLETE CURRICULUM ROUTE + SECTION TEACHING MAP / NOT AUDITED OR ADMITTED
 **Candidate:** `LIB-AI-FUNDAMENTALS-101-V4-CONNECTED-ROUTE`
 **Owner:** Library production with Learning System concept coherence
 **Depth:** one canonical book with cumulative Standard / Tell me more / Full
@@ -38,16 +38,25 @@ Each worked example identifies which parts are present, absent or unknown.
 
 ## How each chapter teaches
 
-Every chapter must contain, in a natural order rather than a repeated template:
+The complete section-level syllabus is machine-readable at
+`AI-FUNDAMENTALS-101-V4-SECTION-TEACHING-MAP.json`. It governs the logical
+learning sequence before prose. Every chapter must contain, in a natural order
+rather than a repeated template:
 
-- the real reader question and shortest useful answer;
+- one chapter teaching goal and a coherent progression of section teaching
+  goals;
 - the prior piece of the system map it assumes;
 - one connected cause-and-effect explanation;
 - an everyday or work example in which the relationship is visible;
 - an analogy only if it makes that relationship easier to understand;
 - one practical judgment, action or prediction;
 - a return to the whole-system map showing exactly what was added; and
+- explicit questions the reader can answer afterward; and
 - a Draw it / Explain it / Use it check that tests relationships, not recall.
+
+Titles do not have to be questions. They must make their coverage obvious. The
+questions are outcome requirements: the section has not taught its job until a
+reader can answer them in her own words.
 
 The Nerd-O-Meter layers behave like follow-up questions:
 
@@ -65,7 +74,12 @@ become a vocabulary attic.
 
 ### Introduction: Why understanding AI changes what you can do and decide
 
-**Reader question:** Why should AI make sense to me now?
+**Chapter teaching goal:** Give the reader a compelling reason to understand AI
+and the first complete map she can use immediately.
+
+**By the end, the reader can answer:** Why does understanding AI matter in my
+ordinary decisions and work? What does the label AI tell me, and what does it
+leave unanswered? What first questions make an AI claim more concrete?
 
 **Builds from:** ordinary encounters with AI claims and products; no technical
 knowledge.
@@ -81,7 +95,12 @@ does it do, what does it use and what happens after the output?
 
 ### Chapter 1: The kinds of AI you are already meeting
 
-**Reader question:** Why do such different products all get called AI?
+**Chapter teaching goal:** Orient the reader to the major kinds and capability
+claims without presenting unlike labels as one flat taxonomy.
+
+**By the end, the reader can answer:** Why do very different products all count
+as AI? What do predictive, generative, multimodal and agentic describe? What
+are AGI and ASI, and do they exist today?
 
 **Builds from:** AI is a broad category and systems turn inputs into outputs
 with consequences.
@@ -107,7 +126,12 @@ marketing language.
 
 ### Chapter 2: What an AI product is made of
 
-**Reader question:** What sits behind the screen when I use an AI product?
+**Chapter teaching goal:** Separate the visible product from the model and the
+surrounding technical and human components.
+
+**By the end, the reader can answer:** What is an AI model? What else makes an
+AI product work? Why can the same model behave differently in different
+products?
 
 **Builds from:** different AI products perform different tasks.
 
@@ -133,7 +157,13 @@ behaviour.
 
 ### Chapter 3: How an AI model learns, then produces a result
 
-**Reader question:** How does a model become able to produce a result?
+**Chapter teaching goal:** Explain how a model is built, adjusted and evaluated,
+then distinguish that process from using it on a new input.
+
+**By the end, the reader can answer:** How does machine learning differ from
+ordinary programmed rules? What happens during training? What are tokens,
+parameters, neural networks and transformers? How are training, post-training,
+evaluation and inference different?
 
 **Builds from:** a model is one trained component inside a product.
 
@@ -160,8 +190,12 @@ adding a fact to a prompt is not the same as teaching the model permanently.
 
 ### Chapter 4: What information an AI product can use right now
 
-**Reader question:** What does this product actually know or have available for
-this request?
+**Chapter teaching goal:** Separate what the model learned during training from
+what the product supplies or stores for a current request.
+
+**By the end, the reader can answer:** What information can an AI product use
+right now? How are context, retrieval and memory different? Why might
+information visible to me still be absent from the model's current input?
 
 **Builds from:** training creates a model; a product supplies additional
 information when the model is used.
@@ -190,8 +224,12 @@ missing and choose the smallest useful correction.
 
 ### Chapter 5: How AI systems use tools and take actions
 
-**Reader question:** How does generated output turn into an action somewhere
-else?
+**Chapter teaching goal:** Trace the boundary between model output and an action
+executed through connected software under permissions.
+
+**By the end, the reader can answer:** How does an AI product use a tool? What
+is the difference between connection, permission and execution? How can I tell
+whether an action actually happened?
 
 **Builds from:** the model receives context and produces output inside a
 product.
@@ -212,8 +250,12 @@ permission boundary and predict where a tool failure will appear.
 
 ### Chapter 6: What makes agentic AI different from automation
 
-**Reader question:** What changes when a system continues across several
-steps?
+**Chapter teaching goal:** Distinguish fixed automation, governed workflows and
+agentic loops, including their control and failure implications.
+
+**By the end, the reader can answer:** What makes an AI system agentic? How is
+an agent different from automation or a workflow? Why can errors compound
+across steps?
 
 **Builds from:** models can produce tool requests and products can execute
 actions under permissions.
@@ -235,8 +277,12 @@ automation and place a useful human checkpoint before consequences compound.
 
 ### Chapter 7: Why AI systems fail in different ways
 
-**Reader question:** Why can two bad-looking results have completely different
-causes?
+**Chapter teaching goal:** Give the reader a system-level failure map so that
+different problems receive different diagnoses and responses.
+
+**By the end, the reader can answer:** What is a hallucination? How are
+unreliability, brittleness, bias, manipulation and misuse different? How do I
+locate the failure before choosing a safeguard?
 
 **Builds from:** the reader now knows the model, product, current information,
 tools, permissions and multi-step workflow.
@@ -265,7 +311,14 @@ limits, red teaming and socio-technical evaluation.
 
 ### Chapter 8: Where your data goes in an AI product
 
-**Reader question:** What can happen to information I provide?
+**Chapter teaching goal:** Trace personal or organisational information through
+the complete product lifecycle and make product-specific privacy checks
+possible.
+
+**By the end, the reader can answer:** What can happen to information I
+provide? What is the difference between current processing, storage, retrieval
+and possible training use? Which product, account and workplace settings must
+I check?
 
 **Builds from:** information can enter context, storage, retrieval, tools and
 institutional workflows.
@@ -289,7 +342,14 @@ specific product configuration.
 
 ### Chapter 9: How AI connects to work, resources and public choices
 
-**Reader question:** What changes beyond the answer on my screen?
+**Chapter teaching goal:** Extend the technical system into the wider AI
+ecosystem of organisations, infrastructure, work, markets, governance and
+public consequences.
+
+**By the end, the reader can answer:** Who builds, supplies, deploys, governs
+and is affected by AI systems? How do chips, cloud services, data centres and
+energy connect to AI products? How can I separate current evidence from
+forecasts about work, society and the future?
 
 **Builds from:** complete AI systems are built, operated and governed by people
 and institutions, and their outputs can create consequences.
@@ -350,8 +410,8 @@ teaching job and exact alignment with the accompanying prose.
 
 ## Production order
 
-1. Audit this complete prerequisite and relationship route before more chapter
-   prose is produced.
+1. Audit this complete prerequisite and relationship route plus the exact
+   section teaching map before more chapter prose is produced.
 2. Preserve the exact R3 Introduction as a prior proof, but re-evaluate its fit
    against this revised whole-book promise before admission.
 3. Draft Chapters 1–3 as one connected representative unit with the cumulative

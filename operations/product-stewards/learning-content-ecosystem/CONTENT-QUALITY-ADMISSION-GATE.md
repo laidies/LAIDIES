@@ -42,6 +42,9 @@ drafted, its owner must pass a checksum-bound producer contract against:
 - for episodes, classes, explanations and substantial reference works, the
   intended whole-system mental model, at least three explicit relationships,
   a prerequisite-led route and Draw it / Explain it / Use it prompts;
+- for substantial books, a complete section teaching map in logical prerequisite
+  order; every section binds its teaching goal, prerequisites, concepts and
+  relationships added, answerable outcome questions and learner evidence;
 - the useful action or decision the reader should gain;
 - a destination-specific Hannah Fry communication design that binds applicable
   human-question, curiosity, concrete-mechanism, familiar-to-technical,
@@ -65,6 +68,10 @@ the candidate and record `INDEPENDENT_SEMANTIC_ADMISSION`. Both are checked by
 `scripts/check-prose-quality-admission.mjs`; its calibration suite includes the
 exact rejected AI Fundamentals chapter and proves that structural completeness
 cannot disguise disconnected, repetitive or valueless prose.
+
+A section fails even when it mentions the right topic if its teaching cannot
+support the questions promised for that section. Titles are never required to
+be questions; they are required to predict the coverage readers will receive.
 
 If a reviewer finds a known or mechanically preventable defect, the result is
 not another ordinary correction cycle. Production stops, the shared defect or

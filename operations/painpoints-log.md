@@ -14578,3 +14578,27 @@ while remaining falsely unfinished in the launch record.
   difference.
 - **Publication status:** INTERNAL LEARNING-SYSTEM CORRECTION / REVISED ROUTE
   NOT RE-AUDITED, RENDERED, DEPLOYED OR PUBLISHED.
+
+## BTB-462 — “Question-led” confused curriculum logic with heading style
+
+- **Date:** 2026-08-08
+- **Area:** Foundational-book curriculum design and producer admission.
+- **Failure risk:** A producer can turn every heading into a question and still
+  omit the prerequisite sequence, the purpose of a section or what a learner
+  must genuinely be able to answer after reading it.
+- **Root cause:** The earlier route treated the reader question as a required
+  field on a chapter card. That collapsed three different jobs: logical
+  curriculum order, natural coverage-predictive titles and assessable learner
+  outcomes.
+- **Prevention rule:** Complete the section-level prerequisite sequence before
+  prose. Every substantive section binds a teaching goal, prerequisites,
+  concepts and relationships added, answerable outcome questions and learner
+  evidence. Titles may be statements or questions but must predict coverage.
+- **Durable correction:** D-2026-08-08-109, the complete AI Fundamentals
+  section teaching map, producer schema and fail-capable checker now reject a
+  missing goal, missing outcome, incomplete route-to-section map or duplicate
+  section identity.
+- **Possible Behind the Build angle:** Why asking more questions is not the same
+  as designing a curriculum that earns the answers.
+- **Publication status:** INTERNAL CURRICULUM ARCHITECTURE / NO NEW PROSE,
+  ILLUSTRATION, RENDER, DEPLOYMENT OR PUBLICATION.

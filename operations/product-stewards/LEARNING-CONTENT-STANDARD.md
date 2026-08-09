@@ -174,6 +174,23 @@ parts matter and apply the connected model to an unfamiliar everyday or work
 example. A sequence of locally clear chapters still fails if the reader cannot
 connect them.
 
+The curriculum is organised by logical learning progression, not by a quota of
+question-shaped headings. A chapter or section title may be a clear descriptive
+statement or a useful question; it must let a newcomer predict the coverage.
+Before prose, every substantive section records:
+
+- its teaching goal: the change in understanding the section is responsible
+  for producing;
+- the prerequisite concepts or relationships it assumes;
+- the concepts and relationships it adds to the cumulative model;
+- the questions the reader should be able to answer afterward; and
+- the Draw it, Explain it or Use it evidence appropriate to that section.
+
+Those outcome questions are not decorative prompts or compulsory headings.
+They define what the teaching must earn. A section fails when its prose covers
+the named topic but does not enable the reader to answer its questions in her
+own words.
+
 ## Class and lesson architecture
 
 Every class is designed before narration. A class owns a complete learner

@@ -1,0 +1,802 @@
+{
+  "schemaVersion": "laidies-section-teaching-map.v1",
+  "bookId": "AI-FUNDAMENTALS-101-V4",
+  "title": "AI Fundamentals 101",
+  "status": "PRODUCTION_ARCHITECTURE_NOT_PROSE",
+  "curriculumRule": "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
+  "units": [
+    {
+      "routeEntryId": "introduction",
+      "teachingGoal": "Give the reader a compelling reason to understand AI and the first complete map she can use immediately.",
+      "questionsAnswered": [
+        "Why does understanding AI matter in my ordinary decisions and work?",
+        "What does the label AI tell me, and what does it leave unanswered?",
+        "What first questions make an AI claim more concrete?"
+      ],
+      "sections": [
+        {
+          "sectionId": "intro-why-care",
+          "title": "Why this matters before the next AI decision",
+          "depth": "STANDARD",
+          "teachingGoal": "Make the personal and practical value of understanding AI felt before technical explanation begins.",
+          "prerequisiteConcepts": [],
+          "conceptsIntroduced": ["AI claim", "human consequence"],
+          "relationshipsAdded": ["Vague AI claims can lead to different human consequences depending on what the system actually does."],
+          "questionsAnswered": ["Why should I care what sits behind an AI claim?"],
+          "learnerEvidence": "EXPLAIN_IT: name one decision that changes when the underlying AI system changes."
+        },
+        {
+          "sectionId": "intro-first-map",
+          "title": "The first map of an AI system",
+          "depth": "STANDARD",
+          "teachingGoal": "Establish the input to system to output to consequence path used throughout the book.",
+          "prerequisiteConcepts": ["AI claim", "human consequence"],
+          "conceptsIntroduced": ["input", "AI system", "output"],
+          "relationshipsAdded": ["An AI system processes an input into an output that may influence a later action or decision."],
+          "questionsAnswered": ["What is the shortest useful description of an AI system?", "What can happen after an AI output is produced?"],
+          "learnerEvidence": "DRAW_IT: reproduce input to system to output to consequence with directional arrows."
+        },
+        {
+          "sectionId": "intro-three-questions",
+          "title": "Three questions that replace the vague label",
+          "depth": "STANDARD",
+          "teachingGoal": "Give the reader an immediate practical method for turning an AI label into an examinable system.",
+          "prerequisiteConcepts": ["input", "AI system", "output", "human consequence"],
+          "conceptsIntroduced": ["system inquiry"],
+          "relationshipsAdded": ["Asking what a system does, what it uses and what follows its output reveals different design and risk choices."],
+          "questionsAnswered": ["What should I ask when someone says a product uses AI?"],
+          "learnerEvidence": "USE_IT: apply the three questions to an unfamiliar workplace AI proposal."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-1",
+      "teachingGoal": "Orient the reader to the major kinds and capability claims without presenting unlike labels as one flat taxonomy.",
+      "questionsAnswered": [
+        "Why do very different products all count as AI?",
+        "What do predictive, generative, multimodal and agentic describe?",
+        "What are AGI and ASI, and do they exist today?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch1-ai-umbrella",
+          "title": "AI is an umbrella, not one machine",
+          "depth": "STANDARD",
+          "teachingGoal": "Show that AI names a broad field of systems rather than one product, model or behaviour.",
+          "prerequisiteConcepts": ["AI system", "input", "output"],
+          "conceptsIntroduced": ["AI umbrella"],
+          "relationshipsAdded": ["Many systems fit beneath AI while performing different tasks with different components."],
+          "questionsAnswered": ["Why can two very different systems both be AI?"],
+          "learnerEvidence": "EXPLAIN_IT: compare two familiar AI systems without claiming they work identically."
+        },
+        {
+          "sectionId": "ch1-recognise-predict-rank",
+          "title": "Systems that recognise, predict, rank and recommend",
+          "depth": "STANDARD",
+          "teachingGoal": "Make common non-generative AI tasks visible in familiar products.",
+          "prerequisiteConcepts": ["AI umbrella", "input", "output"],
+          "conceptsIntroduced": ["recognition", "prediction", "ranking", "recommendation"],
+          "relationshipsAdded": ["Recognition and prediction can feed ranking, and ranking can feed a recommendation shown by a product."],
+          "questionsAnswered": ["What is the difference between recognising, predicting, ranking and recommending?", "Where do I encounter them?"],
+          "learnerEvidence": "USE_IT: identify the task performed by a spam filter and a streaming recommendation."
+        },
+        {
+          "sectionId": "ch1-generative-multimodal",
+          "title": "Generative and multimodal AI",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain content generation and distinguish it from the kinds of information a system can receive and produce.",
+          "prerequisiteConcepts": ["AI umbrella", "output"],
+          "conceptsIntroduced": ["generative AI", "modality", "multimodal AI"],
+          "relationshipsAdded": ["Generative describes producing new content, while multimodal describes handling more than one kind of input or output."],
+          "questionsAnswered": ["What makes a system generative?", "What makes a system multimodal?", "Can one system be both?"],
+          "learnerEvidence": "EXPLAIN_IT: classify a text-and-image assistant using both labels without treating them as competitors."
+        },
+        {
+          "sectionId": "ch1-agentic-embodied",
+          "title": "Agentic and embodied systems",
+          "depth": "STANDARD",
+          "teachingGoal": "Introduce continued multi-step operation and physical-world interaction without yet teaching the full implementation.",
+          "prerequisiteConcepts": ["AI umbrella", "output", "generative AI"],
+          "conceptsIntroduced": ["agentic AI", "embodied AI"],
+          "relationshipsAdded": ["Agentic describes continued operation toward a goal; embodied describes interaction through a physical body or environment; either may use generative components."],
+          "questionsAnswered": ["What does agentic describe?", "What does embodied describe?", "Do either imply consciousness or correctness?"],
+          "learnerEvidence": "USE_IT: distinguish a chatbot, a tool-using assistant and a warehouse robot."
+        },
+        {
+          "sectionId": "ch1-agi-asi",
+          "title": "AGI and ASI",
+          "depth": "STANDARD",
+          "teachingGoal": "Place disputed and hypothetical general-intelligence claims beside present systems without implying an inevitable progression.",
+          "prerequisiteConcepts": ["AI umbrella", "generative AI", "agentic AI"],
+          "conceptsIntroduced": ["AGI", "ASI", "generality", "transfer"],
+          "relationshipsAdded": ["AGI concerns disputed breadth and transfer across unfamiliar intellectual tasks, while ASI is a hypothetical claim of capability beyond humans across broad domains."],
+          "questionsAnswered": ["What do AGI and ASI mean?", "Do they exist today?", "Why do credible definitions and forecasts disagree?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish a capable current general-purpose product from the book's ruled AGI and ASI boundaries."
+        },
+        {
+          "sectionId": "ch1-labels-overlap",
+          "title": "How the labels overlap",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Help the reader combine task, modality, operating pattern and breadth labels without building a false flat taxonomy.",
+          "prerequisiteConcepts": ["recognition", "prediction", "generative AI", "multimodal AI", "agentic AI", "AGI", "ASI"],
+          "conceptsIntroduced": ["classification dimension"],
+          "relationshipsAdded": ["A single product may truthfully receive several labels because the labels answer different questions about its behaviour or claimed breadth."],
+          "questionsAnswered": ["How can several AI labels be true at once?", "Which labels should not be treated as peers?"],
+          "learnerEvidence": "DRAW_IT: place task, modality, operating pattern and breadth on separate branches around one product."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-2",
+      "teachingGoal": "Separate the visible product from the model and surrounding technical and human components.",
+      "questionsAnswered": [
+        "What is an AI model?",
+        "What else makes an AI product work?",
+        "Why can the same model behave differently in different products?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch2-product-interface",
+          "title": "The product you can see",
+          "depth": "STANDARD",
+          "teachingGoal": "Separate the interface and product experience from the complete underlying system.",
+          "prerequisiteConcepts": ["AI umbrella", "AI system"],
+          "conceptsIntroduced": ["interface", "AI product"],
+          "relationshipsAdded": ["The interface is the visible point of interaction with a larger AI product."],
+          "questionsAnswered": ["What is the difference between an interface and an AI product?"],
+          "learnerEvidence": "DRAW_IT: place the interface as the visible edge of the larger product."
+        },
+        {
+          "sectionId": "ch2-model",
+          "title": "The model inside the product",
+          "depth": "STANDARD",
+          "teachingGoal": "Define a model before discussing training and keep it distinct from product and company.",
+          "prerequisiteConcepts": ["AI product", "input", "output"],
+          "conceptsIntroduced": ["model"],
+          "relationshipsAdded": ["A model is a trained component that maps inputs to outputs inside a wider product system."],
+          "questionsAnswered": ["What is an AI model?", "Is a model the same as the product or company?"],
+          "learnerEvidence": "EXPLAIN_IT: describe the model's job without calling it the whole application."
+        },
+        {
+          "sectionId": "ch2-instructions-orchestration",
+          "title": "Instructions, rules and orchestration",
+          "depth": "STANDARD",
+          "teachingGoal": "Show how surrounding software decides what information reaches the model and what happens to its output.",
+          "prerequisiteConcepts": ["AI product", "model", "input", "output"],
+          "conceptsIntroduced": ["system instruction", "orchestration", "guardrail"],
+          "relationshipsAdded": ["Product software assembles instructions and inputs, invokes the model and governs possible downstream handling."],
+          "questionsAnswered": ["What does the software around a model do?", "Why can product behaviour differ even when the underlying model is the same?"],
+          "learnerEvidence": "USE_IT: identify one behaviour likely controlled by the product rather than the model alone."
+        },
+        {
+          "sectionId": "ch2-retrieval-tools-memory-preview",
+          "title": "Information, memory and tools around the model",
+          "depth": "STANDARD",
+          "teachingGoal": "Orient the reader to optional supporting components before later chapters explain them fully.",
+          "prerequisiteConcepts": ["AI product", "model", "orchestration"],
+          "conceptsIntroduced": ["retrieval", "product memory", "tool"],
+          "relationshipsAdded": ["A product may supply retrieved information or memory to a model and may route model output to tools."],
+          "questionsAnswered": ["Which useful capabilities may sit outside the model?"],
+          "learnerEvidence": "DRAW_IT: add retrieval memory and tools around rather than inside the model box."
+        },
+        {
+          "sectionId": "ch2-compute-people",
+          "title": "Computers, companies and people",
+          "depth": "STANDARD",
+          "teachingGoal": "Place physical infrastructure and human decisions into the system from the beginning.",
+          "prerequisiteConcepts": ["AI product", "model", "orchestration"],
+          "conceptsIntroduced": ["compute infrastructure", "deployment decision", "human oversight"],
+          "relationshipsAdded": ["Hardware runs the model and product, while organisations and people choose objectives, access, permissions and use."],
+          "questionsAnswered": ["Where does an AI product physically run?", "Which important choices remain human or institutional?"],
+          "learnerEvidence": "EXPLAIN_IT: add one infrastructure choice and one human decision to the product map."
+        },
+        {
+          "sectionId": "ch2-architecture-depth",
+          "title": "How products assemble the parts",
+          "depth": "FULL_NERD_ALERT",
+          "teachingGoal": "Introduce service boundaries, APIs and inference serving without assuming software-engineering knowledge.",
+          "prerequisiteConcepts": ["interface", "AI product", "model", "orchestration", "compute infrastructure"],
+          "conceptsIntroduced": ["API", "inference service", "application architecture"],
+          "relationshipsAdded": ["Interfaces and application services exchange structured requests with model and tool services across controlled boundaries."],
+          "questionsAnswered": ["How do separate software services cooperate to produce one AI product experience?"],
+          "learnerEvidence": "DRAW_IT: expand the product box into interface application model and tool services."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-3",
+      "teachingGoal": "Explain how a model is built, adjusted and evaluated, then distinguish that process from using it on a new input.",
+      "questionsAnswered": [
+        "How does machine learning differ from ordinary programmed rules?",
+        "What happens during training?",
+        "What are tokens, parameters, neural networks and transformers?",
+        "How are training, post-training, evaluation and inference different?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch3-rules-to-learning",
+          "title": "From written rules to learned patterns",
+          "depth": "STANDARD",
+          "teachingGoal": "Introduce machine learning as pattern acquisition from examples rather than a complete list of hand-written rules.",
+          "prerequisiteConcepts": ["model", "input", "output"],
+          "conceptsIntroduced": ["algorithm", "machine learning", "training example"],
+          "relationshipsAdded": ["A learning algorithm uses examples and an objective to adjust a model rather than requiring a programmer to specify every mapping."],
+          "questionsAnswered": ["What is machine learning?", "How is it different from writing every rule directly?"],
+          "learnerEvidence": "EXPLAIN_IT: contrast a hand-written spam rule with a model trained on examples."
+        },
+        {
+          "sectionId": "ch3-neural-deep",
+          "title": "Neural networks and deep learning",
+          "depth": "STANDARD",
+          "teachingGoal": "Place neural networks and deep learning inside machine learning without implying that all AI uses them.",
+          "prerequisiteConcepts": ["machine learning", "model"],
+          "conceptsIntroduced": ["neural network", "layer", "deep learning"],
+          "relationshipsAdded": ["Deep learning uses neural networks with multiple learned layers and is one family within machine learning."],
+          "questionsAnswered": ["What is a neural network?", "What makes deep learning deep?", "Is all AI deep learning?"],
+          "learnerEvidence": "DRAW_IT: place deep learning within neural networks within machine learning within AI."
+        },
+        {
+          "sectionId": "ch3-tokens-embeddings",
+          "title": "How language becomes model input",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Make tokenisation and learned numeric representations understandable before transformer mechanics.",
+          "prerequisiteConcepts": ["input", "neural network", "model"],
+          "conceptsIntroduced": ["token", "tokenisation", "embedding"],
+          "relationshipsAdded": ["Text is divided into tokens and represented numerically so a model can process learned relationships among them."],
+          "questionsAnswered": ["What is a token?", "Why does a language model not receive words exactly as people see them?", "What job does an embedding perform?"],
+          "learnerEvidence": "EXPLAIN_IT: trace a short sentence from visible text to tokens to numeric representations."
+        },
+        {
+          "sectionId": "ch3-training-loop",
+          "title": "The training loop",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain prediction, error measurement and repeated parameter adjustment as one causal loop.",
+          "prerequisiteConcepts": ["machine learning", "training example", "model"],
+          "conceptsIntroduced": ["objective", "loss", "parameter", "optimisation"],
+          "relationshipsAdded": ["The training objective defines a measured error, and optimisation repeatedly adjusts parameters to reduce that error across examples."],
+          "questionsAnswered": ["What actually changes during training?", "What tells the training process which direction is better?"],
+          "learnerEvidence": "DRAW_IT: show example to prediction to error to parameter adjustment to next example."
+        },
+        {
+          "sectionId": "ch3-transformer-attention",
+          "title": "Transformers and attention",
+          "depth": "FULL_NERD_ALERT",
+          "teachingGoal": "Explain the central relationship-tracking mechanism used by modern language models without treating it as human attention.",
+          "prerequisiteConcepts": ["token", "embedding", "neural network", "parameter"],
+          "conceptsIntroduced": ["transformer", "attention mechanism", "language model"],
+          "relationshipsAdded": ["A transformer processes token representations while attention mechanisms compute context-dependent relationships among positions."],
+          "questionsAnswered": ["What is a transformer?", "What does attention do?", "Why is it not the same as human attention or understanding?"],
+          "learnerEvidence": "EXPLAIN_IT: describe how one token's useful representation can depend on surrounding tokens."
+        },
+        {
+          "sectionId": "ch3-post-training-evaluation",
+          "title": "Post-training and evaluation",
+          "depth": "STANDARD",
+          "teachingGoal": "Separate broad pattern learning from later behaviour shaping and from tests used to assess the resulting system.",
+          "prerequisiteConcepts": ["training loop", "parameter", "model"],
+          "conceptsIntroduced": ["post-training", "fine-tuning", "evaluation", "benchmark"],
+          "relationshipsAdded": ["Post-training further shapes behaviour after broad training, while evaluation measures selected capabilities and failures without guaranteeing every real use."],
+          "questionsAnswered": ["What happens after initial training?", "What can an evaluation show and what can it miss?"],
+          "learnerEvidence": "USE_IT: distinguish a behaviour-shaping step from a test of the resulting behaviour."
+        },
+        {
+          "sectionId": "ch3-inference",
+          "title": "Using the trained model",
+          "depth": "STANDARD",
+          "teachingGoal": "Make inference distinct from training and prepare for the next chapter's current-information pathways.",
+          "prerequisiteConcepts": ["training loop", "post-training", "model", "input", "output"],
+          "conceptsIntroduced": ["inference", "generalisation"],
+          "relationshipsAdded": ["Inference applies a trained model to a current input; useful performance on appropriate new cases is generalisation, not fresh training during every request."],
+          "questionsAnswered": ["What is inference?", "Why is adding information to a prompt not ordinarily the same as retraining the model?", "What does generalisation mean?"],
+          "learnerEvidence": "USE_IT: classify building a spam model and checking one new email as training or inference."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-4",
+      "teachingGoal": "Separate what the model learned during training from what the product supplies or stores for a current request.",
+      "questionsAnswered": [
+        "What information can an AI product use right now?",
+        "How are context, retrieval and memory different?",
+        "Why might information visible to me still be absent from the model's current input?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch4-trained-patterns",
+          "title": "Patterns learned during training",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain why a model's parameters are not a browsable database of its training material.",
+          "prerequisiteConcepts": ["training", "parameter", "inference"],
+          "conceptsIntroduced": ["parameter knowledge"],
+          "relationshipsAdded": ["Training changes parameters that encode learned patterns, but inference does not retrieve a neat source record from those parameters."],
+          "questionsAnswered": ["What does a trained model retain?", "Why can it not reliably show the source of every learned pattern?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish learned parameters from a searchable document store."
+        },
+        {
+          "sectionId": "ch4-prompt-instructions",
+          "title": "Your prompt and the product's instructions",
+          "depth": "STANDARD",
+          "teachingGoal": "Show that user requests and product instructions jointly shape the current model input.",
+          "prerequisiteConcepts": ["inference", "system instruction", "input"],
+          "conceptsIntroduced": ["prompt", "instruction hierarchy"],
+          "relationshipsAdded": ["The product assembles user content and other instructions into the current request under an instruction hierarchy."],
+          "questionsAnswered": ["What is a prompt?", "Why is my prompt not necessarily the only instruction the product uses?"],
+          "learnerEvidence": "USE_IT: improve one vague delegation using the canonical Spice Girls desired-result cue plus context constraints and output form."
+        },
+        {
+          "sectionId": "ch4-context-window",
+          "title": "Context and the context window",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain the current working material and its bounded capacity.",
+          "prerequisiteConcepts": ["prompt", "token", "inference"],
+          "conceptsIntroduced": ["context", "context window"],
+          "relationshipsAdded": ["The model produces a result from tokens present in its current context, whose capacity and product selection rules are bounded."],
+          "questionsAnswered": ["What is context?", "What is a context window?", "Why might earlier material be missing?"],
+          "learnerEvidence": "DRAW_IT: place current instructions conversation and attachments inside a bounded context container."
+        },
+        {
+          "sectionId": "ch4-retrieval-rag",
+          "title": "Retrieval and current sources",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain how a product can find external material and supply selected results to the model.",
+          "prerequisiteConcepts": ["context", "AI product", "orchestration"],
+          "conceptsIntroduced": ["retrieval", "RAG", "source selection"],
+          "relationshipsAdded": ["Retrieval finds candidate information, selection chooses what enters context and the model uses that supplied material to generate output."],
+          "questionsAnswered": ["How can an AI product use current documents?", "What does retrieval-augmented generation add?", "Where can retrieval fail?"],
+          "learnerEvidence": "DRAW_IT: show query to retrieval to selected source to context to model output."
+        },
+        {
+          "sectionId": "ch4-memory",
+          "title": "Conversation history and product memory",
+          "depth": "STANDARD",
+          "teachingGoal": "Separate stored information, selected history and information actually placed in context.",
+          "prerequisiteConcepts": ["context", "context window", "AI product"],
+          "conceptsIntroduced": ["conversation history", "product memory", "stored state"],
+          "relationshipsAdded": ["A product may store history or memory, then selectively retrieve some of it into a later context; stored does not automatically mean currently used."],
+          "questionsAnswered": ["How are chat history, memory and current context different?", "Can something be stored but absent from the current answer?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish visible stored retrievable and currently supplied information."
+        },
+        {
+          "sectionId": "ch4-information-diagnosis",
+          "title": "Finding the missing information",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Give the reader a practical diagnosis for answers that lack current or relevant information.",
+          "prerequisiteConcepts": ["parameter knowledge", "context", "retrieval", "product memory"],
+          "conceptsIntroduced": ["information-path diagnosis"],
+          "relationshipsAdded": ["An answer may fail because information was never learned, not stored, not retrieved, not selected into context or poorly used after arrival."],
+          "questionsAnswered": ["Where could relevant information have gone missing?", "What is the smallest useful correction for each failure?"],
+          "learnerEvidence": "USE_IT: diagnose an answer based on an obsolete workplace policy."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-5",
+      "teachingGoal": "Trace the boundary between model output and an action executed through connected software under permissions.",
+      "questionsAnswered": [
+        "How does an AI product use a tool?",
+        "What is the difference between connection, permission and execution?",
+        "How can I tell whether an action actually happened?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch5-tool-request",
+          "title": "From model output to a tool request",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain how a model can produce structured output that surrounding software interprets as a proposed tool use.",
+          "prerequisiteConcepts": ["model", "output", "orchestration", "tool"],
+          "conceptsIntroduced": ["structured output", "tool request"],
+          "relationshipsAdded": ["A model generates a structured request, and product software decides whether and how to route it to a tool."],
+          "questionsAnswered": ["What does the model itself produce when a tool may be used?"],
+          "learnerEvidence": "DRAW_IT: place a proposed tool request between model output and product execution."
+        },
+        {
+          "sectionId": "ch5-connection-permission",
+          "title": "Connections and permissions",
+          "depth": "STANDARD",
+          "teachingGoal": "Keep technical availability separate from authorised scope.",
+          "prerequisiteConcepts": ["tool request", "AI product"],
+          "conceptsIntroduced": ["connector", "permission", "authorisation"],
+          "relationshipsAdded": ["A connector makes a tool reachable, while permissions determine which operations and data are authorised."],
+          "questionsAnswered": ["Does connecting a tool give the AI permission to do everything in it?", "Who sets the permission boundary?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish a connected calendar from permission to create or delete events."
+        },
+        {
+          "sectionId": "ch5-execution-observation",
+          "title": "Execution and returned observations",
+          "depth": "STANDARD",
+          "teachingGoal": "Follow an authorised request through tool execution and the information returned to the product.",
+          "prerequisiteConcepts": ["tool request", "permission"],
+          "conceptsIntroduced": ["execution", "observation", "action record"],
+          "relationshipsAdded": ["The tool executes an authorised operation and returns an observation that may enter the next model context."],
+          "questionsAnswered": ["What proves that a requested action actually happened?", "How does the result return to the AI system?"],
+          "learnerEvidence": "DRAW_IT: complete the loop from request to permission to execution to observation."
+        },
+        {
+          "sectionId": "ch5-human-checkpoint",
+          "title": "Confirmation before consequences",
+          "depth": "STANDARD",
+          "teachingGoal": "Place a proportional human checkpoint before consequential or irreversible actions.",
+          "prerequisiteConcepts": ["execution", "permission", "human consequence"],
+          "conceptsIntroduced": ["human confirmation", "reversibility"],
+          "relationshipsAdded": ["The need for human confirmation increases with consequence uncertainty and irreversibility."],
+          "questionsAnswered": ["When should a person confirm an AI-proposed action?", "Why is a drafted action not the same as an approved one?"],
+          "learnerEvidence": "USE_IT: choose a checkpoint for searching flights holding a fare and purchasing a ticket."
+        },
+        {
+          "sectionId": "ch5-api-security",
+          "title": "APIs, authentication and safe execution",
+          "depth": "FULL_NERD_ALERT",
+          "teachingGoal": "Explain the technical controls beneath a governed tool connection.",
+          "prerequisiteConcepts": ["connector", "permission", "execution", "action record"],
+          "conceptsIntroduced": ["API", "authentication", "least privilege", "idempotency"],
+          "relationshipsAdded": ["Authenticated APIs expose bounded operations, least privilege narrows authority and idempotent design reduces accidental duplicate actions."],
+          "questionsAnswered": ["How are identity and permission enforced technically?", "How can a system reduce duplicate or unauthorised actions?"],
+          "learnerEvidence": "EXPLAIN_IT: connect authentication permission and execution without treating them as synonyms."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-6",
+      "teachingGoal": "Distinguish fixed automation, governed workflows and agentic loops, including their control and failure implications.",
+      "questionsAnswered": [
+        "What makes an AI system agentic?",
+        "How is an agent different from automation or a workflow?",
+        "Why can errors compound across steps?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch6-automation-workflow",
+          "title": "Automation and governed workflows",
+          "depth": "STANDARD",
+          "teachingGoal": "Establish fixed and predesigned multi-step baselines before introducing agent loops.",
+          "prerequisiteConcepts": ["AI product", "tool", "execution"],
+          "conceptsIntroduced": ["automation", "workflow"],
+          "relationshipsAdded": ["Automation follows predetermined conditions, while a workflow coordinates known stages and checkpoints."],
+          "questionsAnswered": ["What is automation?", "What makes a workflow more than one automatic step?"],
+          "learnerEvidence": "USE_IT: classify a scheduled reminder and a fixed approval route."
+        },
+        {
+          "sectionId": "ch6-agent-loop",
+          "title": "The agent loop",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain continued goal-directed operation through repeated model tool and observation cycles.",
+          "prerequisiteConcepts": ["workflow", "tool request", "execution", "observation"],
+          "conceptsIntroduced": ["agent loop", "goal", "state"],
+          "relationshipsAdded": ["An agent loop uses a goal and state to select a next step, call a tool, observe the result and continue or stop."],
+          "questionsAnswered": ["What is the repeating mechanism inside an agentic system?", "What information must persist between steps?"],
+          "learnerEvidence": "DRAW_IT: reconstruct goal to next step to tool to observation to updated state to stop-or-continue."
+        },
+        {
+          "sectionId": "ch6-planning-routing",
+          "title": "Planning, routing and changing course",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Show several ways a system can choose subsequent steps without implying human-style intention.",
+          "prerequisiteConcepts": ["agent loop", "goal", "state"],
+          "conceptsIntroduced": ["planning", "routing", "subgoal"],
+          "relationshipsAdded": ["A system may select from predefined routes or generate intermediate steps and revise them after observations."],
+          "questionsAnswered": ["How can an agent choose what to do next?", "Does planning imply consciousness or independent desire?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish generated planning from human intention."
+        },
+        {
+          "sectionId": "ch6-stopping-escalation",
+          "title": "Stopping, escalation and control",
+          "depth": "STANDARD",
+          "teachingGoal": "Make stopping conditions and human escalation essential components rather than emergency additions.",
+          "prerequisiteConcepts": ["agent loop", "human confirmation", "state"],
+          "conceptsIntroduced": ["stopping condition", "escalation", "control boundary"],
+          "relationshipsAdded": ["The loop continues only within stopping escalation permission and budget boundaries established by the product and organisation."],
+          "questionsAnswered": ["What should make an agent stop?", "When should it escalate to a person?"],
+          "learnerEvidence": "USE_IT: set stopping and escalation rules for an invoice-investigation agent."
+        },
+        {
+          "sectionId": "ch6-compounding-error",
+          "title": "Why small mistakes can become large ones",
+          "depth": "STANDARD",
+          "teachingGoal": "Connect multi-step operation to error accumulation and verification placement.",
+          "prerequisiteConcepts": ["agent loop", "observation", "state", "human consequence"],
+          "conceptsIntroduced": ["compounding error", "trajectory evaluation"],
+          "relationshipsAdded": ["A mistaken output can become later context or action, causing subsequent steps to build on the error."],
+          "questionsAnswered": ["Why is a five-step agent riskier than five independent suggestions?", "Where should checks occur?"],
+          "learnerEvidence": "DRAW_IT: show how one early error propagates through two later steps and where a checkpoint interrupts it."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-7",
+      "teachingGoal": "Give the reader a system-level failure map so that different problems receive different diagnoses and responses.",
+      "questionsAnswered": [
+        "What is a hallucination?",
+        "How are unreliability, brittleness, bias, manipulation and misuse different?",
+        "How do I locate the failure before choosing a safeguard?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch7-hallucination",
+          "title": "Hallucinations and unsupported claims",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain fluent unsupported output and the difference between presentation quality and evidential support.",
+          "prerequisiteConcepts": ["model", "inference", "output", "retrieval"],
+          "conceptsIntroduced": ["hallucination", "evidential support"],
+          "relationshipsAdded": ["A model can generate a plausible claim without adequate support in current evidence or reliable learned patterns."],
+          "questionsAnswered": ["What is an AI hallucination?", "Why can unsupported information sound authoritative?", "What should I check?"],
+          "learnerEvidence": "USE_IT: apply the canonical Burn Book authority-without-support mapping to a new AI claim and identify the needed source check."
+        },
+        {
+          "sectionId": "ch7-reliability-brittleness",
+          "title": "Unreliability and brittleness",
+          "depth": "STANDARD",
+          "teachingGoal": "Separate inconsistency across repeated or slightly changed cases from fabricated factual content.",
+          "prerequisiteConcepts": ["inference", "generalisation", "evaluation"],
+          "conceptsIntroduced": ["reliability", "brittleness", "distribution shift"],
+          "relationshipsAdded": ["A system may perform well in tested conditions yet change sharply under small input or environment changes."],
+          "questionsAnswered": ["How can a correct-looking system still be unreliable?", "What is brittleness?"],
+          "learnerEvidence": "USE_IT: compare repeated outputs and one changed condition before drawing a reliability conclusion."
+        },
+        {
+          "sectionId": "ch7-bias-fairness",
+          "title": "Bias, fairness and unequal consequences",
+          "depth": "STANDARD",
+          "teachingGoal": "Connect data objectives design and institutional use to unequal outcomes without implying one universal fairness measure.",
+          "prerequisiteConcepts": ["training example", "objective", "human consequence", "deployment decision"],
+          "conceptsIntroduced": ["bias", "fairness", "protected group", "allocation"],
+          "relationshipsAdded": ["Data representation objectives decision thresholds and deployment context can produce or amplify unequal outcomes."],
+          "questionsAnswered": ["Where can unfairness enter an AI system?", "Why can reasonable fairness goals conflict?"],
+          "learnerEvidence": "DRAW_IT: mark at least three places where unequal outcomes can enter or be amplified."
+        },
+        {
+          "sectionId": "ch7-security-manipulation",
+          "title": "Security, manipulation and adversarial use",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Introduce deliberate attacks and unsafe authority as different from ordinary model error.",
+          "prerequisiteConcepts": ["context", "retrieval", "tool", "permission", "agent loop"],
+          "conceptsIntroduced": ["prompt injection", "data poisoning", "adversarial input", "misuse"],
+          "relationshipsAdded": ["Attackers may manipulate training data current context tool instructions or user behaviour to redirect system outcomes."],
+          "questionsAnswered": ["How is manipulation different from an accidental hallucination?", "Which system layers can an attacker target?"],
+          "learnerEvidence": "USE_IT: locate a malicious instruction hidden in retrieved content and choose the relevant control boundary."
+        },
+        {
+          "sectionId": "ch7-evaluation-verification",
+          "title": "Tests, verification and evidence",
+          "depth": "STANDARD",
+          "teachingGoal": "Match evaluation and human checking to the specific claim task and consequence.",
+          "prerequisiteConcepts": ["evaluation", "hallucination", "reliability", "fairness"],
+          "conceptsIntroduced": ["verification", "calibration", "red team", "acceptance threshold"],
+          "relationshipsAdded": ["A useful evaluation samples the failure that matters in the intended context, while verification checks consequential claims or actions against appropriate evidence."],
+          "questionsAnswered": ["What does it mean to verify an AI result?", "Why is one benchmark or one request insufficient evidence?"],
+          "learnerEvidence": "EXPLAIN_IT: match hallucination reliability fairness and tool execution to different checks."
+        },
+        {
+          "sectionId": "ch7-diagnose-layer",
+          "title": "Diagnose the layer before fixing the problem",
+          "depth": "STANDARD",
+          "teachingGoal": "Unify the failure chapter into a practical system-diagnosis method.",
+          "prerequisiteConcepts": ["model", "context", "retrieval", "tool", "workflow", "human consequence", "verification"],
+          "conceptsIntroduced": ["failure-location diagnosis"],
+          "relationshipsAdded": ["A visible bad result can originate in model data context retrieval tool workflow interface or institutional decision layers."],
+          "questionsAnswered": ["Where did this failure most likely originate?", "What evidence would distinguish competing causes?", "What is the smallest relevant response?"],
+          "learnerEvidence": "USE_IT: diagnose four superficially similar policy-answer failures at different layers."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-8",
+      "teachingGoal": "Trace personal or organisational information through the complete product lifecycle and make product-specific privacy checks possible.",
+      "questionsAnswered": [
+        "What can happen to information I provide?",
+        "What is the difference between current processing, storage, retrieval and possible training use?",
+        "Which product, account and workplace settings must I check?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch8-data-entry-processing",
+          "title": "When information enters the product",
+          "depth": "STANDARD",
+          "teachingGoal": "Separate immediate request processing from later retention or reuse.",
+          "prerequisiteConcepts": ["input", "context", "AI product"],
+          "conceptsIntroduced": ["collection", "processing", "data controller"],
+          "relationshipsAdded": ["Information enters a product for immediate processing under product organisational and legal choices."],
+          "questionsAnswered": ["What happens first when I provide information?", "Who determines the initial processing purpose?"],
+          "learnerEvidence": "DRAW_IT: begin a data path at collection and immediate processing."
+        },
+        {
+          "sectionId": "ch8-storage-retrieval",
+          "title": "Storage, history and later retrieval",
+          "depth": "STANDARD",
+          "teachingGoal": "Connect privacy choices to the earlier distinction among stored retrievable and current information.",
+          "prerequisiteConcepts": ["conversation history", "product memory", "retrieval", "collection"],
+          "conceptsIntroduced": ["retention", "deletion", "access control"],
+          "relationshipsAdded": ["Retained information may be available for history memory administration or retrieval depending on access and selection rules."],
+          "questionsAnswered": ["What is the difference between storage and current use?", "What should deletion and retention controls tell me?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish saved history from information placed in a later model context."
+        },
+        {
+          "sectionId": "ch8-training-use-sharing",
+          "title": "Sharing and possible model-improvement use",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain that provider sharing and training-use rules vary by product plan account and configuration.",
+          "prerequisiteConcepts": ["training data", "retention", "AI product"],
+          "conceptsIntroduced": ["training-use policy", "third-party sharing", "service improvement"],
+          "relationshipsAdded": ["Retained product data may follow separate sharing or model-improvement paths only under the applicable terms settings and organisational configuration."],
+          "questionsAnswered": ["Does using an AI product automatically train the model on my information?", "What determines whether data may be reused or shared?"],
+          "learnerEvidence": "USE_IT: identify the exact policy and settings needed before making a training-use claim."
+        },
+        {
+          "sectionId": "ch8-account-workplace",
+          "title": "Personal accounts and governed workplace systems",
+          "depth": "STANDARD",
+          "teachingGoal": "Make account and administrator configuration part of the privacy answer.",
+          "prerequisiteConcepts": ["training-use policy", "access control", "permission"],
+          "conceptsIntroduced": ["account entitlement", "administrator control", "data boundary"],
+          "relationshipsAdded": ["The same provider may apply different data permissions retention and training-use rules across personal and workplace configurations."],
+          "questionsAnswered": ["Why can the same product name have different privacy answers?", "What should I check in a workplace account?"],
+          "learnerEvidence": "USE_IT: compare what must be verified before sharing a confidential meeting summary in two account types."
+        },
+        {
+          "sectionId": "ch8-data-path-decision",
+          "title": "A practical data-path decision",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Turn the data lifecycle into a repeatable pre-use decision rather than a generic warning.",
+          "prerequisiteConcepts": ["collection", "processing", "retention", "retrieval", "training-use policy", "account entitlement"],
+          "conceptsIntroduced": ["data-path review"],
+          "relationshipsAdded": ["A sharing decision should follow the actual collection processing retention access sharing and reuse path for the configured product."],
+          "questionsAnswered": ["Can I trace where this information may go?", "Which unknown would stop me from sharing it?"],
+          "learnerEvidence": "DRAW_IT_AND_USE_IT: map one confidential input and make a bounded share do-not-share decision."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "chapter-9",
+      "teachingGoal": "Extend the technical system into the wider AI ecosystem of organisations infrastructure work markets governance and public consequences.",
+      "questionsAnswered": [
+        "Who builds, supplies, deploys, governs and is affected by AI systems?",
+        "How do chips, cloud services, data centres and energy connect to AI products?",
+        "How can I separate current evidence from forecasts about work, society and the future?"
+      ],
+      "sections": [
+        {
+          "sectionId": "ch9-ecosystem-actors",
+          "title": "Who builds and operates the AI ecosystem",
+          "depth": "STANDARD",
+          "teachingGoal": "Distinguish research labs model providers infrastructure providers application companies deployers users and affected people.",
+          "prerequisiteConcepts": ["AI product", "model", "compute infrastructure", "deployment decision"],
+          "conceptsIntroduced": ["research lab", "model provider", "application provider", "deployer", "affected person"],
+          "relationshipsAdded": ["Different organisations research models supply compute build products deploy systems and bear or distribute consequences."],
+          "questionsAnswered": ["Who performs which job in the AI ecosystem?", "Why are model provider product provider and workplace deployer different?"],
+          "learnerEvidence": "DRAW_IT: place the organisations behind one familiar AI product and label their distinct roles."
+        },
+        {
+          "sectionId": "ch9-compute-supply-chain",
+          "title": "Chips, cloud and data centres",
+          "depth": "STANDARD",
+          "teachingGoal": "Connect seemingly weightless AI use to physical computing and supply chains.",
+          "prerequisiteConcepts": ["compute infrastructure", "training", "inference"],
+          "conceptsIntroduced": ["GPU", "accelerator", "cloud service", "data centre"],
+          "relationshipsAdded": ["Specialised chips run training and inference inside data centres exposed to products through infrastructure and cloud services."],
+          "questionsAnswered": ["What is a GPU doing in the AI ecosystem?", "Where do training and inference physically happen?"],
+          "learnerEvidence": "DRAW_IT: connect chip to server to data centre to model service to product."
+        },
+        {
+          "sectionId": "ch9-open-closed-access",
+          "title": "Open, open-weight and closed systems",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Separate access to a product source code model weights and training information.",
+          "prerequisiteConcepts": ["model provider", "model", "AI product"],
+          "conceptsIntroduced": ["open source", "open weight", "closed model", "access licence"],
+          "relationshipsAdded": ["Different release choices expose different combinations of code weights documentation data and usage rights."],
+          "questionsAnswered": ["What does open mean for an AI system?", "Why is open-weight not automatically open source or unrestricted?"],
+          "learnerEvidence": "EXPLAIN_IT: identify which asset and permission an openness claim actually covers."
+        },
+        {
+          "sectionId": "ch9-work-organisations",
+          "title": "Tasks, jobs and organisational choices",
+          "depth": "STANDARD",
+          "teachingGoal": "Connect product deployment to task change accountability incentives and uneven effects without treating forecasts as facts.",
+          "prerequisiteConcepts": ["AI product", "deployment decision", "human consequence", "deployer"],
+          "conceptsIntroduced": ["task exposure", "augmentation", "automation pressure", "organisational incentive"],
+          "relationshipsAdded": ["Organisations choose which tasks a system changes, who checks it, how gains are distributed and who bears failure."],
+          "questionsAnswered": ["How can AI change a task without replacing an entire job?", "Which organisational decisions shape the outcome?"],
+          "learnerEvidence": "USE_IT: analyse one workplace proposal by task change accountability and distribution of benefit and risk."
+        },
+        {
+          "sectionId": "ch9-resources-environment",
+          "title": "Energy, water and material resources",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain the physical resource pathway while preserving measurement uncertainty and scale differences.",
+          "prerequisiteConcepts": ["GPU", "data centre", "training", "inference"],
+          "conceptsIntroduced": ["energy use", "water use", "hardware lifecycle", "measurement boundary"],
+          "relationshipsAdded": ["Training and serving models consume computing resources whose energy water and material effects depend on hardware location workload and accounting boundary."],
+          "questionsAnswered": ["Why does AI use physical resources?", "Why can one environmental number be misleading without a boundary?"],
+          "learnerEvidence": "EXPLAIN_IT: name the system boundary required before comparing two resource claims."
+        },
+        {
+          "sectionId": "ch9-governance-evidence-futures",
+          "title": "Rules, evidence and possible futures",
+          "depth": "STANDARD",
+          "teachingGoal": "Give the reader a disciplined way to interpret regulation standards forecasts and AGI or labour scenarios.",
+          "prerequisiteConcepts": ["AGI", "ASI", "evaluation", "human consequence", "deployer"],
+          "conceptsIntroduced": ["governance", "standard", "regulation", "forecast", "scenario"],
+          "relationshipsAdded": ["Governments standards bodies companies workers and communities shape system constraints, while evidence and forecasts carry different certainty."],
+          "questionsAnswered": ["Who governs AI and through which mechanisms?", "How do I distinguish a current fact from a forecast or scenario?", "What evidence would change the conclusion?"],
+          "learnerEvidence": "USE_IT: label five ecosystem claims as fact company framing inference forecast disagreement or unknown."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "final-synthesis",
+      "teachingGoal": "Prove that the learner owns one connected model she can reconstruct explain and use without reproducing the book's wording.",
+      "questionsAnswered": [
+        "Can I explain how the complete AI ecosystem fits together?",
+        "Can I analyse an unfamiliar AI product or proposal?",
+        "Can I identify what is present absent unknown and consequential?"
+      ],
+      "sections": [
+        {
+          "sectionId": "synthesis-draw",
+          "title": "Draw the complete system",
+          "depth": "STANDARD",
+          "teachingGoal": "Elicit the complete mental model from a blank page.",
+          "prerequisiteConcepts": ["AI umbrella", "training", "model", "AI product", "context", "retrieval", "tool", "agent loop", "human consequence", "AI ecosystem"],
+          "conceptsIntroduced": [],
+          "relationshipsAdded": ["The learner integrates technical and institutional layers into one directed map with optional components marked as optional."],
+          "questionsAnswered": ["Can I reconstruct the important components and relationships without the book in front of me?"],
+          "learnerEvidence": "DRAW_IT: blank-page ecosystem reconstruction."
+        },
+        {
+          "sectionId": "synthesis-explain",
+          "title": "Explain why the parts matter",
+          "depth": "STANDARD",
+          "teachingGoal": "Demonstrate causal understanding rather than diagram copying.",
+          "prerequisiteConcepts": ["complete system map"],
+          "conceptsIntroduced": [],
+          "relationshipsAdded": ["The learner explains how changing information model product permission or institutional choices changes possible outcomes."],
+          "questionsAnswered": ["Can I explain how and why the parts work together in ordinary language?"],
+          "learnerEvidence": "EXPLAIN_IT: teach one familiar AI product to another nontechnical person."
+        },
+        {
+          "sectionId": "synthesis-use",
+          "title": "Use the map on something new",
+          "depth": "STANDARD",
+          "teachingGoal": "Demonstrate transfer to an unfamiliar practical situation.",
+          "prerequisiteConcepts": ["complete system map", "failure-location diagnosis", "verification"],
+          "conceptsIntroduced": [],
+          "relationshipsAdded": ["The learner uses the model to identify present absent and unknown components, predict failures and choose useful questions or safeguards."],
+          "questionsAnswered": ["Can I analyse a new AI proposal and make a better practical judgment?"],
+          "learnerEvidence": "USE_IT: unseen workplace AI proposal analysis."
+        }
+      ]
+    },
+    {
+      "routeEntryId": "concept-index",
+      "teachingGoal": "Support direct concept lookup without separating a term from its prerequisites mechanism and ecosystem relationship.",
+      "questionsAnswered": [
+        "What does this term mean in plain language?",
+        "Where is it taught in the connected sequence?",
+        "What is it related to or commonly confused with?"
+      ],
+      "sections": [
+        {
+          "sectionId": "index-how-to-use",
+          "title": "How to use the Concept Index",
+          "depth": "STANDARD",
+          "teachingGoal": "Explain lookup and route recovery without turning the book into a glossary.",
+          "prerequisiteConcepts": ["system inquiry"],
+          "conceptsIntroduced": ["concept anchor"],
+          "relationshipsAdded": ["Every lookup term points to its first explanation, prerequisites and wider-system relationship."],
+          "questionsAnswered": ["How do I look up a term and return to the connected explanation?"],
+          "learnerEvidence": "USE_IT: find a term from ordinary language and recover its chapter context."
+        },
+        {
+          "sectionId": "index-entries",
+          "title": "A to Z concept entries",
+          "depth": "STANDARD",
+          "teachingGoal": "Provide compact accurate retrieval while preserving distinctions and currentness.",
+          "prerequisiteConcepts": ["concept anchor"],
+          "conceptsIntroduced": [],
+          "relationshipsAdded": ["Each entry connects a plain meaning to one canonical anchor, adjacent distinction and ecosystem relationship."],
+          "questionsAnswered": ["What does this concept mean?", "What should I not confuse it with?", "Where does it belong in the AI ecosystem?"],
+          "learnerEvidence": "EXPLAIN_IT: use one index entry to explain the concept's relationship rather than recite its definition."
+        }
+      ]
+    }
+  ]
+}

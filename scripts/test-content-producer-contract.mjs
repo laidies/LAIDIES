@@ -20,6 +20,25 @@ try {
   const good = write(goodPath, "One real problem moves through a mechanism, consequence and useful action.\n");
   const source = write(sourcePath, "Authoritative source fixture.\n");
   const benchmark = write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
+  const sectionMapPath = "operations/product-stewards/library/fixture-section-teaching-map.json";
+  const sectionMap = write(sectionMapPath, JSON.stringify({
+    schemaVersion: "laidies-section-teaching-map.v1",
+    curriculumRule: "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
+    units: [
+      {
+        routeEntryId: "intro",
+        teachingGoal: "Give the reader a reason and an initial connected map.",
+        questionsAnswered: ["Why does this system matter to my decision?"],
+        sections: [{ sectionId: "intro-purpose", title: "Why this matters", depth: "STANDARD", teachingGoal: "Connect the system to a consequential decision.", prerequisiteConcepts: [], conceptsIntroduced: ["request", "decision"], relationshipsAdded: ["A request begins a path that ends in a decision."], questionsAnswered: ["Why should I understand this system?"], learnerEvidence: "The reader states the consequence in ordinary language." }]
+      },
+      {
+        routeEntryId: "system-map",
+        teachingGoal: "Connect context model evidence and human decision.",
+        questionsAnswered: ["What happens between a request and a checked decision?"],
+        sections: [{ sectionId: "system-path", title: "From request to checked decision", depth: "STANDARD", teachingGoal: "Trace the causal path without collapsing its parts.", prerequisiteConcepts: ["request", "decision"], conceptsIntroduced: ["context", "model", "evidence"], relationshipsAdded: ["Context supplies material while evidence supports the consequential claim."], questionsAnswered: ["How do context model evidence and judgement work together?"], learnerEvidence: "The reader draws and explains the path." }]
+      }
+    ]
+  }));
   const failureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
@@ -46,6 +65,7 @@ try {
       transferCase: "A family travel plan.", usefulAction: "Check the source before acting.", analogyPlan: [],
       humourPlan: { lessonJob: "One workplace joke sharpens the consequence." }, formatSpecificStructure: "Connected explanation with separate lookup.",
       antiTemplateDecision: "Vary structure around the reader question; no repeated micro-template.",
+      sectionTeachingMap: { path: sectionMapPath, sha256: hash(sectionMap) },
       systemSynthesis: {
         endState: "The reader can reconstruct how a request moves through context model evidence and human decision.",
         drawPrompt: "Draw request context model evidence and human decision with labelled arrows.",
@@ -65,7 +85,8 @@ try {
             destinationId: "intro",
             kind: "INTRODUCTION",
             title: "Why AI decisions need your judgement",
-            readerQuestion: "Why should I understand this?",
+            teachingGoal: "Give the reader a reason and an initial connected map.",
+            questionsAnswered: ["Why does this system matter to my decision?"],
             coverage: "Purpose, consequence and the practical payoff.",
             coverageTerms: ["AI", "judgement"],
             prerequisiteIds: [],
@@ -77,7 +98,8 @@ try {
             destinationId: "system-map",
             kind: "CHAPTER",
             title: "What an AI system does with a request",
-            readerQuestion: "What happens between my request and the result?",
+            teachingGoal: "Connect context model evidence and human decision.",
+            questionsAnswered: ["What happens between a request and a checked decision?"],
             coverage: "Input, model, evidence and human decision.",
             coverageTerms: ["AI", "system", "request"],
             prerequisiteIds: ["intro"],
@@ -145,6 +167,39 @@ try {
   assert.match(inspect(wrongArcOrder).join("\n"), /must preserve the default explanatory sequence/);
   const missingReaderRoute = structuredClone(contract); delete missingReaderRoute.draftArchitecture.readerRoute;
   assert.match(inspect(missingReaderRoute).join("\n"), /requires a readerRoute/);
+  const missingTeachingGoal = structuredClone(contract); delete missingTeachingGoal.draftArchitecture.readerRoute.entries[1].teachingGoal;
+  assert.match(inspect(missingTeachingGoal).join("\n"), /teachingGoal is required/);
+  const missingOutcomeQuestions = structuredClone(contract); delete missingOutcomeQuestions.draftArchitecture.readerRoute.entries[1].questionsAnswered;
+  assert.match(inspect(missingOutcomeQuestions).join("\n"), /questionsAnswered requires at least one answerable outcome question/);
+  const incompleteSectionMap = JSON.parse(fs.readFileSync(sectionMap, "utf8"));
+  incompleteSectionMap.units = incompleteSectionMap.units.slice(0, 1);
+  fs.writeFileSync(sectionMap, JSON.stringify(incompleteSectionMap));
+  const missingMappedUnit = structuredClone(contract); missingMappedUnit.draftArchitecture.sectionTeachingMap.sha256 = hash(sectionMap);
+  assert.match(inspect(missingMappedUnit).join("\n"), /readerRoute entry lacks section teaching map unit: system-map/);
+  const invalidSectionMap = JSON.parse(fs.readFileSync(sectionMap, "utf8"));
+  delete invalidSectionMap.units[0].sections[0].questionsAnswered;
+  fs.writeFileSync(sectionMap, JSON.stringify(invalidSectionMap));
+  const sectionWithoutOutcome = structuredClone(contract); sectionWithoutOutcome.draftArchitecture.sectionTeachingMap.sha256 = hash(sectionMap);
+  assert.match(inspect(sectionWithoutOutcome).join("\n"), /questionsAnswered requires at least one answerable outcome question/);
+  fs.writeFileSync(sectionMap, JSON.stringify({
+    schemaVersion: "laidies-section-teaching-map.v1",
+    curriculumRule: "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
+    units: [{ routeEntryId: "intro", teachingGoal: "Teach the opening.", questionsAnswered: ["Why?"], sections: [
+      { sectionId: "duplicate", title: "One", depth: "STANDARD", teachingGoal: "Teach one.", prerequisiteConcepts: [], conceptsIntroduced: ["one"], relationshipsAdded: ["One connects to two."], questionsAnswered: ["What is one?"], learnerEvidence: "Explain one." },
+      { sectionId: "duplicate", title: "Two", depth: "STANDARD", teachingGoal: "Teach two.", prerequisiteConcepts: ["one"], conceptsIntroduced: ["two"], relationshipsAdded: ["Two follows one."], questionsAnswered: ["What is two?"], learnerEvidence: "Explain two." }
+    ] }]
+  }));
+  const duplicateSection = structuredClone(contract); duplicateSection.draftArchitecture.sectionTeachingMap.sha256 = hash(sectionMap);
+  assert.match(inspect(duplicateSection).join("\n"), /section teaching map duplicates sectionId: duplicate/);
+  fs.writeFileSync(sectionMap, JSON.stringify({
+    schemaVersion: "laidies-section-teaching-map.v1",
+    curriculumRule: "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
+    units: [
+      { routeEntryId: "intro", teachingGoal: "Give the reader a reason and an initial connected map.", questionsAnswered: ["Why does this system matter to my decision?"], sections: [{ sectionId: "intro-purpose", title: "Why this matters", depth: "STANDARD", teachingGoal: "Connect the system to a consequential decision.", prerequisiteConcepts: [], conceptsIntroduced: ["request", "decision"], relationshipsAdded: ["A request begins a path that ends in a decision."], questionsAnswered: ["Why should I understand this system?"], learnerEvidence: "The reader states the consequence in ordinary language." }] },
+      { routeEntryId: "system-map", teachingGoal: "Connect context model evidence and human decision.", questionsAnswered: ["What happens between a request and a checked decision?"], sections: [{ sectionId: "system-path", title: "From request to checked decision", depth: "STANDARD", teachingGoal: "Trace the causal path without collapsing its parts.", prerequisiteConcepts: ["request", "decision"], conceptsIntroduced: ["context", "model", "evidence"], relationshipsAdded: ["Context supplies material while evidence supports the consequential claim."], questionsAnswered: ["How do context model evidence and judgement work together?"], learnerEvidence: "The reader draws and explains the path." }] }
+    ]
+  }));
+  contract.draftArchitecture.sectionTeachingMap.sha256 = hash(sectionMap);
   const opaqueReaderTitle = structuredClone(contract); opaqueReaderTitle.draftArchitecture.readerRoute.entries[1].title = "What the system has now";
   assert.match(inspect(opaqueReaderTitle).join("\n"), /known opaque Library heading/);
   const hiddenPrerequisite = structuredClone(contract); hiddenPrerequisite.draftArchitecture.readerRoute.entries[1].prerequisiteIds = ["model-definition"];
@@ -158,7 +213,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=16 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=20 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

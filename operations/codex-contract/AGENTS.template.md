@@ -202,7 +202,13 @@ job and may answer first.
 
 For connected learning, define one cumulative mental model before drafting.
 Every chapter or section declares what prior understanding it uses, what new
-part or relationship it adds and how it reconnects to the whole. Recognition
+part or relationship it adds and how it reconnects to the whole.
+
+For a substantial book, complete the logical section sequence before prose:
+each section binds its teaching goal and the questions the reader must be able
+to answer afterward. Those questions are learner-outcome requirements, not a
+quota for question-shaped headings; every title may be a statement or question
+but must predict its actual coverage. Recognition
 and vocabulary recall are insufficient: substantial learning must enable the
 reader to draw the important parts and arrows, explain the mechanism in her own
 words and apply it to an unfamiliar everyday or work case. Deeper content

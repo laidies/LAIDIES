@@ -137,9 +137,10 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       "what belongs with one job", "meet the parts of the system"
     ]);
     for (const [index, entry] of (route?.entries || []).entries()) {
-      for (const field of ["destinationId", "title", "readerQuestion", "coverage"]) {
+      for (const field of ["destinationId", "title", "teachingGoal", "coverage"]) {
         require(text(entry?.[field]), `draftArchitecture.readerRoute.entries[${index}].${field} is required`);
       }
+      require(array(entry?.questionsAnswered), `draftArchitecture.readerRoute.entries[${index}].questionsAnswered requires at least one answerable outcome question`);
       require(["INTRODUCTION", "CHAPTER", "CONCEPT_INDEX"].includes(entry?.kind), `draftArchitecture.readerRoute.entries[${index}].kind is invalid`);
       require(array(entry?.coverageTerms), `draftArchitecture.readerRoute.entries[${index}].coverageTerms is required`);
       require(Array.isArray(entry?.prerequisiteIds), `draftArchitecture.readerRoute.entries[${index}].prerequisiteIds must be an array`);
@@ -155,6 +156,42 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       if (text(entry?.destinationId)) {
         require(!seenDestinations.has(entry.destinationId), `readerRoute destinationId is duplicated: ${entry.destinationId}`);
         seenDestinations.add(entry.destinationId);
+      }
+    }
+
+    const teachingMapBinding = architecture?.sectionTeachingMap;
+    boundFile(root, teachingMapBinding, "draftArchitecture.sectionTeachingMap", errors);
+    if (teachingMapBinding?.path && fs.existsSync(path.resolve(root, teachingMapBinding.path))) {
+      try {
+        const teachingMap = JSON.parse(fs.readFileSync(path.resolve(root, teachingMapBinding.path), "utf8"));
+        require(teachingMap?.schemaVersion === "laidies-section-teaching-map.v1", "section teaching map schemaVersion mismatch");
+        require(teachingMap?.curriculumRule === "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS", "section teaching map curriculumRule mismatch");
+        require(array(teachingMap?.units), "section teaching map requires units");
+        const routeIds = new Set((route?.entries || []).map(entry => entry?.destinationId).filter(text));
+        const mapRouteIds = new Set();
+        const sectionIds = new Set();
+        for (const [unitIndex, unit] of (teachingMap?.units || []).entries()) {
+          require(text(unit?.routeEntryId), `section teaching map units[${unitIndex}].routeEntryId is required`);
+          require(routeIds.has(unit?.routeEntryId), `section teaching map routeEntryId is absent from readerRoute: ${unit?.routeEntryId || "missing"}`);
+          require(!mapRouteIds.has(unit?.routeEntryId), `section teaching map duplicates routeEntryId: ${unit?.routeEntryId || "missing"}`);
+          mapRouteIds.add(unit?.routeEntryId);
+          require(text(unit?.teachingGoal), `section teaching map units[${unitIndex}].teachingGoal is required`);
+          require(array(unit?.questionsAnswered), `section teaching map units[${unitIndex}].questionsAnswered is required`);
+          require(array(unit?.sections), `section teaching map units[${unitIndex}].sections is required`);
+          for (const [sectionIndex, section] of (unit?.sections || []).entries()) {
+            for (const field of ["sectionId", "title", "teachingGoal", "learnerEvidence"]) require(text(section?.[field]), `section teaching map units[${unitIndex}].sections[${sectionIndex}].${field} is required`);
+            require(["STANDARD", "TELL_ME_MORE", "FULL_NERD_ALERT"].includes(section?.depth), `section teaching map units[${unitIndex}].sections[${sectionIndex}].depth is invalid`);
+            require(Array.isArray(section?.prerequisiteConcepts), `section teaching map units[${unitIndex}].sections[${sectionIndex}].prerequisiteConcepts must be an array`);
+            require(Array.isArray(section?.conceptsIntroduced), `section teaching map units[${unitIndex}].sections[${sectionIndex}].conceptsIntroduced must be an array`);
+            require(array(section?.relationshipsAdded), `section teaching map units[${unitIndex}].sections[${sectionIndex}].relationshipsAdded requires at least one relationship`);
+            require(array(section?.questionsAnswered), `section teaching map units[${unitIndex}].sections[${sectionIndex}].questionsAnswered requires at least one answerable outcome question`);
+            require(!sectionIds.has(section?.sectionId), `section teaching map duplicates sectionId: ${section?.sectionId || "missing"}`);
+            if (text(section?.sectionId)) sectionIds.add(section.sectionId);
+          }
+        }
+        for (const routeId of routeIds) require(mapRouteIds.has(routeId), `readerRoute entry lacks section teaching map unit: ${routeId}`);
+      } catch (error) {
+        if (error instanceof SyntaxError) errors.push(`draftArchitecture.sectionTeachingMap: invalid JSON: ${error.message}`);
       }
     }
   }
