@@ -15410,7 +15410,11 @@ while remaining falsely unfinished in the launch record.
   current 9,792 dirty paths into 353 product/operating review packages while
   keeping 4,299 unknowns immovable, 32 archive candidates preserved and 2,810
   generated/ignored paths out of Git. Its negative fixture proves a missing
-  reconciliation cannot become an import recommendation.
+  reconciliation cannot become an import recommendation. The first hosted run
+  also exposed that the commit-binding gate was running on a depth-1 checkout,
+  so a truthful reference to the immediately preceding commit could not
+  resolve. Operating baseline CI now fetches full history, and the work-event
+  calibration fails if that requirement is removed.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
