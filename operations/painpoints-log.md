@@ -15493,6 +15493,24 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
   DEPLOYMENT OR PUBLICATION.
 
+## 2026-08-09 — Historical review receipts are not missing implementation
+
+- **Failure / surprise:** Thirty-one unreferenced August 3 Control Room judge
+  receipts and two responsibility-only Audience acceptances were repeatedly
+  offered as active source recovery work.
+- **Evidence observed:** The sampled receipts bound old local PASS/HOLD states
+  and expressly granted no release or implementation authority; the Audience
+  records remained blocked on obsolete work IDs. None had a current clean-branch
+  consumer.
+- **Prevention rule:** Classify only exact, dated legacy receipt patterns as
+  historical, and calibrate every rule against an adjacent current decision or
+  implementation that must remain active. Never classify an evidence directory
+  wholesale.
+- **Possible Behind the Build angle:** Why passing an old review does not make
+  the review itself part of the product.
+- **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
+  DEPLOYMENT OR PUBLICATION.
+
 ## 2026-08-09 — A route label cannot confer product authority
 
 - **Failure / surprise:** The ready recovery queue grouped three `content/site/`

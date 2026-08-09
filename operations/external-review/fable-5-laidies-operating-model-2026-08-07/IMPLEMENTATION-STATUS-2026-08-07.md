@@ -160,6 +160,14 @@ independently passed the same suite and reproduced the exact ten-path curated
 builder hold. The original iCloud source remains preserved because exact path
 dispositions and the timed parity/consumer gates are still required.
 
+The 06:15 PDT August 9 queue pass removed another repeated-review defect.
+Thirty-one unreferenced August 3 Control Room judge/audit receipts and two
+responsibility-only Audience acceptance records were still presented as
+missing implementation. A narrow, calibrated classifier now keeps those exact
+legacy patterns as historical evidence while current adjacent controls remain
+active. The full inventory/planner run reduced ready owner-review work from 64
+paths to 31 without deleting, moving or importing any preserved source.
+
 ## Authority truth
 
 No Library page, current visual candidate, book prose, reader, admission manifest, live route or public file was edited. AWS backup and local recovery authority were used. No deploy, publication, purchase, subscription, destructive cleanup, storage migration, public verification or Ali approval authority was used.

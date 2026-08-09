@@ -1,4 +1,4 @@
-# Recovery status — updated 2026-08-09 02:15 PDT
+# Recovery status — updated 2026-08-09 06:15 PDT
 
 ## Proven now
 
@@ -24,6 +24,24 @@
 The first full backup read a live, changing iCloud worktree. One pre-backup hash did not match the eventual snapshot because the source changed during the 2:43 backup; the restored bytes did match the immutable snapshot exactly. This was source movement, not restore corruption.
 
 Snapshot `4a996ba9` supplied the required write-stable follow-up and sampled recovery drill. Bounded clean-branch integration may proceed. Two independent standalone clone drills passed at `f921e1c1`; destructive cleanup and retirement of the iCloud tree remain prohibited until every moved path has an exact disposition and the timed parity/consumer gates pass.
+
+## Legacy receipt classification
+
+The 06:15 PDT live queue contained 31 unreferenced Control Room judge/audit
+receipts dated 2026-08-03 and two Audience acceptance records that explicitly
+granted responsibility only while implementation remained held. These are
+historical decision evidence, not missing current implementation. The
+inventory now classifies only those exact untracked August 3 filename patterns
+as `HISTORICAL`. Its calibrated fixture proves the old receipt and Audience
+acceptance remain preserved behind the archive/restore gate while an adjacent
+2026-08-09 Control Room decision and current Audience implementation still
+classify as active source.
+
+The full 65,925-file dirty-tree scan passed without mutation. Reviewable source
+rows fell from 913 to 880, and ready owner-review work fell from 64 paths to 31.
+The 33 historical records were not deleted, moved, edited, staged or imported.
+`UNKNOWN` remains immovable, and Library visitor-facing work remains outside
+this recovery package.
 
 ## Authority truth
 

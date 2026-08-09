@@ -43,6 +43,10 @@ write('operations/design-explorations/old-prototype/node_modules/tool/index.js',
 write('operations/product-stewards/town-entry-homepage/prototypes/first-visit-v1/public/assets/copied.webp', 'isolated prototype asset\n');
 write('operations/product-stewards/episode-media-quality/opening-day-release-packages-2026-08-01/opening-day-media-packages.json', '{"package_status":"SCAFFOLD_HOLD"}\n');
 write('operations/product-stewards/episode-media-quality/current-release-check.mjs', 'current active source\n');
+write('operations/control-room/evidence/dream-phone-current-experiment-label-independent-judge-2026-08-03.md', 'bounded old local judgment\n');
+write('operations/control-room/evidence/current-release-decision-2026-08-09.md', 'current control-room evidence\n');
+write('operations/product-stewards/audience-growth/evidence-content-helpfulness-measurement-acceptance-2026-08-03.md', 'responsibility only; implementation held\n');
+write('operations/product-stewards/audience-growth/current-measurement-implementation.mjs', 'current audience implementation\n');
 write('operations/launch/eod-fixture/local-public-artifact/index.html', 'generated site snapshot\n');
 write('operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png', 'generated campaign image\n');
 write('assets/__storage-inventory-calibration-unknown__.bin', 'deliberately ambiguous; must fail closed\n');
@@ -87,6 +91,14 @@ assert.equal(inventory.rows.find(row => row.path === 'operations/product-steward
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/opening-day-release-packages-2026-08-01/opening-day-media-packages.json')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/current-release-check.mjs')?.classification, 'ACTIVE_SOURCE');
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/episode-media-quality/current-release-check.mjs')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
+assert.equal(inventory.rows.find(row => row.path === 'operations/control-room/evidence/dream-phone-current-experiment-label-independent-judge-2026-08-03.md')?.classification, 'HISTORICAL');
+assert.equal(inventory.rows.find(row => row.path === 'operations/control-room/evidence/dream-phone-current-experiment-label-independent-judge-2026-08-03.md')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
+assert.equal(inventory.rows.find(row => row.path === 'operations/control-room/evidence/current-release-decision-2026-08-09.md')?.classification, 'ACTIVE_SOURCE');
+assert.equal(inventory.rows.find(row => row.path === 'operations/control-room/evidence/current-release-decision-2026-08-09.md')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/evidence-content-helpfulness-measurement-acceptance-2026-08-03.md')?.classification, 'HISTORICAL');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/evidence-content-helpfulness-measurement-acceptance-2026-08-03.md')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/current-measurement-implementation.mjs')?.classification, 'ACTIVE_SOURCE');
+assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/current-measurement-implementation.mjs')?.disposition, 'REVIEW_FOR_EXACT_PACKAGE_COMMIT');
 assert.equal(inventory.rows.find(row => row.path === 'operations/launch/eod-fixture/local-public-artifact/index.html')?.classification, 'GENERATED');
 assert.equal(inventory.rows.find(row => row.path === 'operations/launch/eod-fixture/local-public-artifact/index.html')?.disposition, 'KEEP_OUT_OF_GIT');
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png')?.classification, 'GENERATED');
