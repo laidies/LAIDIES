@@ -15480,7 +15480,14 @@ while remaining falsely unfinished in the launch record.
   reference discovery had been scanning every text-like file, including
   `node_modules` and evidence. It now scans only current authority and active
   source text, and calibration proves an ignored dependency cannot create a
-  false recovery reference.
+  false recovery reference. The next two ready packages exposed another
+  classifier leak: an isolated Homepage prototype contributed copied media and
+  `.npmrc` as if they were production source, while an August 1
+  `SCAFFOLD_HOLD` media handoff was offered for import despite every programme
+  remaining explicitly unreleased. Untracked files below a product
+  `prototypes/` boundary and that exact superseded scaffold now remain
+  historical. Calibration also proves that adjacent current release code is
+  still reviewable, so the fix cannot hide real product source.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
