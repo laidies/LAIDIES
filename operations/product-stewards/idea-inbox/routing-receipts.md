@@ -605,6 +605,22 @@ acceptance, implementation, priority or release.
 - **Authority truth:** no teaching copy, technique recommendation, curriculum
   edit, work order, publication or deployment occurred.
 
+### Material refinement — source is from 2025
+
+- **Ali's warning:** some lecture concepts may now be out of date and must be
+  investigated rather than copied into LAiDIES.
+- **Source boundary:** `2025` is user-supplied; exact lecture identity,
+  publication date and timestamps remain unknown.
+- **Revised status:** the entire stream is `FRESHNESS HOLD`. Each note must
+  preserve its 2025 claim, distinguish durable mechanism from dated technique
+  or product behaviour, compare current primary evidence, reproduce the claim
+  on a bounded current task where feasible, and record what changed.
+- **Allowed outcomes:** `STILL CURRENT`, `CURRENT WITH LIMITS`, `SUPERSEDED`,
+  `CONTESTED` or `UNVERIFIED`, followed by Learning's content relationship
+  ruling.
+- **Authority truth:** investigation is required but has not begun because the
+  exact lecture and claim details are not yet available. No content was updated.
+
 ## Receipt template
 
 ### IIR-YYYYMMDD-NNN — Short descriptive label

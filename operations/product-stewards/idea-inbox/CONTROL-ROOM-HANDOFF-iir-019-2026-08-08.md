@@ -88,3 +88,19 @@ exact Stanford source/timestamp, current research and provider guidance, and a
 bounded appropriate-task comparison. Next trigger is Learning's
 `LINK/EXTEND/CREATE/DECLINE` ruling or Ali's next lecture concept (`NOTE-002`).
 No public, deploy, spend, private-data or Ali-authority action occurred.
+
+## Material update — 2025 source freshness hold
+
+**Status:** `CAPTURE STREAM OPEN / FRESHNESS HOLD / OWNER ACCEPTANCE PENDING`
+
+Ali identified the lecture as a 2025 source and warned that some concepts may
+be outdated. Every note now requires preservation of the exact historical
+claim, current primary-source comparison, bounded reproduction where feasible,
+and one of `STILL CURRENT`, `CURRENT WITH LIMITS`, `SUPERSEDED`, `CONTESTED` or
+`UNVERIFIED` before Learning can admit it.
+
+No investigation has started because the exact lecture identity, timestamps
+and full claims remain unavailable. This does not block live capture. Acceptance
+owner is Learning System & Concepts; trusted-course/practitioner source owners
+handle verification after the missing IIR-013 dossier is recovered or ruled.
+No foreground, public, deploy, spend, private-data or Ali-authority change.

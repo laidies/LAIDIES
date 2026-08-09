@@ -9,6 +9,8 @@
 **Source supplied by Ali:** a Stanford lecture described as being about
 self-learning agents
 
+**Source year supplied by Ali:** `2025`
+
 **Source identity:** `UNKNOWN` — exact lecture title, course, speaker and URL
 have not yet been supplied or verified
 
@@ -25,6 +27,34 @@ Stanford lecturer is not automatically correct, current, useful for beginners
 or approved for LAiDIES. Current product claims require primary-source
 verification, and proposed techniques require a bounded LAiDIES test where
 feasible.
+
+## Freshness investigation contract
+
+Because the lecture is from 2025, every note carries a default freshness hold.
+Age alone does not make a claim wrong, but institutional reputation and a 2025
+publication date cannot prove that advice still applies to current models,
+products or research.
+
+For each note, the owner must:
+
+1. preserve the lecturer's exact claim, example and timestamp rather than
+   modernizing it from memory;
+2. label the claim as a durable mechanism, historical finding, model-specific
+   technique, product behaviour, benchmark result, forecast or open question;
+3. find the current primary paper, official documentation or other appropriate
+   authority and record what changed since 2025;
+4. reproduce a technique on a bounded current task where feasible, recording
+   model/product, version or date, settings, prompt, result, cost and failure
+   cases;
+5. compare the current evidence with existing LAiDIES teaching and identify
+   `STILL CURRENT`, `CURRENT WITH LIMITS`, `SUPERSEDED`, `CONTESTED` or
+   `UNVERIFIED`;
+6. route only the distinct learner value to one canonical home; and
+7. assign a freshness date, recheck trigger and correction/retirement path.
+
+Do not update a lesson merely because newer wording exists. Update when the
+evidence changes the learner's mental model, decision, safe practice or ability
+to transfer the concept.
 
 ## Per-note fields
 
@@ -108,11 +138,12 @@ be reopened merely because the term was heard in a lecture.
 SUNNYVAiLE High; Editorial Accuracy; current-provider source/freshness owners.
 
 **Verification required before teaching:** exact Stanford lecture identity and
-timestamp; the lecturer's actual definition/example; current primary research
-for the chain-of-thought technique; current provider documentation for visible
-reasoning and reasoning-model behaviour; a bounded comparison on an appropriate
-current task; and explicit distinction between answer quality, explanation
-quality and evidence of correctness.
+timestamp; the lecturer's actual 2025 definition/example; current primary
+research for the chain-of-thought technique; current provider documentation for
+visible reasoning and reasoning-model behaviour; an explicit 2025-versus-now
+change assessment; a bounded comparison on an appropriate current task; and
+explicit distinction between answer quality, explanation quality and evidence
+of correctness.
 
 **Return trigger:** when the lecture source detail is available or the current
 prompting freshness review opens, Learning returns `LINK`, `EXTEND`, `CREATE` or

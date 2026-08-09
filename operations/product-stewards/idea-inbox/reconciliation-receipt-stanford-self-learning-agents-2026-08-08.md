@@ -56,3 +56,17 @@ provider behaviour require verification, and one bounded current-task
 comparison must distinguish answer quality, explanation quality and evidence
 of correctness. No public technique recommendation or content work order was
 created.
+
+## Source-year refinement — 2025 freshness hold
+
+Ali identified the lecture as being from 2025 and explicitly warned that some
+concepts may be out of date. This converts the complete stream from ordinary
+source verification to a claim-level freshness investigation. Each note must
+preserve the historical claim and then compare it with current primary evidence
+and a bounded current reproduction where feasible. Institutional reputation
+does not waive this requirement.
+
+The investigation has not started because the exact lecture identity,
+timestamps and full claims are not yet available. This is an evidence-input
+hold, not a request for Ali to organize the notes; she can continue sending
+them normally.
