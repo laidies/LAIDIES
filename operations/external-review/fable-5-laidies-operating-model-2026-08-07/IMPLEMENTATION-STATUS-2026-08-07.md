@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 15:20 PDT
+**Evidence time:** 2026-08-08 21:42 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -29,7 +29,8 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Enforce work-type WIP, not only thread count | PASS CURRENT | `scripts/check-work-wip-limits.mjs`; one building, one content item, two read-only research lanes, one Ali decision and the stricter two-active-item cap are checked from events; duplicate-building fixture fails |
 | Replace prose handoff requirements with one checked artifact shape | PASS ADDITIVE | `operations/runtime/artifact-handoff.schema.json`; `scripts/check-artifact-handoff.mjs`; stale artifact bytes fail. The prose Control Room contract remains until consumer parity. |
 | Derive the ten Fable metrics without false zeroes | PASS MECHANISM / COVERAGE INCOMPLETE | `scripts/project-work-metrics.mjs`; incomplete event coverage reports unavailable, never zero; calibrated complete fixture derives first-pass acceptance and cycle time |
-| Make the two-week retirement condition executable | PASS CHECKER / CURRENT PARITY FAIL | `scripts/check-work-event-parity.mjs` rejects retirement while any active legacy work ID is absent from the event projection; calibrated fixture passes complete coverage and rejects one missing item |
+| Make the two-week retirement condition executable | PASS CHECKER / OBSERVATION WINDOW ACTIVE | `scripts/check-work-event-parity.mjs` passes current ID coverage; `operations/runtime/work-event-parity-window.json` started the continuous observation window at 2026-08-08T09:58:12-07:00 and forbids retirement review before 2026-08-22T09:58:12-07:00 |
+| Convert the dirty tree into exact recovery review packages | PASS MECHANISM / NO CLEANUP AUTHORITY | `scripts/plan-repository-recovery-packages.mjs` groups all dirty inventory rows by product or operating domain and keeps unknown, historical and generated material fail-closed; its calibration rejects missing reconciliation by holding the row rather than guessing |
 
 ## Deliberately not called complete
 
@@ -74,7 +75,9 @@ integrated” cleanup. Exact owner/package review remains the next recovery lane
 
 The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 local enforcement/configuration checks passed, including `git diff --check`; the explicit whole-system command failed only on the five work-resolution records and the locked 120px Library regression listed above. The repository inventory was refreshed to 65,888 files / 84,333,897,353 bytes with 5,261 `UNKNOWN` paths; `UNKNOWN` remains immovable.
 
-The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. The live parity check correctly fails because 14 active legacy work IDs are not yet represented in the append-only event source. That failure prevents the two-week retirement clock from being falsely started. The current metrics projector consequently reports nine metrics unavailable rather than claiming zero performance.
+The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. Legacy IDs were subsequently admitted as explicit migration snapshots without inventing lifecycle history. Current parity passes (`active_legacy=14`, `projected=16`), and the observation window now forbids retirement review before 2026-08-22T09:58:12-07:00. The metrics projector continues to report unavailable measures where event coverage cannot support a value rather than claiming false zeroes.
+
+The 21:42 PDT storage-recovery continuation converted the 9,792-path dirty inventory into 353 bounded review packages. It did not call any path junk or safe to delete: 4,299 unknowns remain immovable, 32 historical/rejected paths remain preserved behind archive gates and 2,810 generated/ignored paths stay out of Git. The queue makes product-by-product recovery possible without bulk staging the shared tree.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 

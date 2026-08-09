@@ -31,8 +31,10 @@ write(baseline, 'deleted.txt', 'old\n');
 const rows = ['match.txt', 'different.txt', 'new.txt', 'deleted.txt'].map(relative => ({
   path: relative,
   disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT',
+  classification: relative === 'deleted.txt' ? 'HISTORICAL' : 'ACTIVE_SOURCE',
   git_state: relative === 'deleted.txt' ? 'TRACKED_DELETED' : 'UNTRACKED',
-  bytes: 4
+  bytes: 4,
+  reference_count: relative === 'deleted.txt' ? 2 : 0
 }));
 fs.writeFileSync(inventoryPath, `${JSON.stringify({ generated_at: 'fixture', rows })}\n`);
 
@@ -50,6 +52,8 @@ assert.equal(byPath.get('match.txt').comparison, 'MATCHES_BASELINE');
 assert.equal(byPath.get('different.txt').comparison, 'DIFFERS_FROM_BASELINE');
 assert.equal(byPath.get('new.txt').comparison, 'BASELINE_MISSING');
 assert.equal(byPath.get('deleted.txt').comparison, 'SOURCE_MISSING');
+assert.equal(byPath.get('deleted.txt').classification, 'HISTORICAL');
+assert.equal(byPath.get('deleted.txt').reference_count, 2);
 assert.deepEqual(report.comparison_counts, {
   MATCHES_BASELINE: 1,
   DIFFERS_FROM_BASELINE: 1,
