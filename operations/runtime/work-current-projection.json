@@ -14,7 +14,7 @@
       "admitted_at": "2026-08-07T21:18:00-07:00",
       "started_at": "2026-08-07T21:19:00-07:00",
       "resolved_at": null,
-      "last_event_at": "2026-08-08T21:44:00-07:00",
+      "last_event_at": "2026-08-08T23:35:00-07:00",
       "evidence": [
         {
           "evidence_id": "EV-FABLE-REVIEW-DOOR",
@@ -199,6 +199,53 @@
               "operations/painpoints-log.md"
             ]
           }
+        },
+        {
+          "evidence_id": "EV-FABLE-FIRST-RECOVERY-RULING",
+          "verdict": "PASS_LOCAL",
+          "source_commit": "dee033c973f3459d15fe13ed310a123f3a678218",
+          "paths": [
+            "operations/storage/repository-recovery-package-rulings.json",
+            "scripts/plan-repository-recovery-packages.mjs",
+            "scripts/test-plan-repository-recovery-packages.mjs",
+            "operations/product-stewards/VISUAL-ADMISSION-PROTOCOL.md",
+            "operations/product-stewards/learning-content-ecosystem/BUILD-PACKET-shared-visual-media-quality-ratchet-2026-08-07.md",
+            "operations/product-stewards/learning-content-ecosystem/visual-media-producer-contract.schema.json",
+            "operations/product-stewards/learning-content-ecosystem/visual-media-quality-exemplars.json",
+            "operations/product-stewards/learning-content-ecosystem/visual-media-review.schema.json",
+            "package.json"
+          ],
+          "observed": {
+            "current_visual_media_paths_recovered": 5,
+            "stale_or_unreconciled_paths_held": 4,
+            "ready_packages": 129,
+            "ready_paths": 497
+          },
+          "tests": [
+            "npm run test:repository-recovery-packages",
+            "npm run test:content-visual-media-quality",
+            "npm run ci",
+            "node --no-concurrent-recompilation scripts/test-operational-integrity.mjs"
+          ],
+          "boundary": "Internal recovery and calibrated visual-media gate only. No Library visitor-facing file, deployment, publication, spend, destructive cleanup or Ali release authority used.",
+          "worktree_truth": {
+            "state": "COMMITTED",
+            "commit": "dee033c973f3459d15fe13ed310a123f3a678218",
+            "paths": [
+              "package.json",
+              "scripts/plan-repository-recovery-packages.mjs",
+              "scripts/test-plan-repository-recovery-packages.mjs",
+              "operations/storage/repository-recovery-package-rulings.json",
+              "operations/storage/RECOVERY-STATUS-2026-08-07.md",
+              "operations/product-stewards/VISUAL-ADMISSION-PROTOCOL.md",
+              "operations/product-stewards/learning-content-ecosystem/BUILD-PACKET-shared-visual-media-quality-ratchet-2026-08-07.md",
+              "operations/product-stewards/learning-content-ecosystem/visual-media-producer-contract.schema.json",
+              "operations/product-stewards/learning-content-ecosystem/visual-media-quality-exemplars.json",
+              "operations/product-stewards/learning-content-ecosystem/visual-media-review.schema.json",
+              "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md",
+              "operations/painpoints-log.md"
+            ]
+          }
         }
       ],
       "dependencies": [
@@ -232,7 +279,7 @@
         }
       ],
       "metric_events": [],
-      "last_event_id": "WKE-20260808-dirty-tree-package-queue"
+      "last_event_id": "WKE-20260808-first-recovery-ruling"
     },
     {
       "work_id": "WRK-20260802-odc-101-teaching-design",
