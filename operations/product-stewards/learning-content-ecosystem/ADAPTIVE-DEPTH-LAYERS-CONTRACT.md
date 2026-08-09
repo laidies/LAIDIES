@@ -1,4 +1,4 @@
-# LAiDIES Adaptive Depth Layers Contract
+# LAiDIES Nerd-O-Meter: Adaptive Depth Layers Contract
 
 **Status:** DECIDED DIRECTION / SPECIFIED / NOT IMPLEMENTED
 
@@ -96,8 +96,19 @@ practical exercise, or become a second source of concept truth.
 
 - Present one accessible three-position control with the exact working labels
   `Standard`, `Tell me more`, and `Full nerd alert!`.
+- The Nerd-O-Meter is present in every reading page/view and remains in the
+  current viewport throughout the reading journey. Use a sticky reader bar,
+  compact edge control or equivalent surface-native treatment; never require a
+  reader to scroll back to a chapter opening, reopen contents, visit settings
+  or navigate away from the current page.
 - Default to Standard on a first visit. A person can change depth at any point
-  without losing reading position.
+  without losing reading position. The nearest stable section anchor remains
+  aligned after sections are revealed or hidden, so the text beneath the
+  reader does not jump unpredictably.
+- The persistent control must not cover prose, footnotes, images, captions,
+  navigation, selection handles or browser/assistive controls at desktop,
+  intermediate or mobile widths. It may compact its presentation but never
+  remove a setting or bury the control in a menu.
 - The control changes the current item, not the reader's identity. Any later
   saved preference is voluntary, editable, private and topic- or surface-aware;
   it cannot be treated as an ability score.
@@ -105,6 +116,9 @@ practical exercise, or become a second source of concept truth.
   visibly identified as added depth without looking locked or remedial.
 - Keyboard, screen-reader and reduced-motion use receive the same control and
   an announcement of what changed. Focus does not jump when sections appear.
+  The control has one stable accessible name, exposes the selected position and
+  remains reachable in a predictable landmark without forcing repeated tabbing
+  through the whole page.
 - Contents, progress and time-to-read update truthfully for the selected depth.
 - Print/download declares the chosen depth and includes all lower-depth
   sections. Sources and corrections are never excluded.
@@ -122,8 +136,11 @@ explanation must prove:
 3. Full nerd alert! remains understandable and technically accurate;
 4. switching preserves place, comprehension, accessibility and correction
    truth;
-5. every mode is derived deterministically from the same canonical source; and
-6. the full authored and freshness burden is sustainable for the owner.
+5. the control remains visible and operable at the beginning, middle and end of
+   every representative desktop and mobile reading page without obscuring the
+   content;
+6. every mode is derived deterministically from the same canonical source; and
+7. the full authored and freshness burden is sustainable for the owner.
 
 Measure mode changes and section completion only as privacy-safe aggregate
 behaviour. A click on Full nerd alert! is curiosity evidence, not proof of
@@ -140,6 +157,8 @@ Hold the implementation if:
 - content is generated on demand;
 - a mode is framed as a learner rank or permanent skill level;
 - the toggle loses reading position or is inaccessible;
+- the reader must scroll or navigate elsewhere to reach the control, or the
+  persistent control obscures meaning-bearing content;
 - deeper sections merely add jargon, citations or length; or
 - the surface owner cannot maintain and correct all visible layers.
 

@@ -889,7 +889,7 @@ The preferred pattern is choice by job and desired support:
   change the conclusion.
 
 **2026-08-08 refinement:** substantial learning items may implement those jobs
-through one canonical three-position **Nerd Meter**: `Standard`, `Tell me more`
+through one canonical three-position **Nerd-O-Meter**: `Standard`, `Tell me more`
 and `Full nerd alert!`. The modes reveal cumulative prewritten sections inside
 the same book, class or explainer; they are not separate versions. Standard is
 already complete and includes examples and practical application. Higher modes

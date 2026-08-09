@@ -109,7 +109,7 @@ Unfinished features must not look live. Where something isn't ready, offer a rea
 
 Captured and preserved, not active:
 
-- **Trust Layer:** Claims Ledger; the sitewide **Nerd Meter** depth pattern (`Standard` / `Tell me more` / `Full nerd alert!`, cumulative prewritten sections in one canonical item, never live-generated); source hierarchy + freshness system; the full **Receipts Coven** build (Hannah Fry = "Keeper of the Probabilities" seed entry). The depth pattern is specified at `operations/product-stewards/learning-content-ecosystem/ADAPTIVE-DEPTH-LAYERS-CONTRACT.md`; implementation remains uncommissioned.
+- **Trust Layer:** Claims Ledger; the sitewide **Nerd-O-Meter** depth pattern (`Standard` / `Tell me more` / `Full nerd alert!`, cumulative prewritten sections in one canonical item, never live-generated); source hierarchy + freshness system; the full **Receipts Coven** build (Hannah Fry = "Keeper of the Probabilities" seed entry). The depth pattern is specified at `operations/product-stewards/learning-content-ecosystem/ADAPTIVE-DEPTH-LAYERS-CONTRACT.md`; implementation remains uncommissioned.
 - **Sycophancy lesson** ("the You're So Right, Babe problem") → Episode 12.
 - **Council Operating System** (14-role review gates) — strong future process; not an active build.
 
