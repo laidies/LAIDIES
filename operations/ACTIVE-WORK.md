@@ -1,5 +1,13 @@
 # Active work
 
+> **2026-08-09 AI Fundamentals authorial-source correction:** Ali's complete
+> authored Introduction is now the locked writing, voice and intent base for
+> the next AI Fundamentals 101 candidate. The agent-written R5 proof is
+> superseded as a writing base and remains comparison evidence only. Producers
+> must fact-check and copy-edit Ali's prose in place rather than translating it
+> into a generic explainer. No successor prose, admission, learner test,
+> render, deployment or publication exists yet.
+
 > **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
 > every prior V3 verdict remains invalid. A blank-page, question-led full-book
 > route and exact R3 Introduction now pass the current producer contract,

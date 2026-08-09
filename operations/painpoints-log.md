@@ -14649,3 +14649,30 @@ while remaining falsely unfinished in the launch record.
   ingredient and still have no voice.
 - **Publication status:** INTERNAL PRODUCTION-SYSTEM CORRECTION / R5 INTRO
   PROOF NOT ADMITTED, RENDERED, DEPLOYED OR PUBLISHED.
+
+## BTB-465 — Treating the author's prose as inspiration erases the author
+
+- **Date:** 2026-08-09
+- **Area:** Author-led learning prose and successor generation.
+- **Failure risk:** Ali can supply the exact relationship, cadence, humour and
+  purpose the book needs, yet an agent can abstract it into a style brief and
+  produce a technically neater replacement that no longer sounds like her or
+  LAiDIES.
+- **Root cause:** The R5 producer treated Ali's complete introduction as a
+  source of ingredients instead of the actual writing base. Review then judged
+  the replacement against extracted attributes rather than asking whether the
+  producer had preserved the authorial source.
+- **Prevention rule:** When Ali supplies prose and designates it as the writing
+  standard, producers edit that exact prose in place. They may fact-check,
+  copy-edit, remove genuine repetition and repair teaching connections, but
+  may not paraphrase the whole artifact, flatten its cadence or substitute
+  agent-written slogans. Any material rewrite requires explicit authorial
+  choice, not a self-authored voice PASS.
+- **Durable correction:** D-2026-08-09-112 locks the complete Ali-authored AI
+  Fundamentals Introduction as the production base and positive calibration
+  artifact. R5 is superseded as a writing base, and the shared writing lock
+  now distinguishes author-preserving editing from style imitation.
+- **Possible Behind the Build angle:** Why a perfect style summary can still
+  destroy the voice it is trying to preserve.
+- **Publication status:** INTERNAL AUTHORIAL-SOURCE CORRECTION / NO SUCCESSOR
+  PROSE, ADMISSION, RENDER, DEPLOYMENT OR PUBLICATION.

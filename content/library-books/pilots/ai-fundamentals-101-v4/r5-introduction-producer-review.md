@@ -1,6 +1,10 @@
 # AI Fundamentals 101 R5 introduction producer review
 
-Status: `PRODUCER REVIEWED / READY FOR ALI DIRECTION REVIEW / NOT ADMITTED`
+Status: `SUPERSEDED AS WRITING BASE / PRESERVED FOR COMPARISON / NOT ADMITTED`
+
+Ali selected her complete authored draft as the writing standard on 2026-08-09.
+This agent rewrite must not supply the successor prose or silently re-enter
+production.
 
 Exact prose SHA-256: `e953510437ea6c80deb7e39d8ea9d114b941302ee6d9a31e6c872a294d3c421a`
 

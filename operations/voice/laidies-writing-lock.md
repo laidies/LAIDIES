@@ -17,6 +17,14 @@ Match that level of warmth, specificity, humour, pacing, clarity, usefulness, re
 
 If a draft does not feel like it belongs beside Episode 1, it is not done.
 
+For **AI Fundamentals 101**, Ali's complete authored introduction at
+`operations/product-stewards/library/AI-FUNDAMENTALS-101-ALI-WRITING-STANDARD-2026-08-09.md`
+is the direct writing standard. Producers edit that text for verified facts,
+grammar, Canadian English and genuine repetition; they do not rewrite it into
+a generic explainer and add selected jokes back afterward. A cleaner draft
+that loses its cadence, conviction, three-part purpose or conversational
+relationship fails.
+
 Core Voice
 
 LAiDIES sounds like your **smartest, most enthusiastic, passionate and funny
