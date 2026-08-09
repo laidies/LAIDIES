@@ -75,7 +75,9 @@ assert.equal(inventory.rows.find(row => row.path === 'operations/product-steward
 assert.equal(inventory.rows.find(row => row.path === 'operations/product-stewards/audience-growth/campaigns/week-01/assets/card.png')?.disposition, 'KEEP_OUT_OF_GIT');
 assert.equal(inventory.rows.find(row => row.path === 'assets/__storage-inventory-calibration-unknown__.bin')?.classification, 'UNKNOWN');
 assert.equal(inventory.rows.find(row => row.path === 'assets/__storage-inventory-calibration-unknown__.bin')?.disposition, 'HOLD_UNKNOWN');
-assert.equal(inventory.rows.find(row => row.path === 'build/tracked.log')?.disposition, 'REVIEW_TRACKED_GENERATED_FILE');
+assert.equal(inventory.rows.find(row => row.path === 'build/tracked.log')?.classification, 'GENERATED');
+assert.equal(inventory.rows.find(row => row.path === 'build/tracked.log')?.git_state, 'TRACKED_MODIFIED');
+assert.equal(inventory.rows.find(row => row.path === 'build/tracked.log')?.disposition, 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF');
 assert.equal(inventory.rows.find(row => row.path === 'build/ignored.log')?.disposition, 'KEEP_OUT_OF_GIT');
 assert.ok(summary.dirty_file_count > 0);
 assert.ok(summary.disposition_counts.REVIEW_FOR_EXACT_PACKAGE_COMMIT > 0);

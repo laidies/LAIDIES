@@ -71,7 +71,7 @@ function disposition(classification, state) {
   if (state === 'IGNORED') return 'KEEP_OUT_OF_GIT';
   if (classification === 'UNKNOWN') return 'HOLD_UNKNOWN';
   if (classification === 'GENERATED') return state === 'TRACKED_MODIFIED'
-    ? 'REVIEW_TRACKED_GENERATED_FILE'
+    ? 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF'
     : 'KEEP_OUT_OF_GIT';
   if (classification === 'REJECTED' || classification === 'HISTORICAL') {
     return 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF';

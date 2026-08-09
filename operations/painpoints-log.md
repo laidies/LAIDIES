@@ -15467,6 +15467,11 @@ while remaining falsely unfinished in the launch record.
   `operations/design-audits/` that were still labelled active source. Those
   exact rendered-media locations are now generated evidence, with calibrated
   fixtures, so preserved QA pixels do not masquerade as commit candidates.
+  The same queue then exposed 27 modified files already classified as generated
+  but still offered for source commit solely because Git tracked an older copy.
+  Modified generated evidence now remains preserved behind the restore/archive
+  gates; a calibrated tracked-modification fixture prevents that state from
+  being confused with active source work again.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
