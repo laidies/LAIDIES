@@ -119,6 +119,27 @@ try {
       mode: "FULL",
       surfaceAdaptation: "Use the benchmark as an explanation-quality lens for one connected written explanation, not as a copied talk format.",
       imitationBoundary: "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+      readerExperienceDesign: {
+        dominantRelationship: "A smart, funny and enthusiastic friend helps the reader see why the mechanism matters, without speaking like a course module.",
+        readerScaffolding: "HIDDEN_IN_PROSE",
+        worldIntegration: {
+          mode: "EMBEDDED_AND_LOAD_BEARING",
+          locationOrCanon: "The LIBRAiRY and NewsStand",
+          teachingJob: "The LIBRAiRY owns the durable mechanism while the NewsStand applies it to current claims.",
+          plannedEvidence: "Route the reader from the enduring system map to one current claim she can inspect."
+        },
+        voiceAcrossArtifact: {
+          beginning: "Open in direct conversation with a specific human stake and point of view.",
+          middle: "Carry warmth, enthusiasm and precise humour through the mechanism itself.",
+          ending: "Land on a useful action in the same relationship rather than switching to assessment language."
+        },
+        purposeThreads: {
+          practicalUse: "Show how system understanding improves an actual result.",
+          informationJudgment: "Show how the same understanding exposes an unsupported claim.",
+          civicParticipation: "Connect the mechanism to a community or public discussion.",
+          consequentialAgency: "Leave the reader able to challenge a consequential system choice."
+        }
+      },
       dimensions: {
         humanQuestion: { disposition: "APPLY", reason: "The work decision gives the mechanism a human purpose.", plannedEvidence: "Open with the manager's consequential policy question." },
         usefulCuriosity: { disposition: "APPLY", reason: "A prediction exposes the reader's initial model.", plannedEvidence: "Ask which part of the system can actually support the promise before revealing the answer." },
@@ -164,6 +185,10 @@ try {
   assert.match(inspect(nameOnlyBenchmark).join("\n"), /cannot be satisfied by naming Hannah Fry/);
   const imitation = structuredClone(contract); imitation.communicationDesign.imitationBoundary = "WRITE_IN_HANNAH_FRY_STYLE";
   assert.match(inspect(imitation).join("\n"), /must prohibit Hannah Fry voice or persona imitation/);
+  const exposedScaffolding = structuredClone(contract); exposedScaffolding.communicationDesign.readerExperienceDesign.readerScaffolding = "SHOW_OBJECTIVES";
+  assert.match(inspect(exposedScaffolding).join("\n"), /hide internal learning scaffolding/);
+  const missingPurposeThread = structuredClone(contract); delete missingPurposeThread.communicationDesign.readerExperienceDesign.purposeThreads.civicParticipation;
+  assert.match(inspect(missingPurposeThread).join("\n"), /purposeThreads.civicParticipation is required/);
   const missingArc = structuredClone(contract); delete missingArc.communicationDesign.explanationArc;
   assert.match(inspect(missingArc).join("\n"), /default substantial-explanation arc/);
   const wrongArcOrder = structuredClone(contract); wrongArcOrder.communicationDesign.explanationArc.order = "REVEAL_THEN_EXPLAIN";
@@ -218,7 +243,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=21 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 production_method=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=23 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 reader_route=1 production_method=1 section_goals=1 outcome_questions=1 section_map=1 prerequisite_order=1 system_synthesis=1 connected_chapters=1 hidden_scaffolding=1 four_part_purpose=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

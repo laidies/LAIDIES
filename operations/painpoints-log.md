@@ -14625,3 +14625,27 @@ while remaining falsely unfinished in the launch record.
   taught in the wrong order.
 - **Publication status:** INTERNAL SOURCE-AND-CURRICULUM CORRECTION / NO
   RENDER, DEPLOYMENT OR PUBLICATION.
+
+## BTB-464 — Voice ingredients can still produce a generic textbook
+
+- **Date:** 2026-08-09
+- **Area:** Foundational learning generation and exact-prose review.
+- **Failure risk:** A producer can include a human scene, jokes, practical
+  examples and every named Hannah Fry communication move while the complete
+  artifact still feels standard, boring and outside LAiDIES.
+- **Root cause:** Generation designed component presence rather than the
+  dominant reading relationship. Review accepted isolated excerpts as proof
+  of voice, compressed the reason to care into a preface and allowed internal
+  learning objectives into reader prose.
+- **Prevention rule:** Bind sustained voice at beginning, middle and ending;
+  carry practical use, information judgment, civic participation and
+  consequential agency; hide internal scaffolding; and give each LAiDIES-world
+  reference a real learning-system job. Review requires distributed exact
+  evidence and rejects one-line voice certification.
+- **Durable correction:** D-2026-08-09-111, CQX-BAD-011, Ali's positive style
+  seed and revised producer/semantic checkers now enforce those conditions.
+  The old R4 review fails the revised gate.
+- **Possible Behind the Build angle:** How a document can contain every voice
+  ingredient and still have no voice.
+- **Publication status:** INTERNAL PRODUCTION-SYSTEM CORRECTION / R5 INTRO
+  PROOF NOT ADMITTED, RENDERED, DEPLOYED OR PUBLISHED.

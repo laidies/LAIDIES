@@ -51,7 +51,7 @@ function validOrder() {
   const payloadPath = "content/fixture-payload.html";
   const renderedPath = "evidence/fixture-render.png";
   const observationPaths = [1, 2, 3].map(index => `evidence/reader-observation-${index}.md`);
-  const payloadBody = "<main>A real work question moves through context and evidence to a checked decision the reader can use elsewhere.</main>\n";
+  const payloadBody = "<main>A real work question begins with a person who needs a useful answer. The product moves the request through context and a model, while the current policy remains the evidence for a checked decision. A little warmth keeps the mechanism human and specific. The LIBRAiRY preserves the durable explanation; the NewsStand applies it to a current claim. The reader can now challenge a consequential decision and use the same check elsewhere.</main>\n";
   write(payloadPath, payloadBody);
   write(renderedPath, "fixture render\n");
   for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained the context, evidence and human decision in a different case.\n`);
@@ -155,6 +155,13 @@ function validOrder() {
       mode: "FULL",
       surfaceAdaptation: "Connected written explanation, not a copied talk format.",
       imitationBoundary: "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+      readerExperienceDesign: {
+        dominantRelationship: "A smart, funny and enthusiastic friend carries the mechanism without sounding like a course module.",
+        readerScaffolding: "HIDDEN_IN_PROSE",
+        worldIntegration: { mode: "EMBEDDED_AND_LOAD_BEARING", locationOrCanon: "The LIBRAiRY and NewsStand", teachingJob: "Separate durable explanation from current application.", plannedEvidence: "The LIBRAiRY preserves the mechanism and the NewsStand applies it." },
+        voiceAcrossArtifact: { beginning: "Open in direct human conversation.", middle: "Carry warmth through the mechanism.", ending: "Land in the same relationship with a useful action." },
+        purposeThreads: { practicalUse: "Improve a real answer.", informationJudgment: "Check support for a claim.", civicParticipation: "Apply the mechanism to public discussion.", consequentialAgency: "Challenge a consequential system choice." }
+      },
       dimensions: {
         humanQuestion: { disposition: "APPLY", reason: "A consequential work question gives purpose.", plannedEvidence: "Open with the real work question." },
         usefulCuriosity: { disposition: "APPLY", reason: "Prediction reveals the initial model.", plannedEvidence: "Ask what supports the decision before the answer." },
@@ -178,8 +185,8 @@ function validOrder() {
     representativeProofPlan: { highestRisk: "understanding", plannedProof: "one section", acceptanceOutcome: "reader transfers it" },
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }
   }));
-  const excerpt = "A real work question moves through context and evidence";
-  const outcomeNames = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "systemModelReconstruction", "usefulAction", "analogyIntegrity"];
+  const excerpt = "A real work question begins with a person who needs a useful answer";
+  const outcomeNames = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "dominantVoiceAcrossArtifact", "purposeEarnedAcrossOpening", "readerScaffoldingHidden", "laidiesWorldIntegration", "explainBack", "unseenTransfer", "systemModelReconstruction", "usefulAction", "analogyIntegrity"];
   const review = stage => {
     const reviewerPrincipalId = stage === "PRODUCER_SELF_REVIEW" ? "maker" : "independent-reader-principal";
     const isProducer = stage === "PRODUCER_SELF_REVIEW";
@@ -193,6 +200,14 @@ function validOrder() {
           : { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "fixture-reader-admin", participants: observationPaths.map((observationPath, index) => ({ participantId: `reader-${index + 1}`, prompt: `Test ${name}.`, verbatimResponse: `Reader ${index + 1} explained context and evidence.`, expectedEvidence: "Names context and evidence.", observedAt: `2026-08-07T06:5${index}:00-07:00`, observationBinding: { path: observationPath, sha256: sha256(path.join(root, observationPath)) } })) } }
         : {})
     }]));
+    outcomes.dominantVoiceAcrossArtifact.artifactEvidence = [
+      { excerpt: "A real work question begins with a person", locator: "fixture-payload.html:beginning" },
+      { excerpt: "A little warmth keeps the mechanism human and specific.", locator: "fixture-payload.html:middle" },
+      { excerpt: "challenge a consequential decision and use the same check elsewhere", locator: "fixture-payload.html:ending" }
+    ];
+    outcomes.purposeEarnedAcrossOpening.purposeThreads = Object.fromEntries(
+      ["practicalUse", "informationJudgment", "civicParticipation", "consequentialAgency"].map(name => [name, { observation: `${name} is present.`, artifactEvidence: [{ excerpt: "The reader can now challenge a consequential decision", locator: "fixture-payload.html:ending" }] }])
+    );
     outcomes.analogyIntegrity.analogyUsed = false;
     return ({
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: id, stage, contentClass: "EXPLANATION", surface: "LIBRAIRY", maker: "maker",
@@ -202,7 +217,7 @@ function validOrder() {
     reverseBrief: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "A work question.", surfaceJob: "Durable explanation.", desiredReaderFeeling: "Oh, I get it now." },
     outcomes,
     failureFamilies: Object.fromEntries(allFailureFamilies.map(name => [name, { present: false, observation: `${name} absent.`, artifactLocator: "fixture-payload.html:1" }])),
-    factualReview: { disposition: "CLAIMS_REVIEWED", sourceBindings: [{ path: sourcePath, sha256: sha256(path.join(root, sourcePath)) }], claimMap: [{ claimId: "fixture-context-evidence", status: "VERIFIED", candidateEvidence: [{ excerpt: "context and evidence to a checked decision", locator: "fixture-payload.html:1" }], sourceBinding: { path: sourcePath, sha256: sha256(path.join(root, sourcePath)) }, sourceEvidence: [{ excerpt: "context and evidence support a checked decision", locator: "source.md:1" }], scopeAndFreshness: "Synthetic fixture; recheck on source change." }], reviewedThrough: "2026-08-07", nextTrigger: "source changes", correctionOwner: "fixture-owner" },
+    factualReview: { disposition: "CLAIMS_REVIEWED", sourceBindings: [{ path: sourcePath, sha256: sha256(path.join(root, sourcePath)) }], claimMap: [{ claimId: "fixture-context-evidence", status: "VERIFIED", candidateEvidence: [{ excerpt: "context and a model, while the current policy remains the evidence", locator: "fixture-payload.html:1" }], sourceBinding: { path: sourcePath, sha256: sha256(path.join(root, sourcePath)) }, sourceEvidence: [{ excerpt: "context and evidence support a checked decision", locator: "source.md:1" }], scopeAndFreshness: "Synthetic fixture; recheck on source change." }], reviewedThrough: "2026-08-07", nextTrigger: "source changes", correctionOwner: "fixture-owner" },
     ratchet: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0, reviewIssues: 0, reviewCycles: 1, priorComparable: { reviewIssues: 1, reviewCycles: 2 }, onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }, lineage: { kind: "SUCCESSOR", predecessorCandidateId: "fixture-prior" }, learningDisposition: { disposition: "NO_NEW_DEFECT", rationale: "Synthetic valid fixture." }, verdict: "PASS", limitations: []
   });
   };

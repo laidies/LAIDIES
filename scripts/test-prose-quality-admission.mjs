@@ -34,7 +34,7 @@ try {
   }));
 
   const excerpt = candidateBody.slice(0, 80);
-  const required = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "systemModelReconstruction", "usefulAction", "analogyIntegrity"];
+  const required = ["plainClarity", "technicalCoherence", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "dominantVoiceAcrossArtifact", "purposeEarnedAcrossOpening", "readerScaffoldingHidden", "laidiesWorldIntegration", "explainBack", "unseenTransfer", "systemModelReconstruction", "usefulAction", "analogyIntegrity"];
   const observedParticipants = observationPaths.map((observationPath, index) => ({
     participantId: `reader-${index + 1}`,
     prompt: "Explain the mechanism and use it in a different case.",
@@ -47,6 +47,17 @@ try {
     verdict: "PASS", observation: `${name} is demonstrated in the exact prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }],
     ...(["explainBack", "unseenTransfer", "systemModelReconstruction"].includes(name) ? { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "reader-study-admin", participants: observedParticipants } } : {})
   }]));
+  outcomes.dominantVoiceAcrossArtifact.artifactEvidence = [
+    { excerpt: candidateBody.slice(0, 35), locator: "candidate.md:beginning" },
+    { excerpt: "Check the promised date against the policy before sending.", locator: "candidate.md:middle" },
+    { excerpt: "The point feels practical, specific and a little fun—not like homework.", locator: "candidate.md:ending" }
+  ];
+  outcomes.purposeEarnedAcrossOpening.purposeThreads = Object.fromEntries(
+    ["practicalUse", "informationJudgment", "civicParticipation", "consequentialAgency"].map(name => [name, {
+      observation: `${name} is carried by the work-policy decision.`,
+      artifactEvidence: [{ excerpt: "Check the promised date against the policy before sending.", locator: "candidate.md:middle" }]
+    }])
+  );
   outcomes.analogyIntegrity = {
     ...outcomes.analogyIntegrity,
     analogyUsed: true,
@@ -92,6 +103,10 @@ try {
   assert.match(inspect(pastiche).join("\n"), /communicationPastiche is present/);
   const missingArc = structuredClone(receipt); delete missingArc.outcomes.explanationArc;
   assert.match(inspect(missingArc).join("\n"), /explanationArc is missing/);
+  const isolatedVoice = structuredClone(receipt); isolatedVoice.outcomes.dominantVoiceAcrossArtifact.artifactEvidence = [{ excerpt, locator: "candidate.md:1" }];
+  assert.match(inspect(isolatedVoice).join("\n"), /beginning, middle and ending evidence/);
+  const missingCivicPurpose = structuredClone(receipt); delete missingCivicPurpose.outcomes.purposeEarnedAcrossOpening.purposeThreads.civicParticipation;
+  assert.match(inspect(missingCivicPurpose).join("\n"), /purposeThreads.civicParticipation/);
   const prematureClick = structuredClone(receipt); prematureClick.failureFamilies.prematureClickBeforeMechanism.present = true;
   assert.match(inspect(prematureClick).join("\n"), /prematureClickBeforeMechanism is present/);
   const inflatedEnding = structuredClone(receipt); inflatedEnding.failureFamilies.inflatedTakeawayEnding.present = true;
@@ -155,7 +170,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=22 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 system_reconstruction=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 system_reconstruction=1 dominant_voice_span=1 four_part_purpose=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

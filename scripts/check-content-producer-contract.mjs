@@ -231,6 +231,17 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     }
     require(array(arc?.mechanismSequence, 3), "communicationDesign.explanationArc.mechanismSequence requires at least three cause-and-effect steps");
     require(arc?.order === "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING", "communicationDesign.explanationArc.order must preserve the default explanatory sequence");
+
+    const experience = communication?.readerExperienceDesign;
+    require(text(experience?.dominantRelationship), "communicationDesign.readerExperienceDesign.dominantRelationship is required");
+    require(experience?.readerScaffolding === "HIDDEN_IN_PROSE", "reader-facing prose must hide internal learning scaffolding");
+    require(experience?.worldIntegration?.mode === "EMBEDDED_AND_LOAD_BEARING", "full LAiDIES explanation requires embedded load-bearing world integration");
+    for (const field of ["locationOrCanon", "teachingJob", "plannedEvidence"]) require(text(experience?.worldIntegration?.[field]), `communicationDesign.readerExperienceDesign.worldIntegration.${field} is required`);
+    for (const position of ["beginning", "middle", "ending"]) require(text(experience?.voiceAcrossArtifact?.[position]), `communicationDesign.readerExperienceDesign.voiceAcrossArtifact.${position} is required`);
+    const purposeThreads = experience?.purposeThreads || {};
+    for (const thread of ["practicalUse", "informationJudgment", "civicParticipation", "consequentialAgency"]) {
+      require(text(purposeThreads?.[thread]), `communicationDesign.readerExperienceDesign.purposeThreads.${thread} is required`);
+    }
   } else if (expectedMode === "PROPORTIONAL") {
     require(appliedDimensions >= 2, "PROPORTIONAL communication design requires at least two applied benchmark dimensions");
     const arc = communication?.explanationArc;

@@ -13,7 +13,7 @@ const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "commun
 const REQUIRED_BY_CLASS = {
   EPISODE: [...CORE, ...TEACHING, "explanationArc", "storyCarriesMechanism", "humourServesLearning"],
   CLASS: [...CORE, ...TEACHING, "explanationArc", "practiceFeedback"],
-  EXPLANATION: [...CORE, ...TEACHING, "explanationArc"],
+  EXPLANATION: [...CORE, ...TEACHING, "explanationArc", "dominantVoiceAcrossArtifact", "purposeEarnedAcrossOpening", "readerScaffoldingHidden", "laidiesWorldIntegration"],
   REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
   FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
   NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
@@ -58,6 +58,18 @@ function evidenceAppears(body, evidence, label, errors) {
   for (const [index, item] of evidence.entries()) {
     if (!text(item?.excerpt) || item.excerpt.trim().length < 15 || !text(item?.locator)) errors.push(`${label}[${index}]: excerpt of at least 15 characters and locator are required`);
     else if (!body?.includes(item.excerpt)) errors.push(`${label}[${index}]: excerpt does not occur in the exact prose`);
+  }
+}
+
+function evidenceSpansArtifact(body, evidence, label, errors) {
+  evidenceAppears(body, evidence, label, errors);
+  if (!body || !Array.isArray(evidence) || evidence.length < 3) {
+    errors.push(`${label}: beginning, middle and ending evidence are required`);
+    return;
+  }
+  const positions = evidence.map(item => body.indexOf(item?.excerpt || "")).filter(index => index >= 0).map(index => index / Math.max(body.length, 1));
+  if (!positions.some(position => position < 0.25) || !positions.some(position => position >= 0.25 && position <= 0.75) || !positions.some(position => position > 0.75)) {
+    errors.push(`${label}: evidence must span the beginning, middle and ending of the exact artifact`);
   }
 }
 
@@ -142,7 +154,15 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
     require(Boolean(outcome), `required outcome ${outcomeName} is missing`);
     require(["PASS", "HOLD", "FAIL"].includes(outcome?.verdict), `outcome ${outcomeName} verdict is invalid`);
     require(text(outcome?.observation), `outcome ${outcomeName} needs a specific observation`);
-    evidenceAppears(artifactBody, outcome?.artifactEvidence, `outcomes.${outcomeName}.artifactEvidence`, errors);
+    if (outcomeName === "dominantVoiceAcrossArtifact") evidenceSpansArtifact(artifactBody, outcome?.artifactEvidence, `outcomes.${outcomeName}.artifactEvidence`, errors);
+    else evidenceAppears(artifactBody, outcome?.artifactEvidence, `outcomes.${outcomeName}.artifactEvidence`, errors);
+    if (outcomeName === "purposeEarnedAcrossOpening") {
+      const threads = outcome?.purposeThreads || {};
+      for (const thread of ["practicalUse", "informationJudgment", "civicParticipation", "consequentialAgency"]) {
+        require(text(threads?.[thread]?.observation), `purposeEarnedAcrossOpening.purposeThreads.${thread}.observation is required`);
+        evidenceAppears(artifactBody, threads?.[thread]?.artifactEvidence, `purposeEarnedAcrossOpening.purposeThreads.${thread}.artifactEvidence`, errors);
+      }
+    }
     if (["explainBack", "unseenTransfer", "systemModelReconstruction"].includes(outcomeName)) {
       require(!outcome?.readerEvidence, `${outcomeName}.readerEvidence is retired because it could not distinguish simulation from observation`);
       if (receipt?.stage === "PRODUCER_SELF_REVIEW") {
@@ -186,6 +206,10 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
       }
     }
     if (receipt?.verdict === "PASS") require(outcome?.verdict === "PASS", `PASS forbidden: ${outcomeName} did not pass`);
+  }
+
+  if (receipt?.contentClass === "EXPLANATION" && receipt?.verdict === "PASS" && artifactBody) {
+    require(!/by the end of (?:this|the) (?:chapter|section|introduction)[^\n]{0,100}(?:answer|able to)/i.test(artifactBody), "PASS forbidden: internal learning-objective scaffolding appears in reader-facing prose");
   }
 
   for (const family of enforcedFamilies) {
