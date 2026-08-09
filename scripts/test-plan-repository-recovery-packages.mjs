@@ -11,6 +11,8 @@ const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-recovery-packages
 const inventoryPath = path.join(fixture, 'inventory.json');
 const reconciliationPath = path.join(fixture, 'reconciliation.json');
 const outputPath = path.join(fixture, 'packages.json');
+const sourceRoot = path.join(fixture, 'source');
+const baselineRoot = path.join(fixture, 'baseline');
 
 const rows = [
   { path: 'content/library-books/new-book.md', bytes: 20, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
@@ -19,6 +21,7 @@ const rows = [
   { path: 'operations/archive/old.md', bytes: 50, classification: 'HISTORICAL', git_state: 'UNTRACKED', disposition: 'PRESERVE_THEN_ARCHIVE_AFTER_RESTORE_PROOF', reference_count: 3 },
   { path: 'operations/runtime/unreconciled.json', bytes: 60, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   { path: 'misc/weak-route.md', bytes: 70, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
+  { path: 'operations/agents/aidb-intelligence-desk/handoffs/site-refresh-register.md', bytes: 80, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 1 },
   ...Array.from({ length: 26 }, (_, index) => ({
     path: `content/library-books/pilots/oversized-book/part-${String(index + 1).padStart(2, '0')}.md`,
     bytes: 10,
@@ -28,8 +31,23 @@ const rows = [
     reference_count: 0
   }))
 ];
-fs.writeFileSync(inventoryPath, `${JSON.stringify({ generated_at: 'inventory-fixture', rows })}\n`);
-fs.writeFileSync(reconciliationPath, `${JSON.stringify({ generated_at: 'reconcile-fixture', rows: [
+for (const row of rows) {
+  const absolute = path.join(sourceRoot, row.path);
+  fs.mkdirSync(path.dirname(absolute), { recursive: true });
+  fs.writeFileSync(absolute, 'fixture\n');
+}
+fs.writeFileSync(path.join(sourceRoot, rows[0].path), '`operations/product-stewards/library/state.json` stays inside this package.\n');
+fs.writeFileSync(path.join(sourceRoot, rows[1].path), '`operations/voice/settled.md` already exists in the baseline.\n');
+fs.mkdirSync(path.join(sourceRoot, 'operations/voice'), { recursive: true });
+fs.mkdirSync(path.join(baselineRoot, 'operations/voice'), { recursive: true });
+fs.writeFileSync(path.join(sourceRoot, 'operations/voice/settled.md'), 'settled\n');
+fs.writeFileSync(path.join(baselineRoot, 'operations/voice/settled.md'), 'settled\n');
+const missingDependency = 'operations/agents/aidb-intelligence-desk/handoffs/site-refresh/missing.md';
+fs.mkdirSync(path.dirname(path.join(sourceRoot, missingDependency)), { recursive: true });
+fs.writeFileSync(path.join(sourceRoot, missingDependency), 'dirty-only dependency\n');
+fs.writeFileSync(path.join(sourceRoot, rows[6].path), `Needs \`${missingDependency}\`.\n`);
+fs.writeFileSync(inventoryPath, `${JSON.stringify({ generated_at: 'inventory-fixture', root: sourceRoot, rows })}\n`);
+fs.writeFileSync(reconciliationPath, `${JSON.stringify({ generated_at: 'reconcile-fixture', baseline_root: baselineRoot, rows: [
   { path: rows[0].path, comparison: 'BASELINE_MISSING' },
   { path: rows[1].path, comparison: 'DIFFERS_FROM_BASELINE' },
   { path: rows[5].path, comparison: 'BASELINE_MISSING' },
@@ -45,8 +63,8 @@ const result = spawnSync(process.execPath, [
 assert.equal(result.status, 0, result.stderr);
 const report = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
 assert.equal(report.mutation, 'NONE');
-assert.equal(report.dirty_file_count, 32);
-assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 28);
+assert.equal(report.dirty_file_count, 33);
+assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 29);
 assert.equal(report.action_counts.REVIEW_TRACKED_DIFF, 1);
 assert.equal(report.action_counts.HOLD_UNKNOWN, 1);
 assert.equal(report.action_counts.PRESERVE_PENDING_ARCHIVE_GATES, 1);
@@ -66,13 +84,20 @@ assert.equal(weakRoute.package_status, 'HOLD_ROUTE_CONFIRMATION');
 const oversized = report.packages.find(group => group.package_key === 'product-steward:library:book:oversized-book');
 assert.equal(oversized.reviewable_count, 26);
 assert.equal(oversized.package_status, 'HOLD_OVERSIZED_REQUIRES_SUBDIVISION');
+const dependencyHold = report.packages.find(group => group.package_key === 'intelligence:aidb:handoffs');
+assert.equal(dependencyHold.reviewable_count, 1);
+assert.equal(dependencyHold.package_status, 'HOLD_REFERENCED_DIRTY_PATH');
+assert.deepEqual(dependencyHold.unresolved_referenced_paths, [missingDependency]);
+assert.deepEqual(library.unresolved_referenced_paths, []);
 assert.equal(report.maximum_reviewable_paths_per_package, 25);
 assert.equal(report.ready_reviewable_paths, 2);
 assert.equal(report.package_status_counts.READY_FOR_OWNER_REVIEW, 1);
 assert.equal(report.package_status_counts.HOLD_ROUTE_CONFIRMATION, 1);
 assert.equal(report.package_status_counts.HOLD_OVERSIZED_REQUIRES_SUBDIVISION, 1);
+assert.equal(report.package_status_counts.HOLD_REFERENCED_DIRTY_PATH, 1);
 assert.match(report.safety_rules.join(' '), /UNKNOWN never moves/);
 assert.match(report.safety_rules.join(' '), /Only HIGH-confidence routes/);
+assert.match(report.safety_rules.join(' '), /exact backticked source path/);
 
 fs.rmSync(fixture, { recursive: true, force: true });
-console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=2 route_hold=1 oversized_hold=26 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1');
+console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=2 route_hold=1 oversized_hold=26 dependency_hold=1 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1');
