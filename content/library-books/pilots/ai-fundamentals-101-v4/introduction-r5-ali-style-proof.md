@@ -81,9 +81,17 @@ Not because we want to put the NewsStand out of business. Please continue visiti
 
 Because AI literacy should give you independent judgment. When a creator says “DM me for the secret prompt,” you should be able to tell whether it is a genuinely useful technique, a familiar idea in a new tube of lip gloss or complete nonsense with excellent lighting.
 
-### 3. From “Not my problem!” to “No, Aunt Linda. That isn’t what killed the cat.”
+### 3. From “Whatever!” to “RSVP: Yes. I have notes.”
 
 Once you understand how AI works, you can see that the important questions are much bigger than which chatbot writes the nicest email.
+
+The invitations to those questions are already arriving. They just do not look like invitations.
+
+They look like a meeting about introducing AI into your team. An employee consultation about automated monitoring. A city-council notice for a proposed data centre. A school-board discussion about AI in classrooms. A new public rule covering systems that rank, recommend or make decisions about people.
+
+There is no cream card in the post. Nobody has written **AI POLICY DISCUSSION** in gold calligraphy. But that is what these moments are: invitations to help decide where AI belongs, what evidence should be required, which risks need guardrails and who remains accountable.
+
+**RSVP: Yes** does not mean saying yes to every AI system. Absolutely not. It means saying yes to the discussion. Yes, I would like to see the evidence. Yes, I have questions about who benefits and who carries the risk. Yes, I noticed that the word *innovation* has been doing suspiciously heavy lifting in this proposal.
 
 AI systems already influence what people see, which applications receive attention, how work is assigned, where fraud is investigated and which decisions get made faster. Building and running AI also requires physical infrastructure: chips, servers, networks, cooling equipment, data centres and electricity. The “cloud” is not a celestial mist. It is somebody else’s computer, in a real place, attached to a power grid.
 
