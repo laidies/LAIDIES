@@ -15471,7 +15471,16 @@ while remaining falsely unfinished in the launch record.
   but still offered for source commit solely because Git tracked an older copy.
   Modified generated evidence now remains preserved behind the restore/archive
   gates; a calibrated tracked-modification fixture prevents that state from
-  being confused with active source work again.
+  being confused with active source work again. Thirty-eight more rejected or
+  exploratory design files then surfaced as source candidates, including files
+  literally named `ALI-REJECTION`, copied prototype dependencies and receipts.
+  Untracked non-media design exploration/QA/audit files now remain historical
+  or rejected, while rendered media keeps its generated classification. The
+  first full scan also stalled while reading an ignored prototype dependency:
+  reference discovery had been scanning every text-like file, including
+  `node_modules` and evidence. It now scans only current authority and active
+  source text, and calibration proves an ignored dependency cannot create a
+  false recovery reference.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
