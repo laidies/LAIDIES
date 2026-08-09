@@ -81,7 +81,7 @@ Not because we want to put the NewsStand out of business. Please continue visiti
 
 Because AI literacy should give you independent judgment. When a creator says “DM me for the secret prompt,” you should be able to tell whether it is a genuinely useful technique, a familiar idea in a new tube of lip gloss or complete nonsense with excellent lighting.
 
-### 3. From “Nothing to do with me” to “Actually, I get a say.”
+### 3. From “Not my problem!” to “No, Aunt Linda. That isn’t what killed the cat.”
 
 Once you understand how AI works, you can see that the important questions are much bigger than which chatbot writes the nicest email.
 
