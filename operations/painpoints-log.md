@@ -15431,6 +15431,19 @@ while remaining falsely unfinished in the launch record.
   only in the dirty tree. Readiness now also requires exact backticked source
   dependencies to exist in the clean baseline or inside the same package; the
   calibrated bad fixture fails and the clean/self-contained controls pass.
+  The first owner review then exposed a fourth gap: a five-path package could
+  be bounded and dependency-closed while mixing one current correction, two
+  stale pre-Fable process authorities, one unreconciled process standard and a
+  Library-owned event file. Recovery rulings now bind the exact dirty-source
+  SHA, split those paths into distinct decisions and turn changed bytes into
+  `HOLD_STALE_RULING`. A hold preserves the source in place and grants no
+  import, archive, deletion or current-authority claim.
+  Running the recovered protocol's named checks then exposed a transitive
+  dependency omission: the checker scripts were present, but their visual
+  exemplar registry and record schemas were absent and the claimed CI
+  calibration was not wired into `package.json`. The import package now includes
+  the complete five-file authority/registry/schema boundary, and required CI
+  runs both calibrated visual-media checks.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,

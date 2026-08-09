@@ -11,6 +11,7 @@ const value = flag => {
 const inventoryPath = value('--inventory');
 const reconciliationPath = value('--reconciliation');
 const outputPath = value('--output');
+const rulingsPath = value('--rulings');
 if (!inventoryPath || !reconciliationPath || !outputPath) {
   throw new Error('required: --inventory FILE --reconciliation FILE --output FILE');
 }
@@ -22,11 +23,31 @@ if (!Array.isArray(inventory.rows) || !Array.isArray(reconciliation.rows)) {
 }
 
 const reconciled = new Map(reconciliation.rows.map(row => [row.path, row]));
+const rulings = rulingsPath
+  ? JSON.parse(fs.readFileSync(path.resolve(rulingsPath), 'utf8'))
+  : { schema_version: 1, rulings: [] };
+if (rulings.schema_version !== 1 || !Array.isArray(rulings.rulings)) {
+  throw new Error('rulings must use schema_version 1 and contain a rulings array');
+}
+const rulingByPath = new Map();
+for (const ruling of rulings.rulings) {
+  if (!ruling?.path || !ruling?.source_sha256 || !ruling?.decision || !ruling?.reason) {
+    throw new Error('every ruling requires path, source_sha256, decision and reason');
+  }
+  if (rulingByPath.has(ruling.path)) throw new Error(`duplicate ruling for ${ruling.path}`);
+  rulingByPath.set(ruling.path, ruling);
+}
 const MAX_REVIEWABLE_PATHS_PER_PACKAGE = 25;
 const MAX_DEPENDENCY_SCAN_BYTES = 2 * 1024 * 1024;
 const DEPENDENCY_SCAN_EXTENSIONS = new Set(['.html', '.js', '.json', '.md', '.mjs']);
 const sourceRoot = inventory.root ? path.resolve(inventory.root) : null;
 const baselineRoot = reconciliation.baseline_root ? path.resolve(reconciliation.baseline_root) : null;
+const RULING_DECISIONS = new Set([
+  'IMPORT_CURRENT',
+  'HOLD_STALE_AUTHORITY',
+  'HOLD_AUTHORITY_RECONCILIATION',
+  'HOLD_OWNER_RECONCILIATION'
+]);
 
 function normalizeRepositoryPath(candidate) {
   let relative = candidate.trim().replace(/^\.\//, '');
@@ -133,9 +154,25 @@ const dirtyRows = inventory.rows.filter(row => !['TRACKED_CLEAN', 'IGNORED'].inc
 const groups = new Map();
 const actionCounts = {};
 for (const row of dirtyRows) {
-  const comparison = reconciled.get(row.path)?.comparison || null;
-  const routed = route(row.path);
-  const proposedAction = action(row, comparison);
+  const reconciliationRow = reconciled.get(row.path) || null;
+  const comparison = reconciliationRow?.comparison || null;
+  const ruling = rulingByPath.get(row.path) || null;
+  let routed = route(row.path);
+  let proposedAction = action(row, comparison);
+  let rulingStatus = null;
+  if (ruling) {
+    if (!RULING_DECISIONS.has(ruling.decision)) throw new Error(`unsupported ruling decision ${ruling.decision} for ${row.path}`);
+    if (ruling.package_key) routed = { key: ruling.package_key, confidence: 'HIGH' };
+    if (!reconciliationRow?.source_sha256 || reconciliationRow.source_sha256 !== ruling.source_sha256) {
+      proposedAction = 'HOLD_STALE_RULING';
+      rulingStatus = 'STALE_SOURCE_SHA';
+    } else if (ruling.decision === 'IMPORT_CURRENT') {
+      rulingStatus = 'CURRENT_IMPORT_RULING';
+    } else {
+      proposedAction = ruling.decision;
+      rulingStatus = 'CURRENT_HOLD_RULING';
+    }
+  }
   actionCounts[proposedAction] = (actionCounts[proposedAction] || 0) + 1;
   if (!groups.has(routed.key)) {
     groups.set(routed.key, {
@@ -166,7 +203,15 @@ for (const row of dirtyRows) {
     inventory_disposition: row.disposition,
     reference_count: row.reference_count || 0,
     comparison,
-    proposed_action: proposedAction
+    proposed_action: proposedAction,
+    recovery_ruling: ruling ? {
+      decision: ruling.decision,
+      status: rulingStatus,
+      source_sha256: ruling.source_sha256,
+      reason: ruling.reason,
+      import_transformation: ruling.import_transformation || 'NONE',
+      authority: ruling.authority || []
+    } : null
   });
 }
 
@@ -208,6 +253,8 @@ const report = {
   inventory_generated_at: inventory.generated_at,
   reconciliation_path: path.resolve(reconciliationPath),
   reconciliation_generated_at: reconciliation.generated_at,
+  rulings_path: rulingsPath ? path.resolve(rulingsPath) : null,
+  ruling_count: rulings.rulings.length,
   dirty_file_count: dirtyRows.length,
   package_count: packages.length,
   maximum_reviewable_paths_per_package: MAX_REVIEWABLE_PATHS_PER_PACKAGE,
@@ -222,6 +269,8 @@ const report = {
     `Packages with more than ${MAX_REVIEWABLE_PATHS_PER_PACKAGE} reviewable paths remain held until subdivided.`,
     'Only HIGH-confidence routes can become ready for owner review.',
     'An exact backticked source path that exists only in the dirty source tree holds the package until the dependency is present in the clean baseline or included in the same package.',
+    'A recovery ruling binds the exact dirty-source SHA; changed bytes become HOLD_STALE_RULING automatically.',
+    'A HOLD ruling preserves bytes in place and grants no deletion, archive, import or current-authority claim.',
     'Only exact reviewed paths may be committed together.'
   ],
   mutation: 'NONE',

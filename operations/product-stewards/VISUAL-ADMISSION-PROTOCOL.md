@@ -1,9 +1,11 @@
 # Visual candidate admission protocol
 
-**Status:** ACTIVE HARD GATE
+**Status:** ACTIVE RECORD-INTEGRITY GATE; SHARED VISUAL-MEANING GATE REQUIRED
 
-The purpose of this protocol is to make the visual rules enforceable rather
-than optional memory.
+The purpose of this protocol is to keep visual candidate state and independent
+review records coherent. Its boolean audit and scores do not establish that an
+image or animation is physically plausible, semantically aligned, on-model,
+period-correct or useful.
 
 ## State machine
 
@@ -51,4 +53,24 @@ required references/comparison evidence are missing, a visible audit is false,
 quality floors are below 17/20, or its artifact is not under `_admitted/`.
 
 This checker does not decide taste. It prevents work that has not received the
-required independent evidence from being labelled ready for Ali.
+required independent evidence from being labelled ready for Ali. Its strongest
+verdict is record integrity, not visual quality.
+
+Before any new public still or animation is generated, it also requires the
+shared prevention-first producer contract:
+
+```sh
+node scripts/check-visual-media-producer-contract.mjs path/to/producer-contract.json
+```
+
+Before admission, the maker and a role-distinct visual judge inspect the exact
+rendered artifact against the exact accompanying text/narration and run:
+
+```sh
+node scripts/check-visual-media-admission.mjs path/to/review.json
+```
+
+The shared gate binds location style, character/town identity, era, wardrobe,
+objects, physical plausibility, text plan, narration meaning, motion class and
+the complete current known-bad registry. It does not replace building-page,
+episode, class, NewsStand, accessibility or release-specific review.

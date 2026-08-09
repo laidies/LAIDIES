@@ -11,6 +11,7 @@ const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-recovery-packages
 const inventoryPath = path.join(fixture, 'inventory.json');
 const reconciliationPath = path.join(fixture, 'reconciliation.json');
 const outputPath = path.join(fixture, 'packages.json');
+const rulingsPath = path.join(fixture, 'rulings.json');
 const sourceRoot = path.join(fixture, 'source');
 const baselineRoot = path.join(fixture, 'baseline');
 
@@ -22,6 +23,8 @@ const rows = [
   { path: 'operations/runtime/unreconciled.json', bytes: 60, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   { path: 'misc/weak-route.md', bytes: 70, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   { path: 'operations/agents/aidb-intelligence-desk/handoffs/site-refresh-register.md', bytes: 80, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 1 },
+  { path: 'operations/product-stewards/current.md', bytes: 90, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
+  { path: 'operations/product-stewards/stale.md', bytes: 100, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   ...Array.from({ length: 26 }, (_, index) => ({
     path: `content/library-books/pilots/oversized-book/part-${String(index + 1).padStart(2, '0')}.md`,
     bytes: 10,
@@ -51,24 +54,45 @@ fs.writeFileSync(reconciliationPath, `${JSON.stringify({ generated_at: 'reconcil
   { path: rows[0].path, comparison: 'BASELINE_MISSING' },
   { path: rows[1].path, comparison: 'DIFFERS_FROM_BASELINE' },
   { path: rows[5].path, comparison: 'BASELINE_MISSING' },
-  ...rows.slice(6).map(row => ({ path: row.path, comparison: 'BASELINE_MISSING' }))
+  ...rows.slice(6).map(row => ({ path: row.path, comparison: 'BASELINE_MISSING' })),
+  { path: rows[7].path, comparison: 'BASELINE_MISSING', source_sha256: 'current-sha' },
+  { path: rows[8].path, comparison: 'BASELINE_MISSING', source_sha256: 'changed-sha' }
+] })}\n`);
+fs.writeFileSync(rulingsPath, `${JSON.stringify({ schema_version: 1, rulings: [
+  {
+    path: rows[7].path,
+    source_sha256: 'current-sha',
+    decision: 'IMPORT_CURRENT',
+    package_key: 'operating-system:product-stewards:current',
+    reason: 'Current authority.'
+  },
+  {
+    path: rows[8].path,
+    source_sha256: 'old-sha',
+    decision: 'HOLD_STALE_AUTHORITY',
+    package_key: 'operating-system:product-stewards:stale',
+    reason: 'Predecessor authority.'
+  }
 ] })}\n`);
 
 const result = spawnSync(process.execPath, [
   'scripts/plan-repository-recovery-packages.mjs',
   '--inventory', inventoryPath,
   '--reconciliation', reconciliationPath,
+  '--rulings', rulingsPath,
   '--output', outputPath
 ], { cwd: root, encoding: 'utf8' });
 assert.equal(result.status, 0, result.stderr);
 const report = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
 assert.equal(report.mutation, 'NONE');
-assert.equal(report.dirty_file_count, 33);
-assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 29);
+assert.equal(report.dirty_file_count, 35);
+assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 30);
 assert.equal(report.action_counts.REVIEW_TRACKED_DIFF, 1);
 assert.equal(report.action_counts.HOLD_UNKNOWN, 1);
 assert.equal(report.action_counts.PRESERVE_PENDING_ARCHIVE_GATES, 1);
 assert.equal(report.action_counts.HOLD_MISSING_RECONCILIATION, 1);
+assert.equal(report.action_counts.HOLD_STALE_RULING, 1);
+assert.equal(report.ruling_count, 2);
 const library = report.packages.find(group => group.package_key === 'product-steward:library:root');
 assert.equal(library.file_count, 2);
 assert.equal(library.reviewable_count, 2);
@@ -89,15 +113,23 @@ assert.equal(dependencyHold.reviewable_count, 1);
 assert.equal(dependencyHold.package_status, 'HOLD_REFERENCED_DIRTY_PATH');
 assert.deepEqual(dependencyHold.unresolved_referenced_paths, [missingDependency]);
 assert.deepEqual(library.unresolved_referenced_paths, []);
+const currentRuling = report.packages.find(group => group.package_key === 'operating-system:product-stewards:current');
+assert.equal(currentRuling.package_status, 'READY_FOR_OWNER_REVIEW');
+assert.equal(currentRuling.rows[0].recovery_ruling.status, 'CURRENT_IMPORT_RULING');
+const staleRuling = report.packages.find(group => group.package_key === 'operating-system:product-stewards:stale');
+assert.equal(staleRuling.package_status, 'NO_REVIEWABLE_WORK');
+assert.equal(staleRuling.rows[0].proposed_action, 'HOLD_STALE_RULING');
+assert.equal(staleRuling.rows[0].recovery_ruling.status, 'STALE_SOURCE_SHA');
 assert.equal(report.maximum_reviewable_paths_per_package, 25);
-assert.equal(report.ready_reviewable_paths, 2);
-assert.equal(report.package_status_counts.READY_FOR_OWNER_REVIEW, 1);
+assert.equal(report.ready_reviewable_paths, 3);
+assert.equal(report.package_status_counts.READY_FOR_OWNER_REVIEW, 2);
 assert.equal(report.package_status_counts.HOLD_ROUTE_CONFIRMATION, 1);
 assert.equal(report.package_status_counts.HOLD_OVERSIZED_REQUIRES_SUBDIVISION, 1);
 assert.equal(report.package_status_counts.HOLD_REFERENCED_DIRTY_PATH, 1);
 assert.match(report.safety_rules.join(' '), /UNKNOWN never moves/);
 assert.match(report.safety_rules.join(' '), /Only HIGH-confidence routes/);
 assert.match(report.safety_rules.join(' '), /exact backticked source path/);
+assert.match(report.safety_rules.join(' '), /HOLD_STALE_RULING/);
 
 fs.rmSync(fixture, { recursive: true, force: true });
-console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=2 route_hold=1 oversized_hold=26 dependency_hold=1 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1');
+console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=3 route_hold=1 oversized_hold=26 dependency_hold=1 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1 stale_ruling_hold=1');

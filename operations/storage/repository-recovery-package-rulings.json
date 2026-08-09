@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "evidence_time": "2026-08-08T23:30:00-07:00",
+  "authority": "Internal recovery routing only. A ruling does not authorize deletion, archiving, deployment, publication or public release.",
+  "rulings": [
+    {
+      "path": "operations/product-stewards/VISUAL-ADMISSION-PROTOCOL.md",
+      "source_sha256": "7d849d835498f9eca7a29e7db0ba6f774d1e28b9be57db29fec0067c0f113ab1",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "The tracked correction narrows the old boolean gate to record integrity and requires the current prevention-first producer and exact-pixel admission checks. It matches D-2026-08-07-101 and the current canonical dependency map.",
+      "authority": [
+        "operations/DECISIONS.md D-2026-08-07-101",
+        "operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/BUILD-PACKET-shared-visual-media-quality-ratchet-2026-08-07.md",
+      "source_sha256": "0a3cdb9fdcc6a945239f7642519d89d177b389f0d9564b9f962cf3b7596c9601",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "This is the current prevention-first visual-media authority cited by D-2026-08-07-101 and required to interpret the recovered visual-admission protocol.",
+      "import_transformation": "Markdown metadata hard-break spaces are normalized to blank-line-separated paragraphs; meaning is unchanged.",
+      "authority": [
+        "operations/DECISIONS.md D-2026-08-07-101"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/visual-media-producer-contract.schema.json",
+      "source_sha256": "3d2c359483c442cfcf06c3f8b014991859a304e65375b9b7d65b47d536e9adf6",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "The current content-quality gate names this producer record shape, and the visual-media checker suite depends on the same contract.",
+      "authority": [
+        "operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/visual-media-quality-exemplars.json",
+      "source_sha256": "5aeb36e8a5a442870e322f07b1a6d730069c16d5892564da303233bbc33a294d",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "Both calibrated visual-media tests import this exact registry; without it the recovered checkers crash before testing any candidate.",
+      "authority": [
+        "operations/DECISIONS.md D-2026-08-07-101",
+        "scripts/test-visual-media-producer-contract.mjs",
+        "scripts/test-visual-media-admission.mjs"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/visual-media-review.schema.json",
+      "source_sha256": "ee09bab29dc13959ca4bc7ae1a57e660e68f34377e2750f1aa935dc034cae485",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "The current content-quality gate names this exact producer and independent-review record shape.",
+      "authority": [
+        "operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/CHAMPION-CONTRACT.md",
+      "source_sha256": "d38d2a21d6af236edc83eee848b78dd1bd0d85a5bb0e901e1148184bd4c32516",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:product-stewards:champion-contract-hold",
+      "reason": "These pre-Fable bytes prescribe a broad maker-plus-multiple-reviewer process that conflicts with the later minimum-sufficient, two-lane and prevention-first operating model. Preserve for source mining; do not restore as current authority.",
+      "authority": [
+        "operations/DECISIONS.md — Fable operating-model cleanup is evidence-gated",
+        "operations/DECISIONS.md — Foreground WIP is capped at two concurrent lanes",
+        "operations/CODEX-WORKING-AGREEMENT.md — Use the minimum sufficient workflow"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/guilds.json",
+      "source_sha256": "1bd2c0f20e748e1a3977260e781f3691212c66fdc6262d6a9ce5e905667c6f9a",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:product-stewards:guilds-hold",
+      "reason": "These pre-Fable bytes require a fixed nine-role building review chain, including a cross-model review on every candidate. That is the procedural-review failure the current operating model replaced. Preserve; do not restore as current routing authority.",
+      "authority": [
+        "operations/DECISIONS.md — Fable operating-model cleanup is evidence-gated",
+        "operations/DECISIONS.md — Foreground WIP is capped at two concurrent lanes",
+        "operations/CODEX-WORKING-AGREEMENT.md — Use the minimum sufficient workflow"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/INTERACTIVE-BUILDING-ENVIRONMENT-STANDARD.md",
+      "source_sha256": "70912932e560971eaf30b02dcca4f442c9ae4a727c0f99d6abbef4f1b4062912",
+      "decision": "HOLD_AUTHORITY_RECONCILIATION",
+      "package_key": "operating-system:product-stewards:interactive-environment-hold",
+      "reason": "The document contains valid locked building-experience principles, but its uncommitted pre-Fable all-17 manifest and review machinery has not been reconciled with the current minimum-sufficient operating model. Preserve until the principles are separated from obsolete process.",
+      "authority": [
+        "operations/engine/LEDGER.md D-2026-07-26-050",
+        "operations/engine/LEDGER.md D-2026-07-26-061",
+        "operations/DECISIONS.md — Fable operating-model cleanup is evidence-gated",
+        "operations/CODEX-WORKING-AGREEMENT.md — Use the minimum sufficient workflow"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/event-dictionary.json",
+      "source_sha256": "c8399913dbb1ff937166caec40356b4b762bb2a49aeb080388276fc27e0c448d",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "product-steward:library:event-dictionary-hold",
+      "reason": "The shared-root file is materially Library and Miss Jeeves specific and truthfully records missing production bindings. Library and analytics ownership must reconcile its destination and consumers before import.",
+      "authority": [
+        "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
+        "operations/product-stewards/library/EXPERIENCE-BRIEF.md"
+      ]
+    }
+  ]
+}
