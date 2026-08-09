@@ -8,8 +8,12 @@
 > prose plus exact source packet, producer contract, self-review and chapter-
 > component architecture exist on isolated branch
 > `task/ai-fundamentals-restart-20260808`. They are local candidate material,
-> not independent admission, rendered book, preview, deployment or publication.
-> Chapters 4–9 and final diagrams/illustrations are specified but not produced.
+> not independent admission, preview, deployment or publication. The exact
+> Introduction-through-Chapter-3 candidate is now also a 25-page local review
+> PDF and responsive HTML proof with a beginning Concept Index and five
+> deterministic teaching visuals. Exact-pixel maker inspection passed after a
+> clipped mobile training loop was repaired. Chapters 4–9 are specified but not
+> drafted or rendered; role-distinct semantic and visual admission remain open.
 
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a

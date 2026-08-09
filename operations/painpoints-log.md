@@ -14461,3 +14461,28 @@ while remaining falsely unfinished in the launch record.
   and still teach nothing—and how the outline and page components prevent it.
 - **Publication status:** INTERNAL PRODUCTION-PREVENTION CORRECTION / NO VISUAL,
   READER, DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-458 — A diagram that fits the PDF can still lose its lesson on a phone
+
+- **Date:** 2026-08-08
+- **Area:** Library visual teaching and responsive review.
+- **Failure risk:** A causal diagram can look complete in print while its
+  right-hand steps are clipped in the mobile reader. The remaining labels may
+  still look polished, concealing that the learner cannot see the mechanism.
+- **Root cause:** The training loop's desktop grid and directional annotations
+  were not recomposed at the mobile breakpoint; document-level overflow alone
+  did not reveal the clipped figure content.
+- **Prevention rule:** Inspect every meaning-bearing visual at its exact
+  destination widths and compare the figure's internal scroll width with its
+  available width. Recompose multi-column causal diagrams into an explicitly
+  ordered mobile form; never solve legibility by shrinking the complete poster.
+- **Durable correction:** The AI Fundamentals review renderer now converts the
+  five-step training loop to a one-column mobile sequence. The exact 390-pixel
+  check fell from 425 pixels of internal content to 354 within its 354-pixel
+  content box, while print retains the full loop layout. The same inspection
+  also forced readable recomposition of the opening system chain and removed a
+  selector collision from the training/inference comparison.
+- **Possible Behind the Build angle:** The polished diagram that quietly hid
+  two steps—and why responsive teaching means recomposing, not shrinking.
+- **Publication status:** INTERNAL VISUAL-PRODUCTION LEARNING / LOCAL REVIEW
+  PROOF ONLY / NO READER, DEPLOYMENT OR PUBLIC CHANGE.

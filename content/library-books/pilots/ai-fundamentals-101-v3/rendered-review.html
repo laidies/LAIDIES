@@ -1,0 +1,748 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Fundamentals 101 — review proof</title><style>
+:root{--ink:#30223f;--plum:#4b277b;--purple:#7548bd;--rose:#df4f91;--pink:#ffd8e9;--butter:#ffd166;--cream:#fffaf0;--blue:#dfeaff;--mint:#dff5ef;--line:#cdbbe5}*{box-sizing:border-box}html{background:#38204f}body{margin:0;color:var(--ink);font:17px/1.67 Georgia,serif;background:linear-gradient(135deg,#562d80,#c13f88 55%,#ef8b63);padding:42px 0}.book{width:min(920px,calc(100% - 32px));margin:auto;background:var(--cream);box-shadow:0 28px 90px #190d2e99;overflow:hidden}.cover{min-height:880px;padding:82px 76px 60px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background:radial-gradient(circle at 82% 18%,#ffcc65 0 9%,transparent 9.3%),radial-gradient(circle at 76% 23%,#f26aa8 0 16%,transparent 16.3%),linear-gradient(145deg,#4a247b 0 48%,#9b48bf 48% 68%,#e65098 68%)}.badge{display:inline-block;font:800 13px Arial;letter-spacing:.14em;text-transform:uppercase;background:#fff;color:var(--plum);padding:10px 16px;border-radius:999px}.cover h1{font:900 clamp(54px,9vw,98px)/.9 Arial Black,Arial,sans-serif;letter-spacing:-.06em;margin:60px 0 28px;max-width:700px}.cover .subtitle{font:700 26px/1.35 Arial,sans-serif;max-width:640px;color:#fff8d4}.cover .strap{font:700 17px/1.5 Arial,sans-serif;max-width:640px;border-left:7px solid var(--butter);padding-left:20px}.review-status{font:700 12px Arial;letter-spacing:.08em;text-transform:uppercase}.content{padding:64px 78px 96px}h1,h2,h3,h4,h5{font-family:Arial Black,Arial,sans-serif;color:var(--plum);line-height:1.08}h2{font-size:39px;letter-spacing:-.035em;margin:90px 0 24px;padding-top:20px;border-top:8px solid var(--rose)}h3{font-size:25px;margin:48px 0 16px;color:#5e318f}h4{font-size:20px;margin:8px 0}p{margin:0 0 18px}strong{color:#402266}a{color:#662f9b;text-decoration-thickness:2px;text-underline-offset:3px}ul,ol{padding-left:28px;margin:12px 0 24px}li{margin:8px 0}li::marker{color:var(--rose);font-weight:800}hr{border:0;height:14px;margin:74px -78px;background:linear-gradient(90deg,var(--rose),var(--butter),#67d0c0,var(--purple))}.content>p:first-of-type{font-size:21px}.content>h2:nth-of-type(n+3){break-before:page}.concept-index{margin:60px -22px;padding:34px 36px;border:4px solid var(--purple);border-radius:28px;background:linear-gradient(145deg,#f2ecff,#fff8d7)}.concept-index h2{border:0;margin:0 0 22px;padding:0;font-size:34px}.concept-index li{break-inside:avoid}.fact-box{margin:30px 0;padding:22px 26px 19px;border:3px solid #a83c7b;border-left-width:12px;border-radius:18px;background:#ffe8f2;break-inside:avoid}.fact-box p:last-child{margin:0}.teaching-visual{margin:30px -25px 36px;padding:24px;border-radius:26px;background:#fff;border:4px solid #6a37a6;box-shadow:9px 10px 0 #eb9ec4;break-inside:avoid}.visual-kicker{font:900 12px Arial;letter-spacing:.13em;text-transform:uppercase;color:#a53674}.teaching-visual h4{font-size:24px;margin:6px 0 18px}.teaching-visual figcaption{margin-top:16px;font-size:14px;line-height:1.45;color:#544768;border-top:1px solid var(--line);padding-top:12px}.flow{display:flex;align-items:stretch;gap:9px}.diagram-node{flex:1;min-width:0;padding:18px 10px;border:3px solid #593184;border-radius:17px;text-align:center;display:flex;flex-direction:column;justify-content:center}.diagram-node strong{font:900 15px Arial}.diagram-node span{font:600 12px/1.35 Arial;margin-top:8px}.human{background:#ffe1ef}.product{background:#dfd5f8}.information{background:#dff5ef}.model{background:#fff0a7}.compute{background:#dfeaff}.arrow{align-self:center;color:#7041ad;font:900 26px Arial}.consequence-row,.human-check{margin-top:16px;display:flex;gap:13px;align-items:center;justify-content:center;padding:15px;background:#fff0a7;border-radius:16px;font:700 14px Arial}.closet-figure{display:grid;grid-template-columns:240px 1fr;gap:28px}.dress-panel{text-align:center;background:#f6edff;border-radius:20px;padding:10px}.dress-panel svg{width:100%;height:250px}.dress-panel p{font:700 13px Arial;margin:0}.axes{display:grid;gap:8px}.axes>div{padding:10px 14px;border-radius:12px;background:#efe9ff}.axes b,.axes span{display:block;font-family:Arial}.axes b{font-size:14px}.axes span{font-size:12px;margin-top:3px}.axes .agentic-note{padding:11px;background:#fff0a7;border:2px solid #9b7217;border-radius:12px;font:13px Arial}.cutaway{display:flex;align-items:center;gap:15px}.laptop{width:235px;text-align:center}.screen{height:145px;border:14px solid #3b2856;border-radius:14px 14px 5px 5px;background:#fff8e9;padding:22px}.screen span{font:800 13px Arial;color:#5a2d7d}.screen i{display:block;height:7px;margin:10px 0;background:#dcd3ec;border-radius:5px}.keyboard{height:22px;background:#77579d;clip-path:polygon(5% 0,95% 0,100% 100%,0 100%)}.laptop>b{font:900 13px Arial}.network-cloud{padding:25px 17px;border-radius:50%;background:#dfeaff;text-align:center;border:3px solid #4f6795}.network-cloud b,.network-cloud span{display:block;font-family:Arial}.network-cloud span{font-size:11px}.data-centre{min-width:235px;padding:17px;border-radius:17px;background:#29365d;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:10px}.data-centre>b{grid-column:1/-1;color:#fff;font-family:Arial}.data-centre span{padding:14px 8px;border-radius:8px;text-align:center;font:800 12px Arial}.rack{background:#496184}.chip{background:#ffcc65;color:#39244f}.model-chip{background:#f06ba9}.data-centre small{grid-column:1/-1}.training-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center}.train{padding:18px;border-radius:16px;text-align:center;border:3px solid #6a3e95}.train b,.train span{display:block;font-family:Arial}.train span{font-size:12px;margin-top:6px}.examples{background:#ffe1ef}.model-box{background:#ded1f7}.output{background:#dff5ef}.miss{grid-column:3;background:#fff0a7}.adjust{grid-column:2;background:#dfeaff}.repeat{grid-column:1;text-align:center;font:800 14px Arial;color:#a63675}.evaluation{margin-top:17px;padding:16px;text-align:center;border:3px solid #4f6795;border-radius:16px;background:#eef7ff}.evaluation b,.evaluation span{display:block;font-family:Arial}.evaluation span{font-size:13px;margin-top:5px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}.compare section{border:3px solid #a83c7b;border-radius:18px;overflow:hidden;background:#fffaf0}.compare section+section{border-color:#397f77}.compare h5{margin:0;padding:16px;background:#df4f91;color:#fff;font-size:17px}.compare section+section h5{background:#397f77}.mini-flow{display:flex;align-items:center;justify-content:center;gap:8px;padding:24px 10px;font:700 12px Arial}.mini-flow span,.mini-flow b,.mini-flow strong{padding:9px;border-radius:8px;background:#eee5ff}.mini-flow .arrow{padding:0;background:none}.compare p{padding:0 16px 16px;text-align:center;font-size:12px}.source-heading{margin-top:55px;padding:15px 18px;background:#ece6f9;border-radius:12px;font-size:19px}.source-heading+ul{font-size:14px}.source-heading+ul+p{font-size:13px;color:#62586f}@media(max-width:680px){body{padding:0}.book{width:100%;box-shadow:none}.cover{min-height:100vh;padding:56px 28px}.content{padding:38px 24px 70px}h2{font-size:31px}.teaching-visual{margin:24px -10px;padding:14px}.flow,.cutaway{flex-wrap:wrap}.arrow{transform:rotate(90deg)}.closet-figure,.compare{grid-template-columns:1fr}.dress-panel svg{height:210px}.concept-index{margin:35px -5px;padding:25px 20px}hr{margin:56px -24px}}@page{size:Letter;margin:.55in .5in .65in}@media print{html,body{background:#fff;padding:0;font-size:10.7pt;line-height:1.5}.book{width:auto;box-shadow:none}.cover{height:9.75in;min-height:0;break-after:page;padding:.75in .7in}.cover h1{font-size:68pt}.content{padding:0}h2{font-size:25pt;break-after:avoid}h3{font-size:17pt;break-after:avoid}.concept-index{break-before:page}.teaching-visual{box-shadow:5px 5px 0 #eb9ec4;margin:.22in 0 .3in;padding:.16in}.source-heading+ul{font-size:8.5pt}a{color:inherit}hr{margin:.5in -.5in}}
+.cover h1{color:#fff}.training-grid{position:relative;column-gap:38px;row-gap:30px}.train{position:relative}.repeat,.adjust,.miss{grid-row:2}.examples:after,.model-box:after,.output:after,.miss:before{position:absolute;z-index:3;color:#7a47b3;font:900 27px Arial}.examples:after,.model-box:after{content:"→";right:-33px;top:38%}.output:after{content:"↓";bottom:-36px;left:47%}.miss:before{content:"←";left:-34px;top:38%}
+@media(max-width:680px){.system-flow,.mini-flow{display:grid;grid-template-columns:1fr}.mini-flow .arrow{display:none}.system-flow .diagram-node{width:100%;min-height:92px}.consequence-row,.human-check{flex-direction:column;text-align:center}.training-grid{grid-template-columns:1fr;column-gap:0;row-gap:12px}.miss,.adjust,.repeat{grid-column:1;grid-row:auto}.examples:after,.model-box:after,.output:after,.miss:before{content:none}.repeat{padding:8px 0}}
+@media print{hr{display:none}.content>h2:nth-of-type(n+3){break-before:auto}.cover h1{font-size:60pt;max-width:6.3in}}
+</style></head><body><main class="book"><section class="cover"><div><span class="badge">The LIBRAiRY • The 101s</span><h1>AI Fundamentals 101</h1><p class="subtitle">A plain-English map of the different types of AI, the parts behind the screen and how a model learns.</p></div><div><p class="strap">Understand what kind of AI you are looking at, what is doing the work and what changes when you use it.</p><p class="review-status">Introduction through Chapter 3 • local review proof • not admitted or published</p></div></section><article class="content">
+<p>AI is not one thing, one company or one all-knowing brain in the sky. This is
+the plain-English map of what is actually happening—from the physical machines
+and model training to the information an AI product uses for your answer.</p>
+<h2>Contents</h2>
+<h3>Introduction — Why is AI worth understanding if you are not a technologist?</h3>
+<p>How understanding the system helps you use it better, spot weak claims and
+take part in decisions without borrowing someone else’s confidence.</p>
+<h3>Chapter 1 — What are the different types of AI—and why do the lists disagree?</h3>
+<p>The different jobs, media, methods and breadth people mean by <em>type of AI</em>—and
+why a chatbot, image generator and fraud detector can belong to several types
+at once.</p>
+<h3>Chapter 2 — What parts make an AI system work?</h3>
+<p>The product, model, instructions, information, tools, physical computers and
+people that turn a human request into a result or action.</p>
+<h3>Chapter 3 — How does a model learn from data—and produce a result?</h3>
+<p>The data, goals and feedback that shape a model; the difference between
+training and use; and why different models do different jobs.</p>
+<h3>Chapter 4 — What information does an AI use when you ask it something?</h3>
+<p>How your prompt, chat history, files, saved memory and retrieved information
+become—or fail to become—part of the current answer.</p>
+<h3>Chapter 5 — How does an AI product do more than answer?</h3>
+<p>Tools, APIs, connectors, permissions and multimodal generation—and the
+difference between a model suggesting an action and software carrying it out.</p>
+<h3>Chapter 6 — What is an AI agent—and how does it carry out a multi-step job?</h3>
+<p>Workflows, agents, plans, loops, observations, skills, stopping conditions and
+human checkpoints.</p>
+<h3>Chapter 7 — Why can AI be wrong, biased or unsafe?</h3>
+<p>Variation, hallucination, bias, unsuitable data or models, evaluation,
+benchmarks, reliability, fairness and safety as different questions.</p>
+<h3>Chapter 8 — What happens to your data—and who controls the system?</h3>
+<p>Collection, storage, retention, training use, access, security, ownership,
+accountability, correction and contestability.</p>
+<h3>Chapter 9 — How do AI systems change work, resources and public decisions?</h3>
+<p>Tasks and jobs, human-AI collaboration, labour, energy and materials,
+deployment, monitoring, governance and how to read a dated AI claim.</p>
+<section class="concept-index"><h2>Concept Index for the beginning of this book</h2>
+<p>Use this when you meet a term and want to know where it fits. Each entry gives
+the shortest useful meaning and routes back to the connected explanation.</p>
+<ul>
+<li><strong>Accelerator chip:</strong> hardware designed to perform demanding calculations
+efficiently; GPUs and TPUs are examples used in AI work. See <a href="#accelerator-chips">Chapter 2</a>.</li>
+<li><strong>Agentic AI:</strong> a system pattern that can choose actions, use tools, observe
+results and continue across steps toward a goal. It is not the same as
+generative AI or AGI. See <a href="#generative-and-agentic">Chapter 1</a>.</li>
+<li><strong>AGI:</strong> artificial general intelligence, a disputed proposed category based
+on broad generality and transfer across unfamiliar intellectual tasks.
+LAiDIES does not treat current systems as AGI. See <a href="#breadth">Chapter 1</a>.</li>
+<li><strong>AI system:</strong> the complete working arrangement—people, product, models,
+information, tools, controls and physical infrastructure—not one magic
+object. See <a href="#ai-system">Chapter 2</a>.</li>
+<li><strong>Artificial intelligence (AI):</strong> the broad field of building machine-based
+systems that produce outputs such as predictions, recommendations, content
+or decisions. See <a href="#ai-types">Chapter 1</a>.</li>
+<li><strong>ASI:</strong> artificial superintelligence, a hypothetical category for capability
+beyond human or collective-human levels across a broad intellectual range.
+It does not exist today. See <a href="#breadth">Chapter 1</a>.</li>
+<li><strong>Data centre:</strong> a physical facility containing servers, storage, networks,
+power and cooling used to run computing work. See <a href="#data-centre">Chapter 2</a>.</li>
+<li><strong>Deep learning:</strong> a type of machine learning using multilayer neural
+networks; it sits inside machine learning, not beside all of AI. See
+<a href="#machine-learning-method">Chapter 1</a>.</li>
+<li><strong>Fine-tuning:</strong> additional training that adjusts an existing model for a
+task or desired behaviour; it is different from giving the model a prompt or
+file for one use. See <a href="#post-training">Chapter 3</a>.</li>
+<li><strong>Generative AI:</strong> AI designed to produce new content such as text, images,
+audio, video or code. See <a href="#generative-and-agentic">Chapter 1</a>.</li>
+<li><strong>General-purpose AI:</strong> a current system that can work across a wide range of
+tasks; this does not make it AGI. See <a href="#breadth">Chapter 1</a>.</li>
+<li><strong>Generalisation:</strong> using learned patterns successfully on appropriate new
+inputs rather than only repeating training examples. See
+<a href="#generalisation">Chapter 3</a>.</li>
+<li><strong>GPU:</strong> a graphics processing unit; an accelerator whose parallel
+calculations are useful for many AI workloads. See <a href="#accelerator-chips">Chapter 2</a>.</li>
+<li><strong>Inference:</strong> using a trained model on new input to produce an output. See
+<a href="#inference">Chapter 3</a>.</li>
+<li><strong>Knowledge cutoff:</strong> a simplified label for the time boundary of a model&#39;s
+training knowledge. Coverage is uneven; newer information can be supplied
+during use without retraining the model. See <a href="#knowledge-boundary">Chapter 3</a>.</li>
+<li><strong>Language model:</strong> a model that learns patterns in sequences of language.
+An LLM is a large language model, not a name for every kind of AI. See
+<a href="#generative-and-agentic">Chapter 1</a> and <a href="#next-token">Chapter 3</a>.</li>
+<li><strong>Loss:</strong> a numerical signal measuring how far a training output is from the
+objective being rewarded. See <a href="#what-shapes-a-model">Chapter 3</a>.</li>
+<li><strong>Machine learning:</strong> a family of AI methods that learn patterns from data
+instead of relying only on hand-written rules. See <a href="#machine-learning-method">Chapter 1</a>.</li>
+<li><strong>Modality:</strong> the kind of input or output a system works with, such as text,
+image, audio or video. See <a href="#modality">Chapter 1</a>.</li>
+<li><strong>Model:</strong> a learned mathematical structure and parameters that transform an
+input into an output; it is one component of an AI system. See
+<a href="#model">Chapter 2</a>.</li>
+<li><strong>Multimodal:</strong> able to work across more than one modality, such as an image
+plus a written question. See <a href="#modality">Chapter 1</a>.</li>
+<li><strong>Neural network:</strong> a model structure made of connected layers of adjustable
+units. Modern deep-learning models use many layers. See
+<a href="#neural-network">Chapter 3</a>.</li>
+<li><strong>Objective:</strong> the result a training process is trying to improve. The
+objective helps shape what the model becomes good at. See
+<a href="#what-shapes-a-model">Chapter 3</a>.</li>
+<li><strong>Optimisation:</strong> the repeated process of adjusting model parameters to
+reduce loss. See <a href="#what-shapes-a-model">Chapter 3</a>.</li>
+<li><strong>Parameters:</strong> adjustable numerical values in a model that training changes.
+See <a href="#what-shapes-a-model">Chapter 3</a>.</li>
+<li><strong>Product or app:</strong> the interface and surrounding software that choose which
+model, instructions, information, tools and controls a person encounters.
+See <a href="#product">Chapter 2</a>.</li>
+<li><strong>Server:</strong> a computer that provides processing, storage or services to other
+devices or software. See <a href="#data-centre">Chapter 2</a>.</li>
+<li><strong>Specialised AI:</strong> a system built or configured for a bounded set of tasks.
+See <a href="#breadth">Chapter 1</a>.</li>
+<li><strong>Token:</strong> a unit a language model processes, which may be a word, part of a
+word, punctuation or another small piece. See <a href="#tokens">Chapter 3</a>.</li>
+<li><strong>Tokenizer:</strong> the process or component that converts text into tokens. See
+<a href="#tokens">Chapter 3</a>.</li>
+<li><strong>Training:</strong> the process that uses data and an objective to adjust a model&#39;s
+parameters. See <a href="#what-shapes-a-model">Chapter 3</a>.</li>
+<li><strong>TPU:</strong> Google’s specialised tensor processing unit, one example of an
+accelerator used for machine-learning workloads. See
+<a href="#accelerator-chips">Chapter 2</a>.</li>
+</ul>
+</section><h2>Introduction — Why is AI worth understanding if you are not a technologist?</h2>
+<p>AI can now enter a meeting before anyone has agreed what the words <em>use AI</em>
+mean.</p>
+<p>One person means a chat product drafting the agenda. Another means software
+ranking job applicants. Someone else is proposing an automated customer-service
+workflow that can issue refunds. The slide still says <strong>AI initiative</strong>, as if
+these were one activity and one risk wearing a very confident blazer.</p>
+<p>The same collapse happens outside work. A search result arrives with an
+AI-written summary. A bank, insurer or public agency announces an AI-assisted
+process. A friend shares a miraculous medical answer from a chatbot. A headline
+says AI will transform energy, jobs, education or science. Some of those claims
+describe real and important changes. Some skip three layers of mechanism and
+several inconvenient questions. Most use the same two letters.</p>
+<p>You do not need a computer-science degree to tell the difference. You need a
+map.</p>
+<p>Not a map of every company, product and model name. That would be stale before
+the ink dried. You need the stable parts: the physical equipment that makes
+computation possible; the model shaped during training; the product that
+decides what reaches it; the information, tools and permissions available for
+this task; the output that comes back; and the person or system deciding what
+happens next.</p>
+<p>Once you can see those parts, AI stops being a magic word.</p>
+<p>It also becomes more fun to explore. You can ask a language model to turn a
+brain-dump into a plan, use an image model to test a party-table idea before
+buying anything, let a transcription tool rescue the useful parts of a voice
+note, or compare three versions of an awkward email without believing that the
+machine has suddenly become your wisest friend. Understanding the mechanism
+does not spoil the trick. It gives you more ways to use it on purpose.</p>
+<p>You can use it better because you know whether a weak result needs a clearer
+goal, missing information, a different tool or a different kind of model. You
+can challenge a workplace proposal without pretending to be an engineer: What
+job will the system do? What information will it use? What happens to the
+result? You can read a public claim about chips, energy, safety or jobs and ask
+which part of the system the claim actually describes.</p>
+<p>Most importantly, you can keep your judgement in the room.</p>
+<p>That does not mean hovering over every harmless draft as though it were a
+nuclear launch code. It means matching your attention to the consequence. A
+brainstorm can tolerate mess. A benefits decision, medical claim, employment
+recommendation or message sent in your name deserves much more care.</p>
+<p>Before AI gets a seat at the table, find out who briefed it, what it was given
+and what it is allowed to do.</p>
+<h3>The map we will build</h3><figure class="teaching-visual" id="whole-system-map" aria-labelledby="whole-system-map-title whole-system-map-caption"><div class="visual-kicker">The map in one glance</div><h4 id="whole-system-map-title">An AI result comes from a chain, not one magic object</h4><div class="flow system-flow"><div class="diagram-node human"><strong>Human goal</strong><span>What needs to happen?</span></div><span class="arrow" aria-hidden="true">→</span><div class="diagram-node product"><strong>Product</strong><span>Interface + software</span></div><span class="arrow" aria-hidden="true">→</span><div class="diagram-node information"><strong>Information</strong><span>Instructions • files • retrieval</span></div><span class="arrow" aria-hidden="true">→</span><div class="diagram-node model"><strong>Model</strong><span>Learned transformation</span></div><span class="arrow" aria-hidden="true">→</span><div class="diagram-node compute"><strong>Physical compute</strong><span>Chips • servers • networks</span></div></div><div class="consequence-row"><span>optional tools</span><span class="arrow" aria-hidden="true">→</span><b>output or action</b><span class="arrow" aria-hidden="true">→</span><span>human consequence</span></div><figcaption id="whole-system-map-caption">A human goal passes through a product, supplied information and a model running on physical computers. Optional tools may add information or actions. A person or institution still decides what happens to the result.</figcaption></figure>
+<p>This book follows one connected path:</p>
+<p><strong>human goal → product → supplied information → model → optional tools or
+retrieval → output or action → consequence</strong></p>
+<p>The exact arrangement varies. A small model may run on a phone. A product may
+call several models. A system may retrieve documents, use a calculator or take
+an action in another service. Some systems have no chat box at all. The map is
+not a claim that every AI product is identical. It is a way to locate the part
+that matters.</p>
+<p>Chapter 1 sorts the different things people mean by <em>type of AI</em>. Chapter 2
+shows the product, model, physical machines and people that make a complete AI
+system work. Chapter 3 explains how data and feedback shape a model and what
+changes when you use it.</p>
+<p>Later chapters will add tools, permissions, workflows and agents; explain why
+results vary or fail; follow what happens to data; and widen the view to work,
+resources and public decisions. The Concept Index provides a direct route to
+one term without turning the book into a wall of definitions.</p>
+<p>You are not here to memorize an org chart for machines. You are here to gain a
+working model of the system—strong enough to help you use it, question it and
+take part in what happens next.</p>
+
+<p><a id="ai-types"></a></p>
+<h2>Chapter 1 — What are the different types of AI—and why do the lists disagree?</h2>
+<p>Ask five people to name the types of AI and you may get five different lists.</p>
+<p>One person says <em>machine learning, deep learning and generative AI</em>. Another
+says <em>text, image, audio and video</em>. A third says <em>predictive, generative and
+agentic</em>. Then somebody adds <em>narrow AI, AGI and ASI</em>, and the conversation
+begins to feel as though everyone arrived at the same party with a different
+dress code.</p>
+<p>The lists disagree because they are answering different questions.</p>
+<p>An AI system can be classified by the job it does, the material it works with,
+the way its model was built, the breadth of tasks it can handle and the way
+people can access it. One system can therefore belong to several types at once.
+That is not a contradiction. It is the beginning of a useful map.</p>
+<h3>One thing can carry several labels</h3><figure class="teaching-visual" id="five-axes-map" aria-labelledby="five-axes-map-title five-axes-map-caption"><div class="visual-kicker">Chapter 1 visual</div><h4 id="five-axes-map-title">One product can carry several truthful labels</h4><div class="closet-figure"><div class="dress-panel"><svg viewBox="0 0 240 270" role="img" aria-label="One pink work dress carrying several descriptive tags"><path d="M77 38L120 22l43 16 35 84-37 18 24 102H55l24-102-37-18Z" fill="#ef65a6" stroke="#5a2d7d" stroke-width="7"/><path d="M120 23V8m0 0l-56 31m56-31l56 31" fill="none" stroke="#6c4794" stroke-width="6" stroke-linecap="round"/><g font-family="Arial" font-weight="800" font-size="15" fill="#3e2554"><rect x="5" y="176" width="71" height="30" rx="15" fill="#ffd36a"/><text x="40" y="197" text-anchor="middle">PINK</text><rect x="7" y="216" width="83" height="30" rx="15" fill="#dff5ef"/><text x="48" y="237" text-anchor="middle">WORK</text><rect x="165" y="176" width="66" height="30" rx="15" fill="#dfe8ff"/><text x="198" y="197" text-anchor="middle">WOOL</text><rect x="155" y="216" width="80" height="30" rx="15" fill="#ffe2ef"/><text x="195" y="237" text-anchor="middle">VINTAGE</text></g></svg><p>One dress. Several properties.</p></div><div class="axes"><div><b>1 · Job</b><span>transcribe • classify • generate</span></div><div><b>2 · Modality</b><span>audio in • text out</span></div><div><b>3 · Method</b><span>machine learning • deep learning</span></div><div><b>4 · Breadth</b><span>general-purpose model in a specialist product</span></div><div><b>5 · Access</b><span>open • open weight • source available • closed</span></div><p class="agentic-note"><b>Agentic?</b> Only if it continues through actions.</p></div></div><figcaption id="five-axes-map-caption">The labels are not competing answers. They classify different properties. Agentic describes an operating pattern and can overlap several of them.</figcaption></figure>
+<p>In the LAiDIES Closet, one dress can be black, wool, workwear, vintage and a
+size 10. If someone asks, “What type of dress is it?”, all five answers may be
+true. Colour, material, purpose, era and size describe different properties.</p>
+<p>AI labels work in a similar way.</p>
+<p>The analogy stops at classification. A model is not a dress, and its behaviour
+cannot be understood by reading a neat tag sewn into the lining. The useful
+idea is that a <em>type</em> only makes sense after you know which property is being
+classified.</p>
+<p>Here are the five questions that organise this book.</p>
+<h3>1. What job does it do?</h3>
+<p>Some AI systems sort or estimate. Others create or act.</p>
+<ul>
+<li>A <strong>classification</strong> model assigns a category: likely fraud or not, urgent
+message or ordinary message, cat or dog.</li>
+<li>A <strong>prediction</strong> or forecasting model estimates an outcome or quantity: next
+month&#39;s demand, the probability of a missed payment, tomorrow&#39;s energy use.</li>
+<li>A <strong>ranking</strong> model puts options in order: which search result, applicant or
+product should appear first.</li>
+<li>A <strong>recommendation</strong> system selects items it predicts a person may find
+relevant: a film, song, article or next purchase.</li>
+<li>A <strong>generative</strong> system produces new content: text, images, audio, video or
+code.</li>
+<li>A <strong>control</strong> system helps choose an action in a changing environment: adjust
+a thermostat, guide a robot arm or support part of a driving system.</li>
+</ul>
+<p>These jobs can be combined. A shopping app may classify products, rank search
+results, recommend alternatives and generate a summary on the same screen.
+“It uses AI” still does not tell you which operation affected what you saw.</p>
+<p><a id="generative-and-agentic"></a></p>
+<h3>Generative and agentic describe different things</h3>
+<p><strong>Generative AI</strong> describes what the system produces. A language model can
+generate an email. An image model can generate a poster. A music model can
+generate an instrumental track that sounds suspiciously ready for a 1998
+rom-com montage.</p>
+<p>Here, <strong>generation</strong> is the content-producing job. <strong>Generative AI</strong> names
+systems designed to do that job.</p>
+<p>A <strong>language model</strong> learns patterns in sequences of language. A <strong>large
+language model</strong>, or LLM, is a language model trained at large scale. It is one
+kind of generative model, not the name for every model or every AI system.</p>
+<p><strong>Agentic AI</strong> describes how a system operates across a job. An agentic system
+can work toward a goal by choosing an action, using a permitted tool, observing
+the result and deciding what to do next. Instead of answering once, it can
+continue through several steps.</p>
+<p>Those are not rival categories.</p>
+<ul>
+<li>A chatbot that drafts one paragraph may be generative but not agentic.</li>
+<li>An agent that checks stock levels and reorders an approved item may be
+agentic while using classification, rules and tools as well as generation.</li>
+<li>A research assistant that searches, reads, compares and writes may be both
+agentic and generative.</li>
+</ul>
+<p>Agentic does not mean <strong>AGI</strong>. A system can choose among tools inside a narrow
+workflow without possessing general intelligence. A self-checkout also moves
+through several steps; nobody has invited it to solve the mysteries of human
+existence.</p>
+<p>Chapter 6 will explain the full agent loop after we have learned about models,
+current information and tools. For now, remember the distinction: <em>generative</em>
+describes producing content; <em>agentic</em> describes continuing through actions.</p>
+<aside class="fact-box"><h4>Keep the distinction</h4><p>
+<strong>Generative</strong> tells you that a system produces content. <strong>Agentic</strong> tells you
+that a system can continue through actions toward a goal. <strong>AGI</strong> is a
+disputed proposed threshold for broad, transferable capability. None of
+these words is a synonym for either of the others.</p></aside>
+<p><a id="modality"></a></p>
+<h3>2. What kind of material does it work with?</h3>
+<p>The technical word is <strong>modality</strong>: a kind of input or output.</p>
+<p>A model may work with:</p>
+<ul>
+<li>text;</li>
+<li>images;</li>
+<li>speech or other audio;</li>
+<li>video;</li>
+<li>tables, measurements or other structured data; or</li>
+<li>signals from sensors and machines.</li>
+</ul>
+<p>A <strong>multimodal</strong> model can work across more than one. For example, it might
+receive a photograph and a written question, then answer in text. A meeting
+assistant may take audio, turn it into text and produce a written summary.</p>
+<p>Multimodal does not mean limitless. A system that accepts text and images may
+not accept video. A model that can describe a chart may still struggle to read
+a tiny label or preserve an exact number. The type tells you which forms it can
+process, not how well it will perform on every example.</p>
+<p><a id="machine-learning-method"></a></p>
+<h3>3. How was it built?</h3>
+<p>Some software follows rules written directly by people: <em>if this condition is
+true, do that</em>. Rule-based systems are part of AI&#39;s history and remain useful
+when the rule is known and stability matters.</p>
+<p><strong>Machine learning</strong> is a family of methods in which a system uses data to
+adjust a model so it can find patterns rather than relying only on rules written
+in advance.</p>
+<p><strong>Deep learning</strong> is a machine-learning approach that uses neural networks with
+many layers. Most of the language, image, audio and video models behind the
+current generative-AI boom use deep learning.</p>
+<p>So these labels describe a rough family relationship:</p>
+<p><strong>AI contains machine learning; machine learning contains deep learning.</strong></p>
+<p><em>Generative</em> does not sit neatly underneath them as another building method. It
+describes the job of producing content. Most current generative models use deep
+learning, but many deep-learning models classify, rank or predict instead.</p>
+<p>Chapter 3 will show how data and feedback shape a machine-learning model. At
+this point, you only need the branches to stop the words collapsing into one
+another.</p>
+<p><a id="breadth"></a></p>
+<h3>4. How broad is its capability?</h3>
+<p>A <strong>specialised</strong> system is built or configured for a bounded set of tasks. A
+fraud detector may be excellent at finding transaction patterns and useless at
+planning a holiday.</p>
+<p>A <strong>general-purpose</strong> model can work across a much wider range of tasks. Modern
+language and multimodal models can draft, summarize, translate, analyse images,
+help with code and move among subjects. That breadth is real. It also blurs the
+old habit of describing every present system as able to do only one narrow
+thing.</p>
+<p><em>General-purpose</em> does not mean <em>general intelligence</em>. The first describes
+current systems that can handle many tasks. The second appears in the disputed
+proposed category AGI.</p>
+<p>General-purpose is not the same as <strong>artificial general intelligence</strong>, or
+<strong>AGI</strong>.</p>
+<p>AGI is a proposed and disputed threshold. Definitions vary, but an important
+idea is broad generality: the ability to transfer capability across unfamiliar
+intellectual tasks rather than performing well only on a known collection of
+tasks. There is no universally agreed definition or test. Credible experts
+disagree about what would count and whether or when it might happen. LAiDIES
+does not treat any system available today as AGI.</p>
+<p><strong>Artificial superintelligence</strong>, or <strong>ASI</strong>, is more speculative still. It
+describes a hypothetical system whose intellectual capability would exceed
+human—or, in some definitions, collective human—capability across a very broad
+range. ASI does not exist today. Proposed paths from AGI to ASI are research
+scenarios with major uncertainties, not a timetable for an inevitable product
+launch.</p>
+<p>This gives us a boundary worth keeping:</p>
+<ul>
+<li>specialised and general-purpose describe systems that exist now;</li>
+<li>AGI is a disputed proposed category that LAiDIES says has not been reached;</li>
+<li>ASI is a hypothetical beyond-human category; and</li>
+<li>an agent using several specialist tools is not secretly AGI wearing a busy
+lanyard.</li>
+</ul>
+<p>Chapter 9 will return to AGI and ASI when we learn how to examine public claims
+and forecasts without turning either enthusiasm or fear into evidence.</p>
+<p><a id="access"></a></p>
+<h3>5. How can people access or change it?</h3>
+<p>You may also hear <strong>open source</strong>, <strong>open weight</strong>, <strong>source available</strong> and
+<strong>closed</strong> described as AI types. These labels answer another question: what
+parts of a model or system are available to inspect, download, change or use
+under particular terms?</p>
+<p>They do not tell you whether the model generates or predicts, whether it is
+agentic, how broad it is, or whether it is accurate or safe. Two systems can do
+similar jobs while offering very different access. The exact distinctions
+matter enough to receive their own treatment in Chapter 8, alongside control,
+security and accountability.</p>
+<p>For now, do not use <em>open</em> as a synonym for good or <em>closed</em> as a synonym for
+capable. Access is one property, not a verdict.</p>
+<h3>Pause and place it: put one product on the map</h3>
+<p>Consider a meeting assistant that records a discussion, creates a transcript,
+finds the decisions and prepares follow-up tasks.</p>
+<p>What type of AI is it?</p>
+<ul>
+<li><strong>By job:</strong> it may transcribe, classify, rank and generate.</li>
+<li><strong>By modality:</strong> it moves from audio to text.</li>
+<li><strong>By method:</strong> its main models likely use machine learning and deep learning.</li>
+<li><strong>By operating pattern:</strong> if it only returns a summary, it may not be
+agentic; if it creates tasks, checks calendars and follows up across steps,
+it may use an agentic workflow.</li>
+<li><strong>By breadth:</strong> it may use a general-purpose language model inside a
+specialised meeting product. It is not AGI.</li>
+<li><strong>By access:</strong> its models and surrounding software may be open, open weight,
+source available or closed in different combinations.</li>
+</ul>
+<p>No single label describes the whole product. The five axes tell you which
+question each label answers.</p>
+<h3>The first click</h3>
+<p>There is no one correct list of AI types because <em>type</em> can describe a job,
+modality, building method, breadth or form of access.</p>
+<p>That gives you a useful reply the next time somebody says, “This is a different
+kind of AI.”</p>
+<p><strong>Different in what way?</strong></p>
+<p>The answer may be generative, agentic, multimodal, deep-learning,
+general-purpose or open weight—and several may be true at once.</p>
+<p>Now we can ask the next question. Once we know what property a label describes,
+what parts have to work together to make the real system run?</p>
+<h3 class="source-heading">Source notes</h3>
+<ul>
+<li><a href="https://oecd.ai/en/wonk/definition">OECD.AI — updated AI system definition and application areas</a></li>
+<li><a href="https://developers.google.com/machine-learning/glossary">Google for Developers — Machine Learning Glossary</a></li>
+<li><a href="https://deepmind.google/research/publications/66938/">Google DeepMind — Levels of AGI</a></li>
+<li><a href="https://deepmind.google/research/publications/239142/">Google DeepMind — From AGI to ASI</a></li>
+</ul>
+<p>Concept boundaries checked 8 August 2026. AGI and ASI definitions, tests,
+capability claims and timelines must remain attributed, disputed and current.</p>
+
+<h2>Chapter 2 — What parts make an AI system work?</h2>
+<p>You open an app, type a request and watch an answer appear. The experience is
+so smooth that the app, the model and the whole AI system can feel like one
+thing.</p>
+<p>They are not.</p>
+<p>That distinction matters for the same reason it mattered when many of us first
+went online. Internet Explorer was not <em>the internet</em>. It was the doorway a lot
+of Rewind Era households used to reach it. Behind the blue <strong>e</strong> sat networks,
+servers, websites, companies, rules and a modem making a noise like two fax
+machines ending a friendship.</p>
+<p>An AI app is also a doorway. The comparison stops there: AI systems are not the
+same architecture as the internet, and the analogy cannot explain training or
+generation. It does one useful job. It reminds us that the thing on the screen
+is not the whole thing.</p>
+<p><a id="ai-system"></a></p>
+<h3>Start with the whole system</h3><figure class="teaching-visual" id="system-cutaway" aria-labelledby="system-cutaway-title system-cutaway-caption"><div class="visual-kicker">Chapter 2 visual</div><h4 id="system-cutaway-title">The app is the doorway, not the whole AI system</h4><div class="cutaway"><div class="laptop" aria-label="Laptop with screen correctly contained inside the open lid"><div class="screen"><span>meeting notes</span><i></i><i></i><i></i></div><div class="keyboard"></div><b>PRODUCT</b></div><span class="arrow" aria-hidden="true">→</span><div class="network-cloud"><b>NETWORK</b><span>request + result</span></div><span class="arrow" aria-hidden="true">→</span><div class="data-centre"><b>DATA CENTRE</b><span class="rack">SERVER</span><span class="chip">CHIP</span><span class="model-chip">MODEL</span><small>electricity • cooling</small></div></div><div class="human-check"><b>Human checkpoint</b><span>Check names, dates, promises and tone before the email is sent.</span><span class="arrow" aria-hidden="true">→</span><strong>send • revise • stop</strong></div><figcaption id="system-cutaway-caption">The product assembles working input. Computing hardware runs the model. The product presents the result. Permissions and people determine whether it becomes an action.</figcaption></figure>
+<p>An <strong>AI system</strong> is a machine-based arrangement that receives input and
+produces an output such as content, a prediction, a recommendation or a
+decision. That output may influence something in a digital environment or the
+physical world.</p>
+<p>The system can include:</p>
+<ul>
+<li>the product or interface a person uses;</li>
+<li>one or more models;</li>
+<li>instructions and other information supplied for the task;</li>
+<li>software that routes requests or calls other services;</li>
+<li>search, retrieval, calculation or action tools;</li>
+<li>permissions and safety controls;</li>
+<li>computing hardware, networks, electricity and cooling; and</li>
+<li>people and organizations deciding where the output goes and what it is
+allowed to affect.</li>
+</ul>
+<p>Not every system contains every item. The point is that <strong>AI system</strong> names the
+working arrangement, not one invisible brain.</p>
+<p><a id="product"></a>
+The <strong>product</strong> is the part you encounter: the chat app, writing assistant,
+recommendation feature, fraud detector, image generator or software inside a
+work process. A product decides what the interface shows, which model or models
+it uses, which instructions and files it supplies, whether it can search or
+act, and what controls are available.</p>
+<p><a id="model"></a>
+The <strong>model</strong> is one component inside that larger arrangement. In machine
+learning, a model is the learned mathematical structure and set of adjustable
+values—usually called parameters—that transform an input into an output.</p>
+<p>That definition is less glamorous than “digital brain,” which is useful. A
+model has no little filing cabinet marked <em>everything you have ever told me</em>.
+It performs learned transformations on the input it receives. Depending on the
+model, the output might be generated text, a category, a risk score, a ranked
+list, a forecast, a detected object or a suggested action.</p>
+<p>A company may build models, operate products, supply computing infrastructure
+or do all three. Brand names do not tell you which layer is doing the work.</p>
+<aside class="fact-box"><h4>Three levels that should not collapse</h4><p>
+The <strong>app or product</strong> is what you encounter. The <strong>model</strong> is a learned
+component it may use. The <strong>AI system</strong> is the full working arrangement,
+including information, software, infrastructure, controls and people.</p></aside>
+<p><a id="data-centre"></a></p>
+<h3>The cloud has a postcode</h3>
+<p>The word <em>cloud</em> makes computation sound as though it happens in a tasteful
+mist above our heads. It does not. The cloud has a postcode. It also has an
+electricity bill.</p>
+<p>Much of today’s model training and use happens in data centres: physical
+facilities containing rows of servers, storage systems and networking
+equipment, plus the machinery needed to power and cool them. A server is a
+computer built to provide processing, storage or services. Inside servers,
+general-purpose processors and specialized accelerator chips can perform the
+large volumes of mathematical operations used by AI workloads.</p>
+<p><a id="accelerator-chips"></a>
+You will often hear <strong>GPU</strong>, short for graphics processing unit. GPUs were
+developed for graphics but are also good at performing many calculations in
+parallel. That makes them useful for many machine-learning jobs. <strong>TPUs</strong> are
+Google’s specialized accelerators for machine-learning workloads. Other
+accelerators exist, and ordinary CPUs still do important work. “AI chip” is a
+category, not one universal object.</p>
+<p>Large models may be too large or demanding for one processor. Their work can be
+divided across multiple chips and machines connected by high-speed networks.
+The computers need electricity. Their operation produces heat. Cooling systems
+move that heat away so the equipment can continue working. Networks move data
+between machines and carry requests and results between a product and the
+infrastructure behind it.</p>
+<p>Some models run partly or entirely on a laptop or phone. Some products send a
+request to remote servers. Many systems combine local and remote work. “AI runs
+in data centres” is therefore a common pattern, not a rule that every keystroke
+must cross a continent.</p>
+<h3>What happens after you press Send</h3>
+<p>Imagine you ask a workplace assistant to turn a page of meeting notes into a
+clear follow-up email.</p>
+<p>Here is the useful version of the journey:</p>
+<ol>
+<li><strong>You define the job.</strong> Your request and notes enter the product.</li>
+<li><strong>The product assembles the working input.</strong> It may add instructions,
+selected conversation history, files or other permitted information.</li>
+<li><strong>The request reaches computing hardware.</strong> It may travel across a network
+to servers or be handled partly on your device.</li>
+<li><strong>A model processes the supplied input.</strong> The model transforms that input
+into an output—in this case, generated language.</li>
+<li><strong>The product presents the result.</strong> It may format the answer, attach source
+links or offer another action.</li>
+<li><strong>A person decides what happens next.</strong> You check the names, promises,
+dates and tone before anything is sent in your name.</li>
+</ol>
+<p>The polished email is not evidence that all six stages worked well.</p>
+<p>If a colleague’s decision was missing from the notes, the model could not
+recover it by confidence alone. If the product supplied an old version of the
+notes, the model worked from old information. If an email tool has permission
+to send automatically, a weak output can become an action before anyone checks
+it. If the email is accurate but unkind, the remaining problem is not compute.
+It is judgement.</p>
+<p>This is why “the AI got it wrong” is often the beginning of the diagnosis, not
+the diagnosis itself.</p>
+<h3>The parts create different questions</h3>
+<p>Once the system is visible, broad claims become easier to examine.</p>
+<p>If someone says, “AI uses a lot of electricity,” ask: training or everyday
+use? Which kind of system and hardware? Where is the data centre? What time
+period and comparison does the evidence cover?</p>
+<p>If someone says, “The model has access to our policies,” ask: which product is
+using which model? How are the policies retrieved? Which versions can it reach?
+Are permissions enforced? Can the user inspect the source behind the answer?</p>
+<p>If someone says, “AI approved the claim,” ask: did a model generate a score, a
+product apply a rule or a person make a decision after seeing an AI-assisted
+recommendation? Who is responsible for correcting an error?</p>
+<p>Those are not technical gotchas. They are ordinary questions made more precise
+by knowing the parts.</p>
+<h3>Pause and place it: the answer was right, but the action was wrong</h3>
+<p>Suppose the meeting assistant drafts an accurate email and sends it to a client
+without the promised human check. Did the model fail to generate the email?
+Not necessarily. The defect sits in the surrounding workflow, permission or
+checkpoint. A good output can still be used badly by the larger system.</p>
+<h3>The second click</h3>
+<p>AI is not a single object inside your screen. It is a chain that begins in the
+physical world, includes a model and surrounding software, and ends in another
+human or institutional decision about what the output is allowed to do.</p>
+<p>The app is what you open. The model is a learned component. The system is the
+whole working arrangement.</p>
+<p>That is the foundation for Chapter 3. Now that <strong>model</strong> has a real place in the
+map, we can ask how one is made—and what changes when you use it.</p>
+<h3 class="source-heading">Source notes</h3>
+<ul>
+<li><a href="https://oecd.ai/en/wonk/definition">OECD.AI — updated AI system definition</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf">NIST — AI Risk Management Framework 1.0</a></li>
+<li><a href="https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai">International Energy Agency — Energy demand from AI</a></li>
+<li><a href="https://cs336.stanford.edu/">Stanford CS336 — Language Modeling from Scratch</a></li>
+<li><a href="https://developers.google.com/machine-learning/glossary">Google for Developers — Machine Learning Glossary</a></li>
+</ul>
+<p>Physical mechanisms checked 8 August 2026. Recheck any named hardware,
+facility, provider or numerical energy claim before publication.</p>
+
+<h2>Chapter 3 — How does a model learn from data—and produce a result?</h2>
+<p>A model is not born knowing how to classify a transaction, recognize speech or
+continue a sentence. Its useful behaviour is shaped through a process called
+<strong>training</strong>.</p>
+<p>Training is different from using the model after it has been built. That sounds
+like a minor distinction until a product tells you it can “learn from your
+business” and everyone in the meeting nods at a completely different meaning
+of <em>learn</em>.</p>
+<p>So let us separate the jobs.</p>
+<p><a id="what-shapes-a-model"></a></p>
+<h3>What shapes a model during training</h3><figure class="teaching-visual" id="training-loop" aria-labelledby="training-loop-title training-loop-caption"><div class="visual-kicker">Chapter 3 visual</div><h4 id="training-loop-title">Training adjusts a model through repeated measured misses</h4><div class="training-grid"><div class="train examples"><b>1 · Examples</b><span>selected • cleaned • labelled</span></div><div class="train model-box"><b>2 · Model</b><span>current parameters</span></div><div class="train output"><b>3 · Output</b><span>prediction or generation</span></div><div class="train miss"><b>4 · Measure the miss</b><span>objective + loss</span></div><div class="train adjust"><b>5 · Adjust</b><span>update parameters slightly</span></div><div class="repeat">↻ repeat across many examples</div></div><div class="evaluation"><b>Separate evaluation</b><span>Does the learning transfer to relevant new cases?</span></div><figcaption id="training-loop-caption">Examples and an objective shape the model through repeated parameter updates. Separate evaluation asks whether the learning transfers to relevant cases not used for that update.</figcaption></figure>
+<p>During machine-learning training, a system gives the model many examples and a
+way to measure error against an objective. The training process adjusts the
+model’s parameters so that its future outputs better fit that objective.</p>
+<p>The exact method depends on the model. A simple fraud model might learn from
+past transactions labelled fraudulent or legitimate. An image model may learn
+patterns connecting images and descriptions. A language model learns patterns
+across sequences of tokens. Some systems also go through additional
+fine-tuning, human-feedback or reinforcement-learning stages to shape behaviour
+for particular tasks or product expectations.</p>
+<p><a id="neural-network"></a>
+Many modern models use a <strong>neural network</strong>: layers of connected mathematical
+units whose adjustable values transform an input step by step. <em>Deep learning</em>
+means using neural networks with many such layers. You do not need to calculate
+those layers to understand the important relationship: the architecture
+defines the paths available, while training adjusts the parameters along those
+paths.</p>
+<p>Five choices do much of the shaping:</p>
+<ul>
+<li><strong>Data:</strong> which examples are included, excluded, cleaned, labelled or mixed.</li>
+<li><strong>Representation:</strong> how the material is converted into numbers the model can
+process, such as tokens for language.</li>
+<li><strong>Objective and loss:</strong> what result the training rewards and how a miss is
+measured.</li>
+<li><strong>Optimisation:</strong> how the model&#39;s parameters are adjusted to reduce that
+loss.</li>
+<li><strong>Evaluation:</strong> which separate cases are used to test whether the learning
+travels beyond the training examples.</li>
+</ul>
+<p>Then the training loop looks like this:</p>
+<ol>
+<li><strong>Prepare examples.</strong> People and systems collect, clean, filter, label or
+otherwise organize training material.</li>
+<li><strong>Run the model on a training example.</strong> The model produces a prediction or
+other output from its current parameter settings.</li>
+<li><strong>Measure the miss.</strong> A loss function turns the difference between the
+model’s output and the training objective into a signal.</li>
+<li><strong>Adjust the parameters.</strong> An optimization process changes many adjustable
+values slightly in a direction intended to reduce that loss.</li>
+<li><strong>Repeat.</strong> Across many examples and iterations, the model becomes better at
+the patterns rewarded by the objective.</li>
+<li><strong>Evaluate.</strong> Developers test performance on material or tasks that were not
+used for the parameter update and examine where the model still fails.</li>
+<li><strong>Prepare it for use.</strong> A selected version can be saved, further shaped and
+made available for inference inside a product.</li>
+</ol>
+<p>Parameters are not tidy drawers of source sentences. They are numerical values
+inside the model’s learned structure. Training changes those values across many
+examples. The resulting model can produce useful outputs for new inputs without
+retrieving one stored answer for every possible question.</p>
+<p>That is also why training data matters without acting like a searchable
+archive. The data influences the patterns a model can learn. Its selection,
+quality, gaps and errors affect performance. But a model answer usually cannot
+show you which training example “contains” each sentence, because generation is
+not a normal database lookup.</p>
+<p><a id="generalisation"></a></p>
+<h3>Learning a pattern is not the same as memorising the examples</h3>
+<p>The point of training is not merely to reproduce the practice material. A
+useful model must <strong>generalise</strong>: apply what it learned to appropriate new
+inputs.</p>
+<p>Imagine teaching a new colleague to recognise expense claims that need a
+closer look. If she can only flag the six examples used in training, she has
+memorised the worksheet. If she can recognise the same warning patterns in a
+new claim, she has learned something transferable. If she begins flagging every
+dinner receipt because two bad examples involved restaurants, she has learned
+the wrong shortcut.</p>
+<p>Models can fail in similar ways. They may fit training examples closely but
+perform poorly on new cases, or learn correlations that do not hold in the
+setting where the product is used. That is why evaluation needs genuinely
+separate, relevant cases—not a victory lap over the same material used to
+train the model.</p>
+<p><a id="tokens"></a></p>
+<h3>What tokens are doing here</h3>
+<p>Language models do not receive a sentence as one intact human idea. A
+<strong>tokenizer</strong> converts text into tokens the model can process. A token might be
+a whole common word, part of a word, punctuation or another small unit. The
+exact split depends on the tokenizer.</p>
+<p>That is why 500 words and 500 tokens are not the same measurement, and why an
+unusual name may take more token space than a familiar word of similar length.
+For multimodal models, other input types can be converted into their own model
+representations—for example, pieces of an image rather than written words.</p>
+<p>Tokens matter because they are the working units a language model is trained
+on and uses during generation. They also help determine how much material fits
+inside a model’s context window, which we will open properly in Chapter 4.</p>
+<p><a id="next-token"></a></p>
+<h3>Why “it predicts the next token” is true but incomplete</h3>
+<p>An autoregressive language model generates text by repeatedly predicting a
+likely next token from the tokens that came before it.</p>
+<p>That sentence often lands badly in one of two directions.</p>
+<p>The first is hype: “It is reasoning exactly like a person.” The next-token
+mechanism does not establish human understanding, consciousness, lived
+experience or responsibility.</p>
+<p>The second is dismissal: “So it is just phone autocomplete.” Also wrong.
+Training a large model across extensive data and many parameters can produce
+rich internal representations of language and relationships. Repeating the
+prediction step across a long context can generate plans, explanations, code
+and other complex structures. The mechanism is still next-token prediction;
+the learned system doing it is far more capable than the suggestion strip on a
+2007 phone.</p>
+<p>The training objective rewards a fitting continuation. That explains why a
+language model can produce a remarkably useful answer and still produce a
+confident mistake. Chapter 7 will deal with how to judge important results;
+here, the point is simply what generation is doing.</p>
+<p><a id="inference"></a></p>
+<h3>Inference uses the trained model</h3><figure class="teaching-visual" id="training-vs-inference" aria-labelledby="training-vs-inference-title training-vs-inference-caption"><div class="visual-kicker">Keep the distinction</div><h4 id="training-vs-inference-title">Training changes the model; inference uses it</h4><div class="compare"><section><h5>Training / fine-tuning</h5><div class="mini-flow"><span>1 · many examples</span><span class="arrow" aria-hidden="true">→</span><b>2 · model</b><span class="arrow" aria-hidden="true">→</span><strong>3 · parameters change</strong></div><p>Happens before this model version is used.</p></section><section><h5>Inference / current use</h5><div class="mini-flow"><span>1 · current input</span><span class="arrow" aria-hidden="true">→</span><b>2 · model</b><span class="arrow" aria-hidden="true">→</span><strong>3 · new output</strong></div><p>Parameters normally stay the same.</p></section></div><figcaption id="training-vs-inference-caption">Training or fine-tuning changes parameters. During inference, a trained model processes current input. A prompt, file or retrieved source can change this result without automatically changing the underlying parameters.</figcaption></figure>
+<p>When you type a new request into a product, the model is normally doing
+<strong>inference</strong>: using its already trained parameters to produce an output from
+new input.</p>
+<p>Training changes the model. Inference uses the model.</p>
+
+<p>Your current prompt can strongly change the current output because it changes
+the input. That is not the same as retraining the model’s parameters. If you
+give a writing product three examples of your preferred tone, the model may use
+those examples in the current context. It has not necessarily absorbed your
+style into its general training for everyone forever.</p>
+<p>Whether a provider stores your input or later uses product data to improve a
+model is a separate policy question. The answer can vary by provider, product,
+plan, account type and setting. Do not try to answer a data-governance question
+with the word <em>training</em> alone.</p>
+<p><a id="knowledge-boundary"></a></p>
+<h3>Training knowledge has a time boundary</h3>
+<p>Training has to stop before a particular model version can be prepared and
+used. Its learned parameters therefore reflect data and training completed
+before that version was produced.</p>
+<p>Providers may publish a <strong>training-data cutoff</strong> or a more conservative
+<strong>reliable-knowledge cutoff</strong> for a named model. The useful idea is a time
+boundary, not a perfectly clean wall. A model may be uneven on events before
+the date, and training material can cover different sources and periods.</p>
+<p>A Rewind Era household encyclopedia makes the distinction visible. The 1998
+edition could contain an enormous amount of useful knowledge and still know
+nothing about an event in 2004. You could place a current newspaper beside it
+without reprinting the encyclopedia.</p>
+<p>The analogy stops there. A model is not a set of reference volumes, its learned
+knowledge is not organised as readable articles, and a provider&#39;s cutoff does
+not promise complete recall before one date and total ignorance after it.</p>
+<p>For an AI product, a newer fact can be supplied in the current prompt, an
+attached file, retrieved material or a live tool. That can help with this use
+without changing the model&#39;s trained parameters. Chapter 4 will explain those
+information paths.</p>
+<p><a id="post-training"></a></p>
+<h3>Fine-tuning changes the model; prompting changes this use</h3>
+<p>After broad training, developers may use <strong>fine-tuning</strong> or other post-training
+methods to adjust a model for particular tasks or behaviour. That process
+changes parameters. It may help a general language model follow instructions,
+work in a specialist domain or behave more usefully inside a product.</p>
+<p>A prompt, attached file or retrieved document usually does a different job. It
+adds information or direction for the current inference. It can change the
+answer dramatically without rewriting the trained model underneath.</p>
+<p>This distinction matters when a product promises to be “trained on your
+business.” That phrase might mean real fine-tuning, retrieval from company
+documents, instructions inserted into every request—or an imprecise mixture of
+all three. The useful question is: <strong>what changes in the model, and what is only
+being supplied for each use?</strong></p>
+<h3>One result, located properly</h3>
+<p>Return to the follow-up email from Chapter 2.</p>
+<p>Long before your meeting, a language model was trained across many examples.
+That process adjusted its parameters and shaped its ability to work with
+language. Later, the model was evaluated, prepared for use and placed inside a
+product.</p>
+<p>When you supplied your notes, the product assembled input for this task. The
+trained model processed those tokens during inference and generated the email
+token by token. The output reflected patterns learned during training and the
+specific material available now.</p>
+<p>The model did not retrain itself on your meeting while you watched. It did not
+retrieve missing decisions from a mystical archive of office life. It produced
+language from its trained parameters and current input.</p>
+<p>Now the distinction can do some work:</p>
+<ul>
+<li>If the model consistently performs poorly across many well-specified cases,
+the model, training or evaluation may be a poor fit.</li>
+<li>If the same model succeeds after you provide the missing notes, the first
+failure was at least partly an input problem.</li>
+<li>If the output needs a current policy the model was never given, the product
+may need retrieval or another source.</li>
+<li>If the generated email makes a promise nobody authorised, the remaining
+problem is the workflow and human decision—not vocabulary.</li>
+</ul>
+<h3>The third click</h3>
+<p>Training is how a system shapes a model. Data, representation, objectives,
+optimisation and evaluation all influence what it learns. Inference is what
+happens when that trained model processes new input. Tokens are the units a
+language model works with. Fine-tuning changes a model; prompting changes the
+current use.</p>
+<p>The next question is unavoidable: what, exactly, counts as the input for your
+current request?</p>
+<p>You may have typed it. The product may have saved it. The chat may still show
+it. A document may exist in your account. None of those facts alone proves the
+model received it for this answer.</p>
+<p>That is Chapter 4.</p>
+<h3 class="source-heading">Source notes</h3>
+<ul>
+<li><a href="https://csrc.nist.gov/glossary/term/training_stage">NIST — training stage glossary</a></li>
+<li><a href="https://cs336.stanford.edu/">Stanford CS336 — Language Modeling from Scratch</a></li>
+<li><a href="https://developers.google.com/machine-learning/glossary">Google for Developers — Machine Learning Glossary</a></li>
+<li><a href="https://platform.claude.com/docs/en/about-claude/models/overview">Anthropic — model knowledge-cutoff definitions</a></li>
+<li><a href="https://oecd.ai/en/wonk/definition">OECD.AI — updated AI system definition and application areas</a></li>
+</ul>
+<p>Mechanisms checked 8 August 2026. Recheck any named model’s training data,
+architecture, tokenization, evaluation or provider data-use policy before
+publication.</p>
+
+</article></main></body></html>
