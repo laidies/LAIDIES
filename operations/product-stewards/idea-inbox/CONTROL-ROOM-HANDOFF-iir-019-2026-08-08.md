@@ -66,3 +66,25 @@ Worktree truth is `COMMITTED / PUSHED`, not merged, deployed or publicly
 verified. No lecture claim, concept, course, content commission, agent build,
 publication, deployment, account, subscription, spend, private-data use or Ali
 public-identity decision was accepted or exercised.
+
+## Material update — NOTE-001
+
+**Status:** `CAPTURED / MERGE RECOMMENDED / OWNER ACCEPTANCE PENDING`
+
+Ali supplied “standard prompting vs. chain-of-thought prompting.” The Idea
+Inbox preserved the higher-risk misconception boundary: direct prompting,
+eliciting a visible rationale and a reasoning model's hidden/internal inference
+work are related but not interchangeable; none is evidence that an answer is
+correct.
+
+Reconciliation found existing prompt-specificity/delegation ownership in
+Episode 02 and Briefing 101, existing Prompt/Reasoning Model ownership in AI
+Fundamentals 101, and no exact bridge between them. An unmatched prompting
+freshness signal already exists. Recommendation is `MERGE` into Learning's
+current concept relationship, not a new course or automatic Episode 02 rewrite.
+
+Acceptance owner remains Learning System & Concepts. Remaining proof is the
+exact Stanford source/timestamp, current research and provider guidance, and a
+bounded appropriate-task comparison. Next trigger is Learning's
+`LINK/EXTEND/CREATE/DECLINE` ruling or Ali's next lecture concept (`NOTE-002`).
+No public, deploy, spend, private-data or Ali-authority action occurred.

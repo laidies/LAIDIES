@@ -583,6 +583,28 @@ acceptance, implementation, priority or release.
   article, Tip, agent implementation, account, subscription, publication,
   deployment or spend occurred.
 
+### NOTE-001 — Standard prompting versus chain-of-thought prompting
+
+- **Captured:** `2026-08-08` PDT from Ali's live lecture notes.
+- **Preserved distinction:** Compare direct task prompting with prompts that ask
+  for or demonstrate intermediate reasoning, while keeping both distinct from
+  a reasoning model's potentially hidden additional inference work. A visible
+  rationale is not automatically a faithful transcript or proof of correctness.
+- **Duplicate findings:** Episode 02 and Briefing 101 already own prompt
+  specificity/delegation. AI Fundamentals 101 owns Prompt and Reasoning Model.
+  No exact bridge among direct prompting, elicited rationale and hidden/internal
+  reasoning was found. An unmatched prompting freshness signal already exists.
+- **Classification:** `MERGE` into Learning's current prompting/reasoning
+  concept relationship; no new class, course or Episode 02 rewrite.
+- **Recommended smallest home:** an AI Fundamentals 101 comparison with an exact
+  Briefing 101 cross-link; High receives a controlled practice only if Learning
+  finds a distinct transfer job.
+- **Return trigger:** exact lecture identity/timestamp, current primary research
+  and provider evidence, one bounded appropriate task comparison, then Learning
+  `LINK/EXTEND/CREATE/DECLINE` ruling.
+- **Authority truth:** no teaching copy, technique recommendation, curriculum
+  edit, work order, publication or deployment occurred.
+
 ## Receipt template
 
 ### IIR-YYYYMMDD-NNN — Short descriptive label

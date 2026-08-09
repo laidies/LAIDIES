@@ -36,3 +36,23 @@ best surface.
 Foreground work is unchanged. No lecture claim was verified, and no course,
 book, class, episode, article, tip, agent implementation, publication,
 deployment, account, subscription or spend was created.
+
+## NOTE-001 update — standard prompting versus chain-of-thought prompting
+
+Ali's first concept is preserved as a distinction among direct task prompting,
+eliciting a visible rationale and selecting a reasoning model that may perform
+additional hidden/internal inference work. Repository reconciliation found the
+two ends but not the bridge: Episode 02 and Briefing 101 already teach prompt
+specificity/delegation, while AI Fundamentals 101 owns Prompt and Reasoning
+Model. An existing prompting freshness signal is unresolved.
+
+The note is classified `MERGE`, with Learning System & Concepts as accountable
+owner. Recommended smallest home is an AI Fundamentals 101 comparison linked
+to Briefing 101; High receives controlled practice only if it adds a distinct
+transfer outcome. Episode 02 is not reopened by default.
+
+Before teaching, the exact lecture source/timestamp, current research and
+provider behaviour require verification, and one bounded current-task
+comparison must distinguish answer quality, explanation quality and evidence
+of correctness. No public technique recommendation or content work order was
+created.
