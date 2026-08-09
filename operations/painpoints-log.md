@@ -14407,3 +14407,29 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-456 — A good replacement chapter can still create a bad mixed book
+
+- **Date:** 2026-08-08
+- **Area:** Library book production and prose coherence.
+- **Failure risk:** A representative chapter can prove a stronger teaching
+  method while the surrounding introduction and chapters retain the rejected
+  voice and architecture. Splicing the pilot into that predecessor would make
+  the book inconsistent and falsely turn a method test into content admission.
+- **Root cause:** “Representative proof” named the cheapest way to test a new
+  production method but did not explicitly say that accepted pilot prose could
+  not be combined with predecessor prose.
+- **Prevention rule:** A representative proof authorizes the next production
+  step only. For a rejected substantial book, the complete introduction,
+  chapters and lookup material must be newly produced and admitted as one
+  checksum-bound lineage under the same current contract, voice, sources and
+  explanation standard. No mixed predecessor/successor assembly is eligible
+  for reader integration, preview or release.
+- **Durable correction:** The AI Fundamentals continuation intake and V3
+  producer contract now identify Chapter 3 as method calibration only and
+  require a newly produced whole-book successor after representative
+  acceptance.
+- **Possible Behind the Build angle:** Why fixing one terrible chapter is not
+  enough when the rest of the book speaks a different language.
+- **Publication status:** INTERNAL PRODUCTION-PREVENTION CORRECTION / NO PROSE,
+  VISUAL, READER, DEPLOYMENT OR PUBLIC CHANGE.

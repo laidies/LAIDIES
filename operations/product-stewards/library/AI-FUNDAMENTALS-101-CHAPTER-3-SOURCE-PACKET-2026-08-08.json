@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "laidies-library-source-packet.v1",
+  "packetId": "LIB-AI-FUNDAMENTALS-101-CH3-SOURCES-2026-08-08",
+  "candidateId": "LIB-AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR",
+  "checkedAt": "2026-08-08T17:06:09-07:00",
+  "scope": "Primary-source support for the representative Chapter 3 distinction among working context, context window, conversation state, product memory, retrieval and training. This packet bounds claims; it does not supply or approve chapter prose.",
+  "claims": [
+    {
+      "claimId": "AIF-CH3-CONTEXT-WINDOW",
+      "ruledClaim": "A context window is the bounded amount of tokenised material a model can reference while producing a particular response. Exact capacity and which inputs count are model- and product-specific and must be rechecked.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — context window",
+          "url": "https://developers.google.com/machine-learning/glossary#context-window",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "context window",
+          "support": "Defines a context window in tokens and connects larger windows to the information usable for a response.",
+          "scopeLimit": "A glossary-level definition; it does not specify the exact contents or capacity of any LAiDIES reader's product."
+        },
+        {
+          "publisher": "Anthropic",
+          "title": "Context windows — Claude Platform Docs",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "How the context window works",
+          "support": "Distinguishes a model's working context from its training corpus and lists messages, tool results, images, documents and tool definitions as possible request material in Claude's API.",
+          "scopeLimit": "Claude-specific implementation detail; use only as a concrete example, never as a universal product rule."
+        }
+      ],
+      "freshnessTrigger": "Any change to the cited definitions, the representative product examples or a claim about a particular model's context capacity or contents."
+    },
+    {
+      "claimId": "AIF-CH3-INFERENCE-NOT-TRAINING",
+      "ruledClaim": "Inference uses an already trained model to produce a response from current input. Training is a different process. Whether user data may later be retained or used for model improvement is a separate provider, product, plan and settings question.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — inference",
+          "url": "https://developers.google.com/machine-learning/glossary#inference",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "inference",
+          "support": "Defines LLM inference as using a trained model to generate a response to an input prompt.",
+          "scopeLimit": "Supports the training-versus-use distinction, not a provider's data-retention or model-improvement policy."
+        },
+        {
+          "publisher": "OpenAI",
+          "title": "Conversation state — OpenAI API",
+          "url": "https://developers.openai.com/api/docs/guides/conversation-state",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "Data retention for model responses",
+          "support": "Separately documents API response retention and OpenAI's consent boundary for using API data to train models.",
+          "scopeLimit": "OpenAI API-specific and time-sensitive; it does not establish the policy for ChatGPT or another provider."
+        }
+      ],
+      "freshnessTrigger": "Before prose self-review and release, and whenever a provider, plan, privacy setting or data-use policy is named."
+    },
+    {
+      "claimId": "AIF-CH3-CONVERSATION-STATE",
+      "ruledClaim": "Conversation continuity is managed by the surrounding product or API. A system can pass prior turns or link stored response state into a later request; a smooth conversation therefore does not prove one human-like memory or that every visible earlier detail reached the model this time.",
+      "sources": [
+        {
+          "publisher": "OpenAI",
+          "title": "Conversation state — OpenAI API",
+          "url": "https://developers.openai.com/api/docs/guides/conversation-state",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "OpenAI APIs for conversation state; previous_response_id",
+          "support": "Shows both manually managed conversation state and stateful continuation using a previous response identifier.",
+          "scopeLimit": "One provider's API design. The chapter must describe the general surrounding-system role and label this as an example."
+        }
+      ],
+      "freshnessTrigger": "Any change to the API guide or any claim that a named chat product always includes, stores or exposes a particular prior turn."
+    },
+    {
+      "claimId": "AIF-CH3-PRODUCT-MEMORY",
+      "ruledClaim": "Product memory is a product feature, not a synonym for the model's context window or training. A product may retain selected information separately from chat history and may use it in later response context; controls and behaviour vary by product and can change.",
+      "sources": [
+        {
+          "publisher": "OpenAI",
+          "title": "Memory FAQ",
+          "url": "https://help.openai.com/en/articles/8590148-memory-faq",
+          "sourceTier": "PRIMARY_PROVIDER_DOCUMENTATION",
+          "locator": "How does saved memories work?; How long does ChatGPT keep saved memories?",
+          "support": "Describes saved memories as details used in response context and stored separately from chat history in ChatGPT.",
+          "scopeLimit": "ChatGPT-specific, account- and rollout-sensitive. It must not be generalized to every AI product."
+        }
+      ],
+      "freshnessTrigger": "Before prose self-review and release, and whenever ChatGPT memory controls or retention behaviour are described."
+    },
+    {
+      "claimId": "AIF-CH3-RETRIEVAL-INTO-CONTEXT",
+      "ruledClaim": "Retrieval can fetch information after training and supply it to a model for a response. Retrieval can improve grounding, but the source may still be stale, incomplete, irrelevant or outside the user's permission, so retrieval does not itself prove truth or authority.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary — grounding and retrieval-augmented generation",
+          "url": "https://developers.google.com/machine-learning/glossary#retrieval-augmented-generation-rag",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "locator": "grounding; retrieval-augmented generation (RAG)",
+          "support": "Defines grounding as basing a response on retrieved sources and RAG as giving a trained LLM access to retrieved knowledge.",
+          "scopeLimit": "The source supports the mechanism and intended benefit. The chapter must independently retain the limits on source quality, scope and permission."
+        }
+      ],
+      "freshnessTrigger": "Any change to the mechanism claim, any named retrieval product or source, or any assertion that retrieval guarantees accuracy."
+    }
+  ],
+  "teachingBoundary": {
+    "chapterOwns": "The diagnostic distinction among what is visible, stored, retrievable and actually supplied to the model for this run.",
+    "chapterDoesNotOwn": "A complete treatment of grounding, tools, APIs or product wrappers; Chapter 4 and Chapter 6 retain those durable jobs.",
+    "providerBoundary": "Provider documentation supplies bounded examples. No provider-specific behaviour becomes a universal fact.",
+    "releaseRule": "Recheck every current provider statement and every model-specific quantity before exact-prose self-review and again before release."
+  }
+}

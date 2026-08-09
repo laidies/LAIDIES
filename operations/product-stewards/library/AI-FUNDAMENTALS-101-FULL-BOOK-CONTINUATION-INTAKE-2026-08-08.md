@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — full-book communication successor intake
 
-**Status:** SPECIFIED — SUCCESSOR PRODUCER CONTRACT REQUIRED BEFORE NEW PROSE
+**Status:** SPECIFIED — CHAPTER 3 SOURCE PACKET COMPLETE; SUCCESSOR PRODUCER CONTRACT MUST PASS BEFORE NEW PROSE
 **Owner:** Library product owner with Learning System & Concepts
 **Candidate:** `LIB-AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR`
 **Predecessor working file:** `content/library-books/pilots/ai-fundamentals-101-v2/review-text.md`
@@ -23,6 +23,13 @@ current producer contract. The predecessor may be assessed and source-mined;
 it cannot approve itself retroactively. No prose is discarded, rewritten or
 promoted by this intake.
 
+The Chapter 3 representative proof calibrates the production method; it is
+not a replacement chapter to splice into the predecessor. If that proof is
+accepted, the Introduction and Chapters 1–6 plus the Concept Index must be
+newly produced and admitted under the same current standard and coherent voice.
+No mixed predecessor/successor book may enter the reader, preview, release or
+publication chain.
+
 ## Learner and book job
 
 - **Human question:** What do I need to understand about AI—from physical
@@ -39,7 +46,7 @@ promoted by this intake.
 
 ## Communication design that must exist before successor prose
 
-The successor uses `HANNAH_FRY_COMMUNICATION_LENS_V1` as a technique lens, not
+The successor uses `HANNAH_FRY_COMMUNICATION_LENS_V2` as a technique lens, not
 a voice or format to copy:
 
 1. Begin every major section with a human reason the mechanism changes what a
@@ -82,13 +89,38 @@ in exact prose. The producer self-review then inspects those exact bytes; a
 role-distinct reviewer and unfamiliar-reader evidence follow only after the
 producer reports zero known or objective defects.
 
+Passing this representative proof authorizes only the next production step:
+produce the remaining full-book successor in dependency order under the same
+contract, current sources, voice and explanation arc. It does not admit the
+representative section, any predecessor chapter or the assembled book. The
+complete single-lineage book still requires exact-prose producer self-review,
+role-distinct semantic admission, factual/currentness review, visual admission,
+learner explain-back and transfer evidence, rendered-reader parity and Library
+release gates.
+
 Stop and repair the producer design before another candidate if it repeats a
 known failure, introduces an objective defect first found at review, imitates
 Hannah Fry, uses her name as evidence, or turns the communication dimensions
 into a repeated chapter template.
 
+## Representative source boundary
+
+The current claim packet for the representative proof is
+`AI-FUNDAMENTALS-101-CHAPTER-3-SOURCE-PACKET-2026-08-08.json`. It separates
+general mechanism from provider-specific examples and binds freshness triggers
+for context, conversation state, product memory, retrieval and training. The
+rejected Concepts claim packet remains source-mining history and is not the
+Chapter 3 authority.
+
+Chapter 3 owns the practical distinction among information that is visible,
+stored, retrievable and actually supplied to the model for this run. It does
+not take over Chapter 4's complete treatment of surrounding software or
+Chapter 6's complete treatment of grounding and verification.
+
 ## Next action
 
-Create and validate
-`AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR-PRODUCER-CONTRACT.json`.
-Only then may Library produce the exact representative successor section.
+Validate
+`AI-FUNDAMENTALS-101-V3-COMMUNICATION-SUCCESSOR-PRODUCER-CONTRACT.json`
+against the current learning standard, benchmark, exemplar registry and exact
+Chapter 3 source packet. Only a current `READY_TO_DRAFT` result may start the
+new exact representative section.

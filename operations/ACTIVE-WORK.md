@@ -1,5 +1,13 @@
 # Active work
 
+> **2026-08-08 AI Fundamentals restart:** The predecessor book remains rejected
+> and source-mining only. A current Chapter 3 source packet and prevention-first
+> V3 producer contract now define the representative method proof. Chapter 3
+> may not be spliced into old prose: representative acceptance would authorize
+> newly producing the Introduction, Chapters 1–6 and Concept Index as one
+> coherent successor, not admit any chapter or book. No prose, visual, reader,
+> preview, deployment or publication changed in this preparation unit.
+
 > **2026-07-27 Study Pack admission correction:** The Episode 01 white-box
 > visualization and peach placeholder “card” are rejected evidence, not a
 > direction to reskin. Study Pack visual production remains subject to the
