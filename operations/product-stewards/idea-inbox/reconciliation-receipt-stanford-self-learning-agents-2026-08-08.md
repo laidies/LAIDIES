@@ -1,7 +1,9 @@
 # Idea Inbox reconciliation receipt — Stanford self-learning agents lecture
 
-**Evidence time:** `2026-08-08` PDT  
-**Idea:** `IIR-20260808-019`  
+**Evidence time:** `2026-08-08` PDT
+
+**Idea:** `IIR-20260808-019`
+
 **Status:** `CAPTURED / CAPTURE STREAM OPEN / RECONCILIATION REQUIRED`
 
 Ali is watching a Stanford lecture described as being about self-learning
@@ -34,4 +36,3 @@ best surface.
 Foreground work is unchanged. No lecture claim was verified, and no course,
 book, class, episode, article, tip, agent implementation, publication,
 deployment, account, subscription or spend was created.
-

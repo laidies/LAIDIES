@@ -1,10 +1,14 @@
 # Stanford self-learning agents lecture — live concept capture
 
-**Canonical idea:** `IIR-20260808-019`  
-**Status:** `CAPTURE STREAM OPEN / RECONCILIATION REQUIRED`  
-**Opened:** `2026-08-08` PDT  
+**Canonical idea:** `IIR-20260808-019`
+
+**Status:** `CAPTURE STREAM OPEN / RECONCILIATION REQUIRED`
+
+**Opened:** `2026-08-08` PDT
+
 **Source supplied by Ali:** a Stanford lecture described as being about
-self-learning agents  
+self-learning agents
+
 **Source identity:** `UNKNOWN` — exact lecture title, course, speaker and URL
 have not yet been supplied or verified
 
@@ -56,4 +60,3 @@ Each incoming note will record:
 
 No individual concepts have been supplied yet. The next message containing a
 concept becomes `NOTE-001`; Ali does not need to format or categorize it.
-
