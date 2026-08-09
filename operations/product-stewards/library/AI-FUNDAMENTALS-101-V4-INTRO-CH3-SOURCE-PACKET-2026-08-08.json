@@ -1,0 +1,351 @@
+{
+  "schemaVersion": "laidies-library-source-packet.v1",
+  "packetId": "LIB-AI-FUNDAMENTALS-101-V4-INTRO-CH3-SOURCES-2026-08-08",
+  "candidateId": "LIB-AI-FUNDAMENTALS-101-V4-INTRO-CH3-R4",
+  "checkedAt": "2026-08-08T23:04:00-07:00",
+  "scope": "Claim and mechanism authority for the current V4 Introduction and Chapters 1–3. This packet follows the current section teaching map; it does not inherit the superseded chapter numbering in the older source packet.",
+  "claims": [
+    {
+      "claimId": "AIF4-INTRO-AI-SYSTEM",
+      "ruledClaim": "An AI system is a machine-based system that receives inputs and infers how to produce outputs such as predictions, content, recommendations or decisions that may influence physical or virtual environments. A deployed product may combine one or more models with other software and human choices.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "support": "Defines an AI system through objectives, inputs, inferred outputs and possible influence, and explains that deployed systems combine models with other components.",
+          "scopeLimit": "A broad policy definition. It does not imply that every system has identical components or that the AI label establishes quality, safety or usefulness."
+        }
+      ],
+      "freshnessTrigger": "OECD definition changes or the candidate asserts a different universal boundary."
+    },
+    {
+      "claimId": "AIF4-CH1-COMMON-TASKS",
+      "ruledClaim": "AI systems may recognise or classify patterns, estimate likely outcomes, rank options, recommend items or generate content. These jobs may appear alone or as linked stages in a product.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "OECD Framework for the Classification of AI Systems",
+          "url": "https://oecd.ai/en/wonk/classification",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "support": "Separates task and output characteristics while emphasizing that system context affects benefits and risks.",
+          "scopeLimit": "Representative learner jobs are not an exhaustive taxonomy."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Supplies bounded definitions for classification, prediction, ranking, recommendation and generative AI.",
+          "scopeLimit": "Examples do not establish performance or suitability of a named product."
+        }
+      ],
+      "freshnessTrigger": "The prose claims the list is exhaustive or attaches a current named-product capability."
+    },
+    {
+      "claimId": "AIF4-CH1-GENERATIVE-MULTIMODAL",
+      "ruledClaim": "Generative AI produces new content. Modality concerns the kind of information a system receives or produces, such as text, images, audio or video. A system can therefore be both generative and multimodal.",
+      "sources": [
+        {
+          "publisher": "NIST",
+          "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+          "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+          "checked": "2026-08-08",
+          "sourceTier": "GOVERNMENT_TECHNICAL_STANDARD",
+          "support": "Treats generative AI as a distinct technology profile within wider AI systems and products.",
+          "scopeLimit": "A risk-management profile, not a complete beginner definition or product catalogue."
+        },
+        {
+          "publisher": "International AI Safety Report",
+          "title": "International AI Safety Report 2025",
+          "url": "https://assets.publishing.service.gov.uk/media/679a0c48a77d250007d313ee/International_AI_Safety_Report_2025_accessible_f.pdf",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERNATIONAL_SCIENTIFIC_SYNTHESIS",
+          "support": "Describes general-purpose systems producing text, images, audio, video, code, actions and annotations and distinguishes multimodality from breadth of task capability.",
+          "scopeLimit": "The 2025 report is a dated synthesis and does not prove current capability of every product."
+        }
+      ],
+      "freshnessTrigger": "The candidate makes a named-product modality or capability claim."
+    },
+    {
+      "claimId": "AIF4-CH1-AGENTIC-EMBODIED",
+      "ruledClaim": "Agentic describes a system that continues across steps toward a goal by selecting actions and using feedback from its environment. Embodied describes interaction through a physical body, sensors or actuators. Neither label establishes consciousness, correctness or unrestricted autonomy.",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "title": "Building Effective AI Agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_PRACTITIONER_ENGINEERING",
+          "support": "Distinguishes predefined workflows from agents that dynamically direct their own process and tool use.",
+          "scopeLimit": "One company's engineering terminology. The industry uses agent inconsistently."
+        },
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "support": "Provides bounded concepts of autonomy, adaptiveness and influence in physical or virtual environments.",
+          "scopeLimit": "Autonomy is a degree delegated within a system, not evidence of independent will."
+        }
+      ],
+      "freshnessTrigger": "A universal agent definition or named-product autonomy claim is introduced."
+    },
+    {
+      "claimId": "AIF4-CH1-AGI-ASI",
+      "ruledClaim": "AGI is a disputed proposed category involving broad generality and transfer across unfamiliar intellectual tasks. There is no universally accepted definition or test, and LAiDIES does not classify current products as AGI. ASI is a hypothetical category for capability far beyond humans across a broad cognitive range. Neither is an inevitable next stage or a current consumer-product type.",
+      "sources": [
+        {
+          "publisher": "Stanford HAI",
+          "title": "What is AGI?",
+          "url": "https://hai.stanford.edu/ai-definitions/what-is-agi-artificial-general-intelligence",
+          "checked": "2026-08-08",
+          "sourceTier": "RESEARCH_INSTITUTION_DEFINITION",
+          "support": "Defines AGI through wide-task generality while explicitly noting controversy and the absence of a universal test.",
+          "scopeLimit": "A concise orientation, not consensus or evidence that AGI exists."
+        },
+        {
+          "publisher": "Oxford Future of Humanity Institute",
+          "title": "Reframing Superintelligence",
+          "url": "https://www.fhi.ox.ac.uk/wp-content/uploads/Reframing_Superintelligence_FHI-TR-2019-1.1-1.pdf",
+          "checked": "2026-08-08",
+          "sourceTier": "ACADEMIC_TECHNICAL_REPORT",
+          "support": "Shows that even superintelligence definitions involve contested distinctions between learning capacity and competent performance.",
+          "scopeLimit": "A conceptual report, not a timeline, existence claim or settled definition."
+        },
+        {
+          "publisher": "International AI Safety Report",
+          "title": "International AI Safety Report 2025",
+          "url": "https://assets.publishing.service.gov.uk/media/679a0c48a77d250007d313ee/International_AI_Safety_Report_2025_accessible_f.pdf",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERNATIONAL_SCIENTIFIC_SYNTHESIS",
+          "support": "Explicitly distinguishes currently deployed general-purpose AI from AGI and records substantial scientific uncertainty about future capability trajectories.",
+          "scopeLimit": "A dated safety synthesis; its scope is not a complete account of benefits or every AGI definition."
+        }
+      ],
+      "freshnessTrigger": "Before every candidate review and whenever the public capability boundary or LAiDIES position changes."
+    },
+    {
+      "claimId": "AIF4-CH2-MODEL-SYSTEM-PRODUCT",
+      "ruledClaim": "A model is a learned mathematical component used to map inputs to outputs. An AI product or system combines one or more models with interfaces, instructions, application software, information sources, tools, safeguards, infrastructure and human or organisational choices.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "support": "Defines the model as a core component used for inference and the system as a combination of models and other components.",
+          "scopeLimit": "The candidate's layered map is a teaching representation, not one mandatory implementation."
+        },
+        {
+          "publisher": "International AI Safety Report",
+          "title": "International AI Safety Report 2025",
+          "url": "https://assets.publishing.service.gov.uk/media/679a0c48a77d250007d313ee/International_AI_Safety_Report_2025_accessible_f.pdf",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERNATIONAL_SCIENTIFIC_SYNTHESIS",
+          "support": "Separates an AI model from the wider AI system designed to be useful to humans.",
+          "scopeLimit": "Examples in the report are dated and cannot establish current routing inside a named product."
+        }
+      ],
+      "freshnessTrigger": "The book makes a provider-specific model-routing or architecture claim."
+    },
+    {
+      "claimId": "AIF4-CH2-ORCHESTRATION-TOOLS-INFRASTRUCTURE",
+      "ruledClaim": "Application software assembles requests, invokes models or other services, handles returned outputs and may connect information, memory or tools under permissions. Models run on physical computing infrastructure. People and organisations choose objectives, access, safeguards and deployment conditions.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "support": "Locates human decisions throughout development, deployment, operation and oversight.",
+          "scopeLimit": "Does not prescribe one software architecture."
+        },
+        {
+          "publisher": "Stanford University",
+          "title": "CS336: Language Modeling from Scratch",
+          "url": "https://cs336.stanford.edu/",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_RESEARCH_UNIVERSITY_COURSE",
+          "support": "Treats hardware, parallelism, data, training, evaluation and inference as separate parts of building and serving language models.",
+          "scopeLimit": "Advanced language-model engineering evidence, not learner pacing or a universal product stack."
+        }
+      ],
+      "freshnessTrigger": "The candidate names exact infrastructure, permissions or routing for a product."
+    },
+    {
+      "claimId": "AIF4-CH3-MACHINE-LEARNING",
+      "ruledClaim": "Machine learning uses examples and an objective to adjust a model rather than requiring a programmer to specify every input-to-output rule. It is one family of approaches within AI, not a synonym for all AI.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "checked": "2026-08-08",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "support": "Defines machine learning as techniques that improve performance and usually generate models through exposure to training data rather than complete explicit instruction.",
+          "scopeLimit": "Some AI uses symbolic or knowledge-based methods, and hybrid approaches exist."
+        },
+        {
+          "publisher": "University of Cambridge Accelerate",
+          "title": "What is AI?",
+          "url": "https://docs.science.ai.cam.ac.uk/ai-core-concepts/what-is-ai/",
+          "checked": "2026-08-08",
+          "sourceTier": "RESEARCH_UNIVERSITY_COURSE",
+          "support": "Contrasts systems that learn behaviour from data with traditional programs whose rules are specified directly.",
+          "scopeLimit": "A progression comparator and mechanism check, not primary evidence for every claim."
+        }
+      ],
+      "freshnessTrigger": "The prose implies all AI is machine learning or all software rules are learned."
+    },
+    {
+      "claimId": "AIF4-CH3-NEURAL-DEEP",
+      "ruledClaim": "A neural network is a parameterised model architecture built from connected layers of numerical transformations. Deep learning uses neural networks with multiple learned layers and is one family within machine learning. The name does not mean a model contains a small biological brain or human understanding.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Crash Course: Neural Networks",
+          "url": "https://developers.google.com/machine-learning/crash-course/neural-networks",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Explains nodes, hidden layers, activation functions, learned nonlinear patterns and the training/inference distinction.",
+          "scopeLimit": "The brain-inspired name is historical shorthand; the book must teach the mathematical relationship rather than personify it."
+        }
+      ],
+      "freshnessTrigger": "The candidate makes a universal architecture claim or anthropomorphises a neural network."
+    },
+    {
+      "claimId": "AIF4-CH3-TOKENS-EMBEDDINGS",
+      "ruledClaim": "Language-model text is divided into tokens, which may be words, word pieces or characters. Tokens are represented numerically. Learned embeddings place useful properties and relationships into numerical representations; contextual representations depend on the surrounding sequence.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Introduction to Large Language Models",
+          "url": "https://developers.google.com/machine-learning/crash-course/llm",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Defines language models over token sequences and explains context, parameters and self-attention.",
+          "scopeLimit": "Different model families and tokenizers use different representations."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "Embeddings: Obtaining embeddings",
+          "url": "https://developers.google.com/machine-learning/crash-course/embeddings/obtaining-embeddings",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Explains learned embedding weights, related examples becoming closer and contextual representations shaped by surrounding information.",
+          "scopeLimit": "A learner analogy must not imply that embedding dimensions have simple human-readable labels."
+        }
+      ],
+      "freshnessTrigger": "The candidate names exact token counts, tokenizer behaviour, embedding dimensions or a provider-specific implementation."
+    },
+    {
+      "claimId": "AIF4-CH3-TRAINING-LOOP",
+      "ruledClaim": "Training repeatedly generates a prediction, measures error with a loss function and adjusts model parameters in a direction intended to reduce loss across examples. Parameters are numerical settings changed by optimisation; training does not simply file examples into labelled drawers.",
+      "sources": [
+        {
+          "publisher": "Google for Developers",
+          "title": "Linear regression: Gradient descent",
+          "url": "https://developers.google.com/machine-learning/crash-course/linear-regression/gradient-descent",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Shows the causal loop from current weights to loss, direction, parameter update and repetition.",
+          "scopeLimit": "The convex linear example is used to explain the loop; large neural-network optimisation is more complex and does not guarantee a global optimum."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "Neural Networks: Training using backpropagation",
+          "url": "https://developers.google.com/machine-learning/crash-course/neural-networks/backpropagation",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Explains backpropagation as the mechanism enabling parameter adjustment across multilayer neural networks.",
+          "scopeLimit": "The book needs only the causal job, not derivations or a claim that every learning algorithm uses backpropagation."
+        }
+      ],
+      "freshnessTrigger": "The candidate universalizes one optimiser, objective or training method."
+    },
+    {
+      "claimId": "AIF4-CH3-TRANSFORMER-ATTENTION",
+      "ruledClaim": "A transformer is a neural-network architecture built around attention mechanisms. In a transformer, attention computes context-dependent relationships among token positions so each representation can draw on relevant information elsewhere in the sequence. This is a mathematical operation, not human attention, consciousness or proof of understanding.",
+      "sources": [
+        {
+          "publisher": "Vaswani et al.",
+          "title": "Attention Is All You Need",
+          "url": "https://arxiv.org/abs/1706.03762",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_RESEARCH_PAPER",
+          "support": "Introduces the Transformer architecture based on attention mechanisms without recurrence or convolution for the reported sequence-transduction tasks.",
+          "scopeLimit": "The 2017 architecture is foundational, not a complete description of every current transformer or language model."
+        },
+        {
+          "publisher": "Stanford University",
+          "title": "CS224N Winter 2025 Assignment 4",
+          "url": "https://cs224n.stanford.edu/assignments_w25/a4.pdf",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_RESEARCH_UNIVERSITY_COURSE",
+          "support": "Identifies multi-head self-attention as a core transformer component while noting that current variants differ from the original architecture.",
+          "scopeLimit": "Advanced implementation material used to check terminology, not learner presentation."
+        }
+      ],
+      "freshnessTrigger": "The candidate claims all modern models use the identical original architecture or equates attention with cognition."
+    },
+    {
+      "claimId": "AIF4-CH3-POSTTRAIN-EVAL-INFERENCE",
+      "ruledClaim": "Pretraining learns broad patterns. Post-training methods such as fine-tuning or preference-based training further shape behaviour. Evaluation measures selected capabilities and failures but cannot guarantee every real-world use. Inference applies a trained model to a current input; supplying a prompt or file for one request is not ordinarily the same as retraining the model. Generalisation is useful performance on appropriate new examples.",
+      "sources": [
+        {
+          "publisher": "OpenAI",
+          "title": "Training language models to follow instructions with human feedback",
+          "url": "https://cdn.openai.com/papers/Training_language_models_to_follow_instructions_with_human_feedback.pdf",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_RESEARCH_PAPER",
+          "support": "Provides one documented pipeline using demonstrations, preference data, a reward model and reinforcement learning to shape a pretrained model's instruction-following behaviour.",
+          "scopeLimit": "One historical post-training method, not the current confidential recipe for every provider or model."
+        },
+        {
+          "publisher": "Anthropic",
+          "title": "Challenges in evaluating AI systems",
+          "url": "https://www.anthropic.com/research/evaluating-ai-systems",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_RESEARCH_PRACTICE",
+          "support": "Explains why selected evaluations and human comparisons do not exhaust open-ended real interactions.",
+          "scopeLimit": "A provider research perspective, not a universal evaluation standard."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary: ML Fundamentals",
+          "url": "https://developers.google.com/machine-learning/glossary/fundamentals",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Defines generalisation, loss and parameter adjustment and distinguishes new-example performance from fitting training data.",
+          "scopeLimit": "General concepts do not establish a named model's benchmark or real-world performance."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "LLMs: Fine-tuning, distillation, and prompt engineering",
+          "url": "https://developers.google.com/machine-learning/crash-course/llm/tuning",
+          "checked": "2026-08-08",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "support": "Separates fine-tuning that changes model behaviour from prompting that supplies current instructions and examples without changing parameters.",
+          "scopeLimit": "Exact provider data retention or later model-improvement use is a separate product-specific question."
+        }
+      ],
+      "freshnessTrigger": "The candidate describes a named current model's post-training recipe, evaluation score, data use or inference behaviour."
+    }
+  ],
+  "productionBoundaries": {
+    "curriculumAuthority": "The V4 section teaching map controls order and learning outcomes. External course sequences do not.",
+    "evergreenVsDated": "The book owns stable mechanisms. Current model scores, product routing, prices, market shares, release claims and forecasts belong in dated applications or freshly verified source notes.",
+    "providerBoundary": "Official provider documentation establishes bounded provider claims, not universal AI behaviour or independent effectiveness.",
+    "agiAsiBoundary": "Definitions are disputed and ASI is hypothetical. No existence, inevitability or timeline claim is permitted.",
+    "analogyBoundary": "A source-backed mechanism is drafted plainly before any analogy; the analogy must improve explanation or transfer and preserve the mechanism.",
+    "releaseRule": "Every material candidate claim maps to a source in this packet or a separately bound exact source excerpt before semantic admission."
+  }
+}

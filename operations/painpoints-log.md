@@ -14602,3 +14602,26 @@ while remaining falsely unfinished in the launch record.
   as designing a curriculum that earns the answers.
 - **Publication status:** INTERNAL CURRICULUM ARCHITECTURE / NO NEW PROSE,
   ILLUSTRATION, RENDER, DEPLOYMENT OR PUBLICATION.
+
+## BTB-463 — A current source can still teach the wrong chapter order
+
+- **Date:** 2026-08-08
+- **Area:** Versioned learning-source packets and substantial-book production.
+- **Failure risk:** A technically current source packet can be silently reused
+  after the curriculum changes, causing accurate claims to appear under the
+  wrong prerequisites or chapter numbers.
+- **Root cause:** The earlier AI Fundamentals packet was dated and source-bound
+  but still encoded the rejected V3 chapter order; the V4 producer contract
+  pointed to it even after the section architecture changed.
+- **Prevention rule:** A substantial-book source packet binds the exact
+  candidate identity and current section route, not only the topic and date.
+  Reordering prerequisites requires a new packet or explicit remapping before
+  drafting.
+- **Durable correction:** Candidate
+  `LIB-AI-FUNDAMENTALS-101-V4-INTRO-CH3-R4` has a fresh V4 packet whose claim
+  groups follow orientation, AI kinds, product anatomy and model learning; the
+  producer contract binds its exact SHA-256.
+- **Possible Behind the Build angle:** Why fact-checking cannot rescue a lesson
+  taught in the wrong order.
+- **Publication status:** INTERNAL SOURCE-AND-CURRICULUM CORRECTION / NO
+  RENDER, DEPLOYMENT OR PUBLICATION.
