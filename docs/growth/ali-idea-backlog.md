@@ -888,6 +888,15 @@ The preferred pattern is choice by job and desired support:
 - **Help me judge it** — evidence, trade-offs, misleading claims and what would
   change the conclusion.
 
+**2026-08-08 refinement:** substantial learning items may implement those jobs
+through one canonical three-position **Nerd Meter**: `Standard`, `Tell me more`
+and `Full nerd alert!`. The modes reveal cumulative prewritten sections inside
+the same book, class or explainer; they are not separate versions. Standard is
+already complete and includes examples and practical application. Higher modes
+add mechanism, cases, technical detail and evidence depth without correcting or
+contradicting Standard. See D-2026-08-08-107 and
+`operations/product-stewards/learning-content-ecosystem/ADAPTIVE-DEPTH-LAYERS-CONTRACT.md`.
+
 A learner can choose differently for different topics. Classes, books,
 episodes, tools and search results should state assumed knowledge, the useful
 outcome and the next experience. Any saved preference is voluntary,

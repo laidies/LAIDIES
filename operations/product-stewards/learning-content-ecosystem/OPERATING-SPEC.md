@@ -167,6 +167,13 @@ If two items perform the same job, prefer link, correction, update, merge or
 extension. A new item needs a remaining learner job that the current owner
 cannot cleanly perform.
 
+Substantial learning surfaces may use the cumulative depth architecture in
+`ADAPTIVE-DEPTH-LAYERS-CONTRACT.md`. It is one canonical ordered item, not
+separate beginner/intermediate/advanced editions: Standard is independently
+complete with mechanism, example, practical application and material
+limitations; Tell me more and Full nerd alert! reveal deeper prewritten
+sections without creating separate truth, correction or freshness paths.
+
 ## Episode, class and Library reconciliation
 
 The Weekly Episode Engine supplies a structured impact proposal with episode
