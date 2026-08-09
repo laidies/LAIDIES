@@ -18,6 +18,7 @@ function gitLines(parameters) {
 
 function classify(relative, tracked, ignored) {
   if (/^(AGENTS\.md|operations\/(DECISIONS\.md|engine\/LEDGER\.md|voice\/|CODEX-WORKING-AGREEMENT\.md))/.test(relative)) return 'AUTHORITY';
+  if (/^operations\/external-review\/.*(?:\/sources\/|\.zip$)/i.test(relative)) return 'HISTORICAL';
   if (/(^|\/)(archive|_archive)(\/|$)|(^|\/)_backup-|historical|audit-prompt/i.test(relative)) return 'HISTORICAL';
   if (/rejected-artifacts|known-bad|negative-fixture|rejected/i.test(relative)) return 'REJECTED';
   if (

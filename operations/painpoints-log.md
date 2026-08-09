@@ -15451,7 +15451,13 @@ while remaining falsely unfinished in the launch record.
   consumed stale owner state, and three August 4 queue/projection snapshots.
   Exact-SHA hold rulings now prevent those preserved bytes from returning as
   current authority while append-only event parity is still running. “Newer
-  file” is therefore never treated as “newer system.”
+  file” is therefore never treated as “newer system.” The next queue ranking
+  exposed an external-review variant of the same defect: the accepted Fable
+  report existed only outside Git while an 87-file copied source packet and
+  superseded ZIPs looked like active implementation. The exact accepted report
+  is now repository-owned and checksum-bound; copied `sources/` trees and review
+  ZIPs classify as historical evidence, with a calibrated fixture preventing
+  them from returning to routine active-source recovery.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,

@@ -1,11 +1,11 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-09 00:30 PDT
+**Evidence time:** 2026-08-09 00:39 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
 
-This record reconciles the actual accepted report at `/Users/alisoneakin/Documents/LAIDIES-Fable5-Review-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md` (SHA-256 `8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb`) with the changes implemented after it. `PASS` below means the named local mechanism was calibrated and passed. It does not mean the Library, website, backup migration or public release is complete.
+This record reconciles the repository-owned accepted report at `operations/external-review/fable-5-laidies-operating-model-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md` (SHA-256 `8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb`) with the changes implemented after it. The original external copy remains preserved at `/Users/alisoneakin/Documents/LAIDIES-Fable5-Review-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md`. `PASS` below means the named local mechanism was calibrated and passed. It does not mean the Library, website, backup migration or public release is complete.
 
 ## Implemented and verified locally
 
@@ -24,6 +24,7 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Pilot trusted practitioner/source intake | PASS PILOT | 13-source roster, four evidence-bound signals, three useful owner rulings; recurrence remains parked |
 | Capture practical home-life AI as a distinct reader job | SPECIFIED | durable idea-inbox handoff; no premature content commission or public feature |
 | Exclude retained history from routine retrieval | PASS | repository ignore boundaries preserve explicit recovery through unrestricted search |
+| Keep the accepted review durable without treating its copied inputs as live source | PASS | the exact accepted report is repository-owned and checksum-bound; external-review `sources/` snapshots and ZIP bundles classify as historical evidence and remain preserved outside routine recovery packages |
 | Cap foreground WIP at two lanes | PASS CONFIGURED | both LAiDIES config layers, the generated AGENTS source and autonomous runtime now cap concurrent lanes at two; only one shared-surface writer is allowed |
 | Make task-class budgets executable | PASS | `operations/runtime/task-budgets.json`; `scripts/check-task-budget.mjs`; unknown task classes fail in calibration |
 | Enforce work-type WIP, not only thread count | PASS CURRENT | `scripts/check-work-wip-limits.mjs`; one building, one content item, two read-only research lanes, one Ali decision and the stricter two-active-item cap are checked from events; duplicate-building fixture fails |
@@ -117,6 +118,15 @@ them preserved and held, reducing ready review paths from 494 to 486 while the
 append-only event projection completes its timed parity window. No generated
 snapshot, predecessor UI, queue or review manifest was restored as current
 truth.
+
+The 00:39 PDT source-of-truth repair imported the exact accepted Fable report
+into the repository at its verified SHA-256. The inventory classifier now
+distinguishes that current report from copied `sources/` trees and ZIP bundles
+used to conduct earlier reviews. A deliberately bad fixture proves those copied
+inputs cannot re-enter the active-source recovery queue. The refreshed queue
+moved 80 paths out of active review, leaving 120 bounded packages / 483 paths
+ready for owner review. The original external report and all dirty review
+packets remain preserved; none was deleted or moved.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 
