@@ -38,7 +38,7 @@ try {
   });
   assert.match(stale.errors.join("\n"), /current SHA-256/);
 
-  const knownBad = "content/library-books/pilots/ai-fundamentals-101-v2/review.html";
+  const knownBad = "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-v3-whole-candidate-known-bad.md";
   const blocked = spawnSync(process.execPath, [
     scriptPath,
     "--type", "content",

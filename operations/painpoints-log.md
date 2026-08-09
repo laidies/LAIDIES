@@ -15366,3 +15366,28 @@ while remaining falsely unfinished in the launch record.
   the rulebook was three decisions behind.
 - **Publication status:** INTERNAL AUTHORITY CONSOLIDATION / NO VISITOR COPY,
   DEPLOYMENT OR PUBLICATION.
+
+## BTB-463 — The Review Door was recovered without the gate it imports
+
+- **Date:** 2026-08-08
+- **Area:** Fable operating-model recovery, content admission and review presentation.
+- **Failure risk:** A clean branch can contain the Review Door scripts and still
+  be unable to run either calibration because their imported release-readiness
+  gate, prose checkers and authority data are missing. A status report may then
+  claim the door passed while the executable operating branch cannot start it.
+- **Root cause:** Recovery selected the visible entrypoint and tests without
+  expanding their complete runtime, fixture and authority dependency closure;
+  the claimed PASS was not rerun from the clean integration branch.
+- **Prevention rule:** A recovered executable is incomplete until every static
+  import, runtime authority source and controlled negative fixture required by
+  its tests exists in the target branch. Run the exact handoff command from the
+  clean branch before recording implementation status, and wire it into full CI.
+- **Durable correction:** The recovery package restores the producer,
+  independent prose and content-release checkers; their calibrated tests; the
+  current benchmark, exemplar registry and 17-order queue; and one compact
+  registered known-bad artifact. `test:review-door` now proves held work,
+  changed bytes and raw server access fail closed before review presentation.
+- **Possible Behind the Build angle:** A locked door painted on the wall is not
+  a security system.
+- **Publication status:** INTERNAL OPERATING-SYSTEM RECOVERY / NO CONTENT
+  ADMISSION, DEPLOYMENT OR PUBLICATION.
