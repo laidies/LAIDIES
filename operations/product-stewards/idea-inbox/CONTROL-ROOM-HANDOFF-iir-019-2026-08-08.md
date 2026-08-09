@@ -4,7 +4,7 @@
 
 **Owner task:** `019f9f81-5da6-73a3-a1aa-0272a93ec821`
 
-**Evidence time:** `2026-08-09T04:31:42Z`
+**Evidence time:** `2026-08-09T04:34:43Z`
 
 **Status:** `CAPTURED / CAPTURE STREAM OPEN / RECONCILIATION REQUIRED / IDLE`
 
@@ -25,16 +25,16 @@ Committed and pushed task-owned evidence:
 Exact current evidence:
 
 - `lecture-capture-stanford-self-learning-agents-2026-08-08.md` — SHA-256
-  `f96da7b43ed38e32ca60307b4060bc676246b0ea61621aa41bc1c81ed7d42bcf`;
+  `85cda778abe4be6ae080eb443fd80b9fe0fe3c2ddb4de480b96f2b6fd2117859`;
 - `reconciliation-receipt-stanford-self-learning-agents-2026-08-08.md` —
   SHA-256
-  `dfa4f5ab075195667d8258c2921661b6260bd729d50441bc1eabae5495d03779`;
+  `95a3b89b8d870bb01cc61e9a7250524c23da6bc8bf149c00a9ff69c8e45fd4f5`;
 - `state.json` — SHA-256
-  `acc46b12ee95e5c723c5830033bf4881136b041b000a83494617a47291860000`;
+  `552ef8004f00342505aa0dcdd39b6554b3d80201d5dd90328ec8b662fec38be3`;
 - `backlog.md` — SHA-256
-  `9d2537da8a3b279402033c7bbfca50bf0326c9d74edd1f001f6c29ad5c79b52a`;
+  `8d0584037e82f688eb8fccafe766fe4bcc44158ee28a5205199c4430632a7e22`;
 - `routing-receipts.md` — SHA-256
-  `5802d079670402ef545228ddcee8f062450f401179edaebb723d8290fdeb3991`.
+  `b13fe2f5b19f078bf357300c8a2796a893616b6d274083e7057b2dffb370976f`.
 
 Checks: `state.json` parsed successfully; final `git diff --cached --check`
 passed before the correction commit; repository search found broad agent,
@@ -139,9 +139,26 @@ scope. Remaining trigger is exact Part 1 claim/timestamp binding plus current
 evidence review. No shared registry, run queue, ledger, content, public, deploy,
 spend, private-data or Ali-authority action occurred.
 
-Current checks at `2026-08-09T04:31:42Z`: `state.json` parse `PASS`; working
+Current checks at `2026-08-09T04:34:43Z`: `state.json` parse `PASS`; working
 diff check `PASS`; official Stanford course page and exact Stanford Online
 metadata for Parts 1–4 verified. Automated caption retrieval returned an empty
 payload, so claim timestamps remain explicitly unverified. Targeted owner-entry
 preflight remains `FAIL` only for the three pre-existing expired-public Daily
 learning derivatives already named above; there is no Idea Inbox dossier error.
+
+## Material update — NOTE-003
+
+**Status:** `CAPTURED / MERGE WITH NOTE-002 / FRESHNESS HOLD`
+
+Ali supplied “concept of emergent behavior in models.” The note is preserved as
+a distinct learner question and merged with NOTE-002's scaling/generalization/
+emergence/evaluation investigation. Required teaching boundary separates broad
+system emergence, benchmark-emergent capability, real discontinuity versus
+threshold/metric artifact, model-only versus scaffold/tool behavior and mere
+surprise/unreliability versus evidence of emergence.
+
+Acceptance owner remains Learning System & Concepts. Next trigger is exact Part
+1 passage/citation binding, current evidence plus major measurement critiques
+and one continuous-versus-thresholded evaluation example. No shared authority,
+priority, content, public, deploy, spend, private-data or Ali-authority action
+occurred.

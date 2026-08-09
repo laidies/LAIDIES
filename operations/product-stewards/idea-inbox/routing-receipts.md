@@ -663,7 +663,29 @@ acceptance, implementation, priority or release.
   review remains bounded to the four videos she identified. Additional parts
   are discovery candidates, not automatically admitted scope.
 - **Remaining evidence gap:** exact timestamps/transcript passages for NOTE-001
-  and NOTE-002, their cited readings and current claim-level verification.
+  through NOTE-003, their cited readings and current claim-level verification.
+
+### NOTE-003 — Emergent behavior in models
+
+- **Captured:** `2026-08-08` PDT from Ali's live lecture notes.
+- **Preserved concept:** explain how behavior not individually hand-coded can
+  arise from learned/model-system interactions, and why a capability may appear
+  only after a scale or evaluation threshold without treating surprise as magic.
+- **Required distinctions:** broad system emergence versus benchmark-emergent
+  capability; genuine discontinuity versus threshold/metric artifact; model
+  behavior versus tool/scaffolding/product behavior; surprising or unreliable
+  behavior versus evidence of emergence.
+- **Duplicate findings:** NOTE-002 already opened scaling, generalization and
+  disputed emergence. AI Fundamentals owns the component concepts but no exact
+  maintained beginner bridge was found.
+- **Classification:** `MERGE` with NOTE-002's investigation; retain NOTE-003 as
+  a findable question, not a duplicate lesson.
+- **Return trigger:** bind the exact Part 1 passage and cited evidence; review
+  current empirical evidence and major measurement critiques; build one
+  continuous-versus-thresholded evaluation example; then Learning rules the
+  canonical explanation and any distinct High practice.
+- **Authority truth:** no definition, research conclusion, lesson, curriculum
+  edit, publication or deployment occurred.
 
 ## Receipt template
 

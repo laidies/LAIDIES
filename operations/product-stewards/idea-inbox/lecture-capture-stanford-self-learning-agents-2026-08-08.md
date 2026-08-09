@@ -222,8 +222,8 @@ only if a later story requires the scaling mechanism.
 
 **Investigation required before teaching:** bind the exact Part 1 claim,
 timestamp and chart; identify what “size” and “new task” meant; check the cited
-scaling-law and emergence research plus substantial critiques; compare with current
-training and inference-scaling evidence; select a current model-family case
+scaling-law and emergence research plus substantial critiques; compare with
+current training and inference-scaling evidence; select a current model-family case
 where scale is documented; and design one comparison that controls enough
 variables to avoid attributing every difference to parameter count.
 
@@ -235,3 +235,63 @@ generality, emergence and product capability.
 **Authority truth:** this is a captured 2025 claim under freshness hold, not a
 validated law or accepted teaching statement. No benchmark, lesson, book edit,
 class, episode or publication was created.
+
+### NOTE-003 — Emergent behavior in models
+
+**Ali's wording:** “concept of emergent behavior in models.”
+
+**Type:** foundational concept and contested interpretation from Part 1; exact
+lecture wording, example and timestamp remain to be bound.
+
+**What is worth preserving:** LAiDIES should explain why a model or model-based
+system can display behavior that was not individually hand-coded as a rule, and
+why researchers sometimes describe a capability as “emergent” when it becomes
+observable only beyond some change in scale, training or system conditions.
+The explanation must not turn emergence into a mystical property or imply that
+every surprising output is a genuinely new capability.
+
+**Required distinctions before teaching:**
+
+- **emergent behavior** in a broad system sense: patterns arising from many
+  interacting learned components or system parts rather than one explicit rule;
+- **emergent capability** in model evaluation: performance that appears absent
+  below a threshold and present above it;
+- a real discontinuity versus a smooth improvement made to look sudden by a
+  binary/pass-fail metric, prompt sensitivity, task choice or measurement scale;
+- model-only behavior versus behavior produced by the complete product or agent
+  system, including scaffolding, memory, tools, search and repeated attempts;
+- unexpected behavior, unreliable behavior and dangerous behavior: all can be
+  important without automatically proving emergence.
+
+**Existing LAiDIES overlap:** NOTE-002 already opened the scaling,
+generalization and disputed-emergence relationship. AI Fundamentals 101 owns
+Parameters, Training, Compute, Inference, Model Types and Evaluation, but the
+repository search found no maintained beginner explanation that joins those
+parts into an emergence concept.
+
+**Classification:** `MERGE` into NOTE-002's scaling/generalization/emergence
+investigation, while retaining NOTE-003 as a separately findable learner
+question. Do not create a second lesson or glossary-only definition.
+
+**Primary home recommendation:** AI Fundamentals 101 owns the connected
+mechanism and evaluation boundary. A SUNNYVAiLE High activity is justified only
+if a learner can inspect the same underlying performance through continuous and
+thresholded measures and explain why the conclusion may change.
+
+**Affected owners:** Learning System & Concepts; LIBRAiRY / AI Fundamentals
+101; SUNNYVAiLE High; Model Evaluation and Editorial Accuracy; agent-systems
+concept owner where tools/scaffolding contribute to the observed behavior.
+
+**Investigation required before teaching:** bind the exact Part 1 passage and
+example; identify whether the lecturer means broad system emergence, benchmark
+emergence or both; trace the cited evidence; review current empirical evidence
+and major measurement critiques; and construct one visual example that shows
+the same underlying scores before and after a thresholding choice.
+
+**Return trigger:** NOTE-002 and NOTE-003 return together after timestamp,
+source and current-evidence binding. Learning rules the precise relationship
+among scale, generalization, emergence and evaluation and chooses one canonical
+explanation plus any distinct practice.
+
+**Authority truth:** captured and reconciled only. No definition, example,
+lesson, book edit, class, episode or publication is accepted.

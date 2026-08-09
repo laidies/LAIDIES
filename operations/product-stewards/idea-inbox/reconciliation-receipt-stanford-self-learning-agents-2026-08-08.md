@@ -94,3 +94,17 @@ already registered Stanford's AI YouTube playlist as
 record before reporting the lecture unavailable. This receipt now binds the
 exact CS329A course and four videos. The correction removes the source-identity
 hold but not the claim-level freshness hold.
+
+## NOTE-003 update — emergent behavior in models
+
+Ali's third concept is preserved as a separately findable learner question but
+merged into NOTE-002's scaling/generalization/emergence investigation. The key
+teaching risk is treating “emergent” as a mystical synonym for surprising. A
+current explanation must distinguish broad system behavior from a benchmark
+capability that appears after a threshold, and distinguish a genuine change
+from one created by metric, prompt or task design.
+
+Repository reconciliation found the underlying AI Fundamentals components but
+no maintained beginner bridge. Learning System & Concepts remains acceptance
+owner. The smallest useful proof is one example showing how the same continuous
+performance data can produce a sudden-looking pass/fail result.
