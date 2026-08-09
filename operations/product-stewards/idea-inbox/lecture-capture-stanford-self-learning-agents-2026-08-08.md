@@ -6,13 +6,28 @@
 
 **Opened:** `2026-08-08` PDT
 
-**Source supplied by Ali:** a Stanford lecture described as being about
-self-learning agents
+**Source supplied by Ali:** the four-part Stanford YouTube series on
+self-learning models/agents already shared in Learning Sources
 
 **Source year supplied by Ali:** `2025`
 
-**Source identity:** `UNKNOWN` — exact lecture title, course, speaker and URL
-have not yet been supplied or verified
+**Source identity:** `CONFIRMED` — Stanford CS329A, *Self-Improving AI Agents*,
+Autumn 2025. Official course page: <https://cs329a.stanford.edu/>. The source
+family was already registered as `LSR-STANFORD-AI-YOUTUBE-001` in
+`LEARNING-SOURCE-ROSTER.md`; failing to reconcile that record before marking
+the lecture unknown was an Idea Inbox error.
+
+**Ali's bounded four-part review set:**
+
+1. [Part 1 — Course Overview](https://www.youtube.com/watch?v=6YnLB0XbTnI)
+2. [Part 2 — Test-Time Compute Scaling](https://www.youtube.com/watch?v=-Ggc37xLj_Y)
+3. [Part 3 — Robust Verification](https://www.youtube.com/watch?v=p7TdPUcPoik)
+4. [Part 4 — Learning from Feedback with Tools/Code](https://www.youtube.com/watch?v=Lxh9RF5S-K0)
+
+The course lectures occurred in Autumn 2025; Stanford Online published these
+four recordings on YouTube on 2026-08-03. The course page currently lists a
+larger syllabus, but that does not silently expand Ali's requested four-part
+review scope.
 
 ## Capture promise
 
@@ -92,8 +107,8 @@ Each incoming note will record:
 
 **Ali's wording:** “standard prompting vs. chain-of-thought prompting.”
 
-**Type:** concept distinction and practical technique; exact lecture claim,
-example and timestamp not yet supplied.
+**Type:** concept distinction and practical technique from Part 1; exact claim,
+example and timestamp remain to be bound from the recording/transcript.
 
 **What is worth preserving:** LAiDIES should help a learner see that “write a
 better prompt,” “ask the model to explain its reasoning,” and “use a reasoning
@@ -137,19 +152,86 @@ be reopened merely because the term was heard in a lecture.
 **Affected owners:** LIBRAiRY / AI Fundamentals 101; Briefing 101; Episode 02;
 SUNNYVAiLE High; Editorial Accuracy; current-provider source/freshness owners.
 
-**Verification required before teaching:** exact Stanford lecture identity and
-timestamp; the lecturer's actual 2025 definition/example; current primary
+**Verification required before teaching:** exact Part 1 timestamp and the
+lecturer's actual 2025 definition/example; current primary
 research for the chain-of-thought technique; current provider documentation for
 visible reasoning and reasoning-model behaviour; an explicit 2025-versus-now
 change assessment; a bounded comparison on an appropriate current task; and
 explicit distinction between answer quality, explanation quality and evidence
 of correctness.
 
-**Return trigger:** when the lecture source detail is available or the current
-prompting freshness review opens, Learning returns `LINK`, `EXTEND`, `CREATE` or
-`DECLINE` for the comparison and names the smallest consumer. No content work
-order exists until that ruling.
+**Return trigger:** after the exact Part 1 timestamp/claim is bound and the
+current prompting freshness review opens, Learning returns `LINK`, `EXTEND`,
+`CREATE` or `DECLINE` for the comparison and names the smallest consumer. No
+content work order exists until that ruling.
 
 **Authority truth:** captured and reconciled only. No definition, lesson,
 example, prompt recommendation, book change, episode change or publication is
 accepted.
+
+### NOTE-002 — As model size increases, models can solve more new tasks
+
+**Ali's wording:** “as model size increases they have greater ability to solve
+new tasks.”
+
+**Type:** 2025 scaling/generalization claim from Part 1; exact lecture wording,
+evidence, chart and timestamp remain to be bound from the recording/transcript.
+
+**What is worth preserving:** LAiDIES should explain why increasing the scale of
+model development has often been associated with broader or stronger task
+performance, and why that does not mean parameter count alone mechanically
+creates intelligence or guarantees success on every unfamiliar task.
+
+**Provisional claim boundary — requires current investigation:**
+
+- “model size” may refer to parameter count, but observed capability also
+  depends on architecture, training objective, data quantity/quality/mixture,
+  training compute, post-training, context, tools, inference-time compute and
+  the evaluation used;
+- “new tasks” must be defined. It may mean zero-shot or few-shot performance on
+  a task not explicitly demonstrated in the prompt, a held-out benchmark, a
+  new task format, or genuine transfer outside the training distribution;
+- larger models have often shown better average performance and broader
+  transfer under particular scaling regimes, but the relationship is not a
+  universal monotonic guarantee for every model family, task or deployment;
+- apparently sudden “emergent” abilities require careful treatment. A threshold
+  may reflect a real capability change, the benchmark's scoring rule, prompt or
+  evaluation sensitivity, contamination, or the fact that a smooth underlying
+  improvement becomes visible only after crossing a pass mark;
+- model capability, product features, account access and tool support remain
+  separate. A smaller model with the right tools or task-specific design may
+  outperform a larger model on a particular job.
+
+**Existing LAiDIES overlap:** AI Fundamentals 101 already owns Parameters,
+Training, Compute, Inference, Model Types, Evaluation and the distinction
+between model capability and product/tool behaviour. Current learning sources
+explain that training changes parameters but do not appear to give a maintained
+beginner treatment of scaling laws, task generalization or disputed emergence.
+
+**Classification:** `MERGE`.
+
+**Primary home recommendation:** Learning System & Concepts rules this as a
+bounded scaling-and-generalization relationship inside AI Fundamentals 101,
+not a standalone “bigger is smarter” lesson. A deeper High activity is justified
+only if learners compare a controlled current task across appropriately
+documented models and can explain what the comparison does not prove.
+
+**Affected owners:** LIBRAiRY / AI Fundamentals 101; SUNNYVAiLE High; Model
+Evaluation and Editorial Accuracy; compute/chips concept route; Weekly Episodes
+only if a later story requires the scaling mechanism.
+
+**Investigation required before teaching:** bind the exact Part 1 claim,
+timestamp and chart; identify what “size” and “new task” meant; check the cited
+scaling-law and emergence research plus substantial critiques; compare with current
+training and inference-scaling evidence; select a current model-family case
+where scale is documented; and design one comparison that controls enough
+variables to avoid attributing every difference to parameter count.
+
+**Return trigger:** after the exact Part 1 claim is bound and current evidence
+review, Learning returns `LINK`, `EXTEND`, `CREATE` or `DECLINE`, with the precise
+learner-safe statement and the smallest example needed to distinguish scale,
+generality, emergence and product capability.
+
+**Authority truth:** this is a captured 2025 claim under freshness hold, not a
+validated law or accepted teaching statement. No benchmark, lesson, book edit,
+class, episode or publication was created.

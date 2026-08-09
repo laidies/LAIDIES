@@ -546,8 +546,9 @@ acceptance, implementation, priority or release.
 - **Intended feeling/examples:** Preserve mechanisms, terms, demonstrations,
   warnings, open questions and Ali's own connections in enough detail to
   reconstruct why each mattered—not as a list of stripped-down task titles.
-- **Links/screenshots:** None supplied yet. Exact lecture title, course, speaker,
-  URL and timestamps are `UNKNOWN` and must not be inferred.
+- **Links/screenshots:** Stanford CS329A course page and Stanford Online Parts
+  1–4 are now bound in the canonical capture. Exact claim timestamps remain
+  unbound.
 - **Duplicate/conflict findings:** AI Fundamentals already routes agents,
   sub-agents, skills, loops, memory, tools, permissions, monitoring, stopping
   and verification. No exact committed “self-learning agents” treatment was
@@ -567,8 +568,8 @@ acceptance, implementation, priority or release.
   trusted-course/practitioner-source owner; AI Fundamentals 101 / LIBRAiRY;
   SUNNYVAiLE High; Weekly Episodes; NewsStand; affected internal operating
   owner when a concept concerns LAiDIES' own agent system.
-- **Shared dependencies:** exact lecture identity and timestamp; claim/source
-  distinction; current product/version evidence; bounded LAiDIES test where
+- **Shared dependencies:** exact claim timestamp/transcript passage;
+  claim/source distinction; current product/version evidence; bounded LAiDIES test where
   feasible; misconception boundary; learner level; freshness and correction
   trigger; one canonical consumer map.
 - **Durable proposed destination:** live capture at
@@ -599,7 +600,7 @@ acceptance, implementation, priority or release.
 - **Recommended smallest home:** an AI Fundamentals 101 comparison with an exact
   Briefing 101 cross-link; High receives a controlled practice only if Learning
   finds a distinct transfer job.
-- **Return trigger:** exact lecture identity/timestamp, current primary research
+- **Return trigger:** exact Part 1 timestamp/claim, current primary research
   and provider evidence, one bounded appropriate task comparison, then Learning
   `LINK/EXTEND/CREATE/DECLINE` ruling.
 - **Authority truth:** no teaching copy, technique recommendation, curriculum
@@ -609,8 +610,9 @@ acceptance, implementation, priority or release.
 
 - **Ali's warning:** some lecture concepts may now be out of date and must be
   investigated rather than copied into LAiDIES.
-- **Source boundary:** `2025` is user-supplied; exact lecture identity,
-  publication date and timestamps remain unknown.
+- **Source boundary:** exact source is now confirmed as Stanford CS329A,
+  *Self-Improving AI Agents*, Autumn 2025. Ali's review set is Parts 1–4 on the
+  Stanford Online YouTube channel. Exact claim timestamps remain unbound.
 - **Revised status:** the entire stream is `FRESHNESS HOLD`. Each note must
   preserve its 2025 claim, distinguish durable mechanism from dated technique
   or product behaviour, compare current primary evidence, reproduce the claim
@@ -618,8 +620,50 @@ acceptance, implementation, priority or release.
 - **Allowed outcomes:** `STILL CURRENT`, `CURRENT WITH LIMITS`, `SUPERSEDED`,
   `CONTESTED` or `UNVERIFIED`, followed by Learning's content relationship
   ruling.
-- **Authority truth:** investigation is required but has not begun because the
-  exact lecture and claim details are not yet available. No content was updated.
+- **Authority truth:** source reconciliation is complete; claim-level freshness
+  investigation has not begun because exact timestamps/wording and current
+  evidence remain unbound. No content was updated.
+
+### NOTE-002 — Model size and ability to solve new tasks
+
+- **Captured:** `2026-08-08` PDT from Ali's live lecture notes.
+- **Preserved claim:** “as model size increases they have greater ability to
+  solve new tasks.” Treat this as a 2025 scaling/generalization claim, not a
+  validated universal law.
+- **Required distinctions:** parameter count versus architecture, data,
+  training/post-training compute, tools and inference-time compute; held-out
+  benchmark versus genuinely unfamiliar transfer; average improvement versus
+  every-task guarantee; measured emergence versus threshold or evaluation
+  artifact; model capability versus product/tool/access behaviour.
+- **Duplicate findings:** AI Fundamentals 101 owns Parameters, Training,
+  Compute, Inference and Evaluation but no exact maintained beginner treatment
+  of scaling laws, generalization and disputed emergence was found.
+- **Classification:** `MERGE` into AI Fundamentals' concept relationship. High
+  receives a controlled comparison only if it teaches the causal limits rather
+  than staging a model horse race.
+- **Return trigger:** bind the exact Part 1 claim/timestamp/chart; review current
+  scaling and emergence evidence and critiques; bind a documented current
+  model-family case and sufficiently controlled comparison; then Learning rules
+  `LINK/EXTEND/CREATE/DECLINE` and supplies the learner-safe wording.
+- **Authority truth:** no claim acceptance, research conclusion, benchmark,
+  lesson, curriculum edit, publication or deployment occurred.
+
+### Material correction — exact Stanford source recovered
+
+- **Correction:** the earlier `UNKNOWN` source status was wrong. The Idea Inbox
+  had not reconciled the complete Learning Sources roster before reporting the
+  lecture unavailable.
+- **Canonical source:** Stanford CS329A, *Self-Improving AI Agents*, Autumn 2025;
+  official course page <https://cs329a.stanford.edu/>; registered discovery
+  source `LSR-STANFORD-AI-YOUTUBE-001`.
+- **Bound review set:** Stanford Online Part 1 Course Overview, Part 2 Test-Time
+  Compute Scaling, Part 3 Robust Verification and Part 4 Learning from Feedback
+  with Tools/Code. The recordings were published on YouTube on 2026-08-03.
+- **Scope truth:** the course page contains a larger syllabus, but Ali's current
+  review remains bounded to the four videos she identified. Additional parts
+  are discovery candidates, not automatically admitted scope.
+- **Remaining evidence gap:** exact timestamps/transcript passages for NOTE-001
+  and NOTE-002, their cited readings and current claim-level verification.
 
 ## Receipt template
 

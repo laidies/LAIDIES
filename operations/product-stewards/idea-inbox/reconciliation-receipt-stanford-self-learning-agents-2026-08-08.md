@@ -6,8 +6,8 @@
 
 **Status:** `CAPTURED / CAPTURE STREAM OPEN / RECONCILIATION REQUIRED`
 
-Ali is watching a Stanford lecture described as being about self-learning
-agents and will send concepts that LAiDIES should track and potentially include.
+Ali is watching the four-part Stanford CS329A *Self-Improving AI Agents* set and
+will send concepts that LAiDIES should track and potentially include.
 The important detail is the live, low-friction note stream: Ali should not have
 to stop the lecture to decide whether a concept belongs in a book, class,
 episode, tip, article or internal operating rule.
@@ -66,7 +66,31 @@ preserve the historical claim and then compare it with current primary evidence
 and a bounded current reproduction where feasible. Institutional reputation
 does not waive this requirement.
 
-The investigation has not started because the exact lecture identity,
-timestamps and full claims are not yet available. This is an evidence-input
-hold, not a request for Ali to organize the notes; she can continue sending
-them normally.
+The exact lecture identity is now confirmed from the existing Learning Sources
+roster and Stanford's official Autumn 2025 course page. The bounded set is Part
+1 Course Overview, Part 2 Test-Time Compute Scaling, Part 3 Robust Verification
+and Part 4 Learning from Feedback with Tools/Code. Stanford Online published
+the recordings on YouTube on 2026-08-03. Exact timestamps and full claim
+wording remain to be bound; this is not a request for Ali to organize the notes.
+
+## NOTE-002 update — model size and new-task ability
+
+Ali's second concept is preserved as a 2025 scaling/generalization claim. The
+literal wording is too broad for teaching because “size” and “new task” are
+undefined and parameter count is confounded with architecture, data, training,
+post-training, tools, inference compute and evaluation design.
+
+Repository reconciliation found the component concepts in AI Fundamentals 101
+but no exact maintained beginner treatment of scaling laws, generalization and
+disputed emergence. Classification is `MERGE`, with Learning System & Concepts
+as acceptance owner. Current evidence review must include both scaling evidence
+and critiques of emergence measurements before any learner-facing statement.
+
+## Source-reconciliation correction
+
+The earlier `UNKNOWN` source status was an Idea Inbox error. The repository
+already registered Stanford's AI YouTube playlist as
+`LSR-STANFORD-AI-YOUTUBE-001`; the source search did not reconcile that complete
+record before reporting the lecture unavailable. This receipt now binds the
+exact CS329A course and four videos. The correction removes the source-identity
+hold but not the claim-level freshness hold.
