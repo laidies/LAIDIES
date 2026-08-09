@@ -1,11 +1,11 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-08 13:35 PDT
+**Evidence time:** 2026-08-09 06:55 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
 
-This record reconciles the actual accepted report at `/Users/alisoneakin/Documents/LAIDIES-Fable5-Review-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md` (SHA-256 `8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb`) with the changes implemented after it. `PASS` below means the named local mechanism was calibrated and passed. It does not mean the Library, website, backup migration or public release is complete.
+This record reconciles the repository-owned accepted report at `operations/external-review/fable-5-laidies-operating-model-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md` (SHA-256 `8110fb16789167b4cbc559a60b9baa9ed03c4a628269855540197f507988abcb`) with the changes implemented after it. The original external copy remains preserved at `/Users/alisoneakin/Documents/LAIDIES-Fable5-Review-2026-08-07/FABLE-5-LAIDIES-OPERATING-MODEL-REVIEW.md`. `PASS` below means the named local mechanism was calibrated and passed. It does not mean the Library, website, backup migration or public release is complete.
 
 ## Implemented and verified locally
 
@@ -24,19 +24,31 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Pilot trusted practitioner/source intake | PASS PILOT | 13-source roster, four evidence-bound signals, three useful owner rulings; recurrence remains parked |
 | Capture practical home-life AI as a distinct reader job | SPECIFIED | durable idea-inbox handoff; no premature content commission or public feature |
 | Exclude retained history from routine retrieval | PASS | repository ignore boundaries preserve explicit recovery through unrestricted search |
+| Keep the accepted review durable without treating its copied inputs as live source | PASS | the exact accepted report is repository-owned and checksum-bound; external-review `sources/` snapshots and ZIP bundles classify as historical evidence and remain preserved outside routine recovery packages |
 | Cap foreground WIP at two lanes | PASS CONFIGURED | both LAiDIES config layers, the generated AGENTS source and autonomous runtime now cap concurrent lanes at two; only one shared-surface writer is allowed |
 | Make task-class budgets executable | PASS | `operations/runtime/task-budgets.json`; `scripts/check-task-budget.mjs`; unknown task classes fail in calibration |
 | Enforce work-type WIP, not only thread count | PASS CURRENT | `scripts/check-work-wip-limits.mjs`; one building, one content item, two read-only research lanes, one Ali decision and the stricter two-active-item cap are checked from events; duplicate-building fixture fails |
 | Replace prose handoff requirements with one checked artifact shape | PASS ADDITIVE | `operations/runtime/artifact-handoff.schema.json`; `scripts/check-artifact-handoff.mjs`; stale artifact bytes fail. The prose Control Room contract remains until consumer parity. |
 | Derive the ten Fable metrics without false zeroes | PASS MECHANISM / COVERAGE INCOMPLETE | `scripts/project-work-metrics.mjs`; incomplete event coverage reports unavailable, never zero; calibrated complete fixture derives first-pass acceptance and cycle time |
-| Make the two-week retirement condition executable | PASS CHECKER / CURRENT PARITY FAIL | `scripts/check-work-event-parity.mjs` rejects retirement while any active legacy work ID is absent from the event projection; calibrated fixture passes complete coverage and rejects one missing item |
+| Make the two-week retirement condition executable | PASS CHECKER / OBSERVATION WINDOW ACTIVE | `scripts/check-work-event-parity.mjs` passes current ID coverage; `operations/runtime/work-event-parity-window.json` started the continuous observation window at 2026-08-08T09:58:12-07:00 and forbids retirement review before 2026-08-22T09:58:12-07:00 |
+| Convert the dirty tree into exact recovery review packages | PASS MECHANISM / NO CLEANUP AUTHORITY | `scripts/plan-repository-recovery-packages.mjs` groups all dirty inventory rows by product or operating domain and keeps unknown, historical and generated material fail-closed; inventory calibration now also proves launch snapshots and campaign assets remain generated output rather than false source candidates |
+| Prevent a bounded package from reviving stale authority | PASS FIRST RULING | `operations/storage/repository-recovery-package-rulings.json` binds exact dirty-source SHA and splits the mixed product-stewards root. The current five-file visual-media gate is recoverable and its two negative calibrations run; pre-Fable champion/guild review machinery, the unreconciled environment standard and Library-specific event dictionary remain preserved and held. Changed bytes fail to `HOLD_STALE_RULING`. |
+| Prevent legacy runtime projections from returning as current truth | PASS BOUNDED RULING | Exact-SHA rulings now hold the older generated Standing Card, mutable work ledger and description, predecessor review manifest, owner app, owner queue, owner-state and work-index. The current event log and generated projection remain authoritative during the timed parity window. |
+| Prove intentional import transformations are already integrated | PASS | an `IMPORT_CURRENT` ruling may bind both exact dirty-source and accepted target SHAs; matching transformed bytes become `NO_IMPORT_NEEDED_TRANSFORMED`, while changed source or target bytes fail closed |
+| Keep design QA screenshots out of source recovery | PASS | PNG/JPG and other rendered media under `operations/design-qa/` and `operations/design-audits/` classify as generated evidence; calibrated fixtures prevent them from becoming source candidates |
+| Keep modified generated evidence out of source commits | PASS | tracked generated files now remain preserved behind restore/archive gates instead of becoming commit candidates; the calibrated fixture distinguishes a tracked modification from active source work |
+| Keep rejected and exploratory design work out of current source recovery | PASS | untracked non-media files under design exploration/QA/audit locations remain preserved as historical evidence; explicit `REJECTION` names classify as rejected, and only current authority/active source text can create recovery dependency references |
+| Keep isolated prototypes and superseded held scaffolds out of current source recovery | PASS | untracked prototype copies, including duplicated media, remain historical; the explicitly held August 1 opening-day media scaffold remains preserved; calibrated adjacent current release source still routes to owner review |
+| Prevent storage recovery from deciding visitor-facing or Library-locked runtime changes | PASS BOUNDED RULING | exact-SHA holds now separate Homepage behaviour, the Miss Jeeves pilot taxonomy and the mixed site search index from source recovery; their product owners must reconcile successors, and changed bytes invalidate the holds |
+| Prevent orphan product-owner imports | PASS CALIBRATED | `scripts/plan-repository-recovery-packages.mjs` now requires the current registry and bound product/parent dossier/state before any product package becomes ready; the calibrated Businesswomen's Special fixture fails without its Bronze parent authority |
+| Close the final ready recovery paths without importing review clutter | PASS BOUNDED | Two exact private AIDB concept-render PNGs are SHA-bound holds because the tracked HTML source already exists and no consumer names the images; the consumed opening-day media manifest is recovered with four false owner-watch claims corrected to internal repair |
 
 ## Deliberately not called complete
 
 | Item | Truth | Completion trigger |
 |---|---|---|
 | Full encrypted off-site backup and restore | PASS FOR BOUNDED INTEGRATION | snapshot `ff1c716b`, `check --read-data`, full scratch restore and restored routes passed; write-stable snapshot `4a996ba9` and sampled drill also passed |
-| Move the worktree out of iCloud | OPERATING FOUNDATION INTEGRATED — SOURCE STILL PRESERVED | PR #26 merged as `13fafe62`; pre-merge `c096ea51` and fresh post-merge `13fafe62` clean drills passed; individual path disposition still gates old-copy retirement |
+| Move the worktree out of iCloud | TWO STANDALONE CLONES PASS — SOURCE STILL PRESERVED | `/Users/alisoneakin/Projects/laidies` and `/Users/alisoneakin/Projects/laidies-drill-2` have separate local `.git` databases, exact recovery commit `f921e1c1`, clean tracked state and full CI PASS. The second clone reproduced the exact ten-path curated-build hold. Independent storage is proven; exact path disposition plus timed parity/consumer gates still prevent old-copy retirement. |
 | Archive/delete old operating-model material | TIMED PARITY / CONSUMER REPAIR | replacement projection runs for two weeks, live consumers are repaired and full restore proof exists; UNKNOWN never moves |
 | Collapse durable roles/dossiers | PILOT, NOT MASS MIGRATED | event projection must first cover 14 active legacy records, then prove parity for two weeks before mirrors retire one consumer group at a time |
 | Retire the prose handoff/control contract after migration | TIMED PARITY | the replacement artifact schema and checker now exist; the current Control Room contract remains authoritative until all consumers use the checked shape and event projection runs beside it for two weeks |
@@ -51,23 +63,129 @@ This record reconciles the actual accepted report at `/Users/alisoneakin/Documen
 | Langfuse | NOT ADOPTED | only if the JSONL judge log misses a measured calibration drift |
 | R2 artifact/archive migration | NOT STARTED | account/configuration and spend authority, recovery proof and a 5 GB bounded reference-safe pilot |
 | Library mobile shelf defect | FAIL / LOCKED | Control Room visual integration owner repairs 120px visible-cover requirement and reruns exact browser/preflight evidence |
-| Public release | CONTROLLER IN REVIEW / CURRENT SOURCE BLOCKED | automatic `main:/` deployment is contained; the manual exact-artifact controller is calibrated locally, but the current source fails its curated build on 11 missing/untracked dependencies. Provider variables/environment protection and any artifact-specific deployment remain separately unauthorized |
+| Public release | CONTROLLER IN DRAFT PR / CURRENT SOURCE BLOCKED | automatic `main:/` deployment is contained; the manual exact-artifact controller is merged and calibrated, but draft PR #29 remains unmerged and the current source fails its curated build on ten missing/untracked dependencies. Provider variables/environment protection and any artifact-specific deployment remain separately unauthorized. |
 
-## Current explicit whole-system failure
+## Current explicit whole-system hold
 
-`node scripts/check-operational-integrity.mjs` fails on:
+Full `npm run ci` passes at exact recovery commit
+`2def7439a267d8b67b4a043a669a15acb5e65316`; both standalone clones repeat that
+PASS at `f921e1c1f08156f6ad81fec585c7d6afcffd247a`. This is mechanical operating
+integrity, not content or release approval.
 
-1. `WRK-20260802-odc-101-teaching-design` carrying invalid status `RUNNING`;
-2. four overdue work-resolution records;
-3. Library mobile shelf rows failing the required 120px visible-book dimension.
+The curated public builder still fails closed on ten paths: eight absent Book
+Fair images, one unadmitted Closet hero and one absent DJ Sunnyv portrait.
+Those are current source defects owned by the relevant product lanes. The
+Library visitor-facing lock prevents this operating-model task from substituting
+new or unreviewed imagery.
 
-These are current defects, not implementation success. They remain routed to their owning lanes. The Library visitor-facing lock prevents this operating-model task from modifying the shelf candidate.
+The 15:52 PDT clean-baseline reconciliation compared 2,651 actionable dirty
+paths against `/Users/alisoneakin/Projects/laidies` by exact SHA-256 without
+mutating either tree. Twenty-one tracked paths differ and 2,630 paths are absent
+from the clean branch; none already match. This rules out a bulk “already
+integrated” cleanup. Exact owner/package review remains the next recovery lane.
 
 The 04:45 PDT completion audit reran every named calibrated mechanism. All 18 local enforcement/configuration checks passed, including `git diff --check`; the explicit whole-system command failed only on the five work-resolution records and the locked 120px Library regression listed above. The repository inventory was refreshed to 65,888 files / 84,333,897,353 bytes with 5,261 `UNKNOWN` paths; `UNKNOWN` remains immovable.
 
-The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. The live parity check correctly fails because 14 active legacy work IDs are not yet represented in the append-only event source. That failure prevents the two-week retirement clock from being falsely started. The current metrics projector consequently reports nine metrics unavailable rather than claiming zero performance.
+The 05:10 PDT actual-report reconciliation added five missing executable controls and calibrated each with a deliberately bad fixture. Legacy IDs were subsequently admitted as explicit migration snapshots without inventing lifecycle history. Current parity passes (`active_legacy=14`, `projected=16`), and the observation window now forbids retirement review before 2026-08-22T09:58:12-07:00. The metrics projector continues to report unavailable measures where event coverage cannot support a value rather than claiming false zeroes.
+
+The 21:42 PDT storage-recovery continuation converted the 9,792-path dirty inventory into 353 bounded review packages. It did not call any path junk or safe to delete: 4,299 unknowns remain immovable, 32 historical/rejected paths remain preserved behind archive gates and 2,810 generated/ignored paths stay out of Git. The queue makes product-by-product recovery possible without bulk staging the shared tree.
+
+The 22:20 PDT classifier correction removed a false source signal from the queue. Exactly 908 files under `operations/launch/*/local-public-artifact/` and 282 campaign asset files are generated outputs, not source candidates. The refreshed queue now keeps 4,000 generated/ignored paths out of Git, routes 1,457 paths for review and identifies four exact baseline matches. No file was moved, deleted, staged or published.
+
+The 22:33 PDT package-readiness correction removed a second false signal: a route label did not make a 129-path or 87-path group a bounded commit candidate. The planner now holds every non-high-confidence route and every package above 25 reviewable paths. Its deliberately bad fixtures prove that one weakly routed path and one 26-path package cannot become ready. Current result: 259 high-confidence bounded packages / 963 paths may proceed to exact owner review; 25 packages require route confirmation, four oversized packages require subdivision and 65 contain no reviewable work. No dirty source path was imported, deleted, moved, staged or committed by this classification step.
+
+The 22:52 PDT dependency-closure correction removed a third false signal: a
+small, high-confidence package could still point to dirty-only source outside
+its boundary. The planner now reads exact backticked repository paths in
+reviewable text files and holds a package when a named source file exists only
+in the dirty tree. Its calibrated bad fixture rejects that case while a
+self-contained package and a dependency already present in the clean baseline
+remain ready. The refreshed queue holds 130 packages on unresolved dirty-only
+references and leaves 129 packages / 498 paths ready for exact owner review.
+The one-path AIDB site-refresh register is correctly held rather than imported
+with eight broken internal references. No dirty source path was imported,
+deleted, moved, staged or committed by this classification step.
+
+The 23:35 PDT first owner review exposed a fourth false signal: a bounded,
+dependency-closed root package could still mix current corrections with stale
+or differently owned authority. Exact SHA-bound recovery rulings now split that
+boundary and become stale automatically when dirty-source bytes change. The
+current five-file visual-media gate is the only import candidate. The pre-Fable
+champion contract and nine-role guild process remain held as stale authority;
+the environment standard remains held until its locked principles are separated
+from obsolete process; the Library-specific event dictionary remains held for
+owner/destination reconciliation. The refreshed queue leaves 129 packages / 497
+paths ready and 73 packages with no reviewable work. No held file was imported,
+deleted, moved, archived, staged, deployed or published.
+
+The 00:30 PDT owner review closed a second stale-authority package without
+copying any dirty bytes. Eight runtime and Control Room candidates were not
+missing implementation: they were older generated cards/projections or
+predecessor consumers of the mutable work ledger. Exact-SHA rulings now keep
+them preserved and held, reducing ready review paths from 494 to 486 while the
+append-only event projection completes its timed parity window. No generated
+snapshot, predecessor UI, queue or review manifest was restored as current
+truth.
+
+The 00:39 PDT source-of-truth repair imported the exact accepted Fable report
+into the repository at its verified SHA-256. The inventory classifier now
+distinguishes that current report from copied `sources/` trees and ZIP bundles
+used to conduct earlier reviews. A deliberately bad fixture proves those copied
+inputs cannot re-enter the active-source recovery queue. The refreshed queue
+moved 80 paths out of active review, leaving 120 bounded packages / 483 paths
+ready for owner review. The original external report and all dirty review
+packets remain preserved; none was deleted or moved.
+
+The 00:51 PDT transformed-import repair closed a recurring false-ready item.
+The visual-media build packet had already been imported with a documented
+formatting-only normalization, but source and target bytes intentionally
+differed. Recovery rulings can now bind both SHAs. The matching target exits the
+queue as `NO_IMPORT_NEEDED_TRANSFORMED`; calibrated changed-source and
+changed-target fixtures both fail closed. The refreshed queue leaves 119 ready
+packages / 482 paths without changing either preserved copy.
+
+The 00:59 PDT design-evidence repair removed 351 additional false source
+candidates. Before-and-after renders and viewport screenshots under
+`operations/design-qa/` and `operations/design-audits/` are generated evidence,
+not executable or canonical source. Calibrated fixtures now keep both locations
+out of routine source recovery. The refreshed queue falls to 78 ready packages /
+131 paths. Every screenshot remains preserved in place.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
+
+The 15:20 PDT recovery continuation created the first genuinely standalone
+non-iCloud clone at `/Users/alisoneakin/Projects/laidies`. Unlike the earlier
+linked worktrees, its Git object database is local to that clone. Exact commit
+`f921e1c1f08156f6ad81fec585c7d6afcffd247a` passes the full calibrated CI suite.
+At 15:38 PDT a second fresh clone at `/Users/alisoneakin/Projects/laidies-drill-2`
+independently passed the same suite and reproduced the exact ten-path curated
+builder hold. The original iCloud source remains preserved because exact path
+dispositions and the timed parity/consumer gates are still required.
+
+The 06:15 PDT August 9 queue pass removed another repeated-review defect.
+Thirty-one unreferenced August 3 Control Room judge/audit receipts and two
+responsibility-only Audience acceptance records were still presented as
+missing implementation. A narrow, calibrated classifier now keeps those exact
+legacy patterns as historical evidence while current adjacent controls remain
+active. The full inventory/planner run reduced ready owner-review work from 64
+paths to 31 without deleting, moving or importing any preserved source.
+
+The 06:42 PDT owner review stopped an orphan import before it reached Git. The
+two Businesswomen's Special files closed a named dirty-tree dependency but the
+clean integration baseline did not yet contain the product registry or Bronze
+parent owner record. The recovery planner now treats those structural owner
+bindings as dependencies. Its calibrated fixture rejects the orphan package,
+and the unchanged real inventory now reports only three ready reviewable paths;
+85 product packages are held for missing registry/parent authority. No product
+or Library source was imported by this correction.
+
+The 06:55 PDT final ready-path review separated source from rendered evidence.
+Two untracked AIDB screenshots explicitly mark themselves private rough
+exploration and have no current consumer, so exact-SHA rulings preserve them
+without restoring generated pixels to Git. The tracked opening-day media gate
+is consumed operational authority and corrects Episodes 01–04 from false owner
+watch status to internal repair while objective gates remain unresolved. No
+episode media, Library file, public route or deployment was changed.
 
 ## Authority truth
 

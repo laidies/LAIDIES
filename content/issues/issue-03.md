@@ -363,7 +363,7 @@ I can use the draft. I still check the alibi.
 - Card pack: `issue03` cards exist in `content/site/card-packs.json` and have been aligned to the revised references.
 - Burn Book: `community/burn-book.html`
 - Glossary hooks: Hallucination, Source, Citation, Verification, Assumption
-- Hot Goss: homepage-only until Episode 03 launch
+- NewsStand / The Weekly: separate dated publication; link only after editorial admission
 
 ## Editorial Receipts Needed Before Publish
 

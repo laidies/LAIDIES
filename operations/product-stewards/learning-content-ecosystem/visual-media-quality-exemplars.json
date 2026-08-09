@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "ACTIVE",
+  "rule": "A visual producer binds this exact registry before generation and clears every applicable negative. Positive exemplars teach bounded patterns; they do not authorize reuse, publication or a surface style by themselves.",
+  "positiveExemplars": [
+    {
+      "id": "VQX-GOOD-STILL-001",
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+      "useFor": ["STILL", "ANIMATION_SOURCE"],
+      "patterns": ["character-specific identity", "adult episode people-rendering register", "faceted light and anatomically informed linework"],
+      "limits": "Style authority for episode people only. It is not another character's identity, a location reference, a scene brief or site-building style approval."
+    },
+    {
+      "id": "VQX-GOOD-MOTION-001",
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-evergreen-six-clean-electric-v10.mp4",
+      "sha256": "05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3",
+      "useFor": ["ANIMATION", "IDENT", "LOOP"],
+      "patterns": ["one coherent motion grammar", "intentional first-to-last progression", "exact approved identity treatment"],
+      "limits": "Approved for its named identity job only. It is not a generic narration-matched scene, character-motion reference or permission to reuse episode-specific symbols."
+    }
+  ],
+  "negativeExemplars": [
+    {"id":"VQX-BAD-001","failureFamily":"STYLE_DRIFT","fixtureId":"EVAL-MEDIA-002","appliesTo":["STILL","ANIMATION","ANIMATION_SOURCE"],"prevention":"Bind the destination style authority and every character identity reference; compare the rendered subject at face and full-body scale."},
+    {"id":"VQX-BAD-002","failureFamily":"CANON_OR_LOCATION_DRIFT","fixtureId":"EVAL-MEDIA-004","appliesTo":["STILL","ANIMATION","ANIMATION_SOURCE"],"prevention":"Bind the exact town/location authority and reject invented geography, people, props or scene roles."},
+    {"id":"VQX-BAD-003","failureFamily":"PHYSICAL_IMPOSSIBILITY","fixtureId":"EVAL-MEDIA-011","appliesTo":["STILL","ANIMATION","ANIMATION_SOURCE"],"prevention":"Specify object surfaces, supports, orientations and connections before generation; inspect the real pixels for impossible devices such as a laptop screen on the outside lid."},
+    {"id":"VQX-BAD-004","failureFamily":"ANATOMY_ARTIFACT","fixtureId":"EVAL-MEDIA-012","appliesTo":["STILL","ANIMATION","ANIMATION_SOURCE"],"prevention":"Specify required bodies and actions before generation; inspect every visible hand, limb, finger, joint and body connection in the real pixels."},
+    {"id":"VQX-BAD-005","failureFamily":"TEXT_GIBBERISH_OR_FALSE_TEXT","fixtureId":"EVAL-MEDIA-013","appliesTo":["STILL","ANIMATION","ANIMATION_SOURCE"],"prevention":"Default to clean art with deterministic editable text. If lettering is itself the asset, bind approved copy and compare every character in the rendered output."},
+    {"id":"VQX-BAD-006","failureFamily":"ERA_WARDROBE_OR_PROP_DRIFT","fixtureId":"EVAL-MEDIA-014","appliesTo":["STILL","ANIMATION","ANIMATION_SOURCE"],"prevention":"Bind scene year, location, character age, wardrobe, accessories, technology and prohibited anachronisms before generation; inspect the rendered pixels."},
+    {"id":"VQX-BAD-007","failureFamily":"NARRATION_OR_TEXT_MISMATCH","fixtureId":"EVAL-MEDIA-015","appliesTo":["STILL","ANIMATION"],"prevention":"Bind the exact accompanying words, time window, proposition and visual job. A shared mood or topic is not semantic alignment."},
+    {"id":"VQX-BAD-008","failureFamily":"DECORATIVE_OR_COUNTER_NARRATIVE_VISUAL","fixtureId":"EVAL-MEDIA-009","appliesTo":["STILL","ANIMATION"],"prevention":"Give every dominant object, person, gesture and overlay a named scene or teaching job; remove anything that distracts, contradicts or merely decorates."},
+    {"id":"VQX-BAD-009","failureFamily":"STATIC_PRETENDING_TO_BE_MOTION","fixtureId":"EVAL-MEDIA-008","appliesTo":["ANIMATION"],"prevention":"Describe the semantic event or justified ambient action; camera drift, a pan or a zoom cannot substitute for required change."},
+    {"id":"VQX-BAD-010","failureFamily":"LOOP_SEAM_OR_WRONG_MOTION_CLASS","fixtureId":"EVAL-MEDIA-016","appliesTo":["ANIMATION","LOOP"],"prevention":"Classify loop, transition or one-shot before animation. Loops prove zero net travel; directional motion is never repeated as a loop."},
+    {"id":"VQX-BAD-011","failureFamily":"RUNTIME_OCCURRENCE_DRIFT","fixtureId":"EVAL-MEDIA-010","appliesTo":["ANIMATION"],"prevention":"Review the decoded final occurrence with its exact narration clock, crop, overlays and assembly transforms—not only the source clip."}
+  ]
+}

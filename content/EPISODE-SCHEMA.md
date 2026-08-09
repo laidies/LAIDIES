@@ -14,7 +14,11 @@ Before filling the issue JSON, check `docs/season/24-episode-arc.md` for the epi
 - `subtitle`: one-line teaching angle.
 - `status`: `published`, `draft`, or `planned`.
 - `issueUrl`: website path to the issue HTML.
-- `heroImage`: website path to the hero/thumbnail image.
+- `heroImage`: website path to the admitted hero/thumbnail image, or `null`
+  only when `heroVisualState` is `HELD`.
+- `heroVisualState`: optional. The only current exception value is `HELD`. It
+  requires `heroImage: null`; every archive/season consumer must render a
+  readable text-first held-artwork state and must not make an image request.
 - `act`: season act name.
 - `lesson`: what the reader learns.
 - `emotionalBeat`: the story/emotional movement.
@@ -28,14 +32,14 @@ Before filling the issue JSON, check `docs/season/24-episode-arc.md` for the epi
 - `glossaryTerms`: terms introduced or reinforced.
 - `referencesUsed`: pop culture references used.
 - `toolsMentioned`: AI tools mentioned.
-- `hotGoss`: optional current headline items for the homepage.
+- `newsstandItems`: optional current items proposed for one named NewsStand publication.
 - `siteLinks`: issue-specific website links that should appear in the newsletter or issue page.
 - `websiteModules`: website modules that should update for the issue, such as quiz, card pack, community thread, glossary terms, and homepage-only news placement.
 - `social`: social media source fields.
 
-## Hot Goss Fields
+## NewsStand Fields
 
-Use `hotGoss` when the episode drop includes fresh homepage headlines.
+Use `newsstandItems` when an episode drop includes current items for The Breaking, The Daily, The Weekly or The Tribune. Rendering is not editorial admission.
 
 Each item should include:
 
@@ -45,7 +49,7 @@ Each item should include:
 - `whyItMatters`: one plain-English workplace implication.
 - `translation`: one funny, useful lAIdies-style explanation.
 
-Hot Goss is primarily for the website because news gets stale. The newsletter can tease one item or link back to the website, but should not carry all three headlines by default.
+NewsStand items remain on the dated website publication because news gets stale. The newsletter may tease one admitted item or link to the NewsStand, but should not duplicate a whole paper by default.
 
 ## Site Link Fields
 
@@ -55,7 +59,7 @@ Each item should include:
 
 - `label`: reader-facing link text.
 - `url`: relative website URL.
-- `type`: `quiz`, `cardPack`, `community`, `glossary`, `reference`, `playlist`, `hotGoss`, or `other`.
+- `type`: `quiz`, `cardPack`, `community`, `glossary`, `reference`, `playlist`, `newsstand`, or `other`.
 
 ## Website Module Fields
 
@@ -69,7 +73,7 @@ Recommended fields:
 - `glossaryTerms`: terms to highlight or add.
 - `referenceCards`: references to highlight or add.
 - `playlist`: weekly playlist or House DJ link.
-- `hotGossPlacement`: usually `homepage-only`.
+- `newsstandPlacement`: the named paper or NewsStand surface; never an implied homepage publication.
 
 ## Social Fields
 

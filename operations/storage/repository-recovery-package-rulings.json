@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "evidence_time": "2026-08-09T06:55:00-07:00",
+  "authority": "Internal recovery routing only. A ruling does not authorize deletion, archiving, deployment, publication or public release.",
+  "rulings": [
+    {
+      "path": "operations/product-stewards/VISUAL-ADMISSION-PROTOCOL.md",
+      "source_sha256": "7d849d835498f9eca7a29e7db0ba6f774d1e28b9be57db29fec0067c0f113ab1",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "The tracked correction narrows the old boolean gate to record integrity and requires the current prevention-first producer and exact-pixel admission checks. It matches D-2026-08-07-101 and the current canonical dependency map.",
+      "authority": [
+        "operations/DECISIONS.md D-2026-08-07-101",
+        "operations/runtime/CANONICAL-INSTRUCTION-DEPENDENCY-MAP.md"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/BUILD-PACKET-shared-visual-media-quality-ratchet-2026-08-07.md",
+      "source_sha256": "0a3cdb9fdcc6a945239f7642519d89d177b389f0d9564b9f962cf3b7596c9601",
+      "target_sha256": "a8a8d63ebecc8a2febb2a24583fac85c8a079b949d508455da264f47bc0ee4a1",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "This is the current prevention-first visual-media authority cited by D-2026-08-07-101 and required to interpret the recovered visual-admission protocol.",
+      "import_transformation": "Markdown metadata hard-break spaces are normalized to blank-line-separated paragraphs; meaning is unchanged.",
+      "authority": [
+        "operations/DECISIONS.md D-2026-08-07-101"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/visual-media-producer-contract.schema.json",
+      "source_sha256": "3d2c359483c442cfcf06c3f8b014991859a304e65375b9b7d65b47d536e9adf6",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "The current content-quality gate names this producer record shape, and the visual-media checker suite depends on the same contract.",
+      "authority": [
+        "operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/visual-media-quality-exemplars.json",
+      "source_sha256": "5aeb36e8a5a442870e322f07b1a6d730069c16d5892564da303233bbc33a294d",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "Both calibrated visual-media tests import this exact registry; without it the recovered checkers crash before testing any candidate.",
+      "authority": [
+        "operations/DECISIONS.md D-2026-08-07-101",
+        "scripts/test-visual-media-producer-contract.mjs",
+        "scripts/test-visual-media-admission.mjs"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/visual-media-review.schema.json",
+      "source_sha256": "ee09bab29dc13959ca4bc7ae1a57e660e68f34377e2750f1aa935dc034cae485",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "operating-system:product-stewards:visual-media-gate-current",
+      "reason": "The current content-quality gate names this exact producer and independent-review record shape.",
+      "authority": [
+        "operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/CHAMPION-CONTRACT.md",
+      "source_sha256": "d38d2a21d6af236edc83eee848b78dd1bd0d85a5bb0e901e1148184bd4c32516",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:product-stewards:champion-contract-hold",
+      "reason": "These pre-Fable bytes prescribe a broad maker-plus-multiple-reviewer process that conflicts with the later minimum-sufficient, two-lane and prevention-first operating model. Preserve for source mining; do not restore as current authority.",
+      "authority": [
+        "operations/DECISIONS.md — Fable operating-model cleanup is evidence-gated",
+        "operations/DECISIONS.md — Foreground WIP is capped at two concurrent lanes",
+        "operations/CODEX-WORKING-AGREEMENT.md — Use the minimum sufficient workflow"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/guilds.json",
+      "source_sha256": "1bd2c0f20e748e1a3977260e781f3691212c66fdc6262d6a9ce5e905667c6f9a",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:product-stewards:guilds-hold",
+      "reason": "These pre-Fable bytes require a fixed nine-role building review chain, including a cross-model review on every candidate. That is the procedural-review failure the current operating model replaced. Preserve; do not restore as current routing authority.",
+      "authority": [
+        "operations/DECISIONS.md — Fable operating-model cleanup is evidence-gated",
+        "operations/DECISIONS.md — Foreground WIP is capped at two concurrent lanes",
+        "operations/CODEX-WORKING-AGREEMENT.md — Use the minimum sufficient workflow"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/INTERACTIVE-BUILDING-ENVIRONMENT-STANDARD.md",
+      "source_sha256": "70912932e560971eaf30b02dcca4f442c9ae4a727c0f99d6abbef4f1b4062912",
+      "decision": "HOLD_AUTHORITY_RECONCILIATION",
+      "package_key": "operating-system:product-stewards:interactive-environment-hold",
+      "reason": "The document contains valid locked building-experience principles, but its uncommitted pre-Fable all-17 manifest and review machinery has not been reconciled with the current minimum-sufficient operating model. Preserve until the principles are separated from obsolete process.",
+      "authority": [
+        "operations/engine/LEDGER.md D-2026-07-26-050",
+        "operations/engine/LEDGER.md D-2026-07-26-061",
+        "operations/DECISIONS.md — Fable operating-model cleanup is evidence-gated",
+        "operations/CODEX-WORKING-AGREEMENT.md — Use the minimum sufficient workflow"
+      ]
+    },
+    {
+      "path": "operations/product-stewards/event-dictionary.json",
+      "source_sha256": "c8399913dbb1ff937166caec40356b4b762bb2a49aeb080388276fc27e0c448d",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "product-steward:library:event-dictionary-hold",
+      "reason": "The shared-root file is materially Library and Miss Jeeves specific and truthfully records missing production bindings. Library and analytics ownership must reconcile its destination and consumers before import.",
+      "authority": [
+        "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
+        "operations/product-stewards/library/EXPERIENCE-BRIEF.md"
+      ]
+    },
+    {
+      "path": "operations/runtime/STANDING-CARD.md",
+      "source_sha256": "e3aae9673e6ad3ea0432304fcf7e157cf1b3639fc13da6b5b4f1138a72f4e08e",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:runtime:legacy-projection-hold",
+      "reason": "These dirty bytes are an older generated Standing Card whose four source hashes predate the clean integration card. Regenerate from current canonical inputs; do not restore an older projection as authority.",
+      "authority": [
+        "scripts/build-standing-card.mjs",
+        "operations/runtime/STANDING-CARD.md in the clean integration branch"
+      ]
+    },
+    {
+      "path": "operations/runtime/work-resolution-loop.json",
+      "source_sha256": "6b5546a7e1841d4f81cf79fcba3db071aa027e9b717fe0ec61d7ff5ef6e33b64",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:runtime:legacy-projection-hold",
+      "reason": "This mutable legacy ledger is preserved as migration evidence but has been superseded by append-only work events and generated projections. Importing a different dirty snapshot would break the active parity window and revive handwritten status.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-event-parity-window.json",
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/runtime/WORK-RESOLUTION-LOOP.md",
+      "source_sha256": "9c471ff97ecede110867787ba28b2113c530667d2ebabddac9536972e98e4a37",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:runtime:legacy-projection-hold",
+      "reason": "This predecessor description makes the mutable work-resolution ledger canonical. Current Fable implementation derives work state from append-only events, so the document is retained only for source mining until the timed migration boundary closes.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-event-parity-window.json",
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/control-room/OPERATING-SYSTEM-REVIEW-MANIFEST.json",
+      "source_sha256": "cbfd07003943ca990a55f476d6fc8762db449e9e7ad60d5828691b18fe0f3695",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-review-packet-hold",
+      "reason": "This August 3 manifest binds the predecessor Claude operating-system review packet, including mutable-ledger and generated-dashboard snapshots. The accepted Fable report and implementation status now supersede it; preserve as historical input, not current authority.",
+      "authority": [
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/control-room/owner-app.html",
+      "source_sha256": "0da94fc157dbe36ec7acfc2e66bd02079e4688c5cfa1bde3fbbd475154099b6a",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This predecessor owner surface reads the stale mutable owner-state snapshot directly. Current work truth is event-derived and the old UI must not be restored without a current projection consumer migration.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-event-parity-window.json"
+      ]
+    },
+    {
+      "path": "operations/control-room/owner-review-queue.json",
+      "source_sha256": "e8efcc2b4bf363c72f7db3e7e099f7f231b072cce8af625fa68be5cf2edce1a3",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This August 4 queue snapshot carries obsolete candidate and Library review state. Current admission and review-door enforcement must regenerate or reconcile consumer state; the dirty snapshot is not restored as live truth.",
+      "authority": [
+        "scripts/resolve-design-review-url.mjs",
+        "scripts/check-design-review-admission.mjs",
+        "operations/external-review/fable-5-laidies-operating-model-2026-08-07/IMPLEMENTATION-STATUS-2026-08-07.md"
+      ]
+    },
+    {
+      "path": "operations/control-room/owner-state.json",
+      "source_sha256": "f31de0cc59b37fc2c35b0a021b7f7d1f3186345ebff3f57f327441f880b92f2f",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This generated August 4 owner-state snapshot derives current work from the mutable legacy ledger and labels old sources fresh. It is preserved for comparison but cannot re-enter the clean branch as current state.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-current-projection.json"
+      ]
+    },
+    {
+      "path": "operations/control-room/work-index.json",
+      "source_sha256": "13545a0dc603936ef0718748b2179395a29b7c54429773423c2ddddb83ce25dc",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "operating-system:control-room:legacy-projection-hold",
+      "reason": "This generated August 4 work index projects mutable-ledger and stale queue state. Current work truth is append-only-event derived; preserve the old projection without restoring it as a live source.",
+      "authority": [
+        "operations/runtime/work-events.jsonl",
+        "operations/runtime/work-current-projection.json"
+      ]
+    },
+    {
+      "path": "content/site/homepage.js",
+      "source_sha256": "55067d0218e90d5834043e6ef7ecc1bb23842b056bf4551dafa0edce248d5f10",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "platform:site-runtime:homepage-behaviour-hold",
+      "reason": "These dirty bytes materially change the visitor-facing Homepage: latest-episode selection, menu keyboard behaviour, the Homepage-to-Miss-Jeeves query handoff and the season panel. Recovery inventory cannot decide those product changes, and the registered Homepage asset authority binds a different homepage.js SHA. Preserve for Platform and Homepage owner reconciliation; do not restore through repository recovery.",
+      "authority": [
+        "operations/assets/active-asset-registry.json",
+        "index.html",
+        "operations/product-stewards/control-room/OWNER-HANDOFF-CONTRACT.md"
+      ]
+    },
+    {
+      "path": "content/site/miss-jeeves-topic-taxonomy.json",
+      "source_sha256": "072a3d33cb67e66ae934ab35fe9eedcb890730386c6987585485fdbed4139052",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "product-steward:library:miss-jeeves-taxonomy-hold",
+      "reason": "The file declares itself LOCKED_FOR_PILOT and governs Miss Jeeves analytics classification. It is Library-owned pilot source, not a storage-recovery decision. Preserve its exact bytes until the Library owner reconciles the active integration lock, analytics consumer and privacy contract.",
+      "authority": [
+        "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
+        "operations/product-stewards/library/EXPERIENCE-BRIEF.md",
+        "operations/product-stewards/event-dictionary.json"
+      ]
+    },
+    {
+      "path": "content/site/site-index.json",
+      "source_sha256": "0d62d8850cff406d44e4f011ef05c4d7f267e58dcfb1d0293d5a4247d1257050",
+      "decision": "HOLD_OWNER_RECONCILIATION",
+      "package_key": "product-steward:library:site-index-hold",
+      "reason": "These dirty search-catalog bytes mix valid Episode 04 corrections with Library candidate claims that are not admissible: they point at the rejected AI Fundamentals route, use local-review outside the file's declared live|preview|coming status set and label held material live. Preserve the mixed source; Library and site-search owners must produce a current, internally consistent successor rather than recover these bytes wholesale.",
+      "authority": [
+        "operations/product-stewards/learning-content-ecosystem/CROSS-SURFACE-ANTI-SLOP-INCIDENT-2026-08-07.md",
+        "operations/product-stewards/library/FUNCTIONALITY-MAP.md",
+        "scripts/check-town.js"
+      ]
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/concepts/latest-tip-card-v1-desktop.png",
+      "source_sha256": "6dec5a1f373af8630e250d3416643ab33855f4e47c9bb0fd507a85f336f7d6a1",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "intelligence:aidb:private-concept-renders-hold",
+      "reason": "The exact pixels label themselves PRIVATE ROUGH EXPLORATION and NOT A PUBLISHED LAIDIES CARD. They are an untracked deterministic render of an already tracked HTML concept and have no current consumer; preserve the bytes without restoring generated review clutter as source.",
+      "authority": [
+        "operations/agents/aidb-intelligence-desk/concepts/latest-tip-card-v1.html",
+        "operations/DECISIONS.md — generated or exploratory visual work is not current authority"
+      ]
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/concepts/latest-tip-card-v1-mobile-v3.png",
+      "source_sha256": "8a829fcda839d4548b045619e7f614686d504a454446e3ac0b4534bdf19cb76a",
+      "decision": "HOLD_STALE_AUTHORITY",
+      "package_key": "intelligence:aidb:private-concept-renders-hold",
+      "reason": "The exact pixels label themselves PRIVATE ROUGH EXPLORATION and NOT A PUBLISHED LAIDIES CARD. They are an untracked deterministic render of an already tracked HTML concept and have no current consumer; preserve the bytes without restoring generated review clutter as source.",
+      "authority": [
+        "operations/agents/aidb-intelligence-desk/concepts/latest-tip-card-v1.html",
+        "operations/DECISIONS.md — generated or exploratory visual work is not current authority"
+      ]
+    },
+    {
+      "path": "operations/launch/opening-day-media-gate-2026-07-31.json",
+      "source_sha256": "f3303f968839fb4ff19dbe602ee3642ecb1e588b738930cf0a143fecc289c70f",
+      "decision": "IMPORT_CURRENT",
+      "package_key": "release:launch:opening-day-media-current-hold",
+      "reason": "The tracked correction removes four false owner-watch claims and restores INTERNAL REPAIR REQUIRED for Episodes 01–04 while their objective picture, identity, motion, occurrence and recurring-credit gates remain unresolved. Current operational and release controls consume this manifest.",
+      "authority": [
+        "operations/release-control/RELEASE-STATE.md",
+        "scripts/check-opening-day-media.mjs",
+        "scripts/check-operational-integrity.mjs"
+      ]
+    }
+  ]
+}

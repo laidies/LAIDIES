@@ -105,7 +105,7 @@ I gave it context and it gave me back something I'd actually use.
 - Card pack: `issue02`
 - Try-On Debrief: `community/try-on-debrief.html`
 - Glossary: Prompt, Context, Token
-- Hot Goss: homepage-only
+- NewsStand / The Weekly: separate dated publication; link only after editorial admission
 
 ## Sign-Off
 

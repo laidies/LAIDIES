@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-02",
+  "status": "HOLD",
+  "opening_day_cutline": [
+    "trailer",
+    "01",
+    "02",
+    "03",
+    "04"
+  ],
+  "release_rule": "A title is opening-ready only when the exact checksum-bound master passes the universal site video and animation contract occurrence by occurrence: content accuracy, narration-or-purpose relevance, image and identity continuity, occlusion, intended animation/motion, complete captions, full decode, an identified human full-title 1x audible watch, the real responsive website player, exact public bytes and discovery/correction propagation. A sampled review, local file, isolated player pass, motion score or successful upload cannot substitute for another gate.",
+  "site_video_review_registry": "operations/video-qa/site-video-review-registry-2026-07-31.json",
+  "review_surface": "operations/control-room/review-inbox.html",
+  "current_public_finding": {
+    "checked_at": "2026-07-31T17:19:35-07:00",
+    "watch_page": "https://laidies.ai/watch.html?ep=04",
+    "finding": "The public player binds only Episode 04 and binds the older v8 object. The current local candidate binds no motion films. Trailer and Episodes 01-03 are not publicly watchable as motion films, and the Episode 04 object is not the newest or editorially accepted cut.",
+    "episode_04_public_url": "https://films.laidies.ai/episodes/episode-04-full-v8-welcome-founding-mothers-ident-v3-9e8eea3b019e.mp4",
+    "episode_04_public_sha256": "9e8eea3b019eea64cbd8eed9ac30ce1c9441428b0acd000c06ca11ea658b3d70",
+    "http_status": 200,
+    "content_length": 284902235,
+    "etag": "6e44a75f68804e86196133e23f04e79f"
+  },
+  "required_gates": [
+    "exact_master",
+    "decode_and_clock",
+    "captions",
+    "content_accuracy",
+    "narration_picture_timing",
+    "visual_identity_and_continuity",
+    "motion_and_animation",
+    "occurrence_narration_or_purpose_relevance",
+    "occurrence_motion_continuity_and_occlusion",
+    "recurring_opening_and_closing_credits",
+    "human_full_audible_watch",
+    "website_player",
+    "responsive_and_accessible_playback",
+    "public_exact_identity",
+    "discovery_and_correction_propagation"
+  ],
+  "programmes": [
+    {
+      "id": "trailer",
+      "title": "The Trailer",
+      "status": "HUMAN PREVIEW HOLD — REBUILD REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/laidies-trailer-comic-v8-multicolour-review-1920.mp4",
+        "sha256": "1be8c4f16761294053ec784004be63679743a2d5fef0375fdb7e850280a1332e",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/episodes/trailer/comic/delivery/canonical-named-map/episode-trailer-v3-as-recorded-full.vtt",
+        "sha256": "5bc151d7d0aa611f42aed427b61dcc9c55c5320b368d31a9285a64ab31255b8d",
+        "cue_count": 207,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "FAIL",
+        "narration_picture_timing": "FAIL",
+        "visual_identity_and_continuity": "FAIL",
+        "motion_and_animation": "FAIL",
+        "occurrence_narration_or_purpose_relevance": "FAIL",
+        "occurrence_motion_continuity_and_occlusion": "FAIL",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "Ali’s human preview has confirmed release-blocking visual, animation, canon and caption defects in the exact v8 candidate.",
+        "The opening image uses an off-model heroine, wrong wardrobe/rendering and a non-approved town scene.",
+        "The film is predominantly a slideshow rather than meaningful scene animation synchronized to narration.",
+        "At 04:55 the candidate substitutes an off-model woman and invented crowd for the approved heroine and established town-character canon.",
+        "At 05:48 the heroine changes into an episode-specific outfit, breaking Trailer wardrobe continuity.",
+        "At 06:03 the candidate uses a retired town map rather than the current approved SUNNYVAiLE geography.",
+        "At 06:19 the candidate invents a tour-guide character and reuses noncanonical geography instead of showing the approved tour system.",
+        "At 07:25 JoJo is correctly located at Blend & Snap but is not introduced, so viewers cannot understand who she is or why she appears.",
+        "The trailer does not name the Rewind Era or explain the heroine’s intentional corporate-to-SUNNYVAiLE outfit transformation.",
+        "At 09:33–09:35 the glow-up sequence exposes an Episode 4 outfit before the Trailer outfit, so the reveal itself breaks wardrobe continuity.",
+        "The LUMINAiRY treatment incorrectly turns Hedy and other MAiVENS into town characters.",
+        "Caption capitalization does not consistently preserve approved spelled terms.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Keep the current review copy available while Ali completes one full note-taking pass; then repair all confirmed timecoded findings in one successor. Require admitted source assets plus independent identity, location, canon, caption and meaningful-motion verification before the successor can return to owner review.",
+      "evidence": [
+        "operations/video-qa/trailer-v8-human-preview-hold-2026-08-02/receipt.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "01",
+      "title": "Episode 01 — On Wednesdays We Do AI",
+      "status": "INTERNAL REPAIR REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-01-full-v27-occurrence-repaired-review.mp4",
+        "sha256": "50311e89c1664c1fa7b8711b3f58d7135de405654723a2ef085f0e54700f135a",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-01.vtt",
+        "sha256": "191938a9879883d9439c4ff35c319c40c54fec09855c4c72ba66bd7cdcbd9539",
+        "cue_count": 246,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "The objective narration-picture, identity, motion, occurrence and recurring-credit gates remain HOLD; the candidate was admitted to owner review prematurely.",
+        "Ali already identified release-blocking opening-frame, block-effect and unrelated light-box-overlay defects; further owner review is not the next gate.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Return the exact candidate to internal repair. Clear the objective narration-picture, identity, motion, occurrence and recurring-credit gates with independent artifact review before any new Ali watch, release package or public binding.",
+      "evidence": [
+        "operations/video-qa/episode-01-full-v27-occurrence-repaired-review/manifest.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Episode 02 — Tell Me What You Want",
+      "status": "INTERNAL REPAIR REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-02-full-v20-occurrence-repaired-review.mp4",
+        "sha256": "2b8bd0c3cfb968ad4e1d77cd522c61933bb7fee4c60bc33889cedcd2f2a358cc",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-02.vtt",
+        "sha256": "7666e2d667aa3dfdac14a548d5cfdb08362b6221e9521ad5b6585b954677778f",
+        "cue_count": 194,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "The objective narration-picture, identity, motion, occurrence and recurring-credit gates remain HOLD; the candidate was admitted to owner review prematurely.",
+        "Technical assembly evidence does not prove imagery, timing, identity, meaningful motion or narration-picture relevance; further owner review is not the next gate.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Return the exact candidate to internal repair. Clear the objective narration-picture, identity, motion, occurrence and recurring-credit gates with independent artifact review before any new Ali watch, release package or public binding.",
+      "evidence": [
+        "operations/video-qa/episode-02-v20-occurrence-repaired-review/manifest.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Episode 03 — The Burn Book Problem",
+      "status": "INTERNAL REPAIR REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-03-full-v15-repaired-review.mp4",
+        "sha256": "6a7f2381666b355ad05d7df62f896df931147a04a00e45f5bf01c6f19c735b75",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-03.vtt",
+        "sha256": "aed14506fe7d399f0a77c391fa1e046746a920d86b65880093b30f0fc83c66be",
+        "cue_count": 211,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "The objective narration-picture, identity, motion, occurrence and recurring-credit gates remain HOLD; the candidate was admitted to owner review prematurely.",
+        "The current gate overstates readiness while unresolved timing, identity, motion, relevance and continuity requirements remain; further owner review is not the next gate.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Return the exact candidate to internal repair. Clear the objective narration-picture, identity, motion, occurrence and recurring-credit gates with independent artifact review before any new Ali watch, release package or public binding.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-03-v15-independent-full-title-review-receipt-2026-08-01.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Episode 04 — The Founding Mothers",
+      "status": "INTERNAL REPAIR REQUIRED",
+      "release_ready": false,
+      "master": {
+        "path": "assets/video/episode-04-full-v10-repaired-review.mp4",
+        "sha256": "9fc40d965cf67e089f6e2f540405ba0b3ae833fe6532d2cbb1831a5903d57bfb",
+        "role": "current exact opening-day review candidate; built locally and not accepted"
+      },
+      "captions": {
+        "path": "assets/captions/episode-04.vtt",
+        "sha256": "1bc6b59e3f80b7c7e02c4126a32b9532a31d8621e040f9f09d4fa8d37b0f19d4",
+        "cue_count": 236,
+        "coverage": "complete for current exact candidate"
+      },
+      "gates": {
+        "exact_master": "PASS",
+        "decode_and_clock": "PASS",
+        "captions": "PASS",
+        "content_accuracy": "PASS",
+        "narration_picture_timing": "HOLD",
+        "visual_identity_and_continuity": "HOLD",
+        "motion_and_animation": "HOLD",
+        "occurrence_narration_or_purpose_relevance": "HOLD",
+        "occurrence_motion_continuity_and_occlusion": "HOLD",
+        "recurring_opening_and_closing_credits": "HOLD",
+        "human_full_audible_watch": "HOLD",
+        "website_player": "PASS",
+        "responsive_and_accessible_playback": "PASS",
+        "public_exact_identity": "FAIL",
+        "discovery_and_correction_propagation": "HOLD"
+      },
+      "known_issues": [
+        "The objective narration-picture, identity, motion, occurrence and recurring-credit gates remain HOLD; the candidate was admitted to owner review prematurely.",
+        "Earlier accepted motion regressed and unresolved timing, identity, relevance and continuity requirements remain; further owner review is not the next gate.",
+        "The opening-day cover family is built locally but has not received final visual acceptance.",
+        "The exact candidate is intentionally not bound to the public Screening Room."
+      ],
+      "next_action": "Return the exact candidate to internal repair. Clear the objective narration-picture, identity, motion, occurrence and recurring-credit gates with independent artifact review before any new Ali watch, release package or public binding.",
+      "evidence": [
+        "operations/product-stewards/episode-media-quality/evidence-2026-08-01/episode-04-v10-independent-full-title-review-receipt-2026-08-01.json",
+        "operations/video-qa/opening-day-playback-binding-v1/manifest.json"
+      ]
+    }
+  ]
+}

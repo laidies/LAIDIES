@@ -15,7 +15,7 @@ assert.equal(safeRepositoryFile(root, `/__laidies_review/${token}/../../../../et
 
 const blocked = spawnSync(process.execPath, [
   "scripts/serve-review-door.mjs", "--type", "content", "--work-order", "LCWO-001",
-  "content/library-books/pilots/ai-fundamentals-101-v2/review.html", "--port", "18991"
+  "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-v3-whole-candidate-known-bad.md", "--port", "18991"
 ], { cwd: root, encoding: "utf8", timeout: 10000 });
 assert.equal(blocked.status, 1);
 assert.match(blocked.stderr, /REVIEW DOOR SERVER BLOCKED/);
