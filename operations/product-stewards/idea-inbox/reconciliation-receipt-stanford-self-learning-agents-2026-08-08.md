@@ -122,3 +122,18 @@ explicitly designed system turns evaluated inference results into later
 training. This prevents the common misconception that a deployed model updates
 its parameters from every conversation. Learning System & Concepts remains the
 acceptance owner.
+
+## NOTE-005 update — whose human preferences and what data?
+
+Ali's fifth concept extends NOTE-004's lifecycle from mechanism into governance:
+post-training with human preferences necessarily raises questions about who
+provided judgments, what they were asked to prefer, which disagreements were
+collapsed and whose definition of helpful or safe became the operational
+default.
+
+Classification is `MERGE / EXTEND`. AI Fundamentals owns a lifecycle-wide
+bias-entry map rather than blaming every bias on fine-tuning. Episode 04 already
+provides a representation/data-bias encounter, but no current maintained bridge
+connects it to preference-data selection, aggregation, provider policy and
+deployment. Learning System & Concepts must rule the durable depth home after
+the lecture's exact method and current primary evidence are bound.

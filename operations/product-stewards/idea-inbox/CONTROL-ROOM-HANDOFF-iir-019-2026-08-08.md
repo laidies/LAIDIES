@@ -4,7 +4,7 @@
 
 **Owner task:** `019f9f81-5da6-73a3-a1aa-0272a93ec821`
 
-**Evidence time:** `2026-08-09T04:37:04Z`
+**Evidence time:** `2026-08-09T04:39:14Z`
 
 **Status:** `CAPTURED / CAPTURE STREAM OPEN / RECONCILIATION REQUIRED / IDLE`
 
@@ -25,16 +25,16 @@ Committed and pushed task-owned evidence:
 Exact current evidence:
 
 - `lecture-capture-stanford-self-learning-agents-2026-08-08.md` — SHA-256
-  `f301a5cc554c149bc320ad4a06657fde09ff695349c721a752773619d34a4165`;
+  `2ef5e343ea5a9b077c0ebee493b505ad0da68c73027cf0bff428bb025d20a47f`;
 - `reconciliation-receipt-stanford-self-learning-agents-2026-08-08.md` —
   SHA-256
-  `382e568e6635c16a5a05434a0f708f3cb65171a54a914e039abfd12fd9000842`;
+  `dffe3f115e5c5ee5332aee5e572ce1ab60b1b5c5c0bc59ec966b30444b3b7820`;
 - `state.json` — SHA-256
-  `7bf3e4f5808a13388be12b6864c93a362254ed4012e3f778a45f13429425b2ce`;
+  `777d5cbd3780d9dd3049d13753a27e9b61c5a89dd08843d0450f05438f181079`;
 - `backlog.md` — SHA-256
-  `498bb202ab958e1050a6697a1589bb3f144ca9b196f645540b92967a1b7301e1`;
+  `4be8680c957e3016c6173b827dfc4edfc3dac87800638ba1622fabcd75234b66`;
 - `routing-receipts.md` — SHA-256
-  `5d1b1947301f0338f40ffbc7d1b2827e37ae585c68be940d16781955240593c7`.
+  `6a16d055dcf5602ed57b3ceb38e1045d9b0bf993e35bc7ea4bfbc6486fe902c4`.
 
 Checks: `state.json` parsed successfully; final `git diff --cached --check`
 passed before the correction commit; repository search found broad agent,
@@ -139,7 +139,7 @@ scope. Remaining trigger is exact Part 1 claim/timestamp binding plus current
 evidence review. No shared registry, run queue, ledger, content, public, deploy,
 spend, private-data or Ali-authority action occurred.
 
-Current checks at `2026-08-09T04:37:04Z`: `state.json` parse `PASS`; working
+Current checks at `2026-08-09T04:39:14Z`: `state.json` parse `PASS`; working
 diff check `PASS`; official Stanford course page and exact Stanford Online
 metadata for Parts 1–4 verified. Automated caption retrieval returned an empty
 payload, so claim timestamps remain explicitly unverified. Targeted owner-entry
@@ -179,3 +179,21 @@ Acceptance owner remains Learning System & Concepts. Next trigger is exact Part
 1 diagram/claim binding, current primary vocabulary and one documented current
 example. No shared authority, priority, content, public, deploy, spend, private-
 data or Ali-authority action occurred.
+
+## Material update — NOTE-005
+
+**Status:** `CAPTURED / MERGE-EXTEND NOTE-004 / FRESHNESS HOLD`
+
+Ali supplied the concern that fine-tuning/post-training with human preferences
+raises whose-preferences, which-data and inherent-bias questions. The note
+extends NOTE-004's lifecycle with a governance branch. Required map covers bias
+entry through pretraining data, objectives, rater selection/instructions,
+preference aggregation, optimization, provider policy, evaluation and
+deployment; it preserves disagreement and does not attribute all bias to one
+post-training method.
+
+Acceptance owner remains Learning System & Concepts, with Episode 04,
+Responsible AI, Editorial Accuracy and affected domain owners. Next trigger is
+exact Part 1 method/claim binding, current primary evidence/provider disclosures
+and a ruling on the durable bias-depth home. No shared authority, priority,
+content, public, deploy, spend, private-data or Ali-authority action occurred.

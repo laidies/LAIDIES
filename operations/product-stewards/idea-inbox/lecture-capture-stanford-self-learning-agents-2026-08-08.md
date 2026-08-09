@@ -358,3 +358,83 @@ feedback-loop transfer case adds a distinct High practice.
 
 **Authority truth:** captured and reconciled only. No lifecycle diagram,
 definition, book edit, class, episode or publication is accepted.
+
+### NOTE-005 — Fine-tuning with human preferences: whose preferences and data?
+
+**Ali's wording:** “finetuning with human preferences. brings up issues of
+whose preferences and what data = concerns around inherent biases etc in
+models.”
+
+**Type:** lifecycle mechanism plus governance, representation and bias question
+from Part 1; exact lecture wording, example and timestamp remain to be bound.
+
+**What is worth preserving:** model behavior presented as “helpful,” “safe,”
+“harmless,” “appropriate” or “preferred” reflects choices about whose judgments
+are collected, which examples and disagreements are retained, what raters are
+asked to optimize and which organization ultimately sets policy. LAiDIES should
+make those human and institutional decisions visible without implying that one
+post-training technique creates every model bias.
+
+**Bias-entry map to verify:**
+
+- **pretraining:** source-data inclusion, exclusion, quality, historical
+  patterns, language and cultural representation;
+- **task and objective design:** what is predicted, rewarded or treated as a
+  successful answer;
+- **human-feedback collection:** who labels or ranks outputs, who is missing,
+  how raters are recruited/paid/trained and whether disagreement is preserved;
+- **post-training method:** how preference labels, constitutions, reward models,
+  supervised examples or optimization methods influence behavior;
+- **provider policy and evaluation:** whose safety, usefulness and acceptable-
+  risk judgments become defaults and which harms the tests can detect;
+- **deployment:** the population, language, institution and stakes in which the
+  model is used, including feedback loops that may amplify unequal outcomes.
+
+**Required distinctions before teaching:**
+
+- human preference data are not a neutral sample of “what humans want”;
+- different people can reasonably disagree, so a single averaged preference can
+  erase minority needs or conceal an unresolved value choice;
+- bias can be statistical, representational, allocative or interactional and
+  can cause different harms; it is not only offensive wording;
+- a model's behavior is shaped across its lifecycle. It is misleading to blame
+  all bias on fine-tuning or to claim post-training can remove all pretraining
+  and deployment bias;
+- “inherent bias” should be used carefully: bias may be embedded in learned
+  parameters or system behavior, but its sources and effects require evidence.
+
+**Existing LAiDIES overlap:** NOTE-004 owns the lifecycle sequence. Episode 04
+already introduces representative data and diverse builders through Joy
+Buolamwini's face-detection example. The repository search found no maintained
+beginner bridge from human-preference post-training to whose values, rater
+selection, disagreement and deployment consequences.
+
+**Classification:** `MERGE / EXTEND`. Extend NOTE-004's post-training stage with
+one transparent “whose preferences?” branch, and cross-link the durable bias
+and representation treatment rather than creating a generic ethics sidebar or
+reopening Episode 04 by default.
+
+**Primary home recommendation:** AI Fundamentals 101 owns the lifecycle point
+and causal bias-entry map. Learning System & Concepts decides whether the
+durable depth belongs in the existing representation/bias concept route or a
+later AI-and-society treatment. High may own a structured disagreement exercise
+only if it teaches that preference aggregation is a governance choice.
+
+**Affected owners:** Learning System & Concepts; LIBRAiRY / AI Fundamentals
+101; Episode 04; SUNNYVAiLE High; Editorial Accuracy; Responsible AI, Brand and
+affected domain/safety owners.
+
+**Investigation required before teaching:** bind the exact Part 1 claim and
+method; identify whether the lecture means supervised fine-tuning, RLHF,
+preference optimization or a broader post-training family; review primary
+method sources and current provider disclosures; document what is and is not
+known about raters/data; and select one concrete disagreement case without
+presenting a contested value as universally correct.
+
+**Return trigger:** after source/method and current evidence binding, Learning
+rules `LINK`, `EXTEND` or `CREATE` for the lifecycle-to-governance bridge and
+names the maintained home for deeper bias, representation and disagreement.
+
+**Authority truth:** captured and reconciled only. No provider judgment,
+definition, bias claim, lesson, book edit, class, episode or publication is
+accepted.

@@ -663,7 +663,7 @@ acceptance, implementation, priority or release.
   review remains bounded to the four videos she identified. Additional parts
   are discovery candidates, not automatically admitted scope.
 - **Remaining evidence gap:** exact timestamps/transcript passages for NOTE-001
-  through NOTE-004, their cited readings and current claim-level verification.
+  through NOTE-005, their cited readings and current claim-level verification.
 
 ### NOTE-003 — Emergent behavior in models
 
@@ -708,6 +708,28 @@ acceptance, implementation, priority or release.
   then Learning rules `LINK` or `EXTEND` and the smallest transfer case.
 - **Authority truth:** no lifecycle diagram, definition, lesson, curriculum edit,
   publication or deployment occurred.
+
+### NOTE-005 — Human preferences, data and model bias
+
+- **Captured:** `2026-08-08` PDT from Ali's live lecture notes.
+- **Preserved question:** whose preferences and which data shape behavior during
+  fine-tuning/post-training, and how do those choices embed or mitigate bias?
+- **Required correction:** bias can enter through pretraining data, objectives,
+  rater selection/instructions, preference aggregation, optimization, provider
+  policy, evaluation and deployment—not only fine-tuning.
+- **Duplicate findings:** NOTE-004 owns the lifecycle. Episode 04 owns a current
+  representative-data/diverse-builders encounter. No maintained bridge from
+  human-preference post-training to values, disagreement and deployment was
+  found.
+- **Classification:** `MERGE / EXTEND` NOTE-004's post-training stage with a
+  “whose preferences?” branch; cross-link the durable representation/bias route
+  rather than create a generic ethics sidebar.
+- **Return trigger:** bind the exact Part 1 method/claim; distinguish SFT, RLHF,
+  preference optimization and broader post-training; review primary evidence
+  and current provider disclosures; then Learning rules the maintained depth
+  home and any structured-disagreement practice.
+- **Authority truth:** no provider judgment, bias conclusion, definition,
+  lesson, curriculum edit, publication or deployment occurred.
 
 ## Receipt template
 
