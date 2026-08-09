@@ -25,6 +25,8 @@ const rows = [
   { path: 'operations/agents/aidb-intelligence-desk/handoffs/site-refresh-register.md', bytes: 80, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 1 },
   { path: 'operations/product-stewards/current.md', bytes: 90, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   { path: 'operations/product-stewards/stale.md', bytes: 100, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
+  { path: 'operations/product-stewards/transformed.md', bytes: 110, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
+  { path: 'operations/product-stewards/stale-target.md', bytes: 120, classification: 'ACTIVE_SOURCE', git_state: 'UNTRACKED', disposition: 'REVIEW_FOR_EXACT_PACKAGE_COMMIT', reference_count: 0 },
   ...Array.from({ length: 26 }, (_, index) => ({
     path: `content/library-books/pilots/oversized-book/part-${String(index + 1).padStart(2, '0')}.md`,
     bytes: 10,
@@ -56,7 +58,9 @@ fs.writeFileSync(reconciliationPath, `${JSON.stringify({ generated_at: 'reconcil
   { path: rows[5].path, comparison: 'BASELINE_MISSING' },
   ...rows.slice(6).map(row => ({ path: row.path, comparison: 'BASELINE_MISSING' })),
   { path: rows[7].path, comparison: 'BASELINE_MISSING', source_sha256: 'current-sha' },
-  { path: rows[8].path, comparison: 'BASELINE_MISSING', source_sha256: 'changed-sha' }
+  { path: rows[8].path, comparison: 'BASELINE_MISSING', source_sha256: 'changed-sha' },
+  { path: rows[9].path, comparison: 'DIFFERS_FROM_BASELINE', source_sha256: 'transform-source-sha', baseline_sha256: 'transform-target-sha' },
+  { path: rows[10].path, comparison: 'DIFFERS_FROM_BASELINE', source_sha256: 'stale-target-source-sha', baseline_sha256: 'changed-target-sha' }
 ] })}\n`);
 fs.writeFileSync(rulingsPath, `${JSON.stringify({ schema_version: 1, rulings: [
   {
@@ -72,6 +76,24 @@ fs.writeFileSync(rulingsPath, `${JSON.stringify({ schema_version: 1, rulings: [
     decision: 'HOLD_STALE_AUTHORITY',
     package_key: 'operating-system:product-stewards:stale',
     reason: 'Predecessor authority.'
+  },
+  {
+    path: rows[9].path,
+    source_sha256: 'transform-source-sha',
+    target_sha256: 'transform-target-sha',
+    decision: 'IMPORT_CURRENT',
+    package_key: 'operating-system:product-stewards:transformed',
+    import_transformation: 'Formatting-only normalization.',
+    reason: 'The transformed target is the accepted import.'
+  },
+  {
+    path: rows[10].path,
+    source_sha256: 'stale-target-source-sha',
+    target_sha256: 'expected-target-sha',
+    decision: 'IMPORT_CURRENT',
+    package_key: 'operating-system:product-stewards:stale-target',
+    import_transformation: 'Formatting-only normalization.',
+    reason: 'The transformed target changed and must fail closed.'
   }
 ] })}\n`);
 
@@ -85,14 +107,15 @@ const result = spawnSync(process.execPath, [
 assert.equal(result.status, 0, result.stderr);
 const report = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
 assert.equal(report.mutation, 'NONE');
-assert.equal(report.dirty_file_count, 35);
+assert.equal(report.dirty_file_count, 37);
 assert.equal(report.action_counts.REVIEW_UNTRACKED_ADDITION, 30);
 assert.equal(report.action_counts.REVIEW_TRACKED_DIFF, 1);
 assert.equal(report.action_counts.HOLD_UNKNOWN, 1);
 assert.equal(report.action_counts.PRESERVE_PENDING_ARCHIVE_GATES, 1);
 assert.equal(report.action_counts.HOLD_MISSING_RECONCILIATION, 1);
-assert.equal(report.action_counts.HOLD_STALE_RULING, 1);
-assert.equal(report.ruling_count, 2);
+assert.equal(report.action_counts.HOLD_STALE_RULING, 2);
+assert.equal(report.action_counts.NO_IMPORT_NEEDED_TRANSFORMED, 1);
+assert.equal(report.ruling_count, 4);
 const library = report.packages.find(group => group.package_key === 'product-steward:library:root');
 assert.equal(library.file_count, 2);
 assert.equal(library.reviewable_count, 2);
@@ -120,6 +143,15 @@ const staleRuling = report.packages.find(group => group.package_key === 'operati
 assert.equal(staleRuling.package_status, 'NO_REVIEWABLE_WORK');
 assert.equal(staleRuling.rows[0].proposed_action, 'HOLD_STALE_RULING');
 assert.equal(staleRuling.rows[0].recovery_ruling.status, 'STALE_SOURCE_SHA');
+const transformedRuling = report.packages.find(group => group.package_key === 'operating-system:product-stewards:transformed');
+assert.equal(transformedRuling.package_status, 'NO_REVIEWABLE_WORK');
+assert.equal(transformedRuling.rows[0].proposed_action, 'NO_IMPORT_NEEDED_TRANSFORMED');
+assert.equal(transformedRuling.rows[0].recovery_ruling.status, 'TRANSFORMED_TARGET_MATCH');
+assert.equal(transformedRuling.rows[0].recovery_ruling.target_sha256, 'transform-target-sha');
+const staleTargetRuling = report.packages.find(group => group.package_key === 'operating-system:product-stewards:stale-target');
+assert.equal(staleTargetRuling.package_status, 'NO_REVIEWABLE_WORK');
+assert.equal(staleTargetRuling.rows[0].proposed_action, 'HOLD_STALE_RULING');
+assert.equal(staleTargetRuling.rows[0].recovery_ruling.status, 'STALE_TARGET_SHA');
 assert.equal(report.maximum_reviewable_paths_per_package, 25);
 assert.equal(report.ready_reviewable_paths, 3);
 assert.equal(report.package_status_counts.READY_FOR_OWNER_REVIEW, 2);
@@ -132,4 +164,4 @@ assert.match(report.safety_rules.join(' '), /exact backticked source path/);
 assert.match(report.safety_rules.join(' '), /HOLD_STALE_RULING/);
 
 fs.rmSync(fixture, { recursive: true, force: true });
-console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=3 route_hold=1 oversized_hold=26 dependency_hold=1 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1 stale_ruling_hold=1');
+console.log('REPOSITORY RECOVERY PACKAGE PLANNER CALIBRATION PASS ready=3 route_hold=1 oversized_hold=26 dependency_hold=1 unknown_hold=1 archive_hold=1 missing_reconciliation_hold=1 stale_source_hold=1 transformed_match=1 stale_target_hold=1');
