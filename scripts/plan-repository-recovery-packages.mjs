@@ -34,6 +34,9 @@ for (const ruling of rulings.rulings) {
   if (!ruling?.path || !ruling?.source_sha256 || !ruling?.decision || !ruling?.reason) {
     throw new Error('every ruling requires path, source_sha256, decision and reason');
   }
+  if (ruling.target_sha256 && !ruling.import_transformation) {
+    throw new Error(`ruling with target_sha256 requires import_transformation for ${ruling.path}`);
+  }
   if (rulingByPath.has(ruling.path)) throw new Error(`duplicate ruling for ${ruling.path}`);
   rulingByPath.set(ruling.path, ruling);
 }
@@ -166,6 +169,14 @@ for (const row of dirtyRows) {
     if (!reconciliationRow?.source_sha256 || reconciliationRow.source_sha256 !== ruling.source_sha256) {
       proposedAction = 'HOLD_STALE_RULING';
       rulingStatus = 'STALE_SOURCE_SHA';
+    } else if (ruling.decision === 'IMPORT_CURRENT' && ruling.target_sha256) {
+      if (!reconciliationRow?.baseline_sha256 || reconciliationRow.baseline_sha256 !== ruling.target_sha256) {
+        proposedAction = 'HOLD_STALE_RULING';
+        rulingStatus = 'STALE_TARGET_SHA';
+      } else {
+        proposedAction = 'NO_IMPORT_NEEDED_TRANSFORMED';
+        rulingStatus = 'TRANSFORMED_TARGET_MATCH';
+      }
     } else if (ruling.decision === 'IMPORT_CURRENT') {
       rulingStatus = 'CURRENT_IMPORT_RULING';
     } else {
@@ -208,6 +219,7 @@ for (const row of dirtyRows) {
       decision: ruling.decision,
       status: rulingStatus,
       source_sha256: ruling.source_sha256,
+      target_sha256: ruling.target_sha256 || null,
       reason: ruling.reason,
       import_transformation: ruling.import_transformation || 'NONE',
       authority: ruling.authority || []

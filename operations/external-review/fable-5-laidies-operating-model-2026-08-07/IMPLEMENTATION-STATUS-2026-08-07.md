@@ -1,6 +1,6 @@
 # Fable 5 operating-model implementation status
 
-**Evidence time:** 2026-08-09 00:39 PDT
+**Evidence time:** 2026-08-09 00:51 PDT
 **Work ID:** `WRK-20260807-fable-operating-model-implementation`
 **Status:** `IN_PROGRESS_RELEASE_BOUNDARY_HOLD`
 **Authority:** internal operating-model implementation evidence only
@@ -34,6 +34,7 @@ This record reconciles the repository-owned accepted report at `operations/exter
 | Convert the dirty tree into exact recovery review packages | PASS MECHANISM / NO CLEANUP AUTHORITY | `scripts/plan-repository-recovery-packages.mjs` groups all dirty inventory rows by product or operating domain and keeps unknown, historical and generated material fail-closed; inventory calibration now also proves launch snapshots and campaign assets remain generated output rather than false source candidates |
 | Prevent a bounded package from reviving stale authority | PASS FIRST RULING | `operations/storage/repository-recovery-package-rulings.json` binds exact dirty-source SHA and splits the mixed product-stewards root. The current five-file visual-media gate is recoverable and its two negative calibrations run; pre-Fable champion/guild review machinery, the unreconciled environment standard and Library-specific event dictionary remain preserved and held. Changed bytes fail to `HOLD_STALE_RULING`. |
 | Prevent legacy runtime projections from returning as current truth | PASS BOUNDED RULING | Exact-SHA rulings now hold the older generated Standing Card, mutable work ledger and description, predecessor review manifest, owner app, owner queue, owner-state and work-index. The current event log and generated projection remain authoritative during the timed parity window. |
+| Prove intentional import transformations are already integrated | PASS | an `IMPORT_CURRENT` ruling may bind both exact dirty-source and accepted target SHAs; matching transformed bytes become `NO_IMPORT_NEEDED_TRANSFORMED`, while changed source or target bytes fail closed |
 
 ## Deliberately not called complete
 
@@ -127,6 +128,14 @@ inputs cannot re-enter the active-source recovery queue. The refreshed queue
 moved 80 paths out of active review, leaving 120 bounded packages / 483 paths
 ready for owner review. The original external report and all dirty review
 packets remain preserved; none was deleted or moved.
+
+The 00:51 PDT transformed-import repair closed a recurring false-ready item.
+The visual-media build packet had already been imported with a documented
+formatting-only normalization, but source and target bytes intentionally
+differed. Recovery rulings can now bind both SHAs. The matching target exits the
+queue as `NO_IMPORT_NEEDED_TRANSFORMED`; calibrated changed-source and
+changed-target fixtures both fail closed. The refreshed queue leaves 119 ready
+packages / 482 paths without changing either preserved copy.
 
 The 13:35 PDT reconciliation closed the first clean integration loop: PR #26 passed required `work-truth`, merged as `13fafe62`, and passed again from a fresh non-iCloud worktree. The merge exposed a separate release-control defect: GitHub Pages was configured to deploy `main:/` automatically to `laidies.ai`. Run `31276827817` was cancelled; live operational paths remained 404. A calibrated required-check repair now blocks further merges until Pages uses workflow-controlled releases. No root-repository auto-publication may be restored.
 

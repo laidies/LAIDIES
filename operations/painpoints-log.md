@@ -15457,7 +15457,12 @@ while remaining falsely unfinished in the launch record.
   superseded ZIPs looked like active implementation. The exact accepted report
   is now repository-owned and checksum-bound; copied `sources/` trees and review
   ZIPs classify as historical evidence, with a calibrated fixture preventing
-  them from returning to routine active-source recovery.
+  them from returning to routine active-source recovery. A formatting-only
+  import then exposed one last repeat-review path: exact source bytes correctly
+  differed from the normalized accepted target, but the ruling could bind only
+  the source. Recovery rulings now bind both source and target SHAs for declared
+  transformations. Matching target bytes close the item; either side changing
+  fails closed.
 - **Possible Behind the Build angle:** The difference between an inventory and
   a recovery queue.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO SOURCE DELETION,
