@@ -1,6 +1,6 @@
 # Dream Phone full-game concept competition
 
-**Status:** READY FOR ALI DIRECTION REVIEW
+**Status:** CONCEPTS 1–2 REJECTED; CONCEPT 3 SURVIVES FOR CLARIFICATION ONLY
 **Date:** 2026-08-10
 **Decision boundary:** concept selection only; no visual, code, content-deck,
 deployment, reward or release authority
@@ -19,6 +19,9 @@ dial. Its luck-heavy clue access, stall cards, weak wrong-guess consequence and
 adult-level simplicity are not inherited.
 
 ## Concept 1 — The Last Call
+
+**ALI VERDICT 2026-08-10: REJECTED.** The premise does not make sense as an AI
+game; its AI connection is secondary and unclear.
 
 **Genre:** branching comic phone mystery
 
@@ -51,6 +54,9 @@ up.
 
 ## Concept 2 — Don't Lose the Plot
 
+**ALI VERDICT 2026-08-10: REJECTED.** The premise is bizarre/confusing and its
+AI connection is not legible enough to justify the game.
+
 **Genre:** comic transformation / broken-telephone challenge
 
 The player receives a bizarre but precise message, plan or creative brief that
@@ -81,6 +87,11 @@ can improve one dimension while accidentally distorting another.
   a prompt worksheet and is parked.
 
 ## Concept 3 — Dream Team: Saturday Night Swap
+
+**ALI VERDICT 2026-08-10: ONLY POSSIBLE SURVIVOR, NOT SELECTED.** The one-event
+description wrongly implied a single-use experience. It may advance only after
+showing how repeat missions, changing caller hands, order, complications and
+outcomes create a replayable game whose AI connection is obvious in play.
 
 **Genre:** tactical caller-combination game
 
@@ -119,8 +130,9 @@ the town cannot ignore.
 
 ## Champion recommendation
 
-Prototype **The Last Call** first as a three-minute scene only: two materially
-different branches, one surprise incoming call, one speakerphone decision and
-one final dial with divergent consequences. Do not add AI lesson copy, score,
-deck, rewards or art. If the scene is not satisfying as a comic mystery before
-those layers exist, park the full game and return foreground work to Just Call.
+Do not prototype Concepts 1 or 2. Clarify Concept 3 with one complete sample
+mission showing the opening objective, available callers, exact AI actions,
+three consequential choices, mid-round complication, final outcome and replay
+variation. If that sample still reads as one-off helper matching, project
+management or a lesson rather than a game, park the full game and return
+foreground work to Just Call.
