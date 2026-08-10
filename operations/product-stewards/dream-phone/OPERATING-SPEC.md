@@ -1,6 +1,6 @@
 # Dream Phone Booth operating specification
 
-**Status:** TWO-TRACK PRODUCT DIRECTION SELECTED — FULL-GAME MECHANIC OPEN
+**Status:** WORKING TWO-TRACK PREVIEW — READY FOR ALI DIRECTION REVIEW
 
 ## Identity and purpose
 
@@ -12,8 +12,9 @@
   low-stakes judgment/reflection experience
 - **User job:** choose between a playful scripted call and a full game that
   rehearses a useful way of working with AI
-- **LAiDIES contribution:** make broader practical AI judgment memorable
-  through a distinctive phone-booth object, meaningful choices and humour
+- **LAiDIES contribution:** make one bounded practical AI judgment memorable:
+  a confident answer is not evidence, so split the claim, call more than one
+  limited perspective, hold when support is missing and set preventive rules
 - **Non-goals:** personalized, professional, medical, legal, financial,
   therapeutic or live fact-checking advice; authoritative current-news
   verification; durable account rewards without proof
@@ -50,7 +51,7 @@
 - **Rewards:** any discovery is session/local-only and has no account,
   cross-device or entitlement value in this candidate.
 
-### Retired claim-deck experiment
+### Restored multi-caller full-game candidate
 
 - **Input:** select contacts to reveal scripted clues, then commit to a
   verdict.
@@ -68,38 +69,26 @@
   become playable. Impossible dates, future evidence/correction dates and
   expired review deadlines fail the complete deck closed.
 
-This claim deck is preserved as historical experiment and technical evidence;
-it is not the selected full-game direction. The parked patron-saint deduction
-engine is also not a current public product model and must not execute on the
-booth page.
-
-### Selected full-game learning territory
-
-- **Premise:** broader practical AI judgment, not receipts or claim
-  verification.
-- **Candidate learner moves:** choose the kind of help needed, ask well, notice
-  what the response enables or misses, improve the exchange and decide the
-  human next move.
-- **Required game qualities:** meaningful choice, consequence, feedback,
-  replay, usefulness and comedy that belongs to the mechanic.
-- **Still open:** exact fantasy, rules, caller roles, progression, payoff and
-  replay structure. These may not be inferred from the retired deck or an
-  older proposal.
+The local working preview restores this model with exactly three normal callers
+per case, distributed clause coverage, purposeful phone-code powers, an honest
+Hold path, history/Speaker comparison and tailored preventive guidance. Held
+source candidates record but do not score the player's choice. The parked
+patron-saint deduction engine is not a current public product model and must
+not execute on the booth page.
 
 ## Content and learning
 
 - **Format job:** short behaviour rehearsal, not reference content.
-- **Outcome:** use AI more deliberately across a broader practical situation;
-  the exact transferable outcome will bind to the selected new mechanic.
-- **Mental model:** different AI situations call for different kinds of help,
-  context, iteration and human judgment; no single prompting move or AI role
-  fits every job.
-- **Misconceptions to compete:** the first answer is the finished answer; more
-  instructions always make a better prompt; AI should make the human decision;
-  one tool or interaction style fits every task.
-- **Content sensitivity:** factual situations remain current and bounded, but
-  source verification is a supporting quality control rather than the game's
-  premise.
+- **Outcome:** identify which clause lacks support, choose commit versus hold
+  and carry one tailored rule/prompt into the next unfamiliar AI claim.
+- **Mental model:** fluent confidence is not evidence; one source or caller may
+  cover only part of a claim; scope, denominator, date and source can change the
+  verdict.
+- **Misconceptions to compete:** one confident answer proves the whole claim;
+  plausibility equals truth; every unsupported claim must be false; a generic
+  “check your work” prompt is enough prevention.
+- **Content sensitivity:** every scored factual round and displayed rule remains
+  current, bounded and fail-closed under the same freshness system.
 - **Analogy:** phone calls make choosing and directing different kinds of help
   memorable; callers do not become authorities merely because they answer.
 - **Transfer evidence:** a representative player can apply the selected move
@@ -118,8 +107,8 @@ booth page.
   substitution is permitted.
 - Motion must be functional, stable and disabled/reduced when the user requests
   reduced motion.
-- The exact new game mechanic and consequent visual-system expression remain
-  open; the two equal entry choices do not.
+- The local preview uses the exact booth as arrival and active frame plus the
+  documented 90s colour pops; Ali has not approved completion or release.
 
 ## Technical and operational contract
 
@@ -161,8 +150,8 @@ booth page.
   Platform Reliability, Analytics/Customer Focus, Release
 - **Downstream:** homepage, welcome tour, town directory, Extra Credit/Fun Pack
 - **Conflict:** none of those entry points may overrule Dream Phone's status.
-- **Freshness owner:** Dream Phone champion; factual material still receives
-  proportionate accuracy review without turning the game into verification.
+- **Freshness owner:** Dream Phone champion with Learning/source admission for
+  scored claims, end rules and provider-specific guidance.
 
 ## Acceptance and release
 
@@ -177,10 +166,11 @@ booth page.
   inferred.
 - Candidate/release/public verification are separately recorded and never
   conflated.
-- **Current status:** TWO-TRACK DIRECTION SELECTED; LEGACY PUBLIC EXPERIMENT
-  PRESENT, NOT LAUNCH-APPROVED / HIDE OR LABEL.
-- **Unresolved product decision:** select the exact new full-game mechanic and
-  prove it useful and funny before visual or implementation build.
+- **Current status:** WORKING TWO-TRACK PREVIEW; INDEPENDENT VISUAL/UX PASS;
+  READY FOR ALI DIRECTION REVIEW; LEGACY PUBLIC EXPERIMENT PRESENT, NOT
+  LAUNCH-APPROVED / HIDE OR LABEL.
+- **Unresolved product decision:** Ali chooses finish versus park after
+  operating the exact working preview.
 
 ## Source trail
 

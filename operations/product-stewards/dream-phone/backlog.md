@@ -6,7 +6,7 @@
 
 | ID | Status | Launch class | Work | Done when |
 |---|---|---|---|---|
-| DP-001 | COMPLETE — DIRECTION RECONCILED | FIX BEFORE LAUNCH | Reconcile charter, operating spec, state and product boundaries with Ali's selected two-track direction. | Targeted owner-entry passes; current owner docs bind two equal choices, broader practical-AI game territory and the still-open exact mechanic. |
+| DP-001 | COMPLETE — DIRECTION RECONCILED | FIX BEFORE LAUNCH | Reconcile charter, operating spec, state and product boundaries with Ali's selected two-track direction and later restored-game test. | Targeted owner-entry passes; current owner docs bind two equal choices and the bounded repaired verification-game preview without implying completion or release. |
 | DP-002 | BUILT LOCALLY | FIX BEFORE LAUNCH | Make experiment/beta status and Just Call boundary consistent across scoped entry points. | Every reachable entry says scripted/experimental; no personalized or professional-advice implication remains. |
 | DP-003 | BOUNDED LOCAL PASS | FIX BEFORE LAUNCH | Create claim-level evidence/freshness/correction ledger and admit only sufficiently supported rounds. | Independent re-judge accepted one playable round mapped clause-by-clause to dated official evidence; Mortal Kombat and eleven other rounds remain HOLD; stale/corrected/mismatched/duplicate/unknown/missing, impossible-date and future evidence/correction ledgers fail closed while valid UTC leap days pass. |
 | DP-004 | BUILT LOCALLY | FIX BEFORE LAUNCH | Isolate the parked patron-saint engine and make reward/persistence truth explicit. | Booth does not execute parked engine; Just Call remains usable; no account/cross-device implication; storage failure is harmless. |

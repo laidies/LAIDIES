@@ -1,26 +1,27 @@
 # Dream Phone Booth experience brief
 
-**Status:** TWO-TRACK DIRECTION SELECTED — FULL-GAME MECHANIC OPEN
+**Status:** WORKING TWO-TRACK PREVIEW — READY FOR ALI DIRECTION REVIEW
 **Owner:** Dream Phone champion  
 **Recovered:** 2026-07-26  
 **Trigger:** targeted owner-entry preflight found the building experience brief
 and functionality map missing  
-**Allowed consequence:** this brief now binds the selected two-track direction
-and broader-AI game territory; it does not approve the exact mechanic, visual
-direction, implementation or public release
+**Allowed consequence:** this brief binds the selected two-track direction and
+the restored multi-caller verification-game preview; it does not approve
+completion, production integration or public release
 
 ## Recovered promise
 
 Dream Phone is a playful 1990s phone-booth experience with two equal first-class
 doors: **Just Call** and **Play the Full Game**. Just Call is a lighter scripted
-reflection toy. The full game rehearses a broader practical way of working
-with AI through meaningful choice, consequence, feedback and replay.
+reflection toy. The current full-game candidate rehearses one bounded practical
+AI judgment through meaningful choice, consequence, feedback and replay: split
+a confident claim into clauses, gather limited perspectives, commit or hold,
+then set rules and a reusable prompt that reduce unsupported answers next time.
 
-The exact game mechanic remains unresolved. The current public claim-checking
-deck and parked patron-saint engine remain historical implementation evidence,
-not selected intent. Verification may appear as one situation where useful,
-but it cannot define the game or duplicate the existing full episode dedicated
-to that subject.
+Ali authorized one complete repaired preview of the original multi-caller
+verification game before choosing finish versus park. The current public deck
+and parked patron-saint engine remain historical implementation evidence, not
+automatic authority for the preview or public release.
 
 ## Provenance and governing weight
 
@@ -35,7 +36,8 @@ to that subject.
 | Dream Phone should practise careful claim judgment; Just Call may be a lighter scripted reflection track. | **APPROVED BRIEF/ARTIFACT** — `CHARTER.md`, `OPERATING-SPEC.md` | Governs the bounded current experiment, not the final model. |
 | Just Call and the beta claim game are reachable publicly; the booth no longer loads the parked engine. | **CURRENT IMPLEMENTATION OBSERVED** — source and 2026-07-25 evidence | Describes current reality only. |
 | Hotline Desk is the strongest complete model considered so far. | **INFERENCE / UNAPPROVED INTERNAL PROPOSAL** — June rethink packet | Eligible to compete; cannot govern implementation. |
-| Dream Phone has two equal first-class entry choices: Just Call and Play the Full Game. The full game is broader practical AI judgment, not a claim-verification premise. | **OWNER DIRECTION — Ali, 2026-08-10**; `../../dream-phone-design-decisions.md` | Selects the two-track product direction and retires the claim deck as the proposed full-game model; exact new mechanic remains open. |
+| Dream Phone has two equal first-class entry choices: Just Call and Play the Full Game. | **OWNER DIRECTION — Ali, 2026-08-10**; `../../dream-phone-design-decisions.md` | Selects the two-track product direction. |
+| After rejecting three replacement concepts, test one complete repaired version of the original multi-caller verification game; finish it only if the working preview is useful and fun, otherwise park it. | **LATER OWNER DIRECTION — Ali, 2026-08-10**; `../../dream-phone-design-decisions.md`; `BUILD-PACKET-working-preview-2026-08-10.md` | Supersedes the earlier attempt to retire verification before a playable comparison existed; authorizes the bounded local preview, not completion or release. |
 
 ## Owned experience tree
 
@@ -135,28 +137,28 @@ candidate proves only local browser states, not the full suite.
 ## Owner direction and remaining game decision
 
 Ali selected a two-track booth on 2026-08-10: the neutral entry presents **Just
-Call** and **Play the Full Game** as equal first-class choices. She also ruled
-that the full game must not centre receipts, claim verification or the current
-claim deck; that teaching already has a full episode and is only one part of
-AI literacy.
+Call** and **Play the Full Game** as equal first-class choices. She rejected
+three replacement concepts, then authorized one complete repair of the original
+multi-caller verification game before deciding whether the full game should be
+finished or parked.
 
-The next bounded decision is the exact new full-game mechanic. It must make
-broader practical AI judgment useful and funny through real choice,
-consequence, feedback and replay. Existing public code, the claim deck and the
-prior Hotline Desk proposal remain evidence or candidates only and cannot
-choose that mechanic by inference.
+The next bounded decision is not another inferred concept. It is Ali's judgment
+of the exact working preview: does distributed calling, a real commitment,
+specific phone powers, consequence and tailored preventive guidance make this
+bounded AI skill useful and funny enough to complete? The answer does not imply
+that verification is the whole AI curriculum.
 
 ## Re-entry declaration
 
 - **Stable promise:** playful phone-booth reflection/practice with honest
   boundaries and, if educational, a real judgment loop.
-- **Exact resume point:** design the smallest representative new game loop
-  across broader practical AI situations, then judge whether it earns equal
-  billing before producing the landing-page visual direction.
+- **Exact resume point:** Ali operates the committed working preview and chooses
+  finish versus park; representative learning/enjoyment testing occurs only if
+  it survives that direction gate.
 - **Non-negotiables:** evidence truth, scripted-advice boundary, distinct
   learning job, visitor-state honesty, accessibility, reward/persistence truth
   and maker/judge separation.
 - **Files this initialization may change:** this Dream Phone dossier/evidence
   folder only.
-- **No change made by this recovery:** public code, live state, product model,
-  visual direction, rewards, analytics, deployment or canon.
+- **Still unchanged publicly:** production routes, live state, rewards,
+  analytics, deployment and public release.

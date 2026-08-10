@@ -6,10 +6,12 @@
 
 Dream Phone is a playful 1990s phone-booth experience with two equal choices.
 **Just Call** offers funny prewritten reframes. **Play the Full Game** rehearses
-a broader practical way of working with AI: choose the kind of help needed,
-ask well, notice what the response enables or misses, improve the exchange and
-decide the human next move. It is not personalized, diagnostic or professional
-advice.
+one bounded practical AI judgment: do not accept a coherent claim as true just
+because the model sounds sure. Call several limited perspectives, identify the
+unsupported clause, choose For Real, As If or Hold Up, then learn rules and a
+prompt that reduce the problem before the next AI exchange. It is not
+personalized, diagnostic or professional advice, and it does not imply that
+claim verification is all AI is useful for.
 
 ## Product ownership
 
@@ -45,10 +47,11 @@ Three models currently coexist in records/source as implementation history:
 2. the public experimental claim-checking game; and
 3. a parked patron-saint deduction engine.
 
-Ali selected the two equal doors and broader practical-AI territory on
-2026-08-10. “Hotline Desk,” the current claim deck and the patron-saint engine
-remain possible evidence only; none determines the exact new full-game
-mechanic.
+Ali selected the two equal doors and later authorized one complete repair of
+the original multi-caller verification game before deciding whether to finish
+or park it on 2026-08-10. The working preview is the current candidate; the
+public claim deck and patron-saint engine remain implementation history and do
+not overrule it.
 
 Until the new mechanic and independent gates pass:
 
@@ -65,10 +68,11 @@ Until the new mechanic and independent gates pass:
 
 ## Learning contract
 
-The game must rehearse a transferable behaviour through meaningful choice,
-consequence, feedback and replay. It should help a player choose suitable AI
-help, give useful context and direction, notice limitations, improve the
-exchange and retain the consequential human judgment.
+The current candidate must rehearse a transferable behaviour through meaningful
+choice, consequence, feedback and replay. It should help a player separate a
+claim into clauses, seek more than one bounded perspective, recognize missing
+scope/source/denominator evidence, hold rather than guess and set preventive AI
+rules before the next answer.
 
 A binary right answer, a prompt template after the fact or decorative game
 mechanics do not by themselves establish learning or enjoyment.
@@ -83,8 +87,8 @@ a subject. It may route to:
 - NewsStand for timely claims under NewsStand's own editorial rules; and
 - FAiRY for an immediate in-scope guidance job.
 
-It must not duplicate those formats or reduce the wider AI landscape to a
-nostalgic claim-checking deck.
+It must not duplicate those formats or suggest that a nostalgic claim-checking
+game represents the whole AI landscape.
 
 ## Release authority
 

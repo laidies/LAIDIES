@@ -7,11 +7,12 @@ records recovered without inferring the live-vs-park/product-model answer
 **Write boundary for this packet:** Dream Phone dossier/evidence only until the
 owner decision is recorded
 
-> **Superseded 2026-08-10:** Ali selected two equal entry choices and ruled
-> that the full game must cover broader practical AI judgment rather than
-> centre claim verification. Use `../../dream-phone-design-decisions.md` and
-> the current `EXPERIENCE-BRIEF.md` / `OPERATING-SPEC.md`. The remaining gate
-> is the exact new game mechanic, not the model choice below.
+> **Superseded twice 2026-08-10:** Ali first selected two equal entry choices
+> and explored broader practical-AI concepts, then rejected those replacements
+> and authorized one complete repaired preview of the original multi-caller
+> verification game before choosing finish versus park. Use
+> `BUILD-PACKET-working-preview-2026-08-10.md` and the current
+> `EXPERIENCE-BRIEF.md` / `OPERATING-SPEC.md`; the prose below is historical.
 
 ## Problem and evidence
 
