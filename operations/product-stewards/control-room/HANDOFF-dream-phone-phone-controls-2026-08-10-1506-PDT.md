@@ -28,3 +28,11 @@
 - **Worktree truth:** `COMMITTED` — decision source commit
   `7a7e6810b5a46028be50f2bc4a0063b494dc75f1`; unrelated existing changes remain
   unstaged and were not included.
+
+## Accepted payoff clarification — 2026-08-10
+
+Ali accepted the explicit player benefits: `*67` unlocks access to a screened
+caller or hidden perspective; `*69` deepens the most recent lead with one fresh
+clarification; Jenny recommends the next question without supplying the
+verdict. The effects may not collapse into interchangeable clues. Decision
+source commit: `9d5db16b8104cd1bc5a90ca8d118cbef434b7a2e`.
