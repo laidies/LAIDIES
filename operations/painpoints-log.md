@@ -14755,6 +14755,12 @@ while remaining falsely unfinished in the launch record.
   Each cold HOLD was admitted into CQX-BAD-013 before the successor; fresh
   artifact-first session `bf68253c-86c7-4bd0-940c-8bb40aa861c1` passed exact
   prose SHA `c85acce203ffc328f884cc1edda6d7072c7b1adc86fd59dd551db54a94fb25f8`.
+  Ali then clarified that the three persuasive Introduction headings need both
+  parts in one scan: the useful reason first and her authored comic from/to
+  line second. D-2026-08-10-117 records that order; the build now fails if
+  either half is lost or reversed. Cold session
+  `628de2ab-7101-4371-a2a2-36f16f9daccb` passed exact successor prose SHA
+  `d59672d62c21224f147951b59bb24fa597d0c5ccc2dd4cd4bcbc59e167046564`.
   An unrelated arXiv URL stored under *Reframing Superintelligence* was also
   replaced with Oxford's actual record.
 - **Possible Behind the Build angle:** Why a taxonomy is not a lesson, and how

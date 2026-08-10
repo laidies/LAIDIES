@@ -261,6 +261,8 @@ Reject an author-led successor when it:
   a genuinely missing treatment to its accountable surface owner; or
 - uses headings whose wording or visible hierarchy does not let a reader
   distinguish chapter groups, concepts, subtopics and optional depth; or
+- separates an Introduction reason's useful reader benefit from its authored
+  comic from/to progression, or leads with the joke before stating the reason; or
 - presents technically accurate higher-depth prose without a concrete entry,
   plain-language decoding and an explicit return to the parent concept; or
 - displays depth as detached, similarly weighted blocks instead of one

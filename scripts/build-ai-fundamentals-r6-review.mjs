@@ -8,14 +8,14 @@ import { enforcedFailureFamilies } from "./check-prose-quality-admission.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const base = "content/library-books/pilots/ai-fundamentals-101-v4";
-const candidatePath = `${base}/introduction-and-chapter-1-r6.md`;
+const candidatePath = process.env.AI_FUNDAMENTALS_R6_CANDIDATE_PATH || `${base}/introduction-and-chapter-1-r6.md`;
 const renderedPath = `${base}/rendered/introduction-and-chapter-1-r6.html`;
 const manifestPath = `${base}/r6-artifact-manifest.json`;
 const reviewPath = `${base}/r6-producer-self-review.json`;
 const registryPath = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const sourcePath = "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json";
 const teachingMapPath = "operations/product-stewards/library/AI-FUNDAMENTALS-101-V4-SECTION-TEACHING-MAP.json";
-const candidateId = "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-12";
+const candidateId = "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-13";
 const surface = "LIBRAIRY";
 
 const read = relative => fs.readFileSync(path.join(root, relative), "utf8");
@@ -127,6 +127,16 @@ function renderMarkdown(markdown, conceptTitles) {
 }
 
 const candidate = read(candidatePath);
+const requiredIntroductionHeadings = [
+  "### 1. Get better results from AI: from “ARGHH, WTF?” to “Ahh. That’s why.”",
+  "### 2. Make sense of AI news and hype: from “The end is nigh!” to “Ugh, as if.”",
+  "### 3. Take part in decisions about AI: from “Whatever!” to “RSVP: Yes. I have notes.”"
+];
+for (const heading of requiredIntroductionHeadings) {
+  if (!candidate.includes(heading)) {
+    throw new Error(`Introduction heading must lead with its reader benefit and preserve its authored comic progression: ${heading}`);
+  }
+}
 const teachingMap = JSON.parse(read(teachingMapPath));
 for (const binding of teachingMap.chapter1DepthBindings || []) {
   const headingIndex = text => {

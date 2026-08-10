@@ -10,7 +10,7 @@ So why is it important for you, as a woman of distinction (or friend to womankin
 
 We’re so glad you asked. Here’s why:
 
-### 1. Get better results from AI
+### 1. Get better results from AI: from “ARGHH, WTF?” to “Ahh. That’s why.”
 
 AI is a truly transformative technology that, in some form, is accessible to almost everyone. It is going to transform the way we work, live and operate as a society. But it is different from essentially any other technology that has done this in the past.
 
@@ -24,7 +24,7 @@ No, no, no, dear reader, thou shalt not forsaketh the AI. Thou shalt first consu
 
 TL;DR: from “ARGHH, WTF?” to “Ahh. That’s why.”
 
-### 2. Make sense of AI news and hype
+### 2. Make sense of AI news and hype: from “The end is nigh!” to “Ugh, as if.”
 
 Let’s be clear. This is not about jumping on the proverbial bandwagon; we’ll leave that to our bro friends in crypto. (“Ooo, sick burn!” someone shouts from the back.)
 
@@ -34,7 +34,7 @@ There are dozens of stories a day about something to do with AI. Some are well r
 
 That isn’t possible unless you have a fundamental understanding of the basics. And while LAiDIES does try to call these stories out and go deeper in the NewsStand, you should be able to (eventually) do this on your own. So when the headlines make it seem like Skynet is taking over and Judgment Day is just around the corner—or a content creator says three prompts will solve all your problems and tells you to DM them—you will be able to get to the real story and decide whether that “hack” is something you are already doing or deserves an “Ugh, as if!”
 
-### 3. Take part in decisions about AI
+### 3. Take part in decisions about AI: from “Whatever!” to “RSVP: Yes. I have notes.”
 
 Which brings us to our last main reason. Once you understand how AI works, how you can use it better and how to identify overly positive, overly negative or clickbait claims, you can start to understand the truly transformative impacts AI is going to have on society.
 

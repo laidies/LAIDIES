@@ -17,9 +17,13 @@
 > forward test independently placed it on HOLD; a separate artifact-first blind
 > review returned PASS on the current exact prose, and a blind pixel review
 > returned PASS on the clean deterministic vector diagram. Both remain local
-> internal candidates. The current prose identity is
-> `c85acce203ffc328f884cc1edda6d7072c7b1adc86fd59dd551db54a94fb25f8`;
-> the current semantic session is `bf68253c-86c7-4bd0-940c-8bb40aa861c1`.
+> internal candidates. Ali's three Introduction reason headings now lead with
+> their useful reader benefit and preserve her authored comic progression after
+> a colon; the builder rejects either half being dropped or reversed. The
+> current prose identity is
+> `d59672d62c21224f147951b59bb24fa597d0c5ccc2dd4cd4bcbc59e167046564`;
+> fresh cold semantic session `628de2ab-7101-4371-a2a2-36f16f9daccb`
+> returned PASS / SEND_TO_ALI YES on those exact bytes.
 > Formal semantic
 > admission, visual admission, observed unfamiliar-reader comprehension,
 > Library acceptance, deployment and publication remain open.
