@@ -57,11 +57,35 @@ The reviewer independently confirmed:
 The reviewer noted two non-blocking taste questions for Ali: the density of a
 few jokes and whether the customer-service system appears once too often.
 
+## Blind pixel review of the diagram candidate
+
+**Exact SVG:**
+`content/library-books/pilots/ai-fundamentals-101-v4/assets/chapter-1-how-ai-types-fit-together.svg`
+**SHA-256:** `106a5f079b3dd33bd60b64bcf3a554e6fda19bee256466750265960595c400e8`
+**Session:** `156b556e-579c-47c3-a5e9-8d78ad9e5465`
+**Verdict:** PASS / worthy of Ali direction review
+
+The first review correctly held a browser screenshot whose sticky Nerd-O-Meter
+obscured row 1. That was capture evidence failure, not permission to explain
+away a missing row. The reviewer then received a clean direct render of the
+exact SVG and independently found:
+
+- all six rows legible with a clear question, explanation and label structure;
+- no false hierarchy between the six questions;
+- the customer-service example makes label overlap concrete; and
+- the final true-nesting / internal-mechanism / common-product-stack contrast
+  performs a real teaching job that prose alone would make harder to retain.
+
+It noted two non-blocking visual questions for Ali: the different weight of the
+two construction labels and whether “What job does it do?” is sufficiently
+specific before its explanatory line.
+
 ## Exact boundary
 
 This is durable artifact-first red-team evidence, not the repository's formal
 `INDEPENDENT_SEMANTIC_ADMISSION`. The reviewer did not complete the current
 registry-wide calibration record in the required executable form. The diagram
-also remains an internal candidate because the visual registry has no genuine
-Ali-approved textbook-diagram positive exemplar. Neither gap is being hidden
-or converted into a false PASS.
+has a role-distinct blind pixel PASS but remains an internal candidate because
+the visual registry has no genuine Ali-approved textbook-diagram positive
+exemplar or executable formal admission chain. Neither gap is being hidden or
+converted into a false formal PASS.

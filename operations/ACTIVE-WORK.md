@@ -15,8 +15,9 @@
 > named types, and Tell Me More / Full Nerd Alert deepen each concept in place.
 > The rejected predecessor is preserved as CQX-BAD-013 and a blind Claude
 > forward test independently placed it on HOLD; a separate artifact-first blind
-> review returned PASS on the current exact prose. The current render and
-> deterministic vector diagram are local internal candidates. Formal semantic
+> review returned PASS on the current exact prose, and a blind pixel review
+> returned PASS on the clean deterministic vector diagram. Both remain local
+> internal candidates. Formal semantic
 > admission, visual admission, observed unfamiliar-reader comprehension,
 > Library acceptance, deployment and publication remain open.
 
