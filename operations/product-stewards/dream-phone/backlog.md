@@ -18,7 +18,7 @@
 | ID | Status | Work | Done when |
 |---|---|---|---|
 | DP-007 | DECIDED — 2026-08-10 | Use a neutral entry with two equal first-class choices: Just Call and Play the Full Game. The game covers broader practical AI judgment rather than centring claim verification. | Decision is routed through `../../dream-phone-design-decisions.md`; neither current public code nor the retired claim deck overrules it. |
-| DP-013 | READY FOR PRODUCT DESIGN | Replace the claim-checking premise with the smallest useful, funny representative full-game loop. | The loop proves meaningful choice, consequence, feedback, replay and a distinct broader-AI learner outcome before page visuals or full implementation. |
+| DP-013 | READY FOR ALI DIRECTION REVIEW | Select, revise or reject one of three independent full-game concepts in `CONCEPT-COMPETITION-2026-08-10.md`; park if none earns interest. | Ali selects a concept for one three-minute vertical slice or parks the full game; no visual or implementation build is inferred. |
 
 ## After owner decision
 

@@ -31,5 +31,21 @@ requires design and representative proof
 - Whether any existing claim-deck material earns reuse as a minor situation
   after the new game model is selected.
 
+## Rejected directions
+
+- **Workplace task with a manufactured “hidden real need.”** A presentation or
+  similar assignment remains ordinary work; disguising audience, constraints
+  or strategy as a mystery does not create a compelling game fantasy.
+- **Verification or claim-judgment deck as the dominant loop.** Important but
+  duplicative, too narrow and already taught elsewhere.
+- **Time-management caper whose real play is project management.** A fun
+  setting and louder characters cannot rescue an efficiency exercise.
+
+## Current competition
+
+`product-stewards/dream-phone/CONCEPT-COMPETITION-2026-08-10.md` contains three
+independent game genres for Ali direction review. None is selected or approved
+for build.
+
 No art direction, implementation, deployment, reward model or public release
 is authorized by these product decisions.
