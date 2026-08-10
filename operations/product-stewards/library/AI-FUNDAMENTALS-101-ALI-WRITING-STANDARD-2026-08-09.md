@@ -28,6 +28,29 @@ Those edits must preserve Ali's cadence, jokes, conviction, direct address and
 three-part governing purpose. A technically cleaner version that becomes more
 institutional, generic or emotionally flat fails.
 
+## Authorial-flow protection
+
+The Introduction has one distinct job: make the reader care, establish the
+best-friend relationship and explain the book's practical, information-
+judgment and participation purpose. Internal curriculum coverage may not force
+concept instruction, a diagnostic checklist or a system map into that
+rhetorical arc. The concept sequence begins in Chapter 1.
+
+Review must compare meaning and paragraph flow, not only factual correctness
+or whether the replacement sounds like LAiDIES:
+
+- `who does not have a PhD in AI` describes the intended reader; it may not
+  become `without first acquiring a PhD`, which implies a different future;
+- a compact joke may not be diluted with unnecessary completeness language;
+- a true sentence still fails if it changes topics and breaks the setup/payoff
+  between adjacent paragraphs; and
+- deliberate comic diction, including `forsaketh`, is protected even when it
+  is not standard English. Nonstandard wording is not automatically an error.
+
+The producer must start with a line-preserving edit and justify every changed
+proposition, joke or transition. A reviewer must read Ali's source and the
+candidate side by side; a general voice match cannot prove authorial fidelity.
+
 ## Ali-authored source text
 
 ### Intro

@@ -4,14 +4,26 @@
   "title": "AI Fundamentals 101",
   "status": "PRODUCTION_ARCHITECTURE_NOT_PROSE",
   "curriculumRule": "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
+  "readerIntroductionRule": "Every concept chapter begins by putting the subject into a familiar human context, explaining why the language or mechanism is confusing, demonstrating the practical reason the distinctions matter and walking through one concrete case before presenting a framework, figure or label set.",
+  "textbookComponentRule": "Each Standard concept requires a plain definition, concrete example, relationship to adjacent concepts, practical consequence and useful action; add an analogy only when it faithfully improves understanding. The chapter also requires a helpful figure, in-place cumulative depth, retrieval or application, Key Definitions, compact source/freshness notes and See more at LAiDIES links only to real admitted destinations.",
+  "depthPlacementRule": "Tell Me More and Full Nerd Alert follow the exact Standard concept they deepen. They may not be collected as a bolt-on appendix or substitute questions and terminology for further explanation.",
+  "chapter1DepthBindings": [
+    {"standard":"Predictive AI estimates what is likely","tellMeMore":"Tell Me More! How a predictive system turns information into a score","fullNerd":"Full Nerd Alert! Why a confident score can still be wrong"},
+    {"standard":"Generative AI produces new content","tellMeMore":"Tell Me More! Why generative AI is also predictive under the hood","fullNerd":"Full Nerd Alert! How one token becomes a whole response"},
+    {"standard":"Multimodal AI works across more than one modality","tellMeMore":"Tell Me More! How different forms of information meet inside a model","fullNerd":"Full Nerd Alert! Why multimodal alignment is difficult"},
+    {"standard":"Agentic AI continues through steps and actions","tellMeMore":"Tell Me More! Why agentic AI is a system pattern","fullNerd":"Full Nerd Alert! Why more steps create more ways to fail"},
+    {"standard":"Embodied AI can sense or act through physical equipment","tellMeMore":"Tell Me More! How embodied AI closes the loop with the world","fullNerd":"Full Nerd Alert! Why physical AI needs control, not just intelligence"},
+    {"standard":"How broad is the system’s capability?","tellMeMore":"Tell Me More! Breadth, reliability and transfer are different","fullNerd":"Full Nerd Alert! Why there is no agreed AGI finish line"},
+    {"standard":"How was the capability built?","tellMeMore":"Tell Me More! The difference between rules and learning from examples","fullNerd":"Full Nerd Alert! The true nesting: AI, machine learning and deep learning"}
+  ],
   "units": [
     {
       "routeEntryId": "introduction",
-      "teachingGoal": "Give the reader a compelling reason to understand AI and the first complete map she can use immediately.",
+      "teachingGoal": "Give the reader a compelling practical, informational and civic reason to understand AI before concept teaching begins.",
       "questionsAnswered": [
-        "Why does understanding AI matter in my ordinary decisions and work?",
-        "What does the label AI tell me, and what does it leave unanswered?",
-        "What first questions make an AI claim more concrete?"
+        "Why does understanding AI matter when I use it?",
+        "Why do I need the fundamentals to judge AI news and hype?",
+        "Why should I participate in decisions about how AI is used and governed?"
       ],
       "sections": [
         {
@@ -20,109 +32,154 @@
           "depth": "STANDARD",
           "teachingGoal": "Make the personal and practical value of understanding AI felt before technical explanation begins.",
           "prerequisiteConcepts": [],
-          "conceptsIntroduced": ["AI claim", "human consequence"],
-          "relationshipsAdded": ["Vague AI claims can lead to different human consequences depending on what the system actually does."],
-          "questionsAnswered": ["Why should I care what sits behind an AI claim?"],
-          "learnerEvidence": "EXPLAIN_IT: name one decision that changes when the underlying AI system changes."
-        },
-        {
-          "sectionId": "intro-first-map",
-          "title": "The first map of an AI system",
-          "depth": "STANDARD",
-          "teachingGoal": "Establish the input to system to output to consequence path used throughout the book.",
-          "prerequisiteConcepts": ["AI claim", "human consequence"],
-          "conceptsIntroduced": ["input", "AI system", "output"],
-          "relationshipsAdded": ["An AI system processes an input into an output that may influence a later action or decision."],
-          "questionsAnswered": ["What is the shortest useful description of an AI system?", "What can happen after an AI output is produced?"],
-          "learnerEvidence": "DRAW_IT: reproduce input to system to output to consequence with directional arrows."
-        },
-        {
-          "sectionId": "intro-three-questions",
-          "title": "Three questions that replace the vague label",
-          "depth": "STANDARD",
-          "teachingGoal": "Give the reader an immediate practical method for turning an AI label into an examinable system.",
-          "prerequisiteConcepts": ["input", "AI system", "output", "human consequence"],
-          "conceptsIntroduced": ["system inquiry"],
-          "relationshipsAdded": ["Asking what a system does, what it uses and what follows its output reveals different design and risk choices."],
-          "questionsAnswered": ["What should I ask when someone says a product uses AI?"],
-          "learnerEvidence": "USE_IT: apply the three questions to an unfamiliar workplace AI proposal."
+          "conceptsIntroduced": [],
+          "relationshipsAdded": ["Understanding AI supports better use, independent information judgment and informed participation."],
+          "questionsAnswered": ["Why should I care enough to learn the fundamentals?"],
+          "learnerEvidence": "EXPLAIN_IT: give one practical, one information-judgment and one participation reason for learning AI fundamentals."
         }
       ]
     },
     {
       "routeEntryId": "chapter-1",
-      "teachingGoal": "Orient the reader to the major kinds and capability claims without presenting unlike labels as one flat taxonomy.",
+      "teachingGoal": "Explain the major types of AI, the distinct question each label answers and how several types can truthfully describe one system.",
       "questionsAnswered": [
-        "Why do very different products all count as AI?",
-        "What do predictive, generative, multimodal and agentic describe?",
+        "What are predictive, generative, multimodal, agentic, embodied, specialised and general-purpose AI?",
+        "How can one AI system belong to or combine several of those types?",
+        "Where do rule-based AI, machine learning and deep learning fit?",
         "What are AGI and ASI, and do they exist today?"
       ],
       "sections": [
         {
-          "sectionId": "ch1-ai-umbrella",
-          "title": "AI is an umbrella, not one machine",
+          "sectionId": "ch1-organising-questions",
+          "title": "Why one AI system can have several types",
           "depth": "STANDARD",
-          "teachingGoal": "Show that AI names a broad field of systems rather than one product, model or behaviour.",
+          "teachingGoal": "Give the reader the organising structure before any type is taught.",
+          "prerequisiteConcepts": [],
+          "conceptsIntroduced": ["AI system", "input", "output", "type dimension"],
+          "relationshipsAdded": ["An AI system receives an input and infers an output; type labels can describe its job, information forms, operating pattern, physical interaction, breadth or construction method."],
+          "questionsAnswered": ["Why are AI types not one list of competing boxes?", "Which question does each group of labels answer?"],
+          "learnerEvidence": "EXPLAIN_IT: name two different true labels for one familiar system and state the different question each answers."
+        },
+        {
+          "sectionId": "ch1-predictive-ai",
+          "title": "Predictive AI estimates what is likely",
+          "depth": "STANDARD",
+          "teachingGoal": "Name Predictive AI before its common tasks and show how classification, prediction, ranking and recommendation relate.",
           "prerequisiteConcepts": ["AI system", "input", "output"],
-          "conceptsIntroduced": ["AI umbrella"],
-          "relationshipsAdded": ["Many systems fit beneath AI while performing different tasks with different components."],
-          "questionsAnswered": ["Why can two very different systems both be AI?"],
-          "learnerEvidence": "EXPLAIN_IT: compare two familiar AI systems without claiming they work identically."
+          "conceptsIntroduced": ["predictive AI", "classification", "recognition", "prediction", "ranking", "recommendation"],
+          "relationshipsAdded": ["Predictive AI estimates a category value outcome or relative relevance; classification and recognition estimate a category, predictions estimate values or outcomes, rankings order options and recommendations present selected options."],
+          "questionsAnswered": ["What is Predictive AI?", "How do classification, prediction, ranking and recommendation fit inside it?", "Where do I encounter each task?"],
+          "learnerEvidence": "USE_IT: trace classification prediction ranking and recommendation through one Blockbuster or streaming example."
         },
         {
-          "sectionId": "ch1-recognise-predict-rank",
-          "title": "Systems that recognise, predict, rank and recommend",
+          "sectionId": "ch1-generative-ai",
+          "title": "Generative AI produces new content",
           "depth": "STANDARD",
-          "teachingGoal": "Make common non-generative AI tasks visible in familiar products.",
-          "prerequisiteConcepts": ["AI umbrella", "input", "output"],
-          "conceptsIntroduced": ["recognition", "prediction", "ranking", "recommendation"],
-          "relationshipsAdded": ["Recognition and prediction can feed ranking, and ranking can feed a recommendation shown by a product."],
-          "questionsAnswered": ["What is the difference between recognising, predicting, ranking and recommending?", "Where do I encounter them?"],
-          "learnerEvidence": "USE_IT: identify the task performed by a spam filter and a streaming recommendation."
+          "teachingGoal": "Explain the job of generating content and distinguish generation from retrieval, originality and accuracy.",
+          "prerequisiteConcepts": ["AI system", "output", "predictive AI"],
+          "conceptsIntroduced": ["generative AI", "generated content"],
+          "relationshipsAdded": ["Generative AI creates a new output from learned patterns and current input; the public label describes the product's output job, not a guarantee of originality or truth."],
+          "questionsAnswered": ["What makes an output generative?", "How is generation different from retrieving a finished item?", "Why can generated content be polished and wrong?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish a generated email from a retrieved template and name what neither label proves."
         },
         {
-          "sectionId": "ch1-generative-multimodal",
-          "title": "Generative and multimodal AI",
+          "sectionId": "ch1-multimodal-ai",
+          "title": "Multimodal AI handles more than one kind of information",
           "depth": "STANDARD",
-          "teachingGoal": "Explain content generation and distinguish it from the kinds of information a system can receive and produce.",
-          "prerequisiteConcepts": ["AI umbrella", "output"],
-          "conceptsIntroduced": ["generative AI", "modality", "multimodal AI"],
-          "relationshipsAdded": ["Generative describes producing new content, while multimodal describes handling more than one kind of input or output."],
-          "questionsAnswered": ["What makes a system generative?", "What makes a system multimodal?", "Can one system be both?"],
-          "learnerEvidence": "EXPLAIN_IT: classify a text-and-image assistant using both labels without treating them as competitors."
+          "teachingGoal": "Explain modality as a separate question from the job the system performs.",
+          "prerequisiteConcepts": ["input", "output", "generative AI"],
+          "conceptsIntroduced": ["modality", "multimodal AI"],
+          "relationshipsAdded": ["Multimodal describes the forms of information a system can receive or produce and can overlap predictive or generative jobs."],
+          "questionsAnswered": ["What is a modality?", "What makes a system multimodal?", "How can a system be both multimodal and generative or predictive?"],
+          "learnerEvidence": "EXPLAIN_IT: describe the image input and generated text output in one damaged-chair example."
         },
         {
-          "sectionId": "ch1-agentic-embodied",
-          "title": "Agentic and embodied systems",
+          "sectionId": "ch1-agentic-ai",
+          "title": "Agentic AI continues through steps and actions",
           "depth": "STANDARD",
-          "teachingGoal": "Introduce continued multi-step operation and physical-world interaction without yet teaching the full implementation.",
-          "prerequisiteConcepts": ["AI umbrella", "output", "generative AI"],
-          "conceptsIntroduced": ["agentic AI", "embodied AI"],
-          "relationshipsAdded": ["Agentic describes continued operation toward a goal; embodied describes interaction through a physical body or environment; either may use generative components."],
-          "questionsAnswered": ["What does agentic describe?", "What does embodied describe?", "Do either imply consciousness or correctness?"],
-          "learnerEvidence": "USE_IT: distinguish a chatbot, a tool-using assistant and a warehouse robot."
+          "teachingGoal": "Explain the agentic loop and distinguish continued operation from generation, automation, consciousness and correctness.",
+          "prerequisiteConcepts": ["AI system", "output", "generative AI"],
+          "conceptsIntroduced": ["agentic AI", "agent loop"],
+          "relationshipsAdded": ["Agentic AI uses outputs observations tools and state across multiple steps toward a goal; it may use predictive and generative components but those labels do not themselves make it agentic."],
+          "questionsAnswered": ["What makes a system agentic?", "How is an agentic loop different from one generated answer?", "What limits its autonomy?"],
+          "learnerEvidence": "USE_IT: compare an itinerary answer with a permission-bound assistant that checks options and completes approved steps."
         },
         {
-          "sectionId": "ch1-agi-asi",
-          "title": "AGI and ASI",
+          "sectionId": "ch1-embodied-ai",
+          "title": "Embodied AI interacts with the physical world",
           "depth": "STANDARD",
-          "teachingGoal": "Place disputed and hypothetical general-intelligence claims beside present systems without implying an inevitable progression.",
-          "prerequisiteConcepts": ["AI umbrella", "generative AI", "agentic AI"],
-          "conceptsIntroduced": ["AGI", "ASI", "generality", "transfer"],
-          "relationshipsAdded": ["AGI concerns disputed breadth and transfer across unfamiliar intellectual tasks, while ASI is a hypothetical claim of capability beyond humans across broad domains."],
-          "questionsAnswered": ["What do AGI and ASI mean?", "Do they exist today?", "Why do credible definitions and forecasts disagree?"],
-          "learnerEvidence": "EXPLAIN_IT: distinguish a capable current general-purpose product from the book's ruled AGI and ASI boundaries."
+          "teachingGoal": "Explain physical sensing and action as another separate type question.",
+          "prerequisiteConcepts": ["AI system", "agentic AI"],
+          "conceptsIntroduced": ["embodied AI", "sensor", "actuator"],
+          "relationshipsAdded": ["Embodied AI senses or acts through physical equipment; it may be agentic or follow a fixed process, and agentic software need not be embodied."],
+          "questionsAnswered": ["What makes AI embodied?", "Must embodied AI be agentic?", "Must agentic AI have a body?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish a warehouse robot from a software-only assistant."
         },
         {
-          "sectionId": "ch1-labels-overlap",
-          "title": "How the labels overlap",
+          "sectionId": "ch1-breadth-agi-asi",
+          "title": "Specialised, general-purpose, AGI and ASI describe breadth",
+          "depth": "STANDARD",
+          "teachingGoal": "Teach current breadth labels and disputed future categories without implying an inevitable ladder.",
+          "prerequisiteConcepts": ["AI system", "predictive AI", "generative AI", "agentic AI"],
+          "conceptsIntroduced": ["specialised AI", "narrow AI", "ANI", "general-purpose AI", "AGI", "ASI", "generality", "transfer"],
+          "relationshipsAdded": ["Specialised and general-purpose describe current breadth; AGI is a disputed proposed threshold for robust generality and transfer; ASI is hypothetical capability beyond humans across broad cognitive work."],
+          "questionsAnswered": ["What is specialised or narrow AI?", "What is current general-purpose AI?", "What do AGI and ASI mean?", "Do AGI or ASI exist today?"],
+          "learnerEvidence": "EXPLAIN_IT: place specialised general-purpose AGI and ASI on a breadth discussion without presenting them as guaranteed upgrades."
+        },
+        {
+          "sectionId": "ch1-overlap-worked-case",
+          "title": "How one system can have several types",
+          "depth": "STANDARD",
+          "teachingGoal": "Carry one worked product through every type question and make the overlaps causal rather than merely labelled.",
+          "prerequisiteConcepts": ["predictive AI", "generative AI", "multimodal AI", "agentic AI", "embodied AI", "general-purpose AI", "AGI"],
+          "conceptsIntroduced": ["type dimension"],
+          "relationshipsAdded": ["One product can combine predictive and generative jobs, multimodal information, agentic operation and specialised scope because each label describes a different property."],
+          "questionsAnswered": ["How can several AI labels be true at once?", "Which labels describe different properties rather than competing categories?"],
+          "learnerEvidence": "DRAW_IT: classify one service assistant by job information form operating pattern physical interaction and breadth."
+        },
+        {
+          "sectionId": "ch1-predictive-generative-depth",
+          "title": "Why predictive and generative can overlap",
           "depth": "TELL_ME_MORE",
-          "teachingGoal": "Help the reader combine task, modality, operating pattern and breadth labels without building a false flat taxonomy.",
-          "prerequisiteConcepts": ["recognition", "prediction", "generative AI", "multimodal AI", "agentic AI", "AGI", "ASI"],
-          "conceptsIntroduced": ["classification dimension"],
-          "relationshipsAdded": ["A single product may truthfully receive several labels because the labels answer different questions about its behaviour or claimed breadth."],
-          "questionsAnswered": ["How can several AI labels be true at once?", "Which labels should not be treated as peers?"],
-          "learnerEvidence": "DRAW_IT: place task, modality, operating pattern and breadth on separate branches around one product."
+          "teachingGoal": "Explain that public product labels describe visible jobs while generative models also make repeated internal predictions.",
+          "prerequisiteConcepts": ["predictive AI", "generative AI", "prediction"],
+          "conceptsIntroduced": ["internal prediction", "product job"],
+          "relationshipsAdded": ["A generative model predicts successive pieces internally, while the public label generative describes the resulting content job; one product can also use separate predictive components."],
+          "questionsAnswered": ["Is generative AI also predictive?", "Why do public product labels and internal mechanisms use the same word differently?"],
+          "learnerEvidence": "EXPLAIN_IT: distinguish an internal next-piece prediction from a product that estimates fraud risk."
+        },
+        {
+          "sectionId": "ch1-agentic-depth",
+          "title": "Why agentic AI is a system pattern, not a smarter species",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Explain how model outputs, tools, observations, state and stopping conditions form an agentic loop.",
+          "prerequisiteConcepts": ["agentic AI", "predictive AI", "generative AI"],
+          "conceptsIntroduced": ["tool", "observation", "state", "stopping condition"],
+          "relationshipsAdded": ["Agentic behaviour emerges from a loop across model outputs and surrounding product components; stronger agency does not establish general intelligence."],
+          "questionsAnswered": ["What parts make an agentic loop continue?", "Why is agentic not a synonym for AGI?"],
+          "learnerEvidence": "DRAW_IT: show goal to next step to tool to observation to updated state to stop or continue."
+        },
+        {
+          "sectionId": "ch1-construction-types-depth",
+          "title": "Types based on how AI is built",
+          "depth": "FULL_NERD_ALERT",
+          "teachingGoal": "Place rule-based AI, machine learning and deep learning inside AI without stealing Chapter 3's mechanism lesson.",
+          "prerequisiteConcepts": ["AI system", "type dimension"],
+          "conceptsIntroduced": ["rule-based AI", "machine learning", "neural network", "deep learning"],
+          "relationshipsAdded": ["Rule-based AI follows explicitly encoded logic; machine learning develops models from examples; deep learning is a machine-learning family using multilayer neural networks; these construction methods can support predictive generative multimodal agentic or embodied systems."],
+          "questionsAnswered": ["Is all AI machine learning?", "Where do deep learning and neural networks fit?", "How can construction type overlap product type?"],
+          "learnerEvidence": "DRAW_IT: place deep learning inside neural networks and machine learning inside AI, while keeping job labels on a separate branch."
+        },
+        {
+          "sectionId": "ch1-complete-classification-depth",
+          "title": "A complete way to describe one AI system",
+          "depth": "FULL_NERD_ALERT",
+          "teachingGoal": "Synthesize the chapter into a technically tidy multi-dimensional description and name what remains for later chapters.",
+          "prerequisiteConcepts": ["predictive AI", "generative AI", "multimodal AI", "agentic AI", "embodied AI", "general-purpose AI", "rule-based AI", "machine learning"],
+          "conceptsIntroduced": ["multi-dimensional classification"],
+          "relationshipsAdded": ["A complete provisional description separates job information form operating pattern physical interaction breadth and construction method; later chapters add model product information tools infrastructure access and consequence."],
+          "questionsAnswered": ["How can I describe an AI system without flattening unlike labels?", "Which important questions still belong to later chapters?"],
+          "learnerEvidence": "USE_IT: produce a six-part description of an unfamiliar system and mark unknown dimensions honestly."
         }
       ]
     },
@@ -779,7 +836,7 @@
           "title": "How to use the Concept Index",
           "depth": "STANDARD",
           "teachingGoal": "Explain lookup and route recovery without turning the book into a glossary.",
-          "prerequisiteConcepts": ["system inquiry"],
+          "prerequisiteConcepts": ["AI umbrella"],
           "conceptsIntroduced": ["concept anchor"],
           "relationshipsAdded": ["Every lookup term points to its first explanation, prerequisites and wider-system relationship."],
           "questionsAnswered": ["How do I look up a term and return to the connected explanation?"],

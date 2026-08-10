@@ -12,21 +12,21 @@
     "modelFamily": "openai"
   },
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-09T17:24:00-07:00",
+  "reviewedAt": "2026-08-10T12:00:00-07:00",
   "artifact": {
     "reviewText": {
       "path": "content/library-books/pilots/ai-fundamentals-101-v4/introduction-and-chapter-1-r6.md",
-      "sha256": "6525d20e6013ecc4d7bcd6c65b8da15bdc22012e7b4779d6f80fd84871017537"
+      "sha256": "eee8e6080c49b1ffbdea3df0a0318628ced377ffb85342b7194a36a77b3b6c21"
     },
     "manifest": {
       "path": "content/library-books/pilots/ai-fundamentals-101-v4/r6-artifact-manifest.json",
-      "sha256": "c535771b5320f58141495b72fbcbaf00cc67f932786a6e99258b9833afcbb5f2"
+      "sha256": "dde25d94974204939bef2bd7f4ce093654f5eefbd0cdddc89a314873aecd2403"
     }
   },
   "calibration": {
-    "registrySha256": "6eaa81c0a02d4b0c792b1241270f9825aafd119fea0daa9bf6b38fc254f56ff8",
+    "registrySha256": "da022e9a34052b130232ed498cd5672b307e5beecc9a7b33895235b3433e3ec1",
     "reviewerPrincipalId": "learning-system-concepts-director",
-    "reviewedAt": "2026-08-09T17:20:00-07:00",
+    "reviewedAt": "2026-08-10T12:00:00-07:00",
     "negatives": [
       {
         "exemplarId": "CQX-BAD-001",
@@ -232,6 +232,33 @@
             "locator": "known-bad artifact"
           }
         ]
+      },
+      {
+        "exemplarId": "CQX-BAD-013",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "authorialMeaningDrift",
+          "jokeDilutionByQualification",
+          "flowBreakingCaveat",
+          "deliberateComicDictionNormalized",
+          "curriculumIntrudesOnSurfaceJob",
+          "conceptNamedAfterTeachingBegins",
+          "typeRelationshipsUnexplained",
+          "depthLayerWithoutDeeperTeaching",
+          "definitionListClaimsUntaughtCoverage",
+          "uncanonicalCulturalReference",
+          "chapterDefinitionsMisnamedAsIndex",
+          "sourceNoteCompetesWithTeaching",
+          "frameworkBeforeHumanContext",
+          "abstractDefinitionWithoutTransfer",
+          "missingLearningContinuation"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# AI Fundamentals R6 Ali-flow false pass",
+            "locator": "known-bad artifact"
+          }
+        ]
       }
     ],
     "positive": {
@@ -339,7 +366,7 @@
   "reverseBrief": {
     "humanQuestion": "Why should I care about AI, and what do the different labels actually mean?",
     "promisedPayoff": "Understand the major current AI families and future capability claims well enough to inspect a real system without flattening unlike labels.",
-    "centralMentalModel": "AI is the broad family; task, modality, operating pattern and breadth answer different questions about a system and can overlap.",
+    "centralMentalModel": "An AI system can carry several truthful labels because job, information, operation, physical interaction, breadth and construction answer different questions; only some construction families truly nest.",
     "dailyLifeConnection": "Spam, photo search, streaming, drafting, travel and workplace service tools.",
     "surfaceJob": "An author-preserving book Introduction followed by the first cumulative concept chapter.",
     "desiredReaderFeeling": "Oh, I get why those labels were confusing—and now I can sort them out."
@@ -347,20 +374,20 @@
   "outcomes": {
     "plainClarity": {
       "verdict": "PASS",
-      "observation": "The opening and chapter define each term in ordinary language before adding distinctions.",
+      "observation": "The chapter first shows one recognisable product, then names the labels that describe its different properties.",
       "artifactEvidence": [
         {
-          "excerpt": "AI is a broad family of systems—not one machine, one model or one behaviour.",
+          "excerpt": "That one product could therefore be described as **predictive**, **generative**, **multimodal** and **agentic**.",
           "locator": "exact R6 prose"
         }
       ]
     },
     "technicalCoherence": {
       "verdict": "PASS",
-      "observation": "Tasks, modalities, operating patterns and breadth claims are separated and then recombined on one system.",
+      "observation": "The prose distinguishes genuine construction nesting from overlapping product properties and explicitly prevents the false agentic-generative-predictive hierarchy.",
       "artifactEvidence": [
         {
-          "excerpt": "The labels are not rival answers. They answer different questions about the same system.",
+          "excerpt": "Machine learning sits inside the broader AI field; neural networks sit inside machine learning; deep learning sits inside the neural-network family.",
           "locator": "exact R6 prose"
         }
       ]
@@ -410,27 +437,27 @@
       "observation": "The candidate states its review date, sources and recheck triggers.",
       "artifactEvidence": [
         {
-          "excerpt": "This chapter was checked on 9 August 2026",
+          "excerpt": "Checked 10 August 2026",
           "locator": "exact R6 prose"
         }
       ]
     },
     "surfaceFit": {
       "verdict": "PASS",
-      "observation": "The artifact works as a continuous, scannable Library chapter with depth layers, practice and Concept Index continuation.",
+      "observation": "The artifact works as a continuous textbook chapter with in-place depth, practice, Key Definitions, a compact source note and real continuation routes.",
       "artifactEvidence": [
         {
-          "excerpt": "Meet the Nerd-O-Meter",
+          "excerpt": "## Key Definitions",
           "locator": "exact R6 prose"
         }
       ]
     },
     "connectedSystemUnderstanding": {
       "verdict": "PASS",
-      "observation": "The chapter connects input and inference to task, modality, operating pattern and breadth without flattening them.",
+      "observation": "The chapter connects six different classification questions, then reconstructs them on one product without pretending they form one ladder.",
       "artifactEvidence": [
         {
-          "excerpt": "Inside that family, systems can perform different tasks.",
+          "excerpt": "We are going to untangle six different questions people have bundled inside the phrase **type of AI**",
           "locator": "exact R6 prose"
         }
       ]
@@ -447,20 +474,20 @@
     },
     "communicationBenchmark": {
       "verdict": "PASS",
-      "observation": "A human reason leads into concrete invisible mechanisms, limitations, consequences and a better next question.",
+      "observation": "A human reason and concrete fern assistant make the invisible distinctions visible before the technical framework appears.",
       "artifactEvidence": [
         {
-          "excerpt": "asking “What type of AI is it?” can produce several correct answers.",
+          "excerpt": "You upload a photograph of a very unhappy fern and ask what is wrong.",
           "locator": "exact R6 prose"
         }
       ]
     },
     "explanationArc": {
       "verdict": "PASS",
-      "observation": "The chapter starts with familiar systems, reveals why the labels conflict, explains each mechanism and earns the four-question lens.",
+      "observation": "The chapter starts with the real PowerPoint confusion, explains one system, earns six questions, deepens each concept and reconstructs one complete product.",
       "artifactEvidence": [
         {
-          "excerpt": "these four questions will already rescue you from most",
+          "excerpt": "Before we sort out the words, let’s start with the thing they are trying to describe.",
           "locator": "exact R6 prose"
         }
       ]
@@ -478,7 +505,7 @@
           "locator": "middle"
         },
         {
-          "excerpt": "If you can describe what it actually did, congratulations: you have already improved the meeting.",
+          "excerpt": "Congratulations. You have already improved the meeting.",
           "locator": "ending"
         }
       ]
@@ -488,25 +515,25 @@
       "observation": "Ali's three purposes are preserved and demonstrated before the book promise.",
       "artifactEvidence": [
         {
-          "excerpt": "Whatever mode you choose, this book is here to help you",
+          "excerpt": "No matter which mode you choose, this book will help you",
           "locator": "exact R6 prose"
         }
       ],
       "purposeThreads": {
         "practicalUse": {
-          "observation": "The reader learns why inputs and system choices change results.",
+          "observation": "The reader learns why understanding interaction can recover a bad result.",
           "artifactEvidence": [
             {
-              "excerpt": "I know what I need to do to get this back on track.",
+              "excerpt": "I know what I have to do to get this back on track.",
               "locator": "exact R6 prose"
             }
           ]
         },
         "informationJudgment": {
-          "observation": "The reader receives concrete questions for claims and evidence.",
+          "observation": "The reader is promised the foundation needed to separate useful reporting from hype.",
           "artifactEvidence": [
             {
-              "excerpt": "what was actually tested",
+              "excerpt": "cut through all this noise and understand what is really happening",
               "locator": "exact R6 prose"
             }
           ]
@@ -521,10 +548,10 @@
           ]
         },
         "consequentialAgency": {
-          "observation": "The prose names who benefits, bears risk and decides.",
+          "observation": "The prose names actual decisions readers should help shape.",
           "artifactEvidence": [
             {
-              "excerpt": "useful for whom? Risk borne by whom?",
+              "excerpt": "what kind of guardrails we want to put in place",
               "locator": "exact R6 prose"
             }
           ]
@@ -543,10 +570,10 @@
     },
     "laidiesWorldIntegration": {
       "verdict": "PASS",
-      "observation": "The Library, NewsStand and Nerd-O-Meter perform distinct real learning jobs.",
+      "observation": "The Nerd-O-Meter provides in-place depth while See More routes only to LAiDIES material that actually exists.",
       "artifactEvidence": [
         {
-          "excerpt": "The NewsStand will keep calling out the hype",
+          "excerpt": "## See more at LAiDIES",
           "locator": "exact R6 prose"
         }
       ]
@@ -556,7 +583,7 @@
       "observation": "A simulated explain-back correctly separates generative and agentic.",
       "artifactEvidence": [
         {
-          "excerpt": "Generative means it produces content. Agentic means it continues through steps and actions.",
+          "excerpt": "**generative produces content; agentic continues through a task.**",
           "locator": "exact R6 prose"
         }
       ],
@@ -571,7 +598,7 @@
       "observation": "A simulated transfer applies the chapter's questions to an unfamiliar insurance intake assistant.",
       "artifactEvidence": [
         {
-          "excerpt": "find out which question they really mean",
+          "excerpt": "Those words are not four rival species.",
           "locator": "exact R6 prose"
         }
       ],
@@ -586,17 +613,17 @@
       "observation": "The chapter ends with a real-product inspection rather than generic advice.",
       "artifactEvidence": [
         {
-          "excerpt": "Do not begin with its marketing label.",
+          "excerpt": "Choose one AI feature you encountered this week. Describe it without using the phrase “AI-powered.”",
           "locator": "exact R6 prose"
         }
       ]
     },
     "analogyIntegrity": {
       "verdict": "PASS",
-      "observation": "The Blockbuster sequence makes recognition, prediction, ranking and recommendation causally distinct and transfers to product diagnosis.",
+      "observation": "The Blockbuster sequence makes classification, prediction, ranking and recommendation causally distinct and transfers to product diagnosis.",
       "artifactEvidence": [
         {
-          "excerpt": "The clerk recognises that *Scream* is horror",
+          "excerpt": "The clerk classifies *Scream* as horror",
           "locator": "exact R6 prose"
         }
       ],
@@ -611,21 +638,26 @@
     },
     "systemModelReconstruction": {
       "verdict": "PASS",
-      "observation": "A simulated reconstruction preserves the chapter's connected dimensions.",
+      "observation": "A simulated reconstruction preserves all six relationship questions and the only genuine construction nesting taught here.",
       "artifactEvidence": [
         {
-          "excerpt": "Inside that family, systems can perform different tasks.",
+          "excerpt": "Let’s carry one system through all six questions.",
           "locator": "exact R6 prose"
         }
       ],
       "simulatedReaderProbe": {
-        "prompt": "Draw the Chapter 1 map from memory.",
-        "probeResponse": "Start with input to AI system to output, then branch into task, modality, operating pattern and breadth claim, with downstream action separate.",
-        "expectedEvidence": "Preserves the four dimensions and output/action boundary."
+        "prompt": "Draw how the Chapter 1 AI labels relate without copying the diagram.",
+        "probeResponse": "Put one AI system in the centre and ask six separate questions: job, information forms, operating pattern, physical interaction, breadth and construction. Show predictive and generative as jobs that can coexist; multimodal, agentic and embodied as other properties that may overlap; specialised through AGI and ASI as breadth categories or claims; and AI containing machine learning, neural networks and deep learning as the true nesting.",
+        "expectedEvidence": "Preserves six separate properties, overlap, non-implication and AI to machine learning to neural networks to deep learning nesting."
       }
     }
   },
   "failureFamilies": {
+    "abstractDefinitionWithoutTransfer": {
+      "present": false,
+      "observation": "abstractDefinitionWithoutTransfer is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "abstractStakesBeforeFeltRelevance": {
       "present": false,
       "observation": "abstractStakesBeforeFeltRelevance is absent after exact-prose producer review.",
@@ -639,6 +671,11 @@
     "analogyDomainDifferencesOvertakeMapping": {
       "present": false,
       "observation": "analogyDomainDifferencesOvertakeMapping is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "authorialMeaningDrift": {
+      "present": false,
+      "observation": "authorialMeaningDrift is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
     "authorialSourceReplacement": {
@@ -661,6 +698,11 @@
       "observation": "canonicalVoiceAbsentAcrossArtifact is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "chapterDefinitionsMisnamedAsIndex": {
+      "present": false,
+      "observation": "chapterDefinitionsMisnamedAsIndex is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "cognitiveOverloadAtEntry": {
       "present": false,
       "observation": "cognitiveOverloadAtEntry is absent after exact-prose producer review.",
@@ -681,6 +723,11 @@
       "observation": "conceptIndexCoverageGap is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "conceptNamedAfterTeachingBegins": {
+      "present": false,
+      "observation": "conceptNamedAfterTeachingBegins is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "corporateSludge": {
       "present": false,
       "observation": "corporateSludge is absent after exact-prose producer review.",
@@ -689,6 +736,11 @@
     "curiosityWithoutPayoff": {
       "present": false,
       "observation": "curiosityWithoutPayoff is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "curriculumIntrudesOnSurfaceJob": {
+      "present": false,
+      "observation": "curriculumIntrudesOnSurfaceJob is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
     "decisionBlursOutputActionAndGovernance": {
@@ -706,9 +758,24 @@
       "observation": "decorativeWorldReference is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "definitionListClaimsUntaughtCoverage": {
+      "present": false,
+      "observation": "definitionListClaimsUntaughtCoverage is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "deliberateComicDictionNormalized": {
+      "present": false,
+      "observation": "deliberateComicDictionNormalized is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "depthAsVocabularyAccumulation": {
       "present": false,
       "observation": "depthAsVocabularyAccumulation is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "depthLayerWithoutDeeperTeaching": {
+      "present": false,
+      "observation": "depthLayerWithoutDeeperTeaching is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
     "diagnosticVerbWithoutWorkedAnchor": {
@@ -751,9 +818,19 @@
       "observation": "familiarExampleWithoutTechnicalReturn is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "flowBreakingCaveat": {
+      "present": false,
+      "observation": "flowBreakingCaveat is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "foundationDoesNotContainDiagnostic": {
       "present": false,
       "observation": "foundationDoesNotContainDiagnostic is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "frameworkBeforeHumanContext": {
+      "present": false,
+      "observation": "frameworkBeforeHumanContext is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
     "genericAction": {
@@ -816,6 +893,11 @@
       "observation": "jargonBeforeMeaning is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "jokeDilutionByQualification": {
+      "present": false,
+      "observation": "jokeDilutionByQualification is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "joylessInstruction": {
       "present": false,
       "observation": "joylessInstruction is absent after exact-prose producer review.",
@@ -854,6 +936,11 @@
     "missingExplanatoryClick": {
       "present": false,
       "observation": "missingExplanatoryClick is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "missingLearningContinuation": {
+      "present": false,
+      "observation": "missingLearningContinuation is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
     "missingMechanism": {
@@ -931,6 +1018,11 @@
       "observation": "selfReviewEvidenceBorrowing is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "sourceNoteCompetesWithTeaching": {
+      "present": false,
+      "observation": "sourceNoteCompetesWithTeaching is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "staleUnreviewableClaims": {
       "present": false,
       "observation": "staleUnreviewableClaims is absent after exact-prose producer review.",
@@ -976,6 +1068,16 @@
       "observation": "templateRepetition is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "typeRelationshipsUnexplained": {
+      "present": false,
+      "observation": "typeRelationshipsUnexplained is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "uncanonicalCulturalReference": {
+      "present": false,
+      "observation": "uncanonicalCulturalReference is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "unfaithfulAnalogyMapping": {
       "present": false,
       "observation": "unfaithfulAnalogyMapping is absent after exact-prose producer review.",
@@ -1002,7 +1104,7 @@
     "sourceBindings": [
       {
         "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json",
-        "sha256": "3ecec43f60222b52901a8cea71311eecffe3bf1bc310204bc34b9c36518f0f36"
+        "sha256": "6a79e41409f18e55b6ac492bc79d3f65d25ae19743dcc7c73e5d76dbbe10cf8d"
       }
     ],
     "claimMap": [
@@ -1011,13 +1113,13 @@
         "status": "VERIFIED",
         "candidateEvidence": [
           {
-            "excerpt": "each receives some form of input and uses an internal method to infer an output",
+            "excerpt": "An **AI system** receives information—an **input**—and uses represented patterns, rules or relationships to infer a result—an **output**.",
             "locator": "exact R6 prose"
           }
         ],
         "sourceBinding": {
           "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json",
-          "sha256": "3ecec43f60222b52901a8cea71311eecffe3bf1bc310204bc34b9c36518f0f36"
+          "sha256": "6a79e41409f18e55b6ac492bc79d3f65d25ae19743dcc7c73e5d76dbbe10cf8d"
         },
         "sourceEvidence": [
           {
@@ -1032,13 +1134,13 @@
         "status": "VERIFIED",
         "candidateEvidence": [
           {
-            "excerpt": "Generative AI produces content: text, images, audio, video, code or other digital material.",
+            "excerpt": "**Generative AI** produces content: text, images, audio, video, code or other digital material.",
             "locator": "exact R6 prose"
           }
         ],
         "sourceBinding": {
           "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json",
-          "sha256": "3ecec43f60222b52901a8cea71311eecffe3bf1bc310204bc34b9c36518f0f36"
+          "sha256": "6a79e41409f18e55b6ac492bc79d3f65d25ae19743dcc7c73e5d76dbbe10cf8d"
         },
         "sourceEvidence": [
           {
@@ -1053,13 +1155,13 @@
         "status": "QUALIFIED",
         "candidateEvidence": [
           {
-            "excerpt": "An **agentic** system can continue through a task",
+            "excerpt": "An **agentic AI** system can continue through a task.",
             "locator": "exact R6 prose"
           }
         ],
         "sourceBinding": {
           "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json",
-          "sha256": "3ecec43f60222b52901a8cea71311eecffe3bf1bc310204bc34b9c36518f0f36"
+          "sha256": "6a79e41409f18e55b6ac492bc79d3f65d25ae19743dcc7c73e5d76dbbe10cf8d"
         },
         "sourceEvidence": [
           {
@@ -1080,7 +1182,7 @@
         ],
         "sourceBinding": {
           "path": "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json",
-          "sha256": "3ecec43f60222b52901a8cea71311eecffe3bf1bc310204bc34b9c36518f0f36"
+          "sha256": "6a79e41409f18e55b6ac492bc79d3f65d25ae19743dcc7c73e5d76dbbe10cf8d"
         },
         "sourceEvidence": [
           {
@@ -1091,7 +1193,7 @@
         "scopeAndFreshness": "LAiDIES position plus disputed-definition boundary; recheck before publication and on material capability evidence change."
       }
     ],
-    "reviewedThrough": "2026-08-09",
+    "reviewedThrough": "2026-08-10",
     "nextTrigger": "Any source change, current-capability change, independent finding or before publication.",
     "correctionOwner": "learning-system-concepts-director"
   },
@@ -1101,14 +1203,14 @@
     "reviewIssues": 0,
     "reviewCycles": 1,
     "priorComparable": {
-      "reviewIssues": 1,
-      "reviewCycles": 2
+      "reviewIssues": 16,
+      "reviewCycles": 6
     },
     "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
   },
   "lineage": {
     "kind": "SUCCESSOR",
-    "predecessorCandidateId": "LIB-AI-FUNDAMENTALS-101-V4-INTRO-R5-ALI-STYLE-PROOF"
+    "predecessorCandidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-ALI-REJECTED-2026-08-10"
   },
   "learningDisposition": {
     "disposition": "NO_NEW_DEFECT",

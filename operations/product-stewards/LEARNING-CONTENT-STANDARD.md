@@ -143,6 +143,21 @@ links merely to make a compact reference resemble a book or class.
    episode, class, tool or activity. Route deeper guided practice to a class
    only when that different modality adds value; never add a filler link.
 
+A 101 chapter must read as a proper textbook chapter in LAiDIES voice. It
+opens by putting the subject into human context: where the reader encounters
+it, why it is confusing, what practical difference understanding it makes and
+one concrete case she can picture. It may not throw a framework, taxonomy,
+diagram or definition list at the reader before earning the organizing idea.
+Every Standard concept then supplies a sufficient plain definition, example,
+relationship, consequence and useful action. Tell Me More and Full Nerd Alert
+sit immediately beside the concept they deepen and add real science,
+technology, mechanism, evaluation or failure conditions; they are not a
+technical appendix or a collection of unanswered prompts. Chapter-local
+lookup is `Key Definitions`; the complete book owns the cumulative `Concept
+Index`. A `See more at LAiDIES` route links only to real admitted destinations.
+Missing classes, episodes or publications become owner handoffs, never dead or
+implied-public links.
+
 Substantial explanatory books include a planned visual teaching layer wherever
 parts, sequence, scale, comparison, causality or interaction would be harder to
 understand in prose alone. Use the smallest useful form: a labelled diagram for

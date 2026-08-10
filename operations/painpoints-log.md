@@ -14728,3 +14728,32 @@ while remaining falsely unfinished in the launch record.
   prove that the reader ever received the lesson.
 - **Publication status:** INTERNAL PRODUCTION AND REVIEW CORRECTION / R6 IS A
   LOCAL DIRECTION CANDIDATE, NOT ADMITTED, DEPLOYED OR PUBLISHED.
+
+## BTB-468 — Correct labels still fail when the chapter has no conversation
+
+- **Date:** 2026-08-10
+- **Area:** AI Fundamentals 101 generation, depth design and semantic review.
+- **Failure risk:** A technically cautious chapter can throw categories at a
+  reader, defer their relationships, add glossary coverage and still pass as
+  teaching even though the reader cannot explain what the concepts mean or how
+  one product can carry several labels.
+- **Root cause:** Generation treated organization as explanation. Standard
+  began with a framework before the human problem; examples and analogies were
+  allowed to illustrate labels without carrying the mechanism; depth was
+  attached after teaching rather than deepening it in place; and review trusted
+  claimed coverage instead of the reader's reconstructable model.
+- **Prevention rule:** A substantial 101 chapter establishes context and one
+  concrete case before its framework; teaches every lookup term in Standard;
+  distinguishes true nesting, overlap, shared components and non-implication;
+  places deeper mechanism immediately after each concept; and forward-tests a
+  blind reviewer on the rejected predecessor before a successor reaches Ali.
+- **Durable correction:** CQX-BAD-013 preserves the false-pass families;
+  D-2026-08-10-114/115 bind the cultural-reference and textbook-architecture
+  rules; the exact build enforces depth placement; and the blind reviewer held
+  the predecessor before passing the successor prose. An unrelated arXiv URL
+  stored under *Reframing Superintelligence* was also replaced with Oxford's
+  actual record.
+- **Possible Behind the Build angle:** Why a taxonomy is not a lesson, and how
+  a blind rejection test prevents another day of reviewer theatre.
+- **Publication status:** INTERNAL SUCCESSOR BUILT / FORMAL SEMANTIC AND VISUAL
+  ADMISSION, ALI DIRECTION, DEPLOYMENT AND PUBLICATION REMAIN OPEN.

@@ -25,6 +25,11 @@ but do not lower the standard or replace it with generic web, corporate,
 textbook or AI prose. Reuse the communication moves; never copy the episodes'
 structure, jokes or references by default.
 
+Pokémon is not a LAiDIES voice reference or teaching analogy. Do not use it as
+shorthand for evolution, levels, collecting or any other concept. It may appear
+only when Pokémon itself is the factual subject being discussed; that narrow
+exception does not make it available as brand language.
+
 If a draft does not feel like it belongs beside all four benchmarks, at the
 depth appropriate to its surface, it is not done.
 

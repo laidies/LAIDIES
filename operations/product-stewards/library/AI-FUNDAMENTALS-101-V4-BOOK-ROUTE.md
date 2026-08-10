@@ -74,55 +74,59 @@ become a vocabulary attic.
 
 ### Introduction: Why understanding AI changes what you can do and decide
 
-**Chapter teaching goal:** Give the reader a compelling reason to understand AI
-and the first complete map she can use immediately.
+**Chapter teaching goal:** Give the reader a compelling practical,
+informational and civic reason to understand AI before concept teaching begins.
 
-**By the end, the reader can answer:** Why does understanding AI matter in my
-ordinary decisions and work? What does the label AI tell me, and what does it
-leave unanswered? What first questions make an AI claim more concrete?
+**By the end, the reader can answer:** Why does understanding AI matter when I
+use it? Why do I need the fundamentals to judge AI news and hype? Why should I
+participate in decisions about how AI is used and governed?
 
-**Builds from:** ordinary encounters with AI claims and products; no technical
-knowledge.
+**Builds from:** ordinary encounters with AI products, news and public
+decisions; no technical knowledge.
 
-**Adds to the map:** the broad input → system → output → consequence path and
-the fact that “uses AI” is the start of a useful question, not an explanation.
+**Adds to the map:** no technical concepts. It establishes the practical,
+information-judgment and participation reasons that motivate the map to come.
 
-**Everyday/work case:** a workplace proposal uses the label AI without saying
-whether the product drafts, searches, ranks, decides or acts.
+**Everyday/work case:** frustration with an AI tool, conflicting AI headlines
+and invitations to join workplace or public decisions.
 
-**Reader can now:** replace the vague label with three useful questions: what
-does it do, what does it use and what happens after the output?
+**Reader can now:** explain why learning the fundamentals is useful to her,
+rather than treating the Introduction as a compressed technical lesson.
 
-### Chapter 1: The kinds of AI you are already meeting
+### Chapter 1: The different types of AI and how they fit together
 
-**Chapter teaching goal:** Orient the reader to the major kinds and capability
-claims without presenting unlike labels as one flat taxonomy.
+**Chapter teaching goal:** Put the type language into context, then teach the
+major labels, the distinct question each answers and every important nesting,
+overlap, common-component and non-implication relationship.
 
 **By the end, the reader can answer:** Why do very different products all count
 as AI? What do predictive, generative, multimodal and agentic describe? What
 are AGI and ASI, and do they exist today?
 
-**Builds from:** AI is a broad category and systems turn inputs into outputs
-with consequences.
+**Builds from:** familiar encounters with AI and the motivation established by
+the Introduction; no technical concepts are assumed.
 
-**Adds to the map:** a first orientation to systems that recognise, predict,
-rank, recommend or generate, plus products that continue through tools and
-actions. Generative and agentic describe different characteristics and may
-overlap. AGI and ASI are disputed or hypothetical breadth claims, not present
-product features or inevitable upgrades.
+**Adds to the connected understanding:** the first technical path from input to
+AI system to output; job, information, operation, embodiment, breadth and
+construction as different questions; the true AI → machine learning → neural
+network → deep-learning nesting; prediction inside generative model operation;
+and generative or predictive components inside a possible agentic system. AGI
+and ASI are disputed or hypothetical breadth claims, not present product
+features or inevitable upgrades.
 
 **Everyday/work case:** compare a phone photo search, spam filter, streaming
 recommendation, image generator and tool-using travel assistant by what each
 actually does.
 
-**Depth follow-ups:** Tell me more separates tasks, methods and product
-behaviour without turning them into competing “types.” Full nerd alert!
-examines narrow/general boundaries, multimodality, embodied systems and why
-AGI definitions and tests remain disputed.
+**Depth follow-ups:** Each Standard concept is followed immediately by its Tell
+me more science/technology explanation and its Full nerd alert! mechanism,
+evaluation or failure conditions. Higher depth is never collected as an
+appendix or used to repair a thin Standard definition.
 
-**Reader can now:** explain why several AI labels can apply without collapsing
-them, and place a new product provisionally by observed behaviour rather than
-marketing language.
+**Reader can now:** explain the true nesting, distinguish overlap from
+containment, describe a common agentic/generative/predictive product stack,
+explain AGI in ordinary language and classify a new product provisionally from
+evidence rather than marketing language.
 
 ### Chapter 2: What an AI product is made of
 

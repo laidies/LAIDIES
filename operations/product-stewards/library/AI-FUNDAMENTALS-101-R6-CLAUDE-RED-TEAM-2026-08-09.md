@@ -1,6 +1,16 @@
 # AI Fundamentals 101 R6 independent red-team
 
-**Final status:** READY FOR ALI DIRECTION REVIEW — NOT SEMANTICALLY ADMITTED
+**Final status:** INVALIDATED BY ALI 2026-08-10 — REJECTED FALSE PASS
+
+The `READY FOR ALI DIRECTION REVIEW` verdict below has no current quality
+authority. Ali’s exact review found authorial meaning drift, broken rhetorical
+flow, lost LAiDIES voice, an unapproved Pokémon reference, insufficient
+context, confusing type relationships, thin definitions, missing examples and
+analogies, bolt-on depth and false confidence from chapter-local index entries.
+The reviewer therefore failed to detect defects in its assigned scope.
+
+The rejected evidence remains below only to preserve how the false pass
+occurred. It may not be cited as acceptance of any current or successor bytes.
 
 **Evidence time:** 2026-08-09T18:43:52-07:00
 
