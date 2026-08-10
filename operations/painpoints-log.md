@@ -14762,11 +14762,19 @@ while remaining falsely unfinished in the launch record.
   `628de2ab-7101-4371-a2a2-36f16f9daccb` passed exact successor prose SHA
   `d59672d62c21224f147951b59bb24fa597d0c5ccc2dd4cd4bcbc59e167046564`.
   An unrelated arXiv URL stored under *Reframing Superintelligence* was also
-  replaced with Oxford's actual record.
+  replaced with Oxford's actual record. Ali then found a more fundamental
+  false pass: the opening defined AI through `infer` and defined `model`
+  through the still-unexplained word `inference`. The cold expert could
+  paraphrase it, but the target reader could not form a usable picture.
+  D-2026-08-10-118 now requires event before term, forbids definitions that
+  depend on untaught jargon and judges each concept module independently.
+  CQX-BAD-013 preserves the exact failure. A calibrated guard rejects both
+  circular definitions, and the generated successor review now remains HOLD
+  rather than converting structural integrity into semantic approval. The
+  book route also moves device, network, chips, servers, cloud and data-centre
+  hardware into the core Chapter 2 journey.
 - **Possible Behind the Build angle:** Why a taxonomy is not a lesson, and how
   a blind rejection test prevents another day of reviewer theatre.
-- **Publication status:** INTERNAL SUCCESSOR BUILT / CURRENT BLIND SEMANTIC PASS
-  AND PRIOR DIAGRAM PIXEL PASS / ALI DIRECTION, FORMAL SEMANTIC AND VISUAL
-  ADMISSION, DEPLOYMENT AND PUBLICATION REMAIN OPEN. Current final rendered prose
-  pixel inspection was skipped because browser policy blocked automated
-  `file://` access; this limitation is not converted into a visual PASS.
+- **Publication status:** PRIOR BLIND PASS INVALIDATED / SUCCESSOR 14 BUILT
+  LOCALLY AND HELD IN PRODUCTION / FRESH EXACT-PROSE, UNFAMILIAR-READER,
+  FORMAL SEMANTIC AND VISUAL ADMISSION, DEPLOYMENT AND PUBLICATION REMAIN OPEN.

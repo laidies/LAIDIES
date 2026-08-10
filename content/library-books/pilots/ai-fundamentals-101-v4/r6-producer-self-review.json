@@ -1,6 +1,6 @@
 {
   "schemaVersion": "laidies-prose-quality-review.v1",
-  "candidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-13",
+  "candidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-14",
   "stage": "PRODUCER_SELF_REVIEW",
   "contentClass": "EXPLANATION",
   "surface": "LIBRAIRY",
@@ -16,15 +16,15 @@
   "artifact": {
     "reviewText": {
       "path": "content/library-books/pilots/ai-fundamentals-101-v4/introduction-and-chapter-1-r6.md",
-      "sha256": "d59672d62c21224f147951b59bb24fa597d0c5ccc2dd4cd4bcbc59e167046564"
+      "sha256": "392dfb0e0588bf5d5022669b2bf88395ce5311da5763dfa17a97382b5f3c7137"
     },
     "manifest": {
       "path": "content/library-books/pilots/ai-fundamentals-101-v4/r6-artifact-manifest.json",
-      "sha256": "e24de3101434609c63d254d0101a5ce1ee3fa6ce11913570a4701254ed6162d8"
+      "sha256": "ad6bacac36c41e9e3387a20760543f02bd348ae7400182146d92dd976cdbd7c3"
     }
   },
   "calibration": {
-    "registrySha256": "d64ea316cf929cb8e3bd01cb2f85371e6e6d354e0a963e1e29f8d10fb534030c",
+    "registrySha256": "0bf02ad8174c343353bf5fc130b1b405286191dc5a26a599129d3ddbf38a2cd2",
     "reviewerPrincipalId": "learning-system-concepts-director",
     "reviewedAt": "2026-08-10T12:00:00-07:00",
     "negatives": [
@@ -289,7 +289,9 @@
           "standardPromisesHiddenOptionalPayoff",
           "optionalDepthOnlyRephrasesStandardQuestions",
           "boldTitledTermMissingDefinition",
-          "definitionFiledBelowTeachingDepth"
+          "definitionFiledBelowTeachingDepth",
+          "jargonDefinedThroughJargon",
+          "artifactWideVoiceMasksDryConceptModule"
         ],
         "evidence": [
           {
@@ -716,6 +718,11 @@
       "observation": "analogyDomainDifferencesOvertakeMapping is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
+    "artifactWideVoiceMasksDryConceptModule": {
+      "present": false,
+      "observation": "artifactWideVoiceMasksDryConceptModule is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
     "authorialMeaningDrift": {
       "present": false,
       "observation": "authorialMeaningDrift is absent after exact-prose producer review.",
@@ -1024,6 +1031,11 @@
     "jargonBeforeMeaning": {
       "present": false,
       "observation": "jargonBeforeMeaning is absent after exact-prose producer review.",
+      "artifactLocator": "introduction-and-chapter-1-r6.md"
+    },
+    "jargonDefinedThroughJargon": {
+      "present": false,
+      "observation": "jargonDefinedThroughJargon is absent after exact-prose producer review.",
       "artifactLocator": "introduction-and-chapter-1-r6.md"
     },
     "jokeDilutionByQualification": {
@@ -1341,7 +1353,7 @@
         "status": "VERIFIED",
         "candidateEvidence": [
           {
-            "excerpt": "An **AI system** is the working arrangement that receives information—an **input**—uses represented patterns, rules or relationships to infer a result—an **output**—and makes that result available for use.",
+            "excerpt": "Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that computer systems are using rules or patterns to do things such as recognise, predict, recommend, create or choose a next action.",
             "locator": "exact R6 prose"
           }
         ],
@@ -1355,7 +1367,7 @@
             "locator": "AIF-R6-INTRO-AI-SYSTEM sourceExcerpt"
           }
         ],
-        "scopeAndFreshness": "Broad OECD-aligned definition; recheck on definition change."
+        "scopeAndFreshness": "Beginner-facing umbrella explanation bounded by the broader OECD definition; recheck on definition change."
       },
       {
         "claimId": "AIF-R6-GENERATIVE-MULTIMODAL",
@@ -1441,13 +1453,14 @@
     "predecessorCandidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-4"
   },
   "learningDisposition": {
-    "disposition": "NO_NEW_DEFECT",
-    "rationale": "The producer consumed the complete current negative registry and found no remaining known or objective defect in the exact R6 prose. Independent and observed-human evidence remain separate."
+    "disposition": "EVIDENCE_GAP",
+    "rationale": "The builder confirms structure, bindings and exact known-bad phrase rejection only. The revised prerequisite sequence and every concept module still require a fresh exact-prose producer reading before any semantic PASS can exist."
   },
-  "verdict": "PASS",
+  "verdict": "HOLD",
   "limitations": [
+    "This generated record is an integrity and calibration receipt, not evidence that the prose is clear, useful, engaging or in LAiDIES voice.",
     "Producer self-review has no independent quality authority.",
     "Explain-back, transfer, reconstruction and analogy evidence are simulated producer probes only.",
-    "No independent semantic admission, unfamiliar-reader observation, Ali taste decision, Library admission, deployment or publication exists."
+    "No fresh exact-prose semantic review, independent admission, unfamiliar-reader observation, Ali taste decision, Library admission, deployment or publication exists."
   ]
 }

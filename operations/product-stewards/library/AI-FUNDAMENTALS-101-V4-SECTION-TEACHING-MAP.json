@@ -9,7 +9,7 @@
   "depthPlacementRule": "Each concept is one visible learning module. Its complete Standard explanation appears first; Tell Me More and Full Nerd Alert expand inside that same module, name the parent concept, continue the same example or mechanism and decode every new technical term in conversational language. They may not appear as parallel mini-lessons, a bolt-on appendix or a vocabulary dump.",
   "depthCommunicationRule": "Every higher-depth panel begins with the natural question it answers, makes the mechanism visible through an ordinary interaction, introduces technical vocabulary only after its meaning is clear and ends by reconnecting the detail to what the reader can understand or do. A technically correct paragraph that assumes the reader already understands its jargon fails.",
   "chapter1ConceptHeadings": [
-    "An AI system turns input into an inferred output",
+    "Start with the AI you already use",
     "Predictive AI estimates what is likely",
     "Generative AI produces new content",
     "Multimodal AI works across more than one modality",
@@ -27,7 +27,7 @@
     "How the construction families fit together"
   ],
   "chapter1DepthBindings": [
-    {"standard":"An AI system turns input into an inferred output","tellMeMore":"Tell Me More about an AI system: what “infer” means","fullNerd":"Full Nerd Alert on an AI system: where the system boundary sits","sameModule":true,"plainEntryExcerpt":"Take the spam filter.","workedExampleExcerpt":"The result is not floating in the email waiting to be discovered with tweezers.","readerReconnectionExcerpt":"a model performs a calculation; a system makes that calculation operational; a product gives someone a way to use it."},
+    {"standard":"Start with the AI you already use","tellMeMore":"Tell Me More about an AI system: one result can trigger another step","fullNerd":"Full Nerd Alert on an AI system: where the system boundary sits","sameModule":true,"plainEntryExcerpt":"The output is not always the end.","workedExampleExcerpt":"An AI system might estimate that a transaction looks unusual.","readerReconnectionExcerpt":"The phrase *the AI* did not tell you where either person drew the line."},
     {"standard":"Predictive AI estimates what is likely","tellMeMore":"Tell Me More about Predictive AI: how clues become a score","fullNerd":"Full Nerd Alert on Predictive AI: what makes a score trustworthy?","sameModule":true,"plainEntryExcerpt":"The system has not developed a tiny personal grudge against your new boots.","workedExampleExcerpt":"Suppose a fraud model gives genuine frauds higher scores than ordinary purchases most of the time.","readerReconnectionExcerpt":"precise at predicting *what*, under which conditions, and in service of whose goal?"},
     {"standard":"Generative AI produces new content","tellMeMore":"Tell Me More about Generative AI: how prediction produces a paragraph","fullNerd":"Full Nerd Alert on Generative AI: how the model chooses the next token","sameModule":true,"plainEntryExcerpt":"You may have seen your phone suggest the next word while you type.","workedExampleExcerpt":"Imagine the sentence: “She opened the fridge and discovered...”","readerReconnectionExcerpt":"next-token selection is not a built-in truth detector."},
     {"standard":"Multimodal AI works across more than one modality","tellMeMore":"Tell Me More about Multimodal AI: how an image and words meet","fullNerd":"Full Nerd Alert on Multimodal AI: why the connection can go wrong","sameModule":true,"plainEntryExcerpt":"Return to the photograph of the damaged chair.","workedExampleExcerpt":"If you ask about the crack in a chair, the damaged joint matters more than the floral wallpaper behind it.","readerReconnectionExcerpt":"Multimodal gives the system more kinds of information; it also gives the system more ways to connect them incorrectly."},
@@ -43,7 +43,7 @@
     {"standard":"Deep learning uses neural networks with many learned layers","tellMeMore":"Tell Me More about Deep Learning: from raw input to useful representations","fullNerd":"Full Nerd Alert on Deep Learning: representation learning and architecture","sameModule":true,"plainEntryExcerpt":"Suppose a model is learning from images.","workedExampleExcerpt":"A design that compares nearby parts of an image encourages different relationships","readerReconnectionExcerpt":"not a certificate from the philosophy department."}
   ],
   "chapter1StandardContracts": [
-    {"standard":"An AI system turns input into an inferred output","exampleExcerpt":"Now imagine a customer-service assistant.","whyExcerpt":"The distinction matters because “the model can classify an image” does not prove “the product handles a customer claim safely.”"},
+    {"standard":"Start with the AI you already use","exampleExcerpt":"Now take the spam filter.","whyExcerpt":"It is not one machine, one app or one particular chatbot."},
     {"standard":"Generative AI produces new content","exampleExcerpt":"Ask an AI assistant to turn your meeting notes into an email","whyExcerpt":"you can begin with a tailored result instead of a blank page."},
     {"standard":"Specialised or narrow AI has a bounded job","exampleExcerpt":"Imagine a system built to spot damaged products in photographs from one factory line.","whyExcerpt":"The useful follow-up is: **specialised for which job, using which inputs, under which conditions?**"},
     {"standard":"General-purpose AI can help with many different tasks","exampleExcerpt":"Suppose one assistant can summarise a policy, draft an invitation, explain a chart","whyExcerpt":"The value is flexibility; the catch is that a longer menu does not promise equal skill or reliability"},
@@ -55,7 +55,7 @@
   ],
   "chapter1DefinitionDepthContracts": [
     {"term":"Breadth","depth":"STANDARD"},
-    {"term":"Inference","depth":"STANDARD"},
+    {"term":"Inference","depth":"FULL_NERD_ALERT"},
     {"term":"Model","depth":"STANDARD"},
     {"term":"Product","depth":"STANDARD"},
     {"term":"Reliability","depth":"STANDARD"},
@@ -106,7 +106,7 @@
           "teachingGoal": "Give the reader the organising structure before any type is taught.",
           "prerequisiteConcepts": [],
           "conceptsIntroduced": ["AI system", "input", "output", "type dimension"],
-          "relationshipsAdded": ["An AI system receives an input and infers an output; type labels can describe its job, information forms, operating pattern, physical interaction, breadth or construction method."],
+          "relationshipsAdded": ["An AI system receives an input and returns an output or triggers a next step; type labels can describe its job, information forms, operating pattern, physical interaction, breadth or construction method."],
           "questionsAnswered": ["Why are AI types not one list of competing boxes?", "Which question does each group of labels answer?"],
           "learnerEvidence": "EXPLAIN_IT: name two different true labels for one familiar system and state the different question each answers."
         },
@@ -239,6 +239,7 @@
       "questionsAnswered": [
         "What is an AI model?",
         "What else makes an AI product work?",
+        "Where do devices, networks, chips, servers, cloud services and data centres enter the journey?",
         "Why can the same model behave differently in different products?"
       ],
       "sections": [
@@ -288,25 +289,36 @@
         },
         {
           "sectionId": "ch2-compute-people",
-          "title": "Computers, companies and people",
+          "title": "The physical computers doing the work",
           "depth": "STANDARD",
-          "teachingGoal": "Place physical infrastructure and human decisions into the system from the beginning.",
+          "teachingGoal": "Trace one request through the physical hardware and network that run the product instead of treating AI as disembodied software.",
           "prerequisiteConcepts": ["AI product", "model", "orchestration"],
-          "conceptsIntroduced": ["compute infrastructure", "deployment decision", "human oversight"],
-          "relationshipsAdded": ["Hardware runs the model and product, while organisations and people choose objectives, access, permissions and use."],
-          "questionsAnswered": ["Where does an AI product physically run?", "Which important choices remain human or institutional?"],
-          "learnerEvidence": "EXPLAIN_IT: add one infrastructure choice and one human decision to the product map."
+          "conceptsIntroduced": ["device", "network", "processor", "CPU", "GPU", "memory", "server", "cloud service", "data centre", "compute infrastructure", "deployment decision", "human oversight"],
+          "relationshipsAdded": ["A request may travel from a reader's device across a network to servers whose processors and memory run product software and model calculations; cloud services organise access to that physical infrastructure, while organisations and people choose objectives, access, permissions and use."],
+          "questionsAnswered": ["Where does an AI product physically run?", "What do processors, memory, servers, cloud services and data centres each contribute?", "Why do many AI systems use GPUs?", "Which important choices remain human or institutional?"],
+          "learnerEvidence": "DRAW_IT: trace one prompt from a device through the network, server hardware, product software and model, then return the output and mark one human decision."
         },
         {
           "sectionId": "ch2-architecture-depth",
           "title": "How products assemble the parts",
-          "depth": "FULL_NERD_ALERT",
-          "teachingGoal": "Introduce service boundaries, APIs and inference serving without assuming software-engineering knowledge.",
+          "depth": "TELL_ME_MORE",
+          "teachingGoal": "Introduce service boundaries, APIs and model serving while keeping the software and hardware journey visible.",
           "prerequisiteConcepts": ["interface", "AI product", "model", "orchestration", "compute infrastructure"],
-          "conceptsIntroduced": ["API", "inference service", "application architecture"],
-          "relationshipsAdded": ["Interfaces and application services exchange structured requests with model and tool services across controlled boundaries."],
-          "questionsAnswered": ["How do separate software services cooperate to produce one AI product experience?"],
-          "learnerEvidence": "DRAW_IT: expand the product box into interface application model and tool services."
+          "conceptsIntroduced": ["API", "model serving", "application architecture", "latency"],
+          "relationshipsAdded": ["Interfaces and application services exchange structured requests with model and tool services running on physical computing infrastructure; network and processing delays contribute to the wait the reader experiences."],
+          "questionsAnswered": ["How do separate software services cooperate to produce one AI product experience?", "Where can delay enter between sending a prompt and seeing an answer?"],
+          "learnerEvidence": "DRAW_IT: expand the product box into interface, network, application, model-serving and tool services, then point to two places delay can enter."
+        },
+        {
+          "sectionId": "ch2-hardware-depth",
+          "title": "Why AI uses specialised chips and many machines",
+          "depth": "FULL_NERD_ALERT",
+          "teachingGoal": "Explain parallel calculation, accelerators, distributed work, bandwidth and memory limits from first principles.",
+          "prerequisiteConcepts": ["processor", "CPU", "GPU", "memory", "server", "model serving"],
+          "conceptsIntroduced": ["accelerator", "parallel processing", "distributed computing", "bandwidth"],
+          "relationshipsAdded": ["GPUs and other accelerators can perform many similar numerical operations in parallel; large workloads may be divided across chips and servers, while memory capacity and communication speed limit what can run efficiently."],
+          "questionsAnswered": ["Why can a GPU be useful for AI?", "Why might one model need several chips or servers?", "How can memory and communication become bottlenecks?"],
+          "learnerEvidence": "EXPLAIN_IT: describe why more chips do not create intelligence by themselves but can make a chosen model practical to train or run."
         }
       ]
     },

@@ -158,6 +158,40 @@ Index`. A `See more at LAiDIES` route links only to real admitted destinations.
 Missing classes, episodes or publications become owner handoffs, never dead or
 implied-public links.
 
+### Zero-prerequisite language rule
+
+`No technical background` is a production constraint, not an audience label.
+At first use, a technical idea must be made visible in an ordinary event the
+reader can picture before—or in the same sentence as—the technical name. A
+definition fails when it relies on another technical term that has not already
+been taught. In particular, a 101 explanation may not define AI through
+`infer`, define a model as the component that performs `inference`, or use
+`parameters`, `representations`, `features`, `tokens`, `architecture` or a
+similar specialist word as though bold type makes it plain.
+
+The required first-use sequence is:
+
+`familiar event or result → what changed or happened → plain meaning → technical name → another concrete example → connection to the surrounding system`
+
+The sequence may be compressed when the term is genuinely ordinary. It may
+not be reversed for the convenience of a source definition. Exact wording from
+OECD, NIST or another authority can support factual review without becoming
+the reader-facing explanation.
+
+Optional depth cannot repair Standard. Tell Me More may introduce the next
+technical layer only after it restates the connection to the Standard example
+in plain language. Full Nerd Alert may add mathematics, architecture,
+evaluation or edge cases, but still explains every new term from first
+principles. A reader who stays on Standard must never need a hidden panel to
+understand a Standard sentence.
+
+Production and review judge every concept module on its own. Humour, warmth or
+clarity elsewhere in the artifact cannot compensate for a dry, circular or
+technical first explanation. For each first-class concept, the reviewer must
+be able to explain it back without repeating the source definition and apply
+it to a different everyday example. An expert paraphrase is not beginner
+evidence when it preserves the same untaught vocabulary.
+
 The three depths are one progressively disclosed lesson, not three parallel
 lessons. Each concept appears inside one visible module with one
 coverage-predictive heading. Standard is the complete first explanation. Tell

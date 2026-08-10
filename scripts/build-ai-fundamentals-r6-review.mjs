@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { enforcedFailureFamilies } from "./check-prose-quality-admission.mjs";
+import { aiFundamentalsBeginnerLanguageIssues } from "./check-ai-fundamentals-beginner-language.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const base = "content/library-books/pilots/ai-fundamentals-101-v4";
@@ -15,7 +16,7 @@ const reviewPath = `${base}/r6-producer-self-review.json`;
 const registryPath = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const sourcePath = "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json";
 const teachingMapPath = "operations/product-stewards/library/AI-FUNDAMENTALS-101-V4-SECTION-TEACHING-MAP.json";
-const candidateId = "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-13";
+const candidateId = "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-14";
 const surface = "LIBRAIRY";
 
 const read = relative => fs.readFileSync(path.join(root, relative), "utf8");
@@ -138,6 +139,10 @@ for (const heading of requiredIntroductionHeadings) {
   }
 }
 const teachingMap = JSON.parse(read(teachingMapPath));
+const beginnerLanguageIssues = aiFundamentalsBeginnerLanguageIssues(candidate);
+if (beginnerLanguageIssues.length) {
+  throw new Error(`Beginner-language integrity failed:\n- ${beginnerLanguageIssues.join("\n- ")}`);
+}
 for (const binding of teachingMap.chapter1DepthBindings || []) {
   const headingIndex = text => {
     const escaped = text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -383,7 +388,7 @@ const review = {
     disposition: "CLAIMS_REVIEWED",
     sourceBindings: [sourceBinding],
     claimMap: [
-      { claimId: "AIF-R6-AI-SYSTEM", status: "VERIFIED", candidateEvidence: evidence("An **AI system** is the working arrangement that receives information—an **input**—uses represented patterns, rules or relationships to infer a result—an **output**—and makes that result available for use."), sourceBinding, sourceEvidence: [{ excerpt: "An AI system is a machine-based system that, for explicit or implicit objectives, infers", locator: "AIF-R6-INTRO-AI-SYSTEM sourceExcerpt" }], scopeAndFreshness: "Broad OECD-aligned definition; recheck on definition change." },
+      { claimId: "AIF-R6-AI-SYSTEM", status: "VERIFIED", candidateEvidence: evidence("Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that computer systems are using rules or patterns to do things such as recognise, predict, recommend, create or choose a next action."), sourceBinding, sourceEvidence: [{ excerpt: "An AI system is a machine-based system that, for explicit or implicit objectives, infers", locator: "AIF-R6-INTRO-AI-SYSTEM sourceExcerpt" }], scopeAndFreshness: "Beginner-facing umbrella explanation bounded by the broader OECD definition; recheck on definition change." },
       { claimId: "AIF-R6-GENERATIVE-MULTIMODAL", status: "VERIFIED", candidateEvidence: evidence("**Generative AI** produces content: text, images, audio, video, code or other digital material."), sourceBinding, sourceEvidence: [{ excerpt: "Generative AI produces new content. Modality describes the kind of information", locator: "AIF-R6-CH1-GENERATIVE-MULTIMODAL ruledClaim" }], scopeAndFreshness: "Technology-neutral distinction; named product claims intentionally absent." },
       { claimId: "AIF-R6-AGENTIC", status: "QUALIFIED", candidateEvidence: evidence("An **agentic AI** system can continue through a task."), sourceBinding, sourceEvidence: [{ excerpt: "Agentic describes continued operation across steps toward a goal", locator: "AIF-R6-CH1-AGENTIC-EMBODIED ruledClaim" }], scopeAndFreshness: "Industry terminology varies; candidate states the variation boundary and makes no universal product claim." },
       { claimId: "AIF-R6-AGI-ASI", status: "QUALIFIED", candidateEvidence: evidence("LAiDIES does **not** classify today’s products as AGI."), sourceBinding, sourceEvidence: [{ excerpt: "General-purpose AI is not the same as AGI.", locator: "AIF-R6-CH1-GENERAL-PURPOSE-AGI-ASI ruledClaim" }], scopeAndFreshness: "LAiDIES position plus disputed-definition boundary; recheck before publication and on material capability evidence change." }
@@ -394,9 +399,9 @@ const review = {
   },
   ratchet: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0, reviewIssues: 0, reviewCycles: 0, priorComparable: { reviewIssues: 3, reviewCycles: 1 }, onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" },
   lineage: { kind: "SUCCESSOR", predecessorCandidateId: "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-4" },
-  learningDisposition: { disposition: "NO_NEW_DEFECT", rationale: "The producer consumed the complete current negative registry and found no remaining known or objective defect in the exact R6 prose. Independent and observed-human evidence remain separate." },
-  verdict: "PASS",
-  limitations: ["Producer self-review has no independent quality authority.", "Explain-back, transfer, reconstruction and analogy evidence are simulated producer probes only.", "No independent semantic admission, unfamiliar-reader observation, Ali taste decision, Library admission, deployment or publication exists."]
+  learningDisposition: { disposition: "EVIDENCE_GAP", rationale: "The builder confirms structure, bindings and exact known-bad phrase rejection only. The revised prerequisite sequence and every concept module still require a fresh exact-prose producer reading before any semantic PASS can exist." },
+  verdict: "HOLD",
+  limitations: ["This generated record is an integrity and calibration receipt, not evidence that the prose is clear, useful, engaging or in LAiDIES voice.", "Producer self-review has no independent quality authority.", "Explain-back, transfer, reconstruction and analogy evidence are simulated producer probes only.", "No fresh exact-prose semantic review, independent admission, unfamiliar-reader observation, Ali taste decision, Library admission, deployment or publication exists."]
 };
 
 writeJson(reviewPath, review);

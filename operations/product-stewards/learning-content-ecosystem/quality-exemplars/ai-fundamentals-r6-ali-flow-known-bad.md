@@ -118,6 +118,32 @@ systems are not. A reader could repeat the wording without being able to
 picture AGI, distinguish it confidently from general-purpose or agentic AI or
 explain what evidence an AGI claim would require.
 
+## The successor defined jargon with more jargon
+
+The later successor opened its supposedly beginner-safe technical teaching
+with:
+
+> Artificial intelligence (AI) is the broad field of building machine-based
+> systems that infer outputs such as predictions, content, recommendations or
+> decisions from inputs.
+
+It then said:
+
+> A model is the component that performs an inference.
+
+Neither sentence teaches a reader with no technical background. `Infer` had
+not been explained, and `model` was defined through the unexplained noun
+`inference`. The exact-prose checks saw required terms and the expert reviewer
+could paraphrase the sentences, but neither proved that a beginner could form
+a picture of what happened. Humour elsewhere in the chapter also allowed a
+dry, circular concept module to pass an artifact-wide voice judgment.
+
+Required prevention: make the event visible before naming it; forbid a
+definition from depending on an untaught technical term; require an ordinary
+second example; judge each first-class concept module independently; and have
+an unfamiliar reader explain and apply the idea without borrowing the source
+definition. Optional Nerd-O-Meter depth cannot contain the missing meaning.
+
 ## The book omitted normal textbook continuation
 
 The candidate did not provide a truthful `See more at LAiDIES` route to

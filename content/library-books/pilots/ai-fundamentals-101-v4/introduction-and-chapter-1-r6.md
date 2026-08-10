@@ -78,13 +78,23 @@ If the list feels confusing, you have not missed one basic lesson that everyone 
 
 Before we sort out the words, let’s start with the thing they are trying to describe.
 
-### An AI system turns input into an inferred output
+### Start with the AI you already use
 
-**Artificial intelligence (AI)** is the broad field of building machine-based systems that infer outputs such as predictions, content, recommendations or decisions from inputs.
+Before we define anything, look at what is already happening around you.
 
-An **AI system** is the working arrangement that receives information—an **input**—uses represented patterns, rules or relationships to infer a result—an **output**—and makes that result available for use. Your spam filter receives an email and estimates whether it belongs in spam. A chatbot receives your words and produces a response. A warehouse robot receives sensor information and may use an AI result to help control a physical movement. All count as AI systems; clearly, they are not doing the same job or carrying the same stakes.
+Your phone can find photographs of dogs without you labelling every dog. Your bank can flag a purchase that looks unusual. A streaming service can suggest what to watch next. ChatGPT can turn your chaotic meeting notes into an email that sounds as though someone had a plan all along.
 
-One piece of vocabulary will save us trouble immediately. A **model** is the component that performs an inference. An **AI system** makes that calculation usable with inputs, software and a process for the output. The finished **product** is what someone actually uses; it may add an interface, stored information, tools, permissions, ordinary software and people. The distinction matters because “the model can classify an image” does not prove “the product handles a customer claim safely.”
+Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that computer systems are using rules or patterns to do things such as recognise, predict, recommend, create or choose a next action.
+
+That is the useful beginner’s meaning. AI is the big field. It contains many ways of building systems and many kinds of job. It is not one machine, one app or one particular chatbot.
+
+Now take the spam filter. A new email arrives. It may be a real message from your bank. It may be from a mysterious prince who has chosen *you*, of all eight billion people, to help move his fortune. The filter has to return a result: inbox or spam.
+
+The email it receives is the **input**. “Inbox” or “spam” is the **output**. Input means what goes in. Output means what comes back. We could have started with the grander words, but they would still mean exactly that.
+
+An **AI system** is the complete working setup that makes this exchange happen. The finished **product** is the thing a person actually uses: the email app, photo search, chatbot or recommendation screen. Later chapters will take that setup apart—software, model, data, chips, servers, tools and people—and show what every part contributes. For now, hold onto the simplest complete picture:
+
+**Something goes in → the AI system does its particular job → something comes back or happens next.**
 
 Now imagine a customer-service assistant. A customer sends an email and a photograph of a damaged chair. One part estimates the problem and urgency. Another writes an explanation. The system works with both image and text. If a person approves and the assistant continues into the service system to prepare a ticket, it may work through several steps instead of stopping after one answer.
 
@@ -112,19 +122,21 @@ The diagram below uses a customer-service assistant to give you the whole relati
 
 ![A diagram showing that AI type labels answer six different questions about a system: its job, information, operation, physical interaction, breadth and construction. One customer-service assistant receives several labels at once.](assets/chapter-1-how-ai-types-fit-together.svg)
 
-#### Tell Me More about an AI system: what “infer” means
+#### Tell Me More about an AI system: one result can trigger another step
 
-To **infer** is to work out a result from the information, patterns or rules available rather than retrieve one answer that a person wrote for this exact case.
+The output is not always the end. A spam filter might return a score meaning “this email looks very suspicious.” The email product then uses that score to decide whether the message stays in your inbox, moves to spam or waits for another check.
 
-Take the spam filter. Ordinary software delivers the email and displays the subject line. The AI part estimates whether this particular message belongs in spam. The result is not floating in the email waiting to be discovered with tweezers. The system applies represented rules or learned patterns to the current input and produces a classification.
+This gives us two separate parts: the AI produces a result; the surrounding product decides what to do with it. Change the product’s cutoff and more messages may land in spam even if the AI underneath has not changed.
 
-Inference does not mean the system reasoned like a person, understood the email or reached the truth. It names the move from input to calculated output.
+That separation becomes extremely important when the stakes rise. An AI system might estimate that a transaction looks unusual. The bank decides whether that estimate creates a quiet warning, a human review or a blocked card while you are standing at a hotel desk in Rome. Same kind of AI result. Very different product decision. Very different evening.
 
 #### Full Nerd Alert on an AI system: where the system boundary sits
 
-Where we draw the **system boundary** depends on the question. An engineer evaluating model accuracy may isolate the model and its test inputs. Someone evaluating the complete service must include which photograph reaches the model, how its score is converted into a decision, whether a person can correct it and which action follows.
+Chapter 2 will introduce the model and every other major part inside an AI product. For this first chapter, the deeper systems idea is simply that people can draw the edge around “the AI” in different places. Engineers call that chosen edge the **system boundary**.
 
-That is why two accurate reports can appear to discuss “the AI” while measuring different things. Chapter 2 will unpack every component. For now, keep the boxes separate: a model performs a calculation; a system makes that calculation operational; a product gives someone a way to use it.
+Someone testing one internal component may look only at the answers it produces from a set of test cases. Someone testing the complete service must also include which information reaches it, how the result becomes a product decision, whether a person can correct it and which action follows.
+
+That is why two accurate reports can appear to discuss “the AI” while measuring different things. One tested an internal answer-maker. The other tested the complete experience and what happened afterward. The phrase *the AI* did not tell you where either person drew the line.
 
 ## What job does the AI perform?
 
@@ -728,8 +740,8 @@ Classes and NewsStand articles appear here only after they actually exist and ha
 
 - **Agentic AI** — AI that continues through steps, tools and observations toward a goal; introduced here and explained fully in Chapter 6.
 - **AGI** — the disputed idea of AI that can adapt and apply what it knows across many unfamiliar intellectual tasks, rather than remaining capable only within bounded or previously learned patterns; no current system has universally accepted evidence that it meets the threshold.
-- **AI** — the broad field of building machine-based systems that infer outputs such as predictions, content, recommendations or decisions from inputs.
-- **AI system** — a system that receives inputs and infers outputs using represented patterns, rules or relationships.
+- **AI** — the field of building computer systems that can perform jobs such as recognising, predicting, recommending, creating content or choosing an action.
+- **AI system** — all the working parts that receive something, produce a result and make that result available or use it for a next step.
 - **ANI** — artificial narrow intelligence; another name used for specialised or narrow AI.
 - **ASI** — the hypothetical idea of AI that greatly exceeds human capability across most intellectual work; it does not exist today, and AGI would not automatically or inevitably lead to it.
 - **Breadth** — how many materially different kinds of task a system can attempt.
@@ -738,23 +750,22 @@ Classes and NewsStand articles appear here only after they actually exist and ha
 - **Embodied AI** — AI that senses or acts through physical equipment.
 - **General-purpose AI** — current AI that can perform a variety of tasks rather than one specialised function, though capability and reliability may vary sharply across them.
 - **Generative AI** — AI whose product job includes producing new content from learned patterns and current input.
-- **Inference** — working out a result from available inputs, represented patterns or rules rather than retrieving one answer written for the exact case.
-- **Input** — information supplied to an AI system for its current operation.
+- **Input** — what goes into the AI system for this use, such as a prompt, photograph, voice recording or new email.
 - **Machine learning** — building a model from data or examples rather than writing every input-to-output mapping directly; the construction distinction is defined here, and Chapter 3 explains training and inference in full.
 - **Modality** — a form of information, such as text, image, audio, video or sensor data.
-- **Model** — the mathematical or rule-based component that performs an inference inside a wider AI system.
+- **Model** — the reusable answer-making part inside many AI systems. It uses rules or patterns built earlier to produce a result for something new; it is not the whole app or product.
 - **Multimodal AI** — AI that handles more than one modality.
 - **Neural network** — a family of machine-learning models that passes numerical information through connected layers of adjustable operations; Full Nerd Alert introduces loss functions, backpropagation and gradient descent, while Chapter 3 explains the wider learning process.
-- **Output** — the result an AI system infers or produces from an input.
+- **Output** — what the AI system gives back, such as a spam label, recommendation, draft, score or requested image.
 - **Predictive AI** — the broader public label for systems whose jobs include classification, prediction, ranking or recommendation.
-- **Product** — the visitor- or worker-facing experience that may combine an AI system with an interface, stored information, tools, permissions, ordinary software and people.
+- **Product** — the finished thing a person uses; it may combine an AI system with an interface, stored information, tools, permissions, ordinary software and people.
 - **Ranking** — ordering options using predicted scores or relevance.
 - **Recommendation** — selecting or presenting options judged relevant to a person or situation.
 - **Reliability** — how consistently a capability works under the conditions where it matters.
 - **Representation** — a numerical form in which a model can work with patterns from text, images, sound or other information.
 - **Rule-based AI** — AI whose relevant logic is explicitly represented in designed rules.
 - **Specialised or narrow AI** — AI designed for a bounded task or domain.
-- **Training** — the process in which a machine-learning model’s adjustable settings change so its results improve against chosen examples and objectives.
+- **Training** — the earlier building process in which a machine-learning model repeatedly tries examples and has its internal numerical settings adjusted to improve its results.
 - **Transfer** — using something learned in one situation to make progress in a materially different one.
 - **Value or outcome prediction** — one predictive job: estimating an unknown or future value or outcome.
 
@@ -774,6 +785,7 @@ Classes and NewsStand articles appear here only after they actually exist and ha
 
 ### Full Nerd Alert definitions
 
+- **Inference** — the moment a finished rule-based or trained AI uses what it already has to produce a result for one current case: for example, a new email arrives and the spam filter labels it spam.
 - **Architecture** — the arrangement of a model’s layers and connections, which shapes how information can move and which relationships the model is equipped to learn.
 - **Attention mechanism** — a mathematical process that gives different weight to pieces of information and their relationships for the current calculation.
 - **Backpropagation** — the training calculation that works backward through a neural network to determine how its adjustable values contributed to the loss.

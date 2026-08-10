@@ -134,30 +134,36 @@ evidence rather than marketing language.
 surrounding technical and human components.
 
 **By the end, the reader can answer:** What is an AI model? What else makes an
-AI product work? Why can the same model behave differently in different
-products?
+AI product work? Where do chips, servers, networks, cloud services and data
+centres enter the journey? Why can the same model behave differently in
+different products?
 
 **Builds from:** different AI products perform different tasks.
 
 **Adds to the map:** interface, product software, model, current input,
-surrounding instructions, optional retrieval, memory and tools, computing
-infrastructure, output and human decision. Model, product, company and complete
-system are not synonyms.
+surrounding instructions, optional retrieval, memory and tools, device and
+network, processors and memory, servers or cloud services, data-centre
+infrastructure, output and human decision. Model, product, company, hardware,
+cloud service and complete system are not synonyms.
 
-**Everyday/work case:** follow one customer-service request through the visible
-chat window, product rules, model, policy retrieval and human approval.
+**Everyday/work case:** follow one customer-service request from the visible
+chat window through the device and network to product software, computing
+hardware, model, policy retrieval, returned output and human approval.
 
 **Analogy candidate:** a television production may help separate the visible
 programme from the cast, script, editing, broadcast system and people making
 decisions—but only if learner testing shows the mapping reduces confusion.
 
-**Depth follow-ups:** Tell me more explains APIs, orchestration and product
-guardrails. Full nerd alert! adds model families, inference serving, hardware
-and why the same model can behave differently in different products.
+**Depth follow-ups:** Tell me more explains why AI workloads use CPUs, GPUs or
+other accelerators, what memory and networking contribute, and how cloud
+services run models for products. Full nerd alert! adds inference serving,
+distributed training, bandwidth, latency and why changing hardware or product
+architecture can alter speed, cost and practical capability without changing
+the textbook definition of AI.
 
-**Reader can now:** draw the major parts behind a familiar product and identify
-which part would need to change to alter information access, permission or
-behaviour.
+**Reader can now:** draw the major software, model, hardware and human parts
+behind a familiar product and identify which part would need to change to alter
+information access, permission, speed, cost or behaviour.
 
 ### Chapter 3: How an AI model learns, then produces a result
 
