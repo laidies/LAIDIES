@@ -8,13 +8,16 @@
 > structure, jokes or references. No public artifact was changed or released
 > by this decision.
 
-> **2026-08-09 AI Fundamentals authorial-source correction:** Ali's complete
-> authored Introduction is now the locked writing, voice and intent base for
-> the next AI Fundamentals 101 candidate. The agent-written R5 proof is
-> superseded as a writing base and remains comparison evidence only. Producers
-> must fact-check and copy-edit Ali's prose in place rather than translating it
-> into a generic explainer. No successor prose, admission, learner test,
-> render, deployment or publication exists yet.
+> **2026-08-09 AI Fundamentals R6 direction-review candidate:** Ali's complete
+> authored Introduction remains the locked writing, voice and intent base. R6
+> now renders that Introduction with Chapter 1, `So… what kind of AI are we
+> talking about?`, plus the working three-position Nerd-O-Meter. Two
+> artifact-first Claude passes rejected authorial replacement, a missing
+> prerequisite map, recap/index defects and one altered Ali joke before the
+> final exact-byte review returned `READY_FOR_ALI_DIRECTION_REVIEW`. Those
+> failures are preserved as CQX-BAD-012. This is a local direction candidate,
+> not observed-human comprehension proof, semantic admission, Library
+> acceptance, deployment or publication.
 
 > **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
 > every prior V3 verdict remains invalid. A blank-page, question-led full-book

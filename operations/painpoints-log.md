@@ -14701,3 +14701,30 @@ while remaining falsely unfinished in the launch record.
   to define a voice across a whole publishing system.
 - **Publication status:** INTERNAL SITEWIDE WRITING-SYSTEM CORRECTION / NO
   PUBLIC PROSE, ROUTE, DEPLOYMENT OR PUBLICATION CHANGED.
+
+## BTB-467 — A bound teaching map can still be absent from the prose
+
+- **Date:** 2026-08-09
+- **Area:** Author-led substantial-book production and independent review.
+- **Failure risk:** A producer contract can bind the correct section map and
+  locked authorial source while the exact prose silently omits a promised
+  prerequisite, replaces the author's language or leaves first-class concepts
+  out of its recap and index.
+- **Root cause:** R6 self-review checked artifact excerpts against outcome
+  labels but did not compare every route promise to the prose or every edited
+  Introduction movement to Ali's exact source. It therefore passed before an
+  artifact-first reviewer found the missing input-system-output-consequence
+  map, an altered Ali joke, a recap-set mismatch and index omissions.
+- **Prevention rule:** Before self-review, cross-check every bound section-map
+  concept, relationship and learner outcome against exact prose; compare every
+  author-led edit against the locked source; require recaps to preserve the
+  set and axes taught; and require the Concept Index to cover every first-class
+  concept introduced or used in transfer.
+- **Durable correction:** `CQX-BAD-012` preserves the four false-pass families
+  and invalidates stale contracts. The R6 contract consumes them explicitly,
+  and the final exact-byte Claude review returned
+  `READY_FOR_ALI_DIRECTION_REVIEW` only after all four were repaired.
+- **Possible Behind the Build angle:** Why a correct curriculum map does not
+  prove that the reader ever received the lesson.
+- **Publication status:** INTERNAL PRODUCTION AND REVIEW CORRECTION / R6 IS A
+  LOCAL DIRECTION CANDIDATE, NOT ADMITTED, DEPLOYED OR PUBLISHED.

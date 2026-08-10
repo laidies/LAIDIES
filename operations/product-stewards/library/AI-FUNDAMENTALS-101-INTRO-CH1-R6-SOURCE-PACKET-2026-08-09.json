@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "laidies-library-source-packet.v1",
+  "packetId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCES-2026-08-09",
+  "candidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6",
+  "checkedAt": "2026-08-09T17:10:00-07:00",
+  "scope": "Claim and mechanism authority for the author-preserving Introduction and Chapter 1 concept proof. This packet follows the current V4 section teaching map and supersedes the Chapter 1 evidence slice in the R4 packet for this candidate only.",
+  "claims": [
+    {
+      "claimId": "AIF-R6-INTRO-AI-SYSTEM",
+      "ruledClaim": "An AI system is a machine-based system that receives input and infers how to produce outputs such as predictions, content, recommendations or decisions that may influence physical or virtual environments. Different AI systems vary in autonomy and adaptiveness, and human choices remain throughout development, deployment and use.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "What is AI? Can you make a clear distinction between AI and non-AI systems?",
+          "url": "https://oecd.ai/en/wonk/definition",
+          "checked": "2026-08-09",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "sourceExcerpt": "An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments.",
+          "scopeLimit": "A broad policy definition. The AI label alone does not establish usefulness, reliability, safety or one universal architecture."
+        }
+      ],
+      "freshnessTrigger": "OECD definition changes or the candidate asserts a different universal boundary."
+    },
+    {
+      "claimId": "AIF-R6-CH1-COMMON-TASKS",
+      "ruledClaim": "AI systems may recognise or classify patterns, estimate likely outcomes, rank options, recommend items or generate content. These tasks can appear alone or as connected stages inside one product.",
+      "sources": [
+        {
+          "publisher": "OECD.AI",
+          "title": "OECD Framework for the Classification of AI Systems",
+          "url": "https://oecd.ai/en/wonk/classification",
+          "checked": "2026-08-09",
+          "sourceTier": "INTERGOVERNMENTAL_TECHNICAL_AUTHORITY",
+          "sourceExcerpt": "The framework supports classification across multiple dimensions and contexts rather than one exhaustive flat list of AI types.",
+          "scopeLimit": "The learner-facing tasks are representative, not an exhaustive taxonomy."
+        },
+        {
+          "publisher": "Google for Developers",
+          "title": "Machine Learning Glossary",
+          "url": "https://developers.google.com/machine-learning/glossary",
+          "checked": "2026-08-09",
+          "sourceTier": "PRIMARY_TECHNICAL_DOCUMENTATION",
+          "sourceExcerpt": "The glossary separately defines classification, prediction, ranking, recommendation systems and generative AI.",
+          "scopeLimit": "Glossary entries support bounded distinctions, not claims about a named product's current behaviour."
+        }
+      ],
+      "freshnessTrigger": "The prose claims the list is exhaustive or attaches a capability to a named product."
+    },
+    {
+      "claimId": "AIF-R6-CH1-GENERATIVE-MULTIMODAL",
+      "ruledClaim": "Generative AI produces new content. Modality describes the kind of information a system receives or produces, such as text, images, audio or video. One system can therefore be both generative and multimodal.",
+      "sources": [
+        {
+          "publisher": "NIST",
+          "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+          "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+          "checked": "2026-08-09",
+          "sourceTier": "GOVERNMENT_TECHNICAL_STANDARD",
+          "sourceExcerpt": "The profile treats generative AI as a class within the wider AI-system and product landscape.",
+          "scopeLimit": "A risk-management profile, not a complete beginner taxonomy or product catalogue."
+        },
+        {
+          "publisher": "International AI Safety Report",
+          "title": "International AI Safety Report 2026: Extended Summary for Policymakers",
+          "url": "https://internationalaisafetyreport.org/sites/default/files/2026-02/ai-safety-report-2026-extended-summary-for-policymakers.pdf",
+          "checked": "2026-08-09",
+          "sourceTier": "INTERNATIONAL_SCIENTIFIC_SYNTHESIS",
+          "sourceExcerpt": "General-purpose AI systems can typically converse in numerous languages, generate code, create images and short videos, and perform other well-scoped tasks, while performance remains uneven across tasks and domains.",
+          "scopeLimit": "A dated synthesis. It does not establish the current capabilities of every product or equate general-purpose AI with AGI."
+        }
+      ],
+      "freshnessTrigger": "The candidate makes a named-product modality or current-capability claim."
+    },
+    {
+      "claimId": "AIF-R6-CH1-AGENTIC-EMBODIED",
+      "ruledClaim": "Agentic describes continued operation across steps toward a goal, selecting actions and using feedback or observations. Embodied describes interaction through a physical body, sensors or actuators. Neither label establishes consciousness, correctness or unlimited autonomy.",
+      "sources": [
+        {
+          "publisher": "Anthropic",
+          "title": "Building Effective AI Agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents",
+          "checked": "2026-08-09",
+          "sourceTier": "PRIMARY_PRACTITIONER_ENGINEERING",
+          "sourceExcerpt": "Workflows use predefined code paths, while agents dynamically direct their own process and tool use; the term agent is used inconsistently and implementations vary in autonomy.",
+          "scopeLimit": "One company's engineering distinction, not a universal industry definition."
+        },
+        {
+          "publisher": "International AI Safety Report",
+          "title": "International AI Safety Report 2026: Extended Summary for Policymakers",
+          "url": "https://internationalaisafetyreport.org/sites/default/files/2026-02/ai-safety-report-2026-extended-summary-for-policymakers.pdf",
+          "checked": "2026-08-09",
+          "sourceTier": "INTERNATIONAL_SCIENTIFIC_SYNTHESIS",
+          "sourceExcerpt": "AI agents are a major focus of current development, but still complement rather than replace humans in most complex professional roles because multi-step and unusual tasks remain unreliable.",
+          "scopeLimit": "The report describes current evidence and uncertainty; it does not imply all tool-using assistants are equally agentic."
+        }
+      ],
+      "freshnessTrigger": "Before every public review or when a universal agent definition or named-product autonomy claim is introduced."
+    },
+    {
+      "claimId": "AIF-R6-CH1-GENERAL-PURPOSE-AGI-ASI",
+      "ruledClaim": "Current general-purpose AI can perform a variety of tasks but remains uneven and unreliable. General-purpose AI is not the same as AGI. AGI is a disputed proposed category involving broad generality and transfer across unfamiliar intellectual tasks; no universal definition or test exists, and LAiDIES does not classify current products as AGI. ASI is hypothetical capability far beyond humans across a broad cognitive range. Neither AGI nor ASI is an inevitable next product tier.",
+      "sources": [
+        {
+          "publisher": "International AI Safety Report",
+          "title": "International AI Safety Report 2026: Extended Summary for Policymakers",
+          "url": "https://internationalaisafetyreport.org/sites/default/files/2026-02/ai-safety-report-2026-extended-summary-for-policymakers.pdf",
+          "checked": "2026-08-09",
+          "sourceTier": "INTERNATIONAL_SCIENTIFIC_SYNTHESIS",
+          "sourceExcerpt": "General-purpose AI is designed to perform a variety of tasks rather than one specialised function; current performance is jagged, with many complex successes and failures on some seemingly simpler, multi-step, physical-world, linguistic and cultural tasks.",
+          "scopeLimit": "The report's general-purpose category is current and evidence-based; it does not certify AGI or settle AGI definitions."
+        },
+        {
+          "publisher": "Google DeepMind",
+          "title": "Levels of AGI: Operationalizing Progress on the Path to AGI",
+          "url": "https://deepmind.google/research/publications/66938/",
+          "checked": "2026-08-09",
+          "sourceTier": "PRIMARY_RESEARCH_LAB_PAPER",
+          "sourceExcerpt": "The proposed framework separates performance depth, generality breadth and autonomy and presents an operational framework rather than a universal settled definition.",
+          "scopeLimit": "A proposed framework from one research lab; it does not establish that AGI exists or that its levels are inevitable."
+        },
+        {
+          "publisher": "Oxford Future of Humanity Institute",
+          "title": "Reframing Superintelligence",
+          "url": "https://arxiv.org/abs/1905.04180",
+          "checked": "2026-08-09",
+          "sourceTier": "ACADEMIC_TECHNICAL_REPORT",
+          "sourceExcerpt": "Superintelligence remains a conceptual category whose definitions vary depending on whether capability, learning ability or performance is being compared.",
+          "scopeLimit": "A conceptual report, not evidence that ASI exists, a forecast or an agreed threshold."
+        }
+      ],
+      "freshnessTrigger": "Before every candidate review and whenever current general-purpose capability evidence or the LAiDIES AGI/ASI position changes."
+    }
+  ],
+  "rejectedSource": {
+    "publisher": "Stanford HAI",
+    "formerTitle": "What is AGI?",
+    "url": "https://hai.stanford.edu/ai-definitions/what-is-agi-artificial-general-intelligence",
+    "checked": "2026-08-09",
+    "disposition": "EXCLUDED_CURRENT_CANDIDATE",
+    "reason": "The URL returns HTTP 200 but the visitor experience states that the page does not exist. It cannot serve as current passage-level evidence."
+  },
+  "productionBoundaries": [
+    "Do not present recognising, predicting, ranking, generating, multimodal, agentic, AGI and ASI as peers in one flat taxonomy.",
+    "Do not equate current general-purpose AI with AGI.",
+    "Do not present AGI or ASI as current products or inevitable stages.",
+    "Do not imply agentic means conscious, correct or unrestricted.",
+    "Do not make current named-product capability claims in this proof.",
+    "Use the 2026 International AI Safety Report rather than the superseded 2025 edition for current capability boundaries."
+  ]
+}
