@@ -185,11 +185,17 @@
   .rail-btn small{display:block;font-weight:500;font-size:.76rem;opacity:.72;margin-top:3px}
   .rb1{background:var(--teal)} .rb2{background:var(--pink)} .rb3{background:var(--peri)} .rb4{background:var(--tang)} .rb5{background:var(--sky)} .rb6{background:var(--coral)}
 
-  @media(max-width:640px){ body{font-size:16.5px} .tv-title{font-size:2.5rem} .trio{grid-template-columns:1fr} .cast-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:640px){
+    body{font-size:16.5px}
+    .tv-title{font-size:2.5rem}
+    .trio{grid-template-columns:1fr}
+    .cast-grid{grid-template-columns:repeat(2,1fr)}
+    .spine-inner .end{display:none}
+    .receipt .row{align-items:flex-start;flex-direction:column}
+    .receipt .num{font-size:2.25rem}
+  }
 </style>
-  <link rel="stylesheet" href="/content/issue-feature-v2.css?v=20260724-1">
   <link rel="stylesheet" href="/content/episode-format-navigation.css?v=20260803-1">
-  <script defer src="/content/issue-feature-v2.js?v=20260724-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
   <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
   <script>
@@ -207,7 +213,7 @@
   <link rel="canonical" href="https://laidies.ai/issues/issue-01" />
   <meta property="og:url" content="https://laidies.ai/issues/issue-01" />
 </head>
-<body class="issue-feature issue-feature--01">
+<body>
 
 <!-- Canonical town header (sv-global-header.js rewrites this in place) -->
 <header class="sv-header"></header>

@@ -68,3 +68,16 @@ new character-style lock. Some article frames remain darker, flatter, or more
 painterly than the approved Episode 04 Heroine rendering reference. This
 construction is deliberately replaceable at the image source: art can be
 rerolled without rebuilding the reading interface.
+
+## Episode 01 supersession — 2026-08-05
+
+Ali rejected the Episode 01 split-screen cover and the narrow right-hand copy
+column. Episode 01 returns to its earlier dark-VHS reading template: one
+full-width standing-ovation hero, live centred title and metadata, dark article
+field, 840px editorial shell and 720px reading measure. The shared
+`issue-feature-v2` split construction remains available to other issue pages;
+it no longer governs Episode 01. The persistent Read / Listen / Watch control
+remains independent and unchanged.
+
+Authority: Ali's direct ruling on 2026-08-05, superseding this document's
+Episode 01 left-image/right-copy opening construction only.
