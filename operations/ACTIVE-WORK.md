@@ -30,6 +30,28 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
+## 2026-08-10 Dream Phone working preview — Ali direction review next
+
+Dream Phone is **BUILT LOCALLY / INDEPENDENT VISUAL AND UX PASS / READY FOR
+ALI DIRECTION REVIEW / NOT DEPLOYED / NOT PUBLICLY VERIFIED** in isolated
+branch `codex/dream-phone-preview`. The exact established booth now acts as the
+page threshold and active phone frame, with the documented hot pink, purple,
+yellow, sky-blue and teal 90s punctuation. Entry preserves two equal choices:
+Just Call and Play the Full Game.
+
+The restored game uses three distributed callers per case; no one caller can
+give away the verdict. `*67`, `*69`, `867-5309`, remixes, history and Speaker
+Phone have specific stateful jobs. Held-source cases record but do not score a
+choice, early Hold cannot skip a case, and end guidance gives case-specific
+rules and a reusable prevention prompt. The calibrated contract rejects an
+omniscient caller and stale guidance. Exact packet and evidence:
+`operations/product-stewards/dream-phone/BUILD-PACKET-working-preview-2026-08-10.md`
+and `operations/product-stewards/dream-phone/evidence-preview-2026-08-10/`.
+
+The single next decision is Ali's: **finish this restored game, or park the full
+game and retain Just Call?** No deploy, spend, provider, reward/account or Ali
+approval authority has been used.
+
 ## 2026-08-05 launch-truth reconciliation
 
 ### 2026-08-06 LIBRAiRY maker candidate — Ali visual judgment next

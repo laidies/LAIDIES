@@ -14407,3 +14407,30 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-456 — A building asset beside a generic interface is not a building experience
+
+- **Date:** 2026-08-10
+- **Area:** Dream Phone building-page visual production.
+- **Failure risk:** A polished operator-console composition can satisfy generic
+  retro cues while discarding the established Dream Phone booth, LAiDIES 90s
+  colour pops and the requirement that the building itself operate as the page
+  mechanic. Adding the correct exterior later as a second picture still reads
+  as a collage rather than entering and using the booth.
+- **Root cause:** The maker translated “retro phone” into a new visual premise
+  before binding the exact destination asset and documented palette as
+  non-negotiable inputs.
+- **Prevention rule:** Before any building-page concept is rendered or coded,
+  bind the exact established exterior/interior asset, destination palette and
+  building-as-interface job. The maker's first desktop/mobile comparison must
+  fail any candidate where the environment is decorative, repeated or replaced
+  by a generic card shell. For Dream Phone, use one outside-to-active-phone
+  threshold and keep the handset/booth visible while the controls operate.
+- **Durable correction:** The rejected teal console was removed. The local
+  successor uses the exact pink booth as both arrival and active frame, restores
+  the hot pink/purple/yellow/cyan system and passed artifact-first independent
+  visual review.
+- **Possible Behind the Build angle:** Why “retro” was not specific enough—and
+  how one real phone booth became the interface instead of the wallpaper.
+- **Publication status:** INTERNAL PRODUCT-DESIGN LEARNING / NO DEPLOYMENT OR
+  PUBLIC RELEASE.

@@ -107,6 +107,19 @@ the work, park the full game.
 
 ## Rejected directions retained as evidence
 
+- **2026-08-10 visual rejection — generic teal operator console.** Reject the
+  generated teal/chrome booth-interior and the interface composition built
+  around it. It does not match the LAiDIES colour system or design style, does
+  not look like the established Dream Phone booth, and is not recognizably a
+  phone booth. Do not repair it through CSS or reuse it as a visual reference.
+  A successor must preserve the recognizable pink Dream Phone booth identity,
+  its actual exterior/world relationship and the approved LAiDIES visual
+  language before interface polish begins. The documented 90s style and
+  colour pops are load-bearing, not optional decoration: hot colour
+  punctuation, bold graphic energy and adult comic polish must be visibly
+  present. A muted teal/chrome/cream treatment may not be described or admitted
+  as the LAiDIES retro direction. Their absence fails maker preflight before a
+  candidate can reach visual review.
 - Workplace task with a manufactured hidden need.
 - Time-management or project-management caper.
 - The Last Call future-phone mystery.

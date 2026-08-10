@@ -17,15 +17,15 @@
 
 | ID | Status | Work | Done when |
 |---|---|---|---|
-| DP-007 | DECIDED — 2026-08-10 | Use a neutral entry with two equal first-class choices: Just Call and Play the Full Game. The game covers broader practical AI judgment rather than centring claim verification. | Decision is routed through `../../dream-phone-design-decisions.md`; neither current public code nor the retired claim deck overrules it. |
-| DP-013 | CLARIFICATION PASS — DREAM TEAM ONLY | Concepts 1–2 are rejected. Show whether Dream Team supports repeat missions and an obvious AI-native loop rather than a one-off helper match. | One complete sample round makes objective, AI actions, consequential choices, complication, outcome and replay variation understandable; otherwise park the full game. |
+| DP-007 | DECIDED — 2026-08-10 | Use a neutral entry with two equal first-class choices: Just Call and Play the Full Game. | Decision is routed through `../../dream-phone-design-decisions.md`; neither current public code nor an internal concept overrules it. |
+| DP-013 | SUPERSEDED BY RESTORED-GAME PREVIEW | Dream Team is not selected. Test the repaired original multi-caller verification game once as a complete working preview. | The local preview makes the distributed clues, phone powers, held-source boundary, consequence and preventive AI guidance playable; Ali decides complete versus park. |
 
 ## After owner decision
 
 | ID | Status | Work | Done when |
 |---|---|---|---|
-| DP-008 | BLOCKED BY DP-013 | Build the selected coherent entry/game/tool model. | Two equal entry choices and one approved full-game promise, content model and visual/interaction system replace the current ambiguity. |
-| DP-009 | BLOCKED BY DP-008 | Build proportional usefulness, comedy and learning-transfer evaluation. | Representative unfamiliar players enjoy the loop, apply its AI move to a new situation and explain the human next step. |
+| DP-008 | BUILT LOCALLY — READY FOR ALI DIRECTION REVIEW | Judge the coherent two-track working preview. | Ali can operate both equal doors, recognizes the exact booth/90s system and decides whether the restored game earns completion or parks. |
+| DP-009 | BLOCKED BY ALI DIRECTION | Run proportional usefulness, comedy and learning-transfer evaluation only if the preview survives. | Representative unfamiliar players enjoy the loop, apply its AI move to a new situation and explain the human next step. |
 | DP-010 | NOT WIRED | Add privacy-safe analytics and customer evidence. | Meaningful-outcome funnel, aggregate failure evidence and satisfaction/VOC review operate without free text or personal data. |
 | DP-011 | NOT WIRED | Establish content freshness and monthly journey maintenance proportionate to the selected mechanic. | Changed factual material is reviewed; stale content fails honestly; regressions re-enter the backlog without imposing a claim-ledger model on the whole game. |
 | DP-012 | DEFERRED | Evaluate ethical revenue only after product value and trust pass. | Revenue does not paywall core learning, bias verdicts, create deceptive scarcity or substitute reward pressure for utility. |
