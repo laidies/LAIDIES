@@ -8,25 +8,23 @@
 > structure, jokes or references. No public artifact was changed or released
 > by this decision.
 
-> **2026-08-10 AI Fundamentals R6 rebuilt direction candidate:** Ali's complete
-> authored Introduction remains the locked writing, voice and intent base.
-> Chapter 1 now starts with the real label-confusion problem and one concrete
-> product before introducing six relationship questions; Standard teaches all
-> named types, and Tell Me More / Full Nerd Alert deepen each concept in place.
-> The rejected predecessor is preserved as CQX-BAD-013 and a blind Claude
-> forward test independently placed it on HOLD; a separate artifact-first blind
-> review returned PASS on the current exact prose, and a blind pixel review
-> returned PASS on the clean deterministic vector diagram. Both remain local
-> internal candidates. Ali's three Introduction reason headings now lead with
-> their useful reader benefit and preserve her authored comic progression after
-> a colon; the builder rejects either half being dropped or reversed. The
-> current prose identity is
-> `d59672d62c21224f147951b59bb24fa597d0c5ccc2dd4cd4bcbc59e167046564`;
-> fresh cold semantic session `628de2ab-7101-4371-a2a2-36f16f9daccb`
-> returned PASS / SEND_TO_ALI YES on those exact bytes.
-> Formal semantic
-> admission, visual admission, observed unfamiliar-reader comprehension,
-> Library acceptance, deployment and publication remain open.
+> **2026-08-10 AI Fundamentals Chapter 1 successor 15:** Ali's authored
+> Introduction remains the locked writing, voice and intent base. The current
+> exact prose (`e7708c4f…34ec6f`, implementation commit `ac59839a`) now introduces
+> the human label-confusion problem and one familiar AI system before the six
+> organising questions. It explains overlapping labels separately from the
+> genuine AI → machine learning → neural networks → deep learning nesting,
+> includes a navigable chapter route and checksum-bound deterministic SVG, and
+> gives every one of the 14 taught concepts a complete Standard example and
+> importance contract before optional depth. A calibrated subset fixture proves
+> the new map guard rejects a missing concept contract. Exact-prose producer
+> self-review passes; prior independent reviews bind older bytes and do not
+> transfer. Two fresh Claude audit attempts returned no review text and were
+> stopped, so no current independent semantic PASS is claimed. The full-page
+> local `file://` render remains unavailable to the in-app inspection policy;
+> the SVG itself was inspected at full 1400×2180 resolution. Ali direction,
+> role-distinct semantic/visual admission, observed unfamiliar-reader
+> comprehension, Library acceptance, deployment and publication remain open.
 
 > **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
 > every prior V3 verdict remains invalid. A blank-page, question-led full-book

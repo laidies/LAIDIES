@@ -14772,9 +14772,19 @@ while remaining falsely unfinished in the launch record.
   circular definitions, and the generated successor review now remains HOLD
   rather than converting structural integrity into semantic approval. The
   book route also moves device, network, chips, servers, cloud and data-centre
-  hardware into the core Chapter 2 journey.
+  hardware into the core Chapter 2 journey. The next producer pass found a
+  second prevention defect: the Standard example/importance contract covered
+  only nine of fourteen taught concept modules, so later drafts could silently
+  drop concrete teaching from Predictive, Multimodal, Agentic, Embodied or ASI
+  without failing. Successor 15 closes that subset loophole with 14 matching
+  contracts plus a calibrated omission fixture. It also replaces the rejected
+  property analogy with an earned six-question relationship figure and makes
+  the chapter route directly navigable. Exact prose SHA
+  `e7708c4fbc582e9b2469b34c1b5b2238286e9a63854395a9e7737c008034ec6f`
+  passed producer review; two attempted fresh Claude audits returned no text,
+  so no current independent PASS is inferred from older review sessions.
 - **Possible Behind the Build angle:** Why a taxonomy is not a lesson, and how
   a blind rejection test prevents another day of reviewer theatre.
-- **Publication status:** PRIOR BLIND PASS INVALIDATED / SUCCESSOR 14 BUILT
-  LOCALLY AND HELD IN PRODUCTION / FRESH EXACT-PROSE, UNFAMILIAR-READER,
-  FORMAL SEMANTIC AND VISUAL ADMISSION, DEPLOYMENT AND PUBLICATION REMAIN OPEN.
+- **Publication status:** SUCCESSOR 15 BUILT AND PRODUCER-REVIEWED LOCALLY /
+  IMPLEMENTATION COMMIT `ac59839a` / ALI DIRECTION, FRESH INDEPENDENT SEMANTIC,
+  UNFAMILIAR-READER AND VISUAL ADMISSION, DEPLOYMENT AND PUBLICATION REMAIN OPEN.
