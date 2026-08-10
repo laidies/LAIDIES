@@ -6,6 +6,8 @@
 
 **Evidence time:** 2026-08-10 16:06:30 PDT (America/Vancouver)
 
+**Push evidence update:** 2026-08-10 16:07:54 PDT (America/Vancouver)
+
 **Exact status:** BUILT LOCALLY; INDEPENDENT VISUAL/UX PASS; READY FOR ALI
 DIRECTION REVIEW; NOT DEPLOYED; NOT PUBLICLY VERIFIED
 
@@ -111,9 +113,10 @@ or integrate the full-game preview.
 
 ## Authority and worktree truth
 
-- Worktree truth: **COMMITTED** at
-  `53ba8768179983886d73d35a860cae88623702ec`; push not yet claimed in this
-  handoff.
+- Worktree truth: **PUSHED**. Candidate commit
+  `53ba8768179983886d73d35a860cae88623702ec` and Control Room handoff commit
+  `7a8f15270bbfccc980f97f7d91b4da96d2630ceb` are on remote branch
+  `origin/codex/dream-phone-preview`.
 - Public authority used: **NO**.
 - Deploy/publish authority used: **NO**.
 - Spend/install/subscription authority used: **NO**.
