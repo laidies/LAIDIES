@@ -32,21 +32,30 @@ PLAYABLE PROOF; NOT BUILD-, RELEASE- OR EQUAL-DOOR-APPROVED
 Easter-egg copy. They remain available in **Just Call** and receive purposeful
 equivalents in the restored full game.
 
-- **`*67` — caller ID blocked:** Just Call preserves its current route for
-  reaching Deb. In the full game it must change the next call in a bounded,
-  legible way, such as unlocking one more candid but still partial clue.
+- **`*67` — access:** Just Call preserves its current route for reaching Deb.
+  In the full game, block caller ID and choose a caller who normally screens or
+  withholds; that caller answers anonymously and supplies one hidden but still
+  partial clue without consuming another normal call. Its job is to unlock a
+  person or perspective the ordinary directory cannot reach.
 - **`*69` — return last call:** In Just Call it redials the most recent caller
   and advances that caller to the next prewritten bundle. In the full game it
   preserves the old once-per-game return-call power: after at least one normal
-  call, the previous caller supplies one fresh partial clue without consuming
-  another normal call. It may not reveal the complete verdict.
+  call, the previous caller supplies one fresh clarification—such as an exact
+  number, date, source or scope—without consuming another normal call. Its job
+  is depth on the existing lead, not access to a different person. It may not
+  reveal the complete verdict.
 - **`867-5309` — Jenny:** preserves the secret Jenny line. In the full game her
-  response may provide a comic, non-decisive nudge or next-question hint; it
-  may not reveal the verdict or contain information required for a fair solve.
+  response provides a comic, non-decisive suggestion for the best question to
+  ask next; it may not reveal the verdict or contain information required for
+  a fair solve.
 
 The full-game forms are limited powers with explicit state, availability and
 feedback. Knowing a hidden code may add delight or efficiency, but a player who
 does not know it must still be able to complete every round.
+
+The player-facing distinction must remain explicit: **`*67` unlocks access;
+`*69` deepens the last lead; Jenny recommends a next question.** The three
+effects may not collapse into interchangeable bonus clues.
 
 **Call History is a separate functional control, not another name for `*69`.**
 In Just Call it reopens the exact prior response and its available remixes
