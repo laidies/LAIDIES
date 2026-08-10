@@ -19,33 +19,63 @@ function meta(html, name) {
 export function inspectColdReaderReceipt(receipt, artifactSha256, root) {
   const errors = [];
   const require = (condition, message) => { if (!condition) errors.push(message); };
-  require(receipt?.schemaVersion === "library-book-cold-reader-review.v1", "cold-reader receipt schema is missing");
+  require(receipt?.schemaVersion === "library-book-cold-reader-review.v2", "cold-reader receipt schema is missing or stale; v2 observed-human evidence is required");
   require(receipt?.artifactSha256 === artifactSha256, "cold-reader receipt is not bound to the exact artifact");
   require(receipt?.reviewMode === "ARTIFACT_FIRST_COLD", "review was not artifact-first and cold");
+  require(typeof receipt?.reviewer === "string" && receipt.reviewer.trim(), "cold-reader reviewer is missing");
+  require(typeof receipt?.reviewedAt === "string" && !Number.isNaN(Date.parse(receipt.reviewedAt)), "cold-reader reviewedAt must be an ISO date-time");
   require(receipt?.makerReceiptsOpenedAfterColdRead === true, "maker receipts were opened before the cold read");
   require(receipt?.verdict === "ADMISSION_CANDIDATE", "cold-reader verdict is not ADMISSION_CANDIDATE");
+  require(typeof receipt?.administrator?.principalId === "string" && receipt.administrator.principalId.trim(), "cold-reader administrator principal is missing");
+  require(typeof receipt?.administrator?.makerPrincipalId === "string" && receipt.administrator.makerPrincipalId.trim(), "book maker principal is missing");
+  require(receipt?.administrator?.independentFromMaker === true, "cold-reader administrator did not attest independence from the maker");
+  require(receipt?.administrator?.principalId !== receipt?.administrator?.makerPrincipalId, "cold-reader administrator cannot be the book maker");
   const reverse = receipt?.reverseBrief;
   for (const key of ["readerJob", "centralMentalModel", "practicalPayoff", "readingMode"]) {
     require(typeof reverse?.[key] === "string" && reverse[key].trim(), `cold-reader reverse brief lacks ${key}`);
   }
-  const tasks = Array.isArray(receipt?.readerTasks) ? receipt.readerTasks : [];
-  require(tasks.length >= 4, "at least four observed reader tasks are required");
-  require(tasks.some(task => task.kind === "UNSEEN_TRANSFER"), "an unseen transfer task is required");
-  require(tasks.some(task => task.kind === "LOOKUP"), "a lookup task is required");
-  require(tasks.some(task => task.kind === "EXPLAIN_BACK"), "an explain-back task is required");
-  for (const task of tasks) {
-    require(task?.verdict === "PASS", `${task?.kind || "reader task"} did not pass`);
-    for (const key of ["prompt", "observedResponse", "expectedEvidence", "artifactLocator"]) {
-      require(typeof task?.[key] === "string" && task[key].trim(), `${task?.kind || "reader task"} lacks ${key}`);
+  const observations = Array.isArray(receipt?.participantObservations) ? receipt.participantObservations : [];
+  require(observations.length >= 3, "at least three distinct unfamiliar-human observations are required");
+  const participantIds = new Set();
+  const evidenceBindings = new Set();
+  const requiredTasks = ["ORIENTATION", "LOOKUP", "EXPLAIN_BACK", "UNSEEN_TRANSFER"];
+  for (const [participantIndex, observation] of observations.entries()) {
+    const label = `participantObservations[${participantIndex}]`;
+    require(observation?.evidenceType === "OBSERVED_HUMAN", `${label} is not observed-human evidence`);
+    require(observation?.familiarity === "UNFAMILIAR_WITH_ARTIFACT", `${label} does not attest an unfamiliar reader`);
+    require(typeof observation?.participantId === "string" && observation.participantId.trim(), `${label} lacks participantId`);
+    require(!participantIds.has(observation?.participantId), "cold-reader participant IDs must be unique");
+    participantIds.add(observation?.participantId);
+    require(typeof observation?.observedAt === "string" && !Number.isNaN(Date.parse(observation.observedAt)), `${label}.observedAt must be an ISO date-time`);
+    require(Date.parse(observation?.observedAt) <= Date.parse(receipt?.reviewedAt), `${label}.observedAt cannot be after reviewedAt`);
+
+    const tasks = Array.isArray(observation?.readerTasks) ? observation.readerTasks : [];
+    for (const kind of requiredTasks) require(tasks.some(task => task.kind === kind), `${label} lacks required ${kind} task`);
+    for (const task of tasks) {
+      require(task?.verdict === "PASS", `${label}.${task?.kind || "reader task"} did not pass`);
+      for (const key of ["prompt", "observedResponse", "expectedEvidence", "artifactLocator"]) {
+        require(typeof task?.[key] === "string" && task[key].trim(), `${label}.${task?.kind || "reader task"} lacks ${key}`);
+      }
     }
+
+    const binding = observation?.observationBinding;
+    const relative = binding?.path;
+    const absolute = path.resolve(root, relative || "");
+    require(Boolean(relative) && absolute.startsWith(path.resolve(root) + path.sep) && fs.existsSync(absolute) && fs.statSync(absolute).isFile(), `${label} evidence is absent: ${relative || "(missing)"}`);
+    require(/^[a-f0-9]{64}$/.test(binding?.sha256 || ""), `${label} evidence SHA-256 is missing`);
+    if (relative && fs.existsSync(absolute) && fs.statSync(absolute).isFile()) {
+      const evidenceBytes = fs.readFileSync(absolute);
+      require(sha256(evidenceBytes) === binding.sha256, `${label} evidence SHA-256 is stale`);
+      const evidenceText = evidenceBytes.toString("utf8");
+      require(evidenceText.includes(artifactSha256), `${label} evidence does not name the exact artifact SHA-256`);
+      require(evidenceText.includes(observation.participantId), `${label} evidence does not name its participant ID`);
+      for (const task of tasks) require(evidenceText.includes(task.observedResponse), `${label} evidence omits the recorded ${task.kind} response`);
+    }
+    const bindingKey = `${binding?.path || ""}:${binding?.sha256 || ""}`;
+    require(!evidenceBindings.has(bindingKey), "cold-reader evidence bindings must be participant-specific");
+    evidenceBindings.add(bindingKey);
   }
   for (const veto of PASS_VETOES) require(receipt?.nonCompensableVetoes?.[veto] === "PASS", `non-compensable veto failed: ${veto}`);
-  const evidence = Array.isArray(receipt?.participantEvidencePaths) ? receipt.participantEvidencePaths : [];
-  require(evidence.length > 0, "observed participant evidence is required");
-  for (const relative of evidence) {
-    const absolute = path.resolve(root, relative || "");
-    require(Boolean(relative) && absolute.startsWith(path.resolve(root) + path.sep) && fs.existsSync(absolute), `participant evidence is absent: ${relative || "(missing)"}`);
-  }
   return errors;
 }
 

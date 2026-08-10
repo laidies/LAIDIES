@@ -14435,3 +14435,33 @@ while remaining falsely unfinished in the launch record.
   really a spelling lesson—and how a better diagram rescued tokens from jargon.
 - **Publication status:** INTERNAL REPRESENTATIVE PROOF / PRODUCER PASS ONLY /
   NO INDEPENDENT ADMISSION, PUBLICATION OR DEPLOYMENT.
+
+## BTB-457 — A “cold-reader” gate accepted one aggregate evidence file
+
+- **Date:** 2026-08-09
+- **Area:** LIBRAiRY substantial-book admission and observed learner evidence.
+- **Failure risk:** A book could receive `ADMISSION_CANDIDATE` from one evidence
+  file and one aggregate task set even though the standing rule required three
+  distinct unfamiliar people. A simulated or maker-administered session could
+  therefore look structurally complete without proving that readers could
+  orient, find, explain and transfer the teaching.
+- **Root cause:** The prose-quality gate enforced participant identity and
+  observation bindings, but the later Library-specific cold-reader checker only
+  tested that `participantEvidencePaths` was nonempty. The governing prose and
+  executable admission check described different standards.
+- **Prevention rule:** Library cold-reader admission uses
+  `library-book-cold-reader-review.v2`. It requires three unique unfamiliar
+  `OBSERVED_HUMAN` participants; orientation, lookup, explain-back and unseen
+  transfer from every participant; unique checksum-bound observation evidence
+  naming the exact rendered artifact and recorded responses; and an
+  administrator independent from the maker. The calibrated test must remain in
+  `ci:build` and reject one-reader, duplicate, simulated, familiar, stale and
+  self-administered fixtures.
+- **Durable correction:** D-2026-08-09-106, the v2 schema, the Library admission
+  checker and its eleven-negative calibration now align the stated rule with
+  the executable gate.
+- **Possible Behind the Build angle:** Why “we tested it with a reader” is not
+  learner evidence until you can say who was observed, against which exact
+  artifact, doing what unfamiliar task.
+- **Publication status:** INTERNAL ADMISSION-SYSTEM REPAIR / NO BOOK ADMITTED,
+  DEPLOYED OR PUBLISHED.
