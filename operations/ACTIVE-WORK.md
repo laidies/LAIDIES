@@ -23,7 +23,7 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-09
+**Last reconciled:** 2026-08-10
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
@@ -31,6 +31,22 @@ Independent backstage work may move in bounded lanes recorded in
 Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
+
+### 2026-08-10 cold-reader false-pass repaired
+
+The Library admission gate now requires evidence from **three distinct,
+unfamiliar, observed human readers**. Each reader must complete orientation,
+lookup, explain-back and unseen-transfer tasks against the exact artifact; each
+response is bound to participant-specific evidence. Aggregate receipts, one
+reader, simulated readers, familiar readers, stale v1 records, duplicate
+participants, maker-administered sessions and unrelated or stale evidence now
+fail closed. The repair is committed and pushed at
+`419056b39cabf4d7ec5232fdb9b70a5173c2cb43`.
+
+This is a prevention repair, not book admission. No human sessions have been
+observed yet, and the Tokens representative proof remains **BUILDING — PRODUCER
+PASS / INDEPENDENT HOLD / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The existing
+Library integration/visual lock remains untouched.
 
 The current Library foreground is the committed and pushed **AI Fundamentals
 101 v3 tokens representative proof** on branch
