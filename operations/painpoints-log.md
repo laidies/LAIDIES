@@ -14748,12 +14748,19 @@ while remaining falsely unfinished in the launch record.
   places deeper mechanism immediately after each concept; and forward-tests a
   blind reviewer on the rejected predecessor before a successor reaches Ali.
 - **Durable correction:** CQX-BAD-013 preserves the false-pass families;
-  D-2026-08-10-114/115 bind the cultural-reference and textbook-architecture
-  rules; the exact build enforces depth placement; and the blind reviewer held
-  the predecessor before passing the successor prose. An unrelated arXiv URL
-  stored under *Reframing Superintelligence* was also replaced with Oxford's
-  actual record.
+  D-2026-08-10-114/115/116 bind the cultural-reference, textbook-architecture
+  and readable layered-layout rules. The build now fails when Full Nerd swallows
+  later Standard prose, when bound Standard concepts lack an exact example or
+  importance statement, or when bound terms sit in the wrong definition tier.
+  Each cold HOLD was admitted into CQX-BAD-013 before the successor; fresh
+  artifact-first session `bf68253c-86c7-4bd0-940c-8bb40aa861c1` passed exact
+  prose SHA `c85acce203ffc328f884cc1edda6d7072c7b1adc86fd59dd551db54a94fb25f8`.
+  An unrelated arXiv URL stored under *Reframing Superintelligence* was also
+  replaced with Oxford's actual record.
 - **Possible Behind the Build angle:** Why a taxonomy is not a lesson, and how
   a blind rejection test prevents another day of reviewer theatre.
-- **Publication status:** INTERNAL SUCCESSOR BUILT / FORMAL SEMANTIC AND VISUAL
-  ADMISSION, ALI DIRECTION, DEPLOYMENT AND PUBLICATION REMAIN OPEN.
+- **Publication status:** INTERNAL SUCCESSOR BUILT / CURRENT BLIND SEMANTIC PASS
+  AND PRIOR DIAGRAM PIXEL PASS / ALI DIRECTION, FORMAL SEMANTIC AND VISUAL
+  ADMISSION, DEPLOYMENT AND PUBLICATION REMAIN OPEN. Current final rendered prose
+  pixel inspection was skipped because browser policy blocked automated
+  `file://` access; this limitation is not converted into a visual PASS.

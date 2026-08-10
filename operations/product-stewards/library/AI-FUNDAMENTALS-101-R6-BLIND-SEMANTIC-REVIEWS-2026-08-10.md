@@ -3,7 +3,7 @@
 **Evidence date:** 2026-08-10
 **Status:** BLIND REVIEW PASS ON CURRENT PROSE / FORMAL SEMANTIC ADMISSION NOT CLAIMED
 
-The role-distinct reviewer was Claude Sonnet 5. It received the prose artifact
+The role-distinct reviewer was Claude Opus 5. It received the prose artifact
 first and was prohibited from reading maker reviews, rejection records,
 registries, contracts, diffs or the expected verdict.
 
@@ -33,8 +33,8 @@ can reject the known-bad predecessor without being told what to find.
 
 **Exact prose:**
 `content/library-books/pilots/ai-fundamentals-101-v4/introduction-and-chapter-1-r6.md`
-**SHA-256:** `eee8e6080c49b1ffbdea3df0a0318628ced377ffb85342b7194a36a77b3b6c21`
-**Session:** `9b58beac-92b2-48c7-b4a3-a3ad01489eb1`
+**SHA-256:** `c85acce203ffc328f884cc1edda6d7072c7b1adc86fd59dd551db54a94fb25f8`
+**Session:** `bf68253c-86c7-4bd0-940c-8bb40aa861c1`
 **Verdict:** PASS
 **Send to Ali:** Yes
 
@@ -42,20 +42,22 @@ The reviewer independently confirmed:
 
 - the Introduction establishes frustration, information judgment and civic
   participation before Chapter 1 begins;
-- Chapter 1 establishes the jargon problem and a concrete plant assistant
-  before introducing the six questions;
+- Chapter 1 establishes the jargon problem, defines AI/model/system/product and
+  carries one customer-service assistant through the six questions;
 - the six questions separate overlapping properties from the real
   `AI → machine learning → neural networks → deep learning` nesting;
 - predictive under the hood of generative is correctly distinguished from
   predictive and generative as public product-job labels;
-- mechanisms, examples, AGI/ASI boundaries and limitations are technically
-  coherent at their stated depth;
+- mechanisms, examples, AGI/ASI boundaries, evidence frameworks and
+  limitations are technically coherent at their stated depth;
 - Standard is independently complete; and
 - Tell Me More and Full Nerd Alert deepen each concept in place instead of
   becoming end-of-chapter bolt-ons.
 
-The reviewer noted two non-blocking taste questions for Ali: the density of a
-few jokes and whether the customer-service system appears once too often.
+The reviewer found no blocking defect and judged the exact prose worthy of Ali
+direction review. Non-blocking editorial notes remain for later Library work,
+including one awkward model/system/product sentence, two thin or overlapping
+depth layers and minor heading consistency. None changes the direction verdict.
 
 ## Blind pixel review of the diagram candidate
 

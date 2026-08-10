@@ -158,6 +158,36 @@ Index`. A `See more at LAiDIES` route links only to real admitted destinations.
 Missing classes, episodes or publications become owner handoffs, never dead or
 implied-public links.
 
+The three depths are one progressively disclosed lesson, not three parallel
+lessons. Each concept appears inside one visible module with one
+coverage-predictive heading. Standard is the complete first explanation. Tell
+Me More follows inside that module, names the concept it extends, continues the
+same example or mechanism and introduces only the next necessary technical
+idea. Full Nerd Alert follows in the same module and takes that exact idea
+deeper into how it works, how it is evaluated or where it fails. Every new
+technical term is explained in conversational language after its meaning is
+made concrete. A reader must never have to infer which concept a depth panel
+belongs to or compare three detached accounts to reconstruct one explanation.
+
+Long-form book layout is part of teaching quality. Use a real semantic heading
+hierarchy whose visible size and spacing make chapter, question group, concept
+and depth unambiguous. Keep running text left aligned, at a comfortable reading
+size and line length, with at least 1.5 line height and enough paragraph space
+to retain the reader's place. Use colour, border and background only as
+redundant grouping cues; never make colour alone carry depth or relationship.
+Each depth panel is visually contained by its concept module. Reading controls
+remain available without obscuring the heading or paragraph being read, and
+the complete page must reflow without horizontal reading scroll or clipped
+content under text-spacing and 200-percent zoom conditions. Compact source
+notes may be smaller than body copy but remain readable and browser-zoomable.
+
+Feature boxes may borrow a restrained 1990s textbook grammar—bold tabs, solid
+rules and offset shadows—but every recurring treatment has one stable teaching
+job. A concept box groups one complete concept; `Tell Me More` extends it;
+`Full Nerd Alert` deepens it; `Pin It` retains the definition; and `Try It`
+prompts low-stakes application. Do not box ordinary body paragraphs, pile
+boxes inside boxes or use a feature treatment merely to make the page busy.
+
 Substantial explanatory books include a planned visual teaching layer wherever
 parts, sequence, scale, comparison, causality or interaction would be harder to
 understand in prose alone. Use the smallest useful form: a labelled diagram for
