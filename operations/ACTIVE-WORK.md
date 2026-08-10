@@ -23,12 +23,33 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-05
+**Last reconciled:** 2026-08-09
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
+
+The current Library foreground is the committed and pushed **AI Fundamentals
+101 v3 tokens representative proof** on branch
+`library/ai-fundamentals-v3-representative-proof`, implementation commit
+`b16a39c0eda3003d5ed87ff8d195966c05d48cb9`. The exact 1,232-word prose,
+separate Concept Index entry, deterministic desktop/mobile strawberry diagram,
+manifest and producer review are under
+`content/library-books/pilots/ai-fundamentals-101-v3-representative-proof/`.
+The calibrated objective proof rejects seven recurrence classes and the
+exact-prose producer receipt matches with `verdict=PASS quality_authority=NONE`.
+
+Status is **BUILDING — PRODUCER PASS / INDEPENDENT HOLD / NOT DEPLOYED / NOT
+PUBLICLY VERIFIED**. The proof has not received cross-family independent
+semantic admission, three observed unfamiliar-reader explain-back and unseen
+transfer outcomes, or role-distinct visual-media admission. It does not replace
+the current Library page, reader, admission manifest or book cover. Ali has not
+approved it. The older Library sections below remain historical continuity and
+must not be read as current candidate authority where they conflict with this
+section or D-2026-08-09-105.
 
 ## 2026-08-05 launch-truth reconciliation
 

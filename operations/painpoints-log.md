@@ -14407,3 +14407,31 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-456 — A technically accurate token explainer can still teach the wrong lesson
+
+- **Date:** 2026-08-09
+- **Area:** LIBRAiRY substantial-book production and learning admission.
+- **Failure risk:** A section can correctly mention bytes, merge rankings and
+  token IDs, include official screenshots and pass architecture checks while a
+  nontechnical reader still cannot explain what a token is, why the strawberry
+  example matters or what she should do differently. The visual can be intact
+  and still be too blurry or conceptually useless to teach.
+- **Root cause:** The rejected producer started from implementation detail and
+  integrity evidence instead of the reader's real question, then asked review
+  to infer teaching quality from required-field presence. Exact prose,
+  rendered legibility and unseen transfer were not the first proof.
+- **Prevention rule:** For foundational concepts, begin with a familiar human
+  action, make the invisible mechanism visible in plain language, return to a
+  real use consequence and keep the lookup entry separate. Mechanically reject
+  known jargon-first routes, universal claims, raster screenshots, missing
+  mobile teaching art, unlabelled examples, render/prose drift and merged index
+  architecture before semantic review. The maker PASS has no quality authority;
+  role-distinct review and observed unfamiliar-reader transfer remain required.
+- **Durable correction:** D-2026-08-09-105 and the v3 tokens proof bind the exact
+  `o200k_base` strawberry split, explicit variation warning, deterministic
+  desktop/mobile diagrams and seven calibrated objective failures.
+- **Possible Behind the Build angle:** Why the famous strawberry mistake is not
+  really a spelling lesson—and how a better diagram rescued tokens from jargon.
+- **Publication status:** INTERNAL REPRESENTATIVE PROOF / PRODUCER PASS ONLY /
+  NO INDEPENDENT ADMISSION, PUBLICATION OR DEPLOYMENT.
