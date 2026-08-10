@@ -14,8 +14,14 @@ const valid = {
   desktopSvg: read("visuals/strawberry-token-route.svg"),
   mobileSvg: read("visuals/strawberry-token-route-mobile.svg")
 };
+const manifest = JSON.parse(read("artifact-manifest.json"));
+const readerProtocol = read("cold-reader-session-protocol.md");
 
 assert.deepEqual(loadAndInspectProof(here), [], "current representative proof must satisfy objective guard");
+assert.match(readerProtocol, new RegExp(manifest.rendered.sha256), "cold-reader protocol must bind the current rendered artifact SHA");
+for (const requiredTask of ["### 1. Orientation", "### 2. Lookup", "### 3. Explain-back", "### 4. Unseen transfer"]) {
+  assert.ok(readerProtocol.includes(requiredTask), `cold-reader protocol is missing ${requiredTask}`);
+}
 
 const failures = [];
 const expectFailure = (name, mutate, pattern) => {
