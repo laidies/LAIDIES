@@ -14820,3 +14820,26 @@ while remaining falsely unfinished in the launch record.
   same as understanding AI.
 - **Publication status:** INTERNAL RESEARCH AND PRODUCT CONTRACT ONLY / NO NEW
   PROSE, ACTIVITY, REWARD, DEPLOYMENT OR PUBLICATION.
+
+## BTB-470 — A checker tied to yesterday's sentence cannot protect today's reader
+
+- **Date:** 2026-08-10
+- **Area:** AI Fundamentals 101 beginner-language production guard.
+- **Failure risk:** A useful new explanation can fail because a validator expects
+  exact R6 wording, while a different jargon-first explanation can pass because
+  the validator never tests the actual prerequisite relationship.
+- **Root cause:** The beginner-language check encoded approved sentences instead
+  of the teaching invariant: human context before the framework, ordinary
+  meaning before the term, and a reasoned transfer answer after the lesson.
+- **Prevention rule:** Validators protect the durable reader outcome and include
+  a deliberately bad calibration fixture. Exact wording belongs in authorial
+  locks only when the wording itself is governed; it must not become a proxy for
+  whether an explanation works.
+- **Durable correction:** The checker now detects R6 and R7 routes, rejects
+  later-chapter jargon before the local deeper explanation, requires the R7
+  human-context-to-framework order and a reasoned transfer answer, and rejects
+  two calibrated bad fixtures before accepting the current candidate.
+- **Possible Behind the Build angle:** Why freezing one good sentence can make a
+  teaching gate less intelligent over time.
+- **Publication status:** INTERNAL PRODUCTION-GUARD REPAIR / R7 IS READY FOR ALI
+  DIRECTION REVIEW, NOT ADMITTED, DEPLOYED OR PUBLISHED.

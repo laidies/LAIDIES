@@ -8,21 +8,19 @@
 > structure, jokes or references. No public artifact was changed or released
 > by this decision.
 
-> **2026-08-10 AI Fundamentals full-book research reset:** R6/successor 15 is
-> rejected as a reader-facing direction and is retained only as calibration.
-> Chapter-local revision is paused. The current work is a complete concept,
-> prerequisite, history, hardware, product and textbook-pedagogy audit across
-> the whole book before any new prose. The provisional research route expands
-> the old overloaded nine-chapter structure to fourteen chapters and separates
-> `ORIENT / TEACH / DEEPEN / INDEX`. It also specifies immediate misconception
-> feedback, Explain/Draw/Use application, later retrieval and reasoned answers.
-> The global Nerd-O-Meter is removed from the next proof; local `Go deeper` may
-> be used only after the core lesson is complete. Meaningful checkpoints may be
-> routed to the existing reward economy only after learning, surface, platform
-> and Closet owners admit the exact event. Two bounded Claude whole-book audit
-> attempts returned no verdict and are recorded as `AUDIT UNAVAILABLE`; no PASS
-> is inferred. No new prose, activity, reward, admission, deployment or
-> publication exists.
+> **2026-08-10 AI Fundamentals R7 direction candidate:** R6/successor 15 remains
+> rejected and retained only as calibration. The complete concept,
+> prerequisite, history, hardware, product and textbook-pedagogy audit now
+> governs a new Introduction + Chapter 1 R7 candidate. R7 removes the global
+> Nerd-O-Meter and rejected taxonomy diagram, preserves Ali's authored
+> Introduction, teaches the label relationships through field, approach, job,
+> information form, operating pattern, embodiment and breadth, and ends with
+> Recognise / Explain / Draw / Use application. Its exact producer contract,
+> calibrated beginner-language check, exact-prose self-review, mobile render
+> inspection and role-distinct semantic direction review pass locally. The
+> status is `READY_FOR_ALI_DIRECTION_REVIEW`, not LIBRAiRY admission. Observed
+> unfamiliar-reader evidence, final accessibility/visual admission, deployment
+> and publication remain open. No activity, reward or public state exists.
 
 > **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
 > every prior V3 verdict remains invalid. A blank-page, question-led full-book
