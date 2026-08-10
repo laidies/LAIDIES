@@ -8,6 +8,9 @@
 
 **Push evidence update:** 2026-08-10 16:07:54 PDT (America/Vancouver)
 
+**Continuity correction update:** 2026-08-10 16:13:25 PDT
+(America/Vancouver)
+
 **Exact status:** BUILT LOCALLY; INDEPENDENT VISUAL/UX PASS; READY FOR ALI
 DIRECTION REVIEW; NOT DEPLOYED; NOT PUBLICLY VERIFIED
 
@@ -32,6 +35,9 @@ and teal 90s punctuation at desktop and mobile.
 
 Exact candidate commit:
 `53ba8768179983886d73d35a860cae88623702ec`
+
+Exact dossier reconciliation commit:
+`d408545608c46e855ee6d3848d0e9a715dd54522`
 
 Executable files:
 
@@ -59,6 +65,16 @@ Observed current checks:
 - independent artifact-first visual review — PASS for Ali direction review.
 - independent artifact-first UX review — PASS after all five prior blockers
   and the final Deb redial edge were repaired.
+- targeted `node scripts/check-product-stewards.mjs --owner-entry dream-phone`
+  — no Dream Phone owner-entry gap after adding
+  `VISUAL-ASSET-INVENTORY.md`; the command remains globally red on three
+  expired public daily-learning derivatives and overdue `LCR-004`, all outside
+  this product lock.
+
+The dossier reconciliation removes the stale instruction that had retired the
+verification game before Ali later authorized this exact repaired preview. The
+charter, experience brief, operating spec, backlog and historical packet now
+preserve the actual finish-versus-park resume point.
 
 The global commit hook also ran repository-wide checks. Town canon, local
 links, inline JavaScript, output-path guards and rejection prevention passed;
@@ -116,7 +132,8 @@ or integrate the full-game preview.
 - Worktree truth: **PUSHED**. Candidate commit
   `53ba8768179983886d73d35a860cae88623702ec` and Control Room handoff commit
   `7a8f15270bbfccc980f97f7d91b4da96d2630ceb` are on remote branch
-  `origin/codex/dream-phone-preview`.
+  `origin/codex/dream-phone-preview`; dossier reconciliation commit
+  `d408545608c46e855ee6d3848d0e9a715dd54522` is pushed there as well.
 - Public authority used: **NO**.
 - Deploy/publish authority used: **NO**.
 - Spend/install/subscription authority used: **NO**.
