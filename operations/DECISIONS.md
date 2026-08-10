@@ -209,6 +209,7 @@ palette authority) → everything older is evidence, never authority.
 | SUNNYVAiLE High | `sunnyvaile-high-design-decisions-20260724.md` |
 | Classroom | `classroom-design-decisions-20260724.md` |
 | Pop quiz | `pop-quiz-design-decisions-20260724.md` |
+| Dream Phone | `dream-phone-design-decisions.md` |
 | Handbook | `handbook-design-decisions.md` |
 | Closet | `closet-design-decisions.md` |
 | Resident Card | `resident-card-design-decisions.md` |

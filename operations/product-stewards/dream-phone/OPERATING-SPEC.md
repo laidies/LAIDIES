@@ -1,6 +1,6 @@
 # Dream Phone Booth operating specification
 
-**Status:** SPECIFIED FOR CURRENT EXPERIMENT — PRODUCT MODEL UNRESOLVED
+**Status:** TWO-TRACK PRODUCT DIRECTION SELECTED — FULL-GAME MECHANIC OPEN
 
 ## Identity and purpose
 
@@ -10,10 +10,10 @@
   learning game
 - **Audience:** adults who enjoy 1990s/Y2K nostalgia and want a short,
   low-stakes judgment/reflection experience
-- **User job:** get a playful reframe or practise interrogating a compound
-  claim before deciding
-- **LAiDIES contribution:** make careful judgment memorable through a
-  distinctive phone-booth object and voice
+- **User job:** choose between a playful scripted call and a full game that
+  rehearses a useful way of working with AI
+- **LAiDIES contribution:** make broader practical AI judgment memorable
+  through a distinctive phone-booth object, meaningful choices and humour
 - **Non-goals:** personalized, professional, medical, legal, financial,
   therapeutic or live fact-checking advice; authoritative current-news
   verification; durable account rewards without proof
@@ -21,9 +21,8 @@
 ## Experience model
 
 - **Metaphor:** a SUNNYVAiLE glass phone booth and town phone directory.
-- **Ten-second comprehension:** this is an experimental scripted experience;
-  choose a prewritten caller reframe or a beta claim-checking round; see what
-  happened and what to try next.
+- **Ten-second comprehension:** choose one of two equal doors—Just Call or Play
+  the Full Game—and understand the different promise of each before entering.
 - **New user:** receives status and boundary before relying on output, chooses
   a track, performs one meaningful action, receives an honest result and can
   return without a trap.
@@ -34,8 +33,8 @@
   focus restoration, reduced-motion compliance, no horizontal overflow at
   mobile or 200% zoom, programmatic result announcements and useful link
   names.
-- **Failure:** a missing/malformed evidence ledger fails the game closed with
-  an honest unavailable message, retry/exit path and no invented round.
+- **Failure:** unavailable or malformed content fails honestly with a
+  retry/exit path and no invented result.
 
 ## Mechanics and rules
 
@@ -51,7 +50,7 @@
 - **Rewards:** any discovery is session/local-only and has no account,
   cross-device or entitlement value in this candidate.
 
-### Experimental claim game
+### Retired claim-deck experiment
 
 - **Input:** select contacts to reveal scripted clues, then commit to a
   verdict.
@@ -69,26 +68,42 @@
   become playable. Impossible dates, future evidence/correction dates and
   expired review deadlines fail the complete deck closed.
 
-The parked patron-saint deduction engine is not a current public product model
-and must not execute on the booth page.
+This claim deck is preserved as historical experiment and technical evidence;
+it is not the selected full-game direction. The parked patron-saint deduction
+engine is also not a current public product model and must not execute on the
+booth page.
+
+### Selected full-game learning territory
+
+- **Premise:** broader practical AI judgment, not receipts or claim
+  verification.
+- **Candidate learner moves:** choose the kind of help needed, ask well, notice
+  what the response enables or misses, improve the exchange and decide the
+  human next move.
+- **Required game qualities:** meaningful choice, consequence, feedback,
+  replay, usefulness and comedy that belongs to the mechanic.
+- **Still open:** exact fantasy, rules, caller roles, progression, payoff and
+  replay structure. These may not be inferred from the retired deck or an
+  older proposal.
 
 ## Content and learning
 
 - **Format job:** short behaviour rehearsal, not reference content.
-- **Outcome:** decompose a claim, evaluate provenance/specificity, commit,
-  receive consequence and explain what evidence supports the result.
-- **Mental model:** claims contain separable clauses; confidence, virality and
-  repeated testimony are not proof; primary records can support only what they
-  actually state.
-- **Misconceptions:** “everyone says it” means true; one source proves every
-  clause; precise numbers are inherently trustworthy; a mixed claim must be
-  wholly true or false.
-- **Evidence sensitivity:** every deck fact is claim-level, dated and
-  correction-controlled. Current or changed claims require re-verification.
-- **Analogy:** phone calls make evidence gathering memorable; they do not
-  simulate independent real witnesses or establish factual authority.
-- **Transfer evidence:** a representative player can identify unsupported
-  clauses and say what additional evidence would change the verdict.
+- **Outcome:** use AI more deliberately across a broader practical situation;
+  the exact transferable outcome will bind to the selected new mechanic.
+- **Mental model:** different AI situations call for different kinds of help,
+  context, iteration and human judgment; no single prompting move or AI role
+  fits every job.
+- **Misconceptions to compete:** the first answer is the finished answer; more
+  instructions always make a better prompt; AI should make the human decision;
+  one tool or interaction style fits every task.
+- **Content sensitivity:** factual situations remain current and bounded, but
+  source verification is a supporting quality control rather than the game's
+  premise.
+- **Analogy:** phone calls make choosing and directing different kinds of help
+  memorable; callers do not become authorities merely because they answer.
+- **Transfer evidence:** a representative player can apply the selected move
+  to an unfamiliar everyday or work situation and explain the human next step.
 - **Ecosystem:** durable concepts belong in LIBRAiRY; sequenced teaching in
   High/episodes; timely developments in NewsStand; immediate guidance in
   FAiRY.
@@ -97,14 +112,14 @@ and must not execute on the booth page.
 
 - Current visual direction is the existing booth/phone world only; no new
   asset direction is approved in this packet.
-- Voice may be sharp, funny and nostalgic, but must not outrun evidence,
-  boundaries or status truth.
+- Voice may be sharp, funny and nostalgic, but comedy must strengthen the
+  choice and consequence rather than decorate instructions.
 - No unapproved visual, character, background, palette or illustration-style
   substitution is permitted.
 - Motion must be functional, stable and disabled/reduced when the user requests
   reduced motion.
-- The unresolved owner decision includes the final product model and any
-  consequent visual-system change.
+- The exact new game mechanic and consequent visual-system expression remain
+  open; the two equal entry choices do not.
 
 ## Technical and operational contract
 
@@ -127,12 +142,12 @@ and must not execute on the booth page.
 ## Analytics and customer evidence
 
 - No analytics event is authoritative merely because code emits it.
-- Future minimum events: experiment shown, track selected, first meaningful
-  action, verdict committed, feedback viewed, source opened, replay, exit and
-  failure reason.
+- Future minimum events: entry shown, track selected, first meaningful action,
+  choice committed, consequence viewed, revision/replay, exit and failure
+  reason.
 - Properties must exclude free text and personal context.
-- Success is transferable judgment and useful reflection, not clicks, time or
-  reward collection.
+- Success is a useful transferable AI move plus genuine enjoyment, not clicks,
+  time or reward collection.
 - Plausible/Clarity and customer evidence remain **NOT PULLED** for this
   candidate.
 - Weekly freshness/correction triage; monthly journey/accessibility review;
@@ -146,27 +161,26 @@ and must not execute on the booth page.
   Platform Reliability, Analytics/Customer Focus, Release
 - **Downstream:** homepage, welcome tour, town directory, Extra Credit/Fun Pack
 - **Conflict:** none of those entry points may overrule Dream Phone's status.
-- **Freshness owner:** Dream Phone champion; independent accuracy judge admits
-  claims.
+- **Freshness owner:** Dream Phone champion; factual material still receives
+  proportionate accuracy review without turning the game into verification.
 
 ## Acceptance and release
 
 - Product quality: useful first action and coherent track purpose.
-- Accuracy/trust: every playable clause admitted in the ledger; no broad
-  “every fact” promise.
+- Accuracy/trust: every factual statement is supportable and bounded; no broad
+  “every fact” promise and no claim that verification is the whole AI skill.
 - Brand: independent score at least 17/20 and no generic AI/game wrapper.
 - UX/accessibility: new/returning, keyboard/focus, reduced motion, 200% zoom,
-  mobile/desktop, storage-failure and bad-evidence tests pass.
+  mobile/desktop, storage-failure and unavailable-content tests pass.
 - Backend/rewards: no account or cross-device implication.
 - Visual/media: existing approved-enough source only; no new visual approval is
   inferred.
 - Candidate/release/public verification are separately recorded and never
   conflated.
-- **Current status:** PUBLIC EXPERIMENT PRESENT, NOT LAUNCH-APPROVED / HIDE OR
-  LABEL.
-- **Unresolved owner decision:** select, revise or reject the major product
-  model after Council-quality alternatives and evidence; this specification
-  does not choose one.
+- **Current status:** TWO-TRACK DIRECTION SELECTED; LEGACY PUBLIC EXPERIMENT
+  PRESENT, NOT LAUNCH-APPROVED / HIDE OR LABEL.
+- **Unresolved product decision:** select the exact new full-game mechanic and
+  prove it useful and funny before visual or implementation build.
 
 ## Source trail
 

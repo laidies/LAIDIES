@@ -6,7 +6,7 @@
 
 | ID | Status | Launch class | Work | Done when |
 |---|---|---|---|---|
-| DP-001 | SPECIFIED — OWNER ENTRY RECOVERED LOCALLY | FIX BEFORE LAUNCH | Reconcile charter, operating spec, state and product boundaries without selecting a major model. | Targeted owner-entry passes; recovered brief/map preserve the unresolved owner decision and use exact status truth. |
+| DP-001 | COMPLETE — DIRECTION RECONCILED | FIX BEFORE LAUNCH | Reconcile charter, operating spec, state and product boundaries with Ali's selected two-track direction. | Targeted owner-entry passes; current owner docs bind two equal choices, broader practical-AI game territory and the still-open exact mechanic. |
 | DP-002 | BUILT LOCALLY | FIX BEFORE LAUNCH | Make experiment/beta status and Just Call boundary consistent across scoped entry points. | Every reachable entry says scripted/experimental; no personalized or professional-advice implication remains. |
 | DP-003 | BOUNDED LOCAL PASS | FIX BEFORE LAUNCH | Create claim-level evidence/freshness/correction ledger and admit only sufficiently supported rounds. | Independent re-judge accepted one playable round mapped clause-by-clause to dated official evidence; Mortal Kombat and eleven other rounds remain HOLD; stale/corrected/mismatched/duplicate/unknown/missing, impossible-date and future evidence/correction ledgers fail closed while valid UTC leap days pass. |
 | DP-004 | BUILT LOCALLY | FIX BEFORE LAUNCH | Isolate the parked patron-saint engine and make reward/persistence truth explicit. | Booth does not execute parked engine; Just Call remains usable; no account/cross-device implication; storage failure is harmless. |
@@ -17,17 +17,17 @@
 
 | ID | Status | Work | Done when |
 |---|---|---|---|
-| DP-007 | OWNER DECISION REQUIRED | Select, revise or reject the major Dream Phone model. | Ali receives the Council evidence, current candidate truth and trade-offs and records an explicit decision. |
-| DP-013 | SPECIFIED — BLOCKED BY DP-007 | Execute `BUILD-PACKET-product-model-reconciliation-2026-07-26.md`. | Owner-selected direction completes competition, build, independent gates, exact release/public proof and measurement without borrowing authority from the current live experiment. |
+| DP-007 | DECIDED — 2026-08-10 | Use a neutral entry with two equal first-class choices: Just Call and Play the Full Game. The game covers broader practical AI judgment rather than centring claim verification. | Decision is routed through `../../dream-phone-design-decisions.md`; neither current public code nor the retired claim deck overrules it. |
+| DP-013 | READY FOR PRODUCT DESIGN | Replace the claim-checking premise with the smallest useful, funny representative full-game loop. | The loop proves meaningful choice, consequence, feedback, replay and a distinct broader-AI learner outcome before page visuals or full implementation. |
 
 ## After owner decision
 
 | ID | Status | Work | Done when |
 |---|---|---|---|
-| DP-008 | BLOCKED BY DP-007 | Build the selected coherent entry/game/tool model. | One promise, one content model and one visual/interaction system replace the current ambiguity. |
-| DP-009 | BLOCKED BY DP-008 | Build full learning-transfer evaluation. | Representative unfamiliar players can decompose, qualify and explain claims and identify evidence that would change them. |
+| DP-008 | BLOCKED BY DP-013 | Build the selected coherent entry/game/tool model. | Two equal entry choices and one approved full-game promise, content model and visual/interaction system replace the current ambiguity. |
+| DP-009 | BLOCKED BY DP-008 | Build proportional usefulness, comedy and learning-transfer evaluation. | Representative unfamiliar players enjoy the loop, apply its AI move to a new situation and explain the human next step. |
 | DP-010 | NOT WIRED | Add privacy-safe analytics and customer evidence. | Meaningful-outcome funnel, aggregate failure evidence and satisfaction/VOC review operate without free text or personal data. |
-| DP-011 | NOT WIRED | Establish weekly claim freshness and monthly journey maintenance. | Expired claims fail closed; corrections and rechecks are dated; regressions re-enter the backlog. |
+| DP-011 | NOT WIRED | Establish content freshness and monthly journey maintenance proportionate to the selected mechanic. | Changed factual material is reviewed; stale content fails honestly; regressions re-enter the backlog without imposing a claim-ledger model on the whole game. |
 | DP-012 | DEFERRED | Evaluate ethical revenue only after product value and trust pass. | Revenue does not paywall core learning, bias verdicts, create deceptive scarcity or substitute reward pressure for utility. |
 
 ## Decline

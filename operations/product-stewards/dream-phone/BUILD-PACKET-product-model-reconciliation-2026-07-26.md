@@ -1,11 +1,17 @@
 # Dream Phone product-model reconciliation build packet
 
-**Status:** SPECIFIED — EXECUTION BLOCKED AT OWNER DIRECTION GATE  
+**Status:** SUPERSEDED FOR PRODUCT DIRECTION — HISTORICAL PACKET
 **Product:** Dream Phone Booth (`dream-phone`)  
 **Trigger:** permanent-owner initialization; missing experience/functionality
 records recovered without inferring the live-vs-park/product-model answer  
 **Write boundary for this packet:** Dream Phone dossier/evidence only until the
 owner decision is recorded
+
+> **Superseded 2026-08-10:** Ali selected two equal entry choices and ruled
+> that the full game must cover broader practical AI judgment rather than
+> centre claim verification. Use `../../dream-phone-design-decisions.md` and
+> the current `EXPERIENCE-BRIEF.md` / `OPERATING-SPEC.md`. The remaining gate
+> is the exact new game mechanic, not the model choice below.
 
 ## Problem and evidence
 
@@ -181,4 +187,3 @@ model is built, independently judged, verified locally, exactly released,
 verified publicly and measured. Initialization is complete when the targeted
 owner-entry preflight passes and the bounded owner decision is visible without
 an inferred recommendation.
-

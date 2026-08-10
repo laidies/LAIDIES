@@ -4,11 +4,11 @@
 
 ## Promise
 
-Dream Phone should help a woman practise better judgment through a playful
-1990s phone-booth experience: notice what a claim contains, decide what
-evidence is missing, seek useful corroboration, commit to a conclusion and
-learn from specific feedback. Its lighter Just Call track may offer funny,
-prewritten reframes. It is not personalized, diagnostic or professional
+Dream Phone is a playful 1990s phone-booth experience with two equal choices.
+**Just Call** offers funny prewritten reframes. **Play the Full Game** rehearses
+a broader practical way of working with AI: choose the kind of help needed,
+ask well, notice what the response enables or misses, improve the exchange and
+decide the human next move. It is not personalized, diagnostic or professional
 advice.
 
 ## Product ownership
@@ -17,7 +17,7 @@ The Dream Phone champion owns:
 
 - the booth entry, Just Call and game journeys;
 - exact product/status truth across every entry point;
-- the claim deck, evidence ledger, freshness and correction process;
+- the new full-game content model and any retained historical claim-deck data;
 - useful choice, consequence, feedback, replay and transfer;
 - new, returning, keyboard, reduced-motion, zoom and mobile journeys;
 - session, persistence and reward truth;
@@ -39,24 +39,25 @@ promise.
 
 ## Current product boundary
 
-Three models currently coexist in records/source:
+Three models currently coexist in records/source as implementation history:
 
 1. Just Call, a static prewritten reflection toy;
 2. the public experimental claim-checking game; and
 3. a parked patron-saint deduction engine.
 
-No Council concept passed for owner review or implementation. “Hotline Desk”
-was the strongest internal prototype direction, not an approved product
-decision. The champion must preserve that unresolved choice and may not select
-the major product model on Ali's behalf.
+Ali selected the two equal doors and broader practical-AI territory on
+2026-08-10. “Hotline Desk,” the current claim deck and the patron-saint engine
+remain possible evidence only; none determines the exact new full-game
+mechanic.
 
-Until that owner decision and independent gates pass:
+Until the new mechanic and independent gates pass:
 
 - the product is **PUBLIC EXPERIMENT PRESENT, NOT LAUNCH-APPROVED**;
 - primary launch promotion must hide it or label it clearly;
 - Just Call must identify itself as scripted, playful reflection rather than
   personalized or professional advice;
-- the game must identify itself as an experimental/beta scripted deck;
+- the legacy game must identify itself as an experimental/beta scripted deck
+  while it remains reachable;
 - only claim-level evidence admitted by the evidence ledger may appear in
   playable rounds; and
 - discoveries, history and rewards may be described only as session/local
@@ -65,16 +66,12 @@ Until that owner decision and independent gates pass:
 ## Learning contract
 
 The game must rehearse a transferable behaviour through meaningful choice,
-consequence, feedback and replay. It should help a player:
+consequence, feedback and replay. It should help a player choose suitable AI
+help, give useful context and direction, notice limitations, improve the
+exchange and retain the consequential human judgment.
 
-- split a compound claim into checkable parts;
-- distinguish repetition, confidence and consensus from evidence;
-- seek denominators, dates, original records and corroboration;
-- explain why a conclusion is supported or still uncertain; and
-- recognize what evidence would change it.
-
-A binary right answer, a source link after the fact or decorative game
-mechanics do not by themselves establish learning.
+A binary right answer, a prompt template after the fact or decorative game
+mechanics do not by themselves establish learning or enjoyment.
 
 ## Ecosystem role
 
@@ -86,8 +83,8 @@ a subject. It may route to:
 - NewsStand for timely claims under NewsStand's own editorial rules; and
 - FAiRY for an immediate in-scope guidance job.
 
-It must not duplicate those formats or imply that a nostalgic claim deck is a
-live fact-checking service.
+It must not duplicate those formats or reduce the wider AI landscape to a
+nostalgic claim-checking deck.
 
 ## Release authority
 
@@ -95,4 +92,3 @@ The champion may make unambiguous trust, safety, status, evidence and failure
 repairs. A major product-model choice, new visual direction, public promotion,
 deployment, account/reward promise or revenue model requires its proper owner
 decision and independent review.
-

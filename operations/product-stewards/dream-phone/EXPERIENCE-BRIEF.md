@@ -1,27 +1,26 @@
 # Dream Phone Booth experience brief
 
-**Status:** SPECIFIED FOR INTENT RECOVERY — OWNER DECISION REQUIRED  
+**Status:** TWO-TRACK DIRECTION SELECTED — FULL-GAME MECHANIC OPEN
 **Owner:** Dream Phone champion  
 **Recovered:** 2026-07-26  
 **Trigger:** targeted owner-entry preflight found the building experience brief
 and functionality map missing  
-**Allowed consequence:** this brief recovers evidence and boundaries; it does
-not approve a product model, visual direction, implementation or public release
+**Allowed consequence:** this brief now binds the selected two-track direction
+and broader-AI game territory; it does not approve the exact mechanic, visual
+direction, implementation or public release
 
 ## Recovered promise
 
-Dream Phone is a playful 1990s phone-booth experience. Its approved product
-class is a game/reflective toy rather than an authoritative advice or
-fact-checking service. If it claims to teach, the game must rehearse a
-transferable behaviour through meaningful choice, consequence, feedback and
-replay.
+Dream Phone is a playful 1990s phone-booth experience with two equal first-class
+doors: **Just Call** and **Play the Full Game**. Just Call is a lighter scripted
+reflection toy. The full game rehearses a broader practical way of working
+with AI through meaningful choice, consequence, feedback and replay.
 
-The exact major product model remains unresolved. The public implementation
-currently contains two doors—scripted Just Call reframes and an experimental
-claim-checking game—while an older patron-saint engine remains parked in
-source. A prior internal proposal, Hotline Desk, would combine a direct call
-with a three-call “what help do I need?” game. It was the strongest internal
-direction but did not pass Council for Ali review or implementation.
+The exact game mechanic remains unresolved. The current public claim-checking
+deck and parked patron-saint engine remain historical implementation evidence,
+not selected intent. Verification may appear as one situation where useful,
+but it cannot define the game or duplicate the existing full episode dedicated
+to that subject.
 
 ## Provenance and governing weight
 
@@ -36,7 +35,7 @@ direction but did not pass Council for Ali review or implementation.
 | Dream Phone should practise careful claim judgment; Just Call may be a lighter scripted reflection track. | **APPROVED BRIEF/ARTIFACT** — `CHARTER.md`, `OPERATING-SPEC.md` | Governs the bounded current experiment, not the final model. |
 | Just Call and the beta claim game are reachable publicly; the booth no longer loads the parked engine. | **CURRENT IMPLEMENTATION OBSERVED** — source and 2026-07-25 evidence | Describes current reality only. |
 | Hotline Desk is the strongest complete model considered so far. | **INFERENCE / UNAPPROVED INTERNAL PROPOSAL** — June rethink packet | Eligible to compete; cannot govern implementation. |
-| Whether Dream Phone should be one learning game, a two-track booth, the Hotline Desk model, or no promoted product. | **UNKNOWN / OWNER DECISION REQUIRED** | No design/build may resolve this by inference. |
+| Dream Phone has two equal first-class entry choices: Just Call and Play the Full Game. The full game is broader practical AI judgment, not a claim-verification premise. | **OWNER DIRECTION — Ali, 2026-08-10**; `../../dream-phone-design-decisions.md` | Selects the two-track product direction and retires the claim deck as the proposed full-game model; exact new mechanic remains open. |
 
 ## Owned experience tree
 
@@ -59,8 +58,8 @@ Regardless of the selected model:
 3. The phone/town metaphor must clarify the action rather than replace it.
 4. Any caller output must be explicitly scripted; no personalized,
    professional, medical, legal, financial or therapeutic authority.
-5. Any learning claim must decompose claims, distinguish confidence from
-   evidence, expose source limits and show what evidence would change the read.
+5. Any learning claim must bind to the exact selected learner action and show
+   a useful change in how the player works with AI.
 6. A result must name what happened, why, and a useful next action.
 7. Replay must create new practice or a deliberately new lens, not only answer
    memorization.
@@ -133,27 +132,27 @@ candidate proves only local browser states, not the full suite.
 - Analytics/third-party script failure: core product remains usable.
 - No free-text work problem, answer or identity is sent to analytics.
 
-## Bounded owner decision
+## Owner direction and remaining game decision
 
-Ali is asked for one ruling only:
+Ali selected a two-track booth on 2026-08-10: the neutral entry presents **Just
+Call** and **Play the Full Game** as equal first-class choices. She also ruled
+that the full game must not centre receipts, claim verification or the current
+claim deck; that teaching already has a full episode and is only one part of
+AI literacy.
 
-> **Which product model should Dream Phone take forward to a Council-quality
-> competition and eventual build: (A) one coherent evidence-judgment game,
-> (B) a two-track booth with scripted Just Call plus a learning game,
-> (C) a revised Hotline Desk where three calls reveal the help needed today,
-> or (D) reject/pause Dream Phone as a promoted product?**
-
-This is a direction-selection gate, not approval of current code or June
-concept art. Ali may revise the options. Until recorded, the current public
-experiment remains observed but not launch-approved, and no model may borrow
-authority from being live, scoring best internally or already having code.
+The next bounded decision is the exact new full-game mechanic. It must make
+broader practical AI judgment useful and funny through real choice,
+consequence, feedback and replay. Existing public code, the claim deck and the
+prior Hotline Desk proposal remain evidence or candidates only and cannot
+choose that mechanic by inference.
 
 ## Re-entry declaration
 
 - **Stable promise:** playful phone-booth reflection/practice with honest
   boundaries and, if educational, a real judgment loop.
-- **Exact resume point:** recover the two missing owner-entry records, then
-  obtain the single model-direction ruling above.
+- **Exact resume point:** design the smallest representative new game loop
+  across broader practical AI situations, then judge whether it earns equal
+  billing before producing the landing-page visual direction.
 - **Non-negotiables:** evidence truth, scripted-advice boundary, distinct
   learning job, visitor-state honesty, accessibility, reward/persistence truth
   and maker/judge separation.
@@ -161,4 +160,3 @@ authority from being live, scoring best internally or already having code.
   folder only.
 - **No change made by this recovery:** public code, live state, product model,
   visual direction, rewards, analytics, deployment or canon.
-
