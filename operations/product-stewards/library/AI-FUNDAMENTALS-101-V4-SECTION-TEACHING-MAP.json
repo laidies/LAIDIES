@@ -5,7 +5,7 @@
   "status": "PRODUCTION_ARCHITECTURE_NOT_PROSE",
   "curriculumRule": "LOGICAL_PREREQUISITE_SEQUENCE_WITH_SECTION_GOALS_AND_ANSWERABLE_OUTCOME_QUESTIONS",
   "readerIntroductionRule": "Every concept chapter begins by putting the subject into a familiar human context, explaining why the language or mechanism is confusing, demonstrating the practical reason the distinctions matter and walking through one concrete case before presenting a framework, figure or label set.",
-  "textbookComponentRule": "Each Standard concept requires a plain definition, concrete example, relationship to adjacent concepts, practical consequence and useful action; add an analogy only when it faithfully improves understanding. The chapter also requires a helpful figure, in-place cumulative depth, retrieval or application, Key Definitions, compact source/freshness notes and See more at LAiDIES links only to real admitted destinations.",
+  "textbookComponentRule": "Each Standard concept requires a plain definition, concrete example, relationship to adjacent concepts, practical consequence and useful action; add an analogy only when it faithfully improves understanding. A figure is required only when it makes a relationship materially easier to understand than the prose and may not be produced before that relationship is stable. The chapter also requires in-place cumulative depth, retrieval or application, concise Key Definitions, compact source/freshness notes and See more at LAiDIES links only to real admitted destinations.",
   "depthPlacementRule": "Each concept is one visible learning module. Its complete Standard explanation appears first; Tell Me More and Full Nerd Alert expand inside that same module, name the parent concept, continue the same example or mechanism and decode every new technical term in conversational language. They may not appear as parallel mini-lessons, a bolt-on appendix or a vocabulary dump.",
   "depthCommunicationRule": "Every higher-depth panel begins with the natural question it answers, makes the mechanism visible through an ordinary interaction, introduces technical vocabulary only after its meaning is clear and ends by reconnecting the detail to what the reader can understand or do. A technically correct paragraph that assumes the reader already understands its jargon fails.",
   "chapter1ConceptHeadings": [
@@ -27,7 +27,7 @@
     "How the construction families fit together"
   ],
   "chapter1DepthBindings": [
-    {"standard":"Start with the AI you already use","tellMeMore":"Tell Me More about an AI system: one result can trigger another step","fullNerd":"Full Nerd Alert on an AI system: where the system boundary sits","sameModule":true,"plainEntryExcerpt":"The output is not always the end.","workedExampleExcerpt":"An AI system might estimate that a transaction looks unusual.","readerReconnectionExcerpt":"The phrase *the AI* did not tell you where either person drew the line."},
+    {"standard":"Start with the AI you already use","tellMeMore":"Tell Me More about an AI system: one result can trigger another step","fullNerd":"Full Nerd Alert on an AI system: why testing one part is not testing the whole product","sameModule":true,"plainEntryExcerpt":"The output is not always the end.","workedExampleExcerpt":"An AI system might estimate that a transaction looks unusual.","readerReconnectionExcerpt":"The phrase *the AI* did not tell you where either person drew that line."},
     {"standard":"Predictive AI estimates what is likely","tellMeMore":"Tell Me More about Predictive AI: how clues become a score","fullNerd":"Full Nerd Alert on Predictive AI: what makes a score trustworthy?","sameModule":true,"plainEntryExcerpt":"The system has not developed a tiny personal grudge against your new boots.","workedExampleExcerpt":"Suppose a fraud model gives genuine frauds higher scores than ordinary purchases most of the time.","readerReconnectionExcerpt":"precise at predicting *what*, under which conditions, and in service of whose goal?"},
     {"standard":"Generative AI produces new content","tellMeMore":"Tell Me More about Generative AI: how prediction produces a paragraph","fullNerd":"Full Nerd Alert on Generative AI: how the model chooses the next token","sameModule":true,"plainEntryExcerpt":"You may have seen your phone suggest the next word while you type.","workedExampleExcerpt":"Imagine the sentence: “She opened the fridge and discovered...”","readerReconnectionExcerpt":"next-token selection is not a built-in truth detector."},
     {"standard":"Multimodal AI works across more than one modality","tellMeMore":"Tell Me More about Multimodal AI: how an image and words meet","fullNerd":"Full Nerd Alert on Multimodal AI: why the connection can go wrong","sameModule":true,"plainEntryExcerpt":"Return to the photograph of the damaged chair.","workedExampleExcerpt":"If you ask about the crack in a chair, the damaged joint matters more than the floral wallpaper behind it.","readerReconnectionExcerpt":"Multimodal gives the system more kinds of information; it also gives the system more ways to connect them incorrectly."},
@@ -44,27 +44,40 @@
   ],
   "chapter1StandardContracts": [
     {"standard":"Start with the AI you already use","exampleExcerpt":"Now take the spam filter.","whyExcerpt":"It is not one machine, one app or one particular chatbot."},
+    {"standard":"Predictive AI estimates what is likely","exampleExcerpt":"Think of a Friday night at Blockbuster.","whyExcerpt":"This is useful because each step can fail differently."},
     {"standard":"Generative AI produces new content","exampleExcerpt":"Ask an AI assistant to turn your meeting notes into an email","whyExcerpt":"you can begin with a tailored result instead of a blank page."},
+    {"standard":"Multimodal AI works across more than one modality","exampleExcerpt":"Imagine uploading a photograph of a damaged chair","whyExcerpt":"One interaction; three truthful labels; three different properties."},
+    {"standard":"Agentic AI continues through steps and actions","exampleExcerpt":"Compare these two results:","whyExcerpt":"That continued loop is the important agentic idea."},
+    {"standard":"Embodied AI can sense or act through physical equipment","exampleExcerpt":"A warehouse robot may sense its surroundings","whyExcerpt":"The physical connection is what makes these systems embodied."},
     {"standard":"Specialised or narrow AI has a bounded job","exampleExcerpt":"Imagine a system built to spot damaged products in photographs from one factory line.","whyExcerpt":"The useful follow-up is: **specialised for which job, using which inputs, under which conditions?**"},
     {"standard":"General-purpose AI can help with many different tasks","exampleExcerpt":"Suppose one assistant can summarise a policy, draft an invitation, explain a chart","whyExcerpt":"The value is flexibility; the catch is that a longer menu does not promise equal skill or reliability"},
     {"standard":"AGI is a disputed proposed threshold","exampleExcerpt":"Imagine your smartest friend agrees to help with a charity auction she has never organised before.","whyExcerpt":"the kind of transfer and general adaptability an AGI claim would need to demonstrate"},
+    {"standard":"ASI is hypothetical","exampleExcerpt":"Picture the earlier charity-auction comparison.","whyExcerpt":"There is no current ASI system and no agreed test for one."},
     {"standard":"Rule-based AI follows logic written by people","exampleExcerpt":"A spam filter might say: when an email contains this phrase","whyExcerpt":"people supplied the decision logic rather than asking a model to learn the pattern from examples."},
     {"standard":"Machine learning learns patterns from examples","exampleExcerpt":"A machine-learning spam filter studies messages already labelled spam or legitimate","whyExcerpt":"The construction method tells you where a useful correction can—and cannot—happen."},
     {"standard":"Neural networks learn through connected layers","exampleExcerpt":"Imagine a fraud system considering the purchase amount, location and recent account activity.","whyExcerpt":"useful patterns may depend on clues working together"},
     {"standard":"Deep learning uses neural networks with many learned layers","exampleExcerpt":"Your phone may use deep learning to recognise objects in a photograph","whyExcerpt":"It explains why the same construction family can support very different visible AI jobs."}
   ],
-  "chapter1DefinitionDepthContracts": [
-    {"term":"Breadth","depth":"STANDARD"},
-    {"term":"Inference","depth":"FULL_NERD_ALERT"},
-    {"term":"Model","depth":"STANDARD"},
-    {"term":"Product","depth":"STANDARD"},
-    {"term":"Reliability","depth":"STANDARD"},
-    {"term":"Representation","depth":"STANDARD"},
-    {"term":"Training","depth":"STANDARD"},
-    {"term":"Transfer","depth":"STANDARD"},
-    {"term":"Continual learning","depth":"TELL_ME_MORE"},
-    {"term":"In-context learning","depth":"TELL_ME_MORE"},
-    {"term":"System boundary","depth":"FULL_NERD_ALERT"}
+  "chapter1DefinitionDepthContracts": [],
+  "chapter1KeyDefinitionContracts": [
+    "AI",
+    "AI system",
+    "Predictive AI",
+    "Generative AI",
+    "Multimodal AI",
+    "Agentic AI",
+    "Embodied AI",
+    "Specialised or narrow AI",
+    "General-purpose AI",
+    "AGI",
+    "ASI",
+    "Rule-based AI",
+    "Machine learning",
+    "Neural network",
+    "Deep learning",
+    "Input",
+    "Output",
+    "Product"
   ],
   "units": [
     {

@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { enforcedFailureFamilies } from "./check-prose-quality-admission.mjs";
 import { aiFundamentalsBeginnerLanguageIssues } from "./check-ai-fundamentals-beginner-language.mjs";
+import { aiFundamentalsTeachingMapIssues } from "./check-ai-fundamentals-teaching-map.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const base = "content/library-books/pilots/ai-fundamentals-101-v4";
@@ -13,10 +14,11 @@ const candidatePath = process.env.AI_FUNDAMENTALS_R6_CANDIDATE_PATH || `${base}/
 const renderedPath = `${base}/rendered/introduction-and-chapter-1-r6.html`;
 const manifestPath = `${base}/r6-artifact-manifest.json`;
 const reviewPath = `${base}/r6-producer-self-review.json`;
+const visualPath = `${base}/assets/chapter-1-how-ai-types-fit-together.svg`;
 const registryPath = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const sourcePath = "operations/product-stewards/library/AI-FUNDAMENTALS-101-INTRO-CH1-R6-SOURCE-PACKET-2026-08-09.json";
 const teachingMapPath = "operations/product-stewards/library/AI-FUNDAMENTALS-101-V4-SECTION-TEACHING-MAP.json";
-const candidateId = "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-14";
+const candidateId = "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-15";
 const surface = "LIBRAIRY";
 
 const read = relative => fs.readFileSync(path.join(root, relative), "utf8");
@@ -56,7 +58,7 @@ function renderMarkdown(markdown, conceptTitles) {
     const image = /^!\[(.+?)\]\((.+?)\)$/.exec(line.trim());
     if (image) {
       const src = image[2].startsWith("assets/") ? `../${image[2]}` : image[2];
-      out.push(`<figure><img src="${src}" alt="${inline(image[1])}"></figure>`);
+      out.push(`<figure><a href="${src}" target="_blank" rel="noopener"><img src="${src}" alt="${inline(image[1])}"></a><figcaption>Open the diagram at full size</figcaption></figure>`);
       i += 1; continue;
     }
     const heading = /^(#{1,5})\s+(.+)$/.exec(line);
@@ -85,13 +87,16 @@ function renderMarkdown(markdown, conceptTitles) {
         out.push(`<section class="depth-card depth-${depthLevel === 1 ? "more" : "full"}" data-depth="${depthLevel}" aria-labelledby="${slug}">`);
         depthOpen = true;
       }
+      const displayText = depthLevel
+        ? text.replace(/^Tell Me More about /, "").replace(/^Full Nerd Alert (?:on|about) /, "")
+        : text;
       const classes = [
         text === "Sources and freshness" ? "source-note-heading" : "",
         /^[123]\. /.test(text) ? "intro-reason-heading" : "",
         depthLevel ? "depth-heading" : ""
       ].filter(Boolean);
       const className = classes.length ? ` class="${classes.join(" ")}"` : "";
-      out.push(`<h${level}${className} id="${slug}">${inline(text)}</h${level}>`);
+      out.push(`<h${level}${className} id="${slug}">${inline(displayText)}</h${level}>`);
       i += 1; continue;
     }
     if (line.startsWith("> ")) {
@@ -128,6 +133,9 @@ function renderMarkdown(markdown, conceptTitles) {
 }
 
 const candidate = read(candidatePath);
+const visualSource = read(visualPath);
+if (!candidate.includes("assets/chapter-1-how-ai-types-fit-together.svg")) throw new Error("Chapter relationship figure is not bound in the prose");
+if (/<style\b|<foreignObject\b|style=/i.test(visualSource)) throw new Error("Chapter relationship figure must be a deterministic SVG asset, not CSS or embedded HTML artwork");
 const requiredIntroductionHeadings = [
   "### 1. Get better results from AI: from “ARGHH, WTF?” to “Ahh. That’s why.”",
   "### 2. Make sense of AI news and hype: from “The end is nigh!” to “Ugh, as if.”",
@@ -139,6 +147,8 @@ for (const heading of requiredIntroductionHeadings) {
   }
 }
 const teachingMap = JSON.parse(read(teachingMapPath));
+const teachingMapIssues = aiFundamentalsTeachingMapIssues(teachingMap);
+if (teachingMapIssues.length) throw new Error(`Teaching-map coverage failed:\n- ${teachingMapIssues.join("\n- ")}`);
 const beginnerLanguageIssues = aiFundamentalsBeginnerLanguageIssues(candidate);
 if (beginnerLanguageIssues.length) {
   throw new Error(`Beginner-language integrity failed:\n- ${beginnerLanguageIssues.join("\n- ")}`);
@@ -194,6 +204,13 @@ for (const contract of teachingMap.chapter1DefinitionDepthContracts || []) {
     throw new Error(`Definition depth mismatch for ${contract.term}: expected ${contract.depth}`);
   }
 }
+const keyDefinitionsStart = candidate.indexOf("## Key Definitions");
+const keyDefinitionsEnd = candidate.indexOf("### Sources and freshness", keyDefinitionsStart);
+if (keyDefinitionsStart < 0 || keyDefinitionsEnd < 0) throw new Error("Key Definitions boundary missing");
+for (const term of teachingMap.chapter1KeyDefinitionContracts || []) {
+  const entry = candidate.indexOf(`- **${term}**`, keyDefinitionsStart);
+  if (entry < keyDefinitionsStart || entry >= keyDefinitionsEnd) throw new Error(`Key Definitions missing core chapter term: ${term}`);
+}
 const conceptTitles = new Set([
   ...(teachingMap.chapter1ConceptHeadings || []),
   ...(teachingMap.chapter1DepthBindings || []).map(binding => binding.standard)
@@ -239,8 +256,9 @@ p,li,td{font-size:1rem}
 p{margin:1rem 0 1.28rem}
 blockquote{margin:1.8rem 0;padding:1rem 1.15rem;background:var(--lavender);border:2px solid var(--purple);box-shadow:5px 5px 0 var(--pink-shadow);font-size:1.1rem;font-weight:750}
 hr{border:0;border-top:3px double var(--line);margin:3rem 0}
-figure{margin:2rem -1.5rem;padding:.75rem;border:2px solid var(--purple);background:#fff;box-shadow:6px 6px 0 var(--lavender-2)}
+figure{margin:2rem -2.5rem;padding:.75rem;border:2px solid var(--purple);background:#fff;box-shadow:6px 6px 0 var(--lavender-2)}
 figure img{display:block;height:auto;width:100%}
+figcaption{font-size:.78rem;color:var(--muted);font-weight:700;margin:.55rem .15rem 0;text-align:right}
 .table-wrap{overflow-x:auto;margin:1.4rem 0;border:2px solid var(--purple);box-shadow:5px 5px 0 var(--lavender-2)}
 table{width:100%;border-collapse:collapse;font-size:.92rem}
 th{background:var(--purple-dark);color:#fff;text-align:left}
@@ -254,7 +272,7 @@ a{color:#8d1d65;text-decoration-thickness:.08em;text-underline-offset:.12em}
 #the-chapter-in-one-minute,#key-definitions{margin-top:3.8rem}
 .source-note-heading{font-size:.76rem;color:var(--muted);letter-spacing:0;margin-top:2.8rem;text-transform:none;border:0;padding:0}
 .source-note-heading+p{border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;line-height:1.5;margin-top:.4rem;padding-top:.65rem}
-@media(max-width:650px){html{font-size:18px;scroll-padding-top:6.5rem}.page{width:100%;padding:2.4rem 1rem 4rem;box-shadow:none}h1{font-size:2.05rem}h2{font-size:1.42rem}.intro-reason-heading{font-size:1.03rem}.concept-module,.synthesis-module,.definitions-module{padding:0 .85rem .95rem;margin-right:.35rem;box-shadow:5px 5px 0 var(--pink-shadow)}.concept-module>h3:first-child,.synthesis-module>h2:first-child,.definitions-module>h2:first-child{margin-left:-.85rem;margin-right:-.85rem;padding-left:.75rem}.depth-card{padding:.1rem .75rem .8rem}.meter{justify-content:center;flex-wrap:wrap;gap:.42rem;overflow:visible}.meter span{flex:0 0 100%;text-align:center;white-space:nowrap}.meter button{white-space:nowrap;box-shadow:none}figure{margin:1.5rem 0}.table-wrap{overflow:visible;border:0;box-shadow:none}.table-wrap table,.table-wrap tbody,.table-wrap tr,.table-wrap td{display:block;width:100%}.table-wrap thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.table-wrap tr{border:2px solid var(--purple);margin:0 0 .8rem;box-shadow:3px 3px 0 var(--lavender-2)}.table-wrap td{display:grid;grid-template-columns:minmax(7rem,38%) 1fr;gap:.65rem;border:0;border-bottom:1px solid var(--line);padding:.68rem;background:#fff}.table-wrap td:last-child{border-bottom:0}.table-wrap td::before{content:attr(data-label);font-weight:800;color:var(--purple-dark)}}
+@media(max-width:650px){html{font-size:18px;scroll-padding-top:6.5rem}.page{width:100%;padding:2.4rem 1rem 4rem;box-shadow:none}h1{font-size:2.05rem}h2{font-size:1.42rem}.intro-reason-heading{font-size:1.03rem}.concept-module,.synthesis-module,.definitions-module{padding:0 .85rem .95rem;margin-right:.35rem;box-shadow:5px 5px 0 var(--pink-shadow)}.concept-module>h3:first-child,.synthesis-module>h2:first-child,.definitions-module>h2:first-child{margin-left:-.85rem;margin-right:-.85rem;padding-left:.75rem}.depth-card{padding:.1rem .75rem .8rem}.meter{justify-content:center;flex-wrap:wrap;gap:.42rem;overflow:visible}.meter span{flex:0 0 100%;text-align:center;white-space:nowrap}.meter button{white-space:nowrap;box-shadow:none}figure{margin:1.5rem 0}figcaption{text-align:left}.table-wrap{overflow:visible;border:0;box-shadow:none}.table-wrap table,.table-wrap tbody,.table-wrap tr,.table-wrap td{display:block;width:100%}.table-wrap thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.table-wrap tr{border:2px solid var(--purple);margin:0 0 .8rem;box-shadow:3px 3px 0 var(--lavender-2)}.table-wrap td{display:grid;grid-template-columns:minmax(7rem,38%) 1fr;gap:.65rem;border:0;border-bottom:1px solid var(--line);padding:.68rem;background:#fff}.table-wrap td:last-child{border-bottom:0}.table-wrap td::before{content:attr(data-label);font-weight:800;color:var(--purple-dark)}}
 @media(max-width:390px){.meter{padding:.5rem .55rem}.meter span{font-size:.62rem}.meter button{font-size:.69rem;padding:.36rem .46rem}.page{padding-left:.85rem;padding-right:.85rem}.concept-module,.synthesis-module,.definitions-module{margin-left:0}.table-wrap td{grid-template-columns:1fr;gap:.18rem}}
 </style></head><body>
 <nav class="meter" aria-label="Nerd-O-Meter"><span>Nerd-O-Meter</span><button type="button" data-mode="standard" aria-pressed="false">Standard</button><button type="button" data-mode="more" aria-pressed="false">Tell Me More!</button><button type="button" data-mode="full" aria-pressed="true">Full Nerd Alert!</button></nav>
@@ -279,7 +297,8 @@ writeJson(manifestPath, {
   surface,
   contentClass: "EXPLANATION",
   reviewText: bind(candidatePath),
-  rendered: bind(renderedPath)
+  rendered: bind(renderedPath),
+  visualAssets: [bind(visualPath)]
 });
 
 const registry = JSON.parse(read(registryPath));
@@ -300,14 +319,14 @@ const benchmarkEvidence = {
 
 const outcomes = {
   plainClarity: outcome("The chapter first shows one recognisable product, then names the labels that describe its different properties.", "That one product could therefore be described as **predictive**, **generative**, **multimodal** and **agentic**."),
-  technicalCoherence: outcome("The prose distinguishes genuine construction nesting from overlapping product properties and explicitly prevents the false agentic-generative-predictive hierarchy.", "Machine learning sits inside the broader AI field; neural networks sit inside machine learning; deep learning sits inside the neural-network family."),
+  technicalCoherence: outcome("The prose distinguishes genuine construction nesting from overlapping product properties and explicitly prevents the false agentic-generative-predictive hierarchy.", "**AI → machine learning → neural networks → deep learning**"),
   readerValue: outcome("The reader receives a usable six-question inspection exercise for a real feature.", "Choose one AI feature you encountered this week."),
   laidiesVoice: outcome("Direct address, intelligent humour, enthusiasm and practical judgment remain present through the introduction and concept mechanism.", "The words have escaped the lab and are now breeding in PowerPoint."),
   engagingEnjoyable: outcome("Humour sharpens probability, generation, agent risk and speculative progression without replacing their mechanisms.", "A probability wearing lip gloss is still a probability."),
   factualIntegrity: outcome("Material definitions and current capability boundaries are source-bound and qualified.", "There is no universally accepted definition or test."),
   freshnessReviewability: outcome("The candidate states its review date, sources and recheck triggers.", "Checked 10 August 2026"),
   surfaceFit: outcome("The artifact works as a continuous textbook chapter with in-place depth, practice, Key Definitions, a compact source note and real continuation routes.", "## Key Definitions"),
-  connectedSystemUnderstanding: outcome("The chapter connects six different classification questions, then reconstructs them on one product without pretending they form one ladder.", "We are going to untangle six different questions people have bundled inside the phrase **type of AI**"),
+  connectedSystemUnderstanding: outcome("The chapter connects six different classification questions, then reconstructs them on one product without pretending they form one ladder.", "We are going to take the PowerPoint pile apart using six clear questions"),
   dailyLifeConnection: outcome("Spam, photo search, streaming, travel and a workplace assistant make invisible distinctions concrete.", "Think of a Friday night at Blockbuster."),
   communicationBenchmark: outcome("A human reason and one recurring customer-service assistant make the invisible distinctions visible before the technical framework appears.", "A customer sends an email and a photograph of a damaged chair."),
   explanationArc: outcome("The chapter starts with the real PowerPoint confusion, explains one system, earns six questions, deepens each concept and reconstructs one complete product.", "Before we sort out the words, let’s start with the thing they are trying to describe."),
@@ -366,10 +385,10 @@ const review = {
   maker: "learning-system-concepts-director",
   reviewer: { id: "learning-system-concepts-director-self-review", principalId: "learning-system-concepts-director", role: "producer and learning-system owner", modelFamily: "openai" },
   reviewMode: "EXACT_PROSE_IN_FULL",
-  reviewedAt: "2026-08-10T12:00:00-07:00",
-  artifact: { reviewText: bind(candidatePath), manifest: bind(manifestPath) },
+  reviewedAt: "2026-08-10T13:12:01-07:00",
+  artifact: { reviewText: bind(candidatePath), manifest: bind(manifestPath), visualAssets: [bind(visualPath)] },
   calibration: {
-    registrySha256: sha(registryPath), reviewerPrincipalId: "learning-system-concepts-director", reviewedAt: "2026-08-10T12:00:00-07:00",
+    registrySha256: sha(registryPath), reviewerPrincipalId: "learning-system-concepts-director", reviewedAt: "2026-08-10T13:00:00-07:00",
     negatives: negativeCalibrations,
     positive: { exemplarId: "CQX-GOOD-ALI-FUNDAMENTALS-INTRO-001", verdict: "PASS", strengthsRetained: ["direct reader relationship", "three-part purpose", "specific humour"], evidence: [{ excerpt: benchmarkEvidence["CQX-GOOD-ALI-FUNDAMENTALS-INTRO-001"], locator: "Ali writing standard" }] },
     sitewideWritingBenchmarks: registry.sitewideWritingBenchmarkIds.map(exemplarId => ({ exemplarId, verdict: "PASS", strengthsToRetain: ["intelligent best-friend relationship", "clarity", "usefulness", "earned humour"], patternsNotToCopy: ["exact plot", "exact jokes", "reference quota"], evidence: [{ excerpt: benchmarkEvidence[exemplarId], locator: "sitewide benchmark" }] }))
@@ -388,7 +407,7 @@ const review = {
     disposition: "CLAIMS_REVIEWED",
     sourceBindings: [sourceBinding],
     claimMap: [
-      { claimId: "AIF-R6-AI-SYSTEM", status: "VERIFIED", candidateEvidence: evidence("Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that computer systems are using rules or patterns to do things such as recognise, predict, recommend, create or choose a next action."), sourceBinding, sourceEvidence: [{ excerpt: "An AI system is a machine-based system that, for explicit or implicit objectives, infers", locator: "AIF-R6-INTRO-AI-SYSTEM sourceExcerpt" }], scopeAndFreshness: "Beginner-facing umbrella explanation bounded by the broader OECD definition; recheck on definition change." },
+      { claimId: "AIF-R6-AI-SYSTEM", status: "VERIFIED", candidateEvidence: evidence("What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that a computer system takes in information and works out a result"), sourceBinding, sourceEvidence: [{ excerpt: "An AI system is a machine-based system that, for explicit or implicit objectives, infers", locator: "AIF-R6-INTRO-AI-SYSTEM sourceExcerpt" }], scopeAndFreshness: "Beginner-facing umbrella explanation bounded by the broader OECD definition; recheck on definition change." },
       { claimId: "AIF-R6-GENERATIVE-MULTIMODAL", status: "VERIFIED", candidateEvidence: evidence("**Generative AI** produces content: text, images, audio, video, code or other digital material."), sourceBinding, sourceEvidence: [{ excerpt: "Generative AI produces new content. Modality describes the kind of information", locator: "AIF-R6-CH1-GENERATIVE-MULTIMODAL ruledClaim" }], scopeAndFreshness: "Technology-neutral distinction; named product claims intentionally absent." },
       { claimId: "AIF-R6-AGENTIC", status: "QUALIFIED", candidateEvidence: evidence("An **agentic AI** system can continue through a task."), sourceBinding, sourceEvidence: [{ excerpt: "Agentic describes continued operation across steps toward a goal", locator: "AIF-R6-CH1-AGENTIC-EMBODIED ruledClaim" }], scopeAndFreshness: "Industry terminology varies; candidate states the variation boundary and makes no universal product claim." },
       { claimId: "AIF-R6-AGI-ASI", status: "QUALIFIED", candidateEvidence: evidence("LAiDIES does **not** classify today’s products as AGI."), sourceBinding, sourceEvidence: [{ excerpt: "General-purpose AI is not the same as AGI.", locator: "AIF-R6-CH1-GENERAL-PURPOSE-AGI-ASI ruledClaim" }], scopeAndFreshness: "LAiDIES position plus disputed-definition boundary; recheck before publication and on material capability evidence change." }
@@ -398,10 +417,10 @@ const review = {
     correctionOwner: "learning-system-concepts-director"
   },
   ratchet: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0, reviewIssues: 0, reviewCycles: 0, priorComparable: { reviewIssues: 3, reviewCycles: 1 }, onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" },
-  lineage: { kind: "SUCCESSOR", predecessorCandidateId: "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-4" },
-  learningDisposition: { disposition: "EVIDENCE_GAP", rationale: "The builder confirms structure, bindings and exact known-bad phrase rejection only. The revised prerequisite sequence and every concept module still require a fresh exact-prose producer reading before any semantic PASS can exist." },
-  verdict: "HOLD",
-  limitations: ["This generated record is an integrity and calibration receipt, not evidence that the prose is clear, useful, engaging or in LAiDIES voice.", "Producer self-review has no independent quality authority.", "Explain-back, transfer, reconstruction and analogy evidence are simulated producer probes only.", "No fresh exact-prose semantic review, independent admission, unfamiliar-reader observation, Ali taste decision, Library admission, deployment or publication exists."]
+  lineage: { kind: "SUCCESSOR", predecessorCandidateId: "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-14" },
+  learningDisposition: { disposition: "NO_NEW_DEFECT", rationale: "The exact-prose producer review found no new reusable defect. The already-registered subset-coverage failure was repaired in the producer guard before this review, and the current prose contains the required Standard example and importance evidence for all fourteen taught concepts." },
+  verdict: "PASS",
+  limitations: ["Producer self-review has no independent quality authority and is permission to seek review, not admission.", "The exact SVG is checksum-bound and maker-inspected at full resolution; it has no role-distinct visual admission.", "Explain-back, transfer, reconstruction and analogy evidence are simulated producer probes only.", "No independent semantic admission, unfamiliar-reader observation, Ali direction decision, Library admission, deployment or publication exists."]
 };
 
 writeJson(reviewPath, review);

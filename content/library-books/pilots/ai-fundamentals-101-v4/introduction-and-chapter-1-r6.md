@@ -74,7 +74,7 @@ Predictive AI. Generative AI. Multimodal AI. Agentic AI. Embodied AI. Narrow AI.
 
 If the list feels confusing, you have not missed one basic lesson that everyone else understood. The language really is tangled. Engineers may use a label to describe how a system was built. A product team may use one to describe what the system does. A researcher may be talking about the forms of information it can process. A keynote speaker may be making a claim about how intelligent future systems could become. Then all four call their answer a “type of AI” and place it in the same slide deck. Excellent. Very helpful.
 
-## Start with one AI system
+## First, what are all these labels describing?
 
 Before we sort out the words, let’s start with the thing they are trying to describe.
 
@@ -84,7 +84,7 @@ Before we define anything, look at what is already happening around you.
 
 Your phone can find photographs of dogs without you labelling every dog. Your bank can flag a purchase that looks unusual. A streaming service can suggest what to watch next. ChatGPT can turn your chaotic meeting notes into an email that sounds as though someone had a plan all along.
 
-Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that computer systems are using rules or patterns to do things such as recognise, predict, recommend, create or choose a next action.
+Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that a computer system takes in information and works out a result: it might recognise what is in a photograph, predict which transaction looks suspicious, recommend a film, create a draft or choose a next action.
 
 That is the useful beginner’s meaning. AI is the big field. It contains many ways of building systems and many kinds of job. It is not one machine, one app or one particular chatbot.
 
@@ -107,20 +107,24 @@ That one product could therefore be described as **predictive**, **generative**,
 
 The distinctions matter in real life. If a system is generative, a polished answer may have been produced rather than retrieved from a checked source. If it is agentic, permissions and stopping points suddenly matter because the system may do something after answering. If someone calls it AGI, she is making a much larger and far more disputed claim about the breadth and adaptability of its intelligence.
 
-So we are not going to memorise one giant list. We are going to untangle six different questions people have bundled inside the phrase **type of AI**:
+So we are not going to memorise one giant list. We are going to take the PowerPoint pile apart using six clear questions:
 
-1. What job does it perform?
-2. What forms of information can it handle?
-3. Does it stop after one result or continue through steps and actions?
-4. Does it interact with the physical world?
-5. How broad and adaptable are its abilities?
-6. How was the capability built?
+1. [What result does it produce? Predictive and Generative AI](#1-what-result-does-it-produce-predictive-and-generative-ai)
+2. [What information does it handle? Multimodal AI](#2-what-information-does-it-handle-multimodal-ai)
+3. [Does it stop or keep working? Agentic AI](#3-does-it-stop-or-keep-working-agentic-ai)
+4. [Does it act physically? Embodied AI](#4-does-it-act-physically-embodied-ai)
+5. [How much can it do? Specialised, General-purpose, AGI and ASI](#5-how-much-can-it-do-specialised-general-purpose-agi-and-asi)
+6. [How was it built? Rule-based AI, Machine Learning and Deep Learning](#6-how-was-it-built-rule-based-ai-machine-learning-and-deep-learning)
 
-Some answers genuinely nest inside others. Machine learning sits inside the broader AI field; neural networks sit inside machine learning; deep learning sits inside the neural-network family. Other answers can overlap in one product. A generative system can be multimodal. An agentic system may use generative and predictive models. An embodied robot may be highly specialised. None of those combinations automatically makes it AGI.
+Here is the trick that makes the rest of the chapter manageable. The first five questions can give one system several labels at the same time. Our customer-service assistant can be predictive, generative, multimodal, agentic and specialised because each word describes a different part of its behaviour. They stack; they do not fight for custody of the product.
 
-The diagram below uses a customer-service assistant to give you the whole relationship once. Then we will take it apart slowly, with actual examples, and put it back together at the end. No mystery labels. No taxonomy Jenga.
+The sixth question—how it was built—contains the genuine family tree: AI contains machine learning; machine learning contains neural networks; and the neural-network family contains deep learning. We will reach that family tree after the visible types, then put the whole system back together at the end.
 
-![A diagram showing that AI type labels answer six different questions about a system: its job, information, operation, physical interaction, breadth and construction. One customer-service assistant receives several labels at once.](assets/chapter-1-how-ai-types-fit-together.svg)
+That means **agentic AI is not automatically a type of Generative AI, and Generative AI is not automatically a type of the public category Predictive AI**. An agentic product often uses generative and predictive parts. A generative language model also makes many small internal predictions while writing. Those are important connections, but they are not the same as one neat family tree. We will show exactly why as we go.
+
+![How the different AI labels fit together. Six rows separate result, information, continued operation, physical action, breadth and construction. Predictive and Generative AI describe results; Multimodal describes information; Agentic describes continued operation; Embodied describes physical interaction; Specialised, General-purpose, AGI and ASI describe breadth categories or claims; and the construction row shows explicit rules alongside the nested Machine Learning, Neural Network and Deep Learning family.](assets/chapter-1-how-ai-types-fit-together.svg)
+
+Use this figure as a route, not as a set of definitions. Each row asks a different question. The sections ahead explain what every label means, show it in ordinary life and then reconnect the rows on one complete product.
 
 #### Tell Me More about an AI system: one result can trigger another step
 
@@ -130,15 +134,15 @@ This gives us two separate parts: the AI produces a result; the surrounding prod
 
 That separation becomes extremely important when the stakes rise. An AI system might estimate that a transaction looks unusual. The bank decides whether that estimate creates a quiet warning, a human review or a blocked card while you are standing at a hotel desk in Rome. Same kind of AI result. Very different product decision. Very different evening.
 
-#### Full Nerd Alert on an AI system: where the system boundary sits
+#### Full Nerd Alert on an AI system: why testing one part is not testing the whole product
 
-Chapter 2 will introduce the model and every other major part inside an AI product. For this first chapter, the deeper systems idea is simply that people can draw the edge around “the AI” in different places. Engineers call that chosen edge the **system boundary**.
+Chapter 2 will introduce the model and every other major part inside an AI product. For this first chapter, the deeper systems idea is simply that people can draw the edge around “the AI” in different places.
 
 Someone testing one internal component may look only at the answers it produces from a set of test cases. Someone testing the complete service must also include which information reaches it, how the result becomes a product decision, whether a person can correct it and which action follows.
 
-That is why two accurate reports can appear to discuss “the AI” while measuring different things. One tested an internal answer-maker. The other tested the complete experience and what happened afterward. The phrase *the AI* did not tell you where either person drew the line.
+That is why two accurate reports can appear to discuss “the AI” while measuring different things. One tested an internal answer-maker. The other tested the complete experience and what happened afterward. Engineers call the chosen edge around the parts being tested the **system boundary**. The phrase *the AI* did not tell you where either person drew that line.
 
-## What job does the AI perform?
+## 1. What result does it produce? Predictive and Generative AI
 
 The first question is about the result the system produces. Two of the labels you will hear most often are **predictive** and **generative**.
 
@@ -240,7 +244,7 @@ Once a token is chosen, it becomes part of the text the model sees for its next 
 
 This explains both the magic and the menace. The response can be fresh, fluent and useful because it is assembled for you. It can also be fresh, fluent and completely wrong because next-token selection is not a built-in truth detector.
 
-## What forms of information can it handle?
+## 2. What information does it handle? Multimodal AI
 
 This question is not about the job. It is about the forms of information the system can receive or produce.
 
@@ -281,7 +285,7 @@ The system also needs to decide what deserves attention. If you ask about the cr
 
 And it can focus on the wrong thing. The model may connect *crack* to a line in the wallpaper, miss faint text on a label or treat two nearby objects as one. That is why a clearer crop, a direct question and the original document can matter. Multimodal gives the system more kinds of information; it also gives the system more ways to connect them incorrectly.
 
-## Does it stop after one answer or keep working?
+## 3. Does it stop or keep working? Agentic AI
 
 Now we are asking how the complete system operates after it produces one result.
 
@@ -341,7 +345,7 @@ Engineers call the work of coordinating all those parts **orchestration**. Good 
 
 More steps can make a system more useful, but they also create more places for a plausible mistake to become an actual consequence. Agentic still does not mean AGI. A returns assistant can complete ten carefully controlled steps without becoming broadly intelligent—or developing an opinion about your shoes.
 
-## Does it act in the physical world?
+## 4. Does it act physically? Embodied AI
 
 A system can continue through software actions without ever moving a physical object. **Embodied AI** answers the separate physical-world question.
 
@@ -389,7 +393,7 @@ Builders often practise in a simulation because it is cheaper and safer to test 
 
 That is why a capable software model cannot simply be placed inside a machine and sent outside with a jaunty “Good luck!” Physical intelligence has to survive timing, movement and the deeply inconvenient fact that the real world refuses to hold still.
 
-## How broad and adaptable are its abilities?
+## 5. How much can it do? Specialised, General-purpose, AGI and ASI
 
 This question asks how far a capability travels: one bounded job, many different jobs or a much larger disputed claim about adapting across unfamiliar intellectual work. A broad label is useful only when we also know where the evidence stops.
 
@@ -524,7 +528,7 @@ These four labels do not form one proven ladder. They make progressively larger 
 
 The relationship is therefore about the **size and strength of the capability claim**, not a development timetable. A current general-purpose system does not become AGI because it gains another feature. An AGI threshold, if one were ever demonstrated, would not prove that ASI must follow. A neat arrow on a slide is a theory about the future, not a law of nature.
 
-## How was it built?
+## 6. How was it built? Rule-based AI, Machine Learning and Deep Learning
 
 This question is different from what the system does. It asks where the capability came from. Four labels belong here, and this time some of them really do sit inside others.
 
@@ -636,7 +640,7 @@ Real products often combine methods. A learned model may classify a request, exp
 
 Let’s carry one system through all six questions.
 
-Return to the customer-service assistant from the diagram. It reads a customer’s email and photograph, estimates how urgent the problem is, drafts a response and—after a person approves—opens a service ticket and checks whether it succeeded.
+Return to our customer-service assistant. It reads a customer’s email and photograph, estimates how urgent the problem is, drafts a response and—after a person approves—opens a service ticket and checks whether it succeeded.
 
 **Its job**
 
@@ -736,86 +740,27 @@ Classes and NewsStand articles appear here only after they actually exist and ha
 
 ## Key Definitions
 
-### Standard definitions
+These are the chapter’s main labels. The book’s complete Concept Index will also route every technical term to the place where it is actually taught.
 
-- **Agentic AI** — AI that continues through steps, tools and observations toward a goal; introduced here and explained fully in Chapter 6.
-- **AGI** — the disputed idea of AI that can adapt and apply what it knows across many unfamiliar intellectual tasks, rather than remaining capable only within bounded or previously learned patterns; no current system has universally accepted evidence that it meets the threshold.
-- **AI** — the field of building computer systems that can perform jobs such as recognising, predicting, recommending, creating content or choosing an action.
+- **AI** — the broad field of building computer systems that take in information and work out results such as predictions, recommendations, content or decisions.
 - **AI system** — all the working parts that receive something, produce a result and make that result available or use it for a next step.
-- **ANI** — artificial narrow intelligence; another name used for specialised or narrow AI.
-- **ASI** — the hypothetical idea of AI that greatly exceeds human capability across most intellectual work; it does not exist today, and AGI would not automatically or inevitably lead to it.
-- **Breadth** — how many materially different kinds of task a system can attempt.
-- **Classification or recognition** — estimating which category an input most likely belongs to.
-- **Deep learning** — machine learning using neural networks with multiple learned layers; the family relationship, everyday examples and construction job are taught here, and Chapter 3 explains how those layers learn and operate.
+- **Predictive AI** — AI used to estimate a category, value, outcome or order; spam classification, arrival estimates, search ranking and recommendations belong here.
+- **Generative AI** — AI used to produce content such as text, images, audio, video or code.
+- **Multimodal AI** — AI that works with more than one form of information, such as text plus images or speech plus video.
+- **Agentic AI** — AI arranged to continue through steps, tools and observations toward a goal instead of stopping after one answer.
 - **Embodied AI** — AI that senses or acts through physical equipment.
-- **General-purpose AI** — current AI that can perform a variety of tasks rather than one specialised function, though capability and reliability may vary sharply across them.
-- **Generative AI** — AI whose product job includes producing new content from learned patterns and current input.
-- **Input** — what goes into the AI system for this use, such as a prompt, photograph, voice recording or new email.
-- **Machine learning** — building a model from data or examples rather than writing every input-to-output mapping directly; the construction distinction is defined here, and Chapter 3 explains training and inference in full.
-- **Modality** — a form of information, such as text, image, audio, video or sensor data.
-- **Model** — the reusable answer-making part inside many AI systems. It uses rules or patterns built earlier to produce a result for something new; it is not the whole app or product.
-- **Multimodal AI** — AI that handles more than one modality.
-- **Neural network** — a family of machine-learning models that passes numerical information through connected layers of adjustable operations; Full Nerd Alert introduces loss functions, backpropagation and gradient descent, while Chapter 3 explains the wider learning process.
-- **Output** — what the AI system gives back, such as a spam label, recommendation, draft, score or requested image.
-- **Predictive AI** — the broader public label for systems whose jobs include classification, prediction, ranking or recommendation.
-- **Product** — the finished thing a person uses; it may combine an AI system with an interface, stored information, tools, permissions, ordinary software and people.
-- **Ranking** — ordering options using predicted scores or relevance.
-- **Recommendation** — selecting or presenting options judged relevant to a person or situation.
-- **Reliability** — how consistently a capability works under the conditions where it matters.
-- **Representation** — a numerical form in which a model can work with patterns from text, images, sound or other information.
-- **Rule-based AI** — AI whose relevant logic is explicitly represented in designed rules.
-- **Specialised or narrow AI** — AI designed for a bounded task or domain.
-- **Training** — the earlier building process in which a machine-learning model repeatedly tries examples and has its internal numerical settings adjusted to improve its results.
-- **Transfer** — using something learned in one situation to make progress in a materially different one.
-- **Value or outcome prediction** — one predictive job: estimating an unknown or future value or outcome.
-
-### Tell Me More definitions
-
-- **Agent loop** — the repeating goal, next-step, tool, observation, updated-state and stopping sequence used by an agentic system.
-- **Continual learning** — acquiring useful ability over time while retaining earlier abilities rather than overwriting them catastrophically.
-- **Feature** — a piece of information made available to a model for a task, such as a transaction amount or location.
-- **Feedback** — new information about what happened after an action, used to adjust what happens next.
-- **In-context learning** — using instructions or examples in the current context to perform or adapt to a task without necessarily changing the model’s trained parameters.
-- **Next-token prediction** — the repeated internal calculation in which a generative language model estimates which token could come next; it does not make Generative AI a subtype of the public category Predictive AI.
-- **State** — information an agentic system carries from one step to the next about its goal, progress and observations.
-- **Stopping condition** — a rule that tells a multi-step system when to finish, ask for help or stop safely.
-- **System pattern** — a way of arranging models, software, tools, state and rules so the complete system behaves in a particular way, such as continuing through an agent loop.
-- **Threshold** — a chosen cutoff that turns a model score into a product action, such as sending a purchase for review.
-- **Token** — one text unit processed or produced by a language model; it may be a whole word, part of a word or punctuation.
-
-### Full Nerd Alert definitions
-
-- **Inference** — the moment a finished rule-based or trained AI uses what it already has to produce a result for one current case: for example, a new email arrives and the spam filter labels it spam.
-- **Architecture** — the arrangement of a model’s layers and connections, which shapes how information can move and which relationships the model is equipped to learn.
-- **Attention mechanism** — a mathematical process that gives different weight to pieces of information and their relationships for the current calculation.
-- **Backpropagation** — the training calculation that works backward through a neural network to determine how its adjustable values contributed to the loss.
-- **Calibration** — how well a model’s probability numbers match what happens across comparable cases.
-- **Capability profile** — a view of performance across materially different tasks and conditions rather than one average score.
-- **Control** — the process of turning a desired physical result into commands and correcting movement using feedback.
-- **Decoding method** — the rule a generative model or product uses to select an output token from the model’s scored possibilities.
-- **Discrimination** — in model evaluation, the ability to rank more likely cases above less likely ones; this is different from the everyday and legal meaning of unfair treatment.
-- **Distribution shift** — a change in the mixture or conditions of cases a model encounters compared with the data used to build or evaluate it.
-- **Encoder** — a model component that turns one form of input into numerical representations the wider system can use.
-- **End-to-end training** — training several connected stages together using a signal from the final objective rather than programming or optimising every stage separately.
-- **Generalisation** — performance that carries from training examples into relevant new cases.
-- **Gradient descent** — an optimisation method that adjusts model values in directions expected to reduce the loss.
-- **Inference engine** — software that applies explicit rules to known facts to reach conclusions or actions.
-- **Knowledge-maintenance problem** — the continuing work of translating changes in the world into explicit rules, testing their interactions and removing logic that no longer belongs.
-- **Latency** — the delay between an event, the system receiving information about it and the resulting response.
-- **Loss function** — the numerical measure used during training to express how far a model’s result is from the chosen target.
-- **Objective** — the target used to judge and improve a model during training; people choose it, and it may not represent everything they actually value.
-- **Orchestration** — the software coordination of models, tools, permissions, observations, state and stopping conditions in a multi-step system.
-- **Out of distribution** — describing cases or conditions that differ materially from the mixture represented in the data used to build or evaluate a model.
-- **Overfitting** — learning the peculiarities of training examples so closely that performance does not carry well into relevant new cases.
-- **Probability distribution** — the model’s set of possible next outcomes or tokens together with their estimated likelihoods.
-- **Representation learning** — learning useful numerical features or internal representations from data rather than having people specify every feature in advance.
-- **Rule interaction** — the way explicit rules combine, conflict or produce unexpected results when several apply to the same case.
-- **Sim-to-real gap** — the difference between performance in a simulation and performance in the messier physical world.
-- **System boundary** — the chosen line around the model, software, inputs, processes and people included in a particular system claim or evaluation.
-- **Temperature** — a product setting that can change how concentrated or varied token selection is; it does not add facts or judgment.
-- **Test data** — examples kept separate until a later assessment of how well a developed model performs beyond its training and development data.
-- **Validation data** — examples kept separate from training adjustments and used while developing a model to check whether improvements generalise.
+- **Specialised or narrow AI** — AI built for a bounded job or operating area, even when it performs that job extraordinarily well.
+- **General-purpose AI** — current AI that can attempt many materially different tasks, although its ability and reliability can vary sharply between them.
+- **AGI** — the disputed idea of AI that can adapt and apply what it knows across many unfamiliar intellectual tasks; no current system has universally accepted evidence that it meets the threshold.
+- **ASI** — the hypothetical idea of AI that greatly exceeds human capability across most intellectual work; it does not exist today, and AGI would not automatically lead to it.
+- **Rule-based AI** — AI that follows decision logic people explicitly wrote.
+- **Machine learning** — a way of building AI in which examples are used to develop a reusable pattern-finder instead of people writing every decision rule.
+- **Neural network** — one machine-learning design that transforms numbers through connected layers whose influence can be adjusted during training.
+- **Deep learning** — the neural-network family that uses many learned layers; *deep* describes the construction, not wisdom or human-like understanding.
+- **Input** — what goes into the system for this use, such as a prompt, photograph, voice recording or new email.
+- **Output** — what the system gives back, such as a spam label, recommendation, draft, score or requested image.
+- **Product** — the finished thing a person uses; it may combine AI with an interface, stored information, ordinary software, tools, permissions and people.
 
 ### Sources and freshness
 
-Checked 10 August 2026 against the [OECD AI-system definition](https://oecd.ai/en/wonk/definition) and [classification framework](https://oecd.ai/en/wonk/classification), [NIST Generative AI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence), [Google machine-learning glossary](https://developers.google.com/machine-learning/glossary), [Anthropic’s workflows-and-agents engineering distinction](https://www.anthropic.com/engineering/building-effective-agents), [Google DeepMind’s proposed Levels of AGI framework](https://deepmind.google/research/publications/66938/), Oxford’s [*Reframing Superintelligence*](https://ora.ox.ac.uk/objects/uuid%3A9c05427a-6390-4b42-9c55-ee45f73a26ad) record and the [*International AI Safety Report 2026*](https://internationalaisafetyreport.org/sites/default/files/2026-02/ai-safety-report-2026-extended-summary-for-policymakers.pdf). Recheck current capabilities and AGI claims before publication because both evidence and organisational language change.
+Checked 10 August 2026 against the [OECD explanatory memorandum on its updated AI-system definition](https://oecd.ai/en/ai-publications/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system), [NIST Generative AI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence), [Google machine-learning glossary](https://developers.google.com/machine-learning/glossary), [Anthropic’s workflows-and-agents engineering distinction](https://www.anthropic.com/engineering/building-effective-agents), [Google DeepMind’s proposed Levels of AGI framework](https://deepmind.google/research/publications/66938/), Oxford’s [*Reframing Superintelligence*](https://ora.ox.ac.uk/objects/uuid%3A9c05427a-6390-4b42-9c55-ee45f73a26ad) record and the [*International AI Safety Report 2026*](https://internationalaisafetyreport.org/sites/default/files/2026-02/ai-safety-report-2026-extended-summary-for-policymakers.pdf). Recheck current capabilities and AGI claims before publication because both evidence and organisational language change.

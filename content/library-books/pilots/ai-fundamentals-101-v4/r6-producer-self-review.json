@@ -1,6 +1,6 @@
 {
   "schemaVersion": "laidies-prose-quality-review.v1",
-  "candidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-14",
+  "candidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-15",
   "stage": "PRODUCER_SELF_REVIEW",
   "contentClass": "EXPLANATION",
   "surface": "LIBRAIRY",
@@ -12,21 +12,27 @@
     "modelFamily": "openai"
   },
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-10T12:00:00-07:00",
+  "reviewedAt": "2026-08-10T13:12:01-07:00",
   "artifact": {
     "reviewText": {
       "path": "content/library-books/pilots/ai-fundamentals-101-v4/introduction-and-chapter-1-r6.md",
-      "sha256": "392dfb0e0588bf5d5022669b2bf88395ce5311da5763dfa17a97382b5f3c7137"
+      "sha256": "e7708c4fbc582e9b2469b34c1b5b2238286e9a63854395a9e7737c008034ec6f"
     },
     "manifest": {
       "path": "content/library-books/pilots/ai-fundamentals-101-v4/r6-artifact-manifest.json",
-      "sha256": "ad6bacac36c41e9e3387a20760543f02bd348ae7400182146d92dd976cdbd7c3"
-    }
+      "sha256": "ce1cf97efe5b3e8cf61a48bcaa8256a216830f5bf1abac8adcfa5ae6c2ca880b"
+    },
+    "visualAssets": [
+      {
+        "path": "content/library-books/pilots/ai-fundamentals-101-v4/assets/chapter-1-how-ai-types-fit-together.svg",
+        "sha256": "b0734e2e8a28a946ee71b9713b64448525db640fbf44209da4f8f4570e7a32af"
+      }
+    ]
   },
   "calibration": {
     "registrySha256": "0bf02ad8174c343353bf5fc130b1b405286191dc5a26a599129d3ddbf38a2cd2",
     "reviewerPrincipalId": "learning-system-concepts-director",
-    "reviewedAt": "2026-08-10T12:00:00-07:00",
+    "reviewedAt": "2026-08-10T13:00:00-07:00",
     "negatives": [
       {
         "exemplarId": "CQX-BAD-001",
@@ -427,7 +433,7 @@
       "observation": "The prose distinguishes genuine construction nesting from overlapping product properties and explicitly prevents the false agentic-generative-predictive hierarchy.",
       "artifactEvidence": [
         {
-          "excerpt": "Machine learning sits inside the broader AI field; neural networks sit inside machine learning; deep learning sits inside the neural-network family.",
+          "excerpt": "**AI → machine learning → neural networks → deep learning**",
           "locator": "exact R6 prose"
         }
       ]
@@ -497,7 +503,7 @@
       "observation": "The chapter connects six different classification questions, then reconstructs them on one product without pretending they form one ladder.",
       "artifactEvidence": [
         {
-          "excerpt": "We are going to untangle six different questions people have bundled inside the phrase **type of AI**",
+          "excerpt": "We are going to take the PowerPoint pile apart using six clear questions",
           "locator": "exact R6 prose"
         }
       ]
@@ -1353,7 +1359,7 @@
         "status": "VERIFIED",
         "candidateEvidence": [
           {
-            "excerpt": "Those products are doing different jobs. What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that computer systems are using rules or patterns to do things such as recognise, predict, recommend, create or choose a next action.",
+            "excerpt": "What puts them under the large umbrella called **artificial intelligence**, or **AI**, is that a computer system takes in information and works out a result",
             "locator": "exact R6 prose"
           }
         ],
@@ -1450,17 +1456,17 @@
   },
   "lineage": {
     "kind": "SUCCESSOR",
-    "predecessorCandidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-4"
+    "predecessorCandidateId": "LIB-AI-FUNDAMENTALS-101-INTRO-CH1-R6-LAYERED-SUCCESSOR-14"
   },
   "learningDisposition": {
-    "disposition": "EVIDENCE_GAP",
-    "rationale": "The builder confirms structure, bindings and exact known-bad phrase rejection only. The revised prerequisite sequence and every concept module still require a fresh exact-prose producer reading before any semantic PASS can exist."
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The exact-prose producer review found no new reusable defect. The already-registered subset-coverage failure was repaired in the producer guard before this review, and the current prose contains the required Standard example and importance evidence for all fourteen taught concepts."
   },
-  "verdict": "HOLD",
+  "verdict": "PASS",
   "limitations": [
-    "This generated record is an integrity and calibration receipt, not evidence that the prose is clear, useful, engaging or in LAiDIES voice.",
-    "Producer self-review has no independent quality authority.",
+    "Producer self-review has no independent quality authority and is permission to seek review, not admission.",
+    "The exact SVG is checksum-bound and maker-inspected at full resolution; it has no role-distinct visual admission.",
     "Explain-back, transfer, reconstruction and analogy evidence are simulated producer probes only.",
-    "No fresh exact-prose semantic review, independent admission, unfamiliar-reader observation, Ali taste decision, Library admission, deployment or publication exists."
+    "No independent semantic admission, unfamiliar-reader observation, Ali direction decision, Library admission, deployment or publication exists."
   ]
 }
