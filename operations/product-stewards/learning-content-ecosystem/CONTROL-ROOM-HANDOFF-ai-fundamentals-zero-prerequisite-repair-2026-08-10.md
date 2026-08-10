@@ -4,8 +4,9 @@
 **Owner task ID:** `019f9f7f-9e4c-72d2-8882-447bcbe01691`
 **Evidence time:** `2026-08-10T12:50:48-07:00`
 **Status:** `BUILT LOCALLY / PRODUCER HOLD`
-**Worktree truth:** `COMMITTED` at
-`a437cd8a36ae3ef983562fab1eb5817b45436bac`; push remains to be verified.
+**Worktree truth:** `PUSHED`; the exact material repair is
+`a437cd8a36ae3ef983562fab1eb5817b45436bac` on
+`origin/task/ai-fundamentals-restart-20260808`.
 
 ## Action and observed result
 
