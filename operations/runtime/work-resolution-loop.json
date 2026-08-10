@@ -1250,12 +1250,13 @@
         "dispatched_at": "2026-08-03T18:47:00Z"
       },
       "owner_receipt": {
-        "receipt_id": "RCPT-20260803-weekly-episodes-format-navigation-pilot",
+        "receipt_id": "RCPT-20260810-weekly-episodes-dark-template-recovery",
         "owner_id": "weekly-episodes-engine-production-director",
-        "status": "DARK_TEMPLATE_VISUALLY_ACCEPTED_FORMAT_READMISSION_AND_IDENTIFIED_HUMAN_VOICEOVER_HOLD",
-        "artifact": "operations/product-stewards/episode-experience/independent-visual-acceptance-episode-01-dark-template-2026-08-05.md",
-        "artifact_sha256": "30d7baeea404fd7d2871de882b974fa40bfba1d1a99b5fa4e55254e8a3763ded",
-        "accepted_at": "2026-08-05T17:26:46Z"
+        "status": "COMMITTED_LOCAL_DARK_TEMPLATE_VISUALLY_ACCEPTED_FORMAT_READMISSION_AND_IDENTIFIED_HUMAN_VOICEOVER_HOLD",
+        "artifact": "operations/product-stewards/episode-experience/independent-visual-acceptance-episode-01-dark-template-recovery-2026-08-10.md",
+        "artifact_sha256": "71146f4f1fef0978522fc1ccc579b702b0555ee67edfc86cb5b5773cef98311c",
+        "source_commit": "2c53cfe1742a6307748e5f8aad5c409e2d1d7aef",
+        "accepted_at": "2026-08-10T07:10:48-07:00"
       },
       "owner_entry_check": {
         "verdict": "PASS",
@@ -1343,6 +1344,13 @@
           "verifier": "calibrated browser layout gate PASS 17/17; format browser PASS 33/33; independent visual judge ACCEPT; page sha256:21b899c17f8e6250208f368b63273b96a362089fa76bacc0b98460f372a10cb4",
           "verdict": "PASS",
           "collected_at": "2026-08-05T17:26:46Z"
+        },
+        {
+          "evidence_id": "EV-IIR-011-EPISODE-01-DARK-TEMPLATE-ISOLATED-COMMIT",
+          "artifact": "issues/issue-01.html; content/episodes/episode-format-navigation-pilot.json; operations/product-stewards/episode-experience/independent-visual-acceptance-episode-01-dark-template-recovery-2026-08-10.md",
+          "verifier": "calibrated browser/layout/navigation gate PASS 34/34; role-distinct visual judge ACCEPT; page sha256:21b899c17f8e6250208f368b63273b96a362089fa76bacc0b98460f372a10cb4; manifest sha256:b24f8346b2fa9f5bc2b42e1920df27b7f2a1307049bf2fe0cad9bc47e61d4d15; source commit:2c53cfe1742a6307748e5f8aad5c409e2d1d7aef",
+          "verdict": "PASS",
+          "collected_at": "2026-08-10T07:10:48-07:00"
         }
       ]
     },
