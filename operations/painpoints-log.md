@@ -14465,3 +14465,30 @@ while remaining falsely unfinished in the launch record.
   artifact, doing what unfamiliar task.
 - **Publication status:** INTERNAL ADMISSION-SYSTEM REPAIR / NO BOOK ADMITTED,
   DEPLOYED OR PUBLISHED.
+
+## BTB-458 — A responsive SVG passed structure checks while required desktop labels were clipped
+
+- **Date:** 2026-08-10
+- **Area:** LIBRAiRY visual teaching proof and exact-pixel admission.
+- **Failure risk:** A deterministic diagram can contain correct text, select a
+  dedicated mobile source and pass SVG/DOM/overflow checks while the desktop
+  pixels still clip the qualification that prevents a misleading universal
+  claim and truncate the mechanism's core stage label.
+- **Root cause:** The representative proof checker verified file presence,
+  source selection, prose/render identity and required strings, but never
+  measured each SVG text bounding box against its containing panel or inspected
+  the exact desktop pixels at native and zoom-equivalent sizes.
+- **Prevention rule:** Before maker PASS, measure deterministic text bounds
+  against their intended panels and inspect the exact rendered desktop/mobile
+  pixels at native and 200%-equivalent sizes. Required qualification or
+  mechanism text that is present in source but clipped in pixels is absent for
+  quality purposes. Colour emphasis also needs a non-colour cue or applicable
+  contrast floor.
+- **Durable correction:** Independent review of exact Tokens proof SHAs holds
+  the desktop diagram for two clipped labels and weak `r` emphasis; the
+  successor must add a calibrated text-overflow failure before fresh visual
+  admission.
+- **Possible Behind the Build angle:** Why an SVG can be technically perfect
+  and still hide the sentence that keeps a lesson true.
+- **Publication status:** INTERNAL REPRESENTATIVE-PROOF REVIEW / NO BOOK,
+  ROUTE, DEPLOYMENT OR PUBLICATION.
