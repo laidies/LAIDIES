@@ -26,6 +26,36 @@ PLAYABLE PROOF; NOT BUILD-, RELEASE- OR EQUAL-DOOR-APPROVED
    must not teach that “be accurate,” citations, browsing, custom instructions
    or any provider setting removes the need for proportionate human judgment.
 
+## Phone-code invariants
+
+`*67`, `*69` and `867-5309` are functional Dream Phone mechanics, not decorative
+Easter-egg copy. They remain available in **Just Call** and receive purposeful
+equivalents in the restored full game.
+
+- **`*67` — caller ID blocked:** Just Call preserves its current route for
+  reaching Deb. In the full game it must change the next call in a bounded,
+  legible way, such as unlocking one more candid but still partial clue.
+- **`*69` — return last call:** In Just Call it redials the most recent caller
+  and advances that caller to the next prewritten bundle. In the full game it
+  preserves the old once-per-game return-call power: after at least one normal
+  call, the previous caller supplies one fresh partial clue without consuming
+  another normal call. It may not reveal the complete verdict.
+- **`867-5309` — Jenny:** preserves the secret Jenny line. In the full game her
+  response may provide a comic, non-decisive nudge or next-question hint; it
+  may not reveal the verdict or contain information required for a fair solve.
+
+The full-game forms are limited powers with explicit state, availability and
+feedback. Knowing a hidden code may add delight or efficiency, but a player who
+does not know it must still be able to complete every round.
+
+**Call History is a separate functional control, not another name for `*69`.**
+In Just Call it reopens the exact prior response and its available remixes
+without advancing the caller's bundle or creating a new call. In the full game
+it reopens the exact caller/clue record without spending a call or generating
+new evidence; logged callers may then be selected for an applicable
+Speaker Phone comparison. `*69` remains the active new callback that can
+produce one fresh bounded response.
+
 ## Guidance freshness rule
 
 The final prompt, settings guidance, AI House Rules, warning signs and any
