@@ -8,23 +8,21 @@
 > structure, jokes or references. No public artifact was changed or released
 > by this decision.
 
-> **2026-08-10 AI Fundamentals Chapter 1 successor 15:** Ali's authored
-> Introduction remains the locked writing, voice and intent base. The current
-> exact prose (`e7708c4f…34ec6f`, implementation commit `ac59839a`) now introduces
-> the human label-confusion problem and one familiar AI system before the six
-> organising questions. It explains overlapping labels separately from the
-> genuine AI → machine learning → neural networks → deep learning nesting,
-> includes a navigable chapter route and checksum-bound deterministic SVG, and
-> gives every one of the 14 taught concepts a complete Standard example and
-> importance contract before optional depth. A calibrated subset fixture proves
-> the new map guard rejects a missing concept contract. Exact-prose producer
-> self-review passes; prior independent reviews bind older bytes and do not
-> transfer. Two fresh Claude audit attempts returned no review text and were
-> stopped, so no current independent semantic PASS is claimed. The full-page
-> local `file://` render remains unavailable to the in-app inspection policy;
-> the SVG itself was inspected at full 1400×2180 resolution. Ali direction,
-> role-distinct semantic/visual admission, observed unfamiliar-reader
-> comprehension, Library acceptance, deployment and publication remain open.
+> **2026-08-10 AI Fundamentals full-book research reset:** R6/successor 15 is
+> rejected as a reader-facing direction and is retained only as calibration.
+> Chapter-local revision is paused. The current work is a complete concept,
+> prerequisite, history, hardware, product and textbook-pedagogy audit across
+> the whole book before any new prose. The provisional research route expands
+> the old overloaded nine-chapter structure to fourteen chapters and separates
+> `ORIENT / TEACH / DEEPEN / INDEX`. It also specifies immediate misconception
+> feedback, Explain/Draw/Use application, later retrieval and reasoned answers.
+> The global Nerd-O-Meter is removed from the next proof; local `Go deeper` may
+> be used only after the core lesson is complete. Meaningful checkpoints may be
+> routed to the existing reward economy only after learning, surface, platform
+> and Closet owners admit the exact event. Two bounded Claude whole-book audit
+> attempts returned no verdict and are recorded as `AUDIT UNAVAILABLE`; no PASS
+> is inferred. No new prose, activity, reward, admission, deployment or
+> publication exists.
 
 > **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
 > every prior V3 verdict remains invalid. A blank-page, question-led full-book

@@ -14788,3 +14788,35 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** SUCCESSOR 15 BUILT AND PRODUCER-REVIEWED LOCALLY /
   IMPLEMENTATION COMMIT `ac59839a` / ALI DIRECTION, FRESH INDEPENDENT SEMANTIC,
   UNFAMILIAR-READER AND VISUAL ADMISSION, DEPLOYMENT AND PUBLICATION REMAIN OPEN.
+
+## BTB-469 — Repairing one chapter can preserve the wrong book
+
+- **Date:** 2026-08-10
+- **Area:** AI Fundamentals 101 curriculum, knowledge checks and rewards.
+- **Failure risk:** Repeatedly improving Chapter 1 can make individual passages
+  clearer while preserving an incomplete concept inventory, terms before
+  prerequisites, duplicated later teaching and activities that reward
+  completion rather than reveal understanding.
+- **Root cause:** The producer treated the visible chapter as the unit of
+  correction after the defect had become a whole-book sequencing problem. The
+  old route overloaded nine chapters, treated `mentioned` as `taught` and gave
+  the Nerd-O-Meter responsibility for prerequisites the core route had not
+  earned. Knowledge checks were components rather than a diagnostic path, and
+  rewards were not yet separated from comprehension evidence.
+- **Prevention rule:** Before redrafting a failed foundation chapter, audit the
+  entire book's concept inventory and prerequisite graph. Assign every concept
+  `ORIENT / TEACH / DEEPEN / INDEX`; prohibit questions above that state; and
+  require misconception feedback, explain-back, reconstruction, unseen
+  application, later retrieval and exact return routes. Reward only a bounded
+  admitted learning event through the shared ledger; never treat the grant as
+  proof of learning.
+- **Durable correction:** D-2026-08-10-119 stops new prose until the full-book
+  research and prerequisite audit pass. D-2026-08-10-120 specifies the
+  knowledge-evidence ladder and reward separation. LCE-027 now records the
+  full-book reset; LCE-029 routes the learning/reward contract without making a
+  public reward promise.
+- **Possible Behind the Build angle:** Why the best fix for a confusing first
+  chapter was to stop writing it—and why earning a butterfly clip is not the
+  same as understanding AI.
+- **Publication status:** INTERNAL RESEARCH AND PRODUCT CONTRACT ONLY / NO NEW
+  PROSE, ACTIVITY, REWARD, DEPLOYMENT OR PUBLICATION.
