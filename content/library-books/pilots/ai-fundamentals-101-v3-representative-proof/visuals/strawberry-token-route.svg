@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">How strawberry reaches a language model</title>
+  <desc id="desc">A four-step diagram. A person sees ten individual letters and counts three r letters. The o200k_base tokenizer example divides strawberry into st, raw and berry. The model processes the ordered pieces. Generated pieces return as readable text. A note says another encoding may split the word differently.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7d6"/>
+      <stop offset="1" stop-color="#ffe7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="8" dy="9" stdDeviation="0" flood-color="#ef4da2"/>
+    </filter>
+    <style>
+      .ink{fill:#101d4f}.white{fill:#fff}.label{font:800 23px Arial,sans-serif;letter-spacing:2px}.head{font:900 43px Arial,sans-serif}.body{font:700 25px Arial,sans-serif}.small{font:700 19px Arial,sans-serif}.mono{font:900 34px 'Courier New',monospace}.box{stroke:#101d4f;stroke-width:7;rx:24;ry:24}.arrow{fill:none;stroke:#101d4f;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}.r{fill:#ef4da2}.piece{stroke:#101d4f;stroke-width:6;rx:16;ry:16}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="url(#paper)"/>
+  <circle cx="1110" cy="83" r="70" fill="#ffd84f" stroke="#101d4f" stroke-width="7"/>
+  <path d="M1060 87l36-10 14-36 14 36 36 10-29 23 8 38-29-20-30 20 9-38z" fill="#31c5df" stroke="#101d4f" stroke-width="6"/>
+  <text x="64" y="74" class="head ink">HOW “STRAWBERRY” REACHES THE MODEL</text>
+
+  <rect x="56" y="126" width="500" height="210" class="box" fill="#ffd84f" filter="url(#shadow)"/>
+  <text x="88" y="171" class="label ink">1 · YOU SEE LETTERS</text>
+  <text x="87" y="238" class="mono ink">s t <tspan class="r">r</tspan> a w b e <tspan class="r">r r</tspan> y</text>
+  <text x="88" y="294" class="body ink">Three r’s. Easy to point at.</text>
+
+  <path d="M573 230h66m-22-25 25 25-25 25" class="arrow"/>
+
+  <rect x="662" y="126" width="480" height="210" class="box" fill="#7ddde6" filter="url(#shadow)"/>
+  <text x="694" y="171" class="label ink">2 · TOKENIZER MAKES PIECES</text>
+  <rect x="696" y="205" width="100" height="70" class="piece" fill="#fff"/>
+  <rect x="813" y="205" width="126" height="70" class="piece" fill="#f2a0d0"/>
+  <rect x="956" y="205" width="153" height="70" class="piece" fill="#fff"/>
+  <text x="723" y="251" class="mono ink">st</text>
+  <text x="836" y="251" class="mono ink">raw</text>
+  <text x="976" y="251" class="mono ink">berry</text>
+  <text x="695" y="310" class="small ink">o200k_base example · another encoding may split it differently</text>
+
+  <path d="M895 353v67m-25-22 25 25 25-25" class="arrow"/>
+
+  <rect x="662" y="446" width="480" height="190" class="box" fill="#7850d8" filter="url(#shadow)"/>
+  <text x="694" y="493" class="label white">3 · MODEL PROCESSES THE ORDERED PIECES</text>
+  <text x="694" y="548" class="body white">It can generate more pieces, but it did</text>
+  <text x="694" y="584" class="body white">not begin from your neat row of letters.</text>
+
+  <path d="M642 542h-70m22-25-25 25 25 25" class="arrow"/>
+
+  <rect x="56" y="446" width="500" height="190" class="box" fill="#3159e8" filter="url(#shadow)"/>
+  <text x="88" y="493" class="label white">4 · YOU GET READABLE TEXT BACK</text>
+  <text x="88" y="548" class="body white">The product turns generated pieces into</text>
+  <text x="88" y="584" class="body white">the words that appear on your screen.</text>
+
+  <text x="58" y="684" class="small ink">The useful click: fluent writing and exact character inspection are different jobs.</text>
+</svg>
