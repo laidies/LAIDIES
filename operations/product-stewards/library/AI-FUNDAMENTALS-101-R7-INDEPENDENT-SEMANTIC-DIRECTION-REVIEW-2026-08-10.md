@@ -1,6 +1,6 @@
 # AI Fundamentals 101 R7 independent semantic direction review
 
-Status: **SEMANTIC PASS FOR ALI DIRECTION REVIEW — NOT LIBRAiRY ADMISSION**
+Status: **INVALIDATED BY DIRECT ALI REJECTION — CALIBRATION ONLY**
 
 Reviewed: 10 August 2026
 
@@ -28,3 +28,7 @@ The exact candidate was supplied artifact-first to a separate read-only Codex re
 ## Boundary
 
 This is an independent semantic direction review, not a public-content admission. It does not claim an observed beginner response, accessibility acceptance, release approval, deployment or public verification. The repository's full `INDEPENDENT_SEMANTIC_ADMISSION` requires separately bound unfamiliar-human observations; none were invented for this candidate. Ali remains the direction acceptance owner. LIBRAiRY remains the book-production and release owner.
+
+## Invalidation
+
+Ali rejected the whole R7 chapter on 10 August 2026 after its opening used AGI and ASI before definition, treated a trivial transaction rule as rule-based AI, relied on vague internal-system language, exposed an unexplained task-label framework and used a human video-clerk story as though it were an AI example. The examples were where review stopped, not an exhaustive defect list. This verdict has no current quality authority and may be used only to calibrate a successor reviewer against the exact failure it missed.

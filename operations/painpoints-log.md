@@ -14843,3 +14843,35 @@ while remaining falsely unfinished in the launch record.
   teaching gate less intelligent over time.
 - **Publication status:** INTERNAL PRODUCTION-GUARD REPAIR / R7 IS READY FOR ALI
   DIRECTION REVIEW, NOT ADMITTED, DEPLOYED OR PUBLISHED.
+
+## BTB-471 — A repaired paragraph does not repair a chapter
+
+- **Date:** 2026-08-10
+- **Area:** AI Fundamentals 101 whole-chapter production and semantic review.
+- **Failure risk:** Ali may stop reviewing after the foundation fails, while the
+  producer treats only the passages she reached as defective. A successor can
+  then repair every quoted sentence yet preserve a confusing whole-chapter
+  route, a false historical relationship and a generic technical centre.
+- **Root cause:** R7 was sampled instead of invalidated as a continuous reader
+  experience. R8 then organised unlike label families as if they formed one
+  historical sequence and let accurate local definitions compensate for
+  broken transitions, weak practice routes and narrator drift.
+- **Prevention rule:** When a reader stops because the foundation fails, no
+  unreached passage inherits a pass. The producer and reviewer must read the
+  whole artifact continuously, explain why every major section follows the
+  prior one, reconstruct the complete mental model and test an unseen case.
+  History must state overlap and prominence rather than manufacture a ladder.
+  Every misconception check names its exact repairing section.
+- **Durable correction:** CQX-BAD-014 and CQX-BAD-015 preserve R7 and R8 as
+  reject calibrations. The beginner-language suite now rejects both false
+  passes. R9 keeps true nesting together, changes reader questions explicitly,
+  puts a non-ladder timeline before synthesis, adds correction routes and ends
+  with the next system question. Role-distinct review passed all Chapter 1
+  transitions, timeline, explain-back, transfer and middle/ending voice; the
+  complete unit remains semantically held over bounded questions in Ali's
+  locked Introduction.
+- **Possible Behind the Build angle:** Why fixing every sentence a reader
+  complained about still failed to produce a usable chapter, and how a complete
+  read exposed the hidden structure problem.
+- **Publication status:** R9 BUILT LOCALLY / READY FOR ALI CHAPTER-DIRECTION
+  REVIEW / COMPLETE-UNIT SEMANTIC ADMISSION HELD / NOT DEPLOYED OR PUBLISHED.

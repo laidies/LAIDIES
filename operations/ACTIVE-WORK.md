@@ -8,19 +8,21 @@
 > structure, jokes or references. No public artifact was changed or released
 > by this decision.
 
-> **2026-08-10 AI Fundamentals R7 direction candidate:** R6/successor 15 remains
-> rejected and retained only as calibration. The complete concept,
-> prerequisite, history, hardware, product and textbook-pedagogy audit now
-> governs a new Introduction + Chapter 1 R7 candidate. R7 removes the global
-> Nerd-O-Meter and rejected taxonomy diagram, preserves Ali's authored
-> Introduction, teaches the label relationships through field, approach, job,
-> information form, operating pattern, embodiment and breadth, and ends with
-> Recognise / Explain / Draw / Use application. Its exact producer contract,
-> calibrated beginner-language check, exact-prose self-review, mobile render
-> inspection and role-distinct semantic direction review pass locally. The
-> status is `READY_FOR_ALI_DIRECTION_REVIEW`, not LIBRAiRY admission. Observed
-> unfamiliar-reader evidence, final accessibility/visual admission, deployment
-> and publication remain open. No activity, reward or public state exists.
+> **2026-08-10 AI Fundamentals R9 direction candidate / admission hold:** R7
+> and R8 are rejected and retained only as calibration. R9 preserves Ali's
+> exact Introduction and replaces the whole Chapter 1 route. It keeps AI,
+> machine learning and deep learning in their true nesting; teaches result,
+> information, continued-action, physical-action and breadth labels through
+> separate reader questions; places a non-ladder timeline before one-product
+> synthesis; and ends with correction-routed Recognise / Explain / Draw / Use,
+> a reconstruction and the Chapter 2 handoff. The executable gate rejects R7
+> and R8 and accepts R9. Role-distinct review passed every Chapter 1 transition,
+> explain-back, unseen transfer, timeline and technical-centre/ending voice,
+> but rejected the complete unit over two editorial/factual questions in Ali's
+> locked Introduction. Status is `READY_FOR_ALI_CHAPTER_DIRECTION_REVIEW` with
+> `SEMANTIC_ADMISSION_HELD`, not LIBRAiRY admission. Unfamiliar-reader,
+> final visual/accessibility, deployment and publication remain open. No
+> activity, reward or public state exists.
 
 > **2026-08-08 AI Fundamentals R3 opening proof:** V3 remains quarantined and
 > every prior V3 verdict remains invalid. A blank-page, question-led full-book
