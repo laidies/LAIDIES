@@ -101,8 +101,8 @@
   <script>
     /* ============================================================
        THE BOOK FAIR — exclusive drop catalog.
-       Art auto-upgrades: each drop shows a styled placeholder until
-       its render lands at `img`; then it swaps in with no code change.
+       Each drop uses the styled catalog treatment until separately admitted
+       artwork exists. Missing artwork must not create a public request.
        Codex prompts for every drop are in IMAGE-PROMPTS.md (§Book Fair).
        `download`/`buy` links are placeholders (#) until the printable
        asset / Gift-Shop product exists.
@@ -110,28 +110,28 @@
     var DROPS = [
       { id: 'bf-wallpaper', name: 'Phone Wallpaper', cost: 5, tag: 'Digital',
         blurb: 'A fair-exclusive lock-screen — a saint window or the town at dusk, sized for your phone.',
-        lands: 'Download', img: '/assets/bookfair/bf-wallpaper.png', download: '#' },
+        lands: 'Download', download: '#' },
       { id: 'bf-badge', name: 'Book Fair ’99 Badge', cost: 6, tag: 'Collectible',
         blurb: 'An enamel merit badge — proof you worked the fair. Pins to your sash.',
-        lands: 'Merit Sash', img: '/assets/bookfair/bf-badge.png' },
+        lands: 'Merit Sash' },
       { id: 'bf-bookmark', name: 'The Tassel Bookmark', cost: 8, tag: 'Exclusive',
         blurb: 'The laminated, holo, tasseled bookmark you HAD to have. Set it as your reading marker across episodes + the 101s.',
-        lands: 'Bookmark rack', img: '/assets/bookfair/bf-bookmark.png', download: '#', buy: '/shop.html' },
+        lands: 'Bookmark rack', download: '#', buy: '/shop.html' },
       { id: 'bf-stickers', name: '“Scented” Puffy Sticker Sheet', cost: 10, tag: 'Exclusive',
         blurb: 'Glossy puffy stickers, scratch-n-sniff energy. Decorate your Puffy Board or use them as section bookmarks.',
-        lands: 'Puffy Board', img: '/assets/bookfair/bf-stickers.png', download: '#', buy: '/shop.html' },
+        lands: 'Puffy Board', download: '#', buy: '/shop.html' },
       { id: 'bf-postcard', name: 'Office Postcard Print', cost: 12, tag: 'Exclusive',
         blurb: 'A postcard-size print for your desk — a motto or a saint. Frame it, pin it, prop it by the monitor.',
-        lands: 'Download', img: '/assets/bookfair/bf-postcard.png', download: '#', buy: '/shop.html' },
+        lands: 'Download', download: '#', buy: '/shop.html' },
       { id: 'bf-zine', name: 'The Mini-Zine (“the book”)', cost: 15, tag: 'Exclusive',
         blurb: 'The coveted little book — an 8-page foldable zine: a saint story, episode lore, a comic. Download, print, fold.',
-        lands: 'Download', img: '/assets/bookfair/bf-zine.png', download: '#' },
+        lands: 'Download', download: '#' },
       { id: 'bf-holocard', name: 'Holographic Trading Card', cost: 20, tag: 'Foil · Rare',
         blurb: 'A rainbow-foil variant stamped BOOK FAIR ’99. Others literally can’t get it. Goes in your binder, tradable.',
-        lands: 'Trading Card Binder', img: '/assets/bookfair/bf-holocard.png', buy: '/shop.html' },
+        lands: 'Trading Card Binder', buy: '/shop.html' },
       { id: 'bf-poster', name: 'The Pull-Down Poster', cost: 25, tag: 'Premium',
         blurb: 'Hangs rolled on your Closet wall — tap the ring and it snaps down to reveal exclusive art. Set it as your background.',
-        lands: 'Closet wall', img: '/assets/bookfair/bf-poster.png', download: '#', buy: '/shop.html' }
+        lands: 'Closet wall', download: '#', buy: '/shop.html' }
     ];
 
     function initBookFair() {
@@ -146,8 +146,10 @@
 
       function cardHtml(d) {
         var owned = Bank.owns(d.id);
-        var art = '<div class="drop__art">' +
-          '<img src="' + esc(d.img) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' +
+        var image = d.img
+          ? '<img src="' + esc(d.img) + '" alt="" loading="lazy">'
+          : '';
+        var art = '<div class="drop__art">' + image +
           '<span>' + esc(d.name) + '</span>' +
           '<span class="drop__excl">' + esc(d.tag) + '</span>' +
           '<span class="drop__cost">' + d.cost + ' 🦋</span></div>';
