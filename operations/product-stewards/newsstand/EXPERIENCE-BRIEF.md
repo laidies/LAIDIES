@@ -326,4 +326,3 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
   ends of every named handoff.
 - **Portfolio Control Room:** must assign non-overlapping locks before any
   shared-system, live-route, canonical data or deployment change.
-

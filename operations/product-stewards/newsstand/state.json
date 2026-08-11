@@ -1,77 +1,58 @@
 {
   "product": "SUNNYVAiLE NewsStand Building",
-  "status": "AUTOMATIC VALIDATION DISPATCH CONTRACT ACTIVE — PUBLIC DISCOVERY PARTIAL / RELEASE HOLD",
-  "building_wave_candidate_status": "ALI REJECTED / DO NOT INTEGRATE",
-  "releaseStatus": "HOLD — FIX BEFORE LAUNCH",
-  "asOf": "2026-07-28",
-  "relationshipToActiveWork": "MERGE with AW-003",
+  "status": "CURRENT REPAIRED RELEASE CANDIDATE — EXACT-BYTE REVIEW PENDING",
+  "releaseStatus": "HOLD — FRESH ADMISSION, CURRENT EDITORIAL CHECK AND PUBLIC VERIFICATION REQUIRED",
+  "asOf": "2026-08-11",
+  "relationshipToActiveWork": "BOUNDED LAUNCH-RECOVERY LANE",
   "route": "/newsstand.html",
   "primaryFile": "newsstand.html",
-  "ownedScope": ["building room", "paper rack", "reader", "archive search", "publication discovery", "freshness/empty/correction states", "reader-facing editorial contract"],
+  "ownedScope": [
+    "building room",
+    "four-paper rack",
+    "reader",
+    "archive search",
+    "publication discovery",
+    "freshness/empty/correction states",
+    "reader-facing editorial contract"
+  ],
   "publicationSubChampions": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
   "lockedPublicMastheads": ["The Breaking", "The Daily", "The Weekly", "The Tribune"],
-  "ownerEntry": {
-    "status": "HOLD — REQUIRED VISUAL-ASSET-INVENTORY.md IS MISSING",
-    "experienceBrief": "EXPERIENCE-BRIEF.md",
-    "functionalityMap": "FUNCTIONALITY-MAP.md",
-    "buildPacket": "build-packet-owner-entry-readiness-2026-07-26.md",
-    "learningScan": "evidence/owner-entry-learning-scan-2026-07-26.md",
-    "visitorScopes": ["first-time", "returning without Resident Card", "device-local Resident Card", "verified account-backed Resident Card if supported"],
-    "controlRoomIntegrationLock": "NOT ASSIGNED",
-    "allowedCurrentWriteScope": "operations/product-stewards/newsstand dossier and evidence only"
+  "candidate": {
+    "source": "current repaired bytes recovered into the isolated release worktree",
+    "newsstandHtmlSha256": "5af8beb902d4c04de853e156b72c80160eceeaa89145484b0c0c27abd3edb4d7",
+    "newsstandCssSha256": "422531dda4fa6c1435d4b293b575a9f1c39336d0039cd95601d28d70642ad3b2",
+    "readerContractSha256": "5ee7298c575c82882d4ce6236e1c0334b48309caf4f5326b61b20343ddf1bcf0",
+    "catchupContractSha256": "35cde13581d81b44546805c35cac6d5f5f57781dd00064e51453168ccd83d9cb",
+    "storiesSha256": "c4516f3207d3abd735d500341d99c531a7e3799c2c18b67519d7899c8a3b6767",
+    "rackMasterSha256": "203308ab4837c87e9c3e33239c3f329f2f06e1c58d1b68870b647ea48a7405b3"
   },
   "currentImplementation": {
     "schemaVersion": "1.0.0",
     "canonicalEditions": ["breaking", "daily", "weekly", "tribune"],
     "storiesFile": "content/newsstand-stories.js",
     "readerContract": "content/newsstand-reader-contract.js",
-    "storyState": "one approved Tribune; one Health Weekly held for independent accuracy/editorial approval",
-    "legacyArt": "Wednesday cover retained only with an explicit archive-art label; no replacement visual approved"
+    "storyState": "one August 3 Daily and one Tribune are published in the dataset; one Breaking health candidate remains held",
+    "freshnessTruth": "the latest admitted Daily is August 3 and no August 11 AIDB/editorial receipt exists; runtime must classify expired material honestly",
+    "visualAuthority": "current candidate uses the four-paper rack package; exact current visual admission remains pending"
   },
-  "evidence": {
-    "publicRouteAndSourcedStory": "PREVIOUSLY VERIFIED PUBLICLY; NOT EVIDENCE FOR THIS LOCAL CANDIDATE",
-    "canonicalPublicationContract": "BUILT LOCALLY",
-    "deterministicStateFixtures": "VERIFIED LOCALLY — 10 cases plus a 3-stage correction/retraction rollback drill",
-    "sourceManifests": "BUILT LOCALLY",
-    "healthHardHold": "ENFORCED LOCALLY; INDEPENDENT REVIEW REQUIRED",
-    "centralAvailabilityGate": "VERIFIED LOCALLY across paper, direct hash and archive search; hold/load/no-data/stale/unavailable cannot expose a story body",
-    "renderedChromeMatrix": "INDEPENDENTLY VERIFIED LOCALLY — 89 headless-Chrome assertions pass across repeated source/artifact runs; Chrome-profile cleanup remains racy after assertions",
-    "historyStateRecovery": "INDEPENDENTLY VERIFIED LOCALLY — query, cards, focus and requested/clamped/actual scroll settle across viewport changes, forged offsets and rapid history; native assistive-technology review remains open",
-    "candidateReviewRouter": "BOUNDED INDEPENDENT PASS — only REJECT or HOLD; no candidate assertion can authorize publication; recursive duplicate-key rejection, executable schema identity and independent signed/hash-bound authority remain absent",
-    "automaticCandidateDispatch": "ACTIVE IN TWICE-DAILY NEWS RADAR — new/materially changed candidate hashes must start the exact independent chain; no publication authority",
-    "publishedDiscoveryDispatch": "ACTIVE IN DAILY CONTROL ROOM — new/corrected exact public records trigger discovery verification",
-    "publicDiscoveryCoverage": "PARTIAL — NewsStand paper/direct/search paths exist; Homepage Daily remains an isolated candidate and approved-public feed/new-since-last-visit remain build-required",
-    "focusAndAriaContract": "VERIFIED LOCALLY IN HEADLESS CHROME; REAL ASSISTIVE-TECH REVIEW OPEN",
-    "producerToReaderPublicationRun": "NOT YET EXECUTED",
-    "exactArtifactAndPublicVerification": "NOT EXECUTED"
+  "verification": {
+    "readerStateFixtures": "VERIFIED LOCALLY — 10 deterministic states",
+    "renderedBrowserMatrix": "VERIFIED LOCALLY — 211 checks at 620 and 900 CSS-pixel widths, including repeated history cycles, stale/hold/correction/retraction/focus/mobile/motion/zoom",
+    "canonicalMigration": "VERIFIED LOCALLY",
+    "privateDailyPipeline": "VERIFIED LOCALLY — composer, canonical writer and workflow pass; scheduled-trigger and substitution bad cases fail as calibrated",
+    "assistiveTechnology": "OPEN — native Safari/VoiceOver witness not yet completed for these exact bytes",
+    "independentProductAndVisualReview": "OPEN — prior v13 and v22 receipts do not bind this repaired tuple",
+    "currentEditorialRun": "OPEN — no August 11 authoritative radar disposition",
+    "deployment": "NOT DEPLOYED",
+    "publicVerification": "NOT EXECUTED"
   },
-  "dependencies": [
-    "operations/newsstand-editorial-radar.md",
-    "operations/newsstand-autopublish-policy.json",
-    "operations/newsstand-earned-autonomy.md",
-    "operations/product-stewards/newsstand/PUBLICATION-VALIDATION-AND-DISCOVERY-CONTRACT.md",
-    "operations/newsstand-candidate.schema.json",
-    "content/newsstand.schema.json",
-    "primary/official sources and independent context",
-    "editorial approval/correction process",
-    "Platform deployment, analytics and rollback",
-    "Ali approval for any replacement Weekly visual",
-    "Portfolio Control Room locks for live route, shared platform, cross-page and release work",
-    "Homepage, Visitor's Centre, Tour/Rewards, Library/Episode and Resident Card/Closet owner handoffs"
+  "releaseBlockers": [
+    "freeze the current candidate in a commit and build its exact public artifact",
+    "independent product, accessibility and visual review of the exact rendered candidate",
+    "run and disposition the current dated editorial radar; quiet is valid but must be evidenced",
+    "resolve the production controller's unrelated overdue operational-integrity records without fabricating receipts or bypassing the controller",
+    "obtain exact artifact production approval, deploy through the production controller and verify the live URL"
   ],
-  "cycle6": {
-    "audit": "cycle-6-four-publication-audit-2026-07-26.md",
-    "buildPacket": "build-packet-cycle-6-four-publication-p0-2026-07-26.md",
-    "externalCapabilityReview": "external-capability-review-cycle-6-2026-07-26.md",
-    "subproducts": {
-      "breaking": "BOUNDED ROUTER PASS; PRODUCT/RELEASE HOLD — 78/100",
-      "daily": "BOUNDED ROUTER PASS; PRODUCT/RELEASE HOLD — 79/100",
-      "weekly": "BOUNDED ROUTER PASS; EDITORIAL/OWNER/RELEASE HOLD — 74/100",
-      "tribune": "BOUNDED CONTENT STRENGTH; PRODUCT/RELEASE HOLD — 82/100"
-    }
-  },
-  "lastRun": "2026-07-28 automatic candidate-validation and post-publication discovery dispatch contracts wired into the News Radar and Control Room automations; deterministic NewsStand router/schema/reader tests pass; no live route, publication or deploy",
-  "latestIndependentReview": "independent-rejudge-cycle-6-repair-3-2026-07-26.md",
-  "nextAction": "Build NS-16's checksum-bound validation-chain receipt and NS-17's approved-public-only feed, privacy-safe new-since-last-visit state and accepted Homepage current-information binding; then independently verify the complete discovery journey. Keep publication/deploy authority separate.",
-  "authority": "NewsStand dossier/evidence records only during owner-entry initialization; no live/shared edit, deploy, external publication, credentials, service mutation or visual approval"
+  "nextAction": "Freeze and render the exact repaired tuple, then commission exact-byte independent review. Do not represent the August 3 Daily as an August 11 editorial result.",
+  "authority": "Release-candidate recovery only; no publication, deployment or public-current claim is exercised by this state record."
 }
