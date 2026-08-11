@@ -21,12 +21,15 @@ The executor may have no active content order after a terminal cycle. That is ID
 On each hourly heartbeat:
 
 1. run the content work-order and executor checks;
-2. reconcile the current active order against real artifacts and its checkpoint;
-3. if no order is active, select at most one eligible primary order for a free destination owner;
-4. create a receipt bound to codex-heartbeat:laidies-learning-system-execution-recovery;
-5. execute the next production or owner step, not merely update status;
-6. run the applicable calibrated tests;
-7. record the heartbeat and exact result with scripts/run-learning-executor-cycle.mjs;
-8. commit and push the owned changes.
+2. reconcile every new AIDB and News Radar handoff since the previous cycle into a content work order or an exact duplicate, quiet, watch or no-build disposition;
+3. reconcile the current active order against real artifacts and its checkpoint;
+4. if no order is active, select at most one eligible primary order for a free destination owner;
+5. create a receipt bound to codex-heartbeat:laidies-learning-system-execution-recovery;
+6. execute the next production or owner step, not merely update status;
+7. run the applicable calibrated tests;
+8. record the heartbeat and exact result with scripts/run-learning-executor-cycle.mjs;
+9. commit and push the owned changes.
 
 Content publication and deployment still require their applicable artifact, review, release and public-verification evidence. A quiet or WATCH editorial result is a valid completed cycle when it is source-bound and terminal.
+
+This is a permanent executor, not a temporary recovery monitor. It remains active after a healthy cycle so future signals cannot accumulate as unowned handoffs.
