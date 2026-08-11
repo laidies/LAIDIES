@@ -1,6 +1,6 @@
 # NewsStand current release packet — 2026-08-11
 
-**Status:** BUILD COMPLETE LOCALLY / RELEASE HOLD
+**Status:** RUNTIME DEPENDENCY REPAIR BUILT LOCALLY / EXACT COMMITTED ARTIFACT REBUILD PENDING
 
 **Tier:** 1 — visitor-facing release
 
@@ -43,6 +43,8 @@ Release fails closed if any exact-byte review rejects the candidate, the dated e
 - Calibration: deliberately invalid scheduled-trigger and promotion-substitution cases fail.
 
 These are functional and integrity results. They do not approve visual quality, editorial freshness, deployment or public behavior.
+
+The preliminary source `a8ef971fc56ad41be2b28e7d0b4805eb52b3285c` produced a 536-file static artifact, but native Safari exposed four runtime-computed continuation dependencies absent from it. That preliminary identity is superseded. The dependency-repaired working tree produces 540 curated files and still passes the NewsStand checks; its exact committed successor identity must be rebuilt after commit. Product and visual judges accepted the unchanged exact NewsStand page/CSS/reader tuple. The production controller still fails closed on four overdue portfolio work-resolution records; this packet does not convert that global operational hold into NewsStand failure or bypass authority.
 
 ## Open gates and owners
 
