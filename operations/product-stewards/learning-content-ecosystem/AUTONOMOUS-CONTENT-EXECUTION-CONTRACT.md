@@ -58,13 +58,24 @@ Every dispatch receipt records the work-order ID, owner, task/lane identity,
 accepted scope, start time, next checkpoint and collision boundary. A
 recommendation, handoff or validator PASS is not a dispatch receipt.
 
+Dispatch is allowed to create the prevention-first producer contract; requiring
+that contract before dispatch creates a deadlock. The contract is mandatory
+before the primary artifact can truthfully claim `BUILT_LOCALLY` or enter
+review. Each destination owner has a default work-in-progress limit of one
+active primary content output, and active dispatches may not overlap paths.
+
 ## Review and release
 
-Every artifact still passes its complete governed chain: accuracy, anti-slop,
+Every primary artifact still passes its complete applicable governed chain: accuracy, anti-slop,
 current best practice, LAiDIES voice, analogy integrity, usefulness/depth,
 format fit, search/indexing, relationship linking, canon consistency,
-appropriate derivatives, accessibility, rights, product behavior and exact
+accessibility, rights, product behavior and exact
 rendered experience where applicable.
+
+A possible song, tip, social post, newsletter item or other surface derivative
+is parked unless it has its own distinct job and child work order. Parked work
+cannot block the primary release. An applicable derivative has its own artifact,
+gates and release proof and may not borrow the primary artifact's admission.
 
 `Format fit` is not a generic design check. Every feature publishing the
 concept must have a distinct, destination-appropriate treatment and its own

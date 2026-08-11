@@ -17,6 +17,10 @@ const CONTENT_VERIFIED_STATES = new Set([
   "CONTENT_VERIFIED", "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED",
   "VERIFIED_PUBLICLY"
 ]);
+const RELEASE_TRACK_STATES = new Set([
+  "BUILDING", "BUILT_LOCALLY", "EDITORIAL_REVIEW", "CONTENT_VERIFIED",
+  "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY"
+]);
 const PASS_STATES = new Set(["PASS", "PASS_LOCAL", "NOT_APPLICABLE"]);
 
 function existingEvidence(root, evidencePath) {
@@ -96,7 +100,12 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
 
   const ready = [];
   const held = [];
+  const excluded = [];
   for (const order of queue.workOrders || []) {
+    if (!RELEASE_TRACK_STATES.has(order.status)) {
+      excluded.push({ id: order.id, status: order.status, executionState: order.execution?.state || "UNSPECIFIED" });
+      continue;
+    }
     const reasons = [];
     const producerContract = readJsonRecord(root, order.producerContractPath, "producerContract", reasons);
     if (producerContract) {
@@ -133,7 +142,8 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
       if (!review) continue;
       if (review.artifact?.manifest?.path !== order.artifactBinding?.manifestPath || review.artifact?.manifest?.sha256 !== order.artifactBinding?.sha256) reasons.push(`${label}:RELEASE_ARTIFACT_MISMATCH`);
     }
-    for (const gateName of REQUIRED_GATES) {
+    const requiredGates = order.execution?.requiredPrimaryGates || REQUIRED_GATES;
+    for (const gateName of requiredGates) {
       const gate = order.qualityGates?.[gateName];
       if (!gate || !["PASS", "NOT_APPLICABLE"].includes(gate.status)) {
         reasons.push(`${gateName}:${gate?.status || "MISSING"}`);
@@ -174,9 +184,11 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
       reasons.push("review:INDEPENDENCE_NOT_PROVEN");
     }
 
-    const formatEvidence = order.qualityGates?.formatFit?.evidencePaths || [];
-    if (!formatEvidence.some((item) => validGateReceipt({ root, receiptPath: item, order, gateName: "formatFit" }))) {
-      reasons.push("featureAdaptation:NOT_PROVEN");
+    if (requiredGates.includes("formatFit")) {
+      const formatEvidence = order.qualityGates?.formatFit?.evidencePaths || [];
+      if (!formatEvidence.some((item) => validGateReceipt({ root, receiptPath: item, order, gateName: "formatFit" }))) {
+        reasons.push("featureAdaptation:NOT_PROVEN");
+      }
     }
 
     if (reasons.length === 0) ready.push(order.id);
@@ -208,6 +220,7 @@ export function checkContentReleaseReadiness({ root = process.cwd(), requireRead
     errors,
     ready,
     held,
+    excluded,
     requiredReady: requireReady,
     readinessThresholdMet: requireReady === null ? null : ready.length >= requireReady
   };
@@ -262,6 +275,7 @@ if (direct) {
     : "CONTENT RELEASE ADMISSION INTEGRITY VALID");
   console.log(`release_ready=${result.ready.join(",") || "none"}`);
   console.log(`held=${result.held.length}`);
+  console.log(`excluded_pre_release=${result.excluded.length}`);
   if (process.argv.includes("--details")) {
     for (const item of result.held) console.log(`hold=${item.id}|${item.reasons.join(";")}`);
   }

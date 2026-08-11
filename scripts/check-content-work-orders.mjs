@@ -4,13 +4,12 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
+import { inspectProseQualityReview } from "./check-prose-quality-admission.mjs";
 
-const GATES = [
-  "accuracy", "antiSlop", "currentBestPractice", "laidiesVoice", "analogyIntegrity",
-  "usefulnessDepth", "formatFit", "searchIndexing", "relationshipLinking",
-  "canonConsistency", "songOpportunity", "derivativeFeeds"
-];
+const ACTIVE_EXECUTION_STATES = new Set(["DISPATCHED", "BUILDING"]);
 const BOUND_STATUSES = new Set(["EDITORIAL_REVIEW", "CONTENT_VERIFIED", "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY"]);
+const CONTRACT_REQUIRED_STATUSES = new Set(["BUILT_LOCALLY", ...BOUND_STATUSES]);
+const REVIEW_REQUIRED_STATUSES = new Set(["EDITORIAL_REVIEW", ...BOUND_STATUSES]);
 
 function walk(directory, predicate) {
   if (!fs.existsSync(directory)) return [];
@@ -20,19 +19,88 @@ function walk(directory, predicate) {
     return predicate(absolute) ? [absolute] : [];
   });
 }
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
 
-export function checkContentWorkOrders({ root = process.cwd() } = {}) {
+function validateProducerContract({ root, order, errors }) {
+  if (!order.producerContractPath || !fs.existsSync(path.join(root, order.producerContractPath))) {
+    errors.push(`${order.id} ${order.status} lacks producerContractPath`);
+    return;
+  }
+  try {
+    const contract = readJson(path.join(root, order.producerContractPath));
+    const result = inspectContentProducerContract(contract, { root });
+    if (contract.candidateId !== order.id || contract.status !== "READY_TO_DRAFT" || result.errors.length) {
+      errors.push(`${order.id} ${order.status} has invalid producer contract`);
+    }
+  } catch (error) {
+    errors.push(`${order.id} producer contract unreadable: ${error.message}`);
+  }
+}
+
+function validateReview({ root, order, field, stage, errors }) {
+  if (!order[field] || !fs.existsSync(path.join(root, order[field]))) {
+    errors.push(`${order.id} ${order.status} lacks ${field}`);
+    return;
+  }
+  try {
+    const review = readJson(path.join(root, order[field]));
+    const result = inspectProseQualityReview(review, { root });
+    if (review.candidateId !== order.id || review.stage !== stage || review.verdict !== "PASS" || result.errors.length) {
+      errors.push(`${order.id} ${order.status} has invalid ${field}`);
+    }
+  } catch (error) {
+    errors.push(`${order.id} ${field} unreadable: ${error.message}`);
+  }
+}
+
+function validateDispatchReceipt({ root, order, errors }) {
+  const dispatch = order.execution?.dispatch;
+  if (!dispatch) {
+    errors.push(`${order.id} ${order.execution?.state || "UNKNOWN"} lacks a dispatch receipt binding`);
+    return;
+  }
+  const required = ["receiptId", "receiptPath", "ownerId", "laneId", "collisionBoundary", "dispatchedAt", "checkpointAt", "slaDueAt"];
+  for (const field of required) if (!dispatch[field]) errors.push(`${order.id} dispatch missing ${field}`);
+  if (!Array.isArray(dispatch.acceptedScope) || dispatch.acceptedScope.length === 0) errors.push(`${order.id} dispatch missing acceptedScope`);
+  if (dispatch.ownerId !== order.ownerProductId) errors.push(`${order.id} dispatch owner does not match ownerProductId`);
+  const receiptPath = dispatch.receiptPath && path.join(root, dispatch.receiptPath);
+  if (!receiptPath || !fs.existsSync(receiptPath)) {
+    errors.push(`${order.id} dispatch receipt file missing`);
+    return;
+  }
+  try {
+    const receipt = readJson(receiptPath);
+    if (
+      receipt.workOrderId !== order.id ||
+      receipt.receiptId !== dispatch.receiptId ||
+      receipt.ownerId !== dispatch.ownerId ||
+      receipt.laneId !== dispatch.laneId ||
+      JSON.stringify(receipt.acceptedScope) !== JSON.stringify(dispatch.acceptedScope) ||
+      receipt.collisionBoundary !== dispatch.collisionBoundary ||
+      receipt.dispatchedAt !== dispatch.dispatchedAt ||
+      receipt.checkpointAt !== dispatch.checkpointAt ||
+      receipt.slaDueAt !== dispatch.slaDueAt
+    ) errors.push(`${order.id} dispatch receipt does not match the queue binding`);
+  } catch (error) {
+    errors.push(`${order.id} dispatch receipt unreadable: ${error.message}`);
+  }
+}
+
+export function checkContentWorkOrders({ root = process.cwd(), now = new Date() } = {}) {
   const errors = [];
-  const producerContractBlocked = [];
   const queuePath = path.join(root, "operations/product-stewards/learning-content-ecosystem/content-work-orders.json");
   const registryPath = path.join(root, "operations/product-stewards/registry.json");
   let queue;
   let registry;
-  try { queue = JSON.parse(fs.readFileSync(queuePath, "utf8")); } catch (error) { return { errors: [`content work orders invalid: ${error.message}`] }; }
-  try { registry = JSON.parse(fs.readFileSync(registryPath, "utf8")); } catch (error) { return { errors: [`product registry invalid: ${error.message}`] }; }
-  if (queue.schemaVersion !== "1.1.0") errors.push("content work orders schemaVersion must be 1.1.0");
+  try { queue = readJson(queuePath); } catch (error) { return { errors: [`content work orders invalid: ${error.message}`] }; }
+  try { registry = readJson(registryPath); } catch (error) { return { errors: [`product registry invalid: ${error.message}`] }; }
+
+  if (queue.schemaVersion !== "1.2.0") errors.push("content work orders schemaVersion must be 1.2.0");
   const productIds = new Set(registry.products.map((product) => product.id));
   const orders = new Map();
+
   for (const order of queue.workOrders || []) {
     if (orders.has(order.id)) errors.push(`duplicate content work order ${order.id}`);
     orders.set(order.id, order);
@@ -41,50 +109,87 @@ export function checkContentWorkOrders({ root = process.cwd() } = {}) {
     for (const field of ["sourceRefs", "targetPaths", "acceptanceEvidence", "reviewChain"]) {
       if (!Array.isArray(order[field]) || order[field].length === 0) errors.push(`${order.id} missing ${field}`);
     }
-    for (const gateName of GATES) {
-      const gate = order.qualityGates?.[gateName];
-      if (!gate) { errors.push(`${order.id} missing quality gate ${gateName}`); continue; }
-      if (!gate.owner || !gate.evidenceRequired) errors.push(`${order.id} ${gateName} lacks owner/evidence requirement`);
-      if (gate.status === "PASS" && (!Array.isArray(gate.evidencePaths) || gate.evidencePaths.length === 0)) {
-        errors.push(`${order.id} ${gateName} claims PASS without evidence`);
+
+    const execution = order.execution;
+    if (!execution) {
+      errors.push(`${order.id} missing execution control`);
+      continue;
+    }
+    if (execution.primaryOutput?.ownerProductId !== order.ownerProductId || execution.primaryOutput?.surface !== order.surface) {
+      errors.push(`${order.id} primary output does not match its owner/surface`);
+    }
+    if (JSON.stringify(execution.primaryOutput?.targetPaths) !== JSON.stringify(order.targetPaths)) {
+      errors.push(`${order.id} primary output targetPaths do not match the work order`);
+    }
+    if (!Number.isInteger(execution.wip?.ownerLimit) || execution.wip.ownerLimit < 1) errors.push(`${order.id} has invalid owner WIP limit`);
+    if (!Array.isArray(execution.requiredPrimaryGates) || execution.requiredPrimaryGates.length === 0) {
+      errors.push(`${order.id} has no required primary gates`);
+    } else {
+      for (const gateName of execution.requiredPrimaryGates) {
+        const gate = order.qualityGates?.[gateName];
+        if (!gate) { errors.push(`${order.id} missing primary quality gate ${gateName}`); continue; }
+        if (!gate.owner || !gate.evidenceRequired) errors.push(`${order.id} ${gateName} lacks owner/evidence requirement`);
+        if (gate.status === "PASS" && (!Array.isArray(gate.evidencePaths) || gate.evidencePaths.length === 0)) errors.push(`${order.id} ${gateName} claims PASS without evidence`);
       }
     }
+    for (const derivative of execution.derivatives || []) {
+      if (!["APPLICABLE", "PARKED", "NOT_APPLICABLE", "COMPLETE"].includes(derivative.state)) errors.push(`${order.id} derivative ${derivative.id} has invalid state`);
+      if (!derivative.reason || !derivative.activationTrigger) errors.push(`${order.id} derivative ${derivative.id} lacks reason/trigger`);
+      if (derivative.state === "APPLICABLE" && !derivative.childWorkOrderId) errors.push(`${order.id} applicable derivative ${derivative.id} lacks childWorkOrderId`);
+    }
+
+    if (order.dispatchState === "READY_TO_DISPATCH" && execution.state !== "BACKLOG") errors.push(`${order.id} READY_TO_DISPATCH must be BACKLOG`);
+    if (order.dispatchState === "DISPATCHED" && !ACTIVE_EXECUTION_STATES.has(execution.state)) errors.push(`${order.id} DISPATCHED has non-active execution state ${execution.state}`);
+    if (ACTIVE_EXECUTION_STATES.has(execution.state)) validateDispatchReceipt({ root, order, errors });
+    if (ACTIVE_EXECUTION_STATES.has(execution.state)) {
+      const due = Date.parse(execution.dispatch?.slaDueAt || "");
+      if (!Number.isFinite(due)) errors.push(`${order.id} dispatch has invalid slaDueAt`);
+      else if (due < now.getTime()) errors.push(`${order.id} EXECUTION_STALLED: SLA expired at ${execution.dispatch.slaDueAt}`);
+    }
+
+    if (CONTRACT_REQUIRED_STATUSES.has(order.status)) validateProducerContract({ root, order, errors });
+    if (REVIEW_REQUIRED_STATUSES.has(order.status)) validateReview({ root, order, field: "producerReviewPath", stage: "PRODUCER_SELF_REVIEW", errors });
+    if (["CONTENT_VERIFIED", "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY"].includes(order.status)) {
+      validateReview({ root, order, field: "semanticAdmissionPath", stage: "INDEPENDENT_SEMANTIC_ADMISSION", errors });
+    }
+
     if (BOUND_STATUSES.has(order.status) && order.artifactBinding?.status !== "BOUND") errors.push(`${order.id} ${order.status} lacks a bound artifact`);
-    if (order.artifactBinding?.status === "BOUND" && (!order.artifactBinding.manifestPath || !/^[a-f0-9]{64}$/.test(order.artifactBinding.sha256 || ""))) {
-      errors.push(`${order.id} has incomplete artifact binding`);
-    }
+    if (order.artifactBinding?.status === "BOUND" && (!order.artifactBinding.manifestPath || !/^[a-f0-9]{64}$/.test(order.artifactBinding.sha256 || ""))) errors.push(`${order.id} has incomplete artifact binding`);
     if (order.status === "VERIFIED_PUBLICLY") {
-      if (!order.publicRelease?.url || !order.publicRelease?.releaseReceipt || !/^[a-f0-9]{64}$/.test(order.publicRelease?.sha256 || "")) {
-        errors.push(`${order.id} claims VERIFIED_PUBLICLY without exact public release proof`);
-      }
+      if (!order.publicRelease?.url || !order.publicRelease?.releaseReceipt || !/^[a-f0-9]{64}$/.test(order.publicRelease?.sha256 || "")) errors.push(`${order.id} claims VERIFIED_PUBLICLY without exact public release proof`);
+      if (execution.closure?.state !== "VERIFIED_PUBLICLY") errors.push(`${order.id} VERIFIED_PUBLICLY lacks matching closure`);
     }
-    if (["EDITORIAL_REVIEW", "CONTENT_VERIFIED", "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY"].includes(order.status)) {
-      for (const field of ["producerContractPath", "producerReviewPath", "semanticAdmissionPath"]) {
-        if (!order[field] || !fs.existsSync(path.join(root, order[field]))) errors.push(`${order.id} ${order.status} lacks ${field}`);
-      }
+    if (order.status === "DECLINED" && (execution.state !== "CLOSED" || execution.closure?.state !== "DECLINED" || !execution.closure?.receiptPath || !execution.closure?.reason)) {
+      errors.push(`${order.id} DECLINED lacks an exact closure receipt/reason`);
     }
     if (order.status === "QUEUED_WITH_TRIGGER" && order.dispatchState !== "NOT_READY") errors.push(`${order.id} queued trigger must be NOT_READY`);
-    if (order.status === "BUILT_LOCALLY") {
-      for (const target of order.targetPaths) {
-        const fileTarget = target.split("#")[0];
-        if (!fs.existsSync(path.join(root, fileTarget))) errors.push(`${order.id} built target missing: ${fileTarget}`);
+  }
+
+  for (const order of orders.values()) {
+    for (const derivative of order.execution?.derivatives || []) {
+      if (derivative.state === "APPLICABLE") {
+        const child = orders.get(derivative.childWorkOrderId);
+        if (!child || child.parentWorkOrderId !== order.id) errors.push(`${order.id} derivative ${derivative.id} does not have a distinct bound child work order`);
       }
     }
-    if (order.dispatchState === "READY_TO_DISPATCH") {
-      const contractPath = order.producerContractPath && path.join(root, order.producerContractPath);
-      if (!contractPath || !fs.existsSync(contractPath)) {
-        producerContractBlocked.push(`${order.id}:missing producerContractPath`);
-      } else {
-        try {
-          const contract = JSON.parse(fs.readFileSync(contractPath, "utf8"));
-          const result = inspectContentProducerContract(contract, { root });
-          if (contract.candidateId !== order.id) result.errors.push(`candidateId must equal ${order.id}`);
-          if (contract.status !== "READY_TO_DRAFT") result.errors.push("status must be READY_TO_DRAFT");
-          if (result.errors.length) producerContractBlocked.push(`${order.id}:${result.errors.join("; ")}`);
-        } catch (error) {
-          producerContractBlocked.push(`${order.id}:producer contract unreadable: ${error.message}`);
-        }
-      }
+  }
+
+  const active = [...orders.values()].filter((order) => ACTIVE_EXECUTION_STATES.has(order.execution?.state));
+  const byOwner = new Map();
+  for (const order of active) {
+    const list = byOwner.get(order.ownerProductId) || [];
+    list.push(order);
+    byOwner.set(order.ownerProductId, list);
+  }
+  for (const [owner, list] of byOwner) {
+    const limit = Math.min(...list.map((order) => order.execution.wip.ownerLimit));
+    if (list.length > limit) errors.push(`owner WIP exceeded for ${owner}: active=${list.map((order) => order.id).join(",")} limit=${limit}`);
+  }
+  for (let i = 0; i < active.length; i += 1) {
+    const left = new Set(active[i].execution.dispatch?.acceptedScope || []);
+    for (let j = i + 1; j < active.length; j += 1) {
+      const overlap = (active[j].execution.dispatch?.acceptedScope || []).filter((item) => left.has(item));
+      if (overlap.length) errors.push(`active dispatch collision ${active[i].id}/${active[j].id}: ${overlap.join(",")}`);
     }
   }
 
@@ -99,12 +204,14 @@ export function checkContentWorkOrders({ root = process.cwd() } = {}) {
     for (const id of item.workOrderIds || []) if (!orders.has(id)) errors.push(`${item.path} references missing ${id}`);
     if (item.disposition === "NO_BUILD_REQUIRED" && !item.reason) errors.push(`${item.path} declines build without a reason`);
   }
+
   return {
     errors,
     workOrders: orders.size,
     coveredRecords: coverage.size,
-    readyToDispatch: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH" && !producerContractBlocked.some((item) => item.startsWith(`${order.id}:`))).map((order) => order.id),
-    producerContractBlocked,
+    readyToDispatch: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH").map((order) => order.id),
+    activeDispatches: active.map((order) => order.id),
+    reconciliationRequired: [...orders.values()].filter((order) => order.execution?.state === "RECONCILIATION_REQUIRED").map((order) => order.id),
     queuedWithTrigger: [...orders.values()].filter((order) => order.status === "QUEUED_WITH_TRIGGER").map((order) => order.id)
   };
 }
@@ -121,6 +228,7 @@ if (direct) {
   console.log(`work_orders=${result.workOrders}`);
   console.log(`covered_records=${result.coveredRecords}`);
   console.log(`ready_to_dispatch=${result.readyToDispatch.join(",") || "none"}`);
-  console.log(`producer_contract_blocked=${result.producerContractBlocked.join(" | ") || "none"}`);
+  console.log(`active_dispatches=${result.activeDispatches.join(",") || "none"}`);
+  console.log(`reconciliation_required=${result.reconciliationRequired.join(",") || "none"}`);
   console.log(`queued_with_trigger=${result.queuedWithTrigger.join(",") || "none"}`);
 }

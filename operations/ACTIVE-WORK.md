@@ -1064,3 +1064,13 @@ objective; every open lane keeps its own checkpoint.
 - **Truth boundary:** exact technical reports or original papers may support bounded claims; institutional summaries are leads; course/product pages are comparators; interviews remain attributed commentary. No Wharton source automatically becomes canon or creates a new LAiDIES artifact.
 - **Next trigger:** an existing admitted learning job needs an exact Wharton item; the owner verifies its model/task/population/date, underlying evidence, access, accessibility, licence and currentness before use.
 - **Authority:** no content, concept map, class, book, episode, Study Pack, quiz, game, tool, NewsStand story, external subscription, route, deployment, publication, spend or public-release state changed.
+
+### 2026-08-11 Learning execution recovery checkpoint
+
+- **Current state:** `ONE ACTIVE CONTENT DISPATCH / PUBLIC RELEASE HOLD`.
+- **Literal movement:** the 17 newer work orders were preserved and migrated to execution control v1.2. Eight legacy `BUILT_LOCALLY` labels without producer-contract evidence are now `RECONCILIATION_REQUIRED`; their files were not deleted. Three trigger-bound orders remain parked. The only active lane is `LCWO-018`, the 2026-08-10 OpenAI Daybreak NewsStand intake, with an exact dispatch receipt, three owned internal packet paths and a 2026-08-12 editor-ruling SLA.
+- **Controller correction:** `READY_TO_DISPATCH` no longer requires the producer contract it is meant to create. Owner WIP is one, overlapping dispatch paths fail, expired SLAs fail as `EXECUTION_STALLED`, and parked derivatives do not block the primary artifact.
+- **Next trigger:** NewsStand rules `DAILY`, `WEEKLY` or `WATCH`. A Daily/Weekly ruling then creates the prevention-first producer contract and reopens the official sources before public prose. `WATCH` closes the dated editorial route rather than leaving it falsely ready.
+- **Known independent holds:** three expired public Daily derivative records and overdue relationship `LCR-006` still fail the full product-steward gate. They were not timestamp-refreshed or hidden.
+- **Repository-wide hook:** the pre-commit media audit also reports 45 missing Episode 03 image paths and one missing Episode 04 clip on the inherited branch. This scoped operating repair does not alter or clear those failures; deployment CI remains fail-closed.
+- **Authority:** no canonical story, page, automation, dispatcher, deployment or public state changed. AW-003 remains the launch foreground.

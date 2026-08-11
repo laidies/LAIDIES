@@ -212,11 +212,17 @@ try {
   assert.match(strictHeld.stderr, /required release-ready minimum=1; actual=0/);
 
   const readyOrder = validOrder();
+  readyOrder.execution = {
+    requiredPrimaryGates: requiredGates.filter((gate) => !["songOpportunity", "derivativeFeeds"].includes(gate))
+  };
+  readyOrder.qualityGates.songOpportunity = { status: "HOLD", evidencePaths: [] };
+  readyOrder.qualityGates.derivativeFeeds = { status: "HOLD", evidencePaths: [] };
   writeQueue([readyOrder]);
   const ready = checkContentReleaseReadiness({ root, requireReady: 1 });
   assert.deepEqual(ready.errors, []);
   assert.deepEqual(ready.ready, ["fixture-ready"]);
   assert.equal(ready.readinessThresholdMet, true);
+  assert.equal(ready.held.length, 0, "parked derivative gates must not block the primary output");
 
   const semanticPath = path.join(root, readyOrder.semanticAdmissionPath);
   const semantic = JSON.parse(fs.readFileSync(semanticPath, "utf8"));

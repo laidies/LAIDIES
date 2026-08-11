@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "laidies-content-dispatch.v1",
+  "receiptId": "DSP-LCWO-018-20260811-01",
+  "workOrderId": "LCWO-018",
+  "ownerId": "newsstand",
+  "laneId": "codex-task:learning-execution-repair-20260811",
+  "acceptedScope": [
+    "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/triage.md",
+    "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/research-and-claim-map.md",
+    "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/aidb-comparison.md"
+  ],
+  "collisionBoundary": "This lane owns only the three internal Daybreak intake packet paths; it may not edit canonical NewsStand stories, public routes, runtime services or deploy state.",
+  "dispatchedAt": "2026-08-11T12:00:00-07:00",
+  "checkpointAt": "2026-08-11T14:00:00-07:00",
+  "slaDueAt": "2026-08-12T12:00:00-07:00",
+  "sourceBindings": [
+    {
+      "path": "operations/agents/aidb-intelligence-desk/daily/2026-08-10-evening.md",
+      "sha256": "17312cb7f560d42c58560342669c06cba81df9e2aa340d40684400ac465d9aea"
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/handoffs/newsstand/2026-08-10-openai-daybreak-cyber-access.md",
+      "sha256": "80ac7f5f314856f2e32e817d7806fefcd2321cc115d6a1b9d4566e2c1d772825"
+    }
+  ],
+  "checkpointResult": "SOURCE_PACKET_CREATED_EDITORIAL_RULING_PENDING",
+  "authority": "INTERNAL_PACKET_ONLY_NO_PUBLIC_PROSE_NO_DEPLOY"
+}

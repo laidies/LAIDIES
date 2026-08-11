@@ -14382,6 +14382,17 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
 
+## BTB-456 — The content system called work ready and then made dispatch impossible
+
+- **Date:** 2026-08-11
+- **Area:** AIDB / Learning System / NewsStand execution.
+- **Failure:** Fourteen records could be labelled `READY_TO_DISPATCH` while the checker returned zero dispatchable work, because it required a finished producer contract before the lane that was supposed to create that contract could begin. Every possible song and derivative was also treated as a blocker for the primary output.
+- **Root cause:** Intake, production and cross-surface opportunity were collapsed into one universal gate list. The validator exited successfully while reporting no executable work, so documentation accumulated without a running primary lane.
+- **Prevention rule:** Dispatch creates the producer lane. Require the producer contract before `BUILT_LOCALLY`, not before dispatch; limit each owner to one active primary output; bind receipt/scope/checkpoint/SLA; reject collisions and expiry; park derivatives until a distinct child job is commissioned.
+- **Durable correction:** content work orders v1.2, calibrated execution tests and `LCWO-018` prove one bounded AIDB-to-NewsStand dispatch. Eight unsupported legacy build labels were downgraded to reconciliation-required without deleting their artifacts.
+- **Possible Behind the Build angle:** How a green queue can still produce nothing—and the one rule that made work move again.
+- **Publication status:** VERIFIED INTERNAL OPERATING REPAIR / NO STORY, DEPLOYMENT OR PUBLIC CHANGE.
+
 ## BTB-455 — A scientific horizon remains abstract until it reaches one life
 
 - **Date:** 2026-08-08

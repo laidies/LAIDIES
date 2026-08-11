@@ -20,7 +20,7 @@ SYSTEM-WIDE BACKFILL OPEN
   teaching duplicate, contradictory or outdated concepts.
 - **Distinct contribution:** one concept graph and correction path across
   stories, reference, instruction, tools, practice and current evidence.
-- **Non-goals:** automatic artifact commissioning; a public curriculum page;
+- **Non-goals:** unbounded or multi-surface artifact commissioning from one signal; a public curriculum page;
   teaching every concept in this dossier; rewriting surface content;
   admitting/publishing content; replacing NewsStand sourcing or a surface
   owner's production/release authority.
@@ -52,7 +52,11 @@ receipt. Every NewsStand learning-impact intake and terminal Stage 4 receipt
 must resolve in
 `operations/product-stewards/learning-content-ecosystem/content-work-orders.json`
 as one or more owned work orders, an evidenced `NO_BUILD_REQUIRED` ruling, or
-a `QUEUED_WITH_TRIGGER` ruling whose trigger is exact. The portfolio check
+a `QUEUED_WITH_TRIGGER` ruling whose trigger is exact. A selected
+`READY_TO_DISPATCH` order may begin before its producer contract exists:
+dispatch creates the owned lane in which that contract and artifact are made.
+Only one primary output per owner may be active; every dispatch binds its
+receipt, scope, collision boundary, checkpoint and SLA. The portfolio check
 `node scripts/check-content-work-orders.mjs` fails when any such record is
 uncovered or an actionable order lacks an owner, target, next action, trigger
 or acceptance evidence.
@@ -71,10 +75,14 @@ and independently evidence all of these stop gates:
 9. a semantic relationship scan with exact inbound/outbound links across relevant
    episodes, books, classes, news, tools and `Learn more` modules;
 10. sitewide canon consistency and an explicit correction/versioning plan for conflicts;
-11. a KSVL song-opportunity ruling, with learning purpose, rhymeable hook,
-    analogy limits and suggested style when a song earns production; and
-12. a source-bound Paige daily-tip and Promptoscope derivative ruling, with
-    canonical link and freshness limit, or an evidenced no-fit decision.
+11. any separately commissioned KSVL song child order, with learning purpose,
+    rhymeable hook, analogy limits and suggested style; and
+12. any separately commissioned Paige, Promptoscope, Daily, social or other
+    derivative child order, with its own source, artifact and freshness limit.
+
+Song and derivative opportunities are `PARKED` by default. They do not block
+the primary output and never inherit its admission. They become applicable
+only through a distinct child work order with a distinct reader job.
 
 `PASS` is invalid without gate-specific evidence attached to the exact bound
 artifact. Search, links and derivatives do not inherit publication approval;

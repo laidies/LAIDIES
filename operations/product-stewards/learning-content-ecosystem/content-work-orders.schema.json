@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["schemaVersion", "owner", "status", "updatedAt", "orchestration", "intakeCoverage", "workOrders"],
   "properties": {
-    "schemaVersion": { "const": "1.1.0" },
+    "schemaVersion": { "const": "1.2.0" },
     "owner": { "const": "learning-content-ecosystem" },
     "status": { "enum": ["ACTIVE", "HOLD", "SUPERSEDED"] },
     "updatedAt": { "type": "string", "format": "date" },
@@ -21,7 +21,7 @@
       "required": ["path", "disposition", "workOrderIds", "checkedAt"],
       "properties": {
         "path": { "type": "string", "minLength": 1 },
-        "disposition": { "enum": ["WORK_ORDERS_CREATED", "NO_BUILD_REQUIRED", "QUEUED_WITH_TRIGGER"] },
+        "disposition": { "enum": ["WORK_ORDERS_CREATED", "WORK_ORDERS_REUSED", "NO_BUILD_REQUIRED", "QUEUED_WITH_TRIGGER"] },
         "workOrderIds": { "type": "array", "items": { "type": "string" } },
         "checkedAt": { "type": "string", "format": "date" },
         "reason": { "type": "string" }
@@ -34,10 +34,11 @@
         "id", "title", "sourceRefs", "surface", "action", "ownerProductId",
         "targetPaths", "status", "dispatchState", "priority", "nextAction",
         "nextTrigger", "acceptanceEvidence", "reviewChain", "evidencePaths",
-        "qualityGates", "artifactBinding", "publicRelease"
+        "qualityGates", "artifactBinding", "publicRelease", "execution"
       ],
       "properties": {
         "id": { "type": "string", "pattern": "^LCWO-[0-9]{3}$" },
+        "parentWorkOrderId": { "type": "string", "pattern": "^LCWO-[0-9]{3}$" },
         "title": { "type": "string", "minLength": 1 },
         "sourceRefs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "surface": { "enum": ["NEWSSTAND", "LIBRAIRY", "CLASS", "CONCEPT", "EPISODE", "TOOL", "GAME", "STUDY_PACK", "OTHER"] },
@@ -91,13 +92,97 @@
             "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
           }
         },
-        "producerContractPath": { "type": "string", "minLength": 1 },
-        "producerReviewPath": { "type": "string", "minLength": 1 },
-        "semanticAdmissionPath": { "type": "string", "minLength": 1 },
+        "producerContractPath": { "type": ["string", "null"], "minLength": 1 },
+        "producerReviewPath": { "type": ["string", "null"], "minLength": 1 },
+        "semanticAdmissionPath": { "type": ["string", "null"], "minLength": 1 },
         "evidencePaths": { "type": "array", "items": { "type": "string" } },
         "blockedBy": { "type": "string" },
         "declineReason": { "type": "string" },
         "publicRelease": { "type": "object" }
+        ,"execution": { "$ref": "#/$defs/execution" }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "primaryOutput", "requiredPrimaryGates", "derivatives", "wip", "dispatch", "closure"],
+      "properties": {
+        "state": {
+          "enum": [
+            "BACKLOG", "PARKED", "DISPATCHED", "BUILDING",
+            "RECONCILIATION_REQUIRED", "WAITING_ON_PREREQUISITE",
+            "EXECUTION_STALLED", "CLOSED"
+          ]
+        },
+        "primaryOutput": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "surface", "ownerProductId", "targetPaths"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "surface": { "type": "string", "minLength": 1 },
+            "ownerProductId": { "type": "string", "minLength": 1 },
+            "targetPaths": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+          }
+        },
+        "requiredPrimaryGates": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "derivatives": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/derivative" }
+        },
+        "wip": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ownerLimit"],
+          "properties": { "ownerLimit": { "type": "integer", "minimum": 1 } }
+        },
+        "dispatch": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/dispatch" }] },
+        "closure": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/closure" }] }
+      }
+    },
+    "derivative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "state", "reason", "activationTrigger"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "state": { "enum": ["APPLICABLE", "PARKED", "NOT_APPLICABLE", "COMPLETE"] },
+        "reason": { "type": "string", "minLength": 1 },
+        "activationTrigger": { "type": "string", "minLength": 1 },
+        "childWorkOrderId": { "type": "string", "pattern": "^LCWO-[0-9]{3}$" }
+      }
+    },
+    "dispatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receiptId", "receiptPath", "ownerId", "laneId", "acceptedScope", "collisionBoundary", "dispatchedAt", "checkpointAt", "slaDueAt"],
+      "properties": {
+        "receiptId": { "type": "string", "minLength": 1 },
+        "receiptPath": { "type": "string", "minLength": 1 },
+        "ownerId": { "type": "string", "minLength": 1 },
+        "laneId": { "type": "string", "minLength": 1 },
+        "acceptedScope": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "collisionBoundary": { "type": "string", "minLength": 1 },
+        "dispatchedAt": { "type": "string", "format": "date-time" },
+        "checkpointAt": { "type": "string", "format": "date-time" },
+        "slaDueAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "closure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "at", "ownerId", "receiptPath", "reason"],
+      "properties": {
+        "state": { "enum": ["DECLINED", "VERIFIED_PUBLICLY"] },
+        "at": { "type": "string", "format": "date-time" },
+        "ownerId": { "type": "string", "minLength": 1 },
+        "receiptPath": { "type": "string", "minLength": 1 },
+        "reason": { "type": "string", "minLength": 1 }
       }
     },
     "qualityGate": {
