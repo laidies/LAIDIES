@@ -34,7 +34,7 @@ export function checkLearningExecutor({
 
   if (state.schemaVersion !== "laidies-learning-executor.v1") errors.push("executor state schemaVersion must be laidies-learning-executor.v1");
   if (state.status !== "ACTIVE") errors.push("executor state must be ACTIVE");
-  if (state.cadence !== "HOURLY") errors.push("executor cadence must be HOURLY");
+  if (state.cadence !== "TWICE_DAILY") errors.push("executor cadence must be TWICE_DAILY");
   if (!Number.isFinite(state.maxHeartbeatAgeMinutes) || state.maxHeartbeatAgeMinutes < 1) errors.push("executor maxHeartbeatAgeMinutes is invalid");
   if (!state.automationId) errors.push("executor automationId is missing");
   if (!state.targetThreadId) errors.push("executor targetThreadId is missing");

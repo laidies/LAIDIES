@@ -49,7 +49,7 @@ assert.equal(result.errors.length, 0);
 assert.equal(result.mode, "IDLE_HEALTHY");
 
 let state = reset();
-state.lastHeartbeatAt = "2026-08-11T20:00:00.000Z";
+  state.lastHeartbeatAt = "2026-08-11T03:00:00.000Z";
 writeJson(stateRelative, state);
 result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
 assert(result.errors.some((error) => error.includes("EXECUTION_STALLED")));

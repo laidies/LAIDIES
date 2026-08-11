@@ -1,6 +1,6 @@
 # Learning System live executor contract
 
-**Status:** ACTIVE — local Codex heartbeat
+**Status:** ACTIVE — local Codex heartbeat, twice daily
 **Automation:** laidies-learning-system-execution-recovery
 **Owner:** Learning System & Concepts with the selected destination owner
 
@@ -9,7 +9,7 @@
 A work-order label or dispatch receipt is not activity. The executor is live only when:
 
 1. the named Codex heartbeat automation is currently ACTIVE;
-2. executor-state.json contains a heartbeat no more than 90 minutes old;
+2. executor-state.json contains a heartbeat no more than 18 hours old;
 3. every active content order names this automation lane and a current checkpoint;
 4. the worker is producing the next exact artifact or records an honest terminal disposition; and
 5. missed heartbeats become EXECUTION_STALLED instead of remaining active.
@@ -18,7 +18,7 @@ The executor may have no active content order after a terminal cycle. That is ID
 
 ## Cycle
 
-On each hourly heartbeat:
+On each 09:30 and 16:30 America/Vancouver heartbeat:
 
 1. run the content work-order and executor checks;
 2. reconcile every new AIDB and News Radar handoff since the previous cycle into a content work order or an exact duplicate, quiet, watch or no-build disposition;
