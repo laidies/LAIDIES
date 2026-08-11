@@ -14390,6 +14390,7 @@ while remaining falsely unfinished in the launch record.
 - **Root cause:** Intake, production and cross-surface opportunity were collapsed into one universal gate list. The validator exited successfully while reporting no executable work, so documentation accumulated without a running primary lane.
 - **Prevention rule:** Dispatch creates the producer lane. Require the producer contract before `BUILT_LOCALLY`, not before dispatch; limit each owner to one active primary output; bind receipt/scope/checkpoint/SLA; reject collisions and expiry; park derivatives until a distinct child job is commissioned.
 - **Durable correction:** content work orders v1.2, calibrated execution tests and `LCWO-018` prove one bounded AIDB-to-NewsStand dispatch. Eight unsupported legacy build labels were downgraded to reconciliation-required without deleting their artifacts.
+- **Forward test:** `LCWO-018` reached a source-bound `WATCH / DECLINED` closure rather than remaining falsely active or being padded into a story. The live-executor calibration independently rejects stale heartbeat, paused automation and dead-lane fixtures; the hourly executor is now bound to the same checks and records `IDLE_HEALTHY` when no order is eligible.
 - **Possible Behind the Build angle:** How a green queue can still produce nothing—and the one rule that made work move again.
 - **Publication status:** VERIFIED INTERNAL OPERATING REPAIR / NO STORY, DEPLOYMENT OR PUBLIC CHANGE.
 

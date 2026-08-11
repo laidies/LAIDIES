@@ -12,6 +12,6 @@ It did not decide the publication format, write a story, establish public freshn
 
 `LCWO-018` creates the missing controlled step: a named NewsStand dispatch with one primary output, owned paths, an SLA, a collision boundary and a recorded checkpoint. Songs, social posts, tips, classes and other derivatives remain parked instead of becoming blockers.
 
-## Next real decision
+## Decision completed
 
-The NewsStand editor must make the edition-fit ruling. If the answer is Daily or Weekly, the next state requires a producer contract and a fresh official-source check before any public prose is drafted. If the answer is Watch, the work order records that disposition rather than remaining indefinitely “ready.”
+NewsStand ruled `WATCH` on 2026-08-11 after reopening current official OpenAI sources. The restricted access distinction is verified, but a sufficiently consequential current public reader choice is not. The work order closes instead of remaining indefinitely “ready”; no public prose was commissioned.

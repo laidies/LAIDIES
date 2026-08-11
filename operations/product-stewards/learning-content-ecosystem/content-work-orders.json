@@ -3467,11 +3467,11 @@
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/research-and-claim-map.md",
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/aidb-comparison.md"
       ],
-      "status": "SPECIFIED",
-      "dispatchState": "DISPATCHED",
+      "status": "DECLINED",
+      "dispatchState": "CLOSED",
       "priority": "P1",
-      "nextAction": "NewsStand editor rules DAILY, WEEKLY or WATCH from the bounded packet; if content is commissioned, create the producer contract before drafting public prose.",
-      "nextTrigger": "NewsStand edition-fit ruling after the source packet checkpoint; official sources must be reopened before any drafting or publication.",
+      "nextAction": "Keep the source on WATCH; do not commission public copy unless the exact reopen trigger fires.",
+      "nextTrigger": "Material change to Daybreak availability, eligibility, plan, price, region, model access or approval boundaries; or a second current development creates an earned Weekly synthesis.",
       "acceptanceEvidence": [
         "AIDB signal and exact official-source boundaries preserved",
         "NewsStand edition-fit ruling recorded",
@@ -3606,7 +3606,9 @@
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/triage.md",
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/research-and-claim-map.md",
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/aidb-comparison.md",
-        "operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-018-20260811-01.json"
+        "operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-018-20260811-01.json",
+        "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/editorial-ruling-2026-08-11.md",
+        "operations/product-stewards/learning-content-ecosystem/closure-receipts/CLS-LCWO-018-20260811-WATCH.json"
       ],
       "publicRelease": {
         "status": "NOT_AUTHORIZED",
@@ -3615,7 +3617,7 @@
         "sha256": null
       },
       "execution": {
-        "state": "DISPATCHED",
+        "state": "CLOSED",
         "primaryOutput": {
           "id": "LCWO-018-primary",
           "surface": "NEWSSTAND",
@@ -3670,7 +3672,13 @@
           "checkpointAt": "2026-08-11T14:00:00-07:00",
           "slaDueAt": "2026-08-12T12:00:00-07:00"
         },
-        "closure": null
+        "closure": {
+          "state": "DECLINED",
+          "at": "2026-08-11T15:42:35-07:00",
+          "ownerId": "newsstand",
+          "receiptPath": "operations/product-stewards/learning-content-ecosystem/closure-receipts/CLS-LCWO-018-20260811-WATCH.json",
+          "reason": "WATCH: verified restricted access, but no sufficiently consequential current publication job."
+        }
       }
     }
   ]
