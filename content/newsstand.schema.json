@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/content/newsstand.schema.json",
+  "title": "SUNNYVAiLE NewsStand public publication dataset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "datasetStatus", "generatedAt", "lastCheckedAt", "publications", "stories"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "datasetStatus": { "enum": ["published", "hold"] },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "lastCheckedAt": { "type": "string", "format": "date-time" },
+    "publications": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["breaking", "daily", "weekly", "tribune"],
+      "properties": {
+        "breaking": { "$ref": "#/$defs/publication" },
+        "daily": { "$ref": "#/$defs/publication" },
+        "weekly": { "$ref": "#/$defs/publication" },
+        "tribune": { "$ref": "#/$defs/publication" }
+      }
+    },
+    "stories": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/story" }
+    }
+  },
+  "$defs": {
+    "nullableDateTime": {
+      "anyOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["edition", "job", "status", "publishedAt", "updatedAt", "lastCheckedAt", "maxAgeHours", "note"],
+      "properties": {
+        "edition": { "enum": ["breaking", "daily", "weekly", "tribune"] },
+        "job": { "type": "string", "minLength": 20 },
+        "status": { "enum": ["quiet", "current", "hold", "unavailable"] },
+        "publishedAt": { "$ref": "#/$defs/nullableDateTime" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "lastCheckedAt": { "type": "string", "format": "date-time" },
+        "maxAgeHours": { "type": "number", "exclusiveMinimum": 0 },
+        "note": { "type": "string", "minLength": 10 }
+      }
+    },
+    "story": {
+      "type": "object",
+      "required": [
+        "id", "slug", "edition", "status", "publishedAt", "updatedAt", "lastCheckedAt",
+        "sourceApproval", "correction", "retraction", "headline", "the_story", "laidies_read",
+        "what_this_means", "cocktail_party", "class_notes", "sources", "tags"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 3 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "edition": { "enum": ["breaking", "daily", "weekly", "tribune"] },
+        "status": { "enum": ["published", "hold", "corrected", "retracted"] },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "lastCheckedAt": { "type": "string", "format": "date-time" },
+        "sourceApproval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "record"],
+          "properties": {
+            "status": { "enum": ["approved", "independent-review-required", "rejected"] },
+            "record": { "type": "string", "minLength": 3 }
+          }
+        },
+        "correction": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["correctedAt", "summary", "owner", "record"],
+              "properties": {
+                "correctedAt": { "type": "string", "format": "date-time" },
+                "summary": { "type": "string", "minLength": 10 },
+                "owner": { "type": "string", "minLength": 3 },
+                "record": { "type": "string", "minLength": 3 }
+              }
+            }
+          ]
+        },
+        "retraction": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["retractedAt", "reason", "owner", "record"],
+              "properties": {
+                "retractedAt": { "type": "string", "format": "date-time" },
+                "reason": { "type": "string", "minLength": 10 },
+                "owner": { "type": "string", "minLength": 3 },
+                "record": { "type": "string", "minLength": 3 }
+              }
+            }
+          ]
+        },
+        "headline": { "type": "string", "minLength": 10 },
+        "the_story": { "type": "string", "minLength": 20 },
+        "laidies_read": { "type": "string", "minLength": 20 },
+        "what_this_means": { "type": "string", "minLength": 20 },
+        "cocktail_party": { "type": "string", "minLength": 20 },
+        "class_notes": { "type": "string", "minLength": 10 },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "label", "url", "publisherType", "accessedAt", "approvalStatus"],
+            "properties": {
+              "id": { "type": "string", "minLength": 3 },
+              "label": { "type": "string", "minLength": 5 },
+              "url": { "type": "string", "format": "uri" },
+              "publisherType": { "enum": ["vendor", "regulator", "academic", "independent-reporting", "primary-document"] },
+              "accessedAt": { "type": "string", "format": "date" },
+              "approvalStatus": { "enum": ["reviewed", "rejected"] }
+            }
+          }
+        },
+        "tags": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } }
+      }
+    }
+  }
+}

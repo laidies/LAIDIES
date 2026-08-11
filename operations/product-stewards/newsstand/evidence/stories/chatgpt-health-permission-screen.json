@@ -1,0 +1,65 @@
+{
+  "storyId": "chatgpt-health-permission-screen",
+  "edition": "weekly",
+  "status": "HOLD",
+  "reviewedAt": "2026-07-25",
+  "sourceApproval": "INDEPENDENT REVIEW REQUIRED",
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "nextRecheckAt": "2026-07-30",
+  "releaseRule": "The story remains excluded from the public reader until an independent accuracy/editorial reviewer approves this updated claim map and the exact rendered copy.",
+  "claims": [
+    {
+      "claim": "Health in ChatGPT began rolling out in the U.S. to logged-in adults on web and iOS, with Apple Health and supported medical-record connections.",
+      "sourceIds": ["openai-health-launch-2026-07-23", "openai-health-help-2026-07-25"],
+      "assessment": "Vendor product capability claim; explicitly labelled as a vendor announcement."
+    },
+    {
+      "claim": "OpenAI says connected Health data is not used for foundation-model training or targeted advertising, and describes separate connection, memory, history and deletion controls.",
+      "sourceIds": ["openai-health-launch-2026-07-23", "openai-health-help-2026-07-25"],
+      "assessment": "Vendor privacy/control claim; not independently audited by LAiDIES."
+    },
+    {
+      "claim": "OpenAI says the consumer Health product is not intended for clinical or covered-entity use and does not offer a Business Associate Agreement.",
+      "sourceIds": ["openai-health-help-2026-07-25"],
+      "assessment": "Vendor product-boundary claim."
+    },
+    {
+      "claim": "Health information directed to a consumer app that is not a HIPAA covered entity or business associate may no longer be protected by the HIPAA Rules.",
+      "sourceIds": ["hhs-health-apps-api-2025-05-30"],
+      "assessment": "U.S. HHS regulatory guidance; wording is qualified and does not state that all health apps fall outside HIPAA."
+    },
+    {
+      "claim": "The FTC Health Breach Notification Rule applies to certain health apps and similar technologies that are not covered by HIPAA.",
+      "sourceIds": ["ftc-health-breach-rule-2024"],
+      "assessment": "U.S. FTC regulatory guidance; this story does not make a legal determination about OpenAI's exact coverage."
+    }
+  ],
+  "sources": [
+    {
+      "id": "openai-health-launch-2026-07-23",
+      "url": "https://openai.com/index/health-in-chatgpt/",
+      "type": "vendor",
+      "accessedAt": "2026-07-25"
+    },
+    {
+      "id": "openai-health-help-2026-07-25",
+      "url": "https://help.openai.com/en/articles/20001036-health-in-chatgpt",
+      "type": "vendor",
+      "accessedAt": "2026-07-25"
+    },
+    {
+      "id": "hhs-health-apps-api-2025-05-30",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access-right-health-apps-apis/index.html",
+      "type": "regulator",
+      "accessedAt": "2026-07-25"
+    },
+    {
+      "id": "ftc-health-breach-rule-2024",
+      "url": "https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0",
+      "type": "regulator",
+      "accessedAt": "2026-07-25"
+    }
+  ],
+  "correction": null,
+  "retraction": null
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "ready-current",
+    "mutation": "none",
+    "expectedDatasetState": "ready",
+    "expectedTribuneState": "current"
+  },
+  {
+    "id": "no-data",
+    "mutation": "empty-stories",
+    "expectedDatasetState": "no-data",
+    "expectedSearchExposed": false
+  },
+  {
+    "id": "load-failure",
+    "mutation": "missing-dataset",
+    "expectedDatasetState": "load-failure",
+    "expectedSearchExposed": false
+  },
+  {
+    "id": "stale",
+    "mutation": "stale-publications",
+    "expectedDatasetState": "stale",
+    "expectedTribuneState": "stale",
+    "expectedTribuneAccess": "stale",
+    "expectedTribuneExposed": false,
+    "expectedSearchExposed": false
+  },
+  {
+    "id": "dataset-hold",
+    "mutation": "dataset-hold",
+    "expectedDatasetState": "hold",
+    "expectedTribuneAccess": "hold",
+    "expectedTribuneExposed": false,
+    "expectedSearchExposed": false
+  },
+  {
+    "id": "publication-unavailable",
+    "mutation": "publication-unavailable",
+    "expectedDatasetState": "unavailable",
+    "expectedTribuneState": "unavailable",
+    "expectedTribuneAccess": "unavailable",
+    "expectedTribuneExposed": false
+  },
+  {
+    "id": "mixed-current-and-stale",
+    "mutation": "mixed-current-and-stale",
+    "expectedDatasetState": "ready",
+    "expectedTribuneState": "stale",
+    "expectedTribuneAccess": "stale",
+    "expectedTribuneExposed": false
+  },
+  {
+    "id": "story-hold",
+    "mutation": "story-hold",
+    "expectedStoryState": "hold"
+  },
+  {
+    "id": "story-corrected",
+    "mutation": "story-corrected",
+    "expectedStoryState": "corrected",
+    "expectedTribuneAccess": "corrected",
+    "expectedTribuneExposed": true
+  },
+  {
+    "id": "story-retracted",
+    "mutation": "story-retracted",
+    "expectedStoryState": "retracted",
+    "expectedTribuneAccess": "retracted",
+    "expectedTribuneExposed": false
+  }
+]

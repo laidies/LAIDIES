@@ -1,0 +1,35 @@
+{
+  "drillId": "NS-ROLLBACK-2026-07-25-01",
+  "storyId": "label-is-not-a-truth-detector",
+  "fixtureOnly": true,
+  "sourceBinding": [
+    "google-eu-ai-transparency-code-2026-07-24",
+    "ec-transparency-code-opinion-2026-07-09",
+    "ec-transparency-code-faq-2026"
+  ],
+  "stages": [
+    {
+      "stage": "approved",
+      "storyStatus": "published",
+      "expectedAccessState": "published",
+      "expectedBodyVisible": true,
+      "expectedNotice": null
+    },
+    {
+      "stage": "corrected",
+      "storyStatus": "corrected",
+      "record": "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json",
+      "expectedAccessState": "corrected",
+      "expectedBodyVisible": true,
+      "expectedNotice": "correction"
+    },
+    {
+      "stage": "retracted-rollback",
+      "storyStatus": "retracted",
+      "record": "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json",
+      "expectedAccessState": "retracted",
+      "expectedBodyVisible": false,
+      "expectedNotice": "retraction"
+    }
+  ]
+}
