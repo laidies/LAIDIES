@@ -30,14 +30,23 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-10 Dream Phone working preview — Ali direction review next
+## 2026-08-10 Dream Phone recovery — restored Just Call review next
 
-Dream Phone is **BUILT LOCALLY / INDEPENDENT VISUAL AND UX PASS / READY FOR
-ALI DIRECTION REVIEW / NOT DEPLOYED / NOT PUBLICLY VERIFIED** in isolated
-branch `codex/dream-phone-preview`. The exact established booth now acts as the
-page threshold and active phone frame, with the documented hot pink, purple,
-yellow, sky-blue and teal 90s punctuation. Entry preserves two equal choices:
-Just Call and Play the Full Game.
+Dream Phone is **REJECTED PREVIEW REMOVED / ACTUAL JUST CALL RESTORED LOCALLY /
+ALI VISUAL-UX REVIEW OPEN / NOT DEPLOYED / NOT PUBLICLY VERIFIED** in isolated
+branch `codex/dream-phone-preview`. Ali's screenshot invalidated every prior
+visual and UX PASS bound to the replacement preview. The failed preview had no
+operated phone, no image-bearing player cards and six invented callers,
+including Puffy. Its CSS/JS/contract files are removed, and its route now
+redirects to the recovered actual Dream Phone page.
+
+The recovered Just Call surface uses the full pink Dream Phone player card as
+the instrument, all 25 real image-bearing caller cards, 75 authored rotating
+bundles and 300 distinct output/remix responses. The booth is the entry setting;
+the page uses blue-sky and white grounds with hot pink, purple, cyan, teal and
+yellow punctuation. The rejected visitor disclaimer is removed from both call
+and game entry copy. Entry still preserves two equal choices: Just Call and
+Play the Full Game.
 
 The restored game uses three distributed callers per case; no one caller can
 give away the verdict. `*67`, `*69`, `867-5309`, remixes, history and Speaker
@@ -48,9 +57,18 @@ omniscient caller and stale guidance. Exact packet and evidence:
 `operations/product-stewards/dream-phone/BUILD-PACKET-working-preview-2026-08-10.md`
 and `operations/product-stewards/dream-phone/evidence-preview-2026-08-10/`.
 
-The single next decision is Ali's: **finish this restored game, or park the full
-game and retain Just Call?** No deploy, spend, provider, reward/account or Ali
+The single next decision is Ali's: **does the restored actual Just Call now look
+and operate like the Dream Phone she recognizes?** Full-game quality remains a
+separate later decision. No deploy, spend, provider, reward/account or Ali
 approval authority has been used.
+
+The calibrated restoration guard now rejects the known-bad preview when the
+phone is missing, Puffy is inserted or a bundle loses a remix response. It also
+requires the exact booth, two entry choices, 25 caller cards, 25 existing card
+images, 12 phone keypad zones, the random/history controls and all bundle fields.
+Existing screenshots depict the rejected artifact and are invalid evidence;
+automated localhost recapture is browser-policy blocked, so Ali's current-page
+recheck is the next visual evidence trigger.
 
 ## 2026-08-05 launch-truth reconciliation
 

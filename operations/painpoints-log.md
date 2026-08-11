@@ -14434,3 +14434,39 @@ while remaining falsely unfinished in the launch record.
   how one real phone booth became the interface instead of the wallpaper.
 - **Publication status:** INTERNAL PRODUCT-DESIGN LEARNING / NO DEPLOYMENT OR
   PUBLIC RELEASE.
+
+## BTB-457 — A green contract can conceal that the product was replaced
+
+- **Date:** 2026-08-10
+- **Area:** Dream Phone incumbent recovery, visual production and review.
+- **Failure risk:** A replacement can pass its own structural contract while
+  silently deleting the actual product. Here, the preview removed the operated
+  phone and all image-bearing player cards, invented six callers and their
+  descriptions, reduced the booth to a decorative strip, used the wrong ground
+  colour, exposed `867-5309` and pasted defensive copy across play. Calling that
+  a PASS forced Ali to rediscover source-parity and obvious visual failures.
+- **Root cause:** The maker treated a rewritten packet as permission to replace
+  the incumbent. Reviewers compared the replacement with that packet instead of
+  operating the preserved source at the same viewport. Their visual predicate
+  checked for a booth image, not for the recognizable phone as the primary
+  input; their UX predicate counted controls, not the real 25-card/75-bundle
+  product. Mechanical contract success was mislabelled product acceptance.
+- **Prevention rule:** Before redesigning an existing interactive, inventory and
+  execute the incumbent. Bind its roster, authored content counts, primary
+  operated object and stateful behaviours as restoration invariants. A Dream
+  Phone candidate fails before review unless it contains the exact full phone,
+  25 image-bearing caller cards, 75 bundles, 300 distinct responses and the
+  real Deb/*67, *69, Jenny, random, history and remix behaviours. Reviewers must
+  compare incumbent and candidate at the same viewport and list deletions,
+  inventions and locked visual violations before scoring. A booth photo beside
+  generic rectangles fails unaided.
+- **Durable correction:** Every PASS on the rejected preview is invalid. Its CSS,
+  JS and contract are deleted; the preview URL redirects to the source-restored
+  page. The calibrated restoration guard rejects a missing phone, invented
+  Puffy and incomplete caller bundle, verifies all player-card images exist and
+  bars the rejected visitor disclaimer. Blue-sky/white grounds replace the
+  beige wash, while `867-5309` stays functional and hidden.
+- **Possible Behind the Build angle:** How a test suite proved the wrong product
+  worked—and why restoration invariants belong before redesign.
+- **Publication status:** INTERNAL PRODUCT-DESIGN LEARNING / NO DEPLOYMENT OR
+  PUBLIC RELEASE.

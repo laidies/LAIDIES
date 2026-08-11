@@ -1,7 +1,8 @@
 # Dream Phone working-preview build packet
 
-**Status:** BUILT LOCALLY; INDEPENDENT VISUAL/UX PASS; READY FOR ALI DIRECTION
-REVIEW; NOT DEPLOYED; NOT PUBLICLY VERIFIED
+**Status:** REJECTED PREVIEW REMOVED; ACTUAL JUST CALL RESTORED LOCALLY; ALL
+PRIOR PREVIEW VISUAL/UX PASSES INVALIDATED; ALI REVIEW OPEN; NOT DEPLOYED; NOT
+PUBLICLY VERIFIED
 
 ## Visitor outcome
 
@@ -13,36 +14,36 @@ choices:
 2. **Play the Full Game** — a three-case claim game in which the player must
    collect distributed evidence before making a committal verdict.
 
-The exact established exterior is the page environment and the only threshold:
-the entry view begins outside the booth, then the selected experience opens
-inside that same booth while its handset remains visible beside the live
-controls. Mobile uses a compact booth/handset strip rather than repeating a
-second exterior. The visible system uses the documented 90s
-colour pops—hot pink, purple, yellow, sky blue and teal—within the mature
-LAiDIES editorial/comic hierarchy. The rejected generic teal operator-console
-direction is prohibited by `operations/dream-phone-design-decisions.md`.
+The exact exterior establishes arrival. Selecting Just Call reveals the full
+pink Dream Phone/player card as the actual controlled object, with live keypad,
+display, random-heart and recent-call zones mapped over its printed geometry.
+The live answer/remix panel sits with that instrument, followed by 25 compact
+image-bearing caller cards. The visible system uses blue-sky and white grounds
+plus the documented hot pink, purple, yellow, cyan and teal punctuation.
 
 ## Executable candidate
 
-- `games/dream-phone-preview.html`
-- `games/dream-phone-preview.css`
-- `games/dream-phone-preview.js`
-- `games/dream-phone-preview-contract.mjs`
+- `games/dream-phone-preview.html` — redirect only; removes the rejected build
+- `games/dream-phone.html` — restored actual page and Just Call implementation
+- `games/dream-phone-bundles.js` — unchanged authored call/remix source
 - `scripts/test-dream-phone-preview.mjs`
 
-The candidate is an internal preview route. It does not replace or redirect the
-current public Dream Phone route.
+The candidate is local on the isolated branch. No deploy or public-route change
+has occurred.
 
 ## Interaction contract
 
 ### Just Call
 
-- A named directory button and a typed number produce the same caller.
-- `*67` reaches a screened perspective.
-- `*69` returns to the last ordinary caller for one fresh clarification.
-- `867-5309` reaches Jenny for the best next question.
-- Call History reopens the exact prior response without advancing a bundle or
-  creating a new call.
+- Exactly 25 image-bearing caller cards bind 75 rotating authored bundles and
+  300 output/secret/speaker/hangup responses.
+- A named player card, the image-mapped keypad and typed number produce the same
+  caller; the random heart chooses among regular callers.
+- `*67` arms caller-ID blocking; the player must then dial Deb for her bundle.
+- `*69` redials the last digits and advances that caller's bundle.
+- `867-5309` reaches Jenny as an unlabelled discovery.
+- Call History displays the last eight calls. Restorable response state remains
+  an explicit future enhancement; it was not invented during parity recovery.
 - Share a Secret, Speaker Phone and Mom Says Hang Up produce distinct
   caller-specific functions; they are not alternate labels on one response.
 
@@ -85,40 +86,33 @@ current public Dream Phone route.
 Run:
 
 ```sh
-node --check games/dream-phone-preview.js
+node scripts/check-inline-js.js
 node scripts/test-dream-phone-preview.mjs
 ```
 
-The contract test is calibrated with an intentionally omniscient caller and a
-stale guidance fixture; both must be rejected. Browser acceptance requires:
+The restoration test is calibrated with missing-phone, invented-Puffy and
+incomplete-bundle fixtures; all must be rejected. Browser acceptance requires:
 
 - 1440px, 390px and 320px have no horizontal overflow;
 - all visible buttons are at least 44 CSS px in both dimensions;
 - the two entry choices are equal and fully explained;
-- all Just Call special codes, remixes and history work;
+- the full phone is the leading operated object at desktop and mobile;
+- all 25 caller images load and every Just Call code/remix/history control works;
 - game verdict gates and powers follow the contract above;
 - keyboard focus remains visible and reduced motion is supported; and
 - exact screenshots are saved under `evidence-preview-2026-08-10/`.
 
-At 2026-08-10 16:04 PDT, the calibrated contract, JavaScript syntax check and
-scoped diff check passed. Independent artifact-first UX review confirmed the
-five repaired game blockers: held cases are not scored, early Hold cannot skip,
-guidance is case-specific, `*67`/`*69` retain their jobs, and history restores
-useful remix/Speaker state. The final redial edge was also closed: `*69` now
-returns Deb after a private `*67` call.
-
-Independent visual review passed the candidate for Ali direction review. It
-confirmed the booth is now the playable frame, the outside-to-active-phone
-transition is legible, both entry doors are equal, the 90s colour system is
-present and the former repeated mobile exterior is gone. The non-blocking
-mobile first-fold note was polished by reducing the establishing image height
-at 430px and below; refreshed 390px and 320px screenshots bind that change.
+Ali's 2026-08-10 screenshot invalidated the entire previous preview and every
+PASS attached to it: it had generic rectangles, no actual phone, flat text
+cards, invented callers and wrong visitor copy. The failed preview CSS, JS and
+contract are deleted rather than repaired. Existing screenshots remain only as
+known-bad evidence. The current restoration has source-parity verification but
+no valid continuous-screen visual/UX PASS; Ali's recheck is the acceptance
+trigger because automated localhost capture is browser-policy blocked.
 
 ## Authority boundary
 
-No public deploy, production-route replacement, spending, backend change,
-reward/account integration or source admission is authorized. Ali remains the
-acceptance owner for visual direction and any later public release. The next
-trigger is independent visual/UX review of this exact candidate, followed by
-Ali direction review only if the candidate clears the applicable presentation
-gate.
+No public deploy, spending, backend change, reward/account integration or source
+admission is authorized. Ali remains the acceptance owner for this recovered
+surface and any later public release. The next trigger is her visual/interaction
+verdict on the served restored page; full-game completion remains separate.

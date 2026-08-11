@@ -17,26 +17,26 @@
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       :root {
-        /* Legacy palette implementation — rejected as future palette authority.
-           Preserve until Dream Phone receives a visually approved replacement. */
-        --pearl: #fffdfb;
-        --paper: #fbf6f5;
-        --mist: #efe0e2;
-        --blush: #e8c5c8;
-        --plum: #4b2148;
-        --muted: #766171;
-        --rose: #9b3f5f;
-        --ice: #c8dce0;
-        --gold: #b49764;
+        /* Local restoration palette: blue-sky/white ground with 90s colour pops.
+           Ali remains the visual acceptance owner; this is not public approval. */
+        --pearl: #ffffff;
+        --paper: #f7fdff;
+        --mist: #bfeef7;
+        --blush: #ff9ccc;
+        --plum: #071c2a;
+        --muted: #3f5562;
+        --rose: #ff3c98;
+        --ice: #41c9ef;
+        --gold: #ffe332;
         /* derived surfaces + soft, plum-tinted shadows (homepage register) */
-        --card: rgba(255, 253, 251, 0.92);
-        --card-edge: rgba(232, 197, 200, 0.55);
-        --line: rgba(75, 33, 72, 0.12);
-        --shadow: rgba(75, 33, 72, 0.10);
-        --shadow-strong: rgba(75, 33, 72, 0.16);
-        --rose-soft: rgba(155, 63, 95, 0.16);
-        --gold-soft: rgba(180, 151, 100, 0.32);
-        --ice-soft: rgba(200, 220, 224, 0.45);
+        --card: rgba(255, 255, 255, 0.96);
+        --card-edge: rgba(7, 28, 42, 0.34);
+        --line: rgba(7, 28, 42, 0.18);
+        --shadow: rgba(7, 28, 42, 0.14);
+        --shadow-strong: rgba(7, 28, 42, 0.24);
+        --rose-soft: rgba(255, 60, 152, 0.18);
+        --gold-soft: rgba(255, 227, 50, 0.34);
+        --ice-soft: rgba(65, 201, 239, 0.28);
       }
 
       html { scroll-behavior: smooth; overflow-x: clip; font-size: 18px; }   /* overflow-x:CLIP (not hidden) so the sticky instrument header still works — `hidden` forces overflow-y:auto and breaks position:sticky. +12.5% base scales rem text up for readability. */
@@ -91,15 +91,15 @@
 
       /* ── Hero ── */
       .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 28px 0 30px; gap: 18px; }
-      .hero-image-wrap { position: relative; width: min(560px, 100%); margin: 0 auto; }
+      .hero-image-wrap { position: relative; width: min(900px, 100%); margin: 0 auto; }
       .hero-image-wrap::before {
         content: ''; position: absolute; inset: -8px; border-radius: 28px; z-index: 0;
-        background: radial-gradient(62% 72% at 50% 52%, var(--rose-soft) 0%, transparent 72%);
+        background: var(--rose);
         animation: pulse-glow 3.4s ease-in-out infinite;
       }
       .hero-image-wrap img {
-        position: relative; z-index: 1; width: 100%; height: auto; display: block; border-radius: 20px;
-        border: 1px solid var(--card-edge); box-shadow: 0 18px 46px var(--shadow-strong), 0 0 28px var(--gold-soft);
+        position: relative; z-index: 1; width: 100%; height: auto; display: block; border-radius: 14px;
+        border: 4px solid var(--plum); box-shadow: 10px 10px 0 var(--rose), 17px 17px 0 #7b3fc6;
         transition: transform 0.4s ease;
       }
       .hero-image-wrap:hover img { transform: scale(1.015); }
@@ -107,24 +107,26 @@
       .hero h1 {
         font-family: 'Jost', sans-serif; font-weight: 700; font-size: clamp(2.3rem, 6vw, 3.4rem);
         letter-spacing: 0.01em; line-height: 1.05;
-        background: linear-gradient(120deg, var(--plum) 0%, var(--rose) 100%);
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        color: var(--plum); text-shadow: 4px 4px 0 var(--rose), 8px 8px 0 var(--gold);
       }
       .hero p { font-size: 1.2rem; line-height: 1.55; color: var(--muted) !important; max-width: 580px; }
 
       /* ── Two-door entry ── */
       .dp-doors { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 8px 0 14px; }
       .dp-door {
-        text-align: left; cursor: pointer; padding: 26px 24px; border-radius: 20px;
-        background: var(--card); border: 1px solid var(--card-edge); color: var(--plum);
+        text-align: left; cursor: pointer; padding: 26px 24px; border-radius: 14px;
+        background: var(--rose); border: 4px solid var(--plum); color: var(--plum);
         transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.2s;
-        box-shadow: 0 16px 36px var(--shadow);
+        box-shadow: 7px 7px 0 var(--plum);
       }
+      .dp-door:nth-child(2) { background: #7b3fc6; color: #fff; }
+      .dp-door:nth-child(2) h2, .dp-door:nth-child(2) p { color: #fff !important; }
+      .dp-door:nth-child(2) .dp-door-go, .dp-door:nth-child(2) .dp-door-number { color: var(--gold); }
       .dp-door:hover { transform: translateY(-3px); border-color: var(--rose); box-shadow: 0 22px 48px var(--rose-soft); }
-      .dp-door .dp-door-icon { font-size: 1.8rem; display: block; margin-bottom: 10px; color: var(--rose); }
       .dp-door h2 { font-size: 1.18rem; font-weight: 600; margin-bottom: 6px; color: var(--plum); }
       .dp-door p { font-size: 0.9rem; color: var(--muted) !important; line-height: 1.5; }
-      .dp-door .dp-door-go { display: inline-block; margin-top: 14px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); }
+      .dp-door .dp-door-go { display: inline-block; margin-top: 14px; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--plum); }
+      .dp-door-number { display: block; margin-bottom: 10px; font-weight: 800; color: var(--plum); }
 
       /* "Out of service" status on the not-yet-ready Game door + the heads-up banner inside the Game */
       .dp-door { position: relative; }
@@ -133,7 +135,6 @@
       .dp-door-status { position: absolute; top: 12px; right: 12px; background: var(--plum); color: var(--pearl); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 9px; border-radius: 20px; box-shadow: 0 6px 14px var(--shadow); }
       .dp-wip-banner { background: var(--gold-soft); border: 1px solid var(--gold); color: var(--plum); border-radius: 13px; padding: 11px 16px; font-size: 0.92rem; line-height: 1.5; text-align: center; margin-bottom: 14px; }
       .dp-wip-banner strong { color: var(--rose); }
-      .dp-jenny { text-align: center; font-size: 0.82rem; color: var(--muted) !important; font-style: italic; margin-top: 6px; }
 
 
       /* ── Buttons ── */
@@ -324,10 +325,10 @@
       /* ── Make the twinkle MORE visible on Dream Phone (page-scoped — does NOT touch the shared laidies-bg component other pages use). `body` prefix beats the linked stylesheet's specificity. Richer iridescent gradient + bigger, brighter sparkles. ── */
       body .laidies-bg--light {
         background:
-          radial-gradient(circle at 16% 8%, rgba(255, 170, 214, 0.55), transparent 42%),
-          radial-gradient(circle at 86% 4%, rgba(155, 63, 95, 0.34), transparent 40%),
-          radial-gradient(circle at 70% 96%, rgba(196, 150, 224, 0.34), transparent 52%),
-          linear-gradient(165deg, #f6d8e8 0%, #fbe6e1 46%, #ecd9f0 100%);
+          radial-gradient(circle at 15% 8%, rgba(255, 60, 152, 0.24), transparent 34%),
+          radial-gradient(circle at 88% 10%, rgba(123, 63, 198, 0.22), transparent 38%),
+          radial-gradient(circle at 72% 94%, rgba(0, 127, 131, 0.18), transparent 44%),
+          #bfeef7;
       }
       body .laidies-bg--light .laidies-bg__star { width: 5px; height: 5px; filter: drop-shadow(0 0 7px rgba(255, 198, 64, 1)); }
       body .laidies-bg--light .laidies-bg__star.is-white { filter: drop-shadow(0 0 7px rgba(255, 138, 196, 1)); }
@@ -338,16 +339,18 @@
       .jc-instrument {
         position: sticky; top: 100px; z-index: 6;   /* clears the 96px sticky back-nav */
         display: flex; gap: 26px; align-items: stretch;
-        background: var(--pearl);                /* fully opaque (#fffdfb) so cards vanish cleanly behind it, not ghost through */
+        background: var(--pearl);
         padding: 18px 20px 20px; margin-bottom: 8px;
-        border: 1px solid var(--card-edge); border-radius: 20px;
-        box-shadow: 0 20px 40px -14px var(--shadow);
+        border: 4px solid var(--plum); border-radius: 20px;
+        box-shadow: 10px 10px 0 var(--rose), 16px 16px 0 #7b3fc6;
         max-height: calc(100vh - 116px);   /* stays fully below the nav, never taller than the viewport */
       }
       .jc-inst-phone { flex: 0 0 auto; width: min(580px, 52vw); display: flex; flex-direction: column; align-items: center; }
       .jc-inst-side { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
       .jc-directory { position: relative; z-index: 1; padding-top: 6px; max-width: 1080px; margin-inline: auto; }   /* scrolls beneath the header; wider than the page-container so cards can breathe */
-      .jc-directory .caller-card { padding: 20px 14px; gap: 12px; }
+      .jc-directory .caller-card { padding: 16px 12px; gap: 10px; border: 3px solid var(--plum); border-radius: 14px; background: #fff; box-shadow: 5px 5px 0 var(--rose); }
+      .jc-directory .caller-card:nth-child(2n) { box-shadow: 5px 5px 0 #41c9ef; }
+      .jc-directory .caller-card:nth-child(3n) { box-shadow: 5px 5px 0 #7b3fc6; }
       .jc-directory .caller-avatar { width: 128px; height: 128px; border-width: 3px; }
       .jc-directory .caller-name { font-size: 1.1rem; font-weight: 600; line-height: 1.15; }
       .jc-directory .caller-number { font-size: 0.9rem; letter-spacing: 0.04em; }
@@ -365,7 +368,7 @@
         /* mobile/tablet: SINGLE column, STICKY. RULE: phone + dial box + a row of caller cards must all be visible without scrolling — so before a call the output AND remix are hidden, keeping the sticky header short. They appear only once a call populates the screen. */
         .jc-instrument { position: sticky; top: 92px; z-index: 6; flex-direction: column; gap: 4px; padding: 10px 14px 12px; margin-bottom: 14px; max-height: calc(100vh - 104px); }
         .jc-inst-phone { width: 100%; max-width: 360px; margin: 0 auto; flex: 0 0 auto; }
-        .jc-inst-phone .dp-phone-wrap { margin: 0 0 8px; }
+        .jc-inst-phone .dp-phone-wrap { margin-top: -19%; margin-bottom: -25%; }
         .jc-inst-phone .dp-dial { margin-top: 2px; }
         /* the right side shrinks if needed so the WHOLE header (incl. remix) fits the viewport */
         .jc-inst-side { flex: 0 1 auto; min-width: 0; min-height: 0; }
@@ -464,26 +467,34 @@
       .special-cards button:hover { border-color: var(--rose); color: var(--rose); }
       .special-cards button.is-selected { background: var(--rose); color: var(--pearl); border-color: var(--rose); }
 
-      /* ===== Plain live dial pad. This is functional UI, not substitute phone artwork. ===== */
+      /* ===== Image dialer: the actual Dream Phone player card is the instrument. ===== */
       .dp-phone-wrap { display: flex; flex-direction: column; align-items: center; margin: 0 auto 12px; flex: 0 0 auto; width: 100%; position: relative; }
-      .dp-phone { width: min(360px, 100%); margin: 0 auto; }
-      .dp-dialer-label { margin: 0 0 8px; color: var(--plum); font-size: 0.9rem; font-weight: 700; text-align: center; }
-      .dp-keypad { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-      .dp-key, .dp-zone { min-height: 46px; padding: 9px 10px; margin: 0; border: 1px solid var(--card-edge); background: var(--card); color: var(--plum); cursor: pointer; border-radius: 10px; -webkit-tap-highlight-color: transparent; font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 700; line-height: 1.1; }
-      .dp-key.is-press, .dp-zone.is-press { border-color: var(--rose); background: var(--rose-soft); }
-      .dp-key:focus-visible, .dp-zone:focus-visible { outline: 2px solid var(--rose); outline-offset: 1px; }
-      .dp-dial-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
-      .dp-heart, .dp-histbtn { color: var(--rose); font-size: 0.9rem; }
+      .dp-phone { position: relative; width: min(560px, 100%); margin: 0 auto; container-type: inline-size; }
+      .dp-phone-img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; pointer-events: none; filter: drop-shadow(0 8px 18px var(--shadow)); }
+      .dp-key, .dp-zone { position: absolute; padding: 0; margin: 0; border: none; background: transparent; cursor: pointer; border-radius: 50%; -webkit-tap-highlight-color: transparent; }
+      .dp-key { width: 7.8%; height: 5.3%; }
+      .dp-key::after, .dp-zone::after { content: ""; position: absolute; inset: -14%; border-radius: 50%; background: radial-gradient(circle, rgba(255,60,152,0.58), transparent 70%); opacity: 0; transition: opacity 0.18s ease; pointer-events: none; }
+      .dp-key.is-press::after, .dp-zone.is-press::after { opacity: 1; }
+      .dp-key:focus-visible, .dp-zone:focus-visible { outline: 3px solid #ff3c98; outline-offset: 2px; }
+      .dp-heart { border-radius: 48% 48% 50% 50%; }
 
-      .dp-screen { min-height: 48px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; padding: 8px 12px; overflow: hidden; border: 1px solid var(--card-edge); border-radius: 10px; background: var(--paper); pointer-events: none; }
-      .dp-screen-text { font-family: 'Jost', sans-serif; font-weight: 600; color: var(--plum); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; line-height: 1.2; font-size: 1rem; white-space: nowrap; }
-      .dp-screen-text.is-long { font-size: 0.86rem; white-space: normal; line-height: 1.2; letter-spacing: 0.02em; }
+      @media (hover: hover) {
+        .dp-key[data-tip]:hover::before, .dp-zone[data-tip]:hover::before {
+          content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translate(-50%, -8px);
+          background: #071c2a; color: #fff; font-size: 0.7rem; font-weight: 700; white-space: nowrap;
+          padding: 5px 10px; border-radius: 9px; pointer-events: none; z-index: 30;
+        }
+      }
+
+      .dp-screen { position: absolute; left: 42.3%; top: 33.4%; width: 18.2%; height: 8.4%; display: flex; align-items: center; justify-content: center; padding: 0 1%; overflow: hidden; pointer-events: none; }
+      .dp-screen-text { font-family: 'Jost', sans-serif; font-weight: 700; color: #2a3742; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; line-height: 1; font-size: 3.1cqw; white-space: nowrap; }
+      .dp-screen-text.is-long { font-size: 2.0cqw; white-space: normal; line-height: 1.06; letter-spacing: 0.02em; }
 
       /* call-history panel */
       /* Recent-calls popover: floats below the phone (absolute → never pushes the dial box or breaks the crop), on top of whatever's beneath. Toggled by the little button next to the screen. */
-      .dp-history { position: absolute; left: 50%; top: 100%; transform: translateX(-50%); width: min(290px, 90%); z-index: 16; margin: 8px 0 0; background: var(--pearl); border: 1px solid var(--card-edge); border-radius: 14px; padding: 13px 16px; box-shadow: 0 22px 46px -12px var(--shadow-strong); }
+      .dp-history { position: absolute; left: 50%; top: 77%; transform: translateX(-50%); width: min(290px, 90%); z-index: 16; margin: 0; background: #fff; border: 3px solid #071c2a; border-radius: 14px; padding: 13px 16px; box-shadow: 8px 8px 0 #ff3c98; }
       .dp-history[hidden] { display: none; }
-      .dp-history-close { position: absolute; top: 6px; right: 8px; min-height: 30px; padding: 4px 9px; border: none; border-radius: 8px; background: var(--rose-soft); color: var(--rose); font-size: 0.76rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s; }
+      .dp-history-close { position: absolute; top: 6px; right: 8px; width: 30px; height: 30px; padding: 0; border: none; border-radius: 50%; background: #ff3c98; color: #fff; font-size: 1.1rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
       .dp-history-close:hover { background: var(--rose); color: var(--pearl); }
       .dp-history-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; padding-right: 24px; }
       .dp-history-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
@@ -566,9 +577,6 @@
         .dialer-row, .dp-dialer-row { flex-wrap: wrap; }
         .dialer-row input, .dial-btn, .dp-dialer-row input, .dp-dialer-row .dp-btn { width: 100%; }
       }
-      .dp-booth-held { min-height: clamp(260px, 52vw, 620px); display: grid; place-items: center; padding: 32px; background: #2a1330; color: #fffdfb; text-align: center; border-bottom: 9px solid #57b6c0; }
-      .dp-booth-held strong { display: block; color: #ef4fa6; font: 800 clamp(34px, 7vw, 78px)/1 'Jost', sans-serif; }
-      .dp-booth-held span { display: block; max-width: 720px; margin-top: 14px; font: 650 clamp(16px, 2vw, 22px)/1.5 'Jost', sans-serif; }
     </style>
       <link rel="stylesheet" href="../content/site/mini-player.css">
       <link rel="stylesheet" href="../content/site/laidies-bg.css">
@@ -603,13 +611,12 @@
     </nav>
   </header>
 
-    <div class="dp-booth-held" role="note">
-      <p><strong>Dream Phone</strong><span>The MAiN Street booth artwork is being rebuilt. Character calls and For Real / As If remain available below.</span></p>
-    </div>
-
     <div class="page-container">
       <!-- Hero -->
       <section class="hero">
+        <div class="hero-image-wrap">
+          <img src="../assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The pink Dream Phone booth outside SUNNYVAiLE Mall" />
+        </div>
         <div>
           <h1>Dream Phone</h1>
 <div style="margin: 12px 0 20px;">
@@ -632,20 +639,18 @@
       <section class="dp-section" id="dpEntry" aria-label="Choose how to use the Dream Phone">
         <div class="dp-doors">
           <button type="button" class="dp-door" id="dpDoorCall">
-            <span class="dp-door-icon" aria-hidden="true">☎</span>
+            <span class="dp-door-number" aria-hidden="true">01</span>
             <h2>Just Call</h2>
-            <p>Pick a caller for a playful, prewritten reframe. It does not know your situation or provide professional advice.</p>
+            <p>Pick a player card, dial the phone, and remix what lands on the line.</p>
             <span class="dp-door-go">Open the hotline →</span>
           </button>
           <button type="button" class="dp-door" id="dpDoorGame" onclick="location.href='/games/dream-phone-game.html'">
-            <span class="dp-door-icon" aria-hidden="true">▶</span>
-            <h2>Play the Game <small>(experimental)</small></h2>
-            <p>Try a scripted 90s-claim game. Its sources are review leads, not an authoritative fact-checking service.</p>
+            <span class="dp-door-number" aria-hidden="true">02</span>
+            <h2>Play the Full Game</h2>
+            <p>Call three leads, compare what each one knows, and decide what the AI claim deserves.</p>
             <span class="dp-door-go">Start the game →</span>
           </button>
         </div>
-        <!-- Jenny easter-egg teaser (approved copy) -->
-        <p class="dp-jenny">Psst… rumour has it you can still call Jenny, if you know her number.</p>
       </section>
 
       <!-- ════════ THE GAME ════════ -->
@@ -691,44 +696,41 @@
       </section>
 
       <!-- ════════ JUST CALL (preserved engine — wired by ../script.js) ════════ -->
-      <section class="dp-section" id="dpJustCall" hidden aria-label="Just Call experimental scripted hotline" aria-describedby="dpJustCallBoundary">
+      <section class="dp-section" id="dpJustCall" hidden aria-label="Just Call">
         <button type="button" class="dp-back" data-dp-back>← Back to Dream Phone</button>
         <div class="dp-game-head">
           <h2 id="dpJustCallTitle" tabindex="-1">Just Call</h2>
-          <p id="dpJustCallBoundary"><strong>Experimental · scripted · for fun, not professional advice.</strong> Pick a caller for a playful, prewritten perspective. Dream Phone does not know your situation or provide personalized advice. Call history and discoveries last only in this page session; they are not saved to an account or another device.</p>
-          <p>To get someone on the line, type a number, tap the buttons, or pick a card to dial. Each caller rotates through prewritten takes; choose what is useful and use your own judgment for real decisions. <span class="dp-hint">Psst… rumour has it you can still call Jenny, if you know her number — and a couple of old star codes still pull their old tricks, if your memory goes back far enough.</span></p>
+          <p>Pick a player card, punch an extension, or work the phone until somebody picks up. Every caller has more than one take, and the remix cards change what lands next. <span class="dp-hint">The phone remembers a couple of old star codes. It may remember one famous number too.</span></p>
         </div>
 
         <!-- Path B — sticky instrument header: phone (left) + output/remix (right) ride together; the caller directory scrolls UP and tucks behind it -->
         <div class="jc-instrument">
         <div class="jc-inst-phone">
 
-        <!-- Functional dial pad only. Phone artwork remains a separate held Brand asset. -->
+        <!-- The full pink Dream Phone player card is the dialer; live hit-zones follow its printed controls. -->
         <div class="dp-phone-wrap">
           <div class="dp-phone" id="dpPhone">
-            <p class="dp-dialer-label">Live dial pad</p>
+            <img class="dp-phone-img" src="../assets/portal/dream-phone-dialer-product-v4-transparent.png" alt="Pink Dream Phone with a keypad, display, random-call heart and recent-calls button" draggable="false" />
             <div class="dp-screen"><span class="dp-screen-text" id="dpScreenText" aria-live="polite"></span></div>
-            <div class="dp-keypad" aria-label="Telephone keypad">
-              <button type="button" class="dp-key" data-key="1" aria-label="Dial 1">1</button>
-              <button type="button" class="dp-key" data-key="2" aria-label="Dial 2">2</button>
-              <button type="button" class="dp-key" data-key="3" aria-label="Dial 3">3</button>
-              <button type="button" class="dp-key" data-key="4" aria-label="Dial 4">4</button>
-              <button type="button" class="dp-key" data-key="5" aria-label="Dial 5">5</button>
-              <button type="button" class="dp-key" data-key="6" aria-label="Dial 6">6</button>
-              <button type="button" class="dp-key" data-key="7" aria-label="Dial 7">7</button>
-              <button type="button" class="dp-key" data-key="8" aria-label="Dial 8">8</button>
-              <button type="button" class="dp-key" data-key="9" aria-label="Dial 9">9</button>
-              <button type="button" class="dp-key" data-key="*" aria-label="Dial star">Star</button>
-              <button type="button" class="dp-key" data-key="0" aria-label="Dial 0">0</button>
-              <button type="button" class="dp-key" data-key="#" aria-label="Delete a number">Delete</button>
-            </div>
-            <div class="dp-dial-actions">
-              <button type="button" class="dp-zone dp-heart" id="dpHeart" aria-label="Dial a random caller">Random caller</button>
-              <button type="button" class="dp-zone dp-histbtn" id="dpHistBtn" aria-label="Recent calls">Recent calls</button>
-            </div>
+
+            <button type="button" class="dp-key" data-key="1" style="left:39.6%;top:46.15%" aria-label="Dial 1"></button>
+            <button type="button" class="dp-key" data-key="2" style="left:47.6%;top:46.15%" aria-label="Dial 2"></button>
+            <button type="button" class="dp-key" data-key="3" style="left:55.5%;top:46.15%" aria-label="Dial 3"></button>
+            <button type="button" class="dp-key" data-key="4" style="left:39.6%;top:51.55%" aria-label="Dial 4"></button>
+            <button type="button" class="dp-key" data-key="5" style="left:47.6%;top:51.55%" aria-label="Dial 5"></button>
+            <button type="button" class="dp-key" data-key="6" style="left:55.5%;top:51.55%" aria-label="Dial 6"></button>
+            <button type="button" class="dp-key" data-key="7" style="left:39.6%;top:56.75%" aria-label="Dial 7"></button>
+            <button type="button" class="dp-key" data-key="8" style="left:47.6%;top:56.75%" aria-label="Dial 8"></button>
+            <button type="button" class="dp-key" data-key="9" style="left:55.5%;top:56.75%" aria-label="Dial 9"></button>
+            <button type="button" class="dp-key" data-key="*" style="left:39.6%;top:62.15%" aria-label="Dial star"></button>
+            <button type="button" class="dp-key" data-key="0" style="left:47.6%;top:62.15%" aria-label="Dial 0"></button>
+            <button type="button" class="dp-key" data-key="#" style="left:55.5%;top:62.15%" aria-label="Delete a number" data-tip="Delete a number"></button>
+
+            <button type="button" class="dp-zone dp-heart" id="dpHeart" style="left:64%;top:56.5%;width:9.5%;height:8%" aria-label="Dial a random caller" data-tip="Random dial"></button>
+            <button type="button" class="dp-zone dp-histbtn" id="dpHistBtn" style="left:62.5%;top:42%;width:6%;height:6%" aria-label="Recent calls" data-tip="Recent calls"></button>
           </div>
           <div class="dp-history" id="dpHistory" hidden>
-            <button type="button" class="dp-history-close" id="dpHistClose">Close</button>
+            <button type="button" class="dp-history-close" id="dpHistClose" aria-label="Close recent calls">×</button>
             <p class="dp-history-title">Recent calls</p>
             <ul class="dp-history-list" id="dpHistoryList"></ul>
           </div>
@@ -768,60 +770,60 @@
           <div class="caller-beat">
             <h3 class="beat-label">When the eye-rolling counts as cardio</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="203"><span class="caller-name">Receipts</span><span class="caller-number">203</span></button>
-            <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="202"><span class="caller-name">Boundary</span><span class="caller-number">202</span></button>
-            <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="201"><span class="caller-name">Bestie</span><span class="caller-number">201</span></button>
-            <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="204"><span class="caller-name">Counsel</span><span class="caller-number">204</span></button>
+            <button class="caller-card" type="button" data-dream-pick="receipts" data-dream-number="203"><img class="caller-avatar" src="../assets/dream-phone-receipts.webp" alt="" /><span class="caller-name">Receipts</span><span class="caller-number">203</span></button>
+            <button class="caller-card" type="button" data-dream-pick="boundary" data-dream-number="202"><img class="caller-avatar" src="../assets/dream-phone-boundary.webp" alt="" /><span class="caller-name">Boundary</span><span class="caller-number">202</span></button>
+            <button class="caller-card" type="button" data-dream-pick="bestie" data-dream-number="201"><img class="caller-avatar" src="../assets/dream-phone-bestie.webp" alt="" /><span class="caller-name">Bestie</span><span class="caller-number">201</span></button>
+            <button class="caller-card" type="button" data-dream-pick="counsel" data-dream-number="204"><img class="caller-avatar" src="../assets/dream-phone-counsel.jpg" alt="" /><span class="caller-name">Counsel</span><span class="caller-number">204</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When LinkedIn thinks you're "open to work" and you didn't tell it that</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="mentor" data-dream-number="101"><span class="caller-name">Mentor</span><span class="caller-number">101</span></button>
-            <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="102"><span class="caller-name">Strategist</span><span class="caller-number">102</span></button>
-            <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="103"><span class="caller-name">Steady</span><span class="caller-number">103</span></button>
-            <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="104"><span class="caller-name">Sponsor</span><span class="caller-number">104</span></button>
+            <button class="caller-card" type="button" data-dream-pick="mentor" data-dream-number="101"><img class="caller-avatar" src="../assets/dream-phone-mentor.webp" alt="" /><span class="caller-name">Mentor</span><span class="caller-number">101</span></button>
+            <button class="caller-card" type="button" data-dream-pick="strategist" data-dream-number="102"><img class="caller-avatar" src="../assets/dream-phone-strategist.webp" alt="" /><span class="caller-name">Strategist</span><span class="caller-number">102</span></button>
+            <button class="caller-card" type="button" data-dream-pick="steady" data-dream-number="103"><img class="caller-avatar" src="../assets/dream-phone-steady.webp" alt="" /><span class="caller-name">Steady</span><span class="caller-number">103</span></button>
+            <button class="caller-card" type="button" data-dream-pick="sponsor" data-dream-number="104"><img class="caller-avatar" src="../assets/dream-phone-sponsor.jpg" alt="" /><span class="caller-name">Sponsor</span><span class="caller-number">104</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When you rewrote the Slack message until it had three exclamation points and an apology</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="301"><span class="caller-name">Hype</span><span class="caller-number">301</span></button>
-            <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="302"><span class="caller-name">Big Bro</span><span class="caller-number">302</span></button>
-            <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="303"><span class="caller-name">Creative</span><span class="caller-number">303</span></button>
-            <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="304"><span class="caller-name">Coach</span><span class="caller-number">304</span></button>
+            <button class="caller-card" type="button" data-dream-pick="hype" data-dream-number="301"><img class="caller-avatar" src="../assets/dream-phone-hype.webp" alt="" /><span class="caller-name">Hype</span><span class="caller-number">301</span></button>
+            <button class="caller-card" type="button" data-dream-pick="bigbro" data-dream-number="302"><img class="caller-avatar" src="../assets/dream-phone-bigbro.webp" alt="" /><span class="caller-name">Big Bro</span><span class="caller-number">302</span></button>
+            <button class="caller-card" type="button" data-dream-pick="creative" data-dream-number="303"><img class="caller-avatar" src="../assets/dream-phone-creative.webp" alt="" /><span class="caller-name">Creative</span><span class="caller-number">303</span></button>
+            <button class="caller-card" type="button" data-dream-pick="coach" data-dream-number="304"><img class="caller-avatar" src="../assets/dream-phone-coach.jpg" alt="" /><span class="caller-name">Coach</span><span class="caller-number">304</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When turning it off and on again isn't working</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="401"><span class="caller-name">AI Help</span><span class="caller-number">401</span></button>
-            <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="402"><span class="caller-name">Research</span><span class="caller-number">402</span></button>
-            <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="403"><span class="caller-name">Wildcard</span><span class="caller-number">403</span></button>
-            <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="404"><span class="caller-name">Builder</span><span class="caller-number">404</span></button>
+            <button class="caller-card" type="button" data-dream-pick="aihelp" data-dream-number="401"><img class="caller-avatar" src="../assets/dream-phone-ai-help.webp" alt="" /><span class="caller-name">AI Help</span><span class="caller-number">401</span></button>
+            <button class="caller-card" type="button" data-dream-pick="research" data-dream-number="402"><img class="caller-avatar" src="../assets/dream-phone-research.webp" alt="" /><span class="caller-name">Research</span><span class="caller-number">402</span></button>
+            <button class="caller-card" type="button" data-dream-pick="wildcard" data-dream-number="403"><img class="caller-avatar" src="../assets/dream-phone-wildcard.webp" alt="" /><span class="caller-name">Wildcard</span><span class="caller-number">403</span></button>
+            <button class="caller-card" type="button" data-dream-pick="builder" data-dream-number="404"><img class="caller-avatar" src="../assets/dream-phone-builder.jpg" alt="" /><span class="caller-name">Builder</span><span class="caller-number">404</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When you said "I'll own that" and immediately regretted it</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="501"><span class="caller-name">Boss</span><span class="caller-number">501</span></button>
-            <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="502"><span class="caller-name">Founder</span><span class="caller-number">502</span></button>
-            <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="601"><span class="caller-name">Operator</span><span class="caller-number">601</span></button>
-            <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="602"><span class="caller-name">Product</span><span class="caller-number">602</span></button>
+            <button class="caller-card" type="button" data-dream-pick="boss" data-dream-number="501"><img class="caller-avatar" src="../assets/dream-phone-founder.jpg" alt="" /><span class="caller-name">Boss</span><span class="caller-number">501</span></button>
+            <button class="caller-card" type="button" data-dream-pick="founder" data-dream-number="502"><img class="caller-avatar" src="../assets/dream-phone-boss-ali.webp" alt="" /><span class="caller-name">Founder</span><span class="caller-number">502</span></button>
+            <button class="caller-card" type="button" data-dream-pick="operator" data-dream-number="601"><img class="caller-avatar" src="../assets/dream-phone-operator.jpg" alt="" /><span class="caller-name">Operator</span><span class="caller-number">601</span></button>
+            <button class="caller-card" type="button" data-dream-pick="product" data-dream-number="602"><img class="caller-avatar" src="../assets/dream-phone-product.jpg" alt="" /><span class="caller-name">Product</span><span class="caller-number">602</span></button>
             </div>
           </div>
 
           <div class="caller-beat">
             <h3 class="beat-label">When "per my last email" is forming in your mouth</h3>
             <div class="caller-grid">
-            <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="801"><span class="caller-name">Comms</span><span class="caller-number">801</span></button>
-            <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="802"><span class="caller-name">Closer</span><span class="caller-number">802</span></button>
-            <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="701"><span class="caller-name">Finance</span><span class="caller-number">701</span></button>
-            <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="702"><span class="caller-name">Data</span><span class="caller-number">702</span></button>
+            <button class="caller-card" type="button" data-dream-pick="comms" data-dream-number="801"><img class="caller-avatar" src="../assets/dream-phone-comms.jpg" alt="" /><span class="caller-name">Comms</span><span class="caller-number">801</span></button>
+            <button class="caller-card" type="button" data-dream-pick="closer" data-dream-number="802"><img class="caller-avatar" src="../assets/dream-phone-closer.jpg" alt="" /><span class="caller-name">Closer</span><span class="caller-number">802</span></button>
+            <button class="caller-card" type="button" data-dream-pick="finance" data-dream-number="701"><img class="caller-avatar" src="../assets/dream-phone-finance.jpg" alt="" /><span class="caller-name">Finance</span><span class="caller-number">701</span></button>
+            <button class="caller-card" type="button" data-dream-pick="data" data-dream-number="702"><img class="caller-avatar" src="../assets/dream-phone-data.jpg" alt="" /><span class="caller-name">Data</span><span class="caller-number">702</span></button>
             </div>
           </div>
 
@@ -829,7 +831,7 @@
           <div class="caller-beat dp-deb-beat">
             <h3 class="beat-label">…and then there's Deb</h3>
             <div class="caller-grid">
-            <button class="caller-card dp-deb-card" type="button" data-dream-pick="deb" data-dream-number="000"><span class="caller-name">Deb</span><span class="caller-number">000</span></button>
+            <button class="caller-card dp-deb-card" type="button" data-dream-pick="deb" data-dream-number="000"><img class="caller-avatar" src="../assets/deb-80s-portrait-stare-v1.png" alt="" /><span class="caller-name">Deb</span><span class="caller-number">000</span></button>
             </div>
           </div>
 

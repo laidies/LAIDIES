@@ -1,62 +1,74 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-import { validateCases } from "../games/dream-phone-preview-contract.mjs";
+import vm from "node:vm";
 
 const root=process.cwd();
 const read=file=>fs.readFileSync(path.join(root,file),"utf8");
-const html=read("games/dream-phone-preview.html");
-const css=read("games/dream-phone-preview.css");
-const js=read("games/dream-phone-preview.js");
-const contract=read("games/dream-phone-preview-contract.mjs");
-const failures=[];
-const check=(condition,message)=>{if(!condition) failures.push(message);};
+const page=read("games/dream-phone.html");
+const gamePage=read("games/dream-phone-game.html");
+const redirect=read("games/dream-phone-preview.html");
+const bundleSource=read("games/dream-phone-bundles.js");
+const context={window:{}};
+vm.runInNewContext(bundleSource,context,{filename:"dream-phone-bundles.js"});
+const bundles=context.window.dreamPhoneBundles||{};
 
-for(const file of [
-  "games/dream-phone-preview.html",
-  "games/dream-phone-preview.css",
-  "games/dream-phone-preview.js",
-  "games/dream-phone-preview-contract.mjs",
-  "assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp"
-]) check(fs.existsSync(path.join(root,file)),`missing preview artifact: ${file}`);
+function validate(candidatePage,candidateBundles){
+  const failures=[];
+  const check=(condition,message)=>{if(!condition) failures.push(message);};
+  const justCall=candidatePage.match(/<section class="dp-section" id="dpJustCall"[\s\S]*?<\/section>\s*<\/div>/)?.[0]||"";
+  const cards=[...justCall.matchAll(/<button class="caller-card(?: [^"]*)?"[^>]*data-dream-pick="([^"]+)"[^>]*>[\s\S]*?<\/button>/g)];
 
-check(/id="openJustCall"/.test(html)&&/id="openGame"/.test(html),"entry must expose two explicit choices");
-check((html.match(/class="door"/g)||[]).length===2,"entry must expose exactly two equal doors");
-for(const control of ["*67","*69","867-5309","Call history","Share a Secret","Speaker Phone","Mom Says Hang Up"]){
-  check(html.includes(control),`missing phone control: ${control}`);
+  check(candidatePage.includes("assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp"),"exact Dream Phone booth exterior is missing");
+  check(/id="dpDoorCall"/.test(candidatePage)&&/id="dpDoorGame"/.test(candidatePage),"two equal Dream Phone choices are missing");
+  check(justCall.includes("assets/portal/dream-phone-dialer-product-v4-transparent.png"),"full Dream Phone player card is missing");
+  check((justCall.match(/class="dp-key"/g)||[]).length===12,"phone must expose 12 live keypad hit-zones");
+  check(/id="dpHeart"/.test(justCall)&&/id="dpHistBtn"/.test(justCall),"phone heart/history zones are missing");
+  check(cards.length===25,`expected 25 real caller cards, found ${cards.length}`);
+  check(cards.every(match=>/class="caller-avatar"/.test(match[0])),"every caller card must include its image");
+  for(const match of cards){
+    const src=match[0].match(/<img[^>]+src="\.\.\/([^"]+)"/)?.[1];
+    check(Boolean(src)&&fs.existsSync(path.join(root,src)),`caller ${match[1]} must bind an existing player-card image`);
+  }
+  check(!/Miss Jeeves|JoJo|Mme CLAi-O|Puffy|DJ SunnyV|Screened Caller/.test(justCall),"invented preview callers returned");
+  check(!/professional advice|authoritative fact-checking service|scripted entertainment/.test(candidatePage),"rejected visitor disclaimer returned");
+  check(/var debArmed = false/.test(candidatePage)&&/if \(!debArmed\) \{ debBrush\(digits\); return; \}/.test(candidatePage),"two-step Deb/*67 mechanic is missing");
+  check(/code === "\*69"/.test(candidatePage)&&/setTimeout\(redial, 900\)/.test(candidatePage),"*69 redial mechanic is missing");
+  check(/digits === "8675309"/.test(candidatePage)&&/You found the secret line/.test(candidatePage),"hidden Jenny line is missing");
+
+  const keys=Object.keys(candidateBundles);
+  check(keys.length===25,`expected 25 authored bundle callers, found ${keys.length}`);
+  for(const key of keys){
+    const entries=candidateBundles[key];
+    check(Array.isArray(entries)&&entries.length===3,`${key} must keep three rotating bundles`);
+    for(const entry of entries||[]){
+      for(const field of ["output","secret","speaker","hangup"]){
+        check(typeof entry?.[field]==="string"&&entry[field].trim().length>0,`${key} bundle missing ${field}`);
+      }
+    }
+  }
+  return failures;
 }
-check(/data-verdict="for-real" disabled/.test(html)&&/data-verdict="as-if" disabled/.test(html),"committal verdicts must start disabled");
-check(/data-verdict="hold-up"/.test(html),"Hold Up verdict is missing");
-check(/called\.size===3/.test(js),"verdict unlock must require all three normal calls");
-check(/lastCaller=deb;\s*return connect\(deb,deb\.secret,"private \*67 call"\)/.test(js),"*69 must redial Deb after a *67 call");
-check(/stale or malformed freshness record/.test(contract),"runtime must fail closed on stale case guidance");
-check(!/linear-gradient|radial-gradient/.test(css),"preview CSS must not use decorative gradients");
-check(!/[☎✓✗📚☕🔮]/u.test(html+js),"preview UI must not use emoji as interface art");
-check(/prefers-reduced-motion/.test(css),"reduced-motion support is missing");
-check(/not personalized or professional advice/.test(html),"Just Call boundary is missing");
-check(/not an authoritative fact-checking service/.test(html),"game source boundary is missing");
-check(/not saved to an account or another device/.test(html),"session-only persistence boundary is missing");
 
-const valid=[
-  {id:"a",status:"ADMITTED",answer:"as-if",checkedAt:"2026-08-01",reviewBy:"2026-09-01",requiredClauses:["x","y"],callers:[{name:"A",clause:"x"},{name:"B",clause:"y"},{name:"C",clause:"signal"}]},
-  {id:"b",status:"ADMITTED",answer:"for-real",checkedAt:"2026-08-01",reviewBy:"2026-09-01",requiredClauses:["x","y"],callers:[{name:"A",clause:"x"},{name:"B",clause:"y"},{name:"C",clause:"signal"}]},
-  {id:"c",status:"ADMITTED",answer:"as-if",checkedAt:"2026-08-01",reviewBy:"2026-09-01",requiredClauses:["x","y"],callers:[{name:"A",clause:"x"},{name:"B",clause:"y"},{name:"C",clause:"signal"}]}
-];
-check(validateCases(valid,{today:"2026-08-10"}).length===0,"known-good contract fixture failed");
-const omniscient=structuredClone(valid);
-omniscient[0].callers[0].coveredClauseIds=["x","y"];
-omniscient[0].callers[0].decisionHint="as-if";
-const calibrated=validateCases(omniscient,{today:"2026-08-10"});
-check(calibrated.some(message=>message.includes("gives away the complete answer")),"validator did not reject omniscient caller fixture");
-check(calibrated.some(message=>message.includes("verdict hint")),"validator did not reject caller verdict hint");
-const stale=structuredClone(valid);stale[0].reviewBy="2026-08-09";
-check(validateCases(stale,{today:"2026-08-10"}).some(message=>message.includes("stale")),"validator did not reject stale guidance fixture");
+const failures=validate(page,bundles);
+if(/authoritative fact-checking service|scripted entertainment/.test(gamePage)) failures.push("rejected game visitor disclaimer returned");
+if(!/location\.replace\("\.\/dream-phone\.html\?preview=restored-just-call"\)/.test(redirect)) failures.push("failed preview must redirect to restored Dream Phone");
+for(const removed of ["games/dream-phone-preview.css","games/dream-phone-preview.js","games/dream-phone-preview-contract.mjs"]){
+  if(fs.existsSync(path.join(root,removed))) failures.push(`rejected preview artifact still exists: ${removed}`);
+}
+
+const noPhone=validate(page.replace("../assets/portal/dream-phone-dialer-product-v4-transparent.png","missing-phone.png"),bundles);
+if(!noPhone.includes("full Dream Phone player card is missing")) failures.push("calibration failed: missing phone was accepted");
+const invented=validate(page.replace("Receipts","Puffy"),bundles);
+if(!invented.includes("invented preview callers returned")) failures.push("calibration failed: invented caller was accepted");
+const brokenBundles=structuredClone(bundles); delete brokenBundles[Object.keys(brokenBundles)[0]][0].speaker;
+if(!validate(page,brokenBundles).some(message=>message.includes("bundle missing speaker"))) failures.push("calibration failed: incomplete bundle was accepted");
 
 if(failures.length){
-  console.error("DREAM PHONE PREVIEW FAIL");
+  console.error("DREAM PHONE RESTORATION FAIL");
   failures.forEach(failure=>console.error(`- ${failure}`));
   process.exit(1);
 }
-console.log("DREAM PHONE PREVIEW PASS");
-console.log("calibration=omniscient-caller-and-stale-guidance-rejected");
-console.log("choices=2 cases=3 normal_calls_per_case=3");
+console.log("DREAM PHONE RESTORATION PASS");
+console.log("callers=25 bundles=75 responses=300 keypad_zones=12");
+console.log("calibration=missing-phone-invented-caller-incomplete-bundle-rejected");

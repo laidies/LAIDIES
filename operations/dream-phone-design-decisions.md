@@ -107,6 +107,40 @@ the work, park the full game.
 
 ## Rejected directions retained as evidence
 
+- **2026-08-10 total preview rejection — do not repair the replacement.** The
+  rectangle-first `dream-phone-preview.css` / `dream-phone-preview.js` build is
+  rejected in full. It replaced a functioning Just Call product with invented
+  callers and descriptions, omitted the full operated phone/player card, turned
+  the caller cards into flat text rectangles and treated the booth as a
+  decorative crop. `Puffy`, `Miss Jeeves`, `JoJo`, `Mme CLAi-O`, `DJ SunnyV`
+  and `Screened Caller` are not Dream Phone callers and may not be introduced
+  as if they were recovered source. The visitor-facing disclaimer beginning
+  `Calls are scripted entertainment` is also removed; product boundaries stay
+  enforced by what the prewritten experience actually accepts and does, not by
+  defensive copy pasted across the play surface.
+
+- **2026-08-10 Just Call restoration lock.** Restore before redesigning. The
+  operated object is exactly
+  `assets/portal/dream-phone-dialer-product-v4-transparent.png`, with live
+  keypad, display, random-heart and recent-call hit zones. The source roster is
+  25 caller cards (24 regular callers plus Deb), backed by 75 authored bundles
+  and 300 distinct output/remix responses in
+  `games/dream-phone-bundles.js`. Caller cards retain their image, name and
+  extension. `*67` only arms blocked caller ID; the player must then dial Deb.
+  `*69` redials the previous digits and advances that caller's bundle.
+  `867-5309` remains a hidden Jenny discovery. A successor fails before review
+  if the primary input is generic CSS controls instead of the recognizable
+  operated phone, if caller identities or descriptions are invented, or if it
+  omits the incumbent call/remix behaviours.
+
+- **2026-08-10 surface and surprise correction.** The page ground may not use
+  the yellow-beige wash from the first working preview; use a clean blue-sky
+  field with crisp white operating surfaces while retaining yellow only as a
+  deliberate colour pop. `867-5309` is a discovery, not an eyebrow, directory
+  hint or labelled control. The number remains functional when dialled and may
+  remain discoverable inside the booth artwork; instructional copy must not
+  give it away.
+
 - **2026-08-10 visual rejection — generic teal operator console.** Reject the
   generated teal/chrome booth-interior and the interface composition built
   around it. It does not match the LAiDIES colour system or design style, does
