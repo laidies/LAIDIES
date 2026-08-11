@@ -1,8 +1,8 @@
 # Control Room handoff — Episode 01 dark reading-template recovery
 
-**Status:** COMMITTED LOCAL CANDIDATE / VISUAL-LAYOUT ACCEPTED / RELEASE HOLD
+**Status:** COMMITTED LOCAL CANDIDATE / VISUAL-LAYOUT AND FORMAT ACCEPTED / NATIVE WITNESS AND RELEASE HOLD
 
-**Action and evidence time:** 2026-08-10 07:10 PDT
+**Latest action and evidence time:** 2026-08-11 07:09 PDT
 
 ## Literal output
 
@@ -30,14 +30,24 @@ present and episode-specific.
   `71146f4f1fef0978522fc1ccc579b702b0555ee67edfc86cb5b5773cef98311c`
 - Verdict: ACCEPT — visual/layout only.
 
+## Chick Flicks format admission
+
+- Receipt:
+  `operations/product-stewards/chick-flicks/independent-admission-episode-01-dark-template-2026-08-11.md`
+- Receipt SHA-256:
+  `945810ada78736d225e98f5854b21c63a7b609eb11b5a92b7ac2935eb836cc15`
+- Receipt commit: `6cbd5e970c8e85db37a2d03560c74bb6a2219824`
+- Verdict: Read **ACCEPT** · cover-only Listen **ACCEPT** · Watch **HOLD —
+  CORRECTLY REPRESENTED**.
+
 ## Locks, dependencies and next trigger
 
 - The old iCloud worktree was read-only recovery source; none of its dirty
   bytes were reset, cleaned, stashed, moved or committed.
 - Control Room owns integration of this exact commit into the current release
   branch and reconciliation with newer shared-file work.
-- Chick Flicks must re-admit the exact committed Read/Listen/held-Watch tuple
-  because the page and manifest identities changed.
+- Chick Flicks has independently admitted the exact committed
+  Read/Listen/held-Watch tuple. This gate is closed for these bytes only.
 - An identified independent human must then hear and record Safari + VoiceOver
   current/disabled states, same-episode activation, truthful Watch fallback,
   zoom/focus and recovery. Do not repeat machine-only checks.
