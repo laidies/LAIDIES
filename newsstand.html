@@ -290,6 +290,9 @@
             return String(b.publishedAt).localeCompare(String(a.publishedAt));
           });
           data.stories = JSON.parse(JSON.stringify(stories));
+          if (event.detail && event.detail.publication) {
+            data.publications.daily = JSON.parse(JSON.stringify(event.detail.publication));
+          }
         });
         var selectedEdition = null;
         var lastInvoker = null;

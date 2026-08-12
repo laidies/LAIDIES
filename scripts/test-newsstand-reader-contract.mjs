@@ -12,6 +12,7 @@ const CONTRACT_FILE = path.join(ROOT, "content", "newsstand-reader-contract.js")
 const CASE_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-reader", "state-cases.json");
 const DRILL_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-reader", "correction-retraction-rollback-drill.json");
 const NOW = "2026-07-25T20:00:00Z";
+const NOW_CURRENT = "2026-08-11T22:30:00Z";
 const NOW_VANCOUVER_AUG_4 = "2026-08-05T00:50:00Z";
 
 function loadData() {
@@ -41,6 +42,7 @@ function mutate(base, mutation) {
   if (mutation === "dataset-hold") data.datasetStatus = "hold";
   if (mutation === "publication-unavailable") {
     data.publications.tribune.status = "unavailable";
+    data.publications.weekly.status = "unavailable";
     data.publications.daily.status = "quiet";
     data.publications.daily.publishedAt = null;
   }
@@ -87,7 +89,7 @@ const drill = JSON.parse(fs.readFileSync(DRILL_FILE, "utf8"));
 
 assert.deepEqual(Array.from(contract.EDITIONS), ["breaking", "daily", "weekly", "tribune"]);
 assert.equal(contract.validate(base).length, 0);
-assert.equal(contract.visibleStories(base, "weekly", NOW).length, 0, "held Weekly story must fail closed");
+assert.equal(contract.visibleStories(base, "weekly", NOW_CURRENT).length, 1, "admitted Weekly story is visible at its current source check");
 assert.equal(contract.visibleStories(base, "tribune", NOW).length, 1);
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
 const staleStoryCandidate = JSON.parse(JSON.stringify(base));

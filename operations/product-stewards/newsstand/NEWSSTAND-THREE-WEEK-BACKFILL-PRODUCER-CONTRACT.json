@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "laidies-content-producer-contract.v1",
+  "candidateId": "NEWSSTAND-THREE-WEEK-BACKFILL-2026-08-11",
+  "surface": "SUNNYVAiLE NewsStand Daily archive and Weekly",
+  "contentClass": "NEWS",
+  "producer": "newsstand-backfill-maker",
+  "readerContract": {
+    "humanQuestion": "What important AI developments did I miss in the last three weeks, what do they actually change, and what should I do differently?",
+    "promisedPayoff": "Four dated, searchable explanations that separate the reported change from vendor claims, practical consequences and remaining uncertainty.",
+    "priorKnowledge": "No coding, model-architecture, forecasting or labour-economics knowledge is assumed.",
+    "centralMentalModel": "A release or study changes one bounded part of the AI landscape; the useful decision comes from identifying that part, its evidence, its limits and the next real-world test.",
+    "dailyLifeConnection": "Readers can decide whether to test a cheaper model, understand what open weights do and do not provide, interpret an AI weather headline, and redesign a workplace handoff without assuming a whole job disappeared.",
+    "surfaceJob": "Dated NewsStand reporting and synthesis, searchable by headline, topic and full text; not evergreen product documentation and not current Breaking.",
+    "desiredFeeling": "I understand the real change, I did not get trapped by the headline, and I know the next useful question."
+  },
+  "canonicalTruth": [
+    {
+      "claimId": "NS-BACKFILL-CLASSIFICATION",
+      "owner": "newsstand",
+      "freshnessTrigger": "Any change to archive, Breaking, Weekly or cross-surface reference rules.",
+      "source": { "path": "operations/DECISIONS.md", "sha256": "ffa84d1f6b6a15fdef707e68b0fdd18caf6eee6f9719c600512db803d5b96abb" }
+    },
+    {
+      "claimId": "NS-BACKFILL-GEMINI",
+      "owner": "newsstand-accuracy",
+      "freshnessTrigger": "Price, availability, model ID, migration or access change.",
+      "source": { "path": "operations/drafts/news-radar/2026-07-25-gemini-flash-family/research-and-claim-map.md", "sha256": "da8f78d73b514670a17b7f9f47943aa1fa14fd211b8d14bcb7a8169e66e4ddc8" }
+    },
+    {
+      "claimId": "NS-BACKFILL-KIMI",
+      "owner": "newsstand-accuracy",
+      "freshnessTrigger": "Model card, license, deployment or government-assessment change.",
+      "source": { "path": "operations/drafts/news-radar/2026-07-27-kimi-k3-open-weights/research-and-claim-map.md", "sha256": "ba72f750bd5031b164ab4dd9a9e9a46c35eb0d5eade8d52f63ffe5129f4d56eb" }
+    },
+    {
+      "claimId": "NS-BACKFILL-WEATHERNEXT",
+      "owner": "newsstand-accuracy",
+      "freshnessTrigger": "Paper correction, repository change, reproduction or operational-warning evidence.",
+      "source": { "path": "operations/drafts/news-radar/2026-08-06-weathernext-cyclones-open-source/research-and-claim-map.md", "sha256": "89fa12d5f10cc92d1402acd140952d50bafc80c5d53993cda8a9fc81d06315af" }
+    },
+    {
+      "claimId": "NS-BACKFILL-WORK-STUDIES",
+      "owner": "newsstand-accuracy",
+      "freshnessTrigger": "Report revision, methods correction, replication or materially different labour evidence.",
+      "source": { "path": "operations/drafts/news-radar/2026-07-25-google-atlas-ai-use/research-and-claim-map.md", "sha256": "11430145b394a48f206ce499f1ba6726f4a3428be7f66415fd520118a8f34af3" }
+    }
+  ],
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-NEWS-001",
+      "strengthsToUse": ["State the date and scope early.", "Separate evidence from inference.", "Give a practical action without converting reporting into hype."],
+      "patternsNotToCopy": ["Do not reuse its legal-news structure.", "Do not reuse its analogy.", "Do not inherit its sources or currentness. "]
+    }
+  ],
+  "knownFailurePreflight": {
+    "registryVersion": "laidies-content-quality-exemplars.v1",
+    "registrySha256": "3b37461c2a42626d363ea8a1a1fd8d9766c14f193817fb3e72fc6b4230dcceef",
+    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002"],
+    "dispositions": {
+      "glossaryAccumulation": { "status": "CLEAR", "producerGuard": "Define only terms that change the reader's decision.", "preventionEvidence": "Each story answers one event-level question rather than accumulating vocabulary." },
+      "templateRepetition": { "status": "CLEAR", "producerGuard": "Let the mechanism determine the article shape.", "preventionEvidence": "Price comparison, open-weight access, forecast uncertainty and task handoffs use different explanatory structures." },
+      "decorativeAnalogy": { "status": "CLEAR", "producerGuard": "Every analogy maps one mechanism and states its limit.", "preventionEvidence": "Printer ink, industrial kitchen and route-planner comparisons return explicitly to total cost, infrastructure and shared model blind spots." },
+      "referenceConfetti": { "status": "CLEAR", "producerGuard": "No reference enters without a teaching job.", "preventionEvidence": "The batch uses no decorative Rewind Era name-checks." },
+      "missingMechanism": { "status": "CLEAR", "producerGuard": "Explain what changed between input, system capability and human outcome.", "preventionEvidence": "Each story traces the relevant mechanism before giving advice." },
+      "genericAction": { "status": "CLEAR", "producerGuard": "Name an exact comparison, evidence check or authority route.", "preventionEvidence": "Actions specify task-level cost tests, infrastructure review, official warnings and bounded handoff experiments." },
+      "jargonBeforeMeaning": { "status": "CLEAR", "producerGuard": "Show the practical distinction before naming technical terms.", "preventionEvidence": "Open weights and ensembles are translated immediately into access and uncertainty consequences." },
+      "disconnectedSystem": { "status": "CLEAR", "producerGuard": "Reconnect every technical fact to the reader and accountable human system.", "preventionEvidence": "Every story ends with what the reader or organization can test and where human authority remains." },
+      "joylessInstruction": { "status": "CLEAR", "producerGuard": "Use warm adult language and one earned image where helpful.", "preventionEvidence": "The prose is conversational without jokes displacing evidence." },
+      "purposeTooNarrow": { "status": "CLEAR", "producerGuard": "Keep the batch tied to consequential reader decisions.", "preventionEvidence": "The four items cover tools, deployment, public safety and work rather than one product lane." },
+      "mechanismBeforeMotivation": { "status": "CLEAR", "producerGuard": "Lead with the changed choice or misleading headline.", "preventionEvidence": "Each headline and opening establishes why the mechanism matters." },
+      "workedExampleOvertakesBookPurpose": { "status": "CLEAR", "producerGuard": "Examples remain bounded to one reported development.", "preventionEvidence": "No example is promoted into a universal theory of AI or work." },
+      "technicalExplainerVoice": { "status": "CLEAR", "producerGuard": "Write as a precise colleague, not a standards document.", "preventionEvidence": "Advice and caveats are addressed directly to the reader." }
+    },
+    "knownDefectsRemaining": []
+  },
+  "draftArchitecture": {
+    "plainAnswer": "Four developments changed model price, deployment access, forecasting scrutiny and workplace task boundaries; none supports the broadest version of its headline.",
+    "causalSequence": ["Identify the dated release or study and the exact changed artifact.", "Explain the mechanism and evidence that support the bounded claim.", "Separate what the evidence shows from what it cannot show.", "Give the reader one exact test, authority or next question."],
+    "workedCase": "A Gemini user compares one repeated workflow across the old and new model and records quality, time, tokens, tools and retries.",
+    "transferCase": "A reader sees another open-model headline and asks whether it describes weights, code, hosted access, local hardware, license rights or all five.",
+    "usefulAction": "For each story, identify the changed choice, inspect the named evidence and run the smallest real-world test before reorganizing work.",
+    "analogyPlan": [
+      { "concept": "Token price versus completed-task cost", "analogy": "Cheaper printer ink versus the whole usable print job", "mapping": "Token price maps to ink; retries, tools and time map to wasted pages and labour.", "limit": "AI output is variable and not a physical printing process.", "whyItHelps": "It prevents a list price from being mistaken for cost-to-completion." },
+      { "concept": "Open weights for a very large model", "analogy": "A released recipe that still needs an industrial kitchen", "mapping": "Weights map to recipe; compute, storage and serving operations map to the kitchen.", "limit": "A model is software and learned parameters, not food.", "whyItHelps": "It separates access to files from practical personal-computer operation." }
+    ],
+    "humourPlan": { "lessonJob": "Use light, bounded images to puncture hype while keeping the factual mechanism visible." },
+    "formatSpecificStructure": "Daily stories use headline, report, LAiDIES read, practical meaning, short retelling, sources and tags. The Weekly connects two studies without combining their percentages.",
+    "antiTemplateDecision": "Shared fields support scanning, but the causal explanation and action are specific to each development."
+  },
+  "communicationDesign": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": { "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md", "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3" },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "Use the benchmark only where a short article benefits: a human reason, visible mechanism, explicit limit and better next question.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": { "disposition": "APPLY", "reason": "News matters when it changes a real choice.", "plannedEvidence": "Each article names who should test, wait or keep using an official authority." },
+      "usefulCuriosity": { "disposition": "APPLY", "reason": "The broad headline creates a testable gap.", "plannedEvidence": "Each story asks what the release or percentage actually measures." },
+      "invisibleProcessConcrete": { "disposition": "APPLY", "reason": "Cost, ensembles and task classification happen out of view.", "plannedEvidence": "The prose traces the relevant computation or classification in plain language." },
+      "familiarTechnicalMovement": { "disposition": "APPLY", "reason": "A familiar comparison can reduce initial load when it returns to the technical boundary.", "plannedEvidence": "Printer ink, industrial kitchen and route-planner images state their limits." },
+      "limitationsConsequences": { "disposition": "APPLY", "reason": "Vendor evidence and public-safety claims require visible limits.", "plannedEvidence": "Every article says what remains unknown or outside the evidence." },
+      "humourSurprise": { "disposition": "NOT_APPLICABLE", "reason": "A separate joke is unnecessary; light analogy already performs the anti-hype job." },
+      "betterNextQuestion": { "disposition": "APPLY", "reason": "A useful reader should leave with a bounded action.", "plannedEvidence": "Each article ends with an exact test, evidence check or authority route." }
+    },
+    "explanationArc": { "mode": "PROPORTIONAL", "retainedMoves": ["human reason", "mechanism", "limit", "small useful landing"], "adaptation": "Short dated articles answer early, explain only the decision-changing mechanism and close with one bounded action." }
+  },
+  "representativeProofPlan": {
+    "highestRisk": "A vendor statistic or scientific benchmark being broadened into a universal outcome.",
+    "plannedProof": "Independent artifact-first review checks exact denominators, comparison groups and does-not-show language before Daily promotion.",
+    "acceptanceOutcome": "No old item appears as Breaking, every material number retains its denominator, and each story gives one precise action without claiming more than its sources."
+  },
+  "ratchet": {
+    "targets": { "repeatedKnownDefects": 0, "objectiveDefectsFirstFoundAtReview": 0 },
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "status": "READY_TO_DRAFT"
+}

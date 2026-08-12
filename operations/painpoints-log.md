@@ -14419,3 +14419,15 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-457 — Mutable global checksums erased valid archive history
+
+- **Date:** 2026-08-11
+- **Area:** NewsStand archive, editorial intake and release packaging.
+- **Failure:** Every admitted Daily issue was tied to the checksum of the complete mutable story dataset. Adding a legitimate later story made the browser reject all earlier Daily snapshots. The same coupling appeared in the registered good-news exemplar, so producing a new article invalidated the producer gate. Separately, the curated public build failed on a held Library manifest that referenced nonexistent successor bytes and on untracked visual dependencies.
+- **Root cause:** Immutable historical records, current mutable collections, calibration exemplars and held future candidates were treated as one identity. Provenance was confused with a requirement that unrelated future bytes remain unchanged.
+- **Prevention rule:** Bind archive admission to the complete checksum-protected issue snapshot and validate its story intrinsically; use the current global dataset only at promotion time. Bind quality exemplars to stable extracted artifacts, never an entire growing database. A held manifest must identify exact bytes that exist now, and every public build dependency must be tracked and registered before release assembly.
+- **Durable correction:** Daily history now survives later canonical story changes while forged snapshot bytes still invalidate the store; the stable NewsStand exemplar no longer changes when a new story is added; exact-story evidence hashes are enforced and calibrated to reject alteration; the Library held artifact and exact visual dependencies were recovered so the full curated artifact builds.
+- **Forward test:** NewsStand passes 217 rendered browser checks including historical-clock isolation, current three-week archive search, immutable-source tamper and snapshot-tamper opposites. The complete curated artifact builds 557 files / 415.37 MiB.
+- **Possible Behind the Build angle:** Why one innocent new article used to make yesterday’s newspaper disappear.
+- **Publication status:** VERIFIED LOCAL SYSTEM AND CONTENT BUILD / NOT DEPLOYED / NOT PUBLICLY VERIFIED.

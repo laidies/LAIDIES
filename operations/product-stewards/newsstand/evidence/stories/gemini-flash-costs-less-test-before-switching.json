@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "gemini-flash-costs-less-test-before-switching",
+  "edition": "daily",
+  "candidateStatus": "approved-for-local-daily-assembly",
+  "candidatePath": "content/newsstand-stories.js",
+  "reviewArtifact": {
+    "canonicalization": "recursive-key-sorted-json-plus-newline",
+    "storySha256": "5b7cba92bfaf4417865f12f49dcd6b61fd25d8830aec405501a6cd4a6438c11b"
+  },
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "nextRecheckAt": "2026-08-18",
+  "independentReview": "operations/product-stewards/newsstand/evidence/newsstand-three-week-backfill-independent-review-2026-08-11.md",
+  "sources": [
+    { "id": "google-gemini-flash-family-2026-07-21", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/", "type": "vendor", "accessedAt": "2026-08-11" },
+    { "id": "google-gemini-latest-model-guide-2026-08-11", "url": "https://ai.google.dev/gemini-api/docs/latest-model", "type": "vendor", "accessedAt": "2026-08-11" }
+  ],
+  "claims": [
+    { "id": "GEM-C01", "claim": "Google released Gemini 3.6 Flash and 3.5 Flash-Lite on July 21, 2026 with the stated API prices.", "sourceIds": ["google-gemini-flash-family-2026-07-21", "google-gemini-latest-model-guide-2026-08-11"], "risk": "medium" },
+    { "id": "GEM-C02", "claim": "A lower list price does not establish lower total task cost without task-level testing.", "sourceIds": ["google-gemini-flash-family-2026-07-21"], "risk": "low", "classification": "bounded editorial inference" },
+    { "id": "GEM-C03", "claim": "Flash Cyber was announced as a restricted pilot rather than a generally selectable public model.", "sourceIds": ["google-gemini-flash-family-2026-07-21"], "risk": "medium" }
+  ],
+  "requiredReview": ["current product and price accuracy", "editorial comprehension", "analogy limit", "historical Daily classification"],
+  "publicAuthority": "LOCAL_ASSEMBLY_ONLY_NO_DEPLOY"
+}

@@ -10,16 +10,16 @@
 window.NEWSSTAND_DATA = {
   schemaVersion: "1.0.0",
   datasetStatus: "published",
-  generatedAt: "2026-08-03T22:00:00Z",
-  lastCheckedAt: "2026-08-03T22:00:00Z",
+  generatedAt: "2026-08-11T22:00:00Z",
+  lastCheckedAt: "2026-08-11T22:00:00Z",
   publications: {
     breaking: {
       edition: "breaking",
       job: "News as it happens, when waiting would leave readers behind.",
       status: "quiet",
       publishedAt: null,
-      updatedAt: "2026-08-03T22:00:00Z",
-      lastCheckedAt: "2026-08-03T22:00:00Z",
+      updatedAt: "2026-08-11T22:00:00Z",
+      lastCheckedAt: "2026-08-11T22:00:00Z",
       maxAgeHours: 24,
       note: "No breaking story right now. Enjoy the quiet."
     },
@@ -43,12 +43,12 @@ window.NEWSSTAND_DATA = {
     weekly: {
       edition: "weekly",
       job: "The week’s bigger picture, connecting the stories without repeating every headline.",
-      status: "quiet",
-      publishedAt: null,
-      updatedAt: "2026-08-03T22:00:00Z",
-      lastCheckedAt: "2026-08-03T22:00:00Z",
+      status: "current",
+      publishedAt: "2026-07-27T17:00:00Z",
+      updatedAt: "2026-08-11T22:00:00Z",
+      lastCheckedAt: "2026-08-11T22:00:00Z",
       maxAgeHours: 192,
-      note: "No Weekly synthesis is ready. Paige will not pad the paper with a repeated headline."
+      note: "The Weekly connects two large studies about how AI is changing the boundaries inside work."
     },
     tribune: {
       edition: "tribune",
@@ -125,6 +125,222 @@ window.NEWSSTAND_DATA = {
       tags: ["privacy", "health", "ChatGPT", "verification", "permissions"],
       saint_lane: "Elle Woods · Read the fine print",
       badge: "COMING SOON · THE BREAKING"
+    },
+    {
+      id: "gemini-flash-costs-less-test-before-switching",
+      slug: "gemini-flash-costs-less-test-before-switching",
+      edition: "daily",
+      status: "published",
+      publishedAt: "2026-07-21T18:00:00Z",
+      updatedAt: "2026-08-11T22:00:00Z",
+      lastCheckedAt: "2026-08-11T22:00:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/gemini-flash-costs-less-test-before-switching.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "Google’s new Flash models cost less. Test your whole task before switching.",
+      the_story: "Google released Gemini 3.6 Flash and Gemini 3.5 Flash-Lite on July 21. Google lists 3.6 Flash at $1.50 per million input tokens and $7.50 per million output tokens, while Flash-Lite is $0.30 for input and $2.50 for output. Both are available through the Gemini API; Google also placed 3.6 Flash in the Gemini app and made it the default model for its Antigravity managed agent. The company says 3.6 Flash used 17% fewer output tokens than 3.5 Flash on one named external index. That is evidence from a bounded test, not a promise that every task becomes 17% cheaper or better. Google also announced a specialized Flash Cyber model, but said its limited pilot would be for governments and trusted partners rather than general public use.",
+      laidies_read: "A cheaper token is like cheaper printer ink: welcome, but it does not tell you how many pages you will ruin before the document is right. The bill that matters includes the model’s output, retries, tool calls, your time and whether the result can actually be used. A lower list price can reduce cost; it cannot replace a comparison on your own work.",
+      what_this_means: "If you already use Gemini for repeated coding, documents, extraction or agent work, run the same small set of real tasks through your current model and the new candidate. Record quality, elapsed time, tokens, tool calls and retries before changing production. Flash-Lite is the more plausible low-cost lane for high-volume classification, extraction or routing. If you only use the consumer app occasionally, there is no reason to reorganize your workflow because a model name changed.",
+      cocktail_party: "“Google’s latest Flash models have lower token prices, but cheaper tokens do not automatically mean a cheaper finished task. Test quality, retries and total time before switching.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "Reference this story when teaching model selection: compare cost to a usable outcome, not only the advertised price per token.",
+      sources: [
+        {
+          id: "google-gemini-flash-family-2026-07-21",
+          label: "Google — Introducing Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber (July 21, 2026)",
+          url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "google-gemini-latest-model-guide-2026-08-11",
+          label: "Google AI for Developers — Latest Gemini model and migration guide",
+          url: "https://ai.google.dev/gemini-api/docs/latest-model",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["Gemini", "model choice", "AI costs", "agents", "Google"],
+      saint_lane: "C.J. Cregg · Read the whole receipt",
+      badge: "ARCHIVE · THE DAILY"
+    },
+    {
+      id: "kimi-k3-open-weights-not-laptop-ai",
+      slug: "kimi-k3-open-weights-not-laptop-ai",
+      edition: "daily",
+      status: "published",
+      publishedAt: "2026-07-27T18:00:00Z",
+      updatedAt: "2026-08-11T22:00:00Z",
+      lastCheckedAt: "2026-08-11T22:00:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/kimi-k3-open-weights-not-laptop-ai.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "Kimi K3’s weights are open. That does not make it laptop AI.",
+      the_story: "Moonshot AI released Kimi K3’s model files, deployment instructions and license on Hugging Face. Its model card describes a 2.8-trillion-parameter mixture-of-experts model that uses 104 billion parameters at a time, accepts text and images and supports a context window of up to one million tokens. Publishing weights gives technically equipped organizations the option to inspect, modify and operate the model rather than using only a hosted service. It does not supply the hardware, storage, power, serving software, security work or specialist staff needed to run a model of this size. The custom license grants broad rights but includes conditions, so “open weights” should not be silently translated into “no restrictions.”",
+      laidies_read: "Publishing the weights is like releasing the recipe instead of requiring everyone to order from one restaurant. This particular recipe still needs an industrial kitchen. The access change is real for organizations with infrastructure; for most people, the practical way to use K3 remains a hosted product.",
+      what_this_means: "If control over deployment or data is important to your organization, K3 is now a serious evaluation candidate—but compare the license, hardware, security, staffing and total serving cost with a hosted API. If you want a capable model running on an ordinary personal laptop, this release is not that. A preliminary NIST and UK AISI assessment also found meaningful cyber capability and reported that K3’s safeguards did not prevent offensive assistance in its selected tests; that warrants continued evaluation without turning a bounded test into a claim about every possible use.",
+      cocktail_party: "“Kimi K3 released its weights, which gives well-equipped teams more control. Open weights means access to the model files; it does not mean a 2.8-trillion-parameter model becomes a free laptop app.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "Use this as the practical distinction between an open-weight release, a hosted service and a genuinely local personal-computer model.",
+      sources: [
+        {
+          id: "moonshot-kimi-k3-model-card-2026-08-11",
+          label: "Moonshot AI — Kimi K3 model card and released weights",
+          url: "https://huggingface.co/moonshotai/Kimi-K3",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "moonshot-kimi-k3-license-2026-08-11",
+          label: "Moonshot AI — Kimi K3 License",
+          url: "https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE",
+          publisherType: "primary-document",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "nist-uk-aisi-kimi-k3-2026-07",
+          label: "NIST and UK AISI — Preliminary assessment of Kimi K3’s cyber capabilities",
+          url: "https://www.nist.gov/news-events/news/2026/07/uk-aisi-caisi-preliminary-assessment-kimi-k3s-cyber-capabilities",
+          publisherType: "regulator",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["Kimi K3", "open weights", "local AI", "model deployment", "AI safety"],
+      saint_lane: "Dana Scully · Open the file, then read the conditions",
+      badge: "ARCHIVE · THE DAILY"
+    },
+    {
+      id: "weathernext-cyclones-open-model-human-warning",
+      slug: "weathernext-cyclones-open-model-human-warning",
+      edition: "daily",
+      status: "published",
+      publishedAt: "2026-08-06T18:00:00Z",
+      updatedAt: "2026-08-11T22:00:00Z",
+      lastCheckedAt: "2026-08-11T22:00:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/weathernext-cyclones-open-model-human-warning.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "The cyclone model is open. The storm warning is still human.",
+      the_story: "Google DeepMind released code and pretrained weights for WeatherNext Cyclones and WeatherNext 2 alongside a peer-reviewed Nature paper. The study reports that, averaged across its 2023–2025 evaluation, the cyclone model’s three-day forecasts for track, intensity and wind structure matched the skill of leading operational models at two days. That is a forecasting result, not proof that every community will receive every warning one day earlier. The system can generate large ensembles of plausible forecasts, giving forecasters information about both likely outcomes and uncertainty. The public release now lets specialist teams inspect and test the model rather than relying only on Google’s reported results or forecast feed.",
+      laidies_read: "An ensemble is not one crystal-ball answer. It is closer to running the same route planner many times while conditions vary: convergence can increase confidence and spread is useful information. But the runs share a model family, data and assumptions, so they can also share blind spots. Human forecasters still compare model guidance with observations, other models and local knowledge before an authority issues an official forecast or warning.",
+      what_this_means: "For weather agencies and researchers, open code and weights make independent testing more possible. For everyone else, this is not a personal warning app or a Gemini feature. Better model guidance becomes public safety only when forecasting centres can operate it, interpret uncertainty and communicate a useful warning. Keep following the official weather authority where you live.",
+      cocktail_party: "“Google opened a promising cyclone-forecasting model, but a better forecast is not automatically an earlier public warning. Forecasters and warning systems still turn model guidance into action.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "A useful example for classes on uncertainty: many model runs can reveal a range of outcomes without becoming many independent experts.",
+      sources: [
+        {
+          id: "deepmind-weathernext-cyclones-2026-08-06",
+          label: "Google DeepMind — WeatherNext cyclone forecasting release (August 6, 2026)",
+          url: "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "nature-weathernext-cyclones-2026",
+          label: "Nature — Operational tropical cyclone forecasting with AI",
+          url: "https://www.nature.com/articles/s41586-026-10953-2",
+          publisherType: "academic",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "deepmind-weathernext-repository-2026-08-11",
+          label: "Google DeepMind — WeatherNext source repository and model documentation",
+          url: "https://github.com/google-deepmind/weathernext",
+          publisherType: "primary-document",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["WeatherNext", "weather", "forecasting", "open models", "uncertainty"],
+      saint_lane: "Jo Harding · Watch the sky and the instruments",
+      badge: "ARCHIVE · THE DAILY"
+    },
+    {
+      id: "ai-is-moving-the-handoff-line-at-work",
+      slug: "ai-is-moving-the-handoff-line-at-work",
+      edition: "weekly",
+      status: "published",
+      publishedAt: "2026-07-27T17:00:00Z",
+      updatedAt: "2026-08-11T22:00:00Z",
+      lastCheckedAt: "2026-08-11T22:00:00Z",
+      sourceApproval: {
+        status: "approved",
+        record: "/operations/product-stewards/newsstand/evidence/stories/ai-is-moving-the-handoff-line-at-work.json"
+      },
+      correction: null,
+      retraction: null,
+      thread: null,
+      thread_subtitle: null,
+      thread_entry: null,
+      headline: "AI use may be moving the handoff line at work.",
+      the_story: "Two large vendor studies describe related changes in how people use AI at work. Google’s ATLAS report examined about 14.7 million de-identified interactions sampled from the Gemini App, Google AI Mode and the free Gemini API over two weeks in April 2026; paid API and enterprise use were excluded from this granular analysis. It classified less than 10% of work interactions as full task automation; collaboration, information retrieval, learning and ideation were more common. OpenAI’s Work at the Frontier report examined more than 800,000 work-related messages from individual ChatGPT accounts of U.S. users whose self-reported role information was linked from ChatGPT Business, across eight occupation groups. It reports that 16.8% of all work messages—and 43.5% of the non-generic messages it classified as occupation-specific—concerned tasks historically associated with another occupation. The percentages are not directly comparable: the products, samples, units and classification methods differ.",
+      laidies_read: "The study captures people asking AI for tasks outside the historic boundaries of their role. That may change what they try before asking a specialist—but it does not show that the handoff actually changed, or that the result was accepted. A marketer may troubleshoot a website; a salesperson may explore a dataset. Those examples do not automatically make either person an engineer or analyst.",
+      what_this_means: "Choose one recurring handoff in your work and run a bounded experiment. Define the output, the evidence it must contain and the point where a qualified reviewer must take over. Then measure whether AI improved the completed result—not merely whether it produced a plausible draft. Neither study observes enough to prove productivity, accepted quality, employment effects or the disappearance of specialist work. Both are vendor studies of their own users and model-classified behaviour, so treat them as useful maps rather than a census of work.",
+      cocktail_party: "“One possible workplace change is less about whole jobs vanishing and more about people attempting tasks across historic role boundaries. These studies show the requests, not whether the handoff actually changed or the result was accepted.”",
+      watch_fors: null,
+      closing_note: null,
+      class_notes: "This provides a reusable model for classes and episodes: identify the task step, the shifted handoff and the point where accountable human judgment returns.",
+      sources: [
+        {
+          id: "google-atlas-v1-2026-07",
+          label: "Google — ATLAS v1 report on AI use across work and daily life",
+          url: "https://ai.google/static/documents/GoogleATLASv1.pdf",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "openai-work-at-frontier-2026-07",
+          label: "OpenAI — Work at the Frontier report",
+          url: "https://cdn.openai.com/pdf/work-at-the-frontier-report.pdf",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        },
+        {
+          id: "openai-work-frontier-explainer-2026-07",
+          label: "OpenAI — How AI is expanding what people do at work",
+          url: "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/",
+          publisherType: "vendor",
+          accessedAt: "2026-08-11",
+          approvalStatus: "reviewed"
+        }
+      ],
+      aidb_credit: null,
+      tags: ["AI at work", "tasks", "job boundaries", "Gemini", "ChatGPT"],
+      saint_lane: "Sydney Bristow · Know where the handoff moved",
+      badge: "ARCHIVE · THE WEEKLY"
     },
     {
       id: "eu-ai-act-transparency-starts",

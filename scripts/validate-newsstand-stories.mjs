@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
@@ -23,6 +24,12 @@ const UNSAFE_HTML = /<\s*(script|iframe|object|embed|form)\b|\bon\w+\s*=|javascr
 const PLACEHOLDER = /\b(TODO|TBD|FIXME|placeholder|example\.com)\b/i;
 const ISO_DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
 const errors = [];
+const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const canonicalJson = (value) => {
+  if (value === null || typeof value !== "object") return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
+};
 
 function fail(message) {
   errors.push(message);
@@ -127,12 +134,24 @@ if (!Array.isArray(stories)) {
           if (!manifest.correctionOwner || !/^\d{4}-\d{2}-\d{2}$/.test(manifest.nextRecheckAt || "")) {
             fail(`${label}: evidence manifest needs correctionOwner and nextRecheckAt.`);
           }
+          if (manifest.independentReview && !fs.existsSync(path.join(ROOT, manifest.independentReview.replace(/^\//, "")))) {
+            fail(`${label}: independent review record does not resolve.`);
+          }
           if (!Array.isArray(manifest.claims) || !manifest.claims.length ||
               manifest.claims.some((claim) => !claim.claim || !Array.isArray(claim.sourceIds) || !claim.sourceIds.length)) {
             fail(`${label}: evidence manifest needs a complete claim-to-source map.`);
           }
           if (manifest.claims?.some((claim) => claim.sourceIds.some((id) => !manifestSourceIds.has(id)))) {
             fail(`${label}: claim map references an unknown source id.`);
+          }
+          if (manifest.reviewArtifact) {
+            const exactStorySha256 = process.env.NEWSSTAND_REVIEW_ARTIFACT_CALIBRATION === "alter-story-hash"
+              ? "0".repeat(64)
+              : sha256(`${canonicalJson(story)}\n`);
+            if (manifest.reviewArtifact.canonicalization !== "recursive-key-sorted-json-plus-newline" ||
+                manifest.reviewArtifact.storySha256 !== exactStorySha256) {
+              fail(`${label}: evidence reviewArtifact does not bind the exact current story bytes.`);
+            }
           }
         } catch (error) {
           fail(`${label}: evidence manifest is not valid JSON (${error.message}).`);

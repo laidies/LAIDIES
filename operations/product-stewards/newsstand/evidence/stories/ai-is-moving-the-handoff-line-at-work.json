@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "ai-is-moving-the-handoff-line-at-work",
+  "edition": "weekly",
+  "candidateStatus": "approved-for-local-weekly-assembly",
+  "candidatePath": "content/newsstand-stories.js",
+  "reviewArtifact": {
+    "canonicalization": "recursive-key-sorted-json-plus-newline",
+    "storySha256": "55dec045871756144f3e6d21bf508041e64e007b1ffc8cc320f1732d85e7c972"
+  },
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "nextRecheckAt": "2026-08-18",
+  "independentReview": "operations/product-stewards/newsstand/evidence/newsstand-three-week-backfill-independent-review-2026-08-11.md",
+  "sources": [
+    { "id": "google-atlas-v1-2026-07", "url": "https://ai.google/static/documents/GoogleATLASv1.pdf", "type": "vendor", "accessedAt": "2026-08-11" },
+    { "id": "openai-work-at-frontier-2026-07", "url": "https://cdn.openai.com/pdf/work-at-the-frontier-report.pdf", "type": "vendor", "accessedAt": "2026-08-11" },
+    { "id": "openai-work-frontier-explainer-2026-07", "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work/", "type": "vendor", "accessedAt": "2026-08-11" }
+  ],
+  "claims": [
+    { "id": "WORK-C01", "claim": "Google ATLAS studied about 14.7M sampled interactions and classified less than 10% of work interactions as full task automation.", "sourceIds": ["google-atlas-v1-2026-07"], "risk": "high" },
+    { "id": "WORK-C02", "claim": "OpenAI studied more than 800,000 work messages and reported its named cross-occupation task shares.", "sourceIds": ["openai-work-at-frontier-2026-07", "openai-work-frontier-explainer-2026-07"], "risk": "high" },
+    { "id": "WORK-C03", "claim": "The two percentages are not directly comparable; the observed requests may indicate a shifted handoff but do not prove an organizational handoff changed, a result was accepted, productivity improved, employment changed or specialists were replaced.", "sourceIds": ["google-atlas-v1-2026-07", "openai-work-at-frontier-2026-07"], "risk": "high", "classification": "methods-bound editorial synthesis" }
+  ],
+  "requiredReview": ["independent methods reading", "percentage-denominator accuracy", "editorial comprehension", "Weekly synthesis and limitations"],
+  "publicAuthority": "LOCAL_ASSEMBLY_ONLY_NO_DEPLOY"
+}

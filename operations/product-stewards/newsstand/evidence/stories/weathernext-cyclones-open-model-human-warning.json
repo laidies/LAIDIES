@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "weathernext-cyclones-open-model-human-warning",
+  "edition": "daily",
+  "candidateStatus": "approved-for-local-daily-assembly",
+  "candidatePath": "content/newsstand-stories.js",
+  "reviewArtifact": {
+    "canonicalization": "recursive-key-sorted-json-plus-newline",
+    "storySha256": "8488251a31a9315c9c529e0e0c2c6342e563be2af4e1db32592aad5d2ac16e6a"
+  },
+  "correctionOwner": "NewsStand accuracy and corrections editor",
+  "nextRecheckAt": "2026-08-18",
+  "independentReview": "operations/product-stewards/newsstand/evidence/newsstand-three-week-backfill-independent-review-2026-08-11.md",
+  "sources": [
+    { "id": "deepmind-weathernext-cyclones-2026-08-06", "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/", "type": "vendor", "accessedAt": "2026-08-11" },
+    { "id": "nature-weathernext-cyclones-2026", "url": "https://www.nature.com/articles/s41586-026-10953-2", "type": "academic", "accessedAt": "2026-08-11" },
+    { "id": "deepmind-weathernext-repository-2026-08-11", "url": "https://github.com/google-deepmind/weathernext", "type": "primary-document", "accessedAt": "2026-08-11" }
+  ],
+  "claims": [
+    { "id": "WN-C01", "claim": "DeepMind released code and pretrained weights with a peer-reviewed Nature paper.", "sourceIds": ["deepmind-weathernext-cyclones-2026-08-06", "nature-weathernext-cyclones-2026", "deepmind-weathernext-repository-2026-08-11"], "risk": "medium" },
+    { "id": "WN-C02", "claim": "The reported average three-day skill matched leading operational models at two days in the named evaluation.", "sourceIds": ["deepmind-weathernext-cyclones-2026-08-06", "nature-weathernext-cyclones-2026"], "risk": "high" },
+    { "id": "WN-C03", "claim": "Forecast skill does not by itself prove that every public warning arrives one day earlier.", "sourceIds": ["nature-weathernext-cyclones-2026"], "risk": "medium", "classification": "bounded editorial inference" }
+  ],
+  "requiredReview": ["scientific claim accuracy", "public-warning scope", "editorial comprehension", "historical Daily classification"],
+  "publicAuthority": "LOCAL_ASSEMBLY_ONLY_NO_DEPLOY"
+}
