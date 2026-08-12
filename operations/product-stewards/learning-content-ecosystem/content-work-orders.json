@@ -3739,6 +3739,123 @@
           "reason": "WATCH: verified restricted access, but no sufficiently consequential current publication job."
         }
       }
+    },
+    {
+      "id": "LCWO-019",
+      "title": "Build the Dear Miss Jeeves answer about output getting worse after repeated revisions",
+      "sourceRefs": [
+        "content/dear-miss-jeeves-bank.json",
+        "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md",
+        "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md",
+        "operations/product-stewards/learning-content-ecosystem/claim-register.json"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "EXTEND",
+      "ownerProductId": "learning-content-ecosystem",
+      "publicationFormatIds": ["dear_miss_jeeves"],
+      "formatRouting": [
+        {
+          "publicationFormatId": "dear_miss_jeeves",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Replace the rejected start-a-new-chat advice with one source-bound diagnosis and tested long-work recovery method for DMJ-004.",
+          "sourceVersionIds": ["DMJ-004", "ALI-REJECTION-2026-08-11", "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS"]
+        }
+      ],
+      "targetPaths": [
+        "content/dear-miss-jeeves-bank.json",
+        "content/dear-miss-jeeves/dmj-004-fifteen-revisions.md",
+        "operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md",
+        "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json",
+        "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json"
+      ],
+      "status": "BUILT_LOCALLY",
+      "dispatchState": "NOT_READY",
+      "priority": "P0",
+      "nextAction": "Commission one role-distinct artifact-first accuracy, usefulness, LAiDIES voice and format review of the exact DMJ-004 answer; repair any finding before ANSWER_VERIFIED, scheduling or integration.",
+      "nextTrigger": "The 521-word answer, source note, producer contract, manifest, producer self-review and RESEARCHING bank record are checksum-bound and ready for independent review.",
+      "acceptanceEvidence": [
+        "Producer contract binding the rejected failure and current evidence",
+        "Exact 350–650 word canonical answer",
+        "Workplace and non-work examples using the same mechanism",
+        "Tested recovery steps for long work without requiring a new session",
+        "Role-distinct accuracy, usefulness, voice and format review",
+        "At-most-one-weekly-column and public-ineligibility checks"
+      ],
+      "reviewChain": [
+        {"stage":"BUILD","owner":"learning-content-ecosystem","status":"REQUIRED"},
+        {"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},
+        {"stage":"EDITORIAL","owner":"editorial-learning","status":"REQUIRED"},
+        {"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},
+        {"stage":"OWNER","owner":"newsstand","status":"REQUIRED"},
+        {"stage":"RELEASE","owner":"control-room","status":"HOLD"},
+        {"stage":"PUBLIC","owner":"platform","status":"HOLD"}
+      ],
+      "qualityGates": {
+        "accuracy": {"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every product or model-behavior claim is bounded to current evidence; multiple plausible causes are not collapsed into one universal diagnosis.","evidencePaths":[]},
+        "antiSlop": {"owner":"newsstand","status":"REQUIRED","evidenceRequired":"The answer reproduces Ali's real failure, rejects generic start-over advice and gives a tested recovery sequence rather than filler.","evidencePaths":[]},
+        "currentBestPractice": {"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of official long-session and evaluation guidance plus expiry and correction triggers.","evidencePaths":[]},
+        "laidiesVoice": {"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Miss Jeeves is wry, composed and kind; humour follows the diagnosis and never blames the reader.","evidencePaths":[]},
+        "analogyIntegrity": {"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Any household or Rewind-era comparison maps exactly to prompt revision, external state or validation and states its limit.","evidencePaths":[]},
+        "usefulnessDepth": {"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"The answer distinguishes prose instructions from enforced controls and gives workable steps for a long-running job.","evidencePaths":[]},
+        "formatFit": {"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The exact answer follows the Dear Miss Jeeves 350–650 word column structure and preserves the one-column-per-week rule.","evidencePaths":[]},
+        "searchIndexing": {"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted canonical answer enters the NewsStand archive or search index.","evidencePaths":[]},
+        "relationshipLinking": {"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The answer links to the exact prompt/evaluation continuation without a generic learn-more list.","evidencePaths":[]},
+        "canonConsistency": {"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The diagnosis agrees with current prompting, evaluation, agent-control and long-work guidance sitewide.","evidencePaths":[]},
+        "songOpportunity": {"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"Radio adaptation reuses the same admitted answer identity; no separate factual canon or song is implied.","evidencePaths":[]},
+        "derivativeFeeds": {"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The held bank record remains suppressed until exact admission and weekly scheduling.","evidencePaths":[]}
+      },
+      "artifactBinding": {"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json","sha256":"150a66b3501c5034e590adf4ba511e2eee05635f3a271cb708b69c5fe2754d80"},
+      "producerContractPath": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-contract.json",
+      "producerReviewPath": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json",
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
+        "content/dear-miss-jeeves-bank.json",
+        "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md",
+        "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md"
+      ],
+      "publicRelease": {"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-019-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "learning-content-ecosystem",
+          "targetPaths": [
+            "content/dear-miss-jeeves-bank.json",
+            "content/dear-miss-jeeves/dmj-004-fifteen-revisions.md",
+            "operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md",
+            "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json",
+            "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json"
+          ]
+        },
+        "requiredPrimaryGates": ["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],
+        "derivatives": [
+          {"id":"songOpportunity","state":"PARKED","reason":"No distinct song learning job exists.","activationTrigger":"Reconsider only after the column is admitted and a separate mnemonic purpose is proved."},
+          {"id":"derivativeFeeds","state":"PARKED","reason":"No Daily or radio feed may consume a held answer.","activationTrigger":"Activate only after independent admission and an exact weekly schedule."}
+        ],
+        "wip": {"ownerLimit":1},
+        "dispatch": {
+          "receiptId": "DSP-LCWO-019-20260811-01",
+          "receiptPath": "operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-019-20260811-01.json",
+          "ownerId": "learning-content-ecosystem",
+          "laneId": "codex-heartbeat:laidies-learning-system-execution-recovery",
+          "acceptedScope": [
+            "content/dear-miss-jeeves-bank.json",
+            "content/dear-miss-jeeves/dmj-004-fifteen-revisions.md",
+            "operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md",
+            "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json",
+            "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json"
+          ],
+          "collisionBoundary": "This lane may create and self-review one held DMJ-004 answer and update its exact bank/work-order bindings; it may not mark the column eligible, schedule it, create a radio adaptation, edit the public NewsStand consumer, deploy or publish.",
+          "dispatchedAt": "2026-08-11T23:38:00-07:00",
+          "checkpointAt": "2026-08-12T00:08:00-07:00",
+          "slaDueAt": "2026-08-12T02:38:00-07:00"
+        },
+        "closure": null
+      }
     }
   ]
 }

@@ -72,19 +72,34 @@
     },
     {
       "id": "DMJ-004",
-      "status": "IDEA",
+      "status": "RESEARCHING",
       "question": "Dear Miss Jeeves, why does the output sometimes get worse after fifteen revisions?",
-      "userSituation": null,
-      "directAnswer": null,
-      "mechanism": null,
-      "commonMisunderstanding": null,
-      "readerMove": null,
-      "productBoundary": null,
-      "canonicalAnswer": { "answerId": null, "path": null },
-      "sourceClaimIds": [],
-      "sourceContentIds": [],
-      "freshness": { "lastCheckedAt": null, "expiresAt": null, "recheckTriggers": [] },
-      "reviewEvidence": { "producer": null, "accuracy": null, "editorial": null, "laidiesVoice": null, "formatFit": null, "owner": null },
+      "userSituation": "A reader has corrected the same long-running AI job many times; the system agrees with each correction while later versions lose earlier requirements or become less useful.",
+      "directAnswer": "Later revisions often optimize for the latest complaint while no external authority or rerunnable check protects the whole original job; acknowledgement is generated text, not enforced compliance.",
+      "mechanism": "Repeated or competing context can amplify in a long session, serial local corrections can displace earlier requirements, and a prompt or rule file remains advisory unless the workflow loads it and validates the resulting artifact.",
+      "commonMisunderstanding": "More instructions must create more control, and starting a new session is the universal recovery.",
+      "readerMove": "Freeze the whole-job brief and last good artifact outside the chat, define stable work and life test cases, change one thing, rerun every check and promote only a passing candidate; preserve checkpoints for any context refresh or handoff.",
+      "productBoundary": "Context handling, attachments, tools, permissions, outages and model changes differ by product. Persistent failure against a stable test can require a workflow, tool, model or human-control change rather than another prompt revision.",
+      "canonicalAnswer": { "answerId": "DMJ-004-ANSWER-V1", "path": "content/dear-miss-jeeves/dmj-004-fifteen-revisions.md" },
+      "sourceClaimIds": ["CLM-PRACTICE-REPEATABLE-PROMPT-EVALS"],
+      "sourceContentIds": ["DMJ-004", "ALI-REJECTION-2026-08-11", "EDITORIAL-PRODUCTION-METHOD-V2", "openai:model-guidance:2026-08-11"],
+      "freshness": {
+        "lastCheckedAt": "2026-08-11",
+        "expiresAt": "2026-09-11",
+        "recheckTriggers": [
+          "OpenAI materially changes its long-session, prompting or evaluation guidance.",
+          "The column names product-specific context, memory, project or session behavior.",
+          "The canonical answer, rejected predecessor or long-work recovery method changes."
+        ]
+      },
+      "reviewEvidence": {
+        "producer": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json",
+        "accuracy": null,
+        "editorial": null,
+        "laidiesVoice": null,
+        "formatFit": null,
+        "owner": null
+      },
       "schedule": { "publicationDate": null, "publishedAt": null },
       "radioAdaptation": { "status": "NOT_ASSESSED", "scriptPath": null, "audioPath": null },
       "publicEligibility": "INELIGIBLE"
