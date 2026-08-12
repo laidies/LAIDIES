@@ -15105,3 +15105,43 @@ while remaining falsely unfinished in the launch record.
   the same file while still failing to prove that the file agrees with itself.
 - **Publication status:** TWO INTERNAL PRODUCER CANDIDATES ON HOLD / NO
   INDEPENDENT ADMISSION, RENDER, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-486 — The article named the machinery before the reader could picture it
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand Daily / substantial public explanations.
+- **Failure:** The August 12 Daily introduced “developer tools,” “reasoning
+  models,” “working trace,” “API,” “opaque encrypted block” and “compatible
+  model” before a nontechnical reader had a concrete situation or understood
+  what information was moving between which parts. The hotel-keycard analogy
+  explained the scope failure but not what the supposed keycard represented.
+  Ali rejected the explanation and correctly found that it did not perform the
+  agreed Hannah Fry or Feynman-style method.
+- **Additional missed value:** The forwarded intelligence email did more than
+  surface a source. It paired an accessible concept explanation with immediate
+  practical guidance, such as a prompt or exercise. The LAiDIES intake summary
+  reduced that teaching loop to sourcing and action metadata, so the proposed
+  Daily explained news without letting the reader use the durable idea.
+- **Root cause:** The producer contract named human entry, concrete mechanism
+  and first-principles reasoning, but did not require a term-by-term bridge from
+  ordinary experience to the technical labels. Structural benchmark fields
+  passed while the prose still began inside the machinery.
+- **Prevention rule:** Begin with the human puzzle and one ordinary complete
+  situation. Make every invisible object and handoff concrete, connect the
+  causal sequence, then introduce a technical term only after its meaning is
+  understood. Analogies follow the object; they never create it. Headline
+  reality checks separately preserve what the story said, what evidence found,
+  what was right, what was distorted and the real LAiDIES read. Then identify
+  the durable concept beneath the story and give one prompt, checklist,
+  comparison, experiment or decision rule that actually applies it. Never
+  force a prompt where it cannot affect the mechanism.
+- **Durable correction:** CQX-BAD-013 invalidates the false passes.
+  D-2026-08-12-120 stops further NewsStand architecture expansion and binds
+  two evidence-selected reader modes: Headline Reality Check when reporting
+  materially distorts or omits, and Plain-Language Explainer when fair
+  reporting mainly needs translation. The next proof is corrected prose, not
+  another schema or gate.
+- **Possible Behind the Build angle:** Why defining “API” in brackets is not the
+  same as explaining the story from first principles.
+- **Publication status:** AUGUST 12 DAILY PREDECESSOR REJECTED / SUCCESSOR IN
+  REPAIR / NO CANONICAL INTEGRATION OR PUBLICATION.

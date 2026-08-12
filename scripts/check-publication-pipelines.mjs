@@ -54,8 +54,8 @@ export function validatePublicationPipelines(data) {
   for (const field of ["signalId", "publicationFormatId", "relationship", "contributionJob", "workOrderId", "sourceVersionIds"]) {
     if (!contributionFields.has(field)) errors.push(`multi-output contribution missing field ${field}`);
   }
-  if (!/Breaking or The Daily/i.test(multiOutput?.example || "") || !/Big Question/i.test(multiOutput?.example || "")) {
-    errors.push("multi-output contract must cover current news contributing to a Big Question");
+  if (!/Breaking or The Daily/i.test(multiOutput?.example || "") || !/Big Picture/i.test(multiOutput?.example || "")) {
+    errors.push("multi-output contract must cover current news contributing to a Big Picture");
   }
   if (!/cannot inherit admission/i.test(multiOutput?.independenceRule || "")) errors.push("multi-output contract must prohibit inherited admission");
   if (!Array.isArray(data?.formats)) errors.push("formats must be an array");
@@ -97,8 +97,8 @@ export function validatePublicationPipelines(data) {
     errors.push("news_weekly must require a multi-element synthesis of at least two developments");
   }
   const bigQuestion = formats.get("news_big_question");
-  if (bigQuestion?.displayName !== "The Big Question" || bigQuestion?.machineEdition !== "tribune") {
-    errors.push("news_big_question must expose The Big Question while retaining tribune machine compatibility");
+  if (bigQuestion?.displayName !== "The Big Picture" || bigQuestion?.machineEdition !== "tribune") {
+    errors.push("news_big_question must expose The Big Picture while retaining tribune machine compatibility");
   }
   const bigQuestionFields = (bigQuestion?.templateFields || []).join(" ");
   if (!/primary documents.*data.*claims to test/i.test(bigQuestionFields) || !/responsible organizations.*questions put to them/i.test(bigQuestionFields) || !/unanswered questions/i.test(bigQuestionFields)) {

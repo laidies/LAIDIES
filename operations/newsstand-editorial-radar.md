@@ -119,14 +119,40 @@ merely because the circulating framing is poor.
 
 For these candidates, record:
 
-1. the circulating claim, paraphrased without unnecessary repetition;
+1. the exact circulating headline, publisher and date, followed by a fair
+   plain-language summary of what the story says;
 2. a verdict: `SUPPORTED`, `TRUE BUT INCOMPLETE`, `MISLEADING`, `DISPUTED` or
    `UNSUPPORTED`;
-3. the exact words, omitted conditions or causal leap creating the distortion;
-4. what the strongest evidence actually establishes;
-5. what it does not establish;
-6. why the distinction matters for a reader's understanding or decisions; and
-7. the important real takeaway.
+3. what the underlying study, announcement, incident record or data actually
+   establishes;
+4. what the story got right;
+5. the exact words, omitted conditions or causal leap creating what it
+   overstated, omitted or blurred;
+6. what the strongest evidence does not establish;
+7. the LAiDIES read: what this actually means, why it matters, who it affects
+   and what remains uncertain; and
+8. one useful action, decision rule or watch point.
+
+Apply this mode only when an exact circulating headline or framing has been
+identified. Do not invent or merely imply a public misconception so the story
+can correct it. Begin with the human puzzle and an ordinary situation, make
+the invisible process concrete one causal link at a time and introduce a
+technical label such as `API` or `encrypted reasoning block` only after the
+reader can describe the object or action in ordinary language.
+
+If the reporting is fair and the reader's unmet need is comprehension rather
+than correction, route the item as a plain-language explainer instead. Record:
+
+1. what happened;
+2. the human question in ordinary language;
+3. how the announcement works or how the research was conducted;
+4. what the evidence supports;
+5. what it does not establish yet;
+6. why it realistically matters; and
+7. one earned practical use, better question or watch point.
+
+Do not add `what the story got wrong` fields to this mode. Absence of a defect
+is not an editorial gap, and fair reporting must not be turned into a foil.
 
 The correction must be more prominent and memorable than the sensational
 claim. Do not reproduce a false claim in a headline without an immediate

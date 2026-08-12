@@ -55,7 +55,7 @@ assert.match(validatePublicationPipelines(weeklyBundle).errors.join("\n"), /synt
 
 const renamedWrongly = clone(source);
 renamedWrongly.formats.find((format) => format.id === "news_big_question").displayName = "The Tribune";
-assert.match(validatePublicationPipelines(renamedWrongly).errors.join("\n"), /expose The Big Question/);
+assert.match(validatePublicationPipelines(renamedWrongly).errors.join("\n"), /expose The Big Picture/);
 
 const thesisWithoutInvestigation = clone(source);
 thesisWithoutInvestigation.formats.find((format) => format.id === "news_big_question").templateFields = [
