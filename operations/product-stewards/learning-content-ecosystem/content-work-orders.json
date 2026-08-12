@@ -4025,6 +4025,50 @@
         "dispatch":null,
         "closure":null
       }
+    },
+    {
+      "id":"LCWO-022",
+      "title":"Build a coherent August 3 archive Daily from admitted story and desk records",
+      "sourceRefs":["content/newsstand-daily-issues.json","content/daily-edition-columns.json","operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"],
+      "surface":"NEWSSTAND",
+      "action":"CREATE",
+      "ownerProductId":"newsstand-daily",
+      "publicationFormatIds":["news_daily","paige_ai_tip","career_work_life_tip","promptoscope"],
+      "formatRouting":[
+        {"publicationFormatId":"news_daily","relationship":"PRIMARY_OUTPUT","contributionJob":"Present one admitted dated story and four admitted service desks as a recognisable archive newspaper.","sourceVersionIds":["DAILY-ISSUE-2026-08-03","EU50-STORY","ALI-REJECTION-2026-08-11"]},
+        {"publicationFormatId":"paige_ai_tip","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Preserve the admitted August 3 Paige desk as a clearly secondary service item.","sourceVersionIds":["DAILY-2026-08-03-PAIGE-FOLLOW-UP"]},
+        {"publicationFormatId":"career_work_life_tip","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Preserve the admitted career-first delegation item and its human-limit boundary.","sourceVersionIds":["DAILY-2026-08-03-CAREER-DELEGATION"]},
+        {"publicationFormatId":"promptoscope","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Preserve the admitted playful context habit without making it news.","sourceVersionIds":["DAILY-2026-08-03-PROMPTOSCOPE-CONTEXT"]}
+      ],
+      "targetPaths":["operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md","operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json"],
+      "status":"BUILT_LOCALLY",
+      "dispatchState":"NOT_READY",
+      "priority":"P0",
+      "nextAction":"Commission one role-distinct artifact-first legal accuracy, editorial, learning, LAiDIES voice and Daily-format review of the exact archive issue; repair any finding before canonical integration.",
+      "nextTrigger":"The 941-word archive Daily, premise, current source refresh, producer contract, manifest and producer self-review are checksum-bound and ready for independent review.",
+      "acceptanceEvidence":["One dominant dated lead and four clearly secondary desks","No operational status language or filler desks","Archive date and current-source refresh explicit","Workplace and non-work application of the lead's mechanism","Role-distinct accuracy, editorial, learning, voice and format review","No canonical or public mutation before admission"],
+      "reviewChain":[{"stage":"BUILD","owner":"newsstand-daily","status":"PASS_LOCAL"},{"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},{"stage":"EDITORIAL","owner":"newsstand","status":"REQUIRED"},{"stage":"LEARNING","owner":"learning-content-ecosystem","status":"REQUIRED"},{"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},{"stage":"OWNER","owner":"newsstand-daily","status":"REQUIRED"},{"stage":"RELEASE","owner":"control-room","status":"HOLD"},{"stage":"PUBLIC","owner":"platform","status":"HOLD"}],
+      "qualityGates":{
+        "accuracy":{"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every Article 50, actor, output, transition and label-limit claim maps to current official evidence.","evidencePaths":[]},
+        "antiSlop":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"Artifact-first review proves clear hierarchy, specific reporting and no internal scaffolding or filler.","evidencePaths":[]},
+        "currentBestPractice":{"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of Commission and EUR-Lex sources or explicit retrieval limitation.","evidencePaths":[]},
+        "laidiesVoice":{"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Smart, useful and non-condescending newspaper voice with bounded analogy and distinct desk voices.","evidencePaths":[]},
+        "analogyIntegrity":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Caller ID maps origin and states that it cannot prove the claim.","evidencePaths":[]},
+        "usefulnessDepth":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"A reader can explain the label's job and limit and apply the five-question check to work and home cases.","evidencePaths":[]},
+        "formatFit":{"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The issue reads as a Daily archive, not a model, memo, Weekly or current alert.","evidencePaths":[]},
+        "searchIndexing":{"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted successor enters archive, search, feed and canonical metadata.","evidencePaths":[]},
+        "relationshipLinking":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Every desk destination and parent state remains exact and independently bounded.","evidencePaths":[]},
+        "canonConsistency":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The Daily, service-column names and current Article 50 concepts remain consistent.","evidencePaths":[]},
+        "songOpportunity":{"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"No song desk appears without a rights-cleared admitted selection.","evidencePaths":[]},
+        "derivativeFeeds":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"No social, newsletter or current-Daily derivative inherits archive admission.","evidencePaths":[]}
+      },
+      "artifactBinding":{"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","sha256":"0dee14da2b6656ce3e0ff8009e0683609ccf8d0c9c7c0dd7615f44d5744bb469"},
+      "producerContractPath":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json",
+      "producerReviewPath":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json",
+      "semanticAdmissionPath":null,
+      "evidencePaths":["content/newsstand-daily-issues.json","operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md"],
+      "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
+      "execution":{"state":"WAITING_ON_PREREQUISITE","primaryOutput":{"id":"LCWO-022-primary","surface":"NEWSSTAND","ownerProductId":"newsstand-daily","targetPaths":["operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md","operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json"]},"requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],"derivatives":[{"id":"songOpportunity","state":"PARKED","reason":"No admitted rights-cleared song exists for the issue.","activationTrigger":"A distinct admitted Song of the Day record exists."},{"id":"derivativeFeeds","state":"PARKED","reason":"No derivative may inherit archive state.","activationTrigger":"Create a separate source-bound work order for a distinct reader job."}],"wip":{"ownerLimit":1},"dispatch":null,"closure":null}
     }
   ]
 }
