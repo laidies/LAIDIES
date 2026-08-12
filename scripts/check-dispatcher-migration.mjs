@@ -37,14 +37,16 @@ const tomlString = (text, key) => {
 };
 
 if (contract.schema_version !== 1) errors.push('schema_version must equal 1');
-if (contract.migration_status !== 'VERIFIED_CONFIGURATION_ONLY_DISPATCHER_PAUSED') {
-  errors.push('migration_status must preserve the configuration-only and paused proof ceiling');
+if (contract.migration_status !== 'VERIFIED_ACTIVE_STANDALONE_TWICE_DAILY_DELTA') {
+  errors.push('migration_status must identify the active standalone twice-daily successor');
 }
 
 const expected = contract.dispatcher;
-if (expected?.required_status !== 'PAUSED') errors.push('dispatcher.required_status must remain PAUSED');
-if (!expected?.automation_id || !expected?.target_thread_id || !expected?.superseded_target_thread_id) {
-  errors.push('dispatcher identity and target migration fields are incomplete');
+if (expected?.required_status !== 'ACTIVE') errors.push('dispatcher.required_status must remain ACTIVE');
+if (expected?.required_kind !== 'cron' || !expected?.required_rrule) errors.push('dispatcher cron identity is incomplete');
+if (expected?.target_mode !== 'standalone_project') errors.push('dispatcher target_mode must be standalone_project');
+if (!expected?.automation_id || !expected?.superseded_target_thread_id) {
+  errors.push('dispatcher identity and retired target fields are incomplete');
 }
 if (!(expected?.required_prompt_fragments || []).length || !(expected?.forbidden_prompt_fragments || []).length) {
   errors.push('dispatcher prompt migration fragments are incomplete');
@@ -62,10 +64,14 @@ if (ciConfigurationOnly) {
 
 const dispatcher = readAutomation(expected.automation_id);
 const status = tomlString(dispatcher.text, 'status');
+const kind = tomlString(dispatcher.text, 'kind');
+const rrule = tomlString(dispatcher.text, 'rrule');
 const target = tomlString(dispatcher.text, 'target_thread_id');
 const prompt = tomlString(dispatcher.text, 'prompt') || '';
 if (status !== expected.required_status) errors.push(`${expected.automation_id}: status=${status || 'MISSING'}; expected ${expected.required_status}`);
-if (target !== expected.target_thread_id) errors.push(`${expected.automation_id}: target_thread_id=${target || 'MISSING'}; expected ${expected.target_thread_id}`);
+if (kind !== expected.required_kind) errors.push(`${expected.automation_id}: kind=${kind || 'MISSING'}; expected ${expected.required_kind}`);
+if (rrule !== expected.required_rrule) errors.push(`${expected.automation_id}: rrule=${rrule || 'MISSING'}; expected ${expected.required_rrule}`);
+if (target) errors.push(`${expected.automation_id}: standalone successor must not target a growing task; found ${target}`);
 if (target === expected.superseded_target_thread_id) errors.push(`${expected.automation_id}: still targets the superseded crash-prone task`);
 for (const fragment of expected.required_prompt_fragments || []) {
   if (!prompt.includes(fragment)) errors.push(`${expected.automation_id}: prompt missing ${fragment}`);
@@ -90,4 +96,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`${fixtureMode ? 'DISPATCHER MIGRATION FIXTURE PASS — NOT PRODUCTION EVIDENCE' : 'DISPATCHER MIGRATION PASS'} (${expected.automation_id} remains ${status}; target=${target})`);
+console.log(`${fixtureMode ? 'DISPATCHER MIGRATION FIXTURE PASS — NOT PRODUCTION EVIDENCE' : 'DISPATCHER MIGRATION PASS'} (${expected.automation_id} is ${status}; standalone=${target ? 'no' : 'yes'}; rrule=${rrule})`);

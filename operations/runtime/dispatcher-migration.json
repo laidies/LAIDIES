@@ -1,19 +1,23 @@
 {
   "schema_version": 1,
-  "migration_status": "VERIFIED_CONFIGURATION_ONLY_DISPATCHER_PAUSED",
-  "verified_at": "2026-08-02T22:22:00Z",
+  "migration_status": "VERIFIED_ACTIVE_STANDALONE_TWICE_DAILY_DELTA",
+  "verified_at": "2026-08-12T17:45:00-07:00",
   "dispatcher": {
     "automation_id": "laidies-product-champion-orchestrator",
-    "required_status": "PAUSED",
-    "target_thread_id": "019fc5b9-71c3-71e0-bda8-547439df4bfc",
+    "required_status": "ACTIVE",
+    "required_kind": "cron",
+    "required_rrule": "FREQ=DAILY;BYHOUR=10,22;BYMINUTE=0",
+    "target_mode": "standalone_project",
     "superseded_target_thread_id": "019f9ac4-28d9-73b2-b54e-2fc5641749f2",
     "required_prompt_fragments": [
+      "operations/voice/laidies-canon-index.md",
+      "operations/DECISIONS.md",
       "operations/runtime/work-resolution-loop.json",
       "operations/control-room/work-index.json",
       "operations/release-control/RELEASE-STATE.md",
-      "operations/product-stewards/registry.json",
-      "28f483e25c021e37e0acd2687abcae26a6d66927",
-      "9f161385-7486-4207-9afe-8512ea453973"
+      "operations/product-stewards/run-queue.json",
+      "scripts/control-room-freshness.mjs",
+      "If another Control Room run is still active"
     ],
     "forbidden_prompt_fragments": [
       "operations/work-index.json",
@@ -33,11 +37,11 @@
       "required_prompt_fragment": "operations/release-control/RELEASE-STATE.md"
     }
   ],
-  "resume_gate": [
-    "checker passes against the live automation files",
-    "dispatcher remains PAUSED during verification",
-    "one bounded manual dry run completes without opening a production lane",
-    "no overlap exists with an already-active Control Room run",
-    "Ali separately authorizes resume"
+  "active_acceptance": [
+    "checker passes against the live automation file",
+    "automation is a standalone project target with no growing target task",
+    "cadence is exactly twice daily at 10:00 and 22:00",
+    "prompt stops on overlap and owns only the Control Room delta outputs",
+    "failed runs notify Ali while healthy runs remain quiet"
   ]
 }

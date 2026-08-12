@@ -31,15 +31,15 @@ try {
     fs.copyFileSync(path.join(sourceRoot, id, 'automation.toml'), path.join(targetDir, 'automation.toml'));
   }
   const dispatcherPath = path.join(temporary, contract.dispatcher.automation_id, 'automation.toml');
-  const unsafe = fs.readFileSync(dispatcherPath, 'utf8').replace('status = "PAUSED"', 'status = "ACTIVE"');
+  const unsafe = fs.readFileSync(dispatcherPath, 'utf8').replace('status = "ACTIVE"', 'status = "PAUSED"');
   fs.writeFileSync(dispatcherPath, unsafe);
   const negative = spawnSync(process.execPath, [checker, '--fixture'], {
     cwd: root,
     encoding: 'utf8',
     env: { ...process.env, LAIDIES_AUTOMATIONS_ROOT: temporary }
   });
-  if (negative.status === 0 || !`${negative.stdout}${negative.stderr}`.includes('expected PAUSED')) {
-    throw new Error(`unsafe-resume fixture was not rejected:\n${negative.stdout}${negative.stderr}`);
+  if (negative.status === 0 || !`${negative.stdout}${negative.stderr}`.includes('expected ACTIVE')) {
+    throw new Error(`paused-successor fixture was not rejected:\n${negative.stdout}${negative.stderr}`);
   }
   const unsafeOverride = spawnSync(process.execPath, [checker], {
     cwd: root,

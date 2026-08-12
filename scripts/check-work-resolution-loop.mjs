@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { projectWorkEvents } from './project-work-events.mjs';
 
 const root = process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
@@ -52,12 +53,30 @@ if (!['HEALTHY', 'ATTENTION_REQUIRED'].includes(ledger.system_status)) errors.pu
 const records = Array.isArray(ledger.records) ? ledger.records : [];
 const ids = new Set();
 let overdueCount = 0;
+const migratedLegacy = fixtureMode
+  ? new Map()
+  : new Map(
+      projectWorkEvents().items
+        .filter(item => item.lane_mode === 'legacy_migration_snapshot')
+        .map(item => [item.work_id, item])
+    );
 
 for (const record of records) {
   const id = record.work_id || 'MISSING_WORK_ID';
   if (!/^WRK-\d{8}-[a-z0-9][a-z0-9-]*$/.test(id)) fail(id, 'work_id must use WRK-YYYYMMDD-slug');
   if (ids.has(id)) fail(id, 'duplicate durable work_id');
   ids.add(id);
+  const migrated = migratedLegacy.get(id);
+  if (migrated) {
+    if (!migrated.title || !migrated.acceptance_owner || !migrated.last_event_id) {
+      fail(id, 'legacy migration projection is incomplete');
+    }
+    // Once a legacy record has been admitted into append-only event authority,
+    // its old mutable status and timestamps are historical evidence only. Treating
+    // both stores as live authorities recreates false-active work and makes every
+    // future CI run fail merely because the snapshot continues to age.
+    continue;
+  }
   if (!nonEmpty(record.work_type)) fail(id, 'work_type is required');
   if (!nonEmpty(record.title)) fail(id, 'title is required');
   if (!states.has(record.status)) fail(id, `invalid status ${record.status || 'MISSING'}`);
@@ -219,4 +238,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`${fixtureMode ? 'WORK RESOLUTION LOOP FIXTURE PASS — NOT PRODUCTION EVIDENCE' : 'WORK RESOLUTION LOOP PASS'} (${records.length} record${records.length === 1 ? '' : 's'})`);
+console.log(`${fixtureMode ? 'WORK RESOLUTION LOOP FIXTURE PASS — NOT PRODUCTION EVIDENCE' : 'WORK RESOLUTION LOOP PASS'} (${records.length} record${records.length === 1 ? '' : 's'}; migrated_legacy=${migratedLegacy.size})`);
