@@ -258,7 +258,7 @@ assert.match(html, /function visiblePublicationControl\(edition\)[\s\S]*?control
 assert.doesNotMatch(html, /var firstPaper = document\.querySelector\("\.ns-publication"\)/, "arrival CTA cannot target the hidden desktop rack on mobile");
 assert.match(catchup, /SUNNYVA<span class="ns-brand-i">i<\/span>LE paper/, "generated Daily heading must preserve the canonical lowercase i");
 assert.match(css, /\.ns-brand-i\s*\{[\s\S]*?text-transform:\s*none;/, "canonical lowercase i override must defeat inherited uppercase transforms");
-assert.match(catchup, /quietIssue[\s\S]*?ns-daily-quiet-desks[\s\S]*?All nine service desks were checked/, "quiet Daily must collapse its desk-by-desk empty record");
+assert.match(catchup, /quietIssue[\s\S]*?ns-daily-quiet-desks[\s\S]*?All ten service desks were checked/, "quiet Daily must collapse its complete ten-desk empty record");
 assert.doesNotMatch(catchup, /item\.editionDate <= localToday\(\)/, "a released edition cannot be hidden by the visitor's calendar date");
 assert.match(catchup, /Date\.parse\(item\.admission\.reviewedAt\) <= Date\.now\(\)/, "Daily availability must follow the admitted release instant");
 assert.doesNotMatch(catchup, /localToday|localDateOnly/, "reader eligibility and continuity cannot depend on the visitor's calendar");
