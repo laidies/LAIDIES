@@ -14888,3 +14888,26 @@ while remaining falsely unfinished in the launch record.
   the public site` are three different facts.
 - **Publication status:** ARCHIVE TRUTH REPAIRED AND VERIFIED LOCALLY / THREE
   HISTORICAL RECORDS PUBLICLY VERIFIED / REPAIR BYTES NOT DEPLOYED.
+
+## BTB-478 — Prose acceptance did not prove compact-card fit
+
+- **Date:** 2026-08-12
+- **Area:** Promptoscope and exact rendered review.
+- **Failure:** The independently accepted 75-word Promptoscope was useful and
+  unclipped, but its exact desktop card made the three-column strip visibly
+  lopsided and its mobile card became a long middle detour.
+- **Root cause:** Editorial quality and surface fit had been treated as one
+  gate. The first temporary maker render noticed the risk, but the exact
+  incumbent-versus-candidate pixels had not yet faced role-distinct judgment.
+- **Prevention rule:** A compact column must be compared in its real sibling
+  context at 1440, 390 and 320. No word count substitutes for the pixels; no
+  prose verdict substitutes for responsive hierarchy.
+- **Durable correction:** The 75-word candidate is preserved with a
+  checksum-bound independent `HOLD`. A 39-word successor keeps a work and home
+  baseline, written success criteria, one changed instruction, rerun and
+  regression comparison. Its exact pixels and prose independently pass with
+  zero blockers at all three widths; Paige and Career remain unchanged.
+- **Possible Behind the Build angle:** Why good writing can still be the wrong
+  size for the newspaper column it is supposed to inhabit.
+- **Publication status:** EXACT COMPACT SUCCESSOR INDEPENDENTLY ACCEPTED /
+  OBSERVED READER AND DATED DAILY INTEGRATION REMAIN / NOT DEPLOYED OR PUBLIC.
