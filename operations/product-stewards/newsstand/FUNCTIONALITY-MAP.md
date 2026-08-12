@@ -17,8 +17,8 @@ require a dated source and public-origin recheck.
 | Capability/element | User trigger and page | Intended visible result | Current implementation/evidence | Status |
 |---|---|---|---|---|
 | Building arrival and Paige | Enter `/newsstand.html` | Recognize a NewsStand, its keeper and the evidence-first job | Candidate Paige/rack room image plus live address/copy | OBSERVED; final visual/comprehension approval missing |
-| Four-paper job/state selector | Focus/click Breaking, Daily, Weekly or Tribune | Understand all four jobs and see current/quiet/hold/stale/unavailable before opening | Four live buttons with `aria-pressed` and per-publication state | VERIFIED LOCALLY in prior exact-source/browser suites; native/owner gates open |
-| Physical paper rack | Click a visible paper | Pull the chosen paper in place | Only Weekly and Tribune prop papers exist; Weekly is explicitly legacy archive art | INCOMPLETE; four-publication object system missing |
+| Four-paper job/state selector | Focus/click Breaking, Daily, Weekly or Big Question | Understand all four jobs and see current/quiet/hold/stale/unavailable before opening | Four live buttons with `aria-pressed` and per-publication state | VERIFIED LOCALLY in prior exact-source/browser suites; native/owner gates open |
+| Physical paper rack | Click a visible paper | Pull the chosen paper in place | Only Weekly and Big Question prop papers exist; Weekly is explicitly legacy archive art | INCOMPLETE; four-publication object system missing |
 | Global desk state | Page load | Dated clear/current/degraded result; no filler | `datasetState`, `effectivePublicationState` and arrival copy | VERIFIED LOCALLY for fixtures; freshness is time-relative |
 | Publication front page | Pull a paper | Eligible front stories with edition, published date, checked date and status | `visibleStories` + `renderFrontStory` | VERIFIED LOCALLY in bounded fixtures |
 | Full story/direct hash | Open a story or `/newsstand.html#slug` | Eligible explanation and sources, or truthful blocked-route notice | `renderHash` + central `accessDecision` | VERIFIED LOCALLY for paper/search/hash suppression |

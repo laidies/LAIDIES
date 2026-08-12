@@ -10,8 +10,11 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
-const TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+const TYPES = ["paige_tip", "promptoscope", "career_life", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
 const PUBLIC = new Set(["APPROVED", "PUBLISHED", "CORRECTED"]);
+const FALLBACK_EMPTY_STATES = {
+  dear_miss_jeeves: "Miss Jeeves is checking the problem, the mechanism and the useful fix. No invented letter has been filed."
+};
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = (value) => {
@@ -62,7 +65,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
       summary: record.summary, destination: record.destination || null
     } : {
       type, state: "empty", recordId: null,
-      emptyState: columnsData.emptyStates && columnsData.emptyStates[type] || "No admitted item is filed in this desk."
+      emptyState: columnsData.emptyStates && columnsData.emptyStates[type] || FALLBACK_EMPTY_STATES[type] || "No admitted item is filed in this desk."
     };
   });
   const envelope = {

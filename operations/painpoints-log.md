@@ -14486,7 +14486,7 @@ while remaining falsely unfinished in the launch record.
   recheck trigger. Smaller monitors are validated projections; inclusion never
   grants claim, content or publication authority.
 - **Durable correction:** `SOURCE-REGISTRY.json` now governs 50 source families
-  and all 17 content/learning destinations. Its calibrated validator rejects
+  and all 18 content/learning destinations. Its calibrated validator rejects
   duplicate IDs, placeholder URLs, a missing Career/Work-Life transformation
   contract, destination gaps and practitioner sources missing from the
   canonical list. Its positive calibration proves a non-AI career source is
@@ -14529,3 +14529,32 @@ while remaining falsely unfinished in the launch record.
   still mislead—and why LAiDIES checks the claim underneath the headline.
 - **Publication status:** INTERNAL EDITORIAL-GATE REPAIR / NO STORY,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-461 — Sources existed, but outputs had no executable destination contract
+
+- **Date:** 2026-08-11
+- **Area:** Learning System and NewsStand publication execution.
+- **Failure:** The source registry could say a signal was relevant to NewsStand,
+  tips, books or classes, but it did not bind the exact publication job, store,
+  template, cadence or consumer. Work could therefore become a generic hold,
+  or one event could be copied into several formats without recording why each
+  treatment was different. Dear Miss Jeeves also had no executable Daily desk.
+- **Root cause:** Source discovery and output production were modelled as one
+  routing step. “Relevant to NewsStand” was treated as if it answered what to
+  make, where to save it and how it reaches a reader.
+- **Prevention rule:** Separate source eligibility from output decisions. Every
+  earned output binds a registered format, distinct reader job, relationship to
+  the shared signal, exact source versions, work order, canonical store,
+  template, cadence and public destination. One signal may contribute to
+  multiple outputs, but none inherits another's admission.
+- **Durable correction:** `PUBLICATION-PIPELINES.json`, work-order
+  `publicationFormatIds`/`formatRouting`, the Dear Miss Jeeves bank and Daily
+  desk, and calibrated validators now enforce the route. The repair also
+  exposed a real downstream consequence: correcting a dated Mollick radar
+  changed the source hash bound by an admitted Daily issue, so the reader
+  correctly holds that issue pending independent successor admission.
+- **Possible Behind the Build angle:** One piece of AI news can become today's
+  report and part of tomorrow's Big Question—without becoming copy-and-paste
+  content soup.
+- **Publication status:** VERIFIED INTERNAL ROUTER / PUBLIC DAILY SUCCESSOR
+  ADMISSION AND DEPLOYMENT OPEN.

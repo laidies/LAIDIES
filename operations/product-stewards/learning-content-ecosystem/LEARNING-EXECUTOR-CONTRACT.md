@@ -21,15 +21,17 @@ The executor may have no active content order after a terminal cycle. That is ID
 On each 09:30 and 16:30 America/Vancouver heartbeat:
 
 1. run the content work-order and executor checks;
-2. reconcile every new AIDB and News Radar handoff since the previous cycle into a content work order or an exact duplicate, quiet, watch or no-build disposition;
-3. reconcile the current active order against real artifacts and its checkpoint;
-4. if no order is active, select at most one eligible primary order for a free destination owner;
-5. create a receipt bound to codex-heartbeat:laidies-learning-system-execution-recovery;
-6. execute the next production or owner step, not merely update status;
-7. run the applicable calibrated tests;
-8. record the heartbeat and exact result with scripts/run-learning-executor-cycle.mjs;
-9. commit and push the owned changes.
+2. reconcile every new AIDB and News Radar handoff since the previous cycle through `SOURCE-REGISTRY.json` and `PUBLICATION-PIPELINES.json` into one or more earned output contributions, an existing-item update/link, or an exact duplicate, quiet, watch or no-fit disposition;
+3. for every earned output, bind its publication format, relationship to the shared signal, distinct contribution job, exact source versions, canonical store, template and site destination in the work order;
+4. reconcile the current active order against real artifacts and its checkpoint;
+5. if no order is active, select at most one eligible primary order for a free destination owner;
+6. create a receipt bound to codex-heartbeat:laidies-learning-system-execution-recovery;
+7. execute the next production or owner step, not merely update status;
+8. run the applicable calibrated tests;
+9. record the heartbeat and exact result with scripts/run-learning-executor-cycle.mjs;
+10. commit and push the owned changes.
 
 Content publication and deployment still require their applicable artifact, review, release and public-verification evidence. A quiet or WATCH editorial result is a valid completed cycle when it is source-bound and terminal.
+One signal may contribute to multiple outputs, including current Breaking/Daily coverage and a broader Big Question, but every output remains independently produced, reviewed, corrected and released.
 
 This is a permanent executor, not a temporary recovery monitor. It remains active after a healthy cycle so future signals cannot accumulate as unowned handoffs.

@@ -16,7 +16,7 @@ export function checkDailyLearningDerivatives({ root = process.cwd(), asOf = new
   try { claims = JSON.parse(fs.readFileSync(claimsPath, "utf8")); } catch (error) { return { errors: [`claim register invalid: ${error.message}`] }; }
   if (data.schemaVersion !== "1.0.0") errors.push("schemaVersion must be 1.0.0");
   if (data.owner !== "newsstand-daily") errors.push("owner must be newsstand-daily");
-  for (const type of ["paige_tip", "promptoscope"]) if (!data.emptyStates?.[type]) errors.push(`missing ${type} empty state`);
+  for (const type of ["paige_tip", "career_life", "promptoscope"]) if (!data.emptyStates?.[type]) errors.push(`missing ${type} empty state`);
   const knownClaims = new Map((claims.claims || []).map((claim) => [claim.id, claim]));
   const ids = new Set();
   const publicSlots = new Set();

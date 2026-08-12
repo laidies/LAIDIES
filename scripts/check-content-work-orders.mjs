@@ -92,13 +92,17 @@ export function checkContentWorkOrders({ root = process.cwd(), now = new Date() 
   const errors = [];
   const queuePath = path.join(root, "operations/product-stewards/learning-content-ecosystem/content-work-orders.json");
   const registryPath = path.join(root, "operations/product-stewards/registry.json");
+  const pipelinePath = path.join(root, "operations/product-stewards/learning-content-ecosystem/PUBLICATION-PIPELINES.json");
   let queue;
   let registry;
+  let pipelines;
   try { queue = readJson(queuePath); } catch (error) { return { errors: [`content work orders invalid: ${error.message}`] }; }
   try { registry = readJson(registryPath); } catch (error) { return { errors: [`product registry invalid: ${error.message}`] }; }
+  try { pipelines = readJson(pipelinePath); } catch (error) { return { errors: [`publication pipeline registry invalid: ${error.message}`] }; }
 
   if (queue.schemaVersion !== "1.2.0") errors.push("content work orders schemaVersion must be 1.2.0");
   const productIds = new Set(registry.products.map((product) => product.id));
+  const publicationFormatIds = new Set((pipelines.formats || []).map((format) => format.id));
   const orders = new Map();
 
   for (const order of queue.workOrders || []) {
@@ -108,6 +112,29 @@ export function checkContentWorkOrders({ root = process.cwd(), now = new Date() 
     for (const field of ["title", "nextAction", "nextTrigger"]) if (!order[field]) errors.push(`${order.id} missing ${field}`);
     for (const field of ["sourceRefs", "targetPaths", "acceptanceEvidence", "reviewChain"]) {
       if (!Array.isArray(order[field]) || order[field].length === 0) errors.push(`${order.id} missing ${field}`);
+    }
+    if (order.surface === "NEWSSTAND") {
+      if (!Array.isArray(order.publicationFormatIds) || order.publicationFormatIds.length === 0) {
+        errors.push(`${order.id} NEWSSTAND work order lacks publicationFormatIds`);
+      }
+      for (const formatId of order.publicationFormatIds || []) {
+        if (!publicationFormatIds.has(formatId)) errors.push(`${order.id} references unknown publication format ${formatId}`);
+        if (formatId === "news_tribune") errors.push(`${order.id} uses retired public format id news_tribune`);
+      }
+      if (order.status !== "DECLINED") {
+        if (!Array.isArray(order.formatRouting) || order.formatRouting.length === 0) {
+          errors.push(`${order.id} NEWSSTAND work order lacks formatRouting`);
+        }
+        const routedFormats = new Set();
+        for (const route of order.formatRouting || []) {
+          routedFormats.add(route.publicationFormatId);
+          if (!(order.publicationFormatIds || []).includes(route.publicationFormatId)) errors.push(`${order.id} routes an undeclared publication format ${route.publicationFormatId}`);
+          if (!["PRIMARY_OUTPUT", "CONTRIBUTING_EVIDENCE", "UPDATE_EXISTING", "RELATED_READING"].includes(route.relationship)) errors.push(`${order.id} has invalid format relationship ${route.relationship}`);
+          if (!route.contributionJob) errors.push(`${order.id} format route lacks contributionJob`);
+          if (!Array.isArray(route.sourceVersionIds) || route.sourceVersionIds.length === 0) errors.push(`${order.id} format route lacks sourceVersionIds`);
+        }
+        for (const formatId of order.publicationFormatIds || []) if (!routedFormats.has(formatId)) errors.push(`${order.id} lacks routing detail for ${formatId}`);
+      }
     }
 
     const execution = order.execution;

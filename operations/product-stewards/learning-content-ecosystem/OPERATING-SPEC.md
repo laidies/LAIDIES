@@ -35,7 +35,7 @@ idea or ask “what should this become?” The Director:
 3. checks prerequisites, adjacent concepts, current evidence and freshness;
 4. reconciles the complete cross-format inventory and nearest current canon;
 5. assigns a distinct learner/cognitive job to each useful surface;
-6. rules **link, correct, update, extend, create or decline**;
+6. rules **link, correct, update, extend, create or decline** for each earned output and records whether the signal is its primary output, contributing evidence, an update or related reading;
 7. records owner, evidence, correction path, measurement and next action; and
 8. sends a durable handoff to each affected surface owner.
 
@@ -59,7 +59,11 @@ Only one primary output per owner may be active; every dispatch binds its
 receipt, scope, collision boundary, checkpoint and SLA. The portfolio check
 `node scripts/check-content-work-orders.mjs` fails when any such record is
 uncovered or an actionable order lacks an owner, target, next action, trigger
-or acceptance evidence.
+or acceptance evidence. NewsStand orders additionally bind a format from
+`PUBLICATION-PIPELINES.json`, its source-contribution relationship, distinct
+job and exact source versions. One signal may support several outputs—for
+example immediate Daily reporting and one evidence strand in a broader Big
+Question—but each output keeps independent production, review and release.
 
 Before an exact artifact may advance beyond local build, it must be hash-bound
 and independently evidence all of these stop gates:
@@ -148,8 +152,10 @@ surface list in this specification is only a summary.
   demonstration. `library_impacts[]` and `class_impacts[]` are mandatory owner
   reviews, not commissions.
 - **NewsStand:** dated reporting and reality application under its separate
-  sourcing/editorial/correction system; it may trigger a durable correction
-  without becoming the textbook.
+  sourcing/editorial/correction system and canonical publication registry; it
+  may trigger a durable correction without becoming the textbook. Daily and
+  Weekly are multi-element papers; The Big Question is the public longform
+  question/argument (`tribune` remains a machine compatibility key).
 - **Interactive tools:** complete the real job and expose the useful
   transformation/limits; they do not need to force practice.
 - **Games/quizzes/practice:** exercise a ruled behavior or judgment with
@@ -160,6 +166,10 @@ surface list in this specification is only a summary.
 - **Daily tips and Promptoscope:** may remix a verified concept into a bounded,
   source-linked daily form. They do not originate canon, silently broaden a
   claim or retain a volatile recommendation beyond its freshness limit.
+- **Dear Miss Jeeves:** draws from a governed common-problems bank, explains
+  the mechanism and one useful recovery, and publishes at most one admitted
+  column per week. Future visitor questions remain private until a separate
+  intake contract exists and never publish automatically.
 - **Career/work-life AI mirrors:** begin with a genuine workplace situation,
   provide practical choices and use the AI parallel only when the mapping and
   limit are faithful. AI must not be presented as the answer to a structural or
@@ -253,7 +263,7 @@ transfer evidence.
 - **Owner-entry route:** permanent Codex task
   `019f9f7f-9e4c-72d2-8882-447bcbe01691`.
 - **Canonical files:** this dossier, `concept-map.md`, `inventory.json`,
-  `SOURCE-REGISTRY.json`, `claim-register.json`, `freshness-signal-inbox.json`,
+  `SOURCE-REGISTRY.json`, `PUBLICATION-PIPELINES.json`, `claim-register.json`, `freshness-signal-inbox.json`,
   intake/handoff/correction records created under this folder, and surface
   sources linked from those records.
 - **Frontend/backend:** no public interface; local Node validation/report

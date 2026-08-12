@@ -38,16 +38,22 @@ monitor silently treats it as approved.
 
 ## Destination rules
 
-- The four NewsStand publications and Straight Answers may share evidence, but
-  each needs a distinct reader job. A source never chooses the edition.
+- The Breaking, Daily, Weekly, Big Question and Straight Answers may share
+  evidence, but each needs a distinct reader job. `tribune` remains only the
+  Big Question's legacy machine key. A source never chooses the edition.
+- Dear Miss Jeeves is a first-class destination for recurring AI problems. It
+  must explain the mechanism and a useful recovery; future visitor questions
+  remain private and never enter publication automatically.
 - Paige's Practical AI Tip, the Career/Work-Life Tip and Promptoscope are
   first-class destinations. A Career/Work-Life source may be entirely non-AI:
   LAiDIES starts with the useful workplace situation, then adds a separately
   verified AI or workflow principle that genuinely illuminates it, the limit
   of that comparison and one concrete next move. A pasted-on AI reference is
   ineligible.
-- A source may feed several possible destinations, but one item is not
-  multiplied across them to fill space.
+- A source item may feed several destinations when each performs a distinct
+  reader job and records the shared evidence/version relationship. For example,
+  a Daily report may also contribute evidence to a broader Big Question. It is
+  not copied across destinations merely to fill space.
 - Official provider material can establish provider facts; it cannot by itself
   establish independent superiority, safety, social benefit or learning
   effectiveness.
@@ -80,7 +86,8 @@ node scripts/test-source-registry.mjs
 
 The check validates identity, URLs, authority/status/cadence vocabulary,
 required fields, destination coverage, practitioner-roster reconciliation,
-the Career/Work-Life transformation and the NewsStand evidence/AIDB contract.
+the Big Question and Dear Miss Jeeves contracts, the Career/Work-Life
+transformation and the NewsStand evidence/AIDB contract.
 It does not prove that every URL is reachable today or that any item is
 correct; those remain exact-item checks.
 

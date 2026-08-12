@@ -483,15 +483,15 @@ try {
   clearTimeout(timeout);
 
   const base = await openPage("/newsstand.html", { width: 1440, height: 1000 });
-  await waitForValue(base, "document.querySelector('#ns-title').textContent", "The Daily and The Tribune are current.", "same-day Daily admission");
-  check(await value(base, "document.querySelector('#ns-title').textContent === 'The Daily and The Tribune are current.'"), true, "base arrival includes the canonical current-date Daily");
+  await waitForValue(base, "document.querySelector('#ns-title').textContent", "The Daily and The Big Question are current.", "same-day Daily admission");
+  check(await value(base, "document.querySelector('#ns-title').textContent === 'The Daily and The Big Question are current.'"), true, "base arrival includes the canonical current-date Daily");
   check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026'"), true, "canonical Daily label uses its Vancouver edition date");
   check(await value(base, "(() => { const action = document.querySelector('.ns-state__primary'); return action.textContent.trim() === 'Choose a paper' && !action.hasAttribute('data-pull'); })()"), true, "arrival action does not choose between two current publications for the visitor");
   const rollover = await openPage("/newsstand.html?clock=next-day", { width: 390, height: 844, reducedMotion: true });
   await waitForValue(rollover, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Latest complete edition · August 4, 2026", "next-day Daily rollover");
-  check(await value(rollover, "document.querySelector('#ns-title').textContent === 'The Tribune is current.'"), true, "next-day arrival no longer claims the prior Daily is current");
+  check(await value(rollover, "document.querySelector('#ns-title').textContent === 'The Big Question is current.'"), true, "next-day arrival no longer claims the prior Daily is current");
   check(await value(rollover, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 4, 2026' && document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Latest · Aug 4 ’26'"), true, "next-day compact and detailed Daily states agree on the latest complete date");
-  check(await value(rollover, "(() => { const action=document.querySelector('.ns-state__primary'); return action.textContent.trim()==='Pull the Tribune' && action.getAttribute('data-pull')==='tribune'; })()"), true, "next-day arrival points to the sole current publication");
+  check(await value(rollover, "(() => { const action=document.querySelector('.ns-state__primary'); return action.textContent.trim()==='Pull the Big Question' && action.getAttribute('data-pull')==='tribune'; })()"), true, "next-day arrival points to the sole current publication");
   await captureEvidence(rollover, "current-date-state-390.png");
   await captureEvidence(rollover, "current-date-rack-390.png", ".ns-paper-index");
   await act(rollover, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
@@ -520,9 +520,9 @@ try {
   check(await value(base, "getComputedStyle(document.querySelector('.ns-counter-browse')).display"), "none", "desktop does not show a redundant swipe instruction");
   check(await value(base, "Array.from(document.querySelectorAll('.ns-publication')).every((paper) => paper.offsetWidth > 0 && paper.offsetHeight > 0 && paper.querySelector('.ns-publication__job').offsetParent && paper.querySelector('.ns-publication__status').offsetParent)"), true, "all paper jobs and states visible at 1440");
   check(await value(base, "document.querySelectorAll('.ns-publication__contents').length"), 4, "four live in-paper contents regions");
-  check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "1", "Tribune eligible story count before pull");
-  check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__headline').textContent === window.NEWSSTAND_DATA.stories.find((story) => story.edition === 'tribune').headline"), true, "Tribune canonical lead headline before pull");
-  check(await value(base, "(() => { const story = window.NEWSSTAND_DATA.stories.find((item) => item.edition === 'tribune'); const text = String(story.laidies_read || story.the_story).replace(/<[^>]*>/g, ' ').trim(); const match = text.match(/^(.+?[.!?])\\s/); return document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__teaser').textContent === (match ? match[1] : text); })()"), true, "Tribune existing first-sentence teaser before pull");
+  check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "1", "Big Question eligible story count before pull");
+  check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__headline').textContent === window.NEWSSTAND_DATA.stories.find((story) => story.edition === 'tribune').headline"), true, "Big Question canonical lead headline before pull");
+  check(await value(base, "(() => { const story = window.NEWSSTAND_DATA.stories.find((item) => item.edition === 'tribune'); const text = String(story.laidies_read || story.the_story).replace(/<[^>]*>/g, ' ').trim(); const match = text.match(/^(.+?[.!?])\\s/); return document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__teaser').textContent === (match ? match[1] : text); })()"), true, "Big Question existing first-sentence teaser before pull");
   check(await value(base, "['breaking','weekly'].every((edition) => { const node = document.querySelector('[data-contents-for=\"' + edition + '\"]'); const publication = window.NEWSSTAND_DATA.publications[edition]; return node.textContent.trim() === publication.note && node.getAttribute('data-story-count') === '0'; })"), true, "quiet and held papers reuse exact canonical notes");
   check(await value(base, "(() => { const node = document.querySelector('[data-contents-for=\"daily\"]'); return Number(node.getAttribute('data-service-count')) === 0 && node.textContent.includes('Quiet edition') && node.textContent.includes('August 4, 2026'); })()"), true, "current Daily paper previews the admitted quiet edition without prior-date carryover");
   check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026' && document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Current · Aug 4 ’26'"), true, "detailed and compact Daily states share the admitted date");
@@ -554,7 +554,7 @@ try {
   check(await value(base, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 0, "quiet Daily has no fabricated ready service desk");
   check(await value(base, "document.querySelector('.ns-daily-news').textContent.includes('No consequential report was filed.') && !document.querySelector('.ns-daily-news').textContent.includes('remains at its accuracy gate')"), true, "quiet Daily evidence desk names a concluded quiet edition rather than a pending story");
   check(await value(base, "!['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack.'].some((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "quiet Daily does not carry August 3 service items forward");
-  check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 9, "Daily renders all nine governed service desks including honest empty states");
+  check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 9, "Daily renders all ten governed service desks including honest empty states");
   check(await value(base, "['Did you know?','Town notes','Try this today'].every((label) => document.querySelector('.ns-daily-issue').textContent.includes(label))"), true, "Daily includes fact town-note and curiosity desks");
   await captureEvidence(base, "desktop-daily-1440.png", ".ns-daily-issue");
   await act(base, "document.querySelector('#ns-return').click()");
@@ -589,9 +589,9 @@ try {
     check(await value(failedColumnsSharedDaily, "document.querySelector('#paper-counter').hidden"), false, "shared Daily still opens when optional service columns fail to load");
     check(await value(failedColumnsSharedDaily, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-03", "columns failure preserves the exact canonical Daily date");
     check(await value(failedColumnsSharedDaily, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 4, "columns failure preserves the four immutable admitted archive desks");
-    check(await value(failedIssueStore, "document.querySelector('#ns-title').textContent === 'The Tribune is current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "canonical issue-store failure preserves the truthful static fallback without claiming August 4");
-    check(await value(tamperedIssueStore, "document.querySelector('#ns-title').textContent === 'The Tribune is current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "structurally valid but checksum-mismatched canonical issue copy fails closed to the truthful static fallback");
-    check(await value(tamperedStorySource, "document.querySelector('#ns-title').textContent === 'The Tribune is current.' && !document.body.textContent.includes('FORGED ADMITTED-ID STORY COPY')"), true, "mutated admitted-story bytes fail closed even when ID date and status remain accepted");
+    check(await value(failedIssueStore, "document.querySelector('#ns-title').textContent === 'The Big Question is current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "canonical issue-store failure preserves the truthful static fallback without claiming August 4");
+    check(await value(tamperedIssueStore, "document.querySelector('#ns-title').textContent === 'The Big Question is current.' && document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 3, 2026'"), true, "structurally valid but checksum-mismatched canonical issue copy fails closed to the truthful static fallback");
+    check(await value(tamperedStorySource, "document.querySelector('#ns-title').textContent === 'The Big Question is current.' && !document.body.textContent.includes('FORGED ADMITTED-ID STORY COPY')"), true, "mutated admitted-story bytes fail closed even when ID date and status remain accepted");
     const memoryTamperState = await value(memoryTamper, "JSON.stringify({status:document.querySelector('[data-status-for=\"daily\"]').textContent,contents:document.querySelector('[data-contents-for=\"daily\"]').textContent,count:document.querySelector('[data-contents-for=\"daily\"]').dataset.serviceCount||null,title:document.querySelector('#ns-title').textContent,error:window.__newsstandDailyIssueError||null})");
     check(JSON.parse(memoryTamperState).count, "4", "snapshot fixture waits for the exact admitted August 3 issue");
     await act(memoryTamper, `(() => {
@@ -627,10 +627,10 @@ try {
   check(await value(base, "document.querySelectorAll('.ns-article').length"), 0, "held Weekly body suppressed");
   check(await value(base, "document.activeElement.id"), "ns-empty", "held Weekly focus");
   await act(base, "document.querySelector('.ns-publication[data-edition=\"tribune\"]').click()");
-  check(await value(base, "document.querySelectorAll('.ns-front-story').length"), 1, "Tribune listing");
+  check(await value(base, "document.querySelectorAll('.ns-front-story').length"), 1, "Big Question listing");
   check(await value(base, "document.activeElement.id"), "ns-reader-title", "open focus");
   await act(base, "document.querySelector('.ns-front-story').click()");
-  check(await value(base, "document.querySelectorAll('.ns-article').length"), 1, "Tribune body");
+  check(await value(base, "document.querySelectorAll('.ns-article').length"), 1, "Big Question body");
   await act(base, "document.querySelector('#ns-return').click()");
   check(await value(base, "document.activeElement.dataset.edition"), "tribune", "paper return focus");
   await act(base, "document.querySelector('#ns-search-input').value='verification';document.querySelector('#ns-search-button').click()");
@@ -656,7 +656,7 @@ try {
 
   const growth = await openPage("/newsstand.html?fixture=growth", { width: 1440, height: 1000 });
   check(await value(growth, "document.querySelectorAll('.ns-publication').length"), 4, "growth keeps four stable papers");
-  check(await value(growth, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "2", "second eligible story updates Tribune count");
+  check(await value(growth, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "2", "second eligible story updates Big Question count");
   check(await value(growth, "document.querySelectorAll('[data-contents-for=\"tribune\"] .ns-publication__headline').length"), 1, "growth keeps one lead on the paper face");
   await act(growth, "document.querySelector('#ns-browse-all').click()");
   check(await value(growth, `document.querySelectorAll('.ns-front-story').length ===
@@ -789,7 +789,7 @@ try {
   check(await value(stale, "document.querySelector('#ns-reader-title').textContent.includes('check overdue')"), true, "stale heading");
   await act(stale, "document.querySelector('#ns-search-input').value='verification';document.querySelector('#ns-search-button').click()");
   check(await value(stale, "document.querySelectorAll('.ns-front-story').length"), 0, "stale search");
-  check(await value(stale, "document.querySelectorAll('.ns-front-story').length === 0 && document.querySelector('#ns-empty').textContent.trim().length > 0"), true, "source-mismatch search exposes no stale Tribune or unverified Daily result");
+  check(await value(stale, "document.querySelectorAll('.ns-front-story').length === 0 && document.querySelector('#ns-empty').textContent.trim().length > 0"), true, "source-mismatch search exposes no stale Big Question or unverified Daily result");
   stale.close();
 
   const staleDirect = await openPage("/newsstand.html?fixture=stale#label-is-not-a-truth-detector");
@@ -815,7 +815,7 @@ try {
   mixed.close();
 
   const corrected = await openPage("/newsstand.html?fixture=corrected#label-is-not-a-truth-detector");
-  check(await value(corrected, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "1", "corrected eligible story remains on Tribune paper");
+  check(await value(corrected, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "1", "corrected eligible story remains on Big Question paper");
   check(await value(corrected, "document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__headline') !== null"), true, "corrected eligible lead remains visible");
   check(await value(corrected, "document.querySelectorAll('.ns-article').length"), 1, "corrected body visible");
   check(await value(corrected, "document.querySelector('.ns-story-notice--corrected') !== null"), true, "correction notice");
@@ -884,7 +884,7 @@ try {
   check(await value(mobile, "document.querySelector('.ns-daily-service-grid').getBoundingClientRect().width <= window.innerWidth"), true, "390 Daily service desks fit the viewport");
   check(await value(mobile, `document.querySelectorAll('.ns-daily-desk[data-desk-state="ready"]').length ===
     Number(document.querySelector('[data-contents-for="daily"]').dataset.serviceCount)`), true, "390 Daily keeps the admitted-service boundary");
-  check(await value(mobile, "(() => { const record=document.querySelector('.ns-daily-quiet-desks'); return record && !record.open && record.querySelectorAll('.ns-daily-desk').length===9; })()"), true, "quiet Daily demotes nine empty desks into one closed record without deleting them");
+  check(await value(mobile, "(() => { const record=document.querySelector('.ns-daily-quiet-desks'); return record && !record.open && record.querySelectorAll('.ns-daily-desk').length===10; })()"), true, "quiet Daily demotes ten empty desks into one closed record without deleting them");
   await captureEvidence(mobile, "mobile-daily-390.png", ".ns-daily-issue");
   await act(mobile, "document.querySelector('#ns-return').click();document.querySelector('#ns-catchup-since').value='2026-07-30';document.querySelector('#ns-catchup-run').click()");
   check(await value(mobile, "document.querySelector('.ns-catchup').getBoundingClientRect().width <= window.innerWidth"), true, "390 Catch Me Up fits the viewport");
@@ -912,7 +912,7 @@ try {
   await act(mobileHistory, "document.querySelector('.ns-front-story').click()");
   await sleep(150);
   await act(mobileHistory, "history.back()");
-  await waitForValue(mobileHistory, "document.activeElement.matches('.ns-front-story[href=\"#label-is-not-a-truth-detector\"]')", true, "mobile story Back restores focus to the originating Tribune headline");
+  await waitForValue(mobileHistory, "document.activeElement.matches('.ns-front-story[href=\"#label-is-not-a-truth-detector\"]')", true, "mobile story Back restores focus to the originating Big Question headline");
   await act(mobileHistory, "document.querySelector('#ns-return').click()");
   await sleep(150);
   check(await value(mobileHistory, "document.activeElement.matches('.ns-paper-index [data-edition=\"tribune\"]') && document.activeElement.offsetParent !== null"), true, "mobile Back-then-return restores focus to the visible matching paper");

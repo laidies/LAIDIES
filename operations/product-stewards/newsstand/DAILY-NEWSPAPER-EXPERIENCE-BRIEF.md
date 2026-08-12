@@ -17,7 +17,7 @@ This direction must preserve the four locked NewsStand publication jobs:
 - **The Breaking:** rare, qualified interruption;
 - **The Daily:** the current newspaper and edited consequential briefing;
 - **The Weekly:** durable synthesis;
-- **The Tribune:** sourced argument.
+- **The Big Question:** sourced argument.
 
 The Daily newspaper may contain several sections. Those sections do not become
 new competing editions.
@@ -43,6 +43,8 @@ is published as fact without the current NewsStand validation chain.
 - Career/Work-Life Tip: practical career guidance with an explicit, useful
   connection back to AI—not generic confidence or workplace advice;
 - Promptoscope: one playful but accurate prompt, context or model-use lesson;
+- Dear Miss Jeeves: one admitted common AI problem, the mechanism behind it
+  and a useful recovery from the governed bank; at most one per week;
 - Mme CLAi-O’s daily reading;
 - Song of the Day with a working listen action;
 - Did You Know?;

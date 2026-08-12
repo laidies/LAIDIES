@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE OPERATING CONTRACT — AUTOMATIC DISPATCH; PUBLICATION REMAINS GATED
 **Owner:** NewsStand champion with Control Room orchestration
-**Applies to:** The Breaking, The Daily, The Weekly and The Tribune
+**Applies to:** The Breaking, The Daily, The Weekly and The Big Question
 
 ## The promise
 

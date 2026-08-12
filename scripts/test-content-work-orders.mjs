@@ -17,6 +17,12 @@ function write(relativePath, value) {
 
 function registry() {
   write("operations/product-stewards/registry.json", { products: [{ id: "newsstand" }] });
+  write("operations/product-stewards/learning-content-ecosystem/PUBLICATION-PIPELINES.json", {
+    formats: [
+      { id: "news_daily" },
+      { id: "news_big_question" }
+    ]
+  });
 }
 
 function baseOrder(id = "LCWO-001") {
@@ -27,6 +33,8 @@ function baseOrder(id = "LCWO-001") {
     surface: "NEWSSTAND",
     action: "CREATE",
     ownerProductId: "newsstand",
+    publicationFormatIds: ["news_daily"],
+    formatRouting: [{ publicationFormatId: "news_daily", relationship: "PRIMARY_OUTPUT", contributionJob: "Fixture reader job.", sourceVersionIds: ["fixture-source-v1"] }],
     targetPaths: [`drafts/${id}.md`],
     status: "SPECIFIED",
     dispatchState: "READY_TO_DISPATCH",
@@ -104,6 +112,24 @@ try {
 
   const stalledResult = checkContentWorkOrders({ root, now: new Date("2026-08-13T12:30:00-07:00") });
   assert.match(stalledResult.errors.join("\n"), /EXECUTION_STALLED/, "expired dispatch must fail closed");
+
+  const missingFormat = baseOrder();
+  delete missingFormat.publicationFormatIds;
+  queue([missingFormat]);
+  const missingFormatResult = checkContentWorkOrders({ root, now: new Date("2026-08-11T12:30:00-07:00") });
+  assert.match(missingFormatResult.errors.join("\n"), /lacks publicationFormatIds/, "NewsStand work must name its exact format");
+
+  const retiredFormat = baseOrder();
+  retiredFormat.publicationFormatIds = ["news_tribune"];
+  queue([retiredFormat]);
+  const retiredFormatResult = checkContentWorkOrders({ root, now: new Date("2026-08-11T12:30:00-07:00") });
+  assert.match(retiredFormatResult.errors.join("\n"), /unknown publication format|retired public format/, "retired Tribune routing must fail");
+
+  const missingRelationship = baseOrder();
+  delete missingRelationship.formatRouting[0].relationship;
+  queue([missingRelationship]);
+  const missingRelationshipResult = checkContentWorkOrders({ root, now: new Date("2026-08-11T12:30:00-07:00") });
+  assert.match(missingRelationshipResult.errors.join("\n"), /invalid format relationship/, "a multi-output contribution must name its relationship");
 
   const first = dispatch(baseOrder("LCWO-001"), { scope: ["drafts/one.md"] });
   first.execution.primaryOutput.targetPaths = first.targetPaths;

@@ -20,7 +20,7 @@ what it means and what—if anything—she should do differently** without treat
 volume, virality or a publishing calendar as importance. `LOCKED LEDGER`
 
 It contains exactly four distinct recurring publications: **The Breaking**,
-**The Daily**, **The Weekly** and **The Tribune**. The internal edition keys are
+**The Daily**, **The Weekly** and **The Big Question**. The internal edition keys are
 exactly `breaking`, `daily`, `weekly` and `tribune`. `LOCKED LEDGER`
 
 - **The Breaking** is a rare qualified interruption when waiting would
@@ -32,7 +32,7 @@ exactly `breaking`, `daily`, `weekly` and `tribune`. `LOCKED LEDGER`
 - **The Weekly** is a durable synthesis that connects the week's evidence; it
   is not a bundle of Daily cards or the retired WEDNESDAY masthead.
   `LOCKED LEDGER`
-- **The Tribune** is a sourced, visibly labelled argument that separates
+- **The Big Question** is a sourced, visibly labelled argument that separates
   evidence, inference and position. `LOCKED LEDGER`
 
 A clear day, quiet paper, editorial hold, overdue check, correction or
@@ -90,7 +90,7 @@ browse/read/current/archive experience within the later sitewide style ruling.
 - `/newsstand.html`: building arrival, Paige, the four-paper rack, desk state,
   reader, direct hash routes, Back/Forward recovery, archive search and the
   stand's audio control. `CURRENT IMPLEMENTATION OBSERVED`
-- **The Breaking**, **The Daily**, **The Weekly** and **The Tribune**:
+- **The Breaking**, **The Daily**, **The Weekly** and **The Big Question**:
   publication-specific reader jobs, quiet/hold/freshness rules and editorial
   handoff contracts. `LOCKED LEDGER`
 - `content/newsstand.schema.json`, `content/newsstand-stories.js` and
@@ -118,7 +118,7 @@ absorb them. `APPROVED BRIEF/ARTIFACT`
 |---|---|---|---|
 | Paige and room | Establish the place and editorial standard before selection | Visitor understands this is a source-checking desk, not a feed | `APPROVED BRIEF/ARTIFACT` |
 | Four publication controls | All four jobs and dated states visible before opening | Opens exactly one paper or an honest quiet/hold/stale/unavailable notice | `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED` |
-| Physical paper objects | Obvious live controls composited with the room, never invisible hotspots | Pull paper in place; current source only has Weekly and Tribune props, so complete four-paper treatment is unresolved | `APPROVED BRIEF/ARTIFACT` `CURRENT IMPLEMENTATION OBSERVED` |
+| Physical paper objects | Obvious live controls composited with the room, never invisible hotspots | Pull paper in place; current source only has Weekly and Big Question props, so complete four-paper treatment is unresolved | `APPROVED BRIEF/ARTIFACT` `CURRENT IMPLEMENTATION OBSERVED` |
 | Paige's state board | Dated global and per-paper state in the arrival flow | Current, clear, quiet, hold, stale, unavailable or no-data result; no visit timestamp masquerades as freshness | `LOCKED LEDGER` |
 | Front-story card/headline | Visible edition, published date, checked date and source status | Opens the eligible full story at `#slug`; held/stale/retracted bodies remain blocked | `CURRENT IMPLEMENTATION OBSERVED` |
 | Full paper/article | Structured explanation, source links, uncertainty/correction context | Reader understands the event, evidence, consequence, limits and useful next route | `LOCKED LEDGER` |
@@ -148,13 +148,13 @@ Health, medical, privacy, safety, legal, financial and other hard-hold work
 cannot become visible solely from interested-party evidence. `LOCKED LEDGER`
 
 The exact local dataset observed during recovery records Breaking `quiet`
-(`maxAgeHours: 24`), Daily `quiet` (`36`), Weekly `hold` (`192`) and Tribune
+(`maxAgeHours: 24`), Daily `quiet` (`36`), Weekly `hold` (`192`) and Big Question
 `current` (`336`), with all four last checked at
 `2026-07-25T19:30:00Z`. Those stored values are inputs to a time-relative
 runtime decision, not a new 2026-07-26 freshness verification.
 `CURRENT IMPLEMENTATION OBSERVED`
 
-The held Health Weekly and approved-source-evidence Tribune have adjacent
+The held Health Weekly and approved-source-evidence Big Question have adjacent
 private evidence manifests. Neither manifest proves a deployed or currently
 publicly verified story. `CURRENT IMPLEMENTATION OBSERVED`
 

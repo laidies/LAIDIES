@@ -556,6 +556,8 @@
       "surface": "NEWSSTAND",
       "action": "UPDATE",
       "ownerProductId": "newsstand",
+      "publicationFormatIds": ["news_weekly"],
+      "formatRouting": [{"publicationFormatId":"news_weekly","relationship":"PRIMARY_OUTPUT","contributionJob":"Complete the source-bound weekly synthesis of the incident and its wider implications.","sourceVersionIds":["NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28"]}],
       "targetPaths": [
         "operations/drafts/openai-hugging-face-incident-2026-07-24/weekly-deep-dive.md"
       ],
@@ -745,13 +747,15 @@
     },
     {
       "id": "LCWO-004",
-      "title": "Draft the broader Tribune argument on AI security and open versus closed systems",
+      "title": "Draft The Big Question on AI security and open versus closed systems",
       "sourceRefs": [
         "operations/product-stewards/learning-content-ecosystem/NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28.md"
       ],
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-tribune",
+      "publicationFormatIds": ["news_big_question"],
+      "formatRouting": [{"publicationFormatId":"news_big_question","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Use the incident as one evidence strand in the broader question of who keeps agentic AI safe.","sourceVersionIds":["NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28"]}],
       "targetPaths": [
         "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-open-closed-ai-security-draft.md"
       ],
@@ -1820,6 +1824,12 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": ["paige_ai_tip", "career_work_life_tip", "promptoscope"],
+      "formatRouting": [
+        {"publicationFormatId":"paige_ai_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one bounded useful AI action.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
+        {"publicationFormatId":"career_work_life_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one workplace lesson with an accurate bounded AI mirror.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
+        {"publicationFormatId":"promptoscope","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one playful prompt or context lesson.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]}
+      ],
       "targetPaths": [
         "content/daily-learning-derivatives.schema.json",
         "content/daily-learning-derivatives.json",
@@ -2439,6 +2449,8 @@
       "surface": "NEWSSTAND",
       "action": "EXTEND",
       "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": ["paige_ai_tip"],
+      "formatRouting": [{"publicationFormatId":"paige_ai_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Turn the admitted reusable-skills concept into one current practical Daily action.","sourceVersionIds":["INTAKE-build-and-audit-reusable-ai-skills-2026-07-31"]}],
       "targetPaths": [
         "operations/product-stewards/learning-content-ecosystem/claim-register.json",
         "content/daily-learning-derivatives.json"
@@ -2851,6 +2863,8 @@
       "surface": "NEWSSTAND",
       "action": "EXTEND",
       "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": ["news_daily"],
+      "formatRouting": [{"publicationFormatId":"news_daily","relationship":"PRIMARY_OUTPUT","contributionJob":"Create a recurring Daily evidence-decoding format without manufacturing a separate longform argument.","sourceVersionIds":["INTAKE-what-the-viral-reel-left-out-2026-07-31"]}],
       "targetPaths": [
         "operations/product-stewards/newsstand/WHAT-THE-VIRAL-REEL-LEFT-OUT-FORMAT.md"
       ],
@@ -3262,6 +3276,8 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": ["news_daily"],
+      "formatRouting": [{"publicationFormatId":"news_daily","relationship":"PRIMARY_OUTPUT","contributionJob":"Pilot a clearly fictional Daily town-life component with no private resident data.","sourceVersionIds":["TOWN-GROUP-CHAT-FORMAT"]}],
       "targetPaths": [
         "operations/product-stewards/newsstand/TOWN-GROUP-CHAT-FORMAT.md",
         "operations/product-stewards/newsstand/candidates/town-group-chat-pilot-2026-08-01.md"
@@ -3469,6 +3485,7 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand",
+      "publicationFormatIds": ["news_breaking", "news_daily", "news_weekly"],
       "targetPaths": [
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/triage.md",
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/research-and-claim-map.md",

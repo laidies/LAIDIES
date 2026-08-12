@@ -58,7 +58,7 @@ These old names are **retired. Do not use them in public or internal copy.** Map
 | Reference Closet | **The Lore Closet** | Pop-culture references and analogies. |
 | Receipts (as a feature/page) | **The Chamber of Receipts** | A Q&A format can live inside it; the name is Chamber of Receipts. |
 | Receipts Coven | **The Coven** | Same concept. The full freshness/spec build is **backlog**. |
-| Hot Goss | **The Weekly at the NewsStand** | The retired name must not appear in current visitor copy. Current news lives at the NewsStand as The Breaking, The Daily, The Weekly and The Tribune. |
+| Hot Goss | **The Weekly at the NewsStand** | The retired name must not appear in current visitor copy. Current news lives at the NewsStand as The Breaking, The Daily, The Weekly and The Big Question. |
 | Book of Receipts | **The Chamber of Receipts** | Older episode-era name. |
 
 ---

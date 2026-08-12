@@ -14,7 +14,7 @@ const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/rele
 const EVIDENCE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/evidence");
 const HASH = /^[a-f0-9]{64}$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
-const TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+const TYPES = ["paige_tip", "promptoscope", "career_life", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = (value) => {
   if (value === null || typeof value !== "object") return JSON.stringify(value);

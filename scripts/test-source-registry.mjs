@@ -40,6 +40,18 @@ const missingCareerTransformation = clone(registry);
 delete missingCareerTransformation.destinationContracts.career_work_life_tip;
 expectFail("missing career transformation", missingCareerTransformation, practitioner, /allow non-AI career|transformation contract/);
 
+const missingBigQuestionContract = clone(registry);
+delete missingBigQuestionContract.destinationContracts.news_big_question;
+expectFail("missing Big Question contract", missingBigQuestionContract, practitioner, /news_big_question/);
+
+const missingMissJeevesContract = clone(registry);
+delete missingMissJeevesContract.destinationContracts.dear_miss_jeeves;
+expectFail("missing Dear Miss Jeeves contract", missingMissJeevesContract, practitioner, /dear_miss_jeeves/);
+
+const automaticVisitorQuestionIntake = clone(registry);
+automaticVisitorQuestionIntake.destinationContracts.dear_miss_jeeves.intakeBoundary = "Visitor questions publish automatically.";
+expectFail("automatic visitor question intake", automaticVisitorQuestionIntake, practitioner, /prohibit automatic visitor-question/);
+
 const reputationAsAuthority = clone(registry);
 reputationAsAuthority.publicationEvidenceContract.reportingRole = "Reputable reporting is sufficient authority.";
 expectFail("reputation as authority", reputationAsAuthority, practitioner, /deny reputation-based authority/);
@@ -58,4 +70,4 @@ missingPractitioner.sources = missingPractitioner.sources.filter(source => sourc
 expectFail("practitioner reconciliation", missingPractitioner, practitioner, /practitioner source missing/);
 
 console.log("SOURCE REGISTRY TEST PASS");
-console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner rejected; non-AI-career-source accepted");
+console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner rejected; non-AI-career-source accepted");

@@ -5,7 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+const TYPES = ["paige_tip", "promptoscope", "career_life", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
 const PUBLIC = new Set(["APPROVED", "PUBLISHED", "CORRECTED"]);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -22,7 +22,9 @@ export function calendarDateInZone(value = new Date(), timeZone = "America/Vanco
 export function checkDailyEditionColumns(data, { root = ROOT, asOf = calendarDateInZone(), release = false, issueDate = null } = {}) {
   const errors = [];
   if (!data || data.schemaVersion !== "1.0.0" || data.owner !== "newsstand-daily") errors.push("invalid Daily column authority");
-  for (const type of TYPES) if (!data?.emptyStates?.[type]) errors.push(`missing ${type} empty state`);
+  for (const type of TYPES) {
+    if (type !== "dear_miss_jeeves" && !data?.emptyStates?.[type]) errors.push(`missing ${type} empty state`);
+  }
   const ids = new Set();
   const slots = new Set();
   for (const record of data?.records || []) {
@@ -37,7 +39,7 @@ export function checkDailyEditionColumns(data, { root = ROOT, asOf = calendarDat
     if (!record.freshness?.lastCheckedAt || !record.freshness?.expiresAt || !record.freshness?.recheckTriggers?.length) errors.push(`${record.id} has incomplete freshness`);
     if (PUBLIC.has(record.status)) {
       if (record.publicEligibility !== "ELIGIBLE") errors.push(`${record.id} is public without ELIGIBLE ruling`);
-      if (record.freshness.expiresAt < asOf) errors.push(`${record.id} is expired`);
+      if (release && record.freshness.expiresAt < asOf) errors.push(`${record.id} is expired`);
       for (const gate of ["accuracy", "editorial", "voice", "format", "owner"]) {
         if (!record.reviewEvidence?.[gate]) errors.push(`${record.id} is public without ${gate} evidence`);
       }

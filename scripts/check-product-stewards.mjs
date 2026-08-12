@@ -5,6 +5,9 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { checkContentWorkOrders } from "./check-content-work-orders.mjs";
 import { checkDailyLearningDerivatives } from "./check-daily-learning-derivatives.mjs";
+import { validateDearMissJeevesBank } from "./check-dear-miss-jeeves-bank.mjs";
+import { validatePublicationPipelines } from "./check-publication-pipelines.mjs";
+import { validateSourceRegistry } from "./check-source-registry.mjs";
 import { checkLearningRelationships } from "./check-learning-relationships.mjs";
 import { checkLearningOrchestrationGuide } from "./check-learning-orchestration-guide.mjs";
 import { checkContentReleaseReadiness } from "./check-content-release-readiness.mjs";
@@ -34,6 +37,26 @@ const contentReleaseReadiness = checkContentReleaseReadiness({ root });
 errors.push(...(contentReleaseReadiness.errors || []).map((error) => `content release readiness: ${error}`));
 const dailyDerivatives = checkDailyLearningDerivatives({ root });
 errors.push(...(dailyDerivatives.errors || []).map((error) => `daily learning derivatives: ${error}`));
+try {
+  const publicationPipelines = validatePublicationPipelines(JSON.parse(fs.readFileSync(path.join(base, "learning-content-ecosystem", "PUBLICATION-PIPELINES.json"), "utf8")));
+  errors.push(...publicationPipelines.errors.map((error) => `publication pipelines: ${error}`));
+} catch (error) {
+  errors.push(`publication pipelines: ${error.message}`);
+}
+try {
+  const missJeeves = validateDearMissJeevesBank(JSON.parse(fs.readFileSync(path.join(root, "content", "dear-miss-jeeves-bank.json"), "utf8")));
+  errors.push(...missJeeves.errors.map((error) => `Dear Miss Jeeves bank: ${error}`));
+} catch (error) {
+  errors.push(`Dear Miss Jeeves bank: ${error.message}`);
+}
+try {
+  const sourceRegistry = JSON.parse(fs.readFileSync(path.join(base, "learning-content-ecosystem", "SOURCE-REGISTRY.json"), "utf8"));
+  const practitionerRoster = JSON.parse(fs.readFileSync(path.join(root, "operations", "agents", "aidb-intelligence-desk", "sources", "practitioner-source-roster.json"), "utf8"));
+  const sourceResult = validateSourceRegistry(sourceRegistry, practitionerRoster);
+  errors.push(...sourceResult.errors.map((error) => `source registry: ${error}`));
+} catch (error) {
+  errors.push(`source registry: ${error.message}`);
+}
 const learningRelationships = checkLearningRelationships({ root });
 const learningResolutionOwners = new Map(
   (learningResolutionQueue.tasks || []).map((task) => [task.id, task.owner])

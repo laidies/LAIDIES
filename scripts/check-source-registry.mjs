@@ -9,8 +9,8 @@ const practitionerPath = path.resolve(root, process.argv[3] || "operations/agent
 export function validateSourceRegistry(registry, practitionerRoster) {
   const errors = [];
   const requiredDestinations = [
-    "news_breaking", "news_daily", "news_weekly", "news_tribune",
-    "straight_answers", "paige_ai_tip", "career_work_life_tip", "promptoscope",
+    "news_breaking", "news_daily", "news_weekly", "news_big_question",
+    "straight_answers", "dear_miss_jeeves", "paige_ai_tip", "career_work_life_tip", "promptoscope",
     "library", "classes", "episodes", "study_packs", "tools_games",
     "behind_build", "operations", "external_learning", "freshness"
   ];
@@ -27,6 +27,22 @@ export function validateSourceRegistry(registry, practitionerRoster) {
   const careerMoves = (careerContract?.transformationRequired || []).join(" ");
   for (const move of requiredCareerMoves) {
     if (!careerMoves.toLowerCase().includes(move.toLowerCase())) errors.push(`career_work_life_tip transformation contract missing: ${move}`);
+  }
+  const bigQuestionContract = registry?.destinationContracts?.news_big_question;
+  if (!/public name is The Big Question/i.test(bigQuestionContract?.compatibility || "")) {
+    errors.push("news_big_question must bind the public name and legacy machine-key compatibility");
+  }
+  for (const phrase of ["evidence", "mechanism", "competing interpretations", "bounded conclusion"]) {
+    if (!(bigQuestionContract?.readerJob || "").toLowerCase().includes(phrase.toLowerCase())) errors.push(`news_big_question contract missing: ${phrase}`);
+  }
+  const missJeevesContract = registry?.destinationContracts?.dear_miss_jeeves;
+  const missJeevesMoves = (missJeevesContract?.transformationRequired || []).join(" ");
+  for (const phrase of ["common recurring AI problem", "actual mechanism", "practical recovery", "canonical continuation", "source and freshness evidence"]) {
+    const haystack = `${missJeevesContract?.readerJob || ""} ${missJeevesMoves}`;
+    if (!haystack.toLowerCase().includes(phrase.toLowerCase())) errors.push(`dear_miss_jeeves contract missing: ${phrase}`);
+  }
+  if (!/cannot enter the publishing queue automatically/i.test(missJeevesContract?.intakeBoundary || "")) {
+    errors.push("dear_miss_jeeves must prohibit automatic visitor-question publication intake");
   }
   const publicationContract = registry?.publicationEvidenceContract;
   const publicationRequirements = (publicationContract?.requiredBeforeNewsstandPublication || []).join(" ");

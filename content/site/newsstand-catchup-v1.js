@@ -3,7 +3,7 @@
 
   var STORAGE_KEY = "laidies_newsstand_seen_v1";
   var DAY_MS = 86400000;
-  var DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+  var DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
   var HASH = /^[a-f0-9]{64}$/;
   var data = JSON.parse(JSON.stringify(global.NEWSSTAND_DATA || { publications: {}, stories: [] }));
   var sourceStories = JSON.parse(JSON.stringify(data.stories || []));
@@ -474,6 +474,7 @@
     var tip = dailyDeskValue(canonicalIssue, date, "paige_tip");
     var promptoscope = dailyDeskValue(canonicalIssue, date, "promptoscope");
     var career = dailyDeskValue(canonicalIssue, date, "career_life");
+    var missJeeves = dailyDeskValue(canonicalIssue, date, "dear_miss_jeeves");
     var reading = dailyDeskValue(canonicalIssue, date, "mme_claio");
     var song = dailyDeskValue(canonicalIssue, date, "song");
     var fact = dailyDeskValue(canonicalIssue, date, "did_you_know");
@@ -498,7 +499,7 @@
           lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
         '</section>',
         quietIssue
-          ? '<details class="ns-daily-quiet-desks"><summary>All nine service desks were checked. Open the desk-by-desk record.</summary><div class="ns-daily-service-grid">'
+          ? '<details class="ns-daily-quiet-desks"><summary>All ten service desks were checked. Open the desk-by-desk record.</summary><div class="ns-daily-service-grid">'
           : '<div class="ns-daily-service-grid">',
           dailyDesk("Paige’s practical tip", tip && tip.state !== "empty" ? "ready" : "empty",
             tip && tip.state !== "empty" ? tip.headline : "Tip check in progress.", tip && tip.state !== "empty" ? tip.summary : tip && tip.emptyState || columnEmpty("paige_tip", "Paige is checking this edition’s tip against the receipts."),
@@ -509,6 +510,8 @@
             promptoscope && promptoscope.state !== "empty" ? promptoscope.destination : ""),
           dailyDesk("Work + life", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "The useful move is being checked.",
             career && career.state !== "empty" ? career.summary : career && career.emptyState || columnEmpty("career_life", "No career or life item has cleared review."), career && career.state !== "empty" ? career.destination : ""),
+          dailyDesk("Dear Miss Jeeves", missJeeves && missJeeves.state !== "empty" ? "ready" : "empty", missJeeves && missJeeves.state !== "empty" ? missJeeves.headline : "Miss Jeeves is checking the mechanism.",
+            missJeeves && missJeeves.state !== "empty" ? missJeeves.summary : missJeeves && missJeeves.emptyState || columnEmpty("dear_miss_jeeves", "No admitted Dear Miss Jeeves column is filed this week."), missJeeves && missJeeves.state !== "empty" ? missJeeves.destination : ""),
           dailyDesk("Mme CLAi-O’s reading", reading && reading.state !== "empty" ? "ready" : "empty", reading && reading.state !== "empty" ? reading.headline : "The card is face down.",
             reading && reading.state !== "empty" ? reading.summary : reading && reading.emptyState || columnEmpty("mme_claio", "No dated reading has cleared review."), reading && reading.state !== "empty" ? reading.destination : ""),
           dailyDesk("Song of the Day", song && song.state !== "empty" ? "ready" : "empty", song && song.state !== "empty" ? song.headline : "The request line is checking the release.",

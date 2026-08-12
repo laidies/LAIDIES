@@ -1,4 +1,4 @@
-# The Tribune — subproduct dossier and operating specification
+# The Big Question — subproduct dossier and operating specification
 
 **Status:** BUILT LOCALLY — ONE APPROVED DATA RECORD; RELEASE HOLD  
 **Parent:** SUNNYVAiLE NewsStand  
@@ -7,7 +7,7 @@
 
 ## Promise, audience and job
 
-The Tribune is a sourced argument that separates evidence, inference and the
+The Big Question is a sourced argument that separates evidence, inference and the
 position being argued. It serves readers who want LAiDIES to take a useful
 stand without disguising opinion as neutral reporting. It publishes only when
 an argument has earned the paper; there is no quota.
@@ -38,7 +38,7 @@ keeps a visible withdrawal at its old route and no body.
 
 ## Ownership and plumbing
 
-The Tribune editor owns thesis and argument. Accuracy independently owns
+The Big Question editor owns thesis and argument. Accuracy independently owns
 claim-source and correction review. The parent owns canonical data and reader
 presentation; Platform owns artifact, deploy and rollback. The current one
 record proves local data/reader integration only, not a recurring editorial

@@ -19,7 +19,7 @@ assert.equal(first.canonical, second.canonical, "same inputs must compose byte-i
 assert.equal(first.envelope.disposition, "QUIET", "August 4 radar must create an honest quiet draft");
 assert.deepEqual(first.envelope.storyIds, [], "August 3 stories must not roll into August 4");
 assert.deepEqual(first.envelope.storySnapshots, [], "quiet issue must contain no story snapshots");
-assert.equal(first.envelope.desks.length, 9, "all governed Daily desks must exist");
+assert.equal(first.envelope.desks.length, 10, "all governed Daily desks must exist");
 assert.equal(first.envelope.desks.filter((desk) => desk.state === "ready").length, 0, "August 3 service rows must not roll into August 4");
 assert.equal(first.envelope.canonicalWrite, false);
 assert.equal(first.envelope.deployActionTaken, false);

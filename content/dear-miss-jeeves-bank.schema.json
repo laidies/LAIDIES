@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/dear-miss-jeeves-bank.schema.json",
+  "title": "Dear Miss Jeeves editorial bank",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "owner", "status", "updatedAt", "cadence", "futureQuestionIntake", "records"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "owner": { "const": "learning-content-ecosystem" },
+    "status": { "enum": ["ACTIVE", "HOLD", "SUPERSEDED"] },
+    "updatedAt": { "type": "string", "format": "date" },
+    "cadence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bankIntake", "publication", "maximumPublishedPerWeek"],
+      "properties": {
+        "bankIntake": { "const": "CONTINUOUS" },
+        "publication": { "const": "WEEKLY_WHEN_ADMITTED" },
+        "maximumPublishedPerWeek": { "const": 1 }
+      }
+    },
+    "futureQuestionIntake": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "rule"],
+      "properties": {
+        "status": { "const": "NOT_IMPLEMENTED" },
+        "rule": { "type": "string", "minLength": 1 }
+      }
+    },
+    "records": { "type": "array", "items": { "$ref": "#/$defs/record" } }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "status", "question", "userSituation", "directAnswer", "mechanism",
+        "commonMisunderstanding", "readerMove", "productBoundary", "canonicalAnswer",
+        "sourceClaimIds", "sourceContentIds", "freshness", "reviewEvidence",
+        "schedule", "radioAdaptation", "publicEligibility"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^DMJ-[0-9]{3}$" },
+        "status": { "enum": ["IDEA", "RESEARCHING", "ANSWER_VERIFIED", "COLUMN_READY", "SCHEDULED", "PUBLISHED", "UPDATE_DUE", "RETIRED"] },
+        "question": { "type": "string", "minLength": 1 },
+        "userSituation": { "type": ["string", "null"] },
+        "directAnswer": { "type": ["string", "null"] },
+        "mechanism": { "type": ["string", "null"] },
+        "commonMisunderstanding": { "type": ["string", "null"] },
+        "readerMove": { "type": ["string", "null"] },
+        "productBoundary": { "type": ["string", "null"] },
+        "canonicalAnswer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["answerId", "path"],
+          "properties": {
+            "answerId": { "type": ["string", "null"] },
+            "path": { "type": ["string", "null"] }
+          }
+        },
+        "sourceClaimIds": { "type": "array", "items": { "type": "string" } },
+        "sourceContentIds": { "type": "array", "items": { "type": "string" } },
+        "freshness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lastCheckedAt", "expiresAt", "recheckTriggers"],
+          "properties": {
+            "lastCheckedAt": { "type": ["string", "null"], "format": "date" },
+            "expiresAt": { "type": ["string", "null"], "format": "date" },
+            "recheckTriggers": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "reviewEvidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["producer", "accuracy", "editorial", "laidiesVoice", "formatFit", "owner"],
+          "properties": {
+            "producer": { "type": ["string", "null"] },
+            "accuracy": { "type": ["string", "null"] },
+            "editorial": { "type": ["string", "null"] },
+            "laidiesVoice": { "type": ["string", "null"] },
+            "formatFit": { "type": ["string", "null"] },
+            "owner": { "type": ["string", "null"] }
+          }
+        },
+        "schedule": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["publicationDate", "publishedAt"],
+          "properties": {
+            "publicationDate": { "type": ["string", "null"], "format": "date" },
+            "publishedAt": { "type": ["string", "null"], "format": "date-time" }
+          }
+        },
+        "radioAdaptation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "scriptPath", "audioPath"],
+          "properties": {
+            "status": { "enum": ["NOT_ASSESSED", "NO_FIT", "CANDIDATE", "SCRIPT_READY", "PUBLISHED"] },
+            "scriptPath": { "type": ["string", "null"] },
+            "audioPath": { "type": ["string", "null"] }
+          }
+        },
+        "publicEligibility": { "enum": ["INELIGIBLE", "ELIGIBLE"] }
+      }
+    }
+  }
+}

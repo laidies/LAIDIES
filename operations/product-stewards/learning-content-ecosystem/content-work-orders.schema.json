@@ -43,7 +43,29 @@
         "sourceRefs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "surface": { "enum": ["NEWSSTAND", "LIBRAIRY", "CLASS", "CONCEPT", "EPISODE", "TOOL", "GAME", "STUDY_PACK", "OTHER"] },
         "action": { "enum": ["CORRECT", "UPDATE", "EXTEND", "CREATE", "QUEUE_WITH_TRIGGER"] },
-        "ownerProductId": { "type": "string", "minLength": 1 },
+          "ownerProductId": { "type": "string", "minLength": 1 },
+          "publicationFormatIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": ["news_breaking", "news_daily", "news_weekly", "news_big_question", "straight_answers", "dear_miss_jeeves", "paige_ai_tip", "career_work_life_tip", "promptoscope"]
+            }
+          },
+          "formatRouting": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["publicationFormatId", "relationship", "contributionJob", "sourceVersionIds"],
+              "properties": {
+                "publicationFormatId": { "type": "string" },
+                "relationship": { "enum": ["PRIMARY_OUTPUT", "CONTRIBUTING_EVIDENCE", "UPDATE_EXISTING", "RELATED_READING"] },
+                "contributionJob": { "type": "string", "minLength": 1 },
+                "sourceVersionIds": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+              }
+            }
+          },
         "targetPaths": { "type": "array", "minItems": 1, "items": { "type": "string" } },
         "status": {
           "enum": [

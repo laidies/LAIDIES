@@ -23,12 +23,40 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-05
+**Last reconciled:** 2026-08-11
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-11 Learning System publication-routing repair
+
+**VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
+Learning System now has one machine-checked publication registry for The
+Breaking, Daily, Weekly, Big Question, Straight Answers, Dear Miss Jeeves,
+Paige AI Tip, Career/Work-Life Tip and Promptoscope. Each binds its reader job,
+source and publication cadence, canonical store, site destination, quiet rule
+and exact template. NewsStand work orders must name their format and, for every
+contribution, the shared signal relationship, distinct job and exact source
+versions. One event may therefore be immediate Breaking/Daily coverage and
+also one evidence strand in a broader Big Question without copying the same
+article or inheriting approval.
+
+Dear Miss Jeeves now has a governed six-item common-problems bank and a real
+Daily desk/empty state. Future visitor questions remain private and cannot
+publish automatically. The public longform label is now **The Big Question**;
+the internal edition key remains `tribune` for compatibility.
+
+The calibrated source, pipeline, bank, derivative, work-order and private Daily
+tests pass. The existing browser suite correctly still fails closed on the
+canonical August 3 Daily: the admitted issue binds radar SHA
+`c0101c75abc2005031d771a13ee4ba9a9ba80d716b294ac0f5e4f98b0fb00dbb`,
+but the later Mollick-monitoring truth correction changed that dated radar to
+`09dd53e278d2d895c726d5c189aef9e7560a2977297444b67118937f3234881f`.
+Restoring current Daily visibility requires a checksum-bound successor issue
+and role-distinct admission confirming the correction does not change the
+published story; this task did not self-approve or deploy that successor.
 
 ## 2026-08-05 launch-truth reconciliation
 
