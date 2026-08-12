@@ -3856,6 +3856,97 @@
         },
         "closure": null
       }
+    },
+    {
+      "id": "LCWO-020",
+      "title": "Build the STRAiGHT TALK answer explaining what it means when an AI is said to have escaped",
+      "sourceRefs": [
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/premise.md",
+        "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md",
+        "content/library-books/straight-answers.md"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "EXTEND",
+      "ownerProductId": "library",
+      "publicationFormatIds": ["straight_answers"],
+      "formatRouting": [
+        {"publicationFormatId":"straight_answers","relationship":"PRIMARY_OUTPUT","contributionJob":"Turn the cross-lab evidence into one living direct answer that distinguishes cinematic escape from bounded control failure and improves the reader's decision method.","sourceVersionIds":["CROSS-LAB-CLAIM-MAP-2026-08-11","CROSS-LAB-PREMISE-2026-08-11","ALI-REJECTION-2026-08-11"]}
+      ],
+      "targetPaths": [
+        "operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json",
+        "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"
+      ],
+      "status": "BUILT_LOCALLY",
+      "dispatchState": "NOT_READY",
+      "priority": "P0",
+      "nextAction": "Commission one role-distinct artifact-first accuracy, usefulness, LAiDIES voice and format review of the exact STRAiGHT TALK answer; repair any finding before canonical integration.",
+      "nextTrigger": "The 902-word answer, producer contract, manifest and producer self-review are checksum-bound and ready for independent review.",
+      "acceptanceEvidence": [
+        "500–1,000 word direct answer that exceeds the reader's existing baseline",
+        "Solid, conditional, contested and unknown claims remain distinct",
+        "Goal-to-impact decision chain with workplace and non-work applications",
+        "Current source set, confidence, verified date and recheck triggers",
+        "Role-distinct accuracy, usefulness, LAiDIES voice and format review",
+        "No canonical book mutation before admission"
+      ],
+      "reviewChain": [
+        {"stage":"BUILD","owner":"library","status":"REQUIRED"},
+        {"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},
+        {"stage":"EDITORIAL","owner":"editorial-learning","status":"REQUIRED"},
+        {"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},
+        {"stage":"OWNER","owner":"library","status":"REQUIRED"},
+        {"stage":"RELEASE","owner":"control-room","status":"HOLD"},
+        {"stage":"PUBLIC","owner":"platform","status":"HOLD"}
+      ],
+      "qualityGates": {
+        "accuracy":{"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every escape, goal, access, containment, impact and loss-of-control claim maps to the current cross-lab claim map and its open gaps.","evidencePaths":[]},
+        "antiSlop":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"The answer goes beyond citation checks and rogue-AI clichés to a useful six-part decision method.","evidencePaths":[]},
+        "currentBestPractice":{"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of participant reports, promised follow-ups and the international safety assessment.","evidencePaths":[]},
+        "laidiesVoice":{"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Direct, smart and non-condescending; one earned Rewind-era line may clarify but cannot trivialize harm.","evidencePaths":[]},
+        "analogyIntegrity":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Any analogy maps to access and enforced boundary, states its limit and does not anthropomorphize the model's goal.","evidencePaths":[]},
+        "usefulnessDepth":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"A reader can apply goal, access, boundary, action, stop and impact questions to workplace and home agent use.","evidencePaths":[]},
+        "formatFit":{"owner":"library","status":"REQUIRED","evidenceRequired":"The held answer follows STRAiGHT TALK's living-reference structure and does not read as dated incident news.","evidencePaths":[]},
+        "searchIndexing":{"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted successor enters the LIBRAiRY reference index and canonical route.","evidencePaths":[]},
+        "relationshipLinking":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The living answer links to current Weekly and Big Question coverage without inheriting their publication state.","evidencePaths":[]},
+        "canonConsistency":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The answer preserves settled STRAiGHT TALK naming and current loss-of-control, agent and permissions definitions.","evidencePaths":[]},
+        "songOpportunity":{"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"No song is implied; reconsider only for a distinct mnemonic job after admission.","evidencePaths":[]},
+        "derivativeFeeds":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"Any Daily or Weekly link remains a separate source-bound derivative and cannot make the living answer public.","evidencePaths":[]}
+      },
+      "artifactBinding":{"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","sha256":"ba8d155df380ba024bff9e08fa98d258a18df0e5a4a633bba6e6c3465174c6e0"},
+      "producerContractPath":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json",
+      "producerReviewPath":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json",
+      "semanticAdmissionPath":null,
+      "evidencePaths":[
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/premise.md",
+        "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"
+      ],
+      "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
+      "execution": {
+        "state":"WAITING_ON_PREREQUISITE",
+        "primaryOutput":{"id":"LCWO-020-primary","surface":"NEWSSTAND","ownerProductId":"library","targetPaths":["operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"]},
+        "requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],
+        "derivatives":[
+          {"id":"songOpportunity","state":"PARKED","reason":"No distinct song learning job exists.","activationTrigger":"Reconsider only after the reference answer is admitted."},
+          {"id":"derivativeFeeds","state":"PARKED","reason":"No dated derivative may inherit the living answer's later admission.","activationTrigger":"Create a source-bound child only when a current event supplies a separate Daily or Weekly job."}
+        ],
+        "wip":{"ownerLimit":1},
+        "dispatch": {
+          "receiptId":"DSP-LCWO-020-20260811-01",
+          "receiptPath":"operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-020-20260811-01.json",
+          "ownerId":"library",
+          "laneId":"codex-heartbeat:laidies-learning-system-execution-recovery",
+          "acceptedScope":["operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"],
+          "collisionBoundary":"This lane may create and self-review one held STRAiGHT TALK answer and bind its work order; it may not edit the canonical Straight Answers book, mark the answer eligible, integrate, deploy or publish.",
+          "dispatchedAt":"2026-08-11T23:50:00-07:00",
+          "checkpointAt":"2026-08-12T00:20:00-07:00",
+          "slaDueAt":"2026-08-12T03:50:00-07:00"
+        },
+        "closure":null
+      }
     }
   ]
 }
