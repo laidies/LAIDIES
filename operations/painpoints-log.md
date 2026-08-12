@@ -14766,3 +14766,30 @@ while remaining falsely unfinished in the launch record.
   file can preserve the very failure the rule file was meant to solve.
 - **Publication status:** PRODUCER CANDIDATE STRENGTHENED / INDEPENDENT REVIEW,
   SCHEDULING, INTEGRATION, DEPLOYMENT AND PUBLICATION STILL REQUIRED.
+
+## BTB-472 — Fictional input is not a sandbox
+
+- **Date:** 2026-08-12
+- **Area:** Paige's Practical AI Tip, reusable skills and safety teaching.
+- **Failure:** The first Paige candidate advised testing a downloaded skill with
+  fictional notes before real work. That protects the test input, but it does
+  not contain any other files, accounts, tools or network access already
+  available to the skill. An unknown skill could still act outside the example.
+- **Root cause:** The producer compressed source provenance, environment limits
+  and behavior testing into one “low-risk data” step. Its self-review checked the
+  example's sensitivity but did not ask what authority existed before the
+  example was supplied.
+- **Prevention rule:** For any executable AI extension, separate three gates in
+  this order: trusted provenance and file inspection; least-privilege accounts,
+  folders, tools and network; then controlled normal, awkward and non-trigger
+  tests. Never describe fictional or non-sensitive input as isolation.
+- **Durable correction:** The held Paige record now starts with a self-made or
+  product-maker skill, rejects an unknown download as a first experiment,
+  limits the environment before execution and says one polished result proves
+  only one rehearsal. The producer receipt is honestly `HOLD`; Learning-owner
+  admission into the shared defect registry and a successor contract/review are
+  still required.
+- **Possible Behind the Build angle:** Why fake data can protect the document in
+  front of an AI tool while leaving the rest of the filing cabinet unlocked.
+- **Publication status:** CANDIDATE REPAIRED / PRODUCER HOLD / NO INDEPENDENT
+  ADMISSION, DAILY INTEGRATION, DEPLOYMENT OR PUBLICATION.
