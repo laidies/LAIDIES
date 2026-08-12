@@ -53,6 +53,17 @@ human explain-back/transfer result, Ali's exact content verdict, canonical
 Daily issue admission, release, deployment and exact public verification.
 No canonical story, dated issue or public site changed.
 
+The clean release worktree now carries the exact production-controller files
+from `origin/main`; their approval and negative calibration passes. A real
+curated-artifact build still stops before release. The NewsStand page, CSS and
+story data copy byte-for-byte into the partial artifact, but the controller
+correctly rejects existing unrelated prohibited Library evidence links,
+dynamic-reference false positives and missing Episode 3/4 media. The current
+live/homepage branch reproduces the same blocker. No full-site production
+release can truthfully pass until those global inputs are repaired or a scoped,
+non-regressing NewsStand overlay release receives its own controller. This is a
+release-system blocker, not evidence that the held Daily story is published.
+
 ### NewsStand end-to-end contract — verified locally / no story published
 
 The publication pipeline now keeps six different facts separate: a verified
