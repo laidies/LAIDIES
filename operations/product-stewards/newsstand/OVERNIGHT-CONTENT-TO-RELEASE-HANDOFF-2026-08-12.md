@@ -2,7 +2,7 @@
 
 **Status:** CURRENT RECONCILIATION NOTE — NO MERGE OR DEPLOY AUTHORITY
 
-**Checked:** 2026-08-12 00:48 America/Vancouver
+**Checked:** 2026-08-12 01:10 America/Vancouver
 
 ## Outcome truth
 
@@ -44,7 +44,7 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 | `2afb1178` | Paige reusable-skills tip | producer-ready; independent review required |
 | `e9471683` | Promptoscope regression tip | producer-ready; independent review required |
 | `e16b37bb` | Dear Miss Jeeves revision column | producer-ready; independent review required |
-| `067967e4` | STRAiGHT TALK “AI escaped” explanation | accepted for Ali private test; formal semantic and comprehension admission still absent |
+| `90750797` | reconciled STRAiGHT TALK “AI escaped” explanation | producer-ready after consolidating the strongest existing source packet into one current 1,371-word candidate; independent accuracy, editorial, voice and format review required |
 | `9a0081d4` | cross-lab Weekly package | producer-ready; independent review required |
 | `6981e80f` | coherent August 3 archive Daily candidate | producer-ready; independent review required; distinct from the already-live article reader |
 | `62ab0c96` | Career/Work-Life contribution-credit tip | producer-ready; independent review required |
@@ -59,3 +59,25 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 6. Deploy through the actual Cloudflare Pages production path and verify the exact public route.
 
 No whole-branch merge, canonical integration, deployment or public mutation was performed by this reconciliation.
+
+## Recurring execution gap
+
+The repository currently has two different automation paths, neither of which
+is a governed current-edition publisher:
+
+- `.github/workflows/hot-goss-daily.yml` is scheduled, but its output
+  `content/hot-goss-feed.json` is explicitly not consumed by the public
+  NewsStand; and
+- `.github/workflows/daily-private-review.yml` runs only by manual dispatch and
+  produces a private review artifact, not a canonical write or deployment.
+
+The Daily composer also correctly requires a dated AIDB receipt, a role-distinct
+admission and local promotion before release. Those safety gates are useful,
+but there is currently no cloud-hosted orchestration that carries an eligible
+item through them and then opens a bounded release successor. Therefore a green
+scheduled Hot Goss run would not mean a Daily was published, and an approved
+producer candidate will remain held until the independent-review and release
+lanes actually execute.
+
+This was confirmed from current workflow and runbook files. GitHub Actions run
+history was not verified because `gh` is unavailable in this worktree.
