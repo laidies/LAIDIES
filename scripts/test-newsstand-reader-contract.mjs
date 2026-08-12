@@ -93,7 +93,7 @@ assert.equal(contract.validate(base).length, 0);
 assert.equal(contract.visibleStories(base, "weekly", NOW_CURRENT).length, 1, "admitted Weekly story is visible at its current source check");
 assert.equal(contract.visibleStories(base, "tribune", NOW).length, 1);
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
-assert.equal(contract.visibleStories(base, "daily", NOW_VANCOUVER_AUG_11).length, 1, "a source-checked Daily back issue remains readable without being presented as current");
+assert.equal(contract.visibleStories(base, "daily", NOW_VANCOUVER_AUG_11).length, 4, "all four source-checked Daily back issues remain readable without being presented as current");
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_11), "archive", "a source recheck must not turn an old Daily into today's edition");
 assert.equal(contract.datasetState(base, NOW_VANCOUVER_AUG_11).state, "ready", "an eligible archive is a usable NewsStand state even when no paper is current");
 assert.equal(contract.accessDecision(base, null, { scope: "hash" }, NOW_VANCOUVER_AUG_11).canExpose, true, "the dataset gate must allow a direct route to an eligible archive story");
@@ -189,6 +189,8 @@ const catchup = fs.readFileSync(path.join(ROOT, "content", "site", "newsstand-ca
 assert.doesNotMatch(css, /#4b2148/i, "retired plum cannot return as live NewsStand UI");
 const publicationControls = Array.from(html.matchAll(/<button class="ns-publication"[^>]*data-edition="([^"]+)"/g), (match) => match[1]);
 assert.deepEqual(publicationControls, ["breaking", "daily", "weekly", "tribune"], "the physical counter must expose exactly the four canonical papers");
+assert.match(html, /<strong>The Big Picture<\/strong>/, "the public fourth paper must use Ali's Big Picture masthead");
+assert.doesNotMatch(html, />The Tribune</, "the retired Tribune masthead cannot remain in current public markup");
 const publicationContents = Array.from(html.matchAll(/class="ns-publication__contents"[^>]*data-contents-for="([^"]+)"/g), (match) => match[1]);
 assert.deepEqual(publicationContents, publicationControls, "every canonical paper needs one in-paper live contents region");
 assert.equal((html.match(/class="ns-publication__job"/g) || []).length, 4, "every paper needs a visible job preview");

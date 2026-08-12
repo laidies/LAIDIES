@@ -58,7 +58,7 @@ window.NEWSSTAND_DATA = {
       updatedAt: "2026-07-25T19:30:00Z",
       lastCheckedAt: "2026-07-25T19:30:00Z",
       maxAgeHours: 336,
-      note: "One Tribune article is on the rack."
+      note: "One Big Picture article is on the rack."
     }
   },
   stories: [
@@ -366,7 +366,7 @@ window.NEWSSTAND_DATA = {
       cocktail_party: "“Europe’s Article 50 transparency rules started on August 2. In covered situations, people should be told when they are interacting with AI or seeing certain AI-generated or manipulated content. The label is useful caller ID, not proof that the content is true.”",
       watch_fors: null,
       closing_note: null,
-      class_notes: "The current <a href=\"#label-is-not-a-truth-detector\"><strong>Tribune</strong></a> explains the durable rule: provenance and labelling can help establish origin; the underlying claim still needs evidence.",
+      class_notes: "The current <a href=\"#label-is-not-a-truth-detector\"><strong>Big Picture</strong></a> explains the durable rule: provenance and labelling can help establish origin; the underlying claim still needs evidence.",
       sources: [
         {
           id: "ec-article-50-guidelines-2026-07-20",

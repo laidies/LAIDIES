@@ -14,7 +14,7 @@ different jobs:
 | The Breaking | Rare, qualified interruption when waiting would materially disadvantage the reader | No qualified interruption |
 | The Daily | Edited briefing of consequential changes since the last issue | Nothing consequential enough to file |
 | The Weekly | Durable synthesis that connects the week’s evidence | Editorial hold, stale check, or no synthesis worth publishing |
-| The Tribune | Sourced argument that separates evidence, inference and position | No argument has earned the paper |
+| The Big Picture (`tribune` machine key) | The deeper sourced story behind the headlines, separating evidence, inference and position | No deeper story has earned the paper |
 
 The radar is private discovery. It does not become a fifth publication and it
 does not publish directly.
@@ -40,7 +40,7 @@ does not publish directly.
 
 Publication proposals must declare the job they ask an independent editor to
 assess: Breaking proposes a qualified interruption, Daily a multi-item edited
-briefing, Weekly a durable synthesis of at least two developments, and Tribune
+briefing, Weekly a durable synthesis of at least two developments, and Big Picture
 separate evidence, inference and position. Those declarations are structural
 review inputs, not proof that the job has been met.
 

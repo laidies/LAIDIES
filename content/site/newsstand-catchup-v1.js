@@ -339,7 +339,7 @@
         "Unavailable";
     }
 
-    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Tribune" };
+    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Big Picture" };
     var order = ["breaking", "daily", "weekly", "tribune"];
     var dataset = contract.datasetState(data, now);
     var current = order.filter(function (edition) {
