@@ -63,6 +63,10 @@ for (const artifactPath of allPaths) {
 }
 
 if (changes.length === 0) throw new Error('candidate artifact has no public changes');
+const visitorFacingChanges = changes.filter(change => change.path !== 'build-report.json');
+if (visitorFacingChanges.length === 0) {
+  throw new Error('candidate artifact changes only generated build metadata; no NewsStand visitor file changed');
+}
 const outsideScope = changes.filter(change => !allowed.has(change.path));
 if (outsideScope.length) {
   throw new Error(`candidate changes public files outside NewsStand scope: ${outsideScope.map(change => change.path).join(', ')}`);
