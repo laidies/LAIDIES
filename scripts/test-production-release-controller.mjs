@@ -62,7 +62,7 @@ const workflow = fs.readFileSync(workflowPath, 'utf8');
 assert.match(workflow, /workflow_dispatch:/);
 assert.doesNotMatch(workflow, /^\s*push:/m);
 assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
-assert.match(workflow, /PRODUCTION_CONTROLLER_SHA/);
+assert.match(workflow, /PRODUCTION_CONTROLLER(?:_V2)?_SHA/);
 assert.match(workflow, /environment:\n\s+name: production/);
 assert.match(workflow, /actions\/upload-pages-artifact@v3/);
 assert.match(workflow, /actions\/deploy-pages@v4/);
