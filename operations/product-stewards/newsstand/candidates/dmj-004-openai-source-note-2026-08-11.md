@@ -1,6 +1,6 @@
 # DMJ-004 source note — OpenAI model guidance
 
-- **Checked:** 2026-08-11
+- **Checked:** 2026-08-12
 - **Authority:** first-party product guidance
 - **Source:** https://developers.openai.com/api/docs/guides/latest-model
 - **Status:** current when checked; the page does not expose a stable update date
@@ -13,6 +13,12 @@ validating changes on representative tasks, changing one instruction, example
 or tool group at a time and rerunning the same evaluations. It also says an
 efficiency improvement counts only when the final result still passes the
 existing quality bar.
+
+For multi-step work, the same guidance recommends one compact autonomy and
+approval policy kept in one place. It warns that repeating approval instructions
+can itself cause unnecessary interruptions. This supports reconciling a changed
+requirement into one current brief instead of appending another instruction to
+an accumulating pile.
 
 ## What it does not establish
 

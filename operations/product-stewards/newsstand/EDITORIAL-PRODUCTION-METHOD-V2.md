@@ -123,12 +123,13 @@ Reproduce the actual failure before giving advice. For persistent instruction fa
 
 - prose instructions from enforced controls;
 - model context from durable external state;
+- an accumulated pile of corrections from one reconciled current authority;
 - remembered rules from executable validators;
 - acknowledgement from observed compliance;
 - one-off prompting from orchestration across long jobs; and
 - product limitations from user-fixable briefing problems.
 
-Possible remedies must be tested rather than listed: smaller bounded work units, authoritative external state, checkpoints, clean handoffs, automated acceptance and regression tests, tool-enforced permissions, versioned artifacts, context refresh without abandoning the job, and human takeover where the system cannot reliably comply. “Start a new chat” may be one recovery option; it is never the universal answer.
+Possible remedies must be tested rather than listed: smaller bounded work units, one current external brief that replaces and marks superseded instructions instead of accumulating conflicts, checkpoints, clean handoffs, automated acceptance and regression tests, tool-enforced permissions, versioned artifacts, context refresh without abandoning the job, and human takeover where the system cannot reliably comply. “Start a new chat” may be one recovery option; it is never the universal answer.
 
 ### Paige, Career/Work-Life and Promptoscope
 

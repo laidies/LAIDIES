@@ -2,7 +2,7 @@
 
 **Status:** CURRENT RECONCILIATION NOTE — NO MERGE OR DEPLOY AUTHORITY
 
-**Checked:** 2026-08-12 01:15 America/Vancouver
+**Checked:** 2026-08-12 01:18 America/Vancouver
 
 ## Outcome truth
 
@@ -52,7 +52,7 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 | `7c4e49bd` | The Big Question candidate and held executor state | producer-ready; independent review required |
 | `2afb1178` | Paige reusable-skills tip | producer-ready; independent review required |
 | `e9471683` | Promptoscope regression tip | producer-ready; independent review required |
-| `e16b37bb` | Dear Miss Jeeves revision column | producer-ready; independent review required |
+| `e16b37bb` + current successor | Dear Miss Jeeves revision column | producer-ready after adding the missing reconcile-not-append rule for changing requirements; official OpenAI guidance rechecked August 12; independent review required |
 | `90750797` | reconciled STRAiGHT TALK “AI escaped” explanation | producer-ready after consolidating the strongest existing source packet into one current 1,371-word candidate; independent accuracy, editorial, voice and format review required |
 | `9a0081d4` | cross-lab Weekly package | producer-ready; independent review required |
 | `6981e80f` | coherent August 3 archive Daily presentation successor | producer-ready; independent review required; explicitly extends the admitted August 3 issue and preserves the already-live article rather than creating a competing issue |

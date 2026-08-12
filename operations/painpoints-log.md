@@ -14741,3 +14741,28 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The current STRAiGHT TALK candidate now consolidates the older source packet into one 1,371-word successor, records the exact predecessor SHA and passes the strict ratchet against its three-cycle predecessor. `EDITORIAL-PRODUCTION-METHOD-V2.md`, D-2026-08-12-114 and the decisions router now require predecessor-first production. `scripts/check-content-producer-contract.mjs` fails every new NEWS contract that omits its search roots, queries, matches and first/successor disposition; the calibrated missing-search mutation is rejected, and all eight active NewsStand contracts now carry the record.
 - **Possible Behind the Build angle:** Why a new task ID can secretly create version sixteen—and how searching by the reader's question keeps one article improving.
 - **Publication status:** PRODUCER SUCCESSOR CONSOLIDATED / INDEPENDENT REVIEW, CANONICAL INTEGRATION, DEPLOYMENT AND PUBLICATION STILL REQUIRED.
+
+## BTB-471 — Freezing a brief can freeze its contradictions
+
+- **Date:** 2026-08-12
+- **Area:** Dear Miss Jeeves and long-running AI-work guidance.
+- **Failure risk:** Advising a reader to move requirements into an external brief
+  still fails if every later correction is appended beside the instruction it
+  replaced. The chat becomes a contradictory rule file, and the rule file then
+  becomes a more durable contradictory chat.
+- **Root cause:** “Keep external state” described where truth lived but not how
+  its versions were reconciled. Authority without supersession still permits
+  multiple incompatible current instructions.
+- **Prevention rule:** Maintain one current whole-job brief. When feedback changes
+  a requirement, replace the old instruction and mark it superseded; do not add
+  another co-equal rule. Keep the last accepted artifact separately and rerun
+  stable checks before promoting its successor.
+- **Durable correction:** DMJ-004 now teaches reconciliation inside the long job,
+  and the NewsStand editorial method requires producers to distinguish an
+  accumulated correction pile from one reconciled current authority. Current
+  OpenAI model guidance was rechecked and supports stating each instruction once
+  and keeping one compact autonomy/approval policy in one place.
+- **Possible Behind the Build angle:** Why copying every correction into a rule
+  file can preserve the very failure the rule file was meant to solve.
+- **Publication status:** PRODUCER CANDIDATE STRENGTHENED / INDEPENDENT REVIEW,
+  SCHEDULING, INTEGRATION, DEPLOYMENT AND PUBLICATION STILL REQUIRED.

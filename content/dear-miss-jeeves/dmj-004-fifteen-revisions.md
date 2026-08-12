@@ -14,7 +14,7 @@ More instructions do not automatically create more control. A rule file can help
 
 ## Miss Jeeves prescribes
 
-1. **Freeze the whole-job brief outside the conversation.** Record the audience, purpose, non-negotiable requirements, prohibited changes and what “done” means. This is the authority; chat history is supporting material.
+1. **Keep one whole-job brief outside the conversation—and reconcile it.** Record the audience, purpose, non-negotiable requirements, prohibited changes and what “done” means. When feedback changes a requirement, replace the old instruction and mark it superseded; do not paste a fifteenth rule beside fourteen conflicting ones. This brief is the authority; chat history is supporting material.
 2. **Protect the last genuinely good version.** Give it a version number. A new draft is a candidate, not an automatic replacement.
 3. **Make a small rerunnable test set.** For a board briefing, use the same fictional source packets and check that three required facts, the audience, the length and the no-invented-quote rule survive. At home, test the same imaginary itinerary days and check mobility needs, meal times and budget.
 4. **Change one thing at a time.** Then rerun every check, including the old ones. If the new version fixes the title but drops a fact, it has not improved.
