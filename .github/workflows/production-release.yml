@@ -32,7 +32,7 @@ jobs:
       EXPECTED_IDENTITY: ${{ inputs.artifact_identity_sha256 }}
       APPROVAL_CONFIRMATION: ${{ inputs.approval_confirmation }}
       APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
-      CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
+      CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_V2_SHA }}
       ARTIFACT_DIR: ${{ runner.temp }}/laidies-release/site
       RECEIPT_DIR: ${{ runner.temp }}/laidies-release/receipt
     steps:
