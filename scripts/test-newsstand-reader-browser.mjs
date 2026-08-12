@@ -103,13 +103,32 @@ function fixtureData(name) {
     story.slug = "forged-admitted-destination";
     if (story.sources && story.sources[0]) story.sources[0].url = "https://example.invalid/forged-source";
   }
+  if (name === "longform") {
+    const story = data.stories.find((item) => item.id === "label-is-not-a-truth-detector");
+    story.longform = {
+      ariaLabel: "The Big Question: a calibrated long-form reader fixture",
+      jumpSectionIds: ["question", "work-home"],
+      sections: [
+        { id: "question", label: "The question", blocks: [
+          { type: "paragraph", body: "The plain-language question and the mechanism behind it." },
+          { type: "quote", role: "myth", eyebrow: "NOT THE LESSON", body: "The scary shortcut is not the lesson." }
+        ] },
+        { id: "work-home", label: "What this means for you", blocks: [
+          { type: "subheading", text: "At work" },
+          { type: "paragraph", body: "A workplace example that reconnects to the mechanism." },
+          { type: "subheading", text: "At home" },
+          { type: "unordered_list", items: ["A non-work example", "A useful action"] }
+        ] }
+      ]
+    };
+  }
   return data;
 }
 
 function fixtureScript(name) {
   const mutatesStorySource = new Set([
     "load-failure", "no-data", "dataset-hold", "stale", "unavailable", "mixed",
-    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered"
+    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered", "longform"
   ]);
   if (!mutatesStorySource.has(name)) {
     return fs.readFileSync(path.join(ROOT, "content", "newsstand-stories.js"), "utf8");
@@ -758,6 +777,17 @@ try {
     check(await value(searchHistory, "Number(document.querySelector('#paper-counter').getAttribute('data-ns-restored-scroll')) === window.scrollY"), true, `search cycle ${scrollTarget} observable settled scroll`);
   }
   searchHistory.close();
+
+  for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }, { width: 320, height: 760 }]) {
+    const longform = await openPage("/newsstand.html?fixture=longform#label-is-not-a-truth-detector", viewport);
+    check(await value(longform, "document.querySelector('.ns-article').getAttribute('aria-label')"), "The Big Question: a calibrated long-form reader fixture", `${viewport.width}: long-form article exposes its exact accessible label`);
+    check(await value(longform, "Array.from(document.querySelectorAll('.ns-article__jump a')).map((node) => node.getAttribute('href')).join(',')"), "#ns-section-question,#ns-section-work-home", `${viewport.width}: long-form jump links bind exact section targets`);
+    check(await value(longform, "document.querySelector('.ns-article__quote--myth strong').textContent"), "NOT THE LESSON", `${viewport.width}: rejected myth is visibly distinguished from a conclusion`);
+    check(await value(longform, "Array.from(document.querySelectorAll('.ns-article__section--longform h4')).map((node) => node.textContent).join(',')"), "At work,At home", `${viewport.width}: work and non-work transfer headings are explicit`);
+    check(await value(longform, "(() => { const node=document.querySelector('.ns-article__section--longform p'); const max=parseFloat(getComputedStyle(node).maxWidth); return Number.isFinite(max) && max > 0 && node.getBoundingClientRect().width <= max + 1; })()"), true, `${viewport.width}: long-form copy resolves to the bounded reading measure`);
+    check(await value(longform, "document.documentElement.scrollWidth <= window.innerWidth"), true, `${viewport.width}: long-form reader has no horizontal overflow`);
+    longform.close();
+  }
 
   const directHistory = await openPage("/newsstand.html#label-is-not-a-truth-detector");
   check(await value(directHistory, "document.querySelectorAll('.ns-article').length"), 1, "direct story starts open");

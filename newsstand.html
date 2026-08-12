@@ -507,6 +507,11 @@
         }
 
         function storySearchText(story) {
+          var longformText = story.longform && story.longform.sections ? story.longform.sections.map(function (section) {
+            return [section.label].concat((section.blocks || []).map(function (block) {
+              return block.text || block.body || (block.items || []).join(" ");
+            })).join(" ");
+          }).join(" ") : "";
           return [
             story.headline,
             story.thread,
@@ -517,7 +522,8 @@
             stripHTML(story.the_story),
             stripHTML(story.laidies_read),
             stripHTML(story.what_this_means),
-            (story.sources || []).map(function (source) { return source.label; }).join(" ")
+            (story.sources || []).map(function (source) { return source.label; }).join(" "),
+            stripHTML(longformText)
           ].join(" ").toLowerCase();
         }
 
@@ -548,6 +554,38 @@
               "<p>", body, "</p>",
             "</section>"
           ].join("");
+        }
+
+        function renderLongformBlock(block) {
+          if (block.type === "paragraph") return "<p>" + block.body + "</p>";
+          if (block.type === "subheading") return "<h4>" + escapeHTML(block.text) + "</h4>";
+          if (block.type === "quote") {
+            var role = ["myth", "conclusion", "evidence"].indexOf(block.role) !== -1 ? block.role : "evidence";
+            var eyebrow = block.eyebrow || (role === "myth" ? "NOT THE LESSON" : "");
+            return '<blockquote class="ns-article__quote ns-article__quote--' + role + '">' +
+              (eyebrow ? "<strong>" + escapeHTML(eyebrow) + "</strong>" : "") + block.body + "</blockquote>";
+          }
+          if (block.type === "ordered_list" || block.type === "unordered_list") {
+            var tag = block.type === "ordered_list" ? "ol" : "ul";
+            return "<" + tag + ">" + block.items.map(function (item) { return "<li>" + item + "</li>"; }).join("") + "</" + tag + ">";
+          }
+          return "";
+        }
+
+        function renderLongform(story) {
+          var longform = story.longform;
+          var sections = longform.sections || [];
+          var byId = {};
+          sections.forEach(function (section) { byId[section.id] = section; });
+          var jump = '<nav class="ns-article__jump" aria-label="In this ' + escapeHTML(EDITION[story.edition].label) + '"><strong>Jump to</strong><ul>' +
+            longform.jumpSectionIds.map(function (id) {
+              var section = byId[id];
+              return '<li><a href="#ns-section-' + escapeHTML(id) + '">' + escapeHTML(section.label) + "</a></li>";
+            }).join("") + "</ul></nav>";
+          return jump + sections.map(function (section) {
+            return '<section class="ns-article__section ns-article__section--longform" id="ns-section-' + escapeHTML(section.id) + '"><h3>' +
+              escapeHTML(section.label) + "</h3><div>" + section.blocks.map(renderLongformBlock).join("") + "</div></section>";
+          }).join("");
         }
 
         function renderArticle(story) {
@@ -589,7 +627,7 @@
               escapeHTML(story.correction.summary) + "</p></aside>"
             : "";
           return [
-            '<article class="ns-article">',
+            '<article class="ns-article" aria-label="', escapeHTML(story.longform && story.longform.ariaLabel || story.headline), '">',
               '<header class="ns-article__head">',
                 '<p class="ns-article__edition">', escapeHTML(EDITION[edition].label), "</p>",
                 '<p class="ns-article__date">Published ', escapeHTML(formatDate(story.publishedAt)),
@@ -599,9 +637,9 @@
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
               "</header>",
               correction,
-              articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
-              articleSection("The LAiDIES Read", story.laidies_read),
-              articleSection("What This Means For You", story.what_this_means),
+              story.longform ? renderLongform(story) : articleSection(isTribune ? "The Argument" : "The Story", story.the_story) +
+                articleSection("The LAiDIES Read", story.laidies_read) +
+                articleSection("What This Means For You", story.what_this_means),
               story.cocktail_party ? '<blockquote class="ns-article__cocktail"><strong>The Cocktail Party Explanation</strong><p>' + story.cocktail_party + "</p></blockquote>" : "",
               watch,
               story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",

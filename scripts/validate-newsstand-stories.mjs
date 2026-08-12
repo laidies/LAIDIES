@@ -161,12 +161,42 @@ if (!Array.isArray(stories)) {
     const richText = [
       story.the_story, story.laidies_read, story.what_this_means,
       story.cocktail_party, story.class_notes, story.closing_note,
-      ...(story.watch_fors || [])
+      ...(story.watch_fors || []),
+      ...(story.longform?.sections || []).flatMap((section) => [
+        section.label,
+        ...(section.blocks || []).flatMap((block) => [block.body, block.text, block.eyebrow, ...(block.items || [])])
+      ])
     ].filter(Boolean);
     richText.forEach((value) => {
       if (UNSAFE_HTML.test(value)) fail(`${label}: unsafe HTML or URL scheme.`);
       if (PLACEHOLDER.test(value)) fail(`${label}: placeholder marker in copy.`);
     });
+
+    if (story.longform) {
+      const sectionIds = new Set();
+      if (!story.longform.ariaLabel?.trim() || !Array.isArray(story.longform.sections) || story.longform.sections.length < 2 ||
+          !Array.isArray(story.longform.jumpSectionIds) || story.longform.jumpSectionIds.length === 0) {
+        fail(`${label}: longform structure is incomplete.`);
+      }
+      for (const section of story.longform.sections || []) {
+        if (!section?.id || sectionIds.has(section.id) || !section.label?.trim() || !Array.isArray(section.blocks) || !section.blocks.length) {
+          fail(`${label}: longform section needs a unique id, label and blocks.`);
+          continue;
+        }
+        sectionIds.add(section.id);
+        for (const block of section.blocks) {
+          const validText = block && ((block.type === "paragraph" && block.body?.trim()) ||
+            (block.type === "subheading" && block.text?.trim()) ||
+            (block.type === "quote" && ["myth", "conclusion", "evidence"].includes(block.role) && block.body?.trim()));
+          const validList = block && ["ordered_list", "unordered_list"].includes(block.type) &&
+            Array.isArray(block.items) && block.items.length && block.items.every((item) => item?.trim());
+          if (!validText && !validList) fail(`${label}: longform block is invalid.`);
+        }
+      }
+      for (const jumpId of story.longform.jumpSectionIds || []) {
+        if (!sectionIds.has(jumpId)) fail(`${label}: longform jump target is missing: ${jumpId}.`);
+      }
+    }
 
     if (!Array.isArray(story.sources) || story.sources.length === 0) {
       fail(`${label}: at least one named source is required.`);

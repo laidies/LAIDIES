@@ -14950,7 +14950,13 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The corrected exact Weekly wrapper names The Weekly
   at visible and accessible layers, exposes all five synthesis sections plus
   work/home landmarks and independently passes 1440/390/320 with zero blockers.
+  The production NewsStand schema and reader now implement that same data-owned
+  contract: exact accessible name, unique authored sections, validated jump
+  targets, semantic quote roles and a 68ch reading measure. Unit calibration
+  rejects an invented jump target and an empty block; 230 rendered checks pass
+  across desktop, 390 and 320 without changing any public story record.
 - **Possible Behind the Build angle:** Why reusing a template is not the same as
   copying its meaning.
 - **Publication status:** WEEKLY PRESENTATION INDEPENDENTLY ACCEPTED / SHARED
-  PRODUCTION SCHEMA AND READER IMPLEMENTATION REMAIN / NOT PUBLIC.
+  PRODUCTION SCHEMA AND READER BUILT + VERIFIED LOCALLY / STORY INTEGRATION,
+  OBSERVED HUMAN AND RELEASE REMAIN / NOT PUBLIC.

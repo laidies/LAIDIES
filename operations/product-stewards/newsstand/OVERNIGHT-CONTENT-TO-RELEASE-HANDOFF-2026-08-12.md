@@ -135,8 +135,8 @@ publicly verified.
 | Candidate | Existing truthful home | Missing before publication |
 |---|---|---|
 | The Daily archive | Daily issue snapshot, full Daily story reader and dated archive already exist | Map the accepted expanded presentation into one successor issue without creating a competing August 3 record; render and admit the exact result |
-| The Weekly | `weekly` publication exists; exact unchanged-prose longform presentation independently passes and the 1,682-word length earns its space | Implement the shared longform schema/reader with exact Weekly identity and authored section landmarks, run observed human, then create and admit the held story record |
-| The Big Question | `tribune` machine key and public Big Question paper/reader already exist; exact unchanged-prose presentation now independently passes | Implement the accepted jump nav/68ch/myth/work-home structure in the actual reader, run observed human, then create and admit the exact held story record using only the public Big Question name |
+| The Weekly | `weekly` publication exists; exact unchanged-prose longform presentation independently passes; shared longform schema/reader is built and verified locally with exact data-owned identity and landmarks | Transform the accepted prose into one held story record, run observed human, then admit the exact record |
+| The Big Question | `tribune` machine key and public Big Question paper/reader already exist; exact unchanged-prose presentation independently passes; accepted jump nav/68ch/myth/work-home reader contract is built and verified locally | Transform the accepted prose into one held story record, run observed human, then admit it using only the public Big Question name |
 | Paige, Promptoscope, Career/Work-Life | All three governed Daily desk types already exist; the exact 39-word Promptoscope successor independently passes the existing compact desk at desktop/390/320 | Promptoscope needs one observed-reader check and dated Daily integration; Paige and Career need separately reviewed compact decks plus truthful full destinations |
 | Dear Miss Jeeves | The governed Daily desk type and editorial bank exist | The Daily can show a compact desk item, but no current public full-answer destination exists for the accepted 528-word column; build and admit that bounded reading destination before adding a `Go deeper` link |
 | STRAiGHT TALK | The name, living-reference job, source method and exact accepted prose exist | No current public STRAiGHT TALK LIBRAiRY surface or index route exists; build and admit that bounded reference destination before this article can publish |
@@ -157,7 +157,14 @@ This is why “the writing passed” and “ready to publish” are not the same
 6. Run the reader contract, rendered browser matrix and full release controller.
 7. Deploy through the actual Cloudflare Pages production path and verify the exact public route.
 
-No whole-branch merge, canonical integration, deployment or public mutation was performed by this reconciliation.
+The shared production longform schema/reader is now **BUILT + VERIFIED LOCALLY**:
+exact accessible publication identity and semantic landmarks come from story
+data; jump targets are validated; myth/evidence/conclusion roles remain
+distinct; body/list/quote measure is bounded at 68ch. Deliberate missing-target
+and empty-block mutations fail; 230 rendered checks pass at 1440/390/320. This
+does not create or admit either candidate story record.
+
+No whole-branch merge, canonical story integration, deployment or public mutation was performed by this reconciliation.
 
 ## Recurring execution gap
 

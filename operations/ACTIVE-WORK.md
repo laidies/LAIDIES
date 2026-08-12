@@ -42,14 +42,14 @@ contract and calibrated tests carry the rule. Missing either example and
 relabelled duplicate scenarios fail before admission. Compact non-teaching copy
 may link to the substantial paired explanation rather than carrying both.
 
-### The Big Question loss-of-control candidate — producer pass / independent admission next
+### The Big Question loss-of-control candidate — prose and presentation accepted / story integration next
 
 One exact longform NewsStand candidate now answers **“Is AI starting to escape
 our control?”** across the OpenAI/Hugging Face, Anthropic, Meta and AISI cyber-
 evaluation pattern. The private prose at
 `operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md`
-is **BUILT LOCALLY / PRODUCER SELF-REVIEW PASS / NO INDEPENDENT QUALITY
-AUTHORITY** at SHA-256
+is **BUILT LOCALLY / INDEPENDENT PROSE + PRESENTATION ACCEPTED / STORY
+INTEGRATION HOLD** at SHA-256
 `841c56c195b9968efe4615a7f4a374a063988dfcdbe6600bf622adf1d4313807`.
 
 It answers that no current evidence establishes a takeover, then explains the
@@ -68,8 +68,12 @@ candidate receipt. The successor now includes both a workplace calendar case
 and a non-work personal-travel case applying the same control mechanism. The
 LCWO-004 now binds the exact manifest and records `EDITORIAL_REVIEW /
 WAITING_ON_PREREQUISITE`, so an `IDLE_HEALTHY` executor heartbeat no longer
-means there is no unfinished NewsStand work. The candidate still requires one role-distinct semantic and accuracy
-review, NewsStand integration, authorized deploy and exact public verification.
+means there is no unfinished NewsStand work. The shared production schema and
+reader are now built and verified locally with authored jump targets, semantic
+quote roles, a 68ch reading measure and explicit work/home landmarks. The
+candidate still requires transformation into one held story record,
+observed-human explain-back/transfer, exact story admission, authorized deploy
+and public verification.
 The settled public masthead is **The Big Question**; the machine edition remains
 `tribune`. No publication or public page changed.
 

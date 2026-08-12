@@ -112,6 +112,32 @@ governedQuietOnly.publications.daily.editionDate = "2026-08-04";
 governedQuietOnly.publications.daily.lastCheckedAt = NOW_VANCOUVER_AUG_4;
 assert.equal(contract.datasetState(governedQuietOnly, NOW_VANCOUVER_AUG_4).state, "ready", "a fresh governed quiet Daily can recover a dataset with no visible story");
 
+const longformCandidate = JSON.parse(JSON.stringify(base));
+const longformStory = longformCandidate.stories.find((story) => story.id === "label-is-not-a-truth-detector");
+longformStory.longform = {
+  ariaLabel: "The Big Question: a calibrated long-form reader fixture",
+  jumpSectionIds: ["question", "work-home"],
+  sections: [
+    { id: "question", label: "The question", blocks: [
+      { type: "paragraph", body: "A plain opening that earns the question." },
+      { type: "quote", role: "myth", eyebrow: "NOT THE LESSON", body: "A false shortcut the story must reject." }
+    ] },
+    { id: "work-home", label: "At work and at home", blocks: [
+      { type: "subheading", text: "At work" },
+      { type: "paragraph", body: "A workplace transfer example." },
+      { type: "subheading", text: "At home" },
+      { type: "unordered_list", items: ["One home example", "One useful check"] }
+    ] }
+  ]
+};
+assert.equal(contract.validate(longformCandidate).length, 0, "a complete long-form story passes the reader contract");
+const missingLongformJump = JSON.parse(JSON.stringify(longformCandidate));
+missingLongformJump.stories.find((story) => story.id === longformStory.id).longform.jumpSectionIds.push("missing-section");
+assert.match(contract.validate(missingLongformJump).join("\n"), /longform jump target is missing/, "calibration: an invented jump target fails closed");
+const malformedLongformBlock = JSON.parse(JSON.stringify(longformCandidate));
+malformedLongformBlock.stories.find((story) => story.id === longformStory.id).longform.sections[0].blocks[0] = { type: "paragraph", body: "" };
+assert.match(contract.validate(malformedLongformBlock).join("\n"), /longform block is invalid/, "calibration: an empty long-form block fails closed");
+
 for (const fixture of cases) {
   const candidate = mutate(base, fixture.mutation);
   const datasetState = contract.datasetState(candidate, NOW);
@@ -283,5 +309,9 @@ assert.match(html, /class="ns-catchup-jump"/, "returning visitors need Catch Me 
 assert.doesNotMatch(css, /\.ns-publications::after|\.ns-publication::before/, "the counter must not revive pseudo-object CSS art");
 assert.match(css, /\.ns-story-notice--corrected/);
 assert.match(css, /\.ns-story-notice--retracted/);
+assert.match(html, /function renderLongform\(story\)/, "long-form stories need a dedicated semantic renderer");
+assert.match(html, /ns-article__quote--/, "long-form quotes must preserve their teaching role");
+assert.match(css, /\.ns-article__section--longform p,[\s\S]*?max-width:\s*68ch;/, "long-form prose needs a bounded reading measure");
+assert.match(css, /\.ns-article__quote--myth/, "a rejected myth cannot be styled as the story conclusion");
 
 console.log(`✓ NEWSSTAND READER: ${cases.length} state fixtures · canonical editions · focus/ARIA/failure-state contracts`);

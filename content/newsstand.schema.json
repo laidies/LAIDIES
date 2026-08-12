@@ -110,6 +110,7 @@
         "what_this_means": { "type": "string", "minLength": 20 },
         "cocktail_party": { "type": "string", "minLength": 20 },
         "class_notes": { "type": "string", "minLength": 10 },
+        "longform": { "$ref": "#/$defs/longform" },
         "sources": {
           "type": "array",
           "minItems": 1,
@@ -129,6 +130,34 @@
         },
         "tags": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } }
       }
+    },
+    "longform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ariaLabel", "jumpSectionIds", "sections"],
+      "properties": {
+        "ariaLabel": { "type": "string", "minLength": 3 },
+        "jumpSectionIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" } },
+        "sections": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/longformSection" } }
+      }
+    },
+    "longformSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "blocks"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "label": { "type": "string", "minLength": 2 },
+        "blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/longformBlock" } }
+      }
+    },
+    "longformBlock": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["type", "body"], "properties": { "type": { "const": "paragraph" }, "body": { "type": "string", "minLength": 1 } } },
+        { "type": "object", "additionalProperties": false, "required": ["type", "text"], "properties": { "type": { "const": "subheading" }, "text": { "type": "string", "minLength": 2 } } },
+        { "type": "object", "additionalProperties": false, "required": ["type", "role", "body"], "properties": { "type": { "const": "quote" }, "role": { "enum": ["myth", "conclusion", "evidence"] }, "eyebrow": { "type": "string", "minLength": 2 }, "body": { "type": "string", "minLength": 1 } } },
+        { "type": "object", "additionalProperties": false, "required": ["type", "items"], "properties": { "type": { "enum": ["ordered_list", "unordered_list"] }, "items": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } } } }
+      ]
     }
   }
 }

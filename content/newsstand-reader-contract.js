@@ -57,6 +57,34 @@
             !Object.prototype.hasOwnProperty.call(story, "retraction")) {
           errors.push(label + " correction/retraction fields are missing");
         }
+        if (story && story.longform) {
+          var longform = story.longform;
+          var sectionIds = {};
+          if (!longform.ariaLabel || !Array.isArray(longform.sections) || longform.sections.length < 2 ||
+              !Array.isArray(longform.jumpSectionIds) || !longform.jumpSectionIds.length) {
+            errors.push(label + " longform structure is incomplete");
+          } else {
+            longform.sections.forEach(function (section) {
+              if (!section || !section.id || !section.label || sectionIds[section.id] ||
+                  !Array.isArray(section.blocks) || !section.blocks.length) {
+                errors.push(label + " longform section is invalid");
+              } else {
+                sectionIds[section.id] = true;
+                section.blocks.forEach(function (block) {
+                  var validText = block && ((block.type === "paragraph" && block.body) ||
+                    (block.type === "subheading" && block.text) ||
+                    (block.type === "quote" && ["myth", "conclusion", "evidence"].indexOf(block.role) !== -1 && block.body));
+                  var validList = block && ["ordered_list", "unordered_list"].indexOf(block.type) !== -1 &&
+                    Array.isArray(block.items) && block.items.length && block.items.every(Boolean);
+                  if (!validText && !validList) errors.push(label + " longform block is invalid");
+                });
+              }
+            });
+            longform.jumpSectionIds.forEach(function (id) {
+              if (!sectionIds[id]) errors.push(label + " longform jump target is missing: " + id);
+            });
+          }
+        }
         if (story && story.status === "corrected" &&
             (!story.correction || !validDate(story.correction.correctedAt) ||
              !story.correction.summary || !story.correction.owner || !story.correction.record)) {
