@@ -127,6 +127,7 @@ export function validatePublicationPipelines(data) {
   }
   for (const requirement of [
     /named AI object/i,
+    /ordinary.life setting outside work/i,
     /one recognizable AI behaviour or misconception/i,
     /one concrete scene/i,
     /what happened/i,
@@ -137,8 +138,13 @@ export function validatePublicationPipelines(data) {
     if (!requirement.test(promptoscopeFields)) errors.push(`promptoscope missing actionable field ${requirement}`);
   }
   const promptoscopeClarity = data?.dailyServiceColumnClarityContract?.promptoscope || "";
-  if (!/funny.*recognizable forecast.*AI interaction or misconception.*what happened.*why it happened.*what to watch or correct/i.test(promptoscopeClarity) || !/not become an action.first Paige recipe/i.test(promptoscopeClarity) || !/not force a work.home pair/i.test(promptoscopeClarity)) {
+  if (!/funny.*recognizable forecast.*AI.*ordinary life outside work.*what happened.*why it happened.*what to watch or correct/i.test(promptoscopeClarity) || !/not become an action.first Paige recipe/i.test(promptoscopeClarity) || !/Mme CLAi-O reflection/i.test(promptoscopeClarity) || !/not force a work.home pair/i.test(promptoscopeClarity)) {
     errors.push("daily service-column clarity contract must distinguish Promptoscope's funny AI-behaviour forecast from Paige and from forced paired transfer");
+  }
+  const paige = formats.get("paige_ai_tip");
+  const paigeFields = (paige?.templateFields || []).join(" ");
+  if (!/AI.at.work action/i.test(paige?.job || "") || !/specific work task/i.test(paigeFields) || !/check the work result/i.test(paigeFields)) {
+    errors.push("Paige must remain an action-first AI-at-work column with an observable work result");
   }
   return { errors, formats: formats.size };
 }

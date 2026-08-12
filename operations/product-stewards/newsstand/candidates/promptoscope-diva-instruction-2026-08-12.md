@@ -1,8 +1,8 @@
-# Promptoscope candidate — diva instruction
+# Promptoscope format ruling and current proof
 
 **Status:** INTERNAL PRODUCER CANDIDATE / NOT ADMITTED / NOT PUBLISHED
 
-## Exact reader prose
+## Reclassified predecessor — Paige source material only
 
 ### Your new instruction has diva energy.
 
@@ -11,13 +11,29 @@ Today’s forecast: you ask AI to turn meeting notes into five bullets, then add
 Compare both answers. If the new one names every owner but drops a deadline the
 old one kept, revise the prompt and run it again. Mercury is not the diva.
 
+Ali judged this useful and funny, but still essentially a Paige tip. That
+judgment controls. These bytes are removed from the active Promptoscope lineage
+and preserved only as potential source material for a future Paige-at-work tip.
+They have no admission, render or publication authority.
+
+## Current Promptoscope proof
+
+### Your cupboard is entering its fan-fiction era.
+
+Tonight’s forecast: you ask AI for dinner ideas using eggs, spinach and feta.
+It adds tahini, fresh dill and a rotisserie chicken you do not have. Before
+trying again, list what is actually available and say, “Use only these
+ingredients plus oil, salt and pepper. Flag anything else before adding it.”
+Then check the cooking time against a trusted recipe. Neptune did not stock the
+cupboard.
+
 ## Surface distinction
 
-- **Not Paige:** this does not lead as a practical workflow recipe. It notices
-  and explains one recognizable AI interaction: the requested improvement
-  appears while an older requirement disappears.
-- **Promptoscope job:** the horoscope frame makes that behaviour funny and
-  memorable, then gives one bounded correction.
+- **Not Paige:** this is an ordinary-life AI interaction outside work. Paige
+  owns practical AI-at-work actions with an observable work result.
+- **Promptoscope job:** the horoscope frame makes a recognizable AI mistake
+  funny and memorable, explains the missing context, then gives one bounded
+  correction and verification step.
 - **Not Mme CLAi-O:** this is about an AI prompt and observed output, not a
   reflective or intuitive reading of the reader’s day.
 
@@ -26,10 +42,10 @@ old one kept, revise the prompt and run it again. Mercury is not the diva.
 Without the `Promptoscope` label, the reader must be able to answer:
 
 1. What did the person ask AI to do?
-2. What changed in the prompt?
-3. What stayed the same?
-4. What went missing?
-5. What should the person do next?
+2. Why were the extra ingredients unusable?
+3. What information could the AI not see?
+4. What exact boundary should the person add?
+5. What should the person verify outside the chat?
 6. What makes this a funny AI-behaviour forecast rather than Paige’s practical
    tip or a Mme CLAi-O reading?
 

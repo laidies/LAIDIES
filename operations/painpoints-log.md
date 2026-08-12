@@ -15053,3 +15053,29 @@ while remaining falsely unfinished in the launch record.
   to stop three Daily columns from becoming the same advice card.
 - **Publication status:** ONE INTERNAL PROMPTOSCOPE SUCCESSOR ON HOLD / NO
   INDEPENDENT ADMISSION, RENDER, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-484 — Tone did not distinguish two columns doing the same job
+
+- **Date:** 2026-08-12
+- **Area:** Paige / Promptoscope / Daily service-column routing.
+- **Failure:** The “diva instruction” candidate was clearer and funnier than
+  the rejected Promptoscope, but Ali correctly found it was still a Paige tip
+  in a horoscope voice. The content job remained a practical workplace prompt
+  correction; humour changed tone, not category.
+- **Root cause:** The router distinguished action-first from diagnosis but let
+  both columns operate on the same workplace AI tasks. A producer could satisfy
+  either template with the same underlying item and change only the wrapper.
+- **Prevention rule:** Paige owns practical AI-at-work actions with an
+  observable work result. Promptoscope owns funny, practical AI interactions
+  in ordinary life outside work. Career/Work-Life starts with career guidance;
+  Mme CLAi-O remains reflective and non-predictive. A non-work Paige item or a
+  workplace Promptoscope item fails routing before prose review.
+- **Durable correction:** Publication templates and calibrated negative tests
+  enforce the work/non-work split. The diva meeting item is reclassified as
+  Paige source material; the cupboard fan-fiction item is the one final
+  Promptoscope proof. D-2026-08-12-118 records the ruling.
+- **Possible Behind the Build angle:** Why making the same advice funnier does
+  not create a different publication—and how domain boundaries can do what
+  tone labels cannot.
+- **Publication status:** ONE INTERNAL PROMPTOSCOPE PROOF ON HOLD / NO
+  INDEPENDENT ADMISSION, RENDER, DEPLOY OR PUBLIC CHANGE.

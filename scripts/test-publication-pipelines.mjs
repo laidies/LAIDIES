@@ -93,6 +93,14 @@ const paigeWithStars = clone(source);
 paigeWithStars.dailyServiceColumnClarityContract.promptoscope = "Give one action the reader can use today, but add a horoscope headline.";
 assert.match(validatePublicationPipelines(paigeWithStars).errors.join("\n"), /distinguish Promptoscope's funny AI-behaviour forecast/);
 
+const nonWorkPaige = clone(source);
+nonWorkPaige.formats.find((format) => format.id === "paige_ai_tip").job = "Give one general AI action.";
+assert.match(validatePublicationPipelines(nonWorkPaige).errors.join("\n"), /AI-at-work column/);
+
+const workplacePromptoscope = clone(source);
+workplacePromptoscope.formats.find((format) => format.id === "promptoscope").templateFields = workplacePromptoscope.formats.find((format) => format.id === "promptoscope").templateFields.filter(field => field !== "ordinary-life setting outside work");
+assert.match(validatePublicationPipelines(workplacePromptoscope).errors.join("\n"), /ordinary.life setting outside work/);
+
 const singleOutputOnly = clone(source);
 singleOutputOnly.rule = "A signal may create only one output.";
 assert.match(validatePublicationPipelines(singleOutputOnly).errors.join("\n"), /allow earned multi-output/);
@@ -102,4 +110,4 @@ inheritedAdmission.multiOutputContract.independenceRule = "All outputs share app
 assert.match(validatePublicationPipelines(inheritedAdmission).errors.join("\n"), /prohibit inherited admission/);
 
 console.log("PUBLICATION PIPELINE TEST PASS");
-console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,single-output-only,inherited-admission rejected");
+console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,non-work-paige,workplace-promptoscope,single-output-only,inherited-admission rejected");

@@ -157,15 +157,18 @@ and next move clear before the horoscope joke.
 shared producer and prose checkers had still forced workplace/home transfer
 onto every `NEWS` item, including compact service cards. Both now require one
 complete example for `COMPACT_SERVICE_CARD` and reject a missing next action;
-their calibrated bad fixtures pass. The publication router now separately
-rejects “Paige with stars”: Paige is action-first, while Promptoscope must be a
-funny forecast diagnosing one recognizable AI interaction or misconception.
-Mme CLAi-O remains the non-predictive reflective reading. Exact successor
-`DLD-2026-08-12-PROMPTOSCOPE-DIVA-INSTRUCTION` is `HOLD / INELIGIBLE`; its
+their calibrated bad fixtures pass. Ali then found the useful, funny “diva
+instruction” meeting example still read like Paige. It is now source material
+for Paige only, not an active Promptoscope candidate. The publication router
+now rejects overlap by domain: Paige owns practical AI at work with an
+observable work result; Promptoscope owns funny, practical AI use in ordinary
+life outside work. Career remains career guidance first and Mme CLAi-O remains
+the non-predictive reflective reading. Exact successor
+`DLD-2026-08-12-PROMPTOSCOPE-CUPBOARD-FAN-FICTION` is `HOLD / INELIGIBLE`; its
 producer contract and self-review integrity match, but it has no independent
 semantic admission, render, deployment or public authority. Ali's one bounded
-decision is whether this exact proof earns Promptoscope a distinct slot; a no
-retires the format rather than opening another cosmetic revision.
+decision is whether this exact outside-work proof earns Promptoscope a distinct
+slot; a no retires the format rather than opening another cosmetic revision.
 
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The
