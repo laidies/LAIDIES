@@ -1,6 +1,6 @@
 # THE DAiLY
 
-**Sunday, August 3, 2026 · Archive edition**
+**Monday, August 3, 2026 · Archive edition**
 
 ## This morning in one sentence
 
