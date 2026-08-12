@@ -93,8 +93,29 @@ all applicable discovery checks below against the exact released story hash.
 3. **Back issues**
    - the story appears in the latest-five view for its edition when applicable;
    - “See all” exposes the complete eligible index;
-   - archive search finds headline, topic, source and controlled tags;
-   - topic browsing works across editions.
+   - the persistent Find a story control sits directly beneath the three
+     edition choices and is never buried as footer-only navigation;
+   - archive search finds exact words/phrases across headline, summary,
+     admitted body, organization/product, source label, governed topic and
+     controlled aliases;
+   - visitors can filter by governed topic, content type and date, and can sort
+     comparable results newest or oldest;
+   - topic browsing works across Daily, Weekly, Big Picture, STRAiGHT TALK,
+     Dear Miss Jeeves and admitted service departments while labelling each
+     result's actual content type;
+   - one governed many-to-many topic/alias register prevents split synonyms,
+     sensational relabelling and free-form AI categorization;
+   - every published item has exactly one primary and no more than four
+     secondary governed topic tags, displayed as live links in result and
+     article metadata;
+   - clicking a tag opens the complete eligible cross-content result set for
+     that canonical topic and announces the topic and result count;
+   - missing, unknown, retired or excessive tags fail publication, and a new
+     tag requires a definition, aliases and a duplicate check;
+   - result ordering uses exact match, governed relationship strength and date,
+     never undisclosed popularity, engagement or sponsorship; and
+   - article return restores the exact query, filters and reachable result
+     position.
 
 4. **Related learning**
    - `class_notes` names the exact Concepts, LIBRAiRY, class, episode or tool
@@ -140,11 +161,15 @@ all applicable discovery checks below against the exact released story hash.
 
 ## Reader journeys that must pass
 
-- first visit → understand the four papers → find the newest story;
+- first visit → understand the three editions → see the Daily and find the
+  newest story;
 - returning visit → see what is new since the last successful visit;
 - direct story address → readable story → exact sources → related learning;
 - edition → latest five → complete index;
-- topic/search → cross-edition result → article → return to the prior results;
+- topic/search → cross-content-type result → article → More on this topic or
+  return to the exact prior query/filters/position;
+- visible article tag → complete eligible same-topic results across content
+  types → return to the article or continue within the topic;
 - corrected story → visible correction adjacent to the article;
 - held/stale/retracted story → no body exposure through paper, search, direct
   address, Homepage, feed or derivative.
@@ -155,9 +180,12 @@ released artifact, not a local fixture.
 
 ## Current implementation truth
 
-- The NewsStand currently has edition selection, direct hash stories, archive
-  search, source links, correction/retraction controls and fail-closed reader
-  tests.
+- The NewsStand currently has edition selection, direct hash stories, basic
+  exact-text archive search, raw-tag topic buttons, source links,
+  correction/retraction controls and fail-closed reader tests.
+- It does not yet have the confirmed governed topic/alias register,
+  visible-clickable-tag contract, publication guard, cross-content-type search
+  index, filters, result-ranking contract or complete topic journey.
 - The twice-daily News Radar and daily Control Room automations exist.
 - The candidate evaluator is review-routing only and cannot publish.
 - The Homepage Daily column is still an isolated design candidate, not a

@@ -15145,3 +15145,30 @@ while remaining falsely unfinished in the launch record.
   same as explaining the story from first principles.
 - **Publication status:** AUGUST 12 DAILY PREDECESSOR REJECTED / SUCCESSOR IN
   REPAIR / NO CANONICAL INTEGRATION OR PUBLICATION.
+
+## BTB-487 — Existing tags looked like a discovery system but had no governing contract
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand archive, search and topic discovery.
+- **Failure:** NewsStand stories already carried free-form `tags[]`, the reader
+  printed them as `Filed under`, and the archive generated topic buttons from
+  them. That implementation evidence made the earlier idea look preserved, but
+  it did not ensure consistent labels, clickable article tags, synonyms,
+  cross-content results or complete old-story retrieval. The capability could
+  drift or disappear even though files still contained the word `tags`.
+- **Root cause:** Presentation metadata was mistaken for a governed product
+  contract. No durable decision separated topic from publication type/entity,
+  limited tag sprawl, rejected unknown/retired tags or bound a visible tag to
+  the complete eligible result set.
+- **Prevention rule:** Every published item has exactly one primary and no more
+  than four governed secondary topic tags. Tags are selected from one defined
+  topic/alias register, displayed as live links and tested against the complete
+  eligible cross-content result set. Missing, unknown, retired or excessive
+  tags fail publication; content type, entity and date/state remain separate.
+- **Durable correction:** D-2026-08-12-123, the NewsStand page architecture,
+  functionality map, discovery contract and NS-17 now bind the visible-tag and
+  Find a story journey. Implementation and deployment remain build-required.
+- **Possible Behind the Build angle:** Why adding tags to a database is not the
+  same as helping a reader find everything LAiDIES has already explained.
+- **Publication status:** SPECIFIED ONLY / CURRENT BASIC SEARCH PRESERVED AS
+  EVIDENCE / NO LIVE ROUTE, DATA, SEARCH OR DEPLOYMENT CHANGE.

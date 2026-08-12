@@ -18,8 +18,8 @@ The persistent edition choices are exactly:
 3. **The Big Picture** — a searchable collection of substantial questions and
    investigations.
 
-Archive/Search is a separate, clearly labelled utility. It is not a fourth
-edition choice.
+Archive/Search is a separate, first-class finding utility. It is not a fourth
+edition choice and it may not be buried at the bottom of the page.
 
 ### Edition switcher
 
@@ -47,6 +47,82 @@ The existing locally accepted four-paper rack may supply bounded place/Paige
 evidence, but its equal-four-paper navigation is superseded and must not be
 integrated as the primary NewsStand experience.
 
+### Find a story — persistent search and topic discovery
+
+Directly beneath the three edition choices, every edition exposes one obvious
+**Find a story** control. It combines:
+
+- a plain search field for words or phrases;
+- **Browse topics**;
+- **All stories**; and
+- a compact way to narrow results by content type and date.
+
+This is not a fourth paper. It is the route into all eligible previously
+published NewsStand work and approved related LAiDIES explainers. Search results
+must distinguish:
+
+- **topic** — what the reader is trying to understand, such as model autonomy,
+  sandbox escapes, prompting, models not following instructions, privacy or AI
+  at work;
+- **content type** — Daily, Weekly, Big Picture, STRAiGHT TALK, Dear Miss
+  Jeeves, Paige, Promptoscope or another admitted department; and
+- **time/state** — original publication date, material update date and current,
+  corrected, retracted or archived status.
+
+A visitor can therefore browse everything connected to a topic without needing
+to know whether LAiDIES answered it as news, an investigation, a durable direct
+answer or a Miss Jeeves problem. Result labels make that difference obvious.
+
+Search covers the exact eligible headline, standfirst/summary, governed topic
+terms, aliases, named organizations/products, source labels and admitted body
+text. Common-language aliases may connect a reader's wording to the governed
+topic—for example, `AI going rogue` may lead to records filed under agent
+autonomy, sandbox boundaries and unsanctioned action—but aliases must never
+rewrite or sensationalize the story's actual claim.
+
+Topic labels come from one governed many-to-many topic register, not whatever
+words happen to appear in an article or a free-form AI classification. One item
+may belong to several topics; one topic may return several content types.
+Synonyms merge into a canonical topic without splitting the archive into near
+duplicates. A topic page explains the topic in one sentence, shows the most
+useful current starting point, then all eligible results in a clear order.
+
+Every published item displays clickable topic tags near its headline/summary
+and again in the article metadata. It has exactly one primary topic and may
+carry up to four genuinely useful secondary topics. Clicking any visible tag
+opens that topic's complete eligible result set with the selected tag and
+result count announced. For example, clicking **Politics** shows every eligible
+item tagged Politics across the Daily, Weekly, Big Picture, STRAiGHT TALK, Dear
+Miss Jeeves and admitted departments.
+
+Visible topic tags describe subject matter. Content type, date/state and named
+entities are separate metadata and filters: `Weekly` is not a topic, `OpenAI`
+is not silently treated as the same kind of label as `Politics`, and decorative
+Rewind Era language is not a discovery tag unless it names a real governed
+subject. Editors select tags from the register during production; publication
+fails when the primary tag is missing, unknown or retired. New tags require a
+plain-language definition, aliases and a duplicate check before use. Tag
+changes are versioned so corrections and earlier discovery behaviour remain
+explainable.
+
+Default result order is useful and understandable: exact matches first, then
+strong governed topic matches, with newest within comparable matches. Visitors
+may choose newest or oldest. Popularity, engagement and sponsorship never
+silently determine the order. Every result shows title/question, content type,
+short payoff, topic labels, publication/update date and correction/archive
+state before opening.
+
+From every article, **More on this topic** returns genuinely related work based
+on governed shared topics or learning relationships. It must not use vague
+keyword overlap, silently personalized reading history or invented AI answers.
+Back returns the visitor to the same query, filters and result position.
+
+No eligible result is suppressed merely because it is old. Held, unavailable
+or superseded drafts never appear; a retracted public record retains its route
+and clear notice rather than exposing the withdrawn body. A no-result state
+preserves the query, suggests real nearby governed topics when available and
+offers All stories without pretending a match exists.
+
 ## Shared visual and interaction system
 
 The Daily and Weekly are two issues in one coherent LAiDIES newspaper family.
@@ -73,8 +149,8 @@ same NewsStand world, but search and question discovery must remain obvious.
 3. lead Daily story in either Headline Reality Check or Plain-Language
    Explainer mode;
 4. additional consequential Daily stories or an honest quiet-news state;
-5. related Big Picture, Weekly, STRAiGHT TALK, Library or Class links only when
-   they provide a real continuation; and
+5. related Big Picture, Weekly, STRAiGHT TALK, Dear Miss Jeeves, Library or
+   Class links only when they provide a real continuation; and
 6. visible sources, checked date and correction state.
 
 ### Daily departments
@@ -126,7 +202,9 @@ The Big Picture page provides:
 
 - a clear explanation of its job;
 - the current featured question or investigation;
-- search across question, theme, organization, consequence and source;
+- search within Big Picture across question, theme, organization, consequence
+  and source, while the shared Find a story control can search across all
+  content types;
 - browsable themes and a chronological index of eligible Big Picture work;
 - for each item: question, short payoff, published/updated date, current,
   corrected, retracted or archive state, and the full feature route;
@@ -143,8 +221,9 @@ NewsStand's feature archive while remaining searchable and accessible.
 Desktop may use a newspaper spread with a dominant lead and visible side
 departments. Mobile uses this order:
 
-`Breaking if qualified → three-choice edition switcher → masthead/date/state → lead →
-other news → daily/weekly departments → sources/corrections → archive/search`
+`Breaking if qualified → three-choice edition switcher → Find a story →
+masthead/date/state → lead → other news → daily/weekly departments →
+sources/corrections → complete archive access`
 
 No department may precede the issue identity or make sponsored, fictional or
 reflective material look like sourced reporting.
@@ -158,10 +237,13 @@ reflective material look like sourced reporting.
 4. Produce and admit one realistic complete Weekly content packet, including
    Week in Brief, Tip of the Week, Dear Miss Jeeves and STRAiGHT TALK spotlight.
 5. Derive the Weekly sibling layout from the accepted shared newspaper system.
-6. Build the Big Picture search/index around admitted feature records.
-7. Integrate the intake router, canonical stores, issue assembly, archive,
+6. Bind the governed topic/alias register, visible-tag rules, search-result
+   contract and cross-content-type index before relying on automatic related
+   links; reject missing, unknown, retired or excessive tags before publication.
+7. Build the Big Picture search/index around admitted feature records.
+8. Integrate the intake router, canonical stores, issue assembly, archive,
    correction and release path.
-8. Run one manual Daily and Weekly through exact public verification before
+9. Run one manual Daily and Weekly through exact public verification before
    enabling recurring publication automation.
 
 No visual, implementation, publication or deployment is authorized by this
