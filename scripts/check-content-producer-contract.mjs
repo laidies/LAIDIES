@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const COMMUNICATION_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
+const EXPLANATION_REASONING_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md";
 const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
@@ -156,6 +157,30 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     require(appliedDimensions === 0, "NOT_APPLICABLE communication design cannot claim applied benchmark dimensions");
     require(communication?.explanationArc?.mode === "NOT_APPLICABLE", "NOT_APPLICABLE communication design must declare explanationArc.mode=NOT_APPLICABLE");
     require(text(communication?.explanationArc?.reason), "communicationDesign.explanationArc.reason is required when not applicable");
+  }
+
+  const reasoning = contract?.explanationReasoningDesign;
+  require(reasoning?.benchmarkId === "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1", "explanationReasoningDesign.benchmarkId mismatch");
+  require(reasoning?.benchmark?.path === EXPLANATION_REASONING_BENCHMARK, `explanationReasoningDesign.benchmark.path must be ${EXPLANATION_REASONING_BENCHMARK}`);
+  boundFile(root, reasoning?.benchmark, "explanationReasoningDesign.benchmark", errors);
+  require(reasoning?.mode === expectedMode, `${contract?.contentClass || "content"} requires explanationReasoningDesign.mode=${expectedMode}`);
+  require(reasoning?.imitationBoundary === "ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB", "explanationReasoningDesign must preserve LAiDIES voice and prohibit imitation or AIDB deference");
+  if (expectedMode === "NOT_APPLICABLE") {
+    require(text(reasoning?.exemptionReason), "NOT_APPLICABLE explanationReasoningDesign requires an exemptionReason");
+    require(reasoning?.containsTeachingClaim === false, "NOT_APPLICABLE explanationReasoningDesign cannot contain a teaching claim");
+  } else {
+    for (const field of ["humanEntry", "fakeUnderstandingRisk", "explainBackTest", "transferCase", "usefulLanding", "rewindEraAdaptation"]) {
+      require(text(reasoning?.[field]), `explanationReasoningDesign.${field} is required`);
+    }
+    require(array(reasoning?.firstPrinciplesSequence, expectedMode === "FULL" ? 3 : 1), `explanationReasoningDesign.firstPrinciplesSequence requires ${expectedMode === "FULL" ? "at least three" : "at least one"} causal step(s)`);
+    require(reasoning?.explainBackTest !== reasoning?.transferCase, "explanationReasoningDesign explain-back and transfer must be different");
+    require(!/^(?:hannah fry|feynman|aidb)(?: inspired| style| method)?[.! ]*$/i.test(reasoning?.humanEntry?.trim() || ""), "explanationReasoningDesign cannot be satisfied by naming a benchmark");
+    const evidence = reasoning?.evidenceAnalysis;
+    for (const field of ["claimUnderInspection", "primaryEvidence", "establishes", "doesNotEstablish", "claimedImpact", "realConsequence"]) {
+      require(text(evidence?.[field]), `explanationReasoningDesign.evidenceAnalysis.${field} is required`);
+    }
+    require(["COMPARED", "DATED_ABSENCE", "NOT_APPLICABLE_TO_SUBJECT"].includes(evidence?.aidbDisposition), "explanationReasoningDesign.evidenceAnalysis.aidbDisposition is required");
+    require(text(evidence?.aidbReason), "explanationReasoningDesign.evidenceAnalysis.aidbReason is required");
   }
 
   for (const field of ["highestRisk", "plannedProof", "acceptanceOutcome"]) require(text(contract?.representativeProofPlan?.[field]), `representativeProofPlan.${field} is required`);

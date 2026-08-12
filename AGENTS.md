@@ -186,14 +186,23 @@ is genuinely engaging and enjoyable. LAiDIES or Rewind Era analogies and humour
 belong only when they perform a named teaching job and preserve the mechanism;
 otherwise use a faithful everyday example or none.
 
-Material learning producers also bind the current Hannah Fry communication
-benchmark before drafting. Adapt the communication mechanics—not her voice,
-persona or wording—to the destination's job: human reason, useful
-curiosity, concrete visibility for an invisible process, accurate movement
-between familiar experience and technical abstraction, retained limitations
-and consequences, and a better next question. Name-dropping the benchmark,
-adding a hook without explanatory payoff or using a familiar example that
-never reconnects to the mechanism fails production.
+Every material meaning-bearing thing LAiDIES publishes—including episodes,
+books, classes, study packs, FAQs, NewsStand, Behind the Build, teaching games
+and interactives, and scripted audio/video—binds the current combined LAiDIES
+explanation and editorial-reasoning benchmark before drafting. Three methods
+are non-compensable: Hannah Fry's human-first visibility for an invisible
+mechanism; Feynman-style first-principles reconstruction with explain-back and
+a genuinely different transfer case; and AIDB-style separation of the
+claim/headline from primary evidence, what it establishes and does not
+establish, claimed impact, real consequence and unresolved questions. Build
+the primary-evidence read before comparing AIDB or recording a dated honest
+absence. Adapt depth and order to the destination and express the result in
+LAiDIES/Rewind Era voice. Never imitate Hannah Fry or Richard Feynman's voice,
+persona or wording and never copy or defer to AIDB. Name-dropping any benchmark,
+adding a hook without payoff, leaving a causal gap, allowing a familiar example
+to replace the mechanism, or testing transfer with a restated worked case fails
+production. Pure labels, navigation, legal and transactional microcopy may
+declare the framework not applicable only when they carry no teaching claim.
 
 For episodes, classes and substantial explanations, use the default explanatory
 arc: shared everyday or work experience and a live question; cause-and-effect
@@ -228,10 +237,10 @@ a checksum-bound pending reusable learning. Learning-owner admission—not
 feedback alone—adds a reusable defect to the shared registry, which then
 invalidates stale producer contracts before the next draft.
 
-Material explanatory NewsStand content includes explain-back and unseen
-transfer, with the same bound observation rule as other teaching. Every
-successor review names its predecessor and supplies the prior comparable;
-omitting comparison cannot reset the ratchet.
+Material explanatory content includes explain-back and unseen transfer, with
+the same bound observation rule across every destination. Every successor
+review names its predecessor and supplies the prior comparable; omitting
+comparison cannot reset the ratchet.
 
 ## END-TO-END PRODUCTION DESIGN — Tier 1 only
 

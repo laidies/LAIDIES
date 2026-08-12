@@ -4,6 +4,24 @@
   "status": "ACTIVE_INTERNAL_PRODUCTION_ROUTER",
   "updatedAt": "2026-08-11",
   "rule": "A verified signal may contribute to one or more earned outputs. Each output must have a distinct reader job, exact evidence/version binding and explicit routing decision; the signal is never copied across formats merely to fill space.",
+  "explanationMethod": {
+    "id": "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
+    "benchmark": "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md",
+    "hannahFryMethod": "Begin with the reader's human reason, make the invisible mechanism concrete, move from familiar experience to technical truth and back, preserve consequences and land with a better question or useful action.",
+    "feynmanStyleMethod": "Reconstruct from first principles in ordinary words, explain every causal link, expose false understanding with explain-back and test transfer on a genuinely different case.",
+    "aidbScrutinyMethod": "After an independent primary-source read, separate the circulating headline from what happened, what the evidence establishes and does not establish, the claimed impact, the real consequence and unresolved questions; compare AIDB or record a dated honest absence.",
+    "nonImitationBoundary": "Use the explanatory and editorial methods without imitating Hannah Fry's or Richard Feynman's voice, persona or wording and without copying or deferring to AIDB; the finished prose must remain recognizably LAiDIES.",
+    "requiredProducerEvidence": [
+      "human reader question and necessary background",
+      "plain-language causal mechanism with no unexplained links",
+      "primary-evidence establishes and does-not-establish record",
+      "AIDB comparison or dated honest absence after the independent read",
+      "explain-back test that cannot be passed by parroting",
+      "genuinely different unseen transfer case",
+      "bounded useful action, decision rule or better next question"
+    ],
+    "failureRule": "Missing any lens or merely naming Hannah Fry, Feynman or AIDB fails production; structural presence cannot admit prose quality."
+  },
   "multiOutputContract": {
     "example": "One current event may qualify for The Breaking or The Daily and also become contributing evidence inside a broader The Big Question.",
     "requiredPerContribution": ["signalId", "publicationFormatId", "relationship", "contributionJob", "workOrderId", "sourceVersionIds"],
@@ -25,8 +43,9 @@
       "quietPolicy": "No qualified interruption is a successful quiet result; publish no placeholder.",
       "templateFields": [
         "headline",
+        "minimum prior context for a newcomer",
         "confirmed event and exact time",
-        "why waiting would disadvantage the reader",
+        "why this new information belongs before the next Daily",
         "what changes now and for whom",
         "what does not change yet",
         "uncertainty and watch points",
@@ -49,6 +68,7 @@
       "quietPolicy": "The sourced-news desk may be quiet; the dated paper still publishes with admitted service columns and governed empty states.",
       "templateFields": [
         "edition date and editorial time zone",
+        "reader-facing edition hierarchy with masthead, lead, secondary desks and recurring columns",
         "front-page lead or sourced-news quiet state",
         "additional consequential headlines",
         "what changed and what it means",
@@ -105,7 +125,7 @@
       "displayName": "The Big Question",
       "productOwner": "newsstand-tribune",
       "machineEdition": "tribune",
-      "job": "Examine one consequential live issue in depth, make a transparent evidence-led argument and address the strongest counterargument.",
+      "job": "Investigate one consequential live question through original evidence, affected people, responsible organizations and unresolved contradictions; form a transparent conclusion only after reporting.",
       "sourceCadence": "CHECK_WEEKLY_AND_ON_MATERIAL_SIGNAL",
       "publicationCadence": "ONE_TO_TWO_PER_MONTH_WHEN_EARNED",
       "canonicalStore": "content/newsstand-stories.js",
@@ -115,6 +135,10 @@
       "templateFields": [
         "one explicit consequential question",
         "why the question matters now",
+        "primary documents, data and claims to test",
+        "affected people and practical cases",
+        "responsible organizations and questions put to them",
+        "contradictions, incentives, accountability and unanswered questions",
         "evidence and source chronology",
         "what the evidence establishes",
         "what remains inference or position",
@@ -139,13 +163,15 @@
       "quietPolicy": "A question stays held when its evidence is not current; never convert it into dated news merely to expose it.",
       "templateFields": [
         "direct recurring question",
+        "reader baseline and what remains unresolved after common knowledge",
         "short direct answer",
         "what is solid",
         "what is contested",
         "what is unknown",
         "what it depends on",
         "myth to drop",
-        "useful action or decision model",
+        "claim-level verification ladder beyond opening and matching a citation",
+        "useful action or decision model tested against a real case",
         "sources, confidence, verified date and recheck trigger"
       ]
     },
@@ -164,10 +190,13 @@
       "templateFields": [
         "Dear Miss Jeeves question",
         "recognizable user situation",
+        "reproduction of the actual failure",
         "direct answer",
         "why the system behaves this way",
         "what people commonly misunderstand",
-        "what the reader can change",
+        "instruction versus enforceable-control distinction",
+        "long-running workflow remedies using external state, checkpoints, validators and bounded handoffs",
+        "what the reader can change and what was actually tested",
         "when the problem is the product rather than the user",
         "exact Straight Answer or other canonical continuation",
         "sources, freshness and correction state",

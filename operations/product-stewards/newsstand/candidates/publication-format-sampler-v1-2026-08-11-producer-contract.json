@@ -20,7 +20,7 @@
       "freshnessTrigger": "Any change to a publication job, cadence, destination, naming decision or multi-output rule.",
       "source": {
         "path": "operations/product-stewards/learning-content-ecosystem/PUBLICATION-PIPELINES.json",
-        "sha256": "364d0b1b0b2ad93f7d9c46b96df8c2d956a70d01f58ff2c89ec698555b378e29"
+        "sha256": "95d5812cb7c545b17d2eab3b249d0a4f6d6d85d59a8404a558704f31c64aaa84"
       }
     },
     {
@@ -39,6 +39,24 @@
       "source": {
         "path": "operations/drafts/openai-hugging-face-incident-2026-07-24/breaking-news-draft.md",
         "sha256": "207a8d27afbe8c2725f66f7563892135a3ae1041e63da65c7a686ba9cc5239fa"
+      }
+    },
+    {
+      "claimId": "SAMPLER-BREAKING-REPLACEMENT-CLAIM-MAP",
+      "owner": "ai-research-accuracy",
+      "freshnessTrigger": "Any proposal to publish the July Claude shared-chat example; recheck current sharing behaviour, removal controls and search visibility first.",
+      "source": {
+        "path": "operations/drafts/news-radar/2026-07-28-claude-shared-chats-search/research-and-claim-map.md",
+        "sha256": "545a040e2dabe6a7bc06c7e66ec884929e10b11792580154eaa8128be0b2503f"
+      }
+    },
+    {
+      "claimId": "SAMPLER-BREAKING-REPLACEMENT-TRIAGE",
+      "owner": "newsstand",
+      "freshnessTrigger": "Any change to the P0 qualification, reader action or privacy hard-hold status.",
+      "source": {
+        "path": "operations/drafts/news-radar/2026-07-28-claude-shared-chats-search/triage.md",
+        "sha256": "3d319597149a6b661ca3b246b641f34eaa4839e5fe2d73d4413f1dc3c04c9c2c"
       }
     },
     {
@@ -122,8 +140,8 @@
   ],
   "knownFailurePreflight": {
     "registryVersion": "laidies-content-quality-exemplars.v1",
-    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
-    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002"],
+    "registrySha256": "4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002", "CQX-BAD-003", "CQX-BAD-004", "CQX-BAD-005"],
     "dispositions": {
       "glossaryAccumulation": {"status": "CLEAR", "producerGuard": "Every sample must perform its publication job instead of collecting AI vocabulary.", "preventionEvidence": "The nine-section architecture is organized by reader outcome, not terms."},
       "templateRepetition": {"status": "CLEAR", "producerGuard": "No shared heading sequence may be copied across all formats.", "preventionEvidence": "Each format has a distinct length, opening, evidence density and landing."},
@@ -137,9 +155,25 @@
       "purposeTooNarrow": {"status": "CLEAR", "producerGuard": "The sampler tests the complete publication system, not a single incident or workplace use case.", "preventionEvidence": "Nine formats cover news, analysis, reference, troubleshooting and daily service."},
       "mechanismBeforeMotivation": {"status": "CLEAR", "producerGuard": "Each format establishes why the reader cares before explaining how the system behaves.", "preventionEvidence": "The section plan starts with consequence, question or recognisable problem."},
       "workedExampleOvertakesBookPurpose": {"status": "CLEAR", "producerGuard": "The July incident illustrates format differences but cannot define the whole NewsStand.", "preventionEvidence": "Straight Answers, Miss Jeeves and service columns use separate situations and mechanisms."},
-      "technicalExplainerVoice": {"status": "CLEAR", "producerGuard": "Write for a smart non-technical woman, not for an auditor or system designer.", "preventionEvidence": "Internal status notes stay outside the example prose; reader-facing copy uses direct language."}
+      "technicalExplainerVoice": {"status": "CLEAR", "producerGuard": "Write for a smart non-technical woman, not for an auditor or system designer.", "preventionEvidence": "Internal status notes stay outside the example prose; reader-facing copy uses direct language."},
+      "falseBreakingUrgency": {"status": "CLEAR", "producerGuard": "The new information must itself create a material reader consequence before the next Daily; urgency cannot be inherited from an earlier event.", "preventionEvidence": "The replacement uses the newly discovered search visibility of shared Claude pages and a time-sensitive link-review action."},
+      "missingNewcomerBackground": {"status": "CLEAR", "producerGuard": "Assume the reader has never heard of the story, people or product and supply the minimum prior event before the update.", "preventionEvidence": "The replacement first explains Claude and what its Share button creates."},
+      "technicalReaderAssumption": {"status": "CLEAR", "producerGuard": "Explain the event and mechanism in ordinary language before any specialist term, and omit terms that do not change the reader's action.", "preventionEvidence": "The replacement explains public webpages and search discovery without package, sandbox or infrastructure jargon."},
+      "implausibleAudienceAction": {"status": "CLEAR", "producerGuard": "The action must be understandable and usable by a real LAiDIES reader rather than a developer, security team or organization testing agents.", "preventionEvidence": "The replacement asks anyone who used Claude's Share control to review and remove public snapshots."},
+      "laidiesVoiceAbsent": {"status": "CLEAR", "producerGuard": "Breaking remains calm and exact but must sound like LAiDIES explaining a consequential choice to a smart friend, not an internal security memo.", "preventionEvidence": "The replacement uses direct reader language and one bounded familiar distinction without trivializing privacy risk."},
+      "internalScaffoldingExposedToReader": {"status": "CLEAR", "producerGuard": "Internal model, gate, eligibility and empty-state language cannot appear in the newspaper experience.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 requires a reader-facing Daily flatplan before prose."},
+      "newspaperHierarchyUnclear": {"status": "CLEAR", "producerGuard": "The Daily must visibly establish date, lead, secondary items, recurring columns and reading order as one newspaper.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 defines the Daily flatplan gate."},
+      "statusLanguageOvertakesExperience": {"status": "CLEAR", "producerGuard": "Administrative truth remains in manifests and may not displace useful reader content.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 separates the reader experience from operations state."},
+      "sourceAvailabilityMistakenForEditorialValue": {"status": "CLEAR", "producerGuard": "An available internal packet cannot qualify a topic; the premise record must prove consequence and format fit first.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 begins with premise qualification before prose."},
+      "missingAidbRelevanceCheck": {"status": "CLEAR", "producerGuard": "Record the AIDB comparison or dated absence and explain why LAiDIES continues when the trusted comparative source did not cover the topic.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 source order and premise record require the comparison."},
+      "predeterminedThesisInsteadOfInvestigation": {"status": "CLEAR", "producerGuard": "The Big Question begins with an open investigation plan; no thesis is written until documents, data, affected people, responsible parties and contradictions are examined.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 replaces the thesis template with an investigation gate."},
+      "weakReaderPremise": {"status": "CLEAR", "producerGuard": "Record what the reader already knows and what unresolved decision remains before selecting a Straight Answer.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 requires a real recurring question and baseline."},
+      "adviceBelowReaderBaseline": {"status": "CLEAR", "producerGuard": "Advice must teach and test at least one move beyond common knowledge.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 defines a claim-level verification ladder beyond opening citations."},
+      "promptAdviceMistakenForEnforcement": {"status": "CLEAR", "producerGuard": "Do not treat prose instructions, rule files or model acknowledgement as enforced compliance.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 distinguishes instructions from validators, tools and persistent controls."},
+      "longRunningWorkflowRealityIgnored": {"status": "CLEAR", "producerGuard": "Advice for persistent work must support checkpoints, external state, bounded handoffs and context refresh without assuming the job can restart.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 requires reproduction and testing in long-running workflows."},
+      "genericEditorialVoice": {"status": "CLEAR", "producerGuard": "A field-complete conventional explainer is not LAiDIES; voice and reader value must be evident throughout the artifact.", "preventionEvidence": "EDITORIAL-PRODUCTION-METHOD-V2 adds a reader and voice stop gate."}
     },
-    "knownDefectsRemaining": []
+    "knownDefectsRemaining": ["V1 exact artifact is rejected and cannot be repaired in place; a new premise-first successor is required."]
   },
   "draftArchitecture": {
     "plainAnswer": "The same verified development can be urgent news today, part of a weekly pattern later and evidence in a deeper argument—but only if each piece gives the reader a different useful result.",
@@ -179,6 +213,37 @@
       "adaptation": "Breaking and Straight Answers answer first; Weekly and Big Question spend more space on mechanism and evidence; advice and service columns compress the arc into situation, distinction and one move."
     }
   },
+  "explanationReasoningDesign": {
+    "benchmarkId": "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md",
+      "sha256": "5c7047ff7c6f50447e2344ac2dfd5b9d6ee4bec7ae54083305ad2e1f48652930"
+    },
+    "mode": "PROPORTIONAL",
+    "humanEntry": "Each format begins from the real question or consequence a smart non-technical reader has, rather than an available internal source packet.",
+    "firstPrinciplesSequence": [
+      "Identify the exact claim, event or recurring problem.",
+      "Resolve the original evidence and causal mechanism in ordinary language.",
+      "Separate what that evidence supports from the larger story being told about it.",
+      "Return to the bounded consequence, choice or better question for the reader."
+    ],
+    "fakeUnderstandingRisk": "A reader may recognize words such as agent, source or context and still be unable to explain the mechanism, evaluate the evidence or use the advice in a different situation.",
+    "evidenceAnalysis": {
+      "claimUnderInspection": "Each available internal packet contains a topic strong enough to demonstrate its assigned publication format.",
+      "primaryEvidence": "The exact source records and product documentation bound in canonicalTruth, independently read before any AIDB comparison.",
+      "establishes": "What happened in each bounded source record and which claims or product behaviours the record can directly support.",
+      "doesNotEstablish": "That the topic is currently consequential, belongs in the chosen publication format, represents a real reader question or produces worthwhile editorial value.",
+      "claimedImpact": "Completing nine structurally distinct examples would make the publication system understandable and reviewable.",
+      "realConsequence": "Without premise qualification and reader testing, structural variety can still produce nine shallow or confusing pieces, which is what Ali's rejection demonstrated.",
+      "aidbDisposition": "DATED_ABSENCE",
+      "aidbReason": "The source plan required an AIDB comparison or dated absence, but V1 did not use absent AIDB pickup as a strong enough relevance warning before selecting topics."
+    },
+    "explainBackTest": "Explain why a fully sourced and structurally complete candidate can still fail to be worthwhile journalism or teaching.",
+    "transferCase": "Given a future product announcement, decide separately whether it earns Daily coverage, updates a Straight Answer or only remains a private watch item, and explain the evidence needed for each decision.",
+    "usefulLanding": "Qualify one real reader premise, decode the evidence and prove the format's distinct payoff before drafting prose.",
+    "rewindEraAdaptation": "Use the newspaper, advice-column and Rewind Era references only when they make the editorial job or technical distinction easier to understand; they cannot decorate generic prose into LAiDIES voice.",
+    "imitationBoundary": "ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB"
+  },
   "representativeProofPlan": {
     "highestRisk": "Nine polished samples could still be one generic AI voice wearing different mastheads, while stale held research quietly reads as current publication.",
     "plannedProof": "Produce one compact, clearly status-labelled sampler in which every section has a distinct reader job and the reused July incident changes question and evidence scope across formats. Run exact-prose producer self-review before Ali sees it; do not integrate or publish any sample.",
@@ -188,5 +253,5 @@
     "targets": {"repeatedKnownDefects": 0, "objectiveDefectsFirstFoundAtReview": 0, "totalReviewIssuesComparedWithPredecessor": "lower", "reviewCyclesComparedWithPredecessor": "lower"},
     "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
   },
-  "status": "READY_TO_DRAFT"
+  "status": "SUPERSEDED"
 }

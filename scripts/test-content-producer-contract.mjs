@@ -16,10 +16,12 @@ try {
   const goodPath = "evidence/good.txt";
   const sourcePath = "evidence/source.md";
   const benchmarkPath = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
+  const reasoningBenchmarkPath = "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md";
   const bad = write(badPath, "A disconnected glossary with decorative comparisons and no useful decision.\n");
   const good = write(goodPath, "One real problem moves through a mechanism, consequence and useful action.\n");
   const source = write(sourcePath, "Authoritative source fixture.\n");
   const benchmark = write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
+  const reasoningBenchmark = write(reasoningBenchmarkPath, "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1 test fixture.\n");
   const failureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
@@ -73,6 +75,29 @@ try {
         order: "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING"
       }
     },
+    explanationReasoningDesign: {
+      benchmarkId: "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
+      benchmark: { path: reasoningBenchmarkPath, sha256: hash(reasoningBenchmark) },
+      mode: "FULL",
+      humanEntry: "A manager needs to know whether an AI-written promise is supported before she sends it.",
+      firstPrinciplesSequence: ["The request defines the job.", "Context supplies candidate information.", "The model predicts a draft.", "Primary evidence and human judgment determine whether the promise is supportable."],
+      fakeUnderstandingRisk: "A reader may repeat that AI can hallucinate without understanding why fluency is not evidence.",
+      evidenceAnalysis: {
+        claimUnderInspection: "A confident AI answer with a citation can be trusted.",
+        primaryEvidence: "The exact policy and source record used in the worked case.",
+        establishes: "Whether the promised detail appears in the governing policy.",
+        doesNotEstablish: "That every other claim in the fluent draft is correct.",
+        claimedImpact: "The citation makes the draft safe to send.",
+        realConsequence: "The manager still needs claim-level evidence before making the promise.",
+        aidbDisposition: "NOT_APPLICABLE_TO_SUBJECT",
+        aidbReason: "This fixture teaches a durable mechanism rather than evaluating a current AIDB-covered story."
+      },
+      explainBackTest: "Explain why the draft and the evidence are different parts of the decision.",
+      transferCase: "Decide whether an AI summary of a benefits policy supports a leave-entitlement claim.",
+      usefulLanding: "Trace the consequential detail to governing evidence before sending.",
+      rewindEraAdaptation: "Use a fax-cover-sheet handoff only if it clarifies the difference between the message and its supporting record.",
+      imitationBoundary: "ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB"
+    },
     representativeProofPlan: { highestRisk: "causal understanding", plannedProof: "one representative section", acceptanceOutcome: "reader explains and transfers it" },
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" },
     status: "READY_TO_DRAFT"
@@ -100,12 +125,20 @@ try {
   assert.match(inspect(missingArc).join("\n"), /default substantial-explanation arc/);
   const wrongArcOrder = structuredClone(contract); wrongArcOrder.communicationDesign.explanationArc.order = "REVEAL_THEN_EXPLAIN";
   assert.match(inspect(wrongArcOrder).join("\n"), /must preserve the default explanatory sequence/);
+  const missingReasoning = structuredClone(contract); delete missingReasoning.explanationReasoningDesign;
+  assert.match(inspect(missingReasoning).join("\n"), /explanationReasoningDesign\.benchmarkId mismatch/);
+  const feynmanNameOnly = structuredClone(contract); feynmanNameOnly.explanationReasoningDesign.humanEntry = "Feynman method";
+  assert.match(inspect(feynmanNameOnly).join("\n"), /cannot be satisfied by naming a benchmark/);
+  const missingEvidenceBoundary = structuredClone(contract); delete missingEvidenceBoundary.explanationReasoningDesign.evidenceAnalysis.doesNotEstablish;
+  assert.match(inspect(missingEvidenceBoundary).join("\n"), /evidenceAnalysis\.doesNotEstablish is required/);
+  const sameReasoningTest = structuredClone(contract); sameReasoningTest.explanationReasoningDesign.transferCase = sameReasoningTest.explanationReasoningDesign.explainBackTest;
+  assert.match(inspect(sameReasoningTest).join("\n"), /explain-back and transfer must be different/);
   const laterRegistry = JSON.parse(fs.readFileSync(registry, "utf8"));
   laterRegistry.negativeExemplars.push({ id: "BAD-2", incidentId: "fixture-incident-2", appliesTo: ["EXPLANATION"], path: badPath, sha256: hash(bad), failureFamilies: ["missingMechanism"] });
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=15 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

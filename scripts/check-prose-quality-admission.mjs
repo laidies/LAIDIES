@@ -9,16 +9,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
-const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
 const REQUIRED_BY_CLASS = {
   EPISODE: [...CORE, ...TEACHING, "explanationArc", "storyCarriesMechanism", "humourServesLearning"],
   CLASS: [...CORE, ...TEACHING, "explanationArc", "practiceFeedback"],
   EXPLANATION: [...CORE, ...TEACHING, "explanationArc"],
-  REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
-  FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"],
-  NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
-  PRACTICE: [...CORE, "retrievalOrPractice", "practiceFeedback", "communicationBenchmark", "unseenTransfer", "recoveryRoute"],
-  INTERACTIVE: [...CORE, "dailyLifeConnection", "communicationBenchmark", "usefulAction", "practiceFeedback", "honestLimits"],
+  REFERENCE: [...CORE, "lookupAccuracy", "systemRelationship", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "usefulAction", "analogyIntegrity"],
+  FAQ: [...CORE, "answersActualQuestion", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "usefulAction", "analogyIntegrity"],
+  NEWS: [...CORE, "datedChange", "consequenceAndUncertainty", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"],
+  PRACTICE: [...CORE, "retrievalOrPractice", "practiceFeedback", "communicationBenchmark", "explanationReasoningBenchmark", "unseenTransfer", "recoveryRoute"],
+  INTERACTIVE: [...CORE, "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "usefulAction", "practiceFeedback", "honestLimits"],
   PROMOTIONAL: [...CORE, "truthfulPromise", "clearAction"],
   MICROCOPY: [...CORE, "truthfulPromise", "clearAction"]
 };
@@ -28,7 +28,9 @@ export const FAILURE_FAMILIES = [
   "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction",
   "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn",
   "communicationPastiche", "entertainmentBeforeUnderstanding",
-  "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"
+  "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding",
+  "firstPrinciplesGap", "parrotingExplainBack", "claimEvidenceCollapsed",
+  "aidbDeference", "rewindDecorationInsteadOfTeaching"
 ];
 
 export function enforcedFailureFamilies(registry) {

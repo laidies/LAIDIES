@@ -40,7 +40,15 @@ drafted, its owner must pass a checksum-bound producer contract against:
 - one connected causal sequence, a daily-life worked case and a different
   transfer case;
 - the useful action or decision the reader should gain;
-- a destination-specific Hannah Fry communication design that binds applicable
+- a destination-specific combined explanation and editorial-reasoning design
+  that binds the current LAiDIES benchmark, plus the underlying Hannah Fry
+  communication benchmark; applies human-question, curiosity, concrete-
+  mechanism, familiar-to-technical, limitation/consequence and better-next-
+  question moves; reconstructs every causal link from first principles in
+  plain language; tests explain-back and genuinely different transfer; and
+  separates the claim/headline from original evidence, establishes/does-not-
+  establish, claimed impact and real consequence before any AIDB comparison;
+- a Hannah Fry communication design that binds applicable
   human-question, curiosity, concrete-mechanism, familiar-to-technical,
   limitation/consequence and better-next-question moves while prohibiting
   voice or persona imitation; for an episode, class or substantial explanation,
@@ -92,15 +100,20 @@ to the candidate and review; Learning admits it to the shared registry only
 after confirming it should bind future producers. Feedback never rewrites,
 retires or unpublishes content automatically.
 
-Material learning content also requires an exact-artifact
-`communicationBenchmark` outcome. The reviewer judges whether the selected
-communication moves actually improved clarity and engagement without weakening
-the mechanism. Full explanations also require an `explanationArc` outcome bound
-to the exact artifact. Name-dropping, curiosity without explanatory payoff,
-familiar examples that never reconnect to the technical idea, Hannah Fry
-pastiche, a hook that crowds out the mechanism, a click revealed before its
-mechanism, entertainment before understanding and an inflated ending are
-explicit failure families.
+All material meaning-bearing published content also requires exact-artifact
+`communicationBenchmark` and combined `explanationReasoningBenchmark`
+outcomes. The reviewer judges whether the selected moves actually improved
+clarity and engagement without weakening the mechanism; whether the causal
+chain can be explained back and transferred; and whether the claim, evidence,
+limits and real consequence remain separated. Full explanations also require
+an `explanationArc` outcome bound to the exact artifact. Name-dropping,
+curiosity without explanatory payoff, familiar examples that never reconnect
+to the technical idea, Hannah Fry or Richard Feynman pastiche, a hook that
+crowds out the mechanism, a click revealed before its mechanism, entertainment
+before understanding, AIDB deference and an inflated ending are explicit
+failure families. Pure navigation, labels, legal text and transactional
+microcopy may declare the framework not applicable only when they contain no
+teaching or explanatory claim.
 
 ## Evidence rule
 

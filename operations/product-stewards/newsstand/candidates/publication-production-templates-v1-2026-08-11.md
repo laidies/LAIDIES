@@ -1,6 +1,8 @@
-# LAiDIES publication production templates — candidate v1
+# REJECTED — LAiDIES publication production templates candidate v1
 
-**Status:** INTERNAL TEMPLATE CANDIDATE — NOT CANONICAL, ADMITTED OR PUBLIC
+**Rejected by Ali on 11 August 2026. Do not use this file to commission or judge content.** It converted format labels into fields but did not provide a reliable editorial method for selecting consequential topics, conducting investigation, producing genuinely useful reader actions or sustaining current long-running AI work.
+
+**Status:** REJECTED KNOWN-BAD TEMPLATE — NOT CANONICAL, ADMITTED OR PUBLIC
 
 **Applies to:** The Breaking, The Daily, The Weekly, The Big Question, Straight Answers About AI, Dear Miss Jeeves, Paige's Practical AI Tip, Career/Work-Life Tip and Promptoscope.
 
@@ -37,11 +39,12 @@ Internal fields such as format tests, evidence status and gate notes do not appe
 
 ### Use only when
 
-Waiting for the next Daily would materially disadvantage the reader, or a qualifying model release immediately changes the reader's available choices. Urgency must be evidenced; “people are talking about it” is not enough.
+Waiting for the next Daily would materially disadvantage the reader, or a qualifying model release immediately changes the reader's available choices. The new information must itself qualify: a clarification does not become Breaking merely because the original event once was. Urgency must be evidenced; “people are talking about it” is not enough.
 
 ### Required source record
 
 - exact confirmed event and time;
+- minimum background for someone who has never heard of the story, people or products;
 - what changed since the last verified state;
 - primary or official confirmation;
 - affected people, products, regions or decisions;
@@ -52,13 +55,14 @@ Waiting for the next Daily would materially disadvantage the reader, or a qualif
 ### Reader-facing structure
 
 1. **Headline:** the verified change, not the most dramatic interpretation.
-2. **Two-sentence alert:** what happened and who needs to know now.
-3. **Why this interrupts:** the concrete disadvantage of waiting.
-4. **What changes now:** exact action, access, price, risk, availability or choice.
-5. **What does not change:** prevent the most likely overreading.
-6. **What remains unknown or disputed.**
-7. **One bounded action now.**
-8. **Sources and next update time.**
+2. **Newcomer background:** who or what this is about and the minimum prior event needed to understand it.
+3. **Two-sentence alert:** what happened and who needs to know now.
+4. **Why this interrupts:** why this new information—not merely the earlier event—belongs before the next Daily.
+5. **What changes now:** exact action, access, price, risk, availability or choice.
+6. **What does not change:** prevent the most likely overreading.
+7. **What remains unknown or disputed.**
+8. **One bounded action for an actual LAiDIES reader.**
+9. **Sources and next update time.**
 
 ### Length and voice
 
@@ -67,6 +71,11 @@ Usually 250–500 words. Calm, fast and exact. No scene-setting paragraph, gener
 ### Automatic rejection
 
 - Can wait until the next Daily without harming the reader.
+- A later update whose original event was urgent but whose new information is not.
+- Assumes the reader already knows the story, companies or product.
+- Introduces infrastructure or specialist terminology before explaining the event in plain language.
+- Gives niche organizational advice instead of an action a real LAiDIES reader can understand and use.
+- Reads like a security, policy or developer memo rather than LAiDIES.
 - Depends on one uncorroborated social post or secondary headline.
 - Says a model “escaped,” “went rogue,” “understands” or “decided” without exact mechanism evidence.
 - Announces a model version without explaining material reader consequences.

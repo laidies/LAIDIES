@@ -48,6 +48,15 @@ pop-culture reference—is never sufficient reason to use one.
 
 ## Hannah Fry communication benchmark
 
+This benchmark is now one required part of the sitewide combined explanation
+and editorial-reasoning standard in
+`operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md`.
+It does not by itself satisfy production. Material meaning-bearing content also
+requires Feynman-style first-principles reconstruction, explain-back and a
+genuinely different transfer case, plus AIDB-style claim/evidence/limits/impact
+scrutiny after an independent primary-source read. The result remains in
+LAiDIES/Rewind Era voice; none of the named influences is a persona to imitate.
+
 Apply the maintained
 `learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md` as an
 explanation-quality lens across LAiDIES learning, never a voice to imitate.
