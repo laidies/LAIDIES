@@ -35,6 +35,8 @@ jobs:
           node scripts/check-github-pages-release-boundary.mjs "$RUNNER_TEMP/pages-config.json"
       - name: Production release controller calibration
         run: npm run test:production-release-controller
+      - name: Laptop-independent NewsStand intake calibration
+        run: npm run test:newsstand-cloud-intake
       - name: Append-only work truth and calibration
         run: |
           node scripts/test-project-work-events.mjs
