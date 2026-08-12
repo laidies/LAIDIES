@@ -15,7 +15,8 @@ const NOW_STALE = "2026-06-01T00:00:00Z";
 const TEST_CLOCKS = {
   "same-day": "2026-08-04T23:00:00-07:00",
   "next-day": "2026-08-05T12:00:00-07:00",
-  "released-worldwide": "2026-08-05T06:30:00Z"
+  "released-worldwide": "2026-08-05T06:30:00Z",
+  "candidate": "2026-08-12T13:00:00Z"
 };
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
 const RETRACTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json";
@@ -122,13 +123,34 @@ function fixtureData(name) {
       ]
     };
   }
+  if (["big-question-candidate", "weekly-candidate"].includes(name)) {
+    const filename = name === "big-question-candidate"
+      ? "big-question-cross-lab-story-record-candidate.json"
+      : "weekly-cross-lab-story-record-candidate.json";
+    const record = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates", filename), "utf8"));
+    const story = record.story;
+    story.status = "published";
+    story.publishedAt = "2026-08-11T19:00:00Z";
+    story.updatedAt = "2026-08-12T12:30:00Z";
+    story.lastCheckedAt = "2026-08-12T12:30:00Z";
+    story.sourceApproval.status = "approved";
+    data.stories.push(story);
+    data.generatedAt = "2026-08-12T12:30:00Z";
+    data.lastCheckedAt = "2026-08-12T12:30:00Z";
+    const publication = data.publications[story.edition];
+    publication.status = "current";
+    publication.publishedAt = story.publishedAt;
+    publication.updatedAt = story.updatedAt;
+    publication.lastCheckedAt = story.lastCheckedAt;
+  }
   return data;
 }
 
 function fixtureScript(name) {
   const mutatesStorySource = new Set([
     "load-failure", "no-data", "dataset-hold", "stale", "unavailable", "mixed",
-    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered", "longform"
+    "growth", "same-date-injection", "corrected", "retracted", "admitted-story-tampered", "longform",
+    "big-question-candidate", "weekly-candidate"
   ]);
   if (!mutatesStorySource.has(name)) {
     return fs.readFileSync(path.join(ROOT, "content", "newsstand-stories.js"), "utf8");
@@ -787,6 +809,22 @@ try {
     check(await value(longform, "(() => { const node=document.querySelector('.ns-article__section--longform p'); const max=parseFloat(getComputedStyle(node).maxWidth); return Number.isFinite(max) && max > 0 && node.getBoundingClientRect().width <= max + 1; })()"), true, `${viewport.width}: long-form copy resolves to the bounded reading measure`);
     check(await value(longform, "document.documentElement.scrollWidth <= window.innerWidth"), true, `${viewport.width}: long-form reader has no horizontal overflow`);
     longform.close();
+  }
+
+  for (const fixture of [
+    { name: "big-question-candidate", slug: "is-ai-starting-to-escape-our-control", label: "The Big Question: Is AI starting to escape our control?", sections: 10, sources: 12 },
+    { name: "weekly-candidate", slug: "when-ai-safety-tests-touch-the-real-world", label: "The Weekly: When AI safety tests touch the real world, the test becomes the risk", sections: 6, sources: 5 }
+  ]) {
+    for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }, { width: 320, height: 760 }]) {
+      const candidate = await openPage(`/newsstand.html?fixture=${fixture.name}&clock=candidate#${fixture.slug}`, viewport);
+      check(await value(candidate, "document.querySelector('.ns-article').getAttribute('aria-label')"), fixture.label, `${fixture.name} ${viewport.width}: exact accessible publication identity`);
+      check(await value(candidate, "document.querySelectorAll('.ns-article__section--longform').length"), fixture.sections, `${fixture.name} ${viewport.width}: every authored section renders`);
+      check(await value(candidate, "document.querySelectorAll('.ns-article__sources a').length"), fixture.sources, `${fixture.name} ${viewport.width}: every reviewed source link renders`);
+      check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__jump a')).every((link) => document.querySelector(link.getAttribute('href')))"), true, `${fixture.name} ${viewport.width}: every jump resolves`);
+      check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At work') && Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At home')"), true, `${fixture.name} ${viewport.width}: work and home transfer landmarks render`);
+      check(await value(candidate, "document.documentElement.scrollWidth <= window.innerWidth"), true, `${fixture.name} ${viewport.width}: exact candidate has no horizontal overflow`);
+      candidate.close();
+    }
   }
 
   const directHistory = await openPage("/newsstand.html#label-is-not-a-truth-detector");

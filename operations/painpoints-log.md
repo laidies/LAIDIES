@@ -14953,8 +14953,9 @@ while remaining falsely unfinished in the launch record.
   The production NewsStand schema and reader now implement that same data-owned
   contract: exact accessible name, unique authored sections, validated jump
   targets, semantic quote roles and a 68ch reading measure. Unit calibration
-  rejects an invented jump target and an empty block; 230 rendered checks pass
-  across desktop, 390 and 320 without changing any public story record. The
+  rejects an invented jump target and an empty block; 266 rendered checks pass
+  across desktop, 390 and 320, including both exact held candidate records,
+  without changing any public story record. The
   reusable compiler now produces separate inaccessible held Big Question and
   Weekly records, preserves each source's complete prose order and rejects
   source-identity or missing-target drift before integration.

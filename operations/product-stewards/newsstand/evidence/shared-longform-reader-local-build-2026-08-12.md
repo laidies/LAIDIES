@@ -21,7 +21,7 @@ myth treatment.
 - `content/newsstand.css` — `5deba9534bf7fe2d49788e4d534203fb86135421f3273d3b14d35695304d9846`
 - `scripts/validate-newsstand-stories.mjs` — `ce3ec64f6f6fc7841c5acad4972d9f8bf84242dc0be8eae9f4cd12de8ac4958a`
 - `scripts/test-newsstand-reader-contract.mjs` — `25251bb44085af7b333d2331b31c1512211ae02f6d4652fa4ee023dae0be571a`
-- `scripts/test-newsstand-reader-browser.mjs` — `3f30ad11be0cbdde8a1c7982caefebb243059ef83c9192f219dde8ace90d05b7`
+- `scripts/test-newsstand-reader-browser.mjs` — `37117cf578526346b5d15cf758325aa60ef7eb37e79285a446ce6f59fe8469a5`
 
 ## Checks and calibration
 
@@ -31,9 +31,11 @@ myth treatment.
 - A held story may state `publishedAt: null`; calibration rejects null when the
   same record claims `published`.
 - `node scripts/validate-newsstand-stories.mjs` — PASS for the unchanged canonical data.
-- `node scripts/test-newsstand-reader-browser.mjs` — PASS, 230 rendered checks,
+- `node scripts/test-newsstand-reader-browser.mjs` — PASS, 266 rendered checks,
   including long-form desktop, 390px and 320px label, jump-target, myth-role,
-  work/home, reading-measure and horizontal-overflow checks.
+  work/home, reading-measure and horizontal-overflow checks. The exact held Big
+  Question and Weekly records also render in isolated internal fixtures at all
+  three widths with every section, source and jump target present.
 - `git diff --check` — PASS.
 
 ## Boundary
