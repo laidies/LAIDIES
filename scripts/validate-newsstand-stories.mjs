@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { validateNewsstandEvidenceTruth } from "./lib/newsstand-evidence-truth.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORY_FILE = path.join(ROOT, "content", "newsstand-stories.js");
@@ -133,6 +134,14 @@ if (!Array.isArray(stories)) {
           }
           if (manifest.claims?.some((claim) => claim.sourceIds.some((id) => !manifestSourceIds.has(id)))) {
             fail(`${label}: claim map references an unknown source id.`);
+          }
+          for (const truthError of validateNewsstandEvidenceTruth(manifest)) {
+            fail(`${label}: evidence manifest ${truthError}.`);
+          }
+          const aidbPath = manifest?.aidbComparison?.evidencePath;
+          if (manifest?.aidbComparison?.status === "COVERED" &&
+              (!aidbPath || !fs.existsSync(path.join(ROOT, String(aidbPath).replace(/^\//, ""))))) {
+            fail(`${label}: covered AIDB comparison evidence path does not resolve.`);
           }
         } catch (error) {
           fail(`${label}: evidence manifest is not valid JSON (${error.message}).`);

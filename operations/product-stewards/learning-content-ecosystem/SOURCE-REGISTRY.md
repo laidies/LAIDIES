@@ -27,7 +27,8 @@ monitor silently treats it as approved.
 3. `INSTITUTIONAL_SYNTHESIS`: credible hub or report that maps evidence but may
    require recovery of the underlying primary source.
 4. `INDEPENDENT_REPORTING`: reporting and corroboration; recover load-bearing
-   originals.
+   originals. A reputable masthead does not make its framing, causal reading or
+   impact claim authoritative.
 5. `PRACTITIONER_LEAD` and `SECONDARY_SCOUT`: questions, techniques, examples
    and source trails; never authority by reputation.
 6. `TEACHING_METHOD` and `COURSE_COMPARATOR`: explanation and learning-design
@@ -50,6 +51,15 @@ monitor silently treats it as approved.
 - Official provider material can establish provider facts; it cannot by itself
   establish independent superiority, safety, social benefit or learning
   effectiveness.
+- Before NewsStand publication, reporting is decoded against the underlying
+  evidence. The record must state what actually happened, what the evidence
+  does and does not establish, mechanism, uncertainty, real impact and headline
+  risk. Research coverage additionally records method, population, comparison,
+  measures, result, limitations, causal/generalization bounds and conflicts.
+- LAiDIES completes its independent evidence read before comparing with AIDB.
+  The comparison records agreement, omissions, disagreement and distinctive
+  analysis used—or a dated honest `NOT_COVERED`/`UNAVAILABLE` result. AIDB is an
+  analytical cross-check, never the underlying evidence or answer key.
 - Social and practitioner posts require exact URL, date and text plus their
   original evidence. Incomplete platform visibility is unknown, never quiet.
 - Course and communication sources inform method or continuation only. They do
@@ -69,9 +79,10 @@ node scripts/test-source-registry.mjs
 ```
 
 The check validates identity, URLs, authority/status/cadence vocabulary,
-required fields, destination coverage, practitioner-roster reconciliation and
-the AI-link rule for Career Tips. It does not prove that every URL is reachable
-today or that any item is correct; those remain exact-item checks.
+required fields, destination coverage, practitioner-roster reconciliation,
+the Career/Work-Life transformation and the NewsStand evidence/AIDB contract.
+It does not prove that every URL is reachable today or that any item is
+correct; those remain exact-item checks.
 
 ## Known current gaps
 

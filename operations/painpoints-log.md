@@ -14496,3 +14496,36 @@ while remaining falsely unfinished in the launch record.
   identity and one job.
 - **Publication status:** VERIFIED INTERNAL SOURCE-ROUTING BUILD / NO ARTICLE,
   SUBSCRIPTION, SCRAPING, PUBLICATION OR DEPLOYMENT.
+
+## BTB-460 — Reputable sourcing could still preserve a misleading AI story
+
+- **Date:** 2026-08-11
+- **Area:** NewsStand editorial evidence and AIDB comparison.
+- **Failure:** The editorial instructions already preferred primary sources,
+  required claim maps and described a headline reality check, but the public
+  evidence validator only enforced source identity and claim-to-source links.
+  A story could therefore cite a reputable newspaper and the underlying paper
+  while still omitting what the study did not show, its causal/generalization
+  limits, the actual mechanism and realistic impact. The required AIDB
+  analytical cross-check also existed only as prose, not executable evidence.
+- **Root cause:** Source integrity and explanatory truth were treated as if
+  they were the same gate. They are not: correct links can accompany a
+  clickbait frame or an overclaimed interpretation.
+- **Prevention rule:** Reporting is discovery, corroboration and context—not
+  authority by reputation. Every NewsStand evidence manifest records the
+  circulating framing, what happened, establishes/does-not-establish,
+  mechanism, impact, uncertainty, headline risk and editorial decision.
+  Research adds question/status/design/population/comparison/measures/result,
+  limitations, causal/generalization boundaries and funding/conflicts. After
+  the independent LAiDIES read, the manifest records the AIDB comparison or a
+  dated honest `NOT_COVERED`/`UNAVAILABLE` result.
+- **Durable correction:** The source registry, NewsStand radar, operating spec,
+  decision register and ledger now carry the rule. The public NewsStand
+  validator reads the exact evidence manifest and fails closed when the truth
+  explanation, study decode or AIDB check is missing. Calibration proves it
+  rejects reputable reporting without an evidence limit, research without a
+  study decode and a missing AIDB check.
+- **Possible Behind the Build angle:** How an article can cite every source and
+  still mislead—and why LAiDIES checks the claim underneath the headline.
+- **Publication status:** INTERNAL EDITORIAL-GATE REPAIR / NO STORY,
+  PUBLICATION OR DEPLOYMENT.

@@ -40,6 +40,15 @@ const missingCareerTransformation = clone(registry);
 delete missingCareerTransformation.destinationContracts.career_work_life_tip;
 expectFail("missing career transformation", missingCareerTransformation, practitioner, /allow non-AI career|transformation contract/);
 
+const reputationAsAuthority = clone(registry);
+reputationAsAuthority.publicationEvidenceContract.reportingRole = "Reputable reporting is sufficient authority.";
+expectFail("reputation as authority", reputationAsAuthority, practitioner, /deny reputation-based authority/);
+
+const missingAidbPublicationCheck = clone(registry);
+missingAidbPublicationCheck.publicationEvidenceContract.requiredBeforeNewsstandPublication =
+  missingAidbPublicationCheck.publicationEvidenceContract.requiredBeforeNewsstandPublication.filter(item => !item.includes("AIDB"));
+expectFail("missing AIDB publication check", missingAidbPublicationCheck, practitioner, /AIDB cross-check|NOT_COVERED/);
+
 const uncovered = clone(registry);
 for (const source of uncovered.sources) source.destinations = source.destinations.filter(destination => destination !== "promptoscope");
 expectFail("destination coverage", uncovered, practitioner, /uncovered destination promptoscope/);
@@ -49,4 +58,4 @@ missingPractitioner.sources = missingPractitioner.sources.filter(source => sourc
 expectFail("practitioner reconciliation", missingPractitioner, practitioner, /practitioner source missing/);
 
 console.log("SOURCE REGISTRY TEST PASS");
-console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-destination,missing-practitioner rejected; non-AI-career-source accepted");
+console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner rejected; non-AI-career-source accepted");

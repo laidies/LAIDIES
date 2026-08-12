@@ -86,7 +86,22 @@ Every public story requires:
 5. independent or authoritative context when risk calls for it;
 6. visible separation of vendor claim, sourced fact, inference and argument;
 7. a correction owner and next recheck date; and
-8. explicit correction/retraction fields even when null.
+8. explicit correction/retraction fields even when null;
+9. a truth-explanation record stating the circulating framing, what happened,
+   what the evidence establishes and does not establish, mechanism, realistic
+   impact, uncertainty, headline risk and editorial decision;
+10. for research coverage, a study decode binding question, review status,
+    design, population, comparison, measures, result, limitations, causal and
+    generalization boundaries, funding/conflicts and practical meaning; and
+11. an AIDB comparison performed after the independent LAiDIES read, recording
+    agreement, additions, disagreements and distinctive use—or a dated honest
+    `NOT_COVERED`/`UNAVAILABLE` result.
+
+Publisher reputation never satisfies these fields. Independent reporting is
+valuable for discovery, corroboration, disagreement and context, but the
+underlying evidence controls what LAiDIES may say. A study abstract, press
+release, university summary, newspaper story or AIDB analysis cannot substitute
+for the complete evidence decode.
 
 Every material story also requires an immediate learning-opportunity
 transaction before the editorial packet can close:

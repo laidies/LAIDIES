@@ -76,6 +76,41 @@ it matters now; the AIDB learning route may separately teach how to interact
 with the model. Share evidence identifiers rather than producing duplicate
 treatments.
 
+## Evidence-decoding gate
+
+A reputable publication is not publication authority for its own framing.
+Reporting may expose facts, disagreements, timelines and source trails that a
+company, institution or researcher omits. LAiDIES must still recover and read
+the underlying study, dataset, filing, technical record, regulator document or
+affected-party evidence for every load-bearing claim.
+
+Before any NewsStand story advances, its evidence record must explain:
+
+1. the circulating framing or headline risk;
+2. what actually happened;
+3. what the strongest evidence establishes;
+4. what it does **not** establish;
+5. the relevant mechanism rather than only the reported outcome;
+6. the realistic current impact for people, work, products or policy;
+7. uncertainty and what evidence would change the assessment; and
+8. the editorial decision: correct, qualify, explain, watch, hold or pass.
+
+When a study, preprint, evaluator report or dataset is involved, also record
+the research question, publication/review status, design, population,
+comparison, measures, actual result, limitations, causal boundary,
+generalization boundary, funding/conflicts and practical meaning. An abstract,
+press release, university summary, newspaper article or impressive percentage
+cannot substitute for this study decode.
+
+Then complete the AIDB cross-check described above. Record agreement, what
+AIDB added, what LAiDIES added, unresolved disagreements and any distinctive
+AIDB analysis actually used. If AIDB did not cover the topic or was
+unavailable, record `NOT_COVERED` or `UNAVAILABLE` with the date and reason.
+Never invent a comparison or treat AIDB as the underlying evidence.
+
+Missing any required field is `HOLD`, regardless of the newspaper, university,
+company or commentator's reputation.
+
 ## Headline reality check
 
 Sensational, viral or misleading coverage can be a high-value candidate when

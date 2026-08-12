@@ -28,6 +28,13 @@ export function validateSourceRegistry(registry, practitionerRoster) {
   for (const move of requiredCareerMoves) {
     if (!careerMoves.toLowerCase().includes(move.toLowerCase())) errors.push(`career_work_life_tip transformation contract missing: ${move}`);
   }
+  const publicationContract = registry?.publicationEvidenceContract;
+  const publicationRequirements = (publicationContract?.requiredBeforeNewsstandPublication || []).join(" ");
+  for (const requirement of ["independent LAiDIES read", "underlying primary evidence", "does not establish", "causal boundary", "generalization boundary", "AIDB cross-check", "NOT_COVERED"]) {
+    if (!publicationRequirements.toLowerCase().includes(requirement.toLowerCase())) errors.push(`publication evidence contract missing: ${requirement}`);
+  }
+  if (!/never automatic authority/i.test(publicationContract?.reportingRole || "")) errors.push("publication evidence contract must deny reputation-based authority");
+  if (!/^HOLD\b/.test(publicationContract?.failureState || "")) errors.push("publication evidence contract must fail closed to HOLD");
   if (!Array.isArray(registry?.sources) || registry.sources.length < 20) errors.push("registry must contain at least 20 governed sources");
   const ids = new Set();
   const covered = new Set();
