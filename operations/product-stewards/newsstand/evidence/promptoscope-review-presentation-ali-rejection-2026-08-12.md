@@ -4,6 +4,11 @@
 
 **Verdict:** `REJECT REVIEW ARTIFACT / PROMPTOSCOPE ITSELF UNRULED`
 
+> **Subsequent ruling:** Ali later reviewed the exact Mercury prose and rejected
+> it because the work/home examples and following instructions did not explain
+> what to do. Promptoscope is no longer unruled. Governing content rejection:
+> `promptoscope-mercury-ali-rejection-2026-08-12.md`.
+
 The displayed image stacked an August 3 three-column control strip above a
 candidate strip where only Promptoscope changed. Paige and Career/Work-Life
 were intentionally repeated controls, but this was not explained inside the
@@ -27,9 +32,9 @@ cards appeared to be the same kind of thing with different category names.
 - Their internal geometry/overflow observations remain integrity evidence
   only. The prior independent `ACCEPT` is invalid as evidence that the
   presentation is understandable or ready for Ali.
-- Promptoscope “Mercury is in regression” remains `HOLD / INELIGIBLE` and has
-  **no Ali content verdict**. It must return alone, with its job stated plainly,
-  after the review-presentation guard rejects the known-bad comparison.
+- At the time of this presentation ruling, Promptoscope “Mercury is in
+  regression” remained unruled. The subsequent exact-content rejection now
+  makes it `REJECTED / INELIGIBLE`; it must not return as a cosmetic successor.
 - The two rejected control records are suppressed. Their failures enter the
   shared negative-exemplar registry before any successor contract or review.
 

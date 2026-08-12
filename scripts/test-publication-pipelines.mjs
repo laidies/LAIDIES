@@ -75,6 +75,20 @@ promptOnlyJeeves.formats.find((format) => format.id === "dear_miss_jeeves").temp
 ];
 assert.match(validatePublicationPipelines(promptOnlyJeeves).errors.join("\n"), /durable long-running controls/);
 
+const abstractPromptoscope = clone(source);
+const abstractPromptoscopeFormat = abstractPromptoscope.formats.find((format) => format.id === "promptoscope");
+delete abstractPromptoscopeFormat.compactTransferRule;
+abstractPromptoscopeFormat.templateFields = [
+  "forecast", "tip", "one work example", "one home example", "source"
+];
+assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /one concrete complete example/);
+assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /named AI object/);
+assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /what to do next/);
+
+const forcedPromptoscopePair = clone(source);
+forcedPromptoscopePair.dailyServiceColumnClarityContract.promptoscope = "Use one work and one home example.";
+assert.match(validatePublicationPipelines(forcedPromptoscopePair).errors.join("\n"), /without a forced work\/home pair/);
+
 const singleOutputOnly = clone(source);
 singleOutputOnly.rule = "A signal may create only one output.";
 assert.match(validatePublicationPipelines(singleOutputOnly).errors.join("\n"), /allow earned multi-output/);
@@ -84,4 +98,4 @@ inheritedAdmission.multiOutputContract.independenceRule = "All outputs share app
 assert.match(validatePublicationPipelines(inheritedAdmission).errors.join("\n"), /prohibit inherited admission/);
 
 console.log("PUBLICATION PIPELINE TEST PASS");
-console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,single-output-only,inherited-admission rejected");
+console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,single-output-only,inherited-admission rejected");

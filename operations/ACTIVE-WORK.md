@@ -121,7 +121,7 @@ producer/review chain predate that rule and are no longer current admission
 evidence. Preserve the prose as a predecessor; a successor must add and review
 the missing non-work example before it can return to admission.
 
-### Daily service-column review correction — Promptoscope unruled
+### Daily service-column review correction — all three shown items rejected
 
 The August 12 Promptoscope comparison sheet is **REJECTED AS AN ALI REVIEW
 ARTIFACT**. It repeated the same Paige and Career/Work-Life controls above and
@@ -143,10 +143,15 @@ specific useful move, and only then add an AI connection when it improves the
 guidance. The reels remain discovery and format references, not permission to
 copy, imitate or inherit unsupported advice.
 
-Promptoscope **“Mercury is in regression” was not judged on its own merits**.
-It remains `HOLD / INELIGIBLE`. The next review must show that item alone and
-state its exact job; it cannot proceed to observed-reader or Daily integration
-from the rejected comparison sheet.
+Ali subsequently judged Promptoscope **“Mercury is in regression”** on its own
+merits and rejected it: “save one work example and one home example” does not
+identify what an example contains, and the rest of the card still does not
+explain what to change, compare or do next. The work/home pair was a
+substantial-explanation transfer rule misapplied to a compact service card.
+The exact record is `REJECTED / INELIGIBLE`, CQX-BAD-012, and cannot proceed to
+observed-reader or Daily integration. A successor must use one concrete,
+complete example and make its AI object, change, comparison, failure signal
+and next move clear before the horoscope joke.
 
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The

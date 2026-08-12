@@ -14997,4 +14997,30 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why a useful A/B testing sheet can be a
   terrible decision screen—and how category labels can hide identical content.
 - **Publication status:** REVIEW ARTIFACT REJECTED / PAIGE AND CAREER CONTROLS
-  SUPPRESSED / PROMPTOSCOPE HOLD AND UNRULED / NO PUBLIC CHANGE.
+  SUPPRESSED / PROMPTOSCOPE LATER REJECTED IN BTB-482 / NO PUBLIC CHANGE.
+
+## BTB-482 — A paired-example requirement turned a tiny Promptoscope into unexplained homework
+
+- **Date:** 2026-08-12
+- **Area:** Promptoscope / compact teaching / transfer rules.
+- **Failure:** “Mercury is in regression” told the reader to save one work and
+  one home example, change one instruction, rerun and compare. Ali could not
+  tell what an example contained or understand anything that followed.
+- **Root cause:** Production forced the workplace/non-work transfer rule for
+  substantial explanations into a compact service card, despite the existing
+  exemption. The prose then compressed prompt, input, expected output,
+  comparison and recovery into abstract nouns and introduced “regression” as a
+  joke before establishing its meaning.
+- **Prevention rule:** Promptoscope uses one concrete complete example. It names
+  the AI object, change, fixed test, compared result, failure signal and next
+  move in ordinary language. A substantial continuation—not the compact
+  card—may prove transfer in a second context.
+- **Durable correction:** The exact candidate is `REJECTED / INELIGIBLE` and
+  CQX-BAD-012. D-2026-08-12-116 and the publication template bind five
+  explain-back questions; the existing rejection guard prevents status-only
+  reapproval. All prior content contracts remain stale against the expanded
+  registry.
+- **Possible Behind the Build angle:** How a good educational requirement can
+  make a tiny tip worse when applied at the wrong scale.
+- **Publication status:** EXACT PROMPTOSCOPE REJECTED / NO SUCCESSOR DRAFTED /
+  NO DAILY INTEGRATION, DEPLOY OR PUBLIC CHANGE.

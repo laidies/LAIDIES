@@ -7,6 +7,11 @@
 > understandable, the three service-column jobs are distinct, or Promptoscope
 > has an Ali content verdict. Governing correction:
 > `../promptoscope-review-presentation-ali-rejection-2026-08-12.md`.
+>
+> **Subsequent content rejection:** Ali then rejected the exact Mercury prose
+> because it did not explain what the examples contained or what to do. See
+> `../promptoscope-mercury-ali-rejection-2026-08-12.md`. This receipt has no
+> remaining quality or admission authority.
 
 **Reviewed:** 2026-08-12 America/Vancouver
 

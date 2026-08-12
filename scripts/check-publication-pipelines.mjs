@@ -120,6 +120,25 @@ export function validatePublicationPipelines(data) {
   if (!/reproduction of the actual failure/i.test(jeevesFields) || !/instruction versus enforceable-control/i.test(jeevesFields) || !/long-running workflow remedies/i.test(jeevesFields)) {
     errors.push("dear_miss_jeeves must reproduce the failure and distinguish instructions from durable long-running controls");
   }
+  const promptoscope = formats.get("promptoscope");
+  const promptoscopeFields = (promptoscope?.templateFields || []).join(" ");
+  if (!/substantial explanations.*not this compact card.*one concrete complete example/i.test(promptoscope?.compactTransferRule || "")) {
+    errors.push("promptoscope must keep substantial paired-transfer testing out of the compact card and require one concrete complete example");
+  }
+  for (const requirement of [
+    /named AI object/i,
+    /one concrete example/i,
+    /what to change/i,
+    /what to keep the same/i,
+    /what result to compare/i,
+    /what to do next/i
+  ]) {
+    if (!requirement.test(promptoscopeFields)) errors.push(`promptoscope missing actionable field ${requirement}`);
+  }
+  const promptoscopeClarity = data?.dailyServiceColumnClarityContract?.promptoscope || "";
+  if (!/one concrete example.*changes.*keeps.*compares.*does next/i.test(promptoscopeClarity) || !/do not force a work.home pair/i.test(promptoscopeClarity)) {
+    errors.push("daily service-column clarity contract must require one actionable Promptoscope example without a forced work/home pair");
+  }
   return { errors, formats: formats.size };
 }
 
