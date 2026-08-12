@@ -14783,13 +14783,14 @@ while remaining falsely unfinished in the launch record.
   this order: trusted provenance and file inspection; least-privilege accounts,
   folders, tools and network; then controlled normal, awkward and non-trigger
   tests. Never describe fictional or non-sensitive input as isolation.
-- **Durable correction:** The held Paige record now starts with a self-made or
-  product-maker skill, rejects an unknown download as a first experiment,
-  limits the environment before execution and says one polished result proves
-  only one rehearsal. The producer receipt is honestly `HOLD`; Learning-owner
-  admission into the shared defect registry and a successor contract/review are
-  still required.
+- **Durable correction:** CQX-BAD-006 now preserves the rejected wording as a
+  known-bad calibration artifact, and every active producer/reviewer package
+  consumes its `fictionalInputMistakenForIsolation` failure before passing. The
+  held Paige successor starts with a self-made or product-maker skill, rejects
+  an unknown download as a first experiment, limits the environment before
+  execution and says one polished result proves only one rehearsal. Its fresh
+  producer review passes; independent quality authority is still required.
 - **Possible Behind the Build angle:** Why fake data can protect the document in
   front of an AI tool while leaving the rest of the filing cabinet unlocked.
-- **Publication status:** CANDIDATE REPAIRED / PRODUCER HOLD / NO INDEPENDENT
+- **Publication status:** CANDIDATE REPAIRED / PRODUCER PASS / NO INDEPENDENT
   ADMISSION, DAILY INTEGRATION, DEPLOYMENT OR PUBLICATION.

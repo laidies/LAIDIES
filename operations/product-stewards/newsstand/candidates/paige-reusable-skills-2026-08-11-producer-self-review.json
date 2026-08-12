@@ -7,21 +7,22 @@
   "maker": "newsstand-daily",
   "reviewer": {"id":"newsstand-daily-self-review-20260811","principalId":"newsstand-daily","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-12T01:24:00-07:00",
+  "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
     "reviewText": {"path":"content/daily-learning-derivatives.json","sha256":"b2bc7e37602903f42c0eb8c45de015feffa651b85a46d329260d78fb7da1ab20"},
     "manifest": {"path":"operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-manifest.json","sha256":"603fcb830c8136efbaa812ec2a262fef0335122992072d1f719699a86da88c7c"}
   },
   "calibration": {
-    "registrySha256": "4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "registrySha256": "3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
     "reviewerPrincipalId": "newsstand-daily",
-    "reviewedAt": "2026-08-11T23:20:00-07:00",
+    "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
       {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
       {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
       {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
       {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
-      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]}
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
     ],
     "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
@@ -99,7 +100,8 @@
     "technicalReaderAssumption":{"present":false,"observation":"No coding knowledge is required.","artifactLocator":"candidate body"},
     "templateRepetition":{"present":false,"observation":"The sequence follows one trust decision, not a generic tips template.","artifactLocator":"candidate body"},
     "weakReaderPremise":{"present":false,"observation":"The viral whole-job promise creates a real reader decision.","artifactLocator":"audienceJob"},
-    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain brief and subordinate to the reusable test.","artifactLocator":"candidate body"}
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain brief and subordinate to the reusable test.","artifactLocator":"candidate body"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The manifest-bound Paige successor establishes trusted provenance and limits accounts, folders and internet access before its fictional behavior tests; the examples are not described as containment.","artifactLocator":"DLD-2026-08-12-PAIGE-GIVE-IT-A-DRESS-REHEARSAL"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",
@@ -112,9 +114,9 @@
     "nextTrigger": "Anthropic changes Agent Skills behavior or security guidance, or the candidate names a specific pack, plan or permission.",
     "correctionOwner": "learning-content-ecosystem with newsstand-daily"
   },
-  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":1,"reviewIssues":0,"reviewCycles":2,"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
-  "lineage": {"kind":"FIRST","noComparableReason":"First Paige reusable-skills candidate produced after Ali rejected the nine-format sampler and after a current official product claim was registered."},
-  "learningDisposition": {"disposition":"EVIDENCE_GAP","rationale":"The first self-review missed that fictional test data does not contain the access of an unknown skill; the repaired candidate now requires trusted provenance and environment limits before execution. Learning-owner admission is still required before this can pass producer review."},
-  "verdict": "HOLD",
-  "limitations": ["Producer self-review found and repaired an objective safety defect, so it cannot return PASS in the same review cycle.", "The reusable defect still needs learning-owner admission and a fresh producer contract before a successor self-review.", "The exact record remains HOLD and publicly ineligible.", "No rendered Daily integration, independent semantic admission, deploy or public verification has occurred."]
+  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"priorComparable":{"candidateId":"LCWO-013-PREDECESSOR","reviewIssues":1,"reviewCycles":2},"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage": {"kind":"SUCCESSOR","predecessorCandidateId":"LCWO-013-PREDECESSOR","predecessor":{"path":"operations/product-stewards/learning-content-ecosystem/quality-exemplars/fictional-input-is-not-a-sandbox-known-bad-2026-08-12.md","sha256":"ead690d730f8a93890e8220e07a6fed69004eec798ee2bad886a8f5e07eab9a7"},"comparison":"The successor preserves the plain definition, work and home rehearsals, three behavior classes and stop rule while adding trusted provenance and least-privilege environment limits before execution; it also states that one polished answer proves only one rehearsal."},
+  "learningDisposition": {"disposition":"NO_NEW_DEFECT","rationale":"CQX-BAD-006 is now consumed before review, and the successor does not repeat the fictional-input-as-isolation failure or introduce another reusable defect."},
+  "verdict": "PASS",
+  "limitations": ["Producer self-review has no independent quality authority.", "The exact record remains HOLD and publicly ineligible.", "No rendered Daily integration, independent semantic admission, deploy or public verification has occurred."]
 }

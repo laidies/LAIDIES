@@ -23,7 +23,7 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-11
+**Last reconciled:** 2026-08-12
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
@@ -73,17 +73,23 @@ review, NewsStand integration, authorized deploy and exact public verification.
 The settled public masthead is **The Big Question**; the machine edition remains
 `tribune`. No publication or public page changed.
 
-### Paige reusable-skills tip — producer pass / independent review next
+### Paige reusable-skills tip — repaired producer successor / independent review next
 
-LCWO-013 is now `BUILT_LOCALLY / WAITING_ON_PREREQUISITE`. The current official Anthropic Agent
-Skills definition, progressive-loading mechanism, cross-surface limits and
-security boundary are registered as
-`CLM-PRODUCT-ANTHROPIC-REUSABLE-SKILLS`, checked August 11, 2026. The next cycle
-requires a role-distinct review of one exact held Paige card: **“Give one repeat
-task a dress rehearsal—not the keys.”** Its producer contract and exact-prose
-self-review pass, but carry no independent quality authority. The card does not
-reuse the discovery reel as evidence, recommend an unaudited skill pack or
-claim a procedure replaces accountable staff. The record remains publicly
+LCWO-013 is `BUILT_LOCALLY / WAITING_ON_PREREQUISITE`. The current official
+Anthropic Agent Skills definition, progressive-loading mechanism, cross-surface
+limits and security boundary are registered as
+`CLM-PRODUCT-ANTHROPIC-REUSABLE-SKILLS`, rechecked August 12, 2026. The first
+producer review missed that fictional input does not contain the files,
+accounts, tools or network access of an unknown executable skill. BTB-472 and
+CQX-BAD-006 now make that failure reusable and invalidate stale contracts.
+
+The exact held successor remains **“Give one repeat task a dress rehearsal—not
+the keys.”** It now begins with a self-made or product-maker skill, requires
+environment limits before execution, retains work and home rehearsals and says
+one polished answer proves only one test looked good. Its successor contract
+and exact-prose self-review pass against all six negative exemplars, but carry
+no independent quality authority. A role-distinct accuracy, usefulness,
+LAiDIES voice and compact-format review is next. The record remains publicly
 ineligible; no Daily consumer or public page changed.
 
 ### STRAiGHT TALK representative pilot — Ali reader verdict next

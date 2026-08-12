@@ -7,21 +7,22 @@
   "maker": "library",
   "reviewer": {"id":"library-self-review-20260812-straight-talk-escape","principalId":"library","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-12T01:12:00-07:00",
+  "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
     "reviewText": {"path":"operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md","sha256":"a3744f9eac68662d25993331cc124b8df00f33d8c4e2e890e6fde5498aa8f071"},
     "manifest": {"path":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","sha256":"1cea8faa613990674290734bb796b297d589dc8b1d0b3abf70166de0ff03c324"}
   },
   "calibration": {
-    "registrySha256": "4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "registrySha256": "3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
     "reviewerPrincipalId": "library",
-    "reviewedAt": "2026-08-11T23:20:00-07:00",
+    "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
       {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
       {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
       {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
       {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
-      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]}
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
     ],
     "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
@@ -99,7 +100,8 @@
     "technicalReaderAssumption":{"present":false,"observation":"No coding knowledge is required.","artifactLocator":"candidate body"},
     "templateRepetition":{"present":false,"observation":"The sequence follows direct answer, evidence boundaries, myth and decision method rather than a generic explainer template.","artifactLocator":"full answer"},
     "weakReaderPremise":{"present":false,"observation":"The answer addresses the real takeover fear underneath escape headlines.","artifactLocator":"short answer and should I worry"},
-    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Both examples remain brief and subordinate to the six-question method.","artifactLocator":"work and home examples"}
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Both examples remain brief and subordinate to the six-question method.","artifactLocator":"work and home examples"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.","artifactLocator":"full candidate"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",

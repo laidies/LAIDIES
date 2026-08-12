@@ -17,7 +17,7 @@
     "modelFamily": "openai-gpt-5.6"
   },
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-12T01:10:00-07:00",
+  "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
     "reviewText": {
       "path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md",
@@ -29,9 +29,9 @@
     }
   },
   "calibration": {
-    "registrySha256": "4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "registrySha256": "3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
     "reviewerPrincipalId": "newsstand-longform-editor",
-    "reviewedAt": "2026-08-11T21:15:00-07:00",
+    "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
       {
         "exemplarId": "CQX-BAD-001",
@@ -62,7 +62,8 @@
         "verdict": "REJECT",
         "identifiedFailureFamilies": ["sourceAvailabilityMistakenForEditorialValue", "missingAidbRelevanceCheck", "predeterminedThesisInsteadOfInvestigation", "weakReaderPremise", "adviceBelowReaderBaseline", "promptAdviceMistakenForEnforcement", "longRunningWorkflowRealityIgnored", "genericEditorialVoice"],
         "evidence": [{"excerpt": "# REJECTED — LAiDIES publication-format sampler round 1", "locator": "rejected sampler"}]
-      }
+      },
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
     ],
     "positive": {
       "exemplarId": "CQX-GOOD-NEWS-001",
@@ -154,7 +155,8 @@
     "technicalReaderAssumption": {"present": false, "observation": "No cyber or model-development knowledge is required.", "artifactLocator": "what happened"},
     "templateRepetition": {"present": false, "observation": "The structure follows the takeover claim and evidence chain rather than a field list.", "artifactLocator": "full prose"},
     "weakReaderPremise": {"present": false, "observation": "The article answers the real public question about takeover and proportional concern.", "artifactLocator": "headline and short answer"},
-    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "The incidents support a transferable control model instead of becoming trivia.", "artifactLocator": "transfer and better question"}
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "The incidents support a transferable control model instead of becoming trivia.", "artifactLocator": "transfer and better question"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.","artifactLocator":"full candidate"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",

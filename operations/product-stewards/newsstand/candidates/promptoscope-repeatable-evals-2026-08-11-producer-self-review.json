@@ -7,21 +7,22 @@
   "maker": "newsstand-daily",
   "reviewer": {"id":"newsstand-daily-self-review-20260811","principalId":"newsstand-daily","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-12T01:25:00-07:00",
+  "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
     "reviewText": {"path":"content/daily-learning-derivatives.json","sha256":"b2bc7e37602903f42c0eb8c45de015feffa651b85a46d329260d78fb7da1ab20"},
     "manifest": {"path":"operations/product-stewards/newsstand/candidates/promptoscope-repeatable-evals-2026-08-11-manifest.json","sha256":"b1b3baab7d3fccd3374b788a0395ea1aaa2bb32f27cb3f0bec6e55fe847026d4"}
   },
   "calibration": {
-    "registrySha256": "4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "registrySha256": "3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
     "reviewerPrincipalId": "newsstand-daily",
-    "reviewedAt": "2026-08-11T23:20:00-07:00",
+    "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
       {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
       {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
       {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
       {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
-      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]}
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
     ],
     "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
@@ -99,7 +100,8 @@
     "technicalReaderAssumption":{"present":false,"observation":"No coding knowledge is required.","artifactLocator":"candidate body"},
     "templateRepetition":{"present":false,"observation":"The sequence follows one comparison decision, not a generic tips template.","artifactLocator":"candidate body"},
     "weakReaderPremise":{"present":false,"observation":"Repeated revisions without a comparison create a real reader decision.","artifactLocator":"audienceJob"},
-    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain brief and subordinate to the evaluation habit.","artifactLocator":"candidate body"}
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain brief and subordinate to the evaluation habit.","artifactLocator":"candidate body"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The manifest-bound Promptoscope record uses invented examples to compare prompt outputs; it makes no claim that those examples contain an executable extension or its authority.","artifactLocator":"DLD-2026-08-12-PROMPTOSCOPE-MERCURY-IN-REGRESSION"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",

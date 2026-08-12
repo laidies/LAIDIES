@@ -7,21 +7,22 @@
   "maker":"newsstand-weekly",
   "reviewer":{"id":"newsstand-weekly-self-review-20260812-cross-lab","principalId":"newsstand-weekly","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode":"EXACT_PROSE_IN_FULL",
-  "reviewedAt":"2026-08-12T01:12:00-07:00",
+  "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact":{
     "reviewText":{"path":"operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md","sha256":"b9614dcb7ae2f50a05cb2b826727b61f613b1fe56a17407be3cdb76a23d1d861"},
     "manifest":{"path":"operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-manifest.json","sha256":"3061dd7f2e95cfb939fda7ae19ff8316a73170288ed36ba1e90759849956a880"}
   },
   "calibration":{
-    "registrySha256":"4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "registrySha256":"3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
     "reviewerPrincipalId":"newsstand-weekly",
-    "reviewedAt":"2026-08-11T23:20:00-07:00",
+    "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives":[
       {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
       {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
       {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
       {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
-      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]}
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
     ],
     "positive":{"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
@@ -99,7 +100,8 @@
     "technicalReaderAssumption":{"present":false,"observation":"No coding or security expertise is required.","artifactLocator":"full article"},
     "templateRepetition":{"present":false,"observation":"The sequence is driven by the cross-lab comparison rather than generic article slots.","artifactLocator":"full article"},
     "weakReaderPremise":{"present":false,"observation":"The article answers the real confusion between sandbox escape and general takeover.","artifactLocator":"lead and proves and does not"},
-    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"The two compact examples support the synthesis and do not replace it.","artifactLocator":"work and home section"}
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"The two compact examples support the synthesis and do not replace it.","artifactLocator":"work and home section"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.","artifactLocator":"full candidate"}
   },
   "factualReview":{
     "disposition":"CLAIMS_REVIEWED",

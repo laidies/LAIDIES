@@ -7,21 +7,22 @@
   "maker":"newsstand-daily",
   "reviewer":{"id":"newsstand-daily-self-review-20260812-archive","principalId":"newsstand-daily","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode":"EXACT_PROSE_IN_FULL",
-  "reviewedAt":"2026-08-12T00:28:00-07:00",
+  "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact":{
     "reviewText":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md","sha256":"2607e769843daca4d6cfc6c805ab1edc41e7f5c25b0365aa162f08249402a644"},
     "manifest":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","sha256":"0dee14da2b6656ce3e0ff8009e0683609ccf8d0c9c7c0dd7615f44d5744bb469"}
   },
   "calibration":{
-    "registrySha256":"4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "registrySha256":"3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
     "reviewerPrincipalId":"newsstand-daily",
-    "reviewedAt":"2026-08-11T23:20:00-07:00",
+    "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives":[
       {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
       {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
       {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
       {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
-      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]}
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
     ],
     "positive":{"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
@@ -99,7 +100,8 @@
     "technicalReaderAssumption":{"present":false,"observation":"No legal, policy or AI expertise is required.","artifactLocator":"full issue"},
     "templateRepetition":{"present":false,"observation":"The exact dated material determines the hierarchy and desk set.","artifactLocator":"full issue"},
     "weakReaderPremise":{"present":false,"observation":"The issue resolves a real universal-label and truth-certificate misconception.","artifactLocator":"lead"},
-    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Two compact examples support rather than replace the newspaper.","artifactLocator":"work and home examples"}
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Two compact examples support rather than replace the newspaper.","artifactLocator":"work and home examples"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.","artifactLocator":"full candidate"}
   },
   "factualReview":{
     "disposition":"CLAIMS_REVIEWED",
