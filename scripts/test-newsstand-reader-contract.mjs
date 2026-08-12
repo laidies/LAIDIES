@@ -95,6 +95,8 @@ assert.equal(contract.visibleStories(base, "tribune", NOW).length, 1);
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
 assert.equal(contract.visibleStories(base, "daily", NOW_VANCOUVER_AUG_11).length, 1, "a source-checked Daily back issue remains readable without being presented as current");
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_11), "archive", "a source recheck must not turn an old Daily into today's edition");
+assert.equal(contract.datasetState(base, NOW_VANCOUVER_AUG_11).state, "ready", "an eligible archive is a usable NewsStand state even when no paper is current");
+assert.equal(contract.accessDecision(base, null, { scope: "hash" }, NOW_VANCOUVER_AUG_11).canExpose, true, "the dataset gate must allow a direct route to an eligible archive story");
 const staleStoryCandidate = JSON.parse(JSON.stringify(base));
 staleStoryCandidate.publications.daily.editionDate = "2026-08-04";
 staleStoryCandidate.publications.daily.lastCheckedAt = NOW_VANCOUVER_AUG_4;

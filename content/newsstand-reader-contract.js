@@ -94,7 +94,7 @@
       return publication.status;
     }
     if (publication.edition === "daily" && publication.editionDate &&
-        publication.editionDate !== calendarDateInZone(now, publication.editorialTimeZone)) {
+        publication.editionDate < calendarDateInZone(now, publication.editorialTimeZone)) {
       return "archive";
     }
     if (ageHours(publication.lastCheckedAt, now) > Number(publication.maxAgeHours)) return "stale";
@@ -130,9 +130,10 @@
       publications[edition] = effectivePublicationState(data.publications[edition], now);
     });
     var current = EDITIONS.filter(function (edition) { return publications[edition] === "current"; });
+    var archived = EDITIONS.filter(function (edition) { return publications[edition] === "archive"; });
     var stale = EDITIONS.filter(function (edition) { return publications[edition] === "stale"; });
     var unavailable = EDITIONS.filter(function (edition) { return publications[edition] === "unavailable"; });
-    var state = current.length ? "ready" :
+    var state = current.length || archived.length ? "ready" :
       stale.length ? "stale" :
       unavailable.length ? "unavailable" :
       "clear";
@@ -141,6 +142,7 @@
       errors: [],
       publications: publications,
       currentEditions: current,
+      archivedEditions: archived,
       staleEditions: stale,
       unavailableEditions: unavailable
     };
