@@ -39,8 +39,11 @@ is published as fact without the current NewsStand validation chain.
 
 ### Recurring columns — real content with an entertaining newspaper frame
 
+- Paige's Practical AI Tip: one useful, source-checked AI action;
+- Career/Work-Life Tip: practical career guidance with an explicit, useful
+  connection back to AI—not generic confidence or workplace advice;
+- Promptoscope: one playful but accurate prompt, context or model-use lesson;
 - Mme CLAi-O’s daily reading;
-- Promptoscope;
 - Song of the Day with a working listen action;
 - Did You Know?;
 - optional puzzle, quiz or practical prompt; and
@@ -126,6 +129,12 @@ The governed Paige-tip and Promptoscope intake now lives in
 `content/daily-learning-derivatives.json` under
 `content/daily-learning-derivatives.schema.json`. Its validator is
 `node scripts/check-daily-learning-derivatives.mjs`.
+
+**Implementation gap recorded 2026-08-11:** that schema currently permits only
+`paige_tip` and `promptoscope`; it does not yet admit `career_life`. The
+Career/Work-Life Tip is a locked NewsStand lane, but its source-bound derivative
+contract and eligible record still need to be added before it can be called
+operational.
 
 This is an intake and suppression contract, not publication approval. A daily
 unit must retain exact source claim/content IDs, canonical destination,

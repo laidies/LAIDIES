@@ -14445,3 +14445,24 @@ while remaining falsely unfinished in the launch record.
   the learning system miss the person it was supposed to follow.
 - **Publication status:** INTERNAL MONITORING CORRECTION / NO STORY,
   PUBLICATION, DEPLOYMENT OR SOCIAL ACTION.
+
+## BTB-458 — A locked NewsStand lane was missing from its own experience brief
+
+- **Date:** 2026-08-11
+- **Area:** NewsStand Daily service-column routing.
+- **Failure risk:** Paige's Practical AI Tip and the Career/Work-Life Tip were
+  locked as first-class destinations in the decision register but omitted from
+  the Daily experience brief's recurring-column list. An executor reading the
+  brief alone could therefore forget them, while a generic career tip could
+  pass without helping a reader understand or use AI.
+- **Root cause:** The decision and the executable product brief drifted apart.
+- **Prevention rule:** Every governed NewsStand service lane must appear in the
+  Daily experience brief and source-intelligence route. Career guidance is
+  eligible only when it makes an explicit, useful connection back to AI.
+- **Durable correction:** The Daily brief now names Paige's Practical AI Tip,
+  the AI-linked Career/Work-Life Tip and Promptoscope together; the decision
+  register explicitly rejects generic career filler.
+- **Possible Behind the Build angle:** Why a rule can exist in the master plan
+  and still disappear from the newspaper that is supposed to use it.
+- **Publication status:** INTERNAL CONTRACT CORRECTION / NO CONTENT,
+  PUBLICATION OR DEPLOYMENT.
