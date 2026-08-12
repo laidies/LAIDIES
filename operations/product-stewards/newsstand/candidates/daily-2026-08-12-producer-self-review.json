@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "newsstand-daily-2026-08-12",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "SUNNYVAiLE NewsStand Daily",
+  "maker": "codex-root-sol",
+  "reviewer": {"id":"codex-root-daily-self-review","principalId":"codex-root-sol","role":"producer","modelFamily":"openai-gpt-5.6"},
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-12T16:45:00Z",
+  "artifact": {
+    "reviewText": {"path":"operations/product-stewards/newsstand/candidates/daily-2026-08-12.md","sha256":"aa068f4bf7eec80e47a2ee5fd0963a64af75c12afa456264c240eefb50dc930c"},
+    "manifest": {"path":"operations/product-stewards/newsstand/candidates/daily-2026-08-12-manifest.json","sha256":"1ebcd02f1a6bc2ada4b40f6ed218bf1b3e569c5c04945ead089963cd77841157"},
+    "rendered": {"path":"operations/product-stewards/newsstand/candidates/daily-2026-08-12-render.html","sha256":"cacf7426b8ca5ee66d9e2a7f0bc12bbe9dbde2b54f557d8c1610073a1861cf34"}
+  },
+  "calibration": {
+    "registrySha256":"3b37461c2a42626d363ea8a1a1fd8d9766c14f193817fb3e72fc6b4230dcceef",
+    "reviewerPrincipalId":"codex-root-sol",
+    "reviewedAt":"2026-08-12T16:17:00Z",
+    "negatives":[
+      {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
+      {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad opening"}]}
+    ],
+    "positive":{"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"The story"}]}
+  },
+  "reverseBrief": {
+    "humanQuestion":"What happened in these two AI-security updates, should I worry, and what should I do?",
+    "promisedPayoff":"A clear scope boundary, the mechanism that matters, and one proportionate next action.",
+    "centralMentalModel":"Unreadable is not the same as safely contained; a valid sealed block can still be accepted in the wrong context.",
+    "dailyLifeConnection":"The issue separates workplace raw-log exposure from ordinary consumer chat sharing and restricted cyber access from everyday model choice.",
+    "surfaceJob":"A current, two-item Daily briefing rather than a false Breaking alert.",
+    "desiredReaderFeeling":"Calm, informed and able to explain the distinction."
+  },
+  "outcomes": {
+    "plainClarity":{"verdict":"PASS","observation":"The first two paragraphs give the finding and immediately limit its scope.","artifactEvidence":[{"excerpt":"This is a real security finding. It is not evidence that every ChatGPT or Claude conversation","locator":"item 1 opening"}]},
+    "readerValue":{"verdict":"PASS","observation":"The issue replaces alarming labels with concrete actions and a no-chase conclusion.","artifactEvidence":[{"excerpt":"remove opaque reasoning or signature fields as well as visible secrets","locator":"item 1 action"}]},
+    "laidiesVoice":{"verdict":"PASS","observation":"The prose is direct, adult, calm and memorable without corporate or technical posturing.","artifactEvidence":[{"excerpt":"“new model” and “new model available to everyone” are different stories","locator":"item 2 ending"}]},
+    "engagingEnjoyable":{"verdict":"PASS","observation":"The unreadable-versus-contained surprise gives the lead a genuine explanatory reveal.","artifactEvidence":[{"excerpt":"A sealed hotel keycard can be unreadable to you and still be dangerous","locator":"item 1 mechanism"}]},
+    "factualIntegrity":{"verdict":"PASS","observation":"Researcher reports, vendor statements, limitations and inferences remain explicitly separated.","artifactEvidence":[{"excerpt":"Those are the researchers' reported totals from a targeted scan, not proof that every public AI log contains a secret","locator":"item 1 evidence limits"}]},
+    "freshnessReviewability":{"verdict":"PASS","observation":"The issue links current primary sources and identifies claims whose status may change.","artifactEvidence":[{"excerpt":"OpenAI's current material does not establish a public plan, price, region or automatic path","locator":"item 2 limits"}]},
+    "surfaceFit":{"verdict":"PASS","observation":"Two dated, non-Breaking items form one current AI-security Daily without filler.","artifactEvidence":[{"excerpt":"# THE DAILY — August 12, 2026","locator":"masthead"}]},
+    "datedChange":{"verdict":"PASS","observation":"The paper and Daybreak update are dated and never labelled Breaking.","artifactEvidence":[{"excerpt":"OpenAI introduced two approval-based cyber-access lanes on August 10","locator":"item 2 opening"}]},
+    "consequenceAndUncertainty":{"verdict":"PASS","observation":"The copy names credential exposure while preserving preprint, scan and vendor-policy limits.","artifactEvidence":[{"excerpt":"They also say they could not compare every recovered word with a ground-truth plaintext trace","locator":"item 1 limits"}]},
+    "dailyLifeConnection":{"verdict":"PASS","observation":"A workplace raw-log case and a home shared-chat concern apply the same boundary to different settings.","artifactEvidence":[{"excerpt":"At work, that means a team should not commit raw agent logs to a shared repository","locator":"item 1 work/home paragraph"}]},
+    "communicationBenchmark":{"verdict":"PASS","observation":"The invisible process becomes a visible sequence and returns to a better practical question.","artifactEvidence":[{"excerpt":"The application holds the block and sends it back on the next request","locator":"item 1 mechanism"}]},
+    "explainBack":{"verdict":"PASS","observation":"The copy supports explaining why encryption did not make the block harmless.","artifactEvidence":[{"excerpt":"The system accepted a valid sealed block in a context where it should not have been useful","locator":"item 1 mechanism"}],"simulatedReaderProbe":{"prompt":"Why could encrypted text still be exposed?","probeResponse":"The researchers did not need the key; the provider accepted the sealed block in another compatible context and a model reproduced its content.","expectedEvidence":"Reader distinguishes broken encryption from broken context binding."}},
+    "unseenTransfer":{"verdict":"PASS","observation":"The system-boundary lesson transfers from a repository log to another opaque token or signed object.","artifactEvidence":[{"excerpt":"unreadable to you is not the same as safely scoped by the system","locator":"item 1 line to keep"}],"simulatedReaderProbe":{"prompt":"What would you ask before publishing another tool's opaque session token?","probeResponse":"Whether it is bound to the right user, session and tool, what data it can reproduce, and whether it must be removed before sharing.","expectedEvidence":"Reader transfers scope and binding checks beyond this exact API field."}},
+    "usefulAction":{"verdict":"PASS","observation":"The action names removal, credential rotation and the affected artifact.","artifactEvidence":[{"excerpt":"revoke or rotate it and check the provider's current guidance","locator":"item 1 action"}]},
+    "analogyIntegrity":{"verdict":"PASS","observation":"The hotel-keycard comparison maps only opacity plus over-broad acceptance and immediately returns to the technical distinction.","artifactEvidence":[{"excerpt":"The important distinction is not “encryption failed.”","locator":"item 1 analogy setup"}]}
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop":{"present":false,"observation":"No benchmark person is named in public copy.","artifactLocator":"full candidate"},
+    "communicationPastiche":{"present":false,"observation":"The copy uses LAiDIES' own direct newspaper voice.","artifactLocator":"full candidate"},
+    "corporateSludge":{"present":false,"observation":"Access controls are translated into ordinary actions and boundaries.","artifactLocator":"item 2"},
+    "curiosityWithoutPayoff":{"present":false,"observation":"The encryption puzzle resolves into a mechanism and action.","artifactLocator":"item 1"},
+    "decorativeAnalogy":{"present":false,"observation":"The single analogy performs one access-scope job.","artifactLocator":"hotel keycard paragraph"},
+    "disconnectedSystem":{"present":false,"observation":"API, block, compatible model, public repository and remediation remain linked.","artifactLocator":"item 1"},
+    "entertainmentBeforeUnderstanding":{"present":false,"observation":"The answer and scope precede the memorable line.","artifactLocator":"item 1 opening"},
+    "factlessConfidence":{"present":false,"observation":"Material claims are attributed and bounded.","artifactLocator":"sources and limits"},
+    "familiarExampleWithoutTechnicalReturn":{"present":false,"observation":"The keycard analogy returns directly to system context binding.","artifactLocator":"item 1 mechanism"},
+    "genericAction":{"present":false,"observation":"The action names fields, logs and credential rotation.","artifactLocator":"what you should do"},
+    "glossaryAccumulation":{"present":false,"observation":"Terms appear only in the causal sequence.","artifactLocator":"full candidate"},
+    "inflatedTakeawayEnding":{"present":false,"observation":"Both endings are bounded operational distinctions.","artifactLocator":"lines to keep"},
+    "jargonBeforeMeaning":{"present":false,"observation":"The plain-language finding precedes API mechanics.","artifactLocator":"item 1 opening"},
+    "joylessInstruction":{"present":false,"observation":"The concise memorable lines carry a calm teaching voice.","artifactLocator":"lines to keep"},
+    "mechanismBeforeMotivation":{"present":false,"observation":"Reader concern and scope come first.","artifactLocator":"item 1 opening"},
+    "mechanismCompressedBehindHook":{"present":false,"observation":"Most of item 1 traces the mechanism and consequences.","artifactLocator":"what actually happened"},
+    "missingMechanism":{"present":false,"observation":"The block's production, replay and recovery are connected.","artifactLocator":"what actually happened"},
+    "prematureClickBeforeMechanism":{"present":false,"observation":"The durable line follows the full explanation.","artifactLocator":"item 1 ending"},
+    "purposeTooNarrow":{"present":false,"observation":"Current facts, system meaning, work and home relevance all appear.","artifactLocator":"full candidate"},
+    "referenceConfetti":{"present":false,"observation":"No decorative cultural references appear.","artifactLocator":"full candidate"},
+    "staleUnreviewableClaims":{"present":false,"observation":"The exact paper and current vendor pages are linked and claims are dated.","artifactLocator":"sources"},
+    "technicalExplainerVoice":{"present":false,"observation":"Technical terms are translated at first use.","artifactLocator":"item 1"},
+    "templateRepetition":{"present":false,"observation":"The repaired research and access items now use different headline jobs, structures and closing devices.","artifactLocator":"full candidate"},
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain one transfer paragraph in a Daily item.","artifactLocator":"item 1 work/home paragraph"}
+  },
+  "factualReview": {
+    "disposition":"CLAIMS_REVIEWED",
+    "sourceBindings":[{"path":"operations/drafts/news-radar/2026-08-12-reasoning-trace-daybreak-daily/research-and-claim-map.md","sha256":"39ed06a63b4bb24c9a0202f60724d455c8cf5f7d5b6ecc889e7d836b6ddd80b4"}],
+    "claimMap":[
+      {"claimId":"REASONING-TRACE-REPLAY","status":"QUALIFIED","candidateEvidence":[{"excerpt":"encrypted reasoning blocks used by some AI APIs could be replayed into a compatible model","locator":"item 1 short version"}],"sourceBinding":{"path":"operations/drafts/news-radar/2026-08-12-reasoning-trace-daybreak-daily/research-and-claim-map.md","sha256":"39ed06a63b4bb24c9a0202f60724d455c8cf5f7d5b6ecc889e7d836b6ddd80b4"},"sourceEvidence":[{"excerpt":"Researchers reported a replay attack against encrypted reasoning blocks used by Anthropic, OpenAI and Google APIs","locator":"item 1 claim map"}],"scopeAndFreshness":"Researcher-reported preprint result published August 10; not independent replication."},
+      {"claimId":"REASONING-TRACE-COUNTS","status":"QUALIFIED","candidateEvidence":[{"excerpt":"They classified 367 pieces of personally identifying information and 182 credentials","locator":"item 1 totals"}],"sourceBinding":{"path":"operations/drafts/news-radar/2026-08-12-reasoning-trace-daybreak-daily/research-and-claim-map.md","sha256":"39ed06a63b4bb24c9a0202f60724d455c8cf5f7d5b6ecc889e7d836b6ddd80b4"},"sourceEvidence":[{"excerpt":"The researchers decoded 315,320 blocks from public repositories and classified 367 PII artifacts and 182 credentials","locator":"item 1 claim map"}],"scopeAndFreshness":"Paper totals from a targeted public-repository scan; not an exhaustive audit."},
+      {"claimId":"DAYBREAK-ACCESS","status":"VERIFIED","candidateEvidence":[{"excerpt":"is for approved defensive work using general-purpose models","locator":"item 2 opening"}],"sourceBinding":{"path":"operations/drafts/news-radar/2026-08-12-reasoning-trace-daybreak-daily/research-and-claim-map.md","sha256":"39ed06a63b4bb24c9a0202f60724d455c8cf5f7d5b6ecc889e7d836b6ddd80b4"},"sourceEvidence":[{"excerpt":"Blue covers approved defensive work using general-purpose models; Red is separately approved for higher-risk authorized work","locator":"item 2 claim map"}],"scopeAndFreshness":"OpenAI's August 10 vendor description; approval volumes, price and regional availability remain unknown."}
+    ],
+    "reviewedThrough":"2026-08-12T15:57:38Z",
+    "nextTrigger":"Paper version change, peer review, independent replication, provider statement, correction or retraction; or any Daybreak eligibility, model, price, region or policy change.",
+    "correctionOwner":"NewsStand accuracy and corrections editor"
+  },
+  "ratchet":{"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage":{"kind":"FIRST","noComparableReason":"First August 12 two-item Daily candidate using this source pair; the rejected multi-format sampler is not comparable prose."},
+  "learningDisposition":{"disposition":"NO_NEW_DEFECT","rationale":"The existing template-repetition family was applied more precisely after pre-admission review: the successor varies headline jobs and closing devices. No new reusable failure family is required."},
+  "verdict":"PASS",
+  "limitations":["Producer self-review has no independent quality authority.","Explain-back and transfer probes are simulated, not observed-human evidence.","No canonical integration, deployment or public verification has occurred."]
+}

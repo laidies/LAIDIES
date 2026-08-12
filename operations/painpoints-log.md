@@ -14456,3 +14456,26 @@ while remaining falsely unfinished in the launch record.
   readers are seeing yesterday's JavaScript.
 - **Publication status:** CORRECTED, DEPLOYED AND VERIFIED PUBLICLY 2026-08-12;
   custom-domain hashes matched the exact successor assets.
+
+## BTB-459 — A useful intelligence email is a scout, not publication copy
+
+- **Date:** 2026-08-12
+- **Area:** Daily intelligence intake, AIDB and NewsStand sourcing.
+- **Failure risk:** A polished professional brief can surface an important source
+  the current radar missed while also carrying employer-private material,
+  secondary-source overconfidence and inaccurate explanations. Copying the brief
+  would either leak the wrong material or turn useful discovery into AI slop.
+- **Root cause:** Discovery, verification, synthesis and destination-specific
+  production were treated as one artifact instead of separate stages.
+- **Prevention rule:** Treat external briefs as discovery-only. Reject private or
+  employer-specific material before persistence; open the original and current
+  primary source; compare with AIDB; build a claim map; then route the signal into
+  an existing destination with its own producer and release gates.
+- **Durable correction:** The August 12 reasoning-trace candidate rebuilt its
+  claims from the original preprint and current OpenAI sources, rejected the
+  forwarded email's overbroad reasoning and consumer-risk claims, and captured a
+  reusable public-safe intake pattern without storing the email body.
+- **Possible Behind the Build angle:** How a source can be worth reading and still
+  be unsafe to publish.
+- **Publication status:** INTERNAL INPUT-PATTERN REPAIR / DAILY CANDIDATE AWAITS
+  OBSERVED-HUMAN COMPREHENSION; NO CANONICAL STORY OR DEPLOYMENT YET.
