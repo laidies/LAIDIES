@@ -46,7 +46,7 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 | `e16b37bb` | Dear Miss Jeeves revision column | producer-ready; independent review required |
 | `90750797` | reconciled STRAiGHT TALK “AI escaped” explanation | producer-ready after consolidating the strongest existing source packet into one current 1,371-word candidate; independent accuracy, editorial, voice and format review required |
 | `9a0081d4` | cross-lab Weekly package | producer-ready; independent review required |
-| `6981e80f` | coherent August 3 archive Daily candidate | producer-ready; independent review required; distinct from the already-live article reader |
+| `6981e80f` | coherent August 3 archive Daily presentation successor | producer-ready; independent review required; explicitly extends the admitted August 3 issue and preserves the already-live article rather than creating a competing issue |
 | `62ab0c96` | Career/Work-Life contribution-credit tip | producer-ready; independent review required |
 
 ## Safe next release step
