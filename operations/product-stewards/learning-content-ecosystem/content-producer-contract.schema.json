@@ -16,6 +16,10 @@
     "surface": { "type": "string", "minLength": 1 },
     "contentClass": { "enum": ["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"] },
     "producer": { "type": "string", "minLength": 1 },
+    "predecessorSearch": {
+      "type": "object",
+      "required": ["searchedRoots", "queries", "matches", "outcome"]
+    },
     "examplePair": {
       "type": "object",
       "required": ["policyId", "workplaceExample", "nonWorkExample", "sharedMechanism", "surfaceAdaptation"]

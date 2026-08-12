@@ -118,6 +118,8 @@ try {
   assert.match(inspect(repeated).join("\n"), /decorativeAnalogy is not CLEAR/);
   const sameCase = structuredClone(contract); sameCase.draftArchitecture.transferCase = sameCase.draftArchitecture.workedCase;
   assert.match(inspect(sameCase).join("\n"), /must be different/);
+  const newsWithoutPredecessorSearch = structuredClone(contract); newsWithoutPredecessorSearch.contentClass = "NEWS";
+  assert.match(inspect(newsWithoutPredecessorSearch).join("\n"), /predecessorSearch/);
   const missingPair = structuredClone(contract); delete missingPair.examplePair.nonWorkExample;
   assert.match(inspect(missingPair).join("\n"), /examplePair.nonWorkExample is required/);
   const relabelledPair = structuredClone(contract); relabelledPair.examplePair.nonWorkExample = relabelledPair.examplePair.workplaceExample;
@@ -149,7 +151,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=17 all_negatives=1 stale_registry=1 paired_examples=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=18 all_negatives=1 stale_registry=1 paired_examples=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

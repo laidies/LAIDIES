@@ -56,6 +56,25 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(text(contract?.producer), "producer identity is required");
   require(["READY_TO_DRAFT", "REPAIR_PRODUCER", "SUPERSEDED"].includes(contract?.status), "status is invalid");
 
+  if (contract?.contentClass === "NEWS") {
+    const search = contract?.predecessorSearch;
+    require(array(search?.searchedRoots, 2), "NEWS predecessorSearch.searchedRoots requires at least two repository roots");
+    require(array(search?.queries, 3), "NEWS predecessorSearch.queries requires reader-question, format and mechanism searches");
+    require(Array.isArray(search?.matches), "NEWS predecessorSearch.matches must be an array, including [] when no plausible artifact exists");
+    for (const [index, match] of (search?.matches || []).entries()) {
+      require(["CURRENT_PREDECESSOR", "SOURCE_MATERIAL_ONLY", "REJECTED_KNOWN_BAD", "DISTINCT_READER_JOB", "DUPLICATE_DO_NOT_BUILD"].includes(match?.disposition), `predecessorSearch.matches[${index}].disposition is invalid`);
+      boundFile(root, match?.artifact, `predecessorSearch.matches[${index}].artifact`, errors);
+    }
+    require(["FIRST", "SUCCESSOR"].includes(search?.outcome), "NEWS predecessorSearch.outcome must be FIRST or SUCCESSOR");
+    if (search?.outcome === "FIRST") require(text(search?.noComparableReason), "NEWS FIRST predecessor search requires noComparableReason");
+    if (search?.outcome === "SUCCESSOR") {
+      boundFile(root, search?.selectedPredecessor, "predecessorSearch.selectedPredecessor", errors);
+      const selectedMatch = (search?.matches || []).some(match => match?.disposition === "CURRENT_PREDECESSOR" && match?.artifact?.path === search?.selectedPredecessor?.path && match?.artifact?.sha256 === search?.selectedPredecessor?.sha256);
+      require(selectedMatch, "NEWS SUCCESSOR selectedPredecessor must match one CURRENT_PREDECESSOR artifact");
+      require(text(search?.preserveAndImprove), "NEWS SUCCESSOR predecessorSearch.preserveAndImprove is required");
+    }
+  }
+
   const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(contract?.contentClass);
   if (requiresPairedExamples) {
     const pair = contract?.examplePair;
