@@ -50,13 +50,13 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 | Commit | Exact candidate | Current state |
 |---|---|---|
 | `bc342910` | [The Big Question](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md) — 2,986 words | independent prose review accepted with zero blockers; human explain-back and exact rendered longform still required |
-| `deb268e3` | Paige — “Give one repeat task a dress rehearsal—not the keys” — 147 words | independent prose review accepted after blockers fell 11 → 7 → 4 → 3 → 0; human and rendered-card review still required |
+| `deb268e3` | Paige — “Give one repeat task a dress rehearsal—not the keys” — 147 words | independent full-prose review accepted after blockers fell 11 → 7 → 4 → 3 → 0; existing-surface render held the full text as too dense for a compact card; preserve it and create a separately reviewed deck + full destination |
 | `45c8bfdc` | Promptoscope — “Mercury is in regression” | independent prose review accepted with zero blockers; human and rendered-card review still required |
 | `c3115e8b` | [Dear Miss Jeeves](../../../content/dear-miss-jeeves/dmj-004-fifteen-revisions.md) — 528 words | repaired an unbuilt Promptoscope continuation; independent prose review accepted with zero blockers; human and rendered-column review still required |
 | `4057f1de` | [STRAiGHT TALK](candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md) — 1,374 words | independent successor review accepted with zero blockers; human and rendered LIBRAiRY review still required; no public STRAiGHT TALK surface currently exists |
 | `137a09da` | [The Weekly](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md) — 1,682 words | final independent review accepted with zero blockers; human review must decide whether the above-usual length earns its space before rendering |
 | `810d9704` | [The Daily archive](candidates/daily-archive-2026-08-03.md) — 941 words | corrected the false Sunday dateline to Monday; independent review accepted with zero blockers; human and rendered newspaper review still required |
-| `18ddabf1` | Career/Work-Life — “Put the name back on the idea” — 180 words | independent successor review accepted with zero blockers; human and rendered-card review still required |
+| `18ddabf1` | Career/Work-Life — “Put the name back on the idea” — 180 words | independent full-prose review accepted with zero blockers; existing-surface render held the full text as too dense for a compact card; preserve it and create a separately reviewed deck + full destination |
 
 The role-distinct Claude reviews reported USD 14.6887348 in external usage.
 That spend produced artifact-first judgments and repair cycles; it did not buy
@@ -131,7 +131,7 @@ mutations fail. These branch bytes are not deployed or publicly verified.
 | The Daily archive | Daily issue snapshot, full Daily story reader and dated archive already exist | Map the accepted expanded presentation into one successor issue without creating a competing August 3 record; render and admit the exact result |
 | The Weekly | `weekly` publication and full-story reader already exist | Create the exact canonical story record, render the above-usual 1,682-word issue and decide whether its length earns the space |
 | The Big Question | `tribune` machine key and public Big Question paper/reader already exist | Create the exact canonical story record using only the public Big Question name; render and admit |
-| Paige, Promptoscope, Career/Work-Life | All three governed Daily desk types already exist | Select one edition date, create exact admitted Daily records and prove the cards remain readable at desktop/390/320 |
+| Paige, Promptoscope, Career/Work-Life | All three governed Daily desk types already exist; Promptoscope fits the existing compact desk | Paige and Career need separately reviewed compact decks plus truthful full destinations; then select one edition date, create exact admitted Daily records and prove the cards remain readable at desktop/390/320 |
 | Dear Miss Jeeves | The governed Daily desk type and editorial bank exist | The Daily can show a compact desk item, but no current public full-answer destination exists for the accepted 528-word column; build and admit that bounded reading destination before adding a `Go deeper` link |
 | STRAiGHT TALK | The name, living-reference job, source method and exact accepted prose exist | No current public STRAiGHT TALK LIBRAiRY surface or index route exists; build and admit that bounded reference destination before this article can publish |
 
