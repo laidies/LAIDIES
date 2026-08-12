@@ -1,8 +1,11 @@
 # Independent visual and editorial review — Promptoscope existing Daily surface v2
 
-**Reviewed:** 2026-08-12 America/Vancouver  
-**Reviewer runtime:** Claude Code 2.1.225, `claude-sonnet-5`, high effort  
-**Cost:** USD 0.3221253  
+**Reviewed:** 2026-08-12 America/Vancouver
+
+**Reviewer runtime:** Claude Code 2.1.225, `claude-sonnet-5`, high effort
+
+**Cost:** USD 0.3221253
+
 **Verdict:** `ACCEPT`
 
 ## Exact artifacts
