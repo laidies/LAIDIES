@@ -14,7 +14,8 @@ Two separate automatic chains apply:
 1. a **candidate validation chain**, triggered whenever a qualified candidate
    is created or materially changed; and
 2. a **published discovery chain**, triggered only when an exact story becomes
-   `published` or `corrected` in the canonical public dataset.
+   `published` or `corrected`, or an admitted continuing-story relationship is
+   added, in the canonical public dataset.
 
 Neither chain grants publication, deployment or correction authority.
 
@@ -118,7 +119,22 @@ all applicable discovery checks below against the exact released story hash.
    - article return restores the exact query, filters and reachable result
      position.
 
-4. **Related learning**
+4. **Continuing-story lineage**
+   - every material follow-up exists as its own dated eligible story and release
+     identity;
+   - old and new stories bind exact IDs plus one allowed material-change
+     relationship;
+   - old article/result shows Newer reporting and the new article/result shows
+     Earlier reporting;
+   - Story so far shows the complete eligible chain in date order and identifies
+     the current/latest item without hiding earlier articles;
+   - article, edition, Homepage, Catch Me Up, topic, search, feed and related
+     learning surfaces agree on the relationship;
+   - missing, circular, self, contradictory or one-way relationships fail
+     publication; and
+   - a held successor creates no public link or implication.
+
+5. **Related learning**
    - `class_notes` names the exact Concepts, LIBRAiRY, class, episode or tool
      continuation and its learning payoff;
    - the Learning System intake records link/update/create/decline for every
@@ -129,7 +145,7 @@ all applicable discovery checks below against the exact released story hash.
      only on manually remembered neighbours; every chosen and rejected link
      records its learning relationship.
 
-5. **Open-web discovery**
+6. **Open-web discovery**
    - the NewsStand route remains in the sitemap with correct canonical and
      `og:url`;
    - the story has a stable address and useful title/description for sharing;
@@ -138,14 +154,14 @@ all applicable discovery checks below against the exact released story hash.
    - corrected and retracted records update the feed without exposing held
      copy.
 
-6. **Daily learning derivatives**
+7. **Daily learning derivatives**
    - the exact story receives a Paige daily-tip and Promptoscope fit ruling;
    - admitted derivatives cite the canonical item internally, preserve claim
      limits and carry an expiry/recheck date;
    - no derivative store, renderer or source-bound record means `BUILD REQUIRED`,
      never an invented homepage string.
 
-7. **Returning-reader signals**
+8. **Returning-reader signals**
    - device-local “new since your last visit” compares the last successfully
      viewed publication timestamp with eligible public records;
    - it stores no raw search text, article body, account or sensitive reading
@@ -153,7 +169,7 @@ all applicable discovery checks below against the exact released story hash.
    - signed-in cross-device following/saving is a later account feature and
      must not be implied by device-local state.
 
-8. **Optional distribution**
+9. **Optional distribution**
    - Audience & Growth receives a derivative scan only after exact public
      verification;
    - social, email, Resident Card inbox or push notification requires its own
@@ -172,6 +188,10 @@ all applicable discovery checks below against the exact released story hash.
 - visible article tag → complete eligible same-topic results across content
   types → return to the article or continue within the topic;
 - corrected story → visible correction adjacent to the article;
+- material new evidence → new dated article → bidirectional old/new links →
+  complete Story so far timeline across article/search/topic/Catch Me Up;
+- withdrawn central study → new dated article and old-story warning → dependent
+  claim/learning recheck, not automatic LAiDIES-article retraction;
 - held/stale/retracted story → no body exposure through paper, search, direct
   address, Homepage, feed or derivative.
 
@@ -187,6 +207,8 @@ released artifact, not a local fixture.
 - It does not yet have the confirmed governed topic/alias register,
   visible-clickable-tag contract, publication guard, cross-content-type search
   index, filters, result-ranking contract or complete topic journey.
+- It does not yet have canonical predecessor/successor relationship data,
+  material-change classifications, bidirectional propagation or Story so far.
 - The twice-daily News Radar and daily Control Room automations exist.
 - The candidate evaluator is review-routing only and cannot publish.
 - The Homepage Daily column is still an isolated design candidate, not a

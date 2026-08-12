@@ -27,6 +27,9 @@ require a dated source and public-origin recheck.
 | Full story/direct hash | Open a story or `/newsstand.html#slug` | Eligible explanation and sources, or truthful blocked-route notice | `renderHash` + central `accessDecision` | VERIFIED LOCALLY for paper/search/hash suppression |
 | Article explanation | Read eligible story | Story/argument, LAiDIES read, consequence, watch points, sources, dates and tags | Inline renderer over canonical JS data | OBSERVED; representative human quality set incomplete |
 | Correction/retraction display | Open changed preserved route | Dated correction with body, or retraction notice without body | Schema/renderer plus synthetic three-stage drill | VERIFIED LOCALLY on fixtures; no real production transaction |
+| Material follow-up article | New evidence materially changes, confirms, overturns, expands or resolves a prior story | A new dated article explains the earlier report, new information, impact and why; it receives its own sources/review/release identity | Current schema can only mutate one story record's `updatedAt`/status; no lineage object | BUILD REQUIRED — SILENT MEANING-CHANGING REWRITE FORBIDDEN |
+| Bidirectional Story so far | Open old/new article, search result, topic or Catch Me Up | Newer reporting and Earlier reporting links plus complete dated chain/current marker | No canonical predecessor/successor relationship or cross-surface propagation | BUILD REQUIRED |
+| Narrow retraction tombstone | Exact LAiDIES article is fundamentally unreliable/unsafe and bounded correction cannot responsibly preserve its body | Old URL retains headline/dates/reason/owner/new explanation while suppressing unreliable body | Current retraction object/body suppression fixture exists | PARTIAL MECHANICAL PROOF; EDITORIAL THRESHOLD, NEW EXPLANATION AND PUBLIC TRANSACTION MISSING |
 | Put paper back | Activate close | Close reader and restore invoking control/fallback | `#ns-return`, focus logic | VERIFIED LOCALLY in headless Chrome |
 | Back/Forward recovery | Browser navigation after paper/search/story | Restore query, card, focus and reachable/clamped scroll, then re-evaluate access | `history.state` + observable `newsstand:history-restored` | BOUNDED LOCAL PASS; Safari/native AT and cleanup reliability open |
 | Back-issue search | Submit word/phrase query and optional topic/content-type/date filters | Eligible results only with title, content type, payoff, topics, published/updated date and correction/archive state; preserve query/filter/position on return | In-memory search over canonical NewsStand story array; no admitted cross-content index or filter contract | PARTIAL; CURRENT EXACT-TEXT SEARCH VERIFIED LOCALLY |
@@ -120,17 +123,21 @@ one accessDecision → arrival/paper/search/hash/history`
 - **Conflict:** mixed desks may remain partly useful while naming degradation;
   dataset-wide hold/load failure blocks every route.
 
-### Correction/retraction
+### Follow-up/correction/retraction
 
-`exact claim/story intake → receipt → independent ruling → append-only previous
-and corrected wording → canonical update → every consumer → artifact/public
-verification → source recheck`
+`new evidence or original error → materiality/original-accuracy ruling → new
+article when material + correction of old claim when LAiDIES erred → canonical
+bidirectional relationship → every consumer → artifact/public verification →
+dependent source/claim/content recheck`
 
-- **Completion:** correction is visible and dated; retraction preserves the
-  route/notice and suppresses the body; homepage/archive/deep links agree.
+- **Completion:** material later evidence is a new dated article with Newer
+  reporting/Earlier reporting/Story so far; an original LAiDIES error has a
+  visible dated correction; a narrow retraction preserves the route/notice and
+  suppresses the unreliable body; homepage/archive/deep links agree.
 - **Update/remove:** never delete the history needed to explain what changed.
-- **Current gap:** no production intake, receipt, ledger, writer, propagation
-  job, rollback receipt or public drill exists.
+- **Current gap:** no lineage schema, production intake, materiality ruling,
+  receipt, relationship writer, cross-surface propagation job, rollback receipt
+  or public continuing-story drill exists.
 
 ### Paper/search/hash/history
 

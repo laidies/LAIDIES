@@ -118,6 +118,16 @@ on governed shared topics or learning relationships. It must not use vague
 keyword overlap, silently personalized reading history or invented AI answers.
 Back returns the visitor to the same query, filters and result position.
 
+### Continuing stories
+
+Material new evidence is published as a new dated article, not silently folded
+into an old body. The old article shows **Newer reporting** before its headline;
+the new article shows **Earlier reporting**; both expose a compact **Story so
+far** timeline. Search, topic and archive results show each dated article and
+identify the latest item in the chain. The exact correction, later-evidence,
+source-withdrawal and narrow retraction rules live in
+`NEWSSTAND-STORY-LINEAGE-AND-CORRECTIONS.md`.
+
 No eligible result is suppressed merely because it is old. Held, unavailable
 or superseded drafts never appear; a retracted public record retains its route
 and clear notice rather than exposing the withdrawn body. A no-result state

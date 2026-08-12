@@ -15173,3 +15173,30 @@ while remaining falsely unfinished in the launch record.
   same as helping a reader find everything LAiDIES has already explained.
 - **Publication status:** SPECIFIED ONLY / CURRENT BASIC SEARCH PRESERVED AS
   EVIDENCE / NO LIVE ROUTE, DATA, SEARCH OR DEPLOYMENT CHANGE.
+
+## BTB-488 — A mutable updated timestamp would bury material new reporting
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand corrections, freshness and continuing-story discovery.
+- **Failure:** The current story model permits an old record's body and
+  `updatedAt` to change, but has no canonical successor relationship. Material
+  new evidence could therefore be silently absorbed into an old article that
+  readers will not revisit, while the Daily/Weekly, search, topic, Catch Me Up
+  and feed surfaces show no new publication explaining what changed.
+- **Root cause:** Correction/retraction state was treated as the whole lifecycle.
+  It did not distinguish an original LAiDIES error from the world changing
+  later, or a source study being withdrawn from LAiDIES retracting its own
+  article.
+- **Prevention rule:** Material new evidence creates a new dated, independently
+  admitted article and one versioned bidirectional relationship to the earlier
+  story. The old article displays Newer reporting; the new displays Earlier
+  reporting; all discovery surfaces show Story so far. Correction means the
+  original LAiDIES article was wrong/unclear when published. Retraction is a
+  rare tombstone for a fundamentally unreliable/unsafe LAiDIES body.
+- **Durable correction:** D-2026-08-12-125,
+  `NEWSSTAND-STORY-LINEAGE-AND-CORRECTIONS.md`, the operating/discovery
+  contracts and NS-25 bind the lifecycle. Implementation remains required.
+- **Possible Behind the Build angle:** Why quietly fixing an old web page can
+  make a publication less transparent than printing a new newspaper story.
+- **Publication status:** SPECIFIED ONLY / NO PUBLIC ARTICLE, DATA, SEARCH,
+  CORRECTION, RETRACTION OR DEPLOYMENT CHANGE.

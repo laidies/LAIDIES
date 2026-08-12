@@ -61,6 +61,13 @@ The reader fails closed:
 
 No visit timestamp is evidence of publication freshness.
 
+Material new evidence is not represented by changing `updatedAt` and rewriting
+an old story. It creates a separately admitted dated story linked through the
+contract in `NEWSSTAND-STORY-LINEAGE-AND-CORRECTIONS.md`. The earlier item stays
+available with Newer reporting unless the narrow retraction rule applies.
+Correction remains reserved for an error or material ambiguity in LAiDIES'
+original publication; later evidence uses lineage, not retroactive correction.
+
 One canonical `accessDecision(dataset, story, context, now)` gate governs paper
 selection, archive search and direct/hash routes. Dataset hold, missing data and
 load failure block every route. Publication hold, unavailable, quiet and stale
@@ -96,6 +103,12 @@ Every public story requires:
 11. an AIDB comparison performed after the independent LAiDIES read, recording
     agreement, additions, disagreements and distinctive use—or a dated honest
     `NOT_COVERED`/`UNAVAILABLE` result.
+
+For a follow-up, the packet additionally binds the predecessor story ID(s),
+exact earlier claim/conclusion, new evidence, one material-change relationship,
+what changes/does not/remains unknown and the bidirectional discovery result.
+The new story has its own complete sources, review and release identity; it
+cannot inherit the old story's approval.
 
 Publisher reputation never satisfies these fields. Independent reporting is
 valuable for discovery, corroboration, disagreement and context, but the
@@ -152,6 +165,9 @@ deployment authority.
   the matching selector fallback.
 - Search returns only approved visible/corrected stories; held stories do not
   leak through search.
+- Old and new articles in a continuing story expose Newer reporting, Earlier
+  reporting and a coherent Story so far timeline without hiding either dated
+  article.
 - The reader honours reduced-motion preference and remains usable at 390 px and
   desktop widths.
 - Legacy Wednesday cover artwork is retained only as explicitly labelled
