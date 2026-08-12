@@ -279,7 +279,10 @@ const server = http.createServer((request, response) => {
   if (requestUrl.pathname === "/newsstand.html") {
     const clock = TEST_CLOCKS[requestUrl.searchParams.get("clock") || "same-day"] || TEST_CLOCKS["same-day"];
     const clockScript = `<script>(()=>{const NativeDate=Date;const fixed=${JSON.stringify(clock)};function FixedDate(...args){if(!(this instanceof FixedDate))return new NativeDate(fixed).toString();return new NativeDate(...(args.length?args:[fixed]));}FixedDate.prototype=NativeDate.prototype;Object.setPrototypeOf(FixedDate,NativeDate);FixedDate.now=()=>new NativeDate(fixed).getTime();window.Date=FixedDate;})();</script>`;
-    const body = fs.readFileSync(path.join(ROOT, "newsstand.html"), "utf8").replace("<head>", "<head>" + clockScript);
+    let body = fs.readFileSync(path.join(ROOT, "newsstand.html"), "utf8").replace("<head>", "<head>" + clockScript);
+    if (process.env.NEWSSTAND_ROUTE_CALIBRATION === "disable-direct-scroll") {
+      body = body.replace("settleDirectReaderLanding();", "/* calibration: direct-route landing disabled */");
+    }
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     response.end(body);
     return;
@@ -820,9 +823,13 @@ try {
       check(await value(candidate, "document.querySelector('.ns-article').getAttribute('aria-label')"), fixture.label, `${fixture.name} ${viewport.width}: exact accessible publication identity`);
       check(await value(candidate, "document.querySelectorAll('.ns-article__section--longform').length"), fixture.sections, `${fixture.name} ${viewport.width}: every authored section renders`);
       check(await value(candidate, "document.querySelectorAll('.ns-article__sources a').length"), fixture.sources, `${fixture.name} ${viewport.width}: every reviewed source link renders`);
+      await waitForValue(candidate, "(() => { const reader=document.querySelector('#paper-counter').getBoundingClientRect(); const header=document.querySelector('.topbar').getBoundingClientRect(); return reader.top >= header.bottom - 2 && reader.top <= header.bottom + 70; })()", true, `${fixture.name} ${viewport.width}: direct-route reader landing`);
+      const landing = await value(candidate, "(() => { const reader=document.querySelector('#paper-counter').getBoundingClientRect(); const header=document.querySelector('.topbar').getBoundingClientRect(); return { visible: reader.top >= header.bottom - 2 && reader.top <= header.bottom + 70, readerTop: reader.top, headerBottom: header.bottom, height: window.innerHeight, scrollY: window.scrollY }; })()");
+      check(landing.visible, true, `${fixture.name} ${viewport.width}: direct route lands on the open reader below the sticky header ${JSON.stringify(landing)}`);
       check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__jump a')).every((link) => document.querySelector(link.getAttribute('href')))"), true, `${fixture.name} ${viewport.width}: every jump resolves`);
       check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At work') && Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At home')"), true, `${fixture.name} ${viewport.width}: work and home transfer landmarks render`);
       check(await value(candidate, "document.documentElement.scrollWidth <= window.innerWidth"), true, `${fixture.name} ${viewport.width}: exact candidate has no horizontal overflow`);
+      await captureEvidence(candidate, `${fixture.name}-${viewport.width}.png`, null, true);
       candidate.close();
     }
   }

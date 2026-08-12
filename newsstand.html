@@ -694,6 +694,29 @@
           }
         }
 
+        function settleDirectReaderLanding() {
+          function land() {
+            reader.scrollIntoView({ behavior: "auto", block: "start" });
+          }
+          land();
+          var imageWaits = Array.prototype.map.call(document.images, function (image) {
+            if (image.complete) return Promise.resolve();
+            if (image.decode) return image.decode().catch(function () {});
+            return new Promise(function (resolve) {
+              image.addEventListener("load", resolve, { once: true });
+              image.addEventListener("error", resolve, { once: true });
+            });
+          });
+          var fontWait = document.fonts && document.fonts.ready
+            ? document.fonts.ready.catch(function () {})
+            : Promise.resolve();
+          Promise.all(imageWaits.concat([fontWait])).then(function () {
+            window.requestAnimationFrame(function () {
+              window.requestAnimationFrame(land);
+            });
+          });
+        }
+
         function stateMessage(edition, state, publication) {
           if (state === "quiet") return publication.note;
           if (state === "hold") return publication.note || "This issue is not published yet.";
@@ -1221,7 +1244,10 @@
         });
 
         setArrivalState();
-        if (location.hash) renderHash(false, null);
+        if (location.hash) {
+          renderHash(false, null);
+          settleDirectReaderLanding();
+        }
         else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>

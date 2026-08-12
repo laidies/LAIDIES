@@ -161,8 +161,9 @@ The shared production longform schema/reader is now **BUILT + VERIFIED LOCALLY**
 exact accessible publication identity and semantic landmarks come from story
 data; jump targets are validated; myth/evidence/conclusion roles remain
 distinct; body/list/quote measure is bounded at 68ch. Deliberate missing-target
-and empty-block mutations fail; 266 rendered checks pass at 1440/390/320,
-including both exact held candidate records. This
+and empty-block mutations fail; 272 rendered checks pass at 1440/390/320,
+including both exact held candidate records and a calibrated direct-link
+landing guard. This
 does not create or admit either candidate story record.
 
 No whole-branch merge, canonical story integration, deployment or public mutation was performed by this reconciliation.

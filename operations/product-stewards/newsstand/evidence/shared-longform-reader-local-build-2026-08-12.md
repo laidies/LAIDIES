@@ -17,11 +17,11 @@ myth treatment.
 
 - `content/newsstand.schema.json` — `7a475c6b13766b66b0cf13778964e1ccf0a4d24a146ea13f7ba09bb60b93b97f`
 - `content/newsstand-reader-contract.js` — `1ad87d293e1a683c1253f5f2056946aab61d882c4fbf9ebbe981ae39f6e5af7f`
-- `newsstand.html` — `d9e3dfe07c077ae6f4e49b1d93e317af3f2bc5860f24921913667fcc2e8f7dc5`
-- `content/newsstand.css` — `5deba9534bf7fe2d49788e4d534203fb86135421f3273d3b14d35695304d9846`
+- `newsstand.html` — `c6ad85d5e5cefa667b08bc1f914ae9cc70aaeac0610e33b8cff414a6e63c747b`
+- `content/newsstand.css` — `03b992c0c0fb864a19cd0277641087adce9f406c75f7d654a37a60d3e853230d`
 - `scripts/validate-newsstand-stories.mjs` — `ce3ec64f6f6fc7841c5acad4972d9f8bf84242dc0be8eae9f4cd12de8ac4958a`
 - `scripts/test-newsstand-reader-contract.mjs` — `25251bb44085af7b333d2331b31c1512211ae02f6d4652fa4ee023dae0be571a`
-- `scripts/test-newsstand-reader-browser.mjs` — `37117cf578526346b5d15cf758325aa60ef7eb37e79285a446ce6f59fe8469a5`
+- `scripts/test-newsstand-reader-browser.mjs` — `e0ab8f6c7003691dd273b9d606db534374b3ca156a358ef2c160589bab34b72b`
 
 ## Checks and calibration
 
@@ -31,11 +31,15 @@ myth treatment.
 - A held story may state `publishedAt: null`; calibration rejects null when the
   same record claims `published`.
 - `node scripts/validate-newsstand-stories.mjs` — PASS for the unchanged canonical data.
-- `node scripts/test-newsstand-reader-browser.mjs` — PASS, 266 rendered checks,
+- `node scripts/test-newsstand-reader-browser.mjs` — PASS, 272 rendered checks,
   including long-form desktop, 390px and 320px label, jump-target, myth-role,
   work/home, reading-measure and horizontal-overflow checks. The exact held Big
   Question and Weekly records also render in isolated internal fixtures at all
   three widths with every section, source and jump target present.
+- `NEWSSTAND_ROUTE_CALIBRATION=disable-direct-scroll node scripts/test-newsstand-reader-browser.mjs`
+  — expected FAIL because the direct Big Question URL never lands on its open
+  reader. Baseline now waits for images/fonts and places the reader immediately
+  below the sticky header at 1440/390/320.
 - `git diff --check` — PASS.
 
 ## Boundary
