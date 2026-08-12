@@ -14,6 +14,7 @@ const DRILL_FILE = path.join(ROOT, "operations", "test-fixtures", "newsstand-rea
 const NOW = "2026-07-25T20:00:00Z";
 const NOW_CURRENT = "2026-08-11T22:30:00Z";
 const NOW_VANCOUVER_AUG_4 = "2026-08-05T00:50:00Z";
+const NOW_VANCOUVER_AUG_11 = "2026-08-12T05:44:30Z";
 
 function loadData() {
   const context = { window: {} };
@@ -25,7 +26,7 @@ function loadContract() {
   const context = { module: { exports: {} }, exports: {}, window: undefined };
   let source = fs.readFileSync(CONTRACT_FILE, "utf8");
   if (process.env.NEWSSTAND_CONTRACT_CALIBRATION === "bypass-story-freshness") {
-    source = source.replace("if (story && ageHours(story.lastCheckedAt, now) > Number(publication.maxAgeHours)) {", "if (false) {");
+    source = source.replace("if (story && ageHours(story.lastCheckedAt, now) > storyMaxAgeHours) {", "if (false) {");
   }
   if (process.env.NEWSSTAND_CONTRACT_CALIBRATION === "allow-empty-daily") {
     source = source.replace('if ((!issueItems || !issueItems.length) && !quietIssue) errors.push("daily issue has no admitted story or service item and no governed quiet disposition");', "if (false) errors.push(\"daily issue has no admitted story or service item and no governed quiet disposition\");");
@@ -92,6 +93,8 @@ assert.equal(contract.validate(base).length, 0);
 assert.equal(contract.visibleStories(base, "weekly", NOW_CURRENT).length, 1, "admitted Weekly story is visible at its current source check");
 assert.equal(contract.visibleStories(base, "tribune", NOW).length, 1);
 assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_4), "archive", "an August 3 Daily cannot remain current on August 4 in its editorial timezone");
+assert.equal(contract.visibleStories(base, "daily", NOW_VANCOUVER_AUG_11).length, 1, "a source-checked Daily back issue remains readable without being presented as current");
+assert.equal(contract.effectivePublicationState(base.publications.daily, NOW_VANCOUVER_AUG_11), "archive", "a source recheck must not turn an old Daily into today's edition");
 const staleStoryCandidate = JSON.parse(JSON.stringify(base));
 staleStoryCandidate.publications.daily.editionDate = "2026-08-04";
 staleStoryCandidate.publications.daily.lastCheckedAt = NOW_VANCOUVER_AUG_4;
