@@ -1,12 +1,14 @@
 # AIDB Intelligence Desk
 
-**Status:** ACTIVE — AIDB and Mollick recurrence verified; bounded practitioner
-roster recurrence admitted 2026-08-08 inside the same desk.
+**Status:** ACTIVE — AIDB and Mollick newsletter recurrence verified; Mollick
+social reconciliation required; bounded practitioner roster recurrence
+admitted 2026-08-08 inside the same desk.
 
 ## Purpose
 
-Read each new edition of Nathaniel Whittemore's *The AI Daily Brief* and each
-new post from Professor Ethan Mollick's *One Useful Thing*, then answer two
+Read each new edition of Nathaniel Whittemore's *The AI Daily Brief*, each new
+essay from Professor Ethan Mollick's *One Useful Thing*, and new publicly
+observable posts from his official X and LinkedIn profiles, then answer
 separate questions for LAiDIES:
 
 1. Does this suggest a change to how LAiDIES operates in Codex, ChatGPT, or its
@@ -43,6 +45,23 @@ For Professor Ethan Mollick's *One Useful Thing*:
 - discovery: `https://www.oneusefulthing.org/feed`
 - canonical post: use the exact `link` supplied by that feed
 - archive fallback: `https://www.oneusefulthing.org/`
+
+For Professor Ethan Mollick's higher-velocity social activity:
+
+- X: `https://x.com/emollick`
+- LinkedIn: `https://www.linkedin.com/in/emollick/`
+- identity corroboration: `https://mgmt.wharton.upenn.edu/profile/emollick/`
+
+The newsletter and social channels are separate cursors. A quiet newsletter
+feed proves only `NEWSLETTER QUIET`. Check the public social profiles on every
+scheduled recurrence (currently twice daily).
+Record `SOCIAL OBSERVED` only when an exact post URL, date and text have been
+captured. Use `SOCIAL COVERAGE UNKNOWN` when login walls, ranking, pagination
+or other platform behaviour prevents a complete check. Never convert an
+incomplete social view into `SOCIAL QUIET` or the global claim `MOLLICK QUIET`.
+Public search/profile results are discovery leads, not proof of complete post
+history or authority for the claims in a post. Follow each useful post to its
+cited original and current provider/primary evidence before routing it.
 
 The public AIDB newsletter archive is a fallback. Gmail is optional redundancy,
 not a dependency. The connected mailbox search on 2026-07-27 found no matching
@@ -122,7 +141,8 @@ contradictory, version-ambiguous, or older than a material product change.
 
 ## Daily outputs
 
-For every new AIDB edition or Mollick post, create one dated Markdown record
+For every new AIDB edition, Mollick newsletter essay, or exact social post,
+create one dated Markdown record
 under `daily/` using `OUTPUT-SCHEMA.md`, then update the per-source cursors in
 `state.json`.
 

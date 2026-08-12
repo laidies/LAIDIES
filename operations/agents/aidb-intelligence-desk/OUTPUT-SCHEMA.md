@@ -3,7 +3,7 @@
 ```md
 # AIDB Intelligence Desk — YYYY-MM-DD
 
-**Source:** AIDB | Ethan Mollick / One Useful Thing
+**Source:** AIDB | Ethan Mollick newsletter | Ethan Mollick X | Ethan Mollick LinkedIn
 **Item:** [title](canonical URL)
 **Item date:** YYYY-MM-DD
 **Processed:** timestamp with timezone
@@ -15,6 +15,11 @@
 - Scout's interpretation:
 - Material idea/timestamp IDs:
 - Cross-source overlap:
+
+For Mollick, report each channel separately: `NEWSLETTER OBSERVED` or
+`NEWSLETTER QUIET`; `SOCIAL OBSERVED`, `SOCIAL QUIET` only with a complete
+chronological check, or `SOCIAL COVERAGE UNKNOWN`. Never infer global
+`MOLLICK QUIET` from the One Useful Thing feed alone.
 
 ## Claim-level verification
 

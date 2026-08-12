@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "asOf": "2026-08-07",
+  "asOf": "2026-08-11",
   "status": "BOUNDED_RECURRENCE_ADMITTED",
   "recurringAuthority": true,
   "recurringBoundary": "Only PROMOTED and PILOT sources run on their recorded cadence inside the existing Intelligence Desk automation. CANDIDATE sources remain on-trigger or due-roster-review only.",
@@ -28,21 +28,25 @@
     },
     {
       "id": "SRC-ETHAN-MOLLICK",
-      "identity": "Ethan Mollick — One Useful Thing",
+      "identity": "Ethan Mollick — One Useful Thing plus official social profiles",
       "company": "The Wharton School, University of Pennsylvania",
       "role": "Professor and practitioner writing about practical AI use and research",
       "relevanceEvidence": "Existing LAiDIES source with an official feed and recurring practical, research-informed treatments for nontechnical readers.",
       "tier": "ORIGINAL_PRACTITIONER_EVIDENCE",
       "channelUrl": "https://www.oneusefulthing.org/feed",
-      "monitoringMethod": "Official feed; open the canonical post supplied by the feed.",
+      "additionalChannelUrls": [
+        "https://x.com/emollick",
+        "https://www.linkedin.com/in/emollick/"
+      ],
+      "monitoringMethod": "Check the official newsletter feed and the public X and LinkedIn profiles separately. Open the canonical newsletter link or capture the exact social-post URL, date and text. If the platform does not expose complete chronological history, report SOCIAL_COVERAGE_UNKNOWN rather than quiet.",
       "termsBoundary": "Read public posts only; do not ingest comments, subscribe, or treat product preferences as current product facts.",
       "distinctContribution": "Research-informed practical translation of model capabilities into work and learning use.",
       "duplicationNote": "When AIDB covers the same post, preserve the canonical Mollick URL and create one reconciled signal.",
-      "cadence": "WEEKLY",
+      "cadence": "TWICE_DAILY",
       "destinations": ["books", "classes", "episodes", "NewsStand", "AI tip", "Promptoscope"],
-      "verifiedAt": "2026-08-07",
+      "verifiedAt": "2026-08-11",
       "expiresAt": "2026-11-07",
-      "retirementTrigger": "Official feed disappears, affiliation cannot be verified, or repeated material becomes duplicative.",
+      "retirementTrigger": "Official identity cannot be verified, all official channels disappear, or repeated material becomes duplicative. One unavailable social platform does not retire the newsletter source.",
       "cost": "NONE",
       "promotionStatus": "PROMOTED"
     },

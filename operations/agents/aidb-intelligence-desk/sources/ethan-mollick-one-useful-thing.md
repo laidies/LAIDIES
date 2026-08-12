@@ -1,7 +1,8 @@
-# Ethan Mollick / One Useful Thing source contract
+# Ethan Mollick newsletter and official social source contract
 
-**Status:** ACTIVE SCOUT SOURCE — official feed verified 2026-07-27; first
-scheduled two-source recurrence remains unverified.
+**Status:** ACTIVE SCOUT SOURCE — official newsletter feed verified 2026-07-27;
+official social profiles admitted as high-velocity lead sources; complete
+social-history visibility is not verified.
 
 ## Why this source belongs
 
@@ -24,26 +25,36 @@ Trust changes how closely the desk listens. It does not remove fact-checking.
 - Archive fallback: `https://www.oneusefulthing.org/`
 - Author/profile context:
   `https://substack.com/@oneusefulthing`
+- X: `https://x.com/emollick`
+- LinkedIn: `https://www.linkedin.com/in/emollick/`
+- Wharton identity corroboration:
+  `https://mgmt.wharton.upenn.edu/profile/emollick/`
 
 Do not subscribe, scrape comments, or use a third-party repost as the canonical
 record when the official post is available.
 
 ## Verification and deduplication
 
-1. Read each new feed item after the stored Mollick cursor.
-2. Extract practical advice, research claims, product claims, and the author's
+1. Read each new newsletter feed item after the stored newsletter cursor.
+2. Check both official social profiles on every scheduled recurrence, currently
+   twice daily. Capture an exact post URL, date and text before treating a
+   visible post as an intake item.
+3. Track newsletter and social results separately. Feed silence is
+   `NEWSLETTER QUIET`; an incomplete public social view is
+   `SOCIAL COVERAGE UNKNOWN`, never `MOLLICK QUIET`.
+4. Extract practical advice, research claims, product claims, and the author's
    interpretation separately.
-3. Match the post URL, named source, concept, and claim against AIDB editions,
+5. Match the post URL, named source, concept, and claim against AIDB editions,
    the NewsStand radar, the learning concept map, current inventory, episode
    canon, Library/classes, and prior desk tips.
-4. If AIDB covers the same post, keep one reconciled candidate and record what
+6. If AIDB covers the same post, keep one reconciled candidate and record what
    AIDB added or changed. Do not manufacture two cards from one idea.
-5. Verify product/version/plan/price/permission/capability claims against
+7. Verify product/version/plan/price/permission/capability claims against
    current official provider documentation.
-6. Verify research claims against the original paper, dataset, or institution.
-7. Record access date, source date, limitations, conflicts, and the event that
+8. Verify research claims against the original paper, dataset, or institution.
+9. Record access date, source date, limitations, conflicts, and the event that
    would make the advice stale.
-8. Hold any `LATEST` or `CURRENT` label until all material changeable claims
+10. Hold any `LATEST` or `CURRENT` label until all material changeable claims
    pass.
 
 ## Initial cursor

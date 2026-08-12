@@ -1,13 +1,15 @@
 {
   "schema_version": 3,
   "agent_id": "aidb-intelligence-desk",
-  "status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED",
+  "status": "ACTIVE_MULTI_CHANNEL_RECURRENCE_SOCIAL_RECONCILIATION_REQUIRED",
   "as_of": "2026-08-11",
   "source": {
     "discovery": "https://aidailybrief.ai/agent.json",
     "newsletter_fallback": "https://aidailybrief.beehiiv.com/",
     "ethan_mollick_feed": "https://www.oneusefulthing.org/feed",
     "ethan_mollick_archive": "https://www.oneusefulthing.org/",
+    "ethan_mollick_x": "https://x.com/emollick",
+    "ethan_mollick_linkedin": "https://www.linkedin.com/in/emollick/",
     "gmail_optional": true,
     "gmail_match_since_2026_07_01": false
   },
@@ -21,6 +23,14 @@
       "latest_seen_title": "An opinionated guide to which AI to use to do stuff",
       "latest_seen_url": "https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22",
       "initialization_result": "OVERLAP_NO_DUPLICATE"
+    },
+    "ethan_mollick_social": {
+      "status": "COVERAGE_GAP_RECONCILIATION_REQUIRED",
+      "complete_history": false,
+      "last_observed_at": "2026-08-11T17:48:39-07:00",
+      "observation": "Public LinkedIn activity exposed multiple posts from the previous one to three days, but exact post cursors were not established in this cycle.",
+      "x_url": "https://x.com/emollick",
+      "linkedin_url": "https://www.linkedin.com/in/emollick/"
     }
   },
   "processed_through": "2026-08-10",
@@ -29,7 +39,7 @@
   "backfill_record": "backfill-2026-07-01-to-2026-07-26.md",
   "last_initialization_run": "2026-07-27T10:15:16-07:00",
   "last_live_run": "2026-08-11T17:36:42-07:00",
-  "last_run_result": "AIDB_SOURCELESS_EDITION_RECONCILED_NO_BUILD_MOLLICK_QUIET",
+  "last_run_result": "AIDB_SOURCELESS_EDITION_NO_BUILD_MOLLICK_NEWSLETTER_QUIET_SOCIAL_COVERAGE_GAP",
   "last_source_generated": "2026-08-11T23:28:59.199Z",
   "last_output": "daily/2026-08-11.md",
   "latest_synthesis": "syntheses/2026-07-01-to-2026-07-27-useful-patterns.md",
@@ -79,9 +89,9 @@
   "runtime": {
     "task_id": "019fa491-20cd-7940-b7ff-4f6b5f4958f6",
     "automation_id": "laidies-aidb-intelligence-desk-daily",
-    "automation_status": "ACTIVE_TWO_SOURCE_FIRST_RECURRENCE_VERIFIED"
+    "automation_status": "ACTIVE_MULTI_CHANNEL_RECURRENCE_SOCIAL_RECONCILIATION_REQUIRED"
   },
-  "next_action": "On the next scheduled recurrence, process AIDB and Mollick first, then inspect only due PROMOTED or PILOT roster sources; keep CANDIDATE sources on-trigger or due-roster-review only. Resolve material named references to exact originals, verify consequential claims against current provider or primary evidence, route one distinct reader job to its best owner, inspect due site freshness rows, and report actionable, watch, quiet, duplicate or source-unavailable truthfully.",
+  "next_action": "On the next scheduled recurrence, process AIDB first; check Mollick's newsletter feed, X profile and LinkedIn profile as separate channels; establish exact social-post cursors where public access permits; and use SOCIAL_COVERAGE_UNKNOWN rather than quiet when a complete chronological view is unavailable. Then inspect only due PROMOTED or PILOT roster sources; keep CANDIDATE sources on-trigger or due-roster-review only. Resolve material named references to exact originals, verify consequential claims against current provider or primary evidence, route one distinct reader job to its best owner, inspect due site freshness rows, and report actionable, watch, quiet, duplicate or source-unavailable truthfully.",
   "publication_authority": false,
   "infrastructure_change_authority": false
 }

@@ -14419,3 +14419,29 @@ while remaining falsely unfinished in the launch record.
   me?” without promising that a laboratory result will become her treatment.
 - **Publication status:** INTERNAL TEACHING-ARCHITECTURE LEARNING / NO PROSE,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-457 — A quiet newsletter feed was misreported as a quiet practitioner
+
+- **Date:** 2026-08-11
+- **Area:** AIDB practitioner monitoring and content freshness.
+- **Failure:** Several recurrences reported “Mollick quiet” after checking only
+  the One Useful Thing newsletter feed, even though his official social
+  profiles are higher-velocity sources and public LinkedIn activity showed
+  multiple recent posts.
+- **Root cause:** The accepted source roster named X and LinkedIn, but the
+  executable recurrence contract, cursor and cadence covered only the
+  newsletter feed. A source-specific absence was collapsed into a person-wide
+  status.
+- **Prevention rule:** Maintain independent newsletter and social cursors.
+  Newsletter silence is `NEWSLETTER QUIET`. Social is `SOCIAL OBSERVED` only
+  with exact URL/date/text, `SOCIAL QUIET` only after a provably complete
+  chronological check, or otherwise `SOCIAL COVERAGE UNKNOWN`. Never infer a
+  person-wide quiet result from one channel.
+- **Durable correction:** The AIDB contract, source roster, output schema,
+  state, ecosystem map and affected August records now separate the channels;
+  Mollick's social cadence now matches the twice-daily executor and the current
+  gap is explicitly open for reconciliation.
+- **Possible Behind the Build angle:** How a perfectly correct RSS check made
+  the learning system miss the person it was supposed to follow.
+- **Publication status:** INTERNAL MONITORING CORRECTION / NO STORY,
+  PUBLICATION, DEPLOYMENT OR SOCIAL ACTION.

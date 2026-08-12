@@ -32,7 +32,7 @@ record does not mean that source is being monitored.
 | Priority | Source | Current status | Learning ruling |
 | ---: | --- | --- | --- |
 | 1 | [AI Daily Brief agent feed](https://aidailybrief.ai/agent.json) | `PROMOTED` / daily | Accept as lead source; trace every material item to its original. |
-| 2 | [Ethan Mollick / One Useful Thing](https://www.oneusefulthing.org/feed) | `PROMOTED` / weekly | Accept original practitioner evidence; recheck volatile model/product facts with providers. |
+| 2 | Ethan Mollick: [One Useful Thing](https://www.oneusefulthing.org/feed), [X](https://x.com/emollick), [LinkedIn](https://www.linkedin.com/in/emollick/) | `PROMOTED` / twice-daily channel check | Treat newsletter and social as separate cursors. Accept exact posts as practitioner leads; recheck volatile model/product facts with providers. Incomplete social history is coverage unknown, never quiet. |
 | 3 | [OpenAI Developers](https://developers.openai.com/) | `PILOT` / daily release check | Accept for OpenAI-specific current truth and exact examples; no content quota. |
 | 4 | [Anthropic Engineering](https://www.anthropic.com/engineering) | `PILOT` / twice weekly | Accept transferable mechanisms only after bounded testing. |
 | 5 | [Stanford HAI AI Index](https://hai.stanford.edu/ai-index) | `PILOT` / monthly plus annual | Accept as institutional evidence map; inspect exact chapter, method, statistic and source. |
