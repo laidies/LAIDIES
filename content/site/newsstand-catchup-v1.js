@@ -4,6 +4,7 @@
   var STORAGE_KEY = "laidies_newsstand_seen_v1";
   var DAY_MS = 86400000;
   var DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+  var LEGACY_DAILY_DESK_TYPES = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
   var HASH = /^[a-f0-9]{64}$/;
   var data = JSON.parse(JSON.stringify(global.NEWSSTAND_DATA || { publications: {}, stories: [] }));
   var sourceStories = JSON.parse(JSON.stringify(data.stories || []));
@@ -198,6 +199,14 @@
     };
   }
 
+  function validDailyDeskTypeSet(desks) {
+    if (!Array.isArray(desks)) return false;
+    var actual = desks.map(function (desk) { return desk && desk.type; }).sort().join("\n");
+    var current = DAILY_DESK_TYPES.slice().sort().join("\n");
+    var legacy = LEGACY_DAILY_DESK_TYPES.slice().sort().join("\n");
+    return actual === current || actual === legacy;
+  }
+
   function sha256Text(value) {
     if (!global.crypto || !global.crypto.subtle || typeof TextEncoder === "undefined") return Promise.resolve("");
     return global.crypto.subtle.digest("SHA-256", new TextEncoder().encode(value)).then(function (bytes) {
@@ -215,8 +224,8 @@
       if (!issue || !/^\d{4}-\d{2}-\d{2}$/.test(issue.editionDate || "") || dates.has(issue.editionDate) ||
           issue.editorialTimeZone !== "America/Vancouver" || issue.status !== "complete" ||
           ["quiet", "candidates_pending_review"].indexOf(issue.disposition) === -1 ||
-          !Array.isArray(issue.storyIds) || !Array.isArray(issue.stories) || !Array.isArray(issue.serviceRecordIds) || !Array.isArray(issue.desks) ||
-          issue.desks.length !== DAILY_DESK_TYPES.length || !HASH.test(issue.envelopeSha256 || "") ||
+          !Array.isArray(issue.storyIds) || !Array.isArray(issue.stories) || !Array.isArray(issue.serviceRecordIds) || !validDailyDeskTypeSet(issue.desks) ||
+          !HASH.test(issue.envelopeSha256 || "") ||
           !issue.sourceIdentity || ![issue.sourceIdentity.radarSha256, issue.sourceIdentity.storiesSha256, issue.sourceIdentity.columnsSha256].every(function (hash) { return HASH.test(hash || ""); }) ||
           issue.sourceIdentity.radarPath !== "operations/agents/aidb-intelligence-desk/daily/" + issue.editionDate + ".md" ||
           issue.sourceIdentity.storiesPath !== "content/newsstand-stories.js" || issue.sourceIdentity.storiesSha256 !== loadedStoriesSha256 ||
@@ -338,7 +347,7 @@
         "Unavailable";
     }
 
-    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Tribune" };
+    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Big Question" };
     var order = ["breaking", "daily", "weekly", "tribune"];
     var dataset = contract.datasetState(data, now);
     var current = order.filter(function (edition) {
@@ -383,6 +392,18 @@
           return ["APPROVED", "PUBLISHED"].indexOf(record.status) !== -1 &&
             record.publicEligibility === "ELIGIBLE" && record.freshness &&
             record.freshness.expiresAt >= today;
+        })
+      : [];
+  }
+
+  function archivedDerivatives() {
+    return derivatives && Array.isArray(derivatives.records)
+      ? derivatives.records.filter(function (record) {
+          var review = record.reviewEvidence || {};
+          return record.status === "EXPIRED" && record.publicEligibility === "INELIGIBLE" &&
+            [review.accuracy, review.editorial, review.laidiesVoice, review.formatFit].every(Boolean) &&
+            record.freshness && Boolean(record.freshness.lastCheckedAt) && Boolean(record.freshness.expiresAt) &&
+            !(record.correction && record.correction.retractedAt);
         })
       : [];
   }
@@ -499,7 +520,7 @@
           lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
         '</section>',
         quietIssue
-          ? '<details class="ns-daily-quiet-desks"><summary>All ten service desks were checked. Open the desk-by-desk record.</summary><div class="ns-daily-service-grid">'
+          ? '<details class="ns-daily-quiet-desks"><summary>Every service desk in this edition was checked. Open the desk-by-desk record.</summary><div class="ns-daily-service-grid">'
           : '<div class="ns-daily-service-grid">',
           dailyDesk("Paige’s practical tip", tip && tip.state !== "empty" ? "ready" : "empty",
             tip && tip.state !== "empty" ? tip.headline : "Tip check in progress.", tip && tip.state !== "empty" ? tip.summary : tip && tip.emptyState || columnEmpty("paige_tip", "Paige is checking this edition’s tip against the receipts."),
@@ -658,19 +679,26 @@
     });
     var serviceItems = canonicalServiceItems.concat(legacyColumns);
     var admittedSourceIds = new Set(serviceItems.map(function (item) { return item.key.replace(/^service:/, ""); }));
-    eligibleDerivatives().filter(function (record) {
+    var derivativeArchive = eligibleDerivatives().map(function (record) {
+      return { record: record, expired: false };
+    }).concat(archivedDerivatives().map(function (record) {
+      return { record: record, expired: true };
+    }));
+    derivativeArchive.filter(function (entry) {
+      var record = entry.record;
       return record.date >= since && record.date !== dailyDate && !storedDailyIssue(record.date) && !admittedSourceIds.has(record.id);
-    }).forEach(function (record) {
+    }).forEach(function (entry) {
+      var record = entry.record;
       serviceItems.push({
         key: "service:" + record.id,
         date: record.date,
         kind: record.type === "paige_tip" ? "The Daily · Paige’s tip" : "The Daily · Promptoscope",
         headline: record.headline,
-        state: "Filed",
+        state: entry.expired ? "Archive · published then—check current guidance" : "Filed",
         points: [record.body],
-        route: record.canonicalPath && record.canonicalPath.charAt(0) === "/" ? record.canonicalPath : "",
-        canOpen: Boolean(record.canonicalPath && record.canonicalPath.charAt(0) === "/"),
-        actionLabel: "Go deeper"
+        route: !entry.expired && record.canonicalPath && record.canonicalPath.charAt(0) === "/" ? record.canonicalPath : "",
+        canOpen: Boolean(!entry.expired && record.canonicalPath && record.canonicalPath.charAt(0) === "/"),
+        actionLabel: entry.expired ? "" : "Go deeper"
       });
     });
     return storyItems.concat(serviceItems).sort(function (a, b) {

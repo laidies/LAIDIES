@@ -14826,3 +14826,38 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** EXACT PROSE INDEPENDENTLY ACCEPTED FOR NEXT REVIEW /
   HOLD AND INELIGIBLE / NO HUMAN OBSERVATION, RENDERED ACCEPTANCE, INTEGRATION,
   DEPLOYMENT OR PUBLICATION.
+
+## BTB-476 — Adding one Daily desk made every admitted Daily disappear
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand schema evolution, archive durability and rendered release
+  tests.
+- **Failure:** Dear Miss Jeeves was added as the tenth governed Daily desk, but
+  the reader began requiring all stored issues to contain ten desks. The two
+  checksum-bound historical issues legitimately contained the former exact
+  nine-desk set, so the browser rejected the entire store and showed only The
+  Big Question. Once history was restored, generated arrival copy exposed the
+  retired public name `The Tribune`, its locked replacement overflowed the
+  painted mobile masthead by two pixels at 390px, and an old test expected an
+  expired Paige item without its required freshness warning.
+- **Root cause:** A new schema member was treated as if it had always existed.
+  Static checks validated current source shape but did not run the real browser
+  against historical snapshots until the content candidates were already done.
+  Generated copy also translated a machine key independently of the canon.
+- **Prevention rule:** Register exact historical and current issue shapes;
+  accept only those complete sets; make every new producer emit the current
+  shape; never rewrite checksum-bound history. Bind visitor labels to canonical
+  names, run desktop/390/320 browser tests after any desk or masthead change,
+  and preserve formerly approved expired material only with the explicit
+  historical freshness warning.
+- **Durable correction:** The reader accepts exactly the former nine-desk set
+  or current ten-desk set and still rejects arbitrary omission. Quiet-edition
+  copy no longer hard-codes a count. Generated arrival copy says The Big
+  Question, its 390px masthead fits its painted slot, and expired fully reviewed
+  derivatives remain readable as `published then—check current guidance` while
+  held drafts remain hidden. The baseline passes 211 browser checks; deliberate
+  overlap and overflow mutations both fail.
+- **Possible Behind the Build angle:** What happens when a newspaper adds a new
+  column after old editions are already in the archive?
+- **Publication status:** READER REPAIRED AND VERIFIED LOCALLY / NO NEW ARTICLE
+  ADMITTED, DEPLOYED OR VERIFIED PUBLICLY.

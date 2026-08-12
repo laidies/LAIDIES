@@ -554,7 +554,7 @@ try {
   check(await value(base, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 0, "quiet Daily has no fabricated ready service desk");
   check(await value(base, "document.querySelector('.ns-daily-news').textContent.includes('No consequential report was filed.') && !document.querySelector('.ns-daily-news').textContent.includes('remains at its accuracy gate')"), true, "quiet Daily evidence desk names a concluded quiet edition rather than a pending story");
   check(await value(base, "!['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack.'].some((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "quiet Daily does not carry August 3 service items forward");
-  check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 9, "Daily renders all ten governed service desks including honest empty states");
+  check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 10, "Daily renders all ten governed service desks including honest empty states");
   check(await value(base, "['Did you know?','Town notes','Try this today'].every((label) => document.querySelector('.ns-daily-issue').textContent.includes(label))"), true, "Daily includes fact town-note and curiosity desks");
   await captureEvidence(base, "desktop-daily-1440.png", ".ns-daily-issue");
   await act(base, "document.querySelector('#ns-return').click()");
@@ -570,7 +570,7 @@ try {
   check(await value(base, "document.querySelector('#ns-catchup-since').value='2026-07-30';document.querySelector('#ns-catchup-since').dispatchEvent(new Event('input'));document.querySelector('#ns-catchup-run').click();document.querySelectorAll('.ns-catchup-item').length >= 1"), true, "Catch Me Up preserves eligible dated history");
   check(await value(base, "Array.from(document.querySelectorAll('[data-catchup-role]')).map((node) => node.dataset.catchupRole).join(',')"), "daily,weekly,history", "Catch Me Up orders Daily then Weekly then older history");
   check(await value(base, "document.querySelector('[data-catchup-role=\"daily\"]') !== null"), true, "Catch Me Up retains the latest complete Daily with its exact edition date");
-  check(await value(base, "Array.from(document.querySelectorAll('.ns-catchup-item')).some((item) => item.textContent.includes('Draft first. Check second.'))"), true, "Catch Me Up preserves the July 31 Paige tip");
+  check(await value(base, "Array.from(document.querySelectorAll('.ns-catchup-item')).some((item) => item.textContent.includes('Draft first. Check second.') && item.textContent.includes('published then—check current guidance'))"), true, "Catch Me Up preserves a formerly approved expired derivative with an explicit historical freshness warning");
   check(await value(base, "Array.from(document.querySelectorAll('.ns-catchup-item__state')).every((node) => node.textContent.includes('Archive') || node.textContent === 'Filed')"), true, "Catch Me Up labels older stories as archive rather than current publication");
   const sharedDaily = await openPage("/newsstand.html?daily=2026-08-03", { width: 390, height: 844 });
   const unavailableSharedDaily = await openPage("/newsstand.html?daily=2026-08-02", { width: 390, height: 844 });
