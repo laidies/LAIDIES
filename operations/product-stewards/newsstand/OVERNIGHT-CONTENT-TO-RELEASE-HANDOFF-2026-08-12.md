@@ -2,7 +2,7 @@
 
 **Status:** EIGHT EXACT PROSE CANDIDATES ADVANCED; TWO LONGFORMS COMPILED INTO INACCESSIBLE HELD STORY RECORDS; PROMPTOSCOPE PASSES EXACT RESPONSIVE CARD REVIEW — NO CANONICAL INTEGRATION, MERGE OR DEPLOY AUTHORITY
 
-**Checked:** 2026-08-12 05:28 America/Vancouver
+**Checked:** 2026-08-12 05:31 America/Vancouver
 
 ## Outcome truth
 
@@ -31,7 +31,7 @@ Current public bytes re-fetched from `laidies.ai`:
 
 These match the public release receipt on `origin/codex/newsstand-release-20260811` at `a995ddab`.
 
-The public assets were fetched again at 05:27 America/Vancouver and retained
+The public assets were fetched again at 05:31 America/Vancouver and retained
 the same three hashes. The overnight candidates therefore remain absent from
 the live site. The learning worktree has no `2026-08-12` AIDB daily record and
 the reconciled authoritative iCloud AIDB directory is older, ending on August
@@ -208,3 +208,10 @@ lanes actually execute.
 
 This was confirmed from current workflow and runbook files. GitHub Actions run
 history was not verified because `gh` is unavailable in this worktree.
+
+The final executor cycle recorded `IDLE_HEALTHY`, with no active or ready work
+order and eight exact NewsStand orders waiting on named prerequisites. The
+temporary hourly overnight automation was then removed and the permanent
+Learning System executor restored to 09:30 and 16:30 America/Vancouver, with
+failed-run-only notifications. It remains an execution cycle, not proof of
+publication.
