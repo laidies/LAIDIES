@@ -13,18 +13,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import crypto from 'node:crypto';
-import { assertActiveAsset, compileActiveAssetRegistry } from './lib/active-asset-admission.mjs';
-import { assertLibraryAdmissionFreshness } from './compile-library-admission.mjs';
-import {
-  CONTEXT_NAV_SOURCE_PATH,
-  CONTEXT_NAV_SOURCE_SHA256,
-} from './lib/context-navigation-distribution-v1.mjs';
-import { transformPublicHtml } from './lib/public-html-transform.mjs';
-import {
-  assertNoInternalReviewFilmFields,
-  projectScreeningRoomAdmissionForPublic,
-} from './lib/public-screening-room-admission.mjs';
-import { partitionPublicRuntimeFamilyMembers } from './lib/public-runtime-family-admission.mjs';
 
 const cliArgs = process.argv.slice(2);
 if (cliArgs.includes('--help') || cliArgs.includes('-h')) {
@@ -40,6 +28,18 @@ const output = path.resolve(cliArgs[0] || path.join(process.env.TMPDIR || '/tmp'
 if (output === root || output.startsWith(`${root}${path.sep}`)) {
   throw new Error('public artifact output must be outside the source repository');
 }
+const { assertActiveAsset, compileActiveAssetRegistry } = await import('./lib/active-asset-admission.mjs');
+const { assertLibraryAdmissionFreshness } = await import('./compile-library-admission.mjs');
+const {
+  CONTEXT_NAV_SOURCE_PATH,
+  CONTEXT_NAV_SOURCE_SHA256,
+} = await import('./lib/context-navigation-distribution-v1.mjs');
+const { transformPublicHtml } = await import('./lib/public-html-transform.mjs');
+const {
+  assertNoInternalReviewFilmFields,
+  projectScreeningRoomAdmissionForPublic,
+} = await import('./lib/public-screening-room-admission.mjs');
+const { partitionPublicRuntimeFamilyMembers } = await import('./lib/public-runtime-family-admission.mjs');
 assertLibraryAdmissionFreshness({ root });
 const maxFileBytes = 25 * 1024 * 1024;
 const warnBytes = 750 * 1024 * 1024;
