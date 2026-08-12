@@ -32,9 +32,9 @@ jobs:
       EXPECTED_IDENTITY: ${{ inputs.artifact_identity_sha256 }}
       APPROVAL_CONFIRMATION: ${{ inputs.approval_confirmation }}
       APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
-      CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_V3_SHA }}
-      ARTIFACT_DIR: ${{ github.workspace }}/../laidies-release/site
-      RECEIPT_DIR: ${{ github.workspace }}/../laidies-release/receipt
+      CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_V4_SHA }}
+      ARTIFACT_DIR: /tmp/laidies-release/site
+      RECEIPT_DIR: ${{ github.workspace }}/release-receipt
     steps:
       - uses: actions/checkout@v4
         with:
