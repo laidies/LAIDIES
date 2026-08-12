@@ -15,7 +15,7 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const defaultPolicyPath = path.resolve(scriptDirectory, "../operations/newsstand-autopublish-policy.json");
 const EDITIONS = ["daily", "breaking", "weekly", "tribune"];
 const SOURCE_TYPES = ["primary", "affected_party", "independent", "secondary_analysis"];
-const CANDIDATE_FIELDS = new Set(["id", "slug", "edition", "date", "headline", "scores", "topics", "riskSignals", "sources", "checks", "editorialJob", "briefingItems", "developments", "qualifiedInterrupt", "argumentStructure", "releaseDetailsComplete", "sensationalFramingNeutralized"]);
+const CANDIDATE_FIELDS = new Set(["id", "slug", "edition", "date", "headline", "scores", "topics", "riskDomains", "riskSignals", "continuingStory", "sources", "checks", "editorialJob", "briefingItems", "developments", "qualifiedInterrupt", "argumentStructure", "releaseDetailsComplete", "sensationalFramingNeutralized"]);
 const SCORE_FIELDS = ["consequence", "novelty", "readerRelevance", "evidence", "durability", "editorialValue"];
 
 function unique(values) { return [...new Set(values)]; }
@@ -40,7 +40,7 @@ function editionJobErrors(candidate) {
   if (edition === "breaking") {
     if (candidate.editorialJob !== "qualified-interrupt" || !isObject(candidate.qualifiedInterrupt) || Object.keys(candidate.qualifiedInterrupt).length === 0) errors.push("edition_contract_failed:breaking_requires_qualified_interrupt");
   } else if (edition === "daily") {
-    if (candidate.editorialJob !== "edited-briefing" || !Array.isArray(candidate.briefingItems) || candidate.briefingItems.length < 2 || candidate.briefingItems.some(x=>typeof x!=="string"||!x.trim()) || new Set(candidate.briefingItems).size !== candidate.briefingItems.length) errors.push("edition_contract_failed:daily_requires_multi_item_briefing");
+    if (candidate.editorialJob !== "edited-briefing" || !Array.isArray(candidate.briefingItems) || candidate.briefingItems.length < 1 || candidate.briefingItems.some(x=>typeof x!=="string"||!x.trim()) || new Set(candidate.briefingItems).size !== candidate.briefingItems.length) errors.push("edition_contract_failed:daily_requires_at_least_one_story");
   } else if (edition === "weekly") {
     if (candidate.editorialJob !== "durable-synthesis" || !Array.isArray(candidate.developments) || candidate.developments.length < 2 || candidate.developments.some(x=>typeof x!=="string"||!x.trim()) || new Set(candidate.developments).size !== candidate.developments.length) errors.push("edition_contract_failed:weekly_requires_durable_synthesis");
   } else if (edition === "tribune") {
@@ -69,7 +69,20 @@ export function evaluateCandidate(candidate, policy) {
   if (!keysClosed(candidate?.scores, new Set(SCORE_FIELDS))) rejectReasons.push("missing_or_invalid:scores");
   else for (const field of SCORE_FIELDS) if (!Number.isInteger(candidate.scores[field]) || candidate.scores[field] < 0 || candidate.scores[field] > 3) rejectReasons.push(`missing_or_invalid:scores.${field}`);
   if (!Array.isArray(candidate?.topics) || !candidate.topics.every((topic) => typeof topic === "string") || new Set(candidate?.topics || []).size !== (candidate?.topics || []).length) rejectReasons.push("missing_or_invalid:topics");
+  if (!Array.isArray(candidate?.riskDomains) || candidate.riskDomains.length < 1 || !candidate.riskDomains.every((domain) => typeof domain === "string" && policy.allowedRiskDomains.includes(domain)) || new Set(candidate?.riskDomains || []).size !== (candidate?.riskDomains || []).length || (candidate.riskDomains.includes("none") && candidate.riskDomains.length !== 1)) rejectReasons.push("missing_or_invalid:riskDomains");
   if (!Array.isArray(candidate?.riskSignals) || !candidate.riskSignals.every((signal) => typeof signal === "string") || new Set(candidate?.riskSignals || []).size !== (candidate?.riskSignals || []).length) rejectReasons.push("missing_or_invalid:riskSignals");
+  else for (const signal of candidate.riskSignals) if (!policy.allowedRiskSignals.includes(signal)) rejectReasons.push(`unknown_risk_signal:${signal}`);
+
+  const continuingStory = candidate?.continuingStory;
+  const allowedStoryActions = ["STANDALONE", "FOLLOW_UP_NEW_STORY", "CORRECTION", "RETRACTION_REVIEW"];
+  const allowedRelationships = ["CONFIRMS", "CHANGES", "OVERTURNS", "EXPANDS", "RESOLVES_UNKNOWN", "CORRECTS", "RETRACTS"];
+  if (!keysClosed(continuingStory, new Set(["action", "predecessorId", "relationship"])) || !allowedStoryActions.includes(continuingStory?.action)) {
+    rejectReasons.push("missing_or_invalid:continuingStory");
+  } else if (continuingStory.action === "STANDALONE") {
+    if (continuingStory.predecessorId !== undefined || continuingStory.relationship !== undefined) rejectReasons.push("standalone_story_must_not_claim_predecessor");
+  } else if (typeof continuingStory.predecessorId !== "string" || !continuingStory.predecessorId.trim() || !allowedRelationships.includes(continuingStory.relationship)) {
+    rejectReasons.push("continuing_story_requires_predecessor_and_relationship");
+  }
 
   for (const [gate, trigger] of Object.entries(policy.conditionalGates || {})) {
     const topicTriggered = (trigger.topics || []).some((topic) => candidate?.topics?.includes(topic));
@@ -93,7 +106,7 @@ export function evaluateCandidate(candidate, policy) {
     if (policy.automaticRejectSignals.includes(signal)) rejectReasons.push(`candidate_declares_reject_signal:${signal}`);
     if (policy.hardHoldSignals.includes(signal)) reviewReasons.push(`candidate_declares_hold_signal:${signal}`);
   }
-  for (const topic of candidate?.topics || []) if (policy.hardHoldTopics.includes(topic)) reviewReasons.push(`candidate_declares_hard_hold_topic:${topic}`);
+  for (const domain of candidate?.riskDomains || []) if (policy.hardHoldRiskDomains.includes(domain)) reviewReasons.push(`candidate_declares_hard_hold_risk_domain:${domain}`);
   if (candidate?.checks && Object.entries(candidate.checks).some(([, value]) => value !== true)) reviewReasons.push("candidate_declares_incomplete_checks");
 
   // Scores, booleans, source labels and source classifications are intentionally

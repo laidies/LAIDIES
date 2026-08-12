@@ -114,5 +114,33 @@ const inheritedAdmission = clone(source);
 inheritedAdmission.multiOutputContract.independenceRule = "All outputs share approval.";
 assert.match(validatePublicationPipelines(inheritedAdmission).errors.join("\n"), /prohibit inherited admission/);
 
+const ambiguousUpdate = clone(source);
+ambiguousUpdate.multiOutputContract.relationships.push("UPDATE_EXISTING");
+assert.match(validatePublicationPipelines(ambiguousUpdate).errors.join("\n"), /must not allow ambiguous UPDATE_EXISTING/);
+
+const storyEqualsIssue = clone(source);
+storyEqualsIssue.endToEndContract.storyIssueBoundary = "A Daily candidate needs two stories.";
+assert.match(validatePublicationPipelines(storyEqualsIssue).errors.join("\n"), /separate single-story admission/);
+
+const derivativeBlocksPrimary = clone(source);
+derivativeBlocksPrimary.endToEndContract.derivativeBoundary = "All derivatives must be complete.";
+assert.match(validatePublicationPipelines(derivativeBlocksPrimary).errors.join("\n"), /prevent optional derivatives from blocking/);
+
+const silentRewrite = clone(source);
+silentRewrite.endToEndContract.continuingStoryBoundary = "Update the old article.";
+assert.match(validatePublicationPipelines(silentRewrite).errors.join("\n"), /require new-story lineage/);
+
+const topicEqualsRisk = clone(source);
+topicEqualsRisk.endToEndContract.metadataBoundary = "Use tags for everything.";
+assert.match(validatePublicationPipelines(topicEqualsRisk).errors.join("\n"), /separate governed discovery metadata from risk domains/);
+
+const noPublicTerminal = clone(source);
+noPublicTerminal.endToEndContract.releaseBoundary = "Write the reviewed story file.";
+assert.match(validatePublicationPipelines(noPublicTerminal).errors.join("\n"), /bind the terminal publication transaction/);
+
+const jeevesInDaily = clone(source);
+jeevesInDaily.formats.find((format) => format.id === "dear_miss_jeeves").surfaceContainer = "WEEKLY_COLUMN_INSIDE_THE_DAILY";
+assert.match(validatePublicationPipelines(jeevesInDaily).errors.join("\n"), /inside The Weekly/);
+
 console.log("PUBLICATION PIPELINE TEST PASS");
-console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,weekly-missing-jeeves,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,non-work-paige,workplace-promptoscope,single-output-only,inherited-admission rejected");
+console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,weekly-missing-jeeves,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,non-work-paige,workplace-promptoscope,single-output-only,inherited-admission,ambiguous-update,story-equals-issue,derivative-blocks-primary,silent-rewrite,topic-equals-risk,no-public-terminal,jeeves-in-daily rejected");

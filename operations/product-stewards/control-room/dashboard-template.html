@@ -566,6 +566,8 @@
       </div>
     </header>
 
+    <section class="card visual-lock" id="freshnessWarning" hidden aria-live="polite"></section>
+
     <section class="stats" aria-label="Portfolio summary" id="stats"></section>
 
     <section class="card path-card" aria-labelledby="outcomeTruthTitle">
@@ -879,6 +881,12 @@
         Updated ${esc(prettyTime(state.generatedAt))}<br>
         Evidence through ${esc(prettyTime(state.evidenceCutoff))}<br>
         Repo reconciliation: ${esc(state.audit.repositoryReconciliation)}`;
+      const freshness = state.controlRoomFreshness || { status: "STALE", errors: ["Freshness was not evaluated."] };
+      const freshnessWarning = document.getElementById("freshnessWarning");
+      if (freshness.status !== "CURRENT") {
+        freshnessWarning.hidden = false;
+        freshnessWarning.innerHTML = `<h2>STALE CONTROL ROOM — DO NOT USE AS CURRENT STATUS</h2><p>${esc((freshness.errors || []).join(" "))}</p><p>Owner files may be newer than this dashboard. Use the current repository sources until a successful Control Room audit regenerates this view.</p>`;
+      }
 
       document.getElementById("executiveOutcomeTruth").innerHTML = (state.executiveOutcomeTruth || []).map((item) => `
         <article class="card action-card">

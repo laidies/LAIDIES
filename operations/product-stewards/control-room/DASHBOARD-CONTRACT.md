@@ -53,6 +53,14 @@ The Control Room owns `dashboard-state.json`. Every scheduled audit must:
 7. open or mechanically validate the generated dashboard before reporting the
    audit receipt.
 
+The dashboard is never allowed to look current merely because it can still be
+opened. `generatedAt`, `evidenceCutoff` and `nextAudit` must be exact ISO
+timestamps. The normal twice-daily runtime allows at most 18 hours of evidence
+age. `scripts/control-room-freshness.mjs` checks both the dashboard and the
+actual Codex automation; the rendered dashboard shows a prominent stale banner
+when the embedded evidence exceeds that boundary or the next audit is invalid
+or overdue.
+
 The dashboard top line must always separate three non-interchangeable
 categories:
 

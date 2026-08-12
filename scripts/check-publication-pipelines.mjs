@@ -12,7 +12,7 @@ const REQUIRED_FORMATS = [
 
 export function validatePublicationPipelines(data) {
   const errors = [];
-  if (data?.schemaVersion !== "1.0.0") errors.push("schemaVersion must be 1.0.0");
+  if (data?.schemaVersion !== "1.1.0") errors.push("schemaVersion must be 1.1.0");
   if (data?.status !== "ACTIVE_INTERNAL_PRODUCTION_ROUTER") errors.push("status must be ACTIVE_INTERNAL_PRODUCTION_ROUTER");
   if (!/one or more earned outputs/i.test(data?.rule || "") || !/distinct reader job/i.test(data?.rule || "") || !/fill space/i.test(data?.rule || "")) {
     errors.push("routing rule must allow earned multi-output use while prohibiting filler duplication");
@@ -58,6 +58,31 @@ export function validatePublicationPipelines(data) {
     errors.push("multi-output contract must cover current news contributing to a Big Picture");
   }
   if (!/cannot inherit admission/i.test(multiOutput?.independenceRule || "")) errors.push("multi-output contract must prohibit inherited admission");
+  const relationships = new Set(multiOutput?.relationships || []);
+  for (const relationship of ["FOLLOW_UP_NEW_STORY", "UPDATE_LIVING_REFERENCE"]) {
+    if (!relationships.has(relationship)) errors.push(`multi-output contract missing relationship ${relationship}`);
+  }
+  if (relationships.has("UPDATE_EXISTING")) errors.push("multi-output contract must not allow ambiguous UPDATE_EXISTING");
+  const endToEnd = data?.endToEndContract;
+  const recordSequence = (endToEnd?.recordSequence || []).join(" ");
+  if (!/VERIFIED_SIGNAL.*STORY_CANDIDATE.*REVIEWED_STORY.*DATED_ISSUE.*CANONICAL_RELEASE.*PUBLIC_VERIFICATION/.test(recordSequence)) {
+    errors.push("end-to-end contract must separate signal, story, issue, release and public verification");
+  }
+  if (!/story is reviewed on its own merits.*issue assembly is a separate record.*does not need two unrelated briefing items/i.test(endToEnd?.storyIssueBoundary || "")) {
+    errors.push("end-to-end contract must separate single-story admission from newspaper issue assembly");
+  }
+  if (!/ADMIT, NO_FIT or PARKED.*never blocks.*primary story/i.test(endToEnd?.derivativeBoundary || "")) {
+    errors.push("end-to-end contract must prevent optional derivatives from blocking the primary story");
+  }
+  if (!/FOLLOW_UP_NEW_STORY.*predecessor ID.*bidirectional Story so far.*UPDATE_LIVING_REFERENCE.*Meaning-changing in-place.*fail/i.test(endToEnd?.continuingStoryBoundary || "")) {
+    errors.push("end-to-end contract must require new-story lineage and prohibit silent NewsStand rewrites");
+  }
+  if (!/primary topic ID.*one to four.*specific tag IDs.*entities.*risk domains.*not public authority until admitted/i.test(endToEnd?.metadataBoundary || "")) {
+    errors.push("end-to-end contract must separate governed discovery metadata from risk domains");
+  }
+  if (!/dated issue.*canonical writer.*append-only release record.*rollback target.*deployment identity.*public-origin verification/i.test(endToEnd?.releaseBoundary || "")) {
+    errors.push("end-to-end contract must bind the terminal publication transaction");
+  }
   if (!Array.isArray(data?.formats)) errors.push("formats must be an array");
   const formats = new Map();
   for (const [index, format] of (data?.formats || []).entries()) {
@@ -119,6 +144,9 @@ export function validatePublicationPipelines(data) {
   const dearMissJeeves = formats.get("dear_miss_jeeves");
   if (dearMissJeeves?.canonicalStore !== "content/dear-miss-jeeves-bank.json" || !/one.*per week/i.test(dearMissJeeves?.quietPolicy || "")) {
     errors.push("dear_miss_jeeves must use its canonical bank and publish at most one admitted column per week");
+  }
+  if (dearMissJeeves?.surfaceContainer !== "WEEKLY_COLUMN_INSIDE_THE_WEEKLY") {
+    errors.push("dear_miss_jeeves must publish inside The Weekly, not The Daily");
   }
   const jeevesFields = (dearMissJeeves?.templateFields || []).join(" ");
   if (!/reproduction of the actual failure/i.test(jeevesFields) || !/instruction versus enforceable-control/i.test(jeevesFields) || !/long-running workflow remedies/i.test(jeevesFields)) {

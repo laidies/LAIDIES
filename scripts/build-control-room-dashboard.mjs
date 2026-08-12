@@ -3,6 +3,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { assessDashboardFreshness } from "./control-room-freshness.mjs";
 
 const scriptPath = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(scriptPath), "..");
@@ -41,6 +42,7 @@ const [stateText, audienceStateText, externalServicesStateText, decisionPacketsT
 ]);
 
 const state = JSON.parse(stateText);
+state.controlRoomFreshness = assessDashboardFreshness(state);
 state.audience = JSON.parse(audienceStateText);
 state.externalServices = JSON.parse(externalServicesStateText);
 state.decisionPackets = JSON.parse(decisionPacketsText);

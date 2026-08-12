@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE OPERATING RULE  
 **Owner:** Codex runs the radar; Ali rules on publication  
-**Public contract:** The Breaking + The Daily + The Weekly + The Big Question
+**Public contract:** qualified Breaking + Daily-first NewsStand + The Weekly + The Big Picture
 **Purpose:** identify consequential AI stories without waiting for Ali to spot
 them, then turn only the qualified ones into evidence-backed editorial
 candidates.
@@ -201,7 +201,7 @@ Score each candidate from 0–3 on six dimensions.
 | LAiDIES relevance | no reader effect | specialist interest | useful workplace/personal meaning | reader needs a new decision or mental model |
 | Evidence | rumours | one interested source | primary source or solid corroboration | multiple primary/independent sources with claim map |
 | Durability | hours | a few days | matters through the week | opens a continuing question/thread |
-| Editorial value | no useful angle | summary only | strong explanation or argument | distinct The Weekly + The Big Question jobs |
+| Editorial value | no useful angle | summary only | strong explanation or investigation | distinct The Weekly + The Big Picture jobs |
 
 ### Escalation
 
@@ -285,7 +285,7 @@ Use when the reader needs:
 - how to think about it; and
 - what to watch next.
 
-### The Big Question
+### The Big Picture
 
 Use only when the story contains a real argument or unsettled question:
 
@@ -300,7 +300,7 @@ Use only when the story contains a real argument or unsettled question:
 Use both only when their jobs remain distinct:
 
 - The Weekly reports and explains the event.
-- The Big Question investigates and follows the argument.
+- The Big Picture investigates the larger question, mechanism, power and consequence.
 
 Never produce two paraphrases of the same story.
 
@@ -325,7 +325,7 @@ with:
 4. `daily-brief-draft.md` — only when DAILY is warranted;
 5. `breaking-news-draft.md` — only when The Breaking is warranted;
 6. `weekly-deep-dive.md` — only when The Weekly is warranted;
-7. `tribune-draft.md` — machine-compatible store for The Big Question, only when a distinct investigation and argument are warranted;
+7. `tribune-draft.md` — temporary machine-compatible store for The Big Picture, only when a distinct investigation is warranted;
 8. `integrity-report.md` — facts/take/freshness/capture/publication gates; and
 9. `candidate.json` — the structured evidence, risk and check record consumed
    by `scripts/evaluate-newsstand-autopublish.mjs`.
@@ -340,7 +340,7 @@ held and cannot edit public files or deploy.
 The task alert to Ali contains:
 
 - **Why this cleared the bar**
-- **Recommended treatment** — The Breaking, The Daily, The Weekly, The Big Question, a combination or Watch
+- **Recommended treatment** — The Breaking, The Daily, The Weekly, The Big Picture, a combination or Watch
 - **The three facts that matter**
 - **What remains unknown**
 - **The impact / how to think about it**

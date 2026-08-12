@@ -6,15 +6,17 @@
 ## Product job
 
 The NewsStand answers “what changed, what evidence supports it, and what does it
-mean?” without turning volume or virality into importance. Its four papers have
-different jobs:
+mean?” without turning volume or virality into importance. The NewsStand opens
+on The Daily. The Weekly and The Big Picture are persistent alternatives;
+qualified Breaking interrupts above them only when waiting would materially
+disadvantage the reader:
 
 | Paper | Reader job | Valid quiet state |
 |---|---|---|
 | The Breaking | Rare, qualified interruption when waiting would materially disadvantage the reader | No qualified interruption |
 | The Daily | Edited briefing of consequential changes since the last issue | Nothing consequential enough to file |
 | The Weekly | Durable synthesis that connects the week’s evidence | Editorial hold, stale check, or no synthesis worth publishing |
-| The Big Question | Sourced argument that separates evidence, inference and position | No argument has earned the paper |
+| The Big Picture | Sourced investigation that separates evidence, inference and position | No investigation has earned the feature |
 
 The radar is private discovery. It does not become a fifth publication and it
 does not publish directly.
@@ -39,10 +41,13 @@ does not publish directly.
   auto-publish-like result or mutate the public dataset.
 
 Publication proposals must declare the job they ask an independent editor to
-assess: Breaking proposes a qualified interruption, Daily a multi-item edited
-briefing, Weekly a durable synthesis of at least two developments, and Big Question
-separate evidence, inference and position. Those declarations are structural
-review inputs, not proof that the job has been met.
+assess: Breaking proposes a qualified interruption, Daily one or more
+consequential story candidates, Weekly a durable synthesis of at least two
+developments, and Big Picture separates evidence, inference and position.
+Daily issue assembly is a separate operation: one admitted Daily story may
+enter a complete dated issue alongside admitted service columns and governed
+empty states. Those declarations are structural review inputs, not proof that
+the job has been met.
 
 ## State and failure contract
 
@@ -156,7 +161,9 @@ deployment authority.
 
 ## Reader and accessibility journeys
 
-- A first-time reader can distinguish all four paper jobs before selecting one.
+- A first-time reader lands in The Daily and can distinguish Daily, Weekly and
+  Big Picture immediately; qualified Breaking is visibly exceptional rather
+  than a fourth persistent choice.
 - Each paper reports current, quiet, held, stale or unavailable state
   programmatically and visually.
 - Paper controls use `aria-pressed`; opening a desk, story or search result

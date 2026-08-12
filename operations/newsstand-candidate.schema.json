@@ -11,7 +11,9 @@
     "headline",
     "scores",
     "topics",
+    "riskDomains",
     "riskSignals",
+    "continuingStory",
     "sources",
     "checks",
     "editorialJob"
@@ -75,8 +77,44 @@
     },
     "riskSignals": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "enum": [
+          "sensational_or_misleading_claim", "disputed_facts",
+          "unconfirmed_model_identity", "ongoing_incident",
+          "possible_personal_data_impact", "single_interested_source",
+          "named_person_allegation", "material_prediction",
+          "novel_tribune_thread", "fabricated_source",
+          "unresolvable_source", "unsafe_html", "placeholder",
+          "copyright_copying", "missing_claim_map"
+        ]
+      },
       "uniqueItems": true
+    },
+    "riskDomains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "none", "health", "medical", "legal", "financial",
+          "cybersecurity", "privacy", "safety", "children", "elections",
+          "war", "crime", "employment-allegations", "regulatory-enforcement"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "continuingStory": {
+      "type": "object",
+      "required": ["action"],
+      "properties": {
+        "action": {
+          "enum": ["STANDALONE", "FOLLOW_UP_NEW_STORY", "CORRECTION", "RETRACTION_REVIEW"]
+        },
+        "predecessorId": { "type": "string", "minLength": 1 },
+        "relationship": {
+          "enum": ["CONFIRMS", "CHANGES", "OVERTURNS", "EXPANDS", "RESOLVES_UNKNOWN", "CORRECTS", "RETRACTS"]
+        }
+      },
+      "additionalProperties": false
     },
     "sources": {
       "type": "array",
@@ -107,11 +145,12 @@
   },
   "allOf": [
     { "if": { "properties": { "edition": { "const": "breaking" } } }, "then": { "properties": { "editorialJob": { "const": "qualified-interrupt" } }, "required": ["qualifiedInterrupt"] } },
-    { "if": { "properties": { "edition": { "const": "daily" } } }, "then": { "properties": { "editorialJob": { "const": "edited-briefing" }, "briefingItems": { "minItems": 2 } }, "required": ["briefingItems"] } },
+    { "if": { "properties": { "edition": { "const": "daily" } } }, "then": { "properties": { "editorialJob": { "const": "edited-briefing" }, "briefingItems": { "minItems": 1 } }, "required": ["briefingItems"] } },
     { "if": { "properties": { "edition": { "const": "weekly" } } }, "then": { "properties": { "editorialJob": { "const": "durable-synthesis" }, "developments": { "minItems": 2 } }, "required": ["developments"] } },
     { "if": { "properties": { "edition": { "const": "tribune" } } }, "then": { "properties": { "editorialJob": { "const": "sourced-argument" } }, "required": ["argumentStructure"] } },
     { "if": { "properties": { "topics": { "contains": { "enum": ["model-release", "feature-release"] } } } }, "then": { "properties": { "releaseDetailsComplete": { "const": true } }, "required": ["releaseDetailsComplete"] } },
-    { "if": { "properties": { "riskSignals": { "contains": { "const": "sensational_or_misleading_claim" } } } }, "then": { "properties": { "sensationalFramingNeutralized": { "const": true } }, "required": ["sensationalFramingNeutralized"] } }
+    { "if": { "properties": { "riskSignals": { "contains": { "const": "sensational_or_misleading_claim" } } } }, "then": { "properties": { "sensationalFramingNeutralized": { "const": true } }, "required": ["sensationalFramingNeutralized"] } },
+    { "if": { "properties": { "continuingStory": { "properties": { "action": { "enum": ["FOLLOW_UP_NEW_STORY", "CORRECTION", "RETRACTION_REVIEW"] } } } } }, "then": { "properties": { "continuingStory": { "required": ["predecessorId", "relationship"] } } } }
   ],
   "additionalProperties": false
 }

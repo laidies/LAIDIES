@@ -30,6 +30,37 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
+## 2026-08-12 NewsStand logic and Control Room recovery
+
+### NewsStand end-to-end contract — verified locally / no story published
+
+The publication pipeline now keeps six different facts separate: a verified
+signal, an editorial story candidate, reviewed story prose, a dated newspaper
+issue, a canonical release record and exact public verification. One strong
+story is valid Daily input. The other Daily departments belong to issue
+assembly and may use governed empty states; they cannot force a weak second
+story. Optional Big Picture, STRAiGHT TALK or service-column derivatives receive
+`ADMIT`, `NO_FIT` or `PARKED` and cannot hold the primary story. Safety risk is
+recorded independently from reader-facing topics. Material new information
+requires a new dated successor; a living reference may instead receive a
+versioned reference update. Calibrated routing and policy tests pass. No story,
+issue, route or public site was changed.
+
+### Control Room — recovered and scheduled / first fresh audit pending
+
+The old high-frequency Control Room dispatcher was paused after its run cadence
+became shorter than the work and its growing chat transcript overloaded the
+desktop runtime. The pause removed the only writer of the central dashboard,
+but no successor was installed, so newer owner records continued changing
+behind a July dashboard and audit schedule. The existing dispatcher automation
+is now a standalone twice-daily 10:00/22:00 delta run with non-overlap, exact
+owned paths and failed-run notification. A calibrated freshness checker now
+marks a dashboard stale when its evidence is older than 18 hours, its exact ISO
+next-audit time is invalid or overdue, or the runtime is paused/missing. The
+dashboard renders that state visibly rather than presenting old status as
+current. The first successful successor audit has not yet run; until it does,
+the Control Room remains visibly stale rather than falsely current.
+
 ## 2026-08-11 Learning System publication-routing repair
 
 ### Sitewide work-and-life example rule — verified locally
@@ -76,7 +107,7 @@ story-record candidate with 10 sections, 82 semantic blocks, 12 reviewed
 sources and an honest null publication instant. It still requires observed-human
 explain-back/transfer, exact source/semantic/owner admission, authorized deploy
 and public verification.
-The settled public masthead is **The Big Question**; the machine edition remains
+The settled public masthead is **The Big Picture**; the machine edition remains
 `tribune`. No publication or public page changed.
 
 The accepted Weekly source now uses the same production compiler without

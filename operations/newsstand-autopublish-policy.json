@@ -1,5 +1,5 @@
 {
-  "version": "2026-07-29.1",
+  "version": "2026-08-12.2",
   "mode": "review-routing-only",
   "publicationAuthority": "none",
   "maximumCandidateAgeDays": 31,
@@ -38,7 +38,23 @@
       "riskSignals": ["sensational_or_misleading_claim"]
     }
   },
-  "hardHoldTopics": [
+  "allowedRiskDomains": [
+    "none",
+    "health",
+    "medical",
+    "legal",
+    "financial",
+    "cybersecurity",
+    "privacy",
+    "safety",
+    "children",
+    "elections",
+    "war",
+    "crime",
+    "employment-allegations",
+    "regulatory-enforcement"
+  ],
+  "hardHoldRiskDomains": [
     "health",
     "medical",
     "legal",
@@ -64,6 +80,23 @@
     "novel_tribune_thread"
   ],
   "automaticRejectSignals": [
+    "fabricated_source",
+    "unresolvable_source",
+    "unsafe_html",
+    "placeholder",
+    "copyright_copying",
+    "missing_claim_map"
+  ],
+  "allowedRiskSignals": [
+    "sensational_or_misleading_claim",
+    "disputed_facts",
+    "unconfirmed_model_identity",
+    "ongoing_incident",
+    "possible_personal_data_impact",
+    "single_interested_source",
+    "named_person_allegation",
+    "material_prediction",
+    "novel_tribune_thread",
     "fabricated_source",
     "unresolvable_source",
     "unsafe_html",

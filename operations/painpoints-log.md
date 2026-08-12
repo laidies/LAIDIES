@@ -15200,3 +15200,41 @@ while remaining falsely unfinished in the launch record.
   make a publication less transparent than printing a new newspaper story.
 - **Publication status:** SPECIFIED ONLY / NO PUBLIC ARTICLE, DATA, SEARCH,
   CORRECTION, RETRACTION OR DEPLOYMENT CHANGE.
+
+## BTB-489 — Pausing the overloaded dispatcher left the Control Room silently frozen
+
+- **Date:** 2026-08-12
+- **Area:** Control Room runtime, executive truth and NewsStand execution.
+- **Failure:** Pausing the high-frequency dispatcher stopped the desktop overload,
+  but it also removed the only process that rebuilt the central dashboard and
+  audit schedule. Product-owner records and automations kept changing while the
+  executive view remained on July evidence without identifying itself as stale.
+- **Root cause:** The dispatcher combined scheduling, coordination, projection
+  and reporting inside one indefinitely growing chat. Its cadence became shorter
+  than its work window, which encouraged overlap and repeated full-history
+  replay. The emergency pause had no installed successor. The dashboard was a
+  hand-maintained snapshot and had no freshness check capable of failing loudly.
+- **Issues caused:** Owner progress and blockers were omitted or misclassified;
+  old next-audit dates appeared actionable; decisions could be repeated; held
+  work could be mistaken for active work; newer content intake was not promoted
+  into the executive view; and an operator could make launch or publication
+  decisions from stale evidence.
+- **Prevention rule:** Runtime ownership must survive a pause. A dispatcher uses
+  current durable sources and the delta since the last successful run, never an
+  unbounded transcript. Its cadence must exceed its work window, prevent overlap,
+  name exact owned outputs and notify only on failed runs. The consumer-facing
+  projection independently fails when evidence, runtime or next-audit truth is
+  stale.
+- **Durable correction:** The existing `laidies-product-champion-orchestrator`
+  automation is active as a standalone twice-daily 10:00/22:00 delta run. The
+  calibrated `scripts/control-room-freshness.mjs` checker enforces the 18-hour
+  evidence window and exact future ISO audit time; the dashboard renders a
+  prominent stale warning. NewsStand's repaired publication contract separately
+  prevents a primary story from being trapped behind optional derivatives or
+  confused with issue assembly and release.
+- **Remaining proof:** The successor's first successful audit has not yet replaced
+  the July snapshot. Until it does, `STALE_OR_STOPPED` is the truthful status.
+- **Possible Behind the Build angle:** Why an attractive dashboard can become
+  more dangerous than no dashboard when nobody proves its clock is still moving.
+- **Publication status:** INTERNAL OPERATING REPAIR / NO STORY, SITE ROUTE,
+  PUBLICATION OR PUBLIC DEPLOYMENT CHANGED.

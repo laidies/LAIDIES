@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE_INTERNAL_PRODUCTION_ROUTER",
-  "updatedAt": "2026-08-11",
+  "updatedAt": "2026-08-12",
   "rule": "A verified signal may contribute to one or more earned outputs. Each output must have a distinct reader job, exact evidence/version binding and explicit routing decision; the signal is never copied across formats merely to fill space.",
   "explanationMethod": {
     "id": "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
@@ -26,8 +26,17 @@
   "multiOutputContract": {
     "example": "One current event may qualify for The Breaking or The Daily and also become contributing evidence inside a broader The Big Picture.",
     "requiredPerContribution": ["signalId", "publicationFormatId", "relationship", "contributionJob", "workOrderId", "sourceVersionIds"],
-    "relationships": ["PRIMARY_OUTPUT", "CONTRIBUTING_EVIDENCE", "UPDATE_EXISTING", "RELATED_READING"],
+    "relationships": ["PRIMARY_OUTPUT", "CONTRIBUTING_EVIDENCE", "FOLLOW_UP_NEW_STORY", "UPDATE_LIVING_REFERENCE", "RELATED_READING"],
     "independenceRule": "Each resulting output has its own reader payoff, producer contract, review, correction state and release identity. One output cannot inherit admission from another."
+  },
+  "endToEndContract": {
+    "recordSequence": ["VERIFIED_SIGNAL", "STORY_CANDIDATE", "REVIEWED_STORY", "DATED_ISSUE", "CANONICAL_RELEASE", "PUBLIC_VERIFICATION"],
+    "storyIssueBoundary": "A story is reviewed on its own merits. Daily and Weekly issue assembly is a separate record that combines admitted stories, admitted service columns and governed empty states. A Daily story does not need two unrelated briefing items to qualify.",
+    "derivativeBoundary": "Every derivative receives ADMIT, NO_FIT or PARKED. A missing or parked song, Paige item, Promptoscope item, social post or newsletter treatment never blocks an otherwise admitted primary story.",
+    "continuingStoryBoundary": "Material new information about a published NewsStand item is FOLLOW_UP_NEW_STORY with a predecessor ID, relationship classification and bidirectional Story so far chain. UPDATE_LIVING_REFERENCE is reserved for living references such as STRAiGHT TALK. Meaning-changing in-place NewsStand updates fail.",
+    "metadataBoundary": "A public release requires one admitted primary topic ID, one to four admitted specific tag IDs, separately typed entities and separately typed controlled risk domains. The proposed topic taxonomy is not public authority until admitted.",
+    "releaseBoundary": "Reviewed prose is not publication. The terminal path binds the exact reviewed story to a dated issue, canonical writer result, append-only release record, rollback target, deployment identity and public-origin verification.",
+    "currentReleaseStatus": "IMPLEMENTATION_HOLD_UNTIL_TOPIC_REGISTER_AND_CANONICAL_WRITER_EXIST"
   },
   "dailyServiceColumnClarityContract": {
     "rule": "A cold reader must identify each column's distinct job from headline and body without relying on its eyebrow label.",
@@ -203,7 +212,7 @@
       "publicationCadence": "ONE_COLUMN_PER_WEEK_WHEN_ADMITTED",
       "canonicalStore": "content/dear-miss-jeeves-bank.json",
       "publicSurface": "/newsstand.html",
-      "surfaceContainer": "WEEKLY_COLUMN_INSIDE_THE_DAILY",
+      "surfaceContainer": "WEEKLY_COLUMN_INSIDE_THE_WEEKLY",
       "quietPolicy": "Build the bank continuously but schedule at most one admitted column per week; unpublished candidates remain private.",
       "templateFields": [
         "Dear Miss Jeeves question",

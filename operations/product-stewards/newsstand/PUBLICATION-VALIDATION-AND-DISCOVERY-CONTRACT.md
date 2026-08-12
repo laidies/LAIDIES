@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE OPERATING CONTRACT — AUTOMATIC DISPATCH; PUBLICATION REMAINS GATED
 **Owner:** NewsStand champion with Control Room orchestration
-**Applies to:** The Breaking, The Daily, The Weekly and The Big Question
+**Applies to:** qualified Breaking plus The Daily, The Weekly and The Big Picture
 
 ## The promise
 
@@ -66,9 +66,11 @@ Writing “review required” in a packet is not a trigger and is not progress.
 Before Stage 6 reconciliation, the exact rendered artifact must also carry the
 twelve gate results defined by the Learning Content Ecosystem operating spec.
 This includes search ingestion, semantic cross-linking, sitewide canon
-consistency, KSVL/song opportunity and source-bound Paige-tip/Promptoscope
-derivative rulings. A generic editorial PASS cannot stand in for those
-separate results. Any missing gate is a terminal HOLD for this candidate.
+consistency and an `ADMIT`, `NO_FIT` or `PARKED` disposition for KSVL/song,
+Paige-tip, Promptoscope and other optional derivatives. A generic editorial
+PASS cannot stand in for required factual, teaching, accessibility or release
+results. A missing optional derivative artifact is not a terminal HOLD for the
+primary story.
 
 ## Published discovery trigger
 
@@ -155,11 +157,13 @@ all applicable discovery checks below against the exact released story hash.
      copy.
 
 7. **Daily learning derivatives**
-   - the exact story receives a Paige daily-tip and Promptoscope fit ruling;
+   - the exact story receives an `ADMIT`, `NO_FIT` or `PARKED` Paige daily-tip
+     and Promptoscope fit disposition;
    - admitted derivatives cite the canonical item internally, preserve claim
      limits and carry an expiry/recheck date;
-   - no derivative store, renderer or source-bound record means `BUILD REQUIRED`,
-     never an invented homepage string.
+   - no derivative store, renderer or source-bound record means `PARKED` for
+     that optional derivative, never `BUILD REQUIRED` for the primary story
+     and never an invented homepage string.
 
 8. **Returning-reader signals**
    - device-local “new since your last visit” compares the last successfully
