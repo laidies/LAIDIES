@@ -14705,3 +14705,28 @@ while remaining falsely unfinished in the launch record.
   about being alive and still conceal the work it has not finished.
 - **Publication status:** EXECUTION VISIBILITY REPAIRED LOCALLY / BIG QUESTION
   AWAITS ROLE-DISTINCT REVIEW / NO NEWSSTAND INTEGRATION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-469 — Adding one service card invalidated an earlier candidate package
+
+- **Date:** 2026-08-11
+- **Area:** NewsStand derivative store and checksum-bound content review.
+- **Failure:** Adding a held Promptoscope record correctly changed the shared
+  derivative-store and claim-register hashes, but that made the already reviewed
+  Paige package stale until every dependent binding was updated. Without the
+  cross-package check, the queue would have shown Paige as built while its
+  producer contract, manifest and self-review no longer matched current bytes.
+- **Root cause:** Multiple independently reviewed service cards bind whole shared
+  JSON files. A safe append changes the identity of every package that points at
+  those files, even when the earlier card's prose is untouched.
+- **Prevention rule:** After any shared claim-register or derivative-store change,
+  rerun every bound producer and prose review that references the changed file,
+  update its manifest and work-order hash as one dependency tuple, then run the
+  full content-work-order checker before commit.
+- **Durable correction:** The Promptoscope package was added, then the Paige
+  contract, manifest, self-review, dispatch receipt and LCWO-013 binding were
+  recomputed and revalidated against the new exact shared bytes. LCWO-010 and
+  LCWO-013 now both appear explicitly as prerequisite-held.
+- **Possible Behind the Build angle:** Why changing an unrelated row can make a
+  trustworthy review receipt stale—and how dependency checks catch it.
+- **Publication status:** TWO HELD SERVICE-COLUMN CANDIDATES / PRODUCER PASSES /
+  NO INDEPENDENT ADMISSION, DAILY INTEGRATION, DEPLOYMENT OR PUBLICATION.

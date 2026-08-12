@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "owner": "newsstand-daily",
   "status": "ACTIVE",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-12",
   "emptyStates": {
     "paige_tip": "Paige is checking today’s tip against the receipts. No filler while she does.",
     "career_life": "The useful move is being checked. No generic confidence advice has been substituted.",
@@ -179,6 +179,51 @@
       },
       "correction": {"supersedes": null, "retractedAt": null, "reason": null},
       "reviewEvidence": {"accuracy": null, "editorial": null, "laidiesVoice": null, "formatFit": null},
+      "publicEligibility": "INELIGIBLE"
+    },
+    {
+      "id": "DLD-2026-08-12-PROMPTOSCOPE-MERCURY-IN-REGRESSION",
+      "type": "promptoscope",
+      "status": "HOLD",
+      "date": "2026-08-12",
+      "headline": "Mercury is in regression.",
+      "body": "Today’s forecast: change one thing, then check the receipts. Save a few representative examples of a repeated task—say, summarising fictional meeting notes at work and planning meals from an invented cupboard at home—and write down what a good answer must include. Change one instruction at a time, then rerun the same examples. If the new prompt sounds smoother but fails a case the old one passed, that is a regression, not growth. Mercury is innocent.",
+      "audienceJob": "Use the horoscope form to teach one repeatable prompt-evaluation habit: compare bounded revisions against the same representative examples and acceptance criteria.",
+      "sourceClaimIds": [
+        "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS"
+      ],
+      "sourceContentIds": [
+        "openai:model-guidance:2026-08-11",
+        "PROMPTOSCOPE-REPEATABLE-EVALS-2026-08-11"
+      ],
+      "canonicalPath": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+      "relatedConceptIds": [
+        "prompting",
+        "evaluation",
+        "representative-tests",
+        "regression",
+        "acceptance-criteria"
+      ],
+      "freshness": {
+        "lastCheckedAt": "2026-08-11",
+        "expiresAt": "2026-09-11",
+        "recheckTriggers": [
+          "OpenAI materially changes its model, prompting or evaluation guidance.",
+          "The candidate names a specific model, grader, benchmark or performance figure.",
+          "The canonical repeatable-prompt-evaluation claim enters review, hold, correction or supersession."
+        ]
+      },
+      "correction": {
+        "supersedes": null,
+        "retractedAt": null,
+        "reason": null
+      },
+      "reviewEvidence": {
+        "accuracy": null,
+        "editorial": null,
+        "laidiesVoice": null,
+        "formatFit": null
+      },
       "publicEligibility": "INELIGIBLE"
     }
   ]

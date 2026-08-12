@@ -90,6 +90,17 @@
       "accessedAt": "2026-08-11",
       "status": "CURRENT",
       "notes": "Defines skills as reusable filesystem resources containing instructions, scripts and resources; documents on-demand loading, cross-surface limits and the need to audit untrusted skills like software."
+    },
+    {
+      "id": "SRC-OPENAI-MODEL-GUIDANCE-EVALS-2026-08-11",
+      "title": "Model guidance",
+      "publisher": "OpenAI",
+      "authority": "FIRST_PARTY_PRODUCT",
+      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "publishedOrUpdated": "Current OpenAI developer guidance; exact update date is not stably exposed",
+      "accessedAt": "2026-08-11",
+      "status": "CURRENT",
+      "notes": "OpenAI recommends validating changes on representative tasks, changing one instruction, example or tool group at a time and rerunning the same evaluations; a change counts only if the final result still meets the existing quality bar."
     }
   ],
   "claims": [
@@ -664,6 +675,65 @@
           "status": "OWNER_REVIEW",
           "lastVerifiedAt": "2026-08-11",
           "notes": "The current official claim unlocks held candidate production only; no Daily record or public eligibility is implied."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS",
+      "canonicalKey": "repeatable-prompt-evaluation",
+      "type": "product_capability",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "MONTHLY",
+      "canonicalWording": "When changing a prompt or AI workflow, use representative tasks, alter one instruction, example or tool group at a time and rerun the same evaluations. A smoother-sounding output is not an improvement if it no longer meets the task's existing acceptance criteria.",
+      "teaching": {
+        "mechanism": "Reusing the same examples and checks makes the effect of one change visible instead of confusing it with a different task or several simultaneous edits.",
+        "readerConsequence": "Keep a small test set for repeated AI work, state what a useful result must contain and rerun it after each bounded revision.",
+        "analogy": "Mercury is in regression.",
+        "analogyLimit": "The astrology joke labels a software-style regression; planets do not cause prompt behavior or evaluate the result.",
+        "memoryLine": "Change one thing. Rerun the receipts."
+      },
+      "applicability": {
+        "products": ["Prompt and AI-workflow revisions across model providers"],
+        "versions": ["OpenAI model guidance checked 2026-08-11"],
+        "plans": [],
+        "regions": []
+      },
+      "sourceIds": ["SRC-OPENAI-MODEL-GUIDANCE-EVALS-2026-08-11"],
+      "evidenceSummary": "Current OpenAI developer guidance says to validate changes on representative tasks, remove or change one prompt/tool group at a time, rerun the same evals and count efficiency improvements only when final quality still passes.",
+      "limitations": [
+        "The official guidance addresses OpenAI model workflows; LAiDIES generalizes the testing habit cautiously rather than claiming identical behavior across providers.",
+        "Representative examples and written checks do not guarantee that every real-world failure has been found.",
+        "This claim does not say that one prompt works permanently across model, tool or context changes."
+      ],
+      "lastCheckedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-11",
+      "recheckTriggers": [
+        "OpenAI materially changes its model, prompting or evaluation guidance.",
+        "The candidate names a specific model, grader, benchmark or performance figure.",
+        "A provider change causes the same test set to stop representing the real task."
+      ],
+      "owner": "learning-content-ecosystem",
+      "upstreamSignals": [
+        {
+          "system": "NEWSSTAND_SERVICE_COLUMN_BACKLOG",
+          "id": "PROMPTOSCOPE-REPEATABLE-EVALS-2026-08-11",
+          "path": "operations/product-stewards/newsstand/DAILY-NEWSPAPER-EXPERIENCE-BRIEF.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-PROMPTOSCOPE-REPEATABLE-EVALS",
+          "surface": "Promptoscope candidate",
+          "owner": "newsstand-daily",
+          "path": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json",
+          "locator": "LCWO-010",
+          "job": "NEWS",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-08-11",
+          "notes": "The current claim unlocks one held Promptoscope candidate only; it does not authorize Daily integration or public eligibility."
         }
       ],
       "correction": null
