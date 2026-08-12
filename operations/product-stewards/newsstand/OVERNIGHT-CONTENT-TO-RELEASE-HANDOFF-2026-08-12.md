@@ -124,6 +124,19 @@ current guidance`, and fits the Big Question masthead inside its 390px painted
 paper. Baseline: 211 rendered checks pass; deliberate overlap and overflow
 mutations fail. These branch bytes are not deployed or publicly verified.
 
+## Exact publication-home gap
+
+| Candidate | Existing truthful home | Missing before publication |
+|---|---|---|
+| The Daily archive | Daily issue snapshot, full Daily story reader and dated archive already exist | Map the accepted expanded presentation into one successor issue without creating a competing August 3 record; render and admit the exact result |
+| The Weekly | `weekly` publication and full-story reader already exist | Create the exact canonical story record, render the above-usual 1,682-word issue and decide whether its length earns the space |
+| The Big Question | `tribune` machine key and public Big Question paper/reader already exist | Create the exact canonical story record using only the public Big Question name; render and admit |
+| Paige, Promptoscope, Career/Work-Life | All three governed Daily desk types already exist | Select one edition date, create exact admitted Daily records and prove the cards remain readable at desktop/390/320 |
+| Dear Miss Jeeves | The governed Daily desk type and editorial bank exist | The Daily can show a compact desk item, but no current public full-answer destination exists for the accepted 528-word column; build and admit that bounded reading destination before adding a `Go deeper` link |
+| STRAiGHT TALK | The name, living-reference job, source method and exact accepted prose exist | No current public STRAiGHT TALK LIBRAiRY surface or index route exists; build and admit that bounded reference destination before this article can publish |
+
+This is why “the writing passed” and “ready to publish” are not the same state.
+
 ## Safe next release step
 
 1. Continue source and producer work on the learning branch without touching the deployed reader runtime.
