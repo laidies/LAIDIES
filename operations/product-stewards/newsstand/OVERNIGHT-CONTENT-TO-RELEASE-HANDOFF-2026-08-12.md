@@ -62,6 +62,13 @@ The role-distinct Claude reviews reported USD 14.6887348 in external usage.
 That spend produced artifact-first judgments and repair cycles; it did not buy
 publication, deployment or public verification.
 
+A checksum-bound cross-format duplication check found zero shared exact
+sentences of eight or more words across The Big Question, The Weekly and
+STRAiGHT TALK. Five-word overlap was 0.15%–0.52% and consisted mainly of source
+names and incident-list phrases. This rules out copied rewrites; it does not
+replace the remaining human judgment about semantic repetition and reading
+burden.
+
 ## Exact compact-column copy for morning review
 
 ### Paige’s Practical AI Tip
