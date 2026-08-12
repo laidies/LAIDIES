@@ -253,7 +253,7 @@ transfer evidence.
 - **Owner-entry route:** permanent Codex task
   `019f9f7f-9e4c-72d2-8882-447bcbe01691`.
 - **Canonical files:** this dossier, `concept-map.md`, `inventory.json`,
-  `claim-register.json`, `freshness-signal-inbox.json`,
+  `SOURCE-REGISTRY.json`, `claim-register.json`, `freshness-signal-inbox.json`,
   intake/handoff/correction records created under this folder, and surface
   sources linked from those records.
 - **Frontend/backend:** no public interface; local Node validation/report

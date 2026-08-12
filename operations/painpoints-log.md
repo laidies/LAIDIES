@@ -14453,16 +14453,46 @@ while remaining falsely unfinished in the launch record.
 - **Failure risk:** Paige's Practical AI Tip and the Career/Work-Life Tip were
   locked as first-class destinations in the decision register but omitted from
   the Daily experience brief's recurring-column list. An executor reading the
-  brief alone could therefore forget them, while a generic career tip could
-  pass without helping a reader understand or use AI.
+  brief alone could therefore forget them or mistakenly demand that the
+  original career source already be about AI.
 - **Root cause:** The decision and the executable product brief drifted apart.
 - **Prevention rule:** Every governed NewsStand service lane must appear in the
-  Daily experience brief and source-intelligence route. Career guidance is
-  eligible only when it makes an explicit, useful connection back to AI.
+  Daily experience brief and source-intelligence route. General career and
+  work-life sources are eligible; the derived LAiDIES item must add a faithful,
+  separately verified AI mirror, its limit and a useful next move.
 - **Durable correction:** The Daily brief now names Paige's Practical AI Tip,
-  the AI-linked Career/Work-Life Tip and Promptoscope together; the decision
-  register explicitly rejects generic career filler.
+  the Career/Work-Life Tip and Promptoscope together; the decision register
+  explicitly preserves the non-AI-source → AI-mirror method and rejects only
+  pasted-on or misleading AI connections.
 - **Possible Behind the Build angle:** Why a rule can exist in the master plan
   and still disappear from the newspaper that is supposed to use it.
 - **Publication status:** INTERNAL CONTRACT CORRECTION / NO CONTENT,
   PUBLICATION OR DEPLOYMENT.
+
+## BTB-459 — Source knowledge was distributed across incompatible partial lists
+
+- **Date:** 2026-08-11
+- **Area:** Learning System, AIDB, NewsStand and content sourcing.
+- **Failure:** Useful sources lived in a practitioner roster, institutional
+  maps, NewsStand prose, agent-research files, book claim maps and chat
+  handoffs. No single record could answer which sources LAiDIES governs, what
+  each one may establish, how often it is checked or whether AI Tips,
+  Career/Work-Life Tips and Promptoscope were covered.
+- **Root cause:** Each product solved its immediate sourcing problem with a
+  local list, but no canonical identity and destination layer reconciled them.
+- **Prevention rule:** Every maintained source family enters one canonical
+  registry with authority tier, status, cadence, exact URLs, allowed
+  destinations, best use, limits, verification requirement, checked date and
+  recheck trigger. Smaller monitors are validated projections; inclusion never
+  grants claim, content or publication authority.
+- **Durable correction:** `SOURCE-REGISTRY.json` now governs 50 source families
+  and all 17 content/learning destinations. Its calibrated validator rejects
+  duplicate IDs, placeholder URLs, a missing Career/Work-Life transformation
+  contract, destination gaps and practitioner sources missing from the
+  canonical list. Its positive calibration proves a non-AI career source is
+  eligible.
+- **Possible Behind the Build angle:** How five good source lists still made
+  one bad research system—and what changed when LAiDIES gave every source one
+  identity and one job.
+- **Publication status:** VERIFIED INTERNAL SOURCE-ROUTING BUILD / NO ARTICLE,
+  SUBSCRIPTION, SCRAPING, PUBLICATION OR DEPLOYMENT.

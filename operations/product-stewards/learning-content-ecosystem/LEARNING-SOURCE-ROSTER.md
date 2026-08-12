@@ -4,6 +4,11 @@
 **Owner:** Learning System & Concepts Director
 **Updated:** 2026-08-08
 
+**Canonical complete registry:** `SOURCE-REGISTRY.json`. This Markdown roster
+is a curated human-readable view. The AIDB practitioner roster and other
+smaller source lists are executable projections and may not introduce a source
+that is absent from the canonical registry.
+
 ## Operating rule
 
 This roster identifies useful places to discover evidence, teaching patterns
