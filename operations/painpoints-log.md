@@ -14969,3 +14969,32 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** WEEKLY PRESENTATION INDEPENDENTLY ACCEPTED / SHARED
   PRODUCTION SCHEMA AND READER BUILT + VERIFIED LOCALLY / STORY INTEGRATION,
   OBSERVED HUMAN AND RELEASE REMAIN / NOT PUBLIC.
+
+## BTB-481 — Internal comparison controls obscured the decision and hid weak service columns
+
+- **Date:** 2026-08-12
+- **Area:** Promptoscope, Paige and Career/Work-Life review.
+- **Failure:** Ali was shown a stacked three-card control/candidate comparison
+  where only Promptoscope changed. The repeated Paige and Career cards looked
+  like additional candidates, while their eyebrow labels carried distinctions
+  their content did not. Ali could not tell what she was reviewing, could not
+  follow the Paige tip and could not identify the Career item as career advice.
+- **Root cause:** The artifact was built for pixel comparison and then reused
+  for a human editorial decision. Internal reviewers judged fit and overflow
+  without testing whether the decision itself or the three column jobs were
+  understandable to a cold reader.
+- **Prevention rule:** Present one decision and one candidate at a time. A
+  recurring service column must establish its distinct job in headline and
+  body without its eyebrow: Paige is one followable AI action; Career starts
+  with the recognizable situation, specific move and practical payoff seen in
+  Ali's Dorie Clark benchmark and earns its AI connection afterward;
+  Promptoscope makes one accurate AI-use habit memorable through the horoscope
+  frame.
+- **Durable correction:** The comparison is rejected for Ali review;
+  Promptoscope is explicitly unruled; the unclear Paige and generic Career
+  records are suppressed; CQX-BAD-010/011 and D-2026-08-12-115 invalidate stale
+  producer/reviewer evidence and calibrate successors.
+- **Possible Behind the Build angle:** Why a useful A/B testing sheet can be a
+  terrible decision screen—and how category labels can hide identical content.
+- **Publication status:** REVIEW ARTIFACT REJECTED / PAIGE AND CAREER CONTROLS
+  SUPPRESSED / PROMPTOSCOPE HOLD AND UNRULED / NO PUBLIC CHANGE.

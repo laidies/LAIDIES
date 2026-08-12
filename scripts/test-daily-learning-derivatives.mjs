@@ -31,16 +31,36 @@ try {
   assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /missing career_life empty state/);
 
   const duplicateCareer = clone(data);
-  const career = clone(duplicateCareer.records.find((record) => record.type === "career_life"));
+  const originalCareer = duplicateCareer.records.find((record) => record.id === "DLD-2026-08-03-CAREER-DELEGATE-THE-OUTCOME");
+  originalCareer.status = "APPROVED";
+  originalCareer.publicEligibility = "ELIGIBLE";
+  delete originalCareer.aliRejectionEvidence;
+  const career = clone(originalCareer);
   career.id = "DLD-2026-08-03-CAREER-DUPLICATE";
   duplicateCareer.records.push(career);
   write(dataPath, duplicateCareer);
   assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /multiple public career_life records/);
 
   const staleCareer = clone(data);
-  staleCareer.records.find((record) => record.type === "career_life").freshness.expiresAt = "2026-08-10";
+  const staleCareerRecord = staleCareer.records.find((record) => record.id === "DLD-2026-08-03-CAREER-DELEGATE-THE-OUTCOME");
+  staleCareerRecord.status = "APPROVED";
+  staleCareerRecord.publicEligibility = "ELIGIBLE";
+  staleCareerRecord.freshness.expiresAt = "2026-08-10";
+  delete staleCareerRecord.aliRejectionEvidence;
   write(dataPath, staleCareer);
   assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /expired but public/);
+
+  const reapprovedRejection = clone(data);
+  const rejectedCareer = reapprovedRejection.records.find((record) => record.id === "DLD-2026-08-03-CAREER-DELEGATE-THE-OUTCOME");
+  rejectedCareer.status = "APPROVED";
+  rejectedCareer.publicEligibility = "ELIGIBLE";
+  write(dataPath, reapprovedRejection);
+  assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /carries Ali rejection and cannot return to APPROVED/);
+
+  const rejectionWithoutEvidence = clone(data);
+  delete rejectionWithoutEvidence.records.find((record) => record.status === "REJECTED").aliRejectionEvidence;
+  write(dataPath, rejectionWithoutEvidence);
+  assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /direct rejection needs Ali evidence/);
 
   const inventedPublicHistory = clone(data);
   inventedPublicHistory.records.find((record) => record.publicHistory).publicHistory.artifactSha256 = "reviewed-locally";
@@ -48,7 +68,7 @@ try {
   assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /publicHistory needs an exact SHA-256/);
 
   console.log("DAILY LEARNING DERIVATIVE TEST PASS");
-  console.log("calibration=missing-career-empty-state,duplicate-career-slot,expired-career,invented-public-history rejected");
+  console.log("calibration=missing-career-empty-state,duplicate-career-slot,expired-career,reapproved-Ali-rejection,rejection-without-evidence,invented-public-history rejected");
 } finally {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 }

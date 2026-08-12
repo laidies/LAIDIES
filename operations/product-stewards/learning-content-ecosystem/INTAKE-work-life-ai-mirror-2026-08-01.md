@@ -1,7 +1,7 @@
 # Learning intake — Work, life and the AI mirror
 
-**Status:** CAPTURED / ROUTED — EXTEND THE MISSING MIDDLE LAB; BUILD A
-CAREER-PRACTICE BANK; NO PUBLIC ITEM IS APPROVED
+**Status:** SOURCE IDENTITY VERIFIED / DORIE CLARK FORMAT BENCHMARK ADMITTED /
+BUILD A CAREER-PRACTICE BANK / NO PUBLIC ITEM IS APPROVED
 
 **Captured:** 2026-08-01
 
@@ -54,10 +54,14 @@ made confident or taught how to behave pleasantly.
 
 ## First four routed situations
 
-The supplied Instagram reels remain internal discovery leads. LAiDIES must
-independently verify any factual advice and create original examples, wording
-and visuals. Do not repost, embed, transcribe or imitate the creator's
-performance.
+The supplied Instagram reels are verified as posts from Dorie Clark's official
+`@dorieclark` account. Ali has named that page as the positive source-type and
+format benchmark for this column: recognizable career situation first,
+specific useful guidance second, and an AI connection only after it earns a
+real job. LAiDIES must still independently verify factual advice and create
+original examples, wording and visuals. Do not repost, embed, transcribe or
+imitate her performance. Full benchmark:
+`DORIE-CLARK-CAREER-TIP-BENCHMARK-2026-08-12.md`.
 
 | Discovery lead | Workplace job | AI mirror | Proposed durable destination |
 |---|---|---|---|

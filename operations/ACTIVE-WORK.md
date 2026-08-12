@@ -99,10 +99,11 @@ CQX-BAD-006 now make that failure reusable and invalidate stale contracts.
 The exact held successor remains **“Give one repeat task a dress rehearsal—not
 the keys.”** It now begins with a self-made or product-maker skill, requires
 environment limits before execution, retains work and home rehearsals and says
-one polished answer proves only one test looked good. Its successor contract
-and exact-prose self-review pass against all six negative exemplars, but carry
-no independent quality authority. A role-distinct accuracy, usefulness,
-LAiDIES voice and compact-format review is next. The record remains publicly
+one polished answer proves only one test looked good. Its earlier contract and
+self-review predate Ali's August 12 rejection of the unclear follow-up tip and
+the expanded negative registry; they are stale, not current quality evidence.
+The successor must now prove that a cold reader can name and follow its one AI
+action before another independent review. The record remains publicly
 ineligible; no Daily consumer or public page changed.
 
 ### STRAiGHT TALK representative pilot — Ali reader verdict next
@@ -119,6 +120,33 @@ substantial explanation. This exact STRAiGHT TALK candidate and its prior
 producer/review chain predate that rule and are no longer current admission
 evidence. Preserve the prose as a predecessor; a successor must add and review
 the missing non-work example before it can return to admission.
+
+### Daily service-column review correction — Promptoscope unruled
+
+The August 12 Promptoscope comparison sheet is **REJECTED AS AN ALI REVIEW
+ARTIFACT**. It repeated the same Paige and Career/Work-Life controls above and
+below a one-card Promptoscope change, so Ali reasonably read six similar cards
+instead of one decision. The different eyebrow labels did not make the columns'
+jobs clear.
+
+Ali separately rejected the unchanged Paige control, **“Make the follow-up do
+the remembering,”** as impossible to understand and follow, and the unchanged
+Career/Work-Life control, **“Delegate the outcome, not every keystroke,”** as
+not recognizable career advice. Those exact records are suppressed and their
+failures are CQX-BAD-010/011. Any earlier internal approval is invalid as a
+reader-quality verdict.
+
+The four earlier Career discovery reels are now verified as posts from Dorie
+Clark's official `@dorieclark` account. Ali named that page as the positive
+source-type benchmark: begin with a recognizable career situation, provide a
+specific useful move, and only then add an AI connection when it improves the
+guidance. The reels remain discovery and format references, not permission to
+copy, imitate or inherit unsupported advice.
+
+Promptoscope **“Mercury is in regression” was not judged on its own merits**.
+It remains `HOLD / INELIGIBLE`. The next review must show that item alone and
+state its exact job; it cannot proceed to observed-reader or Daily integration
+from the rejected comparison sheet.
 
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The

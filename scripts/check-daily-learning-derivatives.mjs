@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const PUBLIC = new Set(["APPROVED", "PUBLISHED"]);
+const DIRECTLY_REJECTED = new Set(["REJECTED", "RETRACTED"]);
 
 export function checkDailyLearningDerivatives({ root = process.cwd(), asOf = new Date().toISOString().slice(0, 10) } = {}) {
   const errors = [];
@@ -47,6 +48,12 @@ export function checkDailyLearningDerivatives({ root = process.cwd(), asOf = new
       errors.push(`${record.id} is non-public but marked ELIGIBLE`);
     }
     if (["RETRACTED", "EXPIRED"].includes(record.status) && record.publicEligibility !== "INELIGIBLE") errors.push(`${record.id} must be suppressed`);
+    if (DIRECTLY_REJECTED.has(record.status)) {
+      if (record.publicEligibility !== "INELIGIBLE") errors.push(`${record.id} direct rejection must be suppressed`);
+      if (!record.aliRejectionEvidence) errors.push(`${record.id} direct rejection needs Ali evidence`);
+      if (!record.correction?.retractedAt || !record.correction?.reason) errors.push(`${record.id} direct rejection needs dated correction reason`);
+    }
+    if (record.aliRejectionEvidence && !DIRECTLY_REJECTED.has(record.status)) errors.push(`${record.id} carries Ali rejection and cannot return to ${record.status}`);
     if (record.publicHistory) {
       if (!/^https:\/\/laidies\.ai\//.test(record.publicHistory.publicUrl || "")) errors.push(`${record.id} publicHistory needs a LAiDIES public URL`);
       if (!/^https:\/\/laidies\.ai\//.test(record.publicHistory.artifactUrl || "")) errors.push(`${record.id} publicHistory needs a LAiDIES artifact URL`);

@@ -1,6 +1,6 @@
 # NewsStand overnight content-to-release handoff — 2026-08-12
 
-**Status:** EIGHT EXACT PROSE CANDIDATES ADVANCED; TWO LONGFORMS COMPILED INTO INACCESSIBLE HELD STORY RECORDS; PROMPTOSCOPE PASSES EXACT RESPONSIVE CARD REVIEW — NO CANONICAL INTEGRATION, MERGE OR DEPLOY AUTHORITY
+**Status:** EIGHT EXACT PROSE CANDIDATES ADVANCED; TWO LONGFORMS COMPILED INTO INACCESSIBLE HELD STORY RECORDS; PROMPTOSCOPE REVIEW PRESENTATION REJECTED AND ITEM UNRULED — NO CANONICAL INTEGRATION, MERGE OR DEPLOY AUTHORITY
 
 **Checked:** 2026-08-12 05:31 America/Vancouver
 
@@ -57,7 +57,7 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 |---|---|---|
 | `bc342910` + `f8b0d6dc` | [The Big Question](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md) — 2,986 words | prose accepted; first exact render held the existing reader for no wayfinding, misleading quote hierarchy and overlong desktop lines; unchanged prose now compiles into checksum-bound candidate `d5def3046785ec77bd451dad07af31a5e77aaeb518866ed76e40b834b03da6d0`, status `hold`, `publishedAt: null`; observed human and owner/source/semantic admission still required |
 | `deb268e3` | Paige — “Give one repeat task a dress rehearsal—not the keys” — 147 words | independent full-prose review accepted after blockers fell 11 → 7 → 4 → 3 → 0; existing-surface render held the full text as too dense for a compact card; preserve it and create a separately reviewed deck + full destination |
-| `45c8bfdc` + current successor | Promptoscope — “Mercury is in regression” | 75-word prose passed editorial review but failed the real card for visible imbalance; a 39-word successor preserves the method and work/home transfer and independently passes exact 1440/390/320 pixel, editorial and teaching review; observed reader and dated Daily integration still required |
+| `45c8bfdc` + current successor | Promptoscope — “Mercury is in regression” | 75-word prose failed the real card for visible imbalance. A 39-word successor fit the test surface, but Ali rejected the stacked comparison as confusing; the narrow internal ACCEPT is superseded for human comprehension. Promptoscope itself remains unruled, held and ineligible. |
 | `c3115e8b` | [Dear Miss Jeeves](../../../content/dear-miss-jeeves/dmj-004-fifteen-revisions.md) — 528 words | repaired an unbuilt Promptoscope continuation; independent prose review accepted with zero blockers; human and rendered-column review still required |
 | `4057f1de` | [STRAiGHT TALK](candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md) — 1,374 words | independent successor review accepted with zero blockers; human and rendered LIBRAiRY review still required; no public STRAiGHT TALK surface currently exists |
 | `137a09da` + `48a8af1b` | [The Weekly](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md) — 1,682 words | prose accepted; first wrapper render caught Big Question identity leakage and missing transfer landmarks; unchanged prose now compiles into checksum-bound candidate `df6a29f16a15e88fc7736e3e3befe4d9092b010c1dd3f6242043f9db3a33e61d`, status `hold`, `publishedAt: null`; observed human and owner/source/semantic admission still required |
@@ -94,7 +94,7 @@ and plans without real bookings or email. Test normal and awkward cases, plus
 one it should not answer. Fix and rerun failures. One polished answer proves one
 rehearsal. Cannot inspect, limit, judge and stop it? No real work.
 
-### Promptoscope
+### Promptoscope — exact unruled copy
 
 **Mercury is in regression.**
 
@@ -143,7 +143,7 @@ publicly verified.
 | The Daily archive | Daily issue snapshot, full Daily story reader and dated archive already exist | Map the accepted expanded presentation into one successor issue without creating a competing August 3 record; render and admit the exact result |
 | The Weekly | `weekly` publication exists; exact unchanged-prose presentation independently passes; shared reader is built; exact source compiles without prose loss into one inaccessible held candidate record | Run observed human, then complete source/semantic/owner admission |
 | The Big Question | `tribune` machine key and public Big Question paper/reader already exist; exact unchanged-prose presentation independently passes; accepted reader contract is built; exact source compiles without prose loss into one inaccessible held candidate record | Run observed human, then complete source/semantic/owner admission using only the public Big Question name |
-| Paige, Promptoscope, Career/Work-Life | All three governed Daily desk types already exist; the exact 39-word Promptoscope successor independently passes the existing compact desk at desktop/390/320 | Promptoscope needs one observed-reader check and dated Daily integration; Paige and Career need separately reviewed compact decks plus truthful full destinations |
+| Paige, Promptoscope, Career/Work-Life | All three governed Daily desk types exist, but the stacked comparison failed Ali review and exposed unclear job separation | Show Promptoscope alone for an Ali content verdict. Suppress the rejected Paige follow-up and Career delegation controls. Any Paige/Career successor must establish its distinct job without relying on the eyebrow, then pass a fresh compact review and truthful destination check. |
 | Dear Miss Jeeves | The governed Daily desk type and editorial bank exist | The Daily can show a compact desk item, but no current public full-answer destination exists for the accepted 528-word column; build and admit that bounded reading destination before adding a `Go deeper` link |
 | STRAiGHT TALK | The name, living-reference job, source method and exact accepted prose exist | No current public STRAiGHT TALK LIBRAiRY surface or index route exists; build and admit that bounded reference destination before this article can publish |
 

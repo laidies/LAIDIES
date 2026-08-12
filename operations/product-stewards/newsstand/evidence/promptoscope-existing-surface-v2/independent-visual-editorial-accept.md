@@ -1,5 +1,13 @@
 # Independent visual and editorial review — Promptoscope existing Daily surface v2
 
+> **Superseded for Ali review, 2026-08-12:** Ali rejected the stacked
+> control/candidate presentation as confusing and separately rejected the
+> unchanged Paige and Career controls. This receipt retains only its narrow
+> geometry/overflow observation. It does not prove the review artifact is
+> understandable, the three service-column jobs are distinct, or Promptoscope
+> has an Ali content verdict. Governing correction:
+> `../promptoscope-review-presentation-ali-rejection-2026-08-12.md`.
+
 **Reviewed:** 2026-08-12 America/Vancouver
 
 **Reviewer runtime:** Claude Code 2.1.225, `claude-sonnet-5`, high effort
