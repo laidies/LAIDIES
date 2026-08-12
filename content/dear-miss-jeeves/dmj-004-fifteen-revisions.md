@@ -25,5 +25,3 @@ More instructions do not automatically create more control. A rule file can help
 Sometimes the limit belongs to the product or workflow: the available context, missing attachments, unavailable tools, permissions, an outage or a model change. Some requirements also need deterministic code or a validator, not another beautifully worded plea. If the same stable test keeps failing, stop revising the prompt. Change the workflow, split the task, try an appropriate tool or take over the consequential step yourself.
 
 Please stop pinning another Post-it to the same overstuffed Trapper Keeper and calling it quality control. Preserve the truth, test the candidate and make revision sixteen earn the keys.
-
-**Continue with:** Promptoscope — *Mercury is in regression* — for the compact version of the same repeatable testing habit.
