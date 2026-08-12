@@ -8,7 +8,7 @@
 
 If you opened ChatGPT this morning, asked for dinner ideas and closed the tab, breathe. This is not a story about every private chat suddenly appearing online.
 
-It matters most to people and teams who build with AI models, use coding assistants or publish raw work logs so somebody else can inspect or replay an AI task. If that is not you, the useful part is still worth knowing: a chat window is not an inventory of everything inside its technical file.
+It matters most to people and teams who build with AI models, use coding assistants or publish raw work logs so somebody else can inspect or replay an AI task. If that is not you, the useful part is still worth knowing: a chat window is not an inventory of everything inside its technical file. The gap between the page you can see and the file being carried is the whole story.
 
 ### The file is bigger than the chat window
 
@@ -29,9 +29,11 @@ In Rewind Era terms, the visible chat is a photocopied page somebody hands you. 
 
 In an August 2026 preprint, Panfilov and colleagues examined 6,708 technical AI-task records that people had published on GitHub and Hugging Face. Across those records, the researchers reconstructed 315,320 hidden reasoning traces.
 
-That giant number makes a dramatic graphic. It is not the number that should make your decision. Most traces did not contain a privacy leak. But 328 of the 6,708 records—4.9%—contained at least one real sensitive item, according to the paper. In genuine user sessions, the recovered material included 62 API keys, 33 passwords, 24 access tokens and 7 private keys.
+That giant number makes a dramatic graphic. It is not the number that should make your decision. Most traces did not contain a privacy leak. But 328 of the 6,708 records—4.9%—contained at least one real sensitive item, according to the paper.
 
-The number to circle is 64. Of the 704 privacy artifacts recovered from real user sessions, 64 did not appear in the visible chat history at all. Someone could remove a password from the conversation she could see and still publish a raw technical file carrying another representation of it.
+This is where the numbers need name labels. The 328 figure counts affected session files. The 704 figure counts separate sensitive items found inside genuine-user sessions, because one file can carry several. Those items included 62 API keys, 33 passwords, 24 access tokens, 7 private keys, plus personal emails, names, postal addresses, IP addresses and other private details.
+
+The number to circle is 64. Of those 704 separate items, 64 did not appear in the visible chat history at all. Someone could remove a password from the conversation she could see and still publish a raw technical file carrying another representation of it. A cleaned photocopy can still travel inside a very unclean Burn Book.
 
 The paper is a preprint, and the scan was not a complete audit of every public AI log. The researchers did not possess the original plain-text reasoning needed to prove every reconstructed word was exact. Some personal information in the paper’s larger totals also came from synthetic benchmark characters, not real people. Those limits matter because precision is not optional. They narrow the finding; they do not erase the real credentials found in genuine user records.
 
@@ -39,25 +41,25 @@ The paper is a preprint, and the scan was not a complete audit of every public A
 
 The researchers disclosed their methods to the affected model providers, and separately to Microsoft and Hugging Face. They report that all model providers acknowledged the report and that afterward they could no longer make the same attacks work.
 
-This is the part headlines tend to flatten. “The attack worked” is no longer current. “The problem disappeared” is too broad. A patch answers “can this exact route still be used?” It does not answer “was sharing the whole raw file a good idea?” The specific door closed; the release lesson survives it.
+This is the part headlines tend to flatten. By publication time, the exact attacks in the paper were no longer working. That closes the demonstrated route. It does not turn a raw technical file into a sensible thing to publish. The providers fixed the door; the release lesson survives it.
 
 ### Where this becomes your problem
 
-At work, a coding assistant may briefly read a deployment key while diagnosing why a website failed, then show a clean final answer. A raw log can still carry the invisible key. Your colleagues need the approved question, result and evidence—not every byte the tool carried around while producing them.
+At work, a coding assistant may briefly read a deployment key while diagnosing why a website failed, then show a clean final answer. A raw log can still carry the invisible key. Your colleagues need the approved question, result and evidence—not every byte the tool carried around while producing them. Handing over the whole session because somebody asked for the result is the digital equivalent of delivering the filing cabinet with the memo.
 
-The same mechanism follows you home. A home-made travel assistant connected to email and a booking account may produce a perfectly shareable itinerary while its raw export carries account details or the sealed carry-over data described above.
+The same mechanism follows you home. A home-made travel assistant connected to email and a booking account may produce a perfectly shareable itinerary while its raw export carries account details or the sealed carry-over data described above. The itinerary belongs in the group chat. The assistant’s backstage file does not.
 
 ### Before you hit Share
 
 For an ordinary chat user, the rule is familiar: do not put secrets into an AI tool unless the product and your organization permit it. This paper did not show that simply using a private consumer chat publishes it.
 
-When you want to share an AI result, copy the finished result you actually mean to share, check it and remove private details. There is no gold star for uploading the messiest possible proof of work.
+When you want to share an AI result, copy the finished result you actually mean to share, check it and remove private details. Share the memo, not the filing cabinet. Proof of work is not improved by including everything the tool touched.
 
 If your team publishes developer or agent logs, build a fresh release file from an approved list of fields. Strip those hidden session fields rather than trying to edit what you cannot inspect. If a raw log that touched secrets is already public, remove access and rotate the credentials; deleting the file later cannot prove nobody copied it while it was available.
 
-And one tempting shortcut does not work: asking the AI to “show your work” is not a security scan. Providers may offer a readable summary, but that is not the complete hidden state, and no ordinary prompt proves the raw file contains nothing else.
+One tempting shortcut fails: asking the AI to “show your work” is not a security scan. Providers may offer a readable summary, but that is not the complete hidden state, and no ordinary prompt proves the raw file contains nothing else. The model cannot give you a reliable inventory of a sealed field you cannot inspect.
 
-The useful lesson is not “the seal failed, so everything is exposed.” It is more precise: a sealed package is only safe when the system also checks who may use it, where it may travel and when it expires.
+A sealed package is only safe when the system also checks who may use it, where it may travel and when it expires. The tested systems did not enforce those boundaries tightly enough. The reported patches stopped the demonstrated attacks; careful release files keep the same mistake from becoming your problem by another route.
 
 Before you share, ask one question: **am I sending the result I chose, or the entire technical session that made it?** If it is the whole session, stop. Share the checked result instead; if your team publishes logs, build a clean release file.
 

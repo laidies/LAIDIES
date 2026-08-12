@@ -1,23 +1,23 @@
 # The Daily — AI work logs article maker inspection
 
-**Observed:** 2026-08-12 14:00 America/Vancouver
+**Observed:** 2026-08-12 14:51 America/Vancouver
 
-**Status:** VERIFIED LOCALLY — INDEPENDENT SEMANTIC + VISUAL + HUMAN OBSERVATION REQUIRED
+**Status:** VERIFIED LOCALLY — INDEPENDENT SEMANTIC + VISUAL PASS; HUMAN OBSERVATION REQUIRED
 
 ## Exact candidate
 
-- exact prose: `operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md` — SHA-256 `89062033d142fbeb708b140da57eed588e9254be721916ff502b3041671b1fb9`
-- held story record: `operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json` — SHA-256 `98855856153196dfc6a2ddf519fede1695dc356c766075527b67e07c12de3536`
-- exact saved reader DOM: `operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/article-render.html` — SHA-256 `f46b12549e9b9ccd729b38268b2862ad5c34dc31826b97d4aa6191b5b9ce13d1`
-- artifact manifest: `operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-manifest.json` — SHA-256 `32d113d6286e6a8d7ce7c9e13a1643e75f6c26eff60d2365298b14c96bfb5cb3`
+- exact prose: `operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md` — SHA-256 `c213f5a4bcb69d94755b215bfa2a9ded72a9a190c804d3b700247b09c67064d3`
+- held story record: `operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json` — SHA-256 `59481df83c60405da7c225f2818797db92f60510f2694fdf59c1165e570e13e9`
+- exact saved reader DOM: `operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/article-render.html` — SHA-256 `713379e65fcd2f6af484c67f6c5f9ce2775809fe3d8c7ecaa1cd482dafeb7501`
+- artifact manifest: `operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-manifest.json` — SHA-256 `92d66634b99828c585150b0216d5e0a534d03f3db9404705df0ff72bc05e61c0`
 
 ## Exact pixels inspected
 
 | Viewport | Evidence | SHA-256 | Maker observation |
 |---|---|---|---|
-| 1440 × 1000 | `daily-work-logs-candidate-1440.png` | `1d3aeb47b8e00f17207d3351d28a378bd47ced364650137b9b2acf8e076eda2a` | Newspaper identity, date, headline, deck and jump box form a clear hierarchy. The first render's headline dominated the page; the Daily-specific size repair reduced it without altering other publication types. |
-| 390 × 844 | `daily-work-logs-candidate-390.png` | `08d4708eaa3bbb7c77bf1be52cbfea71732eded9f44105ab817e343e32b8db70` | No horizontal overflow. Headline occupies less than 48% of the viewport and remains readable as a headline rather than a full-screen poster. |
-| 320 × 760 | `daily-work-logs-candidate-320.png` | `6d216fcc98cd3a395c43e602ec0bb2e167b9bcbb893f1d08e628ff896602cb48` | No horizontal overflow. The narrowest supported view preserves words, order, date and newspaper hierarchy without clipping. |
+| 1440 × 1000 | `daily-work-logs-candidate-1440.png` | `0eb032e465b733a16ba00f37fbab9f5647fe6fa5689d7d011471a2d19e34bfa4` | Newspaper identity, date, headline, deck and jump box form a clear hierarchy. The repaired statistics did not create a visible hierarchy or overflow regression. |
+| 390 × 844 | `daily-work-logs-candidate-390.png` | `6561fce7df780c25e99482a69bb5f95385f619c211064eef2ac3b84a98d93263` | No horizontal overflow. The full headline remains readable above the deck, with the paper identity and date visible before it. |
+| 320 × 760 | `daily-work-logs-candidate-320.png` | `7a9f9f8373467ba269b5d8ffc664b52a9a92d1f266c6cc508474c384932dfe79` | No horizontal overflow. The narrowest supported view preserves every word, date and newspaper level; the five-line story headline is dense but remains legible and does not crowd out the deck's entry point. |
 
 ## Objective checks
 
@@ -31,4 +31,4 @@ The headline guard was calibrated by the first exact render: that known-bad vers
 
 ## Boundary
 
-This is maker inspection, not role-distinct semantic review, unfamiliar-human explain-back, visual admission, canonical issue admission, deployment or public verification. The candidate remains held. No public state changed.
+The exact prose has passed one role-distinct semantic judgment, recorded in `independent-semantic-judgment-v2-pass.json`; that judgment does not supply visual or human-observation authority. This is maker visual inspection, not independent visual admission, unfamiliar-human explain-back, canonical issue admission, deployment or public verification. The candidate remains held. No public state changed.

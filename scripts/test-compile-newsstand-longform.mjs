@@ -86,7 +86,7 @@ assert.equal(dailyCandidate.story.edition, "daily");
 assert.equal(dailyCandidate.story.status, "hold");
 assert.equal(dailyCandidate.story.publishedAt, null);
 assert.equal(dailyCompiled.sections.length, 8);
-assert.equal(dailyCompiled.sections.flatMap((section) => section.blocks).length, 26);
+assert.equal(dailyCompiled.sections.flatMap((section) => section.blocks).length, 27);
 assert.deepEqual(dailyCompiled.jumpSectionIds, [
   "the-file-is-bigger-than-the-chat-window", "the-number-to-circle-is-64",
   "patched-does-not-mean-nothing-to-learn-here", "where-this-becomes-your-problem",
@@ -142,8 +142,32 @@ try {
   const wrongIdentity = compile(wrongIdentityPath);
   assert.notEqual(wrongIdentity.status, 0, "calibration: a source identity mismatch must fail");
   assert.match(wrongIdentity.stderr, /Source identity mismatch/);
+
+  const dailySourcePath = path.resolve(path.dirname(dailyConfigPath), dailyConfig.sourcePath);
+  const missingDailyBlockSource = fs.readFileSync(dailySourcePath, "utf8").replace(
+    /\nThis is where the numbers need name labels\.[^\n]+\n/,
+    "\n"
+  );
+  const missingDailyBlockSourcePath = path.join(temp, "daily-missing-statistical-unit-bridge.md");
+  fs.writeFileSync(missingDailyBlockSourcePath, missingDailyBlockSource);
+  const missingDailyBlockConfig = {
+    ...dailyConfig,
+    sourcePath: missingDailyBlockSourcePath,
+    storyTemplatePath: path.resolve(path.dirname(dailyConfigPath), dailyConfig.storyTemplatePath),
+    outputPath: path.join(temp, "daily-missing-statistical-unit-bridge.json")
+  };
+  const missingDailyBlockConfigPath = path.join(temp, "daily-missing-statistical-unit-bridge-config.json");
+  fs.writeFileSync(missingDailyBlockConfigPath, JSON.stringify(missingDailyBlockConfig));
+  const missingDailyBlockResult = compile(missingDailyBlockConfigPath);
+  assert.equal(missingDailyBlockResult.status, 0, missingDailyBlockResult.stderr);
+  const missingDailyBlock = JSON.parse(fs.readFileSync(missingDailyBlockConfig.outputPath, "utf8"));
+  assert.notEqual(
+    missingDailyBlock.story.longform.sections.flatMap((section) => section.blocks).length,
+    27,
+    "calibration: deleting the statistical-unit bridge must trip the exact block-count guard"
+  );
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }
 
-console.log("✓ NEWSSTAND LONGFORM COMPILER: exact prose order preserved · Big Question + Weekly + Daily held records · 2 negative calibrations");
+console.log("✓ NEWSSTAND LONGFORM COMPILER: exact prose order preserved · Big Question + Weekly + Daily held records · 3 negative calibrations");

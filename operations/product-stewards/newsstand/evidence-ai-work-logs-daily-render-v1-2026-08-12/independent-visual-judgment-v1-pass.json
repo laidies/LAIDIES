@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "laidies-independent-visual-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "sonnet",
+  "images": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/daily-work-logs-candidate-1440.png",
+      "sha256": "0eb032e465b733a16ba00f37fbab9f5647fe6fa5689d7d011471a2d19e34bfa4"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/daily-work-logs-candidate-390.png",
+      "sha256": "6561fce7df780c25e99482a69bb5f95385f619c211064eef2ac3b84a98d93263"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/daily-work-logs-candidate-320.png",
+      "sha256": "7a9f9f8373467ba269b5d8ffc664b52a9a92d1f266c6cc508474c384932dfe79"
+    }
+  ],
+  "excludedContext": [
+    "implementation",
+    "maker receipts",
+    "tests",
+    "prose source",
+    "prior judgments",
+    "repository instructions"
+  ],
+  "promptSha256": "447d2daa337eefbcb34df2d800ecddb5bbdb3131709cdac1b9711a030da83db2",
+  "judgedAt": "2026-08-12T21:51:49.326Z",
+  "judgment": {
+    "verdict": "PASS",
+    "summary": "All three exact renders show a lively LAiDIES-branded newspaper reader with a clear masthead, date, headline and deck sequence. The full headline wraps without horizontal overflow or clipping at 1440, 390 and 320 pixels, and the page remains a scrollable article rather than a full-screen poster.",
+    "imageInspections": [
+      {
+        "path": "daily-work-logs-candidate-1440.png",
+        "observedText": "AI WORK LOGS CAN CARRY SECRETS YOU CANNOT SEE. HERE’S WHAT TO SHARE INSTEAD",
+        "hierarchy": "LAiDIES masthead, rack eyebrow and action, newspaper masthead and date, article date, headline, deck, then Jump to.",
+        "legibility": "Crisp high-contrast navy-on-cream text.",
+        "overflowOrClipping": "None visible."
+      },
+      {
+        "path": "daily-work-logs-candidate-390.png",
+        "observedText": "AI WORK LOGS CAN CARRY SECRETS YOU CANNOT SEE. WHAT TO SHARE INSTEAD",
+        "hierarchy": "Compact masthead, rack eyebrow and action, newspaper masthead/date, article date, headline and italic deck.",
+        "legibility": "Readable mobile type without squashing.",
+        "overflowOrClipping": "None visible."
+      },
+      {
+        "path": "daily-work-logs-candidate-320.png",
+        "observedText": "AI WORK LOGS CAN CARRY SECRETS YOU CANNOT SEE. WHAT TO SHARE INSTEAD",
+        "hierarchy": "The 390-pixel hierarchy remains intact at the narrowest supported width.",
+        "legibility": "The headline is tightly wrapped but readable; the deck remains immediately below it.",
+        "overflowOrClipping": "None visible."
+      }
+    ],
+    "visibleRegressions": [],
+    "requirementFindings": [
+      {
+        "requirement": "Lively newspaper inside the LAiDIES world",
+        "verdict": "PASS",
+        "evidence": "Gradient LAiDIES masthead, tinted page, bordered paper, newspaper labels and the Put the paper back action appear at all widths."
+      },
+      {
+        "requirement": "Obvious masthead, date, headline and deck order",
+        "verdict": "PASS",
+        "evidence": "The same top-to-bottom reading order is visible in all three images."
+      },
+      {
+        "requirement": "Headline legibility without clipping or horizontal overflow",
+        "verdict": "PASS",
+        "evidence": "The judge read the headline from every exact image and found no clipped characters or side-scroll."
+      },
+      {
+        "requirement": "Article rather than full-screen poster",
+        "verdict": "PASS",
+        "evidence": "The deck and continuation content remain in a normal scrollable article flow."
+      },
+      {
+        "requirement": "Colour, borders and typography preserve legibility",
+        "verdict": "PASS",
+        "evidence": "High-contrast navy text on cream and pink surfaces remains clear at all widths."
+      }
+    ]
+  },
+  "authorityBoundary": "Role-distinct visual judgment only. It does not supply unfamiliar-human explain-back, editorial approval, canonical issue admission, deployment or public verification."
+}

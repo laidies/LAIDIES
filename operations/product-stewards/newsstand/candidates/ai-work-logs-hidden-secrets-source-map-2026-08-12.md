@@ -51,7 +51,7 @@ The researchers found that opaque reasoning data returned by certain model APIs 
 
 ### LOG-C03 — genuine-user secrets and visible-chat mismatch
 
-**Claim:** In genuine, non-benchmark user sessions, the recovered set included 62 API keys, 33 passwords, 24 access tokens and 7 private keys. Sixty-four of 704 recovered privacy artifacts were absent from the visible chat history.
+**Claim:** In genuine, non-benchmark user sessions, the recovered set included 62 API keys, 33 passwords, 24 access tokens and 7 private keys. The paper separately counts 328 affected session files and 704 distinct sensitive artifacts inside genuine-user sessions; one session can contain multiple artifacts. Sixty-four of those 704 artifacts were absent from the visible chat history.
 
 **Evidence:** Primary paper section 4.1, pages 8–9.
 **Classification:** verified as author-reported aggregate.
