@@ -465,7 +465,7 @@ if (prohibitedSourceReferences.length || missing.length) process.exit(1);
 for (const relative of dependencyOrder) copyFile(relative);
 
 const report = {
-  generatedAt: new Date().toISOString(),
+  reproducible: true,
   source: 'local working tree',
   files: copied.size,
   bytes: totalBytes,
