@@ -14431,3 +14431,27 @@ while remaining falsely unfinished in the launch record.
 - **Forward test:** NewsStand passes 217 rendered browser checks including historical-clock isolation, current three-week archive search, immutable-source tamper and snapshot-tamper opposites. The complete curated artifact builds 557 files / 415.37 MiB.
 - **Possible Behind the Build angle:** Why one innocent new article used to make yesterday’s newspaper disappear.
 - **Publication status:** VERIFIED LOCAL SYSTEM AND CONTENT BUILD / NOT DEPLOYED / NOT PUBLICLY VERIFIED.
+
+## BTB-458 — A correct Pages deployment can still serve the previous NewsStand runtime
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand release, Cloudflare Pages and public verification.
+- **Failure:** The immutable Cloudflare deployment matched the new artifact, but
+  `laidies.ai` continued serving the previous `newsstand-stories.js` and Catch
+  Me Up runtime because the HTML reused their old versioned URLs. A deployment
+  receipt alone would have called the release complete while visitors still
+  received the old archive and masthead behavior.
+- **Root cause:** Asset identity changed without changing the public cache key,
+  and verification initially checked deployment identity rather than each
+  changed file at the custom domain.
+- **Prevention rule:** Every changed long-lived NewsStand runtime or dataset gets
+  a release-specific query version in `newsstand.html`. The release gate checks
+  those bindings, then verifies both the immutable deployment and the custom
+  domain's exact changed-file hashes before `VERIFIED PUBLICLY`.
+- **Durable correction:** The story dataset and Catch Me Up URLs use the
+  `20260812-backfill-v1` cache key; the reader contract test is calibrated to
+  reject reuse of the previous keys.
+- **Possible Behind the Build angle:** Why “the deploy succeeded” can still mean
+  readers are seeing yesterday's JavaScript.
+- **Publication status:** RELEASE REPAIR IN PROGRESS; exact successor public
+  verification required.
