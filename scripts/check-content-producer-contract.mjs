@@ -84,6 +84,30 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       require(text(example?.[field]), `compactExample.${field} is required`);
     }
     require(text(example?.substantialTransferDisposition), "compactExample.substantialTransferDisposition is required");
+    const consistency = contract?.candidateConsistency;
+    require(array(consistency?.currentDomainTerms, 3), "candidateConsistency.currentDomainTerms requires at least three current-candidate terms");
+    if (contract?.predecessorSearch?.outcome === "SUCCESSOR") {
+      require(array(consistency?.retiredPredecessorTerms), "NEWS compact successor requires candidateConsistency.retiredPredecessorTerms");
+    }
+    const currentSections = [
+      example,
+      contract?.readerContract,
+      contract?.knownFailurePreflight?.dispositions,
+      contract?.draftArchitecture,
+      contract?.communicationDesign,
+      contract?.explanationReasoningDesign,
+      contract?.representativeProofPlan
+    ].map(section => JSON.stringify(section || {}).toLowerCase());
+    for (const term of (consistency?.currentDomainTerms || [])) {
+      require(text(term), "candidateConsistency.currentDomainTerms cannot contain blank terms");
+      const sectionCount = currentSections.filter(section => section.includes((term || "").trim().toLowerCase())).length;
+      require(sectionCount >= 3, `current candidate term ${JSON.stringify(term)} must appear across at least three production-plan sections`);
+    }
+    for (const term of (consistency?.retiredPredecessorTerms || [])) {
+      require(text(term), "candidateConsistency.retiredPredecessorTerms cannot contain blank terms");
+      const found = currentSections.some(section => section.includes((term || "").trim().toLowerCase()));
+      require(!found, `retired predecessor term ${JSON.stringify(term)} leaked into the current production plan`);
+    }
   }
   if (requiresPairedExamples) {
     const pair = contract?.examplePair;

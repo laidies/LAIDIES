@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-07-31T15:40:35.634Z",
-  "status": "PASS_WITH_BLOCKERS",
+  "generatedAt": "2026-08-12T15:16:00.213Z",
+  "status": "FAIL",
   "inventory": {
     "learningRecords": 22,
-    "highClasses": 37,
-    "siteIndexEntries": 25,
-    "claimRecords": 4,
+    "highClasses": 38,
+    "siteIndexEntries": 26,
+    "claimRecords": 7,
     "representativeNodes": 12,
     "relationships": 9,
     "renderedRelationships": 3,
@@ -23,12 +23,14 @@
       "resolution": {
         "id": "LCR-001",
         "blockerId": "BLK-LIBRARY-HOLD",
-        "status": "READY_TO_EXECUTE",
+        "status": "IN_PROGRESS",
         "owner": "library",
         "priority": "P0",
         "openedAt": "2026-07-31",
         "nextReviewAt": "2026-08-07",
         "nextAction": "Run content-quality admission on Vocab 101, Concepts 101 and Briefing 101, preserving separate lookup, depth and procedure jobs.",
+        "requiresAli": false,
+        "aliDecisionId": null,
         "closureChecks": [
           "Each destination has a current admitted status",
           "Search metadata uses the canonical content ID",
@@ -41,9 +43,9 @@
     {
       "id": "BLK-RULEBOOK-PLACEHOLDER",
       "severity": "RELEASE_BLOCKING",
-      "description": "Episode 03 links to a Verification Rulebook destination that the learning inventory rejects as incomplete placeholder content.",
+      "description": "The Verification Rulebook is complete and locally verified, but remains correctly held until volatile claims and the correction-intake, native-accessibility, newcomer, owner and release gates pass.",
       "owner": "library",
-      "nextAction": "Build and admit the complete Verification Rulebook or remove the public promise and provide an honest available alternative.",
+      "nextAction": "Refresh the current-provider claims, close the named admission gates and admit only the exact independently accepted book.",
       "resolutionTaskId": "LCR-002",
       "resolution": {
         "id": "LCR-002",
@@ -53,7 +55,9 @@
         "priority": "P0",
         "openedAt": "2026-07-31",
         "nextReviewAt": "2026-08-07",
-        "nextAction": "Build the complete Verification Rulebook from the Episode 03 method, source it, review transfer usefulness and replace the placeholder state.",
+        "nextAction": "Preserve the complete locally verified Verification Rulebook; refresh its volatile provider claims and close correction-intake, native-accessibility, newcomer, owner and release gates before admission.",
+        "requiresAli": false,
+        "aliDecisionId": null,
         "closureChecks": [
           "Complete source and rendered book exist",
           "Accuracy and anti-slop review pass",
@@ -73,12 +77,14 @@
       "resolution": {
         "id": "LCR-003",
         "blockerId": "BLK-CLASS-NOT-ADMITTED",
-        "status": "IN_PROGRESS",
+        "status": "READY_TO_EXECUTE",
         "owner": "sunnyvaile-high",
         "priority": "P0",
         "openedAt": "2026-07-31",
-        "nextReviewAt": "2026-08-03",
-        "nextAction": "Advance What You're Looking At through exact source, script, class-template, accessibility, transfer and catalogue admission checks; keep media/public claims held.",
+        "nextReviewAt": "2026-08-04",
+        "nextAction": "Preserve the existing implementation and timing evidence, but replace the rejected generic teaching design with a specific six-lesson story spine, worked examples, guided practice and cumulative assessment; require independent teaching review before any narration or Ali gate.",
+        "requiresAli": false,
+        "aliDecisionId": null,
         "closureChecks": [
           "Class admission manifest passes",
           "Official-source recheck is current",
@@ -105,6 +111,8 @@
         "openedAt": "2026-07-31",
         "nextReviewAt": "2026-08-07",
         "nextAction": "Run the verification-game learning, safety, accessibility and public-experience gates without turning the game into a fact-checking promise.",
+        "requiresAli": false,
+        "aliDecisionId": null,
         "closureChecks": [
           "Preview disposition is explicit",
           "Practice outcome and limits are tested",
@@ -117,9 +125,9 @@
     {
       "id": "BLK-DAILY-NOT-PUBLIC",
       "severity": "RELEASE_BLOCKING",
-      "description": "Daily learning derivatives are governed local records and are not a publicly verified Daily Buzz feed.",
+      "description": "Exact Paige and Promptoscope producer candidates exist, but neither has independent semantic admission, rendered Daily placement, deployment or public verification.",
       "owner": "newsstand-daily",
-      "nextAction": "Admit an exact derivative record and verify its rendered Daily Buzz placement before discovery claims change.",
+      "nextAction": "Review the two exact candidates separately, render only admitted prose, then complete owner, release and public verification before discovery claims change.",
       "resolutionTaskId": "LCR-005",
       "resolution": {
         "id": "LCR-005",
@@ -128,8 +136,10 @@
         "owner": "newsstand-daily",
         "priority": "P1",
         "openedAt": "2026-07-31",
-        "nextReviewAt": "2026-08-07",
-        "nextAction": "Bind one eligible Paige tip to a current canonical claim, admit it, render it in Daily Buzz and verify the exact public release identity.",
+        "nextReviewAt": "2026-08-13",
+        "nextAction": "Run separate role-distinct semantic admission on exact Paige candidate DLD-2026-08-12-PAIGE-DIVA-INSTRUCTION and Promptoscope candidate DLD-2026-08-12-PROMPTOSCOPE-CUPBOARD-FAN-FICTION. Render only exact admitted prose in Daily Buzz, then complete same-surface review, owner admission, deployment and exact public verification.",
+        "requiresAli": false,
+        "aliDecisionId": null,
         "closureChecks": [
           "Derivative source and limits are current",
           "Daily wording is useful and LAiDIES-specific",
@@ -155,6 +165,8 @@
         "openedAt": "2026-07-31",
         "nextReviewAt": "2026-08-07",
         "nextAction": "Inventory remaining tools, games, quizzes and Study Packs with canonical IDs, status, concept role, overlap and next-experience decisions.",
+        "requiresAli": false,
+        "aliDecisionId": null,
         "closureChecks": [
           "Every substantial learning item has one canonical node",
           "Orphans and duplicates are dispositioned",
@@ -163,35 +175,15 @@
         ],
         "escalateTo": "control-room"
       }
-    },
-    {
-      "id": "BLK-EP04-INDEX-CONTRADICTION",
-      "severity": "RELEASE_BLOCKING",
-      "description": "The search index describes Episode 04 as a types-of-AI lesson even though its released title and governed inventory identify the women-in-AI history episode.",
-      "owner": "miss-jeeves",
-      "nextAction": "Correct the Episode 04 search summary, topics and aliases from released canon, then prove the history queries resolve without breaking existing routes.",
-      "resolutionTaskId": "LCR-007",
-      "resolution": {
-        "id": "LCR-007",
-        "blockerId": "BLK-EP04-INDEX-CONTRADICTION",
-        "status": "READY_TO_EXECUTE",
-        "owner": "miss-jeeves",
-        "priority": "P0",
-        "openedAt": "2026-07-31",
-        "nextReviewAt": "2026-08-03",
-        "nextAction": "Replace Episode 04's incorrect types-of-AI search metadata with its released women-in-AI history scope and run exact discovery queries.",
-        "closureChecks": [
-          "Search summary matches released Episode 04",
-          "Women and AI history queries resolve to Episode 04",
-          "Types-of-AI queries no longer misroute to Episode 04",
-          "Direct route and canonical metadata remain unchanged"
-        ],
-        "escalateTo": "control-room"
-      }
     }
   ],
-  "warnings": [
-    "CONFLICT-EP04-SEARCH-METADATA remains open under BLK-EP04-INDEX-CONTRADICTION"
-  ],
-  "errors": []
+  "warnings": [],
+  "errors": [
+    "LCR-001 is overdue and must be escalated",
+    "LCR-002 is overdue and must be escalated",
+    "LCR-003 is overdue and must be escalated",
+    "LCR-004 is overdue and must be escalated",
+    "LCR-006 is overdue and must be escalated",
+    "LCR-007 references unknown blocker BLK-EP04-INDEX-CONTRADICTION"
+  ]
 }

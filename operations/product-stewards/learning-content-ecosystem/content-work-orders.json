@@ -1843,8 +1843,8 @@
       "ownerProductId": "newsstand-daily",
       "publicationFormatIds": ["paige_ai_tip", "career_work_life_tip", "promptoscope"],
       "formatRouting": [
-        {"publicationFormatId":"paige_ai_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one bounded useful AI action.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
-        {"publicationFormatId":"career_work_life_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one workplace lesson with an accurate bounded AI mirror.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
+        {"publicationFormatId":"paige_ai_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one bounded useful AI-at-work action with an observable work result.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
+        {"publicationFormatId":"career_work_life_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide recognizable career guidance first, with an accurate bounded AI connection only when useful.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
         {"publicationFormatId":"promptoscope","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one funny, practical AI-use lesson for ordinary life outside work.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]}
       ],
       "targetPaths": [
@@ -1855,8 +1855,8 @@
       "status": "BLOCKED_BUILD_REMAINS_REQUIRED",
       "dispatchState": "NOT_READY",
       "priority": "P0",
-      "nextAction": "Present only DLD-2026-08-12-PROMPTOSCOPE-CUPBOARD-FAN-FICTION to Ali for the bounded product decision: does this funny outside-work AI forecast earn a slot distinct from Paige's AI-at-work tip and Mme CLAi-O? If yes, obtain role-distinct semantic admission and render only this exact candidate. If no, retire Promptoscope rather than produce another cosmetic revision.",
-      "nextTrigger": "Ali reclassified the useful diva meeting example as Paige source material because it still read like a funnier Paige tip. The router now rejects non-work Paige items and workplace Promptoscope items. The exact cupboard successor passed producer contract and producer self-review integrity, remains HOLD/INELIGIBLE and now needs Ali's format-value decision; no independent admission, render or publication is claimed.",
+      "nextAction": "Obtain role-distinct semantic admission separately for DLD-2026-08-12-PROMPTOSCOPE-CUPBOARD-FAN-FICTION and DLD-2026-08-12-PAIGE-DIVA-INSTRUCTION. Do not present them as one comparison sheet. If each passes, render only its exact admitted prose in the current Daily surface and run independent same-surface format review before owner or release consideration.",
+      "nextTrigger": "Ali chose to keep going after reviewing the outside-work Promptoscope proof. The exact cupboard Promptoscope and reclassified diva Paige candidates now each have a current producer contract, exact prose, manifest and producer self-review integrity pass. Both remain HOLD/INELIGIBLE pending role-distinct semantic admission; no render, publication or deploy is claimed.",
       "acceptanceEvidence": [
         "Schema and populated representative records",
         "Source/canon/freshness validation",
@@ -1983,11 +1983,19 @@
       "artifactBinding": {
         "status": "BOUND",
         "manifestPath": "operations/product-stewards/newsstand/candidates/promptoscope-diva-instruction-2026-08-12-manifest.json",
-        "sha256": "c352802fd36bde95a9802ef8b9624d28b03747f0948f603f6dfd4dfa4acf91d6"
+        "sha256": "7936f6d84c3e2823f7811527c86f78860341fdb8dc2578e595cebab3b2d840ec"
       },
       "producerContractPath": "operations/product-stewards/newsstand/candidates/promptoscope-diva-instruction-2026-08-12-producer-contract.json",
       "producerReviewPath": "operations/product-stewards/newsstand/candidates/promptoscope-diva-instruction-2026-08-12-producer-self-review.json",
       "semanticAdmissionPath": null,
+      "relatedArtifactBindings": [
+        {
+          "candidateId": "DLD-2026-08-12-PAIGE-DIVA-INSTRUCTION",
+          "manifestPath": "operations/product-stewards/newsstand/candidates/paige-diva-instruction-2026-08-12-manifest.json",
+          "sha256": "038216b88c3c1acae2f35fb1a5364225f64b5dd00b9b437f560d363a75749bd9",
+          "semanticAdmissionPath": null
+        }
+      ],
       "evidencePaths": [
         "operations/product-stewards/newsstand/DAILY-NEWSPAPER-EXPERIENCE-BRIEF.md",
         "content/daily-learning-derivatives.schema.json",
@@ -2008,7 +2016,11 @@
         "operations/product-stewards/newsstand/candidates/promptoscope-cupboard-fan-fiction-2026-08-12-exact-prose.md",
         "operations/product-stewards/newsstand/candidates/promptoscope-diva-instruction-2026-08-12-manifest.json",
         "operations/product-stewards/newsstand/candidates/promptoscope-diva-instruction-2026-08-12-producer-self-review.json",
-        "operations/product-stewards/newsstand/evidence/promptoscope-diva-format-reclassification-2026-08-12.md"
+        "operations/product-stewards/newsstand/evidence/promptoscope-diva-format-reclassification-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/paige-diva-instruction-2026-08-12-exact-prose.md",
+        "operations/product-stewards/newsstand/candidates/paige-diva-instruction-2026-08-12-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/paige-diva-instruction-2026-08-12-manifest.json",
+        "operations/product-stewards/newsstand/candidates/paige-diva-instruction-2026-08-12-producer-self-review.json"
       ],
       "publicRelease": {
         "status": "NOT_AUTHORIZED",

@@ -164,11 +164,15 @@ now rejects overlap by domain: Paige owns practical AI at work with an
 observable work result; Promptoscope owns funny, practical AI use in ordinary
 life outside work. Career remains career guidance first and Mme CLAi-O remains
 the non-predictive reflective reading. Exact successor
-`DLD-2026-08-12-PROMPTOSCOPE-CUPBOARD-FAN-FICTION` is `HOLD / INELIGIBLE`; its
-producer contract and self-review integrity match, but it has no independent
-semantic admission, render, deployment or public authority. Ali's one bounded
-decision is whether this exact outside-work proof earns Promptoscope a distinct
-slot; a no retires the format rather than opening another cosmetic revision.
+`DLD-2026-08-12-PROMPTOSCOPE-CUPBOARD-FAN-FICTION` is `HOLD / INELIGIBLE`; Ali
+chose to keep going after reviewing that exact proof. The meeting/diva prose
+has now been rebuilt as exact Paige successor
+`DLD-2026-08-12-PAIGE-DIVA-INSTRUCTION`, with the same liked headline and case
+but no horoscope framing and a stronger decisions/owners/deadlines repair.
+Both candidates have matching producer contracts, exact prose, manifests and
+producer self-review integrity. Neither has independent semantic admission,
+render, deployment or public authority. The next gate reviews them separately,
+then renders only exact admitted prose in the current Daily surface.
 
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The

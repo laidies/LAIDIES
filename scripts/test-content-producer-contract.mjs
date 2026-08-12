@@ -147,9 +147,21 @@ try {
     nextAction: "Revise the prompt and rerun the same notes.",
     substantialTransferDisposition: "Not required in this compact card; a substantial destination owns transfer."
   };
+  compactCard.candidateConsistency = {
+    currentDomainTerms: ["work", "decision", "check"],
+    retiredPredecessorTerms: []
+  };
   assert.deepEqual(inspect(compactCard), [], "compact service card must use one complete example without a forced pair");
   const incompleteCompactCard = structuredClone(compactCard); delete incompleteCompactCard.compactExample.nextAction;
   assert.match(inspect(incompleteCompactCard).join("\n"), /compactExample.nextAction is required/);
+  const staleCompactCard = structuredClone(compactCard);
+  staleCompactCard.predecessorSearch.outcome = "SUCCESSOR";
+  staleCompactCard.predecessorSearch.matches = [{ artifact: { path: badPath, sha256: hash(bad) }, disposition: "CURRENT_PREDECESSOR" }];
+  staleCompactCard.predecessorSearch.selectedPredecessor = { path: badPath, sha256: hash(bad) };
+  staleCompactCard.predecessorSearch.preserveAndImprove = "Preserve clarity while replacing the old cupboard example.";
+  staleCompactCard.candidateConsistency.retiredPredecessorTerms = ["cupboard"];
+  staleCompactCard.knownFailurePreflight.dispositions.joylessInstruction.preventionEvidence = "The cupboard joke keeps the tip light.";
+  assert.match(inspect(staleCompactCard).join("\n"), /retired predecessor term "cupboard" leaked/);
   const badAnalogy = structuredClone(contract); badAnalogy.draftArchitecture.analogyPlan = [{ concept: "model", analogy: "Cher" }];
   assert.match(inspect(badAnalogy).join("\n"), /analogyPlan\[0\]\.mapping/);
   const remaining = structuredClone(contract); remaining.knownFailurePreflight.knownDefectsRemaining = ["templateRepetition"];
@@ -177,7 +189,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=2 rejected=19 all_negatives=1 stale_registry=1 paired_examples=1 compact_example=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=2 rejected=20 all_negatives=1 stale_registry=1 paired_examples=1 compact_example=1 compact_successor_consistency=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

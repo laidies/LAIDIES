@@ -15079,3 +15079,29 @@ while remaining falsely unfinished in the launch record.
   tone labels cannot.
 - **Publication status:** ONE INTERNAL PROMPTOSCOPE PROOF ON HOLD / NO
   INDEPENDENT ADMISSION, RENDER, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-485 — A successor contract passed while describing discarded prose
+
+- **Date:** 2026-08-12
+- **Area:** Compact content producer contracts / successor consistency.
+- **Failure:** The current cupboard Promptoscope contract bound the right
+  candidate ID and source, but several prevention statements still described
+  the discarded meeting/Mercury version. The structural validator passed
+  because every required field existed; it did not test whether the fields
+  described one coherent current candidate.
+- **Root cause:** Exact hashes protected file identity but the contract had no
+  cross-field successor check. Stale predecessor language could survive inside
+  a formally complete production plan and misdirect later review.
+- **Prevention rule:** Every compact successor names at least three current
+  domain terms and its retired predecessor terms. Current terms must recur
+  across at least three production-plan sections; retired terms must appear in
+  none of them. A calibrated stale-contract fixture must fail.
+- **Durable correction:** The cupboard contract was reconciled throughout.
+  `scripts/check-content-producer-contract.mjs` now rejects stale compact
+  successor leakage; its calibrated test proves that a meeting candidate with
+  a leaked cupboard statement fails. The new Paige successor consumes the
+  same guard in the opposite direction.
+- **Possible Behind the Build angle:** Why a checksum can prove you reviewed
+  the same file while still failing to prove that the file agrees with itself.
+- **Publication status:** TWO INTERNAL PRODUCER CANDIDATES ON HOLD / NO
+  INDEPENDENT ADMISSION, RENDER, DEPLOY OR PUBLIC CHANGE.
