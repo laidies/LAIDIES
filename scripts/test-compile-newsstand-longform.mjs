@@ -73,6 +73,32 @@ const weeklyDecision = contractContext.module.exports.accessDecision(weeklyDatas
 assert.equal(weeklyDecision.canExpose, false, "the Weekly held story must remain inaccessible");
 assert.equal(weeklyDecision.state, "hold");
 
+const dailyConfigPath = path.join(ROOT, "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-longform-compile.json");
+const dailyResult = compile(dailyConfigPath);
+assert.equal(dailyResult.status, 0, dailyResult.stderr);
+const dailyConfig = JSON.parse(fs.readFileSync(dailyConfigPath, "utf8"));
+const dailyCandidatePath = path.resolve(path.dirname(dailyConfigPath), dailyConfig.outputPath);
+assert.equal(dailyResult.stdout.trim(), path.relative(ROOT, dailyCandidatePath));
+const dailyCandidate = JSON.parse(fs.readFileSync(dailyCandidatePath, "utf8"));
+const dailyCompiled = dailyCandidate.story.longform;
+assert.equal(dailyCandidate.candidateStatus, "HELD_NOT_PUBLISHED");
+assert.equal(dailyCandidate.story.edition, "daily");
+assert.equal(dailyCandidate.story.status, "hold");
+assert.equal(dailyCandidate.story.publishedAt, null);
+assert.equal(dailyCompiled.sections.length, 8);
+assert.equal(dailyCompiled.sections.flatMap((section) => section.blocks).length, 26);
+assert.deepEqual(dailyCompiled.jumpSectionIds, [
+  "the-file-is-bigger-than-the-chat-window", "the-number-to-circle-is-64",
+  "patched-does-not-mean-nothing-to-learn-here", "where-this-becomes-your-problem",
+  "before-you-hit-share", "the-cocktail-party-version"
+]);
+const dailyDataset = JSON.parse(JSON.stringify(dataContext.window.NEWSSTAND_DATA));
+dailyDataset.stories.push(dailyCandidate.story);
+assert.equal(contractContext.module.exports.validate(dailyDataset).length, 0, "the Daily held story must pass the production reader contract");
+const dailyDecision = contractContext.module.exports.accessDecision(dailyDataset, dailyCandidate.story, { scope: "hash" }, "2026-08-12T20:08:00Z");
+assert.equal(dailyDecision.canExpose, false, "the Daily held story must remain inaccessible");
+assert.equal(dailyDecision.state, "hold");
+
 const config = JSON.parse(fs.readFileSync(CONFIG, "utf8"));
 const source = fs.readFileSync(path.resolve(path.dirname(CONFIG), config.sourcePath), "utf8");
 const sourceMeaning = plain(source.split(/\r?\n/).slice(3).filter((line) => line.trim() !== "---").map((line) => line
@@ -94,6 +120,13 @@ const weeklyCompiledMeaning = plain(weeklyCompiled.sections.flatMap((section) =>
 })]).join(" "));
 assert.equal(weeklyCompiledMeaning, weeklySourceMeaning, "the Weekly compiler must preserve all source meaning-bearing text in order");
 
+const dailySource = fs.readFileSync(path.resolve(path.dirname(dailyConfigPath), dailyConfig.sourcePath), "utf8");
+const dailySourceMeaning = plain(dailySource.split(/\r?\n/).slice(5).filter((line) => line.trim() !== "---").map((line) => line
+  .replace(/^#{2,3}\s+/, "").replace(/^>\s?/, "").replace(/^[-*]\s+/, "").replace(/^\d+\.\s+/, "")).join(" ")
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[*_]/g, ""));
+const dailyCompiledMeaning = plain(dailyCompiled.sections.flatMap((section) => [section.label === dailyConfig.introSectionLabel ? "" : section.label, ...section.blocks.flatMap((block) => block.items || block.text || block.body)]).join(" "));
+assert.equal(dailyCompiledMeaning, dailySourceMeaning, "the Daily compiler must preserve all source meaning-bearing text in order");
+
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "newsstand-longform-"));
 try {
   const missingJumpConfig = { ...config, sourcePath: path.resolve(path.dirname(CONFIG), config.sourcePath), jumpHeadings: [...config.jumpHeadings, "Invented missing section"] };
@@ -113,4 +146,4 @@ try {
   fs.rmSync(temp, { recursive: true, force: true });
 }
 
-console.log("✓ NEWSSTAND LONGFORM COMPILER: exact prose order preserved · Big Question + Weekly held records · 2 negative calibrations");
+console.log("✓ NEWSSTAND LONGFORM COMPILER: exact prose order preserved · Big Question + Weekly + Daily held records · 2 negative calibrations");

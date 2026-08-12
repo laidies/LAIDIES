@@ -1028,6 +1028,12 @@ main.ns-page {
   line-height: 0.97;
 }
 
+.ns-article[data-article-edition="daily"] .ns-article__head h2 {
+  max-width: 19ch;
+  font-size: clamp(42px, 5.2vw, 72px);
+  line-height: 1;
+}
+
 .ns-article__edition,
 .ns-article__date {
   margin: 0;
@@ -1508,6 +1514,11 @@ main.ns-page {
 
   .ns-article__head h2 {
     font-size: clamp(42px, 13vw, 64px);
+  }
+
+  .ns-article[data-article-edition="daily"] .ns-article__head h2 {
+    font-size: clamp(30px, 8.4vw, 38px);
+    line-height: 1;
   }
 
   .ns-article__section {

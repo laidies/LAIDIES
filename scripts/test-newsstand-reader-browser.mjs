@@ -2,6 +2,7 @@
 
 import assert from "node:assert/strict";
 import childProcess from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import http from "node:http";
 import os from "node:os";
@@ -16,13 +17,20 @@ const TEST_CLOCKS = {
   "same-day": "2026-08-04T23:00:00-07:00",
   "next-day": "2026-08-05T12:00:00-07:00",
   "released-worldwide": "2026-08-05T06:30:00Z",
-  "candidate": "2026-08-12T13:00:00Z"
+  "candidate": "2026-08-12T21:00:00Z"
 };
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
 const RETRACTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json";
 const EVIDENCE_DIR = process.env.NEWSSTAND_EVIDENCE_DIR
   ? path.resolve(process.env.NEWSSTAND_EVIDENCE_DIR)
   : null;
+const EVIDENCE_FILTER = process.env.NEWSSTAND_EVIDENCE_FILTER || "";
+const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const canonicalJson = (value) => {
+  if (value === null || typeof value !== "object") return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
+};
 
 if (!fs.existsSync(CHROME)) {
   console.log("SKIP NEWSSTAND BROWSER: Google Chrome is unavailable.");
@@ -140,25 +148,32 @@ function fixtureData(name) {
       ]
     };
   }
-  if (["big-question-candidate", "weekly-candidate"].includes(name)) {
+  if (["big-question-candidate", "weekly-candidate", "daily-work-logs-candidate"].includes(name)) {
     const filename = name === "big-question-candidate"
       ? "big-question-cross-lab-story-record-candidate.json"
-      : "weekly-cross-lab-story-record-candidate.json";
+      : name === "weekly-candidate"
+        ? "weekly-cross-lab-story-record-candidate.json"
+        : "ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json";
     const record = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates", filename), "utf8"));
     const story = record.story;
     story.status = "published";
-    story.publishedAt = "2026-08-11T19:00:00Z";
-    story.updatedAt = "2026-08-12T12:30:00Z";
-    story.lastCheckedAt = "2026-08-12T12:30:00Z";
+    story.publishedAt = name === "daily-work-logs-candidate" ? "2026-08-12T19:50:00Z" : "2026-08-11T19:00:00Z";
+    story.updatedAt = "2026-08-12T19:50:00Z";
+    story.lastCheckedAt = "2026-08-12T19:50:00Z";
     story.sourceApproval.status = "approved";
     data.stories.push(story);
-    data.generatedAt = "2026-08-12T12:30:00Z";
-    data.lastCheckedAt = "2026-08-12T12:30:00Z";
+    data.generatedAt = "2026-08-12T19:50:00Z";
+    data.lastCheckedAt = "2026-08-12T19:50:00Z";
     const publication = data.publications[story.edition];
     publication.status = "current";
     publication.publishedAt = story.publishedAt;
     publication.updatedAt = story.updatedAt;
     publication.lastCheckedAt = story.lastCheckedAt;
+    if (name === "daily-work-logs-candidate") {
+      publication.editionDate = "2026-08-12";
+      publication.editorialTimeZone = "America/Vancouver";
+      publication.issue = { status: "complete", storyIds: [story.id], serviceRecordIds: [], disposition: "candidates_pending_review" };
+    }
   }
   return data;
 }
@@ -167,7 +182,7 @@ function fixtureScript(name) {
   const mutatesStorySource = new Set([
     "load-failure", "no-data", "dataset-hold", "stale", "unavailable", "mixed",
     "growth", "breaking-current", "same-date-injection", "corrected", "retracted", "admitted-story-tampered", "longform",
-    "big-question-candidate", "weekly-candidate"
+    "big-question-candidate", "weekly-candidate", "daily-work-logs-candidate"
   ]);
   if (!mutatesStorySource.has(name)) {
     return fs.readFileSync(path.join(ROOT, "content", "newsstand-stories.js"), "utf8");
@@ -257,6 +272,47 @@ const server = http.createServer((request, response) => {
   if (requestUrl.pathname === "/content/newsstand-daily-issues.json") {
     try {
       const fixture = new URL(request.headers.referer).searchParams.get("fixture");
+      if (fixture === "daily-work-logs-candidate") {
+        const data = fixtureData(fixture);
+        const story = data.stories.find((item) => item.id === "ai-work-logs-can-carry-secrets");
+        const storySource = fixtureScript(fixture);
+        const columnsRaw = fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8");
+        const deskTypes = ["paige_tip", "promptoscope", "career_life", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+        const issue = {
+          editionDate: "2026-08-12",
+          editorialTimeZone: "America/Vancouver",
+          status: "complete",
+          disposition: "candidates_pending_review",
+          storyIds: [story.id],
+          stories: [story],
+          serviceRecordIds: [],
+          desks: deskTypes.map((type) => ({ type, state: "empty", recordId: null, emptyState: "No admitted item is filed in this desk." })),
+          sourceIdentity: {
+            radarPath: "operations/agents/aidb-intelligence-desk/daily/2026-08-12.md",
+            radarSha256: sha256(fs.readFileSync(path.join(ROOT, "operations/agents/aidb-intelligence-desk/daily/2026-08-12.md"))),
+            storiesPath: "content/newsstand-stories.js",
+            storiesSha256: sha256(storySource),
+            columnsPath: "content/daily-edition-columns.json",
+            columnsSha256: sha256(columnsRaw)
+          }
+        };
+        const envelope = {
+          schemaVersion: "daily-private-issue-v1", mode: "PRIVATE_DRAFT_ONLY", editionDate: issue.editionDate,
+          editorialTimeZone: issue.editorialTimeZone, disposition: "CANDIDATES_PENDING_REVIEW", status: "PRIVATE_REVIEW_DRAFT",
+          storyIds: issue.storyIds, storySnapshots: issue.stories, desks: issue.desks, sourceIdentity: issue.sourceIdentity,
+          canonicalWrite: false, deployActionTaken: false
+        };
+        issue.envelopeSha256 = sha256(`${canonicalJson(envelope)}\n`);
+        issue.admission = {
+          decision: "ACCEPT_LOCAL_CANONICAL_WRITE",
+          reviewedAt: "2026-08-12T19:55:00Z",
+          reviewedBy: "independent-render-fixture-judge",
+          reviewerRole: "Independent NewsStand render-fixture judge"
+        };
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(JSON.stringify({ schemaVersion: "daily-issues-v1", owner: "newsstand-daily", issues: [issue] }));
+        return;
+      }
       if (["pre-release", "post-release"].includes(fixture)) {
         const referer = new URL(request.headers.referer);
         const clock = TEST_CLOCKS[referer.searchParams.get("clock") || "same-day"] || TEST_CLOCKS["same-day"];
@@ -509,7 +565,7 @@ async function checkPaperContentsCoVisible(client, label) {
 }
 
 async function captureEvidence(client, filename, scrollSelector = null, preserveCurrentScroll = false) {
-  if (!EVIDENCE_DIR) return;
+  if (!EVIDENCE_DIR || (EVIDENCE_FILTER && !filename.startsWith(EVIDENCE_FILTER))) return;
   fs.mkdirSync(EVIDENCE_DIR, { recursive: true });
   await client.call("Page.bringToFront");
   await client.call("Emulation.setScrollbarsHidden", { hidden: true });
@@ -841,18 +897,32 @@ try {
 
   for (const fixture of [
     { name: "big-question-candidate", slug: "is-ai-starting-to-escape-our-control", label: "The Big Question: Is AI starting to escape our control?", sections: 10, sources: 12 },
-    { name: "weekly-candidate", slug: "when-ai-safety-tests-touch-the-real-world", label: "The Weekly: When AI safety tests touch the real world, the test becomes the risk", sections: 6, sources: 5 }
+    { name: "weekly-candidate", slug: "when-ai-safety-tests-touch-the-real-world", label: "The Weekly: When AI safety tests touch the real world, the test becomes the risk", sections: 6, sources: 5 },
+    { name: "daily-work-logs-candidate", slug: "ai-work-logs-can-carry-secrets", label: "The Daily: AI work logs can carry secrets you cannot see. Here’s what to share instead", sections: 8, sources: 4 }
   ]) {
     for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }, { width: 320, height: 760 }]) {
       const candidate = await openPage(`/newsstand.html?fixture=${fixture.name}&clock=candidate#${fixture.slug}`, viewport);
-      check(await value(candidate, "document.querySelector('.ns-article').getAttribute('aria-label')"), fixture.label, `${fixture.name} ${viewport.width}: exact accessible publication identity`);
+      check(await value(candidate, "document.querySelector('.ns-article')?.getAttribute('aria-label') || JSON.stringify({access:document.querySelector('[data-access-state]')?.getAttribute('data-access-state'),dailyIssueError:window.__newsstandDailyIssueError||null,datasetState:document.querySelector('[data-status-for=\"daily\"]')?.textContent,sourceStory:window.NEWSSTAND_DATA?.stories?.find((item)=>item.id==='ai-work-logs-can-carry-secrets')?.status||null})"), fixture.label, `${fixture.name} ${viewport.width}: exact accessible publication identity`);
       check(await value(candidate, "document.querySelectorAll('.ns-article__section--longform').length"), fixture.sections, `${fixture.name} ${viewport.width}: every authored section renders`);
       check(await value(candidate, "document.querySelectorAll('.ns-article__sources a').length"), fixture.sources, `${fixture.name} ${viewport.width}: every reviewed source link renders`);
       await waitForValue(candidate, "(() => { const reader=document.querySelector('#paper-counter').getBoundingClientRect(); const header=document.querySelector('.topbar').getBoundingClientRect(); return reader.top >= header.bottom - 2 && reader.top <= header.bottom + 70; })()", true, `${fixture.name} ${viewport.width}: direct-route reader landing`);
       const landing = await value(candidate, "(() => { const reader=document.querySelector('#paper-counter').getBoundingClientRect(); const header=document.querySelector('.topbar').getBoundingClientRect(); return { visible: reader.top >= header.bottom - 2 && reader.top <= header.bottom + 70, readerTop: reader.top, headerBottom: header.bottom, height: window.innerHeight, scrollY: window.scrollY }; })()");
       check(landing.visible, true, `${fixture.name} ${viewport.width}: direct route lands on the open reader below the sticky header ${JSON.stringify(landing)}`);
       check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__jump a')).every((link) => document.querySelector(link.getAttribute('href')))"), true, `${fixture.name} ${viewport.width}: every jump resolves`);
-      check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At work') && Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At home')"), true, `${fixture.name} ${viewport.width}: work and home transfer landmarks render`);
+      if (fixture.name === "daily-work-logs-candidate") {
+        check(await value(candidate, "document.querySelector('.ns-article').dataset.articleEdition"), "daily", `${fixture.name} ${viewport.width}: the rendered article exposes its Daily hierarchy hook`);
+        check(await value(candidate, "document.querySelector('.ns-article__head h2').getBoundingClientRect().height <= window.innerHeight * 0.48"), true, `${fixture.name} ${viewport.width}: the Daily headline does not consume most of the first viewport`);
+        check(await value(candidate, "document.querySelector('#ns-section-where-this-becomes-your-problem').textContent.includes('At work') && document.querySelector('#ns-section-where-this-becomes-your-problem').textContent.includes('The same mechanism follows you home')"), true, `${fixture.name} ${viewport.width}: work and home transfer cases render`);
+        if (EVIDENCE_DIR && viewport.width === 1440 && (!EVIDENCE_FILTER || fixture.name.startsWith(EVIDENCE_FILTER))) {
+          const renderedHtml = (await value(candidate, "'<!doctype html>\\n' + document.documentElement.outerHTML")).replace(/[ \\t]+$/gm, "");
+          const renderPath = path.join(EVIDENCE_DIR, "article-render.html");
+          fs.mkdirSync(EVIDENCE_DIR, { recursive: true });
+          fs.writeFileSync(renderPath, renderedHtml);
+          check(renderedHtml.includes("AI work logs can carry secrets you cannot see") && !renderedHtml.includes("INTERNAL_PRODUCER_CANDIDATE"), true, `${fixture.name} ${viewport.width}: saved review render contains the article without internal status language`);
+        }
+      } else {
+        check(await value(candidate, "Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At work') && Array.from(document.querySelectorAll('.ns-article__section--longform h4')).some((node) => node.textContent === 'At home')"), true, `${fixture.name} ${viewport.width}: work and home transfer landmarks render`);
+      }
       check(await value(candidate, "document.documentElement.scrollWidth <= window.innerWidth"), true, `${fixture.name} ${viewport.width}: exact candidate has no horizontal overflow`);
       await captureEvidence(candidate, `${fixture.name}-${viewport.width}.png`, null, true);
       candidate.close();

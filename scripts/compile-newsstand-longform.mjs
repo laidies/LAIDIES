@@ -29,14 +29,20 @@ function slug(value) {
 }
 
 function parseSections(lines) {
+  const sectionHeadingLevels = new Set(config.sectionHeadingLevels || [2]);
+  const sectionHeading = (line) => {
+    const match = line.match(/^(#{2,3}) (.+)$/);
+    return match && sectionHeadingLevels.has(match[1].length) ? match[2] : null;
+  };
   const sections = [];
   let current = config.introSectionLabel
     ? { id: slug(config.introSectionLabel), label: config.introSectionLabel, lines: [] }
     : null;
   for (const line of lines) {
-    if (/^## /.test(line)) {
+    const heading = sectionHeading(line);
+    if (heading) {
       if (current && current.lines.some((item) => item.trim())) sections.push(current);
-      current = { id: slug(line.slice(3)), label: line.slice(3), lines: [] };
+      current = { id: slug(heading), label: heading, lines: [] };
     } else if (current) {
       current.lines.push(line);
     } else if (line.trim() && line.trim() !== "---") {
@@ -115,6 +121,13 @@ const edition = lines.shift()?.replace(/^\*\*|\*\*$/g, "");
 if (title !== config.expectedTitle || edition !== config.expectedEdition) {
   throw new Error(`Source identity mismatch: ${JSON.stringify({ title, edition })}`);
 }
+if (config.expectedHeadline) {
+  while (lines[0] !== undefined && !lines[0].trim()) lines.shift();
+  const headline = lines.shift()?.replace(/^## /, "");
+  if (headline !== config.expectedHeadline) {
+    throw new Error(`Source headline mismatch: ${JSON.stringify({ headline })}`);
+  }
+}
 
 const sections = parseSections(lines).map((section) => ({
   id: section.id,
@@ -136,4 +149,21 @@ for (const role of config.quoteRoles || []) {
   if (!found) throw new Error(`Configured quote role is missing: ${role.startsWith}`);
 }
 
-process.stdout.write(JSON.stringify({ ariaLabel: config.ariaLabel, jumpSectionIds, sections }, null, 2) + "\n");
+const longform = { ariaLabel: config.ariaLabel, jumpSectionIds, sections };
+
+if (config.storyTemplatePath || config.outputPath) {
+  if (!config.storyTemplatePath || !config.outputPath) {
+    throw new Error("storyTemplatePath and outputPath must be supplied together");
+  }
+  const templatePath = path.resolve(path.dirname(configPath), config.storyTemplatePath);
+  const outputPath = path.resolve(path.dirname(configPath), config.outputPath);
+  const candidate = JSON.parse(fs.readFileSync(templatePath, "utf8"));
+  if (!candidate?.story || candidate.story.status !== "hold" || candidate.story.publishedAt !== null) {
+    throw new Error("Story template must remain a held, unpublished candidate");
+  }
+  candidate.story.longform = longform;
+  fs.writeFileSync(outputPath, JSON.stringify(candidate, null, 2) + "\n");
+  process.stdout.write(`${path.relative(process.cwd(), outputPath)}\n`);
+} else {
+  process.stdout.write(JSON.stringify(longform, null, 2) + "\n");
+}

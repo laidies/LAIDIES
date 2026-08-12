@@ -32,6 +32,27 @@ Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-12 NewsStand logic and Control Room recovery
 
+### First new Daily candidate — exact render repaired / source current / publication held
+
+The first current source-bound Daily candidate is **“AI work logs can carry
+secrets you cannot see. Here’s what to share instead.”** Its exact prose is
+compiled into one held story record and the real NewsStand reader at 1440,
+390 and 320 pixels. The first exact render failed maker inspection because its
+headline consumed most of a phone viewport; a Daily-specific hierarchy repair
+now passes the calibrated viewport and no-overflow guards. The artifact
+manifest binds the exact prose and exact saved reader DOM. A fresh August 12
+live-source recheck confirms the paper's version, data, reported mitigation and
+the current Anthropic, Google and OpenAI continuity-field mechanics.
+
+Current state is **VERIFIED LOCALLY / NOT ADMITTED / NOT PUBLISHED**. Producer
+self-review has integrity but no independent quality authority. The Claude
+Opus visual-review attempt was stopped after it repeatedly requested a denied
+shell tool and produced no verdict; its silence is not approval. Remaining
+gates are role-distinct semantic and visual review, one observed unfamiliar-
+human explain-back/transfer result, Ali's exact content verdict, canonical
+Daily issue admission, release, deployment and exact public verification.
+No canonical story, dated issue or public site changed.
+
 ### NewsStand end-to-end contract — verified locally / no story published
 
 The publication pipeline now keeps six different facts separate: a verified
