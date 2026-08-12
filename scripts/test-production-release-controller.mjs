@@ -43,8 +43,14 @@ assert.doesNotMatch(workflow, /^\s*push:/m);
 assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
 assert.match(workflow, /PRODUCTION_CONTROLLER_SHA/);
 assert.match(workflow, /environment:\n\s+name: production/);
-assert.match(workflow, /actions\/upload-pages-artifact@v3/);
-assert.match(workflow, /actions\/deploy-pages@v4/);
+assert.match(workflow, /PROJECT_NAME: laidies-sunnyvaile/);
+assert.match(workflow, /wrangler@4\.119\.0 pages deploy/);
+assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
+assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
+assert.match(workflow, /check-newsstand-release-scope\.mjs/);
+assert.match(workflow, /base_commit:/);
+assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
+assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · in-repository output rejected · altered approval rejected · manual protected workflow bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · in-repository output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow and NewsStand scope guard bound');

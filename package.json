@@ -12,7 +12,7 @@
     "test:learning-claim-corrections": "node scripts/test-learning-claim-corrections.mjs",
     "test:exact-commit-preview": "node scripts/test-exact-commit-preview.mjs",
     "test:pages-release-boundary": "node scripts/test-github-pages-release-boundary.mjs",
-    "test:production-release-controller": "node scripts/test-production-release-controller.mjs",
+    "test:production-release-controller": "node scripts/test-production-release-controller.mjs && node scripts/test-newsstand-release-scope.mjs",
     "test:episode-cue-scope": "node scripts/test-episode-cue-scope.mjs",
     "test:media-defects": "node scripts/test-media-defect-fixtures.mjs",
     "test:newsstand-canon": "node scripts/test-newsstand-canonical-migration.mjs",
