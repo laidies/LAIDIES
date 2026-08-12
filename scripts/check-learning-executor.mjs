@@ -4,6 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { validateSourceReconciliation } from "./check-source-reconciliation.mjs";
 
 const ACTIVE_EXECUTION_STATES = new Set(["DISPATCHED", "BUILDING"]);
 const TERMINAL_STATUSES = new Set(["DECLINED", "VERIFIED_PUBLICLY"]);
@@ -66,6 +67,24 @@ export function checkLearningExecutor({
     const expectedLane = "codex-heartbeat:" + state.automationId;
     if (order.execution?.dispatch?.laneId !== expectedLane) {
       errors.push(order.id + " active dispatch is not bound to " + expectedLane);
+    }
+  }
+
+  for (const [index, intake] of (queue.intakeCoverage || []).entries()) {
+    if (String(intake.checkedAt || "") < "2026-08-12") continue;
+    if (!/aidb|newsstand/i.test(String(intake.path || ""))) continue;
+    if (!intake.sourceReconciliationPath) {
+      errors.push(`intakeCoverage[${index}] requires sourceReconciliationPath before executor closure`);
+      continue;
+    }
+    const reconciliationPath = path.join(root, intake.sourceReconciliationPath);
+    let reconciliation;
+    try { reconciliation = readJson(reconciliationPath); } catch (error) {
+      errors.push(`intakeCoverage[${index}] source reconciliation invalid: ${error.message}`);
+      continue;
+    }
+    for (const error of validateSourceReconciliation(reconciliation).errors) {
+      errors.push(`intakeCoverage[${index}] source reconciliation: ${error}`);
     }
   }
 

@@ -14591,3 +14591,34 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** The source packet now records the GPT-5.6 Sol plus internal-only prototype combination and the unassigned-action limit. The prose uses `accessed`, not `affected`. The final explain-back requires the reader's own causal account of the permitted dependency route and failed technical control without supplying a model response. A role-distinct artifact-first preflight accepts exact prose SHA `703519bcfd89532a70e477473004dab616082654dbbbfd09d047571b1d33d1cd` for Ali's private test only.
 - **Possible Behind the Build angle:** Why one plural noun, one impact verb and an answer printed under the quiz can make a clear AI explainer wrong.
 - **Publication status:** PRIVATE TEST CANDIDATE / FORMAL ADMISSION, INTEGRATION, PUBLICATION AND DEPLOYMENT HELD.
+
+## BTB-465 — A timely public confirmation was missed because source reconciliation was prose-only
+
+- **Date:** 2026-08-11
+- **Area:** AIDB intake, NewsStand discovery and Learning executor closure.
+- **Failure:** The August 6 AIDB intake preserved a material claim that a Meta
+  Muse model crossed its intended evaluation boundary, but closed it as
+  `HOLD — VERIFICATION INCOMPLETE`. AP had already published Meta's direct
+  company confirmation about three hours before the desk's disposition. The
+  intake searched too narrowly, did not reconcile `Muse Code` with `Muse
+  Spark`, and treated AIDB's empty source array as an unresolved endpoint.
+- **Root cause:** The repository instructed agents to follow named references
+  and recheck independent reporting, but the executor required no structured
+  search record and had no failing gate for a confirmation found before
+  closure. A prose promise was mistaken for an enforced workflow.
+- **Prevention rule:** Every material AIDB/News Radar intake with no supplied
+  source links preserves the named entities and checks exact aliases and
+  mechanism terms across official/primary, independent-reporting and
+  named-reference tracks. A final recheck precedes disposition. A credible
+  report confirming the material claim forces `SOURCE_HELD_MATERIAL_UPDATE` or
+  stronger; it cannot remain unresolved or disappear into a no-build result.
+- **Durable correction:** `scripts/check-source-reconciliation.mjs` validates
+  the structured receipt; `scripts/test-source-reconciliation.mjs` proves the
+  exact August 6 shallow-search HOLD and confirmation-ignored variants fail.
+  The Learning executor now rejects every applicable intake dated August 12 or
+  later without a passing receipt. The Meta correction receipt records today's
+  verification without pretending the missing search happened on August 6.
+- **Possible Behind the Build angle:** Why “we checked the sources” was not a
+  control—and how one missing product alias hid a confirmed AI incident.
+- **Publication status:** INTERNAL EXECUTION-GATE REPAIR / META SIGNAL
+  CORRECTED TO SOURCE-HELD MATERIAL UPDATE / NO ARTICLE, PUBLICATION OR DEPLOYMENT.

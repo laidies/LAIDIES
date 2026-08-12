@@ -22,6 +22,7 @@ On each 09:30 and 16:30 America/Vancouver heartbeat:
 
 1. run the content work-order and executor checks;
 2. reconcile every new AIDB and News Radar handoff since the previous cycle through `SOURCE-REGISTRY.json` and `PUBLICATION-PIPELINES.json` into one or more earned output contributions, an existing-item update/link, or an exact duplicate, quiet, watch or no-fit disposition;
+   Every intake dated 2026-08-12 or later must bind a `laidies-source-reconciliation.v1` receipt. When a scout supplies no links, the receipt must preserve named references, check exact aliases and mechanism terms across official/primary, independent-reporting and named-reference tracks, and perform a final recheck before disposition. A credible report that confirms the material claim changes the result to a source-held update or stronger status; it cannot remain unresolved or disappear inside `NO_BUILD_REQUIRED`.
 3. for every earned output, bind its publication format, relationship to the shared signal, distinct contribution job, exact source versions, canonical store, template and site destination in the work order;
 4. reconcile the current active order against real artifacts and its checkpoint;
 5. if no order is active, select at most one eligible primary order for a free destination owner;

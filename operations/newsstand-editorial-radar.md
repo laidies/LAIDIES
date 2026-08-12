@@ -2,7 +2,7 @@
 
 **Status:** ACTIVE OPERATING RULE  
 **Owner:** Codex runs the radar; Ali rules on publication  
-**Public contract:** The Breaking + The Daily + The Weekly + The Tribune  
+**Public contract:** The Breaking + The Daily + The Weekly + The Big Question
 **Purpose:** identify consequential AI stories without waiting for Ali to spot
 them, then turn only the qualified ones into evidence-backed editorial
 candidates.
@@ -19,7 +19,7 @@ The radar runs twice each day. It:
 3. builds LAiDIES' initial read from primary evidence;
 4. uses the AI Daily Brief as an analytical cross-check when it has covered the
    topic;
-5. decides **THE BREAKING / THE DAILY / THE WEEKLY / THE TRIBUNE / a justified
+5. decides **THE BREAKING / THE DAILY / THE WEEKLY / THE BIG QUESTION / a justified
    combination / WATCH / PASS**;
 6. prepares a review-ready packet for qualified stories; and
 7. brings Ali one editorial decision rather than a feed.
@@ -175,7 +175,7 @@ Score each candidate from 0–3 on six dimensions.
 | LAiDIES relevance | no reader effect | specialist interest | useful workplace/personal meaning | reader needs a new decision or mental model |
 | Evidence | rumours | one interested source | primary source or solid corroboration | multiple primary/independent sources with claim map |
 | Durability | hours | a few days | matters through the week | opens a continuing question/thread |
-| Editorial value | no useful angle | summary only | strong explanation or argument | distinct The Weekly + The Tribune jobs |
+| Editorial value | no useful angle | summary only | strong explanation or argument | distinct The Weekly + The Big Question jobs |
 
 ### Escalation
 
@@ -259,7 +259,7 @@ Use when the reader needs:
 - how to think about it; and
 - what to watch next.
 
-### The Tribune
+### The Big Question
 
 Use only when the story contains a real argument or unsettled question:
 
@@ -274,7 +274,7 @@ Use only when the story contains a real argument or unsettled question:
 Use both only when their jobs remain distinct:
 
 - The Weekly reports and explains the event.
-- The Tribune makes and follows the argument.
+- The Big Question investigates and follows the argument.
 
 Never produce two paraphrases of the same story.
 
@@ -299,7 +299,7 @@ with:
 4. `daily-brief-draft.md` — only when DAILY is warranted;
 5. `breaking-news-draft.md` — only when The Breaking is warranted;
 6. `weekly-deep-dive.md` — only when The Weekly is warranted;
-7. `tribune-draft.md` — only when a distinct argument is warranted;
+7. `tribune-draft.md` — machine-compatible store for The Big Question, only when a distinct investigation and argument are warranted;
 8. `integrity-report.md` — facts/take/freshness/capture/publication gates; and
 9. `candidate.json` — the structured evidence, risk and check record consumed
    by `scripts/evaluate-newsstand-autopublish.mjs`.
@@ -314,7 +314,7 @@ held and cannot edit public files or deploy.
 The task alert to Ali contains:
 
 - **Why this cleared the bar**
-- **Recommended treatment** — The Breaking, The Daily, The Weekly, The Tribune, a combination or Watch
+- **Recommended treatment** — The Breaking, The Daily, The Weekly, The Big Question, a combination or Watch
 - **The three facts that matter**
 - **What remains unknown**
 - **The impact / how to think about it**

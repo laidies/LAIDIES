@@ -82,7 +82,13 @@ LAiDIES test`
 - A named person or publication is not yet a resolved source. Find the exact
   original post, paper, talk, documentation page, repository, or experiment.
 - If AIDB's `sources` array is empty, say so and resolve the attribution
-  independently. Never invent a URL or silently cite a search result.
+  independently. An empty array creates more search work; it is not enough to
+  close a material claim as unresolved. Bind the exact names and aliases,
+  mechanism terms, official/primary search, independent-reporting search and
+  named-reference search in a `laidies-source-reconciliation.v1` receipt. A
+  credible report that confirms the event changes the result to
+  `SOURCE_HELD_MATERIAL_UPDATE` or stronger even while the original technical
+  record remains missing. Never invent a URL or silently cite a search result.
 - Prefer the creator's original item over reactions, screenshots, quote posts,
   newsletters, or summaries.
 - Record what belongs to the source, what belongs to AIDB's interpretation,

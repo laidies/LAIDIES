@@ -72,6 +72,18 @@ writeJson(stateRelative, state);
 result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
 assert(result.errors.some((error) => error.includes("not bound")));
 
+state = reset();
+const unreconciledQueue = structuredClone(sourceQueue);
+unreconciledQueue.intakeCoverage.push({
+  path: "operations/agents/aidb-intelligence-desk/daily/2026-08-12.md",
+  checkedAt: "2026-08-12",
+  disposition: "NO_BUILD_REQUIRED"
+});
+writeJson(queueRelative, unreconciledQueue);
+writeJson(stateRelative, state);
+result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
+assert(result.errors.some((error) => error.includes("requires sourceReconciliationPath")));
+
 fs.rmSync(temporaryRoot, { recursive: true, force: true });
 console.log("LEARNING EXECUTOR TEST PASS");
-console.log("calibration=stale-heartbeat,paused-automation,dead-lane rejected");
+console.log("calibration=stale-heartbeat,paused-automation,dead-lane,unreconciled-source-intake rejected");
