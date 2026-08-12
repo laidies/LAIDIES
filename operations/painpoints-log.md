@@ -15022,5 +15022,34 @@ while remaining falsely unfinished in the launch record.
   registry.
 - **Possible Behind the Build angle:** How a good educational requirement can
   make a tiny tip worse when applied at the wrong scale.
-- **Publication status:** EXACT PROMPTOSCOPE REJECTED / NO SUCCESSOR DRAFTED /
-  NO DAILY INTEGRATION, DEPLOY OR PUBLIC CHANGE.
+- **Publication status:** EXACT PROMPTOSCOPE REJECTED / ONE LATER INTERNAL
+  SUCCESSOR RECORDED IN BTB-483 / NO DAILY INTEGRATION, DEPLOY OR PUBLIC CHANGE.
+
+## BTB-483 — The shared prose checker contradicted the compact-card exception
+
+- **Date:** 2026-08-12
+- **Area:** Shared prose gates / Daily service-column differentiation.
+- **Failure:** After the publication template stopped forcing workplace/home
+  transfer into Promptoscope, the shared producer and prose-review checkers
+  still required a paired example for every `NEWS` item. A future producer
+  could therefore satisfy the mechanical gate only by recreating the rejected
+  compact-card overload. Promptoscope's template also remained action-first
+  enough to overlap Paige.
+- **Root cause:** The substantial-teaching rule was keyed only to content class,
+  not surface scale, and the column distinction existed as prose guidance
+  rather than a calibrated negative case.
+- **Prevention rule:** `COMPACT_SERVICE_CARD` uses
+  `LAIDIES_ONE_COMPLETE_EXAMPLE_V1`: named AI object, complete scene, observable
+  failure and next action, with transfer assigned to a substantial destination.
+  The publication router separately rejects “Paige with stars”; Promptoscope
+  must diagnose a funny recognizable AI behaviour, while Paige remains
+  action-first and Mme CLAi-O remains reflective.
+- **Durable correction:** Both content-contract and prose-review calibrations
+  now accept a complete compact example without paired transfer and reject an
+  incomplete one. Publication calibration rejects abstract Promptoscope,
+  forced pairs and Paige-with-stars. D-2026-08-12-117 binds the bounded format
+  proof and retirement trigger.
+- **Possible Behind the Build angle:** Why one content-type label was not enough
+  to stop three Daily columns from becoming the same advice card.
+- **Publication status:** ONE INTERNAL PROMPTOSCOPE SUCCESSOR ON HOLD / NO
+  INDEPENDENT ADMISSION, RENDER, DEPLOY OR PUBLIC CHANGE.

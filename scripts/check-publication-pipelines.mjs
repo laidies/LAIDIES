@@ -127,17 +127,18 @@ export function validatePublicationPipelines(data) {
   }
   for (const requirement of [
     /named AI object/i,
-    /one concrete example/i,
-    /what to change/i,
-    /what to keep the same/i,
-    /what result to compare/i,
-    /what to do next/i
+    /one recognizable AI behaviour or misconception/i,
+    /one concrete scene/i,
+    /what happened/i,
+    /why it happened/i,
+    /what to watch or correct/i,
+    /horoscope joke and analogy limit/i
   ]) {
     if (!requirement.test(promptoscopeFields)) errors.push(`promptoscope missing actionable field ${requirement}`);
   }
   const promptoscopeClarity = data?.dailyServiceColumnClarityContract?.promptoscope || "";
-  if (!/one concrete example.*changes.*keeps.*compares.*does next/i.test(promptoscopeClarity) || !/do not force a work.home pair/i.test(promptoscopeClarity)) {
-    errors.push("daily service-column clarity contract must require one actionable Promptoscope example without a forced work/home pair");
+  if (!/funny.*recognizable forecast.*AI interaction or misconception.*what happened.*why it happened.*what to watch or correct/i.test(promptoscopeClarity) || !/not become an action.first Paige recipe/i.test(promptoscopeClarity) || !/not force a work.home pair/i.test(promptoscopeClarity)) {
+    errors.push("daily service-column clarity contract must distinguish Promptoscope's funny AI-behaviour forecast from Paige and from forced paired transfer");
   }
   return { errors, formats: formats.size };
 }

@@ -26,7 +26,7 @@ try {
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: hash(bad), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies }],
-    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(good), useFor: ["EXPLANATION"] }]
+    positiveExemplars: [{ id: "GOOD", path: goodPath, sha256: hash(good), useFor: ["EXPLANATION", "NEWS"] }]
   }));
   const dispositions = Object.fromEntries(failureFamilies.map(key => [key, { status: "CLEAR", producerGuard: `Prevent ${key} before drafting.`, preventionEvidence: `Fixture architecture explicitly prevents ${key}.` }]));
   const contract = {
@@ -124,6 +124,32 @@ try {
   assert.match(inspect(missingPair).join("\n"), /examplePair.nonWorkExample is required/);
   const relabelledPair = structuredClone(contract); relabelledPair.examplePair.nonWorkExample = relabelledPair.examplePair.workplaceExample;
   assert.match(inspect(relabelledPair).join("\n"), /must be genuinely different/);
+  const compactCard = structuredClone(contract);
+  compactCard.contentClass = "NEWS";
+  compactCard.predecessorSearch = { searchedRoots: ["operations", "content"], queries: ["reader question", "Promptoscope", "mechanism"], matches: [], outcome: "FIRST", noComparableReason: "No comparable candidate exists." };
+  compactCard.surfaceScale = "COMPACT_SERVICE_CARD";
+  delete compactCard.examplePair;
+  delete compactCard.draftArchitecture.transferCase;
+  compactCard.draftArchitecture.compactTransferDisposition = "Omit the second context from this compact card; a substantial destination owns transfer.";
+  delete compactCard.explanationReasoningDesign.transferCase;
+  compactCard.explanationReasoningDesign.transferDisposition = "Omit transfer from this compact card and test it only in a substantial continuation.";
+  compactCard.communicationDesign.mode = "PROPORTIONAL";
+  compactCard.communicationDesign.explanationArc = { mode: "PROPORTIONAL", retainedMoves: ["human question", "visible mechanism", "small landing"], adaptation: "One compact example carries the complete action without becoming a substantial lesson." };
+  compactCard.explanationReasoningDesign.mode = "PROPORTIONAL";
+  compactCard.compactExample = {
+    policyId: "LAIDIES_ONE_COMPLETE_EXAMPLE_V1",
+    aiObject: "A reusable AI prompt for meeting-note summaries.",
+    scenario: "The reader adds an instruction to name each decision owner.",
+    change: "Add exactly one instruction about decision owners.",
+    fixedConditions: "Use the same meeting notes and five-bullet limit.",
+    comparison: "Compare the original and revised summaries.",
+    failureSignal: "The revised summary drops a deadline the original retained.",
+    nextAction: "Revise the prompt and rerun the same notes.",
+    substantialTransferDisposition: "Not required in this compact card; a substantial destination owns transfer."
+  };
+  assert.deepEqual(inspect(compactCard), [], "compact service card must use one complete example without a forced pair");
+  const incompleteCompactCard = structuredClone(compactCard); delete incompleteCompactCard.compactExample.nextAction;
+  assert.match(inspect(incompleteCompactCard).join("\n"), /compactExample.nextAction is required/);
   const badAnalogy = structuredClone(contract); badAnalogy.draftArchitecture.analogyPlan = [{ concept: "model", analogy: "Cher" }];
   assert.match(inspect(badAnalogy).join("\n"), /analogyPlan\[0\]\.mapping/);
   const remaining = structuredClone(contract); remaining.knownFailurePreflight.knownDefectsRemaining = ["templateRepetition"];
@@ -151,7 +177,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=18 all_negatives=1 stale_registry=1 paired_examples=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=2 rejected=19 all_negatives=1 stale_registry=1 paired_examples=1 compact_example=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

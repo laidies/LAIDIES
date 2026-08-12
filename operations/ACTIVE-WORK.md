@@ -153,6 +153,20 @@ observed-reader or Daily integration. A successor must use one concrete,
 complete example and make its AI object, change, comparison, failure signal
 and next move clear before the horoscope joke.
 
+**Root contradiction repaired and one final distinct-job proof built.** The
+shared producer and prose checkers had still forced workplace/home transfer
+onto every `NEWS` item, including compact service cards. Both now require one
+complete example for `COMPACT_SERVICE_CARD` and reject a missing next action;
+their calibrated bad fixtures pass. The publication router now separately
+rejects “Paige with stars”: Paige is action-first, while Promptoscope must be a
+funny forecast diagnosing one recognizable AI interaction or misconception.
+Mme CLAi-O remains the non-predictive reflective reading. Exact successor
+`DLD-2026-08-12-PROMPTOSCOPE-DIVA-INSTRUCTION` is `HOLD / INELIGIBLE`; its
+producer contract and self-review integrity match, but it has no independent
+semantic admission, render, deployment or public authority. Ali's one bounded
+decision is whether this exact proof earns Promptoscope a distinct slot; a no
+retires the format rather than opening another cosmetic revision.
+
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The
 Breaking, Daily, Weekly, Big Question, STRAiGHT TALK, Dear Miss Jeeves,

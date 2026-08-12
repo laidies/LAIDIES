@@ -136,8 +136,14 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   for (const field of ["humanQuestion", "promisedPayoff", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredReaderFeeling"]) require(text(receipt?.reverseBrief?.[field]), `reverseBrief.${field} is required`);
 
-  const requiredOutcomes = REQUIRED_BY_CLASS[receipt?.contentClass] || [];
-  const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(receipt?.contentClass);
+  const isCompactServiceCard = receipt?.surfaceScale === "COMPACT_SERVICE_CARD";
+  const requiredOutcomes = (REQUIRED_BY_CLASS[receipt?.contentClass] || []).filter(name => !(isCompactServiceCard && name === "unseenTransfer"));
+  const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(receipt?.contentClass) && !isCompactServiceCard;
+  if (isCompactServiceCard) {
+    require(receipt?.compactExamplePolicy?.policyId === "LAIDIES_ONE_COMPLETE_EXAMPLE_V1", "compactExamplePolicy.policyId must be LAIDIES_ONE_COMPLETE_EXAMPLE_V1");
+    require(receipt?.compactExamplePolicy?.completeAction === true, "compactExamplePolicy must attest a complete action");
+    require(text(receipt?.compactExamplePolicy?.transferDisposition), "compactExamplePolicy.transferDisposition is required");
+  }
   if (requiresPairedExamples) {
     require(receipt?.examplePairPolicy?.policyId === "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", "examplePairPolicy.policyId must be LAIDIES_WORK_AND_LIFE_EXAMPLES_V1");
     require(receipt?.examplePairPolicy?.sharedMechanism === true, "examplePairPolicy must attest that both examples preserve the same mechanism");
@@ -145,7 +151,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   }
   const applicableOutcomes = requiresPairedExamples
     ? [...requiredOutcomes, "workplaceExample", "nonWorkExample"]
-    : requiredOutcomes;
+    : isCompactServiceCard ? [...requiredOutcomes, "compactExample"] : requiredOutcomes;
   for (const outcomeName of applicableOutcomes) {
     const outcome = receipt?.outcomes?.[outcomeName];
     require(Boolean(outcome), `required outcome ${outcomeName} is missing`);

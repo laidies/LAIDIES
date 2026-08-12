@@ -83,11 +83,15 @@ abstractPromptoscopeFormat.templateFields = [
 ];
 assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /one concrete complete example/);
 assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /named AI object/);
-assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /what to do next/);
+assert.match(validatePublicationPipelines(abstractPromptoscope).errors.join("\n"), /one recognizable AI behaviour or misconception/);
 
 const forcedPromptoscopePair = clone(source);
 forcedPromptoscopePair.dailyServiceColumnClarityContract.promptoscope = "Use one work and one home example.";
-assert.match(validatePublicationPipelines(forcedPromptoscopePair).errors.join("\n"), /without a forced work\/home pair/);
+assert.match(validatePublicationPipelines(forcedPromptoscopePair).errors.join("\n"), /distinguish Promptoscope's funny AI-behaviour forecast/);
+
+const paigeWithStars = clone(source);
+paigeWithStars.dailyServiceColumnClarityContract.promptoscope = "Give one action the reader can use today, but add a horoscope headline.";
+assert.match(validatePublicationPipelines(paigeWithStars).errors.join("\n"), /distinguish Promptoscope's funny AI-behaviour forecast/);
 
 const singleOutputOnly = clone(source);
 singleOutputOnly.rule = "A signal may create only one output.";
@@ -98,4 +102,4 @@ inheritedAdmission.multiOutputContract.independenceRule = "All outputs share app
 assert.match(validatePublicationPipelines(inheritedAdmission).errors.join("\n"), /prohibit inherited admission/);
 
 console.log("PUBLICATION PIPELINE TEST PASS");
-console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,single-output-only,inherited-admission rejected");
+console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,single-output-only,inherited-admission rejected");

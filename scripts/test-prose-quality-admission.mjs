@@ -24,6 +24,8 @@ try {
   const candidateBody = "Your manager asks whether the policy allows a promise. The product places your request and the current policy into context. The model drafts an answer, but the policy remains the evidence. Check the promised date against the policy before sending. Think of Elle Woods bringing the correct case file: the file supports the claim; the confidence does not. This works for a travel rule too: supply the current rule, then verify the consequential detail. The point feels practical, specific and a little fun—not like homework.\n";
   write(candidatePath, candidateBody);
   write(manifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "fixture", surface: "LIBRAIRY", contentClass: "EXPLANATION", reviewText: bind(candidatePath) }));
+  const compactManifestPath = "content/compact-manifest.json";
+  write(compactManifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "fixture", surface: "LIBRAIRY", contentClass: "NEWS", reviewText: bind(candidatePath) }));
   write(sourcePath, "Current authoritative policy source states that the policy is the evidence for the promise.\n");
   for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained that context supplies material, the policy supports the claim and a human checks the consequential detail.\n`);
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
@@ -123,6 +125,19 @@ try {
     producer.outcomes[name].simulatedReaderProbe = { prompt: `Probe ${name}`, probeResponse: "A hypothetical reader connects context, evidence and the human check.", expectedEvidence: "Mechanism and transfer." };
   }
   assert.deepEqual(inspect(producer), [], "producer simulation is allowed only as a producer probe");
+  const compactProducer = structuredClone(producer);
+  compactProducer.contentClass = "NEWS";
+  compactProducer.surfaceScale = "COMPACT_SERVICE_CARD";
+  compactProducer.artifact.manifest = bind(compactManifestPath);
+  delete compactProducer.examplePairPolicy;
+  delete compactProducer.outcomes.workplaceExample;
+  delete compactProducer.outcomes.nonWorkExample;
+  delete compactProducer.outcomes.unseenTransfer;
+  compactProducer.compactExamplePolicy = { policyId: "LAIDIES_ONE_COMPLETE_EXAMPLE_V1", completeAction: true, transferDisposition: "A substantial destination owns transfer." };
+  for (const name of ["datedChange", "consequenceAndUncertainty", "compactExample"]) compactProducer.outcomes[name] = { verdict: "PASS", observation: `${name} is demonstrated in the one complete example.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }] };
+  assert.deepEqual(inspect(compactProducer), [], "compact service review must use one complete example without forced paired transfer");
+  const incompleteCompactReview = structuredClone(compactProducer); delete incompleteCompactReview.outcomes.compactExample;
+  assert.match(inspect(incompleteCompactReview).join("\n"), /compactExample is missing/);
   assert.deepEqual(inspectProseReviewChain(producer, receipt, { root }).errors, [], "ordered cross-family chain must match");
   const sameFamily = structuredClone(receipt); sameFamily.reviewer.modelFamily = "openai";
   assert.match(inspectProseReviewChain(producer, sameFamily, { root }).errors.join("\n"), /different model families/);
@@ -151,7 +166,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=25 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 paired_examples=1 learning_disposition=1 communication_benchmark=1 combined_reasoning_review=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=3 hold=1 rejected=26 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 paired_examples=1 compact_example=1 learning_disposition=1 communication_benchmark=1 combined_reasoning_review=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

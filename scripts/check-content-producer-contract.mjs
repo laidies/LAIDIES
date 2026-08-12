@@ -75,7 +75,16 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     }
   }
 
-  const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(contract?.contentClass);
+  const isCompactServiceCard = contract?.surfaceScale === "COMPACT_SERVICE_CARD";
+  const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(contract?.contentClass) && !isCompactServiceCard;
+  if (isCompactServiceCard) {
+    const example = contract?.compactExample;
+    require(example?.policyId === "LAIDIES_ONE_COMPLETE_EXAMPLE_V1", "compactExample.policyId must be LAIDIES_ONE_COMPLETE_EXAMPLE_V1");
+    for (const field of ["aiObject", "scenario", "change", "fixedConditions", "comparison", "failureSignal", "nextAction"]) {
+      require(text(example?.[field]), `compactExample.${field} is required`);
+    }
+    require(text(example?.substantialTransferDisposition), "compactExample.substantialTransferDisposition is required");
+  }
   if (requiresPairedExamples) {
     const pair = contract?.examplePair;
     require(pair?.policyId === "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", "examplePair.policyId must be LAIDIES_WORK_AND_LIFE_EXAMPLES_V1");
@@ -130,11 +139,14 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   if (contract?.status === "READY_TO_DRAFT") require(contract.knownFailurePreflight.knownDefectsRemaining.length === 0, "READY_TO_DRAFT forbidden while known defects remain");
 
   const architecture = contract?.draftArchitecture;
-  for (const field of ["plainAnswer", "workedCase", "transferCase", "usefulAction", "formatSpecificStructure", "antiTemplateDecision"]) {
+  const architectureFields = isCompactServiceCard
+    ? ["plainAnswer", "workedCase", "compactTransferDisposition", "usefulAction", "formatSpecificStructure", "antiTemplateDecision"]
+    : ["plainAnswer", "workedCase", "transferCase", "usefulAction", "formatSpecificStructure", "antiTemplateDecision"];
+  for (const field of architectureFields) {
     require(text(architecture?.[field]), `draftArchitecture.${field} is required`);
   }
   require(array(architecture?.causalSequence, 3), "draftArchitecture.causalSequence requires at least three connected steps");
-  require(architecture?.workedCase !== architecture?.transferCase, "workedCase and transferCase must be different");
+  if (!isCompactServiceCard) require(architecture?.workedCase !== architecture?.transferCase, "workedCase and transferCase must be different");
   require(Array.isArray(architecture?.analogyPlan), "draftArchitecture.analogyPlan must be an array; use [] when no analogy earns a place");
   for (const [index, analogy] of (architecture?.analogyPlan || []).entries()) {
     for (const field of ["concept", "analogy", "mapping", "limit", "whyItHelps"]) require(text(analogy?.[field]), `analogyPlan[${index}].${field} is required`);
@@ -199,11 +211,14 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     require(text(reasoning?.exemptionReason), "NOT_APPLICABLE explanationReasoningDesign requires an exemptionReason");
     require(reasoning?.containsTeachingClaim === false, "NOT_APPLICABLE explanationReasoningDesign cannot contain a teaching claim");
   } else {
-    for (const field of ["humanEntry", "fakeUnderstandingRisk", "explainBackTest", "transferCase", "usefulLanding", "rewindEraAdaptation"]) {
+    const reasoningFields = isCompactServiceCard
+      ? ["humanEntry", "fakeUnderstandingRisk", "explainBackTest", "transferDisposition", "usefulLanding", "rewindEraAdaptation"]
+      : ["humanEntry", "fakeUnderstandingRisk", "explainBackTest", "transferCase", "usefulLanding", "rewindEraAdaptation"];
+    for (const field of reasoningFields) {
       require(text(reasoning?.[field]), `explanationReasoningDesign.${field} is required`);
     }
     require(array(reasoning?.firstPrinciplesSequence, expectedMode === "FULL" ? 3 : 1), `explanationReasoningDesign.firstPrinciplesSequence requires ${expectedMode === "FULL" ? "at least three" : "at least one"} causal step(s)`);
-    require(reasoning?.explainBackTest !== reasoning?.transferCase, "explanationReasoningDesign explain-back and transfer must be different");
+    if (!isCompactServiceCard) require(reasoning?.explainBackTest !== reasoning?.transferCase, "explanationReasoningDesign explain-back and transfer must be different");
     require(!/^(?:hannah fry|feynman|aidb)(?: inspired| style| method)?[.! ]*$/i.test(reasoning?.humanEntry?.trim() || ""), "explanationReasoningDesign cannot be satisfied by naming a benchmark");
     const evidence = reasoning?.evidenceAnalysis;
     for (const field of ["claimUnderInspection", "primaryEvidence", "establishes", "doesNotEstablish", "claimedImpact", "realConsequence"]) {
