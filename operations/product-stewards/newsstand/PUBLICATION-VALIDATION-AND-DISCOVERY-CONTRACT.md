@@ -105,13 +105,14 @@ all applicable discovery checks below against the exact released story hash.
      result's actual content type;
    - one governed many-to-many topic/alias register prevents split synonyms,
      sensational relabelling and free-form AI categorization;
-   - every published item has exactly one primary and no more than four
-     secondary governed topic tags, displayed as live links in result and
+   - every published item has exactly one stable primary browse topic and one
+     to four governed specific tags, displayed as live links in result and
      article metadata;
    - clicking a tag opens the complete eligible cross-content result set for
      that canonical topic and announces the topic and result count;
-   - missing, unknown, retired or excessive tags fail publication, and a new
-     tag requires a definition, aliases and a duplicate check;
+   - a missing primary browse topic, unknown/retired specific tag, more than
+     four specific tags or a disguised entity/content type fails publication,
+     and a new term requires a definition, aliases and a duplicate check;
    - result ordering uses exact match, governed relationship strength and date,
      never undisclosed popularity, engagement or sponsorship; and
    - article return restores the exact query, filters and reachable result

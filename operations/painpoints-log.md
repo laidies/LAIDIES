@@ -15160,11 +15160,12 @@ while remaining falsely unfinished in the launch record.
   contract. No durable decision separated topic from publication type/entity,
   limited tag sprawl, rejected unknown/retired tags or bound a visible tag to
   the complete eligible result set.
-- **Prevention rule:** Every published item has exactly one primary and no more
-  than four governed secondary topic tags. Tags are selected from one defined
-  topic/alias register, displayed as live links and tested against the complete
-  eligible cross-content result set. Missing, unknown, retired or excessive
-  tags fail publication; content type, entity and date/state remain separate.
+- **Prevention rule:** Every published item has exactly one stable primary
+  browse topic and one to four governed specific tags. Both levels are selected
+  from one defined topic/tag/alias register, displayed as live links and tested
+  against the complete eligible cross-content result set. Missing, unknown,
+  retired or excessive tags fail publication; content type, entity and
+  date/state remain separate.
 - **Durable correction:** D-2026-08-12-123, the NewsStand page architecture,
   functionality map, discovery contract and NS-17 now bind the visible-tag and
   Find a story journey. Implementation and deployment remain build-required.

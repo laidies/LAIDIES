@@ -75,10 +75,9 @@ answer or a Miss Jeeves problem. Result labels make that difference obvious.
 
 Search covers the exact eligible headline, standfirst/summary, governed topic
 terms, aliases, named organizations/products, source labels and admitted body
-text. Common-language aliases may connect a reader's wording to the governed
-topic—for example, `AI going rogue` may lead to records filed under agent
-autonomy, sandbox boundaries and unsanctioned action—but aliases must never
-rewrite or sensationalize the story's actual claim.
+text. Common-language aliases may connect a reader's wording to the precise
+governed topic/tag, but aliases must never rewrite or sensationalize the
+story's actual claim.
 
 Topic labels come from one governed many-to-many topic register, not whatever
 words happen to appear in an article or a free-form AI classification. One item
@@ -88,22 +87,24 @@ duplicates. A topic page explains the topic in one sentence, shows the most
 useful current starting point, then all eligible results in a clear order.
 
 Every published item displays clickable topic tags near its headline/summary
-and again in the article metadata. It has exactly one primary topic and may
-carry up to four genuinely useful secondary topics. Clicking any visible tag
-opens that topic's complete eligible result set with the selected tag and
-result count announced. For example, clicking **Politics** shows every eligible
-item tagged Politics across the Daily, Weekly, Big Picture, STRAiGHT TALK, Dear
-Miss Jeeves and admitted departments.
+and again in the article metadata. It has exactly one stable primary **browse
+topic** and one to four precise **specific tags**. Clicking any visible topic or
+tag opens its complete eligible result set with the selected label and result
+count announced across the Daily, Weekly, Big Picture, STRAiGHT TALK, Dear Miss
+Jeeves and admitted departments.
 
-Visible topic tags describe subject matter. Content type, date/state and named
+Visible browse topics and specific tags describe subject matter. Content type,
+date/state and named
 entities are separate metadata and filters: `Weekly` is not a topic, `OpenAI`
-is not silently treated as the same kind of label as `Politics`, and decorative
+is not silently treated as the same kind of label as a subject, and decorative
 Rewind Era language is not a discovery tag unless it names a real governed
 subject. Editors select tags from the register during production; publication
-fails when the primary tag is missing, unknown or retired. New tags require a
-plain-language definition, aliases and a duplicate check before use. Tag
-changes are versioned so corrections and earlier discovery behaviour remain
-explainable.
+fails when the primary browse topic is missing or a specific tag is unknown or
+retired. New terms require a plain-language definition, aliases and a duplicate
+check before use. Tag changes are versioned so corrections and earlier
+discovery behaviour remain explainable. The initial inventory-backed taxonomy
+proposal lives in `NEWSSTAND-TOPIC-TAXONOMY-PROPOSAL.md`; its topic labels are
+not admitted until reviewed.
 
 Default result order is useful and understandable: exact matches first, then
 strong governed topic matches, with newest within comparable matches. Visitors
