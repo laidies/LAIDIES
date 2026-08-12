@@ -102,15 +102,17 @@ export function promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw, d
   const aliApprovalRecord = checkedBoundFile(decision.aliApproval, readBoundFile, "decision.aliApproval");
   const explainBackRecord = checkedBoundFile(decision.observedExplainBack, readBoundFile, "decision.observedExplainBack");
   exactKeys(evidence, [
-    "schemaVersion", "storyId", "correctionOwner", "nextRecheckAt", "sources", "claims", "independentReview",
-    "producerContract", "exactProse", "artifactBindings", "aliApproval", "observedExplainBack", "reviewArtifact"
+    "schemaVersion", "storyId", "correctionOwner", "nextRecheckAt", "sources", "claims", "independentReview", "visualReview",
+    "reviewRender", "producerContract", "exactProse", "artifactBindings", "aliApproval", "observedExplainBack", "reviewArtifact"
   ], "evidence manifest");
   if (evidence.schemaVersion !== "newsstand-story-evidence.v1" || evidence.storyId !== candidate.story.id ||
       !evidence.correctionOwner || !/^\d{4}-\d{2}-\d{2}$/.test(evidence.nextRecheckAt || "") ||
       evidence.aliApproval !== aliApprovalRecord || evidence.observedExplainBack !== explainBackRecord) {
     reject("evidence manifest identity, correction or human bindings are invalid");
   }
-  const requiredArtifactPaths = new Set([evidence.independentReview, evidence.producerContract, evidence.exactProse]);
+  const requiredArtifactPaths = new Set([
+    evidence.independentReview, evidence.visualReview, evidence.reviewRender, evidence.producerContract, evidence.exactProse
+  ]);
   if (!Array.isArray(evidence.artifactBindings) || evidence.artifactBindings.length !== requiredArtifactPaths.size) {
     reject("evidence artifact bindings are incomplete");
   }

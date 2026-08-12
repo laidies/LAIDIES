@@ -23,6 +23,8 @@ const files = new Map([
   ["operations/product-stewards/newsstand/evidence/test-ali-approval.md", "Ali approved the exact candidate.\n"],
   ["operations/product-stewards/newsstand/evidence/test-explain-back.md", "Observed explain-back.\n"],
   ["operations/product-stewards/newsstand/evidence/test-independent-review.json", "{}\n"],
+  ["operations/product-stewards/newsstand/evidence/test-visual-review.json", "{}\n"],
+  ["operations/product-stewards/newsstand/evidence/test-render.html", "<article>Exact render</article>\n"],
   ["operations/product-stewards/newsstand/candidates/test-producer.json", "{}\n"]
 ]);
 const readBoundFile = (record) => {
@@ -51,10 +53,14 @@ const evidence = {
   schemaVersion: "newsstand-story-evidence.v1", storyId: storyRecord.id, correctionOwner: "NewsStand accuracy desk", nextRecheckAt: "2026-08-13",
   sources: storyRecord.sources, claims: [{ claim: "The bounded claim.", sourceIds: ["source-1"] }],
   independentReview: "operations/product-stewards/newsstand/evidence/test-independent-review.json",
+  visualReview: "operations/product-stewards/newsstand/evidence/test-visual-review.json",
+  reviewRender: "operations/product-stewards/newsstand/evidence/test-render.html",
   producerContract: "operations/product-stewards/newsstand/candidates/test-producer.json",
   exactProse: "operations/product-stewards/newsstand/candidates/test-prose.md",
   artifactBindings: [
     { record: "operations/product-stewards/newsstand/evidence/test-independent-review.json", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-independent-review.json")) },
+    { record: "operations/product-stewards/newsstand/evidence/test-visual-review.json", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-visual-review.json")) },
+    { record: "operations/product-stewards/newsstand/evidence/test-render.html", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-render.html")) },
     { record: "operations/product-stewards/newsstand/candidates/test-producer.json", sha256: sha256(files.get("operations/product-stewards/newsstand/candidates/test-producer.json")) },
     { record: "operations/product-stewards/newsstand/candidates/test-prose.md", sha256: sha256(files.get("operations/product-stewards/newsstand/candidates/test-prose.md")) }
   ],
