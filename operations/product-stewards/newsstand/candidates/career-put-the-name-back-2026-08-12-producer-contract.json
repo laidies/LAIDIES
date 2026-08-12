@@ -4,7 +4,32 @@
   "surface": "SUNNYVAiLE NewsStand / Career and Work-Life Tip",
   "contentClass": "NEWS",
   "producer": "learning-content-ecosystem",
-  "predecessorSearch": {"searchedRoots":["operations/product-stewards/newsstand","content"],"queries":["Put the name back on the idea","Career Work-Life contribution credit","meeting idea repeated AI source mirror"],"matches":[{"artifact":{"path":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md","sha256":"b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"},"disposition":"CURRENT_PREDECESSOR"}],"outcome":"SUCCESSOR","selectedPredecessor":{"path":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md","sha256":"b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"},"preserveAndImprove":"Preserve the contribution-credit problem while replacing generic advice with exact meeting language, a neutral recap, power limits and a bounded AI-source mirror."},
+  "predecessorSearch": {
+    "searchedRoots": [
+      "operations/product-stewards/newsstand",
+      "content"
+    ],
+    "queries": [
+      "Put the name back on the idea",
+      "Career Work-Life contribution credit",
+      "meeting idea repeated AI source mirror"
+    ],
+    "matches": [
+      {
+        "artifact": {
+          "path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md",
+          "sha256": "b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"
+        },
+        "disposition": "CURRENT_PREDECESSOR"
+      }
+    ],
+    "outcome": "SUCCESSOR",
+    "selectedPredecessor": {
+      "path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md",
+      "sha256": "b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"
+    },
+    "preserveAndImprove": "Preserve the contribution-credit problem while replacing generic advice with exact meeting language, a neutral recap, power limits and a bounded AI-source mirror."
+  },
   "examplePair": {
     "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
     "workplaceExample": "A woman reconnects a repeated meeting point to the contribution she made earlier, then records the contribution, decision and owner without claiming to know motive.",
@@ -26,100 +51,335 @@
       "claimId": "CAREER-ATTRIBUTION-SOURCE-NOTE",
       "owner": "learning-content-ecosystem",
       "freshnessTrigger": "Lean In or OpenAI revises the cited guidance, or the treatment moves into formal workplace escalation.",
-      "source": {"path":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","sha256":"bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"}
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
+        "sha256": "bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"
+      }
     },
     {
       "claimId": "WORK-LIFE-AI-MIRROR-01",
       "owner": "learning-content-ecosystem",
       "freshnessTrigger": "The governed situation, mirror, limit or route changes.",
-      "source": {"path":"operations/product-stewards/learning-content-ecosystem/WORK-LIFE-AI-MIRROR-BANK.md","sha256":"d2e72b4cd81006f71f7dc2d5ed7904ebbf2b4fcebdda506c362abafb359cdab1"}
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/WORK-LIFE-AI-MIRROR-BANK.md",
+        "sha256": "d2e72b4cd81006f71f7dc2d5ed7904ebbf2b4fcebdda506c362abafb359cdab1"
+      }
     },
     {
       "claimId": "CAREER-ATTRIBUTION-PREMISE",
       "owner": "learning-content-ecosystem",
       "freshnessTrigger": "The reader job, format or advice-test result changes.",
-      "source": {"path":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md","sha256":"94bbadb2eb553166124dc05463c5e4de49b18cb7581d9b17f1e43c5e511d91cd"}
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md",
+        "sha256": "94bbadb2eb553166124dc05463c5e4de49b18cb7581d9b17f1e43c5e511d91cd"
+      }
     }
   ],
-  "positiveExemplars": [{
-    "id": "CQX-GOOD-NEWS-001",
-    "strengthsToUse": ["Answer the actual problem immediately.", "Separate evidence from inference.", "Give one action that a reader can perform."],
-    "patternsNotToCopy": ["Do not copy the legal-news structure.", "Do not borrow its regulatory claims.", "Do not turn a compact service column into a long explainer."]
-  }],
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-NEWS-001",
+      "strengthsToUse": [
+        "Answer the actual problem immediately.",
+        "Separate evidence from inference.",
+        "Give one action that a reader can perform."
+      ],
+      "patternsNotToCopy": [
+        "Do not copy the legal-news structure.",
+        "Do not borrow its regulatory claims.",
+        "Do not turn a compact service column into a long explainer."
+      ]
+    }
+  ],
   "knownFailurePreflight": {
     "registryVersion": "laidies-content-quality-exemplars.v1",
-    "registrySha256": "3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
-    "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-002", "CQX-BAD-003", "CQX-BAD-004", "CQX-BAD-005", "CQX-BAD-006"],
+    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
+    "negativeExemplarIds": [
+      "CQX-BAD-001",
+      "CQX-BAD-002",
+      "CQX-BAD-003",
+      "CQX-BAD-004",
+      "CQX-BAD-005",
+      "CQX-BAD-006",
+      "CQX-BAD-007",
+      "CQX-BAD-008",
+      "CQX-BAD-009"
+    ],
     "dispositions": {
-      "glossaryAccumulation":{"status":"CLEAR","producerGuard":"Define provenance through the action rather than a term list.","preventionEvidence":"The source stays attached to the repeated idea or claim."},
-      "templateRepetition":{"status":"CLEAR","producerGuard":"Let the meeting problem determine the sequence.","preventionEvidence":"Situation, wording, recap, mirror and limit follow one decision."},
-      "decorativeAnalogy":{"status":"CLEAR","producerGuard":"Use the AI mirror only if it improves source practice.","preventionEvidence":"The mirror produces a separate verify-before-rely action."},
-      "referenceConfetti":{"status":"CLEAR","producerGuard":"Use no decorative era or celebrity references.","preventionEvidence":"Voice comes from precise, lightly sharp wording."},
-      "missingMechanism":{"status":"CLEAR","producerGuard":"Connect repetition, lost origin, restored context and next ownership.","preventionEvidence":"Each causal step appears in the planned card."},
-      "genericAction":{"status":"CLEAR","producerGuard":"Supply exact spoken and written language.","preventionEvidence":"One in-room sentence and three-line recap are planned."},
-      "jargonBeforeMeaning":{"status":"CLEAR","producerGuard":"Start with the recognizable meeting moment.","preventionEvidence":"Attribution and provenance follow only after the situation is clear."},
-      "disconnectedSystem":{"status":"CLEAR","producerGuard":"Keep meeting intervention, record and escalation boundary connected.","preventionEvidence":"The recap records contribution, decision and owner."},
-      "joylessInstruction":{"status":"CLEAR","producerGuard":"Make the move calm and usable rather than corrective.","preventionEvidence":"The wording preserves momentum instead of staging a confrontation."},
-      "purposeTooNarrow":{"status":"CLEAR","producerGuard":"Solve the immediate meeting and recap job only.","preventionEvidence":"Formal escalation is bounded and routed elsewhere."},
-      "mechanismBeforeMotivation":{"status":"CLEAR","producerGuard":"Lead with what happened and what the reader needs to say.","preventionEvidence":"No theory precedes the workplace moment."},
-      "workedExampleOvertakesBookPurpose":{"status":"CLEAR","producerGuard":"Keep both examples compact.","preventionEvidence":"Neither becomes a class or legal scenario."},
-      "technicalExplainerVoice":{"status":"CLEAR","producerGuard":"Use ordinary meeting, source and recap language.","preventionEvidence":"No model architecture or policy terminology enters the card."},
-      "falseBreakingUrgency":{"status":"CLEAR","producerGuard":"Present recurring guidance, not an alert.","preventionEvidence":"No deadline or breaking language appears."},
-      "missingNewcomerBackground":{"status":"CLEAR","producerGuard":"Describe the full meeting situation before advice.","preventionEvidence":"No prior familiarity with bias terminology is required."},
-      "technicalReaderAssumption":{"status":"CLEAR","producerGuard":"Explain the AI mirror without technical setup.","preventionEvidence":"The reader only needs to keep and check a source."},
-      "implausibleAudienceAction":{"status":"CLEAR","producerGuard":"Do not make the reader diagnose motive or run an investigation.","preventionEvidence":"She reconnects context and records neutral facts."},
-      "laidiesVoiceAbsent":{"status":"CLEAR","producerGuard":"Keep the voice adult, candid and useful.","preventionEvidence":"The phrase put the name back on the idea carries the job."},
-      "internalScaffoldingExposedToReader":{"status":"CLEAR","producerGuard":"Exclude gates, IDs and source statuses.","preventionEvidence":"Only reader-facing guidance enters the card."},
-      "newspaperHierarchyUnclear":{"status":"CLEAR","producerGuard":"Use one headline and one compact column.","preventionEvidence":"No multi-desk scaffolding appears."},
-      "statusLanguageOvertakesExperience":{"status":"CLEAR","producerGuard":"Keep hold and expiry outside public prose.","preventionEvidence":"State remains metadata only."},
-      "sourceAvailabilityMistakenForEditorialValue":{"status":"CLEAR","producerGuard":"Use the source because it resolves a common workplace decision.","preventionEvidence":"The premise states the unresolved practical gap."},
-      "missingAidbRelevanceCheck":{"status":"CLEAR","producerGuard":"Search recent AIDB and record an exact absence.","preventionEvidence":"The source note records a dated repository search through August 11."},
-      "predeterminedThesisInsteadOfInvestigation":{"status":"CLEAR","producerGuard":"Retain uncertainty about intent and power.","preventionEvidence":"The record supports sequence, not motive."},
-      "weakReaderPremise":{"status":"CLEAR","producerGuard":"Solve a sentence-level problem, not generic confidence.","preventionEvidence":"The reader receives exact words and a recap structure."},
-      "adviceBelowReaderBaseline":{"status":"CLEAR","producerGuard":"Go beyond speak up or document it.","preventionEvidence":"The advice names what to say, what to record and what it cannot prove."},
-      "promptAdviceMistakenForEnforcement":{"status":"CLEAR","producerGuard":"Do not present AI wording as workplace control.","preventionEvidence":"The AI mirror is verification, not an intervention tool."},
-      "longRunningWorkflowRealityIgnored":{"status":"CLEAR","producerGuard":"Retain a recovery route for repeated or consequential patterns.","preventionEvidence":"Manager, sponsor or appropriate channel remains available."},
-      "genericEditorialVoice":{"status":"CLEAR","producerGuard":"Use language specific to attribution and meetings.","preventionEvidence":"The headline, spoken line and recap are situation-bound."},
-      "fictionalInputMistakenForIsolation":{"status":"CLEAR","producerGuard":"Never treat fictional, synthetic or non-sensitive input as containment for an executable AI extension; establish trusted provenance and least-privilege environment boundaries before any behavior test.","preventionEvidence":"This candidate does not rely on safer example data to contain an extension’s pre-existing files, accounts, tools or network authority."}
+      "glossaryAccumulation": {
+        "status": "CLEAR",
+        "producerGuard": "Define provenance through the action rather than a term list.",
+        "preventionEvidence": "The source stays attached to the repeated idea or claim."
+      },
+      "templateRepetition": {
+        "status": "CLEAR",
+        "producerGuard": "Let the meeting problem determine the sequence.",
+        "preventionEvidence": "Situation, wording, recap, mirror and limit follow one decision."
+      },
+      "decorativeAnalogy": {
+        "status": "CLEAR",
+        "producerGuard": "Use the AI mirror only if it improves source practice.",
+        "preventionEvidence": "The mirror produces a separate verify-before-rely action."
+      },
+      "referenceConfetti": {
+        "status": "CLEAR",
+        "producerGuard": "Use no decorative era or celebrity references.",
+        "preventionEvidence": "Voice comes from precise, lightly sharp wording."
+      },
+      "missingMechanism": {
+        "status": "CLEAR",
+        "producerGuard": "Connect repetition, lost origin, restored context and next ownership.",
+        "preventionEvidence": "Each causal step appears in the planned card."
+      },
+      "genericAction": {
+        "status": "CLEAR",
+        "producerGuard": "Supply exact spoken and written language.",
+        "preventionEvidence": "One in-room sentence and three-line recap are planned."
+      },
+      "jargonBeforeMeaning": {
+        "status": "CLEAR",
+        "producerGuard": "Start with the recognizable meeting moment.",
+        "preventionEvidence": "Attribution and provenance follow only after the situation is clear."
+      },
+      "disconnectedSystem": {
+        "status": "CLEAR",
+        "producerGuard": "Keep meeting intervention, record and escalation boundary connected.",
+        "preventionEvidence": "The recap records contribution, decision and owner."
+      },
+      "joylessInstruction": {
+        "status": "CLEAR",
+        "producerGuard": "Make the move calm and usable rather than corrective.",
+        "preventionEvidence": "The wording preserves momentum instead of staging a confrontation."
+      },
+      "purposeTooNarrow": {
+        "status": "CLEAR",
+        "producerGuard": "Solve the immediate meeting and recap job only.",
+        "preventionEvidence": "Formal escalation is bounded and routed elsewhere."
+      },
+      "mechanismBeforeMotivation": {
+        "status": "CLEAR",
+        "producerGuard": "Lead with what happened and what the reader needs to say.",
+        "preventionEvidence": "No theory precedes the workplace moment."
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "status": "CLEAR",
+        "producerGuard": "Keep both examples compact.",
+        "preventionEvidence": "Neither becomes a class or legal scenario."
+      },
+      "technicalExplainerVoice": {
+        "status": "CLEAR",
+        "producerGuard": "Use ordinary meeting, source and recap language.",
+        "preventionEvidence": "No model architecture or policy terminology enters the card."
+      },
+      "falseBreakingUrgency": {
+        "status": "CLEAR",
+        "producerGuard": "Present recurring guidance, not an alert.",
+        "preventionEvidence": "No deadline or breaking language appears."
+      },
+      "missingNewcomerBackground": {
+        "status": "CLEAR",
+        "producerGuard": "Describe the full meeting situation before advice.",
+        "preventionEvidence": "No prior familiarity with bias terminology is required."
+      },
+      "technicalReaderAssumption": {
+        "status": "CLEAR",
+        "producerGuard": "Explain the AI mirror without technical setup.",
+        "preventionEvidence": "The reader only needs to keep and check a source."
+      },
+      "implausibleAudienceAction": {
+        "status": "CLEAR",
+        "producerGuard": "Do not make the reader diagnose motive or run an investigation.",
+        "preventionEvidence": "She reconnects context and records neutral facts."
+      },
+      "laidiesVoiceAbsent": {
+        "status": "CLEAR",
+        "producerGuard": "Keep the voice adult, candid and useful.",
+        "preventionEvidence": "The phrase put the name back on the idea carries the job."
+      },
+      "internalScaffoldingExposedToReader": {
+        "status": "CLEAR",
+        "producerGuard": "Exclude gates, IDs and source statuses.",
+        "preventionEvidence": "Only reader-facing guidance enters the card."
+      },
+      "newspaperHierarchyUnclear": {
+        "status": "CLEAR",
+        "producerGuard": "Use one headline and one compact column.",
+        "preventionEvidence": "No multi-desk scaffolding appears."
+      },
+      "statusLanguageOvertakesExperience": {
+        "status": "CLEAR",
+        "producerGuard": "Keep hold and expiry outside public prose.",
+        "preventionEvidence": "State remains metadata only."
+      },
+      "sourceAvailabilityMistakenForEditorialValue": {
+        "status": "CLEAR",
+        "producerGuard": "Use the source because it resolves a common workplace decision.",
+        "preventionEvidence": "The premise states the unresolved practical gap."
+      },
+      "missingAidbRelevanceCheck": {
+        "status": "CLEAR",
+        "producerGuard": "Search recent AIDB and record an exact absence.",
+        "preventionEvidence": "The source note records a dated repository search through August 11."
+      },
+      "predeterminedThesisInsteadOfInvestigation": {
+        "status": "CLEAR",
+        "producerGuard": "Retain uncertainty about intent and power.",
+        "preventionEvidence": "The record supports sequence, not motive."
+      },
+      "weakReaderPremise": {
+        "status": "CLEAR",
+        "producerGuard": "Solve a sentence-level problem, not generic confidence.",
+        "preventionEvidence": "The reader receives exact words and a recap structure."
+      },
+      "adviceBelowReaderBaseline": {
+        "status": "CLEAR",
+        "producerGuard": "Go beyond speak up or document it.",
+        "preventionEvidence": "The advice names what to say, what to record and what it cannot prove."
+      },
+      "promptAdviceMistakenForEnforcement": {
+        "status": "CLEAR",
+        "producerGuard": "Do not present AI wording as workplace control.",
+        "preventionEvidence": "The AI mirror is verification, not an intervention tool."
+      },
+      "longRunningWorkflowRealityIgnored": {
+        "status": "CLEAR",
+        "producerGuard": "Retain a recovery route for repeated or consequential patterns.",
+        "preventionEvidence": "Manager, sponsor or appropriate channel remains available."
+      },
+      "genericEditorialVoice": {
+        "status": "CLEAR",
+        "producerGuard": "Use language specific to attribution and meetings.",
+        "preventionEvidence": "The headline, spoken line and recap are situation-bound."
+      },
+      "fictionalInputMistakenForIsolation": {
+        "status": "CLEAR",
+        "producerGuard": "Never treat fictional, synthetic or non-sensitive input as containment for an executable AI extension; establish trusted provenance and least-privilege environment boundaries before any behavior test.",
+        "preventionEvidence": "This candidate does not rely on safer example data to contain an extension’s pre-existing files, accounts, tools or network authority."
+      },
+      "unbuiltDestinationPresentedAsLive": {
+        "status": "CLEAR",
+        "producerGuard": "Offer only exact publicly available destinations as current reader actions; label planned or held learning as future and do not imply a live route.",
+        "preventionEvidence": "The exact candidate does not present any planned, specified, built-local or held destination as a live reader route."
+      },
+      "repairScopeSubstitutedForSpecifiedScope": {
+        "status": "CLEAR",
+        "producerGuard": "Retain the exact scope that makes a control effective or forward-test any substitution against the original failure scenario.",
+        "preventionEvidence": "The exact candidate preserves every specified control scope and passes the originating transfer scenario."
+      },
+      "compressionDropsReferent": {
+        "status": "CLEAR",
+        "producerGuard": "After cutting, preserve the actor, object, action and criterion so a cold reader can name what is tested and what passes.",
+        "preventionEvidence": "Every compact example still names its skill or input, output and pass criterion."
+      },
+      "safetyQualifierWithUndefinedBoundary": {
+        "status": "CLEAR",
+        "producerGuard": "Replace safety adjectives with observable conditions and an exact disposition; popularity, familiarity and branding do not prove a source is vetted.",
+        "preventionEvidence": "Every safety qualifier in the exact candidate names what the reader can observe and what to do."
+      },
+      "compoundModifierInvertsAgent": {
+        "status": "CLEAR",
+        "producerGuard": "Name the actor whose behavior is tested; reject any compressed modifier that could attach the behavior to sensitive input instead.",
+        "preventionEvidence": "Every behavior-test instruction names the skill as the actor or uses an unambiguous pronoun with a current referent."
+      }
     },
     "knownDefectsRemaining": []
   },
   "draftArchitecture": {
     "plainAnswer": "Reconnect the repeated point to the person who raised it, then record contribution, decision and owner without pretending the record proves motive.",
-    "causalSequence": ["An idea is repeated after its original contribution lost attention.", "Naming the earlier contribution restores context while the discussion is live.", "A neutral recap preserves contribution and next ownership for later decisions."],
+    "causalSequence": [
+      "An idea is repeated after its original contribution lost attention.",
+      "Naming the earlier contribution restores context while the discussion is live.",
+      "A neutral recap preserves contribution and next ownership for later decisions."
+    ],
     "workedCase": "In a meeting, the reader says the repeated proposal builds on the customer-risk point she raised earlier and moves to the next decision.",
     "transferCase": "In a family chat, the reader restores and checks the original source behind a polished health claim before forwarding it.",
     "usefulAction": "Use one natural attribution sentence, then record the contribution, decision and owner in three lines.",
-    "analogyPlan": [{"concept":"Fluent repetition can detach an idea from its origin.","analogy":"An AI answer can pass along a polished claim after its source has disappeared.","mapping":"Both cases require restoring source context before relying on the repetition.","limit":"A colleague is a person with motive, power and rights; an AI output is not, and neither source history nor fluency establishes motive or truth.","whyItHelps":"It turns an abstract AI-verification principle into the same practical source-preservation habit."}],
-    "humourPlan": {"lessonJob":"Put the name back on the idea is lightly sharp but remains an instruction, not a joke at the reader's expense."},
+    "analogyPlan": [
+      {
+        "concept": "Fluent repetition can detach an idea from its origin.",
+        "analogy": "An AI answer can pass along a polished claim after its source has disappeared.",
+        "mapping": "Both cases require restoring source context before relying on the repetition.",
+        "limit": "A colleague is a person with motive, power and rights; an AI output is not, and neither source history nor fluency establishes motive or truth.",
+        "whyItHelps": "It turns an abstract AI-verification principle into the same practical source-preservation habit."
+      }
+    ],
+    "humourPlan": {
+      "lessonJob": "Put the name back on the idea is lightly sharp but remains an instruction, not a joke at the reader's expense."
+    },
     "formatSpecificStructure": "Headline; recognizable meeting moment; exact in-room line; three-line recap; AI mirror; comparison limit; escalation boundary.",
     "antiTemplateDecision": "No confidence pep talk, bias glossary, accusation script or pasted-on prompt tip."
   },
   "communicationDesign": {
     "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
-    "benchmark": {"path":"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md","sha256":"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"},
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
     "mode": "PROPORTIONAL",
     "surfaceAdaptation": "Begin inside a familiar meeting, make the invisible loss of origin visible, then land on spoken and written actions.",
     "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
     "dimensions": {
-      "humanQuestion":{"disposition":"APPLY","reason":"The reader needs words for a real meeting moment.","plannedEvidence":"The opening question and exact line answer it."},
-      "usefulCuriosity":{"disposition":"APPLY","reason":"The difference between repetition and attribution changes action.","plannedEvidence":"The card asks what the record can and cannot establish."},
-      "invisibleProcessConcrete":{"disposition":"APPLY","reason":"Credit can disappear as an idea travels.","plannedEvidence":"Name, idea, decision and owner make the path visible."},
-      "familiarTechnicalMovement":{"disposition":"APPLY","reason":"The meeting case makes provenance concrete before the AI mirror.","plannedEvidence":"The source-preservation habit moves from work to AI and home."},
-      "limitationsConsequences":{"disposition":"APPLY","reason":"A script cannot repair power or prove motive.","plannedEvidence":"The card names escalation and motive boundaries."},
-      "humourSurprise":{"disposition":"APPLY","reason":"One lightly sharp headline makes the action memorable.","plannedEvidence":"The headline remains literal enough to guide action."},
-      "betterNextQuestion":{"disposition":"APPLY","reason":"Who stole this is often unanswerable in the moment.","plannedEvidence":"The card replaces it with what contribution, decision and owner need recording."}
+      "humanQuestion": {
+        "disposition": "APPLY",
+        "reason": "The reader needs words for a real meeting moment.",
+        "plannedEvidence": "The opening question and exact line answer it."
+      },
+      "usefulCuriosity": {
+        "disposition": "APPLY",
+        "reason": "The difference between repetition and attribution changes action.",
+        "plannedEvidence": "The card asks what the record can and cannot establish."
+      },
+      "invisibleProcessConcrete": {
+        "disposition": "APPLY",
+        "reason": "Credit can disappear as an idea travels.",
+        "plannedEvidence": "Name, idea, decision and owner make the path visible."
+      },
+      "familiarTechnicalMovement": {
+        "disposition": "APPLY",
+        "reason": "The meeting case makes provenance concrete before the AI mirror.",
+        "plannedEvidence": "The source-preservation habit moves from work to AI and home."
+      },
+      "limitationsConsequences": {
+        "disposition": "APPLY",
+        "reason": "A script cannot repair power or prove motive.",
+        "plannedEvidence": "The card names escalation and motive boundaries."
+      },
+      "humourSurprise": {
+        "disposition": "APPLY",
+        "reason": "One lightly sharp headline makes the action memorable.",
+        "plannedEvidence": "The headline remains literal enough to guide action."
+      },
+      "betterNextQuestion": {
+        "disposition": "APPLY",
+        "reason": "Who stole this is often unanswerable in the moment.",
+        "plannedEvidence": "The card replaces it with what contribution, decision and owner need recording."
+      }
     },
-    "explanationArc": {"mode":"PROPORTIONAL","retainedMoves":["human situation","visible mechanism","usable words","bounded landing"],"adaptation":"The compact column answers first and gives only enough mechanism to prevent misuse."}
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": [
+        "human situation",
+        "visible mechanism",
+        "usable words",
+        "bounded landing"
+      ],
+      "adaptation": "The compact column answers first and gives only enough mechanism to prevent misuse."
+    }
   },
   "explanationReasoningDesign": {
     "benchmarkId": "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
-    "benchmark": {"path":"operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md","sha256":"f5b4b172294df577a6d2c5eeffb8afd507e21667c5d0c98450315c36008f9841"},
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md",
+      "sha256": "f5b4b172294df577a6d2c5eeffb8afd507e21667c5d0c98450315c36008f9841"
+    },
     "mode": "PROPORTIONAL",
     "imitationBoundary": "ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB",
     "humanEntry": "A useful point was ignored until someone else repeated it, and the reader needs a response that restores context without accusing motive.",
     "fakeUnderstandingRisk": "Generic advice to speak up or keep receipts can sound useful while supplying neither language nor evidence boundaries.",
-    "firstPrinciplesSequence": ["Repetition can separate an idea from its contributor.", "Attribution restores context.", "A factual record supports later decisions but does not establish intent."],
+    "firstPrinciplesSequence": [
+      "Repetition can separate an idea from its contributor.",
+      "Attribution restores context.",
+      "A factual record supports later decisions but does not establish intent."
+    ],
     "explainBackTest": "Explain why a dated recap helps with contribution credit but cannot prove that a colleague deliberately stole an idea.",
     "transferCase": "Apply origin-versus-proof to an AI-generated health claim forwarded without its source.",
     "usefulLanding": "Name the contribution, decision and owner; escalate the pattern rather than trying to read motive from metadata.",
@@ -140,6 +400,12 @@
     "plannedProof": "The exact column must work as career guidance with the AI paragraph removed, then show one additional source habit and one explicit comparison limit.",
     "acceptanceOutcome": "A reader can use the spoken line and recap, state what the record cannot prove and explain the narrow AI mirror."
   },
-  "ratchet": {"targets":{"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0},"rule":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "ratchet": {
+    "targets": {
+      "repeatedKnownDefects": 0,
+      "objectiveDefectsFirstFoundAtReview": 0
+    },
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
   "status": "READY_TO_DRAFT"
 }

@@ -556,8 +556,19 @@
       "surface": "NEWSSTAND",
       "action": "UPDATE",
       "ownerProductId": "newsstand",
-      "publicationFormatIds": ["news_weekly"],
-      "formatRouting": [{"publicationFormatId":"news_weekly","relationship":"PRIMARY_OUTPUT","contributionJob":"Complete the source-bound weekly synthesis of the incident and its wider implications.","sourceVersionIds":["NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28"]}],
+      "publicationFormatIds": [
+        "news_weekly"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_weekly",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Complete the source-bound weekly synthesis of the incident and its wider implications.",
+          "sourceVersionIds": [
+            "NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28"
+          ]
+        }
+      ],
       "targetPaths": [
         "operations/drafts/openai-hugging-face-incident-2026-07-24/weekly-deep-dive.md"
       ],
@@ -755,8 +766,20 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-tribune",
-      "publicationFormatIds": ["news_big_question"],
-      "formatRouting": [{"publicationFormatId":"news_big_question","relationship":"PRIMARY_OUTPUT","contributionJob":"Investigate what the OpenAI, Anthropic, Meta and AISI incidents establish about current loss-of-control risk, responsibility and useful safeguards.","sourceVersionIds":["NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28","research-and-claim-map:32c677369fb9fabcc5c115a63e62d80b7c85f4690a5401d4fdf8981fab3c587c"]}],
+      "publicationFormatIds": [
+        "news_big_question"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_big_question",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Investigate what the OpenAI, Anthropic, Meta and AISI incidents establish about current loss-of-control risk, responsibility and useful safeguards.",
+          "sourceVersionIds": [
+            "NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28",
+            "research-and-claim-map:32c677369fb9fabcc5c115a63e62d80b7c85f4690a5401d4fdf8981fab3c587c"
+          ]
+        }
+      ],
       "targetPaths": [
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
@@ -1834,11 +1857,36 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-daily",
-      "publicationFormatIds": ["paige_ai_tip", "career_work_life_tip", "promptoscope"],
+      "publicationFormatIds": [
+        "paige_ai_tip",
+        "career_work_life_tip",
+        "promptoscope"
+      ],
       "formatRouting": [
-        {"publicationFormatId":"paige_ai_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one bounded useful AI action.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
-        {"publicationFormatId":"career_work_life_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one workplace lesson with an accurate bounded AI mirror.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]},
-        {"publicationFormatId":"promptoscope","relationship":"PRIMARY_OUTPUT","contributionJob":"Provide one playful prompt or context lesson.","sourceVersionIds":["DAILY-NEWSPAPER-EXPERIENCE-BRIEF"]}
+        {
+          "publicationFormatId": "paige_ai_tip",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Provide one bounded useful AI action.",
+          "sourceVersionIds": [
+            "DAILY-NEWSPAPER-EXPERIENCE-BRIEF"
+          ]
+        },
+        {
+          "publicationFormatId": "career_work_life_tip",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Provide one workplace lesson with an accurate bounded AI mirror.",
+          "sourceVersionIds": [
+            "DAILY-NEWSPAPER-EXPERIENCE-BRIEF"
+          ]
+        },
+        {
+          "publicationFormatId": "promptoscope",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Provide one playful prompt or context lesson.",
+          "sourceVersionIds": [
+            "DAILY-NEWSPAPER-EXPERIENCE-BRIEF"
+          ]
+        }
       ],
       "targetPaths": [
         "content/daily-learning-derivatives.schema.json",
@@ -1976,7 +2024,7 @@
       "artifactBinding": {
         "status": "BOUND",
         "manifestPath": "operations/product-stewards/newsstand/candidates/promptoscope-repeatable-evals-2026-08-11-manifest.json",
-        "sha256": "b1b3baab7d3fccd3374b788a0395ea1aaa2bb32f27cb3f0bec6e55fe847026d4"
+        "sha256": "ea18e0c9debf7475f833a577afe6034706269e7ef6353abafa46f2a5d0e84ba5"
       },
       "producerContractPath": "operations/product-stewards/newsstand/candidates/promptoscope-repeatable-evals-2026-08-11-producer-contract.json",
       "producerReviewPath": "operations/product-stewards/newsstand/candidates/promptoscope-repeatable-evals-2026-08-11-producer-self-review.json",
@@ -2465,8 +2513,19 @@
       "surface": "NEWSSTAND",
       "action": "EXTEND",
       "ownerProductId": "newsstand-daily",
-      "publicationFormatIds": ["paige_ai_tip"],
-      "formatRouting": [{"publicationFormatId":"paige_ai_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Turn the admitted reusable-skills concept into one current practical Daily action.","sourceVersionIds":["INTAKE-build-and-audit-reusable-ai-skills-2026-07-31"]}],
+      "publicationFormatIds": [
+        "paige_ai_tip"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "paige_ai_tip",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Turn the admitted reusable-skills concept into one current practical Daily action.",
+          "sourceVersionIds": [
+            "INTAKE-build-and-audit-reusable-ai-skills-2026-07-31"
+          ]
+        }
+      ],
       "targetPaths": [
         "operations/product-stewards/learning-content-ecosystem/claim-register.json",
         "content/daily-learning-derivatives.json"
@@ -2474,8 +2533,8 @@
       "status": "BUILT_LOCALLY",
       "dispatchState": "NOT_READY",
       "priority": "P1",
-      "nextAction": "Commission one role-distinct artifact-first accuracy, usefulness, LAiDIES voice and compact-format review of the exact held Paige successor; repair any finding before eligibility or Daily integration.",
-      "nextTrigger": "The corrected record, successor producer contract, manifest and producer self-review are checksum-bound against CQX-BAD-006 and ready for independent review.",
+      "nextAction": "Run one observed non-technical-reader check and one exact rendered-card review of the unchanged 147-word Paige candidate. Specifically test whether a named popular maker is mistaken for vetted and whether the compressed middle still sounds like Paige.",
+      "nextTrigger": "Independent artifact-first review accepted the exact prose after blockers fell 11 → 7 → 4 → 3 → 0. The record remains HOLD/INELIGIBLE until observed-human and rendered-card evidence exists.",
       "acceptanceEvidence": [
         "Current official skills claim in the canonical register",
         "Held Paige derivative record",
@@ -2536,43 +2595,71 @@
           "owner": "ai-research-accuracy",
           "status": "REQUIRED",
           "evidenceRequired": "Every skills, code, dependency, access and security claim maps to current official evidence; the creator reel is discovery only.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "antiSlop": {
           "owner": "newsstand",
           "status": "REQUIRED",
           "evidenceRequired": "The card gives one bounded action, one reason and one clear safety boundary without repeating generic AI caution language.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "currentBestPractice": {
           "owner": "content-freshness",
           "status": "REQUIRED",
           "evidenceRequired": "Publication-day recheck of official skills guidance, availability and security advice plus a short expiry and correction trigger.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "laidiesVoice": {
           "owner": "brand-experience",
           "status": "REQUIRED",
           "evidenceRequired": "Smart, useful, lightly sharp LAiDIES voice; no scare copy, condescension or department-replacement hype.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "analogyIntegrity": {
           "owner": "learning-content-ecosystem",
           "status": "REQUIRED",
           "evidenceRequired": "The job/department metaphor is used only to expose its limit: a reusable procedure is not accountable staff.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "usefulnessDepth": {
           "owner": "editorial-learning",
           "status": "REQUIRED",
           "evidenceRequired": "A reader can choose a low-risk first job, inspect files/access, test on fictional examples and retain final human judgement.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "formatFit": {
           "owner": "newsstand-daily",
           "status": "REQUIRED",
           "evidenceRequired": "The copy fits one Paige card, remains readable at mobile width and links to the deeper class rather than impersonating it.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "searchIndexing": {
           "owner": "platform",
@@ -2584,13 +2671,21 @@
           "owner": "learning-content-ecosystem",
           "status": "REQUIRED",
           "evidenceRequired": "Exact relationship points to Basics P8 and the intermediate lab with a useful reason, not a generic Learn more list.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "canonConsistency": {
           "owner": "learning-content-ecosystem",
           "status": "REQUIRED",
           "evidenceRequired": "The tip agrees with existing skills, plugins, connectors, instructions, security and professional-accountability explanations sitewide.",
-          "evidencePaths": []
+          "evidencePaths": [
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-hold-2.md",
+            "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-12-independent-opus-accept.md"
+          ]
         },
         "songOpportunity": {
           "owner": "ksvl-radio",
@@ -2608,7 +2703,7 @@
       "artifactBinding": {
         "status": "BOUND",
         "manifestPath": "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-manifest.json",
-        "sha256": "603fcb830c8136efbaa812ec2a262fef0335122992072d1f719699a86da88c7c"
+        "sha256": "e783ddddbdb15893feae3f4c34c91e2038e8b8a22eece6f83841061a6b1c2b0f"
       },
       "producerContractPath": "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-producer-contract.json",
       "producerReviewPath": "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-producer-self-review.json",
@@ -2676,8 +2771,8 @@
           ],
           "collisionBoundary": "This lane may create and self-review one held Paige reusable-skills candidate and update its exact claim/work-order bindings; it may not mark the candidate eligible, edit the public NewsStand consumer, deploy, publish or touch unrelated Daily records.",
           "dispatchedAt": "2026-08-11T23:15:00-07:00",
-          "checkpointAt": "2026-08-11T23:45:00-07:00",
-          "slaDueAt": "2026-08-12T01:15:00-07:00"
+          "checkpointAt": "2026-08-12T03:52:00-07:00",
+          "slaDueAt": "2026-08-12T07:00:00-07:00"
         },
         "closure": null
       }
@@ -2898,8 +2993,19 @@
       "surface": "NEWSSTAND",
       "action": "EXTEND",
       "ownerProductId": "newsstand-daily",
-      "publicationFormatIds": ["news_daily"],
-      "formatRouting": [{"publicationFormatId":"news_daily","relationship":"PRIMARY_OUTPUT","contributionJob":"Create a recurring Daily evidence-decoding format without manufacturing a separate longform argument.","sourceVersionIds":["INTAKE-what-the-viral-reel-left-out-2026-07-31"]}],
+      "publicationFormatIds": [
+        "news_daily"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_daily",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Create a recurring Daily evidence-decoding format without manufacturing a separate longform argument.",
+          "sourceVersionIds": [
+            "INTAKE-what-the-viral-reel-left-out-2026-07-31"
+          ]
+        }
+      ],
       "targetPaths": [
         "operations/product-stewards/newsstand/WHAT-THE-VIRAL-REEL-LEFT-OUT-FORMAT.md"
       ],
@@ -3311,8 +3417,19 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-daily",
-      "publicationFormatIds": ["news_daily"],
-      "formatRouting": [{"publicationFormatId":"news_daily","relationship":"PRIMARY_OUTPUT","contributionJob":"Pilot a clearly fictional Daily town-life component with no private resident data.","sourceVersionIds":["TOWN-GROUP-CHAT-FORMAT"]}],
+      "publicationFormatIds": [
+        "news_daily"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_daily",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Pilot a clearly fictional Daily town-life component with no private resident data.",
+          "sourceVersionIds": [
+            "TOWN-GROUP-CHAT-FORMAT"
+          ]
+        }
+      ],
       "targetPaths": [
         "operations/product-stewards/newsstand/TOWN-GROUP-CHAT-FORMAT.md",
         "operations/product-stewards/newsstand/candidates/town-group-chat-pilot-2026-08-01.md"
@@ -3520,7 +3637,11 @@
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand",
-      "publicationFormatIds": ["news_breaking", "news_daily", "news_weekly"],
+      "publicationFormatIds": [
+        "news_breaking",
+        "news_daily",
+        "news_weekly"
+      ],
       "targetPaths": [
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/triage.md",
         "operations/drafts/news-radar/2026-08-10-openai-daybreak-cyber-access/research-and-claim-map.md",
@@ -3752,13 +3873,19 @@
       "surface": "NEWSSTAND",
       "action": "EXTEND",
       "ownerProductId": "learning-content-ecosystem",
-      "publicationFormatIds": ["dear_miss_jeeves"],
+      "publicationFormatIds": [
+        "dear_miss_jeeves"
+      ],
       "formatRouting": [
         {
           "publicationFormatId": "dear_miss_jeeves",
           "relationship": "PRIMARY_OUTPUT",
           "contributionJob": "Replace the rejected start-a-new-chat advice with one source-bound diagnosis and tested long-work recovery method for DMJ-004.",
-          "sourceVersionIds": ["DMJ-004", "ALI-REJECTION-2026-08-11", "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS"]
+          "sourceVersionIds": [
+            "DMJ-004",
+            "ALI-REJECTION-2026-08-11",
+            "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS"
+          ]
         }
       ],
       "targetPaths": [
@@ -3783,29 +3910,121 @@
         "At-most-one-weekly-column and public-ineligibility checks"
       ],
       "reviewChain": [
-        {"stage":"BUILD","owner":"learning-content-ecosystem","status":"REQUIRED"},
-        {"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},
-        {"stage":"EDITORIAL","owner":"editorial-learning","status":"REQUIRED"},
-        {"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},
-        {"stage":"OWNER","owner":"newsstand","status":"REQUIRED"},
-        {"stage":"RELEASE","owner":"control-room","status":"HOLD"},
-        {"stage":"PUBLIC","owner":"platform","status":"HOLD"}
+        {
+          "stage": "BUILD",
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "ACCURACY",
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EDITORIAL",
+          "owner": "editorial-learning",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EXPERIENCE",
+          "owner": "brand-experience",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "OWNER",
+          "owner": "newsstand",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "RELEASE",
+          "owner": "control-room",
+          "status": "HOLD"
+        },
+        {
+          "stage": "PUBLIC",
+          "owner": "platform",
+          "status": "HOLD"
+        }
       ],
       "qualityGates": {
-        "accuracy": {"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every product or model-behavior claim is bounded to current evidence; multiple plausible causes are not collapsed into one universal diagnosis.","evidencePaths":[]},
-        "antiSlop": {"owner":"newsstand","status":"REQUIRED","evidenceRequired":"The answer reproduces Ali's real failure, rejects generic start-over advice and gives a tested recovery sequence rather than filler.","evidencePaths":[]},
-        "currentBestPractice": {"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of official long-session and evaluation guidance plus expiry and correction triggers.","evidencePaths":[]},
-        "laidiesVoice": {"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Miss Jeeves is wry, composed and kind; humour follows the diagnosis and never blames the reader.","evidencePaths":[]},
-        "analogyIntegrity": {"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Any household or Rewind-era comparison maps exactly to prompt revision, external state or validation and states its limit.","evidencePaths":[]},
-        "usefulnessDepth": {"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"The answer distinguishes prose instructions from enforced controls and gives workable steps for a long-running job.","evidencePaths":[]},
-        "formatFit": {"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The exact answer follows the Dear Miss Jeeves 350–650 word column structure and preserves the one-column-per-week rule.","evidencePaths":[]},
-        "searchIndexing": {"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted canonical answer enters the NewsStand archive or search index.","evidencePaths":[]},
-        "relationshipLinking": {"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The answer links to the exact prompt/evaluation continuation without a generic learn-more list.","evidencePaths":[]},
-        "canonConsistency": {"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The diagnosis agrees with current prompting, evaluation, agent-control and long-work guidance sitewide.","evidencePaths":[]},
-        "songOpportunity": {"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"Radio adaptation reuses the same admitted answer identity; no separate factual canon or song is implied.","evidencePaths":[]},
-        "derivativeFeeds": {"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The held bank record remains suppressed until exact admission and weekly scheduling.","evidencePaths":[]}
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every product or model-behavior claim is bounded to current evidence; multiple plausible causes are not collapsed into one universal diagnosis.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "The answer reproduces Ali's real failure, rejects generic start-over advice and gives a tested recovery sequence rather than filler.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Publication-day recheck of official long-session and evaluation guidance plus expiry and correction triggers.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "Miss Jeeves is wry, composed and kind; humour follows the diagnosis and never blames the reader.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Any household or Rewind-era comparison maps exactly to prompt revision, external state or validation and states its limit.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "The answer distinguishes prose instructions from enforced controls and gives workable steps for a long-running job.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "The exact answer follows the Dear Miss Jeeves 350–650 word column structure and preserves the one-column-per-week rule.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "Only an admitted canonical answer enters the NewsStand archive or search index.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The answer links to the exact prompt/evaluation continuation without a generic learn-more list.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The diagnosis agrees with current prompting, evaluation, agent-control and long-work guidance sitewide.",
+          "evidencePaths": []
+        },
+        "songOpportunity": {
+          "owner": "ksvl-radio",
+          "status": "REQUIRED",
+          "evidenceRequired": "Radio adaptation reuses the same admitted answer identity; no separate factual canon or song is implied.",
+          "evidencePaths": []
+        },
+        "derivativeFeeds": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "The held bank record remains suppressed until exact admission and weekly scheduling.",
+          "evidencePaths": []
+        }
       },
-      "artifactBinding": {"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json","sha256":"476e50beaa0084f0ce989fdc7cab3bb467708535848a77e21ce980f10b48f95d"},
+      "artifactBinding": {
+        "status": "BOUND",
+        "manifestPath": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json",
+        "sha256": "476e50beaa0084f0ce989fdc7cab3bb467708535848a77e21ce980f10b48f95d"
+      },
       "producerContractPath": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-contract.json",
       "producerReviewPath": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json",
       "semanticAdmissionPath": null,
@@ -3814,7 +4033,12 @@
         "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md",
         "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md"
       ],
-      "publicRelease": {"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
+      "publicRelease": {
+        "status": "NOT_AUTHORIZED",
+        "url": null,
+        "releaseReceipt": null,
+        "sha256": null
+      },
       "execution": {
         "state": "WAITING_ON_PREREQUISITE",
         "primaryOutput": {
@@ -3830,12 +4054,35 @@
             "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-producer-self-review.json"
           ]
         },
-        "requiredPrimaryGates": ["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],
-        "derivatives": [
-          {"id":"songOpportunity","state":"PARKED","reason":"No distinct song learning job exists.","activationTrigger":"Reconsider only after the column is admitted and a separate mnemonic purpose is proved."},
-          {"id":"derivativeFeeds","state":"PARKED","reason":"No Daily or radio feed may consume a held answer.","activationTrigger":"Activate only after independent admission and an exact weekly schedule."}
+        "requiredPrimaryGates": [
+          "accuracy",
+          "antiSlop",
+          "currentBestPractice",
+          "laidiesVoice",
+          "analogyIntegrity",
+          "usefulnessDepth",
+          "formatFit",
+          "searchIndexing",
+          "relationshipLinking",
+          "canonConsistency"
         ],
-        "wip": {"ownerLimit":1},
+        "derivatives": [
+          {
+            "id": "songOpportunity",
+            "state": "PARKED",
+            "reason": "No distinct song learning job exists.",
+            "activationTrigger": "Reconsider only after the column is admitted and a separate mnemonic purpose is proved."
+          },
+          {
+            "id": "derivativeFeeds",
+            "state": "PARKED",
+            "reason": "No Daily or radio feed may consume a held answer.",
+            "activationTrigger": "Activate only after independent admission and an exact weekly schedule."
+          }
+        ],
+        "wip": {
+          "ownerLimit": 1
+        },
         "dispatch": {
           "receiptId": "DSP-LCWO-019-20260811-01",
           "receiptPath": "operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-019-20260811-01.json",
@@ -3869,9 +4116,20 @@
       "surface": "NEWSSTAND",
       "action": "EXTEND",
       "ownerProductId": "library",
-      "publicationFormatIds": ["straight_answers"],
+      "publicationFormatIds": [
+        "straight_answers"
+      ],
       "formatRouting": [
-        {"publicationFormatId":"straight_answers","relationship":"PRIMARY_OUTPUT","contributionJob":"Turn the cross-lab evidence into one living direct answer that distinguishes cinematic escape from bounded control failure and improves the reader's decision method.","sourceVersionIds":["CROSS-LAB-CLAIM-MAP-2026-08-11","CROSS-LAB-PREMISE-2026-08-11","ALI-REJECTION-2026-08-11"]}
+        {
+          "publicationFormatId": "straight_answers",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Turn the cross-lab evidence into one living direct answer that distinguishes cinematic escape from bounded control failure and improves the reader's decision method.",
+          "sourceVersionIds": [
+            "CROSS-LAB-CLAIM-MAP-2026-08-11",
+            "CROSS-LAB-PREMISE-2026-08-11",
+            "ALI-REJECTION-2026-08-11"
+          ]
+        }
       ],
       "targetPaths": [
         "operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md",
@@ -3893,86 +4151,234 @@
         "No canonical book mutation before admission"
       ],
       "reviewChain": [
-        {"stage":"BUILD","owner":"library","status":"REQUIRED"},
-        {"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},
-        {"stage":"EDITORIAL","owner":"editorial-learning","status":"REQUIRED"},
-        {"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},
-        {"stage":"OWNER","owner":"library","status":"REQUIRED"},
-        {"stage":"RELEASE","owner":"control-room","status":"HOLD"},
-        {"stage":"PUBLIC","owner":"platform","status":"HOLD"}
+        {
+          "stage": "BUILD",
+          "owner": "library",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "ACCURACY",
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EDITORIAL",
+          "owner": "editorial-learning",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EXPERIENCE",
+          "owner": "brand-experience",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "OWNER",
+          "owner": "library",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "RELEASE",
+          "owner": "control-room",
+          "status": "HOLD"
+        },
+        {
+          "stage": "PUBLIC",
+          "owner": "platform",
+          "status": "HOLD"
+        }
       ],
       "qualityGates": {
-        "accuracy":{"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every escape, goal, access, containment, impact and loss-of-control claim maps to the current cross-lab claim map and its open gaps.","evidencePaths":[]},
-        "antiSlop":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"The answer goes beyond citation checks and rogue-AI clichés to a useful six-part decision method.","evidencePaths":[]},
-        "currentBestPractice":{"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of participant reports, promised follow-ups and the international safety assessment.","evidencePaths":[]},
-        "laidiesVoice":{"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Direct, smart and non-condescending; one earned Rewind-era line may clarify but cannot trivialize harm.","evidencePaths":[]},
-        "analogyIntegrity":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Any analogy maps to access and enforced boundary, states its limit and does not anthropomorphize the model's goal.","evidencePaths":[]},
-        "usefulnessDepth":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"A reader can apply goal, access, boundary, action, stop and impact questions to workplace and home agent use.","evidencePaths":[]},
-        "formatFit":{"owner":"library","status":"REQUIRED","evidenceRequired":"The held answer follows STRAiGHT TALK's living-reference structure and does not read as dated incident news.","evidencePaths":[]},
-        "searchIndexing":{"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted successor enters the LIBRAiRY reference index and canonical route.","evidencePaths":[]},
-        "relationshipLinking":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The living answer links to current Weekly and Big Question coverage without inheriting their publication state.","evidencePaths":[]},
-        "canonConsistency":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The answer preserves settled STRAiGHT TALK naming and current loss-of-control, agent and permissions definitions.","evidencePaths":[]},
-        "songOpportunity":{"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"No song is implied; reconsider only for a distinct mnemonic job after admission.","evidencePaths":[]},
-        "derivativeFeeds":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"Any Daily or Weekly link remains a separate source-bound derivative and cannot make the living answer public.","evidencePaths":[]}
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every escape, goal, access, containment, impact and loss-of-control claim maps to the current cross-lab claim map and its open gaps.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "The answer goes beyond citation checks and rogue-AI clichés to a useful six-part decision method.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Publication-day recheck of participant reports, promised follow-ups and the international safety assessment.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "Direct, smart and non-condescending; one earned Rewind-era line may clarify but cannot trivialize harm.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Any analogy maps to access and enforced boundary, states its limit and does not anthropomorphize the model's goal.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "A reader can apply goal, access, boundary, action, stop and impact questions to workplace and home agent use.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "library",
+          "status": "REQUIRED",
+          "evidenceRequired": "The held answer follows STRAiGHT TALK's living-reference structure and does not read as dated incident news.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "Only an admitted successor enters the LIBRAiRY reference index and canonical route.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The living answer links to current Weekly and Big Question coverage without inheriting their publication state.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The answer preserves settled STRAiGHT TALK naming and current loss-of-control, agent and permissions definitions.",
+          "evidencePaths": []
+        },
+        "songOpportunity": {
+          "owner": "ksvl-radio",
+          "status": "REQUIRED",
+          "evidenceRequired": "No song is implied; reconsider only for a distinct mnemonic job after admission.",
+          "evidencePaths": []
+        },
+        "derivativeFeeds": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "Any Daily or Weekly link remains a separate source-bound derivative and cannot make the living answer public.",
+          "evidencePaths": []
+        }
       },
-      "artifactBinding":{"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","sha256":"1cea8faa613990674290734bb796b297d589dc8b1d0b3abf70166de0ff03c324"},
-      "producerContractPath":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json",
-      "producerReviewPath":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json",
-      "semanticAdmissionPath":null,
-      "evidencePaths":[
+      "artifactBinding": {
+        "status": "BOUND",
+        "manifestPath": "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json",
+        "sha256": "1cea8faa613990674290734bb796b297d589dc8b1d0b3abf70166de0ff03c324"
+      },
+      "producerContractPath": "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json",
+      "producerReviewPath": "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json",
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/premise.md",
         "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"
       ],
-      "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
+      "publicRelease": {
+        "status": "NOT_AUTHORIZED",
+        "url": null,
+        "releaseReceipt": null,
+        "sha256": null
+      },
       "execution": {
-        "state":"WAITING_ON_PREREQUISITE",
-        "primaryOutput":{"id":"LCWO-020-primary","surface":"NEWSSTAND","ownerProductId":"library","targetPaths":["operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"]},
-        "requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],
-        "derivatives":[
-          {"id":"songOpportunity","state":"PARKED","reason":"No distinct song learning job exists.","activationTrigger":"Reconsider only after the reference answer is admitted."},
-          {"id":"derivativeFeeds","state":"PARKED","reason":"No dated derivative may inherit the living answer's later admission.","activationTrigger":"Create a source-bound child only when a current event supplies a separate Daily or Weekly job."}
-        ],
-        "wip":{"ownerLimit":1},
-        "dispatch": {
-          "receiptId":"DSP-LCWO-020-20260811-01",
-          "receiptPath":"operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-020-20260811-01.json",
-          "ownerId":"library",
-          "laneId":"codex-heartbeat:laidies-learning-system-execution-recovery",
-          "acceptedScope":["operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"],
-          "collisionBoundary":"This lane may create and self-review one held STRAiGHT TALK answer and bind its work order; it may not edit the canonical Straight Answers book, mark the answer eligible, integrate, deploy or publish.",
-          "dispatchedAt":"2026-08-11T23:50:00-07:00",
-          "checkpointAt":"2026-08-12T00:20:00-07:00",
-          "slaDueAt":"2026-08-12T03:50:00-07:00"
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-020-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "library",
+          "targetPaths": [
+            "operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md",
+            "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json",
+            "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"
+          ]
         },
-        "closure":null
+        "requiredPrimaryGates": [
+          "accuracy",
+          "antiSlop",
+          "currentBestPractice",
+          "laidiesVoice",
+          "analogyIntegrity",
+          "usefulnessDepth",
+          "formatFit",
+          "searchIndexing",
+          "relationshipLinking",
+          "canonConsistency"
+        ],
+        "derivatives": [
+          {
+            "id": "songOpportunity",
+            "state": "PARKED",
+            "reason": "No distinct song learning job exists.",
+            "activationTrigger": "Reconsider only after the reference answer is admitted."
+          },
+          {
+            "id": "derivativeFeeds",
+            "state": "PARKED",
+            "reason": "No dated derivative may inherit the living answer's later admission.",
+            "activationTrigger": "Create a source-bound child only when a current event supplies a separate Daily or Weekly job."
+          }
+        ],
+        "wip": {
+          "ownerLimit": 1
+        },
+        "dispatch": {
+          "receiptId": "DSP-LCWO-020-20260811-01",
+          "receiptPath": "operations/product-stewards/learning-content-ecosystem/dispatch-receipts/DSP-LCWO-020-20260811-01.json",
+          "ownerId": "library",
+          "laneId": "codex-heartbeat:laidies-learning-system-execution-recovery",
+          "acceptedScope": [
+            "operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md",
+            "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json",
+            "operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-producer-self-review.json"
+          ],
+          "collisionBoundary": "This lane may create and self-review one held STRAiGHT TALK answer and bind its work order; it may not edit the canonical Straight Answers book, mark the answer eligible, integrate, deploy or publish.",
+          "dispatchedAt": "2026-08-11T23:50:00-07:00",
+          "checkpointAt": "2026-08-12T00:20:00-07:00",
+          "slaDueAt": "2026-08-12T03:50:00-07:00"
+        },
+        "closure": null
       }
     },
     {
-      "id":"LCWO-021",
-      "title":"Complete the cross-lab evaluation-boundaries Weekly candidate",
-      "sourceRefs":[
+      "id": "LCWO-021",
+      "title": "Complete the cross-lab evaluation-boundaries Weekly candidate",
+      "sourceRefs": [
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/premise.md",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
         "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"
       ],
-      "surface":"NEWSSTAND",
-      "action":"CREATE",
-      "ownerProductId":"newsstand",
-      "publicationFormatIds":["news_weekly"],
-      "formatRouting":[{"publicationFormatId":"news_weekly","relationship":"PRIMARY_OUTPUT","contributionJob":"Connect distinct OpenAI, Anthropic, Meta and AISI disclosures to reveal the evaluation-system control pattern that isolated reports conceal.","sourceVersionIds":["CROSS-LAB-PREMISE-2026-08-11","CROSS-LAB-CLAIM-MAP-2026-08-11","ALI-REJECTION-2026-08-11"]}],
-      "targetPaths":[
+      "surface": "NEWSSTAND",
+      "action": "CREATE",
+      "ownerProductId": "newsstand",
+      "publicationFormatIds": [
+        "news_weekly"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_weekly",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Connect distinct OpenAI, Anthropic, Meta and AISI disclosures to reveal the evaluation-system control pattern that isolated reports conceal.",
+          "sourceVersionIds": [
+            "CROSS-LAB-PREMISE-2026-08-11",
+            "CROSS-LAB-CLAIM-MAP-2026-08-11",
+            "ALI-REJECTION-2026-08-11"
+          ]
+        }
+      ],
+      "targetPaths": [
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/producer-contract.json",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-manifest.json",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-producer-self-review.json"
       ],
-      "status":"BUILT_LOCALLY",
-      "dispatchState":"NOT_READY",
-      "priority":"P0",
-      "nextAction":"Commission one role-distinct artifact-first accuracy, editorial, learning, LAiDIES voice and Weekly-format review of the exact candidate; repair any finding before integration.",
-      "nextTrigger":"The 1,707-word Weekly, premise, claim map, producer contract, manifest and producer self-review are checksum-bound and ready for independent review.",
-      "acceptanceEvidence":[
+      "status": "BUILT_LOCALLY",
+      "dispatchState": "NOT_READY",
+      "priority": "P0",
+      "nextAction": "Commission one role-distinct artifact-first accuracy, editorial, learning, LAiDIES voice and Weekly-format review of the exact candidate; repair any finding before integration.",
+      "nextTrigger": "The 1,707-word Weekly, premise, claim map, producer contract, manifest and producer self-review are checksum-bound and ready for independent review.",
+      "acceptanceEvidence": [
         "At least two distinct dated developments produce a non-obvious current pattern",
         "Every incident mechanism and attribution remains separate",
         "Newcomer background precedes cyber terms",
@@ -3980,134 +4386,669 @@
         "Role-distinct accuracy, editorial, learning, voice and format review",
         "No canonical NewsStand mutation before admission"
       ],
-      "reviewChain":[
-        {"stage":"BUILD","owner":"newsstand","status":"PASS_LOCAL"},
-        {"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},
-        {"stage":"EDITORIAL","owner":"newsstand","status":"REQUIRED"},
-        {"stage":"LEARNING","owner":"learning-content-ecosystem","status":"REQUIRED"},
-        {"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},
-        {"stage":"OWNER","owner":"newsstand","status":"REQUIRED"},
-        {"stage":"RELEASE","owner":"control-room","status":"HOLD"},
-        {"stage":"PUBLIC","owner":"platform","status":"HOLD"}
+      "reviewChain": [
+        {
+          "stage": "BUILD",
+          "owner": "newsstand",
+          "status": "PASS_LOCAL"
+        },
+        {
+          "stage": "ACCURACY",
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EDITORIAL",
+          "owner": "newsstand",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "LEARNING",
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EXPERIENCE",
+          "owner": "brand-experience",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "OWNER",
+          "owner": "newsstand",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "RELEASE",
+          "owner": "control-room",
+          "status": "HOLD"
+        },
+        {
+          "stage": "PUBLIC",
+          "owner": "platform",
+          "status": "HOLD"
+        }
       ],
-      "qualityGates":{
-        "accuracy":{"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every incident, model, access, impact, evaluator and open-report claim maps to the current claim map.","evidencePaths":[]},
-        "antiSlop":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"Artifact-first review proves specific reporting, original cross-case synthesis and no rogue-AI filler.","evidencePaths":[]},
-        "currentBestPractice":{"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of participant reports, promised follow-ups and independent reporting.","evidencePaths":[]},
-        "laidiesVoice":{"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Smart, useful and non-condescending, with bounded wit that never trivializes affected systems.","evidencePaths":[]},
-        "analogyIntegrity":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The studio analogy maps rule, access, monitoring and stopping and retains its motive limit.","evidencePaths":[]},
-        "usefulnessDepth":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"A reader can reconstruct the control chain and apply it to work and home agent cases.","evidencePaths":[]},
-        "formatFit":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"The Weekly connects dated developments rather than enlarging one Daily story.","evidencePaths":[]},
-        "searchIndexing":{"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted successor enters archive, search, feed and canonical metadata.","evidencePaths":[]},
-        "relationshipLinking":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Related Big Question and STRAiGHT TALK links preserve their independent states.","evidencePaths":[]},
-        "canonConsistency":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Current model, agent, sandbox, permission and loss-of-control definitions remain consistent.","evidencePaths":[]},
-        "songOpportunity":{"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"No song unless a distinct mnemonic learning job is later proved.","evidencePaths":[]},
-        "derivativeFeeds":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"Daily, social and newsletter derivatives require separate source-bound work orders.","evidencePaths":[]}
+      "qualityGates": {
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every incident, model, access, impact, evaluator and open-report claim maps to the current claim map.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "Artifact-first review proves specific reporting, original cross-case synthesis and no rogue-AI filler.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Publication-day recheck of participant reports, promised follow-ups and independent reporting.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "Smart, useful and non-condescending, with bounded wit that never trivializes affected systems.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The studio analogy maps rule, access, monitoring and stopping and retains its motive limit.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "A reader can reconstruct the control chain and apply it to work and home agent cases.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "The Weekly connects dated developments rather than enlarging one Daily story.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "Only an admitted successor enters archive, search, feed and canonical metadata.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Related Big Question and STRAiGHT TALK links preserve their independent states.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Current model, agent, sandbox, permission and loss-of-control definitions remain consistent.",
+          "evidencePaths": []
+        },
+        "songOpportunity": {
+          "owner": "ksvl-radio",
+          "status": "REQUIRED",
+          "evidenceRequired": "No song unless a distinct mnemonic learning job is later proved.",
+          "evidencePaths": []
+        },
+        "derivativeFeeds": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "Daily, social and newsletter derivatives require separate source-bound work orders.",
+          "evidencePaths": []
+        }
       },
-      "artifactBinding":{"status":"BOUND","manifestPath":"operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-manifest.json","sha256":"3061dd7f2e95cfb939fda7ae19ff8316a73170288ed36ba1e90759849956a880"},
-      "producerContractPath":"operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/producer-contract.json",
-      "producerReviewPath":"operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-producer-self-review.json",
-      "semanticAdmissionPath":null,
-      "evidencePaths":[
+      "artifactBinding": {
+        "status": "BOUND",
+        "manifestPath": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-manifest.json",
+        "sha256": "3061dd7f2e95cfb939fda7ae19ff8316a73170288ed36ba1e90759849956a880"
+      },
+      "producerContractPath": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/producer-contract.json",
+      "producerReviewPath": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-producer-self-review.json",
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/premise.md",
         "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md"
       ],
-      "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
-      "execution":{
-        "state":"WAITING_ON_PREREQUISITE",
-        "primaryOutput":{"id":"LCWO-021-primary","surface":"NEWSSTAND","ownerProductId":"newsstand","targetPaths":["operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md","operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/producer-contract.json","operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-manifest.json","operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-producer-self-review.json"]},
-        "requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],
-        "derivatives":[
-          {"id":"songOpportunity","state":"PARKED","reason":"No distinct song learning job exists.","activationTrigger":"Reconsider only after Weekly admission."},
-          {"id":"derivativeFeeds","state":"PARKED","reason":"No derivative may inherit this held candidate's state.","activationTrigger":"Create a separate child work order when a derivative has its own reader job."}
+      "publicRelease": {
+        "status": "NOT_AUTHORIZED",
+        "url": null,
+        "releaseReceipt": null,
+        "sha256": null
+      },
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-021-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "newsstand",
+          "targetPaths": [
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md",
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/producer-contract.json",
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-manifest.json",
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-producer-self-review.json"
+          ]
+        },
+        "requiredPrimaryGates": [
+          "accuracy",
+          "antiSlop",
+          "currentBestPractice",
+          "laidiesVoice",
+          "analogyIntegrity",
+          "usefulnessDepth",
+          "formatFit",
+          "searchIndexing",
+          "relationshipLinking",
+          "canonConsistency"
         ],
-        "wip":{"ownerLimit":1},
-        "dispatch":null,
-        "closure":null
+        "derivatives": [
+          {
+            "id": "songOpportunity",
+            "state": "PARKED",
+            "reason": "No distinct song learning job exists.",
+            "activationTrigger": "Reconsider only after Weekly admission."
+          },
+          {
+            "id": "derivativeFeeds",
+            "state": "PARKED",
+            "reason": "No derivative may inherit this held candidate's state.",
+            "activationTrigger": "Create a separate child work order when a derivative has its own reader job."
+          }
+        ],
+        "wip": {
+          "ownerLimit": 1
+        },
+        "dispatch": null,
+        "closure": null
       }
     },
     {
-      "id":"LCWO-022",
-      "title":"Build a coherent August 3 archive Daily from admitted story and desk records",
-      "sourceRefs":["content/newsstand-daily-issues.json","content/newsstand-stories.js","operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-03.json","content/daily-edition-columns.json","operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"],
-      "surface":"NEWSSTAND",
-      "action":"UPDATE_EXISTING",
-      "ownerProductId":"newsstand-daily",
-      "publicationFormatIds":["news_daily","paige_ai_tip","career_work_life_tip","promptoscope"],
-      "formatRouting":[
-        {"publicationFormatId":"news_daily","relationship":"PRIMARY_OUTPUT","contributionJob":"Present one admitted dated story and four admitted service desks as a recognisable archive newspaper.","sourceVersionIds":["DAILY-ISSUE-2026-08-03","EU50-STORY","ALI-REJECTION-2026-08-11"]},
-        {"publicationFormatId":"paige_ai_tip","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Preserve the admitted August 3 Paige desk as a clearly secondary service item.","sourceVersionIds":["DAILY-2026-08-03-PAIGE-FOLLOW-UP"]},
-        {"publicationFormatId":"career_work_life_tip","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Preserve the admitted career-first delegation item and its human-limit boundary.","sourceVersionIds":["DAILY-2026-08-03-CAREER-DELEGATION"]},
-        {"publicationFormatId":"promptoscope","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Preserve the admitted playful context habit without making it news.","sourceVersionIds":["DAILY-2026-08-03-PROMPTOSCOPE-CONTEXT"]}
+      "id": "LCWO-022",
+      "title": "Build a coherent August 3 archive Daily from admitted story and desk records",
+      "sourceRefs": [
+        "content/newsstand-daily-issues.json",
+        "content/newsstand-stories.js",
+        "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-03.json",
+        "content/daily-edition-columns.json",
+        "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
+        "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"
       ],
-      "targetPaths":["operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md","operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json"],
-      "status":"BUILT_LOCALLY",
-      "dispatchState":"NOT_READY",
-      "priority":"P0",
-      "nextAction":"Commission one role-distinct artifact-first legal accuracy, editorial, learning, LAiDIES voice and Daily-format review of the exact presentation successor; repair any finding before updating the existing canonical August 3 issue presentation.",
-      "nextTrigger":"The 941-word presentation successor, premise, current source refresh, producer contract, manifest and producer self-review are checksum-bound to the existing August 3 issue and ready for independent review.",
-      "acceptanceEvidence":["One dominant dated lead and four clearly secondary desks","No operational status language or filler desks","Archive date and current-source refresh explicit","Workplace and non-work application of the lead's mechanism","Role-distinct accuracy, editorial, learning, voice and format review","No canonical or public mutation before admission"],
-      "reviewChain":[{"stage":"BUILD","owner":"newsstand-daily","status":"PASS_LOCAL"},{"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},{"stage":"EDITORIAL","owner":"newsstand","status":"REQUIRED"},{"stage":"LEARNING","owner":"learning-content-ecosystem","status":"REQUIRED"},{"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},{"stage":"OWNER","owner":"newsstand-daily","status":"REQUIRED"},{"stage":"RELEASE","owner":"control-room","status":"HOLD"},{"stage":"PUBLIC","owner":"platform","status":"HOLD"}],
-      "qualityGates":{
-        "accuracy":{"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Every Article 50, actor, output, transition and label-limit claim maps to current official evidence.","evidencePaths":[]},
-        "antiSlop":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"Artifact-first review proves clear hierarchy, specific reporting and no internal scaffolding or filler.","evidencePaths":[]},
-        "currentBestPractice":{"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of Commission and EUR-Lex sources or explicit retrieval limitation.","evidencePaths":[]},
-        "laidiesVoice":{"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Smart, useful and non-condescending newspaper voice with bounded analogy and distinct desk voices.","evidencePaths":[]},
-        "analogyIntegrity":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Caller ID maps origin and states that it cannot prove the claim.","evidencePaths":[]},
-        "usefulnessDepth":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"A reader can explain the label's job and limit and apply the five-question check to work and home cases.","evidencePaths":[]},
-        "formatFit":{"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The issue reads as a Daily archive, not a model, memo, Weekly or current alert.","evidencePaths":[]},
-        "searchIndexing":{"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted successor enters archive, search, feed and canonical metadata.","evidencePaths":[]},
-        "relationshipLinking":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Every desk destination and parent state remains exact and independently bounded.","evidencePaths":[]},
-        "canonConsistency":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The Daily, service-column names and current Article 50 concepts remain consistent.","evidencePaths":[]},
-        "songOpportunity":{"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"No song desk appears without a rights-cleared admitted selection.","evidencePaths":[]},
-        "derivativeFeeds":{"owner":"newsstand","status":"REQUIRED","evidenceRequired":"No social, newsletter or current-Daily derivative inherits archive admission.","evidencePaths":[]}
+      "surface": "NEWSSTAND",
+      "action": "UPDATE_EXISTING",
+      "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": [
+        "news_daily",
+        "paige_ai_tip",
+        "career_work_life_tip",
+        "promptoscope"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_daily",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Present one admitted dated story and four admitted service desks as a recognisable archive newspaper.",
+          "sourceVersionIds": [
+            "DAILY-ISSUE-2026-08-03",
+            "EU50-STORY",
+            "ALI-REJECTION-2026-08-11"
+          ]
+        },
+        {
+          "publicationFormatId": "paige_ai_tip",
+          "relationship": "CONTRIBUTING_EVIDENCE",
+          "contributionJob": "Preserve the admitted August 3 Paige desk as a clearly secondary service item.",
+          "sourceVersionIds": [
+            "DAILY-2026-08-03-PAIGE-FOLLOW-UP"
+          ]
+        },
+        {
+          "publicationFormatId": "career_work_life_tip",
+          "relationship": "CONTRIBUTING_EVIDENCE",
+          "contributionJob": "Preserve the admitted career-first delegation item and its human-limit boundary.",
+          "sourceVersionIds": [
+            "DAILY-2026-08-03-CAREER-DELEGATION"
+          ]
+        },
+        {
+          "publicationFormatId": "promptoscope",
+          "relationship": "CONTRIBUTING_EVIDENCE",
+          "contributionJob": "Preserve the admitted playful context habit without making it news.",
+          "sourceVersionIds": [
+            "DAILY-2026-08-03-PROMPTOSCOPE-CONTEXT"
+          ]
+        }
+      ],
+      "targetPaths": [
+        "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md",
+        "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md",
+        "operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json",
+        "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json"
+      ],
+      "status": "BUILT_LOCALLY",
+      "dispatchState": "NOT_READY",
+      "priority": "P0",
+      "nextAction": "Commission one role-distinct artifact-first legal accuracy, editorial, learning, LAiDIES voice and Daily-format review of the exact presentation successor; repair any finding before updating the existing canonical August 3 issue presentation.",
+      "nextTrigger": "The 941-word presentation successor, premise, current source refresh, producer contract, manifest and producer self-review are checksum-bound to the existing August 3 issue and ready for independent review.",
+      "acceptanceEvidence": [
+        "One dominant dated lead and four clearly secondary desks",
+        "No operational status language or filler desks",
+        "Archive date and current-source refresh explicit",
+        "Workplace and non-work application of the lead's mechanism",
+        "Role-distinct accuracy, editorial, learning, voice and format review",
+        "No canonical or public mutation before admission"
+      ],
+      "reviewChain": [
+        {
+          "stage": "BUILD",
+          "owner": "newsstand-daily",
+          "status": "PASS_LOCAL"
+        },
+        {
+          "stage": "ACCURACY",
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EDITORIAL",
+          "owner": "newsstand",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "LEARNING",
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EXPERIENCE",
+          "owner": "brand-experience",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "OWNER",
+          "owner": "newsstand-daily",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "RELEASE",
+          "owner": "control-room",
+          "status": "HOLD"
+        },
+        {
+          "stage": "PUBLIC",
+          "owner": "platform",
+          "status": "HOLD"
+        }
+      ],
+      "qualityGates": {
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every Article 50, actor, output, transition and label-limit claim maps to current official evidence.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "Artifact-first review proves clear hierarchy, specific reporting and no internal scaffolding or filler.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Publication-day recheck of Commission and EUR-Lex sources or explicit retrieval limitation.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "Smart, useful and non-condescending newspaper voice with bounded analogy and distinct desk voices.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Caller ID maps origin and states that it cannot prove the claim.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "A reader can explain the label's job and limit and apply the five-question check to work and home cases.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "The issue reads as a Daily archive, not a model, memo, Weekly or current alert.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "Only an admitted successor enters archive, search, feed and canonical metadata.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every desk destination and parent state remains exact and independently bounded.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The Daily, service-column names and current Article 50 concepts remain consistent.",
+          "evidencePaths": []
+        },
+        "songOpportunity": {
+          "owner": "ksvl-radio",
+          "status": "REQUIRED",
+          "evidenceRequired": "No song desk appears without a rights-cleared admitted selection.",
+          "evidencePaths": []
+        },
+        "derivativeFeeds": {
+          "owner": "newsstand",
+          "status": "REQUIRED",
+          "evidenceRequired": "No social, newsletter or current-Daily derivative inherits archive admission.",
+          "evidencePaths": []
+        }
       },
-      "artifactBinding":{"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","sha256":"0dee14da2b6656ce3e0ff8009e0683609ccf8d0c9c7c0dd7615f44d5744bb469"},
-      "producerContractPath":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json",
-      "producerReviewPath":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json",
-      "semanticAdmissionPath":null,
-      "evidencePaths":["content/newsstand-daily-issues.json","operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md"],
-      "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
-      "execution":{"state":"WAITING_ON_PREREQUISITE","primaryOutput":{"id":"LCWO-022-primary","surface":"NEWSSTAND","ownerProductId":"newsstand-daily","targetPaths":["operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md","operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json"]},"requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],"derivatives":[{"id":"songOpportunity","state":"PARKED","reason":"No admitted rights-cleared song exists for the issue.","activationTrigger":"A distinct admitted Song of the Day record exists."},{"id":"derivativeFeeds","state":"PARKED","reason":"No derivative may inherit archive state.","activationTrigger":"Create a separate source-bound work order for a distinct reader job."}],"wip":{"ownerLimit":1},"dispatch":null,"closure":null}
+      "artifactBinding": {
+        "status": "BOUND",
+        "manifestPath": "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json",
+        "sha256": "0dee14da2b6656ce3e0ff8009e0683609ccf8d0c9c7c0dd7615f44d5744bb469"
+      },
+      "producerContractPath": "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json",
+      "producerReviewPath": "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json",
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
+        "content/newsstand-daily-issues.json",
+        "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
+        "operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md"
+      ],
+      "publicRelease": {
+        "status": "NOT_AUTHORIZED",
+        "url": null,
+        "releaseReceipt": null,
+        "sha256": null
+      },
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-022-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "newsstand-daily",
+          "targetPaths": [
+            "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md",
+            "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md",
+            "operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md",
+            "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json",
+            "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-producer-self-review.json"
+          ]
+        },
+        "requiredPrimaryGates": [
+          "accuracy",
+          "antiSlop",
+          "currentBestPractice",
+          "laidiesVoice",
+          "analogyIntegrity",
+          "usefulnessDepth",
+          "formatFit",
+          "searchIndexing",
+          "relationshipLinking",
+          "canonConsistency"
+        ],
+        "derivatives": [
+          {
+            "id": "songOpportunity",
+            "state": "PARKED",
+            "reason": "No admitted rights-cleared song exists for the issue.",
+            "activationTrigger": "A distinct admitted Song of the Day record exists."
+          },
+          {
+            "id": "derivativeFeeds",
+            "state": "PARKED",
+            "reason": "No derivative may inherit archive state.",
+            "activationTrigger": "Create a separate source-bound work order for a distinct reader job."
+          }
+        ],
+        "wip": {
+          "ownerLimit": 1
+        },
+        "dispatch": null,
+        "closure": null
+      }
     },
     {
-      "id":"LCWO-023",
-      "title":"Build a career-first contribution-credit tip with an earned AI source mirror",
-      "sourceRefs":["operations/product-stewards/learning-content-ecosystem/WORK-LIFE-AI-MIRROR-BANK.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md"],
-      "surface":"NEWSSTAND",
-      "action":"CREATE",
-      "ownerProductId":"learning-content-ecosystem",
-      "publicationFormatIds":["career_work_life_tip"],
-      "formatRouting":[{"publicationFormatId":"career_work_life_tip","relationship":"PRIMARY_OUTPUT","contributionJob":"Give a reader exact low-drama language for restoring contribution context, a neutral recap and a bounded source-verification mirror.","sourceVersionIds":["WORK-LIFE-AI-MIRROR-01","LEAN-IN-RECOGNITION-2026-08-12","OPENAI-TRUTH-GUIDANCE-2026-08"]}],
-      "targetPaths":["content/daily-learning-derivatives.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json"],
-      "status":"BUILT_LOCALLY",
-      "dispatchState":"NOT_READY",
-      "priority":"P0",
-      "nextAction":"Commission one role-distinct artifact-first workplace accuracy, editorial, LAiDIES voice, analogy and Career/Work-Life format review of the exact record; repair any finding before a Daily issue uses it.",
-      "nextTrigger":"The 192-word record, current two-part source note, premise, producer contract, manifest and producer self-review are checksum-bound and ready for independent review.",
-      "acceptanceEvidence":["Career guidance remains useful with the AI paragraph removed","Exact in-room wording and neutral recap are usable","AI mirror adds source verification rather than becoming the protagonist","Person-to-model, motive and escalation limits are explicit","Role-distinct accuracy, editorial, voice and format review","No Daily integration or public mutation before admission"],
-      "reviewChain":[{"stage":"BUILD","owner":"learning-content-ecosystem","status":"PASS_LOCAL"},{"stage":"ACCURACY","owner":"ai-research-accuracy","status":"REQUIRED"},{"stage":"EDITORIAL","owner":"editorial-learning","status":"REQUIRED"},{"stage":"EXPERIENCE","owner":"brand-experience","status":"REQUIRED"},{"stage":"OWNER","owner":"learning-content-ecosystem","status":"REQUIRED"},{"stage":"RELEASE","owner":"control-room","status":"HOLD"},{"stage":"PUBLIC","owner":"platform","status":"HOLD"}],
-      "qualityGates":{
-        "accuracy":{"owner":"ai-research-accuracy","status":"REQUIRED","evidenceRequired":"Workplace guidance and AI mirror map separately to current sources; no motive or universal-outcome claim.","evidencePaths":[]},
-        "antiSlop":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"Artifact-first review proves the record supplies usable wording and is not confidence filler.","evidencePaths":[]},
-        "currentBestPractice":{"owner":"content-freshness","status":"REQUIRED","evidenceRequired":"Publication-day recheck of the exact Lean In and OpenAI pages.","evidencePaths":[]},
-        "laidiesVoice":{"owner":"brand-experience","status":"REQUIRED","evidenceRequired":"Adult, capable and lightly sharp without blame or corporate sludge.","evidencePaths":[]},
-        "analogyIntegrity":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"The AI source mirror improves the workplace action and explicitly stops before person-to-model equivalence.","evidencePaths":[]},
-        "usefulnessDepth":{"owner":"editorial-learning","status":"REQUIRED","evidenceRequired":"The reader can use the spoken line, recap and escalation boundary in a real case.","evidencePaths":[]},
-        "formatFit":{"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"The record fits a compact Career/Work-Life desk and remains career-first.","evidencePaths":[]},
-        "searchIndexing":{"owner":"platform","status":"REQUIRED","evidenceRequired":"Only an admitted successor enters Daily archive, search or feed metadata.","evidencePaths":[]},
-        "relationshipLinking":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Episode 3 or verification continuation is linked only if current and separately admitted.","evidencePaths":[]},
-        "canonConsistency":{"owner":"learning-content-ecosystem","status":"REQUIRED","evidenceRequired":"Hallucination, provenance, verification and human-judgment boundaries agree with current canon.","evidencePaths":[]},
-        "songOpportunity":{"owner":"ksvl-radio","status":"REQUIRED","evidenceRequired":"No song commissioned from a service tip without a distinct mnemonic job.","evidencePaths":[]},
-        "derivativeFeeds":{"owner":"newsstand-daily","status":"REQUIRED","evidenceRequired":"No social or newsletter derivative inherits the held candidate's state.","evidencePaths":[]}
+      "id": "LCWO-023",
+      "title": "Build a career-first contribution-credit tip with an earned AI source mirror",
+      "sourceRefs": [
+        "operations/product-stewards/learning-content-ecosystem/WORK-LIFE-AI-MIRROR-BANK.md",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "CREATE",
+      "ownerProductId": "learning-content-ecosystem",
+      "publicationFormatIds": [
+        "career_work_life_tip"
+      ],
+      "formatRouting": [
+        {
+          "publicationFormatId": "career_work_life_tip",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Give a reader exact low-drama language for restoring contribution context, a neutral recap and a bounded source-verification mirror.",
+          "sourceVersionIds": [
+            "WORK-LIFE-AI-MIRROR-01",
+            "LEAN-IN-RECOGNITION-2026-08-12",
+            "OPENAI-TRUTH-GUIDANCE-2026-08"
+          ]
+        }
+      ],
+      "targetPaths": [
+        "content/daily-learning-derivatives.json",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json"
+      ],
+      "status": "BUILT_LOCALLY",
+      "dispatchState": "NOT_READY",
+      "priority": "P0",
+      "nextAction": "Commission one role-distinct artifact-first workplace accuracy, editorial, LAiDIES voice, analogy and Career/Work-Life format review of the exact record; repair any finding before a Daily issue uses it.",
+      "nextTrigger": "The 192-word record, current two-part source note, premise, producer contract, manifest and producer self-review are checksum-bound and ready for independent review.",
+      "acceptanceEvidence": [
+        "Career guidance remains useful with the AI paragraph removed",
+        "Exact in-room wording and neutral recap are usable",
+        "AI mirror adds source verification rather than becoming the protagonist",
+        "Person-to-model, motive and escalation limits are explicit",
+        "Role-distinct accuracy, editorial, voice and format review",
+        "No Daily integration or public mutation before admission"
+      ],
+      "reviewChain": [
+        {
+          "stage": "BUILD",
+          "owner": "learning-content-ecosystem",
+          "status": "PASS_LOCAL"
+        },
+        {
+          "stage": "ACCURACY",
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EDITORIAL",
+          "owner": "editorial-learning",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EXPERIENCE",
+          "owner": "brand-experience",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "OWNER",
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "RELEASE",
+          "owner": "control-room",
+          "status": "HOLD"
+        },
+        {
+          "stage": "PUBLIC",
+          "owner": "platform",
+          "status": "HOLD"
+        }
+      ],
+      "qualityGates": {
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Workplace guidance and AI mirror map separately to current sources; no motive or universal-outcome claim.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "Artifact-first review proves the record supplies usable wording and is not confidence filler.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Publication-day recheck of the exact Lean In and OpenAI pages.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "Adult, capable and lightly sharp without blame or corporate sludge.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The AI source mirror improves the workplace action and explicitly stops before person-to-model equivalence.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "The reader can use the spoken line, recap and escalation boundary in a real case.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "The record fits a compact Career/Work-Life desk and remains career-first.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "Only an admitted successor enters Daily archive, search or feed metadata.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Episode 3 or verification continuation is linked only if current and separately admitted.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Hallucination, provenance, verification and human-judgment boundaries agree with current canon.",
+          "evidencePaths": []
+        },
+        "songOpportunity": {
+          "owner": "ksvl-radio",
+          "status": "REQUIRED",
+          "evidenceRequired": "No song commissioned from a service tip without a distinct mnemonic job.",
+          "evidencePaths": []
+        },
+        "derivativeFeeds": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "No social or newsletter derivative inherits the held candidate's state.",
+          "evidencePaths": []
+        }
       },
-      "artifactBinding":{"status":"BOUND","manifestPath":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json","sha256":"d3aa70a3551ee0be3ca4828f2b9d4efa0ed196d5f4edce24f78e883d99cc2fa7"},
-      "producerContractPath":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json",
-      "producerReviewPath":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json",
-      "semanticAdmissionPath":null,
-      "evidencePaths":["operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md"],
-      "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
-      "execution":{"state":"WAITING_ON_PREREQUISITE","primaryOutput":{"id":"LCWO-023-primary","surface":"NEWSSTAND","ownerProductId":"learning-content-ecosystem","targetPaths":["content/daily-learning-derivatives.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json"]},"requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],"derivatives":[{"id":"songOpportunity","state":"PARKED","reason":"No distinct mnemonic job exists.","activationTrigger":"Reconsider only after candidate admission."},{"id":"derivativeFeeds","state":"PARKED","reason":"No derivative may inherit this held candidate's state.","activationTrigger":"Create a separate source-bound child work order."}],"wip":{"ownerLimit":1},"dispatch":null,"closure":null}
+      "artifactBinding": {
+        "status": "BOUND",
+        "manifestPath": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json",
+        "sha256": "a5a00fc1df4415b790829766fd805675cc259b2462e3bcde107e692d586f255b"
+      },
+      "producerContractPath": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json",
+      "producerReviewPath": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json",
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md"
+      ],
+      "publicRelease": {
+        "status": "NOT_AUTHORIZED",
+        "url": null,
+        "releaseReceipt": null,
+        "sha256": null
+      },
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-023-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "learning-content-ecosystem",
+          "targetPaths": [
+            "content/daily-learning-derivatives.json",
+            "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
+            "operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md",
+            "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json",
+            "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json"
+          ]
+        },
+        "requiredPrimaryGates": [
+          "accuracy",
+          "antiSlop",
+          "currentBestPractice",
+          "laidiesVoice",
+          "analogyIntegrity",
+          "usefulnessDepth",
+          "formatFit",
+          "searchIndexing",
+          "relationshipLinking",
+          "canonConsistency"
+        ],
+        "derivatives": [
+          {
+            "id": "songOpportunity",
+            "state": "PARKED",
+            "reason": "No distinct mnemonic job exists.",
+            "activationTrigger": "Reconsider only after candidate admission."
+          },
+          {
+            "id": "derivativeFeeds",
+            "state": "PARKED",
+            "reason": "No derivative may inherit this held candidate's state.",
+            "activationTrigger": "Create a separate source-bound child work order."
+          }
+        ],
+        "wip": {
+          "ownerLimit": 1
+        },
+        "dispatch": null,
+        "closure": null
+      }
     }
   ]
 }

@@ -1,129 +1,459 @@
 {
-  "schemaVersion":"laidies-content-producer-contract.v1",
-  "candidateId":"LCWO-022",
-  "surface":"SUNNYVAiLE NewsStand / The Daily archive",
-  "contentClass":"NEWS",
-  "producer":"newsstand-daily",
-  "predecessorSearch":{"searchedRoots":["operations/product-stewards/newsstand","content"],"queries":["The Daily August 3 2026","EU AI transparency Daily archive","label is caller ID not lie detector"],"matches":[{"artifact":{"path":"content/newsstand-daily-issues.json","sha256":"bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"},"disposition":"CURRENT_PREDECESSOR"},{"artifact":{"path":"content/newsstand-stories.js","sha256":"c4516f3207d3abd735d500341d99c531a7e3799c2c18b67519d7899c8a3b6767"},"disposition":"SOURCE_MATERIAL_ONLY"},{"artifact":{"path":"operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-03.json","sha256":"6a806832facb5c55ddae67d11faaeb1ce64f98ab172384a1478cc724e8ec8c2e"},"disposition":"SOURCE_MATERIAL_ONLY"},{"artifact":{"path":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md","sha256":"b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"},"disposition":"REJECTED_KNOWN_BAD"}],"outcome":"SUCCESSOR","selectedPredecessor":{"path":"content/newsstand-daily-issues.json","sha256":"bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"},"preserveAndImprove":"Preserve the admitted August 3 story, service records, source identity and archive date; turn that existing issue into one readable newspaper presentation with a dominant lead, remove empty desks and operational scaffolding, and never create a second competing August 3 issue."},
-  "examplePair":{
-    "policyId":"LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
-    "workplaceExample":"A communications manager sees an AI-origin label on a draft campaign image; the label identifies origin context but she still checks the underlying claim, evidence and approval.",
-    "nonWorkExample":"A family group chat receives a labelled AI-generated health graphic; the label does not make the medical claim true, so the reader traces the claim to an authoritative source before sharing.",
-    "sharedMechanism":"In both cases an origin signal answers who or what made the item, while evidence checking answers whether its specific claim is supported.",
-    "surfaceAdaptation":"The two compact examples sit inside the lead story; the four service desks remain separate newspaper items."
+  "schemaVersion": "laidies-content-producer-contract.v1",
+  "candidateId": "LCWO-022",
+  "surface": "SUNNYVAiLE NewsStand / The Daily archive",
+  "contentClass": "NEWS",
+  "producer": "newsstand-daily",
+  "predecessorSearch": {
+    "searchedRoots": [
+      "operations/product-stewards/newsstand",
+      "content"
+    ],
+    "queries": [
+      "The Daily August 3 2026",
+      "EU AI transparency Daily archive",
+      "label is caller ID not lie detector"
+    ],
+    "matches": [
+      {
+        "artifact": {
+          "path": "content/newsstand-daily-issues.json",
+          "sha256": "bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"
+        },
+        "disposition": "CURRENT_PREDECESSOR"
+      },
+      {
+        "artifact": {
+          "path": "content/newsstand-stories.js",
+          "sha256": "c4516f3207d3abd735d500341d99c531a7e3799c2c18b67519d7899c8a3b6767"
+        },
+        "disposition": "SOURCE_MATERIAL_ONLY"
+      },
+      {
+        "artifact": {
+          "path": "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/2026-08-03.json",
+          "sha256": "6a806832facb5c55ddae67d11faaeb1ce64f98ab172384a1478cc724e8ec8c2e"
+        },
+        "disposition": "SOURCE_MATERIAL_ONLY"
+      },
+      {
+        "artifact": {
+          "path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md",
+          "sha256": "b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"
+        },
+        "disposition": "REJECTED_KNOWN_BAD"
+      }
+    ],
+    "outcome": "SUCCESSOR",
+    "selectedPredecessor": {
+      "path": "content/newsstand-daily-issues.json",
+      "sha256": "bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"
+    },
+    "preserveAndImprove": "Preserve the admitted August 3 story, service records, source identity and archive date; turn that existing issue into one readable newspaper presentation with a dominant lead, remove empty desks and operational scaffolding, and never create a second competing August 3 issue."
   },
-  "readerContract":{
-    "humanQuestion":"What changed under Europe's AI transparency rules on August 2, and does an AI label mean the content is trustworthy?",
-    "promisedPayoff":"The reader can identify the bounded situations covered by the change, separate origin labelling from truth verification, and scan four distinct useful desks in a recognisable archive Daily.",
-    "priorKnowledge":"She may know that the EU has an AI Act and expect labels on AI content; she does not need legal or policy expertise.",
-    "centralMentalModel":"A transparency label is caller ID for defined AI encounters: useful origin context, not a lie detector, safety certificate or universal compliance verdict.",
-    "dailyLifeConnection":"The same origin-versus-evidence distinction applies to a work campaign image and a health graphic in a family chat.",
-    "surfaceJob":"One coherent August 3 archive Daily with a dated lead, clear desk hierarchy and no internal status language or filler.",
-    "desiredFeeling":"I can tell what this newspaper is, what changed that day and what to do with an AI label."
+  "examplePair": {
+    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
+    "workplaceExample": "A communications manager sees an AI-origin label on a draft campaign image; the label identifies origin context but she still checks the underlying claim, evidence and approval.",
+    "nonWorkExample": "A family group chat receives a labelled AI-generated health graphic; the label does not make the medical claim true, so the reader traces the claim to an authoritative source before sharing.",
+    "sharedMechanism": "In both cases an origin signal answers who or what made the item, while evidence checking answers whether its specific claim is supported.",
+    "surfaceAdaptation": "The two compact examples sit inside the lead story; the four service desks remain separate newspaper items."
   },
-  "canonicalTruth":[
-    {"claimId":"DAILY-ARCHIVE-ISSUE-SNAPSHOT","owner":"newsstand-daily","freshnessTrigger":"The canonical August 3 issue envelope, story or desk records change.","source":{"path":"content/newsstand-daily-issues.json","sha256":"bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"}},
-    {"claimId":"DAILY-ARCHIVE-STORY-APPROVAL","owner":"ai-research-accuracy","freshnessTrigger":"The Article 50 guidance, law, correction state or story approval changes.","source":{"path":"operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","sha256":"79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"}},
-    {"claimId":"DAILY-ARCHIVE-CURRENT-REFRESH","owner":"content-freshness","freshnessTrigger":"The Commission guidance, fact page, EUR-Lex records or enforcement context changes.","source":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","sha256":"9bbf86960a0e530e36ffd9638e4518f9a914f52b0da48e360c6fad9a7de8c25b"}},
-    {"claimId":"DAILY-ARCHIVE-PREMISE","owner":"newsstand-daily","freshnessTrigger":"The Daily reader job, archive presentation or included desks change.","source":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md","sha256":"3803f59f78609552ad4ef72ad5ce2e92c0430e16e4350f67d1e4d9d7635b8cca"}},
-    {"claimId":"DAILY-ARCHIVE-SERVICE-REVIEWS","owner":"learning-content-ecosystem","freshnessTrigger":"Any included service record, owner ruling, parent content or expiry changes.","source":{"path":"operations/product-stewards/newsstand/evidence-daily-service-columns-independent-review-2026-08-03.md","sha256":"58f1426eb420e3d22bd5e35cf9b1a0f9fd6f0362fef084ae884dae7ab6af39df"}},
-    {"claimId":"DAILY-ARCHIVE-ALI-REJECTION","owner":"newsstand","freshnessTrigger":"Ali accepts a later Daily presentation or changes the reader baseline.","source":{"path":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md","sha256":"7ded3fdec609e628fc4a2005c57e3503096834ad0cc95e2c8094654e57dff929"}}
+  "readerContract": {
+    "humanQuestion": "What changed under Europe's AI transparency rules on August 2, and does an AI label mean the content is trustworthy?",
+    "promisedPayoff": "The reader can identify the bounded situations covered by the change, separate origin labelling from truth verification, and scan four distinct useful desks in a recognisable archive Daily.",
+    "priorKnowledge": "She may know that the EU has an AI Act and expect labels on AI content; she does not need legal or policy expertise.",
+    "centralMentalModel": "A transparency label is caller ID for defined AI encounters: useful origin context, not a lie detector, safety certificate or universal compliance verdict.",
+    "dailyLifeConnection": "The same origin-versus-evidence distinction applies to a work campaign image and a health graphic in a family chat.",
+    "surfaceJob": "One coherent August 3 archive Daily with a dated lead, clear desk hierarchy and no internal status language or filler.",
+    "desiredFeeling": "I can tell what this newspaper is, what changed that day and what to do with an AI label."
+  },
+  "canonicalTruth": [
+    {
+      "claimId": "DAILY-ARCHIVE-ISSUE-SNAPSHOT",
+      "owner": "newsstand-daily",
+      "freshnessTrigger": "The canonical August 3 issue envelope, story or desk records change.",
+      "source": {
+        "path": "content/newsstand-daily-issues.json",
+        "sha256": "bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"
+      }
+    },
+    {
+      "claimId": "DAILY-ARCHIVE-STORY-APPROVAL",
+      "owner": "ai-research-accuracy",
+      "freshnessTrigger": "The Article 50 guidance, law, correction state or story approval changes.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
+        "sha256": "79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"
+      }
+    },
+    {
+      "claimId": "DAILY-ARCHIVE-CURRENT-REFRESH",
+      "owner": "content-freshness",
+      "freshnessTrigger": "The Commission guidance, fact page, EUR-Lex records or enforcement context changes.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md",
+        "sha256": "9bbf86960a0e530e36ffd9638e4518f9a914f52b0da48e360c6fad9a7de8c25b"
+      }
+    },
+    {
+      "claimId": "DAILY-ARCHIVE-PREMISE",
+      "owner": "newsstand-daily",
+      "freshnessTrigger": "The Daily reader job, archive presentation or included desks change.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-premise.md",
+        "sha256": "3803f59f78609552ad4ef72ad5ce2e92c0430e16e4350f67d1e4d9d7635b8cca"
+      }
+    },
+    {
+      "claimId": "DAILY-ARCHIVE-SERVICE-REVIEWS",
+      "owner": "learning-content-ecosystem",
+      "freshnessTrigger": "Any included service record, owner ruling, parent content or expiry changes.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/evidence-daily-service-columns-independent-review-2026-08-03.md",
+        "sha256": "58f1426eb420e3d22bd5e35cf9b1a0f9fd6f0362fef084ae884dae7ab6af39df"
+      }
+    },
+    {
+      "claimId": "DAILY-ARCHIVE-ALI-REJECTION",
+      "owner": "newsstand",
+      "freshnessTrigger": "Ali accepts a later Daily presentation or changes the reader baseline.",
+      "source": {
+        "path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md",
+        "sha256": "7ded3fdec609e628fc4a2005c57e3503096834ad0cc95e2c8094654e57dff929"
+      }
+    }
   ],
-  "positiveExemplars":[{"id":"CQX-GOOD-NEWS-001","strengthsToUse":["dated scope","evidence boundary","specific action"],"patternsNotToCopy":["Do not turn one story into the whole issue.","Do not repeat the exact approved prose as a substitute for newspaper hierarchy.","Do not present the archive as current news."]}],
-  "knownFailurePreflight":{
-    "registryVersion":"laidies-content-quality-exemplars.v1",
-    "registrySha256":"3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
-    "negativeExemplarIds":["CQX-BAD-001","CQX-BAD-002","CQX-BAD-003","CQX-BAD-004","CQX-BAD-005", "CQX-BAD-006"],
-    "dispositions":{
-      "glossaryAccumulation":{"status":"CLEAR","producerGuard":"Explain provider, deployer and label only where the lead needs them.","preventionEvidence":"The story leads with covered situations and origin-versus-truth."},
-      "templateRepetition":{"status":"CLEAR","producerGuard":"Let the dated issue hierarchy determine the order.","preventionEvidence":"Masthead, one lead, what-to-do box and four desks form one paper."},
-      "decorativeAnalogy":{"status":"CLEAR","producerGuard":"Use caller ID only to distinguish origin from truth.","preventionEvidence":"The limit says caller ID does not prove what the caller says."},
-      "referenceConfetti":{"status":"CLEAR","producerGuard":"No decorative celebrity or era references.","preventionEvidence":"Newspaper voice comes from the masthead and desk structure."},
-      "missingMechanism":{"status":"CLEAR","producerGuard":"Explain which actors disclose what, why the signal exists and what it cannot verify.","preventionEvidence":"The lead connects defined duty, origin context and separate fact-checking."},
-      "genericAction":{"status":"CLEAR","producerGuard":"Give one exact label-response sequence.","preventionEvidence":"Identify the claim, follow its source and decide whether to use or share it."},
-      "jargonBeforeMeaning":{"status":"CLEAR","producerGuard":"Start with what a person will notice before Article numbers.","preventionEvidence":"The standfirst explains expected disclosure before legal categories."},
-      "disconnectedSystem":{"status":"CLEAR","producerGuard":"Connect rule, disclosure, reader interpretation and next check.","preventionEvidence":"Every claim returns to origin context versus evidence."},
-      "joylessInstruction":{"status":"CLEAR","producerGuard":"Keep the issue brisk and useful, not a compliance memo.","preventionEvidence":"The desk strip changes pace and purpose after the lead."},
-      "purposeTooNarrow":{"status":"CLEAR","producerGuard":"Present a complete dated issue, not one isolated legal explainer.","preventionEvidence":"Four separately labelled service desks complete the edition."},
-      "mechanismBeforeMotivation":{"status":"CLEAR","producerGuard":"Lead with why the label matters to an ordinary reader.","preventionEvidence":"The issue answers what changed before legal distinctions."},
-      "workedExampleOvertakesBookPurpose":{"status":"CLEAR","producerGuard":"Keep work and home examples compact.","preventionEvidence":"Both examples support one reader action and do not become a class."},
-      "technicalExplainerVoice":{"status":"CLEAR","producerGuard":"Translate law and machine-readable marking into visible reader consequences.","preventionEvidence":"No schema, validator or legal drafting voice enters the issue."},
-      "falseBreakingUrgency":{"status":"CLEAR","producerGuard":"Label August 3 archive and never imply August 12 urgency.","preventionEvidence":"The archive banner and date appear before the lead."},
-      "missingNewcomerBackground":{"status":"CLEAR","producerGuard":"Explain the EU AI Act and covered transparency situations in plain language.","preventionEvidence":"No policy background is assumed."},
-      "technicalReaderAssumption":{"status":"CLEAR","producerGuard":"Do not require policy, machine-learning or compliance knowledge.","preventionEvidence":"The issue uses everyday label and source-check language."},
-      "implausibleAudienceAction":{"status":"CLEAR","producerGuard":"Do not tell readers to self-classify legal duties.","preventionEvidence":"Professional deployers are sent to current guidance and qualified advice."},
-      "laidiesVoiceAbsent":{"status":"CLEAR","producerGuard":"Use smart, direct newspaper copy and bounded wit.","preventionEvidence":"Caller ID and the stars did not verify it perform distinct useful jobs."},
-      "internalScaffoldingExposedToReader":{"status":"CLEAR","producerGuard":"Remove model, field, gate, status and eligibility language.","preventionEvidence":"Only reader-facing masthead, article and desks appear."},
-      "newspaperHierarchyUnclear":{"status":"CLEAR","producerGuard":"One lead must dominate; recurring desks must look secondary and distinct.","preventionEvidence":"The flatplan is masthead, lead, action, desks, sources."},
-      "statusLanguageOvertakesExperience":{"status":"CLEAR","producerGuard":"Use one archive note rather than operational states.","preventionEvidence":"No HOLD, eligible, source-health or empty-state codes appear."},
-      "sourceAvailabilityMistakenForEditorialValue":{"status":"CLEAR","producerGuard":"Use the issue because an admitted dated change and coherent desk set already exist.","preventionEvidence":"No new story is invented from available files."},
-      "missingAidbRelevanceCheck":{"status":"CLEAR","producerGuard":"Recheck available AIDB coverage through August 11.","preventionEvidence":"The source refresh records a dated NOT_COVERED result."},
-      "predeterminedThesisInsteadOfInvestigation":{"status":"CLEAR","producerGuard":"Separate the rule from the editorial label-versus-truth inference.","preventionEvidence":"The issue preserves the law's scope and the inference's boundary."},
-      "weakReaderPremise":{"status":"CLEAR","producerGuard":"Solve the practical label misconception and the rejected Daily hierarchy.","preventionEvidence":"The reader leaves with both a news fact and a usable action."},
-      "adviceBelowReaderBaseline":{"status":"CLEAR","producerGuard":"Do more than say check the source.","preventionEvidence":"The action identifies the exact claim, evidence type, source, date, scope and use decision."},
-      "promptAdviceMistakenForEnforcement":{"status":"CLEAR","producerGuard":"No prompting advice belongs in the legal lead.","preventionEvidence":"Promptoscope remains a separate compact desk."},
-      "longRunningWorkflowRealityIgnored":{"status":"CLEAR","producerGuard":"Not applicable to the lead; the service desks must not universalize one prompt.","preventionEvidence":"Each desk has a bounded job and destination."},
-      "genericEditorialVoice":{"status":"CLEAR","producerGuard":"Make the paper recognisable and the lead specific.","preventionEvidence":"The date, legal change, misconception and desks are concrete."},
-      "fictionalInputMistakenForIsolation":{"status":"CLEAR","producerGuard":"Never treat fictional, synthetic or non-sensitive input as containment for an executable AI extension; establish trusted provenance and least-privilege environment boundaries before any behavior test.","preventionEvidence":"This candidate does not rely on safer example data to contain an extension’s pre-existing files, accounts, tools or network authority."}
+  "positiveExemplars": [
+    {
+      "id": "CQX-GOOD-NEWS-001",
+      "strengthsToUse": [
+        "dated scope",
+        "evidence boundary",
+        "specific action"
+      ],
+      "patternsNotToCopy": [
+        "Do not turn one story into the whole issue.",
+        "Do not repeat the exact approved prose as a substitute for newspaper hierarchy.",
+        "Do not present the archive as current news."
+      ]
+    }
+  ],
+  "knownFailurePreflight": {
+    "registryVersion": "laidies-content-quality-exemplars.v1",
+    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
+    "negativeExemplarIds": [
+      "CQX-BAD-001",
+      "CQX-BAD-002",
+      "CQX-BAD-003",
+      "CQX-BAD-004",
+      "CQX-BAD-005",
+      "CQX-BAD-006",
+      "CQX-BAD-007",
+      "CQX-BAD-008",
+      "CQX-BAD-009"
+    ],
+    "dispositions": {
+      "glossaryAccumulation": {
+        "status": "CLEAR",
+        "producerGuard": "Explain provider, deployer and label only where the lead needs them.",
+        "preventionEvidence": "The story leads with covered situations and origin-versus-truth."
+      },
+      "templateRepetition": {
+        "status": "CLEAR",
+        "producerGuard": "Let the dated issue hierarchy determine the order.",
+        "preventionEvidence": "Masthead, one lead, what-to-do box and four desks form one paper."
+      },
+      "decorativeAnalogy": {
+        "status": "CLEAR",
+        "producerGuard": "Use caller ID only to distinguish origin from truth.",
+        "preventionEvidence": "The limit says caller ID does not prove what the caller says."
+      },
+      "referenceConfetti": {
+        "status": "CLEAR",
+        "producerGuard": "No decorative celebrity or era references.",
+        "preventionEvidence": "Newspaper voice comes from the masthead and desk structure."
+      },
+      "missingMechanism": {
+        "status": "CLEAR",
+        "producerGuard": "Explain which actors disclose what, why the signal exists and what it cannot verify.",
+        "preventionEvidence": "The lead connects defined duty, origin context and separate fact-checking."
+      },
+      "genericAction": {
+        "status": "CLEAR",
+        "producerGuard": "Give one exact label-response sequence.",
+        "preventionEvidence": "Identify the claim, follow its source and decide whether to use or share it."
+      },
+      "jargonBeforeMeaning": {
+        "status": "CLEAR",
+        "producerGuard": "Start with what a person will notice before Article numbers.",
+        "preventionEvidence": "The standfirst explains expected disclosure before legal categories."
+      },
+      "disconnectedSystem": {
+        "status": "CLEAR",
+        "producerGuard": "Connect rule, disclosure, reader interpretation and next check.",
+        "preventionEvidence": "Every claim returns to origin context versus evidence."
+      },
+      "joylessInstruction": {
+        "status": "CLEAR",
+        "producerGuard": "Keep the issue brisk and useful, not a compliance memo.",
+        "preventionEvidence": "The desk strip changes pace and purpose after the lead."
+      },
+      "purposeTooNarrow": {
+        "status": "CLEAR",
+        "producerGuard": "Present a complete dated issue, not one isolated legal explainer.",
+        "preventionEvidence": "Four separately labelled service desks complete the edition."
+      },
+      "mechanismBeforeMotivation": {
+        "status": "CLEAR",
+        "producerGuard": "Lead with why the label matters to an ordinary reader.",
+        "preventionEvidence": "The issue answers what changed before legal distinctions."
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "status": "CLEAR",
+        "producerGuard": "Keep work and home examples compact.",
+        "preventionEvidence": "Both examples support one reader action and do not become a class."
+      },
+      "technicalExplainerVoice": {
+        "status": "CLEAR",
+        "producerGuard": "Translate law and machine-readable marking into visible reader consequences.",
+        "preventionEvidence": "No schema, validator or legal drafting voice enters the issue."
+      },
+      "falseBreakingUrgency": {
+        "status": "CLEAR",
+        "producerGuard": "Label August 3 archive and never imply August 12 urgency.",
+        "preventionEvidence": "The archive banner and date appear before the lead."
+      },
+      "missingNewcomerBackground": {
+        "status": "CLEAR",
+        "producerGuard": "Explain the EU AI Act and covered transparency situations in plain language.",
+        "preventionEvidence": "No policy background is assumed."
+      },
+      "technicalReaderAssumption": {
+        "status": "CLEAR",
+        "producerGuard": "Do not require policy, machine-learning or compliance knowledge.",
+        "preventionEvidence": "The issue uses everyday label and source-check language."
+      },
+      "implausibleAudienceAction": {
+        "status": "CLEAR",
+        "producerGuard": "Do not tell readers to self-classify legal duties.",
+        "preventionEvidence": "Professional deployers are sent to current guidance and qualified advice."
+      },
+      "laidiesVoiceAbsent": {
+        "status": "CLEAR",
+        "producerGuard": "Use smart, direct newspaper copy and bounded wit.",
+        "preventionEvidence": "Caller ID and the stars did not verify it perform distinct useful jobs."
+      },
+      "internalScaffoldingExposedToReader": {
+        "status": "CLEAR",
+        "producerGuard": "Remove model, field, gate, status and eligibility language.",
+        "preventionEvidence": "Only reader-facing masthead, article and desks appear."
+      },
+      "newspaperHierarchyUnclear": {
+        "status": "CLEAR",
+        "producerGuard": "One lead must dominate; recurring desks must look secondary and distinct.",
+        "preventionEvidence": "The flatplan is masthead, lead, action, desks, sources."
+      },
+      "statusLanguageOvertakesExperience": {
+        "status": "CLEAR",
+        "producerGuard": "Use one archive note rather than operational states.",
+        "preventionEvidence": "No HOLD, eligible, source-health or empty-state codes appear."
+      },
+      "sourceAvailabilityMistakenForEditorialValue": {
+        "status": "CLEAR",
+        "producerGuard": "Use the issue because an admitted dated change and coherent desk set already exist.",
+        "preventionEvidence": "No new story is invented from available files."
+      },
+      "missingAidbRelevanceCheck": {
+        "status": "CLEAR",
+        "producerGuard": "Recheck available AIDB coverage through August 11.",
+        "preventionEvidence": "The source refresh records a dated NOT_COVERED result."
+      },
+      "predeterminedThesisInsteadOfInvestigation": {
+        "status": "CLEAR",
+        "producerGuard": "Separate the rule from the editorial label-versus-truth inference.",
+        "preventionEvidence": "The issue preserves the law's scope and the inference's boundary."
+      },
+      "weakReaderPremise": {
+        "status": "CLEAR",
+        "producerGuard": "Solve the practical label misconception and the rejected Daily hierarchy.",
+        "preventionEvidence": "The reader leaves with both a news fact and a usable action."
+      },
+      "adviceBelowReaderBaseline": {
+        "status": "CLEAR",
+        "producerGuard": "Do more than say check the source.",
+        "preventionEvidence": "The action identifies the exact claim, evidence type, source, date, scope and use decision."
+      },
+      "promptAdviceMistakenForEnforcement": {
+        "status": "CLEAR",
+        "producerGuard": "No prompting advice belongs in the legal lead.",
+        "preventionEvidence": "Promptoscope remains a separate compact desk."
+      },
+      "longRunningWorkflowRealityIgnored": {
+        "status": "CLEAR",
+        "producerGuard": "Not applicable to the lead; the service desks must not universalize one prompt.",
+        "preventionEvidence": "Each desk has a bounded job and destination."
+      },
+      "genericEditorialVoice": {
+        "status": "CLEAR",
+        "producerGuard": "Make the paper recognisable and the lead specific.",
+        "preventionEvidence": "The date, legal change, misconception and desks are concrete."
+      },
+      "fictionalInputMistakenForIsolation": {
+        "status": "CLEAR",
+        "producerGuard": "Never treat fictional, synthetic or non-sensitive input as containment for an executable AI extension; establish trusted provenance and least-privilege environment boundaries before any behavior test.",
+        "preventionEvidence": "This candidate does not rely on safer example data to contain an extension’s pre-existing files, accounts, tools or network authority."
+      },
+      "unbuiltDestinationPresentedAsLive": {
+        "status": "CLEAR",
+        "producerGuard": "Offer only exact publicly available destinations as current reader actions; label planned or held learning as future and do not imply a live route.",
+        "preventionEvidence": "The exact candidate does not present any planned, specified, built-local or held destination as a live reader route."
+      },
+      "repairScopeSubstitutedForSpecifiedScope": {
+        "status": "CLEAR",
+        "producerGuard": "Retain the exact scope that makes a control effective or forward-test any substitution against the original failure scenario.",
+        "preventionEvidence": "The exact candidate preserves every specified control scope and passes the originating transfer scenario."
+      },
+      "compressionDropsReferent": {
+        "status": "CLEAR",
+        "producerGuard": "After cutting, preserve the actor, object, action and criterion so a cold reader can name what is tested and what passes.",
+        "preventionEvidence": "Every compact example still names its skill or input, output and pass criterion."
+      },
+      "safetyQualifierWithUndefinedBoundary": {
+        "status": "CLEAR",
+        "producerGuard": "Replace safety adjectives with observable conditions and an exact disposition; popularity, familiarity and branding do not prove a source is vetted.",
+        "preventionEvidence": "Every safety qualifier in the exact candidate names what the reader can observe and what to do."
+      },
+      "compoundModifierInvertsAgent": {
+        "status": "CLEAR",
+        "producerGuard": "Name the actor whose behavior is tested; reject any compressed modifier that could attach the behavior to sensitive input instead.",
+        "preventionEvidence": "Every behavior-test instruction names the skill as the actor or uses an unambiguous pronoun with a current referent."
+      }
     },
-    "knownDefectsRemaining":[]
+    "knownDefectsRemaining": []
   },
-  "draftArchitecture":{
-    "plainAnswer":"Defined EU AI transparency duties began applying August 2; labels can reveal AI involvement or origin in covered situations, but they do not prove a claim true.",
-    "causalSequence":["A defined provider or deployer duty applies to a covered AI interaction or output.","The person or system receives disclosure or origin information.","The reader still checks the specific claim, source, date, scope and evidence before relying on it."],
-    "workedCase":"A workplace campaign image carries an AI-origin signal but its statistics still need source and approval checks.",
-    "transferCase":"A labelled health graphic in a family chat still requires an authoritative health source before sharing.",
-    "usefulAction":"Treat the label as the start of verification: identify the claim, locate the original evidence, check date and scope, then decide whether to use or share it.",
-    "analogyPlan":[{"concept":"Origin disclosure does not verify a claim.","analogy":"Caller ID can help identify who is calling; it cannot prove what the caller says.","mapping":"The label supplies origin context; evidence supplies factual support.","limit":"Legal duties vary by actor, system, output and exception, and machine-readable marks are not literal phone numbers.","whyItHelps":"It prevents the label from becoming a truth certificate."}],
-    "humourPlan":{"lessonJob":"The caller-ID line makes the distinction memorable; Promptoscope's stars line stays inside its own desk."},
-    "formatSpecificStructure":"Archive banner; masthead/date; morning line; lead; plain background; what the label can and cannot do; work/home examples; exact action; four distinct desks; source note.",
-    "antiTemplateDecision":"No production fields, no empty desks, no policy memo and no claim that the archive is today's news."
-  },
-  "communicationDesign":{
-    "benchmarkId":"HANNAH_FRY_COMMUNICATION_LENS_V2",
-    "benchmark":{"path":"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md","sha256":"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"},
-    "mode":"PROPORTIONAL",
-    "surfaceAdaptation":"Start with the label a reader may encounter, make the rule-to-disclosure mechanism visible, then land on one verification habit and four compact desks.",
-    "imitationBoundary":"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
-    "dimensions":{
-      "humanQuestion":{"disposition":"APPLY","reason":"The reader wants to know whether every AI item now needs a label and whether a label means true.","plannedEvidence":"The first two paragraphs answer both."},
-      "usefulCuriosity":{"disposition":"APPLY","reason":"The interesting distinction is what the label does and does not establish.","plannedEvidence":"The issue asks which actor, output and duty apply."},
-      "invisibleProcessConcrete":{"disposition":"APPLY","reason":"Actor-specific duties are invisible behind the word label.","plannedEvidence":"Provider and deployer jobs become ordinary disclosure examples."},
-      "familiarTechnicalMovement":{"disposition":"APPLY","reason":"Work and family-chat cases make origin-versus-evidence visible.","plannedEvidence":"Both return to claim-level source checking."},
-      "limitationsConsequences":{"disposition":"APPLY","reason":"Overgeneralizing creates legal and trust errors.","plannedEvidence":"The issue states exceptions, legal-advice and truth limits."},
-      "humourSurprise":{"disposition":"APPLY","reason":"One caller-ID line can fix the misconception quickly.","plannedEvidence":"The line is followed immediately by its limit."},
-      "betterNextQuestion":{"disposition":"APPLY","reason":"Is it labelled is not enough.","plannedEvidence":"The issue replaces it with what claim, what source, what date, what scope and what decision."}
+  "draftArchitecture": {
+    "plainAnswer": "Defined EU AI transparency duties began applying August 2; labels can reveal AI involvement or origin in covered situations, but they do not prove a claim true.",
+    "causalSequence": [
+      "A defined provider or deployer duty applies to a covered AI interaction or output.",
+      "The person or system receives disclosure or origin information.",
+      "The reader still checks the specific claim, source, date, scope and evidence before relying on it."
+    ],
+    "workedCase": "A workplace campaign image carries an AI-origin signal but its statistics still need source and approval checks.",
+    "transferCase": "A labelled health graphic in a family chat still requires an authoritative health source before sharing.",
+    "usefulAction": "Treat the label as the start of verification: identify the claim, locate the original evidence, check date and scope, then decide whether to use or share it.",
+    "analogyPlan": [
+      {
+        "concept": "Origin disclosure does not verify a claim.",
+        "analogy": "Caller ID can help identify who is calling; it cannot prove what the caller says.",
+        "mapping": "The label supplies origin context; evidence supplies factual support.",
+        "limit": "Legal duties vary by actor, system, output and exception, and machine-readable marks are not literal phone numbers.",
+        "whyItHelps": "It prevents the label from becoming a truth certificate."
+      }
+    ],
+    "humourPlan": {
+      "lessonJob": "The caller-ID line makes the distinction memorable; Promptoscope's stars line stays inside its own desk."
     },
-    "explanationArc":{"mode":"PROPORTIONAL","retainedMoves":["human encounter","visible mechanism","earned distinction","useful action"],"adaptation":"A Daily answers quickly, gives just enough mechanism and returns to the newspaper desks."}
+    "formatSpecificStructure": "Archive banner; masthead/date; morning line; lead; plain background; what the label can and cannot do; work/home examples; exact action; four distinct desks; source note.",
+    "antiTemplateDecision": "No production fields, no empty desks, no policy memo and no claim that the archive is today's news."
   },
-  "explanationReasoningDesign":{
-    "benchmarkId":"LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
-    "benchmark":{"path":"operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md","sha256":"f5b4b172294df577a6d2c5eeffb8afd507e21667c5d0c98450315c36008f9841"},
-    "mode":"PROPORTIONAL",
-    "imitationBoundary":"ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB",
-    "humanEntry":"A reader encounters an AI label and wonders whether it is required and whether she can trust the content.",
-    "fakeUnderstandingRisk":"She may turn a bounded transparency duty into a universal label rule or a truth certificate.",
-    "firstPrinciplesSequence":["A legal duty attaches to a defined actor, system, output and situation.","Disclosure or marking supplies origin information in that situation.","Factual truth still depends on the claim and its evidence."],
-    "explainBackTest":"Explain why an official AI label can be useful while the labelled claim can still be false.",
-    "transferCase":"Apply the same distinction to a labelled health graphic in a family chat.",
-    "usefulLanding":"Use a label as caller ID, then verify the exact claim before relying on or sharing it.",
-    "rewindEraAdaptation":"Caller ID supplies one era-familiar origin metaphor and immediately states the evidence limit.",
-    "evidenceAnalysis":{
-      "claimUnderInspection":"Europe's new AI transparency rules mean every AI output needs a label and labelled content is trustworthy.",
-      "primaryEvidence":"The current Commission guidelines and fact page plus the admitted story's EUR-Lex source bindings.",
-      "establishes":"Defined Article 50 transparency duties apply from August 2, 2026 and vary by provider, deployer, system, output, use and exception.",
-      "doesNotEstablish":"A universal label duty, human origin for every unlabelled item, factual accuracy, fairness, safety or compliance.",
-      "claimedImpact":"People can now identify and trust all AI content through labels.",
-      "realConsequence":"People receive more origin context in covered situations but still need claim-level verification; professional actors need current guidance for their exact case.",
-      "aidbDisposition":"DATED_ABSENCE",
-      "aidbReason":"Available AIDB records through August 11 contain no substantive treatment of this exact commencement story; no AIDB wording or interpretation is used."
+  "communicationDesign": {
+    "benchmarkId": "HANNAH_FRY_COMMUNICATION_LENS_V2",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "mode": "PROPORTIONAL",
+    "surfaceAdaptation": "Start with the label a reader may encounter, make the rule-to-disclosure mechanism visible, then land on one verification habit and four compact desks.",
+    "imitationBoundary": "ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA",
+    "dimensions": {
+      "humanQuestion": {
+        "disposition": "APPLY",
+        "reason": "The reader wants to know whether every AI item now needs a label and whether a label means true.",
+        "plannedEvidence": "The first two paragraphs answer both."
+      },
+      "usefulCuriosity": {
+        "disposition": "APPLY",
+        "reason": "The interesting distinction is what the label does and does not establish.",
+        "plannedEvidence": "The issue asks which actor, output and duty apply."
+      },
+      "invisibleProcessConcrete": {
+        "disposition": "APPLY",
+        "reason": "Actor-specific duties are invisible behind the word label.",
+        "plannedEvidence": "Provider and deployer jobs become ordinary disclosure examples."
+      },
+      "familiarTechnicalMovement": {
+        "disposition": "APPLY",
+        "reason": "Work and family-chat cases make origin-versus-evidence visible.",
+        "plannedEvidence": "Both return to claim-level source checking."
+      },
+      "limitationsConsequences": {
+        "disposition": "APPLY",
+        "reason": "Overgeneralizing creates legal and trust errors.",
+        "plannedEvidence": "The issue states exceptions, legal-advice and truth limits."
+      },
+      "humourSurprise": {
+        "disposition": "APPLY",
+        "reason": "One caller-ID line can fix the misconception quickly.",
+        "plannedEvidence": "The line is followed immediately by its limit."
+      },
+      "betterNextQuestion": {
+        "disposition": "APPLY",
+        "reason": "Is it labelled is not enough.",
+        "plannedEvidence": "The issue replaces it with what claim, what source, what date, what scope and what decision."
+      }
+    },
+    "explanationArc": {
+      "mode": "PROPORTIONAL",
+      "retainedMoves": [
+        "human encounter",
+        "visible mechanism",
+        "earned distinction",
+        "useful action"
+      ],
+      "adaptation": "A Daily answers quickly, gives just enough mechanism and returns to the newspaper desks."
     }
   },
-  "representativeProofPlan":{
-    "highestRisk":"Repeating the rejected schema-like Daily or turning a dated archive into current legal news.",
-    "plannedProof":"The exact issue must read as one newspaper, visibly say archive, omit unavailable desks and preserve every legal and service-column boundary.",
-    "acceptanceOutcome":"A newcomer can identify the lead, explain the label's job and limit, and distinguish four secondary desks without seeing production state."
+  "explanationReasoningDesign": {
+    "benchmarkId": "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
+    "benchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md",
+      "sha256": "f5b4b172294df577a6d2c5eeffb8afd507e21667c5d0c98450315c36008f9841"
+    },
+    "mode": "PROPORTIONAL",
+    "imitationBoundary": "ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB",
+    "humanEntry": "A reader encounters an AI label and wonders whether it is required and whether she can trust the content.",
+    "fakeUnderstandingRisk": "She may turn a bounded transparency duty into a universal label rule or a truth certificate.",
+    "firstPrinciplesSequence": [
+      "A legal duty attaches to a defined actor, system, output and situation.",
+      "Disclosure or marking supplies origin information in that situation.",
+      "Factual truth still depends on the claim and its evidence."
+    ],
+    "explainBackTest": "Explain why an official AI label can be useful while the labelled claim can still be false.",
+    "transferCase": "Apply the same distinction to a labelled health graphic in a family chat.",
+    "usefulLanding": "Use a label as caller ID, then verify the exact claim before relying on or sharing it.",
+    "rewindEraAdaptation": "Caller ID supplies one era-familiar origin metaphor and immediately states the evidence limit.",
+    "evidenceAnalysis": {
+      "claimUnderInspection": "Europe's new AI transparency rules mean every AI output needs a label and labelled content is trustworthy.",
+      "primaryEvidence": "The current Commission guidelines and fact page plus the admitted story's EUR-Lex source bindings.",
+      "establishes": "Defined Article 50 transparency duties apply from August 2, 2026 and vary by provider, deployer, system, output, use and exception.",
+      "doesNotEstablish": "A universal label duty, human origin for every unlabelled item, factual accuracy, fairness, safety or compliance.",
+      "claimedImpact": "People can now identify and trust all AI content through labels.",
+      "realConsequence": "People receive more origin context in covered situations but still need claim-level verification; professional actors need current guidance for their exact case.",
+      "aidbDisposition": "DATED_ABSENCE",
+      "aidbReason": "Available AIDB records through August 11 contain no substantive treatment of this exact commencement story; no AIDB wording or interpretation is used."
+    }
   },
-  "ratchet":{"targets":{"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0},"rule":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
-  "status":"READY_TO_DRAFT"
+  "representativeProofPlan": {
+    "highestRisk": "Repeating the rejected schema-like Daily or turning a dated archive into current legal news.",
+    "plannedProof": "The exact issue must read as one newspaper, visibly say archive, omit unavailable desks and preserve every legal and service-column boundary.",
+    "acceptanceOutcome": "A newcomer can identify the lead, explain the label's job and limit, and distinguish four secondary desks without seeing production state."
+  },
+  "ratchet": {
+    "targets": {
+      "repeatedKnownDefects": 0,
+      "objectiveDefectsFirstFoundAtReview": 0
+    },
+    "rule": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "status": "READY_TO_DRAFT"
 }

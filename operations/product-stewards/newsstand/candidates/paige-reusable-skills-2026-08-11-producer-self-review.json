@@ -5,118 +5,753 @@
   "contentClass": "NEWS",
   "surface": "SUNNYVAiLE NewsStand / Paige's Practical AI Tip",
   "maker": "newsstand-daily",
-  "reviewer": {"id":"newsstand-daily-self-review-20260811","principalId":"newsstand-daily","role":"producer","modelFamily":"openai-gpt-5.6"},
+  "reviewer": {
+    "id": "newsstand-daily-self-review-20260811",
+    "principalId": "newsstand-daily",
+    "role": "producer",
+    "modelFamily": "openai-gpt-5.6"
+  },
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-12T01:34:30-07:00",
+  "reviewedAt": "2026-08-12T03:34:00-07:00",
   "artifact": {
-    "reviewText": {"path":"content/daily-learning-derivatives.json","sha256":"b2bc7e37602903f42c0eb8c45de015feffa651b85a46d329260d78fb7da1ab20"},
-    "manifest": {"path":"operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-manifest.json","sha256":"603fcb830c8136efbaa812ec2a262fef0335122992072d1f719699a86da88c7c"}
+    "reviewText": {
+      "path": "content/daily-learning-derivatives.json",
+      "sha256": "4e2aac2ef8fb73b809b6da75e5bb26ca5f076b430d9b8f0b2278c3ef5d0a10e3"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-manifest.json",
+      "sha256": "e783ddddbdb15893feae3f4c34c91e2038e8b8a22eece6f83841061a6b1c2b0f"
+    }
   },
   "calibration": {
-    "registrySha256": "3f0536b069f56506039d19d52ddb6c654030fa68bfe857a51f26b552c87760db",
+    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
     "reviewerPrincipalId": "newsstand-daily",
     "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
-      {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
-      {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
-      {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
-      {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
-      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
-      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]}
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "known-bad opening"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## Introduction — What you are actually using",
+            "locator": "known-bad introduction"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "falseBreakingUrgency",
+          "missingNewcomerBackground",
+          "technicalReaderAssumption",
+          "implausibleAudienceAction",
+          "laidiesVoiceAbsent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "OpenAI says no upcoming-release model was involved",
+            "locator": "known-bad headline"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-004",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "internalScaffoldingExposedToReader",
+          "newspaperHierarchyUnclear",
+          "statusLanguageOvertakesExperience"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Model front page — structure example",
+            "locator": "known-bad Daily"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-005",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "sourceAvailabilityMistakenForEditorialValue",
+          "missingAidbRelevanceCheck",
+          "predeterminedThesisInsteadOfInvestigation",
+          "weakReaderPremise",
+          "adviceBelowReaderBaseline",
+          "promptAdviceMistakenForEnforcement",
+          "longRunningWorkflowRealityIgnored",
+          "genericEditorialVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# REJECTED — LAiDIES publication-format sampler round 1",
+            "locator": "rejected sampler"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-006",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "fictionalInputMistakenForIsolation"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The fictional notes and imaginary trip protect only those example inputs",
+            "locator": "exact missed defect"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-007",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "unbuiltDestinationPresentedAsLive"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Build the Skill. Keep the Job.",
+            "locator": "known-bad reader-facing route"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-008",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "repairScopeSubstitutedForSpecifiedScope",
+          "compressionDropsReferent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Disconnect accounts or folders this job does not need.",
+            "locator": "known-bad wrong-scope repair"
+          },
+          {
+            "excerpt": "Home test: invented weekend.",
+            "locator": "known-bad compressed referent"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-009",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "safetyQualifierWithUndefinedBoundary",
+          "compoundModifierInvertsAgent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In a clean workspace",
+            "locator": "known-bad undefined safety qualifier"
+          },
+          {
+            "excerpt": "should-stay-quiet request",
+            "locator": "known-bad inverted agent"
+          }
+        ]
+      }
     ],
-    "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "dated scope",
+        "evidence boundary",
+        "specific action"
+      ],
+      "evidence": [
+        {
+          "excerpt": "The exact duty depends on the system, actor, use and exception",
+          "locator": "approved NewsStand story"
+        }
+      ]
+    }
   },
   "reverseBrief": {
-    "humanQuestion": "How do I test a downloadable AI skill before trusting it with real work?",
-    "promisedPayoff": "One bounded dress rehearsal for a reusable workflow.",
-    "centralMentalModel": "A skill saves a procedure and resources; it does not inherit human accountability.",
-    "dailyLifeConnection": "The same controlled test protects work meeting notes and personal booking details.",
-    "surfaceJob": "One compact, source-backed Paige action.",
-    "desiredReaderFeeling": "Capable of trying the useful idea without surrendering judgement or access."
+    "humanQuestion": "How do I reuse a weekly AI procedure without letting fictional tests touch live systems or trusting an unaudited download?",
+    "promisedPayoff": "One compact rehearsal that isolates live access, names what good looks like and ends in a real stop decision.",
+    "centralMentalModel": "A skill can load runnable code through access the AI already has; a fictional rehearsal is safe only in a clean workspace, and the procedure never owns decisions or consequences.",
+    "dailyLifeConnection": "The same isolated rehearsal and exact pass criterion applies to work notes and a personal packing skill.",
+    "surfaceJob": "One compact Paige tip; no reader-facing learning route until public destination truth is proved.",
+    "desiredReaderFeeling": "I can use the convenience without confusing a good rehearsal with trust."
   },
-  "examplePairPolicy": {"policyId":"LAIDIES_WORK_AND_LIFE_EXAMPLES_V1","sharedMechanism":true,"genuinelyDifferentSettings":true},
+  "examplePairPolicy": {
+    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
+    "sharedMechanism": true,
+    "genuinelyDifferentSettings": true
+  },
   "outcomes": {
-    "plainClarity": {"verdict":"PASS","observation":"The card defines the product through what the folder contains and when it loads.","artifactEvidence":[{"excerpt":"A reusable AI skill is a folder of instructions, reference files and sometimes executable scripts","locator":"candidate body"}]},
-    "readerValue": {"verdict":"PASS","observation":"The reader receives one usable source, access and behavior-testing routine.","artifactEvidence":[{"excerpt":"make your own simple skill or use one from the product maker—not an unknown download","locator":"candidate body"}]},
-    "laidiesVoice": {"verdict":"PASS","observation":"The headline is lightly sharp while the body remains adult and precise.","artifactEvidence":[{"excerpt":"Give one repeat task a dress rehearsal—not the keys.","locator":"candidate headline"}]},
-    "engagingEnjoyable": {"verdict":"PASS","observation":"The dress-rehearsal frame makes testing memorable without replacing the mechanism.","artifactEvidence":[{"excerpt":"at home, use an imaginary trip for a packing list","locator":"candidate body"}]},
-    "factualIntegrity": {"verdict":"PASS","observation":"The definition and security action stay within current Anthropic documentation and explicitly reject unknown downloads as a first experiment.","artifactEvidence":[{"excerpt":"Before it runs, inspect every file and limit the accounts, folders and internet access available to it","locator":"candidate body"}]},
-    "freshnessReviewability": {"verdict":"PASS","observation":"The record binds a dated check, expiry and product-change triggers.","artifactEvidence":[{"excerpt":"Anthropic changes Agent Skills structure, activation, availability or security guidance.","locator":"candidate freshness"}]},
-    "surfaceFit": {"verdict":"PASS","observation":"One headline, one short mechanism, one action sequence and one stop condition fit Paige's service job.","artifactEvidence":[{"excerpt":"do not give it real work","locator":"candidate landing"}]},
-    "datedChange": {"verdict":"PASS","observation":"The record is explicitly tied to current August 2026 documentation rather than framed as timeless news.","artifactEvidence":[{"excerpt":"anthropic:agent-skills-overview:2026-08-11","locator":"candidate sourceContentIds"}]},
-    "consequenceAndUncertainty": {"verdict":"PASS","observation":"The card explains that one good output is weak evidence and withholds trust when the skill cannot be inspected, limited, judged or stopped.","artifactEvidence":[{"excerpt":"One polished answer proves only that one rehearsal looked good","locator":"candidate body"}]},
-    "dailyLifeConnection": {"verdict":"PASS","observation":"A personal packing workflow transfers the same test outside work.","artifactEvidence":[{"excerpt":"at home, use an imaginary trip for a packing list","locator":"candidate body"}]},
-    "communicationBenchmark": {"verdict":"PASS","observation":"An invisible bundle becomes concrete through files, environment limits and observable behavior.","artifactEvidence":[{"excerpt":"instructions, reference files and sometimes executable scripts","locator":"candidate body"}]},
-    "explanationReasoningBenchmark": {"verdict":"PASS","observation":"The causal path runs from source selection to environment limits to behavior tests to a stop decision.","artifactEvidence":[{"excerpt":"Before it runs, inspect every file and limit the accounts, folders and internet access available to it","locator":"candidate body"}]},
-    "explainBack": {"verdict":"PASS","observation":"The exact prose supports a probe that distinguishes one good output from earned access.","artifactEvidence":[{"excerpt":"One polished answer proves only that one rehearsal looked good","locator":"candidate body"}],"simulatedReaderProbe":{"prompt":"Why has a good fictional action list not earned access to confidential notes?","probeResponse":"Because one good output does not prove the bundled files, environment, edge behavior or stop path are safe.","expectedEvidence":"Reader separates output quality from permission and control."}},
-    "unseenTransfer": {"verdict":"PASS","observation":"The personal trip case applies the same mechanism beyond the worked meeting-notes case.","artifactEvidence":[{"excerpt":"at home, use an imaginary trip for a packing list","locator":"candidate body"}],"simulatedReaderProbe":{"prompt":"How would you test a household-budget skill?","probeResponse":"Begin with a self-made or product-maker skill, use invented figures, inspect files, limit the environment, run normal, awkward and non-trigger cases, and stop before real accounts if errors are hard to detect.","expectedEvidence":"Reader transfers source choice, access limits, behavior classes and stop condition."}},
-    "usefulAction": {"verdict":"PASS","observation":"The action is specific enough to perform without pretending fictional input is a security boundary.","artifactEvidence":[{"excerpt":"For a first try, make your own simple skill or use one from the product maker—not an unknown download","locator":"candidate body"}]},
-    "analogyIntegrity": {"verdict":"PASS","observation":"Dress rehearsal maps to fictional testing and keys map to real access; the body supplies both mappings.","artifactEvidence":[{"excerpt":"Give one repeat task a dress rehearsal—not the keys.","locator":"candidate headline"}]},
-    "workplaceExample": {"verdict":"PASS","observation":"Fictional meeting notes provide a bounded workplace case.","artifactEvidence":[{"excerpt":"turn fictional meeting notes into a draft action list","locator":"candidate body"}]},
-    "nonWorkExample": {"verdict":"PASS","observation":"An imaginary trip provides a genuinely different non-work case.","artifactEvidence":[{"excerpt":"at home, use an imaginary trip for a packing list","locator":"candidate body"}]}
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The source boundary, literal rehearsal access, non-answering actor and hard stop are unambiguous.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A maker you cannot vet stays out, however popular",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "A popular pack cannot use familiarity as a shortcut; the reader can isolate, test, repair and stop.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Disconnect every live account and folder—even those the real job needs",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The weekly-prompt entry and colleague contrast keep a compact, adult Paige voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Convenient, not a colleague: decisions and consequences stay yours",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The 147-word rehearsal stays brisk without label fragments or missing referents.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One polished answer proves one rehearsal",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Name, description, instructions, files and runnable code match the qualified source mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Its name and description tell AI when to load instructions, files—even runnable code",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The source date and expiry remain aligned.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic changes Agent Skills structure, activation, availability or security guidance.",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact body is 147 words by repository word count and performs one first-use trust decision.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Weekly prompt again?",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The item is a freshness-bound tip without news urgency.",
+      "artifactEvidence": [
+        {
+          "excerpt": "anthropic:agent-skills-overview:2026-08-11",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Decisions stay human and one output remains one rehearsal.",
+      "artifactEvidence": [
+        {
+          "excerpt": "decisions and consequences stay yours",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The packing transfer retains skill, invented input, output and access boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "give a packing skill an invented brief",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The hidden runnable bundle and inherited access are visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "everything AI reaches",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "explanationReasoningBenchmark": {
+      "verdict": "PASS",
+      "observation": "The sequence is source, inherited access, rehearsal isolation, tests, repair and stop.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before rehearsal, check the maker, contents and everything AI reaches",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The card supports separating popularity, good output and live-access authority.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One polished answer proves one rehearsal",
+          "locator": "candidate record"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why do popularity and three good invented outputs not earn real access?",
+        "probeResponse": "Popularity does not mean I can vet the maker, and one polished answer proves only one rehearsal. I still disconnect every live account and folder, test normal, awkward and non-answer cases, and retain the ability to inspect, limit, judge and stop.",
+        "expectedEvidence": "Reader separates source familiarity, output evidence and authority."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The viral-pack and expense-system cases now reach default-deny and disconnection.",
+      "artifactEvidence": [
+        {
+          "excerpt": "however popular",
+          "locator": "candidate record"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A popular creator shares an expense skill; three invented tests passed and the expense system is already connected. What happens?",
+        "probeResponse": "If I cannot vet the maker, the skill stays out however popular. Even if vetted, I disconnect the live expense system for rehearsal although the job needs it, then run normal, awkward and a request the skill should not answer. No real work without control.",
+        "expectedEvidence": "Reader applies source disposition and exact rehearsal isolation."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "All safety conditions have observable tests and dispositions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Cannot see or change access? Do not run it",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Rehearsal and keys map directly to fictional behavior tests and disconnected live access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give one repeat task a dress rehearsal—not the keys.",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "workplaceExample": {
+      "verdict": "PASS",
+      "observation": "The work case has explicit input and four output criteria.",
+      "artifactEvidence": [
+        {
+          "excerpt": "At work, use fictional notes; require action, owner, date and open decision",
+          "locator": "candidate record"
+        }
+      ]
+    },
+    "nonWorkExample": {
+      "verdict": "PASS",
+      "observation": "The home case names skill, brief, output criteria and forbidden live data.",
+      "artifactEvidence": [
+        {
+          "excerpt": "At home, give a packing skill an invented brief; require a list fitting weather and plans without real bookings or email",
+          "locator": "candidate record"
+        }
+      ]
+    }
   },
   "failureFamilies": {
-    "adviceBelowReaderBaseline":{"present":false,"observation":"Advice includes file, access and three behavior checks.","artifactLocator":"candidate body"},
-    "aidbDeference":{"present":false,"observation":"AIDB absence is recorded; official evidence governs.","artifactLocator":"source bindings"},
-    "benchmarkNameDrop":{"present":false,"observation":"No benchmark personality enters the copy.","artifactLocator":"candidate record"},
-    "claimEvidenceCollapsed":{"present":false,"observation":"Product fact and LAiDIES recommendation remain distinguishable.","artifactLocator":"candidate body"},
-    "communicationPastiche":{"present":false,"observation":"The copy uses LAiDIES' own service voice.","artifactLocator":"headline and body"},
-    "corporateSludge":{"present":false,"observation":"Technical product terms are translated into visible actions.","artifactLocator":"candidate body"},
-    "curiosityWithoutPayoff":{"present":false,"observation":"The keys line resolves into access and testing.","artifactLocator":"headline and body"},
-    "decorativeAnalogy":{"present":false,"observation":"Dress rehearsal performs the test-before-access job.","artifactLocator":"headline and paired examples"},
-    "disconnectedSystem":{"present":false,"observation":"Files, access, behavior and stopping form one control path.","artifactLocator":"candidate body"},
-    "entertainmentBeforeUnderstanding":{"present":false,"observation":"The playful headline is followed immediately by mechanism.","artifactLocator":"headline and first sentence"},
-    "factlessConfidence":{"present":false,"observation":"The record binds a current official product claim.","artifactLocator":"sourceClaimIds"},
-    "falseBreakingUrgency":{"present":false,"observation":"This is a practical tip without alert framing.","artifactLocator":"candidate record"},
-    "familiarExampleWithoutTechnicalReturn":{"present":false,"observation":"Both examples return to access and behavior testing.","artifactLocator":"candidate body"},
-    "firstPrinciplesGap":{"present":false,"observation":"The skill bundle is explained before the trust decision.","artifactLocator":"first sentence"},
-    "genericAction":{"present":false,"observation":"The card specifies exactly what to inspect and test.","artifactLocator":"candidate body"},
-    "genericEditorialVoice":{"present":false,"observation":"The dress-rehearsal action is specific to reusable skills.","artifactLocator":"candidate record"},
-    "glossaryAccumulation":{"present":false,"observation":"One product term is defined through use.","artifactLocator":"first sentence"},
-    "implausibleAudienceAction":{"present":false,"observation":"A reader can perform the fictional test without a security team.","artifactLocator":"candidate body"},
-    "inflatedTakeawayEnding":{"present":false,"observation":"The ending sets a bounded readiness threshold.","artifactLocator":"candidate landing"},
-    "internalScaffoldingExposedToReader":{"present":false,"observation":"No gate or work-order prose is inside the card.","artifactLocator":"headline and body"},
-    "jargonBeforeMeaning":{"present":false,"observation":"Instructions and files precede any abstract terminology.","artifactLocator":"first sentence"},
-    "joylessInstruction":{"present":false,"observation":"The rehearsal frame makes the safety action approachable.","artifactLocator":"headline and examples"},
-    "laidiesVoiceAbsent":{"present":false,"observation":"Adult candour and bounded wit are present.","artifactLocator":"headline and body"},
-    "longRunningWorkflowRealityIgnored":{"present":false,"observation":"The reader must be able to stop the workflow.","artifactLocator":"candidate landing"},
-    "mechanismBeforeMotivation":{"present":false,"observation":"The headline names the decision before mechanism.","artifactLocator":"candidate headline"},
-    "mechanismCompressedBehindHook":{"present":false,"observation":"Most of the card is mechanism and test.","artifactLocator":"candidate body"},
-    "missingAidbRelevanceCheck":{"present":false,"observation":"A dated repository search found no relevant AIDB treatment.","artifactLocator":"producer contract evidence analysis"},
-    "missingMechanism":{"present":false,"observation":"The bundle and trigger are described.","artifactLocator":"first sentence"},
-    "missingNewcomerBackground":{"present":false,"observation":"No prior skills knowledge is assumed.","artifactLocator":"first sentence"},
-    "newspaperHierarchyUnclear":{"present":false,"observation":"One compact service record has one headline and body.","artifactLocator":"candidate record"},
-    "parrotingExplainBack":{"present":false,"observation":"The probe requires separating output from access.","artifactLocator":"candidate landing"},
-    "predeterminedThesisInsteadOfInvestigation":{"present":false,"observation":"Useful reuse and unsafe trust are both retained.","artifactLocator":"candidate body"},
-    "prematureClickBeforeMechanism":{"present":false,"observation":"The stop rule follows the complete test sequence.","artifactLocator":"candidate landing"},
-    "promptAdviceMistakenForEnforcement":{"present":false,"observation":"Safety comes from access and tests, not stronger instructions.","artifactLocator":"candidate body"},
-    "purposeTooNarrow":{"present":false,"observation":"The card intentionally solves one first-use decision and routes depth.","artifactLocator":"audienceJob"},
-    "referenceConfetti":{"present":false,"observation":"No decorative era reference appears.","artifactLocator":"candidate record"},
-    "rewindDecorationInsteadOfTeaching":{"present":false,"observation":"The only playful frame performs a control job.","artifactLocator":"candidate headline"},
-    "sourceAvailabilityMistakenForEditorialValue":{"present":false,"observation":"The real viral skill-pack trust decision earns the tip.","artifactLocator":"audienceJob"},
-    "staleUnreviewableClaims":{"present":false,"observation":"Expiry and product-change triggers are explicit.","artifactLocator":"freshness"},
-    "statusLanguageOvertakesExperience":{"present":false,"observation":"HOLD remains metadata, not reader copy.","artifactLocator":"candidate record"},
-    "technicalExplainerVoice":{"present":false,"observation":"The copy uses ordinary task language.","artifactLocator":"candidate body"},
-    "technicalReaderAssumption":{"present":false,"observation":"No coding knowledge is required.","artifactLocator":"candidate body"},
-    "templateRepetition":{"present":false,"observation":"The sequence follows one trust decision, not a generic tips template.","artifactLocator":"candidate body"},
-    "weakReaderPremise":{"present":false,"observation":"The viral whole-job promise creates a real reader decision.","artifactLocator":"audienceJob"},
-    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain brief and subordinate to the reusable test.","artifactLocator":"candidate body"},
-    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The manifest-bound Paige successor establishes trusted provenance and limits accounts, folders and internet access before its fictional behavior tests; the examples are not described as containment.","artifactLocator":"DLD-2026-08-12-PAIGE-GIVE-IT-A-DRESS-REHEARSAL"}
+    "adviceBelowReaderBaseline": {
+      "present": false,
+      "observation": "Advice includes file, access and three behavior checks.",
+      "artifactLocator": "candidate body"
+    },
+    "aidbDeference": {
+      "present": false,
+      "observation": "AIDB absence is recorded; official evidence governs.",
+      "artifactLocator": "source bindings"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark personality enters the copy.",
+      "artifactLocator": "candidate record"
+    },
+    "claimEvidenceCollapsed": {
+      "present": false,
+      "observation": "Product fact and LAiDIES recommendation remain distinguishable.",
+      "artifactLocator": "candidate body"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The copy uses LAiDIES' own service voice.",
+      "artifactLocator": "headline and body"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Technical product terms are translated into visible actions.",
+      "artifactLocator": "candidate body"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The keys line resolves into access and testing.",
+      "artifactLocator": "headline and body"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Dress rehearsal performs the test-before-access job.",
+      "artifactLocator": "headline and paired examples"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Files, access, behavior and stopping form one control path.",
+      "artifactLocator": "candidate body"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The playful headline is followed immediately by mechanism.",
+      "artifactLocator": "headline and first sentence"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The record binds a current official product claim.",
+      "artifactLocator": "sourceClaimIds"
+    },
+    "falseBreakingUrgency": {
+      "present": false,
+      "observation": "This is a practical tip without alert framing.",
+      "artifactLocator": "candidate record"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Both examples return to access and behavior testing.",
+      "artifactLocator": "candidate body"
+    },
+    "firstPrinciplesGap": {
+      "present": false,
+      "observation": "The skill bundle is explained before the trust decision.",
+      "artifactLocator": "first sentence"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The card specifies exactly what to inspect and test.",
+      "artifactLocator": "candidate body"
+    },
+    "genericEditorialVoice": {
+      "present": false,
+      "observation": "Full parallel sentences and the convenient-not-colleague turn replace label-colon operator shorthand.",
+      "artifactLocator": "candidate body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "One product term is defined through use.",
+      "artifactLocator": "first sentence"
+    },
+    "implausibleAudienceAction": {
+      "present": false,
+      "observation": "The card asks for visible access inspection and refusal, not unavailable account or network controls.",
+      "artifactLocator": "candidate access sequence"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending sets a bounded readiness threshold.",
+      "artifactLocator": "candidate landing"
+    },
+    "internalScaffoldingExposedToReader": {
+      "present": false,
+      "observation": "No gate or work-order prose is inside the card.",
+      "artifactLocator": "headline and body"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Instructions and files precede any abstract terminology.",
+      "artifactLocator": "first sentence"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The rehearsal frame makes the safety action approachable.",
+      "artifactLocator": "headline and examples"
+    },
+    "laidiesVoiceAbsent": {
+      "present": false,
+      "observation": "The candidate uses a familiar frustration, specific work and home detail and bounded wit.",
+      "artifactLocator": "candidate headline and body"
+    },
+    "longRunningWorkflowRealityIgnored": {
+      "present": false,
+      "observation": "The exact landing withholds real work unless the skill can be inspected, limited, judged and stopped.",
+      "artifactLocator": "candidate landing"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The repeated weekly prompt problem comes before the product definition.",
+      "artifactLocator": "candidate opening"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Most of the card is mechanism and test.",
+      "artifactLocator": "candidate body"
+    },
+    "missingAidbRelevanceCheck": {
+      "present": false,
+      "observation": "A dated repository search found no relevant AIDB treatment.",
+      "artifactLocator": "producer contract evidence analysis"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The opening explains the repeated-prompt benefit and description-to-match-to-load mechanism.",
+      "artifactLocator": "candidate opening"
+    },
+    "missingNewcomerBackground": {
+      "present": false,
+      "observation": "No prior skills knowledge is assumed.",
+      "artifactLocator": "first sentence"
+    },
+    "newspaperHierarchyUnclear": {
+      "present": false,
+      "observation": "One compact service record has one headline and body.",
+      "artifactLocator": "candidate record"
+    },
+    "parrotingExplainBack": {
+      "present": false,
+      "observation": "The probe requires separating output from access.",
+      "artifactLocator": "candidate landing"
+    },
+    "predeterminedThesisInsteadOfInvestigation": {
+      "present": false,
+      "observation": "Useful reuse and unsafe trust are both retained.",
+      "artifactLocator": "candidate body"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The stop rule follows the complete test sequence.",
+      "artifactLocator": "candidate landing"
+    },
+    "promptAdviceMistakenForEnforcement": {
+      "present": false,
+      "observation": "Safety comes from access and tests, not stronger instructions.",
+      "artifactLocator": "candidate body"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The card intentionally solves one first-use decision and routes depth.",
+      "artifactLocator": "audienceJob"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No decorative era reference appears.",
+      "artifactLocator": "candidate record"
+    },
+    "rewindDecorationInsteadOfTeaching": {
+      "present": false,
+      "observation": "The only playful frame performs a control job.",
+      "artifactLocator": "candidate headline"
+    },
+    "sourceAvailabilityMistakenForEditorialValue": {
+      "present": false,
+      "observation": "The real viral skill-pack trust decision earns the tip.",
+      "artifactLocator": "audienceJob"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Expiry and product-change triggers are explicit.",
+      "artifactLocator": "freshness"
+    },
+    "statusLanguageOvertakesExperience": {
+      "present": false,
+      "observation": "HOLD remains metadata, not reader copy.",
+      "artifactLocator": "candidate record"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The copy uses ordinary task language.",
+      "artifactLocator": "candidate body"
+    },
+    "technicalReaderAssumption": {
+      "present": false,
+      "observation": "No coding knowledge is required.",
+      "artifactLocator": "candidate body"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The sequence follows one trust decision, not a generic tips template.",
+      "artifactLocator": "candidate body"
+    },
+    "weakReaderPremise": {
+      "present": false,
+      "observation": "The viral whole-job promise creates a real reader decision.",
+      "artifactLocator": "audienceJob"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Examples remain brief and subordinate to the reusable test.",
+      "artifactLocator": "candidate body"
+    },
+    "fictionalInputMistakenForIsolation": {
+      "present": false,
+      "observation": "Every live account or folder is disconnected for rehearsal even when the real job later needs it.",
+      "artifactLocator": "candidate rehearsal scope"
+    },
+    "unbuiltDestinationPresentedAsLive": {
+      "present": false,
+      "observation": "No reader-facing destination is offered while public route truth is unproved.",
+      "artifactLocator": "candidate record"
+    },
+    "repairScopeSubstitutedForSpecifiedScope": {
+      "present": false,
+      "observation": "The successor retains the specified rehearsal scope and forward-passes the expense scenario.",
+      "artifactLocator": "candidate rehearsal sentence and transfer probe"
+    },
+    "compressionDropsReferent": {
+      "present": false,
+      "observation": "Work context and home sentence retain input, skill, output and criteria at 147 words.",
+      "artifactLocator": "candidate paired examples"
+    },
+    "safetyQualifierWithUndefinedBoundary": {
+      "present": false,
+      "observation": "Cannot vet, live connection, cannot see/change and do-not-run provide observable boundaries and dispositions.",
+      "artifactLocator": "candidate source and access rules"
+    },
+    "compoundModifierInvertsAgent": {
+      "present": false,
+      "observation": "One it should not answer unambiguously makes the active skill the non-answering actor.",
+      "artifactLocator": "candidate behavior test"
+    }
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",
-    "sourceBindings": [{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"}],
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+        "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
+      }
+    ],
     "claimMap": [
-      {"claimId":"PAIGE-SKILL-BUNDLE","status":"VERIFIED","candidateEvidence":[{"excerpt":"A reusable AI skill is a folder of instructions, reference files and sometimes executable scripts","locator":"candidate body"}],"sourceBinding":{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"},"sourceEvidence":[{"excerpt":"Agent Skills package reusable instructions, scripts and resources","locator":"CLM-PRODUCT-ANTHROPIC-REUSABLE-SKILLS"}],"scopeAndFreshness":"Anthropic product behavior rechecked August 12, 2026; recheck on product or security-guidance change."},
-      {"claimId":"PAIGE-AUDIT-BOUNDARY","status":"QUALIFIED","candidateEvidence":[{"excerpt":"make your own simple skill or use one from the product maker—not an unknown download","locator":"candidate body"},{"excerpt":"inspect every file and limit the accounts, folders and internet access available to it","locator":"candidate body"}],"sourceBinding":{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"},"sourceEvidence":[{"excerpt":"use trusted sources or audit all files, network calls, file access and dependencies","locator":"claim evidence summary"}],"scopeAndFreshness":"LAiDIES compresses Anthropic's security guidance into a non-technical first-use test; it is not a complete professional code audit, and fictional input alone is not a sandbox."}
+      {
+        "claimId": "PAIGE-SKILL-BUNDLE",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Its name and description tell AI when to load instructions, files—even runnable code",
+            "locator": "candidate body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+          "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Agent Skills package reusable instructions, scripts and resources",
+            "locator": "CLM-PRODUCT-ANTHROPIC-REUSABLE-SKILLS"
+          }
+        ],
+        "scopeAndFreshness": "Anthropic product behavior rechecked August 12, 2026; recheck on product or security-guidance change."
+      },
+      {
+        "claimId": "PAIGE-AUDIT-BOUNDARY",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A maker you cannot vet stays out, however popular",
+            "locator": "candidate body"
+          },
+          {
+            "excerpt": "Disconnect every live account and folder—even those the real job needs",
+            "locator": "candidate body"
+          },
+          {
+            "excerpt": "Cannot see or change access? Do not run it",
+            "locator": "candidate body"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+          "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "use trusted sources or audit all files, network calls, file access and dependencies",
+            "locator": "claim evidence summary"
+          }
+        ],
+        "scopeAndFreshness": "LAiDIES translates current audit guidance into maker, contents and inherited-access checks. Unknown downloads require a full audit; the fictional rehearsal is isolated from every live connection, including ones the eventual job needs."
+      }
     ],
     "reviewedThrough": "2026-08-12",
     "nextTrigger": "Anthropic changes Agent Skills behavior or security guidance, or the candidate names a specific pack, plan or permission.",
     "correctionOwner": "learning-content-ecosystem with newsstand-daily"
   },
-  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"priorComparable":{"candidateId":"LCWO-013-PREDECESSOR","reviewIssues":1,"reviewCycles":2},"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
-  "lineage": {"kind":"SUCCESSOR","predecessorCandidateId":"LCWO-013-PREDECESSOR","predecessor":{"path":"operations/product-stewards/learning-content-ecosystem/quality-exemplars/fictional-input-is-not-a-sandbox-known-bad-2026-08-12.md","sha256":"ead690d730f8a93890e8220e07a6fed69004eec798ee2bad886a8f5e07eab9a7"},"comparison":"The successor preserves the plain definition, work and home rehearsals, three behavior classes and stop rule while adding trusted provenance and least-privilege environment limits before execution; it also states that one polished answer proves only one rehearsal."},
-  "learningDisposition": {"disposition":"NO_NEW_DEFECT","rationale":"CQX-BAD-006 is now consumed before review, and the successor does not repeat the fictional-input-as-isolation failure or introduce another reusable defect."},
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "LCWO-013-OPUS-HELD-PREDECESSOR-4",
+      "reviewIssues": 3,
+      "reviewCycles": 5
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "LCWO-013-OPUS-HELD-PREDECESSOR-4",
+    "predecessor": {
+      "path": "operations/product-stewards/newsstand/candidates/paige-reusable-skills-opus-held-predecessor-4-2026-08-12.md",
+      "sha256": "4dc74c9a47c87fba292f7b85f5cb17923710b8097c89fd83ec35ceadcede1052"
+    },
+    "comparison": "The successor preserves all four cleared predecessor repairs while replacing undefined unknown/clean qualifiers, naming the skill as the non-answering actor, restoring the work actor, and cutting to 147 words."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The fourth HOLD admitted CQX-BAD-009. The exact successor consumes both new families and forward-tests a popular viral pack plus inherited expense access."
+  },
   "verdict": "PASS",
-  "limitations": ["Producer self-review has no independent quality authority.", "The exact record remains HOLD and publicly ineligible.", "No rendered Daily integration, independent semantic admission, deploy or public verification has occurred."]
+  "limitations": [
+    "Producer self-review has no independent quality authority.",
+    "Four independent Opus reviews held preserved predecessors; this exact successor still requires role-distinct review.",
+    "The record remains HOLD and publicly ineligible.",
+    "No human reader observation, rendered Daily integration, semantic admission, deploy or public verification has occurred."
+  ]
 }
