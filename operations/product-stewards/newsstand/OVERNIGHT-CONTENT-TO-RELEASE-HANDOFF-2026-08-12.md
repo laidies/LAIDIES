@@ -2,7 +2,7 @@
 
 **Status:** CURRENT RECONCILIATION NOTE — NO MERGE OR DEPLOY AUTHORITY
 
-**Checked:** 2026-08-12 01:10 America/Vancouver
+**Checked:** 2026-08-12 01:15 America/Vancouver
 
 ## Outcome truth
 
@@ -11,6 +11,15 @@ One dated Daily archive story is live and readable now. A fresh 390×844 headles
 `https://laidies.ai/newsstand#eu-ai-act-transparency-starts`
 
 rendered the full August 3 EU AI transparency article, including The Story, The LAiDIES Read and reader guidance. The page simultaneously says that there is no qualified **current** paper and identifies the latest desk check as August 4. This is an archive success, not a current August 12 Daily and not evidence that the overnight candidates are published.
+
+The Big Question source packet is now refreshed through August 12 with current
+primary AISI guidance showing that safe agent evaluations require separate
+tooling, host and network controls, and that larger working budgets can reveal
+cyber capabilities missed by shorter tests. No primary AISI incident record or
+direct Meta incident publication was recovered, so those incident-specific
+claims remain attributed through AP rather than being upgraded to primary-source
+fact. The refreshed shared claim map was revalidated against the Big Question,
+Weekly and STRAiGHT TALK producer packages; no stale review binding remains.
 
 Current public bytes re-fetched from `laidies.ai`:
 

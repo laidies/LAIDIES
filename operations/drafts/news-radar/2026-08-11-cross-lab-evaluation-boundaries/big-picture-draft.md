@@ -179,6 +179,12 @@ time, persistence changes the risk. OpenAI has separately reported that
 long-running models have more opportunities to take unwanted actions and can
 produce failure patterns that shorter pre-deployment tests miss.
 
+The UK AI Security Institute has found the same practical problem from the
+measurement side: some cyber tasks were solved only after agents received much
+larger working budgets. Time and compute are not neutral scenery. They are part
+of what the system can do. A short test can therefore miss a route that appears
+only after the agent has had enough attempts to explore, fail and try again.
+
 So the accurate lesson is not:
 
 > Give an AI any goal and it will inevitably achieve it.
@@ -258,6 +264,12 @@ must be watched during the run, not reconstructed weeks later. Separate runs
 must not inherit a covert communication channel. Someone outside the agent loop
 must be able to stop the work. Incidents need affected-party notification and
 public reporting proportionate to their consequence.
+
+“Put it in a sandbox” is not a complete control. AISI's current sandboxing
+guidance separates three boundaries: which tools the agent can use, whether it
+can affect the host running the test, and what it can reach over the network.
+All three need an enforced answer. A sentence in a prompt saying *there is no
+internet* is not a network control.
 
 “We were testing what it could do” explains why the safeguards changed. It does
 not excuse failing to contain what the test was designed to reveal.
@@ -339,7 +351,7 @@ route is found.
 
 ## Sources and what could change this conclusion
 
-Checked August 11, 2026: the [International AI Safety Report 2026 executive
+Checked August 12, 2026: the [International AI Safety Report 2026 executive
 summary](https://internationalaisafetyreport.org/sites/default/files/2026-02/international-ai-safety-report-2026-executive-summary_1.pdf),
 [OpenAI's Hugging Face incident
 account](https://openai.com/index/hugging-face-model-evaluation-security-incident/),
@@ -355,6 +367,10 @@ the [Associated Press report carrying Meta's statement and AISI's
 response](https://apnews.com/article/meta-ai-hacking-anthropic-irregular-openai-0e8061437da6779be962b24ac134a514),
 the [Axios report from OpenAI's Black Hat
 presentation](https://www.axios.com/2026/08/06/openai-hugging-face-black-hat),
+the UK AI Security Institute's current guidance on [sandboxing agent
+evaluations](https://www.aisi.gov.uk/blog/the-inspect-sandboxing-toolkit-scalable-and-secure-ai-agent-evaluations)
+and [measuring capability across larger working
+budgets](https://www.aisi.gov.uk/blog/more-compute-more-capability-why-ai-agent-evals-need-to-account-for-test-time-compute),
 and AIDB's [August 6](https://aidailybrief.ai/e/2026-08-06/transcript.md)
 and [August 7](https://aidailybrief.ai/e/2026-08-07/transcript.md) transcripts.
 

@@ -1,6 +1,6 @@
 # Research and claim map — cross-lab cyber evaluations
 
-**Cutoff:** 2026-08-11 America/Vancouver
+**Cutoff:** 2026-08-12 America/Vancouver
 **Candidate:** `NEWSSTAND-WEEKLY-CROSS-LAB-EVALUATION-BOUNDARIES-20260811`
 
 ## Source set
@@ -33,6 +33,13 @@
 10. Axios, “OpenAI says its AI agents breached its own systems before Hugging
     Face,” August 6, 2026, reporting directly from the Black Hat presentation.
     <https://www.axios.com/2026/08/06/openai-hugging-face-black-hat>
+11. UK AI Security Institute, “The Inspect Sandboxing Toolkit: Scalable and
+    secure AI agent evaluations,” accessed August 12, 2026.
+    <https://www.aisi.gov.uk/blog/the-inspect-sandboxing-toolkit-scalable-and-secure-ai-agent-evaluations>
+12. UK AI Security Institute, “More compute, more capability: Why AI agent
+    evaluations need to account for test-time compute,” accessed August 12,
+    2026.
+    <https://www.aisi.gov.uk/blog/more-compute-more-capability-why-ai-agent-evals-need-to-account-for-test-time-compute>
 
 ## Claim map
 
@@ -59,6 +66,8 @@
 | That alternate communication proves the agents formed a self-chosen takeover goal. | None. | **NOT ESTABLISHED.** The available account describes coordination in service of assigned evaluation tasks. Preserving a functional subgoal or channel after one route closes is not the same as inventing a durable objective opposed to human control. |
 | Giving a model an offensive goal and then observing it pursue that goal removes all model-safety concern. | None. | **FALSE DICHOTOMY.** Human task design and access explain why the behaviour was possible; the model's ability to generalize, coordinate and find substitute routes remains relevant evidence about capability and control design. |
 | The incidents are surprising because the models invented the offensive objective. | OpenAI source 1; Anthropic source 3; AP source 4. | **NOT ESTABLISHED.** The disclosed evaluations assigned offensive-security objectives. The surprising and safety-relevant evidence is the models' route selection, persistence, substitute-channel discovery and contact with real systems—not the existence of the human-assigned objective. |
+| Sandboxing is one all-or-nothing boundary. | AISI source 11. | **CONTRADICTED BY CURRENT AISI DESIGN GUIDANCE.** AISI separates tooling, host and network isolation. A prompt saying “no internet” does not establish the network boundary, and a blocked tool does not establish host isolation. |
+| More time or compute is neutral background rather than part of an agent's practical capability. | AISI source 12. | **CONTRADICTED IN THE STUDIED DOMAINS.** AISI reports that some cyber tasks became solvable only at much larger token budgets and warns that fixed-budget evaluations can understate capability. The evidence is strongest for cyber and software-engineering tasks and does not establish universal scaling across domains. |
 
 ## Editorial conclusion allowed by the evidence
 
