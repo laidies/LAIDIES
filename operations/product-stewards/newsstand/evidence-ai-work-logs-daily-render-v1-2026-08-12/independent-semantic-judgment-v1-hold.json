@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "laidies-independent-semantic-judgment.v1",
+  "verdict": "HOLD",
+  "modelFamily": "claude",
+  "model": "sonnet",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+    "sha256": "89062033d142fbeb708b140da57eed588e9254be721916ff502b3041671b1fb9"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "5eac1ec94b5475d8e6d32e8152ec864cf845f76a0af0b34e99ae5a050719b071"
+  },
+  "exemplar": {
+    "path": "content/episodes/episode-01.canon.md",
+    "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+  },
+  "promptSha256": "03d8913c8f62cadb7c065d890a29233921496aebf7d2d3c32c6d129d80b9b368",
+  "judgedAt": "2026-08-12T21:32:57.074Z",
+  "objectiveDefects": [
+    {
+      "locator": "The number to circle is 64",
+      "problem": "The 328-session, 126-named-credential and 704-artifact figures were not reconciled, so a reader could not audit the number chain.",
+      "requiredRepair": "Explain that 328 counts affected session files, 704 counts separate sensitive items in genuine-user sessions, and one session can contain several items."
+    }
+  ],
+  "qualityFindings": [
+    {
+      "dimension": "voice",
+      "finding": "The mechanism and practical action were strong, but long stretches read as neutral security journalism rather than LAiDIES."
+    },
+    {
+      "dimension": "practical utility",
+      "finding": "The role-specific advice for ordinary users, log publishers and already-exposed credentials produced a genuine useful reader change."
+    }
+  ],
+  "boundary": "Role-distinct model judgment only. No observed unfamiliar-human evidence, visual admission, canonical write, deployment or publication authority."
+}
