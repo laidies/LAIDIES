@@ -1,8 +1,8 @@
 # NewsStand overnight content-to-release handoff — 2026-08-12
 
-**Status:** CURRENT RECONCILIATION NOTE — NO MERGE OR DEPLOY AUTHORITY
+**Status:** EIGHT EXACT PROSE CANDIDATES INDEPENDENTLY ACCEPTED FOR HUMAN/RENDERED REVIEW — NO MERGE OR DEPLOY AUTHORITY
 
-**Checked:** 2026-08-12 01:18 America/Vancouver
+**Checked:** 2026-08-12 03:50 America/Vancouver
 
 ## Outcome truth
 
@@ -47,25 +47,96 @@ Do not merge either whole branch into the other by inference. A release successo
 
 All of the following are on `origin/codex/learning-execution-repair-20260811`; none is public merely because it is pushed:
 
-| Commit | Producer result | Current state |
+| Commit | Exact candidate | Current state |
 |---|---|---|
-| `7c4e49bd` | The Big Question candidate and held executor state | producer-ready; independent review required |
-| `2afb1178` | Paige reusable-skills tip | producer-ready; independent review required |
-| `e9471683` | Promptoscope regression tip | producer-ready; independent review required |
-| `e16b37bb` + current successor | Dear Miss Jeeves revision column | producer-ready after adding the missing reconcile-not-append rule for changing requirements; official OpenAI guidance rechecked August 12; independent review required |
-| `90750797` | reconciled STRAiGHT TALK “AI escaped” explanation | producer-ready after consolidating the strongest existing source packet into one current 1,371-word candidate; independent accuracy, editorial, voice and format review required |
-| `9a0081d4` | cross-lab Weekly package | producer-ready; independent review required |
-| `6981e80f` | coherent August 3 archive Daily presentation successor | producer-ready; independent review required; explicitly extends the admitted August 3 issue and preserves the already-live article rather than creating a competing issue |
-| `62ab0c96` | Career/Work-Life contribution-credit tip | producer-ready; independent review required |
+| `bc342910` | [The Big Question](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md) — 2,986 words | independent prose review accepted with zero blockers; human explain-back and exact rendered longform still required |
+| `deb268e3` | Paige — “Give one repeat task a dress rehearsal—not the keys” — 147 words | independent prose review accepted after blockers fell 11 → 7 → 4 → 3 → 0; human and rendered-card review still required |
+| `45c8bfdc` | Promptoscope — “Mercury is in regression” | independent prose review accepted with zero blockers; human and rendered-card review still required |
+| `c3115e8b` | [Dear Miss Jeeves](../../../content/dear-miss-jeeves/dmj-004-fifteen-revisions.md) — 528 words | repaired an unbuilt Promptoscope continuation; independent prose review accepted with zero blockers; human and rendered-column review still required |
+| `4057f1de` | [STRAiGHT TALK](candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md) — 1,374 words | independent successor review accepted with zero blockers; human and rendered LIBRAiRY review still required; no public STRAiGHT TALK surface currently exists |
+| `137a09da` | [The Weekly](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md) — 1,682 words | final independent review accepted with zero blockers; human review must decide whether the above-usual length earns its space before rendering |
+| `810d9704` | [The Daily archive](candidates/daily-archive-2026-08-03.md) — 941 words | corrected the false Sunday dateline to Monday; independent review accepted with zero blockers; human and rendered newspaper review still required |
+| `18ddabf1` | Career/Work-Life — “Put the name back on the idea” — 180 words | independent successor review accepted with zero blockers; human and rendered-card review still required |
+
+The role-distinct Claude reviews reported USD 14.6887348 in external usage.
+That spend produced artifact-first judgments and repair cycles; it did not buy
+publication, deployment or public verification.
+
+## Exact compact-column copy for morning review
+
+### Paige’s Practical AI Tip
+
+**Give one repeat task a dress rehearsal—not the keys.**
+
+Weekly prompt again? A reusable AI skill keeps it ready. Its name and
+description tell AI when to load instructions, files—even runnable code.
+Convenient, not a colleague: decisions and consequences stay yours. Before
+rehearsal, check the maker, contents and everything AI reaches. Disconnect every
+live account and folder—even those the real job needs. Cannot see or change
+access? Do not run it. Begin with one you made. A maker you cannot vet stays
+out, however popular; colleague and company skills still need inspection. At
+work, use fictional notes; require action, owner, date and open decision. At
+home, give a packing skill an invented brief; require a list fitting weather
+and plans without real bookings or email. Test normal and awkward cases, plus
+one it should not answer. Fix and rerun failures. One polished answer proves one
+rehearsal. Cannot inspect, limit, judge and stop it? No real work.
+
+### Promptoscope
+
+**Mercury is in regression.**
+
+Today’s forecast: change one thing, then check the receipts. Save a few
+representative examples of a repeated task—say, summarising fictional meeting
+notes at work and planning meals from an invented cupboard at home—and write
+down what a good answer must include. Change one instruction at a time, then
+rerun the same examples. If the new prompt sounds smoother but fails a case the
+old one passed, that is a regression, not growth. Mercury is innocent.
+
+### Career & Work-Life
+
+**Put the name back on the idea.**
+
+You make a useful point, the meeting moves on, and ten minutes later the same
+point gets applause in somebody else’s voice. You do not need to prosecute
+motive in real time. Reconnect the idea and keep the work moving: ‘Yes—that
+builds on the customer-risk point I raised earlier. The next decision is…’ If
+you are the colleague who noticed: ‘Building on Maya’s point about customer
+risk…’ Afterward, send three lines: the contribution, the decision and the next
+owner. That preserves context; it does not prove intent. AI can create a
+related source problem: a polished answer may repeat a claim after its source
+has disappeared. Keep the original link or document attached and verify it
+before relying on the retelling. Do the same before forwarding a glossy health
+claim in the family chat. People are not citation objects; a version history
+cannot diagnose motive. If this becomes a pattern, a power problem or a
+material career consequence, take the facts to a manager, sponsor or
+appropriate workplace channel. The meeting line is a first move, not the whole
+fix.
+
+## Reader and archive repair completed overnight
+
+Commit `4d3237b4` fixes a separate runtime defect found during the publication
+gap pass. Adding Dear Miss Jeeves as the tenth Daily desk had invalidated both
+historical nine-desk issue snapshots, causing the Daily to disappear in the
+real browser. The repaired reader accepts exactly the former nine-desk or
+current ten-desk shape, retains the locked public name The Big Question, keeps
+formerly approved expired material visible only with `published then—check
+current guidance`, and fits the Big Question masthead inside its 390px painted
+paper. Baseline: 211 rendered checks pass; deliberate overlap and overflow
+mutations fail. These branch bytes are not deployed or publicly verified.
 
 ## Safe next release step
 
 1. Continue source and producer work on the learning branch without touching the deployed reader runtime.
-2. Select one exact candidate after role-distinct artifact-first review.
-3. Create a bounded release successor from the deployed NewsStand ancestry.
-4. Bring over only the admitted content record and its required source/correction bindings.
-5. Run the reader contract, rendered browser matrix and full release controller.
-6. Deploy through the actual Cloudflare Pages production path and verify the exact public route.
+2. Review one exact accepted candidate with Ali, beginning with the complete
+   Daily because it tests the newspaper hierarchy and three compact service
+   columns together.
+3. Run the observed-human explain-back/transfer check and render the unchanged
+   exact candidate at desktop and mobile widths.
+4. After owner admission, create a bounded release successor from the deployed
+   NewsStand ancestry.
+5. Bring over only the admitted content record and its required source/correction bindings.
+6. Run the reader contract, rendered browser matrix and full release controller.
+7. Deploy through the actual Cloudflare Pages production path and verify the exact public route.
 
 No whole-branch merge, canonical integration, deployment or public mutation was performed by this reconciliation.
 
