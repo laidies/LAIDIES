@@ -91,6 +91,12 @@ const registeredCandidateFiles = registeredBaseFiles.map((file) => {
   return file;
 });
 const registeredBase = write('registered-base.json', manifest(registeredBaseFiles));
+const metadataOnlyCandidate = write('registered-metadata-only.json', manifest(registeredBaseFiles.map((file) =>
+  file.path === 'build-report.json' ? record(file.path, `${file.path}:v2`) : file
+)));
+result = run(registeredBase, metadataOnlyCandidate, registeredScopePath);
+assert.notEqual(result.status, 0);
+assert.match(result.stderr, /only generated build metadata/);
 const registeredCandidate = write('registered-candidate.json', manifest(registeredCandidateFiles));
 result = run(registeredBase, registeredCandidate, registeredScopePath);
 assert.equal(result.status, 0, result.stderr);
@@ -98,4 +104,4 @@ assert.match(result.stdout, /build-report\.json/);
 assert.match(result.stdout, /content\/daily-edition-columns\.json/);
 assert.match(result.stdout, /content\/newsstand-daily-issues\.json/);
 
-console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · deterministic build metadata plus exact dated-issue and service-column stores admitted · unrelated mutation, public addition and no-op candidate rejected');
+console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · deterministic build metadata may accompany exact NewsStand changes but cannot create a release · unrelated mutation, public addition and no-op candidate rejected');
