@@ -79,6 +79,13 @@ and public verification.
 The settled public masthead is **The Big Question**; the machine edition remains
 `tribune`. No publication or public page changed.
 
+The accepted Weekly source now uses the same production compiler without
+sharing The Big Question's identity or inferred landmarks. Its inaccessible
+held candidate contains 6 authored sections, 43 semantic blocks, 5 reviewed
+sources and `publishedAt: null`; exact prose-order and production-contract
+checks pass. Observed-human, source/semantic/owner admission, release and public
+verification still remain.
+
 ### Paige reusable-skills tip — repaired producer successor / independent review next
 
 LCWO-013 is `BUILT_LOCALLY / WAITING_ON_PREREQUISITE`. The current official

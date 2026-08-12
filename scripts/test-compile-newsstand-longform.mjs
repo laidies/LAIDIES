@@ -54,6 +54,25 @@ const decision = contractContext.module.exports.accessDecision(candidateDataset,
 assert.equal(decision.canExpose, false, "the held story record must remain inaccessible");
 assert.equal(decision.state, "hold");
 
+const weeklyConfigPath = path.join(ROOT, "operations/product-stewards/newsstand/candidates/weekly-cross-lab-longform-compile.json");
+const weeklyResult = compile(weeklyConfigPath);
+assert.equal(weeklyResult.status, 0, weeklyResult.stderr);
+const weeklyCompiled = JSON.parse(weeklyResult.stdout);
+assert.equal(weeklyCompiled.sections.length, 6);
+assert.equal(weeklyCompiled.sections.flatMap((section) => section.blocks).length, 43);
+const weeklyCandidate = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/weekly-cross-lab-story-record-candidate.json"), "utf8"));
+assert.equal(weeklyCandidate.candidateStatus, "HELD_NOT_PUBLISHED");
+assert.equal(weeklyCandidate.story.edition, "weekly");
+assert.equal(weeklyCandidate.story.publishedAt, null);
+assert.deepEqual(weeklyCandidate.story.longform, weeklyCompiled, "the Weekly held record must bind the exact compiler output");
+assert.equal(weeklyCandidate.story.sources.length, 5);
+const weeklyDataset = JSON.parse(JSON.stringify(dataContext.window.NEWSSTAND_DATA));
+weeklyDataset.stories.push(weeklyCandidate.story);
+assert.equal(contractContext.module.exports.validate(weeklyDataset).length, 0, "the Weekly held story must pass the production reader contract");
+const weeklyDecision = contractContext.module.exports.accessDecision(weeklyDataset, weeklyCandidate.story, { scope: "hash" }, "2026-08-12T12:45:00Z");
+assert.equal(weeklyDecision.canExpose, false, "the Weekly held story must remain inaccessible");
+assert.equal(weeklyDecision.state, "hold");
+
 const config = JSON.parse(fs.readFileSync(CONFIG, "utf8"));
 const source = fs.readFileSync(path.resolve(path.dirname(CONFIG), config.sourcePath), "utf8");
 const sourceMeaning = plain(source.split(/\r?\n/).slice(3).filter((line) => line.trim() !== "---").map((line) => line
@@ -64,6 +83,16 @@ const compiledMeaning = plain(compiled.sections.flatMap((section) => [section.la
   return block.items || block.text || block.body;
 })]).join(" "));
 assert.equal(compiledMeaning, sourceMeaning, "the compiler must preserve all source meaning-bearing text in order");
+const weeklyConfig = JSON.parse(fs.readFileSync(weeklyConfigPath, "utf8"));
+const weeklySource = fs.readFileSync(path.resolve(path.dirname(weeklyConfigPath), weeklyConfig.sourcePath), "utf8");
+const weeklySourceMeaning = plain(weeklySource.split(/\r?\n/).slice(3).filter((line) => line.trim() !== "---").map((line) => line
+  .replace(/^#{2,3}\s+/, "").replace(/^>\s?/, "").replace(/^[-*]\s+/, "").replace(/^\d+\.\s+/, "")).join(" ")
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/[*_]/g, ""));
+const weeklyCompiledMeaning = plain(weeklyCompiled.sections.flatMap((section) => [section.label === weeklyConfig.introSectionLabel ? "" : section.label, ...section.blocks.flatMap((block) => {
+  if (block.type === "subheading" && ["At work", "At home"].includes(block.text)) return [];
+  return block.items || block.text || block.body;
+})]).join(" "));
+assert.equal(weeklyCompiledMeaning, weeklySourceMeaning, "the Weekly compiler must preserve all source meaning-bearing text in order");
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "newsstand-longform-"));
 try {
@@ -84,4 +113,4 @@ try {
   fs.rmSync(temp, { recursive: true, force: true });
 }
 
-console.log("✓ NEWSSTAND LONGFORM COMPILER: exact prose order preserved · 10 sections · 2 negative calibrations");
+console.log("✓ NEWSSTAND LONGFORM COMPILER: exact prose order preserved · Big Question + Weekly held records · 2 negative calibrations");

@@ -51,3 +51,10 @@ The record has 10 authored sections, 82 blocks, 12 reviewed sources, an honest
 null publication instant and `status: hold`. Its complete prose order matches
 the accepted Markdown; production-contract injection passes and direct access
 remains denied. This is a candidate record, not canonical story integration.
+
+The same compiler now produces
+`operations/product-stewards/newsstand/candidates/weekly-cross-lab-story-record-candidate.json`
+at SHA-256 `df6a29f16a15e88fc7736e3e3befe4d9092b010c1dd3f6242043f9db3a33e61d`.
+The Weekly record has 6 sections, 43 blocks, 5 reviewed sources, exact prose
+order, `publishedAt: null` and inaccessible `hold` state. Its visible and
+accessible identity is The Weekly; no Big Question wrapper identity is reused.

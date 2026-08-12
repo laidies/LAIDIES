@@ -30,10 +30,12 @@ function slug(value) {
 
 function parseSections(lines) {
   const sections = [];
-  let current = null;
+  let current = config.introSectionLabel
+    ? { id: slug(config.introSectionLabel), label: config.introSectionLabel, lines: [] }
+    : null;
   for (const line of lines) {
     if (/^## /.test(line)) {
-      if (current) sections.push(current);
+      if (current && current.lines.some((item) => item.trim())) sections.push(current);
       current = { id: slug(line.slice(3)), label: line.slice(3), lines: [] };
     } else if (current) {
       current.lines.push(line);
@@ -41,7 +43,7 @@ function parseSections(lines) {
       throw new Error("Meaning-bearing prose appeared before the first H2 section");
     }
   }
-  if (current) sections.push(current);
+  if (current && current.lines.some((line) => line.trim())) sections.push(current);
   return sections;
 }
 

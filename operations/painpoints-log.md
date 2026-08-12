@@ -14954,7 +14954,10 @@ while remaining falsely unfinished in the launch record.
   contract: exact accessible name, unique authored sections, validated jump
   targets, semantic quote roles and a 68ch reading measure. Unit calibration
   rejects an invented jump target and an empty block; 230 rendered checks pass
-  across desktop, 390 and 320 without changing any public story record.
+  across desktop, 390 and 320 without changing any public story record. The
+  reusable compiler now produces separate inaccessible held Big Question and
+  Weekly records, preserves each source's complete prose order and rejects
+  source-identity or missing-target drift before integration.
 - **Possible Behind the Build angle:** Why reusing a template is not the same as
   copying its meaning.
 - **Publication status:** WEEKLY PRESENTATION INDEPENDENTLY ACCEPTED / SHARED
