@@ -32,6 +32,32 @@ Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-11 Learning System publication-routing repair
 
+### The Big Picture loss-of-control candidate — producer pass / independent admission next
+
+One exact longform NewsStand candidate now answers **“Is AI starting to escape
+our control?”** across the OpenAI/Hugging Face, Anthropic, Meta and AISI cyber-
+evaluation pattern. The private prose at
+`operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md`
+is **BUILT LOCALLY / PRODUCER SELF-REVIEW PASS / NO INDEPENDENT QUALITY
+AUTHORITY** at SHA-256
+`9f021ec0ff14ea9afaa33862560ce7b01997251309025afa82b27266bd06b30a`.
+
+It answers that no current evidence establishes a takeover, then explains the
+narrower control problem already evidenced: human-assigned offensive goals,
+reduced safeguards, unexpected access routes, many-step persistence, reported
+substitute-channel coordination and bounded real-world harm. It explicitly
+prevents “the AI went rogue” from erasing the operators' objective and system
+design while preserving the genuine capability finding in how models pursued
+the work. The Black Hat message-board/directory-name detail remains attributed
+to AIDB's report of the public presentation because the original slides or
+recording have not been recovered.
+
+The calibrated prose gate rejects 22 known-bad cases and accepts the exact
+candidate receipt. The candidate still requires a role-distinct semantic and
+accuracy review, the final public masthead ruling (**The Big Picture** versus
+the current **The Big Question**), NewsStand integration, authorized deploy and
+exact public verification. No publication or public page changed.
+
 ### STRAiGHT TALK representative pilot — Ali reader verdict next
 
 One exact private candidate now tests the repaired explanation method: **“When a headline says an AI ‘escaped,’ what actually happened?”** The public product name is **STRAiGHT TALK**; `straight_answers` remains only the compatibility machine key.

@@ -14622,3 +14622,30 @@ while remaining falsely unfinished in the launch record.
   control—and how one missing product alias hid a confirmed AI incident.
 - **Publication status:** INTERNAL EXECUTION-GATE REPAIR / META SIGNAL
   CORRECTED TO SOURCE-HELD MATERIAL UPDATE / NO ARTICLE, PUBLICATION OR DEPLOYMENT.
+
+## BTB-466 — “The AI went rogue” erased the goal people gave it
+
+- **Date:** 2026-08-11
+- **Area:** NewsStand AI-safety reporting and causal explanation.
+- **Failure risk:** A report could describe an agent pursuing an offensive
+  evaluation goal as though the surprising fact were that it attacked. That
+  framing invents a secret machine motive, hides who selected the goal and
+  weakened the safeguards, and still fails to explain the real safety finding:
+  the unexpected route, persistence, substitute channel and real-world reach.
+- **Root cause:** Human instruction, model capability and environmental control
+  were compressed into the anthropomorphic label “went rogue.” The label made
+  responsibility and mechanism disappear together.
+- **Prevention rule:** For every agent incident, name the assigned objective,
+  who authorized it, the safeguards changed, the route selected, the observed
+  consequence and how control was regained. Treat an unexpected method as
+  capability evidence; do not treat an assigned objective as evidence of a
+  self-invented motive. Conversely, do not dismiss unexpected capability merely
+  because people supplied the goal.
+- **Durable correction:** The cross-lab claim map now rejects both false poles,
+  and the exact Big Picture candidate states: “The objective was not the
+  mystery. The safety finding was how the models pursued it.” Its producer
+  receipt binds that distinction as a factual and explanatory outcome.
+- **Possible Behind the Build angle:** Why “the AI did exactly what we asked”
+  can be both a human-responsibility story and a serious AI-control story.
+- **Publication status:** PRIVATE LONGFORM CANDIDATE / PRODUCER PASS / NO
+  INDEPENDENT ADMISSION, INTEGRATION, DEPLOYMENT OR PUBLICATION.

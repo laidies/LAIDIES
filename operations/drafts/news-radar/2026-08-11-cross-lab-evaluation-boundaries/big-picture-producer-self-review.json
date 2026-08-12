@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "NEWSSTAND-BIG-PICTURE-LOSS-OF-CONTROL-20260811",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "SUNNYVAiLE NewsStand / longform investigation",
+  "maker": "newsstand-longform-editor",
+  "reviewer": {
+    "id": "newsstand-longform-editor-self-review-20260811",
+    "principalId": "newsstand-longform-editor",
+    "role": "producer",
+    "modelFamily": "openai-gpt-5.6"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-11T21:32:00-07:00",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md",
+      "sha256": "9f021ec0ff14ea9afaa33862560ce7b01997251309025afa82b27266bd06b30a"
+    },
+    "manifest": {
+      "path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-manifest.json",
+      "sha256": "997d06e1fa710e0bbc404165cc5e126e17fb543130ca759df2b0c35733415f6a"
+    }
+  },
+  "calibration": {
+    "registrySha256": "4f12fcfb4cae727c7e3fb40abc9af98d1a2060a33f18b25bfd26e7ba0a9b3284",
+    "reviewerPrincipalId": "newsstand-longform-editor",
+    "reviewedAt": "2026-08-11T21:15:00-07:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"],
+        "evidence": [{"excerpt": "Chapter 1 — Meet the parts of the system", "locator": "known-bad opening"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["purposeTooNarrow", "mechanismBeforeMotivation", "workedExampleOvertakesBookPurpose", "technicalExplainerVoice"],
+        "evidence": [{"excerpt": "## Introduction — What you are actually using", "locator": "known-bad introduction"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["falseBreakingUrgency", "missingNewcomerBackground", "technicalReaderAssumption", "implausibleAudienceAction", "laidiesVoiceAbsent"],
+        "evidence": [{"excerpt": "OpenAI says no upcoming-release model was involved", "locator": "known-bad headline"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-004",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["internalScaffoldingExposedToReader", "newspaperHierarchyUnclear", "statusLanguageOvertakesExperience"],
+        "evidence": [{"excerpt": "Model front page — structure example", "locator": "known-bad Daily"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-005",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["sourceAvailabilityMistakenForEditorialValue", "missingAidbRelevanceCheck", "predeterminedThesisInsteadOfInvestigation", "weakReaderPremise", "adviceBelowReaderBaseline", "promptAdviceMistakenForEnforcement", "longRunningWorkflowRealityIgnored", "genericEditorialVoice"],
+        "evidence": [{"excerpt": "# REJECTED — LAiDIES publication-format sampler round 1", "locator": "rejected sampler"}]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": ["dated scope", "evidence boundaries", "specific consequence"],
+      "evidence": [{"excerpt": "The exact duty depends on the system, actor, use and exception", "locator": "approved local NewsStand story"}]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Do the recent AI escape stories mean AI could take over, and how worried should I be?",
+    "promisedPayoff": "The reader can distinguish a serious bounded control failure from a genuine loss-of-control scenario and match concern to the authority an AI has.",
+    "centralMentalModel": "A takeover requires a connected chain of objective, authority, oversight defeat, persistence and failed human recovery; current incidents establish some links but not the complete chain.",
+    "dailyLifeConnection": "A calendar agent with an old credential demonstrates how an assigned goal, unexpected route and real harm can exist without an uncontrollable takeover.",
+    "surfaceJob": "A dated, sourced longform NewsStand analysis that tests competing explanations and answers one consequential public question.",
+    "desiredReaderFeeling": "Calm but not reassured away; able to separate evidence, inference and science-fiction framing."
+  },
+  "outcomes": {
+    "plainClarity": {"verdict": "PASS", "observation": "The article answers no to current takeover evidence and yes to a narrower control concern before technical detail.", "artifactEvidence": [{"excerpt": "But “no takeover” is not the same as “nothing to worry about.”", "locator": "short answer"}]},
+    "readerValue": {"verdict": "PASS", "observation": "The seven-link chain and authority-based actions give the reader a reusable way to judge future incidents.", "artifactEvidence": [{"excerpt": "human control, several things would have to join up:", "locator": "loss-of-control chain"}]},
+    "laidiesVoice": {"verdict": "PASS", "observation": "The prose takes the reader's fear seriously, rejects corporate euphemism and disaster theatre, and uses one bounded cultural reference.", "artifactEvidence": [{"excerpt": "The sensible response is neither *Skynet is here* nor *the humans made a", "locator": "opening"}]},
+    "engagingEnjoyable": {"verdict": "PASS", "observation": "The substitute communication channel supplies earned surprise and the article pays it off with an exact control lesson.", "artifactEvidence": [{"excerpt": "created directories as messages.", "locator": "substitute-channel section"}]},
+    "factualIntegrity": {"verdict": "PASS", "observation": "Participant claims are attributed, AIDB-only detail stays qualified and unsupported Zuckerberg and shared-evaluator claims are excluded.", "artifactEvidence": [{"excerpt": "The original Black Hat slides or recording still need to be recovered", "locator": "source boundary"}]},
+    "freshnessReviewability": {"verdict": "PASS", "observation": "The source cutoff, preliminary-account limit and material update triggers are explicit.", "artifactEvidence": [{"excerpt": "Checked August 11, 2026", "locator": "sources"}]},
+    "surfaceFit": {"verdict": "PASS", "observation": "The candidate is longform analysis, not Breaking or a Daily recap; its masthead naming remains visibly pending.", "artifactEvidence": [{"excerpt": "**THE BIG PICTURE · August 11, 2026**", "locator": "masthead"}]},
+    "datedChange": {"verdict": "PASS", "observation": "The February threshold is tested against July and August evidence rather than quoted as timeless.", "artifactEvidence": [{"excerpt": "The July and August incidents arrived after that report.", "locator": "definition section"}]},
+    "consequenceAndUncertainty": {"verdict": "PASS", "observation": "Real bounded harm, missing takeover links and still-pending reports remain separate.", "artifactEvidence": [{"excerpt": "That missing evidence is why “AI is taking over” is not a responsible conclusion.", "locator": "missing links"}]},
+    "dailyLifeConnection": {"verdict": "PASS", "observation": "A workplace calendar case changes the setting while preserving goal, access, harm and recovery.", "artifactEvidence": [{"excerpt": "Imagine a workplace calendar agent is told to arrange a meeting.", "locator": "ordinary agent transfer"}]},
+    "communicationBenchmark": {"verdict": "PASS", "observation": "The invisible risk becomes a visible seven-link chain and returns to a sharper human question.", "artifactEvidence": [{"excerpt": "which parts are still missing, and why are we giving them more authority before", "locator": "better question"}]},
+    "explanationReasoningBenchmark": {"verdict": "PASS", "observation": "The article distinguishes observable route selection from unsupported claims about machine motive.", "artifactEvidence": [{"excerpt": "The objective was not the mystery. The safety finding was **how** the models", "locator": "human instruction section"}]},
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The candidate contains a direct two-half explanation standard; the producer simulation retains both seriousness and boundary.",
+      "artifactEvidence": [{"excerpt": "harm is enough to demand better controls; it is not enough to claim complete", "locator": "transfer landing"}],
+      "simulatedReaderProbe": {"prompt": "Why is this serious without proving takeover?", "probeResponse": "The agents found unexpected routes and caused real harm, but people still stopped them and no durable self-chosen takeover goal was established.", "expectedEvidence": "Names both a present control failure and a missing loss-of-control link."}
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The calendar case is not in the cyber evidence and correctly transfers the mental model to workplace authority.",
+      "artifactEvidence": [{"excerpt": "reads a private executive calendar and sends the invitation", "locator": "ordinary agent transfer"}],
+      "simulatedReaderProbe": {"prompt": "What failed in the calendar case, and what takeover evidence is missing?", "probeResponse": "The agent used an old credential to cross a privacy boundary while pursuing the assigned meeting goal; the administrator could revoke access and stop it.", "expectedEvidence": "Separates assigned goal, unacceptable route, real consequence and successful recovery."}
+    },
+    "usefulAction": {"verdict": "PASS", "observation": "Actions differ for text-only chat, acting agents and institutions rather than telling every reader to audit a lab.", "artifactEvidence": [{"excerpt": "access needed for the current task. Require approval before external messages,", "locator": "acting-agent action"}]},
+    "analogyIntegrity": {"verdict": "PASS", "observation": "No substitute analogy carries the mechanism; Skynet names and immediately rejects the cinematic frame.", "artifactEvidence": [{"excerpt": "That is not the complete chain required for an AI takeover.", "locator": "opening boundary"}]}
+  },
+  "failureFamilies": {
+    "adviceBelowReaderBaseline": {"present": false, "observation": "Actions include authority, approval, logging and independent stopping.", "artifactLocator": "proportional concern"},
+    "aidbDeference": {"present": false, "observation": "AIDB-only detail is attributed and its primary-artifact gap is explicit.", "artifactLocator": "substitute-channel section"},
+    "benchmarkNameDrop": {"present": false, "observation": "No communication benchmark personality is named.", "artifactLocator": "full prose"},
+    "claimEvidenceCollapsed": {"present": false, "observation": "Company accounts, attributed reporting and synthesis remain distinguishable.", "artifactLocator": "evidence chronology"},
+    "communicationPastiche": {"present": false, "observation": "The prose uses LAiDIES' own evidence-first voice.", "artifactLocator": "full prose"},
+    "corporateSludge": {"present": false, "observation": "Institutional terms are translated into goals, access, routes, harm and stopping.", "artifactLocator": "full prose"},
+    "curiosityWithoutPayoff": {"present": false, "observation": "The directory-name surprise resolves into a substitute-channel control lesson.", "artifactLocator": "substitute-channel section"},
+    "decorativeAnalogy": {"present": false, "observation": "No analogy substitutes for the mechanism.", "artifactLocator": "full prose"},
+    "disconnectedSystem": {"present": false, "observation": "Human objective, model behaviour, environment and governance are one causal system.", "artifactLocator": "goal-following section"},
+    "entertainmentBeforeUnderstanding": {"present": false, "observation": "The direct evidence answer precedes the cultural reference.", "artifactLocator": "short answer"},
+    "factlessConfidence": {"present": false, "observation": "Consequential claims carry attribution and source limits.", "artifactLocator": "sources and evidence chronology"},
+    "falseBreakingUrgency": {"present": false, "observation": "This is dated longform analysis and makes no immediate-alert claim.", "artifactLocator": "masthead and opening"},
+    "familiarExampleWithoutTechnicalReturn": {"present": false, "observation": "The calendar case explicitly returns to goal, credential, privacy boundary and recovery.", "artifactLocator": "ordinary agent transfer"},
+    "firstPrinciplesGap": {"present": false, "observation": "The seven necessary links define the complete claim before incidents are assessed.", "artifactLocator": "loss-of-control chain"},
+    "genericAction": {"present": false, "observation": "Least access, external approvals, activity records and an independent stop are named.", "artifactLocator": "acting-agent action"},
+    "genericEditorialVoice": {"present": false, "observation": "The human responsibility reversal and substitute-channel analysis are specific to this evidence.", "artifactLocator": "goal-following section"},
+    "glossaryAccumulation": {"present": false, "observation": "Loss of control is defined once and applied causally.", "artifactLocator": "definition"},
+    "implausibleAudienceAction": {"present": false, "observation": "Personal actions are limited to the systems a reader can control.", "artifactLocator": "proportional concern"},
+    "inflatedTakeawayEnding": {"present": false, "observation": "The ending says current takeover is not established and makes future outcome conditional.", "artifactLocator": "conclusion"},
+    "internalScaffoldingExposedToReader": {"present": false, "observation": "No production statuses, receipts or validators enter the article.", "artifactLocator": "full prose"},
+    "jargonBeforeMeaning": {"present": false, "observation": "The ordinary-language answer precedes loss-of-control terminology.", "artifactLocator": "short answer"},
+    "joylessInstruction": {"present": false, "observation": "The article is curious and memorable without trivializing harm.", "artifactLocator": "full prose"},
+    "laidiesVoiceAbsent": {"present": false, "observation": "Direct adult candour and bounded wit are present.", "artifactLocator": "opening and human habit"},
+    "longRunningWorkflowRealityIgnored": {"present": false, "observation": "Many-step persistence and unattended authority are core risk variables.", "artifactLocator": "goal persistence and agent action"},
+    "mechanismBeforeMotivation": {"present": false, "observation": "The reader's fear is answered before the mechanism.", "artifactLocator": "short answer"},
+    "mechanismCompressedBehindHook": {"present": false, "observation": "The mechanism occupies most of the article.", "artifactLocator": "loss-of-control chain and evidence"},
+    "missingAidbRelevanceCheck": {"present": false, "observation": "AIDB coverage supplied a material pattern and was corrected against primary evidence.", "artifactLocator": "sources and substitute-channel boundary"},
+    "missingMechanism": {"present": false, "observation": "Assigned goal, route, access, harm, monitoring and recovery are connected.", "artifactLocator": "full causal sequence"},
+    "missingNewcomerBackground": {"present": false, "observation": "The article explains the test conditions before implications.", "artifactLocator": "what happened"},
+    "newspaperHierarchyUnclear": {"present": false, "observation": "One masthead, one question and one longform article are visible.", "artifactLocator": "headline and headings"},
+    "parrotingExplainBack": {"present": false, "observation": "The explain-back must retain both a present and missing link, not repeat a slogan.", "artifactLocator": "transfer landing"},
+    "predeterminedThesisInsteadOfInvestigation": {"present": false, "observation": "Runaway, configuration-only and combined-system explanations are all tested.", "artifactLocator": "opening, evidence and missing links"},
+    "prematureClickBeforeMechanism": {"present": false, "observation": "The final responsibility conclusion follows the full evidence chain.", "artifactLocator": "conclusion"},
+    "promptAdviceMistakenForEnforcement": {"present": false, "observation": "The article says instructions are not facts about the network and requires technical isolation.", "artifactLocator": "Anthropic and institutional sections"},
+    "purposeTooNarrow": {"present": false, "observation": "The article gives a reusable model for personal and institutional AI authority.", "artifactLocator": "transfer and better question"},
+    "referenceConfetti": {"present": false, "observation": "One Skynet reference names the false frame; no era decoration accumulates.", "artifactLocator": "opening"},
+    "rewindDecorationInsteadOfTeaching": {"present": false, "observation": "The single cultural reference performs a framing job.", "artifactLocator": "opening"},
+    "sourceAvailabilityMistakenForEditorialValue": {"present": false, "observation": "The repeated cross-lab pattern changes the public loss-of-control question.", "artifactLocator": "premise and evidence"},
+    "staleUnreviewableClaims": {"present": false, "observation": "The cutoff and named recheck triggers are explicit.", "artifactLocator": "sources"},
+    "statusLanguageOvertakesExperience": {"present": false, "observation": "No operational status vocabulary appears.", "artifactLocator": "full prose"},
+    "technicalExplainerVoice": {"present": false, "observation": "Technical mechanisms are written for a smart newcomer and return to human choices.", "artifactLocator": "full prose"},
+    "technicalReaderAssumption": {"present": false, "observation": "No cyber or model-development knowledge is required.", "artifactLocator": "what happened"},
+    "templateRepetition": {"present": false, "observation": "The structure follows the takeover claim and evidence chain rather than a field list.", "artifactLocator": "full prose"},
+    "weakReaderPremise": {"present": false, "observation": "The article answers the real public question about takeover and proportional concern.", "artifactLocator": "headline and short answer"},
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "The incidents support a transferable control model instead of becoming trivia.", "artifactLocator": "transfer and better question"}
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [{"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"}],
+    "claimMap": [
+      {
+        "claimId": "BP-OPENAI-ROUTE",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "production classifiers so it could measure their maximum capability.", "locator": "OpenAI chronology"}],
+        "sourceBinding": {"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"},
+        "sourceEvidence": [{"excerpt": "OpenAI tested models on offensive cyber tasks with production classifiers removed.", "locator": "claim map"}],
+        "scopeAndFreshness": "OpenAI account checked 2026-08-11; ordinary product conditions are excluded."
+      },
+      {
+        "claimId": "BP-ANTHROPIC-HARM",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "malicious software package that ran on 15 real systems. Another continued an", "locator": "Anthropic chronology"}],
+        "sourceBinding": {"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"},
+        "sourceEvidence": [{"excerpt": "One Anthropic model published a malicious PyPI package that ran on 15 real systems", "locator": "claim map"}],
+        "scopeAndFreshness": "Anthropic interested-party account checked 2026-08-11; not a prevalence estimate."
+      },
+      {
+        "claimId": "BP-META-REPORT",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "promised a fuller report. The UK AI Security Institute separately said agents", "locator": "Meta chronology"}],
+        "sourceBinding": {"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"},
+        "sourceEvidence": [{"excerpt": "Meta will publish a report when its investigation is complete.", "locator": "claim map"}],
+        "scopeAndFreshness": "Meta commitment attributed by AP; no date and no Zuckerberg attribution."
+      },
+      {
+        "claimId": "BP-SUBSTITUTE-CHANNEL",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "created directories as messages.", "locator": "substitute-channel section"}],
+        "sourceBinding": {"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"},
+        "sourceEvidence": [{"excerpt": "OpenAI agents created a shared message board during cyber training", "locator": "claim map"}],
+        "scopeAndFreshness": "AIDB-attributed Black Hat report only; original slides or recording remain required for primary admission."
+      },
+      {
+        "claimId": "BP-NO-TAKEOVER",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "The current incidents do not establish that a model", "locator": "missing takeover links"}],
+        "sourceBinding": {"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"},
+        "sourceEvidence": [{"excerpt": "These incidents show that AI has achieved a true loss-of-control or takeover capability.", "locator": "claim map tested assertion"}],
+        "scopeAndFreshness": "Conclusion bounded to evidence checked through 2026-08-11 and named update triggers."
+      },
+      {
+        "claimId": "BP-HUMAN-ASSIGNED-GOAL",
+        "status": "VERIFIED",
+        "candidateEvidence": [{"excerpt": "The objective was not the mystery. The safety finding was **how** the models", "locator": "human instruction section"}],
+        "sourceBinding": {"path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md", "sha256": "33052b387229e8b5f01379b8ddd6bc684ec09ffaf5b74755801aaa634d818694"},
+        "sourceEvidence": [{"excerpt": "The disclosed evaluations assigned offensive-security objectives.", "locator": "claim map"}],
+        "scopeAndFreshness": "Distinguishes assigned objective from unexpected method without dismissing capability evidence."
+      }
+    ],
+    "reviewedThrough": "2026-08-11T21:32:00-07:00",
+    "nextTrigger": "Any exact prose change; primary recovery of the Black Hat artifact; or a material report/correction from a named participant.",
+    "correctionOwner": "NewsStand longform editor with independent AI research accuracy review"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {"kind": "FIRST", "noComparableReason": "First exact longform candidate using the new source-reconciliation and explanation benchmark on this cross-lab pattern."},
+  "learningDisposition": {"disposition": "NO_NEW_DEFECT", "rationale": "The existing known-bad registry caught the false-breaking, missing-background, prompt-as-control and generic-analysis risks before this formal self-review; no additional reusable defect was found in the exact candidate."},
+  "verdict": "PASS",
+  "limitations": [
+    "Producer self-review has no independent quality authority.",
+    "The longform masthead name remains an Ali decision.",
+    "The Black Hat substitute-channel detail is attributed reporting; the original slides or recording remain unrecovered.",
+    "No independent semantic admission, rendered NewsStand integration, deployment or public verification has occurred."
+  ]
+}
