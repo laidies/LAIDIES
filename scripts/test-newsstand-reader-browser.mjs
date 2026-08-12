@@ -182,6 +182,20 @@ const server = http.createServer((request, response) => {
       }
     } catch {}
   }
+  if (requestUrl.pathname === "/content/daily-learning-derivatives.json") {
+    try {
+      const fixture = new URL(request.headers.referer).searchParams.get("fixture");
+      if (fixture === "unproved-expired-history") {
+        const value = JSON.parse(fs.readFileSync(path.join(ROOT, "content/daily-learning-derivatives.json"), "utf8"));
+        const record = value.records.find((item) => item.id === "DLD-2026-07-31-PAIGE-GENERATION-IS-NOT-VERIFICATION");
+        record.headline = "UNPROVED EXPIRED PUBLICATION";
+        delete record.publicHistory;
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(JSON.stringify(value));
+        return;
+      }
+    } catch {}
+  }
   if (requestUrl.pathname === "/content/newsstand-daily-issues.json") {
     try {
       const fixture = new URL(request.headers.referer).searchParams.get("fixture");
@@ -572,6 +586,10 @@ try {
   check(await value(base, "document.querySelector('[data-catchup-role=\"daily\"]') !== null"), true, "Catch Me Up retains the latest complete Daily with its exact edition date");
   check(await value(base, "Array.from(document.querySelectorAll('.ns-catchup-item')).some((item) => item.textContent.includes('Draft first. Check second.') && item.textContent.includes('published then—check current guidance'))"), true, "Catch Me Up preserves a formerly approved expired derivative with an explicit historical freshness warning");
   check(await value(base, "Array.from(document.querySelectorAll('.ns-catchup-item__state')).every((node) => node.textContent.includes('Archive') || node.textContent === 'Filed')"), true, "Catch Me Up labels older stories as archive rather than current publication");
+  const unprovedArchive = await openPage("/newsstand.html?fixture=unproved-expired-history", { width: 390, height: 844 });
+  await act(unprovedArchive, "document.querySelector('#ns-catchup-since').value='2026-07-30';document.querySelector('#ns-catchup-run').click()");
+  check(await value(unprovedArchive, "!document.querySelector('#ns-catchup-results').textContent.includes('UNPROVED EXPIRED PUBLICATION')"), true, "Catch Me Up suppresses expired prose without an exact public-history receipt");
+  unprovedArchive.close();
   const sharedDaily = await openPage("/newsstand.html?daily=2026-08-03", { width: 390, height: 844 });
   const unavailableSharedDaily = await openPage("/newsstand.html?daily=2026-08-02", { width: 390, height: 844 });
   const failedColumnsSharedDaily = await openPage("/newsstand.html?daily=2026-08-03&fixture=columns-load-failure", { width: 390, height: 844 });

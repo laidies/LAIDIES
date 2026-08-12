@@ -74,6 +74,17 @@
             "formatFit": { "type": ["string", "null"] }
           }
         },
+        "publicHistory": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["verifiedAt", "publicUrl", "artifactUrl", "artifactSha256"],
+          "properties": {
+            "verifiedAt": { "type": "string", "format": "date-time" },
+            "publicUrl": { "type": "string", "pattern": "^https://laidies\\.ai/" },
+            "artifactUrl": { "type": "string", "pattern": "^https://laidies\\.ai/" },
+            "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        },
         "publicEligibility": { "enum": ["INELIGIBLE", "ELIGIBLE"] }
       }
     }

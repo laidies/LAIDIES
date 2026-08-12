@@ -126,10 +126,11 @@ gap pass. Adding Dear Miss Jeeves as the tenth Daily desk had invalidated both
 historical nine-desk issue snapshots, causing the Daily to disappear in the
 real browser. The repaired reader accepts exactly the former nine-desk or
 current ten-desk shape, retains the locked public name The Big Question, keeps
-formerly approved expired material visible only with `published then—check
-current guidance`, and fits the Big Question masthead inside its 390px painted
-paper. Baseline: 211 rendered checks pass; deliberate overlap and overflow
-mutations fail. These branch bytes are not deployed or publicly verified.
+only live-URL/checksum-proven formerly published expired material visible with
+`published then—check current guidance`, and fits the Big Question masthead
+inside its 390px painted paper. Baseline: 212 rendered checks pass; deliberate
+overlap and overflow mutations fail. These branch bytes are not deployed or
+publicly verified.
 
 ## Exact publication-home gap
 

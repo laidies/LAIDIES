@@ -42,8 +42,13 @@ try {
   write(dataPath, staleCareer);
   assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /expired but public/);
 
+  const inventedPublicHistory = clone(data);
+  inventedPublicHistory.records.find((record) => record.publicHistory).publicHistory.artifactSha256 = "reviewed-locally";
+  write(dataPath, inventedPublicHistory);
+  assert.match(checkDailyLearningDerivatives({ root: tempRoot, asOf: "2026-08-11" }).errors.join("\n"), /publicHistory needs an exact SHA-256/);
+
   console.log("DAILY LEARNING DERIVATIVE TEST PASS");
-  console.log("calibration=missing-career-empty-state,duplicate-career-slot,expired-career rejected");
+  console.log("calibration=missing-career-empty-state,duplicate-career-slot,expired-career,invented-public-history rejected");
 } finally {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 }

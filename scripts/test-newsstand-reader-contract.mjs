@@ -264,7 +264,7 @@ assert.doesNotMatch(catchup, /item\.editionDate <= localToday\(\)/, "a released 
 assert.match(catchup, /tribune: "The Big Question"/, "the temporary tribune machine key must announce the locked public Big Question name");
 assert.doesNotMatch(catchup, /tribune: "The Tribune"/, "the retired Tribune name must not reach generated visitor copy");
 assert.match(catchup, /Date\.parse\(item\.admission\.reviewedAt\) <= Date\.now\(\)/, "Daily availability must follow the admitted release instant");
-assert.match(catchup, /record\.status === "EXPIRED"[\s\S]*?Archive · published then—check current guidance/, "expired formerly approved derivatives must remain readable only with an explicit historical freshness warning");
+assert.match(catchup, /record\.status === "EXPIRED"[\s\S]*?record\.publicHistory[\s\S]*?Archive · published then—check current guidance/, "expired derivatives need explicit public history before receiving a historical publication label");
 assert.doesNotMatch(catchup, /localToday|localDateOnly/, "reader eligibility and continuity cannot depend on the visitor's calendar");
 assert.match(catchup, /timeZone: "America\/Vancouver"/, "stored visit instants need one stable editorial date projection");
 assert.match(catchup, /timeZone: \/\^\\d\{4\}-\\d\{2\}-\\d\{2\}\$\/\.test\(source\) \? "UTC" : undefined/, "edition labels must preserve the literal date in every visitor time zone");

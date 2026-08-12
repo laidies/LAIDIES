@@ -401,6 +401,9 @@
       ? derivatives.records.filter(function (record) {
           var review = record.reviewEvidence || {};
           return record.status === "EXPIRED" && record.publicEligibility === "INELIGIBLE" &&
+            record.publicHistory && Boolean(record.publicHistory.verifiedAt) &&
+            /^https:\/\/laidies\.ai\//.test(record.publicHistory.publicUrl || "") &&
+            /^[a-f0-9]{64}$/.test(record.publicHistory.artifactSha256 || "") &&
             [review.accuracy, review.editorial, review.laidiesVoice, review.formatFit].every(Boolean) &&
             record.freshness && Boolean(record.freshness.lastCheckedAt) && Boolean(record.freshness.expiresAt) &&
             !(record.correction && record.correction.retractedAt);

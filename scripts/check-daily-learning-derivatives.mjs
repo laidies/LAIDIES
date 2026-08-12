@@ -47,6 +47,12 @@ export function checkDailyLearningDerivatives({ root = process.cwd(), asOf = new
       errors.push(`${record.id} is non-public but marked ELIGIBLE`);
     }
     if (["RETRACTED", "EXPIRED"].includes(record.status) && record.publicEligibility !== "INELIGIBLE") errors.push(`${record.id} must be suppressed`);
+    if (record.publicHistory) {
+      if (!/^https:\/\/laidies\.ai\//.test(record.publicHistory.publicUrl || "")) errors.push(`${record.id} publicHistory needs a LAiDIES public URL`);
+      if (!/^https:\/\/laidies\.ai\//.test(record.publicHistory.artifactUrl || "")) errors.push(`${record.id} publicHistory needs a LAiDIES artifact URL`);
+      if (!/^[a-f0-9]{64}$/.test(record.publicHistory.artifactSha256 || "")) errors.push(`${record.id} publicHistory needs an exact SHA-256`);
+      if (!record.publicHistory.verifiedAt || Number.isNaN(Date.parse(record.publicHistory.verifiedAt))) errors.push(`${record.id} publicHistory needs a verification instant`);
+    }
   }
   return { errors, records: (data.records || []).length, publicRecords: publicSlots.size };
 }

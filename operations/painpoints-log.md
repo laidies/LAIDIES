@@ -14861,3 +14861,30 @@ while remaining falsely unfinished in the launch record.
   column after old editions are already in the archive?
 - **Publication status:** READER REPAIRED AND VERIFIED LOCALLY / NO NEW ARTICLE
   ADMITTED, DEPLOYED OR VERIFIED PUBLICLY.
+
+## BTB-477 — Internal approval was mistaken for proof of former publication
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand archive truth and release evidence.
+- **Failure:** The repaired Catch Me Up reader labelled every expired derivative
+  with four internal review fields as `published then`. Those fields prove a
+  review happened; they do not prove that the exact prose ever reached the live
+  site.
+- **Root cause:** Archive eligibility inferred public history from production
+  state instead of binding an observed public artifact.
+- **Prevention rule:** A historical publication label requires an explicit
+  live-URL, verification-instant and SHA-256 receipt for the former public
+  artifact. Internal review, approval, commit or deploy evidence cannot
+  substitute for it.
+- **Durable correction:** Three exact derivative records were matched
+  field-for-field against the live artifact at
+  `https://laidies.ai/content/daily-learning-derivatives.json`, SHA-256
+  `492c6d384d3d221512feed5583d129524478f987828b71d462f1ddad99440af1`.
+  Their records now carry explicit `publicHistory`; the reader requires it and
+  a calibrated checker rejects an invented checksum. A rendered browser
+  mutation removes that receipt and confirms the expired prose stays hidden;
+  the 212-check baseline passes.
+- **Possible Behind the Build angle:** Why `approved`, `deployed` and `seen on
+  the public site` are three different facts.
+- **Publication status:** ARCHIVE TRUTH REPAIRED AND VERIFIED LOCALLY / THREE
+  HISTORICAL RECORDS PUBLICLY VERIFIED / REPAIR BYTES NOT DEPLOYED.
