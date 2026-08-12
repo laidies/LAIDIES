@@ -9,6 +9,7 @@ import { spawnSync } from 'node:child_process';
 
 const root = path.resolve(import.meta.dirname, '..');
 const checker = path.join(root, 'scripts/check-newsstand-release-scope.mjs');
+const registeredScopePath = path.join(root, 'operations/release-control/newsstand-production-scope.json');
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-newsstand-release-scope-'));
 const digest = value => crypto.createHash('sha256').update(value).digest('hex');
 const record = (filePath, value) => ({ path: filePath, bytes: Buffer.byteLength(value), sha256: digest(value) });
@@ -74,4 +75,24 @@ result = run(base, base, scope);
 assert.notEqual(result.status, 0);
 assert.match(result.stderr, /no public changes/);
 
-console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · unrelated mutation, public addition and no-op candidate rejected');
+const registeredScope = JSON.parse(fs.readFileSync(registeredScopePath, 'utf8'));
+assert.ok(registeredScope.allowedArtifactPaths.includes('content/newsstand-daily-issues.json'));
+assert.ok(registeredScope.allowedArtifactPaths.includes('content/daily-edition-columns.json'));
+assert.ok(registeredScope.verificationPaths.includes('content/newsstand-daily-issues.json'));
+assert.ok(registeredScope.verificationPaths.includes('content/daily-edition-columns.json'));
+
+const registeredBaseFiles = registeredScope.verificationPaths.map((filePath) => record(filePath, `${filePath}:v1`));
+const registeredCandidateFiles = registeredBaseFiles.map((file) => {
+  if (file.path === 'content/newsstand-daily-issues.json' || file.path === 'content/daily-edition-columns.json') {
+    return record(file.path, `${file.path}:v2`);
+  }
+  return file;
+});
+const registeredBase = write('registered-base.json', manifest(registeredBaseFiles));
+const registeredCandidate = write('registered-candidate.json', manifest(registeredCandidateFiles));
+result = run(registeredBase, registeredCandidate, registeredScopePath);
+assert.equal(result.status, 0, result.stderr);
+assert.match(result.stdout, /content\/daily-edition-columns\.json/);
+assert.match(result.stdout, /content\/newsstand-daily-issues\.json/);
+
+console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · exact dated-issue and service-column stores admitted · unrelated mutation, public addition and no-op candidate rejected');
