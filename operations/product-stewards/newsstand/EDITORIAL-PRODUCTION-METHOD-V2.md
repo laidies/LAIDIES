@@ -28,6 +28,15 @@ the other two.
 
 ## 1. Qualify the premise before choosing prose
 
+Before opening a new candidate, search the repository by the reader's question,
+format, subject, central mechanism and known headline variants. Record every
+plausible existing artifact and disposition it as `CURRENT PREDECESSOR`,
+`SOURCE MATERIAL ONLY`, `REJECTED KNOWN-BAD`, `DISTINCT READER JOB` or
+`DUPLICATE — DO NOT BUILD`. If a comparable candidate exists, the new work must
+be a checksum-bound successor that states what it preserves and improves. It
+may not call itself `FIRST`, silently restart the article or leave the older
+candidate competing for release.
+
 Every candidate begins with a one-page premise record. It must answer:
 
 - What exact new fact, recurring question or observed problem exists?

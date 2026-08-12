@@ -14730,3 +14730,14 @@ while remaining falsely unfinished in the launch record.
   trustworthy review receipt stale—and how dependency checks catch it.
 - **Publication status:** TWO HELD SERVICE-COLUMN CANDIDATES / PRODUCER PASSES /
   NO INDEPENDENT ADMISSION, DAILY INTEGRATION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-470 — The active STRAiGHT TALK order restarted an article that already existed
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand candidate inventory, lineage and review-cycle reduction.
+- **Failure:** A substantial 1,624-word STRAiGHT TALK candidate and source packet already existed under the Library owner, but LCWO-020 pointed only to a new NewsStand path. The new producer therefore drafted a second 902-word answer and incorrectly recorded it as `FIRST`. Useful detail was split across competing versions and the stronger prior research was easy to lose.
+- **Root cause:** Premise qualification searched sources and known-bad examples but did not require a repository-wide search for an existing artifact answering the same reader question. Work-order identity was mistaken for content novelty.
+- **Prevention rule:** Before any NewsStand draft, search by reader question, format, subject, mechanism and headline variants. Disposition every plausible artifact. A comparable candidate forces checksum-bound `SUCCESSOR` lineage, an explicit preserve/improve comparison and one active release path; duplicate drafts stop before prose.
+- **Durable correction:** The current STRAiGHT TALK candidate now consolidates the older source packet into one 1,371-word successor, records the exact predecessor SHA and passes the strict ratchet against its three-cycle predecessor. `EDITORIAL-PRODUCTION-METHOD-V2.md`, D-2026-08-12-114 and the decisions router now require predecessor-first production.
+- **Possible Behind the Build angle:** Why a new task ID can secretly create version sixteen—and how searching by the reader's question keeps one article improving.
+- **Publication status:** PRODUCER SUCCESSOR CONSOLIDATED / INDEPENDENT REVIEW, CANONICAL INTEGRATION, DEPLOYMENT AND PUBLICATION STILL REQUIRED.

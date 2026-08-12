@@ -7,7 +7,7 @@
   "maker": "library",
   "reviewer": {"id":"library-self-review-20260812-straight-talk-escape","principalId":"library","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-12T01:05:00-07:00",
+  "reviewedAt": "2026-08-12T01:25:00-07:00",
   "artifact": {
     "reviewText": {"path":"operations/product-stewards/newsstand/candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md","sha256":"a3744f9eac68662d25993331cc124b8df00f33d8c4e2e890e6fde5498aa8f071"},
     "manifest": {"path":"operations/product-stewards/newsstand/candidates/straight-talk-ai-escaped-manifest.json","sha256":"1cea8faa613990674290734bb796b297d589dc8b1d0b3abf70166de0ff03c324"}
@@ -122,8 +122,8 @@
     "nextTrigger": "Meta, Irregular, OpenAI/Hugging Face, Anthropic or AISI releases a promised report, correction, chronology or affected-party evidence.",
     "correctionOwner": "ai-research-accuracy with library"
   },
-  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
-  "lineage": {"kind":"FIRST","noComparableReason":"First full STRAiGHT TALK successor for the escape question. The rejected sampler's STRAiGHT TALK item asked whether sourced answers can be trusted, so it is not a comparable answer to this reader question."},
+  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"priorComparable":{"candidateId":"STRAIGHT-TALK-AI-ESCAPED-2026-08-11","reviewIssues":2,"reviewCycles":3},"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage": {"kind":"SUCCESSOR","predecessorCandidateId":"STRAIGHT-TALK-AI-ESCAPED-2026-08-11","predecessor":{"path":"operations/product-stewards/library/candidates/straight-talk-ai-escaped-2026-08-11.md","sha256":"703519bcfd89532a70e477473004dab616082654dbbbfd09d047571b1d33d1cd"},"comparison":"The successor preserves the predecessor's incident mechanism and six-question control method, adds the required non-work transfer case, keeps one active NewsStand path, and binds the fuller source refresh without reusing the stale predecessor review as current authority."},
   "learningDisposition": {"disposition":"NO_NEW_DEFECT","rationale":"The existing rejection and defect registry prevented a citation-baseline answer, rogue-AI framing, AIDB deference, missing background and a specialist-only action list before self-review."},
   "verdict": "PASS",
   "limitations": ["Producer self-review has no independent quality authority.", "LCWO-020 remains a held candidate and is not the canonical STRAiGHT TALK book.", "No independent accuracy, usefulness, voice or format admission, canonical integration, deploy or public verification has occurred."]
