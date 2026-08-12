@@ -32,9 +32,17 @@ Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-11 Learning System publication-routing repair
 
+### STRAiGHT TALK representative pilot — Ali reader verdict next
+
+One exact private candidate now tests the repaired explanation method: **“When a headline says an AI ‘escaped,’ what actually happened?”** The public product name is **STRAiGHT TALK**; `straight_answers` remains only the compatibility machine key.
+
+The exact prose at `operations/product-stewards/library/candidates/straight-talk-ai-escaped-2026-08-11.md` is **BUILT LOCALLY / ROLE-DISTINCT PREFLIGHT ACCEPTED / FORMAL ADMISSION HELD** at SHA-256 `703519bcfd89532a70e477473004dab616082654dbbbfd09d047571b1d33d1cd`. It reconstructs `goal → access → failed boundary → actions → impact`, distinguishes a real breach from consciousness or a self-invented mission, supplies a different calendar-assistant transfer case and ends with a five-question headline test.
+
+The production system did not meet its first-pass target. Two artifact-first review cycles found five objective defects, including inaccurate actor/impact wording and an explain-back prompt that initially supplied its own answer. The final successor closes those findings and is safe to show Ali as a private test only. Ali's verdict and observed explain-back/transfer remain the next evidence. No Library integration, visual, publication, deploy or public verification occurred.
+
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The
-Breaking, Daily, Weekly, Big Question, Straight Answers, Dear Miss Jeeves,
+Breaking, Daily, Weekly, Big Question, STRAiGHT TALK, Dear Miss Jeeves,
 Paige AI Tip, Career/Work-Life Tip and Promptoscope. Each binds its reader job,
 source and publication cadence, canonical store, site destination, quiet rule
 and exact template. NewsStand work orders must name their format and, for every

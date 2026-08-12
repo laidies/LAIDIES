@@ -83,7 +83,7 @@ Treat this as investigation, not a thesis template. Begin with a question whose 
 
 Only after reporting may LAiDIES form a conclusion. A predetermined thesis plus a counterargument is analysis, not investigative journalism.
 
-### Straight Answers About AI
+### STRAiGHT TALK
 
 Start from a recurring question people actually ask or a decision they repeatedly mishandle. Record the reader's likely baseline so the answer does not spend half its space announcing something she already knows.
 
