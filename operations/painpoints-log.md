@@ -14933,3 +14933,24 @@ while remaining falsely unfinished in the launch record.
   the wrong thing when its pull quotes and navigation are badly designed.
 - **Publication status:** LONGFORM PRESENTATION DIRECTION INDEPENDENTLY ACCEPTED
   / ACTUAL READER IMPLEMENTATION AND HUMAN OBSERVATION REMAIN / NOT PUBLIC.
+
+## BTB-480 — A shared longform wrapper leaked one publication into another
+
+- **Date:** 2026-08-12
+- **Area:** Weekly and Big Question shared NewsStand architecture.
+- **Failure:** The first Weekly render visibly looked like The Weekly but its
+  article accessible name still said `The Big Question candidate`. Its work and
+  home landmarks also disappeared because the wrapper detected the Big
+  Question's sentence openings rather than authored structure.
+- **Root cause:** Publication identity and semantic landmarks were embedded in
+  wrapper code instead of supplied as exact content data.
+- **Prevention rule:** Shared presentation may own layout; each article record
+  owns publication identity, ordered section IDs/labels, myth/conclusion roles
+  and work/home landmarks. Never infer semantic structure from prose prefixes.
+- **Durable correction:** The corrected exact Weekly wrapper names The Weekly
+  at visible and accessible layers, exposes all five synthesis sections plus
+  work/home landmarks and independently passes 1440/390/320 with zero blockers.
+- **Possible Behind the Build angle:** Why reusing a template is not the same as
+  copying its meaning.
+- **Publication status:** WEEKLY PRESENTATION INDEPENDENTLY ACCEPTED / SHARED
+  PRODUCTION SCHEMA AND READER IMPLEMENTATION REMAIN / NOT PUBLIC.

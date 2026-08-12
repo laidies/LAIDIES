@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Weekly exact longform render</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Jost:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/content/newsstand.css">
+  <style>
+    body { margin: 0; }
+    .review-shell { width: min(100% - 44px, 1220px); margin: 32px auto 80px; }
+    .review-note { padding: 16px 20px; border: 3px solid var(--ns-ink); background: var(--ns-cyan); font-weight: 800; }
+    .ns-article__section { align-items: start; }
+    .ns-article__section > div > :first-child { margin-top: 0; }
+    .ns-article__section > div > :last-child { margin-bottom: 0; }
+    .ns-article__section p, .ns-article__section li, .ns-article__section blockquote { max-width: 68ch; }
+    .ns-article__section p + p, .ns-article__section ul + p, .ns-article__section p + ul { margin-top: 1em; }
+    .ns-article__section ul, .ns-article__section ol { margin: 0; padding-left: 1.4em; font-size: clamp(17px, 1.4vw, 20px); }
+    .ns-article__section li + li { margin-top: .55em; }
+    .ns-article__section blockquote { margin: 1.2em 0; padding: 18px 22px; border-left: 8px solid var(--ns-pink); background: #eef1ff; font-size: clamp(19px, 1.6vw, 23px); font-weight: 700; }
+    .ns-article__section blockquote.is-myth { border-color: #73788e; background: #f1f1f4; color: #3f4353; }
+    .ns-article__section blockquote.is-myth::before { content: "NOT THE LESSON"; display: block; margin-bottom: 8px; color: #6e244d; font-size: 11px; letter-spacing: .14em; }
+    .ns-article__section h4 { margin: 1.3em 0 .45em; color: var(--ns-purple); font-size: clamp(20px, 1.8vw, 28px); }
+    .ns-article__jump { margin: 24px 0 8px; padding: 20px 22px; border: 3px solid var(--ns-ink); background: #fff9fc; }
+    .ns-article__jump strong { display: block; margin-bottom: 10px; color: var(--ns-purple); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .ns-article__jump ul { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0; padding: 0; list-style: none; }
+    .ns-article__jump a { color: var(--ns-ink); font-weight: 800; }
+    .ns-article__section { scroll-margin-top: 18px; }
+    @media (max-width: 760px) { .review-shell { width: calc(100% - 28px); margin-top: 18px; } }
+  </style>
+</head>
+<body class="ns-page">
+<main class="review-shell">
+  <p class="review-note">Internal exact-prose review render · not a public page or publication claim</p>
+  <article class="ns-article" id="article" aria-label="The Weekly candidate"></article>
+</main>
+<script>
+  const SOURCE = "/operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md";
+  const escapeHTML = (value) => String(value).replace(/[&<>\"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
+  function inline(value) {
+    return escapeHTML(value)
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  }
+  function blocks(lines) {
+    let html = "";
+    for (let i = 0; i < lines.length;) {
+      const line = lines[i].trim();
+      if (!line || line === "---") { i += 1; continue; }
+      if (/^### /.test(line)) { html += `<h4>${inline(line.slice(4))}</h4>`; i += 1; continue; }
+      if (/^> /.test(line)) {
+        const value = [];
+        while (i < lines.length && /^>/.test(lines[i].trim())) value.push(lines[i++].trim().replace(/^> ?/, ""));
+        const quote = value.join(" "); const myth = quote.startsWith("Give an AI any goal and it will inevitably achieve it");
+        html += `<blockquote${myth ? ' class="is-myth"' : ''}>${inline(quote)}</blockquote>`; continue;
+      }
+      if (/^[-*] /.test(line) || /^\d+\. /.test(line)) {
+        const ordered = /^\d+\. /.test(line); const items = [];
+        while (i < lines.length && (ordered ? /^\d+\. /.test(lines[i].trim()) : /^[-*] /.test(lines[i].trim()))) {
+          items.push(lines[i++].trim().replace(ordered ? /^\d+\. / : /^[-*] /, ""));
+        }
+        html += `<${ordered ? "ol" : "ul"}>${items.map((item) => `<li>${inline(item)}</li>`).join("")}</${ordered ? "ol" : "ul"}>`; continue;
+      }
+      const paragraph = [line]; i += 1;
+      while (i < lines.length && lines[i].trim() && !/^(#{1,3} |>|---$|[-*] |\d+\. )/.test(lines[i].trim())) paragraph.push(lines[i++].trim());
+      const prose = paragraph.join(" ");
+      if (prose.startsWith("At work, imagine a scheduling agent")) html += "<h4>At work</h4>";
+      if (prose.startsWith("Outside work, imagine a grocery agent")) html += "<h4>At home</h4>";
+      html += `<p>${inline(prose)}</p>`;
+    }
+    return html;
+  }
+  fetch(SOURCE).then((response) => response.text()).then((markdown) => {
+    const lines = markdown.split(/\r?\n/); const title = lines.shift().replace(/^# /, "");
+    while (lines[0] && !lines[0].trim()) lines.shift();
+    const edition = lines.shift().replace(/^\*\*|\*\*$/g, "");
+    const sections = []; let current = { heading: "The article", lines: [] };
+    for (const line of lines) {
+      if (/^## /.test(line)) { if (current.lines.some((item) => item.trim())) sections.push(current); current = { heading: line.slice(3), lines: [] }; }
+      else current.lines.push(line);
+    }
+    if (current.lines.some((item) => item.trim())) sections.push(current);
+    const slug = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const jumpCandidates = ["What happened", "The pattern hiding underneath “escaped”", "What this proves—and what it does not", "The same control problem at work and at home", "Five questions worth keeping"];
+    const jumps = jumpCandidates.filter((heading) => sections.some((section) => section.heading === heading));
+    const jumpHTML = `<nav class="ns-article__jump" aria-label="In this Weekly"><strong>Jump to</strong><ul>${jumps.map((heading) => `<li><a href="#${slug(heading)}">${inline(heading)}</a></li>`).join("")}</ul></nav>`;
+    document.getElementById("article").innerHTML = `<header class="ns-article__head"><p class="ns-article__edition">${inline(edition)}</p><h2>${inline(title)}</h2></header>${jumpHTML}` +
+      sections.map((section) => `<section class="ns-article__section" id="${slug(section.heading)}"><h3>${inline(section.heading)}</h3><div>${blocks(section.lines)}</div></section>`).join("");
+    document.documentElement.dataset.renderReady = "true";
+  });
+</script>
+</body>
+</html>
