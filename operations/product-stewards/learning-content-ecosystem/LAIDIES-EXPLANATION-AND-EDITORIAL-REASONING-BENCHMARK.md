@@ -91,7 +91,11 @@ Material meaning-bearing work records and then visibly delivers:
 6. **The real consequence** — who is affected, what changes and what does not.
 7. **The understanding test** — an explain-back prompt plus a different case
    that exposes superficial understanding.
-8. **The useful landing** — a tested action, decision rule or better next
+8. **The work-and-life pair** — one workplace example and one non-work,
+   everyday-life example applying the same mechanism in genuinely different
+   settings. Each must return to the real system; changing labels does not
+   create a second example.
+9. **The useful landing** — a tested action, decision rule or better next
    question proportionate to the evidence.
 
 Breaking news may answer first and compress the sequence. A compact service
@@ -113,6 +117,8 @@ record:
 - the primary-evidence establishes/does-not-establish record;
 - the AIDB comparison or dated honest absence;
 - the explain-back and distinct transfer case; and
+- one workplace example and one non-work/everyday-life example, plus the
+  mechanism that both preserve; and
 - the useful reader change.
 
 Missing any one of these fields is a production failure. Saying “Hannah Fry,”
@@ -130,6 +136,9 @@ The producer self-review and independent artifact-first reviewer reject:
 - “sources say” language that hides method, limits or disagreement;
 - an explain-back question answerable by parroting a sentence;
 - a transfer case that merely repeats the worked example;
+- two examples that both remain at work, both remain outside work or differ
+  only through renamed people and objects;
+- a workplace or non-work example that never reconnects to the mechanism;
 - advice that was not tested on the problem it claims to solve;
 - AIDB name-dropping, uncritical deference or copied framing; and
 - imitation of another communicator instead of recognizable LAiDIES prose.

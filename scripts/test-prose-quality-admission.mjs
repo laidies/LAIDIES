@@ -34,7 +34,7 @@ try {
   }));
 
   const excerpt = candidateBody.slice(0, 80);
-  const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const required = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity", "workplaceExample", "nonWorkExample"];
   const observedParticipants = observationPaths.map((observationPath, index) => ({
     participantId: `reader-${index + 1}`,
     prompt: "Explain the mechanism and use it in a different case.",
@@ -47,8 +47,11 @@ try {
     verdict: "PASS", observation: `${name} is demonstrated in the exact prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }],
     ...(["explainBack", "unseenTransfer"].includes(name) ? { observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", administratorPrincipalId: "reader-study-admin", participants: observedParticipants } } : {})
   }]));
+  outcomes.workplaceExample.artifactEvidence = [{ excerpt: "Your manager asks whether the policy allows a promise.", locator: "candidate.md:1" }];
+  outcomes.nonWorkExample.artifactEvidence = [{ excerpt: "This works for a travel rule too", locator: "candidate.md:1" }];
   const receipt = {
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: "fixture", stage: "INDEPENDENT_SEMANTIC_ADMISSION", contentClass: "EXPLANATION", surface: "LIBRAIRY",
+    examplePairPolicy: { policyId: "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", sharedMechanism: true, genuinelyDifferentSettings: true },
     maker: "maker", reviewer: { id: "independent-reader", principalId: "independent-reader-principal", role: "learning and prose reviewer", modelFamily: "claude", independentFromMaker: true, artifactFirst: true }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: "2026-08-07T07:00:00-07:00",
     artifact: { reviewText: bind(candidatePath), manifest: bind(manifestPath) },
     calibration: {
@@ -71,6 +74,12 @@ try {
   assert.match(inspect(blind).join("\n"), /does not occur/);
   const missing = structuredClone(receipt); delete missing.outcomes.unseenTransfer;
   assert.match(inspect(missing).join("\n"), /unseenTransfer is missing/);
+  const missingWorkplace = structuredClone(receipt); delete missingWorkplace.outcomes.workplaceExample;
+  assert.match(inspect(missingWorkplace).join("\n"), /workplaceExample is missing/);
+  const missingNonWork = structuredClone(receipt); delete missingNonWork.outcomes.nonWorkExample;
+  assert.match(inspect(missingNonWork).join("\n"), /nonWorkExample is missing/);
+  const duplicatePair = structuredClone(receipt); duplicatePair.outcomes.nonWorkExample = structuredClone(duplicatePair.outcomes.workplaceExample);
+  assert.match(inspect(duplicatePair).join("\n"), /must bind different exact prose evidence/);
   const defect = structuredClone(receipt); defect.failureFamilies.decorativeAnalogy.present = true;
   assert.match(inspect(defect).join("\n"), /decorativeAnalogy is present/);
   const nameOnly = structuredClone(receipt); delete nameOnly.outcomes.communicationBenchmark;
@@ -142,7 +151,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=22 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 combined_reasoning_review=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=25 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 paired_examples=1 learning_disposition=1 communication_benchmark=1 combined_reasoning_review=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

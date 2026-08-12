@@ -32,6 +32,16 @@ Ali explicitly switches or they invalidate the approach.
 
 ## 2026-08-11 Learning System publication-routing repair
 
+### Sitewide work-and-life example rule — verified locally
+
+Every new substantial explanation now requires one workplace example and one
+non-work/everyday-life example that apply the same mechanism in genuinely
+different settings. D-2026-08-11-113, the combined explanation benchmark,
+NewsStand router, producer and exact-prose schemas/checkers, generated agent
+contract and calibrated tests carry the rule. Missing either example and
+relabelled duplicate scenarios fail before admission. Compact non-teaching copy
+may link to the substantial paired explanation rather than carrying both.
+
 ### The Big Picture loss-of-control candidate — producer pass / independent admission next
 
 One exact longform NewsStand candidate now answers **“Is AI starting to escape
@@ -40,7 +50,7 @@ evaluation pattern. The private prose at
 `operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md`
 is **BUILT LOCALLY / PRODUCER SELF-REVIEW PASS / NO INDEPENDENT QUALITY
 AUTHORITY** at SHA-256
-`9f021ec0ff14ea9afaa33862560ce7b01997251309025afa82b27266bd06b30a`.
+`f3c405f382eed9fec0f42b63e63992ffbe1d95adbcaba7e02237d82a6673256c`.
 
 It answers that no current evidence establishes a takeover, then explains the
 narrower control problem already evidenced: human-assigned offensive goals,
@@ -52,8 +62,10 @@ the work. The Black Hat message-board/directory-name detail remains attributed
 to AIDB's report of the public presentation because the original slides or
 recording have not been recovered.
 
-The calibrated prose gate rejects 22 known-bad cases and accepts the exact
-candidate receipt. The candidate still requires a role-distinct semantic and
+The calibrated prose gate rejects 25 known-bad cases and accepts the exact
+candidate receipt. The successor now includes both a workplace calendar case
+and a non-work personal-travel case applying the same control mechanism. The
+candidate still requires a role-distinct semantic and
 accuracy review, the final public masthead ruling (**The Big Picture** versus
 the current **The Big Question**), NewsStand integration, authorized deploy and
 exact public verification. No publication or public page changed.
@@ -65,6 +77,13 @@ One exact private candidate now tests the repaired explanation method: **“When
 The exact prose at `operations/product-stewards/library/candidates/straight-talk-ai-escaped-2026-08-11.md` is **BUILT LOCALLY / ROLE-DISTINCT PREFLIGHT ACCEPTED / FORMAL ADMISSION HELD** at SHA-256 `703519bcfd89532a70e477473004dab616082654dbbbfd09d047571b1d33d1cd`. It reconstructs `goal → access → failed boundary → actions → impact`, distinguishes a real breach from consciousness or a self-invented mission, supplies a different calendar-assistant transfer case and ends with a five-question headline test.
 
 The production system did not meet its first-pass target. Two artifact-first review cycles found five objective defects, including inaccurate actor/impact wording and an explain-back prompt that initially supplied its own answer. The final successor closes those findings and is safe to show Ali as a private test only. Ali's verdict and observed explain-back/transfer remain the next evidence. No Library integration, visual, publication, deploy or public verification occurred.
+
+**2026-08-11 paired-example invalidation:** Ali's later sitewide ruling now
+requires one workplace and one non-work/everyday-life example in every
+substantial explanation. This exact STRAiGHT TALK candidate and its prior
+producer/review chain predate that rule and are no longer current admission
+evidence. Preserve the prose as a predecessor; a successor must add and review
+the missing non-work example before it can return to admission.
 
 **VERIFIED INTERNALLY / NOT DEPLOYED / NO NEW CONTENT PUBLISHED.** The existing
 Learning System now has one machine-checked publication registry for The

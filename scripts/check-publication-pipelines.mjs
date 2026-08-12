@@ -41,6 +41,7 @@ export function validatePublicationPipelines(data) {
     /AIDB comparison.*dated honest absence/i,
     /explain-back.*parroting/i,
     /different unseen transfer case/i,
+    /workplace example.*non-work.*everyday-life example.*same mechanism.*different settings/i,
     /useful action.*decision rule.*better next question/i
   ]) {
     if (!requirement.test(methodEvidence)) errors.push(`combined method missing producer evidence ${requirement}`);

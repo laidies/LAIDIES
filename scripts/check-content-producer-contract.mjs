@@ -13,6 +13,7 @@ const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
 const PROPORTIONAL_COMMUNICATION_CLASSES = new Set(["REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE"]);
+const PAIRED_EXAMPLE_CLASSES = new Set([...FULL_COMMUNICATION_CLASSES, ...PROPORTIONAL_COMMUNICATION_CLASSES]);
 const COMMUNICATION_DIMENSIONS = [
   "humanQuestion", "usefulCuriosity", "invisibleProcessConcrete",
   "familiarTechnicalMovement", "limitationsConsequences", "humourSurprise",
@@ -54,6 +55,16 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(CONTENT_CLASSES.has(contract?.contentClass), "contentClass is invalid");
   require(text(contract?.producer), "producer identity is required");
   require(["READY_TO_DRAFT", "REPAIR_PRODUCER", "SUPERSEDED"].includes(contract?.status), "status is invalid");
+
+  const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(contract?.contentClass);
+  if (requiresPairedExamples) {
+    const pair = contract?.examplePair;
+    require(pair?.policyId === "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", "examplePair.policyId must be LAIDIES_WORK_AND_LIFE_EXAMPLES_V1");
+    for (const field of ["workplaceExample", "nonWorkExample", "sharedMechanism", "surfaceAdaptation"]) {
+      require(text(pair?.[field]), `examplePair.${field} is required`);
+    }
+    require(pair?.workplaceExample?.trim().toLowerCase() !== pair?.nonWorkExample?.trim().toLowerCase(), "workplace and non-work examples must be genuinely different");
+  }
 
   for (const field of ["humanQuestion", "promisedPayoff", "priorKnowledge", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredFeeling"]) {
     require(text(contract?.readerContract?.[field]), `readerContract.${field} is required`);

@@ -14649,3 +14649,31 @@ while remaining falsely unfinished in the launch record.
   can be both a human-responsibility story and a serious AI-control story.
 - **Publication status:** PRIVATE LONGFORM CANDIDATE / PRODUCER PASS / NO
   INDEPENDENT ADMISSION, INTEGRATION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-467 — A different transfer case could still leave every example at work
+
+- **Date:** 2026-08-11
+- **Area:** Sitewide teaching and explanatory-content production.
+- **Failure risk:** The producer contract required a worked case and a different
+  transfer case, but both could still be workplace scenarios. LAiDIES could
+  therefore teach a correct mechanism while implying that AI matters only in a
+  job, leaving home, family, money, travel, creativity and everyday decisions
+  invisible.
+- **Root cause:** “Different” described scenario identity, not context coverage.
+  `dailyLifeConnection` was one prose field and did not prove both work and
+  non-work application in the exact artifact.
+- **Prevention rule:** Every substantial explanation includes one workplace
+  example and one non-work/everyday-life example. Both apply and return to the
+  same mechanism in genuinely different settings; changing people, nouns or
+  labels does not count. Compact non-teaching copy may point to the substantial
+  paired explanation instead of carrying both examples itself.
+- **Durable correction:** D-2026-08-11-113, the combined explanation benchmark,
+  producer schema/check, exact-prose schema/check and calibrated negative tests
+  now enforce the pair. The current Big Picture and Weekly drafts include both.
+  The earlier STRAiGHT TALK pilot fails the new gate and is preserved only as a
+  predecessor until a successor adds and reviews its missing non-work example.
+- **Possible Behind the Build angle:** Why “make it relatable” was too vague—and
+  how one work example plus one life example exposes whether an explanation
+  really transfers.
+- **Publication status:** SITEWIDE PRODUCER RULE VERIFIED LOCALLY / CURRENT BIG
+  PICTURE PRODUCER PASS / NO INDEPENDENT ADMISSION OR PUBLICATION.

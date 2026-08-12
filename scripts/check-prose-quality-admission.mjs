@@ -22,6 +22,7 @@ const REQUIRED_BY_CLASS = {
   PROMOTIONAL: [...CORE, "truthfulPromise", "clearAction"],
   MICROCOPY: [...CORE, "truthfulPromise", "clearAction"]
 };
+const PAIRED_EXAMPLE_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE"]);
 export const FAILURE_FAMILIES = [
   "glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti",
   "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem",
@@ -136,7 +137,16 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   for (const field of ["humanQuestion", "promisedPayoff", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredReaderFeeling"]) require(text(receipt?.reverseBrief?.[field]), `reverseBrief.${field} is required`);
 
   const requiredOutcomes = REQUIRED_BY_CLASS[receipt?.contentClass] || [];
-  for (const outcomeName of requiredOutcomes) {
+  const requiresPairedExamples = PAIRED_EXAMPLE_CLASSES.has(receipt?.contentClass);
+  if (requiresPairedExamples) {
+    require(receipt?.examplePairPolicy?.policyId === "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", "examplePairPolicy.policyId must be LAIDIES_WORK_AND_LIFE_EXAMPLES_V1");
+    require(receipt?.examplePairPolicy?.sharedMechanism === true, "examplePairPolicy must attest that both examples preserve the same mechanism");
+    require(receipt?.examplePairPolicy?.genuinelyDifferentSettings === true, "examplePairPolicy must attest genuinely different settings");
+  }
+  const applicableOutcomes = requiresPairedExamples
+    ? [...requiredOutcomes, "workplaceExample", "nonWorkExample"]
+    : requiredOutcomes;
+  for (const outcomeName of applicableOutcomes) {
     const outcome = receipt?.outcomes?.[outcomeName];
     require(Boolean(outcome), `required outcome ${outcomeName} is missing`);
     require(["PASS", "HOLD", "FAIL"].includes(outcome?.verdict), `outcome ${outcomeName} verdict is invalid`);
@@ -171,6 +181,11 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
       }
     }
     if (receipt?.verdict === "PASS") require(outcome?.verdict === "PASS", `PASS forbidden: ${outcomeName} did not pass`);
+  }
+  if (requiresPairedExamples) {
+    const workplaceExcerpts = (receipt?.outcomes?.workplaceExample?.artifactEvidence || []).map(item => item?.excerpt).filter(text);
+    const nonWorkExcerpts = (receipt?.outcomes?.nonWorkExample?.artifactEvidence || []).map(item => item?.excerpt).filter(text);
+    require(workplaceExcerpts.some(excerpt => !nonWorkExcerpts.includes(excerpt)), "workplace and non-work outcomes must bind different exact prose evidence");
   }
 
   for (const family of enforcedFamilies) {

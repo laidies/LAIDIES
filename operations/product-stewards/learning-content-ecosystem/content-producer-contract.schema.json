@@ -16,6 +16,10 @@
     "surface": { "type": "string", "minLength": 1 },
     "contentClass": { "enum": ["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"] },
     "producer": { "type": "string", "minLength": 1 },
+    "examplePair": {
+      "type": "object",
+      "required": ["policyId", "workplaceExample", "nonWorkExample", "sharedMechanism", "surfaceAdaptation"]
+    },
     "readerContract": { "type": "object" },
     "canonicalTruth": { "type": "array", "minItems": 1 },
     "positiveExemplars": { "type": "array", "minItems": 1 },

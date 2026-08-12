@@ -35,6 +35,13 @@ try {
     surface: "LIBRAIRY",
     contentClass: "EXPLANATION",
     producer: "fixture-maker",
+    examplePair: {
+      policyId: "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
+      workplaceExample: "A manager checks whether an AI-drafted client promise is supported by the governing policy.",
+      nonWorkExample: "A traveller checks whether an AI summary accurately reflects the current airline change rule before booking.",
+      sharedMechanism: "In both settings, fluent language is a draft and the governing source remains the evidence for a consequential claim.",
+      surfaceAdaptation: "Use the work case to establish the mechanism and the travel case to prove it transfers outside work."
+    },
     readerContract: {
       humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", priorKnowledge: "None assumed.",
       centralMentalModel: "Input moves through a system to a checked decision.", dailyLifeConnection: "A work handover.",
@@ -111,6 +118,10 @@ try {
   assert.match(inspect(repeated).join("\n"), /decorativeAnalogy is not CLEAR/);
   const sameCase = structuredClone(contract); sameCase.draftArchitecture.transferCase = sameCase.draftArchitecture.workedCase;
   assert.match(inspect(sameCase).join("\n"), /must be different/);
+  const missingPair = structuredClone(contract); delete missingPair.examplePair.nonWorkExample;
+  assert.match(inspect(missingPair).join("\n"), /examplePair.nonWorkExample is required/);
+  const relabelledPair = structuredClone(contract); relabelledPair.examplePair.nonWorkExample = relabelledPair.examplePair.workplaceExample;
+  assert.match(inspect(relabelledPair).join("\n"), /must be genuinely different/);
   const badAnalogy = structuredClone(contract); badAnalogy.draftArchitecture.analogyPlan = [{ concept: "model", analogy: "Cher" }];
   assert.match(inspect(badAnalogy).join("\n"), /analogyPlan\[0\]\.mapping/);
   const remaining = structuredClone(contract); remaining.knownFailurePreflight.knownDefectsRemaining = ["templateRepetition"];
@@ -138,7 +149,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=15 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=17 all_negatives=1 stale_registry=1 paired_examples=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

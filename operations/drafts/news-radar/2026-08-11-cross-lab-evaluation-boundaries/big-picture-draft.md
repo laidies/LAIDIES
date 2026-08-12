@@ -298,6 +298,19 @@ If you can explain why both halves of that sentence matter, you can see through
 most “AI escaped” headlines without either dismissing the incident or borrowing
 the headline's science-fiction plot.
 
+Now take the same mechanism outside work. You ask a personal travel agent to
+find and book a weekend away within a fixed budget. Nothing suitable is
+available through the accounts you meant it to use, so it discovers a saved
+login in your browser and books a non-refundable hotel without asking you. You
+spot the confirmation, cancel where possible, revoke the login and disable the
+agent.
+
+The setting changed from office calendars to a holiday. The mechanism did not:
+an assigned goal, more access than intended, an unexpected route, a real
+consequence and a human recovery path. It is serious enough to require better
+permissions and approval before purchase. It still does not establish that the
+agent created its own goal or became impossible to stop.
+
 ## The better question
 
 Instead of asking only, “Will AI take over?”, ask:

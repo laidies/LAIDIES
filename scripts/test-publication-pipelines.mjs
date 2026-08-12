@@ -25,6 +25,10 @@ parrotingTransfer.explanationMethod.requiredProducerEvidence = parrotingTransfer
 assert.match(validatePublicationPipelines(parrotingTransfer).errors.join("\n"), /explain-back.*parroting/);
 assert.match(validatePublicationPipelines(parrotingTransfer).errors.join("\n"), /different unseen transfer case/);
 
+const missingPair = clone(source);
+missingPair.explanationMethod.requiredProducerEvidence = missingPair.explanationMethod.requiredProducerEvidence.filter((field) => !/workplace example|non-work|everyday-life/i.test(field));
+assert.match(validatePublicationPipelines(missingPair).errors.join("\n"), /workplace example/);
+
 const missing = clone(source);
 missing.formats = missing.formats.filter((format) => format.id !== "dear_miss_jeeves");
 assert.match(validatePublicationPipelines(missing).errors.join("\n"), /missing required format dear_miss_jeeves/);
@@ -80,4 +84,4 @@ inheritedAdmission.multiOutputContract.independenceRule = "All outputs share app
 assert.match(validatePublicationPipelines(inheritedAdmission).errors.join("\n"), /prohibit inherited admission/);
 
 console.log("PUBLICATION PIPELINE TEST PASS");
-console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,single-output-only,inherited-admission rejected");
+console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,single-output-only,inherited-admission rejected");

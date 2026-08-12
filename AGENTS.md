@@ -166,7 +166,9 @@ review. Before drafting, the producer must create and pass an exact
 real question and payoff, prior knowledge, canonical truth and freshness
 sources, applicable positive exemplars, every registered known-bad defect, the
 causal teaching sequence, daily-life connection, worked and unseen transfer
-cases, useful action, and any earned analogy or humour job.
+cases, one workplace example and one non-work/everyday-life example that both
+preserve the mechanism in genuinely different settings, useful action, and any
+earned analogy or humour job.
 
 The producer reads the exact prose in full and records a separate
 `PRODUCER_SELF_REVIEW` with `scripts/check-prose-quality-admission.mjs` before an
@@ -185,6 +187,12 @@ freshness reviewability, surface fit, LAiDIES voice and whether the experience
 is genuinely engaging and enjoyable. LAiDIES or Rewind Era analogies and humour
 belong only when they perform a named teaching job and preserve the mechanism;
 otherwise use a faithful everyday example or none.
+
+For substantial explanatory content, the reviewer must additionally find one
+workplace example and one non-work/everyday-life example in the exact artifact.
+Both must apply and return to the same mechanism in genuinely different
+settings. Two work examples, two home examples or one scenario with renamed
+people and objects fail the pair.
 
 Every material meaning-bearing thing LAiDIES publishes—including episodes,
 books, classes, study packs, FAQs, NewsStand, Behind the Build, teaching games

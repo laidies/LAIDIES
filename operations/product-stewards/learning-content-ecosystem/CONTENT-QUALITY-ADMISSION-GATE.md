@@ -37,8 +37,9 @@ drafted, its owner must pass a checksum-bound producer contract against:
 - a relevant positive LAiDIES exemplar and the patterns it teaches without
   copying its surface scaffold;
 - every registered known-bad defect;
-- one connected causal sequence, a daily-life worked case and a different
-  transfer case;
+- one connected causal sequence, one workplace example, one non-work/everyday-
+  life example and a genuinely different transfer case; both examples must
+  preserve and return to the same mechanism rather than change labels;
 - the useful action or decision the reader should gain;
 - a destination-specific combined explanation and editorial-reasoning design
   that binds the current LAiDIES benchmark, plus the underlying Hannah Fry

@@ -20,6 +20,10 @@
     "reviewer": { "type": "object" },
     "reviewMode": { "const": "EXACT_PROSE_IN_FULL" },
     "reviewedAt": { "type": "string", "format": "date-time" },
+    "examplePairPolicy": {
+      "type": "object",
+      "required": ["policyId", "sharedMechanism", "genuinelyDifferentSettings"]
+    },
     "artifact": { "type": "object" },
     "calibration": {
       "type": "object",

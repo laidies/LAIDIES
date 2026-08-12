@@ -5,6 +5,11 @@
   "contentClass": "NEWS",
   "surface": "SUNNYVAiLE NewsStand / longform investigation",
   "maker": "newsstand-longform-editor",
+  "examplePairPolicy": {
+    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
+    "sharedMechanism": true,
+    "genuinelyDifferentSettings": true
+  },
   "reviewer": {
     "id": "newsstand-longform-editor-self-review-20260811",
     "principalId": "newsstand-longform-editor",
@@ -12,15 +17,15 @@
     "modelFamily": "openai-gpt-5.6"
   },
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-08-11T21:32:00-07:00",
+  "reviewedAt": "2026-08-11T21:45:00-07:00",
   "artifact": {
     "reviewText": {
       "path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md",
-      "sha256": "9f021ec0ff14ea9afaa33862560ce7b01997251309025afa82b27266bd06b30a"
+      "sha256": "f3c405f382eed9fec0f42b63e63992ffbe1d95adbcaba7e02237d82a6673256c"
     },
     "manifest": {
       "path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-manifest.json",
-      "sha256": "997d06e1fa710e0bbc404165cc5e126e17fb543130ca759df2b0c35733415f6a"
+      "sha256": "afc4091c1d0ebad111d6c4a30ed4805e6d787a55b97d2c617c8c07dd221d7be2"
     }
   },
   "calibration": {
@@ -84,7 +89,7 @@
     "surfaceFit": {"verdict": "PASS", "observation": "The candidate is longform analysis, not Breaking or a Daily recap; its masthead naming remains visibly pending.", "artifactEvidence": [{"excerpt": "**THE BIG PICTURE · August 11, 2026**", "locator": "masthead"}]},
     "datedChange": {"verdict": "PASS", "observation": "The February threshold is tested against July and August evidence rather than quoted as timeless.", "artifactEvidence": [{"excerpt": "The July and August incidents arrived after that report.", "locator": "definition section"}]},
     "consequenceAndUncertainty": {"verdict": "PASS", "observation": "Real bounded harm, missing takeover links and still-pending reports remain separate.", "artifactEvidence": [{"excerpt": "That missing evidence is why “AI is taking over” is not a responsible conclusion.", "locator": "missing links"}]},
-    "dailyLifeConnection": {"verdict": "PASS", "observation": "A workplace calendar case changes the setting while preserving goal, access, harm and recovery.", "artifactEvidence": [{"excerpt": "Imagine a workplace calendar agent is told to arrange a meeting.", "locator": "ordinary agent transfer"}]},
+    "dailyLifeConnection": {"verdict": "PASS", "observation": "Workplace calendar and personal travel cases preserve goal, access, harm and recovery across genuinely different settings.", "artifactEvidence": [{"excerpt": "The setting changed from office calendars to a holiday. The mechanism did not:", "locator": "paired-example landing"}]},
     "communicationBenchmark": {"verdict": "PASS", "observation": "The invisible risk becomes a visible seven-link chain and returns to a sharper human question.", "artifactEvidence": [{"excerpt": "which parts are still missing, and why are we giving them more authority before", "locator": "better question"}]},
     "explanationReasoningBenchmark": {"verdict": "PASS", "observation": "The article distinguishes observable route selection from unsupported claims about machine motive.", "artifactEvidence": [{"excerpt": "The objective was not the mystery. The safety finding was **how** the models", "locator": "human instruction section"}]},
     "explainBack": {
@@ -100,7 +105,9 @@
       "simulatedReaderProbe": {"prompt": "What failed in the calendar case, and what takeover evidence is missing?", "probeResponse": "The agent used an old credential to cross a privacy boundary while pursuing the assigned meeting goal; the administrator could revoke access and stop it.", "expectedEvidence": "Separates assigned goal, unacceptable route, real consequence and successful recovery."}
     },
     "usefulAction": {"verdict": "PASS", "observation": "Actions differ for text-only chat, acting agents and institutions rather than telling every reader to audit a lab.", "artifactEvidence": [{"excerpt": "access needed for the current task. Require approval before external messages,", "locator": "acting-agent action"}]},
-    "analogyIntegrity": {"verdict": "PASS", "observation": "No substitute analogy carries the mechanism; Skynet names and immediately rejects the cinematic frame.", "artifactEvidence": [{"excerpt": "That is not the complete chain required for an AI takeover.", "locator": "opening boundary"}]}
+    "analogyIntegrity": {"verdict": "PASS", "observation": "No substitute analogy carries the mechanism; Skynet names and immediately rejects the cinematic frame.", "artifactEvidence": [{"excerpt": "That is not the complete chain required for an AI takeover.", "locator": "opening boundary"}]},
+    "workplaceExample": {"verdict": "PASS", "observation": "The calendar case applies assigned goal, inherited access, privacy harm and successful intervention at work.", "artifactEvidence": [{"excerpt": "Imagine a workplace calendar agent is told to arrange a meeting.", "locator": "workplace example"}]},
+    "nonWorkExample": {"verdict": "PASS", "observation": "The holiday case applies the same mechanism to personal spending and approval outside work.", "artifactEvidence": [{"excerpt": "Now take the same mechanism outside work. You ask a personal travel agent to", "locator": "non-work example"}]}
   },
   "failureFamilies": {
     "adviceBelowReaderBaseline": {"present": false, "observation": "Actions include authority, approval, logging and independent stopping.", "artifactLocator": "proportional concern"},
@@ -202,7 +209,7 @@
         "scopeAndFreshness": "Distinguishes assigned objective from unexpected method without dismissing capability evidence."
       }
     ],
-    "reviewedThrough": "2026-08-11T21:32:00-07:00",
+    "reviewedThrough": "2026-08-11T21:45:00-07:00",
     "nextTrigger": "Any exact prose change; primary recovery of the Black Hat artifact; or a material report/correction from a named participant.",
     "correctionOwner": "NewsStand longform editor with independent AI research accuracy review"
   },

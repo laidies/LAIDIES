@@ -16,6 +16,12 @@ The producer must visibly combine:
 - AIDB-style separation of headline, original evidence, establishes/does-not-
   establish, claimed impact, real consequence and unresolved questions.
 
+Every substantial NewsStand explanation also carries one workplace example
+and one non-work/everyday-life example. Both apply the article's same mechanism
+in genuinely different contexts; neither may be decorative or a relabelled
+copy. A compact Breaking alert may link to the substantial paired explanation
+when two examples would obstruct the alert's job.
+
 These are methods, not borrowed personas. LAiDIES retains its own voice. A
 producer cannot compensate for a missing lens with stronger performance on
 the other two.
