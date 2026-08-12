@@ -20,8 +20,15 @@ what it means and what—if anything—she should do differently** without treat
 volume, virality or a publishing calendar as importance. `LOCKED LEDGER`
 
 It contains exactly four distinct recurring publications: **The Breaking**,
-**The Daily**, **The Weekly** and **The Big Question**. The internal edition keys are
+**The Daily**, **The Weekly** and **The Big Picture**. The internal edition keys are
 exactly `breaking`, `daily`, `weekly` and `tribune`. `LOCKED LEDGER`
+
+The NewsStand opens directly on The Daily. Persistent edition choices are
+exactly Daily, Weekly and Big Picture; Archive/Search is a separate utility.
+Each choice uses live text plus an optional newspaper/masthead visual, never an
+icon alone. The Breaking is a conditional strip above the edition navigation
+and disappears completely on a clear day; it is not a permanent empty paper
+control. `ALI CONFIRMED`
 
 - **The Breaking** is a rare qualified interruption when waiting would
   materially disadvantage the reader; a qualifying model release may count
@@ -32,8 +39,8 @@ exactly `breaking`, `daily`, `weekly` and `tribune`. `LOCKED LEDGER`
 - **The Weekly** is a durable synthesis that connects the week's evidence; it
   is not a bundle of Daily cards or the retired WEDNESDAY masthead.
   `LOCKED LEDGER`
-- **The Big Question** is a sourced, visibly labelled argument that separates
-  evidence, inference and position. `LOCKED LEDGER`
+- **The Big Picture** investigates larger questions and patterns through
+  evidence, inference, counterargument and a bounded conclusion. `LOCKED LEDGER`
 
 A clear day, quiet paper, editorial hold, overdue check, correction or
 retraction is a valid and visible result. No paper exists to fill space.
@@ -65,10 +72,12 @@ The visitor enters a credible Y2K SUNNYVAiLE newsstand at MAiN Street No. 2,
 hosted by Paige, the town reporter whose job is to ask questions, check sources
 and get the real story. `APPROVED BRIEF/ARTIFACT`
 
-The room and physical papers are the interface: the publications are visible
-and legible without hotspot hunting, a paper opens in place, a headline opens
-inside that paper, and putting it back returns to the invoking control.
-`APPROVED BRIEF/ARTIFACT`
+The room and newspaper are the interface: the current Daily is visible without
+hotspot hunting, the Weekly and Big Picture choices are legible, an eligible
+headline opens in place and returning restores the invoking context. The
+locally accepted four-equal-paper rack is superseded as primary navigation;
+its bounded Paige/place evidence may be reused only inside the new Daily-first
+architecture. `ALI CONFIRMED`
 
 The recovered ritual is:
 `enter → read dated desk state → choose current/quiet paper or search →
@@ -87,10 +96,10 @@ browse/read/current/archive experience within the later sitewide style ruling.
 
 ## Complete owned product tree
 
-- `/newsstand.html`: building arrival, Paige, the four-paper rack, desk state,
-  reader, direct hash routes, Back/Forward recovery, archive search and the
+- `/newsstand.html`: Daily-first building arrival, Paige, edition navigation,
+  complete issue/feature reader, direct hash routes, Back/Forward recovery, archive search and the
   stand's audio control. `CURRENT IMPLEMENTATION OBSERVED`
-- **The Breaking**, **The Daily**, **The Weekly** and **The Big Question**:
+- **The Breaking**, **The Daily**, **The Weekly** and **The Big Picture**:
   publication-specific reader jobs, quiet/hold/freshness rules and editorial
   handoff contracts. `LOCKED LEDGER`
 - `content/newsstand.schema.json`, `content/newsstand-stories.js` and
@@ -117,8 +126,8 @@ absorb them. `APPROVED BRIEF/ARTIFACT`
 | Object/component | Discoverability and action | State/result/next step | Provenance |
 |---|---|---|---|
 | Paige and room | Establish the place and editorial standard before selection | Visitor understands this is a source-checking desk, not a feed | `APPROVED BRIEF/ARTIFACT` |
-| Four publication controls | All four jobs and dated states visible before opening | Opens exactly one paper or an honest quiet/hold/stale/unavailable notice | `LOCKED LEDGER` `CURRENT IMPLEMENTATION OBSERVED` |
-| Physical paper objects | Obvious live controls composited with the room, never invisible hotspots | Pull paper in place; current source only has Weekly and Big Question props, so complete four-paper treatment is unresolved | `APPROVED BRIEF/ARTIFACT` `CURRENT IMPLEMENTATION OBSERVED` |
+| Edition navigation | Daily is the default; Weekly and Big Picture remain equally obvious; each control names its job/date/state; Archive/Search is separate; Breaking appears only when qualified | Changes the complete issue/feature view without hiding current state or losing return context | `ALI CONFIRMED` |
+| Daily/Weekly newspaper issues | Obvious readable newspaper hierarchy rather than invisible hotspots or a card dashboard | Opens the current dated issue, its departments and eligible articles; quiet/hold/stale states remain truthful | `ALI CONFIRMED` |
 | Paige's state board | Dated global and per-paper state in the arrival flow | Current, clear, quiet, hold, stale, unavailable or no-data result; no visit timestamp masquerades as freshness | `LOCKED LEDGER` |
 | Front-story card/headline | Visible edition, published date, checked date and source status | Opens the eligible full story at `#slug`; held/stale/retracted bodies remain blocked | `CURRENT IMPLEMENTATION OBSERVED` |
 | Full paper/article | Structured explanation, source links, uncertainty/correction context | Reader understands the event, evidence, consequence, limits and useful next route | `LOCKED LEDGER` |
@@ -148,13 +157,13 @@ Health, medical, privacy, safety, legal, financial and other hard-hold work
 cannot become visible solely from interested-party evidence. `LOCKED LEDGER`
 
 The exact local dataset observed during recovery records Breaking `quiet`
-(`maxAgeHours: 24`), Daily `quiet` (`36`), Weekly `hold` (`192`) and Big Question
+(`maxAgeHours: 24`), Daily `quiet` (`36`), Weekly `hold` (`192`) and Big Picture
 `current` (`336`), with all four last checked at
 `2026-07-25T19:30:00Z`. Those stored values are inputs to a time-relative
 runtime decision, not a new 2026-07-26 freshness verification.
 `CURRENT IMPLEMENTATION OBSERVED`
 
-The held Health Weekly and approved-source-evidence Big Question have adjacent
+The held Health Weekly and approved-source-evidence Big Picture have adjacent
 private evidence manifests. Neither manifest proves a deployed or currently
 publicly verified story. `CURRENT IMPLEMENTATION OBSERVED`
 
@@ -326,4 +335,3 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
   ends of every named handoff.
 - **Portfolio Control Room:** must assign non-overlapping locks before any
   shared-system, live-route, canonical data or deployment change.
-

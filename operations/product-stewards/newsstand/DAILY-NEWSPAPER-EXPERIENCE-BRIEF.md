@@ -1,23 +1,29 @@
 # The Daily newspaper experience — captured product direction
 
-**Status:** CAPTURED — MERGE CANDIDATE / NOT A RELEASE CONTRACT
-**Date:** 2026-07-29
+**Status:** ALI CONFIRMED — SPECIFICATION / NOT A RELEASE CONTRACT
+**Date:** 2026-07-29; reconciled 2026-08-12
 **Trigger:** Ali proposed that the Homepage daily column become a compact
 front-page preview of a complete newspaper experience at the NewsStand.
 
 ## Product relationship
 
-The Homepage does not contain the whole newspaper. It surfaces a concise,
+The site Homepage does not contain the whole newspaper. It surfaces a concise,
 useful selection from today’s paper and provides small contextual handoffs.
 The NewsStand owns the complete paper: its visual newspaper form, editorial
 sections, archive, sources, corrections and recurring town columns.
+
+The NewsStand route itself opens directly on the current Daily newspaper. Its
+top edition switcher offers exactly Daily, Weekly and Big Picture;
+Archive/Search remains a separate utility. Qualified Breaking appears above
+the Daily and collapses completely on a clear day. The complete governing
+layout is `NEWSSTAND-PAGE-ARCHITECTURE.md`.
 
 This direction must preserve the four locked NewsStand publication jobs:
 
 - **The Breaking:** rare, qualified interruption;
 - **The Daily:** the current newspaper and edited consequential briefing;
 - **The Weekly:** durable synthesis;
-- **The Big Question:** sourced argument.
+- **The Big Picture:** substantial sourced questions and investigations.
 
 The Daily newspaper may contain several sections. Those sections do not become
 new competing editions.
@@ -43,8 +49,9 @@ is published as fact without the current NewsStand validation chain.
 - Career/Work-Life Tip: practical career guidance with an explicit, useful
   connection back to AI—not generic confidence or workplace advice;
 - Promptoscope: one playful but accurate prompt, context or model-use lesson;
-- Dear Miss Jeeves: one admitted common AI problem, the mechanism behind it
-  and a useful recovery from the governed bank; at most one per week;
+- Dear Miss Jeeves belongs primarily to the Weekly: one admitted common AI
+  problem, the mechanism behind it and a useful recovery from the governed
+  bank; at most one per week;
 - Mme CLAi-O’s daily reading;
 - Song of the Day with a working listen action;
 - Did You Know?;

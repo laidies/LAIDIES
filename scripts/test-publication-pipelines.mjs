@@ -53,6 +53,11 @@ const weeklyBundle = clone(source);
 weeklyBundle.formats.find((format) => format.id === "news_weekly").templateFields = ["headline", "summary", "sources", "date", "action"];
 assert.match(validatePublicationPipelines(weeklyBundle).errors.join("\n"), /synthesis of at least two developments/);
 
+const weeklyWithoutJeeves = clone(source);
+weeklyWithoutJeeves.formats.find((format) => format.id === "news_weekly").components =
+  weeklyWithoutJeeves.formats.find((format) => format.id === "news_weekly").components.filter((item) => item.id !== "dear_miss_jeeves");
+assert.match(validatePublicationPipelines(weeklyWithoutJeeves).errors.join("\n"), /news_weekly missing component dear_miss_jeeves/);
+
 const renamedWrongly = clone(source);
 renamedWrongly.formats.find((format) => format.id === "news_big_question").displayName = "The Tribune";
 assert.match(validatePublicationPipelines(renamedWrongly).errors.join("\n"), /expose The Big Picture/);
@@ -110,4 +115,4 @@ inheritedAdmission.multiOutputContract.independenceRule = "All outputs share app
 assert.match(validatePublicationPipelines(inheritedAdmission).errors.join("\n"), /prohibit inherited admission/);
 
 console.log("PUBLICATION PIPELINE TEST PASS");
-console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,non-work-paige,workplace-promptoscope,single-output-only,inherited-admission rejected");
+console.log("calibration=missing-combined-method,hannah-only-name-drop,parroting-transfer,missing-paired-example,missing-format,non-breaking-update,single-card-daily,daily-scaffolding,single-story-weekly,weekly-missing-jeeves,wrong-public-name,thesis-without-investigation,weak-straight-answer,prompt-only-jeeves,abstract-promptoscope,forced-promptoscope-pair,paige-with-stars,non-work-paige,workplace-promptoscope,single-output-only,inherited-admission rejected");

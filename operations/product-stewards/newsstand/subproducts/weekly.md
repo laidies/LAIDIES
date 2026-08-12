@@ -35,6 +35,17 @@ enough background to enter the story; returning readers receive synthesis
 rather than repetition. Held copy never leaks through search or a saved hash.
 Corrections remain adjacent; retraction removes the body and preserves history.
 
+The complete Weekly is a multi-element newspaper issue. It opens from the
+NewsStand's persistent Weekly choice and includes an earned lead synthesis,
+additional Weekly stories where justified, a compact linked Week in Brief of
+the preceding Daily stories, evidence chronology, implications, what to watch,
+one Tip of the Week, at most one admitted Dear Miss Jeeves answer and a
+STRAiGHT TALK spotlight. The spotlight links to the separately maintained
+Library reference; it does not copy STRAiGHT TALK into the dated issue.
+
+The Week in Brief is orientation, not the Weekly's editorial payoff. A list of
+Daily summaries without a connected thesis fails.
+
 ## Ownership and plumbing
 
 The Weekly editor owns synthesis and continuity with Daily/Breaking coverage.

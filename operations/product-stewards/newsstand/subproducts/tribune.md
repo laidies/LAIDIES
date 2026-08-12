@@ -1,4 +1,4 @@
-# The Big Question — subproduct dossier and operating specification
+# The Big Picture — subproduct dossier and operating specification
 
 **Status:** BUILT LOCALLY — ONE APPROVED DATA RECORD; RELEASE HOLD  
 **Parent:** SUNNYVAiLE NewsStand  
@@ -7,10 +7,11 @@
 
 ## Promise, audience and job
 
-The Big Question is a sourced argument that separates evidence, inference and the
-position being argued. It serves readers who want LAiDIES to take a useful
-stand without disguising opinion as neutral reporting. It publishes only when
-an argument has earned the paper; there is no quota.
+The Big Picture examines consequential questions through sourced investigation
+and analysis that separates evidence, inference, counterargument and LAiDIES'
+bounded conclusion. It serves readers who want to understand the larger
+pattern, mechanism, power or consequence behind dated developments. It
+publishes only when the work has earned a feature; there is no quota.
 
 The current local dataset has one approved record, “A label is not a truth
 detector.” Prior public-route evidence is not current public verification.
@@ -36,9 +37,16 @@ history. Source links carry useful publisher labels. Search, direct hash,
 paper, Back and Forward all pass through one access gate. A retracted story
 keeps a visible withdrawal at its old route and no body.
 
+The NewsStand's persistent Big Picture choice opens a searchable feature
+index, not only the latest article. A reader can browse by question, theme,
+organization, consequence and date; see current/corrected/retracted/archive
+state; and open the exact feature. Related Daily and Weekly reporting may
+contribute evidence but cannot be copied into a longer article and called a
+Big Picture.
+
 ## Ownership and plumbing
 
-The Big Question editor owns thesis and argument. Accuracy independently owns
+The Big Picture editor owns the investigation and conclusion. Accuracy independently owns
 claim-source and correction review. The parent owns canonical data and reader
 presentation; Platform owns artifact, deploy and rollback. The current one
 record proves local data/reader integration only, not a recurring editorial
@@ -46,7 +54,7 @@ operation.
 
 ## Experience, measurement and revenue
 
-Use the strongest newspaper editorial grammar while retaining readable
+Use a feature, dossier or Sunday-section grammar within the NewsStand world while retaining readable
 headings, evidence labels and source navigation. Measure whether readers can
 state the thesis, distinguish evidence from position, name a credible
 counterargument and understand corrections. Membership or print support may

@@ -95,7 +95,6 @@
         { "id": "paige_tip", "owner": "newsstand-daily", "store": "content/daily-learning-derivatives.json", "requiredOrEmpty": true },
         { "id": "career_life", "owner": "learning-content-ecosystem", "store": "content/daily-learning-derivatives.json", "requiredOrEmpty": true },
         { "id": "promptoscope", "owner": "newsstand-daily", "store": "content/daily-learning-derivatives.json", "requiredOrEmpty": true },
-        { "id": "dear_miss_jeeves", "owner": "learning-content-ecosystem", "store": "content/dear-miss-jeeves-bank.json", "requiredOrEmpty": false },
         { "id": "mme_claio", "owner": "mme-claio", "store": "content/daily-edition-columns.json", "requiredOrEmpty": true },
         { "id": "song", "owner": "ksvl", "store": "content/daily-edition-columns.json", "requiredOrEmpty": true },
         { "id": "did_you_know", "owner": "newsstand-daily", "store": "content/daily-edition-columns.json", "requiredOrEmpty": true },
@@ -124,9 +123,19 @@
         "what did not change or remains unknown",
         "mechanism and evidence chronology",
         "who is affected and practical implications",
-        "optional subordinate Tip of the Week",
+        "compact linked Week in Brief of the preceding Daily stories",
+        "one earned Tip of the Week or empty state",
+        "at most one admitted Dear Miss Jeeves answer or empty state",
+        "one current STRAiGHT TALK spotlight or empty state",
         "source ledger and AIDB comparison",
         "related learning, watch points and correction trigger"
+      ],
+      "components": [
+        { "id": "weekly_synthesis", "owner": "newsstand", "store": "content/newsstand-stories.js", "requiredOrEmpty": true },
+        { "id": "week_in_brief", "owner": "newsstand", "store": "content/newsstand-daily-issues.json", "requiredOrEmpty": true },
+        { "id": "tip_of_the_week", "owner": "newsstand-daily", "store": "content/daily-learning-derivatives.json", "requiredOrEmpty": true },
+        { "id": "dear_miss_jeeves", "owner": "learning-content-ecosystem", "store": "content/dear-miss-jeeves-bank.json", "requiredOrEmpty": true },
+        { "id": "straight_talk_spotlight", "owner": "library", "store": "content/library-books/straight-answers.md", "requiredOrEmpty": true }
       ]
     },
     {

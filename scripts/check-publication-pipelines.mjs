@@ -89,12 +89,16 @@ export function validatePublicationPipelines(data) {
     errors.push("news_daily must require a reader-facing newspaper hierarchy rather than internal desk scaffolding");
   }
   const dailyComponents = new Set((daily?.components || []).map((item) => item.id));
-  for (const id of ["sourced_news", "paige_tip", "career_life", "promptoscope", "dear_miss_jeeves", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"]) {
+  for (const id of ["sourced_news", "paige_tip", "career_life", "promptoscope", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"]) {
     if (!dailyComponents.has(id)) errors.push(`news_daily missing component ${id}`);
   }
   const weekly = formats.get("news_weekly");
   if (weekly?.surfaceContainer !== "MULTI_ELEMENT_NEWSPAPER" || !weekly?.templateFields?.some((field) => /at least two distinct/i.test(field))) {
     errors.push("news_weekly must require a multi-element synthesis of at least two developments");
+  }
+  const weeklyComponents = new Set((weekly?.components || []).map((item) => item.id));
+  for (const id of ["weekly_synthesis", "week_in_brief", "tip_of_the_week", "dear_miss_jeeves", "straight_talk_spotlight"]) {
+    if (!weeklyComponents.has(id)) errors.push(`news_weekly missing component ${id}`);
   }
   const bigQuestion = formats.get("news_big_question");
   if (bigQuestion?.displayName !== "The Big Picture" || bigQuestion?.machineEdition !== "tribune") {
