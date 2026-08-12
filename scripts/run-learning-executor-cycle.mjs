@@ -17,6 +17,8 @@ if (contentResult.errors.length) {
 }
 
 const active = (queue.workOrders || []).filter((order) => ["DISPATCHED", "BUILDING"].includes(order.execution?.state));
+const waiting = (queue.workOrders || []).filter((order) => order.execution?.state === "WAITING_ON_PREREQUISITE");
+const ready = (queue.workOrders || []).filter((order) => order.dispatchState === "READY_TO_DISPATCH");
 if (active.length > 1) {
   console.error("LEARNING EXECUTOR HEARTBEAT REFUSED");
   console.error("- more than one active work order: " + active.map((order) => order.id).join(","));
@@ -33,13 +35,21 @@ if (active.length === 1) {
 
 state.lastHeartbeatAt = new Date().toISOString();
 state.activeWorkOrderId = active[0]?.id || null;
+state.waitingOnPrerequisiteIds = waiting.map((order) => order.id);
+state.readyToDispatchIds = ready.map((order) => order.id);
 state.nextAction = active.length
   ? "Continue the exact nextAction for " + active[0].id + "; record a terminal disposition or a truthful current checkpoint."
-  : "Validate current sources and work-order state; dispatch at most one eligible primary output or remain IDLE_HEALTHY with evidence.";
+  : ready.length
+    ? "Dispatch at most one eligible primary output: " + ready.map((order) => order.id).join(", ") + "."
+    : waiting.length
+      ? "No primary output is dispatchable; preserve and report exact prerequisites for: " + waiting.map((order) => order.id).join(", ") + "."
+      : "Validate current sources and work-order state; no active, ready or prerequisite-held primary output exists.";
 const temporaryPath = statePath + ".tmp-" + process.pid;
 fs.writeFileSync(temporaryPath, JSON.stringify(state, null, 2) + "\n");
 fs.renameSync(temporaryPath, statePath);
 console.log("LEARNING EXECUTOR HEARTBEAT RECORDED");
 console.log("mode=" + (active.length ? "ACTIVE" : "IDLE_HEALTHY"));
 console.log("active_work_order=" + (state.activeWorkOrderId || "none"));
+console.log("ready_to_dispatch=" + (state.readyToDispatchIds.join(",") || "none"));
+console.log("waiting_on_prerequisite=" + (state.waitingOnPrerequisiteIds.join(",") || "none"));
 console.log("heartbeat=" + state.lastHeartbeatAt);

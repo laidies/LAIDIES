@@ -1,7 +1,6 @@
 # Investigation plan — is AI about to escape and take over?
 
-**Current public masthead:** The Big Question
-**Possible masthead under Ali review:** The Big Picture
+**Masthead:** The Big Question
 **Status:** investigation complete enough for a bounded explanatory candidate;
 open accountability reporting remains explicitly named
 

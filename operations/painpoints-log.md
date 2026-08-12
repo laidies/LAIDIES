@@ -14642,7 +14642,7 @@ while remaining falsely unfinished in the launch record.
   self-invented motive. Conversely, do not dismiss unexpected capability merely
   because people supplied the goal.
 - **Durable correction:** The cross-lab claim map now rejects both false poles,
-  and the exact Big Picture candidate states: “The objective was not the
+  and the exact Big Question candidate states: “The objective was not the
   mystery. The safety finding was how the models pursued it.” Its producer
   receipt binds that distinction as a factual and explanatory outcome.
 - **Possible Behind the Build angle:** Why “the AI did exactly what we asked”
@@ -14669,11 +14669,39 @@ while remaining falsely unfinished in the launch record.
   paired explanation instead of carrying both examples itself.
 - **Durable correction:** D-2026-08-11-113, the combined explanation benchmark,
   producer schema/check, exact-prose schema/check and calibrated negative tests
-  now enforce the pair. The current Big Picture and Weekly drafts include both.
+  now enforce the pair. The current Big Question and Weekly drafts include both.
   The earlier STRAiGHT TALK pilot fails the new gate and is preserved only as a
   predecessor until a successor adds and reviews its missing non-work example.
 - **Possible Behind the Build angle:** Why “make it relatable” was too vague—and
   how one work example plus one life example exposes whether an explanation
   really transfers.
 - **Publication status:** SITEWIDE PRODUCER RULE VERIFIED LOCALLY / CURRENT BIG
-  PICTURE PRODUCER PASS / NO INDEPENDENT ADMISSION OR PUBLICATION.
+  QUESTION PRODUCER PASS / NO INDEPENDENT ADMISSION OR PUBLICATION.
+
+## BTB-468 — “Idle healthy” hid prerequisite-held publication work
+
+- **Date:** 2026-08-11
+- **Area:** Learning executor, NewsStand work-order visibility and overnight
+  production.
+- **Failure:** The executor reported `IDLE_HEALTHY` after a valid heartbeat even
+  though an exact Big Question candidate was already built and awaiting
+  independent review. The canonical LCWO-004 still pointed at an older,
+  unbuilt open-versus-closed article, so the actual candidate was invisible to
+  the queue and the heartbeat exposed no prerequisite-held work.
+- **Root cause:** Executor health was defined only as heartbeat plus active
+  dispatch truth. It did not require a visible list of
+  `WAITING_ON_PREREQUISITE` orders, and production artifacts could advance
+  without reconciling their existing work order.
+- **Prevention rule:** Every executor cycle records active, ready-to-dispatch
+  and prerequisite-held work separately. `IDLE_HEALTHY` means no eligible
+  active dispatch; it never means the backlog is finished. A produced artifact
+  must bind its canonical work order, exact manifest, producer contract,
+  self-review and next prerequisite in the same cycle.
+- **Durable correction:** LCWO-004 now binds the exact Big Question candidate
+  and records `EDITORIAL_REVIEW / WAITING_ON_PREREQUISITE`. The executor state,
+  command output and checker expose `waitingOnPrerequisiteIds`; the calibrated
+  test rejects a state that hides a prerequisite-held order.
+- **Possible Behind the Build angle:** How a green automation can be truthful
+  about being alive and still conceal the work it has not finished.
+- **Publication status:** EXECUTION VISIBILITY REPAIRED LOCALLY / BIG QUESTION
+  AWAITS ROLE-DISTINCT REVIEW / NO NEWSSTAND INTEGRATION, DEPLOYMENT OR PUBLICATION.

@@ -747,23 +747,26 @@
     },
     {
       "id": "LCWO-004",
-      "title": "Draft The Big Question on AI security and open versus closed systems",
+      "title": "Investigate whether recent agent incidents mean AI is escaping human control",
       "sourceRefs": [
-        "operations/product-stewards/learning-content-ecosystem/NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28.md"
+        "operations/product-stewards/learning-content-ecosystem/NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md"
       ],
       "surface": "NEWSSTAND",
       "action": "CREATE",
       "ownerProductId": "newsstand-tribune",
       "publicationFormatIds": ["news_big_question"],
-      "formatRouting": [{"publicationFormatId":"news_big_question","relationship":"CONTRIBUTING_EVIDENCE","contributionJob":"Use the incident as one evidence strand in the broader question of who keeps agentic AI safe.","sourceVersionIds":["NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28"]}],
+      "formatRouting": [{"publicationFormatId":"news_big_question","relationship":"PRIMARY_OUTPUT","contributionJob":"Investigate what the OpenAI, Anthropic, Meta and AISI incidents establish about current loss-of-control risk, responsibility and useful safeguards.","sourceVersionIds":["NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28","research-and-claim-map:51f12888fc287e71cb9ae835c45c2c06a2bf0ac9d46d72a831403e16e912d4d4"]}],
       "targetPaths": [
-        "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-open-closed-ai-security-draft.md"
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-question-investigation-plan.md"
       ],
-      "status": "SPECIFIED",
+      "status": "EDITORIAL_REVIEW",
       "dispatchState": "NOT_READY",
       "priority": "P0",
-      "nextAction": "Perform the required complement review against the existing reward-hacking Tribune, then research and draft Who Keeps AI Safe When It Can Act? using the exact Tribune field order and current primary sources.",
-      "nextTrigger": "Immediate build from the accepted reverse brief; do not wait for NewsStand publication of the Breaking item.",
+      "nextAction": "Commission one role-distinct artifact-first accuracy and semantic review of the exact candidate; repair any finding before NewsStand integration.",
+      "nextTrigger": "The exact draft, research map, investigation plan, producer contract, manifest and producer self-review are checksum-bound and ready for an independent reviewer.",
       "acceptanceEvidence": [
         "Complement/duplication ruling",
         "Primary-source and counterargument packet",
@@ -888,13 +891,18 @@
         }
       },
       "artifactBinding": {
-        "status": "UNBOUND",
-        "manifestPath": null,
-        "sha256": null
+        "status": "BOUND",
+        "manifestPath": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-manifest.json",
+        "sha256": "a0355ed61c9a70ea29463c5f2f6e1aaaccb148a9a448d8161ca3e5b1303ec21a"
       },
+      "producerContractPath": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-producer-contract.json",
+      "producerReviewPath": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-producer-self-review.json",
+      "semanticAdmissionPath": null,
       "evidencePaths": [
-        "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-ai-security-open-closed-reverse-brief-2026-07-28.md",
-        "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-ai-security-open-closed-claim-map-2026-07-28.md"
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-question-investigation-plan.md",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-producer-contract.json",
+        "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-producer-self-review.json"
       ],
       "publicRelease": {
         "status": "NOT_AUTHORIZED",
@@ -903,13 +911,15 @@
         "sha256": null
       },
       "execution": {
-        "state": "BACKLOG",
+        "state": "WAITING_ON_PREREQUISITE",
         "primaryOutput": {
           "id": "LCWO-004-primary",
           "surface": "NEWSSTAND",
           "ownerProductId": "newsstand-tribune",
           "targetPaths": [
-            "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-open-closed-ai-security-draft.md"
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md",
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/research-and-claim-map.md",
+            "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-question-investigation-plan.md"
           ]
         },
         "requiredPrimaryGates": [

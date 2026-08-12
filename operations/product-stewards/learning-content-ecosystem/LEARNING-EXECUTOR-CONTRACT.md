@@ -14,7 +14,12 @@ A work-order label or dispatch receipt is not activity. The executor is live onl
 4. the worker is producing the next exact artifact or records an honest terminal disposition; and
 5. missed heartbeats become EXECUTION_STALLED instead of remaining active.
 
-The executor may have no active content order after a terminal cycle. That is IDLE_HEALTHY, not failure, when the heartbeat is current and there is no eligible READY_TO_DISPATCH order.
+The executor may have no active content order after a terminal cycle. That is
+IDLE_HEALTHY, not failure, when the heartbeat is current and there is no
+eligible READY_TO_DISPATCH order. IDLE_HEALTHY does not mean all work is done:
+every `WAITING_ON_PREREQUISITE` order must remain named in executor state and
+heartbeat output with its exact next action rather than disappearing behind the
+idle label.
 
 ## Cycle
 

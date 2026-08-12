@@ -47,6 +47,7 @@ reset();
 let result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
 assert.equal(result.errors.length, 0);
 assert.equal(result.mode, "IDLE_HEALTHY");
+assert.deepEqual(result.waitingOnPrerequisiteIds, sourceState.waitingOnPrerequisiteIds || []);
 
 let state = reset();
   state.lastHeartbeatAt = "2026-08-11T03:00:00.000Z";
@@ -84,6 +85,12 @@ writeJson(stateRelative, state);
 result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
 assert(result.errors.some((error) => error.includes("requires sourceReconciliationPath")));
 
+state = reset();
+state.waitingOnPrerequisiteIds = [];
+writeJson(stateRelative, state);
+result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
+assert(result.errors.some((error) => error.includes("waitingOnPrerequisiteIds does not match")));
+
 fs.rmSync(temporaryRoot, { recursive: true, force: true });
 console.log("LEARNING EXECUTOR TEST PASS");
-console.log("calibration=stale-heartbeat,paused-automation,dead-lane,unreconciled-source-intake rejected");
+console.log("calibration=stale-heartbeat,paused-automation,dead-lane,unreconciled-source-intake,hidden-prerequisite rejected");

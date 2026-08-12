@@ -58,10 +58,18 @@ export function checkLearningExecutor({
 
   const orders = queue.workOrders || [];
   const active = orders.filter((order) => ACTIVE_EXECUTION_STATES.has(order.execution?.state));
+  const waitingOnPrerequisiteIds = orders.filter((order) => order.execution?.state === "WAITING_ON_PREREQUISITE").map((order) => order.id);
+  const readyToDispatchIds = orders.filter((order) => order.dispatchState === "READY_TO_DISPATCH").map((order) => order.id);
   if (active.length > 1) errors.push("executor has more than one active work order: " + active.map((order) => order.id).join(","));
   const actualActiveId = active[0]?.id || null;
   if (state.activeWorkOrderId !== actualActiveId) {
     errors.push("executor activeWorkOrderId does not match the work-order queue");
+  }
+  if (JSON.stringify(state.waitingOnPrerequisiteIds || []) !== JSON.stringify(waitingOnPrerequisiteIds)) {
+    errors.push("executor waitingOnPrerequisiteIds does not match the work-order queue");
+  }
+  if (JSON.stringify(state.readyToDispatchIds || []) !== JSON.stringify(readyToDispatchIds)) {
+    errors.push("executor readyToDispatchIds does not match the work-order queue");
   }
   for (const order of active) {
     const expectedLane = "codex-heartbeat:" + state.automationId;
@@ -103,6 +111,8 @@ export function checkLearningExecutor({
     errors,
     mode: errors.length ? "INVALID" : actualActiveId ? "ACTIVE" : "IDLE_HEALTHY",
     activeWorkOrderId: actualActiveId,
+    waitingOnPrerequisiteIds,
+    readyToDispatchIds,
     lastCycleWorkOrderId: state.lastCycle?.workOrderId || null,
     automationPath
   };
@@ -119,5 +129,7 @@ if (direct) {
   console.log("LEARNING EXECUTOR CHECK PASS");
   console.log("mode=" + result.mode);
   console.log("active_work_order=" + (result.activeWorkOrderId || "none"));
+  console.log("ready_to_dispatch=" + (result.readyToDispatchIds.join(",") || "none"));
+  console.log("waiting_on_prerequisite=" + (result.waitingOnPrerequisiteIds.join(",") || "none"));
   console.log("last_cycle=" + (result.lastCycleWorkOrderId || "none"));
 }
