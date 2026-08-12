@@ -14911,3 +14911,25 @@ while remaining falsely unfinished in the launch record.
   size for the newspaper column it is supposed to inhabit.
 - **Publication status:** EXACT COMPACT SUCCESSOR INDEPENDENTLY ACCEPTED /
   OBSERVED READER AND DATED DAILY INTEGRATION REMAIN / NOT DEPLOYED OR PUBLIC.
+
+## BTB-479 — The existing longform reader made a good article misleading to skim
+
+- **Date:** 2026-08-12
+- **Area:** The Big Question and NewsStand longform experience.
+- **Failure:** The independently accepted 2,986-word article rendered without
+  clipping, but mobile required 15,000–18,000px of linear scroll, desktop lines
+  ran roughly 95–105 characters, and the rejected `Give an AI any goal...`
+  quote received the same pull-quote authority as the corrected lesson.
+- **Root cause:** Clean rendering was mistaken for readable longform. The
+  existing article system had no wayfinding contract or semantic quote roles.
+- **Prevention rule:** Substantial NewsStand explanations need a rendered
+  reading-path review, not only overflow checks. Rejected and accepted claims
+  must never share a visual authority treatment.
+- **Durable correction:** The unchanged-prose successor adds a native five-link
+  spine menu, caps body/list/quote measure at 68ch, labels the rejected quote
+  `NOT THE LESSON`, and exposes `At work` / `At home` subheads. Exact
+  1440/390/320 renders independently pass with zero blockers.
+- **Possible Behind the Build angle:** Why a perfectly valid article can teach
+  the wrong thing when its pull quotes and navigation are badly designed.
+- **Publication status:** LONGFORM PRESENTATION DIRECTION INDEPENDENTLY ACCEPTED
+  / ACTUAL READER IMPLEMENTATION AND HUMAN OBSERVATION REMAIN / NOT PUBLIC.
