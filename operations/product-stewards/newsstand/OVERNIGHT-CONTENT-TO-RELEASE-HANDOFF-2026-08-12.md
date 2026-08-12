@@ -1,8 +1,8 @@
 # NewsStand overnight content-to-release handoff — 2026-08-12
 
-**Status:** EIGHT EXACT PROSE CANDIDATES ADVANCED; PROMPTOSCOPE NOW PASSES EXACT RESPONSIVE CARD REVIEW — NO MERGE OR DEPLOY AUTHORITY
+**Status:** EIGHT EXACT PROSE CANDIDATES ADVANCED; TWO LONGFORMS COMPILED INTO INACCESSIBLE HELD STORY RECORDS; PROMPTOSCOPE PASSES EXACT RESPONSIVE CARD REVIEW — NO CANONICAL INTEGRATION, MERGE OR DEPLOY AUTHORITY
 
-**Checked:** 2026-08-12 04:22 America/Vancouver
+**Checked:** 2026-08-12 05:28 America/Vancouver
 
 ## Outcome truth
 
@@ -31,6 +31,12 @@ Current public bytes re-fetched from `laidies.ai`:
 
 These match the public release receipt on `origin/codex/newsstand-release-20260811` at `a995ddab`.
 
+The public assets were fetched again at 05:27 America/Vancouver and retained
+the same three hashes. The overnight candidates therefore remain absent from
+the live site. The learning worktree has no `2026-08-12` AIDB daily record and
+the reconciled authoritative iCloud AIDB directory is older, ending on August
+8. No newer dated AIDB intake was available to turn into a story by inference.
+
 ## Release ancestry discrepancy
 
 The live archive repair exists only on the release branch:
@@ -49,12 +55,12 @@ All of the following are on `origin/codex/learning-execution-repair-20260811`; n
 
 | Commit | Exact candidate | Current state |
 |---|---|---|
-| `bc342910` + current presentation successor | [The Big Question](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md) — 2,986 words | prose accepted; first exact render held the existing reader for no wayfinding, misleading quote hierarchy and overlong desktop lines; unchanged-prose presentation successor independently passes 1440/390/320; actual-reader implementation and observed human still required |
+| `bc342910` + `f8b0d6dc` | [The Big Question](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/big-picture-draft.md) — 2,986 words | prose accepted; first exact render held the existing reader for no wayfinding, misleading quote hierarchy and overlong desktop lines; unchanged prose now compiles into checksum-bound candidate `d5def3046785ec77bd451dad07af31a5e77aaeb518866ed76e40b834b03da6d0`, status `hold`, `publishedAt: null`; observed human and owner/source/semantic admission still required |
 | `deb268e3` | Paige — “Give one repeat task a dress rehearsal—not the keys” — 147 words | independent full-prose review accepted after blockers fell 11 → 7 → 4 → 3 → 0; existing-surface render held the full text as too dense for a compact card; preserve it and create a separately reviewed deck + full destination |
 | `45c8bfdc` + current successor | Promptoscope — “Mercury is in regression” | 75-word prose passed editorial review but failed the real card for visible imbalance; a 39-word successor preserves the method and work/home transfer and independently passes exact 1440/390/320 pixel, editorial and teaching review; observed reader and dated Daily integration still required |
 | `c3115e8b` | [Dear Miss Jeeves](../../../content/dear-miss-jeeves/dmj-004-fifteen-revisions.md) — 528 words | repaired an unbuilt Promptoscope continuation; independent prose review accepted with zero blockers; human and rendered-column review still required |
 | `4057f1de` | [STRAiGHT TALK](candidates/straight-talk-what-does-ai-escaped-mean-2026-08-12.md) — 1,374 words | independent successor review accepted with zero blockers; human and rendered LIBRAiRY review still required; no public STRAiGHT TALK surface currently exists |
-| `137a09da` + current presentation successor | [The Weekly](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md) — 1,682 words | prose accepted; first wrapper render caught Big Question identity leakage and missing transfer landmarks; corrected exact 1440/390/320 successor independently passes, confirming the length earns its space with the synthesis hierarchy; actual-reader implementation and observed human remain |
+| `137a09da` + `48a8af1b` | [The Weekly](../../drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/weekly-draft.md) — 1,682 words | prose accepted; first wrapper render caught Big Question identity leakage and missing transfer landmarks; unchanged prose now compiles into checksum-bound candidate `df6a29f16a15e88fc7736e3e3befe4d9092b010c1dd3f6242043f9db3a33e61d`, status `hold`, `publishedAt: null`; observed human and owner/source/semantic admission still required |
 | `810d9704` | [The Daily archive](candidates/daily-archive-2026-08-03.md) — 941 words | corrected the false Sunday dateline to Monday; independent review accepted with zero blockers; human and rendered newspaper review still required |
 | `18ddabf1` | Career/Work-Life — “Put the name back on the idea” — 180 words | independent full-prose review accepted with zero blockers; existing-surface render held the full text as too dense for a compact card; preserve it and create a separately reviewed deck + full destination |
 
@@ -163,10 +169,23 @@ data; jump targets are validated; myth/evidence/conclusion roles remain
 distinct; body/list/quote measure is bounded at 68ch. Deliberate missing-target
 and empty-block mutations fail; 272 rendered checks pass at 1440/390/320,
 including both exact held candidate records and a calibrated direct-link
-landing guard. This
-does not create or admit either candidate story record.
+landing guard. Exact production-reader screenshots for both candidates at
+1440, 390 and 320 pixels are bound in
+`evidence/exact-held-longform-production-reader-v1/`. This does not admit either
+candidate story record.
 
-No whole-branch merge, canonical story integration, deployment or public mutation was performed by this reconciliation.
+The screenshot pass exposed a real defect that the earlier route existence
+check had missed: a direct story URL opened the article but initially left the
+visitor at the NewsStand entrance after asynchronous layout. Commit `fe90e3c4`
+now settles images and fonts, then positions the reader immediately below the
+sticky header. The calibrated disabled-scroll mutation fails, while the
+baseline 272-view matrix passes. This was a false-pass repair, not a content
+release.
+
+No whole-branch merge, canonical story integration, deployment or public mutation was performed by this reconciliation. A release successor must not
+copy the entire candidate/evidence stack: after admission, it should take only
+the exact admitted story record, the shared reader/runtime changes that record
+requires, and their scoped validators from the deployed release ancestry.
 
 ## Recurring execution gap
 
