@@ -131,6 +131,14 @@ longformStory.longform = {
   ]
 };
 assert.equal(contract.validate(longformCandidate).length, 0, "a complete long-form story passes the reader contract");
+const honestHeldDate = JSON.parse(JSON.stringify(longformCandidate));
+const honestHeldStory = honestHeldDate.stories.find((story) => story.id === longformStory.id);
+honestHeldStory.status = "hold";
+honestHeldStory.publishedAt = null;
+assert.equal(contract.validate(honestHeldDate).length, 0, "an unpublished held story may state publishedAt null");
+const falsePublishedDate = JSON.parse(JSON.stringify(honestHeldDate));
+falsePublishedDate.stories.find((story) => story.id === longformStory.id).status = "published";
+assert.match(contract.validate(falsePublishedDate).join("\n"), /timestamps are invalid/, "calibration: a published story cannot omit its publication instant");
 const missingLongformJump = JSON.parse(JSON.stringify(longformCandidate));
 missingLongformJump.stories.find((story) => story.id === longformStory.id).longform.jumpSectionIds.push("missing-section");
 assert.match(contract.validate(missingLongformJump).join("\n"), /longform jump target is missing/, "calibration: an invented jump target fails closed");

@@ -102,7 +102,11 @@ if (!Array.isArray(stories)) {
     REQUIRED_TEXT.forEach((field) => {
       if (typeof story[field] !== "string" || !story[field].trim()) fail(`${label}: missing non-empty ${field}.`);
     });
-    ["publishedAt", "updatedAt", "lastCheckedAt"].forEach((field) => {
+    if ((story.status !== "hold" && !validDateTime(story.publishedAt)) ||
+        (story.status === "hold" && story.publishedAt !== null && !validDateTime(story.publishedAt))) {
+      fail(`${label}: publishedAt must be null only while held, otherwise an ISO UTC date-time.`);
+    }
+    ["updatedAt", "lastCheckedAt"].forEach((field) => {
       if (!validDateTime(story[field])) fail(`${label}: ${field} must be an ISO UTC date-time.`);
     });
     if (ids.has(story.id)) fail(`${label}: duplicate id ${story.id}.`);

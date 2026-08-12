@@ -71,8 +71,10 @@ WAITING_ON_PREREQUISITE`, so an `IDLE_HEALTHY` executor heartbeat no longer
 means there is no unfinished NewsStand work. The shared production schema and
 reader are now built and verified locally with authored jump targets, semantic
 quote roles, a 68ch reading measure and explicit work/home landmarks. The
-candidate still requires transformation into one held story record,
-observed-human explain-back/transfer, exact story admission, authorized deploy
+accepted source now compiles without prose loss into one held, inaccessible
+story-record candidate with 10 sections, 82 semantic blocks, 12 reviewed
+sources and an honest null publication instant. It still requires observed-human
+explain-back/transfer, exact source/semantic/owner admission, authorized deploy
 and public verification.
 The settled public masthead is **The Big Question**; the machine edition remains
 `tribune`. No publication or public page changed.

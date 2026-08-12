@@ -47,7 +47,9 @@
         var label = story && (story.slug || story.id) || "story " + index;
         if (EDITIONS.indexOf(story && story.edition) === -1) errors.push(label + " edition is invalid");
         if (STORY_STATUSES.indexOf(story && story.status) === -1) errors.push(label + " status is invalid");
-        if (!validDate(story && story.publishedAt) || !validDate(story && story.updatedAt) || !validDate(story && story.lastCheckedAt)) {
+        if ((story && story.status !== "hold" && !validDate(story.publishedAt)) ||
+            (story && story.status === "hold" && story.publishedAt !== null && !validDate(story.publishedAt)) ||
+            !validDate(story && story.updatedAt) || !validDate(story && story.lastCheckedAt)) {
           errors.push(label + " timestamps are invalid");
         }
         if (!story || !story.sourceApproval || !story.sourceApproval.status || !story.sourceApproval.record) {
