@@ -73,15 +73,18 @@ review, NewsStand integration, authorized deploy and exact public verification.
 The settled public masthead is **The Big Question**; the machine edition remains
 `tribune`. No publication or public page changed.
 
-### Paige reusable-skills tip — source prerequisite complete / producer dispatch ready
+### Paige reusable-skills tip — producer pass / independent review next
 
-LCWO-013 is now `READY_TO_DISPATCH`. The current official Anthropic Agent
+LCWO-013 is now `BUILT_LOCALLY / WAITING_ON_PREREQUISITE`. The current official Anthropic Agent
 Skills definition, progressive-loading mechanism, cross-surface limits and
 security boundary are registered as
 `CLM-PRODUCT-ANTHROPIC-REUSABLE-SKILLS`, checked August 11, 2026. The next cycle
-must create the producer contract before drafting one held Paige card; it may
-not reuse the discovery reel as evidence, recommend an unaudited skill pack or
-mark the card publicly eligible. No Daily record or public page changed.
+requires a role-distinct review of one exact held Paige card: **“Give one repeat
+task a dress rehearsal—not the keys.”** Its producer contract and exact-prose
+self-review pass, but carry no independent quality authority. The card does not
+reuse the discovery reel as evidence, recommend an unaudited skill pack or
+claim a procedure replaces accountable staff. The record remains publicly
+ineligible; no Daily consumer or public page changed.
 
 ### STRAiGHT TALK representative pilot — Ali reader verdict next
 

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "laidies-content-dispatch.v1",
+  "receiptId": "DSP-LCWO-013-20260811-01",
+  "workOrderId": "LCWO-013",
+  "ownerId": "newsstand-daily",
+  "laneId": "codex-heartbeat:laidies-learning-system-execution-recovery",
+  "acceptedScope": [
+    "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+    "content/daily-learning-derivatives.json",
+    "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-producer-contract.json",
+    "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-manifest.json",
+    "operations/product-stewards/newsstand/candidates/paige-reusable-skills-2026-08-11-producer-self-review.json"
+  ],
+  "collisionBoundary": "This lane may create and self-review one held Paige reusable-skills candidate and update its exact claim/work-order bindings; it may not mark the candidate eligible, edit the public NewsStand consumer, deploy, publish or touch unrelated Daily records.",
+  "dispatchedAt": "2026-08-11T23:15:00-07:00",
+  "checkpointAt": "2026-08-11T23:45:00-07:00",
+  "slaDueAt": "2026-08-12T01:15:00-07:00",
+  "sourceBindings": [
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
+      "sha256": "2a5af73291b09ecd80a73893f98794da95b580bb8ea04a6e4d9287af9479bf63"
+    },
+    {
+      "path": "operations/product-stewards/learning-content-ecosystem/INTAKE-build-and-audit-reusable-ai-skills-2026-07-31.md",
+      "sha256": "c5ebf958c389c1a5ec1ca371d4f0876e9c32678d60f07b6dcc6f564e4ca1004e"
+    }
+  ],
+  "checkpointResult": "HELD_CANDIDATE_AND_PRODUCER_SELF_REVIEW_COMPLETE_INDEPENDENT_REVIEW_NEXT",
+  "authority": "PRIVATE_HELD_CANDIDATE_ONLY_NO_PUBLIC_ELIGIBILITY_NO_DEPLOY"
+}
