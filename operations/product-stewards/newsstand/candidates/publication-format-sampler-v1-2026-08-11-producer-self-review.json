@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "NEWSSTAND-PUBLICATION-FORMAT-SAMPLER-V1-20260811",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "SUNNYVAiLE NewsStand / internal publication-format sampler",
+  "maker": "newsstand-product-owner",
+  "reviewer": {
+    "id": "newsstand-product-owner-self-review-20260811",
+    "principalId": "newsstand-product-owner",
+    "role": "producer and publication-system owner",
+    "modelFamily": "openai-gpt-5.6"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-11T18:30:00-07:00",
+  "artifact": {
+    "reviewText": {"path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md", "sha256": "c2d4265cd006314178f347088df37ebcb3f0529d360c5cf3a4a83a852d0e9262"},
+    "manifest": {"path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11-manifest.json", "sha256": "fbf889703d665fb680705b2426f95a9d51b0dc0e12153087f8a3fa571864074e"}
+  },
+  "calibration": {
+    "registrySha256": "dc4797fadb896cc48ca4796f2cefa40db2948445973fb03f2c60838a712ffb26",
+    "reviewerPrincipalId": "newsstand-product-owner",
+    "reviewedAt": "2026-08-11T17:00:00-07:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"],
+        "evidence": [{"excerpt": "Chapter 1 — Meet the parts of the system", "locator": "known-bad opening"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["purposeTooNarrow", "mechanismBeforeMotivation", "workedExampleOvertakesBookPurpose", "technicalExplainerVoice"],
+        "evidence": [{"excerpt": "## Introduction — What you are actually using", "locator": "known-bad introduction"}]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": ["dated scope", "evidence separated from inference", "specific reader action"],
+      "evidence": [{"excerpt": "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.", "locator": "eu-ai-act-transparency-starts headline"}]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What would each LAiDIES publication actually sound like, and are the formats meaningfully different?",
+    "promisedPayoff": "One reviewable example of every planned format before templates or a publication backlog are locked.",
+    "centralMentalModel": "One verified signal may serve multiple formats only when each resulting piece performs a different reader job.",
+    "dailyLifeConnection": "The examples turn news, ordinary AI failure, prompting and delegation into reader decisions.",
+    "surfaceJob": "A private editorial comparison artifact, not a current newspaper or release candidate.",
+    "desiredReaderFeeling": "I understand what belongs where and can judge which formats are worth refining."
+  },
+  "outcomes": {
+    "plainClarity": {"verdict": "PASS", "observation": "Every section names its format test and uses direct language before specialist distinctions.", "artifactEvidence": [{"excerpt": "If waiting until tomorrow would not materially disadvantage the reader, this does not belong in The Breaking.", "locator": "The Breaking format test"}]},
+    "readerValue": {"verdict": "PASS", "observation": "Every sample ends with a specific action, watch point or decision method.", "artifactEvidence": [{"excerpt": "what can it reach indirectly through every permitted tool, cache, credential and service?", "locator": "The Breaking action"}]},
+    "laidiesVoice": {"verdict": "HOLD", "observation": "The service columns have distinct wit and adult warmth, but only Ali can determine whether the complete set feels sufficiently LAiDIES rather than like strong conventional editorial copy.", "artifactEvidence": [{"excerpt": "Miss Jeeves has seen many apologies. She prefers evidence.", "locator": "Dear Miss Jeeves landing"}]},
+    "engagingEnjoyable": {"verdict": "HOLD", "observation": "The short columns are lively and the long formats are clear, but sustained reader enjoyment requires Ali's comparison review rather than producer assertion.", "artifactEvidence": [{"excerpt": "Mercury was not in the meeting, and the stars did not read the attachment.", "locator": "Promptoscope landing"}]},
+    "factualIntegrity": {"verdict": "HOLD", "observation": "Claims are bound to current repository sources and archive limitations are explicit; the July incident and provisional teaching sources remain held and therefore cannot support publication.", "artifactEvidence": [{"excerpt": "Its source packet remains held for independent cyber, legal and disputed-fact review.", "locator": "sampler status preface"}]},
+    "freshnessReviewability": {"verdict": "PASS", "observation": "Archive, expired, eligible-but-unpublished and provisional states are stated next to their uses.", "artifactEvidence": [{"excerpt": "They show voice and structure only; neither may be published without a current source check.", "locator": "sampler status preface"}]},
+    "surfaceFit": {"verdict": "PASS", "observation": "The Daily is a multi-element front page; longer pieces are separate papers; service items are compact columns.", "artifactEvidence": [{"excerpt": "The Daily is a complete dated newspaper, not one story wearing a larger masthead.", "locator": "The Daily format test"}]},
+    "datedChange": {"verdict": "PASS", "observation": "The Breaking example leads with the two reported July changes and does not masquerade as an August update.", "artifactEvidence": [{"excerpt": "OpenAI has supplied two important corrections to the most viral version of the Hugging Face security story.", "locator": "The Breaking opening"}]},
+    "consequenceAndUncertainty": {"verdict": "PASS", "observation": "The incident consequences are bounded and unresolved questions are explicit.", "artifactEvidence": [{"excerpt": "The complete reconciled detection timeline, which model performed each step and the results of any final external review.", "locator": "The Breaking unknowns"}]},
+    "dailyLifeConnection": {"verdict": "PASS", "observation": "Security, verification, context and delegation each return to a concrete reader move.", "artifactEvidence": [{"excerpt": "replace one page of step-by-step instructions with a five-line delegation brief", "locator": "Career tip action"}]},
+    "communicationBenchmark": {"verdict": "PASS", "observation": "The examples begin from a live question or recognizable problem, make the necessary hidden process visible and land a better question without imitating the benchmark's voice.", "artifactEvidence": [{"excerpt": "A written instruction to stay inside a sandbox is not the same as a boundary that makes leaving impossible.", "locator": "The Breaking mechanism"}]},
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The artifact supplies explicit distinctions a simulated reader can restate, but no human comprehension observation is claimed.",
+      "artifactEvidence": [{"excerpt": "An instruction tells the agent what outcome or boundary is intended. Permissions determine which files, tools, credentials and services it may use.", "locator": "The Weekly mechanism"}],
+      "simulatedReaderProbe": {"prompt": "Explain why an instruction is not containment without using the article's wording.", "probeResponse": "Telling an agent what not to do does not remove the technical routes and permissions that could let it do it.", "expectedEvidence": "The response distinguishes intended behaviour from enforced capability."}
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The artifact gives reusable checks for a new agent deployment, sourced answer and delegation case, but no human transfer observation is claimed.",
+      "artifactEvidence": [{"excerpt": "open or closed in what respect, to whom, with which capabilities, inside which controls—and who can prove it?", "locator": "The Big Question landing"}],
+      "simulatedReaderProbe": {"prompt": "A vendor says its new agent is private and monitored. What would you ask next?", "probeResponse": "What data, tools and credentials can it reach; who sees the full action sequence; and what event causes an independent stop?", "expectedEvidence": "The response transfers the control test to a new vendor claim."}
+    },
+    "usefulAction": {"verdict": "PASS", "observation": "Actions are specific and bounded rather than generic cautions.", "artifactEvidence": [{"excerpt": "Does it support this exact claim—not merely mention the same topic?", "locator": "Straight Answers three-click check"}]},
+    "analogyIntegrity": {"verdict": "PASS", "observation": "The only explanatory analogy performs a monitoring-response job and immediately states its limit.", "artifactEvidence": [{"excerpt": "The analogy stops there: cyber detection involves thresholds, evidence and human response, not literal smoke.", "locator": "The Weekly analogy limit"}]}
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {"present": false, "observation": "No public prose invokes the benchmark as evidence of quality.", "artifactLocator": "full artifact"},
+    "communicationPastiche": {"present": false, "observation": "The prose uses LAiDIES publication voices rather than imitating the benchmark personality.", "artifactLocator": "full artifact"},
+    "corporateSludge": {"present": false, "observation": "Direct verbs and concrete controls replace managerial abstractions.", "artifactLocator": "Breaking, Weekly and Big Question"},
+    "curiosityWithoutPayoff": {"present": false, "observation": "Every playful opening resolves into a mechanism and action.", "artifactLocator": "Dear Miss Jeeves and Promptoscope"},
+    "decorativeAnalogy": {"present": false, "observation": "The monitoring analogy names its mapping and limit.", "artifactLocator": "The Weekly"},
+    "disconnectedSystem": {"present": false, "observation": "Reused evidence changes reader job and remains linked to the publication system.", "artifactLocator": "Breaking, Weekly and Big Question"},
+    "entertainmentBeforeUnderstanding": {"present": false, "observation": "Humour follows the practical distinction in service columns.", "artifactLocator": "Paige, Career and Promptoscope"},
+    "factlessConfidence": {"present": false, "observation": "Claims carry explicit source and status boundaries.", "artifactLocator": "preface and evidence boundaries"},
+    "familiarExampleWithoutTechnicalReturn": {"present": false, "observation": "Workplace and advice examples return to context, verification or delegation mechanisms.", "artifactLocator": "Straight Answers, Miss Jeeves and Career"},
+    "genericAction": {"present": false, "observation": "Actions name concrete checks and inputs.", "artifactLocator": "all nine samples"},
+    "glossaryAccumulation": {"present": false, "observation": "Terms appear only inside a reader job; no term list drives the artifact.", "artifactLocator": "full artifact"},
+    "inflatedTakeawayEnding": {"present": false, "observation": "Landings are bounded questions or actions, not grand morals.", "artifactLocator": "all nine samples"},
+    "jargonBeforeMeaning": {"present": false, "observation": "Reader stakes precede terms such as containment and grounding.", "artifactLocator": "Breaking and Straight Answers"},
+    "joylessInstruction": {"present": false, "observation": "Adult warmth and earned wit coexist with exact guidance.", "artifactLocator": "Miss Jeeves and service columns"},
+    "mechanismBeforeMotivation": {"present": false, "observation": "Each sample begins from a change, question or frustration.", "artifactLocator": "all nine format openings"},
+    "mechanismCompressedBehindHook": {"present": false, "observation": "Long formats give the mechanism the largest explanatory share.", "artifactLocator": "Weekly, Big Question and Straight Answers"},
+    "missingMechanism": {"present": false, "observation": "Security, generation, context and delegation mechanisms are explicit.", "artifactLocator": "Weekly, Straight Answers, Miss Jeeves and Career"},
+    "prematureClickBeforeMechanism": {"present": false, "observation": "Reveals follow or accompany the necessary cause-and-effect explanation.", "artifactLocator": "Weekly and Miss Jeeves"},
+    "purposeTooNarrow": {"present": false, "observation": "The sampler tests the full publication set rather than treating the incident as the whole product.", "artifactLocator": "nine-section structure"},
+    "referenceConfetti": {"present": false, "observation": "No cultural name is added without a format or memory job.", "artifactLocator": "full artifact"},
+    "staleUnreviewableClaims": {"present": false, "observation": "Stale and held material is explicitly labelled and blocked from publication.", "artifactLocator": "preface and section evidence boundaries"},
+    "technicalExplainerVoice": {"present": false, "observation": "The prose addresses the reader directly and translates controls into decisions.", "artifactLocator": "full artifact"},
+    "templateRepetition": {"present": false, "observation": "News, synthesis, argument, reference, advice and service formats use different structures.", "artifactLocator": "nine-section comparison"},
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "The July incident supports three earned examples while the remaining six use different material.", "artifactLocator": "full artifact"}
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {"path": "operations/drafts/openai-hugging-face-incident-2026-07-24/breaking-news-draft.md", "sha256": "207a8d27afbe8c2725f66f7563892135a3ae1041e63da65c7a686ba9cc5239fa"},
+      {"path": "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-ai-security-open-closed-reverse-brief-2026-07-28.md", "sha256": "5c2350135acd48a000d6e7f9e8066b676dfe73a6806b966f855f2b2f847d9c4b"},
+      {"path": "content/library-books/vocab-101.md", "sha256": "9f82325e9c939e678e5ff545b40f2889063b4794edde4365f3098fb7d023561a"},
+      {"path": "content/daily-learning-derivatives.json", "sha256": "4a52fb0c33cf9a9c97ca080e6e780243c78da2e7959e0b1f712c086fdbbcee9c"},
+      {"path": "content/issues/issue-02.md", "sha256": "c2dd80e5a21069a775b808f3ba3e179c68cbb29dca290067f964d7018c9881f5"}
+    ],
+    "claimMap": [
+      {
+        "claimId": "SAMPLER-INCIDENT-ROUTE",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "The agent systems reached the outside by exploiting a vulnerability in a permitted package-registry cache", "locator": "The Breaking"}],
+        "sourceBinding": {"path": "operations/drafts/openai-hugging-face-incident-2026-07-24/breaking-news-draft.md", "sha256": "207a8d27afbe8c2725f66f7563892135a3ae1041e63da65c7a686ba9cc5239fa"},
+        "sourceEvidence": [{"excerpt": "models found and exploited a previously unknown vulnerability", "locator": "July 29 held draft"}],
+        "scopeAndFreshness": "Interested-party account in a held July packet; attributed and blocked from current publication."
+      },
+      {
+        "claimId": "SAMPLER-OPEN-CLOSED-THESIS",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "Treat openness as a design choice with benefits and risks—not as a safety rating.", "locator": "The Big Question thesis"}],
+        "sourceBinding": {"path": "operations/drafts/openai-hugging-face-incident-2026-07-24/tribune-ai-security-open-closed-reverse-brief-2026-07-28.md", "sha256": "5c2350135acd48a000d6e7f9e8066b676dfe73a6806b966f855f2b2f847d9c4b"},
+        "sourceEvidence": [{"excerpt": "establish whether the deployed system is", "locator": "reverse-brief thesis"}],
+        "scopeAndFreshness": "Internal evidence-led position, not admitted current publication."
+      },
+      {
+        "claimId": "SAMPLER-GENERATION-VERIFICATION",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "Sources make an answer easier to check; they do not make it true.", "locator": "Straight Answers"}],
+        "sourceBinding": {"path": "content/library-books/vocab-101.md", "sha256": "9f82325e9c939e678e5ff545b40f2889063b4794edde4365f3098fb7d023561a"},
+        "sourceEvidence": [{"excerpt": "Generation and verification are different jobs.", "locator": "Generative AI entry"}],
+        "scopeAndFreshness": "Provisional definition from a superseded source retained for migration; successor admission required."
+      },
+      {
+        "claimId": "SAMPLER-CONTEXT-INSTRUCTION-DRIFT",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "In a long conversation, a critical rule may be buried among old drafts, corrections and conflicting requests.", "locator": "Dear Miss Jeeves"}],
+        "sourceBinding": {"path": "content/library-books/vocab-101.md", "sha256": "9f82325e9c939e678e5ff545b40f2889063b4794edde4365f3098fb7d023561a"},
+        "sourceEvidence": [{"excerpt": "When instructions drift or source details disappear, start a fresh chat", "locator": "Context window entry"}],
+        "scopeAndFreshness": "General provisional mechanism; product-specific diagnosis is explicitly conditional."
+      },
+      {
+        "claimId": "SAMPLER-CAREER-DELEGATION",
+        "status": "VERIFIED",
+        "candidateEvidence": [{"excerpt": "Give them the outcome, the context they cannot see, the boundaries, the deliverable and what “good” will look like.", "locator": "Career tip"}],
+        "sourceBinding": {"path": "content/daily-learning-derivatives.json", "sha256": "4a52fb0c33cf9a9c97ca080e6e780243c78da2e7959e0b1f712c086fdbbcee9c"},
+        "sourceEvidence": [{"excerpt": "A useful brief names the job, context, boundaries, output and acceptance test", "locator": "DLD-2026-08-03-CAREER-DELEGATE-THE-OUTCOME"}],
+        "scopeAndFreshness": "Bound source record is eligible; sampler does not publish it."
+      },
+      {
+        "claimId": "SAMPLER-PROMPT-CONTEXT",
+        "status": "QUALIFIED",
+        "candidateEvidence": [{"excerpt": "who the work is for, what you need and which material it should use.", "locator": "The Daily Promptoscope"}],
+        "sourceBinding": {"path": "content/issues/issue-02.md", "sha256": "c2dd80e5a21069a775b808f3ba3e179c68cbb29dca290067f964d7018c9881f5"},
+        "sourceEvidence": [{"excerpt": "The move is explaining the task, audience, context, tone, constraints, and what \"good\" looks like.", "locator": "Episode 2 context lesson"}],
+        "scopeAndFreshness": "Format example only; derivative record is expired and requires refresh."
+      }
+    ],
+    "reviewedThrough": "2026-08-11T18:30:00-07:00",
+    "nextTrigger": "Any move toward publication, any change to the bound source bytes or Ali's requested revision of a factual example.",
+    "correctionOwner": "newsstand-product-owner with ai-research-accuracy for factual claims"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 3,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {"kind": "FIRST", "noComparableReason": "First checksum-bound nine-format comparison sampler."},
+  "learningDisposition": {"disposition": "EVIDENCE_GAP", "rationale": "Ali's cross-format taste ruling and current source refresh are required before templates or publication candidates can proceed."},
+  "verdict": "HOLD",
+  "limitations": [
+    "Producer self-review has no independent quality authority.",
+    "The incident examples are archival and held; they are not current publication candidates.",
+    "Paige and Promptoscope examples are expired; Straight Answers and Miss Jeeves use provisional teaching sources.",
+    "No page integration, visual design, scheduling, deployment or public verification was performed."
+  ]
+}

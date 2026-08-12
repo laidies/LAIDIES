@@ -14558,3 +14558,14 @@ while remaining falsely unfinished in the launch record.
   content soup.
 - **Publication status:** VERIFIED INTERNAL ROUTER / PUBLIC DAILY SUCCESSOR
   ADMISSION AND DEPLOYMENT OPEN.
+
+## BTB-462 — Nine format names could still produce one generic editorial voice
+
+- **Date:** 2026-08-11
+- **Area:** NewsStand publication design and prose production.
+- **Failure risk:** A complete source router and nine field lists could still generate the same explanatory article under different mastheads. It could also make held July research look current merely because the prose was newly written.
+- **Root cause:** A schema proves required information exists; it does not prove that Breaking, Daily, Weekly, argument, reference, advice and service columns create different reader experiences.
+- **Prevention rule:** Before scaling a publication system, produce one checksum-bound comparison sampler. Each format names its reader job, evidence scope, opening, landing and falsifiable format test. Reused evidence must change the question and payoff; archive, expired and provisional material stays visibly labelled and cannot inherit publication status.
+- **Durable correction:** `operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md` supplies all nine examples after a passing producer contract. Its exact-prose self-review remains `HOLD` for Ali's cross-format taste ruling and current-source refresh rather than treating structural checks as editorial approval.
+- **Possible Behind the Build angle:** Why nine content templates produced one newspaper—and how writing the examples before automating them exposed the difference.
+- **Publication status:** INTERNAL COMPARISON CANDIDATE / NO ADMISSION, PUBLICATION OR DEPLOYMENT.

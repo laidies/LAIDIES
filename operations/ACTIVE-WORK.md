@@ -1104,3 +1104,11 @@ objective; every open lane keeps its own checkpoint.
 - **Known independent holds:** three expired public Daily derivative records and overdue relationship `LCR-006` still fail the full product-steward gate. They were not timestamp-refreshed or hidden.
 - **Repository-wide hook:** the pre-commit media audit also reports 45 missing Episode 03 image paths and one missing Episode 04 clip on the inherited branch. This scoped operating repair does not alter or clear those failures; deployment CI remains fail-closed.
 - **Authority:** one local hourly executor automation was activated and bound to this repair task. No canonical story, visitor-facing page, deployment or public state changed. AW-003 remains the launch foreground.
+
+### 2026-08-11 NewsStand nine-format sampler checkpoint
+
+- **Current state:** `INTERNAL CANDIDATE COMPLETE / PRODUCER REVIEW HOLD / ALI FORMAT REFINEMENT NEXT`.
+- **Literal movement:** one checksum-bound internal sampler now contains concrete examples of The Breaking, The Daily, The Weekly, The Big Question, Straight Answers About AI, Dear Miss Jeeves, Paige's Practical AI Tip, Career/Work-Life Tip and Promptoscope. A prevention-first producer contract passed before drafting; the exact prose self-review passes structurally with a truthful `HOLD` and no independent quality authority.
+- **Truth boundary:** the July incident examples are archive-format demonstrations from a held source packet; Paige and Promptoscope are expired examples; Straight Answers and Dear Miss Jeeves use provisional teaching sources. The artifact is not admitted, scheduled, integrated, deployed or public.
+- **Next trigger:** Ali compares the nine examples and rules which voices, lengths and structures to retain or revise. Repair the producer rule behind any rejected pattern before drafting a successor; only then convert the accepted structures into exact production templates.
+- **Authority:** no publication, page integration, visual design, schedule, deploy or public-release state changed. AW-003 remains foreground.
