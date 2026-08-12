@@ -14430,7 +14430,8 @@ while remaining falsely unfinished in the launch record.
 - **Durable correction:** Daily history now survives later canonical story changes while forged snapshot bytes still invalidate the store; the stable NewsStand exemplar no longer changes when a new story is added; exact-story evidence hashes are enforced and calibrated to reject alteration; the Library held artifact and exact visual dependencies were recovered so the full curated artifact builds.
 - **Forward test:** NewsStand passes 217 rendered browser checks including historical-clock isolation, current three-week archive search, immutable-source tamper and snapshot-tamper opposites. The complete curated artifact builds 557 files / 415.37 MiB.
 - **Possible Behind the Build angle:** Why one innocent new article used to make yesterday’s newspaper disappear.
-- **Publication status:** VERIFIED LOCAL SYSTEM AND CONTENT BUILD / NOT DEPLOYED / NOT PUBLICLY VERIFIED.
+- **Publication status:** DEPLOYED AND VERIFIED PUBLICLY 2026-08-12 in the
+  NewsStand backfill release; future archive additions remain checksum-bound.
 
 ## BTB-458 — A correct Pages deployment can still serve the previous NewsStand runtime
 
@@ -14453,5 +14454,5 @@ while remaining falsely unfinished in the launch record.
   reject reuse of the previous keys.
 - **Possible Behind the Build angle:** Why “the deploy succeeded” can still mean
   readers are seeing yesterday's JavaScript.
-- **Publication status:** RELEASE REPAIR IN PROGRESS; exact successor public
-  verification required.
+- **Publication status:** CORRECTED, DEPLOYED AND VERIFIED PUBLICLY 2026-08-12;
+  custom-domain hashes matched the exact successor assets.
