@@ -38,7 +38,26 @@ assert.notEqual(result.status, 0);
 assert.match(result.stderr, /confirmation/);
 
 const workflow = fs.readFileSync(workflowPath, 'utf8');
+const builderSource = fs.readFileSync(builder, 'utf8');
+const protectedBuilderDependencies = [
+  'scripts/lib/active-asset-admission.mjs',
+  'scripts/compile-library-admission.mjs',
+  'scripts/library-correction-service.mjs',
+  'scripts/check-library-book-content-admission.mjs',
+  'scripts/render-library-book.mjs',
+  'scripts/lib/context-navigation-distribution-v1.mjs',
+  'scripts/lib/public-html-transform.mjs',
+  'scripts/lib/public-screening-room-admission.mjs',
+  'scripts/lib/public-runtime-family-admission.mjs',
+];
+assert.match(builderSource, /reproducible: true/);
+assert.doesNotMatch(builderSource, /generatedAt:\s*new Date\(\)\.toISOString\(\)/,
+  'public artifact identity must not change with the build clock');
 assert.match(workflow, /workflow_dispatch:/);
+for (const dependency of protectedBuilderDependencies) {
+  assert.ok(fs.existsSync(path.join(repositoryRoot, dependency)), `controller is missing builder dependency ${dependency}`);
+  assert.ok(workflow.includes(dependency), `workflow does not protect builder dependency ${dependency}`);
+}
 assert.doesNotMatch(workflow, /^\s*push:/m);
 assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
 assert.match(workflow, /PRODUCTION_CONTROLLER_SHA/);
