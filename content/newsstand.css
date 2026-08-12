@@ -197,7 +197,7 @@ main.ns-page {
   transform: translateY(-3px);
 }
 
-.ns-counter-surface {
+.ns-edition-hub {
   width: min(100%, 1320px);
   margin: 0 auto;
   padding: clamp(30px, 4vw, 52px);
@@ -205,7 +205,7 @@ main.ns-page {
   border-block: 10px solid var(--ns-pink);
 }
 
-.ns-counter-intro {
+.ns-edition-hub__intro {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
   gap: 12px clamp(30px, 5vw, 72px);
@@ -223,7 +223,7 @@ main.ns-page {
   text-transform: uppercase;
 }
 
-.ns-counter-intro h2 {
+.ns-edition-hub__intro h2 {
   margin: 0;
   font-family: var(--ns-body);
   font-size: clamp(42px, 4.8vw, 70px);
@@ -234,7 +234,7 @@ main.ns-page {
   color: #fff9fc;
 }
 
-.ns-counter-intro > p:last-child {
+.ns-edition-hub__intro > p:last-child {
   margin: 0;
   max-width: 58ch;
   color: #fff9fc;
@@ -242,57 +242,90 @@ main.ns-page {
   font-weight: 600;
 }
 
-.ns-publications {
-  position: absolute;
-  inset: 0;
+.ns-breaking-strip {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 12px 22px;
+  align-items: center;
+  margin: 0 0 28px;
+  padding: 15px 18px;
+  border: 4px solid var(--ns-ink);
+  background: var(--ns-pink);
+  color: var(--ns-ink);
+  box-shadow: 7px 7px 0 var(--ns-cyan);
 }
 
-.ns-rack-stage {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1680 / 625;
-  overflow: hidden;
-  scroll-margin-top: 96px;
+.ns-breaking-strip[hidden] { display: none; }
+.ns-breaking-strip p {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ns-breaking-strip a {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  justify-content: space-between;
+  color: inherit;
+  text-decoration: none;
+}
+.ns-breaking-strip a span { white-space: nowrap; text-decoration: underline; }
+
+.ns-edition-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 30px);
 }
 
-.ns-paper-index { display: none; }
-
-.ns-rack-stage__art {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.ns-publication {
-  position: absolute;
-  top: 20%;
-  bottom: 2.5%;
+.ns-edition-choice {
   display: flex;
   min-width: 0;
-  min-height: 0;
-  padding: clamp(18px, 1.7vw, 28px) clamp(14px, 1.5vw, 22px) 18px;
-  border: 0;
-  background: transparent;
+  padding: 12px 12px 18px;
+  border: 4px solid var(--ns-ink);
+  background: #fff8ee;
   color: var(--ns-ink);
+  box-shadow: 8px 8px 0 #021f25;
   cursor: pointer;
   flex-direction: column;
   text-align: left;
-  transition: transform 160ms ease, filter 160ms ease;
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-.ns-publication[data-edition="breaking"] { left: 2.6%; width: 22%; }
-.ns-publication[data-edition="daily"] { left: 27%; width: 21.7%; }
-.ns-publication[data-edition="weekly"] { left: 51.4%; width: 21.7%; }
-.ns-publication[data-edition="tribune"] { left: 75.4%; width: 22.2%; }
+.ns-edition-choice__paper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 420 / 330;
+  margin-bottom: 14px;
+  background: #f7edf0;
+}
+.ns-edition-choice__paper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 26%;
+}
+.ns-edition-choice__masthead {
+  position: absolute;
+  top: 30%;
+  left: 11%;
+  right: 11%;
+  color: var(--ns-ink);
+  font-family: var(--ns-display);
+  font-size: clamp(25px, 2.5vw, 42px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
 
-.ns-publication strong,
-.ns-publication span {
+.ns-edition-choice strong,
+.ns-edition-choice span {
   display: block;
 }
 
-.ns-publication strong {
+.ns-edition-choice > strong {
   min-height: 1.1em;
   padding: 0 2px 10px;
   font-family: var(--ns-display);
@@ -302,20 +335,20 @@ main.ns-page {
   text-transform: uppercase;
 }
 
-.ns-publication span {
+.ns-edition-choice > span {
   margin-top: 9px;
   font-size: clamp(14px, 1vw, 16px);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
-.ns-publication .ns-publication__job {
+.ns-edition-choice .ns-edition-choice__job {
   min-height: 2.9em;
   color: #1d2856;
   line-height: 1.3;
 }
 
-.ns-publication .ns-publication__status {
+.ns-edition-choice .ns-edition-choice__status {
   width: fit-content;
   padding: 4px 7px;
   background: #d7f7f4;
@@ -325,7 +358,7 @@ main.ns-page {
   text-transform: uppercase;
 }
 
-.ns-publication .ns-publication__contents {
+.ns-edition-choice .ns-edition-choice__contents {
   display: grid;
   gap: 8px;
   width: 100%;
@@ -339,16 +372,16 @@ main.ns-page {
   line-height: 1.35;
 }
 
-.ns-publication .ns-publication__contents > span { margin-top: 0; }
+.ns-edition-choice .ns-edition-choice__contents > span { margin-top: 0; }
 
-.ns-publication .ns-publication__count {
+.ns-edition-choice .ns-publication__count {
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.ns-publication .ns-publication__headline {
+.ns-edition-choice .ns-publication__headline {
   display: -webkit-box;
   overflow: hidden;
   color: var(--ns-ink);
@@ -362,16 +395,16 @@ main.ns-page {
   -webkit-line-clamp: 3;
 }
 
-.ns-publication[data-edition="tribune"] .ns-publication__headline {
+.ns-edition-choice[data-edition="tribune"] .ns-publication__headline {
   font-size: clamp(16px, 1.2vw, 20px);
   -webkit-line-clamp: 4;
 }
 
-.ns-publication .ns-publication__teaser {
+.ns-edition-choice .ns-publication__teaser {
   display: none;
 }
 
-.ns-publication .ns-publication__action {
+.ns-edition-choice .ns-edition-choice__action {
   margin-top: auto;
   padding-top: 10px;
   border-top: 2px solid #10183b;
@@ -381,33 +414,27 @@ main.ns-page {
   text-transform: uppercase;
 }
 
-.ns-publication:hover,
-.ns-publication:focus-visible,
-.ns-publication.is-selected {
+.ns-edition-choice:hover,
+.ns-edition-choice:focus-visible,
+.ns-edition-choice.is-selected {
   z-index: 2;
-  filter: brightness(1.03);
   transform: translateY(-6px);
+  box-shadow: 8px 14px 0 #021f25;
 }
 
-.ns-publication:focus-visible {
+.ns-edition-choice:focus-visible {
   outline: 5px solid #fff;
   outline-offset: 2px;
 }
 
-.ns-counter-note {
-  margin: 26px 0 0;
-  color: #fff9fc;
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.ns-counter-browse {
-  display: none;
-  margin: -12px 0 14px;
+.ns-archive-shortcut {
+  display: block;
+  width: fit-content;
+  margin: 28px auto 0;
   color: var(--ns-cyan);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
+  text-underline-offset: 5px;
 }
 
 .ns-catchup {
@@ -1396,158 +1423,24 @@ main.ns-page {
   .ns-state h2 { margin-top: 20px; }
   .ns-state__actions { display: grid; }
 
-  .ns-counter-surface { padding: 30px 18px 28px; }
-  .ns-counter-intro { grid-template-columns: 1fr; }
-  .ns-counter-browse { display: block; }
-
-  .ns-rack-stage {
-    display: none;
-  }
-
-  .ns-rack-stage__art { display: none; }
-
-  .ns-publications {
-    position: static;
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-color: var(--ns-pink) #052c33;
-  }
-
-  .ns-paper-index {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    width: min(100%, 620px);
-    margin: 0 auto 22px;
-  }
-
-  .ns-paper-index button {
-    position: relative;
-    aspect-ratio: 420 / 625;
-    min-height: 0;
-    padding: 0;
-    border: 0;
-    background-color: #f7edf0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    color: var(--ns-ink);
-    font: inherit;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  .ns-paper-index button[data-edition="breaking"] { background-image: url("/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-breaking-v1.png"); }
-  .ns-paper-index button[data-edition="daily"] { background-image: url("/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-daily-v1.png"); }
-  .ns-paper-index button[data-edition="weekly"] { background-image: url("/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-weekly-v1.png"); }
-  .ns-paper-index button[data-edition="tribune"] { background-image: url("/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/mobile-slots-v1/newsstand-rack-tribune-v1.png"); }
-  .ns-paper-index strong,
-  .ns-paper-index span {
-    position: absolute;
-    left: 12%;
-    right: 13%;
-    z-index: 1;
-    display: block;
-    overflow-wrap: normal;
-  }
-  .ns-paper-index strong {
-    top: 26.5%;
-    display: flex;
-    align-items: center;
-    min-height: 11%;
-    font-family: var(--ns-display);
-    font-size: clamp(16px, 5vw, 22px);
-    font-weight: 400;
-    line-height: 0.9;
-    white-space: nowrap;
-    text-transform: uppercase;
-  }
-  .ns-paper-index button[data-edition="tribune"] strong {
-    font-size: clamp(15px, 4.7vw, 21px);
-  }
-  .ns-paper-index span { margin: 0; font-size: clamp(10px, 3.15vw, 14px); font-weight: 800; line-height: 1.12; }
-  .ns-paper-index .ns-paper-index__job { top: 40%; color: var(--ns-ink); line-height: 1.08; }
-  .ns-paper-index [data-status-for] {
-    top: 58.5%;
-    right: 13%;
-    width: auto;
-    max-width: none;
-    padding: 3px 4px;
-    background: var(--ns-mint);
-    color: #063a42;
-    font-size: clamp(10px, 2.7vw, 11px);
-    line-height: 1;
-    white-space: normal;
-    text-transform: uppercase;
-  }
-  .ns-paper-index .ns-paper-index__action {
-    top: 74%;
-    width: fit-content;
-    max-width: none;
-    padding: 2px 4px;
-    background: #f7edf0;
-    color: var(--ns-ink);
-    font-size: clamp(10px, 2.7vw, 11px);
-    line-height: 1.05;
-    white-space: nowrap;
-    border-bottom: 2px solid currentColor;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  .ns-paper-index button:hover,
-  .ns-paper-index button:focus-visible {
-    filter: brightness(1.04) saturate(1.06);
-    outline: 3px solid var(--ns-cyan);
-    outline-offset: 3px;
-  }
-
-  .ns-paper-index button.is-selected {
-    filter: brightness(1.04) saturate(1.06);
-    outline: 4px solid var(--ns-pink);
-    outline-offset: 3px;
-  }
-
-  .ns-publication,
-  .ns-publication[data-edition] {
-    position: relative;
-    inset: auto;
-    flex: 0 0 min(92vw, 420px);
-    width: min(92vw, 420px);
-    min-height: 660px;
-    padding: 150px 16% 130px;
-    background-color: #f7edf0;
-    background-image: url("/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/newsstand-live-four-paper-rack-crop-v1.png");
-    background-repeat: no-repeat;
-    background-size: 400% 100%;
-    box-shadow: 7px 8px 0 #052c33;
-    scroll-snap-align: center;
-  }
-
-  .ns-publication[data-edition="breaking"] { background-position: 0 0; }
-  .ns-publication[data-edition="daily"] { background-position: 33.333% 0; }
-  .ns-publication[data-edition="weekly"] { background-position: 66.666% 0; }
-  .ns-publication[data-edition="tribune"] { background-position: 100% 0; }
-
-  .ns-publication strong {
-    min-height: auto;
-    font-size: clamp(34px, 10vw, 46px);
-  }
-
-  .ns-publication span,
-  .ns-publication .ns-publication__status,
-  .ns-publication .ns-publication__count,
-  .ns-publication .ns-publication__teaser,
-  .ns-publication .ns-publication__action {
-    font-size: 16px;
-  }
-
-  .ns-publication .ns-publication__headline { font-size: 25px; }
-  .ns-publication[data-edition="tribune"] .ns-publication__headline {
-    font-size: 20px;
-    -webkit-line-clamp: 5;
+  .ns-edition-hub { padding: 30px 18px 28px; }
+  .ns-edition-hub__intro { grid-template-columns: 1fr; }
+  .ns-breaking-strip { grid-template-columns: 1fr; }
+  .ns-breaking-strip a { align-items: flex-start; flex-direction: column; }
+  .ns-edition-switcher { gap: 12px; }
+  .ns-edition-choice { padding: 8px 8px 14px; box-shadow: 5px 5px 0 #021f25; }
+  .ns-edition-choice__paper { aspect-ratio: 1 / 1; }
+  .ns-edition-choice__masthead { font-size: clamp(18px, 4.8vw, 28px); }
+  .ns-edition-choice > strong { font-size: clamp(20px, 4.8vw, 28px); }
+  .ns-edition-choice .ns-edition-choice__job,
+  .ns-edition-choice .ns-edition-choice__contents { display: none; }
+  .ns-edition-choice .ns-edition-choice__status,
+  .ns-edition-choice .ns-edition-choice__action {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    font-size: 11px;
+    overflow-wrap: anywhere;
   }
 
   .ns-reader {
@@ -1669,13 +1562,12 @@ main.ns-page {
   .ns-state__copy .ns-system-status { margin-top: 10px; font-size: 11px; }
   .ns-state__actions { grid-column: 1 / -1; }
   .ns-counter-kicker { line-height: 1.35; }
-  .ns-counter-surface { padding-inline: 10px; }
-  .ns-counter-intro h2 { font-size: 38px; }
-  .ns-publication,
-  .ns-publication[data-edition] {
-    min-height: 640px;
-    padding: 145px 14% 125px;
-  }
+  .ns-edition-hub { padding-inline: 10px; }
+  .ns-edition-hub__intro h2 { font-size: 38px; }
+  .ns-edition-choice > strong { font-size: 16px; }
+  .ns-edition-choice > strong { display: none; }
+  .ns-edition-choice .ns-edition-choice__status,
+  .ns-edition-choice .ns-edition-choice__action { font-size: 9px; letter-spacing: 0.02em; }
   .ns-catchup-lead[data-catchup-role="weekly"] {
     padding-left: 0;
     border-left: 0;
@@ -1694,10 +1586,12 @@ main.ns-page {
   .ns-state__inner,
   .ns-state__actions { min-width: 0; width: 100%; }
   .ns-state__actions { grid-column: auto; }
+  .ns-edition-choice .ns-edition-choice__status { display: none; }
+  .ns-edition-choice[data-edition="tribune"] .ns-edition-choice__masthead { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ns-publication,
+  .ns-edition-choice,
   .ns-state__primary,
   .ns-catchup-jump,
   .ns-radio,
@@ -1705,7 +1599,6 @@ main.ns-page {
   .ns-archive__input-row button,
   .ns-archive__browse-all,
   .ns-topic-button,
-  .ns-paper-index button,
   .ns-front-story,
   .ns-wire-story {
     transition: none;

@@ -322,12 +322,10 @@
     var daily = data.publications.daily;
     var dailyState = contract.effectivePublicationState(daily, now);
     var statuses = document.querySelectorAll('[data-status-for="daily"]');
-    var action = document.querySelector('.ns-publication[data-edition="daily"] .ns-publication__action');
+    var action = document.querySelector('.ns-edition-choice[data-edition="daily"] .ns-edition-choice__action');
     var indexAction = document.querySelector('[data-index-action-for="daily"]');
     Array.prototype.forEach.call(statuses, function (status) {
-      status.textContent = status.closest(".ns-paper-index")
-        ? compactPublicationStatusCopy(dailyState, daily)
-        : publicationStatusCopy(dailyState, daily);
+      status.textContent = compactPublicationStatusCopy(dailyState, daily);
       status.setAttribute("data-state", dailyState);
     });
     if (action) {
@@ -347,7 +345,6 @@
         "Unavailable";
     }
 
-    var labels = { breaking: "The Breaking", daily: "The Daily", weekly: "The Weekly", tribune: "The Big Question" };
     var order = ["breaking", "daily", "weekly", "tribune"];
     var dataset = contract.datasetState(data, now);
     var current = order.filter(function (edition) {
@@ -359,24 +356,18 @@
     var system = document.getElementById("ns-system-status");
     var primary = document.querySelector(".ns-state__primary");
     if (!title || !detail || !system || !primary) return;
-    if (current.length) {
-      title.textContent = current.map(function (edition) { return labels[edition]; }).join(" and ") +
-        (current.length === 1 ? " is current." : " are current.");
-      detail.textContent = "Last desk check: " + formatDate(data.lastCheckedAt) +
-        ". If there is nothing new worth printing, Paige leaves the rack quiet." +
-        (dataset.staleEditions && dataset.staleEditions.length ? " One or more checks are overdue." : "") +
-        (dataset.unavailableEditions && dataset.unavailableEditions.length ? " One or more records are unavailable." : "");
-      system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");
+    if (["current", "archive", "quiet"].indexOf(dailyState) !== -1) {
+      title.textContent = dailyState === "quiet" ? "The latest Daily is a quiet edition." : "The Daily is ready.";
+      detail.textContent = "The latest complete paper is dated " + formatDate(daily.editionDate || daily.publishedAt) +
+        ". The Weekly and Big Picture remain one tap away; nothing is printed merely to fill a slot.";
+      system.textContent = current.length + (current.length === 1 ? " current desk." : " current desks.");
+      primary.textContent = dailyState === "quiet" ? "Open the latest Daily" : "Read The Daily";
+      primary.setAttribute("data-pull", "daily");
     } else {
       title.textContent = "A clear day at the NewsStand.";
       detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
       system.textContent = "No current publication.";
-    }
-    if (current.length === 1) {
-      primary.textContent = "Pull " + labels[current[0]].replace(/^The /, "the ");
-      primary.setAttribute("data-pull", current[0]);
-    } else {
-      primary.textContent = "Choose a paper";
+      primary.textContent = "Search the archive";
       primary.removeAttribute("data-pull");
     }
   }
@@ -486,7 +477,8 @@
     ].join("");
   }
 
-  function renderDaily(requestedDate) {
+  function renderDaily(requestedDate, options) {
+    options = options || {};
     var reader = document.getElementById("paper-counter");
     var rack = document.getElementById("ns-rack");
     var empty = document.getElementById("ns-empty");
@@ -568,14 +560,19 @@
       paper.setAttribute("aria-pressed", String(selected));
     });
     markSeen("daily:" + date);
-    reader.scrollIntoView({ behavior: "smooth", block: "start" });
-    document.getElementById("ns-reader-title").focus({ preventScroll: true });
+    if (options.scroll !== false) reader.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (options.focus !== false) document.getElementById("ns-reader-title").focus({ preventScroll: true });
   }
 
   function openSharedDailyRequest() {
     if (sharedDailyHandled) return;
     var requested = new URL(global.location.href).searchParams.get("daily");
-    if (!requested) return;
+    if (!requested) {
+      if (global.location.hash || !canRenderDaily()) return;
+      sharedDailyHandled = true;
+      renderDaily(null, { scroll: false, focus: false });
+      return;
+    }
     sharedDailyHandled = true;
     if (/^\d{4}-\d{2}-\d{2}$/.test(requested) &&
         ((requested === currentDailyDate() && canRenderDaily()) || storedDailyIssue(requested))) {
@@ -798,7 +795,7 @@
         var dailyPaper = Array.prototype.find.call(
           document.querySelectorAll('[data-edition="daily"]'),
           function (control) { return control.offsetParent !== null; }
-        ) || document.querySelector('.ns-publication[data-edition="daily"]');
+        ) || document.querySelector('.ns-edition-choice[data-edition="daily"]');
         reader.hidden = true;
         document.getElementById("ns-rack").innerHTML = "";
         if (dailyPaper) {

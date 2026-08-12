@@ -110,6 +110,7 @@ Use these exact public forms:
 * Delta LAi Nu
 * KSVL 99.9
 * NewsStand
+* The Daily
 * Resident Card
 * My Closet
 * Wednesday Postcard
@@ -165,8 +166,9 @@ Use the page as one coherent journey, not a stack of boxes inside boxes.
 * Do not create decorative empty bands, oversized top insets or dead fields.
 * Do not force a desktop grid onto mobile.
 * On mobile, content follows reading order and uses the full useful width.
-* Daily Buzz remains a distinct public paper; on desktop it may be a useful
-  side rail, and on mobile it follows the current-town feature immediately.
+* The Daily remains the distinct full public paper at NewsStand. Daily Buzz is
+  its compact Homepage preview and route; on desktop it may be a useful side
+  rail, and on mobile it follows the current-town feature immediately.
 
 Image Authority And Cropping
 
@@ -209,7 +211,8 @@ Homepage Copy Architecture
 The Homepage has four jobs, in this order:
 
 1. **What’s happening around town** — the latest Wednesday episode, a distinct
-   signed-in return update and the public Daily Buzz.
+   signed-in return update and Daily Buzz, the compact Homepage preview of The
+   Daily.
 2. **Your next stop** — nine direct routes: news, class, look-up, episodes,
    KSVL, activity, community, town and Closet.
 3. **How LAiDIES works—and why it matters** — one coherent explanation of the
@@ -219,9 +222,10 @@ The Homepage has four jobs, in this order:
    and collections, resident experiences, the join action and the separate
    Postcard-only route.
 
-Do not scatter these ideas across duplicate modules. Daily Buzz is the public
-daily paper; What’s New is a signed-in, since-your-last-visit return aid. They
-are not interchangeable.
+Do not scatter these ideas across duplicate modules. The Daily is the full
+public daily paper at NewsStand; Daily Buzz is its compact Homepage preview and
+route. What’s New is a signed-in, since-your-last-visit return aid. These three
+jobs are not interchangeable.
 
 Heading Standard
 
@@ -294,7 +298,7 @@ Before visitor-facing copy is approved:
 * Can a returning resident see where to sign in and resume?
 * Is every heading useful, distinctive and in LAiDIES voice?
 * Does every action name its real outcome and go to the correct destination?
-* Are Daily Buzz and What’s New clearly different?
+* Are The Daily, its Daily Buzz Homepage preview and What’s New clearly different?
 * Is the full method and mission present—not compressed into five vague tiles?
 * Is the join action located in the Move to SUNNYVAiLE journey?
 * Is unbuilt functionality absent or honestly bounded?
