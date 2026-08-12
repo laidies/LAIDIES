@@ -33,8 +33,8 @@ jobs:
       APPROVAL_CONFIRMATION: ${{ inputs.approval_confirmation }}
       APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
-      ARTIFACT_DIR: ${{ github.workspace }}/.release/site
-      RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
+      ARTIFACT_DIR: ${{ runner.temp }}/laidies-release/site
+      RECEIPT_DIR: ${{ runner.temp }}/laidies-release/receipt
     steps:
       - uses: actions/checkout@v4
         with:
