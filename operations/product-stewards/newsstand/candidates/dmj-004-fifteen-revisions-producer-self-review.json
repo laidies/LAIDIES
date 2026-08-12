@@ -5,196 +5,29 @@
   "contentClass": "NEWS",
   "surface": "SUNNYVAiLE NewsStand / Dear Miss Jeeves",
   "maker": "learning-content-ecosystem",
-  "reviewer": {
-    "id": "learning-content-ecosystem-self-review-20260811-dmj004",
-    "principalId": "learning-content-ecosystem",
-    "role": "producer",
-    "modelFamily": "openai-gpt-5.6"
-  },
+  "reviewer": {"id":"learning-content-ecosystem-self-review-20260811-dmj004","principalId":"learning-content-ecosystem","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
   "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
-    "reviewText": {
-      "path": "content/dear-miss-jeeves/dmj-004-fifteen-revisions.md",
-      "sha256": "188832baad14d688462011261dc0ac994a2484e0f3781956b22a68fcb8225321"
-    },
-    "manifest": {
-      "path": "operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json",
-      "sha256": "476e50beaa0084f0ce989fdc7cab3bb467708535848a77e21ce980f10b48f95d"
-    }
+    "reviewText": {"path":"content/dear-miss-jeeves/dmj-004-fifteen-revisions.md","sha256":"188832baad14d688462011261dc0ac994a2484e0f3781956b22a68fcb8225321"},
+    "manifest": {"path":"operations/product-stewards/newsstand/candidates/dmj-004-fifteen-revisions-manifest.json","sha256":"476e50beaa0084f0ce989fdc7cab3bb467708535848a77e21ce980f10b48f95d"}
   },
   "calibration": {
-    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
+    "registrySha256": "04917a92bad2f03efd9c8cbf09a59190bda7eaa5192e087e1e3757016f42fbda",
     "reviewerPrincipalId": "learning-content-ecosystem",
     "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
-      {
-        "exemplarId": "CQX-BAD-001",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "glossaryAccumulation",
-          "templateRepetition",
-          "decorativeAnalogy",
-          "referenceConfetti",
-          "missingMechanism",
-          "genericAction",
-          "jargonBeforeMeaning",
-          "disconnectedSystem",
-          "joylessInstruction"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Chapter 1 — Meet the parts of the system",
-            "locator": "known-bad opening"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-002",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "purposeTooNarrow",
-          "mechanismBeforeMotivation",
-          "workedExampleOvertakesBookPurpose",
-          "technicalExplainerVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "## Introduction — What you are actually using",
-            "locator": "known-bad introduction"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-003",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "falseBreakingUrgency",
-          "missingNewcomerBackground",
-          "technicalReaderAssumption",
-          "implausibleAudienceAction",
-          "laidiesVoiceAbsent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "OpenAI says no upcoming-release model was involved",
-            "locator": "known-bad headline"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-004",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "internalScaffoldingExposedToReader",
-          "newspaperHierarchyUnclear",
-          "statusLanguageOvertakesExperience"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Model front page — structure example",
-            "locator": "known-bad Daily"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-005",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "sourceAvailabilityMistakenForEditorialValue",
-          "missingAidbRelevanceCheck",
-          "predeterminedThesisInsteadOfInvestigation",
-          "weakReaderPremise",
-          "adviceBelowReaderBaseline",
-          "promptAdviceMistakenForEnforcement",
-          "longRunningWorkflowRealityIgnored",
-          "genericEditorialVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "# REJECTED — LAiDIES publication-format sampler round 1",
-            "locator": "rejected sampler"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-006",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "fictionalInputMistakenForIsolation"
-        ],
-        "evidence": [
-          {
-            "excerpt": "The fictional notes and imaginary trip protect only those example inputs",
-            "locator": "exact missed defect"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-007",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "unbuiltDestinationPresentedAsLive"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Build the Skill. Keep the Job.",
-            "locator": "known-bad reader-facing route"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-008",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "repairScopeSubstitutedForSpecifiedScope",
-          "compressionDropsReferent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Disconnect accounts or folders this job does not need.",
-            "locator": "known-bad wrong-scope repair"
-          },
-          {
-            "excerpt": "Home test: invented weekend.",
-            "locator": "known-bad compressed referent"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-009",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "safetyQualifierWithUndefinedBoundary",
-          "compoundModifierInvertsAgent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "In a clean workspace",
-            "locator": "known-bad undefined safety qualifier"
-          },
-          {
-            "excerpt": "should-stay-quiet request",
-            "locator": "known-bad inverted agent"
-          }
-        ]
-      }
+      {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
+      {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
+      {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
+      {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]},
+      {"exemplarId":"CQX-BAD-007","verdict":"REJECT","identifiedFailureFamilies":["unbuiltDestinationPresentedAsLive"],"evidence":[{"excerpt":"Build the Skill. Keep the Job.","locator":"known-bad unbuilt route"}]},
+      {"exemplarId":"CQX-BAD-008","verdict":"REJECT","identifiedFailureFamilies":["repairScopeSubstitutedForSpecifiedScope","compressionDropsReferent"],"evidence":[{"excerpt":"Disconnect accounts or folders this job does not need.","locator":"known-bad scope"},{"excerpt":"Home test: invented weekend.","locator":"known-bad missing referent"}]},
+      {"exemplarId":"CQX-BAD-009","verdict":"REJECT","identifiedFailureFamilies":["safetyQualifierWithUndefinedBoundary","compoundModifierInvertsAgent"],"evidence":[{"excerpt":"In a clean workspace", "locator":"known-bad qualifier"},{"excerpt":"should-stay-quiet request", "locator":"known-bad inverted actor"}]}
     ],
-    "positive": {
-      "exemplarId": "CQX-GOOD-NEWS-001",
-      "verdict": "PASS",
-      "strengthsRetained": [
-        "dated scope",
-        "evidence boundary",
-        "specific action"
-      ],
-      "evidence": [
-        {
-          "excerpt": "The exact duty depends on the system, actor, use and exception",
-          "locator": "approved NewsStand story"
-        }
-      ]
-    }
+    "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
   "reverseBrief": {
     "humanQuestion": "Why did the output get worse after fifteen corrections, and how can I recover without abandoning the job?",
@@ -204,585 +37,100 @@
     "surfaceJob": "One complete 350–650 word Dear Miss Jeeves weekly column.",
     "desiredReaderFeeling": "Relieved that the failure is understandable and able to rescue the work without another empty promise."
   },
-  "examplePairPolicy": {
-    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
-    "sharedMechanism": true,
-    "genuinelyDifferentSettings": true
-  },
+  "examplePairPolicy": {"policyId":"LAIDIES_WORK_AND_LIFE_EXAMPLES_V1","sharedMechanism":true,"genuinelyDifferentSettings":true},
   "outcomes": {
-    "plainClarity": {
-      "verdict": "PASS",
-      "observation": "The direct answer distinguishes latest-output repair from the whole original job in one sentence.",
-      "artifactEvidence": [
-        {
-          "excerpt": "revision fifteen is often being asked to repair revision fourteen—not to satisfy the whole original job",
-          "locator": "direct answer"
-        }
-      ]
-    },
-    "readerValue": {
-      "verdict": "PASS",
-      "observation": "The reader receives five actions that preserve rather than restart a long job.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Protect the last genuinely good version.",
-          "locator": "Miss Jeeves prescribes"
-        }
-      ]
-    },
-    "laidiesVoice": {
-      "verdict": "PASS",
-      "observation": "Miss Jeeves is composed, kind and exact; the wit follows the diagnosis.",
-      "artifactEvidence": [
-        {
-          "excerpt": "You should not have to move house every time one cupboard becomes untidy.",
-          "locator": "common misunderstanding"
-        }
-      ]
-    },
-    "engagingEnjoyable": {
-      "verdict": "PASS",
-      "observation": "The promise-shaped-output and Trapper Keeper lines make two controls memorable without replacing them.",
-      "artifactEvidence": [
-        {
-          "excerpt": "It is a promise-shaped output, not a receipt.",
-          "locator": "diagnosis"
-        }
-      ]
-    },
-    "factualIntegrity": {
-      "verdict": "PASS",
-      "observation": "The answer qualifies long-session behavior and keeps product-specific causes conditional.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Long sessions can also amplify repeated or competing prompt material.",
-          "locator": "mechanism"
-        }
-      ]
-    },
-    "freshnessReviewability": {
-      "verdict": "PASS",
-      "observation": "The canonical bank record carries a dated official-source check, expiry and product-change triggers.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Sometimes the limit belongs to the product or workflow",
-          "locator": "product boundary"
-        }
-      ]
-    },
-    "surfaceFit": {
-      "verdict": "PASS",
-      "observation": "The 547-word answer follows the required question, diagnosis, misunderstanding, prescription, boundary and landing sequence.",
-      "artifactEvidence": [
-        {
-          "excerpt": "## Miss Jeeves prescribes",
-          "locator": "section heading"
-        }
-      ]
-    },
-    "datedChange": {
-      "verdict": "PASS",
-      "observation": "The answer uses current guidance as a bounded practice rather than presenting it as breaking news.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Long sessions can also amplify repeated or competing prompt material.",
-          "locator": "mechanism"
-        }
-      ]
-    },
-    "consequenceAndUncertainty": {
-      "verdict": "PASS",
-      "observation": "The answer retains multiple causes and explicitly says some failures belong to the product or workflow.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Sometimes the limit belongs to the product or workflow: the available context, missing attachments, unavailable tools, permissions, an outage or a model change.",
-          "locator": "product boundary"
-        }
-      ]
-    },
-    "dailyLifeConnection": {
-      "verdict": "PASS",
-      "observation": "The itinerary case transfers the same durable-state and regression mechanism outside work.",
-      "artifactEvidence": [
-        {
-          "excerpt": "test the same imaginary itinerary days and check mobility needs, meal times and budget",
-          "locator": "prescription step 3"
-        }
-      ]
-    },
-    "communicationBenchmark": {
-      "verdict": "PASS",
-      "observation": "The invisible difference between acknowledgement and enforcement becomes concrete.",
-      "artifactEvidence": [
-        {
-          "excerpt": "That sentence does not install a lock, update a test or prove the next output complied.",
-          "locator": "diagnosis"
-        }
-      ]
-    },
-    "explanationReasoningBenchmark": {
-      "verdict": "PASS",
-      "observation": "The column connects local correction, lost earlier requirement, unenforced promise and external validation.",
-      "artifactEvidence": [
-        {
-          "excerpt": "the latest complaint gets attention while an earlier requirement quietly falls out",
-          "locator": "mechanism"
-        }
-      ]
-    },
-    "explainBack": {
-      "verdict": "PASS",
-      "observation": "The prose supports explaining why acknowledgement does not guarantee compliance.",
-      "artifactEvidence": [
-        {
-          "excerpt": "It is a promise-shaped output, not a receipt.",
-          "locator": "diagnosis"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "Why does the AI saying it understands not prove the next draft will comply?",
-        "probeResponse": "Because acknowledgement is generated text; only checking the next artifact against the authoritative brief shows whether it complied.",
-        "expectedEvidence": "Reader separates conversational agreement from observed enforcement."
-      }
-    },
-    "unseenTransfer": {
-      "verdict": "PASS",
-      "observation": "The reader can transfer the method from a board briefing and itinerary to another long project.",
-      "artifactEvidence": [
-        {
-          "excerpt": "hand it the current brief, accepted version and open issue",
-          "locator": "prescription step 5"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "How would you rescue a repeatedly revised family budget without starting over?",
-        "probeResponse": "Keep the requirements and last good version outside the chat, rerun the same invented cases after one change and promote only a passing candidate.",
-        "expectedEvidence": "Reader transfers external truth, versioning, bounded change and tests."
-      }
-    },
-    "usefulAction": {
-      "verdict": "PASS",
-      "observation": "The recovery is executable without technical tooling and names when prompting is no longer the remedy.",
-      "artifactEvidence": [
-        {
-          "excerpt": "If the same stable test keeps failing, stop revising the prompt.",
-          "locator": "product boundary"
-        }
-      ]
-    },
-    "analogyIntegrity": {
-      "verdict": "PASS",
-      "observation": "The Post-it and Trapper Keeper map to accumulated local notes and missing authoritative organization.",
-      "artifactEvidence": [
-        {
-          "excerpt": "pinning another Post-it to the same overstuffed Trapper Keeper",
-          "locator": "landing"
-        }
-      ]
-    },
-    "workplaceExample": {
-      "verdict": "PASS",
-      "observation": "The board briefing supplies a bounded workplace case with observable requirements.",
-      "artifactEvidence": [
-        {
-          "excerpt": "For a board briefing, use the same fictional source packets",
-          "locator": "prescription step 3"
-        }
-      ]
-    },
-    "nonWorkExample": {
-      "verdict": "PASS",
-      "observation": "The itinerary supplies a genuinely different non-work case with the same control mechanism.",
-      "artifactEvidence": [
-        {
-          "excerpt": "test the same imaginary itinerary days",
-          "locator": "prescription step 3"
-        }
-      ]
-    }
+    "plainClarity": {"verdict":"PASS","observation":"The direct answer distinguishes latest-output repair from the whole original job in one sentence.","artifactEvidence":[{"excerpt":"revision fifteen is often being asked to repair revision fourteen—not to satisfy the whole original job","locator":"direct answer"}]},
+    "readerValue": {"verdict":"PASS","observation":"The reader receives five actions that preserve rather than restart a long job.","artifactEvidence":[{"excerpt":"Protect the last genuinely good version.","locator":"Miss Jeeves prescribes"}]},
+    "laidiesVoice": {"verdict":"PASS","observation":"Miss Jeeves is composed, kind and exact; the wit follows the diagnosis.","artifactEvidence":[{"excerpt":"You should not have to move house every time one cupboard becomes untidy.","locator":"common misunderstanding"}]},
+    "engagingEnjoyable": {"verdict":"PASS","observation":"The promise-shaped-output and Trapper Keeper lines make two controls memorable without replacing them.","artifactEvidence":[{"excerpt":"It is a promise-shaped output, not a receipt.","locator":"diagnosis"}]},
+    "factualIntegrity": {"verdict":"PASS","observation":"The answer qualifies long-session behavior and keeps product-specific causes conditional.","artifactEvidence":[{"excerpt":"Long sessions can also amplify repeated or competing prompt material.","locator":"mechanism"}]},
+    "freshnessReviewability": {"verdict":"PASS","observation":"The canonical bank record carries a dated official-source check, expiry and product-change triggers.","artifactEvidence":[{"excerpt":"Sometimes the limit belongs to the product or workflow","locator":"product boundary"}]},
+    "surfaceFit": {"verdict":"PASS","observation":"The 547-word answer follows the required question, diagnosis, misunderstanding, prescription, boundary and landing sequence.","artifactEvidence":[{"excerpt":"## Miss Jeeves prescribes","locator":"section heading"}]},
+    "datedChange": {"verdict":"PASS","observation":"The answer uses current guidance as a bounded practice rather than presenting it as breaking news.","artifactEvidence":[{"excerpt":"Long sessions can also amplify repeated or competing prompt material.","locator":"mechanism"}]},
+    "consequenceAndUncertainty": {"verdict":"PASS","observation":"The answer retains multiple causes and explicitly says some failures belong to the product or workflow.","artifactEvidence":[{"excerpt":"Sometimes the limit belongs to the product or workflow: the available context, missing attachments, unavailable tools, permissions, an outage or a model change.","locator":"product boundary"}]},
+    "dailyLifeConnection": {"verdict":"PASS","observation":"The itinerary case transfers the same durable-state and regression mechanism outside work.","artifactEvidence":[{"excerpt":"test the same imaginary itinerary days and check mobility needs, meal times and budget","locator":"prescription step 3"}]},
+    "communicationBenchmark": {"verdict":"PASS","observation":"The invisible difference between acknowledgement and enforcement becomes concrete.","artifactEvidence":[{"excerpt":"That sentence does not install a lock, update a test or prove the next output complied.","locator":"diagnosis"}]},
+    "explanationReasoningBenchmark": {"verdict":"PASS","observation":"The column connects local correction, lost earlier requirement, unenforced promise and external validation.","artifactEvidence":[{"excerpt":"the latest complaint gets attention while an earlier requirement quietly falls out","locator":"mechanism"}]},
+    "explainBack": {"verdict":"PASS","observation":"The prose supports explaining why acknowledgement does not guarantee compliance.","artifactEvidence":[{"excerpt":"It is a promise-shaped output, not a receipt.","locator":"diagnosis"}],"simulatedReaderProbe":{"prompt":"Why does the AI saying it understands not prove the next draft will comply?","probeResponse":"Because acknowledgement is generated text; only checking the next artifact against the authoritative brief shows whether it complied.","expectedEvidence":"Reader separates conversational agreement from observed enforcement."}},
+    "unseenTransfer": {"verdict":"PASS","observation":"The reader can transfer the method from a board briefing and itinerary to another long project.","artifactEvidence":[{"excerpt":"hand it the current brief, accepted version and open issue","locator":"prescription step 5"}],"simulatedReaderProbe":{"prompt":"How would you rescue a repeatedly revised family budget without starting over?","probeResponse":"Keep the requirements and last good version outside the chat, rerun the same invented cases after one change and promote only a passing candidate.","expectedEvidence":"Reader transfers external truth, versioning, bounded change and tests."}},
+    "usefulAction": {"verdict":"PASS","observation":"The recovery is executable without technical tooling and names when prompting is no longer the remedy.","artifactEvidence":[{"excerpt":"If the same stable test keeps failing, stop revising the prompt.","locator":"product boundary"}]},
+    "analogyIntegrity": {"verdict":"PASS","observation":"The Post-it and Trapper Keeper map to accumulated local notes and missing authoritative organization.","artifactEvidence":[{"excerpt":"pinning another Post-it to the same overstuffed Trapper Keeper","locator":"landing"}]},
+    "workplaceExample": {"verdict":"PASS","observation":"The board briefing supplies a bounded workplace case with observable requirements.","artifactEvidence":[{"excerpt":"For a board briefing, use the same fictional source packets","locator":"prescription step 3"}]},
+    "nonWorkExample": {"verdict":"PASS","observation":"The itinerary supplies a genuinely different non-work case with the same control mechanism.","artifactEvidence":[{"excerpt":"test the same imaginary itinerary days","locator":"prescription step 3"}]}
   },
   "failureFamilies": {
-    "adviceBelowReaderBaseline": {
-      "present": false,
-      "observation": "The column goes beyond start over, add context or write a rule file by adding durable state, versioning and tests.",
-      "artifactLocator": "prescription"
-    },
-    "aidbDeference": {
-      "present": false,
-      "observation": "AIDB absence is recorded; official evidence governs.",
-      "artifactLocator": "source bindings"
-    },
-    "benchmarkNameDrop": {
-      "present": false,
-      "observation": "No benchmark personality enters the copy.",
-      "artifactLocator": "candidate record"
-    },
-    "claimEvidenceCollapsed": {
-      "present": false,
-      "observation": "Official long-session and evaluation guidance remains distinct from LAiDIES' workflow prescription.",
-      "artifactLocator": "mechanism and prescription"
-    },
-    "communicationPastiche": {
-      "present": false,
-      "observation": "The copy uses LAiDIES' own service voice.",
-      "artifactLocator": "headline and body"
-    },
-    "corporateSludge": {
-      "present": false,
-      "observation": "External state and validation become brief, best version and checks.",
-      "artifactLocator": "prescription"
-    },
-    "curiosityWithoutPayoff": {
-      "present": false,
-      "observation": "The surprising promise-shaped-output line resolves into the enforcement distinction.",
-      "artifactLocator": "diagnosis"
-    },
-    "decorativeAnalogy": {
-      "present": false,
-      "observation": "The Trapper Keeper maps accumulated local notes to missing authoritative organization.",
-      "artifactLocator": "landing"
-    },
-    "disconnectedSystem": {
-      "present": false,
-      "observation": "Context, artifact version, stable checks and promotion decision form one recovery system.",
-      "artifactLocator": "diagnosis and prescription"
-    },
-    "entertainmentBeforeUnderstanding": {
-      "present": false,
-      "observation": "The playful headline is followed immediately by mechanism.",
-      "artifactLocator": "headline and first sentence"
-    },
-    "factlessConfidence": {
-      "present": false,
-      "observation": "The record binds a current official product claim.",
-      "artifactLocator": "sourceClaimIds"
-    },
-    "falseBreakingUrgency": {
-      "present": false,
-      "observation": "This is an evergreen advice column without alert framing.",
-      "artifactLocator": "candidate record"
-    },
-    "familiarExampleWithoutTechnicalReturn": {
-      "present": false,
-      "observation": "Both examples return to the same stable-case comparison.",
-      "artifactLocator": "candidate body"
-    },
-    "firstPrinciplesGap": {
-      "present": false,
-      "observation": "The answer connects local corrections and generated acknowledgement to missing enforcement.",
-      "artifactLocator": "diagnosis"
-    },
-    "genericAction": {
-      "present": false,
-      "observation": "The column specifies freeze, version, test, change and checkpoint actions.",
-      "artifactLocator": "prescription"
-    },
-    "genericEditorialVoice": {
-      "present": false,
-      "observation": "Miss Jeeves diagnoses revision drift and prescribes durable controls in her own service voice.",
-      "artifactLocator": "full column"
-    },
-    "glossaryAccumulation": {
-      "present": false,
-      "observation": "One technical term is defined through a failed old case.",
-      "artifactLocator": "candidate landing"
-    },
-    "implausibleAudienceAction": {
-      "present": false,
-      "observation": "A reader can run the small fictional examples without specialist tools.",
-      "artifactLocator": "candidate body"
-    },
-    "inflatedTakeawayEnding": {
-      "present": false,
-      "observation": "The ending returns to one candidate earning promotion rather than a grand moral.",
-      "artifactLocator": "landing"
-    },
-    "internalScaffoldingExposedToReader": {
-      "present": false,
-      "observation": "No gate, work-order or HOLD prose appears in the column.",
-      "artifactLocator": "full column"
-    },
-    "jargonBeforeMeaning": {
-      "present": false,
-      "observation": "The lived failure is explained before validation or deterministic controls appear.",
-      "artifactLocator": "opening and product boundary"
-    },
-    "joylessInstruction": {
-      "present": false,
-      "observation": "Two earned jokes make the recovery approachable without hiding it.",
-      "artifactLocator": "misunderstanding and landing"
-    },
-    "laidiesVoiceAbsent": {
-      "present": false,
-      "observation": "Adult candour and bounded wit are present.",
-      "artifactLocator": "headline and body"
-    },
-    "longRunningWorkflowRealityIgnored": {
-      "present": false,
-      "observation": "Saved cases can be rerun across later revisions instead of resetting the session.",
-      "artifactLocator": "candidate body"
-    },
-    "mechanismBeforeMotivation": {
-      "present": false,
-      "observation": "The exact exhausted-reader question and direct answer precede the mechanism.",
-      "artifactLocator": "opening"
-    },
-    "mechanismCompressedBehindHook": {
-      "present": false,
-      "observation": "Most of the column is diagnosis, recovery and boundary rather than wit.",
-      "artifactLocator": "full column"
-    },
-    "missingAidbRelevanceCheck": {
-      "present": false,
-      "observation": "A dated repository search found no conflicting AIDB treatment of the exact habit.",
-      "artifactLocator": "producer contract evidence analysis"
-    },
-    "missingMechanism": {
-      "present": false,
-      "observation": "Local repair, competing requirements, generated acknowledgement and absent enforcement are connected.",
-      "artifactLocator": "diagnosis"
-    },
-    "missingNewcomerBackground": {
-      "present": false,
-      "observation": "No evaluation-platform knowledge is assumed.",
-      "artifactLocator": "candidate body"
-    },
-    "newspaperHierarchyUnclear": {
-      "present": false,
-      "observation": "One exact question owns one complete weekly column.",
-      "artifactLocator": "candidate record"
-    },
-    "parrotingExplainBack": {
-      "present": false,
-      "observation": "The probe requires separating conversational agreement from artifact compliance.",
-      "artifactLocator": "diagnosis"
-    },
-    "predeterminedThesisInsteadOfInvestigation": {
-      "present": false,
-      "observation": "The recommendation remains bounded to what the official guidance establishes.",
-      "artifactLocator": "candidate body"
-    },
-    "prematureClickBeforeMechanism": {
-      "present": false,
-      "observation": "The Trapper Keeper landing follows the complete mechanism and prescription.",
-      "artifactLocator": "landing"
-    },
-    "promptAdviceMistakenForEnforcement": {
-      "present": false,
-      "observation": "Observed checks, not stronger wording alone, determine improvement.",
-      "artifactLocator": "candidate body"
-    },
-    "purposeTooNarrow": {
-      "present": false,
-      "observation": "The column intentionally solves one repeated-revision failure and gives a full recovery.",
-      "artifactLocator": "audienceJob"
-    },
-    "referenceConfetti": {
-      "present": false,
-      "observation": "One Trapper Keeper reference serves the control distinction and no decorative name-dropping appears.",
-      "artifactLocator": "landing"
-    },
-    "rewindDecorationInsteadOfTeaching": {
-      "present": false,
-      "observation": "The era object performs the accumulated-notes versus indexed-truth teaching job.",
-      "artifactLocator": "landing"
-    },
-    "sourceAvailabilityMistakenForEditorialValue": {
-      "present": false,
-      "observation": "The recurring fifteen-revision failure earns the column; official guidance supplies evidence rather than the story premise.",
-      "artifactLocator": "audienceJob"
-    },
-    "staleUnreviewableClaims": {
-      "present": false,
-      "observation": "Expiry and product-change triggers are explicit.",
-      "artifactLocator": "freshness"
-    },
-    "statusLanguageOvertakesExperience": {
-      "present": false,
-      "observation": "HOLD remains metadata, not reader copy.",
-      "artifactLocator": "candidate record"
-    },
-    "technicalExplainerVoice": {
-      "present": false,
-      "observation": "The copy uses ordinary task language.",
-      "artifactLocator": "candidate body"
-    },
-    "technicalReaderAssumption": {
-      "present": false,
-      "observation": "No coding knowledge is required.",
-      "artifactLocator": "candidate body"
-    },
-    "templateRepetition": {
-      "present": false,
-      "observation": "The sequence follows diagnosis, misunderstanding, prescription and product boundary rather than a generic tips card.",
-      "artifactLocator": "full column"
-    },
-    "weakReaderPremise": {
-      "present": false,
-      "observation": "Repeated revisions without a comparison create a real reader decision.",
-      "artifactLocator": "audienceJob"
-    },
-    "workedExampleOvertakesBookPurpose": {
-      "present": false,
-      "observation": "Both examples remain brief and subordinate to the long-work recovery.",
-      "artifactLocator": "prescription step 3"
-    },
-    "fictionalInputMistakenForIsolation": {
-      "present": false,
-      "observation": "The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.",
-      "artifactLocator": "full candidate"
-    },
-    "unbuiltDestinationPresentedAsLive": {
-      "present": false,
-      "observation": "No planned, specified, built-local or held destination is presented as a current reader route.",
-      "artifactLocator": "exact candidate and related-learning metadata"
-    },
-    "repairScopeSubstitutedForSpecifiedScope": {
-      "present": false,
-      "observation": "No control scope was substituted in a way that preserves the original hazard.",
-      "artifactLocator": "exact candidate and originating transfer scenario"
-    },
-    "compressionDropsReferent": {
-      "present": false,
-      "observation": "Every compressed criterion retains the thing being tested and its output.",
-      "artifactLocator": "exact candidate examples"
-    },
-    "safetyQualifierWithUndefinedBoundary": {
-      "present": false,
-      "observation": "Safety conditions are reader-observable and include an exact stop disposition.",
-      "artifactLocator": "exact candidate"
-    },
-    "compoundModifierInvertsAgent": {
-      "present": false,
-      "observation": "No compound modifier can invert the tested actor or invite sensitive material.",
-      "artifactLocator": "exact candidate"
-    }
+    "adviceBelowReaderBaseline":{"present":false,"observation":"The column goes beyond start over, add context or write a rule file by adding durable state, versioning and tests.","artifactLocator":"prescription"},
+    "aidbDeference":{"present":false,"observation":"AIDB absence is recorded; official evidence governs.","artifactLocator":"source bindings"},
+    "benchmarkNameDrop":{"present":false,"observation":"No benchmark personality enters the copy.","artifactLocator":"candidate record"},
+    "claimEvidenceCollapsed":{"present":false,"observation":"Official long-session and evaluation guidance remains distinct from LAiDIES' workflow prescription.","artifactLocator":"mechanism and prescription"},
+    "communicationPastiche":{"present":false,"observation":"The copy uses LAiDIES' own service voice.","artifactLocator":"headline and body"},
+    "corporateSludge":{"present":false,"observation":"External state and validation become brief, best version and checks.","artifactLocator":"prescription"},
+    "curiosityWithoutPayoff":{"present":false,"observation":"The surprising promise-shaped-output line resolves into the enforcement distinction.","artifactLocator":"diagnosis"},
+    "decorativeAnalogy":{"present":false,"observation":"The Trapper Keeper maps accumulated local notes to missing authoritative organization.","artifactLocator":"landing"},
+    "disconnectedSystem":{"present":false,"observation":"Context, artifact version, stable checks and promotion decision form one recovery system.","artifactLocator":"diagnosis and prescription"},
+    "entertainmentBeforeUnderstanding":{"present":false,"observation":"The playful headline is followed immediately by mechanism.","artifactLocator":"headline and first sentence"},
+    "factlessConfidence":{"present":false,"observation":"The record binds a current official product claim.","artifactLocator":"sourceClaimIds"},
+    "falseBreakingUrgency":{"present":false,"observation":"This is an evergreen advice column without alert framing.","artifactLocator":"candidate record"},
+    "familiarExampleWithoutTechnicalReturn":{"present":false,"observation":"Both examples return to the same stable-case comparison.","artifactLocator":"candidate body"},
+    "firstPrinciplesGap":{"present":false,"observation":"The answer connects local corrections and generated acknowledgement to missing enforcement.","artifactLocator":"diagnosis"},
+    "genericAction":{"present":false,"observation":"The column specifies freeze, version, test, change and checkpoint actions.","artifactLocator":"prescription"},
+    "genericEditorialVoice":{"present":false,"observation":"Miss Jeeves diagnoses revision drift and prescribes durable controls in her own service voice.","artifactLocator":"full column"},
+    "glossaryAccumulation":{"present":false,"observation":"One technical term is defined through a failed old case.","artifactLocator":"candidate landing"},
+    "implausibleAudienceAction":{"present":false,"observation":"A reader can run the small fictional examples without specialist tools.","artifactLocator":"candidate body"},
+    "inflatedTakeawayEnding":{"present":false,"observation":"The ending returns to one candidate earning promotion rather than a grand moral.","artifactLocator":"landing"},
+    "internalScaffoldingExposedToReader":{"present":false,"observation":"No gate, work-order or HOLD prose appears in the column.","artifactLocator":"full column"},
+    "jargonBeforeMeaning":{"present":false,"observation":"The lived failure is explained before validation or deterministic controls appear.","artifactLocator":"opening and product boundary"},
+    "joylessInstruction":{"present":false,"observation":"Two earned jokes make the recovery approachable without hiding it.","artifactLocator":"misunderstanding and landing"},
+    "laidiesVoiceAbsent":{"present":false,"observation":"Adult candour and bounded wit are present.","artifactLocator":"headline and body"},
+    "longRunningWorkflowRealityIgnored":{"present":false,"observation":"Saved cases can be rerun across later revisions instead of resetting the session.","artifactLocator":"candidate body"},
+    "mechanismBeforeMotivation":{"present":false,"observation":"The exact exhausted-reader question and direct answer precede the mechanism.","artifactLocator":"opening"},
+    "mechanismCompressedBehindHook":{"present":false,"observation":"Most of the column is diagnosis, recovery and boundary rather than wit.","artifactLocator":"full column"},
+    "missingAidbRelevanceCheck":{"present":false,"observation":"A dated repository search found no conflicting AIDB treatment of the exact habit.","artifactLocator":"producer contract evidence analysis"},
+    "missingMechanism":{"present":false,"observation":"Local repair, competing requirements, generated acknowledgement and absent enforcement are connected.","artifactLocator":"diagnosis"},
+    "missingNewcomerBackground":{"present":false,"observation":"No evaluation-platform knowledge is assumed.","artifactLocator":"candidate body"},
+    "newspaperHierarchyUnclear":{"present":false,"observation":"One exact question owns one complete weekly column.","artifactLocator":"candidate record"},
+    "parrotingExplainBack":{"present":false,"observation":"The probe requires separating conversational agreement from artifact compliance.","artifactLocator":"diagnosis"},
+    "predeterminedThesisInsteadOfInvestigation":{"present":false,"observation":"The recommendation remains bounded to what the official guidance establishes.","artifactLocator":"candidate body"},
+    "prematureClickBeforeMechanism":{"present":false,"observation":"The Trapper Keeper landing follows the complete mechanism and prescription.","artifactLocator":"landing"},
+    "promptAdviceMistakenForEnforcement":{"present":false,"observation":"Observed checks, not stronger wording alone, determine improvement.","artifactLocator":"candidate body"},
+    "purposeTooNarrow":{"present":false,"observation":"The column intentionally solves one repeated-revision failure and gives a full recovery.","artifactLocator":"audienceJob"},
+    "referenceConfetti":{"present":false,"observation":"One Trapper Keeper reference serves the control distinction and no decorative name-dropping appears.","artifactLocator":"landing"},
+    "rewindDecorationInsteadOfTeaching":{"present":false,"observation":"The era object performs the accumulated-notes versus indexed-truth teaching job.","artifactLocator":"landing"},
+    "sourceAvailabilityMistakenForEditorialValue":{"present":false,"observation":"The recurring fifteen-revision failure earns the column; official guidance supplies evidence rather than the story premise.","artifactLocator":"audienceJob"},
+    "staleUnreviewableClaims":{"present":false,"observation":"Expiry and product-change triggers are explicit.","artifactLocator":"freshness"},
+    "statusLanguageOvertakesExperience":{"present":false,"observation":"HOLD remains metadata, not reader copy.","artifactLocator":"candidate record"},
+    "technicalExplainerVoice":{"present":false,"observation":"The copy uses ordinary task language.","artifactLocator":"candidate body"},
+    "technicalReaderAssumption":{"present":false,"observation":"No coding knowledge is required.","artifactLocator":"candidate body"},
+    "templateRepetition":{"present":false,"observation":"The sequence follows diagnosis, misunderstanding, prescription and product boundary rather than a generic tips card.","artifactLocator":"full column"},
+    "weakReaderPremise":{"present":false,"observation":"Repeated revisions without a comparison create a real reader decision.","artifactLocator":"audienceJob"},
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Both examples remain brief and subordinate to the long-work recovery.","artifactLocator":"prescription step 3"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.","artifactLocator":"full candidate"},
+    "unbuiltDestinationPresentedAsLive":{"present":false,"observation":"No unproved destination is presented as live.","artifactLocator":"exact candidate"},
+    "repairScopeSubstitutedForSpecifiedScope":{"present":false,"observation":"No effective control scope is weakened by substitution.","artifactLocator":"exact candidate"},
+    "compressionDropsReferent":{"present":false,"observation":"Compact criteria retain actor, object, action and criterion.","artifactLocator":"exact candidate"},
+    "safetyQualifierWithUndefinedBoundary":{"present":false,"observation":"Safety conditions are observable and include a disposition.","artifactLocator":"exact candidate"},
+    "compoundModifierInvertsAgent":{"present":false,"observation":"No modifier can attach tested behavior to the wrong actor.","artifactLocator":"exact candidate"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",
     "sourceBindings": [
-      {
-        "path": "operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md",
-        "sha256": "79692a0c5754eaabbc707af7bff7d5efc7a8630e66a1f6b328a7d29bc15bb378"
-      },
-      {
-        "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
-        "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
-      },
-      {
-        "path": "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md",
-        "sha256": "c2e3c035469a6cae71002f44b83c9264a3330cce3675965a1e2b062236adddeb"
-      }
+      {"path":"operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md","sha256":"79692a0c5754eaabbc707af7bff7d5efc7a8630e66a1f6b328a7d29bc15bb378"},
+      {"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"},
+      {"path":"operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md","sha256":"c2e3c035469a6cae71002f44b83c9264a3330cce3675965a1e2b062236adddeb"}
     ],
     "claimMap": [
-      {
-        "claimId": "DMJ-LONG-SESSION-AMPLIFICATION",
-        "status": "QUALIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "Long sessions can also amplify repeated or competing prompt material.",
-            "locator": "mechanism"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md",
-          "sha256": "79692a0c5754eaabbc707af7bff7d5efc7a8630e66a1f6b328a7d29bc15bb378"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "long sessions can amplify repeated prompt",
-            "locator": "What the source establishes"
-          }
-        ],
-        "scopeAndFreshness": "OpenAI guidance checked August 12, 2026; the candidate says can, not always, and does not generalize product-specific context behavior."
-      },
-      {
-        "claimId": "DMJ-ONE-CURRENT-BRIEF",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "replace the old instruction and mark it superseded; do not paste a fifteenth rule beside fourteen conflicting ones.",
-            "locator": "prescription step 1"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md",
-          "sha256": "79692a0c5754eaabbc707af7bff7d5efc7a8630e66a1f6b328a7d29bc15bb378"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "one compact autonomy",
-            "locator": "What the source establishes"
-          }
-        ],
-        "scopeAndFreshness": "OpenAI guidance checked August 12, 2026; reconciling superseded requirements is a bounded LAiDIES workflow application, not a claim that every product loads external files automatically."
-      },
-      {
-        "claimId": "DMJ-REPEATABLE-REVISION-CHECKS",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "**Change one thing at a time.** Then rerun every check, including the old ones.",
-            "locator": "prescription step 4"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
-          "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "use representative tasks, alter one instruction, example or tool group at a time and rerun the same evaluations",
-            "locator": "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS evidence summary"
-          }
-        ],
-        "scopeAndFreshness": "Current official practice checked August 12, 2026; a small test set is useful evidence, not universal proof."
-      },
-      {
-        "claimId": "DMJ-LONG-WORK-RECOVERY",
-        "status": "QUALIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "Keep one whole-job brief outside the conversation—and reconcile it.",
-            "locator": "prescription step 1"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md",
-          "sha256": "c2e3c035469a6cae71002f44b83c9264a3330cce3675965a1e2b062236adddeb"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "one current external brief that replaces and marks superseded instructions",
-            "locator": "Dear Miss Jeeves method"
-          }
-        ],
-        "scopeAndFreshness": "This is LAiDIES' tested workflow prescription, not an OpenAI feature claim or a guarantee that every product supports persistent state."
-      }
+      {"claimId":"DMJ-LONG-SESSION-AMPLIFICATION","status":"QUALIFIED","candidateEvidence":[{"excerpt":"Long sessions can also amplify repeated or competing prompt material.","locator":"mechanism"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md","sha256":"79692a0c5754eaabbc707af7bff7d5efc7a8630e66a1f6b328a7d29bc15bb378"},"sourceEvidence":[{"excerpt":"long sessions can amplify repeated prompt","locator":"What the source establishes"}],"scopeAndFreshness":"OpenAI guidance checked August 12, 2026; the candidate says can, not always, and does not generalize product-specific context behavior."},
+      {"claimId":"DMJ-ONE-CURRENT-BRIEF","status":"VERIFIED","candidateEvidence":[{"excerpt":"replace the old instruction and mark it superseded; do not paste a fifteenth rule beside fourteen conflicting ones.","locator":"prescription step 1"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/candidates/dmj-004-openai-source-note-2026-08-11.md","sha256":"79692a0c5754eaabbc707af7bff7d5efc7a8630e66a1f6b328a7d29bc15bb378"},"sourceEvidence":[{"excerpt":"one compact autonomy","locator":"What the source establishes"}],"scopeAndFreshness":"OpenAI guidance checked August 12, 2026; reconciling superseded requirements is a bounded LAiDIES workflow application, not a claim that every product loads external files automatically."},
+      {"claimId":"DMJ-REPEATABLE-REVISION-CHECKS","status":"VERIFIED","candidateEvidence":[{"excerpt":"**Change one thing at a time.** Then rerun every check, including the old ones.","locator":"prescription step 4"}],"sourceBinding":{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"},"sourceEvidence":[{"excerpt":"use representative tasks, alter one instruction, example or tool group at a time and rerun the same evaluations","locator":"CLM-PRACTICE-REPEATABLE-PROMPT-EVALS evidence summary"}],"scopeAndFreshness":"Current official practice checked August 12, 2026; a small test set is useful evidence, not universal proof."},
+      {"claimId":"DMJ-LONG-WORK-RECOVERY","status":"QUALIFIED","candidateEvidence":[{"excerpt":"Keep one whole-job brief outside the conversation—and reconcile it.","locator":"prescription step 1"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md","sha256":"c2e3c035469a6cae71002f44b83c9264a3330cce3675965a1e2b062236adddeb"},"sourceEvidence":[{"excerpt":"one current external brief that replaces and marks superseded instructions","locator":"Dear Miss Jeeves method"}],"scopeAndFreshness":"This is LAiDIES' tested workflow prescription, not an OpenAI feature claim or a guarantee that every product supports persistent state."}
     ],
     "reviewedThrough": "2026-08-12",
     "nextTrigger": "OpenAI materially changes long-session, prompting or evaluation guidance, or the candidate names a specific model, context feature, memory behavior or performance result.",
     "correctionOwner": "learning-content-ecosystem with newsstand-daily"
   },
-  "ratchet": {
-    "repeatedKnownDefects": 0,
-    "objectiveDefectsFirstFoundAtReview": 0,
-    "reviewIssues": 0,
-    "reviewCycles": 1,
-    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
-  },
-  "lineage": {
-    "kind": "FIRST",
-    "noComparableReason": "First DMJ-004 successor produced after Ali rejected the sampler's start-a-new-session and rule-file advice; the rejected sampler covered multiple formats and is not a comparable admitted column."
-  },
-  "learningDisposition": {
-    "disposition": "NO_NEW_DEFECT",
-    "rationale": "The existing rejection and defect registry prevented universal restart advice, prompting-as-enforcement, ignored long-work reality and decorative Miss Jeeves voice before self-review."
-  },
+  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage": {"kind":"FIRST","noComparableReason":"First DMJ-004 successor produced after Ali rejected the sampler's start-a-new-session and rule-file advice; the rejected sampler covered multiple formats and is not a comparable admitted column."},
+  "learningDisposition": {"disposition":"NO_NEW_DEFECT","rationale":"The existing rejection and defect registry prevented universal restart advice, prompting-as-enforcement, ignored long-work reality and decorative Miss Jeeves voice before self-review."},
   "verdict": "PASS",
-  "limitations": [
-    "Producer self-review has no independent quality authority.",
-    "DMJ-004 remains RESEARCHING and publicly ineligible.",
-    "No independent semantic admission, weekly schedule, Daily integration, radio adaptation, deploy or public verification has occurred."
-  ]
+  "limitations": ["Producer self-review has no independent quality authority.", "DMJ-004 remains RESEARCHING and publicly ineligible.", "No independent semantic admission, weekly schedule, Daily integration, radio adaptation, deploy or public verification has occurred."]
 }

@@ -5,196 +5,29 @@
   "contentClass": "NEWS",
   "surface": "SUNNYVAiLE NewsStand / Promptoscope",
   "maker": "newsstand-daily",
-  "reviewer": {
-    "id": "newsstand-daily-self-review-20260811",
-    "principalId": "newsstand-daily",
-    "role": "producer",
-    "modelFamily": "openai-gpt-5.6"
-  },
+  "reviewer": {"id":"newsstand-daily-self-review-20260811","principalId":"newsstand-daily","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
   "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
-    "reviewText": {
-      "path": "content/daily-learning-derivatives.json",
-      "sha256": "4e2aac2ef8fb73b809b6da75e5bb26ca5f076b430d9b8f0b2278c3ef5d0a10e3"
-    },
-    "manifest": {
-      "path": "operations/product-stewards/newsstand/candidates/promptoscope-repeatable-evals-2026-08-11-manifest.json",
-      "sha256": "ea18e0c9debf7475f833a577afe6034706269e7ef6353abafa46f2a5d0e84ba5"
-    }
+    "reviewText": {"path":"content/daily-learning-derivatives.json","sha256":"4e2aac2ef8fb73b809b6da75e5bb26ca5f076b430d9b8f0b2278c3ef5d0a10e3"},
+    "manifest": {"path":"operations/product-stewards/newsstand/candidates/promptoscope-repeatable-evals-2026-08-11-manifest.json","sha256":"ea18e0c9debf7475f833a577afe6034706269e7ef6353abafa46f2a5d0e84ba5"}
   },
   "calibration": {
-    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
+    "registrySha256": "04917a92bad2f03efd9c8cbf09a59190bda7eaa5192e087e1e3757016f42fbda",
     "reviewerPrincipalId": "newsstand-daily",
     "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
-      {
-        "exemplarId": "CQX-BAD-001",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "glossaryAccumulation",
-          "templateRepetition",
-          "decorativeAnalogy",
-          "referenceConfetti",
-          "missingMechanism",
-          "genericAction",
-          "jargonBeforeMeaning",
-          "disconnectedSystem",
-          "joylessInstruction"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Chapter 1 — Meet the parts of the system",
-            "locator": "known-bad opening"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-002",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "purposeTooNarrow",
-          "mechanismBeforeMotivation",
-          "workedExampleOvertakesBookPurpose",
-          "technicalExplainerVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "## Introduction — What you are actually using",
-            "locator": "known-bad introduction"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-003",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "falseBreakingUrgency",
-          "missingNewcomerBackground",
-          "technicalReaderAssumption",
-          "implausibleAudienceAction",
-          "laidiesVoiceAbsent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "OpenAI says no upcoming-release model was involved",
-            "locator": "known-bad headline"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-004",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "internalScaffoldingExposedToReader",
-          "newspaperHierarchyUnclear",
-          "statusLanguageOvertakesExperience"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Model front page — structure example",
-            "locator": "known-bad Daily"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-005",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "sourceAvailabilityMistakenForEditorialValue",
-          "missingAidbRelevanceCheck",
-          "predeterminedThesisInsteadOfInvestigation",
-          "weakReaderPremise",
-          "adviceBelowReaderBaseline",
-          "promptAdviceMistakenForEnforcement",
-          "longRunningWorkflowRealityIgnored",
-          "genericEditorialVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "# REJECTED — LAiDIES publication-format sampler round 1",
-            "locator": "rejected sampler"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-006",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "fictionalInputMistakenForIsolation"
-        ],
-        "evidence": [
-          {
-            "excerpt": "The fictional notes and imaginary trip protect only those example inputs",
-            "locator": "exact missed defect"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-007",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "unbuiltDestinationPresentedAsLive"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Build the Skill. Keep the Job.",
-            "locator": "known-bad reader-facing route"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-008",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "repairScopeSubstitutedForSpecifiedScope",
-          "compressionDropsReferent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Disconnect accounts or folders this job does not need.",
-            "locator": "known-bad wrong-scope repair"
-          },
-          {
-            "excerpt": "Home test: invented weekend.",
-            "locator": "known-bad compressed referent"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-009",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "safetyQualifierWithUndefinedBoundary",
-          "compoundModifierInvertsAgent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "In a clean workspace",
-            "locator": "known-bad undefined safety qualifier"
-          },
-          {
-            "excerpt": "should-stay-quiet request",
-            "locator": "known-bad inverted agent"
-          }
-        ]
-      }
+      {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
+      {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
+      {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
+      {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]},
+      {"exemplarId":"CQX-BAD-007","verdict":"REJECT","identifiedFailureFamilies":["unbuiltDestinationPresentedAsLive"],"evidence":[{"excerpt":"Build the Skill. Keep the Job.","locator":"known-bad unbuilt route"}]},
+      {"exemplarId":"CQX-BAD-008","verdict":"REJECT","identifiedFailureFamilies":["repairScopeSubstitutedForSpecifiedScope","compressionDropsReferent"],"evidence":[{"excerpt":"Disconnect accounts or folders this job does not need.","locator":"known-bad scope"},{"excerpt":"Home test: invented weekend.","locator":"known-bad missing referent"}]},
+      {"exemplarId":"CQX-BAD-009","verdict":"REJECT","identifiedFailureFamilies":["safetyQualifierWithUndefinedBoundary","compoundModifierInvertsAgent"],"evidence":[{"excerpt":"In a clean workspace", "locator":"known-bad qualifier"},{"excerpt":"should-stay-quiet request", "locator":"known-bad inverted actor"}]}
     ],
-    "positive": {
-      "exemplarId": "CQX-GOOD-NEWS-001",
-      "verdict": "PASS",
-      "strengthsRetained": [
-        "dated scope",
-        "evidence boundary",
-        "specific action"
-      ],
-      "evidence": [
-        {
-          "excerpt": "The exact duty depends on the system, actor, use and exception",
-          "locator": "approved NewsStand story"
-        }
-      ]
-    }
+    "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
   "reverseBrief": {
     "humanQuestion": "How do I know whether another prompt revision actually improved a repeated task?",
@@ -204,535 +37,94 @@
     "surfaceJob": "One compact, source-backed Promptoscope habit.",
     "desiredReaderFeeling": "Able to stop blind prompt fiddling and recognise a real improvement."
   },
-  "examplePairPolicy": {
-    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
-    "sharedMechanism": true,
-    "genuinelyDifferentSettings": true
-  },
+  "examplePairPolicy": {"policyId":"LAIDIES_WORK_AND_LIFE_EXAMPLES_V1","sharedMechanism":true,"genuinelyDifferentSettings":true},
   "outcomes": {
-    "plainClarity": {
-      "verdict": "PASS",
-      "observation": "The card gives the comparison in ordinary verbs before naming regression.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Change one instruction at a time, then rerun the same examples.",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "readerValue": {
-      "verdict": "PASS",
-      "observation": "The reader receives one repeatable alternative to blind prompt revision.",
-      "artifactEvidence": [
-        {
-          "excerpt": "write down what a good answer must include",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "laidiesVoice": {
-      "verdict": "PASS",
-      "observation": "The horoscope line is lightly sharp while the body remains adult and precise.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Mercury is in regression.",
-          "locator": "candidate headline"
-        }
-      ]
-    },
-    "engagingEnjoyable": {
-      "verdict": "PASS",
-      "observation": "The forecast and innocent-Mercury landing make a real testing idea memorable.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Mercury is innocent.",
-          "locator": "candidate landing"
-        }
-      ]
-    },
-    "factualIntegrity": {
-      "verdict": "PASS",
-      "observation": "The action stays within current official guidance on representative tasks, bounded changes and repeated evals.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Save a few representative examples of a repeated task",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "freshnessReviewability": {
-      "verdict": "PASS",
-      "observation": "The record binds a dated check, expiry and guidance-change triggers.",
-      "artifactEvidence": [
-        {
-          "excerpt": "OpenAI materially changes its model, prompting or evaluation guidance.",
-          "locator": "candidate freshness"
-        }
-      ]
-    },
-    "surfaceFit": {
-      "verdict": "PASS",
-      "observation": "One forecast, one action sequence and one playful landing fit Promptoscope's compact service job.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Today’s forecast: change one thing, then check the receipts.",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "datedChange": {
-      "verdict": "PASS",
-      "observation": "The record is tied to current August 2026 official guidance without pretending the habit is breaking news.",
-      "artifactEvidence": [
-        {
-          "excerpt": "openai:model-guidance:2026-08-11",
-          "locator": "candidate sourceContentIds"
-        }
-      ]
-    },
-    "consequenceAndUncertainty": {
-      "verdict": "PASS",
-      "observation": "The card identifies a regression without claiming a few examples prove universal quality.",
-      "artifactEvidence": [
-        {
-          "excerpt": "fails a case the old one passed, that is a regression, not growth",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "dailyLifeConnection": {
-      "verdict": "PASS",
-      "observation": "An invented-cupboard task transfers the same comparison outside work.",
-      "artifactEvidence": [
-        {
-          "excerpt": "planning meals from an invented cupboard at home",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "communicationBenchmark": {
-      "verdict": "PASS",
-      "observation": "An invisible quality comparison becomes concrete through saved examples and written requirements.",
-      "artifactEvidence": [
-        {
-          "excerpt": "write down what a good answer must include",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "explanationReasoningBenchmark": {
-      "verdict": "PASS",
-      "observation": "The causal path runs from stable examples to one change to an observable pass or regression.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Change one instruction at a time, then rerun the same examples.",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "explainBack": {
-      "verdict": "PASS",
-      "observation": "The exact prose supports a probe separating polish from retained requirements.",
-      "artifactEvidence": [
-        {
-          "excerpt": "sounds smoother but fails a case the old one passed",
-          "locator": "candidate body"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "Why can a smoother new meeting summary still come from a worse prompt?",
-        "probeResponse": "Because the new version may have lost something the old version reliably included; rerunning the same cases exposes that regression.",
-        "expectedEvidence": "Reader separates pleasant wording from passing the repeated task."
-      }
-    },
-    "unseenTransfer": {
-      "verdict": "PASS",
-      "observation": "The meal-planning case applies the same mechanism beyond meeting notes.",
-      "artifactEvidence": [
-        {
-          "excerpt": "planning meals from an invented cupboard at home",
-          "locator": "candidate body"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "How would you compare two versions of a weekly budgeting prompt?",
-        "probeResponse": "Save the same invented household examples and requirements, change one instruction, rerun them and check whether any old pass became a failure.",
-        "expectedEvidence": "Reader transfers stable cases, bounded change and regression checking."
-      }
-    },
-    "usefulAction": {
-      "verdict": "PASS",
-      "observation": "The four-step action is specific enough to perform without technical tools.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Save a few representative examples of a repeated task",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "analogyIntegrity": {
-      "verdict": "PASS",
-      "observation": "The astrology joke names regression only after the card defines the failed-case mechanism.",
-      "artifactEvidence": [
-        {
-          "excerpt": "that is a regression, not growth. Mercury is innocent.",
-          "locator": "candidate landing"
-        }
-      ]
-    },
-    "workplaceExample": {
-      "verdict": "PASS",
-      "observation": "Fictional meeting notes provide a bounded workplace case.",
-      "artifactEvidence": [
-        {
-          "excerpt": "summarising fictional meeting notes at work",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "nonWorkExample": {
-      "verdict": "PASS",
-      "observation": "An invented cupboard provides a genuinely different non-work case.",
-      "artifactEvidence": [
-        {
-          "excerpt": "planning meals from an invented cupboard at home",
-          "locator": "candidate body"
-        }
-      ]
-    }
+    "plainClarity": {"verdict":"PASS","observation":"The card gives the comparison in ordinary verbs before naming regression.","artifactEvidence":[{"excerpt":"Change one instruction at a time, then rerun the same examples.","locator":"candidate body"}]},
+    "readerValue": {"verdict":"PASS","observation":"The reader receives one repeatable alternative to blind prompt revision.","artifactEvidence":[{"excerpt":"write down what a good answer must include","locator":"candidate body"}]},
+    "laidiesVoice": {"verdict":"PASS","observation":"The horoscope line is lightly sharp while the body remains adult and precise.","artifactEvidence":[{"excerpt":"Mercury is in regression.","locator":"candidate headline"}]},
+    "engagingEnjoyable": {"verdict":"PASS","observation":"The forecast and innocent-Mercury landing make a real testing idea memorable.","artifactEvidence":[{"excerpt":"Mercury is innocent.","locator":"candidate landing"}]},
+    "factualIntegrity": {"verdict":"PASS","observation":"The action stays within current official guidance on representative tasks, bounded changes and repeated evals.","artifactEvidence":[{"excerpt":"Save a few representative examples of a repeated task","locator":"candidate body"}]},
+    "freshnessReviewability": {"verdict":"PASS","observation":"The record binds a dated check, expiry and guidance-change triggers.","artifactEvidence":[{"excerpt":"OpenAI materially changes its model, prompting or evaluation guidance.","locator":"candidate freshness"}]},
+    "surfaceFit": {"verdict":"PASS","observation":"One forecast, one action sequence and one playful landing fit Promptoscope's compact service job.","artifactEvidence":[{"excerpt":"Today’s forecast: change one thing, then check the receipts.","locator":"candidate body"}]},
+    "datedChange": {"verdict":"PASS","observation":"The record is tied to current August 2026 official guidance without pretending the habit is breaking news.","artifactEvidence":[{"excerpt":"openai:model-guidance:2026-08-11","locator":"candidate sourceContentIds"}]},
+    "consequenceAndUncertainty": {"verdict":"PASS","observation":"The card identifies a regression without claiming a few examples prove universal quality.","artifactEvidence":[{"excerpt":"fails a case the old one passed, that is a regression, not growth","locator":"candidate body"}]},
+    "dailyLifeConnection": {"verdict":"PASS","observation":"An invented-cupboard task transfers the same comparison outside work.","artifactEvidence":[{"excerpt":"planning meals from an invented cupboard at home","locator":"candidate body"}]},
+    "communicationBenchmark": {"verdict":"PASS","observation":"An invisible quality comparison becomes concrete through saved examples and written requirements.","artifactEvidence":[{"excerpt":"write down what a good answer must include","locator":"candidate body"}]},
+    "explanationReasoningBenchmark": {"verdict":"PASS","observation":"The causal path runs from stable examples to one change to an observable pass or regression.","artifactEvidence":[{"excerpt":"Change one instruction at a time, then rerun the same examples.","locator":"candidate body"}]},
+    "explainBack": {"verdict":"PASS","observation":"The exact prose supports a probe separating polish from retained requirements.","artifactEvidence":[{"excerpt":"sounds smoother but fails a case the old one passed","locator":"candidate body"}],"simulatedReaderProbe":{"prompt":"Why can a smoother new meeting summary still come from a worse prompt?","probeResponse":"Because the new version may have lost something the old version reliably included; rerunning the same cases exposes that regression.","expectedEvidence":"Reader separates pleasant wording from passing the repeated task."}},
+    "unseenTransfer": {"verdict":"PASS","observation":"The meal-planning case applies the same mechanism beyond meeting notes.","artifactEvidence":[{"excerpt":"planning meals from an invented cupboard at home","locator":"candidate body"}],"simulatedReaderProbe":{"prompt":"How would you compare two versions of a weekly budgeting prompt?","probeResponse":"Save the same invented household examples and requirements, change one instruction, rerun them and check whether any old pass became a failure.","expectedEvidence":"Reader transfers stable cases, bounded change and regression checking."}},
+    "usefulAction": {"verdict":"PASS","observation":"The four-step action is specific enough to perform without technical tools.","artifactEvidence":[{"excerpt":"Save a few representative examples of a repeated task","locator":"candidate body"}]},
+    "analogyIntegrity": {"verdict":"PASS","observation":"The astrology joke names regression only after the card defines the failed-case mechanism.","artifactEvidence":[{"excerpt":"that is a regression, not growth. Mercury is innocent.","locator":"candidate landing"}]},
+    "workplaceExample": {"verdict":"PASS","observation":"Fictional meeting notes provide a bounded workplace case.","artifactEvidence":[{"excerpt":"summarising fictional meeting notes at work","locator":"candidate body"}]},
+    "nonWorkExample": {"verdict":"PASS","observation":"An invented cupboard provides a genuinely different non-work case.","artifactEvidence":[{"excerpt":"planning meals from an invented cupboard at home","locator":"candidate body"}]}
   },
   "failureFamilies": {
-    "adviceBelowReaderBaseline": {
-      "present": false,
-      "observation": "The card goes beyond add-context advice by supplying a repeatable comparison.",
-      "artifactLocator": "candidate body"
-    },
-    "aidbDeference": {
-      "present": false,
-      "observation": "AIDB absence is recorded; official evidence governs.",
-      "artifactLocator": "source bindings"
-    },
-    "benchmarkNameDrop": {
-      "present": false,
-      "observation": "No benchmark personality enters the copy.",
-      "artifactLocator": "candidate record"
-    },
-    "claimEvidenceCollapsed": {
-      "present": false,
-      "observation": "Official evaluation guidance and LAiDIES' paired examples remain distinguishable.",
-      "artifactLocator": "candidate body and source bindings"
-    },
-    "communicationPastiche": {
-      "present": false,
-      "observation": "The copy uses LAiDIES' own service voice.",
-      "artifactLocator": "headline and body"
-    },
-    "corporateSludge": {
-      "present": false,
-      "observation": "Evaluation terminology is translated into save, write, change and rerun.",
-      "artifactLocator": "candidate body"
-    },
-    "curiosityWithoutPayoff": {
-      "present": false,
-      "observation": "The Mercury hook resolves into a precise regression test.",
-      "artifactLocator": "headline and body"
-    },
-    "decorativeAnalogy": {
-      "present": false,
-      "observation": "The horoscope joke makes regression memorable after defining it.",
-      "artifactLocator": "headline and landing"
-    },
-    "disconnectedSystem": {
-      "present": false,
-      "observation": "Stable examples, one change and the pass decision form one comparison.",
-      "artifactLocator": "candidate body"
-    },
-    "entertainmentBeforeUnderstanding": {
-      "present": false,
-      "observation": "The playful headline is followed immediately by mechanism.",
-      "artifactLocator": "headline and first sentence"
-    },
-    "factlessConfidence": {
-      "present": false,
-      "observation": "The record binds a current official product claim.",
-      "artifactLocator": "sourceClaimIds"
-    },
-    "falseBreakingUrgency": {
-      "present": false,
-      "observation": "This is a practical tip without alert framing.",
-      "artifactLocator": "candidate record"
-    },
-    "familiarExampleWithoutTechnicalReturn": {
-      "present": false,
-      "observation": "Both examples return to the same stable-case comparison.",
-      "artifactLocator": "candidate body"
-    },
-    "firstPrinciplesGap": {
-      "present": false,
-      "observation": "The test explains why changing examples obscures whether one instruction helped.",
-      "artifactLocator": "candidate body"
-    },
-    "genericAction": {
-      "present": false,
-      "observation": "The card specifies the exact save, define, change and rerun sequence.",
-      "artifactLocator": "candidate body"
-    },
-    "genericEditorialVoice": {
-      "present": false,
-      "observation": "The regression forecast is specific to prompt revision quality.",
-      "artifactLocator": "candidate record"
-    },
-    "glossaryAccumulation": {
-      "present": false,
-      "observation": "One technical term is defined through a failed old case.",
-      "artifactLocator": "candidate landing"
-    },
-    "implausibleAudienceAction": {
-      "present": false,
-      "observation": "A reader can run the small fictional examples without specialist tools.",
-      "artifactLocator": "candidate body"
-    },
-    "inflatedTakeawayEnding": {
-      "present": false,
-      "observation": "The ending names one bounded regression rather than a grand claim.",
-      "artifactLocator": "candidate landing"
-    },
-    "internalScaffoldingExposedToReader": {
-      "present": false,
-      "observation": "No gate or work-order prose is inside the card.",
-      "artifactLocator": "headline and body"
-    },
-    "jargonBeforeMeaning": {
-      "present": false,
-      "observation": "The comparison steps precede the word regression.",
-      "artifactLocator": "candidate body"
-    },
-    "joylessInstruction": {
-      "present": false,
-      "observation": "The horoscope frame makes a testing habit approachable.",
-      "artifactLocator": "headline and landing"
-    },
-    "laidiesVoiceAbsent": {
-      "present": false,
-      "observation": "Adult candour and bounded wit are present.",
-      "artifactLocator": "headline and body"
-    },
-    "longRunningWorkflowRealityIgnored": {
-      "present": false,
-      "observation": "Saved cases can be rerun across later revisions instead of resetting the session.",
-      "artifactLocator": "candidate body"
-    },
-    "mechanismBeforeMotivation": {
-      "present": false,
-      "observation": "The headline names the decision before mechanism.",
-      "artifactLocator": "candidate headline"
-    },
-    "mechanismCompressedBehindHook": {
-      "present": false,
-      "observation": "Most of the card is mechanism and test.",
-      "artifactLocator": "candidate body"
-    },
-    "missingAidbRelevanceCheck": {
-      "present": false,
-      "observation": "A dated repository search found no conflicting AIDB treatment of the exact habit.",
-      "artifactLocator": "producer contract evidence analysis"
-    },
-    "missingMechanism": {
-      "present": false,
-      "observation": "Stable examples and one changed instruction make the cause of improvement visible.",
-      "artifactLocator": "candidate body"
-    },
-    "missingNewcomerBackground": {
-      "present": false,
-      "observation": "No evaluation-platform knowledge is assumed.",
-      "artifactLocator": "candidate body"
-    },
-    "newspaperHierarchyUnclear": {
-      "present": false,
-      "observation": "One compact service record has one headline and body.",
-      "artifactLocator": "candidate record"
-    },
-    "parrotingExplainBack": {
-      "present": false,
-      "observation": "The probe requires applying the regression rule to a new task.",
-      "artifactLocator": "candidate landing"
-    },
-    "predeterminedThesisInsteadOfInvestigation": {
-      "present": false,
-      "observation": "The recommendation remains bounded to what the official guidance establishes.",
-      "artifactLocator": "candidate body"
-    },
-    "prematureClickBeforeMechanism": {
-      "present": false,
-      "observation": "The Mercury landing follows the complete comparison sequence.",
-      "artifactLocator": "candidate landing"
-    },
-    "promptAdviceMistakenForEnforcement": {
-      "present": false,
-      "observation": "Observed checks, not stronger wording alone, determine improvement.",
-      "artifactLocator": "candidate body"
-    },
-    "purposeTooNarrow": {
-      "present": false,
-      "observation": "The card intentionally solves the repeated-revision decision only.",
-      "artifactLocator": "audienceJob"
-    },
-    "referenceConfetti": {
-      "present": false,
-      "observation": "One horoscope reference serves the format and no decorative name-dropping appears.",
-      "artifactLocator": "candidate record"
-    },
-    "rewindDecorationInsteadOfTeaching": {
-      "present": false,
-      "observation": "The playful forecast performs the regression-teaching job.",
-      "artifactLocator": "candidate headline and landing"
-    },
-    "sourceAvailabilityMistakenForEditorialValue": {
-      "present": false,
-      "observation": "The reader's repeated-revision problem earns the tip; the documentation page is not treated as news.",
-      "artifactLocator": "audienceJob"
-    },
-    "staleUnreviewableClaims": {
-      "present": false,
-      "observation": "Expiry and product-change triggers are explicit.",
-      "artifactLocator": "freshness"
-    },
-    "statusLanguageOvertakesExperience": {
-      "present": false,
-      "observation": "HOLD remains metadata, not reader copy.",
-      "artifactLocator": "candidate record"
-    },
-    "technicalExplainerVoice": {
-      "present": false,
-      "observation": "The copy uses ordinary task language.",
-      "artifactLocator": "candidate body"
-    },
-    "technicalReaderAssumption": {
-      "present": false,
-      "observation": "No coding knowledge is required.",
-      "artifactLocator": "candidate body"
-    },
-    "templateRepetition": {
-      "present": false,
-      "observation": "The sequence follows one comparison decision, not a generic tips template.",
-      "artifactLocator": "candidate body"
-    },
-    "weakReaderPremise": {
-      "present": false,
-      "observation": "Repeated revisions without a comparison create a real reader decision.",
-      "artifactLocator": "audienceJob"
-    },
-    "workedExampleOvertakesBookPurpose": {
-      "present": false,
-      "observation": "Examples remain brief and subordinate to the evaluation habit.",
-      "artifactLocator": "candidate body"
-    },
-    "fictionalInputMistakenForIsolation": {
-      "present": false,
-      "observation": "The manifest-bound Promptoscope record uses invented examples to compare prompt outputs; it makes no claim that those examples contain an executable extension or its authority.",
-      "artifactLocator": "DLD-2026-08-12-PROMPTOSCOPE-MERCURY-IN-REGRESSION"
-    },
-    "unbuiltDestinationPresentedAsLive": {
-      "present": false,
-      "observation": "No planned, specified, built-local or held destination is presented as a current reader route.",
-      "artifactLocator": "exact candidate and related-learning metadata"
-    },
-    "repairScopeSubstitutedForSpecifiedScope": {
-      "present": false,
-      "observation": "No control scope was substituted in a way that preserves the original hazard.",
-      "artifactLocator": "exact candidate and originating transfer scenario"
-    },
-    "compressionDropsReferent": {
-      "present": false,
-      "observation": "Every compressed criterion retains the thing being tested and its output.",
-      "artifactLocator": "exact candidate examples"
-    },
-    "safetyQualifierWithUndefinedBoundary": {
-      "present": false,
-      "observation": "Safety conditions are reader-observable and include an exact stop disposition.",
-      "artifactLocator": "exact candidate"
-    },
-    "compoundModifierInvertsAgent": {
-      "present": false,
-      "observation": "No compound modifier can invert the tested actor or invite sensitive material.",
-      "artifactLocator": "exact candidate"
-    }
+    "adviceBelowReaderBaseline":{"present":false,"observation":"The card goes beyond add-context advice by supplying a repeatable comparison.","artifactLocator":"candidate body"},
+    "aidbDeference":{"present":false,"observation":"AIDB absence is recorded; official evidence governs.","artifactLocator":"source bindings"},
+    "benchmarkNameDrop":{"present":false,"observation":"No benchmark personality enters the copy.","artifactLocator":"candidate record"},
+    "claimEvidenceCollapsed":{"present":false,"observation":"Official evaluation guidance and LAiDIES' paired examples remain distinguishable.","artifactLocator":"candidate body and source bindings"},
+    "communicationPastiche":{"present":false,"observation":"The copy uses LAiDIES' own service voice.","artifactLocator":"headline and body"},
+    "corporateSludge":{"present":false,"observation":"Evaluation terminology is translated into save, write, change and rerun.","artifactLocator":"candidate body"},
+    "curiosityWithoutPayoff":{"present":false,"observation":"The Mercury hook resolves into a precise regression test.","artifactLocator":"headline and body"},
+    "decorativeAnalogy":{"present":false,"observation":"The horoscope joke makes regression memorable after defining it.","artifactLocator":"headline and landing"},
+    "disconnectedSystem":{"present":false,"observation":"Stable examples, one change and the pass decision form one comparison.","artifactLocator":"candidate body"},
+    "entertainmentBeforeUnderstanding":{"present":false,"observation":"The playful headline is followed immediately by mechanism.","artifactLocator":"headline and first sentence"},
+    "factlessConfidence":{"present":false,"observation":"The record binds a current official product claim.","artifactLocator":"sourceClaimIds"},
+    "falseBreakingUrgency":{"present":false,"observation":"This is a practical tip without alert framing.","artifactLocator":"candidate record"},
+    "familiarExampleWithoutTechnicalReturn":{"present":false,"observation":"Both examples return to the same stable-case comparison.","artifactLocator":"candidate body"},
+    "firstPrinciplesGap":{"present":false,"observation":"The test explains why changing examples obscures whether one instruction helped.","artifactLocator":"candidate body"},
+    "genericAction":{"present":false,"observation":"The card specifies the exact save, define, change and rerun sequence.","artifactLocator":"candidate body"},
+    "genericEditorialVoice":{"present":false,"observation":"The regression forecast is specific to prompt revision quality.","artifactLocator":"candidate record"},
+    "glossaryAccumulation":{"present":false,"observation":"One technical term is defined through a failed old case.","artifactLocator":"candidate landing"},
+    "implausibleAudienceAction":{"present":false,"observation":"A reader can run the small fictional examples without specialist tools.","artifactLocator":"candidate body"},
+    "inflatedTakeawayEnding":{"present":false,"observation":"The ending names one bounded regression rather than a grand claim.","artifactLocator":"candidate landing"},
+    "internalScaffoldingExposedToReader":{"present":false,"observation":"No gate or work-order prose is inside the card.","artifactLocator":"headline and body"},
+    "jargonBeforeMeaning":{"present":false,"observation":"The comparison steps precede the word regression.","artifactLocator":"candidate body"},
+    "joylessInstruction":{"present":false,"observation":"The horoscope frame makes a testing habit approachable.","artifactLocator":"headline and landing"},
+    "laidiesVoiceAbsent":{"present":false,"observation":"Adult candour and bounded wit are present.","artifactLocator":"headline and body"},
+    "longRunningWorkflowRealityIgnored":{"present":false,"observation":"Saved cases can be rerun across later revisions instead of resetting the session.","artifactLocator":"candidate body"},
+    "mechanismBeforeMotivation":{"present":false,"observation":"The headline names the decision before mechanism.","artifactLocator":"candidate headline"},
+    "mechanismCompressedBehindHook":{"present":false,"observation":"Most of the card is mechanism and test.","artifactLocator":"candidate body"},
+    "missingAidbRelevanceCheck":{"present":false,"observation":"A dated repository search found no conflicting AIDB treatment of the exact habit.","artifactLocator":"producer contract evidence analysis"},
+    "missingMechanism":{"present":false,"observation":"Stable examples and one changed instruction make the cause of improvement visible.","artifactLocator":"candidate body"},
+    "missingNewcomerBackground":{"present":false,"observation":"No evaluation-platform knowledge is assumed.","artifactLocator":"candidate body"},
+    "newspaperHierarchyUnclear":{"present":false,"observation":"One compact service record has one headline and body.","artifactLocator":"candidate record"},
+    "parrotingExplainBack":{"present":false,"observation":"The probe requires applying the regression rule to a new task.","artifactLocator":"candidate landing"},
+    "predeterminedThesisInsteadOfInvestigation":{"present":false,"observation":"The recommendation remains bounded to what the official guidance establishes.","artifactLocator":"candidate body"},
+    "prematureClickBeforeMechanism":{"present":false,"observation":"The Mercury landing follows the complete comparison sequence.","artifactLocator":"candidate landing"},
+    "promptAdviceMistakenForEnforcement":{"present":false,"observation":"Observed checks, not stronger wording alone, determine improvement.","artifactLocator":"candidate body"},
+    "purposeTooNarrow":{"present":false,"observation":"The card intentionally solves the repeated-revision decision only.","artifactLocator":"audienceJob"},
+    "referenceConfetti":{"present":false,"observation":"One horoscope reference serves the format and no decorative name-dropping appears.","artifactLocator":"candidate record"},
+    "rewindDecorationInsteadOfTeaching":{"present":false,"observation":"The playful forecast performs the regression-teaching job.","artifactLocator":"candidate headline and landing"},
+    "sourceAvailabilityMistakenForEditorialValue":{"present":false,"observation":"The reader's repeated-revision problem earns the tip; the documentation page is not treated as news.","artifactLocator":"audienceJob"},
+    "staleUnreviewableClaims":{"present":false,"observation":"Expiry and product-change triggers are explicit.","artifactLocator":"freshness"},
+    "statusLanguageOvertakesExperience":{"present":false,"observation":"HOLD remains metadata, not reader copy.","artifactLocator":"candidate record"},
+    "technicalExplainerVoice":{"present":false,"observation":"The copy uses ordinary task language.","artifactLocator":"candidate body"},
+    "technicalReaderAssumption":{"present":false,"observation":"No coding knowledge is required.","artifactLocator":"candidate body"},
+    "templateRepetition":{"present":false,"observation":"The sequence follows one comparison decision, not a generic tips template.","artifactLocator":"candidate body"},
+    "weakReaderPremise":{"present":false,"observation":"Repeated revisions without a comparison create a real reader decision.","artifactLocator":"audienceJob"},
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Examples remain brief and subordinate to the evaluation habit.","artifactLocator":"candidate body"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The manifest-bound Promptoscope record uses invented examples to compare prompt outputs; it makes no claim that those examples contain an executable extension or its authority.","artifactLocator":"DLD-2026-08-12-PROMPTOSCOPE-MERCURY-IN-REGRESSION"},
+    "unbuiltDestinationPresentedAsLive":{"present":false,"observation":"No unproved destination is presented as live.","artifactLocator":"exact candidate"},
+    "repairScopeSubstitutedForSpecifiedScope":{"present":false,"observation":"No effective control scope is weakened by substitution.","artifactLocator":"exact candidate"},
+    "compressionDropsReferent":{"present":false,"observation":"Compact criteria retain actor, object, action and criterion.","artifactLocator":"exact candidate"},
+    "safetyQualifierWithUndefinedBoundary":{"present":false,"observation":"Safety conditions are observable and include a disposition.","artifactLocator":"exact candidate"},
+    "compoundModifierInvertsAgent":{"present":false,"observation":"No modifier can attach tested behavior to the wrong actor.","artifactLocator":"exact candidate"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",
-    "sourceBindings": [
-      {
-        "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
-        "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
-      }
-    ],
+    "sourceBindings": [{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"}],
     "claimMap": [
-      {
-        "claimId": "PROMPTOSCOPE-REPRESENTATIVE-CASES",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "Save a few representative examples of a repeated task",
-            "locator": "candidate body"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
-          "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "use representative tasks, alter one instruction, example or tool group at a time and rerun the same evaluations",
-            "locator": "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS evidence summary"
-          }
-        ],
-        "scopeAndFreshness": "OpenAI developer guidance checked August 11, 2026; recheck when prompting or evaluation guidance materially changes."
-      },
-      {
-        "claimId": "PROMPTOSCOPE-REGRESSION-BOUNDARY",
-        "status": "QUALIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "fails a case the old one passed, that is a regression, not growth",
-            "locator": "candidate body"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/learning-content-ecosystem/claim-register.json",
-          "sha256": "45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "A smoother-sounding output is not an improvement if it no longer meets the task's existing acceptance criteria.",
-            "locator": "CLM-PRACTICE-REPEATABLE-PROMPT-EVALS canonical wording"
-          }
-        ],
-        "scopeAndFreshness": "LAiDIES translates the official evaluation principle into a small non-technical habit; a few examples do not prove universal reliability."
-      }
+      {"claimId":"PROMPTOSCOPE-REPRESENTATIVE-CASES","status":"VERIFIED","candidateEvidence":[{"excerpt":"Save a few representative examples of a repeated task","locator":"candidate body"}],"sourceBinding":{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"},"sourceEvidence":[{"excerpt":"use representative tasks, alter one instruction, example or tool group at a time and rerun the same evaluations","locator":"CLM-PRACTICE-REPEATABLE-PROMPT-EVALS evidence summary"}],"scopeAndFreshness":"OpenAI developer guidance checked August 11, 2026; recheck when prompting or evaluation guidance materially changes."},
+      {"claimId":"PROMPTOSCOPE-REGRESSION-BOUNDARY","status":"QUALIFIED","candidateEvidence":[{"excerpt":"fails a case the old one passed, that is a regression, not growth","locator":"candidate body"}],"sourceBinding":{"path":"operations/product-stewards/learning-content-ecosystem/claim-register.json","sha256":"45d52841cc2203423b2aa2d68a83750c3eae36b92a291110003842c89da1659c"},"sourceEvidence":[{"excerpt":"A smoother-sounding output is not an improvement if it no longer meets the task's existing acceptance criteria.","locator":"CLM-PRACTICE-REPEATABLE-PROMPT-EVALS canonical wording"}],"scopeAndFreshness":"LAiDIES translates the official evaluation principle into a small non-technical habit; a few examples do not prove universal reliability."}
     ],
     "reviewedThrough": "2026-08-11",
     "nextTrigger": "OpenAI materially changes prompting or evaluation guidance, or the candidate names a specific model, grader, benchmark or performance result.",
     "correctionOwner": "learning-content-ecosystem with newsstand-daily"
   },
-  "ratchet": {
-    "repeatedKnownDefects": 0,
-    "objectiveDefectsFirstFoundAtReview": 0,
-    "reviewIssues": 0,
-    "reviewCycles": 1,
-    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
-  },
-  "lineage": {
-    "kind": "FIRST",
-    "noComparableReason": "First Promptoscope candidate produced after Ali rejected the generic add-context sampler and after a current official evaluation-practice claim was registered."
-  },
-  "learningDisposition": {
-    "disposition": "NO_NEW_DEFECT",
-    "rationale": "The existing registry prevented generic context advice, magic-prompt framing, decorative astrology and prompting-as-enforcement before self-review."
-  },
+  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage": {"kind":"FIRST","noComparableReason":"First Promptoscope candidate produced after Ali rejected the generic add-context sampler and after a current official evaluation-practice claim was registered."},
+  "learningDisposition": {"disposition":"NO_NEW_DEFECT","rationale":"The existing registry prevented generic context advice, magic-prompt framing, decorative astrology and prompting-as-enforcement before self-review."},
   "verdict": "PASS",
-  "limitations": [
-    "Producer self-review has no independent quality authority.",
-    "The exact record remains HOLD and publicly ineligible.",
-    "No rendered Daily integration, independent semantic admission, deploy or public verification has occurred."
-  ]
+  "limitations": ["Producer self-review has no independent quality authority.", "The exact record remains HOLD and publicly ineligible.", "No rendered Daily integration, independent semantic admission, deploy or public verification has occurred."]
 }

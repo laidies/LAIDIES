@@ -1,804 +1,137 @@
 {
-  "schemaVersion": "laidies-prose-quality-review.v1",
-  "candidateId": "LCWO-022",
-  "stage": "PRODUCER_SELF_REVIEW",
-  "contentClass": "NEWS",
-  "surface": "SUNNYVAiLE NewsStand / The Daily archive",
-  "maker": "newsstand-daily",
-  "reviewer": {
-    "id": "newsstand-daily-self-review-20260812-archive",
-    "principalId": "newsstand-daily",
-    "role": "producer",
-    "modelFamily": "openai-gpt-5.6"
-  },
-  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "schemaVersion":"laidies-prose-quality-review.v1",
+  "candidateId":"LCWO-022",
+  "stage":"PRODUCER_SELF_REVIEW",
+  "contentClass":"NEWS",
+  "surface":"SUNNYVAiLE NewsStand / The Daily archive",
+  "maker":"newsstand-daily",
+  "reviewer":{"id":"newsstand-daily-self-review-20260812-archive","principalId":"newsstand-daily","role":"producer","modelFamily":"openai-gpt-5.6"},
+  "reviewMode":"EXACT_PROSE_IN_FULL",
   "reviewedAt": "2026-08-12T01:34:30-07:00",
-  "artifact": {
-    "reviewText": {
-      "path": "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md",
-      "sha256": "2607e769843daca4d6cfc6c805ab1edc41e7f5c25b0365aa162f08249402a644"
-    },
-    "manifest": {
-      "path": "operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json",
-      "sha256": "0dee14da2b6656ce3e0ff8009e0683609ccf8d0c9c7c0dd7615f44d5744bb469"
-    }
+  "artifact":{
+    "reviewText":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03.md","sha256":"2607e769843daca4d6cfc6c805ab1edc41e7f5c25b0365aa162f08249402a644"},
+    "manifest":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-2026-08-03-manifest.json","sha256":"0dee14da2b6656ce3e0ff8009e0683609ccf8d0c9c7c0dd7615f44d5744bb469"}
   },
-  "calibration": {
-    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
-    "reviewerPrincipalId": "newsstand-daily",
+  "calibration":{
+    "registrySha256":"04917a92bad2f03efd9c8cbf09a59190bda7eaa5192e087e1e3757016f42fbda",
+    "reviewerPrincipalId":"newsstand-daily",
     "reviewedAt": "2026-08-12T01:34:30-07:00",
-    "negatives": [
-      {
-        "exemplarId": "CQX-BAD-001",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "glossaryAccumulation",
-          "templateRepetition",
-          "decorativeAnalogy",
-          "referenceConfetti",
-          "missingMechanism",
-          "genericAction",
-          "jargonBeforeMeaning",
-          "disconnectedSystem",
-          "joylessInstruction"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Chapter 1 — Meet the parts of the system",
-            "locator": "known-bad opening"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-002",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "purposeTooNarrow",
-          "mechanismBeforeMotivation",
-          "workedExampleOvertakesBookPurpose",
-          "technicalExplainerVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "## Introduction — What you are actually using",
-            "locator": "known-bad introduction"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-003",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "falseBreakingUrgency",
-          "missingNewcomerBackground",
-          "technicalReaderAssumption",
-          "implausibleAudienceAction",
-          "laidiesVoiceAbsent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "OpenAI says no upcoming-release model was involved",
-            "locator": "known-bad headline"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-004",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "internalScaffoldingExposedToReader",
-          "newspaperHierarchyUnclear",
-          "statusLanguageOvertakesExperience"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Model front page — structure example",
-            "locator": "known-bad Daily"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-005",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "sourceAvailabilityMistakenForEditorialValue",
-          "missingAidbRelevanceCheck",
-          "predeterminedThesisInsteadOfInvestigation",
-          "weakReaderPremise",
-          "adviceBelowReaderBaseline",
-          "promptAdviceMistakenForEnforcement",
-          "longRunningWorkflowRealityIgnored",
-          "genericEditorialVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "# REJECTED — LAiDIES publication-format sampler round 1",
-            "locator": "rejected sampler"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-006",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "fictionalInputMistakenForIsolation"
-        ],
-        "evidence": [
-          {
-            "excerpt": "The fictional notes and imaginary trip protect only those example inputs",
-            "locator": "exact missed defect"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-007",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "unbuiltDestinationPresentedAsLive"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Build the Skill. Keep the Job.",
-            "locator": "known-bad reader-facing route"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-008",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "repairScopeSubstitutedForSpecifiedScope",
-          "compressionDropsReferent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Disconnect accounts or folders this job does not need.",
-            "locator": "known-bad wrong-scope repair"
-          },
-          {
-            "excerpt": "Home test: invented weekend.",
-            "locator": "known-bad compressed referent"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-009",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "safetyQualifierWithUndefinedBoundary",
-          "compoundModifierInvertsAgent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "In a clean workspace",
-            "locator": "known-bad undefined safety qualifier"
-          },
-          {
-            "excerpt": "should-stay-quiet request",
-            "locator": "known-bad inverted agent"
-          }
-        ]
-      }
+    "negatives":[
+      {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
+      {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
+      {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
+      {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]},
+      {"exemplarId":"CQX-BAD-007","verdict":"REJECT","identifiedFailureFamilies":["unbuiltDestinationPresentedAsLive"],"evidence":[{"excerpt":"Build the Skill. Keep the Job.","locator":"known-bad unbuilt route"}]},
+      {"exemplarId":"CQX-BAD-008","verdict":"REJECT","identifiedFailureFamilies":["repairScopeSubstitutedForSpecifiedScope","compressionDropsReferent"],"evidence":[{"excerpt":"Disconnect accounts or folders this job does not need.","locator":"known-bad scope"},{"excerpt":"Home test: invented weekend.","locator":"known-bad missing referent"}]},
+      {"exemplarId":"CQX-BAD-009","verdict":"REJECT","identifiedFailureFamilies":["safetyQualifierWithUndefinedBoundary","compoundModifierInvertsAgent"],"evidence":[{"excerpt":"In a clean workspace", "locator":"known-bad qualifier"},{"excerpt":"should-stay-quiet request", "locator":"known-bad inverted actor"}]}
     ],
-    "positive": {
-      "exemplarId": "CQX-GOOD-NEWS-001",
-      "verdict": "PASS",
-      "strengthsRetained": [
-        "dated scope",
-        "evidence boundary",
-        "specific action"
-      ],
-      "evidence": [
-        {
-          "excerpt": "The exact duty depends on the system, actor, use and exception",
-          "locator": "approved NewsStand story"
-        }
-      ]
-    }
+    "positive":{"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["dated scope","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
-  "reverseBrief": {
-    "humanQuestion": "What changed under Europe's AI transparency rules on August 2, and does an AI label mean the content is trustworthy?",
-    "promisedPayoff": "The reader can distinguish origin disclosure from truth verification and scan four useful desks in one recognisable archive Daily.",
-    "centralMentalModel": "An AI label is caller ID for defined encounters: useful origin context, not a lie detector or universal compliance verdict.",
-    "dailyLifeConnection": "The same origin-versus-evidence distinction applies to a work campaign image and a family-chat health graphic.",
-    "surfaceJob": "One 941-word held August 3 archive Daily with a clear lead and four secondary desks.",
-    "desiredReaderFeeling": "Oriented, capable and certain which part is news and which parts are recurring columns."
+  "reverseBrief":{
+    "humanQuestion":"What changed under Europe's AI transparency rules on August 2, and does an AI label mean the content is trustworthy?",
+    "promisedPayoff":"The reader can distinguish origin disclosure from truth verification and scan four useful desks in one recognisable archive Daily.",
+    "centralMentalModel":"An AI label is caller ID for defined encounters: useful origin context, not a lie detector or universal compliance verdict.",
+    "dailyLifeConnection":"The same origin-versus-evidence distinction applies to a work campaign image and a family-chat health graphic.",
+    "surfaceJob":"One 941-word held August 3 archive Daily with a clear lead and four secondary desks.",
+    "desiredReaderFeeling":"Oriented, capable and certain which part is news and which parts are recurring columns."
   },
-  "examplePairPolicy": {
-    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
-    "sharedMechanism": true,
-    "genuinelyDifferentSettings": true
+  "examplePairPolicy":{"policyId":"LAIDIES_WORK_AND_LIFE_EXAMPLES_V1","sharedMechanism":true,"genuinelyDifferentSettings":true},
+  "outcomes":{
+    "plainClarity":{"verdict":"PASS","observation":"The issue says what changed before explaining actor-specific duties.","artifactEvidence":[{"excerpt":"Article 50 of the European Union’s AI Act began applying on August 2, 2026.","locator":"lead"}]},
+    "readerValue":{"verdict":"PASS","observation":"The reader receives a five-question response to any AI-origin label.","artifactEvidence":[{"excerpt":"The next questions belong to you:","locator":"lead action"}]},
+    "laidiesVoice":{"verdict":"PASS","observation":"The paper is direct and lightly playful without trivializing legal scope.","artifactEvidence":[{"excerpt":"an AI label is caller ID, not a lie detector.","locator":"morning line"}]},
+    "engagingEnjoyable":{"verdict":"PASS","observation":"A dominant lead and four compact desks create a readable newspaper rhythm.","artifactEvidence":[{"excerpt":"## TODAY’S DESKS","locator":"desk strip"}]},
+    "factualIntegrity":{"verdict":"PASS","observation":"Actor, output, exception and legal-advice limits remain explicit.","artifactEvidence":[{"excerpt":"The duty depends on who is providing or using the system, what the system does","locator":"lead"}]},
+    "freshnessReviewability":{"verdict":"PASS","observation":"The archive note records the August 12 check and change trigger.","artifactEvidence":[{"excerpt":"checked again against the current European Commission guidance and fact page on August 12","locator":"filed note"}]},
+    "surfaceFit":{"verdict":"PASS","observation":"The issue is visibly dated, archived and organized as one lead plus secondary desks.","artifactEvidence":[{"excerpt":"**Sunday, August 3, 2026 · Archive edition**","locator":"masthead"}]},
+    "datedChange":{"verdict":"PASS","observation":"The lead reports the August 2 change without calling it current on August 12.","artifactEvidence":[{"excerpt":"Europe’s AI transparency rules started August 2.","locator":"headline"}]},
+    "consequenceAndUncertainty":{"verdict":"PASS","observation":"Useful disclosure and its truth, compliance and exception limits remain together.","artifactEvidence":[{"excerpt":"an AI label does not prove that the labelled claim is accurate, fair, safe or lawful.","locator":"label limits"}]},
+    "dailyLifeConnection":{"verdict":"PASS","observation":"The family-chat health graphic applies the origin-versus-evidence distinction outside work.","artifactEvidence":[{"excerpt":"imagine a labelled AI-generated health graphic arriving in the family group chat.","locator":"home example"}]},
+    "communicationBenchmark":{"verdict":"PASS","observation":"The invisible actor-specific system becomes a visible disclosure and verification sequence.","artifactEvidence":[{"excerpt":"The European Commission’s current guidance separates two jobs.","locator":"what changed"}]},
+    "explanationReasoningBenchmark":{"verdict":"PASS","observation":"The issue rebuilds the claim from duty to signal to evidence instead of repeating a label headline.","artifactEvidence":[{"excerpt":"A label is one piece of evidence about origin—not a complete verdict about the content.","locator":"label limits"}]},
+    "explainBack":{"verdict":"PASS","observation":"The prose supports explaining why an official label can coexist with a false claim.","artifactEvidence":[{"excerpt":"Caller ID cannot prove everything the caller says.","locator":"label limits"}],"simulatedReaderProbe":{"prompt":"Why can a useful AI label sit beside a false claim?","probeResponse":"The label supplies origin context; the truth of the specific claim depends on evidence, date and scope.","expectedEvidence":"Reader separates provenance from factual support."}},
+    "unseenTransfer":{"verdict":"PASS","observation":"The health graphic moves the same mechanism into a non-work and higher-consequence setting.","artifactEvidence":[{"excerpt":"Before forwarding it, you still trace the health claim to a current authoritative source.","locator":"home example"}],"simulatedReaderProbe":{"prompt":"What would you do with a labelled AI-generated investment chart?","probeResponse":"Use the label as origin context, identify the exact financial claim, find its original data, check date and scope and avoid relying on it as advice.","expectedEvidence":"Reader transfers the origin-versus-evidence distinction without treating the label as approval."}},
+    "usefulAction":{"verdict":"PASS","observation":"Five claim-level questions go beyond generic source checking.","artifactEvidence":[{"excerpt":"What kind of evidence would support that claim?","locator":"question 2"}]},
+    "analogyIntegrity":{"verdict":"PASS","observation":"Caller ID maps origin and immediately states its truth limit.","artifactEvidence":[{"excerpt":"Caller ID cannot prove everything the caller says.","locator":"label limits"}]},
+    "workplaceExample":{"verdict":"PASS","observation":"The campaign image separates origin, statistics and approval at work.","artifactEvidence":[{"excerpt":"At work, imagine a campaign image carrying an AI-origin mark beside a polished statistic.","locator":"work example"}]},
+    "nonWorkExample":{"verdict":"PASS","observation":"The family health graphic provides a genuinely different setting and consequence.","artifactEvidence":[{"excerpt":"At home, imagine a labelled AI-generated health graphic arriving in the family group chat.","locator":"home example"}]}
   },
-  "outcomes": {
-    "plainClarity": {
-      "verdict": "PASS",
-      "observation": "The issue says what changed before explaining actor-specific duties.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Article 50 of the European Union’s AI Act began applying on August 2, 2026.",
-          "locator": "lead"
-        }
-      ]
-    },
-    "readerValue": {
-      "verdict": "PASS",
-      "observation": "The reader receives a five-question response to any AI-origin label.",
-      "artifactEvidence": [
-        {
-          "excerpt": "The next questions belong to you:",
-          "locator": "lead action"
-        }
-      ]
-    },
-    "laidiesVoice": {
-      "verdict": "PASS",
-      "observation": "The paper is direct and lightly playful without trivializing legal scope.",
-      "artifactEvidence": [
-        {
-          "excerpt": "an AI label is caller ID, not a lie detector.",
-          "locator": "morning line"
-        }
-      ]
-    },
-    "engagingEnjoyable": {
-      "verdict": "PASS",
-      "observation": "A dominant lead and four compact desks create a readable newspaper rhythm.",
-      "artifactEvidence": [
-        {
-          "excerpt": "## TODAY’S DESKS",
-          "locator": "desk strip"
-        }
-      ]
-    },
-    "factualIntegrity": {
-      "verdict": "PASS",
-      "observation": "Actor, output, exception and legal-advice limits remain explicit.",
-      "artifactEvidence": [
-        {
-          "excerpt": "The duty depends on who is providing or using the system, what the system does",
-          "locator": "lead"
-        }
-      ]
-    },
-    "freshnessReviewability": {
-      "verdict": "PASS",
-      "observation": "The archive note records the August 12 check and change trigger.",
-      "artifactEvidence": [
-        {
-          "excerpt": "checked again against the current European Commission guidance and fact page on August 12",
-          "locator": "filed note"
-        }
-      ]
-    },
-    "surfaceFit": {
-      "verdict": "PASS",
-      "observation": "The issue is visibly dated, archived and organized as one lead plus secondary desks.",
-      "artifactEvidence": [
-        {
-          "excerpt": "**Sunday, August 3, 2026 · Archive edition**",
-          "locator": "masthead"
-        }
-      ]
-    },
-    "datedChange": {
-      "verdict": "PASS",
-      "observation": "The lead reports the August 2 change without calling it current on August 12.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Europe’s AI transparency rules started August 2.",
-          "locator": "headline"
-        }
-      ]
-    },
-    "consequenceAndUncertainty": {
-      "verdict": "PASS",
-      "observation": "Useful disclosure and its truth, compliance and exception limits remain together.",
-      "artifactEvidence": [
-        {
-          "excerpt": "an AI label does not prove that the labelled claim is accurate, fair, safe or lawful.",
-          "locator": "label limits"
-        }
-      ]
-    },
-    "dailyLifeConnection": {
-      "verdict": "PASS",
-      "observation": "The family-chat health graphic applies the origin-versus-evidence distinction outside work.",
-      "artifactEvidence": [
-        {
-          "excerpt": "imagine a labelled AI-generated health graphic arriving in the family group chat.",
-          "locator": "home example"
-        }
-      ]
-    },
-    "communicationBenchmark": {
-      "verdict": "PASS",
-      "observation": "The invisible actor-specific system becomes a visible disclosure and verification sequence.",
-      "artifactEvidence": [
-        {
-          "excerpt": "The European Commission’s current guidance separates two jobs.",
-          "locator": "what changed"
-        }
-      ]
-    },
-    "explanationReasoningBenchmark": {
-      "verdict": "PASS",
-      "observation": "The issue rebuilds the claim from duty to signal to evidence instead of repeating a label headline.",
-      "artifactEvidence": [
-        {
-          "excerpt": "A label is one piece of evidence about origin—not a complete verdict about the content.",
-          "locator": "label limits"
-        }
-      ]
-    },
-    "explainBack": {
-      "verdict": "PASS",
-      "observation": "The prose supports explaining why an official label can coexist with a false claim.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Caller ID cannot prove everything the caller says.",
-          "locator": "label limits"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "Why can a useful AI label sit beside a false claim?",
-        "probeResponse": "The label supplies origin context; the truth of the specific claim depends on evidence, date and scope.",
-        "expectedEvidence": "Reader separates provenance from factual support."
-      }
-    },
-    "unseenTransfer": {
-      "verdict": "PASS",
-      "observation": "The health graphic moves the same mechanism into a non-work and higher-consequence setting.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Before forwarding it, you still trace the health claim to a current authoritative source.",
-          "locator": "home example"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "What would you do with a labelled AI-generated investment chart?",
-        "probeResponse": "Use the label as origin context, identify the exact financial claim, find its original data, check date and scope and avoid relying on it as advice.",
-        "expectedEvidence": "Reader transfers the origin-versus-evidence distinction without treating the label as approval."
-      }
-    },
-    "usefulAction": {
-      "verdict": "PASS",
-      "observation": "Five claim-level questions go beyond generic source checking.",
-      "artifactEvidence": [
-        {
-          "excerpt": "What kind of evidence would support that claim?",
-          "locator": "question 2"
-        }
-      ]
-    },
-    "analogyIntegrity": {
-      "verdict": "PASS",
-      "observation": "Caller ID maps origin and immediately states its truth limit.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Caller ID cannot prove everything the caller says.",
-          "locator": "label limits"
-        }
-      ]
-    },
-    "workplaceExample": {
-      "verdict": "PASS",
-      "observation": "The campaign image separates origin, statistics and approval at work.",
-      "artifactEvidence": [
-        {
-          "excerpt": "At work, imagine a campaign image carrying an AI-origin mark beside a polished statistic.",
-          "locator": "work example"
-        }
-      ]
-    },
-    "nonWorkExample": {
-      "verdict": "PASS",
-      "observation": "The family health graphic provides a genuinely different setting and consequence.",
-      "artifactEvidence": [
-        {
-          "excerpt": "At home, imagine a labelled AI-generated health graphic arriving in the family group chat.",
-          "locator": "home example"
-        }
-      ]
-    }
+  "failureFamilies":{
+    "adviceBelowReaderBaseline":{"present":false,"observation":"Five questions move beyond noticing or opening a label.","artifactLocator":"lead questions"},
+    "aidbDeference":{"present":false,"observation":"A dated AIDB absence is recorded; current Commission evidence governs.","artifactLocator":"source bindings"},
+    "benchmarkNameDrop":{"present":false,"observation":"No benchmark personality enters the copy.","artifactLocator":"full issue"},
+    "claimEvidenceCollapsed":{"present":false,"observation":"Legal duties, editorial inference and service advice remain separate.","artifactLocator":"lead and desks"},
+    "communicationPastiche":{"present":false,"observation":"The issue uses LAiDIES' own newspaper voice.","artifactLocator":"full issue"},
+    "corporateSludge":{"present":false,"observation":"Provider and deployer duties become visible reader situations.","artifactLocator":"what changed"},
+    "curiosityWithoutPayoff":{"present":false,"observation":"The label question lands on an exact verification action.","artifactLocator":"lead questions"},
+    "decorativeAnalogy":{"present":false,"observation":"Caller ID maps origin and immediately states its truth limit.","artifactLocator":"label sections"},
+    "disconnectedSystem":{"present":false,"observation":"Duty, disclosure, interpretation and verification remain connected.","artifactLocator":"lead"},
+    "entertainmentBeforeUnderstanding":{"present":false,"observation":"The morning line is followed immediately by the dated change.","artifactLocator":"opening"},
+    "factlessConfidence":{"present":false,"observation":"Every legal claim is bounded by actor, output, exception and source.","artifactLocator":"lead and filed note"},
+    "falseBreakingUrgency":{"present":false,"observation":"Archive appears in the masthead and no August 12 alert is implied.","artifactLocator":"masthead"},
+    "familiarExampleWithoutTechnicalReturn":{"present":false,"observation":"Both examples return to origin, evidence, scope and approval.","artifactLocator":"work and home examples"},
+    "firstPrinciplesGap":{"present":false,"observation":"The explanation reconstructs duty, signal and evidence.","artifactLocator":"lead"},
+    "genericAction":{"present":false,"observation":"Five claim-level questions replace generic verification advice.","artifactLocator":"lead questions"},
+    "genericEditorialVoice":{"present":false,"observation":"The dated rule, misconception and desks are concrete.","artifactLocator":"full issue"},
+    "glossaryAccumulation":{"present":false,"observation":"Only provider and deployer are defined inside their jobs.","artifactLocator":"what changed"},
+    "implausibleAudienceAction":{"present":false,"observation":"Readers verify claims; professionals are not told to self-classify legal duties.","artifactLocator":"LAiDIES read"},
+    "inflatedTakeawayEnding":{"present":false,"observation":"The ending preserves archive and legal-advice limits.","artifactLocator":"filed note"},
+    "internalScaffoldingExposedToReader":{"present":false,"observation":"No model, gate, field, status or eligibility prose appears.","artifactLocator":"full issue"},
+    "jargonBeforeMeaning":{"present":false,"observation":"Expected disclosure is explained before legal categories.","artifactLocator":"lead"},
+    "joylessInstruction":{"present":false,"observation":"The newspaper rhythm and bounded wit preserve usefulness.","artifactLocator":"lead and desks"},
+    "laidiesVoiceAbsent":{"present":false,"observation":"The voice is candid, explanatory and non-condescending.","artifactLocator":"full issue"},
+    "longRunningWorkflowRealityIgnored":{"present":false,"observation":"No long-work workflow claim is made; each service item stays bounded.","artifactLocator":"desks"},
+    "mechanismBeforeMotivation":{"present":false,"observation":"What changed and why it matters precede the legal mechanism.","artifactLocator":"opening"},
+    "mechanismCompressedBehindHook":{"present":false,"observation":"The lead gives the actor, signal, limit and action chain.","artifactLocator":"lead"},
+    "missingAidbRelevanceCheck":{"present":false,"observation":"The August 12 source refresh records a dated NOT_COVERED result.","artifactLocator":"source refresh"},
+    "missingMechanism":{"present":false,"observation":"The issue explains who discloses what and why truth remains separate.","artifactLocator":"lead"},
+    "missingNewcomerBackground":{"present":false,"observation":"The EU AI Act and covered situations are explained from scratch.","artifactLocator":"lead"},
+    "newspaperHierarchyUnclear":{"present":false,"observation":"One dominant lead precedes four clearly labelled desks.","artifactLocator":"full issue"},
+    "parrotingExplainBack":{"present":false,"observation":"The probe requires applying provenance-versus-truth to a new claim.","artifactLocator":"label limits"},
+    "predeterminedThesisInsteadOfInvestigation":{"present":false,"observation":"The legal rule and bounded editorial inference remain distinct.","artifactLocator":"lead"},
+    "prematureClickBeforeMechanism":{"present":false,"observation":"The caller-ID insight is earned through the duty-to-signal explanation.","artifactLocator":"what changed and label sections"},
+    "promptAdviceMistakenForEnforcement":{"present":false,"observation":"Promptoscope is a distinct desk and does not enter the legal claim.","artifactLocator":"Promptoscope desk"},
+    "purposeTooNarrow":{"present":false,"observation":"The artifact is a complete dated issue, not one story presented as a newspaper.","artifactLocator":"lead and desks"},
+    "referenceConfetti":{"present":false,"observation":"One era-familiar caller-ID analogy performs the teaching job.","artifactLocator":"label sections"},
+    "rewindDecorationInsteadOfTeaching":{"present":false,"observation":"Caller ID clarifies provenance and is not decorative lore.","artifactLocator":"label sections"},
+    "sourceAvailabilityMistakenForEditorialValue":{"present":false,"observation":"An admitted dated change and coherent desk set earn the archive issue.","artifactLocator":"premise"},
+    "staleUnreviewableClaims":{"present":false,"observation":"The August 12 refresh, archive date and reopen triggers are explicit.","artifactLocator":"filed note"},
+    "statusLanguageOvertakesExperience":{"present":false,"observation":"Only an archive note appears; internal states are absent.","artifactLocator":"masthead and filed note"},
+    "technicalExplainerVoice":{"present":false,"observation":"The prose uses ordinary label and source-check language.","artifactLocator":"full issue"},
+    "technicalReaderAssumption":{"present":false,"observation":"No legal, policy or AI expertise is required.","artifactLocator":"full issue"},
+    "templateRepetition":{"present":false,"observation":"The exact dated material determines the hierarchy and desk set.","artifactLocator":"full issue"},
+    "weakReaderPremise":{"present":false,"observation":"The issue resolves a real universal-label and truth-certificate misconception.","artifactLocator":"lead"},
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"Two compact examples support rather than replace the newspaper.","artifactLocator":"work and home examples"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.","artifactLocator":"full candidate"},
+    "unbuiltDestinationPresentedAsLive":{"present":false,"observation":"No unproved destination is presented as live.","artifactLocator":"exact candidate"},
+    "repairScopeSubstitutedForSpecifiedScope":{"present":false,"observation":"No effective control scope is weakened by substitution.","artifactLocator":"exact candidate"},
+    "compressionDropsReferent":{"present":false,"observation":"Compact criteria retain actor, object, action and criterion.","artifactLocator":"exact candidate"},
+    "safetyQualifierWithUndefinedBoundary":{"present":false,"observation":"Safety conditions are observable and include a disposition.","artifactLocator":"exact candidate"},
+    "compoundModifierInvertsAgent":{"present":false,"observation":"No modifier can attach tested behavior to the wrong actor.","artifactLocator":"exact candidate"}
   },
-  "failureFamilies": {
-    "adviceBelowReaderBaseline": {
-      "present": false,
-      "observation": "Five questions move beyond noticing or opening a label.",
-      "artifactLocator": "lead questions"
-    },
-    "aidbDeference": {
-      "present": false,
-      "observation": "A dated AIDB absence is recorded; current Commission evidence governs.",
-      "artifactLocator": "source bindings"
-    },
-    "benchmarkNameDrop": {
-      "present": false,
-      "observation": "No benchmark personality enters the copy.",
-      "artifactLocator": "full issue"
-    },
-    "claimEvidenceCollapsed": {
-      "present": false,
-      "observation": "Legal duties, editorial inference and service advice remain separate.",
-      "artifactLocator": "lead and desks"
-    },
-    "communicationPastiche": {
-      "present": false,
-      "observation": "The issue uses LAiDIES' own newspaper voice.",
-      "artifactLocator": "full issue"
-    },
-    "corporateSludge": {
-      "present": false,
-      "observation": "Provider and deployer duties become visible reader situations.",
-      "artifactLocator": "what changed"
-    },
-    "curiosityWithoutPayoff": {
-      "present": false,
-      "observation": "The label question lands on an exact verification action.",
-      "artifactLocator": "lead questions"
-    },
-    "decorativeAnalogy": {
-      "present": false,
-      "observation": "Caller ID maps origin and immediately states its truth limit.",
-      "artifactLocator": "label sections"
-    },
-    "disconnectedSystem": {
-      "present": false,
-      "observation": "Duty, disclosure, interpretation and verification remain connected.",
-      "artifactLocator": "lead"
-    },
-    "entertainmentBeforeUnderstanding": {
-      "present": false,
-      "observation": "The morning line is followed immediately by the dated change.",
-      "artifactLocator": "opening"
-    },
-    "factlessConfidence": {
-      "present": false,
-      "observation": "Every legal claim is bounded by actor, output, exception and source.",
-      "artifactLocator": "lead and filed note"
-    },
-    "falseBreakingUrgency": {
-      "present": false,
-      "observation": "Archive appears in the masthead and no August 12 alert is implied.",
-      "artifactLocator": "masthead"
-    },
-    "familiarExampleWithoutTechnicalReturn": {
-      "present": false,
-      "observation": "Both examples return to origin, evidence, scope and approval.",
-      "artifactLocator": "work and home examples"
-    },
-    "firstPrinciplesGap": {
-      "present": false,
-      "observation": "The explanation reconstructs duty, signal and evidence.",
-      "artifactLocator": "lead"
-    },
-    "genericAction": {
-      "present": false,
-      "observation": "Five claim-level questions replace generic verification advice.",
-      "artifactLocator": "lead questions"
-    },
-    "genericEditorialVoice": {
-      "present": false,
-      "observation": "The dated rule, misconception and desks are concrete.",
-      "artifactLocator": "full issue"
-    },
-    "glossaryAccumulation": {
-      "present": false,
-      "observation": "Only provider and deployer are defined inside their jobs.",
-      "artifactLocator": "what changed"
-    },
-    "implausibleAudienceAction": {
-      "present": false,
-      "observation": "Readers verify claims; professionals are not told to self-classify legal duties.",
-      "artifactLocator": "LAiDIES read"
-    },
-    "inflatedTakeawayEnding": {
-      "present": false,
-      "observation": "The ending preserves archive and legal-advice limits.",
-      "artifactLocator": "filed note"
-    },
-    "internalScaffoldingExposedToReader": {
-      "present": false,
-      "observation": "No model, gate, field, status or eligibility prose appears.",
-      "artifactLocator": "full issue"
-    },
-    "jargonBeforeMeaning": {
-      "present": false,
-      "observation": "Expected disclosure is explained before legal categories.",
-      "artifactLocator": "lead"
-    },
-    "joylessInstruction": {
-      "present": false,
-      "observation": "The newspaper rhythm and bounded wit preserve usefulness.",
-      "artifactLocator": "lead and desks"
-    },
-    "laidiesVoiceAbsent": {
-      "present": false,
-      "observation": "The voice is candid, explanatory and non-condescending.",
-      "artifactLocator": "full issue"
-    },
-    "longRunningWorkflowRealityIgnored": {
-      "present": false,
-      "observation": "No long-work workflow claim is made; each service item stays bounded.",
-      "artifactLocator": "desks"
-    },
-    "mechanismBeforeMotivation": {
-      "present": false,
-      "observation": "What changed and why it matters precede the legal mechanism.",
-      "artifactLocator": "opening"
-    },
-    "mechanismCompressedBehindHook": {
-      "present": false,
-      "observation": "The lead gives the actor, signal, limit and action chain.",
-      "artifactLocator": "lead"
-    },
-    "missingAidbRelevanceCheck": {
-      "present": false,
-      "observation": "The August 12 source refresh records a dated NOT_COVERED result.",
-      "artifactLocator": "source refresh"
-    },
-    "missingMechanism": {
-      "present": false,
-      "observation": "The issue explains who discloses what and why truth remains separate.",
-      "artifactLocator": "lead"
-    },
-    "missingNewcomerBackground": {
-      "present": false,
-      "observation": "The EU AI Act and covered situations are explained from scratch.",
-      "artifactLocator": "lead"
-    },
-    "newspaperHierarchyUnclear": {
-      "present": false,
-      "observation": "One dominant lead precedes four clearly labelled desks.",
-      "artifactLocator": "full issue"
-    },
-    "parrotingExplainBack": {
-      "present": false,
-      "observation": "The probe requires applying provenance-versus-truth to a new claim.",
-      "artifactLocator": "label limits"
-    },
-    "predeterminedThesisInsteadOfInvestigation": {
-      "present": false,
-      "observation": "The legal rule and bounded editorial inference remain distinct.",
-      "artifactLocator": "lead"
-    },
-    "prematureClickBeforeMechanism": {
-      "present": false,
-      "observation": "The caller-ID insight is earned through the duty-to-signal explanation.",
-      "artifactLocator": "what changed and label sections"
-    },
-    "promptAdviceMistakenForEnforcement": {
-      "present": false,
-      "observation": "Promptoscope is a distinct desk and does not enter the legal claim.",
-      "artifactLocator": "Promptoscope desk"
-    },
-    "purposeTooNarrow": {
-      "present": false,
-      "observation": "The artifact is a complete dated issue, not one story presented as a newspaper.",
-      "artifactLocator": "lead and desks"
-    },
-    "referenceConfetti": {
-      "present": false,
-      "observation": "One era-familiar caller-ID analogy performs the teaching job.",
-      "artifactLocator": "label sections"
-    },
-    "rewindDecorationInsteadOfTeaching": {
-      "present": false,
-      "observation": "Caller ID clarifies provenance and is not decorative lore.",
-      "artifactLocator": "label sections"
-    },
-    "sourceAvailabilityMistakenForEditorialValue": {
-      "present": false,
-      "observation": "An admitted dated change and coherent desk set earn the archive issue.",
-      "artifactLocator": "premise"
-    },
-    "staleUnreviewableClaims": {
-      "present": false,
-      "observation": "The August 12 refresh, archive date and reopen triggers are explicit.",
-      "artifactLocator": "filed note"
-    },
-    "statusLanguageOvertakesExperience": {
-      "present": false,
-      "observation": "Only an archive note appears; internal states are absent.",
-      "artifactLocator": "masthead and filed note"
-    },
-    "technicalExplainerVoice": {
-      "present": false,
-      "observation": "The prose uses ordinary label and source-check language.",
-      "artifactLocator": "full issue"
-    },
-    "technicalReaderAssumption": {
-      "present": false,
-      "observation": "No legal, policy or AI expertise is required.",
-      "artifactLocator": "full issue"
-    },
-    "templateRepetition": {
-      "present": false,
-      "observation": "The exact dated material determines the hierarchy and desk set.",
-      "artifactLocator": "full issue"
-    },
-    "weakReaderPremise": {
-      "present": false,
-      "observation": "The issue resolves a real universal-label and truth-certificate misconception.",
-      "artifactLocator": "lead"
-    },
-    "workedExampleOvertakesBookPurpose": {
-      "present": false,
-      "observation": "Two compact examples support rather than replace the newspaper.",
-      "artifactLocator": "work and home examples"
-    },
-    "fictionalInputMistakenForIsolation": {
-      "present": false,
-      "observation": "The exact candidate does not describe fictional, synthetic or non-sensitive input as containment for an executable extension’s existing authority.",
-      "artifactLocator": "full candidate"
-    },
-    "unbuiltDestinationPresentedAsLive": {
-      "present": false,
-      "observation": "No planned, specified, built-local or held destination is presented as a current reader route.",
-      "artifactLocator": "exact candidate and related-learning metadata"
-    },
-    "repairScopeSubstitutedForSpecifiedScope": {
-      "present": false,
-      "observation": "No control scope was substituted in a way that preserves the original hazard.",
-      "artifactLocator": "exact candidate and originating transfer scenario"
-    },
-    "compressionDropsReferent": {
-      "present": false,
-      "observation": "Every compressed criterion retains the thing being tested and its output.",
-      "artifactLocator": "exact candidate examples"
-    },
-    "safetyQualifierWithUndefinedBoundary": {
-      "present": false,
-      "observation": "Safety conditions are reader-observable and include an exact stop disposition.",
-      "artifactLocator": "exact candidate"
-    },
-    "compoundModifierInvertsAgent": {
-      "present": false,
-      "observation": "No compound modifier can invert the tested actor or invite sensitive material.",
-      "artifactLocator": "exact candidate"
-    }
-  },
-  "factualReview": {
-    "disposition": "CLAIMS_REVIEWED",
-    "sourceBindings": [
-      {
-        "path": "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
-        "sha256": "79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"
-      },
-      {
-        "path": "operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md",
-        "sha256": "9bbf86960a0e530e36ffd9638e4518f9a914f52b0da48e360c6fad9a7de8c25b"
-      },
-      {
-        "path": "content/newsstand-daily-issues.json",
-        "sha256": "bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"
-      },
-      {
-        "path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md",
-        "sha256": "7ded3fdec609e628fc4a2005c57e3503096834ad0cc95e2c8094654e57dff929"
-      }
+  "factualReview":{
+    "disposition":"CLAIMS_REVIEWED",
+    "sourceBindings":[
+      {"path":"operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","sha256":"79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"},
+      {"path":"operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","sha256":"9bbf86960a0e530e36ffd9638e4518f9a914f52b0da48e360c6fad9a7de8c25b"},
+      {"path":"content/newsstand-daily-issues.json","sha256":"bcaa9bad0bca54f604f5a5d934425cef8a45f71941a8f5d230b3e006272593d6"},
+      {"path":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md","sha256":"7ded3fdec609e628fc4a2005c57e3503096834ad0cc95e2c8094654e57dff929"}
     ],
-    "claimMap": [
-      {
-        "claimId": "DAILY-EU50-START",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "Article 50 of the European Union’s AI Act began applying on August 2, 2026.",
-            "locator": "lead"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
-          "sha256": "79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "Article 50 transparency obligations began applying on 2 August 2026.",
-            "locator": "EU50-C01"
-          }
-        ],
-        "scopeAndFreshness": "Commission pages rechecked August 12 with no material change found."
-      },
-      {
-        "claimId": "DAILY-EU50-ACTOR-SCOPE",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "The European Commission’s current guidance separates two jobs.",
-            "locator": "what changed"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
-          "sha256": "79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "The obligations distinguish providers and professional deployers",
-            "locator": "EU50-C02"
-          }
-        ],
-        "scopeAndFreshness": "The candidate retains defined situations, exceptions and legal-advice boundary."
-      },
-      {
-        "claimId": "DAILY-EU50-GRACE",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "the Commission describes a grace period to December 2026",
-            "locator": "what changed"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md",
-          "sha256": "9bbf86960a0e530e36ffd9638e4518f9a914f52b0da48e360c6fad9a7de8c25b"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "states a December 2026 grace period for the marking obligation",
-            "locator": "current official evidence"
-          }
-        ],
-        "scopeAndFreshness": "The claim remains bounded to certain systems placed on the market before August 2."
-      },
-      {
-        "claimId": "DAILY-LABEL-NOT-TRUTH",
-        "status": "QUALIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "an AI label does not prove that the labelled claim is accurate, fair, safe or lawful.",
-            "locator": "label limits"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json",
-          "sha256": "79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "A transparency label provides origin context but does not establish factual accuracy, fairness, safety or legal compliance.",
-            "locator": "EU50-C04"
-          }
-        ],
-        "scopeAndFreshness": "This is explicitly a bounded editorial inference, not a legal claim that labels have no other evidentiary value."
-      }
+    "claimMap":[
+      {"claimId":"DAILY-EU50-START","status":"VERIFIED","candidateEvidence":[{"excerpt":"Article 50 of the European Union’s AI Act began applying on August 2, 2026.","locator":"lead"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","sha256":"79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"},"sourceEvidence":[{"excerpt":"Article 50 transparency obligations began applying on 2 August 2026.","locator":"EU50-C01"}],"scopeAndFreshness":"Commission pages rechecked August 12 with no material change found."},
+      {"claimId":"DAILY-EU50-ACTOR-SCOPE","status":"VERIFIED","candidateEvidence":[{"excerpt":"The European Commission’s current guidance separates two jobs.","locator":"what changed"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","sha256":"79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"},"sourceEvidence":[{"excerpt":"The obligations distinguish providers and professional deployers","locator":"EU50-C02"}],"scopeAndFreshness":"The candidate retains defined situations, exceptions and legal-advice boundary."},
+      {"claimId":"DAILY-EU50-GRACE","status":"VERIFIED","candidateEvidence":[{"excerpt":"the Commission describes a grace period to December 2026","locator":"what changed"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/candidates/daily-archive-eu-ai-act-source-refresh-2026-08-12.md","sha256":"9bbf86960a0e530e36ffd9638e4518f9a914f52b0da48e360c6fad9a7de8c25b"},"sourceEvidence":[{"excerpt":"states a December 2026 grace period for the marking obligation","locator":"current official evidence"}],"scopeAndFreshness":"The claim remains bounded to certain systems placed on the market before August 2."},
+      {"claimId":"DAILY-LABEL-NOT-TRUTH","status":"QUALIFIED","candidateEvidence":[{"excerpt":"an AI label does not prove that the labelled claim is accurate, fair, safe or lawful.","locator":"label limits"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/evidence/stories/eu-ai-act-transparency-starts.json","sha256":"79ea44df06a139a6feaf67ab8c1924e4338a428adb3dd3715d39a3a657221ba9"},"sourceEvidence":[{"excerpt":"A transparency label provides origin context but does not establish factual accuracy, fairness, safety or legal compliance.","locator":"EU50-C04"}],"scopeAndFreshness":"This is explicitly a bounded editorial inference, not a legal claim that labels have no other evidentiary value."}
     ],
-    "reviewedThrough": "2026-08-12",
-    "nextTrigger": "The Commission revises Article 50 guidance or fact pages, the legal text or transition changes, or enforcement/court evidence materially changes the interpretation.",
-    "correctionOwner": "NewsStand accuracy and corrections editor with newsstand-daily"
+    "reviewedThrough":"2026-08-12",
+    "nextTrigger":"The Commission revises Article 50 guidance or fact pages, the legal text or transition changes, or enforcement/court evidence materially changes the interpretation.",
+    "correctionOwner":"NewsStand accuracy and corrections editor with newsstand-daily"
   },
-  "ratchet": {
-    "repeatedKnownDefects": 0,
-    "objectiveDefectsFirstFoundAtReview": 0,
-    "reviewIssues": 0,
-    "reviewCycles": 1,
-    "priorComparable": {
-      "candidateId": "PUBLICATION-FORMAT-SAMPLER-V1",
-      "reviewIssues": 3,
-      "reviewCycles": 2,
-      "evidencePath": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"
-    },
-    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
-  },
-  "lineage": {
-    "kind": "SUCCESSOR",
-    "predecessorCandidateId": "PUBLICATION-FORMAT-SAMPLER-V1",
-    "predecessor": {
-      "candidateId": "PUBLICATION-FORMAT-SAMPLER-V1",
-      "path": "operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md",
-      "sha256": "b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"
-    },
-    "comparison": "The successor removes model/front-page scaffolding, establishes one dominant lead, omits empty desks and identifies the issue as an archive."
-  },
-  "learningDisposition": {
-    "disposition": "NO_NEW_DEFECT",
-    "rationale": "The existing rejection registry prevented internal scaffolding, unclear hierarchy, false freshness, filler desks and universal-label overclaim before self-review."
-  },
-  "verdict": "PASS",
-  "limitations": [
-    "Producer self-review has no independent quality authority.",
-    "The Daily archive remains a held internal candidate.",
-    "No role-distinct accuracy, editorial, learning, voice or Daily-format admission, canonical integration, deploy or public verification has occurred."
-  ]
+  "ratchet":{"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"priorComparable":{"candidateId":"PUBLICATION-FORMAT-SAMPLER-V1","reviewIssues":3,"reviewCycles":2,"evidencePath":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-ALI-REJECTION-2026-08-11.md"},"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage":{"kind":"SUCCESSOR","predecessorCandidateId":"PUBLICATION-FORMAT-SAMPLER-V1","predecessor":{"candidateId":"PUBLICATION-FORMAT-SAMPLER-V1","path":"operations/product-stewards/newsstand/candidates/publication-format-sampler-v1-2026-08-11.md","sha256":"b8a182642f341c350a149506b346c8a5551a02fadab0bda26444a623618d620e"},"comparison":"The successor removes model/front-page scaffolding, establishes one dominant lead, omits empty desks and identifies the issue as an archive."},
+  "learningDisposition":{"disposition":"NO_NEW_DEFECT","rationale":"The existing rejection registry prevented internal scaffolding, unclear hierarchy, false freshness, filler desks and universal-label overclaim before self-review."},
+  "verdict":"PASS",
+  "limitations":["Producer self-review has no independent quality authority.","The Daily archive remains a held internal candidate.","No role-distinct accuracy, editorial, learning, voice or Daily-format admission, canonical integration, deploy or public verification has occurred."]
 }

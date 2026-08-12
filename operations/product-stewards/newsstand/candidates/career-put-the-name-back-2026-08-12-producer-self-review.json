@@ -5,196 +5,29 @@
   "contentClass": "NEWS",
   "surface": "SUNNYVAiLE NewsStand / Career and Work-Life Tip",
   "maker": "learning-content-ecosystem",
-  "reviewer": {
-    "id": "career-work-life-self-review-20260812",
-    "principalId": "learning-content-ecosystem",
-    "role": "producer",
-    "modelFamily": "openai-gpt-5.6"
-  },
+  "reviewer": {"id":"career-work-life-self-review-20260812","principalId":"learning-content-ecosystem","role":"producer","modelFamily":"openai-gpt-5.6"},
   "reviewMode": "EXACT_PROSE_IN_FULL",
   "reviewedAt": "2026-08-12T01:34:30-07:00",
   "artifact": {
-    "reviewText": {
-      "path": "content/daily-learning-derivatives.json",
-      "sha256": "4e2aac2ef8fb73b809b6da75e5bb26ca5f076b430d9b8f0b2278c3ef5d0a10e3"
-    },
-    "manifest": {
-      "path": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json",
-      "sha256": "a5a00fc1df4415b790829766fd805675cc259b2462e3bcde107e692d586f255b"
-    }
+    "reviewText": {"path":"content/daily-learning-derivatives.json","sha256":"4e2aac2ef8fb73b809b6da75e5bb26ca5f076b430d9b8f0b2278c3ef5d0a10e3"},
+    "manifest": {"path":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json","sha256":"a5a00fc1df4415b790829766fd805675cc259b2462e3bcde107e692d586f255b"}
   },
   "calibration": {
-    "registrySha256": "8aa79178f5fa813c702ac094fa8d2c6fb3205f482a8c59e52e2832771200e967",
+    "registrySha256": "04917a92bad2f03efd9c8cbf09a59190bda7eaa5192e087e1e3757016f42fbda",
     "reviewerPrincipalId": "learning-content-ecosystem",
     "reviewedAt": "2026-08-12T01:34:30-07:00",
     "negatives": [
-      {
-        "exemplarId": "CQX-BAD-001",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "glossaryAccumulation",
-          "templateRepetition",
-          "decorativeAnalogy",
-          "referenceConfetti",
-          "missingMechanism",
-          "genericAction",
-          "jargonBeforeMeaning",
-          "disconnectedSystem",
-          "joylessInstruction"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Chapter 1 — Meet the parts of the system",
-            "locator": "known-bad opening"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-002",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "purposeTooNarrow",
-          "mechanismBeforeMotivation",
-          "workedExampleOvertakesBookPurpose",
-          "technicalExplainerVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "## Introduction — What you are actually using",
-            "locator": "known-bad introduction"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-003",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "falseBreakingUrgency",
-          "missingNewcomerBackground",
-          "technicalReaderAssumption",
-          "implausibleAudienceAction",
-          "laidiesVoiceAbsent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "OpenAI says no upcoming-release model was involved",
-            "locator": "known-bad headline"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-004",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "internalScaffoldingExposedToReader",
-          "newspaperHierarchyUnclear",
-          "statusLanguageOvertakesExperience"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Model front page — structure example",
-            "locator": "known-bad Daily"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-005",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "sourceAvailabilityMistakenForEditorialValue",
-          "missingAidbRelevanceCheck",
-          "predeterminedThesisInsteadOfInvestigation",
-          "weakReaderPremise",
-          "adviceBelowReaderBaseline",
-          "promptAdviceMistakenForEnforcement",
-          "longRunningWorkflowRealityIgnored",
-          "genericEditorialVoice"
-        ],
-        "evidence": [
-          {
-            "excerpt": "# REJECTED — LAiDIES publication-format sampler round 1",
-            "locator": "rejected sampler"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-006",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "fictionalInputMistakenForIsolation"
-        ],
-        "evidence": [
-          {
-            "excerpt": "The fictional notes and imaginary trip protect only those example inputs",
-            "locator": "exact missed defect"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-007",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "unbuiltDestinationPresentedAsLive"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Build the Skill. Keep the Job.",
-            "locator": "known-bad reader-facing route"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-008",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "repairScopeSubstitutedForSpecifiedScope",
-          "compressionDropsReferent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "Disconnect accounts or folders this job does not need.",
-            "locator": "known-bad wrong-scope repair"
-          },
-          {
-            "excerpt": "Home test: invented weekend.",
-            "locator": "known-bad compressed referent"
-          }
-        ]
-      },
-      {
-        "exemplarId": "CQX-BAD-009",
-        "verdict": "REJECT",
-        "identifiedFailureFamilies": [
-          "safetyQualifierWithUndefinedBoundary",
-          "compoundModifierInvertsAgent"
-        ],
-        "evidence": [
-          {
-            "excerpt": "In a clean workspace",
-            "locator": "known-bad undefined safety qualifier"
-          },
-          {
-            "excerpt": "should-stay-quiet request",
-            "locator": "known-bad inverted agent"
-          }
-        ]
-      }
+      {"exemplarId":"CQX-BAD-001","verdict":"REJECT","identifiedFailureFamilies":["glossaryAccumulation","templateRepetition","decorativeAnalogy","referenceConfetti","missingMechanism","genericAction","jargonBeforeMeaning","disconnectedSystem","joylessInstruction"],"evidence":[{"excerpt":"Chapter 1 — Meet the parts of the system","locator":"known-bad opening"}]},
+      {"exemplarId":"CQX-BAD-002","verdict":"REJECT","identifiedFailureFamilies":["purposeTooNarrow","mechanismBeforeMotivation","workedExampleOvertakesBookPurpose","technicalExplainerVoice"],"evidence":[{"excerpt":"## Introduction — What you are actually using","locator":"known-bad introduction"}]},
+      {"exemplarId":"CQX-BAD-003","verdict":"REJECT","identifiedFailureFamilies":["falseBreakingUrgency","missingNewcomerBackground","technicalReaderAssumption","implausibleAudienceAction","laidiesVoiceAbsent"],"evidence":[{"excerpt":"OpenAI says no upcoming-release model was involved","locator":"known-bad headline"}]},
+      {"exemplarId":"CQX-BAD-004","verdict":"REJECT","identifiedFailureFamilies":["internalScaffoldingExposedToReader","newspaperHierarchyUnclear","statusLanguageOvertakesExperience"],"evidence":[{"excerpt":"Model front page — structure example","locator":"known-bad Daily"}]},
+      {"exemplarId":"CQX-BAD-005","verdict":"REJECT","identifiedFailureFamilies":["sourceAvailabilityMistakenForEditorialValue","missingAidbRelevanceCheck","predeterminedThesisInsteadOfInvestigation","weakReaderPremise","adviceBelowReaderBaseline","promptAdviceMistakenForEnforcement","longRunningWorkflowRealityIgnored","genericEditorialVoice"],"evidence":[{"excerpt":"# REJECTED — LAiDIES publication-format sampler round 1","locator":"rejected sampler"}]},
+      {"exemplarId":"CQX-BAD-006","verdict":"REJECT","identifiedFailureFamilies":["fictionalInputMistakenForIsolation"],"evidence":[{"excerpt":"The fictional notes and imaginary trip protect only those example inputs","locator":"exact missed defect"}]},
+      {"exemplarId":"CQX-BAD-007","verdict":"REJECT","identifiedFailureFamilies":["unbuiltDestinationPresentedAsLive"],"evidence":[{"excerpt":"Build the Skill. Keep the Job.","locator":"known-bad unbuilt route"}]},
+      {"exemplarId":"CQX-BAD-008","verdict":"REJECT","identifiedFailureFamilies":["repairScopeSubstitutedForSpecifiedScope","compressionDropsReferent"],"evidence":[{"excerpt":"Disconnect accounts or folders this job does not need.","locator":"known-bad scope"},{"excerpt":"Home test: invented weekend.","locator":"known-bad missing referent"}]},
+      {"exemplarId":"CQX-BAD-009","verdict":"REJECT","identifiedFailureFamilies":["safetyQualifierWithUndefinedBoundary","compoundModifierInvertsAgent"],"evidence":[{"excerpt":"In a clean workspace", "locator":"known-bad qualifier"},{"excerpt":"should-stay-quiet request", "locator":"known-bad inverted actor"}]}
     ],
-    "positive": {
-      "exemplarId": "CQX-GOOD-NEWS-001",
-      "verdict": "PASS",
-      "strengthsRetained": [
-        "direct answer",
-        "evidence boundary",
-        "specific action"
-      ],
-      "evidence": [
-        {
-          "excerpt": "The exact duty depends on the system, actor, use and exception",
-          "locator": "approved NewsStand story"
-        }
-      ]
-    }
+    "positive": {"exemplarId":"CQX-GOOD-NEWS-001","verdict":"PASS","strengthsRetained":["direct answer","evidence boundary","specific action"],"evidence":[{"excerpt":"The exact duty depends on the system, actor, use and exception","locator":"approved NewsStand story"}]}
   },
   "reverseBrief": {
     "humanQuestion": "What do I say when my overlooked idea is applauded in somebody else's voice?",
@@ -204,540 +37,96 @@
     "surfaceJob": "A career-first Daily service item with one earned AI mirror.",
     "desiredReaderFeeling": "Equipped to act without being told to become louder or diagnose a colleague."
   },
-  "examplePairPolicy": {
-    "policyId": "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1",
-    "sharedMechanism": true,
-    "genuinelyDifferentSettings": true
-  },
+  "examplePairPolicy": {"policyId":"LAIDIES_WORK_AND_LIFE_EXAMPLES_V1","sharedMechanism":true,"genuinelyDifferentSettings":true},
   "outcomes": {
-    "plainClarity": {
-      "verdict": "PASS",
-      "observation": "The exact situation and response appear before any abstract explanation.",
-      "artifactEvidence": [
-        {
-          "excerpt": "You make a useful point, the meeting moves on",
-          "locator": "candidate opening"
-        }
-      ]
-    },
-    "readerValue": {
-      "verdict": "PASS",
-      "observation": "The reader receives both spoken wording and a follow-up structure.",
-      "artifactEvidence": [
-        {
-          "excerpt": "send a three-line recap: the contribution, the decision and the next owner",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "laidiesVoice": {
-      "verdict": "PASS",
-      "observation": "The headline is direct and lightly sharp without trivializing the problem.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Put the name back on the idea.",
-          "locator": "candidate headline"
-        }
-      ]
-    },
-    "engagingEnjoyable": {
-      "verdict": "PASS",
-      "observation": "The meeting scene is vivid and concise, while the action stays adult.",
-      "artifactEvidence": [
-        {
-          "excerpt": "the same point gets applause in somebody else’s voice",
-          "locator": "candidate opening"
-        }
-      ]
-    },
-    "factualIntegrity": {
-      "verdict": "PASS",
-      "observation": "The record and mirror retain their explicit limits and make no motive claim.",
-      "artifactEvidence": [
-        {
-          "excerpt": "That record preserves context; it does not prove why the idea was repeated.",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "freshnessReviewability": {
-      "verdict": "PASS",
-      "observation": "The record binds current workplace and provider sources, expiry and recheck triggers.",
-      "artifactEvidence": [
-        {
-          "excerpt": "leanin:recognition:2026-06-03",
-          "locator": "sourceContentIds"
-        }
-      ]
-    },
-    "surfaceFit": {
-      "verdict": "PASS",
-      "observation": "The 192-word body solves one Daily service job without becoming a class.",
-      "artifactEvidence": [
-        {
-          "excerpt": "the meeting line is a first move, not the whole fix",
-          "locator": "candidate landing"
-        }
-      ]
-    },
-    "datedChange": {
-      "verdict": "PASS",
-      "observation": "The item is dated guidance with current source versions, not a false news event.",
-      "artifactEvidence": [
-        {
-          "excerpt": "openai:truth-guidance:2026-08",
-          "locator": "sourceContentIds"
-        }
-      ]
-    },
-    "consequenceAndUncertainty": {
-      "verdict": "PASS",
-      "observation": "The candidate distinguishes useful documentation from unknown motive and material escalation.",
-      "artifactEvidence": [
-        {
-          "excerpt": "a power problem or a material career consequence",
-          "locator": "candidate landing"
-        }
-      ]
-    },
-    "dailyLifeConnection": {
-      "verdict": "PASS",
-      "observation": "A family health claim transfers the source-preservation mechanism beyond work.",
-      "artifactEvidence": [
-        {
-          "excerpt": "before forwarding a glossy health claim in the family chat",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "communicationBenchmark": {
-      "verdict": "PASS",
-      "observation": "A familiar meeting makes invisible attribution loss visible before the AI principle appears.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Reconnect the idea and keep the work moving",
-          "locator": "candidate body"
-        }
-      ]
-    },
-    "explanationReasoningBenchmark": {
-      "verdict": "PASS",
-      "observation": "The prose connects lost origin, attribution, record and bounded escalation.",
-      "artifactEvidence": [
-        {
-          "excerpt": "The next decision is…",
-          "locator": "candidate spoken line"
-        }
-      ]
-    },
-    "explainBack": {
-      "verdict": "PASS",
-      "observation": "The prose supports explaining why documentation helps without proving intent.",
-      "artifactEvidence": [
-        {
-          "excerpt": "a version history cannot diagnose intent",
-          "locator": "candidate body"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "Why does the recap help without proving idea theft?",
-        "probeResponse": "It records contribution, decision and owner, but sequence alone cannot reveal a colleague's motive.",
-        "expectedEvidence": "Reader separates documentation from motive."
-      }
-    },
-    "unseenTransfer": {
-      "verdict": "PASS",
-      "observation": "The AI and family-chat case requires applying origin-versus-proof outside the meeting.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Keep the original link or document attached and verify it",
-          "locator": "candidate AI mirror"
-        }
-      ],
-      "simulatedReaderProbe": {
-        "prompt": "What would you do with a polished AI answer that repeats an investment claim without its source?",
-        "probeResponse": "Recover the original source, check whether it supports the exact claim and do not treat fluent retelling as evidence or advice.",
-        "expectedEvidence": "Reader transfers source restoration and verification to a new high-consequence claim."
-      }
-    },
-    "usefulAction": {
-      "verdict": "PASS",
-      "observation": "The candidate gives one exact sentence and one exact recap structure.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Building on Maya’s point about customer risk",
-          "locator": "candidate ally wording"
-        }
-      ]
-    },
-    "analogyIntegrity": {
-      "verdict": "PASS",
-      "observation": "The AI mirror maps detached origin and immediately rejects people-to-model equivalence.",
-      "artifactEvidence": [
-        {
-          "excerpt": "People are not citation objects",
-          "locator": "candidate limit"
-        }
-      ]
-    },
-    "workplaceExample": {
-      "verdict": "PASS",
-      "observation": "The meeting example is specific enough to use.",
-      "artifactEvidence": [
-        {
-          "excerpt": "Yes—that builds on the customer-risk point I raised earlier",
-          "locator": "candidate spoken line"
-        }
-      ]
-    },
-    "nonWorkExample": {
-      "verdict": "PASS",
-      "observation": "The family-chat health claim is a genuinely different setting and consequence.",
-      "artifactEvidence": [
-        {
-          "excerpt": "a glossy health claim in the family chat",
-          "locator": "candidate home example"
-        }
-      ]
-    }
+    "plainClarity":{"verdict":"PASS","observation":"The exact situation and response appear before any abstract explanation.","artifactEvidence":[{"excerpt":"You make a useful point, the meeting moves on","locator":"candidate opening"}]},
+    "readerValue":{"verdict":"PASS","observation":"The reader receives both spoken wording and a follow-up structure.","artifactEvidence":[{"excerpt":"send a three-line recap: the contribution, the decision and the next owner","locator":"candidate body"}]},
+    "laidiesVoice":{"verdict":"PASS","observation":"The headline is direct and lightly sharp without trivializing the problem.","artifactEvidence":[{"excerpt":"Put the name back on the idea.","locator":"candidate headline"}]},
+    "engagingEnjoyable":{"verdict":"PASS","observation":"The meeting scene is vivid and concise, while the action stays adult.","artifactEvidence":[{"excerpt":"the same point gets applause in somebody else’s voice","locator":"candidate opening"}]},
+    "factualIntegrity":{"verdict":"PASS","observation":"The record and mirror retain their explicit limits and make no motive claim.","artifactEvidence":[{"excerpt":"That record preserves context; it does not prove why the idea was repeated.","locator":"candidate body"}]},
+    "freshnessReviewability":{"verdict":"PASS","observation":"The record binds current workplace and provider sources, expiry and recheck triggers.","artifactEvidence":[{"excerpt":"leanin:recognition:2026-06-03","locator":"sourceContentIds"}]},
+    "surfaceFit":{"verdict":"PASS","observation":"The 192-word body solves one Daily service job without becoming a class.","artifactEvidence":[{"excerpt":"the meeting line is a first move, not the whole fix","locator":"candidate landing"}]},
+    "datedChange":{"verdict":"PASS","observation":"The item is dated guidance with current source versions, not a false news event.","artifactEvidence":[{"excerpt":"openai:truth-guidance:2026-08","locator":"sourceContentIds"}]},
+    "consequenceAndUncertainty":{"verdict":"PASS","observation":"The candidate distinguishes useful documentation from unknown motive and material escalation.","artifactEvidence":[{"excerpt":"a power problem or a material career consequence","locator":"candidate landing"}]},
+    "dailyLifeConnection":{"verdict":"PASS","observation":"A family health claim transfers the source-preservation mechanism beyond work.","artifactEvidence":[{"excerpt":"before forwarding a glossy health claim in the family chat","locator":"candidate body"}]},
+    "communicationBenchmark":{"verdict":"PASS","observation":"A familiar meeting makes invisible attribution loss visible before the AI principle appears.","artifactEvidence":[{"excerpt":"Reconnect the idea and keep the work moving","locator":"candidate body"}]},
+    "explanationReasoningBenchmark":{"verdict":"PASS","observation":"The prose connects lost origin, attribution, record and bounded escalation.","artifactEvidence":[{"excerpt":"The next decision is…","locator":"candidate spoken line"}]},
+    "explainBack":{"verdict":"PASS","observation":"The prose supports explaining why documentation helps without proving intent.","artifactEvidence":[{"excerpt":"a version history cannot diagnose intent","locator":"candidate body"}],"simulatedReaderProbe":{"prompt":"Why does the recap help without proving idea theft?","probeResponse":"It records contribution, decision and owner, but sequence alone cannot reveal a colleague's motive.","expectedEvidence":"Reader separates documentation from motive."}},
+    "unseenTransfer":{"verdict":"PASS","observation":"The AI and family-chat case requires applying origin-versus-proof outside the meeting.","artifactEvidence":[{"excerpt":"Keep the original link or document attached and verify it","locator":"candidate AI mirror"}],"simulatedReaderProbe":{"prompt":"What would you do with a polished AI answer that repeats an investment claim without its source?","probeResponse":"Recover the original source, check whether it supports the exact claim and do not treat fluent retelling as evidence or advice.","expectedEvidence":"Reader transfers source restoration and verification to a new high-consequence claim."}},
+    "usefulAction":{"verdict":"PASS","observation":"The candidate gives one exact sentence and one exact recap structure.","artifactEvidence":[{"excerpt":"Building on Maya’s point about customer risk","locator":"candidate ally wording"}]},
+    "analogyIntegrity":{"verdict":"PASS","observation":"The AI mirror maps detached origin and immediately rejects people-to-model equivalence.","artifactEvidence":[{"excerpt":"People are not citation objects","locator":"candidate limit"}]},
+    "workplaceExample":{"verdict":"PASS","observation":"The meeting example is specific enough to use.","artifactEvidence":[{"excerpt":"Yes—that builds on the customer-risk point I raised earlier","locator":"candidate spoken line"}]},
+    "nonWorkExample":{"verdict":"PASS","observation":"The family-chat health claim is a genuinely different setting and consequence.","artifactEvidence":[{"excerpt":"a glossy health claim in the family chat","locator":"candidate home example"}]}
   },
   "failureFamilies": {
-    "adviceBelowReaderBaseline": {
-      "present": false,
-      "observation": "The candidate goes beyond speak up and document it by supplying exact content and limits.",
-      "artifactLocator": "spoken line and recap"
-    },
-    "aidbDeference": {
-      "present": false,
-      "observation": "A dated absence is recorded and current sources govern.",
-      "artifactLocator": "source note"
-    },
-    "benchmarkNameDrop": {
-      "present": false,
-      "observation": "No benchmark personality enters the copy.",
-      "artifactLocator": "candidate body"
-    },
-    "claimEvidenceCollapsed": {
-      "present": false,
-      "observation": "Workplace guidance, AI fact and recommendation remain separate.",
-      "artifactLocator": "candidate sequence"
-    },
-    "communicationPastiche": {
-      "present": false,
-      "observation": "The copy uses LAiDIES' own direct service voice.",
-      "artifactLocator": "headline and body"
-    },
-    "corporateSludge": {
-      "present": false,
-      "observation": "The candidate uses ordinary meeting language.",
-      "artifactLocator": "candidate body"
-    },
-    "curiosityWithoutPayoff": {
-      "present": false,
-      "observation": "The recognizable problem lands on usable wording.",
-      "artifactLocator": "candidate body"
-    },
-    "decorativeAnalogy": {
-      "present": false,
-      "observation": "The AI mirror produces a source-verification action.",
-      "artifactLocator": "AI mirror"
-    },
-    "disconnectedSystem": {
-      "present": false,
-      "observation": "Contribution, decision and owner form one record path.",
-      "artifactLocator": "recap"
-    },
-    "entertainmentBeforeUnderstanding": {
-      "present": false,
-      "observation": "The lightly sharp headline is followed immediately by the problem.",
-      "artifactLocator": "opening"
-    },
-    "factlessConfidence": {
-      "present": false,
-      "observation": "Current sources and explicit limits are bound.",
-      "artifactLocator": "source metadata and body"
-    },
-    "falseBreakingUrgency": {
-      "present": false,
-      "observation": "The item is recurring guidance, not an alert.",
-      "artifactLocator": "candidate record"
-    },
-    "familiarExampleWithoutTechnicalReturn": {
-      "present": false,
-      "observation": "The meeting and home cases return to source context and proof.",
-      "artifactLocator": "candidate body"
-    },
-    "firstPrinciplesGap": {
-      "present": false,
-      "observation": "The origin-loss mechanism is stated before the action limit.",
-      "artifactLocator": "candidate sequence"
-    },
-    "genericAction": {
-      "present": false,
-      "observation": "Exact spoken and written actions appear.",
-      "artifactLocator": "candidate body"
-    },
-    "genericEditorialVoice": {
-      "present": false,
-      "observation": "The language is specific to an overlooked and repeated idea.",
-      "artifactLocator": "headline and opening"
-    },
-    "glossaryAccumulation": {
-      "present": false,
-      "observation": "No bias or provenance glossary interrupts the guidance.",
-      "artifactLocator": "candidate body"
-    },
-    "implausibleAudienceAction": {
-      "present": false,
-      "observation": "The reader is not asked to infer intent or conduct an investigation.",
-      "artifactLocator": "motive limit"
-    },
-    "inflatedTakeawayEnding": {
-      "present": false,
-      "observation": "The ending calls the line a first move, not a cure.",
-      "artifactLocator": "candidate landing"
-    },
-    "internalScaffoldingExposedToReader": {
-      "present": false,
-      "observation": "No production status or gate language appears in the body.",
-      "artifactLocator": "candidate body"
-    },
-    "jargonBeforeMeaning": {
-      "present": false,
-      "observation": "A familiar meeting precedes provenance concepts.",
-      "artifactLocator": "candidate opening"
-    },
-    "joylessInstruction": {
-      "present": false,
-      "observation": "The action is calm and conversational.",
-      "artifactLocator": "spoken wording"
-    },
-    "laidiesVoiceAbsent": {
-      "present": false,
-      "observation": "Adult candour and bounded wit remain visible.",
-      "artifactLocator": "headline and body"
-    },
-    "longRunningWorkflowRealityIgnored": {
-      "present": false,
-      "observation": "Repeated or consequential patterns retain an escalation path.",
-      "artifactLocator": "candidate landing"
-    },
-    "mechanismBeforeMotivation": {
-      "present": false,
-      "observation": "The reader's workplace need comes first.",
-      "artifactLocator": "opening"
-    },
-    "mechanismCompressedBehindHook": {
-      "present": false,
-      "observation": "Most of the body explains the intervention, record and limit.",
-      "artifactLocator": "candidate body"
-    },
-    "missingAidbRelevanceCheck": {
-      "present": false,
-      "observation": "The source note records a dated recent-AIDB absence.",
-      "artifactLocator": "source note"
-    },
-    "missingMechanism": {
-      "present": false,
-      "observation": "Repetition, lost origin, restored context and record are connected.",
-      "artifactLocator": "candidate body"
-    },
-    "missingNewcomerBackground": {
-      "present": false,
-      "observation": "The full situation is described without bias terminology.",
-      "artifactLocator": "opening"
-    },
-    "newspaperHierarchyUnclear": {
-      "present": false,
-      "observation": "One compact service item has one headline and body.",
-      "artifactLocator": "candidate record"
-    },
-    "parrotingExplainBack": {
-      "present": false,
-      "observation": "The probe requires distinguishing evidence of sequence from motive.",
-      "artifactLocator": "motive limit"
-    },
-    "predeterminedThesisInsteadOfInvestigation": {
-      "present": false,
-      "observation": "Intent remains unknown and power limits remain explicit.",
-      "artifactLocator": "candidate body"
-    },
-    "prematureClickBeforeMechanism": {
-      "present": false,
-      "observation": "The source habit follows the complete workplace move.",
-      "artifactLocator": "candidate sequence"
-    },
-    "promptAdviceMistakenForEnforcement": {
-      "present": false,
-      "observation": "No prompt is presented as a workplace control.",
-      "artifactLocator": "candidate body"
-    },
-    "purposeTooNarrow": {
-      "present": false,
-      "observation": "The compact format intentionally owns only the first move and recap.",
-      "artifactLocator": "candidate landing"
-    },
-    "referenceConfetti": {
-      "present": false,
-      "observation": "No decorative pop-culture reference appears.",
-      "artifactLocator": "candidate body"
-    },
-    "rewindDecorationInsteadOfTeaching": {
-      "present": false,
-      "observation": "No decorative Rewind analogy appears.",
-      "artifactLocator": "candidate body"
-    },
-    "sourceAvailabilityMistakenForEditorialValue": {
-      "present": false,
-      "observation": "The practical gap, not source availability, earns the item.",
-      "artifactLocator": "premise"
-    },
-    "staleUnreviewableClaims": {
-      "present": false,
-      "observation": "Source dates, expiry and triggers are explicit.",
-      "artifactLocator": "freshness metadata"
-    },
-    "statusLanguageOvertakesExperience": {
-      "present": false,
-      "observation": "HOLD remains metadata outside the prose.",
-      "artifactLocator": "candidate record"
-    },
-    "technicalExplainerVoice": {
-      "present": false,
-      "observation": "The AI mirror uses ordinary source language.",
-      "artifactLocator": "AI mirror"
-    },
-    "technicalReaderAssumption": {
-      "present": false,
-      "observation": "No technical knowledge is required.",
-      "artifactLocator": "candidate body"
-    },
-    "templateRepetition": {
-      "present": false,
-      "observation": "The sequence follows this exact workplace problem.",
-      "artifactLocator": "candidate body"
-    },
-    "weakReaderPremise": {
-      "present": false,
-      "observation": "The reader receives language for a specific recurring problem.",
-      "artifactLocator": "opening and spoken line"
-    },
-    "workedExampleOvertakesBookPurpose": {
-      "present": false,
-      "observation": "The examples remain subordinate to the compact service job.",
-      "artifactLocator": "candidate body"
-    },
-    "fictionalInputMistakenForIsolation": {
-      "present": false,
-      "observation": "The manifest-bound Career record contains no executable extension or synthetic-input-as-containment advice; its AI mirror concerns attribution and meeting evidence.",
-      "artifactLocator": "DLD-2026-08-12-CAREER-PUT-THE-NAME-BACK"
-    },
-    "unbuiltDestinationPresentedAsLive": {
-      "present": false,
-      "observation": "No planned, specified, built-local or held destination is presented as a current reader route.",
-      "artifactLocator": "exact candidate and related-learning metadata"
-    },
-    "repairScopeSubstitutedForSpecifiedScope": {
-      "present": false,
-      "observation": "No control scope was substituted in a way that preserves the original hazard.",
-      "artifactLocator": "exact candidate and originating transfer scenario"
-    },
-    "compressionDropsReferent": {
-      "present": false,
-      "observation": "Every compressed criterion retains the thing being tested and its output.",
-      "artifactLocator": "exact candidate examples"
-    },
-    "safetyQualifierWithUndefinedBoundary": {
-      "present": false,
-      "observation": "Safety conditions are reader-observable and include an exact stop disposition.",
-      "artifactLocator": "exact candidate"
-    },
-    "compoundModifierInvertsAgent": {
-      "present": false,
-      "observation": "No compound modifier can invert the tested actor or invite sensitive material.",
-      "artifactLocator": "exact candidate"
-    }
+    "adviceBelowReaderBaseline":{"present":false,"observation":"The candidate goes beyond speak up and document it by supplying exact content and limits.","artifactLocator":"spoken line and recap"},
+    "aidbDeference":{"present":false,"observation":"A dated absence is recorded and current sources govern.","artifactLocator":"source note"},
+    "benchmarkNameDrop":{"present":false,"observation":"No benchmark personality enters the copy.","artifactLocator":"candidate body"},
+    "claimEvidenceCollapsed":{"present":false,"observation":"Workplace guidance, AI fact and recommendation remain separate.","artifactLocator":"candidate sequence"},
+    "communicationPastiche":{"present":false,"observation":"The copy uses LAiDIES' own direct service voice.","artifactLocator":"headline and body"},
+    "corporateSludge":{"present":false,"observation":"The candidate uses ordinary meeting language.","artifactLocator":"candidate body"},
+    "curiosityWithoutPayoff":{"present":false,"observation":"The recognizable problem lands on usable wording.","artifactLocator":"candidate body"},
+    "decorativeAnalogy":{"present":false,"observation":"The AI mirror produces a source-verification action.","artifactLocator":"AI mirror"},
+    "disconnectedSystem":{"present":false,"observation":"Contribution, decision and owner form one record path.","artifactLocator":"recap"},
+    "entertainmentBeforeUnderstanding":{"present":false,"observation":"The lightly sharp headline is followed immediately by the problem.","artifactLocator":"opening"},
+    "factlessConfidence":{"present":false,"observation":"Current sources and explicit limits are bound.","artifactLocator":"source metadata and body"},
+    "falseBreakingUrgency":{"present":false,"observation":"The item is recurring guidance, not an alert.","artifactLocator":"candidate record"},
+    "familiarExampleWithoutTechnicalReturn":{"present":false,"observation":"The meeting and home cases return to source context and proof.","artifactLocator":"candidate body"},
+    "firstPrinciplesGap":{"present":false,"observation":"The origin-loss mechanism is stated before the action limit.","artifactLocator":"candidate sequence"},
+    "genericAction":{"present":false,"observation":"Exact spoken and written actions appear.","artifactLocator":"candidate body"},
+    "genericEditorialVoice":{"present":false,"observation":"The language is specific to an overlooked and repeated idea.","artifactLocator":"headline and opening"},
+    "glossaryAccumulation":{"present":false,"observation":"No bias or provenance glossary interrupts the guidance.","artifactLocator":"candidate body"},
+    "implausibleAudienceAction":{"present":false,"observation":"The reader is not asked to infer intent or conduct an investigation.","artifactLocator":"motive limit"},
+    "inflatedTakeawayEnding":{"present":false,"observation":"The ending calls the line a first move, not a cure.","artifactLocator":"candidate landing"},
+    "internalScaffoldingExposedToReader":{"present":false,"observation":"No production status or gate language appears in the body.","artifactLocator":"candidate body"},
+    "jargonBeforeMeaning":{"present":false,"observation":"A familiar meeting precedes provenance concepts.","artifactLocator":"candidate opening"},
+    "joylessInstruction":{"present":false,"observation":"The action is calm and conversational.","artifactLocator":"spoken wording"},
+    "laidiesVoiceAbsent":{"present":false,"observation":"Adult candour and bounded wit remain visible.","artifactLocator":"headline and body"},
+    "longRunningWorkflowRealityIgnored":{"present":false,"observation":"Repeated or consequential patterns retain an escalation path.","artifactLocator":"candidate landing"},
+    "mechanismBeforeMotivation":{"present":false,"observation":"The reader's workplace need comes first.","artifactLocator":"opening"},
+    "mechanismCompressedBehindHook":{"present":false,"observation":"Most of the body explains the intervention, record and limit.","artifactLocator":"candidate body"},
+    "missingAidbRelevanceCheck":{"present":false,"observation":"The source note records a dated recent-AIDB absence.","artifactLocator":"source note"},
+    "missingMechanism":{"present":false,"observation":"Repetition, lost origin, restored context and record are connected.","artifactLocator":"candidate body"},
+    "missingNewcomerBackground":{"present":false,"observation":"The full situation is described without bias terminology.","artifactLocator":"opening"},
+    "newspaperHierarchyUnclear":{"present":false,"observation":"One compact service item has one headline and body.","artifactLocator":"candidate record"},
+    "parrotingExplainBack":{"present":false,"observation":"The probe requires distinguishing evidence of sequence from motive.","artifactLocator":"motive limit"},
+    "predeterminedThesisInsteadOfInvestigation":{"present":false,"observation":"Intent remains unknown and power limits remain explicit.","artifactLocator":"candidate body"},
+    "prematureClickBeforeMechanism":{"present":false,"observation":"The source habit follows the complete workplace move.","artifactLocator":"candidate sequence"},
+    "promptAdviceMistakenForEnforcement":{"present":false,"observation":"No prompt is presented as a workplace control.","artifactLocator":"candidate body"},
+    "purposeTooNarrow":{"present":false,"observation":"The compact format intentionally owns only the first move and recap.","artifactLocator":"candidate landing"},
+    "referenceConfetti":{"present":false,"observation":"No decorative pop-culture reference appears.","artifactLocator":"candidate body"},
+    "rewindDecorationInsteadOfTeaching":{"present":false,"observation":"No decorative Rewind analogy appears.","artifactLocator":"candidate body"},
+    "sourceAvailabilityMistakenForEditorialValue":{"present":false,"observation":"The practical gap, not source availability, earns the item.","artifactLocator":"premise"},
+    "staleUnreviewableClaims":{"present":false,"observation":"Source dates, expiry and triggers are explicit.","artifactLocator":"freshness metadata"},
+    "statusLanguageOvertakesExperience":{"present":false,"observation":"HOLD remains metadata outside the prose.","artifactLocator":"candidate record"},
+    "technicalExplainerVoice":{"present":false,"observation":"The AI mirror uses ordinary source language.","artifactLocator":"AI mirror"},
+    "technicalReaderAssumption":{"present":false,"observation":"No technical knowledge is required.","artifactLocator":"candidate body"},
+    "templateRepetition":{"present":false,"observation":"The sequence follows this exact workplace problem.","artifactLocator":"candidate body"},
+    "weakReaderPremise":{"present":false,"observation":"The reader receives language for a specific recurring problem.","artifactLocator":"opening and spoken line"},
+    "workedExampleOvertakesBookPurpose":{"present":false,"observation":"The examples remain subordinate to the compact service job.","artifactLocator":"candidate body"},
+    "fictionalInputMistakenForIsolation":{"present":false,"observation":"The manifest-bound Career record contains no executable extension or synthetic-input-as-containment advice; its AI mirror concerns attribution and meeting evidence.","artifactLocator":"DLD-2026-08-12-CAREER-PUT-THE-NAME-BACK"},
+    "unbuiltDestinationPresentedAsLive":{"present":false,"observation":"No unproved destination is presented as live.","artifactLocator":"exact candidate"},
+    "repairScopeSubstitutedForSpecifiedScope":{"present":false,"observation":"No effective control scope is weakened by substitution.","artifactLocator":"exact candidate"},
+    "compressionDropsReferent":{"present":false,"observation":"Compact criteria retain actor, object, action and criterion.","artifactLocator":"exact candidate"},
+    "safetyQualifierWithUndefinedBoundary":{"present":false,"observation":"Safety conditions are observable and include a disposition.","artifactLocator":"exact candidate"},
+    "compoundModifierInvertsAgent":{"present":false,"observation":"No modifier can attach tested behavior to the wrong actor.","artifactLocator":"exact candidate"}
   },
   "factualReview": {
     "disposition": "CLAIMS_REVIEWED",
     "sourceBindings": [
-      {
-        "path": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
-        "sha256": "bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"
-      }
+      {"path":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","sha256":"bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"}
     ],
     "claimMap": [
-      {
-        "claimId": "CAREER-RECOGNITION",
-        "status": "QUALIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "the same point gets applause in somebody else’s voice",
-            "locator": "candidate opening"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
-          "sha256": "bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "women can be judged more harshly and receive less credit",
-            "locator": "workplace evidence"
-          }
-        ],
-        "scopeAndFreshness": "Current Lean In guidance checked August 12; it supports the problem and practice but not motive in an individual case."
-      },
-      {
-        "claimId": "AI-FLUENCY-VERIFY",
-        "status": "VERIFIED",
-        "candidateEvidence": [
-          {
-            "excerpt": "a polished AI answer can also repeat a claim after its source has disappeared",
-            "locator": "candidate AI mirror"
-          }
-        ],
-        "sourceBinding": {
-          "path": "operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md",
-          "sha256": "bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"
-        },
-        "sourceEvidence": [
-          {
-            "excerpt": "a model can sound confident while producing incorrect facts",
-            "locator": "AI mirror"
-          }
-        ],
-        "scopeAndFreshness": "OpenAI guidance checked August 12; the candidate recommends source verification and does not assert a universal error rate."
-      }
+      {"claimId":"CAREER-RECOGNITION","status":"QUALIFIED","candidateEvidence":[{"excerpt":"the same point gets applause in somebody else’s voice","locator":"candidate opening"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","sha256":"bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"},"sourceEvidence":[{"excerpt":"women can be judged more harshly and receive less credit","locator":"workplace evidence"}],"scopeAndFreshness":"Current Lean In guidance checked August 12; it supports the problem and practice but not motive in an individual case."},
+      {"claimId":"AI-FLUENCY-VERIFY","status":"VERIFIED","candidateEvidence":[{"excerpt":"a polished AI answer can also repeat a claim after its source has disappeared","locator":"candidate AI mirror"}],"sourceBinding":{"path":"operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","sha256":"bd2a56ceb8e5412fc6ce42d7a0593558f05ad3a68198f33eb74f997a73fcfdf7"},"sourceEvidence":[{"excerpt":"a model can sound confident while producing incorrect facts","locator":"AI mirror"}],"scopeAndFreshness":"OpenAI guidance checked August 12; the candidate recommends source verification and does not assert a universal error rate."}
     ],
     "reviewedThrough": "2026-08-12",
     "nextTrigger": "Workplace guidance, cited evidence, OpenAI accuracy guidance or the risk level of the advice changes.",
     "correctionOwner": "learning-content-ecosystem with NewsStand accuracy and corrections"
   },
-  "ratchet": {
-    "repeatedKnownDefects": 0,
-    "objectiveDefectsFirstFoundAtReview": 0,
-    "reviewIssues": 0,
-    "reviewCycles": 1,
-    "priorComparable": {
-      "candidateId": "PUBLICATION-FORMAT-SAMPLER-V1",
-      "reviewIssues": 3,
-      "reviewCycles": 2
-    },
-    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
-  },
-  "lineage": {
-    "kind": "SUCCESSOR",
-    "predecessorCandidateId": "PUBLICATION-FORMAT-SAMPLER-V1"
-  },
-  "learningDisposition": {
-    "disposition": "NO_NEW_DEFECT",
-    "rationale": "The existing rejection registry prevented generic confidence advice, AI-first framing, motive inference and a pasted-on mirror before self-review."
-  },
+  "ratchet": {"repeatedKnownDefects":0,"objectiveDefectsFirstFoundAtReview":0,"reviewIssues":0,"reviewCycles":1,"priorComparable":{"candidateId":"PUBLICATION-FORMAT-SAMPLER-V1","reviewIssues":3,"reviewCycles":2},"onKnownDefect":"REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage": {"kind":"SUCCESSOR","predecessorCandidateId":"PUBLICATION-FORMAT-SAMPLER-V1"},
+  "learningDisposition": {"disposition":"NO_NEW_DEFECT","rationale":"The existing rejection registry prevented generic confidence advice, AI-first framing, motive inference and a pasted-on mirror before self-review."},
   "verdict": "PASS",
-  "limitations": [
-    "Producer self-review has no independent quality authority.",
-    "The exact record remains HOLD and publicly ineligible.",
-    "No independent accuracy, editorial, voice or format admission, Daily integration, deploy or public verification has occurred."
-  ]
+  "limitations": ["Producer self-review has no independent quality authority.", "The exact record remains HOLD and publicly ineligible.", "No independent accuracy, editorial, voice or format admission, Daily integration, deploy or public verification has occurred."]
 }

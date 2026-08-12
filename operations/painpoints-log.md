@@ -14794,3 +14794,35 @@ while remaining falsely unfinished in the launch record.
   front of an AI tool while leaving the rest of the filing cabinet unlocked.
 - **Publication status:** CANDIDATE REPAIRED / PRODUCER PASS / NO INDEPENDENT
   ADMISSION, DAILY INTEGRATION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-473–475 — A repair can copy the requested shape and preserve the failure
+
+- **Date:** 2026-08-12
+- **Area:** Paige's Practical AI Tip, independent content review and reusable
+  producer prevention.
+- **Failure:** Four independent reviews kept finding defects after plausible
+  repairs: an unbuilt lab was written as a live route; “the rehearsal” became
+  “the job” and left a live expense system connected; cutting words removed the
+  packing-skill referent; and undefined words such as “unknown” and “clean,”
+  plus “should-stay-quiet request,” could route a popular pack or confidential
+  material through the wrong branch.
+- **Root cause:** The producer treated the requested sentence shape and shorter
+  word count as the acceptance test. It did not forward-run the original
+  expense and viral-pack scenarios or check that compression preserved scope,
+  actor and object.
+- **Prevention rule:** Reader routes require proved public state. Scope-changing
+  repairs rerun the original scenario. Compression retains actor, object,
+  action and criterion. Safety qualifiers name observable boundaries and exact
+  dispositions, and behavior-test wording names the tool as the actor.
+- **Durable correction:** CQX-BAD-007 through CQX-BAD-009 now calibrate every
+  active producer and reviewer. The exact 147-word Paige successor tells the
+  reader to disconnect every live account and folder even when the real job
+  needs it, excludes makers she cannot vet however popular, and asks for one
+  case the skill should not answer. Fifth independent Opus review found zero
+  blockers and accepted it only for observed-human and rendered-card review.
+- **Possible Behind the Build angle:** Why replacing one word in a safety rule
+  can preserve the entire hazard—and why a concrete transfer test catches what
+  a checklist misses.
+- **Publication status:** EXACT PROSE INDEPENDENTLY ACCEPTED FOR NEXT REVIEW /
+  HOLD AND INELIGIBLE / NO HUMAN OBSERVATION, RENDERED ACCEPTANCE, INTEGRATION,
+  DEPLOYMENT OR PUBLICATION.
