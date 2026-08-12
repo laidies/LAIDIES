@@ -79,6 +79,17 @@
       "accessedAt": "2026-08-05",
       "status": "CURRENT",
       "notes": "OpenAI's English rule of thumb is one token is about four characters or three quarters of a word; exact tokenization varies by model, encoding and language."
+    },
+    {
+      "id": "SRC-ANTHROPIC-AGENT-SKILLS-OVERVIEW-2026-08-11",
+      "title": "Agent Skills",
+      "publisher": "Anthropic",
+      "authority": "FIRST_PARTY_PRODUCT",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+      "publishedOrUpdated": "Current Anthropic documentation; exact update date is not stably exposed",
+      "accessedAt": "2026-08-11",
+      "status": "CURRENT",
+      "notes": "Defines skills as reusable filesystem resources containing instructions, scripts and resources; documents on-demand loading, cross-surface limits and the need to audit untrusted skills like software."
     }
   ],
   "claims": [
@@ -597,6 +608,65 @@
         "recordPath": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-03-library-token-ratio.md",
         "publicHandling": "CORRECTION_REQUIRED"
       }
+    },
+    {
+      "id": "CLM-PRODUCT-ANTHROPIC-REUSABLE-SKILLS",
+      "canonicalKey": "anthropic-reusable-agent-skills",
+      "type": "product_capability",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Anthropic Agent Skills package reusable instructions, scripts and resources that Claude loads when a request matches the skill. A skill can make a defined workflow more repeatable; it does not provide professional accountability or prove that the workflow, bundled code or external dependencies are safe, current or correct.",
+      "teaching": {
+        "mechanism": "Claude first sees a skill's name and description, then loads its instructions and referenced resources or scripts when the task triggers it.",
+        "readerConsequence": "Start with one low-risk job whose output you can judge, inspect every file and dependency, test ordinary and failure cases with non-sensitive data and keep consequential decisions with a person.",
+        "analogy": "A skill is a saved operating card plus a tool drawer, not a new employee.",
+        "analogyLimit": "The comparison explains reusable procedure and resources; a skill has no independent accountability, employment role, professional licence or guaranteed judgement.",
+        "memoryLine": "Save the procedure. Keep the judgement."
+      },
+      "applicability": {
+        "products": ["Claude Agent Skills and LAiDIES platform-neutral reusable-workflow teaching"],
+        "versions": ["Anthropic Agent Skills documentation checked 2026-08-11"],
+        "plans": [],
+        "regions": []
+      },
+      "sourceIds": ["SRC-ANTHROPIC-AGENT-SKILLS-OVERVIEW-2026-08-11"],
+      "evidenceSummary": "Anthropic documents the filesystem bundle, progressive loading model, product-surface differences and explicit security guidance to use trusted sources or audit all files, network calls, file access and dependencies.",
+      "limitations": [
+        "Availability, sharing and runtime access differ across claude.ai, the Claude API, Claude Platform on AWS, Microsoft Foundry and Claude Code.",
+        "Anthropic's documentation describes its own product and is not independent evidence that a particular skill produces good work.",
+        "This claim does not endorse any third-party skill pack or the discovery reel."
+      ],
+      "lastCheckedAt": "2026-08-11",
+      "nextReviewAt": "2026-09-11",
+      "recheckTriggers": [
+        "Anthropic changes skill structure, activation, availability, security guidance or cross-surface behavior.",
+        "A Daily candidate names a specific plan, surface, permission or third-party skill.",
+        "AIDB or News Radar surfaces a material Agent Skills security or product change."
+      ],
+      "owner": "learning-content-ecosystem",
+      "upstreamSignals": [
+        {
+          "system": "ALI_IDEA_INTAKE",
+          "id": "INTAKE-build-and-audit-reusable-ai-skills-2026-07-31",
+          "path": "operations/product-stewards/learning-content-ecosystem/INTAKE-build-and-audit-reusable-ai-skills-2026-07-31.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-PAIGE-REUSABLE-SKILLS",
+          "surface": "Paige's Practical AI Tip candidate",
+          "owner": "newsstand-daily",
+          "path": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json",
+          "locator": "LCWO-013",
+          "job": "NEWS",
+          "status": "OWNER_REVIEW",
+          "lastVerifiedAt": "2026-08-11",
+          "notes": "The current official claim unlocks held candidate production only; no Daily record or public eligibility is implied."
+        }
+      ],
+      "correction": null
     }
   ]
 }
