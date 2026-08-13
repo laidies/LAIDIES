@@ -537,6 +537,26 @@ acceptance, implementation, priority or release.
 
 ## Receipt template
 
+## IIR-20260813-019 — What is vibe coding, and can I build without knowing code?
+
+- **Captured:** `2026-08-13` America/Vancouver.
+- **Source:** Ali, direct question and direction that LAiDIES should answer it somewhere on the site.
+- **Idea preserved:** Explain vibe coding in nontechnical language and answer whether not knowing programming syntax limits what someone can make. Preserve both the genuine expansion of who can create software and the practical limits that appear when a prototype becomes a public, persistent or high-consequence service.
+- **Intended feeling/examples:** “I can start building; I also know what kind of proof and help the next level requires.” Use one personal prototype, one workplace system and LAiDIES' own prototype-to-operating-system experience where the private/public boundary permits.
+- **Links/screenshots:** No user-supplied link. Current source preflight is bound in the handoff packet.
+- **Duplicate/conflict findings:** This is a new question but not a new product. It extends `IIR-20260808-017`'s one canonical _Straight Answers About AI_ corpus plus question-led discovery/presentation channels. It is not current news by default and must not become a second FAQ archive.
+- **Classification:** `MERGE → STRAIGHT ANSWERS / SPECIFICATION NEXT`.
+- **Reason:** The question is durable and recurring. One canonical answer can support a compact Visitor's Centre FAQ consumer, STRAiGHT TALK/NewsStand presentation, a later `Help!` practice exercise and an optional Behind the Build case without duplicating factual authority.
+- **Return trigger / reconsideration condition:** Next collision-free Learning/Straight Answers owner cycle selects one stable answer ID and accepts/revises the risk ladder, source set and consumer relationship. Tier 1 prose waits for that ruling and full learner-evidence gates.
+- **Accountable owner:** Learning System & Concepts for the mental model; LIBRAiRY for the canonical Straight Answer.
+- **Parent and affected permanent owners:** NewsStand/STRAiGHT TALK; Visitor's Centre; SUNNYVAiLE High/Classes; Platform/Privacy/Security; Behind the Build; Control Room.
+- **Shared dependencies:** exact answer ID, current source map, prototype/public/high-consequence risk boundaries, correction/freshness triggers, deep links and explain-back/unseen-transfer evidence.
+- **Durable proposed destination:** `operations/product-stewards/idea-inbox/handoff-vibe-coding-without-knowing-code-2026-08-13.md` plus the existing `IIR-20260808-017` Straight Answers route.
+- **Handoff status:** `HANDOFF PREPARED — NO PUBLIC PROSE OR CONTENT COMMISSION`.
+- **Foreground consequence:** `NO CHANGE — CAPTURE AND CONTINUE`; the current NewsStand Daily recovery goal remains unchanged.
+- **Evidence checked:** Canon/Decisions; Idea Inbox contract and IIR-017; Learning content standard; NewsStand routing/templates; GitHub and OpenAI current official guidance; Karpathy's primary practitioner talk.
+- **Authority truth:** No answer, FAQ row, book edit, NewsStand item, class, route, visual, deployment or publication occurred.
+
 ### IIR-YYYYMMDD-NNN — Short descriptive label
 
 - **Captured:**

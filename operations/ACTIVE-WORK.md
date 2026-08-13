@@ -1199,3 +1199,11 @@ objective; every open lane keeps its own checkpoint.
 - **Correction:** the release sequence now requests one complete-Daily package decision. Package approval may admit the exact dated stories and service records together, but does not grant autonomous production or register positive exemplars unless Ali explicitly approves that separate future authority. Weekly and Term remain a different product/template decision and do not block this Daily.
 - **Remaining hard gate:** both substantial ranked stories still require real unfamiliar-human explain-back and unseen-transfer observations before package composition. No model simulation may occupy those evidence fields, and no complete page should consume Ali review before those observations pass.
 - **Authority:** internal sequence correction only. No candidate, record, example, issue, visual direction, deploy or public byte was approved.
+
+### 2026-08-13 Idea capture — vibe coding without knowing code
+
+- **Ali direction:** LAiDIES should answer “What is vibe coding, and are there limitations to what I can make if I don't know any actual computer code?”
+- **Routing:** captured as `IIR-20260813-019` and merged into the existing one-canonical-answer architecture from `IIR-20260808-017`: _Straight Answers About AI_ owns the maintained answer; a compact Visitor's Centre FAQ and STRAiGHT TALK/question-led NewsStand treatment may consume the same answer ID; High/`Help!` may later own practice; Behind the Build may use LAiDIES as a bounded case.
+- **Required teaching boundary:** distinguish creating a visible prototype from operating a public, persistent or high-consequence service. The answer may not say that lack of programming syntax prevents useful creation, or that AI removes security, privacy, maintenance, testing and accountable-review obligations.
+- **Durable packet:** `operations/product-stewards/idea-inbox/handoff-vibe-coding-without-knowing-code-2026-08-13.md`; current official GitHub/OpenAI guidance and Karpathy's practitioner talk are source-preflighted, with independent standards evidence still required for final prose.
+- **Foreground consequence:** `NO CHANGE — CAPTURE AND CONTINUE`. The NewsStand Daily recovery goal remains blocked on real unfamiliar-reader evidence; no public prose, route, deployment or publication occurred.
