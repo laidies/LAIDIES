@@ -14724,12 +14724,30 @@ while remaining falsely unfinished in the launch record.
   runtime fonts, missing preloads, foreign faces, fallback display modes, stale
   cache identity, mutated bytes and missing licences. The exact-preview
   calibration also rejects absent loaded-font state, missing resource paths and
-  omitted deployed font bytes. V25 remains rejected; v26 has passed local
-  maker and role-distinct review but remains ineligible for Ali review until the
-  new protected deployment proves the same exact fonts and pixels.
+  omitted deployed font bytes. V25 remains rejected. Exact v26 protected run
+  `31732984877` byte-matched the page, three content records and all three font
+  files, recorded loaded Anton/upright-Jost/italic-Jost at 1440/390/320, and
+  passed maker plus role-distinct review of all nine deployed states.
+- **Third failure found before release:** The admitted preview source still
+  carried an older production-controller implementation. The reviewed pixels
+  could pass while the production workflow either refused the source-controller
+  mismatch or used weaker immediate deployment-list identification. Preview
+  admission therefore did not prove release-controller readiness.
+- **Controller prevention rule:** Before requesting Ali's release decision,
+  compare the candidate source against the exact default-branch controller over
+  every protected workflow, builder, scope and checker path. Install any exact
+  new public asset addition on main first, update the controller SHA, and require
+  an empty protected-path diff in the prepared release source. Keep private
+  review composition separate from canonical publication: a normal public build
+  must exclude an unapproved story rather than silently inheriting preview data.
+- **Controller forward test:** PR `#80` installed the exact three-font scope on
+  main at `1c1aba400c4a3832c46acce82900669fe25ea0f7`. It rejects unrelated additions,
+  every removal and metadata-only changes. Prepared source `198cf59e` has an
+  empty protected-controller diff. Its normal pre-promotion public build excludes
+  the private Daily, proving the preview did not silently mutate canonical data.
 - **Possible Behind the Build angle:** Why an AI can fill every correct field
   and still write the wrong column.
-- **Publication status:** INTERNAL PRODUCER/REVIEW AND FONT-DELIVERY REPAIR
-  VERIFIED / V24 PACKAGE EDITORIALLY REJECTED / DEPLOYED V25 VISUALLY REJECTED /
-  V26 LOCAL PRIVATE PACKAGE PASSES / V26 PROTECTED PREVIEW, ALI REVIEW,
-  PRODUCTION DEPLOYMENT AND PUBLICATION NOT YET COMPLETE.
+- **Publication status:** INTERNAL PRODUCER/REVIEW, FONT-DELIVERY AND PRODUCTION-
+  CONTROLLER REPAIRS VERIFIED / V24 PACKAGE EDITORIALLY REJECTED / DEPLOYED V25
+  VISUALLY REJECTED / EXACT DEPLOYED V26 ADMITTED TO ALI PRIVATE REVIEW /
+  CANONICAL PROMOTION, PRODUCTION DEPLOYMENT AND PUBLICATION NOT YET COMPLETE.
