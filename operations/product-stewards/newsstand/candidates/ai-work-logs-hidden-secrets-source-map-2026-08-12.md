@@ -15,7 +15,7 @@ If I use an AI assistant, can private information hide in a file even after the 
 
 1. **Primary research paper:** Alexander Panfilov et al., “Stealing Reasoning Traces from Proprietary LLM APIs,” arXiv:2608.09867, submitted 2026-08-10.
    URL: https://arxiv.org/abs/2608.09867
-   PDF inspected in full for abstract, sections 4.1, 5.1–5.5 and appendices. The paper is a preprint; no peer-review claim is made.
+   HTML and PDF inspected for the abstract, sections 2.4, 4.1, 5.1–5.5 and relevant appendices. The paper is a preprint; no peer-review claim is made.
 2. **Anthropic current product documentation:** “Thinking,” inspected 2026-08-12.
    URL: https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models
    Use: corroborates that API responses can contain an opaque signed representation of full reasoning that may be returned for continuity. It does not independently verify the paper’s exploit.
@@ -37,15 +37,15 @@ The researchers found that opaque reasoning data returned by certain model APIs 
 
 **Claim:** The risk described in the paper concerns technical AI session records that contain opaque reasoning/signature fields, particularly when developers, researchers or organizations publish or replay raw logs; it does not establish that an ordinary person’s private ChatGPT conversation became public merely by using chat.
 
-**Evidence:** Primary paper abstract, introduction and section 4.1; provider documentation on reasoning/signature fields.
+**Evidence:** Primary paper abstract, introduction and sections 2.4 and 4.1; provider documentation on reasoning/signature fields. Section 2.4 is titled “A Reasoning Extraction Attack,” and the paper later describes its evaluation as “the extraction attack across vendors.” Public copy may shorten this to “an extraction attack” after describing the action in plain language.
 **Classification:** verified mechanism plus explicit scope boundary.
 **Does not establish:** that every API log contains a secret; that consumer chat histories were scraped; or that all products/providers expose identical fields.
 
 ### LOG-C02 — the dataset and observed leakage
 
-**Claim:** The study collected 6,708 publicly available agent trajectories and reconstructed 315,320 reasoning traces. The authors report 1,028 reconstructed blocks with at least one privacy leakage and 328 trajectories—4.9%—with at least one real sensitive item.
+**Claim:** The study collected 6,708 publicly available agent trajectories from GitHub and Hugging Face and reconstructed 315,320 reasoning traces. The authors report 1,028 reconstructed blocks with at least one privacy leakage and 328 trajectories—4.9%—with at least one real sensitive item.
 
-**Evidence:** Primary paper section 4.1, pages 8–9.
+**Evidence:** Primary paper section 4.1, pages 8–9: “6,708 publicly available agent trajectories from GitHub and Hugging Face.”
 **Classification:** verified as author-reported study result.
 **Boundary:** the scan was targeted and non-exhaustive; the paper used an LLM judge to label potential privacy violations.
 
@@ -56,6 +56,7 @@ The researchers found that opaque reasoning data returned by certain model APIs 
 **Evidence:** Primary paper section 4.1, pages 8–9.
 **Classification:** verified as author-reported aggregate.
 **Boundary:** the authors could not determine for every artifact whether it came from model memory or remained after visible text was scrubbed; benchmark/synthetic records account for much of the paper’s aggregate personal information.
+**Unit warning:** The paper reports 328 affected files across the 6,708-file scan, then separately reports 704 artifacts after restricting to genuine user sessions. It does not state in this section how many genuine-user files make up the 704-artifact group. Public copy must describe the changed group and unit rather than claim an unreported direct denominator.
 
 ### LOG-C04 — mitigation status
 

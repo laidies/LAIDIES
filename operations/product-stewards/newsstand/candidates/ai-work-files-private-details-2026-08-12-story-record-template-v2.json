@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "newsstand-story-candidate.v1",
+  "candidateStatus": "HELD_NOT_PUBLISHED",
+  "workOrderId": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260812-V2",
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v2.md",
+    "sha256": "2f5480f272b78a4d89b58f3c8ae42ab3069b6c394950223d7cdb40b3eee3c7c6"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+    "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+  },
+  "story": {
+    "id": "ai-work-logs-can-carry-secrets",
+    "slug": "ai-work-logs-can-carry-secrets",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-08-12T23:30:00Z",
+    "lastCheckedAt": "2026-08-12T23:30:00Z",
+    "sourceApproval": {
+      "status": "independent-review-required",
+      "record": "/operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md"
+    },
+    "correction": null,
+    "retraction": null,
+    "thread": "Private details inside shared AI work files",
+    "thread_subtitle": "why the checked answer and the complete technical record are not the same thing",
+    "thread_entry": 1,
+    "headline": "Shared AI work files carried passwords — and details the chat never showed",
+    "the_story": "An August 2026 preprint examined 6,708 public AI work files from GitHub and Hugging Face. The researchers found 328 files containing at least one password, key or other private detail. They report that some details appeared only in the sealed part and not in the visible chat. Without the original hidden text, they could not prove every recovered word was exact; they still report finding real credentials. The researchers say the attack stopped working after they alerted the companies.",
+    "laidies_read": "The study did not show that ordinary private chats had suddenly become public. It showed that a checked answer and the complete work file that produced it are different objects. If a team publishes work for inspection or replay, it should make a fresh file containing only the question, checked result and needed evidence.",
+    "what_this_means": "Share the checked result you intend people to read, not the whole work file. If a public work file contains passwords or access keys, remove access and replace them; deleting the file cannot undo copies.",
+    "cocktail_party": "Researchers found passwords and other private details inside public technical AI work files, including some details the visible chat never showed. This was not evidence that ordinary private chats became public. The practical rule is to share a newly checked result, not the whole backstage work file.",
+    "watch_fors": "A corrected paper, peer review, provider statement, independent reproduction or material change to provider continuity-data handling.",
+    "closing_note": "Before sharing, ask: am I sending the answer I chose, or the whole work file that made it?",
+    "class_notes": "The durable concept is the difference between an approved output and the complete production record that created it. A visible redaction does not inventory unseen fields in the larger record.",
+    "sources": [
+      {
+        "id": "panfilov-reasoning-traces-2026-08-10",
+        "label": "Panfilov et al. — Stealing Reasoning Traces from Proprietary LLM APIs",
+        "url": "https://arxiv.org/abs/2608.09867",
+        "publisherType": "academic",
+        "accessedAt": "2026-08-12",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "anthropic-thinking-docs-2026-08-12",
+        "label": "Anthropic — Thinking",
+        "url": "https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models",
+        "publisherType": "vendor",
+        "accessedAt": "2026-08-12",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "tags": [
+      "AI security",
+      "privacy",
+      "AI work files",
+      "sharing AI work"
+    ],
+    "saint_lane": "Elle Woods · Share the checked result, not the backstage file",
+    "badge": "THE DAILY · SECURITY DESK"
+  }
+}

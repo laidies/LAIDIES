@@ -183,24 +183,30 @@ for (const stage of drill.stages) {
   }
 }
 
-const html = fs.readFileSync(path.join(ROOT, "newsstand.html"), "utf8");
+let html = fs.readFileSync(path.join(ROOT, "newsstand.html"), "utf8");
 const css = fs.readFileSync(path.join(ROOT, "content", "newsstand.css"), "utf8");
 const catchup = fs.readFileSync(path.join(ROOT, "content", "site", "newsstand-catchup-v1.js"), "utf8");
+if (process.env.NEWSSTAND_READER_CALIBRATION === "restore-breaking-choice") {
+  html = html.replace('data-edition="daily"', 'data-edition="breaking"');
+}
 assert.doesNotMatch(css, /#4b2148/i, "retired plum cannot return as live NewsStand UI");
 const publicationControls = Array.from(html.matchAll(/<button class="ns-publication"[^>]*data-edition="([^"]+)"/g), (match) => match[1]);
-assert.deepEqual(publicationControls, ["breaking", "daily", "weekly", "tribune"], "the physical counter must expose exactly the four canonical papers");
+assert.deepEqual(publicationControls, ["daily", "weekly", "tribune"], "the top counter must expose exactly Daily, Weekly and Big Picture");
+assert.doesNotMatch(html, /class="ns-publication"[^>]*data-edition="breaking"/, "Breaking cannot return as a top-level choice");
 assert.match(html, /<strong>The Big Picture<\/strong>/, "the public fourth paper must use Ali's Big Picture masthead");
 assert.doesNotMatch(html, />The Tribune</, "the retired Tribune masthead cannot remain in current public markup");
 const publicationContents = Array.from(html.matchAll(/class="ns-publication__contents"[^>]*data-contents-for="([^"]+)"/g), (match) => match[1]);
-assert.deepEqual(publicationContents, publicationControls, "every canonical paper needs one in-paper live contents region");
-assert.equal((html.match(/class="ns-publication__job"/g) || []).length, 4, "every paper needs a visible job preview");
-assert.equal((html.match(/class="ns-publication__status"/g) || []).length, 4, "every paper needs a visible state");
-assert.equal((html.match(/class="ns-publication__action"/g) || []).length, 4, "every paper must say what opening does");
+assert.deepEqual(publicationContents, publicationControls, "every visible choice needs one live contents region");
+assert.equal((html.match(/class="ns-publication__job"/g) || []).length, 3, "every visible choice needs a job preview");
+assert.equal((html.match(/class="ns-publication__status"/g) || []).length, 3, "every visible choice needs a current state");
+assert.equal((html.match(/class="ns-publication__action"/g) || []).length, 3, "every visible choice must say what opening does");
 assert.match(html, /state === "archive" \? "Pull this paper · Latest edition"/, "prior-date Daily needs a truthful archive action");
 assert.match(html, /state === "quiet" \? "Check this paper · No issue today"/, "quiet papers need a state-accurate action");
 assert.match(html, /state === "hold" \? "Check this paper · Not published"/, "held papers cannot promise a normal pull action");
-assert.match(html, /id="ns-counter-browse"[^>]*>All four papers are shown on Paige&[^;]+;s rack\.<\/p>/, "the mobile counter must explain that all four papers are visible together");
-assert.match(html, /aria-describedby="ns-counter-browse"/, "the paper rack must expose the browse instruction to assistive technology");
+assert.match(html, /Today&rsquo;s Daily opens first\./, "the page must explain its Daily-first default");
+assert.match(html, /Breaking news appears at the top of The Daily when it truly qualifies\./, "Breaking must be explained as part of Daily");
+assert.doesNotMatch(html, /class="ns-paper-index"/, "the rejected duplicate four-paper mobile chooser must not remain");
+assert.doesNotMatch(html, /class="ns-rack-stage__art"/, "the rejected four-paper rack art must not remain");
 const counterMarkup = html.match(/<div class="ns-publications"[\s\S]*?<\/div>/)?.[0] || "";
 for (const story of base.stories) {
   assert.equal(counterMarkup.includes(story.headline), false, `${story.id}: paper headline must come from canonical live data, not hard-coded markup`);
@@ -211,10 +217,21 @@ assert.match(html, /id="ns-catchup-title">Catch me up\.<\/h2>/, "returning reade
 assert.match(html, /id="ns-catchup-since" type="date"/, "Catch Me Up needs a visitor-editable start date");
 assert.match(html, /newsstand-catchup-v1\.js/, "the Catch Me Up consumer must be loaded");
 assert.match(html, /newsstand-stories\.js\?v=20260812-backfill-v1/, "a changed canonical story dataset needs a release-specific public cache key");
-assert.match(html, /newsstand-catchup-v1\.js\?v=20260812-backfill-v1/, "a changed Catch Me Up runtime needs a release-specific public cache key");
+assert.match(html, /newsstand-catchup-v1\.js\?v=20260813-daily-first-v1/, "the Daily-first runtime needs a release-specific public cache key");
+assert.match(html, /newsstand\.css\?v=20260813-newsstand-v23/, "the Daily-first visual needs a release-specific public cache key");
 assert.match(html, /resident-continuation-bootstrap-v1\.js/, "NewsStand must mount the admitted Resident continuation bootstrap");
 assert.equal((catchup.match(/record\.freshness\.expiresAt >= today/g) || []).length, 2,
   "Daily and historical service items must both fail closed after their freshness window");
+assert.match(catchup, /if \(!requested && !global\.location\.hash && canRenderDaily\(\)\) renderDaily\(null, \{ initial: true \}\)/, "a hashless NewsStand visit must open the latest admitted Daily automatically");
+assert.match(catchup, /function breakingLead\(\)/, "Breaking needs a governed Daily-lead resolver");
+assert.match(catchup, /breaking \? '<aside class="ns-daily-breaking"/, "qualified Breaking must render inside the Daily rather than as a fourth choice");
+assert.match(catchup, /options\.initial/, "automatic Daily opening must suppress the click-only scroll and focus jump");
+assert.match(catchup, /<h2><span>The<\/span> Daily<\/h2>/, "the full issue needs a newspaper masthead");
+assert.match(catchup, /class="ns-daily-front-grid"/, "the issue needs one front-page lead and service-column composition");
+assert.match(catchup, /class="ns-daily-service-rail"/, "the issue needs an integrated side column");
+assert.match(catchup, /desks\.slice\(0, 4\)/, "the first four admitted desks belong in the side column");
+assert.match(catchup, /desks\.slice\(4\)/, "remaining admitted desks belong in the rest-of-paper section");
+assert.match(catchup, /All nine service desks were checked\. Open the desk-by-desk record\./, "a quiet Daily must collapse all empty desks into one honest disclosure");
 assert.match(html, /function renderArchive\(invoker, viewOptions\)/, "the all-issues route needs a dedicated deterministic renderer");
 assert.match(html, /function renderTopicButtons\(\)/, "the archive must derive its browse-by-topic controls from eligible stories");
 assert.match(html, /function defaultSearchHint\(\)/, "search suggestions must come from the eligible archive rather than stale examples");
@@ -254,19 +271,15 @@ assert.doesNotMatch(html, /story\.edition === "wednesday"/);
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
 assert.match(html, /class="ns-counter-surface"/, "one physical counter surface is required");
 assert.match(html, /src="\/assets\/town-characters\/scenes\/paige-scene\.png"/, "the admitted existing Paige scene is required");
-assert.match(css, /\.ns-paige__crop\s*\{[\s\S]*?aspect-ratio:\s*15\s*\/\s*16/, "Paige must use the admitted 15:16 crop");
-assert.match(css, /\.ns-paige__crop img\s*\{[\s\S]*?top:\s*-6\.061%;[\s\S]*?left:\s*-106\.061%;[\s\S]*?width:\s*245\.303%/, "Paige crop geometry must remain exact");
-assert.match(html, /class="ns-rack-stage__art"[\s\S]*?newsstand-live-four-paper-rack-crop-v1\.png/, "the four papers must share one physical rack asset");
-assert.match(css, /\.ns-publications\s*\{[\s\S]*?position:\s*absolute;[\s\S]*?inset:\s*0;/, "desktop paper controls must overlay the continuous rack");
-assert.match(css, /@media \(max-width: 720px\)[\s\S]*?\.ns-paper-index\s*\{[\s\S]*?display:\s*grid;[\s\S]*?grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/, "mobile must show a two-by-two four-paper chooser before the detailed rack");
-assert.match(css, /\.ns-paper-index button\s*\{[\s\S]*?aspect-ratio:\s*420\s*\/\s*625;[\s\S]*?background-size:\s*contain;/, "mobile paper art must preserve the exact slot aspect ratio rather than stretch");
-assert.match(css, /\.ns-paper-index strong\s*\{[\s\S]*?white-space:\s*nowrap;/, "mobile paper mastheads must stay inside their painted colour bands");
-assert.match(css, /button\[data-edition="breaking"\][\s\S]*?newsstand-rack-breaking-v1\.png/, "mobile rack artwork must bind to publication identity rather than DOM order");
-assert.match(css, /\.ns-paper-index \.ns-paper-index__action\s*\{[\s\S]*?text-decoration:\s*none;/, "wrapped paper actions must not use an underline that can strike through the next line");
+assert.match(css, /\/\* Daily-first newspaper experience — v23\. \*\/[\s\S]*?\.ns-paige__crop\s*\{[\s\S]*?aspect-ratio:\s*1;/, "the compact Paige editor stamp must be the final crop override");
+assert.match(css, /\/\* Daily-first newspaper experience — v23\. \*\/[\s\S]*?\.ns-publications\s*\{[\s\S]*?grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)/, "desktop must show exactly three compact publication choices");
+assert.match(css, /\.ns-state__primary\s*\{\s*display:\s*none;/, "the rejected choose-a-paper step must not remain visible");
+assert.match(css, /\.ns-daily-front-grid\s*\{[\s\S]*?grid-template-columns:\s*minmax\(0, 1\.8fr\) minmax\(300px, 0\.9fr\)/, "desktop Daily needs a lead-story and side-column grid");
+assert.match(css, /@media \(max-width: 780px\)[\s\S]*?\.ns-publications\s*\{\s*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)/, "mobile must retain all three choices in one visible row");
+assert.match(css, /@media \(max-width: 780px\)[\s\S]*?\.ns-daily-front-grid\s*\{\s*grid-template-columns:\s*1fr;/, "mobile Daily must preserve a single readable order");
 assert.match(css, /\.ns-catchup-lead h3\s*\{[\s\S]*?text-transform:\s*none;/, "Catch Me Up must preserve the canonical SUNNYVAiLE lowercase i");
 assert.match(html, /SUNNYVA<span class="ns-brand-i">i<\/span>LE NewsStand/, "primary building wordmark must preserve the canonical lowercase i under uppercase display styling");
 assert.match(html, /function visiblePublicationControl\(edition\)[\s\S]*?control\.offsetParent !== null/, "mobile and desktop focus recovery must resolve the currently visible paper control");
-assert.doesNotMatch(html, /var firstPaper = document\.querySelector\("\.ns-publication"\)/, "arrival CTA cannot target the hidden desktop rack on mobile");
 assert.match(catchup, /SUNNYVA<span class="ns-brand-i">i<\/span>LE paper/, "generated Daily heading must preserve the canonical lowercase i");
 assert.match(css, /\.ns-brand-i\s*\{[\s\S]*?text-transform:\s*none;/, "canonical lowercase i override must defeat inherited uppercase transforms");
 assert.match(catchup, /quietIssue[\s\S]*?ns-daily-quiet-desks[\s\S]*?All nine service desks were checked/, "quiet Daily must collapse its desk-by-desk empty record");
@@ -275,14 +288,6 @@ assert.match(catchup, /Date\.parse\(item\.admission\.reviewedAt\) <= Date\.now\(
 assert.doesNotMatch(catchup, /localToday|localDateOnly/, "reader eligibility and continuity cannot depend on the visitor's calendar");
 assert.match(catchup, /timeZone: "America\/Vancouver"/, "stored visit instants need one stable editorial date projection");
 assert.match(catchup, /timeZone: \/\^\\d\{4\}-\\d\{2\}-\\d\{2\}\$\/\.test\(source\) \? "UTC" : undefined/, "edition labels must preserve the literal date in every visitor time zone");
-assert.match(css, /@media \(max-width: 720px\)[\s\S]*?\.ns-rack-stage\s*\{[\s\S]*?display:\s*none;/, "mobile must not repeat the four papers in a second control set");
-for (const edition of ["breaking", "daily", "weekly", "tribune"]) {
-  assert.match(css, new RegExp(`newsstand-rack-${edition}-v1\\.png`), `${edition}: mobile control needs its exact paper-slot crop`);
-}
-assert.equal((html.match(/class="ns-paper-index__job"/g) || []).length, 4, "mobile chooser needs all four publication jobs");
-assert.equal((html.match(/class="ns-paper-index__action"/g) || []).length, 4, "mobile chooser needs all four activation results");
-assert.equal((html.match(/<span class="ns-paper-index__action" data-index-action-for=/g) || []).length, 4, "mobile chooser actions need live state-specific results");
-assert.match(html, /class="ns-paper-index"[\s\S]*?data-edition="breaking"[\s\S]*?data-edition="tribune"/, "mobile visitors need a directly operable four-paper chooser");
 assert.match(css, /\.ns-topic-browser > p\s*\{[\s\S]*?color:\s*#fff9fc;/, "the dark archive panel needs a readable topic heading");
 assert.match(css, /\.ns-topic-button\s*\{[\s\S]*?border-bottom:\s*3px solid var\(--ns-cyan\);[\s\S]*?color:\s*#fff9fc;/, "topic controls need readable text and a visible control edge");
 assert.match(css, /\.ns-topic-button span\s*\{[\s\S]*?color:\s*var\(--ns-cyan\);/, "topic result counts need readable contrast on the archive panel");
@@ -291,4 +296,4 @@ assert.doesNotMatch(css, /\.ns-publications::after|\.ns-publication::before/, "t
 assert.match(css, /\.ns-story-notice--corrected/);
 assert.match(css, /\.ns-story-notice--retracted/);
 
-console.log(`✓ NEWSSTAND READER: ${cases.length} state fixtures · canonical editions · focus/ARIA/failure-state contracts`);
+console.log(`✓ NEWSSTAND READER: ${cases.length} state fixtures · Daily-first paper · three-choice navigation · archive/focus/failure-state contracts`);

@@ -9,6 +9,9 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_VOICE = "operations/voice/laidies-writing-lock.md";
 const DEFAULT_EXEMPLAR = "content/episodes/episode-01.canon.md";
+const NEWS_EXEMPLAR = "operations/product-stewards/learning-content-ecosystem/exemplars/CQX-GOOD-NEWS-001-eu-ai-act.md";
+const NEWS_STANDARD = "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md";
+const NEWS_KNOWN_BAD = "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md";
 
 const args = process.argv.slice(2);
 const value = flag => {
@@ -27,8 +30,13 @@ const sha256 = body => crypto.createHash("sha256").update(body).digest("hex");
 
 const artifact = resolveBound(value("--artifact"), "artifact");
 const voice = resolveBound(value("--voice") || DEFAULT_VOICE, "voice lock");
-const exemplar = resolveBound(value("--exemplar") || DEFAULT_EXEMPLAR, "voice exemplar");
+const contentClass = value("--content-class") || "GENERAL";
+const exemplar = resolveBound(value("--exemplar") || (contentClass === "NEWS" ? NEWS_EXEMPLAR : DEFAULT_EXEMPLAR), "voice exemplar");
+const productionStandard = contentClass === "NEWS" ? resolveBound(value("--production-standard") || NEWS_STANDARD, "NewsStand production standard") : null;
+const knownBad = contentClass === "NEWS" ? resolveBound(value("--known-bad") || NEWS_KNOWN_BAD, "directly rejected NewsStand predecessor") : null;
 const model = value("--model") || "fable";
+const timeoutMs = Number(value("--timeout-ms") || 240_000);
+if (!Number.isInteger(timeoutMs) || timeoutMs < 1) fail("--timeout-ms must be a positive integer");
 
 const schema = {
   type: "object",
@@ -58,15 +66,27 @@ ${voice.text}
 
 === POSITIVE VOICE EXEMPLAR (${exemplar.path}; sha256 ${sha256(exemplar.text)}) ===
 ${exemplar.text}
+${productionStandard ? `
+=== BINDING NEWSSTAND PRODUCTION STANDARD (${productionStandard.path}; sha256 ${sha256(productionStandard.text)}) ===
+${productionStandard.text}
+
+=== DIRECTLY REJECTED PREDECESSOR (${knownBad.path}; sha256 ${sha256(knownBad.text)}) ===
+${knownBad.text}
+` : ""}
 `;
 
 const dryRun = {
   schemaVersion: "laidies-independent-judge-invocation.v1",
   modelFamily: "claude",
   model,
+  contentClass,
   artifact: { path: artifact.path, sha256: sha256(artifact.text) },
   voice: { path: voice.path, sha256: sha256(voice.text) },
   exemplar: { path: exemplar.path, sha256: sha256(exemplar.text) },
+  ...(productionStandard ? {
+    productionStandard: { path: productionStandard.path, sha256: sha256(productionStandard.text) },
+    knownBad: { path: knownBad.path, sha256: sha256(knownBad.text) }
+  } : {}),
   excludedContext: ["producer brief", "producer self-review", "maker receipts", "manifest", "validator output", "prior reviewer comments", "repository instructions"],
   promptSha256: sha256(prompt),
   prompt
@@ -89,8 +109,9 @@ const result = spawnSync(command, [
   "--output-format", "json",
   "--json-schema", JSON.stringify(schema),
   prompt
-], { cwd: isolatedCwd, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+], { cwd: isolatedCwd, encoding: "utf8", maxBuffer: 64 * 1024 * 1024, timeout: timeoutMs, killSignal: "SIGTERM" });
 fs.rmSync(isolatedCwd, { recursive: true, force: true });
+if (result.error?.code === "ETIMEDOUT") fail(`Claude produced no judgment within ${timeoutMs} milliseconds; retry the same checksum-bound artifact or route to a different independent reviewer`);
 if (result.error) fail(result.error.message);
 if (result.status !== 0) fail(`Claude exited ${result.status}: ${(result.stderr || result.stdout).trim()}`);
 let envelope;

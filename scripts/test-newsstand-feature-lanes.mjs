@@ -12,6 +12,8 @@ const valid = inspectNewsstandFeatureLanes(registry, { root });
 assert.deepEqual(valid.errors, []);
 assert.equal(valid.laneCount, 15);
 assert.deepEqual(valid.ready, []);
+assert.deepEqual(registry.lanes.find((lane) => lane.id === "paige_tip").negativeExemplarIds, ["CQX-BAD-009", "CQX-BAD-010"]);
+assert.ok(registry.lanes.find((lane) => lane.id === "career_work_life").negativeExemplarIds.includes("CQX-BAD-011"));
 
 const missing = structuredClone(registry);
 missing.lanes = missing.lanes.filter((lane) => lane.id !== "promptoscope");

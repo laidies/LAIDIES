@@ -2,6 +2,7 @@
 
 import assert from "node:assert/strict";
 import childProcess from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import http from "node:http";
 import os from "node:os";
@@ -16,7 +17,8 @@ const TEST_CLOCKS = {
   "same-day": "2026-08-04T23:00:00-07:00",
   "next-day": "2026-08-05T12:00:00-07:00",
   "released-worldwide": "2026-08-05T06:30:00Z",
-  "backfill-current": "2026-08-11T23:00:00Z"
+  "backfill-current": "2026-08-11T23:00:00Z",
+  "candidate-day": "2026-08-12T23:30:00-07:00"
 };
 const CORRECTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/correction-label-truth-2026-07-25.json";
 const RETRACTION_RECORD = "/operations/test-fixtures/newsstand-reader/evidence/retraction-label-truth-2026-07-25.json";
@@ -121,6 +123,53 @@ function fixtureScript(name) {
     ";\nwindow.NEWSSTAND_STORIES = window.NEWSSTAND_DATA.stories;\n";
 }
 
+function canonicalJson(value) {
+  if (value === null || typeof value !== "object") return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
+}
+
+function sha256(value) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+function completeDailyReviewFixture() {
+  const packageRecord = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json"), "utf8"));
+  const story = structuredClone(packageRecord.story.record);
+  story.status = "published";
+  story.publishedAt = "2026-08-12T23:30:00Z";
+  story.updatedAt = "2026-08-13T03:53:37Z";
+  story.lastCheckedAt = "2026-08-13T03:53:37Z";
+  story.sourceApproval = { status: "approved", record: "/operations/product-stewards/newsstand/evidence/stories/ai-work-logs-can-carry-secrets.json" };
+  const desks = packageRecord.desks.map((desk) => desk.state === "ready" ? {
+    type: desk.type, state: desk.state, recordId: desk.recordId, headline: desk.headline,
+    summary: desk.summary, destination: desk.destination
+  } : { type: desk.type, state: desk.state, recordId: null, emptyState: desk.emptyState });
+  const sourceIdentity = {
+    radarPath: "operations/product-stewards/newsstand/editorial-intake/2026-08-12.md",
+    radarSha256: sha256(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/editorial-intake/2026-08-12.md"))),
+    storiesPath: "content/newsstand-stories.js",
+    storiesSha256: sha256(fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"))),
+    columnsPath: "content/daily-edition-columns.json",
+    columnsSha256: sha256(fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json")))
+  };
+  const envelope = {
+    schemaVersion: "daily-private-issue-v1", mode: "PRIVATE_DRAFT_ONLY", editionDate: "2026-08-12",
+    editorialTimeZone: "America/Vancouver", disposition: "CANDIDATES_PENDING_REVIEW", status: "PRIVATE_REVIEW_DRAFT",
+    storyIds: [story.id], storySnapshots: [story], desks, sourceIdentity, canonicalWrite: false, deployActionTaken: false
+  };
+  return {
+    editionDate: "2026-08-12", editorialTimeZone: "America/Vancouver", status: "complete",
+    disposition: "candidates_pending_review", storyIds: [story.id], stories: [story],
+    serviceRecordIds: desks.filter((desk) => desk.state === "ready").map((desk) => desk.recordId), desks,
+    sourceIdentity, envelopeSha256: sha256(`${canonicalJson(envelope)}\n`),
+    admission: {
+      decision: "ACCEPT_LOCAL_CANONICAL_WRITE", reviewedAt: "2026-08-13T03:53:37Z",
+      reviewedBy: "independent-complete-daily-review-fixture", reviewerRole: "Independent complete Daily candidate reviewer"
+    }
+  };
+}
+
 function mime(file) {
   const ext = path.extname(file);
   return {
@@ -222,6 +271,13 @@ const server = http.createServer((request, response) => {
         response.end(JSON.stringify(value));
         return;
       }
+      if (fixture === "daily-review-candidate") {
+        const value = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
+        value.issues.push(completeDailyReviewFixture());
+        response.writeHead(200, { "content-type": "application/json" });
+        response.end(JSON.stringify(value));
+        return;
+      }
       const referer = new URL(request.headers.referer);
       const clock = TEST_CLOCKS[referer.searchParams.get("clock") || "same-day"] || TEST_CLOCKS["same-day"];
       const value = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
@@ -250,8 +306,18 @@ const server = http.createServer((request, response) => {
   fs.createReadStream(file).pipe(response);
 });
 
-await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+const previewPort = process.env.NEWSSTAND_PREVIEW_ONLY ? Number(process.env.NEWSSTAND_PREVIEW_PORT || 41731) : 0;
+await new Promise((resolve) => server.listen(previewPort, "127.0.0.1", resolve));
 const siteOrigin = `http://127.0.0.1:${server.address().port}`;
+if (process.env.NEWSSTAND_PREVIEW_ONLY) {
+  console.log(`${siteOrigin}/newsstand.html?fixture=daily-review-candidate&clock=candidate-day`);
+  await new Promise((resolve) => {
+    process.once("SIGINT", resolve);
+    process.once("SIGTERM", resolve);
+  });
+  server.close();
+  process.exit(0);
+}
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-newsstand-chrome-"));
 const chrome = childProcess.spawn(CHROME, [
   "--headless=new",
@@ -470,8 +536,13 @@ async function captureEvidence(client, filename, scrollSelector = null, preserve
     const target = selector ? document.querySelector(selector) : null;
     if (target) {
       const rect = target.getBoundingClientRect();
+      const header = document.querySelector('.topbar');
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const offset = rect.height >= window.innerHeight - headerHeight - 20
+        ? headerHeight + 8
+        : ((window.innerHeight - rect.height) / 2);
       window.scrollTo(0, Math.max(0, Math.round(window.scrollY + rect.top -
-        ((window.innerHeight - rect.height) / 2))));
+        offset)));
     } else if (!${JSON.stringify(preserveCurrentScroll)}) {
       window.scrollTo(0, 0);
     }
@@ -488,6 +559,26 @@ async function captureEvidence(client, filename, scrollSelector = null, preserve
   fs.writeFileSync(path.join(EVIDENCE_DIR, filename), Buffer.from(shot.data, "base64"));
 }
 
+async function captureElementEvidence(client, filename, selector) {
+  if (!EVIDENCE_DIR) return;
+  await captureEvidence(client, "__settle-only.png", selector);
+  const clip = await value(client, `(() => {
+    const node = document.querySelector(${JSON.stringify(selector)});
+    if (!node) return null;
+    const rect = node.getBoundingClientRect();
+    return { x: Math.max(0, rect.left + window.scrollX), y: Math.max(0, rect.top + window.scrollY), width: rect.width, height: rect.height, scale: 1 };
+  })()`);
+  if (!clip || clip.width <= 0 || clip.height <= 0) throw new Error(`Evidence selector unavailable: ${selector}`);
+  const shot = await client.call("Page.captureScreenshot", {
+    format: "png",
+    fromSurface: true,
+    captureBeyondViewport: true,
+    clip
+  });
+  fs.writeFileSync(path.join(EVIDENCE_DIR, filename), Buffer.from(shot.data, "base64"));
+  fs.rmSync(path.join(EVIDENCE_DIR, "__settle-only.png"), { force: true });
+}
+
 try {
   devtoolsEndpoint = await devtoolsPromise;
   clearTimeout(timeout);
@@ -496,15 +587,15 @@ try {
   await waitForValue(base, "document.querySelector('#ns-title').textContent", "The Daily and The Weekly and The Big Picture are current.", "same-day Daily admission");
   check(await value(base, "document.querySelector('#ns-title').textContent === 'The Daily and The Weekly and The Big Picture are current.'"), true, "base arrival includes the canonical current-date Daily and Weekly");
   check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026'"), true, "canonical Daily label uses its Vancouver edition date");
-  check(await value(base, "(() => { const action = document.querySelector('.ns-state__primary'); return action.textContent.trim() === 'Choose a paper' && !action.hasAttribute('data-pull'); })()"), true, "arrival action does not choose between two current publications for the visitor");
+  await waitForValue(base, "document.querySelector('#paper-counter').hidden", false, "Daily-first default paper");
+  check(await value(base, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate"), "2026-08-04", "hashless NewsStand opens the latest admitted Daily automatically");
+  check(await value(base, "getComputedStyle(document.querySelector('.ns-state__primary')).display"), "none", "the rejected choose-a-paper step is not visible");
   const rollover = await openPage("/newsstand.html?clock=next-day", { width: 390, height: 844, reducedMotion: true });
   await waitForValue(rollover, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Latest complete edition · August 4, 2026", "next-day Daily rollover");
   check(await value(rollover, "document.querySelector('#ns-title').textContent === 'The Weekly and The Big Picture are current.'"), true, "next-day arrival no longer claims the prior Daily is current");
-  check(await value(rollover, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Latest complete edition · August 4, 2026' && document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Latest · Aug 4 ’26'"), true, "next-day compact and detailed Daily states agree on the latest complete date");
-  check(await value(rollover, "(() => { const action=document.querySelector('.ns-state__primary'); return action.textContent.trim()==='Choose a paper' && !action.hasAttribute('data-pull'); })()"), true, "next-day arrival does not choose between the current Weekly and Tribune");
+  check(await value(rollover, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate"), "2026-08-04", "next-day hashless route opens the latest complete Daily rather than pretending it is current");
+  check(await value(rollover, "document.querySelectorAll('.ns-publication').length"), 3, "next-day navigation remains Daily, Weekly and Big Picture only");
   await captureEvidence(rollover, "current-date-state-390.png");
-  await captureEvidence(rollover, "current-date-rack-390.png", ".ns-paper-index");
-  await act(rollover, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
   check(await value(rollover, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-04", "next-day Daily opens the exact latest complete edition");
   rollover.close();
   const honolulu = await openPage("/newsstand.html?clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Honolulu" });
@@ -515,7 +606,7 @@ try {
   honolulu.close();
   const kiritimati = await openPage("/newsstand.html?clock=released-worldwide", { width: 390, height: 844, timezone: "Pacific/Kiritimati" });
   await waitForValue(kiritimati, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "literal edition label in Kiritimati");
-  check(await value(kiritimati, "document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Current · Aug 4 ’26'"), true, "date-only Daily labels do not shift to August 5 in UTC+14");
+  check(await value(kiritimati, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate === '2026-08-04'"), true, "date-only Daily labels and the open issue do not shift to August 5 in UTC+14");
   await act(kiritimati, "localStorage.setItem('laidies_newsstand_seen_v1', JSON.stringify({lastVisit:{updated_at:'2026-08-05T00:30:00Z'},seen:{}}));window.dispatchEvent(new CustomEvent('laidies:continuation-change'))");
   await waitForValue(kiritimati, "document.querySelector('#ns-catchup-since').value", "2026-08-04", "stable visit date in Kiritimati");
   kiritimati.close();
@@ -526,17 +617,17 @@ try {
   await waitForValue(postRelease, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Current · checked August 4, 2026", "one millisecond post-release issue is available");
   postRelease.close();
   await base.call("Page.bringToFront");
-  check(await value(base, "document.querySelectorAll('.ns-publication').length"), 4, "four physical papers");
-  check(await value(base, "getComputedStyle(document.querySelector('.ns-counter-browse')).display"), "none", "desktop does not show a redundant swipe instruction");
+  check(await value(base, "document.querySelectorAll('.ns-publication').length"), 3, "three top-level publication choices");
+  check(await value(base, "document.querySelector('.ns-publication[data-edition=\"breaking\"]')"), null, "Breaking is not a fourth top-level choice");
   check(await value(base, "Array.from(document.querySelectorAll('.ns-publication')).every((paper) => paper.offsetWidth > 0 && paper.offsetHeight > 0 && paper.querySelector('.ns-publication__job').offsetParent && paper.querySelector('.ns-publication__status').offsetParent)"), true, "all paper jobs and states visible at 1440");
-  check(await value(base, "document.querySelectorAll('.ns-publication__contents').length"), 4, "four live in-paper contents regions");
+  check(await value(base, "document.querySelectorAll('.ns-publication__contents').length"), 3, "three live publication contents regions");
   check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "1", "Tribune eligible story count before pull");
   check(await value(base, "document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__headline').textContent === window.NEWSSTAND_DATA.stories.find((story) => story.edition === 'tribune').headline"), true, "Tribune canonical lead headline before pull");
   check(await value(base, "(() => { const story = window.NEWSSTAND_DATA.stories.find((item) => item.edition === 'tribune'); const text = String(story.laidies_read || story.the_story).replace(/<[^>]*>/g, ' ').trim(); const match = text.match(/^(.+?[.!?])\\s/); return document.querySelector('[data-contents-for=\"tribune\"] .ns-publication__teaser').textContent === (match ? match[1] : text); })()"), true, "Tribune existing first-sentence teaser before pull");
-  check(await value(base, "(() => { const node = document.querySelector('[data-contents-for=\"breaking\"]'); const publication = window.NEWSSTAND_DATA.publications.breaking; return node.textContent.trim() === publication.note && node.getAttribute('data-story-count') === '0'; })()"), true, "quiet Breaking reuses its exact canonical note");
+  check(await value(base, "document.querySelector('.ns-daily-breaking')"), null, "quiet Breaking does not create a false strip inside Daily");
   check(await value(base, "document.querySelector('[data-contents-for=\"weekly\"]').textContent.includes('moving the handoff line')"), true, "current Weekly exposes its admitted lead story");
   check(await value(base, "(() => { const node = document.querySelector('[data-contents-for=\"daily\"]'); return Number(node.getAttribute('data-service-count')) === 0 && node.textContent.includes('Quiet edition') && node.textContent.includes('August 4, 2026'); })()"), true, "current Daily paper previews the admitted quiet edition without prior-date carryover");
-  check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026' && document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').textContent === 'Current · Aug 4 ’26'"), true, "detailed and compact Daily states share the admitted date");
+  check(await value(base, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent === 'Current · checked August 4, 2026' && document.querySelector('.ns-daily-issue').dataset.dailyDate === '2026-08-04'"), true, "Daily choice and open issue share the admitted date");
   check(await value(base, "(() => { const held = window.NEWSSTAND_DATA.stories.filter((story) => story.status === 'hold').map((story) => story.headline); return Array.from(document.querySelectorAll('.ns-publication__contents')).every((node) => held.every((headline) => !node.textContent.includes(headline))); })()"), true, "held headlines never leak onto papers");
   check(await value(base, `(() => {
     const eligible = window.NEWSSTAND_DATA.stories.filter((story) =>
@@ -545,7 +636,7 @@ try {
     return document.querySelectorAll('.ns-topic-button').length === expected.size;
   })()`), true, "browse by topic derives one control for every eligible story topic");
   check(await value(base, "!document.querySelector('#ns-topic-buttons').textContent.includes('privacy') && !document.querySelector('#ns-topic-buttons').textContent.includes('health')"), true, "held-story topics never leak into browse controls");
-  check(await value(base, "(() => { const action = (edition) => document.querySelector('.ns-publication[data-edition=\"' + edition + '\"] .ns-publication__action').textContent; return action('breaking') === 'Check this paper · No issue today' && action('daily') === 'Pull this paper · Opens here' && action('weekly') === 'Pull this paper · Opens here' && action('tribune') === 'Pull this paper · Opens here'; })()"), true, "every paper action matches its truthful state");
+  check(await value(base, "(() => { const action = (edition) => document.querySelector('.ns-publication[data-edition=\"' + edition + '\"] .ns-publication__action').textContent; return action('daily') === 'Pull this paper · Opens here' && action('weekly') === 'Pull this paper · Opens here' && action('tribune') === 'Pull this paper · Opens here'; })()"), true, "every visible publication action matches its truthful state");
   check(await value(base, `(() => {
     const eligible = window.NEWSSTAND_DATA.stories.filter((story) =>
       ['published', 'corrected'].includes(story.status));
@@ -557,14 +648,13 @@ try {
       !hint.includes('privacy') && !hint.includes('health');
   })()`), true, "search hint derives only from eligible topics");
   await checkPaperContentsCoVisible(base, "paper identity contents and action co-visible at 1440");
-  await act(base, "document.querySelector('.ns-publication[data-edition=\"daily\"]').click()");
   check(await value(base, "document.querySelectorAll('.ns-daily-issue').length"), 1, "Daily opens the complete dated paper");
   check(await value(base, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-04", "current Daily opens the exact canonical edition date");
   check(await value(base, `document.querySelectorAll('.ns-daily-desk[data-desk-state="ready"]').length ===
     Number(document.querySelector('[data-contents-for="daily"]').dataset.serviceCount)`), true, "Daily exposes every and only admitted ready service desk");
   check(await value(base, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 0, "quiet Daily has no fabricated ready service desk");
   check(await value(base, "document.querySelector('.ns-daily-news').textContent.includes('No consequential report was filed.') && !document.querySelector('.ns-daily-news').textContent.includes('remains at its accuracy gate')"), true, "quiet Daily evidence desk names a concluded quiet edition rather than a pending story");
-  check(await value(base, "!['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack.'].some((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "quiet Daily does not carry August 3 service items forward");
+  check(await value(base, "!['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack'].some((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "quiet Daily does not carry August 3 service items forward");
   check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 9, "Daily renders all nine governed service desks including honest empty states");
   check(await value(base, "['Did you know?','Town notes','Try this today'].every((label) => document.querySelector('.ns-daily-issue').textContent.includes(label))"), true, "Daily includes fact town-note and curiosity desks");
   await captureEvidence(base, "desktop-daily-1440.png", ".ns-daily-issue");
@@ -579,6 +669,7 @@ try {
   check(await value(base, "(() => { const input = document.querySelector('#ns-catchup-since'); return input.max === '2026-08-04' && input.value <= input.max; })()"), true, "Catch Me Up follows the newest released edition rather than the visitor's calendar");
   check(await value(base, "document.querySelector('#ns-catchup-since').value='2999-12-31';document.querySelector('#ns-catchup-run').click();document.querySelector('#ns-catchup-since').value === document.querySelector('#ns-catchup-since').max"), true, "Catch Me Up clamps a scripted future start date to the newest released edition");
   check(await value(base, "document.querySelector('#ns-catchup-since').value='2026-07-30';document.querySelector('#ns-catchup-since').dispatchEvent(new Event('input'));document.querySelector('#ns-catchup-run').click();document.querySelectorAll('.ns-catchup-item').length >= 1"), true, "Catch Me Up preserves eligible dated history");
+  check(await value(base, "document.querySelector('[data-catchup-role=\"weekly\"] h3').textContent === window.NEWSSTAND_DATA.stories.find((story) => story.edition === 'weekly' && story.status === 'published').headline"), true, "Catch Me Up shows the current Weekly even when it predates the visitor's history cutoff");
   check(await value(base, "Array.from(document.querySelectorAll('[data-catchup-role]')).map((node) => node.dataset.catchupRole).join(',')"), "daily,weekly,history", "Catch Me Up orders Daily then Weekly then older history");
   check(await value(base, "document.querySelector('[data-catchup-role=\"daily\"]') !== null"), true, "Catch Me Up retains the latest complete Daily with its exact edition date");
   check(await value(base, "Array.from(document.querySelectorAll('.ns-catchup-item')).some((item) => item.textContent.includes('Draft first. Check second.'))"), true, "Catch Me Up preserves the July 31 Paige tip");
@@ -595,7 +686,7 @@ try {
     await sleep(600);
     check(await value(sharedDaily, "document.querySelector('#paper-counter').hidden"), false, "a shared eligible Daily URL opens the exact paper");
     check(await value(sharedDaily, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-03", "shared Daily preserves its exact edition date");
-    check(await value(sharedDaily, "['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack.'].every((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "archived August 3 Daily preserves all admitted service items");
+    check(await value(sharedDaily, "['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack'].every((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "archived August 3 Daily preserves all admitted service items");
     check(await value(unavailableSharedDaily, "document.querySelector('#paper-counter').hidden && document.querySelector('#ns-catchup-results').textContent.includes('not available')"), true, "an unavailable shared Daily fails to a truthful notice");
     check(await value(failedColumnsSharedDaily, "document.querySelector('#paper-counter').hidden"), false, "shared Daily still opens when optional service columns fail to load");
     check(await value(failedColumnsSharedDaily, "document.querySelector('.ns-daily-issue').dataset.dailyDate"), "2026-08-03", "columns failure preserves the exact canonical Daily date");
@@ -665,6 +756,39 @@ try {
   check(await value(base, "document.querySelector('#ns-reader-title').textContent"), "verification", "topic result keeps the selected topic visible");
   base.close();
 
+  const candidateDaily = await openPage("/newsstand.html?fixture=daily-review-candidate&clock=candidate-day", { width: 1440, height: 1000 });
+  await waitForValue(candidateDaily, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate", "2026-08-12", "complete Daily review candidate");
+  check(await value(candidateDaily, "window.__newsstandDailyIssueError || null"), null, "complete Daily review fixture passes the exact issue-store validator");
+  check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 4, "complete Daily carries exactly four reviewed service features");
+  check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-desk__full').length === 3 && document.querySelectorAll('.ns-daily-service-grid--spotlight .ns-daily-desk__body').length === 1"), true, "three service features keep exact text behind a disclosure while the short Mme CLAi-O reading is fully visible");
+  check(await value(candidateDaily, "document.querySelector('.ns-daily-news h3').textContent"), "Shared AI work files carried passwords — and details the chat never showed", "complete Daily front uses the exact reviewed lead headline");
+  check(await value(candidateDaily, "['Turn your work draft into a receipt list','Explain the work—not just the AI tool','Your refrigerator has entered its use-me-or-lose-me era','The Mini Backpack'].every((headline) => document.body.textContent.includes(headline))"), true, "complete Daily front files each distinct reviewed feature");
+  await captureElementEvidence(candidateDaily, "daily-review-default-1440.png", ".ns-daily-issue");
+  await act(candidateDaily, "document.querySelectorAll('.ns-daily-desk__full').forEach((item) => item.open = true)");
+  await captureElementEvidence(candidateDaily, "daily-review-features-open-1440.png", ".ns-daily-issue");
+  await act(candidateDaily, "document.querySelector('.ns-daily-news a').click()");
+  await waitForValue(candidateDaily, "document.querySelectorAll('.ns-article__section--longform').length", 6, "exact longform Daily article");
+  check(await value(candidateDaily, "document.body.textContent.includes('The researchers lacked the original hidden text, so they cannot prove every recovered word was exact.')"), true, "full article preserves the independently required evidence limitation");
+  check(await value(candidateDaily, "document.body.textContent.includes('Asking the AI to “show its work” does not scan the file.')"), true, "full article preserves the rejected-shortcut correction");
+  await captureElementEvidence(candidateDaily, "daily-review-article-1440.png", ".ns-article");
+  candidateDaily.close();
+
+  for (const width of [390, 320]) {
+    const mobileCandidate = await openPage("/newsstand.html?fixture=daily-review-candidate&clock=candidate-day", { width, height: 844, reducedMotion: true });
+    await waitForValue(mobileCandidate, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate", "2026-08-12", `complete Daily review candidate ${width}`);
+    check(await value(mobileCandidate, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true, `complete Daily ${width} has no horizontal overflow`);
+    check(await value(mobileCandidate, "document.querySelectorAll('.ns-publication').length"), 3, `complete Daily ${width} keeps Daily, Weekly and Big Picture visible`);
+    check(await value(mobileCandidate, "document.querySelector('.ns-daily-issue__dateline span:last-child').getBoundingClientRect().width > 0"), true, `complete Daily ${width} preserves the MAiN Street edition marker`);
+    check(await value(mobileCandidate, "parseFloat(getComputedStyle(document.querySelector('.ns-daily-issue__dateline .ns-brand-i')).fontSize) < parseFloat(getComputedStyle(document.querySelector('.ns-daily-issue__dateline')).fontSize)"), true, `complete Daily ${width} makes the SUNNYVAiLE lowercase i visibly intentional`);
+    check(await value(mobileCandidate, "Array.from(document.querySelectorAll('.ns-daily-desk__full > summary, .ns-daily-desk > a')).every((control) => control.getBoundingClientRect().height >= 44)"), true, `complete Daily ${width} service actions meet the minimum touch height`);
+    await captureElementEvidence(mobileCandidate, `daily-review-default-${width}.png`, ".ns-daily-issue");
+    await act(mobileCandidate, "document.querySelector('.ns-daily-news a').click()");
+    await waitForValue(mobileCandidate, "document.querySelectorAll('.ns-article__section--longform').length", 6, `exact longform Daily article ${width}`);
+    check(await value(mobileCandidate, "document.documentElement.scrollWidth <= document.documentElement.clientWidth"), true, `complete Daily article ${width} has no horizontal overflow`);
+    await captureElementEvidence(mobileCandidate, `daily-review-article-${width}.png`, ".ns-article");
+    mobileCandidate.close();
+  }
+
   const backfillCurrent = await openPage("/newsstand.html?clock=backfill-current", { width: 1440, height: 1000 });
   await waitForValue(backfillCurrent, "document.querySelector('.ns-publication [data-status-for=\"daily\"]').textContent", "Latest complete edition · August 6, 2026", "three-week archive Daily admission");
   check(await value(backfillCurrent, "window.__newsstandDailyIssueError || null"), null, "current Daily issue store validates before archive search");
@@ -676,7 +800,7 @@ try {
   backfillCurrent.close();
 
   const growth = await openPage("/newsstand.html?fixture=growth", { width: 1440, height: 1000 });
-  check(await value(growth, "document.querySelectorAll('.ns-publication').length"), 4, "growth keeps four stable papers");
+  check(await value(growth, "document.querySelectorAll('.ns-publication').length"), 3, "growth keeps the three stable top-level choices");
   check(await value(growth, "document.querySelector('[data-contents-for=\"tribune\"]').getAttribute('data-story-count')"), "2", "second eligible story updates Tribune count");
   check(await value(growth, "document.querySelectorAll('[data-contents-for=\"tribune\"] .ns-publication__headline').length"), 1, "growth keeps one lead on the paper face");
   await act(growth, "document.querySelector('#ns-browse-all').click()");
@@ -879,39 +1003,32 @@ try {
   repeated.close();
 
   const mobile = await openPage("/newsstand.html", { width: 390, height: 844, reducedMotion: true });
+  await waitForValue(mobile, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate", "2026-08-04", "390 Daily-first issue");
   if (process.env.NEWSSTAND_LAYOUT_CALIBRATION === "overlap-mobile-paper-labels") {
-    await act(mobile, "document.querySelector('.ns-paper-index [data-status-for=\"daily\"]').style.top='45%'");
+    await act(mobile, "document.querySelector('.ns-publication[data-edition=\"daily\"] .ns-publication__action').style.transform='translateY(-34px)'");
   }
   if (process.env.NEWSSTAND_LAYOUT_CALIBRATION === "overflow-mobile-paper-status") {
-    await act(mobile, "(() => { const node=document.querySelector('.ns-paper-index [data-status-for=\"tribune\"]'); node.style.whiteSpace='nowrap'; node.textContent='CURRENT · SEPTEMBER 25, 2026 — UNCHECKED OVERFLOW'; })()");
+    await act(mobile, "(() => { const node=document.querySelector('.ns-publication[data-edition=\"tribune\"] .ns-publication__status'); node.style.whiteSpace='nowrap'; node.textContent='CURRENT · SEPTEMBER 25, 2026 — UNCHECKED OVERFLOW'; })()");
   }
   check(await value(mobile, "matchMedia('(prefers-reduced-motion: reduce)').matches"), true, "reduced-motion media");
-  check(await value(mobile, "getComputedStyle(document.querySelector('.ns-counter-browse')).display !== 'none'"), true, "390 explains that all four papers are visible together");
-  check(await value(mobile, "(() => { const chooser=document.querySelector('.ns-paper-index'); const style=getComputedStyle(chooser); const buttons=Array.from(chooser.querySelectorAll('button')); const tops=[...new Set(buttons.map((button)=>Math.round(button.getBoundingClientRect().top)))]; return style.display==='grid' && getComputedStyle(chooser).gridTemplateColumns.split(' ').length===2 && buttons.length===4 && tops.length===2 && buttons.every((button)=>button.querySelector('.ns-paper-index__job').offsetParent && button.querySelector('[data-status-for]').offsetParent && button.querySelector('.ns-paper-index__action').offsetParent); })()"), true, "390 shows all four paper jobs states and actions in a two-by-two chooser");
-  check(await value(mobile, "Array.from(document.querySelectorAll('[data-edition]')).filter((button)=>button.offsetParent).length"), 4, "390 exposes one control per publication without a duplicate rack");
-  await act(mobile, "document.querySelector('.ns-state__primary').click()");
-  await sleep(100);
-  check(await value(mobile, "document.activeElement.matches('.ns-paper-index [data-edition=\"breaking\"]') && document.activeElement.offsetParent !== null"), true, "390 arrival Choose a paper focuses the first visible paper instead of the hidden desktop rack");
-  check(await value(mobile, "(() => Array.from(document.querySelectorAll('.ns-paper-index button')).every((button) => { const box=button.getBoundingClientRect(); const nodes=[button.querySelector('strong'),button.querySelector('.ns-paper-index__job'),button.querySelector('[data-status-for]'),button.querySelector('.ns-paper-index__action')]; return Math.abs((box.width/box.height)-(420/625))<0.02 && getComputedStyle(button).backgroundSize==='contain' && nodes.every((node)=>{const r=node.getBoundingClientRect(); return node.scrollWidth<=node.clientWidth+1 && r.left>=box.left && r.right<=box.right && r.top>=box.top && r.bottom<=box.bottom;}); }))()"), true, "390 preserves each painted slot ratio and contains every live paper label");
-  check(await value(mobile, "(() => Array.from(document.querySelectorAll('.ns-paper-index button')).every((button) => { const nodes=[button.querySelector('strong'),button.querySelector('.ns-paper-index__job'),button.querySelector('[data-status-for]'),button.querySelector('.ns-paper-index__action')].map((node)=>node.getBoundingClientRect()); return nodes.slice(1).every((rect,index)=>nodes[index].bottom+2<=rect.top); }))()"), true, "390 paper labels never overlap or strike through the next live field");
-  await captureEvidence(mobile, "mobile-chooser-390.png", ".ns-paper-index");
-  check(await value(mobile, "Array.from(document.querySelectorAll('.ns-paper-index button')).every((paper) => parseFloat(getComputedStyle(paper.querySelector('.ns-paper-index__job')).fontSize) >= 10 && parseFloat(getComputedStyle(paper.querySelector('[data-status-for]')).fontSize) >= 10 && parseFloat(getComputedStyle(paper.querySelector('.ns-paper-index__action')).fontSize) >= 10)"), true, "390 visible paper job status and action meet the mobile text floor");
-  check(await value(mobile, "Array.from(document.querySelectorAll('.ns-topic-button')).every((button) => button.getBoundingClientRect().height >= 44)"), true, "390 topic controls meet the minimum touch height");
-  await captureEvidence(mobile, "mobile-arrival-390.png");
-  await captureEvidence(mobile, "mobile-archive-390.png", ".ns-archive");
-  await act(mobile, "document.querySelector('.ns-paper-index [data-edition=\"daily\"]').click()");
-  await sleep(200);
-  check(await value(mobile, "document.querySelector('.ns-daily-service-grid').getBoundingClientRect().width <= window.innerWidth"), true, "390 Daily service desks fit the viewport");
+  check(await value(mobile, "document.querySelectorAll('.ns-publication').length"), 3, "390 exposes Daily, Weekly and Big Picture only");
+  check(await value(mobile, "(() => { const papers=Array.from(document.querySelectorAll('.ns-publication')); const tops=papers.map((paper)=>paper.getBoundingClientRect().top); return Math.max(...tops)-Math.min(...tops)<=4 && papers.every((paper)=>paper.offsetParent && paper.getBoundingClientRect().height>=120); })()"), true, "390 keeps all three choices visible in one stable row");
+  check(await value(mobile, "(() => Array.from(document.querySelectorAll('.ns-publication')).every((paper) => { const box=paper.getBoundingClientRect(); const elements=[paper.querySelector('strong'),paper.querySelector('.ns-publication__status'),paper.querySelector('.ns-publication__action')]; const nodes=elements.map((node)=>node.getBoundingClientRect()); return elements.every((node)=>node.scrollWidth<=node.clientWidth+1) && nodes.every((rect)=>rect.left>=box.left-1&&rect.right<=box.right+1&&rect.top>=box.top-1&&rect.bottom<=box.bottom+1) && nodes.slice(1).every((rect,index)=>nodes[index].bottom+1<=rect.top); }))()"), true, "390 publication labels remain contained and non-overlapping");
+  check(await value(mobile, "Array.from(document.querySelectorAll('.ns-publication')).every((paper) => parseFloat(getComputedStyle(paper.querySelector('.ns-publication__status')).fontSize) >= 10 && parseFloat(getComputedStyle(paper.querySelector('.ns-publication__action')).fontSize) >= 10)"), true, "390 publication status and action meet the mobile text floor");
+  check(await value(mobile, "document.querySelector('.ns-daily-issue').getBoundingClientRect().width <= window.innerWidth"), true, "390 complete Daily fits the viewport");
+  check(await value(mobile, "document.querySelector('.ns-daily-service-grid').getBoundingClientRect().width <= window.innerWidth"), true, "390 Daily service record fits the viewport");
   check(await value(mobile, `document.querySelectorAll('.ns-daily-desk[data-desk-state="ready"]').length ===
     Number(document.querySelector('[data-contents-for="daily"]').dataset.serviceCount)`), true, "390 Daily keeps the admitted-service boundary");
   check(await value(mobile, "(() => { const record=document.querySelector('.ns-daily-quiet-desks'); return record && !record.open && record.querySelectorAll('.ns-daily-desk').length===9; })()"), true, "quiet Daily demotes nine empty desks into one closed record without deleting them");
+  check(await value(mobile, "Array.from(document.querySelectorAll('.ns-topic-button')).every((button) => button.getBoundingClientRect().height >= 44)"), true, "390 topic controls meet the minimum touch height");
+  await captureEvidence(mobile, "mobile-arrival-390.png");
   await captureEvidence(mobile, "mobile-daily-390.png", ".ns-daily-issue");
+  await captureElementEvidence(mobile, "mobile-daily-complete-390.png", ".ns-daily-issue");
   await act(mobile, "document.querySelector('#ns-return').click();document.querySelector('#ns-catchup-since').value='2026-07-30';document.querySelector('#ns-catchup-run').click()");
   check(await value(mobile, "document.querySelector('.ns-catchup').getBoundingClientRect().width <= window.innerWidth"), true, "390 Catch Me Up fits the viewport");
   check(await value(mobile, "document.querySelector('.ns-catchup-lead h3').textContent.includes('SUNNYVAiLE') && getComputedStyle(document.querySelector('.ns-catchup-lead h3')).textTransform==='none'"), true, "Catch Me Up preserves the canonical SUNNYVAiLE lowercase i");
   await captureEvidence(mobile, "mobile-catchup-390.png", ".ns-catchup");
-  await captureEvidence(mobile, "mobile-390.png", '.ns-paper-index');
-  await act(mobile, "window.__nsScroll=[];Element.prototype.scrollIntoView=function(options){window.__nsScroll.push(options)};document.querySelector('.ns-paper-index [data-edition=\"tribune\"]').click()");
+  await act(mobile, "window.__nsScroll=[];Element.prototype.scrollIntoView=function(options){window.__nsScroll.push(options)};document.querySelector('.ns-publication[data-edition=\"tribune\"]').click()");
   check(await value(mobile, "window.__nsScroll[0].behavior"), "auto", "reduced-motion scroll");
   check(await value(mobile, "getComputedStyle(document.querySelector('.ns-publication')).transitionDuration"), "0s", "reduced-motion transition");
   check(await value(mobile, "document.documentElement.scrollWidth <= window.innerWidth"), true, "390 reflow");
@@ -923,53 +1040,45 @@ try {
   await waitForValue(mobileDirect, "document.querySelector('#paper-counter').hidden", false, "mobile direct-hash reader");
   await act(mobileDirect, "document.querySelector('#ns-return').click()");
   await sleep(150);
-  check(await value(mobileDirect, "location.hash==='' && document.activeElement.matches('.ns-paper-index [data-edition=\"tribune\"]') && document.activeElement.offsetParent !== null"), true, "mobile direct-hash return restores the visible matching paper");
+  check(await value(mobileDirect, "location.hash==='' && document.activeElement.matches('.ns-publication[data-edition=\"tribune\"]') && document.activeElement.offsetParent !== null"), true, "mobile direct-hash return restores the matching visible choice");
   mobileDirect.close();
 
   const mobileHistory = await openPage("/newsstand.html", { width: 390, height: 844, reducedMotion: true });
-  await act(mobileHistory, "document.querySelector('.ns-paper-index [data-edition=\"tribune\"]').click()");
+  await act(mobileHistory, "document.querySelector('.ns-publication[data-edition=\"tribune\"]').click()");
   await sleep(150);
   await act(mobileHistory, "document.querySelector('.ns-front-story').click()");
   await sleep(150);
   await act(mobileHistory, "history.back()");
-  await waitForValue(mobileHistory, "document.activeElement.matches('.ns-front-story[href=\"#label-is-not-a-truth-detector\"]')", true, "mobile story Back restores focus to the originating Tribune headline");
+  await waitForValue(mobileHistory, "document.activeElement.matches('.ns-front-story[href=\"#label-is-not-a-truth-detector\"]')", true, "mobile story Back restores focus to the originating Big Picture headline");
   await act(mobileHistory, "document.querySelector('#ns-return').click()");
   await sleep(150);
-  check(await value(mobileHistory, "document.activeElement.matches('.ns-paper-index [data-edition=\"tribune\"]') && document.activeElement.offsetParent !== null"), true, "mobile Back-then-return restores focus to the visible matching paper");
+  check(await value(mobileHistory, "document.activeElement.matches('.ns-publication[data-edition=\"tribune\"]') && document.activeElement.offsetParent !== null"), true, "mobile Back-then-return restores focus to the visible matching choice");
   mobileHistory.close();
 
   const narrow = await openPage("/newsstand.html", { width: 320, height: 760, reducedMotion: true });
-  check(await value(narrow, "document.querySelectorAll('.ns-publication').length"), 4, "320 keeps all four papers");
-  check(await value(narrow, "getComputedStyle(document.querySelector('.ns-counter-browse')).display !== 'none'"), true, "320 explains that all four papers are visible together");
-  check(await value(narrow, "(() => { const chooser=document.querySelector('.ns-paper-index'); const style=getComputedStyle(chooser); const buttons=Array.from(chooser.querySelectorAll('button')); const tops=[...new Set(buttons.map((button)=>Math.round(button.getBoundingClientRect().top)))]; return style.display==='grid' && getComputedStyle(chooser).gridTemplateColumns.split(' ').length===2 && buttons.length===4 && tops.length===2 && buttons.every((button)=>button.querySelector('.ns-paper-index__job').offsetParent && button.querySelector('[data-status-for]').offsetParent && button.querySelector('.ns-paper-index__action').offsetParent); })()"), true, "320 shows all four paper jobs states and actions in a two-by-two chooser");
-  check(await value(narrow, "Array.from(document.querySelectorAll('[data-edition]')).filter((button)=>button.offsetParent).length"), 4, "320 exposes one control per publication without a duplicate rack");
-  check(await value(narrow, "(() => Array.from(document.querySelectorAll('.ns-paper-index button')).every((button) => { const box=button.getBoundingClientRect(); const nodes=[button.querySelector('strong'),button.querySelector('.ns-paper-index__job'),button.querySelector('[data-status-for]'),button.querySelector('.ns-paper-index__action')]; return Math.abs((box.width/box.height)-(420/625))<0.02 && getComputedStyle(button).backgroundSize==='contain' && nodes.every((node)=>{const r=node.getBoundingClientRect(); return node.scrollWidth<=node.clientWidth+1 && r.left>=box.left && r.right<=box.right && r.top>=box.top && r.bottom<=box.bottom;}); }))()"), true, "320 preserves each painted slot ratio and contains every live paper label");
-  check(await value(narrow, "(() => Array.from(document.querySelectorAll('.ns-paper-index button')).every((button) => { const nodes=[button.querySelector('strong'),button.querySelector('.ns-paper-index__job'),button.querySelector('[data-status-for]'),button.querySelector('.ns-paper-index__action')].map((node)=>node.getBoundingClientRect()); return nodes.slice(1).every((rect,index)=>nodes[index].bottom+2<=rect.top); }))()"), true, "320 paper labels never overlap or strike through the next live field");
-  await captureEvidence(narrow, "mobile-chooser-320.png", ".ns-paper-index");
-  check(await value(narrow, "Array.from(document.querySelectorAll('.ns-paper-index button')).every((paper) => parseFloat(getComputedStyle(paper.querySelector('.ns-paper-index__job')).fontSize) >= 10 && parseFloat(getComputedStyle(paper.querySelector('[data-status-for]')).fontSize) >= 10 && parseFloat(getComputedStyle(paper.querySelector('.ns-paper-index__action')).fontSize) >= 10)"), true, "320 visible paper job status and action meet the mobile text floor");
+  await waitForValue(narrow, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate", "2026-08-04", "320 Daily-first issue");
+  check(await value(narrow, "document.querySelectorAll('.ns-publication').length"), 3, "320 keeps all three choices");
+  check(await value(narrow, "(() => { const papers=Array.from(document.querySelectorAll('.ns-publication')); return papers.every((paper)=>paper.offsetParent && paper.getBoundingClientRect().width>0 && paper.getBoundingClientRect().height>=120); })()"), true, "320 keeps all three choices operable");
+  check(await value(narrow, "(() => Array.from(document.querySelectorAll('.ns-publication')).every((paper) => { const box=paper.getBoundingClientRect(); const elements=[paper.querySelector('strong'),paper.querySelector('.ns-publication__status'),paper.querySelector('.ns-publication__action')]; const nodes=elements.map((node)=>node.getBoundingClientRect()); return elements.every((node)=>node.scrollWidth<=node.clientWidth+1) && nodes.every((rect)=>rect.left>=box.left-1&&rect.right<=box.right+1&&rect.top>=box.top-1&&rect.bottom<=box.bottom+1) && nodes.slice(1).every((rect,index)=>nodes[index].bottom+1<=rect.top); }))()"), true, "320 publication labels remain contained and non-overlapping");
   check(await value(narrow, "Array.from(document.querySelectorAll('.ns-topic-button')).every((button) => button.getBoundingClientRect().height >= 44)"), true, "320 topic controls meet the minimum touch height");
-  await captureEvidence(narrow, "mobile-arrival-320.png");
-  check(await value(narrow, "(() => { const nodes=[document.querySelector('.ns-state h1'), ...document.querySelectorAll('.ns-state__actions button')]; return nodes.every((node)=>{const rect=node.getBoundingClientRect(); return rect.left>=0 && rect.right<=window.innerWidth;}); })()"), true, "320 arrival title and primary actions stay inside the viewport");
-  await captureEvidence(narrow, "mobile-archive-320.png", ".ns-archive");
-  await act(narrow, "document.querySelector('.ns-paper-index [data-edition=\"daily\"]').click()");
-  await sleep(200);
-  check(await value(narrow, "document.querySelector('.ns-daily-issue').getBoundingClientRect().width <= window.innerWidth"), true, "320 Daily fits the viewport");
+  check(await value(narrow, "document.querySelector('.ns-daily-issue').getBoundingClientRect().width <= window.innerWidth && document.documentElement.scrollWidth <= window.innerWidth"), true, "320 Daily fits without horizontal overflow");
+  check(await value(narrow, "parseFloat(getComputedStyle(document.querySelector('.ns-daily-issue h2')).fontSize) >= 54"), true, "320 retains a recognisable newspaper masthead");
+  await captureEvidence(narrow, "mobile-daily-320.png", ".ns-daily-issue");
+  await captureElementEvidence(narrow, "mobile-daily-complete-320.png", ".ns-daily-issue");
+  check(await value(narrow, "(() => { const nodes=[document.querySelector('.ns-state h1'), ...document.querySelectorAll('.ns-state__actions button')]; return nodes.every((node)=>{const rect=node.getBoundingClientRect(); return rect.left>=0 && rect.right<=window.innerWidth;}); })()"), true, "320 title and utility actions stay inside the viewport");
   await act(narrow, "document.querySelector('#ns-return').click();document.querySelector('.ns-catchup-jump').click()");
   await sleep(150);
   check(await value(narrow, "(() => { const title=document.querySelector('#ns-catchup-title').getBoundingClientRect(); const header=document.querySelector('.topbar').getBoundingClientRect(); return title.top >= header.bottom && title.bottom <= window.innerHeight; })()"), true, "320 Catch Me Up CTA lands with the destination title fully below the sticky header");
-  await captureEvidence(narrow, "mobile-catchup-landing-320.png", null, true);
   await act(narrow, "document.querySelector('#ns-catchup-run').click()");
   check(await value(narrow, "document.querySelector('.ns-catchup').getBoundingClientRect().width <= window.innerWidth && document.documentElement.scrollWidth <= window.innerWidth"), true, "320 Catch Me Up fits without document overflow");
-  await captureEvidence(narrow, "mobile-320.png", '.ns-paper-index');
-  check(await value(narrow, "document.documentElement.scrollWidth <= window.innerWidth"), true, "320 rack reflow");
-  await act(narrow, "document.querySelector('.ns-paper-index [data-edition=\"tribune\"]').focus()");
-  check(await value(narrow, "document.activeElement.dataset.edition"), "tribune", "320 keyboard starts on paper");
+  await act(narrow, "document.querySelector('.ns-publication[data-edition=\"tribune\"]').focus()");
+  check(await value(narrow, "document.activeElement.dataset.edition"), "tribune", "320 keyboard starts on Big Picture");
   await pressEnter(narrow);
   await sleep(400);
-  check(await value(narrow, "document.querySelector('#paper-counter').hidden"), false, "320 keyboard opens paper");
+  check(await value(narrow, "document.querySelector('#paper-counter').hidden"), false, "320 keyboard opens Big Picture");
   check(await value(narrow, "document.activeElement.id"), "ns-reader-title", "320 keyboard paper open focus");
   await act(narrow, "document.querySelector('#ns-return').click()");
-  check(await value(narrow, "document.activeElement.dataset.edition"), "tribune", "320 return focus to same paper");
+  check(await value(narrow, "document.activeElement.dataset.edition"), "tribune", "320 return focus to the same choice");
   narrow.close();
 
   console.log(`✓ NEWSSTAND BROWSER: ${checks} rendered checks · three repeated paper/search history cycles at 620/900px · hold/stale/correction/retraction/focus/mobile/motion/zoom`);

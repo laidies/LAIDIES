@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="/content/newsstand.css?v=20260805-newsstand-v22">
+    <link rel="stylesheet" href="/content/newsstand.css?v=20260812-newsstand-v23">
     <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -64,14 +64,14 @@
         <div class="ns-room__scene">
           <figure class="ns-paige">
             <div class="ns-paige__crop">
-              <img src="/assets/town-characters/scenes/paige-scene.png" alt="Paige at the NewsStand beside her source-check board: Ask questions, Check sources, Get the real story.">
+              <img src="/assets/town-characters/scenes/paige-scene.png" alt="Paige, editor of the SUNNYVAiLE NewsStand.">
             </div>
           </figure>
           <section class="ns-state" aria-labelledby="ns-building-title">
             <div class="ns-state__inner">
               <p class="ns-address">MAiN Street No. 2 · Keeper: Paige</p>
               <div class="ns-state__copy">
-                <h1 id="ns-building-title">The SUNNYVA<span class="ns-brand-i">i</span>LE NewsStand.</h1>
+                <h1 id="ns-building-title">The SUNNYVA<span class="ns-brand-i">i</span>LE NewsStand</h1>
                 <h2 id="ns-title">Checking Paige&rsquo;s desk.</h2>
                 <p id="ns-state-detail">Paige is checking today&rsquo;s rack for the latest published stories.</p>
                 <p class="ns-system-status" id="ns-system-status" role="status" aria-live="polite"></p>
@@ -88,35 +88,14 @@
         </div>
         <div class="ns-counter-surface" id="newsstand-counter">
           <div class="ns-counter-intro">
-            <p class="ns-counter-kicker">Paige&rsquo;s press counter · Four papers, four jobs</p>
-            <h2>Choose the paper that matches what you need.</h2>
-            <p>Each paper tells you what it covers and whether there is a current issue before you pull it. Opening one unfolds its front page at the counter.</p>
+            <p class="ns-counter-kicker">Paige&rsquo;s press counter · Today, this week and the deeper story</p>
+            <h2>Today&rsquo;s Daily opens first.</h2>
+            <p>The Weekly and The Big Picture are one click away. Breaking news appears at the top of The Daily when it truly qualifies.</p>
           </div>
-          <p class="ns-counter-browse" id="ns-counter-browse">All four papers are shown on Paige&rsquo;s rack.</p>
-          <nav class="ns-paper-index" aria-label="Choose from all four NewsStand papers">
-            <button type="button" data-edition="breaking" aria-pressed="false"><strong>The Breaking</strong><span class="ns-paper-index__job">News as it happens</span><span data-status-for="breaking">Checking…</span><span class="ns-paper-index__action" data-index-action-for="breaking">Checking what opens…</span></button>
-            <button type="button" data-edition="daily" aria-pressed="false"><strong>The Daily</strong><span class="ns-paper-index__job">Dated news, Promptoscope and useful daily desks</span><span data-status-for="daily">Checking…</span><span class="ns-paper-index__action" data-index-action-for="daily">Checking what opens…</span></button>
-            <button type="button" data-edition="weekly" aria-pressed="false"><strong>The Weekly</strong><span class="ns-paper-index__job">The week&rsquo;s bigger picture</span><span data-status-for="weekly">Checking…</span><span class="ns-paper-index__action" data-index-action-for="weekly">Checking what opens…</span></button>
-            <button type="button" data-edition="tribune" aria-pressed="false"><strong>The Big Picture</strong><span class="ns-paper-index__job">The deeper story behind the headlines</span><span data-status-for="tribune">Checking…</span><span class="ns-paper-index__action" data-index-action-for="tribune">Checking what opens…</span></button>
-          </nav>
           <div class="ns-rack-stage" id="newsstand-rack">
-            <img
-              class="ns-rack-stage__art"
-              src="/assets/building-interiors/delivery-20260804-newsstand-live-rack-v1/newsstand-live-four-paper-rack-crop-v1.png"
-              alt=""
-              aria-hidden="true"
-              width="1680"
-              height="625"
-            >
-            <div class="ns-publications" aria-label="The four NewsStand publications" aria-describedby="ns-counter-browse">
-            <button class="ns-publication" type="button" data-edition="breaking" aria-pressed="false">
-              <strong>The Breaking</strong>
-              <span class="ns-publication__job">News as it happens</span>
-              <span class="ns-publication__status" data-status-for="breaking">Checking the desk…</span>
-              <span class="ns-publication__contents" data-contents-for="breaking" aria-live="polite"></span>
-              <span class="ns-publication__action">Checking what opens…</span>
-            </button>
+            <div class="ns-publications" aria-label="Choose The Daily, The Weekly or The Big Picture">
             <button class="ns-publication" type="button" data-edition="daily" aria-pressed="false">
+              <span class="ns-publication__icon" aria-hidden="true">▤</span>
               <strong>The Daily</strong>
               <span class="ns-publication__job">Dated news, Promptoscope and useful daily desks</span>
               <span class="ns-publication__status" data-status-for="daily">Checking the desk…</span>
@@ -124,6 +103,7 @@
               <span class="ns-publication__action">Checking what opens…</span>
             </button>
             <button class="ns-publication" type="button" data-edition="weekly" aria-pressed="false">
+              <span class="ns-publication__icon" aria-hidden="true">▥</span>
               <strong>The Weekly</strong>
               <span class="ns-publication__job">The week&rsquo;s bigger picture</span>
               <span class="ns-publication__status" data-status-for="weekly">Checking the desk…</span>
@@ -131,6 +111,7 @@
               <span class="ns-publication__action">Checking what opens…</span>
             </button>
             <button class="ns-publication" type="button" data-edition="tribune" aria-pressed="false">
+              <span class="ns-publication__icon" aria-hidden="true">▦</span>
               <strong>The Big Picture</strong>
               <span class="ns-publication__job">The deeper story behind the headlines</span>
               <span class="ns-publication__status" data-status-for="tribune">Checking the desk…</span>
@@ -139,14 +120,14 @@
             </button>
             </div>
           </div>
-          <p class="ns-counter-note">The rack grows by adding issues inside these papers—not by hiding more sections below the counter.</p>
+          <p class="ns-counter-note">Need something older? Search the archive by headline, source, word or topic below the paper.</p>
         </div>
       </section>
 
       <section class="ns-reader" id="paper-counter" aria-labelledby="ns-reader-title" hidden>
         <div class="ns-reader__rail">
-          <p class="ns-kicker">Pulled from the rack</p>
-          <button class="ns-return" id="ns-return" type="button">Put the paper back</button>
+          <p class="ns-kicker">On Paige&rsquo;s press counter</p>
+          <button class="ns-return" id="ns-return" type="button">Close this paper</button>
         </div>
         <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="weekly">
           <header class="ns-unfolded-paper__masthead">
@@ -553,6 +534,32 @@
           ].join("");
         }
 
+        function renderLongformBlock(block) {
+          if (!block || !block.type) return "";
+          if (block.type === "paragraph") return "<p>" + (block.body || "") + "</p>";
+          if (block.type === "subheading") return "<h4>" + escapeHTML(block.text || "") + "</h4>";
+          if (block.type === "unordered_list" || block.type === "ordered_list") {
+            var tag = block.type === "ordered_list" ? "ol" : "ul";
+            return "<" + tag + ">" + (block.items || []).map(function (item) { return "<li>" + item + "</li>"; }).join("") + "</" + tag + ">";
+          }
+          if (block.type === "quote") return '<blockquote class="ns-article__cocktail">' +
+            (block.eyebrow ? "<strong>" + escapeHTML(block.eyebrow) + "</strong>" : "") +
+            "<p>" + (block.body || "") + "</p></blockquote>";
+          return "";
+        }
+
+        function renderLongform(story) {
+          if (!story.longform || !Array.isArray(story.longform.sections) || !story.longform.sections.length) return "";
+          return story.longform.sections.map(function (section) {
+            return [
+              '<section class="ns-article__section ns-article__section--longform" id="', escapeAttribute(section.id || ""), '">',
+                '<h3>', escapeHTML(section.label || ""), '</h3>',
+                (section.blocks || []).map(renderLongformBlock).join(""),
+              '</section>'
+            ].join("");
+          }).join("");
+        }
+
         function renderArticle(story) {
           var edition = story.edition;
           var isTribune = edition === "tribune";
@@ -591,6 +598,7 @@
               escapeHTML(formatDate(story.correction.correctedAt)) + "</strong><p>" +
               escapeHTML(story.correction.summary) + "</p></aside>"
             : "";
+          var longform = renderLongform(story);
           return [
             '<article class="ns-article">',
               '<header class="ns-article__head">',
@@ -602,15 +610,17 @@
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
               "</header>",
               correction,
-              articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
-              articleSection("The LAiDIES Read", story.laidies_read),
-              articleSection("What This Means For You", story.what_this_means),
-              story.cocktail_party ? '<blockquote class="ns-article__cocktail"><strong>The Cocktail Party Explanation</strong><p>' + story.cocktail_party + "</p></blockquote>" : "",
-              watch,
-              story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
-              story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : "",
+              longform || [
+                articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
+                articleSection("The LAiDIES Read", story.laidies_read),
+                articleSection("What This Means For You", story.what_this_means),
+                story.cocktail_party ? '<blockquote class="ns-article__cocktail"><strong>The Cocktail Party Explanation</strong><p>' + story.cocktail_party + "</p></blockquote>" : "",
+                watch,
+                story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
+                story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : ""
+              ].join(""),
               '<footer class="ns-article__sources">',
-                sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
+                !longform && sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
                 story.aidb_credit ? "<p><em>" + escapeHTML(story.aidb_credit) + "</em></p>" : "",
                 story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
               "</footer>",
@@ -1193,7 +1203,7 @@
     <script src="/content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-    <script defer src="/content/site/newsstand-catchup-v1.js?v=20260812-backfill-v1"></script>
+    <script defer src="/content/site/newsstand-catchup-v1.js?v=20260812-daily-first-v1"></script>
     <script defer src="/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1"></script>
     <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>

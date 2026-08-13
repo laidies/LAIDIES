@@ -374,7 +374,10 @@
   }
 
   function maybeOpenSharedDailyRequest() {
-    if (dailyIssuesLoaded && columnsLoaded) openSharedDailyRequest();
+    if (!dailyIssuesLoaded || !columnsLoaded) return;
+    var requested = new URL(global.location.href).searchParams.get("daily");
+    openSharedDailyRequest();
+    if (!requested && !global.location.hash && canRenderDaily()) renderDaily(null, { initial: true });
   }
 
   function eligibleDerivatives() {
@@ -460,19 +463,43 @@
     ].join("");
   }
 
-  function dailyDesk(label, status, headline, body, route) {
+  function dailyDesk(label, status, headline, body, route, options) {
+    options = options || {};
+    var bodyParts = String(body || "").split(/\n\s*\n/).map(function (part) { return part.trim(); }).filter(Boolean);
+    var lead = bodyParts.shift() || "";
+    var useLeadAsHeadline = Boolean(options.leadAsHeadline && lead && bodyParts.length);
+    var displayHeadline = useLeadAsHeadline ? lead : headline;
+    var more = options.expanded && bodyParts.length ? [
+      '<div class="ns-daily-desk__body">',
+        bodyParts.map(function (part) { return '<p>' + escapeHTML(part) + '</p>'; }).join(""),
+      '</div>'
+    ].join("") : bodyParts.length ? [
+      '<details class="ns-daily-desk__full">',
+        '<summary>', escapeHTML(options.summaryLabel || "Read today’s full feature"), '</summary>',
+        '<div>', bodyParts.map(function (part) { return '<p>' + escapeHTML(part) + '</p>'; }).join(""), '</div>',
+      '</details>'
+    ].join("") : "";
     return [
-      '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '">',
+      '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '" data-desk-type="', escapeHTML(options.type || "other"), '">',
         '<p class="ns-daily-desk__label">', escapeHTML(label), '</p>',
         '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? "Filed in this edition" : "Desk update"), '</p>',
-        '<h3>', escapeHTML(headline), '</h3>',
-        '<p>', escapeHTML(body), '</p>',
-        route ? '<a href="' + escapeHTML(route) + '">Go deeper →</a>' : '',
+        '<h3>', escapeHTML(displayHeadline), '</h3>',
+        useLeadAsHeadline ? '' : '<p class="ns-daily-desk__lead">' + escapeHTML(lead) + '</p>',
+        more,
+        route ? '<a href="' + escapeHTML(route) + '">' + escapeHTML(options.routeLabel || "Go deeper →") + '</a>' : '',
       '</section>'
     ].join("");
   }
 
-  function renderDaily(requestedDate) {
+  function breakingLead() {
+    if (!contract || !data || !data.publications || !data.publications.breaking) return null;
+    var now = new Date().toISOString();
+    if (contract.effectivePublicationState(data.publications.breaking, now) !== "current") return null;
+    return contract.visibleStories(data, "breaking", now)[0] || null;
+  }
+
+  function renderDaily(requestedDate, options) {
+    options = options || {};
     var reader = document.getElementById("paper-counter");
     var rack = document.getElementById("ns-rack");
     var empty = document.getElementById("ns-empty");
@@ -492,46 +519,87 @@
     var fiction = dailyDeskValue(canonicalIssue, date, "fiction");
     var dailyStories = currentDailyStories(date, canonicalIssue);
     var lead = dailyStories[0];
+    var breaking = breakingLead();
+    var desks = [
+      { type: "paige_tip", label: "Paige’s practical AI tip", value: tip, emptyHeadline: "Tip check in progress.", emptyCopy: columnEmpty("paige_tip", "Paige is checking this edition’s tip against the receipts.") },
+      { type: "promptoscope", label: "Promptoscope", value: promptoscope, emptyHeadline: "Recalibrating.", emptyCopy: columnEmpty("promptoscope", "The Promptoscope is recalibrating.") },
+      { type: "career_life", label: "Career + life", value: career, emptyHeadline: "The useful move is being checked.", emptyCopy: columnEmpty("career_life", "No career or life item has cleared review.") },
+      { type: "mme_claio", label: "Mme CLAi-O’s reading", value: reading, emptyHeadline: "The card is face down.", emptyCopy: columnEmpty("mme_claio", "No dated reading has cleared review.") },
+      { type: "song", label: "Song of the Day", value: song, emptyHeadline: "The request line is checking the release.", emptyCopy: columnEmpty("song", "No exact song release has cleared review.") },
+      { type: "did_you_know", label: "Did you know?", value: fact, emptyHeadline: "The fact desk is checking its source.", emptyCopy: columnEmpty("did_you_know", "No verified fact is filed in this edition.") },
+      { type: "town_note", label: "Town notes", value: townNote, emptyHeadline: "The noticeboard is clear.", emptyCopy: columnEmpty("town_note", "No dated town notice is filed in this edition.") },
+      { type: "curiosity", label: "Try this today", value: curiosity, emptyHeadline: "The curiosity desk is checking the move.", emptyCopy: columnEmpty("curiosity", "No concrete curiosity or mutual-support action is filed in this edition.") },
+      { type: "fiction", label: "SUNNYVAiLE desk · fictional", value: fiction, emptyHeadline: "No town filler filed.", emptyCopy: columnEmpty("fiction", "No canon-reviewed fictional town item is filed in this edition.") }
+    ];
+    function deskMarkup(desk, overrides) {
+      var ready = desk.value && desk.value.state !== "empty";
+      var optionByType = {
+        paige_tip: { summaryLabel: "Use the complete tip" },
+        promptoscope: { summaryLabel: "Reveal tonight’s practical move" },
+        career_life: { summaryLabel: "Read the advice and AI connection" },
+        mme_claio: { leadAsHeadline: true, routeLabel: "Visit Mme CLAi-O →" }
+      };
+      var options = Object.assign({ type: desk.type }, optionByType[desk.type] || {}, overrides || {});
+      return dailyDesk(desk.label, ready ? "ready" : "empty",
+        ready ? desk.value.headline : desk.emptyHeadline,
+        ready ? desk.value.summary : desk.value && desk.value.emptyState || desk.emptyCopy,
+        ready ? desk.value.destination : "", options);
+    }
+    var primaryDesks = desks.slice(0, 4);
+    var sideDesks = primaryDesks.slice(0, 3);
+    var spotlightDesks = primaryDesks.slice(3, 4).filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
+    var secondaryDesks = desks.slice(4);
+    var readySideCount = sideDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; }).length;
+    var readySecondaryDesks = secondaryDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
+    var emptySecondaryDesks = secondaryDesks.filter(function (desk) { return !desk.value || desk.value.state === "empty"; });
+    var sideMarkup = readySideCount ? [
+      '<aside class="ns-daily-service-rail" aria-label="Today’s practical and playful desks">',
+        '<p class="ns-daily-section-flag">Today&rsquo;s side column</p>',
+        '<div class="ns-daily-service-grid ns-daily-service-grid--primary">', sideDesks.map(deskMarkup).join(""), '</div>',
+      '</aside>'
+    ].join("") : [
+      '<aside class="ns-daily-service-rail ns-daily-service-rail--quiet" aria-label="Service desk status">',
+        '<details class="ns-daily-quiet-desks"><summary>All nine service desks were checked. Open the desk-by-desk record.</summary>',
+          '<div class="ns-daily-service-grid">', desks.map(deskMarkup).join(""), '</div>',
+        '</details>',
+      '</aside>'
+    ].join("");
+    var spotlightMarkup = spotlightDesks.length ? [
+      '<section class="ns-daily-feature-strip" aria-label="Today’s Rewind reading">',
+        '<p class="ns-daily-section-flag">Today&rsquo;s Rewind reading</p>',
+        '<div class="ns-daily-service-grid ns-daily-service-grid--spotlight">', spotlightDesks.map(function (desk) { return deskMarkup(desk, { expanded: true }); }).join(""), '</div>',
+      '</section>'
+    ].join("") : "";
+    var moreMarkup = readySideCount || spotlightDesks.length || readySecondaryDesks.length ? [
+      '<section class="ns-daily-more-desks" aria-labelledby="ns-daily-more-title">',
+        '<div class="ns-daily-more-desks__head"><p class="ns-daily-section-flag">Also checked today</p><h3 id="ns-daily-more-title">', emptySecondaryDesks.length, ' desks stayed quiet.</h3><p>Nothing is filed just to fill the page.</p></div>',
+        readySecondaryDesks.length ? '<div class="ns-daily-service-grid ns-daily-service-grid--more">' + readySecondaryDesks.map(deskMarkup).join("") + '</div>' : '',
+        emptySecondaryDesks.length ? '<details class="ns-daily-quiet-desks"><summary>See the desk-by-desk record.</summary><div class="ns-daily-service-grid">' + emptySecondaryDesks.map(deskMarkup).join("") + '</div></details>' : '',
+      '</section>'
+    ].join("") : "";
     var html = [
       '<article class="ns-daily-issue" data-daily-date="', escapeHTML(date), '">',
+        breaking ? '<aside class="ns-daily-breaking"><strong>BREAKING</strong><a href="#' + escapeHTML(breaking.slug) + '">' + escapeHTML(breaking.headline) + '</a></aside>' : '',
         '<header class="ns-daily-issue__head">',
-          '<p>The Daily · ', escapeHTML(formatDate(date)), '</p>',
-          '<h2>Your complete SUNNYVA<span class="ns-brand-i">i</span>LE paper.</h2>',
-          '<p>Reporting, practical help and town desks are labelled separately. An empty desk is honest; it is never filled with invented material.</p>',
+          '<div class="ns-daily-issue__dateline"><span>SUNNYVA<span class="ns-brand-i">i</span>LE</span><span>', escapeHTML(formatDate(date)), '</span><span>MAiN Street No. 2</span></div>',
+          '<h2><span>The</span> Daily</h2>',
+          '<p>AI news, useful moves and a little SUNNYVA<span class="ns-brand-i">i</span>LE life — with every desk labelled and every empty space honest.</p>',
         '</header>',
-        '<section class="ns-daily-news">',
-          '<p class="ns-daily-desk__label">Evidence desk · sourced reporting</p>',
-          '<h3>', escapeHTML(lead ? lead.headline : quietIssue ? "No consequential report was filed." : "The evidence desk has no admitted lead yet."), '</h3>',
-          '<p>', escapeHTML(lead ? sentence(lead.the_story) : quietIssue ?
-            "The evidence desk closed this edition without a qualified lead. Nothing was carried forward to fill the paper." :
-            "This edition’s sourced reporting remains at its accuracy gate. The service desks still publish; no story is invented to fill this space."), '</p>',
-          lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
-        '</section>',
-        quietIssue
-          ? '<details class="ns-daily-quiet-desks"><summary>All nine service desks were checked. Open the desk-by-desk record.</summary><div class="ns-daily-service-grid">'
-          : '<div class="ns-daily-service-grid">',
-          dailyDesk("Paige’s practical tip", tip && tip.state !== "empty" ? "ready" : "empty",
-            tip && tip.state !== "empty" ? tip.headline : "Tip check in progress.", tip && tip.state !== "empty" ? tip.summary : tip && tip.emptyState || columnEmpty("paige_tip", "Paige is checking this edition’s tip against the receipts."),
-            tip && tip.state !== "empty" ? tip.destination : ""),
-          dailyDesk("Promptoscope", promptoscope && promptoscope.state !== "empty" ? "ready" : "empty",
-            promptoscope && promptoscope.state !== "empty" ? promptoscope.headline : "Recalibrating.",
-            promptoscope && promptoscope.state !== "empty" ? promptoscope.summary : promptoscope && promptoscope.emptyState || columnEmpty("promptoscope", "The Promptoscope is recalibrating."),
-            promptoscope && promptoscope.state !== "empty" ? promptoscope.destination : ""),
-          dailyDesk("Work + life", career && career.state !== "empty" ? "ready" : "empty", career && career.state !== "empty" ? career.headline : "The useful move is being checked.",
-            career && career.state !== "empty" ? career.summary : career && career.emptyState || columnEmpty("career_life", "No career or life item has cleared review."), career && career.state !== "empty" ? career.destination : ""),
-          dailyDesk("Mme CLAi-O’s reading", reading && reading.state !== "empty" ? "ready" : "empty", reading && reading.state !== "empty" ? reading.headline : "The card is face down.",
-            reading && reading.state !== "empty" ? reading.summary : reading && reading.emptyState || columnEmpty("mme_claio", "No dated reading has cleared review."), reading && reading.state !== "empty" ? reading.destination : ""),
-          dailyDesk("Song of the Day", song && song.state !== "empty" ? "ready" : "empty", song && song.state !== "empty" ? song.headline : "The request line is checking the release.",
-            song && song.state !== "empty" ? song.summary : song && song.emptyState || columnEmpty("song", "No exact song release has cleared review."), song && song.state !== "empty" ? song.destination : ""),
-          dailyDesk("Did you know?", fact && fact.state !== "empty" ? "ready" : "empty", fact && fact.state !== "empty" ? fact.headline : "The fact desk is checking its source.",
-            fact && fact.state !== "empty" ? fact.summary : fact && fact.emptyState || columnEmpty("did_you_know", "No verified fact is filed in this edition."), fact && fact.state !== "empty" ? fact.destination : ""),
-          dailyDesk("Town notes", townNote && townNote.state !== "empty" ? "ready" : "empty", townNote && townNote.state !== "empty" ? townNote.headline : "The noticeboard is clear.",
-            townNote && townNote.state !== "empty" ? townNote.summary : townNote && townNote.emptyState || columnEmpty("town_note", "No dated town notice is filed in this edition."), townNote && townNote.state !== "empty" ? townNote.destination : ""),
-          dailyDesk("Try this today", curiosity && curiosity.state !== "empty" ? "ready" : "empty", curiosity && curiosity.state !== "empty" ? curiosity.headline : "The curiosity desk is still checking the move.",
-            curiosity && curiosity.state !== "empty" ? curiosity.summary : curiosity && curiosity.emptyState || columnEmpty("curiosity", "No concrete curiosity or mutual-support action is filed in this edition."), curiosity && curiosity.state !== "empty" ? curiosity.destination : ""),
-          dailyDesk("SUNNYVAiLE desk · fictional", fiction && fiction.state !== "empty" ? "ready" : "empty", fiction && fiction.state !== "empty" ? fiction.headline : "No town filler filed.",
-            fiction && fiction.state !== "empty" ? fiction.summary : fiction && fiction.emptyState || columnEmpty("fiction", "No canon-reviewed fictional town item is filed in this edition."), fiction && fiction.state !== "empty" ? fiction.destination : "") ,
-        quietIssue ? '</div></details>' : '</div>',
+        '<div class="ns-daily-front-grid">',
+          '<section class="ns-daily-news">',
+            '<p class="ns-daily-desk__label">Evidence desk · sourced reporting</p>',
+            '<h3>', escapeHTML(lead ? lead.headline : quietIssue ? "No consequential report was filed." : "The evidence desk has no admitted lead yet."), '</h3>',
+            '<p class="ns-daily-news__standfirst">', escapeHTML(lead ? lead.the_story : quietIssue ?
+              "The evidence desk closed this edition without a qualified lead. Nothing was carried forward to fill the paper." :
+              "This edition’s sourced reporting remains at its accuracy gate. No story is invented to fill this space."), '</p>',
+            lead && lead.laidies_read ? '<div class="ns-daily-news__brief"><p class="ns-daily-section-flag">The LAiDIES read</p><p>' + escapeHTML(lead.laidies_read) + '</p></div>' : '',
+            lead && lead.what_this_means ? '<aside class="ns-daily-news__move"><strong>Before you share</strong><p>' + escapeHTML(lead.what_this_means) + '</p></aside>' : '',
+            lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
+          '</section>',
+          sideMarkup,
+        '</div>',
+        spotlightMarkup,
+        moreMarkup,
         '<footer class="ns-daily-issue__foot">',
           '<button type="button" id="ns-share-daily">Share this Daily</button>',
           '<span id="ns-share-daily-status" role="status"></span>',
@@ -551,8 +619,10 @@
       paper.setAttribute("aria-pressed", String(selected));
     });
     markSeen("daily:" + date);
-    reader.scrollIntoView({ behavior: "smooth", block: "start" });
-    document.getElementById("ns-reader-title").focus({ preventScroll: true });
+    if (!options.initial) {
+      reader.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("ns-reader-title").focus({ preventScroll: true });
+    }
   }
 
   function openSharedDailyRequest() {
@@ -713,7 +783,7 @@
     var weeklyPublication = data.publications && data.publications.weekly;
     var weeklyState = contract.effectivePublicationState(weeklyPublication, now);
     var weeklyStory = sourceStories.filter(function (story) {
-      return story.edition === "weekly" && dateOnly(story.publishedAt) >= since &&
+      return story.edition === "weekly" &&
         contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
     }).sort(function (a, b) { return String(b.publishedAt).localeCompare(String(a.publishedAt)); })[0];
     var weekly = weeklyStory ? [

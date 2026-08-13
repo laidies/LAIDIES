@@ -11,10 +11,10 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SCRIPT = path.join(ROOT, "scripts/compile-newsstand-longform.mjs");
 const CANDIDATE_DIR = path.join(ROOT, "operations/product-stewards/newsstand/candidates");
-const CONFIG_PATH = path.join(CANDIDATE_DIR, "ai-work-logs-hidden-secrets-2026-08-12-longform-compile.json");
-const SOURCE_PATH = path.join(CANDIDATE_DIR, "ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md");
-const TEMPLATE_PATH = path.join(CANDIDATE_DIR, "ai-work-logs-hidden-secrets-2026-08-12-story-record-template.json");
-const CANDIDATE_PATH = path.join(CANDIDATE_DIR, "ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json");
+const CONFIG_PATH = path.join(CANDIDATE_DIR, "ai-work-files-private-details-2026-08-12-longform-compile-v2.json");
+const SOURCE_PATH = path.join(CANDIDATE_DIR, "ai-work-files-private-details-2026-08-12-exact-prose-v2.md");
+const TEMPLATE_PATH = path.join(CANDIDATE_DIR, "ai-work-files-private-details-2026-08-12-story-record-template-v2.json");
+const CANDIDATE_PATH = path.join(CANDIDATE_DIR, "ai-work-files-private-details-2026-08-12-story-record-candidate-v2.json");
 
 function compile(configPath) {
   return childProcess.spawnSync(process.execPath, [SCRIPT, configPath], { cwd: ROOT, encoding: "utf8" });
@@ -48,8 +48,8 @@ try {
   assert.equal(candidate.candidateStatus, "HELD_NOT_PUBLISHED");
   assert.equal(candidate.story.status, "hold");
   assert.equal(candidate.story.publishedAt, null);
-  assert.equal(candidate.story.longform.sections.length, 8);
-  assert.equal(candidate.story.longform.sections.flatMap((section) => section.blocks).length, 27);
+  assert.equal(candidate.story.longform.sections.length, 6);
+  assert.equal(candidate.story.longform.sections.flatMap((section) => section.blocks).length, 18);
 
   const dataContext = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8"), dataContext);
@@ -93,7 +93,7 @@ try {
   assert.notEqual(missingJump.status, 0, "calibration: missing jump target must fail");
   assert.match(missingJump.stderr, /Configured jump target is missing/);
 
-  const missingBridgeSource = source.replace(/\nThis is where the numbers need name labels\.[^\n]+\n/, "\n");
+  const missingBridgeSource = source.replace(/ These figures[\s\S]*?many real-people files remained\./, "");
   const missingBridgeSourcePath = path.join(temp, "missing-statistical-bridge.md");
   fs.writeFileSync(missingBridgeSourcePath, missingBridgeSource);
   const missingBridgeOutputPath = path.join(temp, "missing-statistical-bridge.json");
@@ -102,8 +102,8 @@ try {
   const missingBridge = compile(missingBridgeConfigPath);
   assert.equal(missingBridge.status, 0, missingBridge.stderr);
   const changedCandidate = JSON.parse(fs.readFileSync(missingBridgeOutputPath, "utf8"));
-  assert.notEqual(changedCandidate.story.longform.sections.flatMap((section) => section.blocks).length, 27,
-    "calibration: removing the statistical-unit bridge must change the exact block guard");
+  assert.notDeepEqual(changedCandidate.story.longform, expectedCandidate.story.longform,
+    "calibration: removing the statistical-unit bridge must change the exact compiled artifact");
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }

@@ -5,10 +5,13 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { inspectNewsstandProducerProof, STANDARD_PATH as NEWSSTAND_STANDARD } from "./check-newsstand-producer-proof.mjs";
+import { inspectNewsstandFeatureLanes } from "./check-newsstand-feature-lanes.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const COMMUNICATION_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
+const NEWSSTAND_LANES = "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json";
+const NEWSSTAND_SERVICE_LANES = new Set(["paige_tip", "career_work_life", "promptoscope", "mme_claio"]);
 const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
@@ -114,18 +117,64 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
 
   if (contract?.contentClass === "NEWS") {
     const production = contract?.newsstandProduction;
+    require(production?.laneRegistry?.path === NEWSSTAND_LANES, `newsstandProduction.laneRegistry.path must be ${NEWSSTAND_LANES}`);
+    const laneRegistryPath = boundFile(root, production?.laneRegistry, "newsstandProduction.laneRegistry", errors);
+    if (laneRegistryPath) {
+      try {
+        const registry = JSON.parse(fs.readFileSync(laneRegistryPath, "utf8"));
+        const registryResult = inspectNewsstandFeatureLanes(registry, { root });
+        for (const error of registryResult.errors) errors.push(`newsstand lane registry: ${error}`);
+        if (production?.mode === "PILOT_EXEMPLAR_BATCH") {
+          require(Array.isArray(production?.laneIds) && production.laneIds.length >= 2, "newsstandProduction.laneIds requires at least two service lanes for a batch");
+          require(new Set(production?.laneIds || []).size === (production?.laneIds || []).length, "newsstandProduction.laneIds contains a duplicate");
+          for (const laneId of production?.laneIds || []) {
+            const lane = registry.lanes.find(item => item.id === laneId);
+            require(Boolean(lane), `newsstandProduction.laneIds contains unknown lane: ${laneId}`);
+            require(NEWSSTAND_SERVICE_LANES.has(laneId), `newsstandProduction batch lane is not a compact service lane: ${laneId}`);
+            const plan = production?.servicePlans?.[laneId];
+            for (const field of ["readerSituation", "oneAction", "whyItWorks", "boundary", "resultCheck", "distinctness", "intendedWords"]) {
+              require(field === "intendedWords" ? Number.isInteger(plan?.[field]) && plan[field] > 0 : text(plan?.[field]), `newsstandProduction.servicePlans.${laneId}.${field} is required`);
+            }
+            if (lane) require(plan?.intendedWords >= lane.targetWords.minimum && plan?.intendedWords <= lane.targetWords.maximum, `newsstandProduction.servicePlans.${laneId}.intendedWords is outside the lane range`);
+          }
+        } else {
+          const lane = registry.lanes.find((item) => item.id === production?.laneId);
+          require(Boolean(lane), `newsstandProduction.laneId is unknown: ${production?.laneId || ""}`);
+          require(["PILOT_EXEMPLAR", "AUTONOMOUS"].includes(production?.mode), "newsstandProduction.mode must be PILOT_EXEMPLAR, PILOT_EXEMPLAR_BATCH or AUTONOMOUS");
+          if (production?.mode === "AUTONOMOUS") require(lane?.status === "READY_AUTONOMOUS_PRODUCTION", `newsstand lane ${production?.laneId || ""} is not ready for autonomous production`);
+          if (production?.servicePlans !== undefined) {
+            const serviceLaneIds = Object.keys(production.servicePlans || {});
+            require(serviceLaneIds.length > 0, "newsstandProduction.servicePlans cannot be empty when present");
+            for (const laneId of serviceLaneIds) {
+              const serviceLane = registry.lanes.find(item => item.id === laneId);
+              require(Boolean(serviceLane), `newsstandProduction.servicePlans contains unknown lane: ${laneId}`);
+              require(NEWSSTAND_SERVICE_LANES.has(laneId), `newsstandProduction.servicePlans contains a non-service lane: ${laneId}`);
+              const plan = production.servicePlans[laneId];
+              for (const field of ["readerSituation", "oneAction", "whyItWorks", "boundary", "resultCheck", "distinctness", "intendedWords"]) {
+                require(field === "intendedWords" ? Number.isInteger(plan?.[field]) && plan[field] > 0 : text(plan?.[field]), `newsstandProduction.servicePlans.${laneId}.${field} is required`);
+              }
+              if (serviceLane) require(plan?.intendedWords >= serviceLane.targetWords.minimum && plan?.intendedWords <= serviceLane.targetWords.maximum, `newsstandProduction.servicePlans.${laneId}.intendedWords is outside the lane range`);
+            }
+          }
+        }
+      } catch (error) {
+        errors.push(`newsstandProduction.laneRegistry: invalid JSON (${error.message})`);
+      }
+    }
     require(production?.standard?.path === NEWSSTAND_STANDARD, `newsstandProduction.standard.path must be ${NEWSSTAND_STANDARD}`);
     boundFile(root, production?.standard, "newsstandProduction.standard", errors);
-    const proofPath = boundFile(root, production?.representativeProof, "newsstandProduction.representativeProof", errors);
-    if (proofPath) {
-      try {
-        const proof = JSON.parse(fs.readFileSync(proofPath, "utf8"));
-        const proofResult = inspectNewsstandProducerProof(proof, { root });
-        require(proof.candidateId === contract.candidateId, "newsstand representative proof candidateId mismatch");
-        require(proof.status === "READY_FOR_FULL_DRAFT", "newsstand representative proof is not ready for full drafting");
-        for (const error of proofResult.errors) errors.push(`newsstand representative proof: ${error}`);
-      } catch (error) {
-        errors.push(`newsstandProduction.representativeProof: invalid JSON (${error.message})`);
+    if (production?.mode !== "PILOT_EXEMPLAR_BATCH") {
+      const proofPath = boundFile(root, production?.representativeProof, "newsstandProduction.representativeProof", errors);
+      if (proofPath) {
+        try {
+          const proof = JSON.parse(fs.readFileSync(proofPath, "utf8"));
+          const proofResult = inspectNewsstandProducerProof(proof, { root });
+          require(proof.candidateId === contract.candidateId, "newsstand representative proof candidateId mismatch");
+          require(proof.status === "READY_FOR_FULL_DRAFT", "newsstand representative proof is not ready for full drafting");
+          for (const error of proofResult.errors) errors.push(`newsstand representative proof: ${error}`);
+        } catch (error) {
+          errors.push(`newsstandProduction.representativeProof: invalid JSON (${error.message})`);
+        }
       }
     }
   }
