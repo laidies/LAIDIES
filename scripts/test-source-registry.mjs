@@ -78,5 +78,17 @@ const unboundRecurringUrl = clone(registry);
 unboundRecurringUrl.sources.find(source => source.id === "SRC-ETHAN-MOLLICK").recurringUrl = "https://example.org/not-registered";
 expectFail("unbound recurring URL", unboundRecurringUrl, practitioner, /recurringUrl must be one of urls/);
 
+const missingIntakeMode = clone(registry);
+delete missingIntakeMode.sources.find(source => source.id === "SRC-AP-AI").intakeMode;
+expectFail("missing recurring intake mode", missingIntakeMode, practitioner, /supported intakeMode/);
+
+const genericOpenAiPage = clone(registry);
+genericOpenAiPage.sources.find(source => source.id === "SRC-OPENAI-DEVELOPERS").recurringUrl = "https://developers.openai.com/";
+expectFail("generic OpenAI recurring page", genericOpenAiPage, practitioner, /official dated changelog markdown/);
+
+const genericApPage = clone(registry);
+genericApPage.sources.find(source => source.id === "SRC-AP-AI").intakeMode = "HEALTH_ONLY_HTML";
+expectFail("generic AP page monitor", genericApPage, practitioner, /scoped item-level AP topic parser/);
+
 console.log("SOURCE REGISTRY TEST PASS");
-console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner,false-mollick-x-coverage,unbound-recurring-url rejected; non-AI-career-source accepted");
+console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner,false-mollick-x-coverage,unbound-recurring-url,missing-intake-mode,generic-openai-page,generic-ap-page rejected; non-AI-career-source accepted");

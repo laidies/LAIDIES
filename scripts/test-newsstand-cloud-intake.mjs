@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
-import { buildIntake, normalizeBackfillSince, parseAidbItems, parseFeedItems, selectDueSources, validateIntakeReceipt } from "./run-newsstand-cloud-intake.mjs";
+import { buildIntake, normalizeBackfillSince, parseAidbItems, parseApHubItems, parseFeedItems, parseOpenAiChangelogItems, selectDueSources, validateIntakeReceipt } from "./run-newsstand-cloud-intake.mjs";
 import { buildClosureComment, buildIssueComment, extractSignalIds, extractSourceHealthMarkers, removeAlreadyReported, removeResolvedSignals, unresolvedSignalIds, unresolvedSourceHealthMarkers } from "./upsert-newsstand-intake-issue.mjs";
 
 const registry = {
   sources: [
-    { id: "SRC-AIDB", name: "AIDB", status: "ACTIVE_MONITOR", cadence: "TWICE_DAILY", authorityTier: "PRACTITIONER_LEAD", urls: ["https://aidb.test/agent.json"], destinations: ["news_daily"] },
-    { id: "SRC-FEED", name: "Feed", status: "PILOT_MONITOR", cadence: "DAILY", authorityTier: "PRIMARY_AUTHORITY", urls: ["https://feed.test/rss"], destinations: ["news_daily", "straight_answers"] },
+    { id: "SRC-AIDB", name: "AIDB", status: "ACTIVE_MONITOR", cadence: "TWICE_DAILY", intakeMode: "AIDB_AGENT_JSON", authorityTier: "PRACTITIONER_LEAD", urls: ["https://aidb.test/agent.json"], destinations: ["news_daily"] },
+    { id: "SRC-FEED", name: "Feed", status: "PILOT_MONITOR", cadence: "DAILY", intakeMode: "RSS_ATOM", authorityTier: "PRIMARY_AUTHORITY", urls: ["https://feed.test/rss"], destinations: ["news_daily", "straight_answers"] },
     { id: "SRC-REFERENCE", name: "Reference", status: "REFERENCE", cadence: "ANNUAL", authorityTier: "REFERENCE", urls: ["https://reference.test"], destinations: ["library"] }
   ]
 };
@@ -59,6 +59,26 @@ const repeatedOutage = await buildIntake({ registry, previousState: unavailable.
 assert.equal(repeatedOutage.receipt.counts.unavailable, 2);
 assert.equal(repeatedOutage.receipt.counts.sourceHealthAlerts, 0, "an unchanged outage must not spam the queue");
 
+const changelogBody = `# Changelog\n\n## August, 2026\n\n### Aug 12\n\nFeature · API: v1/responses\n\nOpenAI added a dated useful thing for builders. More details follow.\n\n### Aug 1\n\nUpdate\n\nAn old change outside the first-run window.`;
+const changelogItems = parseOpenAiChangelogItems(changelogBody);
+assert.equal(changelogItems.length, 2);
+assert.equal(changelogItems[0].title, "OpenAI added a dated useful thing for builders.");
+assert.equal(changelogItems[0].publishedAt, "2026-08-12T12:00:00.000Z");
+assert.match(changelogItems[0].url, /#aug-12$/);
+
+const apHubBody = `<html><main><h1 class="PageList-header-title">Artificial intelligence</h1>
+<div class="PagePromo" data-gtm-region="Topic Hub" data-posted-date-timestamp="1786550400000"><a aria-label="Exact AP AI item" href="https://apnews.com/article/exact-ai-item-abcdef123456">Read</a></div>
+</main><footer><div class="PagePromo" data-gtm-region="Footer" data-posted-date-timestamp="1786550400000"><a aria-label="Unrelated footer item" href="https://apnews.com/article/unrelated-footer-abcdef123456">Read</a></div></footer></html>`;
+const apItems = parseApHubItems(apHubBody);
+assert.equal(apItems.length, 1, "AP parser must remain inside the named topic main region");
+assert.equal(apItems[0].title, "Exact AP AI item");
+
+const healthOnlyRegistry = { sources: [{ id: "SRC-HEALTH", name: "Health only", status: "PILOT_MONITOR", cadence: "DAILY", intakeMode: "HEALTH_ONLY_HTML", authorityTier: "PRIMARY_AUTHORITY", urls: ["https://health.test/"], destinations: ["news_daily"] }] };
+const healthFetch = async () => new Response("<title>Directory</title><p>first version</p>", { status: 200, headers: { "content-type": "text/html" } });
+const healthFirst = await buildIntake({ registry: healthOnlyRegistry, previousState: null, now, fetchImpl: healthFetch });
+const changedHealth = await buildIntake({ registry: healthOnlyRegistry, previousState: healthFirst.state, now: "2026-08-13T23:30:00.000Z", fetchImpl: async () => new Response("<title>Directory</title><p>changed version</p>", { status: 200, headers: { "content-type": "text/html" } }) });
+assert.equal(changedHealth.receipt.counts.newSignals, 0, "a generic page fingerprint must not become an editorial signal");
+
 const mutated = structuredClone(first.receipt);
 mutated.publicationActionTaken = true;
 assert.equal(validateIntakeReceipt(mutated).ok, false, "validator must reject publication authority");
@@ -93,4 +113,4 @@ const closure = buildClosureComment(dispositionRegistry, "https://github.com/lai
 assert.match(closure, /does not mean any story was drafted, approved, published or deployed/);
 
 console.log("NEWSSTAND CLOUD INTAKE TEST PASS");
-console.log("calibration=publication-authority,non-https-source,reference-recurring-intake,duplicate-item,raw-body-leak,outage-fabrication,repeated-outage-spam,unbounded-backfill,bad-backfill-date,duplicate-issue-record,undispositioned-signal,changed-source-health rejected");
+console.log("calibration=publication-authority,non-https-source,reference-recurring-intake,duplicate-item,raw-body-leak,outage-fabrication,repeated-outage-spam,unbounded-backfill,bad-backfill-date,duplicate-issue-record,undispositioned-signal,changed-source-health,generic-page-editorial-signal,AP-out-of-scope-item rejected");

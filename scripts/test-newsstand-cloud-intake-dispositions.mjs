@@ -17,6 +17,7 @@ rejected((value) => { value.signals[0].nextTrigger = ""; }, "missing trigger mus
 rejected((value) => { value.signals[0].reviewBy = null; }, "WATCH without review date must fail");
 rejected((value) => { value.signals[0].sourceUrl = "http://unsafe.example"; }, "non-HTTPS source must fail");
 rejected((value) => { value.publicationActionTaken = true; }, "intake publication authority must fail");
+rejected((value) => { value.signals[0].publishedAt = null; }, "unknown publication date without observation time must fail");
 
 console.log("NEWSSTAND CLOUD INTAKE DISPOSITIONS TEST PASS");
-console.log("calibration=duplicate-id,missing-trigger,undated-watch,non-https-source,publication-authority rejected");
+console.log("calibration=duplicate-id,missing-trigger,undated-watch,non-https-source,publication-authority,undated-unobserved-page-change rejected");
