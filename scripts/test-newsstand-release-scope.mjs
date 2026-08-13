@@ -69,7 +69,15 @@ const permissiveScope = write('permissive-scope.json', {
 });
 result = run(base, added, permissiveScope);
 assert.notEqual(result.status, 0);
-assert.match(result.stderr, /may modify but not add or remove/);
+assert.match(result.stderr, /may not remove public files or add files outside the exact addition allowlist/);
+
+const removed = write('removed.json', manifest([
+  record('index.html', 'home-v1'),
+  record('newsstand.html', 'paper-v2'),
+]));
+result = run(base, removed, scope);
+assert.notEqual(result.status, 0);
+assert.match(result.stderr, /may not remove public files/);
 
 result = run(base, base, scope);
 assert.notEqual(result.status, 0);
@@ -77,9 +85,16 @@ assert.match(result.stderr, /no public changes/);
 
 const registeredScope = JSON.parse(fs.readFileSync(registeredScopePath, 'utf8'));
 assert.ok(registeredScope.allowedArtifactPaths.includes('build-report.json'));
+assert.deepEqual(registeredScope.allowedAddedArtifactPaths, [
+  'assets/fonts/newsstand/anton-latin.woff2',
+  'assets/fonts/newsstand/jost-italic-latin.woff2',
+  'assets/fonts/newsstand/jost-normal-latin.woff2',
+]);
+assert.ok(registeredScope.allowedArtifactPaths.includes('assets/fonts/newsstand/anton-latin.woff2'));
 assert.ok(registeredScope.allowedArtifactPaths.includes('content/newsstand-daily-issues.json'));
 assert.ok(registeredScope.allowedArtifactPaths.includes('content/daily-edition-columns.json'));
 assert.ok(registeredScope.verificationPaths.includes('build-report.json'));
+assert.ok(registeredScope.verificationPaths.includes('assets/fonts/newsstand/jost-normal-latin.woff2'));
 assert.ok(registeredScope.verificationPaths.includes('content/newsstand-daily-issues.json'));
 assert.ok(registeredScope.verificationPaths.includes('content/daily-edition-columns.json'));
 
@@ -104,4 +119,15 @@ assert.match(result.stdout, /build-report\.json/);
 assert.match(result.stdout, /content\/daily-edition-columns\.json/);
 assert.match(result.stdout, /content\/newsstand-daily-issues\.json/);
 
-console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · deterministic build metadata may accompany exact NewsStand changes but cannot create a release · unrelated mutation, public addition and no-op candidate rejected');
+const fontPaths = new Set(registeredScope.allowedAddedArtifactPaths);
+const preFontBaseFiles = registeredBaseFiles.filter(file => !fontPaths.has(file.path));
+const firstFontCandidateFiles = registeredBaseFiles.map(file =>
+  file.path === 'content/newsstand.css' ? record(file.path, `${file.path}:self-hosted-font-v2`) : file
+);
+const preFontBase = write('registered-pre-font-base.json', manifest(preFontBaseFiles));
+const firstFontCandidate = write('registered-first-font-candidate.json', manifest(firstFontCandidateFiles));
+result = run(preFontBase, firstFontCandidate, registeredScopePath);
+assert.equal(result.status, 0, result.stderr);
+assert.match(result.stdout, /assets\/fonts\/newsstand\/anton-latin\.woff2/);
+
+console.log('NEWSSTAND RELEASE SCOPE CALIBRATION: PASS · three exact NewsStand font additions permitted · deterministic build metadata may accompany exact NewsStand changes but cannot create a release · unrelated mutation, public addition, removal and no-op candidate rejected');
