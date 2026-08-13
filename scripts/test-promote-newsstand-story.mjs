@@ -22,11 +22,50 @@ const files = new Map([
   ["operations/product-stewards/newsstand/candidates/test-claims.md", "claim map\n"],
   ["operations/product-stewards/newsstand/evidence/test-ali-approval.md", "Ali approved the exact candidate.\n"],
   ["operations/product-stewards/newsstand/evidence/test-explain-back.md", "Observed explain-back.\n"],
-  ["operations/product-stewards/newsstand/evidence/test-independent-review.json", "{}\n"],
-  ["operations/product-stewards/newsstand/evidence/test-visual-review.json", "{}\n"],
+  ["operations/product-stewards/newsstand/evidence/test-transfer.md", "Observed transfer.\n"],
+  ["operations/product-stewards/newsstand/evidence/test-1440.png", "desktop pixels\n"],
+  ["operations/product-stewards/newsstand/evidence/test-390.png", "mobile pixels\n"],
   ["operations/product-stewards/newsstand/evidence/test-render.html", "<article>Exact render</article>\n"],
-  ["operations/product-stewards/newsstand/candidates/test-producer.json", "{}\n"]
 ]);
+const producerContract = {
+  schemaVersion: "laidies-content-producer-contract.v1", status: "READY_TO_DRAFT", candidateId: "TEST-1",
+  contentClass: "NEWS", surface: "NewsStand / The Daily", producer: "newsstand-story-maker",
+  readerContract: { humanQuestion: "What happened?", promisedPayoff: "The reader can explain it." },
+  draftArchitecture: { plainAnswer: "The bounded answer.", causalSequence: ["First", "Then", "Therefore"] }
+};
+const producerReview = {
+  schemaVersion: "laidies-prose-quality-review.v1", stage: "PRODUCER_SELF_REVIEW", verdict: "PASS",
+  candidateId: "TEST-1", contentClass: "NEWS", reviewMode: "EXACT_PROSE_IN_FULL", maker: "newsstand-story-maker",
+  reviewer: { principalId: "newsstand-story-maker" },
+  artifact: {
+    reviewText: { path: "operations/product-stewards/newsstand/candidates/test-prose.md", sha256: sha256(files.get("operations/product-stewards/newsstand/candidates/test-prose.md")) },
+    rendered: { path: "operations/product-stewards/newsstand/evidence/test-render.html", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-render.html")) }
+  }
+};
+const passOutcomes = Object.fromEntries(["plainClarity", "readerValue", "surfaceFit", "communicationBenchmark", "usefulAction"].map((name) => [name, { verdict: "PASS" }]));
+const independentReview = {
+  schemaVersion: "laidies-prose-quality-review.v1", stage: "INDEPENDENT_SEMANTIC_ADMISSION", verdict: "PASS",
+  candidateId: "TEST-1", contentClass: "NEWS", reviewMode: "EXACT_PROSE_IN_FULL", maker: "newsstand-story-maker",
+  reviewer: { principalId: "independent-story-reader", independentFromMaker: true, artifactFirst: true },
+  artifact: producerReview.artifact,
+  outcomes: {
+    ...passOutcomes,
+    explainBack: { verdict: "PASS", observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", participants: [{ observationBinding: { record: "operations/product-stewards/newsstand/evidence/test-explain-back.md", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-explain-back.md")) } }] } },
+    unseenTransfer: { verdict: "PASS", observedReaderEvidence: { evidenceType: "OBSERVED_HUMAN", participants: [{ observationBinding: { record: "operations/product-stewards/newsstand/evidence/test-transfer.md", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-transfer.md")) } }] } }
+  }
+};
+const visualReview = {
+  schemaVersion: "laidies-independent-visual-judge-invocation.v1",
+  images: [
+    { path: "operations/product-stewards/newsstand/evidence/test-1440.png", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-1440.png")) },
+    { path: "operations/product-stewards/newsstand/evidence/test-390.png", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-390.png")) }
+  ],
+  judgment: { verdict: "PASS", imageInspections: [{ path: "test-1440.png" }, { path: "test-390.png" }] }
+};
+files.set("operations/product-stewards/newsstand/candidates/test-producer.json", `${JSON.stringify(producerContract)}\n`);
+files.set("operations/product-stewards/newsstand/evidence/test-producer-review.json", `${JSON.stringify(producerReview)}\n`);
+files.set("operations/product-stewards/newsstand/evidence/test-independent-review.json", `${JSON.stringify(independentReview)}\n`);
+files.set("operations/product-stewards/newsstand/evidence/test-visual-review.json", `${JSON.stringify(visualReview)}\n`);
 const readBoundFile = (record) => {
   if (!files.has(record)) throw new Error(`missing test bound file: ${record}`);
   return files.get(record);
@@ -52,12 +91,14 @@ const publicStorySha256 = sha256(`${canonicalJson(publicStory)}\n`);
 const evidence = {
   schemaVersion: "newsstand-story-evidence.v1", storyId: storyRecord.id, correctionOwner: "NewsStand accuracy desk", nextRecheckAt: "2026-08-13",
   sources: storyRecord.sources, claims: [{ claim: "The bounded claim.", sourceIds: ["source-1"] }],
+  producerReview: "operations/product-stewards/newsstand/evidence/test-producer-review.json",
   independentReview: "operations/product-stewards/newsstand/evidence/test-independent-review.json",
   visualReview: "operations/product-stewards/newsstand/evidence/test-visual-review.json",
   reviewRender: "operations/product-stewards/newsstand/evidence/test-render.html",
   producerContract: "operations/product-stewards/newsstand/candidates/test-producer.json",
   exactProse: "operations/product-stewards/newsstand/candidates/test-prose.md",
   artifactBindings: [
+    { record: "operations/product-stewards/newsstand/evidence/test-producer-review.json", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-producer-review.json")) },
     { record: "operations/product-stewards/newsstand/evidence/test-independent-review.json", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-independent-review.json")) },
     { record: "operations/product-stewards/newsstand/evidence/test-visual-review.json", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-visual-review.json")) },
     { record: "operations/product-stewards/newsstand/evidence/test-render.html", sha256: sha256(files.get("operations/product-stewards/newsstand/evidence/test-render.html")) },
@@ -102,4 +143,22 @@ assert.equal(compileStoryDatasetWrite({ datasetRaw: promoted.datasetRaw, publicS
 const conflictingStory = { ...publicStory, headline: "Changed without a successor decision" };
 assert.throws(() => compileStoryDatasetWrite({ datasetRaw: promoted.datasetRaw, publicStory: conflictingStory, timestamp: decision.reviewedAt }), /conflicting story identity already exists/);
 
-console.log("NEWSSTAND STORY PROMOTION CALIBRATION: PASS · exact story promoted and retried idempotently · maker self-approval, altered explain-back, wrong story checksum and conflicting identity rejected");
+const replaceBoundFile = (baseEvidence, record, raw) => {
+  const next = structuredClone(baseEvidence);
+  const binding = next.artifactBindings.find((item) => item.record === record);
+  binding.sha256 = sha256(raw);
+  const rawEvidence = `${JSON.stringify(next)}\n`;
+  return { next, rawEvidence, nextDecision: { ...decision, evidenceSha256: sha256(rawEvidence) } };
+};
+const emptyReviewRaw = "{}\n";
+files.set("operations/product-stewards/newsstand/evidence/test-independent-review.json", emptyReviewRaw);
+const emptyReview = replaceBoundFile(evidence, "operations/product-stewards/newsstand/evidence/test-independent-review.json", emptyReviewRaw);
+assert.throws(() => promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw: emptyReview.rawEvidence, decisionRaw: `${JSON.stringify(emptyReview.nextDecision)}\n`, maker: "newsstand-story-maker", readBoundFile, evidenceRecord, now: "2026-08-12T22:02:00Z" }), /independent semantic review did not PASS/, "an empty checksum-bound review must not count as judgment");
+files.set("operations/product-stewards/newsstand/evidence/test-independent-review.json", `${JSON.stringify(independentReview)}\n`);
+const articleOnlyVisual = { ...visualReview, images: [visualReview.images[0]] };
+const articleOnlyVisualRaw = `${JSON.stringify(articleOnlyVisual)}\n`;
+files.set("operations/product-stewards/newsstand/evidence/test-visual-review.json", articleOnlyVisualRaw);
+const narrowVisual = replaceBoundFile(evidence, "operations/product-stewards/newsstand/evidence/test-visual-review.json", articleOnlyVisualRaw);
+assert.throws(() => promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw: narrowVisual.rawEvidence, decisionRaw: `${JSON.stringify(narrowVisual.nextDecision)}\n`, maker: "newsstand-story-maker", readBoundFile, evidenceRecord, now: "2026-08-12T22:02:00Z" }), /visual review is not|lacks exact desktop/, "a single-render visual receipt must not count as responsive inspection");
+
+console.log("NEWSSTAND STORY PROMOTION CALIBRATION: PASS · exact story promoted and retried idempotently · empty semantic review and single-render visual review rejected with identity, explain-back and checksum tampering");

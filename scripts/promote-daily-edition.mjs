@@ -29,6 +29,51 @@ const exactKeys = (value, keys, label) => {
   if (actual.join("\n") !== expected.join("\n")) reject(`${label} keys do not match the contract`);
 };
 
+function checkedBoundFile(binding, readBoundFile, label) {
+  exactKeys(binding, ["record", "sha256"], label);
+  if (typeof binding.record !== "string" || !binding.record || !HASH.test(binding.sha256 || "") || typeof readBoundFile !== "function") {
+    reject(`${label} exact record, SHA-256 and reader are required`);
+  }
+  const raw = readBoundFile(binding.record);
+  if (typeof raw !== "string" || sha256(raw) !== binding.sha256) reject(`${label} bytes changed`);
+  return raw;
+}
+
+function checkedBoundJson(binding, readBoundFile, label) {
+  const raw = checkedBoundFile(binding, readBoundFile, label);
+  try { return JSON.parse(raw); } catch { reject(`${label} is not valid JSON`); }
+}
+
+function validateCompletePageReview(review, decision, readBoundFile) {
+  if (review.schemaVersion !== "laidies-newsstand-complete-daily-visual-review.v1" || review.verdict !== "PASS" ||
+      review.editionDate !== decision.editionDate || review.envelopeSha256 !== decision.envelopeSha256 ||
+      review.reviewScope !== "COMPLETE_DAILY_NEWSPAPER_PAGE" || review.defaultExperience !== "THE_DAILY" ||
+      review.reviewer?.independentFromMaker !== true || review.reviewer?.artifactFirst !== true ||
+      review.judgment?.fullPageInspected !== true || review.judgment?.looksLikeDailyNewspaper !== true ||
+      review.judgment?.dailyIsDefault !== true || review.judgment?.articleAndServiceDesksShareOneIssue !== true ||
+      !Array.isArray(review.screenshots) || review.screenshots.length < 2) {
+    reject("complete-page visual review did not PASS the Daily newspaper experience");
+  }
+  const widths = new Set();
+  for (const screenshot of review.screenshots) {
+    if (screenshot.state !== "DAILY_DEFAULT" || !Number.isInteger(screenshot.width) || !Number.isInteger(screenshot.height)) {
+      reject("complete-page visual review screenshot metadata is invalid");
+    }
+    checkedBoundFile({ record: screenshot.path, sha256: screenshot.sha256 }, readBoundFile, "completePageVisualReview.screenshots[]");
+    widths.add(screenshot.width);
+  }
+  if (!widths.has(1440) || !widths.has(390)) reject("complete-page visual review lacks 1440 desktop and 390 mobile Daily-default screenshots");
+}
+
+function validateAliApproval(approval, decision, visualReviewSha256) {
+  if (approval.schemaVersion !== "laidies-ali-artifact-verdict.v1" || approval.decision !== "APPROVE" ||
+      approval.artifactKind !== "COMPLETE_DAILY_NEWSPAPER" || approval.editionDate !== decision.editionDate ||
+      approval.envelopeSha256 !== decision.envelopeSha256 || approval.visualReviewSha256 !== visualReviewSha256 ||
+      approval.authority !== "ALI_DIRECT_REVIEW") {
+    reject("Ali approval does not bind the exact complete Daily newspaper");
+  }
+}
+
 function validateEnvelope(value) {
   exactKeys(value, ["schemaVersion", "mode", "editionDate", "editorialTimeZone", "disposition", "status", "storyIds", "storySnapshots", "desks", "sourceIdentity", "canonicalWrite", "deployActionTaken"], "envelope");
   if (value.schemaVersion !== "daily-private-issue-v1" || value.mode !== "PRIVATE_DRAFT_ONLY" ||
@@ -101,7 +146,7 @@ function validateEnvelope(value) {
   if (value.disposition === "CANDIDATES_PENDING_REVIEW" && !value.storyIds.length && !readyIds.length) reject("non-quiet issue contains no admitted material");
 }
 
-export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, maker, now = new Date().toISOString() }) {
+export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, maker, readBoundFile, now = new Date().toISOString() }) {
   exactKeys(store, ["schemaVersion", "owner", "issues"], "store");
   if (store.schemaVersion !== "daily-issues-v1" || store.owner !== "newsstand-daily" || !Array.isArray(store.issues)) reject("invalid canonical store");
   let parsedEnvelope;
@@ -109,15 +154,21 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   if (canonicalJson(parsedEnvelope) !== canonicalJson(envelope)) reject("envelope raw/object mismatch");
   envelope = parsedEnvelope;
   validateEnvelope(envelope);
-  const successorDecision = decision && decision.schemaVersion === "daily-issue-successor-admission-v1";
+  const successorDecision = decision && ["daily-issue-successor-admission-v1", "daily-issue-successor-admission-v2"].includes(decision.schemaVersion);
+  const currentDecision = decision && ["daily-issue-admission-v2", "daily-issue-successor-admission-v2"].includes(decision.schemaVersion);
   exactKeys(decision, successorDecision
-    ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole"]
-    : ["schemaVersion", "decision", "editionDate", "envelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole"], "decision");
+    ? currentDecision
+      ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole", "completePageVisualReview", "aliApproval"]
+      : ["schemaVersion", "decision", "editionDate", "envelopeSha256", "predecessorEnvelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole"]
+    : currentDecision
+      ? ["schemaVersion", "decision", "editionDate", "envelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole", "completePageVisualReview", "aliApproval"]
+      : ["schemaVersion", "decision", "editionDate", "envelopeSha256", "reviewedAt", "reviewedBy", "reviewerRole"], "decision");
   if (successorDecision) {
-    if (decision.decision !== "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" || !HASH.test(decision.predecessorEnvelopeSha256 || "")) {
+    if (!['daily-issue-successor-admission-v1', 'daily-issue-successor-admission-v2'].includes(decision.schemaVersion) ||
+        decision.decision !== "ACCEPT_LOCAL_CANONICAL_SUCCESSOR" || !HASH.test(decision.predecessorEnvelopeSha256 || "")) {
       reject("independent decision does not admit a checksum-bound successor");
     }
-  } else if (decision.schemaVersion !== "daily-issue-admission-v1" || decision.decision !== "ACCEPT_LOCAL_CANONICAL_WRITE") {
+  } else if (!['daily-issue-admission-v1', 'daily-issue-admission-v2'].includes(decision.schemaVersion) || decision.decision !== "ACCEPT_LOCAL_CANONICAL_WRITE") {
     reject("independent decision does not admit a local canonical write");
   }
   if (!HASH.test(decision.envelopeSha256 || "") || decision.envelopeSha256 !== sha256(envelopeRaw)) reject("decision envelope checksum mismatch");
@@ -128,6 +179,14 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     reject("independent reviewer identity/time is invalid");
   }
   if (decision.editionDate !== envelope.editionDate) reject("decision date does not match the envelope");
+  if (currentDecision) {
+    const visualRaw = checkedBoundFile(decision.completePageVisualReview, readBoundFile, "decision.completePageVisualReview");
+    let visualReview;
+    try { visualReview = JSON.parse(visualRaw); } catch { reject("decision.completePageVisualReview is not valid JSON"); }
+    validateCompletePageReview(visualReview, decision, readBoundFile);
+    const aliApproval = checkedBoundJson(decision.aliApproval, readBoundFile, "decision.aliApproval");
+    validateAliApproval(aliApproval, decision, sha256(visualRaw));
+  }
   const issue = {
     editionDate: envelope.editionDate,
     editorialTimeZone: envelope.editorialTimeZone,
@@ -144,12 +203,17 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
       reviewedAt: decision.reviewedAt,
       reviewedBy: decision.reviewedBy,
       reviewerRole: decision.reviewerRole,
+      ...(currentDecision ? {
+        completePageVisualReview: decision.completePageVisualReview,
+        aliApproval: decision.aliApproval
+      } : {}),
       ...(successorDecision ? { predecessorEnvelopeSha256: decision.predecessorEnvelopeSha256 } : {})
     }
   };
   const sameDate = store.issues.filter((item) => item && item.editionDate === envelope.editionDate);
   if (sameDate.length > 1) reject(`duplicate canonical issue for ${envelope.editionDate}`);
   const existing = sameDate[0];
+  if (!currentDecision && !existing) reject("legacy Daily admission cannot create a new issue without complete-page review and Ali approval");
   if (existing) {
     if (existing.envelopeSha256 === decision.envelopeSha256) {
       if (canonicalJson(existing) !== canonicalJson(issue)) {
@@ -207,7 +271,15 @@ function main() {
   const envelope = JSON.parse(envelopeRaw);
   const decision = JSON.parse(fs.readFileSync(decisionPath, "utf8"));
   const store = JSON.parse(fs.readFileSync(STORE_PATH, "utf8"));
-  const result = promoteDailyIssue({ store, envelope, envelopeRaw, decision, maker });
+  const readBoundFile = (record) => {
+    if (typeof record !== "string" || !record || record.startsWith("/") || record.includes("\\") || path.posix.normalize(record) !== record) {
+      reject(`unsafe bound record ${record || ""}`);
+    }
+    const absolute = path.join(ROOT, record);
+    if (!absolute.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) reject(`bound record is unavailable: ${record}`);
+    return fs.readFileSync(absolute, "utf8");
+  };
+  const result = promoteDailyIssue({ store, envelope, envelopeRaw, decision, maker, readBoundFile });
   if (result.changed) {
     const temporary = `${STORE_PATH}.tmp-${process.pid}`;
     fs.writeFileSync(temporary, `${canonicalJson(result.store)}\n`, { flag: "wx" });

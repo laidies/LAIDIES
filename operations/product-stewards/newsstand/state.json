@@ -28,6 +28,18 @@
     "storiesSha256": "dd68f9a0d5aa9229811c21c9b187695daae94886947b9acd744ab4cbff286ea2",
     "rackMasterSha256": "203308ab4837c87e9c3e33239c3f329f2f06e1c58d1b68870b647ea48a7405b3"
   },
+  "privateReviewCandidate": {
+    "status": "REJECTED_BY_ALI_2026-08-12",
+    "storyId": "ai-work-logs-can-carry-secrets",
+    "prosePath": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+    "proseSha256": "c213f5a4bcb69d94755b215bfa2a9ded72a9a190c804d3b700247b09c67064d3",
+    "pageVerdict": "The private article-review shell is not the complete Daily newspaper and may not be promoted, deployed or reused as a visual direction.",
+    "editorialVerdict": "The headline, opening, length and teaching order do not perform the settled Daily format for a non-technical reader.",
+    "invalidatedEvidence": [
+      "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/independent-semantic-judgment-v2-pass.json",
+      "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/independent-visual-judgment-v1-pass.json"
+    ]
+  },
   "currentImplementation": {
     "schemaVersion": "1.0.0",
     "canonicalEditions": ["breaking", "daily", "weekly", "tribune"],
@@ -35,7 +47,7 @@
     "readerContract": "content/newsstand-reader-contract.js",
     "storyState": "four dated Daily archive stories, one Weekly synthesis and one Big Picture story are published in the dataset; one Breaking health candidate remains held",
     "freshnessTruth": "the latest admitted Daily is August 6 and the Weekly source check is August 11; runtime must classify each paper and archive item honestly",
-    "visualAuthority": "the accepted four-paper rack is retained; Ali's approved Big Picture masthead replaces the retired Tribune label without changing the internal route key"
+    "visualAuthority": "the current public rack remains the served incumbent only; the August 12 private article-review shell was rejected and supplies no successor authority. The next route-level candidate must open on the complete Daily newspaper itself."
   },
   "verification": {
     "readerStateFixtures": "VERIFIED LOCALLY — 10 deterministic states",
@@ -53,10 +65,12 @@
   },
   "releaseBlockers": [
     "no August 12 Daily has completed dated source intake and independent issue admission",
+    "the August 12 AI-work-logs prose and private NewsStand review page were rejected by Ali; their semantic and visual PASS records are invalidated",
+    "no producer proof or complete desktop/mobile Daily-newspaper candidate has passed the repaired production path",
     "new Paige, Promptoscope and career/life candidates remain held until exact semantic admission; rejected drafts were not published",
     "the durable production controller still targets GitHub Pages rather than the Cloudflare Pages origin",
     "spoken VoiceOver announcement order remains unverified even though native Safari structure and browser focus/state checks pass"
   ],
-  "nextAction": "Run the next dated source-intake cycle, admit one complete Daily only if its exact story and service desks pass, and migrate the protected production release path to Cloudflare before calling publication autonomous.",
+  "nextAction": "Pass one small Daily producer proof before full prose, then co-design and inspect one complete desktop/mobile Daily newspaper before any issue admission or deployment.",
   "authority": "Ali authorized the public NewsStand release on 2026-08-12; this record does not approve held or future content."
 }

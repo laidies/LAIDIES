@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspectNewsstandProducerProof, STANDARD_PATH as NEWSSTAND_STANDARD } from "./check-newsstand-producer-proof.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
@@ -25,15 +26,16 @@ const array = (value, minimum = 1) => Array.isArray(value) && value.length >= mi
 function boundFile(root, binding, label, errors) {
   if (!binding || !text(binding.path) || !HASH.test(binding.sha256 || "")) {
     errors.push(`${label}: exact path and SHA-256 are required`);
-    return;
+    return null;
   }
   const absolute = path.resolve(root, binding.path);
   if (!absolute.startsWith(`${path.resolve(root)}${path.sep}`) || !fs.existsSync(absolute)) {
     errors.push(`${label}: bound file is missing or outside the repository`);
-    return;
+    return null;
   }
   const actual = sha256(fs.readFileSync(absolute));
   if (actual !== binding.sha256) errors.push(`${label}: SHA-256 mismatch expected=${binding.sha256} actual=${actual}`);
+  return absolute;
 }
 
 export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
@@ -109,6 +111,24 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     for (const field of ["concept", "analogy", "mapping", "limit", "whyItHelps"]) require(text(analogy?.[field]), `analogyPlan[${index}].${field} is required`);
   }
   require(text(architecture?.humourPlan?.lessonJob) || text(architecture?.humourPlan?.noneReason), "humourPlan must name how humour serves the lesson or why none is appropriate");
+
+  if (contract?.contentClass === "NEWS") {
+    const production = contract?.newsstandProduction;
+    require(production?.standard?.path === NEWSSTAND_STANDARD, `newsstandProduction.standard.path must be ${NEWSSTAND_STANDARD}`);
+    boundFile(root, production?.standard, "newsstandProduction.standard", errors);
+    const proofPath = boundFile(root, production?.representativeProof, "newsstandProduction.representativeProof", errors);
+    if (proofPath) {
+      try {
+        const proof = JSON.parse(fs.readFileSync(proofPath, "utf8"));
+        const proofResult = inspectNewsstandProducerProof(proof, { root });
+        require(proof.candidateId === contract.candidateId, "newsstand representative proof candidateId mismatch");
+        require(proof.status === "READY_FOR_FULL_DRAFT", "newsstand representative proof is not ready for full drafting");
+        for (const error of proofResult.errors) errors.push(`newsstand representative proof: ${error}`);
+      } catch (error) {
+        errors.push(`newsstandProduction.representativeProof: invalid JSON (${error.message})`);
+      }
+    }
+  }
 
   const communication = contract?.communicationDesign;
   require(communication?.benchmarkId === "HANNAH_FRY_COMMUNICATION_LENS_V2", "communicationDesign.benchmarkId mismatch");

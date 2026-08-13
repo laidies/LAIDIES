@@ -14456,3 +14456,70 @@ while remaining falsely unfinished in the launch record.
   readers are seeing yesterday's JavaScript.
 - **Publication status:** CORRECTED, DEPLOYED AND VERIFIED PUBLICLY 2026-08-12;
   custom-domain hashes matched the exact successor assets.
+
+## BTB-459 — NewsStand documented the right format but let the producer and release path bypass it
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand editorial production, Daily page design and admission.
+- **Failure:** A long, confusing and click-baity Daily article plus an
+  article-review shell passed internal records even though the route did not
+  open as the complete Daily newspaper. Ali's settled format, Hannah
+  Fry/Feynman teaching direction and full-page visual requirement were present
+  in project documents but did not control what was written or shown.
+- **Root cause:** The producer contract described the desired result but did
+  not bind an exact NewsStand production standard or require a small
+  representative proof before full drafting. Its self-review could mark every
+  known defect `CLEAR` using its own assurance. The story promoter accepted
+  checksum-bound `{}` files as semantic and visual review. The Daily promoter
+  accepted an envelope checksum plus an “independent” name without opening a
+  full-page render or requiring Ali approval. A stale Daily dossier also said
+  “checked daily, not must publish daily,” contradicting the complete-newspaper
+  decision. The visual judge saw standalone article crops, not the NewsStand
+  page visitors would use.
+- **Prevention rule:** Produce quality before prose. Route the source and story
+  mode, bind the current publication format, and pass a small headline/opening/
+  background/causal-outline/evidence/application proof before full drafting.
+  Registered rejections invalidate stale contracts. Story promotion parses and
+  validates the real producer, prose and visual verdicts. A new Daily issue
+  requires exact 1440 and 390 full-page Daily-default screenshots, an
+  artifact-first complete-newspaper verdict and Ali approval of that exact
+  issue. Review remains a backstop, not a requirements-discovery service.
+- **Durable correction:** `NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md`,
+  `check-newsstand-producer-proof.mjs`, the corrected Daily dossier, the
+  `CQX-BAD-015` exact rejected artifact and hardened story/Daily promoters.
+  Calibrations reject clickbait, jargon-first openings, oversized Daily plans,
+  skipped negatives, empty review files, single-width visual review,
+  metadata-only Daily admission and a page review that says the result does not
+  look like a Daily newspaper.
+- **Possible Behind the Build angle:** Why a perfect checklist can still
+  produce terrible writing—and how LAiDIES now fails the 90-word proof before
+  spending tokens on the full article.
+- **Publication status:** INTERNAL ROOT-CAUSE REPAIR VERIFIED LOCALLY / OLD
+  ARTICLE AND PAGE REJECTED / NO REPLACEMENT, DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-460 — Feature labels were being mistaken for distinct editorial formats
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand feature production and service-column quality.
+- **Failure risk:** Paige, Career/Work-Life and Promptoscope could receive
+  different eyebrow labels while performing the same generic prompting job.
+  Abstract template beats and short style snippets gave a producer enough room
+  to repeat a rejected category mismatch and still claim compliance.
+- **Root cause:** The system registered lane names and constraints but did not
+  explicitly require complete, accepted, source-bound example text for each
+  distinct feature and each materially different Daily story mode.
+- **Prevention rule:** A NewsStand lane is autonomous only after it binds its
+  reader job, source/freshness rules, cadence, length, publish fields, rejected
+  contrasts, exact-output self-check and one complete Ali-accepted positive
+  exemplar. Samplers, outlines, openings and tone descriptions are ineligible.
+  Daily report, reporting-check and prior-coverage-update modes each require
+  their own accepted full example.
+- **Durable correction:** The requirement now lives in
+  `NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md`,
+  `NEWSSTAND-FEATURE-LANE-REGISTRY.json`, `operations/DECISIONS.md` and the
+  calibrated feature-lane validator. Missing exemplars fail closed without
+  blocking other independently admitted lanes.
+- **Possible Behind the Build angle:** Why changing a column heading does not
+  turn the same AI tip into three different editorial products.
+- **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR VERIFIED LOCALLY /
+  ZERO LANES AUTONOMOUS / NO PUBLICATION OR DEPLOYMENT.

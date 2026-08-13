@@ -22,6 +22,17 @@ invent a source or silently substitute an older date.
 
 ## 2. Run the fail-closed checks
 
+First reconcile any dated service selection whose freshness limit has passed.
+Run the dry check, then the exact write. This preserves the already-admitted
+issue snapshot while changing the reusable selection to `EXPIRED` /
+`INELIGIBLE`; it never carries the item into a later issue.
+
+```sh
+node scripts/reconcile-daily-edition-freshness.mjs --as-of YYYY-MM-DD
+node scripts/reconcile-daily-edition-freshness.mjs --as-of YYYY-MM-DD --write
+node scripts/test-reconcile-daily-edition-freshness.mjs
+```
+
 ```sh
 node scripts/test-compose-daily-edition.mjs
 node scripts/test-promote-daily-edition.mjs

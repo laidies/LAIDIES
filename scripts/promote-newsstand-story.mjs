@@ -48,6 +48,71 @@ function checkedBoundFile(binding, readBoundFile, label, pathKey = "record") {
   return record;
 }
 
+function checkedBoundJson(binding, readBoundFile, label, pathKey = "record") {
+  const record = checkedBoundFile(binding, readBoundFile, label, pathKey);
+  return { record, value: parse(readBoundFile(record), label) };
+}
+
+function validateProducerContract(contract, candidate) {
+  if (contract.schemaVersion !== "laidies-content-producer-contract.v1" ||
+      contract.status !== "READY_TO_DRAFT" || contract.candidateId !== candidate.workOrderId ||
+      contract.contentClass !== "NEWS" || !contract.surface || !contract.producer ||
+      !contract.readerContract?.humanQuestion || !contract.readerContract?.promisedPayoff ||
+      !contract.draftArchitecture?.plainAnswer || !Array.isArray(contract.draftArchitecture?.causalSequence) ||
+      contract.draftArchitecture.causalSequence.length < 3) {
+    reject("producer contract is not an exact ready NewsStand teaching contract");
+  }
+}
+
+function validateProducerReview(review, candidate, evidence) {
+  if (review.schemaVersion !== "laidies-prose-quality-review.v1" || review.stage !== "PRODUCER_SELF_REVIEW" ||
+      review.verdict !== "PASS" || review.candidateId !== candidate.workOrderId || review.contentClass !== "NEWS" ||
+      review.reviewMode !== "EXACT_PROSE_IN_FULL" || review.reviewer?.principalId !== review.maker ||
+      review.artifact?.reviewText?.path !== candidate.sourceText.path ||
+      review.artifact?.reviewText?.sha256 !== candidate.sourceText.sha256 ||
+      review.artifact?.rendered?.path !== evidence.reviewRender) {
+    reject("producer self-review did not PASS the exact prose and render");
+  }
+}
+
+function validateIndependentReview(review, candidate, evidence, readBoundFile) {
+  if (review.schemaVersion !== "laidies-prose-quality-review.v1" || review.stage !== "INDEPENDENT_SEMANTIC_ADMISSION" ||
+      review.verdict !== "PASS" || review.candidateId !== candidate.workOrderId || review.contentClass !== "NEWS" ||
+      review.reviewMode !== "EXACT_PROSE_IN_FULL" || review.reviewer?.independentFromMaker !== true ||
+      review.reviewer?.artifactFirst !== true || review.reviewer?.principalId === review.maker ||
+      review.artifact?.reviewText?.path !== candidate.sourceText.path ||
+      review.artifact?.reviewText?.sha256 !== candidate.sourceText.sha256 ||
+      review.artifact?.rendered?.path !== evidence.reviewRender) {
+    reject("independent semantic review did not PASS the exact prose and render");
+  }
+  for (const outcome of ["plainClarity", "readerValue", "surfaceFit", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction"]) {
+    if (review.outcomes?.[outcome]?.verdict !== "PASS") reject(`independent semantic review did not pass ${outcome}`);
+  }
+  for (const outcome of ["explainBack", "unseenTransfer"]) {
+    const observed = review.outcomes[outcome]?.observedReaderEvidence;
+    if (observed?.evidenceType !== "OBSERVED_HUMAN" || !Array.isArray(observed.participants) || !observed.participants.length) {
+      reject(`independent semantic review lacks observed human ${outcome}`);
+    }
+    for (const participant of observed.participants) {
+      checkedBoundFile(participant.observationBinding, readBoundFile, `independentReview.${outcome}.observationBinding`);
+    }
+  }
+}
+
+function validateVisualReview(review, readBoundFile) {
+  if (review.schemaVersion !== "laidies-independent-visual-judge-invocation.v1" || review.judgment?.verdict !== "PASS" ||
+      !Array.isArray(review.images) || review.images.length < 2 || !Array.isArray(review.judgment?.imageInspections)) {
+    reject("visual review is not an independent exact-render PASS");
+  }
+  const widths = new Set();
+  for (const image of review.images) {
+    checkedBoundFile(image, readBoundFile, "visualReview.images[]", "path");
+    const match = image.path.match(/(?:^|[-_])(1440|390|320)(?:\D|$)/);
+    if (match) widths.add(match[1]);
+  }
+  if (!widths.has("1440") || !widths.has("390")) reject("visual review lacks exact desktop 1440 and mobile 390 renders");
+}
+
 function parseNewsstandData(raw) {
   const context = { window: {} };
   try { vm.runInNewContext(raw, context, { timeout: 1000 }); } catch (error) { reject(`canonical story dataset is invalid (${error.message})`); }
@@ -102,7 +167,7 @@ export function promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw, d
   const aliApprovalRecord = checkedBoundFile(decision.aliApproval, readBoundFile, "decision.aliApproval");
   const explainBackRecord = checkedBoundFile(decision.observedExplainBack, readBoundFile, "decision.observedExplainBack");
   exactKeys(evidence, [
-    "schemaVersion", "storyId", "correctionOwner", "nextRecheckAt", "sources", "claims", "independentReview", "visualReview",
+    "schemaVersion", "storyId", "correctionOwner", "nextRecheckAt", "sources", "claims", "producerReview", "independentReview", "visualReview",
     "reviewRender", "producerContract", "exactProse", "artifactBindings", "aliApproval", "observedExplainBack", "reviewArtifact"
   ], "evidence manifest");
   if (evidence.schemaVersion !== "newsstand-story-evidence.v1" || evidence.storyId !== candidate.story.id ||
@@ -111,7 +176,7 @@ export function promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw, d
     reject("evidence manifest identity, correction or human bindings are invalid");
   }
   const requiredArtifactPaths = new Set([
-    evidence.independentReview, evidence.visualReview, evidence.reviewRender, evidence.producerContract, evidence.exactProse
+    evidence.producerReview, evidence.independentReview, evidence.visualReview, evidence.reviewRender, evidence.producerContract, evidence.exactProse
   ]);
   if (!Array.isArray(evidence.artifactBindings) || evidence.artifactBindings.length !== requiredArtifactPaths.size) {
     reject("evidence artifact bindings are incomplete");
@@ -122,6 +187,14 @@ export function promoteNewsstandStory({ datasetRaw, candidateRaw, evidenceRaw, d
     if (!requiredArtifactPaths.has(record) || boundArtifactPaths.has(record)) reject("evidence artifact binding is unexpected or duplicated");
     boundArtifactPaths.add(record);
   }
+  const producerContract = parse(readBoundFile(evidence.producerContract), "producer contract");
+  const producerReview = parse(readBoundFile(evidence.producerReview), "producer self-review");
+  const independentReview = parse(readBoundFile(evidence.independentReview), "independent semantic review");
+  const visualReview = parse(readBoundFile(evidence.visualReview), "independent visual review");
+  validateProducerContract(producerContract, candidate);
+  validateProducerReview(producerReview, candidate, evidence);
+  validateIndependentReview(independentReview, candidate, evidence, readBoundFile);
+  validateVisualReview(visualReview, readBoundFile);
   const sourceIds = new Set((candidate.story.sources || []).map((source) => source.id));
   const evidenceSourceIds = new Set((evidence.sources || []).map((source) => source.id));
   if (!sourceIds.size || sourceIds.size !== evidenceSourceIds.size || [...sourceIds].some((id) => !evidenceSourceIds.has(id))) {

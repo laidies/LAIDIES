@@ -99,7 +99,20 @@ if (process.argv.includes("--calibrate")) {
     console.error("DAILY EDITION COLUMN CALIBRATION FAIL prior_date_issue_accepted=1");
     process.exit(1);
   }
-  console.log("DAILY EDITION COLUMN CALIBRATION PASS deliberate_duplicate_rejected=1 empty_release_rejected=1 prior_date_issue_rejected=1");
+  const stalePublic = structuredClone(data);
+  const expiredRecord = stalePublic.records.find((record) => record.status === "EXPIRED");
+  if (!expiredRecord) {
+    console.error("DAILY EDITION COLUMN CALIBRATION FAIL expired_fixture_missing=1");
+    process.exit(1);
+  }
+  expiredRecord.status = "APPROVED";
+  expiredRecord.publicEligibility = "ELIGIBLE";
+  const stalePublicResult = checkDailyEditionColumns(stalePublic, { asOf: "2026-08-12" });
+  if (!stalePublicResult.errors.some((error) => error === `${expiredRecord.id} is expired`)) {
+    console.error("DAILY EDITION COLUMN CALIBRATION FAIL expired_public_record_accepted=1");
+    process.exit(1);
+  }
+  console.log("DAILY EDITION COLUMN CALIBRATION PASS deliberate_duplicate_rejected=1 empty_release_rejected=1 prior_date_issue_rejected=1 expired_public_record_rejected=1");
   process.exit(0);
 }
 const result = checkDailyEditionColumns(data, { release, issueDate, asOf });
