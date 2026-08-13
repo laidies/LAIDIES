@@ -14792,3 +14792,15 @@ while remaining falsely unfinished in the launch record.
 - **Forward test:** the first approved v2 package must pass dry-run, explicit write and idempotent retry before its dated issue envelope is composed; release-scope and public verification must then prove the exact service store entered the curated artifact.
 - **Possible Behind the Build angle:** Why a green content pipeline can still have a missing conveyor belt between two stages.
 - **Publication status:** INTERNAL V2 PROMOTION PATH BUILT AND CALIBRATED / NO CANONICAL OR PUBLIC CHANGE.
+
+## BTB-470 — Whole-page fingerprints created fake editorial work while orphaned preview artifacts exhausted the disk
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand cloud intake and safe local execution capacity.
+- **Failure:** GitHub issue `#78` contained “OpenAI Developers changed” and “Artificial intelligence | AP News changed” with no article, date or claim. During reconciliation, a 36KB transcript download failed because only 116MB remained on the data volume.
+- **Root cause:** the intake runner treated any changed HTML fingerprint as an editorial signal even when the registered source was a dynamic homepage or topic hub. Separately, prior release/preflight runs left multi-gigabyte reproducible artifacts in `/private/tmp` without a completion cleanup path.
+- **Prevention rule:** content signals require a dated item-level identity from a declared, calibrated parser/feed. Generic pages are health-only. Every build/preflight that materializes a temporary source or artifact must remove it on both success and failure after durable evidence is copied, and every material release cycle must check disk headroom before cloning/building.
+- **Durable correction:** OpenAI now binds its dated official changelog markdown; AP has a main-region article parser; all recurring sources declare an intake mode; the calibrated cloud test rejects generic page-change signals and out-of-scope AP items. Two exact orphaned, reproducible temporary build directories were removed, restoring about 9GB without touching repository or backup data.
+- **Forward test:** install the exact successor intake bytes on reduced `main`, run one scheduled-equivalent cycle from the existing cloud state and prove it emits exact dated OpenAI/AP items or a truthful quiet result, consumes issue `#78` dispositions and never re-creates a generic page-change signal. A release preflight must also show sufficient disk before and after cleanup.
+- **Possible Behind the Build angle:** Why “this webpage changed” is not news—and how invisible temporary copies can stop a publishing system.
+- **Publication status:** INTERNAL INTAKE AND EXECUTION-CAPACITY REPAIR / MAIN INSTALLATION AND CLOUD FORWARD TEST OPEN / NO PUBLIC CHANGE.

@@ -54,6 +54,7 @@
     {
       "id": "SRC-AIDB", "name": "The AI Daily Brief", "publisher": "The AI Daily Brief",
       "authorityTier": "SECONDARY_SCOUT", "status": "ACTIVE_MONITOR", "cadence": "TWICE_DAILY",
+      "intakeMode": "AIDB_AGENT_JSON",
       "urls": ["https://aidailybrief.ai/agent.json"],
       "destinations": ["news_breaking", "news_daily", "news_weekly", "news_big_question", "straight_answers", "dear_miss_jeeves", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "episodes", "freshness"],
       "bestUse": "Fast discovery, analysis and named-source trails across current AI developments.",
@@ -65,6 +66,7 @@
     {
       "id": "SRC-ETHAN-MOLLICK", "name": "Ethan Mollick", "publisher": "One Useful Thing / Wharton",
       "authorityTier": "PRACTITIONER_LEAD", "status": "ACTIVE_MONITOR", "cadence": "TWICE_DAILY",
+      "intakeMode": "RSS_ATOM",
       "urls": ["https://www.oneusefulthing.org/feed", "https://x.com/emollick", "https://www.linkedin.com/in/emollick/", "https://mgmt.wharton.upenn.edu/profile/emollick/"],
       "recurringUrl": "https://www.oneusefulthing.org/feed",
       "channelCoverage": [
@@ -83,7 +85,9 @@
     {
       "id": "SRC-OPENAI-DEVELOPERS", "name": "OpenAI Developers", "publisher": "OpenAI",
       "authorityTier": "PRIMARY_AUTHORITY", "status": "PILOT_MONITOR", "cadence": "DAILY_RELEASE_CHECK",
-      "urls": ["https://developers.openai.com/", "https://openai.com/news/"],
+      "intakeMode": "OPENAI_CHANGELOG_MARKDOWN",
+      "urls": ["https://developers.openai.com/", "https://developers.openai.com/api/docs/changelog.md", "https://openai.com/news/"],
+      "recurringUrl": "https://developers.openai.com/api/docs/changelog.md",
       "destinations": ["news_breaking", "news_daily", "straight_answers", "dear_miss_jeeves", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "operations", "freshness"],
       "bestUse": "Current OpenAI product, API, Codex, model, access and implementation claims, including explicitly AI-linked career guidance when a work choice changes.",
       "limits": "First-party authority for OpenAI facts, not independent evidence of comparative superiority, safety or learning effectiveness.",
@@ -105,6 +109,7 @@
     {
       "id": "SRC-ANTHROPIC-ENGINEERING", "name": "Anthropic Engineering", "publisher": "Anthropic",
       "authorityTier": "PRIMARY_AUTHORITY", "status": "PILOT_MONITOR", "cadence": "TWICE_WEEKLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://www.anthropic.com/engineering"],
       "destinations": ["news_daily", "straight_answers", "dear_miss_jeeves", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "episodes", "behind_build", "operations", "freshness"],
       "bestUse": "First-party Claude, Claude Code, agent-harness, tool, context, evaluation and safety mechanisms, including explicitly AI-linked career guidance when a work practice changes.",
@@ -193,6 +198,7 @@
     {
       "id": "SRC-AP-AI", "name": "AP Artificial Intelligence", "publisher": "Associated Press",
       "authorityTier": "INDEPENDENT_REPORTING", "status": "PILOT_MONITOR", "cadence": "DAILY",
+      "intakeMode": "AP_TOPIC_HUB_HTML",
       "urls": ["https://apnews.com/hub/artificial-intelligence"],
       "destinations": ["news_breaking", "news_daily", "news_weekly", "news_big_question", "straight_answers", "freshness"],
       "bestUse": "Independent reporting, affected-party context, public consequences and corroboration.",
@@ -204,6 +210,7 @@
     {
       "id": "SRC-REUTERS-AI", "name": "Reuters AI reporting", "publisher": "Reuters",
       "authorityTier": "INDEPENDENT_REPORTING", "status": "PILOT_MONITOR", "cadence": "DAILY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://www.reuters.com/technology/artificial-intelligence/"],
       "destinations": ["news_breaking", "news_daily", "news_weekly", "news_big_question", "straight_answers", "freshness"],
       "bestUse": "Independent load-bearing reporting, timelines, filings, affected parties and corroboration.",
@@ -270,6 +277,7 @@
     {
       "id": "SRC-NIST-AI", "name": "NIST Artificial Intelligence", "publisher": "US National Institute of Standards and Technology",
       "authorityTier": "PRIMARY_AUTHORITY", "status": "PILOT_MONITOR", "cadence": "WEEKLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://www.nist.gov/artificial-intelligence", "https://www.nist.gov/itl/ai-risk-management-framework"],
       "destinations": ["news_daily", "news_weekly", "news_big_question", "straight_answers", "library", "classes", "career_work_life_tip", "freshness"],
       "bestUse": "AI risk, evaluation, standards, measurement and governance frameworks with practical professional implications.",
@@ -281,6 +289,7 @@
     {
       "id": "SRC-EU-AI-OFFICIAL", "name": "EU AI Act official sources", "publisher": "European Union",
       "authorityTier": "PRIMARY_AUTHORITY", "status": "PILOT_MONITOR", "cadence": "WEEKLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai", "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"],
       "destinations": ["news_breaking", "news_daily", "news_weekly", "news_big_question", "straight_answers", "career_work_life_tip", "library", "freshness"],
       "bestUse": "Primary EU AI law, implementation guidance, dates and role-specific obligations.",
@@ -314,6 +323,7 @@
     {
       "id": "SRC-STANFORD-HAI-INDEX", "name": "Stanford HAI AI Index", "publisher": "Stanford HAI",
       "authorityTier": "INSTITUTIONAL_SYNTHESIS", "status": "PILOT_MONITOR", "cadence": "MONTHLY_AND_ANNUAL_RELEASE",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://hai.stanford.edu/ai-index"],
       "destinations": ["news_weekly", "news_big_question", "straight_answers", "career_work_life_tip", "library", "classes", "episodes", "freshness"],
       "bestUse": "Cross-domain evidence on technical performance, infrastructure, economy, policy, public opinion and responsible AI.",
@@ -336,6 +346,7 @@
     {
       "id": "SRC-WHARTON-GAIL", "name": "Wharton GAIL Research and Prompt Library", "publisher": "Wharton Generative AI Labs",
       "authorityTier": "PRIMARY_RESEARCH", "status": "PILOT_MONITOR", "cadence": "WEEKLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://gail.wharton.upenn.edu/research-and-insights/", "https://gail.wharton.upenn.edu/prompt-library/"],
       "destinations": ["news_daily", "straight_answers", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "episodes", "freshness"],
       "bestUse": "Prompting research, task/model dependence, practice design, attributed prompt examples and explicitly AI-linked career guidance when the evidence changes a work practice.",
@@ -347,6 +358,7 @@
     {
       "id": "SRC-WHARTON-HUMAN-AI", "name": "Wharton Human-AI Research", "publisher": "Wharton",
       "authorityTier": "INSTITUTIONAL_SYNTHESIS", "status": "PILOT_MONITOR", "cadence": "WEEKLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://ai.wharton.upenn.edu/", "https://ai.wharton.upenn.edu/research/"],
       "destinations": ["news_daily", "news_weekly", "news_big_question", "straight_answers", "career_work_life_tip", "library", "classes", "episodes", "freshness"],
       "bestUse": "Workplace, human judgment, education, governance, creativity and human-impact research leads with explicit AI relevance.",
@@ -468,6 +480,7 @@
     {
       "id": "SRC-ALLIE-K-MILLER", "name": "Allie K. Miller", "publisher": "Allie K. Miller",
       "authorityTier": "SECONDARY_SCOUT", "status": "PILOT_MONITOR", "cadence": "MONTHLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
       "urls": ["https://www.alliekmiller.com/resources"],
       "destinations": ["paige_ai_tip", "career_work_life_tip", "library", "classes", "external_learning"],
       "bestUse": "Practical home and career AI jobs, examples and format inspiration with explicit AI application.",

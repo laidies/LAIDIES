@@ -3899,6 +3899,144 @@
         "dispatch": null,
         "closure": null
       }
+    },
+    {
+      "id": "LCWO-020",
+      "title": "Explain what the AI-designed bacteriophage study actually showed",
+      "sourceRefs": [
+        "https://aidailybrief.ai/e/2026-08-07/transcript.md",
+        "https://www.biorxiv.org/content/10.1101/2025.09.12.675911v1",
+        "https://arcinstitute.org/news/hie-king-first-synthetic-phage",
+        "operations/product-stewards/newsstand/sources/evo-phage-headline-source-preflight-2026-08-13.md",
+        "operations/product-stewards/newsstand/cloud-intake-dispositions.json"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "CREATE",
+      "ownerProductId": "newsstand-daily",
+      "targetPaths": [
+        "operations/product-stewards/newsstand/candidates/evo-phage-reporting-check-2026-08-20.md"
+      ],
+      "status": "QUEUED_WITH_TRIGGER",
+      "dispatchState": "NOT_READY",
+      "priority": "P1",
+      "nextAction": "At the trigger, recover the exact secondary article identity/date, recheck the preprint history and create the smallest Daily reporting-check producer proof. It must define bacteriophages before using phage, describe the human computational and laboratory chain, correct 16,000 to 16 and separate demonstrated capability from future biosafety risk.",
+      "nextTrigger": "2026-08-20, or earlier when the current held Daily is decided and the newsstand-daily owner lane is free. The trigger must end in one producer proof, an explicitly narrowed AIDB reporting check, or a durable NO_BUILD closure; indefinite hold is prohibited.",
+      "acceptanceEvidence": [
+        "Exact identity/date for the secondary headline being checked, or an explicit scope narrowed to AIDB",
+        "Current bioRxiv history and Arc source map with 16 viable bacteriophages and 285 tested designs preserved",
+        "Accepted Daily HEADLINE_OR_REPORTING_CHECK template and complete positive exemplar",
+        "Jargon-free answer-first proof showing human model-selection, DNA-assembly and laboratory-testing steps without operational pathogen instructions",
+        "Explicit boundaries for preprint status, bacterial host range, human infection, clinical usefulness, ecological safety and future misuse",
+        "Work/non-work relevance only when natural, plus a useful reader action and exact correction trigger"
+      ],
+      "reviewChain": [
+        { "stage": "BUILD", "owner": "newsstand-daily", "status": "REQUIRED" },
+        { "stage": "ACCURACY", "owner": "ai-research-accuracy", "status": "REQUIRED" },
+        { "stage": "SAFETY", "owner": "safety-privacy", "status": "REQUIRED" },
+        { "stage": "LEARNING", "owner": "learning-content-ecosystem", "status": "REQUIRED" },
+        { "stage": "EDITORIAL", "owner": "editorial-learning", "status": "REQUIRED" },
+        { "stage": "EXPERIENCE", "owner": "brand-experience", "status": "REQUIRED" },
+        { "stage": "OWNER", "owner": "newsstand", "status": "REQUIRED" },
+        { "stage": "RELEASE", "owner": "control-room", "status": "HOLD" },
+        { "stage": "PUBLIC", "owner": "platform", "status": "HOLD" }
+      ],
+      "qualityGates": {
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every factual sentence maps to the current preprint, its history or the research-team account; 16 viable bacteriophages may not become 16,000, and bacterial viruses may not become demonstrated human pathogens.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "The proof answers what was made, how people made and tested it, why the headline feels frightening, what the evidence does not show and why the real future risk still matters; no vague both-sides ending.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Draft-day recheck covers preprint revision, peer review, withdrawal, correction, successor study and exact secondary-article identity.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "An intelligent nontechnical reader can follow the first paragraph without knowing phage, genome language model, host tropism or in vitro; any humour helps explanation rather than trivializing biosafety.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Any analogy reconnects to the actual model-selection, DNA-assembly and biological-testing mechanism and states where the comparison stops.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "A reader can explain why this was not ChatGPT autonomously making a human virus, identify the genuine capability advance and ask a better question about controls, evidence and future use.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "The exact candidate follows the accepted Daily HEADLINE_OR_REPORTING_CHECK template and fits a multi-story Daily without impersonating Breaking or expanding into a Big Picture argument.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "If admitted, archive/topic/search metadata uses accurate terms such as bacteriophage, genome design, synthetic biology, biosafety and misleading headlines without sensational escape or human-virus tags.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The item links to related AI-safety or model-agency coverage only where the mechanism is actually shared and does not duplicate the separate OpenAI/Hugging Face work order.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The explanation agrees with maintained LAiDIES teaching about models, agents, goals, human workflows, source checking and evidence boundaries.",
+          "evidencePaths": []
+        }
+      },
+      "artifactBinding": { "status": "UNBOUND", "manifestPath": null, "sha256": null },
+      "producerContractPath": null,
+      "producerReviewPath": null,
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
+        "operations/product-stewards/newsstand/sources/evo-phage-headline-source-preflight-2026-08-13.md",
+        "operations/product-stewards/newsstand/cloud-intake-dispositions.json"
+      ],
+      "publicRelease": { "status": "NOT_AUTHORIZED", "url": null, "releaseReceipt": null, "sha256": null },
+      "execution": {
+        "state": "BACKLOG",
+        "primaryOutput": {
+          "id": "LCWO-020-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "newsstand-daily",
+          "targetPaths": [
+            "operations/product-stewards/newsstand/candidates/evo-phage-reporting-check-2026-08-20.md"
+          ]
+        },
+        "requiredPrimaryGates": [
+          "accuracy", "antiSlop", "currentBestPractice", "laidiesVoice", "analogyIntegrity",
+          "usefulnessDepth", "formatFit", "searchIndexing", "relationshipLinking", "canonConsistency"
+        ],
+        "derivatives": [
+          {
+            "id": "bigPictureOpportunity",
+            "state": "PARKED",
+            "reason": "A broader future-risk question may exist, but one reporting-check proof is the only admitted primary output.",
+            "activationTrigger": "Create a separate child work order only after an admitted Daily proves a distinct Big Picture reader job that is not a longer repeat."
+          }
+        ],
+        "wip": { "ownerLimit": 1 },
+        "dispatch": null,
+        "closure": null
+      }
     }
   ]
 }
