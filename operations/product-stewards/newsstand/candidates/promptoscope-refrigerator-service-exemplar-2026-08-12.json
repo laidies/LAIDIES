@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "laidies-newsstand-service-exemplar.v1",
+  "candidateId": "NEWSSTAND-SERVICE-PROMPTOSCOPE-REFRIGERATOR-20260812-V1",
+  "laneId": "promptoscope",
+  "editionDate": "2026-08-12",
+  "status": "PRIVATE_REVIEW_CANDIDATE",
+  "headline": "Your refrigerator has entered its use-me-or-lose-me era",
+  "body": "Tonight, your refrigerator is in its “use me or lose me” era, while your AI assistant is pretending it has X-ray vision.\n\nDo not ask, “What should I make for dinner?” Give it the actual cast: the ingredients you have, what expires first, how much time you have, the equipment available and any dietary restrictions. Ask for three options and tell it to flag every ingredient it assumed rather than found in your list.\n\nThat changes the answer because AI cannot see your refrigerator. Specific context narrows the recipes it can plausibly assemble; it does not make the tool a food-safety expert.\n\nCheck allergies, safe temperatures and whether the alleged lemon exists before cooking. Tonight’s stars favour dinner over a fourth grocery order. Mercury accepts no responsibility for imaginary coriander.",
+  "featureRegistry": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
+    "sha256": "22d16efba451fa96cf3b41902841a82699c452e64d816e2cad2eac430c1a11c9"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "laneContractSha256": "37a8a0497c5c3feb76f022544177cc9c05950db6f29ba2d62ebacdfaaef7018c",
+  "negativeExemplarIdsRead": ["CQX-BAD-008", "CQX-BAD-012"],
+  "sourceEvidence": [
+    {
+      "path": "issues/issue-02.html",
+      "sha256": "68f5a0d178ce35f9e70a0220397b8f2eca5eea85114fa65d3ce1a4d56553411e"
+    }
+  ],
+  "beatEvidence": [
+    {"beat": "comic horoscope observation", "quote": "Tonight, your refrigerator is in its “use me or lose me” era, while your AI assistant is pretending it has X-ray vision."},
+    {"beat": "specific non-work AI situation", "quote": "What should I make for dinner?"},
+    {"beat": "one plain action", "quote": "Give it the actual cast: the ingredients you have, what expires first, how much time you have, the equipment available and any dietary restrictions."},
+    {"beat": "why it changes the result", "quote": "That changes the answer because AI cannot see your refrigerator."},
+    {"beat": "bounded human check", "quote": "Check allergies, safe temperatures and whether the alleged lemon exists before cooking."},
+    {"beat": "earned final joke", "quote": "Mercury accepts no responsibility for imaginary coriander."}
+  ],
+  "laneSpecific": {
+    "situationType": "NON_WORK",
+    "comicQuote": "Tonight, your refrigerator is in its “use me or lose me” era, while your AI assistant is pretending it has X-ray vision.",
+    "situationQuote": "What should I make for dinner?",
+    "actionQuote": "Give it the actual cast: the ingredients you have, what expires first, how much time you have, the equipment available and any dietary restrictions.",
+    "whyQuote": "That changes the answer because AI cannot see your refrigerator.",
+    "checkQuote": "Check allergies, safe temperatures and whether the alleged lemon exists before cooking.",
+    "finalJokeQuote": "Mercury accepts no responsibility for imaginary coriander."
+  },
+  "freshness": {
+    "checkedAt": "2026-08-12T20:40:00-07:00",
+    "recheckTriggers": ["Episode 2 context teaching changes.", "The human food-safety boundary changes.", "Ali revises the Promptoscope lane distinction."]
+  },
+  "owner": "NewsStand service features",
+  "destination": "/newsstand.html#daily-2026-08-12",
+  "storage": {
+    "recordId": "DAILY-2026-08-12-PROMPTOSCOPE-REFRIGERATOR-CANDIDATE",
+    "publicEligibility": "INELIGIBLE_PENDING_ALI_ACCEPTANCE"
+  },
+  "selfReview": {
+    "exactTextRead": true,
+    "knownDefectsRemaining": [],
+    "distinctnessFinding": "This is a funny non-work AI context lesson with one dinner-planning action. It is not a work tip and does not borrow Mme CLAi-O's deck authority."
+  }
+}

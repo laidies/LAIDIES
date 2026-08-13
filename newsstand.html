@@ -1,382 +1,1211 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SUNNYVAiLE NewsStand · LAiDIES</title>
-    <meta name="description" content="AI news translated for non-technical women who need to know what's actually going on. TODAY (the wire), WEDNESDAY Edition (the digest), and The Tribune (the argument). Filed from SUNNYVAiLE." />
+    <meta name="description" content="AI news translated at the SUNNYVAiLE NewsStand through The Breaking, The Daily, The Weekly and The Big Picture.">
     <meta property="og:title" content="SUNNYVAiLE NewsStand · LAiDIES">
-    <meta property="og:description" content="AI news translated. TODAY, WEDNESDAY Edition, The Tribune." />
+    <meta property="og:description" content="AI news translated through four distinct papers, with no filler when there is no qualified issue.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" href="/assets/brand/laidies-logo-square-pearl-512-v1.png" />
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
-    <link rel="stylesheet" href="/content/newsstand.css?v=newsstand-1">
-    <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-    <script defer src="/content/site/sv-global-header.js?v=20260715-1"></script>
-    <script defer src="/content/site/sv-nav-auth.js?v=20260705-3"></script>
+    <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
+    <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
+    <link rel="stylesheet" href="/content/newsstand.css?v=20260812-newsstand-v23">
+    <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
+    <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
-  <!-- Microsoft Clarity (heatmaps + session recordings) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xnqcp37urd");
-  </script>
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible = window.plausible || function () {
+        (plausible.q = plausible.q || []).push(arguments);
+      };
+      plausible.init = plausible.init || function (options) {
+        plausible.o = options || {};
+      };
+      plausible.init();
+    </script>
+    <link rel="canonical" href="https://laidies.ai/newsstand" />
+  <meta property="og:url" content="https://laidies.ai/newsstand" />
 </head>
   <body>
+    <a class="sv-skip-link" href="#newsstand-main">Skip to content</a>
+    <header class="topbar">
+      <a class="logo" href="/" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>
+      <nav class="topbar__nav" aria-label="Primary">
+        <a href="/chick-flicks.html">Latest Episode</a>
+        <a href="/#new-here">Start learning</a>
+        <a href="/library.html">Look it up</a>
+        <a href="/#activities">Activities</a>
+        <a href="/visitors-centre.html">Explore SUNNYVAiLE</a>
+        <a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>KSVL 99.9</a>
+        <a class="sv-signin signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a>
+        <a class="join-btn" href="/maikeover.html">Join the town</a>
+      </nav>
+      <button class="topbar__menu" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    </header>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="/chick-flicks.html">Latest Episode</a>
+      <a href="/#new-here">Start learning</a>
+      <a href="/library.html">Look it up</a>
+      <a href="/#activities">Activities</a>
+      <a href="/visitors-centre.html">Explore SUNNYVAiLE</a>
+      <a class="nav-ksvl" href="/radio.html"><span class="onair-dot"></span>Listen · KSVL 99.9</a>
+      <a href="/resident-card.html#rcAccountTitle">Sign in</a>
+      <a class="join-btn" href="/maikeover.html">Join the town</a>
+    </nav>
 
-    <header class="sv-header"></header>
-
-    <div class="sv-hero"><img src="/assets/sunnyvaile-buildings/y2k-v3/02-sunnyvaile-newsstand.webp?v=20260704-perf" alt="The SUNNYVAiLE NewsStand at MAiN Street No. 2 — Y2K corner newsstand kiosk with SUNNYVAiLE Daily / Weekly / Tribune mastheads on display." loading="eager"></div>
-
-    <main class="ns-page">
-      <div class="ns-wrap">
-
-        <div class="ns-masthead">
-          <div>
-            <span class="ns-masthead__eyebrow">★ MAiN Street · No. 2 · SUNNYVAiLE</span>
-            <h1 class="ns-masthead__title">SUNNYV<span class="ns-ai">Ai</span>LE NewsStand</h1>
+    <main class="ns-page" id="newsstand-main">
+      <section class="ns-room" aria-label="Paige at the SUNNYVAiLE NewsStand">
+        <div class="ns-room__scene">
+          <figure class="ns-paige">
+            <div class="ns-paige__crop">
+              <img src="/assets/town-characters/scenes/paige-scene.png" alt="Paige, editor of the SUNNYVAiLE NewsStand.">
+            </div>
+          </figure>
+          <section class="ns-state" aria-labelledby="ns-building-title">
+            <div class="ns-state__inner">
+              <p class="ns-address">MAiN Street No. 2 · Keeper: Paige</p>
+              <div class="ns-state__copy">
+                <h1 id="ns-building-title">The SUNNYVA<span class="ns-brand-i">i</span>LE NewsStand</h1>
+                <h2 id="ns-title">Checking Paige&rsquo;s desk.</h2>
+                <p id="ns-state-detail">Paige is checking today&rsquo;s rack for the latest published stories.</p>
+                <p class="ns-system-status" id="ns-system-status" role="status" aria-live="polite"></p>
+              </div>
+              <div class="ns-state__actions">
+                <button class="ns-state__primary" type="button">Choose a paper</button>
+                <button class="ns-catchup-jump" type="button">Catch me up</button>
+                <button class="ns-radio" type="button" data-src="/content/music/sunnyvaile-newsstand.mp3">
+                  Play &ldquo;The Newsstand&rdquo;
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="ns-counter-surface" id="newsstand-counter">
+          <div class="ns-counter-intro">
+            <p class="ns-counter-kicker">Paige&rsquo;s press counter · Today, this week and the deeper story</p>
+            <h2>Today&rsquo;s Daily opens first.</h2>
+            <p>The Weekly and The Big Picture are one click away. Breaking news appears at the top of The Daily when it truly qualifies.</p>
           </div>
-          <div class="ns-masthead__dateline">
-            <strong>Filed from SUNNYVAiLE</strong>
-            <span id="ns-dateline">Loading edition…</span>
+          <div class="ns-rack-stage" id="newsstand-rack">
+            <div class="ns-publications" aria-label="Choose The Daily, The Weekly or The Big Picture">
+            <button class="ns-publication" type="button" data-edition="daily" aria-pressed="false">
+              <span class="ns-publication__icon" aria-hidden="true">▤</span>
+              <strong>The Daily</strong>
+              <span class="ns-publication__job">Dated news, Promptoscope and useful daily desks</span>
+              <span class="ns-publication__status" data-status-for="daily">Checking the desk…</span>
+              <span class="ns-publication__contents" data-contents-for="daily" aria-live="polite"></span>
+              <span class="ns-publication__action">Checking what opens…</span>
+            </button>
+            <button class="ns-publication" type="button" data-edition="weekly" aria-pressed="false">
+              <span class="ns-publication__icon" aria-hidden="true">▥</span>
+              <strong>The Weekly</strong>
+              <span class="ns-publication__job">The week&rsquo;s bigger picture</span>
+              <span class="ns-publication__status" data-status-for="weekly">Checking the desk…</span>
+              <span class="ns-publication__contents" data-contents-for="weekly" aria-live="polite"></span>
+              <span class="ns-publication__action">Checking what opens…</span>
+            </button>
+            <button class="ns-publication" type="button" data-edition="tribune" aria-pressed="false">
+              <span class="ns-publication__icon" aria-hidden="true">▦</span>
+              <strong>The Big Picture</strong>
+              <span class="ns-publication__job">The deeper story behind the headlines</span>
+              <span class="ns-publication__status" data-status-for="tribune">Checking the desk…</span>
+              <span class="ns-publication__contents" data-contents-for="tribune" aria-live="polite"></span>
+              <span class="ns-publication__action">Checking what opens…</span>
+            </button>
+            </div>
+          </div>
+          <p class="ns-counter-note">Need something older? Search the archive by headline, source, word or topic below the paper.</p>
+        </div>
+      </section>
+
+      <section class="ns-reader" id="paper-counter" aria-labelledby="ns-reader-title" hidden>
+        <div class="ns-reader__rail">
+          <p class="ns-kicker">On Paige&rsquo;s press counter</p>
+          <button class="ns-return" id="ns-return" type="button">Close this paper</button>
+        </div>
+        <article class="ns-unfolded-paper" id="ns-paper-view" data-paper="weekly">
+          <header class="ns-unfolded-paper__masthead">
+            <div>
+              <p class="ns-unfolded-paper__edition" id="ns-reader-edition">The Weekly</p>
+              <h2 id="ns-reader-title" tabindex="-1">This week’s front page.</h2>
+            </div>
+            <p class="ns-unfolded-paper__date" id="ns-reader-date"></p>
+          </header>
+          <div id="ns-rack" aria-live="polite"></div>
+          <div id="ns-empty" class="ns-empty" role="status" tabindex="-1" hidden>
+            Paige is still checking this desk. Nothing has been filed here yet.
+          </div>
+        </article>
+      </section>
+
+      <section class="ns-catchup" id="newsstand-catchup" aria-labelledby="ns-catchup-title">
+        <div class="ns-catchup__intro">
+          <p class="ns-kicker">Returning to the counter?</p>
+          <h2 id="ns-catchup-title">Catch me up.</h2>
+          <p>Start with the latest complete Daily, check the Weekly, then review the eligible headlines and desk items filed on or after your last visit.</p>
+        </div>
+        <div class="ns-catchup__controls">
+          <label for="ns-catchup-since">Start with</label>
+          <input id="ns-catchup-since" type="date">
+          <button id="ns-catchup-run" type="button">Show what I missed</button>
+        </div>
+        <div class="ns-catchup__results" id="ns-catchup-results" aria-live="polite"></div>
+      </section>
+
+      <section class="ns-archive" aria-labelledby="ns-archive-title">
+        <div class="ns-archive__label">
+          <p class="ns-kicker">The crate under the counter</p>
+          <h2 id="ns-archive-title">Find a back issue.</h2>
+          <p>Search every filed issue across all four publications. Results open in the same reading space above.</p>
+        </div>
+        <div class="ns-archive__search">
+          <label for="ns-search-input">What are you trying to find?</label>
+          <div class="ns-archive__input-row">
+            <input type="search" id="ns-search-input" placeholder="Search a headline, topic, source or tag…" autocomplete="off">
+            <button id="ns-search-button" type="button">Search the crate</button>
+          </div>
+          <p class="ns-archive__hint" id="ns-search-hint">Browse all, choose a topic, or search the crate.</p>
+          <button class="ns-archive__browse-all" id="ns-browse-all" type="button">Browse all back issues</button>
+          <div class="ns-topic-browser" id="ns-topic-browser" hidden>
+            <p id="ns-topic-title">Browse by topic</p>
+            <div class="ns-topic-buttons" id="ns-topic-buttons" aria-labelledby="ns-topic-title"></div>
           </div>
         </div>
-
-        <p class="ns-lede">AI news, translated. <strong>The WEDNESDAY Edition</strong> is the digest — what mattered, and the line to say when it comes up. <strong>The Tribune</strong> is the argument — the questions we're tracking as they move.</p>
-
-        <div class="ns-filters" role="group" aria-label="Filter and search stories">
-          <span class="ns-filters__label">Filter</span>
-          <button type="button" class="ns-chip is-active" data-edition="all">All</button>
-          <button type="button" class="ns-chip" data-edition="wednesday">WEDNESDAY Edition</button>
-          <button type="button" class="ns-chip" data-edition="tribune">The Tribune</button>
-          <label class="visually-hidden" for="ns-search-input">Search stories</label>
-          <input type="search" id="ns-search-input" class="ns-search" placeholder="Search stories or tags…" autocomplete="off" />
-        </div>
-
-        <div id="ns-empty" class="ns-empty" hidden>No stories match that filter.</div>
-
-        <div id="ns-rack" aria-live="polite"></div>
-
-      </div>
+      </section>
     </main>
 
-    <footer style="text-align:center;padding:32px 24px;font-size:12px;color:#6b3a66;border-top:1px solid rgba(75,33,72,0.14);">
+    <footer class="ns-footer">
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <!-- Story library. Sets window.NEWSSTAND_STORIES. -->
-    <script src="/content/newsstand-stories.js?v=newsstand-1"></script>
-
-    <!-- Renderer + archive filter -->
+    <script src="/content/newsstand-reader-contract.js?v=20260804-daily-issue-v3"></script>
+    <script src="/content/newsstand-stories.js?v=20260812-backfill-v1"></script>
     <script>
       (function () {
-        'use strict';
+        "use strict";
 
-        // ---- Publisher name lookup for TODAY passthrough ----------------
-        var PUBLISHER = {
-          'techcrunch.com':      'TechCrunch',
-          'arstechnica.com':     'Ars Technica',
-          'theverge.com':        'The Verge',
-          'simonwillison.net':   'Simon Willison',
-          'technologyreview.com':'MIT Tech Review',
-          'venturebeat.com':     'VentureBeat',
-          'fortune.com':         'Fortune',
-          'npr.org':             'NPR',
-          'techradar.com':       'TechRadar',
-          'therundown.ai':       'The AI Rundown',
-          'digitalapplied.com':  'digitalapplied',
-          'lawfaremedia.org':    'Lawfare',
-          'glean.com':           'Glean'
+        var EDITION = {
+          breaking: {
+            label: "The Breaking",
+            title: "News as it happens.",
+            empty: "No breaking story right now. Enjoy the quiet."
+          },
+          daily: {
+            label: "The Daily",
+            title: "What changed and why it matters.",
+            empty: "Today’s edition is not on the rack yet."
+          },
+          weekly: {
+            label: "The Weekly",
+            title: "This week’s front page.",
+            empty: "No Weekly issue is currently filed."
+          },
+          tribune: {
+            label: "The Big Picture",
+            title: "The argument.",
+            empty: "The Big Picture desk has no deeper story ready yet."
+          },
+          search: {
+            label: "Back issues",
+            title: "From the crate.",
+            empty: "No back issues match that search."
+          },
+          archive: {
+            label: "All back issues",
+            title: "Newest first.",
+            empty: "No approved back issues are available."
+          }
         };
+
+        var PUBLISHER = {
+          "techcrunch.com": "TechCrunch",
+          "arstechnica.com": "Ars Technica",
+          "theverge.com": "The Verge",
+          "simonwillison.net": "Simon Willison",
+          "technologyreview.com": "MIT Tech Review",
+          "venturebeat.com": "VentureBeat",
+          "fortune.com": "Fortune",
+          "npr.org": "NPR",
+          "techradar.com": "TechRadar",
+          "therundown.ai": "The AI Rundown",
+          "digitalapplied.com": "digitalapplied",
+          "lawfaremedia.org": "Lawfare",
+          "glean.com": "Glean",
+          "openai.com": "OpenAI",
+          "blog.google": "Google",
+          "digital-strategy.ec.europa.eu": "European Commission",
+          "help.openai.com": "OpenAI Help",
+          "hhs.gov": "U.S. HHS",
+          "ftc.gov": "U.S. FTC"
+        };
+
+        var contract = window.NewsstandContract || {
+          EDITIONS: ["breaking", "daily", "weekly", "tribune"],
+          datasetState: function () { return { state: "load-failure", errors: ["reader contract did not load"] }; },
+          accessDecision: function () { return { canExpose: false, state: "load-failure", reason: "The publication record did not load." }; },
+          effectivePublicationState: function () { return "unavailable"; },
+          visibleStories: function () { return []; },
+          storyState: function () { return "unavailable"; }
+        };
+        var data = JSON.parse(JSON.stringify(window.NEWSSTAND_DATA || null));
+        var now = new Date().toISOString();
+        var dataset = contract
+          ? contract.datasetState(data, now)
+          : { state: "load-failure", errors: ["reader contract did not load"] };
+        var stories = dataset.state === "load-failure"
+          ? []
+          : JSON.parse(JSON.stringify(data.stories || [])).sort(function (a, b) {
+              return String(b.publishedAt).localeCompare(String(a.publishedAt));
+            });
+        window.addEventListener("newsstand:daily-snapshots-admitted", function (event) {
+          var daily = event.detail && Array.isArray(event.detail.stories)
+            ? JSON.parse(JSON.stringify(event.detail.stories))
+            : [];
+          stories = stories.filter(function (story) { return story.edition !== "daily"; }).concat(daily).sort(function (a, b) {
+            return String(b.publishedAt).localeCompare(String(a.publishedAt));
+          });
+          data.stories = JSON.parse(JSON.stringify(stories));
+          if (event.detail && event.detail.publication) {
+            data.publications.daily = JSON.parse(JSON.stringify(event.detail.publication));
+          }
+        });
+        var selectedEdition = null;
+        var lastInvoker = null;
+        var pendingStoryView = null;
+        var restorationSequence = 0;
+        var activeHistoryRestoration = null;
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        var reader = document.getElementById("paper-counter");
+        var paperView = document.getElementById("ns-paper-view");
+        var rack = document.getElementById("ns-rack");
+        var empty = document.getElementById("ns-empty");
+        var searchInput = document.getElementById("ns-search-input");
+
+        function visiblePublicationControl(edition) {
+          var selector = edition
+            ? '[data-edition="' + edition + '"]'
+            : '[data-edition]';
+          return Array.prototype.find.call(document.querySelectorAll(selector), function (control) {
+            return control.offsetParent !== null && !reader.contains(control);
+          }) || null;
+        }
+
+        function escapeHTML(value) {
+          var node = document.createElement("div");
+          node.textContent = String(value == null ? "" : value);
+          return node.innerHTML;
+        }
+
+        function escapeAttribute(value) {
+          return escapeHTML(value).replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
+
+        function stripHTML(value) {
+          return String(value || "").replace(/<[^>]*>/g, " ");
+        }
+
+        function formatDate(iso) {
+          if (!iso) return "";
+          var dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(String(iso));
+          var value = new Date(dateOnly ? iso + "T00:00:00Z" : iso);
+          if (isNaN(value)) return iso;
+          return value.toLocaleDateString("en-CA", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: dateOnly ? "UTC" : undefined
+          });
+        }
+
+        function formatCompactDate(iso) {
+          if (!iso) return "";
+          var dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(String(iso));
+          var value = new Date(dateOnly ? iso + "T00:00:00Z" : iso);
+          if (isNaN(value)) return iso;
+          return value.toLocaleDateString("en-CA", {
+            month: "short", day: "numeric", timeZone: dateOnly ? "UTC" : undefined
+          }) + " ’" + (dateOnly ? String(iso).slice(2, 4) : String(value.getFullYear()).slice(-2));
+        }
 
         function publisherFor(url) {
           try {
-            var host = new URL(url).hostname.replace(/^www\./, '');
+            var host = new URL(url).hostname.replace(/^www\./, "");
             if (PUBLISHER[host]) return PUBLISHER[host];
-            // Fallback: derive from domain root
-            var parts = host.split('.');
+            var parts = host.split(".");
             var root = parts.length >= 2 ? parts[parts.length - 2] : host;
             return root.charAt(0).toUpperCase() + root.slice(1);
-          } catch (e) {
-            return 'Source';
+          } catch (error) {
+            return "Source";
           }
         }
 
-        var EDITION_LABEL = {
-          today:     'TODAY',
-          wednesday: 'WEDNESDAY Edition',
-          tribune:   'The Tribune'
-        };
+        function firstSentence(value) {
+          var text = stripHTML(value).trim();
+          var sentence = text.match(/^(.+?[.!?])\s/);
+          return sentence ? sentence[1] : text;
+        }
 
-        var esc = (function () {
-          var el = document.createElement('div');
-          return function (s) {
-            el.textContent = String(s == null ? '' : s);
-            return el.innerHTML;
+        function getLocal(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function setLocal(key, value) {
+          try {
+            localStorage.setItem(key, value);
+          } catch (error) {
+            return;
+          }
+        }
+
+        function newestDate(list) {
+          return list.reduce(function (latest, story) {
+            return String(story.publishedAt) > latest ? String(story.publishedAt) : latest;
+          }, "");
+        }
+
+        function motionBehavior() {
+          return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth";
+        }
+
+        function focusAfterPaint(node) {
+          if (!node) return;
+          node.focus({ preventScroll: true });
+          window.requestAnimationFrame(function () {
+            node.focus({ preventScroll: true });
+          });
+        }
+
+        function setSelectedControls(mode) {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
+            var selected = button.getAttribute("data-edition") === mode;
+            button.classList.toggle("is-selected", selected);
+            button.setAttribute("aria-pressed", String(selected));
+          });
+        }
+
+        function captureReaderView(originSlug) {
+          if (reader.hidden || !selectedEdition) {
+            return { type: "closed", scrollY: window.scrollY };
+          }
+          return {
+            type: selectedEdition === "search" ? "search" : selectedEdition === "archive" ? "archive" : "paper",
+            mode: selectedEdition,
+            query: selectedEdition === "search" ? searchInput.value : "",
+            originSlug: originSlug || null,
+            scrollY: window.scrollY
           };
-        })();
-
-        function formatDate(iso) {
-          if (!iso) return '';
-          var d = new Date(iso + 'T00:00:00');
-          if (isNaN(d)) return iso;
-          return d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        // ---- Render a WEDNESDAY / Tribune article ----------------------
-        function renderArticle(s) {
-          var isTribune = s.edition === 'tribune';
-          var storyLabel  = isTribune ? 'The Argument' : 'The Story';
+        function persistHashlessView(view) {
+          if (location.hash) return;
+          var state = history.state && typeof history.state === "object" ? history.state : {};
+          state.nsReaderView = view || captureReaderView(null);
+          history.replaceState(state, "", location.href);
+        }
 
-          var badge = s.badge
-            ? '<span class="ns-article__badge ns-article__badge--gold">' + esc(s.badge) + '</span>'
-            : '<span class="ns-article__badge">' + esc(EDITION_LABEL[s.edition] || s.edition) + '</span>';
+        function restoreViewPosition(view) {
+          var savedScroll = Math.max(0, Number(view.scrollY) || 0);
+          var restorationId = String(++restorationSequence);
+          var restoration = { id: restorationId, requestedScroll: savedScroll, view: view };
+          activeHistoryRestoration = restoration;
+          reader.setAttribute("data-ns-restoration", "pending");
+          reader.setAttribute("data-ns-restoration-id", restorationId);
+          applyHistoryRestoration(restoration);
+        }
 
-          var subhead = isTribune && s.thread_subtitle
-            ? '<p class="ns-article__subhead"><em>' + esc(s.thread_subtitle) +
-              (s.thread_entry ? ' — entry ' + esc(s.thread_entry) : '') + '</em></p>'
-            : '';
+        function applyHistoryRestoration(restoration) {
+          window.requestAnimationFrame(function () {
+            if (activeHistoryRestoration !== restoration) return;
+            // One layout frame lets freshly rendered cards establish height.
+            // Completion remains observable and is revoked if history applies
+            // a later scroll position.
+            window.requestAnimationFrame(function () {
+              if (activeHistoryRestoration !== restoration) return;
+              var origin = restoration.view.originSlug
+                ? rack.querySelector('.ns-front-story[href="#' + restoration.view.originSlug + '"]')
+                : null;
+              var fallback = restoration.view.type === "search"
+                ? document.getElementById("ns-search-button")
+                : restoration.view.type === "archive"
+                  ? document.getElementById("ns-browse-all")
+                : visiblePublicationControl(restoration.view.mode);
+              var maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+              restoration.actualTarget = Math.min(restoration.requestedScroll, maxScroll);
+              window.scrollTo(0, restoration.actualTarget);
+              (origin || fallback || searchInput).focus({ preventScroll: true });
+              window.requestAnimationFrame(function () {
+                if (activeHistoryRestoration !== restoration) return;
+                // Layout may clamp a saved position after an orientation/zoom
+                // change. The reachable target is the honest settled result.
+                if (window.scrollY !== restoration.actualTarget) {
+                  applyHistoryRestoration(restoration);
+                  return;
+                }
+                reader.setAttribute("data-ns-restored-scroll", String(window.scrollY));
+                reader.setAttribute("data-ns-requested-scroll", String(restoration.requestedScroll));
+                reader.setAttribute("data-ns-clamped-scroll", String(restoration.actualTarget));
+                reader.setAttribute("data-ns-restoration", "settled");
+                activeHistoryRestoration = null;
+                window.dispatchEvent(new CustomEvent("newsstand:history-restored", {
+                  detail: { id: restoration.id, requestedScroll: restoration.requestedScroll, scrollY: window.scrollY, clamped: restoration.actualTarget !== restoration.requestedScroll, mode: restoration.view.type }
+                }));
+              });
+            });
+          });
+        }
 
-          var section = function (label, body) {
-            if (!body) return '';
-            return '<div class="ns-article__section">' +
-              '<span class="ns-article__section-label">' + esc(label) + '</span>' +
-              '<p>' + body + '</p>' +
-              '</div>';
-          };
+        window.addEventListener("scroll", function () {
+          if (!activeHistoryRestoration || window.scrollY === activeHistoryRestoration.actualTarget) return;
+          reader.setAttribute("data-ns-restoration", "pending");
+          applyHistoryRestoration(activeHistoryRestoration);
+        }, { passive: true });
 
-          var cocktail = s.cocktail_party
-            ? '<div class="ns-cocktail">' +
-              '<span class="ns-article__section-label">The Cocktail Party Explanation</span>' +
-              '<p>' + s.cocktail_party + '</p>' +
-              '</div>'
-            : '';
-
-          var watch = '';
-          if (isTribune && s.watch_fors && s.watch_fors.length) {
-            watch = '<div class="ns-watch">' +
-              '<p class="ns-watch__title">What we’re watching</p>' +
-              '<ul>' + s.watch_fors.map(function (w) { return '<li>' + w + '</li>'; }).join('') + '</ul>' +
-              '</div>';
+        function closeReaderForHistory(view) {
+          var returningEdition = selectedEdition;
+          selectedEdition = null;
+          reader.hidden = true;
+          rack.innerHTML = "";
+          empty.hidden = true;
+          setSelectedControls(null);
+          var fallback = returningEdition === "archive"
+            ? document.getElementById("ns-browse-all")
+            : returningEdition && returningEdition !== "search"
+            ? visiblePublicationControl(returningEdition)
+            : searchInput;
+          if (view && Number.isFinite(Number(view.scrollY))) {
+            window.scrollTo(0, Number(view.scrollY));
           }
-
-          var closing = s.closing_note
-            ? '<p class="ns-closing">' + s.closing_note + '</p>'
-            : '';
-
-          var classNotes = s.class_notes
-            ? '<div class="ns-class-notes">' +
-              '<span class="ns-class-notes__label">→ Class Notes</span>' +
-              s.class_notes +
-              '</div>'
-            : '';
-
-          var sources = '';
-          if (s.sources && s.sources.length) {
-            var items = s.sources.map(function (src) {
-              var flag = src.flag === 'vendor-sponsored' ? ' ⚠️ <em>vendor-sponsored</em>' : '';
-              return '<a href="' + esc(src.url) + '" target="_blank" rel="noopener">' + esc(src.label) + '</a>' + flag;
-            }).join(' · ');
-            sources = '<p><strong>Source</strong> ' + items + '</p>';
-          }
-
-          var aidb = s.aidb_credit ? '<p><em>' + esc(s.aidb_credit) + '</em></p>' : '';
-
-          var tags = '';
-          if (s.tags && s.tags.length) {
-            tags = '<p><strong>Tags</strong> ' +
-              s.tags.map(function (t) { return '<span class="ns-tag">' + esc(t) + '</span>'; }).join('') +
-              (s.saint_lane ? ' <span class="ns-tag">Saint · ' + esc(s.saint_lane) + '</span>' : '') +
-              '</p>';
-          }
-
-          return '<article class="ns-article" data-edition="' + esc(s.edition) + '" data-slug="' + esc(s.slug) + '">' +
-            badge +
-            '<span class="ns-article__eyebrow">' + esc(formatDate(s.date)) + '</span>' +
-            '<h2 class="ns-article__headline">' + esc(s.headline) + '</h2>' +
-            subhead +
-            section(storyLabel,                    s.the_story) +
-            section('The LAiDIES Read',            s.laidies_read) +
-            section('What This Means For You',     s.what_this_means) +
-            cocktail +
-            watch +
-            closing +
-            classNotes +
-            '<div class="ns-article__foot">' + sources + aidb + tags + '</div>' +
-            '</article>';
+          (fallback || searchInput).focus({ preventScroll: true });
         }
 
-        // ---- Preview card (rack view) ---------------------------------
-        function firstSentence(html) {
-          var text = String(html || '').replace(/<[^>]*>/g, '').trim();
-          var m = text.match(/^(.+?[.!?])\s/);
-          return m ? m[1] : text;
-        }
-
-        function renderPreviewCard(s) {
-          var isTribune = s.edition === 'tribune';
-          var badgeClass = 'ns-card__badge' + (isTribune ? ' ns-card__badge--tribune' : '');
-          var badgeText = isTribune
-            ? (s.badge || 'THE TRIBUNE')
-            : (EDITION_LABEL[s.edition] || s.edition).toUpperCase();
-
-          var subhead = (isTribune && s.thread_subtitle)
-            ? '<p class="ns-card__subhead"><em>' + esc(s.thread_subtitle) + '</em></p>'
-            : '';
-
-          var teaser = esc(firstSentence(s.laidies_read));
-
-          var tags = (s.tags || []).slice(0, 3).map(function (t) {
-            return '<span class="ns-tag">' + esc(t) + '</span>';
-          }).join('');
-
-          return '<a class="ns-card" href="#' + esc(s.slug) + '" data-edition="' + esc(s.edition) + '">' +
-            '<span class="' + badgeClass + '">' + esc(badgeText) + '</span>' +
-            '<span class="ns-card__date">' + esc(formatDate(s.date)) + '</span>' +
-            '<h3 class="ns-card__headline">' + esc(s.headline) + '</h3>' +
-            subhead +
-            '<p class="ns-card__teaser">' + teaser + '</p>' +
-            '<div class="ns-card__foot">' +
-              '<div class="ns-card__tags">' + tags + '</div>' +
-              '<span class="ns-card__cta">Read →</span>' +
-            '</div>' +
-          '</a>';
-        }
-
-        // ---- Master render / filter -----------------------------------
-        var state = { edition: 'all', query: '' };
-
-        function stripHtml(s) { return String(s || '').replace(/<[^>]*>/g, ' '); }
-
-        function matchesQuery(story, q) {
-          if (!q) return true;
-          var hay = [
+        function storySearchText(story) {
+          return [
             story.headline,
             story.thread,
             story.thread_subtitle,
-            (story.tags || []).join(' '),
+            (story.tags || []).join(" "),
             story.saint_lane,
-            stripHtml(story.the_story),
-            stripHtml(story.laidies_read),
-            stripHtml(story.what_this_means)
-          ].join(' ').toLowerCase();
-          return hay.indexOf(q.toLowerCase()) !== -1;
+            story.status,
+            stripHTML(story.the_story),
+            stripHTML(story.laidies_read),
+            stripHTML(story.what_this_means),
+            (story.sources || []).map(function (source) { return source.label; }).join(" ")
+          ].join(" ").toLowerCase();
         }
 
-        function currentSlug() {
-          var h = (location.hash || '').replace(/^#/, '').trim();
-          return h || null;
+        function renderFrontStory(story) {
+          var edition = story.edition;
+          var label = EDITION[edition] ? EDITION[edition].label : "NewsStand";
+          var teaser = firstSentence(story.laidies_read || story.the_story);
+          var status = contract.storyState(story);
+          var statusLabel = status === "corrected" ? "Corrected" : "Reported";
+          return [
+            '<a class="ns-front-story" href="#', escapeHTML(story.slug), '">',
+              '<span class="ns-front-story__edition">', escapeHTML(label), "</span>",
+              '<span class="ns-front-story__date">', escapeHTML(formatDate(story.publishedAt)), "</span>",
+              "<h3>", escapeHTML(story.headline), "</h3>",
+              '<p>', escapeHTML(teaser), "</p>",
+              '<span class="ns-front-story__status">', escapeHTML(statusLabel),
+                " · checked ", escapeHTML(formatDate(story.lastCheckedAt)), "</span>",
+              '<span class="ns-front-story__read">Open the story →</span>',
+            "</a>"
+          ].join("");
         }
 
-        function render() {
-          var rack = document.getElementById('ns-rack');
-          var empty = document.getElementById('ns-empty');
-          var stories = (window.NEWSSTAND_STORIES || []).slice().sort(function (a, b) {
-            return String(b.date).localeCompare(String(a.date));
+        function articleSection(label, body) {
+          if (!body) return "";
+          return [
+            '<section class="ns-article__section">',
+              '<h3>', escapeHTML(label), "</h3>",
+              "<p>", body, "</p>",
+            "</section>"
+          ].join("");
+        }
+
+        function renderLongformBlock(block) {
+          if (!block || !block.type) return "";
+          if (block.type === "paragraph") return "<p>" + (block.body || "") + "</p>";
+          if (block.type === "subheading") return "<h4>" + escapeHTML(block.text || "") + "</h4>";
+          if (block.type === "unordered_list" || block.type === "ordered_list") {
+            var tag = block.type === "ordered_list" ? "ol" : "ul";
+            return "<" + tag + ">" + (block.items || []).map(function (item) { return "<li>" + item + "</li>"; }).join("") + "</" + tag + ">";
+          }
+          if (block.type === "quote") return '<blockquote class="ns-article__cocktail">' +
+            (block.eyebrow ? "<strong>" + escapeHTML(block.eyebrow) + "</strong>" : "") +
+            "<p>" + (block.body || "") + "</p></blockquote>";
+          return "";
+        }
+
+        function renderLongform(story) {
+          if (!story.longform || !Array.isArray(story.longform.sections) || !story.longform.sections.length) return "";
+          return story.longform.sections.map(function (section) {
+            return [
+              '<section class="ns-article__section ns-article__section--longform" id="', escapeAttribute(section.id || ""), '">',
+                '<h3>', escapeHTML(section.label || ""), '</h3>',
+                (section.blocks || []).map(renderLongformBlock).join(""),
+              '</section>'
+            ].join("");
+          }).join("");
+        }
+
+        function renderArticle(story) {
+          var edition = story.edition;
+          var isTribune = edition === "tribune";
+          var state = contract.storyState(story);
+          if (state === "hold") {
+            return '<div class="ns-story-notice ns-story-notice--hold"><strong>Not published yet</strong><p>Paige is still checking this story. It will stay off the rack until it is ready to read.</p></div>';
+          }
+          if (state === "retracted") {
+            return '<div class="ns-story-notice ns-story-notice--retracted"><strong>Retracted</strong><p>' +
+              escapeHTML(story.retraction && story.retraction.reason || "This story has been withdrawn.") +
+              "</p></div>";
+          }
+          var watch = "";
+          if (isTribune && story.watch_fors && story.watch_fors.length) {
+            watch = [
+              '<section class="ns-article__watch">',
+                "<h3>What we’re watching</h3>",
+                "<ul>",
+                  story.watch_fors.map(function (item) { return "<li>" + item + "</li>"; }).join(""),
+                "</ul>",
+              "</section>"
+            ].join("");
+          }
+
+          var sources = "";
+          if (story.sources && story.sources.length) {
+            sources = story.sources.map(function (source) {
+              var flag = source.publisherType === "vendor" ? " · vendor source" : "";
+              return '<a href="' + escapeHTML(source.url) + '" target="_blank" rel="noopener">' +
+                escapeHTML(source.label) + escapeHTML(flag) + "</a>";
+            }).join(" · ");
+          }
+
+          var correction = state === "corrected"
+            ? '<aside class="ns-story-notice ns-story-notice--corrected"><strong>Correction · ' +
+              escapeHTML(formatDate(story.correction.correctedAt)) + "</strong><p>" +
+              escapeHTML(story.correction.summary) + "</p></aside>"
+            : "";
+          var longform = renderLongform(story);
+          return [
+            '<article class="ns-article">',
+              '<header class="ns-article__head">',
+                '<p class="ns-article__edition">', escapeHTML(EDITION[edition].label), "</p>",
+                '<p class="ns-article__date">Published ', escapeHTML(formatDate(story.publishedAt)),
+                  " · Updated ", escapeHTML(formatDate(story.updatedAt)),
+                  " · Checked ", escapeHTML(formatDate(story.lastCheckedAt)), "</p>",
+                "<h2>", escapeHTML(story.headline), "</h2>",
+                story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
+              "</header>",
+              correction,
+              longform || [
+                articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
+                articleSection("The LAiDIES Read", story.laidies_read),
+                articleSection("What This Means For You", story.what_this_means),
+                story.cocktail_party ? '<blockquote class="ns-article__cocktail"><strong>The Cocktail Party Explanation</strong><p>' + story.cocktail_party + "</p></blockquote>" : "",
+                watch,
+                story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
+                story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : ""
+              ].join(""),
+              '<footer class="ns-article__sources">',
+                !longform && sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
+                story.aidb_credit ? "<p><em>" + escapeHTML(story.aidb_credit) + "</em></p>" : "",
+                story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
+              "</footer>",
+            "</article>"
+          ].join("");
+        }
+
+        function renderAccessNotice(decision) {
+          var label = decision.state === "retracted" ? "Retracted" :
+            decision.state === "stale" ? "Source check overdue" :
+            decision.state === "hold" ? "Not published yet" :
+            decision.state === "quiet" ? "Quiet desk" :
+            decision.state === "no-data" ? "No approved data" :
+            "Publication unavailable";
+          var modifier = decision.state === "retracted" ? " ns-story-notice--retracted" : "";
+          return '<div class="ns-story-notice' + modifier + '" data-access-state="' +
+            escapeHTML(decision.state) + '"><strong>' + escapeHTML(label) +
+            "</strong><p>" + escapeHTML(decision.reason) + "</p></div>";
+        }
+
+        function setReaderHeader(mode, list) {
+          var meta = EDITION[mode];
+          document.getElementById("ns-reader-edition").textContent = meta.label;
+          document.getElementById("ns-reader-title").textContent = meta.title;
+          document.getElementById("ns-reader-date").textContent =
+            list && list.length ? formatDate(newestDate(list)) : "";
+          paperView.setAttribute("data-paper", mode);
+        }
+
+        function showReader(options) {
+          reader.hidden = false;
+          empty.hidden = true;
+          rack.innerHTML = options.html || "";
+          setReaderHeader(options.mode, options.list || []);
+          empty.textContent = options.empty || EDITION[options.mode].empty;
+          empty.hidden = Boolean(options.html);
+          if (options.invoker) lastInvoker = options.invoker;
+          setSelectedControls(options.mode);
+          if (options.scroll !== false) {
+            reader.scrollIntoView({ behavior: motionBehavior(), block: "start" });
+          }
+          if (options.focus !== false) {
+            focusAfterPaint(options.html
+              ? document.getElementById("ns-reader-title")
+              : empty);
+          }
+        }
+
+        function stateMessage(edition, state, publication) {
+          if (state === "quiet") return publication.note;
+          if (state === "hold") return publication.note || "This issue is not published yet.";
+          if (state === "stale") return "Paige’s dated source check is overdue. This desk is not being presented as current.";
+          if (state === "unavailable") return "This publication record is unavailable. Nothing is being presented as current.";
+          return EDITION[edition].empty;
+        }
+
+        function pullPaper(edition, shouldScroll, invoker, viewOptions) {
+          viewOptions = viewOptions || {};
+          selectedEdition = edition;
+          if (location.hash) {
+            history.replaceState(null, "", location.pathname + location.search);
+          }
+          var access = contract.accessDecision(data, null, { edition: edition, scope: "paper" }, now);
+          if (!access.canExpose) {
+            showReader({
+              mode: edition,
+              list: [],
+              html: "",
+              empty: access.reason,
+              scroll: shouldScroll !== false,
+              focus: viewOptions.focus !== false,
+              invoker: invoker
+            });
+            if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            return;
+          }
+          var publication = data.publications[edition];
+          var list = contract.visibleStories(data, edition, now);
+          var html = list.map(renderFrontStory).join("");
+          showReader({
+            mode: edition,
+            list: list,
+            html: html,
+            empty: list.length
+              ? ""
+              : "This publication is marked current but has no approved, eligible story. Nothing is exposed.",
+            scroll: shouldScroll !== false,
+            focus: viewOptions.focus !== false,
+            invoker: invoker
           });
-
-          // Newest date across all stories → the dateline
-          if (stories.length) {
-            document.getElementById('ns-dateline').textContent = formatDate(stories[0].date);
-          }
-
-          // ---- Detail view: hash matches a story slug -----------------
-          var slug = currentSlug();
-          if (slug) {
-            var story = stories.filter(function (s) { return s.slug === slug; })[0];
-            if (story) {
-              rack.innerHTML =
-                '<a class="ns-back" href="/newsstand.html">← Back to the NewsStand</a>' +
-                renderArticle(story);
-              empty.hidden = true;
-              window.scrollTo({ top: 0, behavior: 'auto' });
-              return;
-            }
-            // Unknown slug — fall through to rack view.
-          }
-
-          // ---- Rack view: cards ---------------------------------------
-          var q = state.query.trim();
-          var showWed   = (state.edition === 'all' || state.edition === 'wednesday');
-          var showTrib  = (state.edition === 'all' || state.edition === 'tribune');
-
-          var parts = [];
-
-          var wed = stories.filter(function (s) { return s.edition === 'wednesday' && matchesQuery(s, q); });
-          var trib = stories.filter(function (s) { return s.edition === 'tribune' && matchesQuery(s, q); });
-
-          if (showWed && wed.length) {
-            parts.push(
-              '<div class="ns-section">' +
-                '<h2 class="ns-section__title">WEDNESDAY Edition</h2>' +
-                '<span class="ns-section__meta">The weekly digest</span>' +
-              '</div>' +
-              '<div class="ns-card-grid">' + wed.map(renderPreviewCard).join('') + '</div>'
-            );
-          }
-
-          if (showTrib && trib.length) {
-            parts.push(
-              '<div class="ns-section">' +
-                '<h2 class="ns-section__title">The Tribune</h2>' +
-                '<span class="ns-section__meta">Tracks the big themes as they develop</span>' +
-              '</div>' +
-              '<div class="ns-card-grid">' + trib.map(renderPreviewCard).join('') + '</div>'
-            );
-          }
-
-          rack.innerHTML = parts.join('');
-          empty.hidden = parts.length > 0;
+          if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
         }
 
-        // ---- Wire up filter chips + search + hash routing -------------
-        function attachControls() {
-          Array.prototype.forEach.call(document.querySelectorAll('.ns-chip'), function (chip) {
-            chip.addEventListener('click', function () {
-              state.edition = chip.getAttribute('data-edition');
-              Array.prototype.forEach.call(document.querySelectorAll('.ns-chip'), function (c) {
-                c.classList.toggle('is-active', c === chip);
-              });
-              // Filter action drops any open detail view.
-              if (location.hash) {
-                history.replaceState(null, '', location.pathname + location.search);
-              }
-              render();
+        function renderSearch(invoker, viewOptions) {
+          viewOptions = viewOptions || {};
+          var query = searchInput.value.trim().toLowerCase();
+          if (!query) {
+            document.getElementById("ns-search-hint").textContent = defaultSearchHint();
+            return;
+          }
+          selectedEdition = "search";
+          if (location.hash) {
+            history.replaceState(null, "", location.pathname + location.search);
+          }
+          var searchAccess = contract.accessDecision(data, null, { scope: "search" }, now);
+          if (!searchAccess.canExpose) {
+            document.getElementById("ns-search-hint").textContent = "Archive unavailable: " + searchAccess.reason;
+            showReader({
+              mode: "search",
+              list: [],
+              html: "",
+              empty: searchAccess.reason,
+              scroll: viewOptions.scroll !== false,
+              focus: viewOptions.focus !== false,
+              invoker: invoker || searchInput
+            });
+            if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            return;
+          }
+          var matches = stories.filter(function (story) {
+            return contract.accessDecision(data, story, { scope: "search" }, now).canExpose &&
+              storySearchText(story).indexOf(query) !== -1;
+          });
+          document.getElementById("ns-search-hint").textContent =
+            matches.length + (matches.length === 1 ? " back issue found." : " back issues found.");
+          showReader({
+            mode: "search",
+            list: matches,
+            html: matches.map(renderFrontStory).join(""),
+            scroll: viewOptions.scroll !== false,
+            focus: viewOptions.focus !== false,
+            invoker: invoker || searchInput
+          });
+          if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+        }
+
+        function renderArchive(invoker, viewOptions) {
+          viewOptions = viewOptions || {};
+          selectedEdition = "archive";
+          if (location.hash) {
+            history.replaceState(null, "", location.pathname + location.search);
+          }
+          var archiveAccess = contract.accessDecision(data, null, { scope: "search" }, now);
+          if (!archiveAccess.canExpose) {
+            document.getElementById("ns-search-hint").textContent = "Archive unavailable: " + archiveAccess.reason;
+            showReader({
+              mode: "archive",
+              list: [],
+              html: "",
+              empty: archiveAccess.reason,
+              scroll: viewOptions.scroll !== false,
+              focus: viewOptions.focus !== false,
+              invoker: invoker || document.getElementById("ns-browse-all")
+            });
+            if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            return;
+          }
+          var available = stories.filter(function (story) {
+            return contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
+          });
+          document.getElementById("ns-search-hint").textContent =
+            available.length + (available.length === 1 ? " back issue available." : " back issues available.");
+          showReader({
+            mode: "archive",
+            list: available,
+            html: available.map(renderFrontStory).join(""),
+            scroll: viewOptions.scroll !== false,
+            focus: viewOptions.focus !== false,
+            invoker: invoker || document.getElementById("ns-browse-all")
+          });
+          if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+        }
+
+        function eligibleArchiveStories() {
+          var access = contract.accessDecision(data, null, { scope: "search" }, now);
+          if (!access.canExpose) return [];
+          return stories.filter(function (story) {
+            return contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
+          });
+        }
+
+        function eligibleTopics() {
+          var counts = {};
+          eligibleArchiveStories().forEach(function (story) {
+            (story.tags || []).forEach(function (tag) {
+              var key = String(tag).trim();
+              if (key) counts[key] = (counts[key] || 0) + 1;
             });
           });
-          var input = document.getElementById('ns-search-input');
-          var t = null;
-          input.addEventListener('input', function () {
-            state.query = input.value;
-            clearTimeout(t);
-            t = setTimeout(render, 90);
-          });
-          // Detail view routing
-          window.addEventListener('hashchange', render);
+          return {
+            counts: counts,
+            topics: Object.keys(counts).sort(function (a, b) {
+              return a.localeCompare(b, undefined, { sensitivity: "base" });
+            })
+          };
         }
 
-        // ---- Boot ------------------------------------------------------
-        attachControls();
-        render();
+        function defaultSearchHint() {
+          var topics = eligibleTopics().topics.slice(0, 3);
+          if (!topics.length) return "Browse all, choose a topic, or search the crate.";
+          return "Try " + topics.map(function (topic) {
+            return "“" + topic + "”";
+          }).join(", ") + ".";
+        }
+
+        function renderTopicButtons() {
+          var browser = document.getElementById("ns-topic-browser");
+          var target = document.getElementById("ns-topic-buttons");
+          var topicData = eligibleTopics();
+          var counts = topicData.counts;
+          var topics = topicData.topics;
+          target.innerHTML = topics.map(function (topic) {
+            return '<button class="ns-topic-button" type="button" data-topic="' +
+              escapeAttribute(topic) + '">' + escapeHTML(topic) +
+              ' <span aria-hidden="true">' + counts[topic] + '</span></button>';
+          }).join("");
+          browser.hidden = topics.length === 0;
+          document.getElementById("ns-search-hint").textContent = defaultSearchHint();
+        }
+
+        function renderHash(scroll, invoker) {
+          var slug = (location.hash || "").replace(/^#/, "").trim();
+          if (!slug) return false;
+          var routeAccess = contract.accessDecision(data, null, { scope: "hash" }, now);
+          if (!routeAccess.canExpose) {
+            selectedEdition = "search";
+            showReader({
+              mode: "search",
+              list: [],
+              html: renderAccessNotice(routeAccess),
+              scroll: scroll !== false,
+              invoker: invoker
+            });
+            document.getElementById("ns-reader-title").textContent =
+              routeAccess.state === "stale" ? "Archived route · check overdue." :
+              routeAccess.state === "hold" ? "Not published yet." : "Story unavailable.";
+            return true;
+          }
+          var story = stories.filter(function (item) { return item.slug === slug; })[0];
+          if (!story) {
+            var missing = { state: "unavailable", reason: "No story record exists at this preserved route." };
+            selectedEdition = "search";
+            showReader({
+              mode: "search",
+              list: [],
+              html: renderAccessNotice(missing),
+              scroll: scroll !== false,
+              invoker: invoker
+            });
+            document.getElementById("ns-reader-title").textContent = "Story unavailable.";
+            return true;
+          }
+          var decision = contract.accessDecision(data, story, { scope: "hash" }, now);
+          var previousView = pendingStoryView ||
+            (history.state && history.state.nsPreviousView) ||
+            null;
+          var storyState = history.state && typeof history.state === "object" ? history.state : {};
+          storyState.nsStory = slug;
+          storyState.nsPreviousView = previousView;
+          history.replaceState(storyState, "", location.href);
+          pendingStoryView = null;
+          selectedEdition = story.edition;
+          showReader({
+            mode: story.edition,
+            list: [story],
+            html: decision.canExpose ? renderArticle(story) : renderAccessNotice(decision),
+            scroll: scroll !== false,
+            invoker: invoker
+          });
+          document.getElementById("ns-reader-title").textContent =
+            decision.state === "retracted" ? "Retraction notice." :
+            decision.state === "stale" ? "Archived route · check overdue." :
+            decision.state === "hold" ? "Not published yet." :
+            decision.canExpose ? "Inside the paper." : "Story unavailable.";
+          return true;
+        }
+
+        function restoreHashlessView() {
+          var view = history.state && history.state.nsReaderView;
+          if (!view || view.type === "closed") {
+            closeReaderForHistory(view || { type: "closed", scrollY: window.scrollY });
+            return;
+          }
+          if (view.type === "search") {
+            searchInput.value = view.query || "";
+            renderSearch(null, { scroll: false, focus: false, skipHistory: true });
+            restoreViewPosition(view);
+            return;
+          }
+          if (view.type === "archive") {
+            renderArchive(null, { scroll: false, focus: false, skipHistory: true });
+            restoreViewPosition(view);
+            return;
+          }
+          if (view.type === "paper" && EDITION[view.mode]) {
+            pullPaper(view.mode, false, null, { focus: false, skipHistory: true });
+            restoreViewPosition(view);
+            return;
+          }
+          closeReaderForHistory(view);
+        }
+
+        function statusCopy(state, publication) {
+          if (state === "current") return "Current · checked " + formatDate(publication.lastCheckedAt);
+          if (state === "archive") return "Latest complete edition · " + formatDate(publication.editionDate || publication.publishedAt);
+          if (state === "quiet") return "Quiet · checked " + formatDate(publication.lastCheckedAt);
+          if (state === "hold") return "Not published";
+          if (state === "stale") return "Check overdue · not current";
+          return "Unavailable";
+        }
+
+        function compactStatusCopy(state, publication) {
+          if (state === "current") return "Current · " + formatCompactDate(publication.lastCheckedAt);
+          if (state === "archive") return "Latest · " + formatCompactDate(publication.editionDate || publication.publishedAt);
+          if (state === "quiet") return "Quiet · " + formatCompactDate(publication.lastCheckedAt);
+          if (state === "hold") return "Not published";
+          if (state === "stale") return "Update needed";
+          return "Unavailable";
+        }
+
+        function renderPublicationStates() {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-status-for]"), function (node) {
+            var edition = node.getAttribute("data-status-for");
+            var publication = data && data.publications && data.publications[edition];
+            var state = dataset.state === "load-failure" || dataset.state === "no-data"
+              ? "unavailable"
+              : dataset.state === "hold"
+                ? "hold"
+                : contract.effectivePublicationState(publication, now);
+            node.textContent = node.closest(".ns-paper-index")
+              ? compactStatusCopy(state, publication || {})
+              : statusCopy(state, publication || {});
+            node.setAttribute("data-state", state);
+            var action = document.querySelector('.ns-publication[data-edition="' + edition + '"] .ns-publication__action');
+            if (action) {
+              action.textContent = state === "current" ? "Pull this paper · Opens here" :
+                state === "archive" ? "Pull this paper · Latest edition" :
+                state === "quiet" ? "Check this paper · No issue today" :
+                state === "hold" ? "Check this paper · Not published" :
+                state === "stale" ? "Check this paper · Source update needed" :
+                "Check this paper · Unavailable";
+            }
+            var indexAction = document.querySelector('[data-index-action-for="' + edition + '"]');
+            if (indexAction) {
+              indexAction.textContent = state === "current" ? "Open issue" :
+                state === "archive" ? "Open latest" :
+                state === "quiet" ? "No issue today" :
+                state === "hold" ? "Not published" :
+                state === "stale" ? "Update needed" :
+                "Unavailable";
+            }
+          });
+        }
+
+        function renderPublicationContents() {
+          Array.prototype.forEach.call(document.querySelectorAll("[data-contents-for]"), function (node) {
+            var edition = node.getAttribute("data-contents-for");
+            var publication = data && data.publications && data.publications[edition];
+            var effectiveState = publication
+              ? contract.effectivePublicationState(publication, now)
+              : "unavailable";
+            var state = dataset.state === "load-failure" || dataset.state === "no-data"
+              ? "unavailable"
+              : dataset.state === "hold"
+                ? "hold"
+                : effectiveState;
+            var eligible = state === "current" || state === "archive"
+              ? contract.visibleStories(data, edition, now)
+              : [];
+
+            node.setAttribute("data-state", state);
+            node.setAttribute("data-story-count", String(eligible.length));
+            if (eligible.length) {
+              var lead = eligible[0];
+              node.innerHTML = [
+                '<span class="ns-publication__count">', eligible.length,
+                  eligible.length === 1 ? " story" : " stories", "</span>",
+                '<span class="ns-publication__headline">', escapeHTML(lead.headline), "</span>",
+                '<span class="ns-publication__teaser">',
+                  escapeHTML(firstSentence(lead.laidies_read || lead.the_story)), "</span>"
+              ].join("");
+              return;
+            }
+
+            node.textContent = publication && state === effectiveState &&
+              (state === "quiet" || state === "hold") && publication.note
+              ? publication.note
+              : statusCopy(state, publication || {});
+          });
+        }
+
+        function setArrivalState() {
+          renderPublicationStates();
+          renderPublicationContents();
+          renderTopicButtons();
+          Array.prototype.forEach.call(document.querySelectorAll("[data-fresh-for]"), function (stamp) {
+            var edition = stamp.getAttribute("data-fresh-for");
+            var publication = data && data.publications && data.publications[edition];
+            stamp.hidden = dataset.state !== "ready" || !publication ||
+              contract.effectivePublicationState(publication, now) !== "current";
+          });
+
+          var title = document.getElementById("ns-title");
+          var detail = document.getElementById("ns-state-detail");
+          var system = document.getElementById("ns-system-status");
+          var primary = document.querySelector(".ns-state__primary");
+          var current = [];
+          if (dataset.state === "load-failure") {
+            title.textContent = "The desk record did not load.";
+            detail.textContent = "Nothing is being presented as current. Try again later; the archive and publication labels remain visible for orientation.";
+            system.textContent = "Publication data unavailable.";
+          } else if (dataset.state === "no-data") {
+            title.textContent = "The desk is empty.";
+            detail.textContent = "The record loaded, but no approved stories were filed. Paige will not substitute filler.";
+            system.textContent = "No approved story data.";
+          } else if (dataset.state === "hold") {
+            title.textContent = "Today’s papers are not on the rack yet.";
+            detail.textContent = "Paige is still checking the stories. Come back soon.";
+            system.textContent = "Nothing new to read yet.";
+          } else if (dataset.state === "stale") {
+            title.textContent = "Paige’s check is overdue.";
+            detail.textContent = "The papers are not being presented as current until their sources and status are checked again.";
+            system.textContent = "Publication check overdue.";
+          } else if (dataset.state === "unavailable") {
+            title.textContent = "Part of Paige’s desk is unavailable.";
+            detail.textContent = "No dated check is overdue, but at least one publication record is unavailable. Nothing from that desk is exposed.";
+            system.textContent = "Publication record unavailable.";
+          } else if (dataset.state === "clear") {
+            title.textContent = "A clear day at the NewsStand.";
+            detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+            system.textContent = "No current publication.";
+          } else {
+            current = contract.EDITIONS.filter(function (edition) {
+              return contract.effectivePublicationState(data.publications[edition], now) === "current";
+            });
+            if (current.length) {
+              title.textContent = current.map(function (edition) { return EDITION[edition].label; }).join(" and ") +
+                (current.length === 1 ? " is current." : " are current.");
+              detail.textContent = "Last desk check: " + formatDate(data.lastCheckedAt) +
+                ". If there is nothing new worth printing, Paige leaves the rack quiet." +
+                (dataset.staleEditions && dataset.staleEditions.length ? " One or more checks are overdue." : "") +
+                (dataset.unavailableEditions && dataset.unavailableEditions.length ? " One or more records are unavailable." : "");
+              system.textContent = current.length + (current.length === 1 ? " current publication." : " current publications.");
+            } else {
+              title.textContent = "A clear day at the NewsStand.";
+              detail.textContent = "No qualified current paper is filed. Last desk check: " + formatDate(data.lastCheckedAt) + ".";
+              system.textContent = "No current publication.";
+            }
+          }
+          if (current.length === 1) {
+            primary.textContent = "Pull " + EDITION[current[0]].label.replace(/^The /, "the ");
+            primary.setAttribute("data-pull", current[0]);
+          } else {
+            primary.textContent = "Choose a paper";
+            primary.removeAttribute("data-pull");
+          }
+        }
+
+        var activeButton = null;
+        var activeAudio = null;
+        function stopAudio() {
+          if (activeButton) activeButton.classList.remove("is-playing");
+          if (activeAudio) {
+            try { activeAudio.pause(); } catch (error) { /* no-op */ }
+          }
+          activeButton = null;
+          activeAudio = null;
+        }
+
+        document.querySelector(".ns-radio").addEventListener("click", function () {
+          var button = this;
+          if (activeButton === button) {
+            stopAudio();
+            return;
+          }
+          stopAudio();
+          var audio = new Audio(button.getAttribute("data-src"));
+          audio.addEventListener("ended", stopAudio);
+          audio.addEventListener("error", stopAudio);
+          audio.play().catch(stopAudio);
+          button.classList.add("is-playing");
+          activeButton = button;
+          activeAudio = audio;
+        });
+
+        Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
+          button.addEventListener("click", function () {
+            pullPaper(button.getAttribute("data-edition"), true, button);
+          });
+          button.addEventListener("keydown", function (event) {
+            if (event.key !== "Enter") return;
+            event.preventDefault();
+            button.click();
+          });
+        });
+        document.querySelector(".ns-state__primary").addEventListener("click", function () {
+          var edition = this.getAttribute("data-pull");
+          if (edition) {
+            pullPaper(edition, true, this);
+            return;
+          }
+          var firstPaper = visiblePublicationControl();
+          if (firstPaper) {
+            firstPaper.scrollIntoView({ behavior: motionBehavior(), block: "center", inline: "start" });
+            focusAfterPaint(firstPaper);
+          }
+        });
+        document.querySelector(".ns-catchup-jump").addEventListener("click", function () {
+          document.getElementById("newsstand-catchup").scrollIntoView({
+            behavior: motionBehavior(), block: "start", inline: "nearest"
+          });
+          focusAfterPaint(document.getElementById("ns-catchup-since"));
+        });
+        document.getElementById("ns-return").addEventListener("click", function () {
+          if (location.hash) {
+            history.replaceState(null, "", location.pathname + location.search);
+          }
+          var returningEdition = selectedEdition;
+          reader.hidden = true;
+          Array.prototype.forEach.call(document.querySelectorAll("[data-edition]"), function (button) {
+            button.classList.remove("is-selected");
+            button.setAttribute("aria-pressed", "false");
+          });
+          var fallback = visiblePublicationControl(returningEdition) || visiblePublicationControl();
+          var destination = lastInvoker && document.contains(lastInvoker) && !reader.contains(lastInvoker)
+            ? lastInvoker
+            : fallback;
+          selectedEdition = null;
+          pendingStoryView = null;
+          persistHashlessView({ type: "closed", scrollY: window.scrollY });
+          if (destination) {
+            destination.scrollIntoView({ behavior: motionBehavior(), block: "center" });
+            focusAfterPaint(destination);
+          }
+        });
+
+        searchInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            renderSearch(searchInput);
+          }
+        });
+        document.getElementById("ns-search-button").addEventListener("click", function () {
+          renderSearch(this);
+        });
+        document.getElementById("ns-browse-all").addEventListener("click", function () {
+          renderArchive(this);
+        });
+        document.getElementById("ns-topic-buttons").addEventListener("click", function (event) {
+          var button = event.target.closest(".ns-topic-button");
+          if (!button) return;
+          searchInput.value = button.getAttribute("data-topic");
+          renderSearch(button);
+          document.getElementById("ns-reader-edition").textContent = "Topic";
+          document.getElementById("ns-reader-title").textContent = button.getAttribute("data-topic");
+        });
+        rack.addEventListener("click", function (event) {
+          var link = event.target.closest(".ns-front-story");
+          if (link) {
+            var slug = (link.getAttribute("href") || "").replace(/^#/, "");
+            pendingStoryView = captureReaderView(slug);
+            persistHashlessView(pendingStoryView);
+            lastInvoker = selectedEdition === "search"
+              ? (document.getElementById("ns-search-button") || searchInput)
+              : selectedEdition === "archive"
+                ? document.getElementById("ns-browse-all")
+              : visiblePublicationControl(selectedEdition);
+          }
+        });
+        window.addEventListener("hashchange", function () {
+          if (location.hash) renderHash(true, lastInvoker);
+          else restoreHashlessView();
+        });
+
+        setArrivalState();
+        if (location.hash) renderHash(false, null);
+        else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>
-
     <script src="/content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
-<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
-<script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
-</body>
+    <script defer src="/content/site/newsstand-catchup-v1.js?v=20260812-daily-first-v1"></script>
+    <script defer src="/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1"></script>
+    <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+    <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+  </body>
 </html>

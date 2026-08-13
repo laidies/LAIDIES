@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "laidies-newsstand-service-exemplar.v1",
+  "candidateId": "NEWSSTAND-SERVICE-MME-CLAIO-MINI-BACKPACK-20260812-V1",
+  "laneId": "mme_claio",
+  "editionDate": "2026-08-12",
+  "status": "PRIVATE_REVIEW_CANDIDATE",
+  "headline": "Mme CLAi-O’s Reading of the Day",
+  "body": "The Mini Backpack\n\nYou are carrying too much in a bag designed for lip gloss and vibes from 2001.\n\nCapacity matters. Stop calling overload a time management issue.\n\nRemove one commitment before adding another shiny thing.\n\nThis is a fixed authored reflection selected for the dated Daily—not a prediction or personalised reading. It was not generated from anything you told LAiDIES. Visit Mme CLAi-O if you want to draw from the full governed deck.",
+  "featureRegistry": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
+    "sha256": "22d16efba451fa96cf3b41902841a82699c452e64d816e2cad2eac430c1a11c9"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "laneContractSha256": "fa95b9d5f42e170f5994f3c1015f4e1a986f80b073b28fed8fadc1ed24a84e0f",
+  "negativeExemplarIdsRead": [],
+  "sourceEvidence": [
+    {
+      "path": "content/data/mme-claio-deck.json",
+      "sha256": "e452b9df0700b5dd1ef87572b5f0aa76137fe6c50f3c547714f96de86910b5b6"
+    },
+    {
+      "path": "operations/product-stewards/mme-claio/DAILY-2026-08-03-MME-MINI-BACKPACK-OWNER-BRAND-SAFETY-RULING-2026-08-04.md",
+      "sha256": "666e5536a267590fbcad9bdeaed95cc4d8e818210a72019279658272e274c8ee"
+    }
+  ],
+  "beatEvidence": [
+    {"beat": "exact card title", "quote": "The Mini Backpack"},
+    {"beat": "fixed authored reading", "quote": "You are carrying too much in a bag designed for lip gloss and vibes from 2001."},
+    {"beat": "one reflective question or action", "quote": "Remove one commitment before adding another shiny thing."},
+    {"beat": "not tailored or predictive boundary", "quote": "This is a fixed authored reflection selected for the dated Daily—not a prediction or personalised reading."},
+    {"beat": "route to Mme CLAi-O", "quote": "Visit Mme CLAi-O if you want to draw from the full governed deck."}
+  ],
+  "laneSpecific": {
+    "situationType": "FIXED_DECK_SELECTION",
+    "deck": {
+      "path": "content/data/mme-claio-deck.json",
+      "sha256": "e452b9df0700b5dd1ef87572b5f0aa76137fe6c50f3c547714f96de86910b5b6"
+    },
+    "cardId": "mini-backpack",
+    "selectionMethod": "DETERMINISTIC_DATE_NO_READER_DATA"
+  },
+  "freshness": {
+    "checkedAt": "2026-08-12T20:40:00-07:00",
+    "recheckTriggers": ["The governed deck bytes change.", "The Mini Backpack owner/Brand/Safety ruling changes.", "The deterministic Daily selection method or destination changes."]
+  },
+  "owner": "Mme CLAi-O product owner and NewsStand service features",
+  "destination": "/games/madame-claio.html",
+  "storage": {
+    "recordId": "DAILY-2026-08-12-MME-MINI-BACKPACK-CANDIDATE",
+    "publicEligibility": "INELIGIBLE_PENDING_ALI_ACCEPTANCE"
+  },
+  "selfReview": {
+    "exactTextRead": true,
+    "knownDefectsRemaining": [],
+    "distinctnessFinding": "This preserves the governed fixed deck verbatim and adds only the dated non-predictive boundary and route. It is not generated prompting advice or astrology."
+  }
+}
