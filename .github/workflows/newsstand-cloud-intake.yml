@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "30 16,23 * * *"
   workflow_dispatch:
+    inputs:
+      backfill_since:
+        description: "Optional bounded AIDB/Mollick recovery start (YYYY-MM-DD, maximum 21 days)"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -38,13 +43,20 @@ jobs:
           node scripts/test-newsstand-cloud-intake-workflow.mjs
 
       - name: Run private source intake
+        env:
+          BACKFILL_SINCE: ${{ inputs.backfill_since }}
         run: |
           previous=()
           if [[ -f .newsstand-cloud-intake/state.json ]]; then
             previous=(--previous .newsstand-cloud-intake/state.json)
           fi
+          backfill=()
+          if [[ -n "$BACKFILL_SINCE" ]]; then
+            backfill=(--backfill-since "$BACKFILL_SINCE")
+          fi
           node scripts/run-newsstand-cloud-intake.mjs \
             "${previous[@]}" \
+            "${backfill[@]}" \
             --output .newsstand-cloud-intake/receipt.json \
             --state-output .newsstand-cloud-intake/state.json
 

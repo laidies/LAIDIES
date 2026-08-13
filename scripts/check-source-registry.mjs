@@ -68,6 +68,7 @@ export function validateSourceRegistry(registry, practitionerRoster) {
     for (const url of source.urls || []) {
       if (!/^https:\/\//.test(url) || /…|\.\.\./.test(url)) errors.push(`${at}: invalid or placeholder URL ${url}`);
     }
+    if (source.recurringUrl && !(source.urls || []).includes(source.recurringUrl)) errors.push(`${at}: recurringUrl must be one of urls`);
     if (!Array.isArray(source.destinations) || !source.destinations.length) errors.push(`${at}: destinations must be non-empty`);
     for (const destination of source.destinations || []) {
       if (!requiredDestinations.includes(destination)) errors.push(`${at}: unknown destination ${destination}`);
@@ -75,6 +76,12 @@ export function validateSourceRegistry(registry, practitionerRoster) {
     }
     if (!Array.isArray(source.legacyIds)) errors.push(`${at}: legacyIds must be an array`);
     if (!(source.checkedAt === null || /^\d{4}-\d{2}-\d{2}$/.test(source.checkedAt || ""))) errors.push(`${at}: checkedAt must be YYYY-MM-DD or null`);
+  }
+  const mollick = (registry?.sources || []).find((source) => source.id === "SRC-ETHAN-MOLLICK");
+  if (mollick?.status === "ACTIVE_MONITOR") {
+    if (mollick.recurringUrl !== "https://www.oneusefulthing.org/feed") errors.push("SRC-ETHAN-MOLLICK recurring monitor must bind the official One Useful Thing feed");
+    const xChannel = (mollick.channelCoverage || []).find((channel) => channel.url === "https://x.com/emollick");
+    if (!xChannel || xChannel.status !== "HOLD_REQUIRES_PROVIDER_AND_SPEND_AUTHORITY") errors.push("SRC-ETHAN-MOLLICK X channel must disclose its provider and spend hold");
   }
   for (const destination of requiredDestinations) if (!covered.has(destination)) errors.push(`uncovered destination ${destination}`);
   for (const source of practitionerRoster?.sources || []) {

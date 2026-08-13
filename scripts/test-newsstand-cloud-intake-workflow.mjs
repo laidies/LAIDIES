@@ -5,6 +5,8 @@ const text = fs.readFileSync(new URL("../.github/workflows/newsstand-cloud-intak
 for (const required of [
   "schedule:",
   "30 16,23 * * *",
+  "backfill_since:",
+  "--backfill-since",
   "issues: write",
   "actions/cache/restore@v4",
   "actions/cache/save@v4",
@@ -18,4 +20,4 @@ for (const forbidden of ["wrangler", "pages deploy", "ANTHROPIC_API_KEY", "OPENA
 }
 assert.match(text, /retention-days:\s*30/);
 console.log("NEWSSTAND CLOUD INTAKE WORKFLOW TEST PASS");
-console.log("calibration=deployment-command,model-secret,canonical-story-write rejected");
+console.log("calibration=deployment-command,model-secret,canonical-story-write rejected; bounded-backfill-input required");

@@ -68,6 +68,11 @@ monitor silently treats it as approved.
   analytical cross-check, never the underlying evidence or answer key.
 - Social and practitioner posts require exact URL, date and text plus their
   original evidence. Incomplete platform visibility is unknown, never quiet.
+- Ethan Mollick is currently machine-monitored through the official *One Useful
+  Thing* feed only. His X profile is registered but not covered by that feed or
+  by the GitHub intake. Reliable X post intake requires a separate X developer
+  app, bearer token and pay-per-use budget; until those receive authority, an
+  absence from the newsletter feed cannot be called `MOLLICK_QUIET` across X.
 - Course and communication sources inform method or continuation only. They do
   not replace the LAiDIES curriculum, voice or product owner.
 
@@ -93,6 +98,11 @@ correct; those remain exact-item checks.
 
 ## Known current gaps
 
+- The first cloud-intake deployment used a 36-hour initial window and recorded
+  every older feed item as observed even when it had never been emitted to the
+  reconciliation queue. The bounded `backfill_since` recovery repairs that
+  distinction. State v2 separately retains emitted signal IDs; observing a
+  feed item is no longer accepted as proof that editorial reconciliation saw it.
 - Reuters, Ars Technica and MIT Technology Review topic routes were not
   machine-openable during the 2026-08-11 consolidation. They remain registered
   for exact-item use, but their topic-route access must be verified before
@@ -107,3 +117,7 @@ correct; those remain exact-item checks.
 - Career/Work-Life Tips are now a required destination here, but the current
   `daily-learning-derivatives` schema still lacks the `career_life` record type.
   The source list closes routing, not that implementation gap.
+- Mollick's high-frequency X posts are not yet in recurring machine intake. X's
+  official API is pay-per-use and requires an approved developer app plus a
+  bearer token. No X spend, credential or provider connection has been
+  authorized by this registry.
