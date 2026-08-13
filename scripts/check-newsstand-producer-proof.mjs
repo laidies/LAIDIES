@@ -42,7 +42,8 @@ export function featureLaneContractSha256(lane) {
     targetWords: lane?.targetWords,
     sourceRules: lane?.sourceRules || [],
     distinctFrom: lane?.distinctFrom,
-    negativeExemplarIds: lane?.negativeExemplarIds || []
+    negativeExemplarIds: lane?.negativeExemplarIds || [],
+    approvedTemplatesByMode: lane?.approvedTemplatesByMode || {}
   };
   return sha256(Buffer.from(JSON.stringify(contract)));
 }
@@ -88,6 +89,26 @@ export function inspectNewsstandProducerProof(proof, { root = ROOT } = {}) {
   require(!CLICKBAIT.test(proof?.headline || ""), "headline contains a registered clickbait construction");
   require(words(proof?.opening) <= 90, "opening exceeds 90 words");
   require(!OPENING_JARGON.test(proof?.opening || ""), "opening uses technical vocabulary before plain meaning");
+  if (proof?.publication === "THE_DAILY") {
+    const openingFacts = proof?.dailyOpeningFacts;
+    const requiredOpeningFacts = [
+      ["sourceIdentity", ["namedSource", "date", "status", "requiredSentence"]],
+      ["sharingPath", ["actor", "object", "channels", "purpose", "requiredSentence"]],
+      ["recoveryPath", ["actor", "action", "target", "result", "requiredSentence"]],
+      ["audienceBoundary", ["affected", "notEstablished", "readerAction", "requiredSentence"]]
+    ];
+    require(openingFacts && typeof openingFacts === "object" && !Array.isArray(openingFacts), "dailyOpeningFacts is required for The Daily");
+    for (const [factName, fields] of requiredOpeningFacts) {
+      const fact = openingFacts?.[factName];
+      require(fact && typeof fact === "object" && !Array.isArray(fact), `dailyOpeningFacts.${factName} is required`);
+      for (const field of fields) require(text(fact?.[field]), `dailyOpeningFacts.${factName}.${field} is required`);
+      const sentence = fact?.requiredSentence || "";
+      require((proof?.opening || "").includes(sentence), `opening must contain dailyOpeningFacts.${factName}.requiredSentence exactly`);
+      for (const field of fields.filter(field => field !== "requiredSentence")) {
+        require(sentence.toLowerCase().includes(String(fact?.[field] || "").toLowerCase()), `dailyOpeningFacts.${factName}.requiredSentence must name ${field}`);
+      }
+    }
+  }
   require(Array.isArray(proof?.causalOutline) && proof.causalOutline.length >= 3 && proof.causalOutline.length <= 6 && proof.causalOutline.every(text), "causalOutline requires three to six plain causal links");
   require(text(proof?.evidenceBoundary?.establishes), "evidenceBoundary.establishes is required");
   require(text(proof?.evidenceBoundary?.doesNotEstablish), "evidenceBoundary.doesNotEstablish is required");
@@ -205,6 +226,18 @@ export function inspectNewsstandProducerProof(proof, { root = ROOT } = {}) {
   require(proof?.producerPreflight?.negativeExamplesRead === true, "producer must read the registered negative examples before drafting");
   const lane = laneRegistry?.lanes?.find(item => item.id === PUBLICATION_LANES[proof?.publication]);
   require(Boolean(lane), "publication has no registered feature lane");
+  const approvedTemplate = lane?.approvedTemplatesByMode?.[proof?.storyMode];
+  require(Boolean(approvedTemplate), "publication mode has no Ali-accepted story template");
+  if (approvedTemplate) {
+    require(proof?.storyTemplate?.path === approvedTemplate.path, "storyTemplate.path must match the accepted template");
+    require(proof?.storyTemplate?.sha256 === approvedTemplate.sha256, "storyTemplate.sha256 must match the accepted template");
+    require(proof?.storyTemplate?.section === approvedTemplate.section, "storyTemplate.section must match the accepted template section");
+    require(proof?.storyTemplate?.sectionSha256 === approvedTemplate.sectionSha256, "storyTemplate.sectionSha256 must match the accepted template section bytes");
+    binding(root, proof?.storyTemplate, approvedTemplate.path, "storyTemplate", errors);
+    require(proof?.storyTemplate?.acceptanceRecord?.path === approvedTemplate.acceptanceRecord?.path, "storyTemplate.acceptanceRecord.path must match the Ali ruling");
+    require(proof?.storyTemplate?.acceptanceRecord?.sha256 === approvedTemplate.acceptanceRecord?.sha256, "storyTemplate.acceptanceRecord.sha256 must match the Ali ruling");
+    binding(root, proof?.storyTemplate?.acceptanceRecord, approvedTemplate.acceptanceRecord?.path, "storyTemplate.acceptanceRecord", errors);
+  }
   require(proof?.producerPreflight?.laneId === lane?.id, "producerPreflight.laneId must match the publication lane");
   require(HASH.test(proof?.producerPreflight?.laneContractSha256 || "") && lane && proof.producerPreflight.laneContractSha256 === featureLaneContractSha256(lane), "producerPreflight.laneContractSha256 must bind the current feature lane production rules");
   const expectedNegatives = [...(lane?.negativeExemplarIds || [])].sort();

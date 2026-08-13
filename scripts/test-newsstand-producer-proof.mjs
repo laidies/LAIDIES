@@ -17,7 +17,10 @@ const write = (relative, body) => {
 
 try {
   const standard = write(STANDARD_PATH, "binding production standard\n");
-  const lane = { id: "daily_news", publicName: "The Daily", publishesIn: "Daily", cadence: "daily", readerJob: "explain one change", storyModes: ["REPORT_OR_ANNOUNCEMENT"], templateBeats: ["plain answer"], targetWords: { minimum: 350, maximum: 700 }, sourceRules: ["primary source"], distinctFrom: "one dated change", negativeExemplarIds: ["BAD-DAILY-1"] };
+  const template = write("operations/product-stewards/newsstand/story-templates.md", "# The Daily — report, announcement or research finding\n\nExact section.\n");
+  const acceptanceRecord = write("operations/product-stewards/newsstand/story-template-review.json", "{\"decision\":\"ACCEPT\"}\n");
+  const acceptedTemplate = { ...template, section: "The Daily — report, announcement or research finding", sectionSha256: crypto.createHash("sha256").update("Exact section.\n").digest("hex"), acceptanceRecord };
+  const lane = { id: "daily_news", publicName: "The Daily", publishesIn: "Daily", cadence: "daily", readerJob: "explain one change", storyModes: ["REPORT_OR_ANNOUNCEMENT"], templateBeats: ["plain answer"], targetWords: { minimum: 350, maximum: 700 }, sourceRules: ["primary source"], distinctFrom: "one dated change", negativeExemplarIds: ["BAD-DAILY-1"], approvedTemplatesByMode: { REPORT_OR_ANNOUNCEMENT: acceptedTemplate } };
   const laneRegistryBody = `${JSON.stringify({ lanes: [lane] }, null, 2)}\n`;
   write(LANE_REGISTRY_PATH, laneRegistryBody);
   const sourceMap = write("operations/product-stewards/newsstand/candidates/source-map.md", "source map\n");
@@ -28,11 +31,40 @@ try {
     storyMode: "REPORT_OR_ANNOUNCEMENT",
     status: "READY_FOR_FULL_DRAFT",
     productionStandard: standard,
+    storyTemplate: acceptedTemplate,
     sourceMap,
     readerQuestion: "What changed and should I do anything?",
     readerPayoff: "The reader can explain the change and make one useful choice.",
     headline: "A new sharing risk changes which AI files teams should send",
-    opening: "A study found private details in technical files that some teams publish when they share AI work. It did not show that ordinary private chats suddenly became public. The useful lesson is simple: send the checked result, not the entire behind-the-scenes work file.",
+    opening: "Panfilov and colleagues reported a study shared before academic review on August 10, 2026. Developers and researchers had published raw AI work files on GitHub and Hugging Face so others could inspect or replay tasks. The researchers moved hidden data from those files into a weaker model from the same company and recovered private details. This matters to people publishing raw technical files; the study did not show ordinary private chats became public. Share the checked result, not the raw work file.",
+    dailyOpeningFacts: {
+      sourceIdentity: {
+        namedSource: "Panfilov and colleagues",
+        date: "August 10, 2026",
+        status: "shared before academic review",
+        requiredSentence: "Panfilov and colleagues reported a study shared before academic review on August 10, 2026."
+      },
+      sharingPath: {
+        actor: "Developers and researchers",
+        object: "raw AI work files",
+        channels: "GitHub and Hugging Face",
+        purpose: "inspect or replay tasks",
+        requiredSentence: "Developers and researchers had published raw AI work files on GitHub and Hugging Face so others could inspect or replay tasks."
+      },
+      recoveryPath: {
+        actor: "The researchers",
+        action: "moved hidden data",
+        target: "a weaker model from the same company",
+        result: "recovered private details",
+        requiredSentence: "The researchers moved hidden data from those files into a weaker model from the same company and recovered private details."
+      },
+      audienceBoundary: {
+        affected: "people publishing raw technical files",
+        notEstablished: "ordinary private chats became public",
+        readerAction: "Share the checked result, not the raw work file",
+        requiredSentence: "This matters to people publishing raw technical files; the study did not show ordinary private chats became public. Share the checked result, not the raw work file."
+      }
+    },
     newcomerBackground: "Some teams save and publish detailed work files so another person can inspect or replay an AI task.",
     causalOutline: [
       "The tool keeps more technical material than appears in the visible answer.",
@@ -78,6 +110,15 @@ try {
   const jargonOpening = structuredClone(proof);
   jargonOpening.opening = "An encrypted reasoning block crossed an API boundary during the test.";
   assert.match(inspectNewsstandProducerProof(jargonOpening, { root }).errors.join("\n"), /technical vocabulary/);
+  const missingDailyOpeningFacts = structuredClone(proof);
+  delete missingDailyOpeningFacts.dailyOpeningFacts;
+  assert.match(inspectNewsstandProducerProof(missingDailyOpeningFacts, { root }).errors.join("\n"), /dailyOpeningFacts is required/);
+  const missingSharingPath = structuredClone(proof);
+  missingSharingPath.dailyOpeningFacts.sharingPath.requiredSentence = "";
+  assert.match(inspectNewsstandProducerProof(missingSharingPath, { root }).errors.join("\n"), /sharingPath.requiredSentence/);
+  const openingHidesRecovery = structuredClone(proof);
+  openingHidesRecovery.opening = openingHidesRecovery.opening.replace(openingHidesRecovery.dailyOpeningFacts.recoveryPath.requiredSentence, "Researchers found private details.");
+  assert.match(inspectNewsstandProducerProof(openingHidesRecovery, { root }).errors.join("\n"), /opening must contain dailyOpeningFacts.recoveryPath.requiredSentence exactly/);
   const oversized = structuredClone(proof);
   oversized.intendedWords = 1600;
   assert.match(inspectNewsstandProducerProof(oversized, { root }).errors.join("\n"), /above 700 words/);
@@ -87,6 +128,9 @@ try {
   const staleLaneContract = structuredClone(proof);
   staleLaneContract.producerPreflight.laneContractSha256 = "0".repeat(64);
   assert.match(inspectNewsstandProducerProof(staleLaneContract, { root }).errors.join("\n"), /current feature lane production rules/);
+  const staleStoryTemplate = structuredClone(proof);
+  staleStoryTemplate.storyTemplate.sectionSha256 = "0".repeat(64);
+  assert.match(inspectNewsstandProducerProof(staleStoryTemplate, { root }).errors.join("\n"), /accepted template section bytes/);
   const skippedRegisteredNegative = structuredClone(proof);
   skippedRegisteredNegative.producerPreflight.negativeExemplarIdsRead = [];
   assert.match(inspectNewsstandProducerProof(skippedRegisteredNegative, { root }).errors.join("\n"), /every current lane negative exemplar/);
@@ -162,7 +206,7 @@ try {
   const sealedTermDrift = structuredClone(proof);
   sealedTermDrift.mechanismBridge.objectLocationSentence = "The work file stores the visible answer and sealed information.";
   assert.match(inspectNewsstandProducerProof(sealedTermDrift, { root }).errors.join("\n"), /producer proof uses prohibited synonym/);
-  console.log("NEWSSTAND PRODUCER PROOF CALIBRATION PASS: valid bounded Daily proof accepted; explicit and suspense-form clickbait, jargon-first opening, oversized Daily, stale lane contract, skipped negatives, undefined number unit, missing point-of-use year, missing mechanism bridge, missing human truth, duplicate action ownership, vague source, generic heading, duplicate section job, missing terminology plan, missing stable object register and proof-level terminology drift rejected");
+  console.log("NEWSSTAND PRODUCER PROOF CALIBRATION PASS: valid bounded Daily proof accepted; explicit and suspense-form clickbait, jargon-first opening, missing source/sharing/recovery/audience opening facts, oversized Daily, stale lane contract, skipped negatives, undefined number unit, missing point-of-use year, missing mechanism bridge, missing human truth, duplicate action ownership, vague source, generic heading, duplicate section job, missing terminology plan, missing stable object register and proof-level terminology drift rejected");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }
