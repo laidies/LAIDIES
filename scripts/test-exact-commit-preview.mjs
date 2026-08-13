@@ -31,7 +31,7 @@ function validateWorkflowText(text) {
   if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
   if (!deployJob.includes('new-id+branch+exact-byte-verification') || !deployJob.includes('conflicting provider commit metadata')) errors.push('direct-upload deployment identity fallback is not fail-closed');
   if (!deployJob.includes('for attempt in $(seq 1 10)') || !deployJob.includes('if(matches.length===0) process.exit(2);')) errors.push('eventual-consistency deployment polling is not bounded and fail-closed');
-  if (!deployJob.includes('/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100') || deployJob.includes('pages deployment list')) errors.push('raw Pages deployment API is not used for direct-upload identity');
+  if (!deployJob.includes('/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15') || deployJob.includes('pages deployment list')) errors.push('raw Pages deployment API is not used with the provider-supported page size');
   if (!text.includes('environment: production')) errors.push('existing protected Cloudflare credential environment is missing');
   if (!text.includes('CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}')) errors.push('separately scoped Access API secret is missing');
   if ((deployJob.match(/CLOUDFLARE_ACCESS_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_ACCESS_API_TOKEN \}\}/g) || []).length !== 3) errors.push('Access validation, creation and revocation must each receive the scoped token');
@@ -130,7 +130,7 @@ const workflowRejects = [
   workflow.replace('conflicting provider commit metadata', 'ignored provider commit metadata'),
   workflow.replace('for attempt in $(seq 1 10)', 'for attempt in 1'),
   workflow.replace('if(matches.length===0) process.exit(2);', 'if(matches.length===0) process.exit(0);'),
-  workflow.replaceAll('/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100', '/pages/projects/$PROJECT_NAME/unknown'),
+  workflow.replaceAll('/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15', '/pages/projects/$PROJECT_NAME/unknown'),
   workflow.replace('curl --fail --silent --show-error', 'npx --yes wrangler@4.119.0 pages deployment list'),
   workflow.replaceAll('CLOUDFLARE_ACCESS_API_TOKEN', 'CLOUDFLARE_API_TOKEN'),
 ];

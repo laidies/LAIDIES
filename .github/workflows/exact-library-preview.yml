@@ -241,7 +241,7 @@ jobs:
           pages_auth_header="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
           curl --fail --silent --show-error \
             --header "$pages_auth_header" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15" \
             > "$RECEIPT_DIR/deployments-before-response.json"
           jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-before-response.json" >/dev/null
           jq -e '.result' "$RECEIPT_DIR/deployments-before-response.json" > "$RECEIPT_DIR/deployments-before.json"
@@ -255,7 +255,7 @@ jobs:
           for attempt in $(seq 1 10); do
             curl --fail --silent --show-error \
               --header "$pages_auth_header" \
-              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15" \
               > "$RECEIPT_DIR/deployments-after-response.json"
             jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-after-response.json" >/dev/null
             jq -e '.result' "$RECEIPT_DIR/deployments-after-response.json" > "$RECEIPT_DIR/deployments-after.json"

@@ -84,7 +84,7 @@ function inspectWorkflow(text) {
   requireText("conflicting provider commit metadata", "conflicting provider commit metadata is not rejected");
   requireText("for attempt in $(seq 1 10)", "eventual-consistency deployment polling is missing");
   requireText("if(matches.length===0) process.exit(2);", "only a not-yet-visible deployment may be retried");
-  requireText("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100", "raw Pages deployment API is missing");
+  requireText("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15", "raw Pages deployment API is missing or uses an unsupported page size");
   if (deployJob.includes("pages deployment list")) errors.push("Wrangler deployment list loses direct-upload identity metadata");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
   if (!deployJob) errors.push("deploy job is missing");
@@ -117,7 +117,7 @@ const workflowRejects = [
   workflow.replace("conflicting provider commit metadata", "ignored provider commit metadata"),
   workflow.replace("for attempt in $(seq 1 10)", "for attempt in 1"),
   workflow.replace("if(matches.length===0) process.exit(2);", "if(matches.length===0) process.exit(0);"),
-  workflow.replaceAll("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100", "/pages/projects/$PROJECT_NAME/unknown"),
+  workflow.replaceAll("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15", "/pages/projects/$PROJECT_NAME/unknown"),
   workflow.replace("curl --fail --silent --show-error", "npx --yes wrangler@4.119.0 pages deployment list"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
