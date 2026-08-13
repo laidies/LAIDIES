@@ -297,10 +297,11 @@ jobs:
           [[ "$preview_url" == "https://${deployment_id:0:8}.$PROJECT_NAME.pages.dev/" ]]
           unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out '%{http_code}' "${preview_url}library.html")"
           [[ "$unauthenticated_status" == 302 || "$unauthenticated_status" == 401 || "$unauthenticated_status" == 403 ]]
+          request_route="library"
           curl --fail --silent --show-error --retry 5 --retry-all-errors \
             --header "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
             --header "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
-            "${preview_url}library.html" > "$RECEIPT_DIR/deployed-library.html"
+            "${preview_url}${request_route}" > "$RECEIPT_DIR/deployed-library.html"
           deployed_library_sha="$(sha256sum "$RECEIPT_DIR/deployed-library.html" | cut -d' ' -f1)"
           expected_library_sha="$(jq -r .candidate.artifact_sha256 "$RECEIPT_DIR/preview-receipt.json")"
           test "$deployed_library_sha" = "$expected_library_sha"

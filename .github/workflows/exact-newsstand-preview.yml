@@ -355,10 +355,11 @@ jobs:
           verification_json='[]'
           for route in "${critical_paths[@]}"; do
             output="$RECEIPT_DIR/deployed-${route//\//_}"
+            request_route="${route%.html}"
             curl --fail --silent --show-error --retry 5 --retry-all-errors \
               --header "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
               --header "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
-              "${preview_url}${route}" > "$output"
+              "${preview_url}${request_route}" > "$output"
             deployed_sha="$(sha256sum "$output" | cut -d' ' -f1)"
             expected_sha="$(jq -r --arg route "$route" '.files[] | select(.path == $route) | .sha256' "$RECEIPT_DIR/artifact-manifest.json")"
             test -n "$expected_sha"
