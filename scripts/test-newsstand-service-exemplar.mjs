@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const candidateRoot = path.join(root, "operations/product-stewards/newsstand/candidates");
 const files = {
   paige: "paige-receipt-list-service-exemplar-2026-08-12.json",
-  career: "career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
+  career: "career-share-the-win-with-purpose-service-exemplar-2026-08-13.json",
   promptoscope: "promptoscope-refrigerator-service-exemplar-2026-08-12.json",
   mme: "mme-claio-mini-backpack-service-exemplar-2026-08-12.json"
 };
@@ -27,9 +27,17 @@ const borrowedHoroscope = read("paige");
 borrowedHoroscope.body += " Mercury is retrograde.";
 assert.match(errors(borrowedHoroscope), /Paige cannot borrow Promptoscope framing/);
 
+const knownBadCareer = JSON.parse(fs.readFileSync(path.join(candidateRoot, "career-explain-ai-assisted-work-service-exemplar-2026-08-12.json"), "utf8"));
+assert.match(errors(knownBadCareer), /sourceTopicType must be NON_AI_CAREER_OR_LIFE|headline and standalone advice must remain non-AI|laneContractSha256/, "the previously accepted AI-first Career candidate must now fail unaided");
+
 const careerAiFirst = read("career");
-careerAiFirst.body = `${careerAiFirst.laneSpecific.aiParallelQuote}\n\n${careerAiFirst.body}`;
-assert.match(errors(careerAiFirst), /Career guidance must appear before the AI parallel/);
+careerAiFirst.laneSpecific.adviceWithoutAiQuote = careerAiFirst.laneSpecific.adviceWithoutAiQuote.replace("Ever kept quiet", "AI helped you, but have you ever kept quiet");
+careerAiFirst.body = careerAiFirst.body.replace("Ever kept quiet", "AI helped you, but have you ever kept quiet");
+assert.match(errors(careerAiFirst), /must remain non-AI before the explicit AI connection/);
+
+const incompleteCareerPrefix = read("career");
+incompleteCareerPrefix.laneSpecific.adviceWithoutAiQuote = incompleteCareerPrefix.laneSpecific.guidanceQuote;
+assert.match(errors(incompleteCareerPrefix), /must bind the complete body prefix/);
 
 const promptAtWork = read("promptoscope");
 promptAtWork.laneSpecific.situationType = "WORK";
@@ -64,4 +72,4 @@ const wrongNegatives = read("career");
 wrongNegatives.negativeExemplarIdsRead = ["CQX-BAD-006", "CQX-BAD-007"];
 assert.match(errors(wrongNegatives), /must exactly match the current lane negatives/);
 
-console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS valid=4 missing_action=1 paige_horoscope=1 career_order=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1");
+console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS valid=4 missing_action=1 paige_horoscope=1 known_bad_career=1 career_ai_first=1 incomplete_career_prefix=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1");

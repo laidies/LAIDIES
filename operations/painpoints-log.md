@@ -14671,3 +14671,44 @@ while remaining falsely unfinished in the launch record.
 - **Quality ratchet:** v23 had six independently visible blocking defect families after its false pass; v24 has zero maker, role-distinct or deployed-pixel blocking defects before Ali review. Any successor still has to preserve or improve that result across the same complete nine-view matrix.
 - **Possible Behind the Build angle:** Why six beautiful screenshots hid the page a visitor would actually use.
 - **Publication status:** INTERNAL PRODUCER/CHECKER REPAIR VERIFIED / V23 REJECTED / V24 PRIVATE PROTECTED PREVIEW DEPLOYED AND PIXEL INSPECTED / ONE ALI DECISION READY / NO PRODUCTION DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-466 — Producer and reviewer labels disguised an AI tip as career advice
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand Career / Work-Life production, feature distinction and semantic review.
+- **Failure:** The complete Daily's Career desk passed its mechanical producer
+  contract and a role-distinct service review even though its headline and
+  opening were about explaining AI-assisted work. Removing the paragraph
+  labelled `AI parallel` still left an AI-disclosure article, not useful
+  standalone career or life guidance. It repeated Ali's explicit rule that the
+  source advice may be non-AI and the faithful AI connection comes afterward.
+- **Root cause:** The checker proved only that `guidanceQuote` occurred before
+  `aiParallelQuote`; it never tested what either quote said. The reviewer then
+  repeated the producer's category labels rather than deleting the AI paragraph
+  and independently judging what remained. Structured compliance substituted
+  for the reader-facing feature job.
+- **Prevention rule:** Career / Work-Life binds a credible non-AI source or
+  accountable LAiDIES author plus the exact complete headline-and-body prefix
+  before `The AI connection`. That prefix must contain at least one substantial
+  standalone career/life situation, guidance and action and must contain no AI,
+  model, chatbot, prompting or named-tool frame. Artifact-first review ignores
+  producer category fields, deletes the complete AI paragraph and quotes the
+  useful non-AI advice that survives.
+- **Durable correction:** `CQX-BAD-017` records the exact failure. The calibrated
+  service validator rejects the old candidate for stale lane binding, missing
+  non-AI source/topic evidence, missing complete prefix and AI-first headline.
+  The successor `Share the win when it helps someone` uses first-party Dorie
+  Clark practitioner guidance, remains useful before AI enters, then connects
+  evidence-rich context to performance-review drafting while leaving timing,
+  fairness and office judgement with the reader. Fresh role-distinct review
+  passed the exact four cards and v25's nine rendered views show no visual
+  regression.
+- **Forward test:** The known-bad candidate must continue to fail unaided;
+  mutations that inject AI into the standalone prefix or bind only a fragment
+  of that prefix also fail. Complete-Daily v3 is permanently registered as
+  rejected even though its protected pixels were visually sound.
+- **Possible Behind the Build angle:** Why an AI can fill every correct field
+  and still write the wrong column.
+- **Publication status:** INTERNAL PRODUCER/REVIEW REPAIR VERIFIED / V24 PACKAGE
+  EDITORIALLY REJECTED / V25 LOCAL PRIVATE PACKAGE PASSES / PROTECTED PREVIEW,
+  ALI REVIEW, PRODUCTION DEPLOYMENT AND PUBLICATION NOT YET COMPLETE.

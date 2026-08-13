@@ -12,7 +12,7 @@ import { overlayReviewPackage } from "./build-newsstand-review-preview.mjs";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SCRIPT = path.join(ROOT, "scripts/build-newsstand-review-preview.mjs");
 const REJECTED_PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json");
-const PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json");
+const PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json");
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-newsstand-review-preview-"));
 const output = path.join(temp, "site");
 const rejected = spawnSync(process.execPath, [SCRIPT, output, "--fixture"], {

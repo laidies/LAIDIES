@@ -8,8 +8,8 @@ import { fileURLToPath } from "node:url";
 const SHA40 = /^[a-f0-9]{40}$/;
 const SHA64 = /^[a-f0-9]{64}$/;
 const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
-const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json";
-const PACKAGE_SHA256 = "144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f";
+const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json";
+const PACKAGE_SHA256 = "512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe";
 const PROJECT = "laidies-sunnyvaile-preview";
 const REQUIRED_CHECKS = new Set([
   "complete-daily-package",

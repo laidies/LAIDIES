@@ -116,8 +116,17 @@ export function inspectNewsstandServiceExemplar(candidate, { root = ROOT } = {})
   }
   if (candidate?.laneId === "career_work_life") {
     require(contract.situationType === "CAREER_OR_WORK_LIFE", "Career situationType must be CAREER_OR_WORK_LIFE");
-    for (const [field, label] of [["situationQuote", "Career situation"], ["guidanceQuote", "Career guidance"], ["wordingQuote", "Career wording"], ["aiParallelQuote", "Career AI parallel"], ["comparisonLimitQuote", "Career comparison limit"], ["tryTodayQuote", "Career try-today move"]]) exact(field, label);
-    require(body.indexOf(contract.guidanceQuote) < body.indexOf(contract.aiParallelQuote), "Career guidance must appear before the AI parallel");
+    require(contract.sourceTopicType === "NON_AI_CAREER_OR_LIFE", "Career sourceTopicType must be NON_AI_CAREER_OR_LIFE");
+    require(Number.isInteger(contract.nonAiSourceEvidenceIndex) && contract.nonAiSourceEvidenceIndex >= 0 && contract.nonAiSourceEvidenceIndex < (candidate?.sourceEvidence || []).length, "Career nonAiSourceEvidenceIndex must identify a bound non-AI advice source");
+    for (const [field, label] of [["situationQuote", "Career situation"], ["guidanceQuote", "Career guidance"], ["wordingQuote", "Career wording"], ["adviceWithoutAiQuote", "Career standalone advice"], ["aiParallelQuote", "Career AI parallel"], ["comparisonLimitQuote", "Career comparison limit"], ["tryTodayQuote", "Career try-today move"]]) exact(field, label);
+    const aiIndex = body.indexOf(contract.aiParallelQuote || "");
+    const prefixBeforeAi = aiIndex >= 0 ? body.slice(0, aiIndex).trim() : "";
+    require(prefixBeforeAi === String(contract.adviceWithoutAiQuote || "").trim(), "Career adviceWithoutAiQuote must bind the complete body prefix before the AI connection");
+    require(words(contract.adviceWithoutAiQuote) >= 70, "Career standalone advice must contain at least 70 words of useful non-AI guidance");
+    const aiFirstTerms = /\b(?:AI|artificial intelligence|large language model|language model|chatbot|prompt(?:ing|ed|s)?|ChatGPT|Claude|Gemini|Copilot)\b/i;
+    require(!aiFirstTerms.test(`${candidate.headline}\n${contract.adviceWithoutAiQuote || ""}`), "Career headline and standalone advice must remain non-AI before the explicit AI connection");
+    require(/\bAI\b/.test(contract.aiParallelQuote || ""), "Career AI parallel must explicitly name AI");
+    require(body.indexOf(contract.guidanceQuote) < aiIndex, "Career guidance must appear before the AI parallel");
   }
   if (candidate?.laneId === "promptoscope") {
     require(contract.situationType === "NON_WORK", "Promptoscope situationType must be NON_WORK");

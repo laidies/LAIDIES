@@ -13,6 +13,8 @@ const pkg = JSON.parse(fs.readFileSync(PACKAGE, "utf8"));
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
 
 assert.match(inspectCompleteDailyReview(pkg).errors.join("\n"), /explicitly rejected/);
+const editoriallyRejected = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json"), "utf8"));
+assert.match(inspectCompleteDailyReview(editoriallyRejected).errors.join("\n"), /explicitly rejected/, "the visually admitted but editorially invalid v3 package must remain rejected");
 const structural = structuredClone(pkg);
 for (const desk of structural.desks.filter(item => item.state === "ready")) {
   desk.sourceCandidate.sha256 = sha256(fs.readFileSync(path.join(ROOT, desk.sourceCandidate.path)));

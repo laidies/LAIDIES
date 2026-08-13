@@ -139,7 +139,7 @@ function completeDailyReviewFixture() {
   const storyCandidate = JSON.parse(fs.readFileSync(path.join(candidateRoot, "ai-work-files-private-details-2026-08-12-story-record-candidate-v3.json"), "utf8"));
   const serviceCandidates = [
     "paige-receipt-list-service-exemplar-2026-08-12.json",
-    "career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
+    "career-share-the-win-with-purpose-service-exemplar-2026-08-13.json",
     "promptoscope-refrigerator-service-exemplar-2026-08-12.json",
     "mme-claio-mini-backpack-service-exemplar-2026-08-12.json"
   ].map((file) => JSON.parse(fs.readFileSync(path.join(candidateRoot, file), "utf8")));
@@ -786,7 +786,7 @@ try {
   check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 4, "complete Daily carries exactly four reviewed service features");
   check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-service-grid--primary .ns-daily-desk__full').length === 4 && document.querySelectorAll('.ns-daily-service-grid--spotlight').length === 0"), true, "all four service features share one compact newspaper desk rail and keep their full text behind disclosures");
   check(await value(candidateDaily, "document.querySelector('.ns-daily-news h3').textContent"), "People published records of their AI work. Some contained passwords.", "complete Daily front uses the exact reviewed lead headline");
-  check(await value(candidateDaily, "['Turn your work draft into a receipt list','Explain the work—not just the AI tool','Your refrigerator has entered its use-me-or-lose-me era','The Mini Backpack'].every((headline) => document.body.textContent.includes(headline))"), true, "complete Daily front files each distinct reviewed feature");
+  check(await value(candidateDaily, "['Turn your work draft into a receipt list','Share the win when it helps someone','Your refrigerator has entered its use-me-or-lose-me era','The Mini Backpack'].every((headline) => document.body.textContent.includes(headline))"), true, "complete Daily front files each distinct reviewed feature");
   await captureElementEvidence(candidateDaily, "daily-review-default-1440.png", ".ns-daily-issue");
   await act(candidateDaily, "(() => { const script = document.createElement('script'); script.src = '/content/site/sv-back-nav.js'; document.body.appendChild(script); })()");
   await waitForValue(candidateDaily, "document.querySelectorAll('.sv-rail-item--back').length", 1, "public desktop context return control");

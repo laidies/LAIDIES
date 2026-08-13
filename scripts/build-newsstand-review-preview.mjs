@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { inspectCompleteDailyReview } from "./check-newsstand-complete-daily-review.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DEFAULT_PACKAGE = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json";
+const DEFAULT_PACKAGE = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json";
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = value => {
   if (value === null || typeof value !== "object") return JSON.stringify(value);

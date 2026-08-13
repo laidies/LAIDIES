@@ -4,7 +4,7 @@
   "defaultDeny": true,
   "featureLaneRegistry": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
-    "sha256": "bbeb27872d039e583d9de326ff7781d694dccf1fbb4e0a524c5b66892e3163c6"
+    "sha256": "c543121eabaf6b05b68ad8aa0d574777546c74092ca27f25d965b5ebf0174fe5"
   },
   "productionStandard": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
@@ -157,8 +157,8 @@
         "sha256": "774d102eea816c73bc5ace0f2b29576141b57379d14f11781c097ff4c36de0df"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
-        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v4.json",
+        "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily service desk",
@@ -182,8 +182,8 @@
         "The source is generic motivational content without evidence or a concrete action."
       ],
       "requiredInputs": [
-        "one specific career or life situation",
-        "advice that stands alone without AI",
+        "one specific non-AI career or life situation",
+        "a credible non-AI advice source and guidance that stands alone without AI",
         "concrete wording or action",
         "one faithful AI parallel",
         "the exact point where the comparison stops"
@@ -201,31 +201,32 @@
         "maximum": 300
       },
       "sourceAndFreshnessRules": [
-        "Lead with real career or life guidance, not AI terminology.",
+        "The headline and complete prefix before the explicit AI connection must remain useful non-AI career or life guidance.",
         "Name the evidence type and its limits at the point of the claim.",
         "Label the AI parallel and explicitly stop it before it overclaims."
       ],
       "negativeExemplarIds": [
         "CQX-BAD-006",
         "CQX-BAD-007",
-        "CQX-BAD-011"
+        "CQX-BAD-011",
+        "CQX-BAD-017"
       ],
       "producerSelfCheck": [
-        "Would this still be recognizable and useful career or life guidance if the AI paragraph were removed?",
+        "After deleting the entire AI paragraph, do the headline and remaining prefix still provide recognizable and useful non-AI career or life guidance?",
         "Does the AI parallel clarify rather than commandeer the advice?",
         "Is the reader given wording or an action she could actually use?"
       ],
       "candidateExample": {
-        "path": "operations/product-stewards/newsstand/candidates/career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
-        "sha256": "aeaa7871b8898aca0cd1b1e18d80b566db9ef2d44c301674893aa84c33613d4c"
+        "path": "operations/product-stewards/newsstand/candidates/career-share-the-win-with-purpose-service-exemplar-2026-08-13.json",
+        "sha256": "c26a377d164ce3156a2730ac6711594e4526612f617dd5b004802bfbe6cda52d"
       },
       "producerProof": {
-        "path": "operations/product-stewards/newsstand/candidates/career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
-        "sha256": "aeaa7871b8898aca0cd1b1e18d80b566db9ef2d44c301674893aa84c33613d4c"
+        "path": "operations/product-stewards/newsstand/candidates/career-share-the-win-with-purpose-service-exemplar-2026-08-13.json",
+        "sha256": "c26a377d164ce3156a2730ac6711594e4526612f617dd5b004802bfbe6cda52d"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
-        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v4.json",
+        "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily or Weekly service desk according to depth",
@@ -290,8 +291,8 @@
         "sha256": "54e98b2a62f1423ce6f757a154157fefe4b4989abc7cde128a1e6e95bc6d77e3"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
-        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v4.json",
+        "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily service desk",
@@ -352,8 +353,8 @@
         "sha256": "b6c9a68a1ccab4ec4a483fe55556518e3d299b00ef563a2056ec48c2b2646226"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
-        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v4.json",
+        "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily service desk",

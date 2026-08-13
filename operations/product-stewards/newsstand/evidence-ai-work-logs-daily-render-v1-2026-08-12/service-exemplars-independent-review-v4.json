@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "laidies-newsstand-service-exemplar-review-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "candidates": [
+    {
+      "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
+      "sha256": "774d102eea816c73bc5ace0f2b29576141b57379d14f11781c097ff4c36de0df"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/career-share-the-win-with-purpose-service-exemplar-2026-08-13.json",
+      "sha256": "c26a377d164ce3156a2730ac6711594e4526612f617dd5b004802bfbe6cda52d"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/promptoscope-refrigerator-service-exemplar-2026-08-12.json",
+      "sha256": "54e98b2a62f1423ce6f757a154157fefe4b4989abc7cde128a1e6e95bc6d77e3"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/mme-claio-mini-backpack-service-exemplar-2026-08-12.json",
+      "sha256": "b6c9a68a1ccab4ec4a483fe55556518e3d299b00ef563a2056ec48c2b2646226"
+    }
+  ],
+  "standard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "featureRegistry": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
+    "sha256": "c543121eabaf6b05b68ad8aa0d574777546c74092ca27f25d965b5ebf0174fe5"
+  },
+  "negativeRegistry": {
+    "path": "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json",
+    "sha256": "d437bd883b1c531f74dc7a8b2924eaaf46fe35aa79ffb5bc2706b0c93f0f67f3"
+  },
+  "promptSha256": "11d57b00c8c1800a1f84ded51e03f7b011925c2be3b43f39cf00073344c3bdb1",
+  "reviewedAt": "2026-08-13T13:55:26.176Z",
+  "review": {
+    "verdict": "PASS",
+    "summary": "All four service lanes pass on their exact reader-facing text. Paige is one literal, checkable work-facing extraction action with a stated limitation; Career/Work-Life opens with genuine non-AI career guidance from a named practitioner source that survives removal of the entire AI paragraph, then makes one explicit bounded AI connection; Promptoscope is a funny non-work dinner-context lesson whose humour supports a plain instruction and human food-safety check; Mme CLAi-O is a verbatim governed-deck card with the required non-predictive, non-personalised boundary and route. No candidate repeats a registered known-bad defect family, exposes production scaffolding, or trusts labels over prose, and the four are unmistakably distinct.",
+    "outcomes": [
+      {
+        "laneId": "paige_tip",
+        "verdict": "PASS",
+        "readerJob": "One work-facing AI action the reader can try today: give a non-sensitive copy of a finished draft to a workplace-approved AI tool and ask it to quote every factual sentence and name the kind of evidence that would support it, without judging truth.",
+        "plainClarity": "Every step is followable by a non-technical reader: the situation ('Your draft is ready, but which sentences actually need receipts?') is recognizable, the prompt is quoted verbatim and literal, and 'receipts' is immediately grounded as evidence ('name the kind of evidence that would support it'). No technical term appears before its meaning, avoiding the CQX-BAD-010 headline-metaphor and compressed-scenario failures — the metaphor is light and the first sentence plus the quoted prompt make the action unmistakable.",
+        "usefulness": "Genuinely useful on its own: it converts polished prose into a checking list, states why the narrow job works, and closes with a concrete verification loop ('open the real policy, report, study or record and verify the claim yourself') plus the safeguard of adding skipped sentences back. The limitation ('It may miss a claim, misread an opinion or suggest evidence that does not exist') is honest and specific, not a generic disclaimer.",
+        "distinctness": "Unmistakably Paige: one literal work action with a why, boundary and check. It contains no career coaching, no humour frame, no horoscope or deck authority, and no non-work scenario.",
+        "sourceBoundary": "The tool is never granted fact-checking authority ('It is not the fact-checker'; 'the receipts—not the AI—support it'), sensitive data is excluded up front ('a non-sensitive copy to an AI tool your workplace approves'), and the deeper destination (Episode 3's Receipts Pass) is named exactly rather than as vague 'documentation'. All claims stay within what the quoted prompt and check actually deliver.",
+        "defects": []
+      },
+      {
+        "laneId": "career_work_life",
+        "verdict": "PASS",
+        "readerJob": "Career guidance on when and how to share an accomplishment without feeling like bragging, followed by one explicit bounded AI connection about how the same context-rich framing helps a performance-review draft.",
+        "plainClarity": "The dilemma is instantly recognizable ('Ever kept quiet about a good piece of work because mentioning it felt like bragging?'), the reframe is one plain question ('Will sharing it help this person understand, decide or learn?'), and the example wording is copyable. The AI paragraph is explicitly signposted ('The AI connection:') so the reader always knows which register she is in.",
+        "usefulness": "Inspected against the prose, not the producer's sourceTopicType claim: the headline 'Share the win when it helps someone' and the entire prefix before 'The AI connection' are non-AI career guidance. With the AI paragraph deleted, this remains complete and useful: 'Dorie Clark's career guidance is to connect accomplishments to context and contribution: share a result when it strengthens a point or offers someone a useful lesson, not as a stray victory lap. Try: \"We cut the monthly close by two days after I changed the review sequence. I can share the checklist if your team is tackling the same bottleneck.\"' — a recognizable career action with concrete wording, an honest caveat ('not a rule that every workplace rewards visibility fairly') and a try-today move that is itself non-AI (write, save, share when it serves).",
+        "distinctness": "Not a disguised Paige tip or AI-disclosure advice (the CQX-BAD-011/017 failures): the AI connection arrives only after complete standalone guidance, maps one real mechanism (context quality shapes what the tool can draft) and stops explicitly ('AI can organize evidence, but it cannot judge office politics, fairness or the right moment to speak').",
+        "sourceBoundary": "Advice is attributed to a named practitioner (Dorie Clark) and bounded as practitioner advice, not an employer, legal or fairness claim. The AI claim is modest and mechanism-true — a checked note 'can support a performance-review draft without inventing the story' — and no structural problem is claimed solved by AI.",
+        "defects": []
+      },
+      {
+        "laneId": "promptoscope",
+        "verdict": "PASS",
+        "readerJob": "Make one non-work AI-use pattern memorable: when asking an assistant for dinner ideas, supply the actual constraints (ingredients, expiry, time, equipment, dietary restrictions) instead of a context-free question, and make it flag assumed ingredients.",
+        "plainClarity": "The action is plain and complete — the reader knows exactly what to list and what to ask for ('Ask for three options and tell it to flag every ingredient it assumed rather than found in your list'). The AI object is named (your AI assistant), the example contents are defined, and the why is one concrete sentence ('AI cannot see your refrigerator'), avoiding every CQX-BAD-012 failure family.",
+        "usefulness": "The instruction works without the jokes: context narrows plausible recipes, the assumed-ingredient flag gives a checkable output, and the human check is real and bounded ('Check allergies, safe temperatures and whether the alleged lemon exists before cooking'). The mechanism note honestly limits itself ('it does not make the tool a food-safety expert').",
+        "distinctness": "Clearly non-work and funny — refrigerator eras, X-ray vision, Mercury and imaginary coriander support rather than replace the teaching. It is not Paige with an eyebrow, and the horoscope frame stays comic: no prediction, mystical guidance or borrowed Mme CLAi-O deck authority.",
+        "sourceBoundary": "No claim exceeds the stated mechanism; food-safety judgement stays with the human, and the closing star/Mercury lines are visibly jokes rather than predictions, keeping the required no-prediction boundary intact.",
+        "defects": []
+      },
+      {
+        "laneId": "mme_claio",
+        "verdict": "PASS",
+        "readerJob": "One playful fixed reading — The Mini Backpack — with a single reflective move (remove one commitment before adding another), explicitly framed as neither predictive nor personalised.",
+        "plainClarity": "All five beats are present in plain language: exact card title, the fixed authored reading in the card's own voice, one concrete reflective action, the boundary sentence, and the route. Nothing requires prior knowledge; 'lip gloss and vibes from 2001' is a joke, not a referent the reader must decode.",
+        "usefulness": "The reflective move is genuinely actionable ('Remove one commitment before adding another shiny thing') and the reframe ('Stop calling overload a time management issue') gives it a point beyond decoration, so the card is enjoyable and useful within its small job.",
+        "distinctness": "Unmistakably Mme CLAi-O: a fixed governed-deck reading, not a prompting tip, not comic AI-use advice, and not work guidance. No other lane touches deck authority.",
+        "sourceBoundary": "The boundary is stated in reader-facing prose, not left to metadata: 'This is a fixed authored reflection selected for the dated Daily—not a prediction or personalised reading. It was not generated from anything you told LAiDIES.' The card text is presented as verbatim from the named governed deck (content/data/mme-claio-deck.json) with the owner/Brand/Safety ruling cited, and the route sends the reader to the deck rather than promising anything predictive.",
+        "defects": []
+      }
+    ],
+    "crossLaneDistinctness": "The four lanes cannot be confused with one another. Paige is a sober, literal work action (draft-to-evidence-list with a verification loop); Career/Work-Life is standalone non-AI career advice from a named practitioner that only afterwards makes one explicit, limited AI connection; Promptoscope is a comic non-work dinner card whose humour decorates a real context-supplying instruction; Mme CLAi-O is a verbatim fixed card with a non-predictive boundary and no instruction about using AI at all. No item borrows another lane's frame or authority: the Promptoscope stays out of work, the Career item is not AI advice wearing a career label, and only Mme CLAi-O speaks with deck authority."
+  }
+}
