@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
+  "owner": "learning-content-ecosystem",
+  "updatedAt": "2026-08-13T01:46:50-07:00",
+  "issue": {
+    "repository": "laidies/LAIDIES",
+    "number": 57,
+    "url": "https://github.com/laidies/LAIDIES/issues/57"
+  },
+  "rules": {
+    "durableDispositionRequired": true,
+    "allowedDispositions": [
+      "DUPLICATE",
+      "QUIET",
+      "WATCH",
+      "NO_BUILD",
+      "QUEUED_WITH_TRIGGER",
+      "WORK_ORDER_CREATED"
+    ],
+    "sourceHealthDoesNotBlockEditorialClosure": true,
+    "draftFromIntakeProhibited": true,
+    "publicationFromIntakeProhibited": true
+  },
+  "signals": [
+    {
+      "signalId": "NSCI-01ad5d7bab8e1a46600f",
+      "sourceId": "SRC-AIDB",
+      "title": "AI Optimism Has a Trust Problem",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-11/transcript.md",
+      "publishedAt": "2026-08-11T12:00:00.000Z",
+      "decidedAt": "2026-08-13T01:46:50-07:00",
+      "disposition": "WATCH",
+      "ownerProductId": "newsstand",
+      "reason": "The AIDB edition is commentary about a purported current Meta/Zuckerberg argument. The exact new primary essay was not resolved, and the commentary alone establishes no current product, policy or reader decision that earns LAiDIES publication.",
+      "evidenceRefs": [
+        "https://aidailybrief.ai/e/2026-08-11/transcript.md",
+        "Exact current Meta/Zuckerberg primary item unresolved as of 2026-08-13"
+      ],
+      "relatedRecords": [],
+      "nextTrigger": "Reopen if the exact primary item is recovered and contains a concrete product or policy change, or if independent evidence creates a consequential reader question rather than a general optimism/trust theme.",
+      "reviewBy": "2026-09-10"
+    },
+    {
+      "signalId": "NSCI-2a6d34a6f294fc3f60d8",
+      "sourceId": "SRC-AIDB",
+      "title": "Grok Bot Finally Makes AI Agents Easy",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-12/transcript.md",
+      "publishedAt": "2026-08-12T12:00:00.000Z",
+      "decidedAt": "2026-08-13T01:46:50-07:00",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "ownerProductId": "newsstand",
+      "reason": "xAI's official release describes an early-beta always-on agent that can use a cloud computer, sign in to tools, act while a laptop is closed and coordinate with other bots. That is a current, potentially useful Daily topic, but the NewsStand owner already has one held Daily candidate and may not start a second primary draft.",
+      "evidenceRefs": [
+        "https://aidailybrief.ai/e/2026-08-12/transcript.md",
+        "https://x.ai/news/introducing-grok-bot",
+        "https://x.ai/legal/terms-of-service",
+        "https://x.ai/legal/privacy-policy"
+      ],
+      "relatedRecords": [
+        "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json"
+      ],
+      "nextTrigger": "When the current held Daily receives Ali's decision and the NewsStand primary lane is free, recheck official availability, price, account eligibility, credential handling, data use and responsibility for agentic actions; then create at most one source-bound Daily work order if the reader payoff still holds.",
+      "reviewBy": "2026-08-20"
+    },
+    {
+      "signalId": "NSCI-bd2787a2b332a0eb983f",
+      "sourceId": "SRC-AIDB",
+      "title": "What the Heck is Graph Engineering?",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-10/transcript.md",
+      "publishedAt": "2026-08-10T12:00:00.000Z",
+      "decidedAt": "2026-08-13T01:46:50-07:00",
+      "disposition": "NO_BUILD",
+      "ownerProductId": "learning-content-ecosystem",
+      "reason": "The edition presents a practitioner buzzword and commentary, not a stable primary-source term or a distinct newcomer decision. LAiDIES already teaches the underlying agent-loop relationships; adding another label would create vocabulary without improving understanding.",
+      "evidenceRefs": [
+        "https://aidailybrief.ai/e/2026-08-10/transcript.md"
+      ],
+      "relatedRecords": [],
+      "nextTrigger": "Reopen only if a stable official product, standard or broadly adopted technical source defines the term and it creates a concrete reader-facing distinction that existing agent-loop teaching does not cover.",
+      "reviewBy": null
+    },
+    {
+      "signalId": "NSCI-7751d49657deb9e6d589",
+      "sourceId": "SRC-AIDB",
+      "title": "41 Stats That Tell the Story of AI Right Now",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-08/transcript.md",
+      "publishedAt": "2026-08-08T12:00:00.000Z",
+      "decidedAt": "2026-08-13T01:46:50-07:00",
+      "disposition": "DUPLICATE",
+      "ownerProductId": "learning-content-ecosystem",
+      "reason": "The AIDB desk fully processed this exact edition on 2026-08-10. It verified selected primary sources, declined unsupported statistics and routed one distinct workplace AI-disclosure question. Cloud intake rediscovered it because its cache did not consume that durable disposition.",
+      "evidenceRefs": [
+        "operations/agents/aidb-intelligence-desk/daily/2026-08-10.md",
+        "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-10-ai-use-disclosure-at-work.md"
+      ],
+      "relatedRecords": [
+        "LCWO-019"
+      ],
+      "nextTrigger": "No duplicate publication action. LCWO-019 owns the one unresolved Career/Work-Life reader question; reopen the source only for a correction, replication, materially different study or changed disclosure-policy boundary.",
+      "reviewBy": null
+    }
+  ],
+  "sourceHealth": [
+    {
+      "sourceId": "SRC-REUTERS-AI",
+      "alertMarker": "SRC-REUTERS-AI — HTTP 401",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "observedAt": "2026-08-12T22:35:27.203Z",
+      "state": "HTTP_401",
+      "disposition": "RETRY_WITH_AUTHORIZED_FEED_OR_EXPLICIT_ALTERNATIVE",
+      "nextAction": "Test an authorized Reuters feed or documented endpoint. If none is available, replace this recurring URL with an explicitly governed alternative source; do not scrape around access controls and do not treat the outage as zero news.",
+      "reviewBy": "2026-08-20"
+    }
+  ],
+  "draftActionTaken": false,
+  "publicationActionTaken": false,
+  "canonicalWrite": false,
+  "deploymentActionTaken": false
+}

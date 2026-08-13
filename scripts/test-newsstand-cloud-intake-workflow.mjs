@@ -12,6 +12,8 @@ for (const required of [
   "actions/cache/save@v4",
   "run-newsstand-cloud-intake.mjs",
   "test-newsstand-cloud-intake.mjs",
+  "test-newsstand-cloud-intake-dispositions.mjs",
+  "check-newsstand-cloud-intake-dispositions.mjs",
   "upsert-newsstand-intake-issue.mjs",
   "actions/upload-artifact@v4"
 ]) assert.ok(text.includes(required), `workflow missing ${required}`);
