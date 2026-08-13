@@ -56,6 +56,10 @@ fs.copyFileSync(
   path.join(fixtureRoot, "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md")
 );
 fs.copyFileSync(
+  path.join(root, "operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATES-CANDIDATE.md"),
+  path.join(fixtureRoot, "operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATES-CANDIDATE.md")
+);
+fs.copyFileSync(
   path.join(root, "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json"),
   path.join(fixtureRoot, "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json")
 );

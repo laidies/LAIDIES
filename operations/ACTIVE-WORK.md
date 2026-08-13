@@ -1143,3 +1143,12 @@ objective; every open lane keeps its own checkpoint.
 - **Recovery truth:** a temporary clean branch from `origin/main` exposed delete/modify conflicts when one operations commit was rehearsed. The cherry-pick was aborted before resolution, the worktree was restored to its original clean branch and the exact temporary branches were removed. A separate attempted worktree creation failed at about 30% because the data volume had roughly 2 GiB available; Git removed the incomplete worktree and it contained no user work. No existing dirty byte was discarded.
 - **Next trigger:** before the final Daily release, recheck disk headroom, fetch the actual remote `main`, prove the protected-path diff is empty and use only the registered curated-artifact transaction.
 - **Authority:** integration-boundary documentation only. No canonical story, issue, public source, deployment or live site changed.
+
+### 2026-08-13 NewsStand primary service-template checkpoint
+
+- **Current state:** `FOUR EXACT SERVICE TEMPLATES CANDIDATE-ONLY / ALI REVIEW REQUIRED / NO AUTONOMOUS LANE`.
+- **Exact candidate:** `operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATES-CANDIDATE.md` defines section-by-section Content, Analysis, Delivery and Must-not-do jobs for Paige's Practical AI Tip, Career / Work-Life, Promptoscope and Mme CLAi-O's Reading of the Day. Each section is checksum-bound in the feature-lane registry.
+- **Distinctness:** Paige starts with a work moment and one bounded AI action; Career / Work-Life remains useful non-AI guidance before a proved AI connection and limit; Promptoscope uses a funny normally non-work situation and explains the real mechanism; Mme CLAi-O preserves an exact deterministic governed card and adjacent non-predictive boundary. Topic rotation prevents Paige from paraphrasing a recently used lesson to fill a date.
+- **Gate truth:** `check-newsstand-feature-lanes.mjs` passes with 16 lanes and `autonomous_ready=none`. Its calibrated suite passes after adding the new exact template authority to the isolated good fixture; missing authority, vague templates, missing acceptance and false-autonomous states still fail.
+- **Next trigger:** Ali reviews the four candidate templates. Only an accepted exact section may commission one new private complete positive example; all v26 service examples remain rejected.
+- **Authority:** template candidate and validation-fixture repair only. No example, dated service selection, issue, public page, deployment or publication changed.

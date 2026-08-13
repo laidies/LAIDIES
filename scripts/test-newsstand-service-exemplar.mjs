@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { inspectNewsstandServiceExemplar } from "./check-newsstand-service-exemplar.mjs";
+import { featureLaneContractSha256 } from "./check-newsstand-producer-proof.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const candidateRoot = path.join(root, "operations/product-stewards/newsstand/candidates");
@@ -14,10 +16,26 @@ const files = {
   promptoscope: "promptoscope-refrigerator-service-exemplar-2026-08-12.json",
   mme: "mme-claio-mini-backpack-service-exemplar-2026-08-12.json"
 };
-const read = name => JSON.parse(fs.readFileSync(path.join(candidateRoot, files[name]), "utf8"));
+const registry = JSON.parse(fs.readFileSync(path.join(root, "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json"), "utf8"));
+const standardPath = path.join(root, "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md");
+const currentStandardSha = crypto.createHash("sha256").update(fs.readFileSync(standardPath)).digest("hex");
+const readRaw = name => JSON.parse(fs.readFileSync(path.join(candidateRoot, files[name]), "utf8"));
+// These exact prose examples belong to the rejected v26 package. They may
+// calibrate mechanics only. Refresh bindings in memory so no repository
+// artifact can be mistaken for a current or accepted exemplar.
+const read = name => {
+  const candidate = readRaw(name);
+  const lane = registry.lanes.find(item => item.id === candidate.laneId);
+  candidate.productionStandard.sha256 = currentStandardSha;
+  candidate.laneContractSha256 = featureLaneContractSha256(lane);
+  return candidate;
+};
 const errors = candidate => inspectNewsstandServiceExemplar(candidate, { root }).errors.join("\n");
 
-for (const name of Object.keys(files)) assert.equal(errors(read(name)), "", `${name} candidate must match mechanically`);
+for (const name of Object.keys(files)) {
+  assert.match(errors(readRaw(name)), /productionStandard SHA-256 mismatch|laneContractSha256/, `${name} rejected artifact must not silently bind the current lane`);
+  assert.equal(errors(read(name)), "", `${name} in-memory calibration fixture must match mechanically with quality authority none`);
+}
 
 const missingAction = read("paige");
 missingAction.body = missingAction.body.replace(missingAction.laneSpecific.actionQuote, "Ask the tool to check it.");
@@ -72,4 +90,4 @@ const wrongNegatives = read("career");
 wrongNegatives.negativeExemplarIdsRead = ["CQX-BAD-006", "CQX-BAD-007"];
 assert.match(errors(wrongNegatives), /must exactly match the current lane negatives/);
 
-console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS valid=4 missing_action=1 paige_horoscope=1 known_bad_career=1 career_ai_first=1 incomplete_career_prefix=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1");
+console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS in_memory_mechanical=4 rejected_exact_stale=4 missing_action=1 paige_horoscope=1 known_bad_career=1 career_ai_first=1 incomplete_career_prefix=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1 quality_authority=none");
