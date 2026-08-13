@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "laidies-newsstand-producer-proof.v1",
+  "candidateId": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260813-V5",
+  "publication": "THE_DAILY",
+  "storyMode": "REPORT_OR_ANNOUNCEMENT",
+  "status": "READY_FOR_FULL_DRAFT",
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "storyTemplate": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md",
+    "sha256": "5e95dbe8d1bc9e58f30c6f3dd47da5c885125f307bf53b3ae74a14745c2cc987",
+    "section": "The Daily — report, announcement or research finding",
+    "sectionSha256": "31fc61cdd29256bde1f950eb12a4ef240bf3e7197c20afccb270a95978cdf4e4",
+    "acceptanceRecord": {
+      "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json",
+      "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c"
+    }
+  },
+  "sourceMap": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+    "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+  },
+  "readerQuestion": "Did this study show that my private AI chats are being exposed, and is there anything I should do?",
+  "readerPayoff": "The reader understands that the finding concerns records of AI tasks people deliberately published — not ordinary private chats — and knows to share a checked result instead of an entire record.",
+  "headline": "Researchers found passwords in public AI work files",
+  "opening": "On August 10, 2026, Alexander Panfilov and seven co-authors shared a study before academic review. They examined raw AI work files that developers and researchers had posted on GitHub and Hugging Face so others could inspect or replay tasks. During their tests, they moved hidden data from those files into a weaker model from the same provider and recovered private details. This concerns people publishing raw technical files; it does not show ordinary private chats became public. Share the checked result, not the raw work file.",
+  "dailyOpeningFacts": {
+    "sourceIdentity": {
+      "namedSource": "Alexander Panfilov and seven co-authors",
+      "date": "August 10, 2026",
+      "status": "before academic review",
+      "requiredSentence": "On August 10, 2026, Alexander Panfilov and seven co-authors shared a study before academic review."
+    },
+    "sharingPath": {
+      "actor": "developers and researchers",
+      "object": "raw AI work files",
+      "channels": "GitHub and Hugging Face",
+      "purpose": "inspect or replay tasks",
+      "requiredSentence": "They examined raw AI work files that developers and researchers had posted on GitHub and Hugging Face so others could inspect or replay tasks."
+    },
+    "recoveryPath": {
+      "actor": "they",
+      "action": "moved hidden data",
+      "target": "a weaker model from the same provider",
+      "result": "recovered private details",
+      "requiredSentence": "During their tests, they moved hidden data from those files into a weaker model from the same provider and recovered private details."
+    },
+    "audienceBoundary": {
+      "affected": "people publishing raw technical files",
+      "notEstablished": "ordinary private chats became public",
+      "readerAction": "Share the checked result, not the raw work file",
+      "requiredSentence": "This concerns people publishing raw technical files; it does not show ordinary private chats became public. Share the checked result, not the raw work file."
+    }
+  },
+  "newcomerBackground": "Developers and researchers sometimes publish a record — a work file — so others can check how an AI task was done. The chat you read is the final cut. The work file is the editing room behind it: it can include steps, alternate takes and notes that never appeared on screen.",
+  "causalOutline": [
+    "Some tools store a sealed part inside the work file so the tool can continue earlier work, but in ordinary use the person sharing the file cannot open or read it.",
+    "A person publishes the complete work file so somebody else can check how the task was done, carrying the visible steps, alternate takes, notes and sealed part with it.",
+    "During the researchers' test period, a less-protected sibling model from the same provider could be made to accept the sealed part and expose details the publisher could not see.",
+    "That route exposed private details in some public work files, including details that had not appeared in the visible conversation.",
+    "The researchers disclosed the route and report that the same attacks subsequently stopped working.",
+    "Sharing only the checked answer and approved evidence — not the whole work file — avoids that mismatch."
+  ],
+  "evidenceBoundary": {
+    "establishes": "The preprint reports real passwords, keys and personal details in the sampled public AI work files, including some details absent from the visible chat, and says the demonstrated attacks stopped working after disclosure.",
+    "doesNotEstablish": "It does not show that ordinary private consumer chats were published, that every AI work file contains private details or that the exact demonstrated attacks still work. The researchers lacked the original hidden text, so they cannot prove every recovered word was exact."
+  },
+  "statAttribution": {
+    "sourceName": "Panfilov and colleagues",
+    "sourceYear": "August 2026",
+    "requiredSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working."
+  },
+  "statRelationship": {
+    "requiredSentence": "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from."
+  },
+  "mechanismBridge": {
+    "objectLocationSentence": "Some tools also store a sealed part inside the work file. It helps the tool continue earlier work, but in ordinary use the person sharing the file cannot open or read it.",
+    "attackDefinitionSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working.",
+    "evidenceRecoverySentence": "The researchers made the sealed part readable with that attack, then compared the recovered text with the visible chat."
+  },
+  "actionOpening": "When you share an AI-assisted result, copy only what you mean to send, check it and remove private details.",
+  "incidentAction": "If a work file you published contains a password or access key, treat it as exposed: change it and revoke what it unlocked. Deleting the file cannot undo copies.",
+  "evidenceParagraphBreaksAfter": [
+    "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
+    "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from."
+  ],
+  "plainGlosses": [
+    {
+      "term": "preprint",
+      "requiredSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working."
+    }
+  ],
+  "centralInstruction": {
+    "opening": "The lesson is for anyone sharing AI work: send the checked result, not the whole work file.",
+    "action": "When you share an AI-assisted result, copy only what you mean to send, check it and remove private details.",
+    "closing": "Before sharing, ask: **am I sending the answer I chose, or the whole work file that made it?**",
+    "prohibitedRestatements": [
+      "Cleaning the conversation you can see cannot clean the larger file.",
+      "A larger work file is not better proof.",
+      "do not clean the original and hope",
+      "A clean chat is not proof of a clean work file.",
+      "Send the final cut; keep the editing room out of the attachment."
+    ]
+  },
+  "evidenceSequence": [
+    "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working.",
+    "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
+    "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from.",
+    "The researchers made the sealed part readable with that attack, then compared the recovered text with the visible chat.",
+    "Most of those 704 private details also appeared in the visible chat; 64 appeared only in the sealed part.",
+    "The researchers lacked the original hidden text, so they cannot prove every recovered word was exact. That limit does not erase the credentials they report finding."
+  ],
+  "numberPlan": [
+    {
+      "value": "6,708",
+      "unit": "public AI work files",
+      "firstUseSentence": "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
+      "maximumOccurrences": 1
+    },
+    {
+      "value": "328",
+      "unit": "files",
+      "baseValue": "6,708",
+      "firstUseSentence": "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
+      "maximumOccurrences": 2
+    },
+    {
+      "value": "4.9%",
+      "unit": "public AI work files",
+      "baseValue": "6,708",
+      "firstUseSentence": "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
+      "maximumOccurrences": 1
+    },
+    {
+      "value": "704",
+      "unit": "distinct private details",
+      "firstUseSentence": "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from.",
+      "maximumOccurrences": 3
+    },
+    {
+      "value": "64",
+      "unit": "private details",
+      "baseValue": "704",
+      "firstUseSentence": "Most of those 704 private details also appeared in the visible chat; 64 appeared only in the sealed part.",
+      "maximumOccurrences": 2
+    }
+  ],
+  "readerSources": [
+    {
+      "label": "Panfilov et al., Stealing Reasoning Traces from Proprietary LLM APIs, arXiv:2608.09867",
+      "url": "https://arxiv.org/abs/2608.09867"
+    },
+    {
+      "label": "Anthropic, Thinking",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models"
+    }
+  ],
+  "voicePlan": {
+    "move": "The chat is the final cut; the work file is the editing room.",
+    "teachingJob": "Make the chosen answer and the larger work file feel like visibly different objects.",
+    "limit": "The analogy explains release choice only; an AI work file is not literally a film project and the actual technical safeguards remain provider-specific.",
+    "readerFacingLimit": "But publishing it also sends the alternate takes, notes and locked drawer.",
+    "humanTruth": "A whole file can feel safe to share because it shows every step.",
+    "mechanismMappingSentence": "In the editing-room picture, the sealed part is a locked drawer.",
+    "warmthLines": [
+      {
+        "sectionHeading": "The answer can be tidy while the work file is not",
+        "line": "The diagnosis is what your team wanted; the key was never invited to the meeting."
+      },
+      {
+        "sectionHeading": "Before you share anything",
+        "line": "If you would not deliberately paste a password into the message, do not assume the work file politely left it behind."
+      }
+    ]
+  },
+  "sectionPlan": [
+    {
+      "heading": "The chat is the final cut. The work file is the editing room.",
+      "readerJob": "Give the newcomer a concrete mental model and complete the missing-check mechanism.",
+      "jobType": "MECHANISM"
+    },
+    {
+      "heading": "Some private details never appeared on screen at all",
+      "readerJob": "Reconcile the study numbers, genuine-user scope and evidence limits.",
+      "jobType": "EVIDENCE"
+    },
+    {
+      "heading": "The answer can be tidy while the work file is not",
+      "readerJob": "Show the stakes in one workplace and one non-work situation without repeating the action.",
+      "jobType": "EXAMPLES_ONLY"
+    },
+    {
+      "heading": "Before you share anything",
+      "readerJob": "Give the sharing, already-public credential and false-shortcut actions.",
+      "jobType": "ACTION"
+    }
+  ],
+  "draftLimits": {
+    "phraseCaps": [
+      {
+        "phrase": "checked result",
+        "maximum": 2
+      },
+      {
+        "phrase": "inspect or replay an AI task",
+        "maximum": 1
+      }
+    ],
+    "prohibitedPhrases": [
+      "this next number counts",
+      "practice examples involving made-up characters",
+      "more file is not more proof",
+      "the number to remember",
+      "the number to circle",
+      "you do not need to remember every number",
+      "the useful split is this",
+      "The chat is the final cut; the work file is the editing room",
+      "In an August 2026 preprint,"
+    ]
+  },
+  "terminologyPlan": {
+    "plainTerm": "work file",
+    "stableObjectTerms": [
+      "work file",
+      "the sealed part"
+    ],
+    "allowedMetaphorTerms": [
+      "final cut",
+      "editing room",
+      "locked drawer",
+      "alternate takes"
+    ],
+    "prohibitedSynonyms": [
+      "behind-the-scenes file",
+      "production file",
+      "director's cut",
+      "backstage pass",
+      "share file",
+      "work record",
+      "hidden reasoning",
+      "sealed information",
+      "sealed parts",
+      "same company",
+      "sensitive item",
+      "private material"
+    ]
+  },
+  "applications": {
+    "work": {
+      "disposition": "APPLY",
+      "example": "At work, a coding assistant diagnosing a broken website may see a deployment key — a code that can publish site changes. The work file from that session can carry the key even when the diagnosis on screen does not. The diagnosis is what your team wanted; the key was never invited to the meeting."
+    },
+    "nonWork": {
+      "disposition": "APPLY",
+      "example": "At home, a travel assistant connected to your email may make a perfect Rome itinerary. Your friend needs the restaurant list, not the account details in the work file."
+    }
+  },
+  "usefulLanding": "Before sharing AI-assisted work, choose and check the answer you intend to send; do not publish the entire work file by default.",
+  "routingReason": "This is a dated research finding with one immediate sharing lesson. The Daily can explain it concisely; a deeper treatment of technical safeguards belongs elsewhere only if readers need it.",
+  "intendedWords": 550,
+  "lengthEscalationReason": "",
+  "producerPreflight": {
+    "negativeExamplesRead": true,
+    "laneId": "daily_news",
+    "laneContractSha256": "4d58e89e300446ac2b5c0dd1129c35d50ec2cf270672aa7bf8a060ee081a8ddb",
+    "negativeExemplarIdsRead": [
+      "CQX-BAD-001",
+      "CQX-BAD-004",
+      "CQX-BAD-005",
+      "CQX-BAD-013",
+      "CQX-BAD-014",
+      "CQX-BAD-015",
+      "CQX-BAD-016",
+      "CQX-BAD-018"
+    ],
+    "repeatedDefects": [],
+    "actualFormatUsed": true
+  }
+}

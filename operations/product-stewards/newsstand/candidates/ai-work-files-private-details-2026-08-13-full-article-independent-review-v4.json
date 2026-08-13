@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "laidies-newsstand-artifact-first-editorial-review.v1",
+  "reviewedAt": "2026-08-13T09:45:00-07:00",
+  "reviewerPrincipal": "newsstand-independent-semantic-terra-v4",
+  "reviewMethod": "EXACT_PROSE_ARTIFACT_FIRST_WITH_CURRENT_PRIMARY_SOURCE_RECHECK",
+  "candidate": {
+    "id": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260813-V4",
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-13-exact-prose-v4.md",
+    "sha256": "6da9596f733eaa338357f83abdc4b78d373b256384a5367dc21fb61c83229c75",
+    "allMarkdownWords": 673,
+    "bodyWordsExcludingHeadings": 623
+  },
+  "verdict": "REVISE",
+  "blockingDefects": [
+    {
+      "excerpt": "a weaker model from the same company",
+      "failure": "The paper establishes a weaker less-protected model from the same provider or provider family, not a generic same-company rule.",
+      "requiredRepair": "Use a weaker, less-protected model from the same provider."
+    },
+    {
+      "excerpt": "After removing duplicates and practice examples involving made-up characters",
+      "failure": "The reported filter is genuine non-benchmark user sessions; the wording characterizes the excluded group too narrowly.",
+      "requiredRepair": "Use after removing duplicates and setting aside benchmark sessions."
+    },
+    {
+      "excerpt": "Sources checked August 13, 2026: Panfilov and colleagues",
+      "failure": "The section names sources but supplies no reader-facing links.",
+      "requiredRepair": "Add direct HTTPS links for the paper and each provider document."
+    }
+  ],
+  "passedJobs": [
+    "factual non-clickbait headline and standfirst",
+    "news in one breath",
+    "newcomer context",
+    "evidence units and limits apart from filter wording",
+    "does-and-does-not-mean boundary",
+    "work and non-work transfer",
+    "specific useful action"
+  ],
+  "claimReview": {
+    "datasetCounts": "SUPPORTED_AS_AUTHOR_REPORTED_PREPRINT_RESULT",
+    "artifactUnits704And64": "SUPPORTED_PENDING_FILTER_WORDING_REPAIR",
+    "sameProviderRecovery": "SUPPORTED_PENDING_TERMINOLOGY_REPAIR",
+    "mitigation": "CORRECTLY_ATTRIBUTED_TO_AUTHORS",
+    "ordinaryPrivateChatsPublic": "CORRECTLY_NOT_ESTABLISHED",
+    "providerDocumentation": "CORRECTLY_LIMITED_TO_MECHANISM_CORROBORATION"
+  },
+  "ratchet": {
+    "predecessorObjectiveIssues": 5,
+    "candidateObjectiveIssues": 3,
+    "result": "IMPROVED_BUT_NOT_ACCEPTANCE_READY"
+  },
+  "authority": "INTERNAL_REPAIR_ONLY_NO_SEMANTIC_ADMISSION_NO_PUBLICATION"
+}
