@@ -14523,3 +14523,32 @@ while remaining falsely unfinished in the launch record.
   turn the same AI tip into three different editorial products.
 - **Publication status:** INTERNAL PRODUCTION-SYSTEM REPAIR VERIFIED LOCALLY /
   ZERO LANES AUTONOMOUS / NO PUBLICATION OR DEPLOYMENT.
+
+## BTB-461 — A “complete” Daily package did not bind the evidence that made it reviewable
+
+- **Date:** 2026-08-12
+- **Area:** NewsStand complete-Daily review packaging and release identity.
+- **Failure:** The replacement Daily package bound its held story, producer
+  proof and service review but omitted the independent semantic judgment,
+  independent visual judgment and six admitted desktop/mobile screenshots.
+  A later edit could therefore change the prose or pixels while the package
+  continued to call itself complete.
+- **Root cause:** The composer treated evidence files as nearby production
+  outputs rather than required inputs to one immutable review object. The
+  browser test consumed the package as a fixture but did not validate that the
+  package itself carried the evidence chain or enumerated its remaining human
+  and release gates.
+- **Prevention rule:** A complete Daily review package binds the exact held
+  story, four ready service candidates, all producer and independent judgments,
+  and distinct Daily-front/full-article pixels at 1440/390/320. It explicitly
+  carries zero release authority and names Ali approval, observed unfamiliar
+  human comprehension, release admission, deployment and public verification
+  as unresolved until each happens.
+- **Durable correction:** `compose-newsstand-complete-daily-review.mjs` now
+  consumes and verifies those inputs;
+  `check-newsstand-complete-daily-review.mjs` rejects six calibrated authority,
+  omission and checksum mutations; the gate is part of `test:newsstand-canon`.
+- **Possible Behind the Build angle:** Why six reviewed screenshots sitting in
+  the right folder still do not prove which version of a newspaper was approved.
+- **Publication status:** PRIVATE REVIEW PACKAGE REPAIRED AND VERIFIED LOCALLY /
+  NO ALI APPROVAL, CANONICAL WRITE, DEPLOYMENT OR PUBLIC CHANGE.

@@ -25,6 +25,12 @@ function read(relative, label) {
   return { path: path.relative(ROOT, absolute), raw, sha256: sha256(raw) };
 }
 
+function binding(relative, label) {
+  const absolute = path.resolve(ROOT, relative || "");
+  if (!relative || !absolute.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) fail(`${label} is unavailable: ${relative || ""}`);
+  return { path: path.relative(ROOT, absolute), sha256: sha256(fs.readFileSync(absolute)) };
+}
+
 function json(relative, label) {
   const file = read(relative, label);
   try { return { ...file, value: JSON.parse(file.raw) }; }
@@ -36,6 +42,9 @@ export function composeCompleteDailyReviewPackage(inputs) {
   const proofFile = json(inputs.proof, "producer proof");
   const proofReviewFile = json(inputs.proofReview, "producer proof review");
   const serviceReviewFile = json(inputs.serviceReview, "service exemplar review");
+  const semanticReviewFile = read(inputs.semanticReview, "independent semantic review");
+  const visualReviewFile = read(inputs.visualReview, "independent visual review");
+  const screenshots = inputs.screenshots.map((item, index) => binding(item.path, `review screenshot ${index + 1}`));
   const columnsFile = json("content/daily-edition-columns.json", "Daily column authority");
   const serviceFiles = inputs.services.map((item, index) => json(item, `service candidate ${index + 1}`));
 
@@ -66,6 +75,26 @@ export function composeCompleteDailyReviewPackage(inputs) {
   const reviewedServices = new Map((serviceReviewFile.value.candidates || []).map(item => [item.path, item.sha256]));
   for (const service of serviceFiles) if (reviewedServices.get(service.path) !== service.sha256) fail(`${service.path} is not the exact independently reviewed candidate`);
 
+  const exactProsePath = storyFile.value?.sourceText?.path;
+  const exactProseSha = storyFile.value?.sourceText?.sha256;
+  if (!semanticReviewFile.raw.includes("Verdict: `PASS_ARTIFACT_LEVEL`") ||
+      !semanticReviewFile.raw.includes(`- Artifact: \`${exactProsePath}\``) ||
+      !semanticReviewFile.raw.includes(`- SHA-256: \`${exactProseSha}\``) ||
+      !semanticReviewFile.raw.includes("does not substitute for observed unfamiliar-human explain-back and unseen transfer evidence")) {
+    fail("semantic review does not bind and PASS the exact prose with the human-evidence boundary intact");
+  }
+  if (!visualReviewFile.raw.includes("Status: `ADMIT_PRIVATE_DIRECTION_REVIEW`") ||
+      !visualReviewFile.raw.includes("does not admit the story as a positive exemplar, canonical content, deployment or public release")) {
+    fail("visual review does not admit only the private direction");
+  }
+  if (screenshots.length !== 6 || new Set(screenshots.map(item => item.path)).size !== 6) fail("six distinct Daily review screenshots are required");
+  for (const screenshot of screenshots) {
+    const basename = path.basename(screenshot.path);
+    if (!visualReviewFile.raw.includes(`\`${basename}\` — SHA-256 \`${screenshot.sha256}\``)) {
+      fail(`visual review does not bind ${screenshot.path}`);
+    }
+  }
+
   const editionDate = "2026-08-12";
   if (storyFile.value.story.updatedAt.slice(0, 10) !== editionDate || serviceFiles.some(file => file.value.editionDate !== editionDate)) fail("all Daily contents must use the exact edition date");
   const publicTypes = { paige_tip: "paige_tip", career_work_life: "career_life", promptoscope: "promptoscope", mme_claio: "mme_claio" };
@@ -95,8 +124,22 @@ export function composeCompleteDailyReviewPackage(inputs) {
     evidence: {
       producerProof: { path: proofFile.path, sha256: proofFile.sha256 },
       producerProofReview: { path: proofReviewFile.path, sha256: proofReviewFile.sha256 },
-      serviceReview: { path: serviceReviewFile.path, sha256: serviceReviewFile.sha256 }
+      serviceReview: { path: serviceReviewFile.path, sha256: serviceReviewFile.sha256 },
+      semanticReview: { path: semanticReviewFile.path, sha256: semanticReviewFile.sha256 },
+      visualReview: { path: visualReviewFile.path, sha256: visualReviewFile.sha256 },
+      screenshots: inputs.screenshots.map((item, index) => ({
+        ...screenshots[index],
+        mode: item.mode,
+        viewport: item.viewport
+      }))
     },
+    remainingGates: [
+      "ALI_EXACT_PACKAGE_APPROVAL",
+      "OBSERVED_UNFAMILIAR_HUMAN_EXPLAIN_BACK",
+      "OBSERVED_UNFAMILIAR_HUMAN_UNSEEN_TRANSFER",
+      "INDEPENDENT_RELEASE_ADMISSION",
+      "DEPLOYMENT_AND_EXACT_PUBLIC_VERIFICATION"
+    ],
     releaseAuthority: { canonicalWrite: false, deploy: false, public: false }
   };
   const canonical = `${canonicalJson(reviewPackage)}\n`;
@@ -113,7 +156,16 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   if (!output.startsWith(`${CANDIDATE_ROOT}${path.sep}`)) fail("--output must stay inside the NewsStand candidate directory");
   const result = composeCompleteDailyReviewPackage({
     story: valueAfter("--story"), proof: valueAfter("--proof"), proofReview: valueAfter("--proof-review"), serviceReview: valueAfter("--service-review"),
-    services: [valueAfter("--paige"), valueAfter("--career"), valueAfter("--promptoscope"), valueAfter("--mme")]
+    semanticReview: valueAfter("--semantic-review"), visualReview: valueAfter("--visual-review"),
+    services: [valueAfter("--paige"), valueAfter("--career"), valueAfter("--promptoscope"), valueAfter("--mme")],
+    screenshots: [
+      { mode: "DAILY_FRONT", viewport: 1440, path: valueAfter("--front-1440") },
+      { mode: "DAILY_FRONT", viewport: 390, path: valueAfter("--front-390") },
+      { mode: "DAILY_FRONT", viewport: 320, path: valueAfter("--front-320") },
+      { mode: "FULL_ARTICLE", viewport: 1440, path: valueAfter("--article-1440") },
+      { mode: "FULL_ARTICLE", viewport: 390, path: valueAfter("--article-390") },
+      { mode: "FULL_ARTICLE", viewport: 320, path: valueAfter("--article-320") }
+    ]
   });
   fs.writeFileSync(output, result.canonical);
   console.log(`COMPLETE DAILY REVIEW PACKAGE PASS edition=2026-08-12 story=1 ready_desks=4 sha256=${result.sha256} public_authority=none`);
