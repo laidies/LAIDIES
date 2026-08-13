@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "laidies-newsstand-producer-proof-review-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "proof": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v3.json",
+    "sha256": "13547499ccc07881b77cd174126f12433767e76750a99871feba4cb0b5fc8a0c"
+  },
+  "standard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "sourceMap": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+    "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+  },
+  "knownBad": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+    "sha256": "c213f5a4bcb69d94755b215bfa2a9ded72a9a190c804d3b700247b09c67064d3"
+  },
+  "promptSha256": "df0470962b37a1a56716b125ce2d64df0268c545ade7c44651146cc9b4205931",
+  "reviewedAt": "2026-08-13T08:18:01.450Z",
+  "review": {
+    "verdict": "PASS",
+    "summary": "Producer proof v3 passes. It repairs every defect that sank the rejected predecessor: the headline states the point without teasing, the 60-word opening answers what/why/who before any technical term, the intended 550 words fits Daily scale, and all statistics reconcile exactly to the source map (6,708/328/4.9% in one base-naming sentence; 704 with the changed-group unit warning; 64 stated against its 704 base with the visible-versus-sealed-only split). The recovery method is named in plain language before any result that depends on it, attribution is at point of use, terminology is stable, the central instruction is capped at its three permitted jobs, and the predecessor's number-coaching scaffolding is explicitly prohibited. No objective defect found.",
+    "defects": [],
+    "formatJob": "The Daily, REPORT_OR_ANNOUNCEMENT mode, intended 550 words: one dated research finding explained concisely with one immediate sharing lesson. The routing reason correctly keeps deeper technical-safeguard treatment out of this issue, and the section plan (MECHANISM, EVIDENCE, EXAMPLES_ONLY, ACTION) follows the mode's required order with distinct reader jobs per section.",
+    "plainOpening": "A cold reader can state the point from the opening alone: researchers examined records people deliberately published to let others check an AI task; those records carried more than the on-screen answer, including some passwords; ordinary private chats were not exposed; anyone sharing AI work should send the checked result, not the whole work file. The opening is 60 words, answer-first, with the audience boundary explicit and no technical vocabulary before its ordinary meaning.",
+    "causalTeaching": "The six-link outline is causes, not labels: tools store a sealed part inside the work file so the tool can continue earlier work, but the sharer cannot read it; publishing the complete file carries visible steps and the sealed part with it; during the test period a less-protected sibling model from the same provider could be made to accept the sealed part and expose its contents; that route exposed private details, including some absent from the visible conversation; the researchers disclosed the route and report the attacks then stopped working; sharing only the checked answer avoids the mismatch. The mechanism bridge names where the invisible object lives (inside the work file) and how evidence was recovered (the attack made the sealed part readable, then researchers compared it with the visible chat), with the attack described in plain language before the phrase \"with that attack\" is used.",
+    "evidenceBoundary": "Establishes: the preprint reports real passwords, keys and personal details in sampled public AI work files, including 64 of 704 details absent from the visible chat, and the authors say the demonstrated attacks stopped working after disclosure. Does not establish: that ordinary private consumer chats were published, that every work file contains private details, that the exact attacks still work, or that every recovered word was exact (the researchers lacked the original hidden text). This matches LOG-C01 through LOG-C04 including the unit warning that the paper gives no file denominator for the 704 details.",
+    "readerUse": "Workplace: a coding assistant diagnosing a broken website may see a deployment key (glossed as a code that can publish site changes); the work file can carry the key even when the on-screen diagnosis does not. Non-work: a travel assistant connected to email produces a shareable itinerary while its work file carries account details. Landing: before sharing AI-assisted work, choose and check the answer you intend to send rather than publishing the whole work file; if a published file contained a credential, treat it as exposed — change it and revoke access, because deleting the file cannot undo copies.",
+    "draftPermission": "FULL_DRAFT_ALLOWED"
+  }
+}

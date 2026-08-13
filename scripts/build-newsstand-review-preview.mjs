@@ -34,7 +34,7 @@ function packagePath(args) {
   return path.resolve(supplied);
 }
 
-export function overlayReviewPackage({ output, pkg, packageSha256 }) {
+export function overlayReviewPackage({ output, pkg, packageSha256, packageSourcePath = DEFAULT_PACKAGE }) {
   const htmlPath = path.join(output, "newsstand.html");
   const storyPath = path.join(output, "content/newsstand-stories.js");
   const issuesPath = path.join(output, "content/newsstand-daily-issues.json");
@@ -99,7 +99,7 @@ export function overlayReviewPackage({ output, pkg, packageSha256 }) {
     schema: "laidies.newsstand-private-preview-artifact.v1",
     status: "BUILT_NOT_DEPLOYED",
     sourceCommit: process.env.NEWSSTAND_REVIEW_SOURCE_COMMIT || null,
-    package: { path: DEFAULT_PACKAGE, sha256: packageSha256 },
+    package: { path: packageSourcePath, sha256: packageSha256 },
     editionDate: pkg.editionDate,
     storyId: story.id,
     publicAuthority: false,
@@ -126,7 +126,12 @@ function main() {
   fs.mkdirSync(output, { recursive: true });
   const build = spawnSync(process.execPath, [path.join(ROOT, "scripts/build-public-site.mjs"), output], { cwd: ROOT, encoding: "utf8" });
   if (build.status !== 0) fail(`curated public build failed: ${build.stderr || build.stdout}`);
-  const receipt = overlayReviewPackage({ output, pkg, packageSha256: sha256(packageRaw) });
+  const receipt = overlayReviewPackage({
+    output,
+    pkg,
+    packageSha256: sha256(packageRaw),
+    packageSourcePath: path.relative(ROOT, sourcePackagePath)
+  });
   console.log(`NEWSSTAND PRIVATE REVIEW PREVIEW BUILT story=${receipt.storyId} package=${receipt.package.sha256} public_authority=false`);
 }
 

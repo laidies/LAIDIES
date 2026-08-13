@@ -22,7 +22,13 @@ const curated = spawnSync(process.execPath, [path.join(ROOT, "scripts/build-publ
 assert.equal(curated.status, 0, curated.stderr || curated.stdout);
 const packageRaw = fs.readFileSync(PACKAGE);
 const packageRecord = JSON.parse(packageRaw);
-overlayReviewPackage({ output, pkg: packageRecord, packageSha256: crypto.createHash("sha256").update(packageRaw).digest("hex") });
+const packageSourcePath = path.relative(ROOT, PACKAGE);
+overlayReviewPackage({
+  output,
+  pkg: packageRecord,
+  packageSha256: crypto.createHash("sha256").update(packageRaw).digest("hex"),
+  packageSourcePath
+});
 const html = fs.readFileSync(path.join(output, "newsstand.html"), "utf8");
 const stories = fs.readFileSync(path.join(output, "content/newsstand-stories.js"), "utf8");
 const issues = JSON.parse(fs.readFileSync(path.join(output, "content/newsstand-daily-issues.json"), "utf8"));
@@ -35,6 +41,7 @@ assert(reviewIssue && reviewIssue.storyIds.includes("ai-work-logs-can-carry-secr
 assert.equal(reviewIssue.admission.decision, "ACCEPT_LOCAL_CANONICAL_WRITE", "preview issue must use the reader's existing accepted decision value; the artifact banner and receipt carry the no-public-authority boundary");
 assert.match(reviewIssue.stories[0].sourceApproval.record, /^\/operations\/product-stewards\/newsstand\/evidence\/stories\//, "preview snapshot must satisfy the existing story-evidence namespace without changing public source data");
 assert.equal(receipt.publicAuthority, false);
+assert.equal(receipt.package.path, packageSourcePath, "preview receipt must name the exact source package rather than a hard-coded predecessor");
 assert(!fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8").includes("ai-work-logs-can-carry-secrets"), "preview build must not mutate canonical source data");
 assert(!fs.existsSync(path.join(output, "operations")), "preview artifact must not expose operations files");
 

@@ -16,11 +16,11 @@
   "readerPayoff": "The reader understands that the finding concerns records of AI tasks people deliberately published — not ordinary private chats — and knows to share a checked result instead of an entire record.",
   "headline": "People published records of their AI work. Some contained passwords.",
   "opening": "A new study examined records people had published to let others inspect or replay an AI task. Those records held more than the answer on screen, and some included passwords and other private details. This does not mean ordinary private chats became public. The lesson is for anyone sharing AI work: send the checked result, not the whole work file.",
-  "newcomerBackground": "Developers and researchers sometimes publish a record — a work file — so others can check how an AI task was done.",
+  "newcomerBackground": "Developers and researchers sometimes publish a record — a work file — so others can check how an AI task was done. The chat you read is the final cut. The work file is the editing room behind it: it can include steps, alternate takes and notes that never appeared on screen.",
   "causalOutline": [
-    "An AI tool can keep a visible answer plus the sealed part, which helps it continue earlier work.",
-    "A person publishes the complete work file so somebody else can check how the task was done, carrying both parts with it.",
-    "During the researchers' test period, a less-protected sibling model from the same provider could be made to accept the sealed part and reveal what it represented.",
+    "Some tools store a sealed part inside the work file so the tool can continue earlier work, but in ordinary use the person sharing the file cannot open or read it.",
+    "A person publishes the complete work file so somebody else can check how the task was done, carrying the visible steps, alternate takes, notes and sealed part with it.",
+    "During the researchers' test period, a less-protected sibling model from the same provider could be made to accept the sealed part and expose details the publisher could not see.",
     "That route exposed private details in some public work files, including details that had not appeared in the visible conversation.",
     "The researchers disclosed the route and report that the same attacks subsequently stopped working.",
     "Sharing only the checked answer and approved evidence — not the whole work file — avoids that mismatch."
@@ -32,14 +32,14 @@
   "statAttribution": {
     "sourceName": "Panfilov and colleagues",
     "sourceYear": "August 2026",
-    "requiredSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues took the sealed part from a published work file and handed it to a less-protected sibling model from the same provider. They called this an extraction attack."
+    "requiredSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working."
   },
   "statRelationship": {
     "requiredSentence": "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from."
   },
   "mechanismBridge": {
-    "objectLocationSentence": "Inside an AI work file, some tools store the answer you see plus the sealed part, which helps the tool continue earlier work. That part is not displayed in the visible chat.",
-    "attackDefinitionSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues took the sealed part from a published work file and handed it to a less-protected sibling model from the same provider. They called this an extraction attack.",
+    "objectLocationSentence": "Some tools also store a sealed part inside the work file. It helps the tool continue earlier work, but in ordinary use the person sharing the file cannot open or read it.",
+    "attackDefinitionSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working.",
     "evidenceRecoverySentence": "The researchers made the sealed part readable with that attack, then compared the recovered text with the visible chat."
   },
   "actionOpening": "When you share an AI-assisted result, copy only what you mean to send, check it and remove private details.",
@@ -51,7 +51,7 @@
   "plainGlosses": [
     {
       "term": "preprint",
-      "requiredSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues took the sealed part from a published work file and handed it to a less-protected sibling model from the same provider. They called this an extraction attack."
+      "requiredSentence": "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working."
     }
   ],
   "centralInstruction": {
@@ -67,7 +67,7 @@
     ]
   },
   "evidenceSequence": [
-    "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues took the sealed part from a published work file and handed it to a less-protected sibling model from the same provider. They called this an extraction attack.",
+    "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues moved the sealed part from a published work file to a less-protected sibling model from the same provider. The sibling model exposed details the publisher could not see. The researchers called this an extraction attack. They alerted the companies and say the attack then stopped working.",
     "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
     "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from.",
     "The researchers made the sealed part readable with that attack, then compared the recovered text with the visible chat.",
@@ -123,9 +123,9 @@
     "move": "The chat is the final cut; the work file is the editing room.",
     "teachingJob": "Make the chosen answer and the larger work file feel like visibly different objects.",
     "limit": "The analogy explains release choice only; an AI work file is not literally a film project and the actual technical safeguards remain provider-specific.",
-    "readerFacingLimit": "The editing room is not public by default — the risk begins when someone publishes the work file.",
-    "humanTruth": "The whole file may look trustworthy because it shows every step.",
-    "mechanismMappingSentence": "In this picture, the sealed part is a locked drawer inside the editing room; it does not appear in the final cut.",
+    "readerFacingLimit": "But publishing it also sends the alternate takes, notes and locked drawer.",
+    "humanTruth": "A whole file can feel safe to share because it shows every step.",
+    "mechanismMappingSentence": "In the editing-room picture, the sealed part is a locked drawer.",
     "warmthLines": [
       {
         "sectionHeading": "The answer can be tidy while the work file is not",
@@ -189,7 +189,9 @@
     ],
     "allowedMetaphorTerms": [
       "final cut",
-      "editing room"
+      "editing room",
+      "locked drawer",
+      "alternate takes"
     ],
     "prohibitedSynonyms": [
       "behind-the-scenes file",

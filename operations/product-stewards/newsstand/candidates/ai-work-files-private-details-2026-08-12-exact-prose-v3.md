@@ -13,23 +13,22 @@ checked result, not the whole work file.
 ### The chat is the final cut. The work file is the editing room.
 
 Developers and researchers sometimes publish a record — a work file — so others
-can check how an AI task was done.
+can check how an AI task was done. The chat you read is the final cut. The work
+file is the editing room behind it: it can include steps, alternate takes and
+notes that never appeared on screen.
 
-The editing room is not public by default — the risk begins when someone
-publishes the work file. The whole file may look trustworthy because it shows
-every step. But publishing it is exactly when the
-alternate takes and notes travel with it.
+Some tools also store a sealed part inside the work file. It helps the tool
+continue earlier work, but in ordinary use the person sharing the file cannot
+open or read it. In the editing-room picture, the sealed part is a locked drawer.
 
-In this picture, the sealed part is a locked drawer inside the editing room; it
-does not appear in the final cut. Inside an AI work file, some tools store the
-answer you see plus the sealed part, which helps the tool continue earlier work.
-That part is not displayed in the visible chat. In an August 2026 preprint — a
-paper shared before independent academic review — Panfilov and colleagues took
-the sealed part from a published work file and handed it to a less-protected
-sibling model from the same provider. They called this an extraction attack.
-The sibling model exposed details from the sealed part that the publisher may
-never have seen. The researchers alerted the companies and say the attack then
-stopped.
+A whole file can feel safe to share because it shows every step. But publishing
+it also sends the alternate takes, notes and locked drawer.
+
+In an August 2026 preprint — a paper shared before independent academic review
+— Panfilov and colleagues moved the sealed part from a published work file to a
+less-protected sibling model from the same provider. The sibling model exposed
+details the publisher could not see. The researchers called this an extraction
+attack. They alerted the companies and say the attack then stopped working.
 
 ### Some private details never appeared on screen at all
 

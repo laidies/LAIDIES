@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "contentClass": "NEWS",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
+    "sha256": "1423ad53502f58d6c87eae251b6ce2edb6e8f36eda324c9933fbc2a06fbe8255"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "a6e672f3f47d441009de1d3b3f5f6787c1401208c802aef39dad74447876c614"
+  },
+  "exemplar": {
+    "path": "operations/product-stewards/learning-content-ecosystem/exemplars/CQX-GOOD-NEWS-001-eu-ai-act.md",
+    "sha256": "72c02502844efb0a260223b2573f0916cafbd263f721f9ba128b95396de3874f"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "knownBad": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+    "sha256": "c213f5a4bcb69d94755b215bfa2a9ded72a9a190c804d3b700247b09c67064d3"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "c26451a1d128edfcd57c4565d89e7c3790856e609022107527b7113e94647df5",
+  "judgedAt": "2026-08-13T08:20:54.070Z",
+  "judgment": {
+    "verdict": "PASS",
+    "summary": "The v3 artifact is accurate on its face, correctly sequenced, and free of the objective defects that sank the rejected predecessor. The number chain (6,708 files → 328 at ~4.9% → 704 distinct details after a stated filter change → 64 sealed-only) reads in order with paragraph breaks at each base change, honest boundaries where the source lacks a linking denominator, point-of-use attribution (Panfilov and colleagues, August 2026 preprint), and the recovery method named plainly before any result depends on it. The predecessor's number-plan narration, dangling action set-up, rotating Burn Book metaphors, and jobless citations are all repaired. One coherent analogy family (final cut / editing room / locked drawer) carries the mechanism and returns to it. Two non-blocking quality findings: the attack mechanism is thin on why a sibling model accepts another session's sealed part, and the voice sits at the restrained floor — recognisably beside the accepted exemplar's register, but closer to careful consumer-safety prose than Ali at full wattage. This is a semantic-review pass; observed unfamiliar-human explain-back of the sealed-part concept remains the outstanding evidence.",
+    "objectiveDefects": [],
+    "qualityFindings": [
+      {
+        "dimension": "mechanism completeness",
+        "locator": "Section 'The chat is the final cut. The work file is the editing room.', paragraph beginning 'In an August 2026 preprint'",
+        "finding": "The attack is asserted rather than mechanised: the reader is told the sealed part was 'moved' to a less-protected sibling model that then exposed details, but not why a sealed part made for one session would be accepted elsewhere. The predecessor's acceptance-failure explanation was dropped. Adequate for the non-technical reader's job (the action does not depend on attack internals), but a curious reader is left with 'somehow.'"
+      },
+      {
+        "dimension": "voice / enjoyability",
+        "locator": "Whole piece; warmth lines at 'the key was never invited to the meeting' (examples section) and 'do not assume the work file politely left it behind' (action section)",
+        "finding": "Voice meets the two-warmth-line requirement in different section jobs and sits beside the restrained register of the accepted EU AI Act exemplar, but it is at the floor: the piece reads as defensively sanded after the rejection rather than unmistakably warm LAiDIES. Not blocking, but the lane's ceiling is higher than this."
+      },
+      {
+        "dimension": "hedged attribution",
+        "locator": "Action section, sentence 'Providers such as Anthropic document that a readable summary is not the sealed part itself.'",
+        "finding": "'Providers such as' is a slight vagueness hedge; only Anthropic is actually sourced. Minor, since Anthropic is named and the citation has a visible job."
+      }
+    ],
+    "readerChange": "A non-technical reader leaves with a concrete, durable behaviour change: when sharing an AI-assisted result, copy and check only the answer she means to send rather than the whole work file; for inspection or replay, build a fresh file containing only the question, checked result, and needed evidence; never trust 'show your work' prompts as a scan of the file; and treat any credential in an already-published work file as exposed — rotate it and revoke access rather than relying on deletion. The closing transfer question ('am I sending the answer I chose, or the whole work file that made it?') gives her a reusable pre-share test.",
+    "voiceComparison": "Against the accepted EU AI Act exemplar, v3 matches the register: plain-first teaching, one load-bearing analogy (final cut / editing room / locked drawer, parallel to the exemplar's 'caller ID'), honest evidence boundaries, and a closing reader-facing question. It avoids all banned patterns — no scaffolding narration, no false-exclusivity hooks, no gendered AI pronouns, no decorative pop-culture. Warmth is present but sparse: 'the key was never invited to the meeting,' the Rome restaurant-list line, and 'do not assume the work file politely left it behind' are the three light touches in otherwise procedural prose. Compared with the rejected predecessor, v3 trades the Burn Book/Regina layer and number coaching for discipline and clarity — the correct trade — but lands nearer the exemplar's restrained floor than Episode 1's described full warmth. Recognisably beside the exemplar; not the lane's ceiling."
+  }
+}
