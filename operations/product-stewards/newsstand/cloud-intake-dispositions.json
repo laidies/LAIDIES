@@ -1,7 +1,7 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-13T01:46:50-07:00",
+  "updatedAt": "2026-08-13T13:43:05-07:00",
   "issue": {
     "repository": "laidies/LAIDIES",
     "number": 57,
@@ -49,17 +49,38 @@
       "decidedAt": "2026-08-13T01:46:50-07:00",
       "disposition": "QUEUED_WITH_TRIGGER",
       "ownerProductId": "newsstand",
-      "reason": "xAI's official release describes an early-beta always-on agent that can use a cloud computer, sign in to tools, act while a laptop is closed and coordinate with other bots. That is a current, potentially useful Daily topic, but the NewsStand owner already has one held Daily candidate and may not start a second primary draft.",
+      "reason": "A current official-source recheck now establishes an early-beta always-on agent with its own computer, signed-in tool use, current displayed access/pricing paths and an explicit user-responsibility boundary. This is source-sufficient for a future Daily report/announcement producer proof, but the NewsStand owner already has one held Daily candidate and may not start a second primary draft.",
       "evidenceRefs": [
         "https://aidailybrief.ai/e/2026-08-12/transcript.md",
-        "https://x.ai/news/introducing-grok-bot",
+        "https://x.ai/bot",
+        "https://x.ai/pricing",
         "https://x.ai/legal/terms-of-service",
-        "https://x.ai/legal/privacy-policy"
+        "https://x.ai/legal/privacy-policy",
+        "operations/product-stewards/newsstand/sources/grok-bot-official-source-preflight-2026-08-13.md"
       ],
       "relatedRecords": [
         "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json"
       ],
-      "nextTrigger": "When the current held Daily receives Ali's decision and the NewsStand primary lane is free, recheck official availability, price, account eligibility, credential handling, data use and responsibility for agentic actions; then create at most one source-bound Daily work order if the reader payoff still holds.",
+      "sourcePreflight": {
+        "observedAt": "2026-08-13T13:43:05-07:00",
+        "status": "SOURCE_SUFFICIENT_FOR_FUTURE_DAILY_PRODUCER_PROOF",
+        "mode": "REPORT_OR_ANNOUNCEMENT",
+        "distinctFromHeldLead": true,
+        "currentFactsResolved": [
+          "early beta product state",
+          "own cloud computer and signed-in tool use",
+          "24/7 work while the user's laptop is closed",
+          "current displayed individual and team pricing/access paths",
+          "user responsibility for agentic actions"
+        ],
+        "mustRemainExplicitUnknown": [
+          "universal region and device availability",
+          "exact per-tool permission and credential isolation model",
+          "Bot-specific retention and model-training treatment",
+          "reliability and security suitability for a reader's intended work"
+        ]
+      },
+      "nextTrigger": "When the current held Daily receives Ali's decision and the NewsStand primary lane is free, reopen the exact Bot, pricing, terms and privacy pages on the intended issue date. If the reader payoff and stated evidence boundary still hold, create at most one source-bound Daily producer proof; do not wait for every product unknown to disappear and do not guess over any remaining unknown.",
       "reviewBy": "2026-08-20"
     },
     {
