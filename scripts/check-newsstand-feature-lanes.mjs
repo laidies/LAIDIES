@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY_PATH = "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json";
 const EXEMPLARS_PATH = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
-const REQUIRED = new Set(["the_breaking", "daily_news", "the_weekly", "the_big_picture", "straight_talk", "dear_miss_jeeves", "paige_tip", "career_work_life", "promptoscope", "mme_claio", "song_of_the_day", "did_you_know", "town_note", "curiosity", "fiction"]);
+const REQUIRED = new Set(["the_breaking", "daily_news", "the_weekly", "the_big_picture", "straight_talk", "dear_miss_jeeves", "paige_tip", "career_work_life", "promptoscope", "term_of_the_week", "mme_claio", "song_of_the_day", "did_you_know", "town_note", "curiosity", "fiction"]);
 const sha256 = (body) => crypto.createHash("sha256").update(body).digest("hex");
 const text = (value) => typeof value === "string" && value.trim().length > 0;
 
@@ -44,12 +44,66 @@ function checkAcceptedExemplar(root, binding, { laneId, slot }, errors) {
   require(acceptance?.authorityBoundary === "EXEMPLAR_ONLY_NO_PUBLICATION_AUTHORITY", "must preserve the exemplar-only authority boundary");
 }
 
+function checkTemplateCandidate(root, binding, label, errors) {
+  const absolute = checkBinding(root, binding, label, errors);
+  if (!absolute) return;
+  const body = fs.readFileSync(absolute, "utf8");
+  const sections = binding.sections || (binding.section ? [binding.section] : []);
+  if (!sections.length) errors.push(`${label} requires section or sections`);
+  for (const section of sections) {
+    const heading = `## ${section}`;
+    const start = body.indexOf(heading);
+    if (!text(section) || start < 0) { errors.push(`${label} section is missing from the exact template: ${section || ""}`); continue; }
+    const next = body.indexOf("\n## ", start + heading.length);
+    const sectionBody = body.slice(start, next < 0 ? body.length : next);
+    const expectedSectionSha = sections.length === 1 ? binding.sectionSha256 : binding.sectionSha256ByName?.[section];
+    if (expectedSectionSha && sha256(sectionBody) !== expectedSectionSha) errors.push(`${label} ${section} section SHA-256 mismatch`);
+    if (!sectionBody.includes("| Section | Content | Analysis | Delivery | Must not do |")) errors.push(`${label} ${section} must define section-by-section Content, Analysis, Delivery and Must not do jobs`);
+    const tableRows = sectionBody.split("\n").filter((line) => line.startsWith("|") && !line.includes("---"));
+    if (tableRows.length < 4) errors.push(`${label} ${section} requires at least three reader-facing section rows`);
+  }
+}
+
+function checkAcceptedTemplate(root, binding, { laneId, slot }, errors) {
+  const label = `${laneId}.${slot}.approvedTemplate`;
+  checkTemplateCandidate(root, binding, label, errors);
+  const acceptancePath = checkBinding(root, binding?.acceptanceRecord, `${label}.acceptanceRecord`, errors);
+  if (!acceptancePath) return;
+
+  let acceptance;
+  try { acceptance = JSON.parse(fs.readFileSync(acceptancePath, "utf8")); }
+  catch (error) { errors.push(`${label}.acceptanceRecord is invalid JSON: ${error.message}`); return; }
+
+  const require = (condition, message) => { if (!condition) errors.push(`${label}.acceptanceRecord ${message}`); };
+  require(/^[a-f0-9]{64}$/.test(binding?.sectionSha256 || ""), "approved template requires exact sectionSha256");
+  if (acceptance?.schemaVersion === "laidies-newsstand-template-review.v1") {
+    const decision = (acceptance.decisions || []).find((item) => item.laneId === laneId && item.templateSlot === slot);
+    require(Boolean(decision), `requires a decision for ${laneId}.${slot}`);
+    require(decision?.verdict === "ACCEPT", "requires Ali verdict ACCEPT");
+    require(decision?.section === binding?.section, "section must match the accepted section");
+    require(decision?.sectionSha256 === binding?.sectionSha256, "section SHA-256 must match the accepted section");
+    require(acceptance?.templateDocument?.path === binding?.path, "template path must match the reviewed document");
+    require(text(acceptance?.aliStatement?.exactWords), "requires Ali's exact review words");
+    require(!Number.isNaN(Date.parse(acceptance?.aliStatement?.decidedAt || "")), "requires a valid Ali decision timestamp");
+    require(acceptance?.authorityBoundary === "TEMPLATE_ONLY_PRIVATE_EXAMPLE_AUTHORITY", "must preserve the template-only authority boundary");
+  } else {
+    require(acceptance?.schemaVersion === "laidies-newsstand-template-acceptance.v1", "schemaVersion mismatch");
+    require(acceptance?.laneId === laneId, `laneId must be ${laneId}`);
+    require(acceptance?.templateSlot === slot, `templateSlot must be ${slot}`);
+    require(acceptance?.template?.path === binding?.path && acceptance?.template?.sha256 === binding?.sha256, "template binding must match the registry template");
+    require(acceptance?.aliDecision?.verdict === "ACCEPT", "requires Ali verdict ACCEPT");
+    require(text(acceptance?.aliDecision?.exactWords), "requires Ali's exact acceptance words");
+    require(!Number.isNaN(Date.parse(acceptance?.aliDecision?.decidedAt || "")), "requires a valid Ali decision timestamp");
+    require(acceptance?.authorityBoundary === "TEMPLATE_ONLY_PRIVATE_EXAMPLE_AUTHORITY", "must preserve the template-only authority boundary");
+  }
+}
+
 export function inspectNewsstandFeatureLanes(registry, { root = ROOT } = {}) {
   const errors = [];
   const require = (condition, message) => { if (!condition) errors.push(message); };
   require(registry?.schemaVersion === "laidies-newsstand-feature-lanes.v1", "schemaVersion mismatch");
   require(registry?.defaultDenyDrafting === true, "feature drafting must default deny");
-  for (const field of ["fullPublishShapedTextRequired", "aliAcceptanceRequired", "sourceAndFreshnessBindingRequired", "rejectedContrastRequired", "producerSelfCheckRequired", "dailyNewsRequiresOnePerEnabledStoryMode", "samplersAndOutlinesAreIneligible"]) {
+  for (const field of ["fullPublishShapedTextRequired", "aliAcceptanceRequired", "sourceAndFreshnessBindingRequired", "rejectedContrastRequired", "producerSelfCheckRequired", "approvedTemplateRequired", "dailyNewsRequiresOnePerEnabledStoryMode", "samplersAndOutlinesAreIneligible"]) {
     require(registry?.exemplarPolicy?.[field] === true, `exemplarPolicy.${field} must be true`);
   }
   require(Array.isArray(registry?.lanes), "lanes must be an array");
@@ -65,12 +119,20 @@ export function inspectNewsstandFeatureLanes(registry, { root = ROOT } = {}) {
     require(Array.isArray(lane?.sourceRules) && lane.sourceRules.length > 0 && lane.sourceRules.every(text), `${lane?.id || "lane"}.sourceRules are required`);
     require(Array.isArray(lane?.negativeExemplarIds), `${lane?.id || "lane"}.negativeExemplarIds must be an array`);
     for (const id of lane?.negativeExemplarIds || []) require(negativeIds.has(id), `${lane?.id || "lane"} references unknown negative exemplar ${id}`);
+    if (lane?.templateCandidate) checkTemplateCandidate(root, lane.templateCandidate, `${lane.id}.templateCandidate`, errors);
     if (lane?.id === "daily_news") {
       require(Array.isArray(lane?.storyModes) && lane.storyModes.length > 0 && new Set(lane.storyModes).size === lane.storyModes.length, "daily_news.storyModes must be a non-empty unique array");
+      for (const [mode, binding] of Object.entries(lane?.approvedTemplatesByMode || {})) checkAcceptedTemplate(root, binding, { laneId: lane.id, slot: mode }, errors);
+    } else if (lane?.approvedTemplate) {
+      checkAcceptedTemplate(root, lane.approvedTemplate, { laneId: lane.id, slot: "DEFAULT" }, errors);
     }
     if (lane?.status === "READY_AUTONOMOUS_PRODUCTION") {
       if (lane.id === "daily_news") {
         const modes = lane.storyModes || [];
+        const suppliedTemplates = lane.approvedTemplatesByMode && typeof lane.approvedTemplatesByMode === "object" && !Array.isArray(lane.approvedTemplatesByMode)
+          ? Object.keys(lane.approvedTemplatesByMode)
+          : [];
+        require(JSON.stringify([...suppliedTemplates].sort()) === JSON.stringify([...modes].sort()), "daily_news.approvedTemplatesByMode must bind exactly one Ali-accepted template for every enabled story mode");
         const supplied = lane.positiveExemplarsByMode && typeof lane.positiveExemplarsByMode === "object" && !Array.isArray(lane.positiveExemplarsByMode)
           ? Object.keys(lane.positiveExemplarsByMode)
           : [];

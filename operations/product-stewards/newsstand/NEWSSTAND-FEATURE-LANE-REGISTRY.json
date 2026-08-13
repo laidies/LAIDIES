@@ -10,6 +10,7 @@
     "sourceAndFreshnessBindingRequired": true,
     "rejectedContrastRequired": true,
     "producerSelfCheckRequired": true,
+    "approvedTemplateRequired": true,
     "dailyNewsRequiresOnePerEnabledStoryMode": true,
     "samplersAndOutlinesAreIneligible": true
   },
@@ -20,13 +21,15 @@
       "publishesIn": "Top of the current Daily only when qualified",
       "cadence": "CONDITIONAL",
       "readerJob": "Interrupt only when waiting for the next Daily would materially disadvantage the reader.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Breaking" },
+      "approvedTemplate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Breaking", "sectionSha256": "e3eef4e24976ec9615c586ef9887a21d850bd6715e3588ec234a5b20c74effd2", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } },
       "templateBeats": ["what changed and when", "why this cannot wait", "minimum newcomer background", "confirmed scope and uncertainty", "immediate useful action", "next verification point"],
       "targetWords": { "minimum": 180, "maximum": 450 },
       "sourceRules": ["current primary or official evidence", "independent verification proportionate to risk", "timestamped claim map", "mandatory human hold for safety, privacy, health, legal, political or incident claims"],
       "distinctFrom": "A later update or interesting announcement belongs in The Daily unless delay changes the reader's choice.",
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-003"],
-      "status": "BLOCKED_POSITIVE_EXEMPLAR"
+      "status": "TEMPLATE_ACCEPTED_POSITIVE_EXEMPLAR_REQUIRED"
     },
     {
       "id": "daily_news",
@@ -34,17 +37,23 @@
       "publishesIn": "The complete dated Daily newspaper",
       "cadence": "DAILY_IF_EARNED_WITH_GOVERNED_QUIET_STATE",
       "readerJob": "Explain what changed, what it actually means and what the reader should know or do today.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "sections": ["The Daily — report, announcement or research finding", "The Daily — headline or reporting check", "The Daily — update to prior coverage"] },
+      "approvedTemplatesByMode": {
+        "REPORT_OR_ANNOUNCEMENT": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Daily — report, announcement or research finding", "sectionSha256": "31fc61cdd29256bde1f950eb12a4ef240bf3e7197c20afccb270a95978cdf4e4", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } },
+        "HEADLINE_OR_REPORTING_CHECK": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Daily — headline or reporting check", "sectionSha256": "2f46fdbaa3e4be57f1913803abe5c0ba6906a7b9230d7565e7a6014287204a3c", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } },
+        "UPDATE_TO_PRIOR_COVERAGE": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Daily — update to prior coverage", "sectionSha256": "8e291e28adc89b07f8f5c6d7eb55a008141f117f62d650e01f2f5b4d0b325490", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } }
+      },
       "storyModes": ["REPORT_OR_ANNOUNCEMENT", "HEADLINE_OR_REPORTING_CHECK", "UPDATE_TO_PRIOR_COVERAGE"],
       "templateBeats": ["plain answer", "audience boundary", "newcomer background", "cause-and-effect mechanism", "what evidence establishes and does not", "work and non-work relevance when material", "useful landing", "sources and correction trigger"],
       "targetWords": { "minimum": 350, "maximum": 700 },
       "sourceRules": ["exact current source and claim map", "AIDB comparison where relevant", "primary evidence before summaries", "dated freshness and correction owner"],
       "distinctFrom": "The Daily reports one dated change; Weekly synthesizes several, Big Picture goes deeper and STRAiGHT TALK maintains a recurring answer.",
-      "representativeProof": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v3.json",
-      "representativeProofReview": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v3-review-10.json",
+      "rejectedRepresentativeProof": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v3.json",
+      "invalidatedRepresentativeProofReview": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v3-review-10.json",
       "candidatePositiveReference": "operations/product-stewards/learning-content-ecosystem/exemplars/CQX-GOOD-NEWS-001-eu-ai-act.md",
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-001", "CQX-BAD-004", "CQX-BAD-005", "CQX-BAD-013", "CQX-BAD-014", "CQX-BAD-015", "CQX-BAD-016"],
-      "status": "PROOF_PASSED_FULL_EXEMPLAR_NOT_YET_ACCEPTED"
+      "status": "TEMPLATES_ACCEPTED_ALL_MODES_POSITIVE_EXEMPLARS_REQUIRED"
     },
     {
       "id": "the_weekly",
@@ -52,13 +61,15 @@
       "publishesIn": "The Weekly newspaper",
       "cadence": "WEEKLY_IF_AT_LEAST_TWO_DEVELOPMENTS_EARN_SYNTHESIS",
       "readerJob": "Show what accumulated, conflicted or changed direction across the week.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Weekly" },
+      "approvedTemplate": null,
       "templateBeats": ["durable weekly question", "minimum background", "dated development sequence", "material agreement and disagreement", "connected mechanism or pattern", "what changed across the week", "consequences and watch points", "tip of the week only if subordinate and earned"],
       "targetWords": { "minimum": 800, "maximum": 1400 },
       "sourceRules": ["at least two distinct developments", "primary or official evidence for each", "independent context proportionate to risk", "no concatenated Daily summaries"],
       "distinctFrom": "A Weekly is synthesis, not seven headlines and not one long Daily story.",
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-005"],
-      "status": "BLOCKED_POSITIVE_EXEMPLAR"
+      "status": "REVISED_TEMPLATE_PENDING_ALI_APPROVAL_AND_POSITIVE_EXEMPLAR"
     },
     {
       "id": "the_big_picture",
@@ -66,13 +77,15 @@
       "publishesIn": "The Big Picture feature and searchable archive",
       "cadence": "AS_EARNED",
       "readerJob": "Answer the larger consequential question behind several headlines and explain what the pattern really means.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Big Picture" },
+      "approvedTemplate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "The Big Picture", "sectionSha256": "715d55127b8fcbb59173ac05a5ea0f0beb4e463422f66b4427368b3bcc5bd4f6", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } },
       "templateBeats": ["the real question", "plain short answer", "why the question exists", "confirmed evidence", "cause-and-effect mechanism", "strongest inference and its limit", "strongest credible counterargument", "what would change the conclusion", "workplace and non-work consequences", "better next question"],
       "targetWords": { "minimum": 1200, "maximum": 2200 },
       "sourceRules": ["multiple primary sources or one primary source plus material independent scrutiny", "separate confirmed evidence, inference and position", "link dated precursor stories", "link maintained evergreen concept where applicable"],
       "distinctFrom": "Big Picture explains a pattern deeply; it is not the old Tribune opinion column, a Weekly recap or a timeless textbook chapter.",
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-005"],
-      "status": "BLOCKED_TEMPLATE_AND_POSITIVE_EXEMPLAR"
+      "status": "TEMPLATE_ACCEPTED_POSITIVE_EXEMPLAR_REQUIRED"
     },
     {
       "id": "straight_talk",
@@ -80,13 +93,15 @@
       "publishesIn": "NewsStand question column consuming the one canonical STRAiGHT TALK / Straight Answers record",
       "cadence": "AS_EARNED_WITH_DATED_LINKED_UPDATES",
       "readerJob": "Give a durable plain-language answer to a recurring AI question.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "STRAiGHT TALK" },
+      "approvedTemplate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "STRAiGHT TALK", "sectionSha256": "12ff9f670598f4e5fcdf16c0f403363e3c0a9962b8e77073fa5d20f5fdb942c9", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } },
       "templateBeats": ["direct answer first", "what is solid", "what depends", "what remains unknown", "how to decide or check", "work and non-work example when material", "sources and freshness", "linked dated update if the answer changes"],
       "targetWords": { "minimum": 500, "maximum": 900 },
       "sourceRules": ["consume the canonical LIBRAiRY answer ID", "current primary evidence for volatile claims", "never create a competing NewsStand answer canon"],
       "distinctFrom": "STRAiGHT TALK answers a recurring question; The Daily reports today's change and Dear Miss Jeeves fixes one practical recurring problem.",
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-005"],
-      "status": "BLOCKED_POSITIVE_EXEMPLAR"
+      "status": "TEMPLATE_ACCEPTED_POSITIVE_EXEMPLAR_REQUIRED"
     },
     {
       "id": "dear_miss_jeeves",
@@ -94,13 +109,15 @@
       "publishesIn": "The Weekly advice desk; banked items may be released one at a time and later adapted for radio",
       "cadence": "ONE_PER_WEEK_WHEN_ADMITTED",
       "readerJob": "Start with a familiar AI frustration, explain why it keeps happening and give a realistic next move.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "Dear Miss Jeeves" },
+      "approvedTemplate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "Dear Miss Jeeves", "sectionSha256": "ea17d1102326d9326e7ab31ff8be3d803db68b8b1a8b815808b9259a94b3f365", "acceptanceRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json", "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c" } },
       "templateBeats": ["reader's exact frustrating situation", "direct answer", "mechanism in plain language", "what the reader can change", "what may be a product or workflow limit", "one realistic next move", "when to stop prompting and change the workflow"],
       "targetWords": { "minimum": 350, "maximum": 650 },
       "sourceRules": ["current product documentation for product-specific claims", "maintained LAiDIES concept for durable mechanism", "no invented user submission until intake exists"],
       "distinctFrom": "Dear Miss Jeeves diagnoses a recurring practical problem; Paige gives one compact move and STRAiGHT TALK answers a durable general question.",
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-005"],
-      "status": "BLOCKED_POSITIVE_EXEMPLAR"
+      "status": "TEMPLATE_ACCEPTED_POSITIVE_EXEMPLAR_REQUIRED"
     },
     {
       "id": "paige_tip",
@@ -143,6 +160,22 @@
       "positiveExemplar": null,
       "negativeExemplarIds": ["CQX-BAD-008", "CQX-BAD-012"],
       "status": "BLOCKED_POSITIVE_EXEMPLAR"
+    },
+    {
+      "id": "term_of_the_week",
+      "publicName": "Term of the Week",
+      "publishesIn": "The Weekly newspaper",
+      "cadence": "WEEKLY_IF_THE_TERM_IS_REQUIRED_BY_CURRENT_REPORTING",
+      "readerJob": "Explain one term in plain language, show where it fits in the larger AI system and connect it to the week's reporting.",
+      "templateCandidate": { "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md", "sha256": "79291d16da617f29936001051213bd1b9215dc267e6a967d1161bc5eab9b8e54", "section": "Term of the Week" },
+      "approvedTemplate": null,
+      "templateBeats": ["plain one-sentence meaning", "problem the term names", "place in the larger AI system", "why it mattered this week", "work example", "non-work example", "closest confusion", "maintained deeper route"],
+      "targetWords": { "minimum": 200, "maximum": 450 },
+      "sourceRules": ["current maintained concept source", "exact Weekly story binding", "primary evidence for volatile examples", "one durable concept owner and freshness trigger"],
+      "distinctFrom": "Term of the Week explains durable meaning through current news; it is not a detached glossary card, a Daily story or a second concept canon.",
+      "positiveExemplar": null,
+      "negativeExemplarIds": ["CQX-BAD-005"],
+      "status": "CANDIDATE_TEMPLATE_PENDING_ALI_APPROVAL_AND_POSITIVE_EXEMPLAR"
     },
     {
       "id": "mme_claio",

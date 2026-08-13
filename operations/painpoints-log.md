@@ -14751,3 +14751,15 @@ while remaining falsely unfinished in the launch record.
   CONTROLLER REPAIRS VERIFIED / V24 PACKAGE EDITORIALLY REJECTED / DEPLOYED V25
   VISUALLY REJECTED / EXACT DEPLOYED V26 ADMITTED TO ALI PRIVATE REVIEW /
   CANONICAL PROMOTION, PRODUCTION DEPLOYMENT AND PUBLICATION NOT YET COMPLETE.
+
+## BTB-467 — A technically elaborate Daily passed because neither producer nor judge had an exact reader-facing template
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand story production, feature-lane distinction and complete-Daily visual admission.
+- **Failure:** Exact deployed v26 passed producer, semantic, visual, font and deployment gates but Ali found the lead confusing, the issue structurally unlike a real multi-story Daily, its useful columns hidden behind open actions, three service items below their established jobs and the rendered page an explicitly rejected beige treatment. The evaluator also misreported that colour defect as bright yellow before Ali corrected it.
+- **Root cause:** Producers received broad beat lists and metadata labels instead of exact section-by-section reader jobs. Reviewers checked whether named fields and visual mechanics existed rather than independently asking what a newcomer could explain, what each column actually taught and whether the complete page performed the approved newspaper experience. Colour review used adjectives instead of binding the exact rendered treatment.
+- **Prevention rule:** Every enabled story format requires an Ali-accepted exact template that names each section's Content, Analysis, Delivery and Must-not-do jobs, followed by a separate complete accepted example for that same mode. Daily report, reporting-check and update modes remain distinct. The complete issue separately proves qualified-story ranking, readable in-paper service content and pixel-level visual direction. A vague template, accepted template without a complete exemplar or producer label without reader-facing performance cannot authorize drafting.
+- **Durable correction:** v26 is checksum-bound in the rejection registry; its quality verdicts are invalid. `NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md` preserves nine separately reviewable structures. Ali accepted Breaking, all three Daily modes, Big Picture, STRAiGHT TALK and Dear Miss Jeeves; the revised complete Weekly and proposed Term of the Week remain explicit candidates. `check-newsstand-feature-lanes.mjs` verifies exact section hashes and job matrices and requires Ali-bound template plus exemplar acceptance before a lane can become autonomous.
+- **Forward test:** the calibrated lane test rejects a vague “make it clear and useful” file, missing template acceptance, missing exemplar acceptance and an incomplete Daily mode set. The complete-Daily checker rejects exact v26 with exit 1. No successor is created until the relevant template ruling is received.
+- **Possible Behind the Build angle:** Why “we told the AI to explain it clearly” is not a writing system.
+- **Publication status:** INTERNAL TEMPLATE/PREVENTION REPAIR VERIFIED / V26 REJECTED / NO AUTONOMOUS NEWSSTAND LANE / NO PUBLIC CHANGE.
