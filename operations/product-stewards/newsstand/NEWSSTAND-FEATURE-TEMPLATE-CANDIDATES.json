@@ -1,0 +1,355 @@
+{
+  "schemaVersion": "laidies-newsstand-feature-template-candidates.v1",
+  "status": "PARTIAL_5_OF_17_CANDIDATE_TEMPLATES_ZERO_ACCEPTED",
+  "defaultDeny": true,
+  "featureLaneRegistry": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
+    "sha256": "22d16efba451fa96cf3b41902841a82699c452e64d816e2cad2eac430c1a11c9"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "policy": {
+    "fullPublishShapedExampleRequired": true,
+    "templateMayGuideManualPrivateProductionBeforeAcceptance": true,
+    "templateCannotAuthorizeAutonomousDraftingBeforeAliAcceptance": true,
+    "templateCannotAuthorizePublication": true,
+    "acceptedExampleMustRemainChecksumBound": true,
+    "dailyStoryModesRemainSeparate": true
+  },
+  "templates": [
+    {
+      "templateId": "daily_news.REPORT_OR_ANNOUNCEMENT.v1",
+      "laneId": "daily_news",
+      "storyMode": "REPORT_OR_ANNOUNCEMENT",
+      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
+      "readerJob": "Explain what changed, what it actually means and what the reader should know or do today.",
+      "useWhen": [
+        "One current event or release has a clear dated change worth explaining today.",
+        "The reader needs newcomer background and a causal explanation, not only a summary.",
+        "Waiting for a weekly synthesis would reduce usefulness but does not create Breaking urgency."
+      ],
+      "doNotUseWhen": [
+        "Delay would materially disadvantage the reader; consider The Breaking.",
+        "The value comes from a pattern across several developments; consider The Weekly or The Big Picture.",
+        "The reader question is durable rather than date-led; consider STRAiGHT TALK.",
+        "The source is interesting but does not change what a reader understands, decides or does."
+      ],
+      "requiredInputs": [
+        "one exact dated reader question and payoff",
+        "primary or official evidence plus proportionate independent context",
+        "claim map separating confirmed facts, source framing, inference and unknowns",
+        "minimum newcomer background",
+        "cause-and-effect mechanism",
+        "work and non-work relevance when material",
+        "correction trigger and freshness owner"
+      ],
+      "outputSequence": [
+        "plain answer",
+        "audience boundary",
+        "newcomer background",
+        "cause-and-effect mechanism",
+        "what evidence establishes and does not",
+        "work and non-work relevance when material",
+        "useful landing",
+        "sources and correction trigger"
+      ],
+      "wordRange": { "minimum": 350, "maximum": 700 },
+      "sourceAndFreshnessRules": [
+        "Open with the human event and answer before naming technical objects.",
+        "Use AIDB as a scout or comparison where relevant, never as primary authority.",
+        "Define unfamiliar terms at first use and only when the explanation needs them.",
+        "Report what the evidence does not show and name any bounded uncertainty.",
+        "End with a proportionate action or better next question, not generic vigilance."
+      ],
+      "negativeExemplarIds": ["CQX-BAD-004", "CQX-BAD-005", "CQX-BAD-013", "CQX-BAD-014", "CQX-BAD-015"],
+      "producerSelfCheck": [
+        "Can a non-technical reader state the point after the opening paragraph?",
+        "Is every technical term earned and defined before it carries reasoning?",
+        "Does each paragraph perform a different explanatory job?",
+        "Can the reader explain the mechanism and apply it to one new situation?",
+        "Are headline, length, evidence limits and action proportionate to a Daily?"
+      ],
+      "candidateExample": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v2.md",
+        "sha256": "100b282172ecef33e9bee29f0f8c505ae8c6444ccf435bc71052ed6223d43be0"
+      },
+      "producerProof": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v2.json",
+        "sha256": "ebda660c36c512cf3179576823c233274b66fc8522e5b02bb764750df057d046"
+      },
+      "independentReview": {
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v2-review-19-pass.json",
+        "sha256": "122c1e6d17889b92a3e7342c3e62bb20a2fd90a95802998bfb6d476985c3ab89"
+      },
+      "acceptanceRecord": null,
+      "publishesIn": "The complete dated Daily newspaper",
+      "cadence": "DAILY_IF_EARNED_WITH_GOVERNED_QUIET_STATE",
+      "autonomousDraftingAuthority": false,
+      "publicAuthority": false
+    },
+    {
+      "templateId": "paige_tip.DEFAULT.v1",
+      "laneId": "paige_tip",
+      "storyMode": "DEFAULT",
+      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
+      "readerJob": "Give one useful work-facing AI action the reader can try today.",
+      "useWhen": [
+        "A verified source or admitted LAiDIES concept supports one bounded workplace action.",
+        "The action can be followed and checked without reading a full article."
+      ],
+      "doNotUseWhen": [
+        "The piece is general career guidance with only an incidental AI connection.",
+        "The joke or horoscope frame is doing the main work; consider Promptoscope.",
+        "More than one action or concept is required to make the advice safe or useful."
+      ],
+      "requiredInputs": [
+        "one recognizable workplace situation",
+        "one exact AI action",
+        "why the action changes the result",
+        "tool, privacy or evidence boundary",
+        "one observable result check"
+      ],
+      "outputSequence": [
+        "recognizable work situation",
+        "one action",
+        "why it works",
+        "setup or boundary",
+        "how to check the result",
+        "optional deeper destination"
+      ],
+      "wordRange": { "minimum": 90, "maximum": 180 },
+      "sourceAndFreshnessRules": [
+        "Name the work object and action literally before using any playful language.",
+        "Do not imply that a prompt can enforce truth, privacy, policy or tool behaviour.",
+        "Keep the human check concrete and observable."
+      ],
+      "negativeExemplarIds": ["CQX-BAD-009", "CQX-BAD-010"],
+      "producerSelfCheck": [
+        "Could the reader perform the one action without asking what any noun refers to?",
+        "Is the AI tool's job narrower than the human's responsibility?",
+        "Does the result check prove something useful rather than merely produce more text?"
+      ],
+      "candidateExample": {
+        "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
+        "sha256": "00e1bbb6c77324e94b388d158156cf53b7950e18f772b49ef9b717991db98f73"
+      },
+      "producerProof": {
+        "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
+        "sha256": "00e1bbb6c77324e94b388d158156cf53b7950e18f772b49ef9b717991db98f73"
+      },
+      "independentReview": {
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
+        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+      },
+      "acceptanceRecord": null,
+      "publishesIn": "Daily service desk",
+      "cadence": "DAILY_IF_FRESH_AND_ADMITTED",
+      "autonomousDraftingAuthority": false,
+      "publicAuthority": false
+    },
+    {
+      "templateId": "career_work_life.DEFAULT.v1",
+      "laneId": "career_work_life",
+      "storyMode": "DEFAULT",
+      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
+      "readerJob": "Offer useful career or life guidance that stands on its own, then use a faithful AI parallel to illuminate both.",
+      "useWhen": [
+        "A credible career or life source offers practical guidance relevant to LAiDIES readers.",
+        "An AI principle helps explain or apply that guidance without replacing its original job."
+      ],
+      "doNotUseWhen": [
+        "The advice is only an AI prompt wearing a career label; consider Paige.",
+        "The AI connection is decorative, strained or not useful.",
+        "The source is generic motivational content without evidence or a concrete action."
+      ],
+      "requiredInputs": [
+        "one specific career or life situation",
+        "advice that stands alone without AI",
+        "concrete wording or action",
+        "one faithful AI parallel",
+        "the exact point where the comparison stops"
+      ],
+      "outputSequence": [
+        "specific professional or life situation",
+        "useful guidance before AI",
+        "concrete wording or action",
+        "earned AI parallel",
+        "where the comparison stops",
+        "small try-today move"
+      ],
+      "wordRange": { "minimum": 150, "maximum": 300 },
+      "sourceAndFreshnessRules": [
+        "Lead with real career or life guidance, not AI terminology.",
+        "Name the evidence type and its limits at the point of the claim.",
+        "Label the AI parallel and explicitly stop it before it overclaims."
+      ],
+      "negativeExemplarIds": ["CQX-BAD-006", "CQX-BAD-007", "CQX-BAD-011"],
+      "producerSelfCheck": [
+        "Would this still be recognizable and useful career or life guidance if the AI paragraph were removed?",
+        "Does the AI parallel clarify rather than commandeer the advice?",
+        "Is the reader given wording or an action she could actually use?"
+      ],
+      "candidateExample": {
+        "path": "operations/product-stewards/newsstand/candidates/career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
+        "sha256": "101848ca329b3b4e02ab7a38fd2c9532607552cd96e330712907455075ef3333"
+      },
+      "producerProof": {
+        "path": "operations/product-stewards/newsstand/candidates/career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
+        "sha256": "101848ca329b3b4e02ab7a38fd2c9532607552cd96e330712907455075ef3333"
+      },
+      "independentReview": {
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
+        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+      },
+      "acceptanceRecord": null,
+      "publishesIn": "Daily or Weekly service desk according to depth",
+      "cadence": "WHEN_A_GENUINE_TIP_AND_FAITHFUL_AI_CONNECTION_ARE_READY",
+      "autonomousDraftingAuthority": false,
+      "publicAuthority": false
+    },
+    {
+      "templateId": "promptoscope.DEFAULT.v1",
+      "laneId": "promptoscope",
+      "storyMode": "DEFAULT",
+      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
+      "readerJob": "Use a funny horoscope frame to make one recognizable, normally non-work AI-use pattern memorable.",
+      "useWhen": [
+        "A common home or personal AI situation has one useful context, prompting or checking lesson.",
+        "The horoscope joke can carry that lesson without pretending to predict anything."
+      ],
+      "doNotUseWhen": [
+        "The main job is a workplace action; consider Paige.",
+        "The item borrows Mme CLAi-O's deck, prediction or personalized-reading authority.",
+        "The joke remains after the useful action is removed."
+      ],
+      "requiredInputs": [
+        "one recognizable non-work AI situation",
+        "one plain action with concrete input examples",
+        "why the action changes the result",
+        "one human limitation or safety check",
+        "one earned final joke"
+      ],
+      "outputSequence": [
+        "comic horoscope observation",
+        "specific non-work AI situation",
+        "one plain action",
+        "why it changes the result",
+        "bounded human check",
+        "earned final joke"
+      ],
+      "wordRange": { "minimum": 90, "maximum": 180 },
+      "sourceAndFreshnessRules": [
+        "Name the AI object and home task before using shorthand such as it or the model.",
+        "List the real context the reader must supply rather than saying add more detail.",
+        "Keep prediction language transparently comic and never use it for safety guidance."
+      ],
+      "negativeExemplarIds": ["CQX-BAD-008", "CQX-BAD-012"],
+      "producerSelfCheck": [
+        "Can the reader name the one action underneath the joke?",
+        "Is the scenario clearly non-work and different from Paige?",
+        "Does the final human check cover the real risk rather than generic caution?"
+      ],
+      "candidateExample": {
+        "path": "operations/product-stewards/newsstand/candidates/promptoscope-refrigerator-service-exemplar-2026-08-12.json",
+        "sha256": "db64cd6bb01927b2a1d8ef94909a131647ba9a65fe438c17b399917b12848365"
+      },
+      "producerProof": {
+        "path": "operations/product-stewards/newsstand/candidates/promptoscope-refrigerator-service-exemplar-2026-08-12.json",
+        "sha256": "db64cd6bb01927b2a1d8ef94909a131647ba9a65fe438c17b399917b12848365"
+      },
+      "independentReview": {
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
+        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+      },
+      "acceptanceRecord": null,
+      "publishesIn": "Daily service desk",
+      "cadence": "DAILY_IF_FRESH_AND_ADMITTED",
+      "autonomousDraftingAuthority": false,
+      "publicAuthority": false
+    },
+    {
+      "templateId": "mme_claio.DEFAULT.v1",
+      "laneId": "mme_claio",
+      "storyMode": "DEFAULT",
+      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
+      "readerJob": "Offer one playful fixed reading and bounded reflective move without pretending to predict or personalize the reader's future.",
+      "useWhen": [
+        "An exact card from Mme CLAi-O's governed deck is selected for the dated Daily.",
+        "The card, authored reading and action remain unchanged from their owner-approved source."
+      ],
+      "doNotUseWhen": [
+        "The reading would be generated from user data, behavior or a current news item.",
+        "The copy predicts an outcome or implies personal knowledge.",
+        "A generic inspirational quote is being used as filler."
+      ],
+      "requiredInputs": [
+        "exact governed card title",
+        "exact fixed authored reading",
+        "one exact reflective action",
+        "non-predictive and non-personalized disclosure",
+        "route to the full Mme CLAi-O experience"
+      ],
+      "outputSequence": [
+        "exact card title",
+        "fixed authored reading",
+        "one reflective question or action",
+        "not tailored or predictive boundary",
+        "route to Mme CLAi-O"
+      ],
+      "wordRange": { "minimum": 60, "maximum": 140 },
+      "sourceAndFreshnessRules": [
+        "Copy the admitted deck bytes exactly; do not generate a new reading.",
+        "Bind the exact dated selection and owner ruling.",
+        "State plainly that the reading is fixed, not predictive and not based on visitor data."
+      ],
+      "negativeExemplarIds": [],
+      "producerSelfCheck": [
+        "Does every word match the governed card and owner ruling?",
+        "Could any sentence reasonably be read as a prediction or personalized claim?",
+        "Is the disclosure visible in the compact item rather than hidden elsewhere?"
+      ],
+      "candidateExample": {
+        "path": "operations/product-stewards/newsstand/candidates/mme-claio-mini-backpack-service-exemplar-2026-08-12.json",
+        "sha256": "f56184e317d52d2d0dd0970f29c2cccc1f4bcabf78e7ddc8a20e9e54c279d88f"
+      },
+      "producerProof": {
+        "path": "operations/product-stewards/newsstand/candidates/mme-claio-mini-backpack-service-exemplar-2026-08-12.json",
+        "sha256": "f56184e317d52d2d0dd0970f29c2cccc1f4bcabf78e7ddc8a20e9e54c279d88f"
+      },
+      "independentReview": {
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
+        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+      },
+      "acceptanceRecord": null,
+      "publishesIn": "Daily service desk",
+      "cadence": "DAILY_IF_A_FIXED_DECK_SELECTION_IS_ADMITTED",
+      "autonomousDraftingAuthority": false,
+      "publicAuthority": false
+    }
+  ],
+  "missingTemplateSlots": [
+    "the_breaking.DEFAULT",
+    "daily_news.HEADLINE_OR_REPORTING_CHECK",
+    "daily_news.UPDATE_TO_PRIOR_COVERAGE",
+    "the_weekly.DEFAULT",
+    "the_big_picture.DEFAULT",
+    "straight_talk.DEFAULT",
+    "dear_miss_jeeves.DEFAULT",
+    "song_of_the_day.DEFAULT",
+    "did_you_know.DEFAULT",
+    "town_note.DEFAULT",
+    "curiosity.DEFAULT",
+    "fiction.DEFAULT"
+  ],
+  "acceptedTemplateSlots": [],
+  "currentDailyLaunchCandidateSlots": [
+    "daily_news.REPORT_OR_ANNOUNCEMENT",
+    "paige_tip.DEFAULT",
+    "career_work_life.DEFAULT",
+    "promptoscope.DEFAULT",
+    "mme_claio.DEFAULT"
+  ],
+  "authority": "Private template and example candidates only. No autonomous drafting, canonical story or issue write, deployment or public authority."
+}
