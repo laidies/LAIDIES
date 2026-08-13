@@ -108,6 +108,70 @@ export function parseAidbItems(body) {
   }).filter((item) => item.title && item.url);
 }
 
+const MONTHS = new Map([
+  ["january", 1], ["february", 2], ["march", 3], ["april", 4],
+  ["may", 5], ["june", 6], ["july", 7], ["august", 8],
+  ["september", 9], ["october", 10], ["november", 11], ["december", 12]
+]);
+
+function monthDayAnchor(monthName, day) {
+  return `${monthName.slice(0, 3).toLowerCase()}-${day}`;
+}
+
+export function parseOpenAiChangelogItems(body, sourceUrl = "https://developers.openai.com/api/docs/changelog") {
+  const lines = String(body || "").split(/\r?\n/);
+  const items = [];
+  let year = null;
+  let month = null;
+  for (let index = 0; index < lines.length; index += 1) {
+    const monthHeading = lines[index].match(/^##\s+([A-Za-z]+),\s+(\d{4})\s*$/);
+    if (monthHeading) {
+      month = MONTHS.get(monthHeading[1].toLowerCase()) || null;
+      year = Number(monthHeading[2]);
+      continue;
+    }
+    const dayHeading = lines[index].match(/^###\s+[A-Za-z]{3}\s+(\d{1,2})\s*$/);
+    if (!dayHeading || !year || !month) continue;
+    const day = Number(dayHeading[1]);
+    const block = [];
+    for (let cursor = index + 1; cursor < lines.length && !/^#{2,3}\s+/.test(lines[cursor]); cursor += 1) {
+      block.push(lines[cursor]);
+    }
+    const paragraphs = block.join("\n").split(/\n\s*\n/).map((value) => cleanText(value, 500)).filter(Boolean);
+    const descriptive = paragraphs.find((value) => !/^(?:Feature|Update|Fix|Deprecation|Announcement)(?:\s*·|$)/i.test(value));
+    if (!descriptive) continue;
+    const publishedAt = new Date(Date.UTC(year, month - 1, day, 12)).toISOString();
+    const monthName = [...MONTHS.entries()].find(([, value]) => value === month)?.[0] || "update";
+    const anchor = monthDayAnchor(monthName, day);
+    const url = `${sourceUrl.replace(/\.md(?:#.*)?$/, "").replace(/#.*$/, "")}#${anchor}`;
+    const identity = `${publishedAt}|${block.join("\n").trim()}`;
+    items.push({ id: sha256(identity), title: descriptive.split(/(?<=[.!?])\s/)[0].slice(0, 240), url, publishedAt });
+  }
+  return items.slice(0, 40);
+}
+
+export function parseApHubItems(body) {
+  const value = String(body || "");
+  const heading = value.search(/<h1\b[^>]*>[\s\S]{0,500}?Artificial intelligence[\s\S]{0,500}?<\/h1>/i);
+  if (heading === -1) throw new Error("AP AI hub has no scoped Artificial intelligence heading");
+  const end = value.indexOf("</main>", heading);
+  if (end === -1) throw new Error("AP AI hub has no scoped main boundary");
+  const scoped = value.slice(heading, end);
+  const items = [];
+  const seen = new Set();
+  const pattern = /<div class=["']PagePromo["'][^>]*data-posted-date-timestamp=["'](\d{10,13})["'][^>]*>[\s\S]{0,8000}?<a\b[^>]*aria-label=["']([^"']+)["'][^>]*href=["'](https:\/\/apnews\.com\/article\/[a-z0-9-]+)["']/gi;
+  for (const match of scoped.matchAll(pattern)) {
+    const [, rawTimestamp, rawTitle, url] = match;
+    if (seen.has(url)) continue;
+    const milliseconds = rawTimestamp.length === 10 ? Number(rawTimestamp) * 1000 : Number(rawTimestamp);
+    const publishedAt = new Date(milliseconds).toISOString();
+    if (!Number.isFinite(Date.parse(publishedAt))) continue;
+    seen.add(url);
+    items.push({ id: sha256(url), title: cleanText(rawTitle), url, publishedAt });
+  }
+  return items.slice(0, 40);
+}
+
 function parseHtmlSnapshot(body, sourceUrl) {
   const title = cleanText(body.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || new URL(sourceUrl).hostname);
   const normalized = body
@@ -152,16 +216,24 @@ async function fetchOne(source, fetchImpl, now) {
     let items = [];
     let title = cleanText(source.name);
     let fingerprint;
-    if (source.id === "SRC-AIDB") {
+    if (source.intakeMode === "AIDB_AGENT_JSON") {
       items = parseAidbItems(body);
       fingerprint = sha256(JSON.stringify(items));
-    } else if (/rss|atom|xml/i.test(response.headers.get("content-type") || "") || /<(rss|feed)\b/i.test(body.slice(0, 1000))) {
+    } else if (source.intakeMode === "RSS_ATOM") {
       items = parseFeedItems(body);
       fingerprint = sha256(JSON.stringify(items));
-    } else {
+    } else if (source.intakeMode === "OPENAI_CHANGELOG_MARKDOWN") {
+      items = parseOpenAiChangelogItems(body, response.url || url);
+      fingerprint = sha256(JSON.stringify(items));
+    } else if (source.intakeMode === "AP_TOPIC_HUB_HTML") {
+      items = parseApHubItems(body);
+      fingerprint = sha256(JSON.stringify(items));
+    } else if (source.intakeMode === "HEALTH_ONLY_HTML") {
       const snapshot = parseHtmlSnapshot(body, response.url || url);
       title = snapshot.title;
       fingerprint = snapshot.fingerprint;
+    } else {
+      throw new Error(`unsupported intakeMode ${source.intakeMode || "MISSING"}`);
     }
     return {
       sourceId: source.id,
@@ -235,27 +307,6 @@ export async function buildIntake({ registry, previousState = null, now, fetchIm
         newSignals.push(signal);
         sourceSignals.push(signal);
         emittedSignalIds.add(signalId);
-      }
-      if (prior && result.items.length === 0 && prior.fingerprint && prior.fingerprint !== result.fingerprint) {
-        const signalId = `NSCI-${sha256(`${result.sourceId}|${result.fingerprint}`).slice(0, 20)}`;
-        if (!emittedSignalIds.has(signalId)) {
-          const signal = {
-            signalId,
-            sourceId: result.sourceId,
-            sourceName: source.name,
-            title: `${result.title} changed`,
-            url: result.resolvedUrl,
-            publishedAt: null,
-            observedAt: generatedAt,
-            sourceAuthorityTier: source.authorityTier,
-            destinations: source.destinations,
-            disposition: "UNRECONCILED_PRIVATE_SIGNAL",
-            evidenceBoundary: "Page-level change only; it does not establish a new announcement or story. Editorial reconciliation must identify the exact changed claim or record NO_BUILD."
-          };
-          newSignals.push(signal);
-          sourceSignals.push(signal);
-          emittedSignalIds.add(signalId);
-        }
       }
       nextSources[result.sourceId] = {
         checkedAt: generatedAt,

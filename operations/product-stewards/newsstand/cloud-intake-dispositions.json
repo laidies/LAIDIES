@@ -1,11 +1,11 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-13T01:46:50-07:00",
+  "updatedAt": "2026-08-13T14:34:21-07:00",
   "issue": {
     "repository": "laidies/LAIDIES",
-    "number": 57,
-    "url": "https://github.com/laidies/LAIDIES/issues/57"
+    "number": 78,
+    "url": "https://github.com/laidies/LAIDIES/issues/78"
   },
   "rules": {
     "durableDispositionRequired": true,
@@ -98,6 +98,85 @@
       ],
       "nextTrigger": "No duplicate publication action. LCWO-019 owns the one unresolved Career/Work-Life reader question; reopen the source only for a correction, replication, materially different study or changed disclosure-policy boundary.",
       "reviewBy": null
+    },
+    {
+      "signalId": "NSCI-0fff983d378f8a63dd4d",
+      "sourceId": "SRC-AIDB",
+      "title": "The Right Way to Worry About AI",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-07/transcript.md",
+      "publishedAt": "2026-08-07T12:00:00.000Z",
+      "decidedAt": "2026-08-13T14:24:15-07:00",
+      "disposition": "WORK_ORDER_CREATED",
+      "ownerProductId": "newsstand-daily",
+      "reason": "The edition contains one distinct reporting-check job: explain what a frightening AI-created-virus headline was actually describing. Primary research and the research-team account establish 16 functional bacteriophages after human computational and laboratory selection/testing, while the AIDB transcript incorrectly says 16,000. Its OpenAI/Hugging Face branch is already routed and is excluded from this work order.",
+      "evidenceRefs": [
+        "https://aidailybrief.ai/e/2026-08-07/transcript.md",
+        "https://www.biorxiv.org/content/10.1101/2025.09.12.675911v1",
+        "https://arcinstitute.org/news/hie-king-first-synthetic-phage",
+        "operations/product-stewards/newsstand/sources/evo-phage-headline-source-preflight-2026-08-13.md"
+      ],
+      "relatedRecords": ["LCWO-003", "LCWO-020"],
+      "nextTrigger": "On 2026-08-20 or when the current Daily owner lane becomes free, recover the exact secondary article identity/date and recheck the preprint history. Then create one bounded reporting-check producer proof, narrow explicitly to the AIDB presentation, or close NO_BUILD; do not leave the item on indefinite hold.",
+      "reviewBy": "2026-08-20"
+    },
+    {
+      "signalId": "NSCI-73404f5bc8eaecd242e9",
+      "sourceId": "SRC-OPENAI-DEVELOPERS",
+      "title": "OpenAI Developers changed",
+      "sourceUrl": "https://developers.openai.com/",
+      "publishedAt": null,
+      "observedAt": "2026-08-13T17:28:52.829Z",
+      "decidedAt": "2026-08-13T14:24:15-07:00",
+      "disposition": "NO_BUILD",
+      "ownerProductId": "learning-content-ecosystem",
+      "reason": "This was a whole-homepage fingerprint change with no exact dated item, claim or publication identity. It cannot support an editorial decision. The recurring monitor is now bound to OpenAI's dated changelog markdown so future signals name exact entries instead of vague page changes.",
+      "evidenceRefs": [
+        "https://developers.openai.com/",
+        "https://developers.openai.com/api/docs/changelog.md",
+        "scripts/run-newsstand-cloud-intake.mjs",
+        "operations/product-stewards/learning-content-ecosystem/SOURCE-REGISTRY.json"
+      ],
+      "relatedRecords": [],
+      "nextTrigger": "No action for this fingerprint. Future OpenAI intake must arrive as a dated changelog item or an exact manually recovered announcement with primary-source identity.",
+      "reviewBy": null
+    },
+    {
+      "signalId": "NSCI-442170deab014cf4167a",
+      "sourceId": "SRC-AP-AI",
+      "title": "Artificial intelligence | AP News changed",
+      "sourceUrl": "https://apnews.com/hub/artificial-intelligence",
+      "publishedAt": null,
+      "observedAt": "2026-08-13T17:28:52.829Z",
+      "decidedAt": "2026-08-13T14:24:15-07:00",
+      "disposition": "NO_BUILD",
+      "ownerProductId": "learning-content-ecosystem",
+      "reason": "This was a topic-hub fingerprint change, not an article. It supplied no headline, date or claim to verify and therefore cannot enter editorial production. The monitor now extracts exact dated AP article identities from the Artificial Intelligence hub's bounded main region; AP remains a reporting lead, not primary authority.",
+      "evidenceRefs": [
+        "https://apnews.com/hub/artificial-intelligence",
+        "scripts/run-newsstand-cloud-intake.mjs",
+        "operations/product-stewards/learning-content-ecosystem/SOURCE-REGISTRY.json"
+      ],
+      "relatedRecords": [],
+      "nextTrigger": "No action for this fingerprint. Reconcile future exact AP article signals by reading the article and recovering its load-bearing primary sources; topic-hub changes alone remain ineligible.",
+      "reviewBy": null
+    },
+    {
+      "signalId": "NSCI-cc66ba1e7626793e50f5",
+      "sourceId": "SRC-AP-AI",
+      "title": "Google unveils latest Pixel phones with slimmer cameras and more AI features",
+      "sourceUrl": "https://apnews.com/article/google-pixel-11-android-3bbad7afc4d25e15527477123415e50a",
+      "publishedAt": "2026-08-12T14:00:06.000Z",
+      "decidedAt": "2026-08-13T14:34:21-07:00",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "ownerProductId": "newsstand-daily",
+      "reason": "This is a real dated product announcement, not page-change noise. AP reports new Pixel 11 phones, price increases and AI features that could affect a practical buying or privacy decision, while Google's official event page confirms the August 12 launch. It is eligible for a concise Daily product update, but it may not displace the one occupied Daily production lane or become a specifications recap without a clear reader payoff.",
+      "evidenceRefs": [
+        "https://apnews.com/article/3bbad7afc4d25e15527477123415e50a",
+        "https://store.google.com/magazine/google_pixel_11?hl=en-US"
+      ],
+      "relatedRecords": [],
+      "nextTrigger": "On 2026-08-20 or when the current Daily owner lane becomes free, verify Google's exact feature, regional-availability, subscription and privacy terms and decide DAILY_PRODUCT_UPDATE versus NO_BUILD. Weekly may later cite it only if the approved biggest-stories rubric finds week-level significance; do not duplicate the same story in both papers.",
+      "reviewBy": "2026-08-20"
     }
   ],
   "sourceHealth": [

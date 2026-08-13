@@ -17,6 +17,7 @@ export function validateSourceRegistry(registry, practitionerRoster) {
   const tiers = new Set(["PRIMARY_AUTHORITY", "PRIMARY_RESEARCH", "INSTITUTIONAL_SYNTHESIS", "INDEPENDENT_REPORTING", "PRACTITIONER_LEAD", "SECONDARY_SCOUT", "TEACHING_METHOD", "COURSE_COMPARATOR", "INDUSTRY_RESEARCH"]);
   const statuses = new Set(["ACTIVE_MONITOR", "PILOT_MONITOR", "ON_TRIGGER", "REFERENCE", "HOLD"]);
   const cadences = new Set(["TWICE_DAILY", "DAILY", "DAILY_RELEASE_CHECK", "TWICE_WEEKLY", "WEEKLY", "WEEKLY_RELEASE_CHECK", "MONTHLY", "MONTHLY_AND_ANNUAL_RELEASE", "QUARTERLY", "ANNUAL", "ON_TRIGGER"]);
+  const intakeModes = new Set(["AIDB_AGENT_JSON", "RSS_ATOM", "OPENAI_CHANGELOG_MARKDOWN", "AP_TOPIC_HUB_HTML", "HEALTH_ONLY_HTML"]);
 
   if (registry?.schemaVersion !== "1.0.0") errors.push("schemaVersion must be 1.0.0");
   const careerContract = registry?.destinationContracts?.career_work_life_tip;
@@ -64,6 +65,9 @@ export function validateSourceRegistry(registry, practitionerRoster) {
     if (!tiers.has(source.authorityTier)) errors.push(`${at}: invalid authorityTier ${source.authorityTier}`);
     if (!statuses.has(source.status)) errors.push(`${at}: invalid status ${source.status}`);
     if (!cadences.has(source.cadence)) errors.push(`${at}: invalid cadence ${source.cadence}`);
+    if (["ACTIVE_MONITOR", "PILOT_MONITOR"].includes(source.status) && !intakeModes.has(source.intakeMode)) {
+      errors.push(`${at}: recurring source must declare a supported intakeMode`);
+    }
     if (!Array.isArray(source.urls) || !source.urls.length) errors.push(`${at}: urls must be non-empty`);
     for (const url of source.urls || []) {
       if (!/^https:\/\//.test(url) || /…|\.\.\./.test(url)) errors.push(`${at}: invalid or placeholder URL ${url}`);
@@ -76,6 +80,15 @@ export function validateSourceRegistry(registry, practitionerRoster) {
     }
     if (!Array.isArray(source.legacyIds)) errors.push(`${at}: legacyIds must be an array`);
     if (!(source.checkedAt === null || /^\d{4}-\d{2}-\d{2}$/.test(source.checkedAt || ""))) errors.push(`${at}: checkedAt must be YYYY-MM-DD or null`);
+  }
+  const openai = (registry?.sources || []).find((source) => source.id === "SRC-OPENAI-DEVELOPERS");
+  if (openai?.status === "PILOT_MONITOR") {
+    if (openai.intakeMode !== "OPENAI_CHANGELOG_MARKDOWN") errors.push("SRC-OPENAI-DEVELOPERS must use the dated changelog parser");
+    if (openai.recurringUrl !== "https://developers.openai.com/api/docs/changelog.md") errors.push("SRC-OPENAI-DEVELOPERS recurring monitor must bind the official dated changelog markdown");
+  }
+  const ap = (registry?.sources || []).find((source) => source.id === "SRC-AP-AI");
+  if (ap?.status === "PILOT_MONITOR" && ap.intakeMode !== "AP_TOPIC_HUB_HTML") {
+    errors.push("SRC-AP-AI must use the scoped item-level AP topic parser");
   }
   const mollick = (registry?.sources || []).find((source) => source.id === "SRC-ETHAN-MOLLICK");
   if (mollick?.status === "ACTIVE_MONITOR") {

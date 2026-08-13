@@ -50,7 +50,9 @@ export function validateDispositionRegistry(registry) {
       if (typeof signal?.[field] !== "string" || !signal[field].trim()) errors.push(`${at}.${field} is required`);
     }
     if (!isHttps(signal?.sourceUrl)) errors.push(`${at}.sourceUrl must use HTTPS`);
-    if (!isTimestamp(signal?.publishedAt)) errors.push(`${at}.publishedAt must be an ISO timestamp`);
+    if (!(signal?.publishedAt === null || isTimestamp(signal?.publishedAt))) errors.push(`${at}.publishedAt must be null or an ISO timestamp`);
+    if (signal?.publishedAt === null && !isTimestamp(signal?.observedAt)) errors.push(`${at}.observedAt is required when publishedAt is unknown`);
+    if (signal?.publishedAt === null && !["WATCH", "NO_BUILD"].includes(signal?.disposition)) errors.push(`${at}.unknown publication date is allowed only for WATCH or NO_BUILD`);
     if (!isTimestamp(signal?.decidedAt)) errors.push(`${at}.decidedAt must be an ISO timestamp`);
     if (!ALLOWED.has(signal?.disposition)) errors.push(`${at}.disposition is invalid`);
     if (!Array.isArray(signal?.evidenceRefs) || signal.evidenceRefs.length === 0) errors.push(`${at}.evidenceRefs must not be empty`);
