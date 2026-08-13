@@ -126,6 +126,7 @@ jobs:
                 review_branch:null,
                 access_credential:null,
                 public_verification:null,
+                visual_capture:null,
                 checks:[
                   {id:"complete-daily-package",result:"PASS"},
                   {id:"review-preview-calibration",result:"PASS"},
@@ -172,6 +173,18 @@ jobs:
         with:
           name: exact-newsstand-preview-${{ inputs.commit_sha }}
           path: ${{ env.DOWNLOAD_DIR }}
+      - name: Install pinned browser runtime for exact deployed-pixel capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --global playwright-core@1.62.1
+          npx --yes playwright@1.62.1 install --with-deps chromium
+          playwright_root="$(npm root --global)"
+          chromium_path="$(find "$HOME/.cache/ms-playwright" -type f -name chrome -path '*chromium-*' -print -quit)"
+          test -f "$playwright_root/playwright-core/package.json"
+          test -x "$chromium_path"
+          echo "PLAYWRIGHT_CORE_PATH=$playwright_root/playwright-core" >> "$GITHUB_ENV"
+          echo "CHROME_PATH=$chromium_path" >> "$GITHUB_ENV"
       - name: Validate prepared artifact and existing Access policy
         shell: bash
         env:
@@ -381,6 +394,116 @@ jobs:
               }
             ' "$RECEIPT_DIR/preview-receipt.json" > "$RECEIPT_DIR/preview-receipt.updated.json"
           mv "$RECEIPT_DIR/preview-receipt.updated.json" "$RECEIPT_DIR/preview-receipt.json"
+      - name: Capture exact deployed Daily pixels before credential revocation
+        shell: bash
+        run: |
+          set -euo pipefail
+          capture_dir="$RECEIPT_DIR/visual"
+          mkdir -p "$capture_dir"
+          node --input-type=module - <<'NODE'
+          import crypto from "node:crypto";
+          import fs from "node:fs";
+          import path from "node:path";
+          import { createRequire } from "node:module";
+
+          const require = createRequire(import.meta.url);
+          const { chromium } = require(process.env.PLAYWRIGHT_CORE_PATH);
+          const receiptPath = path.join(process.env.RECEIPT_DIR, "preview-receipt.json");
+          const receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
+          const reviewUrl = receipt.review_url;
+          const expectedDate = "2026-08-12";
+          const expectedHeadline = "People published records of their AI work. Some contained passwords.";
+          const viewports = [
+            { id: "desktop-1440", width: 1440, height: 1024 },
+            { id: "mobile-390", width: 390, height: 844 },
+            { id: "mobile-320", width: 320, height: 844 }
+          ];
+          const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH, headless: true, args: ["--no-sandbox"] });
+          const captures = [];
+          const states = [];
+          const sha256 = buffer => crypto.createHash("sha256").update(buffer).digest("hex");
+          const pngDimensions = buffer => ({ width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) });
+          const capture = async (page, relativePath, locator, meta) => {
+            const absolutePath = path.join(process.env.RECEIPT_DIR, relativePath);
+            const buffer = locator ? await locator.screenshot({ path: absolutePath }) : await page.screenshot({ path: absolutePath, fullPage: true });
+            const dimensions = pngDimensions(buffer);
+            captures.push({ path: relativePath, sha256: sha256(buffer), output: dimensions, ...meta });
+          };
+
+          try {
+            for (const viewport of viewports) {
+              const context = await browser.newContext({
+                viewport: { width: viewport.width, height: viewport.height },
+                deviceScaleFactor: 1,
+                reducedMotion: "reduce",
+                extraHTTPHeaders: {
+                  "CF-Access-Client-Id": process.env.CF_ACCESS_CLIENT_ID,
+                  "CF-Access-Client-Secret": process.env.CF_ACCESS_CLIENT_SECRET
+                }
+              });
+              const page = await context.newPage();
+              const response = await page.goto(reviewUrl, { waitUntil: "domcontentloaded", timeout: 60000 });
+              if (!response || !response.ok()) throw new Error(`${viewport.id}: exact Daily returned ${response?.status() ?? "no response"}`);
+              const issue = page.locator(`.ns-daily-issue[data-daily-date="${expectedDate}"]`);
+              await issue.waitFor({ state: "visible", timeout: 30000 });
+              await page.waitForFunction(
+                headline => document.querySelector(".ns-daily-news h3")?.textContent?.trim() === headline,
+                expectedHeadline,
+                { timeout: 30000 }
+              );
+              await page.waitForTimeout(1000);
+              const dailyState = await page.evaluate(() => ({
+                date: document.querySelector(".ns-daily-issue")?.dataset.dailyDate || null,
+                headline: document.querySelector(".ns-daily-news h3")?.textContent?.trim() || null,
+                readyDesks: document.querySelectorAll('.ns-daily-desk[data-desk-state="ready"]').length,
+                horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
+              }));
+              if (dailyState.date !== expectedDate || dailyState.headline !== expectedHeadline || dailyState.readyDesks !== 4 || dailyState.horizontalOverflow) {
+                throw new Error(`${viewport.id}: exact Daily state mismatch ${JSON.stringify(dailyState)}`);
+              }
+              await capture(page, `visual/${viewport.id}-daily-full-page.png`, null, { viewport, state: "DAILY_FULL_PAGE" });
+              await capture(page, `visual/${viewport.id}-daily-newspaper.png`, issue, { viewport, state: "DAILY_NEWSPAPER" });
+              await page.locator(".ns-daily-news a").click();
+              await page.waitForFunction(() => document.querySelectorAll(".ns-article__section--longform").length === 6, null, { timeout: 30000 });
+              await page.waitForTimeout(500);
+              const article = page.locator(".ns-article");
+              await article.waitFor({ state: "visible", timeout: 30000 });
+              const articleState = await page.evaluate(() => ({
+                sections: document.querySelectorAll(".ns-article__section--longform").length,
+                headline: document.querySelector(".ns-article h2")?.textContent?.trim() || null,
+                horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
+              }));
+              if (articleState.sections !== 6 || articleState.horizontalOverflow) throw new Error(`${viewport.id}: exact article state mismatch ${JSON.stringify(articleState)}`);
+              await capture(page, `visual/${viewport.id}-article.png`, article, { viewport, state: "ARTICLE" });
+              states.push({ viewport, daily: dailyState, article: articleState });
+              await context.close();
+            }
+          } finally {
+            await browser.close();
+          }
+
+          receipt.visual_capture = {
+            status: "CAPTURED_NOT_REVIEWED",
+            review_url: reviewUrl,
+            captured_at: new Date().toISOString(),
+            states,
+            captures
+          };
+          fs.writeFileSync(receiptPath, `${JSON.stringify(receipt, null, 2)}\n`);
+          NODE
+          jq -e '
+            .visual_capture.status == "CAPTURED_NOT_REVIEWED" and
+            .visual_capture.review_url == .review_url and
+            (.visual_capture.states | length) == 3 and
+            ([.visual_capture.states[].daily.date] | unique) == ["2026-08-12"] and
+            ([.visual_capture.states[].daily.readyDesks] | unique) == [4] and
+            ([.visual_capture.states[].daily.horizontalOverflow] | unique) == [false] and
+            ([.visual_capture.states[].article.sections] | unique) == [6] and
+            ([.visual_capture.states[].article.horizontalOverflow] | unique) == [false] and
+            (.visual_capture.captures | length) == 9 and
+            ([.visual_capture.captures[].state] | sort) == ["ARTICLE","ARTICLE","ARTICLE","DAILY_FULL_PAGE","DAILY_FULL_PAGE","DAILY_FULL_PAGE","DAILY_NEWSPAPER","DAILY_NEWSPAPER","DAILY_NEWSPAPER"] and
+            all(.visual_capture.captures[]; (.sha256 | test("^[a-f0-9]{64}$")) and .output.width > 0 and .output.height > 0)
+          ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
       - name: Revoke temporary Access verification credential
         if: ${{ always() }}
         shell: bash
@@ -420,6 +543,9 @@ jobs:
             .access_credential.revoked == true and
             .public_verification.access_protected == true and
             .public_verification.result == "PASS" and
+            .visual_capture.status == "CAPTURED_NOT_REVIEWED" and
+            .visual_capture.review_url == .review_url and
+            (.visual_capture.captures | length) == 9 and
             ([.public_verification.critical_paths[].path] | sort) ==
               ["content/daily-edition-columns.json","content/newsstand-daily-issues.json","content/newsstand-stories.js","newsstand.html"]
           ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
