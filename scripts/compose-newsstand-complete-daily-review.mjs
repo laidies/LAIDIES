@@ -4,12 +4,18 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { inspectNewsstandServiceExemplar } from "./check-newsstand-service-exemplar.mjs";
+import { inspectCompleteDailyComposition } from "./check-newsstand-complete-daily-composition.mjs";
+import { inspectCompleteDailyReview } from "./check-newsstand-complete-daily-review.mjs";
 import { inspectNewsstandProducerProof } from "./check-newsstand-producer-proof.mjs";
+import { inspectNewsstandServiceExemplar } from "./check-newsstand-service-exemplar.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CANDIDATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/candidates");
-const HASH = /^[a-f0-9]{64}$/;
+const SCREENSHOT_KEYS = [
+  "COMPLETE_PAGE:1440", "COMPLETE_PAGE:390", "COMPLETE_PAGE:320",
+  "DAILY_FRONT:1440", "DAILY_FRONT:390", "DAILY_FRONT:320",
+  "FULL_ARTICLE:1440", "FULL_ARTICLE:390", "FULL_ARTICLE:320"
+];
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = value => {
   if (value === null || typeof value !== "object") return JSON.stringify(value);
@@ -18,121 +24,162 @@ const canonicalJson = value => {
 };
 const fail = message => { throw new Error(`COMPLETE_DAILY_REVIEW_COMPOSER_REJECT: ${message}`); };
 
-function read(relative, label) {
-  const absolute = path.resolve(ROOT, relative || "");
-  if (!relative || !absolute.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) fail(`${label} is unavailable: ${relative || ""}`);
-  const raw = fs.readFileSync(absolute, "utf8");
-  return { path: path.relative(ROOT, absolute), raw, sha256: sha256(raw) };
+function read(root, relative, label) {
+  const resolvedRoot = path.resolve(root);
+  const absolute = path.resolve(resolvedRoot, relative || "");
+  if (!relative || !absolute.startsWith(`${resolvedRoot}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) {
+    fail(`${label} is unavailable or outside the repository: ${relative || ""}`);
+  }
+  const raw = fs.readFileSync(absolute);
+  return { path: path.relative(resolvedRoot, absolute), raw, sha256: sha256(raw) };
 }
 
-function binding(relative, label) {
-  const absolute = path.resolve(ROOT, relative || "");
-  if (!relative || !absolute.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) fail(`${label} is unavailable: ${relative || ""}`);
-  return { path: path.relative(ROOT, absolute), sha256: sha256(fs.readFileSync(absolute)) };
-}
-
-function json(relative, label) {
-  const file = read(relative, label);
-  try { return { ...file, value: JSON.parse(file.raw) }; }
+function json(root, relative, label) {
+  const file = read(root, relative, label);
+  try { return { ...file, value: JSON.parse(file.raw.toString("utf8")) }; }
   catch { fail(`${label} is not valid JSON`); }
 }
 
-export function composeCompleteDailyReviewPackage(inputs) {
-  fail("the single-story v1 composer is retired; a v2 package requires an exact passed complete-Daily composition with ranked story and inline-service bindings");
-  const storyFile = json(inputs.story, "story candidate");
-  const proofFile = json(inputs.proof, "producer proof");
-  const proofReviewFile = json(inputs.proofReview, "producer proof review");
-  const serviceReviewFile = json(inputs.serviceReview, "service exemplar review");
-  const semanticReviewFile = read(inputs.semanticReview, "independent semantic review");
-  const visualReviewFile = read(inputs.visualReview, "independent visual review");
-  const screenshots = inputs.screenshots.map((item, index) => binding(item.path, `review screenshot ${index + 1}`));
-  const columnsFile = json("content/daily-edition-columns.json", "Daily column authority");
-  const serviceFiles = inputs.services.map((item, index) => json(item, `service candidate ${index + 1}`));
+function binding(file) {
+  return { path: file.path, sha256: file.sha256 };
+}
 
-  const proofCheck = inspectNewsstandProducerProof(proofFile.value);
-  if (proofCheck.errors.length) fail(`producer proof failed: ${proofCheck.errors.join(" | ")}`);
-  if (proofReviewFile.value?.review?.verdict !== "PASS" || proofReviewFile.value?.review?.draftPermission !== "FULL_DRAFT_ALLOWED" || proofReviewFile.value?.proof?.sha256 !== proofFile.sha256) {
-    fail("producer proof review does not PASS the exact proof");
-  }
-  if (storyFile.value?.candidateStatus !== "HELD_NOT_PUBLISHED" || storyFile.value?.story?.status !== "hold" || storyFile.value?.story?.publishedAt !== null) {
-    fail("story candidate is not a held private candidate");
-  }
-  if (storyFile.value?.sourceText?.sha256 !== sha256(fs.readFileSync(path.join(ROOT, storyFile.value.sourceText.path)))) {
-    fail("story candidate does not bind the exact prose");
-  }
+function exactBinding(value, file, label) {
+  if (value?.path !== file.path || value?.sha256 !== file.sha256) fail(`${label} does not bind the exact file`);
+}
 
-  const laneIds = [];
-  for (const service of serviceFiles) {
-    const result = inspectNewsstandServiceExemplar(service.value);
-    if (result.errors.length) fail(`${service.path} failed: ${result.errors.join(" | ")}`);
-    laneIds.push(service.value.laneId);
-  }
-  if (new Set(laneIds).size !== 4 || !["paige_tip", "career_work_life", "promptoscope", "mme_claio"].every(lane => laneIds.includes(lane))) {
-    fail("exactly one candidate for each required service lane is required");
-  }
-  if (serviceReviewFile.value?.review?.verdict !== "PASS" || serviceReviewFile.value.review.outcomes?.some(item => item.verdict !== "PASS" || item.defects?.length)) {
-    fail("service review does not PASS every lane");
-  }
-  const reviewedServices = new Map((serviceReviewFile.value.candidates || []).map(item => [item.path, item.sha256]));
-  for (const service of serviceFiles) if (reviewedServices.get(service.path) !== service.sha256) fail(`${service.path} is not the exact independently reviewed candidate`);
+function verdictPasses(value) {
+  return String(value || "").startsWith("PASS") || value === "ADMIT_PRIVATE_DIRECTION_REVIEW";
+}
 
-  const exactProsePath = storyFile.value?.sourceText?.path;
-  const exactProseSha = storyFile.value?.sourceText?.sha256;
-  if (!semanticReviewFile.raw.includes("Verdict: `PASS_ARTIFACT_LEVEL`") ||
-      !semanticReviewFile.raw.includes(`- Artifact: \`${exactProsePath}\``) ||
-      !semanticReviewFile.raw.includes(`- SHA-256: \`${exactProseSha}\``) ||
-      !semanticReviewFile.raw.includes("does not substitute for observed unfamiliar-human explain-back and unseen transfer evidence")) {
-    fail("semantic review does not bind and PASS the exact prose with the human-evidence boundary intact");
-  }
-  if (!visualReviewFile.raw.includes("Status: `ADMIT_PRIVATE_DIRECTION_REVIEW`") ||
-      !visualReviewFile.raw.includes("does not admit the story as a positive exemplar, canonical content, deployment or public release")) {
-    fail("visual review does not admit only the private direction");
-  }
-  if (screenshots.length !== 9 || new Set(screenshots.map(item => item.path)).size !== 9) fail("nine distinct complete-page, Daily and article review screenshots are required");
-  for (const screenshot of screenshots) {
-    const basename = path.basename(screenshot.path);
-    if (!visualReviewFile.raw.includes(`\`${basename}\` — SHA-256 \`${screenshot.sha256}\``)) {
-      fail(`visual review does not bind ${screenshot.path}`);
+export function composeCompleteDailyReviewPackage(inputs, {
+  root = ROOT,
+  producerInspector = inspectNewsstandProducerProof,
+  serviceInspector = inspectNewsstandServiceExemplar,
+  packageRejections
+} = {}) {
+  if (inputs?.schemaVersion !== "laidies-newsstand-complete-daily-compose-input.v2") fail("input schemaVersion mismatch; single-story v1 inputs are retired");
+
+  const compositionFile = json(root, inputs.composition, "complete-Daily composition");
+  const compositionResult = inspectCompleteDailyComposition(compositionFile.value);
+  if (compositionResult.errors.length) fail(`composition failed: ${compositionResult.errors.join(" | ")}`);
+  if (compositionFile.value.issueOutcome.state !== "MULTI_STORY") fail("a review package currently requires a qualified multi-story Daily");
+
+  const storyInputs = Array.isArray(inputs.stories) ? inputs.stories : [];
+  if (storyInputs.length !== compositionFile.value.news.length) fail("story bundles do not match the ranked composition");
+  const stories = [];
+  const storyReviews = [];
+  for (const [index, item] of storyInputs.entries()) {
+    const label = `story bundle ${index + 1}`;
+    const candidateFile = json(root, item?.candidate, `${label} candidate`);
+    const templateFile = read(root, item?.templateAcceptance, `${label} template acceptance`);
+    const proofFile = json(root, item?.producerProof, `${label} producer proof`);
+    const selfReviewFile = json(root, item?.producerSelfReview, `${label} producer self-review`);
+    const independentFile = json(root, item?.independentReview, `${label} independent review`);
+    const candidate = candidateFile.value;
+    const expectedStory = compositionFile.value.news[index];
+    if (candidate?.candidateStatus !== "HELD_NOT_PUBLISHED" || candidate?.story?.status !== "hold" || candidate?.story?.publishedAt !== null) {
+      fail(`${label} is not a held, unpublished candidate`);
     }
+    if (candidate.story?.id !== expectedStory.storyId) fail(`${label} identity differs from ranked composition`);
+    const proseFile = read(root, candidate?.sourceText?.path, `${label} exact prose`);
+    exactBinding(candidate.sourceText, proseFile, `${label} sourceText`);
+
+    const proofResult = producerInspector(proofFile.value, { root });
+    if (proofResult?.errors?.length) fail(`${label} producer proof failed: ${proofResult.errors.join(" | ")}`);
+    if (selfReviewFile.value?.verdict !== "PASS") fail(`${label} producer self-review does not PASS`);
+    exactBinding(selfReviewFile.value?.artifact?.reviewText, proseFile, `${label} producer self-review`);
+    if (!verdictPasses(independentFile.value?.verdict) || independentFile.value?.candidate?.sha256 !== proseFile.sha256) {
+      fail(`${label} independent review does not PASS the exact prose`);
+    }
+    stories.push({
+      ...binding(candidateFile),
+      record: candidate.story,
+      templateAcceptance: binding(templateFile),
+      independentReview: binding(independentFile)
+    });
+    storyReviews.push({
+      storyId: candidate.story.id,
+      producerProof: binding(proofFile),
+      producerSelfReview: binding(selfReviewFile),
+      independentReview: binding(independentFile)
+    });
   }
 
-  const editionDate = "2026-08-12";
-  if (storyFile.value.story.updatedAt.slice(0, 10) !== editionDate || serviceFiles.some(file => file.value.editionDate !== editionDate)) fail("all Daily contents must use the exact edition date");
-  const publicTypes = { paige_tip: "paige_tip", career_work_life: "career_life", promptoscope: "promptoscope", mme_claio: "mme_claio" };
-  const orderedTypes = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
-  const desks = orderedTypes.map(type => {
-    const service = serviceFiles.find(file => publicTypes[file.value.laneId] === type);
-    if (!service) return { type, state: "empty", recordId: null, emptyState: columnsFile.value.emptyStates[type] };
+  const suppliedServices = Array.isArray(inputs.services) ? inputs.services : [];
+  const suppliedTypes = suppliedServices.map(item => item?.type);
+  if (new Set(suppliedTypes).size !== suppliedTypes.length) fail("service candidate inputs contain duplicate desk types");
+  const serviceFiles = new Map();
+  for (const item of suppliedServices) serviceFiles.set(item.type, json(root, item.candidate, `service ${item.type} candidate`));
+  const readyPlans = compositionFile.value.services.filter(item => item.state === "READY");
+  if (suppliedServices.length !== readyPlans.length || readyPlans.some(plan => !serviceFiles.has(plan.type))) {
+    fail("service candidates must match every and only READY composition desk");
+  }
+  const desks = compositionFile.value.services.map(plan => {
+    if (plan.state === "EMPTY") return { type: plan.type, state: "empty", recordId: null, emptyState: plan.emptyState };
+    const file = serviceFiles.get(plan.type);
+    const candidate = file.value;
+    if (candidate?.schemaVersion === "laidies-newsstand-service-exemplar.v1") {
+      const result = serviceInspector(candidate, { root });
+      if (result?.errors?.length) fail(`service ${plan.type} failed: ${result.errors.join(" | ")}`);
+    }
+    if (candidate?.editionDate !== compositionFile.value.editionDate) fail(`service ${plan.type} uses a different edition date`);
+    if (candidate?.body !== plan.usefulSubstance || (candidate?.destination || null) !== (plan.continuationDestination || null)) {
+      fail(`service ${plan.type} differs from the exact inline composition`);
+    }
+    if (!candidate?.storage?.recordId || !candidate?.headline) fail(`service ${plan.type} lacks a record ID or headline`);
     return {
-      type,
+      type: plan.type,
       state: "ready",
-      recordId: service.value.storage.recordId,
-      headline: service.value.headline,
-      summary: service.value.body,
-      destination: service.value.destination?.startsWith("/newsstand.html#daily-") ? null : service.value.destination || null,
-      sourceCandidate: { path: service.path, sha256: service.sha256 }
+      recordId: candidate.storage.recordId,
+      headline: candidate.headline,
+      summary: candidate.body,
+      displayMode: plan.displayMode,
+      destination: plan.continuationDestination || null,
+      sourceCandidate: binding(file)
     };
   });
+
+  const compositionReviewFile = json(root, inputs.compositionReview, "independent composition review");
+  if (!verdictPasses(compositionReviewFile.value?.verdict)) fail("composition review does not PASS");
+  exactBinding(compositionReviewFile.value?.composition, compositionFile, "composition review");
+
+  const serviceReviewFile = json(root, inputs.serviceReview, "independent service review");
+  if (!verdictPasses(serviceReviewFile.value?.verdict)) fail("service review does not PASS");
+  const reviewedServiceBindings = new Map((serviceReviewFile.value?.candidates || []).map(item => [item.type, item]));
+  const serviceOutcomes = new Map((serviceReviewFile.value?.outcomes || []).map(item => [item.type, item]));
+  for (const plan of readyPlans) {
+    exactBinding(reviewedServiceBindings.get(plan.type), serviceFiles.get(plan.type), `service review ${plan.type}`);
+    const outcome = serviceOutcomes.get(plan.type);
+    if (!verdictPasses(outcome?.verdict) || (outcome?.defects || []).length) fail(`service review does not PASS ${plan.type} with zero defects`);
+  }
+
+  const screenshotInputs = Array.isArray(inputs.screenshots) ? inputs.screenshots : [];
+  const screenshots = screenshotInputs.map((item, index) => ({ ...binding(read(root, item?.path, `screenshot ${index + 1}`)), mode: item?.mode, viewport: item?.viewport }));
+  if (screenshots.length !== 9 || new Set(screenshots.map(item => `${item.mode}:${item.viewport}`)).size !== 9 || SCREENSHOT_KEYS.some(key => !screenshots.some(item => `${item.mode}:${item.viewport}` === key))) {
+    fail("screenshots do not provide the exact nine-view matrix");
+  }
+  const visualReviewFile = json(root, inputs.visualReview, "independent visual review");
+  if (!verdictPasses(visualReviewFile.value?.verdict)) fail("visual review does not PASS the private direction");
+  const reviewedScreens = new Map((visualReviewFile.value?.screenshots || []).map(item => [`${item.mode}:${item.viewport}`, item]));
+  for (const screenshot of screenshots) exactBinding(reviewedScreens.get(`${screenshot.mode}:${screenshot.viewport}`), screenshot, `visual review ${screenshot.mode}:${screenshot.viewport}`);
+
   const reviewPackage = {
-    schemaVersion: "laidies-newsstand-complete-daily-review-package.v1",
-    editionDate,
+    schemaVersion: "laidies-newsstand-complete-daily-review-package.v2",
+    editionDate: compositionFile.value.editionDate,
     editorialTimeZone: "America/Vancouver",
     status: "PRIVATE_COMPLETE_DAILY_REVIEW_CANDIDATE",
     defaultExperience: "THE_DAILY",
     publicEligibility: "INELIGIBLE_PENDING_ALI_APPROVAL",
-    story: { path: storyFile.path, sha256: storyFile.sha256, record: storyFile.value.story },
+    composition: binding(compositionFile),
+    stories,
     desks,
     evidence: {
-      producerProof: { path: proofFile.path, sha256: proofFile.sha256 },
-      producerProofReview: { path: proofReviewFile.path, sha256: proofReviewFile.sha256 },
-      serviceReview: { path: serviceReviewFile.path, sha256: serviceReviewFile.sha256 },
-      semanticReview: { path: semanticReviewFile.path, sha256: semanticReviewFile.sha256 },
-      visualReview: { path: visualReviewFile.path, sha256: visualReviewFile.sha256 },
-      screenshots: inputs.screenshots.map((item, index) => ({
-        ...screenshots[index],
-        mode: item.mode,
-        viewport: item.viewport
-      }))
+      compositionReview: binding(compositionReviewFile),
+      serviceReview: binding(serviceReviewFile),
+      visualReview: binding(visualReviewFile),
+      storyReviews,
+      screenshots
     },
     remainingGates: [
       "ALI_EXACT_PACKAGE_APPROVAL",
@@ -143,6 +190,11 @@ export function composeCompleteDailyReviewPackage(inputs) {
     ],
     releaseAuthority: { canonicalWrite: false, deploy: false, public: false }
   };
+  const packageResult = inspectCompleteDailyReview(reviewPackage, {
+    root,
+    ...(packageRejections === undefined && path.resolve(root) === ROOT ? {} : { rejections: packageRejections || [] })
+  });
+  if (packageResult.errors.length) fail(`assembled package failed: ${packageResult.errors.join(" | ")}`);
   const canonical = `${canonicalJson(reviewPackage)}\n`;
   return { reviewPackage, canonical, sha256: sha256(canonical) };
 }
@@ -153,24 +205,14 @@ function valueAfter(flag) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const output = path.resolve(ROOT, valueAfter("--output") || "");
+  const inputPath = valueAfter("--inputs");
+  const outputValue = valueAfter("--output");
+  if (!inputPath || !outputValue) fail("usage: node scripts/compose-newsstand-complete-daily-review.mjs --inputs <v2-input.json> --output <candidate.json>");
+  const output = path.resolve(ROOT, outputValue);
   if (!output.startsWith(`${CANDIDATE_ROOT}${path.sep}`)) fail("--output must stay inside the NewsStand candidate directory");
-  const result = composeCompleteDailyReviewPackage({
-    story: valueAfter("--story"), proof: valueAfter("--proof"), proofReview: valueAfter("--proof-review"), serviceReview: valueAfter("--service-review"),
-    semanticReview: valueAfter("--semantic-review"), visualReview: valueAfter("--visual-review"),
-    services: [valueAfter("--paige"), valueAfter("--career"), valueAfter("--promptoscope"), valueAfter("--mme")],
-    screenshots: [
-      { mode: "COMPLETE_PAGE", viewport: 1440, path: valueAfter("--page-1440") },
-      { mode: "COMPLETE_PAGE", viewport: 390, path: valueAfter("--page-390") },
-      { mode: "COMPLETE_PAGE", viewport: 320, path: valueAfter("--page-320") },
-      { mode: "DAILY_FRONT", viewport: 1440, path: valueAfter("--front-1440") },
-      { mode: "DAILY_FRONT", viewport: 390, path: valueAfter("--front-390") },
-      { mode: "DAILY_FRONT", viewport: 320, path: valueAfter("--front-320") },
-      { mode: "FULL_ARTICLE", viewport: 1440, path: valueAfter("--article-1440") },
-      { mode: "FULL_ARTICLE", viewport: 390, path: valueAfter("--article-390") },
-      { mode: "FULL_ARTICLE", viewport: 320, path: valueAfter("--article-320") }
-    ]
-  });
+  if (fs.existsSync(output)) fail("--output already exists; never overwrite a review candidate");
+  const inputs = json(ROOT, inputPath, "v2 composer input").value;
+  const result = composeCompleteDailyReviewPackage(inputs);
   fs.writeFileSync(output, result.canonical);
-  console.log(`COMPLETE DAILY REVIEW PACKAGE PASS edition=2026-08-12 story=1 ready_desks=4 sha256=${result.sha256} public_authority=none`);
+  console.log(`COMPLETE DAILY REVIEW PACKAGE PASS edition=${result.reviewPackage.editionDate} stories=${result.reviewPackage.stories.length} ready_desks=${result.reviewPackage.desks.filter(item => item.state === "ready").length} sha256=${result.sha256} public_authority=none`);
 }

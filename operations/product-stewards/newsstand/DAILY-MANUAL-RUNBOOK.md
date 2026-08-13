@@ -63,7 +63,40 @@ node scripts/compile-newsstand-longform.mjs \
 The generated held story must be byte-for-byte identical to the artifact bound
 by the reviews. A changed output invalidates the old review and may not advance.
 
-## 4. Promote each admitted new story into the canonical dataset
+## 4. Compose and verify the complete private newspaper review package
+
+Before any story or dated issue is promoted, create one exact composition using
+schema `laidies-newsstand-complete-daily-composition.v1`. It must disposition
+every assessed candidate, rank every qualified story, expose every READY
+service item as useful inline substance and preserve all nine governed service
+slots. A normal news issue must be `MULTI_STORY`; `ONE_STORY_HOLD` cannot
+advance, and a `NO_NEWS_SERVICE_EDITION` cannot be disguised as a news issue.
+
+```sh
+node scripts/check-newsstand-complete-daily-composition.mjs \
+  operations/product-stewards/newsstand/candidates/COMPLETE-DAILY-COMPOSITION.json
+```
+
+After the complete page, Daily front and full article have each passed maker
+and independent review at 1440, 390 and 320 pixels, list their exact bindings in
+one `laidies-newsstand-complete-daily-compose-input.v2` JSON file. Then run:
+
+```sh
+node scripts/test-compose-newsstand-complete-daily-review.mjs
+node scripts/compose-newsstand-complete-daily-review.mjs \
+  --inputs operations/product-stewards/newsstand/candidates/COMPLETE-DAILY-V2-INPUTS.json \
+  --output operations/product-stewards/newsstand/candidates/COMPLETE-DAILY-V2-PACKAGE.json
+node scripts/check-newsstand-complete-daily-review.mjs \
+  operations/product-stewards/newsstand/candidates/COMPLETE-DAILY-V2-PACKAGE.json
+```
+
+The composer refuses single-story v1 inputs, stale story/service/review bytes,
+an incomplete nine-view matrix and any existing output path. It carries no
+canonical-write, deploy or public authority. Ali reviews only the exact passed
+v2 package; no folder, screenshot sample or component review substitutes for
+the whole newspaper.
+
+## 5. Promote each admitted new story into the canonical dataset
 
 The story candidate remains held until all of these exact records exist:
 
@@ -89,7 +122,7 @@ Only an exact dry-run pass permits the same command with `--write`. Repeating
 the admitted write must report `LOCAL CANONICAL IDEMPOTENT`; a changed story
 with the same ID is a conflict, not a silent overwrite.
 
-## 5. Compose one private issue envelope
+## 6. Compose one private issue envelope
 
 ```sh
 node scripts/compose-daily-edition.mjs \
@@ -102,7 +135,7 @@ The result must say `public_write=false`. Record its SHA-256. Its
 `storySnapshots` array must contain the complete canonical object for every
 admitted `storyId`; an ID-only envelope is invalid.
 
-## 6. Require independent issue admission
+## 7. Require independent issue admission
 
 A reviewer who is not the maker inspects the exact envelope and creates only:
 
@@ -117,7 +150,7 @@ migration of an already admitted issue. It must bind both exact predecessor and
 successor envelope hashes. Do not use it to revise copy, desks, membership or
 source identity; the writer rejects those changes.
 
-## 7. Write the admitted issue to the local canonical store
+## 8. Write the admitted issue to the local canonical store
 
 ```sh
 node scripts/promote-daily-edition.mjs \
@@ -128,7 +161,7 @@ node scripts/promote-daily-edition.mjs \
 
 Run the same command again. It must report `IDEMPOTENT`, not append a duplicate.
 
-## 8. Verify the visitor result
+## 9. Verify the visitor result
 
 ```sh
 node scripts/test-newsstand-reader-contract.mjs
