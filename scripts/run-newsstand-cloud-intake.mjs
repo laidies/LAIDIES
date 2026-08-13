@@ -11,6 +11,8 @@ const USER_AGENT = "LAiDIES-NewsStand-Private-Intake/1.0";
 const MAX_BODY_BYTES = 2_500_000;
 const SIGNAL_LOOKBACK_MS = 7 * 24 * 60 * 60 * 1000;
 const FIRST_RUN_LOOKBACK_MS = 36 * 60 * 60 * 1000;
+const MAX_BACKFILL_MS = 21 * 24 * 60 * 60 * 1000;
+const BACKFILL_SOURCE_IDS = new Set(["SRC-AIDB", "SRC-ETHAN-MOLLICK"]);
 
 const cadenceMs = {
   TWICE_DAILY: 6 * 60 * 60 * 1000,
@@ -28,6 +30,17 @@ const cadenceMs = {
 
 export function sha256(value) {
   return crypto.createHash("sha256").update(value).digest("hex");
+}
+
+export function normalizeBackfillSince(value, now) {
+  if (value === null || value === undefined || value === "") return null;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error("backfill-since must be YYYY-MM-DD");
+  const start = new Date(`${value}T00:00:00.000Z`);
+  const end = new Date(now);
+  if (!Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime())) throw new Error("backfill-since or now is invalid");
+  if (start.getTime() > end.getTime()) throw new Error("backfill-since cannot be in the future");
+  if (end.getTime() - start.getTime() > MAX_BACKFILL_MS) throw new Error("backfill-since cannot exceed 21 days");
+  return start.toISOString();
 }
 
 function cleanText(value, max = 240) {
@@ -107,12 +120,13 @@ function parseHtmlSnapshot(body, sourceUrl) {
   return { items: [], title, fingerprint: sha256(normalized) };
 }
 
-export function selectDueSources(registry, previousState, now) {
+export function selectDueSources(registry, previousState, now, forceSourceIds = new Set()) {
   const nowMs = new Date(now).getTime();
   return (registry.sources || []).filter((source) => {
     if (!["ACTIVE_MONITOR", "PILOT_MONITOR"].includes(source.status)) return false;
     const interval = cadenceMs[source.cadence];
     if (!Number.isFinite(interval)) return false;
+    if (forceSourceIds.has(source.id)) return true;
     const checkedAt = previousState?.sources?.[source.id]?.checkedAt;
     if (!checkedAt) return true;
     const checkedMs = new Date(checkedAt).getTime();
@@ -127,7 +141,7 @@ async function boundedText(response) {
 }
 
 async function fetchOne(source, fetchImpl, now) {
-  const url = source.urls[0];
+  const url = source.recurringUrl || source.urls[0];
   try {
     const response = await fetchImpl(url, {
       redirect: "follow",
@@ -173,9 +187,15 @@ async function fetchOne(source, fetchImpl, now) {
   }
 }
 
-export async function buildIntake({ registry, previousState = null, now, fetchImpl = fetch }) {
+export async function buildIntake({ registry, previousState = null, now, fetchImpl = fetch, backfillSince = null }) {
   const generatedAt = new Date(now).toISOString();
-  const due = selectDueSources(registry, previousState, generatedAt);
+  const normalizedBackfillSince = normalizeBackfillSince(backfillSince, generatedAt);
+  const due = selectDueSources(
+    registry,
+    previousState,
+    generatedAt,
+    normalizedBackfillSince ? BACKFILL_SOURCE_IDS : new Set()
+  );
   const results = await Promise.all(due.map((source) => fetchOne(source, fetchImpl, generatedAt)));
   const sourceById = new Map(registry.sources.map((source) => [source.id, source]));
   const newSignals = [];
@@ -186,12 +206,21 @@ export async function buildIntake({ registry, previousState = null, now, fetchIm
     const prior = previousState?.sources?.[result.sourceId] || null;
     if (result.health === "HEALTHY") {
       const priorIds = new Set(prior?.itemIds || []);
-      const cutoff = Date.parse(generatedAt) - (prior ? SIGNAL_LOOKBACK_MS : FIRST_RUN_LOOKBACK_MS);
+      const emittedSignalIds = new Set(prior?.emittedSignalIds || []);
+      const sourceBackfillSince = normalizedBackfillSince && BACKFILL_SOURCE_IDS.has(result.sourceId)
+        ? normalizedBackfillSince
+        : null;
+      const cutoff = sourceBackfillSince
+        ? Date.parse(normalizedBackfillSince)
+        : Date.parse(generatedAt) - (prior ? SIGNAL_LOOKBACK_MS : FIRST_RUN_LOOKBACK_MS);
+      const sourceSignals = [];
       for (const item of result.items) {
         const publishedMs = item.publishedAt ? Date.parse(item.publishedAt) : NaN;
-        if (priorIds.has(item.id) || !Number.isFinite(publishedMs) || publishedMs < cutoff) continue;
-        newSignals.push({
-          signalId: `NSCI-${sha256(`${result.sourceId}|${item.id}`).slice(0, 20)}`,
+        const signalId = `NSCI-${sha256(`${result.sourceId}|${item.id}`).slice(0, 20)}`;
+        const seenByLegacyStateOnly = !sourceBackfillSince && !prior?.emittedSignalIds && priorIds.has(item.id);
+        if (emittedSignalIds.has(signalId) || seenByLegacyStateOnly || !Number.isFinite(publishedMs) || publishedMs < cutoff) continue;
+        const signal = {
+          signalId,
           sourceId: result.sourceId,
           sourceName: source.name,
           title: item.title,
@@ -202,28 +231,40 @@ export async function buildIntake({ registry, previousState = null, now, fetchIm
           destinations: source.destinations,
           disposition: "UNRECONCILED_PRIVATE_SIGNAL",
           evidenceBoundary: "Discovery lead only. Publication requires an independent LAiDIES read, primary evidence, AIDB comparison or dated absence, producer contract and applicable approval."
-        });
+        };
+        newSignals.push(signal);
+        sourceSignals.push(signal);
+        emittedSignalIds.add(signalId);
       }
       if (prior && result.items.length === 0 && prior.fingerprint && prior.fingerprint !== result.fingerprint) {
-        newSignals.push({
-          signalId: `NSCI-${sha256(`${result.sourceId}|${result.fingerprint}`).slice(0, 20)}`,
-          sourceId: result.sourceId,
-          sourceName: source.name,
-          title: `${result.title} changed`,
-          url: result.resolvedUrl,
-          publishedAt: null,
-          observedAt: generatedAt,
-          sourceAuthorityTier: source.authorityTier,
-          destinations: source.destinations,
-          disposition: "UNRECONCILED_PRIVATE_SIGNAL",
-          evidenceBoundary: "Page-level change only; it does not establish a new announcement or story. Editorial reconciliation must identify the exact changed claim or record NO_BUILD."
-        });
+        const signalId = `NSCI-${sha256(`${result.sourceId}|${result.fingerprint}`).slice(0, 20)}`;
+        if (!emittedSignalIds.has(signalId)) {
+          const signal = {
+            signalId,
+            sourceId: result.sourceId,
+            sourceName: source.name,
+            title: `${result.title} changed`,
+            url: result.resolvedUrl,
+            publishedAt: null,
+            observedAt: generatedAt,
+            sourceAuthorityTier: source.authorityTier,
+            destinations: source.destinations,
+            disposition: "UNRECONCILED_PRIVATE_SIGNAL",
+            evidenceBoundary: "Page-level change only; it does not establish a new announcement or story. Editorial reconciliation must identify the exact changed claim or record NO_BUILD."
+          };
+          newSignals.push(signal);
+          sourceSignals.push(signal);
+          emittedSignalIds.add(signalId);
+        }
       }
       nextSources[result.sourceId] = {
         checkedAt: generatedAt,
         health: result.health,
+        monitoredUrl: result.resolvedUrl,
         fingerprint: result.fingerprint,
-        itemIds: result.items.slice(0, 100).map((item) => item.id)
+        itemIds: result.items.slice(0, 100).map((item) => item.id),
+        emittedSignalIds: [...emittedSignalIds].slice(-300),
+        emittedThisRun: sourceSignals.length
       };
     } else {
       nextSources[result.sourceId] = {
@@ -249,6 +290,7 @@ export async function buildIntake({ registry, previousState = null, now, fetchIm
     schemaVersion: "newsstand-cloud-intake-v1",
     mode: MODE,
     generatedAt,
+    backfillSince: normalizedBackfillSince,
     sourceRegistry: {
       path: "operations/product-stewards/learning-content-ecosystem/SOURCE-REGISTRY.json",
       sha256: sha256(JSON.stringify(registry))
@@ -267,7 +309,7 @@ export async function buildIntake({ registry, previousState = null, now, fetchIm
     canonicalWrite: false,
     deploymentActionTaken: false
   };
-  const state = { schemaVersion: "newsstand-cloud-intake-state-v1", updatedAt: generatedAt, sources: nextSources };
+  const state = { schemaVersion: "newsstand-cloud-intake-state-v2", updatedAt: generatedAt, sources: nextSources };
   return { receipt, state };
 }
 
@@ -275,6 +317,7 @@ export function validateIntakeReceipt(receipt) {
   const errors = [];
   if (receipt?.schemaVersion !== "newsstand-cloud-intake-v1") errors.push("schemaVersion");
   if (receipt?.mode !== MODE) errors.push("mode");
+  if (!(receipt?.backfillSince === null || /^\d{4}-\d{2}-\d{2}T00:00:00\.000Z$/.test(receipt?.backfillSince || ""))) errors.push("backfillSince");
   for (const field of ["publicationActionTaken", "canonicalWrite", "deploymentActionTaken"]) {
     if (receipt?.[field] !== false) errors.push(`${field} must be false`);
   }
@@ -302,6 +345,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const registryPath = path.resolve(root, arg("--registry", "operations/product-stewards/learning-content-ecosystem/SOURCE-REGISTRY.json"));
   const rosterPath = path.resolve(root, "operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json");
   const previousPath = arg("--previous");
+  const backfillSince = arg("--backfill-since");
   const outputPath = path.resolve(root, arg("--output", ".newsstand-cloud-intake/receipt.json"));
   const stateOutputPath = path.resolve(root, arg("--state-output", ".newsstand-cloud-intake/state.json"));
   const now = arg("--now", new Date().toISOString());
@@ -313,7 +357,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const previousState = resolvedPrevious && fs.existsSync(resolvedPrevious)
     ? JSON.parse(fs.readFileSync(resolvedPrevious, "utf8"))
     : null;
-  const { receipt, state } = await buildIntake({ registry, previousState, now });
+  const { receipt, state } = await buildIntake({ registry, previousState, now, backfillSince });
   const check = validateIntakeReceipt(receipt);
   if (!check.ok) throw new Error(`intake receipt invalid: ${check.errors.join(" | ")}`);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -321,6 +365,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   fs.writeFileSync(outputPath, `${JSON.stringify(receipt, null, 2)}\n`);
   fs.writeFileSync(stateOutputPath, `${JSON.stringify(state, null, 2)}\n`);
   console.log("NEWSSTAND CLOUD INTAKE PASS");
-  console.log(`due=${receipt.counts.due} healthy=${receipt.counts.healthy} unavailable=${receipt.counts.unavailable} source_health_alerts=${receipt.counts.sourceHealthAlerts} new_signals=${receipt.counts.newSignals}`);
+  console.log(`due=${receipt.counts.due} healthy=${receipt.counts.healthy} unavailable=${receipt.counts.unavailable} source_health_alerts=${receipt.counts.sourceHealthAlerts} new_signals=${receipt.counts.newSignals} backfill_since=${receipt.backfillSince || "none"}`);
   console.log("publication=NONE canonical_write=NONE deployment=NONE");
 }

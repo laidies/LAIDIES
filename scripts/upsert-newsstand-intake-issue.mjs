@@ -39,6 +39,25 @@ export function buildIssueComment(receipt, runUrl) {
   return lines.join("\n");
 }
 
+export function removeAlreadyReported(receipt, priorText = "") {
+  const seen = String(priorText || "");
+  const newSignals = (receipt.newSignals || []).filter((signal) => !seen.includes(signal.signalId));
+  const sourceHealthAlerts = (receipt.sourceHealthAlerts || []).filter((alert) => {
+    const marker = `${alert.sourceId} — ${alert.error}`;
+    return !seen.includes(marker);
+  });
+  return {
+    ...receipt,
+    counts: {
+      ...receipt.counts,
+      newSignals: newSignals.length,
+      sourceHealthAlerts: sourceHealthAlerts.length
+    },
+    newSignals,
+    sourceHealthAlerts
+  };
+}
+
 async function api(path, options = {}) {
   const token = process.env.GITHUB_TOKEN;
   const repo = process.env.GITHUB_REPOSITORY;
@@ -63,7 +82,7 @@ async function api(path, options = {}) {
 async function main() {
   const receiptPath = process.argv[2];
   if (!receiptPath) throw new Error("usage: node scripts/upsert-newsstand-intake-issue.mjs RECEIPT.json");
-  const receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
+  let receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
   if (!(receipt.counts.newSignals || receipt.counts.sourceHealthAlerts)) {
     console.log("NO_ISSUE_UPDATE — no signals or source-health failures");
     return;
@@ -84,6 +103,13 @@ async function main() {
         body: "Cloud intake continues while Ali's laptop is off. Every signal must receive a durable duplicate, quiet, watch, no-build or governed work-order disposition. This issue does not authorize drafting, approval, publication or deployment."
       })
     });
+  }
+  const comments = await api(`/issues/${issue.number}/comments?per_page=100`);
+  const priorText = [issue.body, ...comments.map((comment) => comment.body)].join("\n");
+  receipt = removeAlreadyReported(receipt, priorText);
+  if (!(receipt.counts.newSignals || receipt.counts.sourceHealthAlerts)) {
+    console.log(`NO_ISSUE_UPDATE — every signal and source-health alert is already recorded in issue ${issue.number}`);
+    return;
   }
   const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
   await api(`/issues/${issue.number}/comments`, {

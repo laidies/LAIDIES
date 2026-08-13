@@ -69,5 +69,14 @@ const missingPractitioner = clone(registry);
 missingPractitioner.sources = missingPractitioner.sources.filter(source => source.id !== "SRC-AIDB");
 expectFail("practitioner reconciliation", missingPractitioner, practitioner, /practitioner source missing/);
 
+const falseMollickXCoverage = clone(registry);
+falseMollickXCoverage.sources.find(source => source.id === "SRC-ETHAN-MOLLICK").channelCoverage
+  .find(channel => channel.url === "https://x.com/emollick").status = "ACTIVE_MACHINE_MONITOR";
+expectFail("false Mollick X coverage", falseMollickXCoverage, practitioner, /X channel must disclose/);
+
+const unboundRecurringUrl = clone(registry);
+unboundRecurringUrl.sources.find(source => source.id === "SRC-ETHAN-MOLLICK").recurringUrl = "https://example.org/not-registered";
+expectFail("unbound recurring URL", unboundRecurringUrl, practitioner, /recurringUrl must be one of urls/);
+
 console.log("SOURCE REGISTRY TEST PASS");
-console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner rejected; non-AI-career-source accepted");
+console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner,false-mollick-x-coverage,unbound-recurring-url rejected; non-AI-career-source accepted");

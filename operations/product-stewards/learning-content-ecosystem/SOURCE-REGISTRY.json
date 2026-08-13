@@ -66,9 +66,16 @@
       "id": "SRC-ETHAN-MOLLICK", "name": "Ethan Mollick", "publisher": "One Useful Thing / Wharton",
       "authorityTier": "PRACTITIONER_LEAD", "status": "ACTIVE_MONITOR", "cadence": "TWICE_DAILY",
       "urls": ["https://www.oneusefulthing.org/feed", "https://x.com/emollick", "https://www.linkedin.com/in/emollick/", "https://mgmt.wharton.upenn.edu/profile/emollick/"],
+      "recurringUrl": "https://www.oneusefulthing.org/feed",
+      "channelCoverage": [
+        {"url": "https://www.oneusefulthing.org/feed", "status": "ACTIVE_MACHINE_MONITOR", "boundary": "Official long-form feed only."},
+        {"url": "https://x.com/emollick", "status": "HOLD_REQUIRES_PROVIDER_AND_SPEND_AUTHORITY", "boundary": "The public profile is registered but not machine-monitored. Reliable post-level intake requires an approved X developer app, bearer token and pay-per-use budget."},
+        {"url": "https://www.linkedin.com/in/emollick/", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "No automated collection or login use."},
+        {"url": "https://mgmt.wharton.upenn.edu/profile/emollick/", "status": "IDENTITY_REFERENCE_ONLY", "boundary": "Affiliation reference, not a post feed."}
+      ],
       "destinations": ["news_daily", "news_weekly", "news_big_question", "straight_answers", "dear_miss_jeeves", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "episodes", "freshness"],
       "bestUse": "High-velocity practical AI-at-work, education, research and model-use questions.",
-      "limits": "Newsletter and social channels have separate cursors. Social visibility may be incomplete; preferences and commentary are not product facts.",
+      "limits": "Only the official One Useful Thing feed is currently machine-monitored. X requires separate paid API authority; LinkedIn is on-trigger only. Social visibility is therefore incomplete, and preferences or commentary are not product facts.",
       "verifyBeforeUse": "Capture exact post URL, date and text; follow citations to originals and current provider evidence.",
       "checkedAt": "2026-08-11", "recheckTrigger": "Official identity, channel access or affiliation changes.",
       "legacyIds": ["SRC-ETHAN-MOLLICK", "LSR-MOLLICK-SOCIAL-001"]
