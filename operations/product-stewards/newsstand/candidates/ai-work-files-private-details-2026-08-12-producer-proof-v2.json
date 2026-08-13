@@ -15,7 +15,7 @@
   "readerQuestion": "Did this study show that my private AI chats are being exposed, and is there anything I should do?",
   "readerPayoff": "The reader understands that the finding concerns detailed AI work files people published, not ordinary private chats, and knows which object to share instead.",
   "headline": "Shared AI work files carried passwords — and details the chat never showed",
-  "opening": "A new study found passwords and other private details inside technical AI work files that people had published online. Some details were not visible in the chat itself. The study did not show that ordinary private chats had suddenly become public. The lesson is for anyone sharing AI work: send the checked result, not the whole work file.",
+  "opening": "A new study found passwords and other private details inside AI work files that people had published online. Some details were not visible in the chat itself. The study did not show that ordinary private chats had suddenly become public. The lesson is for anyone sharing AI work: send the checked result, not the whole work file.",
   "newcomerBackground": "Some developers and researchers publish a detailed work file for an AI task so other people can inspect or replay the work. That file can contain more than the conversation shown on screen.",
   "causalOutline": [
     "An AI tool can keep a visible answer plus the sealed part, which helps it continue earlier work.",
@@ -43,7 +43,7 @@
     "evidenceRecoverySentence": "The researchers made the sealed part readable with that attack, then compared the recovered text with the visible chat to see which private details appeared in each."
   },
   "actionOpening": "When you share an AI-assisted result, copy only what you mean to send, check it and remove private details.",
-  "incidentAction": "If a public work file contains passwords or access keys — or came from a session that handled them — remove access and replace those credentials.",
+  "incidentAction": "If a work file you published contains a password or access key, treat it as exposed: change it and revoke what it unlocked. Deleting the file cannot undo copies.",
   "evidenceParagraphBreaksAfter": [
     "In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail.",
     "These figures count different things: 328 counts files across the full scan, while 704 counts individual details after the real-people filter. The paper does not say how many real-people files remained."
@@ -128,7 +128,7 @@
     "warmthLines": [
       {
         "sectionHeading": "The answer can be tidy while the work file is not",
-        "line": "The neat diagnosis is the part your team wanted; the key was never invited to the meeting."
+        "line": "The diagnosis is what your team wanted; the key was never invited to the meeting."
       },
       {
         "sectionHeading": "Before you share anything",
@@ -201,11 +201,11 @@
   "applications": {
     "work": {
       "disposition": "APPLY",
-      "example": "At work, a coding assistant that diagnoses a broken website may briefly see a deployment key — a password-like code that lets it publish changes to the site. The neat diagnosis is the part your team wanted; the key was never invited to the meeting."
+      "example": "At work, a coding assistant diagnosing a broken website may see a deployment key — a code that can publish site changes. The diagnosis is what your team wanted; the key was never invited to the meeting."
     },
     "nonWork": {
       "disposition": "APPLY",
-      "example": "At home, a travel assistant connected to your email and bookings may produce a perfect Rome itinerary. Your friend needs the restaurant list, not the account details the work file carried with it."
+      "example": "At home, a travel assistant connected to your email may make a perfect Rome itinerary. Your friend needs the restaurant list, not the account details in the work file."
     }
   },
   "usefulLanding": "Before sharing AI-assisted work, choose and check the answer you intend to send; do not publish the entire work file by default.",

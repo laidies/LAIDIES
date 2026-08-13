@@ -49,7 +49,7 @@ try {
   assert.equal(candidate.story.status, "hold");
   assert.equal(candidate.story.publishedAt, null);
   assert.equal(candidate.story.longform.sections.length, 6);
-  assert.equal(candidate.story.longform.sections.flatMap((section) => section.blocks).length, 18);
+  assert.equal(candidate.story.longform.sections.flatMap((section) => section.blocks).length, 17);
 
   const dataContext = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8"), dataContext);
