@@ -65,6 +65,9 @@ function inspectWorkflow(text) {
   requireText("build-newsstand-review-preview.mjs", "private preview builder is missing");
   requireText("check-newsstand-exact-preview.mjs", "exact preview checker is missing");
   requireText("environment: production", "existing protected Cloudflare credential environment is missing");
+  requireText("CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}", "separately scoped Access API secret is missing");
+  if ((deployJob.match(/CLOUDFLARE_ACCESS_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_ACCESS_API_TOKEN \}\}/g) || []).length !== 3) errors.push("Access validation, creation and revocation must each receive the scoped token");
+  if ((deployJob.match(/CLOUDFLARE_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/g) || []).length !== 1) errors.push("only the Pages deploy step may receive the Pages token");
   requireText("/access/service_tokens", "temporary service-token API is missing");
   requireText("any_valid_service_token", "existing any-valid-service-token policy is not checked");
   requireText(".result.id // empty", "temporary token ID is not captured before response validation");
@@ -76,6 +79,7 @@ function inspectWorkflow(text) {
   if (!deployJob) errors.push("deploy job is missing");
   if (deployJob.includes("actions/checkout")) errors.push("credentialed deploy job executes candidate repository code");
   if (deployJob.includes("CLOUDFLARE_ACCESS_READ_TOKEN")) errors.push("workflow depends on a missing permanent Access API secret");
+  if (deployJob.includes('Authorization: Bearer $CLOUDFLARE_API_TOKEN')) errors.push("Pages deploy token is reused for Access APIs");
   if (deployJob.includes("secrets.CF_ACCESS_CLIENT_ID") || deployJob.includes("secrets.CF_ACCESS_CLIENT_SECRET")) errors.push("workflow depends on missing permanent Access service-token secrets");
   if ((deployJob.match(/--request DELETE/g) || []).length < 2) errors.push("temporary token lacks both error-path and normal-path revocation");
   if (deployJob.indexOf("Revoke temporary Access verification credential") < 0 || deployJob.indexOf("Revoke temporary Access verification credential") > deployJob.indexOf("Upload deployed preview receipt")) errors.push("temporary credential is not revoked before receipt upload");
@@ -98,7 +102,8 @@ const workflowRejects = [
   workflow.replace("::add-mask::", "::notice::"),
   workflow.replace("  deploy-preview:\n", "  deploy-preview:\n    # actions/checkout\n"),
   workflow.replaceAll("PROJECT_NAME: laidies-sunnyvaile-preview", "PROJECT_NAME: laidies-sunnyvaile"),
-  workflow.replace("CF-Access-Client-Id", "X-Removed-Access-Client-Id")
+  workflow.replace("CF-Access-Client-Id", "X-Removed-Access-Client-Id"),
+  workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(inspectWorkflow(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
 console.log(`NEWSSTAND EXACT PREVIEW TEST PASS calibrated_rejections=${rejects.length + workflowRejects.length}`);

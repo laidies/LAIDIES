@@ -14626,15 +14626,18 @@ while remaining falsely unfinished in the launch record.
 - **Date:** 2026-08-13
 - **Area:** Exact NewsStand/Library previews, GitHub environments and Cloudflare Access.
 - **Failure:** The exact NewsStand build, private-package checks and artifact
-  upload all passed, but the protected-preview deploy failed before touching
-  Cloudflare because the `preview` GitHub environment contained none of the
-  five secrets the workflow referenced. The sibling Library preview carried
-  the same unexercised defect.
-- **Root cause:** The controller proved its artifact and Access behavior in
-  source but never reconciled its secret names with the actual GitHub
-  environment. It assumed a permanent Access API token and service-token pair
-  existed instead of designing their lifecycle from the two Cloudflare
-  credentials already governed in the protected environment.
+  upload passed twice, but protected-preview deployment stopped first because
+  the workflow referenced nonexistent `preview`-environment secrets and then
+  because the existing production token had Pages permission but no Access
+  permission. The sibling Library preview carried both unexercised defects. A
+  first replacement token was also exposed by browser diagnostic output during
+  creation and had to be deleted before use.
+- **Root cause:** The controller proved artifact and Access behavior in source
+  but never reconciled its secret names or permission classes with the actual
+  GitHub environment and Cloudflare tokens. Pages deployment and Access policy
+  inspection/service-token lifecycle were incorrectly treated as one
+  credential job. One-time secret material was also allowed through a general
+  DOM diagnostic instead of being captured without display.
 - **Prevention rule:** A credentialed preview must use an environment whose
   exact secret names are inventoried before dispatch, target only the separately
   named preview Pages project, verify an existing Service Auth policy before
@@ -14642,14 +14645,16 @@ while remaining falsely unfinished in the launch record.
   mask both secret values and revoke the credential on success or failure.
   Receipt upload is forbidden until revocation is proved. The credentialed job
   never checks out or executes candidate repository code.
-- **Durable correction:** Both exact-preview workflows now use the protected
-  Cloudflare account/token pair, require the existing
-  `any_valid_service_token` policy, create a masked 30-minute service token and
-  delete it in an unconditional cleanup step. The NewsStand receipt binds the
-  revoked credential identity; 40 calibrated mutations reject missing cleanup,
-  partial masking, wrong environment, permanent-secret dependence, candidate
-  code execution and production-project substitution.
+- **Durable correction:** A separate account-owned token now has only Access
+  Apps Read, Access Policies Read and Access Service Tokens Write, expires in
+  one year and is stored as `CLOUDFLARE_ACCESS_API_TOKEN` in the protected
+  GitHub environment. The exposed predecessor was deleted without use. Both
+  preview workflows reserve `CLOUDFLARE_API_TOKEN` for Pages and use the scoped
+  token for Access APIs, then create, mask and unconditionally revoke a
+  30-minute visitor credential. Calibrated mutations reject credential
+  collapse, missing cleanup, partial masking, wrong environment, candidate-code
+  execution and production-project substitution.
 - **Possible Behind the Build angle:** Why a perfectly green build can still be
   one imaginary password away from doing nothing.
-- **Publication status:** INTERNAL CONTROLLER REPAIR VERIFIED LOCALLY / NO
-  CLOUDFLARE DEPLOYMENT OR PUBLIC CHANGE YET.
+- **Publication status:** INTERNAL CONTROLLER REPAIR AND SCOPED CREDENTIAL
+  VERIFIED LOCALLY / NO CLOUDFLARE DEPLOYMENT OR PUBLIC CHANGE YET.

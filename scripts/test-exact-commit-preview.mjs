@@ -32,7 +32,11 @@ function validateWorkflowText(text) {
   if (!deployJob.includes('PROJECT_NAME: laidies-sunnyvaile-preview') || deployJob.includes('PROJECT_NAME: laidies-sunnyvaile\n')) errors.push('preview is not isolated from the production Pages project');
   if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
   if (!text.includes('environment: production')) errors.push('existing protected Cloudflare credential environment is missing');
+  if (!text.includes('CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}')) errors.push('separately scoped Access API secret is missing');
+  if ((deployJob.match(/CLOUDFLARE_ACCESS_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_ACCESS_API_TOKEN \}\}/g) || []).length !== 3) errors.push('Access validation, creation and revocation must each receive the scoped token');
+  if ((deployJob.match(/CLOUDFLARE_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/g) || []).length !== 1) errors.push('only the Pages deploy step may receive the Pages token');
   if (deployJob.includes('CLOUDFLARE_ACCESS_READ_TOKEN') || deployJob.includes('secrets.CF_ACCESS_CLIENT_ID') || deployJob.includes('secrets.CF_ACCESS_CLIENT_SECRET')) errors.push('preview depends on missing permanent Access secrets');
+  if (deployJob.includes('Authorization: Bearer $CLOUDFLARE_API_TOKEN')) errors.push('Pages deploy token is reused for Access APIs');
   if (!deployJob.includes('/access/service_tokens') || !deployJob.includes('any_valid_service_token')) errors.push('temporary Access token and existing policy are not verified');
   if (!deployJob.includes('.result.id // empty')) errors.push('temporary token ID is not captured before response validation');
   if ((deployJob.match(/::add-mask::/g) || []).length < 2) errors.push('both temporary credential values must be masked');
@@ -125,6 +129,7 @@ const workflowRejects = [
   workflow.replace('playwright-core@1.62.1', 'playwright-core@latest'),
   workflow.replace('run: npm run ci:build', 'run: npm run ci'),
   workflow.replace('run: node scripts/test-library-product.cjs', 'run: node scripts/test-library-product.cjs && node scripts/test-library-modular-reading-system.mjs'),
+  workflow.replaceAll('CLOUDFLARE_ACCESS_API_TOKEN', 'CLOUDFLARE_API_TOKEN'),
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(validateWorkflowText(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
 
