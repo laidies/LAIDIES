@@ -1,0 +1,272 @@
+name: Exact NewsStand review preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: Exact 40-character candidate commit to build
+        required: true
+        type: string
+      package_sha256:
+        description: Exact SHA-256 of the held Daily review package
+        required: true
+        type: string
+      deploy_preview:
+        description: Deploy to the Access-protected Cloudflare Pages preview project
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  exact-newsstand-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ARTIFACT_DIR: ${{ runner.temp }}/laidies-newsstand-preview-site
+      RECEIPT_DIR: ${{ runner.temp }}/laidies-newsstand-preview-receipt
+      PROJECT_NAME: laidies-sunnyvaile-preview
+      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json
+      EXPECTED_PACKAGE_SHA256: 331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0
+      INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
+      INPUT_PACKAGE_SHA256: ${{ inputs.package_sha256 }}
+      CONTROLLER_SHA: ${{ vars.NEWSSTAND_PREVIEW_CONTROLLER_SHA }}
+      WORKFLOW_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.commit_sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify immutable controller, source and Daily package
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$INPUT_COMMIT_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$INPUT_PACKAGE_SHA256" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$CONTROLLER_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$WORKFLOW_SHA" =~ ^[a-f0-9]{40}$ ]]
+          test "$CONTROLLER_SHA" = "$WORKFLOW_SHA"
+          test "$INPUT_PACKAGE_SHA256" = "$EXPECTED_PACKAGE_SHA256"
+          test "$(git rev-parse HEAD)" = "$INPUT_COMMIT_SHA"
+          test "$(sha256sum "$PACKAGE_PATH" | cut -d' ' -f1)" = "$INPUT_PACKAGE_SHA256"
+          test -z "$(git status --porcelain)"
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Minimum repository and curated-build integrity
+        run: npm run ci:build
+      - name: Verify complete Daily package
+        run: |
+          node scripts/test-newsstand-complete-daily-review.mjs
+          node scripts/check-newsstand-complete-daily-review.mjs "$PACKAGE_PATH"
+      - name: Calibrate private review preview
+        run: node scripts/test-newsstand-review-preview.mjs
+      - name: Calibrate exact preview controller
+        run: node scripts/test-newsstand-exact-preview.mjs
+      - name: Build exact private NewsStand preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          NEWSSTAND_REVIEW_PACKAGE_PATH="$GITHUB_WORKSPACE/$PACKAGE_PATH" \
+          NEWSSTAND_REVIEW_SOURCE_COMMIT="$INPUT_COMMIT_SHA" \
+            node scripts/build-newsstand-review-preview.mjs "$ARTIFACT_DIR" --fixture
+      - name: Verify private-review truth and artifact identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          private_receipt="$ARTIFACT_DIR/newsstand-private-preview-receipt.json"
+          jq -e \
+            --arg commit "$INPUT_COMMIT_SHA" \
+            --arg package_path "$PACKAGE_PATH" \
+            --arg package_sha "$INPUT_PACKAGE_SHA256" '
+              .schema == "laidies.newsstand-private-preview-artifact.v1" and
+              .status == "BUILT_NOT_DEPLOYED" and
+              .sourceCommit == $commit and
+              .package.path == $package_path and .package.sha256 == $package_sha and
+              .publicAuthority == false and .canonicalWrite == false and
+              .deployAuthority == false
+            ' "$private_receipt" >/dev/null
+          grep -F 'PRIVATE REVIEW — NOT PUBLISHED' "$ARTIFACT_DIR/newsstand.html" >/dev/null
+          grep -F 'noindex,nofollow,noarchive' "$ARTIFACT_DIR/newsstand.html" >/dev/null
+          mkdir -p "$RECEIPT_DIR"
+          node scripts/create-release-manifest.mjs "$ARTIFACT_DIR" "$RECEIPT_DIR/artifact-manifest.json"
+      - name: Write and verify prepared exact-preview receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          manifest="$RECEIPT_DIR/artifact-manifest.json"
+          identity="$(jq -r .identitySha256 "$manifest")"
+          artifact_candidate="$(jq -r '.files[] | select(.path == "newsstand.html") | .sha256' "$manifest")"
+          private_receipt_sha="$(jq -r '.files[] | select(.path == "newsstand-private-preview-receipt.json") | .sha256' "$manifest")"
+          jq -n \
+            --arg commit "$INPUT_COMMIT_SHA" \
+            --arg package_path "$PACKAGE_PATH" \
+            --arg package_sha "$INPUT_PACKAGE_SHA256" \
+            --arg artifact_candidate "$artifact_candidate" \
+            --arg private_receipt_sha "$private_receipt_sha" \
+            --arg identity "$identity" '
+              {
+                schema:"laidies.newsstand-exact-preview.v1",
+                status:"PREPARED_NO_DEPLOY",
+                source_commit:$commit,
+                project:"laidies-sunnyvaile-preview",
+                package:{path:$package_path,sha256:$package_sha},
+                candidate:{path:"newsstand.html",artifact_sha256:$artifact_candidate},
+                private_preview_receipt:{path:"newsstand-private-preview-receipt.json",sha256:$private_receipt_sha},
+                artifact_manifest:{path:"artifact-manifest.json",identity_sha256:$identity},
+                deployment_id:null,
+                preview_url:null,
+                review_branch:null,
+                public_verification:null,
+                checks:[
+                  {id:"complete-daily-package",result:"PASS"},
+                  {id:"review-preview-calibration",result:"PASS"},
+                  {id:"exact-private-preview-build",result:"PASS"},
+                  {id:"private-preview-truth",result:"PASS"},
+                  {id:"curated-public-build",result:"PASS"}
+                ]
+              }
+            ' > "$RECEIPT_DIR/preview-receipt.json"
+          node scripts/check-newsstand-exact-preview.mjs "$RECEIPT_DIR/preview-receipt.json"
+      - name: Upload exact candidate and prepared receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-newsstand-preview-${{ inputs.commit_sha }}
+          path: |
+            ${{ env.ARTIFACT_DIR }}
+            ${{ env.RECEIPT_DIR }}
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy-preview:
+    if: ${{ inputs.deploy_preview }}
+    needs: exact-newsstand-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: preview
+    permissions:
+      contents: read
+    env:
+      DOWNLOAD_DIR: ${{ runner.temp }}/exact-newsstand-preview
+      ARTIFACT_DIR: ${{ runner.temp }}/exact-newsstand-preview/laidies-newsstand-preview-site
+      RECEIPT_DIR: ${{ runner.temp }}/exact-newsstand-preview/laidies-newsstand-preview-receipt
+      PROJECT_NAME: laidies-sunnyvaile-preview
+      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json
+      EXPECTED_PACKAGE_SHA256: 331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0
+      INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
+      INPUT_PACKAGE_SHA256: ${{ inputs.package_sha256 }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: exact-newsstand-preview-${{ inputs.commit_sha }}
+          path: ${{ env.DOWNLOAD_DIR }}
+      - name: Deploy exact artifact to protected Cloudflare Pages preview
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ACCESS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_READ_TOKEN }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          jq -e \
+            --arg commit "$INPUT_COMMIT_SHA" \
+            --arg package_path "$PACKAGE_PATH" \
+            --arg package_sha "$EXPECTED_PACKAGE_SHA256" '
+              .schema == "laidies.newsstand-exact-preview.v1" and
+              .status == "PREPARED_NO_DEPLOY" and
+              .source_commit == $commit and
+              .project == "laidies-sunnyvaile-preview" and
+              .package.path == $package_path and .package.sha256 == $package_sha and
+              .candidate.path == "newsstand.html" and
+              .deployment_id == null and .preview_url == null and
+              .review_branch == null and .public_verification == null and
+              ([.checks[] | select(.result == "PASS") | .id] | sort | unique) ==
+                ["complete-daily-package","curated-public-build","exact-private-preview-build","private-preview-truth","review-preview-calibration"]
+            ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
+          test "$INPUT_PACKAGE_SHA256" = "$EXPECTED_PACKAGE_SHA256"
+          curl --fail --silent --show-error \
+            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_READ_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/apps" \
+            > "$RECEIPT_DIR/access-apps.json"
+          jq -e --arg domain "*.$PROJECT_NAME.pages.dev" \
+            '.success == true and any(.result[]; .domain == $domain)' \
+            "$RECEIPT_DIR/access-apps.json" >/dev/null
+          npx --yes wrangler@4.119.0 pages deployment list \
+            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-before.json"
+          review_branch="review-${INPUT_COMMIT_SHA:0:12}-${GITHUB_RUN_ID}"
+          npx --yes wrangler@4.119.0 pages deploy "$ARTIFACT_DIR" \
+            --project-name "$PROJECT_NAME" \
+            --branch "$review_branch" \
+            --commit-hash "$INPUT_COMMIT_SHA" \
+            --commit-dirty=false
+          npx --yes wrangler@4.119.0 pages deployment list \
+            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-after.json"
+          node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const [dir,commit,branch]=process.argv.slice(2);
+          const before=JSON.parse(fs.readFileSync(path.join(dir,'deployments-before.json'),'utf8'));
+          const after=JSON.parse(fs.readFileSync(path.join(dir,'deployments-after.json'),'utf8'));
+          const prior=new Set(before.map(item=>item.id));
+          const commitOf=item=>item?.source?.config?.commit_hash||item?.deployment_trigger?.metadata?.commit_hash;
+          const branchOf=item=>item?.source?.config?.branch||item?.deployment_trigger?.metadata?.branch;
+          const matches=after.filter(item=>!prior.has(item.id)&&commitOf(item)===commit&&branchOf(item)===branch);
+          if(matches.length!==1||!matches[0]?.id||!matches[0]?.url) throw new Error(`expected one newly created exact preview deployment, found ${matches.length}`);
+          const deployment=matches[0];
+          const receiptPath=path.join(dir,'preview-receipt.json');
+          const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
+          receipt.status='DEPLOYED_PREVIEW';
+          receipt.deployment_id=deployment.id;
+          receipt.preview_url=deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`;
+          receipt.review_branch=branch;
+          fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
+          NODE
+          preview_url="$(jq -r .preview_url "$RECEIPT_DIR/preview-receipt.json")"
+          deployment_id="$(jq -r .deployment_id "$RECEIPT_DIR/preview-receipt.json")"
+          [[ "$preview_url" == "https://${deployment_id:0:8}.$PROJECT_NAME.pages.dev/" ]]
+          unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out '%{http_code}' "${preview_url}newsstand.html")"
+          [[ "$unauthenticated_status" == 302 || "$unauthenticated_status" == 401 || "$unauthenticated_status" == 403 ]]
+          critical_paths=(
+            newsstand.html
+            content/newsstand-stories.js
+            content/newsstand-daily-issues.json
+            content/daily-edition-columns.json
+          )
+          verification_json='[]'
+          for route in "${critical_paths[@]}"; do
+            output="$RECEIPT_DIR/deployed-${route//\//_}"
+            curl --fail --silent --show-error --retry 5 --retry-all-errors \
+              --header "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
+              --header "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
+              "${preview_url}${route}" > "$output"
+            deployed_sha="$(sha256sum "$output" | cut -d' ' -f1)"
+            expected_sha="$(jq -r --arg route "$route" '.files[] | select(.path == $route) | .sha256' "$RECEIPT_DIR/artifact-manifest.json")"
+            test -n "$expected_sha"
+            test "$deployed_sha" = "$expected_sha"
+            verification_json="$(jq -c --arg path "$route" --arg sha "$deployed_sha" '. + [{path:$path,http_status:200,sha256:$sha}]' <<<"$verification_json")"
+          done
+          jq \
+            --argjson unauthenticated "$unauthenticated_status" \
+            --argjson critical_paths "$verification_json" '
+              .public_verification={
+                access_protected:true,
+                unauthenticated_status:$unauthenticated,
+                result:"PASS",
+                critical_paths:$critical_paths
+              }
+            ' "$RECEIPT_DIR/preview-receipt.json" > "$RECEIPT_DIR/preview-receipt.updated.json"
+          mv "$RECEIPT_DIR/preview-receipt.updated.json" "$RECEIPT_DIR/preview-receipt.json"
+      - name: Upload deployed preview receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-newsstand-preview-deployed-${{ inputs.commit_sha }}
+          path: ${{ env.RECEIPT_DIR }}
+          if-no-files-found: error
+          retention-days: 7
