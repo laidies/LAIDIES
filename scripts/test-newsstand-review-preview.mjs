@@ -11,10 +11,15 @@ import { overlayReviewPackage } from "./build-newsstand-review-preview.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SCRIPT = path.join(ROOT, "scripts/build-newsstand-review-preview.mjs");
-const PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json");
+const REJECTED_PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json");
+const PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json");
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-newsstand-review-preview-"));
 const output = path.join(temp, "site");
-const rejected = spawnSync(process.execPath, [SCRIPT, output], { cwd: ROOT, encoding: "utf8" });
+const rejected = spawnSync(process.execPath, [SCRIPT, output, "--fixture"], {
+  cwd: ROOT,
+  encoding: "utf8",
+  env: { ...process.env, NEWSSTAND_REVIEW_PACKAGE_PATH: REJECTED_PACKAGE }
+});
 assert.notEqual(rejected.status, 0, "an explicitly rejected package must not build a review preview");
 assert.match(rejected.stderr, /explicitly rejected/);
 
