@@ -21,7 +21,9 @@ const receipt = JSON.parse(fs.readFileSync(path.join(output, "newsstand-private-
 assert.match(html, /PRIVATE REVIEW — NOT PUBLISHED/);
 assert.match(html, /noindex,nofollow,noarchive/);
 assert.match(stories, /ai-work-logs-can-carry-secrets/);
-assert(issues.issues.some(issue => issue.editionDate === "2026-08-12" && issue.storyIds.includes("ai-work-logs-can-carry-secrets") && issue.serviceRecordIds.length === 4));
+const reviewIssue = issues.issues.find(issue => issue.editionDate === "2026-08-12");
+assert(reviewIssue && reviewIssue.storyIds.includes("ai-work-logs-can-carry-secrets") && reviewIssue.serviceRecordIds.length === 4);
+assert.equal(reviewIssue.admission.decision, "ACCEPT_LOCAL_CANONICAL_WRITE", "preview issue must use the reader's existing accepted decision value; the artifact banner and receipt carry the no-public-authority boundary");
 assert.equal(receipt.publicAuthority, false);
 assert(!fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8").includes("ai-work-logs-can-carry-secrets"), "preview build must not mutate canonical source data");
 assert(!fs.existsSync(path.join(output, "operations")), "preview artifact must not expose operations files");

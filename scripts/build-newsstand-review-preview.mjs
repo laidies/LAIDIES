@@ -80,7 +80,7 @@ export function overlayReviewPackage({ output, pkg, packageSha256 }) {
     serviceRecordIds: desks.filter(desk => desk.state === "ready").map(desk => desk.recordId), desks,
     sourceIdentity, envelopeSha256: sha256(`${canonicalJson(envelope)}\n`),
     admission: {
-      decision: "ACCEPT_PRIVATE_REVIEW_PREVIEW_ONLY", reviewedAt,
+      decision: "ACCEPT_LOCAL_CANONICAL_WRITE", reviewedAt,
       reviewedBy: "independent-private-review-preview", reviewerRole: "Independent private-review presentation judge"
     }
   };
