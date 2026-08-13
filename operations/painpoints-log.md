@@ -14767,3 +14767,15 @@ while remaining falsely unfinished in the launch record.
 - **Assembly-path repair:** the first prevention pass retired the old composer by making it stop, which prevented a bad v1 package but left no executable path to assemble a good v2 package. The replacement consumes one explicit v2 input manifest, supports the ranked story and READY-service counts selected by the passed composition, verifies exact producer/self/independent review and nine-view pixel bindings, runs the final package checker, refuses output overwrite and grants no release authority. Its calibrated test assembles one valid multi-story package and rejects seven stale, incomplete, single-story or producer-failed mutations.
 - **Possible Behind the Build angle:** Why “we told the AI to explain it clearly” is not a writing system.
 - **Publication status:** INTERNAL TEMPLATE/PREVENTION REPAIR VERIFIED / V26 REJECTED / NO AUTONOMOUS NEWSSTAND LANE / NO PUBLIC CHANGE.
+
+## BTB-468 — The release branch looked like a normal integration target but intentionally was not
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand release integration, git topology and worktree capacity.
+- **Failure:** a new worktree from `origin/main` failed partway with `No space left on device`, and a later clean cherry-pick rehearsal showed that a full operating commit would reintroduce paths deliberately absent from the reduced release branch. Treating `main` as a conventional base would mix internal operations history into the public release source and could create a large, misleading integration conflict.
+- **Root cause:** the release topology and disk headroom were not verified before materializing another worktree and rehearsing an ordinary feature-branch integration. The existence of a branch called `main` was mistaken for proof that all operating commits belonged there.
+- **Prevention rule:** before any NewsStand integration, check free disk space, fetch the actual remote `main`, compare merge bases and path-level changes, and inspect the protected controller paths. The full producer/operations branch never enters reduced `main` wholesale. Publication uses the exact admitted public records and registered curated-artifact controller only.
+- **Durable correction:** the failed worktree contained no user work and was removed by Git. The clean cherry-pick was aborted before conflict resolution, the existing worktree was restored to its original clean branch and temporary branches were deleted after proving they matched `origin/main`. `DECISIONS.md`, NewsStand state and active work now bind the safe integration route.
+- **Forward test:** final release preparation must show adequate disk headroom, the current remote `main` identity, an empty protected-controller diff and a release-scope report containing only registered NewsStand public paths before dispatch.
+- **Possible Behind the Build angle:** Why “merge it to main” can be the wrong release instruction even when the website uses GitHub.
+- **Publication status:** INTERNAL RELEASE-TOPOLOGY CORRECTION / NO CANONICAL OR PUBLIC CHANGE.
