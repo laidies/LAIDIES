@@ -176,8 +176,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          npx --yes wrangler@4.119.0 pages deployment list \
-            --project-name "$PROJECT_NAME" --environment production --json > "$RECEIPT_DIR/deployments-before.json"
+          pages_auth_header="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          curl --fail --silent --show-error \
+            --header "$pages_auth_header" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100" \
+            > "$RECEIPT_DIR/deployments-before-response.json"
+          jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-before-response.json" >/dev/null
+          jq -e '.result' "$RECEIPT_DIR/deployments-before-response.json" > "$RECEIPT_DIR/deployments-before.json"
           npx --yes wrangler@4.119.0 pages deploy "$ARTIFACT_DIR" \
             --project-name "$PROJECT_NAME" \
             --branch "$PRODUCTION_BRANCH" \
@@ -186,8 +191,12 @@ jobs:
             --commit-dirty=false
           deployment_visible=false
           for attempt in $(seq 1 10); do
-            npx --yes wrangler@4.119.0 pages deployment list \
-              --project-name "$PROJECT_NAME" --environment production --json > "$RECEIPT_DIR/deployments-after.json"
+            curl --fail --silent --show-error \
+              --header "$pages_auth_header" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100" \
+              > "$RECEIPT_DIR/deployments-after-response.json"
+            jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-after-response.json" >/dev/null
+            jq -e '.result' "$RECEIPT_DIR/deployments-after-response.json" > "$RECEIPT_DIR/deployments-after.json"
             if node - "$RECEIPT_DIR" "$SOURCE_COMMIT" "$PRODUCTION_BRANCH" <<'NODE'
           const fs=require('fs'),path=require('path');
           const [dir,commit,branch]=process.argv.slice(2);
