@@ -1,5 +1,75 @@
 /** SUNNYVAiLE NewsStand — Paige arrival + one continuous live counter. */
 
+/*
+ * The NewsStand's newspaper identity cannot depend on a third-party font
+ * request succeeding after the page has already rendered. These exact
+ * Google Fonts latin subsets are stored with their OFL licences under
+ * /assets/fonts/newsstand and enter the curated artifact through this CSS.
+ */
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/anton-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-normal-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-normal-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-normal-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-normal-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 800;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-normal-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-italic-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Jost";
+  font-style: italic;
+  font-weight: 600;
+  font-display: block;
+  src: url("/assets/fonts/newsstand/jost-italic-latin.woff2") format("woff2");
+}
+
 .ns-page {
   --ns-ink: #10183b;
   --ns-ink-soft: #26325e;

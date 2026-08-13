@@ -218,7 +218,7 @@ assert.match(html, /id="ns-catchup-since" type="date"/, "Catch Me Up needs a vis
 assert.match(html, /newsstand-catchup-v1\.js/, "the Catch Me Up consumer must be loaded");
 assert.match(html, /newsstand-stories\.js\?v=20260812-backfill-v1/, "a changed canonical story dataset needs a release-specific public cache key");
 assert.match(html, /newsstand-catchup-v1\.js\?v=20260813-daily-first-v2/, "the Daily-first runtime needs the current release-specific public cache key");
-assert.match(html, /newsstand\.css\?v=20260813-newsstand-v24/, "the Daily-first visual needs the current release-specific public cache key");
+assert.match(html, /newsstand\.css\?v=20260813-newsstand-v26/, "the self-hosted-font visual needs the current release-specific public cache key");
 assert.match(html, /resident-continuation-bootstrap-v1\.js/, "NewsStand must mount the admitted Resident continuation bootstrap");
 assert.equal((catchup.match(/record\.freshness\.expiresAt >= today/g) || []).length, 2,
   "Daily and historical service items must both fail closed after their freshness window");

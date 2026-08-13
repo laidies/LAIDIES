@@ -65,7 +65,7 @@
     "authority": "rejected historical package only; do not present, promote, deploy or reuse its visual verdict"
   },
   "currentProducerCandidate": {
-    "status": "PRIVATE_V25_LOCAL_PACKAGE_PASSES_PRODUCER_SEMANTIC_AND_VISUAL_GATES_PROTECTED_PREVIEW_PENDING",
+    "status": "PRIVATE_V26_LOCAL PACKAGE PASSES PRODUCER, SEMANTIC, FONT-DELIVERY AND VISUAL GATES — PROTECTED PREVIEW PENDING",
     "storyId": "ai-work-logs-can-carry-secrets",
     "prosePath": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
     "proseSha256": "1423ad53502f58d6c87eae251b6ce2edb6e8f36eda324c9933fbc2a06fbe8255",
@@ -74,18 +74,29 @@
     "producerProofReviewPath": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v3-review-10.json",
     "producerProofReviewSha256": "80a88b6ce6ed74061d8e2095604c0058fdb23d8671148dab3680b311bce55d01",
     "independentSemanticPath": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/independent-semantic-judgment-v11-pass.md",
-    "independentVisualPath": "operations/product-stewards/newsstand/evidence-newsstand-daily-review-v25-2026-08-13/INDEPENDENT-VISUAL-REVIEW.md",
-    "packagePath": "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json",
-    "packageSha256": "512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe",
+    "independentVisualPath": "operations/product-stewards/newsstand/evidence-newsstand-daily-review-v26-2026-08-13/INDEPENDENT-VISUAL-REVIEW.md",
+    "packagePath": "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v5.json",
+    "packageSha256": "19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532",
     "rejectedDeployedPredecessor": {
+      "packagePath": "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json",
+      "packageSha256": "512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe",
+      "sourceCommit": "c90ec57aad5e19fbb3ff3a2aff0fdd3a9ffae03a",
+      "deploymentId": "1a7fdf44-ba06-4021-beef-154b4f728ad6",
+      "receiptPath": "operations/product-stewards/newsstand/evidence-newsstand-exact-deployed-preview-v25-2026-08-13/preview-receipt.json",
+      "receiptSha256": "6b63490c7c38a7ddad57bbf59b9b602c642ff6fde23c59a8545a76dc155203a1",
+      "independentReviewPath": "operations/product-stewards/newsstand/evidence-newsstand-exact-deployed-preview-v25-2026-08-13/INDEPENDENT-DEPLOYED-VISUAL-REVIEW.md",
+      "independentReviewSha256": "3c94087a7a58029bbd723bc76a4a948f941400ca3b44445ca1eb0bb61dd08aed",
+      "reason": "the protected deployment silently rendered generic fallback typography instead of the admitted Anton and Jost NewsStand hierarchy"
+    },
+    "rejectedEditorialPredecessor": {
       "packagePath": "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json",
       "packageSha256": "144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f",
       "receiptPath": "operations/product-stewards/newsstand/evidence-newsstand-exact-deployed-preview-v24-2026-08-13/EDITORIAL-REJECTION.md",
       "reason": "Career / Work-Life began with AI advice and did not remain useful non-AI career guidance when the labelled AI paragraph was removed"
     },
     "latestSemanticFinding": "The repaired exact article passed the role-distinct semantic cold read with zero objective defects. The provider-specific sibling-model acceptance mechanism and full-wattage voice remain non-blocking depth and style observations.",
-    "latestVisualFinding": "Maker and role-distinct review passed the nine v25 complete-page, Daily and article renders at 1440/390/320 after the Career replacement. The longer desk introduced no clipping, overlap, mobile stack or hierarchy regression; its desktop density is the permitted ceiling. These are local pixels until the v25 exact protected preview is deployed and inspected.",
-    "authority": "private local package and exact pixel evidence only; v24 is editorially rejected and v25 has no protected-preview, Ali-review, positive-exemplar, canonical-write, production-deploy or public authority"
+    "latestVisualFinding": "The v25 protected deployment was correctly rejected because runtime Google Fonts fell back to generic typography. V26 self-hosts exact Anton and Jost bytes, blocks fallback capture and passed maker plus role-distinct review across the nine complete-page, Daily and article renders at 1440/390/320. These remain local pixels until the v26 exact protected preview is deployed and inspected.",
+    "authority": "private local v26 package and exact pixel evidence only; v24 is editorially rejected, deployed v25 is visually rejected, and v26 has no protected-preview, Ali-review, positive-exemplar, canonical-write, production-deploy or public authority"
   },
   "currentImplementation": {
     "schemaVersion": "1.0.0",
@@ -94,7 +105,7 @@
     "readerContract": "content/newsstand-reader-contract.js",
     "storyState": "four dated Daily archive stories, one Weekly synthesis and one Big Picture story are published in the dataset; one Breaking health candidate remains held",
     "freshnessTruth": "the latest admitted Daily is August 6 and the Weekly source check is August 11; runtime must classify each paper and archive item honestly",
-    "visualAuthority": "the current public rack remains the served incumbent. The article-only shell, complete-Daily v14, protected-preview v23 and editorially invalid v24 packages are rejected. V25 is admitted only as a local private-direction candidate pending its exact protected preview."
+    "visualAuthority": "the current public rack remains the served incumbent. The article-only shell, complete-Daily v14, protected-preview v23, editorially invalid v24 and fallback-font deployed v25 packages are rejected. V26 is admitted only as a local private-direction candidate pending its exact protected preview."
   },
   "cloudIntake": {
     "status": "FOUR SIGNALS DURABLY RECONCILED — INSTALLED AND VERIFIED IN GITHUB",
@@ -115,15 +126,15 @@
   },
   "verification": {
     "readerStateFixtures": "VERIFIED LOCALLY — 10 deterministic states",
-    "renderedBrowserMatrix": "VERIFIED LOCALLY — 247 checks across desktop/mobile, including complete public page, Daily front/full-report states, shared navigation non-overlap, bounded four-desk mobile rail, repeated history cycles, archive growth, stale/hold/correction/retraction/focus/motion/zoom",
+    "renderedBrowserMatrix": "VERIFIED LOCALLY — 252 checks across desktop/mobile, including exact local Anton/Jost load and external-font blocking, complete public page, Daily front/full-report states, shared navigation non-overlap, bounded four-desk mobile rail, repeated history cycles, archive growth, stale/hold/correction/retraction/focus/motion/zoom",
     "canonicalMigration": "VERIFIED LOCALLY",
     "privateDailyPipeline": "VERIFIED LOCALLY — composer, canonical writer and workflow pass; scheduled-trigger and substitution bad cases fail as calibrated",
     "assistiveTechnology": "PARTIAL PASS — native Safari exposes the intended headings, controls, four toggle states, overdue/quiet messages and Daily stale fail-closed transition; spoken VoiceOver announcement order remains unverified",
     "independentProductAndVisualReview": "ACCEPTED 2026-08-11 — role-distinct product and visual judges inspected exact committed bytes and rendered desktop/390/320 evidence",
     "aidbScoutRun": "VERIFIED QUIET/HOLD 2026-08-11 — exact committed AIDB record 19066497ffe62438129cb2afcfffb29a749e1807; current source index still ends at August 10; AIDB is not NewsStand publication authority",
-    "currentEditorialRun": "PRIVATE AUGUST 12 COMPLETE DAILY V25 SUCCESSOR PASSES CALIBRATED CAREER-FIRST PRODUCER GUARD, FRESH ROLE-DISTINCT SERVICE REVIEW, EXACT ARTICLE SEMANTIC COLD READ, 247 BROWSER CHECKS AND NINE-VIEW LOCAL MAKER/ROLE-DISTINCT VISUAL REVIEW; exact protected preview is next; latest public complete Daily remains August 6",
-    "completeDailyReviewPackage": "LOCAL PRIVATE CANDIDATE — successor package 512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe binds one Daily report, four service features and nine local complete-page/Daily-front/full-article captures; protected preview, Ali approval, unfamiliar-human explain-back/transfer and release gates remain",
-    "protectedPreview": "V25 NOT YET DEPLOYED. The prior v24 run 31705686999 proved exact protected-preview mechanics but its package is editorially rejected and cannot support Ali review or release.",
+    "currentEditorialRun": "PRIVATE AUGUST 12 COMPLETE DAILY V26 SUCCESSOR PASSES CALIBRATED CAREER-FIRST PRODUCER GUARD, FRESH ROLE-DISTINCT SERVICE REVIEW, EXACT ARTICLE SEMANTIC COLD READ, LOCAL FONT-DELIVERY GUARD AND NINE-VIEW LOCAL MAKER/ROLE-DISTINCT VISUAL REVIEW; exact protected preview is next; latest public complete Daily remains August 6",
+    "completeDailyReviewPackage": "LOCAL PRIVATE CANDIDATE — successor package 19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532 binds one Daily report, four service features and nine v26 local complete-page/Daily-front/full-article captures; protected preview, Ali approval, unfamiliar-human explain-back/transfer and release gates remain",
+    "protectedPreview": "V25 was protected-deployed in run 31729340786 and byte-matched its four critical content paths, but exact deployed-pixel review rejected its fallback typography. V26 is local only; its controller now requires exact deployed font bytes and loaded Anton/Jost state before any screenshot can be captured.",
     "featureTemplateCoverage": "CANDIDATE 5/17 — current Daily report/announcement, Paige, Career/Work-Life, Promptoscope and Mme CLAi-O have full publish-shaped candidate examples bound to exact templates; Ali-accepted templates=0; the other 12 slots remain explicitly missing and ineligible for autonomous production",
     "cloudIntakeReconciliation": "VERIFIED IN GITHUB — main commit 8dbdc08 installed the exact registry/checker/workflow repair; run 31684523028 passed and closed issue 57 from four durable dispositions; calibrated tests reject lost or falsely resolved signals",
     "curatedPublicArtifact": "BUILT — 559 manifested files, 435614818 bytes, identity d97b150906cd49431240c08ad451ce0b245bc79717b50749760624790a4099be",
@@ -132,14 +143,14 @@
     "publicVerification": "VERIFIED — custom-domain hashes match the exact NewsStand HTML, story dataset, reader and Catch Me Up runtime; live desktop opens five archive items and the Weekly with three sources"
   },
   "releaseBlockers": [
-    "the v25 exact protected preview has not yet been deployed and pixel-inspected",
-    "Ali has not approved exact v25 package 512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe or its five candidate positive exemplars",
+    "the v26 exact protected preview has not yet been deployed and pixel-inspected",
+    "Ali has not approved exact v26 package 19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532 or its five candidate positive exemplars",
     "observed unfamiliar-human explain-back and unseen-transfer evidence is not yet bound",
     "the four service candidates have semantic admission but remain private until Ali approves their exact text and Daily placement",
     "the exact story and issue have not received independent release admission or canonical promotion",
     "the durable production controller still targets GitHub Pages rather than the Cloudflare Pages origin",
     "spoken VoiceOver announcement order remains unverified even though native Safari structure and browser focus/state checks pass"
   ],
-  "nextAction": "Install the v25 exact-preview controller binding for package SHA 512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe on main, deploy the exact candidate commit to the protected Cloudflare preview, inspect the deployed complete page/Daily/article at 1440/390/320, then present one approve/revise/reject decision only if those exact pixels preserve the local result.",
+  "nextAction": "Commit and push the v26 candidate and package SHA 19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532, install the minimal v5 controller binding on main, deploy the exact candidate to the protected Cloudflare preview, inspect the deployed complete page/Daily/article and exact fonts at 1440/390/320, then present one approve/revise/reject decision only if those exact pixels preserve the local result.",
   "authority": "Ali authorized the public NewsStand release on 2026-08-12; this record does not approve held or future content."
 }

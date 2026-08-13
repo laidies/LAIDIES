@@ -200,6 +200,7 @@ function mime(file) {
     ".png": "image/png",
     ".jpg": "image/jpeg",
     ".webp": "image/webp",
+    ".woff2": "font/woff2",
     ".mp3": "audio/mpeg"
   }[ext] || "application/octet-stream";
 }
@@ -349,6 +350,7 @@ const chrome = childProcess.spawn(CHROME, [
   "--disable-component-update",
   "--disable-sync",
   "--metrics-recording-only",
+  "--host-resolver-rules=MAP fonts.googleapis.com ~NOTFOUND, MAP fonts.gstatic.com ~NOTFOUND",
   "about:blank"
 ], { stdio: ["ignore", "ignore", "pipe"] });
 
@@ -456,6 +458,39 @@ async function waitForValue(client, expression, expected, label) {
     await sleep(25);
   }
   throw new Error(label + " did not settle to the expected value; actual=" + JSON.stringify(actual));
+}
+
+async function checkNewsstandFonts(client, label) {
+  const fontState = await value(client, `(async () => {
+    const loaded = await Promise.all([
+      document.fonts.load('400 16px "Jost"'),
+      document.fonts.load('italic 400 16px "Jost"'),
+      document.fonts.load('400 40px "Anton"')
+    ]);
+    await document.fonts.ready;
+    const resources = performance.getEntriesByType('resource')
+      .map((entry) => new URL(entry.name).pathname)
+      .filter((pathname) => pathname.startsWith('/assets/fonts/newsstand/'))
+      .sort();
+    return {
+      faceCounts: loaded.map((faces) => faces.length),
+      jostReady: document.fonts.check('400 16px "Jost"'),
+      jostItalicReady: document.fonts.check('italic 400 16px "Jost"'),
+      antonReady: document.fonts.check('400 40px "Anton"'),
+      bodyFamily: getComputedStyle(document.querySelector('.ns-page')).fontFamily,
+      displayFamily: getComputedStyle(document.querySelector('.ns-daily-news h3')).fontFamily,
+      resources
+    };
+  })()`);
+  check(fontState.faceCounts, [1, 1, 1], `${label}: exact local font faces loaded`);
+  check(fontState.jostReady && fontState.jostItalicReady && fontState.antonReady, true, `${label}: FontFaceSet reports every NewsStand face ready`);
+  check(fontState.bodyFamily.startsWith("Jost"), true, `${label}: body computes to Jost`);
+  check(fontState.displayFamily.startsWith("Anton"), true, `${label}: display computes to Anton`);
+  check(fontState.resources, [
+    "/assets/fonts/newsstand/anton-latin.woff2",
+    "/assets/fonts/newsstand/jost-italic-latin.woff2",
+    "/assets/fonts/newsstand/jost-normal-latin.woff2"
+  ], `${label}: only self-hosted NewsStand font resources rendered`);
 }
 
 async function act(client, expression) {
@@ -781,6 +816,7 @@ try {
   base.close();
 
   const candidateDaily = await openPage("/newsstand.html?fixture=daily-review-candidate&clock=candidate-day", { width: 1440, height: 1000 });
+  await checkNewsstandFonts(candidateDaily, "Daily candidate");
   await waitForValue(candidateDaily, "document.querySelector('.ns-daily-issue')?.dataset.dailyDate", "2026-08-12", "complete Daily review candidate");
   check(await value(candidateDaily, "window.__newsstandDailyIssueError || null"), null, "complete Daily review fixture passes the exact issue-store validator");
   check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 4, "complete Daily carries exactly four reviewed service features");

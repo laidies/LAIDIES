@@ -14672,10 +14672,10 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** Why six beautiful screenshots hid the page a visitor would actually use.
 - **Publication status:** INTERNAL PRODUCER/CHECKER REPAIR VERIFIED / V23 REJECTED / V24 PRIVATE PROTECTED PREVIEW DEPLOYED AND PIXEL INSPECTED / ONE ALI DECISION READY / NO PRODUCTION DEPLOYMENT OR PUBLIC CHANGE.
 
-## BTB-466 — Producer and reviewer labels disguised an AI tip as career advice
+## BTB-466 — Producer labels and local pixels both hid reader-facing category and deployment failures
 
 - **Date:** 2026-08-13
-- **Area:** NewsStand Career / Work-Life production, feature distinction and semantic review.
+- **Area:** NewsStand Career / Work-Life production, feature distinction, semantic review and exact deployed visual fidelity.
 - **Failure:** The complete Daily's Career desk passed its mechanical producer
   contract and a role-distinct service review even though its headline and
   opening were about explaining AI-assisted work. Removing the paragraph
@@ -14707,8 +14707,29 @@ while remaining falsely unfinished in the launch record.
   mutations that inject AI into the standalone prefix or bind only a fragment
   of that prefix also fail. Complete-Daily v3 is permanently registered as
   rejected even though its protected pixels were visually sound.
+- **Second failure found by the same release cycle:** The repaired v25 package
+  passed local visual review, then the protected Cloudflare deployment silently
+  rendered generic fallback typography instead of the admitted Anton and Jost
+  hierarchy. The deployed capture waited for the Daily content, but it neither
+  required the exact fonts nor byte-verified their files. Local visual approval
+  therefore did not describe the deployed pixels.
+- **Deployment prevention rule:** Visitor-facing fonts are release assets, not
+  optional network decoration. Store exact licensed font bytes in the curated
+  artifact, bind their checksums and ACTIVE scope, block fallback capture, wait
+  for each required face, record computed families and resource paths, and
+  byte-verify the deployed font files before taking review screenshots. Missing
+  or fallback typography stops the deployment evidence inside the producer
+  path; a visual judge must not rediscover it.
+- **Deployment forward test:** The font-delivery calibration rejects external
+  runtime fonts, missing preloads, foreign faces, fallback display modes, stale
+  cache identity, mutated bytes and missing licences. The exact-preview
+  calibration also rejects absent loaded-font state, missing resource paths and
+  omitted deployed font bytes. V25 remains rejected; v26 has passed local
+  maker and role-distinct review but remains ineligible for Ali review until the
+  new protected deployment proves the same exact fonts and pixels.
 - **Possible Behind the Build angle:** Why an AI can fill every correct field
   and still write the wrong column.
-- **Publication status:** INTERNAL PRODUCER/REVIEW REPAIR VERIFIED / V24 PACKAGE
-  EDITORIALLY REJECTED / V25 LOCAL PRIVATE PACKAGE PASSES / PROTECTED PREVIEW,
-  ALI REVIEW, PRODUCTION DEPLOYMENT AND PUBLICATION NOT YET COMPLETE.
+- **Publication status:** INTERNAL PRODUCER/REVIEW AND FONT-DELIVERY REPAIR
+  VERIFIED / V24 PACKAGE EDITORIALLY REJECTED / DEPLOYED V25 VISUALLY REJECTED /
+  V26 LOCAL PRIVATE PACKAGE PASSES / V26 PROTECTED PREVIEW, ALI REVIEW,
+  PRODUCTION DEPLOYMENT AND PUBLICATION NOT YET COMPLETE.
