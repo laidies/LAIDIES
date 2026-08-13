@@ -15567,3 +15567,30 @@ while remaining falsely unfinished in the launch record.
   one boring JSON file was the product-saving change.
 - **Publication status:** INTERNAL REPOSITORY RECOVERY / NO VISUAL ASSET,
   EPISODE MASTER, LIBRARY FILE, DEPLOYMENT OR PUBLICATION.
+
+## 2026-08-13 — A graph cannot repair controls that are not on the execution path
+
+- **Failure / surprise:** LAiDIES already had an event log, work dependencies,
+  artifact handoffs, product ownership, content work orders and learning
+  relationships, but these graph-shaped records did not form one executable
+  route. Calling the architecture “graph engineering” would not by itself stop
+  a maker from receiving conflicting context, skipping a gate or routing a
+  failed candidate into another review cycle.
+- **Evidence observed:** Primary-source research found that multi-agent
+  coordination helps genuinely parallel work but can materially degrade
+  sequential work; simpler topologies and precise node contracts often perform
+  better. Repository reconciliation found separate work, queue, handoff,
+  content and concept records with different update paths. The bounded pilot
+  therefore keeps one accountable maker for connected creative work and uses
+  parallel read-only evidence lanes only where the work decomposes.
+- **Prevention rule:** Admit a workflow graph only when nodes bind exact
+  context, inputs, outputs, owner/principal, write scope, evidence and
+  idempotency; edges bind conditions, evidence, bounded repair and stop-loss.
+  Validate reachability, collisions, judge independence, hidden cycles and Ali
+  authority before a manual run. A diagram, vendor framework or additional
+  agent count proves none of those things.
+- **Possible Behind the Build angle:** Why “more agents” was not the answer to
+  inconsistent AI output—and how drawing the failure route mattered more than
+  drawing a prettier architecture.
+- **Publication status:** INTERNAL ARCHITECTURE RESEARCH / CONFIGURATION-ONLY
+  PILOT; NO DISPATCHER ACTIVATION, CONTENT CHANGE, DEPLOYMENT OR PUBLICATION.

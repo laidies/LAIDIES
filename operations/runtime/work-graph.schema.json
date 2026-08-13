@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "description": "Framework-neutral contract for a bounded LAiDIES work graph. This is a repository validation contract, not an active dispatcher schema.",
+  "required_graph_fields": ["schema_version", "graph_id", "status", "work_class", "start_node", "terminal_nodes", "repair_policy", "nodes", "edges", "authority_truth"],
+  "required_node_fields": ["id", "kind", "mode", "principal", "context_refs", "consumes", "produces", "write_scope", "success_evidence", "idempotency"],
+  "required_edge_fields": ["from", "to", "condition", "evidence"],
+  "node_kinds": ["TRIGGER", "CONTEXT_RESOLVER", "READ_ONLY_WORK", "MERGE", "PRODUCER_PREFLIGHT", "MAKER", "MAKER_REVIEW", "DETERMINISTIC_GATE", "INDEPENDENT_JUDGE", "ROOT_CAUSE", "HUMAN_GATE", "OWNER_INTEGRATION", "RELEASE", "PUBLIC_VERIFY", "STOP_LOSS", "TERMINAL"],
+  "node_modes": ["DETERMINISTIC", "AGENT", "HUMAN"],
+  "edge_conditions": ["ALWAYS", "PASS", "HOLD", "FAIL", "KNOWN_DEFECT", "NEW_CANDIDATE_DEFECT", "ALI_REQUIRED", "NO_ALI_REQUIRED", "APPROVE", "REVISE", "REJECT"],
+  "ali_authority": ["TASTE", "MISSION", "PUBLIC_IDENTITY", "SPEND", "DEPLOY", "PUBLISH"]
+}

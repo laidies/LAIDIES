@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "graph_id": "WG-PILOT-MATERIAL-LEARNING-CONTENT-001",
+  "status": "CONFIGURATION_ONLY_MANUAL_DRY_RUN_NOT_AUTHORIZED",
+  "work_class": "MATERIAL_LEARNING_CONTENT",
+  "start_node": "intake",
+  "terminal_nodes": ["internal_complete", "stop_loss"],
+  "repair_policy": {
+    "max_same_failure_retries": 1,
+    "stop_loss_node": "stop_loss",
+    "rule": "A repeated known or objective defect repairs the producer, source, topology or evaluator before another candidate is made."
+  },
+  "nodes": [
+    {
+      "id": "intake", "kind": "TRIGGER", "mode": "HUMAN", "principal": "learning-content-ecosystem-owner",
+      "context_refs": ["user-request", "surface-owner-contract"],
+      "consumes": ["learning-idea-or-material-change"],
+      "produces": ["intake.acceptance", "intake.non_goals", "intake.authority"],
+      "write_scope": [], "success_evidence": ["reader job, surface job, acceptance and non-goals are explicit"],
+      "idempotency": "Re-running intake may refine the same stable work identity but may not create a duplicate commission."
+    },
+    {
+      "id": "context_resolver", "kind": "CONTEXT_RESOLVER", "mode": "DETERMINISTIC", "principal": "context-resolver",
+      "context_refs": ["canon-router", "decisions-router", "task-specific-owner-records"],
+      "consumes": ["intake.acceptance", "intake.non_goals"],
+      "produces": ["context.authorities", "context.exemplars", "context.known_bad", "context.gaps"],
+      "write_scope": [], "success_evidence": ["only current governing and task-specific inputs are returned", "every input has path and identity"],
+      "idempotency": "The same source identities produce the same context packet."
+    },
+    {
+      "id": "primary_source_research", "kind": "READ_ONLY_WORK", "mode": "AGENT", "principal": "research-lane-primary", "model_family": "terra", "parallel_group": "evidence_fanout",
+      "context_refs": ["context.authorities", "intake.acceptance"], "consumes": ["context.gaps"],
+      "produces": ["research.claim_source_map", "research.freshness_triggers"], "write_scope": [],
+      "success_evidence": ["material claims map to exact current primary or authoritative sources"],
+      "idempotency": "Research is read-only; repeated runs create a new dated result without changing sources."
+    },
+    {
+      "id": "relationship_inventory", "kind": "READ_ONLY_WORK", "mode": "AGENT", "principal": "research-lane-inventory", "model_family": "terra", "parallel_group": "evidence_fanout",
+      "context_refs": ["context.authorities", "concept-map", "cross-format-inventory"], "consumes": ["intake.acceptance"],
+      "produces": ["inventory.prerequisites", "inventory.consumers", "inventory.duplication"], "write_scope": [],
+      "success_evidence": ["existing concept truth, treatments and consumers are reconciled"],
+      "idempotency": "Inventory is read-only and binds the observed source versions."
+    },
+    {
+      "id": "owner_merge", "kind": "MERGE", "mode": "AGENT", "principal": "foreground-owner", "model_family": "sol",
+      "context_refs": ["intake.acceptance", "context.authorities", "research.claim_source_map", "inventory.prerequisites", "inventory.consumers"],
+      "consumes": ["research.claim_source_map", "research.freshness_triggers", "inventory.prerequisites", "inventory.consumers", "inventory.duplication"],
+      "produces": ["merge.reconciled_truth", "merge.conflicts", "merge.route"], "write_scope": [],
+      "success_evidence": ["contradictions are resolved or held", "one accountable route is selected"],
+      "idempotency": "The same bound evidence produces one reconciled packet; unresolved conflicts remain explicit."
+    },
+    {
+      "id": "producer_preflight", "kind": "PRODUCER_PREFLIGHT", "mode": "DETERMINISTIC", "principal": "content-producer-contract-checker",
+      "context_refs": ["merge.reconciled_truth", "context.exemplars", "context.known_bad"], "consumes": ["merge.reconciled_truth", "merge.route"],
+      "produces": ["producer.contract"], "write_scope": [],
+      "success_evidence": ["current producer contract passes", "every registered negative exemplar is consumed"],
+      "idempotency": "The contract is valid only for its exact source and registry identities."
+    },
+    {
+      "id": "maker", "kind": "MAKER", "mode": "AGENT", "principal": "foreground-maker", "model_family": "sol",
+      "context_refs": ["producer.contract", "merge.reconciled_truth", "positive-exemplar-mechanics"], "consumes": ["producer.contract"],
+      "produces": ["maker.artifact", "maker.manifest"], "write_scope": ["exact-candidate-owned-paths"],
+      "success_evidence": ["one complete candidate exists in the real destination form"],
+      "idempotency": "Any changed bytes create a new artifact identity and invalidate prior reviews."
+    },
+    {
+      "id": "maker_review", "kind": "MAKER_REVIEW", "mode": "AGENT", "principal": "foreground-maker", "model_family": "sol",
+      "context_refs": ["maker.artifact", "producer.contract", "context.known_bad"], "consumes": ["maker.artifact", "maker.manifest"],
+      "produces": ["maker.self_review"], "write_scope": ["exact-candidate-review-paths"],
+      "success_evidence": ["producer read the exact artifact in full", "zero known or objective defects remain"],
+      "idempotency": "Review binds exact artifact bytes; changed bytes require a new review."
+    },
+    {
+      "id": "deterministic_gates", "kind": "DETERMINISTIC_GATE", "mode": "DETERMINISTIC", "principal": "content-integrity-checkers",
+      "context_refs": ["maker.artifact", "maker.manifest", "maker.self_review", "producer.contract"],
+      "consumes": ["maker.artifact", "maker.manifest", "maker.self_review"], "produces": ["gates.integrity_result"], "write_scope": [],
+      "success_evidence": ["artifact, manifest, contract and self-review identities match", "all applicable deterministic checks pass"],
+      "idempotency": "Checks have no side effects and produce the same result for the same bytes."
+    },
+    {
+      "id": "independent_judge", "kind": "INDEPENDENT_JUDGE", "mode": "AGENT", "principal": "independent-teaching-judge", "model_family": "claude", "judges_node": "maker",
+      "context_refs": ["maker.artifact", "governing-writing-and-learning-standard", "bound-positive-and-negative-exemplars"],
+      "consumes": ["maker.artifact", "maker.manifest", "gates.integrity_result"],
+      "produces": ["judge.verdict", "judge.learning_disposition"], "write_scope": [],
+      "success_evidence": ["artifact-first independent semantic judgment", "plain clarity, mechanism, voice, transfer and source integrity are non-compensable"],
+      "idempotency": "The judge is read-only and binds its verdict to exact artifact bytes."
+    },
+    {
+      "id": "root_cause", "kind": "ROOT_CAUSE", "mode": "AGENT", "principal": "foreground-owner", "model_family": "sol",
+      "context_refs": ["maker.artifact", "judge.verdict", "judge.learning_disposition", "producer.contract"],
+      "consumes": ["judge.verdict", "judge.learning_disposition"],
+      "produces": ["repair.classification", "repair.target", "repair.failure_identity"], "write_scope": [],
+      "success_evidence": ["failure is classified as evidence, candidate, producer, source, topology or evaluator defect"],
+      "idempotency": "The same bound failure evidence retains one stable failure identity."
+    },
+    {
+      "id": "owner_integration", "kind": "OWNER_INTEGRATION", "mode": "HUMAN", "principal": "destination-product-owner",
+      "context_refs": ["maker.artifact", "judge.verdict", "judge.learning_disposition"], "consumes": ["maker.artifact", "judge.verdict"],
+      "produces": ["owner.acceptance", "owner.ali_required"], "write_scope": [],
+      "success_evidence": ["destination owner accepts surface fit and names any reserved Ali decision"],
+      "idempotency": "Acceptance applies only to the exact judged artifact."
+    },
+    {
+      "id": "ali_gate", "kind": "HUMAN_GATE", "mode": "HUMAN", "principal": "ali", "ali_authority": "TASTE",
+      "context_refs": ["maker.artifact", "owner.acceptance", "one-decision-packet"], "consumes": ["owner.acceptance", "owner.ali_required"],
+      "produces": ["ali.decision"], "write_scope": [],
+      "success_evidence": ["one exact reserved-authority decision is recorded"],
+      "idempotency": "The decision binds the exact candidate and does not imply deploy or publication."
+    },
+    {
+      "id": "internal_complete", "kind": "TERMINAL", "mode": "DETERMINISTIC", "principal": "control-room-projection",
+      "context_refs": ["owner.acceptance", "ali.decision"], "consumes": ["owner.acceptance"], "produces": ["work.internal_status"], "write_scope": [],
+      "success_evidence": ["exact internal status is derived without deploy or public claim"],
+      "idempotency": "Projection is derived from immutable events and exact evidence."
+    },
+    {
+      "id": "stop_loss", "kind": "STOP_LOSS", "mode": "DETERMINISTIC", "principal": "control-room-projection",
+      "context_refs": ["repair.failure_identity", "repair.target"], "consumes": ["repair.failure_identity", "repair.target"],
+      "produces": ["work.stop_loss"], "write_scope": [],
+      "success_evidence": ["repeated failure is held with owner, root repair and next trigger"],
+      "idempotency": "Stop-loss remains until its named root dependency changes."
+    }
+  ],
+  "edges": [
+    {"from": "intake", "to": "context_resolver", "condition": "ALWAYS", "evidence": "accepted intake"},
+    {"from": "context_resolver", "to": "primary_source_research", "condition": "PASS", "evidence": "bound context packet"},
+    {"from": "context_resolver", "to": "relationship_inventory", "condition": "PASS", "evidence": "bound context packet"},
+    {"from": "primary_source_research", "to": "owner_merge", "condition": "PASS", "evidence": "claim/source map"},
+    {"from": "relationship_inventory", "to": "owner_merge", "condition": "PASS", "evidence": "relationship inventory"},
+    {"from": "owner_merge", "to": "producer_preflight", "condition": "PASS", "evidence": "reconciled owner packet"},
+    {"from": "producer_preflight", "to": "maker", "condition": "PASS", "evidence": "valid producer contract"},
+    {"from": "maker", "to": "maker_review", "condition": "PASS", "evidence": "exact artifact and manifest"},
+    {"from": "maker_review", "to": "deterministic_gates", "condition": "PASS", "evidence": "exact-artifact producer self-review"},
+    {"from": "deterministic_gates", "to": "independent_judge", "condition": "PASS", "evidence": "all applicable integrity checks pass"},
+    {"from": "deterministic_gates", "to": "root_cause", "condition": "FAIL", "evidence": "reason-specific deterministic failure"},
+    {"from": "independent_judge", "to": "owner_integration", "condition": "PASS", "evidence": "independent exact-artifact pass"},
+    {"from": "independent_judge", "to": "root_cause", "condition": "HOLD", "evidence": "located semantic defect or evidence gap"},
+    {"from": "root_cause", "to": "producer_preflight", "condition": "NEW_CANDIDATE_DEFECT", "evidence": "one bounded repair with changed root input", "cycle": true, "max_traversals": 1},
+    {"from": "root_cause", "to": "stop_loss", "condition": "KNOWN_DEFECT", "evidence": "repeated or systemic failure identity"},
+    {"from": "owner_integration", "to": "ali_gate", "condition": "ALI_REQUIRED", "evidence": "one reserved Ali authority remains"},
+    {"from": "owner_integration", "to": "internal_complete", "condition": "NO_ALI_REQUIRED", "evidence": "owner acceptance and no reserved decision"},
+    {"from": "ali_gate", "to": "internal_complete", "condition": "APPROVE", "evidence": "exact candidate decision"},
+    {"from": "ali_gate", "to": "root_cause", "condition": "REVISE", "evidence": "exact candidate revision ruling"},
+    {"from": "ali_gate", "to": "stop_loss", "condition": "REJECT", "evidence": "exact candidate rejection and evaluator invalidation"}
+  ],
+  "authority_truth": {"dispatcher_active": false, "manual_dry_run_authorized": false, "public": false, "deploy": false, "spend": false, "ali_approval": false}
+}
