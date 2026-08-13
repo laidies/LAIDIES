@@ -194,11 +194,14 @@ jobs:
           const prior=new Set(before.map(item=>item.id));
           const commitOf=item=>item?.source?.config?.commit_hash||item?.deployment_trigger?.metadata?.commit_hash;
           const branchOf=item=>item?.source?.config?.branch||item?.deployment_trigger?.metadata?.branch;
-          const matches=after.filter(item=>!prior.has(item.id)&&commitOf(item)===commit&&branchOf(item)===branch);
+          const matches=after.filter(item=>!prior.has(item.id)&&branchOf(item)===branch);
+          const conflicting=matches.filter(item=>commitOf(item)&&commitOf(item)!==commit);
+          if(conflicting.length) throw new Error(`new production deployment exposed conflicting provider commit metadata: ${conflicting.map(item=>commitOf(item)).join(',')}`);
           if(matches.length!==1||!matches[0]?.id||!matches[0]?.url) throw new Error(`expected one newly created exact production deployment, found ${matches.length}`);
           const deployment=matches[0];
+          const providerCommit=commitOf(deployment)||null;
           const receiptPath=path.join(dir,'deployment.json');
-          fs.writeFileSync(receiptPath,JSON.stringify({schema:'laidies.cloudflare-production-deployment.v1',status:'DEPLOYED_AWAITING_PUBLIC_VERIFICATION',sourceCommit:commit,project:'laidies-sunnyvaile',productionBranch:branch,deploymentId:deployment.id,deploymentUrl:deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`},null,2)+'\n');
+          fs.writeFileSync(receiptPath,JSON.stringify({schema:'laidies.cloudflare-production-deployment.v1',status:'DEPLOYED_AWAITING_PUBLIC_VERIFICATION',sourceCommit:commit,project:'laidies-sunnyvaile',productionBranch:branch,deploymentId:deployment.id,deploymentUrl:deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`,providerCommit,providerCommitVerified:providerCommit===commit,deploymentIdentityBasis:providerCommit?'new-id+branch+provider-commit':'new-id+branch+exact-byte-verification'},null,2)+'\n');
           NODE
           deployment_url="$(jq -r .deploymentUrl "$RECEIPT_DIR/deployment.json")"
           echo "deployment_url=$deployment_url" >> "$GITHUB_OUTPUT"

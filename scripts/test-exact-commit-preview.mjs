@@ -29,6 +29,7 @@ function validateWorkflowText(text) {
   if (!text.includes('playwright-core@1.62.1') || !text.includes('CHROME_PATH=') || !text.includes('PLAYWRIGHT_CORE_PATH=')) errors.push('Library browser runtime is not pinned and provisioned');
   if (!deployJob.includes('PROJECT_NAME: laidies-sunnyvaile-preview') || deployJob.includes('PROJECT_NAME: laidies-sunnyvaile\n')) errors.push('preview is not isolated from the production Pages project');
   if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
+  if (!deployJob.includes('new-id+branch+exact-byte-verification') || !deployJob.includes('conflicting provider commit metadata')) errors.push('direct-upload deployment identity fallback is not fail-closed');
   if (!text.includes('environment: production')) errors.push('existing protected Cloudflare credential environment is missing');
   if (deployJob.includes('CLOUDFLARE_ACCESS_READ_TOKEN') || deployJob.includes('secrets.CF_ACCESS_CLIENT_ID') || deployJob.includes('secrets.CF_ACCESS_CLIENT_SECRET')) errors.push('preview depends on missing permanent Access secrets');
   if (!deployJob.includes('/access/service_tokens') || !deployJob.includes('any_valid_service_token')) errors.push('temporary Access token and existing policy are not verified');
@@ -78,6 +79,9 @@ const deployed = {
   deployment_id: '9f161385-7486-4207-9afe-8512ea453973',
   preview_url: 'https://9f161385.laidies-sunnyvaile-preview.pages.dev/',
   review_branch: 'review-aaaaaaaaaaaa-123456789',
+  deployment_provider_commit: null,
+  deployment_provider_commit_verified: false,
+  deployment_identity_basis: 'new-id+branch+exact-byte-verification',
   access_credential: { type: 'TEMPORARY_SERVICE_TOKEN', service_token_id: 'f174e90a-fafe-4643-bbbc-4a0ed4fc8415', duration: '30m', policy_selector: 'any_valid_service_token', revoked: true },
   public_verification: { route: '/library.html', http_status: 200, unauthenticated_status: 302, access_protected: true, sha256: librarySha, result: 'PASS' },
 };
@@ -93,6 +97,8 @@ const rejects = [
   [{ ...deployed, review_branch: 'review-bbbbbbbbbbbb-123456789' }, manifest, 'branch not bound to commit'],
   [{ ...deployed, access_credential: { ...deployed.access_credential, revoked: false } }, manifest, 'unrevoked temporary credential'],
   [{ ...deployed, public_verification: { ...deployed.public_verification, access_protected: false } }, manifest, 'unprotected preview'],
+  [{ ...deployed, deployment_identity_basis: 'new-id+branch+provider-commit' }, manifest, 'unverified direct-upload identity'],
+  [{ ...deployed, deployment_provider_commit: 'b'.repeat(40), deployment_provider_commit_verified: true, deployment_identity_basis: 'new-id+branch+provider-commit' }, manifest, 'conflicting provider commit'],
   [receipt, { ...manifest, identitySha256: 'c'.repeat(64) }, 'tampered manifest'],
 ];
 for (const [candidate, candidateManifest, label] of rejects) {
@@ -115,6 +121,8 @@ const workflowRejects = [
   workflow.replace('.result.id // empty', '.result.missing_id // empty'),
   workflow.replace('::add-mask::', '::notice::'),
   workflow.replace('playwright-core@1.62.1', 'playwright-core@latest'),
+  workflow.replace('new-id+branch+exact-byte-verification', 'unverified-direct-upload'),
+  workflow.replace('conflicting provider commit metadata', 'ignored provider commit metadata'),
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(validateWorkflowText(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
 
