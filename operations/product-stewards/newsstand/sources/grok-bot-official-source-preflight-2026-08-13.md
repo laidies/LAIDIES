@@ -1,6 +1,6 @@
 # Grok Bot official-source preflight
 
-**Observed:** 2026-08-13T13:43:05-07:00
+**Observed:** 2026-08-13T15:24:00-07:00
 
 **Status:** SOURCE PREFLIGHT PASS / EDITORIAL LANE HOLD
 
@@ -18,7 +18,10 @@ responsibility.
 
 ## Current official facts
 
-1. [xAI's Grok Bot page](https://x.ai/bot) labels the product **early beta** and
+1. [xAI's dated launch announcement](https://x.ai/news/introducing-grok-bot)
+   records **August 11, 2026**, labels the product **early beta**, names the
+   eligible plans and devices, and provides the exact dated item identity
+   required by the NewsStand intake rule. [xAI's Grok Bot page](https://x.ai/bot)
    says bots have their own computer, can sign in to apps and websites, can
    learn a demonstrated routine, can work in parallel and can continue 24/7
    even when the user's laptop is closed.
@@ -46,32 +49,34 @@ responsibility.
 
 ## Evidence boundary
 
-The official sources establish a real early-beta product, named access paths,
-current displayed prices, a cloud-computer/always-on operating model and a
+The official sources establish an August 11 dated launch, a real early-beta
+product, named access paths, current displayed prices, a cloud-computer/always-on operating model and a
 material user-responsibility boundary. They do **not** establish universal
 availability, enterprise security suitability, the reliability of completed
 work, exact per-tool permissions, credential isolation, Bot-specific data
 retention, or whether every connected-tool interaction is excluded from model
 training.
 
-Direct command-line retrieval of all four xAI pages returned HTTP 403 on this
-machine at the observation time, so no raw-HTML checksum is claimed. The pages
-were readable through the public web index/browser path. Publication-day
-review must reopen the live official pages; this file is not a frozen source
-substitute.
+Direct command-line retrieval returned HTTP 403 on this machine, so no raw-HTML
+checksum is claimed. The dated News index, exact announcement, product page,
+terms and privacy policy were readable through the public web/browser path.
+Publication-day review must reopen the live official pages; this file is not a
+frozen source substitute.
 
 ## Disposition
 
-`SOURCE_SUFFICIENT_FOR_FUTURE_DAILY_PRODUCER_PROOF / DRAFT_NOT_STARTED`.
+`DATED_SOURCE_QUALIFIED / PRIVATE_DAILY_SECONDARY_IN_PRODUCTION`.
 
 This candidate is distinct from the held AI-work-files lead: that story is
 about accidentally publishing work-session artifacts; Grok Bot is about
 deliberately granting an always-on agent access and responsibility. It may
 become one self-sufficient secondary story after the current Daily receives
 Ali's decision and the NewsStand primary lane is free. Recheck the product,
-price, plan, device, terms and privacy pages on the intended issue date before
-creating the producer proof. Unknown Bot-specific privacy and permission
-details must be stated as unknown, not guessed or smoothed over.
+price, plan, device, terms and privacy pages on the intended issue date. Unknown
+Bot-specific privacy and permission details must be stated as unknown, not
+guessed or smoothed over. The exact private candidate is separately bound to
+`sources/grok-bot-daily-source-map-2026-08-13.md`; this preflight does not admit
+its prose.
 
-No prose, work order, candidate story, canonical data, deployment or public
-state was created by this preflight.
+No canonical story, issue admission, deployment or public state was created by
+this source qualification.

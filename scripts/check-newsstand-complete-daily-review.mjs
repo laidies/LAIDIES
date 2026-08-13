@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { inspectCompleteDailyComposition } from "./check-newsstand-complete-daily-composition.mjs";
+import { inspectProseQualityReview } from "./check-prose-quality-admission.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const HASH = /^[a-f0-9]{64}$/;
@@ -57,7 +58,7 @@ function loadRejections(root, errors) {
   }
 }
 
-export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}) {
+export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections, semanticInspector = inspectProseQualityReview } = {}) {
   const errors = [];
   const activeRejections = rejections === undefined ? loadRejections(root, errors) : rejections;
   const canonicalPackage = canonicalJson(pkg);
@@ -70,8 +71,6 @@ export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}
   if (pkg?.releaseAuthority?.canonicalWrite !== false || pkg?.releaseAuthority?.deploy !== false || pkg?.releaseAuthority?.public !== false) errors.push("package has unauthorized release authority");
   const expectedGates = [
     "ALI_EXACT_PACKAGE_APPROVAL",
-    "OBSERVED_UNFAMILIAR_HUMAN_EXPLAIN_BACK",
-    "OBSERVED_UNFAMILIAR_HUMAN_UNSEEN_TRANSFER",
     "INDEPENDENT_RELEASE_ADMISSION",
     "DEPLOYMENT_AND_EXACT_PUBLIC_VERIFICATION"
   ];
@@ -105,9 +104,9 @@ export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}
       storyIds.push(candidate.story?.id);
       if (independentPath) {
         const review = JSON.parse(fs.readFileSync(independentPath, "utf8"));
-        if (!String(review?.verdict || "").startsWith("PASS") || review?.candidate?.sha256 !== candidate?.sourceText?.sha256) {
-          errors.push(`stories[${index}] independent review does not PASS its exact prose`);
-        }
+        const semantic = semanticInspector(review, { root });
+        if (semantic?.errors?.length || review?.verdict !== "PASS") errors.push(`stories[${index}] independent semantic admission does not PASS: ${(semantic?.errors || []).join(" | ")}`);
+        if (canonicalJson(review?.artifact?.reviewText) !== canonicalJson(candidate?.sourceText)) errors.push(`stories[${index}] independent semantic admission does not bind its exact prose`);
       }
     } catch { errors.push(`stories[${index}] candidate or independent review is not valid JSON`); }
   }

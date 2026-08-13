@@ -33,7 +33,7 @@ try {
     const prose = write(`prose/${id}.md`, `# ${id}\n\nExact reviewed prose.\n`);
     const record = { id, slug: id, status: "hold", publishedAt: null };
     const candidate = write(`stories/${id}.json`, { candidateStatus: "HELD_NOT_PUBLISHED", sourceText: prose, story: record });
-    const independentReview = write(`evidence/${id}-independent.json`, { verdict: "PASS_PRIVATE_EXEMPLAR_CANDIDATE_ONLY", candidate: { sha256: prose.sha256 } });
+    const independentReview = write(`evidence/${id}-independent.json`, { verdict: "PASS", artifact: { reviewText: prose } });
     return { ...candidate, record, templateAcceptance: template, independentReview };
   };
   const stories = [makeStory("lead-story"), makeStory("secondary-story")];
@@ -99,15 +99,14 @@ try {
     },
     remainingGates: [
       "ALI_EXACT_PACKAGE_APPROVAL",
-      "OBSERVED_UNFAMILIAR_HUMAN_EXPLAIN_BACK",
-      "OBSERVED_UNFAMILIAR_HUMAN_UNSEEN_TRANSFER",
       "INDEPENDENT_RELEASE_ADMISSION",
       "DEPLOYMENT_AND_EXACT_PUBLIC_VERIFICATION"
     ],
     releaseAuthority: { canonicalWrite: false, deploy: false, public: false }
   };
 
-  assert.deepEqual(inspectCompleteDailyReview(packageValue, { root: TEMP, rejections: [] }).errors, []);
+  const semanticInspector = () => ({ errors: [], verdict: "PASS" });
+  assert.deepEqual(inspectCompleteDailyReview(packageValue, { root: TEMP, rejections: [], semanticInspector }).errors, []);
   const rejectedV26 = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v5.json"), "utf8"));
   const rejectedErrors = inspectCompleteDailyReview(rejectedV26).errors.join("\n");
   assert.match(rejectedErrors, /explicitly rejected/);
@@ -126,9 +125,11 @@ try {
   for (const [index, item] of cases.entries()) {
     const candidate = structuredClone(packageValue);
     item.mutate(candidate);
-    assert.match(inspectCompleteDailyReview(candidate, { root: TEMP, rejections: [] }).errors.join("\n"), item.expected, `bad case ${index + 1} must fail for its intended reason`);
+    assert.match(inspectCompleteDailyReview(candidate, { root: TEMP, rejections: [], semanticInspector }).errors.join("\n"), item.expected, `bad case ${index + 1} must fail for its intended reason`);
   }
-  console.log(`NEWSSTAND COMPLETE DAILY REVIEW CALIBRATION PASS v2_multistory=1 exact_v26_rejected=1 mutations=${cases.length}`);
+  const semanticFailure = inspectCompleteDailyReview(packageValue, { root: TEMP, rejections: [], semanticInspector: () => ({ errors: ["observed human evidence missing"] }) }).errors.join("\n");
+  assert.match(semanticFailure, /observed human evidence missing/, "package must reject prose that lacks complete independent semantic admission");
+  console.log(`NEWSSTAND COMPLETE DAILY REVIEW CALIBRATION PASS v2_multistory=1 exact_v26_rejected=1 mutations=${cases.length + 1} observed_human_semantic_gate=1`);
 } finally {
   fs.rmSync(TEMP, { recursive: true, force: true });
 }

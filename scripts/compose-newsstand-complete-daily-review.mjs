@@ -8,6 +8,7 @@ import { inspectCompleteDailyComposition } from "./check-newsstand-complete-dail
 import { inspectCompleteDailyReview } from "./check-newsstand-complete-daily-review.mjs";
 import { inspectNewsstandProducerProof } from "./check-newsstand-producer-proof.mjs";
 import { inspectNewsstandServiceExemplar } from "./check-newsstand-service-exemplar.mjs";
+import { inspectProseQualityReview } from "./check-prose-quality-admission.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CANDIDATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/candidates");
@@ -56,6 +57,7 @@ export function composeCompleteDailyReviewPackage(inputs, {
   root = ROOT,
   producerInspector = inspectNewsstandProducerProof,
   serviceInspector = inspectNewsstandServiceExemplar,
+  semanticInspector = inspectProseQualityReview,
   packageRejections
 } = {}) {
   if (inputs?.schemaVersion !== "laidies-newsstand-complete-daily-compose-input.v2") fail("input schemaVersion mismatch; single-story v1 inputs are retired");
@@ -89,9 +91,9 @@ export function composeCompleteDailyReviewPackage(inputs, {
     if (proofResult?.errors?.length) fail(`${label} producer proof failed: ${proofResult.errors.join(" | ")}`);
     if (selfReviewFile.value?.verdict !== "PASS") fail(`${label} producer self-review does not PASS`);
     exactBinding(selfReviewFile.value?.artifact?.reviewText, proseFile, `${label} producer self-review`);
-    if (!verdictPasses(independentFile.value?.verdict) || independentFile.value?.candidate?.sha256 !== proseFile.sha256) {
-      fail(`${label} independent review does not PASS the exact prose`);
-    }
+    const semanticResult = semanticInspector(independentFile.value, { root });
+    if (semanticResult?.errors?.length || independentFile.value?.verdict !== "PASS") fail(`${label} independent semantic admission does not PASS: ${(semanticResult?.errors || []).join(" | ")}`);
+    exactBinding(independentFile.value?.artifact?.reviewText, proseFile, `${label} independent semantic admission`);
     stories.push({
       ...binding(candidateFile),
       record: candidate.story,
@@ -183,8 +185,6 @@ export function composeCompleteDailyReviewPackage(inputs, {
     },
     remainingGates: [
       "ALI_EXACT_PACKAGE_APPROVAL",
-      "OBSERVED_UNFAMILIAR_HUMAN_EXPLAIN_BACK",
-      "OBSERVED_UNFAMILIAR_HUMAN_UNSEEN_TRANSFER",
       "INDEPENDENT_RELEASE_ADMISSION",
       "DEPLOYMENT_AND_EXACT_PUBLIC_VERIFICATION"
     ],
@@ -192,6 +192,7 @@ export function composeCompleteDailyReviewPackage(inputs, {
   };
   const packageResult = inspectCompleteDailyReview(reviewPackage, {
     root,
+    semanticInspector,
     ...(packageRejections === undefined && path.resolve(root) === ROOT ? {} : { rejections: packageRejections || [] })
   });
   if (packageResult.errors.length) fail(`assembled package failed: ${packageResult.errors.join(" | ")}`);

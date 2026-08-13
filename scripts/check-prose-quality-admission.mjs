@@ -153,23 +153,29 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
         require(!outcome?.observedReaderEvidence, `${outcomeName}: producer simulation cannot occupy observedReaderEvidence`);
       } else {
         const observed = outcome?.observedReaderEvidence;
-        require(observed?.evidenceType === "OBSERVED_HUMAN", `${outcomeName}.observedReaderEvidence must declare OBSERVED_HUMAN`);
-        require(text(observed?.administratorPrincipalId), `${outcomeName}.observedReaderEvidence.administratorPrincipalId is required`);
-        require(Array.isArray(observed?.participants), `${outcomeName}.observedReaderEvidence.participants is required`);
-        const minimum = receipt?.surface === "LIBRAIRY" && receipt?.verdict === "PASS" ? 3 : 1;
-        require((observed?.participants || []).length >= minimum, `${outcomeName}.observedReaderEvidence requires at least ${minimum} participant(s)`);
-        const ids = new Set();
-        const bindings = new Set();
-        for (const [index, participant] of (observed?.participants || []).entries()) {
-          for (const field of ["participantId", "prompt", "verbatimResponse", "expectedEvidence", "observedAt"]) require(text(participant?.[field]), `${outcomeName}.observedReaderEvidence.participants[${index}].${field} is required`);
-          require(!Number.isNaN(Date.parse(participant?.observedAt)), `${outcomeName}.observedReaderEvidence.participants[${index}].observedAt must be an ISO date-time`);
-          require(!ids.has(participant?.participantId), `${outcomeName}.observedReaderEvidence participant IDs must be unique`);
-          ids.add(participant?.participantId);
-          const binding = participant?.observationBinding;
-          loadBinding(root, binding, `${outcomeName}.observedReaderEvidence.participants[${index}].observationBinding`, errors);
-          const bindingKey = `${binding?.path || ""}:${binding?.sha256 || ""}`;
-          require(!bindings.has(bindingKey), `${outcomeName}.observedReaderEvidence observation bindings must be participant-specific`);
-          bindings.add(bindingKey);
+        if (!observed && receipt?.verdict !== "PASS") {
+          require(["HOLD", "FAIL"].includes(outcome?.verdict), `${outcomeName}: missing observed human evidence must HOLD/FAIL the outcome`);
+          require(text(outcome?.evidenceGap), `${outcomeName}.evidenceGap is required when observed human evidence is missing`);
+          require(!outcome?.simulatedReaderProbe, `${outcomeName}: independent review cannot substitute a simulated reader probe for missing observed human evidence`);
+        } else {
+          require(observed?.evidenceType === "OBSERVED_HUMAN", `${outcomeName}.observedReaderEvidence must declare OBSERVED_HUMAN`);
+          require(text(observed?.administratorPrincipalId), `${outcomeName}.observedReaderEvidence.administratorPrincipalId is required`);
+          require(Array.isArray(observed?.participants), `${outcomeName}.observedReaderEvidence.participants is required`);
+          const minimum = receipt?.surface === "LIBRAIRY" && receipt?.verdict === "PASS" ? 3 : 1;
+          require((observed?.participants || []).length >= minimum, `${outcomeName}.observedReaderEvidence requires at least ${minimum} participant(s)`);
+          const ids = new Set();
+          const bindings = new Set();
+          for (const [index, participant] of (observed?.participants || []).entries()) {
+            for (const field of ["participantId", "prompt", "verbatimResponse", "expectedEvidence", "observedAt"]) require(text(participant?.[field]), `${outcomeName}.observedReaderEvidence.participants[${index}].${field} is required`);
+            require(!Number.isNaN(Date.parse(participant?.observedAt)), `${outcomeName}.observedReaderEvidence.participants[${index}].observedAt must be an ISO date-time`);
+            require(!ids.has(participant?.participantId), `${outcomeName}.observedReaderEvidence participant IDs must be unique`);
+            ids.add(participant?.participantId);
+            const binding = participant?.observationBinding;
+            loadBinding(root, binding, `${outcomeName}.observedReaderEvidence.participants[${index}].observationBinding`, errors);
+            const bindingKey = `${binding?.path || ""}:${binding?.sha256 || ""}`;
+            require(!bindings.has(bindingKey), `${outcomeName}.observedReaderEvidence observation bindings must be participant-specific`);
+            bindings.add(bindingKey);
+          }
         }
       }
     }

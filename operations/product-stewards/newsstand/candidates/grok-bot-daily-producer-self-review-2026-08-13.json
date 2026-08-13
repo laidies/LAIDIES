@@ -1,0 +1,1035 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "NEWSSTAND-DAILY-GROK-BOT-20260813-V1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "SUNNYVAiLE NewsStand / The Daily / secondary story",
+  "maker": "newsstand-daily",
+  "reviewer": {
+    "id": "newsstand-daily-grok-bot-producer-20260813",
+    "principalId": "newsstand-daily",
+    "role": "Daily producer",
+    "modelFamily": "openai-gpt-5.6"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-13T22:40:00Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer simulation does not prove unfamiliar-human comprehension or transfer.",
+    "This prose review does not admit the complete newspaper, visual system, canonical content, deployment or public release."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/grok-bot-daily-exact-prose-2026-08-13.md",
+      "sha256": "b6a6753a19d51067a92d7c661da32dc5c7b9f69f8353aba220b0b49c57363bd0"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/grok-bot-daily-manifest-2026-08-13.json",
+      "sha256": "9b08a6b09440db213acb46b38582564c2c87476e6a3dd6ce62dc9a931d40372d"
+    }
+  },
+  "calibration": {
+    "registrySha256": "c14aec2f9022c1cdf08f951df51f0aaaeb594ca2653b151e257938be5041de10",
+    "reviewerPrincipalId": "newsstand-daily",
+    "reviewedAt": "2026-08-13T16:15:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare two job offers. It gives you a neat recommendation in seconds. Before one polished paragraph influences the next two years of your life, you need to know what happened between your question and that answer.",
+            "locator": "ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "falseBreakingUrgency",
+          "missingNewcomerBackground",
+          "technicalReaderAssumption",
+          "implausibleAudienceAction",
+          "laidiesVoiceAbsent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Authority:** direct Ali rejection, 2026-08-11",
+            "locator": "newsstand-breaking-update-false-pass-2026-08-11.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-004",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "internalScaffoldingExposedToReader",
+          "newspaperHierarchyUnclear",
+          "statusLanguageOvertakesExperience"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Authority:** direct Ali rejection, 2026-08-11",
+            "locator": "newsstand-daily-scaffolding-false-pass-2026-08-11.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-005",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "sourceAvailabilityMistakenForEditorialValue",
+          "missingAidbRelevanceCheck",
+          "predeterminedThesisInsteadOfInvestigation",
+          "weakReaderPremise",
+          "adviceBelowReaderBaseline",
+          "promptAdviceMistakenForEnforcement",
+          "longRunningWorkflowRealityIgnored",
+          "genericEditorialVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Rejected by Ali on 11 August 2026. Do not use these examples as positive references or production starting points.** The set failed topic qualification, newcomer clarity, investigative depth, practical usefulness, current AI-work reality and LAiDIES voice. It is preserved only as a known-bad calibration artifact.",
+            "locator": "publication-format-sampler-v1-2026-08-11.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-006",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "fictionalInputMistakenForIsolation"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Candidate:** LCWO-013 / Paige's Practical AI Tip",
+            "locator": "fictional-input-is-not-a-sandbox-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-007",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "unbuiltDestinationPresentedAsLive"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Incident:** BTB-473",
+            "locator": "unbuilt-destination-presented-as-live-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-008",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "repairScopeSubstitutedForSpecifiedScope",
+          "compressionDropsReferent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Incident:** BTB-474",
+            "locator": "repair-scope-and-compression-referent-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-009",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "safetyQualifierWithUndefinedBoundary",
+          "compoundModifierInvertsAgent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Incident:** BTB-475",
+            "locator": "undefined-safety-qualifier-and-inverted-agent-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-010",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "headlineMetaphorObscuresAction",
+          "compressedScenarioWithoutReaderEntry",
+          "multipleJobsInsideOneTip",
+          "readerCannotExplainOrFollow"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Direct Ali ruling:** 2026-08-12",
+            "locator": "paige-follow-up-unclear-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-011",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "careerCategoryUnrecognizable",
+          "genericManagementAdvice",
+          "aiConnectionImplicitOrMissing",
+          "eyebrowLabelCarriesReaderJob"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Direct Ali ruling:** 2026-08-12",
+            "locator": "career-delegation-category-mismatch-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-012",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "aiObjectUnnamed",
+          "exampleContentsUndefined",
+          "comparisonCriteriaAbstract",
+          "technicalTermBeforeMeaning",
+          "missingNextAction",
+          "substantialTransferRuleForcedIntoCompactCard"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Direct Ali ruling:** 2026-08-12",
+            "locator": "promptoscope-regression-action-unclear-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-013",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalObjectBeforeHumanQuestion",
+          "apiAssumedAsPriorKnowledge",
+          "definitionAfterJargon",
+          "analogyBeforeObjectIsUnderstood",
+          "benchmarkDeclaredButNotPerformed"
+        ],
+        "evidence": [
+          {
+            "excerpt": "> Some developer tools use reasoning models that generate working text before",
+            "locator": "august-12-daily-technical-first-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-014",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "unreconciledStatisticalUnits"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Rejected artifact:** The Daily candidate `AI work logs can carry secrets you cannot see. Here’s what to share instead`, SHA-256 `89062033d142fbeb708b140da57eed588e9254be721916ff502b3041671b1fb9`.",
+            "locator": "newsstand-unreconciled-statistical-units-known-bad-2026-08-12.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-015",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "formatContractDeclaredButNotPerformed",
+          "headlineAndOpeningDoNotStateUsefulPoint",
+          "readerPurposeBuried",
+          "articleLengthOverwhelmsDailyJob",
+          "coldReaderCannotIdentifyPoint"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Wednesday, August 12, 2026**",
+            "locator": "ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-016",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "suspenseHeadlineWithholdsUsefulPoint",
+          "undefinedObjectInHeadline"
+        ],
+        "evidence": [
+          {
+            "excerpt": "> Shared AI work files carried passwords — and details the chat never showed",
+            "locator": "newsstand-suspense-headline-known-bad-2026-08-13.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-017",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "aiAdviceWearingCareerLabel",
+          "careerAdviceNotIndependentOfAi",
+          "producerMetadataSubstitutesForReaderFacingCategory",
+          "reviewerTrustsLabelsInsteadOfProse"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Direct Ali correction reproduced:** 2026-08-13",
+            "locator": "career-ai-advice-before-career-advice-known-bad-2026-08-13.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-018",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "sourceIdentityMissingFromOpening",
+          "sharingPathMissingFromOpening",
+          "recoveryPathMissingFromOpening",
+          "audienceBoundaryMissingFromOpening",
+          "newcomerCannotPictureEvent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "> A new study examined records people had published to let others inspect or replay an AI task. Those records held more than the answer on screen, and some included passwords and other private details. This does not mean ordinary private chats became public. The lesson is for anyone sharing AI work: send the checked result, not the whole work file.",
+            "locator": "newsstand-daily-opening-missing-news-facts-known-bad-2026-08-13.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "dated event and scope",
+        "evidence boundary",
+        "specific action"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Article 50 of the European Union’s AI Act began applying on August 2, 2026.",
+          "locator": "The story"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changes when an AI tool stays online, signs into my tools and keeps working after I close my laptop?",
+    "promisedPayoff": "Understand the continuing-access mechanism and set one bounded first job.",
+    "centralMentalModel": "The Bot keeps acting because its online computer and connected-account access keep running.",
+    "dailyLifeConnection": "Support queues and travel planning both show why access should match the job.",
+    "surfaceJob": "A dated secondary Daily report of one product launch.",
+    "desiredReaderFeeling": "I understand what is new, what is unknown and how to try it proportionately."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The ordinary chat baseline precedes the online-computer explanation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Most AI chats wait for you to return and send another message.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The opening gives the affected reader an immediate bounded action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Start with one low-consequence job and limit the accounts and actions it can reach.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "One adult, restrained line makes persistent permission memorable without carrying the mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The laptop can be tucked in for the night; the permission slip is\nstill wide awake.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The closing joke rewards understanding after the exact method.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is not delegation; that is a season finale.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The prose separates xAI framing from established product mechanics.",
+      "artifactEvidence": [
+        {
+          "excerpt": "xAI calls this an “AI teammate.” That is product language, not proof that the\nBot has a colleague's judgment or responsibility.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The source check date and material update triggers are visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "LAiDIES will revisit this story if\nxAI changes access, eligible plans or devices, permissions, user responsibility,\ncredential handling, retention, training treatment or enterprise availability.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The 684-word candidate uses the accepted Daily report structure and is scoped as a secondary story.",
+      "artifactEvidence": [
+        {
+          "excerpt": "# Grok Bot can keep working after you close your laptop",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The opening names the actor, date, product and status.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On August 11, 2026, xAI launched Grok Bot as an early beta.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The candidate states both the continuing-access consequence and the unresolved Bot-specific controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The public documents LAiDIES checked do not give a complete Bot-specific account",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The non-work case transfers the same access-matches-job rule to travel planning.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Outside work, a Bot could compare flights and hotels using a separate planning\naccount.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The invisible process becomes a visible cause-and-effect chain in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Closing your laptop does not stop the job because the Bot is not running on\nyour laptop. Its online computer remains awake.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "A simulated cold reader can explain why the Bot keeps acting and why connected-account permissions matter.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is the real shift. A chat can suggest an email; a connected Bot may be able\nto place the draft inside the inbox—or send it if the account and workflow allow\nthat action.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain why the Bot can keep working after the laptop closes and what makes that consequential.",
+        "probeResponse": "Its computer runs online and the signed-in account gives it a route to act in the real tool, so closing the laptop does not end either compute or access.",
+        "expectedEvidence": "Online computer, connected account, continued action and earlier control decision."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "A simulated reader can transfer the rule to a different connected service without granting every possible action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "At work, a support team might let a Bot draft replies inside its help desk but\nkeep **Send** behind human approval while it proves itself on low-risk cases.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Apply the same rule to a household task not used in the article.",
+        "probeResponse": "A grocery-planning Bot may build a basket in a dedicated account but should not place the order until a person approves the final basket and total.",
+        "expectedEvidence": "One account, bounded task, consequential action held for approval and destination check."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The final section gives a five-step minimum-access, approval and destination-check method.",
+      "artifactEvidence": [
+        {
+          "excerpt": "1. Choose one reversible, low-consequence job.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The permission-slip image maps only continuing access and follows the literal online-computer explanation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The laptop can be tucked in for the night; the permission slip is\nstill wide awake.",
+          "locator": "grok-bot-daily-exact-prose-2026-08-13.md"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "adviceBelowReaderBaseline": {
+      "present": false,
+      "observation": "Exact-prose self-review found no adviceBelowReaderBaseline defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "aiAdviceWearingCareerLabel": {
+      "present": false,
+      "observation": "Exact-prose self-review found no aiAdviceWearingCareerLabel defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "aiConnectionImplicitOrMissing": {
+      "present": false,
+      "observation": "Exact-prose self-review found no aiConnectionImplicitOrMissing defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "aiObjectUnnamed": {
+      "present": false,
+      "observation": "Exact-prose self-review found no aiObjectUnnamed defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "analogyBeforeObjectIsUnderstood": {
+      "present": false,
+      "observation": "Exact-prose self-review found no analogyBeforeObjectIsUnderstood defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "apiAssumedAsPriorKnowledge": {
+      "present": false,
+      "observation": "Exact-prose self-review found no apiAssumedAsPriorKnowledge defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "articleLengthOverwhelmsDailyJob": {
+      "present": false,
+      "observation": "Exact-prose self-review found no articleLengthOverwhelmsDailyJob defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "audienceBoundaryMissingFromOpening": {
+      "present": false,
+      "observation": "Exact-prose self-review found no audienceBoundaryMissingFromOpening defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "benchmarkDeclaredButNotPerformed": {
+      "present": false,
+      "observation": "Exact-prose self-review found no benchmarkDeclaredButNotPerformed defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact-prose self-review found no benchmarkNameDrop defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "careerAdviceNotIndependentOfAi": {
+      "present": false,
+      "observation": "Exact-prose self-review found no careerAdviceNotIndependentOfAi defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "careerCategoryUnrecognizable": {
+      "present": false,
+      "observation": "Exact-prose self-review found no careerCategoryUnrecognizable defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "coldReaderCannotIdentifyPoint": {
+      "present": false,
+      "observation": "Exact-prose self-review found no coldReaderCannotIdentifyPoint defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact-prose self-review found no communicationPastiche defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "comparisonCriteriaAbstract": {
+      "present": false,
+      "observation": "Exact-prose self-review found no comparisonCriteriaAbstract defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "compoundModifierInvertsAgent": {
+      "present": false,
+      "observation": "Exact-prose self-review found no compoundModifierInvertsAgent defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "compressedScenarioWithoutReaderEntry": {
+      "present": false,
+      "observation": "Exact-prose self-review found no compressedScenarioWithoutReaderEntry defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "compressionDropsReferent": {
+      "present": false,
+      "observation": "Exact-prose self-review found no compressionDropsReferent defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact-prose self-review found no corporateSludge defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact-prose self-review found no curiosityWithoutPayoff defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact-prose self-review found no decorativeAnalogy defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "definitionAfterJargon": {
+      "present": false,
+      "observation": "Exact-prose self-review found no definitionAfterJargon defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact-prose self-review found no disconnectedSystem defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact-prose self-review found no entertainmentBeforeUnderstanding defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "exampleContentsUndefined": {
+      "present": false,
+      "observation": "Exact-prose self-review found no exampleContentsUndefined defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "eyebrowLabelCarriesReaderJob": {
+      "present": false,
+      "observation": "Exact-prose self-review found no eyebrowLabelCarriesReaderJob defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact-prose self-review found no factlessConfidence defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "falseBreakingUrgency": {
+      "present": false,
+      "observation": "Exact-prose self-review found no falseBreakingUrgency defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact-prose self-review found no familiarExampleWithoutTechnicalReturn defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "fictionalInputMistakenForIsolation": {
+      "present": false,
+      "observation": "Exact-prose self-review found no fictionalInputMistakenForIsolation defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "formatContractDeclaredButNotPerformed": {
+      "present": false,
+      "observation": "Exact-prose self-review found no formatContractDeclaredButNotPerformed defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact-prose self-review found no genericAction defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "genericEditorialVoice": {
+      "present": false,
+      "observation": "Exact-prose self-review found no genericEditorialVoice defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "genericManagementAdvice": {
+      "present": false,
+      "observation": "Exact-prose self-review found no genericManagementAdvice defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact-prose self-review found no glossaryAccumulation defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "headlineAndOpeningDoNotStateUsefulPoint": {
+      "present": false,
+      "observation": "Exact-prose self-review found no headlineAndOpeningDoNotStateUsefulPoint defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "headlineMetaphorObscuresAction": {
+      "present": false,
+      "observation": "Exact-prose self-review found no headlineMetaphorObscuresAction defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "implausibleAudienceAction": {
+      "present": false,
+      "observation": "Exact-prose self-review found no implausibleAudienceAction defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact-prose self-review found no inflatedTakeawayEnding defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "internalScaffoldingExposedToReader": {
+      "present": false,
+      "observation": "Exact-prose self-review found no internalScaffoldingExposedToReader defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact-prose self-review found no jargonBeforeMeaning defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact-prose self-review found no joylessInstruction defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "laidiesVoiceAbsent": {
+      "present": false,
+      "observation": "Exact-prose self-review found no laidiesVoiceAbsent defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "longRunningWorkflowRealityIgnored": {
+      "present": false,
+      "observation": "Exact-prose self-review found no longRunningWorkflowRealityIgnored defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact-prose self-review found no mechanismBeforeMotivation defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact-prose self-review found no mechanismCompressedBehindHook defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "missingAidbRelevanceCheck": {
+      "present": false,
+      "observation": "Exact-prose self-review found no missingAidbRelevanceCheck defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact-prose self-review found no missingMechanism defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "missingNewcomerBackground": {
+      "present": false,
+      "observation": "Exact-prose self-review found no missingNewcomerBackground defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "missingNextAction": {
+      "present": false,
+      "observation": "Exact-prose self-review found no missingNextAction defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "multipleJobsInsideOneTip": {
+      "present": false,
+      "observation": "Exact-prose self-review found no multipleJobsInsideOneTip defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "newcomerCannotPictureEvent": {
+      "present": false,
+      "observation": "Exact-prose self-review found no newcomerCannotPictureEvent defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "newspaperHierarchyUnclear": {
+      "present": false,
+      "observation": "Exact-prose self-review found no newspaperHierarchyUnclear defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "predeterminedThesisInsteadOfInvestigation": {
+      "present": false,
+      "observation": "Exact-prose self-review found no predeterminedThesisInsteadOfInvestigation defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact-prose self-review found no prematureClickBeforeMechanism defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "producerMetadataSubstitutesForReaderFacingCategory": {
+      "present": false,
+      "observation": "Exact-prose self-review found no producerMetadataSubstitutesForReaderFacingCategory defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "promptAdviceMistakenForEnforcement": {
+      "present": false,
+      "observation": "Exact-prose self-review found no promptAdviceMistakenForEnforcement defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact-prose self-review found no purposeTooNarrow defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "readerCannotExplainOrFollow": {
+      "present": false,
+      "observation": "Exact-prose self-review found no readerCannotExplainOrFollow defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "readerPurposeBuried": {
+      "present": false,
+      "observation": "Exact-prose self-review found no readerPurposeBuried defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "recoveryPathMissingFromOpening": {
+      "present": false,
+      "observation": "Exact-prose self-review found no recoveryPathMissingFromOpening defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact-prose self-review found no referenceConfetti defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "repairScopeSubstitutedForSpecifiedScope": {
+      "present": false,
+      "observation": "Exact-prose self-review found no repairScopeSubstitutedForSpecifiedScope defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "reviewerTrustsLabelsInsteadOfProse": {
+      "present": false,
+      "observation": "Exact-prose self-review found no reviewerTrustsLabelsInsteadOfProse defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "safetyQualifierWithUndefinedBoundary": {
+      "present": false,
+      "observation": "Exact-prose self-review found no safetyQualifierWithUndefinedBoundary defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "sharingPathMissingFromOpening": {
+      "present": false,
+      "observation": "Exact-prose self-review found no sharingPathMissingFromOpening defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "sourceAvailabilityMistakenForEditorialValue": {
+      "present": false,
+      "observation": "Exact-prose self-review found no sourceAvailabilityMistakenForEditorialValue defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "sourceIdentityMissingFromOpening": {
+      "present": false,
+      "observation": "Exact-prose self-review found no sourceIdentityMissingFromOpening defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact-prose self-review found no staleUnreviewableClaims defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "statusLanguageOvertakesExperience": {
+      "present": false,
+      "observation": "Exact-prose self-review found no statusLanguageOvertakesExperience defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "substantialTransferRuleForcedIntoCompactCard": {
+      "present": false,
+      "observation": "Exact-prose self-review found no substantialTransferRuleForcedIntoCompactCard defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "suspenseHeadlineWithholdsUsefulPoint": {
+      "present": false,
+      "observation": "Exact-prose self-review found no suspenseHeadlineWithholdsUsefulPoint defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact-prose self-review found no technicalExplainerVoice defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "technicalObjectBeforeHumanQuestion": {
+      "present": false,
+      "observation": "Exact-prose self-review found no technicalObjectBeforeHumanQuestion defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "technicalReaderAssumption": {
+      "present": false,
+      "observation": "Exact-prose self-review found no technicalReaderAssumption defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "technicalTermBeforeMeaning": {
+      "present": false,
+      "observation": "Exact-prose self-review found no technicalTermBeforeMeaning defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact-prose self-review found no templateRepetition defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "unbuiltDestinationPresentedAsLive": {
+      "present": false,
+      "observation": "Exact-prose self-review found no unbuiltDestinationPresentedAsLive defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "undefinedObjectInHeadline": {
+      "present": false,
+      "observation": "Exact-prose self-review found no undefinedObjectInHeadline defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "unreconciledStatisticalUnits": {
+      "present": false,
+      "observation": "Exact-prose self-review found no unreconciledStatisticalUnits defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "weakReaderPremise": {
+      "present": false,
+      "observation": "Exact-prose self-review found no weakReaderPremise defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact-prose self-review found no workedExampleOvertakesBookPurpose defect; the dated event, mechanism, evidence boundary and action remain reader-facing.",
+      "artifactLocator": "grok-bot-daily-exact-prose-2026-08-13.md"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/sources/grok-bot-daily-source-map-2026-08-13.md",
+        "sha256": "dc5b9de92c59de0a4882dbaf7e87bab5f43e1c1b9bb4a613f4cb91270c9b8c74"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "launch-date-status",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On August 11, 2026, xAI launched Grok Bot as an early beta.",
+            "locator": "The news in one breath"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/sources/grok-bot-daily-source-map-2026-08-13.md",
+          "sha256": "dc5b9de92c59de0a4882dbaf7e87bab5f43e1c1b9bb4a613f4cb91270c9b8c74"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "**Dated event:** xAI announcement, 2026-08-11",
+            "locator": "header"
+          }
+        ],
+        "scopeAndFreshness": "Official dated announcement checked 2026-08-13; recheck on correction or withdrawal."
+      },
+      {
+        "claimId": "cloud-computer-action-model",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Closing your laptop does not stop the job because the Bot is not running on\nyour laptop. Its online computer remains awake.",
+            "locator": "What actually happened"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/sources/grok-bot-daily-source-map-2026-08-13.md",
+          "sha256": "dc5b9de92c59de0a4882dbaf7e87bab5f43e1c1b9bb4a613f4cb91270c9b8c74"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Bots have a cloud computer, can sign into tools and work after the user's laptop closes.",
+            "locator": "Primary-source claims"
+          }
+        ],
+        "scopeAndFreshness": "xAI product claim; not independent performance proof."
+      },
+      {
+        "claimId": "availability",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The early beta is currently\noffered to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers on\ndesktop and iOS. Enterprise access is waitlisted.",
+            "locator": "What actually happened"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/sources/grok-bot-daily-source-map-2026-08-13.md",
+          "sha256": "dc5b9de92c59de0a4882dbaf7e87bab5f43e1c1b9bb4a613f4cb91270c9b8c74"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The beta is offered to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers on desktop and iOS; enterprise access is waitlisted.",
+            "locator": "Primary-source claims"
+          }
+        ],
+        "scopeAndFreshness": "Announcement-date availability; recheck on publication day."
+      },
+      {
+        "claimId": "responsibility-and-privacy-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The same terms place responsibility for directed actions and their\nconsequences on the user.",
+            "locator": "What the evidence found"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/sources/grok-bot-daily-source-map-2026-08-13.md",
+          "sha256": "dc5b9de92c59de0a4882dbaf7e87bab5f43e1c1b9bb4a613f4cb91270c9b8c74"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "the user is responsible for directed actions and consequences.",
+            "locator": "Primary-source claims"
+          }
+        ],
+        "scopeAndFreshness": "Plain-language account of current consumer terms; not legal advice and not proof of every legal outcome."
+      }
+    ],
+    "reviewedThrough": "2026-08-13",
+    "nextTrigger": "Any material launch, access, plan, device, price, permission, responsibility, privacy, retention, training or enterprise-access change.",
+    "correctionOwner": "NewsStand accuracy and corrections editor"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First qualified Daily report candidate about the August 11 Grok Bot launch."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer self-review found no new reusable defect; independent semantic and observed-human gates remain."
+  }
+}

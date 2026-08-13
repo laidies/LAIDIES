@@ -27,7 +27,7 @@ try {
     const candidate = write(`stories/${id}.json`, { candidateStatus: "HELD_NOT_PUBLISHED", sourceText: prose, story: record });
     const proof = write(`evidence/${id}-proof.json`, { candidateId: id });
     const selfReview = write(`evidence/${id}-self.json`, { verdict: "PASS", artifact: { reviewText: prose } });
-    const independentReview = write(`evidence/${id}-independent.json`, { verdict: "PASS_PRIVATE_EXEMPLAR_CANDIDATE_ONLY", candidate: { sha256: prose.sha256 } });
+    const independentReview = write(`evidence/${id}-independent.json`, { verdict: "PASS", artifact: { reviewText: prose } });
     return { candidate: candidate.path, templateAcceptance: template.path, producerProof: proof.path, producerSelfReview: selfReview.path, independentReview: independentReview.path };
   };
   const stories = [makeStory("lead-story"), makeStory("secondary-story")];
@@ -87,7 +87,7 @@ try {
     visualReview: visualReview.path,
     screenshots: screenshots.map(({ mode, viewport, path: screenshotPath }) => ({ mode, viewport, path: screenshotPath }))
   };
-  const options = { root: TEMP, producerInspector: () => ({ errors: [] }), packageRejections: [] };
+  const options = { root: TEMP, producerInspector: () => ({ errors: [] }), semanticInspector: () => ({ errors: [], verdict: "PASS" }), packageRejections: [] };
   const result = composeCompleteDailyReviewPackage(inputs, options);
   assert.equal(result.reviewPackage.schemaVersion, "laidies-newsstand-complete-daily-review-package.v2");
   assert.equal(result.reviewPackage.stories.length, 2);
@@ -97,6 +97,7 @@ try {
   assert.throws(() => composeCompleteDailyReviewPackage({ ...inputs, schemaVersion: "laidies-newsstand-complete-daily-compose-input.v1" }, options), /single-story v1 inputs are retired/);
   assert.throws(() => composeCompleteDailyReviewPackage({ ...inputs, stories: inputs.stories.slice(0, 1) }, options), /story bundles do not match/);
   assert.throws(() => composeCompleteDailyReviewPackage(inputs, { ...options, producerInspector: () => ({ errors: ["calibrated producer failure"] }) }), /calibrated producer failure/);
+  assert.throws(() => composeCompleteDailyReviewPackage(inputs, { ...options, semanticInspector: () => ({ errors: ["observed human evidence missing"] }) }), /observed human evidence missing/);
 
   const badService = write("services/paige-bad.json", {
     schemaVersion: "test-owned-service-record.v1",
@@ -124,7 +125,7 @@ try {
   const oneStoryReview = write("evidence/composition-one-story-review.json", { verdict: "PASS", composition: oneStoryFile });
   assert.throws(() => composeCompleteDailyReviewPackage({ ...inputs, composition: oneStoryFile.path, compositionReview: oneStoryReview.path, stories: inputs.stories.slice(0, 1) }, options), /remains held rather than padded/);
 
-  console.log("NEWSSTAND COMPLETE DAILY V2 COMPOSER CALIBRATION PASS assembled=1 mutations=7 overwrite_authority=none");
+  console.log("NEWSSTAND COMPLETE DAILY V2 COMPOSER CALIBRATION PASS assembled=1 mutations=8 observed_human_semantic_gate=1 overwrite_authority=none");
 } finally {
   fs.rmSync(TEMP, { recursive: true, force: true });
 }

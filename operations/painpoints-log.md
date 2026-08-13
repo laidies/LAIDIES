@@ -14816,3 +14816,15 @@ while remaining falsely unfinished in the launch record.
 - **Forward test:** the calibrated example validator passes the exact repaired registry and rejects a removed slot, changed output sequence, changed example checksum, public authority, false acceptance and underspecified inputs. The producer-proof calibration accepts a correctly bound Paige service proof and rejects a substituted story template. The lane validator still rejects false autonomy without a separately accepted positive exemplar.
 - **Possible Behind the Build angle:** Why approving a recipe does not mean approving the cake already on the table.
 - **Publication status:** INTERNAL AUTHORITY/STATE-MODEL REPAIR / NO POSITIVE EXEMPLAR / NO PUBLIC CHANGE.
+
+## BTB-472 — The semantic gate could demand human evidence but could not truthfully say it was missing
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand prose admission and complete-Daily review sequencing.
+- **Failure:** A role-distinct reviewer found the exact Grok Bot prose factually disciplined and clear, but the semantic validator required `OBSERVED_HUMAN` participant records for both PASS and HOLD. A truthful “the prose has no identified defect, but no real reader observation exists” receipt was structurally invalid. Separately, the complete-Daily composer accepted a lightweight model PASS and scheduled the real-reader gates only after Ali reviewed the newspaper.
+- **Root cause:** The schema conflated artifact judgment with evidence availability, and the package controller checked a verdict prefix rather than the full semantic-admission contract. Human comprehension was described as a gate but placed downstream of Ali, so it could not protect her review time.
+- **Prevention rule:** Independent PASS always requires checksum-bound observed-human explain-back and unseen transfer. HOLD/REJECT may omit those observations only when each affected outcome is explicitly HOLD/FAIL and names the evidence gap; simulation can never fill the field. A complete-Daily package consumes the full prose-quality validator and cannot reach Ali until every ranked story has passed those observations.
+- **Durable correction:** `check-prose-quality-admission.mjs` now represents missing evidence honestly without weakening PASS. `compose-newsstand-complete-daily-review.mjs` and its final checker invoke the semantic inspector for each exact story and remove the now-satisfied human gates from post-Ali remaining work. The Daily runbook and decision register put observed comprehension before whole-newspaper review.
+- **Forward test:** calibrated prose tests reject missing-human PASS and a false HOLD while accepting an explicit evidence-gap HOLD. Composer and package tests reject a story whose semantic admission reports missing human evidence. The exact Grok Bot review is HOLD with no fabricated observation.
+- **Possible Behind the Build angle:** Why a system that only accepts PASS or a fully evidenced failure can pressure an AI to invent proof.
+- **Publication status:** INTERNAL SEMANTIC-GATE AND SEQUENCING REPAIR / GROK BOT STORY HELD FOR REAL READER EVIDENCE / NO PUBLIC CHANGE.

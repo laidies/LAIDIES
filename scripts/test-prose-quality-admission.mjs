@@ -101,6 +101,22 @@ try {
   assert.match(inspect(fakeObservation).join("\n"), /file missing/);
   const simulationInAdmission = structuredClone(receipt); delete simulationInAdmission.outcomes.explainBack.observedReaderEvidence; simulationInAdmission.outcomes.explainBack.simulatedReaderProbe = { prompt: "Pretend", probeResponse: "I can explain it", expectedEvidence: "Mechanism" };
   assert.match(inspect(simulationInAdmission).join("\n"), /observedReaderEvidence/);
+  const missingObservedPass = structuredClone(receipt);
+  delete missingObservedPass.outcomes.explainBack.observedReaderEvidence;
+  delete missingObservedPass.outcomes.unseenTransfer.observedReaderEvidence;
+  assert.match(inspect(missingObservedPass).join("\n"), /observedReaderEvidence must declare OBSERVED_HUMAN/, "independent PASS must still fail without observed human evidence");
+  const truthfulObservationHold = structuredClone(receipt);
+  truthfulObservationHold.verdict = "HOLD";
+  truthfulObservationHold.learningDisposition = { disposition: "EVIDENCE_GAP", rationale: "Observed explain-back and transfer evidence has not yet been collected." };
+  for (const name of ["explainBack", "unseenTransfer"]) {
+    delete truthfulObservationHold.outcomes[name].observedReaderEvidence;
+    truthfulObservationHold.outcomes[name].verdict = "HOLD";
+    truthfulObservationHold.outcomes[name].evidenceGap = "No observation from an actual human reader is bound to this candidate yet.";
+  }
+  assert.deepEqual(inspect(truthfulObservationHold), [], "independent HOLD must be able to record missing observed human evidence truthfully");
+  const falseObservationHold = structuredClone(truthfulObservationHold);
+  falseObservationHold.outcomes.explainBack.verdict = "PASS";
+  assert.match(inspect(falseObservationHold).join("\n"), /missing observed human evidence must HOLD\/FAIL the outcome/, "HOLD cannot pass a human-bound outcome without human evidence");
   const producer = structuredClone(receipt);
   producer.stage = "PRODUCER_SELF_REVIEW";
   producer.reviewer = { id: "maker", principalId: "maker", role: "producer", modelFamily: "openai" };
@@ -149,7 +165,7 @@ try {
   const invalidCompactClass = structuredClone(receipt);
   invalidCompactClass.surfaceKind = "NEWSSTAND_COMPACT_SERVICE";
   assert.match(inspect(invalidCompactClass).join("\n"), /requires contentClass NEWS/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 compact_service=1 hold=1 rejected=22 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 compact_service=1 hold=2 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 observation_hold_truthful=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

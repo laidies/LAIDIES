@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "laidies-newsstand-producer-proof.v1",
+  "candidateId": "NEWSSTAND-DAILY-GROK-BOT-20260813-V1",
+  "publication": "THE_DAILY",
+  "storyMode": "REPORT_OR_ANNOUNCEMENT",
+  "status": "READY_FOR_FULL_DRAFT",
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "ec572786dadf4a99e4bc154ed6e125140dfdddecc045ed90e2059d3ab1b25ae9"
+  },
+  "storyTemplate": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATES-CANDIDATE.md",
+    "sha256": "5e95dbe8d1bc9e58f30c6f3dd47da5c885125f307bf53b3ae74a14745c2cc987",
+    "section": "The Daily — report, announcement or research finding",
+    "sectionSha256": "31fc61cdd29256bde1f950eb12a4ef240bf3e7197c20afccb270a95978cdf4e4",
+    "acceptanceRecord": {
+      "path": "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json",
+      "sha256": "941e6d7dbe287925d339598af37a87ab13eef0d72b173d9fa4966007fff9f00c"
+    }
+  },
+  "sourceMap": {
+    "path": "operations/product-stewards/newsstand/sources/grok-bot-daily-source-map-2026-08-13.md",
+    "sha256": "dc5b9de92c59de0a4882dbaf7e87bab5f43e1c1b9bb4a613f4cb91270c9b8c74"
+  },
+  "readerQuestion": "What changes when an AI tool can stay online, sign into my tools and keep working after I close my laptop?",
+  "readerPayoff": "The reader can picture what Grok Bot does, identify who can access the beta and set a bounded first-job access and approval plan.",
+  "headline": "Grok Bot can keep working after you close your laptop",
+  "opening": "On August 11, 2026, xAI launched Grok Bot as an early beta. Eligible subscribers can give Grok Bot a job on desktop or iOS so it can work inside signed-in apps and websites. Grok Bot keeps working on its cloud computer after the user's laptop closes, placing work in the connected tool. This matters to anyone considering connected AI access; it does not show that every job is safe or correct. Start with one low-consequence job and limit the accounts and actions it can reach.",
+  "dailyOpeningFacts": {
+    "sourceIdentity": {
+      "namedSource": "xAI",
+      "date": "August 11, 2026",
+      "status": "early beta",
+      "requiredSentence": "On August 11, 2026, xAI launched Grok Bot as an early beta."
+    },
+    "sharingPath": {
+      "actor": "Eligible subscribers",
+      "object": "Grok Bot a job",
+      "channels": "desktop or iOS",
+      "purpose": "work inside signed-in apps and websites",
+      "requiredSentence": "Eligible subscribers can give Grok Bot a job on desktop or iOS so it can work inside signed-in apps and websites."
+    },
+    "recoveryPath": {
+      "actor": "Grok Bot",
+      "action": "keeps working",
+      "target": "connected tool",
+      "result": "placing work",
+      "requiredSentence": "Grok Bot keeps working on its cloud computer after the user's laptop closes, placing work in the connected tool."
+    },
+    "audienceBoundary": {
+      "affected": "anyone considering connected AI access",
+      "notEstablished": "every job is safe or correct",
+      "readerAction": "Start with one low-consequence job and limit the accounts and actions it can reach",
+      "requiredSentence": "This matters to anyone considering connected AI access; it does not show that every job is safe or correct. Start with one low-consequence job and limit the accounts and actions it can reach."
+    }
+  },
+  "newcomerBackground": "Most AI chats wait for the next message. Grok Bot instead receives an online computer and the reader can sign it into other apps, so the job can continue while the reader is away.",
+  "causalOutline": [
+    "The reader chooses a job and signs the Bot into only the tools needed for it.",
+    "The Bot uses an online computer, so closing the reader's laptop does not stop the job.",
+    "The Bot acts inside connected tools and can place the result where the work belongs.",
+    "Because action happens before final review, the reader must limit access and reserve consequential steps for approval before starting."
+  ],
+  "evidenceBoundary": {
+    "establishes": "xAI launched an early beta for named paid-plan subscribers and says it can use a cloud computer, sign into apps and continue work while the user's laptop is closed.",
+    "doesNotEstablish": "The announcement does not independently prove reliability, universal availability, safe use for sensitive work or a Bot-specific credential, retention and training contract."
+  },
+  "numberPlan": [],
+  "mechanismBridge": {
+    "objectLocationSentence": "The Bot's computer runs online rather than on the reader's closed laptop.",
+    "attackDefinitionSentence": "Signing Grok Bot into a connected account gives the Bot a route to act inside the real service, not merely describe what a person could do there.",
+    "evidenceRecoverySentence": "The result must therefore be checked in the destination where the Bot acted, not only in the summary it sends back."
+  },
+  "actionOpening": "Give the beta one reversible, low-consequence job and list the minimum accounts and actions it needs before connecting anything.",
+  "incidentAction": "If the Bot sends, pays, publishes, changes or deletes something it should not, stop the job, remove its access and inspect the affected account rather than asking only for another summary.",
+  "evidenceParagraphBreaksAfter": [
+    "xAI says the early beta is currently available to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers on desktop and iOS; enterprise access is waitlisted."
+  ],
+  "plainGlosses": [],
+  "centralInstruction": {
+    "opening": "The important change is not a smarter chat; it is AI with continuing access to the place where work happens.",
+    "action": "Start with one reversible job, grant only the access it needs and keep sending, paying, publishing and deleting behind an approval step.",
+    "closing": "Before connecting it, ask: what could this account let the Bot change while I am not watching?",
+    "prohibitedRestatements": [
+      "treat it like an employee",
+      "never trust an agent",
+      "AI has escaped",
+      "check the receipts"
+    ]
+  },
+  "evidenceSequence": [
+    "xAI says the early beta is currently available to SuperGrok Heavy, Cursor Ultra and Cursor Teams Premium subscribers on desktop and iOS; enterprise access is waitlisted.",
+    "xAI says each Bot uses a computer in the cloud and can remain at work after the user's laptop closes.",
+    "xAI's terms say agentic actions can include browsing, code execution, communications, file changes and interactions with third-party services, and place responsibility for directed actions and consequences on the user.",
+    "The public documents checked by LAiDIES do not provide a Bot-specific account-by-account permission, credential-isolation, retention or training contract."
+  ],
+  "readerSources": [
+    {"label": "xAI, Introducing Grok Bot, August 11, 2026", "url": "https://x.ai/news/introducing-grok-bot"},
+    {"label": "xAI, Grok Bot product page", "url": "https://x.ai/bot"},
+    {"label": "xAI, Consumer Terms", "url": "https://x.ai/legal/terms-of-service"},
+    {"label": "xAI, Privacy Policy", "url": "https://x.ai/legal/privacy-policy"}
+  ],
+  "voicePlan": {
+    "move": "Call the Bot an overnight helper only to reveal that the keys matter before the shift begins.",
+    "teachingJob": "Make persistent access visible without treating marketing language such as teammate as a technical fact.",
+    "limit": "The Bot is software, not an employee, and the analogy says nothing about judgment, employment duties or legal responsibility.",
+    "readerFacingLimit": "Unlike a colleague, the Bot has no independent responsibility for deciding what access was sensible; xAI's terms leave the directed consequences with the user.",
+    "humanTruth": "Finishing a task while you sleep sounds convenient because it is convenient; the access decision simply moves before bedtime.",
+    "mechanismMappingSentence": "The overnight shift continues because the Bot's computer remains online and its signed-in accounts remain reachable.",
+    "warmthLines": [
+      {"sectionHeading": "What actually happened", "line": "The laptop can be tucked in for the night; the permission slip is still wide awake."},
+      {"sectionHeading": "What to do with this", "line": "Do not make its first unsupervised evening payroll, publishing and inbox zero all at once. That is not delegation; that is a season finale."}
+    ]
+  },
+  "sectionPlan": [
+    {"heading": "Before today", "readerJob": "Establish the ordinary chat baseline a newcomer already understands.", "jobType": "EVIDENCE"},
+    {"heading": "What actually happened", "readerJob": "Connect launch, cloud computer, signed-in tools, continuing actions and earlier control decisions.", "jobType": "MECHANISM"},
+    {"heading": "Where you might encounter this", "readerJob": "Transfer the same access mechanism to one workplace and one home situation.", "jobType": "EXAMPLES_ONLY"},
+    {"heading": "What to do with this", "readerJob": "Provide the minimum-access, approval and destination-check method.", "jobType": "ACTION"}
+  ],
+  "draftLimits": {
+    "phraseCaps": [{"phrase": "AI teammate", "maximum": 1}],
+    "prohibitedPhrases": ["game changer", "revolutionary", "set it and forget it", "easy AI agents", "the future of work is here"]
+  },
+  "terminologyPlan": {
+    "plainTerm": "online computer",
+    "stableObjectTerms": ["online computer", "Bot", "connected account", "approval step"],
+    "allowedMetaphorTerms": ["overnight shift", "permission slip"],
+    "prohibitedSynonyms": ["autonomous coworker", "digital employee", "rogue agent", "escaped AI"]
+  },
+  "applications": {
+    "work": {"disposition": "APPLY", "example": "A team may let a Bot draft support replies in the help desk but keep the Send button behind human approval until it has proved reliable on low-risk cases."},
+    "nonWork": {"disposition": "APPLY", "example": "A household Bot could compare travel options using a dedicated planning account; it should not receive authority to book a non-refundable trip on its first run."}
+  },
+  "usefulLanding": "Treat the first job as an access design: one reversible task, minimum accounts, consequential actions held for approval and a check in the real destination.",
+  "routingReason": "This is a dated product launch with a concrete access-and-action change suitable for a concise secondary Daily story; broader agent governance belongs in a later STRAiGHT TALK or Big Picture treatment.",
+  "intendedWords": 520,
+  "lengthEscalationReason": "",
+  "producerPreflight": {
+    "negativeExamplesRead": true,
+    "laneId": "daily_news",
+    "laneContractSha256": "c1062ff0271fbda5f00b5cd1f216a533c87a50e24acfc850f03b089fdedc6902",
+    "negativeExemplarIdsRead": ["CQX-BAD-001", "CQX-BAD-004", "CQX-BAD-005", "CQX-BAD-013", "CQX-BAD-014", "CQX-BAD-015", "CQX-BAD-016", "CQX-BAD-018"],
+    "repeatedDefects": [],
+    "actualFormatUsed": true
+  }
+}

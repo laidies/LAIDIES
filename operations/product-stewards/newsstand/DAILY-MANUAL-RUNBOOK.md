@@ -92,10 +92,12 @@ node scripts/check-newsstand-complete-daily-review.mjs \
 ```
 
 The composer refuses single-story v1 inputs, stale story/service/review bytes,
-an incomplete nine-view matrix and any existing output path. It carries no
+any story whose exact prose has not already passed checksum-bound unfamiliar-
+human explain-back and unseen-transfer observation inside its independent
+semantic admission, an incomplete nine-view matrix and any existing output path. It carries no
 canonical-write, deploy or public authority. Ali reviews only the exact passed
-v2 package; no folder, screenshot sample or component review substitutes for
-the whole newspaper.
+v2 package, after comprehension evidence—not before it. No folder, screenshot
+sample or component review substitutes for the whole newspaper.
 
 ## 5. Promote each admitted new story into the canonical dataset
 
@@ -104,8 +106,9 @@ The story candidate remains held until all of these exact records exist:
 - its checksum-bound story candidate and source/claim files;
 - a story evidence manifest binding the exact prose, producer contract,
   independent review, sources, claims, correction owner and next recheck;
-- Ali's approval of the exact rendered candidate;
-- one observed explain-back record from an unfamiliar human; and
+- one observed explain-back and unseen-transfer record from an unfamiliar human,
+  completed before the full newspaper package reaches Ali;
+- Ali's approval of the exact rendered candidate; and
 - an independent release decision binding all those bytes and the exact public
   story checksum.
 
