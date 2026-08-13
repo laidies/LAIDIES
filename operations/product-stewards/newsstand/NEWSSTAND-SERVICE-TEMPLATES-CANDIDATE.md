@@ -80,3 +80,68 @@ from reader data. Target: 60–140 words.
 **Selection rule:** the issue stores the exact card ID, deck version and dated
 selection method. A card may not be silently regenerated or swapped after the
 issue is admitted.
+
+## Song of the Day
+
+**Use when:** one exact track has a current lawful listening route and an earned
+connection to the day's paper or mood. Target: 35–100 words.
+
+| Section | Content | Analysis | Delivery | Must not do |
+|---|---|---|---|---|
+| On today's request line | Exact song title and artist | Verify the metadata, release identity and current availability | Prominent title and artist | Guess a version, remix, artist credit or release identity |
+| Why it belongs today | One specific connection to the paper, town moment or useful mood | Earn the selection through meaning rather than era alone | One lively sentence | Choose a track merely because it is from the Rewind Era or force a teaching metaphor |
+| Press play | One currently lawful listening destination | Check the exact route on the issue date | One clear action with provider boundary | Host unlicensed audio, reproduce lyrics or imply universal regional availability |
+| Availability note | Any material provider, region, account or version limit | Preserve the difference between an editorial pick and owned LAiDIES media | Compact adjacent note when needed | Hide sign-in, cost, region or removal uncertainty |
+
+## Did You Know?
+
+**Use when:** one currently verified fact helps a visitor understand or use
+LAiDIES better. This is site guidance, not general AI trivia. Target: 35–100
+words.
+
+| Section | Content | Analysis | Delivery | Must not do |
+|---|---|---|---|---|
+| The useful surprise | One exact current LAiDIES feature, route, behavior or boundary | Select something genuinely helpful or delightful that readers may miss | One plain, specific fact | Promote an unlaunched feature, inflate availability or publish generic AI trivia |
+| Why you might care | The visitor job it makes easier or more enjoyable | Connect the fact to a real action, decision or discovery | One short payoff sentence | Treat novelty alone as usefulness |
+| Try it here | One exact current destination or action | Verify the public route and its failure state on the issue date | Direct link with concrete label | Link to a placeholder, stale route or destination that does not perform the claim |
+
+## Town Notes
+
+**Use when:** a dated, real LAiDIES operational or community notice changes what
+a visitor can do, attend, find or expect. Target: 40–120 words.
+
+| Section | Content | Analysis | Delivery | Must not do |
+|---|---|---|---|---|
+| The notice | Exact dated change, event, opening, closure or availability state | Establish that the notice is current and visitor-relevant | Answer first with date and affected place | Turn internal work, local code or an idea into a public announcement |
+| Who it affects | Visitors, residents or a narrower named group | Bound the audience and avoid universal claims | One clear sentence | Leave readers guessing whether the notice applies to them |
+| What to do | Exact route, time, requirement or alternative | Give the smallest useful next action | Direct action with timezone or eligibility where material | Send readers to an unavailable destination or hide a material limitation |
+| Check-back point | End date or next verification trigger when the notice is temporary | Prevent an expired notice from looking current | Compact dated footer | Leave temporary information without expiry or correction ownership |
+
+## Today's Curiosity / Mutual-Support Move
+
+**Use when:** one small, optional action helps a reader explore, compare,
+practice or support another person without pretending to be a news story.
+Target: 50–140 words.
+
+| Section | Content | Analysis | Delivery | Must not do |
+|---|---|---|---|---|
+| Today's invitation | One specific low-friction question, comparison, observation or act of help | Choose an action with a real learning or community payoff | Warm optional opening | Issue a vague “be curious” challenge, guilt the reader or manufacture engagement |
+| How to try it | Exact steps, object or person involved | Keep the move safe, private and possible today | One or two concrete sentences | Require public posting, an account, private data or another person's participation without consent |
+| What to notice | The pattern, difference or human response worth observing | Turn the activity into a useful reflection rather than busywork | One focused question | Predetermine the “right” discovery or turn anecdote into evidence |
+| Share or continue | Optional current LAiDIES route only when a real intake/continuation exists | Preserve consent and honest product state | Optional single action | Pretend a feedback/community mechanism exists or block completion behind sharing |
+
+## SUNNYVAiLE Desk
+
+**Use when:** one brief fictional town item adds delight or continuity to the
+NewsStand without masquerading as sourced reporting. Target: 50–160 words.
+
+| Section | Content | Analysis | Delivery | Must not do |
+|---|---|---|---|---|
+| Fiction label | Exact visible `SUNNYVAiLE FICTION` disclosure | Separate world-building from all sourced news at first glance | Place before the headline and body | Hide the disclosure in metadata, a footer or an ambiguous town voice |
+| The town item | One canon-consistent event, exchange or observation | Serve a named humour, character or continuity job | Brief newspaper-style item in the established LAiDIES voice | Invent a real-world claim, product availability, user activity or public event |
+| The real boundary | Any real LAiDIES destination or status mentioned by the fiction | Verify that the joke cannot create a false functional promise | Plain adjacent clarification when needed | Let fictional copy imply that a route, reward, character interaction or community feature is live |
+| Optional continuation | Exact current entertainment or town destination when one genuinely extends the item | Preserve the distinction between story world and site function | One optional link | Send readers to an unfinished route or attach a factual source list to make fiction look reported |
+
+**Separation rule:** fictional town material never occupies The Breaking, a
+news-story slot, The Week's Biggest Story or a sourced update. Search and archive
+results retain the visible fiction label.
