@@ -30,6 +30,7 @@ function validateWorkflowText(text) {
   if (!deployJob.includes('PROJECT_NAME: laidies-sunnyvaile-preview') || deployJob.includes('PROJECT_NAME: laidies-sunnyvaile\n')) errors.push('preview is not isolated from the production Pages project');
   if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
   if (!deployJob.includes('new-id+branch+exact-byte-verification') || !deployJob.includes('conflicting provider commit metadata')) errors.push('direct-upload deployment identity fallback is not fail-closed');
+  if (!deployJob.includes('for attempt in $(seq 1 10)') || !deployJob.includes('if(matches.length===0) process.exit(2);')) errors.push('eventual-consistency deployment polling is not bounded and fail-closed');
   if (!text.includes('environment: production')) errors.push('existing protected Cloudflare credential environment is missing');
   if (!text.includes('CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}')) errors.push('separately scoped Access API secret is missing');
   if ((deployJob.match(/CLOUDFLARE_ACCESS_API_TOKEN: \$\{\{ secrets\.CLOUDFLARE_ACCESS_API_TOKEN \}\}/g) || []).length !== 3) errors.push('Access validation, creation and revocation must each receive the scoped token');
@@ -127,6 +128,8 @@ const workflowRejects = [
   workflow.replace('playwright-core@1.62.1', 'playwright-core@latest'),
   workflow.replace('new-id+branch+exact-byte-verification', 'unverified-direct-upload'),
   workflow.replace('conflicting provider commit metadata', 'ignored provider commit metadata'),
+  workflow.replace('for attempt in $(seq 1 10)', 'for attempt in 1'),
+  workflow.replace('if(matches.length===0) process.exit(2);', 'if(matches.length===0) process.exit(0);'),
   workflow.replaceAll('CLOUDFLARE_ACCESS_API_TOKEN', 'CLOUDFLARE_API_TOKEN'),
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(validateWorkflowText(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);

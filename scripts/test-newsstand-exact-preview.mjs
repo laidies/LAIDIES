@@ -82,6 +82,8 @@ function inspectWorkflow(text) {
   requireText("unauthenticated_status", "unauthenticated Access challenge is not checked");
   requireText("new-id+branch+exact-byte-verification", "direct-upload identity fallback is missing");
   requireText("conflicting provider commit metadata", "conflicting provider commit metadata is not rejected");
+  requireText("for attempt in $(seq 1 10)", "eventual-consistency deployment polling is missing");
+  requireText("if(matches.length===0) process.exit(2);", "only a not-yet-visible deployment may be retried");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
   if (!deployJob) errors.push("deploy job is missing");
   if (deployJob.includes("actions/checkout")) errors.push("credentialed deploy job executes candidate repository code");
@@ -112,6 +114,8 @@ const workflowRejects = [
   workflow.replace("CF-Access-Client-Id", "X-Removed-Access-Client-Id"),
   workflow.replace("new-id+branch+exact-byte-verification", "unverified-direct-upload"),
   workflow.replace("conflicting provider commit metadata", "ignored provider commit metadata"),
+  workflow.replace("for attempt in $(seq 1 10)", "for attempt in 1"),
+  workflow.replace("if(matches.length===0) process.exit(2);", "if(matches.length===0) process.exit(0);"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(inspectWorkflow(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
