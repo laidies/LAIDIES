@@ -545,15 +545,18 @@
         ready ? desk.value.destination : "", options);
     }
     var primaryDesks = desks.slice(0, 4);
-    var sideDesks = primaryDesks.slice(0, 3);
+    var sideDesks = primaryDesks.slice(0, 4);
     var readySideDesks = sideDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
-    var spotlightDesks = primaryDesks.slice(3, 4).filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
+    var spotlightDesks = [];
     var secondaryDesks = desks.slice(4);
     var readySideCount = readySideDesks.length;
     var readySecondaryDesks = secondaryDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
     var sideMarkup = readySideCount ? [
       '<aside class="ns-daily-service-rail" aria-label="Today’s practical and playful desks">',
-        '<p class="ns-daily-section-flag">Today&rsquo;s side column</p>',
+        '<div class="ns-daily-service-rail__head">',
+          '<p class="ns-daily-section-flag">Today&rsquo;s desks</p>',
+          '<p><span class="ns-daily-service-rail__desktop-note">Four small things worth opening.</span><span class="ns-daily-service-rail__mobile-note">Swipe for all four &rarr;</span></p>',
+        '</div>',
         '<div class="ns-daily-service-grid ns-daily-service-grid--primary">', readySideDesks.map(deskMarkup).join(""), '</div>',
       '</aside>'
     ].join("") : '';

@@ -87,7 +87,7 @@ export function composeCompleteDailyReviewPackage(inputs) {
       !visualReviewFile.raw.includes("does not admit the story as a positive exemplar, canonical content, deployment or public release")) {
     fail("visual review does not admit only the private direction");
   }
-  if (screenshots.length !== 6 || new Set(screenshots.map(item => item.path)).size !== 6) fail("six distinct Daily review screenshots are required");
+  if (screenshots.length !== 9 || new Set(screenshots.map(item => item.path)).size !== 9) fail("nine distinct complete-page, Daily and article review screenshots are required");
   for (const screenshot of screenshots) {
     const basename = path.basename(screenshot.path);
     if (!visualReviewFile.raw.includes(`\`${basename}\` — SHA-256 \`${screenshot.sha256}\``)) {
@@ -159,6 +159,9 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     semanticReview: valueAfter("--semantic-review"), visualReview: valueAfter("--visual-review"),
     services: [valueAfter("--paige"), valueAfter("--career"), valueAfter("--promptoscope"), valueAfter("--mme")],
     screenshots: [
+      { mode: "COMPLETE_PAGE", viewport: 1440, path: valueAfter("--page-1440") },
+      { mode: "COMPLETE_PAGE", viewport: 390, path: valueAfter("--page-390") },
+      { mode: "COMPLETE_PAGE", viewport: 320, path: valueAfter("--page-320") },
       { mode: "DAILY_FRONT", viewport: 1440, path: valueAfter("--front-1440") },
       { mode: "DAILY_FRONT", viewport: 390, path: valueAfter("--front-390") },
       { mode: "DAILY_FRONT", viewport: 320, path: valueAfter("--front-320") },

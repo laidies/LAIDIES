@@ -89,15 +89,19 @@ export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}
     inspectBinding(pkg?.evidence?.[key], root, `evidence.${key}`, errors);
   }
   const screenshots = pkg?.evidence?.screenshots;
-  if (!Array.isArray(screenshots) || screenshots.length !== 6) errors.push("exactly six screenshots are required");
+  if (!Array.isArray(screenshots) || screenshots.length !== 9) errors.push("exactly nine complete-page, Daily and article screenshots are required");
   else {
-    const expected = new Set(["DAILY_FRONT:1440", "DAILY_FRONT:390", "DAILY_FRONT:320", "FULL_ARTICLE:1440", "FULL_ARTICLE:390", "FULL_ARTICLE:320"]);
+    const expected = new Set([
+      "COMPLETE_PAGE:1440", "COMPLETE_PAGE:390", "COMPLETE_PAGE:320",
+      "DAILY_FRONT:1440", "DAILY_FRONT:390", "DAILY_FRONT:320",
+      "FULL_ARTICLE:1440", "FULL_ARTICLE:390", "FULL_ARTICLE:320"
+    ]);
     const actual = new Set();
     for (const [index, screenshot] of screenshots.entries()) {
       inspectBinding(screenshot, root, `evidence.screenshots[${index}]`, errors);
       actual.add(`${screenshot.mode}:${screenshot.viewport}`);
     }
-    if (actual.size !== 6 || [...expected].some(key => !actual.has(key))) errors.push("screenshot mode/viewport matrix is incomplete");
+    if (actual.size !== 9 || [...expected].some(key => !actual.has(key))) errors.push("complete-page/Daily/article screenshot mode/viewport matrix is incomplete");
   }
 
   if (!Array.isArray(pkg?.desks) || pkg.desks.length !== 9) errors.push("Daily must contain all nine governed service desks");
@@ -120,7 +124,7 @@ function main() {
     result.errors.forEach(error => console.error(`- ${error}`));
     process.exit(1);
   }
-  console.log(`NEWSSTAND COMPLETE DAILY REVIEW READY package=${path.relative(ROOT, path.resolve(file))} screenshots=6 ready_desks=4 release_authority=none`);
+  console.log(`NEWSSTAND COMPLETE DAILY REVIEW READY package=${path.relative(ROOT, path.resolve(file))} screenshots=9 ready_desks=4 release_authority=none`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) main();
