@@ -1156,12 +1156,12 @@ objective; every open lane keeps its own checkpoint.
 
 ### 2026-08-13 NewsStand primary service-template checkpoint
 
-- **Current state:** `NINE EXACT SERVICE TEMPLATES CANDIDATE-ONLY / ALI REVIEW REQUIRED / NO AUTONOMOUS LANE`.
-- **Exact candidate:** `operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATES-CANDIDATE.md` defines section-by-section Content, Analysis, Delivery and Must-not-do jobs for all nine governed desks: Paige's Practical AI Tip, Career / Work-Life, Promptoscope, Mme CLAi-O's Reading of the Day, Song of the Day, Did You Know, Town Notes, Today's Curiosity / Mutual-Support Move and the visibly fictional SUNNYVAiLE Desk. Each section is checksum-bound in the feature-lane registry.
+- **Current state:** `NINE EXACT SERVICE TEMPLATES ACCEPTED / FIVE REGISTERED EXAMPLES REJECTED CALIBRATION-ONLY / NO AUTONOMOUS LANE`.
+- **Exact accepted templates:** `operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATES-CANDIDATE.md` defines section-by-section Content, Analysis, Delivery and Must-not-do jobs for all nine governed desks: Paige's Practical AI Tip, Career / Work-Life, Promptoscope, Mme CLAi-O's Reading of the Day, Song of the Day, Did You Know, Town Notes, Today's Curiosity / Mutual-Support Move and the visibly fictional SUNNYVAiLE Desk. Ali's statement that the templates seemed good except Weekly is bound in `NEWSSTAND-SERVICE-TEMPLATE-REVIEW-2026-08-13.json`; it does not accept any example.
 - **Distinctness:** Paige starts with a work moment and one bounded AI action; Career / Work-Life remains useful non-AI guidance before a proved AI connection and limit; Promptoscope uses a funny normally non-work situation and explains the real mechanism; Mme CLAi-O preserves an exact deterministic governed card and adjacent non-predictive boundary. Topic rotation prevents Paige from paraphrasing a recently used lesson to fill a date.
-- **Gate truth:** `check-newsstand-feature-lanes.mjs` passes with 16 lanes and `autonomous_ready=none`. Its calibrated suite passes after adding the new exact template authority to the isolated good fixture; missing authority, vague templates, missing acceptance and false-autonomous states still fail.
-- **Next trigger:** Ali reviews the nine candidate templates. Only an accepted exact section may commission one new private complete positive example; all v26 service examples remain rejected.
-- **Authority:** template candidate and validation-fixture repair only. No example, dated service selection, issue, public page, deployment or publication changed.
+- **Gate truth:** `check-newsstand-feature-lanes.mjs` passes with 16 lanes and `autonomous_ready=none`. `check-newsstand-feature-template-candidates.mjs` now derives 18 slots from the current lane registry and reports `present=5/18 candidates=0 rejected=5 accepted=0`. Rejected historical proofs are checksum-bound calibration and are never revalidated into eligibility against a later contract.
+- **Next trigger:** produce one new private full example from an accepted exact template, current sources and every applicable registered negative; it must pass producer self-review and independent review before Ali sees it. Weekly and Term of the Week remain the only template decisions still pending.
+- **Authority:** accepted-template and rejected-example state repair only. No example was accepted, no dated service selection or issue was admitted, and no public page, deployment or publication changed.
 
 ### 2026-08-13 NewsStand end-to-end machinery and service-promotion checkpoint
 

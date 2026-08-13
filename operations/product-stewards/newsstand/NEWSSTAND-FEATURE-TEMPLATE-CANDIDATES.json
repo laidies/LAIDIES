@@ -1,14 +1,14 @@
 {
   "schemaVersion": "laidies-newsstand-feature-template-candidates.v1",
-  "status": "FOUR_REJECTED_ONE_UNREVIEWED_CANDIDATE_ZERO_ACCEPTED",
+  "status": "PARTIAL_5_OF_18_EXAMPLES_5_REJECTED_0_CANDIDATE_0_ACCEPTED",
   "defaultDeny": true,
   "featureLaneRegistry": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
-    "sha256": "2afac64fc31b13665c24598020f94e976432da37ef94e4fd2acd37ad2c6c8116"
+    "sha256": "90173a0cc7f4ad6916de81ffad2bc031650d63e98d28959878b27810063c4ca7"
   },
   "productionStandard": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
-    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+    "sha256": "ec572786dadf4a99e4bc154ed6e125140dfdddecc045ed90e2059d3ab1b25ae9"
   },
   "policy": {
     "fullPublishShapedExampleRequired": true,
@@ -16,14 +16,15 @@
     "templateCannotAuthorizeAutonomousDraftingBeforeAliAcceptance": true,
     "templateCannotAuthorizePublication": true,
     "acceptedExampleMustRemainChecksumBound": true,
-    "dailyStoryModesRemainSeparate": true
+    "dailyStoryModesRemainSeparate": true,
+    "rejectedExamplesRemainCalibrationOnly": true
   },
   "templates": [
     {
       "templateId": "daily_news.REPORT_OR_ANNOUNCEMENT.v1",
       "laneId": "daily_news",
       "storyMode": "REPORT_OR_ANNOUNCEMENT",
-      "status": "REJECTED_BY_ALI_2026-08-13_DO_NOT_USE_AS_POSITIVE_EXEMPLAR",
+      "status": "REJECTED_CALIBRATION_ONLY",
       "readerJob": "Explain what changed, what it actually means and what the reader should know or do today.",
       "useWhen": [
         "One current event or release has a clear dated change worth explaining today.",
@@ -95,6 +96,7 @@
       "sha256": "80a88b6ce6ed74061d8e2095604c0058fdb23d8671148dab3680b311bce55d01"
       },
       "acceptanceRecord": null,
+      "rejectionRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md", "sha256": "e542d8d7bfa7b7e97b8ad7a8d462dda0a7859fc5ec8b9aa9172a87c00910f1fc" },
       "publishesIn": "The complete dated Daily newspaper",
       "cadence": "DAILY_IF_EARNED_WITH_GOVERNED_QUIET_STATE",
       "autonomousDraftingAuthority": false,
@@ -104,7 +106,7 @@
       "templateId": "paige_tip.DEFAULT.v1",
       "laneId": "paige_tip",
       "storyMode": "DEFAULT",
-      "status": "REJECTED_BY_ALI_2026-08-13_DO_NOT_USE_AS_POSITIVE_EXEMPLAR",
+      "status": "REJECTED_CALIBRATION_ONLY",
       "readerJob": "Give one useful work-facing AI action the reader can try today.",
       "useWhen": [
         "A verified source or admitted LAiDIES concept supports one bounded workplace action.",
@@ -161,6 +163,7 @@
         "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
+      "rejectionRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md", "sha256": "e542d8d7bfa7b7e97b8ad7a8d462dda0a7859fc5ec8b9aa9172a87c00910f1fc" },
       "publishesIn": "Daily service desk",
       "cadence": "DAILY_IF_FRESH_AND_ADMITTED",
       "autonomousDraftingAuthority": false,
@@ -170,7 +173,7 @@
       "templateId": "career_work_life.DEFAULT.v1",
       "laneId": "career_work_life",
       "storyMode": "DEFAULT",
-      "status": "REJECTED_BY_ALI_2026-08-13_DO_NOT_USE_AS_POSITIVE_EXEMPLAR",
+      "status": "REJECTED_CALIBRATION_ONLY",
       "readerJob": "Offer useful career or life guidance that stands on its own, then use a faithful AI parallel to illuminate both.",
       "useWhen": [
         "A credible career or life source offers practical guidance relevant to LAiDIES readers.",
@@ -229,6 +232,7 @@
         "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
+      "rejectionRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md", "sha256": "e542d8d7bfa7b7e97b8ad7a8d462dda0a7859fc5ec8b9aa9172a87c00910f1fc" },
       "publishesIn": "Daily or Weekly service desk according to depth",
       "cadence": "WHEN_A_GENUINE_TIP_AND_FAITHFUL_AI_CONNECTION_ARE_READY",
       "autonomousDraftingAuthority": false,
@@ -238,7 +242,7 @@
       "templateId": "promptoscope.DEFAULT.v1",
       "laneId": "promptoscope",
       "storyMode": "DEFAULT",
-      "status": "REJECTED_BY_ALI_2026-08-13_DO_NOT_USE_AS_POSITIVE_EXEMPLAR",
+      "status": "REJECTED_CALIBRATION_ONLY",
       "readerJob": "Use a funny horoscope frame to make one recognizable, normally non-work AI-use pattern memorable.",
       "useWhen": [
         "A common home or personal AI situation has one useful context, prompting or checking lesson.",
@@ -295,6 +299,7 @@
         "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
+      "rejectionRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md", "sha256": "e542d8d7bfa7b7e97b8ad7a8d462dda0a7859fc5ec8b9aa9172a87c00910f1fc" },
       "publishesIn": "Daily service desk",
       "cadence": "DAILY_IF_FRESH_AND_ADMITTED",
       "autonomousDraftingAuthority": false,
@@ -304,7 +309,7 @@
       "templateId": "mme_claio.DEFAULT.v1",
       "laneId": "mme_claio",
       "storyMode": "DEFAULT",
-      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
+      "status": "REJECTED_CALIBRATION_ONLY",
       "readerJob": "Offer one playful fixed reading and bounded reflective move without pretending to predict or personalize the reader's future.",
       "useWhen": [
         "An exact card from Mme CLAi-O's governed deck is selected for the dated Daily.",
@@ -357,6 +362,7 @@
         "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
       },
       "acceptanceRecord": null,
+      "rejectionRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md", "sha256": "e542d8d7bfa7b7e97b8ad7a8d462dda0a7859fc5ec8b9aa9172a87c00910f1fc" },
       "publishesIn": "Daily service desk",
       "cadence": "DAILY_IF_A_FIXED_DECK_SELECTION_IS_ADMITTED",
       "autonomousDraftingAuthority": false,
@@ -371,6 +377,7 @@
     "the_big_picture.DEFAULT",
     "straight_talk.DEFAULT",
     "dear_miss_jeeves.DEFAULT",
+    "term_of_the_week.DEFAULT",
     "song_of_the_day.DEFAULT",
     "did_you_know.DEFAULT",
     "town_note.DEFAULT",
@@ -378,12 +385,6 @@
     "fiction.DEFAULT"
   ],
   "acceptedTemplateSlots": [],
-  "currentDailyLaunchCandidateSlots": [
-    "daily_news.REPORT_OR_ANNOUNCEMENT",
-    "paige_tip.DEFAULT",
-    "career_work_life.DEFAULT",
-    "promptoscope.DEFAULT",
-    "mme_claio.DEFAULT"
-  ],
+  "currentDailyLaunchCandidateSlots": [],
   "authority": "Private template and example candidates only. No autonomous drafting, canonical story or issue write, deployment or public authority."
 }

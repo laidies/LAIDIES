@@ -63,6 +63,10 @@ fs.copyFileSync(
   path.join(root, "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json"),
   path.join(fixtureRoot, "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE-REVIEW-2026-08-13.json")
 );
+fs.copyFileSync(
+  path.join(root, "operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATE-REVIEW-2026-08-13.json"),
+  path.join(fixtureRoot, "operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATE-REVIEW-2026-08-13.json")
+);
 const producerSelfReview = writeFixture("fixtures/producer-self-review.md", "producer read exact prose and found no known defects\n");
 const independentReview = writeFixture("fixtures/independent-review.md", "independent artifact-first review pass\n");
 const sourceFreshnessEvidence = writeFixture("fixtures/source-freshness.md", "source and freshness evidence\n");

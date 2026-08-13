@@ -53,13 +53,13 @@ export function inspectNewsstandTemplateCandidates(registry, { root = ROOT } = {
   const require = (condition, message) => { if (!condition) errors.push(message); };
   require(registry?.schemaVersion === "laidies-newsstand-feature-template-candidates.v1", "schemaVersion mismatch");
   require(registry?.defaultDeny === true, "templates must default deny");
-  for (const field of ["fullPublishShapedExampleRequired", "templateMayGuideManualPrivateProductionBeforeAcceptance", "templateCannotAuthorizeAutonomousDraftingBeforeAliAcceptance", "templateCannotAuthorizePublication", "acceptedExampleMustRemainChecksumBound", "dailyStoryModesRemainSeparate"]) {
+  for (const field of ["fullPublishShapedExampleRequired", "templateMayGuideManualPrivateProductionBeforeAcceptance", "templateCannotAuthorizeAutonomousDraftingBeforeAliAcceptance", "templateCannotAuthorizePublication", "acceptedExampleMustRemainChecksumBound", "dailyStoryModesRemainSeparate", "rejectedExamplesRemainCalibrationOnly"]) {
     require(registry?.policy?.[field] === true, `policy.${field} must be true`);
   }
 
   const lanesPath = bind(root, registry?.featureLaneRegistry, "featureLaneRegistry", errors);
   bind(root, registry?.productionStandard, "productionStandard", errors);
-  if (!lanesPath) return { errors, totalSlots: 0, candidateSlots: [], acceptedSlots: [] };
+  if (!lanesPath) return { errors, totalSlots: 0, presentSlots: [], candidateSlots: [], rejectedSlots: [], acceptedSlots: [] };
   const lanes = JSON.parse(fs.readFileSync(lanesPath, "utf8"));
   const laneMap = new Map((lanes.lanes || []).map(lane => [lane.id, lane]));
   const allSlots = [];
@@ -67,12 +67,14 @@ export function inspectNewsstandTemplateCandidates(registry, { root = ROOT } = {
     if (lane.id === "daily_news") for (const mode of lane.storyModes || []) allSlots.push(`${lane.id}.${mode}`);
     else allSlots.push(`${lane.id}.DEFAULT`);
   }
-  require(allSlots.length === 17, `expected 17 feature template slots, found ${allSlots.length}`);
+  require(allSlots.length === 18, `expected 18 feature example slots, found ${allSlots.length}`);
 
   const templates = Array.isArray(registry?.templates) ? registry.templates : [];
   require(Array.isArray(registry?.templates), "templates must be an array");
   const seen = new Set();
   const accepted = [];
+  const candidates = [];
+  const rejected = [];
   for (const template of templates) {
     const slot = `${template?.laneId}.${template?.storyMode}`;
     require(text(template?.templateId), `${slot}.templateId is required`);
@@ -88,13 +90,23 @@ export function inspectNewsstandTemplateCandidates(registry, { root = ROOT } = {
     require(template.cadence === lane.cadence, `${slot}.cadence must match the feature lane`);
     require(JSON.stringify(template.outputSequence) === JSON.stringify(lane.templateBeats), `${slot}.outputSequence must match the feature lane beats`);
     require(JSON.stringify(template.wordRange) === JSON.stringify(lane.targetWords), `${slot}.wordRange must match the feature lane`);
-    require(JSON.stringify(exactSet(template.negativeExemplarIds || [])) === JSON.stringify(exactSet(lane.negativeExemplarIds || [])), `${slot}.negativeExemplarIds must match the feature lane`);
+    const isRejected = template.status === "REJECTED_CALIBRATION_ONLY";
+    if (!isRejected) require(JSON.stringify(exactSet(template.negativeExemplarIds || [])) === JSON.stringify(exactSet(lane.negativeExemplarIds || [])), `${slot}.negativeExemplarIds must match the feature lane`);
+    else require(Array.isArray(template.negativeExemplarIds), `${slot}.negativeExemplarIds must preserve its historical calibration set`);
     for (const field of ["useWhen", "doNotUseWhen", "requiredInputs", "sourceAndFreshnessRules", "producerSelfCheck"]) {
       require(Array.isArray(template?.[field]) && template[field].length >= 2 && template[field].every(text), `${slot}.${field} requires at least two usable entries`);
     }
     const examplePath = bind(root, template.candidateExample, `${slot}.candidateExample`, errors);
     const proofPath = bind(root, template.producerProof, `${slot}.producerProof`, errors);
     bind(root, template.independentReview, `${slot}.independentReview`, errors);
+    if (isRejected) {
+      rejected.push(slot);
+      bind(root, template.rejectionRecord, `${slot}.rejectionRecord`, errors);
+      require(template.acceptanceRecord === null, `${slot} rejected example cannot carry an acceptance record`);
+      require(template.autonomousDraftingAuthority === false, `${slot} rejected example cannot authorize drafting`);
+      require(template.publicAuthority === false, `${slot} rejected example cannot carry public authority`);
+      continue;
+    }
     if (examplePath) {
       let exampleText = fs.readFileSync(examplePath, "utf8");
       if (examplePath.endsWith(".json")) {
@@ -119,6 +131,7 @@ export function inspectNewsstandTemplateCandidates(registry, { root = ROOT } = {
       require(template.autonomousDraftingAuthority === true, `${slot} accepted template must enable autonomous drafting authority`);
       acceptedRecord(root, template, errors);
     } else {
+      candidates.push(slot);
       require(template.status === "CANDIDATE_PENDING_ALI_ACCEPTANCE", `${slot}.status is invalid`);
       require(template.autonomousDraftingAuthority === false, `${slot} candidate cannot authorize autonomous drafting`);
       require(template.acceptanceRecord === null, `${slot} candidate must not carry an acceptance record`);
@@ -131,11 +144,11 @@ export function inspectNewsstandTemplateCandidates(registry, { root = ROOT } = {
   require(!present.some(slot => missing.includes(slot)), "present and missing template slots overlap");
   require(JSON.stringify(exactSet(registry?.acceptedTemplateSlots || [])) === JSON.stringify(exactSet(accepted)), "acceptedTemplateSlots does not match accepted templates");
   const launch = exactSet(registry?.currentDailyLaunchCandidateSlots || []);
-  require(launch.length === 5 && launch.every(slot => present.includes(slot)), "current Daily launch set must bind five present template candidates");
-  const expectedStatus = `PARTIAL_${present.length}_OF_${allSlots.length}_CANDIDATE_TEMPLATES_${accepted.length === 0 ? "ZERO" : accepted.length}_ACCEPTED`;
+  require(JSON.stringify(launch) === JSON.stringify(exactSet(candidates)), "current Daily launch set must contain exactly the live candidate examples and no rejected example");
+  const expectedStatus = `PARTIAL_${present.length}_OF_${allSlots.length}_EXAMPLES_${rejected.length}_REJECTED_${candidates.length}_CANDIDATE_${accepted.length}_ACCEPTED`;
   require(registry?.status === expectedStatus, `status must be ${expectedStatus}`);
   require(registry?.authority === "Private template and example candidates only. No autonomous drafting, canonical story or issue write, deployment or public authority.", "authority boundary mismatch");
-  return { errors, totalSlots: allSlots.length, candidateSlots: present, acceptedSlots: accepted };
+  return { errors, totalSlots: allSlots.length, presentSlots: present, candidateSlots: candidates, rejectedSlots: rejected, acceptedSlots: accepted };
 }
 
 function main() {
@@ -149,7 +162,7 @@ function main() {
     for (const error of result.errors) console.error(`- ${error}`);
     process.exit(1);
   }
-  console.log(`NEWSSTAND FEATURE TEMPLATES PASS candidates=${result.candidateSlots.length}/${result.totalSlots} accepted=${result.acceptedSlots.length}`);
+  console.log(`NEWSSTAND FEATURE EXAMPLES PASS present=${result.presentSlots.length}/${result.totalSlots} candidates=${result.candidateSlots.length} rejected=${result.rejectedSlots.length} accepted=${result.acceptedSlots.length}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

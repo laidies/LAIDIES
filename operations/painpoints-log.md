@@ -14804,3 +14804,15 @@ while remaining falsely unfinished in the launch record.
 - **Forward test:** install the exact successor intake bytes on reduced `main`, run one scheduled-equivalent cycle from the existing cloud state and prove it emits exact dated OpenAI/AP items or a truthful quiet result, consumes issue `#78` dispositions and never re-creates a generic page-change signal. A release preflight must also show sufficient disk before and after cleanup.
 - **Possible Behind the Build angle:** Why “this webpage changed” is not news—and how invisible temporary copies can stop a publishing system.
 - **Publication status:** INTERNAL INTAKE AND EXECUTION-CAPACITY REPAIR / MAIN INSTALLATION AND CLOUD FORWARD TEST OPEN / NO PUBLIC CHANGE.
+
+## BTB-471 — The registry could not distinguish an approved template from a rejected example
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand service-template authority, positive examples and producer preflight.
+- **Failure:** Ali accepted the presented templates except Weekly, but the durable lane registry still called all nine service templates candidates. Separately, the example registry labelled four examples rejected and one live candidate while its validator expected 17 slots, the actual lane model had 18, and it attempted to revalidate rejected historical producer proofs against newer contracts. The result was a red production preflight that obscured the real state: approved templates, zero accepted examples.
+- **Root cause:** template acceptance and example acceptance shared one loosely named candidate system, and the validator had a hard-coded slot count plus only candidate/accepted states. It could not represent rejection as a terminal calibration state, so later contract improvements made historical rejects look like broken current work.
+- **Prevention rule:** bind every accepted template section independently from its example. Derive example slots from the current lane registry. Model `REJECTED_CALIBRATION_ONLY`, `CANDIDATE_PENDING_ALI_ACCEPTANCE` and accepted states separately; a rejected example requires an exact rejection record, stays outside launch sets and is never revalidated into eligibility by a later contract.
+- **Durable correction:** `NEWSSTAND-SERVICE-TEMPLATE-REVIEW-2026-08-13.json` binds Ali's exact statement and accepts all nine non-Weekly service templates only. `NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md` closes all five registered examples as calibration-only. The lane registry binds each accepted template; the example registry now reports 18 total slots, five rejected, zero candidates and zero accepted.
+- **Forward test:** the calibrated example validator passes the exact repaired registry and rejects a removed slot, changed output sequence, changed example checksum, public authority, false acceptance and underspecified inputs. The lane validator still rejects false autonomy without a separately accepted positive exemplar.
+- **Possible Behind the Build angle:** Why approving a recipe does not mean approving the cake already on the table.
+- **Publication status:** INTERNAL AUTHORITY/STATE-MODEL REPAIR / NO POSITIVE EXEMPLAR / NO PUBLIC CHANGE.
