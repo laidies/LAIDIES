@@ -7,7 +7,16 @@ import path from "node:path";
 import { validateNewsstandExactPreview } from "./check-newsstand-exact-preview.mjs";
 
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
-const paths = ["newsstand.html", "content/newsstand-stories.js", "content/newsstand-daily-issues.json", "content/daily-edition-columns.json", "newsstand-private-preview-receipt.json"];
+const criticalPaths = [
+  "newsstand.html",
+  "content/newsstand-stories.js",
+  "content/newsstand-daily-issues.json",
+  "content/daily-edition-columns.json",
+  "assets/fonts/newsstand/anton-latin.woff2",
+  "assets/fonts/newsstand/jost-normal-latin.woff2",
+  "assets/fonts/newsstand/jost-italic-latin.woff2"
+];
+const paths = [...criticalPaths, "newsstand-private-preview-receipt.json"];
 const records = paths.map((recordPath, index) => ({ path: recordPath, bytes: index + 10, sha256: sha256(recordPath) }));
 const identity = sha256(records.map(record => `${record.sha256}  ${record.path}\n`).join(""));
 const manifest = { schema: "laidies-release-artifact-manifest/v1", identitySha256: identity, files: records };
@@ -29,7 +38,7 @@ const receipt = {
   status: "PREPARED_NO_DEPLOY",
   source_commit: "a".repeat(40),
   project: "laidies-sunnyvaile-preview",
-  package: { path: "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json", sha256: "512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe" },
+  package: { path: "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v5.json", sha256: "19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532" },
   candidate: { path: "newsstand.html", artifact_sha256: sha256("newsstand.html") },
   private_preview_receipt: { path: "newsstand-private-preview-receipt.json", sha256: sha256("newsstand-private-preview-receipt.json") },
   artifact_manifest: { path: "artifact-manifest.json", identity_sha256: identity },
@@ -58,13 +67,28 @@ const deployed = {
     access_protected: true,
     unauthenticated_status: 302,
     result: "PASS",
-    critical_paths: paths.slice(0, 4).map(recordPath => ({ path: recordPath, http_status: 200, sha256: sha256(recordPath) }))
+    critical_paths: criticalPaths.map(recordPath => ({ path: recordPath, http_status: 200, sha256: sha256(recordPath) }))
   },
   visual_capture: {
     status: "CAPTURED_NOT_REVIEWED",
     review_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/newsstand?daily=2026-08-12",
     captured_at: "2026-08-13T12:00:00.000Z",
-    states: viewports.map(viewport => ({ viewport, daily: { date: "2026-08-12", headline: "People published records of their AI work. Some contained passwords.", readyDesks: 4, horizontalOverflow: false }, article: { sections: 6, headline: "People published records of their AI work. Some contained passwords.", horizontalOverflow: false } })),
+    states: viewports.map(viewport => ({
+      viewport,
+      daily: { date: "2026-08-12", headline: "People published records of their AI work. Some contained passwords.", readyDesks: 4, horizontalOverflow: false },
+      article: { sections: 6, headline: "People published records of their AI work. Some contained passwords.", horizontalOverflow: false },
+      fonts: {
+        ready: true,
+        faceCounts: [1, 1, 1],
+        checks: { anton: true, jost: true, jostItalic: true },
+        families: { display: 'Anton, sans-serif', body: 'Jost, sans-serif' },
+        resources: [
+          "/assets/fonts/newsstand/anton-latin.woff2",
+          "/assets/fonts/newsstand/jost-italic-latin.woff2",
+          "/assets/fonts/newsstand/jost-normal-latin.woff2"
+        ]
+      }
+    })),
     captures
   }
 };
@@ -84,6 +108,9 @@ const rejects = [
   { ...deployed, visual_capture: null },
   { ...deployed, visual_capture: { ...deployed.visual_capture, status: "PASS" } },
   { ...deployed, visual_capture: { ...deployed.visual_capture, captures: deployed.visual_capture.captures.slice(1) } },
+  { ...deployed, visual_capture: { ...deployed.visual_capture, states: deployed.visual_capture.states.map((state, index) => index ? state : { ...state, fonts: { ...state.fonts, ready: false } }) } },
+  { ...deployed, visual_capture: { ...deployed.visual_capture, states: deployed.visual_capture.states.map((state, index) => index ? state : { ...state, fonts: { ...state.fonts, resources: state.fonts.resources.slice(1) } }) } },
+  { ...deployed, public_verification: { ...deployed.public_verification, critical_paths: deployed.public_verification.critical_paths.filter(record => !record.path.includes("anton-latin")) } },
   { ...deployed, deployment_identity_basis: "new-id+branch+provider-commit" },
   { ...deployed, deployment_provider_commit: "b".repeat(40), deployment_provider_commit_verified: true, deployment_identity_basis: "new-id+branch+provider-commit" },
   { ...deployed, public_verification: { ...deployed.public_verification, critical_paths: deployed.public_verification.critical_paths.slice(1) } }
@@ -123,6 +150,12 @@ function inspectWorkflow(text) {
   requireText(".ns-daily-issue", "pixel capture does not inspect the exact Daily newspaper");
   requireText(".ns-article__section--longform", "pixel capture does not inspect the exact longform article");
   requireText("People published records of their AI work. Some contained passwords.", "pixel capture is not bound to the exact reviewed headline");
+  requireText('document.fonts.load(\'400 40px "Anton"\'', "deployed capture does not wait for Anton");
+  requireText('document.fonts.load(\'400 16px "Jost"\'', "deployed capture does not wait for upright Jost");
+  requireText('document.fonts.load(\'italic 400 16px "Jost"\'', "deployed capture does not wait for italic Jost");
+  requireText('/assets/fonts/newsstand/anton-latin.woff2', "deployed controller does not byte-verify Anton");
+  requireText('/assets/fonts/newsstand/jost-normal-latin.woff2', "deployed controller does not byte-verify upright Jost");
+  requireText('/assets/fonts/newsstand/jost-italic-latin.woff2', "deployed controller does not byte-verify italic Jost");
   if (deployJob.indexOf("Capture exact deployed Daily pixels before credential revocation") < 0 || deployJob.indexOf("Capture exact deployed Daily pixels before credential revocation") > deployJob.indexOf("Revoke temporary Access verification credential")) errors.push("exact pixels are not captured before credential revocation");
   if (deployJob.includes("pages deployment list")) errors.push("Wrangler deployment list loses direct-upload identity metadata");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
@@ -163,6 +196,8 @@ const workflowRejects = [
   workflow.replace("playwright-core@1.62.1", "playwright-core@latest"),
   workflow.replaceAll("CAPTURED_NOT_REVIEWED", "VISUALLY_APPROVED"),
   workflow.replaceAll(".ns-daily-issue", ".removed-daily"),
+  workflow.replace('document.fonts.load(\'400 40px "Anton"\'', 'document.fonts.load(\'400 40px "Arial"\''),
+  workflow.replaceAll('/assets/fonts/newsstand/anton-latin.woff2', '/assets/fonts/newsstand/missing-anton.woff2'),
   workflow.replace("curl --fail --silent --show-error", "npx --yes wrangler@4.119.0 pages deployment list"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];

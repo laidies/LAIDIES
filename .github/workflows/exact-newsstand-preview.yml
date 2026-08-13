@@ -28,8 +28,8 @@ jobs:
       ARTIFACT_DIR: /tmp/laidies-newsstand-preview-site
       RECEIPT_DIR: /tmp/laidies-newsstand-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
-      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json
-      EXPECTED_PACKAGE_SHA256: 512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe
+      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v5.json
+      EXPECTED_PACKAGE_SHA256: 19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532
       INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
       INPUT_PACKAGE_SHA256: ${{ inputs.package_sha256 }}
       CONTROLLER_SHA: ${{ vars.NEWSSTAND_PREVIEW_CONTROLLER_SHA }}
@@ -146,7 +146,6 @@ jobs:
             ${{ env.RECEIPT_DIR }}
           if-no-files-found: error
           retention-days: 7
-
   deploy-preview:
     if: ${{ inputs.deploy_preview }}
     needs: exact-newsstand-preview
@@ -164,8 +163,8 @@ jobs:
       ARTIFACT_DIR: /tmp/exact-newsstand-preview/laidies-newsstand-preview-site
       RECEIPT_DIR: /tmp/exact-newsstand-preview/laidies-newsstand-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
-      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json
-      EXPECTED_PACKAGE_SHA256: 512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe
+      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v5.json
+      EXPECTED_PACKAGE_SHA256: 19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532
       INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
       INPUT_PACKAGE_SHA256: ${{ inputs.package_sha256 }}
     steps:
@@ -368,6 +367,9 @@ jobs:
             content/newsstand-stories.js
             content/newsstand-daily-issues.json
             content/daily-edition-columns.json
+            assets/fonts/newsstand/anton-latin.woff2
+            assets/fonts/newsstand/jost-normal-latin.woff2
+            assets/fonts/newsstand/jost-italic-latin.woff2
           )
           verification_json='[]'
           for route in "${critical_paths[@]}"; do
@@ -451,6 +453,43 @@ jobs:
                 expectedHeadline,
                 { timeout: 30000 }
               );
+              const fontState = await page.evaluate(async () => {
+                const loaded = await Promise.all([
+                  document.fonts.load('400 40px "Anton"', "NewsStand"),
+                  document.fonts.load('400 16px "Jost"', "NewsStand"),
+                  document.fonts.load('italic 400 16px "Jost"', "NewsStand")
+                ]);
+                await document.fonts.ready;
+                const resources = [...new Set(performance.getEntriesByType("resource")
+                  .map(entry => new URL(entry.name).pathname)
+                  .filter(resource => resource.startsWith("/assets/fonts/newsstand/")))]
+                  .sort();
+                return {
+                  ready: document.fonts.status === "loaded",
+                  faceCounts: loaded.map(faces => faces.length),
+                  checks: {
+                    anton: document.fonts.check('400 40px "Anton"', "NewsStand"),
+                    jost: document.fonts.check('400 16px "Jost"', "NewsStand"),
+                    jostItalic: document.fonts.check('italic 400 16px "Jost"', "NewsStand")
+                  },
+                  families: {
+                    display: getComputedStyle(document.querySelector(".ns-daily-news h3")).fontFamily,
+                    body: getComputedStyle(document.querySelector(".ns-daily-news p")).fontFamily
+                  },
+                  resources
+                };
+              });
+              const expectedFontResources = [
+                "/assets/fonts/newsstand/anton-latin.woff2",
+                "/assets/fonts/newsstand/jost-italic-latin.woff2",
+                "/assets/fonts/newsstand/jost-normal-latin.woff2"
+              ];
+              if (!fontState.ready || fontState.faceCounts.some(count => count < 1) ||
+                  !Object.values(fontState.checks).every(Boolean) ||
+                  !fontState.families.display.includes("Anton") || !fontState.families.body.includes("Jost") ||
+                  JSON.stringify(fontState.resources) !== JSON.stringify(expectedFontResources)) {
+                throw new Error(`${viewport.id}: exact NewsStand fonts did not load ${JSON.stringify(fontState)}`);
+              }
               await page.waitForTimeout(1000);
               const dailyState = await page.evaluate(() => ({
                 date: document.querySelector(".ns-daily-issue")?.dataset.dailyDate || null,
@@ -475,7 +514,7 @@ jobs:
               }));
               if (articleState.sections !== 6 || articleState.horizontalOverflow) throw new Error(`${viewport.id}: exact article state mismatch ${JSON.stringify(articleState)}`);
               await capture(page, `visual/${viewport.id}-article.png`, article, { viewport, state: "ARTICLE" });
-              states.push({ viewport, daily: dailyState, article: articleState });
+              states.push({ viewport, daily: dailyState, article: articleState, fonts: fontState });
               await context.close();
             }
           } finally {
@@ -500,6 +539,18 @@ jobs:
             ([.visual_capture.states[].daily.horizontalOverflow] | unique) == [false] and
             ([.visual_capture.states[].article.sections] | unique) == [6] and
             ([.visual_capture.states[].article.horizontalOverflow] | unique) == [false] and
+            all(.visual_capture.states[];
+              .fonts.ready == true and
+              .fonts.faceCounts == [1,1,1] and
+              .fonts.checks == {anton:true,jost:true,jostItalic:true} and
+              (.fonts.families.display | contains("Anton")) and
+              (.fonts.families.body | contains("Jost")) and
+              .fonts.resources == [
+                "/assets/fonts/newsstand/anton-latin.woff2",
+                "/assets/fonts/newsstand/jost-italic-latin.woff2",
+                "/assets/fonts/newsstand/jost-normal-latin.woff2"
+              ]
+            ) and
             (.visual_capture.captures | length) == 9 and
             ([.visual_capture.captures[].state] | sort) == ["ARTICLE","ARTICLE","ARTICLE","DAILY_FULL_PAGE","DAILY_FULL_PAGE","DAILY_FULL_PAGE","DAILY_NEWSPAPER","DAILY_NEWSPAPER","DAILY_NEWSPAPER"] and
             all(.visual_capture.captures[]; (.sha256 | test("^[a-f0-9]{64}$")) and .output.width > 0 and .output.height > 0)
@@ -547,7 +598,17 @@ jobs:
             .visual_capture.review_url == .review_url and
             (.visual_capture.captures | length) == 9 and
             ([.public_verification.critical_paths[].path] | sort) ==
-              ["content/daily-edition-columns.json","content/newsstand-daily-issues.json","content/newsstand-stories.js","newsstand.html"]
+              ["assets/fonts/newsstand/anton-latin.woff2","assets/fonts/newsstand/jost-italic-latin.woff2","assets/fonts/newsstand/jost-normal-latin.woff2","content/daily-edition-columns.json","content/newsstand-daily-issues.json","content/newsstand-stories.js","newsstand.html"] and
+            all(.visual_capture.states[];
+              .fonts.ready == true and
+              .fonts.faceCounts == [1,1,1] and
+              .fonts.checks == {anton:true,jost:true,jostItalic:true} and
+              .fonts.resources == [
+                "/assets/fonts/newsstand/anton-latin.woff2",
+                "/assets/fonts/newsstand/jost-italic-latin.woff2",
+                "/assets/fonts/newsstand/jost-normal-latin.woff2"
+              ]
+            )
           ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
       - name: Upload deployed preview receipt
         uses: actions/upload-artifact@v4
