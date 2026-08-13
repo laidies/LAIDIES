@@ -14617,6 +14617,6 @@ while remaining falsely unfinished in the launch record.
   authority, undispositioned signals and changed source-health alerts.
 - **Possible Behind the Build angle:** Why a cloud job can find the same story
   twice while the one useful idea inside it still goes nowhere.
-- **Publication status:** INTERNAL EXECUTION-HANDOFF REPAIR VERIFIED LOCALLY /
-  DEFAULT-BRANCH INSTALL AND CLOUD RECURRENCE PROOF OPEN / NO DRAFT,
-  PUBLICATION OR DEPLOYMENT.
+- **Publication status:** INTERNAL EXECUTION-HANDOFF REPAIR INSTALLED ON MAIN /
+  GITHUB WORKFLOW RUN 31684523028 PASS / ISSUE 57 CLOSED FROM DURABLE
+  DISPOSITIONS / NO DRAFT, PUBLICATION OR DEPLOYMENT.
