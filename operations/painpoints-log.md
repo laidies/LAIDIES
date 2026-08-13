@@ -14588,3 +14588,35 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** FIVE OF SEVENTEEN TEMPLATE CANDIDATES / ZERO ACCEPTED /
   CURRENT DAILY STILL HELD FOR FRESH SEMANTIC AND HUMAN COMPREHENSION REVIEW /
   NO CANONICAL PUBLICATION, DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-463 — Cloud intake rediscovered completed research while an earned handoff never reached execution
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand cloud source intake and Learning System receiving action.
+- **Failure:** GitHub issue 57 presented the exact 8 August AIDB “41 Stats”
+  edition as a new unresolved signal even though the AIDB desk had fully
+  processed it on 10 August. At the same time, the one distinct workplace
+  AI-disclosure question that processing earned existed only as a handoff and
+  never entered the content work-order queue.
+- **Root cause:** Cloud intake deduplicated its private cache and issue text but
+  did not consume the durable editorial result. The receiving system treated a
+  handoff file as evidence of routing rather than requiring an exact work-order
+  identity and trigger.
+- **Prevention rule:** Every cloud `NSCI-*` identity resolves once in the
+  durable disposition registry, which the workflow consumes before updating or
+  closing its issue. Every accepted handoff that earns production also appears
+  in `content-work-orders.json`; a handoff document alone is not execution.
+  Source-health failures use exact alert markers so a changed failure cannot be
+  hidden by an older record.
+- **Durable correction:** Four current cloud signals now have exact duplicate,
+  no-build, watch or trigger-bound-queue dispositions. The issue updater filters
+  those identities and can close a fully reconciled issue without claiming
+  publication. `LCWO-019` restores the missing Career / Work-Life action behind
+  the existing owner-WIP and exemplar gates. Calibrated tests reject duplicate
+  IDs, missing triggers, undated WATCH, non-HTTPS evidence, publication
+  authority, undispositioned signals and changed source-health alerts.
+- **Possible Behind the Build angle:** Why a cloud job can find the same story
+  twice while the one useful idea inside it still goes nowhere.
+- **Publication status:** INTERNAL EXECUTION-HANDOFF REPAIR VERIFIED LOCALLY /
+  DEFAULT-BRANCH INSTALL AND CLOUD RECURRENCE PROOF OPEN / NO DRAFT,
+  PUBLICATION OR DEPLOYMENT.

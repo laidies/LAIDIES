@@ -2,7 +2,7 @@
   "schemaVersion": "1.2.0",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE",
-  "updatedAt": "2026-08-11",
+  "updatedAt": "2026-08-13",
   "orchestration": {
     "rule": "Every accepted learning/content intake is represented once; one selected primary output may execute per owner while other work remains explicit backlog.",
     "dispatch": "READY_TO_DISPATCH means eligible for an owner dispatch and does not require a producer contract. DISPATCHED requires a checksumable receipt, lane, scope, collision boundary, checkpoint and SLA.",
@@ -156,6 +156,15 @@
         "LCWO-018"
       ],
       "checkedAt": "2026-08-11"
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-10-ai-use-disclosure-at-work.md",
+      "disposition": "WORK_ORDERS_CREATED",
+      "workOrderIds": [
+        "LCWO-019"
+      ],
+      "checkedAt": "2026-08-13",
+      "reason": "The exact AIDB edition was already processed, but its distinct workplace AI-disclosure question never reached the work-order queue. LCWO-019 preserves one Career / Work-Life treatment and remains trigger-bound behind the current NewsStand primary lane and an accepted feature exemplar."
     }
   ],
   "workOrders": [
@@ -3679,6 +3688,216 @@
           "receiptPath": "operations/product-stewards/learning-content-ecosystem/closure-receipts/CLS-LCWO-018-20260811-WATCH.json",
           "reason": "WATCH: verified restricted access, but no sufficiently consequential current publication job."
         }
+      }
+    },
+    {
+      "id": "LCWO-019",
+      "title": "Answer whether and how to disclose AI-assisted work",
+      "sourceRefs": [
+        "operations/agents/aidb-intelligence-desk/daily/2026-08-10.md",
+        "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-10-ai-use-disclosure-at-work.md",
+        "operations/product-stewards/newsstand/cloud-intake-dispositions.json"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "CREATE",
+      "ownerProductId": "newsstand-daily",
+      "targetPaths": [
+        "operations/product-stewards/newsstand/candidates/career-ai-use-disclosure-service-2026-08-10.json"
+      ],
+      "status": "QUEUED_WITH_TRIGGER",
+      "dispatchState": "NOT_READY",
+      "priority": "P1",
+      "nextAction": "When the trigger fires, create one Career / Work-Life service candidate answering three separate questions: whether disclosure is required, what AI actually contributed and what outcome the person remained responsible for. Preserve the source limits and do not advise concealment or promise that one framing removes bias.",
+      "nextTrigger": "The current held Daily receives Ali's decision, the NewsStand primary lane is free and the Career / Work-Life lane has one Ali-accepted complete positive exemplar. Recheck the Atlassian source and the applicable workplace-policy boundary before drafting.",
+      "acceptanceEvidence": [
+        "Current exact Atlassian source and claim map with experiment and pulse-survey populations separated",
+        "One complete Career / Work-Life producer contract consuming the accepted lane exemplar and all applicable negative examples",
+        "Exact prose self-review and role-distinct semantic review",
+        "Clear distinction between mandatory disclosure, accurate contribution description and human responsibility",
+        "No legal, HR or universal workplace promise",
+        "Dated issue placement, correction trigger and rendered Daily context"
+      ],
+      "reviewChain": [
+        {
+          "stage": "BUILD",
+          "owner": "newsstand-daily",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "ACCURACY",
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "SAFETY",
+          "owner": "safety-privacy",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "LEARNING",
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EDITORIAL",
+          "owner": "editorial-learning",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "EXPERIENCE",
+          "owner": "brand-experience",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "OWNER",
+          "owner": "newsstand",
+          "status": "REQUIRED"
+        },
+        {
+          "stage": "RELEASE",
+          "owner": "control-room",
+          "status": "HOLD"
+        },
+        {
+          "stage": "PUBLIC",
+          "owner": "platform",
+          "status": "HOLD"
+        }
+      ],
+      "qualityGates": {
+        "accuracy": {
+          "owner": "ai-research-accuracy",
+          "status": "REQUIRED",
+          "evidenceRequired": "Every factual statement maps to the current Atlassian original; one hypothetical U.S. knowledge-worker experiment is never presented as observed promotion, compensation or job-loss evidence.",
+          "evidencePaths": []
+        },
+        "antiSlop": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "The treatment answers the reader's real decision with usable language and boundaries, not generic authenticity, confidence or transparency advice.",
+          "evidencePaths": []
+        },
+        "currentBestPractice": {
+          "owner": "content-freshness",
+          "status": "REQUIRED",
+          "evidenceRequired": "Draft-day recheck covers source correction, replication and the consuming treatment's employer, client, professional and legal policy boundary.",
+          "evidencePaths": []
+        },
+        "laidiesVoice": {
+          "owner": "brand-experience",
+          "status": "REQUIRED",
+          "evidenceRequired": "Adult, plain, practical writing acknowledges the awkward workplace reality without scolding the reader, exaggerating the study or using internal production language.",
+          "evidencePaths": []
+        },
+        "analogyIntegrity": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Any analogy clarifies contribution versus responsibility and states its limit; no decorative Rewind reference substitutes for the workplace mechanism.",
+          "evidencePaths": []
+        },
+        "usefulnessDepth": {
+          "owner": "editorial-learning",
+          "status": "REQUIRED",
+          "evidenceRequired": "A reader can separate whether she must disclose, accurately describe AI's bounded contribution and name the checking, judgement and value she still owns.",
+          "evidencePaths": []
+        },
+        "formatFit": {
+          "owner": "newsstand-daily",
+          "status": "REQUIRED",
+          "evidenceRequired": "The exact candidate follows the accepted Career / Work-Life template and fits one dated Daily service slot without impersonating Paige, Promptoscope, STRAiGHT TALK or legal advice.",
+          "evidencePaths": []
+        },
+        "searchIndexing": {
+          "owner": "platform",
+          "status": "REQUIRED",
+          "evidenceRequired": "If admitted, the issue and archive expose accurate AI-at-work, disclosure and professional-responsibility tags without indexing held copy.",
+          "evidencePaths": []
+        },
+        "relationshipLinking": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "The service item links only to exact current workplace-policy and verification guidance that changes what the reader can do next.",
+          "evidencePaths": []
+        },
+        "canonConsistency": {
+          "owner": "learning-content-ecosystem",
+          "status": "REQUIRED",
+          "evidenceRequired": "Disclosure, provenance, checking and human-accountability wording agrees with current episodes, classes, Library and NewsStand records.",
+          "evidencePaths": []
+        },
+        "songOpportunity": {
+          "owner": "ksvl-radio",
+          "status": "REQUIRED",
+          "evidenceRequired": "Record no-fit unless an admitted parent reveals a distinct mnemonic job; workplace discomfort alone does not commission a song.",
+          "evidencePaths": []
+        },
+        "derivativeFeeds": {
+          "owner": "audience-growth",
+          "status": "REQUIRED",
+          "evidenceRequired": "Only an admitted exact service item may generate a social or newsletter derivative; held source notes and candidate copy remain suppressed.",
+          "evidencePaths": []
+        }
+      },
+      "artifactBinding": {
+        "status": "UNBOUND",
+        "manifestPath": null,
+        "sha256": null
+      },
+      "producerContractPath": null,
+      "producerReviewPath": null,
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
+        "operations/agents/aidb-intelligence-desk/daily/2026-08-10.md",
+        "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-10-ai-use-disclosure-at-work.md",
+        "operations/product-stewards/newsstand/cloud-intake-dispositions.json"
+      ],
+      "publicRelease": {
+        "status": "NOT_AUTHORIZED",
+        "url": null,
+        "releaseReceipt": null,
+        "sha256": null
+      },
+      "execution": {
+        "state": "BACKLOG",
+        "primaryOutput": {
+          "id": "LCWO-019-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "newsstand-daily",
+          "targetPaths": [
+            "operations/product-stewards/newsstand/candidates/career-ai-use-disclosure-service-2026-08-10.json"
+          ]
+        },
+        "requiredPrimaryGates": [
+          "accuracy",
+          "antiSlop",
+          "currentBestPractice",
+          "laidiesVoice",
+          "analogyIntegrity",
+          "usefulnessDepth",
+          "formatFit",
+          "searchIndexing",
+          "relationshipLinking",
+          "canonConsistency"
+        ],
+        "derivatives": [
+          {
+            "id": "songOpportunity",
+            "state": "PARKED",
+            "reason": "No distinct song learning job has been selected.",
+            "activationTrigger": "Create a separate child work order only after the primary output is admitted and a song has a distinct teaching job."
+          },
+          {
+            "id": "derivativeFeeds",
+            "state": "PARKED",
+            "reason": "No social, newsletter or other derivative is commissioned.",
+            "activationTrigger": "Create a separate child work order after the exact Career / Work-Life item is admitted."
+          }
+        ],
+        "wip": {
+          "ownerLimit": 1
+        },
+        "dispatch": null,
+        "closure": null
       }
     }
   ]
