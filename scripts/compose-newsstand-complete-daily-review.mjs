@@ -38,6 +38,7 @@ function json(relative, label) {
 }
 
 export function composeCompleteDailyReviewPackage(inputs) {
+  fail("the single-story v1 composer is retired; a v2 package requires an exact passed complete-Daily composition with ranked story and inline-service bindings");
   const storyFile = json(inputs.story, "story candidate");
   const proofFile = json(inputs.proof, "producer proof");
   const proofReviewFile = json(inputs.proofReview, "producer proof review");

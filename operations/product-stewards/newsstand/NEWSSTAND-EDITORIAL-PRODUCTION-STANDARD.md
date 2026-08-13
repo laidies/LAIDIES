@@ -249,6 +249,25 @@ one issue. Weekly and Big Picture remain obvious alternate papers. Search,
 topics and the archive are easy to find but secondary to today's issue.
 
 A story can pass editorial production and still not constitute a Daily issue.
+Before page production, the issue receives one exact composition outcome:
+
+- `MULTI_STORY` contains one ranked lead and at least one qualified secondary
+  story. Every assessed candidate has an explicit qualified, hold, watch,
+  duplicate or no-build disposition; a qualified story cannot silently vanish.
+- `ONE_STORY_HOLD` records the one qualified development but cannot advance as
+  the complete Daily. The producer waits for another qualified story rather
+  than padding the issue.
+- `NO_NEWS_SERVICE_EDITION` contains no qualified news story and may advance
+  only when at least two admitted recurring columns carry genuinely useful
+  substance in the paper. Empty slots remain honest and never count as content.
+
+Every ready service column exposes its useful substance in the newspaper.
+Opening or following a route is reserved for genuine additional depth, not for
+discovering the tip itself. Breaking is either explicitly clear or separately
+proves why waiting for the next Daily would disadvantage the reader. Weekly and
+Big Picture remain visible alternate papers; archive and topic controls remain
+visible but secondary to the current issue.
+
 The issue does not pass until its full desktop and mobile pages visibly read as
 one LAiDIES newspaper and Ali approves that exact complete artifact.
 

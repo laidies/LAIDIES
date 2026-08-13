@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspectCompleteDailyComposition } from "./check-newsstand-complete-daily-composition.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const HASH = /^[a-f0-9]{64}$/;
@@ -63,7 +64,7 @@ export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}
   if (activeRejections.some(rejection => rejection?.canonicalPackage === canonicalPackage)) {
     errors.push("package is explicitly rejected and cannot be presented or deployed");
   }
-  if (pkg?.schemaVersion !== "laidies-newsstand-complete-daily-review-package.v1") errors.push("schemaVersion mismatch");
+  if (pkg?.schemaVersion !== "laidies-newsstand-complete-daily-review-package.v2") errors.push("schemaVersion mismatch: one-story v1 packages are retired");
   if (pkg?.status !== "PRIVATE_COMPLETE_DAILY_REVIEW_CANDIDATE" || pkg?.publicEligibility !== "INELIGIBLE_PENDING_ALI_APPROVAL") errors.push("package must remain a private, Ali-held candidate");
   if (pkg?.defaultExperience !== "THE_DAILY" || !/^\d{4}-\d{2}-\d{2}$/.test(pkg?.editionDate || "")) errors.push("Daily identity is invalid");
   if (pkg?.releaseAuthority?.canonicalWrite !== false || pkg?.releaseAuthority?.deploy !== false || pkg?.releaseAuthority?.public !== false) errors.push("package has unauthorized release authority");
@@ -76,17 +77,50 @@ export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}
   ];
   if (JSON.stringify(pkg?.remainingGates) !== JSON.stringify(expectedGates)) errors.push("remaining release gates are incomplete or reordered");
 
-  const storyPath = inspectBinding(pkg?.story, root, "story", errors);
-  if (storyPath) {
+  const compositionPath = inspectBinding(pkg?.composition, root, "composition", errors);
+  let composition = null;
+  if (compositionPath) {
     try {
-      const candidate = JSON.parse(fs.readFileSync(storyPath, "utf8"));
-      if (candidate?.candidateStatus !== "HELD_NOT_PUBLISHED" || candidate?.story?.status !== "hold" || candidate?.story?.publishedAt !== null) errors.push("bound story is not held and unpublished");
-      if (canonicalJson(candidate.story) !== canonicalJson(pkg.story.record)) errors.push("embedded story differs from the bound story candidate");
-    } catch { errors.push("bound story is not valid JSON"); }
+      composition = JSON.parse(fs.readFileSync(compositionPath, "utf8"));
+      const result = inspectCompleteDailyComposition(composition);
+      errors.push(...result.errors.map(error => `composition: ${error}`));
+      if (composition.editionDate !== pkg.editionDate) errors.push("composition edition date differs from package");
+    } catch { errors.push("composition is not valid JSON"); }
   }
 
-  for (const key of ["producerProof", "producerProofReview", "serviceReview", "semanticReview", "visualReview"]) {
-    inspectBinding(pkg?.evidence?.[key], root, `evidence.${key}`, errors);
+  const stories = Array.isArray(pkg?.stories) ? pkg.stories : [];
+  if (composition && stories.length !== composition.news.length) errors.push("package story bindings differ from the exact composition");
+  if (composition?.issueOutcome?.state === "MULTI_STORY" && stories.length < 2) errors.push("package lacks the ranked lead and secondary story bindings");
+  const storyIds = [];
+  for (const [index, story] of stories.entries()) {
+    const storyPath = inspectBinding(story, root, `stories[${index}]`, errors);
+    inspectBinding(story?.templateAcceptance, root, `stories[${index}].templateAcceptance`, errors);
+    const independentPath = inspectBinding(story?.independentReview, root, `stories[${index}].independentReview`, errors);
+    if (!storyPath) continue;
+    try {
+      const candidate = JSON.parse(fs.readFileSync(storyPath, "utf8"));
+      if (candidate?.candidateStatus !== "HELD_NOT_PUBLISHED" || candidate?.story?.status !== "hold" || candidate?.story?.publishedAt !== null) errors.push(`stories[${index}] is not held and unpublished`);
+      if (canonicalJson(candidate.story) !== canonicalJson(story.record)) errors.push(`stories[${index}] embedded record differs from its candidate`);
+      if (candidate.story?.id !== composition?.news?.[index]?.storyId) errors.push(`stories[${index}] identity differs from ranked composition`);
+      storyIds.push(candidate.story?.id);
+      if (independentPath) {
+        const review = JSON.parse(fs.readFileSync(independentPath, "utf8"));
+        if (!String(review?.verdict || "").startsWith("PASS") || review?.candidate?.sha256 !== candidate?.sourceText?.sha256) {
+          errors.push(`stories[${index}] independent review does not PASS its exact prose`);
+        }
+      }
+    } catch { errors.push(`stories[${index}] candidate or independent review is not valid JSON`); }
+  }
+  if (new Set(storyIds).size !== storyIds.length) errors.push("package contains duplicate story bindings");
+
+  for (const key of ["compositionReview", "serviceReview", "visualReview"]) inspectBinding(pkg?.evidence?.[key], root, `evidence.${key}`, errors);
+  const storyReviews = Array.isArray(pkg?.evidence?.storyReviews) ? pkg.evidence.storyReviews : [];
+  if (storyReviews.length !== stories.length || storyReviews.map(item => item.storyId).join("\n") !== storyIds.join("\n")) errors.push("per-story review evidence does not match ranked stories");
+  for (const [index, review] of storyReviews.entries()) {
+    inspectBinding(review?.producerProof, root, `evidence.storyReviews[${index}].producerProof`, errors);
+    inspectBinding(review?.producerSelfReview, root, `evidence.storyReviews[${index}].producerSelfReview`, errors);
+    const independent = inspectBinding(review?.independentReview, root, `evidence.storyReviews[${index}].independentReview`, errors);
+    if (independent && canonicalJson(review.independentReview) !== canonicalJson(stories[index]?.independentReview)) errors.push(`evidence.storyReviews[${index}] independent review differs from story binding`);
   }
   const screenshots = pkg?.evidence?.screenshots;
   if (!Array.isArray(screenshots) || screenshots.length !== 9) errors.push("exactly nine complete-page, Daily and article screenshots are required");
@@ -107,9 +141,19 @@ export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}
   if (!Array.isArray(pkg?.desks) || pkg.desks.length !== 9) errors.push("Daily must contain all nine governed service desks");
   else {
     const ready = pkg.desks.filter(desk => desk.state === "ready");
-    if (ready.length !== 4 || !["paige_tip", "career_life", "promptoscope", "mme_claio"].every(type => ready.some(desk => desk.type === type))) errors.push("the four reviewed ready desks are incomplete");
-    for (const desk of ready) inspectBinding(desk.sourceCandidate, root, `desk.${desk.type}.sourceCandidate`, errors);
+    for (const desk of ready) {
+      inspectBinding(desk.sourceCandidate, root, `desk.${desk.type}.sourceCandidate`, errors);
+      if (desk.displayMode !== "INLINE_FULL_USEFUL_SUBSTANCE" || typeof desk.summary !== "string" || desk.summary.length < 120) errors.push(`desk.${desk.type} hides or lacks its useful in-paper substance`);
+    }
     for (const desk of pkg.desks.filter(desk => desk.state === "empty")) if (!desk.emptyState || desk.recordId !== null) errors.push(`desk.${desk.type} has an invalid governed empty state`);
+    if (composition) {
+      for (const desk of pkg.desks) {
+        const planned = composition.services.find(item => item.type === desk.type);
+        if (!planned || (planned.state === "READY") !== (desk.state === "ready")) errors.push(`desk.${desk.type} state differs from composition`);
+        else if (desk.state === "ready" && (planned.usefulSubstance !== desk.summary || planned.displayMode !== desk.displayMode || (planned.continuationDestination || null) !== (desk.destination || null))) errors.push(`desk.${desk.type} differs from its inline composition`);
+        else if (desk.state === "empty" && planned.emptyState !== desk.emptyState) errors.push(`desk.${desk.type} empty state differs from composition`);
+      }
+    }
   }
   return { errors, status: errors.length ? "HOLD" : "READY_FOR_ALI_REVIEW" };
 }
@@ -124,7 +168,7 @@ function main() {
     result.errors.forEach(error => console.error(`- ${error}`));
     process.exit(1);
   }
-  console.log(`NEWSSTAND COMPLETE DAILY REVIEW READY package=${path.relative(ROOT, path.resolve(file))} screenshots=9 ready_desks=4 release_authority=none`);
+  console.log(`NEWSSTAND COMPLETE DAILY REVIEW READY package=${path.relative(ROOT, path.resolve(file))} stories=${pkg.stories.length} screenshots=9 ready_desks=${pkg.desks.filter(item => item.state === "ready").length} release_authority=none`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) main();
