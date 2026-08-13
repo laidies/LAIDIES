@@ -31,6 +31,14 @@ function validateWorkflowText(text) {
   if (text.includes('test-library-modular-reading-system.mjs')) errors.push('production preview invokes a quarantined design-exploration test');
   if (!deployJob.includes('PROJECT_NAME: laidies-sunnyvaile-preview') || deployJob.includes('PROJECT_NAME: laidies-sunnyvaile\n')) errors.push('preview is not isolated from the production Pages project');
   if (!deployJob.includes('/access/apps') || !deployJob.includes('CF-Access-Client-Id') || !deployJob.includes('unauthenticated_status')) errors.push('preview Access protection is not verified');
+  if (!text.includes('environment: production')) errors.push('existing protected Cloudflare credential environment is missing');
+  if (deployJob.includes('CLOUDFLARE_ACCESS_READ_TOKEN') || deployJob.includes('secrets.CF_ACCESS_CLIENT_ID') || deployJob.includes('secrets.CF_ACCESS_CLIENT_SECRET')) errors.push('preview depends on missing permanent Access secrets');
+  if (!deployJob.includes('/access/service_tokens') || !deployJob.includes('any_valid_service_token')) errors.push('temporary Access token and existing policy are not verified');
+  if (!deployJob.includes('.result.id // empty')) errors.push('temporary token ID is not captured before response validation');
+  if ((deployJob.match(/::add-mask::/g) || []).length < 2) errors.push('both temporary credential values must be masked');
+  if ((deployJob.match(/--request DELETE/g) || []).length < 2 || !deployJob.includes('if: ${{ always() }}')) errors.push('temporary Access token is not revoked on every path');
+  if (deployJob.indexOf('Revoke temporary Access verification credential') < 0 || deployJob.indexOf('Revoke temporary Access verification credential') > deployJob.indexOf('Upload deployed preview receipt')) errors.push('temporary Access token is not revoked before receipt upload');
+  if (deployJob.includes('node scripts/')) errors.push('credentialed deploy job executes candidate scripts');
   return errors;
 }
 
@@ -55,6 +63,7 @@ const receipt = {
   artifact_manifest: { path: 'artifact-manifest.json', identity_sha256: identitySha },
   deployment_id: null,
   preview_url: null,
+  access_credential: null,
   checks: [
     { id: 'minimum-integrity-ci', result: 'PASS' },
     { id: 'library-product-browser', result: 'PASS' },
@@ -71,6 +80,7 @@ const deployed = {
   deployment_id: '9f161385-7486-4207-9afe-8512ea453973',
   preview_url: 'https://9f161385.laidies-sunnyvaile-preview.pages.dev/',
   review_branch: 'review-aaaaaaaaaaaa-123456789',
+  access_credential: { type: 'TEMPORARY_SERVICE_TOKEN', service_token_id: 'f174e90a-fafe-4643-bbbc-4a0ed4fc8415', duration: '30m', policy_selector: 'any_valid_service_token', revoked: true },
   public_verification: { route: '/library.html', http_status: 200, unauthenticated_status: 302, access_protected: true, sha256: librarySha, result: 'PASS' },
 };
 assert.deepEqual(validateExactCommitPreview(deployed, manifest), []);
@@ -78,10 +88,12 @@ assert.deepEqual(validateExactCommitPreview(deployed, manifest), []);
 const rejects = [
   [{ ...receipt, source_commit: 'main' }, manifest, 'exact commit'],
   [{ ...receipt, candidate: { ...receipt.candidate, artifact_sha256: 'b'.repeat(64) } }, manifest, 'candidate mismatch'],
+  [{ ...receipt, access_credential: { type: 'TEMPORARY_SERVICE_TOKEN' } }, manifest, 'prepared credential claim'],
   [{ ...receipt, checks: receipt.checks.filter((check) => check.id !== 'design-review-admission') }, manifest, 'missing gate'],
   [{ ...deployed, preview_url: 'https://example.com/' }, manifest, 'foreign preview'],
   [{ ...deployed, public_verification: { ...deployed.public_verification, sha256: 'd'.repeat(64) } }, manifest, 'live byte mismatch'],
   [{ ...deployed, review_branch: 'review-bbbbbbbbbbbb-123456789' }, manifest, 'branch not bound to commit'],
+  [{ ...deployed, access_credential: { ...deployed.access_credential, revoked: false } }, manifest, 'unrevoked temporary credential'],
   [{ ...deployed, public_verification: { ...deployed.public_verification, access_protected: false } }, manifest, 'unprotected preview'],
   [receipt, { ...manifest, identitySha256: 'c'.repeat(64) }, 'tampered manifest'],
 ];
@@ -104,6 +116,12 @@ const workflowRejects = [
   workflow.replaceAll('curl --fail', 'curl'),
   workflow.replaceAll('PROJECT_NAME: laidies-sunnyvaile-preview', 'PROJECT_NAME: laidies-sunnyvaile'),
   workflow.replace('CF-Access-Client-Id', 'X-Removed-Access-Client-Id'),
+  workflow.replace('environment: production', 'environment: preview'),
+  workflow.replace('if: ${{ always() }}', 'if: ${{ success() }}'),
+  workflow.replaceAll('--request DELETE', '--request GET'),
+  workflow.replaceAll('any_valid_service_token', 'removed_service_token_policy'),
+  workflow.replace('.result.id // empty', '.result.missing_id // empty'),
+  workflow.replace('::add-mask::', '::notice::'),
   workflow.replace('playwright-core@1.62.1', 'playwright-core@latest'),
   workflow.replace('run: npm run ci:build', 'run: npm run ci'),
   workflow.replace('run: node scripts/test-library-product.cjs', 'run: node scripts/test-library-product.cjs && node scripts/test-library-modular-reading-system.mjs'),

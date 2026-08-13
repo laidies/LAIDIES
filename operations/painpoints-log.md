@@ -14620,3 +14620,36 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** INTERNAL EXECUTION-HANDOFF REPAIR INSTALLED ON MAIN /
   GITHUB WORKFLOW RUN 31684523028 PASS / ISSUE 57 CLOSED FROM DURABLE
   DISPOSITIONS / NO DRAFT, PUBLICATION OR DEPLOYMENT.
+
+## BTB-464 — A protected preview workflow referenced credentials that did not exist
+
+- **Date:** 2026-08-13
+- **Area:** Exact NewsStand/Library previews, GitHub environments and Cloudflare Access.
+- **Failure:** The exact NewsStand build, private-package checks and artifact
+  upload all passed, but the protected-preview deploy failed before touching
+  Cloudflare because the `preview` GitHub environment contained none of the
+  five secrets the workflow referenced. The sibling Library preview carried
+  the same unexercised defect.
+- **Root cause:** The controller proved its artifact and Access behavior in
+  source but never reconciled its secret names with the actual GitHub
+  environment. It assumed a permanent Access API token and service-token pair
+  existed instead of designing their lifecycle from the two Cloudflare
+  credentials already governed in the protected environment.
+- **Prevention rule:** A credentialed preview must use an environment whose
+  exact secret names are inventoried before dispatch, target only the separately
+  named preview Pages project, verify an existing Service Auth policy before
+  mutation, create the shortest-lived credential needed for byte verification,
+  mask both secret values and revoke the credential on success or failure.
+  Receipt upload is forbidden until revocation is proved. The credentialed job
+  never checks out or executes candidate repository code.
+- **Durable correction:** Both exact-preview workflows now use the protected
+  Cloudflare account/token pair, require the existing
+  `any_valid_service_token` policy, create a masked 30-minute service token and
+  delete it in an unconditional cleanup step. The NewsStand receipt binds the
+  revoked credential identity; 40 calibrated mutations reject missing cleanup,
+  partial masking, wrong environment, permanent-secret dependence, candidate
+  code execution and production-project substitution.
+- **Possible Behind the Build angle:** Why a perfectly green build can still be
+  one imaginary password away from doing nothing.
+- **Publication status:** INTERNAL CONTROLLER REPAIR VERIFIED LOCALLY / NO
+  CLOUDFLARE DEPLOYMENT OR PUBLIC CHANGE YET.
