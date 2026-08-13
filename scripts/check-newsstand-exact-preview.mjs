@@ -8,8 +8,8 @@ import { fileURLToPath } from "node:url";
 const SHA40 = /^[a-f0-9]{40}$/;
 const SHA64 = /^[a-f0-9]{64}$/;
 const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
-const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json";
-const PACKAGE_SHA256 = "512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe";
+const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v5.json";
+const PACKAGE_SHA256 = "19db95ab57fd4fdf96aab24010d8efca8deb534fee80ebd30d93a1869a972532";
 const PROJECT = "laidies-sunnyvaile-preview";
 const REVIEW_PATH = "/newsstand";
 const REVIEW_DATE = "2026-08-12";
@@ -24,7 +24,15 @@ const CRITICAL_PATHS = [
   "newsstand.html",
   "content/newsstand-stories.js",
   "content/newsstand-daily-issues.json",
-  "content/daily-edition-columns.json"
+  "content/daily-edition-columns.json",
+  "assets/fonts/newsstand/anton-latin.woff2",
+  "assets/fonts/newsstand/jost-normal-latin.woff2",
+  "assets/fonts/newsstand/jost-italic-latin.woff2"
+];
+const FONT_RESOURCES = [
+  "/assets/fonts/newsstand/anton-latin.woff2",
+  "/assets/fonts/newsstand/jost-italic-latin.woff2",
+  "/assets/fonts/newsstand/jost-normal-latin.woff2"
 ];
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
 
@@ -32,7 +40,6 @@ function pngDimensions(buffer) {
   if (!Buffer.isBuffer(buffer) || buffer.length < 24 || buffer.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a") return null;
   return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
 }
-
 export function validateNewsstandExactPreview(receipt, manifest, visualFiles = new Map()) {
   const errors = [];
   if (receipt?.schema !== "laidies.newsstand-exact-preview.v1") errors.push("unsupported receipt schema");
@@ -97,6 +104,13 @@ export function validateNewsstandExactPreview(receipt, manifest, visualFiles = n
     for (const [id, [width, height]] of expectedViews) {
       const state = states.find(item => item?.viewport?.id === id);
       if (!state || state.viewport.width !== width || state.viewport.height !== height || state.daily?.date !== REVIEW_DATE || state.daily?.headline !== "People published records of their AI work. Some contained passwords." || state.daily?.readyDesks !== 4 || state.daily?.horizontalOverflow !== false || state.article?.sections !== 6 || state.article?.horizontalOverflow !== false) errors.push(`visual state is incomplete or unsafe: ${id}`);
+      const fonts = state?.fonts;
+      if (fonts?.ready !== true || JSON.stringify(fonts?.faceCounts) !== "[1,1,1]" ||
+          fonts?.checks?.anton !== true || fonts?.checks?.jost !== true || fonts?.checks?.jostItalic !== true ||
+          !fonts?.families?.display?.includes("Anton") || !fonts?.families?.body?.includes("Jost") ||
+          JSON.stringify(fonts?.resources) !== JSON.stringify(FONT_RESOURCES)) {
+        errors.push(`deployed NewsStand fonts are incomplete or fell back: ${id}`);
+      }
     }
     const captures = Array.isArray(visual?.captures) ? visual.captures : [];
     const expectedCaptures = new Set([...expectedViews.keys()].flatMap(id => ["DAILY_FULL_PAGE", "DAILY_NEWSPAPER", "ARTICLE"].map(state => `${id}|${state}`)));
@@ -117,7 +131,6 @@ export function validateNewsstandExactPreview(receipt, manifest, visualFiles = n
   }
   return errors;
 }
-
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMain) {
   const receiptPath = process.argv[2];
