@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "laidies-newsstand-service-exemplar.v1",
+  "candidateId": "NEWSSTAND-SERVICE-MME-CLAIO-PORTABLE-CD-PLAYER-20260813-V1",
+  "laneId": "mme_claio",
+  "editionDate": "2026-08-13",
+  "status": "PRIVATE_REVIEW_CANDIDATE",
+  "headline": "Mme CLAi-O’s Reading of the Day",
+  "body": "The Portable CD Player\n\nYou are running with something delicate and pretending anti-skip protection is optional.\n\nMoving fast with fragile work is fine — but one bump and the music stops.\n\nBuild in one review point before the work goes public.\n\nThis is a fixed authored reflection selected for the dated Daily—not a prediction or personalised reading. It was not generated from anything you told LAiDIES.\n\nVisit Mme CLAi-O if you want to draw from the full governed deck.",
+  "featureRegistry": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
+    "sha256": "90173a0cc7f4ad6916de81ffad2bc031650d63e98d28959878b27810063c4ca7"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "ec572786dadf4a99e4bc154ed6e125140dfdddecc045ed90e2059d3ab1b25ae9"
+  },
+  "laneContractSha256": "e97e304bdc8de12be8e73e49d4283bb46748df683facc694f818d2854093ef54",
+  "negativeExemplarIdsRead": [],
+  "sourceEvidence": [
+    {
+      "path": "content/data/mme-claio-deck.json",
+      "sha256": "e452b9df0700b5dd1ef87572b5f0aa76137fe6c50f3c547714f96de86910b5b6"
+    },
+    {
+      "path": "operations/product-stewards/mme-claio/DAILY-2026-08-13-MME-PORTABLE-CD-PLAYER-OWNER-BRAND-SAFETY-RULING.md",
+      "sha256": "8640919393e2ca9f5111e2c79af6d9f8605424211eb3baefa555278a35b58920"
+    }
+  ],
+  "beatEvidence": [
+    {
+      "beat": "exact card title",
+      "quote": "The Portable CD Player"
+    },
+    {
+      "beat": "fixed authored reading",
+      "quote": "You are running with something delicate and pretending anti-skip protection is optional."
+    },
+    {
+      "beat": "one reflective question or action",
+      "quote": "Build in one review point before the work goes public."
+    },
+    {
+      "beat": "not tailored or predictive boundary",
+      "quote": "This is a fixed authored reflection selected for the dated Daily—not a prediction or personalised reading."
+    },
+    {
+      "beat": "route to Mme CLAi-O",
+      "quote": "Visit Mme CLAi-O if you want to draw from the full governed deck."
+    }
+  ],
+  "laneSpecific": {
+    "situationType": "FIXED_DECK_SELECTION",
+    "deck": {
+      "path": "content/data/mme-claio-deck.json",
+      "sha256": "e452b9df0700b5dd1ef87572b5f0aa76137fe6c50f3c547714f96de86910b5b6"
+    },
+    "cardId": "portable-cd-player",
+    "selectionMethod": "DETERMINISTIC_DATE_NO_READER_DATA"
+  },
+  "freshness": {
+    "checkedAt": "2026-08-13T16:45:00-07:00",
+    "recheckTriggers": [
+      "The governed deck bytes or exact card text change.",
+      "The dated selection method, disclosure, destination or expiry changes.",
+      "Any successor proposes including the held card art."
+    ]
+  },
+  "owner": "Mme CLAi-O product owner and NewsStand service features",
+  "destination": "/games/madame-claio.html",
+  "storage": {
+    "recordId": "DAILY-2026-08-13-MME-PORTABLE-CD-PLAYER-CANDIDATE",
+    "publicEligibility": "INELIGIBLE_PENDING_ALI_ACCEPTANCE"
+  },
+  "selfReview": {
+    "exactTextRead": true,
+    "knownDefectsRemaining": [],
+    "distinctnessFinding": "The candidate preserves one governed authored deck card verbatim, adds only the required dated non-personalized boundary and route, and includes no card art, AI-use advice, horoscope prompt or prediction claim."
+  }
+}
