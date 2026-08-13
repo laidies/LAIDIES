@@ -252,6 +252,37 @@ executive brief has no material delta.
   candidate is integrated, deployed or publicly verified; the announcement
   remains held.
 
+## 2026-08-12 22:07 PDT — Twice-daily delta reconciliation
+
+- Evidence cutoff: `2026-08-12T22:07:50-07:00`; preceding successful Control
+  Room receipt: `2026-07-30T09:16:16-07:00`.
+- Overlap result: no live Control Room run and no fresh unfinished activity
+  receipt. `run-queue.json` remains `active: []`; the stored ODC-101 `RUNNING`
+  row has only an August 3 heartbeat and is not live evidence.
+- Runtime verdict: `ATTENTION_REQUIRED / CONTROL_ROOM_RUNTIME_FAIL`.
+  `check-product-stewards` failed on three expired public derivatives and six
+  overdue learning relationships. `check-work-resolution-loop` failed on one
+  invalid `RUNNING` state and 15 overdue non-resolved records.
+  `check-operational-integrity` repeated those failures, reported the old
+  dispatcher-migration contract incompatible with the authorized active
+  twice-daily automation, and correctly retained the Library 120px mobile
+  shelf failure. No `scripts/control-room-freshness.mjs` exists.
+- Outcome truth: production deployment
+  `9f161385-7486-4207-9afe-8512ea453973`, source
+  `28f483e25c021e37e0acd2687abcae26a6d66927` and artifact
+  `87f7781feac664e3d63b2277f153e080e617e5905f5d6c99494fe4f309fcc435`
+  remain the newest verified public identity. The dirty checkout, current
+  Library/learning successors and opening media remain local or held.
+- Portfolio truth: 67/67 owner entries exist; 0 live queue entries; 0/17
+  buildings release-ready; 0/5 opening media release-ready; Audience remains
+  35 built locally / 0 ready / 0 published, with aggregate metrics unknown.
+- Dispatch: 0. Broken canonical runtime state was not converted into new maker
+  or judge work. No deployment, publication, spend, account connection,
+  credential use or public mutation occurred.
+- Genuine Ali decision: Episode 05 Gate 1 architecture remains ready for
+  `APPROVE` or one named `REVISE`; approval permits canon reconciliation only.
+- Next scheduled audit: `2026-08-13T10:00:00-07:00`.
+
 ## 2026-07-27 16:15 PDT — Cycle 8I HOLD / Cycle 8J continuation
 
 - Evidence cutoff: 2026-07-27 16:15:02 PDT.
