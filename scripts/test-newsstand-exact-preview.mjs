@@ -16,7 +16,7 @@ const receipt = {
   status: "PREPARED_NO_DEPLOY",
   source_commit: "a".repeat(40),
   project: "laidies-sunnyvaile-preview",
-  package: { path: "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json", sha256: "331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0" },
+  package: { path: "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v4.json", sha256: "512abcf9634a8ef7c74e9213b19df6338f56ffd16e632e535d21ddf862770ffe" },
   candidate: { path: "newsstand.html", artifact_sha256: sha256("newsstand.html") },
   private_preview_receipt: { path: "newsstand-private-preview-receipt.json", sha256: sha256("newsstand-private-preview-receipt.json") },
   artifact_manifest: { path: "artifact-manifest.json", identity_sha256: identity },
