@@ -45,7 +45,7 @@ export function validateExactCommitPreview(receipt, manifest) {
   }
 
   if (receipt?.status === 'PREPARED_NO_DEPLOY') {
-    if (receipt.deployment_id !== null || receipt.preview_url !== null) errors.push('prepared receipt cannot claim a deployment or preview URL');
+    if (receipt.deployment_id !== null || receipt.preview_url !== null || receipt.access_credential !== null) errors.push('prepared receipt cannot claim a deployment, preview URL or credential');
   } else if (receipt?.status === 'DEPLOYED_PREVIEW') {
     if (!UUID.test(receipt?.deployment_id || '')) errors.push('deployed preview requires a deployment UUID');
     if (!/^review-[a-f0-9]{12}-[0-9]+$/.test(receipt?.review_branch || '')) errors.push('deployed preview requires its unique review branch');
@@ -59,6 +59,10 @@ export function validateExactCommitPreview(receipt, manifest) {
     }
     if (preview && receipt?.deployment_id && preview.hostname !== `${receipt.deployment_id.slice(0, 8)}.laidies-sunnyvaile-preview.pages.dev`) {
       errors.push('preview URL is not bound to the deployment ID');
+    }
+    const credential = receipt?.access_credential;
+    if (credential?.type !== 'TEMPORARY_SERVICE_TOKEN' || !UUID.test(credential?.service_token_id || '') || credential?.duration !== '30m' || credential?.policy_selector !== 'any_valid_service_token' || credential?.revoked !== true) {
+      errors.push('deployed preview requires a revoked temporary Access verification credential');
     }
     if (receipt?.public_verification?.route !== '/library.html' || receipt?.public_verification?.http_status !== 200 || receipt?.public_verification?.access_protected !== true || ![302, 401, 403].includes(receipt?.public_verification?.unauthenticated_status) || receipt?.public_verification?.result !== 'PASS') {
       errors.push('deployed preview requires successful Library route verification');
