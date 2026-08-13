@@ -14828,3 +14828,15 @@ while remaining falsely unfinished in the launch record.
 - **Forward test:** calibrated prose tests reject missing-human PASS and a false HOLD while accepting an explicit evidence-gap HOLD. Composer and package tests reject a story whose semantic admission reports missing human evidence. The exact Grok Bot review is HOLD with no fabricated observation.
 - **Possible Behind the Build angle:** Why a system that only accepts PASS or a fully evidenced failure can pressure an AI to invent proof.
 - **Publication status:** INTERNAL SEMANTIC-GATE AND SEQUENCING REPAIR / GROK BOT STORY HELD FOR REAL READER EVIDENCE / NO PUBLIC CHANGE.
+
+## BTB-487 — Dated package approval was mistaken for serial positive-exemplar approval
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand complete-Daily decision sequence.
+- **Failure:** after repairing the exact story and service candidates, the operating state instructed Ali to approve the lead, Career example and other pieces separately before a complete newspaper could be assembled. This multiplied founder review decisions and kept her judging isolated prose instead of the experience visitors would receive.
+- **Root cause:** the sequence conflated two authorities. Exact dated content may be admitted through one approved complete-Daily package after its own source, template, semantic, service and visual gates. A reusable positive exemplar is separate authority needed for future autonomous production, not a prerequisite for Ali to judge one dated issue.
+- **Prevention rule:** keep per-item quality gates upstream, then request one exact whole-product decision. A package approval may admit only its checksum-bound dated records. It cannot silently register reusable examples or authorize autonomous drafting.
+- **Durable correction:** `operations/DECISIONS.md`, NewsStand state and Active Work now name one `ALI_EXACT_PACKAGE_APPROVAL` decision after observed-reader and independent review. The existing v2 composer already enforces that shape; no validator was weakened.
+- **Forward test:** the successor package must contain every exact ranked story and READY service candidate plus their independent evidence, nine desktop/mobile views and zero post-review content substitution. Its approval record must distinguish dated-content admission from reusable-exemplar authority.
+- **Possible Behind the Build angle:** Why approving today’s newspaper is not the same as hiring its template as tomorrow’s editor.
+- **Publication status:** INTERNAL DECISION-SEQUENCE REPAIR / NO CONTENT OR PUBLIC AUTHORITY.
