@@ -34,6 +34,9 @@ const deployed = {
   deployment_id: "9f161385-7486-4207-9afe-8512ea453973",
   preview_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/",
   review_branch: "review-aaaaaaaaaaaa-123456789",
+  deployment_provider_commit: null,
+  deployment_provider_commit_verified: false,
+  deployment_identity_basis: "new-id+branch+exact-byte-verification",
   access_credential: { type: "TEMPORARY_SERVICE_TOKEN", service_token_id: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415", duration: "30m", policy_selector: "any_valid_service_token", revoked: true },
   public_verification: {
     access_protected: true,
@@ -52,6 +55,8 @@ const rejects = [
   { ...deployed, preview_url: "https://example.com/" },
   { ...deployed, access_credential: { ...deployed.access_credential, revoked: false } },
   { ...deployed, public_verification: { ...deployed.public_verification, access_protected: false } },
+  { ...deployed, deployment_identity_basis: "new-id+branch+provider-commit" },
+  { ...deployed, deployment_provider_commit: "b".repeat(40), deployment_provider_commit_verified: true, deployment_identity_basis: "new-id+branch+provider-commit" },
   { ...deployed, public_verification: { ...deployed.public_verification, critical_paths: deployed.public_verification.critical_paths.slice(1) } }
 ];
 for (const [index, candidate] of rejects.entries()) assert(validateNewsstandExactPreview(candidate, manifest).length > 0, `unsafe receipt ${index + 1} must fail`);
@@ -75,6 +80,8 @@ function inspectWorkflow(text) {
   requireText("if: ${{ always() }}", "credential cleanup is not unconditional");
   requireText("CF-Access-Client-Id", "authenticated byte verification is missing");
   requireText("unauthenticated_status", "unauthenticated Access challenge is not checked");
+  requireText("new-id+branch+exact-byte-verification", "direct-upload identity fallback is missing");
+  requireText("conflicting provider commit metadata", "conflicting provider commit metadata is not rejected");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
   if (!deployJob) errors.push("deploy job is missing");
   if (deployJob.includes("actions/checkout")) errors.push("credentialed deploy job executes candidate repository code");
@@ -103,6 +110,8 @@ const workflowRejects = [
   workflow.replace("  deploy-preview:\n", "  deploy-preview:\n    # actions/checkout\n"),
   workflow.replaceAll("PROJECT_NAME: laidies-sunnyvaile-preview", "PROJECT_NAME: laidies-sunnyvaile"),
   workflow.replace("CF-Access-Client-Id", "X-Removed-Access-Client-Id"),
+  workflow.replace("new-id+branch+exact-byte-verification", "unverified-direct-upload"),
+  workflow.replace("conflicting provider commit metadata", "ignored provider commit metadata"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(inspectWorkflow(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
