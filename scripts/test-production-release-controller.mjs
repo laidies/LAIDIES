@@ -67,6 +67,8 @@ assert.match(workflow, /wrangler@4\.119\.0 pages deploy/);
 assert.match(workflow, /--branch "\$PRODUCTION_BRANCH"/);
 assert.match(workflow, /new-id\+branch\+exact-byte-verification/);
 assert.match(workflow, /conflicting provider commit metadata/);
+assert.match(workflow, /for attempt in \$\(seq 1 10\)/);
+assert.match(workflow, /if\(matches\.length===0\) process\.exit\(2\);/);
 assert.match(workflow, /CLOUDFLARE_API_TOKEN/);
 assert.match(workflow, /check-newsstand-release-scope\.mjs/);
 assert.match(workflow, /base_commit:/);
