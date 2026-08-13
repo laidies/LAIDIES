@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { buildIntake, normalizeBackfillSince, parseAidbItems, parseFeedItems, selectDueSources, validateIntakeReceipt } from "./run-newsstand-cloud-intake.mjs";
-import { buildIssueComment, removeAlreadyReported } from "./upsert-newsstand-intake-issue.mjs";
+import { buildClosureComment, buildIssueComment, extractSignalIds, removeAlreadyReported, removeResolvedSignals, unresolvedSignalIds } from "./upsert-newsstand-intake-issue.mjs";
 
 const registry = {
   sources: [
@@ -74,5 +74,18 @@ assert.equal(alreadyReported.counts.newSignals, 0, "cache loss must not duplicat
 const partiallyReported = removeAlreadyReported(first.receipt, first.receipt.newSignals[0].signalId);
 assert.equal(partiallyReported.counts.newSignals, 1, "an unseen signal must remain in the durable issue update");
 
+const dispositionRegistry = {
+  signals: [{ signalId: first.receipt.newSignals[0].signalId, disposition: "DUPLICATE", title: first.receipt.newSignals[0].title }],
+  sourceHealth: [{ alertMarker: `${unavailable.receipt.sourceHealthAlerts[0].sourceId} — ${unavailable.receipt.sourceHealthAlerts[0].error}` }]
+};
+const afterDisposition = removeResolvedSignals(first.receipt, dispositionRegistry);
+assert.equal(afterDisposition.counts.newSignals, 1, "only the exact dispositioned signal may be removed");
+assert.deepEqual(extractSignalIds(comment), first.receipt.newSignals.map((signal) => signal.signalId), "issue parser must recover exact signal identities");
+assert.deepEqual(unresolvedSignalIds(comment, first.receipt, dispositionRegistry), [first.receipt.newSignals[1].signalId].sort(), "durable dispositions must determine what remains unresolved");
+const healthAfterDisposition = removeResolvedSignals(unavailable.receipt, dispositionRegistry);
+assert.equal(healthAfterDisposition.counts.sourceHealthAlerts, 1, "an exact source-health disposition must not hide a different source failure");
+const closure = buildClosureComment(dispositionRegistry, "https://github.com/laidies/LAIDIES/blob/abc/registry.json");
+assert.match(closure, /does not mean any story was drafted, approved, published or deployed/);
+
 console.log("NEWSSTAND CLOUD INTAKE TEST PASS");
-console.log("calibration=publication-authority,non-https-source,reference-recurring-intake,duplicate-item,raw-body-leak,outage-fabrication,repeated-outage-spam,unbounded-backfill,bad-backfill-date,duplicate-issue-record rejected");
+console.log("calibration=publication-authority,non-https-source,reference-recurring-intake,duplicate-item,raw-body-leak,outage-fabrication,repeated-outage-spam,unbounded-backfill,bad-backfill-date,duplicate-issue-record,undispositioned-signal,changed-source-health rejected");
