@@ -12,8 +12,8 @@ result, not the whole work file.
 
 ### The chat was the final cut. The work file was the editing room.
 
-Some teams publish AI work files so others can inspect or replay a task. They
-hold more than the screen shows.
+Some teams publish AI work files so others can inspect or replay a task. A work
+file holds more than the screen shows.
 
 The chat is the final cut; the work file is the editing room, with alternate
 takes and notes. The editing room is not public by default — the risk begins
@@ -50,8 +50,6 @@ The researchers lacked the original hidden text, so they cannot prove every
 recovered word was exact. That limit does not erase the credentials they report
 finding.
 
-The preprint examined published work files, not ordinary private chats.
-
 ### The answer can be tidy while the work file is not
 
 At work, a coding assistant diagnosing a broken website may see a deployment
@@ -64,15 +62,16 @@ work file.
 
 ### Before you share anything
 
-When sharing an AI-assisted result, copy only what you mean to send, check it
+When you share an AI-assisted result, copy only what you mean to send, check it
 and remove private details. For inspection or replay, make a fresh file with
 only the question, checked result and needed evidence.
 
 If you would not deliberately paste a password into the message, do not assume
 the work file politely left it behind.
 
-If a public work file contains passwords or access keys, remove access and
-replace them. Deleting the file cannot undo copies.
+If a work file you published contains a password or access key, treat it as
+exposed: change it and revoke what it unlocked. Deleting the file cannot undo
+copies.
 
 Asking the AI to “show its work” does not scan the file. It writes another
 answer. Providers such as Anthropic document that a readable summary is not the

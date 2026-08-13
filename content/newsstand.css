@@ -986,12 +986,20 @@ main.ns-page {
 }
 
 .ns-article {
+  width: min(100%, 1040px);
+  margin-inline: auto;
   color: var(--ns-ink);
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 24, 59, 0.025) 0 1px, transparent 1px 5px),
+    #fff9fc;
 }
 
 .ns-article__head {
-  padding: clamp(30px, 5vw, 58px) 0;
-  border-bottom: 2px solid var(--ns-ink);
+  padding: clamp(34px, 6vw, 66px) clamp(24px, 6vw, 72px) clamp(30px, 5vw, 54px);
+  border-bottom: 10px solid var(--ns-pink);
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 24, 59, 0.03) 0 1px, transparent 1px 4px),
+    #fff7d9;
 }
 
 .ns-article__head h2 {
@@ -1016,9 +1024,14 @@ main.ns-page {
 }
 
 .ns-article__head > p:last-child {
-  max-width: 70ch;
-  margin: 14px 0 0;
-  font-size: 18px;
+  max-width: 58ch;
+  margin: 18px 0 0;
+  color: var(--ns-ink);
+  font-size: clamp(18px, 2vw, 23px);
+  line-height: 1.45;
+}
+.ns-article__head > p:last-child em {
+  font-style: normal;
 }
 
 .ns-article__section {
@@ -1285,6 +1298,8 @@ main.ns-page {
   letter-spacing: 0.05em;
   text-align: center;
 }
+.ns-article__sources p,
+.ns-article__sources strong { color: #fff7d9; }
 
 @media (max-width: 900px) {
   .ns-archive {
@@ -2026,9 +2041,49 @@ main.ns-page {
 .ns-article__section--longform > p,
 .ns-article__section--longform > ul,
 .ns-article__section--longform > ol { max-width: 68ch; }
+.ns-article__section--longform {
+  display: block;
+  padding: clamp(30px, 5vw, 52px) clamp(24px, 7vw, 86px);
+  border-bottom: 3px solid var(--ns-ink);
+}
+.ns-article__section--longform:nth-of-type(even) { background: #f1ecff; }
+.ns-article__section--longform:nth-of-type(odd) { background: #eafcfc; }
+.ns-article__section--longform h3 {
+  max-width: 30ch;
+  margin: 0 0 22px;
+  color: #af1e62;
+  font-family: var(--ns-display);
+  font-size: clamp(25px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.ns-article__section--longform > :not(h3) { margin-left: 0; }
 .ns-article__section--longform > p + p { margin-top: 1em; }
 .ns-article__section--longform h4 { margin: 1.25em 0 0; font-family: var(--ns-body); font-size: 1.15em; }
 .ns-article__section--longform li + li { margin-top: 0.6em; }
+.ns-article__section--longform#the-answer-first {
+  border-left: 12px solid var(--ns-cyan);
+  background: #dff8f7;
+}
+.ns-article__section--longform#before-you-share-anything {
+  margin: clamp(26px, 5vw, 52px) clamp(18px, 5vw, 58px);
+  padding: clamp(28px, 4vw, 46px);
+  border: 3px solid var(--ns-ink);
+  border-left: 14px solid var(--ns-pink);
+  box-shadow: 10px 10px 0 #ffdf32;
+  background: #fff1a8;
+}
+.ns-article__section--longform#sources { background: #fff9fc; }
+.ns-article__section--longform#sources h3 { color: var(--ns-purple); }
+.ns-article__sources {
+  margin-top: 0;
+  padding: 26px clamp(24px, 7vw, 86px);
+  background: var(--ns-ink);
+  color: #fff7d9;
+  text-align: center;
+}
 .ns-daily-desk__state { font-size: 10px; }
 .ns-daily-more-desks { padding: 28px clamp(24px, 4vw, 52px) 34px; border-bottom: 4px solid var(--ns-ink); background: #fff9fc; }
 .ns-daily-more-desks__head { margin-bottom: 4px; }
@@ -2103,4 +2158,8 @@ main.ns-page {
 
 @media (max-width: 780px) {
   .ns-article__head h2 { font-size: clamp(38px, 11vw, 52px); }
+  .ns-article__section--longform#before-you-share-anything {
+    margin: 22px 12px 30px;
+    box-shadow: 6px 6px 0 #ffdf32;
+  }
 }
