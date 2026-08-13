@@ -28,7 +28,12 @@ const CRITICAL_PATHS = [
 ];
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
 
-export function validateNewsstandExactPreview(receipt, manifest) {
+function pngDimensions(buffer) {
+  if (!Buffer.isBuffer(buffer) || buffer.length < 24 || buffer.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a") return null;
+  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+}
+
+export function validateNewsstandExactPreview(receipt, manifest, visualFiles = new Map()) {
   const errors = [];
   if (receipt?.schema !== "laidies.newsstand-exact-preview.v1") errors.push("unsupported receipt schema");
   if (!SHA40.test(receipt?.source_commit || "")) errors.push("source_commit must be an exact lowercase 40-character Git SHA");
@@ -54,7 +59,7 @@ export function validateNewsstandExactPreview(receipt, manifest) {
   for (const required of REQUIRED_CHECKS) if (checks.get(required) !== "PASS") errors.push(`required check is not PASS: ${required}`);
 
   if (receipt?.status === "PREPARED_NO_DEPLOY") {
-    if (receipt.deployment_id !== null || receipt.preview_url !== null || receipt.review_url !== null || receipt.review_branch !== null || receipt.access_credential !== null || receipt.public_verification !== null) errors.push("prepared receipt cannot claim deployment, review URL, credential or public verification");
+    if (receipt.deployment_id !== null || receipt.preview_url !== null || receipt.review_url !== null || receipt.review_branch !== null || receipt.access_credential !== null || receipt.public_verification !== null || receipt.visual_capture !== null) errors.push("prepared receipt cannot claim deployment, review URL, credential, public verification or visual capture");
   } else if (receipt?.status === "DEPLOYED_PREVIEW") {
     if (!UUID.test(receipt?.deployment_id || "")) errors.push("deployed preview requires a deployment UUID");
     if (!/^review-[a-f0-9]{12}-[0-9]+$/.test(receipt?.review_branch || "")) errors.push("deployed preview requires a unique review branch");
@@ -84,6 +89,29 @@ export function validateNewsstandExactPreview(receipt, manifest) {
       const record = verified.get(required);
       if (record?.http_status !== 200 || record?.sha256 !== byPath.get(required)?.sha256) errors.push(`deployed critical path is not byte-verified: ${required}`);
     }
+    const visual = receipt?.visual_capture;
+    if (visual?.status !== "CAPTURED_NOT_REVIEWED" || visual?.review_url !== receipt?.review_url || !/^\d{4}-\d{2}-\d{2}T/.test(visual?.captured_at || "")) errors.push("deployed preview requires exact deployed-pixel capture metadata without claiming quality review");
+    const expectedViews = new Map([["desktop-1440", [1440, 1024]], ["mobile-390", [390, 844]], ["mobile-320", [320, 844]]]);
+    const states = Array.isArray(visual?.states) ? visual.states : [];
+    if (states.length !== 3) errors.push("visual capture must record exactly three viewport states");
+    for (const [id, [width, height]] of expectedViews) {
+      const state = states.find(item => item?.viewport?.id === id);
+      if (!state || state.viewport.width !== width || state.viewport.height !== height || state.daily?.date !== REVIEW_DATE || state.daily?.headline !== "People published records of their AI work. Some contained passwords." || state.daily?.readyDesks !== 4 || state.daily?.horizontalOverflow !== false || state.article?.sections !== 6 || state.article?.horizontalOverflow !== false) errors.push(`visual state is incomplete or unsafe: ${id}`);
+    }
+    const captures = Array.isArray(visual?.captures) ? visual.captures : [];
+    const expectedCaptures = new Set([...expectedViews.keys()].flatMap(id => ["DAILY_FULL_PAGE", "DAILY_NEWSPAPER", "ARTICLE"].map(state => `${id}|${state}`)));
+    const seenCaptures = new Set();
+    for (const capture of captures) {
+      const id = capture?.viewport?.id;
+      const key = `${id}|${capture?.state}`;
+      seenCaptures.add(key);
+      if (!expectedCaptures.has(key)) errors.push(`unexpected visual capture: ${key}`);
+      if (!/^visual\/(?:desktop-1440|mobile-390|mobile-320)-(?:daily-full-page|daily-newspaper|article)\.png$/.test(capture?.path || "") || !SHA64.test(capture?.sha256 || "")) errors.push(`invalid visual capture binding: ${key}`);
+      const buffer = visualFiles.get(capture?.path);
+      const dimensions = pngDimensions(buffer);
+      if (!dimensions || sha256(buffer) !== capture?.sha256 || dimensions.width !== capture?.output?.width || dimensions.height !== capture?.output?.height || dimensions.width < 1 || dimensions.height < 1) errors.push(`visual capture bytes do not match receipt: ${capture?.path || key}`);
+    }
+    if (captures.length !== expectedCaptures.size || seenCaptures.size !== expectedCaptures.size || [...expectedCaptures].some(key => !seenCaptures.has(key))) errors.push("visual capture set is incomplete or duplicated");
   } else {
     errors.push("status must be PREPARED_NO_DEPLOY or DEPLOYED_PREVIEW");
   }
@@ -97,7 +125,14 @@ if (isMain) {
   const absolute = path.resolve(receiptPath);
   const receipt = JSON.parse(fs.readFileSync(absolute, "utf8"));
   const manifest = JSON.parse(fs.readFileSync(path.join(path.dirname(absolute), receipt?.artifact_manifest?.path || ""), "utf8"));
-  const errors = validateNewsstandExactPreview(receipt, manifest);
+  const visualFiles = new Map();
+  for (const capture of receipt?.visual_capture?.captures || []) {
+    if (/^visual\/[a-z0-9-]+\.png$/.test(capture?.path || "")) {
+      const capturePath = path.join(path.dirname(absolute), capture.path);
+      if (fs.existsSync(capturePath)) visualFiles.set(capture.path, fs.readFileSync(capturePath));
+    }
+  }
+  const errors = validateNewsstandExactPreview(receipt, manifest, visualFiles);
   if (errors.length) {
     console.error("NEWSSTAND EXACT PREVIEW FAIL");
     errors.forEach(error => console.error(`- ${error}`));
