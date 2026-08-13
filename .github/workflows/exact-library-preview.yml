@@ -92,7 +92,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RECEIPT_DIR"
-          node scripts/create-release-manifest.mjs --release "$ARTIFACT_DIR" "$RECEIPT_DIR/artifact-manifest.json"
+          node scripts/create-release-manifest.mjs "$ARTIFACT_DIR" "$RECEIPT_DIR/artifact-manifest.json"
       - name: Write prepared receipt
         shell: bash
         run: |
