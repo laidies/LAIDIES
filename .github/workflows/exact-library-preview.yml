@@ -104,7 +104,7 @@ jobs:
             --arg source_candidate "$INPUT_LIBRARY_SHA256" \
             --arg artifact_candidate "$artifact_candidate" \
             --arg identity "$identity" \
-            '{schema:"laidies.exact-commit-preview.v1",status:"PREPARED_NO_DEPLOY",source_commit:$commit,project:"laidies-sunnyvaile-preview",candidate:{path:"library.html",source_sha256:$source_candidate,artifact_sha256:$artifact_candidate},artifact_manifest:{path:"artifact-manifest.json",identity_sha256:$identity},deployment_id:null,preview_url:null,checks:[{id:"minimum-integrity-ci",result:"PASS"},{id:"library-product-browser",result:"PASS"},{id:"library-inline-handler-calibration",result:"PASS"},{id:"design-review-admission",result:"PASS"},{id:"curated-public-build",result:"PASS"}]}' \
+            '{schema:"laidies.exact-commit-preview.v1",status:"PREPARED_NO_DEPLOY",source_commit:$commit,project:"laidies-sunnyvaile-preview",candidate:{path:"library.html",source_sha256:$source_candidate,artifact_sha256:$artifact_candidate},artifact_manifest:{path:"artifact-manifest.json",identity_sha256:$identity},deployment_id:null,preview_url:null,access_credential:null,checks:[{id:"minimum-integrity-ci",result:"PASS"},{id:"library-product-browser",result:"PASS"},{id:"library-inline-handler-calibration",result:"PASS"},{id:"design-review-admission",result:"PASS"},{id:"curated-public-build",result:"PASS"}]}' \
             > "$RECEIPT_DIR/preview-receipt.json"
           node scripts/check-exact-commit-preview.mjs "$RECEIPT_DIR/preview-receipt.json"
       - name: Upload exact candidate and receipt
@@ -122,7 +122,7 @@ jobs:
     needs: exact-library-preview
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    environment: preview
+    environment: production
     permissions:
       contents: read
     env:
@@ -136,34 +136,108 @@ jobs:
         with:
           name: exact-library-preview-${{ inputs.commit_sha }}
           path: ${{ env.DOWNLOAD_DIR }}
-      - name: Deploy exact artifact to Cloudflare Pages preview
+      - name: Validate prepared artifact and existing Access policy
         shell: bash
         working-directory: ${{ github.workspace }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_ACCESS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_READ_TOKEN }}
-          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test "$PROJECT_NAME" = "laidies-sunnyvaile-preview"
           jq -e --arg commit "$INPUT_COMMIT_SHA" '
             .schema == "laidies.exact-commit-preview.v1" and
             .status == "PREPARED_NO_DEPLOY" and
             .source_commit == $commit and
             .project == "laidies-sunnyvaile-preview" and
             .candidate.path == "library.html" and
-            .deployment_id == null and .preview_url == null and
+            .deployment_id == null and .preview_url == null and .access_credential == null and
             ([.checks[] | select(.result == "PASS") | .id] | sort | unique) ==
               ["curated-public-build","design-review-admission","library-inline-handler-calibration","library-product-browser","minimum-integrity-ci"]
           ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
+          access_apps="/tmp/library-access-apps-${GITHUB_RUN_ID}.json"
+          access_policies="/tmp/library-access-policies-${GITHUB_RUN_ID}.json"
           curl --fail --silent --show-error \
-            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_READ_TOKEN" \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/apps" \
-            > "$RECEIPT_DIR/access-apps.json"
-          jq -e --arg domain "*.$PROJECT_NAME.pages.dev" \
-            '.success == true and any(.result[]; .domain == $domain)' \
-            "$RECEIPT_DIR/access-apps.json" >/dev/null
+            > "$access_apps"
+          access_app_id="$(jq -er --arg domain "*.$PROJECT_NAME.pages.dev" '
+            select(.success == true) |
+            [.result[] | select(.domain == $domain)] |
+            if length == 1 then .[0].id else error("expected one exact preview Access application") end
+          ' "$access_apps")"
+          [[ "$access_app_id" =~ ^[a-f0-9-]{36}$ ]]
+          curl --fail --silent --show-error \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/apps/$access_app_id/policies" \
+            > "$access_policies"
+          jq -e '
+            .success == true and
+            any(.result[];
+              .decision == "non_identity" and
+              any(.include[]?; has("any_valid_service_token"))
+            )
+          ' "$access_policies" >/dev/null
+          rm -f "$access_apps" "$access_policies"
+      - name: Create masked temporary Access verification credential
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          response="/tmp/library-access-token-${GITHUB_RUN_ID}.json"
+          service_token_id=""
+          cleanup_on_error() {
+            exit_code=$?
+            trap - EXIT
+            if [[ "$exit_code" -ne 0 && -n "$service_token_id" ]]; then
+              curl --fail --silent --show-error --request DELETE \
+                --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+                "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/service_tokens/$service_token_id" \
+                >/dev/null || true
+            fi
+            rm -f "$response"
+            exit "$exit_code"
+          }
+          trap cleanup_on_error EXIT
+          token_name="laidies-library-preview-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          curl --fail --silent --show-error --request POST \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data "$(jq -nc --arg name "$token_name" '{name:$name,duration:"30m"}')" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/service_tokens" \
+            > "$response"
+          service_token_id="$(jq -r '.result.id // empty' "$response")"
+          jq -e '
+            .success == true and
+            (.result.id | type == "string" and length == 36) and
+            (.result.client_id | type == "string" and length > 0) and
+            (.result.client_secret | type == "string" and length > 0) and
+            .result.duration == "30m"
+          ' "$response" >/dev/null
+          client_id="$(jq -r .result.client_id "$response")"
+          client_secret="$(jq -r .result.client_secret "$response")"
+          echo "::add-mask::$client_id"
+          echo "::add-mask::$client_secret"
+          {
+            echo "CF_ACCESS_SERVICE_TOKEN_ID=$service_token_id"
+            echo "CF_ACCESS_CLIENT_ID=$client_id"
+            echo "CF_ACCESS_CLIENT_SECRET=$client_secret"
+          } >> "$GITHUB_ENV"
+          rm -f "$response"
+          trap - EXIT
+      - name: Deploy and byte-verify exact protected preview
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test "$PROJECT_NAME" = "laidies-sunnyvaile-preview"
+          [[ "$CF_ACCESS_SERVICE_TOKEN_ID" =~ ^[a-f0-9-]{36}$ ]]
           npx --yes wrangler@4.119.0 pages deployment list \
             --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-before.json"
           review_branch="review-${INPUT_COMMIT_SHA:0:12}-${GITHUB_RUN_ID}"
@@ -174,9 +248,9 @@ jobs:
             --commit-dirty=false
           npx --yes wrangler@4.119.0 pages deployment list \
             --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-after.json"
-          node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" <<'NODE'
+          node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" "$CF_ACCESS_SERVICE_TOKEN_ID" <<'NODE'
           const fs=require('fs'),path=require('path');
-          const [dir,commit,branch]=process.argv.slice(2);
+          const [dir,commit,branch,serviceTokenId]=process.argv.slice(2);
           const before=JSON.parse(fs.readFileSync(path.join(dir,'deployments-before.json'),'utf8'));
           const after=JSON.parse(fs.readFileSync(path.join(dir,'deployments-after.json'),'utf8'));
           const prior=new Set(before.map(item=>item.id));
@@ -187,7 +261,7 @@ jobs:
           const deployment=matches[0];
           const receiptPath=path.join(dir,'preview-receipt.json');
           const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
-          receipt.status='DEPLOYED_PREVIEW';receipt.deployment_id=deployment.id;receipt.preview_url=deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`;receipt.review_branch=branch;
+          receipt.status='DEPLOYED_PREVIEW';receipt.deployment_id=deployment.id;receipt.preview_url=deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`;receipt.review_branch=branch;receipt.access_credential={type:'TEMPORARY_SERVICE_TOKEN',service_token_id:serviceTokenId,duration:'30m',policy_selector:'any_valid_service_token',revoked:false};
           fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
           NODE
           preview_url="$(jq -r .preview_url "$RECEIPT_DIR/preview-receipt.json")"
@@ -205,6 +279,47 @@ jobs:
           jq --arg sha "$deployed_library_sha" --arg unauthenticated "$unauthenticated_status" '.public_verification={route:"/library.html",http_status:200,unauthenticated_status:($unauthenticated|tonumber),access_protected:true,sha256:$sha,result:"PASS"}' \
             "$RECEIPT_DIR/preview-receipt.json" > "$RECEIPT_DIR/preview-receipt.updated.json"
           mv "$RECEIPT_DIR/preview-receipt.updated.json" "$RECEIPT_DIR/preview-receipt.json"
+      - name: Revoke temporary Access verification credential
+        if: ${{ always() }}
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${CF_ACCESS_SERVICE_TOKEN_ID:-}" ]]; then
+            exit 0
+          fi
+          revoke_response="/tmp/library-access-token-revoke-${GITHUB_RUN_ID}.json"
+          curl --fail --silent --show-error --request DELETE \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/service_tokens/$CF_ACCESS_SERVICE_TOKEN_ID" \
+            > "$revoke_response"
+          jq -e '.success == true' "$revoke_response" >/dev/null
+          rm -f "$revoke_response"
+          if jq -e '.status == "DEPLOYED_PREVIEW" and .access_credential.service_token_id != null' "$RECEIPT_DIR/preview-receipt.json" >/dev/null 2>&1; then
+            jq '.access_credential.revoked = true' \
+              "$RECEIPT_DIR/preview-receipt.json" > "$RECEIPT_DIR/preview-receipt.revoked.json"
+            mv "$RECEIPT_DIR/preview-receipt.revoked.json" "$RECEIPT_DIR/preview-receipt.json"
+          fi
+      - name: Verify deployed receipt after credential revocation
+        if: ${{ success() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -e '
+            .schema == "laidies.exact-commit-preview.v1" and
+            .status == "DEPLOYED_PREVIEW" and
+            .project == "laidies-sunnyvaile-preview" and
+            .access_credential.type == "TEMPORARY_SERVICE_TOKEN" and
+            .access_credential.duration == "30m" and
+            .access_credential.policy_selector == "any_valid_service_token" and
+            .access_credential.revoked == true and
+            .public_verification.route == "/library.html" and
+            .public_verification.http_status == 200 and
+            .public_verification.access_protected == true and
+            .public_verification.result == "PASS"
+          ' "$RECEIPT_DIR/preview-receipt.json" >/dev/null
       - name: Upload deployed preview receipt
         uses: actions/upload-artifact@v4
         with:
