@@ -47,7 +47,7 @@ export function overlayReviewPackage({ output, pkg, packageSha256 }) {
   story.publishedAt = `${pkg.editionDate}T23:30:00Z`;
   story.updatedAt = reviewedAt;
   story.lastCheckedAt = reviewedAt;
-  story.sourceApproval = { status: "approved", record: "/private-review/not-public" };
+  story.sourceApproval = { status: "approved", record: `/operations/product-stewards/newsstand/evidence/stories/${story.id}.json` };
 
   const data = parseStoryData(fs.readFileSync(storyPath, "utf8"));
   if (data.stories.some(item => item.id === story.id || item.slug === story.slug)) fail("review story identity already exists in canonical data");
