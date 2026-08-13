@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
+  "owner": "learning-content-ecosystem",
+  "updatedAt": "2026-08-13T14:34:21-07:00",
+  "remoteSource": {
+    "repository": "laidies/LAIDIES",
+    "issueNumber": 78,
+    "issueUrl": "https://github.com/laidies/LAIDIES/issues/78",
+    "issueState": "CLOSED",
+    "commit": "93dd839782aea16c4412b9abe44a1353dec8fbfc",
+    "fileSha": "b5468ada4e9db541e55686d88b2b3835cd103e27",
+    "verifiedAt": "2026-08-13T16:18:00-07:00"
+  },
+  "rules": {
+    "allowedDispositions": [
+      "DUPLICATE",
+      "QUIET",
+      "WATCH",
+      "NO_BUILD",
+      "QUEUED_WITH_TRIGGER",
+      "WORK_ORDER_CREATED"
+    ],
+    "boundary": "The private GitHub issue is intake only. A disposition is not publication authority."
+  },
+  "signals": [
+    {
+      "signalId": "NSCI-01ad5d7bab8e1a46600f",
+      "title": "AI Optimism Has a Trust Problem",
+      "disposition": "WATCH",
+      "reason": "The AIDB trust signal is potentially useful, but the exact Meta/Zuckerberg primary item remains unresolved.",
+      "nextTrigger": "Recover the exact primary source and verify the attributed claim before editorial routing.",
+      "reviewAfter": "2026-09-10"
+    },
+    {
+      "signalId": "NSCI-2a6d34a6f294fc3f60d8",
+      "title": "Grok Bot Finally Makes AI Agents Easy",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "reason": "An official xAI item may support a bounded product explainer, but it does not displace the current held Daily candidate.",
+      "nextTrigger": "Recheck official availability, terms and distinct reader value after the current Daily lane clears.",
+      "reviewAfter": "2026-08-20"
+    },
+    {
+      "signalId": "NSCI-bd2787a2b332a0eb983f",
+      "title": "Graph Engineering",
+      "disposition": "NO_BUILD",
+      "reason": "The item is jargon-heavy and duplicates already governed loop and harness concepts without a distinct reader job.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-7751d49657deb9e6d589",
+      "title": "41 Stats",
+      "disposition": "DUPLICATE",
+      "reason": "The signal is already covered by LCWO-019.",
+      "relatedWorkOrderIds": ["LCWO-019"],
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-0fff983d378f8a63dd4d",
+      "title": "The Right Way to Worry About AI",
+      "disposition": "WORK_ORDER_CREATED",
+      "reason": "The signal contributes to the existing cross-lab evaluation and safety lanes rather than authorizing a new immediate publication.",
+      "relatedWorkOrderIds": ["LCWO-003", "LCWO-020"],
+      "nextTrigger": "Advance only when the primary lane is free and the exact source set supports a distinct reader job.",
+      "reviewAfter": "2026-08-20"
+    },
+    {
+      "signalId": "NSCI-73404f5bc8eaecd242e9",
+      "title": "OpenAI Developers changed",
+      "disposition": "NO_BUILD",
+      "reason": "A homepage fingerprint change is not a material product update; monitoring belongs on the official changelog or exact documentation page.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-442170deab014cf4167a",
+      "title": "AP AI changed",
+      "disposition": "NO_BUILD",
+      "reason": "An index-page fingerprint change is not a story; intake must identify an exact article and claim.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-cc66ba1e7626793e50f5",
+      "title": "Google Pixel AI",
+      "disposition": "QUEUED_WITH_TRIGGER",
+      "reason": "The dated official item may support a useful consumer explainer after freshness and product-availability checks.",
+      "nextTrigger": "Recheck the official article, availability boundaries and a distinct non-promotional reader payoff after the current Daily lane clears.",
+      "reviewAfter": "2026-08-20"
+    }
+  ],
+  "sourceHealth": [
+    {
+      "source": "Reuters",
+      "status": "HTTP_401",
+      "nextAction": "Retry through an authorized feed or use an exact independent alternative before relying on the claim.",
+      "reviewAfter": "2026-08-20"
+    }
+  ],
+  "draftActionTaken": false,
+  "publicationActionTaken": false,
+  "canonicalWrite": false,
+  "deploymentActionTaken": false
+}

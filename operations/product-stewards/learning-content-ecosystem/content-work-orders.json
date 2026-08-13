@@ -2,7 +2,7 @@
   "schemaVersion": "1.2.0",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE",
-  "updatedAt": "2026-08-11",
+  "updatedAt": "2026-08-13",
   "orchestration": {
     "rule": "Every accepted learning/content intake is represented once; one selected primary output may execute per owner while other work remains explicit backlog.",
     "dispatch": "READY_TO_DISPATCH means eligible for an owner dispatch and does not require a producer contract. DISPATCHED requires a checksumable receipt, lane, scope, collision boundary, checkpoint and SLA.",
@@ -163,6 +163,38 @@
       "workOrderIds": [],
       "checkedAt": "2026-08-11",
       "reason": "The new 2026-08-10 AIDB edition has 21 nuggets and zero source links. Astra duplicates an existing WATCH identity, graph engineering lacks an exact original and overlaps bounded loop/harness material, and no remaining claim establishes a verified distinct reader job. This disposition covers the AIDB edition only; it is not a no-build ruling on Mollick social posts, whose coverage requires reconciliation."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/cloud-intake-dispositions.json",
+      "disposition": "REMOTE_RECONCILED",
+      "workOrderIds": [
+        "LCWO-003",
+        "LCWO-019",
+        "LCWO-020"
+      ],
+      "sourceReconciliationPath": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-13-github-nsci-issue-78.json",
+      "checkedAt": "2026-08-13",
+      "reason": "GitHub issue #78 was already closed after all eight listed NSCI signals received durable dispositions at commit 93dd839782aea16c4412b9abe44a1353dec8fbfc. This local mirror makes those decisions visible to the executor without reopening or replaying the private queue."
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/daily/2026-08-12.md",
+      "disposition": "WORK_ORDERS_CREATED",
+      "workOrderIds": [
+        "LCWO-024"
+      ],
+      "sourceReconciliationPath": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-12-reasoning-trace-leakage.json",
+      "checkedAt": "2026-08-13",
+      "reason": "The scheduled AIDB cycle was quiet, but Ali's direct briefing addendum identified arXiv:2608.09867 and produced a primary-source map plus a complete held Daily candidate. LCWO-024 prevents the candidate from remaining outside execution state or being drafted again."
+    },
+    {
+      "path": "operations/drafts/news-radar/2026-08-11-cross-lab-evaluation-boundaries/premise.md",
+      "disposition": "WORK_ORDERS_REUSED",
+      "workOrderIds": [
+        "LCWO-020",
+        "LCWO-021"
+      ],
+      "checkedAt": "2026-08-13",
+      "reason": "The cross-lab premise and claim map already produced the distinct STRAiGHT TALK and Weekly work orders. Recording reuse closes the intake gap without creating a duplicate article."
     }
   ],
   "workOrders": [
@@ -4153,6 +4185,106 @@
       "evidencePaths":["operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-independent-sonnet-accept.md","operations/product-stewards/newsstand/candidates/compact-column-existing-surface-render-hold-2026-08-12.md"],
       "publicRelease":{"status":"NOT_AUTHORIZED","url":null,"releaseReceipt":null,"sha256":null},
       "execution":{"state":"WAITING_ON_PREREQUISITE","primaryOutput":{"id":"LCWO-023-primary","surface":"NEWSSTAND","ownerProductId":"learning-content-ecosystem","targetPaths":["content/daily-learning-derivatives.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-source-note-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-premise-2026-08-12.md","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-contract.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-manifest.json","operations/product-stewards/newsstand/candidates/career-put-the-name-back-2026-08-12-producer-self-review.json"]},"requiredPrimaryGates":["accuracy","antiSlop","currentBestPractice","laidiesVoice","analogyIntegrity","usefulnessDepth","formatFit","searchIndexing","relationshipLinking","canonConsistency"],"derivatives":[{"id":"songOpportunity","state":"PARKED","reason":"No distinct mnemonic job exists.","activationTrigger":"Reconsider only after candidate admission."},{"id":"derivativeFeeds","state":"PARKED","reason":"No derivative may inherit this held candidate's state.","activationTrigger":"Create a separate source-bound child work order."}],"wip":{"ownerLimit":1},"dispatch":null,"closure":null}
+    },
+    {
+      "id": "LCWO-024",
+      "title": "Reconcile and admit the Daily explainer about secrets in raw AI work logs",
+      "sourceRefs": [
+        "operations/agents/aidb-intelligence-desk/daily/2026-08-12.md",
+        "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-12-reasoning-trace-leakage.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "CREATE",
+      "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": ["news_daily"],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_daily",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Explain why a raw technical AI-session file can contain more than the visible chat and give ordinary readers and teams a precise safer sharing rule.",
+          "sourceVersionIds": ["ARXIV-2608.09867-V1", "AIDB-DIRECT-ADDENDUM-2026-08-12", "NEWSSTAND-DAILY-AI-WORK-LOGS-20260812"]
+        }
+      ],
+      "targetPaths": [
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-manifest.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json"
+      ],
+      "status": "BLOCKED_BUILD_REMAINS_REQUIRED",
+      "dispatchState": "NOT_READY",
+      "priority": "P0",
+      "nextAction": "Do not draft another article. Reconcile the existing NEWSSTAND-DAILY-AI-WORK-LOGS-20260812 contract and manifest to LCWO-024, then obtain real unfamiliar-reader explain-back and unseen-transfer observations before an independent semantic verdict. Preserve the exact current prose as the predecessor and repair only defects the observations expose.",
+      "nextTrigger": "A role-distinct owner can bind the existing candidate to this work order and collect the required real unfamiliar-reader observations. The current producer-only PASS and local render are not publication authority.",
+      "acceptanceEvidence": [
+        "Exact primary-paper and current provider-documentation claim map",
+        "The opening distinguishes public technical work logs from ordinary private consumer chats",
+        "Plain-language mechanism precedes provider terminology",
+        "Workplace and non-work examples apply the same release-file rule",
+        "Real unfamiliar-reader explain-back and unseen-transfer observations",
+        "Role-distinct independent semantic, editorial, accessibility and rendered-experience review",
+        "Exact Daily issue integration, deployment and public URL verification"
+      ],
+      "reviewChain": [
+        {"stage": "BUILD", "owner": "newsstand-daily", "status": "PASS_LOCAL_PREDECESSOR_ONLY"},
+        {"stage": "ACCURACY", "owner": "ai-research-accuracy", "status": "REQUIRED"},
+        {"stage": "EDITORIAL", "owner": "independent-editorial-review", "status": "REQUIRED"},
+        {"stage": "LEARNING", "owner": "learning-content-ecosystem", "status": "WAITING_ON_OBSERVED_HUMAN"},
+        {"stage": "EXPERIENCE", "owner": "brand-experience", "status": "REQUIRED"},
+        {"stage": "OWNER", "owner": "newsstand-daily", "status": "REQUIRED"},
+        {"stage": "RELEASE", "owner": "control-room", "status": "HOLD"},
+        {"stage": "PUBLIC", "owner": "platform", "status": "HOLD"}
+      ],
+      "qualityGates": {
+        "accuracy": {"owner": "ai-research-accuracy", "status": "REQUIRED", "evidenceRequired": "Every mechanism, count, affected actor, patch and limitation maps to the current paper or provider documentation.", "evidencePaths": []},
+        "antiSlop": {"owner": "independent-editorial-review", "status": "REQUIRED", "evidenceRequired": "Artifact-first review proves the article has one clear point, necessary context and no fear-bait or technical filler.", "evidencePaths": []},
+        "currentBestPractice": {"owner": "content-freshness", "status": "REQUIRED", "evidenceRequired": "Publication-day recheck of the paper revision, disclosures and provider documentation.", "evidencePaths": []},
+        "laidiesVoice": {"owner": "brand-experience", "status": "REQUIRED", "evidenceRequired": "Adult, calm, useful and lightly witty without trivializing credential exposure.", "evidencePaths": []},
+        "analogyIntegrity": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "The visible-page versus whole-file analogy reconnects to the technical mechanism and retains its limits.", "evidencePaths": []},
+        "usefulnessDepth": {"owner": "editorial-learning", "status": "REQUIRED", "evidenceRequired": "Observed readers can explain the invisible-file risk, transfer it to a new case and choose the safer sharing action.", "evidencePaths": []},
+        "formatFit": {"owner": "newsstand-daily", "status": "REQUIRED", "evidenceRequired": "The item is a dated Daily explainer, not Breaking, a Weekly synthesis or a reference article.", "evidencePaths": []},
+        "searchIndexing": {"owner": "platform", "status": "REQUIRED", "evidenceRequired": "Only an admitted version enters the Daily issue, archive, tags and search index.", "evidencePaths": []},
+        "relationshipLinking": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Related privacy and safe-sharing material is linked without duplicating or silently superseding it.", "evidencePaths": []},
+        "canonConsistency": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Chat, API, reasoning, public-log and private-conversation terms agree with current canon and feature-lane decisions.", "evidencePaths": []},
+        "songOpportunity": {"owner": "ksvl-radio", "status": "REQUIRED", "evidenceRequired": "No song is created unless a distinct mnemonic job is separately proved.", "evidencePaths": []},
+        "derivativeFeeds": {"owner": "newsstand-daily", "status": "REQUIRED", "evidenceRequired": "No social, newsletter, Weekly or reference derivative inherits this candidate's state.", "evidencePaths": []}
+      },
+      "artifactBinding": {"status": "UNBOUND", "manifestPath": null, "sha256": null},
+      "producerContractPath": null,
+      "producerReviewPath": null,
+      "semanticAdmissionPath": null,
+      "evidencePaths": [
+        "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-12-reasoning-trace-leakage.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json"
+      ],
+      "publicRelease": {"status": "NOT_AUTHORIZED", "url": null, "releaseReceipt": null, "sha256": null},
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-024-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "newsstand-daily",
+          "targetPaths": [
+            "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+            "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-manifest.json",
+            "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json",
+            "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json"
+          ]
+        },
+        "requiredPrimaryGates": ["accuracy", "antiSlop", "currentBestPractice", "laidiesVoice", "analogyIntegrity", "usefulnessDepth", "formatFit", "searchIndexing", "relationshipLinking", "canonConsistency"],
+        "derivatives": [
+          {"id": "weeklyPattern", "state": "PARKED", "reason": "One paper does not yet establish a distinct weekly pattern.", "activationTrigger": "At least one later dated development creates a sourced cross-story pattern."},
+          {"id": "referenceContinuation", "state": "PARKED", "reason": "The Daily's practical sharing rule is sufficient for this reader job.", "activationTrigger": "A durable reference need appears that cannot be answered by the admitted Daily."}
+        ],
+        "wip": {"ownerLimit": 1},
+        "dispatch": null,
+        "closure": null
+      }
     }
   ]
 }

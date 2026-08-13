@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "laidies-source-reconciliation.v1",
+  "receiptId": "SRC-NSCI-GITHUB-ISSUE-78-20260813",
+  "createdAt": "2026-08-13T16:22:00-07:00",
+  "signals": [
+    {
+      "signalId": "NSCI-GITHUB-ISSUE-78",
+      "sourceSystem": "GITHUB_NEWSSTAND_INTAKE",
+      "sourceUrl": "https://github.com/laidies/LAIDIES/issues/78",
+      "sourcePublishedAt": "2026-08-13T17:28:55Z",
+      "observedAt": "2026-08-13T21:40:46Z",
+      "finalRecheckAt": "2026-08-13T16:21:30-07:00",
+      "disposedAt": "2026-08-13T16:22:00-07:00",
+      "sourceLinksState": "PROVIDED",
+      "materialClaims": [
+        {
+          "claimId": "NSCI-ISSUE-78-DURABLE-DISPOSITIONS",
+          "claim": "GitHub issue 78 closed only after its durable reconciliation comment recorded dispositions for all eight listed NSCI signals: WATCH, two QUEUED_WITH_TRIGGER, three NO_BUILD, one DUPLICATE and one WORK_ORDER_CREATED.",
+          "namedReferences": ["laidies/LAIDIES issue 78", "newsstand-intake", "cloud-intake-dispositions.json"],
+          "aliasesChecked": ["NSCI-01ad5d7bab8e1a46600f", "NSCI-2a6d34a6f294fc3f60d8", "NSCI-bd2787a2b332a0eb983f", "NSCI-7751d49657deb9e6d589", "NSCI-0fff983d378f8a63dd4d", "NSCI-73404f5bc8eaecd242e9", "NSCI-442170deab014cf4167a", "NSCI-cc66ba1e7626793e50f5"],
+          "disposition": "ROUTED",
+          "dispositionReason": "The remote queue is fully dispositioned and correctly closed. The local executor mirrors the durable registry rather than reopening, replaying or treating the private issue as publication authority.",
+          "searches": [
+            {
+              "track": "private_queue",
+              "query": "repo:laidies/LAIDIES issue:78 label:newsstand-intake",
+              "checkedAt": "2026-08-13T16:21:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://github.com/laidies/LAIDIES/issues/78",
+                  "publisher": "GitHub / laidies/LAIDIES",
+                  "publishedAt": "2026-08-13T17:28:55Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            },
+            {
+              "track": "durable_registry",
+              "query": "commit 93dd839782aea16c4412b9abe44a1353dec8fbfc cloud-intake-dispositions.json",
+              "checkedAt": "2026-08-13T16:21:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://github.com/laidies/LAIDIES/blob/93dd839782aea16c4412b9abe44a1353dec8fbfc/operations/product-stewards/newsstand/cloud-intake-dispositions.json",
+                  "publisher": "GitHub / laidies/LAIDIES",
+                  "publishedAt": "2026-08-13T21:34:21Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "routing": {
+    "disposition": "REMOTE_RECONCILED",
+    "localMirrorPath": "operations/product-stewards/newsstand/cloud-intake-dispositions.json",
+    "openIssueCount": 0,
+    "publicationAuthority": "NONE"
+  },
+  "publicAuthority": "NONE"
+}

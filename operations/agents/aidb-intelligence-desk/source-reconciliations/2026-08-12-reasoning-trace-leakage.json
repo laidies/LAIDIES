@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "laidies-source-reconciliation.v1",
+  "receiptId": "SRC-AIDB-DIRECT-20260812-REASONING-TRACE-LEAKAGE",
+  "createdAt": "2026-08-13T16:21:01-07:00",
+  "signals": [
+    {
+      "signalId": "AIDB-DIRECT-2026-08-12-ARXIV-2608.09867",
+      "sourceSystem": "AIDB_DIRECT_ALI_BRIEFING",
+      "sourceUrl": "https://arxiv.org/abs/2608.09867",
+      "sourcePublishedAt": "2026-08-10T17:24:50Z",
+      "observedAt": "2026-08-12T12:40:00-07:00",
+      "finalRecheckAt": "2026-08-13T16:20:00-07:00",
+      "disposedAt": "2026-08-13T16:21:01-07:00",
+      "sourceLinksState": "PROVIDED",
+      "materialClaims": [
+        {
+          "claimId": "REASONING-TRACE-LEAKAGE-MECHANISM",
+          "claim": "The August 2026 preprint reports that portable encrypted reasoning artifacts could be replayed across models in the same provider family during the test period, exposing reconstructed hidden reasoning from public technical session records.",
+          "namedReferences": ["Panfilov et al.", "Anthropic", "Google", "OpenAI"],
+          "aliasesChecked": ["reasoning trace", "thinking block", "thought signature", "reasoning item"],
+          "disposition": "ROUTED",
+          "dispositionReason": "The primary paper and current provider documentation support a bounded Daily explainer about raw technical-session sharing. This is not Breaking and does not establish that ordinary private consumer chats were published.",
+          "searches": [
+            {
+              "track": "official_or_primary",
+              "query": "arXiv 2608.09867 Stealing Reasoning Traces from Proprietary LLM APIs",
+              "checkedAt": "2026-08-13T16:20:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://arxiv.org/abs/2608.09867",
+                  "publisher": "arXiv",
+                  "publishedAt": "2026-08-10T17:24:50Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            },
+            {
+              "track": "provider_documentation",
+              "query": "Anthropic extended thinking signature encrypted field Google thought signatures OpenAI reasoning items context",
+              "checkedAt": "2026-08-13T16:20:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models",
+                  "publisher": "Anthropic",
+                  "publishedAt": "2026-08-13T00:00:00Z",
+                  "relationship": "CONTEXT_ONLY"
+                },
+                {
+                  "url": "https://ai.google.dev/gemini-api/docs/thinking",
+                  "publisher": "Google AI for Developers",
+                  "publishedAt": "2026-08-13T00:00:00Z",
+                  "relationship": "CONTEXT_ONLY"
+                },
+                {
+                  "url": "https://developers.openai.com/api/docs/guides/reasoning",
+                  "publisher": "OpenAI Developers",
+                  "publishedAt": "2026-08-13T00:00:00Z",
+                  "relationship": "CONTEXT_ONLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "claimId": "REASONING-TRACE-LEAKAGE-SCOPE",
+          "claim": "The paper concerns publicly shared technical AI-task records and provider-specific reasoning artifacts, not a finding that every private consumer chat was exposed.",
+          "namedReferences": ["Panfilov et al."],
+          "aliasesChecked": ["public AI logs", "technical session records", "consumer chat history"],
+          "disposition": "ROUTED",
+          "dispositionReason": "The scope limit is required in any LAiDIES treatment because omitting it would turn a technical release risk into a misleading general privacy scare.",
+          "searches": [
+            {
+              "track": "official_or_primary",
+              "query": "site:arxiv.org/abs/2608.09867 public AI agent trajectories GitHub Hugging Face",
+              "checkedAt": "2026-08-13T16:20:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://arxiv.org/abs/2608.09867",
+                  "publisher": "arXiv",
+                  "publishedAt": "2026-08-10T17:24:50Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "routing": {
+    "disposition": "WORK_ORDER_CREATED",
+    "workOrderId": "LCWO-024",
+    "publicationFormatId": "news_daily",
+    "releaseState": "HOLD",
+    "reason": "A complete local candidate already exists, but it is not publication-ready and must not be duplicated. The queue now owns the exact prerequisite chain."
+  },
+  "publicAuthority": "NONE"
+}

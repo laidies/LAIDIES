@@ -15238,3 +15238,37 @@ while remaining falsely unfinished in the launch record.
   more dangerous than no dashboard when nobody proves its clock is still moving.
 - **Publication status:** INTERNAL OPERATING REPAIR / NO STORY, SITE ROUTE,
   PUBLICATION OR PUBLIC DEPLOYMENT CHANGED.
+
+## BTB-490 — The executor could call itself healthy before discovering new intake
+
+- **Date:** 2026-08-13
+- **Area:** Learning System intake, NewsStand execution and repository continuity.
+- **Failure:** The start-of-cycle checker reported `IDLE_HEALTHY` even though the
+  local queue omitted a closed eight-signal GitHub intake batch, an August 12
+  AIDB direct-source story and the cross-lab News Radar premise that had already
+  produced two held work orders. During the same cycle, iCloud evicted the Git
+  worktree metadata and could not restore it because macOS reported no space.
+- **Root cause:** The executor validated only paths already named in
+  `intakeCoverage`; it had no independent discovery cursor proving that every
+  newer AIDB, News Radar and cloud signal had been considered. The isolated
+  worktree's working files were local, but its Git administration directory
+  still lived inside iCloud and could become a dataless placeholder.
+- **Prevention rule:** `IDLE_HEALTHY` requires both sides of reconciliation:
+  enumerate every eligible source since the last successful cycle, then prove
+  each exact signal has a durable disposition. A validator that only checks a
+  self-declared list cannot establish completeness. Production worktrees must
+  keep their Git metadata in a non-iCloud repository; iCloud may hold the
+  authoritative working copy, never the only live worktree administration.
+- **Durable correction:** The eight GitHub dispositions are mirrored locally;
+  the AIDB reasoning-trace signal has a validated source receipt and LCWO-024;
+  the cross-lab premise is bound to LCWO-020/021; and the end-of-cycle executor
+  check passes with no false-active work. The exact changes are committed using
+  a temporary non-iCloud Git administration directory because the original
+  iCloud metadata is unavailable.
+- **Remaining proof:** The cycle runner still needs a source-enumeration guard;
+  and the machine needs enough free space to hydrate or replace the old iCloud
+  Git metadata safely. Neither gap authorizes deleting user files.
+- **Possible Behind the Build angle:** Why a clean task list can still be wrong
+  when the system never proves it looked in every inbox.
+- **Publication status:** INTERNAL EXECUTION REPAIR / NO ARTICLE, SITE ROUTE,
+  DEPLOYMENT OR PUBLIC STATE CHANGED.
