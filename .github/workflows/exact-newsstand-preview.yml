@@ -122,6 +122,7 @@ jobs:
                 artifact_manifest:{path:"artifact-manifest.json",identity_sha256:$identity},
                 deployment_id:null,
                 preview_url:null,
+                review_url:null,
                 review_branch:null,
                 access_credential:null,
                 public_verification:null,
@@ -191,7 +192,7 @@ jobs:
               .project == "laidies-sunnyvaile-preview" and
               .package.path == $package_path and .package.sha256 == $package_sha and
               .candidate.path == "newsstand.html" and
-              .deployment_id == null and .preview_url == null and
+              .deployment_id == null and .preview_url == null and .review_url == null and
               .review_branch == null and .access_credential == null and
               .public_verification == null and
               ([.checks[] | select(.result == "PASS") | .id] | sort | unique) ==
@@ -321,6 +322,7 @@ jobs:
           receipt.status='DEPLOYED_PREVIEW';
           receipt.deployment_id=deployment.id;
           receipt.preview_url=deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`;
+          receipt.review_url=`${receipt.preview_url}newsstand?daily=2026-08-12`;
           receipt.review_branch=branch;
           receipt.deployment_provider_commit=providerCommit;
           receipt.deployment_provider_commit_verified=providerCommit===commit;
@@ -342,9 +344,11 @@ jobs:
           done
           test "$deployment_visible" = true
           preview_url="$(jq -r .preview_url "$RECEIPT_DIR/preview-receipt.json")"
+          review_url="$(jq -r .review_url "$RECEIPT_DIR/preview-receipt.json")"
           deployment_id="$(jq -r .deployment_id "$RECEIPT_DIR/preview-receipt.json")"
           [[ "$preview_url" == "https://${deployment_id:0:8}.$PROJECT_NAME.pages.dev/" ]]
-          unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out '%{http_code}' "${preview_url}newsstand.html")"
+          [[ "$review_url" == "${preview_url}newsstand?daily=2026-08-12" ]]
+          unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out '%{http_code}' "$review_url")"
           [[ "$unauthenticated_status" == 302 || "$unauthenticated_status" == 401 || "$unauthenticated_status" == 403 ]]
           critical_paths=(
             newsstand.html
@@ -409,6 +413,7 @@ jobs:
             .schema == "laidies.newsstand-exact-preview.v1" and
             .status == "DEPLOYED_PREVIEW" and
             .project == "laidies-sunnyvaile-preview" and
+            (.review_url | endswith("/newsstand?daily=2026-08-12")) and
             .access_credential.type == "TEMPORARY_SERVICE_TOKEN" and
             .access_credential.duration == "30m" and
             .access_credential.policy_selector == "any_valid_service_token" and

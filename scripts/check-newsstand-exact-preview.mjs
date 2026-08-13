@@ -11,6 +11,8 @@ const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-
 const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json";
 const PACKAGE_SHA256 = "331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0";
 const PROJECT = "laidies-sunnyvaile-preview";
+const REVIEW_PATH = "/newsstand";
+const REVIEW_DATE = "2026-08-12";
 const REQUIRED_CHECKS = new Set([
   "complete-daily-package",
   "review-preview-calibration",
@@ -52,7 +54,7 @@ export function validateNewsstandExactPreview(receipt, manifest) {
   for (const required of REQUIRED_CHECKS) if (checks.get(required) !== "PASS") errors.push(`required check is not PASS: ${required}`);
 
   if (receipt?.status === "PREPARED_NO_DEPLOY") {
-    if (receipt.deployment_id !== null || receipt.preview_url !== null || receipt.review_branch !== null || receipt.access_credential !== null || receipt.public_verification !== null) errors.push("prepared receipt cannot claim deployment, credential or public verification");
+    if (receipt.deployment_id !== null || receipt.preview_url !== null || receipt.review_url !== null || receipt.review_branch !== null || receipt.access_credential !== null || receipt.public_verification !== null) errors.push("prepared receipt cannot claim deployment, review URL, credential or public verification");
   } else if (receipt?.status === "DEPLOYED_PREVIEW") {
     if (!UUID.test(receipt?.deployment_id || "")) errors.push("deployed preview requires a deployment UUID");
     if (!/^review-[a-f0-9]{12}-[0-9]+$/.test(receipt?.review_branch || "")) errors.push("deployed preview requires a unique review branch");
@@ -68,6 +70,11 @@ export function validateNewsstandExactPreview(receipt, manifest) {
     try { preview = new URL(receipt.preview_url); } catch { errors.push("deployed preview requires a valid URL"); }
     if (preview && (preview.protocol !== "https:" || !preview.hostname.endsWith(`.${PROJECT}.pages.dev`) || preview.pathname !== "/")) errors.push("preview URL must be an immutable protected preview root");
     if (preview && receipt?.deployment_id && preview.hostname !== `${receipt.deployment_id.slice(0, 8)}.${PROJECT}.pages.dev`) errors.push("preview URL is not bound to the deployment ID");
+    let review;
+    try { review = new URL(receipt.review_url); } catch { errors.push("deployed preview requires a valid exact Daily review URL"); }
+    if (review && preview && (review.protocol !== "https:" || review.hostname !== preview.hostname || review.pathname !== REVIEW_PATH || review.hash || review.searchParams.size !== 1 || review.searchParams.get("daily") !== REVIEW_DATE)) {
+      errors.push("review URL must open the exact dated Daily on the immutable protected deployment");
+    }
     const credential = receipt?.access_credential;
     if (credential?.type !== "TEMPORARY_SERVICE_TOKEN" || !UUID.test(credential?.service_token_id || "") || credential?.duration !== "30m" || credential?.policy_selector !== "any_valid_service_token" || credential?.revoked !== true) errors.push("deployed preview requires a revoked temporary Access verification credential");
     const verification = receipt?.public_verification;
