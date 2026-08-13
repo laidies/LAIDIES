@@ -8,8 +8,8 @@ import { fileURLToPath } from "node:url";
 const SHA40 = /^[a-f0-9]{40}$/;
 const SHA64 = /^[a-f0-9]{64}$/;
 const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
-const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json";
-const PACKAGE_SHA256 = "331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0";
+const PACKAGE_PATH = "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json";
+const PACKAGE_SHA256 = "144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f";
 const PROJECT = "laidies-sunnyvaile-preview";
 const REQUIRED_CHECKS = new Set([
   "complete-daily-package",
@@ -57,6 +57,13 @@ export function validateNewsstandExactPreview(receipt, manifest) {
     if (!UUID.test(receipt?.deployment_id || "")) errors.push("deployed preview requires a deployment UUID");
     if (!/^review-[a-f0-9]{12}-[0-9]+$/.test(receipt?.review_branch || "")) errors.push("deployed preview requires a unique review branch");
     if (SHA40.test(receipt?.source_commit || "") && !receipt.review_branch?.startsWith(`review-${receipt.source_commit.slice(0, 12)}-`)) errors.push("review branch is not bound to the source commit");
+    const providerCommit = receipt?.deployment_provider_commit;
+    const identityBasis = receipt?.deployment_identity_basis;
+    if (providerCommit === null) {
+      if (receipt?.deployment_provider_commit_verified !== false || identityBasis !== "new-id+branch+exact-byte-verification") errors.push("direct-upload deployment identity must fall back to exact byte verification");
+    } else if (!SHA40.test(providerCommit || "") || providerCommit !== receipt?.source_commit || receipt?.deployment_provider_commit_verified !== true || identityBasis !== "new-id+branch+provider-commit") {
+      errors.push("provider commit metadata does not bind the deployment to the source commit");
+    }
     let preview;
     try { preview = new URL(receipt.preview_url); } catch { errors.push("deployed preview requires a valid URL"); }
     if (preview && (preview.protocol !== "https:" || !preview.hostname.endsWith(`.${PROJECT}.pages.dev`) || preview.pathname !== "/")) errors.push("preview URL must be an immutable protected preview root");

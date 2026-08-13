@@ -16,7 +16,7 @@ const receipt = {
   status: "PREPARED_NO_DEPLOY",
   source_commit: "a".repeat(40),
   project: "laidies-sunnyvaile-preview",
-  package: { path: "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json", sha256: "331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0" },
+  package: { path: "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json", sha256: "144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f" },
   candidate: { path: "newsstand.html", artifact_sha256: sha256("newsstand.html") },
   private_preview_receipt: { path: "newsstand-private-preview-receipt.json", sha256: sha256("newsstand-private-preview-receipt.json") },
   artifact_manifest: { path: "artifact-manifest.json", identity_sha256: identity },
@@ -34,6 +34,9 @@ const deployed = {
   deployment_id: "9f161385-7486-4207-9afe-8512ea453973",
   preview_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/",
   review_branch: "review-aaaaaaaaaaaa-123456789",
+  deployment_provider_commit: null,
+  deployment_provider_commit_verified: false,
+  deployment_identity_basis: "new-id+branch+exact-byte-verification",
   access_credential: { type: "TEMPORARY_SERVICE_TOKEN", service_token_id: "f174e90a-fafe-4643-bbbc-4a0ed4fc8415", duration: "30m", policy_selector: "any_valid_service_token", revoked: true },
   public_verification: {
     access_protected: true,
@@ -52,6 +55,8 @@ const rejects = [
   { ...deployed, preview_url: "https://example.com/" },
   { ...deployed, access_credential: { ...deployed.access_credential, revoked: false } },
   { ...deployed, public_verification: { ...deployed.public_verification, access_protected: false } },
+  { ...deployed, deployment_identity_basis: "new-id+branch+provider-commit" },
+  { ...deployed, deployment_provider_commit: "b".repeat(40), deployment_provider_commit_verified: true, deployment_identity_basis: "new-id+branch+provider-commit" },
   { ...deployed, public_verification: { ...deployed.public_verification, critical_paths: deployed.public_verification.critical_paths.slice(1) } }
 ];
 for (const [index, candidate] of rejects.entries()) assert(validateNewsstandExactPreview(candidate, manifest).length > 0, `unsafe receipt ${index + 1} must fail`);
@@ -75,11 +80,17 @@ function inspectWorkflow(text) {
   requireText("if: ${{ always() }}", "credential cleanup is not unconditional");
   requireText("CF-Access-Client-Id", "authenticated byte verification is missing");
   requireText("unauthenticated_status", "unauthenticated Access challenge is not checked");
+  requireText("new-id+branch+exact-byte-verification", "direct-upload identity fallback is missing");
+  requireText("conflicting provider commit metadata", "conflicting provider commit metadata is not rejected");
+  requireText("for attempt in $(seq 1 10)", "eventual-consistency deployment polling is missing");
+  requireText("if(matches.length===0) process.exit(2);", "only a not-yet-visible deployment may be retried");
+  requireText("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15", "raw Pages deployment API is missing or uses an unsupported page size");
+  requireText('request_route="${route%.html}"', "canonical extensionless Pages route is not used for byte verification");
+  if (deployJob.includes("pages deployment list")) errors.push("Wrangler deployment list loses direct-upload identity metadata");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
   if (!deployJob) errors.push("deploy job is missing");
   if (deployJob.includes("actions/checkout")) errors.push("credentialed deploy job executes candidate repository code");
   if (deployJob.includes("CLOUDFLARE_ACCESS_READ_TOKEN")) errors.push("workflow depends on a missing permanent Access API secret");
-  if (deployJob.includes('Authorization: Bearer $CLOUDFLARE_API_TOKEN')) errors.push("Pages deploy token is reused for Access APIs");
   if (deployJob.includes("secrets.CF_ACCESS_CLIENT_ID") || deployJob.includes("secrets.CF_ACCESS_CLIENT_SECRET")) errors.push("workflow depends on missing permanent Access service-token secrets");
   if ((deployJob.match(/--request DELETE/g) || []).length < 2) errors.push("temporary token lacks both error-path and normal-path revocation");
   if (deployJob.indexOf("Revoke temporary Access verification credential") < 0 || deployJob.indexOf("Revoke temporary Access verification credential") > deployJob.indexOf("Upload deployed preview receipt")) errors.push("temporary credential is not revoked before receipt upload");
@@ -103,6 +114,13 @@ const workflowRejects = [
   workflow.replace("  deploy-preview:\n", "  deploy-preview:\n    # actions/checkout\n"),
   workflow.replaceAll("PROJECT_NAME: laidies-sunnyvaile-preview", "PROJECT_NAME: laidies-sunnyvaile"),
   workflow.replace("CF-Access-Client-Id", "X-Removed-Access-Client-Id"),
+  workflow.replace("new-id+branch+exact-byte-verification", "unverified-direct-upload"),
+  workflow.replace("conflicting provider commit metadata", "ignored provider commit metadata"),
+  workflow.replace("for attempt in $(seq 1 10)", "for attempt in 1"),
+  workflow.replace("if(matches.length===0) process.exit(2);", "if(matches.length===0) process.exit(0);"),
+  workflow.replaceAll("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15", "/pages/projects/$PROJECT_NAME/unknown"),
+  workflow.replace('request_route="${route%.html}"', 'request_route="$route"'),
+  workflow.replace("curl --fail --silent --show-error", "npx --yes wrangler@4.119.0 pages deployment list"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(inspectWorkflow(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);

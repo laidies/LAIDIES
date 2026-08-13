@@ -28,8 +28,8 @@ jobs:
       ARTIFACT_DIR: /tmp/laidies-newsstand-preview-site
       RECEIPT_DIR: /tmp/laidies-newsstand-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
-      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json
-      EXPECTED_PACKAGE_SHA256: 331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0
+      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json
+      EXPECTED_PACKAGE_SHA256: 144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f
       INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
       INPUT_PACKAGE_SHA256: ${{ inputs.package_sha256 }}
       CONTROLLER_SHA: ${{ vars.NEWSSTAND_PREVIEW_CONTROLLER_SHA }}
@@ -162,8 +162,8 @@ jobs:
       ARTIFACT_DIR: /tmp/exact-newsstand-preview/laidies-newsstand-preview-site
       RECEIPT_DIR: /tmp/exact-newsstand-preview/laidies-newsstand-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
-      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json
-      EXPECTED_PACKAGE_SHA256: 331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0
+      PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json
+      EXPECTED_PACKAGE_SHA256: 144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f
       INPUT_COMMIT_SHA: ${{ inputs.commit_sha }}
       INPUT_PACKAGE_SHA256: ${{ inputs.package_sha256 }}
     steps:
@@ -280,17 +280,28 @@ jobs:
           set -euo pipefail
           test "$PROJECT_NAME" = "laidies-sunnyvaile-preview"
           [[ "$CF_ACCESS_SERVICE_TOKEN_ID" =~ ^[a-f0-9-]{36}$ ]]
-          npx --yes wrangler@4.119.0 pages deployment list \
-            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-before.json"
+          pages_auth_header="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          curl --fail --silent --show-error \
+            --header "$pages_auth_header" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15" \
+            > "$RECEIPT_DIR/deployments-before-response.json"
+          jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-before-response.json" >/dev/null
+          jq -e '.result' "$RECEIPT_DIR/deployments-before-response.json" > "$RECEIPT_DIR/deployments-before.json"
           review_branch="review-${INPUT_COMMIT_SHA:0:12}-${GITHUB_RUN_ID}"
           npx --yes wrangler@4.119.0 pages deploy "$ARTIFACT_DIR" \
             --project-name "$PROJECT_NAME" \
             --branch "$review_branch" \
             --commit-hash "$INPUT_COMMIT_SHA" \
             --commit-dirty=false
-          npx --yes wrangler@4.119.0 pages deployment list \
-            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-after.json"
-          node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" "$CF_ACCESS_SERVICE_TOKEN_ID" <<'NODE'
+          deployment_visible=false
+          for attempt in $(seq 1 10); do
+            curl --fail --silent --show-error \
+              --header "$pages_auth_header" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15" \
+              > "$RECEIPT_DIR/deployments-after-response.json"
+            jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-after-response.json" >/dev/null
+            jq -e '.result' "$RECEIPT_DIR/deployments-after-response.json" > "$RECEIPT_DIR/deployments-after.json"
+            if node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" "$CF_ACCESS_SERVICE_TOKEN_ID" <<'NODE'
           const fs=require('fs'),path=require('path');
           const [dir,commit,branch,serviceTokenId]=process.argv.slice(2);
           const before=JSON.parse(fs.readFileSync(path.join(dir,'deployments-before.json'),'utf8'));
@@ -298,18 +309,38 @@ jobs:
           const prior=new Set(before.map(item=>item.id));
           const commitOf=item=>item?.source?.config?.commit_hash||item?.deployment_trigger?.metadata?.commit_hash;
           const branchOf=item=>item?.source?.config?.branch||item?.deployment_trigger?.metadata?.branch;
-          const matches=after.filter(item=>!prior.has(item.id)&&commitOf(item)===commit&&branchOf(item)===branch);
+          const matches=after.filter(item=>!prior.has(item.id)&&branchOf(item)===branch);
+          const conflicting=matches.filter(item=>commitOf(item)&&commitOf(item)!==commit);
+          if(conflicting.length) throw new Error(`new preview deployment exposed conflicting provider commit metadata: ${conflicting.map(item=>commitOf(item)).join(',')}`);
+          if(matches.length===0) process.exit(2);
           if(matches.length!==1||!matches[0]?.id||!matches[0]?.url) throw new Error(`expected one newly created exact preview deployment, found ${matches.length}`);
           const deployment=matches[0];
+          const providerCommit=commitOf(deployment)||null;
           const receiptPath=path.join(dir,'preview-receipt.json');
           const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
           receipt.status='DEPLOYED_PREVIEW';
           receipt.deployment_id=deployment.id;
           receipt.preview_url=deployment.url.endsWith('/')?deployment.url:`${deployment.url}/`;
           receipt.review_branch=branch;
+          receipt.deployment_provider_commit=providerCommit;
+          receipt.deployment_provider_commit_verified=providerCommit===commit;
+          receipt.deployment_identity_basis=providerCommit?'new-id+branch+provider-commit':'new-id+branch+exact-byte-verification';
           receipt.access_credential={type:'TEMPORARY_SERVICE_TOKEN',service_token_id:serviceTokenId,duration:'30m',policy_selector:'any_valid_service_token',revoked:false};
           fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
           NODE
+            then
+              deployment_visible=true
+              break
+            else
+              resolver_status=$?
+              if [[ "$resolver_status" -ne 2 || "$attempt" -eq 10 ]]; then
+                echo "Exact preview deployment did not become uniquely visible after $attempt attempt(s)." >&2
+                exit "$resolver_status"
+              fi
+              sleep 3
+            fi
+          done
+          test "$deployment_visible" = true
           preview_url="$(jq -r .preview_url "$RECEIPT_DIR/preview-receipt.json")"
           deployment_id="$(jq -r .deployment_id "$RECEIPT_DIR/preview-receipt.json")"
           [[ "$preview_url" == "https://${deployment_id:0:8}.$PROJECT_NAME.pages.dev/" ]]
@@ -324,10 +355,11 @@ jobs:
           verification_json='[]'
           for route in "${critical_paths[@]}"; do
             output="$RECEIPT_DIR/deployed-${route//\//_}"
+            request_route="${route%.html}"
             curl --fail --silent --show-error --retry 5 --retry-all-errors \
               --header "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
               --header "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
-              "${preview_url}${route}" > "$output"
+              "${preview_url}${request_route}" > "$output"
             deployed_sha="$(sha256sum "$output" | cut -d' ' -f1)"
             expected_sha="$(jq -r --arg route "$route" '.files[] | select(.path == $route) | .sha256' "$RECEIPT_DIR/artifact-manifest.json")"
             test -n "$expected_sha"
