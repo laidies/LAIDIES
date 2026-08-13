@@ -25,8 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      ARTIFACT_DIR: ${{ github.workspace }}/../laidies-newsstand-preview-site
-      RECEIPT_DIR: ${{ github.workspace }}/../laidies-newsstand-preview-receipt
+      ARTIFACT_DIR: /tmp/laidies-newsstand-preview-site
+      RECEIPT_DIR: /tmp/laidies-newsstand-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
       PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json
       EXPECTED_PACKAGE_SHA256: 331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0
@@ -153,9 +153,9 @@ jobs:
     permissions:
       contents: read
     env:
-      DOWNLOAD_DIR: ${{ github.workspace }}/../exact-newsstand-preview
-      ARTIFACT_DIR: ${{ github.workspace }}/../exact-newsstand-preview/laidies-newsstand-preview-site
-      RECEIPT_DIR: ${{ github.workspace }}/../exact-newsstand-preview/laidies-newsstand-preview-receipt
+      DOWNLOAD_DIR: /tmp/exact-newsstand-preview
+      ARTIFACT_DIR: /tmp/exact-newsstand-preview/laidies-newsstand-preview-site
+      RECEIPT_DIR: /tmp/exact-newsstand-preview/laidies-newsstand-preview-receipt
       PROJECT_NAME: laidies-sunnyvaile-preview
       PACKAGE_PATH: operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v2.json
       EXPECTED_PACKAGE_SHA256: 331fce79e55cdeaf86597342aac9ffb0ab8ff383b37e423e8814fdfdd07f4ae0

@@ -66,6 +66,7 @@ for (const required of [
 const deployJob = workflow.split(/\n  deploy-preview:\n/)[1] || "";
 assert.ok(!deployJob.includes("actions/checkout"), "credentialed deploy job must not execute candidate repository code");
 assert.ok(!workflow.includes("${{ runner.temp }}"), "job-level environment cannot use the runner context");
+assert.ok(!workflow.includes("/../"), "artifact upload paths cannot contain parent-directory segments");
 assert.ok(workflow.includes("npm run test:newsstand-canon"), "workflow must run the complete NewsStand canonical pipeline checks");
 assert.ok(!workflow.includes("npm run ci:build"), "unrelated repository-wide checks must not block the bounded preview controller");
 assert.ok(!/^\s*PROJECT_NAME:\s*laidies-sunnyvaile\s*$/m.test(workflow), "preview must not target production project");
