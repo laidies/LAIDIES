@@ -1,0 +1,1031 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260812-V3",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "SUNNYVAiLE NewsStand / The Daily",
+  "maker": "newsstand-daily",
+  "reviewer": {
+    "id": "newsstand-daily-producer-v3-20260813",
+    "principalId": "newsstand-daily",
+    "role": "Daily producer",
+    "modelFamily": "openai-gpt-5.6"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-08-13T07:06:00Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer simulation does not prove unfamiliar-human comprehension or transfer.",
+    "This prose review does not admit the rendered newspaper, canonical content, deployment or public release."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
+      "sha256": "e6e77af7388c5d58e668578878b2c773e27d29c8020c240f97187826aa742437"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-manifest-v3.json",
+      "sha256": "bf19f71285221e49dc0ae0da56b8e847f7adaa04af068256fdb4d2d0eb6c0b91"
+    }
+  },
+  "calibration": {
+    "registrySha256": "01b16e1acf1996155b65df8df0a185bb0867db903eff3daf458a365c1dc5be09",
+    "reviewerPrincipalId": "newsstand-daily",
+    "reviewedAt": "2026-08-13T07:05:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## Introduction — What you are actually using",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "falseBreakingUrgency",
+          "missingNewcomerBackground",
+          "technicalReaderAssumption",
+          "implausibleAudienceAction",
+          "laidiesVoiceAbsent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad calibration — a non-breaking update written for an expert reader",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-004",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "internalScaffoldingExposedToReader",
+          "newspaperHierarchyUnclear",
+          "statusLanguageOvertakesExperience"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad calibration — internal Daily scaffolding presented as a newspaper",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-005",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "sourceAvailabilityMistakenForEditorialValue",
+          "missingAidbRelevanceCheck",
+          "predeterminedThesisInsteadOfInvestigation",
+          "weakReaderPremise",
+          "adviceBelowReaderBaseline",
+          "promptAdviceMistakenForEnforcement",
+          "longRunningWorkflowRealityIgnored",
+          "genericEditorialVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# REJECTED — LAiDIES publication-format sampler round 1",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-006",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "fictionalInputMistakenForIsolation"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad calibration — fictional input mistaken for isolation",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-007",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "unbuiltDestinationPresentedAsLive"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad exemplar — an unbuilt destination presented as a live route",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-008",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "repairScopeSubstitutedForSpecifiedScope",
+          "compressionDropsReferent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad exemplar — repair scope substituted and referent compressed away",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-009",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "safetyQualifierWithUndefinedBoundary",
+          "compoundModifierInvertsAgent"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad exemplar — undefined safety qualifier and inverted agent",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-010",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "headlineMetaphorObscuresAction",
+          "compressedScenarioWithoutReaderEntry",
+          "multipleJobsInsideOneTip",
+          "readerCannotExplainOrFollow"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known bad — Paige follow-up tip that the reader cannot follow",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-011",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "careerCategoryUnrecognizable",
+          "genericManagementAdvice",
+          "aiConnectionImplicitOrMissing",
+          "eyebrowLabelCarriesReaderJob"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known bad — Career/Work-Life item that does not read as career advice",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-012",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "aiObjectUnnamed",
+          "exampleContentsUndefined",
+          "comparisonCriteriaAbstract",
+          "technicalTermBeforeMeaning",
+          "missingNextAction",
+          "substantialTransferRuleForcedIntoCompactCard"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known bad — Promptoscope whose action is hidden behind regression jargon",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-013",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalObjectBeforeHumanQuestion",
+          "apiAssumedAsPriorKnowledge",
+          "definitionAfterJargon",
+          "analogyBeforeObjectIsUnderstood",
+          "benchmarkDeclaredButNotPerformed"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# REJECTED — August 12 Daily technical-first explanation",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-014",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "unreconciledStatisticalUnits"
+        ],
+        "evidence": [
+          {
+            "excerpt": "# Known-bad NewsStand number chain — correct figures without reconciled units",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-015",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "formatContractDeclaredButNotPerformed",
+          "headlineAndOpeningDoNotStateUsefulPoint",
+          "readerPurposeBuried",
+          "articleLengthOverwhelmsDailyJob",
+          "coldReaderCannotIdentifyPoint"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Wednesday, August 12, 2026**",
+            "locator": "calibration artifact"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-016",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "suspenseHeadlineWithholdsUsefulPoint",
+          "undefinedObjectInHeadline"
+        ],
+        "evidence": [
+          {
+            "excerpt": "> Shared AI work files carried passwords — and details the chat never showed",
+            "locator": "rejected headline"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "answer-first dated change",
+        "evidence limits beside claims",
+        "specific proportionate action"
+      ],
+      "evidence": [
+        {
+          "excerpt": "# Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+          "locator": "calibration artifact"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did this study show that my private AI chats are exposed, and what should I do when sharing AI-assisted work?",
+    "promisedPayoff": "The reader can distinguish a checked result from the full record behind it and choose the safer object to share.",
+    "centralMentalModel": "The answer on screen and the complete work file are different objects; checking one does not inventory the other.",
+    "dailyLifeConnection": "The distinction applies to a workplace coding assistant and a personal travel assistant connected to email.",
+    "surfaceJob": "One dated, answer-first Daily explanation of a new research finding and its immediate sharing lesson.",
+    "desiredReaderFeeling": "Calm, accurately informed and able to act without technical expertise."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The headline states the fact and the opening defines the published record before any technical mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "People published records of their AI work. Some contained passwords.",
+          "locator": "headline"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader receives a specific share-object decision and a corrective action for exposed credentials.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When you share an AI-assisted result, copy only what you mean to send, check it",
+          "locator": "Before you share anything"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The prose is direct, adult and lightly funny only after the mechanism is established.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the work file politely left it behind.",
+          "locator": "Before you share anything"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "A concrete workplace line adds warmth while reinforcing the unwanted-secret mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "wanted; the key was never invited to the meeting.",
+          "locator": "work example"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The study numbers, preprint status and inability to prove every recovered word are explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The researchers lacked the original hidden text, so they cannot prove every",
+          "locator": "evidence limits"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The dated source and follow-up trigger are visible in the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "follow-up if new evidence changes the finding.",
+          "locator": "evidence note"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The piece is a dated Daily with a direct headline, concise mechanism, bounded evidence and one action section.",
+      "artifactEvidence": [
+        {
+          "excerpt": "**Wednesday, August 12, 2026**",
+          "locator": "masthead"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article identifies the August 2026 preprint as the dated event without claiming Breaking urgency.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That part is not displayed in the visible chat. In an August 2026 preprint — a",
+          "locator": "evidence section"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The concrete credential consequence is paired with the reconstruction limit and reported mitigation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "recovered word was exact. That limit does not erase the credentials they report",
+          "locator": "evidence limits"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The travel-assistant example applies the share-result-versus-work-file distinction outside work.",
+      "artifactEvidence": [
+        {
+          "excerpt": "At home, a travel assistant connected to your email may make a perfect Rome",
+          "locator": "home example"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The explanation starts with the human sharing problem, makes the invisible record visible and returns to a useful decision.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Developers and researchers sometimes publish a record — a work file — so others",
+          "locator": "newcomer background"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The prose supports explaining why the answer on screen and the file behind it are different objects.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The chat is the final cut. The work file is the editing room.",
+          "locator": "mechanism"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why can the answer on screen look safe while the file behind it is not?",
+        "probeResponse": "The file can contain the visible answer plus other stored material used to continue the task, so checking the answer alone does not inventory the whole file.",
+        "expectedEvidence": "Names both objects, the extra stored material and the consequence for sharing."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The home example transfers the same object distinction to an assistant connected to personal email.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your friend needs the restaurant list, not the account details in the",
+          "locator": "home example"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "You want to share a meal plan made by an assistant connected to grocery receipts. What should you send?",
+        "probeResponse": "Send a fresh checked meal plan, not the full work file or connected-account record, and inspect the material you intentionally include.",
+        "expectedEvidence": "Transfers checked result versus full record without claiming the assistant itself published anything."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action tells the reader exactly what to share and what to do if credentials were exposed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "only the question, checked result and needed evidence.",
+          "locator": "Before you share anything"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Final cut and editing room map only the visible answer versus the larger work file; the next sentences restore the literal mechanism and public-sharing boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In this picture, the sealed part is a locked drawer inside the editing room; it",
+          "locator": "mechanism"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "suspenseHeadlineWithholdsUsefulPoint": {
+      "present": false,
+      "observation": "The v3 headline states the human actor, published object and concrete finding without a withheld reveal.",
+      "artifactLocator": "headline and opening"
+    },
+    "undefinedObjectInHeadline": {
+      "present": false,
+      "observation": "The headline uses an ordinary record-of-work construction and the opening explains what the published record contains before work file becomes the stable short name.",
+      "artifactLocator": "headline and opening"
+    },
+    "adviceBelowReaderBaseline": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "aiConnectionImplicitOrMissing": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "aiObjectUnnamed": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "analogyBeforeObjectIsUnderstood": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "apiAssumedAsPriorKnowledge": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "articleLengthOverwhelmsDailyJob": {
+      "present": false,
+      "observation": "The exact candidate stays within the registered Daily range and each section performs one necessary job.",
+      "artifactLocator": "exact prose in full"
+    },
+    "benchmarkDeclaredButNotPerformed": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "careerCategoryUnrecognizable": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "coldReaderCannotIdentifyPoint": {
+      "present": false,
+      "observation": "The headline and first paragraph identify the event, affected action, non-affected audience and immediate lesson.",
+      "artifactLocator": "headline and opening"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "comparisonCriteriaAbstract": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "compoundModifierInvertsAgent": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "compressedScenarioWithoutReaderEntry": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "compressionDropsReferent": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "definitionAfterJargon": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "exampleContentsUndefined": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "eyebrowLabelCarriesReaderJob": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "falseBreakingUrgency": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "fictionalInputMistakenForIsolation": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "formatContractDeclaredButNotPerformed": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "genericEditorialVoice": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "genericManagementAdvice": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "headlineAndOpeningDoNotStateUsefulPoint": {
+      "present": false,
+      "observation": "The headline states who published what and the opening gives the scope boundary and useful consequence.",
+      "artifactLocator": "headline and opening"
+    },
+    "headlineMetaphorObscuresAction": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "headline and opening"
+    },
+    "implausibleAudienceAction": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "internalScaffoldingExposedToReader": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "laidiesVoiceAbsent": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "longRunningWorkflowRealityIgnored": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "missingAidbRelevanceCheck": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "missingNewcomerBackground": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "missingNextAction": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "multipleJobsInsideOneTip": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "newspaperHierarchyUnclear": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "predeterminedThesisInsteadOfInvestigation": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "promptAdviceMistakenForEnforcement": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "readerCannotExplainOrFollow": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "readerPurposeBuried": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "headline and opening"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "repairScopeSubstitutedForSpecifiedScope": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "safetyQualifierWithUndefinedBoundary": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "sourceAvailabilityMistakenForEditorialValue": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "statusLanguageOvertakesExperience": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "substantialTransferRuleForcedIntoCompactCard": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "technicalObjectBeforeHumanQuestion": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "technicalReaderAssumption": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "technicalTermBeforeMeaning": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "unbuiltDestinationPresentedAsLive": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "unreconciledStatisticalUnits": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "weakReaderPremise": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Full-prose inspection found this registered failure absent from the exact v3 candidate.",
+      "artifactLocator": "exact prose in full"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+        "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "LOG-C01",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "private chats became public. The lesson is for anyone sharing AI work: send the",
+            "locator": "opening"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "it does not establish that an ordinary person’s private ChatGPT conversation became public merely by using chat",
+            "locator": "LOG-C01"
+          }
+        ],
+        "scopeAndFreshness": "Bound to deliberately published technical records in the August 10 preprint; no ordinary consumer-chat exposure claim."
+      },
+      {
+        "claimId": "LOG-C02",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Panfilov and colleagues examined 6,708 public AI work files",
+            "locator": "evidence section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "6,708 publicly available agent trajectories from GitHub and Hugging Face",
+            "locator": "LOG-C02"
+          }
+        ],
+        "scopeAndFreshness": "Author-reported August 2026 preprint dataset; targeted and non-exhaustive."
+      },
+      {
+        "claimId": "LOG-C03",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Hugging Face; 328 of them — about 4.9% — contained at least one password, key or",
+            "locator": "evidence section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The paper reports 328 affected files across the 6,708-file scan",
+            "locator": "LOG-C03"
+          }
+        ],
+        "scopeAndFreshness": "Author-reported affected-file count and rate; distinct from the later artifact count."
+      },
+      {
+        "claimId": "LOG-C03-UNITS",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the study counted 704 distinct private details in real people's sessions. It",
+            "locator": "evidence section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It does not state in this section how many genuine-user files make up the 704-artifact group.",
+            "locator": "LOG-C03-UNITS"
+          }
+        ],
+        "scopeAndFreshness": "The candidate preserves the changed group and unit and does not invent a denominator."
+      },
+      {
+        "claimId": "LOG-C04",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "never have seen. The researchers alerted the companies and say the attack then",
+            "locator": "mechanism"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The authors say the evaluated attacks no longer worked after responsible disclosure.",
+            "locator": "LOG-C04"
+          }
+        ],
+        "scopeAndFreshness": "Author report checked August 12; not independently reproduced by LAiDIES."
+      },
+      {
+        "claimId": "LOG-C05",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "When you share an AI-assisted result, copy only what you mean to send, check it",
+            "locator": "action"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "share a purpose-built report containing only approved visible fields, not the raw session object",
+            "locator": "LOG-C05"
+          }
+        ],
+        "scopeAndFreshness": "LAiDIES narrows the paper recommendation into a proportionate share-the-result action."
+      },
+      {
+        "claimId": "LOG-C06",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Asking the AI to “show its work” does not scan the file. It writes another",
+            "locator": "action"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+          "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Asking a model to show its work is not a reliable way to inspect or sanitize hidden reasoning state.",
+            "locator": "LOG-C06"
+          }
+        ],
+        "scopeAndFreshness": "Current provider documentation checked August 12 distinguishes readable summaries from full opaque state."
+      }
+    ],
+    "reviewedThrough": "2026-08-12",
+    "nextTrigger": "Any paper correction, provider statement, reproduction result or material change to reasoning or continuity-data handling.",
+    "correctionOwner": "NewsStand accuracy and corrections editor with newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260812-V2",
+      "sha256": "100b282172ecef33e9bee29f0f8c505ae8c644ccf435bc71052ed6223d43be0",
+      "reviewIssues": 2,
+      "reviewCycles": 2
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260812-V2",
+    "predecessor": {
+      "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v2.md",
+      "sha256": "100b282172ecef33e9bee29f0f8c505ae8c644ccf435bc71052ed6223d43be0"
+    },
+    "comparison": "The v3 successor keeps the sourced mechanism and action while replacing the suspense headline and technical-first reader entry with a factual headline and a definition of the deliberately published record."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The exact v3 successor contains no new reusable prose defect. It applies the already registered answer-first, plain-opening and Daily-scale corrections."
+  }
+}

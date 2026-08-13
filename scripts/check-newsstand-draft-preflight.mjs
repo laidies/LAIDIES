@@ -100,6 +100,7 @@ export function inspectNewsstandDraftPreflight({ proof, proofPath, proofBody, pr
   require(distinctiveVoiceTerms.length > 0 && distinctiveVoiceTerms.some(term => normalizedDraft.toLowerCase().includes(term)), "draft does not perform the proof's planned voice move");
   require(normalizedDraft.includes(normalize(proof?.voicePlan?.readerFacingLimit)), "draft does not contain the planned reader-facing analogy limit");
   require(normalizedDraft.includes(normalize(proof?.voicePlan?.humanTruth)), "draft does not contain the planned human-truth voice line");
+  require(normalizedDraft.includes(normalize(proof?.voicePlan?.mechanismMappingSentence)), "draft does not map the planned analogy to the central mechanism");
   for (const [index, warmth] of (proof?.voicePlan?.warmthLines || []).entries()) {
     const sectionPattern = new RegExp(`^###\\s+${escapeRegExp(warmth.sectionHeading)}\\n([\\s\\S]*?)(?=^###\\s+|^##\\s+|(?![\\s\\S]))`, "m");
     const sectionBody = draftBody.match(sectionPattern)?.[1] || "";

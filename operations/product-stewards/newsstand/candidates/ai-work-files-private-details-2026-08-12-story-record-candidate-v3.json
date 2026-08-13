@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "newsstand-story-candidate.v1",
+  "candidateStatus": "HELD_NOT_PUBLISHED",
+  "workOrderId": "NEWSSTAND-DAILY-AI-WORK-LOGS-20260812-V3",
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
+    "sha256": "e6e77af7388c5d58e668578878b2c773e27d29c8020c240f97187826aa742437"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
+    "sha256": "612a999c557e5eae6fb4db7a97d9600eec36f16c6cf0192409633a5d4809993e"
+  },
+  "story": {
+    "id": "ai-work-logs-can-carry-secrets",
+    "slug": "ai-work-logs-can-carry-secrets",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-08-12T23:30:00Z",
+    "lastCheckedAt": "2026-08-12T23:30:00Z",
+    "sourceApproval": {
+      "status": "independent-review-required",
+      "record": "/operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md"
+    },
+    "correction": null,
+    "retraction": null,
+    "thread": "Private details inside shared AI work files",
+    "thread_subtitle": "why the answer on screen and the complete record behind it are not the same thing",
+    "thread_entry": 1,
+    "headline": "People published records of their AI work. Some contained passwords.",
+    "the_story": "An August 2026 study examined 6,708 records that people had published so others could inspect or replay AI tasks. The researchers found 328 records containing at least one password, key or other private detail. Some details appeared only in a sealed part of the record — not in the visible chat. The study does not show that ordinary private chats became public. It does show that a file shared for transparency can contain more than the answer its publisher meant to share.",
+    "laidies_read": "The finding is not “private chats leaked.” It is “people published detailed records of AI work without realizing what else the records could contain.” Share a newly checked result instead of the entire record. If people genuinely need to inspect or replay the work, make a fresh file containing only the question, checked result and needed evidence.",
+    "what_this_means": "Share the checked result you intend people to read, not the whole work file. If a public work file contains passwords or access keys, remove access and replace them; deleting the file cannot undo copies.",
+    "cocktail_party": "Researchers examined records that people had deliberately published so others could inspect or replay AI tasks. Some contained passwords and other private details, including details absent from the visible chat. This was not evidence that ordinary private chats became public. The practical rule is to share the checked result, not the whole record behind it.",
+    "watch_fors": "A corrected paper, peer review, provider statement, independent reproduction or material change to provider continuity-data handling.",
+    "closing_note": "Before sharing, ask: am I sending the answer I chose, or the whole work file that made it?",
+    "class_notes": "The durable concept is the difference between an approved output and the complete production record that created it. A visible redaction does not inventory unseen fields in the larger record.",
+    "sources": [
+      {
+        "id": "panfilov-reasoning-traces-2026-08-10",
+        "label": "Panfilov et al. — Stealing Reasoning Traces from Proprietary LLM APIs",
+        "url": "https://arxiv.org/abs/2608.09867",
+        "publisherType": "academic",
+        "accessedAt": "2026-08-12",
+        "approvalStatus": "reviewed"
+      },
+      {
+        "id": "anthropic-thinking-docs-2026-08-12",
+        "label": "Anthropic — Thinking",
+        "url": "https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models",
+        "publisherType": "vendor",
+        "accessedAt": "2026-08-12",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "aidb_credit": null,
+    "tags": [
+      "AI security",
+      "privacy",
+      "AI work files",
+      "sharing AI work"
+    ],
+    "saint_lane": "Elle Woods · Share the checked result, not the backstage file",
+    "badge": "THE DAILY · SECURITY DESK",
+    "longform": {
+      "ariaLabel": "The Daily: People published records of their AI work. Some contained passwords.",
+      "jumpSectionIds": [
+        "the-chat-is-the-final-cut-the-work-file-is-the-editing-room",
+        "some-private-details-never-appeared-on-screen-at-all",
+        "the-answer-can-be-tidy-while-the-work-file-is-not",
+        "before-you-share-anything"
+      ],
+      "sections": [
+        {
+          "id": "the-answer-first",
+          "label": "The answer first",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "body": "A new study examined records people had published to let others inspect or replay an AI task. Those records held more than the answer on screen, and some included passwords and other private details. This does not mean ordinary private chats became public. The lesson is for anyone sharing AI work: send the checked result, not the whole work file."
+            }
+          ]
+        },
+        {
+          "id": "the-chat-is-the-final-cut-the-work-file-is-the-editing-room",
+          "label": "The chat is the final cut. The work file is the editing room.",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "body": "Developers and researchers sometimes publish a record — a work file — so others can check how an AI task was done."
+            },
+            {
+              "type": "paragraph",
+              "body": "The editing room is not public by default — the risk begins when someone publishes the work file. The whole file may look trustworthy because it shows every step. But publishing it is exactly when the alternate takes and notes travel with it."
+            },
+            {
+              "type": "paragraph",
+              "body": "In this picture, the sealed part is a locked drawer inside the editing room; it does not appear in the final cut. Inside an AI work file, some tools store the answer you see plus the sealed part, which helps the tool continue earlier work. That part is not displayed in the visible chat. In an August 2026 preprint — a paper shared before independent academic review — Panfilov and colleagues took the sealed part from a published work file and handed it to a less-protected sibling model from the same provider. They called this an extraction attack. The sibling model exposed details from the sealed part that the publisher may never have seen. The researchers alerted the companies and say the attack then stopped."
+            }
+          ]
+        },
+        {
+          "id": "some-private-details-never-appeared-on-screen-at-all",
+          "label": "Some private details never appeared on screen at all",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "body": "Panfilov and colleagues examined 6,708 public AI work files from GitHub and Hugging Face; 328 of them — about 4.9% — contained at least one password, key or other private detail."
+            },
+            {
+              "type": "paragraph",
+              "body": "After removing duplicates and practice-test sessions with made-up characters, the study counted 704 distinct private details in real people's sessions. It does not say how many files those details came from."
+            },
+            {
+              "type": "paragraph",
+              "body": "The researchers made the sealed part readable with that attack, then compared the recovered text with the visible chat. Most of those 704 private details also appeared in the visible chat; 64 appeared only in the sealed part."
+            },
+            {
+              "type": "paragraph",
+              "body": "The researchers lacked the original hidden text, so they cannot prove every recovered word was exact. That limit does not erase the credentials they report finding."
+            }
+          ]
+        },
+        {
+          "id": "the-answer-can-be-tidy-while-the-work-file-is-not",
+          "label": "The answer can be tidy while the work file is not",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "body": "At work, a coding assistant diagnosing a broken website may see a deployment key — a code that can publish site changes. The work file from that session can carry the key even when the diagnosis on screen does not. The diagnosis is what your team wanted; the key was never invited to the meeting."
+            },
+            {
+              "type": "paragraph",
+              "body": "At home, a travel assistant connected to your email may make a perfect Rome itinerary. Your friend needs the restaurant list, not the account details in the work file."
+            }
+          ]
+        },
+        {
+          "id": "before-you-share-anything",
+          "label": "Before you share anything",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "body": "When you share an AI-assisted result, copy only what you mean to send, check it and remove private details. For inspection or replay, make a fresh file with only the question, checked result and needed evidence."
+            },
+            {
+              "type": "paragraph",
+              "body": "If you would not deliberately paste a password into the message, do not assume the work file politely left it behind."
+            },
+            {
+              "type": "paragraph",
+              "body": "If a work file you published contains a password or access key, treat it as exposed: change it and revoke what it unlocked. Deleting the file cannot undo copies."
+            },
+            {
+              "type": "paragraph",
+              "body": "Asking the AI to “show its work” does not scan the file. It writes another answer. Providers such as Anthropic document that a readable summary is not the sealed part itself."
+            },
+            {
+              "type": "paragraph",
+              "body": "Before sharing, ask: <strong>am I sending the answer I chose, or the whole work file that made it?</strong>"
+            }
+          ]
+        },
+        {
+          "id": "sources",
+          "label": "Sources",
+          "blocks": [
+            {
+              "type": "unordered_list",
+              "items": [
+                "Panfilov et al., <a href=\"https://arxiv.org/abs/2608.09867\">“Stealing Reasoning Traces from Proprietary LLM APIs,” arXiv:2608.09867</a>, August 10, 2026.",
+                "Anthropic, <a href=\"https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models\">“Thinking”</a>, checked August 12, 2026."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "body": "<strong>Evidence note:</strong> The study is a preprint. LAiDIES will publish a dated follow-up if new evidence changes the finding."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

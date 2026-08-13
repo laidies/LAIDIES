@@ -2,7 +2,7 @@
   "product": "SUNNYVAiLE NewsStand Building",
   "status": "LIVE NEWSSTAND — BACKFILL, WEEKLY AND BIG PICTURE RELEASE VERIFIED PUBLICLY",
   "releaseStatus": "DEPLOYED AND VERIFIED PUBLICLY — CURRENT DAILY AND NEW SERVICE-COLUMN PRODUCTION REMAIN SEPARATE",
-  "asOf": "2026-08-12",
+  "asOf": "2026-08-13",
   "relationshipToActiveWork": "BOUNDED LAUNCH-RECOVERY LANE",
   "route": "/newsstand.html",
   "primaryFile": "newsstand.html",
@@ -41,13 +41,20 @@
     ]
   },
   "privateReviewSuccessor": {
-    "status": "READY_FOR_ALI_REVIEW_NOT_APPROVED",
+    "status": "REJECTED_BY_MAKER_VISUAL_INSPECTION_2026-08-12",
     "storyId": "ai-work-logs-can-carry-secrets",
     "packagePath": "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json",
     "packageSha256": "722fb3388fb1d11c3b99d1fafae9f6b3a05345be0d428543764603d49aa858cc",
     "prosePath": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v2.md",
     "proseSha256": "100b282172ecef33e9bee29f0f8c505ae8c6444ccf435bc71052ed6223d43be0",
-    "contents": "one held Daily report, four independently reviewed ready service desks, five governed empty desks, exact semantic judgment and six independently admitted Daily-front/full-article renders",
+    "contents": "historical rejected package: one held Daily report, four reviewed service-desk candidates and six v14 renders",
+    "makerVisualRejection": {
+      "path": "operations/product-stewards/newsstand/evidence-newsstand-daily-review-v14-2026-08-12/MAKER-VISUAL-REJECTION.md",
+      "sha256": "86903c821372a093989d7785b6f09f6cfe9af413e5690341d109069b59692aaf"
+    },
+    "invalidatedEvidence": [
+      "operations/product-stewards/newsstand/evidence-newsstand-daily-review-v14-2026-08-12/independent-visual-review.md"
+    ],
     "remainingGates": [
       "ALI_EXACT_PACKAGE_APPROVAL",
       "OBSERVED_UNFAMILIAR_HUMAN_EXPLAIN_BACK",
@@ -55,7 +62,19 @@
       "INDEPENDENT_RELEASE_ADMISSION",
       "DEPLOYMENT_AND_EXACT_PUBLIC_VERIFICATION"
     ],
-    "authority": "private review only; no positive-exemplar, canonical-write, deploy or public authority"
+    "authority": "rejected historical package only; do not present, promote, deploy or reuse its visual verdict"
+  },
+  "currentProducerCandidate": {
+    "status": "PRODUCER_PREFLIGHT_PASS_INDEPENDENT_SEMANTIC_AND_VISUAL_REVIEW_REQUIRED",
+    "storyId": "ai-work-logs-can-carry-secrets",
+    "prosePath": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
+    "proseSha256": "e6e77af7388c5d58e668578878b2c773e27d29c8020c240f97187826aa742437",
+    "producerProofPath": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v3.json",
+    "producerProofSha256": "5ce06e41ed284ef606cf59660431d9e1b3f658f812ee9d7d246106fe23c8573d",
+    "producerProofReviewPath": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v3-review-09.json",
+    "producerProofReviewSha256": "3a03cca677c6e404f02510fc1034903de15eb0c5cba3a1198e1ed7a2b12a666c",
+    "latestSemanticFinding": "The preceding exact version was held because the analogy and sealed-part mechanism were ordered incorrectly. The producer contract and exact draft were repaired; no independent semantic verdict travels to the changed bytes.",
+    "authority": "private producer candidate only; no Ali presentation, canonical write, deploy or public authority"
   },
   "currentImplementation": {
     "schemaVersion": "1.0.0",
@@ -64,18 +83,18 @@
     "readerContract": "content/newsstand-reader-contract.js",
     "storyState": "four dated Daily archive stories, one Weekly synthesis and one Big Picture story are published in the dataset; one Breaking health candidate remains held",
     "freshnessTruth": "the latest admitted Daily is August 6 and the Weekly source check is August 11; runtime must classify each paper and archive item honestly",
-    "visualAuthority": "the current public rack remains the served incumbent. The rejected article-only shell supplies no authority; its complete-Daily successor is privately admitted for Ali review only and opens on the dated Daily newspaper before the full report."
+    "visualAuthority": "the current public rack remains the served incumbent. The article-only shell and complete-Daily v14 successor are rejected and supply no visual, promotion or deployment authority."
   },
   "verification": {
     "readerStateFixtures": "VERIFIED LOCALLY — 10 deterministic states",
-    "renderedBrowserMatrix": "VERIFIED LOCALLY — 235 checks across desktop/mobile, including exact complete-Daily front/full-report states, repeated history cycles, archive growth, stale/hold/correction/retraction/focus/motion/zoom",
+    "renderedBrowserMatrix": "VERIFIED LOCALLY — 236 checks across desktop/mobile, including complete-Daily front/full-report states, repeated history cycles, archive growth, stale/hold/correction/retraction/focus/motion/zoom",
     "canonicalMigration": "VERIFIED LOCALLY",
     "privateDailyPipeline": "VERIFIED LOCALLY — composer, canonical writer and workflow pass; scheduled-trigger and substitution bad cases fail as calibrated",
     "assistiveTechnology": "PARTIAL PASS — native Safari exposes the intended headings, controls, four toggle states, overdue/quiet messages and Daily stale fail-closed transition; spoken VoiceOver announcement order remains unverified",
     "independentProductAndVisualReview": "ACCEPTED 2026-08-11 — role-distinct product and visual judges inspected exact committed bytes and rendered desktop/390/320 evidence",
     "aidbScoutRun": "VERIFIED QUIET/HOLD 2026-08-11 — exact committed AIDB record 19066497ffe62438129cb2afcfffb29a749e1807; current source index still ends at August 10; AIDB is not NewsStand publication authority",
-    "currentEditorialRun": "PRIVATE AUGUST 12 DAILY SUCCESSOR READY FOR ALI REVIEW — latest public complete Daily remains August 6; no August 12 Daily is claimed public",
-    "completeDailyReviewPackage": "READY FOR ALI REVIEW — exact bindings pass; six screenshots and four ready service desks; calibrated gate rejects six known-bad mutations",
+    "currentEditorialRun": "PRIVATE AUGUST 12 DAILY V3 PASSES THE EXACT PRODUCER PREFLIGHT — changed prose still requires a fresh independent semantic verdict and only then exact current pixel review; latest public complete Daily remains August 6",
+    "completeDailyReviewPackage": "HOLD — v14 is explicitly rejected; its old visual admission is invalid; calibrated visitor-copy guard now rejects the administrative language and empty-desk exposure",
     "featureTemplateCoverage": "CANDIDATE 5/17 — current Daily report/announcement, Paige, Career/Work-Life, Promptoscope and Mme CLAi-O have full publish-shaped candidate examples bound to exact templates; Ali-accepted templates=0; the other 12 slots remain explicitly missing and ineligible for autonomous production",
     "curatedPublicArtifact": "BUILT — 559 manifested files, 435614818 bytes, identity d97b150906cd49431240c08ad451ce0b245bc79717b50749760624790a4099be",
     "productionController": "DIRECT CLOUDFLARE RELEASE USED — the repository GitHub Pages controller is not the origin serving laidies.ai and still needs migration",
@@ -83,13 +102,14 @@
     "publicVerification": "VERIFIED — custom-domain hashes match the exact NewsStand HTML, story dataset, reader and Catch Me Up runtime; live desktop opens five archive items and the Weekly with three sources"
   },
   "releaseBlockers": [
-    "Ali has not approved the exact August 12 complete-Daily successor or its five candidate positive exemplars",
+    "the current exact Daily producer candidate passes the producer preflight but has no fresh independent semantic verdict or exact current visual admission; v14 remains explicitly rejected",
+    "Ali has not approved an exact repaired Daily package or its five candidate positive exemplars",
     "observed unfamiliar-human explain-back and unseen-transfer evidence is not yet bound",
     "the four service candidates have semantic admission but remain private until Ali approves their exact text and Daily placement",
     "the exact story and issue have not received independent release admission or canonical promotion",
     "the durable production controller still targets GitHub Pages rather than the Cloudflare Pages origin",
     "spoken VoiceOver announcement order remains unverified even though native Safari structure and browser focus/state checks pass"
   ],
-  "nextAction": "Present the checksum-bound complete Daily successor for one Ali verdict; on approval, collect the observed unfamiliar-reader evidence, run independent release admission, promote the exact story and issue, then deploy and verify public bytes.",
+  "nextAction": "Cold-read the exact current prose SHA e6e77af7388c5d58e668578878b2c773e27d29c8020c240f97187826aa742437. Only if it passes, render and maker-inspect one new exact 1440/390/320 Daily/article set before role-distinct visual review and any Ali presentation.",
   "authority": "Ali authorized the public NewsStand release on 2026-08-12; this record does not approve held or future content."
 }

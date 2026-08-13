@@ -14552,3 +14552,39 @@ while remaining falsely unfinished in the launch record.
   the right folder still do not prove which version of a newspaper was approved.
 - **Publication status:** PRIVATE REVIEW PACKAGE REPAIRED AND VERIFIED LOCALLY /
   NO ALI APPROVAL, CANONICAL WRITE, DEPLOYMENT OR PUBLIC CHANGE.
+
+## BTB-462 — A feature template without a full exact-draft preflight still sends known defects to review
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand feature templates, producer QA and complete-Daily visual review.
+- **Failure:** The Daily and service features had named structures and examples,
+  yet the Daily maker could still repeat entry language, define `preprint` after
+  first use, echo a heading in body copy, stop an analogy before the central
+  mechanism and expose internal desk/status language on the newspaper. An
+  earlier visual review called that complete Daily ready even though direct
+  pixel inspection showed the visitor-facing scaffolding immediately.
+- **Root cause:** The system treated a passed pre-draft proof and checksum-bound
+  producer receipt as if they established the full prose. It did not run the
+  exact-draft preflight before semantic review, did not require an analogy to
+  map the central mechanism, and made every service exemplar bind the checksum
+  of the entire feature registry—so an unrelated Daily edit needlessly
+  invalidated four service lanes.
+- **Prevention rule:** Every feature needs a complete positive example and
+  negative contrasts, but the exact draft must also pass its format-specific
+  preflight before independent review. The preflight binds headline, opening,
+  mechanism, evidence order, source glosses, applications, phrase caps and one
+  exact mechanism-mapping sentence. Maker pixel inspection precedes independent
+  visual review. Service candidates bind their own lane contract, not unrelated
+  bytes elsewhere in the registry.
+- **Durable correction:** The Daily lane now consumes `CQX-BAD-001` and
+  `CQX-BAD-016`; the producer/draft checkers require the exact analogy-to-
+  mechanism mapping and reject suspense headlines, repeated entry phrasing and
+  exposed production language; the visitor-copy checker rejects empty-desk and
+  evidence-log prose; the complete-Daily rejection registry blocks the known
+  bad v14 package; service exemplar validation now fails only when its own lane
+  contract changes.
+- **Possible Behind the Build angle:** Why an example article is not a template
+  until the system can prove the finished article actually followed it.
+- **Publication status:** FIVE OF SEVENTEEN TEMPLATE CANDIDATES / ZERO ACCEPTED /
+  CURRENT DAILY STILL HELD FOR FRESH SEMANTIC AND HUMAN COMPREHENSION REVIEW /
+  NO CANONICAL PUBLICATION, DEPLOYMENT OR PUBLIC CHANGE.

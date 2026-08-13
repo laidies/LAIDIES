@@ -134,17 +134,36 @@ function sha256(value) {
 }
 
 function completeDailyReviewFixture() {
-  const packageRecord = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json"), "utf8"));
-  const story = structuredClone(packageRecord.story.record);
+  const candidateRoot = path.join(ROOT, "operations/product-stewards/newsstand/candidates");
+  const storyCandidate = JSON.parse(fs.readFileSync(path.join(candidateRoot, "ai-work-files-private-details-2026-08-12-story-record-candidate-v3.json"), "utf8"));
+  const serviceCandidates = [
+    "paige-receipt-list-service-exemplar-2026-08-12.json",
+    "career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
+    "promptoscope-refrigerator-service-exemplar-2026-08-12.json",
+    "mme-claio-mini-backpack-service-exemplar-2026-08-12.json"
+  ].map((file) => JSON.parse(fs.readFileSync(path.join(candidateRoot, file), "utf8")));
+  const serviceTypes = { paige_tip: "paige_tip", career_work_life: "career_life", promptoscope: "promptoscope", mme_claio: "mme_claio" };
+  const serviceByType = new Map(serviceCandidates.map((candidate) => [serviceTypes[candidate.laneId], candidate]));
+  const columns = JSON.parse(fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8"));
+  const story = structuredClone(storyCandidate.story);
   story.status = "published";
   story.publishedAt = "2026-08-12T23:30:00Z";
   story.updatedAt = "2026-08-13T03:53:37Z";
   story.lastCheckedAt = "2026-08-13T03:53:37Z";
   story.sourceApproval = { status: "approved", record: "/operations/product-stewards/newsstand/evidence/stories/ai-work-logs-can-carry-secrets.json" };
-  const desks = packageRecord.desks.map((desk) => desk.state === "ready" ? {
-    type: desk.type, state: desk.state, recordId: desk.recordId, headline: desk.headline,
-    summary: desk.summary, destination: desk.destination
-  } : { type: desk.type, state: desk.state, recordId: null, emptyState: desk.emptyState });
+  const deskTypes = ["paige_tip", "promptoscope", "career_life", "mme_claio", "song", "did_you_know", "town_note", "curiosity", "fiction"];
+  const desks = deskTypes.map((type) => {
+    const candidate = serviceByType.get(type);
+    if (!candidate) return { type, state: "empty", recordId: null, emptyState: columns.emptyStates[type] };
+    return {
+      type,
+      state: "ready",
+      recordId: candidate.storage.recordId,
+      headline: candidate.headline,
+      summary: candidate.body,
+      destination: candidate.destination?.startsWith("/newsstand.html#daily-") ? null : candidate.destination || null
+    };
+  });
   const sourceIdentity = {
     radarPath: "operations/product-stewards/newsstand/editorial-intake/2026-08-12.md",
     radarSha256: sha256(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/editorial-intake/2026-08-12.md"))),
@@ -655,8 +674,9 @@ try {
   check(await value(base, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 0, "quiet Daily has no fabricated ready service desk");
   check(await value(base, "document.querySelector('.ns-daily-news').textContent.includes('No consequential report was filed.') && !document.querySelector('.ns-daily-news').textContent.includes('remains at its accuracy gate')"), true, "quiet Daily evidence desk names a concluded quiet edition rather than a pending story");
   check(await value(base, "!['Make the follow-up do the remembering.','Your prompt brought no guest list.','Delegate the outcome, not every keystroke.','The Mini Backpack'].some((copy) => document.querySelector('.ns-daily-issue').textContent.includes(copy))"), true, "quiet Daily does not carry August 3 service items forward");
-  check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 9, "Daily renders all nine governed service desks including honest empty states");
-  check(await value(base, "['Did you know?','Town notes','Try this today'].every((label) => document.querySelector('.ns-daily-issue').textContent.includes(label))"), true, "Daily includes fact town-note and curiosity desks");
+  check(await value(base, "document.querySelectorAll('.ns-daily-desk').length"), 0, "quiet Daily does not expose empty internal desk records");
+  check(await value(base, "document.querySelectorAll('.ns-daily-brief-edition').length === 1 && document.querySelector('.ns-daily-brief-edition').textContent === 'Today’s edition is brief. More tomorrow.'"), true, "quiet Daily uses one compact visitor-facing edition note");
+  check(await value(base, "['Did you know?','Town notes','Try this today','desk-by-desk','desks stayed quiet'].every((label) => !document.querySelector('.ns-daily-issue').textContent.includes(label))"), true, "quiet Daily hides unfilled feature labels and operational language");
   await captureEvidence(base, "desktop-daily-1440.png", ".ns-daily-issue");
   await act(base, "document.querySelector('#ns-return').click()");
   check(await value(base, "document.activeElement.dataset.edition"), "daily", "Daily return focus");
@@ -761,7 +781,7 @@ try {
   check(await value(candidateDaily, "window.__newsstandDailyIssueError || null"), null, "complete Daily review fixture passes the exact issue-store validator");
   check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-desk[data-desk-state=\"ready\"]').length"), 4, "complete Daily carries exactly four reviewed service features");
   check(await value(candidateDaily, "document.querySelectorAll('.ns-daily-desk__full').length === 3 && document.querySelectorAll('.ns-daily-service-grid--spotlight .ns-daily-desk__body').length === 1"), true, "three service features keep exact text behind a disclosure while the short Mme CLAi-O reading is fully visible");
-  check(await value(candidateDaily, "document.querySelector('.ns-daily-news h3').textContent"), "Shared AI work files carried passwords — and details the chat never showed", "complete Daily front uses the exact reviewed lead headline");
+  check(await value(candidateDaily, "document.querySelector('.ns-daily-news h3').textContent"), "People published records of their AI work. Some contained passwords.", "complete Daily front uses the exact reviewed lead headline");
   check(await value(candidateDaily, "['Turn your work draft into a receipt list','Explain the work—not just the AI tool','Your refrigerator has entered its use-me-or-lose-me era','The Mini Backpack'].every((headline) => document.body.textContent.includes(headline))"), true, "complete Daily front files each distinct reviewed feature");
   await captureElementEvidence(candidateDaily, "daily-review-default-1440.png", ".ns-daily-issue");
   await act(candidateDaily, "document.querySelectorAll('.ns-daily-desk__full').forEach((item) => item.open = true)");
@@ -1019,10 +1039,10 @@ try {
   check(await value(mobile, "(() => Array.from(document.querySelectorAll('.ns-publication')).every((paper) => { const box=paper.getBoundingClientRect(); const elements=[paper.querySelector('strong'),paper.querySelector('.ns-publication__status'),paper.querySelector('.ns-publication__action')]; const nodes=elements.map((node)=>node.getBoundingClientRect()); return elements.every((node)=>node.scrollWidth<=node.clientWidth+1) && nodes.every((rect)=>rect.left>=box.left-1&&rect.right<=box.right+1&&rect.top>=box.top-1&&rect.bottom<=box.bottom+1) && nodes.slice(1).every((rect,index)=>nodes[index].bottom+1<=rect.top); }))()"), true, "390 publication labels remain contained and non-overlapping");
   check(await value(mobile, "Array.from(document.querySelectorAll('.ns-publication')).every((paper) => parseFloat(getComputedStyle(paper.querySelector('.ns-publication__status')).fontSize) >= 10 && parseFloat(getComputedStyle(paper.querySelector('.ns-publication__action')).fontSize) >= 10)"), true, "390 publication status and action meet the mobile text floor");
   check(await value(mobile, "document.querySelector('.ns-daily-issue').getBoundingClientRect().width <= window.innerWidth"), true, "390 complete Daily fits the viewport");
-  check(await value(mobile, "document.querySelector('.ns-daily-service-grid').getBoundingClientRect().width <= window.innerWidth"), true, "390 Daily service record fits the viewport");
+  check(await value(mobile, "(() => { const grid=document.querySelector('.ns-daily-service-grid'); return !grid || grid.getBoundingClientRect().width <= window.innerWidth; })()"), true, "390 admitted Daily service content fits the viewport when present");
   check(await value(mobile, `document.querySelectorAll('.ns-daily-desk[data-desk-state="ready"]').length ===
     Number(document.querySelector('[data-contents-for="daily"]').dataset.serviceCount)`), true, "390 Daily keeps the admitted-service boundary");
-  check(await value(mobile, "(() => { const record=document.querySelector('.ns-daily-quiet-desks'); return record && !record.open && record.querySelectorAll('.ns-daily-desk').length===9; })()"), true, "quiet Daily demotes nine empty desks into one closed record without deleting them");
+  check(await value(mobile, "!document.querySelector('.ns-daily-quiet-desks') && document.querySelectorAll('.ns-daily-desk').length === 0 && document.querySelectorAll('.ns-daily-brief-edition').length === 1"), true, "quiet Daily removes empty desk records and keeps one compact edition note on mobile");
   check(await value(mobile, "Array.from(document.querySelectorAll('.ns-topic-button')).every((button) => button.getBoundingClientRect().height >= 44)"), true, "390 topic controls meet the minimum touch height");
   await captureEvidence(mobile, "mobile-arrival-390.png");
   await captureEvidence(mobile, "mobile-daily-390.png", ".ns-daily-issue");

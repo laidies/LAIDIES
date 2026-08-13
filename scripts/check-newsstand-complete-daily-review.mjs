@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const HASH = /^[a-f0-9]{64}$/;
+const REJECTIONS_PATH = "operations/product-stewards/newsstand/NEWSSTAND-COMPLETE-DAILY-REJECTIONS.json";
 const sha256 = value => crypto.createHash("sha256").update(value).digest("hex");
 const canonicalJson = value => {
   if (value === null || typeof value !== "object") return JSON.stringify(value);
@@ -29,8 +30,39 @@ function inspectBinding(binding, root, label, errors) {
   return absolute;
 }
 
-export function inspectCompleteDailyReview(pkg, { root = ROOT } = {}) {
+function loadRejections(root, errors) {
+  try {
+    const registry = JSON.parse(fs.readFileSync(path.join(root, REJECTIONS_PATH), "utf8"));
+    if (registry?.schemaVersion !== "laidies-newsstand-complete-daily-rejections.v1" || registry?.defaultDeny !== true || !Array.isArray(registry?.rejections)) {
+      errors.push("complete-Daily rejection registry is invalid");
+      return [];
+    }
+    const loaded = [];
+    for (const [index, rejection] of registry.rejections.entries()) {
+      const rejectedPackagePath = inspectBinding(rejection?.package, root, `rejections[${index}].package`, errors);
+      inspectBinding(rejection?.receipt, root, `rejections[${index}].receipt`, errors);
+      if (rejection?.verdict !== "REJECTED_DO_NOT_PRESENT_OR_DEPLOY" || !Array.isArray(rejection?.reasonCodes) || rejection.reasonCodes.length < 1) {
+        errors.push(`rejections[${index}] lacks a fail-closed verdict and reason`);
+      }
+      if (rejectedPackagePath) {
+        try { loaded.push({ ...rejection, canonicalPackage: canonicalJson(JSON.parse(fs.readFileSync(rejectedPackagePath, "utf8"))) }); }
+        catch (error) { errors.push(`rejections[${index}].package invalid JSON: ${error.message}`); }
+      }
+    }
+    return loaded;
+  } catch (error) {
+    errors.push(`complete-Daily rejection registry unavailable: ${error.message}`);
+    return [];
+  }
+}
+
+export function inspectCompleteDailyReview(pkg, { root = ROOT, rejections } = {}) {
   const errors = [];
+  const activeRejections = rejections === undefined ? loadRejections(root, errors) : rejections;
+  const canonicalPackage = canonicalJson(pkg);
+  if (activeRejections.some(rejection => rejection?.canonicalPackage === canonicalPackage)) {
+    errors.push("package is explicitly rejected and cannot be presented or deployed");
+  }
   if (pkg?.schemaVersion !== "laidies-newsstand-complete-daily-review-package.v1") errors.push("schemaVersion mismatch");
   if (pkg?.status !== "PRIVATE_COMPLETE_DAILY_REVIEW_CANDIDATE" || pkg?.publicEligibility !== "INELIGIBLE_PENDING_ALI_APPROVAL") errors.push("package must remain a private, Ali-held candidate");
   if (pkg?.defaultExperience !== "THE_DAILY" || !/^\d{4}-\d{2}-\d{2}$/.test(pkg?.editionDate || "")) errors.push("Daily identity is invalid");

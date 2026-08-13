@@ -1915,12 +1915,36 @@ main.ns-page {
   color: var(--ns-ink-soft);
   font-size: clamp(15px, 1.35vw, 19px);
 }
+.ns-daily-section-switcher {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 4px solid var(--ns-ink);
+  background: var(--ns-ink);
+}
+.ns-daily-section-switcher button {
+  min-height: 52px;
+  padding: 10px 14px;
+  border: 0;
+  border-right: 2px solid #fff7d9;
+  background: transparent;
+  color: #fff7d9;
+  font: 800 12px/1.15 var(--ns-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.ns-daily-section-switcher button:last-child { border-right: 0; }
+.ns-daily-section-switcher button:hover,
+.ns-daily-section-switcher button:focus-visible { background: var(--ns-purple); outline: 3px solid #fff7d9; outline-offset: -5px; }
+.ns-daily-section-switcher .is-current { background: var(--ns-pink); color: var(--ns-ink); }
 
 .ns-daily-front-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.8fr) minmax(300px, 0.9fr);
   background: #fff9fc;
 }
+.ns-daily-front-grid--single { grid-template-columns: 1fr; }
+.ns-daily-front-grid--single .ns-daily-news { border-right: 0; }
 .ns-daily-news {
   min-width: 0;
   padding: clamp(32px, 5vw, 66px);
@@ -1946,6 +1970,26 @@ main.ns-page {
 .ns-daily-news__move strong { color: var(--ns-ink); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
 .ns-daily-news__move p { margin: 6px 0 0; font-size: 16px; line-height: 1.5; }
 .ns-daily-news a { display: inline-block; margin-top: 16px; color: var(--ns-purple); font-weight: 800; }
+.ns-daily-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 20px;
+}
+.ns-daily-tags span { color: var(--ns-ink); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.ns-daily-tags button {
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 2px solid var(--ns-ink);
+  border-radius: 999px;
+  background: #fff9fc;
+  color: var(--ns-purple);
+  font: 800 12px/1 var(--ns-body);
+  cursor: pointer;
+}
+.ns-daily-tags button:hover,
+.ns-daily-tags button:focus-visible { background: #ffdf32; outline: 3px solid var(--ns-purple); outline-offset: 2px; }
 .ns-daily-section-flag {
   margin: 0;
   color: var(--ns-purple);
@@ -2089,6 +2133,7 @@ main.ns-page {
 .ns-daily-more-desks__head { margin-bottom: 4px; }
 .ns-daily-more-desks__head h3 { margin: 3px 0 0; font-family: var(--ns-display); font-size: 38px; font-weight: 400; text-transform: uppercase; }
 .ns-daily-more-desks__head > p:last-child { margin: 5px 0 0; color: var(--ns-ink-soft); font-size: 14px; }
+.ns-daily-brief-edition { margin: 0; padding: 22px clamp(24px, 4vw, 52px); border-bottom: 4px solid var(--ns-ink); background: #fff7d9; color: var(--ns-ink); font-weight: 800; }
 .ns-daily-quiet-desks { background: transparent; }
 .ns-daily-quiet-desks > summary { padding: 12px 0 8px; border-bottom: 2px solid var(--ns-ink); color: var(--ns-purple); font-size: 15px; font-weight: 800; cursor: pointer; }
 .ns-daily-quiet-desks[open] .ns-daily-service-grid { grid-template-columns: 1fr; margin-top: 12px; }
@@ -2132,6 +2177,9 @@ main.ns-page {
   .ns-unfolded-paper[data-paper="daily"] > .ns-unfolded-paper__masthead { padding: 8px 14px; }
   .ns-unfolded-paper[data-paper="daily"] > .ns-unfolded-paper__masthead h2 { font-size: 16px; }
   .ns-daily-issue__head { padding: 14px 16px 20px; }
+  .ns-daily-section-switcher { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ns-daily-section-switcher button:nth-child(2) { border-right: 0; }
+  .ns-daily-section-switcher button:nth-child(-n+2) { border-bottom: 2px solid #fff7d9; }
   .ns-daily-issue__dateline { grid-template-columns: 1fr auto 1fr; gap: 4px; font-size: 7px; }
   .ns-daily-issue h2 { font-size: clamp(58px, 23vw, 88px); }
   .ns-daily-front-grid { grid-template-columns: 1fr; }

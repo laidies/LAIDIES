@@ -51,7 +51,7 @@ try {
     centralInstruction: { opening: "Send the checked result, not the whole work file.", action: "Copy only what you mean to send.", closing: "Am I sending the answer or the work file?", prohibitedRestatements: ["A clean chat does not clean the file."] },
     evidenceSequence: ["In 2026, Example Lab published the study behind these figures.", "A placeholder is a fill-in-the-blank example rather than a real credential.", "The study found 328 affected records in its sample.", "Using that inspection method, the researchers could read what the larger files carried."],
     readerSources: [{ label: "Primary study", url: "https://example.org/study" }],
-    voicePlan: { move: "The answer is the final cut; the work record is the editing room.", teachingJob: "Distinguish the chosen result from the complete work record.", limit: "A technical record is not literally a film project.", readerFacingLimit: "The comparison is only about what you choose to release; each provider protects its systems differently.", humanTruth: "The ordinary instinct to attach the biggest file can make a careful answer less safe.", warmthLines: [{ sectionHeading: "The chat was the final cut", line: "The tidy answer is the part her team wanted." }, { sectionHeading: "Before you attach the work file", line: "A work file does not politely leave the password behind." }] },
+    voicePlan: { move: "The answer is the final cut; the work record is the editing room.", teachingJob: "Distinguish the chosen result from the complete work record.", limit: "A technical record is not literally a film project.", readerFacingLimit: "The comparison is only about what you choose to release; each provider protects its systems differently.", humanTruth: "The ordinary instinct to attach the biggest file can make a careful answer less safe.", mechanismMappingSentence: "In this picture, the sealed part is a locked drawer inside the editing room.", warmthLines: [{ sectionHeading: "The chat was the final cut", line: "The tidy answer is the part her team wanted." }, { sectionHeading: "Before you attach the work file", line: "A work file does not politely leave the password behind." }] },
     sectionPlan: [
       { heading: "The chat was the final cut", readerJob: "Explain the visible-answer and full-record distinction plus mechanism.", jobType: "MECHANISM" },
       { heading: "Before you attach the work file", readerJob: "Give the exact sharing and recovery actions.", jobType: "ACTION" }
@@ -72,6 +72,9 @@ try {
   const clickbait = structuredClone(proof);
   clickbait.headline = "The shocking secret you cannot see inside your AI";
   assert.match(inspectNewsstandProducerProof(clickbait, { root }).errors.join("\n"), /clickbait/);
+  const suspenseClickbait = structuredClone(proof);
+  suspenseClickbait.headline = "Shared AI work files carried passwords — and details the chat never showed";
+  assert.match(inspectNewsstandProducerProof(suspenseClickbait, { root }).errors.join("\n"), /clickbait/);
   const jargonOpening = structuredClone(proof);
   jargonOpening.opening = "An encrypted reasoning block crossed an API boundary during the test.";
   assert.match(inspectNewsstandProducerProof(jargonOpening, { root }).errors.join("\n"), /technical vocabulary/);
@@ -123,6 +126,9 @@ try {
   const missingHumanTruth = structuredClone(proof);
   missingHumanTruth.voicePlan.humanTruth = "";
   assert.match(inspectNewsstandProducerProof(missingHumanTruth, { root }).errors.join("\n"), /humanTruth/);
+  const missingMechanismMapping = structuredClone(proof);
+  missingMechanismMapping.voicePlan.mechanismMappingSentence = "";
+  assert.match(inspectNewsstandProducerProof(missingMechanismMapping, { root }).errors.join("\n"), /mechanismMappingSentence/);
   const missingWarmthLines = structuredClone(proof);
   missingWarmthLines.voicePlan.warmthLines = [];
   assert.match(inspectNewsstandProducerProof(missingWarmthLines, { root }).errors.join("\n"), /warmthLines/);
@@ -156,7 +162,7 @@ try {
   const sealedTermDrift = structuredClone(proof);
   sealedTermDrift.mechanismBridge.objectLocationSentence = "The work file stores the visible answer and sealed information.";
   assert.match(inspectNewsstandProducerProof(sealedTermDrift, { root }).errors.join("\n"), /producer proof uses prohibited synonym/);
-  console.log("NEWSSTAND PRODUCER PROOF CALIBRATION PASS: valid bounded Daily proof accepted; clickbait, jargon-first opening, oversized Daily, stale lane contract, skipped negatives, undefined number unit, missing point-of-use year, missing mechanism bridge, missing human truth, duplicate action ownership, vague source, generic heading, duplicate section job, missing terminology plan, missing stable object register and proof-level terminology drift rejected");
+  console.log("NEWSSTAND PRODUCER PROOF CALIBRATION PASS: valid bounded Daily proof accepted; explicit and suspense-form clickbait, jargon-first opening, oversized Daily, stale lane contract, skipped negatives, undefined number unit, missing point-of-use year, missing mechanism bridge, missing human truth, duplicate action ownership, vague source, generic heading, duplicate section job, missing terminology plan, missing stable object register and proof-level terminology drift rejected");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

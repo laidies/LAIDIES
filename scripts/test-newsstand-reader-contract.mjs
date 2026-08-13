@@ -227,11 +227,17 @@ assert.match(catchup, /function breakingLead\(\)/, "Breaking needs a governed Da
 assert.match(catchup, /breaking \? '<aside class="ns-daily-breaking"/, "qualified Breaking must render inside the Daily rather than as a fourth choice");
 assert.match(catchup, /options\.initial/, "automatic Daily opening must suppress the click-only scroll and focus jump");
 assert.match(catchup, /<h2><span>The<\/span> Daily<\/h2>/, "the full issue needs a newspaper masthead");
-assert.match(catchup, /class="ns-daily-front-grid"/, "the issue needs one front-page lead and service-column composition");
+assert.match(catchup, /class="ns-daily-front-grid/, "the issue needs one front-page lead with an admitted service column when service items exist");
 assert.match(catchup, /class="ns-daily-service-rail"/, "the issue needs an integrated side column");
 assert.match(catchup, /desks\.slice\(0, 4\)/, "the first four admitted desks belong in the side column");
 assert.match(catchup, /desks\.slice\(4\)/, "remaining admitted desks belong in the rest-of-paper section");
-assert.match(catchup, /All nine service desks were checked\. Open the desk-by-desk record\./, "a quiet Daily must collapse all empty desks into one honest disclosure");
+assert.match(catchup, /Today&rsquo;s edition is brief\. More tomorrow\./, "a quiet Daily needs one compact visitor-facing edition note");
+assert.doesNotMatch(catchup, /All nine service desks were checked|desk-by-desk record|desks stayed quiet|Filed in this edition|empty space honest/i, "internal desk and workflow language cannot appear in the newspaper");
+assert.match(catchup, /class="ns-daily-section-switcher"/, "the Daily needs visible routes to the other NewsStand sections");
+assert.match(catchup, /data-open-paper="weekly"/, "the Daily needs a direct Weekly route");
+assert.match(catchup, /data-open-paper="tribune"/, "the Daily needs a direct Big Picture route");
+assert.match(catchup, /data-open-archive/, "the Daily needs a direct archive route");
+assert.match(catchup, /data-daily-topic/, "the Daily lead needs topic continuation into the archive");
 assert.match(html, /function renderArchive\(invoker, viewOptions\)/, "the all-issues route needs a dedicated deterministic renderer");
 assert.match(html, /function renderTopicButtons\(\)/, "the archive must derive its browse-by-topic controls from eligible stories");
 assert.match(html, /function defaultSearchHint\(\)/, "search suggestions must come from the eligible archive rather than stale examples");
@@ -282,7 +288,7 @@ assert.match(html, /SUNNYVA<span class="ns-brand-i">i<\/span>LE NewsStand/, "pri
 assert.match(html, /function visiblePublicationControl\(edition\)[\s\S]*?control\.offsetParent !== null/, "mobile and desktop focus recovery must resolve the currently visible paper control");
 assert.match(catchup, /SUNNYVA<span class="ns-brand-i">i<\/span>LE paper/, "generated Daily heading must preserve the canonical lowercase i");
 assert.match(css, /\.ns-brand-i\s*\{[\s\S]*?text-transform:\s*none;/, "canonical lowercase i override must defeat inherited uppercase transforms");
-assert.match(catchup, /quietIssue[\s\S]*?ns-daily-quiet-desks[\s\S]*?All nine service desks were checked/, "quiet Daily must collapse its desk-by-desk empty record");
+assert.match(catchup, /quietIssue[\s\S]*?ns-daily-brief-edition[\s\S]*?Today&rsquo;s edition is brief/, "quiet Daily must use one compact edition note rather than expose empty desk records");
 assert.doesNotMatch(catchup, /item\.editionDate <= localToday\(\)/, "a released edition cannot be hidden by the visitor's calendar date");
 assert.match(catchup, /Date\.parse\(item\.admission\.reviewedAt\) <= Date\.now\(\)/, "Daily availability must follow the admitted release instant");
 assert.doesNotMatch(catchup, /localToday|localDateOnly/, "reader eligibility and continuity cannot depend on the visitor's calendar");

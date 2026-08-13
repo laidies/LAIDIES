@@ -37,6 +37,19 @@ function bindAny(root, binding, label, errors) {
   return bind(root, binding, binding.path, label, errors);
 }
 
+function readCurrentRegistry(root, binding, errors) {
+  if (!binding || binding.path !== REGISTRY_PATH) {
+    errors.push(`featureRegistry must point to ${REGISTRY_PATH}`);
+    return null;
+  }
+  const absolute = path.resolve(root, REGISTRY_PATH);
+  if (!absolute.startsWith(`${path.resolve(root)}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) {
+    errors.push("featureRegistry is unavailable");
+    return null;
+  }
+  return absolute;
+}
+
 export function inspectNewsstandServiceExemplar(candidate, { root = ROOT } = {}) {
   const errors = [];
   const require = (condition, message) => { if (!condition) errors.push(message); };
@@ -48,7 +61,11 @@ export function inspectNewsstandServiceExemplar(candidate, { root = ROOT } = {})
   require(text(candidate?.headline), "headline is required");
   require(text(candidate?.body), "body is required");
 
-  const registryPath = bind(root, candidate?.featureRegistry, REGISTRY_PATH, "featureRegistry", errors);
+  // The candidate binds its own lane contract below. Requiring the checksum of
+  // the entire registry made an unrelated Daily-lane edit invalidate Paige,
+  // Career, Promptoscope and Mme CLAi-O. Read the current registry by canonical
+  // path, then fail only when this candidate's exact lane contract changed.
+  const registryPath = readCurrentRegistry(root, candidate?.featureRegistry, errors);
   bind(root, candidate?.productionStandard, STANDARD_PATH, "productionStandard", errors);
   let lane = null;
   if (registryPath) {

@@ -4,7 +4,7 @@
   "defaultDeny": true,
   "featureLaneRegistry": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
-    "sha256": "22d16efba451fa96cf3b41902841a82699c452e64d816e2cad2eac430c1a11c9"
+    "sha256": "17f9b0de534a48fb27f9cccd588012f9628843bdb87671c0092281a4110978ec"
   },
   "productionStandard": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
@@ -55,7 +55,10 @@
         "useful landing",
         "sources and correction trigger"
       ],
-      "wordRange": { "minimum": 350, "maximum": 700 },
+      "wordRange": {
+        "minimum": 350,
+        "maximum": 700
+      },
       "sourceAndFreshnessRules": [
         "Open with the human event and answer before naming technical objects.",
         "Use AIDB as a scout or comparison where relevant, never as primary authority.",
@@ -63,7 +66,15 @@
         "Report what the evidence does not show and name any bounded uncertainty.",
         "End with a proportionate action or better next question, not generic vigilance."
       ],
-      "negativeExemplarIds": ["CQX-BAD-004", "CQX-BAD-005", "CQX-BAD-013", "CQX-BAD-014", "CQX-BAD-015"],
+      "negativeExemplarIds": [
+        "CQX-BAD-001",
+        "CQX-BAD-004",
+        "CQX-BAD-005",
+        "CQX-BAD-013",
+        "CQX-BAD-014",
+        "CQX-BAD-015",
+        "CQX-BAD-016"
+      ],
       "producerSelfCheck": [
         "Can a non-technical reader state the point after the opening paragraph?",
         "Is every technical term earned and defined before it carries reasoning?",
@@ -72,16 +83,16 @@
         "Are headline, length, evidence limits and action proportionate to a Daily?"
       ],
       "candidateExample": {
-        "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v2.md",
-        "sha256": "100b282172ecef33e9bee29f0f8c505ae8c6444ccf435bc71052ed6223d43be0"
+        "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
+        "sha256": "e6e77af7388c5d58e668578878b2c773e27d29c8020c240f97187826aa742437"
       },
       "producerProof": {
-        "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v2.json",
-        "sha256": "ebda660c36c512cf3179576823c233274b66fc8522e5b02bb764750df057d046"
+        "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-producer-proof-v3.json",
+        "sha256": "5ce06e41ed284ef606cf59660431d9e1b3f658f812ee9d7d246106fe23c8573d"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v2-review-19-pass.json",
-        "sha256": "122c1e6d17889b92a3e7342c3e62bb20a2fd90a95802998bfb6d476985c3ab89"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/producer-proof-v3-review-09.json",
+        "sha256": "3a03cca677c6e404f02510fc1034903de15eb0c5cba3a1198e1ed7a2b12a666c"
       },
       "acceptanceRecord": null,
       "publishesIn": "The complete dated Daily newspaper",
@@ -119,13 +130,19 @@
         "how to check the result",
         "optional deeper destination"
       ],
-      "wordRange": { "minimum": 90, "maximum": 180 },
+      "wordRange": {
+        "minimum": 90,
+        "maximum": 180
+      },
       "sourceAndFreshnessRules": [
         "Name the work object and action literally before using any playful language.",
         "Do not imply that a prompt can enforce truth, privacy, policy or tool behaviour.",
         "Keep the human check concrete and observable."
       ],
-      "negativeExemplarIds": ["CQX-BAD-009", "CQX-BAD-010"],
+      "negativeExemplarIds": [
+        "CQX-BAD-009",
+        "CQX-BAD-010"
+      ],
       "producerSelfCheck": [
         "Could the reader perform the one action without asking what any noun refers to?",
         "Is the AI tool's job narrower than the human's responsibility?",
@@ -133,15 +150,15 @@
       ],
       "candidateExample": {
         "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
-        "sha256": "00e1bbb6c77324e94b388d158156cf53b7950e18f772b49ef9b717991db98f73"
+        "sha256": "774d102eea816c73bc5ace0f2b29576141b57379d14f11781c097ff4c36de0df"
       },
       "producerProof": {
         "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
-        "sha256": "00e1bbb6c77324e94b388d158156cf53b7950e18f772b49ef9b717991db98f73"
+        "sha256": "774d102eea816c73bc5ace0f2b29576141b57379d14f11781c097ff4c36de0df"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
-        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
+        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily service desk",
@@ -179,13 +196,20 @@
         "where the comparison stops",
         "small try-today move"
       ],
-      "wordRange": { "minimum": 150, "maximum": 300 },
+      "wordRange": {
+        "minimum": 150,
+        "maximum": 300
+      },
       "sourceAndFreshnessRules": [
         "Lead with real career or life guidance, not AI terminology.",
         "Name the evidence type and its limits at the point of the claim.",
         "Label the AI parallel and explicitly stop it before it overclaims."
       ],
-      "negativeExemplarIds": ["CQX-BAD-006", "CQX-BAD-007", "CQX-BAD-011"],
+      "negativeExemplarIds": [
+        "CQX-BAD-006",
+        "CQX-BAD-007",
+        "CQX-BAD-011"
+      ],
       "producerSelfCheck": [
         "Would this still be recognizable and useful career or life guidance if the AI paragraph were removed?",
         "Does the AI parallel clarify rather than commandeer the advice?",
@@ -193,15 +217,15 @@
       ],
       "candidateExample": {
         "path": "operations/product-stewards/newsstand/candidates/career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
-        "sha256": "101848ca329b3b4e02ab7a38fd2c9532607552cd96e330712907455075ef3333"
+        "sha256": "aeaa7871b8898aca0cd1b1e18d80b566db9ef2d44c301674893aa84c33613d4c"
       },
       "producerProof": {
         "path": "operations/product-stewards/newsstand/candidates/career-explain-ai-assisted-work-service-exemplar-2026-08-12.json",
-        "sha256": "101848ca329b3b4e02ab7a38fd2c9532607552cd96e330712907455075ef3333"
+        "sha256": "aeaa7871b8898aca0cd1b1e18d80b566db9ef2d44c301674893aa84c33613d4c"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
-        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
+        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily or Weekly service desk according to depth",
@@ -239,13 +263,19 @@
         "bounded human check",
         "earned final joke"
       ],
-      "wordRange": { "minimum": 90, "maximum": 180 },
+      "wordRange": {
+        "minimum": 90,
+        "maximum": 180
+      },
       "sourceAndFreshnessRules": [
         "Name the AI object and home task before using shorthand such as it or the model.",
         "List the real context the reader must supply rather than saying add more detail.",
         "Keep prediction language transparently comic and never use it for safety guidance."
       ],
-      "negativeExemplarIds": ["CQX-BAD-008", "CQX-BAD-012"],
+      "negativeExemplarIds": [
+        "CQX-BAD-008",
+        "CQX-BAD-012"
+      ],
       "producerSelfCheck": [
         "Can the reader name the one action underneath the joke?",
         "Is the scenario clearly non-work and different from Paige?",
@@ -253,15 +283,15 @@
       ],
       "candidateExample": {
         "path": "operations/product-stewards/newsstand/candidates/promptoscope-refrigerator-service-exemplar-2026-08-12.json",
-        "sha256": "db64cd6bb01927b2a1d8ef94909a131647ba9a65fe438c17b399917b12848365"
+        "sha256": "54e98b2a62f1423ce6f757a154157fefe4b4989abc7cde128a1e6e95bc6d77e3"
       },
       "producerProof": {
         "path": "operations/product-stewards/newsstand/candidates/promptoscope-refrigerator-service-exemplar-2026-08-12.json",
-        "sha256": "db64cd6bb01927b2a1d8ef94909a131647ba9a65fe438c17b399917b12848365"
+        "sha256": "54e98b2a62f1423ce6f757a154157fefe4b4989abc7cde128a1e6e95bc6d77e3"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
-        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
+        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily service desk",
@@ -298,7 +328,10 @@
         "not tailored or predictive boundary",
         "route to Mme CLAi-O"
       ],
-      "wordRange": { "minimum": 60, "maximum": 140 },
+      "wordRange": {
+        "minimum": 60,
+        "maximum": 140
+      },
       "sourceAndFreshnessRules": [
         "Copy the admitted deck bytes exactly; do not generate a new reading.",
         "Bind the exact dated selection and owner ruling.",
@@ -312,15 +345,15 @@
       ],
       "candidateExample": {
         "path": "operations/product-stewards/newsstand/candidates/mme-claio-mini-backpack-service-exemplar-2026-08-12.json",
-        "sha256": "f56184e317d52d2d0dd0970f29c2cccc1f4bcabf78e7ddc8a20e9e54c279d88f"
+        "sha256": "b6c9a68a1ccab4ec4a483fe55556518e3d299b00ef563a2056ec48c2b2646226"
       },
       "producerProof": {
         "path": "operations/product-stewards/newsstand/candidates/mme-claio-mini-backpack-service-exemplar-2026-08-12.json",
-        "sha256": "f56184e317d52d2d0dd0970f29c2cccc1f4bcabf78e7ddc8a20e9e54c279d88f"
+        "sha256": "b6c9a68a1ccab4ec4a483fe55556518e3d299b00ef563a2056ec48c2b2646226"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v2.json",
-        "sha256": "559d34f7a8c696ff01c16168f8c1dcbe5ab7458345661f8883655aaaa68a6af3"
+        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v3.json",
+        "sha256": "257581f32ccc00a244d5d4aecec804a38d91468d0794ebe22163031f713889bf"
       },
       "acceptanceRecord": null,
       "publishesIn": "Daily service desk",

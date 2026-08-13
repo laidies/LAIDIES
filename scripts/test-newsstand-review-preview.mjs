@@ -1,19 +1,28 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { overlayReviewPackage } from "./build-newsstand-review-preview.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SCRIPT = path.join(ROOT, "scripts/build-newsstand-review-preview.mjs");
 const PACKAGE = path.join(ROOT, "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v1.json");
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-newsstand-review-preview-"));
 const output = path.join(temp, "site");
-const good = spawnSync(process.execPath, [SCRIPT, output], { cwd: ROOT, encoding: "utf8", env: { ...process.env, NEWSSTAND_REVIEW_SOURCE_COMMIT: "61dd76f323586d116c303f7c550aa2fcceb13022" } });
-assert.equal(good.status, 0, good.stderr || good.stdout);
+const rejected = spawnSync(process.execPath, [SCRIPT, output], { cwd: ROOT, encoding: "utf8" });
+assert.notEqual(rejected.status, 0, "an explicitly rejected package must not build a review preview");
+assert.match(rejected.stderr, /explicitly rejected/);
+
+const curated = spawnSync(process.execPath, [path.join(ROOT, "scripts/build-public-site.mjs"), output], { cwd: ROOT, encoding: "utf8" });
+assert.equal(curated.status, 0, curated.stderr || curated.stdout);
+const packageRaw = fs.readFileSync(PACKAGE);
+const packageRecord = JSON.parse(packageRaw);
+overlayReviewPackage({ output, pkg: packageRecord, packageSha256: crypto.createHash("sha256").update(packageRaw).digest("hex") });
 const html = fs.readFileSync(path.join(output, "newsstand.html"), "utf8");
 const stories = fs.readFileSync(path.join(output, "content/newsstand-stories.js"), "utf8");
 const issues = JSON.parse(fs.readFileSync(path.join(output, "content/newsstand-daily-issues.json"), "utf8"));
@@ -38,4 +47,4 @@ const bad = spawnSync(process.execPath, [SCRIPT, path.join(temp, "bad-site"), "-
 });
 assert.notEqual(bad.status, 0, "unauthorized package must fail before a preview build");
 assert.match(bad.stderr, /package is not ready for Ali review/);
-console.log("NEWSSTAND REVIEW PREVIEW CALIBRATION PASS · exact private package rendered · unauthorized package rejected · canonical source unchanged");
+console.log("NEWSSTAND REVIEW PREVIEW CALIBRATION PASS · rejected package blocked from presentation · overlay mechanics fixture rendered · unauthorized package rejected · canonical source unchanged");

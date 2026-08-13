@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "contentClass": "NEWS",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-files-private-details-2026-08-12-exact-prose-v3.md",
+    "sha256": "50b0ece604a11033e5a9b76fbf7c9f672d0e56bd8a22126206b763ff28e3fd1b"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "a6e672f3f47d441009de1d3b3f5f6787c1401208c802aef39dad74447876c614"
+  },
+  "exemplar": {
+    "path": "operations/product-stewards/learning-content-ecosystem/exemplars/CQX-GOOD-NEWS-001-eu-ai-act.md",
+    "sha256": "72c02502844efb0a260223b2573f0916cafbd263f721f9ba128b95396de3874f"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "a648566780cf5fa3e20b28d5414513d1e190502983a30ed5adb954b4ec3d9c69"
+  },
+  "knownBad": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
+    "sha256": "c213f5a4bcb69d94755b215bfa2a9ded72a9a190c804d3b700247b09c67064d3"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "c0a9078f50d5f4467a3d49c322116a764f59460e1b40067735985d06378a353b",
+  "judgedAt": "2026-08-13T07:57:47.395Z",
+  "judgment": {
+    "verdict": "HOLD",
+    "summary": "The artifact fixes the predecessor's worst failures: the number-coaching scaffolding (\"the number to circle is 64\") is gone, the Regina/Burn Book misfire is gone, the 4.9% figure reconciles (328/6,708), the extraction method is named before the results that depend on it, base changes between the 328-file count and the 704-item count are flagged honestly, both cited sources do visible work in the prose, and the action section opens with a direct reader instruction and ends on a genuine transfer question. However, the load-bearing section — \"The chat is the final cut. The work file is the editing room.\" — is internally scrambled: the analogy's mapping lives only in the heading, \"the editing room\" and \"alternate takes and notes\" are invoked before the reader is told what they stand for, and \"the sealed part\" appears as a known object (\"In this picture, the sealed part is a locked drawer\") one sentence before it is defined. The crucial mechanism — that the publisher cannot read the sealed part, which is why she can leak what she never saw — is left implicit. A non-technical reader can follow the advice but likely cannot explain the mechanism back, and no observed unfamiliar-human explain-back evidence accompanies the artifact. These are ordering and one-sentence repairs, not conceptual failures, so HOLD rather than REJECT.",
+    "objectiveDefects": [
+      {
+        "locator": "Section 'The chat is the final cut…', paragraph 3, sentence 1: 'In this picture, the sealed part is a locked drawer inside the editing room'",
+        "problem": "'The sealed part' is used as a definite, already-known object one sentence before its definition ('some tools store the answer you see plus the sealed part…'), and 'in this picture' refers to a picture that has not been drawn in the body prose. The production standard explicitly prohibits referring to a specific object a newcomer has not yet met.",
+        "repair": "Reorder the paragraph: first state that some tools store, alongside the visible answer, a sealed part the tool uses to continue earlier work and that the person sharing the file cannot read; then map it to the locked drawer."
+      },
+      {
+        "locator": "Section 'The chat is the final cut…', paragraphs 1–2",
+        "problem": "The analogy mapping exists only in the heading. The body invokes 'the editing room,' 'the final cut,' and 'alternate takes and notes' without ever stating in prose that the visible chat is the final cut, the work file is the editing room, or what the alternate takes and notes correspond to in the actual file. Headings cannot carry the mapping; the reader must reconstruct it.",
+        "repair": "Add one plain mapping sentence early in the body, e.g. 'The chat you read is the final cut; the work file is the editing room behind it, holding every step the tool took,' and tie 'alternate takes and notes' to a named real object or cut the phrase."
+      },
+      {
+        "locator": "Section 'The chat is the final cut…', paragraph 2",
+        "problem": "The publishing risk is stated twice in adjacent sentences ('the risk begins when someone publishes the work file' / 'publishing it is exactly when the alternate takes and notes travel with it'), and this risk paragraph precedes any account of what the work file contains, inverting the standard's order of background before mechanism before stakes.",
+        "repair": "Merge the two risk sentences into one and move the resulting sentence after the paragraph that establishes what a work file contains, including the sealed part."
+      },
+      {
+        "locator": "Section 'The chat is the final cut…', paragraph 2: 'The whole file may look trustworthy because it shows every step.'",
+        "problem": "'Trustworthy' is the wrong predicate — showing every step makes a file look complete or safe to share, not trustworthy; the sentence muddles the point it is making about why people publish these files.",
+        "repair": "Replace with the intended meaning, e.g. 'The whole file can feel safe to share precisely because it shows every step.'"
+      },
+      {
+        "locator": "Section 'The chat is the final cut…', attack paragraph, and section 'Some private details never appeared…'",
+        "problem": "The mechanism that makes the story newsworthy — the publisher cannot read the sealed part herself, so she cannot check or clean it — is never stated plainly; it is only implied by 'not displayed in the visible chat' and 'details the publisher may never have seen.' Without it, 'treat it as exposed' and the 64-item finding lack their causal bridge.",
+        "repair": "Add one sentence at the sealed part's introduction: the person who publishes the file cannot open or read that part, so she cannot check what it holds."
+      }
+    ],
+    "qualityFindings": [
+      {
+        "dimension": "clarity",
+        "locator": "Section 'The chat is the final cut…' (whole section)",
+        "finding": "The section requires re-reading: risk before background, analogy fragments before their referents, and the sealed part's definition arriving mid-image. Everywhere else the piece is clear; this one section is where a non-technical reader would fail an explain-back."
+      },
+      {
+        "dimension": "accuracy",
+        "locator": "Sections 'Some private details never appeared…' and Sources",
+        "finding": "On its face the numbers behave: 328/6,708 ≈ 4.9% is arithmetically right, the 704-item count is introduced with its changed base (deduped, real-people sessions) and an honest 'does not say how many files' hedge, the reconstruction limitation is disclosed without erasing the finding, and both listed sources support claims that actually appear in the prose. Preprint status is glossed at first use."
+      },
+      {
+        "dimension": "usefulness",
+        "locator": "Section 'Before you share anything'",
+        "finding": "The action section is the strongest part: direct imperatives, a concrete rotate-and-revoke incident action correctly assigning carriage to the file, the 'show its work' misconception preempted with a sourced reason, and a closing question that transfers. A non-technical reader can act on all of it."
+      },
+      {
+        "dimension": "voice",
+        "locator": "'the key was never invited to the meeting'; 'do not assume the work file politely left it behind'",
+        "finding": "Two genuine warmth lines land in different section jobs (examples, action) and sound like a person rather than a template. The middle evidence section, by contrast, is procedurally correct but flat — accurate sentences in sequence with no human observation — so the voice is present at the edges and thin in the middle."
+      },
+      {
+        "dimension": "connectedness",
+        "locator": "Whole artifact",
+        "finding": "The piece reads as one argument rather than a glossary: opening boundary, mechanism, evidence, two stakes examples, action, closing question. The weak joint is the analogy section, whose fragments do not connect to their referents; once repaired, the through-line holds."
+      },
+      {
+        "dimension": "evidence-of-reader-testing",
+        "locator": "Whole artifact",
+        "finding": "No observed unfamiliar-human explain-back or transfer evidence accompanies the artifact, and my read cannot substitute for it. Given the section-1 clarity defects, that evidence is exactly what a PASS would need."
+      }
+    ],
+    "readerChange": "A non-technical reader leaves with a real, durable behaviour change: before sharing anything AI-assisted, copy only the chosen answer rather than the work file; if a published file held a credential, rotate and revoke rather than delete; and do not trust the AI's own 'show your work' as a scan. That is genuine and actionable. What she likely cannot do is explain the mechanism back — what the sealed part is, why the publisher never saw what leaked — because the section carrying that teaching is scrambled. The advice would survive; the understanding would not, which limits transfer to novel situations.",
+    "voiceComparison": "Set beside the Episode 1-calibre exemplar, the artifact is close but not level. The exemplar's analogy ('caller ID… not a lie detector') is established in one clean sentence, does its teaching job, and states its own limit in reader language; v3's editing-room analogy is more ambitious but delivered out of order, so it makes the reader translate instead of teach — the exact failure the Plain-Teaching Rule names ('the plain chat-style explanation is clearer than the drafted script'). The warmth lines ('never invited to the meeting,' 'politely left it behind') are authentically LAiDIES and better than anything in the rejected predecessor, and the piece avoids the predecessor's scaffolding leaks and forced Regina reference. The evidence section, though, reads as careful compliance prose rather than Ali explaining something to a smart friend. It is recognisably reaching for the voice; it does not yet sit comfortably beside the exemplar."
+  }
+}

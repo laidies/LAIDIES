@@ -12,7 +12,7 @@ const HASH = /^[a-f0-9]{64}$/;
 const PUBLICATIONS = new Set(["THE_BREAKING", "THE_DAILY", "THE_WEEKLY", "THE_BIG_PICTURE", "STRAIGHT_TALK", "DEAR_MISS_JEEVES", "PAIGE_TIP", "CAREER_WORK_LIFE", "PROMPTOSCOPE"]);
 const MODES = new Set(["REPORT_OR_ANNOUNCEMENT", "HEADLINE_OR_REPORTING_CHECK", "UPDATE_TO_PRIOR_COVERAGE", "SERVICE_COLUMN"]);
 const OPENING_JARGON = /\b(API|reasoning block|thinking block|thought signature|agent trajector(?:y|ies)|RLS|MCP|tokenization|vector database)\b/i;
-const CLICKBAIT = /\b(you won't believe|shocking|terrifying|what happened next|the truth about|secret[s]? you cannot see|reveals? a wider route|everything you need to know)\b/i;
+const CLICKBAIT = /\b(you won't believe|shocking|terrifying|what happened next|the truth about|secret[s]? you cannot see|reveals? a wider route|everything you need to know|details? (?:that |the )?[^.!?]{0,40}never (?:showed|told|revealed))\b/i;
 const GENERIC_SECTION_HEADING = /^(what happened|what it means|why it matters|what to do|what to share instead|where this reaches you|the bottom line)$/i;
 const SECTION_JOB_TYPES = new Set(["MECHANISM", "EVIDENCE", "EXAMPLES_ONLY", "ACTION"]);
 const sha256 = (value) => crypto.createHash("sha256").update(value).digest("hex");
@@ -135,6 +135,7 @@ export function inspectNewsstandProducerProof(proof, { root = ROOT } = {}) {
   require(text(proof?.voicePlan?.limit), "voicePlan.limit is required");
   require(text(proof?.voicePlan?.readerFacingLimit), "voicePlan.readerFacingLimit is required");
   require(text(proof?.voicePlan?.humanTruth), "voicePlan.humanTruth is required");
+  require(text(proof?.voicePlan?.mechanismMappingSentence), "voicePlan.mechanismMappingSentence is required so the analogy reaches the central mechanism");
   require(Array.isArray(proof?.voicePlan?.warmthLines) && proof.voicePlan.warmthLines.length >= 2, "voicePlan.warmthLines requires at least two exact reader-facing lines");
   for (const [index, warmth] of (proof?.voicePlan?.warmthLines || []).entries()) {
     require(text(warmth?.sectionHeading), `voicePlan.warmthLines[${index}].sectionHeading is required`);

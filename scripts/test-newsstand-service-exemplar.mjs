@@ -50,7 +50,11 @@ assert.match(errors(inventedReading), /must preserve exact governed move/);
 
 const staleRegistry = read("paige");
 staleRegistry.featureRegistry.sha256 = "0".repeat(64);
-assert.match(errors(staleRegistry), /featureRegistry SHA-256 mismatch/);
+assert.equal(errors(staleRegistry), "", "an unrelated registry-byte change must not invalidate a still-current Paige lane contract");
+
+const wrongRegistryPath = read("paige");
+wrongRegistryPath.featureRegistry.path = "operations/product-stewards/newsstand/not-the-registry.json";
+assert.match(errors(wrongRegistryPath), /featureRegistry must point to/);
 
 const falsePublic = read("career");
 falsePublic.storage.publicEligibility = "ELIGIBLE";
@@ -60,4 +64,4 @@ const wrongNegatives = read("career");
 wrongNegatives.negativeExemplarIdsRead = ["CQX-BAD-006", "CQX-BAD-007"];
 assert.match(errors(wrongNegatives), /must exactly match the current lane negatives/);
 
-console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS valid=4 missing_action=1 paige_horoscope=1 career_order=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 stale_registry=1 false_public=1 wrong_negatives=1");
+console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS valid=4 missing_action=1 paige_horoscope=1 career_order=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1");

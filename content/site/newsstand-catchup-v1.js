@@ -482,7 +482,6 @@
     return [
       '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '" data-desk-type="', escapeHTML(options.type || "other"), '">',
         '<p class="ns-daily-desk__label">', escapeHTML(label), '</p>',
-        '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? "Filed in this edition" : "Desk update"), '</p>',
         '<h3>', escapeHTML(displayHeadline), '</h3>',
         useLeadAsHeadline ? '' : '<p class="ns-daily-desk__lead">' + escapeHTML(lead) + '</p>',
         more,
@@ -526,10 +525,10 @@
       { type: "career_life", label: "Career + life", value: career, emptyHeadline: "The useful move is being checked.", emptyCopy: columnEmpty("career_life", "No career or life item has cleared review.") },
       { type: "mme_claio", label: "Mme CLAi-O’s reading", value: reading, emptyHeadline: "The card is face down.", emptyCopy: columnEmpty("mme_claio", "No dated reading has cleared review.") },
       { type: "song", label: "Song of the Day", value: song, emptyHeadline: "The request line is checking the release.", emptyCopy: columnEmpty("song", "No exact song release has cleared review.") },
-      { type: "did_you_know", label: "Did you know?", value: fact, emptyHeadline: "The fact desk is checking its source.", emptyCopy: columnEmpty("did_you_know", "No verified fact is filed in this edition.") },
-      { type: "town_note", label: "Town notes", value: townNote, emptyHeadline: "The noticeboard is clear.", emptyCopy: columnEmpty("town_note", "No dated town notice is filed in this edition.") },
-      { type: "curiosity", label: "Try this today", value: curiosity, emptyHeadline: "The curiosity desk is checking the move.", emptyCopy: columnEmpty("curiosity", "No concrete curiosity or mutual-support action is filed in this edition.") },
-      { type: "fiction", label: "SUNNYVAiLE desk · fictional", value: fiction, emptyHeadline: "No town filler filed.", emptyCopy: columnEmpty("fiction", "No canon-reviewed fictional town item is filed in this edition.") }
+      { type: "did_you_know", label: "Did you know?", value: fact, emptyHeadline: "The fact desk is checking its source.", emptyCopy: columnEmpty("did_you_know", "No verified fact is available today.") },
+      { type: "town_note", label: "Town notes", value: townNote, emptyHeadline: "The noticeboard is clear.", emptyCopy: columnEmpty("town_note", "No dated town notice is available today.") },
+      { type: "curiosity", label: "Try this today", value: curiosity, emptyHeadline: "The curiosity desk is checking the move.", emptyCopy: columnEmpty("curiosity", "No concrete curiosity or mutual-support action is available today.") },
+      { type: "fiction", label: "SUNNYVAiLE desk · fictional", value: fiction, emptyHeadline: "No town story today.", emptyCopy: columnEmpty("fiction", "No canon-reviewed fictional town item is available today.") }
     ];
     function deskMarkup(desk, overrides) {
       var ready = desk.value && desk.value.state !== "empty";
@@ -547,45 +546,52 @@
     }
     var primaryDesks = desks.slice(0, 4);
     var sideDesks = primaryDesks.slice(0, 3);
+    var readySideDesks = sideDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
     var spotlightDesks = primaryDesks.slice(3, 4).filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
     var secondaryDesks = desks.slice(4);
-    var readySideCount = sideDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; }).length;
+    var readySideCount = readySideDesks.length;
     var readySecondaryDesks = secondaryDesks.filter(function (desk) { return desk.value && desk.value.state !== "empty"; });
-    var emptySecondaryDesks = secondaryDesks.filter(function (desk) { return !desk.value || desk.value.state === "empty"; });
     var sideMarkup = readySideCount ? [
       '<aside class="ns-daily-service-rail" aria-label="Today’s practical and playful desks">',
         '<p class="ns-daily-section-flag">Today&rsquo;s side column</p>',
-        '<div class="ns-daily-service-grid ns-daily-service-grid--primary">', sideDesks.map(deskMarkup).join(""), '</div>',
+        '<div class="ns-daily-service-grid ns-daily-service-grid--primary">', readySideDesks.map(deskMarkup).join(""), '</div>',
       '</aside>'
-    ].join("") : [
-      '<aside class="ns-daily-service-rail ns-daily-service-rail--quiet" aria-label="Service desk status">',
-        '<details class="ns-daily-quiet-desks"><summary>All nine service desks were checked. Open the desk-by-desk record.</summary>',
-          '<div class="ns-daily-service-grid">', desks.map(deskMarkup).join(""), '</div>',
-        '</details>',
-      '</aside>'
-    ].join("");
+    ].join("") : '';
     var spotlightMarkup = spotlightDesks.length ? [
       '<section class="ns-daily-feature-strip" aria-label="Today’s Rewind reading">',
         '<p class="ns-daily-section-flag">Today&rsquo;s Rewind reading</p>',
         '<div class="ns-daily-service-grid ns-daily-service-grid--spotlight">', spotlightDesks.map(function (desk) { return deskMarkup(desk, { expanded: true }); }).join(""), '</div>',
       '</section>'
     ].join("") : "";
-    var moreMarkup = readySideCount || spotlightDesks.length || readySecondaryDesks.length ? [
+    var moreMarkup = readySecondaryDesks.length ? [
       '<section class="ns-daily-more-desks" aria-labelledby="ns-daily-more-title">',
-        '<div class="ns-daily-more-desks__head"><p class="ns-daily-section-flag">Also checked today</p><h3 id="ns-daily-more-title">', emptySecondaryDesks.length, ' desks stayed quiet.</h3><p>Nothing is filed just to fill the page.</p></div>',
-        readySecondaryDesks.length ? '<div class="ns-daily-service-grid ns-daily-service-grid--more">' + readySecondaryDesks.map(deskMarkup).join("") + '</div>' : '',
-        emptySecondaryDesks.length ? '<details class="ns-daily-quiet-desks"><summary>See the desk-by-desk record.</summary><div class="ns-daily-service-grid">' + emptySecondaryDesks.map(deskMarkup).join("") + '</div></details>' : '',
+        '<div class="ns-daily-more-desks__head"><p class="ns-daily-section-flag">Also in today&rsquo;s paper</p><h3 id="ns-daily-more-title">One more for the road.</h3></div>',
+        '<div class="ns-daily-service-grid ns-daily-service-grid--more">' + readySecondaryDesks.map(deskMarkup).join("") + '</div>',
       '</section>'
     ].join("") : "";
+    var quietNote = !readySideCount && !spotlightDesks.length && !readySecondaryDesks.length ?
+      '<p class="ns-daily-brief-edition">Today&rsquo;s edition is brief. More tomorrow.</p>' : '';
+    var tags = lead && Array.isArray(lead.tags) ? lead.tags.slice(0, 5) : [];
+    var tagMarkup = tags.length ? [
+      '<nav class="ns-daily-tags" aria-label="Find related stories"><span>Keep reading:</span>',
+      tags.map(function (tag) { return '<button type="button" data-daily-topic="' + escapeHTML(tag) + '">' + escapeHTML(tag) + '</button>'; }).join(""),
+      '</nav>'
+    ].join("") : '';
     var html = [
       '<article class="ns-daily-issue" data-daily-date="', escapeHTML(date), '">',
         breaking ? '<aside class="ns-daily-breaking"><strong>BREAKING</strong><a href="#' + escapeHTML(breaking.slug) + '">' + escapeHTML(breaking.headline) + '</a></aside>' : '',
         '<header class="ns-daily-issue__head">',
           '<div class="ns-daily-issue__dateline"><span>SUNNYVA<span class="ns-brand-i">i</span>LE</span><span>', escapeHTML(formatDate(date)), '</span><span>MAiN Street No. 2</span></div>',
           '<h2><span>The</span> Daily</h2>',
-          '<p>AI news, useful moves and a little SUNNYVA<span class="ns-brand-i">i</span>LE life — with every desk labelled and every empty space honest.</p>',
+          '<p>AI news, useful moves and a little SUNNYVA<span class="ns-brand-i">i</span>LE life.</p>',
         '</header>',
-        '<div class="ns-daily-front-grid">',
+        '<nav class="ns-daily-section-switcher" aria-label="Choose a NewsStand section">',
+          '<button type="button" class="is-current" aria-current="page">The Daily</button>',
+          '<button type="button" data-open-paper="weekly">The Weekly</button>',
+          '<button type="button" data-open-paper="tribune">The Big Picture</button>',
+          '<button type="button" data-open-archive>Archive + topics</button>',
+        '</nav>',
+        '<div class="ns-daily-front-grid', readySideCount ? '' : ' ns-daily-front-grid--single', '">',
           '<section class="ns-daily-news">',
             '<p class="ns-daily-desk__label">Evidence desk · sourced reporting</p>',
             '<h3>', escapeHTML(lead ? lead.headline : quietIssue ? "No consequential report was filed." : "The evidence desk has no admitted lead yet."), '</h3>',
@@ -594,12 +600,14 @@
               "This edition’s sourced reporting remains at its accuracy gate. No story is invented to fill this space."), '</p>',
             lead && lead.laidies_read ? '<div class="ns-daily-news__brief"><p class="ns-daily-section-flag">The LAiDIES read</p><p>' + escapeHTML(lead.laidies_read) + '</p></div>' : '',
             lead && lead.what_this_means ? '<aside class="ns-daily-news__move"><strong>Before you share</strong><p>' + escapeHTML(lead.what_this_means) + '</p></aside>' : '',
+            tagMarkup,
             lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
           '</section>',
           sideMarkup,
         '</div>',
         spotlightMarkup,
         moreMarkup,
+        quietNote,
         '<footer class="ns-daily-issue__foot">',
           '<button type="button" id="ns-share-daily">Share this Daily</button>',
           '<span id="ns-share-daily-status" role="status"></span>',
@@ -860,6 +868,30 @@
         event.preventDefault();
         event.stopImmediatePropagation();
         renderDaily();
+        return;
+      }
+      var otherPaper = event.target.closest("[data-open-paper]");
+      if (otherPaper) {
+        event.preventDefault();
+        var edition = otherPaper.getAttribute("data-open-paper");
+        var sourceControl = document.querySelector('.ns-publication[data-edition="' + edition + '"]');
+        if (sourceControl) sourceControl.click();
+        return;
+      }
+      if (event.target.closest("[data-open-archive]")) {
+        event.preventDefault();
+        var archive = document.getElementById("newsstand-catchup");
+        if (archive) archive.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+      var topic = event.target.closest("[data-daily-topic]");
+      if (topic) {
+        event.preventDefault();
+        var search = document.getElementById("ns-search-input");
+        if (search) {
+          search.value = topic.getAttribute("data-daily-topic");
+          document.getElementById("ns-search-button").click();
+        }
         return;
       }
       if (event.target.closest("[data-open-daily]") && canRenderDaily()) {
