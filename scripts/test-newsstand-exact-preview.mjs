@@ -22,6 +22,7 @@ const receipt = {
   artifact_manifest: { path: "artifact-manifest.json", identity_sha256: identity },
   deployment_id: null,
   preview_url: null,
+  review_url: null,
   review_branch: null,
   access_credential: null,
   public_verification: null,
@@ -33,6 +34,7 @@ const deployed = {
   status: "DEPLOYED_PREVIEW",
   deployment_id: "9f161385-7486-4207-9afe-8512ea453973",
   preview_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/",
+  review_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/newsstand?daily=2026-08-12",
   review_branch: "review-aaaaaaaaaaaa-123456789",
   deployment_provider_commit: null,
   deployment_provider_commit_verified: false,
@@ -53,6 +55,9 @@ const rejects = [
   { ...receipt, review_branch: "review-aaaaaaaaaaaa-123" },
   { ...receipt, checks: receipt.checks.filter(check => check.id !== "private-preview-truth") },
   { ...deployed, preview_url: "https://example.com/" },
+  { ...deployed, review_url: deployed.preview_url },
+  { ...deployed, review_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/newsstand?daily=2026-08-11" },
+  { ...deployed, review_url: "https://9f161385.laidies-sunnyvaile-preview.pages.dev/newsstand.html?daily=2026-08-12" },
   { ...deployed, access_credential: { ...deployed.access_credential, revoked: false } },
   { ...deployed, public_verification: { ...deployed.public_verification, access_protected: false } },
   { ...deployed, deployment_identity_basis: "new-id+branch+provider-commit" },
@@ -86,6 +91,8 @@ function inspectWorkflow(text) {
   requireText("if(matches.length===0) process.exit(2);", "only a not-yet-visible deployment may be retried");
   requireText("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15", "raw Pages deployment API is missing or uses an unsupported page size");
   requireText('request_route="${route%.html}"', "canonical extensionless Pages route is not used for byte verification");
+  requireText("receipt.review_url=`${receipt.preview_url}newsstand?daily=2026-08-12`;", "exact dated Daily review URL is not derived from the immutable deployment");
+  requireText('unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out \'%{http_code}\' "$review_url")"', "Access protection is not verified on the exact Daily review URL");
   if (deployJob.includes("pages deployment list")) errors.push("Wrangler deployment list loses direct-upload identity metadata");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
   if (!deployJob) errors.push("deploy job is missing");
@@ -120,6 +127,8 @@ const workflowRejects = [
   workflow.replace("if(matches.length===0) process.exit(2);", "if(matches.length===0) process.exit(0);"),
   workflow.replaceAll("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=15", "/pages/projects/$PROJECT_NAME/unknown"),
   workflow.replace('request_route="${route%.html}"', 'request_route="$route"'),
+  workflow.replace("receipt.review_url=`${receipt.preview_url}newsstand?daily=2026-08-12`;", "receipt.review_url=receipt.preview_url;"),
+  workflow.replace('unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out \'%{http_code}\' "$review_url")"', 'unauthenticated_status="$(curl --silent --show-error --output /dev/null --max-redirs 0 --write-out \'%{http_code}\' "$preview_url")"'),
   workflow.replace("curl --fail --silent --show-error", "npx --yes wrangler@4.119.0 pages deployment list"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
