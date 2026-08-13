@@ -206,7 +206,55 @@ try {
   const sealedTermDrift = structuredClone(proof);
   sealedTermDrift.mechanismBridge.objectLocationSentence = "The work file stores the visible answer and sealed information.";
   assert.match(inspectNewsstandProducerProof(sealedTermDrift, { root }).errors.join("\n"), /producer proof uses prohibited synonym/);
-  console.log("NEWSSTAND PRODUCER PROOF CALIBRATION PASS: valid bounded Daily proof accepted; explicit and suspense-form clickbait, jargon-first opening, missing source/sharing/recovery/audience opening facts, oversized Daily, stale lane contract, skipped negatives, undefined number unit, missing point-of-use year, missing mechanism bridge, missing human truth, duplicate action ownership, vague source, generic heading, duplicate section job, missing terminology plan, missing stable object register and proof-level terminology drift rejected");
+
+  const serviceTemplate = write("operations/product-stewards/newsstand/service-templates.md", "# Paige's Practical AI Tip\n\nExact service section.\n");
+  const serviceAcceptance = write("operations/product-stewards/newsstand/service-template-review.json", "{\"decision\":\"ACCEPT\"}\n");
+  const acceptedServiceTemplate = { ...serviceTemplate, section: "Paige's Practical AI Tip", sectionSha256: crypto.createHash("sha256").update("Exact service section.\n").digest("hex"), acceptanceRecord: serviceAcceptance };
+  const serviceLane = {
+    id: "paige_tip", publicName: "Paige's Practical AI Tip", publishesIn: "Daily service desk", cadence: "daily_if_fresh",
+    readerJob: "give one useful work-facing action", templateBeats: ["work moment", "action", "why", "boundary", "check"],
+    targetWords: { minimum: 90, maximum: 180 }, sourceRules: ["current source"], distinctFrom: "work-facing and practical",
+    negativeExemplarIds: ["BAD-PAIGE-1"], approvedTemplate: acceptedServiceTemplate
+  };
+  write(LANE_REGISTRY_PATH, `${JSON.stringify({ lanes: [lane, serviceLane] }, null, 2)}\n`);
+  const serviceProof = structuredClone(proof);
+  serviceProof.candidateId = "PAIGE-TEST-1";
+  serviceProof.publication = "PAIGE_TIP";
+  serviceProof.storyMode = "SERVICE_COLUMN";
+  serviceProof.storyTemplate = acceptedServiceTemplate;
+  serviceProof.readerQuestion = "How do I stop asking an AI to make a work draft vaguely better?";
+  serviceProof.readerPayoff = "The reader can turn taste into three visible finish-line checks and compare the result herself.";
+  serviceProof.headline = "Write the finish line before asking for another draft";
+  serviceProof.opening = "Your AI draft is polished, but it still is not doing the job. Before asking for another version, write three things the finished work must let its reader find or do.";
+  delete serviceProof.dailyOpeningFacts;
+  serviceProof.newcomerBackground = "Words such as better and stronger do not tell an AI which visible result matters.";
+  serviceProof.causalOutline = ["The reader names three observable results.", "The AI revises toward those results instead of guessing what better means.", "The reader checks the final draft against the same three results."];
+  serviceProof.evidenceBoundary = { establishes: "The official source recommends defining clear success criteria and testing against them before prompt refinement.", doesNotEstablish: "It does not promise that criteria make an AI answer accurate or suitable for use." };
+  serviceProof.numberPlan = [];
+  serviceProof.mechanismBridge = { objectLocationSentence: "The finish line sits beside the draft as three visible checks.", attackDefinitionSentence: "The common failure is asking for a better draft without naming what better must change in the work.", evidenceRecoverySentence: "The reader compares the new draft with the three checks rather than trusting the AI's own verdict." };
+  serviceProof.actionOpening = "Write three observable finish-line checks before the next revision.";
+  serviceProof.incidentAction = "If the AI changes a fact while revising, restore it from the approved source.";
+  serviceProof.evidenceParagraphBreaksAfter = [serviceProof.evidenceBoundary.establishes];
+  serviceProof.plainGlosses = [];
+  serviceProof.centralInstruction = { opening: "Stop asking for vaguely better.", action: "Write three observable finish-line checks.", closing: "Can the intended reader now find or do each named thing?", prohibitedRestatements: ["make it better"] };
+  serviceProof.evidenceSequence = ["Anthropic's current prompt-engineering overview starts with clear success criteria.", "Its evaluation guidance says good criteria are specific and measurable.", "The reader still decides whether the revised work passes."];
+  serviceProof.readerSources = [{ label: "Anthropic, Define success criteria and build evaluations", url: "https://platform.claude.com/docs/en/test-and-evaluate/define-success" }];
+  serviceProof.voicePlan = { move: "Write the finish line before another lap.", teachingJob: "Make an abstract quality request visible as three checkable outcomes.", limit: "A finish line does not prove the route was safe or the facts are correct.", readerFacingLimit: "The three checks guide the revision; they do not verify facts for you.", humanTruth: "People often know a draft is wrong before they have named what right would look like.", mechanismMappingSentence: "The finish line is the set of visible results the draft must produce.", warmthLines: [{ sectionHeading: "Name the finish line", line: "Better is a mood; a visible result is a destination." }, { sectionHeading: "Check the actual work", line: "The AI does not get to award itself the trophy." }] };
+  serviceProof.sectionPlan = [{ heading: "Name the finish line", readerJob: "Turn a vague quality request into one bounded action and explain why it helps.", jobType: "MECHANISM" }, { heading: "Check the actual work", readerJob: "Give the human boundary and observable acceptance test.", jobType: "ACTION" }];
+  serviceProof.draftLimits = { phraseCaps: [{ phrase: "finish line", maximum: 3 }], prohibitedPhrases: ["make it better"] };
+  serviceProof.terminologyPlan = { plainTerm: "finish-line checks", stableObjectTerms: ["finish-line checks", "draft"], allowedMetaphorTerms: ["finish line", "trophy"], prohibitedSynonyms: ["magic words"] };
+  serviceProof.applications = { work: { disposition: "APPLY", example: "A briefing note must name the decision in its first paragraph, match the approved figures and show an owner and date." }, nonWork: { disposition: "NOT_MATERIAL", reason: "Paige is deliberately work-facing; a home example belongs to Promptoscope." } };
+  serviceProof.usefulLanding = "Write three checks, request one revision and compare the result yourself.";
+  serviceProof.routingReason = "This is one compact work action, not a Daily report, career lesson or non-work comic tip.";
+  serviceProof.intendedWords = 140;
+  serviceProof.lengthEscalationReason = "";
+  serviceProof.producerPreflight = { negativeExamplesRead: true, laneId: "paige_tip", laneContractSha256: featureLaneContractSha256(serviceLane), negativeExemplarIdsRead: ["BAD-PAIGE-1"], repeatedDefects: [], actualFormatUsed: true };
+  assert.deepEqual(inspectNewsstandProducerProof(serviceProof, { root }).errors, []);
+  const serviceTemplateMissing = structuredClone(serviceProof);
+  serviceTemplateMissing.storyTemplate = acceptedTemplate;
+  assert.match(inspectNewsstandProducerProof(serviceTemplateMissing, { root }).errors.join("\n"), /accepted template/);
+
+  console.log("NEWSSTAND PRODUCER PROOF CALIBRATION PASS: valid bounded Daily and accepted-template Paige service proofs accepted; clickbait, jargon-first opening, missing Daily facts, stale service template, oversized Daily, stale lane contract, skipped negatives, undefined number unit, missing mechanism, duplicate action ownership, vague source, generic heading, missing terminology and terminology drift rejected");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

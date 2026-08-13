@@ -43,7 +43,8 @@ export function featureLaneContractSha256(lane) {
     sourceRules: lane?.sourceRules || [],
     distinctFrom: lane?.distinctFrom,
     negativeExemplarIds: lane?.negativeExemplarIds || [],
-    approvedTemplatesByMode: lane?.approvedTemplatesByMode || {}
+    approvedTemplatesByMode: lane?.approvedTemplatesByMode || {},
+    approvedTemplate: lane?.approvedTemplate || null
   };
   return sha256(Buffer.from(JSON.stringify(contract)));
 }
@@ -226,7 +227,9 @@ export function inspectNewsstandProducerProof(proof, { root = ROOT } = {}) {
   require(proof?.producerPreflight?.negativeExamplesRead === true, "producer must read the registered negative examples before drafting");
   const lane = laneRegistry?.lanes?.find(item => item.id === PUBLICATION_LANES[proof?.publication]);
   require(Boolean(lane), "publication has no registered feature lane");
-  const approvedTemplate = lane?.approvedTemplatesByMode?.[proof?.storyMode];
+  const approvedTemplate = proof?.storyMode === "SERVICE_COLUMN"
+    ? lane?.approvedTemplate
+    : lane?.approvedTemplatesByMode?.[proof?.storyMode];
   require(Boolean(approvedTemplate), "publication mode has no Ali-accepted story template");
   if (approvedTemplate) {
     require(proof?.storyTemplate?.path === approvedTemplate.path, "storyTemplate.path must match the accepted template");
