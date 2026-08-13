@@ -38,6 +38,7 @@ node scripts/test-compose-daily-edition.mjs
 node scripts/test-promote-daily-edition.mjs
 node scripts/test-compile-newsstand-daily-longform.mjs
 node scripts/test-promote-newsstand-story.mjs
+node scripts/test-promote-daily-service-records-v2.mjs
 node scripts/test-newsstand-reader-contract.mjs
 ```
 
@@ -122,7 +123,35 @@ Only an exact dry-run pass permits the same command with `--write`. Repeating
 the admitted write must report `LOCAL CANONICAL IDEMPOTENT`; a changed story
 with the same ID is a conflict, not a silent overwrite.
 
-## 6. Compose one private issue envelope
+## 6. Promote every admitted READY service desk
+
+Only after Ali has approved the exact complete-Daily v2 package and an
+independent service-release reviewer has bound every READY desk may those exact
+records enter `content/daily-edition-columns.json`. Empty desks create no
+records. The decision schema is `daily-service-admission-v2`; its records must
+match every and only READY service desk in the package.
+
+Run dry first:
+
+```sh
+node scripts/promote-daily-service-records-v2.mjs \
+  --package operations/product-stewards/newsstand/candidates/COMPLETE-DAILY-V2-PACKAGE.json \
+  --decision operations/product-stewards/newsstand/evidence/daily-service-admission-YYYY-MM-DD.json \
+  --maker NEWSSTAND_SERVICE_MAKER_ID
+```
+
+Only an exact dry-run pass permits the same command with `--write`. Repeating
+the write must report `LOCAL CANONICAL IDEMPOTENT`. The promoter rejects v1
+packages, extra or missing service records, unsupported desk types, rejected or
+mismatched Ali approval, stale candidate/source/review bytes, maker/reviewer
+identity collision and a conflicting same-date desk slot. All nine governed
+desk identities have an exact lane/classification contract; Song additionally
+requires current rights/availability proof and fiction requires the exact
+`SUNNYVAiLE FICTION` disclosure. A lane still cannot advance without its own
+accepted template/example and evidence. The promoter cannot compose an issue,
+deploy or publish.
+
+## 7. Compose one private issue envelope
 
 ```sh
 node scripts/compose-daily-edition.mjs \
@@ -135,7 +164,7 @@ The result must say `public_write=false`. Record its SHA-256. Its
 `storySnapshots` array must contain the complete canonical object for every
 admitted `storyId`; an ID-only envelope is invalid.
 
-## 7. Require independent issue admission
+## 8. Require independent issue admission
 
 A reviewer who is not the maker inspects the exact envelope and creates only:
 
@@ -150,7 +179,7 @@ migration of an already admitted issue. It must bind both exact predecessor and
 successor envelope hashes. Do not use it to revise copy, desks, membership or
 source identity; the writer rejects those changes.
 
-## 8. Write the admitted issue to the local canonical store
+## 9. Write the admitted issue to the local canonical store
 
 ```sh
 node scripts/promote-daily-edition.mjs \
@@ -161,7 +190,7 @@ node scripts/promote-daily-edition.mjs \
 
 Run the same command again. It must report `IDEMPOTENT`, not append a duplicate.
 
-## 9. Verify the visitor result
+## 10. Verify the visitor result
 
 ```sh
 node scripts/test-newsstand-reader-contract.mjs

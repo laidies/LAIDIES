@@ -14780,3 +14780,15 @@ while remaining falsely unfinished in the launch record.
 - **Forward test:** final release preparation must show adequate disk headroom, the current remote `main` identity, an empty protected-controller diff and a release-scope report containing only registered NewsStand public paths before dispatch.
 - **Possible Behind the Build angle:** Why “merge it to main” can be the wrong release instruction even when the website uses GitHub.
 - **Publication status:** INTERNAL RELEASE-TOPOLOGY CORRECTION / NO CANONICAL OR PUBLIC CHANGE.
+
+## BTB-469 — The v2 newspaper could pass review but its service promoter still required the rejected v1 shape
+
+- **Date:** 2026-08-13
+- **Area:** NewsStand complete-Daily canonical service promotion.
+- **Failure:** the end-to-end calibrated suite covered the v2 composition and review package plus the older canonical writers, but the only service-record promoter in the dirty worktree expected `laidies-newsstand-complete-daily-review-package.v1` and exactly four READY desks. The accepted v2 design supports a variable admitted service set and retires v1, so a good successor could pass review and still have no valid route into the canonical service store.
+- **Root cause:** the review-package contract was repaired without tracing its schema and cardinality change through every downstream canonical writer. Green component suites hid the disconnected handoff because no test joined v2 package output to service-record promotion.
+- **Prevention rule:** any upstream schema or cardinality change must enumerate and forward-test every downstream consumer before the producer path is called operational. Complete-Daily v2 service promotion consumes the exact reviewed package, admits every and only READY supported desk, writes nothing for empty desks and defaults to dry-run.
+- **Durable correction:** `promote-daily-service-records-v2.mjs` validates the whole v2 package, exact Ali approval, independent release identity, service candidate/source/freshness/review bindings and canonical identity/slot conflicts. All nine governed desk identities bind an exact lane/classification; Song also proves rights/availability and fiction its exact disclosure. Its calibration promotes a variable three-desk issue including Song, retries idempotently and rejects twelve old-shape, missing/extra, rejected, stale, unsupported, rights-incomplete, maker-collision, validator-failed and conflicting-store cases. The old dirty promoter was preserved untouched.
+- **Forward test:** the first approved v2 package must pass dry-run, explicit write and idempotent retry before its dated issue envelope is composed; release-scope and public verification must then prove the exact service store entered the curated artifact.
+- **Possible Behind the Build angle:** Why a green content pipeline can still have a missing conveyor belt between two stages.
+- **Publication status:** INTERNAL V2 PROMOTION PATH BUILT AND CALIBRATED / NO CANONICAL OR PUBLIC CHANGE.
