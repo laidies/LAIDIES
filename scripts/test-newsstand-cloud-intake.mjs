@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { buildIntake, normalizeBackfillSince, parseAidbItems, parseFeedItems, selectDueSources, validateIntakeReceipt } from "./run-newsstand-cloud-intake.mjs";
-import { buildClosureComment, buildIssueComment, extractSignalIds, removeAlreadyReported, removeResolvedSignals, unresolvedSignalIds } from "./upsert-newsstand-intake-issue.mjs";
+import { buildClosureComment, buildIssueComment, extractSignalIds, extractSourceHealthMarkers, removeAlreadyReported, removeResolvedSignals, unresolvedSignalIds, unresolvedSourceHealthMarkers } from "./upsert-newsstand-intake-issue.mjs";
 
 const registry = {
   sources: [
@@ -84,6 +84,11 @@ assert.deepEqual(extractSignalIds(comment), first.receipt.newSignals.map((signal
 assert.deepEqual(unresolvedSignalIds(comment, first.receipt, dispositionRegistry), [first.receipt.newSignals[1].signalId].sort(), "durable dispositions must determine what remains unresolved");
 const healthAfterDisposition = removeResolvedSignals(unavailable.receipt, dispositionRegistry);
 assert.equal(healthAfterDisposition.counts.sourceHealthAlerts, 1, "an exact source-health disposition must not hide a different source failure");
+const healthComment = buildIssueComment(unavailable.receipt, "https://github.com/laidies/LAIDIES/actions/runs/2");
+assert.deepEqual(extractSourceHealthMarkers(healthComment), unavailable.receipt.sourceHealthAlerts.map((alert) => `${alert.sourceId} — ${alert.error}`));
+assert.equal(unresolvedSourceHealthMarkers(healthComment, unavailable.receipt, dispositionRegistry).length, 1, "an issue with a different source failure must not close merely because it has no content signals");
+const allHealthResolved = { ...dispositionRegistry, sourceHealth: unavailable.receipt.sourceHealthAlerts.map((alert) => ({ alertMarker: `${alert.sourceId} — ${alert.error}` })) };
+assert.equal(unresolvedSourceHealthMarkers(healthComment, unavailable.receipt, allHealthResolved).length, 0, "exact durable source-health records may close their queue");
 const closure = buildClosureComment(dispositionRegistry, "https://github.com/laidies/LAIDIES/blob/abc/registry.json");
 assert.match(closure, /does not mean any story was drafted, approved, published or deployed/);
 
