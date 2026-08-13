@@ -280,8 +280,13 @@ jobs:
           set -euo pipefail
           test "$PROJECT_NAME" = "laidies-sunnyvaile-preview"
           [[ "$CF_ACCESS_SERVICE_TOKEN_ID" =~ ^[a-f0-9-]{36}$ ]]
-          npx --yes wrangler@4.119.0 pages deployment list \
-            --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-before.json"
+          pages_auth_header="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          curl --fail --silent --show-error \
+            --header "$pages_auth_header" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100" \
+            > "$RECEIPT_DIR/deployments-before-response.json"
+          jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-before-response.json" >/dev/null
+          jq -e '.result' "$RECEIPT_DIR/deployments-before-response.json" > "$RECEIPT_DIR/deployments-before.json"
           review_branch="review-${INPUT_COMMIT_SHA:0:12}-${GITHUB_RUN_ID}"
           npx --yes wrangler@4.119.0 pages deploy "$ARTIFACT_DIR" \
             --project-name "$PROJECT_NAME" \
@@ -290,8 +295,12 @@ jobs:
             --commit-dirty=false
           deployment_visible=false
           for attempt in $(seq 1 10); do
-            npx --yes wrangler@4.119.0 pages deployment list \
-              --project-name "$PROJECT_NAME" --environment preview --json > "$RECEIPT_DIR/deployments-after.json"
+            curl --fail --silent --show-error \
+              --header "$pages_auth_header" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100" \
+              > "$RECEIPT_DIR/deployments-after-response.json"
+            jq -e '.success == true and (.result | type == "array")' "$RECEIPT_DIR/deployments-after-response.json" >/dev/null
+            jq -e '.result' "$RECEIPT_DIR/deployments-after-response.json" > "$RECEIPT_DIR/deployments-after.json"
             if node - "$RECEIPT_DIR" "$INPUT_COMMIT_SHA" "$review_branch" "$CF_ACCESS_SERVICE_TOKEN_ID" <<'NODE'
           const fs=require('fs'),path=require('path');
           const [dir,commit,branch,serviceTokenId]=process.argv.slice(2);

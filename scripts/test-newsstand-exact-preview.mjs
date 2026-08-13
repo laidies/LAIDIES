@@ -84,11 +84,12 @@ function inspectWorkflow(text) {
   requireText("conflicting provider commit metadata", "conflicting provider commit metadata is not rejected");
   requireText("for attempt in $(seq 1 10)", "eventual-consistency deployment polling is missing");
   requireText("if(matches.length===0) process.exit(2);", "only a not-yet-visible deployment may be retried");
+  requireText("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100", "raw Pages deployment API is missing");
+  if (deployJob.includes("pages deployment list")) errors.push("Wrangler deployment list loses direct-upload identity metadata");
   requireText("newsstand-private-preview-receipt.json", "private preview truth binding is missing");
   if (!deployJob) errors.push("deploy job is missing");
   if (deployJob.includes("actions/checkout")) errors.push("credentialed deploy job executes candidate repository code");
   if (deployJob.includes("CLOUDFLARE_ACCESS_READ_TOKEN")) errors.push("workflow depends on a missing permanent Access API secret");
-  if (deployJob.includes('Authorization: Bearer $CLOUDFLARE_API_TOKEN')) errors.push("Pages deploy token is reused for Access APIs");
   if (deployJob.includes("secrets.CF_ACCESS_CLIENT_ID") || deployJob.includes("secrets.CF_ACCESS_CLIENT_SECRET")) errors.push("workflow depends on missing permanent Access service-token secrets");
   if ((deployJob.match(/--request DELETE/g) || []).length < 2) errors.push("temporary token lacks both error-path and normal-path revocation");
   if (deployJob.indexOf("Revoke temporary Access verification credential") < 0 || deployJob.indexOf("Revoke temporary Access verification credential") > deployJob.indexOf("Upload deployed preview receipt")) errors.push("temporary credential is not revoked before receipt upload");
@@ -116,6 +117,8 @@ const workflowRejects = [
   workflow.replace("conflicting provider commit metadata", "ignored provider commit metadata"),
   workflow.replace("for attempt in $(seq 1 10)", "for attempt in 1"),
   workflow.replace("if(matches.length===0) process.exit(2);", "if(matches.length===0) process.exit(0);"),
+  workflow.replaceAll("/pages/projects/$PROJECT_NAME/deployments?page=1&per_page=100", "/pages/projects/$PROJECT_NAME/unknown"),
+  workflow.replace("curl --fail --silent --show-error", "npx --yes wrangler@4.119.0 pages deployment list"),
   workflow.replaceAll("CLOUDFLARE_ACCESS_API_TOKEN", "CLOUDFLARE_API_TOKEN")
 ];
 for (const [index, candidate] of workflowRejects.entries()) assert(inspectWorkflow(candidate).length > 0, `unsafe workflow mutation ${index + 1} must fail`);
