@@ -1,0 +1,274 @@
+{
+  "schema": "laidies.newsstand-exact-preview.v1",
+  "status": "DEPLOYED_PREVIEW",
+  "source_commit": "5b7d416bd489f3f566fb86dc128430dd0996d902",
+  "project": "laidies-sunnyvaile-preview",
+  "package": {
+    "path": "operations/product-stewards/newsstand/candidates/complete-daily-review-package-2026-08-12-v3.json",
+    "sha256": "144131404400bdabfb2283c8bdab900f9a34533edd5f19bebe36709f85156d5f"
+  },
+  "candidate": {
+    "path": "newsstand.html",
+    "artifact_sha256": "ed307d8c178faec9d603127dab86fb02f14e1082c1d3d95d582c1e7b9732f768"
+  },
+  "private_preview_receipt": {
+    "path": "newsstand-private-preview-receipt.json",
+    "sha256": "3bde1df82984aab621a3d98c3dad78a3ad5ca96769d124cfeeceeeb85c0df46c"
+  },
+  "artifact_manifest": {
+    "path": "artifact-manifest.json",
+    "identity_sha256": "293f89d3fe36b04b7159bbc3ef7237590bc4d118138ee815911221d745c9c923"
+  },
+  "deployment_id": "e1bb6a16-9866-46eb-8fe0-0889600613fa",
+  "preview_url": "https://e1bb6a16.laidies-sunnyvaile-preview.pages.dev/",
+  "review_url": "https://e1bb6a16.laidies-sunnyvaile-preview.pages.dev/newsstand?daily=2026-08-12",
+  "review_branch": "review-5b7d416bd489-31705686999",
+  "access_credential": {
+    "type": "TEMPORARY_SERVICE_TOKEN",
+    "service_token_id": "a6161e77-2563-4bdd-984f-49df30e458ed",
+    "duration": "30m",
+    "policy_selector": "any_valid_service_token",
+    "revoked": true
+  },
+  "public_verification": {
+    "access_protected": true,
+    "unauthenticated_status": 302,
+    "result": "PASS",
+    "critical_paths": [
+      {
+        "path": "newsstand.html",
+        "http_status": 200,
+        "sha256": "ed307d8c178faec9d603127dab86fb02f14e1082c1d3d95d582c1e7b9732f768"
+      },
+      {
+        "path": "content/newsstand-stories.js",
+        "http_status": 200,
+        "sha256": "df3e4f47d4848493b09d85a86a7afe1ecc3054611a6c0bad7134d5717e985d44"
+      },
+      {
+        "path": "content/newsstand-daily-issues.json",
+        "http_status": 200,
+        "sha256": "c5884607722ef715b97be432bf5d9750992703f9b2531bd00487f9ff950d2a4c"
+      },
+      {
+        "path": "content/daily-edition-columns.json",
+        "http_status": 200,
+        "sha256": "c667c22506a3fa8932c88043bb0d905963f7d8c7a34b0377fa0f9addd4dce179"
+      }
+    ]
+  },
+  "visual_capture": {
+    "status": "CAPTURED_NOT_REVIEWED",
+    "review_url": "https://e1bb6a16.laidies-sunnyvaile-preview.pages.dev/newsstand?daily=2026-08-12",
+    "captured_at": "2026-08-13T13:39:25.104Z",
+    "states": [
+      {
+        "viewport": {
+          "id": "desktop-1440",
+          "width": 1440,
+          "height": 1024
+        },
+        "daily": {
+          "date": "2026-08-12",
+          "headline": "People published records of their AI work. Some contained passwords.",
+          "readyDesks": 4,
+          "horizontalOverflow": false
+        },
+        "article": {
+          "sections": 6,
+          "headline": "People published records of their AI work. Some contained passwords.",
+          "horizontalOverflow": false
+        }
+      },
+      {
+        "viewport": {
+          "id": "mobile-390",
+          "width": 390,
+          "height": 844
+        },
+        "daily": {
+          "date": "2026-08-12",
+          "headline": "People published records of their AI work. Some contained passwords.",
+          "readyDesks": 4,
+          "horizontalOverflow": false
+        },
+        "article": {
+          "sections": 6,
+          "headline": "People published records of their AI work. Some contained passwords.",
+          "horizontalOverflow": false
+        }
+      },
+      {
+        "viewport": {
+          "id": "mobile-320",
+          "width": 320,
+          "height": 844
+        },
+        "daily": {
+          "date": "2026-08-12",
+          "headline": "People published records of their AI work. Some contained passwords.",
+          "readyDesks": 4,
+          "horizontalOverflow": false
+        },
+        "article": {
+          "sections": 6,
+          "headline": "People published records of their AI work. Some contained passwords.",
+          "horizontalOverflow": false
+        }
+      }
+    ],
+    "captures": [
+      {
+        "path": "visual/desktop-1440-daily-full-page.png",
+        "sha256": "480dff482d4885ef2aa39774dfa3090e6d9daf377e4e0673870c9af873b79f43",
+        "output": {
+          "width": 1440,
+          "height": 3662
+        },
+        "viewport": {
+          "id": "desktop-1440",
+          "width": 1440,
+          "height": 1024
+        },
+        "state": "DAILY_FULL_PAGE"
+      },
+      {
+        "path": "visual/desktop-1440-daily-newspaper.png",
+        "sha256": "26680ff0d51972d5983af067d565a2e38a23088c06bfc04e0c9afdb30b8a89a4",
+        "output": {
+          "width": 1278,
+          "height": 1401
+        },
+        "viewport": {
+          "id": "desktop-1440",
+          "width": 1440,
+          "height": 1024
+        },
+        "state": "DAILY_NEWSPAPER"
+      },
+      {
+        "path": "visual/desktop-1440-article.png",
+        "sha256": "e892cf73a5664bca2c5dd44fe6aff2497066226516e005b9d4676a56a416f8a5",
+        "output": {
+          "width": 1040,
+          "height": 3756
+        },
+        "viewport": {
+          "id": "desktop-1440",
+          "width": 1440,
+          "height": 1024
+        },
+        "state": "ARTICLE"
+      },
+      {
+        "path": "visual/mobile-390-daily-full-page.png",
+        "sha256": "8e6986c101230d1404788737c947bf46d7b61a94312c697933cb505ce81f2afe",
+        "output": {
+          "width": 390,
+          "height": 4815
+        },
+        "viewport": {
+          "id": "mobile-390",
+          "width": 390,
+          "height": 844
+        },
+        "state": "DAILY_FULL_PAGE"
+      },
+      {
+        "path": "visual/mobile-390-daily-newspaper.png",
+        "sha256": "2cef9deacb43228849e75be9daa1a2d88d14c0c97a2476b9f00a87c4c92ef497",
+        "output": {
+          "width": 372,
+          "height": 1822
+        },
+        "viewport": {
+          "id": "mobile-390",
+          "width": 390,
+          "height": 844
+        },
+        "state": "DAILY_NEWSPAPER"
+      },
+      {
+        "path": "visual/mobile-390-article.png",
+        "sha256": "ed24f5ee91821d202f0bdce35a9c38e1d18f5c8bcabe9a44b809996a05e14298",
+        "output": {
+          "width": 372,
+          "height": 3483
+        },
+        "viewport": {
+          "id": "mobile-390",
+          "width": 390,
+          "height": 844
+        },
+        "state": "ARTICLE"
+      },
+      {
+        "path": "visual/mobile-320-daily-full-page.png",
+        "sha256": "242d016df8e383d627f1d8838f337514bd0512e9afa536a57b8ae73a8930e278",
+        "output": {
+          "width": 320,
+          "height": 6065
+        },
+        "viewport": {
+          "id": "mobile-320",
+          "width": 320,
+          "height": 844
+        },
+        "state": "DAILY_FULL_PAGE"
+      },
+      {
+        "path": "visual/mobile-320-daily-newspaper.png",
+        "sha256": "260b8ff196d7182ab4c28b2c02a17794d0ded0ba56520c37f7736938babdcf3b",
+        "output": {
+          "width": 306,
+          "height": 1900
+        },
+        "viewport": {
+          "id": "mobile-320",
+          "width": 320,
+          "height": 844
+        },
+        "state": "DAILY_NEWSPAPER"
+      },
+      {
+        "path": "visual/mobile-320-article.png",
+        "sha256": "10271a8eac3ac92a1e149ffc6b42c1fc62f3577c5946ee3e821b0dece3fe143e",
+        "output": {
+          "width": 306,
+          "height": 4014
+        },
+        "viewport": {
+          "id": "mobile-320",
+          "width": 320,
+          "height": 844
+        },
+        "state": "ARTICLE"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "complete-daily-package",
+      "result": "PASS"
+    },
+    {
+      "id": "review-preview-calibration",
+      "result": "PASS"
+    },
+    {
+      "id": "exact-private-preview-build",
+      "result": "PASS"
+    },
+    {
+      "id": "private-preview-truth",
+      "result": "PASS"
+    },
+    {
+      "id": "curated-public-build",
+      "result": "PASS"
+    }
+  ],
+  "deployment_provider_commit": "5b7d416bd489f3f566fb86dc128430dd0996d902",
+  "deployment_provider_commit_verified": true,
+  "deployment_identity_basis": "new-id+branch+provider-commit"
+}
