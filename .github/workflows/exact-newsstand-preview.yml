@@ -150,9 +150,10 @@ jobs:
     needs: exact-newsstand-preview
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # The existing Cloudflare Pages credential pair is stored in the protected
-    # production environment. The target remains the separately named preview
-    # project and is checked below before any Cloudflare mutation.
+    # The existing Cloudflare Pages credential pair and the separately scoped
+    # Access API token are stored in the protected production environment. The
+    # target remains the separately named preview project and is checked below
+    # before any Cloudflare mutation.
     environment: production
     permissions:
       contents: read
@@ -173,11 +174,11 @@ jobs:
       - name: Validate prepared artifact and existing Access policy
         shell: bash
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCESS_API_TOKEN"
           test -n "$CLOUDFLARE_ACCOUNT_ID"
           test "$PROJECT_NAME" = "laidies-sunnyvaile-preview"
           jq -e \
@@ -200,7 +201,7 @@ jobs:
           access_apps="/tmp/newsstand-access-apps-${GITHUB_RUN_ID}.json"
           access_policies="/tmp/newsstand-access-policies-${GITHUB_RUN_ID}.json"
           curl --fail --silent --show-error \
-            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/apps" \
             > "$access_apps"
           access_app_id="$(jq -er --arg domain "*.$PROJECT_NAME.pages.dev" '
@@ -210,7 +211,7 @@ jobs:
           ' "$access_apps")"
           [[ "$access_app_id" =~ ^[a-f0-9-]{36}$ ]]
           curl --fail --silent --show-error \
-            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/apps/$access_app_id/policies" \
             > "$access_policies"
           jq -e '
@@ -225,7 +226,7 @@ jobs:
       - name: Create masked temporary Access verification credential
         shell: bash
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
@@ -236,7 +237,7 @@ jobs:
             trap - EXIT
             if [[ "$exit_code" -ne 0 && -n "$service_token_id" ]]; then
               curl --fail --silent --show-error --request DELETE \
-                --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+                --header "Authorization: Bearer $CLOUDFLARE_ACCESS_API_TOKEN" \
                 "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/service_tokens/$service_token_id" \
                 >/dev/null || true
             fi
@@ -246,7 +247,7 @@ jobs:
           trap cleanup_on_error EXIT
           token_name="laidies-newsstand-preview-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           curl --fail --silent --show-error --request POST \
-            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_API_TOKEN" \
             --header "Content-Type: application/json" \
             --data "$(jq -nc --arg name "$token_name" '{name:$name,duration:"30m"}')" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/service_tokens" \
@@ -348,7 +349,7 @@ jobs:
         if: ${{ always() }}
         shell: bash
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCESS_API_TOKEN: ${{ secrets.CLOUDFLARE_ACCESS_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
@@ -357,7 +358,7 @@ jobs:
           fi
           revoke_response="/tmp/newsstand-access-token-revoke-${GITHUB_RUN_ID}.json"
           curl --fail --silent --show-error --request DELETE \
-            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Authorization: Bearer $CLOUDFLARE_ACCESS_API_TOKEN" \
             "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/service_tokens/$CF_ACCESS_SERVICE_TOKEN_ID" \
             > "$revoke_response"
           jq -e '.success == true' "$revoke_response" >/dev/null
