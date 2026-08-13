@@ -90,7 +90,11 @@ export function inspectNewsstandServiceExemplar(candidate, { root = ROOT } = {})
     for (const beat of lane.templateBeats) {
       const evidence = beatEvidence.find(item => item?.beat === beat);
       require(Boolean(evidence), `beatEvidence is missing: ${beat}`);
-      require(text(evidence?.quote) && completeText.includes(evidence.quote), `beatEvidence quote is not exact candidate text: ${beat}`);
+      if (beat.startsWith("optional ") && text(evidence?.omittedReason)) {
+        require(!text(evidence?.quote), `omitted optional beat cannot also claim candidate text: ${beat}`);
+      } else {
+        require(text(evidence?.quote) && completeText.includes(evidence.quote), `beatEvidence quote is not exact candidate text: ${beat}`);
+      }
     }
   }
 

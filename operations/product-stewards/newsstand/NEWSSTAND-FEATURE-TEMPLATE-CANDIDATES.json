@@ -1,6 +1,6 @@
 {
   "schemaVersion": "laidies-newsstand-feature-template-candidates.v1",
-  "status": "PARTIAL_5_OF_18_EXAMPLES_5_REJECTED_0_CANDIDATE_0_ACCEPTED",
+  "status": "PARTIAL_5_OF_18_EXAMPLES_4_REJECTED_1_CANDIDATE_0_ACCEPTED",
   "defaultDeny": true,
   "featureLaneRegistry": {
     "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
@@ -106,7 +106,7 @@
       "templateId": "paige_tip.DEFAULT.v1",
       "laneId": "paige_tip",
       "storyMode": "DEFAULT",
-      "status": "REJECTED_CALIBRATION_ONLY",
+      "status": "CANDIDATE_PENDING_ALI_ACCEPTANCE",
       "readerJob": "Give one useful work-facing AI action the reader can try today.",
       "useWhen": [
         "A verified source or admitted LAiDIES concept supports one bounded workplace action.",
@@ -151,19 +151,19 @@
         "Does the result check prove something useful rather than merely produce more text?"
       ],
       "candidateExample": {
-        "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
-        "sha256": "774d102eea816c73bc5ace0f2b29576141b57379d14f11781c097ff4c36de0df"
+        "path": "operations/product-stewards/newsstand/candidates/paige-finish-line-service-exemplar-2026-08-13.json",
+        "sha256": "85a16d5102038cc862a92df78fac2e74ceafd1f7f40866c664cbbe2543aca1a7"
       },
       "producerProof": {
-        "path": "operations/product-stewards/newsstand/candidates/paige-receipt-list-service-exemplar-2026-08-12.json",
-        "sha256": "774d102eea816c73bc5ace0f2b29576141b57379d14f11781c097ff4c36de0df"
+        "path": "operations/product-stewards/newsstand/candidates/paige-finish-line-service-exemplar-2026-08-13.json",
+        "sha256": "85a16d5102038cc862a92df78fac2e74ceafd1f7f40866c664cbbe2543aca1a7"
       },
       "independentReview": {
-        "path": "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/service-exemplars-independent-review-v4.json",
-        "sha256": "40f807b82ad4a52e63cc40b57dadeaa45d626e43f25539f18ae7cd66ac017b29"
+        "path": "operations/product-stewards/newsstand/candidates/paige-finish-line-independent-review-2026-08-13.json",
+        "sha256": "ee8f52446ca42858a7483b1c4ca3e9f08ad4ebfdd374ef1b5827a4d75b4ea899"
       },
       "acceptanceRecord": null,
-      "rejectionRecord": { "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-EXAMPLE-REJECTION-RECONCILIATION-2026-08-13.md", "sha256": "e542d8d7bfa7b7e97b8ad7a8d462dda0a7859fc5ec8b9aa9172a87c00910f1fc" },
+      "rejectionRecord": null,
       "publishesIn": "Daily service desk",
       "cadence": "DAILY_IF_FRESH_AND_ADMITTED",
       "autonomousDraftingAuthority": false,
@@ -385,6 +385,8 @@
     "fiction.DEFAULT"
   ],
   "acceptedTemplateSlots": [],
-  "currentDailyLaunchCandidateSlots": [],
+  "currentDailyLaunchCandidateSlots": [
+    "paige_tip.DEFAULT"
+  ],
   "authority": "Private template and example candidates only. No autonomous drafting, canonical story or issue write, deployment or public authority."
 }

@@ -12,13 +12,13 @@ const valid = inspectNewsstandTemplateCandidates(registry, { root: ROOT });
 assert.deepEqual(valid.errors, []);
 assert.equal(valid.totalSlots, 18);
 assert.equal(valid.presentSlots.length, 5);
-assert.equal(valid.candidateSlots.length, 0);
-assert.equal(valid.rejectedSlots.length, 5);
+assert.equal(valid.candidateSlots.length, 1);
+assert.equal(valid.rejectedSlots.length, 4);
 assert.deepEqual(valid.acceptedSlots, []);
 
 const missingSlot = structuredClone(registry);
 missingSlot.missingTemplateSlots.pop();
-assert.match(inspectNewsstandTemplateCandidates(missingSlot, { root: ROOT }).errors.join("\n"), /cover exactly all 17 slots/);
+assert.match(inspectNewsstandTemplateCandidates(missingSlot, { root: ROOT }).errors.join("\n"), /cover exactly all 18 slots/);
 
 const wrongSequence = structuredClone(registry);
 wrongSequence.templates[0].outputSequence.reverse();
@@ -36,11 +36,11 @@ const falseAccepted = structuredClone(registry);
 falseAccepted.templates[3].status = "ACCEPTED_TEMPLATE";
 falseAccepted.templates[3].autonomousDraftingAuthority = true;
 falseAccepted.acceptedTemplateSlots = ["promptoscope.DEFAULT"];
-falseAccepted.status = "PARTIAL_5_OF_18_EXAMPLES_4_REJECTED_0_CANDIDATE_1_ACCEPTED";
+falseAccepted.status = "PARTIAL_5_OF_18_EXAMPLES_3_REJECTED_1_CANDIDATE_1_ACCEPTED";
 assert.match(inspectNewsstandTemplateCandidates(falseAccepted, { root: ROOT }).errors.join("\n"), /acceptanceRecord/);
 
 const missingInput = structuredClone(registry);
 missingInput.templates[4].requiredInputs = ["one input"];
 assert.match(inspectNewsstandTemplateCandidates(missingInput, { root: ROOT }).errors.join("\n"), /requiredInputs/);
 
-console.log("NEWSSTAND FEATURE EXAMPLE CALIBRATION PASS: five rejected examples remain calibration-only; missing-slot, changed-sequence, changed-example, public-authority, false-acceptance and thin-input defects rejected");
+console.log("NEWSSTAND FEATURE EXAMPLE CALIBRATION PASS: four rejected examples remain calibration-only and one Paige successor awaits Ali; missing-slot, changed-sequence, changed-example, public-authority, false-acceptance and thin-input defects rejected");

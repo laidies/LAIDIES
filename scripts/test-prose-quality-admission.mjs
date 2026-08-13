@@ -140,7 +140,16 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=21 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
+  const compactService = structuredClone(news);
+  compactService.surfaceKind = "NEWSSTAND_COMPACT_SERVICE";
+  delete compactService.outcomes.datedChange;
+  delete compactService.outcomes.explainBack;
+  delete compactService.outcomes.unseenTransfer;
+  assert.deepEqual(inspect(compactService), [], "compact NewsStand service prose must not manufacture a dated event or substantial transfer exercise");
+  const invalidCompactClass = structuredClone(receipt);
+  invalidCompactClass.surfaceKind = "NEWSSTAND_COMPACT_SERVICE";
+  assert.match(inspect(invalidCompactClass).join("\n"), /requires contentClass NEWS/);
+  console.log("PROSE QUALITY CALIBRATION PASS valid=2 compact_service=1 hold=1 rejected=22 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

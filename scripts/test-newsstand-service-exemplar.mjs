@@ -41,6 +41,18 @@ const missingAction = read("paige");
 missingAction.body = missingAction.body.replace(missingAction.laneSpecific.actionQuote, "Ask the tool to check it.");
 assert.match(errors(missingAction), /Paige action must be exact body text/);
 
+const honestOptionalOmission = read("paige");
+honestOptionalOmission.beatEvidence = honestOptionalOmission.beatEvidence.map(item => item.beat === "optional deeper destination"
+  ? { beat: item.beat, omittedReason: "No current destination adds depth to this compact action." }
+  : item);
+assert.equal(errors(honestOptionalOmission), "", "an explicitly optional continuation may be honestly omitted");
+
+const unexplainedOptionalOmission = read("paige");
+unexplainedOptionalOmission.beatEvidence = unexplainedOptionalOmission.beatEvidence.map(item => item.beat === "optional deeper destination"
+  ? { beat: item.beat }
+  : item);
+assert.match(errors(unexplainedOptionalOmission), /quote is not exact candidate text/);
+
 const borrowedHoroscope = read("paige");
 borrowedHoroscope.body += " Mercury is retrograde.";
 assert.match(errors(borrowedHoroscope), /Paige cannot borrow Promptoscope framing/);
@@ -90,4 +102,4 @@ const wrongNegatives = read("career");
 wrongNegatives.negativeExemplarIdsRead = ["CQX-BAD-006", "CQX-BAD-007"];
 assert.match(errors(wrongNegatives), /must exactly match the current lane negatives/);
 
-console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS in_memory_mechanical=4 rejected_exact_stale=4 missing_action=1 paige_horoscope=1 known_bad_career=1 career_ai_first=1 incomplete_career_prefix=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1 quality_authority=none");
+console.log("NEWSSTAND SERVICE EXEMPLAR CALIBRATION PASS in_memory_mechanical=4 rejected_exact_stale=4 optional_omission=1 unexplained_omission=1 missing_action=1 paige_horoscope=1 known_bad_career=1 career_ai_first=1 incomplete_career_prefix=1 prompt_nonwork=1 ai_named=1 fixed_deck=1 unrelated_registry_change=1 wrong_registry_path=1 false_public=1 wrong_negatives=1 quality_authority=none");

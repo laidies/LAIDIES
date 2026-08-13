@@ -22,6 +22,7 @@ const REQUIRED_BY_CLASS = {
   PROMOTIONAL: [...CORE, "truthfulPromise", "clearAction"],
   MICROCOPY: [...CORE, "truthfulPromise", "clearAction"]
 };
+const NEWSSTAND_COMPACT_SERVICE = [...CORE, "consequenceAndUncertainty", "dailyLifeConnection", "communicationBenchmark", "usefulAction", "analogyIntegrity"];
 export const FAILURE_FAMILIES = [
   "glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti",
   "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem",
@@ -73,6 +74,8 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(receipt?.schemaVersion === "laidies-prose-quality-review.v1", "schemaVersion mismatch");
   require(["PRODUCER_SELF_REVIEW", "INDEPENDENT_SEMANTIC_ADMISSION"].includes(receipt?.stage), "stage is invalid");
   require(Boolean(REQUIRED_BY_CLASS[receipt?.contentClass]), "contentClass is invalid");
+  require(receipt?.surfaceKind === undefined || receipt.surfaceKind === "NEWSSTAND_COMPACT_SERVICE", "surfaceKind is invalid");
+  require(receipt?.surfaceKind !== "NEWSSTAND_COMPACT_SERVICE" || receipt?.contentClass === "NEWS", "NEWSSTAND_COMPACT_SERVICE requires contentClass NEWS");
   require(text(receipt?.candidateId) && text(receipt?.surface) && text(receipt?.maker), "candidateId, surface and maker are required");
   require(receipt?.reviewMode === "EXACT_PROSE_IN_FULL", "reviewer must read the exact prose in full");
   require(text(receipt?.reviewer?.id) && text(receipt?.reviewer?.principalId) && text(receipt?.reviewer?.role), "reviewer identity, principalId and role are required");
@@ -133,7 +136,9 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   for (const field of ["humanQuestion", "promisedPayoff", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredReaderFeeling"]) require(text(receipt?.reverseBrief?.[field]), `reverseBrief.${field} is required`);
 
-  const requiredOutcomes = REQUIRED_BY_CLASS[receipt?.contentClass] || [];
+  const requiredOutcomes = receipt?.surfaceKind === "NEWSSTAND_COMPACT_SERVICE"
+    ? NEWSSTAND_COMPACT_SERVICE
+    : REQUIRED_BY_CLASS[receipt?.contentClass] || [];
   for (const outcomeName of requiredOutcomes) {
     const outcome = receipt?.outcomes?.[outcomeName];
     require(Boolean(outcome), `required outcome ${outcomeName} is missing`);

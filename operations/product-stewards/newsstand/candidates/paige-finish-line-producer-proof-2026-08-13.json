@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "laidies-newsstand-producer-proof.v1",
+  "candidateId": "NEWSSTAND-SERVICE-PAIGE-FINISH-LINE-20260813-V1",
+  "publication": "PAIGE_TIP",
+  "storyMode": "SERVICE_COLUMN",
+  "status": "READY_FOR_FULL_DRAFT",
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "ec572786dadf4a99e4bc154ed6e125140dfdddecc045ed90e2059d3ab1b25ae9"
+  },
+  "storyTemplate": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATES-CANDIDATE.md",
+    "sha256": "5afacbc4557f4ce3fb9bbd46347df5354119b84cfbb922fbd687b4c9900d1bca",
+    "section": "Paige's Practical AI Tip",
+    "sectionSha256": "66ac8ac9a71935a58c706c816acaa038c69ec7bd2f7665db9fc2ac740d9281c2",
+    "acceptanceRecord": {
+      "path": "operations/product-stewards/newsstand/NEWSSTAND-SERVICE-TEMPLATE-REVIEW-2026-08-13.json",
+      "sha256": "d0e15ed06234a8b48a7794507b743354647a807fdd0ac66b56fdbe3870c35142"
+    }
+  },
+  "sourceMap": {
+    "path": "operations/product-stewards/newsstand/sources/paige-finish-line-source-map-2026-08-13.md",
+    "sha256": "2be4eb9a2fcd07500d195a237a6ed934fab29eac2e6cae00145edb4a54648169"
+  },
+  "readerQuestion": "How do I stop asking an AI to make a work draft vaguely better?",
+  "readerPayoff": "The reader can turn taste into three visible finish-line checks, request one bounded revision and compare the result herself.",
+  "headline": "Write the finish line before asking for another draft",
+  "opening": "Your AI draft is polished, but it still is not doing the job. Before asking for another version, write three things the finished work must let its reader find or do.",
+  "newcomerBackground": "Words such as better and stronger do not tell an AI which visible result matters. A finish-line check describes something a person can actually find, compare or do in the finished work.",
+  "causalOutline": [
+    "The reader names three observable results the finished work must produce.",
+    "The AI revises toward those results instead of guessing what better means.",
+    "The reader compares the new draft with the same three results and checks its facts against approved sources."
+  ],
+  "evidenceBoundary": {
+    "establishes": "Anthropic's current guidance recommends defining clear success criteria and ways to test them before refining prompts.",
+    "doesNotEstablish": "It does not promise that three checks make an AI answer accurate, private, fair or ready to use."
+  },
+  "numberPlan": [],
+  "mechanismBridge": {
+    "objectLocationSentence": "The finish-line checks sit beside the draft as three visible results.",
+    "attackDefinitionSentence": "The practical failure is asking for a better draft without naming what better must change in the work.",
+    "evidenceRecoverySentence": "The reader compares the revised draft with the three checks rather than accepting the AI's own verdict."
+  },
+  "actionOpening": "Write three observable finish-line checks before the next revision.",
+  "incidentAction": "If the AI changes a fact while revising, restore it from the approved source and check the other claims too.",
+  "evidenceParagraphBreaksAfter": [
+    "Anthropic's current guidance recommends defining clear success criteria and ways to test them before refining prompts."
+  ],
+  "plainGlosses": [],
+  "centralInstruction": {
+    "opening": "Stop asking for vaguely better.",
+    "action": "Write three observable finish-line checks.",
+    "closing": "Can the intended reader now find or do each named thing?",
+    "prohibitedRestatements": [
+      "Please improve this",
+      "Make it stronger"
+    ]
+  },
+  "evidenceSequence": [
+    "Anthropic's current prompt-engineering overview starts with clear success criteria.",
+    "Its evaluation guidance says useful criteria are specific and measurable.",
+    "The reader still decides whether the revised work passes and whether its facts are correct."
+  ],
+  "readerSources": [
+    {
+      "label": "Anthropic — Prompt engineering overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+    },
+    {
+      "label": "Anthropic — Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/define-success"
+    }
+  ],
+  "voicePlan": {
+    "move": "Write the finish line before another lap.",
+    "teachingJob": "Make an abstract quality request visible as three results a person can check.",
+    "limit": "A finish line does not prove the route was safe or the facts are correct.",
+    "readerFacingLimit": "The three checks guide the revision; they do not verify facts for you.",
+    "humanTruth": "People often know a draft is wrong before they have named what right would look like.",
+    "mechanismMappingSentence": "The finish line is the set of visible results the draft must produce.",
+    "warmthLines": [
+      {
+        "sectionHeading": "Name the finish line",
+        "line": "Better is a mood; a visible result is a destination."
+      },
+      {
+        "sectionHeading": "Check the actual work",
+        "line": "The AI does not get to award itself the trophy."
+      }
+    ]
+  },
+  "sectionPlan": [
+    {
+      "heading": "Name the finish line",
+      "readerJob": "Turn a vague quality request into one bounded action and explain why it helps.",
+      "jobType": "MECHANISM"
+    },
+    {
+      "heading": "Check the actual work",
+      "readerJob": "Give the human boundary and observable acceptance test.",
+      "jobType": "ACTION"
+    }
+  ],
+  "draftLimits": {
+    "phraseCaps": [
+      {
+        "phrase": "finish line",
+        "maximum": 3
+      }
+    ],
+    "prohibitedPhrases": [
+      "just be more specific",
+      "check the receipts",
+      "AI can verify itself"
+    ]
+  },
+  "terminologyPlan": {
+    "plainTerm": "finish-line checks",
+    "stableObjectTerms": [
+      "finish-line checks",
+      "draft"
+    ],
+    "allowedMetaphorTerms": [
+      "finish line",
+      "destination",
+      "trophy"
+    ],
+    "prohibitedSynonyms": [
+      "magic words",
+      "prompt formula"
+    ]
+  },
+  "applications": {
+    "work": {
+      "disposition": "APPLY",
+      "example": "A briefing note must name the decision in its first paragraph, match the approved figures and show an owner and date."
+    },
+    "nonWork": {
+      "disposition": "NOT_MATERIAL",
+      "reason": "Paige is deliberately work-facing; a home example belongs to Promptoscope."
+    }
+  },
+  "usefulLanding": "Write three checks, request one revision and compare the result yourself.",
+  "routingReason": "This is one compact work action, not a Daily report, career lesson or non-work comic tip.",
+  "intendedWords": 140,
+  "producerPreflight": {
+    "negativeExamplesRead": true,
+    "laneId": "paige_tip",
+    "laneContractSha256": "33cd7288d0e6b4eb87e8a27e6f211bce14b058776cfd3baf306767e111c9e6c7",
+    "negativeExemplarIdsRead": [
+      "CQX-BAD-009",
+      "CQX-BAD-010"
+    ],
+    "repeatedDefects": [],
+    "actualFormatUsed": true
+  }
+}

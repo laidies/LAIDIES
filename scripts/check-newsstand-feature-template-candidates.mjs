@@ -140,7 +140,7 @@ export function inspectNewsstandTemplateCandidates(registry, { root = ROOT } = {
 
   const missing = exactSet(registry?.missingTemplateSlots || []);
   const present = exactSet([...seen]);
-  require(JSON.stringify(exactSet([...present, ...missing])) === JSON.stringify(exactSet(allSlots)), "present plus missing template slots must cover exactly all 17 slots");
+  require(JSON.stringify(exactSet([...present, ...missing])) === JSON.stringify(exactSet(allSlots)), `present plus missing template slots must cover exactly all ${allSlots.length} slots`);
   require(!present.some(slot => missing.includes(slot)), "present and missing template slots overlap");
   require(JSON.stringify(exactSet(registry?.acceptedTemplateSlots || [])) === JSON.stringify(exactSet(accepted)), "acceptedTemplateSlots does not match accepted templates");
   const launch = exactSet(registry?.currentDailyLaunchCandidateSlots || []);
