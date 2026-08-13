@@ -67,6 +67,12 @@ export function extractSignalIds(text = "") {
   return [...new Set(String(text).match(/NSCI-[a-f0-9]{20}/g) || [])];
 }
 
+export function extractSourceHealthMarkers(text = "") {
+  const markers = [];
+  for (const match of String(text).matchAll(/^- (SRC-[A-Z0-9-]+ — [^\n(]+?)(?: \(|$)/gm)) markers.push(match[1].trim());
+  return [...new Set(markers)];
+}
+
 export function removeResolvedSignals(receipt, registry) {
   const resolved = resolvedSignalIds(registry);
   const resolvedHealth = new Set((registry?.sourceHealth || []).map((source) => source.alertMarker));
@@ -91,6 +97,15 @@ export function unresolvedSignalIds(priorText, receipt, registry) {
   ]);
   const resolved = resolvedSignalIds(registry);
   return [...all].filter((signalId) => !resolved.has(signalId)).sort();
+}
+
+export function unresolvedSourceHealthMarkers(priorText, receipt, registry) {
+  const all = new Set([
+    ...extractSourceHealthMarkers(priorText),
+    ...(receipt?.sourceHealthAlerts || []).map((alert) => `${alert.sourceId} — ${alert.error}`)
+  ]);
+  const resolved = new Set((registry?.sourceHealth || []).map((source) => source.alertMarker));
+  return [...all].filter((marker) => !resolved.has(marker)).sort();
 }
 
 export function buildClosureComment(registry, commitUrl) {
@@ -161,7 +176,8 @@ async function main() {
   const priorText = [issue.body, ...comments.map((comment) => comment.body)].join("\n");
   receipt = removeAlreadyReported(receipt, priorText);
   const unresolved = unresolvedSignalIds(priorText, receipt, registry);
-  if (unresolved.length === 0 && !(receipt.counts.newSignals || receipt.counts.sourceHealthAlerts)) {
+  const unresolvedHealth = unresolvedSourceHealthMarkers(priorText, receipt, registry);
+  if (unresolved.length === 0 && unresolvedHealth.length === 0 && !(receipt.counts.newSignals || receipt.counts.sourceHealthAlerts)) {
     const sha = process.env.GITHUB_SHA || "main";
     const commitUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/blob/${sha}/operations/product-stewards/newsstand/cloud-intake-dispositions.json`;
     await api(`/issues/${issue.number}/comments`, {
@@ -176,7 +192,7 @@ async function main() {
     return;
   }
   if (!(receipt.counts.newSignals || receipt.counts.sourceHealthAlerts)) {
-    console.log(`NO_ISSUE_UPDATE — issue ${issue.number} still has unresolved signals: ${unresolved.join(",")}`);
+    console.log(`NO_ISSUE_UPDATE — issue ${issue.number} still has unresolved signals=${unresolved.join(",") || "none"} source_health=${unresolvedHealth.join(" | ") || "none"}`);
     return;
   }
   const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
