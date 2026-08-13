@@ -40,6 +40,8 @@ jobs:
         run: |
           node scripts/test-source-registry.mjs
           node scripts/test-newsstand-cloud-intake.mjs
+          node scripts/test-newsstand-cloud-intake-dispositions.mjs
+          node scripts/check-newsstand-cloud-intake-dispositions.mjs
           node scripts/test-newsstand-cloud-intake-workflow.mjs
 
       - name: Run private source intake
