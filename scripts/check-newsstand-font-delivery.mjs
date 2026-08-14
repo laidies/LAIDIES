@@ -44,7 +44,7 @@ export function inspectNewsstandFontDelivery({ html, css, readBytes }) {
   if ((css.match(/@font-face\s*\{[^}]*font-family:\s*"Jost"/g) || []).length !== 7) errors.push("Jost must bind five upright and two italic local faces");
   if ((css.match(/font-display:\s*block/g) || []).length !== 8) errors.push("every NewsStand font face must block fallback capture");
   if (/font-display:\s*(?:swap|fallback|optional)/.test(css)) errors.push("NewsStand font faces permit a fallback-font capture");
-  if (!html.includes("/content/newsstand.css?v=20260813-newsstand-v26")) errors.push("NewsStand font repair lacks the v26 cache key");
+  if (!html.includes("/content/newsstand.css?v=20260814-newsstand-v27")) errors.push("NewsStand font repair lacks the v27 cache key");
   for (const licence of LICENCES) {
     const bytes = readBytes(licence);
     if (!bytes || !bytes.toString("utf8").includes("SIL OPEN FONT LICENSE")) errors.push(`font licence is missing or invalid: ${licence}`);

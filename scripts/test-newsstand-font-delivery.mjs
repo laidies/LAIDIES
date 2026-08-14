@@ -33,7 +33,7 @@ reject("external-font-service", () => ({ candidateHtml: html.replace("</head>", 
 reject("missing-anton-preload", () => ({ candidateHtml: html.replace(/^.*anton-latin\.woff2.*\n/m, "") }));
 reject("foreign-anton-face", () => ({ candidateCss: css.replace('/assets/fonts/newsstand/anton-latin.woff2', 'https://fonts.gstatic.com/anton.woff2') }));
 reject("fallback-capture-enabled", () => ({ candidateCss: css.replace("font-display: block", "font-display: swap") }));
-reject("stale-cache-key", () => ({ candidateHtml: html.replace("20260813-newsstand-v26", "20260813-newsstand-v24") }));
+reject("stale-cache-key", () => ({ candidateHtml: html.replace("20260814-newsstand-v27", "20260813-newsstand-v26") }));
 reject("mutated-font-bytes", () => {
   const files = new Map(actualFiles);
   files.set("assets/fonts/newsstand/anton-latin.woff2", Buffer.from("not the admitted Anton font"));

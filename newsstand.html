@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
     <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="/content/site/sv-topbar.css?v=20260725-1">
-    <link rel="stylesheet" href="/content/newsstand.css?v=20260813-newsstand-v26">
+    <link rel="stylesheet" href="/content/newsstand.css?v=20260814-newsstand-v27">
     <script defer src="/content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -31,7 +31,7 @@
     <link rel="canonical" href="https://laidies.ai/newsstand" />
   <meta property="og:url" content="https://laidies.ai/newsstand" />
 </head>
-  <body>
+  <body class="newsstand-daily-first">
     <a class="sv-skip-link" href="#newsstand-main">Skip to content</a>
     <header class="topbar">
       <a class="logo" href="/" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>
@@ -272,6 +272,22 @@
           data.stories = JSON.parse(JSON.stringify(stories));
           if (event.detail && event.detail.publication) {
             data.publications.daily = JSON.parse(JSON.stringify(event.detail.publication));
+          }
+        });
+        window.addEventListener("newsstand:review-features-admitted", function (event) {
+          var features = event.detail && Array.isArray(event.detail.stories)
+            ? JSON.parse(JSON.stringify(event.detail.stories))
+            : [];
+          stories = stories.filter(function (story) {
+            return !features.some(function (feature) { return feature.edition === story.edition; });
+          }).concat(features).sort(function (a, b) {
+            return String(b.publishedAt).localeCompare(String(a.publishedAt));
+          });
+          data.stories = JSON.parse(JSON.stringify(stories));
+          if (event.detail && event.detail.publications) {
+            Object.keys(event.detail.publications).forEach(function (edition) {
+              data.publications[edition] = JSON.parse(JSON.stringify(event.detail.publications[edition]));
+            });
           }
         });
         var selectedEdition = null;
@@ -523,6 +539,90 @@
           ].join("");
         }
 
+        function featureMedia(story) {
+          if (!story || !story.media || !story.media.src) return "";
+          return [
+            '<figure class="ns-feature-paper__media">',
+              '<img src="', escapeHTML(story.media.src), '" alt="', escapeHTML(story.media.alt || ''), '">',
+              '<figcaption>', escapeHTML(story.media.caption || ''), '</figcaption>',
+            '</figure>'
+          ].join("");
+        }
+
+        function renderFeaturePaper(edition, list) {
+          if (!list || !list.length) return "";
+          var lead = list[0];
+          var dailyBriefs = stories.filter(function (story) { return story.edition === "daily"; }).slice(0, 4);
+          if (edition === "weekly") {
+            return [
+              '<article class="ns-feature-paper ns-feature-paper--weekly">',
+                '<aside class="ns-review-banner"><strong>PRIVATE REVIEW COPY</strong><span>Complete Weekly paper candidate — not published.</span></aside>',
+                '<header class="ns-feature-paper__masthead">',
+                  '<p>The week ending August 14, 2026 · MAiN Street No. 2</p>',
+                  '<h3><span>The</span> Weekly</h3>',
+                  '<p>The biggest developments, connected without pretending every headline deserves a sequel.</p>',
+                '</header>',
+                '<nav class="ns-daily-section-switcher" aria-label="Choose a NewsStand section">',
+                  '<button type="button" data-open-daily>The Daily</button>',
+                  '<button type="button" class="is-current" aria-current="page">The Weekly</button>',
+                  '<button type="button" data-open-paper="tribune">The Big Picture</button>',
+                  '<button type="button" data-open-archive>Archive + topics</button>',
+                '</nav>',
+                '<div class="ns-feature-paper__lead">',
+                  '<div>',
+                    '<p class="ns-daily-desk__label">The week&rsquo;s lead · sourced synthesis</p>',
+                    '<h4>', escapeHTML(lead.headline), '</h4>',
+                    '<p class="ns-feature-paper__standfirst">', escapeHTML(lead.the_story), '</p>',
+                    '<aside><strong>The LAiDIES read</strong><p>', escapeHTML(lead.laidies_read), '</p></aside>',
+                    '<a href="#', escapeHTML(lead.slug), '">Read the full Weekly report &rarr;</a>',
+                  '</div>',
+                  featureMedia(lead),
+                '</div>',
+                '<div class="ns-weekly-grid">',
+                  '<section class="ns-weekly-briefs"><p class="ns-daily-section-flag">The week in brief</p><h4>The stories that changed the picture.</h4>',
+                    dailyBriefs.map(function (story) { return '<a href="#' + escapeHTML(story.slug) + '"><strong>' + escapeHTML(story.headline) + '</strong><span>' + escapeHTML(firstSentence(story.laidies_read || story.the_story)) + '</span></a>'; }).join(''),
+                  '</section>',
+                  '<section class="ns-weekly-term"><p class="ns-daily-section-flag">Term of the week</p><h4>AI agent</h4><p><strong>In plain English:</strong> an AI system set up to pursue a multi-step job using tools—not merely answer one message.</p><p><strong>Why it matters this week:</strong> the longer it can work and the more accounts it can reach, the more the real permissions, logs and stop controls matter.</p><p><strong>Try the definition:</strong> if it can only suggest an email, it is drafting. If it can open the inbox and place or send the email, it is acting through a tool.</p></section>',
+                  '<section class="ns-weekly-jeeves"><p class="ns-daily-section-flag">Dear Miss Jeeves</p><h4>Why does AI agree to my rules and then ignore them?</h4><p>Because an acknowledgement is another piece of generated text, not proof that the next output will apply every rule. Long jobs collect old drafts, corrections and conflicting instructions. The system may also lack the file, tool or permission the rule assumes.</p><p><strong>Do this:</strong> before the next stage, restate the current outcome, the five rules that still matter, the exact source files and the acceptance test. Ask the tool to name any conflict or missing input before it works. Then inspect the result against the rules; do not use its promise as the test.</p><p>Starting over can help when the working context is genuinely tangled, but it is not a universal cure. Preserve the accepted work and carry forward the compact current brief.</p></section>',
+                  '<section class="ns-weekly-straight"><p class="ns-daily-section-flag">STRAiGHT TALK</p><h4>What does it mean when a headline says an AI “escaped”?</h4><p>Usually that a system crossed one specific boundary people intended to contain it. It does not by itself mean the AI became conscious or escaped human control in general.</p><p>The missing noun matters: escaped a written instruction, a software sandbox, a network boundary, a permission, a human approval step—or the organization&rsquo;s monitoring?</p><button type="button" data-open-paper="tribune">Continue in The Big Picture &rarr;</button></section>',
+                '</div>',
+              '</article>'
+            ].join("");
+          }
+          return [
+            '<article class="ns-feature-paper ns-feature-paper--big-picture">',
+              '<aside class="ns-review-banner"><strong>PRIVATE REVIEW COPY</strong><span>Complete Big Picture feature candidate — not published.</span></aside>',
+              '<header class="ns-feature-paper__masthead">',
+                '<p>The control question · checked August 14, 2026</p>',
+                '<h3><span>The</span> Big Picture</h3>',
+                '<p>One consequential question, investigated beyond the headline.</p>',
+              '</header>',
+              '<nav class="ns-daily-section-switcher" aria-label="Choose a NewsStand section">',
+                '<button type="button" data-open-daily>The Daily</button>',
+                '<button type="button" data-open-paper="weekly">The Weekly</button>',
+                '<button type="button" class="is-current" aria-current="page">The Big Picture</button>',
+                '<button type="button" data-open-archive>Archive + topics</button>',
+              '</nav>',
+              '<div class="ns-feature-paper__lead ns-feature-paper__lead--big">',
+                '<div>',
+                  '<p class="ns-daily-desk__label">The question</p>',
+                  '<h4>', escapeHTML(lead.headline), '</h4>',
+                  '<p class="ns-feature-paper__standfirst">', escapeHTML(lead.the_story), '</p>',
+                  '<aside><strong>The answer that matters</strong><p>', escapeHTML(lead.laidies_read), '</p></aside>',
+                  '<a href="#', escapeHTML(lead.slug), '">Read the full investigation &rarr;</a>',
+                '</div>',
+                featureMedia(lead),
+              '</div>',
+              '<div class="ns-big-picture-grid">',
+                '<section><p class="ns-daily-section-flag">What the incidents show</p><h4>Goals, access and substitute routes.</h4><p>Recent cyber tests show that a capable model can keep pursuing the goal people gave it, use real tools and find routes its operators did not expect. In some tests, the environment accidentally or deliberately left a path to the internet. In OpenAI&rsquo;s incident, models exploited a previously unknown flaw in a permitted software-package route.</p></section>',
+                '<section><p class="ns-daily-section-flag">What they do not show</p><h4>No conscious escape plan.</h4><p>The disclosed incidents do not show a model inventing a desire for freedom or placing itself permanently beyond human control. People contained the runs. The evidence is serious because the systems reached real organizations before that happened—not because a science-fiction takeover had begun.</p></section>',
+                '<section><p class="ns-daily-section-flag">At work</p><h4>Permission must match the job.</h4><p>An agent asked to prepare customer replies may need to read a help-desk queue. It does not need authority to send every message, delete records or alter billing. Put consequential actions behind approval and make the stop independent of the agent.</p></section>',
+                '<section><p class="ns-daily-section-flag">At home</p><h4>A polite rule is not a locked door.</h4><p>An energy assistant told to lower costs still needs a minimum temperature, a preview before changes, a visible history and a household stop button. The sentence “be sensible” is not the control.</p></section>',
+              '</div>',
+            '</article>'
+          ].join("");
+        }
+
         function articleSection(label, body) {
           if (!body) return "";
           return [
@@ -609,6 +709,12 @@
                 "<h2>", escapeHTML(story.headline), "</h2>",
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",
               "</header>",
+              story.media && story.media.src ? [
+                '<figure class="ns-article__media">',
+                  '<img src="', escapeHTML(story.media.src), '" alt="', escapeHTML(story.media.alt || ''), '">',
+                  '<figcaption>', escapeHTML(story.media.caption || ''), '</figcaption>',
+                '</figure>'
+              ].join('') : '',
               correction,
               longform || [
                 articleSection(isTribune ? "The Argument" : "The Story", story.the_story),
@@ -699,7 +805,9 @@
           }
           var publication = data.publications[edition];
           var list = contract.visibleStories(data, edition, now);
-          var html = list.map(renderFrontStory).join("");
+          var html = (edition === "weekly" || edition === "tribune")
+            ? renderFeaturePaper(edition, list)
+            : list.map(renderFrontStory).join("");
           showReader({
             mode: edition,
             list: list,
@@ -1203,7 +1311,7 @@
     <script src="/content/site/brand-polish.js?v=wm2" defer></script>
     <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
-    <script defer src="/content/site/newsstand-catchup-v1.js?v=20260813-daily-first-v2"></script>
+    <script defer src="/content/site/newsstand-catchup-v1.js?v=20260814-daily-first-v3"></script>
     <script defer src="/content/site/resident-continuation-bootstrap-v1.js?v=20260729-continuation-1"></script>
     <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
     <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "laidies-newsstand-service-exemplar.v1",
+  "candidateId": "NEWSSTAND-SERVICE-PROMPTOSCOPE-GROUP-CHAT-SHORTLIST-20260814-V1",
+  "laneId": "promptoscope",
+  "editionDate": "2026-08-14",
+  "status": "PRIVATE_REVIEW_CANDIDATE",
+  "headline": "Your group chat has entered its 47-opinions era",
+  "body": "Tonight’s cosmic event is not Mercury retrograde. It is twelve people discussing dinner without agreeing on a date, budget or neighbourhood.\n\nFirst, get the humans to choose those three constraints. Then open an ordinary private AI chat and give it only the information everyone agreed to share. Ask for three options in the same format: price range, travel time, what each option meets and what it misses. Bring that shortlist back to the group. Do not ask the AI to “pick the best one.”\n\nThis works because a shared comparison makes the trade-offs visible. It does not discover anyone’s unspoken preference, and prices or availability can change. Check the real booking page before the group declares victory.\n\nThe stars favour a shortlist. Democracy by chatbot remains out of scope.",
+  "featureRegistry": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-FEATURE-LANE-REGISTRY.json",
+    "sha256": "90173a0cc7f4ad6916de81ffad2bc031650d63e98d28959878b27810063c4ca7"
+  },
+  "productionStandard": {
+    "path": "operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PRODUCTION-STANDARD.md",
+    "sha256": "ec572786dadf4a99e4bc154ed6e125140dfdddecc045ed90e2059d3ab1b25ae9"
+  },
+  "laneContractSha256": "5cc23c0b4a872b9674fbdc5384f183ff124825d6ff47c66436011338424ffd28",
+  "negativeExemplarIdsRead": [
+    "CQX-BAD-008",
+    "CQX-BAD-012"
+  ],
+  "sourceEvidence": [
+    {
+      "path": "operations/product-stewards/newsstand/sources/promptoscope-group-chat-shortlist-source-map-2026-08-14.md",
+      "sha256": "c425fd24b0e26055869aaf27522518105be46b89b244919723b7988892e5d4a5"
+    }
+  ],
+  "beatEvidence": [
+    {
+      "beat": "comic horoscope observation",
+      "quote": "Tonight’s cosmic event is not Mercury retrograde."
+    },
+    {
+      "beat": "specific non-work AI situation",
+      "quote": "It is twelve people discussing dinner without agreeing on a date, budget or neighbourhood."
+    },
+    {
+      "beat": "one plain action",
+      "quote": "Ask for three options in the same format: price range, travel time, what each option meets and what it misses."
+    },
+    {
+      "beat": "why it changes the result",
+      "quote": "This works because a shared comparison makes the trade-offs visible."
+    },
+    {
+      "beat": "bounded human check",
+      "quote": "Check the real booking page before the group declares victory."
+    },
+    {
+      "beat": "earned final joke",
+      "quote": "The stars favour a shortlist. Democracy by chatbot remains out of scope."
+    }
+  ],
+  "laneSpecific": {
+    "situationType": "NON_WORK",
+    "comicQuote": "Tonight’s cosmic event is not Mercury retrograde.",
+    "situationQuote": "It is twelve people discussing dinner without agreeing on a date, budget or neighbourhood.",
+    "actionQuote": "Ask for three options in the same format: price range, travel time, what each option meets and what it misses.",
+    "whyQuote": "This works because a shared comparison makes the trade-offs visible.",
+    "checkQuote": "Check the real booking page before the group declares victory.",
+    "finalJokeQuote": "The stars favour a shortlist. Democracy by chatbot remains out of scope."
+  },
+  "freshness": {
+    "checkedAt": "2026-08-14T01:45:00-07:00",
+    "recheckTriggers": [
+      "Either bound OpenAI Help Center page materially changes or is retired.",
+      "The candidate names a provider-specific shared-chat feature.",
+      "The action expands beyond a bounded comparison shortlist."
+    ]
+  },
+  "owner": "NewsStand service features",
+  "destination": "PRIVATE_REVIEW_ONLY / future Daily Promptoscope desk",
+  "storage": {
+    "recordId": "DAILY-2026-08-14-PROMPTOSCOPE-GROUP-CHAT-CANDIDATE",
+    "publicEligibility": "INELIGIBLE_PENDING_ALI_ACCEPTANCE"
+  },
+  "selfReview": {
+    "exactTextRead": true,
+    "knownDefectsRemaining": [],
+    "distinctnessFinding": "Promptoscope uses a funny horoscope frame for one recognizable non-work AI comparison. It is not Paige’s work-facing action, career coaching, a prediction or a fixed Mme CLAi-O deck reading."
+  }
+}

@@ -13,6 +13,10 @@
   var dailyIssues = null;
   var dailyIssuesLoaded = false;
   var columnsLoaded = false;
+  var reviewRequested = new URL(global.location.href).searchParams.get("review") === "2026-08-14";
+  var reviewCandidate = null;
+  var reviewFeatures = null;
+  var reviewLoaded = !reviewRequested;
   var currentVisitAt = new Date().toISOString();
   var currentVisitKey = "visit:" + currentVisitAt;
   var previousVisit = latestPreviousVisit(readState());
@@ -162,6 +166,7 @@
   }
 
   function currentDailyDate() {
+    if (reviewCandidate && reviewCandidate.editionDate) return reviewCandidate.editionDate;
     return dateOnly(data.publications && data.publications.daily &&
       (data.publications.daily.editionDate || data.publications.daily.publishedAt)) || editorialDateOnly(new Date());
   }
@@ -265,6 +270,7 @@
       return item && item.status === "complete" && /^\d{4}-\d{2}-\d{2}$/.test(item.editionDate) &&
         item.admission && validTimestamp(item.admission.reviewedAt) && Date.parse(item.admission.reviewedAt) <= Date.now();
     }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
+    if (reviewCandidate) issue = reviewCandidate;
     var publication = data.publications && data.publications.daily;
     if (!issue || !publication) return;
     publication.editionDate = issue.editionDate;
@@ -277,8 +283,8 @@
     };
     publication.status = "current";
     publication.publishedAt = issue.editionDate + "T12:00:00Z";
-    publication.updatedAt = issue.admission && issue.admission.reviewedAt || publication.publishedAt;
-    publication.lastCheckedAt = issue.admission && issue.admission.reviewedAt || publication.publishedAt;
+    publication.updatedAt = issue.admission && issue.admission.reviewedAt || issue.updatedAt || publication.publishedAt;
+    publication.lastCheckedAt = issue.admission && issue.admission.reviewedAt || issue.lastCheckedAt || publication.updatedAt;
     if (!data.lastCheckedAt || publication.lastCheckedAt > data.lastCheckedAt) {
       data.lastCheckedAt = publication.lastCheckedAt;
     }
@@ -374,7 +380,7 @@
   }
 
   function maybeOpenSharedDailyRequest() {
-    if (!dailyIssuesLoaded || !columnsLoaded) return;
+    if (!dailyIssuesLoaded || !columnsLoaded || !reviewLoaded) return;
     var requested = new URL(global.location.href).searchParams.get("daily");
     openSharedDailyRequest();
     if (!requested && !global.location.hash && canRenderDaily()) renderDaily(null, { initial: true });
@@ -427,6 +433,7 @@
   }
 
   function canRenderDaily() {
+    if (reviewCandidate) return true;
     if (!contract || !data || data.datasetStatus !== "published" || !data.publications || !data.publications.daily) return false;
     var dataset = contract.datasetState(data, new Date().toISOString());
     var state = contract.effectivePublicationState(data.publications.daily, new Date().toISOString());
@@ -434,6 +441,7 @@
   }
 
   function storedDailyIssue(date) {
+    if (reviewCandidate && reviewCandidate.editionDate === date) return reviewCandidate;
     return dailyIssues && Array.isArray(dailyIssues.issues)
       ? dailyIssues.issues.find(function (issue) { return issue.editionDate === date && issue.status === "complete"; })
       : null;
@@ -518,6 +526,7 @@
     var fiction = dailyDeskValue(canonicalIssue, date, "fiction");
     var dailyStories = currentDailyStories(date, canonicalIssue);
     var lead = dailyStories[0];
+    var secondaryStories = dailyStories.slice(1);
     var breaking = breakingLead();
     var desks = [
       { type: "paige_tip", label: "Paige’s practical AI tip", value: tip, emptyHeadline: "Tip check in progress.", emptyCopy: columnEmpty("paige_tip", "Paige is checking this edition’s tip against the receipts.") },
@@ -555,9 +564,9 @@
       '<aside class="ns-daily-service-rail" aria-label="Today’s practical and playful desks">',
         '<div class="ns-daily-service-rail__head">',
           '<p class="ns-daily-section-flag">Today&rsquo;s desks</p>',
-          '<p><span class="ns-daily-service-rail__desktop-note">Four small things worth opening.</span><span class="ns-daily-service-rail__mobile-note">Swipe for all four &rarr;</span></p>',
+          '<p>Four useful desks, readable right here.</p>',
         '</div>',
-        '<div class="ns-daily-service-grid ns-daily-service-grid--primary">', readySideDesks.map(deskMarkup).join(""), '</div>',
+        '<div class="ns-daily-service-grid ns-daily-service-grid--primary">', readySideDesks.map(function (desk) { return deskMarkup(desk, { expanded: true }); }).join(""), '</div>',
       '</aside>'
     ].join("") : '';
     var spotlightMarkup = spotlightDesks.length ? [
@@ -580,8 +589,28 @@
       tags.map(function (tag) { return '<button type="button" data-daily-topic="' + escapeHTML(tag) + '">' + escapeHTML(tag) + '</button>'; }).join(""),
       '</nav>'
     ].join("") : '';
+    var secondaryMarkup = secondaryStories.length ? [
+      '<section class="ns-daily-secondary-news" aria-labelledby="ns-daily-secondary-title">',
+        '<div class="ns-daily-secondary-news__head"><p class="ns-daily-section-flag">Also on today&rsquo;s front page</p><h3 id="ns-daily-secondary-title">More news worth your time.</h3></div>',
+        '<div class="ns-daily-secondary-news__grid">',
+          secondaryStories.map(function (story) {
+            return [
+              '<article class="ns-daily-secondary-story">',
+                story.media && story.media.src ? '<figure><img src="' + escapeHTML(story.media.src) + '" alt="' + escapeHTML(story.media.alt || '') + '"><figcaption>' + escapeHTML(story.media.caption || '') + '</figcaption></figure>' : '',
+                '<p class="ns-daily-desk__label">', escapeHTML(story.badge || 'The Daily'), '</p>',
+                '<h4>', escapeHTML(story.headline), '</h4>',
+                '<p>', escapeHTML(story.the_story), '</p>',
+                '<div class="ns-daily-secondary-story__read"><strong>The LAiDIES read</strong><p>', escapeHTML(story.laidies_read), '</p></div>',
+                '<a href="#', escapeHTML(story.slug), '">Read the full report &rarr;</a>',
+              '</article>'
+            ].join('');
+          }).join(''),
+        '</div>',
+      '</section>'
+    ].join('') : '';
     var html = [
       '<article class="ns-daily-issue" data-daily-date="', escapeHTML(date), '">',
+        reviewCandidate ? '<aside class="ns-review-banner" role="status"><strong>PRIVATE REVIEW COPY</strong><span>' + escapeHTML(reviewCandidate.reviewBanner || 'Not published.') + '</span></aside>' : '',
         breaking ? '<aside class="ns-daily-breaking"><strong>BREAKING</strong><a href="#' + escapeHTML(breaking.slug) + '">' + escapeHTML(breaking.headline) + '</a></aside>' : '',
         '<header class="ns-daily-issue__head">',
           '<div class="ns-daily-issue__dateline"><span>SUNNYVA<span class="ns-brand-i">i</span>LE</span><span>', escapeHTML(formatDate(date)), '</span><span>MAiN Street No. 2</span></div>',
@@ -598,6 +627,7 @@
           '<section class="ns-daily-news">',
             '<p class="ns-daily-desk__label">Evidence desk · sourced reporting</p>',
             '<h3>', escapeHTML(lead ? lead.headline : quietIssue ? "No consequential report was filed." : "The evidence desk has no admitted lead yet."), '</h3>',
+            lead && lead.media && lead.media.src ? '<figure class="ns-daily-news__media"><img src="' + escapeHTML(lead.media.src) + '" alt="' + escapeHTML(lead.media.alt || '') + '"><figcaption>' + escapeHTML(lead.media.caption || '') + '</figcaption></figure>' : '',
             '<p class="ns-daily-news__standfirst">', escapeHTML(lead ? lead.the_story : quietIssue ?
               "The evidence desk closed this edition without a qualified lead. Nothing was carried forward to fill the paper." :
               "This edition’s sourced reporting remains at its accuracy gate. No story is invented to fill this space."), '</p>',
@@ -608,6 +638,7 @@
           '</section>',
           sideMarkup,
         '</div>',
+        secondaryMarkup,
         spotlightMarkup,
         moreMarkup,
         quietNote,
@@ -883,8 +914,12 @@
       }
       if (event.target.closest("[data-open-archive]")) {
         event.preventDefault();
-        var archive = document.getElementById("newsstand-catchup");
-        if (archive) archive.scrollIntoView({ behavior: "smooth", block: "start" });
+        var archive = document.querySelector(".ns-archive");
+        if (archive) {
+          archive.scrollIntoView({ behavior: "smooth", block: "start" });
+          var archiveSearch = document.getElementById("ns-search-input");
+          if (archiveSearch) archiveSearch.focus({ preventScroll: true });
+        }
         return;
       }
       var topic = event.target.closest("[data-daily-topic]");
@@ -931,19 +966,83 @@
       .then(async function (value) {
         if (!await validDailyIssueStore(value)) throw new Error("daily-issues-invalid");
         dailyIssues = value;
-        applyLatestDailyIssue();
-        global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
-          detail: {
-            stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }),
-            publication: JSON.parse(JSON.stringify(data.publications && data.publications.daily || null))
-          }
-        }));
-        refreshPublicationChrome();
-        updateDailyPaper();
-        renderCatchup();
+        if (!reviewRequested) {
+          applyLatestDailyIssue();
+          global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
+            detail: {
+              stories: value.issues.flatMap(function (issue) { return JSON.parse(JSON.stringify(issue.stories || [])); }),
+              publication: JSON.parse(JSON.stringify(data.publications && data.publications.daily || null))
+            }
+          }));
+          refreshPublicationChrome();
+          updateDailyPaper();
+          renderCatchup();
+        }
       })
       .catch(function (error) { global.__newsstandDailyIssueError = String(error && error.message || error); dailyIssues = null; })
       .finally(function () { dailyIssuesLoaded = true; maybeOpenSharedDailyRequest(); });
+    if (reviewRequested) {
+      fetch("/content/newsstand-review-candidate-2026-08-14.json", { credentials: "same-origin" })
+        .then(function (response) { if (!response.ok) throw new Error("review-candidate-unavailable"); return response.json(); })
+        .then(async function (value) {
+          if (!value || value.schemaVersion !== "laidies-newsstand-review-candidate.v1" ||
+              value.status !== "PRIVATE_REVIEW_ONLY_NOT_PUBLISHED" || !Array.isArray(value.stories) ||
+              value.stories.length < 2 || !Array.isArray(value.desks) || value.desks.length !== DAILY_DESK_TYPES.length) {
+            throw new Error("review-candidate-invalid");
+          }
+          reviewCandidate = value;
+          reviewCandidate.disposition = "candidates_pending_review";
+          reviewCandidate.storyIds = reviewCandidate.stories.map(function (story) { return story.id; });
+          reviewCandidate.serviceRecordIds = reviewCandidate.desks.filter(function (desk) { return desk.state === "ready"; }).map(function (desk) { return desk.recordId; });
+          reviewCandidate.lastCheckedAt = reviewCandidate.stories.reduce(function (latest, story) {
+            return String(story.lastCheckedAt || '') > latest ? String(story.lastCheckedAt) : latest;
+          }, "");
+          var featureResponse = await fetch("/content/newsstand-review-feature-candidates-2026-08-14.json", { credentials: "same-origin" });
+          if (!featureResponse.ok) throw new Error("review-features-unavailable");
+          reviewFeatures = await featureResponse.json();
+          if (!reviewFeatures || reviewFeatures.schemaVersion !== "laidies-newsstand-review-features.v1" ||
+              reviewFeatures.status !== "PRIVATE_REVIEW_ONLY_NOT_PUBLISHED" || !reviewFeatures.weekly || !reviewFeatures.bigPicture) {
+            throw new Error("review-features-invalid");
+          }
+          applyLatestDailyIssue();
+          var reviewStoriesForReader = JSON.parse(JSON.stringify(reviewCandidate.stories));
+          reviewStoriesForReader.forEach(function (story) { story.status = "published"; });
+          global.dispatchEvent(new CustomEvent("newsstand:daily-snapshots-admitted", {
+            detail: {
+              stories: reviewStoriesForReader,
+              publication: JSON.parse(JSON.stringify(data.publications && data.publications.daily || null))
+            }
+          }));
+          var reviewFeatureStoriesForReader = [reviewFeatures.weekly, reviewFeatures.bigPicture].map(function (story) {
+            var copy = JSON.parse(JSON.stringify(story));
+            copy.status = "published";
+            return copy;
+          });
+          [reviewFeatures.weekly, reviewFeatures.bigPicture].forEach(function (story) {
+            var publication = data.publications && data.publications[story.edition];
+            if (!publication) return;
+            publication.status = "current";
+            publication.publishedAt = story.publishedAt;
+            publication.updatedAt = story.updatedAt;
+            publication.lastCheckedAt = story.lastCheckedAt;
+            publication.note = "Private review copy — not published.";
+          });
+          global.dispatchEvent(new CustomEvent("newsstand:review-features-admitted", {
+            detail: {
+              stories: reviewFeatureStoriesForReader,
+              publications: {
+                weekly: JSON.parse(JSON.stringify(data.publications.weekly)),
+                tribune: JSON.parse(JSON.stringify(data.publications.tribune))
+              }
+            }
+          }));
+          refreshPublicationChrome();
+          updateDailyPaper();
+          renderCatchup();
+        })
+        .catch(function (error) { global.__newsstandReviewCandidateError = String(error && error.message || error); reviewCandidate = null; })
+        .finally(function () { reviewLoaded = true; maybeOpenSharedDailyRequest(); });
+    }
     fetch("/content/daily-edition-columns.json", { credentials: "same-origin" })
       .then(function (response) { if (!response.ok) throw new Error("daily-columns-unavailable"); return response.json(); })
       .then(function (value) { columns = value; updateDailyPaper(); renderCatchup(); })

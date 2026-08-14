@@ -1,0 +1,223 @@
+{
+  "schemaVersion": "laidies-newsstand-review-candidate.v1",
+  "reviewId": "newsstand-review-2026-08-14-v27",
+  "status": "PRIVATE_REVIEW_ONLY_NOT_PUBLISHED",
+  "editionDate": "2026-08-14",
+  "editorialTimeZone": "America/Vancouver",
+  "reviewBanner": "Review copy — nothing on this page has been published by this candidate.",
+  "stories": [
+    {
+      "id": "ai-work-logs-can-carry-secrets-review-v5",
+      "slug": "ai-work-logs-can-carry-secrets-review-v5",
+      "edition": "daily",
+      "status": "review_candidate",
+      "publishedAt": "2026-08-14T07:00:00Z",
+      "updatedAt": "2026-08-14T07:00:00Z",
+      "lastCheckedAt": "2026-08-14T07:00:00Z",
+      "headline": "Researchers found passwords in public AI work files",
+      "thread": "Private details inside shared AI work files",
+      "thread_subtitle": "why the answer on screen and the complete record behind it are not the same thing",
+      "thread_entry": 1,
+      "the_story": "Researchers examined 6,708 technical records that people had deliberately posted on GitHub and Hugging Face so others could inspect or replay AI work. They report that 328 of those records contained at least one real password, access key or other private item. This is not evidence that ordinary private chats suddenly became public.",
+      "laidies_read": "A finished answer and the complete work file behind it are different things. The work file can carry instructions, intermediate steps and sealed technical information that never appeared in the clean result you meant to share.",
+      "what_this_means": "Share a fresh, checked result containing only what the other person needs. If a public work file may have carried a password or access key, remove its access and replace it; deleting the file cannot undo copies.",
+      "cocktail_party": "The study did not find that private chats magically became public. It found that people posted complete technical records of AI work, and some of those records carried more than the clean answer on screen.",
+      "class_notes": "The durable idea is the difference between an approved output and the complete production record that created it.",
+      "closing_note": "Before sharing, ask: am I sending the answer I chose, or the whole work file that made it?",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "/operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md"
+      },
+      "correction": null,
+      "retraction": null,
+      "tags": ["AI security", "privacy", "AI work files", "sharing AI work"],
+      "saint_lane": "Elle Woods · Share the checked result, not the backstage file",
+      "badge": "THE DAILY · SECURITY DESK",
+      "media": {
+        "src": "/assets/library-101/bright-family-v2/book-what-not-to-paste.png",
+        "alt": "A red SUNNYVAiLE LIBRAiRY book titled What Not to Paste, with a confidential file and padlock on its cover.",
+        "caption": "A public AI work file can carry more than the polished answer you meant to share."
+      },
+      "longform": {
+        "ariaLabel": "The Daily: Researchers found passwords in public AI work files",
+        "jumpSectionIds": ["the-news-in-one-breath", "before-today", "what-actually-happened", "what-the-evidence-found", "what-this-does-and-does-not-mean", "where-you-might-encounter-this", "what-to-do-with-this", "sources-and-watch-point"],
+        "sections": [
+          {
+            "id": "the-news-in-one-breath",
+            "label": "The news in one breath",
+            "blocks": [
+              {"type": "paragraph", "body": "On August 10, 2026, Alexander Panfilov and seven co-authors shared a study before academic review. They examined raw AI work files that developers and researchers had posted on GitHub and Hugging Face so others could inspect or replay tasks. During their tests, they moved hidden data from those files into a weaker model from the same provider and recovered private details. This concerns people publishing raw technical files; it does not show ordinary private chats became public. Share the checked result, not the raw work file."}
+            ]
+          },
+          {
+            "id": "before-today",
+            "label": "Before today",
+            "blocks": [
+              {"type": "paragraph", "body": "An AI work file can contain the instructions, answers and technical information used to continue a task—not only the conversation shown on screen. Developers and researchers sometimes post these files so others can inspect or replay their work."},
+              {"type": "paragraph", "body": "The answer is the report you meant to send; the work file is the project folder behind it. The folder is not public until somebody posts it, but then everything inside travels with it."}
+            ]
+          },
+          {
+            "id": "what-actually-happened",
+            "label": "What actually happened",
+            "blocks": [
+              {"type": "paragraph", "body": "Some AI companies return a sealed piece of information with an answer so their system can continue the work later. The person using the tool cannot normally read it."},
+              {"type": "paragraph", "body": "During the test period, the researchers took this sealed material from public work files and gave it to a weaker, less-protected model from the same provider. That model sometimes made the material readable. The researchers compared what they recovered with the visible conversation."},
+              {"type": "paragraph", "body": "The authors say they reported this route to the affected companies and that the same attacks stopped working afterward."}
+            ]
+          },
+          {
+            "id": "what-the-evidence-found",
+            "label": "What the evidence found",
+            "blocks": [
+              {"type": "paragraph", "body": "Panfilov and colleagues examined 6,708 public AI work sessions containing 315,320 sealed reasoning blocks. They report that 328 sessions—about 4.9%—contained at least one real password, access key or other private item."},
+              {"type": "paragraph", "body": "After removing duplicates and setting aside benchmark sessions, they counted 704 separate private items in genuine users’ sessions. One session can contain several items, so this is not 704 affected people or files. Most appeared somewhere in the visible conversation; 64 appeared only in the recovered material."}
+            ]
+          },
+          {
+            "id": "what-this-does-and-does-not-mean",
+            "label": "What this does—and does not—mean",
+            "blocks": [
+              {"type": "paragraph", "body": "These are the authors’ findings from a paper that has not received independent academic review. Provider documentation confirms that sealed material can travel between steps; it does not independently confirm the attack or results. The paper found a real problem in public technical work files during its tests. It did not find that every work file contains private details, that ordinary private chats became public or that the same attack still works today."}
+            ]
+          },
+          {
+            "id": "where-you-might-encounter-this",
+            "label": "Where you might encounter this",
+            "blocks": [
+              {"type": "paragraph", "body": "At work, a coding assistant might use a temporary website password while diagnosing a problem, then omit it from the final answer. Publishing its complete technical record could still carry more than your colleague needs."},
+              {"type": "paragraph", "body": "Outside work, a home-made travel assistant might connect to email or booking information. Share the finished itinerary, not its complete work file. The study does not show that sending an ordinary chat link creates this problem."}
+            ]
+          },
+          {
+            "id": "what-to-do-with-this",
+            "label": "What to do with this",
+            "blocks": [
+              {"type": "paragraph", "body": "Share the checked answer or make a new file containing only what others should receive. A clean-looking conversation does not prove the complete technical file contains nothing else."},
+              {"type": "paragraph", "body": "If a public work file may have carried a password or access key, remove access and replace the credential. Deleting the file is not enough because other people may already have copied it."}
+            ]
+          },
+          {
+            "id": "sources-and-watch-point",
+            "label": "Sources and watch point",
+            "blocks": [
+              {"type": "unordered_list", "items": ["<a href=\"https://arxiv.org/abs/2608.09867\">Panfilov and colleagues, <em>Stealing Reasoning Traces from Proprietary LLM APIs</em></a>, checked August 14, 2026.", "<a href=\"https://platform.claude.com/docs/en/build-with-claude/thinking\">Anthropic Thinking documentation</a>; <a href=\"https://ai.google.dev/gemini-api/docs/thinking\">Google Gemini thinking documentation</a>; and <a href=\"https://developers.openai.com/api/docs/guides/reasoning\">OpenAI reasoning-model documentation</a>, checked August 13, 2026."]},
+              {"type": "paragraph", "body": "LAiDIES will revisit this story if the paper changes, an affected company publishes a detailed response, another team reproduces the result or the reported attack starts working again."}
+            ]
+          }
+        ]
+      },
+      "sources": [
+        {"id": "panfilov-reasoning-traces-2026-08-10", "label": "Panfilov et al. — Stealing Reasoning Traces from Proprietary LLM APIs", "url": "https://arxiv.org/abs/2608.09867", "publisherType": "academic", "accessedAt": "2026-08-14", "approvalStatus": "reviewed"},
+        {"id": "anthropic-thinking-2026-08-13", "label": "Anthropic — Thinking", "url": "https://platform.claude.com/docs/en/build-with-claude/thinking", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"},
+        {"id": "google-thinking-2026-08-13", "label": "Google — Gemini thinking", "url": "https://ai.google.dev/gemini-api/docs/thinking", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"},
+        {"id": "openai-reasoning-2026-08-13", "label": "OpenAI — Reasoning models", "url": "https://developers.openai.com/api/docs/guides/reasoning", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"}
+      ]
+    },
+    {
+      "id": "grok-bot-always-on-review-v1",
+      "slug": "grok-bot-always-on-review-v1",
+      "edition": "daily",
+      "status": "review_candidate",
+      "publishedAt": "2026-08-14T07:10:00Z",
+      "updatedAt": "2026-08-14T07:10:00Z",
+      "lastCheckedAt": "2026-08-13T23:00:00Z",
+      "headline": "Grok Bot can keep working after you close your laptop",
+      "thread": "Always-on AI agents",
+      "thread_subtitle": "what changes when the tool can keep acting inside connected accounts",
+      "thread_entry": 1,
+      "the_story": "xAI launched Grok Bot as an early beta on August 11. Eligible subscribers can give it a job on desktop or iOS, connect it to signed-in apps and websites, then let it continue on an online computer after their own laptop closes.",
+      "laidies_read": "The important shift is not that the AI became alive. The work is running somewhere else. If the Bot can reach an inbox, help desk or file system, closing your laptop does not remove the permission you already gave it.",
+      "what_this_means": "Start with one reversible, low-consequence job. Give it only the accounts and actions that job needs. Keep sending, paying, publishing and deleting behind human approval, and check the real destination where it worked.",
+      "cocktail_party": "The laptop can be tucked in for the night; the permission slip is still wide awake.",
+      "class_notes": "An always-on agent changes both duration and reach. Access should match the job, not every possible next step.",
+      "closing_note": "Do not make its first unsupervised evening payroll, publishing and inbox zero all at once. That is not delegation; that is a season finale.",
+      "sourceApproval": {"status": "approved", "record": "/operations/product-stewards/newsstand/candidates/grok-bot-daily-producer-proof-2026-08-13.json"},
+      "correction": null,
+      "retraction": null,
+      "tags": ["AI agents", "permissions", "Grok Bot", "always-on AI", "account access"],
+      "saint_lane": "Dana Scully · Check what it can actually reach",
+      "badge": "THE DAILY · PRODUCT DESK",
+      "media": {
+        "src": "/assets/episodes/ep-04/pixel/ep04-emph-agentic-edge-comic-v1-exact-text-1920.png",
+        "alt": "A comic-style map of an AI agent moving between a calendar, messages, tools and a website.",
+        "caption": "Agentic AI can move through several tools; the practical question is which routes stay open."
+      },
+      "longform": {
+        "ariaLabel": "The Daily: Grok Bot can keep working after you close your laptop",
+        "jumpSectionIds": ["grok-news", "grok-before", "grok-mechanism", "grok-evidence", "grok-limit", "grok-examples", "grok-action", "grok-sources"],
+        "sections": [
+          {"id": "grok-news", "label": "The news in one breath", "blocks": [{"type": "paragraph", "body": "On August 11, 2026, xAI launched Grok Bot as an early beta. Eligible subscribers can give it a job on desktop or iOS so it can work inside signed-in apps and websites. It keeps working on an online computer after the user’s laptop closes. This matters to anyone considering connected AI access; it does not show that every job is safe or correct. Start with one low-consequence job and limit the accounts and actions it can reach."}]},
+          {"id": "grok-before", "label": "Before today", "blocks": [{"type": "paragraph", "body": "Most AI chats wait for you to return and send another message. Grok Bot instead uses a computer running online. You can sign it into other apps, give it a job and leave. xAI says it can continue across tools and return when it needs approval."}]},
+          {"id": "grok-mechanism", "label": "What actually changed", "blocks": [{"type": "paragraph", "body": "Closing your laptop does not stop the job because the Bot is not running on your laptop. Its online computer remains awake. If you signed it into a help desk, inbox or another service, that account remains the route through which it can act."}, {"type": "paragraph", "body": "A chat can suggest an email; a connected Bot may be able to place the draft inside the inbox—or send it if the account and workflow allow that action. The laptop can be tucked in for the night; the permission slip is still wide awake."}]},
+          {"id": "grok-evidence", "label": "What the public documents say", "blocks": [{"type": "paragraph", "body": "xAI’s consumer terms say directed actions can include browsing, running code, sending communications, changing files and interacting with third-party services. The same terms place responsibility for those directed actions and their consequences on the user."}]},
+          {"id": "grok-limit", "label": "What the public documents do not yet settle", "blocks": [{"type": "paragraph", "body": "The public material LAiDIES checked does not give a complete Bot-specific account of how credentials are isolated, how finely every app permission can be limited, how connected-app information is retained or whether every Bot interaction is excluded from model training. Those are questions to resolve before sensitive work—not details to guess from the word ‘teammate.’"}]},
+          {"id": "grok-examples", "label": "Where you might encounter this", "blocks": [{"type": "paragraph", "body": "At work, a support team might let a Bot draft replies inside its help desk but keep Send behind human approval while it proves itself on low-risk cases. The useful result is a prepared queue; the unnecessary risk is giving the first test authority to contact every customer."}, {"type": "paragraph", "body": "Outside work, a Bot could compare flights and hotels using a separate planning account. It does not need permission to book a non-refundable trip merely to make a shortlist. The mechanism is the same: access should match the job, not every possible next step."}]},
+          {"id": "grok-action", "label": "What to do with this", "blocks": [{"type": "ordered_list", "items": ["Choose one reversible, low-consequence job.", "List the exact accounts and actions that job needs—and remove the rest.", "Keep sending, paying, publishing and deleting behind an approval step.", "Check the real destination where it worked, not only the summary it sends back.", "Remove its access if the trial ends or the job changes."]}, {"type": "paragraph", "body": "Do not make its first unsupervised evening payroll, publishing and inbox zero all at once. That is not delegation; that is a season finale."}]},
+          {"id": "grok-sources", "label": "Sources and watch point", "blocks": [{"type": "unordered_list", "items": ["<a href=\"https://x.ai/news/introducing-grok-bot\">xAI’s dated Grok Bot announcement</a> and <a href=\"https://x.ai/bot\">product page</a>, checked August 13, 2026.", "<a href=\"https://x.ai/legal/terms-of-service\">xAI Consumer Terms</a> and <a href=\"https://x.ai/legal/privacy-policy\">Privacy Policy</a>, checked August 13, 2026."]}, {"type": "paragraph", "body": "LAiDIES will revisit this story if xAI changes access, eligible plans or devices, permissions, credential handling, retention, training treatment or enterprise availability."}]}
+        ]
+      },
+      "sources": [
+        {"id": "xai-grok-bot-launch-2026-08-11", "label": "xAI — Introducing Grok Bot", "url": "https://x.ai/news/introducing-grok-bot", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"},
+        {"id": "xai-grok-bot-page-2026-08-13", "label": "xAI — Grok Bot", "url": "https://x.ai/bot", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"},
+        {"id": "xai-consumer-terms-2026-08-13", "label": "xAI — Consumer Terms", "url": "https://x.ai/legal/terms-of-service", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"},
+        {"id": "xai-privacy-2026-08-13", "label": "xAI — Privacy Policy", "url": "https://x.ai/legal/privacy-policy", "publisherType": "vendor", "accessedAt": "2026-08-13", "approvalStatus": "reviewed"}
+      ]
+    }
+  ],
+  "desks": [
+    {
+      "type": "paige_tip",
+    "state": "ready",
+    "recordId": "DAILY-2026-08-13-PAIGE-FINISH-LINE-CANDIDATE",
+    "sourceExemplar": {
+      "path": "operations/product-stewards/newsstand/candidates/paige-finish-line-service-exemplar-2026-08-13.json",
+      "sha256": "85a16d5102038cc862a92df78fac2e74ceafd1f7f40866c664cbbe2543aca1a7"
+    },
+      "headline": "Write the finish line before asking for another draft",
+    "summary": "Your AI draft sounds polished, but it still hides the decision or leaves the next step fuzzy. Before asking for “a stronger version,” write three things the finished work must let its reader find or do. For a briefing note: name the decision in the first paragraph; make every figure match the approved source; show the next action, owner and date.\n\nGive those checks and the draft to an AI tool your workplace approves, using only material you are allowed to share. Ask for one revision that meets the three checks. This helps because “better” is an opinion the tool has to guess at; visible results give the revision a target.\n\nThe checks do not prove the facts are right. Compare the new draft with each check yourself, then verify every figure and claim against its approved source. The AI does not get to award itself the trophy.",
+      "destination": null
+    },
+    {
+      "type": "promptoscope",
+    "state": "ready",
+    "recordId": "DAILY-2026-08-14-PROMPTOSCOPE-GROUP-CHAT-CANDIDATE",
+    "sourceExemplar": {
+      "path": "operations/product-stewards/newsstand/candidates/promptoscope-group-chat-shortlist-service-exemplar-2026-08-14.json",
+      "sha256": "d6318ee84d78d0d57b6896480ec0996222ca9a62c54d24df043e90808d4305db"
+    },
+      "headline": "Your group chat has entered its 47-opinions era",
+    "summary": "Tonight’s cosmic event is not Mercury retrograde. It is twelve people discussing dinner without agreeing on a date, budget or neighbourhood.\n\nFirst, get the humans to choose those three constraints. Then open an ordinary private AI chat and give it only the information everyone agreed to share. Ask for three options in the same format: price range, travel time, what each option meets and what it misses. Bring that shortlist back to the group. Do not ask the AI to “pick the best one.”\n\nThis works because a shared comparison makes the trade-offs visible. It does not discover anyone’s unspoken preference, and prices or availability can change. Check the real booking page before the group declares victory.\n\nThe stars favour a shortlist. Democracy by chatbot remains out of scope.",
+      "destination": null
+    },
+    {
+      "type": "career_life",
+    "state": "ready",
+    "recordId": "DAILY-2026-08-13-CAREER-DELIBERATE-DISCOMFORT-CANDIDATE",
+    "sourceExemplar": {
+      "path": "operations/product-stewards/newsstand/candidates/career-deliberate-discomfort-service-exemplar-2026-08-13.json",
+      "sha256": "ff2c4bb18bc254fee687bbc84dc4ce8b9be29134909ffd73f72cf4d1f07a504a"
+    },
+      "headline": "Rehearse the uncomfortable conversation before confidence arrives",
+    "summary": "Waiting until you feel confident can keep a necessary conversation on your calendar for weeks. Dorie Clark’s useful distinction is that people who advance are not necessarily more confident; they may be more willing to choose some uncomfortable moves deliberately, such as difficult conversations or sharing ideas before they feel fully ready.\n\nPick one conversation with a clear purpose. Write the outcome you need and the first sentence you can honestly say. For example: “I want to understand why the deadline moved and agree on what we can still deliver. Could we walk through what changed?” Rehearse it once with a trusted person. This is practice for clarity, not a prediction of how the real person will respond.\n\nThe AI connection: if you have access to a voice-capable AI tool, it can be a low-stakes rehearsal partner. Give it no names or confidential details. Describe the other person’s role, your intended outcome and one likely objection. Ask it to raise one objection at a time, then pause while you answer. Afterward, write the sentence you wish you had said.\n\nThe comparison stops there. AI can create practice turns; it cannot know the person, power dynamics, fairness, safety or consequences. Do not use it as a substitute for human advice in a dangerous, discriminatory or legally sensitive situation. Check your workplace’s rules before using a work account or work information.\n\nTry this today: choose one bounded conversation, write the first line and rehearse one round. Confidence is not the entry ticket; preparation is. The AI is a rehearsal partner, not the office oracle.",
+      "destination": null
+    },
+    {
+      "type": "mme_claio",
+    "state": "ready",
+    "recordId": "DAILY-2026-08-13-MME-PORTABLE-CD-PLAYER-CANDIDATE",
+    "sourceExemplar": {
+      "path": "operations/product-stewards/newsstand/candidates/mme-claio-portable-cd-player-service-exemplar-2026-08-13.json",
+      "sha256": "8b753f196c831d27fdfb84f87643c89d31f2730bd467785f1abcae0d3fce6dbb"
+    },
+      "headline": "Mme CLAi-O’s Reading of the Day",
+      "summary": "The Portable CD Player\n\nYou are running with something delicate and pretending anti-skip protection is optional.\n\nMoving fast with fragile work is fine — but one bump and the music stops.\n\nBuild in one review point before the work goes public.\n\nThis is a fixed authored reflection selected for the dated Daily—not a prediction or personalised reading. It was not generated from anything you told LAiDIES.",
+      "destination": "/games/madame-claio.html"
+    },
+    {"type": "song", "state": "empty", "recordId": null, "emptyState": "No exact release and listening route has cleared today’s request line."},
+    {"type": "did_you_know", "state": "empty", "recordId": null, "emptyState": "No separate fact is printed today; the two reports already carry the evidence that earned space."},
+    {"type": "town_note", "state": "empty", "recordId": null, "emptyState": "No dated SUNNYVAiLE notice is filed in this review copy."},
+    {"type": "curiosity", "state": "empty", "recordId": null, "emptyState": "No additional activity has earned a place beside today’s four complete desks."},
+    {"type": "fiction", "state": "empty", "recordId": null, "emptyState": "No fictional town item is printed in this sourced review edition."}
+  ]
+}

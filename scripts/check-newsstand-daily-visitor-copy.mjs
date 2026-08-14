@@ -35,7 +35,9 @@ export function inspectNewsstandDailyVisitorCopy(source) {
   if (/emptySecondaryDesks\.map\(deskMarkup\)|desks\.map\(deskMarkup\)/.test(source)) {
     errors.push("empty service-desk records are still rendered to visitors");
   }
-  if (!/readySideDesks\.map\(deskMarkup\)/.test(source) || !/readySecondaryDesks\.map\(deskMarkup\)/.test(source)) {
+  const rendersReadySide = /readySideDesks\.map\((?:deskMarkup|function \(desk\) \{ return deskMarkup\(desk, \{ expanded: true \}\); \})\)/.test(source);
+  const rendersReadySecondary = /readySecondaryDesks\.map\(deskMarkup\)/.test(source);
+  if (!rendersReadySide || !rendersReadySecondary) {
     errors.push("admitted service items are not the only desk records rendered");
   }
   return { errors };
