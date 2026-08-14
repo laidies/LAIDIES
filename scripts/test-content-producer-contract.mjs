@@ -17,11 +17,27 @@ try {
   const sourcePath = "evidence/source.md";
   const benchmarkPath = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
   const reasoningBenchmarkPath = "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md";
+  const pipelinePath = "operations/product-stewards/learning-content-ecosystem/PUBLICATION-PIPELINES.json";
+  const workOrdersPath = "operations/product-stewards/learning-content-ecosystem/content-work-orders.json";
+  const editorialMethodPath = "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md";
+  const storyMethodPath = "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE.md";
+  const premisePath = "operations/product-stewards/newsstand/candidates/fixture-premise.md";
   const bad = write(badPath, "A disconnected glossary with decorative comparisons and no useful decision.\n");
   const good = write(goodPath, "One real problem moves through a mechanism, consequence and useful action.\n");
   const source = write(sourcePath, "Authoritative source fixture.\n");
   const benchmark = write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V1 test fixture.\n");
   const reasoningBenchmark = write(reasoningBenchmarkPath, "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1 test fixture.\n");
+  const pipeline = write(pipelinePath, JSON.stringify({ formats: [{ id: "promptoscope" }, { id: "news_daily" }] }));
+  const editorialMethod = write(editorialMethodPath, "Premise-first reporting and usefulness method fixture.\n");
+  const storyMethod = write(storyMethodPath, "Signal to evidence to reader-job route fixture.\n");
+  const premise = write(premisePath, "Reader question, evidence, AIDB disposition and format decision fixture.\n");
+  write(workOrdersPath, JSON.stringify({ workOrders: [{
+    id: "fixture", surface: "NEWSSTAND", publicationFormatIds: ["promptoscope", "news_daily"],
+    formatRouting: [
+      { publicationFormatId: "promptoscope", relationship: "PRIMARY_OUTPUT", contributionJob: "Teach one memorable ordinary-life AI behaviour.", sourceVersionIds: ["fixture-source-v1"] },
+      { publicationFormatId: "news_daily", relationship: "PRIMARY_OUTPUT", contributionJob: "Explain one current development clearly.", sourceVersionIds: ["fixture-source-v1"] }
+    ]
+  }] }));
   const failureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
@@ -128,6 +144,31 @@ try {
   compactCard.contentClass = "NEWS";
   compactCard.predecessorSearch = { searchedRoots: ["operations", "content"], queries: ["reader question", "Promptoscope", "mechanism"], matches: [], outcome: "FIRST", noComparableReason: "No comparable candidate exists." };
   compactCard.surfaceScale = "COMPACT_SERVICE_CARD";
+  compactCard.candidateId = "fixture";
+  compactCard.publicationPlan = {
+    workOrderId: "fixture",
+    formatId: "promptoscope",
+    outputUnit: "SERVICE_COLUMN",
+    relationship: "PRIMARY_OUTPUT",
+    contributionJob: "Teach one memorable ordinary-life AI behaviour.",
+    sourceVersionIds: ["fixture-source-v1"],
+    writingMode: "FORMAT_NATIVE_SERVICE",
+    writingModeReason: "The compact forecast teaches one ordinary-life AI behaviour rather than reporting a dated event.",
+    pipelineRegistry: { path: pipelinePath, sha256: hash(pipeline) },
+    editorialMethod: { path: editorialMethodPath, sha256: hash(editorialMethod) },
+    storyMethod: { path: storyMethodPath, sha256: hash(storyMethod) },
+    premise: { path: premisePath, sha256: hash(premise) },
+    qualification: {
+      readerQuestion: "Why did the AI confidently invent what was in my cupboard?",
+      priorKnowledge: "The reader knows the answer was wrong but not why the model filled the gap.",
+      unresolvedNeed: "She needs one memorable way to spot and correct unsupported inference.",
+      whyNow: "The governed source and exact compact example are current.",
+      uniquePayoff: "One funny scene makes the model behaviour recognizable outside work.",
+      nearestAlternativeFormatId: "paige_ai_tip",
+      whyAlternativeWrong: "Paige is an action-first work column; this is an ordinary-life diagnostic forecast.",
+      aidbDisposition: "NOT_COVERED"
+    }
+  };
   delete compactCard.examplePair;
   delete compactCard.draftArchitecture.transferCase;
   compactCard.draftArchitecture.compactTransferDisposition = "Omit the second context from this compact card; a substantial destination owns transfer.";
@@ -152,6 +193,31 @@ try {
     retiredPredecessorTerms: []
   };
   assert.deepEqual(inspect(compactCard), [], "compact service card must use one complete example without a forced pair");
+  const missingPublicationPlan = structuredClone(compactCard); delete missingPublicationPlan.publicationPlan;
+  assert.match(inspect(missingPublicationPlan).join("\n"), /publicationPlan\.workOrderId/);
+  const mismatchedWorkOrder = structuredClone(compactCard); mismatchedWorkOrder.publicationPlan.contributionJob = "A different job.";
+  assert.match(inspect(mismatchedWorkOrder).join("\n"), /contributionJob does not match/);
+  const sameNearestFormat = structuredClone(compactCard); sameNearestFormat.publicationPlan.qualification.nearestAlternativeFormatId = "promptoscope";
+  assert.match(inspect(sameNearestFormat).join("\n"), /nearest alternative format must differ/);
+  const daily = structuredClone(contract);
+  daily.contentClass = "NEWS";
+  daily.surface = "NEWSSTAND";
+  daily.communicationDesign.mode = "PROPORTIONAL";
+  daily.communicationDesign.explanationArc = { mode: "PROPORTIONAL", retainedMoves: ["human question", "visible mechanism", "evidence boundary", "transfer", "action"], adaptation: "The Daily answers first, makes the mechanism visible and lands on one decision without suspense." };
+  daily.explanationReasoningDesign.mode = "PROPORTIONAL";
+  daily.predecessorSearch = { searchedRoots: ["operations", "content"], queries: ["reader question", "Daily", "mechanism"], matches: [], outcome: "FIRST", noComparableReason: "No comparable candidate exists." };
+  daily.publicationPlan = structuredClone(compactCard.publicationPlan);
+  daily.publicationPlan.formatId = "news_daily";
+  daily.publicationPlan.outputUnit = "STORY_CANDIDATE";
+  daily.publicationPlan.contributionJob = "Explain one current development clearly.";
+  daily.publicationPlan.writingMode = "PLAIN_LANGUAGE_EXPLAINER";
+  daily.publicationPlan.qualification.nearestAlternativeFormatId = "news_breaking";
+  daily.publicationPlan.issueBoundary = "STORY_REVIEW_PRECEDES_SEPARATE_DATED_ISSUE_ASSEMBLY";
+  daily.publicationPlan.issueAssemblyDisposition = "Assemble only after story admission.";
+  daily.publicationPlan.lengthBudget = { minimumWords: 450, maximumWords: 900, reason: "Keep one Daily lead proportionate inside a multi-element paper.", sectionJobs: ["event", "mechanism", "evidence", "transfer", "action"] };
+  assert.deepEqual(inspect(daily), [], "Daily story contract must bind a proportional producer-side word budget");
+  const overlongDailyBudget = structuredClone(daily); overlongDailyBudget.publicationPlan.lengthBudget.maximumWords = 1400;
+  assert.match(inspect(overlongDailyBudget).join("\n"), /maximumWords must be no more than 900/);
   const incompleteCompactCard = structuredClone(compactCard); delete incompleteCompactCard.compactExample.nextAction;
   assert.match(inspect(incompleteCompactCard).join("\n"), /compactExample.nextAction is required/);
   const staleCompactCard = structuredClone(compactCard);
@@ -189,7 +255,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=2 rejected=20 all_negatives=1 stale_registry=1 paired_examples=1 compact_example=1 compact_successor_consistency=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=3 rejected=21 all_negatives=1 stale_registry=1 paired_examples=1 compact_example=1 compact_successor_consistency=1 predecessor_search=1 communication_design=1 explanation_arc=1 combined_reasoning=1 daily_length_budget=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

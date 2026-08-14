@@ -109,7 +109,15 @@ export function checkLearningExecutor({
 
   return {
     errors,
-    mode: errors.length ? "INVALID" : actualActiveId ? "ACTIVE" : "IDLE_HEALTHY",
+    mode: errors.length
+      ? "INVALID"
+      : actualActiveId
+        ? "ACTIVE"
+        : readyToDispatchIds.length
+          ? "READY_TO_DISPATCH"
+          : waitingOnPrerequisiteIds.length
+            ? "WAITING_ON_PREREQUISITE"
+            : "IDLE_HEALTHY",
     activeWorkOrderId: actualActiveId,
     waitingOnPrerequisiteIds,
     readyToDispatchIds,

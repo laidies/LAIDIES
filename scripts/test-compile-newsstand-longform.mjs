@@ -85,12 +85,13 @@ assert.equal(dailyCandidate.candidateStatus, "HELD_NOT_PUBLISHED");
 assert.equal(dailyCandidate.story.edition, "daily");
 assert.equal(dailyCandidate.story.status, "hold");
 assert.equal(dailyCandidate.story.publishedAt, null);
-assert.equal(dailyCompiled.sections.length, 8);
-assert.equal(dailyCompiled.sections.flatMap((section) => section.blocks).length, 27);
+assert.equal(dailyCompiled.sections.length, 6);
+assert.equal(dailyCompiled.sections.flatMap((section) => section.blocks).length, 20);
 assert.deepEqual(dailyCompiled.jumpSectionIds, [
-  "the-file-is-bigger-than-the-chat-window", "the-number-to-circle-is-64",
-  "patched-does-not-mean-nothing-to-learn-here", "where-this-becomes-your-problem",
-  "before-you-hit-share", "the-cocktail-party-version"
+  "the-chat-and-the-work-log-are-not-the-same-file",
+  "what-the-study-found-and-what-it-did-not",
+  "where-this-could-affect-you",
+  "what-to-share-instead"
 ]);
 const dailyDataset = JSON.parse(JSON.stringify(dataContext.window.NEWSSTAND_DATA));
 dailyDataset.stories.push(dailyCandidate.story);

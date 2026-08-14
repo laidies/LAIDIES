@@ -48,7 +48,7 @@ const temporaryPath = statePath + ".tmp-" + process.pid;
 fs.writeFileSync(temporaryPath, JSON.stringify(state, null, 2) + "\n");
 fs.renameSync(temporaryPath, statePath);
 console.log("LEARNING EXECUTOR HEARTBEAT RECORDED");
-console.log("mode=" + (active.length ? "ACTIVE" : "IDLE_HEALTHY"));
+console.log("mode=" + (active.length ? "ACTIVE" : ready.length ? "READY_TO_DISPATCH" : waiting.length ? "WAITING_ON_PREREQUISITE" : "IDLE_HEALTHY"));
 console.log("active_work_order=" + (state.activeWorkOrderId || "none"));
 console.log("ready_to_dispatch=" + (state.readyToDispatchIds.join(",") || "none"));
 console.log("waiting_on_prerequisite=" + (state.waitingOnPrerequisiteIds.join(",") || "none"));

@@ -21,11 +21,16 @@ try {
   const observationPaths = [1, 2, 3].map(index => `evidence/reader-observation-${index}.md`);
   write(badPath, "This glossary repeats labels. A random Cher reference decorates it. No connected mechanism or useful decision appears.\n");
   write(goodPath, "Start with her real work problem. Follow the request through context and evidence. The result is a useful decision she can try elsewhere.\n");
-  const candidateBody = "Your manager asks whether the policy allows a promise. The product places your request and the current policy into context. The model drafts an answer, but the policy remains the evidence. Check the promised date against the policy before sending. Think of Elle Woods bringing the correct case file: the file supports the claim; the confidence does not. This works for a travel rule too: supply the current rule, then verify the consequential detail. The point feels practical, specific and a little fun—not like homework.\n";
+  const candidateUnit = "Your manager asks whether the policy allows a promise. The product places your request and the current policy into context. The model drafts an answer, but the policy remains the evidence. Check the promised date against the policy before sending. Think of Elle Woods bringing the correct case file: the file supports the claim; the confidence does not. This works for a travel rule too: supply the current rule, then verify the consequential detail. The point feels practical, specific and a little fun—not like homework. ";
+  const candidateBody = candidateUnit.repeat(5).trim() + "\n";
   write(candidatePath, candidateBody);
   write(manifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "fixture", surface: "LIBRAIRY", contentClass: "EXPLANATION", reviewText: bind(candidatePath) }));
   const compactManifestPath = "content/compact-manifest.json";
   write(compactManifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "fixture", surface: "LIBRAIRY", contentClass: "NEWS", reviewText: bind(candidatePath) }));
+  const dailyProducerPath = "content/daily-producer.json";
+  write(dailyProducerPath, JSON.stringify({ candidateId: "daily-fixture", publicationPlan: { formatId: "news_daily", outputUnit: "STORY_CANDIDATE", lengthBudget: { minimumWords: 300, maximumWords: 900 } } }));
+  const dailyManifestPath = "content/daily-manifest.json";
+  write(dailyManifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "daily-fixture", surface: "NEWSSTAND", contentClass: "NEWS", reviewText: bind(candidatePath), producerContract: bind(dailyProducerPath) }));
   write(sourcePath, "Current authoritative policy source states that the policy is the evidence for the promise.\n");
   for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained that context supplies material, the policy supports the claim and a human checks the consequential detail.\n`);
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
@@ -106,6 +111,24 @@ try {
   assert.match(inspect(knownBadPass).join("\n"), /exact known-bad prose|does not occur/);
   const held = structuredClone(receipt); held.verdict = "HOLD"; held.outcomes.unseenTransfer.verdict = "HOLD"; held.learningDisposition = { disposition: "EVIDENCE_GAP", rationale: "Observed transfer evidence remains incomplete." };
   assert.deepEqual(inspect(held), [], "truthful HOLD must preserve incomplete learning");
+  const heldWithoutHuman = structuredClone(receipt);
+  heldWithoutHuman.verdict = "HOLD";
+  heldWithoutHuman.learningDisposition = { disposition: "EVIDENCE_GAP", rationale: "Real unfamiliar-reader observations have not yet been collected." };
+  for (const name of ["explainBack", "unseenTransfer"]) {
+    heldWithoutHuman.outcomes[name].verdict = "HOLD";
+    delete heldWithoutHuman.outcomes[name].observedReaderEvidence;
+    heldWithoutHuman.outcomes[name].evidenceGap = {
+      evidenceType: "OBSERVED_HUMAN_REQUIRED",
+      missingEvidence: `One unfamiliar reader ${name} observation bound to the exact candidate.`,
+      whyUnavailable: "No real participant observation has been collected.",
+      exactUnblock: "Collect and bind one real participant response, then rerun independent review."
+    };
+  }
+  assert.deepEqual(inspect(heldWithoutHuman), [], "truthful HOLD must be representable without inventing human observations");
+  const fakePassFromGap = structuredClone(heldWithoutHuman); fakePassFromGap.verdict = "PASS"; fakePassFromGap.learningDisposition = { disposition: "NO_NEW_DEFECT", rationale: "Invalid fixture." };
+  assert.match(inspect(fakePassFromGap).join("\n"), /observedReaderEvidence/);
+  const incompleteGap = structuredClone(heldWithoutHuman); delete incompleteGap.outcomes.explainBack.evidenceGap.exactUnblock;
+  assert.match(inspect(incompleteGap).join("\n"), /evidenceGap\.exactUnblock/);
   const wrongManifest = structuredClone(receipt); wrongManifest.artifact.reviewText = bind(goodPath);
   assert.match(inspect(wrongManifest).join("\n"), /manifest is not bound to the reviewed prose/);
   const staleRegistry = structuredClone(receipt); staleRegistry.calibration.registrySha256 = "0".repeat(64);
@@ -136,6 +159,19 @@ try {
   compactProducer.compactExamplePolicy = { policyId: "LAIDIES_ONE_COMPLETE_EXAMPLE_V1", completeAction: true, transferDisposition: "A substantial destination owns transfer." };
   for (const name of ["datedChange", "consequenceAndUncertainty", "compactExample"]) compactProducer.outcomes[name] = { verdict: "PASS", observation: `${name} is demonstrated in the one complete example.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }] };
   assert.deepEqual(inspect(compactProducer), [], "compact service review must use one complete example without forced paired transfer");
+  const dailyProducer = structuredClone(producer);
+  dailyProducer.candidateId = "daily-fixture";
+  dailyProducer.contentClass = "NEWS";
+  dailyProducer.surface = "NEWSSTAND";
+  dailyProducer.artifact.manifest = bind(dailyManifestPath);
+  for (const name of ["datedChange", "consequenceAndUncertainty"]) dailyProducer.outcomes[name] = { verdict: "PASS", observation: `${name} is demonstrated in the exact Daily prose.`, artifactEvidence: [{ excerpt, locator: "candidate.md:1" }] };
+  assert.deepEqual(inspect(dailyProducer), [], "Daily story review must accept exact prose inside its producer-bound word budget");
+  const overlongDailyContract = JSON.parse(fs.readFileSync(path.join(root, dailyProducerPath), "utf8"));
+  overlongDailyContract.publicationPlan.lengthBudget.maximumWords = 350;
+  write("content/daily-producer-overlong.json", JSON.stringify(overlongDailyContract));
+  write("content/daily-manifest-overlong.json", JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "daily-fixture", surface: "NEWSSTAND", contentClass: "NEWS", reviewText: bind(candidatePath), producerContract: bind("content/daily-producer-overlong.json") }));
+  const overlongDaily = structuredClone(dailyProducer); overlongDaily.artifact.manifest = bind("content/daily-manifest-overlong.json");
+  assert.match(inspect(overlongDaily).join("\n"), /exceeds its producer-bound maximum/);
   const incompleteCompactReview = structuredClone(compactProducer); delete incompleteCompactReview.outcomes.compactExample;
   assert.match(inspect(incompleteCompactReview).join("\n"), /compactExample is missing/);
   assert.deepEqual(inspectProseReviewChain(producer, receipt, { root }).errors, [], "ordered cross-family chain must match");
@@ -166,7 +202,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=3 hold=1 rejected=26 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 paired_examples=1 compact_example=1 learning_disposition=1 communication_benchmark=1 combined_reasoning_review=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=4 hold=1 rejected=27 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 paired_examples=1 compact_example=1 daily_length_budget=1 learning_disposition=1 communication_benchmark=1 combined_reasoning_review=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

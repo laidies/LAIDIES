@@ -366,8 +366,15 @@ console.log(`owner_entry_gaps=${JSON.stringify(ownerEntryGapCounts)}`);
 console.log(`content_work_orders=${contentWorkOrders.workOrders}`);
 console.log(`content_records_covered=${contentWorkOrders.coveredRecords}`);
 console.log(`content_ready_to_dispatch=${contentWorkOrders.readyToDispatch.join(",") || "none"}`);
-const deliveryAttention = queue.active.length === 0 && contentWorkOrders.readyToDispatch.length > 0;
-console.log(`autonomous_delivery=${deliveryAttention ? 'ATTENTION_REQUIRED' : 'ACTIVE_OR_NO_READY_WORK'}${deliveryAttention ? ` active=0 ready_to_dispatch=${contentWorkOrders.readyToDispatch.length}` : ''}`);
+console.log(`content_waiting_on_prerequisite=${contentWorkOrders.waitingOnPrerequisite.join(",") || "none"}`);
+const deliveryMode = contentWorkOrders.activeDispatches.length
+  ? "ACTIVE"
+  : contentWorkOrders.readyToDispatch.length
+    ? "ATTENTION_REQUIRED"
+    : contentWorkOrders.waitingOnPrerequisite.length
+      ? "WAITING_ON_PREREQUISITE"
+      : "IDLE_HEALTHY";
+console.log(`autonomous_delivery=${deliveryMode}`);
 console.log(`content_release_ready=${contentReleaseReadiness.ready.join(",") || "none"}`);
 console.log(`content_release_held=${contentReleaseReadiness.held.length}`);
 console.log(`daily_learning_derivatives=${dailyDerivatives.records || 0}`);

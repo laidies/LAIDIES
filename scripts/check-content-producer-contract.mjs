@@ -9,6 +9,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const COMMUNICATION_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
 const EXPLANATION_REASONING_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md";
+const PUBLICATION_PIPELINES = "operations/product-stewards/learning-content-ecosystem/PUBLICATION-PIPELINES.json";
+const EDITORIAL_PRODUCTION_METHOD = "operations/product-stewards/newsstand/EDITORIAL-PRODUCTION-METHOD-V2.md";
+const NEWSSTAND_STORY_METHOD = "operations/product-stewards/newsstand/NEWSSTAND-STORY-TEMPLATE.md";
 const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
@@ -72,6 +75,62 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       const selectedMatch = (search?.matches || []).some(match => match?.disposition === "CURRENT_PREDECESSOR" && match?.artifact?.path === search?.selectedPredecessor?.path && match?.artifact?.sha256 === search?.selectedPredecessor?.sha256);
       require(selectedMatch, "NEWS SUCCESSOR selectedPredecessor must match one CURRENT_PREDECESSOR artifact");
       require(text(search?.preserveAndImprove), "NEWS SUCCESSOR predecessorSearch.preserveAndImprove is required");
+    }
+
+    const plan = contract?.publicationPlan;
+    require(text(plan?.workOrderId), "NEWS publicationPlan.workOrderId is required");
+    require(contract?.candidateId === plan?.workOrderId, "NEWS candidateId must equal publicationPlan.workOrderId");
+    require(text(plan?.formatId), "NEWS publicationPlan.formatId is required");
+    require(["PRIMARY_OUTPUT", "CONTRIBUTING_EVIDENCE", "FOLLOW_UP_NEW_STORY", "UPDATE_LIVING_REFERENCE", "RELATED_READING"].includes(plan?.relationship), "NEWS publicationPlan.relationship is invalid");
+    require(text(plan?.contributionJob), "NEWS publicationPlan.contributionJob is required");
+    require(array(plan?.sourceVersionIds), "NEWS publicationPlan.sourceVersionIds is required");
+    require(["STORY_CANDIDATE", "DATED_ISSUE", "LONGFORM_FEATURE", "LIVING_REFERENCE", "SERVICE_COLUMN"].includes(plan?.outputUnit), "NEWS publicationPlan.outputUnit is invalid");
+    require(["HEADLINE_REALITY_CHECK", "PLAIN_LANGUAGE_EXPLAINER", "FORMAT_NATIVE_SERVICE"].includes(plan?.writingMode), "NEWS publicationPlan.writingMode is invalid");
+    require(text(plan?.writingModeReason), "NEWS publicationPlan.writingModeReason is required");
+    require(plan?.pipelineRegistry?.path === PUBLICATION_PIPELINES, `NEWS publicationPlan.pipelineRegistry.path must be ${PUBLICATION_PIPELINES}`);
+    boundFile(root, plan?.pipelineRegistry, "NEWS publicationPlan.pipelineRegistry", errors);
+    require(plan?.editorialMethod?.path === EDITORIAL_PRODUCTION_METHOD, `NEWS publicationPlan.editorialMethod.path must be ${EDITORIAL_PRODUCTION_METHOD}`);
+    boundFile(root, plan?.editorialMethod, "NEWS publicationPlan.editorialMethod", errors);
+    require(plan?.storyMethod?.path === NEWSSTAND_STORY_METHOD, `NEWS publicationPlan.storyMethod.path must be ${NEWSSTAND_STORY_METHOD}`);
+    boundFile(root, plan?.storyMethod, "NEWS publicationPlan.storyMethod", errors);
+    boundFile(root, plan?.premise, "NEWS publicationPlan.premise", errors);
+    const qualification = plan?.qualification;
+    for (const field of ["readerQuestion", "priorKnowledge", "unresolvedNeed", "whyNow", "uniquePayoff", "nearestAlternativeFormatId", "whyAlternativeWrong", "aidbDisposition"]) {
+      require(text(qualification?.[field]), `NEWS publicationPlan.qualification.${field} is required`);
+    }
+    require(qualification?.nearestAlternativeFormatId !== plan?.formatId, "NEWS nearest alternative format must differ from the selected format");
+    require(["COMPARED", "DATED_ABSENCE", "NOT_COVERED", "UNAVAILABLE"].includes(qualification?.aidbDisposition), "NEWS publicationPlan.qualification.aidbDisposition is invalid");
+
+    let pipelines;
+    let workOrders;
+    try { pipelines = JSON.parse(fs.readFileSync(path.join(root, PUBLICATION_PIPELINES), "utf8")); }
+    catch (error) { errors.push(`NEWS publication pipeline registry unavailable: ${error.message}`); }
+    try { workOrders = JSON.parse(fs.readFileSync(path.join(root, "operations/product-stewards/learning-content-ecosystem/content-work-orders.json"), "utf8")); }
+    catch (error) { errors.push(`NEWS work-order queue unavailable: ${error.message}`); }
+    const format = (pipelines?.formats || []).find(item => item.id === plan?.formatId);
+    require(Boolean(format), `NEWS publicationPlan.formatId is not registered: ${plan?.formatId || "missing"}`);
+    const workOrder = (workOrders?.workOrders || []).find(item => item.id === plan?.workOrderId);
+    require(Boolean(workOrder), `NEWS publicationPlan.workOrderId is not registered: ${plan?.workOrderId || "missing"}`);
+    if (workOrder) {
+      require(workOrder.surface === "NEWSSTAND", "NEWS publicationPlan work order must target NEWSSTAND");
+      require((workOrder.publicationFormatIds || []).includes(plan?.formatId), "NEWS publicationPlan format is not declared by its work order");
+      const route = (workOrder.formatRouting || []).find(item => item.publicationFormatId === plan?.formatId && item.relationship === plan?.relationship);
+      require(Boolean(route), "NEWS publicationPlan does not match a work-order format route");
+      if (route) {
+        require(route.contributionJob === plan?.contributionJob, "NEWS publicationPlan contributionJob does not match its work order");
+        require(JSON.stringify(route.sourceVersionIds) === JSON.stringify(plan?.sourceVersionIds), "NEWS publicationPlan sourceVersionIds do not match its work order");
+      }
+    }
+    if (plan?.formatId === "news_daily" && plan?.outputUnit === "STORY_CANDIDATE") {
+      require(plan?.issueBoundary === "STORY_REVIEW_PRECEDES_SEPARATE_DATED_ISSUE_ASSEMBLY", "NEWS Daily story must preserve the separate dated-issue boundary");
+      require(text(plan?.issueAssemblyDisposition), "NEWS Daily story requires issueAssemblyDisposition");
+      const budget = plan?.lengthBudget;
+      require(Number.isInteger(budget?.minimumWords) && budget.minimumWords >= 300, "NEWS Daily story lengthBudget.minimumWords must be at least 300");
+      require(Number.isInteger(budget?.maximumWords) && budget.maximumWords <= 900, "NEWS Daily story lengthBudget.maximumWords must be no more than 900");
+      require(Number.isInteger(budget?.minimumWords) && Number.isInteger(budget?.maximumWords) && budget.minimumWords < budget.maximumWords, "NEWS Daily story length budget must have a valid range");
+      require(text(budget?.reason), "NEWS Daily story lengthBudget.reason is required");
+      require(Array.isArray(budget?.sectionJobs) && budget.sectionJobs.length >= 5, "NEWS Daily story lengthBudget.sectionJobs must name at least five unique jobs");
+      require(new Set(budget?.sectionJobs || []).size === (budget?.sectionJobs || []).length, "NEWS Daily story lengthBudget.sectionJobs must be unique");
     }
   }
 

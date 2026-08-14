@@ -4213,11 +4213,11 @@
         "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json",
         "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-story-record-candidate.json"
       ],
-      "status": "BLOCKED_BUILD_REMAINS_REQUIRED",
+      "status": "EDITORIAL_REVIEW",
       "dispatchState": "NOT_READY",
       "priority": "P0",
-      "nextAction": "Do not draft another article. Reconcile the existing NEWSSTAND-DAILY-AI-WORK-LOGS-20260812 contract and manifest to LCWO-024, then obtain real unfamiliar-reader explain-back and unseen-transfer observations before an independent semantic verdict. Preserve the exact current prose as the predecessor and repair only defects the observations expose.",
-      "nextTrigger": "A role-distinct owner can bind the existing candidate to this work order and collect the required real unfamiliar-reader observations. The current producer-only PASS and local render are not publication authority.",
+      "nextAction": "The existing candidate, producer contract, manifest, producer review and held story record are now bound to LCWO-024. Do not redraft it. Collect one real unfamiliar-reader explain-back observation and one genuinely different unseen-transfer observation against the exact prose, then request a role-distinct independent semantic verdict. Repair only defects those observations or the independent review expose.",
+      "nextTrigger": "One real unfamiliar reader completes the two exact candidate-bound probes. The validator now permits a truthful HOLD while that evidence is missing but still forbids PASS without the observations.",
       "acceptanceEvidence": [
         "Exact primary-paper and current provider-documentation claim map",
         "The opening distinguishes public technical work logs from ordinary private consumer chats",
@@ -4228,7 +4228,7 @@
         "Exact Daily issue integration, deployment and public URL verification"
       ],
       "reviewChain": [
-        {"stage": "BUILD", "owner": "newsstand-daily", "status": "PASS_LOCAL_PREDECESSOR_ONLY"},
+        {"stage": "BUILD", "owner": "newsstand-daily", "status": "PASS_BOUND_TO_LCWO_024"},
         {"stage": "ACCURACY", "owner": "ai-research-accuracy", "status": "REQUIRED"},
         {"stage": "EDITORIAL", "owner": "independent-editorial-review", "status": "REQUIRED"},
         {"stage": "LEARNING", "owner": "learning-content-ecosystem", "status": "WAITING_ON_OBSERVED_HUMAN"},
@@ -4251,15 +4251,18 @@
         "songOpportunity": {"owner": "ksvl-radio", "status": "REQUIRED", "evidenceRequired": "No song is created unless a distinct mnemonic job is separately proved.", "evidencePaths": []},
         "derivativeFeeds": {"owner": "newsstand-daily", "status": "REQUIRED", "evidenceRequired": "No social, newsletter, Weekly or reference derivative inherits this candidate's state.", "evidencePaths": []}
       },
-      "artifactBinding": {"status": "UNBOUND", "manifestPath": null, "sha256": null},
-      "producerContractPath": null,
-      "producerReviewPath": null,
+      "artifactBinding": {"status": "BOUND", "manifestPath": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-manifest.json", "sha256": "3e57d0b2ffccd705f668f098a8974d7b71fcbb4189faa48c973f9336d7b9adf9"},
+      "producerContractPath": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-contract.json",
+      "producerReviewPath": "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json",
       "semanticAdmissionPath": null,
       "evidencePaths": [
         "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-12-reasoning-trace-leakage.json",
         "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-source-map-2026-08-12.md",
         "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-exact-prose.md",
-        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json"
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-manifest.json",
+        "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-2026-08-12-producer-self-review.json",
+        "operations/product-stewards/newsstand/evidence-ai-work-logs-daily-render-v1-2026-08-12/INVALIDATED-VISUAL-PASS-2026-08-14.md"
       ],
       "publicRelease": {"status": "NOT_AUTHORIZED", "url": null, "releaseReceipt": null, "sha256": null},
       "execution": {

@@ -20,19 +20,39 @@ const images = imagePaths.map((candidate, index) => {
   return { path: path.relative(ROOT, absolute), absolute, sha256: sha256(fs.readFileSync(absolute)) };
 });
 const model = value("--model") || "sonnet";
+const incumbentPaths = values("--incumbent-image");
+if (incumbentPaths.length !== 3) fail("exactly three --incumbent-image paths are required for same-viewport comparison");
+const incumbentImages = incumbentPaths.map((candidate, index) => {
+  const absolute = path.resolve(ROOT, candidate);
+  if (!absolute.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) fail(`incumbent image ${index + 1} is not a readable repository file: ${candidate}`);
+  return { path: path.relative(ROOT, absolute), absolute, sha256: sha256(fs.readFileSync(absolute)) };
+});
+const governingPaths = values("--governing-source");
+if (governingPaths.length < 3) fail("at least three --governing-source paths are required: current decisions, original brief and page architecture");
+const governingSources = governingPaths.map((candidate, index) => {
+  const absolute = path.resolve(ROOT, candidate);
+  if (!absolute.startsWith(`${ROOT}${path.sep}`) || !fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) fail(`governing source ${index + 1} is not a readable repository file: ${candidate}`);
+  return { path: path.relative(ROOT, absolute), absolute, sha256: sha256(fs.readFileSync(absolute)) };
+});
 
 const schema = {
   type: "object",
   additionalProperties: false,
-  required: ["verdict", "summary", "imageInspections", "visibleRegressions", "requirementFindings"],
+  required: ["verdict", "summary", "imageInspections", "incumbentComparisons", "visibleRegressions", "lockedDecisionViolations", "requirementFindings"],
   properties: {
     verdict: { type: "string", enum: ["PASS", "HOLD", "REJECT"] },
     summary: { type: "string" },
     imageInspections: { type: "array", minItems: 3, maxItems: 3, items: { type: "object", additionalProperties: false, required: ["path", "observedText", "hierarchy", "legibility", "overflowOrClipping"], properties: {
       path: { type: "string" }, observedText: { type: "string" }, hierarchy: { type: "string" }, legibility: { type: "string" }, overflowOrClipping: { type: "string" }
     } } },
+    incumbentComparisons: { type: "array", minItems: 3, maxItems: 3, items: { type: "object", additionalProperties: false, required: ["candidatePath", "incumbentPath", "viewport", "candidateNotWorse", "evidence"], properties: {
+      candidatePath: { type: "string" }, incumbentPath: { type: "string" }, viewport: { type: "string" }, candidateNotWorse: { type: "boolean" }, evidence: { type: "string" }
+    } } },
     visibleRegressions: { type: "array", items: { type: "object", additionalProperties: false, required: ["path", "locator", "problem", "repair"], properties: {
       path: { type: "string" }, locator: { type: "string" }, problem: { type: "string" }, repair: { type: "string" }
+    } } },
+    lockedDecisionViolations: { type: "array", items: { type: "object", additionalProperties: false, required: ["sourcePath", "decision", "visibleConflict", "repair"], properties: {
+      sourcePath: { type: "string" }, decision: { type: "string" }, visibleConflict: { type: "string" }, repair: { type: "string" }
     } } },
     requirementFindings: { type: "array", items: { type: "object", additionalProperties: false, required: ["requirement", "verdict", "evidence"], properties: {
       requirement: { type: "string" }, verdict: { type: "string", enum: ["PASS", "FAIL"] }, evidence: { type: "string" }
@@ -41,28 +61,40 @@ const schema = {
 };
 
 const imageList = images.map((image, index) => `${index + 1}. ${image.absolute} (repository path ${image.path}; sha256 ${image.sha256})`).join("\n");
+const incumbentList = incumbentImages.map((image, index) => `${index + 1}. ${image.absolute} (repository path ${image.path}; sha256 ${image.sha256})`).join("\n");
+const governingList = governingSources.map((source, index) => `${index + 1}. ${source.absolute} (repository path ${source.path}; sha256 ${source.sha256})`).join("\n");
 const prompt = `You are the role-distinct independent visual judge for one LAiDIES NewsStand article reader.
 
-Use the Read tool to inspect all three exact PNG files listed below before judging. Begin from the pixels, not from filenames. Do not inspect repository prose, maker receipts, tests, code, prior judgments or implementation notes.
+Use the Read tool to inspect all three exact candidate PNG files first. Begin from their pixels, not filenames or maker claims. Then inspect the three same-viewport incumbent images and every governing source. Do not inspect maker receipts, tests, implementation notes or prior judgments.
 
-The binding visual requirements are narrow:
+The binding visual requirements are non-compensable:
 - the experience must visibly read as a lively newspaper inside the LAiDIES world, not a generic white card page;
 - masthead, date, article headline and explanatory deck must form an obvious reading order;
 - the full headline must be legible without clipping or horizontal overflow at desktop, 390px mobile and 320px mobile;
 - the article may be dense like a newspaper, but must not become a full-screen poster or make the deck impossible to reach;
 - colour, borders and typography must preserve legibility.
+- the candidate must not visibly regress from the same-viewport incumbent;
+- it must follow the current locked Daily-first complete-newspaper direction and every applicable governing-source decision, including the story-versus-complete-issue distinction.
 
-Return PASS only if all three exact images satisfy every requirement. Record visible regressions first. For each image, report at least one exact phrase you can actually read from the pixels in observedText; a filename or supplied requirement does not count as observation.
+Return PASS only if all three exact images satisfy every requirement, are not worse than the incumbents and have zero locked-decision violations. Record visible regressions and locked-decision violations before strengths. For each image, report at least one exact phrase you can actually read from the pixels in observedText; a filename or supplied requirement does not count as observation. A technically readable page cannot pass around a wrong product model, missing complete-paper hierarchy, generic visual treatment or rejected navigation grammar.
 
-EXACT IMAGES
-${imageList}`;
+EXACT CANDIDATE IMAGES
+${imageList}
+
+SAME-VIEWPORT INCUMBENT IMAGES
+${incumbentList}
+
+CURRENT GOVERNING SOURCES
+${governingList}`;
 
 const invocation = {
   schemaVersion: "laidies-independent-visual-judge-invocation.v1",
   modelFamily: "claude",
   model,
   images: images.map(({ path: imagePath, sha256: imageSha }) => ({ path: imagePath, sha256: imageSha })),
-  excludedContext: ["implementation", "maker receipts", "tests", "prose source", "prior judgments", "repository instructions"],
+  incumbentImages: incumbentImages.map(({ path: imagePath, sha256: imageSha }) => ({ path: imagePath, sha256: imageSha })),
+  governingSources: governingSources.map(({ path: sourcePath, sha256: sourceSha }) => ({ path: sourcePath, sha256: sourceSha })),
+  excludedContext: ["implementation", "maker receipts", "tests", "prior judgments"],
   promptSha256: sha256(prompt)
 };
 
@@ -88,6 +120,9 @@ let envelope;
 try { envelope = JSON.parse(result.stdout); } catch { fail("Claude did not return JSON"); }
 const judgment = envelope.structured_output;
 if (!judgment || !["PASS", "HOLD", "REJECT"].includes(judgment.verdict)) fail("Claude response did not contain a valid structured judgment");
+if (judgment.verdict === "PASS" && ((judgment.visibleRegressions || []).length || (judgment.lockedDecisionViolations || []).length || (judgment.incumbentComparisons || []).some(item => item.candidateNotWorse !== true))) {
+  fail("PASS is inconsistent with visible regressions, locked-decision violations or a worse incumbent comparison");
+}
 const inspected = new Set(judgment.imageInspections.flatMap(item => [item.path, path.basename(item.path)]));
 for (const image of images) {
   if (!inspected.has(image.path) && !inspected.has(image.absolute) && !inspected.has(path.basename(image.path))) fail(`judgment omitted exact image ${image.path}`);

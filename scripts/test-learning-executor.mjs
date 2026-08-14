@@ -39,6 +39,14 @@ function reset() {
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.writeFileSync(destination, "fixture\n");
   }
+  for (const intake of sourceQueue.intakeCoverage || []) {
+    if (!intake.sourceReconciliationPath) continue;
+    const source = path.join(sourceRoot, intake.sourceReconciliationPath);
+    if (!fs.existsSync(source)) continue;
+    const destination = path.join(temporaryRoot, intake.sourceReconciliationPath);
+    fs.mkdirSync(path.dirname(destination), { recursive: true });
+    fs.copyFileSync(source, destination);
+  }
   writeAutomation();
   return state;
 }
@@ -46,7 +54,7 @@ function reset() {
 reset();
 let result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
 assert.equal(result.errors.length, 0);
-assert.equal(result.mode, "IDLE_HEALTHY");
+assert.equal(result.mode, "WAITING_ON_PREREQUISITE");
 assert.deepEqual(result.waitingOnPrerequisiteIds, sourceState.waitingOnPrerequisiteIds || []);
 
 let state = reset();
@@ -91,6 +99,19 @@ writeJson(stateRelative, state);
 result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
 assert(result.errors.some((error) => error.includes("waitingOnPrerequisiteIds does not match")));
 
+state = reset();
+const readyQueue = structuredClone(sourceQueue);
+const readyOrder = readyQueue.workOrders.find((candidate) => candidate.id === "LCWO-024");
+readyOrder.dispatchState = "READY_TO_DISPATCH";
+readyOrder.execution.state = "BACKLOG";
+state.waitingOnPrerequisiteIds = state.waitingOnPrerequisiteIds.filter((id) => id !== "LCWO-024");
+state.readyToDispatchIds = ["LCWO-024"];
+writeJson(queueRelative, readyQueue);
+writeJson(stateRelative, state);
+result = checkLearningExecutor({ root: temporaryRoot, automationRoot, now });
+assert.equal(result.errors.length, 0);
+assert.equal(result.mode, "READY_TO_DISPATCH");
+
 fs.rmSync(temporaryRoot, { recursive: true, force: true });
 console.log("LEARNING EXECUTOR TEST PASS");
-console.log("calibration=stale-heartbeat,paused-automation,dead-lane,unreconciled-source-intake,hidden-prerequisite rejected");
+console.log("calibration=stale-heartbeat,paused-automation,dead-lane,unreconciled-source-intake,hidden-prerequisite rejected; waiting and ready modes distinguished");

@@ -238,6 +238,7 @@ export function checkContentWorkOrders({ root = process.cwd(), now = new Date() 
     coveredRecords: coverage.size,
     readyToDispatch: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH").map((order) => order.id),
     activeDispatches: active.map((order) => order.id),
+    waitingOnPrerequisite: [...orders.values()].filter((order) => order.execution?.state === "WAITING_ON_PREREQUISITE").map((order) => order.id),
     reconciliationRequired: [...orders.values()].filter((order) => order.execution?.state === "RECONCILIATION_REQUIRED").map((order) => order.id),
     queuedWithTrigger: [...orders.values()].filter((order) => order.status === "QUEUED_WITH_TRIGGER").map((order) => order.id)
   };
@@ -256,6 +257,7 @@ if (direct) {
   console.log(`covered_records=${result.coveredRecords}`);
   console.log(`ready_to_dispatch=${result.readyToDispatch.join(",") || "none"}`);
   console.log(`active_dispatches=${result.activeDispatches.join(",") || "none"}`);
+  console.log(`waiting_on_prerequisite=${result.waitingOnPrerequisite.join(",") || "none"}`);
   console.log(`reconciliation_required=${result.reconciliationRequired.join(",") || "none"}`);
   console.log(`queued_with_trigger=${result.queuedWithTrigger.join(",") || "none"}`);
 }
