@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "laidies-source-reconciliation.v1",
+  "receiptId": "SRC-AIDB-20260814-COMPUTER-HISTORY-MEMORY-PRIVACY",
+  "createdAt": "2026-08-14T09:33:50-07:00",
+  "signals": [
+    {
+      "signalId": "SIG-AIDB-2026-08-14-COMPUTER-HISTORY-MEMORY-PRIVACY",
+      "sourceSystem": "AIDB_INTELLIGENCE_DESK_REMOTE_HANDOFF",
+      "sourceUrl": "https://github.com/laidies/LAIDIES/blob/168f06e85a81ad7b4af93ff4439734852bb46d32/operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-14-chatgpt-computer-history-memory-privacy.md",
+      "sourcePublishedAt": "2026-08-13T00:00:00Z",
+      "observedAt": "2026-08-14T08:41:56-07:00",
+      "finalRecheckAt": "2026-08-14T09:33:30-07:00",
+      "disposedAt": "2026-08-14T09:33:50-07:00",
+      "sourceLinksState": "PROVIDED",
+      "materialClaims": [
+        {
+          "claimId": "OPENAI-COMPUTER-HISTORY-SURFACE-AND-CONTROLS-20260813",
+          "claim": "OpenAI documents Computer History as an opt-in ChatGPT desktop app feature on macOS that can turn selected app and website activity into memories and a timeline usable by ChatGPT and Codex, with source selection, pause, review and deletion controls.",
+          "namedReferences": [
+            "OpenAI ChatGPT and Codex changelog",
+            "Computer History",
+            "ChatGPT desktop app"
+          ],
+          "aliasesChecked": [
+            "Computer History",
+            "chat history",
+            "saved memory",
+            "current context"
+          ],
+          "disposition": "ROUTED",
+          "dispositionReason": "The official current changelog confirms a material implementation example for the existing Setup 101 memory/context distinction. The signal updates that maintained treatment; it does not earn a separate NewsStand story or authorize enabling the feature.",
+          "searches": [
+            {
+              "track": "official_or_primary",
+              "query": "OpenAI ChatGPT Codex changelog Computer History 2026-08-13",
+              "checkedAt": "2026-08-14T09:33:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://learn.chatgpt.com/docs/changelog",
+                  "publisher": "OpenAI",
+                  "publishedAt": "2026-08-13T00:00:00Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "claimId": "OPENAI-COMPUTER-HISTORY-AVAILABILITY-BOUNDARY-20260813",
+          "claim": "OpenAI documents initial availability for ChatGPT Pro, Business and Enterprise, requires Business and Enterprise administrator enablement, and excludes the EEA, Switzerland and the United Kingdom at launch.",
+          "namedReferences": [
+            "OpenAI ChatGPT and Codex changelog",
+            "ChatGPT Pro",
+            "ChatGPT Business",
+            "ChatGPT Enterprise"
+          ],
+          "aliasesChecked": [
+            "plan availability",
+            "regional availability",
+            "administrator enablement"
+          ],
+          "disposition": "ROUTED",
+          "dispositionReason": "Any Setup 101 note must remain dated and bind the exact plan, region, surface and administrator boundaries. The evidence does not establish universal availability, a retention duration, training use, administrator visibility or safety for confidential material.",
+          "searches": [
+            {
+              "track": "official_or_primary",
+              "query": "OpenAI Computer History Pro Business Enterprise EEA Switzerland United Kingdom",
+              "checkedAt": "2026-08-14T09:33:30-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://learn.chatgpt.com/docs/changelog",
+                  "publisher": "OpenAI",
+                  "publishedAt": "2026-08-13T00:00:00Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "routing": {
+    "disposition": "WORK_ORDER_CREATED",
+    "workOrderId": "LCWO-025",
+    "publicationFormatId": "library_setup_101_current_note",
+    "releaseState": "HOLD",
+    "reason": "The signal changes an existing maintained product example rather than creating a new topic. LCWO-025 owns one dated Setup 101 note and its privacy/freshness boundary; the held Library route and owner admission remain prerequisites."
+  },
+  "publicAuthority": "NONE"
+}

@@ -2,7 +2,7 @@
   "schemaVersion": "1.2.0",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE",
-  "updatedAt": "2026-08-13",
+  "updatedAt": "2026-08-14",
   "orchestration": {
     "rule": "Every accepted learning/content intake is represented once; one selected primary output may execute per owner while other work remains explicit backlog.",
     "dispatch": "READY_TO_DISPATCH means eligible for an owner dispatch and does not require a producer contract. DISPATCHED requires a checksumable receipt, lane, scope, collision boundary, checkpoint and SLA.",
@@ -195,6 +195,16 @@
       ],
       "checkedAt": "2026-08-13",
       "reason": "The cross-lab premise and claim map already produced the distinct STRAiGHT TALK and Weekly work orders. Recording reuse closes the intake gap without creating a duplicate article."
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-computer-history-memory-privacy.json",
+      "disposition": "WORK_ORDERS_CREATED",
+      "workOrderIds": [
+        "LCWO-025"
+      ],
+      "sourceReconciliationPath": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-computer-history-memory-privacy.json",
+      "checkedAt": "2026-08-14",
+      "reason": "AIDB's August 14 owner handoff and a same-cycle official OpenAI recheck establish Computer History as a dated implementation example for the existing Setup 101 memory/context distinction. LCWO-025 owns one bounded current note; no NewsStand story, feature enablement or public change was created."
     }
   ],
   "workOrders": [
@@ -4283,6 +4293,85 @@
         "derivatives": [
           {"id": "weeklyPattern", "state": "PARKED", "reason": "One paper does not yet establish a distinct weekly pattern.", "activationTrigger": "At least one later dated development creates a sourced cross-story pattern."},
           {"id": "referenceContinuation", "state": "PARKED", "reason": "The Daily's practical sharing rule is sufficient for this reader job.", "activationTrigger": "A durable reference need appears that cannot be answered by the admitted Daily."}
+        ],
+        "wip": {"ownerLimit": 1},
+        "dispatch": null,
+        "closure": null
+      }
+    },
+    {
+      "id": "LCWO-025",
+      "title": "Add a dated Computer History boundary note to Setup 101",
+      "sourceRefs": [
+        "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-computer-history-memory-privacy.json",
+        "https://learn.chatgpt.com/docs/changelog"
+      ],
+      "surface": "LIBRAIRY",
+      "action": "UPDATE_EXISTING",
+      "ownerProductId": "library-101",
+      "targetPaths": [
+        "content/library-books/setup-101.source.json",
+        "content/library-books/setup-101.claims.json",
+        "content/library-books/rendered/setup-101.html"
+      ],
+      "status": "BLOCKED_BUILD_REMAINS_REQUIRED",
+      "dispatchState": "NOT_READY",
+      "priority": "P1",
+      "nextAction": "Library owner rules the exact placement of one dated ChatGPT-specific current note inside Setup 101, then binds a prevention-first producer contract that preserves the distinction among Computer History, current context, saved memory, chat history, standing instructions, project files and model training. Do not enable the feature or rewrite the durable chapter around one provider feature.",
+      "nextTrigger": "Library owner accepts the bounded note placement and the current Setup 101 source/render paths are available in an isolated content lane despite the separately rejected Library page visual.",
+      "acceptanceEvidence": [
+        "Current official OpenAI source bound to exact surface, plans, regions and administrator boundary",
+        "Direct answer distinguishes Computer History from chat history, saved memory, current context, standing instructions, project files and model training",
+        "Unknown retention, training use, administrator visibility and confidential-data safety remain explicitly unknown",
+        "Source selection, pause, review and deletion controls are described without claiming they make workplace or regulated use safe",
+        "Exact prose passes producer, privacy, accuracy, unfamiliar-reader and role-distinct semantic review",
+        "Only an admitted Setup 101 successor reaches Library search, render or public release"
+      ],
+      "reviewChain": [
+        {"stage": "BUILD", "owner": "library-101", "status": "REQUIRED"},
+        {"stage": "ACCURACY", "owner": "ai-research-accuracy", "status": "REQUIRED"},
+        {"stage": "SAFETY", "owner": "safety-privacy", "status": "REQUIRED"},
+        {"stage": "EDITORIAL", "owner": "editorial-learning", "status": "REQUIRED"},
+        {"stage": "EXPERIENCE", "owner": "library", "status": "REQUIRED"},
+        {"stage": "OWNER", "owner": "library", "status": "REQUIRED"},
+        {"stage": "RELEASE", "owner": "control-room", "status": "HOLD"},
+        {"stage": "PUBLIC", "owner": "platform", "status": "HOLD"}
+      ],
+      "qualityGates": {
+        "accuracy": {"owner": "ai-research-accuracy", "status": "REQUIRED", "evidenceRequired": "Every feature, control, plan, region, administrator and date claim maps to the current official OpenAI source; unsupported policy or safety conclusions are absent.", "evidencePaths": []},
+        "antiSlop": {"owner": "editorial-learning", "status": "REQUIRED", "evidenceRequired": "Artifact-first review proves the note answers one reader question in plain language and does not become a product-feature dump.", "evidencePaths": []},
+        "currentBestPractice": {"owner": "content-freshness", "status": "REQUIRED", "evidenceRequired": "Publication-day recheck of Computer History availability, controls and policy boundaries with a dated freshness trigger.", "evidencePaths": []},
+        "laidiesVoice": {"owner": "brand-experience", "status": "REQUIRED", "evidenceRequired": "Clear adult guidance that makes the information layers visible without fear-bait, jargon or false reassurance.", "evidencePaths": []},
+        "analogyIntegrity": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Any familiar example maps each information source back to the actual product mechanism and states where the comparison stops.", "evidencePaths": []},
+        "usefulnessDepth": {"owner": "editorial-learning", "status": "REQUIRED", "evidenceRequired": "An unfamiliar reader can distinguish the information sources, identify the controls and transfer the permission check to a different app-connected AI feature.", "evidencePaths": []},
+        "formatFit": {"owner": "library", "status": "REQUIRED", "evidenceRequired": "The update is a compact dated implementation note inside durable Setup 101 teaching, not a NewsStand report, standalone glossary entry or provider promotion.", "evidencePaths": []},
+        "searchIndexing": {"owner": "platform", "status": "REQUIRED", "evidenceRequired": "Only the admitted Setup 101 successor enters Library search, metadata and the rendered reader.", "evidencePaths": []},
+        "relationshipLinking": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Memory, context, history, permissions, accounts and privacy consumers share one claim identity and freshness trigger.", "evidencePaths": []},
+        "canonConsistency": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Terminology agrees with current Setup 101, Accounts 101 and privacy guidance without silently superseding durable distinctions.", "evidencePaths": []},
+        "songOpportunity": {"owner": "ksvl-radio", "status": "REQUIRED", "evidenceRequired": "No song derivative unless a separate mnemonic job is proved after the primary note is admitted.", "evidencePaths": []},
+        "derivativeFeeds": {"owner": "newsstand", "status": "REQUIRED", "evidenceRequired": "No NewsStand, social, tip or newsletter output inherits this source update without a distinct child work order.", "evidencePaths": []}
+      },
+      "artifactBinding": {"status": "UNBOUND", "manifestPath": null, "sha256": null},
+      "evidencePaths": [
+        "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-computer-history-memory-privacy.json"
+      ],
+      "publicRelease": {"status": "NOT_AUTHORIZED", "url": null, "releaseReceipt": null, "sha256": null},
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-025-primary",
+          "surface": "LIBRAIRY",
+          "ownerProductId": "library-101",
+          "targetPaths": [
+            "content/library-books/setup-101.source.json",
+            "content/library-books/setup-101.claims.json",
+            "content/library-books/rendered/setup-101.html"
+          ]
+        },
+        "requiredPrimaryGates": ["accuracy", "antiSlop", "currentBestPractice", "laidiesVoice", "analogyIntegrity", "usefulnessDepth", "formatFit", "searchIndexing", "relationshipLinking", "canonConsistency"],
+        "derivatives": [
+          {"id": "songOpportunity", "state": "PARKED", "reason": "No distinct mnemonic job exists for this dated product note.", "activationTrigger": "Reconsider only after primary admission and a separately proved teaching job."},
+          {"id": "derivativeFeeds", "state": "PARKED", "reason": "No NewsStand, social, tip or newsletter derivative is commissioned.", "activationTrigger": "Create a separate child work order only when a distinct reader job and source packet exist."}
         ],
         "wip": {"ownerLimit": 1},
         "dispatch": null,
