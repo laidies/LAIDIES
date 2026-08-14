@@ -1,0 +1,234 @@
+{
+  "schemaVersion": "laidies-source-reconciliation.v1",
+  "receiptId": "SRC-GITHUB-NSCI-20260814-ISSUE-82",
+  "createdAt": "2026-08-14T16:42:30-07:00",
+  "signals": [
+    {
+      "signalId": "NSCI-7f9db2177c022802d25b",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://aidailybrief.ai/e/2026-08-13/transcript.md",
+      "sourcePublishedAt": "2026-08-13T12:00:00Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:40:00-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "DUPLICATE",
+      "terminalReason": "This is the same August 13 Grok 4.6 AIDB edition already processed by the August 14 morning desk. Its source-less product claims remain held there; a second work order would duplicate the same item.",
+      "materialClaims": []
+    },
+    {
+      "signalId": "NSCI-46b07e05794696beefc5",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://developers.openai.com/api/docs/changelog#aug-13",
+      "sourcePublishedAt": "2026-08-13T12:00:00Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:40:00-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "NO_BUILD",
+      "terminalReason": "The announcement is a limited-preview API processing tier for selected customers. It changes no current ordinary-reader action and earns no NewsStand story; the official developer source remains the freshness authority for future availability changes.",
+      "materialClaims": [
+        {
+          "claimId": "OPENAI-ULTRAFAST-LIMITED-PREVIEW-20260813",
+          "claim": "OpenAI announced Ultrafast mode as a limited-preview API service tier for GPT-5.6 Sol, describing processing up to fourteen times faster than Standard.",
+          "namedReferences": ["OpenAI API changelog", "Ultrafast mode", "GPT-5.6 Sol"],
+          "aliasesChecked": ["Ultrafast", "Fast mode", "Standard processing"],
+          "disposition": "VERIFIED",
+          "dispositionReason": "The current official OpenAI API changelog confirms the bounded launch claim and its limited-preview status.",
+          "searches": [
+            {
+              "track": "official_or_primary",
+              "query": "OpenAI API changelog Aug 13 Ultrafast GPT-5.6 Sol limited preview",
+              "checkedAt": "2026-08-14T16:40:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://developers.openai.com/api/docs/changelog#aug-13",
+                  "publisher": "OpenAI",
+                  "publishedAt": "2026-08-13T12:00:00Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "NSCI-0f8436c86401d0e57dd7",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://apnews.com/article/db541ced9f928f993bd3a17958a3deaa",
+      "sourcePublishedAt": "2026-08-12T05:20:57Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:40:20-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "NO_BUILD",
+      "terminalReason": "A one-day market move tied to several earnings reports and inflation expectations is not durable AI learning, and the headline alone does not establish a reader-useful AI mechanism or consequence.",
+      "materialClaims": [
+        {
+          "claimId": "AP-AI-STOCKS-MARKET-MOVE-20260812",
+          "claim": "AP reported that several AI-related stocks rose after company earnings while broader market movement also reflected inflation and bond-yield news.",
+          "namedReferences": ["Associated Press", "Super Micro Computer", "CoreWeave"],
+          "aliasesChecked": ["AI stocks", "Wall Street", "inflation"],
+          "disposition": "VERIFIED",
+          "dispositionReason": "The current AP report confirms the mixed market drivers; it does not support a broader claim about AI value or adoption.",
+          "searches": [
+            {
+              "track": "independent_reporting",
+              "query": "AP Wall Street rises near a record AI stocks inflation August 12 2026",
+              "checkedAt": "2026-08-14T16:40:20-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://apnews.com/article/db541ced9f928f993bd3a17958a3deaa",
+                  "publisher": "Associated Press",
+                  "publishedAt": "2026-08-12T05:20:57Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "NSCI-c0eeb9fc1c2f0068228e",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://apnews.com/article/df8a4e7d7825470d09e8090367457c2c",
+      "sourcePublishedAt": "2026-08-10T15:41:47Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:40:40-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "WATCH",
+      "terminalReason": "The AP report confirms a broad Meta vision and criticism, but a Big Picture treatment must first bind Zuckerberg's primary essay and the exact model-release sources and prove a question distinct from existing AI-power and open-source coverage.",
+      "nextTrigger": "Primary Meta essay and model release are bound, and the NewsStand owner identifies a distinct reader question about who controls broadly distributed AI that is not answered by existing work.",
+      "materialClaims": [
+        {
+          "claimId": "AP-META-AI-MANIFESTO-20260810",
+          "claim": "AP reported that Mark Zuckerberg published a broad AI vision arguing for widely distributed, open-source systems while critics questioned its risks and corporate self-interest.",
+          "namedReferences": ["Associated Press", "Mark Zuckerberg", "Meta"],
+          "aliasesChecked": ["Meta AI manifesto", "open-source AI", "broadly distributed AI"],
+          "disposition": "VERIFIED",
+          "dispositionReason": "AP confirms the existence and broad arguments of the essay, but the primary essay and product releases remain required before any LAiDIES treatment.",
+          "searches": [
+            {
+              "track": "independent_reporting",
+              "query": "AP Zuckerberg manifesto Meta ambitions world-changing AI technology August 10 2026",
+              "checkedAt": "2026-08-14T16:40:40-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://apnews.com/article/df8a4e7d7825470d09e8090367457c2c",
+                  "publisher": "Associated Press",
+                  "publishedAt": "2026-08-10T15:41:47Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "NSCI-78671c5b0369f42c6592",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://apnews.com/article/43d28a08d77cc477cdcd6951315d2f2d",
+      "sourcePublishedAt": "2026-08-10T04:05:49Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:41:00-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "NO_BUILD",
+      "terminalReason": "The report is a technology-history and collecting feature, not an AI development or practical learning signal. Rewind Era relevance alone does not earn NewsStand publication.",
+      "materialClaims": [
+        {
+          "claimId": "AP-VINTAGE-COMPUTER-COLLECTING-20260810",
+          "claim": "AP reported growing interest in restoring and collecting vintage computers and in festivals devoted to computer history.",
+          "namedReferences": ["Associated Press", "Vintage Computer Federation", "Computer History Museum"],
+          "aliasesChecked": ["vintage computers", "computer collectors", "computer history"],
+          "disposition": "VERIFIED",
+          "dispositionReason": "The AP feature confirms the collecting trend but supplies no current AI mechanism or reader action for the NewsStand.",
+          "searches": [
+            {
+              "track": "independent_reporting",
+              "query": "AP vintage computer collectors reviving computers 1980s August 10 2026",
+              "checkedAt": "2026-08-14T16:41:00-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://apnews.com/article/43d28a08d77cc477cdcd6951315d2f2d",
+                  "publisher": "Associated Press",
+                  "publishedAt": "2026-08-10T04:05:49Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "NSCI-9e7f435a3e56b937d61c",
+      "sourceSystem": "GITHUB_NEWSSTAND_CLOUD_INTAKE",
+      "sourceUrl": "https://apnews.com/article/a46d8e3f20d0500175fe2ee981998323",
+      "sourcePublishedAt": "2026-08-08T12:50:34Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:41:20-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "WORK_ORDER_CREATED",
+      "workOrderId": "LCWO-026",
+      "terminalReason": "The report identifies a consequential, understandable intersection among AI infrastructure, local pollution claims and who may enforce environmental law. LCWO-026 owns a bounded Daily explainer after primary legal and regulator sources are bound.",
+      "materialClaims": [
+        {
+          "claimId": "AP-XAI-CITIZEN-SUIT-CHALLENGE-20260808",
+          "claim": "AP reported that xAI is asking a federal court to reject an environmental citizen suit over gas turbines used to power its Memphis data centre, as part of a broader constitutional challenge to private enforcement of federal law.",
+          "namedReferences": ["Associated Press", "xAI", "NAACP", "citizen suits"],
+          "aliasesChecked": ["xAI Memphis turbines", "environmental citizen suit", "private enforcement"],
+          "disposition": "ROUTED",
+          "dispositionReason": "The AP report confirms a material public-interest story. Primary court filings, permit records and regulator material remain prerequisites to drafting, so the result is a governed source-held work order rather than published copy.",
+          "searches": [
+            {
+              "track": "independent_reporting",
+              "query": "AP xAI environmental citizen suits Memphis gas turbines August 8 2026",
+              "checkedAt": "2026-08-14T16:41:20-07:00",
+              "outcome": "FOUND",
+              "results": [
+                {
+                  "url": "https://apnews.com/article/a46d8e3f20d0500175fe2ee981998323",
+                  "publisher": "Associated Press",
+                  "publishedAt": "2026-08-08T12:50:34Z",
+                  "relationship": "CONFIRMS_MATERIAL_CLAIM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "signalId": "SIG-AIDB-2026-08-14-EVENING-QUIET",
+      "sourceSystem": "AIDB_INTELLIGENCE_DESK_REMOTE_DAILY",
+      "sourceUrl": "https://github.com/laidies/LAIDIES/blob/1937688868cc97a2e5ce2bd7992603bfaf2aefef/operations/agents/aidb-intelligence-desk/daily/2026-08-14-evening.md",
+      "sourcePublishedAt": "2026-08-14T23:33:49Z",
+      "observedAt": "2026-08-14T16:36:50-07:00",
+      "finalRecheckAt": "2026-08-14T16:41:40-07:00",
+      "disposedAt": "2026-08-14T16:42:30-07:00",
+      "sourceLinksState": "PROVIDED",
+      "terminalDisposition": "QUIET",
+      "terminalReason": "The evening desk found no new AIDB edition, Mollick post or due roster-source change after the morning cycle. No content job was created.",
+      "materialClaims": []
+    }
+  ],
+  "routing": {
+    "disposition": "MIXED_TERMINAL_AND_WORK_ORDER",
+    "workOrderId": "LCWO-026",
+    "publicationFormatId": "news_daily",
+    "releaseState": "HOLD",
+    "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
+    "reason": "All six NSCI signals and the evening AIDB quiet result have exact durable dispositions. Only the xAI environmental-enforcement signal earned a governed output, held before drafting for primary-source and producer-contract prerequisites."
+  },
+  "publicAuthority": "NONE"
+}

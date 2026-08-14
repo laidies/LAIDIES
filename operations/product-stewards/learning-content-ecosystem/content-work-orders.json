@@ -205,6 +205,14 @@
       "sourceReconciliationPath": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-computer-history-memory-privacy.json",
       "checkedAt": "2026-08-14",
       "reason": "AIDB's August 14 owner handoff and a same-cycle official OpenAI recheck establish Computer History as a dated implementation example for the existing Setup 101 memory/context distinction. LCWO-025 owns one bounded current note; no NewsStand story, feature enablement or public change was created."
+    },
+    {
+      "path": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-github-nsci-issue-82.json",
+      "disposition": "MIXED_TERMINAL_AND_WORK_ORDER",
+      "workOrderIds": ["LCWO-026"],
+      "sourceReconciliationPath": "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-github-nsci-issue-82.json",
+      "checkedAt": "2026-08-14",
+      "reason": "All six cloud signals and the later AIDB quiet cycle have exact dispositions: one duplicate, three no-builds, one watch and LCWO-026 for the xAI environmental-enforcement explainer. Nothing was drafted, published or deployed."
     }
   ],
   "workOrders": [
@@ -4372,6 +4380,96 @@
         "derivatives": [
           {"id": "songOpportunity", "state": "PARKED", "reason": "No distinct mnemonic job exists for this dated product note.", "activationTrigger": "Reconsider only after primary admission and a separately proved teaching job."},
           {"id": "derivativeFeeds", "state": "PARKED", "reason": "No NewsStand, social, tip or newsletter derivative is commissioned.", "activationTrigger": "Create a separate child work order only when a distinct reader job and source packet exist."}
+        ],
+        "wip": {"ownerLimit": 1},
+        "dispatch": null,
+        "closure": null
+      }
+    },
+    {
+      "id": "LCWO-026",
+      "title": "Explain why an AI data-centre lawsuit is also a fight over who can enforce environmental law",
+      "sourceRefs": [
+        "operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-github-nsci-issue-82.json",
+        "https://apnews.com/article/a46d8e3f20d0500175fe2ee981998323"
+      ],
+      "surface": "NEWSSTAND",
+      "action": "CREATE",
+      "ownerProductId": "newsstand-daily",
+      "publicationFormatIds": ["news_daily"],
+      "formatRouting": [
+        {
+          "publicationFormatId": "news_daily",
+          "relationship": "PRIMARY_OUTPUT",
+          "contributionJob": "Explain in plain language that the xAI dispute is not only about one data centre: it tests whether residents and private groups may use citizen-suit provisions to force compliance when government enforcement is absent or contested.",
+          "sourceVersionIds": ["AP-XAI-CITIZEN-SUIT-2026-08-08", "NSCI-9e7f435a3e56b937d61c"]
+        }
+      ],
+      "targetPaths": [
+        "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-source-map.md",
+        "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-producer-contract.json",
+        "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-exact-prose.md",
+        "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-manifest.json"
+      ],
+      "status": "BLOCKED_BUILD_REMAINS_REQUIRED",
+      "dispatchState": "NOT_READY",
+      "priority": "P1",
+      "nextAction": "NewsStand Daily binds the exact federal complaint, xAI dismissal filing, relevant permit or regulator records and the citizen-suit statute before drafting. Then create a producer contract that answers what happened, how citizen suits work, why an AI data centre is involved, what remains disputed and what this could change for an ordinary community.",
+      "nextTrigger": "Primary court filings and current regulator or permit records are checksum-bound, and NewsStand Daily has capacity after its existing P0 Daily explainer prerequisite.",
+      "acceptanceEvidence": [
+        "Primary legal and regulator sources distinguish allegations, arguments, procedural posture and established facts",
+        "The opening names the practical point without legal jargon or AI spectacle",
+        "The mechanism shows who may sue, what a citizen suit can do and why the xAI challenge could reach beyond one facility",
+        "A workplace example and a non-work community example transfer the enforcement principle without giving legal advice",
+        "The article states what has not yet been decided and avoids predicting the court outcome",
+        "Exact prose passes producer, accuracy, legal-safety, unfamiliar-reader and role-distinct semantic review",
+        "Only an admitted version enters a dated Daily issue, archive, tags, deployment or public URL"
+      ],
+      "reviewChain": [
+        {"stage": "BUILD", "owner": "newsstand-daily", "status": "REQUIRED"},
+        {"stage": "ACCURACY", "owner": "ai-research-accuracy", "status": "REQUIRED"},
+        {"stage": "SAFETY", "owner": "legal-safety", "status": "REQUIRED"},
+        {"stage": "EDITORIAL", "owner": "independent-editorial-review", "status": "REQUIRED"},
+        {"stage": "LEARNING", "owner": "learning-content-ecosystem", "status": "REQUIRED"},
+        {"stage": "EXPERIENCE", "owner": "brand-experience", "status": "REQUIRED"},
+        {"stage": "OWNER", "owner": "newsstand-daily", "status": "REQUIRED"},
+        {"stage": "RELEASE", "owner": "control-room", "status": "HOLD"},
+        {"stage": "PUBLIC", "owner": "platform", "status": "HOLD"}
+      ],
+      "qualityGates": {
+        "accuracy": {"owner": "ai-research-accuracy", "status": "REQUIRED", "evidenceRequired": "Every allegation, filing, permit, statutory mechanism, party and procedural-status claim maps to a dated primary source; AP supplies independent context rather than sole authority.", "evidencePaths": []},
+        "antiSlop": {"owner": "independent-editorial-review", "status": "REQUIRED", "evidenceRequired": "Artifact-first review proves one clear consequential point, enough background and no generic AI-energy filler or fear-bait.", "evidencePaths": []},
+        "currentBestPractice": {"owner": "content-freshness", "status": "REQUIRED", "evidenceRequired": "Publication-day recheck of the docket, regulator or permit status and the AP report.", "evidencePaths": []},
+        "laidiesVoice": {"owner": "brand-experience", "status": "REQUIRED", "evidenceRequired": "Calm, adult and concrete; no courtroom drama, political slogan or cartoon-villain framing.", "evidencePaths": []},
+        "analogyIntegrity": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Any everyday comparison preserves who has legal authority, what relief is available and where the comparison stops.", "evidencePaths": []},
+        "usefulnessDepth": {"owner": "editorial-learning", "status": "REQUIRED", "evidenceRequired": "An unfamiliar reader can explain the citizen-suit mechanism, why the AI facility is involved, what is disputed and why the outcome could matter elsewhere.", "evidencePaths": []},
+        "formatFit": {"owner": "newsstand-daily", "status": "REQUIRED", "evidenceRequired": "A dated Daily explainer of a consequential current dispute, not Breaking, a legal opinion or a full Big Picture argument.", "evidencePaths": []},
+        "searchIndexing": {"owner": "platform", "status": "REQUIRED", "evidenceRequired": "Only an admitted version enters the Daily issue, archive, search and tags for AI infrastructure, environment and accountability.", "evidencePaths": []},
+        "relationshipLinking": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "A future Big Picture treatment activates only if later cases or rulings establish a cross-story pattern; it does not duplicate this Daily.", "evidencePaths": []},
+        "canonConsistency": {"owner": "learning-content-ecosystem", "status": "REQUIRED", "evidenceRequired": "Data centre, AI infrastructure, allegation, enforcement and legal-status terms agree with current NewsStand rules.", "evidencePaths": []},
+        "bigPictureOpportunity": {"owner": "newsstand-big-picture", "status": "REQUIRED", "evidenceRequired": "No Big Picture derivative until a later ruling or additional sourced cases create a distinct broader question.", "evidencePaths": []},
+        "derivativeFeeds": {"owner": "newsstand-daily", "status": "REQUIRED", "evidenceRequired": "No Weekly, social, tip or newsletter output inherits this held work order.", "evidencePaths": []}
+      },
+      "artifactBinding": {"status": "UNBOUND", "manifestPath": null, "sha256": null},
+      "evidencePaths": ["operations/agents/aidb-intelligence-desk/source-reconciliations/2026-08-14-github-nsci-issue-82.json"],
+      "publicRelease": {"status": "NOT_AUTHORIZED", "url": null, "releaseReceipt": null, "sha256": null},
+      "execution": {
+        "state": "WAITING_ON_PREREQUISITE",
+        "primaryOutput": {
+          "id": "LCWO-026-primary",
+          "surface": "NEWSSTAND",
+          "ownerProductId": "newsstand-daily",
+          "targetPaths": [
+            "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-source-map.md",
+            "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-producer-contract.json",
+            "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-exact-prose.md",
+            "operations/product-stewards/newsstand/candidates/xai-environmental-enforcement-2026-08-14-manifest.json"
+          ]
+        },
+        "requiredPrimaryGates": ["accuracy", "antiSlop", "currentBestPractice", "laidiesVoice", "analogyIntegrity", "usefulnessDepth", "formatFit", "searchIndexing", "relationshipLinking", "canonConsistency"],
+        "derivatives": [
+          {"id": "bigPictureOpportunity", "state": "PARKED", "reason": "One active legal dispute does not yet establish the broader pattern.", "activationTrigger": "A later ruling or additional primary-sourced cases create a distinct question about AI infrastructure and public enforcement."},
+          {"id": "derivativeFeeds", "state": "PARKED", "reason": "No derivative may inherit this held order's state.", "activationTrigger": "Create a separate child work order after primary admission and a distinct reader job."}
         ],
         "wip": {"ownerLimit": 1},
         "dispatch": null,

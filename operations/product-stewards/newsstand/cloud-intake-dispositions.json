@@ -1,15 +1,15 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-13T14:34:21-07:00",
+  "updatedAt": "2026-08-14T16:42:30-07:00",
   "remoteSource": {
     "repository": "laidies/LAIDIES",
-    "issueNumber": 78,
-    "issueUrl": "https://github.com/laidies/LAIDIES/issues/78",
-    "issueState": "CLOSED",
-    "commit": "93dd839782aea16c4412b9abe44a1353dec8fbfc",
-    "fileSha": "b5468ada4e9db541e55686d88b2b3835cd103e27",
-    "verifiedAt": "2026-08-13T16:18:00-07:00"
+    "issueNumber": 82,
+    "issueUrl": "https://github.com/laidies/LAIDIES/issues/82",
+    "issueState": "OPEN_RECONCILED_PENDING_COMMIT",
+    "commit": null,
+    "fileSha": null,
+    "verifiedAt": "2026-08-14T16:42:30-07:00"
   },
   "rules": {
     "allowedDispositions": [
@@ -88,6 +88,55 @@
       "reason": "The dated official item may support a useful consumer explainer after freshness and product-availability checks.",
       "nextTrigger": "Recheck the official article, availability boundaries and a distinct non-promotional reader payoff after the current Daily lane clears.",
       "reviewAfter": "2026-08-20"
+    },
+    {
+      "signalId": "NSCI-7f9db2177c022802d25b",
+      "title": "Grok 4.6 Shows How Fast Your AI Options Are Expanding",
+      "disposition": "DUPLICATE",
+      "reason": "The same August 13 AIDB edition was already processed by the August 14 morning desk; its source-less claims remain held there.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-46b07e05794696beefc5",
+      "title": "OpenAI Ultrafast mode",
+      "disposition": "NO_BUILD",
+      "reason": "The limited-preview API tier creates no current ordinary-reader action or distinct NewsStand job.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-0f8436c86401d0e57dd7",
+      "title": "Wall Street rises near a record as AI stocks climb",
+      "disposition": "NO_BUILD",
+      "reason": "A one-day market move driven by company earnings, inflation and bond yields is not durable AI learning.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-c0eeb9fc1c2f0068228e",
+      "title": "Zuckerberg manifesto sketches out Meta's AI ambitions",
+      "disposition": "WATCH",
+      "reason": "AP confirms the broad vision, but a treatment needs the primary Meta essay and product releases plus a distinct reader question not already covered.",
+      "nextTrigger": "Bind the primary essay and product releases, then prove a distinct question about control and broadly distributed AI.",
+      "reviewAfter": "2026-08-21"
+    },
+    {
+      "signalId": "NSCI-78671c5b0369f42c6592",
+      "title": "Why vintage collectors are reviving computers from the 1980s",
+      "disposition": "NO_BUILD",
+      "reason": "The report is a technology-history collecting feature, not an AI development or practical learning signal.",
+      "nextTrigger": null,
+      "reviewAfter": null
+    },
+    {
+      "signalId": "NSCI-9e7f435a3e56b937d61c",
+      "title": "Environmental enforcement challenge involving xAI",
+      "disposition": "WORK_ORDER_CREATED",
+      "reason": "The signal earns a bounded Daily explainer about AI infrastructure and citizen-suit enforcement after primary legal and regulator sources are bound.",
+      "relatedWorkOrderIds": ["LCWO-026"],
+      "nextTrigger": "Primary court filings and regulator or permit records are bound and the NewsStand Daily owner has capacity.",
+      "reviewAfter": "2026-08-21"
     }
   ],
   "sourceHealth": [
