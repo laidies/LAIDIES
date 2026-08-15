@@ -132,6 +132,39 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       require(Array.isArray(budget?.sectionJobs) && budget.sectionJobs.length >= 5, "NEWS Daily story lengthBudget.sectionJobs must name at least five unique jobs");
       require(new Set(budget?.sectionJobs || []).size === (budget?.sectionJobs || []).length, "NEWS Daily story lengthBudget.sectionJobs must be unique");
     }
+    if (["STORY_CANDIDATE", "LONGFORM_FEATURE", "LIVING_REFERENCE"].includes(plan?.outputUnit)) {
+      const reality = plan?.headlineRealityAssessment;
+      for (const field of ["headlineOrClaim", "ordinaryReaderTakeaway", "originalEvidence", "establishes", "doesNotEstablish", "realConsequence", "directlyAffected", "unknowns", "mismatchReason"]) {
+        require(text(reality?.[field]), `NEWS publicationPlan.headlineRealityAssessment.${field} is required`);
+      }
+      require(reality?.aidbRole === "DETECTION_LENS_ONLY", "NEWS headlineRealityAssessment.aidbRole must be DETECTION_LENS_ONLY");
+      require(typeof reality?.materialMismatch === "boolean", "NEWS headlineRealityAssessment.materialMismatch must be boolean");
+      const limits = reality?.scopeLimits;
+      for (const field of ["population", "comparison", "measurement", "date", "otherLimits"]) {
+        require(text(limits?.[field]), `NEWS headlineRealityAssessment.scopeLimits.${field} is required`);
+      }
+      if (reality?.materialMismatch === true) {
+        require(plan?.writingMode === "HEADLINE_REALITY_CHECK", "NEWS material headline/evidence mismatch requires HEADLINE_REALITY_CHECK");
+      }
+      if (reality?.materialMismatch === false) {
+        require(plan?.writingMode === "PLAIN_LANGUAGE_EXPLAINER", "NEWS no material headline/evidence mismatch requires PLAIN_LANGUAGE_EXPLAINER");
+      }
+      const entry = plan?.readerEntry;
+      for (const field of ["likelyFear", "immediateCorrection", "actualActor", "ordinaryObject", "sharingReason", "directAudience", "ordinaryReaderImpact", "whyLaidiesCovers"]) {
+        require(text(entry?.[field]), `NEWS publicationPlan.readerEntry.${field} is required`);
+      }
+      require(typeof entry?.likelyMisreadMaterial === "boolean", "NEWS publicationPlan.readerEntry.likelyMisreadMaterial must be boolean");
+      require(Number.isInteger(entry?.boundaryWithinWords) && entry.boundaryWithinWords > 0 && entry.boundaryWithinWords <= 120, "NEWS reader-entry boundary must land within the first 120 words");
+      require(array(entry?.technicalLabelsDeferred, 4), "NEWS readerEntry.technicalLabelsDeferred requires at least four unfamiliar labels deferred until after the ordinary situation");
+      const ladder = entry?.impactLadder;
+      for (const field of ["ordinaryPrivateChat", "selectedAnswer", "diagnosticFile", "completeDeveloperFile"]) {
+        require(text(ladder?.[field]), `NEWS readerEntry.impactLadder.${field} is required`);
+      }
+      if (entry?.likelyMisreadMaterial === true) {
+        require(plan?.writingMode === "HEADLINE_REALITY_CHECK", "NEWS material likely misread requires HEADLINE_REALITY_CHECK");
+        require(entry?.correctionLocation === "HEADLINE_AND_STANDFIRST", "NEWS material likely misread must be corrected in headline and standfirst");
+      }
+    }
   }
 
   const isCompactServiceCard = contract?.surfaceScale === "COMPACT_SERVICE_CARD";

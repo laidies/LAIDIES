@@ -215,7 +215,60 @@ try {
   daily.publicationPlan.issueBoundary = "STORY_REVIEW_PRECEDES_SEPARATE_DATED_ISSUE_ASSEMBLY";
   daily.publicationPlan.issueAssemblyDisposition = "Assemble only after story admission.";
   daily.publicationPlan.lengthBudget = { minimumWords: 450, maximumWords: 900, reason: "Keep one Daily lead proportionate inside a multi-element paper.", sectionJobs: ["event", "mechanism", "evidence", "transfer", "action"] };
+  daily.publicationPlan.headlineRealityAssessment = {
+    aidbRole: "DETECTION_LENS_ONLY",
+    headlineOrClaim: "A study found private AI chats online.",
+    ordinaryReaderTakeaway: "My ordinary private chat may have been silently posted.",
+    originalEvidence: "A study of complete developer files deliberately posted publicly.",
+    establishes: "Some deliberately public complete files contained sensitive material.",
+    doesNotEstablish: "Ordinary private consumer chats were silently published.",
+    scopeLimits: {
+      population: "Developers and researchers who published complete technical files.",
+      comparison: "Selected visible answers were distinguished from complete files.",
+      measurement: "A bounded study scan, not a census of consumer chats.",
+      date: "The tested provider behavior and files were dated to the study period.",
+      otherLimits: "Author-reported results were not independently reproduced in the fixture."
+    },
+    realConsequence: "People publishing complete files need a safer release process.",
+    directlyAffected: "Developers, researchers and teams publishing complete files.",
+    unknowns: "Current universal provider behavior is not established.",
+    materialMismatch: false,
+    mismatchReason: "The fixture treats the claim as accurately bounded and needs explanation, not correction."
+  };
+  daily.publicationPlan.readerEntry = {
+    likelyFear: "The reader may think an ordinary private chat was exposed.",
+    immediateCorrection: "The example finding concerns deliberately shared developer files, not silent publication of an ordinary private chat.",
+    actualActor: "A developer chooses to share a diagnostic file.",
+    ordinaryObject: "A behind-the-scenes file created by software while it completes a task.",
+    sharingReason: "The developer shares it so another person can inspect how the work happened.",
+    directAudience: "People who build with AI and publish complete diagnostic files.",
+    ordinaryReaderImpact: "Copying a selected answer is different from publishing the complete behind-the-scenes file.",
+    whyLaidiesCovers: "The distinction prevents an alarming headline from becoming an every-chat panic.",
+    likelyMisreadMaterial: false,
+    boundaryWithinWords: 120,
+    correctionLocation: "OPENING",
+    technicalLabelsDeferred: ["task record", "work log", "raw session", "agent trace"],
+    impactLadder: {
+      ordinaryPrivateChat: "Not the demonstrated route.",
+      selectedAnswer: "Share only the answer deliberately chosen.",
+      diagnosticFile: "Ask what it contains and use an approved route.",
+      completeDeveloperFile: "Directly affected when deliberately published."
+    }
+  };
   assert.deepEqual(inspect(daily), [], "Daily story contract must bind a proportional producer-side word budget");
+  const missingReaderEntry = structuredClone(daily); delete missingReaderEntry.publicationPlan.readerEntry;
+  assert.match(inspect(missingReaderEntry).join("\n"), /readerEntry\.likelyFear is required/);
+  const delayedBoundary = structuredClone(daily); delayedBoundary.publicationPlan.readerEntry.boundaryWithinWords = 180;
+  assert.match(inspect(delayedBoundary).join("\n"), /within the first 120 words/);
+  const wrongRealityMode = structuredClone(daily); wrongRealityMode.publicationPlan.readerEntry.likelyMisreadMaterial = true;
+  wrongRealityMode.publicationPlan.readerEntry.correctionLocation = "HEADLINE_AND_STANDFIRST";
+  assert.match(inspect(wrongRealityMode).join("\n"), /requires HEADLINE_REALITY_CHECK/);
+  const missingRealityAssessment = structuredClone(daily); delete missingRealityAssessment.publicationPlan.headlineRealityAssessment;
+  assert.match(inspect(missingRealityAssessment).join("\n"), /headlineRealityAssessment\.headlineOrClaim is required/);
+  const materialMismatchWrongMode = structuredClone(daily); materialMismatchWrongMode.publicationPlan.headlineRealityAssessment.materialMismatch = true;
+  assert.match(inspect(materialMismatchWrongMode).join("\n"), /material headline\/evidence mismatch requires HEADLINE_REALITY_CHECK/);
+  const manufacturedRealityCheck = structuredClone(daily); manufacturedRealityCheck.publicationPlan.writingMode = "HEADLINE_REALITY_CHECK";
+  assert.match(inspect(manufacturedRealityCheck).join("\n"), /no material headline\/evidence mismatch requires PLAIN_LANGUAGE_EXPLAINER/);
   const overlongDailyBudget = structuredClone(daily); overlongDailyBudget.publicationPlan.lengthBudget.maximumWords = 1400;
   assert.match(inspect(overlongDailyBudget).join("\n"), /maximumWords must be no more than 900/);
   const incompleteCompactCard = structuredClone(compactCard); delete incompleteCompactCard.compactExample.nextAction;

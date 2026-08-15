@@ -59,17 +59,16 @@ The experiment succeeds only if the independent comparator finds:
 The successful private proof returns to Ali for calibration review. It does not
 authorize a page build, issue assembly, deployment or autonomous publication.
 
-## Result — 2026-08-15
+## Result — invalidated by reader rejection, 2026-08-15
 
-The final successor at SHA-256
-`6d1b69fd874d6691f753e7daec26bf0b5924aeac1b2365fccfe5b4f00a3fc39a`
-contains 743 Markdown words. Independent comparison found zero material defects
-against five in the predecessor and admitted the exact successor for Ali's
-private calibration review only. See `06-INDEPENDENT-COMPARISON-FINAL.md` and
-`07-EXPERIMENT-RESULT.md`.
+Ali rejected the exact 743-word successor at SHA-256
+`6d1b69fd874d6691f753e7daec26bf0b5924aeac1b2365fccfe5b4f00a3fc39a`.
+The experiment did **not** prove that specialization produced acceptable
+LAiDIES teaching. The article introduced an unknown object through a chain of
+technical labels, delayed the correction of the likely every-chat panic, chose
+the wrong editorial mode and never showed the reader where she sat on the risk
+ladder. The claimed zero-defect comparison and successful result are void.
 
-The experiment also exposed unenforced handoffs: the format stage exceeded its
-word budget, the line editor misreported its exact count, and the first evidence
-brief omitted publication citations. Specialist roles are therefore promising,
-but cannot be adopted as the autonomous Daily pipeline until their handoff
-contracts fail closed on exact artifacts.
+See `08-ALI-REJECTION-AND-INVALIDATION-2026-08-15.md`. Specialist handoffs may
+still be tested later, but this artifact is a known-bad predecessor and cannot
+support pipeline adoption, calibration admission or publication.

@@ -30,25 +30,34 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
-## 2026-08-15 NewsStand specialized-production representative proof
+## 2026-08-15 NewsStand Headline Reality Check repair
 
-One private LCWO-024 experiment separated evidence qualification, explanation
-architecture, Daily formatting, LAiDIES line editing and independent comparison.
-The exact 743-word successor at
-`operations/product-stewards/newsstand/experiments/lcwo-024-specialized-pipeline-v1/04-LAIDIES-EDIT.md`
-is **PRIVATE CALIBRATION ARTIFACT / NOT ADMITTED / NOT PUBLISHED** at SHA-256
+Ali rejected the specialized LCWO-024 successor at SHA-256
 `6d1b69fd874d6691f753e7daec26bf0b5924aeac1b2365fccfe5b4f00a3fc39a`.
-The independent comparator found zero material defects versus five in the
-888-word predecessor.
+Its former `SUCCESSOR`, zero-defect and successful-experiment rulings are
+**INVALID**. The article introduced an unknown object through technical
+synonyms, delayed the every-chat correction, used the wrong editorial mode and
+did not show the reader which of four sharing situations applied to her.
 
-The experiment did not prove first-pass autonomous reliability. Two specialists
-failed or misreported the objective word limit, and the first evidence handoff
-omitted usable citations. Ali's calibration verdict is next for this exact
-article. If its direction is accepted, the next production task is to encode
-fail-closed specialist handoff contracts and rerun one genuinely different
-Daily story before adopting the method. Publication-day source recheck,
-unfamiliar-reader evidence, issue assembly, visual review, formal admission,
-deployment and public verification remain open. No canonical or public
+The repaired production method now uses AIDB as a detection lens, never the
+output voice: exact headline/claim → ordinary-reader takeaway → exact original
+→ establishes/does-not-establish → population/comparison/measurement/date
+limits → real consequence → material fear/decision/action mismatch. A material
+mismatch requires Headline Reality Check; no material mismatch remains a
+Plain-Language Explainer. D-130, D-131 and CQX-BAD-016 bind the decision.
+
+The calibrated reader-entry checker rejects the exact Ali-rejected artifact
+unaided. The new 743-word successor at
+`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v2.md`
+is **PRODUCER PASS / ALI CALIBRATION NEXT / NOT ADMITTED / NOT PUBLISHED** at
+SHA-256
+`a3b3c128d0b1678912a4eef4b98a707f7f9b5db4f6f5ae396532949ecdf97e7a`.
+It corrects the ordinary-private-chat fear in the headline and standfirst,
+explains the deliberate developer/researcher file publication before technical
+detail and gives the four-level impact ladder. Producer self-review passes with
+no independent semantic authority. Ali's reading is the next calibration;
+formal independent/observed-reader admission, dated issue assembly, visual
+review, deployment and public verification remain open. No canonical or public
 NewsStand state changed.
 
 ## 2026-08-12 NewsStand logic and Control Room recovery

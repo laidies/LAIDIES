@@ -1,6 +1,6 @@
 {
   "schemaVersion": "laidies-content-quality-exemplars.v1",
-  "updatedAt": "2026-08-14T00:20:00-07:00",
+  "updatedAt": "2026-08-15T18:00:00-07:00",
   "owner": "learning-content-ecosystem",
   "negativeExemplars": [
     {
@@ -261,6 +261,27 @@
       "requiredVerdict": "REJECT",
       "failureFamilies": [
         "pointBuriedByUneditedLength"
+      ],
+      "reuse": "CALIBRATION_ONLY_NEVER_COPY"
+    },
+    {
+      "id": "CQX-BAD-016",
+      "incidentId": "BTB-494",
+      "introducedAt": "2026-08-15T18:00:00-07:00",
+      "appliesTo": [
+        "NEWS",
+        "THE_DAILY",
+        "ALL_PUBLIC_SUBSTANTIAL_EXPLANATIONS"
+      ],
+      "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/newsstand-undefined-artifact-delayed-panic-boundary-known-bad-2026-08-15.md",
+      "sha256": "3cb7cad563863e373d9ef759a5b90b81226b92f9608156880055422e4ee6de45",
+      "authority": "DIRECT_ALI_REJECTION_2026-08-15",
+      "requiredVerdict": "REJECT",
+      "failureFamilies": [
+        "undefinedArtifactBeforeSituation",
+        "panicBoundaryArrivesTooLate",
+        "wrongEditorialModeForLikelyMisread",
+        "impactLadderMissing"
       ],
       "reuse": "CALIBRATION_ONLY_NEVER_COPY"
     }

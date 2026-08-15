@@ -15349,3 +15349,51 @@ while remaining falsely unfinished in the launch record.
   a production line when each person can hand the next one an incomplete box.
 - **Publication status:** PRIVATE METHOD PROOF / NO CANONICAL STORY, DAILY ISSUE,
   SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
+
+## BTB-494 — A factually careful article still failed because no stage owned the reader's first fear
+
+- **Date:** 2026-08-15
+- **Area:** NewsStand Headline Reality Check selection and LAiDIES teaching.
+- **Failure:** The 743-word LCWO-024 specialist successor received a zero-defect
+  comparison but Ali could not understand what a task record was, what people
+  shared, how they shared it or how the story affected her. It also made her
+  read through technical detail before correcting the likely belief that
+  ordinary private AI chats had been put online.
+- **Root cause:** Every specialist inherited the source's technical object and
+  treated clearer synonyms as explanation. The writing-mode decision asked
+  whether the primary paper itself was misleading, not whether the likely
+  headline meaning in an ordinary reader's mind materially differed from what
+  the evidence established. No stage owned immediate panic correction or the
+  reader-impact ladder, so the independent comparator measured factual care and
+  structure while missing the article's core job.
+- **Issues caused:** An intended reader became more confused, a false PASS
+  consumed another review cycle, AIDB's useful analytical skepticism was not
+  translated into a production decision and a narrow developer-file risk was
+  allowed to sound like an every-chat emergency.
+- **Prevention rule:** Use AIDB only as the detection lens: record the exact
+  headline/claim, likely reader takeaway, exact original, establishes and does
+  not establish, population/comparison/measurement/date limits, real
+  consequence, directly affected people and unknowns. Route to Headline Reality
+  Check only when the mismatch materially changes fear, decision or action;
+  otherwise use Plain-Language Explainer and do not manufacture criticism. For
+  an alarming material mismatch, correct it in the headline and standfirst,
+  explain one complete ordinary situation before specialist labels and show
+  private chat / selected answer / requested support file / deliberate complete
+  file as distinct situations.
+- **Calibration:** The new producer-contract fixtures reject a missing
+  headline-reality assessment, a material mismatch routed as an explainer and a
+  manufactured Reality Check with no material mismatch. The reader-entry test
+  rejects the exact Ali-rejected article unaided and accepts a deliberately
+  compliant fixture.
+- **Durable correction:** D-130 and D-131, CQX-BAD-016, the NewsStand story
+  template, editorial method and producer contract bind the repaired decision.
+  The old independent and experiment passes are invalidated. A 743-word
+  successor now passes producer and reader-entry integrity checks.
+- **Remaining proof:** Producer PASS is not semantic admission. Ali's reading
+  must calibrate the successor; then a role-distinct reviewer and observed
+  unfamiliar reader must pass the exact bytes before dated-issue or visual work.
+- **Possible Behind the Build angle:** Why replacing jargon with five easier
+  pieces of jargon still is not an explanation—and why the first job of a scary
+  headline is telling readers what did *not* happen.
+- **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
+  ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.

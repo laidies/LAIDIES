@@ -1,7 +1,7 @@
 # Source and claim map — AI work logs can carry secrets outside the visible chat
 
 **Candidate:** `ai-work-logs-hidden-secrets-2026-08-12`
-**Writing mode:** Plain-Language Explainer
+**Writing mode:** Headline Reality Check
 **Edition:** The Daily — not Breaking
 **Independent read completed:** 2026-08-12 America/Vancouver
 **Correction owner:** NewsStand accuracy and corrections editor
@@ -96,8 +96,33 @@ The researchers found that opaque reasoning data returned by certain model APIs 
 
 ## AIDB comparison
 
-**Status:** `DATED_ABSENCE_WITH_DIRECT_SOURCE_ADDENDUM`. The scheduled AIDB cycle at 2026-08-12T08:33:17-07:00 found no new publisher-listed item and did not cover this paper. The signal arrived later through Ali’s forwarded briefing. LAiDIES independently recovered and read the primary paper, narrowed the audience, preserved the mitigation status and rejected the briefing’s “show your work” advice.
+**Status:** `COMPARED_AS_DETECTION_LENS / EXACT PAPER ABSENT`. The scheduled
+AIDB cycle at 2026-08-12T08:33:17-07:00 found no publisher-listed item covering
+this exact paper. On 2026-08-15 LAiDIES also inspected the public AIDB archive
+and representative analytical editions, including “The AI Chart Everyone Is
+Getting Wrong” (2026-06-12, https://aidailybrief.ai/e/2026-06-12), “The Right
+Way to Deal With AI Data Centers” (2026-06-23,
+https://aidailybrief.ai/e/2026-06-23) and “What a $30B Hedge Fund Implosion
+Really Means for AI” (2026-07-31,
+https://aidailybrief.ai/e/2026-07-31). Their useful detection pattern is:
+identify the frightening or
+viral interpretation; recover what the number, event or study actually
+measures; preserve population, cause, comparison and date limits; separate the
+real consequence from the apparent one. LAiDIES uses that pattern to select a
+Headline Reality Check here because an ordinary reader can reasonably infer an
+every-private-chat breach from the coverage. AIDB remains a scout, not
+authority, and its technical density is not the article voice. The signal
+itself arrived through Ali’s forwarded briefing; LAiDIES independently
+recovered and read the primary paper, narrowed the audience, preserved the
+mitigation status and rejected the briefing’s “show your work” advice.
 
 ## Editorial decision
 
-Publish one Daily explainer. Do not call it Breaking. Do not use “AI’s encrypted reasoning blocks were hacked” as the reader entry. Begin with the ordinary action—sharing a technical AI work log—then explain the invisible second layer. Keep prompt injection, model distillation and hazardous-output findings outside this Daily; they may support a separately commissioned Big Picture only if they earn a distinct reader question.
+Publish one Daily Headline Reality Check. Do not call it Breaking. Correct the
+every-private-chat fear in the headline and standfirst. Do not use “AI’s
+encrypted reasoning blocks were hacked” as the reader entry. Begin with the
+ordinary action—developers and researchers deliberately posting a complete
+behind-the-scenes file so others could inspect the work—then explain the
+invisible second layer. Keep prompt injection, model distillation and
+hazardous-output findings outside this Daily; they may support a separately
+commissioned Big Picture only if they earn a distinct reader question.

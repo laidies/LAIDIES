@@ -26,6 +26,31 @@ These are methods, not borrowed personas. LAiDIES retains its own voice. A
 producer cannot compensate for a missing lens with stronger performance on
 the other two.
 
+### AIDB is the detection lens, not the output voice
+
+Use AIDB's analytical discipline to decide whether a story needs a Headline
+Reality Check. Do not copy its technical vocabulary, density or assumed reader
+knowledge into LAiDIES prose.
+
+Before selecting the writing mode, record:
+
+1. the exact headline or circulating claim;
+2. the conclusion an ordinary reader is likely to take from it;
+3. the exact original study, announcement, incident record or dataset;
+4. what that original actually establishes;
+5. what it does not establish;
+6. the population, comparison, measurement, date and other scope limits that
+   could change the apparent meaning;
+7. the real consequence, the people directly affected and what remains
+   unknown; and
+8. whether the difference between items 2 and 4 would materially change a
+   reader's fear, decision or action.
+
+If that difference is material, use Headline Reality Check. If it is not,
+use Plain-Language Explainer and do not invent an error, controversy or
+scolding angle. AIDB helps LAiDIES detect the mismatch; Hannah Fry and
+Feynman-style explanation make the corrected reality understandable.
+
 ## 1. Qualify the premise before choosing prose
 
 Before opening a new candidate, search the repository by the reader's question,
@@ -47,6 +72,10 @@ Every candidate begins with a one-page premise record. It must answer:
 - What primary evidence exists, what is missing and what could overturn the premise?
 - What did AIDB and other trusted analysis cover? If they did not cover it, why is LAiDIES continuing?
 - What will the reader understand, decide or do that she could not before?
+- What frightening or consequential conclusion is the reader likely to draw
+  from the headline or coverage, and must LAiDIES correct it immediately?
+- Can the first 120 words name the actor, ordinary object, sharing path, direct
+  audience and reason for coverage before any specialist label?
 
 If those answers are weak, the disposition is `QUIET`, `WATCH`, `UPDATE EXISTING` or `DECLINE`. A blank publication slot is not a reason to continue.
 
@@ -144,10 +173,14 @@ Each must solve one real problem and pass a usefulness test independently. A sma
 1. Read the original signal.
 2. Resolve current primary and official evidence.
 3. Decode what the evidence establishes and does not establish.
-4. Check independent reporting and domain expertise.
-5. Compare AIDB's treatment or record a dated absence/unavailable result.
-6. Investigate meaningful disagreement rather than averaging sources.
-7. Requalify the premise after research; decline it if the payoff disappeared.
+4. Record the ordinary reader's likely takeaway from the headline and compare
+   it with the bounded finding.
+5. Check independent reporting and domain expertise.
+6. Compare AIDB's treatment or record a dated absence/unavailable result.
+7. Investigate meaningful disagreement rather than averaging sources.
+8. Select Headline Reality Check only when the mismatch is material; otherwise
+   use Plain-Language Explainer.
+9. Requalify the premise after research; decline it if the payoff disappeared.
 
 ## 4. Advice must survive a real case
 
@@ -173,6 +206,10 @@ The producer must be able to answer:
 - What did she learn that competent mainstream coverage did not already give her?
 - Would she continue because the reporting is useful and alive—not because the headings promise depth?
 - Can she reconstruct the central mechanism in ordinary language rather than repeat a phrase?
+- Before any unfamiliar technical label, can she say who created the object,
+  what it is in ordinary words, why it was shared and how it could affect her?
+- If the likely fear is materially wrong, did the headline and standfirst
+  correct it before explanation rather than make her read on for reassurance?
 - Can she apply it to a genuinely different case?
 - Does the article distinguish the circulating story from what the primary evidence actually supports?
 

@@ -61,7 +61,20 @@ finding or new capability. Do not manufacture a criticism angle to make
 LAiDIES sound more investigative.
 
 Record the selection and the evidence for it. If the source is accurate but
-needs more background, that is an explainer—not a reality check.
+needs more background, that is normally an explainer. But choose Headline
+Reality Check when the reader's likely encounter with accurate research or its
+coverage creates a materially wrong fear that must be corrected immediately.
+The mode follows the reader's real misunderstanding, not only whether the
+primary source made an error.
+
+Use the AIDB detection sequence before choosing: exact headline or claim;
+ordinary reader's likely takeaway; exact original; what it establishes; what
+it does not; population, comparison, measure, date and scope limits; real
+consequence; directly affected people; unresolved questions. The Reality Check
+threshold is a mismatch that would materially change fear, decision or action.
+An interesting nuance or technical omission does not meet it. This sequence
+detects the editorial job; it is not the structure or voice of the final
+LAiDIES article.
 
 ## 4. Use the destination's output shape
 
@@ -86,6 +99,10 @@ needs more background, that is an explainer—not a reality check.
   substantial explanation; it may not impersonate one.
 
 ## Mode A — Headline Reality Check
+
+If the likely misread is alarming, the headline and standfirst correct it. Do
+not make the reader continue through background or mechanism to discover that
+the feared event did not happen.
 
 1. **What you may have seen** — the exact headline, publisher and date.
 2. **What the story says** — a fair, plain-language summary before LAiDIES
@@ -130,6 +147,26 @@ or tone.
 4. Introduce a technical label only after its ordinary meaning is clear.
 5. Use an analogy only after the reader understands the object being compared.
 6. Return to what changes for the reader.
+
+### Reader-entry hard gate
+
+The first 120 words must let an ordinary reader answer, without another tab:
+
+1. What might I reasonably fear or misunderstand, and is it true?
+2. Who actually did what?
+3. What ordinary thing or file moved, what was inside it and why was it shared?
+4. Who is directly affected?
+5. Why is LAiDIES covering this?
+
+Do not introduce an unfamiliar object by swapping among neighbouring technical
+labels. `Task record`, `work log`, `technical export`, `raw session`, `API
+session` and `agent trace` do not explain one another. Give the complete
+ordinary situation first; name the technical label afterward.
+
+For a risk story, show the impact ladder explicitly: ordinary private-chat use;
+copying a selected answer; being asked for a diagnostic file; deliberately
+publishing a complete developer or research file. Never broaden “this might
+reach anyone” when the evidence supports a narrower direct audience.
 
 The reporting mode may change; the teaching standard does not. Explain every
 unfamiliar object, action and handoff before naming it with jargon. Preserve

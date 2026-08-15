@@ -1,17 +1,16 @@
 # LCWO-024 specialized pipeline — experiment result
 
-**Result:** `PRIVATE REPRESENTATIVE PROOF SUCCEEDED / PIPELINE ENFORCEMENT NOT
-YET ADOPTED`
+**Result:** `FAILED / FALSE PASS INVALIDATED 2026-08-15`
 
 ## Outcome
 
-The five-stage specialist method produced a 743-word successor with zero
-material defects in the final independent comparison. The 888-word predecessor
-had five material defects, including unsupported patch certainty, uniform
-“sealed” language, a blurred replay boundary, unreconciled statistical units
-and a buried point.
+The five-stage specialist method produced a 743-word successor that its intended
+reader rejected as too technical and unclear about the actual event and impact.
+The independent comparison's zero-defect result was wrong. It measured factual
+discipline and surface structure while missing whether the opening corrected
+the likely panic and made the unfamiliar object understandable.
 
-## What specialization improved
+## What remains mechanically useful
 
 1. The evidence desk caught “the route was patched” before new prose was
    written.
@@ -19,8 +18,9 @@ and a buried point.
    mechanism before jargon and rejected a misleading Rewind analogy.
 3. The format editor preserved Daily structure and paired work/home transfer.
 4. The line editor reduced repetition and made the action reader-facing.
-5. The independent comparator found remaining drift and known failures without
-   relying on maker receipts.
+5. Artifact handoffs made the origin of several errors traceable.
+
+None of those points establishes successful reader communication.
 
 ## What failed during the test
 
@@ -32,24 +32,25 @@ and a buried point.
   Specialist roles reduced muddling, but did not create first-pass reliability
   on their own.
 
-## Root-cause result
+## Corrected root-cause result
 
-The overloaded-producer hypothesis was partly correct. Research qualification,
-explanation architecture, newspaper formatting and LAiDIES voice are distinct
-jobs and benefit from narrow contexts. The larger root cause is unenforced
-handoff contracts: later specialists can only preserve facts and citations that
-the prior artifact actually contains, and self-reported limits are not evidence.
+The overloaded-producer hypothesis remains plausible but unproved. Splitting
+roles did not solve the core failure because every stage inherited the same
+technical abstraction and none owned the reader's likely first fear. The larger
+root cause was an incomplete production contract: it did not require an
+AIDB-style headline/evidence mismatch test, an immediate fear correction, one
+ordinary situation before technical labels or an explicit impact ladder.
 
-Before this method becomes the autonomous Daily pipeline, each stage needs a
-fail-closed output contract. At minimum: exact evidence/citation fields,
-permitted claims and unknowns, explanation links, format route, objective word
-count, banned-claim scan and exact artifact identity. A failed mechanical check
-must return to the responsible stage before another specialist or reviewer is
-called.
+Before another candidate can test the method, the producer contract and
+headline detector must reject this exact known-bad artifact without being told
+the expected verdict. Only a successor that corrects the fear in the
+headline/standfirst, explains the ordinary sharing event first and shows the
+impact ladder may proceed to reader calibration.
 
 ## Current authority
 
-Ali may review the exact successor at
-`operations/product-stewards/newsstand/experiments/lcwo-024-specialized-pipeline-v1/04-LAIDIES-EDIT.md`.
-No canonical candidate, dated Daily issue, NewsStand page, deployment or public
-site changed.
+The exact successor at
+`operations/product-stewards/newsstand/experiments/lcwo-024-specialized-pipeline-v1/04-LAIDIES-EDIT.md`
+is a rejected known-bad predecessor. It must not be returned to Ali as a viable
+option. No canonical candidate, dated Daily issue, NewsStand page, deployment
+or public site changed.
