@@ -51,7 +51,7 @@ function validOrder() {
   const payloadPath = "content/fixture-payload.html";
   const renderedPath = "evidence/fixture-render.png";
   const observationPaths = [1, 2, 3].map(index => `evidence/reader-observation-${index}.md`);
-  const payloadBody = "<main>A real work question moves through context and evidence to a checked decision the reader can use elsewhere.</main>\n";
+  const payloadBody = "<main>A real work question moves through context and evidence to a checked decision the reader can use elsewhere. At work, a manager checks the evidence before approving a customer promise. At home, a traveller checks the evidence before changing a family booking.</main>\n";
   write(payloadPath, payloadBody);
   write(renderedPath, "fixture render\n");
   for (const [index, observationPath] of observationPaths.entries()) write(observationPath, `Reader ${index + 1} explained the context, evidence and human decision in a different case.\n`);
@@ -95,12 +95,14 @@ function validOrder() {
   const goodPath = "evidence/known-good.txt";
   const sourcePath = "evidence/source.md";
   const benchmarkPath = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
+  const reasoningBenchmarkPath = "operations/product-stewards/learning-content-ecosystem/LAIDIES-EXPLANATION-AND-EDITORIAL-REASONING-BENCHMARK.md";
   write(badPath, "A disconnected glossary uses a decorative comparison and gives the reader no useful decision.\n");
   write(goodPath, "A real problem moves through one mechanism and lands in a useful action the reader can transfer.\n");
   write(sourcePath, "Authoritative fixture source says context and evidence support a checked decision.\n");
   write(benchmarkPath, "HANNAH_FRY_COMMUNICATION_LENS_V2 test fixture.\n");
+  write(reasoningBenchmarkPath, "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1 test fixture.\n");
   const negativeFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"];
-  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding"];
+  const allFailureFamilies = ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "factlessConfidence", "staleUnreviewableClaims", "corporateSludge", "joylessInstruction", "benchmarkNameDrop", "curiosityWithoutPayoff", "familiarExampleWithoutTechnicalReturn", "communicationPastiche", "entertainmentBeforeUnderstanding", "mechanismCompressedBehindHook", "prematureClickBeforeMechanism", "inflatedTakeawayEnding", "firstPrinciplesGap", "parrotingExplainBack", "claimEvidenceCollapsed", "aidbDeference", "rewindDecorationInsteadOfTeaching"];
   const registry = write("operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json", JSON.stringify({
     schemaVersion: "laidies-content-quality-exemplars.v1",
     negativeExemplars: [{ id: "BAD", path: badPath, sha256: sha256(path.join(root, badPath)), incidentId: "fixture-incident", appliesTo: ["EXPLANATION"], failureFamilies: negativeFamilies }],
@@ -110,7 +112,8 @@ function validOrder() {
   const producerContractPath = "evidence/producer-contract.json";
   write(producerContractPath, JSON.stringify({
     schemaVersion: "laidies-content-producer-contract.v1", candidateId: id, surface: "LIBRAIRY", contentClass: "EXPLANATION", producer: "maker", status: "READY_TO_DRAFT",
-    readerContract: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", priorKnowledge: "None assumed.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "A work question.", surfaceJob: "Durable explanation.", desiredFeeling: "Oh, I get it now." },
+    readerContract: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", priorKnowledge: "None assumed.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "Work and home decisions.", surfaceJob: "Durable explanation.", desiredFeeling: "Oh, I get it now." },
+    examplePair: { policyId: "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", workplaceExample: "A manager checks evidence before approving a customer promise.", nonWorkExample: "A traveller checks evidence before changing a family booking.", sharedMechanism: "The decision follows only after the relevant evidence is checked.", surfaceAdaptation: "Two short examples prove the same mechanism in genuinely different settings." },
     canonicalTruth: [{ claimId: "fixture", owner: "fixture-owner", freshnessTrigger: "source changes", source: { path: sourcePath, sha256: sha256(path.join(root, sourcePath)) } }],
     positiveExemplars: [{ id: "GOOD", strengthsToUse: ["connected mechanism"], patternsNotToCopy: ["exact structure"] }],
     knownFailurePreflight: { registryVersion: "laidies-content-quality-exemplars.v1", registrySha256: sha256(registry), negativeExemplarIds: ["BAD"], dispositions, knownDefectsRemaining: [] },
@@ -141,18 +144,32 @@ function validOrder() {
         order: "START_AND_GAP_THEN_MECHANISM_THEN_EARNED_CLICK_THEN_SMALL_LANDING"
       }
     },
+    explanationReasoningDesign: {
+      benchmarkId: "LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1",
+      benchmark: { path: reasoningBenchmarkPath, sha256: sha256(path.join(root, reasoningBenchmarkPath)) },
+      mode: "FULL",
+      imitationBoundary: "ADAPT_METHODS_KEEP_LAIDIES_VOICE_NEVER_DEFER_TO_AIDB",
+      humanEntry: "A real decision can sound settled before anyone checks what supports it.",
+      fakeUnderstandingRisk: "A reader may repeat that evidence matters without knowing where it enters the decision.",
+      explainBackTest: "Explain how the question, context and evidence lead to a checked decision.",
+      transferCase: "Apply the same chain to a family travel change rather than the workplace promise.",
+      usefulLanding: "Ask which evidence supports the decision before acting.",
+      rewindEraAdaptation: "Like checking the track list before making the mixtape, the detail serves the mechanism rather than decorating it.",
+      firstPrinciplesSequence: ["The question defines the decision.", "Context identifies the relevant material.", "Evidence supports or limits the decision."],
+      evidenceAnalysis: { claimUnderInspection: "A fluent answer is enough to support a decision.", primaryEvidence: "The fixture source binds context and evidence to the checked decision.", establishes: "A checked decision needs relevant evidence.", doesNotEstablish: "It does not guarantee that every decision is correct.", claimedImpact: "Readers can act safely from fluent answers alone.", realConsequence: "Readers should identify and check the supporting evidence before acting.", aidbDisposition: "NOT_APPLICABLE_TO_SUBJECT", aidbReason: "This synthetic fixture is not a current news claim." }
+    },
     representativeProofPlan: { highestRisk: "understanding", plannedProof: "one section", acceptanceOutcome: "reader transfers it" },
     ratchet: { targets: { repeatedKnownDefects: 0, objectiveDefectsFirstFoundAtReview: 0 }, rule: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW" }
   }));
   const excerpt = "A real work question moves through context and evidence";
-  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
+  const outcomeNames = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit", "connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explanationReasoningBenchmark", "explanationArc", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity", "workplaceExample", "nonWorkExample"];
   const review = stage => {
     const reviewerPrincipalId = stage === "PRODUCER_SELF_REVIEW" ? "maker" : "independent-reader-principal";
     const isProducer = stage === "PRODUCER_SELF_REVIEW";
     const outcomes = Object.fromEntries(outcomeNames.map(name => [name, {
       verdict: "PASS",
       observation: `${name} is present.`,
-      artifactEvidence: [{ excerpt, locator: "fixture-payload.html:1" }],
+      artifactEvidence: [{ excerpt: name === "workplaceExample" ? "At work, a manager checks the evidence before approving a customer promise." : name === "nonWorkExample" ? "At home, a traveller checks the evidence before changing a family booking." : excerpt, locator: "fixture-payload.html:1" }],
       ...(["explainBack", "unseenTransfer"].includes(name)
         ? isProducer
           ? { simulatedReaderProbe: { prompt: `Probe ${name}.`, probeResponse: "A hypothetical reader explains context and evidence.", expectedEvidence: "Names context and evidence." } }
@@ -161,6 +178,7 @@ function validOrder() {
     }]));
     return ({
     schemaVersion: "laidies-prose-quality-review.v1", candidateId: id, stage, contentClass: "EXPLANATION", surface: "LIBRAIRY", maker: "maker",
+    examplePairPolicy: { policyId: "LAIDIES_WORK_AND_LIFE_EXAMPLES_V1", sharedMechanism: true, genuinelyDifferentSettings: true },
     reviewer: { id: isProducer ? "maker-review" : "independent-reader", principalId: reviewerPrincipalId, role: "prose reviewer", modelFamily: isProducer ? "openai" : "claude", ...(stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? { independentFromMaker: true, artifactFirst: true } : {}) }, reviewMode: "EXACT_PROSE_IN_FULL", reviewedAt: isProducer ? "2026-08-07T06:00:00-07:00" : "2026-08-07T07:00:00-07:00",
     artifact: { reviewText: { path: payloadPath, sha256: sha256(path.join(root, payloadPath)) }, manifest: { path: manifestPath, sha256: binding.sha256 } },
     calibration: { registrySha256: sha256(registry), reviewerPrincipalId, reviewedAt: isProducer ? "2026-08-07T05:59:00-07:00" : "2026-08-07T06:59:00-07:00", negatives: [{ exemplarId: "BAD", verdict: "REJECT", identifiedFailureFamilies: negativeFamilies, evidence: [{ excerpt: "A disconnected glossary uses a decorative comparison", locator: "known-bad.txt:1" }] }], positive: { exemplarId: "GOOD", verdict: "PASS", strengthsRetained: ["connected mechanism"], evidence: [{ excerpt: "A real problem moves through one mechanism", locator: "known-good.txt:1" }] } },

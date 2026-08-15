@@ -15287,3 +15287,30 @@ while remaining falsely unfinished in the launch record.
 - **Remaining proof:** LCWO-024 still needs real unfamiliar-reader explain-back and unseen-transfer evidence, role-distinct semantic review, a complete dated Daily issue and a new continuous visual candidate. No public output has been earned yet.
 - **Possible Behind the Build angle:** Why writing more rules does not improve AI output until the rules become unavoidable inputs—and why a reviewer should be blind to persuasion, not to the brief.
 - **Publication status:** INTERNAL PRODUCTION-CONTROL REPAIR / NO ARTICLE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
+
+## BTB-492 — A strengthened prose gate left its release-ready calibration stale
+
+- **Date:** 2026-08-15
+- **Area:** Learning System release readiness / calibrated content tests.
+- **Failure:** The twice-daily executor's work-order and heartbeat checks passed,
+  but the calibrated release-readiness suite failed because its known-good
+  fixture still represented the older producer/review contract. It lacked the
+  required work-and-life pair, Feynman/AIDB reasoning benchmark, three causal
+  steps and the new exact-prose review outcomes and failure families.
+- **Root cause:** The producer and semantic validators were strengthened without
+  updating every downstream positive fixture that proves a genuinely valid
+  artifact can still pass. The real queue remained correctly held, but the
+  calibration family was internally inconsistent.
+- **Prevention rule:** A content-contract expansion is incomplete until every
+  dependent positive and negative calibration fixture is updated and the full
+  execution plus release-readiness suite passes. A validator that rejects its
+  current known-good fixture cannot support a healthy executor claim.
+- **Durable correction:** `scripts/test-content-release-readiness.mjs` now binds
+  `LAIDIES_EXPLANATION_EDITORIAL_TRIAD_V1`, distinct workplace/non-work examples,
+  the complete explanation-reasoning plan, exact paired-example review evidence
+  and all enforced failure families. The repaired test again proves both a valid
+  release-ready artifact and the required rejection cases.
+- **Possible Behind the Build angle:** Why making a quality gate stricter can
+  quietly break the evidence that the gate still knows what good looks like.
+- **Publication status:** INTERNAL EXECUTION TEST REPAIR / NO ARTICLE, SITE ROUTE,
+  PUBLICATION, DEPLOYMENT OR PUBLIC STATE CHANGED.
