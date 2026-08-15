@@ -104,9 +104,11 @@ If the likely misread is alarming, the headline and standfirst correct it. Do
 not make the reader continue through background or mechanism to discover that
 the feared event did not happen.
 
-1. **What you may have seen** — the exact headline or title, publisher, date
-   and public link. If the public item was a research paper rather than a news
-   article, say so; do not invent a missing article.
+1. **What you may have seen** — the exact reporting headline an ordinary reader
+   could have encountered, its publisher, date and public link. State what that
+   headline and its opening would reasonably lead the reader to believe. Then
+   identify the underlying announcement, study or incident record separately.
+   If no reporting can be verified, say so and do not invent it.
 2. **What the story says** — a fair, plain-language summary before LAiDIES
    comments on it.
 3. **How the reported event happened** — reconstruct the complete route in
@@ -119,6 +121,10 @@ the feared event did not happen.
    public chat link, sending a requested diagnostic record and publishing a raw
    developer/research run are different routes. State which route the evidence
    directly studied and label the others as boundaries or precautions.
+   Begin with the ordinary private-chat situation. If a familiar adjacent file
+   type such as Markdown is likely to create confusion, define it in ordinary
+   terms, state whether the evidence studied it and explain what sharing that
+   file actually moves.
 5. **What the evidence actually found** — open the underlying study,
    announcement, incident record or data and explain it from first principles.
 6. **What the story got right.**
@@ -189,6 +195,11 @@ When unintended information is central, name concrete examples, show one
 evidence-supported route by which such information entered the record and keep
 unknown origins explicitly unknown. `Complete`, `full`, `raw`, `technical` and
 `behind-the-scenes` describe a record; they do not explain it.
+
+`Attack`, `exploit`, `breach`, `credential`, `API key`, `access token` and
+`private key` also do not explain themselves. Show the deliberate action before
+naming an attack, say which exact action a later patch stopped and translate a
+credential into what access, charge or impersonation it could permit.
 
 The reporting mode may change; the teaching standard does not. Explain every
 unfamiliar object, action and handoff before naming it with jargon. Preserve

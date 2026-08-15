@@ -273,12 +273,20 @@ try {
   realityCheck.publicationPlan.writingMode = "HEADLINE_REALITY_CHECK";
   realityCheck.publicationPlan.headlineRealityAssessment.materialMismatch = true;
   realityCheck.publicationPlan.headlineRealityAssessment.publicItem = {
-    itemType: "RESEARCH_PREPRINT",
-    headlineOrTitle: "A precise public title",
-    publisher: "A public research repository",
-    publishedAt: "2026-08-10",
-    url: "https://example.com/paper",
-    fairSummary: "The paper reports that sensitive material could be recovered from saved AI records that people had already posted publicly."
+    itemType: "NEWSLETTER_REPORT",
+    headlineOrTitle: "A precise public headline",
+    publisher: "A public newsletter",
+    publishedAt: "2026-08-12",
+    url: "https://example.com/report",
+    fairSummary: "The report says researchers cracked hidden AI reasoning and recovered secrets from public records.",
+    apparentMeaning: "An ordinary reader may think familiar private chats were cracked.",
+    underlyingPrimary: {
+      itemType: "RESEARCH_PREPRINT",
+      headlineOrTitle: "A precise research title",
+      publisher: "A public research repository",
+      publishedAt: "2026-08-10",
+      url: "https://example.com/paper"
+    }
   };
   realityCheck.publicationPlan.readerEntry.likelyMisreadMaterial = true;
   realityCheck.publicationPlan.readerEntry.correctionLocation = "HEADLINE_AND_STANDFIRST";
@@ -298,8 +306,26 @@ try {
     ordinaryPrivateChat: "Not the route studied.",
     selectedVisibleText: "Selecting visible words and pasting only those words does not move the saved run record.",
     publicChatLink: "A public chat link shares the visible conversation and is a different route.",
+    ordinaryMarkdownFile: "A Markdown file shares readable text and was not the category studied.",
     requestedDiagnosticRecord: "A related precaution, not a directly studied group.",
     publishedRawRun: "The directly studied route."
+  };
+  realityCheck.publicationPlan.readerEntry.attackMechanism = {
+    ordinaryMeaning: "A deliberate security test rather than an automatic event.",
+    testedAction: "Researchers moved an unreadable bundle from a strong model to a weaker sibling and prompted it to reveal the contents.",
+    stoppedWorkingMeaning: "That exact model-to-model decoding method stopped revealing the contents after disclosure.",
+    limit: "The result does not prove every privacy problem is fixed."
+  };
+  realityCheck.publicationPlan.readerEntry.ordinaryFileBoundary = {
+    fileType: "Markdown (.md)",
+    plainMeaning: "A readable plain-text document with simple marks for headings and lists.",
+    whatSharingMoves: "One file sends its visible words; a project folder can send other files too.",
+    studyBoundary: "The paper studied session records with opaque bundles, not Markdown as a category."
+  };
+  realityCheck.publicationPlan.readerEntry.securityTerms = {
+    apiKey: "A password issued to software that may allow use or charges.",
+    accessToken: "A temporary digital pass.",
+    privateKey: "Secret proof used to unlock access or confirm identity."
   };
   realityCheck.publicationPlan.readerEntry.unintendedContents = {
     concreteExamples: ["API keys", "passwords", "access tokens"],
@@ -313,6 +339,14 @@ try {
   assert.match(inspect(missingJourney).join("\n"), /sharingJourney\.destination is required/);
   const missingActionBoundary = structuredClone(realityCheck); delete missingActionBoundary.publicationPlan.readerEntry.actionBoundaries.selectedVisibleText;
   assert.match(inspect(missingActionBoundary).join("\n"), /actionBoundaries\.selectedVisibleText is required/);
+  const missingUnderlyingPrimary = structuredClone(realityCheck); delete missingUnderlyingPrimary.publicationPlan.headlineRealityAssessment.publicItem.underlyingPrimary;
+  assert.match(inspect(missingUnderlyingPrimary).join("\n"), /underlyingPrimary\.headlineOrTitle is required/);
+  const missingAttack = structuredClone(realityCheck); delete missingAttack.publicationPlan.readerEntry.attackMechanism.testedAction;
+  assert.match(inspect(missingAttack).join("\n"), /attackMechanism\.testedAction is required/);
+  const missingMarkdown = structuredClone(realityCheck); delete missingMarkdown.publicationPlan.readerEntry.ordinaryFileBoundary.whatSharingMoves;
+  assert.match(inspect(missingMarkdown).join("\n"), /ordinaryFileBoundary\.whatSharingMoves is required/);
+  const missingSecurityMeaning = structuredClone(realityCheck); delete missingSecurityMeaning.publicationPlan.readerEntry.securityTerms.apiKey;
+  assert.match(inspect(missingSecurityMeaning).join("\n"), /securityTerms\.apiKey is required/);
   const missingUnintendedOrigin = structuredClone(realityCheck); delete missingUnintendedOrigin.publicationPlan.readerEntry.unintendedContents.observedOriginExample;
   assert.match(inspect(missingUnintendedOrigin).join("\n"), /unintendedContents\.observedOriginExample is required/);
   const overlongDailyBudget = structuredClone(daily); overlongDailyBudget.publicationPlan.lengthBudget.maximumWords = 1400;

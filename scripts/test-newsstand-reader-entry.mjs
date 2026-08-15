@@ -10,6 +10,7 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const checker = path.join(root, "scripts/check-newsstand-reader-entry.mjs");
 const firstKnownBad = path.join(root, "operations/product-stewards/newsstand/experiments/lcwo-024-specialized-pipeline-v1/04-LAIDIES-EDIT.md");
 const secondKnownBad = path.join(root, "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v2.md");
+const thirdKnownBad = path.join(root, "operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v3.md");
 const run = file => spawnSync(process.execPath, [checker, file], { encoding: "utf8" });
 
 const firstBad = run(firstKnownBad);
@@ -21,9 +22,16 @@ const secondBad = run(secondKnownBad);
 assert.notEqual(secondBad.status, 0, "second Ali-rejected article must fail unaided");
 assert.match(secondBad.stderr, /missing exact-source section/);
 assert.match(secondBad.stderr, /missing fair-summary section/);
-assert.match(secondBad.stderr, /missing complete sharing journey/);
+assert.match(secondBad.stderr, /missing attack-action section/);
 assert.match(secondBad.stderr, /missing can\/cannot boundary section/);
+assert.match(secondBad.stderr, /missing ordinary-file boundary/);
 assert.match(secondBad.stderr, /missing unintended-contents section/);
+
+const thirdBad = run(thirdKnownBad);
+assert.notEqual(thirdBad.status, 0, "third Ali-rejected article must fail unaided");
+assert.match(thirdBad.stderr, /does not link the encountered reporting/);
+assert.match(thirdBad.stderr, /attack is not defined as a deliberate security test/);
+assert.match(thirdBad.stderr, /missing ordinary-file boundary/);
 
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-reader-entry-"));
 const goodPath = path.join(dir, "good.md");
@@ -33,27 +41,31 @@ fs.writeFileSync(goodPath, `# No, this paper did not find your private AI chats 
 
 ## What you may have seen
 
-The August 10, 2026 research preprint [“A precise public title”](https://example.com/paper) reported a privacy problem in saved AI records. Researchers studied records that developers and researchers had deliberately uploaded publicly so others could inspect or reproduce the work. It did not find that ordinary private chats had escaped onto the internet.
+The August 12, 2026 [headline “Models' Reasoning Got Cracked”](https://www.theneurondaily.com/p/example) reported a privacy problem. Its underlying August 10, 2026 [research preprint](https://arxiv.org/abs/example) studied records developers and researchers had deliberately uploaded publicly so others could inspect or reproduce the work. It did not find that ordinary private chats had escaped onto the internet.
 
 ## What it was saying
 
 The paper said some AI systems returned extra unreadable information alongside a visible answer. Researchers reported that another model could reveal parts of that extra information in records people had already published, including sensitive details not visible in the cleaned conversation.
 
-## How this happened
+## What was the “attack”?
 
-A developer used an AI coding tool to work on software. The tool saved a record of the run: instructions, visible answers, tool actions and an unreadable field. The developer then uploaded that original record to GitHub so other researchers could inspect and reproduce the work. Another person could download the public record.
+An attack here was a deliberate security test. Researchers fed an unreadable bundle from a powerful model into a weaker sibling model, then used special instructions to bypass safeguards and reveal hidden contents. They tested records already uploaded to GitHub so others could inspect or reproduce the work. After disclosure, that exact decoding trick stopped revealing hidden contents.
 
-## When this can happen — and when it cannot
+## If I only type into ChatGPT, what does this mean for me?
 
 - A normal private chat is not published by this route.
 - Selecting visible words in an answer and pasting only those selected words into an email moves those words, not the saved run record.
 - A public chat link makes the visible conversation available and is a different sharing choice.
-- A requested diagnostic record deserves a pause and a private approved route; the paper did not study support requests.
+- Attaching a document gives the AI service that file but does not itself publish the file online; the paper did not study ordinary attachments.
 - Publishing a raw developer run was the route the researchers directly studied.
 
-## What could be included without realizing it
+## What about a Markdown file?
 
-The records contained API keys, passwords and access tokens. In one example, an AI asked to clean a software project repeated a key it was supposed to remove in unreadable carry-along data. The researchers could not determine the origin of every recovered item.
+A Markdown file is a plain-text document ending in .md. Sending one file shares its readable text. Publishing an entire project folder can include other files. The paper did not examine Markdown documents as a category.
+
+## What private information did they find?
+
+The records contained API keys, passwords, access tokens and private keys. An API key is a password for software that may allow service use or charges. An access token is a temporary digital pass. A private key is secret proof used to unlock access or confirm identity. In one example, an AI asked to clean a software project repeated a key it was supposed to remove in unreadable carry-along data. The researchers could not determine the origin of every recovered item.
 `);
 const good = run(goodPath);
 assert.equal(good.status, 0, good.stderr);
@@ -68,4 +80,4 @@ ${"Background material fills the opening. ".repeat(35)} Developers later shared 
 const delayed = run(delayedPath);
 assert.notEqual(delayed.status, 0, "delayed reassurance must fail");
 
-console.log("NEWSSTAND READER ENTRY CALIBRATION PASS known_bad_rejected=2 good_fixture_accepted=1 delayed_fixture_rejected=1 quality_authority=none");
+console.log("NEWSSTAND READER ENTRY CALIBRATION PASS known_bad_rejected=3 good_fixture_accepted=1 delayed_fixture_rejected=1 quality_authority=none");

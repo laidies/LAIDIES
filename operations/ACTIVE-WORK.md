@@ -57,19 +57,31 @@ record, upload, destination, purpose and recipient journey → five distinct
 sharing boundaries → concrete unintended contents and origin uncertainty. The
 repaired reader-entry checker rejects both Ali-rejected predecessors unaided.
 
-The new 740-word v3 successor at
-`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v3.md`
+Ali rejected v3 because it substituted the paper for the reporting people
+actually encountered, introduced `the attacks stopped working` before
+explaining the attack, did not begin from ordinary ChatGPT use, omitted the
+Markdown-file question and listed security credentials without explaining what
+they do. Its producer PASS is **INVALID** and the exact bytes are now
+CQX-BAD-018 calibration input.
+
+D-133 requires encountered reporting → apparent meaning → underlying primary
+source → exact tested attack action → ordinary ChatGPT sharing ladder → bounded
+ordinary-file questions → translated credential consequences. The calibrated
+reader-entry checker now rejects all three Ali-rejected predecessors unaided.
+
+The new 896-word v4 successor at
+`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v4.md`
 is **PRODUCER PASS / ALI CALIBRATION NEXT / NOT ADMITTED / NOT PUBLISHED** at
 SHA-256
-`7eea9d8953299d1299629b47cb5afd1c5854a65229e11a4cd1a648440af83053`.
-It identifies the August 10 arXiv paper and fairly states its claim, reconstructs
-the coding-tool → saved run → deliberate GitHub upload → researcher download
-route, distinguishes private chat / selected visible text / public chat link /
-diagnostic record / published raw run, and explains concrete secrets plus the
-paper's unresolved origin boundary. Producer self-review passes with no
-independent semantic authority. Ali's reading is the next calibration; formal
-independent/observed-reader admission, dated issue assembly, visual review,
-deployment and public verification remain open. No canonical or public
+`bf494126115b05c84e1a67ee2f9cfe008bba39d9543fc80b2540ae75b512ab63`.
+It quotes The Neuron's `OpenAI, Claude, and Gemini's Reasoning Got Cracked`
+headline, identifies the preprint underneath it, explains the deliberate
+stronger-model-to-weaker-model decoding test, starts the consequence ladder
+from ordinary ChatGPT use, defines Markdown and translates API keys, access
+tokens and private keys into plain consequences. Producer self-review passes
+with no independent semantic authority. Ali's reading is the next calibration;
+formal independent/observed-reader admission, dated issue assembly, visual
+review, deployment and public verification remain open. No canonical or public
 NewsStand state changed.
 
 ## 2026-08-12 NewsStand logic and Control Room recovery

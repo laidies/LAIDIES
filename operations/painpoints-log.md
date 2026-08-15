@@ -15438,3 +15438,44 @@ while remaining falsely unfinished in the launch record.
   why it existed.
 - **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
   ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
+
+## BTB-496 — The third repair answered the paper instead of the reporting and used security labels as explanations
+
+- **Date:** 2026-08-15
+- **Area:** NewsStand Headline Reality Check and unfamiliar-reader teaching.
+- **Failure:** LCWO-024 v3 identified the preprint and the public-record journey,
+  yet Ali still encountered `the attacks stopped working` before learning what
+  the researchers deliberately did. The article treated the paper title as the
+  reader-facing story, did not begin from ordinary ChatGPT use, omitted the
+  predictable Markdown-file question and listed API keys, access tokens and
+  private keys without explaining their consequences.
+- **Root cause:** The producer contract required one `publicItem` and allowed
+  the primary evidence to occupy that slot, collapsing encountered reporting
+  and underlying source. The checker recognized sharing categories but did not
+  require the tested security action, an ordinary readable-file boundary or
+  meaning after credential labels.
+- **Issues caused:** The reality check did not check the headline readers saw;
+  unexplained attack language created a new fear; an ordinary ChatGPT reader
+  still could not map the result to her own files and actions; and Ali had to
+  find a third preventable semantic defect after producer PASS.
+- **Prevention rule:** Bind encountered reporting and underlying primary source
+  separately. Explain the deliberate action before `attack`, and name exactly
+  what later stopped working. Start consequences from ordinary private chat;
+  answer adjacent familiar-file questions such as Markdown without claiming the
+  paper studied them; translate every credential into access, charge or identity
+  consequence.
+- **Calibration:** CQX-BAD-018 binds the exact v3 bytes. The reader checker now
+  rejects all three Ali-rejected predecessors and requires The Neuron report,
+  the preprint, the model-to-model decoding action, ChatGPT and Markdown
+  boundaries and credential meanings. Producer-contract fixtures fail each
+  missing field separately.
+- **Durable correction:** D-133, the NewsStand template/editorial method,
+  producer contract, source map and v4 candidate encode the correction. The
+  1,192-word first v4 draft was cut to 896 words before producer review.
+- **Remaining proof:** v4 is producer PASS only. Ali calibration, real
+  unfamiliar-reader observations, independent semantic admission, dated-issue
+  and visual assembly, deployment and public verification remain open.
+- **Possible Behind the Build angle:** Why a fact checker can answer the paper
+  perfectly and still fail the reader who only saw the headline.
+- **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
+  ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.

@@ -156,6 +156,13 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
         }
         require(/^https?:\/\//.test(publicItem?.url || ""), "NEWS headlineRealityAssessment.publicItem.url must be a public HTTP(S) URL");
         require(/^\d{4}-\d{2}-\d{2}$/.test(publicItem?.publishedAt || ""), "NEWS headlineRealityAssessment.publicItem.publishedAt must be YYYY-MM-DD");
+        require(text(publicItem?.apparentMeaning), "NEWS headlineRealityAssessment.publicItem.apparentMeaning is required for HEADLINE_REALITY_CHECK");
+        const primary = publicItem?.underlyingPrimary;
+        for (const field of ["itemType", "headlineOrTitle", "publisher", "publishedAt", "url"]) {
+          require(text(primary?.[field]), `NEWS headlineRealityAssessment.publicItem.underlyingPrimary.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        require(/^https?:\/\//.test(primary?.url || ""), "NEWS underlyingPrimary.url must be a public HTTP(S) URL");
+        require(/^\d{4}-\d{2}-\d{2}$/.test(primary?.publishedAt || ""), "NEWS underlyingPrimary.publishedAt must be YYYY-MM-DD");
       }
       const entry = plan?.readerEntry;
       for (const field of ["likelyFear", "immediateCorrection", "actualActor", "ordinaryObject", "sharingReason", "directAudience", "ordinaryReaderImpact", "whyLaidiesCovers"]) {
@@ -178,8 +185,20 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
           require(text(journey?.[field]), `NEWS readerEntry.sharingJourney.${field} is required for HEADLINE_REALITY_CHECK`);
         }
         const boundaries = entry?.actionBoundaries;
-        for (const field of ["ordinaryPrivateChat", "selectedVisibleText", "publicChatLink", "requestedDiagnosticRecord", "publishedRawRun"]) {
+        for (const field of ["ordinaryPrivateChat", "selectedVisibleText", "publicChatLink", "ordinaryMarkdownFile", "requestedDiagnosticRecord", "publishedRawRun"]) {
           require(text(boundaries?.[field]), `NEWS readerEntry.actionBoundaries.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const attack = entry?.attackMechanism;
+        for (const field of ["ordinaryMeaning", "testedAction", "stoppedWorkingMeaning", "limit"]) {
+          require(text(attack?.[field]), `NEWS readerEntry.attackMechanism.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const ordinaryFile = entry?.ordinaryFileBoundary;
+        for (const field of ["fileType", "plainMeaning", "whatSharingMoves", "studyBoundary"]) {
+          require(text(ordinaryFile?.[field]), `NEWS readerEntry.ordinaryFileBoundary.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const securityTerms = entry?.securityTerms;
+        for (const field of ["apiKey", "accessToken", "privateKey"]) {
+          require(text(securityTerms?.[field]), `NEWS readerEntry.securityTerms.${field} is required for HEADLINE_REALITY_CHECK`);
         }
         const unintended = entry?.unintendedContents;
         require(array(unintended?.concreteExamples, 3), "NEWS readerEntry.unintendedContents.concreteExamples requires at least three examples");

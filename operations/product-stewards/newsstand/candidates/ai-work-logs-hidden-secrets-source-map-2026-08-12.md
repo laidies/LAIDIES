@@ -13,27 +13,58 @@ If I use an AI assistant, can private information hide in a file even after the 
 
 ## Source set
 
-1. **Exact public item being checked:** Alexander Panfilov et al., “Stealing Reasoning Traces from Proprietary LLM APIs,” a research preprint published by arXiv on 2026-08-10.
+1. **Exact reporting being checked:** The Neuron, “OpenAI, Claude, and Gemini's
+   Reasoning Got Cracked.”
+   URL: https://www.theneurondaily.com/p/openai-claude-and-gemini-s-reasoning-got-cracked
+   The public page and sitemap confirm its 2026-08-12 publication date. Its
+   section `Researchers Cracked Open AI's Hidden Reasoning` says Claude,
+   ChatGPT and Gemini perform private step-by-step reasoning, that encrypted
+   blocks could be replayed into weaker sibling models with a jailbreak prompt
+   and that 367 pieces of personal information and 182 credentials were
+   recovered across 315,320 public blocks. Ali's forwarded August 12 AI
+   Intelligence Brief confirms this was the reporting she encountered. That
+   private briefing is discovery evidence only and must not be exposed as a
+   public source.
+2. **Underlying primary source:** Alexander Panfilov et al., “Stealing Reasoning
+   Traces from Proprietary LLM APIs,” a research preprint published by arXiv on
+   2026-08-10.
    URL: https://arxiv.org/abs/2608.09867
-   The source chain contains no separately verified conventional news article
-   behind this candidate. The public item is the paper itself; the forwarded
-   briefing is private discovery material, not the headline being attributed.
    The paper was inspected in full for abstract, sections 2.5, 4.1, 5.1–5.5
    and appendices. It is a preprint; no peer-review claim is made.
-2. **Anthropic current product documentation:** “Thinking,” inspected 2026-08-12.
+3. **Anthropic current product documentation:** “Thinking,” inspected 2026-08-12.
    URL: https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models
    Use: corroborates that API responses can contain an opaque signed representation of full reasoning that may be returned for continuity. It does not independently verify the paper’s exploit.
-3. **Google current product documentation:** “Gemini thinking” and “Thought Signatures,” inspected 2026-08-12.
+4. **Google current product documentation:** “Gemini thinking” and “Thought Signatures,” inspected 2026-08-12.
    URLs: https://ai.google.dev/gemini-api/docs/thinking and https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures
    Use: corroborates that stateless/manual histories can carry signed thought state between requests. It does not independently verify the paper’s exploit.
-4. **OpenAI current product documentation:** “Reasoning models,” sections “Keeping reasoning items in context” and “Preserve reasoning without stored responses,” inspected 2026-08-12.
+5. **OpenAI current product documentation:** “Reasoning models,” sections “Keeping reasoning items in context” and “Preserve reasoning without stored responses,” inspected 2026-08-12.
    URL: https://developers.openai.com/api/docs/guides/reasoning
    Use: corroborates that applications may pass reasoning items between calls and that stateless responses include opaque encrypted reasoning content. It does not independently verify the paper’s exploit.
-5. **User-forwarded Amazon Quick briefing:** discovery and format input only. It is private, is not a public evidence source and contains a rejected recommendation to ask a model to “show its work.” No Amazon-, tax-, email-, Slack- or internal-workplace detail may enter the article.
+6. **User-forwarded Amazon Quick briefing:** discovery and exact encountered-
+   reporting evidence only. It is private, is not a public evidence source and
+   contains a rejected recommendation to ask a model to “show its work.” No
+   Amazon-, tax-, email-, Slack- or internal-workplace detail may enter the
+   article.
+7. **OpenAI current consumer documentation:** “Data Controls FAQ” and “ChatGPT
+   Shared Links FAQ,” inspected 2026-08-15.
+   URLs: https://help.openai.com/en/articles/7730893-chatgpt-data-controls and
+   https://help.openai.com/en/articles/7925741-chatgpt-shared-links-
+   Use: distinguishes content submitted to a private ChatGPT account from a
+   shared-chat link. OpenAI says Data Controls govern whether conversations may
+   help improve models, and anyone with a consumer shared link can view and
+   forward the included conversation. These documents do not verify the paper's
+   attack or imply that a private chat is a public webpage.
 
 ## What happened
 
 The researchers found that opaque reasoning data returned by certain model APIs could be moved across sessions, users and models within the same provider family. During the tested period, a less-protected sibling model could be induced to reveal data represented inside a trace produced by a stronger model. The authors disclosed the attacks to the affected model providers, Microsoft and Hugging Face. They report that all model providers acknowledged receipt and that the same attacks no longer worked afterward.
+
+`Attack` means the deliberate test sequence: move an opaque bundle made by a
+stronger model into a weaker sibling model from the same provider, add
+instructions designed to bypass safeguards and ask the weaker model to recover
+the hidden contents. `Stopped working` means that exact tested decoding sequence
+no longer returned the hidden material in the authors' post-disclosure tests;
+it is not a claim that all AI privacy risks are fixed.
 
 ## Complete public-sharing journey
 
@@ -48,10 +79,20 @@ The directly studied route was:
 4. the paper's researchers downloaded 6,708 such public records and attempted
    to recover the opaque material.
 
-The paper did not study ordinary private consumer-chat accounts, selected
-visible words pasted into another document, public chat links or support-file
-requests. Public chat links are a different intentional publication route;
-support-file handling is a related precaution, not a paper finding.
+The paper did not study ordinary private consumer-chat accounts, ordinary file
+uploads, selected visible words pasted into another document, public chat links
+or support-file requests. Uploading content gives the service that content but
+does not itself create a public webpage. Public chat links are a separate
+intentional sharing route; OpenAI's current consumer FAQ says anyone with such
+a link can view and forward the included conversation. Provider storage,
+training and retention are separate product-policy questions, not findings of
+this paper.
+
+A Markdown file (`.md`) is a readable plain-text document, not an opaque
+reasoning bundle by default. Sharing one sends its visible text. Publishing a
+whole project folder may additionally send settings, session records or other
+files the person did not inspect. This is an ordinary-file boundary and useful
+precaution; the paper did not study Markdown documents as a category.
 
 The paper's clearest observed origin example is a coding agent asked to clean a
 software repository: its hidden reasoning repeated the API keys it was meant to
@@ -146,11 +187,13 @@ mitigation status and rejected the briefing’s “show your work” advice.
 
 ## Editorial decision
 
-Publish one Daily Headline Reality Check. Do not call it Breaking. Correct the
-every-private-chat fear in the headline and standfirst. Do not use “AI’s
-encrypted reasoning blocks were hacked” as the reader entry. Begin with the
-ordinary action—developers and researchers deliberately posting a complete
-behind-the-scenes file so others could inspect the work—then explain the
-invisible second layer. Keep prompt injection, model distillation and
-hazardous-output findings outside this Daily; they may support a separately
-commissioned Big Picture only if they earn a distinct reader question.
+Publish one Daily Headline Reality Check. Do not call it Breaking. Quote The
+Neuron's encountered headline, explain the alarming impression it creates and
+then identify the preprint underneath it. Correct the every-private-chat fear
+in the headline and standfirst. Explain the exact model-to-model decoding test
+before calling it an attack. Begin consequences from ordinary private ChatGPT
+use, answer the Markdown question as a bounded adjacent-file explanation and
+translate credentials into access or harm. Keep prompt injection, model
+distillation and hazardous-output findings outside this Daily; they may support
+a separately commissioned Big Picture only if they earn a distinct reader
+question.
