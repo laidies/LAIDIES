@@ -78,12 +78,15 @@ Every candidate begins with a one-page premise record. It must answer:
 - Can the first 120 words identify the exact public item, fairly summarize its
   claim and name the actor, ordinary object, sharing path, direct audience and
   reason for coverage before any specialist label?
-- If `sharing` is involved, can the producer show the complete action chain and
-  distinguish selected visible text, a public chat link, a diagnostic record
-  and a raw developer/research run?
-- Does the article begin from the actual ordinary-reader interaction, answer
-  predictable adjacent-file questions and explain the tested action before
-  using security labels such as `attack` or `exploit`?
+- If `sharing` is involved, does the producer distinguish what the person gives
+  the AI, what the AI visibly returns, what behind-the-scenes activity record
+  an advanced tool may create automatically and what the person later sends or
+  publishes—and define exactly who can access something called `public`?
+- Does the article represent the real reader spectrum from phone questions
+  through work documents to project-wide tools without turning one example or
+  file type into the audience model? Does it answer whether every AI-made item
+  has the same risk and explain the tested action before labels such as
+  `attack` or `exploit`?
 
 If those answers are weak, the disposition is `QUIET`, `WATCH`, `UPDATE EXISTING` or `DECLINE`. A blank publication slot is not a reason to continue.
 

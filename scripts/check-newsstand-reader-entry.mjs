@@ -30,7 +30,7 @@ const prose = lines.slice(Math.max(0, headlineIndex + 1))
   .trim();
 const first120 = prose.split(/\s+/).slice(0, 120).join(" ").toLowerCase();
 const errors = [];
-const negation = /\b(no|did not|didn't|does not|doesn't|not your|not every|not ordinary|was not|wasn't)\b/i;
+const negation = /\b(no|did not|didn't|does not|doesn't|had not|hadn't|not your|not every|not ordinary|was not|wasn't)\b/i;
 
 const section = heading => {
   const start = lines.findIndex(line => line.trim().toLowerCase() === `## ${heading}`.toLowerCase());
@@ -44,21 +44,21 @@ const publicItem = section("What you may have seen");
 const storySummary = section("What it was saying");
 const actualEvent = section("What actually happened");
 const route = section("What was the “attack”?") || section("What was the \"attack\"?") || section("How this happened");
-const boundaries = section("If I only type into ChatGPT, what does this mean for me?") || section("What does this mean if I only use ChatGPT?") || section("When this can happen — and when it cannot") || section("When this can happen—and when it cannot");
-const markdown = section("What about a Markdown file?");
-const unintended = section("What private information did they find?") || section("What could be included without realizing it");
+const boundaries = section("Where this meets the way you use AI") || section("If I only type into ChatGPT, what does this mean for me?") || section("What does this mean if I only use ChatGPT?") || section("When this can happen — and when it cannot") || section("When this can happen—and when it cannot");
+const unintended = section("What did the researchers find?") || section("What private information did they find?") || section("What could be included without realizing it");
+const laidiesRead = section("The LAiDIES read");
 const unintendedPlain = unintended.replace(/[*_`\n]/g, " ").replace(/\s+/g, " ");
 const journey = [storySummary, actualEvent, route].join("\n");
 const sourceIdentity = [publicItem, storySummary].join("\n");
 
 if (!headline) errors.push("headline is missing");
 if (!standfirst) errors.push("standfirst is missing");
-if (!(negation.test(headline) || /\bactually found\b/i.test(headline))) errors.push("headline does not correct the likely frightening conclusion");
+if (!(negation.test(headline) || /\bactually (?:found|means)\b/i.test(headline))) errors.push("headline does not correct the likely frightening conclusion");
 if (!negation.test(standfirst)) errors.push("standfirst does not repeat the correction before explanation");
 if (!/\b(developer|developers|researcher|researchers)\b/.test(first120)) errors.push("first 120 words do not name the actual actor");
 if (!/\b(posted|published|uploaded|shared)\b/.test(first120)) errors.push("first 120 words do not name the deliberate sharing action");
 if (!/\b(record|records|file|files)\b/.test(first120)) errors.push("first 120 words do not name the ordinary object as a saved record or file");
-if (!/\b(private chat|private chats|ordinary chat|ordinary chats)\b/.test(first120)) errors.push("first 120 words do not state the ordinary-chat boundary");
+if (!/\b(private|ordinary)(?: ai)? chats?\b/.test(first120)) errors.push("first 120 words do not state the ordinary-chat boundary");
 if (!/\b(inspect|study|reuse|reproduce|show how|understand how)\b/.test(first120)) errors.push("first 120 words do not say why the record was shared");
 
 if (!publicItem) errors.push("missing exact-source section: What you may have seen");
@@ -72,24 +72,36 @@ if (storySummary && storySummary.split(/\s+/).length < 35) errors.push("story su
 
 if (!route) errors.push("missing attack-action section");
 if (route && !/\b(deliberate security test|deliberately tested)\b/i.test(route)) errors.push("attack is not defined as a deliberate security test");
-if (route && !/\b(powerful|stronger)\b[^.]{0,160}\bweaker\b/i.test(route)) errors.push("attack section does not show the stronger-to-weaker model transfer");
+if (route && !/\b(powerful|stronger|capable)\b[^.]{0,160}\bweaker\b/i.test(route)) errors.push("attack section does not show the stronger-to-weaker model transfer");
 if (route && !/\b(fed|moved|handed|gave)\b/i.test(route)) errors.push("attack section does not show the unreadable bundle being moved");
 if (route && !/\b(instructions|prompt)\b/i.test(route)) errors.push("attack section does not show the deliberate bypass instructions");
 if (route && !/\b(stopped|no longer)\b[^.]{0,120}\b(reveal|revealing|return|produce)/i.test(route)) errors.push("attack section does not explain exactly what stopped working");
 if (journey && !/\b(github|hugging face|public repository|public website)\b/i.test(journey)) errors.push("sharing journey does not name where the record went");
 if (journey && !/\b(inspect|study|reuse|reproduce)\b/i.test(journey)) errors.push("sharing journey does not explain why the record was published");
+if (actualEvent && !/websites? where people\s+post computer projects and ai research/i.test(actualEvent.replace(/\s+/g, " "))) errors.push("specialist destination names appear without explaining what those websites are for");
+if (actualEvent && !/\boutside\b[^.]{0,100}\b(account|team)\b[^.]{0,100}\b(find|download)\b/i.test(actualEvent.replace(/\s+/g, " "))) errors.push("public does not identify who gains access");
+if (actualEvent && !/\bai did not post\b/i.test(actualEvent)) errors.push("public does not distinguish the person from the AI as publisher");
+if (actualEvent && !/\b(private workspace|named person)\b/i.test(actualEvent)) errors.push("public does not contrast private and named-recipient sharing");
+
+if (actualEvent && !/what you give the ai/i.test(actualEvent)) errors.push("information-flow model is missing what the person gives the AI");
+if (actualEvent && !/what the ai gives you/i.test(actualEvent)) errors.push("information-flow model is missing the visible AI result");
+if (actualEvent && !/what some advanced tools (?:create|record) automatically/i.test(actualEvent)) errors.push("information-flow model is missing the automatically created activity record");
+if (actualEvent && !/what somebody later (?:puts online|shares)/i.test(actualEvent)) errors.push("information-flow model is missing the later publication action");
+if (actualEvent && !/\b(?:job file|activity record)\b[\s\S]{0,220}\b(instructions|replies)\b[\s\S]{0,180}\b(files opened|actions)\b/i.test(actualEvent.replace(/\s+/g, " "))) errors.push("activity record is named without saying what it records");
+if (actualEvent && !/\b(?:public project folder|project folder containing it|public website)\b/i.test(actualEvent)) errors.push("article does not explain how an activity record could be put online");
 
 if (!boundaries) errors.push("missing can/cannot boundary section");
-if (boundaries && !(/\bselect(?:ed|ing)?\b[^.]{0,100}\bvisible\b[^.]{0,100}\b(past(?:e|ed|ing)|cop(?:y|ied|ying))\b/i.test(boundaries) || /\bcopy\b[^.]{0,100}\bselected\b[^.]{0,100}\bmove\b/i.test(boundaries))) errors.push("boundary section does not explain selecting visible words and pasting only those words");
+if (boundaries && !(/\bselect(?:ed|ing)?\b[^.]{0,100}\bvisible\b[^.]{0,100}\b(past(?:e|ed|ing)|cop(?:y|ied|ying))\b/i.test(boundaries) || /\bcopy\w*\b[^.]{0,100}\bselected\b[^.]{0,100}\b(move|send)\w*\b/i.test(boundaries))) errors.push("boundary section does not explain selecting visible words and pasting only those words");
 if (boundaries && !/\b(public|share|shared)[- ]?(chat[- ]?)?link\b/i.test(boundaries)) errors.push("boundary section does not distinguish a public chat link");
 if (boundaries && !/\b(attach|upload)\w*\b[^.]{0,100}\b(document|file)\b/i.test(boundaries)) errors.push("boundary section does not distinguish an ordinary file attachment");
-if (boundaries && !/\b(developer|research)\b[^.]{0,120}\b(record|run|file)\b/i.test(boundaries)) errors.push("boundary section does not identify the directly studied developer/research record");
+if (boundaries && !/\b(phone)\b[^.]{0,120}\b(chatgpt|claude)\b|\b(chatgpt|claude)\b[^.]{0,120}\bphone\b/i.test(boundaries)) errors.push("reader spectrum does not include ordinary phone questions");
+if (boundaries && !/\b(paste|upload)\w*\b[^.]{0,120}\b(document|image|spreadsheet)\b/i.test(boundaries)) errors.push("reader spectrum does not include ordinary work material");
+if (boundaries && !/\b(open files|run commands|work through a project)\b/i.test(boundaries)) errors.push("reader spectrum does not include project-wide AI tools");
+if (boundaries && !/\b(?:job file|activity record)\b[^.]{0,160}\bpaper directly studied\b/i.test(boundaries.replace(/\s+/g, " "))) errors.push("boundary section does not identify the directly studied activity-record publication");
+if (/\bmarkdown\b/i.test(source) && !/\bmarkdown file is just\s+readable text\b/i.test(source.replace(/\s+/g, " "))) errors.push("Markdown is named without its ordinary information boundary");
 
-if (!markdown) errors.push("missing ordinary-file boundary: What about a Markdown file?");
-if (markdown && !(/\bplain[- ]text\b[^.]{0,100}\.(?:md|markdown)/i.test(markdown.replace(/`/g, "")) || /\.(?:md|markdown)\b[^.]{0,100}\bplain[- ]text\b/i.test(markdown.replace(/`/g, "")))) errors.push("Markdown section does not define .md as readable plain text");
-if (markdown && !/\b(send(?:ing|s)?|shar(?:e|es|ing))\b[^.]{0,120}\b(readable|words|text)\b/i.test(markdown)) errors.push("Markdown section does not explain what sharing one file moves");
-if (markdown && !/\b(project folder|entire project|whole project)\b/i.test(markdown)) errors.push("Markdown section does not distinguish one file from a project folder");
-if (markdown && !(/\bnot\b[^.]{0,120}\b(study|studied|examine|examined)\b/i.test(markdown) || /\b(study|studied|examine|examined)\b[^.]{0,120}\bnot\b/i.test(markdown))) errors.push("Markdown section does not preserve the paper's study boundary");
+if (!laidiesRead || !/\bdoes not automatically carry\b/i.test(laidiesRead)) errors.push("article does not answer whether every AI-made public item has this risk");
+if (laidiesRead && !/\b(job files?|activity records?|file recording every step)\b/i.test(laidiesRead)) errors.push("article does not identify the narrower risky object");
 
 if (!unintended) errors.push("missing unintended-contents section");
 if (unintended && !/\b(passwords?|api keys?|access tokens?|private keys?)\b/i.test(unintended)) errors.push("unintended-contents section lacks concrete sensitive examples");
@@ -106,4 +118,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log("NEWSSTAND READER ENTRY INTEGRITY MATCH correction=headline+standfirst encountered_reporting=present underlying_primary=present attack_action=explained consumer_boundary=present markdown_boundary=present credentials=translated boundary_words=120 quality_authority=none");
+console.log("NEWSSTAND READER ENTRY INTEGRITY MATCH correction=headline+standfirst encountered_reporting=present underlying_primary=present attack_action=explained information_flow=present reader_spectrum=present public_audience=defined credentials=translated boundary_words=120 quality_authority=none");

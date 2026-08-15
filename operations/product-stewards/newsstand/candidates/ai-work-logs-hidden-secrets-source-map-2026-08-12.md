@@ -9,7 +9,7 @@
 
 ## Reader question
 
-If I use an AI assistant, can private information hide in a file even after the visible conversation looks clean—and what do I actually need to do?
+If I use an AI assistant, does everything I share from it carry a hidden record—and what exactly did the people in this study make public?
 
 ## Source set
 
@@ -70,23 +70,30 @@ it is not a claim that all AI privacy risks are fixed.
 
 The directly studied route was:
 
-1. a developer or researcher used an AI coding, research or benchmark tool;
-2. the tool produced a machine-readable record of the run containing visible
-   instructions, answers and tool actions plus opaque provider fields;
-3. the developer or research project deliberately uploaded the original record
-   to GitHub or Hugging Face so others could inspect, reproduce or reuse the
-   work;
+1. a developer or researcher used an advanced AI coding, research or benchmark
+   tool—not only an ordinary question-and-answer chat;
+2. while doing the job, that tool automatically produced a machine-readable
+   activity record containing instructions, answers, files opened and tool
+   actions plus opaque provider fields; such records may be called a run
+   history, session log or trace, and are not the result of pressing Save in an
+   ordinary chat;
+3. the record did not publish itself: its owner or research project uploaded
+   the record, a project folder containing it or a collection of such records
+   to a website where people share computer projects or AI research for others
+   to inspect, reproduce or reuse; the specific sites were GitHub and Hugging
+   Face;
 4. the paper's researchers downloaded 6,708 such public records and attempted
    to recover the opaque material.
 
 The paper did not study ordinary private consumer-chat accounts, ordinary file
 uploads, selected visible words pasted into another document, public chat links
-or support-file requests. Uploading content gives the service that content but
-does not itself create a public webpage. Public chat links are a separate
-intentional sharing route; OpenAI's current consumer FAQ says anyone with such
-a link can view and forward the included conversation. Provider storage,
-training and retention are separate product-policy questions, not findings of
-this paper.
+or support-file requests. An AI-written paragraph, image, presentation or
+ordinary document does not automatically carry the studied activity record.
+Uploading content gives the service that content but does not itself create a
+public webpage. Public chat links are a separate intentional sharing route;
+OpenAI's current consumer FAQ says anyone with such a link can view and forward
+the included conversation. Provider storage, training and retention are
+separate product-policy questions, not findings of this paper.
 
 A Markdown file (`.md`) is a readable plain-text document, not an opaque
 reasoning bundle by default. Sharing one sends its visible text. Publishing a
@@ -190,10 +197,15 @@ mitigation status and rejected the briefing’s “show your work” advice.
 Publish one Daily Headline Reality Check. Do not call it Breaking. Quote The
 Neuron's encountered headline, explain the alarming impression it creates and
 then identify the preprint underneath it. Correct the every-private-chat fear
-in the headline and standfirst. Explain the exact model-to-model decoding test
-before calling it an attack. Begin consequences from ordinary private ChatGPT
-use, answer the Markdown question as a bounded adjacent-file explanation and
-translate credentials into access or harm. Keep prompt injection, model
+in the headline and standfirst. Explain four separate information movements:
+what a person gives AI, what AI visibly returns, what an advanced tool records
+automatically and what an owner later sends or publishes. Define public by the
+outside audience before naming GitHub or Hugging Face, and state that neither
+the AI nor an ordinary Save action put the studied records online. Explain the
+exact model-to-model decoding test before calling it an attack. Represent phone
+questions, work uploads and project-wide tools without treating any one as the
+reader model. Directly state that ordinary AI-written outputs do not
+automatically carry the studied activity record. Keep prompt injection, model
 distillation and hazardous-output findings outside this Daily; they may support
 a separately commissioned Big Picture only if they earn a distinct reader
 question.

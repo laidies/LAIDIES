@@ -322,6 +322,27 @@ try {
     whatSharingMoves: "One file sends its visible words; a project folder can send other files too.",
     studyBoundary: "The paper studied session records with opaque bundles, not Markdown as a category."
   };
+  realityCheck.publicationPlan.readerEntry.informationFlow = {
+    personInput: "A question, pasted text, photo, document, spreadsheet or project folder given to the AI.",
+    visibleOutput: "The answer, summary, image, plan or finished file the person can inspect.",
+    automaticJobRecord: "A file some advanced tools create while working that records instructions, replies, opened files, actions and information passed between steps.",
+    laterAudienceAction: "A person or research project may later place that job file where another person, a private group or the public can access it."
+  };
+  realityCheck.publicationPlan.readerEntry.readerSpectrum = {
+    phoneQuestions: "A person asks ChatGPT or Claude questions on a phone.",
+    workMaterial: "A person pastes work text or uploads a document, image or spreadsheet.",
+    projectWideTool: "A tool can open files, run commands or work through an entire project."
+  };
+  realityCheck.publicationPlan.readerEntry.publicMeaning = {
+    outsideAudience: "People outside the owner's private account or team can find and download the material.",
+    publisherActor: "The person or research project, not the AI, performs the publication action.",
+    concreteRoute: "The job file is included in a public project folder or collection of research records.",
+    privateContrast: "A private workspace or file sent to one named person has a narrower audience."
+  };
+  realityCheck.publicationPlan.readerEntry.riskBoundary = {
+    ordinaryAiMadeOutput: "An AI-written paragraph, image, presentation or ordinary document does not automatically carry the hidden bundle studied.",
+    directlyStudiedObject: "A complete job file automatically created by certain advanced tools and deliberately placed online is the directly studied object."
+  };
   realityCheck.publicationPlan.readerEntry.securityTerms = {
     apiKey: "A password issued to software that may allow use or charges.",
     accessToken: "A temporary digital pass.",
@@ -345,6 +366,14 @@ try {
   assert.match(inspect(missingAttack).join("\n"), /attackMechanism\.testedAction is required/);
   const missingMarkdown = structuredClone(realityCheck); delete missingMarkdown.publicationPlan.readerEntry.ordinaryFileBoundary.whatSharingMoves;
   assert.match(inspect(missingMarkdown).join("\n"), /ordinaryFileBoundary\.whatSharingMoves is required/);
+  const missingInformationFlow = structuredClone(realityCheck); delete missingInformationFlow.publicationPlan.readerEntry.informationFlow.automaticJobRecord;
+  assert.match(inspect(missingInformationFlow).join("\n"), /informationFlow\.automaticJobRecord is required/);
+  const missingReaderSpectrum = structuredClone(realityCheck); delete missingReaderSpectrum.publicationPlan.readerEntry.readerSpectrum.workMaterial;
+  assert.match(inspect(missingReaderSpectrum).join("\n"), /readerSpectrum\.workMaterial is required/);
+  const missingPublicMeaning = structuredClone(realityCheck); delete missingPublicMeaning.publicationPlan.readerEntry.publicMeaning.outsideAudience;
+  assert.match(inspect(missingPublicMeaning).join("\n"), /publicMeaning\.outsideAudience is required/);
+  const missingRiskBoundary = structuredClone(realityCheck); delete missingRiskBoundary.publicationPlan.readerEntry.riskBoundary.ordinaryAiMadeOutput;
+  assert.match(inspect(missingRiskBoundary).join("\n"), /riskBoundary\.ordinaryAiMadeOutput is required/);
   const missingSecurityMeaning = structuredClone(realityCheck); delete missingSecurityMeaning.publicationPlan.readerEntry.securityTerms.apiKey;
   assert.match(inspect(missingSecurityMeaning).join("\n"), /securityTerms\.apiKey is required/);
   const missingUnintendedOrigin = structuredClone(realityCheck); delete missingUnintendedOrigin.publicationPlan.readerEntry.unintendedContents.observedOriginExample;

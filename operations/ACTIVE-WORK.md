@@ -69,20 +69,32 @@ source → exact tested attack action → ordinary ChatGPT sharing ladder → bo
 ordinary-file questions → translated credential consequences. The calibrated
 reader-entry checker now rejects all three Ali-rejected predecessors unaided.
 
-The new 896-word v4 successor at
-`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v4.md`
+Ali rejected v4 because its ChatGPT and Markdown examples became the article's
+architecture. It still lacked a reusable information-flow model for readers
+whose AI use ranges from phone questions through work uploads to project-wide
+tools, and `public` did not sufficiently show who created, uploaded and could
+access the studied record. Its producer PASS is **INVALID** and the exact v4
+bytes are now CQX-BAD-019 calibration input.
+
+D-134 now requires input → visible output → automatic activity record → later
+audience, followed by a reader spectrum and direct ordinary-output boundary.
+The calibrated reader-entry checker rejects all four Ali-rejected predecessors
+unaided.
+
+The new 899-word v5 successor at
+`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v5.md`
 is **PRODUCER PASS / ALI CALIBRATION NEXT / NOT ADMITTED / NOT PUBLISHED** at
 SHA-256
-`bf494126115b05c84e1a67ee2f9cfe008bba39d9543fc80b2540ae75b512ab63`.
-It quotes The Neuron's `OpenAI, Claude, and Gemini's Reasoning Got Cracked`
-headline, identifies the preprint underneath it, explains the deliberate
-stronger-model-to-weaker-model decoding test, starts the consequence ladder
-from ordinary ChatGPT use, defines Markdown and translates API keys, access
-tokens and private keys into plain consequences. Producer self-review passes
-with no independent semantic authority. Ali's reading is the next calibration;
-formal independent/observed-reader admission, dated issue assembly, visual
-review, deployment and public verification remain open. No canonical or public
-NewsStand state changed.
+`c31c5e50b5c78139ff1ed5dd7f25c1dd8ebff2836bdcc9803b592f14fc06f676`.
+It says certain advanced coding/research tools automatically make a
+behind-the-scenes activity record, names what it can contain, explains that an
+owner later uploads that record or a folder containing it, defines public as
+access by people outside the account/team and directly states that an ordinary
+AI-written paragraph, image, presentation or document does not automatically
+carry it. Producer self-review passes with no independent semantic authority.
+Ali's reading is the next calibration; formal independent/observed-reader
+admission, dated issue assembly, visual review, deployment and public
+verification remain open. No canonical or public NewsStand state changed.
 
 ## 2026-08-12 NewsStand logic and Control Room recovery
 
@@ -1361,10 +1373,10 @@ objective; every open lane keeps its own checkpoint.
 - **Next trigger:** select one format and one premise only after a premise record proves reader need, format fit, source/AIDB comparison and the reporting or advice-test method, then create a fresh producer contract bound to the combined sitewide benchmark. One internally admitted example—not a nine-format batch—returns to Ali.
 - **Authority:** no publication, page integration, visual design, schedule, deploy or public-release state changed. AW-003 remains foreground.
 
-### 2026-08-14 NewsStand production-control repair checkpoint
+### 2026-08-15 NewsStand production-control repair checkpoint
 
 - **Current state:** `PRODUCTION CONTROLS VERIFIED LOCALLY / LCWO-024 EDITORIAL REVIEW / VISUAL, ISSUE AND PUBLIC RELEASE HOLD`.
 - **Literal movement:** NEWS producer contracts now fail before prose review unless they bind the exact Learning System work order, registered publication route/job/source versions, current router, editorial method, story template, premise, writing mode and Daily story-versus-issue boundary. A Daily story now binds a producer-side 300–900-word range and at least five unique section jobs, and the prose check measures the exact bytes against it. The executor reports `READY_TO_DISPATCH` or `WAITING_ON_PREREQUISITE` instead of calling either condition `IDLE_HEALTHY`. An independent HOLD may record missing real unfamiliar-reader evidence without inventing a human observation; PASS still requires the real checksum-bound observation. The visual judge now requires exact same-viewport incumbent renders and current decisions/brief/page architecture.
-- **Representative proof:** `LCWO-024` is the single active proof. Its Daily Plain-Language Explainer was cut from 1,349 to 888 Markdown words while preserving the event, mechanism, evidence limits, workplace case, non-work case and share action; its exact current bytes are bound to the repaired producer contract and producer self-review. Its prior semantic and visual passes are stale or invalid, and the old single-article render is removed from the release manifest. It has not passed real unfamiliar-reader explain-back, unseen transfer, current independent semantic admission, dated Daily issue assembly, visual admission, canonical release, deployment or public verification.
+- **Representative proof:** `LCWO-024` is the single active proof. Its 899-word v5 Daily Headline Reality Check now binds the encountered report, primary evidence, four-part information flow, reader spectrum, public-audience definition, translated findings and useful action to the repaired producer contract and producer self-review. Its four predecessors, prior semantic pass and old single-article visual pass are invalid. It has not passed real unfamiliar-reader explain-back, unseen transfer, current independent semantic admission, dated Daily issue assembly, visual admission, canonical release, deployment or public verification.
 - **Exact unblock:** collect one real unfamiliar-reader explain-back and one genuinely different unseen-transfer observation against the exact `LCWO-024` prose; then perform role-distinct independent semantic review. Only an admitted story may enter a complete dated Daily issue. A successor visual must show that complete Daily at 1440/390/320 and beat the same-viewport incumbent under the current Daily-first colourful newspaper direction.
 - **Authority:** no canonical story, NewsStand route, public asset, publication, deploy or public state changed. AW-003 remains the launch foreground.

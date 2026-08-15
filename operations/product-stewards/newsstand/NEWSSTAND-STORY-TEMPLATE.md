@@ -116,15 +116,16 @@ the feared event did not happen.
    the person could see; what else the object could carry; who sent or uploaded
    it; where it went; why; and how another person obtained it. Do not compress
    those actions into `shared`, `full file` or `work log`.
-4. **When this can and cannot happen** — distinguish adjacent reader actions.
-   Selecting visible answer text and pasting those selected words, making a
-   public chat link, sending a requested diagnostic record and publishing a raw
-   developer/research run are different routes. State which route the evidence
-   directly studied and label the others as boundaries or precautions.
-   Begin with the ordinary private-chat situation. If a familiar adjacent file
-   type such as Markdown is likely to create confusion, define it in ordinary
-   terms, state whether the evidence studied it and explain what sharing that
-   file actually moves.
+4. **When this can and cannot happen** — teach one reusable information-flow
+   model before listing examples: what the person gives the AI; what visible
+   result the AI returns; what behind-the-scenes activity record an advanced
+   tool may create automatically while working; and what the person later gives
+   a named recipient, a private group or the public. Then show a spectrum from
+   ordinary phone questions through
+   pasted or uploaded work material to project-wide tools. A named file type
+   such as Markdown may illustrate one point but may not become the model.
+   Define `public` by who can access, find and download the material, and name
+   whether the person, tool or provider performed the publication action.
 5. **What the evidence actually found** — open the underlying study,
    announcement, incident record or data and explain it from first principles.
 6. **What the story got right.**
@@ -184,12 +185,13 @@ labels. `Task record`, `work log`, `technical export`, `raw session`, `API
 session` and `agent trace` do not explain one another. Give the complete
 ordinary situation first; name the technical label afterward.
 
-For a risk story, show the impact ladder explicitly: ordinary private-chat use;
-selecting visible words and pasting only those selected words; creating a
-public link to a visible conversation; being asked for a diagnostic record;
-deliberately publishing a raw developer or research run. Explain which action
-the evidence studied. Never broaden “this might reach anyone” when the evidence
-supports a narrower direct audience.
+For a risk story, show the impact ladder explicitly without turning one example
+into a reader class: phone questions; pasted or uploaded work material; a
+finished answer, file or chat link; a tool working across a project; and a
+complete tool-created activity record placed where people outside the account or
+team can find and download it. Explain which action the evidence studied and
+answer directly whether every AI-made item carries the same risk. Never broaden
+“this might reach anyone” when the evidence supports a narrower audience.
 
 When unintended information is central, name concrete examples, show one
 evidence-supported route by which such information entered the record and keep

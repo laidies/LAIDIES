@@ -15398,6 +15398,7 @@ while remaining falsely unfinished in the launch record.
 - **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
   ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
 
+
 ## BTB-495 — Correcting the panic still failed because the replacement story remained abstract
 
 - **Date:** 2026-08-15
@@ -15477,5 +15478,46 @@ while remaining falsely unfinished in the launch record.
   and visual assembly, deployment and public verification remain open.
 - **Possible Behind the Build angle:** Why a fact checker can answer the paper
   perfectly and still fail the reader who only saw the headline.
+- **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
+  ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
+
+## BTB-497 — Reader examples replaced the information-flow model
+
+- **Date:** 2026-08-15
+- **Area:** NewsStand Headline Reality Check and unfamiliar-reader teaching.
+- **Failure:** LCWO-024 v4 treated `ChatGPT-only` and Markdown as separate reader
+  lessons. Readers whose AI use sits anywhere between phone questions and
+  project-wide tools still lacked one reusable explanation of what they give
+  AI, what AI visibly returns, what some tools record automatically and what a
+  person later shares. `Public` and `saved history` still required technical
+  inference.
+- **Root cause:** The producer and checker required examples but not the
+  underlying information movements. A literal response to Ali's examples let
+  one persona and one file extension substitute for the causal model. The
+  checker also accepted a friendly noun without proving who created the record,
+  what it contained or how it reached an outside audience.
+- **Issues caused:** Readers could not locate their own use accurately, could
+  infer that any AI-made file carried the hidden material and still did not
+  know how a technical work record became public. Ali found a fourth
+  preventable semantic defect after producer PASS.
+- **Prevention rule:** First bind input to AI, visible output, any automatic
+  activity record and the later send/publish action. Then map at least three
+  materially different use levels onto that model. Define public by audience
+  and publisher, show the concrete upload route and directly state whether
+  ordinary AI-made outputs carry the studied record.
+- **Calibration:** CQX-BAD-019 binds the exact v4 bytes. The reader-entry
+  checker rejects all four Ali-rejected predecessors and accepts v5 only when
+  it identifies the activity-record creator, contents, later owner upload,
+  outside audience, reader spectrum and ordinary-output boundary. Producer
+  contract tests fail each missing structured field separately.
+- **Durable correction:** D-134, the NewsStand template/editorial method,
+  producer contract, source map, work order and 899-word v5 candidate encode
+  the correction. The v5 manifest binds exact prose SHA
+  `c31c5e50b5c78139ff1ed5dd7f25c1dd8ebff2836bdcc9803b592f14fc06f676`.
+- **Remaining proof:** v5 is producer PASS only. Ali calibration, real
+  unfamiliar-reader observations, independent semantic admission, dated issue
+  and visual assembly, deployment and public verification remain open.
+- **Possible Behind the Build angle:** Why examples help only after the reader
+  has a model that transfers beyond them.
 - **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
   ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.

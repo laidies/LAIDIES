@@ -196,6 +196,22 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
         for (const field of ["fileType", "plainMeaning", "whatSharingMoves", "studyBoundary"]) {
           require(text(ordinaryFile?.[field]), `NEWS readerEntry.ordinaryFileBoundary.${field} is required for HEADLINE_REALITY_CHECK`);
         }
+        const informationFlow = entry?.informationFlow;
+        for (const field of ["personInput", "visibleOutput", "automaticJobRecord", "laterAudienceAction"]) {
+          require(text(informationFlow?.[field]), `NEWS readerEntry.informationFlow.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const readerSpectrum = entry?.readerSpectrum;
+        for (const field of ["phoneQuestions", "workMaterial", "projectWideTool"]) {
+          require(text(readerSpectrum?.[field]), `NEWS readerEntry.readerSpectrum.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const publicMeaning = entry?.publicMeaning;
+        for (const field of ["outsideAudience", "publisherActor", "concreteRoute", "privateContrast"]) {
+          require(text(publicMeaning?.[field]), `NEWS readerEntry.publicMeaning.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const riskBoundary = entry?.riskBoundary;
+        for (const field of ["ordinaryAiMadeOutput", "directlyStudiedObject"]) {
+          require(text(riskBoundary?.[field]), `NEWS readerEntry.riskBoundary.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
         const securityTerms = entry?.securityTerms;
         for (const field of ["apiKey", "accessToken", "privateKey"]) {
           require(text(securityTerms?.[field]), `NEWS readerEntry.securityTerms.${field} is required for HEADLINE_REALITY_CHECK`);
