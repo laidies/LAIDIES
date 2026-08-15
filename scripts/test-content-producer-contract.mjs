@@ -269,6 +269,52 @@ try {
   assert.match(inspect(materialMismatchWrongMode).join("\n"), /material headline\/evidence mismatch requires HEADLINE_REALITY_CHECK/);
   const manufacturedRealityCheck = structuredClone(daily); manufacturedRealityCheck.publicationPlan.writingMode = "HEADLINE_REALITY_CHECK";
   assert.match(inspect(manufacturedRealityCheck).join("\n"), /no material headline\/evidence mismatch requires PLAIN_LANGUAGE_EXPLAINER/);
+  const realityCheck = structuredClone(daily);
+  realityCheck.publicationPlan.writingMode = "HEADLINE_REALITY_CHECK";
+  realityCheck.publicationPlan.headlineRealityAssessment.materialMismatch = true;
+  realityCheck.publicationPlan.headlineRealityAssessment.publicItem = {
+    itemType: "RESEARCH_PREPRINT",
+    headlineOrTitle: "A precise public title",
+    publisher: "A public research repository",
+    publishedAt: "2026-08-10",
+    url: "https://example.com/paper",
+    fairSummary: "The paper reports that sensitive material could be recovered from saved AI records that people had already posted publicly."
+  };
+  realityCheck.publicationPlan.readerEntry.likelyMisreadMaterial = true;
+  realityCheck.publicationPlan.readerEntry.correctionLocation = "HEADLINE_AND_STANDFIRST";
+  realityCheck.publicationPlan.readerEntry.sharingJourney = {
+    toolContext: "A developer uses an AI coding tool.",
+    recordCreation: "The tool saves a machine-readable record of the run.",
+    visibleContents: "The record contains instructions, visible answers and tool actions.",
+    additionalContents: "It also contains an opaque field the person cannot inspect.",
+    sender: "The developer or researcher who ran the task.",
+    shareAction: "That person deliberately uploads the original saved record.",
+    destination: "A public GitHub or Hugging Face repository.",
+    purpose: "Other people can inspect or reproduce the work.",
+    recipientAccess: "Anyone can download the public record.",
+    directStudyBoundary: "The study examined deliberately public developer and research records."
+  };
+  realityCheck.publicationPlan.readerEntry.actionBoundaries = {
+    ordinaryPrivateChat: "Not the route studied.",
+    selectedVisibleText: "Selecting visible words and pasting only those words does not move the saved run record.",
+    publicChatLink: "A public chat link shares the visible conversation and is a different route.",
+    requestedDiagnosticRecord: "A related precaution, not a directly studied group.",
+    publishedRawRun: "The directly studied route."
+  };
+  realityCheck.publicationPlan.readerEntry.unintendedContents = {
+    concreteExamples: ["API keys", "passwords", "access tokens"],
+    observedOriginExample: "A coding agent asked to clean a repository repeated API keys in hidden reasoning.",
+    originUncertainty: "The paper could not determine the origin of every recovered item."
+  };
+  assert.deepEqual(inspect(realityCheck), [], "Headline Reality Check must bind the public item and complete sharing journey");
+  const missingPublicItem = structuredClone(realityCheck); delete missingPublicItem.publicationPlan.headlineRealityAssessment.publicItem;
+  assert.match(inspect(missingPublicItem).join("\n"), /publicItem\.headlineOrTitle is required/);
+  const missingJourney = structuredClone(realityCheck); delete missingJourney.publicationPlan.readerEntry.sharingJourney.destination;
+  assert.match(inspect(missingJourney).join("\n"), /sharingJourney\.destination is required/);
+  const missingActionBoundary = structuredClone(realityCheck); delete missingActionBoundary.publicationPlan.readerEntry.actionBoundaries.selectedVisibleText;
+  assert.match(inspect(missingActionBoundary).join("\n"), /actionBoundaries\.selectedVisibleText is required/);
+  const missingUnintendedOrigin = structuredClone(realityCheck); delete missingUnintendedOrigin.publicationPlan.readerEntry.unintendedContents.observedOriginExample;
+  assert.match(inspect(missingUnintendedOrigin).join("\n"), /unintendedContents\.observedOriginExample is required/);
   const overlongDailyBudget = structuredClone(daily); overlongDailyBudget.publicationPlan.lengthBudget.maximumWords = 1400;
   assert.match(inspect(overlongDailyBudget).join("\n"), /maximumWords must be no more than 900/);
   const incompleteCompactCard = structuredClone(compactCard); delete incompleteCompactCard.compactExample.nextAction;

@@ -34,7 +34,7 @@ knowledge into LAiDIES prose.
 
 Before selecting the writing mode, record:
 
-1. the exact headline or circulating claim;
+1. the exact headline or title, publisher, publication date and public URL;
 2. the conclusion an ordinary reader is likely to take from it;
 3. the exact original study, announcement, incident record or dataset;
 4. what that original actually establishes;
@@ -74,8 +74,12 @@ Every candidate begins with a one-page premise record. It must answer:
 - What will the reader understand, decide or do that she could not before?
 - What frightening or consequential conclusion is the reader likely to draw
   from the headline or coverage, and must LAiDIES correct it immediately?
-- Can the first 120 words name the actor, ordinary object, sharing path, direct
-  audience and reason for coverage before any specialist label?
+- Can the first 120 words identify the exact public item, fairly summarize its
+  claim and name the actor, ordinary object, sharing path, direct audience and
+  reason for coverage before any specialist label?
+- If `sharing` is involved, can the producer show the complete action chain and
+  distinguish selected visible text, a public chat link, a diagnostic record
+  and a raw developer/research run?
 
 If those answers are weak, the disposition is `QUIET`, `WATCH`, `UPDATE EXISTING` or `DECLINE`. A blank publication slot is not a reason to continue.
 
@@ -212,6 +216,10 @@ The producer must be able to answer:
   correct it before explanation rather than make her read on for reassurance?
 - Can she apply it to a genuinely different case?
 - Does the article distinguish the circulating story from what the primary evidence actually supports?
+- Does it identify the exact public story or paper before correcting it?
+- If an unfamiliar record moves between people, can the reader reconstruct who
+  created it, who sent or uploaded it, where, why, what it could contain and
+  when that route cannot occur?
 
 Any `no` stops the draft inside production.
 

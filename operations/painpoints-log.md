@@ -15397,3 +15397,44 @@ while remaining falsely unfinished in the launch record.
   headline is telling readers what did *not* happen.
 - **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
   ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
+
+## BTB-495 — Correcting the panic still failed because the replacement story remained abstract
+
+- **Date:** 2026-08-15
+- **Area:** NewsStand Headline Reality Check and plain-language mechanism.
+- **Failure:** The LCWO-024 v2 article immediately said ordinary private chats
+  were not published, but Ali still could not identify the actual source story,
+  understand what a `full work file` was, know what `copying an answer` meant,
+  see why a user would share the relevant object or tell when the risk could and
+  could not occur.
+- **Root cause:** The repaired gate tested for actor, file, sharing verb and
+  early reassurance as isolated words. A fixture could pass without naming the
+  exact public item or reconstructing the complete reader journey. `File`
+  became another box-check synonym rather than an understood object.
+- **Issues caused:** A second known failure received producer PASS; Ali again
+  had to perform first-principles QA; the correction remained untrustworthy and
+  another review cycle was wasted.
+- **Prevention rule:** A Headline Reality Check first identifies and links the
+  exact public item and fairly summarizes its claim. If unfamiliar material
+  moves, reconstruct tool use → record creation → visible and extra contents →
+  sender → deliberate send/upload → destination → purpose → recipient access.
+  Separately distinguish ordinary private chat, selected visible text, public
+  chat link, requested diagnostics and published raw runs. Name concrete
+  unintended contents, one observed origin route and unresolved origins.
+- **Calibration:** The revised reader-entry test rejects both exact Ali-rejected
+  artifacts unaided and accepts a fixture only when the source identity, fair
+  summary, complete sharing route, five action boundaries and unintended-
+  content origin are present. Producer-contract tests separately fail each
+  missing structured field.
+- **Durable correction:** D-132, CQX-BAD-017, the NewsStand story method,
+  editorial method, producer contract and calibrated reader-entry checker now
+  bind the complete journey. The 740-word v3 successor passes producer-side
+  integrity and exact-prose self-review only.
+- **Remaining proof:** Ali's calibration is pending. Independent semantic and
+  observed unfamiliar-reader evidence, dated issue assembly, visual admission,
+  release, deployment and public verification have not occurred.
+- **Possible Behind the Build angle:** Why replacing jargon with a friendlier
+  noun still fails when nobody explains who created the thing, where it went or
+  why it existed.
+- **Publication status:** INTERNAL PRODUCER REPAIR / NO CANONICAL STORY, DAILY
+  ISSUE, SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.

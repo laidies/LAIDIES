@@ -104,16 +104,28 @@ If the likely misread is alarming, the headline and standfirst correct it. Do
 not make the reader continue through background or mechanism to discover that
 the feared event did not happen.
 
-1. **What you may have seen** — the exact headline, publisher and date.
+1. **What you may have seen** — the exact headline or title, publisher, date
+   and public link. If the public item was a research paper rather than a news
+   article, say so; do not invent a missing article.
 2. **What the story says** — a fair, plain-language summary before LAiDIES
    comments on it.
-3. **What the evidence actually found** — open the underlying study,
+3. **How the reported event happened** — reconstruct the complete route in
+   ordinary actions. Name the product or kind of tool; what it created; what
+   the person could see; what else the object could carry; who sent or uploaded
+   it; where it went; why; and how another person obtained it. Do not compress
+   those actions into `shared`, `full file` or `work log`.
+4. **When this can and cannot happen** — distinguish adjacent reader actions.
+   Selecting visible answer text and pasting those selected words, making a
+   public chat link, sending a requested diagnostic record and publishing a raw
+   developer/research run are different routes. State which route the evidence
+   directly studied and label the others as boundaries or precautions.
+5. **What the evidence actually found** — open the underlying study,
    announcement, incident record or data and explain it from first principles.
-4. **What the story got right.**
-5. **What it overstated, omitted or blurred.**
-6. **The real LAiDIES read** — what it actually means, why it matters, who it
+6. **What the story got right.**
+7. **What it overstated, omitted or blurred.**
+8. **The real LAiDIES read** — what it actually means, why it matters, who it
    affects and what remains uncertain.
-7. **Use it now** — one practical prompt, checklist, comparison, experiment,
+9. **Use it now** — one practical prompt, checklist, comparison, experiment,
    decision rule or honest statement that the reader cannot control this part.
 
 Use this mode only when the exact reporting itself gives LAiDIES something
@@ -153,10 +165,13 @@ or tone.
 The first 120 words must let an ordinary reader answer, without another tab:
 
 1. What might I reasonably fear or misunderstand, and is it true?
-2. Who actually did what?
-3. What ordinary thing or file moved, what was inside it and why was it shared?
-4. Who is directly affected?
-5. Why is LAiDIES covering this?
+2. What exact public story or paper are we checking, who published it and when?
+3. What did that item actually claim?
+4. Who actually did what?
+5. What ordinary thing moved, what was inside it and why did that person send
+   or upload it?
+6. Who is directly affected?
+7. Why is LAiDIES covering this?
 
 Do not introduce an unfamiliar object by swapping among neighbouring technical
 labels. `Task record`, `work log`, `technical export`, `raw session`, `API
@@ -164,9 +179,16 @@ session` and `agent trace` do not explain one another. Give the complete
 ordinary situation first; name the technical label afterward.
 
 For a risk story, show the impact ladder explicitly: ordinary private-chat use;
-copying a selected answer; being asked for a diagnostic file; deliberately
-publishing a complete developer or research file. Never broaden “this might
-reach anyone” when the evidence supports a narrower direct audience.
+selecting visible words and pasting only those selected words; creating a
+public link to a visible conversation; being asked for a diagnostic record;
+deliberately publishing a raw developer or research run. Explain which action
+the evidence studied. Never broaden “this might reach anyone” when the evidence
+supports a narrower direct audience.
+
+When unintended information is central, name concrete examples, show one
+evidence-supported route by which such information entered the record and keep
+unknown origins explicitly unknown. `Complete`, `full`, `raw`, `technical` and
+`behind-the-scenes` describe a record; they do not explain it.
 
 The reporting mode may change; the teaching standard does not. Explain every
 unfamiliar object, action and handoff before naming it with jargon. Preserve

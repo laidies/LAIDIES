@@ -149,6 +149,14 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       if (reality?.materialMismatch === false) {
         require(plan?.writingMode === "PLAIN_LANGUAGE_EXPLAINER", "NEWS no material headline/evidence mismatch requires PLAIN_LANGUAGE_EXPLAINER");
       }
+      if (plan?.writingMode === "HEADLINE_REALITY_CHECK") {
+        const publicItem = reality?.publicItem;
+        for (const field of ["itemType", "headlineOrTitle", "publisher", "publishedAt", "url", "fairSummary"]) {
+          require(text(publicItem?.[field]), `NEWS headlineRealityAssessment.publicItem.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        require(/^https?:\/\//.test(publicItem?.url || ""), "NEWS headlineRealityAssessment.publicItem.url must be a public HTTP(S) URL");
+        require(/^\d{4}-\d{2}-\d{2}$/.test(publicItem?.publishedAt || ""), "NEWS headlineRealityAssessment.publicItem.publishedAt must be YYYY-MM-DD");
+      }
       const entry = plan?.readerEntry;
       for (const field of ["likelyFear", "immediateCorrection", "actualActor", "ordinaryObject", "sharingReason", "directAudience", "ordinaryReaderImpact", "whyLaidiesCovers"]) {
         require(text(entry?.[field]), `NEWS publicationPlan.readerEntry.${field} is required`);
@@ -163,6 +171,20 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
       if (entry?.likelyMisreadMaterial === true) {
         require(plan?.writingMode === "HEADLINE_REALITY_CHECK", "NEWS material likely misread requires HEADLINE_REALITY_CHECK");
         require(entry?.correctionLocation === "HEADLINE_AND_STANDFIRST", "NEWS material likely misread must be corrected in headline and standfirst");
+      }
+      if (plan?.writingMode === "HEADLINE_REALITY_CHECK") {
+        const journey = entry?.sharingJourney;
+        for (const field of ["toolContext", "recordCreation", "visibleContents", "additionalContents", "sender", "shareAction", "destination", "purpose", "recipientAccess", "directStudyBoundary"]) {
+          require(text(journey?.[field]), `NEWS readerEntry.sharingJourney.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const boundaries = entry?.actionBoundaries;
+        for (const field of ["ordinaryPrivateChat", "selectedVisibleText", "publicChatLink", "requestedDiagnosticRecord", "publishedRawRun"]) {
+          require(text(boundaries?.[field]), `NEWS readerEntry.actionBoundaries.${field} is required for HEADLINE_REALITY_CHECK`);
+        }
+        const unintended = entry?.unintendedContents;
+        require(array(unintended?.concreteExamples, 3), "NEWS readerEntry.unintendedContents.concreteExamples requires at least three examples");
+        require(text(unintended?.observedOriginExample), "NEWS readerEntry.unintendedContents.observedOriginExample is required");
+        require(text(unintended?.originUncertainty), "NEWS readerEntry.unintendedContents.originUncertainty is required");
       }
     }
   }

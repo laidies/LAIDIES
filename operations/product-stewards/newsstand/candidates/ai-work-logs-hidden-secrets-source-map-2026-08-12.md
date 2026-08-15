@@ -13,9 +13,13 @@ If I use an AI assistant, can private information hide in a file even after the 
 
 ## Source set
 
-1. **Primary research paper:** Alexander Panfilov et al., “Stealing Reasoning Traces from Proprietary LLM APIs,” arXiv:2608.09867, submitted 2026-08-10.
+1. **Exact public item being checked:** Alexander Panfilov et al., “Stealing Reasoning Traces from Proprietary LLM APIs,” a research preprint published by arXiv on 2026-08-10.
    URL: https://arxiv.org/abs/2608.09867
-   PDF inspected in full for abstract, sections 4.1, 5.1–5.5 and appendices. The paper is a preprint; no peer-review claim is made.
+   The source chain contains no separately verified conventional news article
+   behind this candidate. The public item is the paper itself; the forwarded
+   briefing is private discovery material, not the headline being attributed.
+   The paper was inspected in full for abstract, sections 2.5, 4.1, 5.1–5.5
+   and appendices. It is a preprint; no peer-review claim is made.
 2. **Anthropic current product documentation:** “Thinking,” inspected 2026-08-12.
    URL: https://platform.claude.com/docs/en/about-claude/models/extended-thinking-models
    Use: corroborates that API responses can contain an opaque signed representation of full reasoning that may be returned for continuity. It does not independently verify the paper’s exploit.
@@ -30,6 +34,30 @@ If I use an AI assistant, can private information hide in a file even after the 
 ## What happened
 
 The researchers found that opaque reasoning data returned by certain model APIs could be moved across sessions, users and models within the same provider family. During the tested period, a less-protected sibling model could be induced to reveal data represented inside a trace produced by a stronger model. The authors disclosed the attacks to the affected model providers, Microsoft and Hugging Face. They report that all model providers acknowledged receipt and that the same attacks no longer worked afterward.
+
+## Complete public-sharing journey
+
+The directly studied route was:
+
+1. a developer or researcher used an AI coding, research or benchmark tool;
+2. the tool produced a machine-readable record of the run containing visible
+   instructions, answers and tool actions plus opaque provider fields;
+3. the developer or research project deliberately uploaded the original record
+   to GitHub or Hugging Face so others could inspect, reproduce or reuse the
+   work;
+4. the paper's researchers downloaded 6,708 such public records and attempted
+   to recover the opaque material.
+
+The paper did not study ordinary private consumer-chat accounts, selected
+visible words pasted into another document, public chat links or support-file
+requests. Public chat links are a different intentional publication route;
+support-file handling is a related precaution, not a paper finding.
+
+The paper's clearest observed origin example is a coding agent asked to clean a
+software repository: its hidden reasoning repeated the API keys it was meant to
+remove. Across genuine-user records, 64 of 704 recovered artifacts were absent
+from visible chat. The authors could not determine each origin; they identify
+model memory and visible-text scrubbing as possibilities, not resolved causes.
 
 ## Claim map
 

@@ -46,18 +46,30 @@ limits → real consequence → material fear/decision/action mismatch. A materi
 mismatch requires Headline Reality Check; no material mismatch remains a
 Plain-Language Explainer. D-130, D-131 and CQX-BAD-016 bind the decision.
 
-The calibrated reader-entry checker rejects the exact Ali-rejected artifact
-unaided. The new 743-word successor at
-`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v2.md`
+Ali rejected that v2 successor too. Its exact public source was absent, `full`
+and `behind-the-scenes` file remained undefined, the complete sharing journey
+was missing and the article did not show when the route could or could not
+happen or how unintended contents entered the record. Its producer PASS is
+**INVALID** and the exact bytes are now CQX-BAD-017 calibration input.
+
+D-132 now requires exact source item → fair claim summary → complete tool,
+record, upload, destination, purpose and recipient journey → five distinct
+sharing boundaries → concrete unintended contents and origin uncertainty. The
+repaired reader-entry checker rejects both Ali-rejected predecessors unaided.
+
+The new 740-word v3 successor at
+`operations/product-stewards/newsstand/candidates/ai-work-logs-hidden-secrets-headline-reality-check-v3.md`
 is **PRODUCER PASS / ALI CALIBRATION NEXT / NOT ADMITTED / NOT PUBLISHED** at
 SHA-256
-`a3b3c128d0b1678912a4eef4b98a707f7f9b5db4f6f5ae396532949ecdf97e7a`.
-It corrects the ordinary-private-chat fear in the headline and standfirst,
-explains the deliberate developer/researcher file publication before technical
-detail and gives the four-level impact ladder. Producer self-review passes with
-no independent semantic authority. Ali's reading is the next calibration;
-formal independent/observed-reader admission, dated issue assembly, visual
-review, deployment and public verification remain open. No canonical or public
+`7eea9d8953299d1299629b47cb5afd1c5854a65229e11a4cd1a648440af83053`.
+It identifies the August 10 arXiv paper and fairly states its claim, reconstructs
+the coding-tool → saved run → deliberate GitHub upload → researcher download
+route, distinguishes private chat / selected visible text / public chat link /
+diagnostic record / published raw run, and explains concrete secrets plus the
+paper's unresolved origin boundary. Producer self-review passes with no
+independent semantic authority. Ali's reading is the next calibration; formal
+independent/observed-reader admission, dated issue assembly, visual review,
+deployment and public verification remain open. No canonical or public
 NewsStand state changed.
 
 ## 2026-08-12 NewsStand logic and Control Room recovery
