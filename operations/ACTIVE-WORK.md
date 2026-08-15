@@ -23,12 +23,33 @@
 > styling pass. Functional shells remain technical evidence only. See
 > D-2026-07-26-061 and BTB-155.
 
-**Last reconciled:** 2026-08-12
+**Last reconciled:** 2026-08-15
 **Owners:** Ali (vision/approval) · Codex (continuity/execution/verification)
 **Rule:** this file contains the one foreground execution/decision objective.
 Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
+
+## 2026-08-15 NewsStand specialized-production representative proof
+
+One private LCWO-024 experiment separated evidence qualification, explanation
+architecture, Daily formatting, LAiDIES line editing and independent comparison.
+The exact 743-word successor at
+`operations/product-stewards/newsstand/experiments/lcwo-024-specialized-pipeline-v1/04-LAIDIES-EDIT.md`
+is **PRIVATE CALIBRATION ARTIFACT / NOT ADMITTED / NOT PUBLISHED** at SHA-256
+`6d1b69fd874d6691f753e7daec26bf0b5924aeac1b2365fccfe5b4f00a3fc39a`.
+The independent comparator found zero material defects versus five in the
+888-word predecessor.
+
+The experiment did not prove first-pass autonomous reliability. Two specialists
+failed or misreported the objective word limit, and the first evidence handoff
+omitted usable citations. Ali's calibration verdict is next for this exact
+article. If its direction is accepted, the next production task is to encode
+fail-closed specialist handoff contracts and rerun one genuinely different
+Daily story before adopting the method. Publication-day source recheck,
+unfamiliar-reader evidence, issue assembly, visual review, formal admission,
+deployment and public verification remain open. No canonical or public
+NewsStand state changed.
 
 ## 2026-08-12 NewsStand logic and Control Room recovery
 

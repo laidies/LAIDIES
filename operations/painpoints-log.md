@@ -15314,3 +15314,38 @@ while remaining falsely unfinished in the launch record.
   quietly break the evidence that the gate still knows what good looks like.
 - **Publication status:** INTERNAL EXECUTION TEST REPAIR / NO ARTICLE, SITE ROUTE,
   PUBLICATION, DEPLOYMENT OR PUBLIC STATE CHANGED.
+
+## BTB-493 — Specialist agents still failed when their handoffs were not enforceable
+
+- **Date:** 2026-08-15
+- **Area:** NewsStand prose production and autonomous Daily reliability.
+- **Failure:** Splitting LCWO-024 into evidence, explanation, format, voice and
+  review roles improved the article, but the format editor produced 894 words
+  against a 750-word ceiling, the line editor claimed 737 while the exact file
+  contained 796, and the first evidence handoff omitted the citations the
+  publication editor needed. The first successor still carried four material
+  defects and the second carried two.
+- **Root cause:** Specialization reduced context muddling but did not make the
+  boundaries executable. Each agent received prose instructions, could
+  self-report compliance and handed the next agent an artifact that lacked
+  fields the downstream job required. The next stage and reviewer were still
+  able to become objective QA for preventable upstream failures.
+- **Prevention rule:** Every specialist handoff must bind the exact artifact and
+  contain the complete minimum input for the next job. Objective limits—word
+  range, required citation fields, permitted claims, banned overstatements,
+  format route and artifact identity—must be checked mechanically at the stage
+  that can first violate them. Failure returns to that stage before another
+  specialist or independent review runs.
+- **Durable correction:** The private experiment preserves each exact stage,
+  both failed comparison states and the repaired 743-word successor. The final
+  artifact has zero material defects in independent comparison versus five in
+  the predecessor. `07-EXPERIMENT-RESULT.md` records the handoff design required
+  before adoption.
+- **Remaining proof:** The fail-closed contracts are not yet implemented. Ali
+  must first calibrate the exact successor; an accepted direction then requires
+  one different story to pass the encoded pipeline without foreground repair
+  before autonomous Daily use.
+- **Possible Behind the Build angle:** Why hiring five specialists does not fix
+  a production line when each person can hand the next one an incomplete box.
+- **Publication status:** PRIVATE METHOD PROOF / NO CANONICAL STORY, DAILY ISSUE,
+  SITE ROUTE, DEPLOYMENT OR PUBLIC STATE CHANGED.
