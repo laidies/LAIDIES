@@ -127,9 +127,10 @@ a registry of teaching questions, not approved artwork and not a quota. Full
 propagation waits for the representative desktop/mobile pixels to pass maker
 inspection and independent visual judgment.
 
-### Chapter 1 successor concept — compact spam-filter comparison
+### Chapter 1 comparison table — useful structure, not a visual-aid pass
 
-The first successor concept is **CONCEPT PASS / NOT INTEGRATED / MOBILE OPEN**.
+The first successor candidate is **RECLASSIFIED AS A TABLE / NOT A VISUAL-AID
+PASS / NOT INTEGRATED**.
 It answers one exact reader question: why can a learned spam filter catch
 `FR33` when an exact human-written rule for `FREE` does not? The diagram keeps
 the email constant and aligns three causal stages: what people provide, what
@@ -142,13 +143,41 @@ The checksum-bound review image is
 `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/previews/ch01-spam-filter-comparison-concept-v1.png`
 (SHA-256 `88e0e7c14aa8544a91abb255d3c3c1bfa9fc7e1c6305517bb04517713d1977e0`,
 1400 × 444). Its editable source is FigJam file
-`mZxfLGxUgClEDfrK3Zmd6S`, node `2:59`. A role-distinct artifact-first review
-found the desktop concept independently understandable. This is not final
-admission: the site implementation must recompose each comparison row into a
-labelled vertical block on mobile instead of shrinking the wide table or
-requiring horizontal panning. Ali selection, integration, responsive pixels
-and final review remain open. No other visual opportunity is admitted by this
-concept pass.
+`mZxfLGxUgClEDfrK3Zmd6S`, node `2:59`. The artifact may still be useful as a
+plain comparison table, but Ali's review correctly found that colour and cell
+layout do not turn it into an illustration, diagram or schematic. Figma was
+unnecessary for this artifact; a final table, if retained, belongs in native
+HTML/CSS and must recompose into labelled vertical blocks on mobile. It does
+not satisfy or count toward the Chapter 1 visual-teaching layer. The next
+candidate must use spatial relationships that carry meaning prose or a table
+cannot carry. No other visual opportunity is admitted by this candidate.
+
+### Chapter 1 annotated thermostat illustration
+
+The next candidate is **DESKTOP CONCEPT PASS / ALI REVIEW OPEN / MOBILE AND
+INTEGRATION HOLD**. It answers a different, diagram-worthy question from
+section 1.4: how can one familiar product contain both exact-rule automation
+and learned behaviour at the same time?
+
+The left lane makes the exact mechanism visible: `Your setting 21°C` and
+`Current room 19°C` enter one comparison, and the rule turns the heat on because
+the room is colder than the chosen setting. The right lane shows the reader
+turning the temperature up at the same morning time on Day 1, Day 2 and Day 3;
+those repeated actions converge on a visible pattern detector, followed by the
+separate `System / Next weekday` state in which the thermostat acts without the
+reader setting a schedule. Both lanes feed one recognisable thermostat, which
+controls one heating system through a neutral causal arrow.
+
+The exact desktop review image is
+`content/library-books/pilots/ai-fundamentals-101-quick-manuscript/previews/ch01-smart-thermostat-rule-vs-learning-concept-v1.png`
+(SHA-256 `f2a7852d1ff68c4a49ee8ca048bda3209557cb5b2581b655912c8cc3a5632290`,
+1672 × 941). Its editable label source is Figma file
+`oXmRrddxtDRdbDID2wTJ62`, node `6:2`. The role-distinct final artifact review
+passed the desktop concept after rejecting an unrecognisable cutaway, a
+single-day routine that looked programmed, ambiguous output arrows and clipped
+labels. This pass admits only the desktop teaching direction for Ali review.
+Book integration must use editable text and a separately composed stacked
+mobile version; the full raster may not simply shrink.
 
 The cumulative map begins only when the manuscript reaches actual system
 components in Chapter 3. Chapters 1 and 2 establish the distinction and model

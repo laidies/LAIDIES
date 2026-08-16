@@ -14580,13 +14580,31 @@ while remaining falsely unfinished in the launch record.
   system operation → same-email outcome, with direct phrase-to-clue mappings.
   Future comparison visuals must expose that causal alignment in one view. If
   the maker has to explain the mechanism, or the whole relationship requires
-  scrolling, shrinking or panning, reject it before review. The accepted
-  desktop concept is not final mobile or production admission; mobile must
-  recompose the same labelled relationships vertically without losing the
-  comparison.
+  scrolling, shrinking or panning, reject it before review. Ali's direct review
+  then exposed a more basic classification
+  failure: the result was still only a colour-coded table. It may be a useful
+  table, but colour and cells do not make it a diagram, illustration or
+  schematic, and Figma was unnecessary. A visual-aid gate must classify the
+  artifact type before judging clarity. A table can pass table usability while
+  still failing the visual-aid requirement. The next visual proof must use
+  spatial relationships to teach something prose or a table cannot.
+- **Representative repair:** The first illustrated thermostat successor also
+  failed: a generated male-coded hand added no teaching value, and the cutaway
+  looked like an invented futuristic machine rather than a thermostat. A more
+  recognisable room scene then showed only one daily schedule, which could be
+  mistaken for ordinary programming. The passing desktop concept uses one
+  thermostat and one radiator, an explicit `21°C > 19°C` rule path, repeated
+  reader actions across three days, a separate system-action state on the next
+  weekday and one neutral output arrow. The visual-aid preflight must therefore
+  test recognisability, who acts at every stage, repetition versus schedule,
+  and shared output before visual polish. Unnecessary body parts are prohibited
+  unless they perform an indispensable teaching job. Desktop concept pass does
+  not admit a shrunk mobile raster; mobile must recompose the logic with
+  editable labels.
 - **Possible Behind the Build angle:** Why an attractive “educational image”
   can still teach nothing—and why review must test reader inference rather than
   file existence or maker intent.
 - **Publication status:** OLD CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
-  SUCCESSOR DESKTOP CONCEPT PASS / ALI SELECTION AND MOBILE ADMISSION OPEN / NO
+  TABLE RECLASSIFIED / THERMOSTAT DESKTOP CONCEPT PASS / ALI REVIEW AND MOBILE
+  ADMISSION OPEN / NO
   PRODUCTION INTEGRATION OR PUBLICATION.

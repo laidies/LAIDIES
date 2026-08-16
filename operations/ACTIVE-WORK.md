@@ -42,7 +42,8 @@ The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
 Status is **BUILT LOCALLY / CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
-SUCCESSOR CONCEPT READY FOR ALI REVIEW / VISUAL LAYER NOT ADMITTED / NOT
+TABLE CANDIDATE RECLASSIFIED / THERMOSTAT DESKTOP CONCEPT PASS FOR ALI REVIEW /
+MOBILE AND VISUAL LAYER ADMISSION OPEN / NOT
 INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. Ali's direct reader review invalidated the earlier visual
 inspection: the pictures did not independently communicate their teaching jobs,
 the first three repeated one mechanism and the large purple figure wrapper
@@ -55,13 +56,23 @@ figure. Its prose retains the plain-language bridge from learned rules to
 Chapter 5. The next representative must be one diagram-native solution to one
 exact learning problem, with meaning visible from the artifact rather than
 maker intent. It has no false cumulative “AI boundary” component.
-That representative now exists as a 1400 × 444 compact comparison: an exact
+The next candidate was a 1400 × 444 compact comparison: an exact
 `FREE` automation rule misses `FR33`, while a learned filter can connect three
-visible clues in the same message and may flag it. A role-distinct review
-passed the desktop teaching concept. It remains a review image only; it is not
-rendered in the book, and the final implementation must recompose rather than
-shrink the comparison on mobile. Ali selection and responsive admission remain
-open.
+visible clues in the same message and may flag it. Ali correctly rejected its
+classification as a visual aid: it is a colour-coded table, and Figma added no
+teaching value. It remains unrendered. If retained as a table, it must be native
+HTML/CSS and recompose rather than shrink on mobile; it cannot count toward the
+visual layer. The next proof must make a spatial relationship teach something
+the surrounding prose or a table cannot.
+That proof now exists for section 1.4 as an annotated smart-thermostat
+illustration. It shows an exact `21°C > 19°C` comparison and repeated reader
+actions across three days feeding two different logic paths into one
+recognisable thermostat and one heating system. Independent artifact-first
+review passed the exact 1672 × 941 desktop concept after the generated hand,
+unrecognisable cutaway, programmed-schedule ambiguity, pink-only output and
+clipped labels were removed. Ali selection remains open. The concept is not in
+the book; mobile must be recomposed with editable labels rather than shrinking
+the wide raster.
 Chapter 20 supplies one connected hardware/software blueprint from supply chain,
 chips and data centres through training, product use, inference, optional tools,
 output and accountable human consequence. The opening objective card now uses
