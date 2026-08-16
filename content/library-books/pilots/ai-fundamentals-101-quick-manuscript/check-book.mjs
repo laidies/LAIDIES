@@ -99,6 +99,19 @@ export function inspectBook(pilotDir = ownDir) {
   if (renderedConceptSections.length !== conceptDiagramCount) errors.push("review does not render every registered section-bound instructional diagram");
   if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
   if (count(review, /<figure class="concept-diagram"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
+  for (const variant of ["decision-blueprint", "ai-claim-decision-tree", "learned-patterns-not-rulebook", "mixed-products"]) {
+    if (count(review, new RegExp(`<figure class="concept-diagram"[^>]*data-variant="${variant}"`, "g")) !== 1) errors.push(`Chapter 1 is missing its unique ${variant} teaching visual`);
+  }
+  const calloutColourRules = [
+    '.callout-question{background:#ffe1f1;border-left-color:var(--electric-pink)}',
+    '.callout-practice{background:#fff0e8;border-left-color:#e65e2e}',
+    '.callout-key{background:#f0e8ff;border-left-color:var(--electric-purple)}',
+    '.callout-objective{background:#e5f8ff;border-left-color:var(--electric-cyan)}',
+    '.callout-insight{background:#e7fff3;border-left-color:#18a76d}',
+    '.callout-landmark{background:#e9eeff;border-left-color:#4558e8}',
+    '.callout-big-picture{background:#e7e5ff;border-left-color:#332c9e}',
+  ];
+  if (!calloutColourRules.every(rule => review.includes(rule))) errors.push("callout types have lost their unique consistent colour mapping");
   if (count(review, /<section class="chapter-ahead"/g) !== 20) errors.push("review does not keep all chapter goals and opening terms visibly available");
   if (/<details class="chapter-ahead"/i.test(review)) errors.push("chapter goals and terms are hidden behind a disclosure");
   if (count(review, /class="map-piece"/g) !== 19) errors.push("review does not contain 19 compact cumulative map-piece prompts");

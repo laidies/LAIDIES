@@ -108,8 +108,18 @@ Primary and standards sources used for this repair:
   vocabulary/symbol clarity, multiple media, patterns/relationships and
   transfer.
 
-The representative proof is the Chapter 1 fixed-rule-versus-learned-system
-mechanism plus the completed Chapter 20 AI-system map. The current 58 visual
-opportunities remain a registry of teaching questions, not approved artwork and
-not a quota. Full propagation waits for the representative desktop/mobile
-pixels to pass maker inspection and independent visual judgment.
+The Chapter 1 representative set now contains four different teaching jobs:
+
+1. fixed-rule software versus a learned spam decision;
+2. a decision tree that distinguishes evidence of automation, AI and an
+   unproved marketing claim;
+3. labelled examples changing numerical weights rather than producing a
+   readable rulebook; and
+4. Gmail, Spotify and a smart thermostat each containing both an exact human
+   decision and a learned component.
+
+The completed Chapter 20 AI-system map is the whole-book representative. These
+five artifacts do not admit the remaining 57 visual opportunities. Those remain
+a registry of teaching questions, not approved artwork and not a quota. Full
+propagation waits for the representative desktop/mobile pixels to pass maker
+inspection and independent visual judgment.

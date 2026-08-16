@@ -104,7 +104,19 @@ try {
   if (tinyMobileMap.pass || !tinyMobileMap.errors.some(error => error.includes("poster-scale text"))) {
     throw new Error("calibration failed: checker accepted poster-scale mobile map labels");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL");
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-variant="mixed-products"', 'data-variant="mixed-products-removed"'));
+  const missingChapterOneVisual = inspectBook(temporary);
+  if (missingChapterOneVisual.pass || !missingChapterOneVisual.errors.some(error => error.includes("mixed-products teaching visual"))) {
+    throw new Error("calibration failed: checker accepted a missing Chapter 1 teaching visual");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.callout-practice{background:#fff0e8;border-left-color:#e65e2e}', '.callout-practice{background:#ffe1f1;border-left-color:var(--electric-pink)}'));
+  const duplicatedCalloutColour = inspectBook(temporary);
+  if (duplicatedCalloutColour.pass || !duplicatedCalloutColour.errors.some(error => error.includes("unique consistent colour mapping"))) {
+    throw new Error("calibration failed: checker accepted two callout types sharing one colour");
+  }
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL missing_chapter_one_visual=FAIL duplicate_callout_colour=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

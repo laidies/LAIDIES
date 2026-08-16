@@ -14555,7 +14555,11 @@ while remaining falsely unfinished in the launch record.
   sequence, comparison and boundaries without decorative detail; and the final
   ecosystem is one connected blueprint. Calibrated checks now reject hidden
   opening matter, expandable-card regression and a missing connected final map.
-  The 58 records remain teaching opportunities, not accepted visuals or a quota.
+  Chapter 1 now uses four distinct teaching forms rather than one repeated
+  diagram: comparison mechanism, claim decision tree, numerical-pattern flow
+  and mixed-product matrix. Callout types also have unique persistent colours;
+  the calibrated check rejects colour reuse. The remaining 57 records remain
+  teaching opportunities, not accepted visuals or a quota.
 - **Possible Behind the Build angle:** Why the first “educational image” taught
   nothing—and the four labels that turned pictures into textbook diagrams.
 - **Publication status:** INTERNAL VISUAL-TEACHING REPAIR / ALI REVIEW OPEN / NO

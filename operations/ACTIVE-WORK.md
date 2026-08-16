@@ -45,14 +45,17 @@ Status is **BUILT LOCALLY / REPRESENTATIVE VISUAL REPAIR INSPECTED / FULL
 VISUAL LAYER NOT ADMITTED / NOT INTEGRATED / NOT DEPLOYED / NOT PUBLICLY
 VERIFIED**. The deterministic checker passes and its negative calibration
 rejects a missing chapter control, missing rendered humour line, hidden chapter
-orientation, a return to expandable fake-map cards and a missing connected
-final map. Chapter 1 now supplies the representative fixed-rule-versus-learned
-mechanism; Chapter 20 supplies one connected AI-system blueprint. Both were
-visually inspected at 1280, 390 and 320 widths with zero horizontal overflow.
-The remaining 57 visual-teaching records are still questions to solve, not
-accepted diagrams or an illustration quota. The source-build visual is an
-internal reader, not the final admitted Library presentation. No public site
-bytes changed.
+orientation, a return to expandable fake-map cards, a missing connected final
+map, a missing Chapter 1 visual and two callout types sharing one colour.
+Chapter 1 now supplies four distinct representative mechanisms: fixed rules
+versus learning; an AI-claim decision tree; examples-to-numerical-weights; and
+three mixed products. Chapter 20 supplies one connected AI-system blueprint.
+The representative artifacts were visually inspected at 1280 and 390 widths;
+the earlier base system was also checked at 320, all with zero horizontal
+overflow. Each callout type now has its own persistent colour. The remaining
+57 visual-teaching records are still questions to solve, not accepted diagrams
+or an illustration quota. The source-build visual is an internal reader, not
+the final admitted Library presentation. No public site bytes changed.
 
 ## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
 
