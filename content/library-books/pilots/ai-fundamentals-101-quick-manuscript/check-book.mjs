@@ -98,12 +98,14 @@ export function inspectBook(pilotDir = ownDir) {
   if (renderedConceptSections.length === 20 && new Set(conceptChapters).size === 20) errors.push("visual plan has collapsed to a one-per-chapter quota instead of section-bound concept decisions");
   if (renderedConceptSections.length !== conceptDiagramCount) errors.push("review does not render every registered section-bound instructional diagram");
   if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
-  if (count(review, /<strong>What this diagram shows:<\/strong>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
-  if (count(review, /<details class="chapter-ahead">/g) !== 20) errors.push("review does not keep all chapter goals and opening terms in compact disclosures");
-  if (/<details class="chapter-ahead"\s+open/i.test(review)) errors.push("chapter goals and terms are open before the lesson text");
-  if (count(review, /class="system-map(?: |")/g) !== 20) errors.push("review does not contain 20 cumulative AI system maps");
+  if (count(review, /<figure class="concept-diagram"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
+  if (count(review, /<section class="chapter-ahead"/g) !== 20) errors.push("review does not keep all chapter goals and opening terms visibly available");
+  if (/<details class="chapter-ahead"/i.test(review)) errors.push("chapter goals and terms are hidden behind a disclosure");
+  if (count(review, /class="map-piece"/g) !== 19) errors.push("review does not contain 19 compact cumulative map-piece prompts");
   if (count(review, /class="system-map system-map-complete"/g) !== 1) errors.push("review does not contain exactly one completed final AI ecosystem map");
-  if (!review.includes("How to draw it from memory")) errors.push("final system map is missing its reconstruction guide");
+  if (!review.includes('class="ai-system-blueprint"')) errors.push("final system map is not rendered as one connected blueprint");
+  if (!review.includes("Draw it from memory")) errors.push("final system map is missing its reconstruction guide");
+  if (review.includes('class="map-band')) errors.push("final map has regressed to expandable layer cards");
   if (review.includes("part-1-ai-boundary-v1.png")) errors.push("review still contains the rejected decorative sorting-machine image");
   for (let chapterNumber = 1; chapterNumber <= 20; chapterNumber += 1) {
     const headingIndex = review.indexOf(`<h2 id="chapter-${chapterNumber}"`);
@@ -131,7 +133,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
   if (manifest.counts?.cumulativeSystemMaps !== 20) errors.push("manifest cumulative-system-map count is not 20");
-  if (!String(manifest.gates?.visualTeachingLayer || "").startsWith("BUILT_LOCALLY_SECTION_BOUND")) errors.push("manifest visual-teaching status is not bounded to built-local section-bound review-pending truth");
+  if (manifest.gates?.visualTeachingLayer !== "BUILT_LOCALLY_REPRESENTATIVE_CHAPTER_1_AND_COMPLETE_MAP_REVIEW_PENDING_REMAINING_57_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve representative-only review-pending truth");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

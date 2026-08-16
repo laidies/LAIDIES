@@ -14546,14 +14546,16 @@ while remaining falsely unfinished in the launch record.
   prose, it is decoration and must be removed. Generated atmosphere does not
   count toward the visual-teaching layer.
 - **Durable correction:** The rejected raster was removed. A section-bound
-  registry now places 58 labelled visual explainers only after the exact concept
-  they consolidate, with several in chapters containing multiple invisible
-  mechanisms. Chapter goals/terms are compact disclosures so lesson prose starts
-  immediately. The cumulative map defaults to a whole-system overview and opens
-  one layer at a time for detail; no reader must scroll between the top and
-  bottom of one image to understand it. Calibrated checks reject a missing
-  section-bound diagram, a return to the one-per-chapter shape, exposed opening
-  matter or a missing final map.
+  registry identified 58 genuine teaching questions, but its renderer then
+  reduced unlike mechanisms to the same numbered-card pattern and stretched
+  circular badges. It also hid chapter goals/terms and rendered the final system
+  as expandable cards. Ali rejected that second system on sight. The renderer is
+  now being repaired from instructional-design evidence: goals/terms stay
+  visible; labels sit beside the exact parts they explain; diagrams signal
+  sequence, comparison and boundaries without decorative detail; and the final
+  ecosystem is one connected blueprint. Calibrated checks now reject hidden
+  opening matter, expandable-card regression and a missing connected final map.
+  The 58 records remain teaching opportunities, not accepted visuals or a quota.
 - **Possible Behind the Build angle:** Why the first “educational image” taught
   nothing—and the four labels that turned pictures into textbook diagrams.
 - **Publication status:** INTERNAL VISUAL-TEACHING REPAIR / ALI REVIEW OPEN / NO

@@ -1,6 +1,6 @@
 # AI Fundamentals 101 — visual teaching plan
 
-**Status:** SPECIFIED — no artwork or rendered book admitted
+**Status:** INTERNAL REPRESENTATIVE REPAIR — no visual admitted or published
 **Owner:** Library
 **Applies to:** the complete AI Fundamentals 101 successor, not the prose-only representative pilot
 
@@ -54,3 +54,62 @@ without colour.
 - No generated technical lettering.
 - No animation unless motion is the only clear way to teach change over time;
   the book must still provide the static and text equivalent.
+
+## Evidence-led repair — 2026-08-16
+
+Ali rejected two successive visual systems: an atmospheric generated scene that
+did not explain a mechanism, followed by generic numbered cards and circular
+badges that looked like diagrams without functioning as diagrams. The final
+“map” also rendered separate expandable cards instead of one connected system.
+
+The successor must apply these research-backed rules before visual styling:
+
+1. **Integrate the explanation with the diagram.** Put a label beside the exact
+   node, arrow or boundary it explains. Do not make a newcomer hold prose in
+   memory while searching a distant diagram for the matching part. This is the
+   spatial-contiguity and split-attention repair.
+2. **Signal the relationship that matters.** Reuse consistent arrow direction,
+   lane colour and short headings to guide attention to the exact
+   text–diagram correspondence. Colour supports the label; it never replaces
+   it.
+3. **Remove seductive detail.** Rewind texture and energy may organize the page,
+   but no illustration, prop or joke is added merely to make a quiet page look
+   busier. An instructional graphic must improve the reader's ability to
+   explain, compare or transfer the mechanism.
+4. **Make the visual and prose complementary, not duplicated walls.** The
+   diagram exposes structure and relationships; the caption states the click;
+   surrounding prose supplies depth and limits. Repeating the same full passage
+   inside the graphic creates extra work rather than extra teaching.
+5. **Keep goals and vocabulary visible.** Chapter goals and introduced terms are
+   a compact visible orientation surface. Only answers remain intentionally
+   closed until the reader requests them.
+6. **Treat a complex diagram as structured content.** Give it a short identity,
+   a visible structured description of the important relationships and a
+   concise caption that tells readers what to notice. Do not rely on one long
+   `aria-describedby` paragraph to carry nested structure.
+7. **Recompose on mobile.** A horizontal path becomes a vertical path with the
+   same order, labels and relationships. It does not shrink into an unreadable
+   poster or require horizontal panning.
+
+Primary and standards sources used for this repair:
+
+- Scheiter and Eitel, “Signals foster multimedia learning by supporting
+  integration of highlighted text and diagram elements,” *Learning and
+  Instruction* 36 (2015), DOI `10.1016/j.learninstruc.2014.11.002`.
+- Sweller, van Merriënboer and Paas, “Cognitive Architecture and Instructional
+  Design: 20 Years Later,” *Educational Psychology Review* 31 (2019), DOI
+  `10.1007/s10648-019-09465-5`.
+- Sung and Mayer, “When graphics improve liking but not learning from online
+  lessons,” *Computers in Human Behavior* 28 (2012), DOI
+  `10.1016/j.chb.2012.05.005`.
+- W3C Web Accessibility Initiative, “Complex Images,” updated 2026-04-08,
+  `https://www.w3.org/WAI/tutorials/images/complex/`.
+- CAST, *Universal Design for Learning Guidelines 3.0* (2024), especially
+  vocabulary/symbol clarity, multiple media, patterns/relationships and
+  transfer.
+
+The representative proof is the Chapter 1 fixed-rule-versus-learned-system
+mechanism plus the completed Chapter 20 AI-system map. The current 58 visual
+opportunities remain a registry of teaching questions, not approved artwork and
+not a quota. Full propagation waits for the representative desktop/mobile
+pixels to pass maker inspection and independent visual judgment.

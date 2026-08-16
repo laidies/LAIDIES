@@ -41,11 +41,18 @@ brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
 The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
-Status is **BUILT LOCALLY / ALI REVIEW OF THE REWIND OVERLAY OPEN / NOT
-INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The deterministic checker
-passes and its negative calibration rejects a missing chapter control and a
-missing rendered humour line. The source-build visual is an internal reader,
-not the final admitted Library presentation. No public site bytes changed.
+Status is **BUILT LOCALLY / REPRESENTATIVE VISUAL REPAIR INSPECTED / FULL
+VISUAL LAYER NOT ADMITTED / NOT INTEGRATED / NOT DEPLOYED / NOT PUBLICLY
+VERIFIED**. The deterministic checker passes and its negative calibration
+rejects a missing chapter control, missing rendered humour line, hidden chapter
+orientation, a return to expandable fake-map cards and a missing connected
+final map. Chapter 1 now supplies the representative fixed-rule-versus-learned
+mechanism; Chapter 20 supplies one connected AI-system blueprint. Both were
+visually inspected at 1280, 390 and 320 widths with zero horizontal overflow.
+The remaining 57 visual-teaching records are still questions to solve, not
+accepted diagrams or an illustration quota. The source-build visual is an
+internal reader, not the final admitted Library presentation. No public site
+bytes changed.
 
 ## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
 

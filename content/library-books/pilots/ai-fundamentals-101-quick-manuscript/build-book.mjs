@@ -344,14 +344,26 @@ const conceptDiagrams = chapterConcepts.map((concept, index) => ({ ...concept, a
 
 function renderConceptDiagram(concept) {
   if (!concept?.after) throw new Error("concept diagram is missing its exact section anchor");
-  const steps = items => items.map((step, index) => `<li><span>${index + 1}</span><strong>${escapeHtml(step)}</strong></li>`).join("");
-  const body = concept.kind === "compare"
+  const steps = items => items.map((step, index) => `<li data-step="${index + 1}"><span>STEP ${index + 1}</span><strong>${escapeHtml(step)}</strong></li>`).join("");
+  const chapterOneMechanism = concept.after === "1.1" ? `<div class="decision-blueprint" role="group" aria-label="Comparison of how fixed-rule software and an AI system learn to sort the same new email">
+    <div class="blueprint-phase"><span>BEFORE A NEW EMAIL ARRIVES</span><span>WHEN A NEW EMAIL ARRIVES</span></div>
+    <section class="blueprint-lane blueprint-lane-rules">
+      <h4>Fixed-rule software</h4>
+      <div class="blueprint-track"><div class="blueprint-node"><small>HUMAN JOB</small><strong>Write exact rules</strong><p>For example: if it contains “FREE”, mark it as junk.</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-node"><small>WHAT IS SAVED</small><strong>A rule list</strong><p>The software can only check what someone wrote down.</p></div><span class="blueprint-bridge" aria-hidden="true">│</span><div class="blueprint-node blueprint-node-live"><small>NEW EMAIL</small><strong>Check every rule</strong><p>Does this message match the list?</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-result"><strong>Junk or keep</strong><span>Exact match</span></div></div>
+    </section>
+    <section class="blueprint-lane blueprint-lane-learned">
+      <h4>AI system</h4>
+      <div class="blueprint-track"><div class="blueprint-node"><small>HUMAN JOB</small><strong>Label many examples</strong><p>People mark messages “junk” or “keep”.</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-node"><small>TRAINING JOB</small><strong>Adjust pattern weights</strong><p>The system learns which combinations tend to signal junk.</p></div><span class="blueprint-bridge" aria-hidden="true">│</span><div class="blueprint-node blueprint-node-live"><small>NEW EMAIL</small><strong>Score the learned patterns</strong><p>How closely does this message resemble past junk?</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-result"><strong>Junk or keep</strong><span>Best-fit score</span></div></div>
+    </section>
+    <p class="blueprint-click"><strong>Same new email. Same final choice. Different human job:</strong> one person writes the rule; many people supply the examples from which the AI learns.</p>
+  </div>` : "";
+  const body = chapterOneMechanism || (concept.kind === "compare"
     ? `<div class="concept-lanes">${concept.lanes.map(lane => `<section><h4>${escapeHtml(lane.label)}</h4><ol class="concept-flow">${steps(lane.steps)}</ol></section>`).join("")}</div>`
     : concept.kind === "branches"
-      ? `<div class="concept-branches"><strong class="concept-hub">${escapeHtml(concept.hub)}</strong><ul>${concept.steps.map(step => `<li>${escapeHtml(step)}</li>`).join("")}</ul></div>`
-      : `<ol class="concept-flow${concept.loop ? " concept-loop" : ""}">${steps(concept.steps)}</ol>`;
+      ? `<div class="concept-branches"><strong class="concept-hub">${escapeHtml(concept.hub)}</strong><span class="branch-connector" aria-hidden="true">branches into</span><ul>${concept.steps.map(step => `<li>${escapeHtml(step)}</li>`).join("")}</ul></div>`
+      : `<ol class="concept-flow${concept.loop ? " concept-loop" : ""}">${steps(concept.steps)}</ol>`);
   const id = concept.after.replace(".", "-");
-  return `<figure class="concept-diagram" data-section="${concept.after}" aria-labelledby="concept-title-${id}"><div class="concept-heading"><p>SECTION ${concept.after} · VISUAL EXPLAINER</p><h3 id="concept-title-${id}">${escapeHtml(concept.title)}</h3><span>${escapeHtml(concept.question)}</span></div>${body}<figcaption><strong>What this diagram shows:</strong> ${escapeHtml(concept.takeaway)}</figcaption></figure>`;
+  return `<figure class="concept-diagram" data-section="${concept.after}"${concept.after === "1.1" ? ' data-variant="decision-blueprint"' : ""} aria-labelledby="concept-title-${id}"><div class="concept-heading"><p>SECTION ${concept.after} · SEE THE MECHANISM</p><h3 id="concept-title-${id}">${escapeHtml(concept.title)}</h3><span>${escapeHtml(concept.question)}</span></div>${body}<figcaption><strong>The point:</strong> ${escapeHtml(concept.takeaway)}</figcaption></figure>`;
 }
 
 const systemMapGroups = [
@@ -392,9 +404,26 @@ const systemMapGroups = [
 ];
 
 function renderSystemMap(throughChapter) {
-  const groups = systemMapGroups.map(group => ({ ...group, nodes: group.nodes.filter(node => node.chapter <= throughChapter) })).filter(group => group.nodes.length);
   const complete = throughChapter === 20;
-  return `<figure class="system-map${complete ? " system-map-complete" : ""}" aria-labelledby="system-map-title-${throughChapter}"><div class="system-map-heading"><p>YOUR AI SYSTEM MAP · CHAPTER ${throughChapter}</p><h3 id="system-map-title-${throughChapter}">${complete ? "The complete AI ecosystem" : `Now add: ${escapeHtml(systemMapGroups.flatMap(group => group.nodes).find(node => node.chapter === throughChapter)?.label || `Chapter ${throughChapter}`)}`}</h3><span>${complete ? "Every layer, connected" : `${throughChapter} of 20 layers revealed`}</span></div><div class="system-map-groups">${groups.map((group, groupIndex) => `<details class="map-band map-band-${group.id}"><summary><span class="map-band-number">${groupIndex + 1}</span><span class="map-band-title">${escapeHtml(group.label)}</span><span class="map-band-overview">${group.nodes.map(node => escapeHtml(node.label)).join(' → ')}</span></summary><div class="map-flow">${group.nodes.map(node => `<div class="map-node${node.chapter === throughChapter ? " map-node-current" : ""}"><span>CH ${node.chapter}</span><strong>${escapeHtml(node.label)}</strong><small>${escapeHtml(node.role)}</small></div>`).join('<span class="map-arrow" aria-hidden="true">→</span>')}</div></details>`).join("")}</div>${complete ? '<details class="map-draw-guide"><summary>How to draw it from memory</summary><ol><li>Start with the physical foundation.</li><li>Add the data-to-model building path.</li><li>Add the request-to-output use path.</li><li>Draw safety, evaluation and sandboxing across both paths.</li><li>Add agents and system craft around multi-step work.</li><li>Circle the whole map with people, governance and frontier questions.</li></ol></details>' : ""}<figcaption>This overview keeps the whole system visible. Open any layer for the job of each part. It is a relationship map, not one false assembly line.</figcaption></figure>`;
+  const current = systemMapGroups.flatMap(group => group.nodes).find(node => node.chapter === throughChapter);
+  if (!complete) {
+    return `<aside class="map-piece" data-chapter="${throughChapter}" aria-label="Chapter ${throughChapter} map piece"><span>ADD THIS TO YOUR AI SYSTEM MAP</span><strong>${escapeHtml(current?.label || `Chapter ${throughChapter}`)}</strong><p>${escapeHtml(current?.role || "Connect this chapter to the whole system.")}</p></aside>`;
+  }
+  const node = (chapter, label, role, className = "") => `<div class="map-node ${className}"><small>CH ${chapter}</small><strong>${escapeHtml(label)}</strong><span>${escapeHtml(role)}</span></div>`;
+  const arrow = '<span class="map-arrow" aria-hidden="true">→</span>';
+  return `<figure class="system-map system-map-complete" aria-labelledby="system-map-title-20"><div class="system-map-heading"><p>THE COMPLETE AI SYSTEM MAP</p><h3 id="system-map-title-20">From raw materials to a result—and the people responsible for every layer</h3><span>This is the whole diagram the chapters have been building.</span></div>
+    <div class="ai-system-blueprint" role="group" aria-describedby="system-map-caption">
+      <div class="map-governance"><strong>PEOPLE + GOVERNANCE SURROUND THE WHOLE SYSTEM</strong><span>People choose the goal, data, limits, deployment and response when something goes wrong.</span></div>
+      <section class="map-track map-track-build"><h4>BUILD THE MODEL</h4><div class="map-track-flow">${node(3,"Data","Selected examples + human labels")}${arrow}${node(4,"Tokens","Turn material into processable pieces")}${arrow}${node(5,"Training","Adjust weights through repeated comparison")}${arrow}${node(5,"Learned model","Frozen numerical patterns","map-node-emphasis")}${arrow}${node(9,"Optional customisation","Change context, behaviour or efficiency")}</div></section>
+      <div class="model-to-use"><span aria-hidden="true">↓</span><strong>The learned model powers each new request</strong></div>
+      <section class="map-track map-track-use"><h4>USE THE MODEL</h4><div class="map-track-flow">${node(1,"Person + request","The job and information supplied now")}${arrow}${node(10,"Product stack","Interface, routing and product rules")}${arrow}${node(8,"Context + retrieval","What the request can see")}${arrow}${node(7,"Inference + tools","Calculate a response or approved action","map-node-emphasis")}${arrow}${node(6,"Output","Text, image, audio, video or action")}</div></section>
+      <section class="map-crosscuts"><h4>CONTROLS MUST CROSS BUILDING AND USE</h4><div>${node(11,"Safety","Shape and filter behaviour")}${node(12,"Evaluation","Test the real task and failures")}${node(13,"Sandboxing","Contain actions and require approval")}</div></section>
+      <section class="map-track map-track-multistep"><h4>WHEN ONE RESPONSE IS NOT ENOUGH</h4><div class="map-track-flow">${node(14,"Agent loop","Choose a step → use a tool → observe → continue or stop")}${arrow}${node(15,"System craft","Design the routes, permissions, tests and stopping rules")}</div></section>
+      <section class="map-track map-track-physical"><h4>THE PHYSICAL FOUNDATION UNDER EVERY CALCULATION</h4><div class="map-track-flow">${node(18,"Supply chain","Materials, equipment, fabrication, memory")}${arrow}${node(16,"Chips + compute","Processors perform the maths")}${arrow}${node(17,"Data centres","Servers, power, cooling and networks")}</div></section>
+      <div class="map-frontier"><strong>FRONTIER QUESTIONS</strong><span>Use the completed map to ask exactly which layer a new claim changes, what evidence supports it and what remains uncertain.</span></div>
+    </div>
+    <div class="map-draw-guide"><h4>Draw it from memory</h4><ol><li>Draw the physical foundation.</li><li>Add the path that builds a model.</li><li>Draw the path that uses it for a new request.</li><li>Place safety, evaluation and sandboxing across both paths.</li><li>Add the agent loop around multi-step work.</li><li>Put people and governance around the entire system.</li></ol></div>
+    <figcaption id="system-map-caption"><strong>How to read it:</strong> raw materials and infrastructure make the calculations possible; data and training create a model; a product supplies context and tools when a person uses that model; controls and human responsibility cross the entire system.</figcaption></figure>`;
 }
 
 function stripText(markdown) {
@@ -517,7 +546,7 @@ function buildReviewPage(source, fragment, manuscript) {
     const firstSectionStart = firstSectionTextIndex < 0 ? -1 : mainFragment.lastIndexOf("<h3", firstSectionTextIndex);
     if (firstSectionStart < headingEnd) throw new Error(`missing first numbered section for ${chapter.id}`);
     const chapterFrontMatter = mainFragment.slice(headingEnd, firstSectionStart);
-    mainFragment = `${mainFragment.slice(0, headingEnd)}\n<details class="chapter-ahead"><summary>Chapter goals and key terms</summary><div>${chapterFrontMatter}</div></details>\n${mainFragment.slice(firstSectionStart)}`;
+    mainFragment = `${mainFragment.slice(0, headingEnd)}\n<section class="chapter-ahead" aria-labelledby="chapter-${chapterNumber}-ahead-title"><p class="chapter-ahead-title" id="chapter-${chapterNumber}-ahead-title">What you will learn + the words you will need</p><div class="chapter-ahead-body">${chapterFrontMatter}</div></section>\n${mainFragment.slice(firstSectionStart)}`;
   });
   for (const concept of [...conceptDiagrams].sort((a, b) => Number(b.after.split(".")[0]) * 100 + Number(b.after.split(".")[1]) - (Number(a.after.split(".")[0]) * 100 + Number(a.after.split(".")[1])))) {
     const sectionTextIndex = mainFragment.indexOf(`>${concept.after} `);
@@ -549,8 +578,85 @@ function buildReviewPage(source, fragment, manuscript) {
 .chapter-ahead{margin:1rem 0 1.7rem;border:2px solid #aebbe0;border-radius:.5rem;background:#f2f6ff;font-family:Arial,sans-serif}.chapter-ahead>summary{cursor:pointer;padding:.85rem 1rem;color:var(--navy);font-weight:900}.chapter-ahead>div{padding:0 1rem 1rem}.chapter-ahead .callout{margin-top:.3rem}.map-band{padding:0;overflow:hidden}.map-band summary{display:grid;grid-template-columns:2rem minmax(8rem,.7fr) minmax(0,1.5fr);align-items:center;gap:.65rem;cursor:pointer;padding:.72rem .85rem;list-style:none}.map-band summary::-webkit-details-marker{display:none}.map-band summary::after{content:"+";grid-column:4;color:var(--electric-purple);font-size:1.25rem;font-weight:900}.map-band[open] summary::after{content:"−"}.map-band-number{display:grid;place-items:center;width:1.65rem;height:1.65rem;border-radius:50%;background:var(--electric-purple);color:white;font-size:.7rem;font-weight:900}.map-band-title{color:var(--navy);font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.map-band-overview{color:#45506e;font-size:.78rem;font-weight:700;line-height:1.25}.map-band .map-flow{padding:.8rem;border-top:2px solid #d7def0}.system-map-complete .system-map-groups{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.system-map-complete .map-band summary{grid-template-columns:2rem 1fr}.system-map-complete .map-band-overview{grid-column:1 / -1;padding-left:2.3rem}.system-map-complete .map-band summary::after{grid-column:3;grid-row:1}.map-draw-guide{padding:0}.map-draw-guide>summary{cursor:pointer;padding:.85rem 1rem;font-weight:900}.map-draw-guide ol{padding:0 1rem 1rem 2.4rem}.concept-diagram{break-inside:avoid}.concept-diagram+.concept-diagram{margin-top:1rem}
 @media(max-width:850px){.concept-lanes{grid-template-columns:1fr 1fr;gap:.5rem}.concept-lanes section{padding:.6rem}.concept-lanes h4{font-size:.85rem}.concept-lanes .concept-flow{gap:1.2rem}.concept-lanes .concept-flow li{display:block;padding:.55rem .35rem;text-align:center}.concept-lanes .concept-flow li>span{margin:0 auto .35rem}.concept-lanes .concept-flow li>strong{font-size:.7rem}.system-map-complete .system-map-groups{grid-template-columns:1fr}.map-band summary,.system-map-complete .map-band summary{grid-template-columns:1.7rem 1fr auto}.map-band-overview,.system-map-complete .map-band-overview{grid-column:1 / -1;padding-left:2.05rem}.map-band summary::after,.system-map-complete .map-band summary::after{grid-column:3;grid-row:1}.chapter-ahead{margin-top:.5rem}.concept-diagram{max-height:none}}
 @media(max-width:850px){.system-map-complete{padding:.75rem}.system-map-complete .system-map-heading{margin:-.75rem -.75rem .75rem;padding:.75rem}.system-map-complete .system-map-groups{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.system-map-complete .map-band summary{display:block;position:relative;min-height:6.25rem;padding:.5rem}.system-map-complete .map-band-number{display:inline-grid;width:1.35rem;height:1.35rem;margin-right:.25rem;font-size:.6rem}.system-map-complete .map-band-title{font-size:.67rem;line-height:1.1}.system-map-complete .map-band-overview{display:block;padding:.4rem 0 0;font-size:.64rem;line-height:1.22}.system-map-complete .map-band summary::after{position:absolute;right:.4rem;top:.3rem}.system-map-complete .map-flow{display:grid}.system-map-complete figcaption{margin-top:.75rem;padding-top:.7rem;font-size:.78rem}}
+/* Evidence-led textbook repair: visible goals, integrated labels, real relationships, no decorative picture quota. */
+body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff 0%,#d7c6ff 48%,#ffcce7 100%)}
+.gr-page{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,250,255,.98));border-top:0;border-left:10px solid var(--electric-purple);box-shadow:14px 18px 0 rgba(39,29,126,.14),0 28px 80px rgba(18,20,70,.22);overflow:visible}
+.gr-page::before{content:"";position:absolute;inset:0 0 auto;height:16px;background:linear-gradient(90deg,var(--electric-purple) 0 38%,var(--electric-pink) 38% 68%,var(--electric-cyan) 68%);pointer-events:none}
+.gr-page>p,.gr-page>ul,.gr-page>ol{font-family:Georgia,"Times New Roman",serif}
+.gr-page>h2{position:relative;margin-top:5.5rem;padding:1rem 1.15rem;border:0;background:linear-gradient(105deg,#101842 0 76%,#672be8 76%);color:#fff;box-shadow:8px 8px 0 var(--electric-cyan);font-size:clamp(2rem,3.2vw,2.75rem);line-height:1.02}
+.gr-page>h2::after{content:"";position:absolute;right:1.2rem;bottom:-10px;width:72px;height:20px;background:var(--electric-pink);clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)}
+.gr-page>h3{margin:3.25rem 0 1.1rem;padding:.8rem 1rem .8rem 1.15rem;border-left:9px solid var(--electric-pink);background:linear-gradient(90deg,#f0e9ff 0,rgba(240,233,255,0) 88%);color:#35128b}
+.gr-page>p{max-width:64ch;line-height:1.72}
+.chapter-ahead{margin:1.35rem 0 2.2rem;padding:0;border:3px solid var(--navy);background:linear-gradient(135deg,#e8f8ff,#f7edff 58%,#fff0f7);box-shadow:7px 7px 0 #aeeaf4;font-family:Jost,Arial,sans-serif}
+.chapter-ahead-title{margin:0;max-width:none;padding:.75rem 1rem;background:var(--navy);color:#fff;font-size:.78rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.chapter-ahead-body{padding:1rem}
+.chapter-ahead .callout-objective{margin:0 0 1rem;padding:.85rem 1rem;background:#fff;border:0;border-left:9px solid var(--electric-cyan);box-shadow:0 4px 0 rgba(32,82,164,.12)}
+.chapter-ahead .callout-objective ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem .9rem;margin:.6rem 0 0;padding-left:1rem}.chapter-ahead .callout-objective li{font-size:.78rem;line-height:1.3}
+.chapter-ahead h3{margin:1rem 0 .7rem;padding:0;border:0;background:none;color:var(--navy);font-size:1.05rem}
+.chapter-ahead .table-scroll{overflow:visible;margin:0;border:0}
+.chapter-ahead table,.chapter-ahead tbody{display:block;width:100%}
+.chapter-ahead thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.chapter-ahead tbody{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.45rem}
+.chapter-ahead tr{display:block;padding:.75rem;background:#fff;border:2px solid #b5c6e5;border-left:7px solid var(--electric-purple);box-shadow:3px 3px 0 rgba(65,43,139,.1)}
+.chapter-ahead td{display:block;padding:0;border:0;background:transparent!important;font-size:.7rem;line-height:1.25}
+.chapter-ahead td:first-child{margin-bottom:.25rem;color:#4e18ca;font-size:.78rem}
+.chapter-ahead-body>p:last-child{margin:.7rem 0 0;color:#4d5875;font-size:.78rem}
+.concept-diagram,.system-map{border-radius:0;background:#eef5ff;box-shadow:9px 9px 0 rgba(48,31,139,.2)}
+.concept-diagram[data-variant="decision-blueprint"],.system-map-complete{width:calc(100% + 5rem);margin-left:-2.5rem}
+.concept-heading,.system-map-heading{border-radius:0;background:linear-gradient(105deg,var(--navy),#37158a 78%);padding:.85rem 1rem}
+.concept-heading h3,.system-map-heading h3{font-size:1.3rem;line-height:1.12}
+.concept-flow{gap:1.65rem}
+.concept-flow li{display:grid;align-content:center;gap:.25rem;min-height:92px;padding:.8rem .85rem;border:2px solid #8799c4;border-left:9px solid var(--electric-cyan);border-radius:0;background:#fff;box-shadow:3px 3px 0 #cbd8f1}
+.concept-flow li>span{display:block;width:auto;height:auto;color:#4e18ca;background:transparent;border-radius:0;font-size:.62rem;letter-spacing:.1em;text-align:left}
+.concept-flow li>strong{font-size:.82rem;line-height:1.28}
+.concept-flow li:not(:last-child)::after{right:-1.35rem;color:var(--electric-pink);font-size:1.35rem}
+.concept-lanes{gap:1.2rem}
+.concept-lanes section,.concept-lanes section+section{padding:.85rem;background:#eaf9ff;border:2px solid #91cddd;border-top:8px solid var(--electric-cyan);border-left-width:2px;border-radius:0}
+.concept-lanes section+section{background:#fff0f7;border-color:#e7a0c6;border-top-color:var(--electric-pink)}
+.concept-lanes h4{margin:0 0 .75rem;padding-bottom:.45rem;border-bottom:2px solid currentColor}
+.concept-branches{grid-template-columns:minmax(130px,.7fr) 110px 2fr;gap:.65rem}
+.concept-hub{min-height:92px;border-radius:0;background:var(--navy);box-shadow:5px 5px 0 var(--electric-cyan)}
+.branch-connector{position:relative;color:#4e18ca;text-align:center;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.branch-connector::before,.branch-connector::after{content:"";display:block;height:3px;background:var(--electric-purple);margin:.25rem 0}
+.concept-branches li{border-radius:0;box-shadow:3px 3px 0 #d2ddf2}
+.decision-blueprint{display:grid;gap:.65rem}
+.blueprint-phase{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:0 1rem;color:#4d5875;font-size:.64rem;font-weight:900;letter-spacing:.08em;text-align:center}
+.blueprint-lane{padding:.65rem;background:#e9f9ff;border:2px solid #76bdd0;border-top:8px solid var(--electric-cyan)}
+.blueprint-lane-learned{background:#fff0f8;border-color:#df91bb;border-top-color:var(--electric-pink)}
+.blueprint-lane h4{margin:0 0 .5rem;font-size:.9rem}
+.blueprint-track{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(100px,.6fr);align-items:stretch;gap:.25rem}
+.blueprint-node,.blueprint-result{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:.52rem;background:#fff;border:2px solid #7d8fb9;box-shadow:3px 3px 0 #cbd8f1}
+.blueprint-node small{color:#4e18ca;font-size:.59rem;font-weight:900;letter-spacing:.08em}
+.blueprint-node strong,.blueprint-result strong{margin:.16rem 0;font-size:.75rem;line-height:1.16}
+.blueprint-node p{margin:0;font-size:.61rem;line-height:1.22}
+.blueprint-node-live{border-color:var(--electric-pink)}
+.blueprint-result{border:3px solid var(--navy);background:var(--navy);color:#fff;text-align:center}
+.blueprint-result span{color:#95efff;font-size:.65rem;font-weight:800}
+.blueprint-arrow,.blueprint-bridge{align-self:center;color:var(--electric-purple);font-size:1.35rem;font-weight:900;text-align:center}
+.blueprint-click{margin:0;padding:.62rem .8rem;background:#eafff6;border-left:8px solid #18b989;font-size:.76rem;line-height:1.32}
+.map-piece{margin:2.5rem 0 4rem;padding:1rem 1.15rem;background:linear-gradient(90deg,#101842,#342182);border-left:10px solid var(--electric-cyan);color:#fff;font-family:Jost,Arial,sans-serif;box-shadow:7px 7px 0 #ffc4e3}
+.map-piece>span{display:block;color:#8eeeff;font-size:.62rem;font-weight:900;letter-spacing:.1em}
+.map-piece>strong{display:block;margin:.25rem 0 .15rem;font-size:1.05rem}
+.map-piece>p{margin:0;color:#f0eaff;font-size:.78rem;line-height:1.35}
+.ai-system-blueprint{padding:1rem;background:#fff;border:3px solid var(--navy)}
+.map-governance{margin:-1rem -1rem .6rem;padding:.55rem .75rem;background:#37158a;color:#fff;border-bottom:6px solid var(--electric-pink)}
+.map-governance strong,.map-governance span{display:block}.map-governance span{margin-top:.2rem;color:#f3dffb;font-size:.72rem}
+.map-track{margin:.55rem 0;padding:.55rem;background:#edf9ff;border-left:7px solid var(--electric-cyan)}
+.map-track h4,.map-crosscuts h4{margin:0 0 .65rem;color:var(--navy);font-size:.7rem;letter-spacing:.09em}
+.map-track-flow{display:flex;align-items:stretch;gap:.45rem}
+.map-node{display:flex;flex:1;flex-direction:column;justify-content:center;min-width:0;padding:.45rem;background:#fff;border:2px solid #8d9cc0;border-radius:0;box-shadow:2px 2px 0 #cbd8f1}
+.map-node small{color:#4e18ca;font-size:.49rem;font-weight:900;letter-spacing:.07em}.map-node strong{display:block;margin:.12rem 0;font-size:.67rem;line-height:1.12}.map-node span{display:block;color:#4d5875;font-size:.54rem;line-height:1.18}
+.map-node-emphasis{border:3px solid var(--electric-pink);background:#fff2f8}
+.model-to-use{text-align:center;color:#4e18ca;font-size:.7rem}.model-to-use span,.model-to-use strong{display:block}.model-to-use span{font-size:1.4rem;line-height:1}
+.map-track-use{background:#fff0f7;border-left-color:var(--electric-pink)}
+.map-crosscuts{margin:.55rem 0;padding:.55rem;background:#fff8d9;border:3px dashed #7e6412}
+.map-crosscuts>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+.map-track-multistep{background:#efffec;border-left-color:#25a65b}.map-track-physical{background:#f0ecff;border-left-color:var(--electric-purple)}
+.map-frontier{padding:.55rem .75rem;background:var(--navy);color:#fff}.map-frontier strong,.map-frontier span{display:block}.map-frontier span{margin-top:.15rem;color:#dbe7ff;font-size:.64rem}
+.system-map-complete .map-draw-guide{margin-top:1rem;padding:1rem;background:#eafff6;border-left:9px solid #18b989}.system-map-complete .map-draw-guide ol{columns:2;margin:.4rem 0 0;padding-left:1.25rem;font-size:.78rem}.system-map-complete figcaption{font-size:.85rem}
+@media(max-width:850px){.gr-page{border-left:0;border-top:8px solid var(--electric-purple);padding:1.1rem}.gr-page>h2{margin-left:-1.1rem;margin-right:-1.1rem;padding:1rem 1.1rem;box-shadow:none}.gr-page>h2::after{display:none}.gr-page>h3{margin-left:-.25rem;padding:.65rem .75rem}.chapter-ahead-body{padding:.75rem}.chapter-ahead .callout-objective ul{grid-template-columns:1fr}.chapter-ahead tbody{grid-template-columns:repeat(2,minmax(0,1fr))}.concept-diagram,.system-map{padding:.75rem;box-shadow:5px 5px 0 rgba(48,31,139,.18)}.concept-diagram[data-variant="decision-blueprint"],.system-map-complete{width:100%;margin-left:0}.concept-heading,.system-map-heading{margin:-.75rem -.75rem .75rem}.concept-lanes{grid-template-columns:1fr}.concept-flow{display:grid;gap:1.25rem}.concept-flow li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.2rem;transform:translateX(-50%)}.concept-branches{grid-template-columns:1fr}.branch-connector::before,.branch-connector::after{width:3px;height:18px;margin:.2rem auto}.decision-blueprint{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.blueprint-phase{display:none}.blueprint-lane{min-width:0;padding:.4rem}.blueprint-lane h4{font-size:.75rem}.blueprint-track{grid-template-columns:1fr}.blueprint-arrow{transform:rotate(90deg);font-size:.9rem}.blueprint-bridge{height:18px;overflow:hidden}.blueprint-node,.blueprint-result{padding:.4rem}.blueprint-node strong,.blueprint-result strong{font-size:.66rem}.blueprint-node p{font-size:.59rem}.blueprint-click{grid-column:1/-1}.map-track-flow{display:flex;gap:.2rem}.map-track{padding:.4rem;border-left-width:5px}.map-track h4,.map-crosscuts h4{font-size:.6rem}.map-node{padding:.28rem}.map-node small{font-size:.42rem}.map-node strong{font-size:.56rem}.map-node span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.map-arrow{transform:none;align-self:center;font-size:.65rem}.map-crosscuts>div{grid-template-columns:repeat(3,minmax(0,1fr));gap:.25rem}.map-governance span,.map-frontier span{font-size:.58rem}.system-map-complete .map-draw-guide ol{columns:1}}
 </style></head><body>
-<div class="build-banner">INTERNAL TEXTBOOK BUILD · ALI-VETTED SOURCE · REWIND OVERLAY READY FOR ALI REVIEW · NOT PUBLISHED</div>
+<div class="build-banner">INTERNAL TEXTBOOK BUILD · REPRESENTATIVE VISUAL REPAIR · 57 VISUAL TEACHING JOBS NOT YET ADMITTED · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
 <main class="book-stage"><div class="source-boundary"><strong>Current status:</strong> the complete Quick manuscript is now a working textbook artifact and Ali has confirmed that these exact source bytes were fully vetted for accuracy. All 20 chapters are registered for weekly automated freshness checks, immediate signal-triggered review and monthly-or-quarterly scheduled review. A separately reviewable Rewind overlay adds 13 earned references without changing the source. Visual teaching, unfamiliar-reader admission and public release remain open.</div>${mainFragment}</main></div>
 <script>document.querySelector('.mobile-toc').addEventListener('click',event=>{const toc=document.querySelector('.reader-toc');const open=toc.classList.toggle('open');event.currentTarget.setAttribute('aria-expanded',String(open));event.currentTarget.textContent=open?'Close contents':'Open contents'});document.querySelectorAll('.reader-toc a').forEach(link=>link.addEventListener('click',event=>{if(innerWidth<=850){const href=link.getAttribute('href');const target=href?.startsWith('#')?document.querySelector(href):null;document.querySelector('.reader-toc').classList.remove('open');document.querySelector('.mobile-toc').setAttribute('aria-expanded','false');document.querySelector('.mobile-toc').textContent='Open contents';if(target){event.preventDefault();history.pushState(null,'',href);requestAnimationFrame(()=>{const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';target.scrollIntoView({block:'start'});requestAnimationFrame(()=>{root.style.scrollBehavior=previous})})}}}));</script>
@@ -636,7 +742,7 @@ const manifest = {
     sourceBinding: "PASS_ALI_VETTED_EXACT_SOURCE_BYTES",
     freshnessRegistration: "PASS_20_CHAPTER_SCOPES_WEEKLY_AUTOMATION_MONTHLY_OR_QUARTERLY_REVIEW",
     rewindReferencePass: "PRODUCER_PASS_CURATED_OVERLAY_USER_REVIEW_PENDING",
-    visualTeachingLayer: "BUILT_LOCALLY_SECTION_BOUND_DIAGRAMS_AND_CUMULATIVE_MAP_REVIEW_PENDING",
+    visualTeachingLayer: "BUILT_LOCALLY_REPRESENTATIVE_CHAPTER_1_AND_COMPLETE_MAP_REVIEW_PENDING_REMAINING_57_NOT_ADMITTED",
     unfamiliarReaderAdmission: "HOLD",
     publicRelease: "HOLD",
   },
