@@ -42,8 +42,8 @@ The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
 Status is **BUILT LOCALLY / CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
-VISUAL LAYER NOT ADMITTED / NOT INTEGRATED / NOT DEPLOYED / NOT PUBLICLY
-VERIFIED**. Ali's direct reader review invalidated the earlier visual
+SUCCESSOR CONCEPT READY FOR ALI REVIEW / VISUAL LAYER NOT ADMITTED / NOT
+INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. Ali's direct reader review invalidated the earlier visual
 inspection: the pictures did not independently communicate their teaching jobs,
 the first three repeated one mechanism and the large purple figure wrapper
 combined too many functions. The deterministic checker now fails if a rejected
@@ -55,6 +55,13 @@ figure. Its prose retains the plain-language bridge from learned rules to
 Chapter 5. The next representative must be one diagram-native solution to one
 exact learning problem, with meaning visible from the artifact rather than
 maker intent. It has no false cumulative “AI boundary” component.
+That representative now exists as a 1400 × 444 compact comparison: an exact
+`FREE` automation rule misses `FR33`, while a learned filter can connect three
+visible clues in the same message and may flag it. A role-distinct review
+passed the desktop teaching concept. It remains a review image only; it is not
+rendered in the book, and the final implementation must recompose rather than
+shrink the comparison on mobile. Ali selection and responsive admission remain
+open.
 Chapter 20 supplies one connected hardware/software blueprint from supply chain,
 chips and data centres through training, product use, inference, optional tools,
 output and accountable human consequence. The opening objective card now uses

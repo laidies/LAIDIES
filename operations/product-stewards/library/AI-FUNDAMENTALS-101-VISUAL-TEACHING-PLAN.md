@@ -127,6 +127,29 @@ a registry of teaching questions, not approved artwork and not a quota. Full
 propagation waits for the representative desktop/mobile pixels to pass maker
 inspection and independent visual judgment.
 
+### Chapter 1 successor concept — compact spam-filter comparison
+
+The first successor concept is **CONCEPT PASS / NOT INTEGRATED / MOBILE OPEN**.
+It answers one exact reader question: why can a learned spam filter catch
+`FR33` when an exact human-written rule for `FREE` does not? The diagram keeps
+the email constant and aligns three causal stages: what people provide, what
+the system does and what happens to that same new email. Its AI row explicitly
+maps `ACT N0W`, `gift` and `FR33` to the learned clues they resemble, and says
+the system **may** flag the message rather than pretending a learned system is
+an infallible rule.
+
+The checksum-bound review image is
+`content/library-books/pilots/ai-fundamentals-101-quick-manuscript/previews/ch01-spam-filter-comparison-concept-v1.png`
+(SHA-256 `88e0e7c14aa8544a91abb255d3c3c1bfa9fc7e1c6305517bb04517713d1977e0`,
+1400 × 444). Its editable source is FigJam file
+`mZxfLGxUgClEDfrK3Zmd6S`, node `2:59`. A role-distinct artifact-first review
+found the desktop concept independently understandable. This is not final
+admission: the site implementation must recompose each comparison row into a
+labelled vertical block on mobile instead of shrinking the wide table or
+requiring horizontal panning. Ali selection, integration, responsive pixels
+and final review remain open. No other visual opportunity is admitted by this
+concept pass.
+
 The cumulative map begins only when the manuscript reaches actual system
 components in Chapter 3. Chapters 1 and 2 establish the distinction and model
 family; neither is a component box. The completed diagram connects the physical

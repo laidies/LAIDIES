@@ -14572,8 +14572,21 @@ while remaining falsely unfinished in the launch record.
   inference. The objective card uses a contained two-column desktop layout with
   full measured height. The remaining 57 records remain teaching opportunities,
   not accepted visuals or a quota.
+- **Successor learning:** Several flowchart-style attempts still failed because
+  the reader had to infer which lane was automation, what evidence the learned
+  system used or why the result changed; one mechanically correct tall version
+  also required scrolling to compare its beginning and end. The first concept
+  to pass used an aligned comparison native to the teaching job: human input →
+  system operation → same-email outcome, with direct phrase-to-clue mappings.
+  Future comparison visuals must expose that causal alignment in one view. If
+  the maker has to explain the mechanism, or the whole relationship requires
+  scrolling, shrinking or panning, reject it before review. The accepted
+  desktop concept is not final mobile or production admission; mobile must
+  recompose the same labelled relationships vertically without losing the
+  comparison.
 - **Possible Behind the Build angle:** Why an attractive “educational image”
   can still teach nothing—and why review must test reader inference rather than
   file existence or maker intent.
-- **Publication status:** CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN / INTERNAL VISUAL-TEACHING REPAIR / NO
+- **Publication status:** OLD CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
+  SUCCESSOR DESKTOP CONCEPT PASS / ALI SELECTION AND MOBILE ADMISSION OPEN / NO
   PRODUCTION INTEGRATION OR PUBLICATION.
