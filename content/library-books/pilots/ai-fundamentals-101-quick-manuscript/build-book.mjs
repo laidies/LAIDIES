@@ -263,6 +263,11 @@ function applyRewindAmendments(markdown, amendments, sourceSha) {
       enriched = enriched.replace(reference.anchor, `${reference.copy}\n\n${reference.anchor}`);
       continue;
     }
+    if (reference.mode === "append") {
+      if (!reference.copy) throw new Error(`${reference.id} appended copy is empty`);
+      enriched = enriched.replace(reference.anchor, `${reference.anchor} ${reference.copy}`);
+      continue;
+    }
     throw new Error(`${reference.id} has unsupported mode ${reference.mode}`);
   }
   return enriched;
@@ -355,8 +360,12 @@ const enrichedManuscript = applyRewindAmendments(rewindManuscript, {
   ...rewindAmendments,
   references: rewindAmendments.clarifications || [],
 }, manuscriptSha);
+const finalManuscript = applyRewindAmendments(enrichedManuscript, {
+  ...rewindAmendments,
+  references: rewindAmendments.sprinkles || [],
+}, manuscriptSha);
 const intro = parseFrontMatter(front);
-const chapters = parseChapters(enrichedManuscript).map((chapter, index) => ({
+const chapters = parseChapters(finalManuscript).map((chapter, index) => ({
   ...chapter,
   bodyHtml: `<p class="chapter-part">${escapeHtml(chapterPart(index + 1))}</p>\n${chapter.bodyHtml}`,
 }));
@@ -384,9 +393,9 @@ const sourceBytes = Buffer.from(`${JSON.stringify(source, null, 2)}\n`);
 fs.writeFileSync(paths.source, sourceBytes);
 const fragment = renderLibraryBookSource(source, rel(paths.source), sourceBytes);
 fs.writeFileSync(paths.fragment, fragment);
-const inventory = buildClaimInventory(enrichedManuscript, chapters);
+const inventory = buildClaimInventory(finalManuscript, chapters);
 fs.writeFileSync(paths.inventory, `${JSON.stringify(inventory, null, 2)}\n`);
-const review = buildReviewPage(source, fragment, enrichedManuscript);
+const review = buildReviewPage(source, fragment, finalManuscript);
 fs.writeFileSync(paths.review, review);
 
 const artifactPaths = [paths.front, paths.manuscript, paths.playbook, paths.rewind, paths.source, paths.fragment, paths.inventory, paths.review];
@@ -407,6 +416,7 @@ const manifest = {
     sections: 1 + chapters.length,
     rewindReferences: rewindAmendments.references.length,
     technicalClarifications: rewindAmendments.clarifications?.length || 0,
+    humourSprinkles: rewindAmendments.sprinkles?.length || 0,
   },
   artifacts: artifactPaths.map(filePath => ({ path: rel(filePath), sha256: sha256(fs.readFileSync(filePath)) })),
   gates: {

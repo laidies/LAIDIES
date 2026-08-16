@@ -20,7 +20,14 @@ try {
   if (deliberatelyBad.pass || !deliberatelyBad.errors.some(error => error.includes("chapter-turn"))) {
     throw new Error("calibration failed: checker accepted a review with a missing chapter-turn control");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL");
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  const secondReview = fs.readFileSync(reviewPath, "utf8");
+  fs.writeFileSync(reviewPath, secondReview.replace("Calling every useful computer feature AI? As if.", "Generic replacement."));
+  const missingSprinkle = inspectBook(temporary);
+  if (missingSprinkle.pass || !missingSprinkle.errors.some(error => error.includes("HUMOUR-AIF-CH01-AS-IF"))) {
+    throw new Error("calibration failed: checker accepted a review with a missing humour sprinkle");
+  }
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL missing_humour_sprinkle=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

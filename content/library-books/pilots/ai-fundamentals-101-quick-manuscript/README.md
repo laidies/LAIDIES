@@ -8,9 +8,13 @@ had fully vetted the exact supplied text for accuracy. Do not restart a general
 line-by-line accuracy review or substitute the rejected Concepts 101 text.
 
 `rewind-amendments.json` is a checksum-bound overlay on those immutable source
-bytes. It contains 13 earned Rewind references, including the two already in
-the manuscript. Every addition names its teaching job and analogy limit; the
-build fails if an exact insertion anchor moves or the vetted source hash changes.
+bytes. It contains 13 earned Rewind teaching references, including the two
+already in the manuscript, plus eight brief inline humour sprinkles. The
+sprinkles follow Ali's *Scream* model: one recognizable wink in ordinary prose,
+only after the mechanism is clear, with no chapter quota and no boxed
+mini-lesson pretending to be humour. Every addition names its teaching job and
+limit; the build fails if an exact insertion anchor moves, an approved sprinkle
+disappears from the rendered book or the vetted source hash changes.
 
 The immutable imported inputs live in `source/`. `build-book.mjs` converts the
 front matter and all 20 chapters into the standard `library-book-source.v1`

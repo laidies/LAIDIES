@@ -30,6 +30,23 @@ Independent backstage work may move in bounded lanes recorded in
 `operations/PARALLEL-WORK.md`; new ideas do not replace the foreground unless
 Ali explicitly switches or they invalidate the approach.
 
+## 2026-08-16 AI Fundamentals 101 — complete Quick manuscript textbook build
+
+The exact Ali-vetted 20-chapter Amazon Quick manuscript is now the source base
+for the working AI Fundamentals 101 textbook on branch
+`library/ai-fundamentals-quick-manuscript-20260816`. The immutable manuscript
+bytes are unchanged. A checksum-bound overlay currently contains 13 earned
+Rewind teaching references, one separated technical clarification and eight
+brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8, 9, 10,
+14 and 18. The humour follows Ali's *Scream* model: it appears in ordinary
+prose after the mechanism, not as a new boxed lesson and not by quota.
+
+Status is **BUILT LOCALLY / ALI REVIEW OF THE REWIND OVERLAY OPEN / NOT
+INTEGRATED / NOT DEPLOYED / NOT PUBLICLY VERIFIED**. The deterministic checker
+passes and its negative calibration rejects a missing chapter control and a
+missing rendered humour line. The source-build visual is an internal reader,
+not the final admitted Library presentation. No public site bytes changed.
+
 ## 2026-08-09 LIBRAiRY AI Fundamentals v3 — representative proof built, independent admission held
 
 ### 2026-08-10 cold-reader false-pass repaired

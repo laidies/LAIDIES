@@ -14465,3 +14465,30 @@ while remaining falsely unfinished in the launch record.
   artifact, doing what unfamiliar task.
 - **Publication status:** INTERNAL ADMISSION-SYSTEM REPAIR / NO BOOK ADMITTED,
   DEPLOYED OR PUBLISHED.
+
+## BTB-458 — A Rewind teaching analogy is not the same thing as a funny sprinkle
+
+- **Date:** 2026-08-16
+- **Area:** LIBRAiRY textbook voice and Rewind Era adaptation.
+- **Failure risk:** A book can contain many accurate Rewind references and still
+  feel under-seasoned when those references are boxed explanations rather than
+  brief, funny lines woven naturally into the prose. Counting references hides
+  the missing voice and encourages more boxes instead of better writing.
+- **Root cause:** The first overlay treated teaching analogies and humour as one
+  category. It optimized each reference for a named mechanism and limitation,
+  but did not separately test whether the prose contained the quick comic winks
+  Ali meant by the *Scream* example.
+- **Prevention rule:** Track humour sprinkles separately from teaching
+  analogies. A sprinkle is one short, recognizable line inside ordinary prose,
+  after the mechanism is clear. It must remain intelligible if the reader
+  misses the reference, must not carry the technical explanation, and has no
+  per-chapter quota. Delete a forced line rather than filling a gap.
+- **Durable correction:** AI Fundamentals 101 now has a separate checksum-bound
+  `sprinkles` overlay and a calibrated render check. Eight lines survived exact
+  rendered-context review; a ninth sandbox line was removed because it was
+  forced and weakened the preceding boundary.
+- **Possible Behind the Build angle:** Why “add more 90s references” produced
+  more lessons instead of more personality—and the one-sentence rule that fixed
+  it.
+- **Publication status:** INTERNAL TEXTBOOK VOICE REPAIR / ALI REVIEW OPEN / NO
+  INTEGRATION, DEPLOYMENT OR PUBLICATION.
