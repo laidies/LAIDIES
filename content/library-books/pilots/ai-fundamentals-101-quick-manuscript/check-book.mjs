@@ -99,25 +99,14 @@ export function inspectBook(pilotDir = ownDir) {
   if (renderedConceptSections.length !== conceptDiagramCount) errors.push("review does not render every registered section-bound instructional diagram");
   if (new Set(renderedConceptSections).size !== renderedConceptSections.length) errors.push("two instructional diagrams claim the same section anchor");
   if (count(review, /<figure class="concept-diagram"[\s\S]*?<figcaption><strong>The point:<\/strong>[\s\S]*?<\/figure>/g) !== conceptDiagramCount) errors.push("instructional diagrams do not each explain their teaching job");
-  for (const variant of ["decision-blueprint", "ai-claim-decision-tree", "learned-patterns-not-rulebook", "mixed-products"]) {
-    if (count(review, new RegExp(`<figure class="concept-diagram"[^>]*data-variant="${variant}"`, "g")) !== 1) errors.push(`Chapter 1 is missing its unique ${variant} teaching visual`);
-  }
-  const chapterOneImageSources = [
-    "assets/ch01-fixed-rules-vs-learning.png",
-    "assets/ch01-inspect-the-feature.png",
-    "assets/ch01-training-adjusts-settings.png",
-    "assets/ch01-products-have-layers.png",
-  ];
-  if (count(review, /class="teaching-visual"/g) !== chapterOneImageSources.length) errors.push("Chapter 1 does not contain four real teaching-image mechanisms");
-  for (const source of chapterOneImageSources) {
-    if (count(review, new RegExp(`<img src="${source.replaceAll(".", "\\.")}"`, "g")) !== 1) errors.push(`Chapter 1 teaching image is missing or duplicated: ${source}`);
-  }
+  if (renderedConceptSections.some(section => section.startsWith("1."))) errors.push("rejected Chapter 1 visual set has returned to the reader");
+  if (count(review, /class="teaching-visual"/g) !== 0) errors.push("rejected generated Chapter 1 teaching images remain rendered");
   const chapterOneStart = review.indexOf('<h2 id="chapter-1"');
   const chapterTwoStart = review.indexOf('<h2 id="chapter-2"');
   const chapterOne = review.slice(chapterOneStart, chapterTwoStart);
   if (chapterOne.includes("Millions of numerical weights")) errors.push("Chapter 1 reintroduces unexplained numerical-weight jargon in its visual");
-  if (!chapterOne.includes("tiny number-based settings") || !chapterOne.includes("Chapter 5 gives these settings their technical name")) errors.push("Chapter 1 does not explain internal settings before naming weights");
-  if (!review.includes("body{font-family:var(--reading-font);font-size:19px;line-height:1.64}") || !review.includes(".visual-key p,.visual-explanation,.visual-sequence li{margin:0;padding:.85rem 1rem")) errors.push("textbook reading or teaching-visual typography has regressed below the repaired hierarchy");
+  if (!chapterOne.includes("The rules it figures out aren't in words. They're in numbers") || !chapterOne.includes("You'll see exactly how this works in Chapter 5")) errors.push("Chapter 1 has lost its plain-language bridge from learned rules to Chapter 5");
+  if (!review.includes("body{font-family:var(--reading-font);font-size:19px;line-height:1.64}")) errors.push("textbook reading typography has regressed below the repaired hierarchy");
   const calloutColourRules = [
     '.callout-question{background:#ffe1f1;border-left-color:var(--electric-pink)}',
     '.callout-practice{background:#fff0e8;border-left-color:#e65e2e}',
@@ -166,9 +155,9 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.teachingImages !== chapterOneImageSources.length) errors.push("manifest does not bind the four Chapter 1 teaching images");
+  if (manifest.counts?.teachingImages !== 0) errors.push("manifest still counts the rejected Chapter 1 teaching images");
   if (manifest.counts?.cumulativeSystemMaps !== 18) errors.push("manifest cumulative-system-map count is not the 17 component pieces plus one completed map");
-  if (manifest.gates?.visualTeachingLayer !== "BUILT_LOCALLY_REPRESENTATIVE_CHAPTER_1_AND_COMPLETE_MAP_REVIEW_PENDING_REMAINING_57_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve representative-only review-pending truth");
+  if (manifest.gates?.visualTeachingLayer !== "REJECTED_CHAPTER_1_VISUAL_SET_WITHDRAWN_COMPLETE_MAP_AND_REMAINING_VISUALS_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve the Chapter 1 rejection and withdrawal");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

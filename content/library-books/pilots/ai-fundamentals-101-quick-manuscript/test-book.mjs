@@ -105,16 +105,10 @@ try {
     throw new Error("calibration failed: checker accepted poster-scale mobile map labels");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('data-variant="mixed-products"', 'data-variant="mixed-products-removed"'));
-  const missingChapterOneVisual = inspectBook(temporary);
-  if (missingChapterOneVisual.pass || !missingChapterOneVisual.errors.some(error => error.includes("mixed-products teaching visual"))) {
-    throw new Error("calibration failed: checker accepted a missing Chapter 1 teaching visual");
-  }
-  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
-  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('src="assets/ch01-training-adjusts-settings.png"', 'src="assets/ch01-training-adjusts-settings-missing.png"'));
-  const missingTeachingImage = inspectBook(temporary);
-  if (missingTeachingImage.pass || !missingTeachingImage.errors.some(error => error.includes("teaching image is missing or duplicated"))) {
-    throw new Error("calibration failed: checker accepted a missing Chapter 1 teaching-image binding");
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('<h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"', '<figure class="concept-diagram" data-section="1.1"><figcaption>Rejected visual returned</figcaption></figure><h3 id="ch-1-1-1-the-spam-filter-that-gave-away-the-secret"'));
+  const returnedChapterOneVisual = inspectBook(temporary);
+  if (returnedChapterOneVisual.pass || !returnedChapterOneVisual.errors.some(error => error.includes("rejected Chapter 1 visual set has returned"))) {
+    throw new Error("calibration failed: checker accepted a returned rejected Chapter 1 visual");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('.callout-practice{background:#fff0e8;border-left-color:#e65e2e}', '.callout-practice{background:#ffe1f1;border-left-color:var(--electric-pink)}'));
@@ -128,7 +122,7 @@ try {
   if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("incorrectly presented as an AI-system component"))) {
     throw new Error("calibration failed: checker accepted Chapter 1 as a system-map component");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL missing_chapter_one_visual=FAIL missing_teaching_image=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL rejected_chapter_one_visual_returned=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

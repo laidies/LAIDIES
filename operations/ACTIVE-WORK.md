@@ -41,27 +41,27 @@ brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
 The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
-Status is **BUILT LOCALLY / REPRESENTATIVE VISUAL REPAIR INSPECTED / FULL
+Status is **BUILT LOCALLY / CHAPTER 1 VISUAL SET REJECTED AND WITHDRAWN /
 VISUAL LAYER NOT ADMITTED / NOT INTEGRATED / NOT DEPLOYED / NOT PUBLICLY
-VERIFIED**. The deterministic checker passes and its negative calibration
-rejects a missing chapter control, missing rendered humour line, hidden chapter
-orientation, a return to expandable fake-map cards, a missing connected final
-map, a missing Chapter 1 teaching image and two callout types sharing one
-colour. Chapter 1 now supplies four real section-bound teaching illustrations:
-fixed rules versus learning; feature evidence versus an “AI-powered” badge;
-examples tuning many internal settings rather than producing a rulebook; and
-three familiar products cut open into fixed and learned layers. The earlier
-CSS text-box flows no longer count as images or diagrams. “Weights” now follows
-a plain explanation of tiny number-based settings and routes its full mechanism
-to Chapter 5. It has no false cumulative “AI boundary” component.
+VERIFIED**. Ali's direct reader review invalidated the earlier visual
+inspection: the pictures did not independently communicate their teaching jobs,
+the first three repeated one mechanism and the large purple figure wrapper
+combined too many functions. The deterministic checker now fails if a rejected
+Chapter 1 figure returns. Its other negative calibrations continue to reject a
+missing chapter control, missing rendered humour line, hidden chapter
+orientation, expandable fake-map cards, a missing connected final map and two
+callout types sharing one colour. Chapter 1 currently renders no teaching
+figure. Its prose retains the plain-language bridge from learned rules to
+Chapter 5. The next representative must be one diagram-native solution to one
+exact learning problem, with meaning visible from the artifact rather than
+maker intent. It has no false cumulative “AI boundary” component.
 Chapter 20 supplies one connected hardware/software blueprint from supply chain,
 chips and data centres through training, product use, inference, optional tools,
 output and accountable human consequence. The opening objective card now uses
 a contained two-column desktop / one-column mobile layout with measured client
 height equal to scroll height. The body uses the system reading-sans stack at
-19px desktop / 18px mobile; visual explanations and sequence labels are 18px,
-not the earlier 9–13px labels. The representative artifacts were visually
-inspected at 1280 and 390 widths;
+19px desktop / 18px mobile. The surviving layout was visually inspected at
+1280 and 390 widths;
 the earlier base system was also checked at 320, all with zero horizontal
 overflow. Each callout type now has its own persistent colour. The remaining
 57 visual-teaching records are still questions to solve, not accepted diagrams

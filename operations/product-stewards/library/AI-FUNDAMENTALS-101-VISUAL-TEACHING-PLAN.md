@@ -108,26 +108,21 @@ Primary and standards sources used for this repair:
   vocabulary/symbol clarity, multiple media, patterns/relationships and
   transfer.
 
-The Chapter 1 representative set now contains four different teaching jobs:
+The entire Chapter 1 representative visual set is **REJECTED AND WITHDRAWN**.
+Ali's direct reader review found that the pictures did not reveal which side
+represented which mechanism, the second image required maker explanation, the
+first three repeated the same concept and the large purple figure wrapper
+combined a title, question, picture, explanation and takeaway into one
+overgrown block. The renderer now supplies no Chapter 1 teaching figure and the
+checker rejects any return of those figures.
 
-1. fixed-rule software versus a learned spam decision;
-2. a magnified feature inspection that distinguishes a human-set rule, a
-   learned mechanism and an unproved marketing badge;
-3. labelled examples tuning many tiny internal number-based settings rather
-   than producing a readable rulebook; and
-4. Gmail, Spotify and a smart thermostat each containing both an exact human
-   decision and a learned component.
-
-These Chapter 1 mechanisms are real 1536×1024 text-free teaching images with
-deterministic 18px explanations beneath them. One earlier claim-check candidate
-was rejected because the robot-and-photo composition could not be explained
-accurately without maker intent. The first internal-settings candidate was also
-rejected because visible hands implied that people manually turn a model's
-settings during training. Its successor removes the hands and shows labelled
-examples driving many small, connected adjustments before a new case is judged.
-The completed Chapter 20 AI-system map is the
-whole-book representative. These five artifacts do not admit the remaining 57
-visual opportunities. Those remain
+The next representative is not “one image per section.” It begins with one
+exact learning question, selects the correct visual form (labelled comparison,
+decision tree, process diagram, schematic, chart or representational image) and
+must make its relationships inferable from the artifact rather than maker
+intent. It may not duplicate a nearby visual's teaching job. The completed
+Chapter 20 AI-system map remains separately reviewable. The remaining visual
+opportunities remain
 a registry of teaching questions, not approved artwork and not a quota. Full
 propagation waits for the representative desktop/mobile pixels to pass maker
 inspection and independent visual judgment.
