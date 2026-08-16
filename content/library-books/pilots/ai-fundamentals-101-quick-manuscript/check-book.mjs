@@ -53,7 +53,7 @@ export function inspectBook(pilotDir = ownDir) {
   for (const clarification of rewind.clarifications || []) {
     if (!clarification.id || !clarification.anchor || !clarification.copy || clarification.mode !== "before") errors.push("synthetic-data clarification is incomplete");
   }
-  if (rewind.sprinkles?.length !== 8) errors.push(`expected 8 inline humour sprinkles; found ${rewind.sprinkles?.length ?? 0}`);
+  if (rewind.sprinkles?.length !== 5) errors.push(`expected 5 inline humour sprinkles; found ${rewind.sprinkles?.length ?? 0}`);
   for (const sprinkle of rewind.sprinkles || []) {
     if (!sprinkle.id || ids.has(sprinkle.id)) errors.push(`missing or duplicate humour sprinkle id ${sprinkle.id || "(missing)"}`);
     ids.add(sprinkle.id);
@@ -73,7 +73,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
-  if (manifest.counts?.humourSprinkles !== 8) errors.push("manifest humour-sprinkle count is not 8");
+  if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {
@@ -89,5 +89,5 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.error(`AI FUNDAMENTALS BOOK CHECK FAIL\n- ${result.errors.join("\n- ")}`);
     process.exit(1);
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=8 rendered_callouts=11 chapter_turns=20 parts=9");
+  console.log("AI FUNDAMENTALS BOOK CHECK PASS chapters=20 rewind_references=13 humour_sprinkles=5 rendered_callouts=11 chapter_turns=20 parts=9");
 }

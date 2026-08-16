@@ -36,9 +36,9 @@ The exact Ali-vetted 20-chapter Amazon Quick manuscript is now the source base
 for the working AI Fundamentals 101 textbook on branch
 `library/ai-fundamentals-quick-manuscript-20260816`. The immutable manuscript
 bytes are unchanged. A checksum-bound overlay currently contains 13 earned
-Rewind teaching references, one separated technical clarification and eight
-brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8, 9, 10,
-14 and 18. The humour follows Ali's *Scream* model: it appears in ordinary
+Rewind teaching references, one separated technical clarification and five
+brief inline humour sprinkles distributed through Chapters 1, 4, 5, 8 and 9.
+The humour follows Ali's *Scream* model: it appears in ordinary
 prose after the mechanism, not as a new boxed lesson and not by quota.
 
 Status is **BUILT LOCALLY / ALI REVIEW OF THE REWIND OVERLAY OPEN / NOT

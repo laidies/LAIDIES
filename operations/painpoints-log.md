@@ -14486,11 +14486,11 @@ while remaining falsely unfinished in the launch record.
   if the reader misses the reference, must not carry the technical explanation,
   and has no per-chapter quota. Delete a forced line rather than filling a gap.
 - **Durable correction:** AI Fundamentals 101 now has a separate checksum-bound
-  `sprinkles` overlay and a calibrated render check. Four rejected newly written
-  analogies were replaced with source-bound lines from *Legally Blonde*,
-  *Gossip Girl*, *Buffy the Vampire Slayer* and *The Devil Wears Prada*; a ninth
-  sandbox line was removed because it was forced and weakened the preceding
-  boundary.
+  `sprinkles` overlay and a calibrated render check. The *Legally Blonde* line
+  survived Ali's recognition test; the proposed *Gossip Girl*, Buffy and
+  cerulean-speech lines did not and were removed without replacement. A ninth
+  sandbox line had already been removed because it was forced and weakened the
+  preceding boundary. Five source-bound lines remain; there is no quota.
 - **Possible Behind the Build angle:** Why “add more 90s references” produced
   more lessons instead of more personality—and the one-sentence rule that fixed
   it.
