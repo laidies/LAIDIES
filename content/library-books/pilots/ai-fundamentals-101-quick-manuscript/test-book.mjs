@@ -21,6 +21,17 @@ try {
     throw new Error("calibration failed: checker accepted a review with a missing chapter-turn control");
   }
   fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  const misplacedReview = fs.readFileSync(reviewPath, "utf8");
+  const finalNavigation = misplacedReview.match(/<nav class="chapter-turn" data-for="chapter-20"[\s\S]*?<\/nav>/)?.[0];
+  if (!finalNavigation) throw new Error("calibration fixture could not find Chapter 20 navigation");
+  fs.writeFileSync(reviewPath, misplacedReview
+    .replace(finalNavigation, "")
+    .replace(/(<h2 id="chapter-1"[^>]*>)/, `$1${finalNavigation}`));
+  const misplacedNavigation = inspectBook(temporary);
+  if (misplacedNavigation.pass || !misplacedNavigation.errors.some(error => error.includes("chapter-20 navigation is outside its chapter"))) {
+    throw new Error("calibration failed: checker accepted Chapter 20 navigation inside Chapter 1");
+  }
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
   const secondReview = fs.readFileSync(reviewPath, "utf8");
   fs.writeFileSync(reviewPath, secondReview.replace("Calling every useful computer feature AI? As if.", "Generic replacement."));
   const missingSprinkle = inspectBook(temporary);
@@ -36,7 +47,7 @@ try {
   if (missingQuoteSource.pass || !missingQuoteSource.errors.some(error => error.includes("verified quote source"))) {
     throw new Error("calibration failed: checker accepted a humour sprinkle with no quote source");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL");
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

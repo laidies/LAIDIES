@@ -69,6 +69,16 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(fragment, /<h2 id="chapter-/g) !== 20) errors.push("rendered fragment does not contain 20 chapters");
   if (count(review, /<h2 id="chapter-/g) !== 20) errors.push("review does not contain 20 chapters");
   if (count(review, /class="chapter-turn"/g) !== 20) errors.push("review does not contain 20 chapter-turn controls");
+  for (let chapterNumber = 1; chapterNumber <= 20; chapterNumber += 1) {
+    const headingIndex = review.indexOf(`<h2 id="chapter-${chapterNumber}"`);
+    const navigationMarker = `class="chapter-turn" data-for="chapter-${chapterNumber}"`;
+    const navigationIndex = review.indexOf(navigationMarker);
+    const nextHeadingIndex = chapterNumber < 20 ? review.indexOf(`<h2 id="chapter-${chapterNumber + 1}"`) : review.length;
+    if (count(review, new RegExp(navigationMarker, "g")) !== 1) errors.push(`chapter-${chapterNumber} does not have exactly one navigation control`);
+    if (headingIndex < 0 || navigationIndex < headingIndex || navigationIndex > nextHeadingIndex) {
+      errors.push(`chapter-${chapterNumber} navigation is outside its chapter`);
+    }
+  }
   if (count(review, /class="toc-part"/g) !== 9) errors.push("review does not contain 9 table-of-contents parts");
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");

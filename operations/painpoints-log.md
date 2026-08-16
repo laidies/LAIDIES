@@ -14496,3 +14496,31 @@ while remaining falsely unfinished in the launch record.
   it.
 - **Publication status:** INTERNAL TEXTBOOK VOICE REPAIR / ALI REVIEW OPEN / NO
   INTEGRATION, DEPLOYMENT OR PUBLICATION.
+
+## BTB-459 — Count-valid textbook navigation was visibly broken
+
+- **Date:** 2026-08-16
+- **Area:** AI Fundamentals 101 responsive reader and generated chapter navigation.
+- **Failure risk:** The generated book passed because it contained 20 chapter
+  headings and 20 navigation controls, while Chapter 20's navigation was
+  actually inserted inside Chapter 1 and mobile table-of-contents selection
+  could collapse the long menu onto a blank viewport.
+- **Root cause:** The builder used the first generic `</div>` as the final
+  chapter boundary, and the checker counted controls without proving each one
+  sat between its own heading and the next. Mobile smooth scrolling also began
+  before the menu's layout collapse had completed.
+- **Prevention rule:** A generated long-form reader must prove every navigation
+  control is unique and inside its own chapter, then run the exact rendered
+  desktop/mobile interaction. On mobile, collapse the contents first and move
+  to the target only after the layout has settled. Counts and href existence do
+  not prove the interaction or document structure.
+- **Durable correction:** The builder now inserts the final navigation at the
+  final wrapper close, the calibrated checker rejects a misplaced Chapter 20
+  control, and the mobile handler performs an immediate post-collapse target
+  move. Exact 1440x1000 and 390x844 browser checks found all 20 boundaries
+  correct, no missing targets and no horizontal overflow.
+- **Possible Behind the Build angle:** How a book with all 20 chapter buttons
+  still put the last one in Chapter 1—and why looking at the actual page caught
+  what counting never could.
+- **Publication status:** PROTECTED PREVIEW REPAIR / ALI REVIEW OPEN / NO
+  PRODUCTION INTEGRATION OR PUBLICATION.

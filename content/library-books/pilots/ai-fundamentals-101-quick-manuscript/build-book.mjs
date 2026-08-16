@@ -323,12 +323,14 @@ function buildReviewPage(source, fragment, manuscript) {
     return `<nav class="chapter-turn" data-for="${chapter.id}" aria-label="Chapter ${index + 1} navigation">${previous ? `<a href="#${previous.id}">← Chapter ${index}</a>` : `<a href="#how-this-book-works">← Start here</a>`}<span>${escapeHtml(chapterPart(index + 1))}</span>${next ? `<a href="#${next.id}">Chapter ${index + 2} →</a>` : `<a href="#how-this-book-works">Back to start ↑</a>`}</nav>`;
   });
   let mainFragment = fragment.replace(/<nav class="book-contents"[\s\S]*?<\/nav>/, "");
-  source.chapters.forEach((chapter, index) => {
-    const boundary = source.chapters[index + 1]
-      ? `<h2 id="${source.chapters[index + 1].id}"`
-      : "</div>";
+  source.chapters.slice(0, -1).forEach((chapter, index) => {
+    const boundary = `<h2 id="${source.chapters[index + 1].id}"`;
+    if (!mainFragment.includes(boundary)) throw new Error(`missing chapter boundary after ${chapter.id}`);
     mainFragment = mainFragment.replace(boundary, `${chapterLinks[index]}\n${boundary}`);
   });
+  const finalWrapperClose = mainFragment.lastIndexOf("</div>");
+  if (finalWrapperClose < 0) throw new Error("rendered book is missing its final wrapper close");
+  mainFragment = `${mainFragment.slice(0, finalWrapperClose)}${chapterLinks.at(-1)}\n${mainFragment.slice(finalWrapperClose)}`;
   const wordCount = stripText(manuscript).split(/\s+/).filter(Boolean).length;
 
   return `<!doctype html>
