@@ -14479,14 +14479,18 @@ while remaining falsely unfinished in the launch record.
   but did not separately test whether the prose contained the quick comic winks
   Ali meant by the *Scream* example.
 - **Prevention rule:** Track humour sprinkles separately from teaching
-  analogies. A sprinkle is one short, recognizable line inside ordinary prose,
-  after the mechanism is clear. It must remain intelligible if the reader
-  misses the reference, must not carry the technical explanation, and has no
-  per-chapter quota. Delete a forced line rather than filling a gap.
+  analogies. When the requested model is the *Scream* line, a sprinkle uses one
+  short, verified quote or recognizable line inside ordinary prose after the
+  mechanism is clear. A newly written metaphor that merely names a Rewind
+  property is still an analogy, not a quote. The line must remain intelligible
+  if the reader misses the reference, must not carry the technical explanation,
+  and has no per-chapter quota. Delete a forced line rather than filling a gap.
 - **Durable correction:** AI Fundamentals 101 now has a separate checksum-bound
-  `sprinkles` overlay and a calibrated render check. Eight lines survived exact
-  rendered-context review; a ninth sandbox line was removed because it was
-  forced and weakened the preceding boundary.
+  `sprinkles` overlay and a calibrated render check. Four rejected newly written
+  analogies were replaced with source-bound lines from *Legally Blonde*,
+  *Gossip Girl*, *Buffy the Vampire Slayer* and *The Devil Wears Prada*; a ninth
+  sandbox line was removed because it was forced and weakened the preceding
+  boundary.
 - **Possible Behind the Build angle:** Why “add more 90s references” produced
   more lessons instead of more personality—and the one-sentence rule that fixed
   it.

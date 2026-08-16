@@ -58,6 +58,7 @@ export function inspectBook(pilotDir = ownDir) {
     if (!sprinkle.id || ids.has(sprinkle.id)) errors.push(`missing or duplicate humour sprinkle id ${sprinkle.id || "(missing)"}`);
     ids.add(sprinkle.id);
     if (!sprinkle.anchor || !sprinkle.copy || !sprinkle.teachingJob || !sprinkle.limitation || sprinkle.mode !== "append") errors.push(`${sprinkle.id} is incomplete or not inline`);
+    if (!sprinkle.quoteSource?.work || !sprinkle.quoteSource?.url) errors.push(`${sprinkle.id} is not bound to a verified quote source`);
   }
   const renderedVisibleText = compactVisibleText(review);
   for (const sprinkle of rewind.sprinkles || []) {
