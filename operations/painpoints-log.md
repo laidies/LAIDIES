@@ -14558,8 +14558,13 @@ while remaining falsely unfinished in the launch record.
   Chapter 1 now uses four distinct teaching forms rather than one repeated
   diagram: comparison mechanism, claim decision tree, numerical-pattern flow
   and mixed-product matrix. Callout types also have unique persistent colours;
-  the calibrated check rejects colour reuse. The remaining 57 records remain
-  teaching opportunities, not accepted visuals or a quota.
+  the calibrated check rejects colour reuse. A later inspection also caught a
+  false “AI boundary” map component attached to Chapter 1 and a cramped opening
+  objective card. The false component is removed; the system map now starts at
+  real components in Chapter 3 and connects physical compute to training and
+  inference. The objective card uses a contained two-column desktop layout with
+  full measured height. The remaining 57 records remain teaching opportunities,
+  not accepted visuals or a quota.
 - **Possible Behind the Build angle:** Why the first “educational image” taught
   nothing—and the four labels that turned pictures into textbook diagrams.
 - **Publication status:** INTERNAL VISUAL-TEACHING REPAIR / ALI REVIEW OPEN / NO

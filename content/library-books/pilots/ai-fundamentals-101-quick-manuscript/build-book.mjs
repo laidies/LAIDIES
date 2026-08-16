@@ -397,10 +397,6 @@ function renderConceptDiagram(concept) {
 }
 
 const systemMapGroups = [
-  { id: "orientation", label: "Orientation", nodes: [
-    { chapter: 1, label: "AI boundary", role: "Learned patterns, not every kind of software" },
-    { chapter: 2, label: "Capability family", role: "Prediction, recognition, generation and action" },
-  ] },
   { id: "physical", label: "Physical foundation", nodes: [
     { chapter: 18, label: "Supply chain", role: "Materials, machines, memory and manufacturing" },
     { chapter: 16, label: "Chips + compute", role: "The processors that do the calculations" },
@@ -427,9 +423,8 @@ const systemMapGroups = [
     { chapter: 14, label: "Agents", role: "Repeat model, tool and feedback steps toward a goal" },
     { chapter: 15, label: "System craft", role: "Design prompts, context, loops and graphs" },
   ] },
-  { id: "people", label: "People, responsibility and future", nodes: [
+  { id: "people", label: "People and responsibility", nodes: [
     { chapter: 19, label: "People + governance", role: "Build, operate, evaluate and govern every layer" },
-    { chapter: 20, label: "Frontier questions", role: "Interpret disputed capabilities and consequences" },
   ] },
 ];
 
@@ -437,23 +432,25 @@ function renderSystemMap(throughChapter) {
   const complete = throughChapter === 20;
   const current = systemMapGroups.flatMap(group => group.nodes).find(node => node.chapter === throughChapter);
   if (!complete) {
+    if (throughChapter < 3) return "";
     return `<aside class="map-piece" data-chapter="${throughChapter}" aria-label="Chapter ${throughChapter} map piece"><span>ADD THIS TO YOUR AI SYSTEM MAP</span><strong>${escapeHtml(current?.label || `Chapter ${throughChapter}`)}</strong><p>${escapeHtml(current?.role || "Connect this chapter to the whole system.")}</p></aside>`;
   }
-  const node = (chapter, label, role, className = "") => `<div class="map-node ${className}"><small>CH ${chapter}</small><strong>${escapeHtml(label)}</strong><span>${escapeHtml(role)}</span></div>`;
+  const node = (chapter, label, role, className = "") => `<div class="map-node ${className}"><small>${chapter ? `CH ${chapter}` : "SYSTEM INPUT"}</small><strong>${escapeHtml(label)}</strong><span>${escapeHtml(role)}</span></div>`;
   const arrow = '<span class="map-arrow" aria-hidden="true">→</span>';
-  return `<figure class="system-map system-map-complete" aria-labelledby="system-map-title-20"><div class="system-map-heading"><p>THE COMPLETE AI SYSTEM MAP</p><h3 id="system-map-title-20">From raw materials to a result—and the people responsible for every layer</h3><span>This is the whole diagram the chapters have been building.</span></div>
+  return `<figure class="system-map system-map-complete" aria-labelledby="system-map-title-20"><div class="system-map-heading"><p>THE COMPLETE AI SYSTEM MAP</p><h3 id="system-map-title-20">How materials, data and a request become an AI result</h3><span>Hardware, software and human responsibility in one connected system.</span></div>
     <div class="ai-system-blueprint" role="group" aria-describedby="system-map-caption">
       <div class="map-governance"><strong>PEOPLE + GOVERNANCE SURROUND THE WHOLE SYSTEM</strong><span>People choose the goal, data, limits, deployment and response when something goes wrong.</span></div>
+      <section class="map-track map-track-physical"><h4>1 · BUILD THE PHYSICAL FOUNDATION</h4><div class="map-track-flow">${node(18,"Supply chain","Materials, fabrication equipment and manufacturing")}${arrow}${node(16,"Chips + memory","Processors and memory perform and hold the calculations")}${arrow}${node(17,"Servers + data centres","Servers, networking, power and cooling keep compute available")}</div></section>
+      <div class="hardware-to-work"><span>COMPUTE POWERS TRAINING ↓</span><span>COMPUTE POWERS EACH RESPONSE ↓</span></div>
       <section class="map-track map-track-build"><h4>BUILD THE MODEL</h4><div class="map-track-flow">${node(3,"Data","Selected examples + human labels")}${arrow}${node(4,"Tokens","Turn material into processable pieces")}${arrow}${node(5,"Training","Adjust weights through repeated comparison")}${arrow}${node(5,"Learned model","Frozen numerical patterns","map-node-emphasis")}${arrow}${node(9,"Optional customisation","Change context, behaviour or efficiency")}</div></section>
       <div class="model-to-use"><span aria-hidden="true">↓</span><strong>The learned model powers each new request</strong></div>
-      <section class="map-track map-track-use"><h4>USE THE MODEL</h4><div class="map-track-flow">${node(1,"Person + request","The job and information supplied now")}${arrow}${node(10,"Product stack","Interface, routing, product rules and tool access")}${arrow}${node(8,"Context + retrieval","What the request can see")}${arrow}${node(7,"Inference","Calculate a response from the learned model","map-node-emphasis")}${arrow}${node(6,"Output","Text, image, audio, video or action")}</div></section>
+      <section class="map-track map-track-use"><h4>USE THE MODEL</h4><div class="map-track-flow">${node(null,"Person + request","The job, instruction and information supplied now")}${arrow}${node(10,"Product stack","Interface, routing and product rules")}${arrow}${node(8,"Context + retrieval","Instructions, conversation and selected sources")}${arrow}${node(7,"Inference","Run the learned model on this request","map-node-emphasis")}${arrow}${node(14,"Optional tools + actions","Use only allowed tools or take an approved action")}${arrow}${node(6,"Output","Text, image, audio, video, result or action")}</div></section>
       <section class="map-crosscuts"><h4>CONTROLS MUST CROSS BUILDING AND USE</h4><div>${node(11,"Safety","Shape and filter behaviour")}${node(12,"Evaluation","Test the real task and failures")}${node(13,"Sandboxing","Contain actions and require approval")}</div></section>
       <section class="map-track map-track-multistep"><h4>WHEN ONE RESPONSE IS NOT ENOUGH</h4><div class="map-track-flow">${node(14,"Agent loop","Choose a step → use a tool → observe → continue or stop")}${arrow}${node(15,"System craft","Design the routes, permissions, tests and stopping rules")}</div></section>
-      <section class="map-track map-track-physical"><h4>THE PHYSICAL FOUNDATION UNDER EVERY CALCULATION</h4><div class="map-track-flow">${node(18,"Supply chain","Materials, equipment, fabrication, memory")}${arrow}${node(16,"Chips + compute","Processors perform the maths")}${arrow}${node(17,"Data centres","Servers, power, cooling and networks")}</div></section>
-      <div class="map-frontier"><strong>FRONTIER QUESTIONS</strong><span>Use the completed map to ask exactly which layer a new claim changes, what evidence supports it and what remains uncertain.</span></div>
+      <div class="map-frontier"><strong>HUMAN REVIEW + CONSEQUENCE</strong><span>A person or organisation decides whether to use, revise, approve, publish or act on the result—and remains responsible for the consequence.</span></div>
     </div>
     <div class="map-draw-guide"><h4>Draw it from memory</h4><ol><li>Draw the physical foundation.</li><li>Add the path that builds a model.</li><li>Draw the path that uses it for a new request.</li><li>Place safety, evaluation and sandboxing across both paths.</li><li>Add the agent loop around multi-step work.</li><li>Put people and governance around the entire system.</li></ol></div>
-    <figcaption id="system-map-caption"><strong>How to read it:</strong> raw materials and infrastructure make the calculations possible; data and training create a model; a product supplies context and tools when a person uses that model; controls and human responsibility cross the entire system.</figcaption></figure>`;
+    <figcaption id="system-map-caption"><strong>How to read it:</strong> the physical system supplies compute; data and training create a learned model; the software system combines a person’s request with product rules, context and optional tools; inference produces a result; people and controls govern what happens before, during and after that result.</figcaption></figure>`;
 }
 
 function stripText(markdown) {
@@ -620,8 +617,8 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 .chapter-ahead{margin:1.35rem 0 2.2rem;padding:0;border:3px solid var(--navy);background:linear-gradient(135deg,#e8f8ff,#f7edff 58%,#fff0f7);box-shadow:7px 7px 0 #aeeaf4;font-family:Jost,Arial,sans-serif}
 .chapter-ahead-title{margin:0;max-width:none;padding:.75rem 1rem;background:var(--navy);color:#fff;font-size:.78rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
 .chapter-ahead-body{padding:1rem}
-.chapter-ahead .callout-objective{margin:0 0 1rem;padding:.85rem 1rem;background:#fff;border:0;border-left:9px solid var(--electric-cyan);box-shadow:0 4px 0 rgba(32,82,164,.12)}
-.chapter-ahead .callout-objective ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem .9rem;margin:.6rem 0 0;padding-left:1rem}.chapter-ahead .callout-objective li{font-size:.78rem;line-height:1.3}
+.chapter-ahead .callout-objective{display:block;margin:0 0 1rem;padding:1.05rem 1.2rem 1.2rem;background:#fff;border:0;border-left:9px solid var(--electric-cyan);border-radius:0;box-shadow:0 4px 0 rgba(32,82,164,.12);overflow:visible}
+.chapter-ahead .callout-objective p{margin:0 0 .8rem;line-height:1.25}.chapter-ahead .callout-objective ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem 1.25rem;margin:0;padding:0 0 0 1.1rem}.chapter-ahead .callout-objective li{font-size:.8rem;line-height:1.4;padding-right:.35rem}
 .chapter-ahead h3{margin:1rem 0 .7rem;padding:0;border:0;background:none;color:var(--navy);font-size:1.05rem}
 .chapter-ahead .table-scroll{overflow:visible;margin:0;border:0}
 .chapter-ahead table,.chapter-ahead tbody{display:block;width:100%}
@@ -693,6 +690,7 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 .map-node{display:flex;flex:1;flex-direction:column;justify-content:center;min-width:0;padding:.45rem;background:#fff;border:2px solid #8d9cc0;border-radius:0;box-shadow:2px 2px 0 #cbd8f1}
 .map-node small{color:#4e18ca;font-size:.49rem;font-weight:900;letter-spacing:.07em}.map-node strong{display:block;margin:.12rem 0;font-size:.67rem;line-height:1.12}.map-node span{display:block;color:#4d5875;font-size:.54rem;line-height:1.18}
 .map-node-emphasis{border:3px solid var(--electric-pink);background:#fff2f8}
+.hardware-to-work{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.15rem 0 .55rem;color:#4e18ca;text-align:center;font-size:.64rem;font-weight:900;letter-spacing:.07em}.hardware-to-work span{padding:.3rem;border-bottom:3px solid var(--electric-purple)}
 .model-to-use{text-align:center;color:#4e18ca;font-size:.7rem}.model-to-use span,.model-to-use strong{display:block}.model-to-use span{font-size:1.4rem;line-height:1}
 .map-track-use{background:#fff0f7;border-left-color:var(--electric-pink)}
 .map-crosscuts{margin:.55rem 0;padding:.55rem;background:#fff8d9;border:3px dashed #7e6412}
@@ -700,7 +698,7 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 .map-track-multistep{background:#efffec;border-left-color:#25a65b}.map-track-physical{background:#f0ecff;border-left-color:var(--electric-purple)}
 .map-frontier{padding:.55rem .75rem;background:var(--navy);color:#fff}.map-frontier strong,.map-frontier span{display:block}.map-frontier span{margin-top:.15rem;color:#dbe7ff;font-size:.64rem}
 .system-map-complete .map-draw-guide{margin-top:1rem;padding:1rem;background:#eafff6;border-left:9px solid #18b989}.system-map-complete .map-draw-guide ol{columns:2;margin:.4rem 0 0;padding-left:1.25rem;font-size:.78rem}.system-map-complete figcaption{font-size:.85rem}
-@media(max-width:850px){.gr-page{border-left:0;border-top:8px solid var(--electric-purple);padding:1.1rem}.gr-page>h2{margin-left:-1.1rem;margin-right:-1.1rem;padding:1rem 1.1rem;box-shadow:none}.gr-page>h2::after{display:none}.gr-page>h3{margin-left:-.25rem;padding:.65rem .75rem}.chapter-ahead-body{padding:.75rem}.chapter-ahead .callout-objective ul{grid-template-columns:1fr}.chapter-ahead tbody{grid-template-columns:repeat(2,minmax(0,1fr))}.concept-diagram,.system-map{padding:.75rem;box-shadow:5px 5px 0 rgba(48,31,139,.18)}.concept-diagram[data-variant="decision-blueprint"],.system-map-complete{width:100%;margin-left:0}.concept-heading,.system-map-heading{margin:-.75rem -.75rem .75rem}.concept-lanes{grid-template-columns:1fr}.concept-flow{display:grid;gap:1.25rem}.concept-flow li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.2rem;transform:translateX(-50%)}.concept-branches{grid-template-columns:1fr}.branch-connector::before,.branch-connector::after{width:3px;height:18px;margin:.2rem auto}.decision-blueprint{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.blueprint-phase{display:none}.blueprint-lane{min-width:0;padding:.4rem}.blueprint-lane h4{font-size:.75rem}.blueprint-track{grid-template-columns:1fr}.blueprint-arrow{transform:rotate(90deg);font-size:.9rem}.blueprint-bridge{height:18px;overflow:hidden}.blueprint-node,.blueprint-result{padding:.4rem}.blueprint-node strong,.blueprint-result strong{font-size:.66rem}.blueprint-node p{font-size:.59rem}.blueprint-click{grid-column:1/-1}.claim-tree-branches{grid-template-columns:1fr}.pattern-blueprint{grid-template-columns:1fr}.pattern-arrow{transform:rotate(90deg);line-height:.8}.mixed-products-head{display:none}.mixed-products section{grid-template-columns:1fr}.mixed-products section>div{padding:.65rem}.map-track-flow{display:grid;grid-template-columns:1fr;gap:.25rem}.map-track{padding:.65rem;border-left-width:6px}.map-track h4,.map-crosscuts h4{font-size:.72rem}.map-node{padding:.58rem .65rem}.map-node small{font-size:.67rem}.map-node strong{font-size:.86rem}.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem;line-height:1.3}.map-arrow{transform:rotate(90deg);justify-self:center;font-size:1rem;line-height:.8}.map-crosscuts>div{grid-template-columns:1fr;gap:.45rem}.map-governance span,.map-frontier span{font-size:.72rem;line-height:1.35}.system-map-complete .map-draw-guide ol{columns:1}}
+@media(max-width:850px){.gr-page{border-left:0;border-top:8px solid var(--electric-purple);padding:1.1rem}.gr-page>h2{margin-left:-1.1rem;margin-right:-1.1rem;padding:1rem 1.1rem;box-shadow:none}.gr-page>h2::after{display:none}.gr-page>h3{margin-left:-.25rem;padding:.65rem .75rem}.chapter-ahead-body{padding:.75rem}.chapter-ahead .callout-objective ul{grid-template-columns:1fr}.chapter-ahead tbody{grid-template-columns:repeat(2,minmax(0,1fr))}.concept-diagram,.system-map{padding:.75rem;box-shadow:5px 5px 0 rgba(48,31,139,.18)}.concept-diagram[data-variant="decision-blueprint"],.system-map-complete{width:100%;margin-left:0}.concept-heading,.system-map-heading{margin:-.75rem -.75rem .75rem}.concept-lanes{grid-template-columns:1fr}.concept-flow{display:grid;gap:1.25rem}.concept-flow li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.2rem;transform:translateX(-50%)}.concept-branches{grid-template-columns:1fr}.branch-connector::before,.branch-connector::after{width:3px;height:18px;margin:.2rem auto}.decision-blueprint{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.blueprint-phase{display:none}.blueprint-lane{min-width:0;padding:.4rem}.blueprint-lane h4{font-size:.75rem}.blueprint-track{grid-template-columns:1fr}.blueprint-arrow{transform:rotate(90deg);font-size:.9rem}.blueprint-bridge{height:18px;overflow:hidden}.blueprint-node,.blueprint-result{padding:.4rem}.blueprint-node strong,.blueprint-result strong{font-size:.66rem}.blueprint-node p{font-size:.59rem}.blueprint-click{grid-column:1/-1}.claim-tree-branches{grid-template-columns:1fr}.pattern-blueprint{grid-template-columns:1fr}.pattern-arrow{transform:rotate(90deg);line-height:.8}.mixed-products-head{display:none}.mixed-products section{grid-template-columns:1fr}.mixed-products section>div{padding:.65rem}.hardware-to-work{grid-template-columns:1fr;gap:.25rem}.map-track-flow{display:grid;grid-template-columns:1fr;gap:.25rem}.map-track{padding:.65rem;border-left-width:6px}.map-track h4,.map-crosscuts h4{font-size:.72rem}.map-node{padding:.58rem .65rem}.map-node small{font-size:.67rem}.map-node strong{font-size:.86rem}.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem;line-height:1.3}.map-arrow{transform:rotate(90deg);justify-self:center;font-size:1rem;line-height:.8}.map-crosscuts>div{grid-template-columns:1fr;gap:.45rem}.map-governance span,.map-frontier span{font-size:.72rem;line-height:1.35}.system-map-complete .map-draw-guide ol{columns:1}}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · REPRESENTATIVE VISUAL REPAIR · 57 VISUAL TEACHING JOBS NOT YET ADMITTED · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
@@ -775,7 +773,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: conceptDiagrams.length,
-    cumulativeSystemMaps: chapters.length,
+    cumulativeSystemMaps: 18,
     rewindReferences: rewindAmendments.references.length,
     technicalClarifications: rewindAmendments.clarifications?.length || 0,
     humourSprinkles: rewindAmendments.sprinkles?.length || 0,

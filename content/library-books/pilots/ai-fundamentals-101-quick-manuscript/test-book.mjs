@@ -116,7 +116,13 @@ try {
   if (duplicatedCalloutColour.pass || !duplicatedCalloutColour.errors.some(error => error.includes("unique consistent colour mapping"))) {
     throw new Error("calibration failed: checker accepted two callout types sharing one colour");
   }
-  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL missing_chapter_one_visual=FAIL duplicate_callout_colour=FAIL");
+  fs.cpSync(pilotDir, temporary, { recursive: true, force: true });
+  fs.writeFileSync(reviewPath, fs.readFileSync(reviewPath, "utf8").replace('</nav>\n<h2 id="chapter-2"', '</nav><aside class="map-piece" data-chapter="1">False component</aside>\n<h2 id="chapter-2"'));
+  const falseChapterOneMapPiece = inspectBook(temporary);
+  if (falseChapterOneMapPiece.pass || !falseChapterOneMapPiece.errors.some(error => error.includes("incorrectly presented as an AI-system component"))) {
+    throw new Error("calibration failed: checker accepted Chapter 1 as a system-map component");
+  }
+  console.log("AI FUNDAMENTALS BOOK CHECK CALIBRATION PASS current=PASS missing_chapter_turn=FAIL misplaced_chapter_turn=FAIL missing_section_number=FAIL missing_part_opener=FAIL internal_sidebar=FAIL missing_humour_sprinkle=FAIL missing_quote_source=FAIL missing_key_term_card=FAIL exposed_answers=FAIL missing_concept_diagram=FAIL hidden_chapter_front_matter=FAIL missing_complete_map=FAIL tiny_mobile_map=FAIL missing_chapter_one_visual=FAIL duplicate_callout_colour=FAIL false_chapter_one_map_piece=FAIL");
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

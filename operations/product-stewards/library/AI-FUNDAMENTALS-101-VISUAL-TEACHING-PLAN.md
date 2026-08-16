@@ -123,3 +123,9 @@ five artifacts do not admit the remaining 57 visual opportunities. Those remain
 a registry of teaching questions, not approved artwork and not a quota. Full
 propagation waits for the representative desktop/mobile pixels to pass maker
 inspection and independent visual judgment.
+
+The cumulative map begins only when the manuscript reaches actual system
+components in Chapter 3. Chapters 1 and 2 establish the distinction and model
+family; neither is a component box. The completed diagram connects the physical
+foundation to both training and inference, then continues through product
+software, current context, optional tools, output and accountable human use.

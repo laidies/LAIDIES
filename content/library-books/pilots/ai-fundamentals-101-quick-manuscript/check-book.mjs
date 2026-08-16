@@ -114,9 +114,11 @@ export function inspectBook(pilotDir = ownDir) {
   if (!calloutColourRules.every(rule => review.includes(rule))) errors.push("callout types have lost their unique consistent colour mapping");
   if (count(review, /<section class="chapter-ahead"/g) !== 20) errors.push("review does not keep all chapter goals and opening terms visibly available");
   if (/<details class="chapter-ahead"/i.test(review)) errors.push("chapter goals and terms are hidden behind a disclosure");
-  if (count(review, /class="map-piece"/g) !== 19) errors.push("review does not contain 19 compact cumulative map-piece prompts");
+  if (count(review, /class="map-piece"/g) !== 17) errors.push("review does not contain the 17 component-bearing cumulative map pieces from Chapters 3–19");
+  if (/class="map-piece" data-chapter="(?:1|2)"/.test(review)) errors.push("Chapter 1 or 2 is incorrectly presented as an AI-system component");
   if (count(review, /class="system-map system-map-complete"/g) !== 1) errors.push("review does not contain exactly one completed final AI ecosystem map");
   if (!review.includes('class="ai-system-blueprint"')) errors.push("final system map is not rendered as one connected blueprint");
+  if (!review.includes('class="hardware-to-work"') || !review.includes("COMPUTE POWERS TRAINING") || !review.includes("COMPUTE POWERS EACH RESPONSE")) errors.push("final system map does not connect physical compute to training and inference");
   if (!review.includes("Draw it from memory")) errors.push("final system map is missing its reconstruction guide");
   if (review.includes('class="map-band')) errors.push("final map has regressed to expandable layer cards");
   if (!review.includes('.map-node small{font-size:.67rem}') || !review.includes('.map-node strong{font-size:.86rem}') || !review.includes('.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem')) {
@@ -148,7 +150,7 @@ export function inspectBook(pilotDir = ownDir) {
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
   if (manifest.counts?.conceptDiagrams !== renderedConceptSections.length) errors.push("manifest concept-diagram count does not match the section-bound registry render");
-  if (manifest.counts?.cumulativeSystemMaps !== 20) errors.push("manifest cumulative-system-map count is not 20");
+  if (manifest.counts?.cumulativeSystemMaps !== 18) errors.push("manifest cumulative-system-map count is not the 17 component pieces plus one completed map");
   if (manifest.gates?.visualTeachingLayer !== "BUILT_LOCALLY_REPRESENTATIVE_CHAPTER_1_AND_COMPLETE_MAP_REVIEW_PENDING_REMAINING_57_NOT_ADMITTED") errors.push("manifest visual-teaching status does not preserve representative-only review-pending truth");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
