@@ -2,15 +2,16 @@
   "schemaVersion": "1.0.0",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE",
-  "updatedAt": "2026-08-05",
+  "updatedAt": "2026-08-16",
   "coverage": {
     "state": "PARTIAL_BACKFILL",
-    "scope": "Representative Episode 01 definition/statistic cluster plus machine-discovered candidates across current content and production sources.",
+    "scope": "Representative Episode 01 definition/statistic cluster plus all 20 Ali-vetted AI Fundamentals 101 chapter currentness envelopes and machine-discovered candidates across current content and production sources.",
     "knownGaps": [
       "Historical claims outside the Episode 01 cluster are not yet fully registered.",
       "Product/model/access/price/plan/region claims require prioritized backfill.",
       "Every generated or rendered consumer is not yet bound to a source hash.",
-      "Public release verification remains owned by each surface owner."
+      "Public release verification remains owned by each surface owner.",
+      "AI Fundamentals 101 is freshness-registered at chapter level; a new external signal still needs to be mapped to the affected chapter before the checker can route a targeted review."
     ]
   },
   "sources": [
@@ -79,6 +80,17 @@
       "accessedAt": "2026-08-05",
       "status": "CURRENT",
       "notes": "OpenAI's English rule of thumb is one token is about four characters or three quarters of a word; exact tokenization varies by model, encoding and language."
+    },
+    {
+      "id": "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816",
+      "title": "AI Fundamentals 101 — Full Book (All 20 Chapters)",
+      "publisher": "Ali / Amazon Quick source handoff",
+      "authority": "INTERNAL_CANON",
+      "url": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+      "publishedOrUpdated": "2026-08-16",
+      "accessedAt": "2026-08-16",
+      "status": "CURRENT",
+      "notes": "Ali confirmed that she fully vetted the exact imported manuscript for accuracy. Authority is checksum-bound to 721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9; future freshness review is targeted to claims affected by new evidence, not a restart of the full accuracy review."
     }
   ],
   "claims": [
@@ -98,12 +110,16 @@
         "memoryLine": "It can make the draft. It cannot make it true."
       },
       "applicability": {
-        "products": ["All generative-AI learning treatments"],
+        "products": [
+          "All generative-AI learning treatments"
+        ],
         "versions": [],
         "plans": [],
         "regions": []
       },
-      "sourceIds": ["SRC-NIST-GENERATIVE-AI-GLOSSARY"],
+      "sourceIds": [
+        "SRC-NIST-GENERATIVE-AI-GLOSSARY"
+      ],
       "evidenceSummary": "NIST defines a class of AI models that generates derived synthetic content across several media.",
       "limitations": [
         "Search and generation can be combined in one product.",
@@ -215,12 +231,16 @@
         "memoryLine": "A model is part of the experience—not the whole thing."
       },
       "applicability": {
-        "products": ["All AI model/product/app/API/tool learning treatments"],
+        "products": [
+          "All AI model/product/app/API/tool learning treatments"
+        ],
         "versions": [],
         "plans": [],
         "regions": []
       },
-      "sourceIds": ["SRC-OECD-AI-SYSTEM-DEFINITION"],
+      "sourceIds": [
+        "SRC-OECD-AI-SYSTEM-DEFINITION"
+      ],
       "evidenceSummary": "OECD describes models as core components of AI systems and notes that systems can combine one or more models.",
       "limitations": [
         "Model has multiple technical interpretations.",
@@ -330,12 +350,17 @@
         "memoryLine": "Polished is a style. Evidence is a standard."
       },
       "applicability": {
-        "products": ["All generative-AI learning and verification treatments"],
+        "products": [
+          "All generative-AI learning and verification treatments"
+        ],
         "versions": [],
         "plans": [],
         "regions": []
       },
-      "sourceIds": ["SRC-NIST-AI-600-1", "SRC-EP01-ALI-BURN-BOOK-CORRECTION"],
+      "sourceIds": [
+        "SRC-NIST-AI-600-1",
+        "SRC-EP01-ALI-BURN-BOOK-CORRECTION"
+      ],
       "evidenceSummary": "NIST's confabulation risk includes false, erroneous, divergent or internally contradictory generated content; hallucination is retained as reader language.",
       "limitations": [
         "No universal hallucination rate applies across tasks, models or evaluation methods.",
@@ -446,12 +471,20 @@
         "memoryLine": "Women should not wait while AI is being shaped."
       },
       "applicability": {
-        "products": ["Episode 01 and participation-gap learning treatments"],
-        "versions": ["HBS Working Paper 25-023, May 2026 version"],
+        "products": [
+          "Episode 01 and participation-gap learning treatments"
+        ],
+        "versions": [
+          "HBS Working Paper 25-023, May 2026 version"
+        ],
         "plans": [],
-        "regions": ["More than 100 countries represented across synthesized sources"]
+        "regions": [
+          "More than 100 countries represented across synthesized sources"
+        ]
       },
-      "sourceIds": ["SRC-HBS-WP-25-023-MAY-2026"],
+      "sourceIds": [
+        "SRC-HBS-WP-25-023-MAY-2026"
+      ],
       "evidenceSummary": "The working paper reports the sample, estimated use rates, relative gap and time trend.",
       "limitations": [
         "Working paper, not a final universal estimate.",
@@ -547,12 +580,16 @@
       "volatility": "ANNUAL",
       "canonicalWording": "For common English text, one token is roughly 0.75 words, or about 1.3 tokens per word. This is a rule of thumb, not an exact conversion; counts vary by model, encoding and language.",
       "applicability": {
-        "products": ["LIBRAiRY token and context-window explanations"],
+        "products": [
+          "LIBRAiRY token and context-window explanations"
+        ],
         "versions": [],
         "plans": [],
         "regions": []
       },
-      "sourceIds": ["SRC-OPENAI-TOKEN-COUNTING-2026-08-05"],
+      "sourceIds": [
+        "SRC-OPENAI-TOKEN-COUNTING-2026-08-05"
+      ],
       "evidenceSummary": "OpenAI states that one token is approximately four characters or three quarters of an English word and warns that tokenization varies.",
       "limitations": [
         "The ratio is approximate and should not be used as an exact billing or context calculation.",
@@ -597,6 +634,1246 @@
         "recordPath": "operations/agents/aidb-intelligence-desk/handoffs/site-refresh/2026-08-03-library-token-ratio.md",
         "publicHandling": "CORRECTION_REQUIRED"
       }
+    },
+    {
+      "id": "CLM-LIB-AIF-CH01-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-01-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 1, “What \"AI\" Actually Means (and What It Doesn't),” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 1 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH01-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 1",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 1: What \"AI\" Actually Means (and What It Doesn't)",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH02-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-02-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 2, “The AI Family (and Why 2022 Felt Like an Explosion),” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 2 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH02-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 2",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 2: The AI Family (and Why 2022 Felt Like an Explosion)",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH03-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-03-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 3, “Data — Everything Starts Here,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 3 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH03-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 3",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 3: Data — Everything Starts Here",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH04-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-04-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 4, “Tokens — How the Machine Reads,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 4 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH04-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 4",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 4: Tokens — How the Machine Reads",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH05-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-05-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 5, “Training — How a Model Gets Built,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 5 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH05-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 5",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 5: Training — How a Model Gets Built",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH06-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-06-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 6, “How AI Sees, Hears, and Creates,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 6 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH06-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 6",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 6: How AI Sees, Hears, and Creates",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH07-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-07-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 7, “Inference — When You Actually Ask It Something,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 7 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH07-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 7",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 7: Inference — When You Actually Ask It Something",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH08-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-08-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "MATERIAL",
+      "volatility": "QUARTERLY",
+      "canonicalWording": "Chapter 8, “Context, Memory, and What the Model Can See,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 8 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-11-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The quarterly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH08-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 8",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 8: Context, Memory, and What the Model Can See",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH09-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-09-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 9, “Making It Smarter — The Customisation Spectrum,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 9 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH09-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 9",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 9: Making It Smarter — The Customisation Spectrum",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH10-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-10-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 10, “Wrappers, Harnesses, and the Stack,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 10 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH10-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 10",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 10: Wrappers, Harnesses, and the Stack",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH11-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-11-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 11, “Guardrails, Safety, and Trust,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 11 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH11-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 11",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 11: Guardrails, Safety, and Trust",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH12-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-12-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 12, “Testing and Evaluation,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 12 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH12-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 12",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 12: Testing and Evaluation",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH13-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-13-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 13, “Sandboxing,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 13 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH13-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 13",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 13: Sandboxing",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH14-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-14-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 14, “Agents — AI That Acts,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 14 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH14-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 14",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 14: Agents — AI That Acts",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH15-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-15-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 15, “From Prompting to Graph Engineering — How the Craft Evolved,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 15 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH15-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 15",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 15: From Prompting to Graph Engineering — How the Craft Evolved",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH16-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-16-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 16, “Chips, Compute, and Why AI Is Expensive,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 16 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH16-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 16",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 16: Chips, Compute, and Why AI Is Expensive",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH17-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-17-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 17, “Data Centres and Energy,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 17 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH17-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 17",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 17: Data Centres and Energy",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH18-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-18-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 18, “The Supply Chain,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 18 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH18-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 18",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 18: The Supply Chain",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH19-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-19-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 19, “The People — Who Builds All of This,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 19 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH19-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 19",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 19: The People — Who Builds All of This",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "id": "CLM-LIB-AIF-CH20-CURRENTNESS",
+      "canonicalKey": "ai-fundamentals-chapter-20-currentness",
+      "type": "dated_status",
+      "status": "CURRENT",
+      "riskTier": "HIGH",
+      "volatility": "MONTHLY",
+      "canonicalWording": "Chapter 20, “AGI, ASI, and the Frontier,” uses the exact Ali-vetted 2026-08-16 source. A material source, provider, product, market, legal or technical change triggers a targeted chapter review rather than a general rewrite of the book.",
+      "applicability": {
+        "products": [
+          "AI Fundamentals 101"
+        ],
+        "versions": [
+          "721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9"
+        ],
+        "plans": [],
+        "regions": [
+          "Global unless the chapter states a narrower scope"
+        ]
+      },
+      "sourceIds": [
+        "SRC-LIB-AIF-QUICK-ALI-VETTED-20260816"
+      ],
+      "evidenceSummary": "Ali confirmed full accuracy vetting of the exact 20-chapter source bytes on 2026-08-16. This currentness envelope binds Chapter 20 and its future recheck trigger to that immutable source.",
+      "limitations": [
+        "This chapter-level record does not claim that volatile details remain true forever.",
+        "A future signal must identify the affected claim or passage before changing the source.",
+        "Rendered-book identity, Rewind references and public release remain separately verified."
+      ],
+      "lastCheckedAt": "2026-08-16",
+      "nextReviewAt": "2026-09-16",
+      "recheckTriggers": [
+        "AIDB, NewsStand or a primary source reports a material change to a named company, product, model, price, benchmark, policy, standard, market fact or technical mechanism used in this chapter.",
+        "Ali or a reader identifies a potentially stale passage in this chapter.",
+        "The weekly automated freshness run matches a new external signal to this chapter.",
+        "The monthly scheduled review date arrives without a recorded disposition."
+      ],
+      "owner": "library",
+      "upstreamSignals": [
+        {
+          "system": "ALI_CORRECTION",
+          "id": "ALI-2026-08-16-QUICK-MANUSCRIPT-ACCURACY-AUTHORITY",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "status": "ACCEPTED"
+        }
+      ],
+      "consumers": [
+        {
+          "id": "CON-LIB-AIF-CH20-SOURCE",
+          "surface": "AI Fundamentals 101 · Chapter 20",
+          "owner": "library",
+          "path": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md",
+          "locator": "# Chapter 20: AGI, ASI, and the Frontier",
+          "job": "LIBRARY_DEPTH",
+          "status": "CURRENT",
+          "lastVerifiedAt": "2026-08-16",
+          "evidencePath": "content/library-books/pilots/ai-fundamentals-101-quick-manuscript/README.md",
+          "notes": "Ali-vetted source bytes; not yet published."
+        }
+      ],
+      "correction": null
     }
   ]
 }
