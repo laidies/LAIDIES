@@ -23,6 +23,7 @@ export function inspectBook(pilotDir = ownDir) {
   const read = name => fs.readFileSync(path.join(pilotDir, name));
   const json = name => JSON.parse(read(name).toString("utf8"));
   const manuscript = read("source/full-book.md");
+  const manuscriptText = manuscript.toString("utf8").replaceAll("\r\n", "\n");
   const front = read("source/front-matter.md");
   const playbook = read("source/quick-production-playbook.md");
   const rewind = json("rewind-amendments.json");
@@ -69,6 +70,34 @@ export function inspectBook(pilotDir = ownDir) {
   if (count(fragment, /<h2 id="chapter-/g) !== 20) errors.push("rendered fragment does not contain 20 chapters");
   if (count(review, /<h2 id="chapter-/g) !== 20) errors.push("review does not contain 20 chapters");
   if (count(review, /class="chapter-turn"/g) !== 20) errors.push("review does not contain 20 chapter-turn controls");
+  const numberedSectionCount = count(manuscriptText, /^##\s+\d+\.\d+\s+[—–-]\s+/gm);
+  if (count(review, /<h3 id="ch-\d+-\d+-\d+-[^"]*">\d+\.\d+\s+[—–-]\s+/g) !== numberedSectionCount) {
+    errors.push("review does not preserve every numbered chapter section heading");
+  }
+  const partStarts = [1, 3, 6, 10, 14, 15, 16, 18, 20];
+  if (count(review, /class="part-opener"/g) !== partStarts.length) errors.push("review does not contain 9 major part openers");
+  if (review.includes('class="chapter-part"')) errors.push("review repeats a part label beneath a chapter heading");
+  for (const start of partStarts) {
+    const openerIndex = review.indexOf(`id="part-${start}-title"`);
+    const chapterIndex = review.indexOf(`<h2 id="chapter-${start}"`);
+    if (openerIndex < 0 || chapterIndex < 0 || openerIndex > chapterIndex) errors.push(`Part opener for chapter-${start} is missing or misplaced`);
+  }
+  if (/\bSidebar:/i.test(visibleText(review))) errors.push("review exposes an internal Sidebar label instead of one of the six box types");
+  if (!visibleText(review).includes("Concept in Practice: Why Does This Matter?")) errors.push("review is missing the normalized Concept in Practice box label");
+  const sourceQuickReferences = count(manuscriptText, /📖 \*\*Key Terms — Quick Reference\*\*/g);
+  const sourceAnswerSections = count(manuscriptText, /^\*\*Answers:?\*\*\s*$/gm);
+  if (sourceQuickReferences !== 20) errors.push(`expected 20 source Key Terms references; found ${sourceQuickReferences}`);
+  if (count(review, /class="key-terms-reference"/g) !== sourceQuickReferences) errors.push("review does not render every Key Terms reference as a separate section");
+  if (count(review, /class="key-term-card"/g) !== 154) errors.push("review does not render all 154 key terms as individual cards");
+  if (count(review, /<details class="answer-reveal">/g) !== sourceAnswerSections) errors.push("review does not render every answer section as a closed disclosure");
+  if (/<details class="answer-reveal"\s+open/i.test(review)) errors.push("an answer disclosure is open by default");
+  if (count(review, /<details class="answer-reveal"><summary>Show answers<\/summary>/g) !== sourceAnswerSections) errors.push("answer disclosures are missing the exact Show answers control");
+  if (count(review, /class="concept-diagram"/g) !== 20) errors.push("review does not contain one instructional concept diagram per chapter");
+  if (count(review, /<strong>What this diagram shows:<\/strong>/g) !== 20) errors.push("instructional diagrams do not each explain their teaching job");
+  if (count(review, /class="system-map(?: |")/g) !== 20) errors.push("review does not contain 20 cumulative AI system maps");
+  if (count(review, /class="system-map system-map-complete"/g) !== 1) errors.push("review does not contain exactly one completed final AI ecosystem map");
+  if (!review.includes("How to draw it from memory")) errors.push("final system map is missing its reconstruction guide");
+  if (review.includes("part-1-ai-boundary-v1.png")) errors.push("review still contains the rejected decorative sorting-machine image");
   for (let chapterNumber = 1; chapterNumber <= 20; chapterNumber += 1) {
     const headingIndex = review.indexOf(`<h2 id="chapter-${chapterNumber}"`);
     const navigationMarker = `class="chapter-turn" data-for="chapter-${chapterNumber}"`;
@@ -78,12 +107,17 @@ export function inspectBook(pilotDir = ownDir) {
     if (headingIndex < 0 || navigationIndex < headingIndex || navigationIndex > nextHeadingIndex) {
       errors.push(`chapter-${chapterNumber} navigation is outside its chapter`);
     }
+    const conceptIndex = review.indexOf(`class="concept-diagram" data-chapter="${chapterNumber}"`);
+    if (conceptIndex < headingIndex || conceptIndex > nextHeadingIndex) errors.push(`chapter-${chapterNumber} concept diagram is missing or outside its chapter`);
   }
   if (count(review, /class="toc-part"/g) !== 9) errors.push("review does not contain 9 table-of-contents parts");
   if (count(review, /📼/g) !== 11) errors.push("review does not contain the 11 newly rendered Rewind callouts");
   if (manifest.counts?.rewindReferences !== 13) errors.push("manifest Rewind count is not 13");
   if (manifest.counts?.technicalClarifications !== 1) errors.push("manifest technical clarification count is not 1");
   if (manifest.counts?.humourSprinkles !== 5) errors.push("manifest humour-sprinkle count is not 5");
+  if (manifest.counts?.conceptDiagrams !== 20) errors.push("manifest concept-diagram count is not 20");
+  if (manifest.counts?.cumulativeSystemMaps !== 20) errors.push("manifest cumulative-system-map count is not 20");
+  if (!String(manifest.gates?.visualTeachingLayer || "").startsWith("BUILT_LOCALLY_20_CHAPTER")) errors.push("manifest visual-teaching status is not bounded to built-local review-pending truth");
   if (manifest.gates?.factualAccuracy !== "PASS_ALI_VETTED_EXACT_SOURCE_BYTES_2026-08-16") errors.push("manifest lost Ali's exact-source accuracy authority");
   if (!String(manifest.gates?.freshnessRegistration || "").startsWith("PASS_20_CHAPTER")) errors.push("manifest freshness registration is not passing");
   for (const artifact of manifest.artifacts || []) {

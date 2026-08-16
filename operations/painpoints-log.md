@@ -14524,3 +14524,32 @@ while remaining falsely unfinished in the launch record.
   what counting never could.
 - **Publication status:** PROTECTED PREVIEW REPAIR / ALI REVIEW OPEN / NO
   PRODUCTION INTEGRATION OR PUBLICATION.
+
+## BTB-460 — A generated scene is not a teaching visual
+
+- **Date:** 2026-08-16
+- **Area:** AI Fundamentals 101 textbook visual teaching.
+- **Failure risk:** A colourful image can satisfy an “image exists” requirement
+  while leaving the reader unable to name what it represents, how the parts
+  relate or what concept they should retain. It decorates a textbook without
+  helping anyone learn.
+- **Root cause:** The first visual attempt translated “fixed rules versus learned
+  patterns” into an atmospheric Library sorting-machine scene. The visual had
+  no explicit input, transformation, output or labelled relationship, so the
+  reader had to reverse-engineer the metaphor before learning the concept.
+- **Prevention rule:** Every textbook visual must state its teaching question
+  and render the actual mechanism with labelled inputs, transformations,
+  outputs, relationships and limits. Its caption must name the reader takeaway.
+  If the visual cannot be explained accurately without seeing the surrounding
+  prose, it is decoration and must be removed. Generated atmosphere does not
+  count toward the visual-teaching layer.
+- **Durable correction:** The rejected raster was removed. The reader now
+  contains one labelled concept diagram per chapter, a cumulative system map at
+  each chapter boundary and one complete Chapter 20 map with a reconstruction
+  guide. Calibrated checks reject a missing diagram or final map; exact desktop
+  and 390px browser inspection found no horizontal overflow, hidden answers by
+  default and all key terms separated into individual cards.
+- **Possible Behind the Build angle:** Why the first “educational image” taught
+  nothing—and the four labels that turned pictures into textbook diagrams.
+- **Publication status:** INTERNAL VISUAL-TEACHING REPAIR / ALI REVIEW OPEN / NO
+  PRODUCTION INTEGRATION OR PUBLICATION.
