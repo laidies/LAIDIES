@@ -46,15 +46,21 @@ VISUAL LAYER NOT ADMITTED / NOT INTEGRATED / NOT DEPLOYED / NOT PUBLICLY
 VERIFIED**. The deterministic checker passes and its negative calibration
 rejects a missing chapter control, missing rendered humour line, hidden chapter
 orientation, a return to expandable fake-map cards, a missing connected final
-map, a missing Chapter 1 visual and two callout types sharing one colour.
-Chapter 1 now supplies four distinct representative mechanisms: fixed rules
-versus learning; an AI-claim decision tree; examples-to-numerical-weights; and
-three mixed products. It has no false cumulative “AI boundary” component.
+map, a missing Chapter 1 teaching image and two callout types sharing one
+colour. Chapter 1 now supplies four real section-bound teaching illustrations:
+fixed rules versus learning; feature evidence versus an “AI-powered” badge;
+examples tuning many internal settings rather than producing a rulebook; and
+three familiar products cut open into fixed and learned layers. The earlier
+CSS text-box flows no longer count as images or diagrams. “Weights” now follows
+a plain explanation of tiny number-based settings and routes its full mechanism
+to Chapter 5. It has no false cumulative “AI boundary” component.
 Chapter 20 supplies one connected hardware/software blueprint from supply chain,
 chips and data centres through training, product use, inference, optional tools,
 output and accountable human consequence. The opening objective card now uses
 a contained two-column desktop / one-column mobile layout with measured client
-height equal to scroll height. The representative artifacts were visually
+height equal to scroll height. The body uses the system reading-sans stack at
+19px desktop / 18px mobile; visual explanations and sequence labels are 18px,
+not the earlier 9–13px labels. The representative artifacts were visually
 inspected at 1280 and 390 widths;
 the earlier base system was also checked at 320, all with zero horizontal
 overflow. Each callout type now has its own persistent colour. The remaining

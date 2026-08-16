@@ -14555,9 +14555,18 @@ while remaining falsely unfinished in the launch record.
   sequence, comparison and boundaries without decorative detail; and the final
   ecosystem is one connected blueprint. Calibrated checks now reject hidden
   opening matter, expandable-card regression and a missing connected final map.
-  Chapter 1 now uses four distinct teaching forms rather than one repeated
-  diagram: comparison mechanism, claim decision tree, numerical-pattern flow
-  and mixed-product matrix. Callout types also have unique persistent colours;
+  Chapter 1 now uses four generated but text-free mechanism illustrations with
+  deterministic 18px explanations: fixed-versus-learned email sorting,
+  feature inspection beneath a marketing badge, examples tuning many tiny
+  internal settings and three familiar products split into fixed and learned
+  layers. The first claim-check image was rejected because its robot-and-photo
+  composition did not communicate the decision; the replacement makes the
+  magnified mechanisms the evidence. A first internal-settings replacement was
+  also rejected because hands turning the dials falsely implied that people
+  manually set model weights; the admitted successor shows labelled examples
+  driving small connected adjustments automatically. The technical word “weights” now follows
+  the ordinary-language explanation rather than appearing as an unexplained
+  label. Callout types also have unique persistent colours;
   the calibrated check rejects colour reuse. A later inspection also caught a
   false “AI boundary” map component attached to Chapter 1 and a cramped opening
   objective card. The false component is removed; the system map now starts at

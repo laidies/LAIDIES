@@ -111,15 +111,23 @@ Primary and standards sources used for this repair:
 The Chapter 1 representative set now contains four different teaching jobs:
 
 1. fixed-rule software versus a learned spam decision;
-2. a decision tree that distinguishes evidence of automation, AI and an
-   unproved marketing claim;
-3. labelled examples changing numerical weights rather than producing a
-   readable rulebook; and
+2. a magnified feature inspection that distinguishes a human-set rule, a
+   learned mechanism and an unproved marketing badge;
+3. labelled examples tuning many tiny internal number-based settings rather
+   than producing a readable rulebook; and
 4. Gmail, Spotify and a smart thermostat each containing both an exact human
    decision and a learned component.
 
-The completed Chapter 20 AI-system map is the whole-book representative. These
-five artifacts do not admit the remaining 57 visual opportunities. Those remain
+These Chapter 1 mechanisms are real 1536×1024 text-free teaching images with
+deterministic 18px explanations beneath them. One earlier claim-check candidate
+was rejected because the robot-and-photo composition could not be explained
+accurately without maker intent. The first internal-settings candidate was also
+rejected because visible hands implied that people manually turn a model's
+settings during training. Its successor removes the hands and shows labelled
+examples driving many small, connected adjustments before a new case is judged.
+The completed Chapter 20 AI-system map is the
+whole-book representative. These five artifacts do not admit the remaining 57
+visual opportunities. Those remain
 a registry of teaching questions, not approved artwork and not a quota. Full
 propagation waits for the representative desktop/mobile pixels to pass maker
 inspection and independent visual judgment.

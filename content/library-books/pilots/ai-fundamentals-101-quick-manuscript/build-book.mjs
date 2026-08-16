@@ -25,6 +25,13 @@ const paths = {
   manifest: path.join(pilotDir, "artifact-manifest.json"),
 };
 
+const chapterOneTeachingAssets = [
+  "ch01-fixed-rules-vs-learning.png",
+  "ch01-inspect-the-feature.png",
+  "ch01-training-adjusts-settings.png",
+  "ch01-products-have-layers.png",
+].map(name => path.join(pilotDir, "assets", name));
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -280,7 +287,7 @@ const primaryConceptSections = ["1.1", "2.2", "3.2", "4.3", "5.5", "6.7", "7.2",
 
 const additionalConcepts = [
   { after: "1.2", variant: "ai-claim-decision-tree", title: "Test an ‘AI-powered’ claim without guessing", question: "What evidence would distinguish ordinary rules, learned patterns and marketing?", steps: [], takeaway: "Not knowing how a feature works does not prove it is AI. The useful test is whether evidence shows that part learned patterns from examples." },
-  { after: "1.3", variant: "learned-patterns-not-rulebook", title: "What ‘figuring out the rules’ actually produces", question: "If the model does not write a readable rulebook, what is learned?", steps: [], takeaway: "Training changes many numerical weights. Together they make useful patterns available for a new example, but they are not a list of human-readable instructions." },
+  { after: "1.3", variant: "learned-patterns-not-rulebook", title: "What ‘figuring out the rules’ actually changes", question: "If nobody writes a rulebook, what changes inside the system?", steps: [], takeaway: "Training makes tiny changes across many internal number-based settings. Together, those changes help the system handle a new example; they do not form a readable rulebook." },
   { after: "1.4", variant: "mixed-products", title: "One product can contain both rules and AI", question: "Which part follows an exact human decision, and which part learned from examples?", steps: [], takeaway: "The product name does not settle the question. Inspect the particular feature: many familiar products combine fixed rules and learned components." },
   { after: "2.4", title: "A chatbot answers; an agent continues", question: "What changes when the system can choose and carry out another step?", kind: "compare", lanes: [
     { label: "Chatbot", steps: ["Receive a message", "Generate a reply", "Stop"] },
@@ -348,43 +355,21 @@ const conceptDiagrams = chapterConcepts.map((concept, index) => ({ ...concept, a
 function renderConceptDiagram(concept) {
   if (!concept?.after) throw new Error("concept diagram is missing its exact section anchor");
   const steps = items => items.map((step, index) => `<li data-step="${index + 1}"><span>STEP ${index + 1}</span><strong>${escapeHtml(step)}</strong></li>`).join("");
-  const chapterOneMechanism = concept.after === "1.1" ? `<div class="decision-blueprint" role="group" aria-label="Comparison of how fixed-rule software and an AI system learn to sort the same new email">
-    <div class="blueprint-phase"><span>BEFORE A NEW EMAIL ARRIVES</span><span>WHEN A NEW EMAIL ARRIVES</span></div>
-    <section class="blueprint-lane blueprint-lane-rules">
-      <h4>Fixed-rule software</h4>
-      <div class="blueprint-track"><div class="blueprint-node"><small>HUMAN JOB</small><strong>Write exact rules</strong><p>For example: if it contains “FREE”, mark it as junk.</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-node"><small>WHAT IS SAVED</small><strong>A rule list</strong><p>The software can only check what someone wrote down.</p></div><span class="blueprint-bridge" aria-hidden="true">│</span><div class="blueprint-node blueprint-node-live"><small>NEW EMAIL</small><strong>Check every rule</strong><p>Does this message match the list?</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-result"><strong>Junk or keep</strong><span>Exact match</span></div></div>
-    </section>
-    <section class="blueprint-lane blueprint-lane-learned">
-      <h4>AI system</h4>
-      <div class="blueprint-track"><div class="blueprint-node"><small>HUMAN JOB</small><strong>Label many examples</strong><p>People mark messages “junk” or “keep”.</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-node"><small>TRAINING JOB</small><strong>Adjust pattern weights</strong><p>The system learns which combinations tend to signal junk.</p></div><span class="blueprint-bridge" aria-hidden="true">│</span><div class="blueprint-node blueprint-node-live"><small>NEW EMAIL</small><strong>Score the learned patterns</strong><p>How closely does this message resemble past junk?</p></div><span class="blueprint-arrow" aria-hidden="true">→</span><div class="blueprint-result"><strong>Junk or keep</strong><span>Best-fit score</span></div></div>
-    </section>
-    <p class="blueprint-click"><strong>Same new email. Same final choice. Different human job:</strong> one person writes the rule; many people supply the examples from which the AI learns.</p>
+  const chapterOneMechanism = concept.after === "1.1" ? `<div class="teaching-visual" role="group" aria-label="Fixed rules compared with learning from examples">
+    <img src="assets/ch01-fixed-rules-vs-learning.png" alt="Split diagram. On the left, a person sets one rigid route for an email. On the right, many example emails adjust a field of dials before a new email is judged." loading="lazy">
+    <div class="visual-key visual-key-two"><p><strong>Fixed rule:</strong> A person writes the exact condition. The software follows that same route every time.</p><p><strong>Learned pattern:</strong> People label many examples. Training tunes many internal settings so the system can judge a new case it has not seen before.</p></div>
   </div>` : "";
-  const claimDecisionTree = concept.variant === "ai-claim-decision-tree" ? `<div class="claim-tree" role="group" aria-label="Decision tree for checking whether a product feature uses fixed rules or learned patterns">
-    <div class="claim-tree-start"><small>START WITH ONE FEATURE</small><strong>What caused this particular behaviour?</strong><span>Do not judge the entire product from an “AI-powered” badge.</span></div>
-    <span class="claim-tree-arrow" aria-hidden="true">↓</span>
-    <div class="claim-tree-question"><strong>Can the behaviour be traced to an exact rule a person set or programmed?</strong></div>
-    <div class="claim-tree-branches">
-      <section><span>YES</span><strong>Ordinary automation</strong><p>The software follows the written rule. Example: “Anything from this address goes to Promotions.”</p></section>
-      <section><span>NO OR UNKNOWN</span><strong>Look for learning evidence</strong><p>Was this part trained on examples so it could recognise or predict a new case?</p><div class="claim-tree-outcomes"><em><b>YES</b> → This part uses AI.</em><em><b>CAN’T VERIFY</b> → The marketing claim remains unproven.</em></div></section>
-    </div>
-    <p class="blueprint-click"><strong>The safeguard:</strong> “I do not know how it decided” is a reason to investigate—not proof that it is AI.</p>
+  const claimDecisionTree = concept.variant === "ai-claim-decision-tree" ? `<div class="teaching-visual" role="group" aria-label="Inspecting one product feature to distinguish a fixed rule from a learned pattern">
+    <img src="assets/ch01-inspect-the-feature.png" alt="A magnifying glass reveals two possible mechanisms inside an email feature: one human-set switch controlling one fixed track, and many examples tuning connected dials before a new email is routed. A robot sticker sits outside the evidence." loading="lazy">
+    <ol class="visual-sequence"><li><strong>Ignore the badge.</strong> “AI-powered” tells you what the company claims.</li><li><strong>Choose one feature.</strong> Ask what causes that particular behaviour.</li><li><strong>Look for the mechanism.</strong> An exact human-set rule is automation; learning from examples is evidence of AI; no evidence means the claim remains unproven.</li></ol>
   </div>` : "";
-  const learnedPatterns = concept.variant === "learned-patterns-not-rulebook" ? `<div class="pattern-blueprint" role="group" aria-label="How labelled examples change numerical weights and support a decision about a new example">
-    <section class="pattern-examples"><small>HUMANS SUPPLY EXAMPLES</small><div><span><b>Email</b> junk / keep</span><span><b>Photo</b> same / different person</span><span><b>Song</b> played / skipped</span></div></section>
-    <span class="pattern-arrow" aria-hidden="true">→</span>
-    <section class="pattern-weights"><small>TRAINING ADJUSTS</small><strong>Millions of numerical weights</strong><div class="weight-grid" aria-hidden="true"><i>+0.18</i><i>−0.42</i><i>+1.07</i><i>+0.03</i><i>−0.66</i><i>+0.51</i></div><p>Not a sentence. Not a readable rulebook.</p></section>
-    <span class="pattern-arrow" aria-hidden="true">→</span>
-    <section class="pattern-new"><small>A NEW EXAMPLE ARRIVES</small><strong>Compare it with learned patterns</strong><p>The combined weights produce a similarity or probability—not an exact hand-written match.</p></section>
-    <span class="pattern-arrow" aria-hidden="true">→</span>
-    <section class="pattern-result"><small>RESULT</small><strong>Group, recommend or flag</strong><p>The useful behaviour appears without a person writing a rule for this exact case.</p></section>
+  const learnedPatterns = concept.variant === "learned-patterns-not-rulebook" ? `<div class="teaching-visual" role="group" aria-label="Training adjusts many tiny internal settings together rather than writing a readable rulebook">
+    <img src="assets/ch01-training-adjusts-settings.png" alt="Labelled email examples feed into a large field of many connected dials. Repeated comparison adjusts the dials together. A new email is then judged using the learned pattern, while a crossed-out book shows there is no readable rulebook." loading="lazy">
+    <p class="visual-explanation"><strong>What are those settings?</strong> Inside a model are enormous numbers of tiny number-based settings. Each makes one signal matter a little more or a little less. Training nudges many of them together until the system becomes better at handling new examples. Chapter 5 gives these settings their technical name—<em>weights</em>—and shows how the adjustment works.</p>
   </div>` : "";
-  const mixedProducts = concept.variant === "mixed-products" ? `<div class="mixed-products" role="group" aria-label="Three familiar products showing fixed-rule and learned components side by side">
-    <div class="mixed-products-head"><span>FAMILIAR PRODUCT</span><span>EXACT HUMAN DECISION</span><span>LEARNED COMPONENT</span></div>
-    <section><h4>Gmail</h4><div><small>FIXED RULE</small><strong>Move mail from one address to Promotions</strong></div><div><small>AI</small><strong>Recognise unfamiliar spam and phishing patterns</strong></div></section>
-    <section><h4>Spotify</h4><div><small>CURATION</small><strong>An editor chooses every song in “90s Jams”</strong></div><div><small>AI</small><strong>Discover Weekly predicts songs you may like</strong></div></section>
-    <section><h4>Smart thermostat</h4><div><small>FIXED SETTING</small><strong>Keep the room at the temperature you chose</strong></div><div><small>AI</small><strong>Learn recurring adjustments from your routine</strong></div></section>
-    <p class="blueprint-click"><strong>Look inside the product:</strong> “uses AI” and “is AI” are not the same claim.</p>
+  const mixedProducts = concept.variant === "mixed-products" ? `<div class="teaching-visual" role="group" aria-label="Email, music and thermostat products each containing a fixed-control layer and a learned-pattern layer">
+    <img src="assets/ch01-products-have-layers.png" alt="Cutaway diagram of an email inbox, music player and thermostat. Each product contains an upper layer with a direct human-set control and a lower layer where examples influence a learned pattern network." loading="lazy">
+    <div class="visual-key visual-key-three"><p><strong>Email:</strong> your sorting rule is fixed; unfamiliar-spam recognition can be learned.</p><p><strong>Music:</strong> choosing a playlist is fixed; predicting what you may enjoy can be learned.</p><p><strong>Thermostat:</strong> your temperature setting is fixed; predicting recurring adjustments can be learned.</p></div>
   </div>` : "";
   const body = chapterOneMechanism || claimDecisionTree || learnedPatterns || mixedProducts || (concept.kind === "compare"
     ? `<div class="concept-lanes">${concept.lanes.map(lane => `<section><h4>${escapeHtml(lane.label)}</h4><ol class="concept-flow">${steps(lane.steps)}</ol></section>`).join("")}</div>`
@@ -699,6 +684,40 @@ body{font-family:Jost,Arial,sans-serif;background:linear-gradient(135deg,#b8e9ff
 .map-frontier{padding:.55rem .75rem;background:var(--navy);color:#fff}.map-frontier strong,.map-frontier span{display:block}.map-frontier span{margin-top:.15rem;color:#dbe7ff;font-size:.64rem}
 .system-map-complete .map-draw-guide{margin-top:1rem;padding:1rem;background:#eafff6;border-left:9px solid #18b989}.system-map-complete .map-draw-guide ol{columns:2;margin:.4rem 0 0;padding-left:1.25rem;font-size:.78rem}.system-map-complete figcaption{font-size:.85rem}
 @media(max-width:850px){.gr-page{border-left:0;border-top:8px solid var(--electric-purple);padding:1.1rem}.gr-page>h2{margin-left:-1.1rem;margin-right:-1.1rem;padding:1rem 1.1rem;box-shadow:none}.gr-page>h2::after{display:none}.gr-page>h3{margin-left:-.25rem;padding:.65rem .75rem}.chapter-ahead-body{padding:.75rem}.chapter-ahead .callout-objective ul{grid-template-columns:1fr}.chapter-ahead tbody{grid-template-columns:repeat(2,minmax(0,1fr))}.concept-diagram,.system-map{padding:.75rem;box-shadow:5px 5px 0 rgba(48,31,139,.18)}.concept-diagram[data-variant="decision-blueprint"],.system-map-complete{width:100%;margin-left:0}.concept-heading,.system-map-heading{margin:-.75rem -.75rem .75rem}.concept-lanes{grid-template-columns:1fr}.concept-flow{display:grid;gap:1.25rem}.concept-flow li:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-1.2rem;transform:translateX(-50%)}.concept-branches{grid-template-columns:1fr}.branch-connector::before,.branch-connector::after{width:3px;height:18px;margin:.2rem auto}.decision-blueprint{grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}.blueprint-phase{display:none}.blueprint-lane{min-width:0;padding:.4rem}.blueprint-lane h4{font-size:.75rem}.blueprint-track{grid-template-columns:1fr}.blueprint-arrow{transform:rotate(90deg);font-size:.9rem}.blueprint-bridge{height:18px;overflow:hidden}.blueprint-node,.blueprint-result{padding:.4rem}.blueprint-node strong,.blueprint-result strong{font-size:.66rem}.blueprint-node p{font-size:.59rem}.blueprint-click{grid-column:1/-1}.claim-tree-branches{grid-template-columns:1fr}.pattern-blueprint{grid-template-columns:1fr}.pattern-arrow{transform:rotate(90deg);line-height:.8}.mixed-products-head{display:none}.mixed-products section{grid-template-columns:1fr}.mixed-products section>div{padding:.65rem}.hardware-to-work{grid-template-columns:1fr;gap:.25rem}.map-track-flow{display:grid;grid-template-columns:1fr;gap:.25rem}.map-track{padding:.65rem;border-left-width:6px}.map-track h4,.map-crosscuts h4{font-size:.72rem}.map-node{padding:.58rem .65rem}.map-node small{font-size:.67rem}.map-node strong{font-size:.86rem}.map-node span{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;font-size:.72rem;line-height:1.3}.map-arrow{transform:rotate(90deg);justify-self:center;font-size:1rem;line-height:.8}.map-crosscuts>div{grid-template-columns:1fr;gap:.45rem}.map-governance span,.map-frontier span{font-size:.72rem;line-height:1.35}.system-map-complete .map-draw-guide ol{columns:1}}
+/* Readability and real-teaching-visual repair. */
+:root{--reading-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{font-family:var(--reading-font);font-size:19px;line-height:1.64}
+.gr-page>p,.gr-page>ul,.gr-page>ol{font-family:var(--reading-font)}
+.gr-page>p{max-width:65ch;line-height:1.68}
+.chapter-ahead{background:#fff;box-shadow:6px 6px 0 #aeeaf4}
+.chapter-ahead-body{padding:1.15rem;background:#fff}
+.chapter-ahead .callout-objective{margin:0 0 1.25rem;padding:1.2rem 1.35rem;background:#e5f8ff;box-shadow:none}
+.chapter-ahead .callout-objective p{font-size:21px;line-height:1.35}
+.chapter-ahead .callout-objective ul{gap:.75rem 1.6rem}
+.chapter-ahead .callout-objective li{font-size:18px;line-height:1.5}
+.chapter-ahead h3{font-size:22px;line-height:1.25}
+.chapter-ahead tbody{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.chapter-ahead tr{padding:.9rem}
+.chapter-ahead td{font-size:17px;line-height:1.45}
+.chapter-ahead td:first-child{font-size:18px}
+.chapter-ahead-body>p:last-child{font-size:17px;line-height:1.5}
+.concept-diagram[data-variant="decision-blueprint"]{width:100%;margin-left:0}
+.concept-heading h3,.system-map-heading h3{font-size:28px;line-height:1.2}
+.concept-heading>span,.system-map-heading>span{font-size:18px;line-height:1.45}
+.concept-diagram figcaption,.system-map figcaption{font-size:18px;line-height:1.55}
+.teaching-visual{display:grid;gap:1rem}
+.teaching-visual img{display:block;width:100%;height:auto;border:3px solid var(--navy);background:#fff;box-shadow:6px 6px 0 #bfd2f3}
+.visual-key{display:grid;gap:.75rem}
+.visual-key-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.visual-key-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.visual-key p,.visual-explanation,.visual-sequence li{margin:0;padding:.85rem 1rem;background:#fff;border-left:8px solid var(--electric-cyan);font-size:18px;line-height:1.5}
+.visual-key p:nth-child(even){border-left-color:var(--electric-pink);background:#fff3f9}
+.visual-key-three p:nth-child(3){border-left-color:var(--electric-purple);background:#f4efff}
+.visual-explanation{background:#f4efff;border-left-color:var(--electric-purple)}
+.visual-sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:0;padding:0;list-style:none;counter-reset:visual-step}
+.visual-sequence li{counter-increment:visual-step;border:2px solid #aab8d6;border-top:8px solid var(--electric-purple)}
+.visual-sequence li::before{content:counter(visual-step);display:grid;place-items:center;width:2rem;height:2rem;margin-bottom:.55rem;border-radius:50%;background:var(--navy);color:#fff;font-weight:900}
+@media(max-width:850px){body{font-size:18px}.chapter-ahead-body{padding:.8rem}.chapter-ahead .callout-objective{padding:1rem}.chapter-ahead .callout-objective p{font-size:20px}.chapter-ahead .callout-objective li{font-size:18px}.chapter-ahead tbody{grid-template-columns:1fr}.concept-heading h3,.system-map-heading h3{font-size:23px}.concept-heading>span,.system-map-heading>span{font-size:18px}.visual-key-two,.visual-key-three,.visual-sequence{grid-template-columns:1fr}.visual-key p,.visual-explanation,.visual-sequence li{font-size:18px}.teaching-visual img{box-shadow:4px 4px 0 #bfd2f3}}
 </style></head><body>
 <div class="build-banner">INTERNAL TEXTBOOK BUILD · REPRESENTATIVE VISUAL REPAIR · 57 VISUAL TEACHING JOBS NOT YET ADMITTED · NOT PUBLISHED</div>
 <div class="reader-shell"><aside class="reader-toc" id="reader-toc"><p class="book-label">AI Fundamentals 101</p><p class="meta">20 chapters · ${wordCount.toLocaleString("en-CA")} words · internal source build</p><button class="mobile-toc" type="button" aria-expanded="false" aria-controls="toc-list">Open contents</button><ol id="toc-list"><li><a href="#how-this-book-works">Start here</a></li>${nav}</ol></aside>
@@ -756,7 +775,10 @@ fs.writeFileSync(paths.inventory, `${JSON.stringify(inventory, null, 2)}\n`);
 const review = buildReviewPage(source, fragment, finalManuscript);
 fs.writeFileSync(paths.review, review);
 
-const artifactPaths = [paths.front, paths.manuscript, paths.playbook, paths.rewind, paths.source, paths.fragment, paths.inventory, paths.review];
+for (const assetPath of chapterOneTeachingAssets) {
+  if (!fs.existsSync(assetPath)) throw new Error(`missing Chapter 1 teaching asset: ${assetPath}`);
+}
+const artifactPaths = [paths.front, paths.manuscript, paths.playbook, paths.rewind, paths.source, paths.fragment, paths.inventory, paths.review, ...chapterOneTeachingAssets];
 const manifest = {
   schemaVersion: "laidies-library-source-import-manifest.v1",
   candidateId: "LIB-AI-FUNDAMENTALS-101-QUICK-MANUSCRIPT-20260816",
@@ -773,6 +795,7 @@ const manifest = {
     manuscriptWords: stripText(manuscript).split(/\s+/).filter(Boolean).length,
     sections: 1 + chapters.length,
     conceptDiagrams: conceptDiagrams.length,
+    teachingImages: chapterOneTeachingAssets.length,
     cumulativeSystemMaps: 18,
     rewindReferences: rewindAmendments.references.length,
     technicalClarifications: rewindAmendments.clarifications?.length || 0,
